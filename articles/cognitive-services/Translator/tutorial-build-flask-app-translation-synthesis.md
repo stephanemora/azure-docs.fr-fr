@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 04/02/2019
 ms.author: erhopf
 ms.openlocfilehash: 69e6797e91fc645e3bd3e3b300cea6852a662214
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59007401"
 ---
 # <a name="tutorial-build-a-flask-app-with-azure-cognitive-services"></a>Didacticiel : Créer une application Flask avec Azure Cognitive Services
@@ -42,13 +42,13 @@ Flask est un microframework pour la création d’applications web. Cela signifi
 Pour ceux d’entre vous qui souhaitent plus d’informations après ce tutoriel, voici quelques liens utiles :
 
 * [Documentation de Flask](http://flask.pocoo.org/)
-* [Flask for Dummies - A Beginner’s Guide to Flask](https://codeburst.io/flask-for-dummies-a-beginners-guide-to-flask-part-uno-53aec6afc5b1)
+* [Flask for Dummies - A Beginner’s Guide to Flask](https://codeburst.io/flask-for-dummies-a-beginners-guide-to-flask-part-uno-53aec6afc5b1)
 
 ## <a name="prerequisites"></a>Prérequis
 
 Passons en revue les logiciels et les clés d’abonnement dont vous avez besoin pour ce tutoriel.
 
-* [Python 3.5.2 ou ultérieur](https://www.python.org/downloads/)
+* [Python version 3.5.2 ou ultérieure](https://www.python.org/downloads/)
 * [Outils Git](https://git-scm.com/downloads)
 * Un IDE ou un éditeur de texte, comme [Visual Studio Code](https://code.visualstudio.com/) ou [Atom](https://atom.io/)  
 * [Chrome](https://www.google.com/chrome/browser/) ou [Firefox](https://www.mozilla.org/firefox)
@@ -95,7 +95,7 @@ Créons un environnement virtuel pour notre application Flask avec `virtualenv`.
    ```
    Nous avons déclaré explicitement que l’environnement virtuel devait utiliser Python 3. Ceci garantit que les utilisateurs ayant plusieurs installations de Python utilisent la version correcte.
 
-   **Windows CMD / Windows Bash :**
+   **Windows CMD / Windows Bash :**
    ```
    virtualenv venv
    ```
@@ -667,7 +667,7 @@ Dans cette section, vous allez effectuer quelques opérations :
 
 ### <a name="call-the-text-to-speech-api"></a>Appeler l’API Synthèse vocale
 
-Écrivons une fonction pour convertir du texte en voix. Cette fonction prend deux arguments : `input_text` et `voice_font`. Cette fonction est appelée chaque fois qu’un utilisateur appuie sur le bouton Convert text-to-speech (Convertir du texte en voix) dans votre application. `input_text` est le résultat de la traduction retournée par l’appel pour traduire du texte, `voice_font` est la valeur du sélecteur de police de la voix dans le HTML.
+Écrivons une fonction pour convertir du texte en voix. Cette fonction prend deux arguments : `input_text` et `voice_font`. Cette fonction est appelée chaque fois qu’un utilisateur appuie sur le bouton Convert text-to-speech (Convertir du texte en voix) dans votre application. `input_text` est le résultat de la traduction retournée par l’appel pour traduire du texte ; `voice_font` est la valeur du sélecteur de police de la voix dans le code HTML.
 
 1. Créons un fichier appelé `synthesize.py` à la racine de votre répertoire de travail.
 
@@ -959,6 +959,6 @@ Le code source de ce projet est disponible sur [GitHub](https://github.com/Micro
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Informations de référence sur l’API Traduction de texte](https://docs.microsoft.com/azure/cognitive-services/Translator/reference/v3-0-reference)
+* [Référence d’API Translator Text](https://docs.microsoft.com/azure/cognitive-services/Translator/reference/v3-0-reference)
 * [Informations de référence sur l’API Analyse de texte](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7)
-* [Référence de l’API Conversion de texte par synthèse vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-text-to-speech)
+* [Référence sur l’API conversion de texte par synthèse vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-text-to-speech)

@@ -1,15 +1,9 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 7b7305a84ac8600629ce27551c0243c427082e5e
-ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
-ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58473370"
 documentType: LandingData
 title: Documentation sur API Détecteur d’anomalies
 metadata:
-  title: 'API Détecteur d’anomalies : tutoriels, guides de démarrage rapide, informations de référence sur l’API - Azure Cognitive Services | Microsoft Docs'
-  description: Utilisez l’API Détecteur d’anomalies pour superviser les données dans le temps et détecter les anomalies concernant le Machine Learning. Obtenez des insights sur vos données, quels que soient leur volume, le secteur ou le scénario.
+  title: "API Détecteur d’anomalies\_: tutoriels, guides de démarrage rapide, informations de référence sur l’API - Azure Cognitive Services | Microsoft Docs"
+  description: 'Utilisez l’API Détecteur d’anomalies pour superviser les données dans le temps et détecter les anomalies concernant le Machine Learning. Obtenez des insights sur vos données, quels que soient leur volume, le secteur ou le scénario.'
   services: cognitive-services
   author: aahill
   manager: cgronlun
@@ -21,45 +15,45 @@ metadata:
   ms.date: 03/26/2019
   ms.author: aahi
 abstract:
-  description: L’API Détecteur d’anomalies vous permet d’incorporer facilement des fonctionnalités de détection des anomalies dans vos applications, pour que vos utilisateurs puissent identifier rapidement les problèmes et ainsi, réduire les risques de perte et l’impact sur les clients. Aucune connaissance en Machine Learning n’est nécessaire. À l’aide d’un seul appel d’API, vous pouvez activer ce modèle d’intelligence artificielle pré-entraîné qui ingère des données de séries chronologiques de tous types et tous volumes, qui sélectionne le modèle de détection des anomalies le mieux adapté à vos données pour garantir une haute précision, et qui signale automatiquement les incidents dès qu’ils se produisent. Vous pouvez personnaliser le service pour détecter les anomalies de toutes tailles.  Utilisez le détecteur d’anomalies pour identifier les incidents métier, superviser le trafic des appareils IoT, gérer les fraudes, répondre aux évolutions du marché, et bien plus encore.
+  description: "L’API Détecteur d’anomalies vous permet d’incorporer facilement des fonctionnalités de détection des anomalies dans vos applications, pour que vos utilisateurs puissent identifier rapidement les problèmes et ainsi, réduire les risques de perte et l’impact sur les clients. Aucune connaissance en Machine Learning n’est nécessaire. À l’aide d’un seul appel d’API, vous pouvez activer ce modèle d’intelligence artificielle pré-entraîné qui ingère des données de séries chronologiques de tous types et tous volumes, qui sélectionne le modèle de détection des anomalies le mieux adapté à vos données pour garantir une haute précision, et qui signale automatiquement les incidents dès qu’ils se produisent. Vous pouvez personnaliser le service pour détecter les anomalies de toutes tailles.  Utilisez le détecteur d’anomalies pour identifier les incidents métier, superviser le trafic des appareils\_IoT, gérer les fraudes, répondre aux évolutions du marché, et bien plus encore."
 sections:
-- items:
-  - type: list
-    style: cards
-    className: cardsM
-    columns: 3
+  - items:
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 3
+        items:
+          - href: /azure/cognitive-services/anomaly-detector/overview
+            html: <p>En savoir plus sur l’API Détecteur d’anomalies</p>
+            image:
+              src: ../media/index/i_overview.svg
+            title: Présentation de l’API Détecteur d’anomalies
+          - href: /azure/cognitive-services/anomaly-detector/concepts/anomaly-detection-best-practices
+            html: <p>Optimiser les résultats de la détection d’anomalies à l’aide des bonnes pratiques concernant l’API</p>
+            image:
+              src: ../media/index/i_guidelines.svg
+            title: Bonnes pratiques concernant l’utilisation de l’API Détecteur d’anomalies
+          - href: /azure/cognitive-services/anomaly-detector/how-to/identify-anomalies
+            html: '<p>Ajustez la sensibilité de la détection d’anomalies, utilisez différents modes de détection, et bien plus encore.</p>'
+            image:
+              src: ../media/index/i_guidelines.svg
+            title: Utilisation de l’API Détecteur d’anomalies
+  - title: "Démarrages en 5\_minutes"
     items:
-    - href: /azure/cognitive-services/anomaly-detector/overview
-      html: <p>En savoir plus sur l’API Détecteur d’anomalies</p>
-      image:
-        src: ../media/index/i_overview.svg
-      title: Présentation de l’API Détecteur d’anomalies
-    - href: /azure/cognitive-services/anomaly-detector/concepts/anomaly-detection-best-practices
-      html: <p>Optimiser les résultats de la détection d’anomalies à l’aide des bonnes pratiques concernant l’API</p>
-      image:
-        src: ../media/index/i_guidelines.svg
-      title: Bonnes pratiques concernant l’utilisation de l’API Détecteur d’anomalies
-    - href: /azure/cognitive-services/anomaly-detector/how-to/identify-anomalies
-      html: <p>Ajustez la sensibilité de la détection d’anomalies, utilisez différents modes de détection, et bien plus encore.</p>
-      image:
-        src: ../media/index/i_guidelines.svg
-      title: Utilisation de l’API Détecteur d’anomalies
-- title: Démarrages en 5 minutes
-  items:
-  - type: paragraph
-    text: 'Pour détecter des anomalies dans vos données de séries chronologiques, vous pouvez utiliser :'
-  - type: list
-    style: icon48
-    items:
-    - image:
-        src: media/logo_Csharp.svg
-      href: quickstarts/detect-data-anomalies-csharp
-      text: C#
-    - image:
-        src: media/logo_Java.svg
-      href: quickstarts/detect-data-anomalies-java
-      text: Java
-    - image:
-        src: media/logo_python.svg
-      href: quickstarts/detect-data-anomalies-python
-      text: Python
+      - type: paragraph
+        text: "Pour détecter des anomalies dans vos données de séries chronologiques, vous pouvez utiliser\_:"
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: media/logo_Csharp.svg
+            href: quickstarts/detect-data-anomalies-csharp
+            text: 'C#'
+          - image:
+              src: media/logo_Java.svg
+            href: quickstarts/detect-data-anomalies-java
+            text: Java
+          - image:
+              src: media/logo_python.svg
+            href: quickstarts/detect-data-anomalies-python
+            text: Python

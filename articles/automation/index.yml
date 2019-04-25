@@ -1,16 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 7e075434b8c785665d28a2981233fc17e2a1ceac
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
-ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52726336"
 documentType: LandingData
-title: Documentation de l’utilisateur Azure Automation
+title: "Documentation de l’utilisateur Azure\_Automation"
 metadata:
-  document_id: 
-  title: Documentation Azure Automation - Didacticiels, informations de référence sur les API
-  description: Apprendre à utiliser Azure Automation
+  document_id: null
+  title: 'Documentation Azure Automation - Didacticiels, informations de référence sur les API'
+  description: "Apprendre à utiliser Azure\_Automation"
   services: automation
   author: georgewallace
   manager: carmonm
@@ -20,48 +14,48 @@ metadata:
   ms.date: 12/13/2017
   ms.author: gwallace
 abstract:
-  description: Découvrez comment utiliser Automation pour configurer et automatiser des tâches opérationnelles dans un environnement hybride. Les didacticiels, les informations de référence sur les API ainsi que d’autres documents vous montrent comment automatiser les processus, effectuer la gestion des mises à jour, la configuration de l’état souhaité (DSC), le suivi des modifications et la collecte des données d’inventaire.
+  description: 'Découvrez comment utiliser Automation pour configurer et automatiser des tâches opérationnelles dans un environnement hybride. Les didacticiels, les informations de référence sur les API ainsi que d’autres documents vous montrent comment automatiser les processus, effectuer la gestion des mises à jour, la configuration de l’état souhaité (DSC), le suivi des modifications et la collecte des données d’inventaire.'
 sections:
-- title: Démarrages en 5 minutes
-  items:
-  - type: paragraph
-    text: 'Découvrez comment automatiser et configurer vos environnements Azure et hybrides à l’aide d’Automation :'
-  - type: list
-    style: icon48
+  - title: "Démarrages en 5\_minutes"
     items:
-    - image:
-        src: /azure/automation/media/index/automation.svg
-      text: Créer un compte Automation
-      href: /azure/automation/automation-quickstart-create-account
-    - image:
-        src: /azure/automation/media/index/runbook.svg
-      text: Créer un runbook
-      href: /azure/automation/automation-quickstart-create-runbook
-    - image:
-        src: /azure/automation/media/index/dscconfig.svg
-      text: Création d’une configuration DSC
-      href: /azure/automation/automation-quickstart-dsc-configuration
-- title: Didacticiels pas à pas
-  items:
-  - type: paragraph
-    text: Découvrez comment intégrer, déployer et gérer vos environnements Azure et hybrides.
-  - type: list
-    style: ordered
+      - type: paragraph
+        text: "Découvrez comment automatiser et configurer vos environnements Azure et hybrides à l’aide d’Automation\_:"
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: /azure/automation/media/index/automation.svg
+            text: Créer un compte Automation
+            href: /azure/automation/automation-quickstart-create-account
+          - image:
+              src: /azure/automation/media/index/runbook.svg
+            text: Créer un runbook
+            href: /azure/automation/automation-quickstart-create-runbook
+          - image:
+              src: /azure/automation/media/index/dscconfig.svg
+            text: Création d’une configuration DSC
+            href: /azure/automation/automation-quickstart-dsc-configuration
+  - title: Didacticiels pas à pas
     items:
-    - html: <a href="/azure/automation/automation-watchers-tutorial">Configurer les tâches d’observateur</a>
-    - html: <a href="/azure/automation/automation-tutorial-update-management">Gérer les mises à jour sur votre machine virtuelle</a>
-    - html: <a href="/azure/automation/automation-onboard-solutions">Intégrer à l’échelle</a>
-    - html: <a href="/azure/automation/automation-tutorial-installed-software">Identifier les logiciels installés sur une machine virtuelle</a>
-    - html: <a href="/azure/automation/automation-tutorial-troubleshoot-changes">Résoudre les modifications sur une machine virtuelle</a>
-- title: Informations de référence
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: paragraph
+        text: 'Découvrez comment intégrer, déployer et gérer vos environnements Azure et hybrides.'
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/azure/automation/automation-watchers-tutorial">Configurer les tâches d’observateur</a>
+          - html: <a href="/azure/automation/automation-tutorial-update-management">Gérer les mises à jour sur votre machine virtuelle</a>
+          - html: <a href="/azure/automation/automation-onboard-solutions">Intégrer à l’échelle</a>
+          - html: <a href="/azure/automation/automation-tutorial-installed-software">Identifier les logiciels installés sur une machine virtuelle</a>
+          - html: <a href="/azure/automation/automation-tutorial-troubleshoot-changes">Résoudre les modifications sur une machine virtuelle</a>
+  - title: Informations de référence
     items:
-    - title: Ligne de commande
-      html: <p><a href="/powershell/module/azurerm.automation">PowerShell</a></p>
-    - title: Langues
-      html: <p><a href="/dotnet/api/microsoft.azure.management.automation">.NET</a></p>
-    - title: REST
-      html: <p><a href="/rest/api/automation">API REST Automation</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Ligne de commande
+            html: <p><a href="/powershell/module/azurerm.automation">PowerShell</a></p>
+          - title: Languages
+            html: <p><a href="/dotnet/api/microsoft.azure.management.automation">.NET</a></p>
+          - title: REST
+            html: <p><a href="/rest/api/automation">API REST Automation</a></p>

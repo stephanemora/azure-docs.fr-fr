@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: 42437130d30a405af47289ae16d9851fb506a598
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: dc3d4f0b2658c82a50f58d976a47607dead1abce
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756267"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149527"
 ---
 # <a name="tutorial-run-applications-in-azure-kubernetes-service-aks"></a>Didacticiel : Exécuter des applications dans Azure Kubernetes Service (AKS)
 
@@ -52,7 +52,7 @@ L’exemple de fichier manifeste provenant du référentiel git cloné dans le p
 vi azure-vote-all-in-one-redis.yaml
 ```
 
-Remplacez *microsoft* par le nom de votre serveur de connexion ACR. Le nom de l’image figure sur la ligne 47 du fichier manifeste. L’exemple ci-après indique le nom de l’image par défaut :
+Remplacez *microsoft* par le nom de votre serveur de connexion ACR. Le nom de l’image figure à la ligne 51 du fichier manifeste. L’exemple ci-après indique le nom de l’image par défaut :
 
 ```yaml
 containers:

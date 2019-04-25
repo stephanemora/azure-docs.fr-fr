@@ -7,18 +7,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 02/13/2019
+ms.date: 02/26/2019
 ms.author: aahi
-ms.openlocfilehash: 8197d091763709282c42379a7ca0ea802e5c6fdf
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 4ccb8665c9880e21897c81ed4b4ff534e52bb6d1
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56886771"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60002270"
 ---
 # <a name="example-how-to-detect-language-with-text-analytics"></a>Exemple : Comment détecter la langue avec l’Analyse de texte
 
-L’[API Détection de langue](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) évalue le texte en entrée pour chaque document de texte et retourne les identificateurs de langue avec un score qui indique la puissance de l’analyse. Analyse de texte reconnaît jusqu'à 120 langues.
+L’[API Détection de langue](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7) évalue le texte en entrée pour chaque document de texte et retourne les identificateurs de langue avec un score qui indique la puissance de l’analyse. Analyse de texte reconnaît jusqu'à 120 langues.
 
 Cette capacité est utile pour les magasins de contenu qui collectent du texte arbitraire dont la langue est inconnue. Vous pouvez analyser les résultats de cette analyse pour déterminer la langue utilisée dans le document d’entrée. La réponse retourne également un score qui reflète la confiance du modèle (valeur comprise entre 0 et 1).
 
@@ -27,7 +27,7 @@ Cette capacité est utile pour les magasins de contenu qui collectent du texte a
 
 ## <a name="preparation"></a>Préparation
 
-Vous devez disposer des documents JSON dans ce format : id, texte
+Vous devez disposer des documents JSON dans ce format : ID, texte
 
 La taille des documents doit être inférieure à 5 120 caractères par document et vous pouvez avoir jusqu’à 1 000 éléments (ID) par collection. La collection est soumise dans le corps de la demande. Voici un exemple de contenu que vous pouvez soumettre pour détection de la langue.
 
@@ -62,16 +62,16 @@ La taille des documents doit être inférieure à 5 120 caractères par docume
 
 Vous trouverez plus d’informations sur la définition d’une demande dans [Guide pratique pour appeler l’API Analyse de texte](text-analytics-how-to-call-api.md). Les points suivants sont réaffirmés pour des raisons pratiques :
 
-+ Créez une demande **POST**. Passez en revue la documentation de l’API pour cette requête : [API Détection de langue](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7)
++ Créez une demande **POST**. Passez en revue la documentation de l’API pour cette requête : [API Détection de langue](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7)
 
-+ Définissez le point de terminaison HTTP pour la détection de la langue à l’aide d’une ressource Analyse de texte sur Azure ou d’un [conteneur Analyse de texte](text-analytics-how-to-install-containers.md) instancié. Il doit inclure la ressource `/languages` : `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/languages`
++ Définissez le point de terminaison HTTP pour la détection de la langue à l’aide d’une ressource Analyse de texte sur Azure ou d’un [conteneur Analyse de texte](text-analytics-how-to-install-containers.md) instancié. Il doit inclure la ressource `/languages` : `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/languages`
 
 + Définissez un en-tête de demande pour inclure la clé d’accès pour les opérations d’Analyse de texte. Pour plus d’informations, consultez [Guide pratique pour rechercher des points de terminaison et des clés d’accès](text-analytics-how-to-access-key.md).
 
 + Dans le corps de la demande, fournissez la collection de documents JSON que vous avez préparée pour cette analyse.
 
 > [!Tip]
-> Utilisez [Postman](text-analytics-how-to-call-api.md) ou ouvrez la **console de test d’API** dans la [documentation](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) pour structurer une demande et la publier dans le service.
+> Utilisez [Postman](text-analytics-how-to-call-api.md) ou ouvrez la **console de test d’API** dans la [documentation](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7) pour structurer une demande et la publier dans le service.
 
 ## <a name="step-2-post-the-request"></a>Étape 2 : Publier la requête
 
@@ -206,8 +206,8 @@ Le résultat obtenu se compose de la langue prédominante, avec un score inféri
 
 Dans cet article, vous avez vu les concepts et le flux de travail de détection de langue à l’aide de l’API Analyse de texte dans Cognitive Services. Voici un rappel rapide des points principaux précédemment expliqués et illustrés :
 
-+ L’[API Détection de langue](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) est disponible pour 120 langues.
-+ Les documents JSON figurant dans le corps de la demande incluent un id et un texte.
++ L’[API Détection de langue](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7) est disponible pour 120 langues.
++ Les documents JSON figurant dans le corps de la demande incluent un ID et un texte.
 + La demande POST s’effectue sur un point de terminaison `/languages`, à l’aide [d’une clé d’accès et d’un point de terminaison](text-analytics-how-to-access-key.md) personnalisés valides pour votre abonnement.
 + La sortie de réponse, qui se compose d’identificateurs de langues pour chaque ID de document, peut être diffusée vers n’importe quelle application qui accepte JSON, y compris Excel et Power BI, pour n’en citer que quelques-unes.
 

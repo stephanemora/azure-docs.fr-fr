@@ -3,16 +3,16 @@ title: Vue d’ensemble d’Azure Resource Graph
 description: Découvrez comment le service Azure Resource Graph permet d’exécuter des requêtes complexes sur des ressources à grande échelle.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 03/29/2019
+ms.date: 03/30/2019
 ms.topic: overview
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: 28efdabc024fd32c83ba966b15284ec6ff368d4d
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: d76a5b32403bd14f18181580f891925130808922
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59269282"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60002882"
 ---
 # <a name="overview-of-the-azure-resource-graph-service"></a>Vue d’ensemble du service Azure Resource Graph
 
@@ -21,11 +21,13 @@ Azure Resource Graph est un service Azure conçu pour étendre Gestion des resso
 - Interroger les ressources avec des fonctions complexes de filtrage, de regroupement et de tri en fonction des propriétés des ressources.
 - Explorer de manière itérative les ressources selon les exigences de gouvernance et convertir l’expression résultante en définition de stratégie.
 - Évaluer l’impact de l’application de stratégies dans un environnement cloud étendu.
+- Capacité à [décrire en détail les modifications apportées aux propriétés des ressources](./how-to/get-resource-changes.md) (préversion).
 
 À travers cette documentation, nous allons examiner en détail chacune de ces fonctionnalités.
 
 > [!NOTE]
-> Azure Resource Graph fait partie de la nouvelle expérience de navigation « Toutes les ressources » du portail Azure. Il est conçu pour aider les clients qui doivent gérer des environnements à grande échelle.
+> Azure Resource Graph fait partie de la nouvelle expérience de navigation « Toutes les ressources » du portail Azure et [Historique des modifications](../policy/how-to/determine-non-compliance.md#change-history-preview) d’Azure Policy.
+> _diff Visual_. Il est conçu pour aider les clients à gérer des environnements à grande échelle.
 
 ## <a name="how-does-resource-graph-complement-azure-resource-manager"></a>Comment Resource Graph vient compléter Azure Resource Manager
 
@@ -33,13 +35,19 @@ Azure Resource Manager envoie actuellement les données à un cache de ressource
 
 Avec Azure Resource Graph, vous pouvez accéder aux propriétés retournées par les fournisseurs de ressources sans appeler chaque fournisseur. Pour connaître les types de ressources pris en charge, recherchez la valeur **Oui** dans le tableau de la rubrique [Suppression de ressources Azure pour les déploiements en mode complet](../../azure-resource-manager/complete-mode-deletion.md).
 
+Azure Resource Graph vous permet :
+
+- d’accéder aux propriétés retournées par les fournisseurs de ressources sans appeler chaque fournisseur ;
+- d’afficher les 14 derniers jours de l’historique des modifications apportées à la ressource pour voir quelles propriétés ont été modifiées et quand. (préversion)
+
 ## <a name="the-query-language"></a>Langage de requête
 
 Maintenant que vous avez une meilleure idée de ce qu’est Azure Resource Graph, examinons comment construire des requêtes.
 
 Il est important de comprendre que le langage de requête d’Azure Resource Graph est basé sur le [langage de requête Kusto](../../data-explorer/data-explorer-overview.md) utilisé par Azure Data Explorer.
 
-Tout d’abord, pour obtenir des informations sur les opérations et fonctions qui peuvent être utilisées avec Azure Resource Graph, consultez le [langage de requête Resource Graph](./concepts/query-language.md). Pour parcourir des ressources, consultez [Explorer les ressources](./concepts/explore-resources.md).
+Tout d’abord, pour obtenir des informations sur les opérations et fonctions qui peuvent être utilisées avec Azure Resource Graph, consultez le [langage de requête Resource Graph](./concepts/query-language.md).
+Pour parcourir des ressources, consultez [Explorer les ressources](./concepts/explore-resources.md).
 
 ## <a name="permissions-in-azure-resource-graph"></a>Autorisations dans Azure Resource Graph
 
@@ -58,7 +66,7 @@ Resource Graph prend en charge Azure CLI, Azure PowerShell et Azure SDK pour .NE
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Exécuter votre première requête avec [Azure CLI](first-query-azurecli.md)
-- Exécuter votre première requête avec [Azure PowerShell](first-query-powershell.md)
-- Commencer avec des [requêtes de démarrage](./samples/starter.md)
-- Aller plus loin avec des [requêtes avancées](./samples/advanced.md)
+- Exécuter votre première requête avec [Azure CLI](first-query-azurecli.md).
+- Exécuter votre première requête avec [Azure PowerShell](first-query-powershell.md).
+- Commencer des [requêtes de démarrage](./samples/starter.md).
+- Aller plus loin avec des [requêtes avancées](./samples/advanced.md).

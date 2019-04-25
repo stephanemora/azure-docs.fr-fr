@@ -2,17 +2,18 @@
 title: Routage intelligent et déploiement Canary avec Istio dans Azure Kubernetes Service (AKS)
 description: Découvrez comment utiliser Istio pour fournir un routage intelligent et déployer des versions Canary sur un cluster Azure Kubernetes Service (AKS)
 services: container-service
-author: paulbouwer
+author: rockboyfor
 ms.service: container-service
 ms.topic: article
-ms.date: 12/3/2018
-ms.author: pabouwer
+origin.date: 12/03/2018
+ms.date: 03/04/2019
+ms.author: v-yeche
 ms.openlocfilehash: 0a4e5e7e310a9949ee59291c2032eafda46955a9
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52893094"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60465895"
 ---
 # <a name="use-intelligent-routing-and-canary-releases-with-istio-in-azure-kubernetes-service-aks"></a>Utiliser le routage intelligent et le déploiement Canary avec Istio dans Azure Kubernetes Service (AKS)
 
@@ -44,7 +45,7 @@ Vous mettez à niveau le composant d’analytique vers la version *1.1*, qui, o
 
 Un sous-ensemble d’utilisateurs testent la version *2.0* de l’application par le biais d’un déploiement Canary. Cette nouvelle version utilise un composant de stockage qui est associé à une base de données MySQL.
 
-Une fois que vous êtes certain que la version *2.0* fonctionne comme prévu pour votre sous-ensemble d’utilisateurs, vous la déployez pour tous vos utilisateurs.
+Une fois que vous êtes certain que la version *2.0* fonctionne comme prévu pour votre sous-ensemble d’utilisateurs, vous la déployez pour tous vos utilisateurs.**
 
 ## <a name="deploy-the-application"></a>Déployer l’application
 
@@ -128,7 +129,7 @@ Containers:
     Image:         mcr.microsoft.com/aks/samples/voting/app:1.0
     ...
   istio-proxy:
-    Image:         docker.io/istio/proxyv2:1.0.4
+    Image:         dockerhub.azk8s.cn/istio/proxyv2:1.0.4
 [...]
 ```
 
@@ -254,7 +255,7 @@ Vous pouvez visualiser plus facilement que le routage est désormais uniquement 
 
 Vous pouvez visualiser que le routage est désormais uniquement effectué vers la version *1.1* de votre composant *voting-analytics* comme suit. Pensez à utiliser l’adresse IP de votre propre passerelle d’entrée Istio :
 
-```azurecli-interactive
+```azurecli
 INGRESS_IP=52.187.250.239
 for i in {1..5}; do curl -si $INGRESS_IP | grep results; done
 ```
@@ -340,7 +341,7 @@ deployment.apps/voting-app-2-0 created
 
 Attendez que tous les pods version *2.0* soient en cours d’exécution. Utilisez la commande [kubectl get pods][kubectl-get] pour afficher tous les pods dans l’espace de noms *voting* :
 
-```azurecli-interactive
+```azurecli
 kubectl get pods --namespace voting
 ```
 

@@ -1,6 +1,6 @@
 ---
-title: 'Tutoriel : Archiver des journaux d’activité Azure Active Directory dans un compte de stockage (préversion) | Microsoft Docs'
-description: Découvrez comment configurer Azure Diagnostics pour envoyer des journaux d’activité Azure Active Directory sur un compte de stockage (préversion)
+title: 'Tutoriel : Archiver des journaux d’activité Azure Active Directory dans un compte de stockage | Microsoft Docs'
+description: Découvrez comment configurer Diagnostics Azure pour envoyer des journaux Azure Active Directory sur un compte de stockage
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -13,18 +13,18 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d34b41e780466d9ab734b9dbd0e58016dba7b10
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 0198fe1ce61c8f78e315d1166a7ea03aae20d592
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58434719"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59999499"
 ---
-# <a name="tutorial-archive-azure-ad-logs-to-an-azure-storage-account-preview"></a>Didacticiel : Archiver des journaux d’activité Azure AD dans un compte de stockage Azure (préversion)
+# <a name="tutorial-archive-azure-ad-logs-to-an-azure-storage-account"></a>Didacticiel : Archiver des journaux d’activité Azure AD dans un compte de stockage Azure
 
 Dans ce didacticiel, vous découvrez comment configurer les paramètres de diagnostic Azure Monitor pour acheminer des journaux d’activité Azure Active Directory (Azure AD) vers un compte de stockage Azure.
 
@@ -34,7 +34,7 @@ Pour utiliser cette fonctionnalité, vous avez besoin des éléments suivants :
 
 * Un abonnement et un compte de stockage Azure. Si vous n’en avez pas, vous pouvez demander un [essai gratuit](https://azure.microsoft.com/free/).
 * Un locataire Azure AD.
-* Utilisateur considéré comme *administrateur général* ou *administrateur de la sécurité* pour un locataire Azure AD.
+* Un utilisateur, qui est un *administrateur général* ou un *administrateur de la sécurité* pour un locataire Azure AD.
 
 ## <a name="archive-logs-to-an-azure-storage-account"></a>Archiver les journaux d’activité dans un compte de stockage Azure
 

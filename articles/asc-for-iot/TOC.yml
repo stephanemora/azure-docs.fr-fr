@@ -1,77 +1,70 @@
-items:
 - name: Documentation de la préversion d’Azure Security Center (ASC) pour IoT
   href: index.yml
 - name: Vue d’ensemble
   href: overview.md
   items:
-  - name: Architecture de solution
-    href: architecture.md
-  - name: Agents de sécurité
-    href: security-agent-architecture.md
-  - name: Module de sécurité Edge
-    href: security-edge-architecture.md
-  - name: Prérequis du service
-    href: service-prerequisites.md
-  - name: Bien démarrer avec ASC pour IoT
-    href: getting-started.md
+    - name: Architecture de solution
+      href: architecture.md
+    - name: Agents de sécurité
+      href: security-agent-architecture.md
+    - name: Module de sécurité Edge
+      href: security-edge-architecture.md
+    - name: Prérequis du service
+      href: service-prerequisites.md
+    - name: Bien démarrer avec ASC pour IoT
+      href: getting-started.md
 - name: Démarrages rapides
-  items:
-  - name: Activer ASC pour IoT dans IoT Hub
-    href: quickstart-onboard-iot-hub.md
-  - name: Configurer votre solution
-    href: quickstart-configure-your-solution.md
-  - name: Créer un ASC pour un jumeau de module IoT
-    href: quickstart-create-security-twin.md
-  - name: Créer des alertes de sécurité personnalisées
-    href: quickstart-create-custom-alerts.md
   expanded: true
+  items:
+    - name: Activer ASC pour IoT dans IoT Hub
+      href: quickstart-onboard-iot-hub.md
+    - name: Configurer votre solution
+      href: quickstart-configure-your-solution.md
+    - name: Créer un ASC pour un jumeau de module IoT
+      href: quickstart-create-security-twin.md
+    - name: Créer des alertes de sécurité personnalisées
+      href: quickstart-create-custom-alerts.md
 - name: Concepts
   items:
-  - name: Authentification des agents de sécurité
-    href: concept-security-agent-authentication-methods.md
-  - name: Module de sécurité
-    href: concept-security-module.md
-  - name: Alertes de sécurité
-    href: concept-security-alerts.md
-  - name: Recommandations de sécurité
-    href: concept-recommendations.md
-  - name: Tarifs et coûts associés
-    href: concept-pricing.md
+    - name: Authentification des agents de sécurité
+      href: concept-security-agent-authentication-methods.md
+    - name: Module de sécurité
+      href: concept-security-module.md
+    - name: Alertes de sécurité
+      href: concept-security-alerts.md
+    - name: Recommandations de sécurité
+      href: concept-recommendations.md
+    - name: Tarifs et coûts associés
+      href: concept-pricing.md
 - name: Guides pratiques
   items:
-  - name: Quel agent déployer ?
-    items:
-    - name: Sélectionner un agent à déployer
-      href: how-to-deploy-agent.md
-    - name: Déployer un agent de sécurité C# sur un appareil Windows
-      href: how-to-deploy-windows-cs.md
-    - name: Déployer un agent de sécurité C# sur un appareil Linux
-      href: how-to-deploy-linux-cs.md
-    - name: Déployer un agent de sécurité C sur un appareil Linux
-      href: how-to-deploy-linux-c.md
-  - name: Déployer un module de sécurité Edge
-    href: how-to-deploy-edge.md
-  - name: Configurer des agents de sécurité
-    href: how-to-agent-configuration.md
-  - name: Envoyer vos propres messages de sécurité
-    href: how-to-send-security-messages.md
-  - name: Accéder aux données de sécurité brutes
-    href: how-to-security-data-access.md
-  - name: Investiguer un appareil
-    href: how-to-investigate-device.md
+    - name: "Quel agent déployer\_?"
+      items:
+        - name: Sélectionner un agent à déployer
+          href: how-to-deploy-agent.md
+        - name: 'Déployer un agent de sécurité C# sur un appareil Windows'
+          href: how-to-deploy-windows-cs.md
+        - name: 'Déployer un agent de sécurité C# sur un appareil Linux'
+          href: how-to-deploy-linux-cs.md
+        - name: Déployer un agent de sécurité C sur un appareil Linux
+          href: how-to-deploy-linux-c.md
+    - name: Déployer un module de sécurité Edge
+      href: how-to-deploy-edge.md
+    - name: Configurer des agents de sécurité
+      href: how-to-agent-configuration.md
+    - name: Envoyer vos propres messages de sécurité
+      href: how-to-send-security-messages.md
+    - name: Accéder aux données de sécurité brutes
+      href: how-to-security-data-access.md
+    - name: Investiguer un appareil
+      href: how-to-investigate-device.md
 - name: Ressources
   items:
-  - name: Questions fréquentes (FAQ)
-    href: resources-frequently-asked-questions.md
-  - name: Feuille de route Azure
-    href: https://azure.microsoft.com/roadmap/?category=security-identity
-  - name: Blog Azure sur la sécurité, la confidentialité et la conformité
-    href: http://blogs.msdn.com/b/azuresecurity/
-  - name: Disponibilité régionale
-    href: https://azure.microsoft.com/regions/services/
-ms.openlocfilehash: 1d9d2b51fb1a07081c4ac2f4b115363c74cca6d0
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
-ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58754575"
+    - name: Questions fréquentes (FAQ)
+      href: resources-frequently-asked-questions.md
+    - name: Feuille de route Azure
+      href: 'https://azure.microsoft.com/roadmap/?category=security-identity'
+    - name: 'Blog Azure sur la sécurité, la confidentialité et la conformité'
+      href: 'http://blogs.msdn.com/b/azuresecurity/'
+    - name: Disponibilité régionale
+      href: 'https://azure.microsoft.com/regions/services/'

@@ -1,553 +1,546 @@
-items:
 - name: Documentation Stream Analytics
   href: index.yml
 - name: Vue d’ensemble
   items:
-  - name: Qu’est-ce que Stream Analytics ?
-    href: stream-analytics-introduction.md
+    - name: Qu’est-ce que Stream Analytics ?
+      href: stream-analytics-introduction.md
 - name: Démarrages rapides
   items:
-  - name: Créer un travail - Portail Azure
-    href: stream-analytics-quick-create-portal.md
-  - name: Créer un travail - PowerShell
-    href: stream-analytics-quick-create-powershell.md
-  - name: Créer un travail - Visual Studio
-    href: stream-analytics-quick-create-vs.md
+    - name: Créer un travail - Portail Azure
+      href: stream-analytics-quick-create-portal.md
+    - name: Créer un travail - PowerShell
+      href: stream-analytics-quick-create-powershell.md
+    - name: Créer un travail - Visual Studio
+      href: stream-analytics-quick-create-vs.md
 - name: Tutoriels
   items:
-  - name: 1 - Créer/gérer un travail
-    href: stream-analytics-manage-job.md
-  - name: 2 - Exécuter Azure Functions
-    href: stream-analytics-with-azure-functions.md
-  - name: 3 - Exécuter une instance UDF JavaScript
-    href: stream-analytics-javascript-user-defined-functions.md
-  - name: 4 - Déployer avec CI/CD dans Azure Pipelines
-    href: stream-analytics-tools-visual-studio-cicd-vsts.md
-  - name: 5 - Exécuter une fonction définie par l’utilisateur C# sur IoT Edge
-    href: stream-analytics-edge-csharp-udf.md
+    - name: 1 - Créer/gérer un travail
+      href: stream-analytics-manage-job.md
+    - name: 2 - Exécuter Azure Functions
+      href: stream-analytics-with-azure-functions.md
+    - name: 3 - Exécuter une instance UDF JavaScript
+      href: stream-analytics-javascript-user-defined-functions.md
+    - name: 4 - Déployer avec CI/CD dans Azure Pipelines
+      href: stream-analytics-tools-visual-studio-cicd-vsts.md
+    - name: '5 - Exécuter une fonction définie par l’utilisateur C# sur IoT Edge'
+      href: stream-analytics-edge-csharp-udf.md
 - name: Exemples
   items:
-  - name: Exemples de code
-    href: https://azure.microsoft.com/resources/samples/?service=stream-analytics
+    - name: Exemples de code
+      href: 'https://azure.microsoft.com/resources/samples/?service=stream-analytics'
 - name: Concepts
   items:
-  - name: Types d’entrée pour un travail
-    items:
-    - name: Vue d’ensemble des entrées
-      href: stream-analytics-add-inputs.md
-    - name: Entrées de données diffusées en continu
-      href: stream-analytics-define-inputs.md
-    - name: Entrées de données de référence
-      href: stream-analytics-use-reference-data.md
-  - name: Types de sortie pour un travail
-    items:
-    - name: Vue d’ensemble des sorties
-      href: stream-analytics-define-outputs.md
-    - name: Sortie vers Cosmos DB
-      href: stream-analytics-documentdb-output.md
-    - name: Sortie vers Azure SQL DB
-      href: stream-analytics-sql-output-perf.md
-    - name: Modèles de chemin d’accès personnalisé BLOB
-      href: stream-analytics-custom-path-patterns-blob-storage-output.md
-  - name: États d’un travail
-    href: job-states.md
-  - name: Fonctions Windows
-    href: stream-analytics-window-functions.md
-  - name: Fonctions géospatiales
-    href: stream-analytics-geospatial-functions.md
-  - name: Niveau de compatibilité
-    href: stream-analytics-compatibility-level.md
-  - name: Modèles de requête courants
-    href: stream-analytics-stream-analytics-query-patterns.md
-  - name: Analyser des données JSON et AVRO
-    href: stream-analytics-parsing-json.md
-  - name: Considérations relatives à la gestion du temps
-    href: stream-analytics-time-handling.md
-  - name: Point de contrôle et relecture
-    href: stream-analytics-concepts-checkpoint-replay.md
-  - name: Stratégie de gestion des erreurs
-    href: stream-analytics-output-error-policy.md
-- name: Guides de procédures
-  items:
-  - name: gérer
-    items:
-    - name: Mettre à jour les informations d’identification
-      href: stream-analytics-login-credentials-inputs-outputs.md
-    - name: Configurer des stratégies de tri d’événements
-      href: event-ordering.md
-    - name: Configurer des alertes
-      href: stream-analytics-set-up-alerts.md
-    - name: Démarrer une tâche
-      href: start-job.md
-    - name: Tester un travail
-      href: stream-analytics-test-query.md
-    - name: Afficher les résultats dans un tableau de bord
-      href: stream-analytics-power-bi-dashboard.md
-    - name: Nettoyer un travail
-      href: stream-analytics-clean-up-your-job.md
-    - name: Associer les travaux à des fins de fiabilité
-      href: stream-analytics-job-reliability.md
-    - name: Authentifier avec l’identité gérée
-      href: stream-analytics-managed-identities-adls.md
-    - name: Utiliser les données de référence SQL
-      href: sql-reference-data.md
-  - name: Créer des solutions
-    items:
-    - name: Analyse d’opinions Twitter
-      href: stream-analytics-twitter-sentiment-analysis-trends.md
-    - name: Détection des fraudes en temps réel
-      href: stream-analytics-real-time-fraud-detection.md
-    - name: Exécuter des travaux sur IoT Edge
-      href: stream-analytics-edge.md
-    - name: Analyse des données de capteur de poste de péage
-      href: stream-analytics-build-an-iot-solution-using-stream-analytics.md
-    - name: Exécuter une instance UDA JavaScript
-      href: stream-analytics-javascript-user-defined-aggregates.md
-    - name: Échange à fréquence élevée
-      href: stream-analytics-high-frequency-trading.md
-    - name: Traiter les données de diffusion en continu IoT
-      href: stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices.md
-    - name: Règles basées sur les seuils
-      href: stream-analytics-threshold-based-rules.md
-    - name: Traiter les événements Kafka
-      href: ../event-hubs/event-hubs-kafka-stream-analytics.md
-      maintainContext: true
-    - name: Scénarios géospatiaux
-      href: geospatial-scenarios.md
-  - name: Surveiller
-    items:
-    - name: Surveiller les travaux - Portail Azure
-      href: stream-analytics-monitoring.md
-    - name: Surveiller les travaux - PowerShell
-      href: stream-analytics-monitor-and-manage-jobs-use-powershell.md
-    - name: Surveiller les travaux - SDK Azure .NET
-      href: stream-analytics-monitor-jobs.md
-    - name: Surveiller des travaux - Visual Studio
-      href: stream-analytics-monitor-jobs-use-vs.md
-  - name: Scale
-    items:
-    - name: Mettre à l’échelle avec unités de streaming
-      href: stream-analytics-streaming-unit-consumption.md
-    - name: Mettre à l’échelle avec la parallélisation
+    - name: Types d’entrée pour un travail
       items:
-      - name: Parallélisation des requêtes
-        href: stream-analytics-parallelization.md
-      - name: Augmenter le débit
-        href: stream-analytics-scale-jobs.md
-    - name: Mettre à l’échelle avec des fonctions ML
-      href: stream-analytics-scale-with-machine-learning-functions.md
-  - name: Automatisation
-    items:
-    - name: Utilisation du kit de développement logiciel (SDK) .NET
-      href: stream-analytics-dotnet-management-sdk.md
-    - name: Utilisation de Microsoft Azure PowerShell
-      href: https://github.com/Azure/azure-stream-analytics/tree/master/Samples/ASAOneClick
-    - name: Utilisation d’une API pour les travaux IoT Edge
-      href: stream-analytics-cicd-api.md
-  - name: Outils Visual Studio
-    items:
-    - name: Installer des outils
-      href: stream-analytics-tools-for-visual-studio-install.md
-    - name: Tester avec des exemples de données
-      href: stream-analytics-vs-tools-local-run.md
-    - name: Tester avec des données en temps réel
-      href: stream-analytics-live-data-local-testing.md
-    - name: Afficher les travaux dans Visual Studio
-      href: stream-analytics-vs-tools.md
-    - name: Développer un travail de périphérie
-      href: stream-analytics-tools-for-visual-studio-edge-jobs.md
-    - name: Configurer un pipeline d'intégration continue (CI)/de livraison continue (CD)
-      href: stream-analytics-tools-for-visual-studio-cicd.md
-    - name: Écrire une fonction définie par l’utilisateur .NET pour la périphérie
-      href: stream-analytics-edge-csharp-udf-methods.md
-  - name: Résolution des problèmes
-    items:
-    - name: Entrée
-      href: stream-analytics-troubleshoot-input.md
-    - name: Sortie
-      href: stream-analytics-troubleshoot-output.md
-    - name: Logique de requête
-      href: stream-analytics-troubleshoot-query.md
-    - name: Journaux d’activités et de diagnostic
-      href: stream-analytics-job-diagnostic-logs.md
-  - name: Intégration à Machine Learning
-    items:
-    - name: Analyse d’opinions avec les modèles ML
-      href: stream-analytics-machine-learning-integration-tutorial.md
-    - name: Détection des anomalies
-      href: stream-analytics-machine-learning-anomaly-detection.md
-    - name: Utiliser les API REST
-      href: stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md
-  - name: Déboguer à l’aide du diagramme de travail
-    href: stream-analytics-job-diagram-with-metrics.md
-- name: Langage de requête Stream Analytics
-  items:
-  - name: Fonctions intégrées
-    items:
-    - name: Vue d’ensemble de Fonctions intégrées
-      href: /stream-analytics-query/built-in-functions-azure-stream-analytics
-      maintainContext: true
-    - name: Fonctions d’agrégation
+        - name: Vue d’ensemble des entrées
+          href: stream-analytics-add-inputs.md
+        - name: Entrées de données diffusées en continu
+          href: stream-analytics-define-inputs.md
+        - name: Entrées de données de référence
+          href: stream-analytics-use-reference-data.md
+    - name: Types de sortie pour un travail
       items:
-      - name: Vue d’ensemble de Fonctions d’agrégation
-        href: /stream-analytics-query/aggregate-functions-azure-stream-analytics
-        maintainContext: true
-      - name: MOY
-        href: /stream-analytics-query/avg-azure-stream-analytics
-        maintainContext: true
-      - name: COUNT
-        href: /stream-analytics-query/count-azure-stream-analytics
-        maintainContext: true
-      - name: Collect
-        href: /stream-analytics-query/collect-azure-stream-analytics
-        maintainContext: true
-      - name: CollectTOP
-        href: /stream-analytics-query/collecttop-azure-stream-analytics
-        maintainContext: true
-      - name: MAX
-        href: /stream-analytics-query/max-azure-stream-analytics
-        maintainContext: true
-      - name: MIN
-        href: /stream-analytics-query/min-azure-stream-analytics
-        maintainContext: true
-      - name: Percentile_Cont
-        href: /stream-analytics-query/percentile-cont-azure-stream-analytics
-        maintainContext: true
-      - name: Percentile_Disc
-        href: /stream-analytics-query/percentile-disc-azure-stream-analytics
-        maintainContext: true
-      - name: STDEV
-        href: /stream-analytics-query/stdev-azure-stream-analytics
-        maintainContext: true
-      - name: STDEVP
-        href: /stream-analytics-query/stdevp-azure-stream-analytics
-        maintainContext: true
-      - name: SUM
-        href: /stream-analytics-query/sum-azure-stream-analytics
-        maintainContext: true
-      - name: TopOne
-        href: /stream-analytics-query/topone-azure-stream-analytics
-        maintainContext: true
-      - name: VAR
-        href: /stream-analytics-query/var-azure-stream-analytics
-        maintainContext: true
-      - name: VARP
-        href: /stream-analytics-query/varp-azure-stream-analytics
-        maintainContext: true
-    - name: Fonctions analytiques
-      items:
-      - name: Vue d’ensemble de Fonctions analytiques
-        href: /stream-analytics-query/analytic-functions-azure-stream-analytics
-        maintainContext: true
-      - name: AnomalyDetection_SpikeAndDip
-        href: /stream-analytics-query/anomalydetection-spikeanddip-azure-stream-analytics
-        maintainContext: true
-      - name: AnomalyDetection_ChangePoint
-        href: /stream-analytics-query/anomalydetection-changepoint-azure-stream-analytics
-        maintainContext: true
-      - name: ISFIRST
-        href: /stream-analytics-query/isfirst-azure-stream-analytics
-        maintainContext: true
-      - name: LAG
-        href: /stream-analytics-query/lag-azure-stream-analytics
-        maintainContext: true
-      - name: LAST
-        href: /stream-analytics-query/last-azure-stream-analytics
-        maintainContext: true
-    - name: Fonctions de tableau
-      items:
-      - name: Vue d’ensemble de Fonctions de tableau
-        href: /stream-analytics-query/array-functions-stream-analytics
-        maintainContext: true
-      - name: GetArrayLength
-        href: /stream-analytics-query/getarraylength-azure-stream-analytics
-        maintainContext: true
-      - name: GetArrayElement
-        href: /stream-analytics-query/getarrayelement-azure-stream-analytics
-        maintainContext: true
-      - name: GetArrayElements
-        href: /stream-analytics-query/getarrayelements-azure-stream-analytics
-        maintainContext: true
-    - name: Fonctions de conversion
-      items:
-      - name: Vue d’ensemble de Fonctions de conversion
-        href: /stream-analytics-query/conversion-functions-azure-stream-analytics
-        maintainContext: true
-      - name: CAST
-        href: /stream-analytics-query/cast-azure-stream-analytics
-        maintainContext: true
-      - name: GetType
-        href: /stream-analytics-query/gettype-azure-stream-analytics
-        maintainContext: true
-      - name: TRY_CAST
-        href: /stream-analytics-query/try-cast-azure-stream-analytics
-        maintainContext: true
-    - name: Fonctions de date et heure
-      items:
-      - name: Vue d’ensemble de Fonctions de date et heure
-        href: /stream-analytics-query/date-and-time-functions-azure-stream-analytics
-        maintainContext: true
-      - name: DATEADD
-        href: /stream-analytics-query/dateadd-azure-stream-analytics
-        maintainContext: true
-      - name: DATEDIFF
-        href: /stream-analytics-query/datediff-azure-stream-analytics
-        maintainContext: true
-      - name: DATENAME
-        href: /stream-analytics-query/datename-azure-stream-analytics
-        maintainContext: true
-      - name: DATEPART
-        href: /stream-analytics-query/datepart-azure-stream-analytics
-        maintainContext: true
-      - name: DATETIMEFROMPARTS
-        href: /stream-analytics-query/datetimefromparts-azure-stream-analytics
-        maintainContext: true
-      - name: DAY
-        href: /stream-analytics-query/day-azure-stream-analytics
-        maintainContext: true
-      - name: MONTH
-        href: /stream-analytics-query/month-azure-stream-analytics
-        maintainContext: true
-      - name: YEAR
-        href: /stream-analytics-query/year-azure-stream-analytics
-        maintainContext: true
+        - name: Vue d’ensemble des sorties
+          href: stream-analytics-define-outputs.md
+        - name: Sortie vers Cosmos DB
+          href: stream-analytics-documentdb-output.md
+        - name: Sortie vers Azure SQL DB
+          href: stream-analytics-sql-output-perf.md
+        - name: Modèles de chemin d’accès personnalisé BLOB
+          href: stream-analytics-custom-path-patterns-blob-storage-output.md
+    - name: États d’un travail
+      href: job-states.md
+    - name: Fonctions Windows
+      href: stream-analytics-window-functions.md
     - name: Fonctions géospatiales
-      items:
-      - name: Vue d’ensemble de Fonctions géospatiales
-        href: /stream-analytics-query/geospatial-functions
-        maintainContext: true
-      - name: CreateLineString
-        href: /stream-analytics-query/createlinestring
-        maintainContext: true
-      - name: CreatePoint
-        href: /stream-analytics-query/createpoint
-        maintainContext: true
-      - name: CreatePolygon
-        href: /stream-analytics-query/createpolygon
-        maintainContext: true
-      - name: ST_DISTANCE
-        href: /stream-analytics-query/st-distance
-        maintainContext: true
-      - name: ST_OVERLAPS
-        href: /stream-analytics-query/st-overlaps
-        maintainContext: true
-      - name: ST_INTERSECTS
-        href: /stream-analytics-query/st-intersects
-        maintainContext: true
-      - name: ST_WITHIN
-        href: /stream-analytics-query/st-within
-        maintainContext: true
-    - name: Fonctions de métadonnées d’entrée
-      items:
-      - name: Vue d’ensemble de Fonctions de métadonnées d’entrée
-        href: /stream-analytics-query/input-metadata-functions
-        maintainContext: true
-      - name: GetMetadataPropertyValue
-        href: /stream-analytics-query/getmetadatapropertyvalue
-        maintainContext: true
-    - name: Fonctions mathématiques
-      items:
-      - name: Vue d’ensemble de Fonctions mathématiques
-        href: /stream-analytics-query/mathematical-functions-azure-stream-analytics
-        maintainContext: true
-      - name: ABS
-        href: /stream-analytics-query/abs-azure-stream-analytics
-        maintainContext: true
-      - name: CEILING
-        href: /stream-analytics-query/ceiling-azure-stream-analytics
-        maintainContext: true
-      - name: EXP
-        href: /stream-analytics-query/exp-azure-stream-analytics
-        maintainContext: true
-      - name: FLOOR
-        href: /stream-analytics-query/floor-azure-stream-analytics
-        maintainContext: true
-      - name: POWER
-        href: /stream-analytics-query/power-azure-stream-analytics
-        maintainContext: true
-      - name: ROUND
-        href: /stream-analytics-query/round-azure-stream-analytics.md
-        maintainContext: true
-      - name: SIGN
-        href: /stream-analytics-query/sign-azure-stream-analytics
-        maintainContext: true
-      - name: SQUARE
-        href: /stream-analytics-query/square-azure-stream-analytics
-        maintainContext: true
-      - name: SQRT
-        href: /stream-analytics-query/sqrt-azure-stream-analytics
-        maintainContext: true
-    - name: Fonctions d’enregistrement
-      items:
-      - name: Vue d’ensemble de Fonctions d’enregistrement
-        href: /stream-analytics-query/record-functions-azure-stream-analytics
-        maintainContext: true
-      - name: GetRecordProperties
-        href: /stream-analytics-query/getrecordproperties-azure-stream-analytics
-        maintainContext: true
-      - name: GetRecordPropertyValue
-        href: /stream-analytics-query/getrecordpropertyvalue-azure-stream-analytics
-        maintainContext: true
-    - name: Fonctions de chaîne
-      items:
-      - name: Vue d’ensemble de Fonctions de chaîne
-        href: /stream-analytics-query/string-functions-azure-stream-analytics
-        maintainContext: true
-      - name: CHARINDEX
-        href: /stream-analytics-query/charindex-azure-stream-analytics
-        maintainContext: true
-      - name: CONCAT
-        href: /stream-analytics-query/concat-azure-stream-analytics
-        maintainContext: true
-      - name: LEN
-        href: /stream-analytics-query/len-azure-stream-analytics
-        maintainContext: true
-      - name: LOWER
-        href: /stream-analytics-query/lower-azure-stream-analytics
-        maintainContext: true
-      - name: PATINDEX
-        href: /stream-analytics-query/patindex-azure-stream-analytics
-        maintainContext: true
-      - name: REGEXMATCH
-        href: /stream-analytics-query/regexmatch-azure-stream-analytics
-        maintainContext: true
-      - name: REPLACE
-        href: /stream-analytics-query/replace-azure-stream-analytics.md
-        maintainContext: true
-      - name: SUBSTRING
-        href: /stream-analytics-query/substring-azure-stream-analytics
-        maintainContext: true
-      - name: UPPER
-        href: /stream-analytics-query/upper-azure-stream-analytics
-        maintainContext: true
-    - name: Fonctions de fenêtrage
-      items:
-      - name: Vue d’ensemble de Fonctions de fenêtrage
-        href: /stream-analytics-query/windowing-azure-stream-analytics
-        maintainContext: true
-      - name: Fenêtre récurrente
-        href: /stream-analytics-query/hopping-window-azure-stream-analytics
-        maintainContext: true
-      - name: Fenêtre session
-        href: /stream-analytics-query/session-window-azure-stream-analytics
-        maintainContext: true
-      - name: Fenêtre glissante
-        href: /stream-analytics-query/sliding-window-azure-stream-analytics
-        maintainContext: true
-      - name: Fenêtre bascule
-        href: /stream-analytics-query/tumbling-window-azure-stream-analytics
-        maintainContext: true
-  - name: Types de données
-    items:
-    - name: Vue d’ensemble de Types de données
-      href: /stream-analytics-query/data-types-azure-stream-analytics
-      maintainContext: true
+      href: stream-analytics-geospatial-functions.md
+    - name: Niveau de compatibilité
+      href: stream-analytics-compatibility-level.md
+    - name: Modèles de requête courants
+      href: stream-analytics-stream-analytics-query-patterns.md
     - name: Analyser des données JSON et AVRO
       href: stream-analytics-parsing-json.md
+    - name: Considérations relatives à la gestion du temps
+      href: stream-analytics-time-handling.md
+    - name: Point de contrôle et relecture
+      href: stream-analytics-concepts-checkpoint-replay.md
+    - name: Stratégie de gestion des erreurs
+      href: stream-analytics-output-error-policy.md
+- name: Guides de procédures
+  items:
+    - name: gérer
+      items:
+        - name: Mettre à jour les informations d’identification
+          href: stream-analytics-login-credentials-inputs-outputs.md
+        - name: Configurer des stratégies de tri d’événements
+          href: event-ordering.md
+        - name: Configurer des alertes
+          href: stream-analytics-set-up-alerts.md
+        - name: Démarrer une tâche
+          href: start-job.md
+        - name: Tester un travail
+          href: stream-analytics-test-query.md
+        - name: Afficher les résultats dans un tableau de bord
+          href: stream-analytics-power-bi-dashboard.md
+        - name: Nettoyer un travail
+          href: stream-analytics-clean-up-your-job.md
+        - name: Associer les travaux à des fins de fiabilité
+          href: stream-analytics-job-reliability.md
+        - name: Authentifier avec l’identité gérée
+          href: stream-analytics-managed-identities-adls.md
+        - name: Utiliser les données de référence SQL
+          href: sql-reference-data.md
+    - name: Créer des solutions
+      items:
+        - name: Analyse d’opinions Twitter
+          href: stream-analytics-twitter-sentiment-analysis-trends.md
+        - name: Détection des fraudes en temps réel
+          href: stream-analytics-real-time-fraud-detection.md
+        - name: Exécuter des travaux sur IoT Edge
+          href: stream-analytics-edge.md
+        - name: Analyse des données de capteur de poste de péage
+          href: stream-analytics-build-an-iot-solution-using-stream-analytics.md
+        - name: Exécuter une instance UDA JavaScript
+          href: stream-analytics-javascript-user-defined-aggregates.md
+        - name: Échange à fréquence élevée
+          href: stream-analytics-high-frequency-trading.md
+        - name: Traiter les données de diffusion en continu IoT
+          href: stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices.md
+        - name: Règles basées sur les seuils
+          href: stream-analytics-threshold-based-rules.md
+        - name: Traiter les événements Kafka
+          href: ../event-hubs/event-hubs-kafka-stream-analytics.md
+          maintainContext: true
+        - name: Scénarios géospatiaux
+          href: geospatial-scenarios.md
+    - name: Surveiller
+      items:
+        - name: Surveiller les travaux - Portail Azure
+          href: stream-analytics-monitoring.md
+        - name: Surveiller les travaux - PowerShell
+          href: stream-analytics-monitor-and-manage-jobs-use-powershell.md
+        - name: Surveiller les travaux - SDK Azure .NET
+          href: stream-analytics-monitor-jobs.md
+        - name: "Surveiller des travaux - Visual\_Studio"
+          href: stream-analytics-monitor-jobs-use-vs.md
+    - name: Scale
+      items:
+        - name: Mettre à l’échelle avec unités de streaming
+          href: stream-analytics-streaming-unit-consumption.md
+        - name: Mettre à l’échelle avec la parallélisation
+          items:
+            - name: Parallélisation des requêtes
+              href: stream-analytics-parallelization.md
+            - name: Augmenter le débit
+              href: stream-analytics-scale-jobs.md
+        - name: Mettre à l’échelle avec des fonctions ML
+          href: stream-analytics-scale-with-machine-learning-functions.md
+    - name: Automatisation
+      items:
+        - name: Utilisation du kit de développement logiciel (SDK) .NET
+          href: stream-analytics-dotnet-management-sdk.md
+        - name: Utilisation de Microsoft Azure PowerShell
+          href: 'https://github.com/Azure/azure-stream-analytics/tree/master/Samples/ASAOneClick'
+        - name: Utilisation d’une API pour les travaux IoT Edge
+          href: stream-analytics-cicd-api.md
+    - name: Outils Visual Studio
+      items:
+        - name: Installer des outils
+          href: stream-analytics-tools-for-visual-studio-install.md
+        - name: Tester avec des exemples de données
+          href: stream-analytics-vs-tools-local-run.md
+        - name: Tester avec des données en temps réel
+          href: stream-analytics-live-data-local-testing.md
+        - name: "Afficher les travaux dans Visual\_Studio"
+          href: stream-analytics-vs-tools.md
+        - name: Développer un travail de périphérie
+          href: stream-analytics-tools-for-visual-studio-edge-jobs.md
+        - name: Configurer un pipeline d'intégration continue (CI)/de livraison continue (CD)
+          href: stream-analytics-tools-for-visual-studio-cicd.md
+        - name: Écrire une fonction définie par l’utilisateur .NET pour la périphérie
+          href: stream-analytics-edge-csharp-udf-methods.md
+    - name: Résolution des problèmes
+      items:
+        - name: Entrée
+          href: stream-analytics-troubleshoot-input.md
+        - name: Sortie
+          href: stream-analytics-troubleshoot-output.md
+        - name: Logique de requête
+          href: stream-analytics-troubleshoot-query.md
+        - name: Journaux d’activités et de diagnostic
+          href: stream-analytics-job-diagnostic-logs.md
+    - name: Intégration à Machine Learning
+      items:
+        - name: Analyse d’opinions avec les modèles ML
+          href: stream-analytics-machine-learning-integration-tutorial.md
+        - name: Détection des anomalies
+          href: stream-analytics-machine-learning-anomaly-detection.md
+        - name: Utiliser les API REST
+          href: stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md
+    - name: Déboguer à l’aide du diagramme de travail
+      href: stream-analytics-job-diagram-with-metrics.md
+- name: Langage de requête Stream Analytics
+  items:
+    - name: Fonctions intégrées
+      items:
+        - name: Vue d’ensemble de Fonctions intégrées
+          href: /stream-analytics-query/built-in-functions-azure-stream-analytics
+          maintainContext: true
+        - name: Fonctions d’agrégation
+          items:
+            - name: Vue d’ensemble de Fonctions d’agrégation
+              href: /stream-analytics-query/aggregate-functions-azure-stream-analytics
+              maintainContext: true
+            - name: MOY
+              href: /stream-analytics-query/avg-azure-stream-analytics
+              maintainContext: true
+            - name: COUNT
+              href: /stream-analytics-query/count-azure-stream-analytics
+              maintainContext: true
+            - name: Collect
+              href: /stream-analytics-query/collect-azure-stream-analytics
+              maintainContext: true
+            - name: CollectTOP
+              href: /stream-analytics-query/collecttop-azure-stream-analytics
+              maintainContext: true
+            - name: MAX
+              href: /stream-analytics-query/max-azure-stream-analytics
+              maintainContext: true
+            - name: MIN
+              href: /stream-analytics-query/min-azure-stream-analytics
+              maintainContext: true
+            - name: Percentile_Cont
+              href: /stream-analytics-query/percentile-cont-azure-stream-analytics
+              maintainContext: true
+            - name: Percentile_Disc
+              href: /stream-analytics-query/percentile-disc-azure-stream-analytics
+              maintainContext: true
+            - name: STDEV
+              href: /stream-analytics-query/stdev-azure-stream-analytics
+              maintainContext: true
+            - name: STDEVP
+              href: /stream-analytics-query/stdevp-azure-stream-analytics
+              maintainContext: true
+            - name: SUM
+              href: /stream-analytics-query/sum-azure-stream-analytics
+              maintainContext: true
+            - name: TopOne
+              href: /stream-analytics-query/topone-azure-stream-analytics
+              maintainContext: true
+            - name: VAR
+              href: /stream-analytics-query/var-azure-stream-analytics
+              maintainContext: true
+            - name: VARP
+              href: /stream-analytics-query/varp-azure-stream-analytics
+              maintainContext: true
+        - name: Fonctions analytiques
+          items:
+            - name: Vue d’ensemble de Fonctions analytiques
+              href: /stream-analytics-query/analytic-functions-azure-stream-analytics
+              maintainContext: true
+            - name: AnomalyDetection_SpikeAndDip
+              href: /stream-analytics-query/anomalydetection-spikeanddip-azure-stream-analytics
+              maintainContext: true
+            - name: AnomalyDetection_ChangePoint
+              href: /stream-analytics-query/anomalydetection-changepoint-azure-stream-analytics
+              maintainContext: true
+            - name: ISFIRST
+              href: /stream-analytics-query/isfirst-azure-stream-analytics
+              maintainContext: true
+            - name: LAG
+              href: /stream-analytics-query/lag-azure-stream-analytics
+              maintainContext: true
+            - name: LAST
+              href: /stream-analytics-query/last-azure-stream-analytics
+              maintainContext: true
+        - name: Fonctions de tableau
+          items:
+            - name: Vue d’ensemble de Fonctions de tableau
+              href: /stream-analytics-query/array-functions-stream-analytics
+              maintainContext: true
+            - name: GetArrayLength
+              href: /stream-analytics-query/getarraylength-azure-stream-analytics
+              maintainContext: true
+            - name: GetArrayElement
+              href: /stream-analytics-query/getarrayelement-azure-stream-analytics
+              maintainContext: true
+            - name: GetArrayElements
+              href: /stream-analytics-query/getarrayelements-azure-stream-analytics
+              maintainContext: true
+        - name: Fonctions de conversion
+          items:
+            - name: Vue d’ensemble de Fonctions de conversion
+              href: /stream-analytics-query/conversion-functions-azure-stream-analytics
+              maintainContext: true
+            - name: CAST
+              href: /stream-analytics-query/cast-azure-stream-analytics
+              maintainContext: true
+            - name: GetType
+              href: /stream-analytics-query/gettype-azure-stream-analytics
+              maintainContext: true
+            - name: TRY_CAST
+              href: /stream-analytics-query/try-cast-azure-stream-analytics
+              maintainContext: true
+        - name: Fonctions de date et heure
+          items:
+            - name: Vue d’ensemble de Fonctions de date et heure
+              href: /stream-analytics-query/date-and-time-functions-azure-stream-analytics
+              maintainContext: true
+            - name: DATEADD
+              href: /stream-analytics-query/dateadd-azure-stream-analytics
+              maintainContext: true
+            - name: DATEDIFF
+              href: /stream-analytics-query/datediff-azure-stream-analytics
+              maintainContext: true
+            - name: DATENAME
+              href: /stream-analytics-query/datename-azure-stream-analytics
+              maintainContext: true
+            - name: DATEPART
+              href: /stream-analytics-query/datepart-azure-stream-analytics
+              maintainContext: true
+            - name: DATETIMEFROMPARTS
+              href: /stream-analytics-query/datetimefromparts-azure-stream-analytics
+              maintainContext: true
+            - name: DAY
+              href: /stream-analytics-query/day-azure-stream-analytics
+              maintainContext: true
+            - name: MONTH
+              href: /stream-analytics-query/month-azure-stream-analytics
+              maintainContext: true
+            - name: YEAR
+              href: /stream-analytics-query/year-azure-stream-analytics
+              maintainContext: true
+        - name: Fonctions géospatiales
+          items:
+            - name: Vue d’ensemble de Fonctions géospatiales
+              href: /stream-analytics-query/geospatial-functions
+              maintainContext: true
+            - name: CreateLineString
+              href: /stream-analytics-query/createlinestring
+              maintainContext: true
+            - name: CreatePoint
+              href: /stream-analytics-query/createpoint
+              maintainContext: true
+            - name: CreatePolygon
+              href: /stream-analytics-query/createpolygon
+              maintainContext: true
+            - name: ST_DISTANCE
+              href: /stream-analytics-query/st-distance
+              maintainContext: true
+            - name: ST_OVERLAPS
+              href: /stream-analytics-query/st-overlaps
+              maintainContext: true
+            - name: ST_INTERSECTS
+              href: /stream-analytics-query/st-intersects
+              maintainContext: true
+            - name: ST_WITHIN
+              href: /stream-analytics-query/st-within
+              maintainContext: true
+        - name: Fonctions de métadonnées d’entrée
+          items:
+            - name: Vue d’ensemble de Fonctions de métadonnées d’entrée
+              href: /stream-analytics-query/input-metadata-functions
+              maintainContext: true
+            - name: GetMetadataPropertyValue
+              href: /stream-analytics-query/getmetadatapropertyvalue
+              maintainContext: true
+        - name: Fonctions mathématiques
+          items:
+            - name: Vue d’ensemble de Fonctions mathématiques
+              href: /stream-analytics-query/mathematical-functions-azure-stream-analytics
+              maintainContext: true
+            - name: ABS
+              href: /stream-analytics-query/abs-azure-stream-analytics
+              maintainContext: true
+            - name: CEILING
+              href: /stream-analytics-query/ceiling-azure-stream-analytics
+              maintainContext: true
+            - name: EXP
+              href: /stream-analytics-query/exp-azure-stream-analytics
+              maintainContext: true
+            - name: FLOOR
+              href: /stream-analytics-query/floor-azure-stream-analytics
+              maintainContext: true
+            - name: POWER
+              href: /stream-analytics-query/power-azure-stream-analytics
+              maintainContext: true
+            - name: ROUND
+              href: /stream-analytics-query/round-azure-stream-analytics.md
+              maintainContext: true
+            - name: SIGN
+              href: /stream-analytics-query/sign-azure-stream-analytics
+              maintainContext: true
+            - name: SQUARE
+              href: /stream-analytics-query/square-azure-stream-analytics
+              maintainContext: true
+            - name: SQRT
+              href: /stream-analytics-query/sqrt-azure-stream-analytics
+              maintainContext: true
+        - name: Fonctions d’enregistrement
+          items:
+            - name: Vue d’ensemble de Fonctions d’enregistrement
+              href: /stream-analytics-query/record-functions-azure-stream-analytics
+              maintainContext: true
+            - name: GetRecordProperties
+              href: /stream-analytics-query/getrecordproperties-azure-stream-analytics
+              maintainContext: true
+            - name: GetRecordPropertyValue
+              href: /stream-analytics-query/getrecordpropertyvalue-azure-stream-analytics
+              maintainContext: true
+        - name: Fonctions de chaîne
+          items:
+            - name: Vue d’ensemble de Fonctions de chaîne
+              href: /stream-analytics-query/string-functions-azure-stream-analytics
+              maintainContext: true
+            - name: CHARINDEX
+              href: /stream-analytics-query/charindex-azure-stream-analytics
+              maintainContext: true
+            - name: CONCAT
+              href: /stream-analytics-query/concat-azure-stream-analytics
+              maintainContext: true
+            - name: LEN
+              href: /stream-analytics-query/len-azure-stream-analytics
+              maintainContext: true
+            - name: LOWER
+              href: /stream-analytics-query/lower-azure-stream-analytics
+              maintainContext: true
+            - name: PATINDEX
+              href: /stream-analytics-query/patindex-azure-stream-analytics
+              maintainContext: true
+            - name: REGEXMATCH
+              href: /stream-analytics-query/regexmatch-azure-stream-analytics
+              maintainContext: true
+            - name: REPLACE
+              href: /stream-analytics-query/replace-azure-stream-analytics.md
+              maintainContext: true
+            - name: SUBSTRING
+              href: /stream-analytics-query/substring-azure-stream-analytics
+              maintainContext: true
+            - name: UPPER
+              href: /stream-analytics-query/upper-azure-stream-analytics
+              maintainContext: true
+        - name: Fonctions de fenêtrage
+          items:
+            - name: Vue d’ensemble de Fonctions de fenêtrage
+              href: /stream-analytics-query/windowing-azure-stream-analytics
+              maintainContext: true
+            - name: Fenêtre récurrente
+              href: /stream-analytics-query/hopping-window-azure-stream-analytics
+              maintainContext: true
+            - name: Fenêtre session
+              href: /stream-analytics-query/session-window-azure-stream-analytics
+              maintainContext: true
+            - name: Fenêtre glissante
+              href: /stream-analytics-query/sliding-window-azure-stream-analytics
+              maintainContext: true
+            - name: Fenêtre bascule
+              href: /stream-analytics-query/tumbling-window-azure-stream-analytics
+              maintainContext: true
+    - name: Types de données
+      items:
+        - name: Vue d’ensemble de Types de données
+          href: /stream-analytics-query/data-types-azure-stream-analytics
+          maintainContext: true
+        - name: Analyser des données JSON et AVRO
+          href: stream-analytics-parsing-json.md
+          maintainContext: true
+    - name: Éléments de langage de requête
+      items:
+        - name: Vue d’ensemble d’Éléments de langage de requête
+          href: /stream-analytics-query/query-language-elements-azure-stream-analytics
+          maintainContext: true
+        - name: APPLY
+          href: /stream-analytics-query/apply-azure-stream-analytics
+          maintainContext: true
+        - name: CASE
+          href: /stream-analytics-query/case-azure-stream-analytics
+          maintainContext: true
+        - name: COALESCE
+          href: /stream-analytics-query/coalesce-azure-stream-analytics.md
+          maintainContext: true
+        - name: CREATE TABLE
+          href: /stream-analytics-query/create-table-stream-analytics
+          maintainContext: true
+        - name: FROM
+          href: /stream-analytics-query/from-azure-stream-analytics
+          maintainContext: true
+        - name: GROUP BY
+          href: /stream-analytics-query/group-by-azure-stream-analytics
+          maintainContext: true
+        - name: HAVING
+          href: /stream-analytics-query/having-azure-stream-analytics
+          maintainContext: true
+        - name: INTO
+          href: /stream-analytics-query/into-azure-stream-analytics
+          maintainContext: true
+        - name: JOIN
+          href: /stream-analytics-query/join-azure-stream-analytics
+          maintainContext: true
+        - name: JOINTURE de données de référence
+          href: /stream-analytics-query/reference-data-join-azure-stream-analytics
+          maintainContext: true
+        - name: SELECT
+          href: /stream-analytics-query/select-azure-stream-analytics
+          maintainContext: true
+        - name: UNION
+          href: /stream-analytics-query/union-azure-stream-analytics
+          maintainContext: true
+        - name: WHERE
+          href: /stream-analytics-query/where-azure-stream-analytics
+          maintainContext: true
+        - name: WITH
+          href: /stream-analytics-query/with-azure-stream-analytics
+          maintainContext: true
+    - name: Gestion du temps
+      items:
+        - name: Vue d’ensemble Gestion du temps
+          href: /stream-analytics-query/time-management-azure-stream-analytics
+          maintainContext: true
+        - name: System.Timestamp
+          href: /stream-analytics-query/system-timestamp-stream-analytics
+          maintainContext: true
+        - name: TIMESTAMP BY
+          href: /stream-analytics-query/timestamp-by-azure-stream-analytics
+          maintainContext: true
+        - name: Stratégies d’asymétrie temporelle
+          href: /stream-analytics-query/time-skew-policies-azure-stream-analytics
+          maintainContext: true
+    - name: Garanties de remise d’événement
+      href: /stream-analytics-query/event-delivery-guarantees-azure-stream-analytics
       maintainContext: true
-  - name: Éléments de langage de requête
-    items:
-    - name: Vue d’ensemble d’Éléments de langage de requête
-      href: /stream-analytics-query/query-language-elements-azure-stream-analytics
-      maintainContext: true
-    - name: APPLY
-      href: /stream-analytics-query/apply-azure-stream-analytics
-      maintainContext: true
-    - name: CASE
-      href: /stream-analytics-query/case-azure-stream-analytics
-      maintainContext: true
-    - name: COALESCE
-      href: /stream-analytics-query/coalesce-azure-stream-analytics.md
-      maintainContext: true
-    - name: CREATE TABLE
-      href: /stream-analytics-query/create-table-stream-analytics
-      maintainContext: true
-    - name: FROM
-      href: /stream-analytics-query/from-azure-stream-analytics
-      maintainContext: true
-    - name: GROUP BY
-      href: /stream-analytics-query/group-by-azure-stream-analytics
-      maintainContext: true
-    - name: HAVING
-      href: /stream-analytics-query/having-azure-stream-analytics
-      maintainContext: true
-    - name: INTO
-      href: /stream-analytics-query/into-azure-stream-analytics
-      maintainContext: true
-    - name: JOIN
-      href: /stream-analytics-query/join-azure-stream-analytics
-      maintainContext: true
-    - name: JOINTURE de données de référence
-      href: /stream-analytics-query/reference-data-join-azure-stream-analytics
-      maintainContext: true
-    - name: SELECT
-      href: /stream-analytics-query/select-azure-stream-analytics
-      maintainContext: true
-    - name: UNION
-      href: /stream-analytics-query/union-azure-stream-analytics
-      maintainContext: true
-    - name: WHERE
-      href: /stream-analytics-query/where-azure-stream-analytics
-      maintainContext: true
-    - name: WITH
-      href: /stream-analytics-query/with-azure-stream-analytics
-      maintainContext: true
-  - name: Gestion du temps
-    items:
-    - name: Vue d’ensemble Gestion du temps
-      href: /stream-analytics-query/time-management-azure-stream-analytics
-      maintainContext: true
-    - name: System.Timestamp
-      href: /stream-analytics-query/system-timestamp-stream-analytics
-      maintainContext: true
-    - name: TIMESTAMP BY
-      href: /stream-analytics-query/timestamp-by-azure-stream-analytics
-      maintainContext: true
-    - name: Stratégies d’asymétrie temporelle
-      href: /stream-analytics-query/time-skew-policies-azure-stream-analytics
-      maintainContext: true
-  - name: Garanties de remise d’événement
-    href: /stream-analytics-query/event-delivery-guarantees-azure-stream-analytics
-    maintainContext: true
 - name: Informations de référence
   items:
-  - name: Azure PowerShell
-    href: /powershell/module/az.streamanalytics
-  - name: .NET
-    href: /dotnet/api/microsoft.azure.management.streamanalytics
-  - name: REST
-    href: /rest/api/streamanalytics
-  - name: Modèle Resource Manager
-    href: /azure/templates/microsoft.streamanalytics/allversions
+    - name: Azure PowerShell
+      href: /powershell/module/az.streamanalytics
+    - name: .NET
+      href: /dotnet/api/microsoft.azure.management.streamanalytics
+    - name: REST
+      href: /rest/api/streamanalytics
+    - name: Modèle Resource Manager
+      href: /azure/templates/microsoft.streamanalytics/allversions
 - name: Ressources
   items:
-  - name: Préversions Stream Analytics
-    href: stream-analytics-previews.md
-  - name: Feuille de route Azure
-    href: https://azure.microsoft.com/roadmap/
-  - name: Blog
-    href: https://azure.microsoft.com/blog/tag/azure-stream-analytics/
-  - name: Forum de commentaires
-    href: https://feedback.azure.com/forums/270577-azure-stream-analytics
-  - name: Forum
-    href: https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics
-  - name: Tarifs
-    href: https://azure.microsoft.com/pricing/details/stream-analytics/
-  - name: Calculatrice de prix
-    href: https://azure.microsoft.com/pricing/calculator/
-  - name: Mises à jour de service
-    href: https://azure.microsoft.com/updates/?product=stream-analytics
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-stream-analytics
-  - name: Videos
-    href: https://azure.microsoft.com/resources/videos/index/?services=stream-analytics&sort=newest
-  - name: Études de cas clients
-    href: https://azure.microsoft.com/case-studies/?service=stream-analytics
-  - name: Livre blanc - Traitement d’événements en temps réel
-    href: stream-analytics-real-time-event-processing-reference-architecture.md
-ms.openlocfilehash: ddb035686e8788710aeea5c6dc532ef6a87310a0
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
-ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59609351"
+    - name: Préversions Stream Analytics
+      href: stream-analytics-previews.md
+    - name: Feuille de route Azure
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Blog
+      href: 'https://azure.microsoft.com/blog/tag/azure-stream-analytics/'
+    - name: Forum de commentaires
+      href: 'https://feedback.azure.com/forums/270577-azure-stream-analytics'
+    - name: Forum
+      href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics'
+    - name: Tarifs
+      href: 'https://azure.microsoft.com/pricing/details/stream-analytics/'
+    - name: Calculatrice de prix
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Mises à jour de service
+      href: 'https://azure.microsoft.com/updates/?product=stream-analytics'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-stream-analytics'
+    - name: Videos
+      href: 'https://azure.microsoft.com/resources/videos/index/?services=stream-analytics&sort=newest'
+    - name: Études de cas clients
+      href: 'https://azure.microsoft.com/case-studies/?service=stream-analytics'
+    - name: Livre blanc - Traitement d’événements en temps réel
+      href: stream-analytics-real-time-event-processing-reference-architecture.md

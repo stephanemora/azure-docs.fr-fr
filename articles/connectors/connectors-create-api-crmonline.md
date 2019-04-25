@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 08/18/2018
 tags: connectors
 ms.openlocfilehash: b81efba0ce860bea5fd68dd99ce52980e6816b7e
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58310572"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60313641"
 ---
 # <a name="manage-dynamics-365-records-with-azure-logic-apps"></a>Gérer les enregistrements Dynamics 365 avec Azure Logic Apps
 
@@ -80,7 +80,7 @@ Ajoutez maintenant l’action Dynamics 365 qui crée un enregistrement de tâch
 
    ![Détails de l’action](./media/connectors-create-api-crmonline/action-details.png)
 
-1. Quand la zone **Objet** s’affiche dans votre action, cliquez dans cette zone afin qu’apparaisse la liste des contenus dynamiques. Dans cette liste, sélectionnez les valeurs de champ à inclure dans l’enregistrement de tâche associé à l’enregistrement du nouveau prospect :
+1. Quand la zone **Objet** s’affiche dans votre action, cliquez dans cette zone afin qu’apparaisse la liste des contenus dynamiques.**** Dans cette liste, sélectionnez les valeurs de champ à inclure dans l’enregistrement de tâche associé à l’enregistrement du nouveau prospect :
 
    | Champ | Description |
    |-------|-------------|

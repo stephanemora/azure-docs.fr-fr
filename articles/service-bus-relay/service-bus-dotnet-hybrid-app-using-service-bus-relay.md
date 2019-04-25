@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: spelluru
 ms.openlocfilehash: 145960db27247a8535eb96640000b86d810619c0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57838406"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60419907"
 ---
 # <a name="expose-an-on-premises-wcf-service-to-a-web-application-in-the-cloud-by-using-azure-relay"></a>Exposer un service WCF local sur une application web dans le cloud à l’aide d’Azure Relay 
 Cet article montre comment créer une application cloud hybride avec Microsoft Azure et Visual Studio. Vous créez une application qui utilise plusieurs ressources Azure s’exécutant dans le cloud.
@@ -38,7 +38,7 @@ Dans ce didacticiel, vous allez effectuer les étapes suivantes :
 > * Déployer l’application web sur Azure
 > * Exécuter l’application sur Azure
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour effectuer ce didacticiel, vous avez besoin de ce qui suit :
 
@@ -185,7 +185,7 @@ Pour commencer, vous créez un système local de catalogue de produits (simulati
         }
     }
     ```
-12. Dans l’Explorateur de solutions, double-cliquez sur le fichier **App.config** pour l’ouvrir dans l’éditeur de Visual Studio. En bas de la `<system.ServiceModel>` élément (mais toujours au sein `<system.ServiceModel>`), ajoutez le code XML suivant : Veillez à remplacer yourServiceNamespace par le nom de votre espace de noms, et *yourKey*, par la clé SAS que vous avez récupérée précédemment sur le portail :
+12. Dans l’Explorateur de solutions, double-cliquez sur le fichier **App.config** pour l’ouvrir dans l’éditeur de Visual Studio. En bas de la `<system.ServiceModel>` élément (mais toujours au sein `<system.ServiceModel>`), ajoutez le code XML suivant : Veillez à remplacer *yourServiceNamespace* par le nom de votre espace de noms, et *yourKey*, par la clé SAS que vous avez récupérée précédemment sur le portail :
 
     ```xml
     <system.serviceModel>
@@ -350,7 +350,7 @@ La prochaine étape consiste à raccorder le serveur de produits local et l’ap
 
    ![Ajouter en tant que lien][24]
 
-6. Ouvrez maintenant le **HomeController.cs** dans l’éditeur Visual Studio et remplacez la définition de l’espace de noms par le code suivant : Assurez-vous de remplacer yourServiceNamespace par le nom de votre espace de noms de service et *yourKey*, par votre clé SAP. Le client peut alors appeler le service local, en retournant le résultat de l’appel.
+6. Ouvrez maintenant le **HomeController.cs** dans l’éditeur Visual Studio et remplacez la définition de l’espace de noms par le code suivant : Assurez-vous de remplacer *yourServiceNamespace* par le nom de votre espace de noms de service et *yourKey*, par votre clé SAP. Le client peut alors appeler le service local, en retournant le résultat de l’appel.
 
    ```csharp
    namespace ProductsWeb.Controllers

@@ -1,16 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 8385fe5ecb9a6e17d872795ba4eff5c038e4df47
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58199867"
 documentType: LandingData
 title: Documentation Recherche Azure
 metadata:
-  document_id: 
-  title: Documentation Recherche Azure - Didacticiels, démarrages rapides, informations de référence sur les API
-  description: Découvrez comment créer une solution de recherche de contenu d’entreprise sur le contenu privé et hétérogène à l’aide de Recherche Azure. Les tutoriels, les informations de référence d’API ainsi que les autres documents vous montrent comment consolider le contenu pouvant faire l’objet d’une recherche dans un index unique et rapide. Ce dernier peut être interrogé à l’aide de syntaxes simples à avancées pour un large éventail de scénarios.
+  document_id: null
+  title: "Documentation Recherche Azure\_- Didacticiels, démarrages rapides, informations de référence sur les API"
+  description: 'Découvrez comment créer une solution de recherche de contenu d’entreprise sur le contenu privé et hétérogène à l’aide de Recherche Azure. Les tutoriels, les informations de référence d’API ainsi que les autres documents vous montrent comment consolider le contenu pouvant faire l’objet d’une recherche dans un index unique et rapide. Ce dernier peut être interrogé à l’aide de syntaxes simples à avancées pour un large éventail de scénarios.'
   services: search
   author: HeidiSteen
   manager: cgronlun
@@ -20,55 +14,55 @@ metadata:
   ms.date: 01/18/2019
   ms.author: heidist
 abstract:
-  description: Découvrez comment créer une solution de recherche de contenu d’entreprise sur le contenu privé et hétérogène à l’aide de Recherche Azure. Les tutoriels, les informations de référence d’API ainsi que les autres documents vous montrent comment consolider le contenu pouvant faire l’objet d’une recherche dans un index unique et rapide. Ce dernier peut être interrogé à l’aide de syntaxes simples à avancées pour un large éventail de scénarios. <p/><a href="/azure/search/cognitive-search-concept-intro"><b>Nouvelle préversion de la recherche cognitive.</b></a> Utilisez une API REST de préversion pour lier les AI alimentées par les algorithmes au pipeline d’indexation. Extrayez des données et utilisez le traitement en langage naturel et d’images pour transformer le contenu non structuré brut en contenu pouvant faire l’objet d’une recherche dans un index de Recherche Azure. <p/>Explorez la recherche cognitive à l’aide des <a href="/azure/search/cognitive-search-quickstart-blob">ressources et exemples de données</a> ou apprenez en plus en consultant <a href="/azure/search/cognitive-search-concept-intro">Concepts</a>.
+  description: 'Découvrez comment créer une solution de recherche de contenu d’entreprise sur le contenu privé et hétérogène à l’aide de Recherche Azure. Les tutoriels, les informations de référence d’API ainsi que les autres documents vous montrent comment consolider le contenu pouvant faire l’objet d’une recherche dans un index unique et rapide. Ce dernier peut être interrogé à l’aide de syntaxes simples à avancées pour un large éventail de scénarios. <p/><a href="/azure/search/cognitive-search-concept-intro"><b>Nouvelle préversion de la recherche cognitive.</b></a> Utilisez une API REST de préversion pour lier les AI alimentées par les algorithmes au pipeline d’indexation. Extrayez des données et utilisez le traitement en langage naturel et d’images pour transformer le contenu non structuré brut en contenu pouvant faire l’objet d’une recherche dans un index de Recherche Azure. <p/>Explorez la recherche cognitive à l’aide des <a href="/azure/search/cognitive-search-quickstart-blob">ressources et exemples de données</a> ou apprenez en plus en consultant <a href="/azure/search/cognitive-search-concept-intro">Concepts</a>.'
   aside:
     image:
-      alt: 
+      alt: null
       height: 110
-      src: https://docs.microsoft.com/azure/search/media/index/search-page-callouts3.png
+      src: 'https://docs.microsoft.com/azure/search/media/index/search-page-callouts3.png'
       width: 250
-    title: Présentation de Recherche Azure (1:27)
-    href: https://channel9.msdn.com/Blogs/Azure/What-is-Azure-Search/player
+    title: 'Présentation de Recherche Azure (1:27)'
+    href: 'https://channel9.msdn.com/Blogs/Azure/What-is-Azure-Search/player'
     width: 250
 sections:
-- title: Démarrages en 5 minutes
-  items:
-  - type: paragraph
-    text: Démarrer avec un service de recherche dans le portail, puis définir, charger et interroger des index en C# ou REST.
-  - type: list
-    style: icon48
+  - title: "Démarrages en 5\_minutes"
     items:
-    - image:
-        src: /azure/search/media/index/portal.svg
-      text: Portail Azure
-      href: https://docs.microsoft.com/azure/search/search-create-service-portal
-    - image:
-        src: /azure/search/media/index/logo_Csharp.svg
-      text: .NET
-      href: https://docs.microsoft.com/azure/search/search-create-index-dotnet
-    - image:
-        src: /azure/search/media/index/rest.svg
-      text: REST
-      href: https://docs.microsoft.com/azure/search/search-fiddler
-- title: Didacticiels pas à pas
-  items:
-  - type: paragraph
-    text: Codez dans .NET ou REST ou utilisez le portail pour tester rapidement le concept.
-  - type: list
-    style: ordered
+      - type: paragraph
+        text: 'Démarrer avec un service de recherche dans le portail, puis définir, charger et interroger des index en C# ou REST.'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: /azure/search/media/index/portal.svg
+            text: Portail Azure
+            href: 'https://docs.microsoft.com/azure/search/search-create-service-portal'
+          - image:
+              src: /azure/search/media/index/logo_Csharp.svg
+            text: .NET
+            href: 'https://docs.microsoft.com/azure/search/search-create-index-dotnet'
+          - image:
+              src: /azure/search/media/index/rest.svg
+            text: REST
+            href: 'https://docs.microsoft.com/azure/search/search-fiddler'
+  - title: Didacticiels pas à pas
     items:
-    - html: <a href="/azure/search/cognitive-search-tutorial-blob">Index avec IA (Cognitive Services)</a>
-    - html: <a href="/azure/search/search-howto-dotnet-sdk">Utilisation de Recherche Azure avec .NET</a>
-    - html: <a href="/azure/search/search-indexer-tutorial">Indexer du contenu Azure SQL Database avec .NET</a>
-    - html: <a href="/azure/search/search-semi-structured-data">Indexer des données semi-structurées dans le stockage Blob Azure avec REST</a>
-    - html: <a href="/azure/search/search-get-started-portal">Utiliser le portail pour l’indexation et le test de requêtes</a>
-- title: Informations de référence
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: paragraph
+        text: Codez dans .NET ou REST ou utilisez le portail pour tester rapidement le concept.
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/azure/search/cognitive-search-tutorial-blob">Index avec IA (Cognitive Services)</a>
+          - html: "<a href=\"/azure/search/search-howto-dotnet-sdk\">Utilisation de Recherche\_Azure avec .NET</a>"
+          - html: "<a href=\"/azure/search/search-indexer-tutorial\">Indexer du contenu Azure\_SQL\_Database avec .NET</a>"
+          - html: <a href="/azure/search/search-semi-structured-data">Indexer des données semi-structurées dans le stockage Blob Azure avec REST</a>
+          - html: <a href="/azure/search/search-get-started-portal">Utiliser le portail pour l’indexation et le test de requêtes</a>
+  - title: Informations de référence
     items:
-    - title: Languages
-      html: <p><a href="/dotnet/api/?term=microsoft.azure.search">.NET</a></p><p><a href="/dotnet/api/?term=microsoft.azure.management.search">.NET (Management)</a></p><p><a href="https://docs.microsoft.com/python/api/?view=azure-python&term=search">Python (Management)</a></p>
-    - title: REST
-      html: <p><a href="/rest/api/searchservice">Référence de l’API du service</a></p><p><a href="/rest/api/searchmanagement">Référence de l’API de gestion</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Languages
+            html: '<p><a href="/dotnet/api/?term=microsoft.azure.search">.NET</a></p><p><a href="/dotnet/api/?term=microsoft.azure.management.search">.NET (Management)</a></p><p><a href="https://docs.microsoft.com/python/api/?view=azure-python&term=search">Python (Management)</a></p>'
+          - title: REST
+            html: <p><a href="/rest/api/searchservice">Référence de l’API du service</a></p><p><a href="/rest/api/searchmanagement">Référence de l’API de gestion</a></p>

@@ -1,24 +1,24 @@
 ---
-title: Créer une passerelle d’application qui héberge plusieurs sites web - Portail Azure
-description: Découvrez comment créer une passerelle d’application qui héberge plusieurs sites web avec le Portail Azure.
+title: 'Tutoriel : Créer une passerelle d’application qui héberge plusieurs sites web à l’aide du portail Azure'
+description: Dans ce tutoriel, vous découvrez comment créer une passerelle d’application qui héberge plusieurs sites web à l’aide du portail Azure.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: article
-ms.date: 2/20/2019
+ms.topic: tutorial
+ms.date: 4/18/2019
 ms.author: victorh
-ms.openlocfilehash: 86be94404e7ab492beeebd6a467d23e68e7bce6b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 3e27a79c7a6e3d39679118f532dd464a32463d69
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58080165"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59999023"
 ---
-# <a name="create-and-configure-an-application-gateway-to-host-multiple-web-sites-using-the-azure-portal"></a>Créer et configurer une passerelle d’application pour héberger plusieurs sites web avec le Portail Azure
+# <a name="tutorial-create-and-configure-an-application-gateway-to-host-multiple-web-sites-using-the-azure-portal"></a>Didacticiel : Créer et configurer une passerelle d’application pour héberger plusieurs sites web avec le Portail Azure
 
-Vous pouvez utiliser le Portail Azure pour [configurer l’hébergement de plusieurs sites web](multiple-site-overview.md) quand vous créez une [passerelle d’application](overview.md). Dans cet article, vous allez définir des pools d’adresses principaux à l’aide de machines virtuelles. Vous configurez ensuite des écouteurs et des règles en fonction des domaines qui vous appartiennent pour vérifier que le trafic web arrive sur les serveurs appropriés dans les pools. Cet article, qui part du principe que vous avez plusieurs domaines, utilise *www.contoso.com* et *www.fabrikam.com* en guise d’exemples.
+Vous pouvez utiliser le Portail Azure pour [configurer l’hébergement de plusieurs sites web](multiple-site-overview.md) quand vous créez une [passerelle d’application](overview.md). Dans ce tutoriel, vous allez définir des pools d’adresses principaux à l’aide de machines virtuelles. Vous configurez ensuite des écouteurs et des règles en fonction des domaines qui vous appartiennent pour vérifier que le trafic web arrive sur les serveurs appropriés dans les pools. Ce didacticiel, qui part du principe que vous avez plusieurs domaines, utilise *www.contoso.com* et *www.fabrikam.com* en guise d’exemples.
 
-Dans cet article, vous apprendrez comment :
+Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * Créer une passerelle Application Gateway
@@ -115,7 +115,7 @@ Dans cet exemple, vous créez deux machines virtuelles à utiliser en tant que s
       -Settings $publicSettings
     ```
 
-3. Créez la deuxième machine virtuelle et installez IIS en suivant la procédure que vous venez de terminer. Entrez les noms de *fabrikamVM* pour le nom et la valeur de VMName dans Set-AzVMExtension.
+3. Créez la deuxième machine virtuelle et installez IIS en suivant la procédure que vous venez de terminer. Entrez *fabrikamVM* comme nom et valeur de VMName dans Set-AzVMExtension.
 
 ## <a name="create-backend-pools-with-the-virtual-machines"></a>Créer des pools principaux avec les machines virtuelles
 
@@ -146,7 +146,7 @@ Dans cet exemple, vous créez deux machines virtuelles à utiliser en tant que s
 
 Les règles sont traitées dans l’ordre dans lequel elles sont répertoriées, et le trafic est dirigé selon la première règle correspondante, quelle que soit sa spécificité. Par exemple, si une règle utilise un écouteur de base et qu’une autre utilise un écouteur multisite sur le même port, la règle avec l’écouteur multisite doit être répertoriée avant la règle avec l’écouteur de base pour que la règle multisite fonctionne comme prévu. 
 
-Dans cet exemple, vous créez deux règles et supprimez la règle par défaut qui a été créée au moment de la création de la passerelle d’application. 
+Dans cet exemple, vous créez deux règles et supprimez la règle par défaut créée en même temps que la passerelle d’application.
 
 1. Cliquez sur **Règles**, puis sur **De base**.
 2. Entrez *contosoRule* comme nom.
@@ -179,6 +179,18 @@ Une fois la passerelle d’application créée avec son adresse IP publique, vou
 
     ![Tester le site fabrikam dans la passerelle d’application](./media/create-multiple-sites-portal/application-gateway-iistest2.png)
 
+## <a name="clean-up-resources"></a>Supprimer des ressources
+
+Quand vous n’avez plus besoin des ressources que vous avez créées avec la passerelle d’application, supprimez le groupe de ressources. En supprimant le groupe de ressources, vous supprimez aussi la passerelle d’application et toutes ses ressources associées.
+
+Pour supprimer le groupe de ressources :
+
+1. Dans le menu de gauche du portail Azure, sélectionnez **Groupes de ressources**.
+2. Dans la page **Groupes de ressources**, recherchez **myResourceGroupAG** dans la liste, puis sélectionnez ce groupe de ressources.
+3. Dans la page **Groupe de ressources**, sélectionnez **Supprimer le groupe de ressources**.
+4. Entrez *myResourceGroupAG* dans **TAPER LE NOM DU GROUPE DE RESSOURCES**, puis sélectionnez **Supprimer**.
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Configurer App Service avec Application Gateway](create-web-app.md)
+> [!div class="nextstepaction"]
+> [En savoir plus sur ce que vous pouvez faire avec Azure Application Gateway](application-gateway-introduction.md)

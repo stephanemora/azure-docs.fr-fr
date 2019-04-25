@@ -1,5 +1,5 @@
 - name: Documentation de l’API Analyse linguistique
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: "Qu’est-ce que l’API Analyse linguistique\_?"
       href: Home.md

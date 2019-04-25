@@ -1,14 +1,8 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 5f1d6005dd94bc700682e749f08c47356fcdc829
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
-ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56993331"
 documentType: LandingData
 title: Documentation Azure Sentinel (préversion)
 metadata:
-  title: Documentation Azure Sentinel (préversion) - Tutoriels, guides de démarrage rapide | Microsoft Doc
+  title: 'Documentation Azure Sentinel (préversion) - Tutoriels, guides de démarrage rapide | Microsoft Doc'
   meta.description: Azure Sentinel is a cloud-native SIEM that provides intelligent security analytics for your entire enterprise at cloud scale.
   services: sentinel
   author: cmcclister
@@ -20,49 +14,49 @@ metadata:
   ms.date: 02/28/19
   ms.author: cmcclister
 abstract:
-  description: Azure Sentinel (préversion) est une solution SIEM native cloud qui fournit une analytique intelligente de la sécurité pour l’ensemble de votre entreprise à l’échelle du cloud. Profitez d’une vitesse et d’une mise à l’échelle illimitées du cloud pour vous permettre de vous concentrer sur ce qui est vraiment important. Collectez facilement des données à partir de toutes vos ressources locales et cloud, d’Office 365, de ressources Azure et d’autres clouds. Détectez efficacement les menaces avec le machine learning intégré des experts Microsoft en analytique de la sécurité. Automatisez les réponses aux menaces à l’aide des playbooks d’orchestration et d’automatisation intégrés.
+  description: "Azure Sentinel (préversion) est une solution SIEM native cloud qui fournit une analytique intelligente de la sécurité pour l’ensemble de votre entreprise à l’échelle du cloud. Profitez d’une vitesse et d’une mise à l’échelle illimitées du cloud pour vous permettre de vous concentrer sur ce qui est vraiment important. Collectez facilement des données à partir de toutes vos ressources locales et cloud, d’Office\_365, de ressources Azure et d’autres clouds. Détectez efficacement les menaces avec le machine learning intégré des experts Microsoft en analytique de la sécurité. Automatisez les réponses aux menaces à l’aide des playbooks d’orchestration et d’automatisation intégrés."
 sections:
-- title: Démarrages en 5 minutes
-  items:
-  - type: paragraph
-    text: Découvrez comment intégrer vos données à Azure Sentinel et obtenir une visibilité de vos données et des menaces potentielles.
-  - type: list
-    style: icon48
+  - title: "Démarrages en 5\_minutes"
     items:
-    - image:
-        src: media/index/deploy.svg
-      text: Intégrer Azure Sentinel
-      href: /azure/sentinel/quickstart-onboard
-    - image:
-        src: media/index/get-started.svg
-      text: Bien démarrer avec Azure Sentinel
-      href: /azure/sentinel/quickstart-get-visibility
-- title: Didacticiels pas à pas
-  items:
-  - type: paragraph
-    text: Découvrez comment définir des stratégies de sécurité, protéger vos ressources contre les activités malveillantes et répondre à des incidents et des alertes de sécurité.
-  - type: list
-    style: ordered
+      - type: paragraph
+        text: Découvrez comment intégrer vos données à Azure Sentinel et obtenir une visibilité de vos données et des menaces potentielles.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: media/index/deploy.svg
+            text: Intégrer Azure Sentinel
+            href: /azure/sentinel/quickstart-onboard
+          - image:
+              src: media/index/get-started.svg
+            text: Bien démarrer avec Azure Sentinel
+            href: /azure/sentinel/quickstart-get-visibility
+  - title: Didacticiels pas à pas
     items:
-    - html: <a href="/azure/sentinel/tutorial-detect-threats">Détecter les menaces avec Azure Sentinel</a>
-    - html: <a href="/azure/sentinel/tutorial-respond-threats-playbook">Configurer des réponses automatisées aux menaces</a>
-- title: Développer vos compétences avec Microsoft Learn
-  items:
-  - type: list
-    style: cards
-    className: cardsFTitle
+      - type: paragraph
+        text: 'Découvrez comment définir des stratégies de sécurité, protéger vos ressources contre les activités malveillantes et répondre à des incidents et des alertes de sécurité.'
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/azure/sentinel/tutorial-detect-threats">Détecter les menaces avec Azure Sentinel</a>
+          - html: <a href="/azure/sentinel/tutorial-respond-threats-playbook">Configurer des réponses automatisées aux menaces</a>
+  - title: Développer vos compétences avec Microsoft Learn
     items:
-    - title: Présentation de la sécurité dans Azure
-      href: https://docs.microsoft.com/learn/azure
-      image:
-        src: media/index/tutorial.svg
-        href: https://docs.microsoft.com/learn/azure
-  - type: paragraph
-    text: <a href="/learn/browse/?term=security">Plus de formations interactives...</a>
-- title: Informations de référence
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: list
+        style: cards
+        className: cardsFTitle
+        items:
+          - title: Présentation de la sécurité dans Azure
+            href: 'https://docs.microsoft.com/learn/azure'
+            image:
+              src: media/index/tutorial.svg
+              href: 'https://docs.microsoft.com/learn/azure'
+      - type: paragraph
+        text: <a href="/learn/browse/?term=security">Plus de formations interactives...</a>
+  - title: Informations de référence
     items:
-    - html: <a href="https://azure.microsoft.com/updates/?product=sentinel">Mises à jour de service</a>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - html: '<a href="https://azure.microsoft.com/updates/?product=sentinel">Mises à jour de service</a>'

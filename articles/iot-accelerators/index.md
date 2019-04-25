@@ -13,11 +13,11 @@ ms.topic: landing-page
 ms.date: 12/17/2018
 ms.author: dobett
 ms.openlocfilehash: 2295ca75b7ca266506dbc45b9017a08001ce6e2a
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53559949"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61451158"
 ---
 # <a name="iot-solution-accelerators-documentation"></a>Documentation sur les accélérateurs de solution IoT
 
@@ -139,17 +139,17 @@ Apprenez à utiliser les accélérateurs de solution IoT. Ces articles montrent 
 
 <h3>Prise en main des accélérateurs de solution IoT :</h3>
 
-* [Essayer une solution de surveillance informatique à distance](quickstart-remote-monitoring-deploy.md)
+* [Essayer une solution de supervision informatique à distance](quickstart-remote-monitoring-deploy.md)
 * [Essayer une solution de fabrique connectée informatique](quickstart-connected-factory-deploy.md)
 * [Essayer une solution de simulation d’appareil informatique](quickstart-device-simulation-deploy.md)
 * [Essayer une solution de maintenance prédictive informatique](quickstart-predictive-maintenance-deploy.md)
 
-<h2>Tutoriels pas à pas</h2>
+<h2>Didacticiels pas à pas</h2>
 
 <h3>Informez-vous sur les accélérateurs de solution IoT et les scénarios clés qu’ils implémentent :</h3>
 
 1. [Surveillez vos appareils IoT](iot-accelerators-remote-monitoring-monitor.md)
-1. [Détectez les problèmes liés aux appareils connectés à votre solution de surveillance](iot-accelerators-remote-monitoring-automate.md)
-1. [Configurer et gérer les appareils connectés à votre solution de surveillance](iot-accelerators-remote-monitoring-manage.md)
+1. [Détectez les problèmes liés aux appareils connectés à votre solution de supervision](iot-accelerators-remote-monitoring-automate.md)
+1. [Configurer et gérer les appareils connectés à votre solution de supervision](iot-accelerators-remote-monitoring-manage.md)
 1. [Effectuer une analyse de cause racine sur une alerte](iot-accelerators-remote-monitoring-root-cause-analysis.md)
 1. [Utilisez les alertes et résolvez les problèmes liés aux appareils](iot-accelerators-remote-monitoring-maintain.md)

@@ -1,5 +1,5 @@
 - name: Documentation de l’API Modèle de langage web
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: "Qu’est-ce que l’API Modèle de langage web\_?"
       href: Home.md

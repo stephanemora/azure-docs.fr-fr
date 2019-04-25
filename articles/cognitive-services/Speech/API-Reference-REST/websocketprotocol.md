@@ -12,11 +12,11 @@ ms.date: 09/18/2018
 ms.author: zhouwang
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: d6601f57d87b518b2061df64174818432b822755
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58076188"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60515318"
 ---
 # <a name="bing-speech-websocket-protocol"></a>Protocole WebSocket pour la reconnaissance vocale Bing
 
@@ -174,7 +174,7 @@ Les clients *doivent* envoyer un message `speech.config` dès qu’ils ont étab
 
 | Champ | Description |
 |----|----|
-| Encodage des messages WebSocket | Texte |
+| Encodage des messages WebSocket | Text |
 | body | Charge utile sous la forme d’une structure JSON |
 
 #### <a name="required-message-headers"></a>En-têtes de message requis
@@ -307,7 +307,7 @@ Les clients doivent accuser réception de la fin d’un tour en envoyant un mess
 
 | Champ | Description |
 | ------------- | ---------------- |
-| Encodage des messages WebSocket | Texte |
+| Encodage des messages WebSocket | Text |
 | path | `telemetry` |
 | X-Timestamp | Horodatage de l’horloge UTC cliente au format ISO 8601 |
 | Content-Type | `application/json` |
@@ -329,7 +329,7 @@ Le message `speech.startDetected` indique que le service Speech a détecté un �
 
 | Champ | Description |
 | ------------- | ---------------- |
-| Encodage des messages WebSocket | Texte |
+| Encodage des messages WebSocket | Text |
 | path | `speech.startDetected` |
 | Content-Type | application/json; charset=utf-8 |
 | body | Structure JSON qui contient des informations sur les conditions dans lesquelles le début de l’énoncé a été détecté. Le champ *Offset* de cette structure spécifie le décalage (en unités de 100 nanosecondes) avec lequel l’énoncé a été détecté par rapport au début du flux audio. |
@@ -354,7 +354,7 @@ Pendant la reconnaissance vocale, le service Speech génère régulièrement des
 
 | Champ | Description |
 | ------------- | ---------------- |
-| Encodage des messages WebSocket | Texte |
+| Encodage des messages WebSocket | Text |
 | path | `speech.hypothesis` |
 | X-RequestId | UUID au format « sans tirets » |
 | Content-Type | application/json |
@@ -386,7 +386,7 @@ Quand le service Speech détermine qu’il possède suffisamment d’information
 
 | Champ | Description |
 | ------------- | ---------------- |
-| Encodage des messages WebSocket | Texte |
+| Encodage des messages WebSocket | Text |
 | path | `speech.phrase` |
 | Content-Type | application/json |
 | body | Structure JSON de l’expression de reconnaissance vocale |
@@ -414,7 +414,7 @@ Le message `speech.endDetected` spécifie que l’application cliente doit arrê
 
 | Champ | Description |
 | ------------- | ---------------- |
-| Encodage des messages WebSocket | Texte |
+| Encodage des messages WebSocket | Text |
 | path | `speech.endDetected` |
 | body | Structure JSON qui contient le décalage avec lequel la fin de l’énoncé a été détectée. Le décalage est représenté en unités de 100 nanosecondes par rapport au début du contenu audio utilisé pour la reconnaissance. |
 | Content-Type | application/json; charset=utf-8 |
@@ -439,7 +439,7 @@ Le message `turn.start` signale le début d’un tour du point de vue du service
 
 | Champ | Description |
 | ------------- | ---------------- |
-| Encodage des messages WebSocket | Texte |
+| Encodage des messages WebSocket | Text |
 | path | `turn.start` |
 | Content-Type | application/json; charset=utf-8 |
 | body | Structure JSON |
@@ -466,7 +466,7 @@ Le message `turn.end` signale la fin d’un tour du point de vue du service. Le 
 
 | Champ | Description |
 | ------------- | ---------------- |
-| Encodage des messages WebSocket | Texte |
+| Encodage des messages WebSocket | Text |
 | path | `turn.end` |
 | body | Aucun |
 
@@ -514,7 +514,7 @@ La métrique `Connection` spécifie des détails sur les tentatives de connexion
 | Terminer | Heure à laquelle le client a reçu la notification selon laquelle la connexion a été établie ou, en cas d’erreur, heure de son rejet, refus ou échec | Obligatoire |
 | Error | Description de l’erreur qui s’est produite, le cas échéant. Si la connexion a réussi, les clients doivent omettre ce champ. La longueur maximale de ce champ est de 50 caractères. | Obligatoire pour les cas d’erreur, omis sinon |
 
-La description de l’erreur ne doit pas dépasser 50 caractères et doit idéalement être une des valeurs répertoriées dans le tableau suivant. Si la condition d’erreur ne correspond pas à une des valeurs suivantes, les clients peuvent utiliser une description succincte de la condition d’erreur en recourant à la [technique du camel case](https://en.wikipedia.org/wiki/Camel_case) sans espace blanc. L’envoi d’un message de *télémétrie* supposant une connexion au service, seules les conditions d’erreur passagères ou temporaires peuvent être signalées dans ce message. Les conditions d’erreur qui empêchent *définitivement* un client d’établir une connexion au service l’empêche d’envoyer un message au service, y compris les messages de *télémétrie*.
+La description de l’erreur ne doit pas dépasser 50 caractères et doit idéalement être une des valeurs répertoriées dans le tableau suivant. Si la condition d’erreur ne correspond pas à une des valeurs suivantes, les clients peuvent utiliser une description succincte de la condition d’erreur en recourant à la [technique du camel case](https://en.wikipedia.org/wiki/Camel_case) sans espace blanc. L’envoi d’un message de *télémétrie* supposant une connexion au service, seules les conditions d’erreur passagères ou temporaires peuvent être signalées dans ce message.** Les conditions d’erreur qui empêchent *définitivement* un client d’établir une connexion au service l’empêche d’envoyer un message au service, y compris les messages de *télémétrie*.
 
 | Error | Usage |
 | ----- | ----- |

@@ -1,99 +1,92 @@
-items:
 - name: Documentation Recherche visuelle Bing
   href: index.yml
 - name: Vue d’ensemble
   items:
-  - name: Qu’est-ce que l’API Recherche visuelle Bing ?
-    href: overview.md
-  - name: Comparer les API Recherche Bing
-    href: ../Bing-Web-Search/bing-api-comparison.md
-    maintainContext: true
+    - name: "Qu’est-ce que l’API Recherche visuelle Bing\_?"
+      href: overview.md
+    - name: Comparer les API Recherche Bing
+      href: ../Bing-Web-Search/bing-api-comparison.md
+      maintainContext: true
 - name: Démarrages rapides
   items:
-  - name: API REST
-    items:
-    - name: Utilisation de C#
-      href: quickstarts/csharp.md
-    - name: Utilisation de Java
-      href: quickstarts/java.md
-    - name: Utilisation de Node.js
-      href: quickstarts/nodejs.md
-    - name: Utilisation de Python
-      href: quickstarts/python.md
-    - name: Utilisation de Ruby
-      href: quickstarts/ruby.md
-    - name: Utilisation de Go
-      href: quickstarts/go.md
-    expanded: true
-  - name: 'Kit SDK '
-    items:
-    - name: Utilisation de C#
-      href: visual-search-sdk-c-sharp.md
-    - name: Utilisation de Node.js
-      href: visual-search-sdk-node.md
-    - name: Utilisation de Python
-      href: visual-search-sdk-python.md
-    expanded: true
+    - name: API REST
+      expanded: true
+      items:
+        - name: 'Utilisation de C#'
+          href: quickstarts/csharp.md
+        - name: Utilisation de Java
+          href: quickstarts/java.md
+        - name: Utilisation de Node.js
+          href: quickstarts/nodejs.md
+        - name: Utilisation de Python
+          href: quickstarts/python.md
+        - name: Utilisation de Ruby
+          href: quickstarts/ruby.md
+        - name: Utilisation de Go
+          href: quickstarts/go.md
+    - name: 'Kit SDK '
+      expanded: true
+      items:
+        - name: 'Utilisation de C#'
+          href: visual-search-sdk-c-sharp.md
+        - name: Utilisation de Node.js
+          href: visual-search-sdk-node.md
+        - name: Utilisation de Python
+          href: visual-search-sdk-python.md
 - name: Tutoriels
   items:
-  - name: Chargement d’une image
-    href: tutorial-visual-search-image-upload.md
-  - name: Rogner et rechercher dans une zone d’image
-    href: tutorial-visual-search-crop-area-results.md
+    - name: Chargement d’une image
+      href: tutorial-visual-search-image-upload.md
+    - name: Rogner et rechercher dans une zone d’image
+      href: tutorial-visual-search-crop-area-results.md
 - name: Exemples
   items:
-  - name: Exemples de code
-    href: https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Visual+Search
+    - name: Exemples de code
+      href: 'https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Visual+Search'
 - name: Concepts
   items:
-  - name: Envoi de requêtes
-    href: concepts/sending-queries.md
-  - name: Informations sur les images par défaut
-    href: default-insights-tag.md
-  - name: Utilisation des informations Bing
-    href: bing-insights-usage.md
-  - name: Analytique pour l’API Recherche visuelle
-    href: bing-visual-search-stats.md
+    - name: Envoi de requêtes
+      href: concepts/sending-queries.md
+    - name: Informations sur les images par défaut
+      href: default-insights-tag.md
+    - name: Utilisation des informations Bing
+      href: bing-insights-usage.md
+    - name: Analytique pour l’API Recherche visuelle
+      href: bing-visual-search-stats.md
 - name: Guides pratiques
   items:
-  - name: Obtenir des informations à l’aide d’un jeton
-    href: use-insights-token.md
-  - name: Redimensionner et rogner les miniatures
-    href: resize-and-crop-thumbnails.md
-  - name: Rechercher une image à l’aide de jetons d’insight d’image
-    href: tutorial-visual-search-insights-token.md
-  - name: Créer une application web monopage
-    href: tutorial-bing-visual-search-single-page-app.md
+    - name: Obtenir des informations à l’aide d’un jeton
+      href: use-insights-token.md
+    - name: Redimensionner et rogner les miniatures
+      href: resize-and-crop-thumbnails.md
+    - name: Rechercher une image à l’aide de jetons d’insight d’image
+      href: tutorial-visual-search-insights-token.md
+    - name: Créer une application web monopage
+      href: tutorial-bing-visual-search-single-page-app.md
 - name: Informations de référence
   items:
-  - name: API REST v7
-    href: https://aka.ms/bingvisualsearchreferencedoc
-  - name: Kits SDK
-    items:
-    - name: .NET
-      href: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingvisualsearch?view=azure-dotnet
-    - name: Java
-      href: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/visualsearch?view=azure-java-stable
-    - name: Python
-      href: https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/visualsearch?view=azure-python
-  - name: Conditions d’utilisation et d’affichage
-    href: ../Bing-Web-Search/use-display-requirements.md
-    maintainContext: true
+    - name: API REST v7
+      href: 'https://aka.ms/bingvisualsearchreferencedoc'
+    - name: Kits SDK
+      items:
+        - name: .NET
+          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingvisualsearch?view=azure-dotnet'
+        - name: Java
+          href: 'https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/visualsearch?view=azure-java-stable'
+        - name: Python
+          href: 'https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/visualsearch?view=azure-python'
+    - name: Conditions d’utilisation et d’affichage
+      href: ../Bing-Web-Search/use-display-requirements.md
+      maintainContext: true
 - name: Ressources
   items:
-  - name: Prise en charge de la région et de la langue
-    href: language-support.md
-  - name: Obtenir la clé d’accès gratuit
-    href: https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api
-  - name: Essayez !
-    href: https://aka.ms/bingvisualsearchtryforfree
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/bing-search
-  - name: User Voice
-    href: https://cognitive.uservoice.com/forums/555907-bing-search
-ms.openlocfilehash: 13e61130d7cd1225b00251991540a963c61b0b83
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
-ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57314889"
+    - name: Prise en charge de la région et de la langue
+      href: language-support.md
+    - name: Obtenir la clé d’accès gratuit
+      href: 'https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api'
+    - name: "Essayez\_!"
+      href: 'https://aka.ms/bingvisualsearchtryforfree'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/bing-search'
+    - name: User Voice
+      href: 'https://cognitive.uservoice.com/forums/555907-bing-search'

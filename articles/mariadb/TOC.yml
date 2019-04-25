@@ -1,174 +1,167 @@
-items:
 - name: Documents de Azure Database pour MariaDB
   href: index.yml
 - name: Vue d’ensemble
   items:
-  - name: Qu’est-ce qu’Azure DB for MariaDB ?
-    href: overview.md
+    - name: "Qu’est-ce qu’Azure DB for MariaDB\_?"
+      href: overview.md
 - name: Démarrages rapides
-  items:
-  - name: Créer une base de données - Portail
-    href: quickstart-create-mariadb-server-database-using-azure-portal.md
-  - name: Créer une base de données - Interface de ligne de commande Azure
-    href: quickstart-create-mariadb-server-database-using-azure-cli.md
-  - name: Connexion et requête
-    items:
-    - name: MySQL Workbench
-      href: connect-workbench.md
   expanded: true
+  items:
+    - name: Créer une base de données - Portail
+      href: quickstart-create-mariadb-server-database-using-azure-portal.md
+    - name: Créer une base de données - Interface de ligne de commande Azure
+      href: quickstart-create-mariadb-server-database-using-azure-cli.md
+    - name: Connexion et requête
+      items:
+        - name: MySQL Workbench
+          href: connect-workbench.md
 - name: Tutoriels
   items:
-  - name: Concevoir une base de données
-    items:
-    - name: Portail Azure
-      href: tutorial-design-database-using-portal.md
-    - name: Azure CLI
-      href: tutorial-design-database-cli.md
+    - name: Concevoir une base de données
+      items:
+        - name: Portail Azure
+          href: tutorial-design-database-using-portal.md
+        - name: Azure CLI
+          href: tutorial-design-database-cli.md
 - name: Exemples
   items:
-  - name: Azure CLI
-    href: sample-scripts-azure-cli.md
+    - name: Azure CLI
+      href: sample-scripts-azure-cli.md
 - name: Concepts
   items:
-  - name: Base de données et serveurs
-    items:
-    - name: Serveurs
-      href: concepts-servers.md
-    - name: Versions prises en charge
-      href: concepts-supported-versions.md
-    - name: Haute disponibilité
-      href: concepts-high-availability.md
-  - name: Ressources
-    items:
-    - name: Niveaux de tarification
-      href: concepts-pricing-tiers.md
-    - name: limites
-      href: concepts-limits.md
-  - name: Accès aux données et sécurité
-    items:
-    - name: Règles de pare-feu
-      href: concepts-firewall-rules.md
-    - name: Configuration de SSL
-      href: concepts-ssl-connection-security.md
-    - name: Réseau virtuel
-      href: concepts-data-access-security-vnet.md
-  - name: Continuité de l’activité
-    items:
-    - name: Vue d’ensemble
-      href: concepts-business-continuity.md
-    - name: Sauvegarde et restauration
-      href: concepts-backup.md
-  - name: Surveiller
-    items:
+    - name: Base de données et serveurs
+      items:
+        - name: Serveurs
+          href: concepts-servers.md
+        - name: Versions prises en charge
+          href: concepts-supported-versions.md
+        - name: Haute disponibilité
+          href: concepts-high-availability.md
+    - name: Ressources
+      items:
+        - name: Niveaux de tarification
+          href: concepts-pricing-tiers.md
+        - name: limites
+          href: concepts-limits.md
+    - name: Accès aux données et sécurité
+      items:
+        - name: Règles de pare-feu
+          href: concepts-firewall-rules.md
+        - name: Configuration de SSL
+          href: concepts-ssl-connection-security.md
+        - name: Réseau virtuel
+          href: concepts-data-access-security-vnet.md
+    - name: Continuité de l’activité
+      items:
+        - name: Vue d’ensemble
+          href: concepts-business-continuity.md
+        - name: Sauvegarde et restauration
+          href: concepts-backup.md
     - name: Surveiller
-      href: concepts-monitoring.md
-    - name: Journaux d’activité du serveur
-      href: concepts-server-logs.md
-  - name: Développement
-    items:
-    - name: Compatibilité des pilotes et des outils
-      href: concepts-compatibility.md
-    - name: Résilience de connexion
-      href: concepts-connectivity.md
-  - name: Réplication
-    items:
-    - name: Réplication de données entrantes
-      href: concepts-data-in-replication.md
+      items:
+        - name: Surveiller
+          href: concepts-monitoring.md
+        - name: Journaux d’activité du serveur
+          href: concepts-server-logs.md
+    - name: Développement
+      items:
+        - name: Compatibilité des pilotes et des outils
+          href: concepts-compatibility.md
+        - name: Résilience de connexion
+          href: concepts-connectivity.md
+    - name: Réplication
+      items:
+        - name: Réplication de données entrantes
+          href: concepts-data-in-replication.md
 - name: Guides pratiques
   items:
-  - name: Règles de pare-feu
-    items:
-    - name: Portail Azure
-      href: howto-manage-firewall-portal.md
-    - name: Azure CLI
-      href: howto-manage-firewall-cli.md
-  - name: Restaurer un serveur
-    items:
-    - name: Portail Azure
-      href: howto-restore-server-portal.md
-    - name: Azure CLI
-      href: howto-restore-server-cli.md
-  - name: Migrer une base de données
-    items:
-    - name: Vider et restaurer
-      href: howto-migrate-dump-restore.md
-  - name: Connecter des applications
-    items:
-    - name: Créer des utilisateurs
-      href: howto-create-users.md
-    - name: Chaînes de connexion
-      href: howto-connection-string.md
-    - name: Configuration du chiffrement SSL
-      href: howto-configure-ssl.md
-  - name: Configurer les paramètres du serveur
-    items:
-    - name: Portail Azure
-      href: howto-server-parameters.md
-    - name: Azure CLI
-      href: howto-configure-server-parameters-cli.md
-  - name: Accéder aux journaux d’activité du serveur
-    items:
-    - name: Portail Azure
-      href: howto-configure-server-logs-portal.md
-    - name: Azure CLI
-      href: howto-configure-server-logs-cli.md
-  - name: Surveiller
-    items:
-    - name: Créer des alertes sur les mesures
-      href: howto-alert-metric.md
-  - name: Réplication
-    items:
-    - name: Configurer la réplication de données entrantes
-      href: howto-data-in-replication.md
-  - name: Résolution des problèmes
-    items:
-    - name: Résoudre les erreurs de connexion
-      href: howto-troubleshoot-common-connection-issues.md
-    - name: Dépannage de la performance des requêtes
-      href: howto-troubleshoot-query-performance.md
-  - name: Réseau virtuel
-    items:
-    - name: Portail Azure
-      href: howto-manage-vnet-portal.md
-    - name: Azure CLI
-      href: howto-manage-vnet-cli.md
-  - name: Redémarrer le serveur
-    items:
-    - name: Portail Azure
-      href: howto-restart-server-portal.md
-    - name: Azure CLI
-      href: howto-restart-server-cli.md
+    - name: Règles de pare-feu
+      items:
+        - name: Portail Azure
+          href: howto-manage-firewall-portal.md
+        - name: Azure CLI
+          href: howto-manage-firewall-cli.md
+    - name: Restaurer un serveur
+      items:
+        - name: Portail Azure
+          href: howto-restore-server-portal.md
+        - name: Azure CLI
+          href: howto-restore-server-cli.md
+    - name: Migrer une base de données
+      items:
+        - name: Vider et restaurer
+          href: howto-migrate-dump-restore.md
+    - name: Connecter des applications
+      items:
+        - name: Créer des utilisateurs
+          href: howto-create-users.md
+        - name: Chaînes de connexion
+          href: howto-connection-string.md
+        - name: Configuration du chiffrement SSL
+          href: howto-configure-ssl.md
+    - name: Configurer les paramètres du serveur
+      items:
+        - name: Portail Azure
+          href: howto-server-parameters.md
+        - name: Azure CLI
+          href: howto-configure-server-parameters-cli.md
+    - name: Accéder aux journaux d’activité du serveur
+      items:
+        - name: Portail Azure
+          href: howto-configure-server-logs-portal.md
+        - name: Azure CLI
+          href: howto-configure-server-logs-cli.md
+    - name: Surveiller
+      items:
+        - name: Créer des alertes sur les mesures
+          href: howto-alert-metric.md
+    - name: Réplication
+      items:
+        - name: Configurer la réplication de données entrantes
+          href: howto-data-in-replication.md
+    - name: Résolution des problèmes
+      items:
+        - name: Résoudre les erreurs de connexion
+          href: howto-troubleshoot-common-connection-issues.md
+        - name: Dépannage de la performance des requêtes
+          href: howto-troubleshoot-query-performance.md
+    - name: Réseau virtuel
+      items:
+        - name: Portail Azure
+          href: howto-manage-vnet-portal.md
+        - name: Azure CLI
+          href: howto-manage-vnet-cli.md
+    - name: Redémarrer le serveur
+      items:
+        - name: Portail Azure
+          href: howto-restart-server-portal.md
+        - name: Azure CLI
+          href: howto-restart-server-cli.md
 - name: Informations de référence
   items:
-  - name: Azure CLI
-    href: /cli/azure/mariadb
-  - name: API REST
-    href: /rest/api/mariadb
-  - name: Modèle Resource Manager
-    href: /azure/templates/microsoft.dbformariadb/allversions
-  - name: Procédures stockées de réplication de données entrantes
-    href: reference-data-in-stored-procedures.md
+    - name: Azure CLI
+      href: /cli/azure/mariadb
+    - name: API REST
+      href: /rest/api/mariadb
+    - name: Modèle Resource Manager
+      href: /azure/templates/microsoft.dbformariadb/allversions
+    - name: Procédures stockées de réplication de données entrantes
+      href: reference-data-in-stored-procedures.md
 - name: Ressources
   items:
-  - name: Modèles de déploiement
-    href: https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Dbformariadb
-  - name: Feuille de route Azure
-    href: https://azure.microsoft.com/roadmap/?category=databases
-  - name: Tarifs
-    href: https://azure.microsoft.com/pricing/details/mariadb/
-  - name: Forum MSDN
-    href: https://social.msdn.microsoft.com/forums/en-US/home?forum=AzureDatabaseforMariaDB
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-database-mariadb
-  - name: Demander une fonctionnalité
-    href: https://feedback.azure.com/forums/915439-azure-database-for-mariadb
-  - name: Disponibilité des régions
-    href: https://azure.microsoft.com/regions/services/
-  - name: Options de support
-    href: https://azure.microsoft.com/support/options/
-ms.openlocfilehash: 1ad8ddc0cf189189b9457dabe6c2c2d665c838c3
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
-ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621123"
+    - name: Modèles de déploiement
+      href: 'https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Dbformariadb'
+    - name: Feuille de route Azure
+      href: 'https://azure.microsoft.com/roadmap/?category=databases'
+    - name: Tarifs
+      href: 'https://azure.microsoft.com/pricing/details/mariadb/'
+    - name: Forum MSDN
+      href: 'https://social.msdn.microsoft.com/forums/en-US/home?forum=AzureDatabaseforMariaDB'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-database-mariadb'
+    - name: Demander une fonctionnalité
+      href: 'https://feedback.azure.com/forums/915439-azure-database-for-mariadb'
+    - name: Disponibilité des régions
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Options de support
+      href: 'https://azure.microsoft.com/support/options/'

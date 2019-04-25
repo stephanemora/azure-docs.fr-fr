@@ -15,18 +15,18 @@ ms.workload: identity
 ms.date: 08/20/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b402fa754105b734bfc7abbd2790a2a12afc6ff4
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 60938f26c27b9f94046b1be8e3d0cb6b247017c9
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523356"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59997782"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-ad-graph-api"></a>Didacticiel : Utiliser une identité managée de machine virtuelle Windows affectée par le système pour accéder à l’API Azure AD Graph
 
 [!INCLUDE [preview-notice](~/includes/active-directory-msi-preview-notice.md)]
 
-Ce didacticiel vous indique comment utiliser une identité managée de machine virtuelle Windows affectée par le système pour accéder à l’API Microsoft Graph afin de récupérer ses appartenances aux groupes. Les identités managées pour ressources Azure sont gérées automatiquement par Azure et vous permettent de vous authentifier auprès des services prenant en charge l’authentification Azure AD sans avoir à insérer des informations d’identification dans votre code.  Dans le cadre de ce didacticiel, vous allez effectuer une requête sur l’appartenance de l’identité de votre machine virtuelle à des groupes Azure AD. Les informations de groupe sont souvent utilisées pour les décisions d’autorisation, par exemple. En coulisses, l’identité managée de votre machine virtuelle est représentée par un **principal de service** dans Azure AD. Avant de procéder à la requête relative au groupe, ajoutez le principal de service représentant l’identité de la machine virtuelle à un groupe dans Azure AD. Vous pouvez effectuer cette opération à l’aide d’Azure PowerShell, d’Azure AD PowerShell ou de l’interface de ligne de commande Azure.
+Ce didacticiel vous indique comment utiliser une identité managée de machine virtuelle Windows affectée par le système pour accéder à l’API Azure AD Graph afin de récupérer ses appartenances aux groupes. Les identités managées pour ressources Azure sont gérées automatiquement par Azure et vous permettent de vous authentifier auprès des services prenant en charge l’authentification Azure AD sans avoir à insérer des informations d’identification dans votre code.  Dans le cadre de ce didacticiel, vous allez effectuer une requête sur l’appartenance de l’identité de votre machine virtuelle à des groupes Azure AD. Les informations de groupe sont souvent utilisées pour les décisions d’autorisation, par exemple. En coulisses, l’identité managée de votre machine virtuelle est représentée par un **principal de service** dans Azure AD. Avant de procéder à la requête relative au groupe, ajoutez le principal de service représentant l’identité de la machine virtuelle à un groupe dans Azure AD. Vous pouvez effectuer cette opération à l’aide d’Azure PowerShell, d’Azure AD PowerShell ou de l’interface de ligne de commande Azure.
 
 > [!div class="checklist"]
 > * Se connecter à Azure AD

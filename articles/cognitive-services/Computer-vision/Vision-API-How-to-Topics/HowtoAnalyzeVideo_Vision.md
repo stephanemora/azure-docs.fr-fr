@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 03/21/2019
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: fb684a59362e0f7b6ccdc2ca05fda1b89def2835
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: feafb983a7b9e4aea6091753842b03a65ccd3ca5
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351845"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60001556"
 ---
 # <a name="how-to-analyze-videos-in-real-time"></a>Comment analyser des vidéos en temps réel
 
@@ -194,7 +194,7 @@ Le deuxième exemple d’application est un peu plus intéressant. Il vous perme
 
 Dans la plupart des modes, il y aura un délai visible entre la vidéo en direct à gauche et l’analyse visualisée à droite. Ce délai correspond au temps nécessaire pour effectuer l’appel d’API. L’exception à cette règle est le mode « EmotionsWithClientFaceDetect », qui effectue la détection de visage localement sur l’ordinateur client à l’aide d’OpenCV, avant d’envoyer des images à Cognitive Services. Ce faisant, nous pouvons visualiser le visage détecté immédiatement, puis mettre à jour les émotions ultérieurement, après le retour de l’appel d’API. Cela illustre la possibilité d’une approche « hybride », où un traitement simple peut être effectué sur le client, puis les API Cognitive Services peuvent être utilisées pour compléter ce traitement avec une analyse plus approfondie si nécessaire.
 
-![Capture d’écran de l’application LiveCameraSample montrant une image avec étiquettes affichées](../../Video/Images/FramebyFrame.jpg)
+![Capture d’écran de l’application LiveCameraSample montrant une image avec balises affichées](../../Video/Images/FramebyFrame.jpg)
 
 ### <a name="integrating-into-your-codebase"></a>Intégration dans votre base de code
 
@@ -216,7 +216,7 @@ Les fonctionnalités de compréhension d’image, de voix, de vidéo ou de texte
 
 ## <a name="summary"></a>Résumé
 
-Dans ce guide, vous avez découvert comment exécuter une analyse en temps quasi réel de flux vidéo en direct à l’aide des API Visage, Vision par ordinateur et Émotion, et comment utiliser notre exemple de code pour bien démarrer. Vous pouvez commencer à créer votre application avec des clés API gratuites en accédant à la [page d’inscription de Microsoft Cognitive Services](https://azure.microsoft.com/try/cognitive-services/). 
+Dans ce guide, vous avez découvert comment exécuter une analyse en temps quasi réel de flux vidéo en direct à l’aide des API Visage, Vision par ordinateur et Émotion, et comment utiliser notre exemple de code pour bien démarrer. Vous pouvez commencer à créer votre application avec des clés API gratuites en accédant à la [page d’inscription de Azure Cognitive Services](https://azure.microsoft.com/try/cognitive-services/). 
 
 N’hésitez pas à soumettre vos commentaires et suggestions dans le [dépôt GitHub](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) ou, pour envoyer des commentaires plus généraux sur les API, sur notre  [site UserVoice](https://cognitive.uservoice.com/).
 

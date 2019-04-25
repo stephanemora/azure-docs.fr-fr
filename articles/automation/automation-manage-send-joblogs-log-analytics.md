@@ -97,9 +97,9 @@ Diagnostic d’Azure Automation crée deux types d’enregistrements dans les jo
 | Tenant_g | GUID identifiant le locataire pour l’appelant. |
 | JobId_g |GUID représentant l’ID du travail du runbook. |
 | ResultType |L’état du travail du runbook. Les valeurs possibles sont les suivantes :<br>- Nouveau<br>Démarré<br>Arrêté<br>Interrompu<br>Échec<br>- Terminé |
-| Catégorie | Classification du type de données. Pour Automation, la valeur est JobLogs. |
+| Category | Classification du type de données. Pour Automation, la valeur est JobLogs. |
 | OperationName | Spécifie le type d’opération exécutée dans Azure. Pour Automation, la valeur est Job. |
-| Ressource | Nom du compte Automation |
+| Resource | Nom du compte Automation |
 | SourceSystem | Fonctionnement des journaux Azure Monitor collecte des données. Toujours *Azure* pour les diagnostics Azure. |
 | resultDescription |Décrit l’état résultant du travail du runbook. Les valeurs possibles sont les suivantes :<br>- Job is started<br>- Job Failed<br>- Job Completed |
 | CorrelationId |GUID représentant l’ID de corrélation du travail du runbook. |
@@ -120,9 +120,9 @@ Diagnostic d’Azure Automation crée deux types d’enregistrements dans les jo
 | Tenant_g | GUID identifiant le locataire pour l’appelant. |
 | JobId_g |GUID représentant l’ID du travail du runbook. |
 | ResultType |L’état du travail du runbook. Les valeurs possibles sont les suivantes :<br>- In Progress |
-| Catégorie | Classification du type de données. Pour Automation, la valeur est JobStreams. |
+| Category | Classification du type de données. Pour Automation, la valeur est JobStreams. |
 | OperationName | Spécifie le type d’opération exécutée dans Azure. Pour Automation, la valeur est Job. |
-| Ressource | Nom du compte Automation |
+| Resource | Nom du compte Automation |
 | SourceSystem | Fonctionnement des journaux Azure Monitor collecte des données. Toujours *Azure* pour les diagnostics Azure. |
 | resultDescription |Inclut le flux de sortie du runbook. |
 | CorrelationId |GUID représentant l’ID de corrélation du travail du runbook. |
