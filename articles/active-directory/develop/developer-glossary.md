@@ -19,11 +19,11 @@ ms.custom: aaddev
 ms.reviewer: jmprieur, saeeda, jesakowi, nacanuma, dadobali
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 968da9212b52c1e7ea09d1472b312671c7a73449
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565522"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60410382"
 ---
 # <a name="microsoft-identity-platform-developer-glossary"></a>Glossaire du développeur Microsoft identity platform
 
@@ -192,7 +192,7 @@ La fonction d’ouverture de session d’une application est généralement util
 
 Processus de désactivation de l’authentification d’un utilisateur final par lequel l’état utilisateur associé à [l’application cliente](#client-application) pendant la [connexion](#sign-in) est détaché.
 
-## <a name="tenant"></a>locataire
+## <a name="tenant"></a>tenant
 
 Une instance d’un répertoire Azure AD est désignée sous le nom de client Azure AD. Celui-ci fournit plusieurs fonctionnalités, notamment :
 

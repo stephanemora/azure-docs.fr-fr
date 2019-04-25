@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 03/19/2018
 ms.author: bwren
 ms.openlocfilehash: 53e24a6874a1e43b0de07893a6ace3a44b81d373
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58110169"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60454068"
 ---
 # <a name="import-azure-monitor-log-data-into-power-bi"></a>Importer des données de journal Azure Monitor dans Power BI
 
@@ -27,7 +27,7 @@ ms.locfileid: "58110169"
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 Pour importer des données à partir d’un [espace de travail Analytique de journal](manage-access.md) dans Azure Monitor dans Power BI, vous créez un jeu de données dans Power BI et basés sur un [requête de journal](../log-query/log-query-overview.md) dans Azure Monitor.  La requête est exécutée chaque fois que le jeu de données est actualisé.  Vous pouvez ensuite créer des rapports Power BI qui utilisent les informations du jeu de données.  Pour créer le jeu de données dans Power BI, vous exportez votre requête depuis Log Analytics vers le [langage Power Query (M)](https://msdn.microsoft.com/library/mt807488.aspx).  Vous l'utilisez ensuite pour créer une requête dans Power BI Desktop, avant de la publier dans Power BI en tant que jeu de données.  Les détails de ce processus sont décrits ci-dessous.
 
 ![Log Analytics vers Power BI](media/powerbi/overview.png)

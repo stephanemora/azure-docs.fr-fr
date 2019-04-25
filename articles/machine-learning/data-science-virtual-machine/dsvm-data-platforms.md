@@ -17,11 +17,11 @@ ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
 ms.openlocfilehash: 27e0deae9c35ad8fa00659e3e3e505cace6e9014
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55733431"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60516496"
 ---
 # <a name="data-platforms-supported-on-the-data-science-virtual-machine"></a>Plateformes de données prises en charge sur la machine virtuelle DSVM
 
@@ -34,7 +34,7 @@ Les outils de plateforme de données pris en charge sur la machine virtuelle DSV
 | | |
 | ------------- | ------------- |
 | Qu’est-ce que c’est ?   | Une instance de base de données relationnelle locale      |
-| Éditions DSVM prises en charge      |  Windows      |
+| Éditions DSVM prises en charge      | Windows      |
 | Utilisations classiques      | Développement rapide localement avec le plus petit jeu de données <br/> Exécution de R en base de données   |
 | Liens vers des exemples      |    Un petit échantillon du jeu de données New York City est chargé dans la base de données SQL `nyctaxi`. <br/> Vous trouverez un exemple Jupyter illustrant l’analytique Microsoft R et en base de données à l’emplacement suivant :<br/> `~notebooks/SQL_R_Services_End_to_End_Tutorial.ipynb`  |
 | Outils connexes sur la machine virtuelle DSVM       | SQL Server Management Studio <br/> Pilotes ODBC/JDBC<br/> pyodbc, RODBC<br />Apache Drill      |
@@ -101,7 +101,7 @@ Vous pouvez arrêter les services liés à Hadoop quand vous n’en avez pas bes
 ### <a name="how-is-it-configured--installed-on-the-dsvm"></a>Comment est-il configuré / installé sur la machine virtuelle DSVM ? 
 |Plateforme|Emplacement d’installation ($SPARK_HOME)|
 |:--------|:--------|
-| Windows | c:\dsvm\tools\spark-X.X.X-bin-hadoopX.X|
+|Windows | c:\dsvm\tools\spark-X.X.X-bin-hadoopX.X|
 |Linux   | /dsvm/tools/spark-X.X.X-bin-hadoopX.X|
 
 

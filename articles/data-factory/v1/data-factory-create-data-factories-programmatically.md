@@ -14,23 +14,23 @@ ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: ea0094624727ca1395a1276e7968ac1c74b750e7
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486969"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60487280"
 ---
 # <a name="create-monitor-and-manage-azure-data-factories-using-azure-data-factory-net-sdk"></a>Créer, surveiller et gérer des fabriques de données Azure à l’aide du Kit de développement logiciel (SDK) Azure Data Factory .NET
 > [!NOTE]
 > Cet article s’applique à la version 1 de Data Factory. Si vous utilisez la version actuelle du service Data Factory, consultez le [tutoriel sur l’activité de copie](../quickstart-create-data-factory-dot-net.md). 
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 Vous pouvez créer, surveiller et gérer des fabriques de données Azure par programmation à l'aide du Kit SDK Data Factory .NET. Cet article contient une procédure pas à pas que vous pouvez suivre pour créer un exemple d'application console .NET qui crée et surveille une fabrique de données. 
 
 > [!NOTE]
 > Cet article ne couvre pas toutes les API .NET Data Factory. Consultez [Informations de référence sur l’API .NET Data Factory](/dotnet/api/index?view=azuremgmtdatafactories-4.12.1) pour la documentation complète sur l’API .NET pour Data Factory. 
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 

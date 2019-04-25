@@ -19,11 +19,11 @@ ms.reviewer: dadobali
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e5085acad8a82394340892a3a67a3d1e5d85384b
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57442169"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60410363"
 ---
 # <a name="how-to-enable-cross-app-sso-on-android-using-adal"></a>Activation Activer l’authentification unique entre applications sur Android à l’aide de la bibliothèque ADAL
 
@@ -109,7 +109,7 @@ Voici la procédure à suivre :
 2. Établir un nouvel URI de redirection à fournir à l’application et à votre inscription d’application
 3. Configuration des autorisations appropriées dans le manifeste Android
 
-#### <a name="step-1-enable-broker-mode-in-your-application"></a>Étape 1 : Activer le mode répartiteur dans votre application
+#### <a name="step-1-enable-broker-mode-in-your-application"></a>Étape 1 : Activer le mode répartiteur dans votre application
 
 La capacité de votre application à utiliser le répartiteur est activée lorsque vous créez les paramètres, ou la configuration initiale, de votre instance d’authentification. Pour ce faire dans votre application :
 
@@ -117,7 +117,7 @@ La capacité de votre application à utiliser le répartiteur est activée lorsq
 AuthenticationSettings.Instance.setUseBroker(true);
 ```
 
-#### <a name="step-2-establish-a-new-redirect-uri-with-your-url-scheme"></a>Étape 2 : Établissez un nouvel URI de redirection avec votre schéma d’URL
+#### <a name="step-2-establish-a-new-redirect-uri-with-your-url-scheme"></a>Étape 2 : Établissez un nouvel URI de redirection avec votre schéma d’URL
 
 Afin de garantir que la bonne application reçoit retourné les informations d’identification des jetons, il est nécessaire de s’assurer que l’appel à votre application d’une manière pouvant être vérifiée par le système d’exploitation Android. Le système d’exploitation Android utilise le hachage du certificat dans Google Play Store. Ce hachage du certificat ne peut pas être falsifié par une application non fiable. Avec l’URI de l’application de répartiteur, Microsoft vérifie que les jetons sont retournés à l’application appropriée. Une URI de redirection unique est nécessaire pour être inscrit sur l’application.
 

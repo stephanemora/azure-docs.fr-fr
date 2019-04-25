@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 03/27/2019
 ms.author: magoedte
 ms.openlocfilehash: 2f500ea127d3f2042e7c97eeace592b4da8d8d0e
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59995980"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60494834"
 ---
 # <a name="how-to-update-azure-monitor-for-containers-to-enable-metrics"></a>Comment mettre à jour d’Azure Monitor pour les conteneurs pour activer les mesures
 Azure Monitor pour les conteneurs introduit la prise en charge pour la collecte de mesures à partir des nœuds de clusters Azure Kubernetes service (AKS) et les blocs et en les écrivant dans le magasin de métriques Azure Monitor. Cette modification vise à fournir la rapidité d’exécution améliorée lors de la présentation des calculs d’agrégation (Avg, Count, Max, Min, Sum) dans les graphiques de performances, prise en charge de l’épinglage des graphiques de performances dans les tableaux de bord portail Azure et prend en charge les alertes de métrique.

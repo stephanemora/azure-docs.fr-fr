@@ -13,11 +13,11 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7015abcfe3c53e2180d617bd2c78ecd44c42af7a
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295621"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60412757"
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Éléments de l’e-mail d’invitation de collaboration B2B - Azure Active Directory
 
@@ -28,7 +28,7 @@ Les e-mails d’invitation sont un composant essentiel pour intégrer des parten
 ## <a name="explaining-the-email"></a>Explication de l’e-mail
 Examinons quelques-uns des éléments de l’e-mail pour savoir comment utiliser au mieux ces fonctionnalités.
 
-### <a name="subject"></a>Objet
+### <a name="subject"></a>Subject
 L’objet de l’e-mail suit le modèle suivant : vous êtes invité à l’organisation &lt;nom_tenant&gt;.
 
 ### <a name="from-address"></a>Adresse de l’expéditeur

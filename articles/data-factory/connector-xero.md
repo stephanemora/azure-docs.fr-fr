@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
 ms.openlocfilehash: 6793fbcc50711e10231b87fa6e1f11f54f90d325
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54018430"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60445432"
 ---
 # <a name="copy-data-from-xero-using-azure-data-factory-preview"></a>Copier des données de Xero à l’aide d’Azure Data Factory (préversion)
 
@@ -49,7 +49,7 @@ Les propriétés prises en charge pour le service lié Xero sont les suivantes :
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type doit être définie sur : **Xero** | Oui |
+| type | La propriété type doit être définie sur : **Xero** | Oui |
 | host | Le point de terminaison du serveur Xero (`api.xero.com`).  | Oui |
 | consumerKey | Clé de consommateur associée à l’application Xero. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui |
 | privateKey | La clé privée provenant du fichier .pem qui a été généré pour votre application privée Xero, consultez [Créer une paire de clés publique/privée](https://developer.xero.com/documentation/api-guides/create-publicprivate-key). Remarque : pour **générer privatekey.pem avec numbits 512** à l’aide de `openssl genrsa -out privatekey.pem 512` ; 1024 n’est pas pris en charge. Inclut tout le texte du fichier .pem, y compris les fins de ligne Unix (\n), voir l’exemple ci-dessous.<br/><br/>Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui |
@@ -95,8 +95,8 @@ Pour copier des données de Xero, affectez la valeur **XeroObject** à la propri
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type du jeu de données doit être définie sur : **XeroObject** | Oui |
-| TableName | Nom de la table. | Non (si « query » dans la source de l’activité est spécifié) |
+| type | La propriété type du jeu de données doit être définie sur : **XeroObject** | Oui |
+| tableName | Nom de la table. | Non (si « query » dans la source de l’activité est spécifié) |
 
 **Exemple**
 
@@ -124,7 +124,7 @@ Pour copier des données de Xero, définissez le type de source dans l’activit
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type de la source d’activité de copie doit être définie sur : **XeroSource** | Oui |
+| type | La propriété type de la source d’activité de copie doit être définie sur : **XeroSource** | Oui |
 | query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"SELECT * FROM Contacts"`. | Non (si « tableName » est spécifié dans dataset) |
 
 **Exemple :**

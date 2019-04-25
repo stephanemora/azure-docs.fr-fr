@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: rli
-ms.openlocfilehash: 57e56c38e003cb83dcf44f455c4451d159db8a59
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 73c41b754c0aca5ddb1a49fcd2794aa41b2fa705
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22997974"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60324193"
 ---
 # <a name="azure-cdn-rules-engine-conditional-expressions"></a>Expressions conditionnelles du moteur de règles Azure CDN
 Cette rubrique répertorie les descriptions détaillées des expressions conditionnelles pour le [moteur de règles](cdn-rules-engine.md) Azure Content Delivery Network (CDN).
@@ -32,10 +32,10 @@ IF | Une expression IF fait toujours partie de la première instruction dans une
 AND IF | Une expression AND IF ne peut être ajoutée qu’après les types d’expressions conditionnelles suivants : IF, AND IF. Elle indique qu’il existe une autre condition qui doit être remplie pour l’instruction IF initiale.
 ELSE IF| Une expression ELSE IF spécifie une autre condition qui doit être remplie avant la mise en place d’un ensemble de fonctionnalités spécifiques à cette instruction ELSE IF. La présence d’une instruction ELSE IF indique la fin de l’instruction précédente. La seule expression conditionnelle pouvant être placée après une instruction ELSE IF est une autre instruction ELSE IF. Cela signifie qu’une instruction IF ELSE peut uniquement servir à spécifier une seule condition supplémentaire qui doit être respectée.
 
-**Exemple** : ![condition de correspondance CDN](./media/cdn-rules-engine-reference/cdn-rules-engine-conditional-expression.png)
+**Exemple**: ![Condition de correspondance CDN](./media/cdn-rules-engine-reference/cdn-rules-engine-conditional-expression.png)
 
  > [!TIP]
-   > Une règle ultérieure peut remplacer les actions spécifiées par une règle antérieure. Exemple : une règle de fourre-tout sécurise toutes les requêtes par le biais de l’authentification basée sur un jeton. Une autre règle peut être créée directement en dessous pour générer une exception pour certains types de requêtes.
+   > Une règle ultérieure peut remplacer les actions spécifiées par une règle antérieure. Exemple : Une règle de fourre-tout sécurise toutes les demandes via l’authentification basée sur le jeton. Une autre règle peut être créée directement en dessous pour générer une exception pour certains types de requêtes.
 
 ### <a name="next-steps"></a>Étapes suivantes
 * [Vue d'ensemble d'Azure CDN](cdn-overview.md)

@@ -7,15 +7,15 @@ ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
 ms.openlocfilehash: 628be573d03d42ec62a358071074facfe228852d
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58418667"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60318167"
 ---
 # <a name="prepare-source-machine-for-push-installation-of-mobility-agent"></a>Préparer l’ordinateur source pour l’installation push de l’agent de mobilité
 
-Lorsque vous configurez la récupération d’urgence sur des serveurs physiques et des machines virtuelles VMware avec [Azure Site Recovery](site-recovery-overview.md), vous installez le [service Mobilité de Site Recovery](vmware-physical-mobility-service-overview.md) sur l’ensemble des serveurs physiques et des machines virtuelles VMware locaux.  Le service Mobilité enregistre les écritures de données sur la machine et les transmet au serveur de traitement Site Recovery.
+Lorsque vous configurez la reprise d’activité des serveurs physiques et des machines virtuelles VMware à l'aide d'[Azure Site Recovery](site-recovery-overview.md), vous installez le [service Mobilité de Site Recovery](vmware-physical-mobility-service-overview.md) sur l'ensemble des serveurs physiques et des machines virtuelles VMware locaux.  Le service Mobilité enregistre les écritures de données sur la machine et les transmet au serveur de traitement Site Recovery.
 
 ## <a name="install-on-windows-machine"></a>Installer sur un ordinateur Windows
 

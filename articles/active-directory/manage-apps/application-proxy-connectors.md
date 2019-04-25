@@ -13,11 +13,11 @@ ms.author: celested
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a787e896016b3230d389b2ec140ae6c03477d875
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59684087"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60293001"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Présentation des connecteurs de proxy d’application Azure AD
 
@@ -75,7 +75,7 @@ Vous pouvez rencontrer des temps d’arrêt lors de la mise à jour de votre con
 - Vous n’avez qu’un seul connecteur. Nous vous recommandons d’en installer un deuxième et de [créer un groupe de connecteurs](application-proxy-connector-groups.md) pour éviter les temps morts et accroître la disponibilité.  
 - Un connecteur se trouvait au milieu d’une transaction lorsque la mise à jour a commencé. Bien que la transaction d’origine soit perdue, votre navigateur devrait automatiquement relancer l’opération, ou vous pouvez actualiser votre page. Lorsque la demande est renvoyée, le trafic est acheminé vers un connecteur de secours.
 
-Pour afficher des informations sur les versions précédentes et les modifications qu’ils incluent, consultez [Application Proxy - historique des versions](application-proxy-release-version-history.md).
+Pour avoir des informations sur les versions précédentes et les changements qu’elles incluent, consultez [Proxy d’application - Historique des versions](application-proxy-release-version-history.md).
 
 ## <a name="creating-connector-groups"></a>Créer des groupe de connecteurs
 

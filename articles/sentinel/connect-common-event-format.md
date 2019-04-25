@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 04/02/2019
 ms.author: rkarlin
 ms.openlocfilehash: 18eb305beb79913713898b939ef840ca9ffab014
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59489397"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60445508"
 ---
 # <a name="connect-your-external-solution-using-common-event-format"></a>Connectez votre solution externe à l’aide du Format d’événement commun
 
@@ -45,7 +45,7 @@ La connexion entre Azure Sentinel et votre appliance CEF a lieu en trois étapes
 3. L’agent stocke les données dans un espace de travail Analytique de journal, donc il peut être interrogé en fonction des besoins, à l’aide d’analytique, les règles de corrélation et les tableaux de bord.
 
 
-## <a name="step-1-connect-to-your-cef-appliance-via-dedicated-azure-vm"></a>Étape 1 : Se connecter à votre appliance CEF par le biais de machine virtuelle Azure dédiée
+## <a name="step-1-connect-to-your-cef-appliance-via-dedicated-azure-vm"></a>Étape 1 : Se connecter à votre appliance CEF par le biais de machine virtuelle Azure dédiée
 
 Vous devez déployer un agent sur un ordinateur Linux dédié (machine virtuelle ou en local) pour prendre en charge la communication entre l’appliance et Sentinel Azure. Vous pouvez déployer l’agent manuellement ou automatiquement. Déploiement automatique est basé sur des modèles Resource Manager et peut être utilisé uniquement si votre ordinateur Linux dédié est une nouvelle machine virtuelle que vous créez dans Azure.
 

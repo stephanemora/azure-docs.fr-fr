@@ -16,11 +16,11 @@ ms.date: 06/20/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 0e0c83d411242be38992dd763dea72eda70ffbf4
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60006453"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60531839"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-the-rest-api"></a>Gérer l'accès aux ressources Azure à l'aide du contrôle d'accès en fonction du rôle (RBAC) et de l'API REST
 
@@ -38,7 +38,7 @@ Dans le contrôle d’accès en fonction du rôle, vous répertoriez les attribu
 
 1. Dans l’URI, remplacez *{scope}* par l’étendue dont vous souhaitez lister les attributions de rôle.
 
-    | Étendue | type |
+    | Étendue | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Abonnement |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Groupe de ressources |
@@ -77,7 +77,7 @@ Dans le contrôle d’accès en fonction du rôle, vous créez une attribution d
     
 1. Dans l’URI, remplacez *{scope}* par l’étendue de l’attribution de rôle.
 
-    | Étendue | type |
+    | Étendue | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Abonnement |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Groupe de ressources |
@@ -105,7 +105,7 @@ Dans le RBAC, vous supprimez une attribution de rôle pour supprimer un accès. 
 
 1. Dans l’URI, remplacez *{scope}* par l’étendue de suppression de l’attribution de rôle.
 
-    | Étendue | type |
+    | Étendue | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Abonnement |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Groupe de ressources |

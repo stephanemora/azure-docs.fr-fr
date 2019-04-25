@@ -19,17 +19,17 @@ ms.custom: aaddev
 ms.reviewer: sureshja
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9cee05b1ff6c63aae07b9c04435e4ff3ae4d07ee
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565884"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60411134"
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory"></a>Objets application et principal du service dans Azure Active Directory
 
 Parfois, la signification du terme « application » peut être mal comprise lorsqu’il est utilisé dans le contexte d’Azure Active Directory (Azure AD). Cet article clarifie les aspects conceptuels et concrets de l’intégration des applications dans Azure AD, en donnant un exemple d’inscription et de consentement pour une [application multi-locataire](developer-glossary.md#multi-tenant-application).
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
 Une application qui a été intégrée à Azure AD a des effets qui vont au-delà de l’aspect logiciel. Le terme « Application » est souvent utilisé comme concept, faisant référence non seulement au programme d’application, mais également à son inscription Azure AD et à son rôle lors des « conversations » d’authentification/autorisation au moment de l’exécution.
 

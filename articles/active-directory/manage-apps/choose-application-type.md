@@ -16,11 +16,11 @@ ms.date: 11/08/2018
 ms.author: celested
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 13b0c03f03012058616dba21536cfc3f292fff4b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58091509"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60441261"
 ---
 # <a name="choosing-the-application-type-when-adding-an-application-in-azure-active-directory"></a>Choix du type d’application lors de l’ajout d’une application dans Azure Active Directory
 Découvrez les quatre types d’applications que vous pouvez ajouter dans Azure Active Directory (Azure AD). Lorsque vous ajoutez une application dans Azure Active Directory, vous êtes invité à choisir l’un des quatre types d’application. 
@@ -49,7 +49,7 @@ Les fonctionnalités ci-après sont prises en charge par les quatre types d’ap
 
 -   **Accès aux applications en libre-service** : autorisez vos utilisateurs à demander un [accès à une application en libre-service](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-application-access) à partir de leurs panneaux d’accès aux applications, soit en ajoutant directement une application, soit en [rejoignant un groupe pour lequel le libre-service est activé](https://docs.microsoft.com/azure/active-directory/active-directory-accessmanagement-self-service-group-management), éventuellement en exigeant une approbation d’entreprise au cours du processus.
 
--   **Journaux de connexion** : affichez [toutes les connexions à une application](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-activity-sign-ins), ou à toutes vos applications.
+-   **Journaux d’activité de connexion** : affichez [toutes les connexions à une application](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-activity-sign-ins), ou à toutes vos applications.
 
 -   **Journaux d’audit** : consultez [des journaux d’audit détaillés sur les modifications apportées à une application](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-activity-audit-logs), ou à toutes vos applications.
 

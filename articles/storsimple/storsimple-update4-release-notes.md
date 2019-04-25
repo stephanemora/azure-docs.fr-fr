@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/23/2018
 ms.author: alkohli
-ms.openlocfilehash: f4db5a49b71b0c384da7af2b90bd5426a4f35c72
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
-ms.translationtype: HT
+ms.openlocfilehash: ef95ca7b9f94690b607e37fbf5d9378c2f2bcfda
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34058146"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60530987"
 ---
 # <a name="storsimple-8000-series-update-4-release-notes"></a>Notes de publication de StorSimple série 8000 Update 4
 
@@ -68,12 +68,12 @@ Le tableau suivant récapitule les problèmes qui ont été résolus dans Update
 
 | Non  | Fonctionnalité | Problème | S’applique à un appareil physique | S’applique à un appareil virtuel |
 | --- | --- | --- | --- | --- |
-| 1 |Basculement |Dans la version précédente, après le basculement, un problème lié au nettoyage sur le site du client était observé. Ce problème a été résolu dans cette version. |OUI |OUI |
-| 2 |Volumes épinglés localement  |Dans la version précédente, un problème de création de volume associé pour les volumes épinglés localement entraînait l’échec de création du volume. La cause racine de ce problème a été identifiée et il a été résolu dans cette version. |OUI |Non  |
-| 3 |Package de prise en charge |Dans la version précédente, des problèmes liés au package de prise en charge qui provoquaient une exception System.OutOfMemory ou d’autres erreurs entraînaient l’échec de création du package de prise en charge. Ces bogues ont été résolus dans cette version. |OUI |OUI |
-| 4 |Surveillance |Dans la version précédente, un problème lié aux graphiques de surveillance des volumes épinglés localement entraînait l’affichage de la consommation dans EB. Ce bogue a été résolu dans cette version. |OUI |OUI |
-| 5. |Migration |Dans la version précédente, plusieurs problèmes étaient liés à la fiabilité de la migration des appareils de la série 5000-7000 vers la série 8000. Ces problèmes ont été résolus dans cette version. |OUI |OUI |
-| 6. |Mettre à jour |Dans les versions précédentes, en cas d’échec d’une mise à jour, les contrôleurs entraient en mode de récupération ; par conséquent, l’utilisateur ne pouvait pas poursuivre la mise à jour et devait contacter le Support Microsoft. <br> Ce comportement a été modifié dans cette version. Si l’utilisateur rencontre un échec de mise à jour une fois que les deux contrôleurs exécutent la même version (Update 4), ces derniers n’entrent pas en mode de récupération. Si l’utilisateur rencontre cette erreur, nous recommandons d’attendre un peu et de recommencer la mise à jour. La nouvelle tentative peut réussir. Si cette nouvelle tentative échoue, contactez le Support Microsoft. |OUI |OUI |
+| 1 |Basculement |Dans la version précédente, après le basculement, un problème lié au nettoyage sur le site du client était observé. Ce problème a été résolu dans cette version. |Oui |Oui |
+| 2 |Volumes épinglés localement  |Dans la version précédente, un problème de création de volume associé pour les volumes épinglés localement entraînait l’échec de création du volume. La cause racine de ce problème a été identifiée et il a été résolu dans cette version. |Oui |Non  |
+| 3 |Package de prise en charge |Dans la version précédente, des problèmes liés au package de prise en charge qui provoquaient une exception System.OutOfMemory ou d’autres erreurs entraînaient l’échec de création du package de prise en charge. Ces bogues ont été résolus dans cette version. |Oui |Oui |
+| 4 |Surveillance |Dans la version précédente, un problème lié aux graphiques de surveillance des volumes épinglés localement entraînait l’affichage de la consommation dans EB. Ce bogue a été résolu dans cette version. |Oui |Oui |
+| 5. |Migration |Dans la version précédente, plusieurs problèmes étaient liés à la fiabilité de la migration des appareils de la série 5000-7000 vers la série 8000. Ces problèmes ont été résolus dans cette version. |Oui |Oui |
+| 6. |Mettre à jour |Dans les versions précédentes, en cas d’échec d’une mise à jour, les contrôleurs entraient en mode de récupération ; par conséquent, l’utilisateur ne pouvait pas poursuivre la mise à jour et devait contacter le Support Microsoft. <br> Ce comportement a été modifié dans cette version. Si l’utilisateur rencontre un échec de mise à jour une fois que les deux contrôleurs exécutent la même version (Update 4), ces derniers n’entrent pas en mode de récupération. Si l’utilisateur rencontre cette erreur, nous recommandons d’attendre un peu et de recommencer la mise à jour. La nouvelle tentative peut réussir. Si cette nouvelle tentative échoue, contactez le Support Microsoft. |Oui |Oui |
 
 
 ## <a name="known-issues-in-update-4-from-previous-releases"></a>Problèmes connus dans Update 4 depuis les versions précédentes
@@ -88,8 +88,7 @@ Cette version contient des mises à jour du microprogramme et du pilote LSI et d
 
 Cette mise à jour ne peut pas s’appliquer à l’équipement cloud StorSimple (également connu sous le nom d’appareil virtuel). De nouveaux appareils virtuels devront être créés. 
 
-## <a name="next-step"></a>Étapes suivantes
-
+## <a name="next-step"></a>Étape suivante
 
 Découvrez comment [installer Update 4](storsimple-install-update-4.md) sur votre appareil StorSimple.
 

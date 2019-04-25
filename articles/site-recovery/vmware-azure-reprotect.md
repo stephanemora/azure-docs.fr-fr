@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 3/12/2019
 ms.author: mayg
 ms.openlocfilehash: 4202d95b540efb98b526f8a8abd17da22a908ebe
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57771807"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60482941"
 ---
 # <a name="reprotect-and-fail-back-machines-to-an-on-premises-site-after-failover-to-azure"></a>Reprotéger et effectuer une reprise automatique des machines vers un site local après le basculement vers Azure
 

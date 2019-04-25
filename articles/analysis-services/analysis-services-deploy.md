@@ -9,17 +9,17 @@ ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: b9740d74a25964286ea92b4238684db81a64c9e2
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59793317"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60497475"
 ---
 # <a name="deploy-a-model-from-visual-studio"></a>Déployer un modèle à partir de Visual Studio
 
 Une fois que vous avez créé un serveur dans votre abonnement Azure, vous êtes prêt à déployer une base de données de modèle tabulaire sur celui-ci. Vous pouvez utiliser SQL Server Data Tools (SSDT) pour créer et déployer un projet de modèle tabulaire sur lequel vous travaillez. 
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour commencer, vous avez besoin des éléments suivants :
 

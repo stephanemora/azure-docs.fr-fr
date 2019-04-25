@@ -14,11 +14,11 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 6b16b6c4de8c8d2d7a821dd476f07c8ab1135408
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57433431"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60487252"
 ---
 # <a name="datasets-in-azure-data-factory"></a>Jeux de données dans Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -33,7 +33,7 @@ Cet article décrit les jeux de données, comment ils sont définis au format JS
 > [!NOTE]
 > Si vous débutez avec Data Factory, consultez [Présentation d’Azure Data Factory](data-factory-introduction.md) pour obtenir une vue d’ensemble. Si vous n’avez pas d’expérience pratique de la création de fabriques de données, vous pouvez obtenir une meilleure compréhension en lisant le [tutoriel de transformation des données](data-factory-build-your-first-pipeline.md) et le [tutoriel de déplacement des données](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 Une fabrique de données peut avoir un ou plusieurs pipelines. Un **pipeline** constitue un regroupement logique d’**activités** qui exécutent ensemble une tâche. Les activités d’un pipeline définissent les actions à effectuer sur les données. Par exemple, vous pouvez utiliser une activité de copie pour copier des données d’un serveur SQL Server local vers un stockage Blob Azure. Ensuite, vous pouvez utiliser une activité Hive qui exécute un script Hive sur un cluster Azure HDInsight pour traiter les données du stockage Blob afin de produire des données de sortie. Enfin, vous pouvez utiliser une deuxième activité de copie pour copier les données de sortie dans Azure SQL Data Warehouse sur lequel des solutions de génération de rapports décisionnelles sont développées. Pour plus d’informations sur les pipelines et les activités, voir [Pipelines et activités dans Azure Data Factory](data-factory-create-pipelines.md).
 
 Une activité peut inclure zéro ou plusieurs **jeux de données** d’entrée et produire un ou plusieurs jeux de données de sortie. Un jeu de données d’entrée représente l’entrée d’une activité dans le pipeline, tandis qu’un jeu de données de sortie représente la sortie de l’activité. Les jeux de données identifient les données dans différents magasins de données, par exemple des tables, des fichiers, des dossiers et des documents. Par exemple, un jeu de données d’objets Blob Azure spécifie le conteneur et le dossier du stockage Blob à partir duquel le pipeline doit lire les données.
@@ -316,7 +316,7 @@ Les jeux de données externes sont ceux qui ne sont pas générés par un pipeli
 
 À moins qu’un jeu de données ne soit généré par la fabrique de données, il doit être marqué comme **external**(externe). Ce paramètre s’applique généralement aux entrées de la première activité d’un pipeline, à moins que le chaînage des activités ou pipelines ne soit utilisé.
 
-| Nom | Description | Obligatoire | Valeur par défaut |
+| Name | Description | Obligatoire | Valeur par défaut |
 | --- | --- | --- | --- |
 | dataDelay |Durée du délai de la vérification de la disponibilité des données externes pour la tranche donnée. Par exemple, vous pouvez retarder une vérification de toutes les heures à l’aide de ce paramètre.<br/><br/>Le paramètre s’applique uniquement à l’heure actuelle. Par exemple, s’il est 13 h et si cette valeur est de 10 minutes, la validation commence à 13 h 10.<br/><br/>Notez que ce paramètre n’affecte pas les tranches du passé. Les tranches avec **Slice End Time** + **dataDelay** < **Now** sont traitées sans aucun délai.<br/><br/>Les heures supérieures à 23:59 doivent être spécifiées à l’aide du format `day.hours:minutes:seconds`. Par exemple, pour spécifier 24 heures, n’utilisez pas 24:00:00. Utilisez plutôt 1.00:00:00. Si vous utilisez 24:00:00, cette valeur est traitée comme 24 jours (24.00:00:00). Pour 1 jour et 4 heures, spécifiez 1:04:00:00. |Non  |0 |
 | retryInterval |Délai d'attente entre un échec et la tentative suivante. Ce paramètre s’applique à l’heure actuelle. Si la tentative précédente a échoué, la tentative suivante est effectuée après la période **retryInterval**. <br/><br/>S’il est 13 h actuellement, la première tentative commence. Si la durée de la première vérification de validation est de 1 minute et si l’opération a échoué, la tentative suivante aura lieu à 13h + 1 min (durée) + 1 minute (intervalle avant nouvelle tentative) = 13 h 02. <br/><br/>Pour les segments dans le passé, il n’y a aucun délai. La nouvelle tentative se fait immédiatement. |Non  |00:01:00 (1 minute) |

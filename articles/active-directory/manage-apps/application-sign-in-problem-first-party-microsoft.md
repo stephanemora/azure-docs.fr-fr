@@ -16,12 +16,12 @@ ms.date: 09/10/2018
 ms.author: celested
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0522311c12da8416504a6d502e1e2247ff8ce15b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 256ca5c2f26a6bac6bdfd09e4dd6294ec5a569ca
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58104146"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60292195"
 ---
 # <a name="problems-signing-in-to-a-microsoft-application"></a>Problèmes de connexion à une application Microsoft
 
@@ -31,7 +31,7 @@ Il existe trois méthodes principales pour se connecter à une application publi
 
 -   Pour les applications faisant partie d’Office 365 ou d’autres suites payantes, les utilisateurs peuvent obtenir un accès via **l’attribution de licence** directement dans leur compte d’utilisateur ou via un groupe à l’aide de la fonctionnalité d’attribution de licence de groupe.
 
--   Pour les applications publiées et fournies gratuitement par Microsoft ou par un tiers, les utilisateurs peuvent obtenir un accès via le **consentement de l’utilisateur**. Cela signifie qu’ils peuvent se connecter à l’application avec leur compte professionnel ou scolaire Azure AD et lui permettre d’accéder à certaines données de leur compte.
+-   Pour les applications publiées et fournies gratuitement par Microsoft ou par un tiers, les utilisateurs peuvent obtenir un accès via le **consentement de l’utilisateur**. Cela signifie qu’ils se connecter à l’application avec leur compte Azure AD ou votre école et lui permettent d’accéder à un jeu limité de données avec leur compte.
 
 -   Pour les applications Microsoft ou un 3e partie publie gratuitement à utiliser, les utilisateurs peuvent également obtenir un accès via **consentement de l’administrateur**. Cela veut dire que l’administrateur a déterminé que l’application peut être utilisée par tous les membres de l’organisation. Dans ce cas, il se connecte à l’application avec un compte d’administrateur général et accorde l’accès à tous les membres de l’organisation.
 

@@ -11,11 +11,11 @@ ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.topic: article
 ms.date: 03/15/2018
 ms.openlocfilehash: 638b29dd2a15d0467c41e20ecfed9f333b34c04d
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54061055"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60508007"
 ---
 # <a name="create-streaming-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>Créer un tableau de bord des insights client en streaming avec Azure Logic Apps et Azure Functions
 

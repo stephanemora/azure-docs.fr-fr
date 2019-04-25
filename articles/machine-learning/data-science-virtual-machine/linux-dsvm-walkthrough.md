@@ -18,11 +18,11 @@ ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: gokuma
 ms.openlocfilehash: 6e8883870cc0f035df5122e91449f04203836218
-ms.sourcegitcommit: 5e4ca656baf3c7d370ab3c0fbad0278aa2c9f1e6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58319463"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60516857"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>Science des données avec une image Data Science Virtual Machine Linux sur Azure
 Cette procédure pas à pas vous montre comment effectuer plusieurs tâches courantes de science des données avec la machine virtuelle de science des données Linux. La machine virtuelle de science des données Linux est une image de machine virtuelle disponible sur Azure qui est préinstallée avec plusieurs outils couramment utilisés dans le cadre de l’analyse de données et du Machine Learning. Les composants logiciels clés sont détaillés dans la rubrique [Approvisionnement d’une machine virtuelle de science des données Linux](linux-dsvm-intro.md) . L’image de la machine virtuelle facilite la prise en main de la science des données en quelques minutes, sans avoir à installer et à configurer individuellement chacun des outils individuellement. Le cas échéant, vous pouvez facilement faire monter en puissance la machine virtuelle, et l’arrêter lorsqu’elle est inutilisée. Cette ressource est donc flexible et économique.
@@ -31,7 +31,7 @@ Les tâches de science des données décrites dans cette procédure pas à pas s
 
 Au cours de cette procédure pas à pas, nous analysons le jeu de données [spambase](https://archive.ics.uci.edu/ml/datasets/spambase) . Il s’agit d’un ensemble d’e-mails marqués comme courrier indésirable ou courrier légitime (non indésirable), qui contient également des statistiques sur le contenu des e-mails. Les statistiques incluses sont évoquées dans la section suivante.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 Avant de pouvoir utiliser une machine virtuelle de science des données Linux, vous devez disposer des éléments suivants :
 
 * Un **abonnement Azure**. Si vous n’en avez pas déjà un, voir [Créez votre compte Azure gratuit](https://azure.microsoft.com/free/).

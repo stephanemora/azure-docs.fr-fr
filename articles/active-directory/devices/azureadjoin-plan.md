@@ -18,11 +18,11 @@ ms.author: joflore
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8b59471cd8af02513186fa4437a2249b056cc324
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58518930"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60354439"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Activation Planifier votre implémentation de la jointure d’Azure AD
 
@@ -32,7 +32,7 @@ La jonction Azure AD vous permet de joindre des appareils directement à Azure A
 Cet article vous fournit les informations nécessaires pour planifier votre implémentation de la jonction Azure AD.
 
  
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Cet article suppose que vous avez lu la [Présentation de la gestion des appareils dans Azure Active Directory](../device-management-introduction.md).
 

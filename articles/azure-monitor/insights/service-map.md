@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 10/28/2018
 ms.author: magoedte
 ms.openlocfilehash: 0c654070e2bbeb8ee5dbc64fe9b4f58ee97f2e47
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60000723"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60404427"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Utilisation de la solution Service Map dans Azure
 La solution Service Map détecte automatiquement les composants d’application sur les systèmes Windows et Linux, et mappe la communication entre les services. Elle vous permet d’afficher vos serveurs comme vous les imaginez, en tant que systèmes interconnectés fournissant des services critiques. Elle affiche les connexions entre serveurs, les processus, la latence des connexions entrantes et sortantes, ainsi que les ports au sein de toute architecture TCP connectée, sans nécessiter de configuration autre que l’installation d’un agent.

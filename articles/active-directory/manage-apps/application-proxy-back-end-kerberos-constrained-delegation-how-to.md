@@ -17,11 +17,11 @@ ms.author: celested
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b83b08c442a7f10d6b29122fe7959bedf8f3cff0
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56177527"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60441060"
 ---
 # <a name="troubleshoot-kerberos-constrained-delegation-configurations-for-application-proxy"></a>Résolution des problèmes de configuration de la délégation Kerberos contrainte pour le proxy d’application
 
@@ -41,7 +41,7 @@ Cet article repose sur les hypothèses suivantes :
 
 -   L’application est publiée dans un locataire Azure où la pré-authentification est activée. Les utilisateurs doivent s’authentifier auprès d'Azure via des formulaires d'authentification. Les scénarios d’authentification client enrichis ne sont pas couverts par cet article. Ils y seront peut-être ajoutés ultérieurement.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Le proxy d'application Azure AD peut être déployé dans de nombreux types d’infrastructures ou d'environnements. L'architecture varie d’une organisation à l’autre. Les causes les plus courantes des problèmes de délégation Kerberos contrainte (KCD) ne sont pas liées aux environnements. La plupart des problèmes sont dus à de simples erreurs de configuration ou à des erreurs générales.
 

@@ -13,11 +13,11 @@ ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a4757be00a3633f56aed52dd7af22923e49b0b62
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58102381"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60475676"
 ---
 # <a name="set-up-security-info-preview-to-use-an-authenticator-app"></a>Configurer les informations de sécurité (préversion) pour utiliser une application d’authentification
 Suivez ces étapes pour ajouter vos méthodes de réinitialisation de mot de passe et de vérification en deux étapes. Au terme de la configuration initiale, vous pouvez revenir à la page **Informations de sécurité** pour ajouter, mettre à jour ou supprimer vos informations de sécurité.

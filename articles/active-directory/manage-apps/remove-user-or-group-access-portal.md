@@ -17,11 +17,11 @@ ms.reviewer: asteen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 97759ae992ebe38aa85e9b4724edeebb5285db4b
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565697"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60443077"
 ---
 # <a name="remove-a-user-or-group-assignment-from-an-enterprise-app-in-azure-active-directory"></a>Supprimer l’affectation d’un utilisateur ou d’un groupe à une application d’entreprise dans Azure Active Directory
 Il est facile de supprimer un utilisateur ou un groupe d’accès affecté à un de vos applications d’entreprise dans Azure Active Directory (Azure AD). Vous avez besoin des autorisations appropriées pour gérer l’application d’entreprise. Et bien, vous devez être administrateur général pour le répertoire.

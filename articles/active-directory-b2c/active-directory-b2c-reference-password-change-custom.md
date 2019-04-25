@@ -3,7 +3,7 @@ title: Configurer la modification du mot de passe avec des stratégies personnal
 description: Découvrez comment permettre aux utilisateurs de modifier leur mot de passe à l’aide de stratégies personnalisées dans Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
@@ -11,11 +11,11 @@ ms.date: 12/13/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: a9e58139d248daed19f4fe35c7d33ede9dfe64b0
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55195968"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60317188"
 ---
 # <a name="configure-password-change-using-custom-policies-in-azure-active-directory-b2c"></a>Configurer la modification du mot de passe avec des stratégies personnalisées dans Azure Active Directory B2C
 
@@ -23,7 +23,7 @@ ms.locfileid: "55195968"
 
 Dans Azure Active Directory (Azure AD) B2C, vous pouvez permettre aux utilisateurs qui sont connectés avec un compte local de modifier leur mot de passe sans avoir à prouver leur authenticité avec une vérification par e-mail. Si la session expire avant que l’utilisateur ne parvienne au flux du changement de mot de passe, il est invité à se reconnecter. Cet article vous montre comment configurer la modification du mot de passe dans des [stratégies personnalisées](active-directory-b2c-overview-custom.md). Il est également possible de configurer la [réinitialisation du mot de passe en libre-service](active-directory-b2c-reference-sspr.md) pour les flux d’utilisateurs.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Suivez les étapes dans [Prise en main des stratégies personnalisées dans Azure Active Directory B2C](active-directory-b2c-get-started-custom.md).
 

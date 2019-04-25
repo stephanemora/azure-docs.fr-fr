@@ -10,11 +10,11 @@ ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 10/01/2018
 ms.openlocfilehash: 2b9e1c153c3fa9b17145eb6c3c8f3ed02e3bf40f
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54064064"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60304067"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Se connecter à des sources de données locales à partir d’Azure Logic Apps
 
@@ -30,7 +30,7 @@ Pour plus d’informations sur l’utilisation de la passerelle avec d’autres 
 * [Passerelle de données locale Microsoft PowerApps](https://powerapps.microsoft.com/tutorials/gateway-management/)
 * [Passerelle de données locale Azure Analysis Services](../analysis-services/analysis-services-gateway.md)
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 * Vous avez déjà [téléchargé et installé la passerelle de données sur votre ordinateur local](../logic-apps/logic-apps-gateway-install.md).
 
@@ -65,7 +65,7 @@ Après avoir installé la passerelle sur un ordinateur local, vous devez ensuite
 
    | Propriété | Description | 
    |----------|-------------|
-   | **Nom** | Le nom pour votre ressource de passerelle | 
+   | **Name** | Le nom pour votre ressource de passerelle | 
    | **Abonnement** | Le nom de votre abonnement Azure, qui doit être le même que celui de votre application logique. L’abonnement par défaut est basé sur le compte Azure que vous avez utilisé pour vous connecter. | 
    | **Groupe de ressources** | Le nom du [groupe de ressources Azure](../azure-resource-manager/resource-group-overview.md) pour organiser les ressources connexes | 
    | **Lieu** | Azure limite cet emplacement à la région sélectionnée pour le service cloud de la passerelle pendant [l’installation de la passerelle](../logic-apps/logic-apps-gateway-install.md). <p>**Remarque**: Assurez-vous que l’emplacement de la ressource de passerelle correspond à l’emplacement du service cloud de celle-ci. Autrement, votre installation de passerelle pourrait ne pas figurer dans la liste des passerelles installées dans laquelle vous allez opérer une sélection à l’étape suivante. Vous pouvez utiliser des régions différentes pour votre ressource de passerelle et votre application logique. | 

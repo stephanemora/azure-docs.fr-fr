@@ -18,11 +18,11 @@ ms.author: joflore
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 516a2d3b0f81bcef1ed636be9d1da9a270cc7069
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58520018"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60297332"
 ---
 # <a name="how-to-manage-devices-using-the-azure-portal"></a>Comment gérer les appareils dans le portail Azure
 
@@ -246,7 +246,7 @@ Vous pouvez personnaliser le mode Liste en cliquant sur **Colonnes** dans la ba
 
 Pour limiter les données transmises à un niveau qui vous convient, vous pouvez filtrer les données d’audit à l’aide des champs suivants :
 
-- Catégorie
+- Category
 - Type de ressource d’activité
 - Activité
 - Plage de dates

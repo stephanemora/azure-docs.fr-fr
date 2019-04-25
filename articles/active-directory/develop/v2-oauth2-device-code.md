@@ -18,11 +18,11 @@ ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 703416788d123798774802613d71b30e8fbdaa9b
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59999805"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60299408"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-device-code-flow"></a>Plateforme d’identité Microsoft et le flux de code d’appareil OAuth 2.0
 

@@ -1,17 +1,18 @@
 ---
 title: Optimiser le nettoyage automatique sur un serveur Azure Database pour PostgreSQL
 description: Cet article décrit comment optimiser le nettoyage automatique sur un serveur Azure Database pour PostgreSQL.
-author: dianaputnam
-ms.author: dianas
+author: WenJason
+ms.author: v-jay
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 10/22/2018
+origin.date: 10/22/2018
+ms.date: 04/29/2019
 ms.openlocfilehash: e1b4bf1f9fa956da7a7b0ca1521439002d1ce76b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57993417"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60420268"
 ---
 # <a name="optimize-autovacuum-on-an-azure-database-for-postgresql-server"></a>Optimiser le nettoyage automatique sur un serveur Azure Database pour PostgreSQL 
 Cet article explique comment optimiser le nettoyage automatique sur un serveur Azure Database pour PostgreSQL.

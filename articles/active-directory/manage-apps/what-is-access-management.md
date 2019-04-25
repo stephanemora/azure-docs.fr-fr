@@ -15,11 +15,11 @@ ms.date: 05/16/2017
 ms.author: celested
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 70513675d09a663c65c6f5b3e18059467a8ba388
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58109322"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60440728"
 ---
 # <a name="managing-access-to-apps"></a>Gestion de l’accès aux applications
 La gestion de l’accès, l’évaluation de l’utilisation et la création de rapports en continu demeurent un défi quand une application vient d’être intégrée au système d’identité de votre organisation. Dans de nombreux cas, les administrateurs informatiques ou le support technique doivent en permanence jouer un rôle actif dans la gestion de l’accès à vos applications. Parfois, l’affectation est effectuée par une équipe informatique générale ou rattachée à une division. Souvent, il revient au décideur d’entreprise de décider d’une affectation, que l’équipe informatique ne pourra mettre en œuvre qu’avec son approbation.  D’autres organisations investissent dans l’intégration à un système automatisé de gestion des identités et des accès, tel que le contrôle d’accès en fonction du rôle (RBAC) ou le contrôle d’accès en fonction de l’attribut (ABAC). L’intégration et le développement de règles ont tous deux tendance à être spécialisés et coûteux. Quelle que soit la méthode de gestion, l’analyse ou la création de rapports suppose un investissement distinct, coûteux et complexe.

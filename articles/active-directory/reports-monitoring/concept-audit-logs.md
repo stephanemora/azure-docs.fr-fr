@@ -18,11 +18,11 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3da96c09026baff3965e0a90d1f461fd948a3a50
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58438393"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60441012"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Rapports d’activité d’audit dans le portail Azure Active Directory 
 
@@ -32,7 +32,7 @@ Cette architecture de création de rapports est constituée des composants suiva
 
 - **Activité** 
     - **Connexions** – le [rapport de connexions](concept-sign-ins.md) fournit des informations sur l’utilisation des applications managées et les activités de connexion des utilisateurs.
-    - **Journaux d’audit** : traçabilité proposée via des journaux pour toutes les modifications effectuées par diverses fonctionnalités au sein d’Azure AD. Par exemple, les journaux d’audit peuvent inclure les modifications apportées à des ressources dans Azure AD comme l’ajout ou la suppression d’utilisateurs, d’applications, de groupes, de rôles, de stratégies, etc.
+    - **Journaux d’audit** : traçabilité proposée via des journaux d’activité pour toutes les modifications effectuées par diverses fonctionnalités au sein d’Azure AD. Par exemple, les journaux d’audit peuvent inclure les modifications apportées à des ressources dans Azure AD comme l’ajout ou la suppression d’utilisateurs, d’applications, de groupes, de rôles, de stratégies, etc.
 - **Sécurité** 
     - **Connexions risquées** : une [connexion risquée](concept-risky-sign-ins.md) est une tentative de connexion susceptible de provenir d’un utilisateur autre que le propriétaire légitime d’un compte d’utilisateur. 
     - **Utilisateurs avec indicateur de risque** : un [utilisateur à risque](concept-user-at-risk.md) correspond à un indicateur de compte d’utilisateur susceptible d’être compromis.
@@ -79,7 +79,7 @@ Sélectionnez un élément dans la vue sous forme de liste pour obtenir des info
 Vous pouvez filtrer les données d’audit des champs suivants :
 
 - de diffusion en continu
-- Catégorie
+- Category
 - Activité
 - Statut
 - Cible

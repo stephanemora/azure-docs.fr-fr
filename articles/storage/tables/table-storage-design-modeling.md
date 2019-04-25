@@ -2,18 +2,19 @@
 title: Modélisation de relations dans la conception de table de stockage Azure | Microsoft Docs
 description: Découvrez le processus de modélisation quand vous concevez votre solution de stockage de table.
 services: storage
-author: MarkMcGeeAtAquent
+author: WenJason
 ms.service: storage
 ms.topic: article
-ms.date: 04/23/2018
-ms.author: sngun
+origin.date: 04/23/2018
+ms.date: 02/25/2019
+ms.author: v-jay
 ms.subservice: tables
 ms.openlocfilehash: 5d83e61282d2f21a3016997e324d0f58eff15e78
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813005"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60502501"
 ---
 # <a name="modeling-relationships"></a>Modélisation des relations
 Cet article décrit le processus de modélisation pour vous aider à concevoir vos solutions de Stockage Table Azure.

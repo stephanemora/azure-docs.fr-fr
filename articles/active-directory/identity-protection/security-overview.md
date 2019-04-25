@@ -18,11 +18,11 @@ ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 610668768c7baca13cb60caf1d810cced31ebec3
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58516431"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60452935"
 ---
 # <a name="azure-active-directory-identity-protection---security-overview"></a>Vue d’ensemble de la sécurité Azure Active Directory Identity Protection
 

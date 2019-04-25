@@ -1,17 +1,18 @@
 ---
 title: Optimiser une collection de statistiques de requête sur un serveur Azure Database pour PostgreSQL
 description: Cet article explique comment vous pouvez optimiser une collection de statistiques de requête sur un serveur Azure Database pour PostgreSQL.
-author: dianaputnam
-ms.author: dianas
+author: WenJason
+ms.author: v-jay
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 10/25/2018
+origin.date: 10/25/2018
+ms.date: 02/18/2019
 ms.openlocfilehash: 428a22f79008130448bef65f14322d6880b1b367
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814365"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60422699"
 ---
 # <a name="optimize-query-statistics-collection-on-an-azure-database-for-postgresql-server"></a>Optimiser une collection de statistiques de requête sur un serveur Azure Database pour PostgreSQL 
 Cet article décrit la procédure d’optimisation d’une collection de statistiques de requête sur un serveur Azure Database pour PostgreSQL.

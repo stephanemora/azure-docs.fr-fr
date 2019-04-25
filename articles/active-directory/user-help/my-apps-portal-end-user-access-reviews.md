@@ -14,19 +14,19 @@ ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 551bbe4e994e15688c59fd395ab762e14927dfda
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58340198"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60482850"
 ---
 # <a name="perform-an-access-review-from-the-my-apps-portal"></a>Effectuer une révision d’accès à partir du portail mes applications
-Vous pouvez utiliser votre compte professionnel ou scolaire avec basée sur le web **mes applications** portal, pour afficher et démarrer la plupart des applications de cloud de votre organisation, à mettre à jour certaines de vos informations de compte et un profil pour voir votre **groupes** plus d’informations et d’effectuer **révisions d’accès** pour vos applications et les groupes. Si vous n’avez pas accès à la **mes applications** portail, vous devez contacter votre support technique pour obtenir l’autorisation.
+Vous pouvez utiliser votre compte professionnel ou scolaire avec le portail web **Mes applications** pour voir et démarrer la plupart des applications cloud de votre organisation, mettre à jour votre profil et vos informations de compte, consulter les informations de vos **groupes** et effectuer des **révisions d’accès** pour vos applications et vos groupes. Si vous n’avez pas accès au portail **Mes applications**, contactez le support technique pour obtenir l’autorisation.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-portal.md)]
 
 >[!Important]
->Ce contenu est destiné aux utilisateurs. Si vous êtes un administrateur, vous trouverez plus d’informations sur comment configurer et gérer vos applications cloud dans le [Documentation gestion des Application](https://docs.microsoft.com/azure/active-directory/manage-apps).
+>Ce contenu est destiné aux utilisateurs. Si vous êtes administrateur, vous trouverez des informations sur la configuration et la gestion de vos applications cloud dans la [documentation sur la gestion des applications](https://docs.microsoft.com/azure/active-directory/manage-apps).
 
 ## <a name="manage-access-reviews"></a>Gérer les révisions d’accès
 Si votre administrateur vous a donné l’autorisation pour effectuer votre propre révisions d’accès, vous pouvez gérer votre accès groupes ou des applications à partir de la **révisions d’accès** vignette sur le **mes applications** page du portail.

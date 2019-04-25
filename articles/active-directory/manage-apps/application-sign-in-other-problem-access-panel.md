@@ -17,11 +17,11 @@ ms.author: celested
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 691022762e63687c298090c02f486993b4fd77a5
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58076868"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60441527"
 ---
 # <a name="problems-signing-in-to-an-application-from-the-access-panel"></a>Problèmes de connexion à une application à partir du volet d’accès
 
@@ -286,7 +286,7 @@ Pour configurer l’authentification unique pour une application qui n’est pas
 
     1. Pour configurer l’application en tant qu’application à authentification unique lancée par le fournisseur d’identité, entrez l’URL de réponse et l’identificateur.
 
-    2. **Facultatif :** Pour configurer l’application en tant qu’application à authentification unique lancée par le fournisseur de services, l’URL de connexion est obligatoire.
+    2. **Facultatif** : Pour configurer l’application en tant qu’application à authentification unique lancée par le fournisseur de services, l’URL de connexion est obligatoire.
 
 12. Dans **Attributs d’utilisateur**, sélectionnez l’identificateur unique de vos utilisateurs dans la liste déroulante **Identificateur de l’utilisateur**.
 

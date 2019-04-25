@@ -16,11 +16,11 @@ ms.topic: conceptual
 ms.date: 11/20/2018
 ms.author: ergreenl
 ms.openlocfilehash: ba1507cd228b10972fb9e16a316b7f7e20982dbe
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55198263"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60416538"
 ---
 # <a name="suspended-domains"></a>Domaines suspendus
 Quand Azure AD Domain Services (Azure AD DS) ne parvient pas à mettre en service un domaine managé pendant une longue période, ça met ce domaine en état de suspension. Cet article explique pourquoi les domaines managés sont suspendus et comment remédier à la suspension d’un domaine.

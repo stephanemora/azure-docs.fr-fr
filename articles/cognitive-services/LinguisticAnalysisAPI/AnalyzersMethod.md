@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/30/2016
 ms.author: lesun
 ROBOTS: NOINDEX
-ms.openlocfilehash: 9338e87644554ac8b3121c5341cea6f2bc512a97
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 1b33b60f674eebb15fdc6112e1d630b93b98494b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878185"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60404713"
 ---
 # <a name="analyzers-method"></a>Méthode d’analyseurs
 
@@ -32,15 +32,17 @@ Aucun
 <br>
 
 ## <a name="response-parameters"></a>Paramètres de réponse
-Nom | type | Description
+
+Name | type | Description
 -----|------|--------------
 languages | liste de valeurs string | liste des codes de langue ISO à deux lettres pour lesquels cet analyseur peut être utilisé.
-id   | chaîne | ID unique de cet analyseur
-kind | chaîne | type général de l’analyseur
-specification | chaîne | nom de la spécification utilisée pour cet analyseur
-implementation | chaîne | description du modèle et/ou de l’algorithme derrière cet analyseur
+id   | string | ID unique de cet analyseur
+kind | string | type général de l’analyseur
+specification | string | nom de la spécification utilisée pour cet analyseur
+implementation | string | description du modèle et/ou de l’algorithme derrière cet analyseur
 
 <br>
+
 ## <a name="example"></a>Exemples
 GET /analyzers
 

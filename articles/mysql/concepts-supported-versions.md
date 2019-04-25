@@ -5,15 +5,16 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 01/07/2019
-ms.openlocfilehash: ecd6466d8d7a7e4497d076ced0c9f2375d5dfb7f
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
-ms.translationtype: HT
+ms.date: 3/13/2019
+ms.openlocfilehash: e7e81632b2be135fb74d375ab8a11f1b4b3ef39d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54106034"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60525935"
 ---
 # <a name="supported-azure-database-for-mysql-server-versions"></a>Versions prises en charge du serveur de base de données Azure pour MySQL
+
 Azure Database for MySQL a été développé à partir de [MySQL Community Edition](https://www.mysql.com/products/community/), avec le moteur InnoDB.
 
 MySQL utilise le schéma de nommage X.Y.Z. X correspond à la version majeure, Y à la version mineure et Z à la version du correctif de bogue. Pour plus d’informations sur ce schéma, reportez-vous à la [documentation MySQL](https://dev.mysql.com/doc/refman/5.7/en/which-version.html).
@@ -22,15 +23,15 @@ Azure Database pour MySQL prend actuellement en charge les versions suivantes :
 
 ## <a name="mysql-version-56"></a>MySQL version 5.6
 
-Version du correctif de bogue : 5.6.39
+Version du correctif de bogue : 5.6.42
 
-Pour plus d’informations sur les améliorations et les correctifs de MySQL 5.6.39, consultez les [notes de publication](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-39.html) MySQL.
+Consultez la MySQL [notes de publication](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-42.html) pour en savoir plus sur les améliorations et correctifs dans MySQL 5.6.42.
 
 ## <a name="mysql-version-57"></a>MySQL version 5.7
 
-Version du correctif de bogue : 5.7.21
+Version du correctif de bogue : 5.7.24
 
-Pour plus d’informations sur les améliorations et les correctifs de MySQL 5.7.21, consultez les [notes de publication](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-21.html) MySQL.
+Consultez la MySQL [notes de publication](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-24.html) pour en savoir plus sur les améliorations et correctifs dans MySQL 5.7.24.
 
 > [!NOTE]
 > Dans le service, une passerelle est utilisée pour rediriger les connexions vers des instances de serveur. Une fois la connexion établie, le client de MySQL affiche la version de MySQL définie dans la passerelle, et non la version en cours d’exécution sur votre instance de serveur MySQL. Pour déterminer la version de votre instance de serveur MySQL, utilisez la commande `SELECT VERSION();` à l’invite de MySQL.

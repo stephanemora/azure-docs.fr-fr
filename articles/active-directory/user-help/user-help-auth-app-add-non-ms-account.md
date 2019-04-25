@@ -13,11 +13,11 @@ ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e6f94ba30c06fc6975ab212c895cecefe5d383fa
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453645"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60473904"
 ---
 # <a name="add-your-non-microsoft-accounts"></a>Ajouter vos comptes non-Microsoft
 Ajoutez vos comptes non-Microsoft, tels que Google, Facebook ou GitHub, à l'application Microsoft Authenticator pour la vérification en deux étapes. L'application Microsoft Authenticator fonctionne avec n'importe quelle application qui utilise la vérification en deux étapes et n'importe quel compte qui prend en charge les mots de passe à usage unique et durée définie (normes TOTP).

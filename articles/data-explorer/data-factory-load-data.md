@@ -9,11 +9,11 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/15/2019
 ms.openlocfilehash: 64856d53168a7676cf279da2d8675ce81e1985f7
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60005364"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60447879"
 ---
 # <a name="copy-data-to-azure-data-explorer-using-azure-data-factory"></a>Copier des données dans l’Explorateur de données Azure à l’aide d’Azure Data Factory 
 
@@ -28,7 +28,7 @@ Azure Data Factory offre les avantages suivants pour charger des données dans l
 
 Cet article vous montre comment utiliser l’outil de copie de données Data Factory pour charger des données à partir d’Amazon S3 dans l’Explorateur de données Azure. Vous pouvez suivre des étapes similaires pour copier des données à partir d’autres magasins de données tels que [stockage Blob Azure](/azure/data-factory/connector-azure-blob-storage), [base de données SQL Azure](/azure/data-factory/connector-azure-sql-database), [Azure SQL Data Warehouse](/azure/data-factory/connector-azure-sql-data-warehouse), [Google BigQuery](/azure/data-factory/connector-google-bigquery),[Oracle](/azure/data-factory/connector-oracle), et [système de fichiers](/azure/data-factory/connector-file-system).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 * Si vous n’avez pas d’abonnement Azure, créez un [compte Azure gratuit](https://azure.microsoft.com/free/) avant de commencer.
 * [Un cluster de l’Explorateur de données Azure et de la base de données](create-cluster-database-portal.md)

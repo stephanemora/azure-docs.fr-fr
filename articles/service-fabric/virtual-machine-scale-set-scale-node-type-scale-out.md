@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 02/13/2019
 ms.author: aljo
 ms.openlocfilehash: ed5bf829e2fbff6c286acdb21a8d0158148483d9
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662837"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60506720"
 ---
 # <a name="scale-a-service-fabric-cluster-out-by-adding-a-virtual-machine-scale-set"></a>Montez en charge un cluster Service Fabric en ajoutant un groupe de machines virtuelles identiques
 Cet article décrit comment mettre à l’échelle un cluster Azure Service Fabric en ajoutant un nouveau type de nœud à un cluster existant. Un cluster Service Fabric est un groupe de machines virtuelles ou physiques connectées au réseau, sur lequel vos microservices sont déployés et gérés. Une machine ou une machine virtuelle faisant partie d’un cluster est appelée un nœud. Les groupes de machines virtuelles identiques constituent une ressource de calcul Azure que vous utilisez pour déployer et gérer une collection de machines virtuelles en tant que groupe. Chaque type de nœud défini dans un cluster Azure est [ configuré comme un groupe identique distinct](service-fabric-cluster-nodetypes.md). Chaque type de nœud peut alors faire l’objet d’une gestion séparée. Après avoir créé un cluster Service Fabric, vous pouvez faire évoluer un cluster horizontalement en ajoutant un nouveau type de nœud (groupe de machines virtuelles identiques) à un cluster existant.  Une mise à l’échelle peut s’effectuer à tout moment, même lorsque des charges de travail sont en cours d’exécution sur le cluster.  Lorsque vous mettez vos nœuds à l’échelle, vos applications sont automatiquement mises à l’échelle.

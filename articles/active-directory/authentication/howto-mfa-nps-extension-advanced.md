@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5bfae3b3be7812ff50ed90a61d495877141bbc7e
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58309706"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60414900"
 ---
 # <a name="advanced-configuration-options-for-the-nps-extension-for-multi-factor-authentication"></a>Options de configuration avancée de l’extension de serveur NPS pour l’authentification multifacteur
 
@@ -44,7 +44,7 @@ Si vous devez surveiller la disponibilité du serveur, par exemple si les équil
 
 Pour configurer une liste verte d’adresses IP, accédez à `HKLM\SOFTWARE\Microsoft\AzureMfa` et configurez la valeur de registre suivante : 
 
-| Nom | Type | Valeur par défaut | Description |
+| Name | Type | Valeur par défaut | Description |
 | ---- | ---- | ------------- | ----------- |
 | IP_WHITELIST | string | Vide | Fournissez une liste séparée par des points-virgules pour les adresses IP. Incluez les adresses IP des machines d’origine des requêtes de service, telles que le serveur NAS/VPN. Plages d’adresses IP et sous-réseaux ne sont pas pris en charge. <br><br> Par exemple, *10.0.0.1;10.0.0.2;10.0.0.3*.
 

@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 02/22/2019
 ms.author: aljo
 ms.openlocfilehash: bb99e5984f91edb0cf40f3bdc485624b9ec59833
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57872685"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60506737"
 ---
 # <a name="working-with-reliable-collections"></a>Utilisation des collections fiables
 Service Fabric propose un modèle de programmation avec état disponible pour les développeurs .NET via les collections fiables. Plus précisément, Service Fabric fournit un dictionnaire fiable et des classes de file d’attente fiables. Lorsque vous utilisez ces classes, votre état est partitionné (pour l’évolutivité) répliqué (pour la disponibilité) et traité dans une partition (pour la sémantique ACID). Examinons l'utilisation type d'un objet de dictionnaire fiable afin de découvrir ses fonctionnalités réelles.

@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: raynew
 ms.openlocfilehash: dff3c96cf3ac8eea7c1160ee1834cc70390c0333
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652635"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60533257"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Résoudre les problèmes d’Azure Migrate
 
@@ -82,7 +82,7 @@ Si vous ne pouvez pas exporter le rapport d’évaluation à partir du portail, 
 
 ### <a name="performance-data-for-cpu-memory-and-disks-is-showing-up-as-zeroes"></a>Données de performances pour le processeur, mémoire et disques ne s’affichent sous forme de zéros
 
-Azure Migrate en permanence les profils de l’environnement local pour collecter des données de performances des machines virtuelles en local. Si vous venez de démarrer la découverte de votre environnement, vous devez attendre au moins un jour pour la collecte de données de performances à faire. Si une évaluation est créée sans attendre un jour, les mesures de performances seront afficheront sous forme de zéros. Après avoir attendu une journée, vous pouvez créer une nouvelle évaluation ou mettre à jour de l’évaluation existante à l’aide de l’option « Recalculer » dans le rapport d’évaluation.
+Azure Migrate profile en continu l’environnement local pour collecter des données sur les performances des machines virtuelles locales. Si vous venez de démarrer la détection de votre environnement, attendez au moins un jour le temps de collecter suffisamment de données de performances. Si vous créez une évaluation sans respecter ce délai d’un jour, les métriques de performances s’afficheront sous forme de zéros. Après un jour de collecte, vous pouvez créer une évaluation ou mettre à jour l’évaluation existante à l’aide de l’option « Recalculer » disponible dans le rapport d’évaluation.
 
 ### <a name="i-specified-an-azure-geography-while-creating-a-migration-project-how-do-i-find-out-the-exact-azure-region-where-the-discovered-metadata-would-be-stored"></a>J’ai spécifié une zone géographique Azure ; au moment de la création d’un projet de migration, comment faire pour trouver la région Azure exacte où sont stockées les métadonnées découvertes ?
 

@@ -2,18 +2,18 @@
 title: Paramètres de pare-feu et de proxy locaux d’Azure File Sync | Microsoft Docs
 description: Configuration de réseau local d’Azure File Sync
 services: storage
-author: fauhse
+author: roygara
 ms.service: storage
 ms.topic: article
 ms.date: 11/26/2018
-ms.author: fauhse
+ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 35904c3854ddbcf3648c8a226d56f73be890b6ad
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58481500"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60460479"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Paramètres de proxy et de pare-feu d’Azure File Sync
 Azure File Sync connecte vos serveurs locaux à Azure Files, activant des fonctionnalités de synchronisation multisite et de hiérarchisation cloud. Pour cela, un serveur local doit donc être connecté à Internet. Un administrateur informatique doit déterminer la meilleure voie d’accès aux services cloud Azure pour le serveur.

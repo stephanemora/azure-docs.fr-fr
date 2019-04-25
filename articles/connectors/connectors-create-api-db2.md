@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 08/23/2018
 tags: connectors
 ms.openlocfilehash: 7785d1788e8d5e9b432a8189345f293ebf05ef7c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58878398"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60314077"
 ---
 # <a name="manage-ibm-db2-resources-with-azure-logic-apps"></a>Gérer les ressources IBM DB2 avec Azure Logic Apps
 
@@ -50,7 +50,7 @@ Le connecteur IBM DB2 prend en charge les opérations de base de données ci-apr
 | suppression d’une ligne à l’aide de l’instruction DELETE. | Supprimer la ligne |
 |||
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscrivez-vous pour bénéficier d’un compte Azure gratuit</a>.
 

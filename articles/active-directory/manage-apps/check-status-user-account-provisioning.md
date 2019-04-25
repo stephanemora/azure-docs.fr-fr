@@ -16,26 +16,26 @@ ms.author: celested
 ms.reviewer: asmalser
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0a6d1684c4bc0031978fb5e76548a3112b0f1ef2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56206988"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60441992"
 ---
-# <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>Tutoriel : Créer des rapports sur le provisionnement automatique de comptes d’utilisateur
+# <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>Didacticiel : Créer des rapports sur le provisionnement automatique de comptes d’utilisateur
 
 
 Azure Active Directory comprend un [service d’approvisionnement de comptes d’utilisateur](user-provisioning.md) qui permet d’automatiser l’approvisionnement ou la suppression de comptes d’utilisateur dans des applications SaaS et d’autres systèmes, pour gérer le cycle de vie des identités de bout en bout. Azure AD prend en charge des connecteurs préintégrés d’approvisionnement d’utilisateur pour l’ensemble des applications et systèmes dans la section « Suggestions » de la [Galerie d’applications Azure AD](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps?page=1&subcategories=featured).
 
 Cet article décrit comment vérifier l’état de l’approvisionnement des travaux après qu’ils ont été configurés, et résoudre les problèmes d’approvisionnement d’utilisateurs individuels et de groupes.
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Vue d'ensemble
 
 Les connecteurs de provisionnement peuvent être configurés via le [portail Azure](https://portal.azure.com), en suivant la [documentation fournie](../saas-apps/tutorial-list.md) pour l’application prise en charge. Une fois configurés et opérationnels, les travaux de provisionnement peuvent faire l’objet de rapports créés à l’aide de l’une des deux méthodes suivantes :
 
 * **Portail de gestion Azure** : Cet article aborde principalement la récupération des informations d’un rapport à partir du [portail Azure](https://portal.azure.com), qui fournit un rapport de synthèse, ainsi que des journaux d’audit détaillés sur le provisionnement d’une application donnée.
 
-* **API d’audit**  : Azure Active Directory fournit également une API d’audit qui permet la récupération par programmation des journaux d’audit détaillés sur l’approvisionnement. Pour une documentation spécifique sur l’utilisation de cette API, voir [Référence d’API d’audit Azure Active Directory](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit). Bien que cet article ne traite pas spécifiquement de l’utilisation de l’API, il détaille les types d’événements d’approvisionnement qui sont enregistrés dans le journal d’audit.
+* **API d’audit** : Azure Active Directory fournit également une API d’audit qui permet la récupération par programmation des journaux d’audit détaillés sur l’approvisionnement. Pour une documentation spécifique sur l’utilisation de cette API, voir [Référence d’API d’audit Azure Active Directory](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit). Bien que cet article ne traite pas spécifiquement de l’utilisation de l’API, il détaille les types d’événements d’approvisionnement qui sont enregistrés dans le journal d’audit.
 
 ### <a name="definitions"></a>Définitions
 

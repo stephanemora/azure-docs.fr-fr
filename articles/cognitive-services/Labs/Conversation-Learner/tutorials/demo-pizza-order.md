@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
 ms.openlocfilehash: 3fe11bef6c505771ee1e3f2e12e647eafc7c45d1
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55212441"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60430922"
 ---
 # <a name="demo-pizza-order"></a>Démonstration : commande de pizza
 Cette démonstration illustre un bot de commande de pizza capable de prendre en charge une commande à la fois en :

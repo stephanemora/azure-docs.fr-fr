@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 8ac0fbb1c62e4162e1c4ad040365a16d055e4552
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58310015"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60483191"
 ---
 # <a name="setup-your-application-in-the-publishing-portal"></a>Configurer votre application dans le portail de publication
 
@@ -106,7 +106,7 @@ Description qui figurera sur la page des détails de votre application. Le maxim
 
 Sélectionnez le secteur d’activité auquel s’adresse essentiellement votre application. Si votre application est apparentée à plusieurs secteurs d’activité, vous pouvez laisser ce champ vide.
 
-### <a name="categories"></a>Catégories
+### <a name="categories"></a>Categories
 
 Sélectionnez les catégories qui se rapportent à votre application. Sélectionnez un maximum de 3.
 

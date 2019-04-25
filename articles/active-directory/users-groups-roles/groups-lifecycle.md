@@ -16,11 +16,11 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5c19ee3bdd14ee6a2c5b59294f475f6c18b570fa
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58660254"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60471967"
 ---
 # <a name="configure-the-expiration-policy-for-office-365-groups"></a>Configurer la stratégie d’expiration pour les groupes Office 365
 
@@ -81,7 +81,7 @@ Quand un groupe expire, il est supprimé un jour après la date d’expiration. 
 
 ![Notifications par courrier électronique de suppression groupe](./media/groups-lifecycle/deletion-notification.png)
 
-Le groupe peut être restauré dans les 30 jours suivant sa suppression. Pour cela, vous pouvez sélectionner **Restaurer le groupe** ou utiliser les cmdlets PowerShell, comme décrit dans [Restaurer un groupe Office 365 supprimé dans Azure Active Directory](groups-restore-deleted.md). Veuillez noter que la période de restauration du groupe de 30 jours n’est pas personnalisable.
+Le groupe peut être restauré dans les 30 jours suivant sa suppression. Pour cela, vous pouvez sélectionner **Restaurer le groupe** ou utiliser les cmdlets PowerShell, comme décrit dans [Restaurer un groupe Office 365 supprimé dans Azure Active Directory](groups-restore-deleted.md). Veuillez noter que la période de restauration des groupes de 30 jours n’est pas personnalisable.
     
 Si le groupe que vous restaurez contient des documents, des sites SharePoint ou d’autres objets persistants, la restauration du groupe et de son contenu peut nécessiter jusqu’à 24 heures.
 

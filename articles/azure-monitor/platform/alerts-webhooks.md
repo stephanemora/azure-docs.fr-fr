@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 04/03/2017
 ms.author: snmuvva
-ms.subservice: alerts
+ms.component: alerts
 ms.openlocfilehash: 264f3eb042a3c29523ed93df93dfa6d45c00ae87
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54465664"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60345774"
 ---
 # <a name="have-a-classic-metric-alert-notify-a-non-azure-system-using-a-webhook"></a>Recevoir une alerte de métrique classique pour notifier un système non-Azure à l’aide d’un webhook
 Les Webhooks permettent de rediriger une notification d’alerte Azure vers d’autres systèmes pour effectuer un post-traitement ou des actions personnalisées. Vous pouvez utiliser un Webhook sur une alerte pour rediriger cette dernière vers des services qui envoient des SMS, consignent des bogues, avertissent une équipe dans des services de conversation instantanée/messagerie ou effectuent d’autres actions. 
@@ -73,7 +73,7 @@ L’opération POST contient le schéma et la charge utile JSON ci-après pour t
 |:--- |:--- |:--- |:--- |
 | status |O |Activated, Resolved |État de l’alerte en fonction des conditions que vous avez définies. |
 | context |O | |Contexte de l’alerte. |
-|  timestamp |O | |Heure à laquelle l’alerte a été déclenchée. |
+| timestamp |O | |Heure à laquelle l’alerte a été déclenchée. |
 | id |O | |Chaque règle d’alerte possède un ID unique. |
 | Nom |O | |Nom de l’alerte. |
 | description |O | |Description de l’alerte. |
@@ -90,7 +90,7 @@ L’opération POST contient le schéma et la charge utile JSON ci-après pour t
 | nom_groupe_ressources |O | |Nom du groupe de ressources de la ressource affectée. |
 | resourceName |O | |ID de la ressource affectée. |
 | resourceType |O | |Type de la ressource affectée. |
-| ResourceId |O | |ID de la ressource affectée. |
+| resourceId |O | |ID de la ressource affectée. |
 | resourceRegion |O | |Région ou emplacement de la ressource affectée. |
 | portalLink |O | |Lien direct vers la page de résumé de la ressource sur le portail. |
 | properties |N |Facultatif |Ensemble de paires clé/valeur contenant les détails de l’événement. Par exemple : `Dictionary<String, String>`. Le champ properties est facultatif. Dans un workflow basé sur une application logique ou une interface utilisateur personnalisée, les utilisateurs peuvent entrer des paires clé/valeur transmissibles par le biais de la charge utile. Une autre manière de transmettre des propriétés personnalisées au Webhook consiste à utiliser l’URI du Webhook (sous la forme de paramètres de requête). |
@@ -106,4 +106,3 @@ L’opération POST contient le schéma et la charge utile JSON ci-après pour t
 * Découvrez comment [utiliser une application logique pour envoyer un SMS par le biais de Twilio à partir d’une alerte Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app).
 * Découvrez comment [utiliser une application logique pour envoyer un message Slack à partir d’une alerte Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app).
 * Découvrez comment [utiliser une application logique pour envoyer un message à une file d’attente Azure à partir d’une alerte Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app).
-

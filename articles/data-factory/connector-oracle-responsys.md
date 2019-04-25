@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
 ms.openlocfilehash: 7440a08bd8ceb85cc569e1bb6d7c4ee1e52178a4
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352153"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60405900"
 ---
 # <a name="copy-data-from-oracle-responsys-using-azure-data-factory-preview"></a>Copier des données d’Oracle Responsys avec Azure Data Factory (préversion)
 
@@ -44,7 +44,7 @@ Les propriétés prises en charge pour le service lié Oracle Responsys sont les
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type doit être définie sur : **Responsys** | Oui |
+| type | La propriété type doit être définie sur : **Responsys** | Oui |
 | endpoint | Point de terminaison du serveur Responsys.  | Oui |
 | clientId | ID client associé à l’application Responsys.  | Oui |
 | clientSecret | Clé secrète client associée à l’application Responsys. Vous pouvez choisir de marquer ce champ comme SecureString pour le stocker en toute sécurité dans le fichier de définition d'application, ou stocker le mot de passe dans Azure Key Vault et laisser l'activité de copie ADF en tirer (pull) les données lors de la copie. Pour plus d'informations, consultez la page [Stocker des informations d'identification dans Key Vault](store-credentials-in-key-vault.md). | Oui |
@@ -83,8 +83,8 @@ Pour copier des données à partir d’Oracle Responsys, affectez la valeur **Re
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type du jeu de données doit être définie sur : **ResponsysObject** | Oui |
-| TableName | Nom de la table. | Non (si « query » dans la source de l’activité est spécifié) |
+| type | La propriété type du jeu de données doit être définie sur : **ResponsysObject** | Oui |
+| tableName | Nom de la table. | Non (si « query » dans la source de l’activité est spécifié) |
 
 **Exemple**
 
@@ -113,7 +113,7 @@ Pour copier des données à partir d’Oracle Responsys, affectez la valeur **Re
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type de la source d’activité de copie doit être définie sur : **ResponsysSource** | Oui |
+| type | La propriété type de la source d’activité de copie doit être définie sur : **ResponsysSource** | Oui |
 | query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"SELECT * FROM MyTable"`. | Non (si « tableName » est spécifié dans dataset) |
 
 **Exemple :**

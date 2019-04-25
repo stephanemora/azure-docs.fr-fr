@@ -3,21 +3,22 @@ title: Copier des données de Phoenix à l’aide d’Azure Data Factory | Micro
 description: Découvrez comment copier des données de Phoenix vers des banques de données réceptrices prises en charge à l’aide d’une activité de copie dans un pipeline Azure Data Factory.
 services: data-factory
 documentationcenter: ''
-author: linda33wj
-manager: craigg
+author: WenJason
+manager: digimobile
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/07/2018
-ms.author: jingwang
+origin.date: 12/07/2018
+ms.date: 04/22/2019
+ms.author: v-jay
 ms.openlocfilehash: 012057c7d01924ab1998a010b6ea0c7d83651a4d
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54017801"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60405919"
 ---
 # <a name="copy-data-from-phoenix-using-azure-data-factory"></a>Copier des données de Phoenix à l’aide d’Azure Data Factory 
 
@@ -41,7 +42,7 @@ Les propriétés prises en charge pour le service lié Phoenix sont les suivante
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type doit être définie sur : **Phoenix** | Oui |
+| type | La propriété type doit être définie sur : **Phoenix** | Oui |
 | host | Adresse IP ou nom d’hôte du serveur Phoenix (c’est-à-dire 192.168.222.160)  | Oui |
 | port | Port TCP utilisé par le serveur Phoenix pour écouter les connexions clientes. La valeur par défaut est 8765. Si vous êtes connecté à Azure HDInsights, spécifiez le port 443. | Non  |
 | httpPath | URL partielle correspondant au serveur Phoenix (c’est-à-dire, /gateway/sandbox/phoenix/version). Spécifiez `/hbasephoenix0` si vous utilisez un cluster HDInsights.  | Non  |
@@ -66,7 +67,7 @@ Les propriétés prises en charge pour le service lié Phoenix sont les suivante
     "properties": {
         "type": "Phoenix",
         "typeProperties": {
-            "host" : "<cluster>.azurehdinsight.net",
+            "host" : "<cluster>.azurehdinsight.cn",
             "port" : "443",
             "httpPath" : "/hbasephoenix0",
             "authenticationType" : "WindowsAzureHDInsightService",
@@ -88,8 +89,8 @@ Pour copier des données de Phoenix, affectez la valeur **PhoenixObject** à la 
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type du jeu de données doit être définie sur : **PhoenixObject** | Oui |
-| TableName | Nom de la table. | Non (si « query » dans la source de l’activité est spécifié) |
+| type | La propriété type du jeu de données doit être définie sur : **PhoenixObject** | Oui |
+| tableName | Nom de la table. | Non (si « query » dans la source de l’activité est spécifié) |
 
 **Exemple**
 
@@ -117,7 +118,7 @@ Pour copier des données de Phoenix, définissez **PhoenixSource** comme type de
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type de la source d’activité de copie doit être définie sur : **PhoenixSource** | Oui |
+| type | La propriété type de la source d’activité de copie doit être définie sur : **PhoenixSource** | Oui |
 | query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"SELECT * FROM MyTable"`. | Non (si « tableName » est spécifié dans dataset) |
 
 **Exemple :**

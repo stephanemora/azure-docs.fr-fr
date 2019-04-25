@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 12/17/2018
 ms.author: juliako
 ms.openlocfilehash: 32b9664d12d6fe3a44329665c730dbc8709430f2
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53650839"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60322717"
 ---
 # <a name="creating-filters-with-media-services-rest-api"></a>Créer des filtres avec l’API REST Media Services
 
@@ -26,7 +26,7 @@ Quand vous transmettez votre contenu à un client (événements de streaming en 
 
 Cette rubrique explique comment définir un filtre pour un élément multimédia Vidéo à la demande et utiliser les API REST pour créer des [Filtres de compte](https://docs.microsoft.com/rest/api/media/accountfilters) et des [Filtres d’élément multimédia](https://docs.microsoft.com/rest/api/media/assetfilters). 
 
-## <a name="prerequisites"></a>Prérequis 
+## <a name="prerequisites"></a>Conditions préalables 
 
 Pour suivre les étapes décrites dans cette rubrique, vous devez :
 

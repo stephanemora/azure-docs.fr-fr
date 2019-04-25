@@ -18,11 +18,11 @@ ms.reviwer: lenalepa, sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 97728fa70f0c5f58510e0e68d27a379b20887703
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59500295"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60410554"
 ---
 # <a name="how-to-configure-terms-of-service-and-privacy-statement-for-an-app"></a>Activation Configurer les termes du contrat de service et déclaration de confidentialité pour une application
 

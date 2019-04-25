@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 12/21/2017
 ms.author: rli
 ms.openlocfilehash: 877d994968dbc575c8baa7ac4c8a40b76f6d617f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59283475"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60323822"
 ---
 # <a name="azure-cdn-rules-engine-match-conditions"></a>Conditions de correspondance du moteur de règles Azure CDN 
 Cet article fournit les descriptions détaillées des conditions de correspondance disponibles pour le [moteur de règles](cdn-rules-engine.md) Azure Content Delivery Network (CDN).
@@ -35,7 +35,7 @@ Par exemple, vous pouvez utiliser une condition de correspondance pour les tâch
 
 La condition de correspondance Toujours applique un ensemble de fonctionnalités par défaut à toutes les requêtes.
 
-Nom | Objectif
+Name | Objectif
 -----|--------
 [Toujours](#always) | Applique un ensemble de fonctionnalités par défaut à toutes les requêtes.
 
@@ -43,7 +43,7 @@ Nom | Objectif
 
 La condition de correspondance Appareil identifie les requêtes effectuées à partir d’un appareil mobile selon ses propriétés.  
 
-Nom | Objectif
+Name | Objectif
 -----|--------
 [Appareil](#device) | Identifie les requêtes effectuées à partir d’un appareil mobile selon ses propriétés.
 
@@ -69,7 +69,7 @@ Nom | Objectif
 
 Les conditions de correspondance Requête identifient les requêtes selon leurs propriétés.
 
-Nom | Objectif
+Name | Objectif
 -----|--------
 [Adresse IP du client](#client-ip-address) | Identifie les requêtes issues d’une adresse IP particulière.
 [Paramètre de cookie](#cookie-parameter) | Recherche la valeur spécifiée dans les cookies associés à chaque requête.
@@ -960,7 +960,7 @@ Informations essentielles :
 #### <a name="sample-scenarios"></a>Exemples de scénarios
 L’exemple suivant montre comment cette option fonctionne dans des situations spécifiques :
 
- Nom                 | Description
+ Name                 | Description
  ---------------------|------------
 user=joe              | Ce modèle correspond lorsque la chaîne de requête d’une URL demandée est « ?user=joe ».
 \*user=\* \*optout=\* | Ce modèle correspond lorsque la requête d’URL CDN contient l’utilisateur ou le paramètre de désabonnement.

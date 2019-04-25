@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 04/19/2017
 ms.author: jeconnoc
 ms.openlocfilehash: 53a262af421dd986e6b70af173a6e8b3f7c06f64
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59798757"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60527290"
 ---
 # <a name="expose-role-configuration-settings-as-an-environment-variable-with-xpath"></a>Exposer les paramètres de configuration de rôle comme variable d'environnement avec XPath
 Dans le fichier de définition de service du rôle Web ou du rôle de travail du service cloud, vous pouvez exposer les valeurs de configuration de l'exécution en tant que variables d'environnement. Les valeurs XPath suivantes sont prises en charge (qui correspondent aux valeurs de l'API).

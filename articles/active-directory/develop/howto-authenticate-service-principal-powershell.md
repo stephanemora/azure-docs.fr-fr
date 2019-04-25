@@ -17,11 +17,11 @@ ms.author: celested
 ms.reviewer: tomfitz
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 12bfcea70c80929ade656bc5e23f8b95fce44a54
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312155"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60410397"
 ---
 # <a name="how-to-use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>Activation Utiliser Azure PowerShell pour créer un principal du service avec un certificat
 

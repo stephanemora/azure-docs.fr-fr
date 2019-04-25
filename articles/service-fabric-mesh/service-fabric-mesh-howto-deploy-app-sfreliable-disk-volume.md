@@ -16,11 +16,11 @@ ms.date: 12/03/2018
 ms.author: asnegi
 ms.custom: mvc, devcenter
 ms.openlocfilehash: b5e4ad30a65b25140cfb2c80dd15d8cd28fb827b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57850851"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60419218"
 ---
 # <a name="mount-highly-available-service-fabric-reliable-disk-based-volume-in-a-service-fabric-mesh-application"></a>Monter un volume basé sur Service Fabric Reliable Disk dans une application Azure Service Fabric Mesh 
 La méthode courante pour rendre persistant l’état avec des applications de conteneur consiste à utiliser un stockage à distance, tel que le Stockage Fichier Azure ou une base de données du type Azure Cosmos DB. Cela entraîne une importante latence de lecture et d’écriture sur le magasin distant.

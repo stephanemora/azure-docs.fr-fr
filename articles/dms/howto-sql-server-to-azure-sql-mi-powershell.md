@@ -12,11 +12,11 @@ ms.custom: mvc
 ms.topic: article
 ms.date: 03/12/2019
 ms.openlocfilehash: ed0d65a0f00bd5ebc3227a249beec6bafd791347
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58335927"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60532545"
 ---
 # <a name="migrate-sql-server-on-premises-to-azure-sql-database-managed-instance-using-azure-powershell"></a>Migrer un serveur SQL Server local vers Azure SQL Database Managed Instance à l’aide d’Azure PowerShell
 Dans cet article, vous allez migrer la base de données **Adventureworks2012** restaurée vers une instance locale de SQL Server 2005 ou une version ultérieure vers Azure SQL Database Managed Instance, à l’aide de Microsoft Azure PowerShell. Vous pouvez migrer des bases de données à partir d’une instance SQL Server locale vers Azure SQL Database Managed Instance, à l’aide du module `Az.DataMigration`, dans Microsoft Azure PowerShell.

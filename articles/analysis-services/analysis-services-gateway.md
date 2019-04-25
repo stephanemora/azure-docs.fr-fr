@@ -9,11 +9,11 @@ ms.date: 12/19/2018
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: f13dd1282a6384a0acca4c6936fe7900a051795f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58896021"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60497390"
 ---
 # <a name="connecting-to-on-premises-data-sources-with-on-premises-data-gateway"></a>Connexion aux sources de données locales avec la passerelle de données locale
 La passerelle de données locale assure un transfert de données sécurisé entre des sources de données locales et vos serveurs Azure Analysis Services dans le cloud. Pouvant être utilisée avec plusieurs serveurs Azure Analysis Services dans la même région, la dernière version de la passerelle fonctionne également avec Azure Logic Apps, Power BI, Power Apps et Microsoft Flow. Vous pouvez associer plusieurs services dans le même abonnement et la même région avec une passerelle unique. 

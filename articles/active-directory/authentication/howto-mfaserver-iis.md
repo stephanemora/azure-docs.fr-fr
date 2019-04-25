@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6404356edca606d78656011b9dec654e9f29edd3
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58368575"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60415025"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-for-iis-web-apps"></a>Configuration d’un serveur Azure Multi-Factor Authentication pour les applications web IIS
 

@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 09/17/2018
 ms.author: ergreenl
 ms.openlocfilehash: 513cccb8b83eb4a69df1bc6172f1f02485215e35
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58086001"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60417003"
 ---
 # <a name="password-and-account-lockout-policies-on-managed-domains"></a>Stratégies de mot de passe et de verrouillage de compte sur les domaines managés
 Cet article explique les stratégies de mot de passe par défaut sur un domaine managé. Il décrit également comment configurer ces stratégies.

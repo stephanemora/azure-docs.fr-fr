@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 04/15/2019
 ms.author: shvija
 ms.openlocfilehash: 6a8f0ddcfe6de904219059c6e761ead4c004732d
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59681707"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60461448"
 ---
 # <a name="send-events-to-or-receive-events-from-event-hubs-using-python"></a>Envoyer des événements à ou recevoir des événements d’Event Hubs à l’aide de Python
 
@@ -25,7 +25,7 @@ Ce didacticiel explique comment créer des applications Python pour envoyer des 
 > [!NOTE]
 > Vous pouvez télécharger ce guide de démarrage rapide sous forme d’exemple depuis [GitHub](https://github.com/Azure/azure-event-hubs-python/tree/master/examples), remplacer les chaînes `EventHubConnectionString` et `EventHubName` par les valeurs de votre hub d’événements, puis l’exécuter. Ou, vous pouvez suivre les étapes de ce didacticiel pour créer le vôtre.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour effectuer ce didacticiel, vous avez besoin de ce qui suit :
 

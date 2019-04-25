@@ -19,11 +19,11 @@ ms.custom: aaddev
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 937aa5d5874ff2915bfb51d289bfb1aac44a0530
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56207821"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60300527"
 ---
 # <a name="azure-active-directory-authentication-protocols"></a>Protocoles d’authentification d’Azure Active Directory
 Azure Active Directory (Azure AD) prend en charge plusieurs protocoles d’authentification et d’autorisation parmi ceux les plus couramment utilisés. Les rubriques de cette section décrivent les protocoles pris en charge et leur implémentation dans Azure AD. Les rubriques comprennent une revue des types de revendications pris en charge, une présentation de l’utilisation des métadonnées de fédération, de la documentation de référence détaillée sur les protocoles OAuth 2.0. et SAML 2.0 et une section de dépannage.

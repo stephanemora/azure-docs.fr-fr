@@ -13,11 +13,11 @@ ms.date: 02/19/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b303a1cd3da7010573ce34dd4762616f4b6581d0
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57729099"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60475861"
 ---
 # <a name="manage-your-connected-devices-from-the-my-profile-preview-portal"></a>Gérer vos appareils connectés à partir du portail Mon profil (préversion)
 Vous pouvez gérer les appareils auxquels vous êtes connecté à l’aide de votre compte professionnel ou scolaire, en désactivant ceux que vous ne possédez plus, à partir de la page **Appareils** du portail **Mon profil**.

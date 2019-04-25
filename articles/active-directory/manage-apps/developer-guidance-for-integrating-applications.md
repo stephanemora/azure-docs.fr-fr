@@ -14,16 +14,16 @@ ms.author: celested
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 341d7667f039a7272a7ad3fec80a445aa95b619d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56202687"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60440230"
 ---
 # <a name="develop-line-of-business-apps-for-azure-active-directory"></a>Développer des applications métier pour Azure Active Directory
 Ce guide fournit une vue d’ensemble du développement d’applications métier pour Azure Active Directory. Il s’adresse aux administrateurs généraux de systèmes Active Directory/Office 365.
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Vue d'ensemble
 La création d’applications intégrées à Azure AD permet aux utilisateurs de votre organisation de bénéficier de l’authentification unique avec Office 365. En disposant de l’application dans Azure AD, vous pouvez contrôler la stratégie d’authentification pour celle-ci. Pour en savoir plus sur l’accès conditionnel et la façon de protéger les applications avec l’authentification multifacteur, consultez [Configuration des règles d’accès](../conditional-access/app-based-mfa.md).
 
 Inscrivez votre application pour utiliser Azure Active Directory. Inscrire l’application signifie que vos développeurs peuvent utiliser Azure AD pour authentifier les utilisateurs et demander l’accès aux ressources de l’utilisateur, telles que le courrier électronique, le calendrier et des documents.

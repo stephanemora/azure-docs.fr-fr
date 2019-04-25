@@ -13,11 +13,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d522b0740b144c39da81a9838f9d6e259fe62d22
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57532777"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60455396"
 ---
 # <a name="migrate-from-federation-to-password-hash-synchronization-for-azure-active-directory"></a>Migrer de la fédération à la synchronisation de hachage de mot de passe pour Azure Active Directory
 
@@ -224,7 +224,7 @@ Vous avez planifié votre solution. Vous pouvez maintenant l’implémenter. L�
 * Préparation pour l’authentification unique fluide.
 * Changement de la méthode de connexion pour la synchronisation de hachage de mot de passe et activation de l’authentification unique fluide.
 
-### <a name="step-1-enable-password-hash-synchronization"></a>Étape 1 : Activer la synchronisation de hachage de mot de passe
+### <a name="step-1-enable-password-hash-synchronization"></a>Étape 1 : Activer la synchronisation de hachage de mot de passe
 
 La première étape de l’implémentation de cette solution consiste à activer la synchronisation de hachage de mot de passe avec l’Assistant Azure AD Connect. La synchronisation de hachage de mot de passe est une fonctionnalité facultative que vous pouvez activer dans les environnements qui utilisent la fédération. Cela n’a aucun effet sur le flux d’authentification. Dans ce cas, Azure AD Connect démarre la synchronisation des hachages de mot de passe sans affecter les utilisateurs qui se connectent en utilisant la fédération.
 
@@ -259,7 +259,7 @@ Pour vérifier que la synchronisation de hachage de mot de passe fonctionne corr
 
 Pour résoudre les problèmes, consultez [Résoudre les problèmes de synchronisation du hachage de mot de passe avec Azure AD Connect Sync](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-troubleshoot-password-hash-synchronization).
 
-### <a name="step-2-prepare-for-seamless-sso"></a>Étape 2 : Préparer pour l’authentification unique fluide
+### <a name="step-2-prepare-for-seamless-sso"></a>Étape 2 : Préparer pour l’authentification unique fluide
 
 Pour que vos appareils utilisent l’authentification unique fluide, vous devez ajouter une URL Azure AD aux paramètres de zone intranet des utilisateurs via une stratégie de groupe dans Active Directory.
 

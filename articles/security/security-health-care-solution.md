@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 060c176b97966816d421ddbe0d8017ad8558710a
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 05a7c52dca420f97252c68445398fb3959be8804
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56113841"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60445700"
 ---
 # <a name="a-practical-guide-to-designing-secure-health-care-solutions-in-azure"></a>Guide pratique de conception de solutions de santé sécurisées dans Azure
 Les start-ups du secteur de la santé, les intégrateurs de systèmes, les éditeurs de logiciels indépendants et les organismes de santé qui envisagent le passage à Azure recherchent des conseils les aidant à intégrer des contrôles de sécurité leur permettant de respecter leurs obligations de conformité.

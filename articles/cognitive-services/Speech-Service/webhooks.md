@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/11/2019
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 7b47d4fc3aa4a1a50e441e668a856703c67045ae
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.openlocfilehash: 3ceaed2b1e27a1f5b910865f6e9d0e70ef347b71
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59581008"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60515388"
 ---
 # <a name="webhooks-for-speech-services"></a>Webhooks pour les Services de reconnaissance vocale
 
@@ -38,6 +38,8 @@ Ensuite, nous allons créer un webhook.
 ## <a name="create-a-webhook"></a>Créer un webhook
 
 Nous allons créer un webhook pour une transcription en mode hors connexion. Le scénario : un utilisateur dispose d’un fichier audio de longue durée qu’ils souhaiteraient de transcription de façon asynchrone avec l’API de Transcription de Batch. 
+
+Pour créer un web raccordement POST https://<region>.cris.ai/api/speechtotext/v2.1/transcriptions/hooks
 
 Paramètres de configuration de la demande sont fournies au format JSON :
 
@@ -133,6 +135,50 @@ Envoie une demande POST à l’URL inscrit si une entité pour le type d’évé
 ### <a name="run-a-test"></a>Exécuter un test
 
 Un test rapide peut être effectué via le site Web https://bin.webhookrelay.com. À partir de là, vous pouvez obtenir appel sauvegarder URL à passer comme paramètre à la requête HTTP POST pour la création d’un webhook décrit précédemment dans le document.
+
+Cliquez sur « Créer un compartiment » et suivez l’à l’écran des instructions pour obtenir un raccordement. Puis utilisez les informations fournies dans cette page pour inscrire le raccordement auprès du service de reconnaissance vocale. La charge utile d’un relais de message - en réponse à l’achèvement d’une transcription-se présente comme suit :
+
+```json
+{
+    "results": [],
+    "recordingsUrls": [
+        "my recording URL"
+    ],
+    "models": [
+        {
+            "modelKind": "AcousticAndLanguage",
+            "datasets": [],
+            "id": "a09c8c8b-1090-443c-895c-3b1cf442dec4",
+            "createdDateTime": "2019-03-26T12:48:46Z",
+            "lastActionDateTime": "2019-03-26T14:04:47Z",
+            "status": "Succeeded",
+            "locale": "en-US",
+            "name": "v4.13 Unified",
+            "description": "Unified",
+            "properties": {
+                "Purpose": "OnlineTranscription,BatchTranscription,LanguageAdaptation",
+                "ModelClass": "unified-v4"
+            }
+        }
+    ],
+    "statusMessage": "None.",
+    "id": "d41615e1-a60e-444b-b063-129649810b3a",
+    "createdDateTime": "2019-04-16T09:35:51Z",
+    "lastActionDateTime": "2019-04-16T09:38:09Z",
+    "status": "Succeeded",
+    "locale": "en-US",
+    "name": "Simple transcription",
+    "description": "Simple transcription description",
+    "properties": {
+        "PunctuationMode": "DictatedAndAutomatic",
+        "ProfanityFilterMode": "Masked",
+        "AddWordLevelTimestamps": "True",
+        "AddSentiment": "True",
+        "Duration": "00:00:02"
+    }
+}
+```
+Le message contient l’URL de l’enregistrement et permet de transcrire que l’enregistrement de modèles.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

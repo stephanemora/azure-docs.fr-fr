@@ -13,11 +13,11 @@ ms.reviewer: sahenry
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5adb857e6032e46c31a86685913277ec3eb571be
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59496401"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60416128"
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>Résoudre les problèmes relatifs à la réinitialisation de mot de passe libre-service
 

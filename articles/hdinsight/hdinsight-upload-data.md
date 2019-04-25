@@ -2,7 +2,6 @@
 title: Charger des données pour des travaux Apache Hadoop dans HDInsight
 description: Découvrez comment charger des données pour des travaux Apache Hadoop et y accéder dans HDInsight avec Azure Classic CLI, Explorateur Stockage Azure, Azure PowerShell, la ligne de commande Hadoop ou Sqoop.
 keywords: etl hadoop, obtention de données dans hadoop, données de charge hadoop
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.author: hrasheed
@@ -11,17 +10,17 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/08/2019
 ms.openlocfilehash: a56f2546eec12d04dcc64665e60a9874b8e991b6
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59684138"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60486315"
 ---
 # <a name="upload-data-for-apache-hadoop-jobs-in-hdinsight"></a>Charger des données pour des travaux Apache Hadoop dans HDInsight
 
 Azure HDInsight fournit un système HDFS (Hadoop Distributed File System) complet pour Stockage Azure et Azure Data Lake Storage (Gen1 et Gen2). Stockage Azure et Azure Data Lake Storage (Gen1 et Gen2) sont conçus en tant qu’extensions HDFS pour offrir aux clients une expérience fluide. Ils permettent à l’ensemble des composants de l’écosystème Hadoop de fonctionner directement sur les données qu’il gère. Stockage Azure et Azure Data Lake Storage (Gen1 et Gen2) sont des systèmes de fichiers distincts, optimisés pour le stockage de données et pour les calculs réalisés à partir de ces données. Pour connaître les avantages associés à l’utilisation de Stockage Azure, voir [Utiliser Stockage Azure avec HDInsight][hdinsight-storage], [Utiliser Data Lake Storage Gen1 avec HDInsight](hdinsight-hadoop-use-data-lake-store.md) et [Utiliser Data Lake Storage Gen2 avec HDInsight](hdinsight-hadoop-use-data-lake-storage-gen2.md).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Notez les prérequis suivants avant de démarrer :
 

@@ -2,14 +2,15 @@
 author: PatAltimore
 ms.service: active-directory-b2c
 ms.topic: include
-ms.date: 11/03/2016
-ms.author: patricka
+origin.date: 11/03/2016
+ms.date: 04/04/2019
+ms.author: v-junlch
 ms.openlocfilehash: fcd71f74e0b00934958828024094773e42496b66
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "58115804"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60454840"
 ---
 [!INCLUDE [active-directory-b2c-portal-add-application](active-directory-b2c-portal-add-application.md)]
 
@@ -19,7 +20,7 @@ Pour inscrire votre API web, utilisez les paramètres spécifiés dans la table.
 
 | Paramètre      | Exemple de valeur  | Description                                        |
 | ------------ | ------- | -------------------------------------------------- |
-| **Nom** | API de Contoso B2C | Entrez un **Nom** pour l’application qui décrira votre API aux consommateurs. | 
+| **Name** | API de Contoso B2C | Entrez un **Nom** pour l’application qui décrira votre API aux consommateurs. | 
 | **Application/API web** | Oui | Sélectionnez **Oui** pour une API web. |
 | **Autoriser le flux implicite** | Oui | Choisissez **Oui** si votre application doit utiliser une [connexion OpenID Connect](../articles/active-directory-b2c/active-directory-b2c-reference-oidc.md). |
 | **URL de réponse** | `https://localhost:44316/` | Les URL de réponse sont des points de terminaison auxquels Azure AD B2C renvoie les jetons demandés par votre application. Dans cet exemple, votre API web est locale et à l’écoute sur le port 44316. |
@@ -32,3 +33,4 @@ Votre application qui vient d’être enregistrée s’affiche dans la liste des
 ![Propriétés de l’API Web](./media/active-directory-b2c-register-web-api/b2c-web-api-properties.png)
 
 Prenez note de l’**ID client de l’application** global unique. Vous utilisez l’ID dans le code de votre application.
+

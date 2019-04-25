@@ -12,11 +12,11 @@ ms.date: 09/18/2018
 ms.author: zhouwang
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: ead4026ecec4878c69bc21a9ebc989eaf3d69a13
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259939"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60515132"
 ---
 # <a name="quickstart-use-the-bing-speech-recognition-rest-api"></a>Démarrage rapide : Utiliser l’API REST de reconnaissance vocale Bing
 
@@ -24,7 +24,7 @@ ms.locfileid: "58259939"
 
 Le service cloud Reconnaissance vocale Bing vous permet de développer des applications à l’aide de l’API REST pour convertir du contenu vocal en texte.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 ### <a name="subscribe-to-the-speech-api-and-get-a-free-trial-subscription-key"></a>S’abonner à l’API Microsoft Speech et obtenir une clé d’abonnement d’essai
 

@@ -16,11 +16,11 @@ ms.date: 02/26/2019
 ms.author: kumud
 ms.custom: seodec18
 ms.openlocfilehash: fe095b8f5a0080c0f28ec570303c9dc23962dfc8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57869810"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60507921"
 ---
 # <a name="quickstart-create-a-basic-load-balancer-by-using-the-azure-portal"></a>Démarrage rapide : Créer un équilibreur de charge de base à l’aide du portail Azure
 

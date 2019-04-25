@@ -10,11 +10,11 @@ ms.date: 06/13/2018
 ms.author: nobun
 ms.custom: mvc
 ms.openlocfilehash: 910c96988ec0a8b8aa7b6ac8ce287c4fdc59e177
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58649966"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60467559"
 ---
 # <a name="migrating-from-azure-container-service-acs-to-azure-kubernetes-service-aks"></a>Migration d’Azure Container Service (ACS) vers Azure Kubernetes Service (AKS)
 

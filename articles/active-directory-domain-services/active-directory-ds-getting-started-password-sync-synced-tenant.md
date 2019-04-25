@@ -16,11 +16,11 @@ ms.topic: conceptual
 ms.date: 11/15/2017
 ms.author: ergreenl
 ms.openlocfilehash: 74ad811481aea83454d7e3179652e68d4c406521
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55564967"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60417246"
 ---
 # <a name="enable-password-synchronization-to-azure-active-directory-domain-services"></a>Activer la synchronisation du mot de passe pour Azure Active Directory Domain Services
 Dans les tâches précédentes, vous avez activé Azure Active Directory Domain Services pour votre locataire Azure Active Directory (Azure AD). Dans la tâche suivante, vous allez activer la synchronisation des hachages d’informations d’identification requis pour l’authentification NT LAN Manager (NTLM) et Kerberos avec Services de domaine Azure AD. Une fois la synchronisation des informations d’identification configurée, les utilisateurs peuvent se connecter au domaine managé à l’aide de leurs informations d’identification d’entreprise.

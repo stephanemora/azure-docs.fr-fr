@@ -8,11 +8,11 @@ ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 02/28/2018
 ms.openlocfilehash: 3ca77c1ffa5f5a3f384009299701f4aa674baf59
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700194"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60421184"
 ---
 # <a name="configure-and-access-server-logs-by-using-azure-cli"></a>Configurer et accéder aux journaux d’activité du serveur à l’aide d’Azure CLI
 Vous pouvez télécharger les journaux d’activité des erreurs du serveur PostgreSQL à l’aide de l’interface de ligne de commande (Azure CLI). Toutefois, l’accès aux journaux d’activité des transactions n’est pas pris en charge. 

@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
 ms.openlocfilehash: 6436193dadb5933074fdce861a31672a0f4849de
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55227333"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60313132"
 ---
 # <a name="demo-password-reset"></a>Démo : Réinitialisation de mot de passe
 Ce didacticiel présente un simple bot de support technique qui peut aider à réinitialiser des mot de passe, optimisé par Conversation Learner. Le modèle du bot peut apprendre des flux de dialogue non triviaux et des séquences à plusieurs tours incluant des classes hors domaine. La tâche peut être accomplie sans code ou entité.

@@ -7,11 +7,11 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 12/6/2018
 ms.openlocfilehash: 55106f855d1f2cab82b751b306a3a289bd740e9e
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895344"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60525412"
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Limitations dans Azure Database pour MySQL
 Les sections suivantes abordent la capacité, la prise en charge du moteur de stockage, la prise en charge des privilèges, la prise en charge des instructions de manipulation des données et les limites fonctionnelles du service de base de données. Vous pouvez aussi consulter les [limitations générales](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) qui sont applicables au moteur de base de données MySQL.

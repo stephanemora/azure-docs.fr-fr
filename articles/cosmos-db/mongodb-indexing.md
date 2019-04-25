@@ -5,15 +5,16 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: conceptual
-ms.date: 12/26/2018
-author: sivethe
-ms.author: sivethe
+origin.date: 12/26/2018
+ms.date: 01/21/2019
+author: rockboyfor
+ms.author: v-yeche
 ms.openlocfilehash: de037316efa50dd25ea04c370fa0e5878fb52ba1
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54040402"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60448501"
 ---
 # <a name="indexing-using-azure-cosmos-dbs-api-for-mongodb"></a>Indexation à l’aide de l’API pour MongoDB d’Azure Cosmos DB
 
@@ -79,14 +80,14 @@ Dans l’exemple ci-dessus, si la clause ```"university":1``` a été omise, une
 ## <a name="ttl-indexes"></a>Index TTL
 
 Pour activer l’expiration de document dans une collection particulière, un [« index TTL » (index de durée de vie)](../cosmos-db/time-to-live.md) doit être créé. Un index TTL est un index sur le champ _ts avec une valeur « expireAfterSeconds ».
- 
+
 Exemple :
 ```JavaScript
 globaldb:PRIMARY> db.coll.createIndex({"_ts":1}, {expireAfterSeconds: 10})
 ```
 
 La commande précédente entraîne la suppression de tous les documents de la collection ```db.coll``` qui n’ont pas été modifiés au cours des 10 dernières secondes. 
- 
+
 > [!NOTE]
 > **_ts** est un champ spécifique de Cosmos DB qui n’est pas accessible à partir des clients MongoDB. Il s’agit d’une propriété (système) réservée qui contient le timestamp de la dernière modification du document.
 >
@@ -98,3 +99,5 @@ Actuellement, la création d’index uniques n’est possible que lorsque la col
 ## <a name="next-steps"></a>Étapes suivantes
 * [Indexation dans Azure Cosmos DB](../cosmos-db/index-policy.md)
 * [Faire expirer automatiquement des données avec la durée de vie dans Azure Cosmos DB](../cosmos-db/time-to-live.md)
+
+<!-- Update_Description: update meta properties  -->

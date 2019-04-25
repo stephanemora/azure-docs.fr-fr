@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à LINE WORKS | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à LINE WORKS | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et LINE WORKS.
 services: active-directory
 documentationCenter: na
@@ -17,11 +17,11 @@ ms.date: 11/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4c70df45f448502978254a60747eb168ea33dd86
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57886301"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60521402"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-line-works"></a>Didacticiel : Intégration d’Azure Active Directory à LINE WORKS
 
@@ -156,7 +156,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le **nom d’utilisateur** , tapez **brittasimon\@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotresociété.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Sélectionnez **Propriétés**, cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.

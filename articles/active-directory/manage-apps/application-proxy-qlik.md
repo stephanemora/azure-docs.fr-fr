@@ -15,11 +15,11 @@ ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 12e36c49d8c4db60302d4b72dfa81ea4aceec77b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58107387"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60441327"
 ---
 # <a name="application-proxy-and-qlik-sense"></a>Proxy d’application et Qlik Sens 
 Le proxy d’application Azure Active Directory et Qlik Sense se sont associés afin de vous permettre d’utiliser facilement le Proxy d’application pour fournir l’accès à distance à votre déploiement Qlik sens.  

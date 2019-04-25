@@ -2,19 +2,26 @@
 title: Fonction définie par l’utilisateur (UDF) de Java avec Apache Hive dans HDInsight - Azure
 description: Découvrez comment créer une fonction définie par l’utilisateur basée sur Java qui fonctionne avec Apache Hive. Cet exemple UDF convertit un tableau de chaînes de texte en minuscules.
 services: hdinsight
-author: hrasheed-msft
-ms.reviewer: jasonh
+documentationcenter: ''
+author: Blackmist
+manager: jhubbard
+editor: cgronlun
+ms.assetid: 8d4f8efe-2f01-4a61-8619-651e873c7982
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
+ms.devlang: java
 ms.topic: conceptual
-ms.date: 03/21/2019
-ms.author: hrasheed
+ms.tgt_pltfrm: na
+ms.workload: big-data
+origin.date: 03/21/2019
+ms.date: 04/29/2019
+ms.author: v-yiso
 ms.openlocfilehash: b8417fe4c15259a7fd485254cf9edd2c8c082e92
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58629693"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60537630"
 ---
 # <a name="use-a-java-udf-with-apache-hive-in-hdinsight"></a>Utiliser une fonction UDF Java avec Apache Hive dans HDInsight
 
@@ -194,13 +201,13 @@ Dans les commandes ci-dessous, remplacez `sshuser` avec le nom d’utilisateur s
 2. Utilisez le `scp` commande pour copier le fichier vers le cluster HDInsight en entrant la commande suivante :
 
     ```cmd
-    scp ./target/ExampleUDF-1.0-SNAPSHOT.jar sshuser@mycluster-ssh.azurehdinsight.net:
+    scp ./target/ExampleUDF-1.0-SNAPSHOT.jar sshuser@mycluster-ssh.azurehdinsight
     ```
 
 3. Connectez-vous au cluster à l’aide de SSH en entrant la commande suivante :
 
     ```cmd
-    ssh sshuser@mycluster-ssh.azurehdinsight.net
+    ssh sshuser@mycluster-ssh.azurehdinsight.cn
     ```
 
 4. À partir de la session SSH ouverte, copiez le fichier jar vers le stockage HDInsight.

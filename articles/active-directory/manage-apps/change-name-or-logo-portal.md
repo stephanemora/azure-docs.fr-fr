@@ -17,11 +17,11 @@ ms.reviewer: asteen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 62578fe037dc1c9672bd0a4cf28500c658344c53
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56182916"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60440363"
 ---
 # <a name="change-the-name-or-logo-of-an-enterprise-app-in-azure-active-directory"></a>Modifier le nom ou le logo d’une application d’entreprise dans Azure Active Directory
 Il est facile de modifier le nom ou le logo d’une application d’entreprise personnalisée dans Azure Active Directory (Azure AD). Vous devez disposer des autorisations appropriées pour effectuer ces modifications, et vous devez être le créateur de l’application personnalisée.

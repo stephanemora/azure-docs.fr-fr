@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/29/2017
 ms.author: alkohli
-ms.openlocfilehash: bf8038b7171053b75eeb9aed88bff4246e65a8a8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 462f8dafdffa7ee01e6ccf7945a1abfdff90db42
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23108187"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60506132"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-and-manage-jobs-update-3-and-later"></a>Utiliser le service StorSimple Device Manager pour afficher et gérer des travaux (Update 3 et versions ultérieures)
 
@@ -32,12 +32,12 @@ Vous pouvez rechercher rapidement les tâches qui vous intéressent en filtrant 
 
 * **État** : les travaux peuvent être en cours, s’être bien déroulés, avoir échoué, avoir été annulés ou s’être bien déroulés mais avec des erreurs.
 * **Période** : les tâches peuvent être filtrées selon la date et l’heure. Les plages sont : dernière heure, dernières 24 heures, derniers 7 jours, 30 derniers jours, année dernière ou une date personnalisée.
-* **Type** : le type de travail peut être une sauvegarde planifiée, une sauvegarde manuelle, une restauration de sauvegarde, un clonage de volume, un basculement de conteneurs de volumes, une création de volume épinglé localement, une modification de volume, une installation de mises à jour, une collecte de journaux de support et une création d’appliance cloud.
+* **Type** : le type de travail peut être une sauvegarde planifiée, une sauvegarde manuelle, une restauration de sauvegarde, un clonage de volume, un basculement de conteneurs de volumes, une création de volume épinglé localement, une modification de volume, une installation de mises à jour, une collecte de journaux d’activité de support et une création d’appliance cloud.
 * **Appareils** : les tâches sont initiées sur un certain appareil connecté à votre service.
   
 Les tâches filtrées sont ensuite affichées sous forme de tableau sur la base des attributs suivants :
   
-* **Nom** : une sauvegarde planifiée, une sauvegarde manuelle, une restauration de sauvegarde, un clonage de volume, un basculement de conteneurs de volumes, une création de volume épinglé localement, une modification de volume, une installation de mises à jour, une collecte de journaux de support ou une création d’appliance cloud.
+* **Nom** : une sauvegarde planifiée, une sauvegarde manuelle, une restauration de sauvegarde, un clonage de volume, un basculement de conteneurs de volumes, une création de volume épinglé localement, une modification de volume, une installation de mises à jour, une collecte de journaux d’activité de support ou une création d’appliance cloud.
 * **État** : en cours d'exécution, terminées, annulées, en échec, en cours d'annulation ou terminées avec des erreurs.
 * **Entité** : les tâches peuvent être associées à un volume, une stratégie de sauvegarde ou un appareil. Par exemple, une tâche de clonage est associée à un volume, tandis qu'une tâche de sauvegarde planifiée est associée à une stratégie de sauvegarde. Une tâche d’appareil est créée à la suite d’une récupération d'urgence ou d’une opération de restauration.
 * **Appareil** : nom de l'appareil sur lequel la tâche a été lancée.

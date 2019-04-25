@@ -7,11 +7,11 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 04/09/2019
 ms.openlocfilehash: cb142e01009efbeaabd5d4e56dbedfe6384c5fc6
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59798347"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60420982"
 ---
 # <a name="create-and-manage-azure-database-for-postgresql-firewall-rules-using-the-azure-portal"></a>Création et gestion des règles de pare-feu Azure Database pour PostgreSQL à l’aide du portail Azure
 Règles de pare-feu de niveau serveur peuvent être utilisées pour gérer l’accès à une base de données Azure pour serveur PostgreSQL à partir d’une adresse IP spécifiée ou la plage d’adresses IP.

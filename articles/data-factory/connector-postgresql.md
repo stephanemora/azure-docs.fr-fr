@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: jingwang
 ms.openlocfilehash: 8515b3f357d77ea4f3d98101f8dd058f13b69206
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58091118"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60405747"
 ---
 # <a name="copy-data-from-postgresql-by-using-azure-data-factory"></a>Copier des données de PostgreSQL à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -50,7 +50,7 @@ Les propriétés prises en charge pour le service lié PostgreSQL sont les suiva
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type doit être définie sur : **PostgreSql** | Oui |
+| type | La propriété type doit être définie sur : **PostgreSql** | Oui |
 | connectionString | Chaîne de connexion ODBC permettant de se connecter à Azure Database pour PostgreSQL. <br/>Marquez ce champ comme SecureString pour le stocker de façon sécurisée dans Data Factory. Vous pouvez également définir un mot de passe dans Azure Key Vault et extraire la configuration `password` de la chaîne de connexion. Pour plus d’informations, reportez-vous aux exemples suivants et à l’article [Stocker des informations d’identification dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui |
 | connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Vous pouvez utiliser un runtime d’intégration auto-hébergé ou un runtime d’intégration Azure (si votre banque de données est accessible publiquement). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non  |
 
@@ -145,8 +145,8 @@ Pour copier des données de PostgreSQL, affectez la valeur **RelationalTable** �
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type du jeu de données doit être définie sur : **RelationalTable** | Oui |
-| TableName | Nom de la table dans la base de données PostgreSQL. | Non (si « query » dans la source de l’activité est spécifié) |
+| type | La propriété type du jeu de données doit être définie sur : **RelationalTable** | Oui |
+| tableName | Nom de la table dans la base de données PostgreSQL. | Non (si « query » dans la source de l’activité est spécifié) |
 
 **Exemple**
 
@@ -175,7 +175,7 @@ Pour copier des données de PostgreSQL, définissez **RelationalSource** comme t
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type de la source d’activité de copie doit être définie sur : **RelationalSource** | Oui |
+| type | La propriété type de la source d’activité de copie doit être définie sur : **RelationalSource** | Oui |
 | query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"query": "SELECT * FROM \"MySchema\".\"MyTable\""`. | Non (si « tableName » est spécifié dans dataset) |
 
 > [!NOTE]

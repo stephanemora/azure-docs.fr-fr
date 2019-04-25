@@ -18,11 +18,11 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ac65a9ac81bca942f9fcbe802fdbf8a0aa3f8248
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59997663"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60287975"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Rapports d’activité de connexion dans le portail Azure Active Directory
 
@@ -37,7 +37,7 @@ L’architecture de création de rapports dans Azure Active Directory (Azure 
 
 Cette rubrique présente une vue d’ensemble du rapport de connexions.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 ### <a name="who-can-access-the-data"></a>Qui peut accéder aux données ?
 * Les utilisateurs ayant le rôle Administrateur de sécurité, Lecteur Sécurité et Lecteur de rapports

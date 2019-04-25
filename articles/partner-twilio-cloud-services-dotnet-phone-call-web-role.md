@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/04/2016
 ms.author: jeconnoc
 ms.openlocfilehash: c41057203da949e371f62332e938feb92e84534f
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55699676"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60422790"
 ---
 # <a name="how-to-make-a-phone-call-using-twilio-in-a-web-role-on-azure"></a>Exécution d'un appel téléphonique à l'aide de Twilio dans un rôle Web sur Azure
 Ce guide montre comment utiliser Twilio pour passer un appel à partir d'une page Web hébergée dans Azure. L’application obtenue invite l’utilisateur à passer un appel avec le numéro et le message donnés, comme illustré dans la capture d’écran suivante.
@@ -34,7 +34,7 @@ Pour pouvoir utiliser le code de cette rubrique, vous devez préalablement :
 
 Vous devriez également savoir comment créer un [rôle web de base sur Azure][azure_webroles_get_started].
 
-## <a name="howtocreateform"></a>Procédure : Création d'un formulaire web pour passer un appel
+## <a name="howtocreateform"></a>Guide pratique : Création d'un formulaire web pour passer un appel
 <a id="use_nuget"></a>Pour ajouter les bibliothèques Twilio à votre projet de rôle web :
 
 1. Ouvrez votre solution dans Visual Studio.
@@ -70,7 +70,7 @@ Le code qui suit présente la conception d'un formulaire Web qui extrait les don
 </asp:Content>
 ```
 
-## <a id="howtocreatecode"></a>Procédure : Création du code pour passer l'appel
+## <a id="howtocreatecode"></a>Guide pratique : Création du code pour passer l'appel
 Le code suivant, qui est appelé lorsque l'utilisateur remplit le formulaire, crée un message d'appel et génère l'appel. Dans cet exemple, le code est exécuté dans le gestionnaire d'événements sur clic du bouton du formulaire. (Utilisez votre compte Twilio et votre jeton d’authentification plutôt que les valeurs d’espace réservé affectées à `accountSID` et à `authToken` dans le code ci-dessous.)
 
 ```csharp

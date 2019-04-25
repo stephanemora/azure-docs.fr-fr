@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/01/2019
 ms.author: willzhan
 ms.openlocfilehash: 9e29b08da35b9fd2f479f1d4e3b0d89ed881344b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57901999"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60326423"
 ---
 # <a name="offline-playready-streaming-for-windows-10"></a>Diffusion en continu de PlayReady en mode hors connexion pour Windows 10
 
@@ -28,7 +28,7 @@ Azure Media Services prend en charge le téléchargement/la lecture hors connexi
 - [Diffusion en continu de FairPlay en mode hors connexion pour iOS](offline-fairplay-for-ios.md)
 - [Diffusion en continu de Widevine en mode hors connexion pour Android](offline-widevine-for-android.md)
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
 Cette section donne des précisions sur la lecture en mode hors connexion, notamment sur les points suivants :
 

@@ -14,11 +14,11 @@ ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 67393e19a72777d105f1f35a16986c52f52133be
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58079805"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60473819"
 ---
 # <a name="download-and-install-the-microsoft-authenticator-app"></a>Télécharger et installer l’application Microsoft Authenticator
 >[!Important]
@@ -32,10 +32,10 @@ Vous pouvez utiliser l’application Microsoft Authenticator de plusieurs maniè
 
 - **Connexion par téléphone.** Version de la vérification en deux étapes qui vous permet de vous connecter sans mot de passe, à l’aide de votre nom d’utilisateur et de votre appareil mobile avec votre empreinte digitale, visage ou code PIN.
 
-- **Génération de code.** En tant que Générateur de code pour tous les comptes qui prennent en charge les applications d’authentification.
+- **Génération de code.** En tant que générateur de code pour tous les comptes prenant en charge les applications d’authentification.
 
 > [!Important]
-> L’application Microsoft Authenticator fonctionne avec n’importe quel compte qui utilise la vérification à deux facteurs et prend en charge les normes à usage unique mot de passe temporaire (TOTP).
+> L’application Microsoft Authenticator fonctionne avec tout compte utilisant une vérification en deux étapes et prenant en charge les mots de passe à usage unique et durée définie (normes TOTP).
 > 
 > Votre organisation peut vous obliger à utiliser une application d’authentification pour vous connecter et accéder à ses données et documents. Même si votre nom d’utilisateur peut apparaître dans l’application, le compte n’est pas réellement configuré comme méthode de vérification tant que vous n’avez pas terminé le processus d’inscription. Pour plus d’informations, consultez [Ajouter votre compte professionnel ou scolaire](user-help-auth-app-add-work-school-account.md).
 > 

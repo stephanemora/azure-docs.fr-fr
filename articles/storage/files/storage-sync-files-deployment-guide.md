@@ -2,18 +2,18 @@
 title: Déployer Azure File Sync | Microsoft Docs
 description: Découvrez comment déployer Azure File Sync, du début à la fin.
 services: storage
-author: wmgries
+author: roygara
 ms.service: storage
 ms.topic: article
 ms.date: 07/19/2018
-ms.author: wgries
+ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: a5d6f7757b5a4a5a2048c9822c4f52bee6d19bfe
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58905118"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60444054"
 ---
 # <a name="deploy-azure-file-sync"></a>Déployer Azure File Sync
 Utilisez Azure File Sync pour centraliser les partages de fichiers de votre organisation dans Azure Files tout en conservant la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Azure File Sync transforme Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement, notamment SMB, NFS et FTPS. Vous pouvez avoir autant de caches que nécessaire dans le monde entier.

@@ -1,5 +1,5 @@
 ---
-title: "Tutoriel : Intégration d'Azure Active Directory à 23 Video | Microsoft Docs"
+title: "Didacticiel : Intégration d'Azure Active Directory à 23 Video | Microsoft Docs"
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et 23 Video.
 services: active-directory
 documentationCenter: na
@@ -16,11 +16,11 @@ ms.date: 05/26/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ec0cfaaf0d4ae692581d63c7745660ffeacfb11f
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175742"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60439564"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-23-video"></a>Didacticiel : Intégration d'Azure Active Directory à 23 Video
 

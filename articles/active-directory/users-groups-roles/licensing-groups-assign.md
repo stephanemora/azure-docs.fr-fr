@@ -16,11 +16,11 @@ ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8a54d1ad3ab809f2a2f8df6ae0e30b1b061c2be1
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58201084"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60471271"
 ---
 # <a name="assign-licenses-to-users-by-group-membership-in-azure-active-directory"></a>Affecter des licences aux utilisateurs par appartenance aux groupes dans Azure Active Directory
 
@@ -33,7 +33,7 @@ Dans cet exemple, le locataire contient un groupe de sécurité appelé **HR Dep
 > 
 > Pour l’affectation d’une licence à un groupe, tous les utilisateurs sans emplacement d’utilisation spécifié héritent de l’emplacement du répertoire. Si vos utilisateurs sont situés à plusieurs emplacements, nous vous recommandons de définir systématiquement l’emplacement d’utilisation dans le cadre de votre flux de création d’utilisateur dans Azure AD (par exemple, par le biais d’une configuration AAD Connect). Cela garantit que le résultat de l’affectation de licence est toujours correct et que les utilisateurs ne reçoivent pas de services à des emplacements non autorisés.
 
-## <a name="step-1-assign-the-required-licenses"></a>Étape 1 : Affecter les licences requises
+## <a name="step-1-assign-the-required-licenses"></a>Étape 1 : Affecter les licences requises
 
 1. Se connecter à la [ **centre d’administration Azure AD** ](https://aad.portal.azure.com) avec un compte d’administrateur de licence. Pour gérer les licences, le compte doit être un administrateur de licence, un administrateur de l’utilisateur ou un administrateur global.
 
@@ -57,7 +57,7 @@ Dans cet exemple, le locataire contient un groupe de sécurité appelé **HR Dep
 
 Lorsque attribuer des licences à un groupe, Azure AD traite tous les membres existants de ce groupe. Ce processus peut prendre un certain temps, selon la taille du groupe. L’étape suivante décrit comment vérifier que le processus est terminé, et comment déterminer si une attention supplémentaire est requise pour résoudre des problèmes.
 
-## <a name="step-2-verify-that-the-initial-assignment-has-finished"></a>Étape 2 : Vérifier que l’affectation initiale est terminée
+## <a name="step-2-verify-that-the-initial-assignment-has-finished"></a>Étape 2 : Vérifier que l’affectation initiale est terminée
 
 1. Accédez à **Azure Active Directory** > **groupes**. Sélectionnez le groupe de licences ont été assignés.
 

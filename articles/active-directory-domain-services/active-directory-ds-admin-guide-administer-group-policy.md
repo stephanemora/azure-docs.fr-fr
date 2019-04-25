@@ -16,11 +16,11 @@ ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
 ms.openlocfilehash: deaa6a9ff49fea2093c94a039aab0d7de0c95359
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55177115"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60417978"
 ---
 # <a name="administer-group-policy-on-an-azure-ad-domain-services-managed-domain"></a>Administrer la stratégie de groupe sur un domaine géré par les services de domaine Azure Active Directory
 Azure Active Directory Domain Services inclut des objets de stratégie de groupe (GPO) intégrés pour les conteneurs « Utilisateurs AADDC » et « Ordinateurs AADDC ». Vous pouvez personnaliser ces GPO pour configurer la stratégie de groupe sur le domaine géré. De plus, les membres du groupe « AAD DC Administrators » peuvent créer leurs propres unités d’organisation personnalisées dans le domaine géré. Ils peuvent également créer des GPO personnalisés et les lier à ces unités d’organisation personnalisées. Les utilisateurs qui appartiennent au groupe « AAD DC Administrators » bénéficient de privilèges d’administration de stratégie de groupe sur le domaine géré.

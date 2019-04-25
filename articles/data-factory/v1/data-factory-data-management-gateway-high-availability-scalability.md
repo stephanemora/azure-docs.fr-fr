@@ -14,11 +14,11 @@ ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: 08e7341bfd1c384e41e6d3f1bd7810552899849a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58092189"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60488636"
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>Passerelle de gestion des données - Haute disponibilité et scalabilité (préversion)
 > [!NOTE]
@@ -32,7 +32,7 @@ Cet article vous aide à configurer la solution de haute disponibilité et scala
 > 
 > **Cette fonctionnalité en version préliminaire est officiellement prise en charge sur les versions 2.12.xxxx.x et ultérieures de la passerelle de gestion des données**. Assurez-vous que vous utilisez la version 2.12.xxxx.x ou une version supérieure. Téléchargez [ici](https://www.microsoft.com/download/details.aspx?id=39717) la dernière version de la passerelle de gestion des données.
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 Vous pouvez associer des passerelles de gestion des données installées sur plusieurs ordinateurs locaux à une seule passerelle logique du portail. Ces ordinateurs sont appelés **nœuds**. Vous pouvez associer jusqu’à **quatre nœuds** à une passerelle logique. Avoir plusieurs nœuds (ordinateurs locaux avec une passerelle installée) procure les avantages suivants à une passerelle logique :  
 
 - Les performances du déplacement des données entre les magasins de données locaux et dans le cloud sont améliorées.  

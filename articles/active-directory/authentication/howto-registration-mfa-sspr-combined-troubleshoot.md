@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 40918493071fe0dd694c43e2b087a2bf7eb197d8
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59489191"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60414617"
 ---
 # <a name="troubleshooting-combined-security-information-registration-preview"></a>Résolution des problèmes combinée d’inscription des informations de sécurité (version préliminaire)
 
@@ -73,7 +73,7 @@ Si, en tant qu’administrateur, voulez-vous réinitialiser les paramètres de l
 
 Les étapes qui suivent vous aideront à restaurer un utilisateur ou un groupe d’utilisateurs.
 
-#### <a name="prerequisites"></a>Conditions préalables
+#### <a name="prerequisites"></a>Prérequis
 
 1. Installez les modules Azure AD PowerShell appropriés. Dans une fenêtre de PowerShell, exécutez les commandes suivantes pour installer les modules :
 

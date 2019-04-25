@@ -14,11 +14,11 @@ ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a6e87ae0a8adf28176d9a97cbf1b78943179884a
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58340108"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60475025"
 ---
 # <a name="troubleshoot-problems-with-the-my-apps-portal"></a>Résoudre les problèmes avec le portail mes applications
 Si vous rencontrez des problèmes liés à l’ouverture de session ou à l’aide de la **mes applications** portail, essayez ces conseils de dépannage avant de contacter le support technique ou votre administrateur de l’aide.

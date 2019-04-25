@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: jingwang
 ms.openlocfilehash: 5d2d5948d817cbe80d00b74ef104ebaffcb511fb
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59995810"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60405968"
 ---
 # <a name="copy-data-from-office-365-into-azure-using-azure-data-factory-preview"></a>Copier des données depuis Office 365 avec Azure Data Factory (préversion) 
 
@@ -35,7 +35,7 @@ Pour l’instant, au sein d’une seule activité de copie vous pouvez uniquemen
 >-  Si vous chargez des données Office 365 dans **Stockage Blob Azure** comme destination, veillez à utiliser **[l’authentification de principal du service](connector-azure-blob-storage.md#service-principal-authentication)** quand vous définissez le service lié à Stockage Blob Azure, et non pas des authentifications de [clé de compte](connector-azure-blob-storage.md#account-key-authentication), de [signature d’accès partagé](connector-azure-blob-storage.md#shared-access-signature-authentication) ou d’[identités managées pour les ressources Azure](connector-azure-blob-storage.md#managed-identity).
 >-  Si vous chargez des données Office 365 dans **Azure Data Lake Storage Gen1**, veillez à utiliser [**l’authentification de principal du service**](connector-azure-data-lake-store.md#use-service-principal-authentication) quand vous définissez le service lié à Azure Data Lake Storage Gen1, et non pas une authentification d’[identités managées pour les ressources Azure](connector-azure-data-lake-store.md#managed-identity).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour copier des données depuis Office 365 dans Azure, vous devez effectuer les étapes prérequises suivantes :
 

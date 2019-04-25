@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 12/14/2016
 ms.author: jeconnoc
 ms.openlocfilehash: 8b521ebe869210b66ac3b3efeebda873f7c0e50b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59792471"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60519436"
 ---
 # <a name="enable-communication-for-role-instances-in-azure"></a>Activer la communication pour les instances de rôle dans Azure
 Les rôles de service cloud communiquent via des connexions internes et externes. Les connexions externes sont appelées **points de terminaison d’entrée** tandis que les connexions internes sont appelées **points de terminaison internes**. Cette rubrique explique comment modifier la [définition de service](cloud-services-model-and-package.md#csdef) pour créer des points de terminaison.

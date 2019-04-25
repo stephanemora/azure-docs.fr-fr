@@ -3,7 +3,7 @@ title: Multi-Factor Authentication dans Azure Active Directory B2C | Microsoft D
 description: Activation de Multi-Factor Authentication dans des applications accessibles aux consommateurs sécurisées par Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
@@ -11,11 +11,11 @@ ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 931fd0714977fb4c5f79aa32691881f9794a44cd
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55198314"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60317219"
 ---
 # <a name="enable-multi-factor-authentication-in-azure-active-directory-b2c"></a>Activer l'authentification multifacteur dans Azure Active Directory B2C
 

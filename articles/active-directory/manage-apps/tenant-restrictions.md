@@ -16,11 +16,11 @@ ms.author: celested
 ms.reviewer: richagi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b78897e2e03085a20f07ce8724226f0e0171861e
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59545863"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60291232"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Utiliser les restrictions du client pour gérer l’accès aux applications cloud SaaS
 
@@ -60,7 +60,7 @@ Pour utiliser les restrictions du client, vos clients doivent être en mesure de
 
 La configuration suivante est nécessaire pour activer les restrictions du client via votre infrastructure de proxy. Ce guide est générique, donc consultez la documentation du fabricant de votre proxy pour obtenir les étapes d’implémentation spécifiques.
 
-#### <a name="prerequisites"></a>Conditions préalables
+#### <a name="prerequisites"></a>Prérequis
 
 - Le proxy doit être en mesure d’effectuer l’interception SSL, l’insertion d’en-tête HTTP et de filtrer les destinations à l’aide des noms de domaine complets/URL.
 

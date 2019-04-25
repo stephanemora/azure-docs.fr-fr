@@ -2,17 +2,18 @@
 title: Utiliser Draft avec AKS et Azure Container Registry
 description: Utiliser Draft avec AKS et Azure Container Registry
 services: container-service
-author: zr-msft
+author: rockboyfor
 ms.service: container-service
 ms.topic: article
-ms.date: 08/15/2018
-ms.author: zarhoads
+origin.date: 08/15/2018
+ms.date: 04/08/2019
+ms.author: v-yeche
 ms.openlocfilehash: 462cfd6ec0a6b25f85dda0245dd4f5feed7cb712
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58755661"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60465142"
 ---
 # <a name="use-draft-with-azure-kubernetes-service-aks"></a>Utiliser Draft avec Azure Kubernetes Service (AKS)
 
@@ -76,7 +77,7 @@ Maintenant qu’il existe une relation d’approbation entre AKS et ACR, vous de
 1. Définissez la valeur de *Registre* de configuration Draft. Dans les commandes suivantes, remplacez `<acrName>` par le nom de votre registre ACR :
 
     ```console
-    draft config set registry <acrName>.azurecr.io
+    draft config set registry <acrName>.azurecr.cn
     ```
 
 1. Connectez-vous au registre ACR en exécutant [az acr login][az-acr-login] :
@@ -270,4 +271,4 @@ Pour plus d’informations sur l'utilisation de Draft, consultez la documentatio
 [aks-helm]: ./kubernetes-helm.md
 [kubernetes-ingress]: ./ingress-basic.md
 [aks-quickstart]: ./kubernetes-walkthrough.md
-[az-acr-login]: /cli/azure/acr#az-acr-login
+[az-acr-login]: https://docs.azure.cn/zh-cn/cli/acr?view=azure-cli-latest#az-acr-login

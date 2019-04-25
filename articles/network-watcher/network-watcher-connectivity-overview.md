@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: jdial
-ms.openlocfilehash: 0268c7e54aa82df12243f98fd72de836fbc82070
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
-ms.translationtype: HT
+ms.openlocfilehash: 4b1164c3dedc5d8a2fa02d70f66ff00afe604836
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30833997"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60532472"
 ---
 # <a name="introduction-to-connection-troubleshoot-in-azure-network-watcher"></a>Présentation de la résolution des problèmes de connexion dans Azure Network Watcher
 
@@ -74,7 +74,7 @@ Vous trouverez ci-dessous un exemple de problème détecté sur un tronçon.
 
 La résolution des problèmes de connexion retourne les types d’erreur liés à la connexion. Le tableau suivant fournit une liste des types d’erreur actuels retournés.
 
-|type  |Description  |
+|Type  |Description  |
 |---------|---------|
 |UC     | Utilisation élevée du processeur.       |
 |Mémoire     | Utilisation élevée de la mémoire.       |

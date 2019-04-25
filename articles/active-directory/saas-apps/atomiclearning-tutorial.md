@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Atomic Learning | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Atomic Learning | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Atomic Learning.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.date: 06/14/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 74df7bd7073716dbbb372a43af809bf56c6cd32c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56209283"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60440075"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-atomic-learning"></a>Tutoriel : Intégration d’Azure Active Directory à Atomic Learning
+# <a name="tutorial-azure-active-directory-integration-with-atomic-learning"></a>Didacticiel : Intégration d’Azure Active Directory à Atomic Learning
 
 Dans ce didacticiel, vous allez apprendre à intégrer Atomic Learning à Azure Active Directory (Azure AD).
 
@@ -34,7 +34,7 @@ L’intégration de Atomic Learning dans Azure AD vous offre les avantages suiva
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour configurer l’intégration d’Azure AD à Atomic Learning, vous avez besoin des éléments suivants :
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à E Sales Manager Remix | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à E Sales Manager Remix | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et E Sales Manager Remix.
 services: active-directory
 documentationCenter: na
@@ -17,11 +17,11 @@ ms.date: 06/12/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 895fb0d83e383618818325263ac80c5919a0ee7b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56164147"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60429011"
 ---
 # <a name="integrate-azure-active-directory-with-e-sales-manager-remix"></a>Intégrer Azure Active Directory à E Sales Manager Remix
 
@@ -35,7 +35,7 @@ L’intégration d’Azure AD à E Sales Manager Remix vous offre les avantages 
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour configurer l’intégration d’Azure AD à E Sales Manager Remix, vous avez besoin des éléments suivants :
 

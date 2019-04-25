@@ -2,17 +2,18 @@
 title: 'Concepts : mise en réseau dans AKS (Azure Kubernetes Service)'
 description: Découvrez la mise en réseau dans AKS (Azure Kubernetes Service), notamment la mise en réseau kubenet et Azure CNI, les contrôleurs d’entrée, les équilibreurs de charge et les adresses IP statiques.
 services: container-service
-author: iainfoulds
+author: rockboyfor
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 02/28/2019
-ms.author: iainfou
+origin.date: 02/28/2019
+ms.date: 04/08/2019
+ms.author: v-yeche
 ms.openlocfilehash: cbdbf7dcd6269991d23c61d316dcee68e6678171
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58175664"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60467245"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Concepts de réseau pour les applications dans AKS (Azure Kubernetes Service)
 
@@ -64,6 +65,7 @@ Dans AKS, vous pouvez déployer un cluster qui utilise un des deux modèles de r
 - Mise en réseau *Kubenet* : les ressources réseau sont généralement créées et configurées quand le cluster AKS est déployé.
 - Mise en réseau *Azure CNI (Container Networking Interface)*  : le cluster AKS est connecté à des configurations et ressources de réseau virtuel existantes.
 
+<a name="kubenet-basic-networking"></a>
 ### <a name="kubenet-basic-networking"></a>Mise en réseau Kubenet (de base)
 
 L’option de mise en réseau *kubenet* est la configuration par défaut de la création de cluster AKS. Avec *kubenet*, les nœuds obtiennent une adresse IP du sous-réseau du réseau virtuel Azure. Les pods reçoivent une adresse IP du sous-réseau de réseau virtuel Azure des nœuds à partir d’un espace d’adressage logiquement différent. La traduction d’adresses réseau (NAT) est ensuite configurée afin que les pods puissent accéder aux ressources sur le réseau virtuel Azure. L’adresse IP source du trafic fait l’objet d’une opération NAT sur l’adresse IP principale du nœud.
@@ -72,6 +74,7 @@ Les nœuds utilisent le plug-in Kubernetes [kubenet][kubenet]. Vous pouvez laiss
 
 Pour plus d’informations, consultez [Configurer une mise en réseau kubenet pour un cluster AKS][aks-configure-kubenet-networking].
 
+<a name="azure-cni-advanced-networking"></a>
 ### <a name="azure-cni-advanced-networking"></a>Mise en réseau Azure CNI (avancée)
 
 Avec Azure CNI, chaque pod reçoit une adresse IP du sous-réseau et est accessible directement. Ces adresses IP doivent être uniques dans votre espace réseau et doivent être planifiées à l’avance. Chaque nœud possède un paramètre de configuration pour le nombre maximal de pods qu’il prend en charge. Le nombre équivalent d’adresses IP par nœud est alors réservé à l’avance pour ce nœud. Cette approche nécessite davantage de planification. De plus, elle conduit souvent à l’épuisement des adresses IP ou à la nécessité de regénérer les clusters dans un sous-réseau plus vaste à mesure que vos demandes d’applications augmentent.
@@ -139,7 +142,10 @@ Pour plus d’informations sur les concepts fondamentaux de Kubernetes et d’AK
 
 <!-- LINKS - Internal -->
 [aks-http-routing]: http-application-routing.md
-[aks-ingress-tls]: ingress.md
+[aks-ingress-tls]: ingress-tls.md
+
+<!--Mooncake : URL redirect to ingress-tls.md-->
+
 [aks-configure-kubenet-networking]: configure-kubenet.md
 [aks-configure-advanced-networking]: configure-azure-cni.md
 [aks-concepts-clusters-workloads]: concepts-clusters-workloads.md

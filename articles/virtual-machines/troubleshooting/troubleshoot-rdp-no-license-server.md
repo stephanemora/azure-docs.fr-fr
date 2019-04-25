@@ -14,11 +14,11 @@ ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: genli
 ms.openlocfilehash: 550b971602d1736e0ba3981a5b7ca546862ea034
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913851"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60318950"
 ---
 # <a name="remote-desktop-license-server-isnt-available-when-you-connect-to-an-azure-vm"></a>Le serveur de licences des services Bureau à distance n’est pas disponible lorsque vous vous connectez à une machine virtuelle Azure
 
@@ -67,13 +67,13 @@ Pour résoudre ce problème, [sauvegardez le disque du système d’exploitation
 
     2. Créez un canal pour une instance CMD. Entrez **CMD** pour démarrer le canal et en obtenir le nom.
 
-    3. Basculez vers le canal qui exécute l’instance CMD. Dans ce cas, il doit s’agir du canal 1 :
+    3. Basculez vers le canal qui exécute l’instance CMD. Dans ce cas, il devrait s’agir du canal 1 :
 
        ```
        ch -si 1
        ```
 
-    4. Sélectionnez de nouveau **Entrée** et entrez un nom d’utilisateur et un mot de passe valides, un ID local ou de domaine, pour la machine virtuelle.
+    4. Sélectionnez de nouveau **Entrée** et entrez un nom d’utilisateur et un mot de passe valides ainsi qu’un ID local ou de domaine pour la machine virtuelle.
 
 2. Vérifiez si un rôle Hôte de session Bureau à distance est activé sur la machine virtuelle. Si le rôle est activé, assurez-vous qu’il fonctionne correctement. Ouvrez une instance CMD avec élévation de privilèges et procédez comme suit :
 
@@ -129,4 +129,4 @@ Pour résoudre ce problème, [sauvegardez le disque du système d’exploitation
 
 ## <a name="need-help-contact-support"></a>Vous avez besoin d’aide ? Contacter le support technique
 
-Si vous avez besoin d’aide, [contactez le support technique](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour obtenir une prise en charge de votre problème.
+Si vous avez toujours besoin d’aide, [contactez le support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour résoudre votre problème.

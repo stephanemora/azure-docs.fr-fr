@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: shlo
 ms.openlocfilehash: e96e462709ab0c715c831bd10c628869d5c617fe
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58013318"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60319229"
 ---
 # <a name="alert-and-monitor-data-factories-using-azure-monitor"></a>Déclencher des alertes et surveiller les fabriques de données avec Azure Monitor
 Les applications cloud sont complexes, et se composent de nombreux éléments mobiles. L’analyse fournit des données visant à garantir que votre application reste opérationnelle et soit exécutée en toute intégrité. Elle vous permet également de parer à des problèmes potentiels ou de résoudre des problèmes déjà survenus. En outre, vous pouvez utiliser les données d’analyse pour obtenir des informations détaillées sur votre application. Ces connaissances peuvent vous aider à améliorer les performances ou la facilité de gestion de l’application, ou à automatiser des actions qui exigeraient normalement une intervention manuelle.

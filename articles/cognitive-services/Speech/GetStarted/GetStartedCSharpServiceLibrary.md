@@ -12,11 +12,11 @@ ms.date: 09/18/2018
 ms.author: zhouwang
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 0f445d1fff48ee7a04c0b1c1d64c808f87d824b7
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56673162"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60515228"
 ---
 # <a name="quickstart-use-the-bing-speech-recognition-service-library-in-c35-for-net-windows"></a>Démarrage rapide : Utiliser la bibliothèque de services de la Reconnaissance vocale Bing en C&#35; pour Windows .NET
 
@@ -47,13 +47,13 @@ L’API Microsoft Speech fait partie de Cognitive Services (anciennement Project
 >
 > * Utilisez votre clé d’abonnement. Avec l’exemple d’application de bibliothèque de services C# fourni, vous devez fournir votre clé d’abonnement en tant qu’un des paramètres de ligne de commande. Pour plus d’informations, consultez [Exécuter l’exemple d’application](#step-3-run-the-sample-application).
 
-## <a name="step-1-install-the-sample-application"></a>Étape 1 : Installation de l’exemple d’application
+## <a name="step-1-install-the-sample-application"></a>Étape 1 : Installation de l’exemple d’application
 
 1. Démarrez Visual Studio 2015 et sélectionnez **Fichier** > **Ouvrir** > **Projet/Solution**.
 
 2. Double-cliquez pour ouvrir le fichier solution (.sln) Visual Studio 2015 nommé SpeechClient.sln. La solution s’ouvre dans Visual Studio.
 
-## <a name="step-2-build-the-sample-application"></a>Étape 2 : Générer l’exemple d’application
+## <a name="step-2-build-the-sample-application"></a>Étape 2 : Générer l’exemple d’application
 
 Appuyez sur Ctrl+Maj+B ou sélectionnez **Générer** dans le menu du ruban. Ensuite, sélectionnez **Générer la solution**.
 

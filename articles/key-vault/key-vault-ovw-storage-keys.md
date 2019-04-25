@@ -9,12 +9,12 @@ author: prashanthyv
 ms.author: prashanthyv
 manager: barbkess
 ms.date: 03/01/2019
-ms.openlocfilehash: 99b37a9b12c4b66e9b254156dfe4b59c7ab6594c
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 0812d1523c6db077bf93a16a9a14771f5534d712
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59526270"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60304912"
 ---
 # <a name="azure-key-vault-managed-storage-account---cli"></a>Compte de stockage managé Azure Key Vault – CLI
 
@@ -26,7 +26,7 @@ ms.locfileid: "59526270"
 
 Un [compte de stockage Azure](/azure/storage/storage-create-storage-account) utilise des informations d’identification qui se composent d’un nom de compte et d’une clé. La clé est générée automatiquement et sert plus de « mot de passe » que de clé de chiffrement. Key Vault peut gérer ces clés de compte de stockage en les stockant en tant que [secrets Key Vault](/azure/key-vault/about-keys-secrets-and-certificates#key-vault-secrets). 
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
 La fonctionnalité de compte de stockage Key Vault managé exécute plusieurs fonctions de gestion interne à votre place :
 

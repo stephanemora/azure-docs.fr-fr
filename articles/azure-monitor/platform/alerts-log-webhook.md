@@ -9,11 +9,11 @@ ms.date: 05/01/2018
 ms.author: vinagara
 ms.subservice: alerts
 ms.openlocfilehash: 2307fa985c88608d80400c8951c47b9f20caa1dc
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59799301"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60515525"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Actions webhook pour les règles d’alerte de journal
 Quand une [alerte de journal est créée dans Azure](alerts-log.md), vous avez l’option de la [configuration à l’aide de groupes d’actions](action-groups.md) pour exécuter une ou plusieurs actions.  Cet article décrit les différentes actions webhook disponibles et les détails de la configuration du webhook personnalisé basé sur JSON.

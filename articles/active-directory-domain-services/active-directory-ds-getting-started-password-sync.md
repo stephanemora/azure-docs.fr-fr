@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: ergreenl
-ms.openlocfilehash: 6778df746a64f944b51570f8774c0e84c7d88658
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: ad905f93a8c4b03fd6ccc9edb93b52f23bcb2c58
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55194693"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60417440"
 ---
 # <a name="enable-password-hash-synchronization-to-azure-active-directory-domain-services"></a>Activer la synchronisation de hachage de mot de passe pour Azure Active Directory Domain Services
 Dans les tâches précédentes, vous avez activé Azure Active Directory Domain Services pour votre locataire Azure Active Directory (Azure AD). Dans la tâche suivante, vous allez activer la synchronisation des hachages de mot de passe requise pour l’authentification NT LAN Manager (NTLM) et Kerberos avec Azure AD Domain Services. Une fois la synchronisation des informations de hachage de mot de passe configurée, les utilisateurs peuvent se connecter au domaine managé à l’aide de leurs informations d’identification d’entreprise.
@@ -28,6 +28,7 @@ Dans les tâches précédentes, vous avez activé Azure Active Directory Domain
 Les étapes nécessaires sont différentes pour les comptes d’utilisateurs uniquement dans le cloud par rapport aux comptes d’utilisateurs qui sont synchronisés à partir de votre répertoire local à l’aide d’Azure AD Connect. 
 
 <br>
+
 | **Type de compte d’utilisateur** | **Étapes à effectuer** |
 | --- |---|
 | **Comptes d’utilisateur cloud créés dans Azure AD** |**&#x2713;** [Suivez les instructions de cet article](active-directory-ds-getting-started-password-sync.md#task-5-enable-password-hash-synchronization-to-your-managed-domain-for-cloud-only-user-accounts) |

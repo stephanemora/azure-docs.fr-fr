@@ -10,11 +10,11 @@ ms.date: 04/12/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 6465fd069e73a571e0671d528f5d0b4da4602dc7
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59551186"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60499402"
 ---
 # <a name="credential-assets-in-azure-automation"></a>Ressources d’informations d’identification dans Azure Automation
 
@@ -155,5 +155,5 @@ print cred["password"]
 * Pour en savoir plus sur les liens lors de la création graphique, consultez [Liens lors de la création graphique](../automation-graphical-authoring-intro.md#links-and-workflow)
 * Pour comprendre les différentes méthodes d’authentification avec Automation, consultez [Sécurité dans Azure Automation](../automation-security-overview.md)
 * Pour une prise en main des Runbooks graphiques, consultez [Mon premier Runbook graphique](../automation-first-runbook-graphical.md)
-* Pour une prise en main des Runbooks de workflow PowerShell, consultez [Mon premier Runbook PowerShell Workflow](../automation-first-runbook-textual.md)
+* Pour une prise en main des runbooks de workflow PowerShell, consultez [Mon premier runbook PowerShell Workflow](../automation-first-runbook-textual.md)
 * Pour commencer avec les runbooks Python2, consultez [My first Python2 runbook](../automation-first-runbook-textual-python2.md) (Mon premier Runbook Python2). 

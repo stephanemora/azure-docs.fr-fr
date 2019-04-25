@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: cherylmc
 ms.openlocfilehash: e18f37b31b7f0a49717e174d8a20d56388ad4808
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59526144"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60411788"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>Configurer une connexion de passerelle VPN de réseau virtuel à réseau virtuel à l’aide d’Azure CLI
 

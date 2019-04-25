@@ -11,11 +11,11 @@ ms.workload: NA
 ms.date: 02/01/2019
 ms.author: kasparks
 ms.openlocfilehash: 1a72225ce29b7a94f2fc402488f6b998cde0a0fb
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55494543"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60467996"
 ---
 # <a name="introduction-to-azure-advisor"></a>Présentation d’Azure Advisor
 
@@ -71,7 +71,7 @@ Pour reporter ou ignorer une recommandation, cliquez sur le lien **Reporter**. V
 
 Pour en savoir plus sur les recommandations d’Advisor, consultez les ressources suivantes :
 
-* [Prise en main d’Advisor](advisor-get-started.md)
+* [Prise en main du conseiller](advisor-get-started.md)
 * [Recommandations du conseiller en matière de haute disponibilité](advisor-high-availability-recommendations.md)
 * [Recommandations du conseiller en matière de sécurité](advisor-security-recommendations.md)
 * [Recommandations du conseiller en matière de performances](advisor-performance-recommendations.md)

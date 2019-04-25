@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: magoedte
 ms.openlocfilehash: c8baa4d2355adf99ce188d632ac50901db29a758
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59997697"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60497667"
 ---
 # <a name="how-to-view-container-logs-real-time-with-azure-monitor-for-containers-preview"></a>Affichage des journaux d’activité de conteneur en temps réel avec Azure Monitor pour les conteneurs (préversion)
 Cette fonctionnalité, qui est actuellement en préversion, fournit une vue en temps réel de vos journaux d’activité de conteneur Azure Kubernetes Service (AKS) (stdout/stderr) sans nécessiter l’exécution des commandes kubectl. Lorsque vous sélectionnez cette option, le nouveau volet apparaît au-dessous la table de données de performances de conteneurs de la vue **Conteneurs**.  Il affiche la journalisation dynamique générée par le moteur du conteneur afin de faciliter la résolution des problèmes en temps réel. **Contributeur** accès à la ressource de cluster est requis pour cette fonctionnalité soit opérationnelle.

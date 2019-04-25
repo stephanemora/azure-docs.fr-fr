@@ -13,11 +13,11 @@ ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 720aafac79a67f64b0974dba0dd60c6aa24a8c54
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57342069"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60480591"
 ---
 # <a name="set-up-security-info-preview-to-use-your-email-address"></a>Configurer les informations de sécurité (préversion) pour utiliser votre adresse e-mail
 Procédez comme suit pour ajouter votre méthode de réinitialisation de mot de passe. Au terme de la configuration initiale, vous pourrez revenir à la page **Informations de sécurité** pour ajouter, mettre à jour ou supprimer vos informations de sécurité.

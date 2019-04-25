@@ -9,11 +9,11 @@ ms.date: 01/14/2019
 ms.topic: conceptual
 manager: philmea
 ms.openlocfilehash: 8d432d588cfd563ee48b93f9042339e9590bb5e2
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58481771"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60533281"
 ---
 # <a name="manage-iot-central-from-azure-powershell"></a>Gérer IoT Central à partir d’Azure PowerShell
 
@@ -21,7 +21,7 @@ ms.locfileid: "58481771"
 
 Au lieu de créer et de gérer des applications IoT Central à partir de la page [Application Manager](https://aka.ms/iotcentral) d’IoT Central, vous pouvez utiliser [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) pour gérer vos applications.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
@@ -67,7 +67,7 @@ Le script crée d’abord un groupe de ressources dans la région USA Est pour l
 |------------------|------------|
 |ResourceGroupName |Groupe de ressources qui contient l’application. Ce groupe de ressources doit déjà exister dans votre abonnement. |
 |Lieu |Par défaut, cette applet de commande utilise l’emplacement du groupe de ressources. Actuellement, vous pouvez créer une application IoT Central dans les régions **USA Est**, **USA Ouest**, **Europe Nord** et **Europe Ouest**. |
-|Nom              |Nom de l’application dans le portail Azure. |
+|Name              |Nom de l’application dans le portail Azure. |
 |Sous-domaine         |Sous-domaine dans l’URL de l’application. Dans l’exemple, l’URL de l’application est https://mysubdomain.azureiotcentral.com. |
 |Sku               |Actuellement, la seule valeur est **S1** (niveau Standard). Consultez [Tarifs Azure IoT Central](https://azure.microsoft.com/pricing/details/iot-central/). |
 |Modèle          | Modèle d’application à utiliser. Pour plus d’informations, voir le tableau suivant : |

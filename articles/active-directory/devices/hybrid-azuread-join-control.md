@@ -18,11 +18,11 @@ ms.author: joflore
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 93afc6f748ca9f464261c59e037a603ab6113bf8
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58518165"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60353106"
 ---
 # <a name="control-the-hybrid-azure-ad-join-of-your-devices"></a>Contrôler la jointure d’Azure AD hybride de vos appareils
 
@@ -31,7 +31,7 @@ La jonction Azure AD Hybride (Azure AD) est un processus qui consiste à inscrir
 Cet article fournit des conseils sur la façon de contrôler la jonction Azure AD Hybride de vos appareils. 
 
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Cet article suppose de connaître :
 

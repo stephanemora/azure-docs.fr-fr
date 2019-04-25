@@ -7,11 +7,11 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 3/18/2019
 ms.openlocfilehash: bf73120e462b740de5d2245f8a647896ac61f2c8
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621820"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60420418"
 ---
 # <a name="restart-azure-database-for-postgresql-server-using-the-azure-portal"></a>Redémarrez la base de données Azure pour serveur PostgreSQL à l’aide du portail Azure
 Cette rubrique explique comment redémarrer un serveur Azure Database pour PostgreSQL. Vous pouvez avoir besoin de redémarrer votre serveur pour des raisons de maintenance, ce qui entraîne une brève interruption de service pendant que le serveur effectue l’opération.

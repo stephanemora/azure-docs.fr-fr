@@ -7,17 +7,17 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 04/05/2019
 ms.openlocfilehash: b5e0336a290090ed6bd7f5af508e691677780a80
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59789425"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60420238"
 ---
 # <a name="create-and-manage-read-replicas-from-the-azure-cli"></a>Créer et gérer des réplicas en lecture à partir de l’interface CLI Azure
 
 Dans cet article, vous allez apprendre à créer et gérer des réplicas en lecture dans Azure Database pour PostgreSQL à partir de l’interface CLI. Pour en savoir plus sur les réplicas en lecture, consultez [vue d’ensemble](concepts-read-replicas.md).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 - Un [serveur Azure Database pour PostgreSQL](quickstart-create-server-up-azure-cli.md) qui représente le serveur maître.
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]

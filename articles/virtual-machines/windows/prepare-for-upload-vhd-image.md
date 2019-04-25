@@ -16,11 +16,11 @@ ms.topic: troubleshooting
 ms.date: 12/13/2018
 ms.author: genli
 ms.openlocfilehash: 0988902e0a2154f2935a01ddcfb6a460be693df3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58093801"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60460047"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Préparer un disque dur virtuel Windows à charger sur Azure
 Avant de charger une machine virtuelle Windows locale sur Microsoft Azure, vous devez préparer le disque dur virtuel (VHD ou VHDX). Azure prend seulement en charge les **machines virtuelles de génération 1** au format de fichier VHD avec un disque de taille fixe. La taille maximale autorisée pour le disque dur virtuel s’élève à 1 023 Go. Vous pouvez convertir une machine virtuelle génération 1, du système de fichiers VHDX vers un disque VHD, et d’un disque à expansion dynamique à un disque de taille fixe. En revanche, vous ne pouvez pas modifier la génération d’une machine virtuelle. Pour plus d’informations, consultez la page [Dois-je créer une machine virtuelle de génération 1 ou 2 dans Hyper-V ?](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v)

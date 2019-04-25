@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: chackdan
 ms.openlocfilehash: 36d0b49f1b9fb1ca5d13283146d134137a5cb028
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57900639"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60419064"
 ---
 # <a name="manage-service-fabric-mesh-application-secrets"></a>Gérer les secrets d’application Service Fabric Mesh
 Service Fabric Mesh prend en charge les secrets comme des ressources Azure. Un secret Service Fabric Mesh peut correspondre à n’importe quel type de texte sensible, comme des chaînes de connexion de stockage, des mots de passe ou d’autres valeurs devant être stockées et transmises de manière sécurisée. Cet article explique comment utiliser le service Banque d’informations sécurisé de Service Fabric pour déployer et gérer des secrets.

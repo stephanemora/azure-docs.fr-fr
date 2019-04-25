@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 854d0e8f6927c9ce4855435a02b4819055111ceb
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57407899"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60306017"
 ---
 # <a name="monitor-and-manage-certificate-creation"></a>Surveiller et gérer la création de certificats
 S’applique à : Azure

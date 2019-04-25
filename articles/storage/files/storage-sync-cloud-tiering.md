@@ -2,18 +2,18 @@
 title: Compréhension de la hiérarchisation cloud d’Azure File Sync | Microsoft Docs
 description: Apprenez-en davantage sur la hiérarchisation cloud d’Azure File Sync
 services: storage
-author: sikoo
+author: roygara
 ms.service: storage
 ms.topic: article
 ms.date: 09/21/2018
-ms.author: sikoo
+ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 871eb1663d6cba550f1403215b1d3ce5fe8278d3
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486102"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60444928"
 ---
 # <a name="cloud-tiering-overview"></a>Vue d’ensemble de la hiérarchisation cloud
 La hiérarchisation cloud est une fonctionnalité facultative d’Azure File Sync, qui met en cache sur le serveur local les fichiers faisant l’objet d’accès fréquents, tous les autres fichiers étant hiérarchisés sur Azure Files en fonction de paramètres de stratégie. Quand un fichier est hiérarchisé, le filtre du système de fichiers Azure File Sync (StorageSync.sys) remplace le fichier local par un pointeur, ou point d’analyse. Le point d’analyse représente une URL vers le fichier dans Azure Files. Un fichier hiérarchisé a l’attribut « offline » (hors connexion), et son attribut FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS est défini dans le système de fichiers NTFS de façon à ce que des applications tierces puissent identifier sûrement des fichiers hiérarchisés.

@@ -8,16 +8,16 @@ ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 02/28/2018
 ms.openlocfilehash: 207e9965f6600477e1df93845bc41bd33b5c028c
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53547029"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60525474"
 ---
 # <a name="configure-and-access-server-logs-by-using-azure-cli"></a>Configurer et accéder aux journaux d’activité du serveur à l’aide d’Azure CLI
 Vous pouvez télécharger les journaux d’activité du serveur Azure Database pour MySQL à l’aide d’Azure CLI, l’utilitaire de ligne de commande Azure.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 Pour parcourir ce guide pratique, vous avez besoin des éléments suivants :
 - [Serveur Azure Database pour MySQL](quickstart-create-mysql-server-database-using-azure-cli.md)
 - [Azure CLI](/cli/azure/install-azure-cli) ou Azure Cloud Shell dans le navigateur

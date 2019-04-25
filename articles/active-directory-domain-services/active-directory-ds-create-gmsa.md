@@ -16,11 +16,11 @@ ms.topic: conceptual
 ms.date: 06/26/2018
 ms.author: ergreenl
 ms.openlocfilehash: ef21383db52d45d996f2c6c1d6900ebba2349635
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55203077"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60359396"
 ---
 # <a name="create-a-group-managed-service-account-gmsa-on-an-azure-ad-domain-services-managed-domain"></a>Créer un compte de service administré de groupe dans un domaine managé Azure AD Domain Services
 Cet article montre comment créer des comptes de service administrés dans un domaine managé Azure AD Domain Services.

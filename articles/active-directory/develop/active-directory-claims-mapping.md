@@ -14,11 +14,11 @@ ms.author: celested
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2076aec1585ff8b60ee2b593621b75abfaeaa1ac
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59791334"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60300476"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Activation Personnaliser des revendications émises dans des jetons pour une application spécifique dans un locataire (préversion)
 
@@ -429,7 +429,7 @@ Des stratégies de mappage de revendications peuvent être attribuées uniquemen
 
 Dans Azure AD, de nombreux scénarios sont possibles où vous pouvez personnaliser des revendications émises dans des jetons pour des principaux du service spécifiques. Cette section décrit quelques scénarios courants qui peuvent vous aider à comprendre comment utiliser le type de stratégie de mappage de revendications.
 
-#### <a name="prerequisites"></a>Conditions préalables
+#### <a name="prerequisites"></a>Prérequis
 
 Dans les exemples suivants, vous créez, mettez à jour, liez et supprimez des stratégies pour les principaux du service. Si vous débutez avec Azure AD, nous vous recommandons de vous [documenter sur l’obtention d’un locataire Azure Active Directory](quickstart-create-new-tenant.md) avant de continuer avec ces exemples.
 

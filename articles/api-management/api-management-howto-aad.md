@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: apimpm
-ms.openlocfilehash: 10792c912e3028cd12eedb83b1b211bab20bc5a7
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: HT
+ms.openlocfilehash: 95e501eca0f7765cc5201f7b315703c3ca43df8f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52961057"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60529480"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Autoriser des comptes de développeurs à l’aide d’Azure Active Directory dans Gestion des API Azure
 
 Cet article explique comment activer l’accès au portail des développeurs pour les utilisateurs à partir d’Azure Active Directory (Azure AD). Il montre également comment gérer des groupes d’utilisateurs Azure AD en ajoutant des groupes externes qui contiennent les utilisateurs.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 - Suivez ce guide de démarrage rapide : [Créer une instance du service Gestion des API Azure](get-started-create-service-instance.md).
 - Importez et publiez une instance Gestion des API Azure. Pour plus d’informations, consultez [Importer et publier](import-and-publish.md).
@@ -34,107 +34,51 @@ Cet article explique comment activer l’accès au portail des développeurs pou
 ## <a name="authorize-developer-accounts-by-using-azure-ad"></a>Autoriser des comptes de développeurs à l’aide d’Azure AD
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com). 
-1. Sélectionnez ![flèche](./media/api-management-howto-aad/arrow.png).
-1. Dans la zone de recherche, tapez **api**.
-1. Sélectionnez **Services Gestion des API**.
-1. Sélectionnez votre instance de service Gestion des API.
-1. Sous **SÉCURITÉ**, sélectionnez **Identités**.
-
-1. Cliquez sur **+Ajouter** en haut.
+2. Sélectionnez ![flèche](./media/api-management-howto-aad/arrow.png).
+3. Dans la zone de recherche, tapez **api**.
+4. Sélectionnez **Services Gestion des API**.
+5. Sélectionnez votre instance de service Gestion des API.
+6. Sous **sécurité**, sélectionnez **identités**.
+7. Cliquez sur **+Ajouter** en haut.
 
     Le volet **Ajouter le fournisseur d’identité** s’affiche à droite.
-1. Sous **Type du fournisseur**, sélectionnez **Azure Active Directory**.
+8. Sous **Type du fournisseur**, sélectionnez **Azure Active Directory**.
 
     Les contrôles qui vous permettent d’entrer d’autres informations nécessaires apparaissent dans le volet. Il s’agit notamment des contrôles **ID client** et **Clé secrète client**. (Vous trouverez des informations sur ces contrôles plus loin dans l’article.)
-1. Prenez note du contenu de **l’URL de redirection**.
+9. Prenez note du contenu de **l’URL de redirection**.
     
    ![Étapes à suivre pour ajouter un fournisseur d’identité dans le portail Azure](./media/api-management-howto-aad/api-management-with-aad001.png)  
-1. Dans votre navigateur, ouvrez un autre onglet. 
-1. Accédez au [portail Azure](https://portal.azure.com).
-1. Sélectionnez ![flèche](./media/api-management-howto-aad/arrow.png).
-1. Tapez **active**. Le volet **Azure Active Directory** s’affiche.
-1. Sélectionnez **Azure Active Directory**.
-1. Sous **GÉRER**, sélectionnez **Inscriptions des applications**.
-1. Sélectionnez **Nouvelle inscription d’application**.
-
-    ![Sélections pour la création d’une inscription d’application](./media/api-management-howto-aad/api-management-with-aad002.png)
-
-    Le volet **Créer** s’affiche à droite. C’est là que vous entrez les informations pertinentes relatives à l’application Azure AD.
-1. Entrez un nom pour l’application.
-1. Pour le type d’application, sélectionnez **Application web/API**.
-1. Pour l’URL de connexion, entrez l’URL de connexion de votre portail des développeurs. Dans cet exemple, l’URL de connexion est `https://apimwithaad.portal.azure-api.net/signin`.
-1. Sélectionnez **Créer** pour créer l’application.
-1. Pour rechercher votre application, sélectionnez **Inscriptions des applications** puis recherchez par nom.
-
-    ![Zone dans laquelle vous recherchez une application](./media/api-management-howto-aad/find-your-app.png)
-1. Une fois l’application inscrite, accédez à **l’URL de réponse** et vérifiez que **l’URL de redirection** a la valeur que vous avez obtenue à l’étape 9. 
-1. Si vous souhaitez configurer votre application (par exemple, pour changer **l’URL d’ID d’application**), sélectionnez **Propriétés**.
-
-    ![Ouverture du panneau Propriétés](./media/api-management-howto-aad/api-management-with-aad004.png)
-
-    Si plusieurs instances d’Azure AD vont être utilisées pour cette application, sélectionnez **Oui** pour **Mutualisé**. La valeur par défaut est **Non**.
-1. Définissez les autorisations de l’application en sélectionnant **Autorisations requises**.
-1. Sélectionnez votre application puis cochez les cases **Lire les données d’annuaire** et **Activer la connexion et lire le profil utilisateur**.
-
-    ![Cases à cocher pour les autorisations](./media/api-management-howto-aad/api-management-with-aad005.png)
-
-1. Sélectionnez **Accorder des autorisations** autoriser l’application.
-
-    Pour plus d’informations sur les autorisations d’application et les autorisations déléguées, consultez [Accès à l’API Graph][Accessing the Graph API].
+10. Dans votre navigateur, ouvrez un autre onglet. 
+11. Accédez à la [portail Azure - inscriptions](https://go.microsoft.com/fwlink/?linkid=2083908) pour inscrire une application dans Active Directory.
+12. Sous **gérer**, sélectionnez **inscriptions**.
+13. Sélectionnez **Nouvelle inscription**. Sur le **inscrire une application** , définissez les valeurs comme suit :
     
-1. Dans le volet de gauche, copiez la valeur de **l’ID d’application**.
+* Définissez **nom** par un nom explicite. par exemple, *portail des développeurs*
+* Définissez **pris en charge les types de comptes** à **comptes dans ce répertoire d’organisation uniquement**. 
+* Définissez **URI de redirection** à la valeur que vous avez obtenu à l’étape 9. 
+* Choisissez **inscrire**. 
 
-    ![Valeur de l’ID d’application](./media/api-management-howto-aad/application-id.png)
-1. Revenez à votre application Gestion des API. 
-
-    Dans la fenêtre **Ajouter le fournisseur d’identité**, collez la valeur de **l’ID d’application** dans la zone **ID client**.
-1. Revenez à la configuration d’Azure AD, puis sélectionnez **Clés**.
-1. Créez une clé en spécifiant un nom et une durée. 
-1. Sélectionnez **Enregistrer**. La clé est générée.
-
-    Copiez la clé dans le Presse-papiers.
-
-    ![Sélections pour la création d’une clé](./media/api-management-howto-aad/api-management-with-aad006.png)
-
-    > [!NOTE]
-    > Notez sa valeur. Une fois que vous fermez le volet de configuration d’Azure AD, la clé ne peut plus être affichée.
-    > 
-    > 
-
-1. Revenez à votre application Gestion des API. 
-
-    Dans la fenêtre **Ajouter le fournisseur d’identité**, collez la clé dans la zone de texte **Clé secrète client**.
+14.  Une fois que l’application est inscrite, copiez la **ID d’Application (client)** à partir de la **vue d’ensemble** page. 
+15. Revenez à votre instance gestion des API. Dans le **ajouter le fournisseur d’identité** fenêtre, collez la **ID d’Application (client)** valeur dans le **ID Client** boîte.
+16. Revenez à la configuration d’Azure AD, sélectionnez **certificats et clés secrètes** sous **gérer**. Sélectionnez le **nouvelle clé secrète client** bouton. Entrez une valeur dans **Description**, sélectionnez une option pour **expiration** et choisissez **ajouter**. Copiez la valeur du secret client avant de quitter la page. Vous en aurez besoin à l’étape suivante. 
+17. Revenez à votre instance gestion des API, collez la clé secrète dans le **clé secrète Client** boîte.
 
     > [!IMPORTANT]
     > Veillez à mettre à jour le **secret client** avant l’expiration de la clé. 
     >  
     >
 
-1. La fenêtre **Ajouter le fournisseur d’identité** contient également la zone de texte **Locataires autorisés**. Spécifiez les domaines des instances Azure AD auxquelles vous souhaitez accorder l’accès aux API de l’instance de service Gestion des API. Vous pouvez séparer plusieurs domaines par des sauts de ligne, des espaces ou des virgules.
+18. La fenêtre **Ajouter le fournisseur d’identité** contient également la zone de texte **Locataires autorisés**. Spécifiez les domaines des instances Azure AD auxquelles vous souhaitez accorder l’accès aux API de l’instance de service Gestion des API. Vous pouvez séparer plusieurs domaines par des sauts de ligne, des espaces ou des virgules.
 
-    Vous pouvez spécifier plusieurs domaines dans la section **Locataires autorisés**. Pour qu’un utilisateur puisse se connecter à partir d’un autre domaine que le domaine d’origine dans lequel l’application a été enregistrée, l’administrateur général de l’autre domaine doit d’abord accorder à l’application l’autorisation d’accéder aux données de l’annuaire. Pour accorder l’autorisation, l’administrateur général doit :
-    
-    a. Accédez à `https://<URL of your developer portal>/aadadminconsent` (par exemple, https://contoso.portal.azure-api.net/aadadminconsent).
-    
-    b. Taper le nom de domaine du locataire Azure AD auquel il souhaite autoriser l’accès.
-    
-    c. Sélectionnez **Envoyer**. 
-    
-    Dans l’exemple suivant, un administrateur général de miaoaad.onmicrosoft.com tente d’accorder une autorisation à ce portail de développeurs spécifique. 
+> [!NOTE]
+> Vous pouvez spécifier plusieurs domaines dans la section **Locataires autorisés**. Pour qu’un utilisateur puisse se connecter à partir d’un autre domaine que le domaine d’origine dans lequel l’application a été enregistrée, l’administrateur général de l’autre domaine doit d’abord accorder à l’application l’autorisation d’accéder aux données de l’annuaire. Pour accorder l’autorisation, l’administrateur général doit : un. Accédez à `https://<URL of your developer portal>/aadadminconsent` (par exemple, https://contoso.portal.azure-api.net/aadadminconsent).
+> b. Taper le nom de domaine du locataire Azure AD auquel il souhaite autoriser l’accès.
+> c. Sélectionnez **Envoyer**. 
 
-1. Après avoir spécifié la configuration désirée, sélectionnez **Ajouter**.
-
-    ![Bouton Ajouter dans le volet Ajouter le fournisseur d’identité](./media/api-management-howto-aad/api-management-with-aad007.png)
+19.  Après avoir spécifié la configuration désirée, sélectionnez **Ajouter**.
 
 Une fois les changements enregistrés, les utilisateurs de l’instance Azure AD spécifiée peuvent se connecter au portail des développeurs en suivant les étapes de la section [Se connecter au portail des développeurs avec un compte Azure AD](#log_in_to_dev_portal).
 
-![Entrée du nom d’un locataire Azure AD](./media/api-management-howto-aad/api-management-aad-consent.png)
-
-Dans l’écran suivant, l’administrateur général est invité à confirmer l’octroi de l’autorisation. 
-
-![Confirmation de l’octroi d’autorisations](./media/api-management-howto-aad/api-management-permissions-form.png)
-
-Si un administrateur autre que l’administrateur général tente de se connecter avant que l’administrateur général n’octroie les autorisations, la tentative de connexion échoue et un écran d’erreur s’affiche.
 
 ## <a name="add-an-external-azure-ad-group"></a>Ajouter un groupe Azure AD externe
 
@@ -145,10 +89,10 @@ Pour configurer un groupe Azure AD externe, vous devez d’abord configurer l’
 Vous ajoutez des groupes Azure AD externes à partir de l’onglet **Groupes** de votre instance Gestion des API.
 
 1. Sélectionnez l’onglet **Groupes** .
-1. Sélectionnez le bouton **Ajouter un groupe AAD**.
+2. Sélectionnez le bouton **Ajouter un groupe AAD**.
    ![Bouton Ajouter un groupe AAD](./media/api-management-howto-aad/api-management-with-aad008.png)
-1. Sélectionnez le groupe à ajouter.
-1. Appuyez sur le bouton **Sélectionner**.
+3. Sélectionnez le groupe à ajouter.
+4. Appuyez sur le bouton **Sélectionner**.
 
 Après avoir ajouté un groupe Azure AD externe, vous pouvez passer en revue ses propriétés et les configurer. Sélectionnez le nom du groupe sous l’onglet **Groupes**. À ce stade, vous pouvez modifier les informations **Nom** et **Description** du groupe.
  

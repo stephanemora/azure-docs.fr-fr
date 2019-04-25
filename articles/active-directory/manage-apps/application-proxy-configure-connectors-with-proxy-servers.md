@@ -13,11 +13,11 @@ ms.author: celested
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0b4cb1f6cc3da5230f510f57a56c7297341f82f3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175572"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60293635"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Travailler avec des serveurs proxy locaux existants
 
@@ -70,7 +70,7 @@ Conséquence de la présence seule de trafic sortant, il est inutile de configur
 >[!NOTE]
 >Le proxy d’application ne prend pas en charge l’authentification auprès d’autres proxys. Les comptes du service réseau de mise à jour/connecteur doivent être en mesure de se connecter au proxy sans avoir à se connecter avec l’authentification.
 
-### <a name="step-1-configure-the-connector-and-related-services-to-go-through-the-outbound-proxy"></a>Étape 1 : Configurer le connecteur et les services associés pour passer par le proxy sortant
+### <a name="step-1-configure-the-connector-and-related-services-to-go-through-the-outbound-proxy"></a>Étape 1 : Configurer le connecteur et les services associés pour passer par le proxy sortant
 
 Si WPAD est activé dans l’environnement et correctement configuré, le connecteur détecte automatiquement le serveur proxy sortant et tente de l’utiliser. Toutefois, vous pouvez configurer explicitement le connecteur pour passer par un proxy sortant.
 
@@ -95,7 +95,7 @@ Pour ce faire, modifiez le fichier C:\Program Files\Microsoft AAD App Proxy Conn
 
 Configurez ensuite le service de mise à jour du connecteur pour utiliser le proxy en apportant une modification similaire au fichier C:\Program Files\Microsoft AAD App Proxy Connector Updater\ApplicationProxyConnectorUpdaterService.exe.config.
 
-### <a name="step-2-configure-the-proxy-to-allow-traffic-from-the-connector-and-related-services-to-flow-through"></a>Étape 2 : Configurer le serveur proxy pour autoriser le passage du trafic à partir du connecteur et des services associés
+### <a name="step-2-configure-the-proxy-to-allow-traffic-from-the-connector-and-related-services-to-flow-through"></a>Étape 2 : Configurer le serveur proxy pour autoriser le passage du trafic à partir du connecteur et des services associés
 
 Il y a quatre aspects à prendre en compte au niveau du proxy sortant :
 * Règles sortantes du proxy

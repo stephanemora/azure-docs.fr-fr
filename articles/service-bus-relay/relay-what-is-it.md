@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: spelluru
 ms.openlocfilehash: 47fbce7ea26bcb7224fe2624d593d85cd178d610
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57776306"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60420303"
 ---
 # <a name="what-is-azure-relay"></a>Qu’est-ce qu’Azure Relay ?
 Le service Azure Relay vous permet d’exposer en toute sécurité les services exécutés dans votre réseau d’entreprise sur le cloud public. Vous pouvez le faire sans ouvrir de port sur votre pare-feu ni apporter de changements intrusifs à votre infrastructure réseau d’entreprise. 

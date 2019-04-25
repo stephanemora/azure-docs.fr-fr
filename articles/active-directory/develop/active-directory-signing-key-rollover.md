@@ -18,11 +18,11 @@ ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 82e9941a6c468a3b0ed9d1f22a2970cfa6584617
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58439343"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60411230"
 ---
 # <a name="signing-key-rollover-in-azure-active-directory"></a>Substitution de la clé de signature dans Azure Active Directory
 Cet article explique ce que vous devez savoir sur les clés publiques utilisées dans Azure Active Directory (Azure AD) pour la signature des jetons de sécurité. Il est important de noter que ces clés sont substituées régulièrement, voire immédiatement en cas d’urgence. Toutes les applications qui utilisent Azure AD doivent être en mesure de gérer le processus de substitution de clé ou d’établir un processus périodique de substitution manuelle de clé par le biais d’un programme. En lisant cet article, vous allez comprendre le fonctionnement des clés, savoir comment évaluer l’impact de la substitution de votre application et comment mettre à jour votre application ou établir un processus périodique de substitution manuelle de clé pour gérer la substitution de clé si nécessaire.

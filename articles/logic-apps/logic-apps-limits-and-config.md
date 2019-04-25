@@ -10,11 +10,11 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 11/16/2018
 ms.openlocfilehash: c211d479efe086bb739b91034c6d9e349358b2d7
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565901"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60303670"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limites et informations de configuration pour Azure Logic Apps
 
@@ -26,7 +26,7 @@ Cet article décrit les limites et les détails de configuration liés à la cr�
 
 Les limites pour la définition d’une application logique sont les suivantes :
 
-| Nom | Limite | Notes |
+| Name | Limite | Notes |
 | ---- | ----- | ----- |
 | Actions par flux de travail | 500 | Pour étendre cette limite, vous pouvez au besoin ajouter des workflows imbriqués. |
 | Niveaux d’imbrication d’actions autorisés | 8 | Pour étendre cette limite, vous pouvez au besoin ajouter des workflows imbriqués. |
@@ -48,7 +48,7 @@ Les limites pour la définition d’une application logique sont les suivantes :
 
 Les limites pour l’exécution d’une application logique sont les suivantes :
 
-| Nom | Limite | Notes |
+| Name | Limite | Notes |
 |------|-------|-------|
 | Durée d’exécution | 90 jours | Pour changer cette limite, consultez [Modifier la durée d’exécution et la rétention de stockage](#change-duration). |
 | Intervalle de périodicité minimal | 1 seconde | |
@@ -93,7 +93,7 @@ Les limites pour l’exécution d’une application logique sont les suivantes :
 
 ### <a name="global-logic-apps-service"></a>Service global de Logic Apps
 
-| Nom | Limite | Notes |
+| Name | Limite | Notes |
 | ---- | ----- | ----- |
 | Action : Exécutions par tranche de 5 minutes | 100 000 est la limite par défaut, mais 300 000 est la limite maximale. | Pour modifier la limite par défaut, consultez [exécuter votre application logique en mode de « débit élevé »](../logic-apps/logic-apps-workflow-actions-triggers.md#run-high-throughput-mode), disponible dans la préversion. Vous pouvez répartir la charge de travail entre plusieurs comptes si nécessaire. |
 | Action : Appels sortants simultanés | ~2,500 | Vous pouvez diminuer le nombre de requêtes simultanées ou réduire la durée si nécessaire. |
@@ -124,7 +124,7 @@ Les limites pour un appel de connecteur synchrone ou de requête HTTP unique son
 
 Comme certaines opérations de connecteur effectuent des appels asynchrones ou écoutent les demandes de webhook, le délai d’expiration pour ces opérations peut dépasser ces limites. Pour plus d’informations, consultez les détails techniques pour le connecteur spécifique et aussi [Actions et déclencheurs de workflow](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action).
 
-| Nom | Limite | Notes |
+| Name | Limite | Notes |
 | ---- | ----- | ----- |
 | Requête sortante | 120 secondes | Pour les opérations en cours d’exécution plus longues, utilisez un [modèle d’interrogation asynchrone](../logic-apps/logic-apps-create-api-app.md#async-pattern) ou une [boucle Until](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action). |
 | Réponse synchrone | 120 secondes | Pour que la requête d’origine obtienne la réponse, toutes les étapes de la réponse doivent être terminées avant la limite, sauf si vous appelez une autre application logique en tant que workflow imbriqué. Pour plus d’informations, consultez [Appeler, déclencher ou imbriquer des applications logiques](../logic-apps/logic-apps-http-endpoint.md). |
@@ -154,7 +154,7 @@ Comme certaines opérations de connecteur effectuent des appels asynchrones ou �
 
 Les limites pour les connecteurs personnalisés qu’il est possible de créer à partir d’API web sont les suivantes.
 
-| Nom | Limite |
+| Name | Limite |
 | ---- | ----- |
 | Nombre de connecteurs personnalisés | 1 000 par abonnement Azure |
 | Nombre de demandes par minute pour chaque connexion créée par un connecteur personnalisé | 500 demandes par connexion |
@@ -245,7 +245,7 @@ Utilisez le niveau gratuit uniquement pour les scénarios exploratoires, pas pou
 
 Les limites qui s’appliquent aux protocoles B2B sont les suivantes :
 
-| Nom | Limite | Notes |
+| Name | Limite | Notes |
 | ---- | ----- | ----- |
 | AS2 | 50 Mo | S’applique au décodage et à l’encodage. |
 | X 12 | 50 Mo | S’applique au décodage et à l’encodage. |

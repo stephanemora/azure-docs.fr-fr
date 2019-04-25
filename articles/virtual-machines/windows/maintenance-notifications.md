@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/02/2018
 ms.author: shants
-ms.openlocfilehash: db8fd40b9c573d04d9442c64fb058902a771eca0
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.openlocfilehash: cfd88118b483067f4c6ee62ee013a2202f0d7e67
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58418871"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60301742"
 ---
 # <a name="handling-planned-maintenance-notifications-for-windows-virtual-machines"></a>Gestion de notifications de maintenance planifiées pour les machines virtuelles Windows
 
@@ -81,7 +81,7 @@ Vous pouvez également utiliser Azure Powershell pour voir quand les machines vi
  
 Les informations de maintenance sont retournées uniquement en cas de maintenance planifiée. Si aucune maintenance planifiée n’impacte la machine virtuelle, l’applet de commande ne retourne pas d’informations de maintenance. 
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ```powershell
 Get-AzVM -ResourceGroupName rgName -Name vmName -Status

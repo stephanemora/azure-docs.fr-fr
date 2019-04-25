@@ -9,11 +9,11 @@ ms.service: iot-central
 services: iot-central
 manager: peterpfr
 ms.openlocfilehash: a28cf68eb449b563d93a139b830752748c448dd6
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57759813"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60517318"
 ---
 # <a name="use-device-sets-in-your-azure-iot-central-application"></a>Utiliser des ensembles d’appareils dans votre application Azure IoT Central
 

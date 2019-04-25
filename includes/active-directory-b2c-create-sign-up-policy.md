@@ -2,14 +2,15 @@
 author: PatAltimore
 ms.service: active-directory-b2c
 ms.topic: include
-ms.date: 11/30/2018
-ms.author: patricka
+origin.date: 11/30/2018
+ms.date: 04/04/2019
+ms.author: v-junlch
 ms.openlocfilehash: 17c0213d63879687e9c6d5f8dca06b9113c44af8
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "58115693"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60456900"
 ---
 Si vous souhaitez uniquement activer l’inscription dans votre application, vous utilisez un flux utilisateur **d’inscription**. Ce flux utilisateur décrit les expériences clients lors de l’inscription, ainsi que le contenu des jetons que l’application reçoit en cas de réussite de l’opération.
 
@@ -44,3 +45,4 @@ Cliquez sur **Exécuter le flux utilisateur**. Un nouvel onglet de navigateur s�
 > [!NOTE]
 > La création du flux utilisateur et les mises à jour peuvent prendre jusqu’à une minute.
 >
+

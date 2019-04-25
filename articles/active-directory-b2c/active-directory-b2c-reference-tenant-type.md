@@ -3,7 +3,7 @@ title: Disponibilité régionale et résidence des données dans Azure Active Di
 description: Une rubrique sur les types de locataires Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
@@ -11,11 +11,11 @@ ms.date: 04/10/2017
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 928c6316ea964472faadc82213c4c1ff81c3e038
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59608239"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60317083"
 ---
 # <a name="azure-active-directory-b2c-region-availability--data-residency"></a>Azure Active Directory B2C : Disponibilité des régions et résidence des données
 La disponibilité régionale et la résidence des données sont deux concepts très différents qui ne s’appliquent pas à Azure Active Directory B2C de la même façon qu’à Azure. Cet article explique les différences entre ces deux concepts et compare la manière dont ils s’appliquent à Azure et Azure Active Directory B2C.

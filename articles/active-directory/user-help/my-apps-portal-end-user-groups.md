@@ -13,20 +13,20 @@ ms.author: lizross
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5af86ad12eed4901e577149b9f20216d5004663b
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 578ca5fa1de338a92280e2dc7cc252fb616e2111
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58340460"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60483344"
 ---
 # <a name="update-your-groups-info-from-the-my-apps-portal"></a>Mettre à jour vos informations de groupes à partir du portail mes applications
-Vous pouvez utiliser votre compte professionnel ou scolaire avec basée sur le web **mes applications** portal, pour afficher et démarrer la plupart des applications de cloud de votre organisation, à mettre à jour certaines de vos informations de compte et un profil pour voir votre **groupes** plus d’informations et d’effectuer **révisions d’accès** pour vos applications et les groupes. Si vous n’avez pas accès à la **mes applications** portail, vous devez contacter votre support technique pour obtenir l’autorisation.
+Vous pouvez utiliser votre compte professionnel ou scolaire avec le portail web **Mes applications** pour voir et démarrer la plupart des applications cloud de votre organisation, mettre à jour votre profil et vos informations de compte, consulter les informations de vos **groupes** et effectuer des **révisions d’accès** pour vos applications et vos groupes. Si vous n’avez pas accès au portail **Mes applications**, contactez le support technique pour obtenir l’autorisation.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-portal.md)]
 
 >[!Important]
->Ce contenu est destiné aux utilisateurs. Si vous êtes un administrateur, vous trouverez plus d’informations sur comment configurer et gérer vos applications cloud dans le [Documentation gestion des Application](https://docs.microsoft.com/azure/active-directory/manage-apps).
+>Ce contenu est destiné aux utilisateurs. Si vous êtes administrateur, vous trouverez des informations sur la configuration et la gestion de vos applications cloud dans la [documentation sur la gestion des applications](https://docs.microsoft.com/azure/active-directory/manage-apps).
 
 ## <a name="view-your-groups-information"></a>Afficher vos informations de groupes
 Si votre administrateur vous a donné l’autorisation d’afficher le **groupes** vignette, vous pouvez :
@@ -53,17 +53,19 @@ Si votre administrateur vous a donné l’autorisation d’afficher le **groupes
 
     - **Passez en revue les groupes que vous possédez.** Vue informations sur les groupes dont vous êtes propriétaire au sein de votre organisation à partir de la **groupes dont je suis propriétaire** zone. Sélection d’un nom de groupe spécifique vous offre plus de détails sur le groupe, y compris le type de groupe, le nombre de membres, la stratégie de jointure et la liste de membres actifs.
 
-    - **Créer un nouveau groupe.** Créer un nouveau groupe avec vous en tant que le propriétaire de la **groupes dont je suis propriétaire** zone. Pour obtenir des instructions spécifiques, consultez [créer un nouveau groupe](#create-a-new-group) section de cet article.
+    - **Créer un nouveau groupe.** Créer un nouveau groupe avec vous en tant que le propriétaire de la **groupes dont je suis propriétaire** zone. Pour obtenir des instructions spécifiques, consultez le [créer un nouveau groupe](#create-a-new-group) section de cet article.
 
-    - **Modifier un groupe existant.** Modifier les détails d’un de vos propres groupes. Pour obtenir des instructions spécifiques, consultez [modifier un groupe existant](#edit-an-existing-group) section de cet article.
+    - **Modifier un groupe existant.** Modifier les détails d’un de vos propres groupes. Pour obtenir des instructions spécifiques, consultez le [modifier un groupe existant](#edit-an-existing-group) section de cet article.
 
-    - **Ajouter ou supprimer des membres.** Ajouter ou supprimer des membres pour les groupes que vous possédez. Pour obtenir des instructions spécifiques, consultez [ajouter ou supprimer un membre](#add-or-remove-a-member) section de cet article.
+    - **Ajouter ou supprimer des membres.** Ajouter ou supprimer des membres pour les groupes que vous possédez. Pour obtenir des instructions spécifiques, consultez le [ajouter ou supprimer un membre](#add-or-remove-a-member) section de cet article.
 
-    - **Supprimer un groupe.** Supprimer tous les groupes que vous possédez. Pour obtenir des instructions spécifiques, consultez [supprimer un groupe](#delete-a-group) section de cet article.
+    - **Renouveler un groupe Office 365.** Si votre organisation autorise, vous pouvez renouveler vos groupes Office 365. Pour obtenir des instructions spécifiques, consultez le [renouveler un groupe Office 365](#renew-an-office-365-group) section de cet article. 
+
+    - **Supprimer un groupe.** Supprimer tous les groupes que vous possédez. Pour obtenir des instructions spécifiques, consultez le [supprimer un groupe](#delete-a-group) section de cet article.
 
     - **Passez en revue les groupes que vous êtes un membre de.** Afficher les noms de tous les groupes auxquels vous êtes un membre de la **groupes auxquels j’appartiens** zone. Sélection d’un nom de groupe spécifique vous offre plus de détails sur le groupe, y compris le type de groupe, le nombre de membres, la stratégie de jointure et la liste de membres actifs.
 
-    - **Rejoindre un groupe.** Joindre un groupe existant pour lequel vous n’êtes pas déjà un membre, à partir de la **groupes auxquels j’appartiens** zone. Pour obtenir des instructions spécifiques, consultez [joindre un groupe existant](#join-an-existing-group).
+    - **Rejoindre un groupe.** Joindre un groupe existant pour lequel vous n’êtes pas déjà un membre, à partir de la **groupes auxquels j’appartiens** zone. Pour obtenir des instructions spécifiques, consultez le [joindre un groupe existant](#join-an-existing-group).
 
 ## <a name="create-a-new-group"></a>Créer un groupe
 1. Sur le **groupes** page, sélectionnez **créer un groupe** à partir de la **groupes dont je suis propriétaire** zone.
@@ -117,6 +119,18 @@ Vous pouvez ajouter ou supprimer des membres pour une de vos propres groupes.
 3. Si vous avez ajouté un membre par erreur, ou si un membre a quitté votre organisation, vous pouvez supprimer le membre en sélectionnant **supprimer un membre** en regard du nom du membre sur le *&lt;nom_groupe&gt;* page.
 
     ![Supprimer un membre, avec le lien de suppression mis en surbrillance](media/my-apps-portal/my-apps-portal-remove-member-link.png)
+
+## <a name="renew-an-office-365-group"></a>Renouveler un groupe Office 365
+Si votre organisation autorise, vous pouvez renouveler un groupe Office 365, étendre votre date d’expiration.
+
+### <a name="to-renew-a-group"></a>Pour renouveler un groupe
+1. Sélectionnez le groupe Office 365 que vous souhaitez renouveler, puis sélectionnez **renouveler le groupe**.
+
+    ![Renouveler un groupe Office 365, en étendant la date d’expiration](media/my-apps-portal/my-apps-portal-renew-group-link.png)
+
+2. Cliquez sur **OK** pour fermer le message de confirmation.
+
+    Une fois que vous actualisez la page, vous verrez votre mise à jour **renouvelé dernière** et **d’expiration de groupe** dates.
 
 ## <a name="delete-a-group"></a>Supprimer un groupe
 Vous pouvez supprimer un de vos propres groupes à tout moment. Toutefois, si vous supprimez un groupe par erreur vous devrez le créer et ajouter des membres à nouveau.

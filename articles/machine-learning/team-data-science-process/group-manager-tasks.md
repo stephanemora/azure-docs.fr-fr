@@ -11,11 +11,11 @@ ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: fb0482be1670a96befdd69a5356c9e21476d9f9f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55458140"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60305190"
 ---
 # <a name="tasks-for-a-group-manager-on-a-data-science-team-project"></a>Tâches d’un responsable de groupe sur un projet d’équipe de science des données.
 

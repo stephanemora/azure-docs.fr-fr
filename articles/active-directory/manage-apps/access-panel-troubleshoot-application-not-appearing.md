@@ -17,11 +17,11 @@ ms.author: celested
 ms.reviwer: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9bac0e78c53657cda1716dd8ab6ffd0e2453290f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58117419"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60294019"
 ---
 # <a name="an-assigned-application-is-not-appearing-on-the-access-panel"></a>Une application affectée n’apparaît pas sur le volet d’accès
 
@@ -240,7 +240,7 @@ Pour configurer l’authentification unique pour une application qui n’est pas
 
     1. Pour configurer l’application en tant qu’application à authentification unique lancée par le fournisseur d’identité, entrez l’URL de réponse et l’identificateur.
 
-    2.  **Facultatif :** Pour configurer l’application en tant qu’application à authentification unique lancée par le fournisseur de services, une URL de connexion est obligatoire.
+    2.  **Facultatif** : Pour configurer l’application en tant qu’application à authentification unique lancée par le fournisseur de services, une URL de connexion est obligatoire.
 
 12. Dans **Attributs d’utilisateur**, sélectionnez l’identificateur unique de vos utilisateurs dans la liste déroulante **Identificateur de l’utilisateur**.
 

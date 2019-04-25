@@ -17,11 +17,11 @@ ms.reviewer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e79b73123b33a012c062a89fb9748fa101fabcea
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57448677"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60299615"
 ---
 # <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>Activation Activer l’authentification unique entre applications sur iOS à l’aide de la bibliothèque ADAL
 
@@ -253,7 +253,7 @@ Voici la procédure à suivre :
 3. Enregistrez un nouveau schéma d’URL.
 4. Ajoutez une autorisation à votre fichier info.plist.
 
-#### <a name="step-1-enable-broker-mode-in-your-application"></a>Étape 1 : Activer le mode répartiteur dans votre application
+#### <a name="step-1-enable-broker-mode-in-your-application"></a>Étape 1 : Activer le mode répartiteur dans votre application
 
 La capacité de votre application à utiliser le répartiteur est activée lorsque vous créez le contexte, ou la configuration initiale, de votre objet d’authentification. Pour ce faire, définissez votre type d’informations d’identification dans votre code :
 
@@ -263,7 +263,7 @@ La capacité de votre application à utiliser le répartiteur est activée lorsq
 ```
 Le paramètre `AD_CREDENTIALS_AUTO` autorise le Kit de développement logiciel à essayer d’appeler le répartiteur, tandis que `AD_CREDENTIALS_EMBEDDED` l’empêche de le faire.
 
-#### <a name="step-2-registering-a-url-scheme"></a>Étape 2 : Enregistrer un nouveau schéma d’URL
+#### <a name="step-2-registering-a-url-scheme"></a>Étape 2 : Enregistrer un nouveau schéma d’URL
 
 La plateforme d’identité utilise des URL pour appeler le répartiteur, avant de rendre le contrôle à votre application. Pour terminer cet aller-retour, vous devez disposer d’un schéma d’URL inscrit pour votre application et dont la plateforme d’identité a connaissance. Il peut s’agir d’un ajout à un autre schéma d’application précédemment inscrit avec votre application.
 
@@ -308,7 +308,7 @@ Pour assurer la prise en charge de l’authentification par certificat, vous dev
 
 exemple : *msauth://code/x-msauth-mytestiosapp%3A%2F%2Fcom.myapp.mytestapp*
 
-#### <a name="step-4-add-a-configuration-parameter-to-your-app"></a>Étape 4 : Ajouter un paramètre de configuration à votre application
+#### <a name="step-4-add-a-configuration-parameter-to-your-app"></a>Étape 4 : Ajouter un paramètre de configuration à votre application
 
 La bibliothèque ADAL utilise –canOpenURL: pour vérifier si le répartiteur est installé sur l’appareil. Dans iOS 9 et versions ultérieures, Apple a verrouillé la liste des schémas dans lesquels une application peut lancer une requête. Il vous faudra ajouter msauth à la section LSApplicationQueriesSchemes de votre `info.plist file`.
 

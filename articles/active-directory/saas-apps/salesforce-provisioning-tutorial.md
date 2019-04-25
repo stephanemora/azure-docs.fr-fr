@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Configurer Salesforce pour l’approvisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs'
+title: 'Didacticiel : Configurer Salesforce pour l’approvisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Salesforce.
 services: active-directory
 documentationCenter: na
@@ -16,17 +16,17 @@ ms.date: 10/08/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 712cc5ce62225987f8cc3ea13b5e4fd10a7d5eaf
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56172712"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60515785"
 ---
-# <a name="tutorial-configure-salesforce-for-automatic-user-provisioning"></a>Tutoriel : Configurer Salesforce pour l’approvisionnement automatique d’utilisateurs
+# <a name="tutorial-configure-salesforce-for-automatic-user-provisioning"></a>Didacticiel : Configurer Salesforce pour l’approvisionnement automatique d’utilisateurs
 
 L’objectif de ce didacticiel est de montrer les étapes à effectuer dans Salesforce et Azure AD pour approvisionner et retirer automatiquement des comptes utilisateur d’Azure AD vers Salesforce.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 

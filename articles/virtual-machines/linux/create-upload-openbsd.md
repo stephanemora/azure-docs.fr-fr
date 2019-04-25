@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: huishao
 ms.openlocfilehash: 2e580a94e568f201587c06efa827006386cd6bd9
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60005007"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60327678"
 ---
 # <a name="create-and-upload-an-openbsd-disk-image-to-azure"></a>Créer et charger une image de disque OpenBSD sur Azure
 Cet article montre comment créer et charger un disque dur virtuel (VHD) contenant le système d’exploitation OpenBSD. Après l’avoir chargé, vous pouvez l’utiliser comme image personnelle pour créer une machine virtuelle (VM) dans Azure via Azure CLI.

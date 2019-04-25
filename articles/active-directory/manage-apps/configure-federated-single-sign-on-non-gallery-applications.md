@@ -16,11 +16,11 @@ ms.date: 07/11/2017
 ms.author: celested
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2fcb77fe257a1b99525d009a1756a473e7e61a5d
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58438514"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60291889"
 ---
 # <a name="how-to-configure-federated-single-sign-on-for-a-non-gallery-application"></a>Comment configurer l’authentification unique fédérée pour une application non issue de la galerie
 
@@ -67,7 +67,7 @@ Pour configurer l’authentification unique pour une application qui n’est pas
 
     1. Pour configurer l’application en tant qu’application à authentification unique lancée par le fournisseur d’identité, entrez l’URL de réponse et l’identificateur.
 
-    2. **Facultatif :** Pour configurer l’application en tant qu’application à authentification unique lancée par le fournisseur de services, l’URL de connexion est obligatoire.
+    2. **Facultatif** : Pour configurer l’application en tant qu’application à authentification unique lancée par le fournisseur de services, l’URL de connexion est obligatoire.
 
 12. Dans **Attributs d’utilisateur**, sélectionnez l’identificateur unique de vos utilisateurs dans la liste déroulante **Identificateur de l’utilisateur**.
 

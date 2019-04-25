@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: jingwang
 ms.openlocfilehash: a7d440509e2b823400cde83c1ac2ec054c37eb74
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57896209"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60311897"
 ---
 # <a name="store-credential-in-azure-key-vault"></a>Stocker des informations d’identification dans Azure Key Vault
 
@@ -43,7 +43,7 @@ Les propriétés suivantes sont prises en charge pour le service lié Azure Key 
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type doit être définie sur : **AzureKeyVault**. | Oui |
+| type | La propriété type doit être définie sur : **AzureKeyVault**. | Oui |
 | baseUrl | Spécifiez l’URL d’Azure Key Vault. | Oui |
 
 **Utilisation de l’interface utilisateur de création :**

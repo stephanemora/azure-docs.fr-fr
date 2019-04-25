@@ -7,15 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/09/2018
-ms.author: davidmu
+origin.date: 10/09/2018
+ms.date: 04/01/2019
+ms.author: v-junlch
 ms.subservice: B2C
 ms.openlocfilehash: c0f5be7fd77ae195b66f8a8fb052ab8573d48171
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55856357"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60317171"
 ---
 # <a name="manage-sso-and-token-customization-using-custom-policies-in-azure-active-directory-b2c"></a>Gérer la personnalisation des configurations SSO et de jetons avec des stratégies personnalisées dans Azure Active Directory B2C
 
@@ -100,3 +101,4 @@ Les valeurs suivantes sont configurées dans l’exemple précédent :
 - **Authentification unique (SSO)** : l’authentification unique est configurée avec l’élément **SingleSignOn**. Les valeurs possibles sont `Tenant`, `Application`, `Policy` et `Suppressed`. 
 - **Durée de vie de la session de l’application web (minutes)** : la durée de vie de la session de l’application web est définie avec l’élément **SessionExpiryInSeconds**. La valeur par défaut est de 86400 secondes (1440 minutes).
 - **Délai d’expiration de la session de l’application web** : il est défini avec l’élément **SessionExpiryType**. Les valeurs possibles sont `Absolute` et `Rolling`.
+

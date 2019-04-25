@@ -11,17 +11,17 @@ ms.author: amlstudiodocs
 ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/14/2019
 ms.openlocfilehash: fa4448c2a44a3c56548120bd04abf53df9a85ba0
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56822017"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60502411"
 ---
 # <a name="retrain-and-deploy-a-classic-studio-web-service"></a>Réentraîner et déployer un service web Studio classique
 
 Réentraîner des modèles de Machine Learning est une façon de s’assurer qu’ils restent précis et qu’ils reposent sur les données les plus pertinentes. Cet article vous montre comment réentraîner un service web Studio classique. Pour obtenir un guide sur la façon de réentraîner un nouveau service web Studio, [consultez cet article pratique.](retrain-machine-learning-model.md)
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Cet article suppose que vous avez déjà une expérience de réentraînement et une expérience prédictive. Ces étapes sont expliquées dans [Réentraîner et déployer un modèle Machine Learning.](/azure/machine-learning/studio/retrain-machine-learning-model) Toutefois, au lieu de déployer votre modèle Machine Learning comme un nouveau service web, vous allez déployer votre expérience prédictive comme un service web classique.
      

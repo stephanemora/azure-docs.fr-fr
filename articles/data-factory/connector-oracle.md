@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: jingwang
 ms.openlocfilehash: 3fa7612b9e4cd8a714e60879229bd0d39349494f
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57441438"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60405934"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Copier des données depuis/vers Oracle à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -163,7 +163,7 @@ Pour copier des données depuis et vers Oracle, affectez la valeur **OracleTable
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type | La propriété type du jeu de données doit être définie sur **OracleTable**. | Oui |
-| TableName |Nom de la table dans la base de données Oracle à laquelle le service lié fait référence. | Oui |
+| tableName |Nom de la table dans la base de données Oracle à laquelle le service lié fait référence. | Oui |
 
 **Exemple :**
 
@@ -281,25 +281,25 @@ Lorsque vous copiez des données depuis et vers Oracle, les mappages suivants so
 |:--- |:--- |
 | BFILE |Byte[] |
 | BLOB |Byte[]<br/>(seulement pris en charge sur Oracle 10g et les versions ultérieures) |
-| CHAR |Chaîne |
-| CLOB |Chaîne |
-| DATE |DateTime |
+| CHAR |String |
+| CLOB |String |
+| DATE |Datetime |
 | FLOAT |Décimale, chaîne (si précision > 28) |
 | INTEGER |Décimale, chaîne (si précision > 28) |
-| LONG |Chaîne |
+| LONG |String |
 | LONG RAW |Byte[] |
-| NCHAR |Chaîne |
-| NCLOB |Chaîne |
+| NCHAR |String |
+| NCLOB |String |
 | NUMBER |Décimale, chaîne (si précision > 28) |
-| NVARCHAR2 |Chaîne |
+| NVARCHAR2 |String |
 | RAW |Byte[] |
-| ROWID |Chaîne |
-| TIMESTAMP |DateTime |
-| TIMESTAMP WITH LOCAL TIME ZONE |Chaîne |
-| TIMESTAMP WITH TIME ZONE |Chaîne |
+| ROWID |String |
+| TIMESTAMP |Datetime |
+| TIMESTAMP WITH LOCAL TIME ZONE |String |
+| TIMESTAMP WITH TIME ZONE |String |
 | UNSIGNED INTEGER |NUMBER |
-| VARCHAR2 |Chaîne |
-| XML |Chaîne |
+| VARCHAR2 |String |
+| XML |String |
 
 > [!NOTE]
 > Les types de données INTERVAL YEAR TO MONTH et INTERVAL DAY TO SECOND ne sont pas pris en charge.

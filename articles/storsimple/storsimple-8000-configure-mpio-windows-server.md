@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 03/26/2018
 ms.author: alkohli
 ms.openlocfilehash: eda134257edb851eea076459b44e02fc59028f46
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58078140"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60363330"
 ---
 # <a name="configure-multipath-io-for-your-storsimple-device"></a>Configuration de Multipath I/O pour votre appareil StorSimple
 
@@ -35,14 +35,14 @@ MPIO est une fonctionnalité facultative sur Windows Server et n’est pas insta
 
 Suivez ces étapes pour configurer MPIO sur votre appareil StorSimple :
 
-* Étape 1 : Installer MPIO sur l’hôte Windows Server
-* Étape 2 : Configuration de MPIO pour les volumes StorSimple
+* Étape 1 : Installer MPIO sur l’hôte Windows Server
+* Étape 2 : Configuration de MPIO pour les volumes StorSimple
 * Étape 3 : Monter des volumes StorSimple sur l’ordinateur hôte
-* Étape 4 : Configuration de MPIO pour la haute disponibilité et l’équilibrage de charge
+* Étape 4 : Configuration de MPIO pour la haute disponibilité et l’équilibrage de charge
 
 Chacune des étapes précédentes est abordée dans les sections suivantes.
 
-## <a name="step-1-install-mpio-on-the-windows-server-host"></a>Étape 1 : Installer MPIO sur l’hôte Windows Server
+## <a name="step-1-install-mpio-on-the-windows-server-host"></a>Étape 1 : Installer MPIO sur l’hôte Windows Server
 
 Pour installer cette fonctionnalité sur votre hôte Windows Server, effectuez la procédure suivante.
 
@@ -73,7 +73,7 @@ Pour installer cette fonctionnalité sur votre hôte Windows Server, effectuez l
    
        ![Assistant Ajouter des rôles et fonctionnalités 9](./media/storsimple-configure-mpio-windows-server/IC741002.png)
 
-## <a name="step-2-configure-mpio-for-storsimple-volumes"></a>Étape 2 : Configuration de MPIO pour les volumes StorSimple
+## <a name="step-2-configure-mpio-for-storsimple-volumes"></a>Étape 2 : Configuration de MPIO pour les volumes StorSimple
 
 La fonctionnalité MPIO doit être configurée afin d’identifier les volumes StorSimple. Pour configurer MPIO pour reconnaître des volumes StorSimple, procédez comme suit.
 
@@ -148,7 +148,7 @@ Une fois MPIO configuré sur Windows Server, le ou les volumes créés sur l’a
 > **Ne modifiez pas les paramètres par défaut.**
 
 
-## <a name="step-4-configure-mpio-for-high-availability-and-load-balancing"></a>Étape 4 : Configuration de MPIO pour la haute disponibilité et l’équilibrage de charge
+## <a name="step-4-configure-mpio-for-high-availability-and-load-balancing"></a>Étape 4 : Configuration de MPIO pour la haute disponibilité et l’équilibrage de charge
 
 Pour les chemins d’accès multiples basés sur la haute disponibilité et l’équilibrage de charge, vous devez ajouter plusieurs sessions manuellement pour déclarer les différents chemins d’accès disponibles. Par exemple, si l’hôte possède deux interfaces connectées au réseau iSCSI et si l’appareil possède deux interfaces connectées au réseau iSCSI, vous avez besoin de quatre sessions configurées avec les permutations de chemin d’accès appropriées (seules deux sessions seront requises si chaque interface DATA et interface d’hôte se trouve sur un sous-réseau d’adresse IP différent et n’est pas routable).
 

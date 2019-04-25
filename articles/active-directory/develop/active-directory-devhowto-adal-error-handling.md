@@ -16,11 +16,11 @@ ms.date: 02/27/2017
 ms.custom: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3e92c3b302ab18aaaf20d187d61a488603ce81a7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56178020"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60411440"
 ---
 # <a name="error-handling-best-practices-for-azure-active-directory-authentication-library-adal-clients"></a>Meilleures pratiques de gestion des erreurs pour les clients Azure Active Directory Authentication Library (ADAL)
 

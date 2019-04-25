@@ -1,5 +1,5 @@
 ---
-title: Questions courantes sur Microsoft Genomics - FAQ | Microsoft Docs
+title: 'Microsoft Genomics : Questions courantes - Forum aux questions | Microsoft Docs'
 titleSuffix: Azure
 description: Réponses apportées aux questions fréquemment posées par les clients de Microsoft Genomics.
 services: genomics
@@ -9,14 +9,14 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: article
 ms.date: 12/07/2017
-ms.openlocfilehash: 56256a6c10ecb0d06dfd6194668b9c32c5540c0e
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
-ms.translationtype: HT
+ms.openlocfilehash: 7198e64a11a3aa23643cc2bfb5ecff884c6a1b48
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51683898"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60445547"
 ---
-# <a name="microsoft-genomics-common-questions"></a>Microsoft Genomics : Questions courantes
+# <a name="microsoft-genomics-common-questions"></a>Microsoft Genomics : Questions courantes
 
 Cet article répertorie les principales questions relatives à Microsoft Genomics. Pour plus d’informations sur le service Microsoft Genomics, voir [Qu’est-ce que Microsoft Genomics ?](overview-what-is-genomics.md). Pour plus d’informations sur la résolution des problèmes, consultez notre [Guide de résolution des problèmes](troubleshooting-guide-genomics.md). 
 
@@ -73,7 +73,8 @@ Votre clé de compte de stockage sert à créer des jetons d’accès à court t
 ## <a name="what-genome-references-can-i-use"></a>Quelle référence au génome puis-je utiliser ?
 
 Voici les références prises en charge :
- |Informations de référence              | Valeur de `-pa/--process-args` |
+
+ |Référence              | Valeur de `-pa/--process-args` |
  |:-------------         |:-------------                 |
  |b37                    | `R=b37m1`                     |
  |hg38                   | `R=hg38m1`                    |      
@@ -84,15 +85,15 @@ Voici les références prises en charge :
 
 msgen comprend les fichiers de configuration dont le format est le suivant :
 * Toutes les options sont fournies en tant que paires clé-valeur, les valeurs étant séparées des clés par le signe deux-points.
-Un espace blanc est ignoré.
+  Un espace blanc est ignoré.
 * Les lignes commençant par `#` sont ignorées.
 * Tous les arguments de ligne de commande au format long peuvent être convertis en une clé en supprimant les tirets du début et en remplaçant les tirets entre les mots par des traits de soulignement. Voici quelques exemples de conversion :
 
- |Argument de ligne de commande            | Ligne du fichier de configuration |
- |:-------------                   |:-------------                 |
- |`-u/--api-url-base https://url`  | *api_url_base:https://url*    |
- |`-k/--access-key KEY`            | *access_key:KEY*              |      
- |`-pa/--process-args R=B37m1`     | *process_args:R-b37m1*        |  
+  |Argument de ligne de commande            | Ligne du fichier de configuration |
+  |:-------------                   |:-------------                 |
+  |`-u/--api-url-base https://url`  | *api_url_base:https://url*    |
+  |`-k/--access-key KEY`            | *access_key:KEY*              |      
+  |`-pa/--process-args R=B37m1`     | *process_args:R-b37m1*        |  
 
 ## <a name="next-steps"></a>Étapes suivantes
 

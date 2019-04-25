@@ -15,11 +15,11 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 10a78df5169741371c122971afa47cb53ecc5a64
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57450666"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60471640"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Règles d’appartenance de groupe dynamique dans Azure Active Directory
 
@@ -60,8 +60,8 @@ Les parenthèses sont facultatives pour une expression unique. La longueur total
 
 Il existe trois types de propriétés utilisables pour construire une règle d’appartenance.
 
-* Booléen
-* Chaîne
+* Boolean
+* String
 * Collection de chaînes
 
 Les propriétés utilisateur que vous pouvez utiliser pour créer une expression unique sont les suivantes.

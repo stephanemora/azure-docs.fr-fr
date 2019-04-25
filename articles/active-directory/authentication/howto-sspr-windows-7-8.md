@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 57d3e955059724756eb7102c1b9fbbf55ed203ab
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58370446"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60414669"
 ---
 # <a name="how-to-enable-password-reset-from-windows-7-8-and-81"></a>Activation Activer la réinitialisation de mot de passe à partir de Windows 7, 8 et 8.1
 

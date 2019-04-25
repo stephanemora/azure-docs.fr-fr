@@ -16,11 +16,11 @@ ms.author: celested
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5ee322dd3ff6ccd68b09645fb46b1488b17819bb
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56871687"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60440413"
 ---
 # <a name="problems-signing-in-to-an-on-premises-application-using-the-azure-ad-application-proxy"></a>Problèmes rencontrés lors de la connexion à une application locale à l’aide du proxy d’application Azure AD
 

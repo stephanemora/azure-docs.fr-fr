@@ -13,11 +13,11 @@ ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bcb49048fa9200b8970f37a4f187ca995d208cc2
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961582"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60474102"
 ---
 # <a name="add-your-personal-microsoft-accounts"></a>Ajout de vos comptes Microsoft personnels
 Ajoutez vos comptes Microsoft personnels, par exemple vos comptes Outlook.com et Xbox LIVE, à l’application Microsoft Authenticator pour le processus de vérification en deux étapes standard et la méthode de connexion par téléphone sans mot de passe.

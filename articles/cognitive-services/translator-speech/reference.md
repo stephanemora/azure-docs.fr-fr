@@ -12,11 +12,11 @@ ms.date: 05/18/2018
 ms.author: v-jansko
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 3493f6d25461836d8f6e48ce4213b0f5b78b6372
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56675107"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60539177"
 ---
 # <a name="translator-speech-api"></a>API de traduction de conversation Translator Speech
 
@@ -31,7 +31,7 @@ L’API de traduction de conversation Translator Speech tire parti du protocole 
 ## <a name="1-getting-started"></a>1. Prise en main
 Pour accéder à l’API de traduction de texte Translator Text, vous devez [vous inscrire à Microsoft Azure](translator-speech-how-to-signup.md).
 
-## <a name="2-authentication"></a>2. Authentication
+## <a name="2-authentication"></a>2. Authentification
 
 Utilisez la clé d’abonnement pour vous authentifier. L’API de traduction de conversation Translator Speech prend en charge deux modes d’authentification :
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à RunMyProcess | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à RunMyProcess | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et RunMyProcess.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.date: 07/12/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: dfef1371b7ac61712c0f70efd48c0e791c4c729d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162677"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60518273"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-runmyprocess"></a>Tutoriel : Intégration d’Azure Active Directory à RunMyProcess
+# <a name="tutorial-azure-active-directory-integration-with-runmyprocess"></a>Didacticiel : Intégration d’Azure Active Directory à RunMyProcess
 
 Dans ce didacticiel, vous allez apprendre à intégrer RunMyProcess avec Azure Active Directory (Azure AD).
 
