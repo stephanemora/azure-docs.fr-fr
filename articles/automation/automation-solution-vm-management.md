@@ -11,7 +11,7 @@ ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 6d7b99da3e8e81973c51bbd68a15517828c9736d
 ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "58762937"
@@ -248,8 +248,8 @@ Automation crée deux types d’enregistrements dans l’espace de travail Log A
 
 |Propriété | Description|
 |----------|----------|
-|Caller |  Ce qui a initié l’opération. Les valeurs possibles sont une adresse de messagerie ou un système pour les travaux planifiés.|
-|Category | Classification du type de données. Pour Automation, la valeur est JobLogs.|
+|Appelant |  Ce qui a initié l’opération. Les valeurs possibles sont une adresse de messagerie ou un système pour les travaux planifiés.|
+|Catégorie | Classification du type de données. Pour Automation, la valeur est JobLogs.|
 |CorrelationId | GUID représentant l’ID de corrélation du travail du runbook.|
 |JobId | GUID représentant l’ID du travail du runbook.|
 |operationName | Spécifie le type d’opération exécutée dans Azure. Pour Automation, la valeur est Job.|
@@ -263,14 +263,14 @@ Automation crée deux types d’enregistrements dans l’espace de travail Log A
 |SourceSystem | Spécifie le système source pour les données soumises. Pour Automation, la valeur est OpsManager.|
 |StreamType | Spécifie le type d’événement. Les valeurs possibles sont les suivantes :<br>- Verbose<br>Sortie<br>Error<br>Avertissement|
 |SubscriptionId | Spécifie l’ID d’abonnement de la tâche.
-|Time | Date et heure d’exécution du travail du runbook.|
+|Temps | Date et heure d’exécution du travail du runbook.|
 
 ### <a name="job-streams"></a>Flux de tâches
 
 |Propriété | Description|
 |----------|----------|
-|Caller |  Ce qui a initié l’opération. Les valeurs possibles sont une adresse de messagerie ou un système pour les travaux planifiés.|
-|Category | Classification du type de données. Pour Automation, la valeur est JobStreams.|
+|Appelant |  Ce qui a initié l’opération. Les valeurs possibles sont une adresse de messagerie ou un système pour les travaux planifiés.|
+|Catégorie | Classification du type de données. Pour Automation, la valeur est JobStreams.|
 |JobId | GUID représentant l’ID du travail du runbook.|
 |operationName | Spécifie le type d’opération exécutée dans Azure. Pour Automation, la valeur est Job.|
 |ResourceGroup | Spécifie le nom du groupe de ressources de la tâche du runbook.|
@@ -282,7 +282,7 @@ Automation crée deux types d’enregistrements dans l’espace de travail Log A
 |RunbookName | Nom du runbook.|
 |SourceSystem | Spécifie le système source pour les données soumises. Pour Automation, la valeur est OpsManager.|
 |StreamType | Type de flux de travail. Les valeurs possibles sont les suivantes :<br>- Progress<br>Sortie<br>Avertissement<br>error<br>DEBUG<br>- Verbose|
-|Time | Date et heure d’exécution du travail du runbook.|
+|Temps | Date et heure d’exécution du travail du runbook.|
 
 Quand vous effectuez une recherche de journal qui retourne des enregistrements de catégorie de **JobLogs** ou **JobStreams**, vous pouvez sélectionner la vue **JobLogs** ou **JobStreams** pour afficher un ensemble de vignettes résumant les informations retournées par la recherche.
 
