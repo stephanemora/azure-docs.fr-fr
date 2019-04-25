@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 08/27/2018
 ms.author: apimpm
-ms.openlocfilehash: 35b4777c7de4db1f8514b24e7b1e4d11775d0ca0
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: 14d4bf6d7e1d1f474e2388c4e2ce232574ebf0d8
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43247900"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59682795"
 ---
 # <a name="add-an-api-manually"></a>Ajouter une API manuellement
 
@@ -26,11 +26,11 @@ Les étapes décrites dans cet article montrent comment utiliser le portail Azur
 
 Si vous souhaitez importer une API existante, consultez la section [Rubriques connexes](#related-topics).
 
-Dans cet article, nous créons une API vide et spécifions [httpbin.org](http://httpbin.org) (un service de test public) en tant qu’API de serveur principal.
+Dans cet article, nous créons une API vide et spécifions [httpbin.org](https://httpbin.org) (un service de test public) en tant qu’API de serveur principal.
 
 ## <a name="prerequisites"></a>Prérequis
 
-Suivez le guide de démarrage rapide suivant : [Créer une instance du service Gestion des API Azure](get-started-create-service-instance.md).
+Effectuez le guide de démarrage rapide suivant : [Créer une instance du service Gestion des API Azure](get-started-create-service-instance.md)
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -45,13 +45,13 @@ Suivez le guide de démarrage rapide suivant : [Créer une instance du service G
 
     ![Paramètres](media/add-api-manually/settings.png)
 
-    |**Name**|**Valeur**|**Description**|
+    |**Nom**|**Valeur**|**Description**|
     |---|---|---|
     |**Nom complet**|« *API vide* » |Ce nom s’affiche dans le portail des développeurs.|
-    |**URL du service Web** (facultatif)| "*http://httpbin.org*"| Si vous souhaitez simuler une API, vous pouvez ne rien entrer. <br/>Dans ce cas, nous entrons [http://httpbin.org](http://httpbin.org). Il s’agit d’un service de test public. <br/>Si vous souhaitez importer une API qui est mappée à un serveur principal automatiquement, consultez l’une des rubriques dans la section [Rubriques connexes](#related-topics).|
+    |**URL du service Web** (facultatif)| "*https://httpbin.org*"| Si vous souhaitez simuler une API, vous pouvez ne rien entrer. <br/>Dans ce cas, nous entrons [https://httpbin.org](https://httpbin.org). Il s’agit d’un service de test public. <br/>Si vous souhaitez importer une API qui est mappée à un serveur principal automatiquement, consultez l’une des rubriques dans la section [Rubriques connexes](#related-topics).|
     |**Modèle d’URL**|« *HTTPS* »|Ici, même si le serveur principal a un accès HTTP non sécurisé, nous spécifions un accès APIM HTTPS sécurisé au serveur principal. <br/>Ce type de scénario (HTTPS vers HTTP) est appelé arrêt du protocole HTTPS. Vous pouvez le faire si votre API existe dans un réseau virtuel (dans lequel vous savez que l’accès est sécurisé même si HTTPS n’est pas utilisé). <br/>Vous souhaiterez peut-être utiliser « l’arrêt du protocole HTTPS » pour effectuer un enregistrement sur des cycles de processeur.|
     |**URL suffix** (Suffixe de l’URL)|« *hbin* »| Le suffixe est un nom qui identifie cette API spécifique dans cette instance APIM. Il doit être unique dans cette instance APIM.|
-    |**Produits**|« *Illimité* » |Publiez l’API en l’associant à un produit. Si vous souhaitez que l’API soit publiée et mise à la disposition des développeurs, ajoutez-la à un produit. Vous pouvez effectuer cette opération durant la création de l’API ou ultérieurement.<br/><br/>Les produits sont des associations d’une ou de plusieurs API. Vous pouvez inclure un certain nombre d’API et les proposer aux développeurs dans le portail des développeurs. <br/>Les développeurs doivent s’abonner à un produit pour obtenir l’accès à l’API. Quand ils s’abonnent à un produit, ils obtiennent une clé d’abonnement qui est valable pour toutes les API de ce produit. Si vous avez créé l’instance APIM, vous êtes abonné à chaque produit par défaut, car vous êtes déjà administrateur.<br/><br/> Par défaut, chaque instance Gestion des API est fournie avec deux exemples de produits : **Starter** et **Illimité**.| 
+    |**Produits**|« *Illimité* » |Publiez l’API en l’associant à un produit. Si vous souhaitez que l’API soit publiée et mise à la disposition des développeurs, ajoutez-la à un produit. Vous pouvez effectuer cette opération durant la création de l’API ou ultérieurement.<br/><br/>Les produits sont des associations d’une ou de plusieurs API. Vous pouvez inclure un certain nombre d’API et les proposer aux développeurs dans le portail des développeurs. <br/>Les développeurs doivent s’abonner à un produit pour obtenir l’accès à l’API. Quand ils s’abonnent à un produit, ils obtiennent une clé d’abonnement qui est valable pour toutes les API de ce produit. Si vous avez créé l’instance APIM, vous êtes abonné à chaque produit par défaut, car vous êtes déjà administrateur.<br/><br/> Par défaut, chaque instance Gestion des API est fournie avec deux exemples de produits : **Starter** et **Unlimited**.| 
 5. Sélectionnez **Créer**.
 
 À ce stade, vous ne disposez d’aucune opération dans APIM qui correspond aux opérations dans votre API de serveur principal. Si vous appelez une opération qui est exposée via le serveur principal, mais pas via l’APIM, vous obtenez une erreur **404**.

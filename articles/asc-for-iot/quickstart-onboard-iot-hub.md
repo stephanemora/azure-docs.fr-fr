@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/25/2019
+ms.date: 04/18/2019
 ms.author: mlottner
-ms.openlocfilehash: 59021d09f2af9d430b118acdeb8aa977094e683e
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.openlocfilehash: cac2f740c1b2ae109f29ce44cd035fc6a83dd148
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58862384"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60010558"
 ---
 # <a name="quickstart-enable-service-in-iot-hub"></a>Démarrage rapide : Activer le service dans IoT Hub
 
@@ -45,7 +45,7 @@ Cet article explique comment activer le service Azure Security Center pour IoT e
 Pour activer la sécurité sur votre hub IoT, procédez de la façon suivante : 
 
 1. Ouvrez votre **hub IoT** dans le portail Azure. 
-2. Sélectionnez et ouvrez **Sécurité** dans le menu de gauche. 
+2. Dans le menu **Sécurité**, cliquez sur **Vue d’ensemble**, puis sur **Démarrer l’aperçu**. 
 3. Choisissez **Activer la sécurité IoT**. 
 4. Fournissez les détails de votre espace de travail Log Analytics. 
    - Choisissez de stocker les **événements bruts** en plus des types d’informations par défaut de stockage en laissant le bouton bascule d’**événement brut** sur **Actif**. 

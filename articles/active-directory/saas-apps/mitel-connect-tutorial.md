@@ -15,10 +15,10 @@ ms.topic: tutorial
 ms.date: 04/02/2019
 ms.author: jeedes
 ms.openlocfilehash: 4b022d3a51a6a1ef16c7d02aa76c5313e1a94e7e
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59283950"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mitel-connect"></a>Didacticiel : Intégration d’Azure Active Directory à Mitel Connect
@@ -104,7 +104,7 @@ Pour configurer l’authentification unique Azure AD auprès de Mitel Connect, e
 
     ![Informations d’authentification unique dans Domaine et URL Mitel Connect](common/sp-identifier.png)
 
-    a. Dans la zone de texte **URL de connexion**, entrez une URL au format suivant : `https://auth.mitel.io/authorize?client_id=<CLIENT ID>`
+    a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://auth.mitel.io/authorize?client_id=<CLIENT ID>`
 
     b. Dans la zone de texte **Identificateur (ID d’entité)**, saisissez une URL au format suivant : `https://authentication.api.mitel.io/2017-09-01/saml2/<account-uui>`
 

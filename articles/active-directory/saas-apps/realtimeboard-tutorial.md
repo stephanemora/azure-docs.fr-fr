@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: fb7302497d4331a9e39c8a3c50393646b663f7d8
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 81aa38c1c7783c7e0357f8f69f4d4484d26873e9
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59283135"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006946"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-realtimeboard"></a>Didacticiel : Intégration d'Azure Active Directory à RealtimeBoard
 
@@ -53,7 +53,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 Pour configurer l’intégration de RealtimeBoard à Azure AD, vous devez ajouter RealtimeBoard à votre liste d’applications SaaS gérées, depuis la galerie.
 
-**Pour ajouter RealtimeBoard à partir de la galerie, effectuez les étapes suivantes :**
+**Pour ajouter RealtimeBoard à partir de la galerie, procédez comme suit :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
@@ -131,7 +131,7 @@ Pour configurer l'authentification unique Azure AD avec RealtimeBoard, procéde
 
 ### <a name="configure-realtimeboard-single-sign-on"></a>Configurer l’authentification unique RealtimeBoard
 
-Pour configurer l’authentification unique côté **RealtimeBoard**, vous devez envoyer le fichier **XML des métadonnées de fédération** téléchargé et les URL appropriées copiées depuis le portail Azure à l’[équipe du support technique RealtimeBoard](). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+Pour configurer l’authentification unique du côté **RealtimeBoard**, vous devez envoyer le fichier **XML des métadonnées de fédération** téléchargé et les URL appropriées copiées depuis le portail Azure à l’équipe du support technique RealtimeBoard. Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD 
 

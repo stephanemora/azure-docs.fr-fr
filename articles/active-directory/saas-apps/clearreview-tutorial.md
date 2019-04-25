@@ -8,21 +8,22 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 8264159a-11a2-4a8c-8285-4efea0adac8c
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/21/2019
+ms.date: 04/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4aa6a88971ca69fa910435d00722dcdf12db44f1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: cf2576aa112d58e499f0c4a16bf8e9261114974b
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57880889"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698977"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-clear-review"></a>Tutoriel : Intégration d’Azure Active Directory à Clear Review
+# <a name="tutorial-azure-active-directory-integration-with-clear-review"></a>Didacticiel : Intégration d’Azure Active Directory à Clear Review
 
 Dans ce didacticiel, vous allez apprendre à intégrer Clear Review avec Azure Active Directory (Azure AD).
 L’intégration de Clear Review à Azure AD vous offre les avantages suivants :
@@ -38,7 +39,7 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
 
 Pour configurer l’intégration d’Azure AD à Clear Review, vous avez besoin des éléments suivants :
 
-* Un abonnement Azure AD Si vous n’avez pas d’environnement Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
+* Un abonnement Azure AD Si vous n’avez pas d’environnement Azure AD, vous pouvez obtenir un [compte gratuit](https://azure.microsoft.com/free/)
 * Un abonnement Clear Review pour lequel l’authentification unique est activée
 
 ## <a name="scenario-description"></a>Description du scénario
@@ -101,7 +102,7 @@ Pour configurer l’authentification unique Azure AD avec Clear Review, effectue
 
     ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-4. À la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode initié par **IDP**, suivez les étapes ci-dessous :
+4. Dans la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode lancé par le **fournisseur d’identité**, effectuez les étapes suivantes :
 
     ![Informations d’authentification unique dans Domaine et URL Clear Review](common/idp-intiated.png)
 
@@ -118,33 +119,21 @@ Pour configurer l’authentification unique Azure AD avec Clear Review, effectue
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur, l’URL de réponse et l’URL de connexion réels. Pour obtenir ces valeurs, contactez l’[équipe de support client Clear Review](https://clearreview.com/contact/). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
-6. L’application Clear Review attend les assertions SAML dans un format spécifique. Configurez les revendications suivantes pour cette application. Vous pouvez gérer les valeurs de ces attributs à partir de la section **Attributs utilisateur** sur la page d’intégration des applications. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur le bouton **Modifier** pour ouvrir la boîte de dialogue **Attributs utilisateur**.
+6. L’application Clear Review attend les assertions SAML dans un format spécifique, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à votre configuration d’attributs de jeton SAML. La capture d’écran suivante montre la liste des attributs par défaut, où **nameidentifier** est mappé avec **user.userprincipalname**. L’application Clear Review s’attend à ce que **nameidentifier** soit mappé avec **user.mail**. Vous devez donc modifier le mappage d’attribut en cliquant sur l’icône **Modifier** et modifier le mappage d’attribut.
 
     ![image](common/edit-attribute.png)
 
-7. Dans la section **Revendications des utilisateurs** de la boîte de dialogue **Attributs utilisateur**, modifiez les revendications en utilisant l’icône **Modifier** ou ajoutez des revendications en utilisant l’option **Ajouter une nouvelle revendication** pour configurer l’attribut de jeton SAML comme sur l’image ci-dessus et procédez comme suit :
-    
-    | Nom | Attribut source | 
-    | ---------------| --------------- |
-    | Valeur de nom d’identificateur   | user.mail |
+7. Dans la boîte de dialogue **Attributs et revendications de l’utilisateur** , effectuez les étapes suivantes :
 
-    a. Cliquez sur le bouton **Ajouter une nouvelle revendication** pour ouvrir la boîte de dialogue **Gérer les revendications des utilisateurs**.
+    a. Cliquez sur l’**icône de modification** à droite de **Valeur de nom d’identificateur**.
 
-    ![image](common/new-save-attribute.png)
+    ![image](./media/clearreview-tutorial/attribute02.png)
 
-    ![image](common/new-attribute-details.png)
+    ![image](./media/clearreview-tutorial/attribute01.png)
 
-    b. Dans la zone de texte **Attribut**, indiquez le nom d’attribut pour cette ligne.
+    b. Dans la liste **Attribut de la source**, sélectionnez la valeur d’attribut **user.givenname** pour cette ligne.
 
-    c. Laissez le champ **Espace de noms** vide.
-
-    d. Sélectionnez Source comme **Attribut**.
-
-    e. Dans la liste **Attribut de la source**, tapez la valeur d’attribut indiquée pour cette ligne.
-
-    f. Cliquez sur **OK**.
-
-    g. Cliquez sur **Enregistrer**.
+    c. Cliquez sur **Enregistrer**.
 
 8. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le **Certificat (Base64)** en fonction des options définies par rapport à vos besoins, puis enregistrez-le sur votre ordinateur.
 
@@ -168,7 +157,7 @@ Pour configurer l’authentification unique Azure AD avec Clear Review, effectue
 
     ![Bouton Enregistrer de la page Configurer l’authentification unique](./media/clearreview-tutorial/tutorial_clearreview_app_admin1.png)
 
-3. En bas de la page, sélectionnez **Change** (Changer).
+3. Dans la section **Intégrations** au bas de la page, cliquez sur le bouton **Change** (Changer) à droite de **Single Sign-On Settings** (Paramètres de l’authentification unique).
 
     ![Bouton Enregistrer de la page Configurer l’authentification unique](./media/clearreview-tutorial/tutorial_clearreview_app_admin2.png)
 
@@ -176,7 +165,7 @@ Pour configurer l’authentification unique Azure AD avec Clear Review, effectue
 
     ![Bouton Enregistrer de la page Configurer l’authentification unique](./media/clearreview-tutorial/tutorial_clearreview_app_admin3.png)
 
-    a. Dans la zone de texte **Issuer URL** (URL de l’émetteur), collez la valeur de l’**identifiant Azure AD**, que vous avez copiée dans le portail Azure.
+    a. Dans la zone de texte **URL de l’émetteur**, collez la valeur de l’**identifiant Azure AD** que vous avez copiée à partir du portail Azure.
 
     b. Dans la zone de texte **SAML Endpoint** (Point de terminaison SAML), collez la valeur **URL de connexion** que vous avez copiée à partir du portail Azure.  
 
@@ -184,7 +173,7 @@ Pour configurer l’authentification unique Azure AD avec Clear Review, effectue
 
     d. Ouvrez le certificat que vous avez téléchargé dans le Bloc-notes, puis collez son contenu dans la zone de texte **Certificat X.509**.   
 
-5. Cliquez sur **Enregistrer**.
+    e. Cliquez sur **Enregistrer**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD 
 
@@ -204,7 +193,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@votredomaineentreprise.extension**.  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.

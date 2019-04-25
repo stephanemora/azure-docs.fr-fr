@@ -11,17 +11,17 @@ ms.date: 04/08/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 0e14131ce45d20b99c1b5d5885cb1eb24c975d03
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59269110"
 ---
 # <a name="quickstart-explore-azure-search-rest-apis-using-postman"></a>Démarrage rapide : Explorer les API REST de la Recherche Azure avec Postman
 > [!div class="op_single_selector"]
-> * [postman](search-fiddler.md)
+> * [Postman](search-fiddler.md)
 > * [C#](search-create-index-dotnet.md)
-> * [Portail](search-get-started-portal.md)
+> * [Portal](search-get-started-portal.md)
 > * [PowerShell](search-howto-dotnet-sdk.md)
 >*
 
@@ -85,7 +85,7 @@ L’URL est étendue pour inclure le nom d’index `hotel`.
 Pour faire cela dans Postman :
 
 1. Remplacez le verbe par **PUT**.
-2. Copiez cette URL. `https://<placeholder-for-your-service-name>.search.windows.net/indexes/hotel?api-version=2017-11-11`
+2. Copiez cette URL : `https://<placeholder-for-your-service-name>.search.windows.net/indexes/hotel?api-version=2017-11-11`
 3. Fournissez la définition d’index (ci-dessous) dans le corps de la requête.
 4. Cliquez sur **Envoyer**
 
@@ -129,7 +129,7 @@ L’URL est étendue pour inclure les collections `docs` et l’opération `inde
 Pour faire cela dans Postman :
 
 1. Remplacez le verbe par **POST**.
-2. Copiez cette URL. `https://<placeholder-for-your-service-name>.search.windows.net/indexes/hotels/docs/index?api-version=2017-11-11`
+2. Copiez cette URL : `https://<placeholder-for-your-service-name>.search.windows.net/indexes/hotels/docs/index?api-version=2017-11-11`
 3. Fournissez les documents JSON (ci-dessous) dans le corps de la requête.
 4. Cliquez sur **Envoyer**
 
@@ -219,7 +219,7 @@ L’URL est étendue pour inclure une chaîne de requête spécifiée à l’aid
 Pour faire cela dans Postman :
 
 + Remplacez le verbe par **GET**.
-+ Copiez cette URL. `https://<placeholder-for-your-service-name>.search.windows.net/indexes/hotels/docs?search=motel&$count=true&api-version=2017-11-11`
++ Copiez cette URL : `https://<placeholder-for-your-service-name>.search.windows.net/indexes/hotels/docs?search=motel&$count=true&api-version=2017-11-11`
 + Cliquez sur **Envoyer**
 
 Cette requête effectue des recherches sur la base du mot « motel » et renvoie un certain nombre de documents dans les résultats de recherche. La requête et la réponse doivent ressembler à la capture d’écran suivante pour Postman, une fois que vous avez cliqué sur **Envoyer**. Le code d’état doit être 200.
@@ -228,7 +228,7 @@ Cette requête effectue des recherches sur la base du mot « motel » et renvoie
 
 
 ## <a name="get-index-properties"></a>Obtenez les propriétés de l’index
-Vous pouvez également interroger les informations du système pour connaître le nombre de documents et l’espace de stockage utilisé : `https://mydemo.search.windows.net/indexes/hotels/stats?api-version=2017-11-11`
+Vous pouvez également interroger les informations du système pour connaître le nombre de documents et l’espace de stockage utilisé : `https://mydemo.search.windows.net/indexes/hotels/stats?api-version=2017-11-11`
 
 Dans Postman, votre requête doit ressembler à ce qui suit ; la réponse inclut un nombre de documents et la quantité d’espace utilisé, en octets.
 
@@ -270,11 +270,11 @@ Remplacez le verbe par **POST**. Modifiez l’URL pour inclure `/docs/index`. Co
 
 L’exemple de requête suivant provient de l’article relatif à [l’opération de recherche d’index (API de Recherche Azure)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents). Plusieurs exemples de requêtes de cette rubrique comportent des espaces, qui ne sont pas autorisés dans Fiddler. Remplacez chaque espace par un caractère + avant de coller la chaîne de requête et d’essayer la requête dans Fiddler.
 
-**Avant le remplacement des espaces (dans lastRenovationDate desc) :**
+**Avant le remplacement des espaces (dans la description de lastRenovationDate) :**
 
         GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2017-11-11
 
-**Après le remplacement des espaces par + (dans lastRenovationDate+desc) :**
+**Avant le remplacement des espaces (dans lastRenovationDate+desc) :**
 
         GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate+desc&api-version=2017-11-11
 
@@ -286,8 +286,8 @@ Dans Fiddler, cliquez sur l’onglet **Inspecteurs**, sur l’onglet **En-têtes
 
 Les clients REST sont très utiles pour l’exploration ad hoc, mais vous connaissez le fonctionnement de l’API REST, donc vous pouvez avancer avec le code. Pour connaître les étapes suivantes, consultez les liens suivants :
 
-+ [Démarrage rapide : Créer un index à l’aide du SDK .NET](search-create-index-dotnet.md)
-+ [Démarrage rapide : Créer un index (REST) à l’aide de PowerShell](search-create-index-rest-api.md)
++ [Démarrage rapide : Créer un index à l’aide du Kit de développement logiciel .NET](search-create-index-dotnet.md)
++ [Démarrage rapide : Créer un index (REST) à l’aide de PowerShell](search-create-index-rest-api.md)
 
 <!--Image References-->
 [1]: ./media/search-fiddler/fiddler-url.png

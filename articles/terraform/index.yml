@@ -1,69 +1,63 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 8ca48ec812c2c9ea4b6aac814c77f0554bd9ae0a
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
-ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57765696"
 documentType: LandingData
 title: Documentation relative à Terraform sur Azure
 metadata:
-  title: 'Documentation relative à Terraform sur Azure : didacticiels, exemples, référence et ressources'
+  title: "Documentation relative à Terraform sur Azure\_: didacticiels, exemples, référence et ressources"
   description: Découvrez comment utiliser Terraform pour provisionner de manière fiable les machines virtuelles et autres infrastructures dans Azure.
   services: terraform
   ms.service: azure
-  keywords: terraform, azure, devops, didacticiels, exemples, référence
+  keywords: 'terraform, azure, devops, didacticiels, exemples, référence'
   author: tomarchermsft
   manager: jeconnoc
   ms.author: tarcher
   ms.topic: landing-page
   ms.date: 08/31/2018
 abstract:
-  description: Utilisez Terraform dans une version fiable et créez une infrastructure sur Azure. Découvrez comment créer des ressources, utiliser les modules Azure Terraform, et mettre à jour votre infrastructure avec un code à l’aide de nos didacticiels et guides de démarrage rapide.
+  description: 'Utilisez Terraform dans une version fiable et créez une infrastructure sur Azure. Découvrez comment créer des ressources, utiliser les modules Azure Terraform, et mettre à jour votre infrastructure avec un code à l’aide de nos didacticiels et guides de démarrage rapide.'
 sections:
-- title: Démarrages rapides
-  items:
-  - type: paragraph
-    text: Configurez Terraform et utilisez-le pour créer une machine virtuelle Linux dans Azure.
-  - type: list
-    style: icon48
+  - title: Démarrages rapides
     items:
-    - image:
-        src: https://docs.microsoft.com/azure/media/index/azure_dev-9.svg
-      text: Installer et configurer Terraform
-      href: https://docs.microsoft.com/azure/virtual-machines/linux/terraform-install-configure
-    - image:
-        src: https://docs.microsoft.com/azure/media/index/VirtualMachine.svg
-      text: Créer une machine virtuelle Linux
-      href: https://docs.microsoft.com/azure/virtual-machines/linux/terraform-create-complete-vm
-- title: Didacticiels pas à pas
-  items:
-  - type: paragraph
-    text: Découvrez comment créer une infrastructure réseau et de calcul Azure à partir d’un code avec Terraform.
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: Configurez Terraform et utilisez-le pour créer une machine virtuelle Linux dans Azure.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/azure/media/index/azure_dev-9.svg'
+            text: Installer et configurer Terraform
+            href: 'https://docs.microsoft.com/azure/virtual-machines/linux/terraform-install-configure'
+          - image:
+              src: 'https://docs.microsoft.com/azure/media/index/VirtualMachine.svg'
+            text: Créer une machine virtuelle Linux
+            href: 'https://docs.microsoft.com/azure/virtual-machines/linux/terraform-create-complete-vm'
+  - title: Didacticiels pas à pas
     items:
-    - html: <a href="/azure/terraform/terraform-create-k8s-cluster-with-tf-and-aks">Créer un cluster Kubernetes avec AKS</a>.
-    - html: <a href="/azure/terraform/terraform-create-k8s-cluster-with-aks-applicationgateway-ingress">Créer un cluster Kubernetes avec Application Gateway comme contrôleur d’entrée avec AKS</a>.
-    - html: <a href="/azure/terraform/terraform-vm-msi">Créer une machine virtuelle Terraform avec le paramètre d’authentification MSI activé à l’aide d’une image Place de marché Azure</a>.
-    - html: <a href="/azure/terraform/terraform-create-vm-cluster-module">Créez un cluster de machine virtuelle à charge équilibrée à l’aide des modules Azure Terraform</a>.
-    - html: <a href="/azure/terraform/terraform-create-vm-cluster-with-infrastructure">Créez un cluster de machine virtuelle à charge équilibrée dans Azure Cloud Shell</a>.
-    - html: <a href="/azure/terraform/terraform-create-vm-scaleset-network-disks-hcl">Configurer un groupe de machines virtuelles identiques avec réseau et stockage</a>
-    - html: <a href="/azure/terraform/terraform-create-vm-scaleset-network-disks-using-packer-hcl">Provisionner un groupe de machines virtuelles identiques d’une image personnalisée Packer</a>
-- title: Exemples
-  items:
-  - type: paragraph
-    text: Exemples de modèles de configuration pour les tâches de déploiement courantes.
-  - type: list
-    style: unordered
-    className: spaced noBullet
+      - type: paragraph
+        text: Découvrez comment créer une infrastructure réseau et de calcul Azure à partir d’un code avec Terraform.
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/terraform/terraform-create-k8s-cluster-with-tf-and-aks">Créer un cluster Kubernetes avec AKS</a>.
+          - html: <a href="/azure/terraform/terraform-create-k8s-cluster-with-aks-applicationgateway-ingress">Créer un cluster Kubernetes avec Application Gateway comme contrôleur d’entrée avec AKS</a>.
+          - html: <a href="/azure/terraform/terraform-vm-msi">Créer une machine virtuelle Terraform avec le paramètre d’authentification MSI activé à l’aide d’une image Place de marché Azure</a>.
+          - html: <a href="/azure/terraform/terraform-create-vm-cluster-module">Créez un cluster de machine virtuelle à charge équilibrée à l’aide des modules Azure Terraform</a>.
+          - html: <a href="/azure/terraform/terraform-create-vm-cluster-with-infrastructure">Créez un cluster de machine virtuelle à charge équilibrée dans Azure Cloud Shell</a>.
+          - html: <a href="/azure/terraform/terraform-create-vm-scaleset-network-disks-hcl">Configurer un groupe de machines virtuelles identiques avec réseau et stockage</a>
+          - html: <a href="/azure/terraform/terraform-create-vm-scaleset-network-disks-using-packer-hcl">Provisionner un groupe de machines virtuelles identiques d’une image personnalisée Packer</a>
+  - title: Exemples
     items:
-    - html: <a href="https://github.com/terraform-providers/terraform-provider-azurerm/tree/master/examples">GitHub</a>
-- title: Informations de référence
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: paragraph
+        text: Exemples de modèles de configuration pour les tâches de déploiement courantes.
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: '<a href="https://github.com/terraform-providers/terraform-provider-azurerm/tree/master/examples">GitHub</a>'
+  - title: Informations de référence
     items:
-    - title: Modules Azure Terraform
-      html: <p><a href="https://registry.terraform.io/modules/Azure/database/azurerm">Azure RM pour la base de données</a></p><p><a href="https://registry.terraform.io/modules/Azure/loadbalancer">Azure RM pour l’équilibrage de charge</a></p><p><a href="https://registry.terraform.io/modules/Azure/computegroup">Groupe de calcul Azure RM</a></p><p><a href="https://registry.terraform.io/modules/Azure/network">Réseau Azure RM</a></p><p><a href="https://registry.terraform.io/modules/Azure/compute">Calcul Azure RM</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Modules Azure Terraform
+            html: '<p><a href="https://registry.terraform.io/modules/Azure/database/azurerm">Azure RM pour la base de données</a></p><p><a href="https://registry.terraform.io/modules/Azure/loadbalancer">Azure RM pour l’équilibrage de charge</a></p><p><a href="https://registry.terraform.io/modules/Azure/computegroup">Groupe de calcul Azure RM</a></p><p><a href="https://registry.terraform.io/modules/Azure/network">Réseau Azure RM</a></p><p><a href="https://registry.terraform.io/modules/Azure/compute">Calcul Azure RM</a></p>'

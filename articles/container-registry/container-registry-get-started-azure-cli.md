@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 01/22/2019
 ms.author: danlep
 ms.custom: seodec18, H1Hack27Feb2017, mvc
-ms.openlocfilehash: 37b1c8516268611a1174edfe20fef36dfb6b36c2
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 24bdd52673c65d039166dc28f9f0a0a784569a1a
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55295829"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678698"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-the-azure-cli"></a>Démarrage rapide : Créer un registre de conteneurs privé avec Azure CLI
 
@@ -95,13 +95,13 @@ Sortie :
 ```
 Result
 ----------------
-busybox
+hello-world
 ```
 
-L’exemple suivant liste les étiquettes du référentiel **busybox**.
+L’exemple suivant liste les balises existantes sur le dépôt **hello-world**.
 
 ```azurecli
-az acr repository show-tags --name <acrName> --repository busybox --output table
+az acr repository show-tags --name <acrName> --repository hello-world --output table
 ```
 
 Sortie :

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/08/2019
 ms.author: diberry
 ms.openlocfilehash: 299dd61055503f0b5a11cbe97e137e4760edadda
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59266937"
 ---
 # <a name="tutorial-from-qna-maker-portal-create-a-knowledge-base"></a>Didacticiel : Dans le portail QnA Maker, créer une base de connaissances
@@ -221,4 +221,4 @@ En savoir plus sur les [personnalités](../Concepts/best-practices.md#chit-chat)
 Pour plus d’informations sur la réponse par défaut, consultez [Aucune correspondance trouvée](../Concepts/confidence-score.md#no-match-found). 
 
 > [!div class="nextstepaction"]
-> [Créer un chat bot avec cette base de connaissances](create-qna-bot.md)
+> [Créer un bot conversationnel avec cette base de connaissances](create-qna-bot.md)

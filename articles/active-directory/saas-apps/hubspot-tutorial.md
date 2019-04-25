@@ -1,60 +1,52 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à HubSpot | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à HubSpot | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et HubSpot.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 57343ccd-53ea-4e62-9e54-dee2a9562ed5
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 10/18/2018
+ms.topic: tutorial
+ms.date: 04/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8bbb307654d4aaf753a4a3284875dee4f5707f2a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: adcd0f094d584e770f1a3f4938ee677ba58a21a8
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57901720"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995691"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-hubspot"></a>Tutoriel : Intégration d’Azure AD à HubSpot
+# <a name="tutorial-azure-active-directory-integration-with-hubspot"></a>Didacticiel : Intégration d’Azure AD à HubSpot
 
 Dans ce didacticiel, vous allez apprendre à intégrer HubSpot dans Azure Active Directory (Azure AD).
-
 L’intégration de HubSpot dans Azure AD vous offre les avantages suivants :
 
-- Dans Azure AD, vous pouvez contrôler qui a accès à HubSpot.
-- Vous pouvez autoriser les utilisateurs à se connecter automatiquement à HubSpot (via l’authentification unique) avec leur compte Azure AD.
-- Vous pouvez gérer vos comptes à partir d’un emplacement central : le portail Azure.
+* Dans Azure AD, vous pouvez contrôler qui a accès à HubSpot.
+* Vous pouvez permettre aux utilisateurs de se connecter automatiquement à HubSpot (avec l’authentification unique) avec leur compte Azure AD.
+* Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure
 
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
+Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour configurer l’intégration d’Azure AD avec HubSpot, vous avez besoin des éléments suivants :
 
-- Un abonnement Azure AD
-- Un abonnement HubSpot pour lequel l’authentification unique est activée
-
-> [!NOTE]
-> Pour tester les étapes de ce didacticiel, nous déconseillons l’utilisation d’un environnement de production.
-
-Vous devez en outre suivre les recommandations ci-dessous :
-
-- N’utilisez pas votre environnement de production, sauf si cela est nécessaire.
-- Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
+* Un abonnement Azure AD Si vous n’avez pas d’environnement Azure AD, vous pouvez obtenir un [compte gratuit](https://azure.microsoft.com/free/)
+* Abonnement HubSpot pour lequel l’authentification unique est activée
 
 ## <a name="scenario-description"></a>Description du scénario
 
-Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
+Dans ce didacticiel, vous configurez et testez l’authentification unique Azure AD dans un environnement de test.
 
-1. Ajout de HubSpot à partir de la galerie
-2. Configuration et test de l’authentification unique Azure AD
+* HubSpot prend en charge l’authentification unique initiée par le **fournisseur de services (SP) et le fournisseur d’identité (IDP)**
 
 ## <a name="adding-hubspot-from-the-gallery"></a>Ajout de HubSpot à partir de la galerie
 
@@ -64,96 +56,100 @@ Pour configurer l’intégration de HubSpot à Azure AD, vous devez ajouter Hub
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
-    ![Active Directory][1]
+    ![Bouton Azure Active Directory](common/select-azuread.png)
 
-2. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
+2. Accédez à **Applications d’entreprise**, puis sélectionnez l’option **Toutes les applications**.
 
-    ![APPLICATIONS][2]
+    ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
 3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
 
-    ![APPLICATIONS][3]
+    ![Bouton Nouvelle application](common/add-new-app.png)
 
-4. Dans la zone de recherche, tapez **HubSpot**. Dans le panneau des résultats, sélectionnez **HubSpot**, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+4. Dans la zone de recherche, tapez **HubSpot**, sélectionnez **HubSpot** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
-    ![Création d’un utilisateur de test Azure AD](./media/hubspot-tutorial/tutorial_hubspot_addfromgallery.png)
+    ![HubSpot dans la liste des résultats](common/search-new-app.png)
 
-## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuration et test de l’authentification unique Azure AD
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
 
-Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec HubSpot avec un utilisateur de test appelé « Britta Simon ».
-
-Pour que l’authentification unique fonctionne, Azure AD doit savoir qui est l’utilisateur HubSpot équivalent dans Azure AD. En d’autres termes, une relation entre un utilisateur Azure AD et un utilisateur HubSpot associé doit être établie.
+Dans cette section, vous allez configurer et tester l’authentification unique Azure AD avec HubSpot sur un utilisateur de test appelé **Britta Simon**.
+Pour que l’authentification unique fonctionne, une relation entre l’utilisateur Azure AD et l’utilisateur HubSpot associé doit être établie.
 
 Pour configurer et tester l’authentification unique Azure AD avec HubSpot, vous devez suivre les indications des sections suivantes :
 
-1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-3. **Création d’un utilisateur de test HubSpot** pour avoir un équivalent de Britta Simon dans HubSpot lié à la représentation Azure AD de l’utilisateur.
-4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** : permet à Britta Simon d’utiliser l’authentification unique Azure AD.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
+1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
+2. **[Configurer l’authentification unique HubSpot](#configure-hubspot-single-sign-on)** pour configurer les paramètres de l’authentification unique côté application.
+3. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
+4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
+5. **[Créer un utilisateur de test HubSpot](#create-hubspot-test-user)** pour avoir un équivalent de Britta Simon dans HubSpot qui soit lié à la représentation Azure AD de l’utilisateur.
+6. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuration de l’authentification unique Azure AD
+### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
 
-Dans cette section, vous allez activer l’authentification unique Azure AD dans le portail Azure et configurer l’authentification unique dans votre application HubSpot.
+Dans cette section, vous activez l’authentification unique Azure AD dans le portail Azure.
 
-**Pour configurer l’authentification unique Azure AD avec HubSpot, procédez comme suit :**
+Pour configurer l’authentification unique Azure AD avec HubSpot, effectuez les étapes suivantes :
 
-1. Sur la page d’intégration de l’application **HubSpot** du portail Azure, cliquez sur **Authentification unique**.
+1. Sur le [portail Azure](https://portal.azure.com/), dans la page d’intégration de l’application **HubSpot** , sélectionnez **Authentification unique**.
 
-    ![Configurer l'authentification unique][4]
+    ![Lien Configurer l’authentification unique](common/select-sso.png)
 
-2. Dans la boîte de dialogue **Sélectionner une méthode d’authentification unique**, cliquez sur **Sélectionner** pour le mode **SAML** afin d’activer l’authentification unique.
+2. Dans la boîte de dialogue **Sélectionner une méthode d’authentification unique**, sélectionnez le mode **SAML/WS-Fed** afin d’activer l’authentification unique.
 
-    ![Configurer l'authentification unique](./media/hubspot-tutorial/tutorial_general_301.png)
+    ![Mode de sélection de l’authentification unique](common/select-saml-option.png)
 
-3. Pour activer le mode **SAML** au détriment d’un autre mode, cliquez sur **Modifier le mode d’authentification unique** en haut de l’écran.
+3. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône **Modifier** pour ouvrir la boîte de dialogue **Configuration SAML de base**.
 
-    ![Configurer l'authentification unique](./media/hubspot-tutorial/tutorial_general_300.png)
+    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-4. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône **Modifier** pour ouvrir la boîte de dialogue **Configuration SAML de base**.
+4. Dans la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode lancé par le **fournisseur d’identité**, effectuez les étapes suivantes :
 
-    ![Configurer l'authentification unique](./media/hubspot-tutorial/tutorial_general_302.png)
+    ![Informations d’authentification unique dans Domaine et URL HubSpot](common/idp-intiated.png)
 
-5. Dans la section **Configuration SAML de base**, suivez les étapes ci-dessous, si vous souhaitez configurer l’application en mode démarré par **IDP** :
+    a. Dans la zone de texte **Identificateur**, tapez une URL au format suivant : `https://api.hubspot.com/login-api/v1/saml/login?portalId=<CUSTOMER ID>`
 
-    ![Informations d’authentification unique dans Domaine et URL HubSpot](./media/hubspot-tutorial/tutorial_hubspot_url.png)
-
-    a. Dans la zone de texte **Identificateur**, tapez l’URL au format suivant : `https://api.hubspot.com/login-api/v1/saml/login?portalId=<CUSTOMER ID>`
-
-    b. Dans la zone de texte **URL de réponse**, tapez l’URL au format suivant : `https://api.hubspot.com/login-api/v1/saml/acs?portalId=<CUSTOMER ID>`
+    b. Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://api.hubspot.com/login-api/v1/saml/acs?portalId=<CUSTOMER ID>`
 
     > [!NOTE]
-    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeur avec l’identificateur et l’URL de réponse réels. La procédure est expliquée plus loin dans le didacticiel. Pour obtenir ces valeurs, contactez l’[équipe de support aux clients HubSpot](https://help.hubspot.com/).
+    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeur avec l’identificateur et l’URL de réponse réels. La procédure est expliquée plus loin dans le didacticiel. Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
-    c. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services**, cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes :
+5. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services**, cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes :
 
-    ![Informations d’authentification unique dans Domaine et URL HubSpot](./media/hubspot-tutorial/tutorial_hubspot_url1.png)
+    ![Informations d’authentification unique dans Domaine et URL HubSpot](common/metadata-upload-additional-signon.png)
 
-    Dans la zone de texte **URL de connexion**, tapez l’URL : `https://app.hubspot.com/login`
+    Dans la zone de texte **URL de connexion**, tapez l’URL : `https://app.hubspot.com/login`
 
-6. Dans la page **Certificat de signature SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le **Certificat (Base64)**, puis enregistrez le fichier de certificat sur votre ordinateur.
+6. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le **Certificat (Base64)** en fonction des options définies par rapport à vos besoins, puis enregistrez-le sur votre ordinateur.
 
-    ![Configurer l'authentification unique](./media/hubspot-tutorial/tutorial_hubspot_certificate.png)
+    ![Lien Téléchargement de certificat](common/certificatebase64.png)
 
-7. Dans la section **Configurer HubSpot**, cliquez sur le bouton Copier pour copier les valeurs de l’**URL de connexion** et de l’**Identificateur Azure AD**.
+7. Dans la section **Configurer HubSpot**, copiez la ou les URL appropriées en fonction de vos besoins.
 
-    ![Configurer l'authentification unique](./media/hubspot-tutorial/tutorial_hubspot_configure.png)
+    ![Copier les URL de configuration](common/copy-configuration-urls.png)
 
-8. Ouvrez un nouvel onglet dans votre navigateur et connectez-vous à votre compte d’administrateur HubSpot.
+    a. URL de connexion
 
-9. Cliquez sur l’**icône de paramètres** en haut à droite dans la page.
+    b. Identificateur Azure AD
+
+    c. URL de déconnexion
+
+### <a name="configure-hubspot-single-sign-on"></a>Configurer l’authentification unique HubSpot
+
+1. Ouvrez un nouvel onglet dans votre navigateur et connectez-vous à votre compte d’administrateur HubSpot.
+
+2. Cliquez sur l’**icône de paramètres** en haut à droite dans la page.
 
     ![Configurer l'authentification unique](./media/hubspot-tutorial/config1.png)
 
-10. Cliquez ensuite sur **Valeurs par défaut du compte**.
+3. Cliquez ensuite sur **Valeurs par défaut du compte**.
 
     ![Configurer l'authentification unique](./media/hubspot-tutorial/config2.png)
 
-11. Faites défiler jusqu’à la section **Sécurité** et cliquez sur **Configurer**.
+4. Faites défiler jusqu’à la section **Sécurité** et cliquez sur **Configurer**.
 
     ![Configurer l'authentification unique](./media/hubspot-tutorial/config3.png)
 
-12. Dans la section **Set up single sign-on**, procédez comme suit :
+5. Dans la section **Set up single sign-on**, procédez comme suit :
 
     ![Configurer l'authentification unique](./media/hubspot-tutorial/config4.png)
 
@@ -169,35 +165,59 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 
     f. Cliquez sur **Vérifier**.
 
-### <a name="creating-an-azure-ad-test-user"></a>Création d’un utilisateur de test Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
 L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.
 
 1. Dans le volet gauche du portail Azure, sélectionnez **Azure Active Directory**, sélectionnez **Utilisateurs**, puis sélectionnez **Tous les utilisateurs**.
 
-    ![Créer un utilisateur Azure AD][100]
+    ![Liens « Utilisateurs et groupes » et « Tous les utilisateurs »](common/users.png)
 
 2. Sélectionnez **Nouvel utilisateur** dans la partie supérieure de l’écran.
 
-    ![Création d’un utilisateur de test Azure AD](./media/hubspot-tutorial/create_aaduser_01.png) 
+    ![Bouton Nouvel utilisateur](common/new-user.png)
 
 3. Dans les propriétés de l’utilisateur, effectuez les étapes suivantes.
 
-    ![Création d’un utilisateur de test Azure AD](./media/hubspot-tutorial/create_aaduser_02.png)
+    ![Boîte de dialogue Utilisateur](common/user-properties.png)
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le **nom d’utilisateur** type de champ **brittasimon\@yourcompanydomain.extension**  
-    Par exemple, BrittaSimon@contoso.com
+    b. Dans le champ **Nom d’utilisateur**, tapez `brittasimon@yourcompanydomain.extension`. Par exemple, BrittaSimon@contoso.com
 
-    c. Sélectionnez **Propriétés**, cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
+    c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 
-    d. Sélectionnez **Créer**.
+    d. Cliquez sur **Créer**.
 
-### <a name="creating-a-hubspot-test-user"></a>Création d’un utilisateur test HubSpot
+### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
 
-Pour se connecter à HubSpot, les utilisateurs d’Azure AD doivent être configurés dans HubSpot.
-Dans le cas de HubSpot, l’approvisionnement est une tâche manuelle.
+Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à HubSpot.
+
+1. Sur le portail Azure, sélectionnez **Applications d’entreprise**, **Toutes les applications**, puis **HubSpot**.
+
+    ![Panneau Applications d’entreprise](common/enterprise-applications.png)
+
+2. Dans la liste des applications, sélectionnez **HubSpot**.
+
+    ![Lien HubSpot dans la liste des applications](common/all-applications.png)
+
+3. Dans le menu de gauche, sélectionnez **Utilisateurs et groupes**.
+
+    ![Lien « Utilisateurs et groupes »](common/users-groups-blade.png)
+
+4. Cliquez sur le bouton **Ajouter un utilisateur**, puis sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
+
+    ![Volet Ajouter une attribution](common/add-assign-user.png)
+
+5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
+
+6. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
+
+7. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
+
+### <a name="create-hubspot-test-user"></a>Créer un utilisateur de test HubSpot
+
+Pour se connecter à HubSpot, les utilisateurs d’Azure AD doivent être configurés dans HubSpot. Dans le cas de HubSpot, l’approvisionnement est une tâche manuelle.
 
 **Pour approvisionner un compte d’utilisateur, procédez comme suit :**
 
@@ -215,7 +235,7 @@ Dans le cas de HubSpot, l’approvisionnement est une tâche manuelle.
 
     ![Configurer l'authentification unique](./media/hubspot-tutorial/user2.png)
 
-5. Entrez l’adresse e-mail de l’utilisateur, par exemple **brittasimon\@contoso.com** dans le **ajouter e-mail addess(es)** zone de texte et cliquez sur **suivant**.
+5. Entrez l’adresse e-mail de l’utilisateur, par exemple `brittasimon\@contoso.com`, dans la zone de texte **Add email address(es)** (Ajouter une ou des adresses e-mail), puis cliquez sur **Suivant**.
 
     ![Configurer l'authentification unique](./media/hubspot-tutorial/user3.png)
 
@@ -230,50 +250,17 @@ Dans le cas de HubSpot, l’approvisionnement est une tâche manuelle.
     > [!NOTE]
     > L’utilisateur invité est activé après avoir accepté l’invitation.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Affectation de l’utilisateur de test Azure AD
-
-Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à HubSpot.
-
-1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
-
-    ![Affecter des utilisateurs][201]
-
-2. Dans la liste des applications, sélectionnez **HubSpot**.
-
-    ![Configurer l'authentification unique](./media/hubspot-tutorial/tutorial_hubspot_app.png) 
-
-3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
-
-    ![Affecter des utilisateurs][202]
-
-4. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
-
-    ![Affecter des utilisateurs][203]
-
-5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
-
-6. Dans la boîte de dialogue **Ajouter une attribution**, sélectionnez le bouton **Attribuer**.
-
-### <a name="testing-single-sign-on"></a>Test de l’authentification unique
+### <a name="test-single-sign-on"></a>Tester l’authentification unique
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
-Lorsque vous cliquez sur la vignette HubSpot dans le panneau d’accès, vous accédez automatiquement à la page de connexion HubSpot.
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md).
+Quand vous cliquez sur la vignette HubSpot dans le volet d’accès, vous devez être connecté automatiquement à l’application HubSpot pour laquelle vous avez configuré l’authentification unique. Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-* [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](tutorial-list.md)
-* [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-<!--Image references-->
+- [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[1]: ./media/hubspot-tutorial/tutorial_general_01.png
-[2]: ./media/hubspot-tutorial/tutorial_general_02.png
-[3]: ./media/hubspot-tutorial/tutorial_general_03.png
-[4]: ./media/hubspot-tutorial/tutorial_general_04.png
-[100]: ./media/hubspot-tutorial/tutorial_general_100.png
-[200]: ./media/hubspot-tutorial/tutorial_general_200.png
-[201]: ./media/hubspot-tutorial/tutorial_general_201.png
-[202]: ./media/hubspot-tutorial/tutorial_general_202.png
-[203]: ./media/hubspot-tutorial/tutorial_general_203.png
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+

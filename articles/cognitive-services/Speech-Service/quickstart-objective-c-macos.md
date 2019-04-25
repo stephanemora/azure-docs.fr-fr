@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 04/03/2019
 ms.author: chlandsi
 ms.openlocfilehash: 55fc671d926880375b0420e0eafb6dc63f170ba6
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59012323"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-macos-using-the-speech-sdk"></a>Démarrage rapide : Reconnaissance vocale en Objective-C sur macOS avec le SDK Speech
@@ -59,7 +59,7 @@ Dans les boîtes de dialogue qui suivent, effectuez les sélections suivantes :
 1. Définissez les droits d’accès au réseau et au microphone. Cliquez sur le nom de l’application dans la première ligne de la vue d’ensemble sur la gauche pour accéder à la configuration de l’application, puis choisissez l’onglet « Fonctionnalités ».
     1. Activez le paramètre « App Sandbox » pour l’application.
     1. Cochez les cases pour l’accès « Connexions sortantes » et « Microphone ».
-    ![Paramètres du bac à sable](media/sdk/qs-objectivec-macos-sandbox.png)
+    ![Paramètres du bac à sable (sandbox)](media/sdk/qs-objectivec-macos-sandbox.png)
 1. L’application doit également déclarer l’utilisation du microphone dans le fichier `Info.plist`. Cliquez sur le fichier dans la vue d’ensemble, puis ajoutez la clé « Confidentialité - Description de l’utilisation du microphone » avec une valeur comme « Microphone is needed for speech recognition » (Le microphone est nécessaire pour la reconnaissance vocale).
     ![Paramètres dans Info.plist](media/sdk/qs-objectivec-macos-info-plist.png)
 1. Fermez le projet Xcode. Vous allez utiliser une autre instance de celui-ci ultérieurement, après avoir configuré les CocoaPods.

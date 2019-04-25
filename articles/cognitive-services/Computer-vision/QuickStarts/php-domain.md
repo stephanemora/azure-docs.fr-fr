@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Contenu d’image spécifique à un domaine - REST, PHP'
+title: 'Démarrage rapide : Contenu spécifique à un domaine - REST, PHP'
 titleSuffix: Azure Cognitive Services
 description: Dans ce guide de démarrage rapide, vous utilisez un modèle de domaine pour identifier des monuments dans une image à l’aide de l’API Vision par ordinateur avec PHP.
 services: cognitive-services
@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 03/11/2019
+ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 2c1801296247ace081a34a137fe3f3bea7a55974
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 902894ccce28ee1ba05430c7e697c3ca47887795
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57877018"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011110"
 ---
 # <a name="quickstart-recognize-domain-specific-content-using-the-rest-api-and-php-with-computer-vision"></a>Démarrage rapide : Reconnaître un contenu spécifique à un domaine à l’aide de l’API REST et de PHP avec Vision par ordinateur
 
@@ -28,9 +28,9 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 - [PHP](https://secure.php.net/downloads.php) doit être installé.
 - [Pear](https://pear.php.net) doit être installé.
-- Vous devez avoir une clé d’abonnement pour Vision par ordinateur. Pour obtenir une clé d’abonnement, consultez [Obtention de clés d’abonnement](../Vision-API-How-to-Topics/HowToSubscribe.md).
+- Vous devez disposer d’une clé d’abonnement pour la Vision par ordinateur. Vous pouvez obtenir une clé d’essai gratuit à partir de la page [Essayez Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Vous pouvez également suivre les instructions mentionnées dans [Créer un compte Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) pour vous abonner à Vision par ordinateur et obtenir votre clé.
 
-## <a name="create-and-run-the-sample"></a>Créer et exécuter l’exemple
+## <a name="create-and-run-the-sample"></a>Création et exécution de l’exemple
 
 Pour créer et exécuter l’exemple, effectuez les étapes suivantes :
 

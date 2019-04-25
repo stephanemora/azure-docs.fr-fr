@@ -1,14 +1,8 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: c55cdff8c8738a04f5e62ae165a8b798f3743a18
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
-ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41926933"
 documentType: LandingData
 title: Documentation relative au service Azure IoT Hub Device Provisioning
 metadata:
-  title: Documentation relative au service Azure IoT Hub Device Provisioning - Didacticiels, Référence d’API
+  title: 'Documentation relative au service Azure IoT Hub Device Provisioning - Didacticiels, Référence d’API'
   description: Vue d’ensemble du service Azure IoT Hub Device Provisioning.
   author: nberdy
   manager: briz
@@ -18,41 +12,41 @@ metadata:
   ms.date: 01/23/2017
   ms.author: nberdy
 abstract:
-  description: Le service IoT Hub Device Provisioning est un service d’assistance pour IoT Hub qui permet d’effectuer un approvisionnement sans contact juste-à-temps sur le hub IoT approprié, sans intervention humaine. Les clients peuvent ainsi approvisionner des millions d’appareils de façon sécurisée et évolutive. Découvrez comment configurer des appareils sur vos hubs IoT avec nos guides de démarrage rapide, didacticiels et exemples.
+  description: 'Le service IoT Hub Device Provisioning est un service d’assistance pour IoT Hub qui permet d’effectuer un approvisionnement sans contact juste-à-temps sur le hub IoT approprié, sans intervention humaine. Les clients peuvent ainsi approvisionner des millions d’appareils de façon sécurisée et évolutive. Découvrez comment configurer des appareils sur vos hubs IoT avec nos guides de démarrage rapide, didacticiels et exemples.'
 sections:
-- title: Démarrages en 5 minutes
-  items:
-  - type: paragraph
-    text: Découvrez comment configurer la première instance de votre service d’approvisionnement d’appareils et approvisionner un appareil simulé sur votre hub IoT.
-  - type: list
-    style: icon48
+  - title: "Démarrages en 5\_minutes"
     items:
-    - image:
-        src: /azure/sql-database/media/index/portal.svg
-      text: Configurer l’approvisionnement automatique
-      href: /azure/iot-dps/quick-setup-auto-provision
-    - image:
-        src: /azure/sql-database/media/index/portal.svg
-      text: Créer un appareil simulé
-      href: /azure/iot-dps/quick-create-simulated-device
-- title: Didacticiels pas à pas
-  items:
-  - type: paragraph
-    text: Découvrez comment utiliser le service IoT Hub Device Provisioning pour approvisionner automatiquement des appareils sécurisés sur un ou plusieurs hubs IoT.
-  - type: list
-    style: ordered
+      - type: paragraph
+        text: Découvrez comment configurer la première instance de votre service d’approvisionnement d’appareils et approvisionner un appareil simulé sur votre hub IoT.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: /azure/sql-database/media/index/portal.svg
+            text: Configurer l’approvisionnement automatique
+            href: /azure/iot-dps/quick-setup-auto-provision
+          - image:
+              src: /azure/sql-database/media/index/portal.svg
+            text: Créer un appareil simulé
+            href: /azure/iot-dps/quick-create-simulated-device
+  - title: Didacticiels pas à pas
     items:
-    - html: <a href="/azure/iot-dps/tutorial-set-up-cloud">Configurer les ressources cloud</a>
-    - html: <a href="/azure/iot-dps/tutorial-set-up-device">Configurer son appareil pour se connecter à Azure</a>
-    - html: <a href="/azure/iot-dps/tutorial-provision-device-to-hub">Approvisionner des appareils sur un seul hub IoT</a>
-    - html: <a href="/azure/iot-dps/tutorial-provision-multiple-hubs">Approvisionner des appareils sur plusieurs hubs IoT équilibrés en charge</a>
-- title: Informations de référence
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: paragraph
+        text: Découvrez comment utiliser le service IoT Hub Device Provisioning pour approvisionner automatiquement des appareils sécurisés sur un ou plusieurs hubs IoT.
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/azure/iot-dps/tutorial-set-up-cloud">Configurer les ressources cloud</a>
+          - html: <a href="/azure/iot-dps/tutorial-set-up-device">Configurer son appareil pour se connecter à Azure</a>
+          - html: <a href="/azure/iot-dps/tutorial-provision-device-to-hub">Approvisionner des appareils sur un seul hub IoT</a>
+          - html: <a href="/azure/iot-dps/tutorial-provision-multiple-hubs">Approvisionner des appareils sur plusieurs hubs IoT équilibrés en charge</a>
+  - title: Informations de référence
     items:
-    - title: API REST
-      html: <p><a href="/rest/api/iot-dps">REST</a></p>
-    - title: Kits de développement logiciel (SDK) Azure IoT
-      html: <p><a href="https://github.com/Azure/azure-iot-sdk-c">C</a></p><p><a href="https://github.com/Azure/azure-iot-sdk-python">Python</a></p><p><a href="https://github.com/Azure/azure-iot-sdk-node">Node</a></p><p><a href="https://github.com/Azure/azure-iot-sdk-java">Java</a></p><p><a href="https://github.com/Azure/azure-iot-sdk-csharp">C#</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: API REST
+            html: <p><a href="/rest/api/iot-dps">REST</a></p>
+          - title: Kits de développement logiciel (SDK) Azure IoT
+            html: '<p><a href="https://github.com/Azure/azure-iot-sdk-c">C</a></p><p><a href="https://github.com/Azure/azure-iot-sdk-python">Python</a></p><p><a href="https://github.com/Azure/azure-iot-sdk-node">Node</a></p><p><a href="https://github.com/Azure/azure-iot-sdk-java">Java</a></p><p><a href="https://github.com/Azure/azure-iot-sdk-csharp">C#</a></p>'

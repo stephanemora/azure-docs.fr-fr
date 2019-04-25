@@ -1,59 +1,52 @@
-items:
 - name: Vue d’ensemble
   href: overview.md
 - name: Démarrage rapide
   items:
-  - name: Bash - Démarrage rapide
-    href: quickstart.md
-  - name: PowerShell - Démarrage rapide
-    href: quickstart-powershell.md
+    - name: "Bash\_- Démarrage rapide"
+      href: quickstart.md
+    - name: PowerShell - Démarrage rapide
+      href: quickstart-powershell.md
 - name: Outils et fonctionnalités
   items:
-  - name: Outils et fonctionnalités
-    href: features.md
+    - name: Outils et fonctionnalités
+      href: features.md
 - name: Tutoriels
   items:
-  - name: Ansible
-    items:
-    - name: Exécuter un playbook Ansible
-      href: /azure/ansible/ansible-run-playbook-in-cloudshell?toc=/azure/cloud-shell/toc.json&bc=/azure/bread/toc.json
-    - name: Gérer vos inventaires dynamiques Azure
-      href: /azure/ansible/ansible-manage-azure-dynamic-inventories?toc=/azure/cloud-shell/toc.json&bc=/azure/bread/toc.json
-  - name: Terraform
-    items:
-    - name: Créer un plan d’exécution
-      href: example-terraform-bash.md
+    - name: Ansible
+      items:
+        - name: Exécuter un playbook Ansible
+          href: /azure/ansible/ansible-run-playbook-in-cloudshell?toc=/azure/cloud-shell/toc.json&bc=/azure/bread/toc.json
+        - name: Gérer vos inventaires dynamiques Azure
+          href: /azure/ansible/ansible-manage-azure-dynamic-inventories?toc=/azure/cloud-shell/toc.json&bc=/azure/bread/toc.json
+    - name: Terraform
+      items:
+        - name: Créer un plan d’exécution
+          href: example-terraform-bash.md
 - name: Guides pratiques
   items:
-  - name: PowerShell Cloud Shell pour les utilisateurs Windows
-    href: cloud-shell-windows-users.md
-  - name: Conserver des fichiers dans un stockage
-    href: persisting-shell-storage.md
-  - name: Utiliser la fenêtre
-    href: using-the-shell-window.md
-  - name: Utiliser MSI dans Cloud Shell
-    href: msi-authorization.md
-  - name: Incorporer Cloud Shell
-    href: embed-cloud-shell.md
+    - name: PowerShell Cloud Shell pour les utilisateurs Windows
+      href: cloud-shell-windows-users.md
+    - name: Conserver des fichiers dans un stockage
+      href: persisting-shell-storage.md
+    - name: Utiliser la fenêtre
+      href: using-the-shell-window.md
+    - name: Utiliser MSI dans Cloud Shell
+      href: msi-authorization.md
+    - name: Incorporer Cloud Shell
+      href: embed-cloud-shell.md
 - name: Utiliser l’éditeur Cloud Shell
   href: using-cloud-shell-editor.md
 - name: Résolution des problèmes et limitations
   href: troubleshooting.md
 - name: Informations de référence
   items:
-  - name: Azure CLI
-    href: /cli/azure
-  - name: Azure PowerShell
-    href: /powershell/azure
+    - name: Azure CLI
+      href: /cli/azure
+    - name: Azure PowerShell
+      href: /powershell/azure
 - name: Ressources
   items:
-  - name: Feuille de route Azure
-    href: https://azure.microsoft.com/roadmap/?category=monitoring-management
-  - name: Calculatrice de prix
-    href: https://azure.microsoft.com/pricing/calculator/
-ms.openlocfilehash: 873308d775fd7451d89bd05771d3a1c5f5e22995
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
-ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58341303"
+    - name: Feuille de route Azure
+      href: 'https://azure.microsoft.com/roadmap/?category=monitoring-management'
+    - name: Calculatrice de prix
+      href: 'https://azure.microsoft.com/pricing/calculator/'

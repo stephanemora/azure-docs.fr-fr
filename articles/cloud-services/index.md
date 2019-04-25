@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.openlocfilehash: 300762cd98f66af80dd6fd7079005ef17ece2ade
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 80f28d5f42dfacd2fa5d553b545bff5708eb09ca
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "24101880"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60629099"
 ---
 # <a name="cloud-services-documentation"></a>Documentation Services cloud
 
@@ -100,14 +100,14 @@ Découvrez comment utiliser les Services cloud pour héberger et exécuter des a
 
 ---
 
-<h2>Référence</h2>
+<h2>Informations de référence</h2>
 <ul class="panelContent cardsW">
     <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Langues</h3>
+                        <h3>Languages</h3>
                         <p><a href="/azure/cloud-services/schema-csdef-file">Schéma XML .csdef</a></p>
                         <p><a href="/azure/cloud-services/schema-csdef-loadbalancerprobe">Schéma LoadBalancerProbe</a></p>
                         <p><a href="/azure/cloud-services/schema-csdef-webrole">Schéma WebRole</a></p>

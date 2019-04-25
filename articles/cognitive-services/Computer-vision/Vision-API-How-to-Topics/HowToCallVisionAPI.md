@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 03/21/2019
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: e6ebd4ff465565be49d98162cd9ca67c194593a4
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: 0e2767660edf2a9dbcb8617b07a6b9f71fedb743
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59563368"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011233"
 ---
 # <a name="example-how-to-call-the-computer-vision-api"></a>Exemple : Appeler l’API Vision par ordinateur
 
@@ -47,8 +47,7 @@ Les fonctionnalités sont présentées en deux options :
 
 Chaque appel de l’API Vision par ordinateur nécessite une clé d’abonnement. Cette clé doit être transmise par le biais d’un paramètre de chaîne de requête ou spécifiée dans l’en-tête de requête.
 
-Pour obtenir une clé d’abonnement, consultez [Obtenir des clés d’abonnement](../Vision-API-How-to-Topics/HowToSubscribe.md
-).
+Pour obtenir une clé d’essai gratuit, consultez la page [Essayez Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Vous pouvez également suivre les instructions mentionnées dans [Créer un compte Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) pour vous abonner à Vision par ordinateur et obtenir votre clé.
 
 1. La clé d’abonnement est passée par le biais d’une chaîne de requête, comme dans l’exemple suivant d’API Vision par ordinateur :
 

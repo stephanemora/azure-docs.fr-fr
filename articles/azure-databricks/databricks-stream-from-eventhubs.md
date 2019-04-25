@@ -10,14 +10,17 @@ ms.topic: tutorial
 ms.workload: Active
 ms.date: 06/21/2018
 ms.author: alehall
-ms.openlocfilehash: bc712885169730aa9cbbd8de35b96e645ff1cea2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1265a97b8902d69dd260d8e9e0191180f2eb4379
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58087123"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60004837"
 ---
-# <a name="tutorial-stream-data-into-azure-databricks-using-event-hubs"></a>Tutoriel : Diffuser en continu des données dans Azure Databricks à l’aide d’Event Hubs
+# <a name="tutorial-stream-data-into-azure-databricks-using-event-hubs"></a>Didacticiel : Diffuser en continu des données dans Azure Databricks à l’aide d’Event Hubs
+
+> [!IMPORTANT]
+> La création d’applications Twitter n’est plus disponible via [apps.twitter.com](https://apps.twitter.com/). Ce tutoriel fait actuellement l’objet d’une mise à jour pour inclure la nouvelle API Twitter.
 
 Dans ce didacticiel, vous connectez un système d’ingestion des données à Azure Databricks pour diffuser en continu des données en temps quasi-réel dans un cluster Apache Spark. Vous allez configurer le système d’ingestion des données à l’aide d’Azure Event Hubs et le connecter à Azure Databricks pour traiter les messages entrants. Pour accéder à un flux de données, vous allez utiliser des API Twitter pour faire ingérer des tweets à Event Hubs. Une fois les données reçues dans Azure Databricks, vous pourrez exécuter des tâches d’analyse pour aller plus loin. 
 
@@ -41,7 +44,7 @@ Ce tutoriel décrit les tâches suivantes :
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
 > [!Note]
-> Ce tutoriel ne peut pas être effectué à l’aide d’un **abonnement d’essai gratuit Azure**.
+> Ce tutoriel ne peut pas être suivi avec un **abonnement d’essai gratuit Azure**.
 > Pour utiliser un compte gratuit pour créer le cluster Azure Databricks, avant de créer le cluster, accédez à votre profil et définissez votre abonnement sur **paiement à l’utilisation**. Pour plus d’informations, consultez la page [Compte Azure gratuit](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Prérequis

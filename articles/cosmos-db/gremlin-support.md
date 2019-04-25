@@ -8,10 +8,10 @@ ms.topic: overview
 ms.date: 01/02/2018
 ms.author: lbosq
 ms.openlocfilehash: fd49cc6810f4a3a479748180ddb0c44aedf04e89
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59275553"
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Prise en charge des graphes Azure Cosmos DB Gremlin
@@ -154,41 +154,41 @@ Nous allons maintenant examiner les étapes Gremlin prises en charge par Azure C
 
 | étape | Description | Documentation TinkerPop 3.2 |
 | --- | --- | --- |
-| `addE` | Ajoute un bord reliant deux vertex | [Étape addE](https://tinkerpop.apache.org/docs/current/reference/#addedge-step) |
-| `addV` | Ajoute un vertex au graphe | [Étape addV](https://tinkerpop.apache.org/docs/current/reference/#addvertex-step) |
-| `and` | Fait en sorte que toutes les traversées retournent une valeur | [Étape and](https://tinkerpop.apache.org/docs/current/reference/#and-step) |
-| `as` | Un modulateur d’étape pour attribuer une variable à la sortie d’une étape | [Étape as](https://tinkerpop.apache.org/docs/current/reference/#as-step) |
-| `by` | Modulateur d’étapes utilisé avec `group` et `order` | [Étape by](https://tinkerpop.apache.org/docs/current/reference/#by-step) |
-| `coalesce` | Renvoie la première traversée qui renvoie un résultat | [Étape coalesce](https://tinkerpop.apache.org/docs/current/reference/#coalesce-step) |
-| `constant` | Renvoie une valeur constante. Utilisé avec `coalesce`| [Étape constant](https://tinkerpop.apache.org/docs/current/reference/#constant-step) |
-| `count` | Renvoie le nombre de traversées | [Étape count](https://tinkerpop.apache.org/docs/current/reference/#count-step) |
-| `dedup` | Renvoie les valeurs en supprimant les doublons | [Étape dedup](https://tinkerpop.apache.org/docs/current/reference/#dedup-step) |
-| `drop` | Supprime les valeurs (vertex/bord) | [Étape drop](https://tinkerpop.apache.org/docs/current/reference/#drop-step) |
+| `addE` | Ajoute un bord reliant deux vertex | [étape addE](https://tinkerpop.apache.org/docs/current/reference/#addedge-step) |
+| `addV` | Ajoute un vertex au graphe | [étape addV](https://tinkerpop.apache.org/docs/current/reference/#addvertex-step) |
+| `and` | Fait en sorte que toutes les traversées retournent une valeur | [étape and](https://tinkerpop.apache.org/docs/current/reference/#and-step) |
+| `as` | Un modulateur d’étape pour attribuer une variable à la sortie d’une étape | [étape as](https://tinkerpop.apache.org/docs/current/reference/#as-step) |
+| `by` | Un modulateur d’étape utilisé avec `group` et `order` | [étape by](https://tinkerpop.apache.org/docs/current/reference/#by-step) |
+| `coalesce` | Renvoie la première traversée qui renvoie un résultat | [étape coalesce](https://tinkerpop.apache.org/docs/current/reference/#coalesce-step) |
+| `constant` | Renvoie une valeur constante. Utilisé avec `coalesce`| [étape constant](https://tinkerpop.apache.org/docs/current/reference/#constant-step) |
+| `count` | Renvoie le nombre de traversées | [étape count](https://tinkerpop.apache.org/docs/current/reference/#count-step) |
+| `dedup` | Renvoie les valeurs en supprimant les doublons | [étape dedup](https://tinkerpop.apache.org/docs/current/reference/#dedup-step) |
+| `drop` | Supprime les valeurs (vertex/bord) | [étape drop](https://tinkerpop.apache.org/docs/current/reference/#drop-step) |
 | `executionProfile` | Crée une description de toutes les opérations générées par l’étape Gremlin exécutée | [Étape executionProfile](graph-execution-profile.md) |
-| `fold` | Agit comme une barrière qui calcule l’agrégation des résultats| [Étape fold](https://tinkerpop.apache.org/docs/current/reference/#fold-step) |
-| `group` | Regroupe les valeurs basées sur les labels spécifiés| [Étape group](https://tinkerpop.apache.org/docs/current/reference/#group-step) |
-| `has` | Permet de filtrer les propriétés, les vertex et les bords. Prend en charge `hasLabel`, `hasId`, `hasNot`, et les variantes `has`. | [Étape has](https://tinkerpop.apache.org/docs/current/reference/#has-step) |
-| `inject` | Injecter des valeurs dans un flux de données| [Étape inject](https://tinkerpop.apache.org/docs/current/reference/#inject-step) |
-| `is` | Permet d’exécuter un filtre à l’aide d’une expression booléenne | [Étape is](https://tinkerpop.apache.org/docs/current/reference/#is-step) |
-| `limit` | Permet de limiter le nombre d’éléments dans la traversée| [Étape limit](https://tinkerpop.apache.org/docs/current/reference/#limit-step) |
-| `local` | Local encapsule une section d’une traversée, similaire à une sous-requête | [Étape local](https://tinkerpop.apache.org/docs/current/reference/#local-step) |
-| `not` | Permet de produire la négation d’un filtre | [Étape not](https://tinkerpop.apache.org/docs/current/reference/#not-step) |
-| `optional` | Renvoie le résultat de la traversée spécifiée si elle produit un résultat, sinon renvoie l’élément appelant | [Étape optional](https://tinkerpop.apache.org/docs/current/reference/#optional-step) |
-| `or` | Garantit qu’au moins l’une des traversées renvoie une valeur | [Étape or](https://tinkerpop.apache.org/docs/current/reference/#or-step) |
-| `order` | Renvoie les résultats dans l’ordre de tri spécifié | [Étape order](https://tinkerpop.apache.org/docs/current/reference/#order-step) |
-| `path` | Renvoie le chemin d’accès complet de la traversée | [Étape path](https://tinkerpop.apache.org/docs/current/reference/#path-step) |
-| `project` | Projette les propriétés sous forme de carte | [Étape project](https://tinkerpop.apache.org/docs/current/reference/#project-step) |
-| `properties` | Renvoie les propriétés pour les labels spécifiés | [Étape properties](https://tinkerpop.apache.org/docs/current/reference/#properties-step) |
-| `range` | Filtre la plage de valeurs spécifiée| [Étape range](https://tinkerpop.apache.org/docs/current/reference/#range-step) |
-| `repeat` | Répète l’étape le nombre de fois spécifié. Permet d’effectuer des boucles | [Étape repeat](https://tinkerpop.apache.org/docs/current/reference/#repeat-step) |
-| `sample` | Permet d’échantillonner les résultats à partir de la traversée | [Étape sample](https://tinkerpop.apache.org/docs/current/reference/#sample-step) |
-| `select` | Permet de projeter les résultats à partir de la traversée |  [Étape select](https://tinkerpop.apache.org/docs/current/reference/#select-step) |
-| `store` | Pour les agrégations non bloquantes de la traversée | [Étape store](https://tinkerpop.apache.org/docs/current/reference/#store-step) |
-| `tree` | Chemins d’accès d’agrégation à partir d’un vertex dans une arborescence | [Étape tree](https://tinkerpop.apache.org/docs/current/reference/#tree-step) |
-| `unfold` | Dérouler un itérateur comme une étape| [Étape unfold](https://tinkerpop.apache.org/docs/current/reference/#unfold-step) |
-| `union` | Fusionner les résultats à partir de plusieurs traversées| [Étape union](https://tinkerpop.apache.org/docs/current/reference/#union-step) |
-| `V` | Inclut les étapes nécessaires pour les traversées entre les vertex et les bords `V`, `E`, `out`, `in`, `both`, `outE`, `inE`, `bothE`, `outV`, `inV`, `bothV` et `otherV` pour | [Étapes vertex](https://tinkerpop.apache.org/docs/current/reference/#vertex-steps) |
-| `where` | Permet de filtrer les résultats à partir de la traversée. Prend en charge les opérateurs `eq`, `neq`, `lt`, `lte`, `gt`, `gte` et `between`  | [Étape where](https://tinkerpop.apache.org/docs/current/reference/#where-step) |
+| `fold` | Agit comme une barrière qui calcule l’agrégation des résultats| [étape fold](https://tinkerpop.apache.org/docs/current/reference/#fold-step) |
+| `group` | Regroupe les valeurs basées sur les labels spécifiés| [étape group](https://tinkerpop.apache.org/docs/current/reference/#group-step) |
+| `has` | Permet de filtrer les propriétés, les vertex et les bords. Prend en charge `hasLabel`, `hasId`, `hasNot`, et les variantes `has`. | [étape has](https://tinkerpop.apache.org/docs/current/reference/#has-step) |
+| `inject` | Injecter des valeurs dans un flux de données| [étape inject](https://tinkerpop.apache.org/docs/current/reference/#inject-step) |
+| `is` | Permet d’exécuter un filtre à l’aide d’une expression booléenne | [étape is](https://tinkerpop.apache.org/docs/current/reference/#is-step) |
+| `limit` | Permet de limiter le nombre d’éléments dans la traversée| [étape limit](https://tinkerpop.apache.org/docs/current/reference/#limit-step) |
+| `local` | Local encapsule une section d’une traversée, similaire à une sous-requête | [étape local](https://tinkerpop.apache.org/docs/current/reference/#local-step) |
+| `not` | Permet de produire la négation d’un filtre | [étape not](https://tinkerpop.apache.org/docs/current/reference/#not-step) |
+| `optional` | Renvoie le résultat de la traversée spécifiée si elle produit un résultat, sinon renvoie l’élément appelant | [étape optional](https://tinkerpop.apache.org/docs/current/reference/#optional-step) |
+| `or` | Garantit qu’au moins l’une des traversées renvoie une valeur | [étape or](https://tinkerpop.apache.org/docs/current/reference/#or-step) |
+| `order` | Renvoie les résultats dans l’ordre de tri spécifié | [étape order](https://tinkerpop.apache.org/docs/current/reference/#order-step) |
+| `path` | Renvoie le chemin d’accès complet de la traversée | [étape path](https://tinkerpop.apache.org/docs/current/reference/#path-step) |
+| `project` | Projette les propriétés sous forme de carte | [étape project](https://tinkerpop.apache.org/docs/current/reference/#project-step) |
+| `properties` | Renvoie les propriétés pour les labels spécifiés | [étape properties](https://tinkerpop.apache.org/docs/current/reference/#properties-step) |
+| `range` | Filtre la plage de valeurs spécifiée| [étape range](https://tinkerpop.apache.org/docs/current/reference/#range-step) |
+| `repeat` | Répète l’étape le nombre de fois spécifié. Permet d’effectuer des boucles | [répétez l’étape](https://tinkerpop.apache.org/docs/current/reference/#repeat-step) |
+| `sample` | Permet d’échantillonner les résultats à partir de la traversée | [étape sample](https://tinkerpop.apache.org/docs/current/reference/#sample-step) |
+| `select` | Permet de projeter les résultats à partir de la traversée |  [étape select](https://tinkerpop.apache.org/docs/current/reference/#select-step) |
+| `store` | Pour les agrégations non bloquantes de la traversée | [étape store](https://tinkerpop.apache.org/docs/current/reference/#store-step) |
+| `tree` | Chemins d’accès d’agrégation à partir d’un vertex dans une arborescence | [étape tree](https://tinkerpop.apache.org/docs/current/reference/#tree-step) |
+| `unfold` | Dérouler un itérateur comme une étape| [étape unfold](https://tinkerpop.apache.org/docs/current/reference/#unfold-step) |
+| `union` | Fusionner les résultats à partir de plusieurs traversées| [étape union](https://tinkerpop.apache.org/docs/current/reference/#union-step) |
+| `V` | Inclut les étapes nécessaires pour les traversées entre les vertex et les bords `V`, `E`, `out`, `in`, `both`, `outE`, `inE`, `bothE`, `outV`, `inV`, `bothV` et `otherV` pour | [étapes vertex](https://tinkerpop.apache.org/docs/current/reference/#vertex-steps) |
+| `where` | Permet de filtrer les résultats à partir de la traversée. Prend en charge les opérateurs `eq`, `neq`, `lt`, `lte`, `gt`, `gte` et `between`  | [étape where](https://tinkerpop.apache.org/docs/current/reference/#where-step) |
 
 Le moteur optimisé pour l’écriture fourni par Azure Cosmos DB prend en charge l’indexation automatique de toutes les propriétés au sein des vertex et des arêtes par défaut. Par conséquent, les requêtes avec des filtres, les requêtes de plage, le tri ou les agrégations sur toutes les propriétés sont traités à partir de l’index et exécutés efficacement. Pour plus d’informations sur la façon dont fonctionne l’indexation dans Azure Cosmos DB, consultez notre article sur [l’indexation indépendante du schéma](https://www.vldb.org/pvldb/vol8/p1668-shukla.pdf).
 

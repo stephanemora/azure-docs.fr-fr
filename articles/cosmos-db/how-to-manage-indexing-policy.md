@@ -1,61 +1,284 @@
 ---
-title: Découvrez comment gérer les comptes de base de données dans Azure Cosmos DB
-description: Découvrez comment gérer les comptes de base de données dans Azure Cosmos DB
-author: markjbrown
+title: Gérer les stratégies d’indexation dans Azure Cosmos DB
+description: Découvrir comment gérer les stratégies d’indexation dans Azure Cosmos DB
+author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 11/10/2018
-ms.author: mjbrown
-ms.openlocfilehash: c27cee4842c0e65e1737f100a215cff82a0fd439
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.date: 04/08/2019
+ms.author: thweiss
+ms.openlocfilehash: 76275420e1e6ed7fdec8309da9e11a272f08fee0
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54033092"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60005586"
 ---
-# <a name="manage-indexing-in-azure-cosmos-db"></a>Gérer l’indexation dans Azure Cosmos DB
+# <a name="manage-indexing-policies-in-azure-cosmos-db"></a>Gérer les stratégies d’indexation dans Azure Cosmos DB
 
-Dans Azure Cosmos DB, vous pouvez choisir si vous souhaitez qu’un conteneur indexe automatiquement tous les éléments ou non. Par défaut, tous les éléments d’un conteneur Azure Cosmos sont indexés automatiquement, mais vous pouvez désactiver l’indexation automatique. Quand l’indexation est désactivée, les éléments sont accessibles par le biais de leurs liens réflexifs, ou de requêtes en utilisant l’ID de l’élément, tel que l’ID de document. Vous pouvez demander explicitement de traiter les résultats sans utiliser l’index, en passant l’en-tête **x-ms-documentdb-enable-scan**  dans l’API REST, ou l’option de requête **EnableScanInQuery** avec le kit SDK .NET.
+Dans Azure Cosmos DB, les données sont indexées suivant les [stratégies d’indexation](index-policy.md) définies pour chaque conteneur. La stratégie d’indexation par défaut pour les conteneurs nouvellement créés met en œuvre des index de plage pour les chaînes ou les nombres et des index spatiaux pour les objets GeoJSON de type Point. Cette stratégie peut être remplacée :
 
-Si l’indexation automatique est désactivée, vous pouvez continuer à ajouter ponctuellement des éléments spécifiques à l’index. À l’inverse, vous pouvez laisser l’indexation automatique activée et choisir d’exclure de façon sélective des éléments spécifiques. Les configurations d’indexation activée/désactivée sont utiles lorsque vous avez un sous-ensemble d’éléments à interroger.  
+- à partir du portail Azure
+- à l’aide de l’interface Azure CLI
+- à l’aide de l’un des SDK
 
-Le débit d’écriture et les unités de requête sont proportionnels au nombre de valeurs devant être indexées, ce qui est spécifié par l’ensemble inclus dans la stratégie d’indexation. Si vous avez une bonne connaissance des modèles de requête, vous pouvez choisir explicitement le sous-ensemble d’inclusion/exclusion des chemins afin d’améliorer le débit d’écriture.
+Une [mise à jour de la stratégie d’indexation](index-policy.md#modifying-the-indexing-policy) déclenche une transformation d’index. La progression de cette transformation peut également être suivie à partir des SDK.
 
-## <a name="manage-indexing-using-azure-portal"></a>Gérer l’indexation avec le portail Azure
+## <a name="use-the-azure-portal"></a>Utilisation du portail Azure
+
+Les conteneurs Azure Cosmos stockent leur stratégie d’indexation sous la forme d’un document JSON que le portail Azure vous permet de modifier directement.
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
 
-2. Créez un compte Azure Cosmos ou sélectionnez un compte existant.
+1. Créez un compte Azure Cosmos ou sélectionnez un compte existant.
 
-3. Ouvrez le volet **Explorateur de données**.
+1. Ouvrez le volet **Explorateur de données**, puis sélectionnez le conteneur avec lequel vous voulez travailler.
 
-4. Sélectionnez un conteneur existant, développez-le et modifiez les valeurs suivantes :
+1. Cliquez sur **Mise à l’échelle et paramètres**.
 
-   * Ouvrez la fenêtre **Mise à l’échelle et paramètres**.
-   * Passez **indexingMode** de *cohérent* à *aucun* ou incluez/excluez de l’indexation certains chemins.
-   * Cliquez sur **OK** pour enregistrer les modifications.
+1. Modifiez le document JSON de stratégie d’indexation (voir les exemples [ci-dessous](#indexing-policy-examples)).
 
-   ![Gérer l’indexation avec le portail Azure](./media/how-to-manage-indexing/how-to-manage-indexing-portal.png)
+1. Cliquez sur **Enregistrer** quand vous avez terminé.
 
-## <a name="manage-indexing-using-azure-sdks"></a>Gérer l’indexation avec les kits SDK Azure
+![Gérer l’indexation avec le portail Azure](./media/how-to-manage-indexing-policy/indexing-policy-portal.png)
 
-### <a id="dotnet"></a>Kit SDK .NET
+## <a name="use-the-azure-cli"></a>Utilisation de l’interface de ligne de commande Microsoft Azure
 
-L’exemple suivant montre comment explicitement inclure un élément à l’aide du [kit SDK .NET de l’API SQL](sql-api-sdk-dotnet.md) et de la propriété [RequestOptions.IndexingDirective](/dotnet/api/microsoft.azure.documents.client.requestoptions.indexingdirective).
+La commande [az cosmosdb collection update](/cli/azure/cosmosdb/collection#az-cosmosdb-collection-update) à partir de l’interface Azure CLI vous permet de remplacer la définition JSON de la stratégie d’indexation d’un conteneur :
+
+```azurecli-interactive
+az cosmosdb collection update \
+    --resource-group-name $resourceGroupName \
+    --name $accountName \
+    --db-name $databaseName \
+    --collection-name $containerName \
+    --indexing-policy "{\"indexingMode\": \"consistent\", \"includedPaths\": [{ \"path\": \"/*\", \"indexes\": [{ \"dataType\": \"String\", \"kind\": \"Range\" }] }], \"excludedPaths\": [{ \"path\": \"/headquarters/employees/?\" } ]}"
+```
+
+## <a name="use-the-net-sdk-v2"></a>Utiliser le SDK .NET V2
+
+L’objet `DocumentCollection` du [SDK .NET v2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) (voir [ce Guide de démarrage rapide](create-sql-api-dotnet.md) concernant son utilisation) expose une propriété `IndexingPolicy` qui vous permet de changer la valeur `IndexingMode`, et d’ajouter ou de supprimer des `IncludedPaths` et `ExcludedPaths`.
 
 ```csharp
-// To override the default behavior to exclude (or include) a document in indexing,
-// use the RequestOptions.IndexingDirective property.
-client.CreateDocumentAsync(UriFactory.CreateDocumentCollectionUri("myDatabaseName", "myCollectionName"),
-    new { id = "myDocumentId", isRegistered = true },
-    new RequestOptions { IndexingDirective = IndexingDirective.Include });
+// retrieve the container's details
+ResourceResponse<DocumentCollection> containerResponse = await client.ReadDocumentCollectionAsync(UriFactory.CreateDocumentCollectionUri("database", "container"));
+// set the indexing mode to Consistent
+containerResponse.Resource.IndexingPolicy.IndexingMode = IndexingMode.Consistent;
+// add an excluded path
+containerResponse.Resource.IndexingPolicy.ExcludedPaths.Add(new ExcludedPath { Path = "/headquarters/employees/?" });
+// update the container with our changes
+await client.ReplaceDocumentCollectionAsync(containerResponse.Resource);
 ```
+
+Pour suivre la progression de la transformation de l’index, vous devez passer un objet `RequestOptions` qui définit la propriété `PopulateQuotaInfo` sur `true`.
+
+```csharp
+// retrieve the container's details
+ResourceResponse<DocumentCollection> container = await client.ReadDocumentCollectionAsync(UriFactory.CreateDocumentCollectionUri("database", "container"), new RequestOptions { PopulateQuotaInfo = true });
+// retrieve the index transformation progress from the result
+long indexTransformationProgress = container.IndexTransformationProgress;
+```
+
+## <a name="use-the-java-sdk"></a>Utiliser le SDK Java
+
+L’objet `DocumentCollection` du [SDK Java](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb) (voir [ce Guide de démarrage rapide](create-sql-api-java.md) concernant son utilisation) expose les méthodes `getIndexingPolicy()` et `setIndexingPolicy()`. L’objet `IndexingPolicy` qu’elles manipulent vous permet de changer le mode d’indexation, et d’ajouter ou de supprimer des chemins inclus ou exclus.
+
+```java
+// retrieve the container's details
+Observable<ResourceResponse<DocumentCollection>> containerResponse = client.readCollection(String.format("/dbs/%s/colls/%s", "database", "container"), null);
+containerResponse.subscribe(result -> {
+    DocumentCollection container = result.getResource();
+    IndexingPolicy indexingPolicy = container.getIndexingPolicy();
+    // set the indexing mode to Consistent
+    indexingPolicy.setIndexingMode(IndexingMode.Consistent);
+    Collection<ExcludedPath> excludedPaths = new ArrayList<>();
+    ExcludedPath excludedPath = new ExcludedPath();
+    excludedPath.setPath("/*");
+    // add an excluded path
+    excludedPaths.add(excludedPath);
+    indexingPolicy.setExcludedPaths(excludedPaths);
+    // update the container with our changes
+    client.replaceCollection(container, null);
+});
+```
+
+Pour suivre la progression de la transformation de l’index sur un conteneur, passez un objet `RequestOptions` qui demande les informations de quota à remplir, puis récupérez la valeur à partir de l’en-tête de réponse `x-ms-documentdb-collection-index-transformation-progress`.
+
+```java
+// set the RequestOptions object
+RequestOptions requestOptions = new RequestOptions();
+requestOptions.setPopulateQuotaInfo(true);
+// retrieve the container's details
+Observable<ResourceResponse<DocumentCollection>> containerResponse = client.readCollection(String.format("/dbs/%s/colls/%s", "database", "container"), requestOptions);
+containerResponse.subscribe(result -> {
+    // retrieve the index transformation progress from the response headers
+    String indexTransformationProgress = result.getResponseHeaders().get("x-ms-documentdb-collection-index-transformation-progress");
+});
+```
+
+## <a name="use-the-nodejs-sdk"></a>Utiliser le SDK Node.js
+
+L’interface `ContainerDefinition` du [SDK Node.js](https://www.npmjs.com/package/@azure/cosmos) (voir [ce Guide de démarrage rapide](create-sql-api-nodejs.md) concernant son utilisation) expose une propriété `indexingPolicy` qui vous permet de changer la valeur `indexingMode`, et d’ajouter ou de supprimer des `includedPaths` et `excludedPaths`.
+
+```javascript
+// retrieve the container's details
+const containerResponse = await client.database('database').container('container').read();
+// set the indexing mode to Consistent
+containerResponse.body.indexingPolicy.indexingMode = "consistent";
+// add an excluded path
+containerResponse.body.indexingPolicy.excludedPaths.push({ path: '/headquarters/employees/?' });
+// update the container with our changes
+const replaceResponse = await client.database('database').container('container').replace(containerResponse.body);
+```
+
+Pour suivre la progression de la transformation de l’index sur un conteneur, passez un objet `RequestOptions` qui définit la propriété `populateQuotaInfo` sur `true`, puis récupérez la valeur à partir de l’en-tête de réponse `x-ms-documentdb-collection-index-transformation-progress`.
+
+```javascript
+// retrieve the container's details
+const containerResponse = await client.database('database').container('container').read({
+    populateQuotaInfo: true
+});
+// retrieve the index transformation progress from the response headers
+const indexTransformationProgress = replaceResponse.headers['x-ms-documentdb-collection-index-transformation-progress'];
+```
+
+## <a name="use-the-python-sdk"></a>Utiliser le SDK Python
+
+Quand vous utilisez le [SDK Python](https://pypi.org/project/azure-cosmos/) (voir [ce Guide de démarrage rapide](create-sql-api-python.md) concernant son utilisation), la configuration du conteneur est gérée comme un dictionnaire. À partir de ce dictionnaire, il est possible d’accéder à la stratégie d’indexation et à tous ses attributs.
+
+```python
+containerPath = 'dbs/database/colls/collection'
+# retrieve the container's details
+container = client.ReadContainer(containerPath)
+# set the indexing mode to Consistent
+container['indexingPolicy']['indexingMode'] = 'consistent'
+# add an excluded path
+container['indexingPolicy']['excludedPaths'] = [{"path" : "/headquarters/employees/?"}]
+# update the container with our changes
+response = client.ReplaceContainer(containerPath, container)
+```
+
+## <a name="indexing-policy-examples"></a>Exemples de stratégie d’indexation
+
+Voici quelques exemples de stratégies d’indexation affichées dans leur format JSON, qui est la façon dont elles sont exposées dans le portail Azure. Les mêmes paramètres peuvent être définis par le biais de l’interface Azure CLI ou de n’importe quel SDK.
+
+### <a name="opt-out-policy-to-selectively-exclude-some-property-paths"></a>Stratégie de refus pour exclure de façon sélective certains chemins de propriété
+
+    {
+        "indexingPolicy": "consistent",
+        "includedPaths": [
+            {
+                "path": "/*",
+                "indexes": [
+                    {
+                        "kind": "Range",
+                        "dataType": "Number"
+                    },
+                    {
+                        "kind": "Range",
+                        "dataType": "String"
+                    },
+                    {
+                        "kind": "Spatial",
+                        "dataType": "Point"
+                    }
+                ]
+            }
+        ],
+        "excludedPaths": [
+            {
+                "path": "/path/to/single/excluded/property/?"
+            },
+            {
+                "path": "/path/to/root/of/multiple/excluded/properties/*"
+            }
+        ]
+    }
+
+### <a name="opt-in-policy-to-selectively-include-some-property-paths"></a>Stratégie d’acceptation pour inclure de façon sélective certains chemins de propriété
+
+    {
+        "indexingPolicy": "consistent",
+        "includedPaths": [
+            {
+                "path": "/path/to/included/property/?",
+                "indexes": [
+                    {
+                        "kind": "Range",
+                        "dataType": "Number"
+                    }
+                ]
+            },
+            {
+                "path": "/path/to/root/of/multiple/included/properties/*",
+                "indexes": [
+                    {
+                        "kind": "Range",
+                        "dataType": "Number"
+                    }
+                ]
+            }
+        ],
+        "excludedPaths": [
+            {
+                "path": "/*"
+            }
+        ]
+    }
+
+Remarque : Il est généralement recommandé d’utiliser une stratégie d’indexation de **refus** pour permettre à Azure Cosmos DB d’indexer de manière proactive toute nouvelle propriété qui peut être ajoutée à votre modèle.
+
+### <a name="using-a-spatial-index-on-a-specific-property-path-only"></a>Utilisation d’un index spatial uniquement sur un chemin de propriété spécifique
+
+    {
+        "indexingPolicy": "consistent",
+        "includedPaths": [
+            {
+                "path": "/*",
+                "indexes": [
+                    {
+                        "kind": "Range",
+                        "dataType": "Number"
+                    },
+                    {
+                        "kind": "Range",
+                        "dataType": "String"
+                    }
+                ]
+            },
+            {
+                "path": "/path/to/geojson/property/?",
+                "indexes": [
+                    {
+                        "kind": "Spatial",
+                        "dataType": "Point"
+                    }
+                ]
+            }
+        ],
+        "excludedPaths": []
+    }
+
+### <a name="excluding-all-property-paths-but-keeping-indexing-active"></a>Exclusion de tous les chemins de propriété mais maintien de l’indexation active
+
+Cette stratégie peut être utilisée dans les situations où la [fonctionnalité de durée de vie (TTL)](time-to-live.md) est active, mais aucun index secondaire n’est nécessaire (pour utiliser Azure Cosmos DB comme un magasin de clés-valeurs pur).
+
+    {
+        "indexingMode": "consistent",
+        "includedPaths": [],
+        "excludedPaths": [{
+            "path": "/*"
+        }]
+    }
+
+### <a name="no-indexing"></a>Aucune indexation
+
+    {
+        "indexingPolicy": "none"
+    }
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour en savoir plus sur l’indexation, consultez les articles suivants :
 
-* [Vue d’ensemble de l’indexation](index-overview.md)
-* [Stratégie d’indexation](index-policy.md)
-* [Types d’index](index-types.md)
-* [Chemins de l’index](index-paths.md)
+- [Vue d’ensemble de l’indexation](index-overview.md)
+- [Stratégie d’indexation](index-policy.md)

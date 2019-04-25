@@ -1,17 +1,17 @@
 ---
 title: Présentation d’Azure Data Catalog
 description: Cet article présente Microsoft Azure Data Catalog, notamment ses fonctionnalités et les problèmes qu’il résoud. Data Catalog permet à n’importe quel utilisateur de s’inscrire, de découvrir, de comprendre et d’utiliser des sources de données.
-author: markingmyname
-ms.author: maghan
+author: JasonWHowell
+ms.author: jasonh
 ms.service: data-catalog
 ms.topic: overview
 ms.date: 04/05/2019
-ms.openlocfilehash: cd20fc6ae71a0dd96a0006de8c81050bb0646905
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 87c86ddeaa24693d393d250e1dc699b9a15ea84b
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59288978"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60010158"
 ---
 # <a name="what-is-azure-data-catalog"></a>Qu’est-ce qu’Azure Data Catalog ?
 
@@ -63,14 +63,14 @@ Pour en savoir plus sur les fonctions de Data Catalog, voir :
 * [Annotation de sources de données](data-catalog-how-to-annotate.md)
 * [Comment documenter des sources de données](data-catalog-how-to-documentation.md)
 * [Connexion aux sources de données](data-catalog-how-to-connect.md)
-* [Comment utiliser les Big Data](data-catalog-how-to-big-data.md)
+* [Travail avec du Big Data](data-catalog-how-to-big-data.md)
 * [Gestion des ressources de données](data-catalog-how-to-manage.md)
-* [Comment configurer un glossaire métier](data-catalog-how-to-business-glossary.md)
-* [Questions fréquentes (FAQ)](data-catalog-frequently-asked-questions.md)
+* [Configuration du glossaire métier](data-catalog-how-to-business-glossary.md)
+* [Forum Aux Questions](data-catalog-frequently-asked-questions.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour bien démarrer avec Data Catalog :
 
-* [Démarrage rapide : Créer un catalogue de données Azure](data-catalog-get-started.md)
-* [Ouvrir un catalogue Azure Data Catalog](https://www.azuredatacatalog.com)
+* [Démarrage rapide : Créer un catalogue Azure Data Catalog](data-catalog-get-started.md)
+* [Ouvrir votre catalogue Azure Data Catalog](https://www.azuredatacatalog.com)

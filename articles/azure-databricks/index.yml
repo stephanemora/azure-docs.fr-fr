@@ -1,10 +1,4 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 0a1c495362ef38723c61eace25ebb13ec9ed3a6a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57883642"
 documentType: LandingData
 title: Documentation Azure Databricks
 metadata:
@@ -17,48 +11,48 @@ metadata:
   ms.date: 03/19/2018
   ms.author: mamccrea
 abstract:
-  description: Découvrez comment utiliser Azure Databricks, plateforme d’analytique basée sur Apache Spark et installée en un seul clic qui offre des workflows rationalisés et un espace de travail interactif permettant aux scientifiques des données, ingénieurs des données et analystes métier de collaborer. Les guides de démarrage rapide et les tutoriels vous montrent comment bien démarrer avec Azure Databricks et l’intégrer à d’autres services Azure.
+  description: 'Découvrez comment utiliser Azure Databricks, plateforme d’analytique basée sur Apache Spark et installée en un seul clic qui offre des workflows rationalisés et un espace de travail interactif permettant aux scientifiques des données, ingénieurs des données et analystes métier de collaborer. Les guides de démarrage rapide et les tutoriels vous montrent comment bien démarrer avec Azure Databricks et l’intégrer à d’autres services Azure.'
   aside:
     image:
-      alt: 
+      alt: null
       height: 110
       src: media/index/video.png
       width: 250
     title: Présentation d’Azure Databricks (3 minutes 38)
-    href: https://azure.microsoft.com/resources/videos/connect-2017-introduction-to-azure-databricks/
+    href: 'https://azure.microsoft.com/resources/videos/connect-2017-introduction-to-azure-databricks/'
     width: 250
 sections:
-- title: Démarrages en 5 minutes
-  items:
-  - type: paragraph
-    text: 'Apprenez à créer un espace de travail Azure Databricks et un cluster Spark puis à exécuter des travaux avec :'
-  - type: list
-    style: icon48
+  - title: "Démarrages en 5\_minutes"
     items:
-    - image:
-        src: /azure/azure-databricks/media/index/portal.svg
-      text: Portail Azure
-      href: /azure/azure-databricks/quickstart-create-databricks-workspace-portal
-    - image:
-        src: /azure/azure-databricks/media/index/logo_azure_resource_manager.svg
-      text: Modèle Resource Manager
-      href: /azure/azure-databricks/quickstart-create-databricks-workspace-resource-manager-template
-- title: Didacticiels pas à pas
-  items:
-  - type: paragraph
-    text: 'Apprenez à utiliser Azure Databricks :'
-  - type: list
-    style: ordered
+      - type: paragraph
+        text: 'Apprenez à créer un espace de travail Azure Databricks et un cluster Spark puis à exécuter des travaux avec :'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: /azure/azure-databricks/media/index/portal.svg
+            text: Portail Azure
+            href: /azure/azure-databricks/quickstart-create-databricks-workspace-portal
+          - image:
+              src: /azure/azure-databricks/media/index/logo_azure_resource_manager.svg
+            text: Modèle Resource Manager
+            href: /azure/azure-databricks/quickstart-create-databricks-workspace-resource-manager-template
+  - title: Didacticiels pas à pas
     items:
-    - html: <a href="/azure/azure-databricks/databricks-extract-load-sql-data-warehouse">Extraire, transformer et charger des données</a>
-    - html: <a href="/azure/azure-databricks/databricks-stream-from-eventhubs">Diffuser en continu des données depuis Event Hubs</a>
-    - html: <a href="/azure/azure-databricks/databricks-sentiment-analysis-cognitive-services">Analyse des sentiments à l’aide de Cognitive Services</a>
-    - html: <a href="https://docs.azuredatabricks.net/spark/latest/structured-streaming/kafka.html" target="_blank">Diffuser en continu des données depuis HDInsight Kafka</a>
-- title: Informations de référence
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: paragraph
+        text: 'Apprenez à utiliser Azure Databricks :'
+      - type: list
+        style: ordered
+        items:
+          - html: '<a href="/azure/azure-databricks/databricks-extract-load-sql-data-warehouse">Extraire, transformer et charger des données</a>'
+          - html: <a href="/azure/azure-databricks/databricks-stream-from-eventhubs">Diffuser en continu des données depuis Event Hubs</a>
+          - html: <a href="/azure/azure-databricks/databricks-sentiment-analysis-cognitive-services">Analyse des sentiments à l’aide de Cognitive Services</a>
+          - html: '<a href="https://docs.azuredatabricks.net/spark/latest/structured-streaming/kafka.html" target="_blank">Diffuser en continu des données depuis HDInsight Kafka</a>'
+  - title: Informations de référence
     items:
-    - title: REST
-      html: <p><a href="/rest/api/databricks">API REST</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: REST
+            html: <p><a href="/rest/api/databricks">API REST</a></p>

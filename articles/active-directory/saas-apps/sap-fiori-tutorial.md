@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/11/2019
 ms.author: jeedes
 ms.openlocfilehash: e94fe3156677a507eab91eee339ed29bf7b4ad2e
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59257635"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-fiori"></a>Didacticiel : Intégration d’Azure Active Directory à SAP Fiori
@@ -135,7 +135,7 @@ Pour configurer l’authentification unique Azure AD avec SAP Fiori, effectuez l
 6. Dans **Provider Name** (nom du fournisseur), remplacez T01122 par `http://T01122`, puis cliquez sur **Save** (Enregistrer).
 
     > [!NOTE]
-    > Par défaut, le nom du fournisseur est au format <sid><client>, mais Azure AD attend le format <protocol>://<name>. Il est donc recommandé de conserver le nom du fournisseur au format https://<sid><client> pour autoriser la configuration de plusieurs moteurs ABAP SAP Fiori dans Azure AD.
+    > Par défaut, le nom du fournisseur est au format <sid><client>, alors qu’Azure AD attend le format <protocol>://<name>. Il est donc recommandé de garder le nom du fournisseur au format https://<sid><client> pour autoriser la configuration de plusieurs moteurs ABAP SAP Fiori dans Azure AD.
 
     ![Lien Téléchargement de certificat](./media/sapfiori-tutorial/tutorial-sapnetweaver-providername.png)
 
@@ -175,8 +175,7 @@ Pour configurer l’authentification unique Azure AD avec SAP Fiori, effectuez l
 
     ![Informations d’authentification unique dans Domaine et URL SAP Fiori](common/sp-identifier-reply.png)
 
-    d. Dans la zone de texte **URL d’authentification**, tapez une URL au format suivant :
-    `https://<your company instance of SAP Fiori>`
+    d. Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<your company instance of SAP Fiori>`.
 
     > [!NOTE]
     > Quelques clients nous ont signalé une erreur de configuration de l’URL de réponse pour leur instance. Si vous recevez ce type d’erreur, vous pouvez utiliser le script PowerShell suivant en tant que solution de contournement afin de définir l’URL de réponse appropriée pour votre instance :

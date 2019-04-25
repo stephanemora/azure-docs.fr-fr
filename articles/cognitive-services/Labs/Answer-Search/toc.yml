@@ -1,8 +1,8 @@
 - name: Documentation Recherche de réponses Project
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   expanded: true
   items:
-    - name: "Qu’est-ce que la Recherche de réponses Project\_?"
+    - name: "Qu’est-ce que Project Answer Search\_?"
       href: overview.md
 - name: Démarrages rapides
   expanded: true

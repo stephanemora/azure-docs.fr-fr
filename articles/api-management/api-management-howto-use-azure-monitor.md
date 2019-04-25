@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 6a4e9a0c33b227716227213e94948df430566065
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: c3148adc42cb4f899a87d894909eedff4c798575
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58622193"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680235"
 ---
 # <a name="monitor-published-apis"></a>Surveiller les API publiées
 
@@ -191,7 +191,7 @@ Le service Gestion des API fournit actuellement des journaux de diagnostic (par 
 | correlationId | chaîne | Identificateur de requête http unique assigné par le service Gestion des API |
 | location | chaîne | Nom de la région Azure dans laquelle se trouvait la passerelle qui a traité la requête |
 | httpStatusCodeCategory | chaîne | Catégorie du code d’état de réponse http : réussite (inférieur ou égal à 301 ou 304 ou 307), non autorisé (401, 403, 429), erroné (400, entre 500 et 600), autre |
-| resourceId | chaîne | ID de la ressource du service Gestion des API /SUBSCRIPTIONS/\<subscription>/RESOURCEGROUPS/\<resource-group>/PROVIDERS/MICROSOFT.APIMANAGEMENT/SERVICE/\<name> |
+| ResourceId | chaîne | ID de la ressource du service Gestion des API /SUBSCRIPTIONS/\<subscription>/RESOURCEGROUPS/\<resource-group>/PROVIDERS/MICROSOFT.APIMANAGEMENT/SERVICE/\<name> |
 | properties | objet | Propriétés de la requête actuelle |
 | method | chaîne | Méthode HTTP de la requête entrante |
 | url | chaîne | URL de la requête entrante |
@@ -213,13 +213,13 @@ Le service Gestion des API fournit actuellement des journaux de diagnostic (par 
 | userId | chaîne | Identificateur d’entité d’utilisateur pour la requête actuelle | 
 | apimSubscriptionId | chaîne | Identificateur d’entité d’abonnement pour la requête actuelle | 
 | backendId | chaîne | Identificateur d’entité de serveur principal pour la requête actuelle | 
-| lastError | objet | Dernière erreur de traitement de requête | 
+| LastError | objet | Dernière erreur de traitement de requête | 
 | elapsed | integer | Nombre de millisecondes écoulées entre le moment où la passerelle a reçu la requête et celui où l’erreur s’est produite | 
 | source | chaîne | Nom du gestionnaire interne de traitement ou de stratégie qui a provoqué l’erreur | 
 | scope | chaîne | Étendue du document de stratégie qui contient la stratégie qui a provoqué l’erreur | 
 | section | chaîne | Section du document de stratégie qui contient la stratégie qui a provoqué l’erreur | 
-| reason | chaîne | Motif de l’erreur | 
-| message | chaîne | Message d’erreur | 
+| motif | chaîne | Motif de l’erreur | 
+| Message | chaîne | Message d’erreur | 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

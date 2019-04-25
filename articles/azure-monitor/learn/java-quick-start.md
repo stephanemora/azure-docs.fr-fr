@@ -1,22 +1,22 @@
 ---
 title: Démarrage rapide avec Azure Application Insights | Microsoft Docs
-description: Fournit des instructions permettant de configurer rapidement une application web Java pour l’analyse avec Application Insights.
+description: Fournit des instructions permettant de configurer rapidement une application web Java pour la supervision avec Application Insights
 services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
 ms.reviewer: lagayhar
-ms.date: 07/11/2018
+ms.date: 04/18/2019
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 25335081e594c64b8d8cee02eebec6119e609618
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: e1574b55f9f14daba1831ba7f73b7f9ebde4c7f6
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55891496"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006894"
 ---
 # <a name="start-monitoring-your-java-web-application"></a>Démarrer l’analyse de votre application web Java
 
@@ -36,19 +36,21 @@ Si vous n’avez pas de projet web dynamique Java, vous pouvez en créer un à l
 
 Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-Si vous préférez l’infrastructure Spring, consultez le guide [configure a Spring Boot initializer app to use Application Insights guide](https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-java-applicationinsights) (guide de configuration de l’application d’initialiseur Spring Boot afin d’utiliser Application Insights)
+Si vous préférez le framework Spring, consultez le [guide de configuration d’une application d’initialisation Spring Boot pour utiliser Application Insights](https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-java-applicationinsights).
 
-## <a name="log-in-to-the-azure-portal"></a>Se connecter au portail Azure.
+## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
 
-Connectez-vous au [portail Azure](https://portal.azure.com/).
+Connectez-vous au [Portail Azure](https://portal.azure.com/).
 
 ## <a name="enable-application-insights"></a>Activer Application Insights
 
 Application Insights permet de recueillir les données de télémétrie à partir de n’importe quelle application connectée à Internet, qu’elle soit exécutée localement ou dans le cloud. Suivez les étapes ci-dessous pour lancer l’affichage de ces données.
 
-1. Sélectionnez **Créer une ressource** > **Surveillance + gestion** > **Application Insights**.
+1. Sélectionnez **Créer une ressource** > **Outils de développement** > **Application Insights**.
 
-   ![Ajout d’une ressource Application Insights](./media/java-quick-start/001-j.png)
+   ![Ajout d’une ressource Application Insights](./media/java-quick-start/1createresourseappinsights.png)
+
+   ![Ajout d’une ressource Application Insights](./media/java-quick-start/2createjavaapp.png)
 
    Une boîte de configuration s’affiche. Utilisez le tableau suivant pour remplir les champs d’entrée.
 
@@ -90,21 +92,21 @@ Application Insights permet de recueillir les données de télémétrie à parti
 
 ## <a name="start-monitoring-in-the-azure-portal"></a>Démarrer l’analyse dans le portail Azure
 
-1. Vous pouvez à présent rouvrir la page de **présentation** d’Application Insights dans le portail Azure où vous avez récupéré votre clé d’instrumentation afin d’afficher les détails sur votre application en cours d’exécution.
+1. Vous pouvez à présent rouvrir la page de **Vue d’ensemble** d’Application Insights dans le portail Azure afin d’afficher les détails sur votre application en cours d’exécution.
 
-   ![Menu Vue d'ensemble Application Insights](./media/java-quick-start/overview-001.png)
+   ![Menu Vue d'ensemble Application Insights](./media/java-quick-start/3overview.png)
 
 2. Cliquez sur **Cartographie d’application** pour obtenir une présentation visuelle des relations de dépendance entre les composants de votre application. Chaque composant affiche des indicateurs de performance clés comme la charge, les performances, les échecs et les alertes.
 
-   ![Mise en correspondance d'applications](./media/java-quick-start/application-map-001.png)
+   ![Mise en correspondance d'applications](./media/java-quick-start/4appmap.png)
 
-3. Cliquez sur l’icône **Analyse d’application** ![icône Mise en correspondance d’applications](./media/java-quick-start/006.png). Vous ouvrez ainsi **Application Insights - Analyses**, qui fournit un langage de requête enrichi permettant d’analyser toutes les données collectées par Application Insights. Dans ce cas, une requête est générée et affiche le nombre de demandes sous forme de graphique. Vous pouvez écrire vos propres requêtes pour analyser d’autres données.
+3.  Cliquez sur l’icône **Analyse d’application** ![icône Mise en correspondance d’applications](./media/java-quick-start/006.png) **Voir dans Analytics**.  Vous ouvrez ainsi **Application Insights - Analyses**, qui fournit un langage de requête enrichi permettant d’analyser toutes les données collectées par Application Insights. Dans ce cas, une requête est générée et affiche le nombre de demandes sous forme de graphique. Vous pouvez écrire vos propres requêtes pour analyser d’autres données.
 
-   ![Graphique analytique des demandes d’utilisateur au cours d’une période donnée](./media/java-quick-start/0010-j.png)
+   ![Graphique analytique des demandes d’utilisateur au cours d’une période donnée](./media/java-quick-start/5analytics.png)
 
-4. Revenez à la page **Vue d’ensemble** et examinez les graphiques de l’indicateur de performance clé (KPI).  Ce tableau de bord fournit des statistiques sur l’intégrité de votre application, y compris le nombre de demandes entrantes, la durée de ces demandes et les éventuelles erreurs qui se produisent.
+4. Revenez à la page **Vue d’ensemble** et examinez les graphiques de l’indicateur de performance clé (KPI). Ce tableau de bord fournit des statistiques sur l’intégrité de votre application, y compris le nombre de demandes entrantes, la durée de ces demandes et les éventuelles erreurs qui se produisent.
 
-   ![Graphiques chronologiques de la vue d’ensemble de l’intégrité](./media/java-quick-start/overview-perf.png)
+   ![Graphiques chronologiques de la vue d’ensemble de l’intégrité](./media/java-quick-start/6kpidashboards.png)
 
    Pour activer le graphique **Temps de chargement de la page consultée** à remplir avec les données de **télémétrie côté client**, ajoutez ce script à toutes les pages dont vous souhaitez effectuer le suivi :
 
@@ -130,13 +132,13 @@ Application Insights permet de recueillir les données de télémétrie à parti
 
 5. Cliquez sur **Flux temps réel**. Vous y trouverez des métriques en temps réel portant sur les performances de votre application web Java. L’option **Flux de métriques temps réel** inclut des données relatives au nombre de demandes entrantes, à la durée de ces demandes et aux erreurs qui se produisent. Vous pouvez également surveiller les métriques de performances critiques comme le processeur et la mémoire en temps réel.
 
-   ![Graphiques des métriques de serveur](./media/java-quick-start/livemetricsjava.png)
+   ![Graphiques des métriques de serveur](./media/java-quick-start/7livemetrics.png)
 
 Pour en savoir plus sur l’analyse de Java, consultez la [documentation supplémentaire sur Application Insights pour Java](./../../azure-monitor/app/java-get-started.md).
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Si vous envisagez d’utiliser ces autres guides de démarrage rapide ou les didacticiels, ne supprimez pas les ressources créées dans ce guide de démarrage rapide. Sinon, procédez comme suit pour supprimer toutes les ressources créées par ce démarrage rapide dans le portail Azure.
+Une fois les tests terminés, vous pouvez supprimer le groupe de ressources et toutes les ressources associées. Pour ce faire, procédez comme suit.
 
 1. Dans le menu de gauche du portail Azure, cliquez sur **Groupes de ressources**, puis sur **myResourceGroup**.
 2. Sur la page de votre groupe de ressources, cliquez sur **Supprimer**, tapez **myResourceGroup** dans la zone de texte, puis cliquez sur **Supprimer**.

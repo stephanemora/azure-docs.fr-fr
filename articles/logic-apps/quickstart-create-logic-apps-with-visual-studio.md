@@ -12,10 +12,10 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.date: 04/02/2019
 ms.openlocfilehash: 10ed3ec8b29048a7ede51a6d98e9f1ebb7f44cf6
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58862979"
 ---
 # <a name="quickstart-create-automated-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>Démarrage rapide : Créer des tâches, des processus et des workflows automatisés avec Azure Logic Apps - Visual Studio
@@ -214,4 +214,4 @@ Dans cet article, vous avez généré, déployé et exécuté votre application 
 
 > [!div class="nextstepaction"]
 > * [Gérer des applications logiques avec Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md)
-> * [Créer un modèle de déploiement d’applications logiques avec Visual Studio](../logic-apps/logic-apps-create-deploy-template.md)
+> * [Création d’un modèle de déploiement d’applications logiques avec Visual Studio](../logic-apps/logic-apps-create-deploy-template.md)

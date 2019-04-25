@@ -8,16 +8,16 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 12/14/2018
 ms.author: tamram
-ms.openlocfilehash: a1a931573967f12eb7abc791bd951dc6e1e9e60b
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.openlocfilehash: 8dff81d3f3594798a1b08184af0098f3bd86c12c
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59607396"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011042"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-with-python"></a>Démarrage rapide : charger, télécharger et répertorier des objets blob avec Python
 
-Dans ce guide de démarrage rapide, vous apprenez à utiliser Python pour charger, télécharger et lister des objets blob de blocs dans un conteneur de stockage Blob Azure. Les objets blob sont simplement des objets qui peuvent contenir n’importe quelle quantité de données texte ou binaires (par exemple, des images, des documents, du contenu multimédia en streaming ou des données d’archive) et sont distincts dans Stockage Azure des partages de fichiers, des tables sans schéma et des files d’attente de messages. (Pour plus d’informations, consultez [Présentation de Stockage Azure](/azure/storage/common/storage-introduction.md).)
+Dans ce guide de démarrage rapide, vous apprenez à utiliser Python pour charger, télécharger et lister des objets blob de blocs dans un conteneur de stockage Blob Azure. Les objets blob sont simplement des objets qui peuvent contenir n’importe quelle quantité de données texte ou binaires (par exemple, des images, des documents, du contenu multimédia en streaming ou des données d’archive) et sont distincts dans Stockage Azure des partages de fichiers, des tables sans schéma et des files d’attente de messages. (Pour plus d’informations, consultez [Présentation de Stockage Azure](/azure/storage/common/storage-introduction).)
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -45,7 +45,7 @@ Cette commande clone le référentiel *Azure-Samples/storage-blobs-python-quicks
 Dans l’application, fournissez votre nom de compte de stockage et votre clé de compte pour créer un objet `BlockBlobService`. Ouvrez le fichier *example.py* dans l’Explorateur de solutions de votre IDE. Remplacez les valeurs `accountname` et `accountkey` par le nom et la clé de votre compte. 
 
 ```python 
-block_blob_service = BlockBlobService(account_name='accountname', account_key='accountkey') 
+block_blob_service = BlockBlobService(account_name = 'accountname', account_key = 'accountkey') 
 ```
 
 ## <a name="run-the-sample"></a>Exécution de l'exemple
@@ -92,11 +92,11 @@ Une fois que vous avez le conteneur d’objets blob cloud, instanciez l’objet 
 Dans cette section, vous instanciez les objets, créez un conteneur, puis définissez des autorisations sur le conteneur pour que les objets blob soient publics. Le conteneur est appelé **quickstartblobs**. 
 
 ```python 
-# Create the BlockBlockService that is used to call the Blob service for the storage account
-block_blob_service = BlockBlobService(account_name='accountname', account_key='accountkey') 
+# Create the BlockBlockService that is used to call the Blob service for the storage account.
+block_blob_service = BlockBlobService(account_name = 'accountname', account_key = 'accountkey') 
  
 # Create a container called 'quickstartblobs'.
-container_name ='quickstartblobs'
+container_name = 'quickstartblobs'
 block_blob_service.create_container(container_name) 
 
 # Set the permission so the blobs are public.
@@ -106,29 +106,29 @@ block_blob_service.set_container_acl(container_name, public_access=PublicAccess.
 
 Stockage Blob prend en charge les objets blob de blocs, d’ajout et de pages. Les objets blob de blocs sont les plus couramment utilisés et nous les utilisons donc dans ce guide de démarrage rapide.  
 
-Pour charger un fichier dans un objet blob, récupérez le chemin d’accès complet du fichier en joignant le nom de répertoire au nom de fichier sur votre disque local. Vous pouvez ensuite charger le fichier vers le chemin d’accès spécifié à l’aide de la méthode `create\_blob\_from\_path`. 
+Pour charger un fichier dans un objet blob, récupérez le chemin d’accès complet du fichier en joignant le nom de répertoire au nom de fichier sur votre disque local. Vous pouvez ensuite charger le fichier vers le chemin d’accès spécifié à l’aide de la méthode `create_blob_from_path`. 
 
-L’exemple de code crée un fichier local à utiliser pour le chargement et le téléchargement, en stockant le fichier à charger en tant que `file\_path\_to\_file` et le nom de l’objet blob en tant que `local\_file\_name`. L'exemple suivant charge le fichier dans votre conteneur nommé **quickstartblobs**.
+L’exemple de code crée un fichier local à utiliser pour le chargement et le téléchargement. Il stocke le fichier à charger en tant que *full_path_to_file* et le nom de l’objet blob en tant que *local_file_name*. L'exemple suivant charge le fichier dans votre conteneur nommé **quickstartblobs**.
 
 ```python
 # Create a file in Documents to test the upload and download.
-local_path=os.path.expanduser("~\Documents")
-local_file_name ="QuickStart_" + str(uuid.uuid4()) + ".txt"
-full_path_to_file =os.path.join(local_path, local_file_name)
+local_path = os.path.expanduser("~\Documents")
+local_file_name = "QuickStart_" + str(uuid.uuid4()) + ".txt"
+full_path_to_file = os.path.join(local_path, local_file_name)
 
 # Write text to the file.
-file = open(full_path_to_file,  'w')
+file = open(full_path_to_file, 'w')
 file.write("Hello, World!")
 file.close()
 
 print("Temp file = " + full_path_to_file)
 print("\nUploading to Blob storage as blob" + local_file_name)
 
-# Upload the created file, use local_file_name for the blob name
+# Upload the created file, use local_file_name for the blob name.
 block_blob_service.create_blob_from_path(container_name, local_file_name, full_path_to_file)
 ```
 
-Il existe plusieurs méthodes de chargement que vous pouvez utiliser avec Stockage Blob. Par exemple, avec un flux de données en mémoire, vous pouvez utiliser la méthode `create\_blob\_from\_stream` au lieu de la méthode `create\_blob\_from\_path`. 
+Il existe plusieurs méthodes de chargement que vous pouvez utiliser avec Stockage Blob. Par exemple, avec un flux de données en mémoire, vous pouvez utiliser la méthode `create_blob_from_stream` au lieu de la méthode `create_blob_from_path`. 
 
 Les objets blob de blocs peuvent atteindre une taille maximale de 4.7 To et peuvent représenter toutes sortes d’éléments allant des feuilles de calcul Excel aux fichiers vidéo volumineux. Les objets blob de pages sont principalement utilisés pour les fichiers VHD qui soutiennent les machines virtuelles IaaS. Les objets blob d’ajout sont utilisés pour la journalisation, par exemple, quand vous voulez écrire dans un fichier et continuer à ajouter d’autres informations. La plupart des objets stockés dans Stockage Blob sont des objets blob de blocs.
 
@@ -137,7 +137,7 @@ Les objets blob de blocs peuvent atteindre une taille maximale de 4.7 To et peu
 Vous pouvez obtenir la liste des fichiers du conteneur à l’aide de la méthode `list_blobs`. Cette méthode retourne un générateur. Le code suivant récupère la liste des objets blob&mdash;, puis effectue une boucle sur ces derniers&mdash; en affichant les noms des objets blob trouvés dans un conteneur.  
 
 ```python
-# List the blobs in the container
+# List the blobs in the container.
 print("\nList blobs in the container")
 generator = block_blob_service.list_blobs(container_name)
 for blob in generator:
@@ -146,21 +146,21 @@ for blob in generator:
 
 ### <a name="download-the-blobs"></a>Télécharger les objets blob
 
-Téléchargez les objets blob sur votre disque local à l’aide de la méthode `the get\_blob\_to\_path`. Le code suivant télécharge l’objet blob chargé dans une section précédente. *_DOWNLOADED* est ajouté en tant que suffixe au nom de l’objet blob, ce qui vous permet de voir les deux fichiers sur le disque local. 
+Téléchargez les objets blob sur votre disque local à l’aide de la méthode `get_blob_to_path`. Le code suivant télécharge l’objet blob chargé dans une section précédente. *_DOWNLOADED* est ajouté en tant que suffixe au nom de l’objet blob, ce qui vous permet de voir les deux fichiers sur le disque local. 
 
 ```python
 # Download the blob(s).
 # Add '_DOWNLOADED' as prefix to '.txt' so you can see both files in Documents.
-full_path_to_file2 = os.path.join(local_path, string.replace(local_file_name ,'.txt', '_DOWNLOADED.txt'))
+full_path_to_file2 = os.path.join(local_path, string.replace(local_file_name, '.txt', '_DOWNLOADED.txt'))
 print("\nDownloading blob to " + full_path_to_file2)
 block_blob_service.get_blob_to_path(container_name, local_file_name, full_path_to_file2)
 ```
 
 ### <a name="clean-up-resources"></a>Supprimer des ressources
-Si vous n’avez plus besoin des objets blob chargés dans ce démarrage rapide, vous pouvez supprimer l’intégralité du conteneur à l’aide de la méthode `delete\_container`. Si vous préférez supprimer les fichiers individuels, utilisez la méthode `delete\_blob`.
+Si vous n’avez plus besoin des objets blob chargés dans ce démarrage rapide, vous pouvez supprimer l’intégralité du conteneur à l’aide de la méthode `delete_container`. Si vous préférez supprimer les fichiers individuels, utilisez la méthode `delete_blob`.
 
 ```python
-# Clean up resources. This includes the container and the temp files
+# Clean up resources. This includes the container and the temp files.
 block_blob_service.delete_container(container_name)
 os.remove(full_path_to_file)
 os.remove(full_path_to_file2)

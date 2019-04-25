@@ -7,18 +7,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 02/13/2019
+ms.date: 02/26/2019
 ms.author: aahi
-ms.openlocfilehash: 7287a9ddbd84960dcde790d813a6204e9e790094
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 0c42e7f8b1fffb9cf998f4cee8d30405a8df74a4
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56887418"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011297"
 ---
 # <a name="example-how-to-detect-sentiment-with-text-analytics"></a>Exemple : Comment détecter les sentiments dans l’Analyse de texte
 
-L’[API Analyse des sentiments](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9) évalue le texte en entrée et retourne un score de sentiment pour chaque document, entre 0 (négatif) et 1 (positif).
+L’[API Analyse des sentiments](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9) évalue le texte en entrée et retourne un score de sentiment pour chaque document, entre 0 (négatif) et 1 (positif).
 
 Cette fonctionnalité est utile pour détecter des sentiments positifs ou négatifs dans les réseaux sociaux, les avis client et les forums de discussion. Le contenu est fourni par vous. Les modèles et les données d’entraînement sont fournis par le service.
 
@@ -37,7 +37,7 @@ L’analyse des sentiments est effectuée sur l’ensemble du document, par oppo
 
 L’analyse des sentiments produit un résultat de meilleure qualité lorsque vous lui donnez de petits segments de texte à analyser. Au contraire, l’extraction d’expressions clés fonctionne mieux sur de plus grands blocs de texte. Pour obtenir des résultats optimaux pour ces deux opérations, envisagez de restructurer les entrées en conséquence.
 
-Vous devez disposer de documents JSON dans le format : id, texte, langue
+Vous devez disposer des documents JSON dans ce format : ID, texte, langue
 
 La taille des documents doit être inférieure à 5 120 caractères par document et vous pouvez avoir jusqu’à 1 000 éléments (ID) par collection. La collection est soumise dans le corps de la demande. Voici un exemple de contenu que vous pouvez soumettre pour analyse des sentiments.
 
@@ -77,16 +77,16 @@ La taille des documents doit être inférieure à 5 120 caractères par docume
 
 Vous trouverez plus d’informations sur la définition d’une demande dans [Guide pratique pour appeler l’API Analyse de texte](text-analytics-how-to-call-api.md). Les points suivants sont réaffirmés pour des raisons pratiques :
 
-+ Créez une demande **POST**. Passez en revue la documentation de l’API pour cette requête : [API Analyse des sentiments](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9)
++ Créez une demande **POST**. Passez en revue la documentation de l’API pour cette requête : [API Analyse des sentiments](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9)
 
-+ Définissez le point de terminaison HTTP pour l’analyse des sentiments à l’aide d’une ressource Analyse de texte sur Azure ou d’un [conteneur Analyse de texte](text-analytics-how-to-install-containers.md) instancié. Il doit inclure la ressource `/sentiment` : `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment`
++ Définissez le point de terminaison HTTP pour l’analyse des sentiments à l’aide d’une ressource Analyse de texte sur Azure ou d’un [conteneur Analyse de texte](text-analytics-how-to-install-containers.md) instancié. Il doit inclure la ressource `/sentiment` : `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/sentiment`
 
 + Définissez un en-tête de demande pour inclure la clé d’accès pour les opérations d’Analyse de texte. Pour plus d’informations, consultez [Guide pratique pour rechercher des points de terminaison et des clés d’accès](text-analytics-how-to-access-key.md).
 
 + Dans le corps de la demande, fournissez la collection de documents JSON que vous avez préparée pour cette analyse.
 
 > [!Tip]
-> Utilisez [Postman](text-analytics-how-to-call-api.md) ou ouvrez la **console de test d’API** dans la [documentation](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9) pour structurer la demande et la publier (POST) dans le service.
+> Utilisez [Postman](text-analytics-how-to-call-api.md) ou ouvrez la **console de test d’API** dans la [documentation](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9) pour structurer la demande et la publier (POST) dans le service.
 
 ## <a name="step-2-post-the-request"></a>Étape 2 : Publier la requête
 
@@ -135,8 +135,8 @@ L’exemple suivant montre la réponse pour la collection de documents dans cet 
 
 Dans cet article, vous avez vu les concepts et le flux de travail d’analyse des sentiments à l’aide de l’API Analyse de texte dans Cognitive Services. En résumé :
 
-+ L’[API Analyse des sentiments](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9) est disponible pour les langues sélectionnées.
-+ Les documents JSON figurant dans le corps de la demande incluent un id, un texte et un code de langue.
++ L’[API Analyse des sentiments](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9) est disponible pour les langues sélectionnées.
++ Les documents JSON figurant dans le corps de la demande incluent un ID, un texte et un code de langue.
 + La demande POST s’effectue sur un point de terminaison `/sentiment`, à l’aide [d’une clé d’accès et d’un point de terminaison](text-analytics-how-to-access-key.md) personnalisés valides pour votre abonnement.
 + La sortie de réponse, qui se compose d’un score de sentiment pour chaque ID de document, peut être diffusée vers n’importe quelle application qui accepte JSON, y compris Excel et Power BI, pour n’en citer que quelques-unes.
 

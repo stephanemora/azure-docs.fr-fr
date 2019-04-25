@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 03/01/2018
 ms.author: ghogen
 ms.custom: seodec18
-ms.openlocfilehash: 6a576f2817069d7095ea863198168be083d0c6b5
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 3e83c1629848083ae4d899ae01ae32c2c946b2b3
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57450940"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995062"
 ---
 # <a name="use-connected-services-in-visual-studio-to-connect-to-the-computer-vision-api"></a>Utilisation des Services connectés dans Visual Studio pour se connecter à l’API Vision par ordinateur
 
@@ -38,15 +38,15 @@ Cet article et ceux qui l’accompagnent donnent des détails sur l’utilisatio
 1. Dans **l’Explorateur de solutions**, choisissez **Ajouter** > **Service connecté**.
    La page Service connecté s’affiche et montre des services que vous pouvez ajouter à votre projet.
 
-   ![Capture d’écran d’un menu accessible avec le bouton droit sur un projet Visual Studio : Ajouter > Service connecté](../media/vs-common/Connected-Service-Menu.PNG)
+   ![Menu contextuel d’un projet Visual Studio : Ajouter > Service connecté](../media/vs-common/Connected-Service-Menu.PNG)
 
 1. Dans le menu des services disponibles, choisissez **API Vision par ordinateur Cognitive Services**.
 
-   ![Menu Services connectés, dans lequel est encadrée l’option Analyser les images avec Vision par ordinateur](./media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-0.PNG)
+   ![Menu Services connectés : Analyser les images... est mis en surbrillance](./media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-0.PNG)
 
    Si vous êtes connecté à Visual Studio et si un abonnement Azure est associé à votre compte, une page s’affiche et montre la liste déroulante de vos abonnements.
 
-   ![Fenêtre Visual Studio « API Vision par ordinateur » dans laquelle est encadrée la liste déroulante Abonnement](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-1.PNG)
+   ![Fenêtre API Vision par ordinateur dans laquelle est encadrée la liste déroulante Abonnement](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-1.PNG)
 
 1. Sélectionnez l’abonnement que vous souhaitez utiliser. Ensuite, choisissez un nom pour l’API Vision par ordinateur ou cliquez sur le lien Modifier pour modifier le nom généré automatiquement. Choisissez le groupe de ressources et le niveau tarifaire.
 
@@ -98,7 +98,7 @@ Cet article et ceux qui l’accompagnent donnent des détails sur l’utilisatio
 
 1. Cliquez avec le bouton droit sur le fichier image, choisissez Propriétés, puis **Copier si plus récent**. 
 
-   ![Fenêtre de propriétés d’une image ; Copier dans le répertoire de sortie est défini sur Copier si plus récent](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-5.PNG) 
+   ![Fenêtre de propriétés d’une image ; l’option Copier dans le répertoire de sortie est définie sur Copier si plus récent](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-5.PNG) 
  
 1. Remplacez la méthode Configurer par le code suivant pour accéder à l’API Vision par ordinateur et tester une image.
 
@@ -256,7 +256,7 @@ Cet article et ceux qui l’accompagnent donnent des détails sur l’utilisatio
 
 Lorsqu’il n’est plus nécessaire, supprimez le groupe de ressources. Cette opération supprime le service cognitif et les ressources qui lui sont associées. Pour supprimer le groupe de ressources à l’aide du portail :
 
-1. Entrez le nom de votre groupe de ressources dans la zone Recherche en haut du portail. Lorsque vous voyez le groupe de ressources utilisé dans ce Démarrage rapide dans les résultats de recherche, sélectionnez-le.
+1. Entrez le nom de votre groupe de ressources dans la zone Recherche en haut du portail. Lorsque vous voyez le groupe de ressources utilisé dans ce démarrage rapide dans les résultats de recherche, sélectionnez-le.
 2. Sélectionnez **Supprimer le groupe de ressources**.
 3. Dans le champ **TYPE THE RESOURCE GROUP NAME: (TAPER LE NOM DU GROUPE DE RESSOURCES :)**, tapez le nom du groupe de ressources et sélectionnez **Supprimer**.
 

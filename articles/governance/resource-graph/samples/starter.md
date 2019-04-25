@@ -9,10 +9,10 @@ ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
 ms.openlocfilehash: 2ba48e2a21bdee0c5698bdfa314dd3bf462c1c7e
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59267767"
 ---
 # <a name="starter-resource-graph-queries"></a>Requêtes Resource Graph de démarrage
@@ -25,11 +25,11 @@ Nous allons vous guider tout au long des requêtes de démarrage suivantes :
 > - [Compter les ressources Azure](#count-resources)
 > - [Lister les ressources triées par nom](#list-resources)
 > - [Afficher toutes les machines virtuelles classées par nom dans l’ordre décroissant](#show-vms)
-> - [Afficher les cinq premières machines virtuelles par nom et le type de leur système d’exploitation](#show-sorted)
+> - [Afficher les cinq premières machines virtuelles par nom et leur type de système d’exploitation](#show-sorted)
 > - [Compter les machines virtuelles par type de système d’exploitation](#count-os)
-> - [Afficher les ressources contenant du stockage](#show-storage)
-> - [Lister toutes les adresses IP publiques](#list-publicip)
-> - [Compter les ressources avec des adresses IP configurées pour chaque abonnement](#count-resources-by-ip)
+> - [Afficher les ressources contenant storage](#show-storage)
+> - [Lister toutes les adresses IP publiques](#list-publicip)
+> - [Compter les ressources avec des adresses IP configurées par abonnement](#count-resources-by-ip)
 > - [Lister les ressources avec une valeur d’étiquette spécifique](#list-tag)
 > - [Lister tous les comptes de stockage avec une valeur d’étiquette spécifique](#list-specific-tag)
 
@@ -166,8 +166,8 @@ Search-AzGraph -Query "where type contains 'storage' | distinct type"
 ## <a name="list-publicip"></a>Lister toutes les adresses IP publiques
 
 Comme dans la requête précédente, nous recherchons toutes les ressources dont le type contient un mot (ici, **publicIPAddresses**).
-Cette requête va plus loin en incluant uniquement les résultats où **properties.ipAddress** a la valeur 
-`isnotempty`, en retournant uniquement **properties.ipAddress** et en limitant (`limit`) les résultats aux 100 premiers.
+Cette requête va plus loin en incluant uniquement les résultats où **properties.ipAddress**
+ a la valeur `isnotempty`, en retournant uniquement **properties.ipAddress** et en limitant (`limit`) les résultats aux 100 premiers.
 100. Vous devrez peut-être placer les guillemets dans une séquence d’échappement en fonction de votre interpréteur de commandes.
 
 ```Query

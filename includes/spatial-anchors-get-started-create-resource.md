@@ -4,12 +4,12 @@ ms.service: azure-spatial-anchors
 ms.topic: include
 ms.date: 12/13/2018
 ms.author: crtreasu
-ms.openlocfilehash: dc8d3c2d400204f53b05bb5536af95679541f3f6
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 32f4545a45eda8acddd7c93cc4917dbadca9ad4d
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58305317"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58632919"
 ---
 ## <a name="create-a-spatial-anchors-resource"></a>Créer une ressource Spatial Anchors
 
@@ -25,7 +25,7 @@ Sélectionnez **Spatial Anchors**. Dans la boîte de dialogue, sélectionnez **C
 
 Dans la boîte de dialogue **Compte Spatial Anchors** :
 
-- Entrez un nom de ressource unique.
+- Entrez un nom de ressource unique, en utilisant des caractères alphanumériques normaux.
 - Sélectionnez l’abonnement auquel attacher la ressource.
 - Créer un groupe de ressources en sélectionnant **Créer**. Nommez-le **myResourceGroup** et sélectionnez **OK**.
       [!INCLUDE [resource group intro text](resource-group.md)]
@@ -34,7 +34,11 @@ Dans la boîte de dialogue **Compte Spatial Anchors** :
 
    ![Créer une ressource](./media/spatial-anchors-get-started-create-resource/create-resource-form.png)
 
-Une fois la ressource créée, vous pouvez voir les propriétés de ressource. Copiez l’**ID de compte** de la ressource dans un éditeur de texte, car vous en aurez besoin par la suite.
+Une fois la ressource créée, le portail Azure indique que votre déploiement est terminé. Cliquez sur **Accéder à la ressource**.
+
+![Déploiement terminé](./media/spatial-anchors-get-started-create-resource/deployment-complete.png)
+
+Ensuite, vous pouvez afficher les propriétés de la ressource. Copiez l’**ID de compte** de la ressource dans un éditeur de texte, car vous en aurez besoin par la suite.
 
    ![Propriétés de la ressource](./media/spatial-anchors-get-started-create-resource/view-resource-properties.png)
 

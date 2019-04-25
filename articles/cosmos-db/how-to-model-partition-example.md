@@ -7,10 +7,10 @@ ms.topic: sample
 ms.date: 3/27/2019
 ms.author: thweiss
 ms.openlocfilehash: ac1b94de4b439aab202d53b23b0d0da616a9f851
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58919892"
 ---
 # <a name="how-to-model-and-partition-data-on-azure-cosmos-db-using-a-real-world-example"></a>Guide pratique pour modéliser et partitionner des données sur Azure Cosmos DB à l’aide d’un exemple concret
@@ -574,5 +574,5 @@ Le flux de modification que nous utilisons pour distribuer des mises à jour aux
 Après cette introduction à la modélisation et au partitionnement des données pratiques, vous pouvez consulter les articles suivants pour passer en revue les concepts que nous avons abordés :
 
 - [Utiliser des bases de données, des conteneurs et des éléments](databases-containers-items.md)
-- [Partitionnement dans Azure Cosmos DB](partitioning-overview.md)
-- [Flux de modification dans Azure Cosmos DB](change-feed.md)
+- [Partitioning in Azure Cosmos DB](partitioning-overview.md) (Partitionnement dans Azure Cosmos DB)
+- [Flux de modification dans Azure Cosmos DB](change-feed.md)

@@ -7,10 +7,10 @@ ms.topic: sample
 ms.date: 04/08/2019
 ms.author: rimman
 ms.openlocfilehash: b2b5e58ca480aa3abaa0766319977b8d1160ebeb
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59282999"
 ---
 # <a name="manage-an-azure-cosmos-account"></a>Gérer un compte Azure Cosmos
@@ -285,9 +285,9 @@ Consultez les articles suivants :
 
 * [Gérer la cohérence](how-to-manage-consistency.md)
 * [Gérer les conflits entre les régions](how-to-manage-conflicts.md)
-* [Diffusion mondiale - sous le capot](global-dist-under-the-hood.md)
-* [Guide pratique pour configurer la fonction multimaître dans vos applications](how-to-multi-master.md)
+* [Article relatif au principe de la distribution mondiale d’Azure Cosmos DB](global-dist-under-the-hood.md)
+* [Configurer la fonction multimaître dans vos applications](how-to-multi-master.md)
 * [Configurer les clients pour la multirésidence](how-to-manage-database-account.md#configure-clients-for-multi-homing)
-* [Ajouter ou supprimer des régions de votre compte Azure Cosmos DB](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
+* [Ajouter ou supprimer des régions de votre compte Azure Cosmos DB](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
 * [Créer une stratégie de résolution de conflits personnalisée](how-to-manage-conflicts.md#create-a-custom-conflict-resolution-policy)
 

@@ -11,10 +11,10 @@ ms.topic: overview
 ms.date: 04/03/2019
 ms.author: erhopf
 ms.openlocfilehash: 61f22568aa6e6cf04963b40ad7c47163e87b9800
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59010190"
 ---
 # <a name="what-are-the-speech-services"></a>Qu’est-ce que Speech Services ?
@@ -28,12 +28,12 @@ Ces fonctionnalités constituent les services Speech Azure. Pour en savoir plus 
 
 | de diffusion en continu | Fonctionnalité | Description | Kit SDK  | REST |
 |---------|---------|-------------|-----|------|
-| [Reconnaissance vocale](speech-to-text.md) | Reconnaissance vocale | La reconnaissance vocale transcrit en temps réel des flux audio en texte que vos applications, outils ou appareils peuvent utiliser ou afficher. Utilisez la reconnaissance vocale avec [LUIS (Language Understanding Intelligent Service)](https://docs.microsoft.com/azure/cognitive-services/luis/) pour déduire les intentions de l’utilisateur à partir des transcriptions et agir sur des commandes vocales. | [OUI](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [OUI](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
-| | [Transcription par lot](batch-transcription.md) | La transcription par lot permet de transcrire une reconnaissance vocale asynchrone de gros volumes de données. Il s’agit d’un service basé sur REST qui utilise le même point de terminaison que la personnalisation et la gestion des modèles. | Non  | [OUI](https://westus.cris.ai/swagger/ui/index) |
-| | [Personnalisation](#customize-your-speech-experience) | Si vous utilisez la reconnaissance vocale pour la reconnaissance et la transcription dans un environnement unique, vous pouvez créer et former des modèles de prononciation, de langue et acoustiques personnalisés pour prendre en compte un bruit ambiant ou le vocabulaire spécifique d’un secteur. | Non  | [OUI](https://westus.cris.ai/swagger/ui/index) |
-| [Synthèse vocale](text-to-speech.md) | Synthèse vocale | La synthèse vocale convertit le texte d’entrée en parole synthétisée quasi humaine. Faites votre choix parmi les voix standard et les voix neuronales (voir [Prise en charge linguistique](language-support.md)). | [OUI](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [OUI](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
-| | [Personnalisation](#customize-your-speech-experience) | Créez des polices de voix personnalisées propres à vos marques ou produits. | Non  | [OUI](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
-| [Traduction vocale](speech-translation.md) | Traduction vocale | La traduction vocale permet à vos applications, outils et appareils d’effectuer de la traduction multilingue en temps réel de la parole. Utilisez ce service pour la traduction de voix en voix et de voix en texte. | [OUI](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | Non  |
+| [Reconnaissance vocale](speech-to-text.md) | Reconnaissance vocale | La reconnaissance vocale transcrit en temps réel des flux audio en texte que vos applications, outils ou appareils peuvent utiliser ou afficher. Utilisez la reconnaissance vocale avec [LUIS (Language Understanding Intelligent Service)](https://docs.microsoft.com/azure/cognitive-services/luis/) pour déduire les intentions de l’utilisateur à partir des transcriptions et agir sur des commandes vocales. | [Oui](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [Oui](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| | [Transcription par lot](batch-transcription.md) | La transcription par lot permet de transcrire une reconnaissance vocale asynchrone de gros volumes de données. Il s’agit d’un service basé sur REST qui utilise le même point de terminaison que la personnalisation et la gestion des modèles. | Non  | [Oui](https://westus.cris.ai/swagger/ui/index) |
+| | [Personnalisation](#customize-your-speech-experience) | Si vous utilisez la reconnaissance vocale pour la reconnaissance et la transcription dans un environnement unique, vous pouvez créer et former des modèles de prononciation, de langue et acoustiques personnalisés pour prendre en compte un bruit ambiant ou le vocabulaire spécifique d’un secteur. | Non  | [Oui](https://westus.cris.ai/swagger/ui/index) |
+| [Synthèse vocale](text-to-speech.md) | Synthèse vocale | La synthèse vocale convertit le texte d’entrée en parole synthétisée quasi humaine. Faites votre choix parmi les voix standard et les voix neuronales (voir [Prise en charge linguistique](language-support.md)). | [Oui](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [Oui](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| | [Personnalisation](#customize-your-speech-experience) | Créez des polices de voix personnalisées propres à vos marques ou produits. | Non  | [Oui](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| [Traduction vocale](speech-translation.md) | Traduction vocale | La traduction vocale permet à vos applications, outils et appareils d’effectuer de la traduction multilingue en temps réel de la parole. Utilisez ce service pour la traduction de voix en voix et de voix en texte. | [Oui](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | Non  |
 
 ## <a name="news-and-updates"></a>Nouveautés et mises à jour
 
@@ -57,7 +57,7 @@ Nous proposons des démarrages rapides pour la plupart des langages de programma
 
 Une fois que vous avez eu l’occasion d’utiliser les Services Speech, essayez notre didacticiel qui vous apprend à reconnaître les intentions du discours à l’aide du Kit de développement logiciel (SDK) Speech et de LUIS.
 
-* [Didacticiel : Effectuer une reconnaissance des intentions d’un discours avec le SDK Speech et LUIS, C#](how-to-recognize-intents-from-speech-csharp.md)
+* [Tutoriel : Effectuer une reconnaissance des intentions du discours à l’aide du Kit de développement logiciel (SDK) Speech et de LUIS, C#](how-to-recognize-intents-from-speech-csharp.md)
 
 ## <a name="get-sample-code"></a>Obtenir un exemple de code
 
@@ -81,10 +81,10 @@ Les services Speech Azure fonctionnent bien avec les modèles intégrés. Cepend
 ## <a name="reference-docs"></a>Documents de référence
 
 * [Kit de développement logiciel (SDK) de reconnaissance vocale](speech-sdk-reference.md)
-* [Kit de développement logiciel (SDK) Speech Devices](speech-devices-sdk.md)
+* [SDK Speech Devices](speech-devices-sdk.md)
 * [API REST : Reconnaissance vocale](rest-speech-to-text.md)
 * [API REST : Synthèse vocale](rest-text-to-speech.md)
-* [API REST : Transcription par lot et personnalisation](https://westus.cris.ai/swagger/ui/index)
+* [API REST : Transcription et personnalisation par lot](https://westus.cris.ai/swagger/ui/index)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

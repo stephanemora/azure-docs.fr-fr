@@ -1,25 +1,25 @@
 ---
 title: Guide pratique pour configurer les fonctionnalités multimaîtres dans Azure Cosmos DB
 description: Découvrez comment configurer les fonctionnalités multimaîtres dans vos applications au sein d’Azure Cosmos DB
-author: markjbrown
+author: rimman
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 2/12/2019
-ms.author: mjbrown
-ms.openlocfilehash: 84c8e2921602bb653c0b1ef0adffd3d89e91bd78
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.date: 04/15/2019
+ms.author: rimman
+ms.openlocfilehash: b862c59002369662d37b6d6a9de28370b0000497
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312138"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59682268"
 ---
 # <a name="how-to-configure-multi-master-in-your-applications-that-use-azure-cosmos-db"></a>Comment configurer les fonctionnalités multimaîtres dans les applications qui utilisent Azure Cosmos DB
 
-Pour utiliser les fonctionnalités multimaîtres dans vos applications, vous devez activer les écritures multirégions et configurer la fonctionnalité de multirésidence. Pour configurer la multirésidence, définissez la région dans laquelle l’application est déployée.
+Pour utiliser la fonctionnalité multimaître dans votre application, vous devez activer les écritures multirégions et configurer la fonctionnalité de multihébergement dans Azure Cosmos DB. Pour configurer le multihébergement, définissez la région dans laquelle l’application est déployée.
 
 ## <a id="netv2"></a>Kit SDK .NET v2
 
-Pour activer les fonctionnalités multimaîtres dans vos applications, affectez la valeur true à `UseMultipleWriteLocations`, puis configurez `SetCurrentLocation` en fonction de la région dans laquelle l’application est déployée et Azure Cosmos DB est répliqué.
+Pour activer les fonctionnalités multimaîtres dans vos applications, affectez la valeur true à `UseMultipleWriteLocations`, puis configurez `SetCurrentLocation` en fonction de la région dans laquelle l’application est déployée et Azure Cosmos DB répliqué.
 
 ```csharp
 ConnectionPolicy policy = new ConnectionPolicy
@@ -43,7 +43,7 @@ CosmosClient client = new CosmosClient(config);
 
 ## <a id="java"></a>Kit SDK Java Async
 
-Pour activer les fonctionnalités multimaîtres dans vos applications, affectez la valeur true à `policy.setUsingMultipleWriteLocations(true)`, puis configurez `policy.setPreferredLocations` en fonction de la région sur laquelle l’application est déployée et Cosmos DB répliquée.
+Pour activer les fonctionnalités multimaîtres dans vos applications, définissez `policy.setUsingMultipleWriteLocations(true)`, puis configurez `policy.setPreferredLocations` en fonction de la région sur laquelle l’application est déployée et Cosmos DB répliqué.
 
 ```java
 ConnectionPolicy policy = new ConnectionPolicy();
@@ -89,14 +89,14 @@ client = cosmos_client.CosmosClient(self.account_endpoint, {'masterKey': self.ac
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-En savoir plus sur les fonctionnalités multimaîtres ainsi que sur la distribution et la cohérence globale dans Azure Cosmos DB. Consultez les articles suivants :
+Vous pouvez ensuite lire les articles suivants :
 
 * [Utiliser des jetons de session pour gérer la cohérence dans Azure Cosmos DB](how-to-manage-consistency.md#utilize-session-tokens)
-
 * [Types de conflit et stratégies de résolution dans Azure Cosmos DB](conflict-resolution-policies.md)
-
 * [Haute disponibilité dans Azure Cosmos DB](high-availability.md)
-
+* [Niveaux de cohérence dans Azure Cosmos DB](consistency-levels.md)
 * [Choix du niveau de cohérence approprié dans Azure Cosmos DB](consistency-levels-choosing.md)
-
 * [Compromis entre cohérence, disponibilité et niveau de performance dans Azure Cosmos DB](consistency-levels-tradeoffs.md)
+* [Compromis entre disponibilité et performance pour différents niveaux de cohérence](consistency-levels-tradeoffs.md)
+* [Mise à l’échelle du débit provisionné au niveau global](scaling-throughput.md)
+* [Article relatif au principe de la distribution mondiale d’Azure Cosmos DB](global-dist-under-the-hood.md)

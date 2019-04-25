@@ -1,17 +1,17 @@
 ---
 title: Découvrez comment gérer la cohérence dans Azure Cosmos DB
 description: Découvrez comment gérer la cohérence dans Azure Cosmos DB
-author: christopheranderson
+author: rimman
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 10/17/2018
-ms.author: chrande
-ms.openlocfilehash: 7dfc299c32b25ddf939aa3efcb927697307887a2
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.date: 04/17/2019
+ms.author: rimman
+ms.openlocfilehash: a93bf9a9f43a0929aeb5f3d3121092739396c6a8
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58904319"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678443"
 ---
 # <a name="manage-consistency-levels-in-azure-cosmos-db"></a>Gérer les niveaux de cohérence dans Azure Cosmos DB
 
@@ -21,7 +21,7 @@ Cet article explique comment gérer les niveaux de cohérence dans Azure Cosmos 
 
 ## <a name="configure-the-default-consistency-level"></a>Configurer le niveau de cohérence par défaut
 
-Le niveau de cohérence par défaut correspond au niveau de cohérence que les clients utilisent par défaut. Les clients peuvent le remplacer.
+Le [niveau de cohérence par défaut](consistency-levels.md) est le niveau de cohérence que les clients utilisent par défaut. Les clients peuvent toujours le remplacer.
 
 ### <a name="cli"></a>Interface de ligne de commande
 
@@ -35,7 +35,7 @@ az cosmosdb update --name <name of Cosmos DB Account> --resource-group <resource
 
 ### <a name="powershell"></a>PowerShell
 
-Cet exemple crée un compte Azure Cosmos DB avec la fonction multimaître activée dans les régions USA Est et USA Ouest. La stratégie de cohérence par défaut est définie en tant que Session.
+Cet exemple crée un compte Azure Cosmos DB avec plusieurs régions d’écriture activées, dans les régions USA Est et USA Ouest. Le niveau de cohérence par défaut est défini sur la cohérence *Session*.
 
 ```azurepowershell-interactive
 $locations = @(@{"locationName"="East US"; "failoverPriority"=0},
@@ -59,15 +59,15 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
   -Properties $CosmosDBProperties
 ```
 
-### <a name="portal"></a>Portail
+### <a name="azure-portal"></a>Portail Azure
 
-Pour afficher ou modifier le niveau de cohérence par défaut, connectez-vous au portail Azure. Recherchez votre compte Azure Cosmos DB et ouvrez le volet **Cohérence par défaut**. Sélectionnez le niveau de cohérence que vous souhaitez utiliser comme nouvelle valeur par défaut, puis sélectionnez **Enregistrer**.
+Pour afficher ou modifier le niveau de cohérence par défaut, connectez-vous au portail Azure. Recherchez votre compte Azure Cosmos, puis ouvrez le volet **Cohérence par défaut**. Sélectionnez le niveau de cohérence que vous souhaitez utiliser comme nouvelle valeur par défaut, puis sélectionnez **Enregistrer**.
 
 ![Menu Cohérence dans le portail Azure](./media/how-to-manage-consistency/consistency-settings.png)
 
 ## <a name="override-the-default-consistency-level"></a>Remplacer le niveau de cohérence par défaut
 
-Les clients peuvent remplacer le niveau de cohérence par défaut qui est défini par le service. Cette option peut être définie pour le client dans son intégralité, ou pour une requête en particulier.
+Les clients peuvent remplacer le niveau de cohérence par défaut, qui est défini par le service. Le niveau de cohérence peut être défini pour chaque demande, ce qui a pour effet de remplacer le niveau de cohérence par défaut défini au niveau du compte.
 
 ### <a id="override-default-consistency-dotnet"></a>Kit SDK .NET
 
@@ -131,6 +131,8 @@ client = cosmos_client.CosmosClient(self.account_endpoint, {'masterKey': self.ac
 ```
 
 ## <a name="utilize-session-tokens"></a>Utiliser des jetons de session
+
+Parmi les différents niveaux de cohérence rencontrés dans Azure Cosmos DB figure la cohérence *Session*. Il s’agit du niveau appliqué par défaut aux comptes Cosmos. Quand vous utilisez la cohérence *Session*, le client utilise un jeton de session en interne à chaque demande de lecture/requête pour faire en sorte que le niveau de cohérence défini soit maintenu.
 
 Pour gérer les jetons de session manuellement, obtenez le jeton de session à partir de la réponse, puis définissez-les par requête. Si vous n’avez pas besoin de gérer des jetons de session manuellement, les exemples ci-dessous ne vous sont pas utiles. Le kit SDK effectue le suivi des jetons de session automatiquement. Si vous ne définissez pas le jeton de session manuellement, par défaut, le kit SDK utilise le jeton de session le plus récent.
 
@@ -209,15 +211,18 @@ item = client.ReadItem(doc_link, options)
 
 ## <a name="monitor-probabilistically-bounded-staleness-pbs-metric"></a>Surveiller la métrique de probabilités en fonction de l’obsolescence limitée (PBS)
 
-Pour afficher la métrique PBS, accédez à votre compte Azure Cosmos DB dans le portail Azure. Ouvrez le volet **Métriques**, puis sélectionnez l’onglet **Cohérence**. Examinez le graphe intitulé **Probability of strongly consistent reads based on your workload (see PBS)**.
+Quel est le degré d’éventualité de la cohérence éventuelle ? Pour le cas moyen, pouvons-nous offrir des limites d’obsolescence par rapport à l’historique de version et au moment ? La métrique [**PBS (Probabilistically Bounded Staleness)** ](http://pbs.cs.berkeley.edu/) essaie de quantifier la probabilité d’obsolescence et l’affiche sous forme de métrique. Pour afficher la métrique PBS, accédez à votre compte Azure Cosmos DB sur le portail Azure. Ouvrez le volet **Métriques**, puis sélectionnez l’onglet **Cohérence**. Examinez le graphe intitulé **Probability of strongly consistent reads based on your workload (see PBS)**.
 
 ![Graphe PBS dans le portail Azure](./media/how-to-manage-consistency/pbs-metric.png)
 
-Utilisez le menu des métriques Azure Cosmos DB pour voir cette métrique. Il ne s’affiche pas dans l’interface des métriques de la supervision Azure.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Découvrez plus en détail la gestion des conflits de données ou passez au concept clé suivant dans Azure Cosmos DB. Consultez les articles suivants :
 
+* [Niveaux de cohérence dans Azure Cosmos DB](consistency-levels.md)
 * [Gérer les conflits entre les régions](how-to-manage-conflicts.md)
 * [Partitionnement et distribution des données](partition-data.md)
+* [Compromis en matière de cohérence dans la conception des systèmes de base de données distribuées modernes](https://www.computer.org/csdl/magazine/co/2012/02/mco2012020037/13rRUxjyX7k)
+* [Haute disponibilité](high-availability.md)
+* [SLA pour Azure Cosmos DB](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)

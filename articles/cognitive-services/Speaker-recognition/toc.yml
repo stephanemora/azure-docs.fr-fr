@@ -1,5 +1,5 @@
 - name: Documentation Reconnaissance de l’orateur
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: En savoir plus sur la Reconnaissance de l’orateur
       href: Home.md
@@ -8,11 +8,11 @@
     - name: Référence API
       href: 'https://westus.dev.cognitive.microsoft.com/docs/services/563309b6778daf02acc0a508/operations/5645c3271984551c84ec6797'
       items:
-        - name: Kits de développement logiciel (SDK)
+        - name: Kits SDK
           items:
             - name: Android
               href: 'https://github.com/Microsoft/Cognitive-SpeakerRecognition-Android'
-            - name: Windows
+            - name: ' Windows'
               href: 'https://github.com/Microsoft/Cognitive-SpeakerRecognition-Windows'
 - name: Ressources
   items:

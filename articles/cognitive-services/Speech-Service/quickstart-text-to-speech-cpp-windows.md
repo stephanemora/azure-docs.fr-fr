@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 4/03/2019
 ms.author: yinhew
 ms.openlocfilehash: 732816ce10836d5828e7f325a3eb3fe31627d4f4
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59012371"
 ---
 # <a name="quickstart-synthesize-speech-in-c-on-windows-by-using-the-speech-sdk"></a>Démarrage rapide : Synthèse vocale en C++ sur Windows avec le SDK Speech
@@ -69,4 +69,4 @@ Des exemples supplémentaires, qui montrent notamment comment enregistrer la syn
 ## <a name="see-also"></a>Voir aussi
 
 - [Personnaliser les polices de la voix](how-to-customize-voice-font.md)
-- [Enregistrement d’échantillons vocaux](record-custom-voice-samples.md)
+- [Enregistrer des échantillons vocaux](record-custom-voice-samples.md)

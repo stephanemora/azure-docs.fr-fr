@@ -1,15 +1,9 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 376f2bd792cb1b3190507f5571a8b7a33daf2542
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
-ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58439110"
 documentType: LandingData
 title: Documentation Azure Data Box - Transfert en ligne
 metadata:
   title: Documentation Azure Data Box - Transfert en ligne
-  description: Utilisez les appareils Data Box pour effectuer des transferts de données hautes performances via le réseau sur Azure de manière rapide, fiable et peu coûteuse.
+  description: 'Utilisez les appareils Data Box pour effectuer des transferts de données hautes performances via le réseau sur Azure de manière rapide, fiable et peu coûteuse.'
   services: databox
   author: alkohli
   manager: twooley
@@ -19,27 +13,27 @@ metadata:
   ms.date: 03/25/2019
   ms.author: alkohli
 abstract:
-  description: La famille Azure Data Box vous permet de transférer des centaines de téraoctets de données vers Azure de manière rapide, économique et fiable. Utilisez les appareils Data Box pour les transferts de données hautes performances via le réseau.<p>Choisissez Data Box Gateway pour envoyer des données en vue d’un archivage sur le cloud, d’une reprise d’activité ou pour traiter les données à l’échelle du cloud.  Utilisez Data Box Edge pour filtrer, analyser et transformer vos données quand vous les déplacez vers Azure.</p><p>Découvrez comment tirer parti de Data Box Gateway et Data Box Edge pour le transfert réseau avec nos tutoriels.</p>
+  description: 'La famille Azure Data Box vous permet de transférer des centaines de téraoctets de données vers Azure de manière rapide, économique et fiable. Utilisez les appareils Data Box pour les transferts de données hautes performances via le réseau.<p>Choisissez Data Box Gateway pour envoyer des données en vue d’un archivage sur le cloud, d’une reprise d’activité ou pour traiter les données à l’échelle du cloud.  Utilisez Data Box Edge pour filtrer, analyser et transformer vos données quand vous les déplacez vers Azure.</p><p>Découvrez comment tirer parti de Data Box Gateway et Data Box Edge pour le transfert réseau avec nos tutoriels.</p>'
 sections:
-- title: Tutoriels
-  items:
-  - type: paragraph
-    text: <b>Pour Data Box Gateway</b>
-  - type: list
-    style: ordered
+  - title: Tutoriels
     items:
-    - html: <a href="data-box-gateway-deploy-prep">Préparer le déploiement d’Azure Data Box Gateway</a>
-    - html: <a href="data-box-gateway-deploy-provision-hyperv">Provisionner Azure Data Box Gateway dans Hyper-V</a>
-    - html: <a href="data-box-gateway-deploy-provision-vmware">Provisionner Azure Data Box Gateway dans VMware</a>
-    - html: <a href="data-box-gateway-deploy-connect-setup-activate">Se connecter à Azure Data Box Gateway, le configurer et l’activer</a>
-    - html: <a href="data-box-gateway-deploy-add-shares">Transférer des données avec Azure Data Box Gateway</a>
-  - type: paragraph
-    text: <b>Pour Data Box Edge</b>
-  - type: list
-    style: ordered
-    items:
-    - html: <a href="data-box-edge-deploy-prep">Préparer le déploiement d’Azure Data Box Edge</a>
-    - html: <a href="data-box-edge-deploy-install">Installer Azure Data Box Edge</a>
-    - html: <a href="data-box-edge-deploy-connect-setup-activate">Se connecter à Azure Data Box Edge, le configurer et l’activer</a>
-    - html: <a href="data-box-edge-deploy-add-shares">Transférer des données avec Azure Data Box Edge</a>
-    - html: <a href="data-box-edge-deploy-configure-compute">Transformer des données avec Azure Data Box Edge</a>
+      - type: paragraph
+        text: <b>Pour Data Box Gateway</b>
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="data-box-gateway-deploy-prep">Préparer le déploiement d’Azure Data Box Gateway</a>
+          - html: <a href="data-box-gateway-deploy-provision-hyperv">Provisionner Azure Data Box Gateway dans Hyper-V</a>
+          - html: <a href="data-box-gateway-deploy-provision-vmware">Provisionner Azure Data Box Gateway dans VMware</a>
+          - html: '<a href="data-box-gateway-deploy-connect-setup-activate">Se connecter à Azure Data Box Gateway, le configurer et l’activer</a>'
+          - html: <a href="data-box-gateway-deploy-add-shares">Transférer des données avec Azure Data Box Gateway</a>
+      - type: paragraph
+        text: <b>Pour Data Box Edge</b>
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="data-box-edge-deploy-prep">Préparer le déploiement d’Azure Data Box Edge</a>
+          - html: <a href="data-box-edge-deploy-install">Installer Azure Data Box Edge</a>
+          - html: '<a href="data-box-edge-deploy-connect-setup-activate">Se connecter à Azure Data Box Edge, le configurer et l’activer</a>'
+          - html: <a href="data-box-edge-deploy-add-shares">Transférer des données avec Azure Data Box Edge</a>
+          - html: <a href="data-box-edge-deploy-configure-compute">Transformer des données avec Azure Data Box Edge</a>

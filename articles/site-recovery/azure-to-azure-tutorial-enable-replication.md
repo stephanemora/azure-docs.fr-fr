@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 03/12/2019
+ms.date: 04/16/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: ff18a14b314b5757629205f4bf0eb134411688ec
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 13c86a38e0d894feed0d9c24dd802a09ff1d1d2d
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57853109"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678837"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms"></a>Configurer la récupération d’urgence pour les machines virtuelles Azure
 
@@ -86,7 +86,7 @@ Si vous souhaitez contrôler la connectivité sortante à l’aide d’adresses 
   - [URL et plages d’adresses IP Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity)
   - [Adresses IP de points de terminaison du service Site Recovery](https://aka.ms/site-recovery-public-ips)
 
-Vous pouvez utiliser [ce script](https://gallery.technet.microsoft.com/Azure-Recovery-script-to-0c950702) pour créer les règles de groupe de sécurité réseau nécessaires.
+Si vous utilisez un groupe de sécurité réseau, vous pouvez créer des règles de groupe de sécurité réseau basées sur une balise de service de stockage pour la région source. [Plus d’informations](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges)
 
 ## <a name="verify-azure-vm-certificates"></a>Vérifier les certificats des machines virtuelles Azure
 
