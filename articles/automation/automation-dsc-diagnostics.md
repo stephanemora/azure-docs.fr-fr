@@ -136,8 +136,8 @@ Diagnostic d’Azure Automation crée deux catégories d’enregistrements dans 
 | ConfigurationMode | La façon dont la configuration est appliquée au nœud. Les valeurs possibles sont __« ApplyOnly »__,__« ApplyandMonitor »__ et __« ApplyandAutoCorrect »__. <ul><li>__ApplyOnly__ : DSC applique la configuration et ne fait rien de plus, sauf si une nouvelle configuration est envoyée au nœud cible ou quand une nouvelle configuration est extraite d’un serveur. Après l’application initiale d’une nouvelle configuration, DSC ne vérifie pas l’écart par rapport à un état configuré précédemment. DSC tente d’appliquer la configuration jusqu’à ce que l’opération réussisse avant que la valeur __ApplyOnly__ prenne effet. </li><li> __ApplyAndMonitor__ : Il s’agit de la valeur par défaut. Le gestionnaire de configuration locale applique toutes les nouvelles configurations. Après l’application initiale d’une nouvelle configuration, si le nœud cible s’écarte de l’état désiré, DSC signale l’écart dans les journaux d’activité. DSC tente d’appliquer la configuration jusqu’à ce que l’opération réussisse avant que la valeur __ApplyAndMonitor__ prenne effet.</li><li>__ApplyAndAutoCorrect__ : DSC applique toutes les nouvelles configurations. Après l’application initiale d’une nouvelle configuration, si le nœud cible s’écarte de l’état désiré, DSC signale l’écart dans les journaux d’activité puis applique à nouveau la configuration actuelle.</li></ul> |
 | HostName_s | Le nom du nœud géré. |
 | IPAddress | L’adresse IPv4 du nœud géré. |
-| Catégorie | DscNodeStatus |
-| Ressource | Le nom du compte Azure Automation. |
+| Category | DscNodeStatus |
+| Resource | Le nom du compte Azure Automation. |
 | Tenant_g | GUID identifiant le locataire pour l’appelant. |
 | NodeId_g |GUID qui identifie le nœud géré. |
 | DscReportId_g |GUID qui identifie le rapport. |
@@ -162,8 +162,8 @@ Diagnostic d’Azure Automation crée deux catégories d’enregistrements dans 
 | OperationName |DscResourceStatusData|
 | ResultType |Indique si la ressource est conforme. |
 | NodeName_s |Le nom du nœud géré. |
-| Catégorie | DscNodeStatus |
-| Ressource | Le nom du compte Azure Automation. |
+| Category | DscNodeStatus |
+| Resource | Le nom du compte Azure Automation. |
 | Tenant_g | GUID identifiant le locataire pour l’appelant. |
 | NodeId_g |GUID qui identifie le nœud géré. |
 | DscReportId_g |GUID qui identifie le rapport. |
