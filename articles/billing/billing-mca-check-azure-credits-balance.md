@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 02/28/2019
 ms.author: amberb
 ms.openlocfilehash: 1e8c3e6863b9cd8f2f5ced18a57918c32c865e75
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544594"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60372257"
 ---
 # <a name="track-azure-credit-balance-for-microsoft-customer-agreement"></a>Suivre le solde de crédit Azure pour le contrat de client de Microsoft
 
@@ -37,7 +37,7 @@ Cet article s’applique à un compte de facturation d’un contrat de client de
 
    ![Capture d’écran montrant la recherche dans le portail de gestion des coûts + facturation](./media/billing-mca-check-azure-credits-balance/billing-search-cost-management-billing.png)
 
-3. Atteindre le profil de facturation. Selon votre accès, vous devrez peut-être sélectionner un compte de facturation. Dans le compte de facturation, sélectionnez **profils de facturation** et ensuite un profil de facturation.
+3. Accédez au profil de facturation. Selon votre accès, vous devrez peut-être sélectionner un compte de facturation. Dans le compte de facturation, sélectionnez **profils de facturation** et ensuite un profil de facturation.
 
 4. Sélectionnez **crédits Azure**.
 

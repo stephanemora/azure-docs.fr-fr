@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à XaitPorter | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à XaitPorter | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et XaitPorter.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 04/16/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6cd4f9e561a55c010273b48fb4232348baad3582
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56200936"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60397490"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-xaitporter"></a>Tutoriel : Intégration d’Azure Active Directory à XaitPorter
+# <a name="tutorial-azure-active-directory-integration-with-xaitporter"></a>Didacticiel : Intégration d’Azure Active Directory à XaitPorter
 
 Dans ce didacticiel, vous allez apprendre à intégrer XaitPorter dans Azure Active Directory (Azure AD).
 
@@ -35,7 +35,7 @@ L’intégration de XaitPorter dans Azure AD vous offre les avantages suivants :
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour configurer l’intégration de Azure AD à XaitPorter, vous avez besoin des éléments suivants :
 

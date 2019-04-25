@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 4/27/2018
 ms.author: shhurst
 ms.openlocfilehash: 5aa5ea2a39a0fb9f969e965fed14063522197cda
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085779"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60303769"
 ---
 # <a name="handle-large-messages-with-chunking-in-azure-logic-apps"></a>Gérer les messages volumineux avec la segmentation dans Azure Logic Apps
 
@@ -117,18 +117,18 @@ Ces étapes décrivent le processus détaillé utilisé par Logic Apps pour char
 
 1. Votre application logique envoie une requête HTTP POST ou PUT initiale avec un corps de message vide. L’en-tête de la requête inclut les informations sur le contenu que votre application logique souhaite envoyer sous forme de segments :
 
-   | Champ d’en-tête de la requête Logic Apps | Valeur | type | Description |
+   | Champ d’en-tête de la requête Logic Apps | Valeur | Type | Description |
    |---------------------------------|-------|------|-------------|
-   | **x-ms-transfer-mode** | segmenté | Chaîne | Indique que le contenu est chargé sous forme de segments |
+   | **x-ms-transfer-mode** | segmenté | String | Indique que le contenu est chargé sous forme de segments |
    | **x-ms-content-length** | <*content-length*> | Entier  | La taille, en octets, de l’intégralité du contenu avant segmentation |
    ||||
 
 2. Le point de terminaison répond avec le code d’état de réussite « 200 » et ces informations facultatives :
 
-   | Champ d’en-tête de réponse de point de terminaison | type | Obligatoire | Description |
+   | Champ d’en-tête de réponse de point de terminaison | Type | Obligatoire | Description |
    |--------------------------------|------|----------|-------------|
    | **x-ms-chunk-size** | Entier  | Non  | La taille de segment suggérée en octets |
-   | **Lieu** | Chaîne | Non  | L’adresse URL vers laquelle envoyer les messages HTTP PATCH |
+   | **Lieu** | String | Non  | L’adresse URL vers laquelle envoyer les messages HTTP PATCH |
    ||||
 
 3. Votre application logique crée et envoie des messages HTTP PATCH de suivi, chacun contenant les informations suivantes :
@@ -137,11 +137,11 @@ Ces étapes décrivent le processus détaillé utilisé par Logic Apps pour char
 
    * Ces informations d’en-tête relatives au segment de contenu envoyé dans chaque message PATCH :
 
-     | Champ d’en-tête de la requête Logic Apps | Valeur | type | Description |
+     | Champ d’en-tête de la requête Logic Apps | Valeur | Type | Description |
      |---------------------------------|-------|------|-------------|
-     | **Content-Range** | <*range*> | Chaîne | La plage d’octets pour le segment de contenu actuel, y compris la valeur de début, la valeur de fin et la taille totale du contenu, par exemple : « bytes=0-1023/10100 » |
-     | **Content-Type** | <*content-type*> | Chaîne | Le type de contenu segmenté |
-     | **Content-Length** | <*content-length*> | Chaîne | La longueur, en octets, du segment actuel |
+     | **Content-Range** | <*range*> | String | La plage d’octets pour le segment de contenu actuel, y compris la valeur de début, la valeur de fin et la taille totale du contenu, par exemple : « bytes=0-1023/10100 » |
+     | **Content-Type** | <*content-type*> | String | Le type de contenu segmenté |
+     | **Content-Length** | <*content-length*> | String | La longueur, en octets, du segment actuel |
      |||||
 
 4. Après chaque requête PATCH, le point de terminaison confirme la réception de chaque segment en renvoyant le code d’état « 200 ».

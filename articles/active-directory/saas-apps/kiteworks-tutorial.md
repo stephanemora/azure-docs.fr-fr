@@ -16,11 +16,11 @@ ms.date: 06/20/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 73c352c0d60bc8dca969092210e9cff0a733765a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56163530"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60263251"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kiteworks"></a>Tutoriel : Intégration d’Azure Active Directory à Kiteworks
 
@@ -34,7 +34,7 @@ L’intégration de Kiteworks dans Azure AD vous offre les avantages suivants :
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour configurer l’intégration d’Azure AD avec Kiteworks, vous avez besoin des éléments suivants :
 

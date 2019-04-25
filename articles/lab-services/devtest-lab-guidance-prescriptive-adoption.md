@@ -14,11 +14,11 @@ ms.date: 04/12/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
 ms.openlocfilehash: e1d119f3c7c5d6dbdb570d362c53b80dad7886bd
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60149000"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60198035"
 ---
 # <a name="set-up-azure-devtest-labs-infrastructure-in-your-enterprise"></a>Configurer l’infrastructure d’Azure DevTest Labs dans votre entreprise
 Les entreprises adoptent rapidement le cloud en raison de son [avantages](/azure/architecture/cloud-adoption/business-strategy/cloud-migration-business-case) qui incluent l’économie, la flexibilité et agilité. Une première étape courants pour les clients à utiliser le cloud consiste à démarrer avec les charges de travail de développement et de test.  Dev/test fournit [fonctionnalités](devtest-lab-concepts.md) qui bénéficient de l’entreprise et la prise en charge [principaux scénarios de développement/test enterprise](devtest-lab-guidance-get-started.md).

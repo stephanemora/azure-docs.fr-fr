@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 04/17/2019
 ms.author: magoedte
 ms.openlocfilehash: 66fc55d8c3dbb8487d1e796d5f30b08a94f717f6
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60013895"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60494766"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-containers"></a>Comment interroger les journaux à partir d’Azure Monitor pour les conteneurs
 Azure Monitor pour les conteneurs collecte les mesures de performances, les données d’inventaire et les informations d’état d’intégrité à partir de conteneurs et hôtes de conteneur et les transfère à l’espace de travail Analytique de journal dans Azure Monitor. Les données sont collectées toutes les trois minutes. Ces données sont disponibles pour [requête](../../azure-monitor/log-query/log-query-overview.md) dans Azure Monitor. Vous pouvez appliquer ces données à divers scénarios tels que la planification de la migration, l’analyse de la capacité, la détection et la résolution de problèmes de performances à la demande.

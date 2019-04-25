@@ -11,13 +11,13 @@ ms.reviewer: klam, deli, LADocs
 ms.suite: integration
 ms.date: 10/05/2018
 ms.openlocfilehash: 0fec590523fa130af2e5670a92914c056df289d1
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50229615"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60512244"
 ---
-# <a name="quickstart-create-and-manage-automated-logic-app-workflows---visual-studio-code"></a>Démarrage rapide : créer et gérer des workflows automatisés d’application logique - Visual Studio Code
+# <a name="quickstart-create-and-manage-automated-logic-app-workflows---visual-studio-code"></a>Démarrage rapide : Créer et gérer des workflows automatisés d’application logique - Visual Studio Code
 
 Avec [Azure Logic Apps](../logic-apps/logic-apps-overview.md) et Visual Studio Code, vous pouvez créer et gérer des applications logiques qui vous permettent d’automatiser tâches, workflows et processus liés à l’intégration d’applications, de données, de systèmes et de services dans les entreprises et les organisations. Ce démarrage rapide montre comment vous pouvez créer et modifier des définitions de workflows d’application logique en travaillant avec le schéma de définition de workflow dans JavaScript Objet Notation (JSON) via une expérience basée sur le code. Vous pouvez également travailler sur les applications logiques existantes déjà déployées dans <a href="https://docs.microsoft.com/azure/guides/developer/azure-developer-guide" target="_blank">Azure</a> sur le cloud. 
 

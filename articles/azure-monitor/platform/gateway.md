@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: magoedte
 ms.openlocfilehash: b0b221a9fe6c6482e8759664c297dbd25d0ee776
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59699268"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60396330"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>Connecter des ordinateurs sans accès à internet à l’aide de la passerelle d’Analytique de journal dans Azure Monitor
 
@@ -403,7 +403,7 @@ Le tableau suivant montre les ID d’événement et les descriptions des événe
 
 Le tableau suivant montre les compteurs de performances disponibles pour la passerelle Log Analytics. Utiliser l’Analyseur de performances pour ajouter les compteurs.
 
-| **Nom** | **Description** |
+| **Name** | **Description** |
 | --- | --- |
 | Passerelle Log Analytics/Connexion du client actif |Nombre de connexions du réseau client actif (TCP) |
 | Passerelle Log Analytics/Nombre d’erreurs |Nombre d’erreurs |

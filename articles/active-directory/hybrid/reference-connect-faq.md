@@ -16,11 +16,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a392fd03016f83f86364d8f92e8bb4da0aa3364a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57840900"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60381439"
 ---
 # <a name="azure-active-directory-connect-faq"></a>FAQ Azure Active Directory Connect
 
@@ -106,7 +106,7 @@ Utilisez les instructions décrites dans l’article [Renouveler les certificats
 
 ## <a name="environment"></a>Environnement
 **Q : Est-il possible de renommer le serveur une fois qu’Azure AD Connect est installé ?**  
- Non. Lorsque le nom du serveur est modifié, le moteur de synchronisation n’est pas en mesure de se connecter à l’instance de base de données SQL et le service ne peut pas démarrer.
+Non. Lorsque le nom du serveur est modifié, le moteur de synchronisation n’est pas en mesure de se connecter à l’instance de base de données SQL et le service ne peut pas démarrer.
 
 ## <a name="identity-data"></a>Données d’identité
 **Q : Pourquoi l’attribut userPrincipalName (UPN) dans Azure AD ne correspond-t-il à l’UPN local ?**  
@@ -128,7 +128,7 @@ Non, la définition manuelle de l’attribut ImmutableId sur un objet de groupe 
 À l’exception des applets de commande qui sont décrites sur ce site, les autres applets de commande PowerShell disponibles dans Azure AD Connect ne sont pas prises en charge par le client.
 
 **Q : Puis-je utiliser l’option « exportation serveur/importation serveur » dans Synchronization Service Manager pour déplacer la configuration entre des serveurs ?**  
- Non. Cette option ne récupère pas tous les paramètres de configuration et ne doit pas être utilisée. Utilisez plutôt l’assistant pour créer la configuration de base sur le deuxième serveur et utilisez l’éditeur de règles de synchronisation pour générer des scripts PowerShell afin de déplacer une règle personnalisée entre les serveurs. Pour plus d’informations, consultez la page [Migration Swing](how-to-upgrade-previous-version.md#swing-migration).
+Non. Cette option ne récupère pas tous les paramètres de configuration et ne doit pas être utilisée. Utilisez plutôt l’assistant pour créer la configuration de base sur le deuxième serveur et utilisez l’éditeur de règles de synchronisation pour générer des scripts PowerShell afin de déplacer une règle personnalisée entre les serveurs. Pour plus d’informations, consultez la page [Migration Swing](how-to-upgrade-previous-version.md#swing-migration).
 
 **Q : Les mots de passe peuvent-ils être mis en cache pour la page de connexion Azure ? Est-il possible d’empêcher cette mise en cache, étant donné que la page contient un élément d’entrée de mot de passe avec l’attribut *autocomplete = "false"* ?**  
 Pour l’instant, la modification des attributs HTML du champ **Mot de passe**, et notamment de la balise autocomplete, n’est pas prise en charge. Nous travaillons actuellement à l’élaboration d’une fonctionnalité autorisant le code Javascript personnalisé, afin de vous permettre d’ajouter n’importe quel attribut au champ **Mot de passe**.
@@ -137,7 +137,7 @@ Pour l’instant, la modification des attributs HTML du champ **Mot de passe**, 
 Pour l’instant, la modification des attributs HTML du champ d’entrée **Mot de passe**, et notamment de la balise autocomplete, n’est pas prise en charge. Nous travaillons actuellement à l’élaboration d’une fonctionnalité autorisant le code Javascript personnalisé, afin de vous permettre d’ajouter n’importe quel attribut au champ **Mot de passe**.
 
 **Q : Existe-t-il un moyen d’empêcher les sessions simultanées ?**  
- Non.
+Non.
 
 ## <a name="auto-upgrade"></a>Mise à niveau automatique
 

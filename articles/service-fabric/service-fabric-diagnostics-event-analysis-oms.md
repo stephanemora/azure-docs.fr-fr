@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 02/21/2019
 ms.author: srrengar
 ms.openlocfilehash: ba4923edbc59f0e6650fda1a71e1c4f79b884cf2
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662157"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60393406"
 ---
 # <a name="event-analysis-and-visualization-with-azure-monitor-logs"></a>Analyse des événements et visualisation avec les journaux d’Azure Monitor
  Les journaux Azure Monitor collectent et analysent les données de télémétrie des applications et services hébergés dans le cloud, et fournissent des outils d’analyse pour vous aider à maximiser leur disponibilité et leurs performances. Cet article décrit comment exécuter des requêtes dans les journaux d’Azure Monitor pour obtenir des informations détaillées et résoudre les problèmes de ce qui se passe dans votre cluster. Les questions courantes suivantes sont traitées :

@@ -11,17 +11,17 @@ ms.topic: how-to
 ms.date: 03/20/2019
 ms.author: kegodin
 ms.openlocfilehash: aa7c5c513d65310bf9bffab29c1d18e7e7a85b49
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316284"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60389490"
 ---
 # <a name="project-acoustics-unity-integration"></a>Intégration de Project acoustique Unity
 Cette procédure explique l’intégration du plug-in de projet acoustique Unity à votre projet Unity.
 
 Configuration logicielle requise :
-* [Unity 2018.2 +](http://unity3d.com) pour Windows
+* [Unity 2018.2+](http://unity3d.com) pour Windows
 * [Package de projet Unity d’acoustique](https://www.microsoft.com/download/details.aspx?id=57346)
 
 ## <a name="import-the-plugin"></a>Importer le plug-in
@@ -37,9 +37,9 @@ Si vous importez le plug-in dans un projet existant, il est possible que votre p
 ## <a name="enable-the-plugin"></a>Activer le plug-in
 La partie baking de la boîte à outils Acoustics nécessite la version du runtime de script .NET 4.x. L’importation de package met à jour les paramètres du lecteur Unity. Redémarrez Unity pour que ce paramètre prenne effet.
 
-![Panneau de la capture d’écran des paramètres du lecteur Unity](media/player-settings.png)
+![Capture d’écran du panneau de paramètres du lecteur Unity](media/player-settings.png)
 
-![Panneau de capture d’écran des paramètres du lecteur Unity avec .NET 4.5 sélectionné](media/net45.png)
+![Capture d’écran du panneau de paramètres du lecteur Unity avec .NET 4.5 sélectionné](media/net45.png)
 
 ## <a name="set-up-audio-dsp"></a>Configurer audio DSP
 Projet acoustique inclut runtime audio DSP intègre le moteur audio spatial d’Unity. Il inclut les HRTF et panoramique spatialisation. Activer DSP acoustique de projet en ouvrant les paramètres audio de Unity à l’aide de **Modifier > Paramètres du projet > Audio**, puis en sélectionnant **projet acoustique** comme le **plug-in spatial** pour votre projet. Assurez-vous que le **taille de mémoire tampon DSP** est défini sur les meilleures performances.
@@ -60,7 +60,7 @@ Créez une source sonore. Cochez la case en bas du panneau d’inspecteur d’Au
 ## <a name="enable-acoustic-design"></a>Activer la conception acoustique
 Attacher le script **AcousticsAdjust** à une source audio dans votre scène pour activer les paramètres de création de sources supplémentaires, en cliquant sur **ajouter un composant** et en choisissant **Scripts > Ajuster acoustique** :
 
-![Capture d’écran de Unity AcousticsAdjust script](media/acoustics-adjust.png)
+![Capture d’écran du script AcousticsAdjust Unity](media/acoustics-adjust.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Intégrer votre scène avec acoustique de projet pour Unity](unity-baking.md)

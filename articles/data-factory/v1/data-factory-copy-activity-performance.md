@@ -14,11 +14,11 @@ ms.date: 05/25/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: ec8c58e4ced0d8df958e242b9c1671aeed8c2ee6
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55812087"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60488226"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Guide sur les performances et le réglage de l’activité de copie
 
@@ -414,7 +414,7 @@ Dans ce cas, la compression de données bzip2 pourrait ralentir l’ensemble du 
 
 ![Scénario 3](./media/data-factory-copy-activity-performance/scenario-3.png)
 
-## <a name="reference"></a>Informations de référence
+## <a name="reference"></a>Référence
 Voici des références relatives à la surveillance et au réglage des performances pour quelques banques de données prises en charge :
 
 * Stockage Azure (le Stockage Blob et le Stockage Table) : [Objectifs d’évolutivité du Stockage Azure](../../storage/common/storage-scalability-targets.md) et [Liste de contrôle des performances et de l’évolutivité du Stockage Azure](../../storage/common/storage-performance-checklist.md)

@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: pbutlerm
 ms.openlocfilehash: a050a8cfdd67f662786fc0b9b7ed5451c88dccb1
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48806652"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60397819"
 ---
 <a name="how-to-fill-out-the-offer-settings-form"></a>Comment remplir le formulaire Paramètres de l’offre
 =======================================
@@ -42,7 +42,7 @@ Par exemple, si le partenaire « Contoso » crée un ID d’offre appelé « 
 Cette liste déroulante vous permet de choisir le profil d’éditeur sous lequel vous voulez publier cette offre. Ce champ est verrouillé une fois l’offre publiée.
 
 
-### <a name="name"></a>NOM
+### <a name="name"></a>Nom
 
 Il s’agit du nom d’affichage pour votre application/offre, qui sera affiché dans Microsoft [AppSource](https://appsource.microsoft.com/). Il ne peut pas comprendre plus de 50 caractères.
 

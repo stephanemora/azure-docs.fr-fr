@@ -19,11 +19,11 @@ ms.custom: aaddev
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d976a43173ce4f9deee0a723a895b40678e173b3
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437881"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60250507"
 ---
 # <a name="single-sign-on-saml-protocol"></a>Protocole SAML d’authentification unique
 
@@ -100,7 +100,7 @@ S’il est fourni, n’incluez ni l’attribut `ProxyCount` ni l’élément `ID
 ### <a name="signature"></a>Signature
 N’incluez pas d’élément `Signature` dans les éléments `AuthnRequest`, car Azure AD ne prend pas en charge les demandes d’authentification signées.
 
-### <a name="subject"></a>Objet
+### <a name="subject"></a>Subject
 Azure AD ignore l’élément `Subject` des éléments `AuthnRequest`.
 
 ## <a name="response"></a>response
@@ -211,7 +211,7 @@ Pour générer cette signature numérique, Azure AD utilise la clé de signature
     </ds:Signature>
 ```
 
-#### <a name="subject"></a>Objet
+#### <a name="subject"></a>Subject
 
 Spécifie le principal qui fait l’objet des instructions contenues dans l’assertion. Il contient un élément `NameID` qui représente l’utilisateur authentifié. La valeur `NameID` est un identificateur ciblé qui est dirigé uniquement vers le fournisseur de services visé pour le jeton. Elle est persistante : elle peut être révoquée, mais n’est jamais réaffectée. Elle est également opaque, car elle ne révèle rien sur l’utilisateur et ne peut pas être utilisée comme identificateur pour les requêtes d’attribut.
 

@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: a7fdcf396f586a65efa17e489d002f1c8847a193
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58884990"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60196863"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-azure-active-directory"></a>Authentification de service à service auprès d’Azure Data Lake Storage Gen1 en utilisant Azure Active Directory
 > [!div class="op_single_selector"]
@@ -37,7 +37,7 @@ Cet article traite de la création d’une **application web Azure AD pour l’a
 ## <a name="prerequisites"></a>Conditions préalables
 * Un abonnement Azure. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-## <a name="step-1-create-an-active-directory-web-application"></a>Étape 1 : Créer une application web de Active Directory
+## <a name="step-1-create-an-active-directory-web-application"></a>Étape 1 : Créer une application web de Active Directory
 
 Créez et configurez une application web Azure AD pour l’authentification de service à service auprès d’Azure Data Lake Storage Gen1 à l’aide d’Azure Active Directory. Pour obtenir des instructions, consultez la page [Créer une application Azure AD](../active-directory/develop/howto-create-service-principal-portal.md).
 
@@ -52,7 +52,7 @@ Quand vous vous connectez par programmation, vous avez besoin de l’ID de votre
 
 * Pour obtenir des instructions afin de récupérer l’ID du locataire, consultez [Obtenir l’ID du locataire](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-id).
 
-## <a name="step-3-assign-the-azure-ad-application-to-the-azure-data-lake-storage-gen1-account-file-or-folder"></a>Étape 3 : Affecter l’application Azure AD pour le fichier de compte Azure Data Lake Storage Gen1 ou le dossier
+## <a name="step-3-assign-the-azure-ad-application-to-the-azure-data-lake-storage-gen1-account-file-or-folder"></a>Étape 3 : Affecter l’application Azure AD pour le fichier de compte Azure Data Lake Storage Gen1 ou le dossier
 
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com). Ouvrez le compte Data Lake Storage Gen1 que vous souhaitez associer à l’application Azure Active Directory que vous avez créée.

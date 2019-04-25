@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/26/2017
 ms.author: tamram
-ms.openlocfilehash: e27be86a7a14a38c5083949a1a7255574d2d0dc6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 3996f22db2f5dc597939995a2699c4fe228821e3
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956079"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60392555"
 ---
 # <a name="manage-anonymous-read-access-to-containers-and-blobs"></a>Gestion de l’accès en lecture anonyme aux conteneurs et aux objets blob
 Vous pouvez activer l’accès en lecture anonyme public pour un conteneur et ses objets blob dans Stockage Blob Azure. En procédant ainsi, vous pouvez accorder un accès en lecture seule à ces ressources sans partager votre clé de compte et sans exiger de signature d’accès partagé (SAP).
@@ -24,15 +24,15 @@ Par défaut, un conteneur et tous les objets blob qu'il contient sont accessible
 
 Vous pouvez configurer un conteneur avec les autorisations suivantes :
 
-* **No public read access (Aucun accès en lecture public) :** seul le propriétaire du compte de stockage peut accéder au conteneur et à ses objets blob. Il s’agit de la configuration par défaut de tous les nouveaux conteneurs.
-* **Accès en lecture public pour les objets blobs uniquement :** les objets blob présents dans le conteneur peuvent être lus par une demande anonyme, mais les données du conteneur ne sont pas disponibles. Les clients anonymes ne peuvent pas énumérer les objets blob présents dans le conteneur.
-* **Accès en lecture public total :** toutes les données du conteneur et des objets blob peuvent être lues par une demande anonyme. Les clients peuvent énumérer les objets blob présents dans le conteneur par une demande anonyme, mais ne peuvent pas énumérer les conteneurs présents dans le compte de stockage.
+* **Aucun accès en lecture public :** Le conteneur et ses objets BLOB sont accessibles uniquement par le propriétaire de compte de stockage. Il s’agit de la configuration par défaut de tous les nouveaux conteneurs.
+* **Accès en lecture public pour les objets BLOB uniquement :** Objets BLOB dans le conteneur peuvent être lu par une demande anonyme, mais les données de conteneur ne seront pas disponibles. Les clients anonymes ne peuvent pas énumérer les objets blob présents dans le conteneur.
+* **Accès en lecture public complet :** Tous les conteneurs et les données blob peuvent être lues par une demande anonyme. Les clients peuvent énumérer les objets blob présents dans le conteneur par une demande anonyme, mais ne peuvent pas énumérer les conteneurs présents dans le compte de stockage.
 
 Vous pouvez définir les autorisations de conteneur par les moyens suivants :
 
 * [Portail Azure](https://portal.azure.com)
 * [Azure PowerShell](../common/storage-powershell-guide-full.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
-* [interface de ligne de commande Azure](../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-and-manage-blobs)
+* [Interface de ligne de commande Azure](../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-and-manage-blobs)
 * Par programmation, en utilisant l’une des bibliothèques clientes de stockage ou l’API REST
 
 ### <a name="set-container-permissions-in-the-azure-portal"></a>Définir des autorisations de conteneur dans le portail Azure
