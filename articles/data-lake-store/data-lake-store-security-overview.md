@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
 ms.openlocfilehash: 63e538ab43eaf4a34226b0084cf55334e2cc782b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58883295"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60195248"
 ---
 # <a name="security-in-azure-data-lake-storage-gen1"></a>Sécurité dans Azure Data Lake Storage Gen1
 Un grand nombre d’entreprises tirent parti de l’analyse du Big Data pour bénéficier d’informations métier afin de prendre des décisions éclairées. Une organisation peut évoluer dans un environnement complexe et réglementé, avec un nombre croissant d’utilisateurs divers. Il est essentiel pour une entreprise de garantir que les données métier critiques sont stockées de manière plus sécurisée, avec le niveau d’accès adéquat pour chaque utilisateur. Azure Data Lake Storage Gen1 vous permet de respecter ces exigences de sécurité. Dans cet article, découvrez les fonctionnalités de sécurité de Data Lake Storage Gen1, notamment :

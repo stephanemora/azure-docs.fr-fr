@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Didacticiel : Intégration d’Azure Active Directory à LiquidFiles | Microsoft Docs'
+title: 'Didacticiel : Didacticiel : Intégration d’Azure Active Directory à LiquidFiles | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et LiquidFiles.
 services: active-directory
 documentationCenter: na
@@ -16,11 +16,11 @@ ms.date: 07/14/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 20a3144f2a8727420803034426106a29a7924727
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56167301"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60258572"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-liquidfiles"></a>Didacticiel : Intégration d’Azure Active Directory à LiquidFiles
 

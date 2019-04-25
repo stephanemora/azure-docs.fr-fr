@@ -12,11 +12,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6911b19c680c2fdb8c372347c4dd0fca60bb0e0b
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60007557"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60245514"
 ---
 # <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect : Configurer les autorisations du compte de connecteur AD DS 
 
@@ -136,7 +136,7 @@ Set-ADSyncBasicReadPermissions -ADConnectorAccountDN <String> [-ADobjectDN <Stri
 Cette applet de commande définit les autorisations suivantes : 
  
 
-|type |Nom |Access |S'applique à| 
+|Type |Nom |Access |S'applique à| 
 |-----|-----|-----|-----|
 |AUTORISER |Compte de connecteur AD DS |Lire toutes les propriétés |Objets appareil descendants| 
 |AUTORISER |Compte de connecteur AD DS|Lire toutes les propriétés |Objets InetOrgPerson descendants| 
@@ -162,7 +162,7 @@ Set-ADSyncMsDsConsistencyGuidPermissions -ADConnectorAccountDN <String> [-ADobje
 
 Cette applet de commande définit les autorisations suivantes : 
 
-|type |Nom |Access |S'applique à|
+|Type |Nom |Access |S'applique à|
 |-----|-----|-----|-----| 
 |AUTORISER|Compte de connecteur AD DS|Lecture/Écriture de la propriété|Objets utilisateur descendants|
 
@@ -182,7 +182,7 @@ Set-ADSyncPasswordHashSyncPermissions -ADConnectorAccountDN <String> [<CommonPar
 
 Cette applet de commande définit les autorisations suivantes : 
 
-|type |Nom |Access |S'applique à|
+|Type |Nom |Access |S'applique à|
 |-----|-----|-----|-----| 
 |AUTORISER |Compte de connecteur AD DS |Réplication des modifications de l’annuaire |Cet objet uniquement (racine du domaine)| 
 |AUTORISER |Compte de connecteur AD DS |Réplication de toutes les modifications de l’annuaire |Cet objet uniquement (racine du domaine)| 
@@ -202,7 +202,7 @@ Set-ADSyncPasswordWritebackPermissions -ADConnectorAccountDN <String> [-ADobject
 ```
 Cette applet de commande définit les autorisations suivantes : 
 
-|type |Nom |Access |S'applique à|
+|Type |Nom |Access |S'applique à|
 |-----|-----|-----|-----| 
 |AUTORISER |Compte de connecteur AD DS |Réinitialiser le mot de passe |Objets utilisateur descendants| 
 |AUTORISER |Compte de connecteur AD DS |Écriture de la propriété lockoutTime |Objets utilisateur descendants| 
@@ -222,7 +222,7 @@ Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountDN <String> [-ADob
  
 Cette applet de commande définit les autorisations suivantes : 
 
-|type |Nom |Access |S'applique à|
+|Type |Nom |Access |S'applique à|
 |-----|-----|-----|-----| 
 |AUTORISER |Compte de connecteur AD DS |Lecture/Écriture générique |Tous les attributs d’un groupe de types d’objets et des sous-objets| 
 |AUTORISER |Compte de connecteur AD DS |Création/Suppression de l’objet enfant |Tous les attributs d’un groupe de types d’objets et des sous-objets| 
@@ -245,7 +245,7 @@ Set-ADSyncExchangeHybridPermissions -ADConnectorAccountDN <String> [-ADobjectDN 
 Cette applet de commande définit les autorisations suivantes :  
  
 
-|type |Nom |Access |S'applique à|
+|Type |Nom |Access |S'applique à|
 |-----|-----|-----|-----| 
 |AUTORISER |Compte de connecteur AD DS |Lecture/écriture de toutes les propriétés |Objets utilisateur descendants| 
 |AUTORISER |Compte de connecteur AD DS |Lecture/écriture de toutes les propriétés |Objets InetOrgPerson descendants| 
@@ -267,7 +267,7 @@ Set-ADSyncExchangeMailPublicFolderPermissions -ADConnectorAccountDN <String> [-A
 ```
 Cette applet de commande définit les autorisations suivantes : 
 
-|type |Nom |Access |S'applique à|
+|Type |Nom |Access |S'applique à|
 |-----|-----|-----|-----| 
 |AUTORISER |Compte de connecteur AD DS |Lire toutes les propriétés |Objets PublicFolder descendants| 
 
@@ -292,7 +292,7 @@ Set-ADSyncRestrictedPermissions -ADConnectorAccountDN'CN=ADConnectorAccount,CN=U
 
 Cette applet de commande définit les autorisations suivantes : 
 
-|type |Nom |Access |S'applique à|
+|Type |Nom |Access |S'applique à|
 |-----|-----|-----|-----| 
 |AUTORISER |SYSTEM |Contrôle total |Cet objet 
 |AUTORISER |Administrateurs de l’entreprise |Contrôle total |Cet objet 

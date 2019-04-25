@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 04/10/2019
 ms.author: aljo
 ms.openlocfilehash: 46c9b37e9bb8613b34dea6705320f5689eeb51d8
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59526535"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60386820"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personnaliser les paramètres de cluster Service Fabric
 Cet article décrit les différents paramètres de structure personnalisables d’un cluster Service Fabric. Pour des clusters hébergés dans Azure, vous pouvez personnaliser les paramètres via le [portail Azure](https://portal.azure.com) ou en utilisant un modèle Azure Resource Manager. Pour plus d’informations, voir [Mettre à niveau la configuration d’un cluster Azure](service-fabric-cluster-config-upgrade-azure.md). Pour personnaliser les paramètres d’un cluster autonome, mettez à jour le fichier *ClusterConfig.json* et effectuez une mise à niveau de configuration sur le cluster. Pour plus d’informations, voir [Mettre à niveau la configuration d’un cluster autonome](service-fabric-cluster-config-upgrade-windows-server.md).

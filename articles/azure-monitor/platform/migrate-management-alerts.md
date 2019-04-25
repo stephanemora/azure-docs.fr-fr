@@ -1,19 +1,19 @@
 ---
 title: Migrer les alertes Azure pour les événements de gestion vers les alertes de journal d’activité
 description: Les alertes pour les événements de gestion seront supprimées le 1er octobre. Préparez-vous en migrant les alertes existantes.
-author: johnkemnetz
+author: lingliw
 services: monitoring
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 08/14/2017
-ms.author: johnkem
+ms.date: 04/12/19
+ms.author: v-lingwu
 ms.subservice: alerts
 ms.openlocfilehash: fb54e11c9da6bec2a1e0354317df6343140cbf09
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59794114"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60255924"
 ---
 # <a name="migrate-azure-alerts-on-management-events-to-activity-log-alerts"></a>Migrer les alertes Azure pour les événements de gestion vers les alertes de journal d’activité
 
@@ -32,7 +32,7 @@ Azure Monitor (anciennement Azure Insights) proposait une fonctionnalité permet
 Le script PowerShell suivant retourne une liste de toutes les alertes sur les événements de gestion figurant dans votre abonnement, ainsi que les conditions définies pour chaque alerte.
 
 ```powershell
-Connect-AzAccount
+Connect-AzAccount -Environment AzureChinaCloud
 $alerts = $null
 foreach ($rg in Get-AzResourceGroup ) {
   $alerts += Get-AzAlertRule -ResourceGroup $rg.ResourceGroupName
@@ -115,4 +115,3 @@ Les alertes pour des événements de gestion que vous avez créées précédemme
 * Consulter le [schéma de webhook d’alerte de journal d’activité](../../azure-monitor/platform/activity-log-alerts-webhook.md)
 * Apprenez-en plus sur les [notifications de service](../../azure-monitor/platform/service-notifications.md)
 * En savoir plus sur les [groupes d’actions](../../azure-monitor/platform/action-groups.md)
-

@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: c48f7d7608b2b70f4ae41e2af5792cff72bb0dd2
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58885721"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60195776"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-rest-api"></a>Authentification de service à service auprès d’Azure Data Lake Storage Gen1 à l’aide de l’API REST
 > [!div class="op_single_selector"]

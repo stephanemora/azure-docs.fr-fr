@@ -12,11 +12,11 @@ ms.date: 04/16/2019
 ms.author: diberry
 ms.custom: seodec18
 ms.openlocfilehash: aba8f9b2b4e62420ed5d318be40bbc4ada544866
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59679599"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60203151"
 ---
 # <a name="install-and-run-recognize-text-containers"></a>Installer et exécuter des conteneurs Reconnaître le texte
 
@@ -26,7 +26,7 @@ Le composant Reconnaître le texte de Vision par ordinateur est également dispo
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 L’utilisation des conteneurs Reconnaître le texte est soumise aux prérequis suivants :
 

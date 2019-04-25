@@ -3,7 +3,7 @@ title: Vue d’ensemble de jetons - Azure Active Directory B2C | Microsoft Docs
 description: En savoir plus sur les jetons utilisés dans Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
@@ -11,11 +11,11 @@ ms.date: 04/16/2019
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 11361bc6ab75e873e1b4081dcfc6492abc093b54
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59680262"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60316933"
 ---
 # <a name="overview-of-tokens-in-azure-active-directory-b2c"></a>Vue d’ensemble de jetons dans Azure Active Directory B2C
 
@@ -61,7 +61,7 @@ Le tableau suivant répertorie les revendications que vous pouvez attendre dans 
 | Hachage de code | `c_hash` | `SGCPtt01wxwfgnYZy2VJtQ` | Un hachage de code inclus dans un jeton d’ID que si le jeton est émis avec un code d’autorisation OAuth 2.0. Il peut servir à valider l’authenticité d’un code d’autorisation. Pour plus d’informations sur la façon d’effectuer cette validation, consultez le [spécification OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html).  |
 | Hachage de jeton d’accès | `at_hash` | `SGCPtt01wxwfgnYZy2VJtQ` | Hachage de jeton d’accès inclus dans un jeton d’ID que si le jeton est émis avec un jeton d’accès OAuth 2.0. Un hachage de jeton d’accès peut servir à valider l’authenticité d’un jeton d’accès. Pour plus d’informations sur la façon d’effectuer cette validation, consultez le [spécification OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html)  |
 | Valeur à usage unique | `nonce` | `12345` | La valeur à usage unique est une stratégie d’atténuation des attaques par relecture de jetons. Votre application peut spécifier une valeur à usage unique dans une demande d’autorisation à l’aide de le `nonce` paramètre de requête. La valeur que vous fournissez dans la demande est émise sans aucune modification dans le `nonce` d’un jeton d’ID de revendication. Cette revendication permet à votre application vérifier la valeur par rapport à la valeur spécifiée dans la demande. Votre application doit effectuer cette validation pendant le processus de validation du jeton d’ID. |
-| Objet | `sub` | `884408e1-2918-4cz0-b12d-3aa027d7563b` | Le principal sur lequel le jeton déclare les informations, telles que l’utilisateur d’une application. Cette valeur est immuable et ne peut pas être réattribuée ou réutilisée. Vous pouvez l’utiliser pour effectuer des vérifications d’autorisation en toute sécurité, comme lorsque le jeton est utilisé pour accéder à une ressource. Par défaut, la revendication de l’objet est remplie avec l’ID d’objet de l’utilisateur dans le répertoire. |
+| Subject | `sub` | `884408e1-2918-4cz0-b12d-3aa027d7563b` | Le principal sur lequel le jeton déclare les informations, telles que l’utilisateur d’une application. Cette valeur est immuable et ne peut pas être réattribuée ou réutilisée. Vous pouvez l’utiliser pour effectuer des vérifications d’autorisation en toute sécurité, comme lorsque le jeton est utilisé pour accéder à une ressource. Par défaut, la revendication de l’objet est remplie avec l’ID d’objet de l’utilisateur dans le répertoire. |
 | Référence de classe du contexte d’authentification | `acr` | Non applicable | Utilisé uniquement avec des stratégies plus anciennes. |
 | Stratégie d’infrastructure de confiance | `tfp` | `b2c_1_signupsignin1` | Le nom de la stratégie qui a été utilisée pour obtenir le jeton d’ID. |
 | Moment de l’authentification | `auth_time` | `1438535543` | Heure à laquelle un utilisateur dernières informations d’identification entrées, représentée en heure epoch. |

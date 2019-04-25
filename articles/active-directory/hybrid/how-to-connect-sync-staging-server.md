@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 176b8509892ef16b631697a686471e7fa52bb380
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57196125"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60381562"
 ---
 # <a name="azure-ad-connect-staging-server-and-disaster-recovery"></a>Azure AD Connect : Serveur de préproduction et reprise d’activité après sinistre
 Avec un serveur en mode intermédiaire, vous pouvez apporter des modifications à la configuration et visualiser les modifications avant de rendre le serveur actif. Il permet également d’exécuter une importation et la synchronisation complètes afin de vérifier que toutes les modifications sont attendues avant de les appliquer dans un environnement de production.

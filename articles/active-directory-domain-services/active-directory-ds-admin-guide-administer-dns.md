@@ -16,11 +16,11 @@ ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
 ms.openlocfilehash: d6705f9f7e324c915c38d01c54bdf16826c62380
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55180192"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60419265"
 ---
 # <a name="administer-dns-on-an-azure-ad-domain-services-managed-domain"></a>Gérer le serveur DNS sur un domaine géré par les services de domaine Azure Active Directory
 Les services de domaine Azure Active Directory incluent un serveur DNS (Domain Name Resolution) qui gère la résolution DNS du domaine géré. Il se peut que vous deviez configurer parfois DNS dans le domaine géré. Vous devrez peut-être créer des enregistrements DNS pour les machines qui ne sont pas jointes au domaine, ou configurer les adresses IP virtuelles des équilibreurs de charge ou des redirecteurs DNS externes. Pour cette raison, les utilisateurs qui appartiennent au groupe « AAD DC Administrators » bénéficient de privilèges d’administration DNS sur le domaine géré.

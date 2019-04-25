@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: danlep
 ms.openlocfilehash: 48deeec7a2c8767ab5dbb81b622e6d40483ed455
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58114217"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60202821"
 ---
 # <a name="make-a-remote-connection-to-a-kubernetes-dcos-or-docker-swarm-cluster"></a>Connexion à distance à un cluster Kubernetes, DC/OS ou Docker Swarm
 Après avoir créé un cluster Azure Container Service, vous devez vous connecter au cluster pour déployer et gérer des charges de travail. Cet article décrit comment se connecter à la machine virtuelle principale du cluster à partir d’un ordinateur distant. 

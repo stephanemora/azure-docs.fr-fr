@@ -9,11 +9,11 @@ ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
 ms.openlocfilehash: 97373f6f0138d3ed8028ed4327b7e6cf90ad76a7
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470737"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60325865"
 ---
 # <a name="design-for-querying"></a>Conception pour l'interrogation
 Les solutions de service de Table peuvent lire ou écrire de façon intensive, ou effectuer une combinaison des deux. Cet article décrit les éléments à prendre en compte quand vous concevez votre service de Table pour prendre en charge efficacement les opérations de lecture. En règle générale, une conception qui prend en charge les opérations de lecture de manière efficace le sera également pour des opérations d'écriture. Toutefois, vous devez prendre en compte d’autres éléments quand la conception a pour but de prendre en charge les opérations d’écriture. Ces éléments sont décrits dans l’article [Concevoir pour la modification de données](table-storage-design-for-modification.md).
@@ -42,7 +42,7 @@ Les exemples suivants supposent que le service de Table stocke les entités rela
 | **FirstName** |Chaîne |
 | **LastName** |Chaîne |
 | **Age** |Entier  |
-| **EmailAddress** |Chaîne |
+| **EmailAddress** |String |
 
 L’article [Vue d’ensemble du Stockage Table Azure](table-storage-overview.md) décrit certaines des principales fonctionnalités du service de Table Azure qui ont un impact direct sur la conception des requêtes. Il en résulte les conseils suivants, qui vous aideront à concevoir des requêtes de service de Table. Notez que la syntaxe de filtre utilisée dans les exemples ci-dessous provient de l’API REST du service de Table. Pour en savoir plus, consultez la rubrique [Interrogation d’entités](https://docs.microsoft.com/rest/api/storageservices/Query-Entities).  
 

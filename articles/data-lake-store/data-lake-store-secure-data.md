@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
 ms.openlocfilehash: cebdff5ed233516683df3330e8fd3332ded664e5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58885670"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60198169"
 ---
 # <a name="securing-data-stored-in-azure-data-lake-storage-gen1"></a>Sécurisation des données stockées dans Azure Data Lake Storage Gen1
 La sécurisation des données dans Azure Data Lake Storage Gen1 se fait en trois étapes.  Le contrôle d’accès en fonction du rôle (RBAC) et les listes de contrôle d’accès (ACL, access control list) doivent être définis pour offrir aux utilisateurs et aux groupes de sécurité un accès total aux données.

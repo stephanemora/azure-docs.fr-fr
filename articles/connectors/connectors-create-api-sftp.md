@@ -12,11 +12,11 @@ ms.topic: article
 tags: connectors
 ms.date: 10/26/2018
 ms.openlocfilehash: 42e1ef3e311633f9631163bc9d3df212b608ef3a
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578371"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60450758"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-azure-logic-apps"></a>Superviser, créer et gérer des fichiers SFTP à l’aide d’Azure Logic Apps
 
@@ -40,7 +40,7 @@ Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azu
 
 Pour les autres différences entre le connecteur SFTP et le connecteur SFTP-SSH, passez en revue [comparer SFTP-SSH et SFTP](../connectors/connectors-sftp-ssh.md#comparison) dans l’article SFTP-SSH.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscrivez-vous pour bénéficier d’un compte Azure gratuit</a>. 
 

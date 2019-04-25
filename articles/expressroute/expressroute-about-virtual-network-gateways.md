@@ -9,11 +9,11 @@ ms.date: 02/20/2019
 ms.author: mialdrid
 ms.custom: seodec18
 ms.openlocfilehash: d9c607114d6c6c56c25303a88dcc11f4ab804eb4
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57404333"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60367979"
 ---
 # <a name="about-virtual-network-gateways-for-expressroute"></a>À propos des passerelles de réseau virtuel pour ExpressRoute
 Une passerelle de réseau virtuel est conçue pour faire circuler le trafic réseau entre les réseaux virtuels Azure et les emplacements locaux. Vous pouvez utiliser une passerelle de réseau virtuel pour le trafic ExpressRoute ou le trafic VPN. Cet article se concentre sur les passerelles de réseau virtuel ExpressRoute et contient des informations sur les références (SKU), les performances estimées par référence (SKU) et les types de passerelle.

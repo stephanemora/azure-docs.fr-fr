@@ -3,7 +3,7 @@ title: Personnaliser l’interface utilisateur d’Azure Active Directory B2C de
 description: Prendre en charge plusieurs expériences de personnalisation avec du contenu HTML5/CSS qui change de façon dynamique au moment de l’exécution.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
@@ -11,11 +11,11 @@ ms.date: 09/20/2017
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: bf7391ea83adf852be0f989a82e89d7f316f2f85
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58090540"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60316681"
 ---
 # <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C : configurer l’interface utilisateur avec du contenu dynamique à l’aide de stratégies personnalisées
 
@@ -198,7 +198,7 @@ Votre modèle HTML5 est prêt à être utilisé. Toutefois, il n’est pas dispo
 * Votre contenu utilisé est sécurisé via **HTTPS**.
 * Vous utilisez *URL absolues*, tel que `https://yourdomain/content`, pour tous les liens contenu CSS et images.
 
-## <a name="step-5-configure-your-content-definition"></a>Étape 5 : Configurer votre définition de contenu
+## <a name="step-5-configure-your-content-definition"></a>Étape 5 : Configurer votre définition de contenu
 Pour configurer `ContentDefinition`, effectuez les opérations suivantes :
 1. Ouvrez le fichier de base de votre stratégie (par exemple, *TrustFrameworkBase.xml*).
 

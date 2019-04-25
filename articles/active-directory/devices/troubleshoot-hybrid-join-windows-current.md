@@ -17,11 +17,11 @@ ms.author: joflore
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: dcb7dc356c8101c1b0907818b45618ef6372c691
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517434"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60250890"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-windows-10-and-windows-server-2016-devices"></a>Résolution des problèmes des appareils hybrides Windows 10 et Windows Server 2016 joints à Azure Active Directory 
 
@@ -46,7 +46,7 @@ Ce document fournit des conseils sur la façon de résoudre les problèmes poten
 
 Pour Windows 10 et Windows Server 2016, la jonction Azure Active Directory hybride prend en charge la mise à jour Windows du 10 novembre 2015 et au-delà. Nous vous recommandons d’utiliser la mise à jour anniversaire.
 
-## <a name="step-1-retrieve-the-join-status"></a>Étape 1 : Récupérer l’état de jonction 
+## <a name="step-1-retrieve-the-join-status"></a>Étape 1 : Récupérer l’état de jonction 
 
 **Pour récupérer l’état de jonction :**
 
@@ -103,7 +103,7 @@ WamDefaultAuthority: organizations
 
 
 
-## <a name="step-2-evaluate-the-join-status"></a>Étape 2 : Évaluer l’état de jonction 
+## <a name="step-2-evaluate-the-join-status"></a>Étape 2 : Évaluer l’état de jonction 
 
 Examinez les champs suivants et assurez-vous qu’ils disposent des valeurs attendues :
 

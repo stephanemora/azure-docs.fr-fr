@@ -13,16 +13,16 @@ ms.topic: article
 ms.date: 01/28/2019
 ms.author: jowargo
 ms.openlocfilehash: 99ea21b3eb01a674a89c70a1b923f02e600cc3c5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57999483"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60234458"
 ---
 # <a name="change-pricing-tier-of-an-azure-notification-hubs-namespace"></a>Changer le niveau tarifaire d’un espace de noms Azure Notification Hubs
 Notification Hubs est disponible en trois niveaux : **Gratuit**, **De base** et **Standard**. Cet article vous montre comment changer le niveau tarifaire d’un espace de noms Azure Notification Hubs. 
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 Dans Azure Notification Hubs, un **hub** est l’entité/la ressource la plus petite. Elle mappe généralement à une application et peut conserver un certificat pour chaque système Platform Notification System que nous prenons en charge pour l’application. L’application peut être une application multiplateforme hybride ou native.
 
 Un **espace de noms** est une collection de hubs de notification. Chaque espace de noms se compose généralement de hubs qui sont liés et utilisés dans un but spécifique. Par exemple, vous pouvez avoir trois espaces de noms différents pour le développement, le test et la production, respectivement. 

@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 04/16/2018
 ms.author: yizhon
 ms.openlocfilehash: 5256a58a2b68584888abcac915392d8e389e9772
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054535"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60399366"
 ---
 # <a name="develop-for-mobile-devices-using-azure-iot-sdks"></a>Développer pour les appareils mobiles à l’aide des Kits de développement logiciels (SDK) Azure IoT
 
@@ -29,7 +29,7 @@ Le Kit de développement logiciel (SDK) C Azure IoT Hub est écrit en C99 pour u
 
 Les documents qui suivent vous guident dans le développement d’une application d’appareil ou d’une application de service sur un appareil iOS :
 
-* [Démarrage rapide : Send telemetry from a device to an IoT hub (Envoyer des données de télémétrie d’un appareil à un IoT Hub)](quickstart-send-telemetry-ios.md)  
+* [Démarrage rapide : Send telemetry from a device to an IoT hub (Envoyer des données de télémétrie d’un appareil à un IoT Hub)](quickstart-send-telemetry-ios.md)  
 * [Envoyer des messages du cloud à votre appareil avec un hub IoT](iot-hub-ios-swift-c2d.md) 
 
 ### <a name="develop-with-azure-iot-hub-cocoapod-libraries"></a>Développer avec les bibliothèques CocoaPod Azure IoT Hub
@@ -47,8 +47,8 @@ Le SDK Java Azure IoT Hub prend en charge la plateforme Android.  Pour la versio
 
 Les documents qui suivent vous guident dans le développement d’une application d’appareil ou d’une application de service sur un appareil Android à l’aide de Gradle et Android Studio :
 
-* [Démarrage rapide : Send telemetry from a device to an IoT hub (Envoyer des données de télémétrie d’un appareil à un IoT Hub)](quickstart-send-telemetry-android.md)  
-* [Démarrage rapide : Contrôler un appareil](quickstart-control-device-android.md) 
+* [Démarrage rapide : Send telemetry from a device to an IoT hub (Envoyer des données de télémétrie d’un appareil à un IoT Hub)](quickstart-send-telemetry-android.md)  
+* [Démarrage rapide : Contrôler un appareil](quickstart-control-device-android.md) 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

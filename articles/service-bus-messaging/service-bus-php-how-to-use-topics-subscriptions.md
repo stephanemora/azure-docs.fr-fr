@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/15/2019
 ms.author: aschhab
 ms.openlocfilehash: 1ce9c5ddb08f3e81a0f0050048a8afef24e4c625
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59607532"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60203711"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-php"></a>Utilisation des rubriques et abonnements Service Bus avec PHP
 
@@ -33,7 +33,7 @@ Cet article vous montre comment utiliser les rubriques et les abonnements Servic
 - Réception de messages à partir d’un abonnement
 - Suppression de rubriques et d’abonnements
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 1. Un abonnement Azure. Pour suivre ce tutoriel, vous avez besoin d’un compte Azure. Vous pouvez activer votre [avantages pour les abonnés Visual Studio ou MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) ou vous inscrire pour un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 2. Suivez les étapes de la [Guide de démarrage rapide : Utiliser le portail Azure pour créer une rubrique Service Bus et des abonnements à la rubrique](service-bus-quickstart-topics-subscriptions-portal.md) pour créer un Service Bus **espace de noms** et obtenir le **chaîne de connexion**.
 

@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: be8d4172476ca0613e80e62739b9ab36f8ab4c3b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58881152"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60197739"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-net-sdk"></a>Authentification de service à service auprès d’Azure Data Lake Storage Gen1 à l’aide du Kit de développement logiciel (SDK) .NET
 > [!div class="op_single_selector"]
@@ -43,7 +43,7 @@ Dans cet article, vous allez apprendre à utiliser le Kit de développement logi
 
    | Propriété | Valeur |
    | --- | --- |
-   | Catégorie |Modèles/Visual C#/Windows |
+   | Category |Modèles/Visual C#/Windows |
    | Modèle |Application console |
    | Nom |CreateADLApplication |
 4. Cliquez sur **OK** pour créer le projet.

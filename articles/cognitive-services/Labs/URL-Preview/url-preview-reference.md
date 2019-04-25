@@ -11,11 +11,11 @@ ms.topic: reference
 ms.date: 03/29/2018
 ms.author: rosh
 ms.openlocfilehash: 69db722295c9c81d45913bd078fe9cc5ab74c512
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58104707"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60462586"
 ---
 # <a name="project-url-preview-v7-reference"></a>Informations de référence sur l’aperçu d’URL du projet v7
 
@@ -75,10 +75,10 @@ La demande peut comporter les paramètres de requête suivants. Consultez la col
 
 |Nom|Valeur|Type|Obligatoire|
 |----------|-----------|----------|--------------|
-|<a name="mkt" />mkt|Marché d’où proviennent les résultats. <br /><br />Pour connaître la liste des valeurs de marché possibles, voir Codes de marché.<br /><br /> **REMARQUE :** Actuellement, l’API d’aperçu d’URL prend uniquement en charge la région des États-Unis et la langue anglaise.<br /><br />|Chaîne|Oui|
-|<a name="query" />q|URL servant à afficher l’aperçu.|Chaîne|Oui|
-|<a name="responseformat" />responseFormat|Type de média à utiliser pour la réponse. Voici les valeurs possibles. Elles ne sont pas sensibles à la casse.<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> La valeur par défaut est JSON. Pour plus d’informations sur les objets JSON que contient la réponse, voir [Objets de la réponse](#response-objects).<br /><br />Si vous spécifiez JsonLd, le corps de la réponse comporte les objets JSON-LD contenant les résultats de la recherche. Pour plus d’informations sur la spécification JSON-LD, voir [JSON-LD](https://json-ld.org/).|Chaîne|Non |
-|<a name="safesearch"/>safeSearch|Le contenu pour adultes jugé non conforme, ou le contenu piraté, est bloqué avec pour code d’erreur 400 et aucun indicateur *isFamilyFriendly* n’est renvoyé. <p>Voici par contre le comportement concernant le contenu pour adultes considéré comme légal. Le système renvoie le code d’état 200 et l’indicateur *isFamilyFriendly* est défini sur false.<ul><li>safeSearch=strict : Le titre, la description, l’URL et l’image ne seront pas renvoyés.</li><li>safeSearch=moderate : vous obtenez le titre, l’URL et la description, mais pas l’image descriptive.</li><li>safeSearch=off : vous obtenez tous les objets/éléments de la réponse (titre, URL, description et image).</li></ul> |Chaîne|Non requis. </br> La valeur par défaut est safeSearch=strict.|
+|<a name="mkt" />mkt|Marché d’où proviennent les résultats. <br /><br />Pour connaître la liste des valeurs de marché possibles, voir Codes de marché.<br /><br /> **REMARQUE :** Actuellement, l’API d’aperçu d’URL prend uniquement en charge la région des États-Unis et la langue anglaise.<br /><br />|String|Oui|
+|<a name="query" />q|URL servant à afficher l’aperçu.|String|Oui|
+|<a name="responseformat" />responseFormat|Type de média à utiliser pour la réponse. Voici les valeurs possibles. Elles ne sont pas sensibles à la casse.<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> La valeur par défaut est JSON. Pour plus d’informations sur les objets JSON que contient la réponse, voir [Objets de la réponse](#response-objects).<br /><br />Si vous spécifiez JsonLd, le corps de la réponse comporte les objets JSON-LD contenant les résultats de la recherche. Pour plus d’informations sur la spécification JSON-LD, voir [JSON-LD](https://json-ld.org/).|String|Non |
+|<a name="safesearch"/>safeSearch|Le contenu pour adultes jugé non conforme, ou le contenu piraté, est bloqué avec pour code d’erreur 400 et aucun indicateur *isFamilyFriendly* n’est renvoyé. <p>Voici par contre le comportement concernant le contenu pour adultes considéré comme légal. Le système renvoie le code d’état 200 et l’indicateur *isFamilyFriendly* est défini sur false.<ul><li>safeSearch=strict : Le titre, la description, l’URL et l’image ne seront pas renvoyés.</li><li>safeSearch=moderate : vous obtenez le titre, l’URL et la description, mais pas l’image descriptive.</li><li>safeSearch=off : vous obtenez tous les objets/éléments de la réponse (titre, URL, description et image).</li></ul> |String|Non requis. </br> La valeur par défaut est safeSearch=strict.|
 
 ## <a name="response-objects"></a>Objets de la réponse
 Le schéma de réponse est soit [WebPage] soit ErrorResponse, comme dans l’API Recherche Web. Si la demande échoue, l’objet de niveau supérieur est l’objet [ErrorResponse](#errorresponse).
@@ -92,19 +92,19 @@ Définit l’erreur qui s’est produite.
 
 |Élément|Description|Type|
 |-------------|-----------------|----------|
-|<a name="error-code" />code|Code d’erreur identifiant la catégorie de l’erreur. Pour connaître la liste des codes possibles, voir [Codes d’erreur](#error-codes).|Chaîne|
-|<a name="error-message" />message|Description de l’erreur.|Chaîne|
-|<a name="error-moredetails" />moreDetails|Description de l’erreur comportant des informations supplémentaires.|Chaîne|
-|<a name="error-parameter" />parameter|Paramètre de requête de la demande ayant provoqué l’erreur.|Chaîne|
-|<a name="error-subcode" />subCode|Code identifiant l’erreur. Par exemple, si `code` est InvalidRequest, `subCode` peut être ParameterInvalid ou ParameterInvalidValue. |Chaîne|
-|<a name="error-value" />value|Valeur du paramètre de requête qui n’était pas valide.|Chaîne|
+|<a name="error-code" />code|Code d’erreur identifiant la catégorie de l’erreur. Pour connaître la liste des codes possibles, voir [Codes d’erreur](#error-codes).|String|
+|<a name="error-message" />message|Description de l’erreur.|String|
+|<a name="error-moredetails" />moreDetails|Description de l’erreur comportant des informations supplémentaires.|String|
+|<a name="error-parameter" />parameter|Paramètre de requête de la demande ayant provoqué l’erreur.|String|
+|<a name="error-subcode" />subCode|Code identifiant l’erreur. Par exemple, si `code` est InvalidRequest, `subCode` peut être ParameterInvalid ou ParameterInvalidValue. |String|
+|<a name="error-value" />value|Valeur du paramètre de requête qui n’était pas valide.|String|
 
 ### <a name="errorresponse"></a>ErrorResponse
 Objet de niveau supérieur figurant dans la réponse en cas d’échec de la demande.
 
 |Nom|Valeur|Type|
 |----------|-----------|----------|
-|_type|Indicateur de type.|Chaîne|
+|_type|Indicateur de type.|String|
 |<a name="errors" />errors|Liste des erreurs qui décrivent les raisons pour lesquelles la demande a échoué.|[Error](#error)[]|
 
 ### <a name="webpage"></a>WebPage
@@ -112,16 +112,16 @@ Définit les informations concernant la page web dans l’aperçu.
 
 |Nom|Valeur|Type|
 |----------|-----------|----------|
-|Nom|Titre de la page (pas nécessairement le titre HTML).|Chaîne|
-|url|URL réellement analysée (potentiellement avec redirections de la demande).|Chaîne|
-|description|Brève description de la page et de son contenu.|Chaîne|
+|Nom|Titre de la page (pas nécessairement le titre HTML).|String|
+|url|URL réellement analysée (potentiellement avec redirections de la demande).|String|
+|description|Brève description de la page et de son contenu.|String|
 |isFamilyFriendly|Précision maximale pour les éléments figurant dans l’index web ; les extractions en temps réel effectuent cette détection d’après l’URL uniquement, et non d’après le contenu de la page.|booléenne|
-|primaryImageOfPage/contentUrl|URL d’une image représentative à inclure dans l’aperçu.|Chaîne|
+|primaryImageOfPage/contentUrl|URL d’une image représentative à inclure dans l’aperçu.|String|
 
 ### <a name="identifiable"></a>Identifiable
 |Nom|Valeur|Type|
 |-------------|-----------------|----------|
-|id|Identificateur de ressource.|Chaîne|
+|id|Identificateur de ressource.|String|
 
 ## <a name="error-codes"></a>Codes d’erreur
 

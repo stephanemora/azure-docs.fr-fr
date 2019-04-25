@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: 249ed7b1be2731fc8165ca7f205ba1d94066818e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: fc05c5c5917667d4bd9c869c9370ac952893ab26
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58088041"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60456205"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Notes de publication de l’Explorateur Stockage Microsoft Azure
 
@@ -1187,8 +1187,8 @@ Pour finir, la prise en charge de l’utilisation d’AzCopy avec Partages de fi
 
 * Problème résolu : le chargement du fichier peut provoquer très probablement une erreur de mémoire insuffisante
 * Problème résolu : vous pouvez désormais vous connecter avec le code PIN/carte à puce
-* Problème résolu : L’ouverture dans le portail fonctionne à présent avec Azure Chine 21Vianet, Azure Allemagne, Azure US Government et Azure Stack
-* Problème résolu : lors du téléchargement d’un dossier dans un conteneur d’objets blob, une erreur « Opération non conforme » peur se produit
+* Corrigé : L’ouverture dans le portail fonctionne à présent avec Azure Chine 21Vianet, Azure Allemagne, Azure US Government et Azure Stack
+* Corrigé : lors du téléchargement d’un dossier dans un conteneur d’objets blob, une erreur « Opération non conforme » peur se produit
 * Problème résolu : sélectionner tout est désactivé lors de gestion des instantanés
 * Problème résolu : les métadonnées de l’objet blob de base peuvent être remplacées lorsque vous avez affiché les propriétés de ses instantanés
 

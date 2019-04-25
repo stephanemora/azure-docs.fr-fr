@@ -7,17 +7,17 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/28/2018
 ms.openlocfilehash: 509c3af66e8228f142126dae6938ad74daf1d7ad
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53544884"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60421855"
 ---
 # <a name="configure-and-access-server-logs-in-the-azure-portal"></a>Configurer et consulter les journaux d’activité du serveur dans le portail Azure
 
 Vous pouvez configurer, répertorier et télécharger les [journaux d’activité du serveur Azure Database pour PostgreSQL](concepts-server-logs.md) à partir du portail Azure.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 Pour parcourir ce guide pratique, vous avez besoin des éléments suivants :
 - [Un serveur Azure Database pour PostgreSQL](quickstart-create-server-database-portal.md)
 

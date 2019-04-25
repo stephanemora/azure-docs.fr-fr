@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2018
 ms.author: tomfitz
-ms.openlocfilehash: f5fa81d53e1728e8f566a2a39aed8311828b20c7
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
-ms.translationtype: HT
+ms.openlocfilehash: 08b65770414e9ee1cb5e478427fe7654b2bb9a78
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37108703"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60252454"
 ---
 # <a name="microsoftstoragemultistorageaccountcombo-ui-element"></a>Élément d’interface utilisateur Microsoft.Storage.MultiStorageAccountCombo
 Groupe de contrôles pour la création de plusieurs comptes de stockage avec des noms commençant par un préfixe commun.

@@ -9,11 +9,11 @@ ms.date: 2/14/2018
 ms.author: robb
 ms.subservice: ''
 ms.openlocfilehash: 59cb14c86963d956b0bd63f65b10776dff4aa97f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59698074"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60452719"
 ---
 # <a name="azure-monitor-powershell-quick-start-samples"></a>Exemples de démarrage rapide Azure Monitor PowerShell
 Cet article vous présente des exemples de commandes PowerShell qui vous aideront à accéder rapidement aux fonctions de surveillance Azure Insights.

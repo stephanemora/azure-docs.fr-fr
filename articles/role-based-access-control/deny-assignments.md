@@ -16,11 +16,11 @@ ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
 ms.openlocfilehash: 497571a65510f806d7d7994c9dc37f9a00b65a5f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59006725"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60197134"
 ---
 # <a name="understand-deny-assignments-for-azure-resources"></a>Comprendre les affectations de refus relatives aux ressources Azure
 
@@ -40,19 +40,19 @@ Cet article explique comment définir des attributions de refus.
 > [!div class="mx-tableFixed"]
 > | Propriété | Obligatoire | Type | Description |
 > | --- | --- | --- | --- |
-> | `DenyAssignmentName` | Oui | Chaîne | Nom d'affichage de l’attribution de refus. Les noms doivent être uniques pour une étendue donnée. |
-> | `Description` | Non  | Chaîne | Description de l’attribution de refus. |
+> | `DenyAssignmentName` | Oui | String | Nom d'affichage de l’attribution de refus. Les noms doivent être uniques pour une étendue donnée. |
+> | `Description` | Non  | String | Description de l’attribution de refus. |
 > | `Permissions.Actions` | Au moins un élément Actions ou DataActions | String[] | Tableau de chaînes qui spécifient les opérations de gestion auxquelles l’attribution de refus bloque l’accès. |
 > | `Permissions.NotActions` | Non  | String[] | Tableau de chaînes qui spécifient les opérations de gestion à exclure de l’attribution de refus. |
 > | `Permissions.DataActions` | Au moins un élément Actions ou DataActions | String[] | Tableau de chaînes qui spécifient les opérations de données auxquelles l’attribution de refus bloque l’accès. |
 > | `Permissions.NotDataActions` | Non  | String[] | Tableau de chaînes qui spécifient les opérations de données à exclure de l’attribution de refus. |
-> | `Scope` | Non  | Chaîne | Chaîne qui spécifie l’étendue à laquelle l’attribution de refus s’applique. |
-> | `DoNotApplyToChildScopes` | Non  | Booléen | Spécifie si l’attribution de refus s’applique aux étendues enfants. La valeur par défaut est false. |
+> | `Scope` | Non  | String | Chaîne qui spécifie l’étendue à laquelle l’attribution de refus s’applique. |
+> | `DoNotApplyToChildScopes` | Non  | Boolean | Spécifie si l’attribution de refus s’applique aux étendues enfants. La valeur par défaut est false. |
 > | `Principals[i].Id` | Oui | String[] | Tableau d’ID d’objets principaux Azure AD (utilisateur, groupe, principal de service ou identité managée) auxquels s’applique l’affectation de refus. Définie sur un GUID vide `00000000-0000-0000-0000-000000000000` pour représenter tous les principaux. |
 > | `Principals[i].Type` | Non  | String[] | Tableau de types d’objet représentés par Principals[i].Id. Définie sur `SystemDefined` pour représenter tous les principaux. |
 > | `ExcludePrincipals[i].Id` | Non  | String[] | Tableau d’ID d’objets principaux Azure AD (utilisateur, groupe, principal de service ou identité managée) auxquels l’attribution de refus ne s’applique pas. |
 > | `ExcludePrincipals[i].Type` | Non  | String[] | Tableau de types d’objet représentés par ExcludePrincipals[i].Id. |
-> | `IsSystemProtected` | Non  | Booléen | Spécifie si cette attribution de refus a été créée par Azure et ne peut pas être modifiée ou supprimée. Actuellement, toutes les attributions de refus sont protégées par le système. |
+> | `IsSystemProtected` | Non  | Boolean | Spécifie si cette attribution de refus a été créée par Azure et ne peut pas être modifiée ou supprimée. Actuellement, toutes les attributions de refus sont protégées par le système. |
 
 ## <a name="system-defined-principal"></a>Principal défini par le système
 

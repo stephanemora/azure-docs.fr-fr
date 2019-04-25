@@ -12,16 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/13/2017
+origin.date: 07/13/2017
+ms.date: 04/09/2019
 ms.subservice: hybrid
-ms.author: billmath
+ms.author: v-junlch
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 10a4078f49abbdf431f42c6cde7cf882112e5848
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57839166"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60384701"
 ---
 # <a name="azure-ad-connect-sync-service-shadow-attributes"></a>Attributs de clichés instantanés du service de synchronisation Azure AD Connect
 La plupart des attributs sont représentés de la même façon dans Azure AD qu’ils le sont dans votre Active Directory local. Toutefois, certains attributs ont une gestion spéciale, et la valeur d’attribut dans Azure AD peut être différente de ce qu’Azure AD Connect synchronise.
@@ -42,7 +43,7 @@ Un utilisateur possède les valeurs d’attribut suivantes dans un domaine non v
 | --- | --- |
 | userPrincipalName local | lee.sperry@fabrikam.com |
 | shadowUserPrincipalName dans Azure AD | lee.sperry@fabrikam.com |
-| userPrincipalName dans Azure AD | lee.sperry@fabrikam.onmicrosoft.com |
+| userPrincipalName dans Azure AD | lee.sperry@fabrikam.partner.onmschina.cn |
 
 L’attribut userPrincipalName est la valeur que vous voyez lors de l’utilisation de PowerShell.
 
@@ -77,3 +78,5 @@ Les attributs de clichés instantanés sont également utilisés lorsque des val
 ## <a name="see-also"></a>Voir aussi
 * [Synchronisation d’Azure AD Connect](how-to-connect-sync-whatis.md)
 * [Intégration de vos identités locales avec Azure Active Directory](whatis-hybrid-identity.md).
+
+<!-- Update_Description: wording update -->

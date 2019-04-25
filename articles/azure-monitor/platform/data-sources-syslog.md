@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 03/22/2019
 ms.author: magoedte
 ms.openlocfilehash: 41ea6222689516f224fc23ce6a658d17f7f81866
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372299"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60240853"
 ---
 # <a name="syslog-data-sources-in-azure-monitor"></a>Sources de données Syslog dans Azure Monitor
 Syslog est un protocole de journalisation d’événements commun à Linux. Les applications envoient les messages qui peuvent être stockés sur l’ordinateur local ou remis à un collecteur Syslog. Lorsque l’agent Log Analytics pour Linux est installé, il configure le démon Syslog local pour qu’il transfère des messages à l’agent. L’agent envoie ensuite le message à Azure Monitor, où un enregistrement correspondant est créé.  
@@ -203,7 +203,7 @@ Les enregistrements Syslog sont de type **Syslog** et leurs propriétés sont d�
 
 | Propriété | Description |
 |:--- |:--- |
-| Ordinateur |Ordinateur sur lequel l’événement a été collecté. |
+| Computer |Ordinateur sur lequel l’événement a été collecté. |
 | Facility |Définit la partie du système qui a généré le message. |
 | HostIP |Adresse IP du système qui envoie le message. |
 | HostName |Nom du système qui envoie le message. |
@@ -215,7 +215,7 @@ Les enregistrements Syslog sont de type **Syslog** et leurs propriétés sont d�
 ## <a name="log-queries-with-syslog-records"></a>Requêtes de journaux avec des enregistrements Syslog
 Le tableau suivant fournit plusieurs exemples de requêtes de journaux qui extraient des enregistrements Syslog.
 
-| Requête | Description |
+| Interroger | Description |
 |:--- |:--- |
 | syslog |Tous les Syslog. |
 | Syslog &#124; where SeverityLevel == "error" |Tous les enregistrements Syslog avec le niveau de gravité Erreur. |

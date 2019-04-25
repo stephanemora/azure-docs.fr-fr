@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 02/25/2019
 ms.author: srrengar
 ms.openlocfilehash: 2126157f49bd978d2218986601245cae2e4157b6
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56821676"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60321999"
 ---
 # <a name="report-and-check-service-health"></a>Signaler et contrôler l’intégrité du service
 Lorsque vos services rencontrent des problèmes, votre capacité à réagir et à résoudre les incidents et les pannes induits dépend de votre capacité à détecter les problèmes rapidement. En signalant les problèmes et les pannes au gestionnaire de contrôle d’intégrité Azure Service Fabric à partir de votre code de service, vous pouvez utiliser les outils standard de contrôle d’intégrité fournis par Service Fabric pour contrôler l’état d’intégrité.

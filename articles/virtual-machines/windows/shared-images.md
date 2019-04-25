@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/11/2018
 ms.author: cynthn
 ms.custom: ''
-ms.openlocfilehash: 07912369179a1d1226c750a8e86837fdc6887922
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 6ea98792e6a1b7fef32e3be1ddfbb29743f50c6a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984169"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60250758"
 ---
 # <a name="preview-create-a-shared-image-gallery-with-azure-powershell"></a>Aperçu : Créer une galerie d’images partagées avec Azure PowerShell 
 
@@ -40,7 +40,7 @@ La fonctionnalité Galerie d’images partagées présente plusieurs types de re
 | **Définition d'image** | Les images sont définies dans une galerie et incluent des informations sur l’image et sur les exigences relatives à son utilisation en interne. Ces informations indiquent, par exemple, si l’image est Windows ou Linux, et comprennent les notes de publication et les exigences de mémoire maximale et minimale. Il s’agit d’une définition de type d’image. |
 | **Version de l’image** | Une **version d’image** est ce qui vous permet de créer une machine virtuelle quand vous utilisez une galerie. Vous pouvez avoir plusieurs versions d’une image en fonction des besoins de votre environnement. Tout comme une image managée, quand vous utilisez une **version d’image** pour créer une machine virtuelle, la version d’image permet de créer des disques pour la machine virtuelle. Les versions d’image peuvent être utilisées plusieurs fois. |
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="before-you-begin"></a>Avant de commencer
 

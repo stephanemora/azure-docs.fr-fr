@@ -13,12 +13,12 @@ ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 74ba9b8d0ce86a5c663eb9fbb6190e2bcf4513d7
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
-ms.translationtype: HT
+ms.openlocfilehash: f510a111a6c8846b300c09f368a3a2a05b2bb7ad
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47411783"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60306980"
 ---
 # <a name="troubleshoot-deployment-issues-with-restarting-or-resizing-an-existing-windows-vm-in-azure"></a>Résoudre les problèmes de déploiement liés au redémarrage ou au redimensionnement d’une machine virtuelle Windows existante dans Azure
 Lorsque vous essayez de démarrer une machine virtuelle Azure arrêtée ou de redimensionner une machine virtuelle Azure existante, l’erreur la plus fréquemment rencontrée est un échec d’allocation. Cette erreur se produit lorsque le cluster ou la région n’ont pas de ressources disponibles ou ne prennent pas en charge la taille de machine virtuelle demandée.
@@ -32,7 +32,7 @@ Pour résoudre les problèmes, commencez par collecter les journaux d’activit�
 
 [Afficher les journaux d’activité pour gérer les ressources Azure](../../resource-group-audit.md)
 
-## <a name="issue-error-when-starting-a-stopped-vm"></a>Problème : erreur lors du démarrage d’une machine virtuelle arrêtée
+## <a name="issue-error-when-starting-a-stopped-vm"></a>Problème : Erreur lors du démarrage d’une machine virtuelle arrêtée
 Vous essayez de démarrer une machine virtuelle arrêtée, mais obtenez un échec d’allocation.
 
 ### <a name="cause"></a>Cause :
@@ -45,7 +45,7 @@ La demande de démarrage de la machine virtuelle arrêtée doit être exécutée
   2. Après l’arrêt de toutes les machines virtuelles, sélectionnez chacune des machines arrêtées et cliquez sur Démarrer.
 * Relancez la demande de redémarrage ultérieurement.
 
-## <a name="issue-error-when-resizing-an-existing-vm"></a>Problème : erreur lors du redimensionnement d’une machine virtuelle existante
+## <a name="issue-error-when-resizing-an-existing-vm"></a>Problème : Erreur lors du redimensionnement d’une machine virtuelle existante
 Vous essayez de redimensionner une machine virtuelle existante, mais obtenez un échec d’allocation.
 
 ### <a name="cause"></a>Cause :

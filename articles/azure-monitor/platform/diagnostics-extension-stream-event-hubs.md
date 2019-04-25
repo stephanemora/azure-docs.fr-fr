@@ -10,14 +10,14 @@ ms.date: 07/13/2017
 ms.author: robb
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: c2d577bd4c89046136a3465ff554e9662dd0ce19
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54478125"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60396159"
 ---
 # <a name="streaming-azure-diagnostics-data-in-the-hot-path-by-using-event-hubs"></a>Diffusion des données de Diagnostics Azure dans le chemin réactif à l’aide d’Event Hubs
-Azure Diagnostics propose des moyens flexibles de collecter des mesures et des journaux d’activité à partir de machines virtuelles de services cloud et de transférer les résultats dans Azure Storage. Depuis mars 2016 (Kit de développement logiciel (SDK) 2.9), vous pouvez envoyer les données Diagnostics à des sources de données personnalisées et transférer des données de chemin réactif en quelques secondes à l’aide [d’Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/).
+Diagnostics Azure propose des moyens flexibles de collecter des mesures et des journaux à partir de machines virtuelles de services cloud et de transférer les résultats dans Stockage Azure. Depuis mars 2016 (Kit de développement logiciel (SDK) 2.9), vous pouvez envoyer les données Diagnostics à des sources de données personnalisées et transférer des données de chemin réactif en quelques secondes à l’aide [d’Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/).
 
 Les types de données pris en charge sont les suivants :
 
@@ -34,7 +34,7 @@ Cet article vous montre la procédure complète de configuration de Diagnostics 
 * Comment afficher les données de flux Event Hubs
 * Comment résoudre les problèmes de connexion  
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 La réception par Event Hubs de données provenant de Diagnostics Azure est prise en charge dans Services cloud, Machines virtuelles, Virtual Machine Scale Sets et Service Fabric à partir du Kit de développement logiciel (SDK) 2.9 Azure, ainsi que dans les outils Azure correspondants pour Visual Studio.
 
 * Extension Diagnostics Azure 1.6 (ciblée par défaut par le[Kit de développement logiciel (SDK) Azure pour .NET 2.9 ou ultérieur](https://azure.microsoft.com/downloads/) )
@@ -45,7 +45,7 @@ La réception par Event Hubs de données provenant de Diagnostics Azure est pris
 * Espace de noms Event Hubs approvisionné tel que décrit dans l’article [Prise en main d’Event Hubs](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
 
 ## <a name="connect-azure-diagnostics-to-event-hubs-sink"></a>Connexion de Diagnostics Azure au récepteur Event Hubs
-Par défaut, Azure Diagnostics transmet toujours des journaux d’activité et des mesures à un compte Stockage Azure. Une application peut également envoyer des données vers Event Hubs en ajoutant une nouvelle section **Sinks** sous l’élément **PublicConfig** / **WadCfg** du fichier *.wadcfgx*. Dans Visual Studio, le fichier *.wadcfgx* est stocké dans l’emplacement suivant : **Cloud Service Project** > **Roles** > **(RoleName)** > **diagnostics.wadcfgx** fichier.
+Par défaut, Diagnostics Azure transmet toujours des journaux et des mesures à un compte Stockage Azure. Une application peut également envoyer des données vers Event Hubs en ajoutant une nouvelle section **Sinks** sous l’élément **PublicConfig** / **WadCfg** du fichier *.wadcfgx*. Dans Visual Studio, le fichier *.wadcfgx* est stocké dans l’emplacement suivant : **Cloud Service Project** > **Roles** > **(RoleName)** > **diagnostics.wadcfgx** fichier.
 
 ```xml
 <SinksConfig>
@@ -107,7 +107,7 @@ La valeur `SharedAccessKeyName` doit correspondre à une clé de signature d’a
 >
 >
 
-## <a name="configure-azure-diagnostics-to-send-logs-and-metrics-to-event-hubs"></a>Configurer Azure Diagnostics pour l’envoi de journaux d’activité et de mesures vers Event Hubs
+## <a name="configure-azure-diagnostics-to-send-logs-and-metrics-to-event-hubs"></a>Configurer Diagnostics Azure pour l’envoi de journaux et de mesures vers Event Hubs
 Comme indiqué précédemment, toutes les données de diagnostic par défaut et personnalisées (autrement dit, les mesures et journaux d’activité) sont automatiquement envoyées vers Stockage Azure à des intervalles configurés. Avec Event Hubs et tout récepteur supplémentaire, vous pouvez spécifier n’importe quel nœud racine ou terminal de la hiérarchie à envoyer au hub d’événements. Cela inclut les événements ETW, les compteurs de performances, les journaux des événements Windows et les journaux d’activité d’application.   
 
 Il est important de prendre en compte le nombre de points de données qui doit réellement être transféré vers Event Hubs. En règle générale, les développeurs transfèrent des données de chemin réactif à faible latence qui doivent être consommées et interprétées rapidement. Il s’agit, par exemple, des systèmes qui analysent les alertes ou les règles de mise à l’échelle automatique. Un développeur peut également configurer un autre magasin d’analyse ou de recherche, par exemple, Azure Stream Analytics, ElasticSearch, un système de surveillance personnalisé ou un système de surveillance tiers favori.
@@ -316,7 +316,7 @@ namespace EventHubListener
     Tout d’abord, assurez-vous que les informations du hub d’événements et de la configuration sont correctes, comme nous l’avons expliqué précédemment. Le fichier **PrivateConfig** est parfois réinitialisé au cours d’une mise à jour du déploiement. La solution recommandée consiste à apporter toutes les modifications dans le projet *.wadcfgx* , puis à transmettre une mise à jour complète de l’application. Si ce n’est pas possible, assurez-vous que la mise à jour des diagnostics transmet un fichier **PrivateConfig** complet qui comprend la clé SAS.  
 * J’ai essayé ces suggestions, mais le hub d’événements ne fonctionne toujours pas.
 
-    Consultez la table Stockage Azure qui contient les journaux d’activité et les erreurs d’Azure Diagnostics : **WADDiagnosticInfrastructureLogsTable**. Une option consiste à utiliser un outil tel que l’ [explorateur de stockage Azure](https://www.storageexplorer.com) pour vous connecter à ce compte de stockage, consulter cette table et ajouter une requête pour l’horodatage (TimeStamp) des dernières 24 heures. Vous pouvez utiliser l’outil pour exporter un fichier .csv et l’ouvrir dans une application comme Microsoft Excel. Excel permet de rechercher facilement des chaînes de carte d’appel, telles **qu’EventHubs**afin d’identifier l’erreur signalée.  
+    Consultez la table Stockage Azure qui contient les journaux et les erreurs de Diagnostics Azure : **WADDiagnosticInfrastructureLogsTable**. Une option consiste à utiliser un outil tel que l’ [explorateur de stockage Azure](https://www.storageexplorer.com) pour vous connecter à ce compte de stockage, consulter cette table et ajouter une requête pour l’horodatage (TimeStamp) des dernières 24 heures. Vous pouvez utiliser l’outil pour exporter un fichier .csv et l’ouvrir dans une application comme Microsoft Excel. Excel permet de rechercher facilement des chaînes de carte d’appel, telles **qu’EventHubs**afin d’identifier l’erreur signalée.  
 
 ## <a name="next-steps"></a>Étapes suivantes
 •    [En savoir plus sur Event Hubs](https://azure.microsoft.com/services/event-hubs/)

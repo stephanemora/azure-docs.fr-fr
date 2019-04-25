@@ -16,14 +16,14 @@ ms.reviewer: jeffsta
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ba9deb00b885dad1d69eb38d4977aafd3d80ab91
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56201429"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60468019"
 ---
 # <a name="sharing-accounts-with-azure-ad"></a>Partage de comptes avec Azure AD
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Vue d'ensemble
 Parfois, les organisations doivent utiliser les mêmes nom d’utilisateur et mot de passe pour plusieurs personnes, généralement dans deux cas :
 
 * Au moment d’accéder à des applications qui nécessitent un nom de connexion et un mot de passe uniques pour chaque utilisateur, qu’il s’agisse d’applications locales ou de services cloud grand public (par exemple, les comptes de réseaux sociaux d’entreprise).

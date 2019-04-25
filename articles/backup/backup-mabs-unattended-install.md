@@ -2,18 +2,19 @@
 title: Installation sans assistance du serveur de sauvegarde Azure V2
 description: Utilisez un script PowerShell pour installer sans assistance le Serveur de sauvegarde Azure V2. Ce type d’installation est également appelé « installation silencieuse ».
 services: backup
-author: rayne-wiselman
-manager: carmonm
+author: lingliw
+manager: digimobile
 ms.service: backup
 ms.topic: conceptual
-ms.date: 11/13/2018
-ms.author: raynew
+origin.date: 11/13/2018
+ms.date: 11/26/2018
+ms.author: v-lingwu
 ms.openlocfilehash: 66ed5765a91b607bc5b765926c5df87d13ff6a24
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58109846"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60253851"
 ---
 # <a name="run-an-unattended-installation-of-azure-backup-server"></a>Effectuer une installation sans assistance du Serveur de sauvegarde Azure
 
@@ -67,3 +68,5 @@ Après avoir installé le Serveur de sauvegarde, apprenez à préparer votre ser
 - [Utiliser le Serveur de sauvegarde pour sauvegarder un serveur VMware](backup-azure-backup-server-vmware.md)
 - [Utiliser le serveur de sauvegarde pour sauvegarder SQL Server](backup-azure-sql-mabs.md)
 - [Ajouter un stockage de sauvegarde moderne au Serveur de sauvegarde](backup-mabs-add-storage.md)
+
+<!-- Update_Description: link update -->

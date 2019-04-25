@@ -3,7 +3,7 @@ title: Échanges de revendications de l’API REST en tant qu’étape d’orche
 description: Une rubrique sur les stratégies personnalisées Azure Active Directory B2C qui s’intègrent à une API.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
@@ -11,11 +11,11 @@ ms.date: 04/24/2017
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 55740b74aef5ce3d2def5ad22cfe3ededa1204d8
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55189679"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60316882"
 ---
 # <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-an-orchestration-step"></a>Procédure pas à pas : Intégrer les échanges de revendications de l’API REST dans votre parcours utilisateur Azure AD B2C comme étape d’orchestration
 
@@ -41,13 +41,13 @@ Le scénario est le suivant : quand un utilisateur effectue une modification du 
 2. Obtenir la ville dans laquelle cet utilisateur est inscrit.
 3. Retourner cet attribut à l’application sous forme de revendication.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 - Un locataire Azure AD B2C configuré pour effectuer une inscription/connexion à un compte local, comme décrit dans [Bien démarrer](active-directory-b2c-get-started-custom.md).
 - Un point de terminaison API REST avec lequel vous allez interargir. Cette procédure pas à pas utilise comme exemple un webhook d’application de fonction Azure simple.
 - *Recommandée* : suivez la [procédure pas à pas des échanges de revendications de l’API REST comme une étape de validation](active-directory-b2c-rest-api-validation-custom.md).
 
-## <a name="step-1-prepare-the-rest-api-function"></a>Étape 1 : Préparer la fonction de l’API REST
+## <a name="step-1-prepare-the-rest-api-function"></a>Étape 1 : Préparer la fonction de l’API REST
 
 > [!NOTE]
 > Cet article ne traite pas de la configuration des fonctions de l’API REST. [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-reference) fournit un excellent kit de ressources pour la création de services RESTful dans le cloud.
@@ -79,7 +79,7 @@ return request.CreateResponse<ResponseContent>(
 
 Une application de fonction Azure facilite l’obtention de l’URL de la fonction, qui inclut l’identificateur de la fonction spécifique. Dans ce cas, l’URL est la suivante : https://wingtipb2cfuncs.azurewebsites.net/api/LookUpLoyaltyWebHook?code=MQuG7BIE3eXBaCZ/YCfY1SHabm55HEphpNLmh1OP3hdfHkvI2QwPrw==. Vous pouvez l’utiliser pour les tests.
 
-## <a name="step-2-configure-the-restful-api-claims-exchange-as-a-technical-profile-in-your-trustframeworextensionsxml-file"></a>Étape 2 : Configurer l’échange de revendications de l’API RESTful comme profil technique dans votre fichier TrustFrameworExtensions.xml
+## <a name="step-2-configure-the-restful-api-claims-exchange-as-a-technical-profile-in-your-trustframeworextensionsxml-file"></a>Étape 2 : Configurer l’échange de revendications de l’API RESTful comme profil technique dans votre fichier TrustFrameworExtensions.xml
 
 Le profil technique est la configuration complète de l’échange souhaité avec le service RESTful. Ouvrez le fichier TrustFrameworkExtensions.xml et ajoutez l’extrait de code XML suivant à l’intérieur de l’élément `<ClaimsProvider>`.
 
@@ -134,7 +134,7 @@ La revendication `city` n’est définie pour l’instant nulle part dans notre 
 </BuildingBlocks>
 ```
 
-## <a name="step-4-include-the-rest-service-claims-exchange-as-an-orchestration-step-in-your-profile-edit-user-journey-in-trustframeworkextensionsxml"></a>Étape 4 : Inclure l’échange de revendications du service REST en tant qu’étape d’orchestration dans votre parcours utilisateur de modification de profil dans votre fichier TrustFrameworkExtensions.xml
+## <a name="step-4-include-the-rest-service-claims-exchange-as-an-orchestration-step-in-your-profile-edit-user-journey-in-trustframeworkextensionsxml"></a>Étape 4 : Inclure l’échange de revendications du service REST en tant qu’étape d’orchestration dans votre parcours utilisateur de modification de profil dans votre fichier TrustFrameworkExtensions.xml
 
 Ajoutez une étape au parcours utilisateur de modification de profil, une fois que l’utilisateur a été authentifié (étapes d’orchestration 1 à 4 du fichier XML suivant) et qu’il a fourni les informations de profil mises à jour (étape 5).
 
@@ -212,7 +212,7 @@ Le code XML final pour le parcours utilisateur doit ressembler à ceci :
 </UserJourney>
 ```
 
-## <a name="step-5-add-the-claim-city-to-your-relying-party-policy-file-so-the-claim-is-sent-to-your-application"></a>Étape 5 : Ajouter la revendication `city` à votre fichier de stratégie de partie de confiance pour que la revendication soit envoyée à votre application
+## <a name="step-5-add-the-claim-city-to-your-relying-party-policy-file-so-the-claim-is-sent-to-your-application"></a>Étape 5 : Ajouter la revendication `city` à votre fichier de stratégie de partie de confiance pour que la revendication soit envoyée à votre application
 
 Ouvrez votre fichier de partie de confiance ProfileEdit.xml et modifiez l’élément `<TechnicalProfile Id="PolicyProfile">` en y ajoutant ceci : `<OutputClaim ClaimTypeReferenceId="city" />`.
 
@@ -229,7 +229,7 @@ Une fois que vous avez ajouté la nouvelle revendication, le profil technique re
 </TechnicalProfile>
 ```
 
-## <a name="step-6-upload-your-changes-and-test"></a>Étape 6 : Charger et tester vos modifications
+## <a name="step-6-upload-your-changes-and-test"></a>Étape 6 : Charger et tester vos modifications
 
 Remplacez les versions existantes de la stratégie.
 

@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.date: 11/13/2018
 ms.author: bwren
 ms.openlocfilehash: 6d03c219025c8cd39214bd8ab6807125709f9742
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59790874"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60235921"
 ---
 # <a name="sources-of-data-in-azure-monitor"></a>Sources de données dans Azure Monitor
 Cet article décrit les sources de données collectées par Azure Monitor pour surveiller l’intégrité et les performances de vos ressources et des applications s’exécutant sur celles-ci. Ces ressources peuvent être dans Azure, dans un autre cloud ou disponibles en local.  Consultez [Monitoring data collected by Azure Monitor](data-platform.md) (Données de supervision collectées par Azure Monitor) pour plus d’informations sur le stockage et l’affichage des données.

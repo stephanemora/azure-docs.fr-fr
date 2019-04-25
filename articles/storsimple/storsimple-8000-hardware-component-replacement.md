@@ -16,15 +16,15 @@ ms.date: 06/02/2017
 ms.author: alkohli
 ms.custom: ''
 ms.openlocfilehash: e05a37122647d4979089f0ba00b1fc15f9b84b0f
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57433652"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60321734"
 ---
 # <a name="replace-a-hardware-component-on-your-storsimple-8000-series-device"></a>Remplacer un composant matériel sur votre appareil StorSimple série 8000
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 Les didacticiels de remplacement des composants matériels décrivent les composants matériels de votre appareil Microsoft Azure StorSimple 8000 series et les étapes nécessaires pour les retirer et les remplacer. Cet article décrit les icônes de sécurité, oriente vers les didacticiels détaillés et répertorie les composants remplaçables.
 
 > [!IMPORTANT]
@@ -34,7 +34,7 @@ Les didacticiels de remplacement des composants matériels décrivent les compos
 ### <a name="safety-icon-conventions"></a>Conventions des icônes de sécurité
 Le tableau suivant décrit les icônes de sécurité utilisées dans ces didacticiels. Prêtez une attention particulière à ces icônes de sécurité quand vous effectuez les étapes nécessaires pour retirer et remplacer les composants de l’appareil.
 
-| Icône | Texte | Informations supplémentaires |
+| Icône | Text | Informations supplémentaires |
 |:--- |:--- |:--- |
 | ![Icône Avertissement](./media/storsimple-hardware-component-replacement/Warning.png) |**DANGER !** |Signale une situation dangereuse qui, si elle n’est pas évitée, entraînera la mort ou des blessures graves. Cette indication est réservée aux situations les plus extrêmes. |
 | ![Icône Avertissement](./media/storsimple-hardware-component-replacement/Warning.png) |**AVERTISSEMENT !** |Signale une situation dangereuse qui, si elle n’est pas évitée, risque d’entraîner la mort ou des blessures graves. |

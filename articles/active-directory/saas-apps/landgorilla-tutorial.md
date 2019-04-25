@@ -16,13 +16,13 @@ ms.date: 03/13/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b2e1288885476aeeba01f966b615c23c5fe51081
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56199508"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60261004"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-land-gorilla-client"></a>Tutoriel : Intégration d’Azure Active Directory à Land Gorilla Client
+# <a name="tutorial-azure-active-directory-integration-with-land-gorilla-client"></a>Didacticiel : Intégration d’Azure Active Directory à Land Gorilla Client
 
 Dans ce didacticiel, vous allez apprendre à intégrer Land Gorilla Client à Azure Active Directory (Azure AD).
 
@@ -35,7 +35,7 @@ L’intégration d’Azure AD dans Land Gorilla Client offre les avantages suiva
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour configurer l’intégration d’Azure AD dans Land Gorilla Client, vous avez besoin des éléments suivants :
 

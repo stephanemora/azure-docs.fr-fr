@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 04/10/2019
 ms.author: aschhab
 ms.openlocfilehash: 55eee839e24db2ad96eb635adc488e9a119c5907
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59501193"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60201696"
 ---
 # <a name="how-to-use-service-bus-queues-with-php"></a>Utilisation des files d’attente Service Bus avec PHP
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
 Dans ce didacticiel, vous allez apprendre à créer des applications PHP pour envoyer des messages à et de recevoir des messages à partir d’une file d’attente Service Bus. 
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 1. Un abonnement Azure. Pour suivre ce tutoriel, vous avez besoin d’un compte Azure. Vous pouvez activer votre [avantages pour les abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) ou vous inscrire pour un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 2. Si vous n’avez pas une file d’attente pour travailler avec, suivez les étapes de la [utiliser le portail Azure pour créer une file d’attente Service Bus](service-bus-quickstart-portal.md) article pour créer une file d’attente.
     1. Lire le plus rapide pour **vue d’ensemble** de Service Bus **files d’attente**. 

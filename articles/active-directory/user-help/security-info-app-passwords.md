@@ -13,11 +13,11 @@ ms.date: 02/13/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 55dfab0c60e77b86157a005db34c37917a5e08d2
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57341100"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60475082"
 ---
 # <a name="manage-app-passwords-from-your-security-info-preview-page"></a>Gérer les mots de passe d’application à partir de votre page Informations de sécurité (préversion)
 Certaines applications, telles qu’Outlook 2010, ne prennent pas en charge la vérification en deux étapes. Cela signifie que si vous utilisez la vérification en deux étapes dans votre organisation, l’application ne fonctionnera pas. Pour contourner ce problème, vous pouvez créer un mot de passe généré automatiquement, distinct de votre mot de passe normal, que vous devrez utiliser avec chaque application sans navigateur.

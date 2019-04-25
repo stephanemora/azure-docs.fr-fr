@@ -15,11 +15,11 @@ ms.date: 10/01/2018
 ms.author: celested
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1cbd40f2ab91f854f46dc3e62bccbc8a3264f97f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58087463"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60291277"
 ---
 # <a name="assign-users-and-groups-to-an-application-in-azure-active-directory"></a>Assigner des utilisateurs et des groupes à une application dans Azure Active Directory
 Cet article vous montre comment assigner des utilisateurs ou des groupes à une application dans Azure Active Directory (Azure AD). Les utilisateurs doivent tout d’abord être assignés à une application avant qu’un administrateur puisse leur accorder un accès afin d’effectuer les opérations suivantes :
@@ -32,7 +32,7 @@ Cet article vous montre comment assigner des utilisateurs ou des groupes à une 
 
 -   Afficher une application qui apparaît sur leur [Lanceur d’applications Office 365](https://support.office.com/article/Meet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 Avant d'affecter des utilisateurs et des groupes à une application, vous devez demander l'affectation de l'utilisateur. Pour exiger l’affectation des utilisateurs :
 
 1. Connectez-vous au portail Azure avec un compte administrateur.

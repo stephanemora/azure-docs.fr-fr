@@ -17,11 +17,11 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: f4d733e29d2ba8213e1832f2c604b726283ab3e1
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50417393"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60318695"
 ---
 # <a name="troubleshooting-specific-rdp-error-messages-to-a-windows-vm-in-azure"></a>Résolution des messages d’erreur RDP spécifiques des machines virtuelles Windows dans Azure
 Il peut arriver que vous receviez un message d’erreur spécifique lorsque vous utilisez la connexion Bureau à distance à une machine virtuelle Windows dans Azure. Cet article décrit en détail certains des messages d’erreur les plus couramment rencontrés, ainsi que les étapes de dépannage à suivre pour les résoudre. Si vous rencontrez des problèmes de connexion à votre machine virtuelle avec le protocole RDP mais que vous ne recevez pas de message d’erreur spécifique, consultez le [guide de résolution des problèmes de Bureau à distance](troubleshoot-rdp-connection.md).
@@ -37,7 +37,7 @@ Pour plus d’informations sur les messages d’erreur spécifiques, consultez l
 <a id="rdplicense"></a>
 
 ## <a name="the-remote-session-was-disconnected-because-there-are-no-remote-desktop-license-servers-available-to-provide-a-license"></a>La session distante a été déconnectée, car aucun serveur de licences Bureau à distance n’est disponible pour fournir une licence.
-Cause : La période de grâce du Gestionnaire de licences de 120 jours pour le rôle de serveur Bureau à distance a expiré et vous devez installer les licences.
+Cause : La période de grâce de licence valable 120 jours pour le rôle de serveur Bureau à distance a expiré et vous devez installer les licences.
 
 Pour contourner ce problème, enregistrez une copie locale du fichier RDP à partir du portail, puis exécutez cette commande au niveau d’une invite de commande PowerShell pour vous connecter. Cette étape ne désactive la licence que pour cette connexion :
 
@@ -50,7 +50,7 @@ Pour plus d’information, consultez le billet de blog [Azure VM fails with « N
 <a id="rdpname"></a>
 
 ## <a name="remote-desktop-cant-find-the-computer-name"></a>Le bureau à distance ne trouve pas le « name » de l’ordinateur.
-Cause : Le client Bureau à distance de votre ordinateur ne peut pas résoudre le nom de l’ordinateur dans les paramètres du fichier RDP.
+Cause : Le client Bureau à distance sur votre ordinateur ne peut pas résoudre le nom de l’ordinateur dans les paramètres du fichier RDP.
 
 Solutions possibles :
 
@@ -68,9 +68,9 @@ La partie adresse de ce fichier RDP comporte :
 <a id="rdpauth"></a>
 
 ## <a name="an-authentication-error-has-occurred-the-local-security-authority-cannot-be-contacted"></a>Une erreur d’authentification s’est produite. L’autorité de sécurité locale ne peut pas être contactée.
-Cause : La machine virtuelle cible n’a pas pu localiser l’autorité de sécurité dans la partie nom d’utilisateur de vos informations d’identification.
+Cause : La machine virtuelle cible ne peut pas localiser l’autorité de sécurité dans la partie nom d’utilisateur de vos informations d’identification.
 
-Lorsque votre nom d’utilisateur est au format *AutoritéSécurité*\\*NomUtilisateur* (par exemple, CORP\User1), la partie *AutoritéSécurité* est soit le nom d’ordinateur de la machine virtuelle (pour l’autorité de sécurité locale), soit un nom de domaine Active Directory.
+Lorsque votre nom d’utilisateur est sous la forme *Autoritésécurité*\\*nom d’utilisateur* (exemple : CORP\User1), le *Autoritésécurité* partie est le nom de l’ordinateur de la machine virtuelle (pour l’autorité de sécurité locale) ou un nom de domaine Active Directory.
 
 Solutions possibles :
 
@@ -80,13 +80,13 @@ Solutions possibles :
 
 <a id="wincred"></a>
 
-## <a name="windows-security-error-your-credentials-did-not-work"></a>Message d’erreur de sécurité Windows : Vos informations d’identification n’ont pas fonctionné.
-Cause : La machine virtuelle cible ne peut pas valider le nom et le mot de passe de votre compte.
+## <a name="windows-security-error-your-credentials-did-not-work"></a>Erreur de sécurité de Windows : Vos informations d’identification n’a pas fonctionné.
+Cause : La machine virtuelle cible ne peut pas valider votre nom de compte et le mot de passe.
 
 Un ordinateur Windows peut valider les informations d’identification d’un compte local ou d’un compte de domaine.
 
-* Pour les comptes locaux, utilisez la syntaxe *NomOrdinateur*\\*NomUtilisateur* (par exemple : SQL1\Admin4798).
-* Pour les comptes de domaine, utilisez la syntaxe *NomDomaine*\\*NomUtilisateur* (par exemple, CONTOSO\johndoe).
+* Pour les comptes locaux, utilisez le *ComputerName*\\*nom d’utilisateur* syntaxe (exemple : SQL1\Admin4798).
+* Pour les comptes de domaine, utilisez le *DomainName*\\*nom d’utilisateur* syntaxe (exemple : CONTOSO\peterodman).
 
 Si vous avez promu votre machine virtuelle en tant que contrôleur de domaine d’une nouvelle forêt Active Directory, le compte d’administrateur local auquel vous êtes connecté est converti en un compte équivalent avec le même mot de passe dans la nouvelle forêt et le nouveau domaine. Le compte local est alors supprimé.
 
@@ -99,7 +99,7 @@ Pour modifier le mot de passe du compte administrateur local, voir [Réinitialis
 <a id="rdpconnect"></a>
 
 ## <a name="this-computer-cant-connect-to-the-remote-computer"></a>Cet ordinateur ne peut pas se connecter à l’ordinateur distant.
-Cause : Le compte utilisé pour vous connecter ne dispose pas des droits de connexion au Bureau à distance.
+Cause : Le compte qui est utilisé pour se connecter ne dispose pas de droits de connexion Bureau à distance.
 
 Chaque ordinateur Windows dispose d’un groupe local d’utilisateurs du Bureau à distance, qui contient les comptes et groupes autorisés à s’y connecter à distance. Les membres du groupe local d’administrateurs y ont également accès, même si ces comptes ne sont pas répertoriés dans le groupe local des utilisateurs du Bureau à distance. Pour les ordinateurs associés à un domaine, le groupe local d’administrateurs contient également les administrateurs du domaine en question.
 

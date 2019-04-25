@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 01/03/2019
 ms.author: pbutlerm
 ms.openlocfilehash: f9cbf5033d0ffb84959de94db052626dd1d131c8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57997954"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60311271"
 ---
 # <a name="dynamics-365-for-customer-engagement-storefront-details-tab"></a>Onglet Détails de la vitrine Dynamics 365 for Customer Engagement
 
@@ -52,7 +52,7 @@ Le tableau suivant décrit les champs de cet onglet :
 |    **Champ**          |  **Description**               |
 |  ---------------      |  ---------------               |
 |  Secteurs d’activité           | Sélectionnez les secteurs d’activité (deux maximum) qui correspondent à l’application. Si aucune ne convient, vous pouvez ne sélectionner aucune option.  |
-|  Catégories           | Sélectionnez les catégories qui se rapportent à l’application. Choisissez entre une et trois options.  |
+|  Categories           | Sélectionnez les catégories qui se rapportent à l’application. Choisissez entre une et trois options.  |
 |  Type d’application             | Sélectionnez le type d’essai activé pour l’application sur AppSource. **Gratuit** indique que votre application peut être utilisée sans frais, **Essai** indique que les clients peuvent essayer votre application pendant une courte période sans frais, et **Me contacter** indique que les clients peuvent demander un essai de l’application sur AppSource.  |
 | Lien d’aide pour votre application | URL de la documentation en ligne ou d’autres ressources d’aide pour l’application.  |
 | Pays/régions pris en charge | Une boîte de dialogue contextuelle permet de sélectionner les régions géographiques où l’application est disponible.  La distribution dans le monde entier est la valeur par défaut. |

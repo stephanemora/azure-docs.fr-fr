@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: genli
 ms.openlocfilehash: 66c978a7eb151ce9df939a11e2e3c0016c8e7c9e
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138090"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60532515"
 ---
 # <a name="get-started-creating-an-internet-facing-load-balancer-for-cloud-services"></a>Création d'un équilibreur de charge accessible sur Internet pour les services cloud
 
@@ -31,7 +31,7 @@ ms.locfileid: "53138090"
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
 > [!IMPORTANT]
-> Avant d’utiliser des ressources Azure, il est important de comprendre qu’Azure dispose actuellement de deux modèles de déploiement : Azure Resource Manager et classique. Veillez à bien comprendre les [modèles et outils de déploiement](../azure-classic-rm.md) avant d’utiliser une ressource Azure. Pour consulter la documentation relative aux différents outils, cliquez sur les onglets situés en haut de cet article. Cet article traite du modèle de déploiement classique. Vous pouvez également [découvrir comment créer un équilibreur de charge accessible sur Internet à l’aide d’Azure Resource Manager](load-balancer-get-started-internet-arm-ps.md).
+> Avant d’utiliser des ressources Azure, il est important de comprendre qu’Azure dispose actuellement de deux modèles de déploiement : Azure Resource Manager et classique. Veillez à bien comprendre les [modèles et outils de déploiement](../azure-classic-rm.md) avant d’utiliser une ressource Azure. Pour consulter la documentation relative aux différents outils, cliquez sur les onglets situés en haut de cet article. Cet article traite du modèle de déploiement classique. Vous pouvez également [découvrir comment créer un équilibreur de charge accessible sur Internet à l’aide d’Azure Resource Manager](load-balancer-get-started-internet-arm-ps.md).
 
 Les services cloud sont automatiquement configurés avec un équilibrage de charge et peuvent être personnalisés via le modèle de service
 

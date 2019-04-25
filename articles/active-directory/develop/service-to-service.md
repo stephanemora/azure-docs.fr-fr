@@ -7,22 +7,22 @@ author: CelesteDG
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.subservice: develop
+ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.author: celested
+origin.date: 09/24/2018
+ms.date: 11/07/2018
+ms.author: v-junlch
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
 ms.openlocfilehash: e0ced89ce97d5f22270d9968fdeb0ddb3fad1e4e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194986"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60251997"
 ---
 # <a name="service-to-service-apps"></a>Applications service à service
 
@@ -63,8 +63,8 @@ Consultez les exemples de code pour les scénarios du type application démon ou
 
 ## <a name="app-registration"></a>Inscription d'application
 
-* Application avec locataire unique : pour les identités d’application et les identités d’utilisateur délégué, l’application démon ou serveur doit être inscrite dans le même répertoire dans Azure AD. L’API web peut être configurée pour exposer un ensemble d’autorisations utilisées pour limiter l’accès de l’application démon ou serveur à ses ressources. Si une identité d’utilisateur délégué est utilisée, l’application serveur doit sélectionner les autorisations souhaitées dans le menu déroulant « Autorisations pour d’autres applications » du portail Azure. Cette étape n’est pas requise si une identité d’application est utilisée.
-* Application mutualisée : tout d’abord, l’application démon ou serveur est configurée pour indiquer les autorisations dont elle a besoin pour fonctionner. Cette liste d’autorisations requises s’affiche dans une boîte de dialogue quand un utilisateur ou un administrateur de l’annuaire de destination donne son consentement à l’application, ce qui la met à disposition de son organisation. Certaines applications nécessitent uniquement des autorisations au niveau utilisateur pour lesquelles tous les utilisateurs de l’organisation peuvent donner leur consentement. D’autres nécessitent des autorisations administrateur, pour lesquelles un utilisateur de l’organisation ne peut pas donner son consentement. Seul un administrateur d’annuaires peut donner son consentement aux applications qui requièrent des autorisations de ce niveau. Quand un utilisateur ou un administrateur donne son consentement, les deux API web sont inscrites dans son annuaire.
+- Application avec locataire unique : pour les identités d’application et les identités d’utilisateur délégué, l’application démon ou serveur doit être inscrite dans le même répertoire dans Azure AD. L’API web peut être configurée pour exposer un ensemble d’autorisations utilisées pour limiter l’accès de l’application démon ou serveur à ses ressources. Si une identité d’utilisateur délégué est utilisée, l’application serveur doit sélectionner les autorisations souhaitées dans le menu déroulant « Autorisations pour d’autres applications » du portail Azure. Cette étape n’est pas requise si une identité d’application est utilisée.
+- Application mutualisée : tout d’abord, l’application démon ou serveur est configurée pour indiquer les autorisations dont elle a besoin pour fonctionner. Cette liste d’autorisations requises s’affiche dans une boîte de dialogue quand un utilisateur ou un administrateur de l’annuaire de destination donne son consentement à l’application, ce qui la met à disposition de son organisation. Certaines applications nécessitent uniquement des autorisations au niveau utilisateur pour lesquelles tous les utilisateurs de l’organisation peuvent donner leur consentement. D’autres nécessitent des autorisations administrateur, pour lesquelles un utilisateur de l’organisation ne peut pas donner son consentement. Seul un administrateur d’annuaires peut donner son consentement aux applications qui requièrent des autorisations de ce niveau. Quand un utilisateur ou un administrateur donne son consentement, les deux API web sont inscrites dans son annuaire.
 
 ## <a name="token-expiration"></a>Expiration du jeton
 
@@ -74,3 +74,4 @@ Quand la première application utilise son code d’autorisation pour obtenir un
 
 - En savoir plus sur les autres [types d’applications et scénarios](app-types.md)
 - En savoir plus sur les [principes de base de l’authentification](authentication-scenarios.md) Azure AD
+

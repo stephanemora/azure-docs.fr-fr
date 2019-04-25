@@ -15,18 +15,18 @@ ms.date: 03/13/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 2dcbcbec9054b31312043ef6642f59fa64728b30
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58005808"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60194323"
 ---
 # <a name="view-deny-assignments-for-azure-resources-using-the-azure-portal"></a>Afficher les affectations de refus pour les ressources Azure à l'aide du portail Azure
 
 Les [affectations de refus](deny-assignments.md) empêchent les utilisateurs d'effectuer des actions particulières sur les ressources Azure, même si une attribution de rôle leur confère un accès. Cet article explique comment utiliser le portail Azure pour afficher les affectations de refus.
 
 > [!NOTE]
-> À ce stade, la seule façon, vous pouvez ajouter vos propres refuser affectations est à l’aide de plans d’Azure. Pour plus d’informations, consultez [protéger les nouvelles ressources des verrous de ressources Azure plans](../governance/blueprints/tutorials/protect-new-resources.md).
+> À ce stade, la seule façon d’ajouter vos propres affectations de refus est d’utiliser Azure Blueprints. Pour plus d’informations, consultez [Protéger les nouvelles ressources avec des verrous de ressources Azure Blueprints](../governance/blueprints/tutorials/protect-new-resources.md).
 
 ## <a name="prerequisites"></a>Conditions préalables
 
@@ -56,7 +56,7 @@ Effectuez ces étapes pour afficher les affectations de refus au niveau de l’a
 
     |  |  |
     | --- | --- |
-    | **Nom** | Nom de l’affectation de refus. |
+    | **Name** | Nom de l’affectation de refus. |
     | **Type de principal** | Utilisateur, groupe, groupe défini par le système ou principal du service. |
     | **Refusé**  | Nom du principal de sécurité qui est inclus dans l’affectation de refus. |
     | **Id** | Identificateur unique pour l’affectation de refus. |

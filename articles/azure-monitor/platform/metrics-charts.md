@@ -1,19 +1,19 @@
 ---
 title: Fonctionnalités avancées d’Azure Metrics Explorer
 description: En savoir plus sur les fonctionnalités avancées d’Azure Monitor Metrics Explorer
-author: vgorbenko
+author: lingliw
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 01/22/2019
-ms.author: vitalyg
+ms.date: 04/12/19
+ms.author: v-lingwu
 ms.subservice: metrics
 ms.openlocfilehash: 67e4281b24a7489cf202d82bdddbe99992aac095
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59271677"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60256787"
 ---
 # <a name="advanced-features-of-azure-metrics-explorer"></a>Fonctionnalités avancées d’Azure Metrics Explorer
 
@@ -149,4 +149,3 @@ Lisez cet [article](alerts-metric.md) pour en savoir plus sur la configuration d
 ## <a name="next-steps"></a>Étapes suivantes
 
   Pour découvrir les meilleures pratiques en matière de création de tableaux de bord actionnables avec des métriques, voir [Création de tableaux de bord d’indicateurs de performance clés personnalisés](https://docs.microsoft.com/azure/application-insights/app-insights-tutorial-dashboards).
-

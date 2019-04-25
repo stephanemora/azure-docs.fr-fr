@@ -12,11 +12,11 @@ ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
 ms.openlocfilehash: 21d6c1671c57341d785c002f360c05cc5c610657
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57551617"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60371611"
 ---
 # <a name="create-sections-on-your-invoice-to-organize-your-costs"></a>Créer des sections sur votre facture pour organiser vos coûts
 
@@ -38,7 +38,7 @@ Pour créer une section de facture, vous devez être un **propriétaire de profi
 
    ![Capture d’écran montrant la recherche dans le portail Azure](./media/billing-mca-section-invoice/billing-mca-list-invoice-sections.png)
 
-4. À partir du haut de la page, sélectionnez **ajouter**.
+4. En haut de la page, sélectionnez **Ajouter**.
 
 5. Entrez le nom de la section de la facture.
 

@@ -2,18 +2,18 @@
 title: Vue d’ensemble des instantanés de partage pour Azure Files | Microsoft Docs
 description: Un instantané de partage est une version en lecture seule d’un partage Azure Files enregistrée à un point dans le temps pour sauvegarder le partage.
 services: storage
-author: RenaShahMSFT
+author: roygara
 ms.service: storage
 ms.topic: article
 ms.date: 01/17/2018
-ms.author: renash
+ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 8d6bca12ae1df0cab7be3e1c54467d32063bacaf
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57195289"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60444093"
 ---
 # <a name="overview-of-share-snapshots-for-azure-files"></a>Vue d’ensemble des instantanés de partage pour Azure Files 
 Azure Files vous permet de prendre des instantanés de partages de fichiers. Les instantanés de partage capturent l’état d’un partage à ce point dans le temps. Dans cet article, nous décrivons les fonctionnalités fournies par les instantanés de partage et comment vous pouvez en tirer parti dans votre propre cas d’usage.

@@ -19,11 +19,11 @@ ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a77118edd08faf6d40897a916ee85e2b6e20d3bb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58103449"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60298255"
 ---
 # <a name="azure-ad-saml-token-reference"></a>Référence de jeton SAML Azure AD
 
@@ -47,7 +47,7 @@ Azure Active Directory (Azure AD) émet plusieurs types de jetons de sécuri
 > |Nom | `unique_name` |Fournit une valeur contrôlable de visu qui identifie le sujet du jeton. Il n’est pas certain que cette valeur soit unique au sein d'un client. Elle est conçue pour être utilisée uniquement à des fins d'affichage. | `<Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name">`<br>`<AttributeValue>frankm@contoso.com<AttributeValue>`|
 > |ID objet | `oid` |Contient un identificateur unique d’un objet dans Azure AD. Cette valeur est immuable et ne peut pas être réattribuée ou réutilisée. Utilisez l'ID objet pour identifier un objet dans les requêtes à Azure AD. | `<Attribute Name="http://schemas.microsoft.com/identity/claims/objectidentifier">`<br>`<AttributeValue>528b2ac2-aa9c-45e1-88d4-959b53bc7dd0<AttributeValue>` |
 > |contrôleur | `roles` |Représente tous les rôles d’application qui ont été accordés au sujet directement et indirectement via l’appartenance au groupe, et peut être utilisée pour appliquer un contrôle d’accès basé sur les rôles. Les rôles d’application sont définis pour chaque application, via la propriété `appRoles` du manifeste d’application. La propriété `value` de chaque rôle d’application est la valeur qui s’affiche dans la revendication des rôles. | `<Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/role">`|
-> |Objet | `sub` |Identifie l’objet principal sur lequel portent les assertions d’informations du jeton, comme l’utilisateur d’une application. Cette valeur n’est pas modifiable et ne peut pas être réassignée ou réutilisée. Vous pouvez donc l’utiliser pour effectuer des vérifications d’autorisation en toute sécurité. Étant donné que le sujet est toujours présent dans les jetons émis par Azure AD, vous êtes invité à utiliser cette valeur dans un but général de système d'autorisation. <br> `SubjectConfirmation` n’est pas une revendication. Il décrit comment le sujet du jeton est vérifié. `Bearer` indique que le sujet est confirmé par la possession du jeton. | `<Subject>`<br>`<NameID>S40rgb3XjhFTv6EQTETkEzcgVmToHKRkZUIsJlmLdVc</NameID>`<br>`<SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer" />`<br>`</Subject>`|
+> |Subject | `sub` |Identifie l’objet principal sur lequel portent les assertions d’informations du jeton, comme l’utilisateur d’une application. Cette valeur n’est pas modifiable et ne peut pas être réassignée ou réutilisée. Vous pouvez donc l’utiliser pour effectuer des vérifications d’autorisation en toute sécurité. Étant donné que le sujet est toujours présent dans les jetons émis par Azure AD, vous êtes invité à utiliser cette valeur dans un but général de système d'autorisation. <br> `SubjectConfirmation` n’est pas une revendication. Il décrit comment le sujet du jeton est vérifié. `Bearer` indique que le sujet est confirmé par la possession du jeton. | `<Subject>`<br>`<NameID>S40rgb3XjhFTv6EQTETkEzcgVmToHKRkZUIsJlmLdVc</NameID>`<br>`<SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer" />`<br>`</Subject>`|
 > |ID client | `tid` |Identificateur non modifiable et non réutilisable qui identifie le client du répertoire qui a émis le jeton. Vous pouvez utiliser cette valeur pour accéder à des ressources de répertoire spécifiques au client dans une application mutualisée. Par exemple, vous pouvez utiliser cette valeur pour identifier le client dans un appel à l'API Graph. | `<Attribute Name="http://schemas.microsoft.com/identity/claims/tenantid">`<br>`<AttributeValue>cbb1a5ac-f33b-45fa-9bf5-f37db0fed422<AttributeValue>`|
 > |Durée de vie du jeton | `nbf`, `exp` |Définit l’intervalle de temps pendant lequel un jeton est valide. Le service qui valide le jeton doit vérifier que la date actuelle est comprise dans sa durée de vie, sans quoi le jeton doit être rejeté. Le service peut accorder une marge de jusqu’à cinq minutes au-delà de la plage de durée de vie du jeton pour prendre en compte tout écart de temps (« décalage horaire ») entre Azure AD et le service. | `<Conditions`<br>`NotBefore="2013-03-18T21:32:51.261Z"`<br>`NotOnOrAfter="2013-03-18T22:32:51.261Z"`<br>`>` <br>|
 

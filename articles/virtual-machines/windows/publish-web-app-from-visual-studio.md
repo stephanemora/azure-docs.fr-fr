@@ -13,18 +13,18 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 11/03/2017
 ms.author: ghogen
-ms.openlocfilehash: d5fd6041f21700ffddd3b2c4755b7ce01691681e
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
-ms.translationtype: HT
+ms.openlocfilehash: 5298721b7f60cec677c22faf1b35011aab02defb
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44304082"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60204328"
 ---
 # <a name="publish-an-aspnet-web-app-to-an-azure-vm-from-visual-studio"></a>Publier une application web ASP.NET sur une machine virtuelle Azure à partir de Visual Studio
 
 Ce document décrit comment publier une application web ASP.NET sur une machine virtuelle Azure à l’aide de la fonctionnalité de publication **Machines virtuelles Microsoft Azure** dans Visual Studio 2017.  
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 Pour pouvoir publier un projet ASP.NET sur une machine virtuelle Azure à l’aide de Visual Studio, vous devez configurer la machine virtuelle correctement.
 
 - Elle doit être configurée pour exécuter une application web ASP.NET et WebDeploy doit être installé.
@@ -106,7 +106,7 @@ Vos paramètres doivent ressembler à ce qui suit :
 
 - Si vous souhaitez vous assurer que le serveur web dispose d’une nouvelle copie de l’application web après chaque chargement (et qu’il ne reste aucun autre fichier d’un déploiement précédent), vous pouvez cocher la case **Supprimer les fichiers supplémentaires de la destination** sous l’onglet **Paramètres**.
 
-- Avertissement : La publication avec ce paramètre supprime tous les fichiers qui existent sur le serveur web (répertoire wwwroot). Assurez-vous de connaître l’état de la machine avant de publier avec cette option activée. 
+- Avertissement : Publication avec ce paramètre supprime tous les fichiers qui existent sur le serveur web (répertoire wwwroot). Assurez-vous de connaître l’état de la machine avant de publier avec cette option activée. 
 
 ![Paramètres de publication - Page Paramètres]
 

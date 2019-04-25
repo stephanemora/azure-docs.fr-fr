@@ -17,11 +17,11 @@ ms.date: 11/29/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 025a9d7df16b2be5e22104010be057403ce53c25
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58880625"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60272952"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infor-cloudsuite"></a>Tutoriel : Intégration d’Azure Active Directory à Infor CloudSuite
 
@@ -35,7 +35,7 @@ L’intégration d’Infor CloudSuite à Azure AD vous offre les avantages suiv
 
 Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique auprès d’Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour configurer l’intégration d’Azure AD à Infor CloudSuite, vous avez besoin des éléments suivants :
 

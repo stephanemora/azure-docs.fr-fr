@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: raynew
 ms.openlocfilehash: 8df587db7655e2aafd876d80581f3296c8c99fbf
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58004096"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60201543"
 ---
 # <a name="dependency-visualization"></a>Visualisation de dépendance
 
@@ -20,7 +20,7 @@ Le service [Azure Migrate](migrate-overview.md) évalue les groupes de machines 
 > [!NOTE]
 > La fonctionnalité de visualisation de dépendance n’est pas disponible dans Azure Government.
 
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 
 La visualisation des dépendances dans Azure Migrate permet de créer des groupes hautement fiables pour les évaluations de la migration. À l’aide de la visualisation des dépendances, vous pouvez voir les dépendances de réseau des machines et identifier les machines connexes qui doivent être migrées ensemble vers Azure. Cette fonctionnalité est utile dans les scénarios où vous ne savez pas exactement quelles sont les machines qui constituent votre application et doivent être migrées ensemble vers Azure.
 

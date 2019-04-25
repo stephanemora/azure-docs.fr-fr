@@ -18,11 +18,11 @@ ms.date: 10/25/2018
 ms.author: joflore
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5f1b23862edeabbf8e03d4589fa3f22a3fab9f72
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58520987"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60353157"
 ---
 # <a name="group-policy-and-mdm-settings"></a>Paramètres de stratégie de groupe et de gestion des appareils mobiles
 Ces paramètres de stratégie de groupe et de gestion des appareils mobiles (MDM) doivent être utilisés sur des appareils d’entreprise uniquement, car ces stratégies sont appliquées à l’ensemble de l’appareil de l’utilisateur. Appliquer une stratégie de MDM pour désactiver la synchronisation des paramètres pour un appareil personnel appartenant à un utilisateur aura un impact négatif sur l’utilisation de cet appareil. En outre, les autres comptes d’utilisateurs de l’appareil seront eux aussi affectés par la stratégie.
@@ -43,7 +43,7 @@ Les paramètres de stratégie de groupe s’appliquent aux appareils Windows 10
 
 Ces paramètres se trouvent dans : `Computer Configuration > Administrative Templates > Windows Components > Sync your settings` 
 
-| Nom | Description |
+| Name | Description |
 | --- | --- |
 | Comptes : Bloquer des comptes Microsoft |Ce paramètre de stratégie empêche les utilisateurs d’ajouter de nouveaux comptes Microsoft sur l’ordinateur |
 | Ne pas synchroniser |Empêche l’itinérance des paramètres Windows et des données d’application des utilisateurs |

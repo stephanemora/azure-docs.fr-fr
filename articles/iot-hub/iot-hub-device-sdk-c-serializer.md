@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 09/06/2016
 ms.author: yizhon
 ms.openlocfilehash: 0a7e30be374ae5095e206ce0e519e51bb58f1f00
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024856"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60399238"
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-serializer"></a>Kit de développement logiciel (SDK) Azure IoT device pour C : en savoir plus sur serializer
 
@@ -64,7 +64,7 @@ Cet exemple n’illustre pas les types de données supplémentaires pris en char
 
 Les types de données suivants sont pris en charge dans les modèles créés avec la bibliothèque **serializer** :
 
-| type | Description |
+| Type | Description |
 | --- | --- |
 | double |nombre à virgule flottante double précision |
 | int |entier 32 bits |
@@ -78,7 +78,7 @@ Les types de données suivants sont pris en charge dans les modèles créés ave
 | ascii\_char\_ptr |Chaîne ASCII |
 | EDM\_DATE\_TIME\_OFFSET |décalage de date et d’heure |
 | EDM\_GUID |GUID |
-| EDM\_BINARY |binaire |
+| EDM\_BINARY |binary |
 | DECLARE\_STRUCT |type de données complexe |
 
 Commençons par ce dernier type de données. L’argument **DECLARE\_STRUCT** vous permet de définir des types de données complexes, qui sont des regroupements des autres types primitifs. Ces regroupements permettent de définir un modèle qui ressemble à ceci :
@@ -194,7 +194,7 @@ Si nous exécutons ce code, le message suivant est envoyé à IoT Hub :
 {"aDouble":1.100000000000000, "aInt":2, "aFloat":3.000000, "aLong":4, "aInt8":5, "auInt8":6, "aInt16":7, "aInt32":8, "aInt64":9, "aBool":true, "aAsciiCharPtr":"ascii string 1", "aDateTimeOffset":"2015-09-14T21:18:21Z", "aGuid":"00010203-0405-0607-0809-0A0B0C0D0E0F", "aBinary":"AQID"}
 ```
 
-Notez que la sérialisation se fait en JSON, le format généré par la bibliothèque **serializer**. Notez également que chaque membre de l’objet JSON sérialisé correspond aux membres de la structure **TestType** définie dans notre modèle. Les valeurs correspondent également exactement à celles que nous avons utilisées dans le code. Toutefois, notez que les données binaires sont codées en base 64 : « AQID » est l’encodage en base 64 de {0x01, 0x02, 0x03}.
+Notez que la sérialisation se fait en JSON, le format généré par la bibliothèque **serializer**. Notez également que chaque membre de l’objet JSON sérialisé correspond aux membres de la structure **TestType** définie dans notre modèle. Les valeurs correspondent également exactement à celles que nous avons utilisées dans le code. Toutefois, notez que les données binaires codées en base64 : « AQID » est en base64 d’encodage de {0 x 01, 0 x 02, 0 x 03}.
 
 Cet exemple montre l’avantage que procure l’utilisation de la bibliothèque **serializer** : elle permet d’envoyer le code JSON dans le cloud, sans avoir à gérer explicitement la sérialisation dans notre application. Il vous suffit de définir les valeurs des événements de données dans notre modèle, puis d’appeler des API simples pour envoyer ces événements dans le cloud.
 
@@ -233,7 +233,7 @@ WITH_DATA(HumidityEvent, Humidity)
 END_NAMESPACE(Contoso);
 ```
 
-Notez que le modèle inclut deux événements de données : **Temperature** et **Humidity**. Contrairement aux exemples précédents, le type de chaque événement est une structure définie à l’aide de l’instruction **DECLARE\_STRUCT**. **TemperatureEvent** comprend une mesure de température et un horodatage ; **HumidityEvent** contient une mesure d’humidité et un horodatage. Ce modèle propose une façon naturelle de modéliser les données du scénario décrit ci-dessus. Quand nous envoyons un événement dans le cloud, il s’agit soit d’une paire température/horodatage, soit d’une paire humidité/horodatage.
+Notez que le modèle inclut deux événements de données : **Température** et **humidité**. Contrairement aux exemples précédents, le type de chaque événement est une structure définie à l’aide de l’instruction **DECLARE\_STRUCT**. **TemperatureEvent** comprend une mesure de température et un horodatage ; **HumidityEvent** contient une mesure d’humidité et un horodatage. Ce modèle propose une façon naturelle de modéliser les données du scénario décrit ci-dessus. Quand nous envoyons un événement dans le cloud, il s’agit soit d’une paire température/horodatage, soit d’une paire humidité/horodatage.
 
 Nous pouvons envoyer un événement de température dans le cloud à l’aide d’un code similaire tel que celui qui suit :
 
@@ -514,7 +514,7 @@ Si vous envoyez un message sur un appareil, cela se fait via le Kit de développ
 {"Name" : "", "Parameters" : "" }
 ```
 
-Vous envoyez un objet JSON sérialisé avec deux propriétés : **Name** est le nom de l’action (message) et **Parameters** contient les paramètres de cette action.
+Que vous envoyez un objet JSON sérialisé avec deux propriétés : **Nom** est le nom de l’action (message) et **paramètres** contient les paramètres de cette action.
 
 Par exemple, pour invoquer **SetAirResistance** , vous pouvez envoyer ce message sur un appareil :
 

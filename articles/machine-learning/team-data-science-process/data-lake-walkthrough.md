@@ -12,11 +12,11 @@ ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: cc37109eda2690b4407f9cd0c92851b7c0e3f915
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57835233"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60399960"
 ---
 # <a name="scalable-data-science-with-azure-data-lake-an-end-to-end-walkthrough"></a>Science des données évolutive avec Azure Data Lake : procédure complète
 Cette procédure de bout en bout montre comment utiliser Azure Data Lake pour effectuer des tâches d’exploration de données et de classification binaire sur un échantillon de jeu de données NYC taxi trip and fare afin de prédire si le pourboire est compris dans le prix du billet. Elle vous guide tout au long du [processus de science des données pour les équipes](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/)de bout en bout, depuis l’acquisition de données à l’apprentissage du modèle et au déploiement d’un service web qui publie le modèle.
@@ -40,7 +40,7 @@ Azure Machine Learning Studio est utilisé pour générer et déployer les modè
 ### <a name="scripts"></a>Scripts
 Seules les principales étapes sont décrites dans cette procédure pas à pas. Vous pouvez télécharger la version complète du **script U-SQL** et du **bloc-notes Jupyter** à partir de [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/AzureDataLakeWalkthrough).
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 Avant de commencer ces rubriques, vous devez disposer des éléments suivants :
 
 * Un abonnement Azure. Si vous n’en avez pas, consultez [Obtenir une version d’évaluation gratuite Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).

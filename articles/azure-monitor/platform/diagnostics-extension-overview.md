@@ -8,11 +8,11 @@ ms.date: 02/13/2019
 ms.author: robb
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: 8a287f118c126967d2cf8cad77a434cfecc098eb
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58078537"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60236244"
 ---
 # <a name="what-is-azure-diagnostics-extension"></a>Présentation de l’extension Diagnostics Azure
 L’extension Diagnostics Azure est un agent au sein d’Azure qui permet la collecte de données de diagnostic d’une application déployée. Vous pouvez utiliser l'extension de diagnostic à partir de plusieurs sources différentes. Les sources actuellement prises en charge sont les rôles Web et Worker Azure Cloud Service (classique), les machines virtuelles, les groupes de machines virtuelles identiques et Service Fabric. Les autres services Azure ont des méthodes de diagnostic différentes. Consultez [Vue d’ensemble du monitoring dans Azure](../../azure-monitor/overview.md).

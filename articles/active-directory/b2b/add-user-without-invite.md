@@ -13,11 +13,11 @@ manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1dca03f84b821d20ee6fecbaec24a1aa840836b5
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294975"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60357135"
 ---
 # <a name="add-b2b-collaboration-guest-users-without-an-invitation-link-or-email"></a>Ajouter les utilisateurs invités B2B collaboration sans un lien d’invitation ou l’e-mail
 

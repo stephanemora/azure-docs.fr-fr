@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory avec Kantega SSO pour Bamboo | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory avec Kantega SSO pour Bamboo | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Kantega SSO pour Bamboo.
 services: active-directory
 documentationCenter: na
@@ -16,11 +16,11 @@ ms.date: 07/12/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7900d07114007e77dadc3e5985408289176cf06e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56176286"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60267104"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-bamboo"></a>Didacticiel : Intégration d’Azure Active Directory avec Kantega SSO pour Bamboo
 
@@ -34,7 +34,7 @@ L’intégration de Kantega SSO pour Bamboo avec Azure AD offre les avantages su
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour configurer l’intégration d’Azure AD avec Kantega SSO pour Bamboo, vous avez besoin des éléments suivants :
 

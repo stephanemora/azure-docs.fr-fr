@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
 ms.openlocfilehash: b0bbfe973f18067284514e39d36442a63bd3efc8
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019263"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60508896"
 ---
 # <a name="copy-data-from-presto-using-azure-data-factory-preview"></a>Copier des données de Presto avec Azure Data Factory (préversion)
 
@@ -44,7 +44,7 @@ Les propriétés suivantes sont prises en charge pour le service lié Presto :
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type doit être définie sur : **Presto** | Oui |
+| type | La propriété type doit être définie sur : **Presto** | Oui |
 | host | Adresse IP ou nom d’hôte du serveur Presto (c’est-à-dire 192.168.222.160).  | Oui |
 | serverVersion | Version du serveur Presto (c’est-à-dire 0.148-t).  | Oui |
 | catalog | Contexte du catalogue pour toutes les requêtes effectuées sur le serveur.  | Oui |
@@ -91,8 +91,8 @@ Pour copier des données de Presto, affectez la valeur **PrestoObject** à la pr
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type du jeu de données doit être définie sur : **PrestoObject** | Oui |
-| TableName | Nom de la table. | Non (si « query » dans la source de l’activité est spécifié) |
+| type | La propriété type du jeu de données doit être définie sur : **PrestoObject** | Oui |
+| tableName | Nom de la table. | Non (si « query » dans la source de l’activité est spécifié) |
 
 **Exemple**
 
@@ -120,7 +120,7 @@ Pour copier des données de Presto, affectez la valeur **PrestoSource** au type 
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type de la source d’activité de copie doit être définie sur : **PrestoSource** | Oui |
+| type | La propriété type de la source d’activité de copie doit être définie sur : **PrestoSource** | Oui |
 | query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"SELECT * FROM MyTable"`. | Non (si « tableName » est spécifié dans dataset) |
 
 **Exemple :**

@@ -13,11 +13,11 @@ ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3e5d1546c658631911f25c43e94275f00c7a5140
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57901880"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60474593"
 ---
 # <a name="set-up-security-info-preview-to-use-security-questions"></a>Configurer les informations de sécurité (préversion) pour utiliser les questions de sécurité
 Procédez comme suit pour ajouter votre méthode de réinitialisation de mot de passe. Au terme de la configuration initiale, vous pourrez revenir à la page **Informations de sécurité** pour ajouter, mettre à jour ou supprimer vos informations de sécurité.

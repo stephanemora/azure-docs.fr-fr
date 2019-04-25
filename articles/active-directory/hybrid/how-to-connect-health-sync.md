@@ -16,11 +16,11 @@ ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: abed56ee64cbca8646c1aa1d24fea292aa4d8de3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56201820"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60245421"
 ---
 # <a name="monitor-azure-ad-connect-sync-with-azure-ad-connect-health"></a>Surveiller la synchronisation Azure AD Connect avec Azure AD Connect Health
 La documentation suivante s’applique à la surveillance de la synchronisation Azure AD Connect avec Azure AD Connect Health.  Pour plus d’informations sur la surveillance AD FS avec Azure AD Connect Health, consultez [Utilisation d’Azure AD Connect Health avec AD FS](how-to-connect-health-adfs.md). En outre, pour plus d’informations sur la surveillance des services de domaine Active Directory avec Azure AD Connect Health, consultez [Utilisation d’Azure AD Connect Health avec AD DS](how-to-connect-health-adds.md).
@@ -80,7 +80,7 @@ Cette fonctionnalité fournit un rapport sur les erreurs de synchronisation qui 
 ### <a name="categorization-of-errors"></a>Catégorisation des erreurs
 Le rapport classe les erreurs de synchronisation existantes dans les catégories suivantes :
 
-| Catégorie | Description |
+| Category | Description |
 | --- | --- |
 | Attribut en double |Erreurs quand Azure AD Connect tente de créer ou de mettre à jour des objets avec des valeurs dupliquées d’un ou plusieurs attributs dans Azure AD et qui doivent être uniques dans un client, par exemple proxyAddresses et UserPrincipalName. |
 | Incohérence de données |Erreurs quand la correspondance souple ne parvient pas à faire correspondre des objets qui génèrent des erreurs de synchronisation. |

@@ -17,11 +17,11 @@ ms.date: 03/22/2019
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 334f69390e4506c6db76c1814f8ec8f1e4417ee9
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372333"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60327998"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-with-azure-resource-manager-templates"></a>Comment créer une machine virtuelle Linux avec des modèles Azure Resource Manager
 
@@ -66,7 +66,7 @@ Dans l’exemple précédent, vous avez spécifié un modèle stocké dans GitHu
 
 Voici quelques ressources supplémentaires :
 
-- Pour savoir comment développer des modèles Resource Manager, consultez [documentation Azure Resource Manager](/azure/azure-resource-manager/).
+- Pour savoir comment développer des modèles Resource Manager, consultez la [documentation Azure Resource Manager](/azure/azure-resource-manager/).
 - Pour connaître les schémas de la machine virtuelle Azure, consultez [référence de modèle Azure](/azure/templates/microsoft.compute/allversions).
 - Pour voir des exemples de modèles de machine virtuelle plus, consultez [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Compute&pageNumber=1&sort=Popular).
 

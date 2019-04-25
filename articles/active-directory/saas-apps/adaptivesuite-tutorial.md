@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Adaptive Insights | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Adaptive Insights | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Adaptive Insights.
 services: active-directory
 documentationCenter: na
@@ -16,11 +16,11 @@ ms.date: 10/16/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d42c86ec262cd9d3d3db3035d252429e44c1208f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57884878"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60285240"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adaptive-insights"></a>Didacticiel : Intégration d’Azure Active Directory à Adaptive Insights
 
@@ -191,7 +191,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le **nom d’utilisateur** type de champ **brittasimon\@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Sélectionnez **Propriétés**, cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.

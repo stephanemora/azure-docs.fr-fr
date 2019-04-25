@@ -2,19 +2,27 @@
 title: Spark Streaming dans Azure HDInsight
 description: Utilisation d’applications Spark Streaming sur des clusters HDInsight Spark
 services: hdinsight
+documentationcenter: ''
+tags: azure-portal
+author: maxluk
+manager: jhubbard
+editor: cgronlun
+ms.assetid: ''
 ms.service: hdinsight
-author: hrasheed-msft
-ms.author: hrasheed
-ms.reviewer: jasonh
 ms.custom: hdinsightactive
-ms.topic: conceptual
-ms.date: 03/11/2019
+ms.workload: big-data
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+origin.date: 03/11/2019
+ms.date: 04/15/2019
+ms.author: v-yiso
 ms.openlocfilehash: 3ecabd683ed4303a7ff54780299ed0e83aa14c26
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57892077"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60539285"
 ---
 # <a name="overview-of-apache-spark-streaming"></a>Vue d’ensemble d’Apache Spark Streaming
 
@@ -34,7 +42,7 @@ Commençons par un événement unique, par exemple une lecture de température d
 
 Chaque RDD représente les événements collectés sur un laps de temps défini par l’utilisateur appelé *l’intervalle de lots*. Au fur et à mesure que chacun de ces intervalles s’écoule, un nouveau RDD contenant toutes les données de cet intervalle est produit. L’ensemble continu de RDD est collecté dans un DStream. Par exemple, si l’intervalle de traitement par lots est d’une seconde, votre DStream émet chaque seconde un lot incluant un RDD qui contient toutes les données ingérées durant cette seconde. Lors du traitement du DStream, l’événement de température apparaît dans l’un de ces lots. Une application Spark Streaming traite les lots qui contiennent les événements et agit en fin de compte sur les données stockées dans chaque RDD.
 
-![Exemple de DStream avec des événements de température](./media/apache-spark-streaming-overview/hdinsight-spark-streaming-example.png)
+![Exemple de DStream avec des événements de température ](./media/apache-spark-streaming-overview/hdinsight-spark-streaming-example.png)
 
 ## <a name="structure-of-a-spark-streaming-application"></a>Structure d’une application Spark Streaming
 
@@ -54,8 +62,7 @@ La définition logique de l’application consiste en quatre étapes :
 Cette définition est statique et aucune donnée n’est traitée tant que vous n’exécutez pas l’application.
 
 #### <a name="create-a-streamingcontext"></a>Créer un StreamingContext
-
-Créez à partir du SparkContext un StreamingContext qui pointe vers votre cluster. Lorsque vous créez un StreamingContext, vous devez spécifier la taille du lot en secondes, par exemple :  
+Créez à partir du SparkContext un StreamingContext qui pointe vers votre cluster. Lorsque vous créez un StreamingContext, vous devez spécifier la taille du lot en secondes, par exemple :
 
 ```
 import org.apache.spark._
@@ -91,7 +98,6 @@ wordCounts.print()
 ```
 
 ### <a name="run-the-application"></a>Exécution de l'application
-
 Démarrez l’application de diffusion en continu et exécutez-la jusqu'à la réception d’un signal d’arrêt.
 
 ```
@@ -106,44 +112,44 @@ L’exemple d’application suivant étant autonome, vous pouvez l’exécuter d
 ```
 class DummySource extends org.apache.spark.streaming.receiver.Receiver[(Int, Long)](org.apache.spark.storage.StorageLevel.MEMORY_AND_DISK_2) {
 
-    /** Start the thread that simulates receiving data */
-    def onStart() {
-        new Thread("Dummy Source") { override def run() { receive() } }.start()
-    }
+        /** Start the thread that simulates receiving data */
+        def onStart() {
+            new Thread("Dummy Source") { override def run() { receive() } }.start()
+        }
 
-    def onStop() {  }
+        def onStop() {  }
 
-    /** Periodically generate a random number from 0 to 9, and the timestamp */
-    private def receive() {
-        var counter = 0  
-        while(!isStopped()) {
+        /** Periodically generate a random number from 0 to 9, and the timestamp */
+        private def receive() {
+            var counter = 0  
+            while(!isStopped()) {
             store(Iterator((counter, System.currentTimeMillis)))
             counter += 1
             Thread.sleep(5000)
+            }
         }
     }
-}
 
-// A batch is created every 30 seconds
-val ssc = new org.apache.spark.streaming.StreamingContext(spark.sparkContext, org.apache.spark.streaming.Seconds(30))
+    // A batch is created every 30 seconds
+    val ssc = new org.apache.spark.streaming.StreamingContext(spark.sparkContext, org.apache.spark.streaming.Seconds(30))
 
-// Set the active SQLContext so that we can access it statically within the foreachRDD
-org.apache.spark.sql.SQLContext.setActive(spark.sqlContext)
+    // Set the active SQLContext so that we can access it statically within the foreachRDD
+    org.apache.spark.sql.SQLContext.setActive(spark.sqlContext)
 
-// Create the stream
-val stream = ssc.receiverStream(new DummySource())
+    // Create the stream
+    val stream = ssc.receiverStream(new DummySource())
 
-// Process RDDs in the batch
-stream.foreachRDD { rdd =>
+    // Process RDDs in the batch
+    stream.foreachRDD { rdd =>
 
-    // Access the SQLContext and create a table called demo_numbers we can query
-    val _sqlContext = org.apache.spark.sql.SQLContext.getOrCreate(rdd.sparkContext)
-    _sqlContext.createDataFrame(rdd).toDF("value", "time")
-        .registerTempTable("demo_numbers")
-} 
+        // Access the SQLContext and create a table called demo_numbers we can query
+        val _sqlContext = org.apache.spark.sql.SQLContext.getOrCreate(rdd.sparkContext)
+        _sqlContext.createDataFrame(rdd).toDF("value", "time")
+            .registerTempTable("demo_numbers")
+    } 
 
-// Start the stream processing
-ssc.start()
+    // Start the stream processing
+    ssc.start()
 ```
 
 Attendez environ 30 secondes après le démarrage de l’application ci-dessus.  Ensuite, vous pouvez interroger la trame de données régulièrement afin de vérifier l’ensemble actuel de valeurs présentes dans le lot, par exemple à l’aide de cette requête SQL :

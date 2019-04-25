@@ -16,11 +16,11 @@ ms.date: 04/03/2019
 ms.author: rolyon
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a1f03cd518a15d08971968e04fa69954951c77e0
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59052356"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60356978"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Fonctionnalité Conditions d’utilisation d’Azure Active Directory
 La fonctionnalité Conditions d’utilisation d’Azure AD offre aux organisations une méthode simple pour présenter des informations aux utilisateurs finaux. Cette présentation permet de garantir que les utilisateurs voient les clauses d’exclusion de responsabilité nécessaires au respect des conditions légales ou de conformité. Cet article vous indique comment prendre en main les conditions d’utilisation.

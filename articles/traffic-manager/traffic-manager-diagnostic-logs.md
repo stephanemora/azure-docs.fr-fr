@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 01/25/2019
 ms.author: kumud
 ms.openlocfilehash: a7d6893c42028790ec565961f2a2cb54035aefa1
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106459"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60204051"
 ---
 # <a name="enable-diagnostic-logging-in-azure-traffic-manager"></a>Activer la journalisation des diagnostics dans Azure Traffic Manager
 
@@ -72,8 +72,8 @@ Le tableau suivant inclut le schéma des journaux d’activité propre à la res
 |||||
 |----|----|---|---|
 |**Nom du champ**|**Type de champ**|**Définition**|**Exemple**|
-|EndpointName|Chaîne|Nom du point de terminaison Traffic Manager dont l’état d’intégrité est en cours d’enregistrement.|*myPrimaryEndpoint*|
-|Statut|Chaîne|État d’intégrité du point de terminaison Traffic Manager qui a été sondé. L’état peut être **Up** (sain) ou **Down** (non opérationnel).|**Haut**|
+|EndpointName|String|Nom du point de terminaison Traffic Manager dont l’état d’intégrité est en cours d’enregistrement.|*myPrimaryEndpoint*|
+|Statut|String|État d’intégrité du point de terminaison Traffic Manager qui a été sondé. L’état peut être **Up** (sain) ou **Down** (non opérationnel).|**Haut**|
 |||||
 
 ## <a name="next-steps"></a>Étapes suivantes

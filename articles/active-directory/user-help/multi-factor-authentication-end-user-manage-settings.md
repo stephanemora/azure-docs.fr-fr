@@ -15,11 +15,11 @@ ms.date: 05/23/2017
 ms.author: lizross
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 433c2d712ca4867a5ec59f86c333511070b6d507
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58665047"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60334464"
 ---
 # <a name="manage-your-settings-for-two-step-verification"></a>Gérer les paramètres de la vérification en deux étapes
 Cet article répond aux questions en rapport avec la mise à jour des paramètres de Multi-Factor Authentication ou de la vérification en deux étapes. Si vous rencontrez des problèmes de connexion à votre compte, consultez [Problèmes avec la vérification en deux étapes](multi-factor-authentication-end-user-troubleshoot.md) pour obtenir de l’aide.

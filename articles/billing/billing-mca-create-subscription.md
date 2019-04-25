@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
 ms.openlocfilehash: 105b8481486c088a05e3acb95081d3ee55b55f52
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57897099"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60372019"
 ---
 # <a name="create-an-additional-azure-subscription-for-microsoft-customer-agreement"></a>Créer un nouvel abonnement Azure pour le contrat de client de Microsoft
 
@@ -63,11 +63,11 @@ Ajouter des utilisateurs en tant que créateurs d’abonnement Azure sur une sec
 
    ![Capture d’écran montrant la recherche dans le portail des abonnements](./media/billing-mca-create-subscription/billing-search-cost-management-billing.png)
 
-3. Accédez à la section de la facture. Selon votre accès, vous devrez peut-être sélectionner un compte de facturation ou d’un profil de facturation. Dans le compte de facturation ou un profil, sélectionnez **sections de facture** et ensuite une section de la facture.
+3. Accédez à la section de facture. Selon votre accès, vous devrez peut-être sélectionner un compte de facturation ou d’un profil de facturation. Dans le compte de facturation ou un profil, sélectionnez **sections de facture** et ensuite une section de la facture.
 
 4. Sélectionnez **gestion d’accès (IAM)** depuis le côté supérieur gauche.
 
-5. À partir du haut de la page, sélectionnez **ajouter**.
+5. En haut de la page, sélectionnez **Ajouter**.
 
 6. Sélectionnez **créateur de l’abonnement Azure** pour le rôle.
 

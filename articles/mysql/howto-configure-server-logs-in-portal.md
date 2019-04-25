@@ -7,17 +7,17 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/28/2018
 ms.openlocfilehash: e0701d2e10b366a6bf849512484fb216c42823bc
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53544955"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60525873"
 ---
 # <a name="configure-and-access-server-logs-in-the-azure-portal"></a>Configurer et consulter les journaux d’activité du serveur dans le portail Azure
 
 Vous pouvez configurer, répertorier et télécharger les [journaux d’activité du serveur Azure Database pour MySQL](concepts-server-logs.md) à partir du portail Azure.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 Pour parcourir ce guide pratique, vous avez besoin des éléments suivants :
 - [Serveur Azure Database pour MySQL](quickstart-create-mysql-server-database-using-azure-portal.md)
 
@@ -29,7 +29,7 @@ Configurer l’accès au journal des requêtes lentes de MySQL.
 2. Sélectionnez votre serveur Azure Database pour MySQL.
 
 3. Dans la section **Supervision** dans la barre latérale, sélectionnez **Journaux d’activité du serveur**. 
-   ![Sélectionnez Journaux du serveur, cliquez pour configurer](./media/howto-configure-server-logs-in-portal/1-select-server-logs-configure.png)
+   ![Sélectionnez Journaux d’activité du serveur, cliquez pour configurer](./media/howto-configure-server-logs-in-portal/1-select-server-logs-configure.png)
 
 4. Sélectionnez le titre **Cliquez ici pour activer les journaux d’activité et configurer les paramètres associés** pour afficher les paramètres du serveur.
 

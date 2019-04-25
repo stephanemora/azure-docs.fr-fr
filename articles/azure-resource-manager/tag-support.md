@@ -7,11 +7,11 @@ ms.topic: reference
 ms.date: 02/13/2019
 ms.author: tomfitz
 ms.openlocfilehash: dd6836ef4f859ce77c1a56095d32373d8e08f468
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56270383"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60388061"
 ---
 # <a name="tag-support-for-azure-resources"></a>Prise en charge des étiquettes pour les ressources Azure
 Cet article indique si un type de ressource prend en charge les [étiquettes](resource-group-using-tags.md).
@@ -21,7 +21,7 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 ## <a name="microsoftaad"></a>Microsoft.AAD
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| DomainServices | OUI | 
+| DomainServices | Oui | 
 | DomainServices/oucontainer | Non  | 
 
 ## <a name="microsoftaadiam"></a>microsoft.aadiam
@@ -70,13 +70,13 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 ## <a name="microsoftanalysisservices"></a>Microsoft.AnalysisServices
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| servers | OUI | 
+| servers | Oui | 
 
 ## <a name="microsoftapimanagement"></a>Microsoft.ApiManagement
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
 | reportFeedback | Non  | 
-| service | OUI | 
+| service | Oui | 
 | validateServiceName | Non  | 
 
 ## <a name="microsoftattestation"></a>Microsoft.Attestation
@@ -102,10 +102,10 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 ## <a name="microsoftautomation"></a>Microsoft.Automation
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| automationAccounts | OUI | 
-| automationAccounts/configurations | OUI | 
+| automationAccounts | Oui | 
+| automationAccounts/configurations | Oui | 
 | automationAccounts/jobs | Non  | 
-| automationAccounts/runbooks | OUI | 
+| automationAccounts/runbooks | Oui | 
 | automationAccounts/softwareUpdateConfigurations | Non  | 
 | automationAccounts/webhooks | Non  | 
 
@@ -120,19 +120,19 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 ## <a name="microsoftazureactivedirectory"></a>Microsoft.AzureActiveDirectory
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| b2cDirectories | OUI | 
+| b2cDirectories | Oui | 
 
 ## <a name="microsoftazurestack"></a>Microsoft.AzureStack
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| registrations | OUI | 
+| registrations | Oui | 
 | registrations/customerSubscriptions | Non  | 
 | registrations/products | Non  | 
 
 ## <a name="microsoftbatch"></a>Microsoft.Batch
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| batchAccounts | OUI | 
+| batchAccounts | Oui | 
 
 ## <a name="microsoftbilling"></a>Microsoft.Billing
 | Type de ressource | Prend en charge les étiquettes |
@@ -191,13 +191,13 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 ## <a name="microsoftbingmaps"></a>Microsoft.BingMaps
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| mapApis | OUI | 
+| mapApis | Oui | 
 | updateCommunicationPreference | Non  | 
 
 ## <a name="microsoftbiztalkservices"></a>Microsoft.BizTalkServices
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| BizTalk | OUI | 
+| BizTalk | Oui | 
 
 ## <a name="microsoftblueprint"></a>Microsoft.Blueprint
 | Type de ressource | Prend en charge les étiquettes |
@@ -213,14 +213,14 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 ## <a name="microsoftbotservice"></a>Microsoft.BotService
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| botServices | OUI | 
+| botServices | Oui | 
 | botServices/channels | Non  | 
 | botServices/connections | Non  | 
 
 ## <a name="microsoftcache"></a>Microsoft.Cache
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| Redis | OUI | 
+| Redis | Oui | 
 | RedisConfigDefinition | Non  | 
 
 ## <a name="microsoftcapacity"></a>Microsoft.Capacity
@@ -246,8 +246,8 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
 | edgenodes | Non  | 
-| profiles | OUI | 
-| profiles/endpoints | OUI | 
+| profiles | Oui | 
+| profiles/endpoints | Oui | 
 | profiles/endpoints/customdomains | Non  | 
 | profiles/endpoints/origins | Non  | 
 | validateProbe | Non  | 
@@ -255,7 +255,7 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 ## <a name="microsoftcertificateregistration"></a>Microsoft.CertificateRegistration
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| certificateOrders | OUI | 
+| certificateOrders | Oui | 
 | certificateOrders/certificates | Non  | 
 | validateCertificateRegistrationInformation | Non  | 
 
@@ -316,7 +316,7 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 ## <a name="microsoftcognitiveservices"></a>Microsoft.CognitiveServices
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| accounts | OUI | 
+| accounts | Oui | 
 
 ## <a name="microsoftcommerce"></a>Microsoft.Commerce
 | Type de ressource | Prend en charge les étiquettes |
@@ -327,18 +327,18 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 ## <a name="microsoftcompute"></a>Microsoft.Compute
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| availabilitySets | OUI | 
-| disks | OUI | 
-| images | OUI | 
-| restorePointCollections | OUI | 
+| availabilitySets | Oui | 
+| disks | Oui | 
+| images | Oui | 
+| restorePointCollections | Oui | 
 | restorePointCollections/restorePoints | Non  | 
-| sharedVMImages | OUI | 
-| sharedVMImages/versions | OUI | 
-| snapshots | OUI | 
-| virtualMachines | OUI | 
+| sharedVMImages | Oui | 
+| sharedVMImages/versions | Oui | 
+| snapshots | Oui | 
+| virtualMachines | Oui | 
 | virtualMachines/diagnosticSettings | Non  | 
-| virtualMachines/extensions | OUI | 
-| virtualMachineScaleSets | OUI | 
+| virtualMachines/extensions | Oui | 
+| virtualMachineScaleSets | Oui | 
 | virtualMachineScaleSets/extensions | Non  | 
 | virtualMachineScaleSets/networkInterfaces | Non  | 
 | virtualMachineScaleSets/publicIPAddresses | Non  | 
@@ -371,17 +371,17 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 ## <a name="microsoftcontainerinstance"></a>Microsoft.ContainerInstance
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| containerGroups | OUI | 
+| containerGroups | Oui | 
 | serviceAssociationLinks | Non  | 
 
 ## <a name="microsoftcontainerregistry"></a>Microsoft.ContainerRegistry
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| registries | OUI | 
+| registries | Oui | 
 | registries/builds | Non  | 
 | registries/builds/cancel | Non  | 
 | registries/builds/getLogLink | Non  | 
-| registries/buildTasks | OUI | 
+| registries/buildTasks | Oui | 
 | registries/buildTasks/steps | Non  | 
 | registries/eventGridFilters | Non  | 
 | registries/getBuildSourceUploadUrl | Non  | 
@@ -390,43 +390,43 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 | registries/queueBuild | Non  | 
 | registries/regenerateCredential | Non  | 
 | registries/regenerateCredentials | Non  | 
-| registries/replications | OUI | 
+| registries/replications | Oui | 
 | registries/runs | Non  | 
 | registries/runs/cancel | Non  | 
 | registries/scheduleRun | Non  | 
-| registries/tasks | OUI | 
+| registries/tasks | Oui | 
 | registries/updatePolicies | Non  | 
-| registries/webhooks | OUI | 
+| registries/webhooks | Oui | 
 | registries/webhooks/getCallbackConfig | Non  | 
 | registries/webhooks/ping | Non  | 
 
 ## <a name="microsoftcontainerservice"></a>Microsoft.ContainerService
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| containerServices | OUI | 
-| managedclusters | OUI | 
+| containerServices | Oui | 
+| managedclusters | Oui | 
 
 ## <a name="microsoftcontentmoderator"></a>Microsoft.ContentModerator
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| applications | OUI | 
+| applications | Oui | 
 | updateCommunicationPreference | Non  | 
 
 ## <a name="microsoftcortanaanalytics"></a>Microsoft.CortanaAnalytics
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| accounts | OUI | 
+| accounts | Oui | 
 
 ## <a name="microsoftcostmanagement"></a>Microsoft.CostManagement
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
 | Alertes | Non  | 
 | BillingAccounts | Non  | 
-| Connecteurs | OUI | 
+| Connecteurs | Oui | 
 | Departments | Non  | 
 | Dimensions | Non  | 
 | EnrollmentAccounts | Non  | 
-| Requête | Non  | 
+| Interroger | Non  | 
 | inscription | Non  | 
 | Reportconfigs | Non  | 
 | Rapports | Non  | 
@@ -434,7 +434,7 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 ## <a name="microsoftcustomerinsights"></a>Microsoft.CustomerInsights
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| hubs | OUI | 
+| hubs | Oui | 
 | hubs/authorizationPolicies | Non  | 
 | hubs/connectors | Non  | 
 | hubs/connectors/mappings | Non  | 
@@ -451,42 +451,42 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 ## <a name="microsoftdatabox"></a>Microsoft.DataBox
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| jobs | OUI | 
+| jobs | Oui | 
 
 ## <a name="microsoftdataboxedge"></a>Microsoft.DataBoxEdge
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| DataBoxEdgeDevices | OUI | 
+| DataBoxEdgeDevices | Oui | 
 
 ## <a name="microsoftdatabricks"></a>Microsoft.Databricks
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| workspaces | OUI | 
+| workspaces | Oui | 
 | workspaces/virtualNetworkPeerings | Non  | 
 
 ## <a name="microsoftdatacatalog"></a>Microsoft.DataCatalog
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| catalogs | OUI | 
+| catalogs | Oui | 
 
 ## <a name="microsoftdataconnect"></a>Microsoft.DataConnect
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| connectionManagers | OUI | 
+| connectionManagers | Oui | 
 
 ## <a name="microsoftdatafactory"></a>Microsoft.DataFactory
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| dataFactories | OUI | 
+| dataFactories | Oui | 
 | dataFactories/diagnosticSettings | Non  | 
 | dataFactorySchema | Non  | 
-| factories | OUI | 
+| factories | Oui | 
 | factories/integrationRuntimes | Non  | 
 
 ## <a name="microsoftdatalakeanalytics"></a>Microsoft.DataLakeAnalytics
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| accounts | OUI | 
+| accounts | Oui | 
 | accounts/dataLakeStoreAccounts | Non  | 
 | accounts/storageAccounts | Non  | 
 | accounts/storageAccounts/containers | Non  | 
@@ -494,34 +494,34 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 ## <a name="microsoftdatalakestore"></a>Microsoft.DataLakeStore
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| accounts | OUI | 
+| accounts | Oui | 
 | accounts/eventGridFilters | Non  | 
 | accounts/firewallRules | Non  | 
 
 ## <a name="microsoftdatamigration"></a>Microsoft.DataMigration
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| services | OUI | 
-| services/projects | OUI | 
+| services | Oui | 
+| services/projects | Oui | 
 
 ## <a name="microsoftdbformariadb"></a>Microsoft.DBforMariaDB
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| servers | OUI | 
+| servers | Oui | 
 | servers/recoverableServers | Non  | 
 | servers/virtualNetworkRules | Non  | 
 
 ## <a name="microsoftdbformysql"></a>Microsoft.DBforMySQL
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| servers | OUI | 
+| servers | Oui | 
 | servers/recoverableServers | Non  | 
 | servers/virtualNetworkRules | Non  | 
 
 ## <a name="microsoftdbforpostgresql"></a>Microsoft.DBforPostgreSQL
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| servers | OUI | 
+| servers | Oui | 
 | servers/advisors | Non  | 
 | servers/queryTexts | Non  | 
 | servers/recoverableServers | Non  | 
@@ -532,34 +532,34 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 ## <a name="microsoftdevices"></a>Microsoft.Devices
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| IoTHubs | OUI | 
+| IoTHubs | Oui | 
 | IotHubs/eventGridFilters | Non  | 
-| ProvisioningServices | OUI | 
+| ProvisioningServices | Oui | 
 | usages | Non  | 
 
 ## <a name="microsoftdevspaces"></a>Microsoft.DevSpaces
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| controllers | OUI | 
+| controllers | Oui | 
 
 ## <a name="microsoftdevtestlab"></a>Microsoft.DevTestLab
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| labs | OUI | 
-| labs/serviceRunners | OUI | 
-| labs/virtualMachines | OUI | 
-| schedules | OUI | 
+| labs | Oui | 
+| labs/serviceRunners | Oui | 
+| labs/virtualMachines | Oui | 
+| schedules | Oui | 
 
 ## <a name="microsoftdocumentdb"></a>Microsoft.DocumentDB
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
 | databaseAccountNames | Non  | 
-| databaseAccounts | OUI | 
+| databaseAccounts | Oui | 
 
 ## <a name="microsoftdomainregistration"></a>Microsoft.DomainRegistration
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| domaines | OUI | 
+| domaines | Oui | 
 | domains/domainOwnershipIdentifiers | Non  | 
 | generateSsoRequest | Non  | 
 | topLevelDomains | Non  | 
@@ -575,18 +575,18 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 ## <a name="microsofteventgrid"></a>Microsoft.EventGrid
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| domaines | OUI | 
+| domaines | Oui | 
 | domains/topics | Non  | 
 | eventSubscriptions | Non  | 
 | extensionTopics | Non  | 
-| topics | OUI | 
+| topics | Oui | 
 | topicTypes | Non  | 
 
 ## <a name="microsofteventhub"></a>Microsoft.EventHub
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| clusters | OUI | 
-| namespaces | OUI | 
+| clusters | Oui | 
+| namespaces | Oui | 
 | namespaces/authorizationrules | Non  | 
 | namespaces/disasterrecoveryconfigs | Non  | 
 | namespaces/eventhubs | Non  | 
@@ -624,18 +624,18 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 ## <a name="microsofthanaonazure"></a>Microsoft.HanaOnAzure
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| hanaInstances | OUI | 
+| hanaInstances | Oui | 
 
 ## <a name="microsofthdinsight"></a>Microsoft.HDInsight
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| clusters | OUI | 
+| clusters | Oui | 
 | clusters/applications | Non  | 
 
 ## <a name="microsoftimportexport"></a>Microsoft.ImportExport
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| jobs | OUI | 
+| jobs | Oui | 
 
 ## <a name="microsoftinformationprotection"></a>Microsoft.InformationProtection
 | Type de ressource | Prend en charge les étiquettes |
@@ -649,14 +649,14 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 ## <a name="microsoftinsights"></a>microsoft.insights
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| actiongroups | OUI | 
-| activityLogAlerts | OUI | 
-| alertrules | OUI | 
+| actiongroups | Oui | 
+| activityLogAlerts | Oui | 
+| alertrules | Oui | 
 | automatedExportSettings | Non  | 
-| autoscalesettings | OUI | 
+| autoscalesettings | Oui | 
 | baseline | Non  | 
 | calculatebaseline | Non  | 
-| components | OUI | 
+| components | Oui | 
 | components/events | Non  | 
 | components/pricingPlans | Non  | 
 | components/query | Non  | 
@@ -668,15 +668,15 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 | logDefinitions | Non  | 
 | logprofiles | Non  | 
 | journaux d’activité | Non  | 
-| metricAlerts | OUI |
+| metricAlerts | Oui |
 | migrateToNewPricingModel | Non  | 
 | myWorkbooks | Non  | 
 | queries | Non  | 
 | rollbackToLegacyPricingModel | Non  | 
-| scheduledqueryrules | OUI | 
+| scheduledqueryrules | Oui | 
 | vmInsightsOnboardingStatuses | Non  | 
-| webtests | OUI | 
-| workbooks | OUI | 
+| webtests | Oui | 
+| workbooks | Oui | 
 
 ## <a name="microsoftintune"></a>Microsoft.Intune
 | Type de ressource | Prend en charge les étiquettes |
@@ -687,25 +687,25 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 ## <a name="microsoftiotcentral"></a>Microsoft.IoTCentral
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| IoTApps | OUI | 
+| IoTApps | Oui | 
 
 ## <a name="microsoftiotspaces"></a>Microsoft.IoTSpaces
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| Graph | OUI | 
+| Graph | Oui | 
 
 ## <a name="microsoftkeyvault"></a>Microsoft.KeyVault
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
 | deletedVaults | Non  | 
-| vaults | OUI | 
+| vaults | Oui | 
 | vaults/accessPolicies | Non  | 
 | vaults/secrets | Non  | 
 
 ## <a name="microsoftkusto"></a>Microsoft.Kusto
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| clusters | OUI | 
+| clusters | Oui | 
 | clusters/databases | Non  | 
 | clusters/databases/dataconnections | Non  | 
 | clusters/databases/eventhubconnections | Non  | 
@@ -713,18 +713,18 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 ## <a name="microsoftlabservices"></a>Microsoft.LabServices
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| labaccounts | OUI | 
+| labaccounts | Oui | 
 | users | Non  | 
 
 ## <a name="microsoftlocationbasedservices"></a>Microsoft.LocationBasedServices
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| accounts | OUI | 
+| accounts | Oui | 
 
 ## <a name="microsoftlocationservices"></a>Microsoft.LocationServices
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| accounts | OUI | 
+| accounts | Oui | 
 
 ## <a name="microsoftloganalytics"></a>Microsoft.LogAnalytics
 | Type de ressource | Prend en charge les étiquettes |
@@ -734,42 +734,42 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 ## <a name="microsoftlogic"></a>Microsoft.Logic
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| integrationAccounts | OUI | 
-| workflows | OUI | 
+| integrationAccounts | Oui | 
+| workflows | Oui | 
 
 ## <a name="microsoftmachinelearning"></a>Microsoft.MachineLearning
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| commitmentPlans | OUI | 
-| webServices | OUI | 
-| Workspaces | OUI | 
+| commitmentPlans | Oui | 
+| webServices | Oui | 
+| Workspaces | Oui | 
 
 ## <a name="microsoftmachinelearningexperimentation"></a>Microsoft.MachineLearningExperimentation
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| accounts | OUI | 
-| accounts/workspaces | OUI | 
-| accounts/workspaces/projects | OUI | 
-| teamAccounts | OUI | 
-| teamAccounts/workspaces | OUI | 
-| teamAccounts/workspaces/projects | OUI | 
+| accounts | Oui | 
+| accounts/workspaces | Oui | 
+| accounts/workspaces/projects | Oui | 
+| teamAccounts | Oui | 
+| teamAccounts/workspaces | Oui | 
+| teamAccounts/workspaces/projects | Oui | 
 
 ## <a name="microsoftmachinelearningmodelmanagement"></a>Microsoft.MachineLearningModelManagement
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| accounts | OUI | 
+| accounts | Oui | 
 
 ## <a name="microsoftmachinelearningservices"></a>Microsoft.MachineLearningServices
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| workspaces | OUI | 
+| workspaces | Oui | 
 | workspaces/computes | Non  | 
 
 ## <a name="microsoftmanagedidentity"></a>Microsoft.ManagedIdentity
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
 | Identities | Non  | 
-| userAssignedIdentities | OUI | 
+| userAssignedIdentities | Oui | 
 
 ## <a name="microsoftmanagement"></a>Microsoft.Management
 | Type de ressource | Prend en charge les étiquettes |
@@ -783,7 +783,7 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 ## <a name="microsoftmaps"></a>Microsoft.Maps
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| accounts | OUI | 
+| accounts | Oui | 
 | accounts/eventGridFilters | Non  | 
 
 ## <a name="microsoftmarketplace"></a>Microsoft.Marketplace
@@ -803,7 +803,7 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 ## <a name="microsoftmarketplaceapps"></a>Microsoft.MarketplaceApps
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| classicDevServices | OUI | 
+| classicDevServices | Oui | 
 | updateCommunicationPreference | Non  | 
 
 ## <a name="microsoftmarketplaceordering"></a>Microsoft.MarketplaceOrdering
@@ -815,18 +815,18 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 ## <a name="microsoftmedia"></a>Microsoft.Media
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| mediaservices | OUI | 
+| mediaservices | Oui | 
 | mediaservices/accountFilters | Non  | 
 | mediaservices/assets | Non  | 
 | mediaservices/assets/assetFilters | Non  | 
 | mediaservices/contentKeyPolicies | Non  | 
 | mediaservices/eventGridFilters | Non  | 
 | mediaservices/liveEventOperations | Non  | 
-| mediaservices/liveEvents | OUI | 
+| mediaservices/liveEvents | Oui | 
 | mediaservices/liveEvents/liveOutputs | Non  | 
 | mediaservices/liveOutputOperations | Non  | 
 | mediaservices/streamingEndpointOperations | Non  | 
-| mediaservices/streamingEndpoints | OUI | 
+| mediaservices/streamingEndpoints | Oui | 
 | mediaservices/streamingLocators | Non  | 
 | mediaservices/streamingPolicies | Non  | 
 | mediaservices/transforms | Non  | 
@@ -835,21 +835,21 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 ## <a name="microsoftmigrate"></a>Microsoft.Migrate
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| projects | OUI | 
+| projects | Oui | 
 
 ## <a name="microsoftnetwork"></a>Microsoft.Network
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| applicationGateways | OUI | 
-| applicationSecurityGroups | OUI | 
+| applicationGateways | Oui | 
+| applicationSecurityGroups | Oui | 
 | azureFirewallFqdnTags | Non  | 
-| azureFirewalls | OUI | 
+| azureFirewalls | Oui | 
 | bgpServiceCommunities | Non  | 
-| connections | OUI | 
-| ddosCustomPolicies | OUI | 
-| ddosProtectionPlans | OUI | 
+| connections | Oui | 
+| ddosCustomPolicies | Oui | 
+| ddosProtectionPlans | Oui | 
 | dnsOperationStatuses | Non  | 
-| dnszones | OUI | 
+| dnszones | Oui | 
 | dnszones/A | Non  | 
 | dnszones/AAAA | Non  | 
 | dnszones/all | Non  | 
@@ -862,47 +862,47 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 | dnszones/SOA | Non  | 
 | dnszones/SRV | Non  | 
 | dnszones/TXT | Non  | 
-| expressRouteCircuits | OUI | 
+| expressRouteCircuits | Oui | 
 | expressRouteServiceProviders | Non  | 
-| frontdoors | OUI | 
-| frontdoorWebApplicationFirewallPolicies | OUI | 
+| frontdoors | Oui | 
+| frontdoorWebApplicationFirewallPolicies | Oui | 
 | getDnsResourceReference | Non  | 
-| interfaceEndpoints | OUI | 
+| interfaceEndpoints | Oui | 
 | internalNotify | Non  | 
-| loadBalancers | OUI | 
-| localNetworkGateways | OUI | 
-| natGateways | OUI | 
-| networkIntentPolicies | OUI | 
-| networkInterfaces | OUI | 
-| networkProfiles | OUI | 
-| networkSecurityGroups | OUI | 
-| networkWatchers | OUI | 
-| networkWatchers/connectionMonitors | OUI | 
-| networkWatchers/lenses | OUI | 
-| networkWatchers/pingMeshes | OUI | 
-| privateLinkServices | OUI | 
-| publicIPAddresses | OUI | 
-| publicIPPrefixes | OUI | 
-| routeFilters | OUI | 
-| routeTables | OUI | 
-| serviceEndpointPolicies | OUI | 
+| loadBalancers | Oui | 
+| localNetworkGateways | Oui | 
+| natGateways | Oui | 
+| networkIntentPolicies | Oui | 
+| networkInterfaces | Oui | 
+| networkProfiles | Oui | 
+| networkSecurityGroups | Oui | 
+| networkWatchers | Oui | 
+| networkWatchers/connectionMonitors | Oui | 
+| networkWatchers/lenses | Oui | 
+| networkWatchers/pingMeshes | Oui | 
+| privateLinkServices | Oui | 
+| publicIPAddresses | Oui | 
+| publicIPPrefixes | Oui | 
+| routeFilters | Oui | 
+| routeTables | Oui | 
+| serviceEndpointPolicies | Oui | 
 | trafficManagerGeographicHierarchies | Non  | 
-| trafficmanagerprofiles | OUI | 
+| trafficmanagerprofiles | Oui | 
 | trafficmanagerprofiles/heatMaps | Non  | 
-| virtualHubs | OUI | 
-| virtualNetworkGateways | OUI | 
-| virtualNetworks | OUI | 
-| virtualNetworkTaps | OUI | 
-| virtualWans | OUI | 
-| vpnGateways | OUI | 
-| vpnSites | OUI | 
-| webApplicationFirewallPolicies | OUI | 
+| virtualHubs | Oui | 
+| virtualNetworkGateways | Oui | 
+| virtualNetworks | Oui | 
+| virtualNetworkTaps | Oui | 
+| virtualWans | Oui | 
+| vpnGateways | Oui | 
+| vpnSites | Oui | 
+| webApplicationFirewallPolicies | Oui | 
 
 ## <a name="microsoftnotificationhubs"></a>Microsoft.NotificationHubs
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| namespaces | OUI | 
-| namespaces/notificationHubs | OUI | 
+| namespaces | Oui | 
+| namespaces/notificationHubs | Oui | 
 
 ## <a name="microsoftoperationalinsights"></a>Microsoft.OperationalInsights
 | Type de ressource | Prend en charge les étiquettes |
@@ -910,7 +910,7 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 | périphériques | Non  | 
 | linkTargets | Non  | 
 | storageInsightConfigs | Non  | 
-| workspaces | OUI | 
+| workspaces | Oui | 
 | workspaces/dataSources | Non  | 
 | workspaces/linkedServices | Non  | 
 | workspaces/query | Non  | 
@@ -919,9 +919,9 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
 | managementassociations | Non  | 
-| managementconfigurations | OUI | 
-| solutions | OUI | 
-| views | OUI | 
+| managementconfigurations | Oui | 
+| solutions | Oui | 
+| views | Oui | 
 
 ## <a name="microsoftpolicyinsights"></a>Microsoft.PolicyInsights
 | Type de ressource | Prend en charge les étiquettes |
@@ -935,34 +935,34 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
 | consoles | Non  | 
-| dashboards | OUI | 
+| dashboards | Oui | 
 | userSettings | Non  | 
 
 ## <a name="microsoftpowerbi"></a>Microsoft.PowerBI
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| workspaceCollections | OUI | 
+| workspaceCollections | Oui | 
 
 ## <a name="microsoftpowerbidedicated"></a>Microsoft.PowerBIDedicated
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| capacities | OUI | 
+| capacities | Oui | 
 
 ## <a name="microsoftprojectoxford"></a>Microsoft.ProjectOxford
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| accounts | OUI | 
+| accounts | Oui | 
 
 ## <a name="microsoftrecoveryservices"></a>Microsoft.RecoveryServices
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
 | backupProtectedItems | Non  | 
-| vaults | OUI | 
+| vaults | Oui | 
 
 ## <a name="microsoftrelay"></a>Microsoft.Relay
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| namespaces | OUI | 
+| namespaces | Oui | 
 | namespaces/authorizationrules | Non  | 
 | namespaces/hybridconnections | Non  | 
 | namespaces/hybridconnections/authorizationrules | Non  | 
@@ -1007,20 +1007,20 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 ## <a name="microsoftsaas"></a>Microsoft.SaaS
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| applications | OUI | 
+| applications | Oui | 
 | saasresources | Non  | 
 
 ## <a name="microsoftscheduler"></a>Microsoft.Scheduler
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| flows | OUI | 
-| jobcollections | OUI | 
+| flows | Oui | 
+| jobcollections | Oui | 
 
 ## <a name="microsoftsearch"></a>Microsoft.Search
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
 | resourceHealthMetadata | Non  | 
-| searchServices | OUI | 
+| searchServices | Oui | 
 
 ## <a name="microsoftsecurity"></a>Microsoft.Security
 | Type de ressource | Prend en charge les étiquettes |
@@ -1066,7 +1066,7 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 ## <a name="microsoftservicebus"></a>Microsoft.ServiceBus
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| namespaces | OUI | 
+| namespaces | Oui | 
 | namespaces/authorizationrules | Non  | 
 | namespaces/disasterrecoveryconfigs | Non  | 
 | namespaces/eventgridfilters | Non  | 
@@ -1081,36 +1081,36 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 ## <a name="microsoftservicefabric"></a>Microsoft.ServiceFabric
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| clusters | OUI | 
+| clusters | Oui | 
 | clusters/applications | Non  | 
 
 ## <a name="microsoftservicefabricmesh"></a>Microsoft.ServiceFabricMesh
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| applications | OUI | 
-| gateways | OUI | 
-| networks | OUI | 
-| secrets | OUI | 
-| volumes | OUI | 
+| applications | Oui | 
+| gateways | Oui | 
+| networks | Oui | 
+| secrets | Oui | 
+| volumes | Oui | 
 
 ## <a name="microsoftsignalrservice"></a>Microsoft.SignalRService
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| SignalR | OUI | 
+| SignalR | Oui | 
 
 ## <a name="microsoftsolutions"></a>Microsoft.Solutions
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| applianceDefinitions | OUI | 
-| appliances | OUI | 
-| applicationDefinitions | OUI | 
-| applications | OUI | 
-| jitRequests | OUI | 
+| applianceDefinitions | Oui | 
+| appliances | Oui | 
+| applicationDefinitions | Oui | 
+| applications | Oui | 
+| jitRequests | Oui | 
 
 ## <a name="microsoftsql"></a>Microsoft.SQL
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| managedInstances | OUI |
+| managedInstances | Oui |
 | managedInstances/databases | Oui (voir la remarque ci-dessous) |
 | managedInstances/databases/backupShortTermRetentionPolicies | Non  |
 | managedInstances/databases/schemas/tables/columns/sensitivityLabels | Non  |
@@ -1120,7 +1120,7 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 | managedInstances/keys | Non  |
 | managedInstances/restorableDroppedDatabases/backupShortTermRetentionPolicies | Non  |
 | managedInstances/vulnerabilityAssessments | Non  |
-| servers | OUI | 
+| servers | Oui | 
 | servers/administrators | Non  | 
 | servers/communicationLinks | Non  | 
 | servers/databases | Oui (voir la remarque ci-dessous) | 
@@ -1138,14 +1138,14 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 ## <a name="microsoftsqlvirtualmachine"></a>Microsoft.SqlVirtualMachine
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| SqlVirtualMachineGroups | OUI | 
+| SqlVirtualMachineGroups | Oui | 
 | SqlVirtualMachineGroups/AvailabilityGroupListeners | Non  | 
-| SqlVirtualMachines | OUI | 
+| SqlVirtualMachines | Oui | 
 
 ## <a name="microsoftstorage"></a>Microsoft.Storage
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| storageAccounts | OUI | 
+| storageAccounts | Oui | 
 | storageAccounts/blobServices | Non  | 
 | storageAccounts/fileServices | Non  | 
 | storageAccounts/queueServices | Non  | 
@@ -1156,7 +1156,7 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 ## <a name="microsoftstoragesync"></a>Microsoft.StorageSync
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| storageSyncServices | OUI | 
+| storageSyncServices | Oui | 
 | storageSyncServices/registeredServers | Non  | 
 | storageSyncServices/syncGroups | Non  | 
 | storageSyncServices/syncGroups/cloudEndpoints | Non  | 
@@ -1166,7 +1166,7 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 ## <a name="microsoftstorsimple"></a>Microsoft.StorSimple
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| managers | OUI | 
+| managers | Oui | 
 
 ## <a name="microsoftstreamanalytics"></a>Microsoft.StreamAnalytics
 | Type de ressource | Prend en charge les étiquettes |
@@ -1192,23 +1192,23 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 ## <a name="microsoftterraformoss"></a>Microsoft.TerraformOSS
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| providerRegistrations | OUI | 
-| les ressources | OUI | 
+| providerRegistrations | Oui | 
+| les ressources | Oui | 
 
 ## <a name="microsofttimeseriesinsights"></a>Microsoft.TimeSeriesInsights
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| environments | OUI | 
+| environments | Oui | 
 | environments/accessPolicies | Non  | 
-| environments/eventsources | OUI | 
-| environments/referencedatasets | OUI | 
+| environments/eventsources | Oui | 
+| environments/referencedatasets | Oui | 
 
 ## <a name="microsoftvisualstudio"></a>microsoft.visualstudio
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| account | OUI | 
-| account/extension | OUI | 
-| account/project | OUI | 
+| account | Oui | 
+| account/extension | Oui | 
+| account/project | Oui | 
 
 ## <a name="microsoftweb"></a>Microsoft.Web
 | Type de ressource | Prend en charge les étiquettes |
@@ -1224,13 +1224,13 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 | apiManagementAccounts/connectionAcls | Non  | 
 | apiManagementAccounts/connections | Non  | 
 | billingMeters | Non  | 
-| certificates | OUI | 
-| connectionGateways | OUI | 
-| connections | OUI | 
-| customApis | OUI | 
+| certificates | Oui | 
+| connectionGateways | Oui | 
+| connections | Oui | 
+| customApis | Oui | 
 | deletedSites | Non  | 
 | functions | Non  | 
-| hostingEnvironments | OUI | 
+| hostingEnvironments | Oui | 
 | hostingEnvironments/multiRolePools | Non  | 
 | hostingEnvironments/multiRolePools/instances | Non  | 
 | hostingEnvironments/workerPools | Non  | 
@@ -1239,17 +1239,17 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 | de films | Non  | 
 | resourceHealthMetadata | Non  | 
 | runtimes | Non  | 
-| serverFarms | OUI | 
+| serverFarms | Oui | 
 | serverFarms/workers | Non  | 
-| sites | OUI | 
+| sites | Oui | 
 | sites/domainOwnershipIdentifiers | Non  | 
 | sites/hostNameBindings | Non  | 
 | sites/instances | Non  | 
 | sites/instances/extensions | Non  | 
-| sites/premieraddons | OUI | 
+| sites/premieraddons | Oui | 
 | sites/recommendations | Non  | 
 | sites/resourceHealthMetadata | Non  | 
-| sites/slots | OUI | 
+| sites/slots | Oui | 
 | sites/slots/hostNameBindings | Non  | 
 | sites/slots/instances | Non  | 
 | sites/slots/instances/extensions | Non  | 
@@ -1266,7 +1266,7 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 ## <a name="microsoftwindowsiot"></a>Microsoft.WindowsIoT
 | Type de ressource | Prend en charge les étiquettes |
 | ------------- | ----------- |
-| DeviceServices | OUI | 
+| DeviceServices | Oui | 
 
 ## <a name="microsoftworkloadmonitor"></a>Microsoft.WorkloadMonitor
 | Type de ressource | Prend en charge les étiquettes |

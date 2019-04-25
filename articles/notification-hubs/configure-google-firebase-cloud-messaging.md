@@ -11,24 +11,24 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: jowargo
 ms.openlocfilehash: d200f5746d5f7c62ff3a52873d5d5d6c3e1322dc
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58488265"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60239199"
 ---
 # <a name="configure-google-firebase-cloud-messaging-fcm-settings-for-a-notification-hub-in-the-azure-portal"></a>Configurer les paramètres de Google Firebase Cloud Messaging (FCM) pour un concentrateur de notification dans le portail Azure
 Cet article vous montre comment configurer les paramètres de Google Firebase Cloud Messaging (FCM) pour un hub de notification Azure à l’aide du portail Azure.  
 
 ## <a name="prerequisites"></a>Conditions préalables
-Si vous n’avez pas déjà créé un hub de notification, créez-en un maintenant. Pour plus d’informations, consultez [créer un hub de notification Azure dans le portail Azure](create-notification-hub-portal.md). 
+Si vous n’avez pas déjà créé de hub de notification, créez-en un maintenant. Pour plus d’informations, consultez [Créer un hub de notification Azure dans le portail Azure](create-notification-hub-portal.md). 
 
 ## <a name="configure-google-firebase-cloud-messaging-fcm"></a>Configurer Google Firebase Cloud Messaging (FCM)
 
 La procédure suivante vous donne les étapes pour configurer les paramètres Google Firebase Cloud Messaging (FCM) pour un concentrateur de notification : 
 
 1. Dans le portail Azure, sur le **Hub de Notification** page, sélectionnez **Google (GCM/FCM)** sur le menu de gauche. 
-2. Coller le **clé API** pour le projet FCM que vous avez enregistré précédemment. 
+2. Collez la **Clé API** pour le projet FCM que vous avez enregistré précédemment. 
 3. Sélectionnez **Enregistrer**. 
 
    ![Capture d’écran montrant comment configurer Notification Hubs pour Google FCM](./media/notification-hubs-android-push-notification-google-fcm-get-started/fcm-server-key.png)

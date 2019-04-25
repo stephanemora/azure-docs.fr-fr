@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: 543e237a4a8390a8ebf74d0eb2a1f4be41dcd911
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60000587"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60193709"
 ---
 # <a name="backends-and-backend-pools-in-azure-front-door-service"></a>Backends et pools de backends dans Azure Front Door Service
 Cet article décrit les concepts sur la façon de mapper votre déploiement d’application avec le Service Azure porte d’entrée. Il explique également les différents termes de configuration porte autour des backends d’applications.

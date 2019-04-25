@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
 ms.openlocfilehash: ca2523a1101a21740a318a304f9bec491d4de2f9
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58106234"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60307058"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>Utiliser la console série pour accéder au GRUB et au mode mono-utilisateur
 GRUB, acronyme de GRand Unified Bootloader, est probablement la première chose que vous voyez quand vous démarrez une machine virtuelle. Parce qu’il s’affiche avant que le système d’exploitation ne démarre, il n’est pas accessible par le biais du protocole SSH. Un GRUB vous permet de modifier votre configuration d’amorçage, notamment pour démarrer en mode mono-utilisateur.

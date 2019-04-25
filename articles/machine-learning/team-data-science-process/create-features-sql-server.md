@@ -12,11 +12,11 @@ ms.date: 11/21/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 2d01b74e7db275f4b2e3933415bbae40911b114b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57854889"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60399287"
 ---
 # <a name="create-features-for-data-in-sql-server-using-sql-and-python"></a>Créer des fonctionnalités pour les données dans SQL Server à l’aide de SQL et Python
 Ce document montre comment générer des fonctionnalités pour des données stockées dans une machine virtuelle SQL Server sur Azure qui aident les algorithmes à apprendre efficacement à partir des données. Vous pouvez utiliser SQL ou un langage de programmation comme Python pour accomplir cette tâche. Les deux approches sont décrites ici.
@@ -28,7 +28,7 @@ Cette tâche est une étape du [processus TDSP (Team Data Science Process)](http
 > 
 > 
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 Cet article suppose que vous avez :
 
 * Créé un compte de stockage Azure. Si vous avez besoin d'aide, consultez [Créer un compte Azure Storage](../../storage/common/storage-quickstart-create-account.md)
