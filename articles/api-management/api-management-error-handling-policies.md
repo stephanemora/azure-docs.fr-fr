@@ -79,13 +79,13 @@ La section de stratégie `on-error` peut être utilisée, quelle que soit l’é
   
 | NOM     | type   | Description                                                                                               | Obligatoire |
 |----------|--------|-----------------------------------------------------------------------------------------------------------|----------|
-| Source   | chaîne | Désigne l’élément où l’erreur s’est produite. Peut être une stratégie ou un nom d’étape de pipeline intégrée.     | OUI      |
-| Motif   | chaîne | Code d’erreur informatique, utilisable dans la gestion des erreurs.                                       | Non        |
-| Message  | chaîne | Description lisible de l’erreur.                                                                         | OUI      |
-| Étendue    | chaîne | Nom de l’étendue où l’erreur s’est produite. Peut être « global », « product », « api » ou « operation ». | Non        |
-| Section  | chaîne | Nom de la section où l’erreur s’est produite. Valeurs possibles : « entrant », « principal », « sortant » ou « erreur ».       | Non        |
-| path     | chaîne | Spécifie la stratégie imbriquée, par exemple, « choose[3]/when[2] ».                                                        | Non        |
-| PolicyId | chaîne | Valeur de l’attribut `id`, s’il est spécifié par le client, sur la stratégie où l’erreur s’est produite.             | Non        |
+| `Source`   | chaîne | Désigne l’élément où l’erreur s’est produite. Peut être une stratégie ou un nom d’étape de pipeline intégrée.     | OUI      |
+| `Reason`   | chaîne | Code d’erreur informatique, utilisable dans la gestion des erreurs.                                       | Non        |
+| `Message`  | chaîne | Description lisible de l’erreur.                                                                         | OUI      |
+| `Scope`    | chaîne | Nom de l’étendue où l’erreur s’est produite. Peut être « global », « product », « api » ou « operation ». | Non        |
+| `Section`  | chaîne | Nom de la section où l’erreur s’est produite. Valeurs possibles : « entrant », « principal », « sortant » ou « erreur ».       | Non        |
+| `Path`     | chaîne | Spécifie la stratégie imbriquée, par exemple, « choose[3]/when[2] ».                                                        | Non        |
+| `PolicyId` | chaîne | Valeur de l’attribut `id`, s’il est spécifié par le client, sur la stratégie où l’erreur s’est produite.             | Non        |
 
 > [!TIP]
 > Vous pouvez accéder au code d’état avec context.Response.StatusCode.  
