@@ -191,7 +191,7 @@ Le service Gestion des API fournit actuellement des journaux de diagnostic (par 
 | correlationId | chaîne | Identificateur de requête http unique assigné par le service Gestion des API |
 | location | chaîne | Nom de la région Azure dans laquelle se trouvait la passerelle qui a traité la requête |
 | httpStatusCodeCategory | chaîne | Catégorie du code d’état de réponse http : réussite (inférieur ou égal à 301 ou 304 ou 307), non autorisé (401, 403, 429), erroné (400, entre 500 et 600), autre |
-| ResourceId | chaîne | ID de la ressource du service Gestion des API /SUBSCRIPTIONS/\<subscription>/RESOURCEGROUPS/\<resource-group>/PROVIDERS/MICROSOFT.APIMANAGEMENT/SERVICE/\<name> |
+| resourceId | chaîne | ID de la ressource du service Gestion des API /SUBSCRIPTIONS/\<subscription>/RESOURCEGROUPS/\<resource-group>/PROVIDERS/MICROSOFT.APIMANAGEMENT/SERVICE/\<name> |
 | properties | objet | Propriétés de la requête actuelle |
 | method | chaîne | Méthode HTTP de la requête entrante |
 | url | chaîne | URL de la requête entrante |
@@ -213,13 +213,13 @@ Le service Gestion des API fournit actuellement des journaux de diagnostic (par 
 | userId | chaîne | Identificateur d’entité d’utilisateur pour la requête actuelle | 
 | apimSubscriptionId | chaîne | Identificateur d’entité d’abonnement pour la requête actuelle | 
 | backendId | chaîne | Identificateur d’entité de serveur principal pour la requête actuelle | 
-| LastError | objet | Dernière erreur de traitement de requête | 
+| lastError | objet | Dernière erreur de traitement de requête | 
 | elapsed | integer | Nombre de millisecondes écoulées entre le moment où la passerelle a reçu la requête et celui où l’erreur s’est produite | 
 | source | chaîne | Nom du gestionnaire interne de traitement ou de stratégie qui a provoqué l’erreur | 
 | scope | chaîne | Étendue du document de stratégie qui contient la stratégie qui a provoqué l’erreur | 
 | section | chaîne | Section du document de stratégie qui contient la stratégie qui a provoqué l’erreur | 
-| motif | chaîne | Motif de l’erreur | 
-| Message | chaîne | Message d’erreur | 
+| reason | chaîne | Motif de l’erreur | 
+| message | chaîne | Message d’erreur | 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
