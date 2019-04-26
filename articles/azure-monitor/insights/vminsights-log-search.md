@@ -26,7 +26,7 @@ Azure Monitor pour les machines virtuelles collecte des performances et métriqu
 ## <a name="map-records"></a>Mapper des enregistrements
 Un enregistrement est généré par heure pour chaque ordinateur et processus, en plus des enregistrements générés lorsqu’un processus ou un ordinateur démarre ou est intégré à la fonctionnalité Map d’Azure Monitor pour les machines virtuelles. Les propriétés de ces enregistrements sont décrites dans les tableaux suivants. Les champs et les valeurs des événements ServiceMapComputer_CL sont mappés aux champs de la ressource Machine dans l’API Azure Resource Manager ServiceMap. Les champs et les valeurs des événements ServiceMapProcess_CL sont mappés aux champs de la ressource Processus dans l’API Azure Resource Manager ServiceMap. Le champ ResourceName_s correspond au champ de nom dans la ressource Azure Resource Manager correspondante. 
 
-Il existe des propriétés générées en interne que vous pouvez utiliser pour identifier les ordinateurs et processus uniques :
+Il existe des propriétés générées en interne que vous pouvez utiliser pour identifier les ordinateurs et processus uniques :
 
 - Ordinateur : Utilisez *ResourceId* ou *ResourceName_s* pour identifier de façon unique un ordinateur au sein d’un espace de travail Log Analytics.
 - Processus : Utilisez *ResourceId* pour identifier de façon unique un processus au sein d’un espace de travail Log Analytics. *ResourceName_s* est unique dans le contexte de l’ordinateur sur lequel le processus est en cours d’exécution (MachineResourceName_s). 
@@ -39,13 +39,13 @@ La fonctionnalité de métriques de connexion introduit deux nouvelles tables da
 Enregistrements dans ces tables sont générées à partir des données signalées par l’Agent de dépendances. Chaque enregistrement représente une observation sur un intervalle de temps de 1 minute. La propriété TimeGenerated indique le début de l’intervalle de temps. Chaque enregistrement contient des informations identifiant l’entité respective (à savoir la connexion ou le port), ainsi que des métriques associées à cette entité. Actuellement, seule l’activité réseau utilisant TCP sur IPv4 est rapportée. 
 
 #### <a name="common-fields-and-conventions"></a>Champs et des conventions courantes 
-Les champs et les conventions suivantes s’appliquent à VMConnection et VMBoundPort : 
+Les champs et les conventions suivantes s’appliquent à VMConnection et VMBoundPort : 
 
 - Ordinateur : Nom de domaine complet de l’ordinateur de création de rapports 
-- ID de l’agent : L’identificateur unique pour un ordinateur avec l’agent d’Analytique de journal  
-- Machine : Nom de la ressource Azure Resource Manager pour la machine exposée par ServiceMap. Il est au format *m-{GUID}*, où *GUID* est le même GUID que l’ID de l’agent  
+- ID de l’agent : L’identificateur unique pour un ordinateur avec l’agent d’Analytique de journal  
+- Machine : Nom de la ressource Azure Resource Manager pour la machine exposée par ServiceMap. Il est au format *m-{GUID}*, où *GUID* est le même GUID que l’ID de l’agent  
 - Processus : Nom de la ressource Azure Resource Manager pour le processus exposé par ServiceMap. Il est au format *p-{chaîne hexadécimale}*. Processus est unique au sein d’une étendue de l’ordinateur et pour générer un ID de processus unique sur plusieurs ordinateurs, combiner des champs de processus et de la Machine. 
-- ProcessName : Nom de l’exécutable du processus de création de rapports.
+- ProcessName : Nom de l’exécutable du processus de création de rapports.
 - Toutes les adresses IP sont des chaînes au format canonique IPv4, par exemple *13.107.3.160* 
 
 À des fins de gestion des coûts et de la complexité, les enregistrements de connexion ne représentent pas des connexions réseau physiques individuelles. Plusieurs connexions réseau physiques sont groupées dans une connexion logique, qui est ensuite reflétée dans la table concernée.  Ainsi, les enregistrements de la table *VMConnection* représentent un regroupement logique et non les connexions physiques individuelles observées. Les connexions réseau physiques dont les attributs suivants présentent la même valeur au cours d’un intervalle d’une minute donné sont agrégées au sein d’un unique enregistrement logique dans *VMConnection*. 
@@ -53,12 +53,12 @@ Les champs et les conventions suivantes s’appliquent à VMConnection et VMBoun
 | Propriété | Description |
 |:--|:--|
 |Direction |Direction de la connexion (valeur *inbound* ou *outbound*) |
-|Ordinateur |Nom de domaine complet (FQDN) de l’ordinateur |
+|Machine |Nom de domaine complet (FQDN) de l’ordinateur |
 |Process |Identité du processus ou de groupes de processus initialisant/acceptant la connexion |
 |SourceIp |Adresse IP de la source |
 |DestinationIp |Adresse IP de la destination |
 |DestinationPort |Numéro de port de la destination |
-|Protocole |Protocole utilisé pour la connexion.  La valeur est *tcp*. |
+|Protocol |Protocole utilisé pour la connexion.  La valeur est *tcp*. |
 
 Pour prendre en compte l’impact du regroupement, les informations sur le nombre de connexions physiques groupées sont fournies dans les propriétés suivantes de l’enregistrement :
 
@@ -111,7 +111,7 @@ Chaque propriété RemoteIp de la table *VMConnection* est comparée à un ensem
 | Propriété | Description |
 |:--|:--|
 |MaliciousIP |Adresse RemoteIp |
-|IndicatorThreadType |L’indicateur de menace détecté est l’une des valeurs suivantes :  *Botnet*, *C2*, *CryptoMining*, *Darknet*, *DDos*, *MaliciousUrl*, *Malware*, *Phishing*, *Proxy*, *PUA* ou *Watchlist*.   |
+|IndicatorThreadType |L’indicateur de menace détecté est l’une des valeurs suivantes :  *Botnet*, *C2*, *CryptoMining*, *Darknet*, *DDos*, *MaliciousUrl*, *Malware*, *Phishing*, *Proxy*, *PUA* ou *Watchlist*.   |
 |Description |Description de la menace observée. |
 |TLPLevel |Niveau de protocole TLP (Traffic Light Protocol) est réglé sur l’une des valeurs définies, *Blanc*, *Vert*, *Orange*, *Rouge*. |
 |Confiance |Les valeurs sont comprises dans la fourchette *0 – 100*. |
@@ -126,25 +126,25 @@ Chaque propriété RemoteIp de la table *VMConnection* est comparée à un ensem
 Ports sur un ordinateur qui activement accepteront le trafic entrant ou pourraient potentiellement accepter le trafic, mais sont inactives pendant la fenêtre de temps de création de rapports, sont écrites dans la table VMBoundPort.  
 
 >[!NOTE]
->Azure Monitor pour les machines virtuelles ne prend pas en charge les rassembler et enregistrer les données de port dans un espace de travail Analytique de journal dans les régions suivantes :  
+>Azure Monitor pour les machines virtuelles ne prend pas en charge les rassembler et enregistrer les données de port dans un espace de travail Analytique de journal dans les régions suivantes :  
 >- USA Est  
 >- Europe Ouest
 >
 > Collecte des données est activée dans l’autre [régions prises en charge](vminsights-onboard.md#log-analytics) pour Azure Monitor pour les machines virtuelles. 
 
-Chaque enregistrement dans VMBoundPort est identifiée par les champs suivants : 
+Chaque enregistrement dans VMBoundPort est identifiée par les champs suivants : 
 
 | Propriété | Description |
 |:--|:--|
 |Process | Identité de processus (ou groupes de processus) avec laquelle le port est associé.|
-|Adresse IP | L’adresse IP du port (peut être l’adresse IP de caractère générique, *0.0.0.0*) |
+|Ip | L’adresse IP du port (peut être l’adresse IP de caractère générique, *0.0.0.0*) |
 |Port |Le numéro de Port |
-|Protocole | Le protocole.  Exemple, *tcp* ou *udp* (uniquement *tcp* est actuellement pris en charge).|
+|Protocol | Le protocole.  Exemple, *tcp* ou *udp* (uniquement *tcp* est actuellement pris en charge).|
  
 L’identité un port est dérivé de cinq champs ci-dessus et est stocké dans la propriété ID de port. Cette propriété peut être utilisée pour rechercher rapidement des enregistrements pour un port spécifique dans le temps. 
 
 #### <a name="metrics"></a>Mesures 
-Les enregistrements de port incluent des métriques représentant les connexions qui s’y rapportent. Actuellement, les mesures suivantes sont signalés (les détails pour chaque métrique sont décrits dans la section précédente) : 
+Les enregistrements de port incluent des métriques représentant les connexions qui s’y rapportent. Actuellement, les mesures suivantes sont signalés (les détails pour chaque métrique sont décrits dans la section précédente) : 
 
 - Octets envoyés et BytesReceived 
 - LinksEstablished, LinksTerminated, LinksLive 
@@ -158,7 +158,7 @@ Voici quelques points importants à prendre en compte :
 - Les ports qui sont liés uniquement sur une interface spécifique ont IsWildcardBind défini sur *False*. 
 
 ### <a name="servicemapcomputercl-records"></a>Enregistrements ServiceMapComputer_CL
-Les enregistrements de type *ServiceMapComputer_CL* ont des données d’inventaire pour les serveurs avec Dependency Agent. Les propriétés de ces enregistrements sont décrites dans le tableau suivant :
+Les enregistrements de type *ServiceMapComputer_CL* ont des données d’inventaire pour les serveurs avec Dependency Agent. Les propriétés de ces enregistrements sont décrites dans le tableau suivant :
 
 | Propriété | Description |
 |:--|:--|
@@ -172,7 +172,7 @@ Les enregistrements de type *ServiceMapComputer_CL* ont des données d’inventa
 | DnsNames_s | Tableau de noms DNS |
 | OperatingSystemFamily_s | Windows ou Linux |
 | OperatingSystemFullName_s | Nom complet du système d’exploitation  |
-| Bitness_s | Nombre de bits de la machine (32 bits ou 64 bits)  |
+| Bitness_s | Nombre de bits de la machine (32 bits ou 64 bits)  |
 | PhysicalMemory_d | Mémoire physique en Mo |
 | Cpus_d | Nombre de processeurs |
 | CpuSpeed_d | Vitesse du processeur en MHz|
@@ -183,7 +183,7 @@ Les enregistrements de type *ServiceMapComputer_CL* ont des données d’inventa
 | BootTime_t | Temps de démarrage |
 
 ### <a name="servicemapprocesscl-type-records"></a>Enregistrements de type ServiceMapProcess_CL
-Les enregistrements de type *ServiceMapProcess_CL* ont des données d’inventaire pour les processus connectés à TCP sur les serveurs avec Dependency Agent. Les propriétés de ces enregistrements sont décrites dans le tableau suivant :
+Les enregistrements de type *ServiceMapProcess_CL* ont des données d’inventaire pour les processus connectés à TCP sur les serveurs avec Dependency Agent. Les propriétés de ces enregistrements sont décrites dans le tableau suivant :
 
 | Propriété | Description |
 |:--|:--|
@@ -204,7 +204,7 @@ Les enregistrements de type *ServiceMapProcess_CL* ont des données d’inventai
 | CommandLine_s | Ligne de commande |
 | ExecutablePath _s | Chemin d’accès du fichier exécutable |
 | WorkingDirectory_s | Le répertoire de travail |
-| Nom d’utilisateur | Compte sous lequel le processus s’exécute |
+| UserName | Compte sous lequel le processus s’exécute |
 | UserDomain | Domaine sous lequel le processus s’exécute |
 
 ## <a name="sample-log-searches"></a>Exemples de recherches dans les journaux
