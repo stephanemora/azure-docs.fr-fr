@@ -9,11 +9,11 @@ ms.date: 03/18/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: a89a5d753eaa241b11eb4c7eed9500c9715d405d
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59737073"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60459584"
 ---
 ### <a name="what-is-the-difference-between-an-azure-virtual-network-gateway-vpn-gateway-and-an-azure-virtual-wan-vpngateway"></a>Quelle est la différence entre une passerelle de réseau virtuel Azure (passerelle VPN) et une passerelle VPN Azure WAN virtuel ?
 
@@ -29,7 +29,7 @@ Pour découvrir les étapes d’automatisation des partenaires, consultez l’ar
 
 ### <a name="am-i-required-to-use-a-preferred-partner-device"></a>Est-il nécessaire d’utiliser un périphérique de partenaire préféré ?
 
- Non. Vous pouvez utiliser n’importe quel appareil prenant en charge les VPN et qui respecte les exigences Azure pour la prise en charge de IPsec IKEv2/IKEv1.
+Non. Vous pouvez utiliser n’importe quel appareil prenant en charge les VPN et qui respecte les exigences Azure pour la prise en charge de IPsec IKEv2/IKEv1.
 
 ### <a name="how-do-virtual-wan-partners-automate-connectivity-with-azure-virtual-wan"></a>Comment les partenaires WAN virtuel automatisent-ils la connectivité avec le WAN virtuel Azure ?
 
@@ -53,7 +53,7 @@ Oui. Au départ, le flux du trafic s’effectue de l’appareil local vers l’a
 
 ### <a name="is-global-vnet-peering-supported-with-azure-virtual-wan"></a>Est-ce que le peering Global VNet est pris en charge par le WAN virtuel Azure ? 
 
-  Non.
+ Non.
 
 ### <a name="can-spoke-vnets-connected-to-a-virtual-hub-communicate-with-each-other"></a>Est-ce que les réseaux virtuels membres spoke et connectés à un hub virtuel peuvent communiquer entre eux ?
 
@@ -65,7 +65,7 @@ Oui, vous pouvez connecter le réseau virtuel VNet de l’appliance virtuelle (N
 
 ### <a name="can-an-nva-vnet-have-a-virtual-network-gateway"></a>Un réseau virtuel NVA peut-il avoir une passerelle de réseau virtuel ?
 
- Non. Le réseau virtuel NVA ne peut pas avoir de passerelle de réseau virtuel s’il est connecté au hub virtuel. 
+Non. Le réseau virtuel NVA ne peut pas avoir de passerelle de réseau virtuel s’il est connecté au hub virtuel. 
 
 ### <a name="is-there-support-for-bgp"></a>Le protocole BGP est-il pris en charge ?
 
