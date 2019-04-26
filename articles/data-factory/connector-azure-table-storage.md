@@ -48,7 +48,7 @@ Vous pouvez créer un service lié Stockage Azure à l’aide de la clé de comp
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété de type doit être définie sur **AzureTableStorage**. |Oui |
+| type | La propriété de type doit être définie sur **AzureTableStorage**. |Oui |
 | connectionString | Spécifiez les informations requises pour la connexion au stockage pour la propriété connectionString. <br/>Marquez ce champ comme SecureString pour le stocker de façon sécurisée dans Data Factory. Vous pouvez également définir une clé de compte dans Azure Key Vault et extraire la configuration `accountKey` de la chaîne de connexion. Reportez-vous aux exemples suivants et à l’article [Stocker des informations d’identification dans Azure Key Vault](store-credentials-in-key-vault.md) pour plus de détails. |Oui |
 | connectVia | Le [runtime d’intégration](concepts-integration-runtime.md) à utiliser pour se connecter à la banque de données. Vous pouvez utiliser Azure Integration Runtime ou Integration Runtime auto-hébergé (si votre magasin de données se trouve dans un réseau privé). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non  |
 
@@ -123,7 +123,7 @@ Pour utiliser l’authentification par signature d’accès partagé, les propri
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété de type doit être définie sur **AzureTableStorage**. |Oui |
+| type | La propriété de type doit être définie sur **AzureTableStorage**. |Oui |
 | sasUri | Spécifiez l’URI SAS de l’URI de signature d’accès partagé dans la table. <br/>Marquez ce champ comme SecureString pour le stocker de façon sécurisée dans Data Factory. Vous pouvez également placer le jeton SAP dans Azure Key Vault pour tirer parti de rotation automatique et de supprimer la partie du jeton. Pour plus d’informations, reportez-vous aux exemples suivants et à l’article [Stocker des informations d’identification dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui |
 | connectVia | Le [runtime d’intégration](concepts-integration-runtime.md) à utiliser pour se connecter à la banque de données. Vous pouvez utiliser Azure Integration Runtime ou Integration Runtime auto-hébergé (si votre banque de données se trouve dans un réseau privé). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non  |
 
@@ -194,8 +194,8 @@ Pour copier des données vers et depuis Table Azure, définissez la propriété 
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété de type du jeu de données doit être définie sur **AzureTable**. |Oui |
-| TableName |Le nom de la table dans l’instance de base de données de stockage Table à laquelle le service lié fait référence. |Oui |
+| type | La propriété de type du jeu de données doit être définie sur **AzureTable**. |Oui |
+| tableName |Le nom de la table dans l’instance de base de données de stockage Table à laquelle le service lié fait référence. |Oui |
 
 **Exemple :**
 
@@ -235,8 +235,8 @@ Pour copier des données de Table Azure, définissez **AzureTableSource** comme 
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété de type de la source d’activité de copie doit être définie sur **AzureTableSource**. |Oui |
-| AzureTableSourceQuery |Utilisez la requête de Table Azure personnalisée pour lire les données. Consultez les exemples dans la section suivante. |Non  |
+| type | La propriété de type de la source d’activité de copie doit être définie sur **AzureTableSource**. |Oui |
+| azureTableSourceQuery |Utilisez la requête de Table Azure personnalisée pour lire les données. Consultez les exemples dans la section suivante. |Non  |
 | azureTableSourceIgnoreTableNotFound |Indique s’il faut autoriser l’exception de la table qui n’existe pas.<br/>Les valeurs autorisées sont **True** et **False** (par défaut). |Non  |
 
 ### <a name="azuretablesourcequery-examples"></a>Exemples azureTableSourceQuery
@@ -261,7 +261,7 @@ Pour copier des données vers la Table Azure, définissez le type de récepteur 
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété de type du récepteur d’activité de copie doit être définie sur **AzureTableSink**. |Oui |
+| type | La propriété de type du récepteur d’activité de copie doit être définie sur **AzureTableSink**. |Oui |
 | azureTableDefaultPartitionKeyValue |La valeur de clé de partition par défaut qui peut être utilisée par le récepteur. |Non  |
 | azureTablePartitionKeyName |Spécifiez le nom de la colonne dont les valeurs sont utilisées comme clés de partition. Si aucune valeur n'est spécifiée, « AzureTableDefaultPartitionKeyValue » est utilisée comme clé de partition. |Non  |
 | azureTableRowKeyName |Spécifiez le nom de la colonne dont les valeurs sont utilisées comme clé de ligne. Si aucune valeur n'est spécifiée, un GUID est utilisé pour chaque ligne. |Non  |
