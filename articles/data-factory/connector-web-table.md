@@ -54,7 +54,7 @@ Les propriétés prises en charge pour le service lié Table web sont les suivan
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type doit être définie sur : **web** |Oui |
+| type | La propriété type doit être définie sur : **web** |Oui |
 | url | URL de la source web |Oui |
 | authenticationType | Valeur autorisée : **Anonymous**. |Oui |
 | connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Un Runtime d’intégration autohébergé est nécessaire comme indiqué dans [Prérequis](#prerequisites). |Oui |
@@ -86,8 +86,8 @@ Pour copier des données à partir de Table web, affectez la valeur **WebTable**
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type du jeu de données doit être définie sur : **WebTable** | Oui |
-| chemin d’accès |URL relative de la ressource qui contient la table. | Non. Quand le chemin d’accès n’est pas spécifié, seule l’URL spécifiée dans la définition du service lié est utilisée. |
+| type | La propriété type du jeu de données doit être définie sur : **WebTable** | Oui |
+| path |URL relative de la ressource qui contient la table. | Non. Quand le chemin d’accès n’est pas spécifié, seule l’URL spécifiée dans la définition du service lié est utilisée. |
 | index |Index de la table dans la ressource. Pour savoir comment obtenir l’index d’une table dans une page HTML, consultez la section [Obtenir l’index d’une table dans une page HTML](#get-index-of-a-table-in-an-html-page) . |Oui |
 
 **Exemple :**
