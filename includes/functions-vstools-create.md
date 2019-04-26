@@ -5,15 +5,16 @@ services: functions
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 03/05/2019
-ms.author: glenga
+origin.date: 03/05/2019
+ms.date: 03/25/2019
+ms.author: v-junlch
 ms.custom: include file
 ms.openlocfilehash: 6c430f22a9d4fa0fad95bcaa41675545fffd91ec
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58227216"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60403644"
 ---
 Le modèle de projet Azure Functions dans Visual Studio crée un projet qui peut être publié dans une application de fonction dans Azure. Vous pouvez utiliser une application de fonction pour regrouper les fonctions dans une unité logique pour la gestion, le déploiement et le partage des ressources.
 
@@ -38,3 +39,4 @@ Le modèle de projet Azure Functions dans Visual Studio crée un projet qui peut
     > Veillez à définir les **Droits d’accès** sur `Anonymous`. Si vous choisissez le niveau par défaut de `Function`, vous êtes invité à présenter la [clé de fonction](../articles/azure-functions/functions-bindings-http-webhook.md#authorization-keys) dans les demandes d’accès à votre point de terminaison de fonction.
     
 4. Sélectionnez **OK** pour créer le projet de fonction et la fonction déclenchée par HTTP.
+
