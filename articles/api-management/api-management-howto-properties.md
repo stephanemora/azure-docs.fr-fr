@@ -27,10 +27,10 @@ Chaque instance du service Gestion des API possède une collection de propriét�
 
 | Attribut | Type | Description |
 | --- | --- | --- |
-| Nom complet |string |Chaîne alphanumérique utilisée pour référencer la propriété dans les stratégies. |
-| Valeur |string |Valeur de la propriété. Elle ne peut pas être vide ni se composer uniquement d’espaces blancs. |
-|Secret|booléenne|Détermine si la valeur est un secret et doit être chiffrée.|
-| Balises |tableau de chaînes |Balises facultatives qui, lorsqu’elles sont fournies, peuvent être utilisées pour filtrer la liste de propriétés. |
+| `Display name` |string |Chaîne alphanumérique utilisée pour référencer la propriété dans les stratégies. |
+| `Value` |string |Valeur de la propriété. Elle ne peut pas être vide ni se composer uniquement d’espaces blancs. |
+| `Secret` |booléenne|Détermine si la valeur est un secret et doit être chiffrée.|
+| `Tags` |tableau de chaînes |Balises facultatives qui, lorsqu’elles sont fournies, peuvent être utilisées pour filtrer la liste de propriétés. |
 
 ![Valeurs nommées](./media/api-management-howto-properties/named-values.png)
 
