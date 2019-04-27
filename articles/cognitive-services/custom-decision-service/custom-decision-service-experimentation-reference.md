@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 05/10/2018
 ms.author: marossi
 ms.openlocfilehash: b5f8c853218a1db53f4dd23e7254b35990a7132b
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55870263"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60829172"
 ---
 # <a name="experimentation"></a>Expérimentation
 
@@ -52,7 +52,7 @@ Les paramètres qui contrôlent ces étapes incluent des arguments Vowpal Wabbit
 
 Pour obtenir une explication détaillée des arguments ci-dessus, consultez les [arguments de ligne de commande Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit/wiki/Command-line-arguments).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 - Vowpal Wabbit : installé et sur votre chemin d’accès.
   - Windows : [Utilisez le programme d'installation`.msi`](https://github.com/eisber/vowpal_wabbit/releases).
   - Autres plateformes : [Obtenez le code source](https://github.com/JohnLangford/vowpal_wabbit/releases).

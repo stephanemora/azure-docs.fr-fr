@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: diberry
 ms.openlocfilehash: 35f1521884de3a4a0971b6e1c00f92a9094a8550
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59526287"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60812814"
 ---
 # <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>Extraire des données de texte énoncé avec les intentions et entités
 LUIS donne la possibilité d’obtenir des informations à partir des énoncés d’un utilisateur en langage naturel. Les informations sont extraites de façon à pouvoir être utilisées par un programme, une application ou un chatbot de manière exploitable. Dans les sections suivantes, découvrez quelles sont les données retournées à partir des intentions et des entités avec des exemples de JSON.
@@ -48,7 +48,7 @@ La principale donnée est le **nom de l’intention** qui a obtenu le meilleur s
 
 |Objet de données|Type de données|Emplacement des données|Valeur|
 |--|--|--|--|
-|Intention|Chaîne|topScoringIntent.intent|"GetStoreInfo"|
+|Intention|String|topScoringIntent.intent|"GetStoreInfo"|
 
 Si votre chatbot ou votre application d’appel à LUIS prend une décision sur la base du score de plusieurs intentions, retournez le score de toutes les intentions en définissant le paramètre de chaîne de requête `verbose=true`. La réponse du point de terminaison est la suivante :
 
@@ -77,8 +77,8 @@ Les intentions sont triées du score le plus élevé au score le plus faible.
 
 |Objet de données|Type de données|Emplacement des données|Valeur|Score|
 |--|--|--|--|:--|
-|Intention|Chaîne|intents[0].intent|"GetStoreInfo"|0.984749258|
-|Intention|Chaîne|intents[1].intent|"None"|0.0168218873|
+|Intention|String|intents[0].intent|"GetStoreInfo"|0.984749258|
+|Intention|String|intents[1].intent|"None"|0.0168218873|
 
 Si vous ajoutez des domaines prédéfinis, le nom de l’intention indique le domaine, par exemple `Utilties` ou `Communication`, ainsi que l’intention :
 
@@ -108,9 +108,9 @@ Si vous ajoutez des domaines prédéfinis, le nom de l’intention indique le do
 
 |Domaine|Objet de données|Type de données|Emplacement des données|Valeur|
 |--|--|--|--|--|
-|Services|Intention|Chaîne|intents[0].intent|"<b>Utilities</b>.ShowNext"|
-|Communication|Intention|Chaîne|intents[1].intent|<b>Communication</b>.StartOver"|
-||Intention|Chaîne|intents[2].intent|"None"|
+|Services|Intention|String|intents[0].intent|"<b>Utilities</b>.ShowNext"|
+|Communication|Intention|String|intents[1].intent|<b>Communication</b>.StartOver"|
+||Intention|String|intents[2].intent|"None"|
 
 
 ## <a name="data-from-entities"></a>Données issues des entités

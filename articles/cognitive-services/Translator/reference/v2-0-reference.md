@@ -11,11 +11,11 @@ ms.topic: reference
 ms.date: 05/15/2018
 ms.author: v-jansko
 ms.openlocfilehash: 961dd277034db7e5406e671233f26b4fd8fe5f26
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59527283"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61467154"
 ---
 # <a name="translator-text-api-v20"></a>API de traduction de texte Translator Text v2.0
 
@@ -79,7 +79,7 @@ Type de contenu de réponse : application/xml
 |Paramètre|Valeur|Description    |Type de paramètre|Type de données|
 |:--|:--|:--|:--|:--|
 |appid  |(empty)    |Requis. Si l’en-tête Authorization ou Ocp-Apim-Subscription-Key est utilisé, laissez le champ appid vide. Sinon, incluez une chaîne contenant « Bearer » + « » + « access_token ».|query|string|
-|texte|(empty)   |Requis. Chaîne représentant le texte à traduire. La taille du texte ne peut pas dépasser 10 000 caractères.|query|string|
+|text|(empty)   |Requis. Chaîne représentant le texte à traduire. La taille du texte ne peut pas dépasser 10 000 caractères.|query|string|
 |from|(empty)   |facultatif. Chaîne représentant le code de langue du texte source. Par exemple, en pour l’anglais.|query|string|
 |to|(empty) |Requis. Chaîne représentant le code de langue du texte cible.|query|string|
 |contentType|(empty)    |facultatif. Format du texte en cours de traduction. Les formats pris en charge sont text/plain (par défaut) et text/html. Tout code HTML doit être un élément bien formé et complet.|query|string|
@@ -315,7 +315,7 @@ L’URI de demande est `https://api.microsofttranslator.com/V2/Http.svc/Speak`.
 
 ### <a name="response-class-status-200"></a>Classe de réponse (état 200)
 
-binaire
+binary
 
 Type de contenu de réponse : application/xml 
 
@@ -324,7 +324,7 @@ Type de contenu de réponse : application/xml
 |Paramètre|Valeur|Description|Type de paramètre|Type de données|
 |:--|:--|:--|:--|:--|
 |appid|(empty)|Requis. Si l’en-tête `Authorization` ou `Ocp-Apim-Subscription-Key` est utilisé, laissez le champ appid vide. Sinon, incluez une chaîne contenant `"Bearer" + " " + "access_token"`.|query|string|
-|texte|(empty)   |Requis. Chaîne contenant une ou plusieurs phrases dans la langue spécifiée, à prononcer pour le flux WAV. La taille du texte à prononcer ne peut pas dépasser 2 000 caractères.|query|string|
+|text|(empty)   |Requis. Chaîne contenant une ou plusieurs phrases dans la langue spécifiée, à prononcer pour le flux WAV. La taille du texte à prononcer ne peut pas dépasser 2 000 caractères.|query|string|
 |Langage|(empty)   |Requis. Chaîne représentant le code de la langue prise en charge dans laquelle prononcer le texte. Le code doit être présent dans la liste des codes renvoyée par la méthode `GetLanguagesForSpeak`.|query|string|
 |format|(empty)|facultatif. Chaîne spécifiant l’ID de type de contenu. Actuellement, `audio/wav` et `audio/mp3` sont disponibles. La valeur par défaut est `audio/wav`.|query|string|
 |options|(empty)    |<ul><li>facultatif. Chaîne spécifiant les propriétés de la parole synthétisée :<li>`MaxQuality` et `MinSize` sont disponibles pour spécifier la qualité des signaux audio. Avec `MaxQuality`, vous obtenez des voix de la qualité la plus haute et avec `MinSize`, vous obtenez des voix de la qualité la plus basse. La valeur par défaut est `MinSize`.</li><li>`female` et `male` sont disponibles pour spécifier le genre souhaité de la voix. La valeur par défaut est `female`. Utilisez la barre verticale <code>\|</code> pour inclure plusieurs options. Par exemple : `MaxQuality|Male`.</li></li></ul> |query|string|
@@ -360,7 +360,7 @@ Type de contenu de réponse : application/xml
 |Paramètre|Valeur|Description|Type de paramètre|Type de données|
 |:--|:--|:--|:--|:--|
 |appid|(empty)  |Requis. Si l’en-tête `Authorization` ou `Ocp-Apim-Subscription-Key` est utilisé, laissez le champ appid vide. Sinon, incluez une chaîne contenant `"Bearer" + " " + "access_token"`.|query|string|
-|texte|(empty)|Requis. Chaîne contenant du texte dont la langue doit être identifiée. La taille du texte ne peut pas dépasser 10 000 caractères.|query| string|
+|text|(empty)|Requis. Chaîne contenant du texte dont la langue doit être identifiée. La taille du texte ne peut pas dépasser 10 000 caractères.|query| string|
 |Authorization|(empty)|Obligatoire si le champ `appid` ou l’en-tête `Ocp-Apim-Subscription-Key` ne sont pas spécifiés. Jeton d’autorisation : `"Bearer" + " " + "access_token"`.|en-tête|string|
 |Ocp-Apim-Subscription-Key  |(empty)    |Obligatoire si le champ `appid` ou l’en-tête `Authorization` ne sont pas spécifiés.|en-tête|string|
 
@@ -559,7 +559,7 @@ Type de contenu de réponse : application/xml
 |Paramètre|Valeur|Description|Type de paramètre|Type de données|
 |:--|:--|:--|:--|:--|
 |appid|(empty)  |Requis. Si l’en-tête Authorization ou Ocp-Apim-Subscription-Key est utilisé, laissez le champ appid vide. Sinon, incluez une chaîne contenant « Bearer » + « » + « access_token ».|query| string|
-|texte|(empty)   |Requis. Chaîne représentant le texte à fractionner en phrases. La taille du texte ne peut pas dépasser 10 000 caractères.|query|string|
+|text|(empty)   |Requis. Chaîne représentant le texte à fractionner en phrases. La taille du texte ne peut pas dépasser 10 000 caractères.|query|string|
 |Langage   |(empty)    |Requis. Chaîne représentant le code de langue du texte d’entrée.|query|string|
 |Authorization|(empty)|Obligatoire si le champ appid ou l’en-tête Ocp-Apim-Subscription-Key ne sont pas spécifiés. Jeton d’autorisation :  « Porteur » + «» + « jeton_d’accès ».    |en-tête|string|
 |Ocp-Apim-Subscription-Key|(empty)|Obligatoire si le champ appid ou l’en-tête Authorization ne sont pas spécifiés.|en-tête|string|
@@ -653,7 +653,7 @@ Type de contenu de réponse : application/xml
 |Paramètre|Valeur|Description|Type de paramètre|Type de données|
 |:--|:--|:--|:--|:--|
 |appid|(empty)|Requis. Si l’en-tête `Authorization` ou `Ocp-Apim-Subscription-Key` est utilisé, laissez le champ appid vide. Sinon, incluez une chaîne contenant `"Bearer" + " " + "access_token"`.|query|string|
-|texte|(empty)|Requis. Chaîne représentant le texte à traduire. La taille du texte ne peut pas dépasser 10 000 caractères.|query|string|
+|text|(empty)|Requis. Chaîne représentant le texte à traduire. La taille du texte ne peut pas dépasser 10 000 caractères.|query|string|
 |from|(empty)|Requis. Chaîne représentant le code de langue du texte source.|query|string|
 |to |(empty)    |Requis. Chaîne représentant le code de langue du texte cible.|query|string|
 |maxTranslations|(empty)|Requis. Entier représentant le nombre maximal de traductions à renvoyer.|query|integer|

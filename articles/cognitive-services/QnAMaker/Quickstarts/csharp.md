@@ -12,11 +12,11 @@ ms.date: 02/13/2019
 ms.author: diberry
 ms.custom: seodec18
 ms.openlocfilehash: c7f0afb2776f11ac9406fced1209dfedd769a96f
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245590"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60913772"
 ---
 # <a name="how-to-use-the-qna-maker-rest-api-with-c"></a>Guide pratique pour utiliser l’API REST QnA Maker avec C# 
 <a name="HOLTop"></a>
@@ -35,12 +35,12 @@ Cet article explique comment utiliser l’[API QnA Maker Microsoft](../Overview/
 - [Supprimer une base de connaissances](#Delete)
 - [Obtenir les clés du point de terminaison actuel](#GetKeys)
 - [Régénérer les clés du point de terminaison actuel](#PutKeys)
-- [Obtenir l’ensemble actuel d’altérations de mots sensibles à la casse](#GetAlterations)
-- [Remplacer l’ensemble actuel d’altérations de mots sensibles à la casse](#PutAlterations)
+- [Obtenir l'ensemble actuel d'altérations de mots qui ne respectent pas la casse](#GetAlterations)
+- [Remplacer l'ensemble actuel d'altérations de mots qui ne respectent pas la casse](#PutAlterations)
 
 [!INCLUDE [Code is available in Azure-Samples GitHub repo](../../../../includes/cognitive-services-qnamaker-csharp-repo-note.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Vous devez disposer de [Visual Studio 2017](https://www.visualstudio.com/downloads/) pour exécuter ce code sur Windows. (La version Community Edition gratuite fonctionne.)
 

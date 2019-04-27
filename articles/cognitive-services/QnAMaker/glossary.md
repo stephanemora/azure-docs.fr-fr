@@ -12,11 +12,11 @@ ms.date: 02/21/2019
 ms.author: tulasim
 ms.custom: seodec18
 ms.openlocfilehash: bb3b262f3bde0599cb6dea009d0fbbeafb1c529a
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56649439"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61430679"
 ---
 # <a name="glossary-for-qna-maker-knowledge-base-and-service"></a>Glossaire de la base de connaissances et du service QnA Maker
 
@@ -35,7 +35,7 @@ Une base de connaissances peut être de test ou publiée. La base de connaissanc
 ## <a name="published-knowledge-base"></a>Base de connaissances publiée
 Une base de connaissances peut être de test ou publiée.  La base de connaissances publiée est la version utilisée dans votre application ou chatbot. En publiant une base de connaissances, vous placez le contenu de la base de connaissances de test dans la version publiée de celle-ci. Étant donné que la base de connaissances publiée est la version utilisée par l’application via le point de terminaison, soyez vigilant. Vous devez vous assurer que le contenu est correct et bien testé.
 
-## <a name="query"></a>Requête
+## <a name="query"></a>Interroger
 Une requête de l’utilisateur est la question que l’utilisateur final ou le testeur pose dans la base de connaissances. Cette requête est souvent dans un format de langage naturel ou bien composée de quelques mots-clés qui représentent la question.
 
 ## <a name="response"></a>response

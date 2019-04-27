@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
 ms.openlocfilehash: 26f8d885f8cf85ab849ba221392df206e492aac4
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860811"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60814473"
 ---
 # <a name="semantic-interpretation"></a>Interprétation sémantique
 
@@ -35,13 +35,13 @@ Voici une liste des types de données actuellement pris en charge :
 
 |Type|Description|Exemples|
 |----|----|----|
-|Chaîne|Séquence de 0 caractères ou plus|« Hello World ! »<br/>""|
+|String|Séquence de 0 caractères ou plus|« Hello World ! »<br/>""|
 |Bool|Valeur booléenne|true<br/>false|
 |Int32|Entier signé 32 bits.  -2.1e9 à 2.1e9|123<br/>-321|
 |Int64|Entier signé 64 bits. -9.2e18 et 9.2e18|9876543210|
 |Double|Virgule flottante double précision. 1.7e+/-308 (15 chiffres)|123.456789<br/>1.23456789e2|
 |Guid|Identificateur global unique|"602DD052-CC47-4B23-A16A-26B52D30C05B"|
-|Requête|Une expression de requête qui spécifie un sous-ensemble d’objets de données dans l’index|All()<br/>And(*q1*, *q2*)|
+|Interroger|Une expression de requête qui spécifie un sous-ensemble d’objets de données dans l’index|All()<br/>And(*q1*, *q2*)|
 
 ## <a name="semantic-functions"></a>Fonctions sémantiques
 

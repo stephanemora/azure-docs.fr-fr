@@ -4,20 +4,21 @@ titlesuffix: Azure Virtual Network
 description: Apprenez-en plus sur les adresses IP publiques et privées dans Azure.
 services: virtual-network
 documentationcenter: na
-author: jimdial
+author: KumudD
+manager: twooley
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/05/2019
-ms.author: jdial
-ms.openlocfilehash: 929c8808721140d5275cba4bcf3fbaa567f961e0
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
-ms.translationtype: MT
+ms.author: kumud
+ms.openlocfilehash: 69fd70fc45f734f8267db6d770d09b14f3a071f5
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652023"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62108142"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Types d’adresses IP et méthodes d’allocation dans Azure
 
@@ -78,6 +79,9 @@ Les adresses IP publiques de référence SKU standard :
  
 > [!NOTE]
 > La communication entrante avec la ressource de référence SKU standard est possible uniquement si vous créez et associez un [groupe de sécurité réseau](security-overview.md#network-security-groups) et que vous autorisez explicitement le trafic entrant prévu.
+
+> [!NOTE]
+> Seules les adresses IP publiques avec la référence SKU de base sont disponibles lorsque vous utilisez [l’instance de service de métadonnées IMDS](../virtual-machines/windows/instance-metadata-service.md). Référence (SKU) standard n’est pas pris en charge.
 
 ### <a name="allocation-method"></a>Méthode d’allocation
 

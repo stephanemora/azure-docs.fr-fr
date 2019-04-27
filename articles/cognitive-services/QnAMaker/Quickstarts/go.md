@@ -12,11 +12,11 @@ ms.date: 02/13/2019
 ms.author: diberry
 ms.custom: seodec18
 ms.openlocfilehash: f16909a9504b2868c1eecf849b9a1fd537cd6048
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244256"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60913546"
 ---
 # <a name="how-to-use-the-qna-maker-rest-api-with-go"></a>Guide pratique pour utiliser l’API REST QnA Maker avec Go 
 <a name="HOLTop"></a>
@@ -35,10 +35,10 @@ Cet article explique comment utiliser l’[API QnA Maker Microsoft](../Overview/
 - [Supprimer une base de connaissances](#Delete)
 - [Obtenir les clés du point de terminaison actuel](#GetKeys)
 - [Régénérer les clés du point de terminaison actuel](#PutKeys)
-- [Obtenir l’ensemble actuel d’altérations de mots sensibles à la casse](#GetAlterations)
-- [Remplacer l’ensemble actuel d’altérations de mots sensibles à la casse](#PutAlterations)
+- [Obtenir l'ensemble actuel d'altérations de mots qui ne respectent pas la casse](#GetAlterations)
+- [Remplacer l'ensemble actuel d'altérations de mots qui ne respectent pas la casse](#PutAlterations)
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour exécuter ce code, vous avez besoin de [Go 1.10.1](https://golang.org/dl/).
 

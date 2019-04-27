@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
 ms.openlocfilehash: 844bd9a88c52fd398fc66c71e59da513c0d7d90d
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544322"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60814863"
 ---
 # <a name="grammar-format"></a>Format de grammaire
 
@@ -128,8 +128,8 @@ Le tableau suivant répertorie les valeurs `op` prises en charge pour chaque typ
 
 | Type d’attribut | Valeur op | Description | Opération d’index
 |----|----|----|----|
-| Chaîne | eq | Correspondance exacte de chaîne | equals |
-| Chaîne | starts_with | Correspondance de préfixe de chaîne | starts_with |
+| String | eq | Correspondance exacte de chaîne | equals |
+| String | starts_with | Correspondance de préfixe de chaîne | starts_with |
 | Int32, Int64, Double | eq |  Correspondance d’égalité numérique | equals |
 | Int32, Int64, Double | lt, le, gt, ge | Correspondance d’inégalité numérique (<, <=, >, >=) | is_between |
 | Int32, Int64, Double | starts_with | Correspondance de préfixe de valeur en notation décimale | starts_with |

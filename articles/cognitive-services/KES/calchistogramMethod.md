@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
 ms.openlocfilehash: aaa5b3a85c08f11d821557257de451b8ffc8a3fc
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860454"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60814172"
 ---
 # <a name="calchistogram-method"></a>Méthode calchistogram
 La méthode *calchistogram* calcule les objets correspondant à une expression de requête structurée et calcule la distribution de leurs valeurs d’attribut.

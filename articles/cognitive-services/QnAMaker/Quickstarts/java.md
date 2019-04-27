@@ -12,11 +12,11 @@ ms.date: 02/13/2019
 ms.author: diberry
 ms.custom: seodec18
 ms.openlocfilehash: 0e91aefb800eba42b715cb70d42ce09ad134fabb
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243793"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60912457"
 ---
 # <a name="how-to-use-the-qna-maker-rest-api-with-java"></a>Guide pratique pour utiliser l’API REST QnA Maker avec Java 
 <a name="HOLTop"></a>
@@ -35,12 +35,12 @@ Cet article explique comment utiliser [l’API QnA Maker Microsoft](../Overview/
 - [Supprimer une base de connaissances](#Delete)
 - [Obtenir les clés du point de terminaison actuel](#GetKeys)
 - [Régénérer les clés du point de terminaison actuel](#PutKeys)
-- [Obtenir l'ensemble actuel d'altérations de mots sensibles à la casse](#GetAlterations)
-- [Remplacer l'ensemble actuel d'altérations de mots sensibles à la casse](#PutAlterations)
+- [Obtenir l'ensemble actuel d'altérations de mots qui ne respectent pas la casse](#GetAlterations)
+- [Remplacer l'ensemble actuel d'altérations de mots qui ne respectent pas la casse](#PutAlterations)
 
 [!INCLUDE [Code is available in Azure-Samples GitHub repo](../../../../includes/cognitive-services-qnamaker-java-repo-note.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour compiler et exécuter ce code, vous devez disposer de [JDK 7 ou 8](https://aka.ms/azure-jdks). Vous pouvez utiliser un IDE Java si vous le souhaitez, mais un éditeur de texte est suffisant.
 

@@ -12,11 +12,11 @@ ms.date: 02/13/2019
 ms.author: diberry
 ms.custom: seodec18
 ms.openlocfilehash: ba4af5d3b6612614dee54db7fdb1287ff7136321
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245760"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60913503"
 ---
 # <a name="how-to-use-the-qna-maker-rest-api-with-nodejs"></a>Guide pratique pour utiliser l’API REST QnA Maker avec Node.js 
 <a name="HOLTop"></a>
@@ -40,7 +40,7 @@ Cet article explique comment utiliser l’[API QnA Maker Microsoft](../Overview/
 
 [!INCLUDE [Code is available in Azure-Samples GitHub repo](../../../../includes/cognitive-services-qnamaker-nodejs-repo-note.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour exécuter ce code, vous avez besoin de [Node.js 6](https://nodejs.org/en/download/).
 

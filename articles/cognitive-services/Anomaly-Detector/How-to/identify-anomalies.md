@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 03/26/2019
 ms.author: aahi
 ms.openlocfilehash: 63ede8fe90d5c19c2473ffb315bf6096599ffb9c
-ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58473231"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61432342"
 ---
 # <a name="how-to-use-the-anomaly-detector-api-on-your-time-series-data"></a>Activation Utiliser l’API de détecteur d’anomalies sur vos données de série chronologique  
 
@@ -70,4 +70,4 @@ Les exemples suivants montrent un résultat de l’API de détecteur d’anomali
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Qu’est l’API de détecteur d’anomalie ?](../overview.md)
-* [Démarrage rapide : Détecter les anomalies dans vos données de série chronologique à l’aide de l’API REST de détecteur d’anomalie](../quickstarts/detect-data-anomalies-csharp.md)
+* [Démarrage rapide : Détecter les anomalies dans vos données de série chronologique à l’aide de l’API REST de détecteur d’anomalie](../quickstarts/detect-data-anomalies-csharp.md)

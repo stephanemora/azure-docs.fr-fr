@@ -12,11 +12,11 @@ ms.date: 01/14/2019
 ms.author: tulasim
 ms.custom: seodec18
 ms.openlocfilehash: d40330f257694e81704bf6fffa1fd2df8ed86c06
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55858040"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61376078"
 ---
 # <a name="add-chit-chat-to-a-knowledge-base"></a>Ajouter des échanges de conversation à une base de connaissances
 
@@ -24,7 +24,8 @@ L’ajout d’échanges de conversation à votre bot rend ses conversations plus
 
 Ce jeu de données compte environ 100 scénarios d’échanges de conversation avec la voix de trois personnes : le professionnel, l’ami et le comique. Choisissez la personnalité qui se rapproche le plus de la voix de votre bot. Quand il fait face à une requête de l’utilisateur, QnA Maker tente de la faire correspondre au QnA d’échanges de conversation connu le plus proche. 
 
-Voici quelques exemples des différentes personnalités : <!-- added quotes so acrolinx doesn't score these sentences -->
+Voici quelques exemples des personnalités différents :
+<!-- added quotes so acrolinx doesn't score these sentences -->
 |Requête de l’utilisateur|Le professionnel|L’ami|Le comique|
 |--|--|--|--|
 |`You are awesome`|`I aim to serve.`|`That's so nice of you!`|`Flattery. I like it.`|

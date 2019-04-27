@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
 ms.openlocfilehash: 38b4aa4c899668a68041f042ce6981ddd8c58219
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884917"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61340194"
 ---
 # <a name="conference-series-entity"></a>Entité Série de conférences
 
@@ -24,8 +24,8 @@ ms.locfileid: "55884917"
 Nom    |Description                            |Type       | Opérations
 ------- | ------------------------------------- | --------- | ----------------------------
 ID      |L’ID d’entité                              |Int64      |Égal à
-CN      |Nom normalisé de la série de conférences      |Chaîne     |Égal à
-DCN     |Nom d’affichage de la série de conférences         |Chaîne     |Aucun
+CN      |Nom normalisé de la série de conférences      |String     |Égal à
+DCN     |Nom d’affichage de la série de conférences         |String     |Aucun
 CC      |Nombre total de citations de la série de conférences         |Int32      |Aucun  
 ECC     |Estimation du nombre total de citations de la série de conférences   |Int32      |Aucun
 F.FId   |Champ de l’ID d’entité de l’étude associé à la série de conférences |Int64  | Égal à

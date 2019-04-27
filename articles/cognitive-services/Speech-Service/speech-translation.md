@@ -12,11 +12,11 @@ ms.date: 03/13/2019
 ms.author: erhopf
 ms.custom: seodec18
 ms.openlocfilehash: 95682612b4b0fdb1baa5038039630e74abddb1a9
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57890466"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61460318"
 ---
 # <a name="what-is-speech-translation"></a>Quelle est la traduction vocale ?
 
@@ -42,11 +42,11 @@ Nous proposons des guides de démarrage rapide conçu pour que vous exécutez le
 
 | Démarrage rapide | Plateforme | Informations de référence sur l'API |
 |------------|----------|---------------|
-| [C#, .NET Core](quickstart-translate-speech-dotnetcore-windows.md) |  Windows | [Browse](https://aka.ms/csspeech/csharpref) |
-| [C#, .NET framework](quickstart-translate-speech-dotnetframework-windows.md) |  Windows | [Browse](https://aka.ms/csspeech/csharpref) |
-| [C#, UWP](quickstart-translate-speech-uwp.md) |  Windows | [Browse](https://aka.ms/csspeech/csharpref) |
-| [C++](quickstart-translate-speech-cpp-windows.md) |  Windows | [Browse](https://aka.ms/csspeech/cppref)|
-| [Java](quickstart-translate-speech-java-jre.md) |  Windows | [Browse](https://aka.ms/csspeech/javaref) |
+| [C#, .NET Core](quickstart-translate-speech-dotnetcore-windows.md) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
+| [C#, .NET framework](quickstart-translate-speech-dotnetframework-windows.md) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
+| [C#, UWP](quickstart-translate-speech-uwp.md) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
+| [C++](quickstart-translate-speech-cpp-windows.md) | Windows | [Browse](https://aka.ms/csspeech/cppref)|
+| [Java](quickstart-translate-speech-java-jre.md) | Windows | [Browse](https://aka.ms/csspeech/javaref) |
 
 ## <a name="sample-code"></a>Exemple de code
 
@@ -67,11 +67,11 @@ Si vos applications, des outils ou produits utilisez Translator Speech, nous avo
 
 * [Kit de développement logiciel (SDK) de reconnaissance vocale](speech-sdk-reference.md)
 * [SDK Speech Devices](speech-devices-sdk.md)
-* [API REST : Parole-texte](rest-speech-to-text.md)
+* [API REST : Reconnaissance vocale](rest-speech-to-text.md)
 * [API REST : Synthèse vocale](rest-text-to-speech.md)
-* [API REST : Personnalisation et la transcription de lot](https://westus.cris.ai/swagger/ui/index)
+* [API REST : Transcription et personnalisation par lot](https://westus.cris.ai/swagger/ui/index)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Obtenir une clé d’abonnement Services de reconnaissance vocale gratuitement](get-started.md)
+* [Obtenir une clé d’abonnement aux services Speech gratuitement](get-started.md)
 * [Obtenir la Kit de développement logiciel de reconnaissance vocale](speech-sdk.md)

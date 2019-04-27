@@ -12,15 +12,15 @@ ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: diberry
 ms.openlocfilehash: 5fa922cb91d34483256faf4dcf70569aa2f17b97
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59522484"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60813829"
 ---
 # <a name="entity-roles-for-contextual-subtypes"></a>Rôles d’entité pour les sous-types contextuelles
 
-Les rôles permettent d’entités à avoir nommé sous-types. Un rôle peut être utilisé avec n’importe quel type d’entité prédéfinies ou personnalisées et utilisé dans les énoncés d’exemple et les modèles. 
+Les rôles permettent d’entités à avoir nommé sous-types. Un rôle peut être utilisé avec un type d’entité prédéfini ou personnalisé, à la fois dans les exemple d’énoncés et de modèles. 
 
 <a name="example-role-for-entities"></a>
 <a name="roles-with-prebuilt-entities"></a>

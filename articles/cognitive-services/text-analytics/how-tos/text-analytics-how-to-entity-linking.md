@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 04/16/2019
 ms.author: aahi
 ms.openlocfilehash: c179620d6858658dface5f706f7994d51f1a199b
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59997306"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60829716"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Comment utiliser la reconnaissance d’entité nommée dans Analytique de texte
 
@@ -39,7 +39,7 @@ L’utilisation de la liaison d'entités dans différentes langues requiert l’
 
 ## <a name="supported-types-for-named-entity-recognition"></a>Types pris en charge pour la reconnaissance d’entité nommée
 
-| type  | Subtype | Exemples |
+| Type  | Subtype | Exemples |
 |:-----------   |:------------- |:---------|
 | Personne        | N/A\*         | « Jeff », « Bill Gates »     |
 | Lieu      | N/A\*         | « Redmond, Washington », « Paris »  |
@@ -52,14 +52,14 @@ L’utilisation de la liaison d'entités dans différentes langues requiert l’
 | Quantité      | Devise      | « 10,99 $ »     | 
 | Quantité      | Dimension     | « 10 miles », « 40 cm »     | 
 | Quantité      | Température   | « 32 degrés »    |
-| Datetime      | N/A\*         | « 6 h 30 le 4 février 2012 »      | 
-| Datetime      | Date          | « 2 mai 2017 », « 02/05/2017 »   | 
-| Datetime      | Temps          | « 8 h », « 8:00 »  | 
-| Datetime      | DateRange     | « Du 2 au 5 mai »    | 
-| Datetime      | TimeRange     | « De 18 à 19 h »     | 
-| Datetime      | Duration      | « 1 minute et 45 secondes »   | 
-| Datetime      | Définir           | « Chaque mardi »     | 
-| Datetime      | TimeZone      |    | 
+| DateTime      | N/A\*         | « 6 h 30 le 4 février 2012 »      | 
+| DateTime      | Date          | « 2 mai 2017 », « 02/05/2017 »   | 
+| DateTime      | Temps          | « 8 h », « 8:00 »  | 
+| DateTime      | DateRange     | « Du 2 au 5 mai »    | 
+| DateTime      | TimeRange     | « De 18 à 19 h »     | 
+| DateTime      | Duration      | « 1 minute et 45 secondes »   | 
+| DateTime      | Définir           | « Chaque mardi »     | 
+| DateTime      | TimeZone      |    | 
 | URL           | N/A\*         | « https :\//www.bing.com »    |
 | Email         | N/A\*         | "support@contoso.com" |
 
@@ -69,7 +69,7 @@ L’utilisation de la liaison d'entités dans différentes langues requiert l’
 
 ## <a name="preparation"></a>Préparation
 
-Vous devez disposer des documents JSON au format suivant : ID, le texte, de langage
+Vous devez disposer des documents JSON dans ce format : ID, texte, langue
 
 Pour connaître les langues actuellement prises en charge, consultez [cette liste](../text-analytics-supported-languages.md).
 
@@ -279,7 +279,7 @@ Voici un exemple de sortie de liaison d'entités :
 Dans cet article, vous avez vu les concepts et le flux de travail de liaison d'entités à l’aide de l’API Analyse de texte dans Cognitive Services. En résumé :
 
 + L’[API Entités](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634) est disponible pour les langues sélectionnées.
-+ Documents JSON dans le corps de la requête incluent un ID, texte et le code langue.
++ Les documents JSON figurant dans le corps de la demande incluent un ID, un texte et un code de langue.
 + La demande POST s’effectue sur un point de terminaison `/entities`, à l’aide [d’une clé d’accès et d’un point de terminaison](text-analytics-how-to-access-key.md) personnalisés valides pour votre abonnement.
 + La sortie de réponse, qui se compose d’entités liées (y compris des scores de confiance, des décalages et des liens web, pour chaque ID de document), peut être utilisée dans n’importe quelle application.
 

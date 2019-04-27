@@ -1,5 +1,5 @@
 ---
-title: "Tutoriel : Intégration d'Azure Active Directory à Salesforce Sandbox | Microsoft Docs"
+title: "Didacticiel : Intégration d'Azure Active Directory à Salesforce Sandbox | Microsoft Docs"
 description: Découvrez comment configurer une authentification unique entre Azure Active Directory et Salesforce Sandbox.
 services: active-directory
 documentationCenter: na
@@ -17,11 +17,11 @@ ms.date: 10/10/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6794d7eaccb488bb345227161f0bca02f14bc518
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57852554"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62104944"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-salesforce-sandbox"></a>Didacticiel : Intégration d'Azure Active Directory à Salesforce Sandbox
 
@@ -259,7 +259,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le **nom d’utilisateur** type de champ **brittasimon\@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Sélectionnez **Propriétés**, cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.

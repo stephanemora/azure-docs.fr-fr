@@ -11,13 +11,13 @@ ms.topic: article
 ms.date: 03/15/2019
 ms.author: sajagtap
 ms.openlocfilehash: f88ccbabc925b651abbc06f571a9d4220ed8aeb2
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756517"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61285399"
 ---
-# <a name="configure-the-review-tool"></a>Configurer l’outil de vérification
+# <a name="configure-the-review-tool"></a>Configurer l’outil de révision
 
 Le [outil de révision](https://contentmoderator.cognitive.microsoft.com) comporte plusieurs fonctionnalités importantes qui vous pouvez accéder via le **paramètres** menu du tableau de bord.
 

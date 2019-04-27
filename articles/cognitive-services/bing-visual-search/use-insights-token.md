@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 4/05/2019
 ms.author: scottwhi
 ms.openlocfilehash: e42e56e6361b1fde7ab13655d3c57a90d7235938
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59493873"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60831926"
 ---
 # <a name="use-an-insights-token-to-get-insights-for-an-image"></a>Utiliser un jeton d’insights pour obtenir des informations sur une image
 
@@ -475,7 +475,7 @@ if __name__ == '__main__':
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Créer une application web de page unique de recherche visuelle](tutorial-bing-visual-search-single-page-app.md)  
+[Créer une application web monopage de recherche visuelle](tutorial-bing-visual-search-single-page-app.md)  
 [Qu’est l’API de recherche visuelle Bing ?](overview.md)  
 [Essayez Cognitive Services](https://aka.ms/bingvisualsearchtryforfree)  
 [Obtenir une clé d’accès d’essai gratuit](https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api)  
