@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh, v-gedod
 ms.openlocfilehash: bc38b4457179c11f9d6b2656aacb8aa66848c444
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57992472"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60581035"
 ---
 # <a name="bing-local-business-search-api-v7-reference"></a>Informations de référence sur l’API Recherche d’entreprises locales Bing v7
 
@@ -72,14 +72,14 @@ La demande peut comporter les paramètres de requête suivants. Consultez la col
   
 |Nom|Valeur|Type|Obligatoire|  
 |----------|-----------|----------|--------------|
-|<a name="count" />count|Le nombre de résultats à retourner, en commençant par l’index spécifié par le `offset` paramètre.|Chaîne|Non |   
-|<a name="localCategories" />localCategories|Liste des options qui définissent la recherche par catégorie d’entreprise.  Voir [Recherche par catégories d’entreprises locales](local-categories.md).|Chaîne|Non |  
-|<a name="mkt" />mkt|Marché d’où proviennent les résultats. <br /><br />Pour connaître la liste des valeurs de marché possibles, voir Codes de marché.<br /><br /> **REMARQUE :** Actuellement, l’API Recherche d’entreprises locales ne prend en charge que le marché et la langue en-us.<br /><br />|Chaîne|Oui|
+|<a name="count" />count|Le nombre de résultats à retourner, en commençant par l’index spécifié par le `offset` paramètre.|String|Non |   
+|<a name="localCategories" />localCategories|Liste des options qui définissent la recherche par catégorie d’entreprise.  Voir [Recherche par catégories d’entreprises locales](local-categories.md).|String|Non |  
+|<a name="mkt" />mkt|Marché d’où proviennent les résultats. <br /><br />Pour connaître la liste des valeurs de marché possibles, voir Codes de marché.<br /><br /> **REMARQUE :** Actuellement, l’API Recherche d’entreprises locales ne prend en charge que le marché et la langue en-us.<br /><br />|String|Oui|
 |<a name="offset"/>offset|Index de début des résultats spécifiés par le paramètre `count`.|Entier |Non |  
-|<a name="query" />q|Critère de recherche de l’utilisateur.|Chaîne|Non |  
-|<a name="responseformat" />responseFormat|Type de média à utiliser pour la réponse. Voici les valeurs possibles. Elles ne sont pas sensibles à la casse.<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> La valeur par défaut est JSON. Pour plus d’informations sur les objets JSON que contient la réponse, voir [Objets de la réponse](#response-objects).<br /><br />  Si vous spécifiez JsonLd, le corps de la réponse comporte les objets JSON-LD contenant les résultats de la recherche. Pour plus d’informations sur la spécification JSON-LD, voir [JSON-LD](https://json-ld.org/).|Chaîne|Non |  
-|<a name="safesearch" />safeSearch|Filtre utilisé pour filtrer le contenu pour adultes. Voici les valeurs possibles. Elles ne sont pas sensibles à la casse.<br /><ul><li>Désactivé &mdash; Retourner les pages web comportant du texte, des images ou des vidéos pour adultes.<br /><br/></li><li>Modéré &mdash; Retourner les pages web comportant du texte pour adultes, mais pas des images ou des vidéos pour adultes.<br /><br/></li><li>Strict &mdash; Ne pas retourner de pages web comportant du texte, des images ou des vidéos pour adultes.</li></ul><br /> La valeur par défaut est Modéré.<br /><br /> **REMARQUE :** Si la demande provient d’un marché où la stratégie de Bing en matière de contenu pour adultes exige que `safeSearch` ait la valeur Strict, Bing ignore la valeur `safeSearch` et utilise Strict.<br/><br/>**REMARQUE :** Si vous utilisez l’opérateur de requête `site:`, il est possible que la réponse présente du contenu pour adultes, et ce quel que soit le paramètre de requête `safeSearch` défini. N’utilisez `site:` que si vous connaissez le contenu du site et si votre scénario accepte le contenu pour adultes. |Chaîne|Non |  
-|<a name="setlang" />setLang|Langue à utiliser pour les chaînes de l’interface utilisateur. Spécifiez la langue en utilisant le code de langue ISO 639-1 à deux lettres. Par exemple, celui de l’anglais est EN. La valeur par défaut est EN (anglais).<br /><br /> Nous vous conseillons de toujours indiquer la langue, bien qu’elle soit facultative. En général, on définit `setLang` sur la langue spécifiée par `mkt`, sauf si l’utilisateur souhaite que les chaînes de l’interface utilisateur soient affichées dans une autre langue.<br /><br /> Ce paramètre et l’en-tête [Accept-Language](#acceptlanguage) s’excluent mutuellement &mdash; ne spécifiez pas les deux.<br /><br /> Une chaîne d’interface utilisateur est une chaîne utilisée comme étiquette dans une interface utilisateur. Les objets de réponse JSON en comportent quelques-unes. En outre, les liens vers les propriétés Bing.com dans les objets de la réponse s’appliquent à la langue spécifiée.|Chaîne|Non | 
+|<a name="query" />q|Critère de recherche de l’utilisateur.|String|Non |  
+|<a name="responseformat" />responseFormat|Type de média à utiliser pour la réponse. Voici les valeurs possibles. Elles ne sont pas sensibles à la casse.<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> La valeur par défaut est JSON. Pour plus d’informations sur les objets JSON que contient la réponse, voir [Objets de la réponse](#response-objects).<br /><br />  Si vous spécifiez JsonLd, le corps de la réponse comporte les objets JSON-LD contenant les résultats de la recherche. Pour plus d’informations sur la spécification JSON-LD, voir [JSON-LD](https://json-ld.org/).|String|Non |  
+|<a name="safesearch" />safeSearch|Filtre utilisé pour filtrer le contenu pour adultes. Voici les valeurs possibles. Elles ne sont pas sensibles à la casse.<br /><ul><li>Désactivé &mdash; Retourner les pages web comportant du texte, des images ou des vidéos pour adultes.<br /><br/></li><li>Modéré &mdash; Retourner les pages web comportant du texte pour adultes, mais pas des images ou des vidéos pour adultes.<br /><br/></li><li>Strict &mdash; Ne pas retourner de pages web comportant du texte, des images ou des vidéos pour adultes.</li></ul><br /> La valeur par défaut est Modéré.<br /><br /> **REMARQUE :** Si la demande provient d’un marché où la stratégie de Bing en matière de contenu pour adultes exige que `safeSearch` ait la valeur Strict, Bing ignore la valeur `safeSearch` et utilise Strict.<br/><br/>**REMARQUE :** Si vous utilisez l’opérateur de requête `site:`, il est possible que la réponse présente du contenu pour adultes, et ce quel que soit le paramètre de requête `safeSearch` défini. N’utilisez `site:` que si vous connaissez le contenu du site et si votre scénario accepte le contenu pour adultes. |String|Non |  
+|<a name="setlang" />setLang|Langue à utiliser pour les chaînes de l’interface utilisateur. Spécifiez la langue en utilisant le code de langue ISO 639-1 à deux lettres. Par exemple, celui de l’anglais est EN. La valeur par défaut est EN (anglais).<br /><br /> Nous vous conseillons de toujours indiquer la langue, bien qu’elle soit facultative. En général, on définit `setLang` sur la langue spécifiée par `mkt`, sauf si l’utilisateur souhaite que les chaînes de l’interface utilisateur soient affichées dans une autre langue.<br /><br /> Ce paramètre et l’en-tête [Accept-Language](#acceptlanguage) s’excluent mutuellement &mdash; ne spécifiez pas les deux.<br /><br /> Une chaîne d’interface utilisateur est une chaîne utilisée comme étiquette dans une interface utilisateur. Les objets de réponse JSON en comportent quelques-unes. En outre, les liens vers les propriétés Bing.com dans les objets de la réponse s’appliquent à la langue spécifiée.|String|Non | 
 
 
 ## <a name="response-objects"></a>Objets de la réponse  
@@ -96,12 +96,12 @@ Définit l’erreur qui s’est produite.
   
 |Élément|Description|Type|  
 |-------------|-----------------|----------|  
-|<a name="error-code" />code|Code d’erreur identifiant la catégorie de l’erreur. Pour connaître la liste des codes possibles, voir [Codes d’erreur](#error-codes).|Chaîne|  
-|<a name="error-message" />message|Description de l’erreur.|Chaîne|  
-|<a name="error-moredetails" />moreDetails|Description de l’erreur comportant des informations supplémentaires.|Chaîne|  
-|<a name="error-parameter" />parameter|Paramètre de requête de la demande ayant provoqué l’erreur.|Chaîne|  
-|<a name="error-subcode" />subCode|Code identifiant l’erreur. Par exemple, si `code` est InvalidRequest, `subCode` peut être ParameterInvalid ou ParameterInvalidValue. |Chaîne|  
-|<a name="error-value" />value|Valeur du paramètre de requête qui n’était pas valide.|Chaîne|  
+|<a name="error-code" />code|Code d’erreur identifiant la catégorie de l’erreur. Pour connaître la liste des codes possibles, voir [Codes d’erreur](#error-codes).|String|  
+|<a name="error-message" />message|Description de l’erreur.|String|  
+|<a name="error-moredetails" />moreDetails|Description de l’erreur comportant des informations supplémentaires.|String|  
+|<a name="error-parameter" />parameter|Paramètre de requête de la demande ayant provoqué l’erreur.|String|  
+|<a name="error-subcode" />subCode|Code identifiant l’erreur. Par exemple, si `code` est InvalidRequest, `subCode` peut être ParameterInvalid ou ParameterInvalidValue. |String|  
+|<a name="error-value" />value|Valeur du paramètre de requête qui n’était pas valide.|String|  
   
 
 ### <a name="errorresponse"></a>ErrorResponse  
@@ -109,7 +109,7 @@ Objet de niveau supérieur figurant dans la réponse en cas d’échec de la dem
   
 |Nom|Valeur|Type|  
 |----------|-----------|----------|  
-|_type|Indicateur de type.|Chaîne|  
+|_type|Indicateur de type.|String|  
 |<a name="errors" />errors|Liste des erreurs qui décrivent les raisons pour lesquelles la demande a échoué.|[Error](#error)[]|  
 
   
@@ -119,8 +119,8 @@ Définit la licence sous laquelle il est possible d’utiliser le texte ou la ph
   
 |Nom|Valeur|Type|  
 |----------|-----------|----------|  
-|Nom|Nom de la licence.|Chaîne|  
-|url|URL vers un site web sur lequel l’utilisateur trouvera plus d’informations sur la licence.<br /><br /> Utilisez le nom et l’URL pour créer un lien hypertexte.|Chaîne|  
+|Nom|Nom de la licence.|String|  
+|url|URL vers un site web sur lequel l’utilisateur trouvera plus d’informations sur la licence.<br /><br /> Utilisez le nom et l’URL pour créer un lien hypertexte.|String|  
 
 
 ### <a name="link"></a>Lien  
@@ -128,9 +128,9 @@ Définit les composants d’un lien hypertexte.
   
 |Nom|Valeur|Type|  
 |----------|-----------|----------|  
-|_type|Indicateur de type.|Chaîne|  
-|texte|Texte d’affichage.|Chaîne|  
-|url|URL. Utilisez l’URL et le texte d’affichage pour créer un lien hypertexte.|Chaîne|  
+|_type|Indicateur de type.|String|  
+|text|Texte d’affichage.|String|  
+|url|URL. Utilisez l’URL et le texte d’affichage pour créer un lien hypertexte.|String|  
   
 
 
@@ -142,8 +142,8 @@ Notez qu’un éditeur peut indiquer son nom, son site web ou les deux.
   
 |Nom|Valeur|Type|  
 |----------|-----------|----------|  
-|Nom|Nom de l’éditeur.|Chaîne|  
-|url|URL du site web de l’éditeur.<br /><br /> Notez que l’éditeur peut ne pas indiquer de site web.|Chaîne|  
+|Nom|Nom de l’éditeur.|String|  
+|url|URL du site web de l’éditeur.<br /><br /> Notez que l’éditeur peut ne pas indiquer de site web.|String|  
   
   
 
@@ -152,13 +152,13 @@ Informations relatives à une entreprise locale, comme un restaurant ou un hôte
   
 |Nom|Valeur|Type|  
 |----------|-----------|----------|  
-|_type|Indicateur de type, qui peut avoir les valeurs suivantes :<br /><br /><ul><li>Hotel</li><li>LocalBusiness<br /></li><li>Restaurant</ul><li>|Chaîne|  
+|_type|Indicateur de type, qui peut avoir les valeurs suivantes :<br /><br /><ul><li>Hotel</li><li>LocalBusiness<br /></li><li>Restaurant</ul><li>|String|  
 |address|Adresse postale où se trouve l’entité.|PostalAddress|  
 |entityPresentationInfo|Informations supplémentaires sur l’entité (par exemple, indicateurs permettant de déterminer le type de l’entité : restaurant, hôtel, etc.). Le champ `entityScenario` est défini sur ListItem.|EntityPresentationInfo|  
-|Nom|Nom de l’entité.|Chaîne|  
-|telephone|Numéro de téléphone de l’entité.|Chaîne|  
-|url|URL du site web de l’entité.<br /><br /> Utilisez-la avec le nom de l’entité pour créer un lien hypertexte qui amène l’utilisateur sur le site web de l’entité.|Chaîne|  
-|webSearchUrl|URL des résultats de recherche de Bing sur ce lieu.|Chaîne| 
+|Nom|Nom de l’entité.|String|  
+|telephone|Numéro de téléphone de l’entité.|String|  
+|url|URL du site web de l’entité.<br /><br /> Utilisez-la avec le nom de l’entité pour créer un lien hypertexte qui amène l’utilisateur sur le site web de l’entité.|String|  
+|webSearchUrl|URL des résultats de recherche de Bing sur ce lieu.|String| 
   
   
 ### <a name="querycontext"></a>QueryContext  
@@ -166,17 +166,17 @@ Définit le contexte de requête utilisé par Bing pour la demande.
   
 |Élément|Description|Type|  
 |-------------|-----------------|----------|  
-|adultIntent|Valeur booléenne qui indique si la requête spécifiée est destinée à des adultes. La valeur est **true** si c’est le cas, **false** sinon.|Booléen|  
-|alterationOverrideQuery|Chaîne de requête à utiliser pour forcer Bing à utiliser la chaîne d’origine. Par exemple, si la chaîne de requête est *saling downwind*, la chaîne de requête de remplacement sera *+saling downwind*. N’oubliez pas d’encoder la chaîne de requête, ce qui donne *%2Bsaling+downwind*.<br /><br /> Ce champ n’est précisé que si la chaîne de requête d’origine contient une faute d’orthographe.|Chaîne|  
-|alteredQuery|Chaîne de requête utilisée par Bing pour exécuter la requête. Bing utilise la chaîne de requête modifiée si la chaîne de requête d’origine contenait des fautes d’orthographe. Par exemple, si la chaîne de requête est `saling downwind`, la chaîne de requête modifiée sera `sailing downwind`.<br /><br /> Ce champ n’est précisé que si la chaîne de requête d’origine contient une faute d’orthographe.|Chaîne|  
-|askUserForLocation|Valeur booléenne qui indique si Bing exige que l’emplacement de l’utilisateur donne des résultats précis. Si vous avez spécifié l’emplacement de l’utilisateur à l’aide des en-têtes [X-MSEdge-ClientIP](#clientip) et [X-Search-Location](#location), vous pouvez ignorer ce champ.<br /><br /> Dans le cas des requêtes pour lesquelles l’emplacement de l’utilisateur doit fournir des résultats précis, comme « météo du jour » ou « restaurants proches », ce champ est défini sur **true**.<br /><br /> Dans le cas des requêtes qui précisent l’emplacement (par exemple, « météo Seattle »), ce champ est défini sur **false**. Ce champ est également défini sur **false** pour les requêtes qui ne dépendent pas de la localisation, comme « meilleurs ventes ».|Booléen|  
-|originalQuery|Chaîne de requête telle que spécifiée dans la demande.|Chaîne|  
+|adultIntent|Valeur booléenne qui indique si la requête spécifiée est destinée à des adultes. La valeur est **true** si c’est le cas, **false** sinon.|Boolean|  
+|alterationOverrideQuery|Chaîne de requête à utiliser pour forcer Bing à utiliser la chaîne d’origine. Par exemple, si la chaîne de requête est *saling downwind*, la chaîne de requête de remplacement sera *+saling downwind*. N’oubliez pas d’encoder la chaîne de requête, ce qui donne *%2Bsaling+downwind*.<br /><br /> Ce champ n’est précisé que si la chaîne de requête d’origine contient une faute d’orthographe.|String|  
+|alteredQuery|Chaîne de requête utilisée par Bing pour exécuter la requête. Bing utilise la chaîne de requête modifiée si la chaîne de requête d’origine contenait des fautes d’orthographe. Par exemple, si la chaîne de requête est `saling downwind`, la chaîne de requête modifiée sera `sailing downwind`.<br /><br /> Ce champ n’est précisé que si la chaîne de requête d’origine contient une faute d’orthographe.|String|  
+|askUserForLocation|Valeur booléenne qui indique si Bing exige que l’emplacement de l’utilisateur donne des résultats précis. Si vous avez spécifié l’emplacement de l’utilisateur à l’aide des en-têtes [X-MSEdge-ClientIP](#clientip) et [X-Search-Location](#location), vous pouvez ignorer ce champ.<br /><br /> Dans le cas des requêtes pour lesquelles l’emplacement de l’utilisateur doit fournir des résultats précis, comme « météo du jour » ou « restaurants proches », ce champ est défini sur **true**.<br /><br /> Dans le cas des requêtes qui précisent l’emplacement (par exemple, « météo Seattle »), ce champ est défini sur **false**. Ce champ est également défini sur **false** pour les requêtes qui ne dépendent pas de la localisation, comme « meilleurs ventes ».|Boolean|  
+|originalQuery|Chaîne de requête telle que spécifiée dans la demande.|String|  
 
 ### <a name="identifiable"></a>Identifiable
 
 |Nom|Valeur|Type|  
 |-------------|-----------------|----------|
-|id|Identificateur de ressource.|Chaîne|
+|id|Identificateur de ressource.|String|
  
 ### <a name="rankinggroup"></a>RankingGroup
 Définit un groupe de résultats de la recherche, par exemple, mainline.
@@ -191,7 +191,7 @@ Définit un élément de résultat de recherche à afficher.
 |Nom|Valeur|Type|  
 |-------------|-----------------|----------|
 |resultIndex|Index base zéro de l’élément de la réponse à afficher. Si l’élément ne comporte pas ce champ, affiche tous les éléments de la réponse. Par exemple, affiche tous les articles dans la réponse Actualités.|Entier |
-|answerType|Réponse qui contient l’élément à afficher. Par exemple, Actualités.<br /><br />Utilisez le type pour trouver la réponse dans l’objet SearchResponse. Le type est le nom d’un champ SearchResponse.<br /><br /> Toutefois, n’utilisez le type de réponse que si cet objet inclut le champ de valeur ; sinon, ignorez-le.|Chaîne|
+|answerType|Réponse qui contient l’élément à afficher. Par exemple, Actualités.<br /><br />Utilisez le type pour trouver la réponse dans l’objet SearchResponse. Le type est le nom d’un champ SearchResponse.<br /><br /> Toutefois, n’utilisez le type de réponse que si cet objet inclut le champ de valeur ; sinon, ignorez-le.|String|
 |textualIndex|Index de la réponse dans textualAnswers à afficher.| Entier non signé|
 |value|ID qui identifie une réponse ou un élément de réponse à afficher. Si l’ID identifie une réponse, affiche tous les éléments de la réponse.|Identifiable|
 
@@ -211,7 +211,7 @@ Notez que, si le service suspecte une attaque par déni de service, la demande r
   
 |Nom|Valeur|Type|  
 |----------|-----------|----------|  
-|_type|Indicateur de type, défini sur SearchResponse.|Chaîne|  
+|_type|Indicateur de type, défini sur SearchResponse.|String|  
 |places|Liste d’entités pertinentes pour la requête de recherche.|Objet JSON|  
 |queryContext|Objet contenant la chaîne de requête utilisée par Bing pour la demande.<br /><br /> Il comporte la chaîne de requête entrée par l’utilisateur. La chaîne de requête utilisée par Bing pour la requête peut également être une chaîne de requête modifiée, s’il y avait une faute d’orthographe dans la chaîne de requête.|[QueryContext](#querycontext)|  
 

@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 01/28/2019
 ms.author: panosper
 ms.openlocfilehash: 24b98ce8cd2c587f0d39390954eb8a64747ca2ab
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55868325"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60654007"
 ---
 # <a name="creating-custom-voice-fonts"></a>Création de polices de voix personnalisée
 
@@ -25,7 +25,7 @@ Pour créer votre police de la voix, effectuez un enregistrement en studio et ch
 
 Vous pouvez commencer avec un petit volume de données afin de procéder à une démonstration de faisabilité. Mais plus vous fournissez de données, plus votre voix semblera naturelle et professionnelle.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Vous avez besoin d’un compte Azure et d’un abonnement au service Speech. Si vous ne l’avez pas déjà fait, [créez-en un](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started). Connectez votre abonnement au portail Custom Voice, comme indiqué ici.
 

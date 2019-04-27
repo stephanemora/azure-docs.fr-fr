@@ -8,14 +8,15 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 12/07/2018
-ms.author: azfuncdf
+origin.date: 12/07/2018
+ms.date: 01/16/2019
+ms.author: v-junlch
 ms.openlocfilehash: aca7aa30744c79cefd3c7704a8fde1df203b2c9d
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198981"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60731309"
 ---
 # <a name="singleton-orchestrators-in-durable-functions-azure-functions"></a>Orchestrateurs de singleton dans l’extension Fonctions durables (Azure Functions)
 
@@ -99,3 +100,5 @@ Les détails liés à l’implémentation de la fonction d’orchestrateur ne so
 
 > [!div class="nextstepaction"]
 > [En savoir plus sur l’appel d’orchestrations secondaires](durable-functions-sub-orchestrations.md)
+
+<!-- Update_Description: wording update -->

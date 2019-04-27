@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 03/04/2019
 ms.author: diberry
 ms.openlocfilehash: e1e579233a5ad1af1ef8ee84019cd995959d3b2b
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57433771"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60712610"
 ---
 # <a name="prebuilt-domain-reference-for-your-luis-app"></a>Référence de domaine prédéfinie pour votre application LUIS
 Cette référence fournit des informations sur les [domaines prédéfinis](luis-how-to-use-prebuilt-domains.md), qui sont des collections prédéfinies d’intentions et d’entités proposées par LUIS.
@@ -69,7 +69,7 @@ Le domaine Calendrier fournit les intentions et entités liées aux entrées de 
 | Nom de l’entité | Description | Exemples |
 | ---------------- |-----------------------|----|
 | Lieu | Emplacement de l’élément, de la réunion ou du rendez-vous de calendrier. Les adresses, les villes et les régions sont de bons exemples d’emplacements.| 209 Nashville Gym <br/><br/>897 Pancake house<br/><br/>Garage|
-| Objet | Titre d’une réunion ou d’un rendez-vous.| Rendez-vous chez le dentiste <br/><br/>Déjeuner avec Julia<br/><br/>Rendez-vous chez le docteur|
+| Subject | Titre d’une réunion ou d’un rendez-vous.| Rendez-vous chez le dentiste <br/><br/>Déjeuner avec Julia<br/><br/>Rendez-vous chez le docteur|
 
 ## <a name="camera"></a>Caméra 
 Le domaine Caméra fournit les intentions et entités liées à l’utilisation d’une caméra. Les intentions couvrent la capture une photo, d’un selfie, d’une capture d’écran ou d’une vidéo et la diffusion d’une vidéo sur une application.
@@ -131,13 +131,13 @@ Le domaine Communication fournit des intentions et entités liées à la message
 | Nom de l’entité | Description | Exemples |
 | ---------------- |-----------------------|----|
 | AudioDeviceType | Type d’appareil audio (haut-parleur, casque, microphone, etc.).| Intervenant<br/>Mains libres<br/>Bluetooth|
-| Catégorie | Catégorie d’un message ou courrier électronique.| Important<br/>Priorité élevée|
+| Category | Catégorie d’un message ou courrier électronique.| Important<br/>Priorité élevée|
 | ContactAttribute | Attribut du contact sur lequel l’utilisateur effectue une demande.| Anniversaires<br/>Adresse<br/>Numéro de téléphone|
 | ContactName | Nom d’un contact ou destinataire de message.| Carol<br/>Jim<br/>Chris|
 | EmailSubject | Texte utilisé comme ligne d’objet d’un courrier électronique.| RE : histoire intéressante|
 | Lignes | Ligne que l’utilisateur souhaite utiliser pour effectuer un appel ou à partir de laquelle envoyer en SMS/courrier électronique.| Ligne professionnelle<br/>Cellule britannique<br/>Skype|
 | Message | Message à envoyer en tant que courrier électronique ou SMS.| Cela a été un plaisir de te voir aujourdh’ui. À bientôt !|
-| MessageType | Nom d’un contact ou destinataire de message.| Texte<br/>Email|
+| MessageType | Nom d’un contact ou destinataire de message.| Text<br/>Email|
 | OrderReference | Position ordinale ou relative dans une liste, identifiant l’élément à récupérer. Par exemple, « dernier » ou « récent» dans « Quel est le dernier message que j’ai envoyé ? »| Dernier<br/>Récent|
 | SenderName | Nom de l’expéditeur.| Patti Owens|
 
@@ -327,7 +327,7 @@ Le domaine Note fournit des intentions et entités liées à la création, la mo
 | ContactName | Nom d’un contact dans une note.|Carol<br/>Jim<br/>Chris|
 | DataSource | Emplacement de notes.|OneDrive<br/>Google docs<br/>mon ordinateur|
 | DataType | Type de fichier ou de document, généralement associé à des programmes logiciels particuliers.|Diapositives<br/>Feuille de calcul<br/>Feuille de calcul|
-| Texte | Texte d’une note ou d’un rappel.|s’étirer avant la marche<br/>longue course demain|
+| Text | Texte d’une note ou d’un rappel.|s’étirer avant la marche<br/>longue course demain|
 | Intitulé | Titre d’une note.|épicerie<br/>personne à appeler<br/>à faire|
 
 ## <a name="ondevice"></a>OnDevice 
@@ -477,7 +477,7 @@ Le domaine Rappel fournit les intentions et entités pour créer, modifier et re
 ### <a name="entities"></a>Entités
 | Nom de l’entité | Description | Exemples |
 | ---------------- |-----------------------|----|
-| Texte | Description d’un rappel.|aller chercher au pressing<br/>déposer ma voiture au service après-vente|
+| Text | Description d’un rappel.|aller chercher au pressing<br/>déposer ma voiture au service après-vente|
 
 ## <a name="restaurantreservation"></a>RestaurantReservation 
 Le domaine RestaurantReservation fournit les intentions et entités liées à la gestion des réservations de restaurant.
@@ -561,7 +561,7 @@ Le domaine Traduire fournit les intentions et entités liées à la traduction d
 | Nom de l’entité | Description | Exemples |
 | ---------------- |-----------------------|----|
 | TargetLanguage | Langue cible d’une traduction.|Anglais<br/>Allemand<br/>Coréen|
-| Texte | Texte à traduire.|Hello World<br/>Good morning<br/>Good evening|
+| Text | Texte à traduire.|Hello World<br/>Good morning<br/>Good evening|
 
 ## <a name="tv"></a>TV 
  
