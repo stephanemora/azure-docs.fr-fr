@@ -10,11 +10,11 @@ ms.suite: integration
 ms.topic: reference
 ms.date: 06/22/2018
 ms.openlocfilehash: bd588eeec8b560411e3fb4b6f84ec8a4a45f08d2
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59617917"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60844175"
 ---
 # <a name="reference-for-trigger-and-action-types-in-workflow-definition-language-for-azure-logic-apps"></a>Référence pour les types de déclencheur et action dans le langage de définition de flux de travail pour Azure Logic Apps
 
@@ -52,10 +52,10 @@ Les déclencheurs ont les éléments principaux suivants, bien que certains soie
 
 | Valeur | Type | Description | 
 |-------|------|-------------| 
-| <*trigger-name*> | Chaîne | Nom du déclencheur | 
-| <*trigger-type*> | Chaîne | Type de déclencheur, tel que « Http » ou « ApiConnection » | 
+| <*trigger-name*> | String | Nom du déclencheur | 
+| <*trigger-type*> | String | Type de déclencheur, tel que « Http » ou « ApiConnection » | 
 | <*trigger-inputs*> | Objet JSON | Entrées qui définissent le comportement du déclencheur | 
-| <*time-unit*> | Chaîne | Unité de temps qui décrit la fréquence d’activation du déclencheur : « Second », « Minute », « Hour », « Day", », « Week », « Month » | 
+| <*time-unit*> | String | Unité de temps qui décrit la fréquence d’activation du déclencheur : « Second », « Minute », « Hour », « Day", », « Week », « Month » | 
 | <*number-of-time-units*> | Entier  | Valeur qui spécifie la fréquence d’activation du déclencheur, qui correspond au nombre d’unités de temps à attendre avant que le déclencheur soit activé à nouveau <p>Les intervalles minimaux et maximaux sont les suivants : <p>- Mois : 1-16 mois </br>Jour : 1-500 jours </br>- Heure : 1-12 000 heures </br>- Minute : 1-72 000 minutes </br>- Seconde : 1-9 999 999 secondes<p>Par exemple, si l’intervalle est défini sur 6 et la fréquence sur « Month », la périodicité est tous les six mois. | 
 |||| 
 
@@ -65,8 +65,8 @@ Les déclencheurs ont les éléments principaux suivants, bien que certains soie
 |-------|------|-------------| 
 | <*array-with-conditions*> | Tableau | Tableau qui contient une ou plusieurs [conditions](#trigger-conditions) qui déterminent s’il faut exécuter le workflow. Uniquement disponible pour les déclencheurs. | 
 | <*runtime-config-options*> | Objet JSON | Vous pouvez modifier le comportement d’exécution du déclencheur en définissant des propriétés `runtimeConfiguration`. Pour plus d’informations, consultez [Paramètres de configuration d’exécution](#runtime-config-options). | 
-| <*splitOn-expression*> | Chaîne | Pour les déclencheurs qui retournent un tableau, vous pouvez spécifier une expression qui [fractionne ou *dégroupe*](#split-on-debatch) des éléments de tableau dans plusieurs instances de workflows à des fins de traitement. | 
-| <*operation-option*> | Chaîne | Vous pouvez modifier le comportement par défaut en définissant la propriété `operationOptions`. Pour plus d’informations, consultez [Options d’opérations](#operation-options). | 
+| <*splitOn-expression*> | String | Pour les déclencheurs qui retournent un tableau, vous pouvez spécifier une expression qui [fractionne ou *dégroupe*](#split-on-debatch) des éléments de tableau dans plusieurs instances de workflows à des fins de traitement. | 
+| <*operation-option*> | String | Vous pouvez modifier le comportement par défaut en définissant la propriété `operationOptions`. Pour plus d’informations, consultez [Options d’opérations](#operation-options). | 
 |||| 
 
 ## <a name="trigger-types-list"></a>Liste des types de déclencheurs
@@ -132,11 +132,11 @@ Ce déclencheur vérifie ou *interroge* un point de terminaison à l’aide d’
 
 | Valeur | Type | Description | 
 |-------|------|-------------| 
-| <*APIConnection_trigger_name*> | Chaîne | Nom du déclencheur | 
-| <*connection-name*> | Chaîne | Nom de la connexion à l’API managée utilisée par le workflow | 
-| <*method-type*> | Chaîne | Méthode HTTP pour communiquer avec l’API managée : « GET », « PUT », « POST », « PATCH », « DELETE » | 
-| <*api-operation*> | Chaîne | Opération d’API à appeler | 
-| <*time-unit*> | Chaîne | Unité de temps qui décrit la fréquence d’activation du déclencheur : « Second », « Minute », « Hour », « Day", », « Week », « Month » | 
+| <*APIConnection_trigger_name*> | String | Nom du déclencheur | 
+| <*connection-name*> | String | Nom de la connexion à l’API managée utilisée par le workflow | 
+| <*method-type*> | String | Méthode HTTP pour communiquer avec l’API managée : « GET », « PUT », « POST », « PATCH », « DELETE » | 
+| <*api-operation*> | String | Opération d’API à appeler | 
+| <*time-unit*> | String | Unité de temps qui décrit la fréquence d’activation du déclencheur : « Second », « Minute », « Hour », « Day", », « Week », « Month » | 
 | <*number-of-time-units*> | Entier  | Valeur qui spécifie la fréquence d’activation du déclencheur, qui correspond au nombre d’unités de temps à attendre avant que le déclencheur soit activé à nouveau <p>Les intervalles minimaux et maximaux sont les suivants : <p>- Mois : 1-16 mois </br>Jour : 1-500 jours </br>- Heure : 1-12 000 heures </br>- Minute : 1-72 000 minutes </br>- Seconde : 1-9 999 999 secondes<p>Par exemple, si l’intervalle est défini sur 6 et la fréquence sur « Month », la périodicité est tous les six mois. | 
 |||| 
 
@@ -148,8 +148,8 @@ Ce déclencheur vérifie ou *interroge* un point de terminaison à l’aide d’
 | <*query-parameters*> | Objet JSON | Paramètres de requête à inclure avec l’appel d’API. Par exemple, l’objet `"queries": { "api-version": "2018-01-01" }` ajoute `?api-version=2018-01-01` à l’appel. | 
 | <*max-runs*> | Entier  | Par défaut, les instances de flux de travail exécutent en même temps, ou en parallèle jusqu'à la [limite par défaut](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Pour changer cette limite en définissant une nouvelle valeur <*count*>, consultez [Changer la concurrence du déclencheur](#change-trigger-concurrency). | 
 | <*max-runs-queue*> | Entier  | Lorsque votre flux de travail s’exécute déjà le nombre maximal d’instances, que vous pouvez modifier selon le `runtimeConfiguration.concurrency.runs` propriété, les nouvelles exécutions sont placées dans cette file d’attente le [limite par défaut](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Pour changer la limite par défaut, consultez [Changer la limite d’exécutions en attente](#change-waiting-runs). | 
-| <*splitOn-expression*> | Chaîne | Pour les déclencheurs qui retournent des tableaux, cette expression référence le tableau à utiliser pour que vous puissiez créer et exécuter une instance de workflow pour chaque élément du tableau, au lieu d’utiliser une boucle « for each ». <p>Par exemple, cette expression représente un élément dans le tableau retourné dans le contenu du corps du déclencheur : `@triggerbody()?['value']` |
-| <*operation-option*> | Chaîne | Vous pouvez modifier le comportement par défaut en définissant la propriété `operationOptions`. Pour plus d’informations, consultez [Options d’opérations](#operation-options). |
+| <*splitOn-expression*> | String | Pour les déclencheurs qui retournent des tableaux, cette expression référence le tableau à utiliser pour que vous puissiez créer et exécuter une instance de workflow pour chaque élément du tableau, au lieu d’utiliser une boucle « for each ». <p>Par exemple, cette expression représente un élément dans le tableau retourné dans le contenu du corps du déclencheur : `@triggerbody()?['value']` |
+| <*operation-option*> | String | Vous pouvez modifier le comportement par défaut en définissant la propriété `operationOptions`. Pour plus d’informations, consultez [Options d’opérations](#operation-options). |
 ||||
 
 *Sorties*
@@ -226,7 +226,7 @@ Ce déclencheur envoie une demande d’abonnement à un point de terminaison à 
 
 | Valeur | Type | Description | 
 |-------|------|-------------| 
-| <*connection-name*> | Chaîne | Nom de la connexion à l’API managée utilisée par le workflow | 
+| <*connection-name*> | String | Nom de la connexion à l’API managée utilisée par le workflow | 
 | <*body-content*> | Objet JSON | Tout contenu de message à envoyer en tant que charge utile à l’API managée | 
 |||| 
 
@@ -238,8 +238,8 @@ Ce déclencheur envoie une demande d’abonnement à un point de terminaison à 
 | <*query-parameters*> | Objet JSON | Paramètres de requête à inclure avec l’appel d’API <p>Par exemple, l’objet `"queries": { "api-version": "2018-01-01" }` ajoute `?api-version=2018-01-01` à l’appel. | 
 | <*max-runs*> | Entier  | Par défaut, les instances de flux de travail exécutent en même temps, ou en parallèle jusqu'à la [limite par défaut](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Pour changer cette limite en définissant une nouvelle valeur <*count*>, consultez [Changer la concurrence du déclencheur](#change-trigger-concurrency). | 
 | <*max-runs-queue*> | Entier  | Lorsque votre flux de travail s’exécute déjà le nombre maximal d’instances, que vous pouvez modifier selon le `runtimeConfiguration.concurrency.runs` propriété, les nouvelles exécutions sont placées dans cette file d’attente le [limite par défaut](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Pour changer la limite par défaut, consultez [Changer la limite d’exécutions en attente](#change-waiting-runs). | 
-| <*splitOn-expression*> | Chaîne | Pour les déclencheurs qui retournent des tableaux, cette expression référence le tableau à utiliser pour que vous puissiez créer et exécuter une instance de workflow pour chaque élément du tableau, au lieu d’utiliser une boucle « for each ». <p>Par exemple, cette expression représente un élément dans le tableau retourné dans le contenu du corps du déclencheur : `@triggerbody()?['value']` |
-| <*operation-option*> | Chaîne | Vous pouvez modifier le comportement par défaut en définissant la propriété `operationOptions`. Pour plus d’informations, consultez [Options d’opérations](#operation-options). | 
+| <*splitOn-expression*> | String | Pour les déclencheurs qui retournent des tableaux, cette expression référence le tableau à utiliser pour que vous puissiez créer et exécuter une instance de workflow pour chaque élément du tableau, au lieu d’utiliser une boucle « for each ». <p>Par exemple, cette expression représente un élément dans le tableau retourné dans le contenu du corps du déclencheur : `@triggerbody()?['value']` |
+| <*operation-option*> | String | Vous pouvez modifier le comportement par défaut en définissant la propriété `operationOptions`. Pour plus d’informations, consultez [Options d’opérations](#operation-options). | 
 |||| 
 
 *Exemple*
@@ -305,9 +305,9 @@ Ce déclencheur vérifie ou interroge le point de terminaison spécifié d’apr
 
 | Valeur | Type | Description | 
 |-------|------|-------------| 
-| <*method-type*> | Chaîne | Méthode HTTP à utiliser pour interroger le point de terminaison spécifié : « GET », « PUT », « POST », « PATCH », « DELETE » | 
-| <*endpoint-URL*> | Chaîne | URL HTTP ou HTTPS pour interroger le point de terminaison <p>Taille de chaîne maximale : 2 Ko | 
-| <*time-unit*> | Chaîne | Unité de temps qui décrit la fréquence d’activation du déclencheur : « Second », « Minute », « Hour », « Day", », « Week », « Month » | 
+| <*method-type*> | String | Méthode HTTP à utiliser pour interroger le point de terminaison spécifié : « GET », « PUT », « POST », « PATCH », « DELETE » | 
+| <*endpoint-URL*> | String | URL HTTP ou HTTPS pour interroger le point de terminaison <p>Taille de chaîne maximale : 2 Ko | 
+| <*time-unit*> | String | Unité de temps qui décrit la fréquence d’activation du déclencheur : « Second », « Minute », « Hour », « Day", », « Week », « Month » | 
 | <*number-of-time-units*> | Entier  | Valeur qui spécifie la fréquence d’activation du déclencheur, qui correspond au nombre d’unités de temps à attendre avant que le déclencheur soit activé à nouveau <p>Les intervalles minimaux et maximaux sont les suivants : <p>- Mois : 1-16 mois </br>Jour : 1-500 jours </br>- Heure : 1-12 000 heures </br>- Minute : 1-72 000 minutes </br>- Seconde : 1-9 999 999 secondes<p>Par exemple, si l’intervalle est défini sur 6 et la fréquence sur « Month », la périodicité est tous les six mois. | 
 |||| 
 
@@ -316,13 +316,13 @@ Ce déclencheur vérifie ou interroge le point de terminaison spécifié d’apr
 | Valeur | Type | Description | 
 |-------|------|-------------| 
 | <*header-content*> | Objet JSON | En-têtes à envoyer avec la requête <p>Par exemple, pour définir la langue et le type d’une requête : <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
-| <*body-content*> | Chaîne | Contenu du message à envoyer en tant que charge utile avec la requête | 
+| <*body-content*> | String | Contenu du message à envoyer en tant que charge utile avec la requête | 
 | <*authentication-method*> | Objet JSON | Méthode utilisée par la requête pour l’authentification. Pour plus d’informations, consultez [Authentification sortante de Scheduler](../scheduler/scheduler-outbound-authentication.md). Au-delà de Scheduler, la propriété `authority` est prise en charge. Si vous ne spécifiez aucune valeur, la valeur par défaut est `https://login.windows.net`, mais vous pouvez utiliser une autre valeur comme `https://login.windows\-ppe.net`. |
 | <*retry-behavior*> | Objet JSON | Personnalise le comportement de nouvelle tentative pour les défaillances intermittentes, qui présentent le code d’état 408, 429 et 5XX, ainsi que les éventuelles exceptions de connectivité. Pour plus d’informations, consultez [Stratégies de relance](../logic-apps/logic-apps-exception-handling.md#retry-policies). |  
  <*query-parameters*> | Objet JSON | Paramètres de requête à inclure avec la requête <p>Par exemple, l’objet `"queries": { "api-version": "2018-01-01" }` ajoute `?api-version=2018-01-01` à la requête. | 
 | <*max-runs*> | Entier  | Par défaut, les instances de flux de travail exécutent en même temps, ou en parallèle jusqu'à la [limite par défaut](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Pour changer cette limite en définissant une nouvelle valeur <*count*>, consultez [Changer la concurrence du déclencheur](#change-trigger-concurrency). | 
 | <*max-runs-queue*> | Entier  | Lorsque votre flux de travail s’exécute déjà le nombre maximal d’instances, que vous pouvez modifier selon le `runtimeConfiguration.concurrency.runs` propriété, les nouvelles exécutions sont placées dans cette file d’attente le [limite par défaut](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Pour changer la limite par défaut, consultez [Changer la limite d’exécutions en attente](#change-waiting-runs). | 
-| <*operation-option*> | Chaîne | Vous pouvez modifier le comportement par défaut en définissant la propriété `operationOptions`. Pour plus d’informations, consultez [Options d’opérations](#operation-options). | 
+| <*operation-option*> | String | Vous pouvez modifier le comportement par défaut en définissant la propriété `operationOptions`. Pour plus d’informations, consultez [Options d’opérations](#operation-options). | 
 |||| 
 
 *Sorties*
@@ -402,22 +402,22 @@ Certaines valeurs, telles que <*-method-type*>, sont disponibles pour les objets
 
 | Valeur | Type | Description | 
 |-------|------|-------------| 
-| <*method-type*> | Chaîne | Méthode HTTP utilisée pour la requête d’abonnement : « GET », « PUT », « POST », « PATCH » ou « DELETE » | 
-| <*endpoint-subscribe-URL*> | Chaîne | URL du point de terminaison où envoyer la requête d’abonnement | 
+| <*method-type*> | String | Méthode HTTP utilisée pour la requête d’abonnement : « GET », « PUT », « POST », « PATCH » ou « DELETE » | 
+| <*endpoint-subscribe-URL*> | String | URL du point de terminaison où envoyer la requête d’abonnement | 
 |||| 
 
 *Facultatif*
 
 | Valeur | Type | Description | 
 |-------|------|-------------| 
-| <*method-type*> | Chaîne | Méthode HTTP utilisée pour la requête d’annulation : « GET », « PUT », « POST », « PATCH » ou « DELETE » | 
-| <*endpoint-unsubscribe-URL*> | Chaîne | URL du point de terminaison où envoyer la requête d’annulation | 
-| <*body-content*> | Chaîne | Tout contenu de message à envoyer dans la requête d’abonnement ou d’annulation | 
+| <*method-type*> | String | Méthode HTTP utilisée pour la requête d’annulation : « GET », « PUT », « POST », « PATCH » ou « DELETE » | 
+| <*endpoint-unsubscribe-URL*> | String | URL du point de terminaison où envoyer la requête d’annulation | 
+| <*body-content*> | String | Tout contenu de message à envoyer dans la requête d’abonnement ou d’annulation | 
 | <*authentication-method*> | Objet JSON | Méthode utilisée par la requête pour l’authentification. Pour plus d’informations, consultez [Authentification sortante de Scheduler](../scheduler/scheduler-outbound-authentication.md). |
 | <*retry-behavior*> | Objet JSON | Personnalise le comportement de nouvelle tentative pour les défaillances intermittentes, qui présentent le code d’état 408, 429 et 5XX, ainsi que les éventuelles exceptions de connectivité. Pour plus d’informations, consultez [Stratégies de relance](../logic-apps/logic-apps-exception-handling.md#retry-policies). | 
 | <*max-runs*> | Entier  | Par défaut, toutes les instances de flux de travail exécutent en même temps, ou en parallèle jusqu'à la [limite par défaut](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Pour changer cette limite en définissant une nouvelle valeur <*count*>, consultez [Changer la concurrence du déclencheur](#change-trigger-concurrency). | 
 | <*max-runs-queue*> | Entier  | Lorsque votre flux de travail s’exécute déjà le nombre maximal d’instances, que vous pouvez modifier selon le `runtimeConfiguration.concurrency.runs` propriété, les nouvelles exécutions sont placées dans cette file d’attente le [limite par défaut](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Pour changer la limite par défaut, consultez [Changer la limite d’exécutions en attente](#change-waiting-runs). | 
-| <*operation-option*> | Chaîne | Vous pouvez modifier le comportement par défaut en définissant la propriété `operationOptions`. Pour plus d’informations, consultez [Options d’opérations](#operation-options). | 
+| <*operation-option*> | String | Vous pouvez modifier le comportement par défaut en définissant la propriété `operationOptions`. Pour plus d’informations, consultez [Options d’opérations](#operation-options). | 
 |||| 
 
 *Sorties* 
@@ -496,7 +496,7 @@ Ce déclencheur s’active en fonction de la planification de périodicité que 
 
 | Valeur | Type | Description | 
 |-------|------|-------------| 
-| <*time-unit*> | Chaîne | Unité de temps qui décrit la fréquence d’activation du déclencheur : « Second », « Minute », « Hour », « Day", », « Week », « Month » | 
+| <*time-unit*> | String | Unité de temps qui décrit la fréquence d’activation du déclencheur : « Second », « Minute », « Hour », « Day", », « Week », « Month » | 
 | <*number-of-time-units*> | Entier  | Valeur qui spécifie la fréquence d’activation du déclencheur, qui correspond au nombre d’unités de temps à attendre avant que le déclencheur soit activé à nouveau <p>Les intervalles minimaux et maximaux sont les suivants : <p>- Mois : 1-16 mois </br>Jour : 1-500 jours </br>- Heure : 1-12 000 heures </br>- Minute : 1-72 000 minutes </br>- Seconde : 1-9 999 999 secondes<p>Par exemple, si l’intervalle est défini sur 6 et la fréquence sur « Month », la périodicité est tous les six mois. | 
 |||| 
 
@@ -504,14 +504,14 @@ Ce déclencheur s’active en fonction de la planification de périodicité que 
 
 | Valeur | Type | Description | 
 |-------|------|-------------| 
-| <*start-date-time-with-format-YYYY-MM-DDThh:mm:ss*> | Chaîne | Date et heure de début au format suivant : <p>AAAA-MM-JJThh:mm:ss si vous spécifiez un fuseau horaire <p>-ou- <p>AAAA-MM-JJThh:mm:ssZ si vous ne spécifiez pas de fuseau horaire <p>Par exemple, si vous choisissez le 18 septembre 2017 à 14h, spécifiez « 2017-09-18T14:00:00 » et spécifiez un fuseau horaire tel que « Pacific Standard Time » (Heure standard du Pacifique), ou spécifiez « 2017-09-18T14:00:00Z » sans fuseau horaire. <p>**Remarque :** Cette heure de début doit être conforme à la [spécification date/heure ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) au [format date/heure UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), mais sans [décalage UTC](https://en.wikipedia.org/wiki/UTC_offset). Si vous ne spécifiez pas de fuseau horaire, vous devez ajouter la lettre « Z » à la fin, sans espace. Ce « Z » fait référence au [temps nautique](https://en.wikipedia.org/wiki/Nautical_time) équivalent. <p>Pour les planifications simples, l’heure de début est la première occurrence, tandis que pour les planifications complexes, le déclencheur ne se déclenche pas avant l’heure de début. Pour plus d’informations sur les dates et heures de début, consultez [Create and schedule regularly running tasks](../connectors/connectors-native-recurrence.md) (Créer et planifier des tâches à exécution régulière). | 
-| <*time-zone*> | Chaîne | S’applique uniquement quand vous spécifiez une heure de début, car ce déclencheur n’accepte pas le [décalage UTC](https://en.wikipedia.org/wiki/UTC_offset). Spécifiez le fuseau horaire à appliquer. | 
+| <*start-date-time-with-format-YYYY-MM-DDThh:mm:ss*> | String | Date et heure de début au format suivant : <p>AAAA-MM-JJThh:mm:ss si vous spécifiez un fuseau horaire <p>-ou- <p>AAAA-MM-JJThh:mm:ssZ si vous ne spécifiez pas de fuseau horaire <p>Par exemple, si vous choisissez le 18 septembre 2017 à 14h, spécifiez « 2017-09-18T14:00:00 » et spécifiez un fuseau horaire tel que « Pacific Standard Time » (Heure standard du Pacifique), ou spécifiez « 2017-09-18T14:00:00Z » sans fuseau horaire. <p>**Remarque :** Cette heure de début doit être conforme à la [spécification date/heure ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) au [format date/heure UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), mais sans [décalage UTC](https://en.wikipedia.org/wiki/UTC_offset). Si vous ne spécifiez pas de fuseau horaire, vous devez ajouter la lettre « Z » à la fin, sans espace. Ce « Z » fait référence au [temps nautique](https://en.wikipedia.org/wiki/Nautical_time) équivalent. <p>Pour les planifications simples, l’heure de début est la première occurrence, tandis que pour les planifications complexes, le déclencheur ne se déclenche pas avant l’heure de début. Pour plus d’informations sur les dates et heures de début, consultez [Create and schedule regularly running tasks](../connectors/connectors-native-recurrence.md) (Créer et planifier des tâches à exécution régulière). | 
+| <*time-zone*> | String | S’applique uniquement quand vous spécifiez une heure de début, car ce déclencheur n’accepte pas le [décalage UTC](https://en.wikipedia.org/wiki/UTC_offset). Spécifiez le fuseau horaire à appliquer. | 
 | <*one-or-more-hour-marks*> | Entier ou tableau d’entiers | Si vous spécifiez « Jour » ou « Semaine » pour `frequency`, vous pouvez spécifier un ou plusieurs entiers compris entre 0 et 23, séparés par des virgules, pour les heures de la journée durant lesquelles exécuter le workflow. <p>Par exemple, si vous spécifiez « 10 », « 12 » et « 14 », vous obtenez 10h00, 12h00 et 14h00 comme marques horaires. | 
 | <*one-or-more-minute-marks*> | Entier ou tableau d’entiers | Si vous spécifiez « Jour » ou « Semaine » pour `frequency`, vous pouvez spécifier un ou plusieurs entiers compris entre 0 et 59, séparés par des virgules, pour les minutes de l’heure durant lesquelles exécuter le workflow. <p>Par exemple, vous pouvez spécifier « 30 » pour les minutes et à l’aide de l’exemple précédent des heures de la journée, vous obtenez 10h30, 12h30 et 14h30. | 
 | weekDays | Chaîne ou tableau de chaînes | Si vous spécifiez « Semaine » pour `frequency`, vous pouvez spécifier un ou plusieurs jours, séparés par des virgules, pour exécuter le workflow : « Monday », « Tuesday », « Wednesday », « Thursday », « Friday », « Saturday » et « Sunday » | 
 | <*max-runs*> | Entier  | Par défaut, toutes les instances de flux de travail exécutent en même temps, ou en parallèle jusqu'à la [limite par défaut](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Pour changer cette limite en définissant une nouvelle valeur <*count*>, consultez [Changer la concurrence du déclencheur](#change-trigger-concurrency). | 
 | <*max-runs-queue*> | Entier  | Lorsque votre flux de travail s’exécute déjà le nombre maximal d’instances, que vous pouvez modifier selon le `runtimeConfiguration.concurrency.runs` propriété, les nouvelles exécutions sont placées dans cette file d’attente le [limite par défaut](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Pour changer la limite par défaut, consultez [Changer la limite d’exécutions en attente](#change-waiting-runs). | 
-| <*operation-option*> | Chaîne | Vous pouvez modifier le comportement par défaut en définissant la propriété `operationOptions`. Pour plus d’informations, consultez [Options d’opérations](#operation-options). | 
+| <*operation-option*> | String | Vous pouvez modifier le comportement par défaut en définissant la propriété `operationOptions`. Pour plus d’informations, consultez [Options d’opérations](#operation-options). | 
 |||| 
 
 *Exemple 1*
@@ -605,20 +605,20 @@ Pour appeler ce déclencheur, vous devez utiliser l’API `listCallbackUrl`, qui
 
 | Valeur | Type | Description | 
 |-------|------|-------------| 
-| <*property-name*> | Chaîne | Nom d’une propriété dans le schéma JSON qui décrit la charge utile | 
-| <*property-type*> | Chaîne | Type de la propriété | 
+| <*property-name*> | String | Nom d’une propriété dans le schéma JSON qui décrit la charge utile | 
+| <*property-type*> | String | Type de la propriété | 
 |||| 
 
 *Facultatif*
 
 | Valeur | Type | Description | 
 |-------|------|-------------| 
-| <*method-type*> | Chaîne | Méthode que les requêtes entrantes doivent utiliser pour appeler votre application logique : « GET », « PUT », « POST », « PATCH », « DELETE » |
-| <*relative-path-for-accepted-parameter*> | Chaîne | Chemin relatif pour le paramètre que l’URL de votre point de terminaison peut accepter | 
+| <*method-type*> | String | Méthode que les requêtes entrantes doivent utiliser pour appeler votre application logique : « GET », « PUT », « POST », « PATCH », « DELETE » |
+| <*relative-path-for-accepted-parameter*> | String | Chemin relatif pour le paramètre que l’URL de votre point de terminaison peut accepter | 
 | <*required-properties*> | Tableau | Une ou plusieurs propriétés qui nécessitent des valeurs. | 
 | <*max-runs*> | Entier  | Par défaut, toutes les instances de flux de travail exécutent en même temps, ou en parallèle jusqu'à la [limite par défaut](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Pour changer cette limite en définissant une nouvelle valeur <*count*>, consultez [Changer la concurrence du déclencheur](#change-trigger-concurrency). | 
 | <*max-runs-queue*> | Entier  | Lorsque votre flux de travail s’exécute déjà le nombre maximal d’instances, que vous pouvez modifier selon le `runtimeConfiguration.concurrency.runs` propriété, les nouvelles exécutions sont placées dans cette file d’attente le [limite par défaut](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Pour changer la limite par défaut, consultez [Changer la limite d’exécutions en attente](#change-waiting-runs). | 
-| <*operation-option*> | Chaîne | Vous pouvez modifier le comportement par défaut en définissant la propriété `operationOptions`. Pour plus d’informations, consultez [Options d’opérations](#operation-options). | 
+| <*operation-option*> | String | Vous pouvez modifier le comportement par défaut en définissant la propriété `operationOptions`. Pour plus d’informations, consultez [Options d’opérations](#operation-options). | 
 |||| 
 
 *Exemple*
@@ -778,9 +778,9 @@ Les actions ont les principaux éléments suivants, bien que certains soient fac
 
 | Valeur | Type | Description | 
 |-------|------|-------------|
-| <*action-name*> | Chaîne | Nom de l’action | 
-| <*action-type*> | Chaîne | Type d’action, par exemple « Http » ou « ApiConnection »| 
-| <*input-name*> | Chaîne | Nom d’une entrée qui définit le comportement de l’action | 
+| <*action-name*> | String | Nom de l’action | 
+| <*action-type*> | String | Type d’action, par exemple « Http » ou « ApiConnection »| 
+| <*input-name*> | String | Nom d’une entrée qui définit le comportement de l’action | 
 | <*input-value*> | Divers | Valeur d’entrée, qui peut être une chaîne, un entier, nu objet JSON, et ainsi de suite | 
 | <*previous-trigger-or-action-status*> | Objet JSON | Nom et état résultant du déclencheur ou de l’action qui doit s’exécuter juste avant que cette action puisse s’exécuter | 
 |||| 
@@ -791,7 +791,7 @@ Les actions ont les principaux éléments suivants, bien que certains soient fac
 |-------|------|-------------|
 | <*retry-behavior*> | Objet JSON | Personnalise le comportement de nouvelle tentative pour les défaillances intermittentes, qui présentent le code d’état 408, 429 et 5XX, ainsi que les éventuelles exceptions de connectivité. Pour plus d’informations, consultez Stratégies de relance. | 
 | <*runtime-config-options*> | Objet JSON | Pour certaines actions, vous pouvez changer le comportement de l’action au moment de l’exécution en définissant des propriétés `runtimeConfiguration`. Pour plus d’informations, consultez [Paramètres de configuration d’exécution](#runtime-config-options). | 
-| <*operation-option*> | Chaîne | Pour certaines actions, vous pouvez changer le comportement par défaut en définissant la propriété `operationOptions`. Pour plus d’informations, consultez [Options d’opérations](#operation-options). | 
+| <*operation-option*> | String | Pour certaines actions, vous pouvez changer le comportement par défaut en définissant la propriété `operationOptions`. Pour plus d’informations, consultez [Options d’opérations](#operation-options). | 
 |||| 
 
 ## <a name="action-types-list"></a>Liste des types d’actions
@@ -891,10 +891,10 @@ Cette action envoie une requête HTTP à une [API managée par Microsoft](../con
 
 | Valeur | Type | Description | 
 |-------|------|-------------| 
-| <*action-name*> | Chaîne | Nom de l’action fournie par le connecteur | 
-| <*api-name*> | Chaîne | Nom de l’API managée par Microsoft qui est utilisée pour la connexion | 
-| <*method-type*> | Chaîne | Méthode HTTP d’appel de l’API : « GET », « PUT », « POST », « PATCH » ou « DELETE » | 
-| <*api-operation*> | Chaîne | Opération d’API à appeler | 
+| <*action-name*> | String | Nom de l’action fournie par le connecteur | 
+| <*api-name*> | String | Nom de l’API managée par Microsoft qui est utilisée pour la connexion | 
+| <*method-type*> | String | Méthode HTTP d’appel de l’API : « GET », « PUT », « POST », « PATCH » ou « DELETE » | 
+| <*api-operation*> | String | Opération d’API à appeler | 
 |||| 
 
 *Facultatif*
@@ -971,16 +971,16 @@ Certaines valeurs, telles que <*-method-type*>, sont disponibles pour les objets
 
 | Valeur | Type | Description | 
 |-------|------|-------------| 
-| <*action-name*> | Chaîne | Nom de l’action fournie par le connecteur | 
-| <*method-type*> | Chaîne | Méthode HTTP à utiliser pour s’abonner ou annuler l’abonnement à un point de terminaison : « GET », « PUT », « POST », « PATCH » ou « DELETE » | 
-| <*api-subscribe-URL*> | Chaîne | URI à utiliser pour s’abonner à l’API | 
+| <*action-name*> | String | Nom de l’action fournie par le connecteur | 
+| <*method-type*> | String | Méthode HTTP à utiliser pour s’abonner ou annuler l’abonnement à un point de terminaison : « GET », « PUT », « POST », « PATCH » ou « DELETE » | 
+| <*api-subscribe-URL*> | String | URI à utiliser pour s’abonner à l’API | 
 |||| 
 
 *Facultatif*
 
 | Valeur | Type | Description | 
 |-------|------|-------------| 
-| <*api-unsubscribe-URL*> | Chaîne | URI à utiliser pour annuler l’abonnement à l’API | 
+| <*api-unsubscribe-URL*> | String | URI à utiliser pour annuler l’abonnement à l’API | 
 | <*header-content*> | Objet JSON | En-têtes à envoyer dans la requête <p>Par exemple, pour définir la langue et le type d’une requête : <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
 | <*body-content*> | Objet JSON | Tout contenu de message à envoyer dans la requête | 
 | <*authentication-method*> | Objet JSON | Méthode utilisée par la requête pour l’authentification. Pour plus d’informations, consultez [Authentification sortante de Scheduler](../scheduler/scheduler-outbound-authentication.md). |
@@ -1074,8 +1074,8 @@ Cette action appelle une [fonction Azure](../azure-functions/functions-create-fi
 
 | Valeur | Type | Description | 
 |-------|------|-------------|  
-| <*Azure-function-ID*> | Chaîne | ID de ressource de la fonction Azure que vous souhaitez appeler. Voici le format de cette valeur :<p>"/subscriptions/<*ID_abonnement_Azure*>/resourceGroups/<*groupe_ressources_Azure*>/providers/Microsoft.Web/sites/<*nom_application_fonction_Azure*>/functions/<*nom_fonction_Azure*>" | 
-| <*method-type*> | Chaîne | Méthode HTTP à utiliser pour appeler la fonction : « GET », « PUT », « POST », « PATCH » ou « DELETE » <p>Si elle n’est pas spécifiée, la méthode par défaut est « POST ». | 
+| <*Azure-function-ID*> | String | ID de ressource de la fonction Azure que vous souhaitez appeler. Voici le format de cette valeur :<p>"/subscriptions/<*ID_abonnement_Azure*>/resourceGroups/<*groupe_ressources_Azure*>/providers/Microsoft.Web/sites/<*nom_application_fonction_Azure*>/functions/<*nom_fonction_Azure*>" | 
+| <*method-type*> | String | Méthode HTTP à utiliser pour appeler la fonction : « GET », « PUT », « POST », « PATCH » ou « DELETE » <p>Si elle n’est pas spécifiée, la méthode par défaut est « POST ». | 
 ||||
 
 *Facultatif*
@@ -1145,8 +1145,8 @@ Cette action envoie une requête au point de terminaison spécifique et vérifie
 
 | Valeur | Type | Description | 
 |-------|------|-------------| 
-| <*method-type*> | Chaîne | Méthode à utiliser pour envoyer la requête : « GET », « PUT », « POST », « PATCH » ou « DELETE » | 
-| <*HTTP-or-HTTPS-endpoint-URL*> | Chaîne | Point de terminaison HTTP ou HTTPS à appeler. Taille de chaîne maximale : 2 Ko | 
+| <*method-type*> | String | Méthode à utiliser pour envoyer la requête : « GET », « PUT », « POST », « PATCH » ou « DELETE » | 
+| <*HTTP-or-HTTPS-endpoint-URL*> | String | Point de terminaison HTTP ou HTTPS à appeler. Taille de chaîne maximale : 2 Ko | 
 |||| 
 
 *Facultatif*
@@ -1343,7 +1343,7 @@ Cette action crée un tableau à partir des éléments d’un autre tableau en f
 | Valeur | Type | Description | 
 |-------|------|-------------| 
 | <*array*> | Tableau | Tableau ou expression qui fournit les éléments sources. Si vous spécifiez une expression, placez l’expression entre guillemets doubles. |
-| <*condition-or-filter*> | Chaîne | Condition utilisée pour le filtrage des éléments dans le tableau source <p>**Remarque**: Si aucune valeur ne remplit la condition, l’action crée un tableau vide. |
+| <*condition-or-filter*> | String | Condition utilisée pour le filtrage des éléments dans le tableau source <p>**Remarque**: Si aucune valeur ne remplit la condition, l’action crée un tableau vide. |
 |||| 
 
 *Exemple*
@@ -1459,8 +1459,8 @@ Cette action crée un tableau avec des objets JSON en transformant les élément
 | Valeur | Type | Description | 
 |-------|------|-------------| 
 | <*array*> | Tableau | Tableau ou expression qui fournit les éléments sources. N’oubliez pas de placer une expression entre guillemets doubles. <p>**Remarque**: Si le tableau source est vide, l’action crée un tableau vide. | 
-| <*key-name*> | Chaîne | Nom de la propriété attribué au résultat à partir de <*expression*> <p>Pour ajouter une nouvelle propriété à tous les objets dans le tableau de sortie, fournissez un <*key-name*> pour cette propriété et une <*expression*> pour la valeur de propriété. <p>Pour supprimer une propriété de tous les objets dans le tableau, omettez le <*key-name*> pour cette propriété. | 
-| <*expression*> | Chaîne | Expression qui transforme l’élément du tableau source et assigne le résultat à <*key-name*> | 
+| <*key-name*> | String | Nom de la propriété attribué au résultat à partir de <*expression*> <p>Pour ajouter une nouvelle propriété à tous les objets dans le tableau de sortie, fournissez un <*key-name*> pour cette propriété et une <*expression*> pour la valeur de propriété. <p>Pour supprimer une propriété de tous les objets dans le tableau, omettez le <*key-name*> pour cette propriété. | 
+| <*expression*> | String | Expression qui transforme l’élément du tableau source et assigne le résultat à <*key-name*> | 
 |||| 
 
 L’action **Select** crée un tableau en tant que sortie. Par conséquent, toute action qui souhaite utiliser cette sortie doit accepter un tableau, ou vous devez convertir le tableau vers le type acceptée par l’action consommatrice. Par exemple, pour convertir le tableau de sortie en une chaîne, vous pouvez passer ce tableau à l’action **Compose**, puis référencer la sortie de l’action **Compose** dans vos autres actions.
@@ -1556,7 +1556,7 @@ Cette action crée une table CSV ou HTML à partir d’un tableau. Pour les tabl
 
 | Valeur | Type | Description | 
 |-------|------|-------------| 
-| <CSV *ou* HTML>| Chaîne | Format de la table que vous souhaitez créer | 
+| <CSV *ou* HTML>| String | Format de la table que vous souhaitez créer | 
 | <*array*> | Tableau | Tableau ou expression qui fournit les éléments sources pour la table <p>**Remarque**: Si le tableau source est vide, l’action crée une table vide. | 
 |||| 
 
@@ -1566,7 +1566,7 @@ Pour spécifier ou personnaliser des en-têtes de colonne et des valeurs, utilis
 
 | Valeur | Type | Description | 
 |-------|------|-------------| 
-| <*column-name*> | Chaîne | Nom d’en-tête pour une colonne | 
+| <*column-name*> | String | Nom d’en-tête pour une colonne | 
 | <*column-value*> | Quelconque | Valeur de la colonne | 
 |||| 
 
@@ -1669,7 +1669,7 @@ Cette action arrête l’exécution pour une instance de workflow, annule toutes
 
 | Valeur | Type | Description | 
 |-------|------|-------------| 
-| <*status*> | Chaîne | État à retourner pour l’exécution : « Démarré », « Échec » ou « Réussi » |
+| <*status*> | String | État à retourner pour l’exécution : « Démarré », « Échec » ou « Réussi » |
 |||| 
 
 *Facultatif*
@@ -1678,8 +1678,8 @@ Les propriétés de l’objet « runStatus » s’appliquent uniquement quand 
 
 | Valeur | Type | Description | 
 |-------|------|-------------| 
-| <*error-code-or-name*> | Chaîne | Code ou nom de l’erreur |
-| <*error-message*> | Chaîne | Message ou texte qui décrit l’erreur et les actions que peut effectuer l’utilisateur de l’application | 
+| <*error-code-or-name*> | String | Code ou nom de l’erreur |
+| <*error-message*> | String | Message ou texte qui décrit l’erreur et les actions que peut effectuer l’utilisateur de l’application | 
 |||| 
 
 *Exemple*
@@ -1740,8 +1740,8 @@ Cette action interrompt l’exécution du workflow pendant l’intervalle spéci
 | Valeur | Type | Description | 
 |-------|------|-------------| 
 | <*number-of-units*> | Entier  | Pour l’action **Delay**, il s’agit du nombre d’unités pendant lesquelles attendre | 
-| <*interval*> | Chaîne | Pour l’action **Delay**, il s’agit de l’intervalle d’attente : « Second », « Minute », « Hour », « Day", », « Week », « Month » | 
-| <*date-time-stamp*> | Chaîne | Pour l’action **Delay**, il s’agit de la date et de l’heure de reprise de l’exécution. Cette valeur doit utiliser le [format date/heure UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time). | 
+| <*interval*> | String | Pour l’action **Delay**, il s’agit de l’intervalle d’attente : « Second », « Minute », « Hour », « Day", », « Week », « Month » | 
+| <*date-time-stamp*> | String | Pour l’action **Delay**, il s’agit de la date et de l’heure de reprise de l’exécution. Cette valeur doit utiliser le [format date/heure UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time). | 
 |||| 
 
 *Exemple 1*
@@ -1812,11 +1812,11 @@ Le moteur Logic Apps vérifie l’accès au déclencheur que vous souhaitez appe
 
 | Valeur | Type | Description | 
 |-------|------|-------------| 
-| <*nested-logic-app-name*> | Chaîne | Nom de l’application logique que vous souhaitez appeler | 
-| <*trigger-name*> | Chaîne | Nom du déclencheur dans l’application logique imbriquée que vous souhaitez appeler | 
-| <*Azure-subscription-ID*> | Chaîne | ID d’abonnement Azure pour l’application logique imbriquée |
-| <*Azure-resource-group*> | Chaîne | Nom du groupe de ressources Azure pour l’application logique imbriquée |
-| <*nested-logic-app-name*> | Chaîne | Nom de l’application logique que vous souhaitez appeler |
+| <*nested-logic-app-name*> | String | Nom de l’application logique que vous souhaitez appeler | 
+| <*trigger-name*> | String | Nom du déclencheur dans l’application logique imbriquée que vous souhaitez appeler | 
+| <*Azure-subscription-ID*> | String | ID d’abonnement Azure pour l’application logique imbriquée |
+| <*Azure-resource-group*> | String | Nom du groupe de ressources Azure pour l’application logique imbriquée |
+| <*nested-logic-app-name*> | String | Nom de l’application logique que vous souhaitez appeler |
 ||||
 
 *Facultatif*
@@ -1889,9 +1889,9 @@ Cette action de bouclage effectue une itération au sein d’un tableau et exéc
 
 | Valeur | Type | Description | 
 |-------|------|-------------| 
-| <*action-1...n*> | Chaîne | Noms des actions qui s’exécutent sur chaque élément du tableau | 
+| <*action-1...n*> | String | Noms des actions qui s’exécutent sur chaque élément du tableau | 
 | <*action-definition-1...n*> | Objet JSON | Définitions des actions qui s’exécutent | 
-| <*for-each-expression*> | Chaîne | Expression référence chaque élément du tableau spécifié | 
+| <*for-each-expression*> | String | Expression référence chaque élément du tableau spécifié | 
 |||| 
 
 *Facultatif*
@@ -1899,7 +1899,7 @@ Cette action de bouclage effectue une itération au sein d’un tableau et exéc
 | Valeur | Type | Description | 
 |-------|------|-------------| 
 | <*count*> | Entier  | Par défaut, les itérations de boucle « for each » s’exécutent en même temps, ou en parallèle jusqu’à la [limite par défaut](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Pour changer cette limite en définissant une nouvelle valeur <*count*>, consultez [Changer la concurrence de boucle « for each »](#change-for-each-concurrency). | 
-| <*operation-option*> | Chaîne | Pour exécuter une boucle « for each » séquentiellement plutôt qu’en parallèle, affectez la valeur `Sequential` à <*operation-option*> ou la valeur `1` à <*count*>, mais pas les deux. Pour plus d’informations, consultez [Exécuter des boucles « for each » séquentiellement](#sequential-for-each). | 
+| <*operation-option*> | String | Pour exécuter une boucle « for each » séquentiellement plutôt qu’en parallèle, affectez la valeur `Sequential` à <*operation-option*> ou la valeur `1` à <*count*>, mais pas les deux. Pour plus d’informations, consultez [Exécuter des boucles « for each » séquentiellement](#sequential-for-each). | 
 |||| 
 
 *Exemple*
@@ -2094,7 +2094,7 @@ Cette action, également appelée *instruction switch*, organise d’autres acti
 | Valeur | Type | Description | 
 |-------|------|-------------| 
 | <*expression-object-or-token*> | Varie | Expression, objet JSON ou jeton à évaluer | 
-| <*action-name*> | Chaîne | Nom de l’action à exécuter pour le cas correspondant | 
+| <*action-name*> | String | Nom de l’action à exécuter pour le cas correspondant | 
 | <*action-definition*> | Objet JSON | Définition de l’action à exécuter pour le cas correspondant | 
 | <*matching-value*> | Varie | Valeur à comparer au résultat évalué | 
 |||| 
@@ -2103,7 +2103,7 @@ Cette action, également appelée *instruction switch*, organise d’autres acti
 
 | Valeur | Type | Description | 
 |-------|------|-------------| 
-| <*default-action-name*> | Chaîne | Nom de l’action par défaut à exécuter quand il n’existe aucun cas correspondant | 
+| <*default-action-name*> | String | Nom de l’action par défaut à exécuter quand il n’existe aucun cas correspondant | 
 | <*default-action-definition*> | Objet JSON | Définition de l’action à exécuter quand il n’existe aucun cas correspondant | 
 |||| 
 
@@ -2219,12 +2219,12 @@ Cette action de boucle contient des actions qui s’exécutent jusqu’à ce que
 
 | Valeur | Type | Description | 
 |-------|------|-------------| 
-| <*action-name*> | Chaîne | Nom de l’action que vous souhaitez exécuter à l’intérieur de la boucle | 
-| <*action-type*> | Chaîne | Type d’action à exécuter | 
+| <*action-name*> | String | Nom de l’action que vous souhaitez exécuter à l’intérieur de la boucle | 
+| <*action-type*> | String | Type d’action à exécuter | 
 | <*action-inputs*> | Divers | Entrées pour l’action à exécuter | 
-| <*condition*> | Chaîne | Condition ou expression à évaluer une fois que toutes les actions de la boucle ont été exécutées | 
+| <*condition*> | String | Condition ou expression à évaluer une fois que toutes les actions de la boucle ont été exécutées | 
 | <*loop-count*> | Entier  | Quantité limite de boucles que l’action peut exécuter. La valeur par défaut de `count` est 60. | 
-| <*loop-timeout*> | Chaîne | Durée d’exécution maximale de la boucle. La valeur par défaut de `timeout` est `PT1H`, qui est le [format ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) requis. |
+| <*loop-timeout*> | String | Durée d’exécution maximale de la boucle. La valeur par défaut de `timeout` est `PT1H`, qui est le [format ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) requis. |
 |||| 
 
 *Exemple*
@@ -2311,10 +2311,10 @@ Vous pouvez changer le comportement par défaut pour les déclencheurs et les ac
 
 | Option d’opération | Type | Description | Déclencheur ou action | 
 |------------------|------|-------------|-------------------| 
-| `DisableAsyncPattern` | Chaîne | Exécuter des actions basées sur HTTP de manière synchrone plutôt qu’asynchrone. <p><p>Pour définir cette option, consultez [Exécuter des actions de manière synchrone](#asynchronous-patterns). | Actions : <p>[ApiConnection](#apiconnection-action), <br>[HTTP](#http-action), <br>[Réponse](#response-action) | 
-| `OptimizedForHighThroughput` | Chaîne | Modifier la [limite par défaut](../logic-apps/logic-apps-limits-and-config.md#throughput-limits) du nombre d’exécutions d’action par tranche de cinq minutes et affecter la [limite maximale](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). <p><p>Pour définir cette option, consultez [Exécuter en mode de débit élevé](#run-high-throughput-mode). | Toutes les actions | 
-| `Sequential` | Chaîne | Exécutez les itérations de boucle « for each » une à la fois, plutôt que toutes en même temps en parallèle. <p>Cette option fonctionne de la même façon que l’affectation de la valeur `1` à la propriété `runtimeConfiguration.concurrency.repetitions`. Vous pouvez définir l’une ou l’autre propriété, mais pas les deux. <p><p>Pour définir cette option, consultez [Exécuter des boucles « for each » séquentiellement](#sequential-for-each).| Action : <p>[Foreach](#foreach-action) | 
-| `SingleInstance` | Chaîne | Exécuter le déclencheur pour chaque instance d’application logique de manière séquentielle, et attendre que l’exécution active précédente se termine avant de déclencher l’instance d’application logique suivante. <p><p>Cette option fonctionne de la même façon que l’affectation de la valeur `1` à la propriété `runtimeConfiguration.concurrency.runs`. Vous pouvez définir l’une ou l’autre propriété, mais pas les deux. <p>Pour définir cette option, consultez [Déclencher des instances séquentiellement](#sequential-trigger). | Tous les déclencheurs | 
+| `DisableAsyncPattern` | String | Exécuter des actions basées sur HTTP de manière synchrone plutôt qu’asynchrone. <p><p>Pour définir cette option, consultez [Exécuter des actions de manière synchrone](#asynchronous-patterns). | Actions : <p>[ApiConnection](#apiconnection-action), <br>[HTTP](#http-action), <br>[Réponse](#response-action) | 
+| `OptimizedForHighThroughput` | String | Modifier la [limite par défaut](../logic-apps/logic-apps-limits-and-config.md#throughput-limits) du nombre d’exécutions d’action par tranche de cinq minutes et affecter la [limite maximale](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). <p><p>Pour définir cette option, consultez [Exécuter en mode de débit élevé](#run-high-throughput-mode). | Toutes les actions | 
+| `Sequential` | String | Exécutez les itérations de boucle « for each » une à la fois, plutôt que toutes en même temps en parallèle. <p>Cette option fonctionne de la même façon que l’affectation de la valeur `1` à la propriété `runtimeConfiguration.concurrency.repetitions`. Vous pouvez définir l’une ou l’autre propriété, mais pas les deux. <p><p>Pour définir cette option, consultez [Exécuter des boucles « for each » séquentiellement](#sequential-for-each).| Action : <p>[Foreach](#foreach-action) | 
+| `SingleInstance` | String | Exécuter le déclencheur pour chaque instance d’application logique de manière séquentielle, et attendre que l’exécution active précédente se termine avant de déclencher l’instance d’application logique suivante. <p><p>Cette option fonctionne de la même façon que l’affectation de la valeur `1` à la propriété `runtimeConfiguration.concurrency.runs`. Vous pouvez définir l’une ou l’autre propriété, mais pas les deux. <p>Pour définir cette option, consultez [Déclencher des instances séquentiellement](#sequential-trigger). | Tous les déclencheurs | 
 ||||
 
 <a name="change-trigger-concurrency"></a>

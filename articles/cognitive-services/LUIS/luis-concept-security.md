@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 12/18/2018
 ms.author: diberry
 ms.openlocfilehash: 5abc2026362e19b406b34a4321e766c3229cc0b4
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58894181"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60813646"
 ---
 # <a name="authoring-and-endpoint-user-access"></a>Accès utilisateur à la création et au point de terminaison
 L’accès à la création est disponible pour les propriétaires et les collaborateurs. Pour une application privée, l’accès au point de terminaison est disponible pour les propriétaires et les collaborateurs. Pour une application publique, l’accès au point de terminaison est disponible à tous les utilisateurs qui possèdent leur propre compte LUIS et l’ID de l’application publique. 

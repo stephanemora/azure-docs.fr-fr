@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: garye
 ms.openlocfilehash: 6950cba5ac958233e7ea77c8dc783ca86cc5a386
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58519882"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60829407"
 ---
 # <a name="quickstart-create-a-cognitive-services-account-in-the-azure-portal"></a>Démarrage rapide : Créer un compte Cognitive Services dans le portail Azure
 
@@ -52,7 +52,7 @@ Les sections suivantes vous guident tout au long de création d’un abonnement 
 
     |    |    |
     |--|--|
-    | **Nom** | Nom descriptif de votre ressource Cognitive Services. Nous vous recommandons d’utiliser un nom explicite, par exemple *MyCognitiveServicesAccount*. |
+    | **Name** | Nom descriptif de votre ressource Cognitive Services. Nous vous recommandons d’utiliser un nom explicite, par exemple *MyCognitiveServicesAccount*. |
     | **Abonnement** | Sélectionnez l’un de vos abonnements Azure disponibles. |
     | **Lieu** | Emplacement de votre instance Cognitive Services. Des emplacements différents peuvent entraîner une latence. Toutefois, cela n’aura pas d’impact sur la disponibilité d’exécution de votre ressource. |
     | **Niveau tarifaire** | Le coût associé à votre compte Cognitive Services dépend des options que vous choisissez, ainsi que de votre utilisation. Pour plus d'informations, consultez le [détail des tarifs](https://azure.microsoft.com/pricing/details/cognitive-services/) de l’API.
@@ -74,7 +74,7 @@ Les sections suivantes vous guident tout au long de création d’un abonnement 
 
     |    |    |
     |--|--|
-    | **Nom** | Nom descriptif de votre ressource Cognitive Services. Nous recommandons d’utiliser un nom explicite, par exemple *MyNameFaceAPIAccount*. |
+    | **Name** | Nom descriptif de votre ressource Cognitive Services. Nous recommandons d’utiliser un nom explicite, par exemple *MyNameFaceAPIAccount*. |
     | **Abonnement** | Sélectionnez l’un de vos abonnements Azure disponibles. |
     | **Lieu** | Emplacement de votre instance Cognitive Services. Des emplacements différents peuvent entraîner une latence. Toutefois, cela n’aura pas d’impact sur la disponibilité d’exécution de votre ressource. |
     | **Niveau tarifaire** | Le coût associé à votre compte Cognitive Services dépend des options que vous choisissez, ainsi que de votre utilisation. Pour plus d'informations, consultez le [détail des tarifs](https://azure.microsoft.com/pricing/details/cognitive-services/) de l’API.

@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: rosh
 ms.openlocfilehash: a6a98d9ddf76e86feb35c6d3d71f7777b0edd51d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59491132"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62109976"
 ---
 # <a name="tutorial-crop-an-image-with-the-bing-visual-search-sdk-for-c"></a>Didacticiel : Rogner une image avec le SDK Recherche visuelle Bing pour C#
 
@@ -110,7 +110,7 @@ L’obtention des URL des images réelles nécessite un cast qui lit un `ActionT
 
 ## <a name="next-steps"></a>Étapes suivantes
 > [!div class="nextstepaction"]
-> [Créer une application web de page unique de recherche visuelle](tutorial-bing-visual-search-single-page-app.md)
+> [Créer une application web monopage de recherche visuelle](tutorial-bing-visual-search-single-page-app.md)
 
 ## <a name="see-also"></a>Voir aussi
 > [Qu’est l’API de recherche visuelle Bing ?](https://docs.microsoft.com/azure/cognitive-services/bing-visual-search/overview)
