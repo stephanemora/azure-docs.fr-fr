@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-jansko
 ms.openlocfilehash: 62992122dc16003078bb80ecd87c2bd3692586dd
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58918312"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60610584"
 ---
 # <a name="how-to-return-n-best-translations"></a>Comment renvoyer les n meilleures traductions
 
@@ -38,7 +38,7 @@ La signature est :
 | Paramètre | Description |
 |:---|:---|
 | appId | **Requis** Si l’en-tête Autorisation est utilisé, laissez le champ appid vide. Sinon, spécifiez une chaîne contenant « Beare » + « » + un jeton d’accès.|
-| texte | **Requis** Chaîne représentant le texte à traduire. La taille du texte ne peut pas dépasser 10 000 caractères.|
+| text | **Requis** Chaîne représentant le texte à traduire. La taille du texte ne peut pas dépasser 10 000 caractères.|
 | from | **Requis** Chaîne représentant le code de langue du texte à traduire. |
 | to | **Requis** Chaîne représentant le code de langue dans laquelle le texte doit être traduit. |
 | maxTranslations | **Requis** Un entier représentant le nombre maximal de traductions à renvoyer. |

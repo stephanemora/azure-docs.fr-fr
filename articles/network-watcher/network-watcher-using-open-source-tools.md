@@ -3,8 +3,8 @@ title: Visualiser les modèles de trafic réseau à l’aide d’Azure Network W
 description: Cette page explique comment utiliser la capture de paquets Network Watcher avec Capanalysis pour visualiser les modèles de trafic depuis et vers les machines virtuelles.
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: KumudD
+manager: twooley
 editor: ''
 ms.assetid: 936d881b-49f9-4798-8e45-d7185ec9fe89
 ms.service: network-watcher
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: jdial
-ms.openlocfilehash: 7b1e1383e8e244a7cdb30be1e08514a6a4dd7b14
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.author: kumud
+ms.openlocfilehash: 7c239bbf577645ddb8ab12c525d1b3a8832421df
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36302231"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60680487"
 ---
 # <a name="visualize-network-traffic-patterns-to-and-from-your-vms-using-open-source-tools"></a>Visualiser les modèles de trafic réseau depuis et vers les machines virtuelles à l’aide d’outils open source
 
@@ -96,8 +96,8 @@ La fonctionnalité de capture de paquets de Network Watcher vous permet de captu
 
 Pour en savoir plus sur les journaux de flux NSG, consultez l’article sur les [journaux de flux NSG](network-watcher-nsg-flow-logging-overview.md).
 
-Découvrez comment visualiser vos journaux de flux NSG avec Power BI en consultant la page [Visualize NSG flows logs with Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
-<!--Image references--> (Visualiser les journaux de flux NSG avec Power BI)
+Découvrez comment visualiser vos journaux de flux de groupe de sécurité réseau avec Power BI en consultant la page [Visualizing Network Security Group flow logs with Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md) (Visualisation des journaux de flux de groupe de sécurité réseau avec Power BI).
+<!--Image references-->
 
 [1]: ./media/network-watcher-using-open-source-tools/figure1.png
 [2]: ./media/network-watcher-using-open-source-tools/figure2.png

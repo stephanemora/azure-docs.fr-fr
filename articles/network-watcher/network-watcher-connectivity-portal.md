@@ -3,8 +3,8 @@ title: Résoudre les problèmes associés aux connexions avec Azure Network Watc
 description: Découvrez comment utiliser la fonctionnalité de résolution des problèmes associés aux connexions d’Azure Network Watcher à l’aide du portail Azure.
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 ms.service: network-watcher
 ms.devlang: na
@@ -12,20 +12,20 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/03/2017
-ms.author: jdial
-ms.openlocfilehash: 21e004e12a5111eb0e5fc7764c1e07fcb68c447d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.author: kumud
+ms.openlocfilehash: 65afc3374a306cf2bb1b80baa2aa0949240a674a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46986198"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60681569"
 ---
 # <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-portal"></a>Résoudre les problèmes associés aux connexions avec Azure Network Watcher à l’aide du portail Azure.
 
 > [!div class="op_single_selector"]
-> - [Portail](network-watcher-connectivity-portal.md)
+> - [Portal](network-watcher-connectivity-portal.md)
 > - [PowerShell](network-watcher-connectivity-powershell.md)
-> - [interface de ligne de commande Azure](network-watcher-connectivity-cli.md)
+> - [Interface de ligne de commande Azure](network-watcher-connectivity-cli.md)
 > - [API REST Azure](network-watcher-connectivity-rest.md)
 
 Découvrez comment utiliser la résolution des problèmes associés aux connexions pour vérifier si une connexion TCP directe entre une machine virtuelle et un point de terminaison donné peut être établie.
