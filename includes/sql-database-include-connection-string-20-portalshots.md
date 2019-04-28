@@ -10,12 +10,12 @@ ms.custom: develop apps
 ms.topic: include
 ms.date: 07/13/2018
 ms.author: ninarn
-ms.openlocfilehash: dab7623c86bea4e562313e618f238b9b33c0fdc5
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
-ms.translationtype: HT
+ms.openlocfilehash: 6ead2e0ea326b5c3f2e76e7aa9cc4ab3c50d4154
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39117288"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60202123"
 ---
 ### <a name="obtain-the-connection-string-from-the-azure-portal"></a>Obtenir la chaîne de connexion sur le portail Azure
 Utilisez le [portail Azure](https://portal.azure.com/) pour obtenir la chaîne de connexion nécessaire pour que votre programme client interagisse avec Azure SQL Database.
@@ -38,7 +38,7 @@ Utilisez le [portail Azure](https://portal.azure.com/) pour obtenir la chaîne d
 
 8. Dans le format de votre choix, collez les informations de chaîne de connexion dans votre code de programme client.
 
-Pour plus d’informations, consultez [Connection strings and configuration files](http://msdn.microsoft.com/library/ms254494.aspx) (Chaînes de connexion et fichiers de configuration).
+Pour plus d’informations, consultez [Connection strings and configuration files](https://msdn.microsoft.com/library/ms254494.aspx) (Chaînes de connexion et fichiers de configuration).
 
 <!-- Image references. -->
 

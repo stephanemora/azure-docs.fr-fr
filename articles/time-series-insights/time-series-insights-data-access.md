@@ -11,24 +11,27 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.custom: seodec18
-ms.openlocfilehash: 9aea7a9c9dd96bf30ebb3def9354df9e4bd30114
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: dd4c5e1652eb4dbff66591aa4bbe74e51be3e6c0
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53558514"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63759553"
 ---
 # <a name="grant-data-access-to-an-environment"></a>Accorder l’accès aux données dans un environnement
 
 Cet article décrit les deux types de stratégies d’accès d’Azure Time Series Insights en préversion.
 
-## <a name="grant-data-access"></a>Accorder l’accès aux données
-
-Effectuez les étapes suivantes pour accorder l’accès aux données à un utilisateur principal.
+## <a name="sign-in-to-tsi"></a>Connectez-vous à TSI
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
 1. Recherchez votre environnement Time Series Insights. Entrez `Time Series` dans la zone **Recherche**. Sélectionnez **Environnement Time Series** dans les résultats de recherche.
 1. Sélectionnez votre environnement Time Series Insights dans la liste.
+
+## <a name="grant-data-access"></a>Accorder l’accès aux données
+
+Effectuez les étapes suivantes pour accorder l’accès aux données à un utilisateur principal.
+
 1. Sélectionnez **Stratégies d’accès aux données**, puis **+Ajouter**.
 
     ![Data-access-one][1]
@@ -55,15 +58,12 @@ Effectuez les étapes suivantes pour accorder l’accès aux données à un util
 
     ![Data-access-five][5]
 
-## <a name="provide-guest-access-to-a-user-from-another-azure-active-directory-tenant"></a>Fournir l’accès invité à un utilisateur issu d’un autre locataire Azure Active Directory
+## <a name="provide-guest-access-from-another-aad-tenant"></a>Fournir un accès invité à partir d’un autre locataire AAD
 
 `Guest` ne correspond pas à un rôle de gestion. Il est utilisé pour désigner un compte qui a été invité par un autre locataire. Une fois que le compte invité est invité dans le répertoire du locataire, le même contrôle d’accès peut lui être appliqué comme pour tout autre compte. Vous pouvez accorder à l’administration l’accès à un environnement Time Series Insights en utilisant le Panneau Contrôle d’accès (IAM). Vous pouvez également autoriser l’accès aux données de l’environnement via le panneau Stratégies d’accès aux données. Pour plus d’informations sur l’accès invité Azure Active Directory (Azure AD), lisez [Ajouter des utilisateurs Azure Active Directory B2B Collaboration dans le Portail Azure](https://docs.microsoft.com/azure/active-directory/b2b/add-users-administrator).
 
 Suivez ces étapes pour que l’accès invité à un environnement Time Series Insights soit accordé à un utilisateur Azure AD par un autre locataire.
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
-1. Recherchez votre environnement Time Series Insights. Entrez **Time Series** dans la zone **Recherche**. Sélectionnez **Environnement Time Series** dans les résultats de recherche.
-1. Sélectionnez votre environnement Time Series Insights dans la liste.
 1. Sélectionnez **Stratégies d’accès aux données**, puis **+Inviter**.
 
     ![Data-access-six][6]
@@ -112,12 +112,14 @@ Suivez ces étapes pour que l’accès invité à un environnement Time Series I
 
     ![Data-access-fifteen][15]
 
-Lorsque l’utilisateur invité a sélectionne votre locataire, il voit l’environnement Time Series Insights auquel vous lui avez donné accès. Il dispose désormais de toutes les fonctionnalités associées au rôle que vous lui avez fourni à l’étape 8.
+Lorsque l’utilisateur invité a sélectionne votre locataire, il voit l’environnement Time Series Insights auquel vous lui avez donné accès. Elles disposent désormais de toutes les fonctionnalités associées au rôle que vous avez fourni les dans **étape 5**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Découvrez le [Guide pratique pour ajouter une source d’événement Azure Event Hub](./time-series-insights-how-to-add-an-event-source-eventhub.md) à votre environnement Time Series Insights.
+
 * Envoyez [des événements à la source d’événement](./time-series-insights-send-events.md).
+
 * Accédez à [votre environnement dans l’explorateur Time Series Insights en préversion](./time-series-insights-update-explorer.md).
 
 <!-- Images -->

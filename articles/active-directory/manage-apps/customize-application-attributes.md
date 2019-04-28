@@ -15,15 +15,15 @@ ms.date: 04/03/2019
 ms.author: celested
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a2965fecd3aca17d6c4df7e49ad466377de9762
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b63118a7c5fae49edebe4ae4976a1362781ae8cf
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60291641"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63759779"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Personnalisation des mappages d’attributs d’attribution d’utilisateurs pour les applications SaaS dans Azure Active Directory
-Microsoft Azure AD prend en charge l’approvisionnement d’utilisateurs pour les applications SaaS tierces telles que Salesforce, Google Apps et autres. Si vous activez l’approvisionnement des utilisateurs pour une application SaaS, le portail Azure contrôle ses valeurs d’attribut via des mappages d’attributs.
+Microsoft Azure AD prend en charge pour l’approvisionnement pour les applications SaaS de fournisseurs tiers tels que Salesforce, G Suite et d’autres utilisateurs. Si vous activez l’approvisionnement des utilisateurs pour une application SaaS, le portail Azure contrôle ses valeurs d’attribut via des mappages d’attributs.
 
 Il existe un ensemble préconfiguré d’attributs et les mappages d’attributs entre les objets utilisateur Azure AD et les objets d’utilisateur de chaque application SaaS. Certaines applications gèrent d’autres types d’objets, ainsi que les utilisateurs, telles que les groupes.
 
@@ -84,7 +84,7 @@ Avec cette propriété, mappages d’attributs prennent également en charge les
 
 ## <a name="editing-group-attribute-mappings"></a>Modification des mappages d’attributs de groupe
 
-Un certain nombre d’applications, telles que ServiceNow, Box et Google Apps, prennent en charge la possibilité de configurer des objets de groupe et les objets utilisateur. Objets de groupe peuvent contenir des propriétés du groupe telles que les noms d’affichage et alias, ainsi que les membres du groupe de messagerie.
+Un certain nombre d’applications, telles que ServiceNow, Box et G Suite, prennent en charge la possibilité de configurer des objets de groupe et les objets utilisateur. Objets de groupe peuvent contenir des propriétés du groupe telles que les noms d’affichage et alias, ainsi que les membres du groupe de messagerie.
 
 ![ServiceNow](./media/customize-application-attributes/24.png)
 

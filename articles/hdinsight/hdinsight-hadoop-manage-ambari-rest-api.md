@@ -1,7 +1,6 @@
 ---
 title: Surveiller et gérer Hadoop avec l’API REST Ambari - Azure HDInsight
 description: Découvrez comment utiliser Ambari pour surveiller et gérer les clusters Hadoop dans Azure HDInsight. Dans ce document, vous allez apprendre à utiliser l'API REST d'Ambari incluse avec les clusters HDInsight.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/07/2019
 ms.author: hrasheed
-ms.openlocfilehash: 37d4c4dbbe623d68edf1de5454d7752a81fc2bd2
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: d15b61c70f1587cdd1c0d76d2e3eab81294674fc
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58801881"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63761135"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-rest-api"></a>Gérer des clusters HDInsight à l’aide de l’API REST d’Apache Ambari
 
@@ -38,7 +37,7 @@ Découvrez comment utiliser l’API REST d’Apache Ambari pour gérer et survei
 
  L’URI de base pour l’API REST Ambari sur HDInsight est `https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME`, où `CLUSTERNAME` est le nom de votre cluster.  Les noms de cluster dans les URI sont **respect de la casse**.  Bien que le nom du cluster dans la partie du nom de domaine complet (FQDN) de l’URI (CLUSTERNAME.azurehdinsight.net) ne respecte pas la casse, les autres occurrences dans l’URI respectent la casse.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Authentification
 
 Une connexion à Ambari sur HDInsight requiert HTTPS. Utilisez le nom du compte Administrateur (la valeur par défaut est **admin**) et le mot de passe fournis lors de la création du cluster.
 

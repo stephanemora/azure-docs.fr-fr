@@ -1,7 +1,6 @@
 ---
 title: Data Lake Tools pour Visual Studio avec Hortonworks Sandbox - Azure HDInsight
 description: Apprenez à utiliser Data Lake Tools pour Visual Studio avec le bac à sable Hortonworks s’exécutant sur une machine virtuelle locale. Ces outils vous permettent de créer et d’exécuter des travaux Hive et Pig sur le bac à sable, ainsi que d’en afficher le résultat et l’historique.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: hrasheed
-ms.openlocfilehash: 7c2a1c586b4d6f5f9f6e34a091702a35f994544f
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 8172da3f573f78365cbe76f435a4817e64bc136c
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53726627"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63762748"
 ---
 # <a name="use-the-azure-data-lake-tools-for-visual-studio-with-the-hortonworks-sandbox"></a>Utiliser Azure Data Lake Tools pour Visual Studio avec le Bac à sable (sandbox) Hortonworks
 
@@ -22,7 +21,7 @@ Azure Data Lake inclut des outils permettant de travailler avec des clusters Apa
 
 Hortonworks Sandbox permet de travailler avec Hadoop localement sur votre environnement de développement. Après avoir développé une solution, lorsque vous souhaitez la déployer à grande échelle, vous pouvez passer à un cluster HDInsight.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 * Le Bac à sable (sandbox) Hortonworks s’exécutant sur une machine virtuelle dans votre environnement de développement. Ce document a été écrit et testé avec le bac à sable s’exécutant sur Oracle VirtualBox. Pour plus d’informations sur le paramétrage du bac à sable, consultez [Get started with the Hortonworks sandbox](hadoop/apache-hadoop-emulator-get-started.md) (Prise en main du bac à sable Hortonworks) document.
 

@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: f69fd7af23c360edc208561f915bd351c3fd373c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 593cd83dab6e0cd93cdd1aedac278f4d94a27cc5
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60336794"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63760587"
 ---
 # <a name="translator-text-api-30-translate"></a>API de traduction de texte Translator Text 3.0 : Translate
 
@@ -42,11 +42,11 @@ Les paramètres de demande transmis à la chaîne de requête sont les suivants�
   </tr>
   <tr>
     <td>from</td>
-    <td><em>Paramètre facultatif</em>.<br/>Spécifie la langue du texte d’entrée. Trouvez les langues disponibles pour la traduction en recherchant [langues prises en charge](./v3-0-languages.md) à l’aide de l’étendue <code>translation</code>. Si le paramètre <code>from</code> n’est pas spécifié, une détection automatique de la langue est appliquée pour déterminer la langue source.</td>
+    <td><em>Paramètre facultatif</em>.<br/>Spécifie la langue du texte d’entrée. Trouvez les langues disponibles pour la traduction en recherchant <a href="./v3-0-languages.md">langues prises en charge</a> à l’aide de l’étendue <code>translation</code>. Si le paramètre <code>from</code> n’est pas spécifié, une détection automatique de la langue est appliquée pour déterminer la langue source.</td>
   </tr>
   <tr>
     <td>to</td>
-    <td><em>Paramètre obligatoire</em>.<br/>Spécifie la langue du texte de sortie. La langue cible doit être l’une des [langues prises en charge](./v3-0-languages.md) incluses dans l’étendue <code>translation</code>. Par exemple, utilisez <code>to=de</code> pour traduire en allemand.<br/>Il est possible de traduire en plusieurs langues simultanément en répétant le paramètre dans la chaîne de requête. Par exemple, utilisez <code>to=de&to=it</code> pour traduire en allemand et italien.</td>
+    <td><em>Paramètre obligatoire</em>.<br/>Spécifie la langue du texte de sortie. La langue cible doit être l’une des <a href="./v3-0-languages.md">langues prises en charge</a> incluses dans l’étendue <code>translation</code>. Par exemple, utilisez <code>to=de</code> pour traduire en allemand.<br/>Il est possible de traduire en plusieurs langues simultanément en répétant le paramètre dans la chaîne de requête. Par exemple, utilisez <code>to=de&to=it</code> pour traduire en allemand et italien.</td>
   </tr>
   <tr>
     <td>textType</td>
@@ -54,15 +54,15 @@ Les paramètres de demande transmis à la chaîne de requête sont les suivants�
   </tr>
   <tr>
     <td>category</td>
-    <td><em>Paramètre facultatif</em>.<br/>Chaîne spécifiant la catégorie (domaine) de la traduction. Ce paramètre est utilisé pour obtenir des traductions d’un système personnalisé créé avec [Custom Translator](../customization.md). Ajoutez l’ID de catégorie de votre projet Custom Translator à ce paramètre pour utiliser votre système personnalisé déployé. La valeur par défaut est <code>general</code>.</td>
+    <td><em>Paramètre facultatif</em>.<br/>Chaîne spécifiant la catégorie (domaine) de la traduction. Ce paramètre est utilisé pour obtenir des traductions d’un système personnalisé créé avec <a href="../customization.md">Custom Translator</a>. Ajoutez l’ID de catégorie de votre projet Custom Translator à ce paramètre pour utiliser votre système personnalisé déployé. La valeur par défaut est <code>general</code>.</td>
   </tr>
   <tr>
     <td>ProfanityAction</td>
-    <td><em>Paramètre facultatif</em>.<br/>Spécifie comment les vulgarités doivent être traitées dans les traductions. Les valeurs possibles sont : <code>NoAction</code> (valeur par défaut), <code>Marked</code> ou <code>Deleted</code>. Pour comprendre comment traiter les vulgarités, voir [Gestion de la vulgarité](#handle-profanity).</td>
+    <td><em>Paramètre facultatif</em>.<br/>Spécifie comment les vulgarités doivent être traitées dans les traductions. Les valeurs possibles sont : <code>NoAction</code> (valeur par défaut), <code>Marked</code> ou <code>Deleted</code>. Pour comprendre comment traiter les vulgarités, voir <a href="#handle-profanity">Gestion de la vulgarité</a>.</td>
   </tr>
   <tr>
     <td>ProfanityMarker</td>
-    <td><em>Paramètre facultatif</em>.<br/>Spécifie comment vulgarités doit être marquées dans les traductions. Les valeurs possibles sont : <code>Asterisk</code> (par défaut) ou <code>Tag</code>. Pour comprendre comment traiter les vulgarités, voir [Gestion de la vulgarité](#handle-profanity).</td>
+    <td><em>Paramètre facultatif</em>.<br/>Spécifie comment vulgarités doit être marquées dans les traductions. Les valeurs possibles sont : <code>Asterisk</code> (par défaut) ou <code>Tag</code>. Pour comprendre comment traiter les vulgarités, voir <a href="#handle-profanity">Gestion de la vulgarité</a>.</td>
   </tr>
   <tr>
     <td>includeAlignment</td>

@@ -9,11 +9,11 @@ ms.date: 03/22/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 1a8c90a7ae2e89122db0823da7cb0b084df3dbae
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58124506"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60365125"
 ---
 > [!IMPORTANT]
 > Depuis le 1er mars 2017, vous ne pouvez pas créer de circuits ExpressRoute dans le modèle de déploiement classique.

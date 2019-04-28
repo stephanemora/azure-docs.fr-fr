@@ -2,18 +2,18 @@
 title: Questions fréquentes (FAQ) sur Azure Files | Microsoft Docs
 description: Trouvez des réponses aux questions fréquemment posées sur Azure Files.
 services: storage
-author: RenaShahMSFT
+author: roygara
 ms.service: storage
 ms.date: 01/02/2019
-ms.author: renash
+ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 561c8c9d942210a9bbdc70feff9bc468fa69967e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 77f07394eb895c08ef3e366bd486b4270714c2fc
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57995853"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63766266"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Questions fréquentes (FAQ) sur Azure Files
 [Azure Files](storage-files-introduction.md) offre des partages de fichiers managés dans le cloud qui sont accessibles via le [protocole SMB (Server Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) standard. Vous pouvez monter des partages de fichiers Azure simultanément sur des déploiements cloud ou locaux de Windows, Linux et macOS. Vous pouvez également mettre en cache des partages de fichiers Azure sur des ordinateurs Windows Server à l’aide d’Azure File Sync pour bénéficier d’un accès rapide proche de l’endroit où les données sont utilisées.

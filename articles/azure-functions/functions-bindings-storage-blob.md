@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/15/2018
 ms.author: cshoe
-ms.openlocfilehash: c1c20e225e15769a8cb09f60dfc371f4ec4d81f6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3e67737e26edfee94a5a4d740d6c575817c66ff0
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60306864"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63766177"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Liaisons Stockage Blob Azure pour Azure Functions
 
@@ -426,7 +426,7 @@ Azure Functions stocke les reçus d’objet blob dans un conteneur appelé *azur
 * Nom de l’objet blob
 * Étiquette d’entité (identificateur de version de l’objet blob, par exemple : « 0x8D1DC6E70A277EF »)
 
-Pour forcer le retraitement d’un objet blob, supprimez manuellement le reçu de l’objet blob du conteneur *azure-webjobs-hosts*.
+Pour forcer le retraitement d’un objet blob, supprimez manuellement le reçu de l’objet blob du conteneur *azure-webjobs-hosts*. Pendant le retraitement n’ait pas lieu immédiatement, il garantie doit se pour produire à un moment ultérieur dans le temps.
 
 ## <a name="trigger---poison-blobs"></a>Déclencheur - objets blob incohérents
 
@@ -450,9 +450,13 @@ Les fonctions JavaScript et Java chargent l’objet blob entier en mémoire et l
 
 ## <a name="trigger---polling"></a>Déclencheur : interrogation
 
-Si le conteneur d’objets blob surveillé contient plus de 10 000 objets BLOB (parmi tous les conteneurs), le runtime Functions analyse fichiers journaux pour surveiller les objets BLOB nouveaux ou modifiés. Ce processus peut entraîner des retards. Il se peut qu’une fonction ne se déclenche que quelques minutes ou plus après la création de l’objet blob. En outre, les [journaux d’activité de stockage sont créés selon le principe du meilleur effort](/rest/api/storageservices/About-Storage-Analytics-Logging). Il n’existe aucune garantie que tous les événements sont capturés. Dans certaines conditions, des journaux d’activité peuvent être omis.
+Si le conteneur d’objets blob surveillé contient plus de 10 000 objets BLOB (parmi tous les conteneurs), le runtime Functions analyse fichiers journaux pour surveiller les objets BLOB nouveaux ou modifiés. Ce processus peut entraîner des retards. Il se peut qu’une fonction ne se déclenche que quelques minutes ou plus après la création de l’objet blob.
 
-Si vous avez besoin de traitement d’objets blob plus rapide ou plus fiable, envisagez de créer un [message de file d’attente](../storage/queues/storage-dotnet-how-to-use-queues.md) quand vous créez l’objet blob. Ensuite, utilisez un [déclencheur de file d’attente](functions-bindings-storage-queue.md) plutôt qu’un déclencheur d’objet blob pour traiter l’objet blob. Une autre option consiste à utiliser Event Grid ; consultez le didacticiel [Automatiser le redimensionnement des images téléchargées à l’aide d’Event Grid](../event-grid/resize-images-on-storage-blob-upload-event.md).
+> [!WARNING]
+> En outre, les [journaux d’activité de stockage sont créés selon le principe du meilleur effort](/rest/api/storageservices/About-Storage-Analytics-Logging). Il n’existe aucune garantie que tous les événements sont capturés. Dans certaines conditions, des journaux d’activité peuvent être omis.
+> 
+> Si vous avez besoin de traitement d’objets blob plus rapide ou plus fiable, envisagez de créer un [message de file d’attente](../storage/queues/storage-dotnet-how-to-use-queues.md) quand vous créez l’objet blob. Ensuite, utilisez un [déclencheur de file d’attente](functions-bindings-storage-queue.md) plutôt qu’un déclencheur d’objet blob pour traiter l’objet blob. Une autre option consiste à utiliser Event Grid ; consultez le didacticiel [Automatiser le redimensionnement des images téléchargées à l’aide d’Event Grid](../event-grid/resize-images-on-storage-blob-upload-event.md).
+>
 
 ## <a name="input"></a>Entrée
 

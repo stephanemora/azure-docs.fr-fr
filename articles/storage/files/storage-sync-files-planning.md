@@ -2,18 +2,18 @@
 title: Planification d’un déploiement Azure File Sync | Microsoft Docs
 description: Découvrez les éléments à prendre en compte lors de la planification d’un déploiement Azure Files.
 services: storage
-author: wmgries
+author: roygara
 ms.service: storage
 ms.topic: article
 ms.date: 2/7/2019
-ms.author: wgries
+ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: e5078176b14835938c190daa031c12055ba9ffc3
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: f29625ed8ddd6eabf8b75380d84d7a7b64396d7a
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59996354"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63766862"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planification d’un déploiement de synchronisation de fichiers Azure
 Utilisez Azure File Sync pour centraliser les partages de fichiers de votre organisation dans Azure Files tout en conservant la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Azure File Sync transforme Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement, notamment SMB, NFS et FTPS. Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -113,7 +113,7 @@ Pour afficher les résultats au format CSV :
 ### <a name="system-requirements"></a>Configuration requise
 - Un serveur exécutant Windows Server 2012 R2, Windows Server 2016 ou Windows Server 2019 :
 
-    | Version | Références prises en charge | Options de déploiement prises en charge |
+    | `Version` | Références prises en charge | Options de déploiement prises en charge |
     |---------|----------------|------------------------------|
     | Windows Server 2019 | Datacenter et Standard | Complète (serveur avec une interface utilisateur) |
     | Windows Server 2016 | Datacenter et Standard | Complète (serveur avec une interface utilisateur) |
@@ -245,6 +245,8 @@ Azure File Sync est disponible uniquement dans les régions suivantes :
 | Asie Est | Hong Kong (R.A.S.) |
 | USA Est | Virginie |
 | Est des États-Unis 2 | Virginie |
+| Centre de la Corée| Séoul |
+| Corée du Sud| Busan |
 | Japon Est | Tokyo, Saitama |
 | Japon Ouest | Osaka |
 | USA Centre Nord | Illinois |

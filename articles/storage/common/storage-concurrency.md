@@ -9,19 +9,19 @@ ms.topic: article
 ms.date: 05/11/2017
 ms.author: jasontang501
 ms.subservice: common
-ms.openlocfilehash: c45061db77c21b82744f69f00265870d5e1a8d00
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: MT
+ms.openlocfilehash: 9e786aed031d528b8ae574444b71753ac538cf47
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56883839"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63766199"
 ---
 # <a name="managing-concurrency-in-microsoft-azure-storage"></a>Gestion de l’accès concurrentiel dans Microsoft Azure Storage
-## <a name="overview"></a>Présentation
+## <a name="overview"></a>Vue d'ensemble
 Dans les applications Internet modernes, les données sont généralement consultées et mises à jour par plusieurs utilisateurs à la fois. Les développeurs d'applications doivent donc bien réfléchir à la manière de proposer une expérience prévisible à leurs utilisateurs finaux, notamment lorsque plusieurs utilisateurs peuvent mettre à jour les mêmes données. Les développeurs prennent généralement en compte trois grandes stratégies d’accès concurrentiel aux données :  
 
 1. Accès concurrentiel optimiste – Une application procédant à une mise à jour vérifie, dans le cadre de la mise à jour, que les données n'ont pas été modifiées depuis la dernière lecture. Par exemple, si deux utilisateurs qui consultent une page wiki procèdent à une mise à jour de la même page, la plateforme wiki doit veiller à ce que la deuxième mise à jour n'écrase pas la première et à ce que les deux utilisateurs sachent si leur mise à jour a fonctionné ou non. Cette stratégie est la plus souvent utilisée dans les applications web.
-2. Accès concurrentiel pessimiste – L'application qui cherche à procéder à une mise à jour verrouille l'objet, ce qui empêche les autres utilisateurs de mettre les données à jour jusqu'à ce qu'elles soient déverrouillées. Par exemple, dans un scénario de réplication de données maître/esclave où seul le maître procède aux mises à jour, le maître verrouille généralement les données de manière exclusive pendant une période de temps prolongée de manière à ce que personne d'autre ne puisse les mettre à jour.
+2. Accès concurrentiel pessimiste – L'application qui cherche à procéder à une mise à jour verrouille l'objet, ce qui empêche les autres utilisateurs de mettre les données à jour jusqu'à ce qu'elles soient déverrouillées. Par exemple, dans un scénario de réplication maître/subordonné données où seulement le maître procède aux mises à jour le maître généralement contiendra un verrou exclusif pour une période prolongée sur les données afin de garantir qu'aucune autre personne pouvez mettre à jour.
 3. Règle de Thomas (Last writer wins) – Approche qui permet de procéder aux mises à jour sans vérifier si les données ont été ou non mises à jour par une autre application depuis la première lecture des données par l'application. Cette stratégie (ou ce manque de stratégie formelle) est généralement utilisée lorsque les données font l'objet d'une partition telle qu'il est peu probable que plusieurs utilisateurs accèdent aux mêmes données. Elle peut également être utile lors du traitement de flux de données à durée de vie limitée.  
 
 Cet article propose une vue d'ensemble de la manière dont la plateforme Azure Storage simplifie le développement en proposant une prise en charge de premier ordre pour ces trois stratégies d'accès concurrentiel.  

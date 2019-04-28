@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 64b28fc0db56be77bce9c22f9332110205a42b1d
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.openlocfilehash: 4d854aef62af1004faacf73c11bb417cf508a727
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57437341"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63763558"
 ---
 # <a name="azure-maps-supported-categories"></a>Catégories prises en charge dans Azure Maps
 
@@ -105,7 +105,7 @@ Lorsque vous effectuez une [recherche par catégorie ](https://docs.microsoft.co
 | REPAIR\_FACILITY | carrosseries, services de pneus, ateliers de réparation, ateliers de remplacement de pare-brise,maintenance et réparation automobile générale, vente et installation d’accessoires de voiture, réparation de deux roues, service de réparation de camions, atelier de réparation |
 | RESEARCH\_FACILITY | centre de recherche |
 | RESIDENTIAL\_ACCOMMODATION | communauté de retraités,maisons mitoyennes, appartements/immeuble d’habitation, habitation en copropriété, immobilier résidentiel, hébergement résidentiel |
-| RESTAURANT | allemand, créole-cajun, néerlandais, salles de banquet, bistrot, israélien, slovaque, jamaïcain, végétarien, fruits de mer, vietnamien, maltais, sichuanais, gallois, chinois, japonais, algérien, californien, fusion, Shandong, bar à salade, savoyard, espagnol , éthiopien, taïwanais, beignets, iranien, canadien, américain, norvégien, français, hunan, polynésien, afghan, itinérant, oriental, suisse, érotique, crêperie, surinamais, égyptien, hongrois, népalais, barbecue, fondue, hamburgers, méditerranéen, latino-américain, tapas, britannique, mexicain, Guangdong, asiatique (autre), buffet, sushi, mongol, international, moules, thaïlandais, vénézuélien, roumain, poulet, soupe, cacher, steak house, yogourt / bar à jus, italien, coréen, chypriote, bosnien, bolivien, dominicain, belge, tunisien, écossais, anglais, pakistanais, tchèque, hawaïen, maghreb, tibétain, arabe, moyen-orient, chilien, shanghaï, polonais, philippin, soudanais, arménien, birman, brésilien, scandinave, bulgare, restaurant afro-américain, colombien, juif, pizza, sicilien, bio, grec, basque, uruguayen, cafétérias, finlandais, africain, corse, syrien, caraïbes, dongbei, russe, gril, plats à emporter, restauration rapide, australien, irlandais, brasserie, fondue, libanais, indonésien, danois, provençal, teppanyaki, indien, mauricien , occidental continental, péruvien, cambodgien, snacks, suédois, macrobiotique, glacier, slave, turc, argentin, autrichien, exotique, portugais, luxembourgeois, marocain, sandwich, cubain, restaurant |
+| RESTAURANT | Allemand, haïtien-Cajun, néerlandais, salles banquet, bistro, israéliens, slovaque, Jamaïque, Végétarien, seafood, vietnamien, maltais, Sichuan, Gallois, chinois, japonais, algérienne, californiens, fusion, Shandong, barre salade, Milan an, espagnol, Birr, taïwanais, anneaux, Iran, au Canada, Amérique, norvégien, Français, Hunan, polynésienne, afghan, route, Asie, Suisse, erotic, crêperie, Surinamese, égyptien, hongrois, Népal, à un barbecue, chaud pot, hamburgers, Méditerranée, Amérique latine, tapas, British, Mexique, Guangdong, Asie (autre), buffet, international Mongol, sushi, moules, thaï, Venezuela, Rumanian, représentant un poulet, a à z, carré, steak maison, barre YAOURT/jus, italien, coréen, dollar, Bosniaque, bolivienne, dominicaine, Belgique, tunisienne, Gaélique, Anglais, pakistanaise, tchèque, Hawaïen, Maghrib, TIBÉTAIN, sous-zone, intermédiaire orientale, Chili, Shanghai, polonais, philippin, soudanais, arménien, BIRMAN, brésilien, scandinave, bulgare, produits alimentaires essentielles, pizza colombienne, juif, sicilienne organique, grec, Basque, Exclusion, cafétérias, finnois, centrafricaine, Corsican, syrienne, Caraïbes, Dongbei, russe, du grill, emporter, restauration rapide, pub irlandais, Australie, produits alimentaires, fondue, libanaise, Indonésien, danois, Provençal, teppanyaki, continental indien, Roupie, l’ouest, Péruvien, Cambodge, en-cas, suédois, macrobiotic, glace silencieux dans un institut, Slave, turc, Argentine, Autriche, exotiques, portugais, luxembourgeois, Maroc, restaurant cubain, sandwich, |
 | RESTAURANT\_AREA | espace restauration |
 | REST\_AREA | zone de repos, étape de charme |
 | SCENIC\_PANORAMIC\_VIEW | vue scénique/panoramique, point d’observation |

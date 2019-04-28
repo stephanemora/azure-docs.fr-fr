@@ -1,19 +1,18 @@
 ---
 title: Les identités dans Azure HDInsight
 description: Fournit une vue d’ensemble de l’implémentation d’identités gérées dans Azure HDInsight.
-services: hdinsight
 author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: hrasheed
-ms.openlocfilehash: 9386bcb8e455bff5ceed1fccdf55874caf7b6507
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 5012b669b7460a44cb2732d7db7bf76fd1f567cf
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58175784"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63766946"
 ---
 # <a name="managed-identities-in-azure-hdinsight"></a>Les identités dans Azure HDInsight
 

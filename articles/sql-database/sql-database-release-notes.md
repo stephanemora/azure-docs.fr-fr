@@ -8,14 +8,14 @@ ms.service: sql-database
 ms.subservice: service
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/10/2019
+ms.date: 04/23/2019
 ms.author: carlrab
-ms.openlocfilehash: 9b961436c81282381f963d16c6c6dd5f289d1259
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: e6d702c7a3194f07f9d04139acbc9b6101b296ea
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59495103"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63759458"
 ---
 # <a name="sql-database-release-notes"></a>Notes de publication de base de données SQL
 
@@ -45,6 +45,22 @@ Cet article répertorie les nouvelles fonctionnalités et améliorations dans le
 |SQL Analytics|Pour plus d’informations, consultez [Analytique de SQL Azure](../azure-monitor/insights/azure-sql.md)|
 | Prise en charge de fuseau horaire pour les instances managées|Pour plus d’informations, consultez [fuseau horaire dans Azure SQL Database Managed Instance](sql-database-managed-instance-timezone.md)|
 |||
+
+## <a name="april-2019"></a>Avril 2019
+
+### <a name="service-improvements"></a>Améliorations du service
+
+| Améliorations du service | Détails |
+| --- | --- |
+| Points de terminaison publics pour l’instance managée | Pour plus d’informations, consultez [à l’aide d’Azure SQL Database managed instance en toute sécurité avec le point de terminaison public](sql-database-managed-instance-public-endpoint-securely.md)
+| Prise en charge de fuseau horaire pour l’instance managée | Pour plus d’informations, consultez [fuseau horaire dans Azure SQL Database Managed Instance (version préliminaire)](sql-database-managed-instance-timezone.md)
+
+### <a name="documentation-improvements"></a>Améliorations de la documentation
+
+| Améliorations de la documentation | Détails |
+| --- | --- |
+| Points de terminaison publics pour l’instance managée | Pour plus d’informations, consultez [à l’aide d’Azure SQL Database managed instance en toute sécurité avec le point de terminaison public](sql-database-managed-instance-public-endpoint-securely.md)
+| Prise en charge de fuseau horaire pour l’instance managée | Pour plus d’informations, consultez [fuseau horaire dans Azure SQL Database Managed Instance (version préliminaire)](sql-database-managed-instance-timezone.md)
 
 ## <a name="march-2019"></a>Mars 2019
 

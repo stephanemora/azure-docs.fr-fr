@@ -1,18 +1,17 @@
 ---
 title: Résoudre les problèmes liés à YARN dans Azure HDInsight
 description: Obtenez les réponses aux questions courantes sur l’utilisation d’Apache Hadoop YARN et d’Azure HDInsight.
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: d5582038c35ba3b599be89b7b7939e644d55ea78
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 4ca3dddb2b5ea4897ff82f1d91e88dc656305453
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408828"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63764291"
 ---
 # <a name="troubleshoot-apache-hadoop-yarn-by-using-azure-hdinsight"></a>Résoudre les problèmes d’Apache Hadoop YARN avec Azure HDInsight
 
@@ -25,8 +24,9 @@ Découvrez les principaux problèmes rencontrés lors de l’utilisation de char
 Effectuez les étapes suivantes via Ambari pour créer une file d’attente YARN, puis équilibrer l’allocation de capacité entre toutes les files d’attente. 
 
 Dans cet exemple, la capacité de deux files d’attente existantes (**default** et **thriftsvr**) est modifiée de 50 % à 25 %, ce qui permet à la nouvelle file d’attente (spark) de bénéficier d’une capacité de 50 %.
+
 | File d'attente | Capacité | Capacité maximale |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | default | 25% | 50% |
 | thrftsvr | 25% | 50% |
 | spark | 50% | 50% |

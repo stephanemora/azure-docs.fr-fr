@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 03/25/2019
 ms.author: b-juche
-ms.openlocfilehash: 1cac267be026d0e472db9a7a321f5fff6ab3e917
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
-ms.translationtype: MT
+ms.openlocfilehash: fd8e380ad68b86b9ffd0f1e40efde8bdadfb19c5
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58434770"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63763309"
 ---
 # <a name="delegate-a-subnet-to-azure-netapp-files"></a>Déléguer un sous-réseau à Azure NetApp Files 
 
@@ -30,7 +30,7 @@ Vous devez déléguer un sous-réseau à Azure NetApp Files.   Lorsque vous cré
 * Dans chaque réseau virtuel Azure, un seul sous-réseau peut être délégué à Azure NetApp Files.
 * Vous ne pouvez pas désigner un groupe de sécurité ou un point de terminaison de service réseau dans le sous-réseau délégué. Cette opération fait échouer la délégation du sous-réseau.
 * Accès à un volume à partir d’un réseau virtuel homologué dans le monde entier n’est pas pris en charge.
-* Création [itinéraires personnalisés définis par l’utilisateur](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#custom-routes) sur les sous-réseaux de machine virtuelle avec adresse préfixe (destination) à un sous-réseau délégué à Azure Files de NetApp non pris en charge et affecte la connectivité de machine virtuelle.
+* Création [itinéraires personnalisés définis par l’utilisateur](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#custom-routes) sur les sous-réseaux de machine virtuelle avec adresse préfixe (destination) à un sous-réseau délégué à Azure NetApp fichiers non pris en charge. Cela affectera la connectivité de machine virtuelle.
 
 ## <a name="steps"></a>Étapes 
 1.  Accédez au panneau **Réseaux virtuels** dans le Portail Azure, puis sélectionnez le réseau virtuel que vous souhaitez utiliser pour Azure NetApp Files.    

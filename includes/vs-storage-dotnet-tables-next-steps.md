@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/25/2018
 ms.author: tamram
 ms.openlocfilehash: aff0ac5f2b761047a3e365e8e6702909a673e464
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52440145"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60361974"
 ---
 Maintenant que vous connaissez les bases du stockage de tables Azure, activez les liens suivants pour apprendre à exécuter des tâches de stockage plus complexes.
 

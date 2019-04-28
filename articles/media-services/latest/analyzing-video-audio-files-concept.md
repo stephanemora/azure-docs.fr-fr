@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 04/21/2019
 ms.author: juliako
-ms.openlocfilehash: 8f8af438d4034fc945a717fee0b720e3fe13cf56
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
-ms.translationtype: MT
+ms.openlocfilehash: a4c643ecff5c33ec19c607da6ef8db41cfeb90c6
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351998"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63762822"
 ---
 # <a name="analyzing-video-and-audio-files"></a>Analyser des fichiers vidéo et audio
 
@@ -33,8 +33,9 @@ Actuellement, Media Services prend en charge les préréglages d’analyseur int
 
 |**Nom du préréglage**|**Scénario**|**Détails**|
 |---|---|---|
-|**AudioAnalyzerPreset**|Analyse de contenu audio|Ce préréglage applique un ensemble prédéfini d’opérations d’analyse basée sur l’IA, notamment la transcription de la parole. Actuellement, le préréglage prend en charge le traitement du contenu avec une seule piste audio qui inclut la reconnaissance vocale dans une seule langue. Vous pouvez spécifier la langue de la charge utile audio de l’entrée en utilisant le format BCP-47 « balise de langue-région ». Les langues prises en charge sont l’anglais (« en-US » et « en-GB »), l’espagnol (« es-ES » et « es-MX »), le français (« fr-FR »), l’italien (« it-IT »), le japonais (« ja-JP »), le portugais (« pt-BR »), le chinois (« zh-CN »), l’allemand (« de-DE »), l’arabe (« ar-EG »), le russe (« ru-RU »), l’hindi (« hi-IN ») et le coréen (« ko-KR »).<br/><br/> Si la langue n’est pas spécifiée ou a la valeur Null, la fonctionnalité de détection automatique de la langue choisit la première langue détectée qu’elle utilise pendant la durée de traitement du fichier. Cette fonctionnalité prend actuellement en charge les langues suivantes : allemand, anglais, chinois, espagnol, français, italien, japonais, portugais et russe. Actuellement, elle ne prend pas en charge le basculement dynamique d’une langue à l’autre après la détection de la première langue. La fonctionnalité de détection automatique de la langue fonctionne mieux sur des enregistrements audio avec des voix clairement identifiables. Si la détection automatique de la langue ne parvient pas à trouver la langue, la transcription utilise l’anglais.|
-|**VideoAnalyzerPreset**|Analyse de contenu audio et vidéo|Extrait des insights (métadonnées enrichies) des contenus audio et vidéo, et génère en sortie un fichier au format JSON. Vous pouvez spécifier si vous voulez extraire seulement des insights audio lors du traitement d’un fichier vidéo. Pour plus d’informations, consultez [Analyser un contenu vidéo](analyze-videos-tutorial-with-api.md).|
+|[AudioAnalyzerPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#audioanalyzerpreset)|Analyse de contenu audio|Ce préréglage applique un ensemble prédéfini d’opérations d’analyse basée sur l’IA, notamment la transcription de la parole. Actuellement, le préréglage prend en charge le traitement du contenu avec une seule piste audio qui inclut la reconnaissance vocale dans une seule langue. Vous pouvez spécifier la langue de la charge utile audio de l’entrée en utilisant le format BCP-47 « balise de langue-région ». Les langues prises en charge sont l’anglais (« en-US » et « en-GB »), l’espagnol (« es-ES » et « es-MX »), le français (« fr-FR »), l’italien (« it-IT »), le japonais (« ja-JP »), le portugais (« pt-BR »), le chinois (« zh-CN »), l’allemand (« de-DE »), l’arabe (« ar-EG »), le russe (« ru-RU »), l’hindi (« hi-IN ») et le coréen (« ko-KR »).<br/><br/> Si la langue n’est pas spécifiée ou a la valeur Null, la fonctionnalité de détection automatique de la langue choisit la première langue détectée qu’elle utilise pendant la durée de traitement du fichier. Cette fonctionnalité prend actuellement en charge les langues suivantes : allemand, anglais, chinois, espagnol, français, italien, japonais, portugais et russe. Actuellement, elle ne prend pas en charge le basculement dynamique d’une langue à l’autre après la détection de la première langue. La fonctionnalité de détection automatique de la langue fonctionne mieux sur des enregistrements audio avec des voix clairement identifiables. Si la détection automatique de la langue ne parvient pas à trouver la langue, la transcription utilise l’anglais.|
+|[VideoAnalyzerPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#videoanalyzerpreset)|Analyse de contenu audio et vidéo|Extrait des insights (métadonnées enrichies) des contenus audio et vidéo, et génère en sortie un fichier au format JSON. Vous pouvez spécifier si vous voulez extraire seulement des insights audio lors du traitement d’un fichier vidéo. Pour plus d’informations, consultez [Analyser un contenu vidéo](analyze-videos-tutorial-with-api.md).|
+|[FaceDetectorPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#facedetectorpreset)||Décrit les paramètres à utiliser lors de l’analyse d’une vidéo afin de détecter les visages présents.|
 
 ### <a name="audioanalyzerpreset"></a>AudioAnalyzerPreset
 
@@ -64,7 +65,7 @@ La sortie inclut un fichier JSON (insights.json) contenant tous les insights tro
 |Nom|Description|
 |---|---|
 |id|ID de la ligne.|
-|texte|La transcription proprement dite.|
+|text|La transcription proprement dite.|
 |Langage|La langue de la transcription. Permet de prendre en charge la transcription lorsque chaque ligne peut avoir une langue différente.|
 |instances|Liste des intervalles de temps pendant lesquels cette ligne est apparue. Si l’instance est un attribut transcript, il n’y a qu’une seule instance.|
 
@@ -102,7 +103,7 @@ Exemple :
 |Nom|Description|
 |---|---|
 |id|ID de la ligne ROC.|
-|texte|Texte de l’OCR.|
+|text|Texte de l’OCR.|
 |confidence|Degré de confiance de la reconnaissance.|
 |Langage|Langue de l’OCR.|
 |instances|Liste des intervalles de temps au cours desquels cette OCR est apparue (la même OCR peut apparaître plusieurs fois).|
@@ -354,7 +355,7 @@ Les sentiments sont regroupés par leur champ sentimentType (neutre/positif/nég
 |Nom|Description|
 |---|---|
 |id|ID du mot clé.|
-|texte|Texte du mot clé.|
+|text|Texte du mot clé.|
 |confidence|Degré de confiance de la reconnaissance du mot clé.|
 |Langage|Langue du mot clé (si traduction).|
 |instances|Liste des intervalles de temps pendant lesquels ce mot clé est apparu (un mot clé peut apparaître plusieurs fois).|

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 3c008e77116a9b42a2ea137069529c5e241adddd
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56213021"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61456881"
 ---
 Vous pouvez facilement [mettre automatiquement à l’échelle](../articles/azure-monitor/platform/autoscale-best-practices.md) vos [machines virtuelles (VM)](../articles/virtual-machines/windows/overview.md) lorsque vous utilisez [les groupes de machine virtuelles identiques](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) et [la fonctionnalité de mise à l’échelle automatique de Azure Monitor](../articles/azure-monitor/platform/autoscale-overview.md). Vos machines virtuelles doivent être membres d’un groupe identique pour pouvoir être mises à l’échelle automatiquement. Cet article fournit des informations vous permettant de mieux comprendre comment mettre vos machines virtuelles à l’échelle, verticalement et horizontalement, à l’aide de méthodes automatique et manuelle.
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 7f1352b018fe9ea46b0f0824ba53ee0204c7dc7c
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 711f6395959b3718ca0a094a03c07c4381892104
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60005517"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63762843"
 ---
 # <a name="api-management-policies"></a>Stratégies API Management
 Cette section est une ressource de référence au sujet des stratégies Gestion des API suivantes. Pour plus d'informations sur l'ajout et la configuration des stratégies, consultez la page [Stratégies dans Gestion des API](api-management-howto-policies.md).  
@@ -53,7 +53,7 @@ Cette section est une ressource de référence au sujet des stratégies Gestion 
 -   [Stratégies d’authentification](api-management-authentication-policies.md#AuthenticationPolicies)  
     -   [Authenticate with Basic](api-management-authentication-policies.md#Basic) : authentification avec un service principal à l’aide de l’authentification de base.  
     -   [Authenticate with client certificate](api-management-authentication-policies.md#ClientCertificate) : authentification avec un service principal à l’aide de certificats clients.  
-    -   [S’authentifier avec identité administré](api-management-authentication-policies.md#ManagedIdentity) -authentifier auprès d’un service principal à l’aide de certificats clients.  
+    -   [Authentifier avec identité gérée](api-management-authentication-policies.md#ManagedIdentity) -authentifier avec un service principal à l’aide un [identité gérée](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).  
 -   [Stratégies de mise en cache](api-management-caching-policies.md#CachingPolicies)  
     -   [Get from cache](api-management-caching-policies.md#GetFromCache) : effectue une recherche dans le cache et renvoie une réponse mise en cache valide si elle est disponible.  
     -   [Store to cache](api-management-caching-policies.md#StoreToCache) : met en cache la réponse en fonction de la configuration de contrôle de cache spécifiée.  

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: f7a14e975a5ca3aee5588f55f43b28081c100074
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: e60b202a32745062d2078d9721dfeba7aba69bda
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59358153"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63763904"
 ---
 # <a name="best-practices-to-use-azure-maps-search-service"></a>Meilleures pratiques pour utiliser le Service de recherche Azure Maps
 
@@ -132,9 +132,9 @@ Le `language` paramètre vous permet de définir dans la recherche de langage qu
 
 ### <a name="predictive-mode-auto-suggest"></a>Mode prédictif (suggestion automatique)
 
-Pour rechercher des correspondances plus pour les requêtes partielles, `typeHead` paramètre doit être défini sur ' true '. La requête sera interprétée comme une entrée partielle et la recherche bascule en mode prédictif. Sinon, le service suppose que toutes les informations pertinentes n’a été transmises.
+Pour rechercher des correspondances plus pour les requêtes partielles, `typeahead` paramètre doit être défini sur ' true '. La requête sera interprétée comme une entrée partielle et la recherche bascule en mode prédictif. Sinon, le service suppose que toutes les informations pertinentes n’a été transmises.
 
-Dans l’exemple de requête ci-dessous, vous pouvez voir que le service de l’adresse de recherche est interrogé pour « Microsoft » avec le `typehead` paramètre défini sur **true**. Si vous observez la réponse, vous pouvez voir que le service de recherche interprété la requête en tant que requête partielle et réponse contient les résultats de requête suggérées automatiquement.
+Dans l’exemple de requête ci-dessous, vous pouvez voir que le service de l’adresse de recherche est interrogé pour « Microsoft » avec le `typeahead` paramètre défini sur **true**. Si vous observez la réponse, vous pouvez voir que le service de recherche interprété la requête en tant que requête partielle et réponse contient les résultats de requête suggérées automatiquement.
 
 **Exemple de requête :**
 

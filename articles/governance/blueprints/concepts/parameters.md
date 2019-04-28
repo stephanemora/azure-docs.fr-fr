@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 9b5b151c62c4294563f704dc9a0cf7daeaca874f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: ac7b662bc9ef4f3ae675c4cbde18e159383d3d8e
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59279973"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63767024"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Création de blueprints dynamiques au moyen de paramètres
 
@@ -169,7 +169,7 @@ La création de **paramètres statiques** sur un artefact est similaire, mais pr
 
 ### <a name="dynamic-parameters"></a>Paramètres dynamiques
 
-Un **paramètre dynamique** est l’inverse d’un paramètre statique. Ce paramètre n’est pas défini sur le blueprint, mais durant chaque affectation du blueprint. Dans l’exemple de groupe de ressources, l’utilisation d’un **paramètre dynamique** se justifie pour le nom du groupe de ressources. Il permet de fournir un nom différent pour chaque affectation du blueprint.
+Un **paramètre dynamique** est l’inverse d’un paramètre statique. Ce paramètre n’est pas défini sur le blueprint, mais durant chaque affectation du blueprint. Dans l’exemple de groupe de ressources, l’utilisation d’un **paramètre dynamique** se justifie pour le nom du groupe de ressources. Il permet de fournir un nom différent pour chaque affectation du blueprint. Pour obtenir la liste des fonctions de plan, consultez le [blueprint fonctions](../reference/blueprint-functions.md) référence.
 
 #### <a name="setting-dynamic-parameters-in-the-portal"></a>Définition des paramètres dynamiques dans le portail
 
@@ -185,9 +185,7 @@ Un **paramètre dynamique** est l’inverse d’un paramètre statique. Ce param
 
 #### <a name="setting-dynamic-parameters-from-rest-api"></a>Définition des paramètres dynamiques à partir de l’API REST
 
-La définition des **paramètres dynamiques** pendant l’affectation s’effectue en entrant directement la valeur.
-Au lieu d’utiliser une fonction, telle que `parameters()`, la valeur fournie est une chaîne appropriée.
-Les artefacts pour un groupe de ressources sont définis avec un « nom de modèle » ainsi que des propriétés de **nom** et d’**emplacement**. Tous les autres paramètres pour l’artefact inclus sont définis sous **Paramètres** avec une paire de clés **\<nom\>** et **valeur**. Si le blueprint est configuré pour un paramètre dynamique qui n’est pas fourni lors de l’affectation, celle-ci échoue.
+La définition des **paramètres dynamiques** pendant l’affectation s’effectue en entrant directement la valeur. Au lieu d’utiliser une fonction, tel que [parameters()](../reference/blueprint-functions.md#parameters), la valeur fournie est une chaîne appropriée. Les artefacts pour un groupe de ressources sont définis avec un « nom de modèle » ainsi que des propriétés de **nom** et d’**emplacement**. Tous les autres paramètres pour l’artefact inclus sont définis sous **Paramètres** avec une paire de clés **\<nom\>** et **valeur**. Si le blueprint est configuré pour un paramètre dynamique qui n’est pas fourni lors de l’affectation, celle-ci échoue.
 
 - URI de l’API REST
 
@@ -240,6 +238,7 @@ Les artefacts pour un groupe de ressources sont définis avec un « nom de mod�
 
 ## <a name="next-steps"></a>Étapes suivantes
 
+- Afficher la liste des [blueprint fonctions](../reference/blueprint-functions.md).
 - Découvrir le [cycle de vie des blueprints](lifecycle.md).
 - Apprendre à personnaliser l’[ordre de séquencement des blueprints](sequencing-order.md).
 - Découvrir comment utiliser le [verrouillage de ressources de blueprint](resource-locking.md).

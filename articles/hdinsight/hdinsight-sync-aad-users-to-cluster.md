@@ -1,7 +1,6 @@
 ---
 title: Synchroniser des utilisateurs Azure Active Directory vers un cluster - Azure HDInsight
 description: Synchronisez des utilisateurs authentifiés d’Azure Active Directory vers un cluster.
-services: hdinsight
 ms.service: hdinsight
 author: ashishthaps
 ms.author: ashishth
@@ -9,18 +8,18 @@ ms.reviewer: mamccrea
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: ebb1e3614309f92fc21442100a13c53291b3acbb
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 2be67c604bebbe9b4c4356e241d1480ca0778d4a
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53407285"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63764060"
 ---
 # <a name="synchronize-azure-active-directory-users-to-an-hdinsight-cluster"></a>Synchroniser des utilisateurs Azure Active Directory vers un cluster HDInsight
 
 Les [clusters HDInsight avec le Pack Sécurité Entreprise (ESP) activé](hdinsight-domain-joined-introduction.md) peuvent utiliser l’authentification forte pour les utilisateurs d’Azure Active Directory (Azure AD), et également des stratégies de *contrôle d’accès en fonction du rôle* (RBAC). À mesure que vous ajoutez des utilisateurs et des groupes à Azure AD, vous pouvez synchroniser les utilisateurs qui ont besoin d’accéder à votre cluster.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Si ce n’est déjà fait, [créez un cluster HDInsight avec le Pack Sécurité Entreprise activé](hdinsight-domain-joined-configure.md).
 

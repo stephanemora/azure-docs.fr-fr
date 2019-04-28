@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 072864d565e2edbddd4b7df851ad0e30daf7e5fa
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58505811"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60387937"
 ---
 Les problèmes de diagnostic avec un service cloud Microsoft Azure nécessitent la collecte des fichiers journaux du service sur les machines virtuelles au fur et à mesure que les problèmes surviennent. Vous pouvez utiliser l’extension AzureLogCollector à la demande pour exécuter une collecte unique de journaux d’activité à partir d’une ou de plusieurs machines virtuelles de service cloud (à partir des rôles web et de travail) et transférer les fichiers collectés dans un compte de stockage Azure, le tout sans connexion à distance à l’une des machines virtuelles.
 

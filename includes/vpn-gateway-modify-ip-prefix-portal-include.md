@@ -2,18 +2,19 @@
 title: Fichier Include
 description: Fichier Include
 services: vpn-gateway
-author: cherylmc
+author: WenJason
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/21/2018
-ms.author: cherylmc
+origin.date: 03/21/2018
+ms.date: 12/24/2018
+ms.author: v-jay
 ms.custom: include file
-ms.openlocfilehash: 3b8049515f753cbcf8ca068c1790f716f02d30b6
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
-ms.translationtype: HT
+ms.openlocfilehash: 1199819d274590cc81d0234680f8765f9cc36c0a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30197939"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60419587"
 ---
 ### <a name="noconnection"></a>Pour modifier des préfixes d’adresses IP de passerelle de réseau local - sans connexion de passerelle
 

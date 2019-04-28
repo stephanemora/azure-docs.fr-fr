@@ -9,11 +9,11 @@ ms.date: 12/14/2018
 ms.author: shants
 ms.custom: include file
 ms.openlocfilehash: c26c037455b6d14a906894ec39bf46630826950b
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59551655"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60301708"
 ---
 Azure met régulièrement à jour la plateforme pour améliorer la fiabilité, le niveau de performance et la sécurité de l’infrastructure hôte des machines virtuelles. Ces mises à jour vont de l’application d’une mise à jour corrective aux composants logiciels de l’environnement d’hébergement, en passant par la mise à niveau des composants réseau, à la désactivation du matériel. La majorité de ces mises à jour n’a aucun impact sur les machines virtuelles hébergées. Toutefois, dans certains cas, les mises à jour ont un impact. Azure choisit alors la méthode ayant le moins d’impact pour l’exécution des mises à jour :
 

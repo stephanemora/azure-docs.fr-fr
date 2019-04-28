@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: 9ee4a9fb5c63061eed32389b5672652aad01208a
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: c0f8da779ca656cf357c418b8766a53307643695
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59994934"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63764340"
 ---
 # <a name="api-management-authentication-policies"></a>Stratégies d’authentification dans Gestion des API
 Cette rubrique est une ressource de référence au sujet des stratégies Gestion des API suivantes. Pour plus d'informations sur l'ajout et la configuration des stratégies, consultez la page [Stratégies dans Gestion des API](https://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -49,13 +49,13 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 ### <a name="elements"></a>Éléments  
   
-|Name|Description|Obligatoire|  
+|Nom|Description|Obligatoire|  
 |----------|-----------------|--------------|  
 |authentification-basic|Élément racine.|Oui|  
   
 ### <a name="attributes"></a>Attributs  
   
-|Name|Description|Obligatoire|Default|  
+|Nom|Description|Obligatoire|Default|  
 |----------|-----------------|--------------|-------------|  
 |username|Spécifie le nom d’utilisateur associé aux informations d’identification de base.|Oui|S.O.|  
 |password|Spécifie le mot de passe associé aux informations d’identification de base.|Oui|S.O.|  
@@ -73,26 +73,32 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 ### <a name="policy-statement"></a>Instruction de la stratégie  
   
 ```xml  
-<authentication-certificate thumbprint="thumbprint" />  
+<authentication-certificate thumbprint="thumbprint" certificate-id="resource name"/>  
 ```  
   
-### <a name="example"></a>Exemples  
+### <a name="examples"></a>Exemples  
   
+Dans cet exemple de client certificat est identifié par son empreinte numérique.
 ```xml  
-<authentication-certificate thumbprint="....." />  
+<authentication-certificate thumbprint="CA06F56B258B7A0D4F2B05470939478651151984" />  
+``` 
+Dans cet exemple, certificat client est identifié par nom de la ressource.
+```xml  
+<authentication-certificate certificate-id="544fe9ddf3b8f30fb490d90f" />  
 ```  
-  
+
 ### <a name="elements"></a>Éléments  
   
-|Name|Description|Obligatoire|  
+|Nom|Description|Obligatoire|  
 |----------|-----------------|--------------|  
 |authentication-certificate|Élément racine.|Oui|  
   
 ### <a name="attributes"></a>Attributs  
   
-|Name|Description|Obligatoire|Default|  
+|Nom|Description|Obligatoire|Default|  
 |----------|-----------------|--------------|-------------|  
-|thumbprint|Empreinte du certificat client.|Oui|S.O.|  
+|thumbprint|Empreinte du certificat client.|Soit `thumbprint` ou `certificate-id` doit être présent.|S.O.|  
+|certificate-id|Le nom de ressource de certificat.|Soit `thumbprint` ou `certificate-id` doit être présent.|S.O.|  
   
 ### <a name="usage"></a>Usage  
  Cette stratégie peut être utilisée dans les [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.  
@@ -118,13 +124,13 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 ### <a name="elements"></a>Éléments  
   
-|Name|Description|Obligatoire|  
+|Nom|Description|Obligatoire|  
 |----------|-----------------|--------------|  
 |authentication-managed-identity |Élément racine.|Oui|  
   
 ### <a name="attributes"></a>Attributs  
   
-|Name|Description|Obligatoire|Default|  
+|Nom|Description|Obligatoire|Default|  
 |----------|-----------------|--------------|-------------|  
 |resource|Chaîne. L’URI ID d’application de la cible API web (ressource sécurisée) dans Azure Active Directory.|Oui|S.O.|  
 |output-token-variable-name|Chaîne. Nom de la variable de contexte qui recevra la valeur du jeton en tant qu’un type d’objet `string`.|Non |S.O.|  

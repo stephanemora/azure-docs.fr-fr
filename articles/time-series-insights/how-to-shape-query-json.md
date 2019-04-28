@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 05/24/2018
 ms.author: anshan
 ms.custom: seodec18
-ms.openlocfilehash: c076d425a7740bd0eb6398e6b8720fa873f2fc30
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 2d42b7ebdee291e7c71351fa2c3a5583a121b79e
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54201259"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63760683"
 ---
 # <a name="how-to-shape-json-to-maximize-query-performance"></a>Guide pratique pour la mise en forme de JSON afin d’optimiser les performances des requêtes 
 
@@ -97,7 +97,7 @@ Table de données de référence (la propriété de clé est deviceId) :
 
 Table d’événements Time Series Insights (après l’aplanissement) :
 
-| deviceId | messageId | deviceLocation |  timestamp | series.Flow Rate ft3/s | series.Engine Oil Pressure psi |
+| deviceId | messageId | deviceLocation | timestamp | series.Flow Rate ft3/s | series.Engine Oil Pressure psi |
 | --- | --- | --- | --- | --- | --- |
 | FXXX | LINE\_DATA | EU | 2018-01-17T01:17:00Z | 1.0172575712203979 | 34.7 |
 | FXXX | LINE\_DATA | EU | 2018-01-17T01:17:00Z | 2.445906400680542 | 49.2 |
@@ -173,7 +173,7 @@ Données de référence (les propriétés de clé sont deviceId et series.tagId)
 
 Table d’événements Time Series Insights (après l’aplanissement) :
 
-| deviceId | series.tagId | messageId | deviceLocation | Type | unité |  timestamp | series.value |
+| deviceId | series.tagId | messageId | deviceLocation | Type | unité | timestamp | series.value |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | FXXX | pumpRate | LINE\_DATA | EU | Débit | ft3/s | 2018-01-17T01:17:00Z | 1.0172575712203979 |
 | FXXX | oilPressure | LINE\_DATA | EU | Pression d’huile moteur | psi | 2018-01-17T01:17:00Z | 34.7 |

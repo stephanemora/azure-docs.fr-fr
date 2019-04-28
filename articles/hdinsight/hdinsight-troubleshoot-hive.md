@@ -2,18 +2,17 @@
 title: Résolution de problèmes Hive à l’aide d’Azure HDInsight
 description: Obtenez les réponses aux questions courantes sur l’utilisation d’Apache Hive et d’Azure HDInsight.
 keywords: Azure HDInsight, Hive, FAQ, guide de dépannage, questions courantes
-services: hdinsight
 ms.service: hdinsight
 author: dharmeshkakadia
 ms.author: dharmeshkakadia
 ms.topic: conceptual
 ms.date: 11/2/2017
-ms.openlocfilehash: 6d75bf86dab8775e77efb21ecc3b0d60063a9823
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 43886a132f2f3cf75f0ec7a0b2dc0680a0f69589
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58088959"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63765807"
 ---
 # <a name="troubleshoot-apache-hive-by-using-azure-hdinsight"></a>Résolution de problèmes Apache Hive à l’aide d’Azure HDInsight
 

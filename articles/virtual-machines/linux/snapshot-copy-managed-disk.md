@@ -2,8 +2,8 @@
 title: Créer une capture instantanée d’un disque dur virtuel dans Azure | Microsoft Docs
 description: Découvrez comment créer une copie d’un disque dur virtuel dans Azure pour l’utiliser comme sauvegarde ou pour la résolution de problèmes.
 documentationcenter: ''
-author: cynthn
-manager: jeconnoc
+author: roygara
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/11/2018
-ms.author: cynthn
+ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 37b77847fc55d2aa90b313d6746d82b402f42ae6
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 9f2f3ac3668f0e48716fc30fb69cd1782dbd4e56
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55460741"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63765669"
 ---
 # <a name="create-a-snapshot"></a>Créer un instantané 
 

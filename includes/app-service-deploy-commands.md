@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/03/2016
 ms.author: cephalin
 ms.openlocfilehash: 2be66b742d7a4572d3613a8b1fdeafd5fb7ed271
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56825286"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60343725"
 ---
 Pour déployer les ressources sur Azure, vous devez être connecté à votre compte Azure et utiliser le module Azure Resource Manager. Pour en savoir plus sur l'utilisation de ce module avec Azure PowerShell ou la CLI Azure, consultez :
 

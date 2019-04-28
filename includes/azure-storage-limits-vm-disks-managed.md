@@ -9,11 +9,11 @@ ms.date: 12/12/2018
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: dd5c0782e1132f8592d9c6381b541c6f1a7d84cd
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58395645"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60386322"
 ---
 **Disque dur standard des disques gérés**
 [!INCLUDE [disk-storage-standard-hdd-sizes](disk-storage-standard-hdd-sizes.md)]
@@ -26,7 +26,7 @@ ms.locfileid: "58395645"
 
 **Premium SSD des disques gérés : Limites par machine virtuelle**
 
-| Ressource | Limite par défaut |
+| Resource | Limite par défaut |
 | --- | --- |
 | Nombre maximal d’IOPS par machine virtuelle |80 000 E/S par seconde avec la machine virtuelle GS5 |
 | Débit maximal par machine virtuelle |2 000 Mo/s avec la machine virtuelle GS5 |

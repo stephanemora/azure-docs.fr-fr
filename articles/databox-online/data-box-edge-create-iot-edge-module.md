@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: alkohli
-ms.openlocfilehash: 522dddde4994bb019e6547fcd18465b201f048d8
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
-ms.translationtype: MT
+ms.openlocfilehash: c2803ba598895834bb197f4a06ff0635354fcaca
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58401728"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63759984"
 ---
 # <a name="develop-a-c-iot-edge-module-to-move-files-on-data-box-edge"></a>Développer un C# module IoT Edge pour déplacer les fichiers sur les bords de zone de données
 
@@ -36,7 +36,7 @@ Votre appareil Data Box Edge peut déployer et exécuter des modules IoT Edge. L
 2. Le générateur d’événements de fichier crée un événement de fichier pour chaque fichier écrit sur le partage local. Les événements de fichier sont également générés quand un fichier est modifié. Les événements de fichier sont ensuite envoyés au hub IoT Edge (dans le runtime IoT Edge).
 3. Le module personnalisé IoT Edge traite l’événement de fichier et crée un objet d’événement de fichier qui contient également le chemin d’accès relatif du fichier. Le module génère un chemin d’accès absolu à l’aide du chemin d’accès relatif et copie le fichier à partir du partage local vers le partage cloud. Le module supprime ensuite le fichier du partage local.
 
-![Fonctionnement du module Azure IoT Edge sur Data Box Edge](./media/data-box-edge-create-iot-edge-module/how-module-works.png)
+![Fonctionnement du module Azure IoT Edge sur Data Box Edge](./media/data-box-edge-create-iot-edge-module/how-module-works-1.png)
 
 Une fois que le fichier se trouve dans le partage cloud, ce dernier est automatiquement chargé dans votre compte de stockage Azure.
 

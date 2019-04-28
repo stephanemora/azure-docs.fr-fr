@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 04/04/2019
+ms.date: 04/21/2019
 ms.author: juliako
-ms.openlocfilehash: de5432c4e04fb0cfaf0517426fe9ee9da2a57b37
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 09f9731f78093354f324f263899519bc5d31fa5d
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59266985"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63760785"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notes de publication Azure Media Services v3
 
@@ -33,6 +33,10 @@ Pour vous informer des développements les plus récents, cet article détaille 
 > Actuellement, vous ne pouvez pas utiliser le portail Azure pour gérer des ressources v3. Utilisez l’[API REST](https://aka.ms/ams-v3-rest-sdk), Azure CLI ou l’un des kits de développement logiciel (SDK) pris en charge.
 
 Pour plus d’informations, consultez [Conseils de migration pour le passage de Media Services v2 à Media Services v3](migrate-from-v2-to-v3.md#known-issues).
+
+## <a name="april-2019"></a>Avril 2019
+
+[FaceDetectorPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#facedetectorpreset) a été ajouté aux présélections d’analyseur intégrés.
 
 ## <a name="march-2019"></a>Mars 2019
 
@@ -200,6 +204,10 @@ Les fonctionnalités suivantes sont présentes dans le kit SDK .NET :
 ### <a name="known-issues"></a>Problèmes connus
 
 * Quand vous soumettez un travail, vous pouvez spécifier l’ingestion de votre vidéo source à l’aide d’URL HTTPS, d’URL SAP ou de chemins de fichiers situés dans le stockage Blob Azure. AMS v3 ne prend pas en charge l’encodage de transfert mémorisé en bloc sur les URL HTTPS.
+
+## <a name="provide-feedback"></a>Fournir des commentaires
+
+Découvrez l’article [Communauté Azure Media Services](media-services-community.md) pour découvrir les différentes façons dont vous pouvez poser des questions, faire des commentaires et obtenir des mises à jour sur Media Services.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

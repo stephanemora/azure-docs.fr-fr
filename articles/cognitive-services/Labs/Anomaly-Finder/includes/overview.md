@@ -11,14 +11,14 @@ ms.date: 04/13/2018
 ms.author: chliang
 ms.custom: include file
 ms.openlocfilehash: c11c97a62bb630250a4cf37815ff87ec57fce8dc
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55228886"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60309515"
 ---
 <a name="overview"></a>
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Vue d'ensemble
 L’API Anomaly Finder vous permet de surveiller les données au fil du temps et de détecter les anomalies avec un apprentissage automatique qui s’adapte à vos données uniques en appliquant automatiquement le bon modèle statistique. Elle permet aux organisations d’assurer la qualité des données, de fournir des services fiables, d’identifier les incidents métier et d’affiner leur approche commerciale sans avoir à s’attaquer aux délicats problèmes d’identifier manuellement les données anormales.
 
 ### <a name="version-information"></a>Informations sur la version

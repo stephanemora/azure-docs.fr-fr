@@ -1,19 +1,18 @@
 ---
 title: Utiliser Azure Data Lake Storage Gen2 avec des clusters Azure HDInsight
 description: Découvrez comment utiliser Azure Data Lake Storage Gen2 avec des clusters Azure HDInsight.
-services: hdinsight
 author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: hrasheed
-ms.openlocfilehash: 43f335bdd8b918fa717d9084d3c9c30d97920c10
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 6452e73b2429ab89a466b1c3b59cc892eca31205
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60004956"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63766928"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Utiliser Azure Data Lake Storage Gen2 avec des clusters Azure HDInsight
 
@@ -69,7 +68,7 @@ Affecter l’identité gérée pour le **propriétaire des données de stockage 
         ![Paramètres d’identité pour l’utilisation de Data Lake Storage Gen2 avec Azure HDInsight](./media/hdinsight-hadoop-data-lake-storage-gen2/managed-identity-cluster-creation.png)
         
 > [!Note]
-> Vous pouvez ajouter un ou plusieurs comptes Data Lake Storage Gen2 comme stockage secondaire sur le même cluster. Répétez simplement les étapes ci-dessus sur chaque compte Data Lake Storage Gen2 que vous souhaitez ajouter à l’aide de la même identité gérée.
+> Pour ajouter un compte Data Lake Storage Gen2 secondaire, au niveau du compte de stockage, suffit d’attribuer l’identité gérée créée précédemment dans le nouveau compte de stockage Data Lake Storage Gen2 que vous souhaitez ajouter. Veuillez noter que l’ajout d’un compte Data Lake Storage Gen2 secondaire via le panneau « comptes de stockage supplémentaire » sur HDInsight n’est pas pris en charge. 
 
 ## <a name="create-a-cluster-with-data-lake-storage-gen2-through-the-azure-cli"></a>Créer un cluster avec Data Lake Storage Gen2 via l’interface CLI Azure
 

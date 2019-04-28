@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/05/2018
-ms.openlocfilehash: 2a59a81b0894cbf58c5d3ab5a5569f4749b64b00
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: MT
+ms.openlocfilehash: 0eb4b77964aa3c07bac2af615a26c3a9199525de
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57543285"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63760846"
 ---
 # <a name="understand-time-handling-in-azure-stream-analytics"></a>Comprendre la gestion du temps dans Azure Stream Analytics
 
@@ -26,7 +26,7 @@ Pour mieux établir le cadre de la discussion, définissons certains concepts de
 
 - **Temps de traitement** : moment où l’événement atteint le système de traitement et est observé. Par exemple, il s’agit du laps de temps entre le moment où le capteur du poste péage détecte la voiture et où le système informatique finit de traiter les données.
 
-- **Limite** : marqueur d’heure d’événement qui indique tous les événements jusqu’à un certain point d’entrée dans le processeur de streaming. Les limites permettent au système d’indiquer une nette progression de l’ingestion des événements. Compte tenu de la nature des flux, les données d’événements entrants ne s’arrêtent jamais. De ce fait, les limitent indiquent la progression jusqu’à un certain point dans le flux.
+- **Limite** : Un marqueur de temps d’événement qui indique jusqu'à quel point les événements ont été entrés pour le processeur de diffusion en continu. Les limites permettent au système d’indiquer une nette progression de l’ingestion des événements. Compte tenu de la nature des flux, les données d’événements entrants ne s’arrêtent jamais. De ce fait, les limitent indiquent la progression jusqu’à un certain point dans le flux.
 
    Le concept de limite est important. Les limites permettent à Stream Analytics de déterminer à quel moment le système peut générer des résultats complets, corrects et répétables qu’il n’est pas utile de retirer. Le traitement peut être effectué de façon garantie, prévisible et répétable. Par exemple, s’il est nécessaire d’effectuer un nouveau calcul dans le cadre de la gestion des erreurs, les limites constituent des points de départ et d’arrivée fiables.
 

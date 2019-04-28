@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/22/2018
 ms.author: jeconnoc
-ms.openlocfilehash: 4b6aeb2968d7642881535753cb6c8434cfe10886
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bc861b6730e8bf9db6ba2ab005496914f7b9ed89
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60409305"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63759804"
 ---
 # <a name="install-net-on-azure-cloud-services-roles"></a>Installer .NET sur des rôles d’Azure Cloud Services
 Cet article décrit comment installer des versions de .NET Framework qui ne sont fournies avec le SE invité Azure. Vous pouvez utiliser .NET sur le SE invité pour configurer vos rôles web et rôles de travail de Cloud Services.
@@ -34,6 +34,7 @@ Pour installer .NET sur vos rôles web et rôles de travail, incluez le programm
 ## <a name="add-the-net-installer-to-your-project"></a>Ajouter le programme d'installation de .NET à votre projet
 Pour télécharger le programme d'installation web de .NET Framework, sélectionnez la version à installer :
 
+* [Le programme d’installation de .NET 4.8 web](https://dotnet.microsoft.com/download/thank-you/net48)
 * [Programme d’installation web de.NET 4.7.2](https://go.microsoft.com/fwlink/?LinkId=863262)
 * [Programme d’installation web de.NET 4.6.2](https://www.microsoft.com/download/details.aspx?id=53345)
 
@@ -102,7 +103,8 @@ Vous pouvez utiliser des tâches de démarrage pour exécuter des opérations av
    REM ***** To install .NET 4.7.1 set the variable netfx to "NDP471" ***** https://go.microsoft.com/fwlink/?LinkId=852095
    REM ***** To install .NET 4.7.2 set the variable netfx to "NDP472" ***** https://go.microsoft.com/fwlink/?LinkId=863262
    set netfx="NDP472"
-   
+   REM ***** To install .NET 4.8 set the variable netfx to "NDP48" ***** https://dotnet.microsoft.com/download/thank-you/net48
+      
    REM ***** Set script start timestamp *****
    set timehour=%time:~0,2%
    set timestamp=%date:~-4,4%%date:~-10,2%%date:~-7,2%-%timehour: =0%%time:~3,2%

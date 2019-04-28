@@ -1,19 +1,18 @@
 ---
 title: Utiliser un PC Windows avec Hadoop sur HDInsight - Azure
 description: Travailler à partir d’un PC Windows dans Hadoop sur HDInsight. Gérer et interroger des clusters avec les outils PowerShell, Visual Studio et Linux. Développer des solutions Big Data avec .NET.
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.topic: conceptual
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 05/17/2017
-ms.openlocfilehash: b8bad1d0f53ce4e4c924734201165e1b050c153f
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
-ms.translationtype: MT
+ms.openlocfilehash: 4d9d1ef6b7906ecebc399948a1ca0dcd590d5910
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361470"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63765822"
 ---
 # <a name="work-in-the-apache-hadoop-ecosystem-on-hdinsight-from-a-windows-pc"></a>Travailler dans l’écosystème Apache Hadoop sur HDInsight à partir d’un PC Windows
 

@@ -15,12 +15,12 @@ ms.date: 04/02/2019
 ms.author: celested
 ms.reviewer: asmalser
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 40e8aaa60359fcfb85c79c4210f7c5cc14633c7b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 516faed0f41ae36079d0f26f0311b35d5582d57a
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60291154"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63759793"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Automatiser l’attribution et l’annulation de l’attribution des utilisateurs dans les applications SaaS avec Azure Active Directory
 
@@ -143,7 +143,7 @@ Lorsque le service d’approvisionnement est démarré, la première synchronisa
 6. Si les mappages d’attributs contiennent des attributs de « référence », le service effectue des mises à jour supplémentaires sur le système cible pour créer et lier les objets référencés. Par exemple, un utilisateur peut avoir un attribut « Manager » dans le système cible, qui est lié à un autre utilisateur créé dans le système cible.
 7. Conserver un filigrane à la fin de la synchronisation initiale, qui fournit le point de départ pour les synchronisations incrémentielles plus tard.
 
-Certaines applications telles que ServiceNow, Google Apps et Box prennent non seulement en charge l’approvisionnement des utilisateurs, mais également celui des groupes et de leurs membres. Dans ce cas, si l’approvisionnement du groupe est activée dans le [mappages](customize-application-attributes.md), le service d’approvisionnement synchronise les utilisateurs et les groupes, puis synchronise plus tard les appartenances de groupe. 
+Certaines applications telles que de la prise en charge ServiceNow, G Suite, et Box, non seulement approvisionnement des utilisateurs, mais également celui des groupes et leurs membres. Dans ce cas, si l’approvisionnement du groupe est activée dans le [mappages](customize-application-attributes.md), le service d’approvisionnement synchronise les utilisateurs et les groupes, puis synchronise plus tard les appartenances de groupe. 
 
 ### <a name="incremental-syncs"></a>Synchronisations incrémentielles
 
@@ -196,7 +196,7 @@ Pour **initiale des synchronisations**, le temps de travail dépend de nombreux 
 
 Pour les **synchronisations incrémentielles**, le temps nécessaire dépend du nombre de modifications détectées dans ce cycle de synchronisation. S’il existe moins de 5 000 utilisateurs ou les changements d’appartenance au groupe, le travail peut finir dans un cycle de synchronisation incrémentielle. 
 
-Le tableau suivant récapitule les temps de synchronisation des scénarios d’approvisionnement courants. Dans ces scénarios, le système source est Azure AD et le système cible est une application SaaS. Les temps de synchronisation sont dérivés d’une analyse statistique des travaux de synchronisation pour les applications SaaS ServiceNow, Workplace, Salesforce et Google Apps.
+Le tableau suivant récapitule les temps de synchronisation des scénarios d’approvisionnement courants. Dans ces scénarios, le système source est Azure AD et le système cible est une application SaaS. Les durées de synchronisation sont issues d’une analyse statistique des travaux de synchronisation pour les applications SaaS G Suite, Salesforce, ServiceNow et espace de travail.
 
 
 | Configuration d’étendue | Utilisateurs, groupes et membres dans l’étendue | Temps de la synchronisation initiale | Temps de la synchronisation incrémentielle |
