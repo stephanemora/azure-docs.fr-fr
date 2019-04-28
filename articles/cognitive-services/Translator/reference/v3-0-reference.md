@@ -11,11 +11,11 @@ ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
 ms.openlocfilehash: 4a5bed67252c3b87233c8d2e677e3c620adb8a17
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58918805"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60605228"
 ---
 # <a name="translator-text-api-v30"></a>API de traduction de texte Translator Text v3.0
 
@@ -49,7 +49,7 @@ Pour forcer la gestion de la requête par un centre de données spécifique, rem
 |Azure|Asie-Pacifique|    api-apc.cognitive.microsofttranslator.com|
 
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Authentification
 
 S’abonner à l’API Translator Text ou [multi-service Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/) dans Microsoft Cognitive Services et utiliser votre abonnement de clé (disponible dans le portail Azure) pour s’authentifier. 
 
