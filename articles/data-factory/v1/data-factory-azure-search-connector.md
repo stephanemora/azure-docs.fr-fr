@@ -58,8 +58,8 @@ Le tableau suivant décrit les éléments JSON propres au service lié Recherche
 
 | Propriété | Description | Obligatoire |
 | -------- | ----------- | -------- |
-| Type | La propriété type doit être définie sur : **AzureSearch**. | Oui |
-| URL | URL du service Recherche Azure. | Oui |
+| type | La propriété type doit être définie sur : **AzureSearch**. | Oui |
+| url | URL du service Recherche Azure. | Oui |
 | key | Clé d’administration du service Recherche Azure. | Oui |
 
 ## <a name="dataset-properties"></a>Propriétés du jeu de données
@@ -68,7 +68,7 @@ Pour obtenir une liste complète des sections et propriétés disponibles pour l
 
 | Propriété | Description | Obligatoire |
 | -------- | ----------- | -------- |
-| Type | La propriété de type doit être définie sur **AzureSearchIndex**.| Oui |
+| type | La propriété de type doit être définie sur **AzureSearchIndex**.| Oui |
 | indexName | Nom de l’index Recherche Azure. Data Factory ne crée pas l’index. L’index doit exister dans Recherche Azure. | Oui |
 
 
@@ -80,7 +80,7 @@ Pour l’activité de copie, quand la source est de type **AzureSearchIndexSink*
 | Propriété | Description | Valeurs autorisées | Obligatoire |
 | -------- | ----------- | -------------- | -------- |
 | WriteBehavior | Indique s’il convient de procéder à une fusion ou à un remplacement lorsqu’un document existe déjà dans l’index. Voir la [propriété WriteBehavior](#writebehavior-property).| Merge (par défaut)<br/>Télécharger| Non  |
-| writeBatchSize | Charge des données dans l’index Recherche Azure lorsque la taille du tampon atteint writeBatchSize. Pour plus d’informations, voir la [propriété WriteBatchSize](#writebatchsize-property). | 1 à 1 000. Valeur par défaut : 1 000. | Non  |
+| WriteBatchSize | Charge des données dans l’index Recherche Azure lorsque la taille du tampon atteint writeBatchSize. Pour plus d’informations, voir la [propriété WriteBatchSize](#writebatchsize-property). | 1 à 1 000. Valeur par défaut : 1 000. | Non  |
 
 ### <a name="writebehavior-property"></a>Propriété WriteBehavior
 AzureSearchSink effectue une opération d’upsert lors de l’écriture des données. En d’autres termes, lorsque vous écrivez un document, si la clé du document existe déjà dans l’index Recherche Azure, Recherche Azure met à jour le document existant au lieu de lever une exception de conflit.
@@ -100,13 +100,13 @@ Le tableau suivant indique si un type de données Recherche Azure est pris en c
 
 | Type de données Recherche Azure | Pris en charge dans le récepteur de l’index Recherche Azure |
 | ---------------------- | ------------------------------ |
-| Chaîne | O |
+| String | O |
 | Int32 | O |
 | Int64 | O |
 | Double | O |
-| Booléen | O |
+| Boolean | O |
 | DataTimeOffset | O |
-| Tableau de chaînes | N |
+| String Array | N |
 | GeographyPoint | N |
 
 ## <a name="json-example-copy-data-from-on-premises-sql-server-to-azure-search-index"></a>Exemple JSON : copier des données d’un serveur SQL Server local vers un index Recherche Azure
