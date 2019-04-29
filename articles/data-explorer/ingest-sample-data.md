@@ -8,11 +8,11 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: e80322cda671e2145cf3e65aa1457f1fa1827737
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59050621"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60759273"
 ---
 # <a name="ingest-sample-data-into-azure-data-explorer"></a>Ingérer des exemples de données dans l’Explorateur de données Azure
 

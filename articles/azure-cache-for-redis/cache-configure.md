@@ -15,11 +15,11 @@ ms.workload: tbd
 ms.date: 08/22/2017
 ms.author: yegu
 ms.openlocfilehash: 6bf42406c97ccb67251a14a7a963d3da2e01dbb4
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58849965"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60554496"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Configuration du cache Azure pour Redis
 Cette rubrique décrit les configurations disponibles pour vos instances de cache Azure pour Redis. Cette rubrique décrit également la configuration par défaut du serveur Redis pour les instances de cache Azure pour Redis.

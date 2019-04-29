@@ -11,11 +11,11 @@ ms.date: 09/12/2018
 ms.author: pullabhk
 ms.assetid: b8487516-7ac5-4435-9680-674d9ecf5642
 ms.openlocfilehash: 4a65e8a855b9be797c1ceeacf4b74fea74697d00
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55100195"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60646643"
 ---
 # <a name="restore-azure-virtual-machines-using-rest-api"></a>Restaurer des machines virtuelles avec l’API REST
 
@@ -37,7 +37,7 @@ L’URI *GET* contient tous les paramètres obligatoires. Il n’est pas nécess
 
 ### <a name="responses"></a>Réponses
 
-|NOM  |type  |Description  |
+|Nom  |type  |Description  |
 |---------|---------|---------|
 |200 OK     |   [RecoveryPointResourceList](https://docs.microsoft.com/rest/api/backup/recoverypoints/list#recoverypointresourcelist)      |       OK  |
 
@@ -137,7 +137,7 @@ POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/
 
 Voici les composants du corps de la demande pour déclencher une restauration de disque à partir d’une sauvegarde de machine virtuelle Azure.
 
-|NOM  |type  |Description  |
+|Nom  |type  |Description  |
 |---------|---------|---------|
 |properties     | [IaaSVMRestoreRequest](https://docs.microsoft.com/rest/api/backup/restores/trigger#iaasvmrestorerequest)        |    RestoreRequestResourceProperties     |
 
@@ -171,7 +171,7 @@ Le déclenchement d’une restauration de disque est une [opération asynchrone]
 
 Elle retourne deux réponses : 202 (Accepté) lors de la création d’une autre opération, puis 200 (OK) quand cette opération est terminée.
 
-|NOM  |type  |Description  |
+|Nom  |type  |Description  |
 |---------|---------|---------|
 |202 Accepté     |         |     Acceptée    |
 

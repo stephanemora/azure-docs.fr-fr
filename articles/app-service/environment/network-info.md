@@ -15,11 +15,11 @@ ms.date: 03/14/2019
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 73175b326c25d5d9a78155d0d9d888b655da1bfd
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58124131"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61226813"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Considérations relatives à la mise en réseau pour un environnement App Service Environment #
 

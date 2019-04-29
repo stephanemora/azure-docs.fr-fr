@@ -2,17 +2,18 @@
 title: Utiliser une adresse IP statique avec l’équilibrage de charge d’Azure Kubernetes Service (AKS)
 description: Découvrez comment créer et utiliser une adresse IP statique avec l’équilibreur de charge d’Azure Kubernetes Service (AKS).
 services: container-service
-author: iainfoulds
+author: rockboyfor
 ms.service: container-service
 ms.topic: article
-ms.date: 03/04/2019
-ms.author: iainfou
+origin.date: 03/04/2019
+ms.date: 04/08/2019
+ms.author: v-yeche
 ms.openlocfilehash: d2e4314948eeda0c82c004414f894dafc4d4cff6
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57408681"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61031641"
 ---
 # <a name="use-a-static-public-ip-address-with-the-azure-kubernetes-service-aks-load-balancer"></a>Utiliser une adresse IP statique avec l’équilibreur de charge d’Azure Kubernetes Service (AKS)
 
@@ -34,17 +35,17 @@ Quand vous créez une adresse IP publique statique pour l’utiliser avec AKS, l
 
 Tout d’abord, obtenir le nom de groupe de ressources de nœud avec le [show d’ACS az] [ az-aks-show] commande et ajoutez le `--query nodeResourceGroup` paramètre de requête. L’exemple suivant obtient les le groupe de ressources du nœud pour le cluster AKS nommé *myAKSCluster* dans le groupe de ressources nommé *myResourceGroup* :
 
-```azurecli-interactive
+```azurecli
 $ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
 
-MC_myResourceGroup_myAKSCluster_eastus
+MC_myResourceGroup_myAKSCluster_chinaeast
 ```
 
 Créez maintenant une adresse IP publique statique avec la commande [az network public ip create][az-network-public-ip-create]. Spécifiez le nom de groupe de ressources du nœud obtenue dans la commande précédente, puis un nom pour la ressource d’adresse IP, par exemple *myAKSPublicIP* :
 
-```azurecli-interactive
+```azurecli
 az network public-ip create \
-    --resource-group MC_myResourceGroup_myAKSCluster_eastus \
+    --resource-group MC_myResourceGroup_myAKSCluster_chinaeast \
     --name myAKSPublicIP \
     --allocation-method static
 ```
@@ -56,7 +57,7 @@ L’adresse IP s’affiche, comme illustré dans l’exemple condensé suivant 
   "publicIp": {
     "dnsSettings": null,
     "etag": "W/\"6b6fb15c-5281-4f64-b332-8f68f46e1358\"",
-    "id": "/subscriptions/<SubscriptionID>/resourceGroups/MC_myResourceGroup_myAKSCluster_eastus/providers/Microsoft.Network/publicIPAddresses/myAKSPublicIP",
+    "id": "/subscriptions/<SubscriptionID>/resourceGroups/MC_myResourceGroup_myAKSCluster_chinaeast/providers/Microsoft.Network/publicIPAddresses/myAKSPublicIP",
     "idleTimeoutInMinutes": 4,
     "ipAddress": "40.121.183.52",
     [...]
@@ -66,8 +67,8 @@ L’adresse IP s’affiche, comme illustré dans l’exemple condensé suivant 
 
 Vous pouvez obtenir ultérieurement l’adresse IP publique avec la commande [az network public-ip list][az-network-public-ip-list]. Spécifiez le nom du groupe de ressources du nœud et l’adresse IP publique que vos avez créés, puis recherchez *ipAddress* comme indiqué dans l’exemple suivant :
 
-```azurecli-interactive
-$ az network public-ip show --resource-group MC_myResourceGroup_myAKSCluster_eastus --name myAKSPublicIP --query ipAddress --output tsv
+```azurecli
+$ az network public-ip show --resource-group MC_myResourceGroup_myAKSCluster_chinaeast --name myAKSPublicIP --query ipAddress --output tsv
 
 40.121.183.52
 ```
@@ -100,7 +101,7 @@ kubectl apply -f load-balancer-service.yaml
 
 Avec Kubernetes 1.10 ou version ultérieure, vous pouvez utiliser une adresse IP statique créée en dehors du groupe de ressources du nœud. Le principal de service utilisé par le cluster AKS doit disposer d’autorisations déléguées sur l’autre groupe de ressources, comme indiqué dans l’exemple suivant :
 
-```azurecli-interactive
+```azurecli
 az role assignment create\
     --assignee <SP Client ID> \
     --role "Network Contributor" \
@@ -166,12 +167,12 @@ Pour plus de contrôle du trafic réseau vers vos applications, vous pouvez à l
 
 <!-- LINKS - Internal -->
 [aks-faq-resource-group]: faq.md#why-are-two-resource-groups-created-with-aks
-[az-network-public-ip-create]: /cli/azure/network/public-ip#az-network-public-ip-create
-[az-network-public-ip-list]: /cli/azure/network/public-ip#az-network-public-ip-list
-[az-aks-show]: /cli/azure/aks#az-aks-show
+[az-network-public-ip-create]: https://docs.azure.cn/zh-cn/cli/network/public-ip?view=azure-cli-latest#az-network-public-ip-create
+[az-network-public-ip-list]: https://docs.azure.cn/zh-cn/cli/network/public-ip?view=azure-cli-latest#az-network-public-ip-list
+[az-aks-show]: https://docs.azure.cn/zh-cn/cli/aks?view=azure-cli-latest#az-aks-show
 [aks-ingress-basic]: ingress-basic.md
 [aks-static-ingress]: ingress-static-ip.md
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
-[install-azure-cli]: /cli/azure/install-azure-cli
+[install-azure-cli]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest
 [ip-sku]: ../virtual-network/virtual-network-ip-addresses-overview-arm.md#sku

@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.custom: seodec18
 ms.openlocfilehash: 33d8e18dcec98710443623c03651aa568aa37009
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60010379"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60819954"
 ---
 # <a name="configure-automated-machine-learning-experiments"></a>Configurer des expériences de machine learning automatisé
 
@@ -112,7 +112,7 @@ automl_config = AutoMLConfig(****, data_script=project_folder + "/get_data.py", 
 
 Le script `get_data` peut retourner :
 
-Clé | type | Mutuellement exclusif avec    | Description
+Clé | Type | Mutuellement exclusif avec    | Description
 ---|---|---|---
 X | Tramedonnées Pandas ou tableaux Numpy | data_train, étiquette, colonnes |  Toutes les caractéristiques pour l’entraînement
 y | Tramedonnées Pandas ou tableaux Numpy |   label   | Données des étiquettes pour l’entraînement. Pour la classification, il doit s’agir d’un tableau d’entiers.

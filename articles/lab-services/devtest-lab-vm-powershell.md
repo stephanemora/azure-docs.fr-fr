@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 04/02/2019
 ms.author: spelluru
 ms.openlocfilehash: a9629cd14c71a163612c2c4ba3c7b109a52b91ad
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60008356"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60622437"
 ---
 # <a name="create-a-virtual-machine-with-devtest-labs-using-azure-powershell"></a>Créer une machine virtuelle avec DevTest Labs à l’aide d’Azure PowerShell
 Cet article vous montre comment créer une machine virtuelle dans Azure DevTest Labs à l’aide d’Azure PowerShell. Vous pouvez utiliser des scripts PowerShell pour automatiser la création de machines virtuelles dans un laboratoire dans Azure DevTest Labs. 

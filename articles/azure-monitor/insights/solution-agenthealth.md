@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/19/2017
 ms.author: magoedte
 ms.openlocfilehash: f431613d9fa1020f523e03c90cbe31f4d42ccf42
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59426220"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60596067"
 ---
 #  <a name="agent-health-solution-in-azure-monitor"></a>Solution agent Health Azure Monitor
 La solution Agent Health dans Azure vous permet de comprendre, pour tous les agents de rapports directement à l’espace de travail Analytique de journal dans Azure Monitor ou un groupe d’administration System Center Operations Manager connecté à Azure Monitor, qui sont ne répond pas et envoi de données opérationnelles.  Vous pouvez aussi suivre le nombre d’agents déployés et leur localisation géographique, et réaliser diverses requêtes pour être au fait de la distribution d’agents déployés au sein d’Azure, d’environnements de cloud ou localement.    

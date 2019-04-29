@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 05/21/2018
 ms.author: vidarmsft
 ms.openlocfilehash: c5ffe3ec2ec3cb06297df6be4ba7021f692633bf
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57312484"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60630682"
 ---
 # <a name="storsimple-data-manager-solution-overview"></a>Vue d’ensemble de la solution StorSimple Data Manager
 

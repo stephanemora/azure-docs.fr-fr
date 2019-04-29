@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 06/12/2018
 ms.author: shlo
 ms.openlocfilehash: 845544a2062b43f0d9f883ddecbc2589b3357221
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57997940"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61261955"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Pipelines et activités dans Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -96,8 +96,8 @@ Voici comment un pipeline est défini au format JSON :
 
 Tag | Description | Type | Obligatoire
 --- | ----------- | ---- | --------
-Nom | Nom du pipeline. Spécifiez un nom qui représente l’action effectuée par le pipeline. <br/><ul><li>Nombre maximal de caractères : 140</li><li>Doit commencer par une lettre, un chiffre ou un trait de soulignement (\_)</li><li>Les caractères suivants ne sont pas autorisés : « . », « + », « ? », « / », « < », « > », « * », « % », « & », « : », « \ »</li></ul> | Chaîne | Oui
-description | Spécifiez le texte décrivant la raison motivant l’utilisation du pipeline. | Chaîne | Non 
+Nom | Nom du pipeline. Spécifiez un nom qui représente l’action effectuée par le pipeline. <br/><ul><li>Nombre maximal de caractères : 140</li><li>Doit commencer par une lettre, un chiffre ou un trait de soulignement (\_)</li><li>Les caractères suivants ne sont pas autorisés : « . », « + », « ? », « / », « < », « > », « * », « % », « & », « : », « \ »</li></ul> | String | Oui
+description | Spécifiez le texte décrivant la raison motivant l’utilisation du pipeline. | String | Non 
 activités | La section **Activités** peut contenir une ou plusieurs activités définies. Consultez la section [JSON d’activité](#activity-json) pour plus d’informations sur l’élément JSON des activités. | Tableau | Oui
 parameters | La section **Paramètres** peut comporter un ou plusieurs des paramètres définis dans le pipeline, afin de rendre votre pipeline plus flexible en vue de sa réutilisation. | Liste | Non 
 
@@ -173,7 +173,7 @@ Nom JSON | Description | Valeurs autorisées | Obligatoire
 timeout | Spécifie le délai d’expiration d’exécution de l’activité. | Timespan | Non. Le délai d’expiration par défaut est de 7 jours.
 retry | Nombre maximal de nouvelles tentatives | Entier  | Non. La valeur par défaut est 0
 retryIntervalInSeconds | Délai en secondes entre chaque nouvelle tentative | Entier  | Non. La valeur par défaut est de 20 secondes
-secureOutput | Lorsqu’elle est définie sur true, la sortie de l’activité est considérée comme sécurisée et ne sera pas consignée pour la surveillance. | Booléen | Non. La valeur par défaut est false.
+secureOutput | Lorsqu’elle est définie sur true, la sortie de l’activité est considérée comme sécurisée et ne sera pas consignée pour la surveillance. | Boolean | Non. La valeur par défaut est false.
 
 ### <a name="control-activity"></a>Activité de contrôle
 Les activités de contrôle ont la structure de niveau supérieur suivante :

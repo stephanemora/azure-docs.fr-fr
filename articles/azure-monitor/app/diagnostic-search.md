@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: mbullwin
 ms.openlocfilehash: dfbaabd3d27804909334a7a370bcc89115e625c4
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119168"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60900064"
 ---
 # <a name="using-search-in-application-insights"></a>Utilisation de la recherche dans Application Insights
 Recherche (Search) est la fonctionnalité [d’Application Insights](../../azure-monitor/app/app-insights-overview.md) qui vous permet de rechercher et d’explorer les éléments de télémétrie, par exemple des pages vues, des exceptions ou des requêtes web. Vous pouvez également afficher le suivi et les événements de journal que vous avez codés.
@@ -112,7 +112,7 @@ Vous pouvez définir une durée, car les recherches sur les plages courtes sont 
 
 Recherchez des mots entiers, pas des sous-chaînes. Utilisez des guillemets pour délimiter les caractères spéciaux.
 
-| chaîne | n’est *pas* trouvé par | mais ceux-ci la trouvent |
+| string | n’est *pas* trouvé par | mais ceux-ci la trouvent |
 | --- | --- | --- |
 | HomeController.About |home<br/>contrôleur<br/>out | homecontroller<br/>about<br/>« homecontroller.about »|
 |États-Unis|Uni<br/>ted|états<br/>unis<br/>états ET unis<br/>« états-unis »
@@ -148,7 +148,7 @@ En plus de la télémétrie fournie par le Kit de développement logiciel (SDK) 
 * Capturer le suivi du journal dans votre infrastructure de journalisation favorite dans [.NET](../../azure-monitor/app/asp-net-trace-logs.md) ou [Java](../../azure-monitor/app/java-trace-logs.md). Cela signifie que vous pouvez effectuer des recherches dans le suivi du journal et les mettre en corrélation avec les pages vues, les exceptions et autres événements. 
 * [Écrire du code](../../azure-monitor/app/api-custom-events-metrics.md) pour envoyer des événements personnalisés, des affichages de page et des exceptions. 
 
-[Découvrez comment envoyer les journaux et la télémétrie personnalisée à Application Insights](../../azure-monitor/app/asp-net-trace-logs.md).
+[Découvrez comment envoyer les journaux d’activité et la télémétrie personnalisée à Application Insights](../../azure-monitor/app/asp-net-trace-logs.md).
 
 ## <a name="questions"></a>Questions et réponses
 ### <a name="limits"></a>Quelle est la quantité de données conservée ?
@@ -164,6 +164,6 @@ Nous n’enregistrons pas automatiquement les données POST, mais vous pouvez ut
 
 ## <a name="add"></a>Étapes suivantes
 * [Écrire des requêtes complexes dans Analytics](../../azure-monitor/log-query/get-started-portal.md)
-* [Envoi des journaux et de la télémétrie personnalisée à Application Insights](../../azure-monitor/app/asp-net-trace-logs.md)
+* [Envoi des journaux d’activité et de la télémétrie personnalisée à Application Insights](../../azure-monitor/app/asp-net-trace-logs.md)
 * [Configuration des tests de disponibilité et de réactivité](../../azure-monitor/app/monitor-web-app-availability.md)
 * [Dépannage](../../azure-monitor/app/troubleshoot-faq.md)

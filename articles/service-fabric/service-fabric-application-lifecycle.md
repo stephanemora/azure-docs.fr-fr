@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 1/19/2018
 ms.author: atsenthi
 ms.openlocfilehash: 53cab3591ea11721e36b48438f35df016e2a9f3a
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58664979"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60621483"
 ---
 # <a name="service-fabric-application-lifecycle"></a>Cycle de vie des applications Service Fabric
 Comme pour les autres plateformes, une application sur Azure Service Fabric passe généralement par les phases suivantes : conception, développement, test, déploiement, mise à niveau, maintenance et suppression. Service Fabric offre une excellente prise en charge du cycle de vie complet des applications cloud : du développement au retrait éventuel, en passant par le déploiement, la gestion quotidienne et la maintenance. Le modèle de service permet à différents rôles de participer indépendamment au cycle de vie des applications. Cet article fournit une vue d'ensemble des API et de la façon dont elles sont utilisées par les différents rôles pendant les phases du cycle de vie des applications Service Fabric.

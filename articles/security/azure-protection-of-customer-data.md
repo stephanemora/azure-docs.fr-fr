@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
 ms.openlocfilehash: 49615dcb2f077d2e1d8b93a4bb900b435e4c87bf
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56104487"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60589074"
 ---
 # <a name="azure-customer-data-protection"></a>Protection des données client Azure   
 L’accès aux données clientes par le personnel des opérations et du support Microsoft est refusé par défaut. Lorsque l’accès aux données clientes est accordé, l’approbation de la direction est obligatoire, puis l’accès est géré et journalisé avec soin. Les conditions de contrôle d’accès sont établies par la stratégie de sécurité Azure suivante :

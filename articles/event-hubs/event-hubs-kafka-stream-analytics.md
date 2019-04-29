@@ -14,11 +14,11 @@ ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: spelluru
 ms.openlocfilehash: b6bba4ed45530ba66a1adde274022a80091cd199
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57539155"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60747993"
 ---
 # <a name="process-apache-kafka-for-event-hubs-events-using-stream-analytics"></a>Processus Apache Kafka pour les événements Event Hubs à l’aide de Stream Analytics 
 Cet article décrit comment diffuser des données dans des hubs d’événements Kafka et les traiter avec Azure Stream Analytics. Il vous guide dans les étapes suivantes : 
@@ -170,7 +170,7 @@ Lorsque vous disposez d’un travail Stream Analytics configuré pour lire un fl
 3. Remplacez `[YourInputAlias]` par l’alias d’entrée que vous avez créé précédemment. 
 4. Sélectionnez **Enregistrer** dans la barre d’outils. 
 
-    ![Requête](./media/event-hubs-kafka-stream-analytics/query.png)
+    ![Interroger](./media/event-hubs-kafka-stream-analytics/query.png)
 
 
 ### <a name="run-the-stream-analytics-job"></a>Exécuter la tâche Stream Analytics

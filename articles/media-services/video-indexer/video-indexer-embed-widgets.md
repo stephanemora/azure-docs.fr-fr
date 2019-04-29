@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: fe3466dcccf6381f26c823ce3deb2126c9534548
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60006486"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60560427"
 ---
 # <a name="embed-video-indexer-widgets-into-your-applications"></a>Incorporer des widgets Video Indexer dans vos applications
 
@@ -28,7 +28,7 @@ Cet article vous explique comment incorporer des widgets Video Indexer dans vos 
 
 Un widget **Insight cognitifs** inclut tous les insights visuels extraits à partir du processus d’indexation de votre vidéo. Le widget Insights prend en charge les paramètres d’URL facultatifs suivants :
 
-|Name|Définition|Description|
+|Nom|Définition|Description|
 |---|---|---|
 |widgets|Chaînes séparées par des virgules|Vous permet de contrôler les insights dont vous voulez faire le rendu. <br/>Exemple : `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search` affichera uniquement les insights d’IU des marques (brands) et des personnes (people)<br/>Options disponibles : personnes (people), mots clés (keywords), annotations, marques (brands), sentiments, transcription (transcript), recherche (search).<br/>non pris en charge via l’URL dans la version=2<br/><br/>**Remarque :** Le paramètre d’URL de widgets n’est pas pris en charge dans la version 2. |
 
@@ -36,7 +36,7 @@ Un widget **Insight cognitifs** inclut tous les insights visuels extraits à par
 
 Un widget **Lecteur** vous permet de diffuser la vidéo en continu à l’aide d’une vitesse de transmission adaptative. Le widget Lecteur prend en charge les paramètres d’URL facultatifs suivants :
 
-|Name|Définition|Description|
+|Nom|Définition|Description|
 |---|---|---|
 |t|Secondes depuis le début|Fait démarrer le lecteur à partir d’un instant donné.<br/>Exemple : t=60|
 |captions|Code de langue|Extrait les sous-titres dans la langue spécifiée pendant le chargement du widget pour les rendre disponibles dans le menu des sous-titres.<br/>Exemple : captions=en-US|

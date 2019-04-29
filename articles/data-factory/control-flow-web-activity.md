@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/19/2018
 ms.author: shlo
 ms.openlocfilehash: 7edaa4c673c2cb94dc5bd0245ce66c9fe6a7dd3c
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214298"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60764286"
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Activité Web dans Azure Data Factory
 Une activité web peut être utilisée pour appeler un point de terminaison REST personnalisé à partir d’un pipeline Data Factory. Vous pouvez transmettre des jeux de données et des services liés que l’activité peut utiliser et auxquels elle peut accéder.
@@ -63,8 +63,8 @@ Une activité web peut être utilisée pour appeler un point de terminaison REST
 
 Propriété | Description | Valeurs autorisées | Obligatoire
 -------- | ----------- | -------------- | --------
-Nom | Nom de l’activité web | Chaîne | Oui
-Type | Doit avoir la valeur **WebActivity**. | Chaîne | Oui
+Nom | Nom de l’activité web | String | Oui
+Type | Doit avoir la valeur **WebActivity**. | String | Oui
 method | Méthode d’API REST pour le point de terminaison cible. | Chaîne. <br/><br/>Types pris en charge : « GET », « POST », « PUT » | Oui
 url | Point de terminaison cible et chemin d’accès | Chaîne (ou expression avec resultType de chaîne). Si elle ne reçoit pas de réponse du point de terminaison, l’activité expire à 1 minute avec une erreur. | Oui
 headers | En-têtes envoyés à la demande. Par exemple, pour définir la langue et le type sur une requête : `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }`. | Chaîne (ou expression avec resultType de chaîne) | Oui, l’en-tête Content-type est obligatoire. `"headers":{ "Content-Type":"application/json"}`

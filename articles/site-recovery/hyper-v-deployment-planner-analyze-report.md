@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 3/20/2019
 ms.author: mayg
 ms.openlocfilehash: 7bfe382ac1a175aafb4944dffa8d12a372f4fb70
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286497"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60772727"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report"></a>Analyser le rapport du planificateur de déploiement Azure Site Recovery
 Cet article décrit les feuilles de calcul du rapport Excel généré par le Planificateur de déploiement Azure Site Recovery pour le déploiement d’Hyper-V vers Azure.

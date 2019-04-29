@@ -16,11 +16,11 @@ ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: maghan
 ms.openlocfilehash: b554dc1fa33519d87aa0c9c5ba9130b47cbea142
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53971748"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60580066"
 ---
 # <a name="use-reportviewer-in-a-web-site-hosted-in-azure"></a>Utilisation de ReportViewer sur un site web hébergé dans Azure
 > [!IMPORTANT]
@@ -37,7 +37,7 @@ Pour incorporer ReportViewer dans votre site web Microsoft Azure, vous devez eff
 * **Configuration** de l’authentification et de l’autorisation
 * **Publication** de l’application web ASP.NET sur Azure
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 Consultez la section « Instructions générales et meilleures pratiques » dans [Business Intelligence de SQL Server dans les machines virtuelles Azure](../classic/ps-sql-bi.md).
 
 > [!NOTE]

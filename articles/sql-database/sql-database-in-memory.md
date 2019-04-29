@@ -13,11 +13,11 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 03/19/2019
 ms.openlocfilehash: d2c852b48c219283bba2304a993dd26e802b3252
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226978"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61036498"
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>Optimisation des performances à l’aide des technologies en mémoire dans SQL Database
 
@@ -160,7 +160,7 @@ Vidéo détaillée sur la technologie :
 
 ### <a name="data-size-and-storage-for-columnstore-indexes"></a>Taille des données et stockage pour les index columnstore
 
-Le volume des index columntore ne doit pas forcément tenir dans la mémoire. Par conséquent, le seul seuil de taille des index est la taille de base de données globale maximale décrite dans les articles [Modèle d’achat basé sur des DTU](sql-database-service-tiers-dtu.md) et [Modèle d’achat basé sur des vCores](sql-database-service-tiers-vcore.md).
+Le volume des index columntore ne doit pas forcément tenir dans la mémoire. Par conséquent, le seul seuil de taille des index est la taille de base de données globale maximale décrite dans les articles [Modèle d’achat DTU](sql-database-service-tiers-dtu.md) et [Modèle d’achat vCore](sql-database-service-tiers-vcore.md).
 
 Lors de l’utilisation d’index columnstore en cluster, la compression en colonnes est utilisée pour le stockage de table de base. Cette compression peut réduire considérablement l’encombrement de stockage des données utilisateur, ce qui signifie que vous pouvez entrer davantage de données dans la base de données. De plus, la compression peut être accrue d’avantage avec [la compression d’archivage en colonnes](https://msdn.microsoft.com/library/cc280449.aspx#using-columnstore-and-columnstore-archive-compression). Le taux de compression que vous pouvez obtenir dépend de la nature des données, mais une compression égale à 10 fois n’est pas rare.
 

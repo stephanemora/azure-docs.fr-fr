@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 07/06/2018
 ms.author: terrylan
 ms.openlocfilehash: a9a55f61f032512be032897d5f21ece405844634
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56105873"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60587188"
 ---
 # <a name="azure-infrastructure-availability"></a>Disponibilité de l’infrastructure Azure
 Azure fournit une disponibilité robuste basée sur une redondance étendue obtenue grâce à la technologie de virtualisation. Azure fournit de nombreux niveaux de redondance pour garantir une disponibilité optimale des données des clients.

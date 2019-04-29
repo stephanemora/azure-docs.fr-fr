@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Ziflow | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Ziflow | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Ziflow.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 08/07/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 175e678365016bafd3d18f590a5434c32ac9fadd
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56176473"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60798214"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-ziflow"></a>Tutoriel : Intégration d’Azure Active Directory à Rollbar
+# <a name="tutorial-azure-active-directory-integration-with-ziflow"></a>Didacticiel : Intégration d’Azure Active Directory à Rollbar
 
 Dans ce didacticiel, vous allez apprendre à intégrer Ziflow dans Azure Active Directory (Azure AD).
 
@@ -35,7 +35,7 @@ L’intégration de Ziflow dans Azure AD vous offre les avantages suivants :
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour configurer l’intégration d’Azure AD dans Ziflow, vous avez besoin des éléments suivants :
 

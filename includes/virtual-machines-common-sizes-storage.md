@@ -35,7 +35,7 @@ Premium Storage : Pris en charge
 
 Mise en cache du Stockage Premium : Non pris en charge
 
-| Taille          | Processeurs virtuels | Mémoire (Gio) | Disque temporaire<sup>1</sup> (Gio) | Disques NVMe<sup>2</sup> | Débit de disque NVMe <sup>3</sup> (IOPS de lecture / Mo/s) | Max mise hors cache débit de disque de données (IOPs/Mo/s)<sup>4</sup> | Nombre max de disques de données | Nombre max de cartes réseau / Bande passante réseau attendue (Mbit/s) |
+| Taille          | Processeurs virtuels | Mémoire (Gio) | Disque temporaire<sup>1</sup> (Gio) | Disques NVMe<sup>2</sup> | Débit de disque NVMe <sup>3</sup> (IOPS de lecture / MBit/s) | Max mise hors cache débit de disque de données (IOPs/Mbit/s)<sup>4</sup> | Nombre max de disques de données | Nombre max de cartes réseau / Bande passante réseau attendue (Mbit/s) |
 |---------------|-----------|-------------|--------------------------|----------------|---------------------------------------------------|-------------------------------------------|------------------------------|------------------------------| 
 | Standard_L8s_v2   |  8 |  64 |  80 |  1 x 1,92 To  | 400,000 / 2,000 | 8,000/160 | 16 | 2 / 3 200  | 
 | Standard_L16s_v2  | 16 | 128 | 160 |  2 x 1,92 To  | 800,000 / 4,000 | 16,000/320 | 32 | 4 / 6 400  | 
@@ -43,7 +43,7 @@ Mise en cache du Stockage Premium : Non pris en charge
 | Standard_L64s_v2  | 64 | 512 | 640 |  8 x 1,92 To  | 2.9 M / 16 000   | 64,000/1,280 | 32 | 8 / 25 600 |
 | Standard_L80s_v2  | 80 | 640 | 800 | 10 x 1,92 To   | 3.8 M / 20 000   | 80,000/1,400 | 32 | 8 / 32 000 |
 
-<sup>1</sup> Les machines virtuelles de la série Lsv2 disposent d’un disque de ressources temporaire SCSI standard pour l’utilisation du fichier d’échange du système d’exploitation (D: sur Windows, /dev/sdb sur Linux). Ce disque offre un stockage de 80 Gio, 4 000 IOPS et un taux de transfert de 80 Mo/s pour 8 processeurs virtuels (par exemple, Standard_L80s_v2 fournit 800 Gio à 40 000 IOPS et 800 Mo/s). Ainsi, les lecteurs NVMe peuvent être entièrement dédiés à l’utilisation d’applications. Ce disque est éphémère, et toutes les données seront perdues lors de l'arrêt/la libération.
+<sup>1</sup> Les machines virtuelles de la série Lsv2 disposent d’un disque de ressources temporaire SCSI standard pour l’utilisation du fichier d’échange du système d’exploitation (D: sur Windows, /dev/sdb sur Linux). Ce disque offre un stockage de 80 Gio, 4 000 IOPS et un taux de transfert de 80 MBit/s pour 8 processeurs virtuels (par exemple, Standard_L80s_v2 fournit 800 Gio à 40 000 IOPS et 800 MBit/s). Ainsi, les lecteurs NVMe peuvent être entièrement dédiés à l’utilisation d’applications. Ce disque est éphémère, et toutes les données seront perdues lors de l'arrêt/la libération.
 
 <sup>2</sup> Les disques NVMe locaux sont éphémères ; les données présentes sur ces disques seront perdues si vous arrêtez/libérez votre machine virtuelle.
 
@@ -54,6 +54,6 @@ Mise en cache du Stockage Premium : Non pris en charge
 ## <a name="size-table-definitions"></a>Définitions des tailles de tables
 
 - La capacité de stockage est indiquée en unités de Gio ou 1 024^3 octets. Lors de la comparaison de disques mesurés en Go (1 000^3 octets) à des disques mesurés en Gio (1 024^3) n’oubliez pas que les indications de capacité en Gio peuvent sembler plus petites. Par exemple, 1 023 Gio = 1 098,4 Go
-- Le débit de disque est mesuré en opérations d’entrée/sortie par seconde (IOPS) et MBps où MBps = 10^6 octets par seconde.
+- Le débit de disque est mesuré en opérations d’entrée/sortie par seconde (IOPS) et MBit/s où MBit/s = 10^6 octets par seconde.
 - Si vous souhaitez obtenir des performances optimales pour vos machines virtuelles, vous devez limiter le nombre de disques de données à 2 disques par processeur virtuel.
 - La **bande passante réseau attendue** est la [bande passante agrégée maximale qui est allouée par type de machine virtuelle](../articles/virtual-network/virtual-machine-network-throughput.md) entre toutes les cartes réseau, pour toutes les destinations. Les limites supérieures ne sont pas garanties, mais servent de points de repère pour sélectionner le type de machine virtuelle adapté à l’application prévue. Les performances réseau réelles dépendent de nombreux facteurs, notamment la congestion du réseau, les charges de l’application, ainsi que les paramètres réseau. Pour plus d’informations sur l’optimisation du débit du réseau, consultez [Optimisation du débit du réseau pour Windows et Linux](../articles/virtual-network/virtual-network-optimize-network-bandwidth.md). Pour atteindre la performance réseau attendue sous Linux ou Windows, il peut être nécessaire de sélectionner une version spécifique ou d’optimiser votre machine virtuelle. Pour plus d’informations, consultez [Tester de manière fiable le débit d’une machine virtuelle](../articles/virtual-network/virtual-network-bandwidth-testing.md).

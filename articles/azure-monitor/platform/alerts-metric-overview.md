@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.service: azure-monitor
 ms.subservice: alerts
 ms.openlocfilehash: 59973d9530bf1c3ab3e77290b25e50860f9de0ca
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342981"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60712863"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Comprendre le fonctionnement des alertes de métrique dans Azure Monitor
 
@@ -145,34 +145,34 @@ Si vous utilisez aujourd'hui des alertes de métrique classiques et cherchez à 
 
 |Type de ressource pris en charge par les alertes de métrique classiques | Pris en charge par les alertes de métrique |
 |-------------------------------------------------|----------------------------|
-| Microsoft.ApiManagement/service | OUI |
-| Microsoft.Batch/batchAccounts| OUI|
-|Microsoft.Cache/redis| OUI |
+| Microsoft.ApiManagement/service | Oui |
+| Microsoft.Batch/batchAccounts| Oui|
+|Microsoft.Cache/redis| Oui |
 |Microsoft.ClassicCompute/virtualMachines | Non  |
 |Microsoft.ClassicCompute/domainNames/slots/roles | Non |
 |Microsoft.CognitiveServices/accounts | Non  |
-|Microsoft.Compute/virtualMachines | OUI|
-|Microsoft.Compute/virtualMachineScaleSets| OUI|
+|Microsoft.Compute/virtualMachines | Oui|
+|Microsoft.Compute/virtualMachineScaleSets| Oui|
 |Microsoft.ClassicStorage/storageAccounts| Non  |
-|Microsoft.DataFactory/datafactories | OUI|
-|Microsoft.DBforMySQL/servers| OUI|
-|Microsoft.DBforPostgreSQL/servers| OUI|
+|Microsoft.DataFactory/datafactories | Oui|
+|Microsoft.DBforMySQL/servers| Oui|
+|Microsoft.DBforPostgreSQL/servers| Oui|
 |Microsoft.Devices/IotHubs | Non |
-|Microsoft.DocumentDB/databaseAccounts| OUI|
-|Microsoft.EventHub/namespaces | OUI|
-|Microsoft.Logic/workflows | OUI|
-|Microsoft.Network/loadBalancers |OUI|
-|Microsoft.Network/publicIPAddresses| OUI|
-|Microsoft.Network/applicationGateways| OUI|
-|Microsoft.Network/expressRouteCircuits| OUI|
-|Microsoft.Network/trafficManagerProfiles | OUI|
-|Microsoft.Search/searchServices | OUI|
-|Microsoft.ServiceBus/namespaces| OUI |
-|Microsoft.Storage/storageAccounts | OUI|
-|Microsoft.StreamAnalytics/streamingjobs| OUI|
-|Microsoft.TimeSeriesInsights/environments | OUI|
-|Microsoft. Web/serverfarms | OUI |
-|Microsoft. Web/sites (à l’exclusion de Functions) | OUI|
+|Microsoft.DocumentDB/databaseAccounts| Oui|
+|Microsoft.EventHub/namespaces | Oui|
+|Microsoft.Logic/workflows | Oui|
+|Microsoft.Network/loadBalancers |Oui|
+|Microsoft.Network/publicIPAddresses| Oui|
+|Microsoft.Network/applicationGateways| Oui|
+|Microsoft.Network/expressRouteCircuits| Oui|
+|Microsoft.Network/trafficManagerProfiles | Oui|
+|Microsoft.Search/searchServices | Oui|
+|Microsoft.ServiceBus/namespaces| Oui |
+|Microsoft.Storage/storageAccounts | Oui|
+|Microsoft.StreamAnalytics/streamingjobs| Oui|
+|Microsoft.TimeSeriesInsights/environments | Oui|
+|Microsoft. Web/serverfarms | Oui |
+|Microsoft. Web/sites (à l’exclusion de Functions) | Oui|
 |Microsoft. Web/hostingEnvironments/multiRolePools | Non |
 |Microsoft. Web/hostingEnvironments/workerPools| Non  |
 |Microsoft.SQL/Servers | Non  |

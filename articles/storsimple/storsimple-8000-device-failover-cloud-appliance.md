@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/03/2017
 ms.author: alkohli
-ms.openlocfilehash: ec8bebf2854e84a37e84b45564e80fc20b63d8d8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 45c521fd044fa258b8052a3f0de48784cf4160e8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23108327"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60584395"
 ---
 # <a name="fail-over-to-your-storsimple-cloud-appliance"></a>Basculer vers votre StorSimple Cloud Appliance
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Présentation
 
 Ce didacticiel décrit les étapes requises pour basculer un appareil physique de la gamme StorSimple 8000 vers une StorSimple Cloud Appliance en cas de sinistre. StorSimple utilise l’option de basculement d’appareil pour migrer des données d’un appareil physique source dans le centre de données vers une appliance cloud exécutée dans Azure. Les instructions de ce didacticiel s’appliquent aux appareils physiques de gamme StorSimple 8000 et aux appliances cloud exécutant des versions logicielles Update 3 et versions ultérieures.
 
@@ -31,7 +31,7 @@ Pour en savoir plus sur le basculement d’appareil et comment il est utilisé a
 
 Pour basculer un appareil physique StorSimple vers un autre appareil physique, accédez à [Basculer vers un appareil physique StorSimple](storsimple-8000-device-failover-physical-device.md). Pour basculer un appareil vers lui-même, accédez à [Basculer vers le même appareil physique StorSimple](storsimple-8000-device-failover-same-device.md).
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Conditions préalables
 
 - Assurez-vous d’avoir passé en revue les considérations relatives au basculement d’appareil. Pour plus d’informations, accédez à [Considérations courantes relatives au basculement d’appareil](storsimple-8000-device-failover-disaster-recovery.md).
 

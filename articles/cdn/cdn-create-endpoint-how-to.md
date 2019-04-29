@@ -15,11 +15,11 @@ ms.date: 06/12/2018
 ms.author: magattus
 ms.custom: mvc
 ms.openlocfilehash: 296f1df9175f4595274a57ed936282abb73da18b
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59525107"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60679554"
 ---
 # <a name="create-an-azure-cdn-endpoint"></a>Créer un point de terminaison CDN Azure
 Cet article décrit tous les paramètres de création d’un point de terminaison [Azure Content Delivery Network (CDN)](cdn-overview.md) dans un profil CDN existant. Après avoir créé un profil et un point de terminaison, vous pouvez commencer à distribuer du contenu à vos clients. Pour un démarrage rapide sur la création d’un profil et un point de terminaison, consultez [Guide de démarrage rapide : Créer un point de terminaison et un profil de réseau de distribution de contenu Azure](cdn-create-new-endpoint.md).

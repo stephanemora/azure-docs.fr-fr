@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 08/02/2017
 ms.author: alkohli
-ms.openlocfilehash: 57d6d63c55f8ad4da5d1905a1e209da454b0491c
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.openlocfilehash: 5b48cbd1020cfd51fe989a9be33197f2735f21f4
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38630192"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60860376"
 ---
 # <a name="install-update-4-on-your-storsimple-device"></a>Installer Update 4 sur votre appareil StorSimple
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Présentation
 
 Ce didacticiel explique comment installer Update 4 sur un appareil StorSimple exécutant une version logicielle antérieure par le biais du portail Azure et à l’aide de la méthode du correctif logiciel. La méthode du correctif logiciel est utilisée quand une passerelle est configurée sur une interface réseau différente de DATA 0 de l’appareil StorSimple et que la mise à jour porte sur une version logicielle antérieure à Update 1.
 

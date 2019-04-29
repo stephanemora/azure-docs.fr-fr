@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/28/2019
 ms.author: cephalin
 ms.openlocfilehash: e203877b2bc939c1d7fb9390df39f3e2451d12d3
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59551111"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60852310"
 ---
 # <a name="configure-a-linux-aspnet-core-app-for-azure-app-service"></a>Configurer une Linux application ASP.NET Core pour Azure App Service
 
@@ -141,7 +141,7 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Tutoriel : Application ASP.NET Core avec la base de données SQL](tutorial-dotnetcore-sqldb-app.md)
+> [Tutoriel : application ASP.NET Core avec SQL Database](tutorial-dotnetcore-sqldb-app.md)
 
 > [!div class="nextstepaction"]
-> [App Service Linux Forum aux questions](app-service-linux-faq.md)
+> [Questions fréquentes (FAQ) sur App Service sur Linux](app-service-linux-faq.md)

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.openlocfilehash: e8f3cf3889b3f79e930630ff0e768a0c4875eec6
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361725"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60611688"
 ---
 # <a name="security-frame-session-management"></a>Infrastructure de sécurité : Gestion des sessions
 | Produit/Service | Article |
@@ -39,8 +39,8 @@ ms.locfileid: "58361725"
 | **Composant**               | Azure AD | 
 | **Phase SDL**               | Créer |  
 | **Technologies applicables** | Générique |
-| **Attributs**              | S.O.  |
-| **Informations de référence**              | S.O.  |
+| **Attributs**              | N/A  |
+| **Informations de référence**              | N/A  |
 | **Étapes** | Si l’application s’appuie sur le jeton d’accès émis par Azure AD, le gestionnaire d’événements de déconnexion doit appeler |
 
 ### <a name="example"></a>Exemples
@@ -74,8 +74,8 @@ Il est également nécessaire de détruire la session de l’utilisateur en appe
 | **Composant**               | Appareil IoT | 
 | **Phase SDL**               | Créer |  
 | **Technologies applicables** | Générique |
-| **Attributs**              | S.O.  |
-| **Informations de référence**              | S.O.  |
+| **Attributs**              | N/A  |
+| **Informations de référence**              | N/A  |
 | **Étapes** | Les jetons SaS générés pour l’authentification auprès d’Azure IoT Hub doivent présenter une période d’expiration limitée dans le temps. Conservez les durées de vie des jetons SaS sur une valeur minimale pour limiter la durée pendant laquelle ces jetons peuvent être relus dans le cas où leur intégrité a été compromise.|
 
 ## <a id="resource-tokens"></a>Utiliser des durées de vie de jeton minimales pour les jetons de ressource générés
@@ -85,8 +85,8 @@ Il est également nécessaire de détruire la session de l’utilisateur en appe
 | **Composant**               | Azure Document DB | 
 | **Phase SDL**               | Créer |  
 | **Technologies applicables** | Générique |
-| **Attributs**              | S.O.  |
-| **Informations de référence**              | S.O.  |
+| **Attributs**              | N/A  |
+| **Informations de référence**              | N/A  |
 | **Étapes** | Définissez la période de validité d’un jeton de ressource sur une valeur minimale. Les jetons de ressource ont une durée de validité par défaut d'une heure.|
 
 ## <a id="wsfederation-logout"></a>Implémenter une déconnexion appropriée à l’aide de méthodes WsFederation lors de l’utilisation d’ADFS
@@ -96,8 +96,8 @@ Il est également nécessaire de détruire la session de l’utilisateur en appe
 | **Composant**               | ADFS | 
 | **Phase SDL**               | Créer |  
 | **Technologies applicables** | Générique |
-| **Attributs**              | S.O.  |
-| **Informations de référence**              | S.O.  |
+| **Attributs**              | N/A  |
+| **Informations de référence**              | N/A  |
 | **Étapes** | Si l’application s’appuie sur un jeton STS (service d’émission de jeton de sécurité) émis par les services ADFS (Active Directory Federation Services), le gestionnaire d’événements de déconnexion doit appeler la méthode WSFederationAuthenticationModule.FederatedSignOut() pour déconnecter l’utilisateur. En outre, la session actuelle doit être détruite, et la valeur de jeton de session doit être réinitialisée et annulée.|
 
 ### <a name="example"></a>Exemples
@@ -145,7 +145,7 @@ Il est également nécessaire de détruire la session de l’utilisateur en appe
 | **Composant**               | IdentityServer | 
 | **Phase SDL**               | Créer |  
 | **Technologies applicables** | Générique |
-| **Attributs**              | S.O.  |
+| **Attributs**              | N/A  |
 | **Informations de référence**              | [IdentityServer3-Federated sign out](https://identityserver.github.io/Documentation/docsv2/advanced/federated-signout.html) |
 | **Étapes** | IdentityServer prend en charge une possibilité de fédération avec des fournisseurs d’identité externes. Lorsqu’un utilisateur se déconnecte d’un fournisseur d’identité en amont, selon le protocole utilisé, la déconnexion de l’utilisateur peut parfois être signalée par une notification. Cela permet à IdentityServer d’informer ses clients pour que ceux-ci puissent également déconnecter l’utilisateur. Pour plus d’informations sur les détails d’implémentation, consultez la section relative aux références dans la documentation.|
 
@@ -176,7 +176,7 @@ Le paramètre est appliqué même en cas d’utilisation du protocole HTTP pour 
 | **Phase SDL**               | Créer |  
 | **Technologies applicables** | Web Forms, MVC5 |
 | **Attributs**              | EnvironmentType - OnPrem |
-| **Informations de référence**              | S.O.  |
+| **Informations de référence**              | N/A  |
 | **Étapes** | Lorsque l’application web constitue la partie de confiance et que le fournisseur d’identité est le serveur ADFS, il est possible de configurer l’attribut secure du jeton FedAuth en définissant l’élément requireSSL sur la valeur True dans la section `system.identityModel.services` du fichier web.config :|
 
 ### <a name="example"></a>Exemples
@@ -197,7 +197,7 @@ Le paramètre est appliqué même en cas d’utilisation du protocole HTTP pour 
 | **Composant**               | Application web | 
 | **Phase SDL**               | Créer |  
 | **Technologies applicables** | Générique |
-| **Attributs**              | S.O.  |
+| **Attributs**              | N/A  |
 | **Informations de référence**              | [Secure Cookie Attribute (Attribut de cookie sécurisé)](https://en.wikipedia.org/wiki/HTTP_cookie#Secure_cookie) |
 | **Étapes** | Pour atténuer les risques de divulgation d’informations découlant d’une attaque par exécution de scripts intersites (XSS), le nouvel attribut httpOnly a été introduit pour les cookies et est pris en charge par tous les principaux navigateurs. L’attribut indique qu’un cookie n’est pas accessible par le biais d’un script. En utilisant des cookies HttpOnly, une application web réduit les risques que des informations sensibles contenues dans le cookie soient volées par l’intermédiaire d’un script et envoyées au site web d’un attaquant. |
 
@@ -218,7 +218,7 @@ Toutes les applications basées sur HTTP qui utilisent des cookies doivent spéc
 | **Composant**               | Application web | 
 | **Phase SDL**               | Créer |  
 | **Technologies applicables** | Web Forms |
-| **Attributs**              | S.O.  |
+| **Attributs**              | N/A  |
 | **Informations de référence**              | [FormsAuthentication.RequireSSL Property (Propriété FormsAuthentication.RequireSSL)](https://msdn.microsoft.com/library/system.web.security.formsauthentication.requiressl.aspx) |
 | **Étapes** | La valeur de propriété RequireSSL est définie dans le fichier de configuration d’une application ASP.NET à l’aide de l’attribut requireSSL de l’élément de configuration. Dans le fichier web.config de votre application ASP.NET, vous pouvez définir l’attribut requireSSL afin de spécifier si le protocole SSL (Secure Sockets Layer) est requis pour renvoyer le cookie d’authentification par formulaire au serveur.|
 
@@ -260,8 +260,8 @@ Le code ci-après présente la configuration appropriée :
 | **Composant**               | Application web | 
 | **Phase SDL**               | Créer |  
 | **Technologies applicables** | Générique |
-| **Attributs**              | S.O.  |
-| **Informations de référence**              | S.O.  |
+| **Attributs**              | N/A  |
+| **Informations de référence**              | N/A  |
 | **Étapes** | La falsification de requête intersites (CSRF ou XSRF) est un type d’attaque dans lequel une personne malveillante peut exécuter des actions dans le contexte de sécurité de la session établie d’un autre utilisateur sur un site web. L’objectif est de modifier ou de supprimer du contenu, si le site web ciblé s’appuie exclusivement sur les cookies de session pour authentifier la demande reçue. Un attaquant pourrait exploiter cette faille de sécurité en faisant en sorte que le navigateur d’un autre utilisateur charge une URL avec une commande à partir d’un site vulnérable auquel l’utilisateur est déjà connecté. Un attaquant dispose de nombreuses méthodes pour parvenir à ce résultat, notamment en hébergeant un autre site web qui charge une ressource à partir du serveur vulnérable, ou en incitant l’utilisateur à cliquer sur un lien. Il est possible d’éviter cette attaque en faisant en sorte que le serveur envoie un jeton supplémentaire au client, qu’il demande au client d’inclure ce jeton dans toutes les demandes ultérieures et qu’il vérifie que toutes ces demandes comprennent un jeton s’appliquant à la session actuelle, par exemple en utilisant AntiForgeryToken ou ViewState ASP.NET. |
 
 | Intitulé                   | Détails      |
@@ -269,7 +269,7 @@ Le code ci-après présente la configuration appropriée :
 | **Composant**               | Application web | 
 | **Phase SDL**               | Créer |  
 | **Technologies applicables** | MVC5, MVC6 |
-| **Attributs**              | S.O.  |
+| **Attributs**              | N/A  |
 | **Informations de référence**              | [XSRF/CSRF Prevention in ASP.NET MVC and Web Pages (Prévention des attaques XSRF/CSRF dans les pages MVC et Web ASP.NET)](https://www.asp.net/mvc/overview/security/xsrfcsrf-prevention-in-aspnet-mvc-and-web-pages) |
 | **Étapes** | Formulaires anti-CSRF et MVC ASP.NET - Utilisez la méthode d’assistance `AntiForgeryToken` sur les vues ; placez un élément `Html.AntiForgeryToken()` dans le formulaire, par exemple,|
 
@@ -355,7 +355,7 @@ void ValidateRequestHeader(HttpRequestMessage request)
 | **Composant**               | Application web | 
 | **Phase SDL**               | Créer |  
 | **Technologies applicables** | Web Forms |
-| **Attributs**              | S.O.  |
+| **Attributs**              | N/A  |
 | **Informations de référence**              | [Utilisation des fonctionnalités intégrées ASP.NET pour repousser les attaques Web](https://msdn.microsoft.com/library/ms972969.aspx#securitybarriers_topic2) |
 | **Étapes** | Il est possible de prévenir les attaques CSRF dans les applications reposant sur WebForm en définissant l’élément ViewStateUserKey sur une chaîne aléatoire qui varie selon chaque utilisateur (identifiant utilisateur ou, mieux encore, identifiant de session). Pour un certain nombre de raisons techniques et sociales, l’identifiant de session constitue un bien meilleur choix, car ce type d’identifiant est imprévisible, arrive à expiration et varie selon chaque utilisateur.|
 
@@ -375,7 +375,7 @@ void Page_Init (object sender, EventArgs e) {
 | **Composant**               | Application web | 
 | **Phase SDL**               | Créer |  
 | **Technologies applicables** | Générique |
-| **Attributs**              | S.O.  |
+| **Attributs**              | N/A  |
 | **Informations de référence**              | [HttpSessionState.Timeout Property (Propriété HttpSessionState.Timeout)](https://msdn.microsoft.com/library/system.web.sessionstate.httpsessionstate.timeout(v=vs.110).aspx) |
 | **Étapes** | Délai d’expiration de session représente l’événement qui se produisent lorsqu’un utilisateur n’exécute aucune action sur un site web pendant un intervalle (défini par le serveur web). Côté serveur, cet événement redéfinit l’état de la session utilisateur comme non valide (par exemple, « plus utilisé ») et demande au serveur web de détruire la session (en supprimant toutes les données qu’elle contient). L’exemple de code ci-après définit l’attribut d’expiration de session sur 15 minutes dans le fichier web.config.|
 
@@ -395,7 +395,7 @@ void Page_Init (object sender, EventArgs e) {
 | **Composant**               | Application web | 
 | **Phase SDL**               | Créer |  
 | **Technologies applicables** | Web Forms |
-| **Attributs**              | S.O.  |
+| **Attributs**              | N/A  |
 | **Informations de référence**              | [Élément de Forms pour authentication (schéma des paramètres ASP.NET)](https://msdn.microsoft.com/library/1d3t3c61(v=vs.100).aspx) |
 | **Étapes** | Définissez le délai d’expiration du cookie du ticket d’authentification par formulaire sur 15 minutes.|
 
@@ -445,8 +445,8 @@ Set-ADFSRelyingPartyTrust -TargetName “<RelyingPartyWebApp>” -ClaimsProvider
 | **Composant**               | Application web | 
 | **Phase SDL**               | Créer |  
 | **Technologies applicables** | Générique |
-| **Attributs**              | S.O.  |
-| **Informations de référence**              | S.O.  |
+| **Attributs**              | N/A  |
+| **Informations de référence**              | N/A  |
 | **Étapes** | Effectuez une déconnexion appropriée de l’application lorsque l’utilisateur appuie sur le bouton de déconnexion. Lors de la déconnexion, l’application doit détruire la session de l’utilisateur et également réinitialiser et annuler la valeur du cookie de session, ainsi que la valeur du cookie d’authentification. En outre, lorsque plusieurs sessions sont associées à une seule identité d’utilisateur, elles doivent être terminées de manière collective côté serveur au moment de l’arrivée à expiration ou de la déconnexion. Enfin, assurez-vous que la fonctionnalité de déconnexion est accessible sur chaque page. |
 
 ## <a id="csrf-api"></a>Prévenir les attaques de falsification de requête intersites (CSRF, Cross Site Request Forgery) sur les API Web ASP.NET
@@ -456,8 +456,8 @@ Set-ADFSRelyingPartyTrust -TargetName “<RelyingPartyWebApp>” -ClaimsProvider
 | **Composant**               | API Web | 
 | **Phase SDL**               | Créer |  
 | **Technologies applicables** | Générique |
-| **Attributs**              | S.O.  |
-| **Informations de référence**              | S.O.  |
+| **Attributs**              | N/A  |
+| **Informations de référence**              | N/A  |
 | **Étapes** | La falsification de requête intersites (CSRF ou XSRF) est un type d’attaque dans lequel une personne malveillante peut exécuter des actions dans le contexte de sécurité de la session établie d’un autre utilisateur sur un site web. L’objectif est de modifier ou de supprimer du contenu, si le site web ciblé s’appuie exclusivement sur les cookies de session pour authentifier la demande reçue. Un attaquant pourrait exploiter cette faille de sécurité en faisant en sorte que le navigateur d’un autre utilisateur charge une URL avec une commande à partir d’un site vulnérable auquel l’utilisateur est déjà connecté. Un attaquant dispose de nombreuses méthodes pour parvenir à ce résultat, notamment en hébergeant un autre site web qui charge une ressource à partir du serveur vulnérable, ou en incitant l’utilisateur à cliquer sur un lien. Il est possible d’éviter cette attaque en faisant en sorte que le serveur envoie un jeton supplémentaire au client, qu’il demande au client d’inclure ce jeton dans toutes les demandes ultérieures et qu’il vérifie que toutes ces demandes comprennent un jeton s’appliquant à la session actuelle, par exemple en utilisant AntiForgeryToken ou ViewState ASP.NET. |
 
 | Intitulé                   | Détails      |
@@ -465,7 +465,7 @@ Set-ADFSRelyingPartyTrust -TargetName “<RelyingPartyWebApp>” -ClaimsProvider
 | **Composant**               | API Web | 
 | **Phase SDL**               | Créer |  
 | **Technologies applicables** | MVC5, MVC6 |
-| **Attributs**              | S.O.  |
+| **Attributs**              | N/A  |
 | **Informations de référence**              | [Preventing Cross-Site Request Forgery (CSRF) Attacks in ASP.NET Web API (Prévenir les attaques de falsification de requête intersites (CSRF, Cross Site Request Forgery) dans les API Web ASP.NET)](https://www.asp.net/web-api/overview/security/preventing-cross-site-request-forgery-csrf-attacks) |
 | **Étapes** | Anti-CSRF et AJAX : Le jeton de formulaire peut être un problème pour les demandes AJAX, car une requête AJAX peut envoyer des données JSON, pas les données de formulaire HTML. L’une des solutions consiste à envoyer les jetons dans un en-tête HTTP personnalisé. Le code ci-après utilise la syntaxe Razor pour générer les jetons, puis ajoute les jetons à une demande AJAX. |
 

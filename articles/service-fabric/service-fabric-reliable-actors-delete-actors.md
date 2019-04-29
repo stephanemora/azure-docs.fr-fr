@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 03/19/2018
 ms.author: amanbha
 ms.openlocfilehash: e297a6f42774f29e2eca4a410b695d5bbb636300
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58666968"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60726602"
 ---
 # <a name="delete-reliable-actors-and-their-state"></a>Supprimer des Reliable Actors et leur état
 Le Garbage Collection des acteurs désactivés nettoie uniquement l’objet acteur, mais il ne supprime pas les données stockées dans le Gestionnaire d’état d’un acteur. Lorsqu’un acteur est réactivé, ses données sont de nouveau rendues disponibles par le biais du Gestionnaire d’état. Dans les cas où les acteurs stockent des données dans le Gestionnaire d’état et sont désactivés mais jamais réactivés, il peut être nécessaire de nettoyer leurs données.

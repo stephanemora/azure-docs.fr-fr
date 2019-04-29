@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/28/2018
 ms.author: rkarlin
 ms.openlocfilehash: 009f5fe7243b8ce597c2be9f9c6874cdb56d103c
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56108543"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60706047"
 ---
 # <a name="alerts-validation-in-azure-security-center"></a>Validation des alertes dans Azure Security Center
 Ce document est conçu pour vous apprendre à vérifier si votre système est correctement configuré pour les alertes dans Azure Security Center.

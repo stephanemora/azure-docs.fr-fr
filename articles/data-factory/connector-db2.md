@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: jingwang
 ms.openlocfilehash: 4bf4c5c8339c8c56d91737fa1ff62f55b9c38696
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019620"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60786371"
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>Copier des données de DB2 à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -45,7 +45,7 @@ En particulier, ce connecteur DB2 prend en charge les plateformes et versions IB
 > - DB2 pour i (AS400) : demandez à un utilisateur chevronné de créer une collection pour l’utilisateur de connexion avant d’utiliser une activité de copie. Commande : `create collection <username>`
 > - DB2 pour z/OS ou LUW : utilisez un compte doté de privilèges élevés (utilisateur chevronné ou administrateur disposant d’autorités de package et d’autorisations BIND, BINDADD, GRANT EXECUTE TO PUBLIC) pour exécuter une fois l’activité de copie. Le package nécessaire est ensuite créé automatiquement au cours de la copie. Ensuite, vous pouvez revenir au mode utilisateur normal pour vos séries de copie suivantes.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour copier des données depuis/vers une base de données DB2 qui n’est pas accessible publiquement, vous devez configurer un runtime d’intégration auto-hébergé. Pour en savoir plus sur les runtimes d’intégration auto-hébergés, voir l’article [Runtime d’intégration auto-hébergé](create-self-hosted-integration-runtime.md). Le runtime d’intégration fournit un pilote DB2 intégré. Ainsi, vous n’avez pas besoin d’installer manuellement un pilote lors de la copie des données de DB2.
 
@@ -61,7 +61,7 @@ Les propriétés prises en charge pour le service lié DB2 sont les suivantes :
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type doit être définie sur : **Db2** | Oui |
+| type | La propriété type doit être définie sur : **Db2** | Oui |
 | serveur |Nom du serveur DB2. Vous pouvez spécifier le numéro de port à la suite du nom du serveur en le séparant par un signe deux-points, par exemple, `server:port`. |Oui |
 | database |Nom de la base de données DB2. |Oui |
 | authenticationType |Type d'authentification utilisé pour se connecter à la base de données DB2.<br/>Valeur autorisée : **De base**. |Oui |
@@ -102,8 +102,8 @@ Pour copier des données de DB2, affectez la valeur **RelationalTable** à la pr
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type du jeu de données doit être définie sur : **RelationalTable** | Oui |
-| TableName | Nom de la table dans la base de données DB2. | Non (si « query » dans la source de l’activité est spécifié) |
+| type | La propriété type du jeu de données doit être définie sur : **RelationalTable** | Oui |
+| tableName | Nom de la table dans la base de données DB2. | Non (si « query » dans la source de l’activité est spécifié) |
 
 **Exemple**
 
@@ -132,7 +132,7 @@ Pour copier des données de DB2, définissez **RelationalSource** comme type de 
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type de la source d’activité de copie doit être définie sur : **RelationalSource** | Oui |
+| type | La propriété type de la source d’activité de copie doit être définie sur : **RelationalSource** | Oui |
 | query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"query": "SELECT * FROM \"DB2ADMIN\".\"Customers\""`. | Non (si « tableName » est spécifié dans dataset) |
 
 **Exemple :**
@@ -176,29 +176,29 @@ Lors de la copie de données de DB2, les mappages suivants sont utilisés entre 
 | BigInt |Int64 |
 | Binary |Byte[] |
 | Blob |Byte[] |
-| Char |Chaîne |
-| Clob |Chaîne |
+| Char |String |
+| Clob |String |
 | Date |DateTime |
-| DB2DynArray |Chaîne |
-| DbClob |Chaîne |
-| Décimal |Décimal |
-| DecimalFloat |Décimal |
+| DB2DynArray |String |
+| DbClob |String |
+| Decimal |Decimal |
+| DecimalFloat |Decimal |
 | Double |Double |
 | Float |Double |
-| Graphic |Chaîne |
+| Graphic |String |
 | Entier  |Int32 |
 | LongVarBinary |Byte[] |
-| LongVarChar |Chaîne |
-| LongVarGraphic |Chaîne |
-| Chiffre |Décimal |
+| LongVarChar |String |
+| LongVarGraphic |String |
+| Numeric |Decimal |
 | Real |Single |
 | SmallInt |Int16 |
-| Temps |intervalle de temps |
-| Timestamp |Datetime |
+| Temps |TimeSpan |
+| Timestamp |DateTime |
 | VarBinary |Byte[] |
-| VarChar |Chaîne |
-| VarGraphic |Chaîne |
-| xml |Byte[] |
+| VarChar |String |
+| VarGraphic |String |
+| Xml |Byte[] |
 
 
 ## <a name="next-steps"></a>Étapes suivantes

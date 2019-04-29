@@ -15,11 +15,11 @@ ms.workload: tbd
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: 2086813b01de6cd06f3714477e56864b36196382
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59699045"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60714572"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Files d’attente Azure et files d’attente Service Bus : comparaison et différences
 Cet article analyse les différences et les similitudes entre les deux types de files d'attente proposés par Microsoft Azure : Files d’attente de stockage et files d’attente Service Bus. À l'aide de ces informations, vous pouvez comparer les technologies respectives et être en mesure de prendre une décision éclairée concernant la solution adaptée à vos besoins.

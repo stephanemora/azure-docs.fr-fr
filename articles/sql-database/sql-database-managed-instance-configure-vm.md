@@ -13,11 +13,11 @@ ms.reviewer: sstein, carlrab, srbozovi, bonova
 manager: craigg
 ms.date: 02/18/2019
 ms.openlocfilehash: 59088ad53e923f1303c0e800df9c25f70e63812f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59360486"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60701883"
 ---
 # <a name="quickstart-configure-azure-vm-to-connect-to-an-azure-sql-database-managed-instance"></a>Démarrage rapide : Configurer la machine virtuelle Azure pour qu’elle se connecte à Azure SQL Database Managed Instance
 
@@ -47,7 +47,7 @@ Les étapes suivantes créent un sous-réseau dans le réseau virtuel Managed In
 
    | Paramètre| Valeur suggérée | Description |
    | ---------------- | ----------------- | ----------- |
-   | **Nom** | Nom valide|Pour connaître les noms valides, consultez [Conventions d’affectation de noms](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
+   | **Name** | Nom valide|Pour connaître les noms valides, consultez [Conventions d’affectation de noms](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
    | **Plage d’adresses (bloc CIDR)** | Plage valide | La valeur par défaut convient pour ce guide de démarrage rapide.|
    | **Groupe de sécurité réseau** | Aucun | La valeur par défaut convient pour ce guide de démarrage rapide.|
    | **Table de routage** | Aucun | La valeur par défaut convient pour ce guide de démarrage rapide.|

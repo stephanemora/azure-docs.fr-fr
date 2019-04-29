@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 06/15/2017
 ms.author: anmola
 ms.openlocfilehash: ceb6ad1a6a1182d78c473b8b0387c365eb660065
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58667206"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60865270"
 ---
 # <a name="simulate-failures-during-service-workloads"></a>Simuler des défaillances au cours des charges de travail de services
 Grâce aux scénarios de testabilité dans Azure Service Fabric, les développeurs n’ont plus à s’inquiéter des erreurs individuelles. Toutefois, certains scénarios nécessitent l’entrelacement explicite de la charge de travail et des défaillances du client. Cet entrelacement interdit toute inactivité du service pendant la défaillance. Compte tenu du niveau de contrôle procuré par la testabilité, il est possible de cibler des points précis de l’exécution de la charge de travail. Cette incorporation d’erreur à différents états de l’application permet d’identifier les bogues et d’améliorer la qualité.

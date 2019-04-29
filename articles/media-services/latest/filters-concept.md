@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 61b877c322fcd58472990c328beea2e309502bce
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652346"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60734573"
 ---
 # <a name="define-account-filters-and-asset-filters"></a>Définir des filtres de comptes et des filtres d'éléments multimédias  
 
@@ -85,7 +85,7 @@ Les conditions de propriétés de suivi de filtre décrivent les types de suivi,
 |**Bitrate**|Utilisez la vitesse de transmission de la piste pour le filtrage.<br/><br/>La valeur recommandée est une plage de vitesses de transmission, en bits par seconde. Par exemple, « 0-2427000 ».<br/><br/>Remarque : vous pouvez utiliser une valeur de vitesse de transmission spécifique, comme 250000 (bits par seconde), mais cette approche n'est pas recommandée car les vitesses de transmission exacts peuvent varier d’un élément multimédia à un autre.|
 |**FourCC**|Utilisez la valeur FourCC de la piste pour le filtrage.<br/><br/>La valeur est le premier élément du format de codecs, tel que spécifié dans [RFC 6381](https://tools.ietf.org/html/rfc6381). À l’heure actuelle, les codecs suivants sont pris en charge : <br/>Pour la vidéo : « avc1 », « hev1 », « hvc1 »<br/>Pour l’audio : « mp4a », « ec-3 »<br/><br/>Pour déterminer les valeurs FourCC pour les pistes dans un élément multimédia, obtenir et examinez le fichier manifest.|
 |**Langage**|Utilisez la langue de la piste pour le filtrage.<br/><br/>La valeur est la balise d’une langue que vous souhaitez inclure, comme indiqué dans RFC 5646. Exemple : « en ».|
-|**Nom**|Utilisez le nom de la piste pour le filtrage.|
+|**Name**|Utilisez le nom de la piste pour le filtrage.|
 |**Type**|Utilisez le type de la piste pour le filtrage.<br/><br/>Les valeurs suivantes sont autorisées : « video », « audio » ou « text ».|
 
 ## <a name="associate-filters-with-streaming-locator"></a>Associer des filtres de localisateur de diffusion en continu

@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
 ms.openlocfilehash: cb984bcbe79b69c0614579d66a3b853cd38a7e12
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58099084"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60689678"
 ---
 # <a name="contoso-migration-rearchitect-an-on-premises-app-to-an-azure-container-and-azure-sql-database"></a>Migration de Contoso : Réarchitecturer une application locale dans un conteneur Azure et Azure SQL Database
 
@@ -361,7 +361,7 @@ Les administrateurs de Contoso migrent maintenant la base de données.
      ![DMA](./media/contoso-migration-rearchitect-container-sql/dma-9.png)
 
 
-## <a name="step-6-set-up-azure-devops-services"></a>Étape 6 : Configurer Azure DevOps Services
+## <a name="step-6-set-up-azure-devops-services"></a>Étape 6 : Configurer Azure DevOps Services
 
 Contoso doit générer l’infrastructure et les pipelines DevOps pour l’application.  Pour ce faire, les administrateurs de Contoso créent un projet Azure DevOps, importent leur code, puis les pipelines de build et de mise en production.
 

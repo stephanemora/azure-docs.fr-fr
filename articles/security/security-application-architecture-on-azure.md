@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 01/14/2019
 ms.author: terrylan
 ms.openlocfilehash: 76f5627a28c2c0ab326197893a9b9739628af0fb
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56108073"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60597839"
 ---
 # <a name="application-architecture-on-azure"></a>Architecture des applications sur Azure
 Pour sécuriser vos solutions cloud sur Microsoft Azure, vous devez disposer d’une base architecturale solide. Une bonne connaissance de l’architecture des services et des applications est bénéfique pour les architectes, les concepteurs et les responsables de l’implémentation. Ces connaissances fondamentales vous aident à comprendre tous les composants de vos solutions cloud, et facilitent l’intégration de la sécurité dans tous les aspects de votre conception et de votre implémentation.

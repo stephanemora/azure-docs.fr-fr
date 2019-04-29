@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 ms.openlocfilehash: 673dcbeb630899eebc328cd4fae16f7fe8f47a55
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58757594"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60557883"
 ---
 # <a name="azure-api-management-template-resources"></a>Ressources du modèle Gestion des API Azure
 La Gestion des API Azure fournit les types de ressources suivants, utilisables dans les modèles du portail des développeurs.  
@@ -112,13 +112,13 @@ Les options de localisation suivantes sont prises en charge :
   
 ###  <a name="ApisStrings"></a> ApisStrings  
   
-|Nom|Texte|  
+|Nom|Text|  
 |----------|----------|  
 |PageTitleApis|API|  
   
 ###  <a name="AppDetailsStrings"></a> AppDetailsStrings  
   
-|Nom|Texte|  
+|Nom|Text|  
 |----------|----------|  
 |WebApplicationsDetailsTitle|Aperçu de l’application.|  
 |WebApplicationsRequirementsHeader|Configuration requise|  
@@ -127,7 +127,7 @@ Les options de localisation suivantes sont prises en charge :
   
 ###  <a name="ApplicationListStrings"></a> ApplicationListStrings  
   
-|Nom|Texte|  
+|Nom|Text|  
 |----------|----------|  
 |WebDevelopersAppDeleteConfirmation|Voulez-vous vraiment supprimer l’application ?|  
 |WebDevelopersAppNotPublished|Non publié.|  
@@ -143,13 +143,13 @@ Les options de localisation suivantes sont prises en charge :
   
 ###  <a name="AppStrings"></a> AppStrings  
   
-|Nom|Texte|  
+|Nom|Text|  
 |----------|----------|  
 |WebApplicationsHeader|APPLICATIONS|  
   
 ###  <a name="CommonResources"></a> CommonResources  
   
-|Nom|Texte|  
+|Nom|Text|  
 |----------|----------|  
 |NoItemsToDisplay|Aucun résultat trouvé.|  
 |GeneralExceptionMessage|Il y a un problème. Il peut s’agir d’un dysfonctionnement temporaire ou d’un bogue. Réessayez.|  
@@ -160,7 +160,7 @@ Les options de localisation suivantes sont prises en charge :
   
 ###  <a name="CommonStrings"></a> CommonStrings  
   
-|Nom|Texte|  
+|Nom|Text|  
 |----------|----------|  
 |ButtonLabelCancel|Annuler|  
 |ButtonLabelSave|Enregistrer|  
@@ -184,7 +184,7 @@ Les options de localisation suivantes sont prises en charge :
   
 ###  <a name="Documentation"></a> Documentation  
   
-|Nom|Texte|  
+|Nom|Text|  
 |----------|----------|  
 |WebDocumentationInvalidHeaderErrorMessage|En-tête non valide « {0} »|  
 |WebDocumentationInvalidRequestErrorMessage|URL de demande non valide.|  
@@ -332,7 +332,7 @@ Les options de localisation suivantes sont prises en charge :
   
 ###  <a name="ErrorPageStrings"></a> ErrorPageStrings  
   
-|Nom|Texte|  
+|Nom|Text|  
 |----------|----------|  
 |LinkLabelBack|Retour|  
 |LinkLabelHomePage|page d'accueil|  
@@ -350,7 +350,7 @@ Les options de localisation suivantes sont prises en charge :
   
 ###  <a name="IssuesStrings"></a> IssuesStrings  
   
-|Nom|Texte|  
+|Nom|Text|  
 |----------|----------|  
 |WebIssuesIndexTitle|Problèmes|  
 |WebIssuesNoActiveSubscriptions|Vous ne disposez d’aucun abonnement actif. Vous devez vous abonner à un produit pour signaler un problème.|  
@@ -361,7 +361,7 @@ Les options de localisation suivantes sont prises en charge :
   
 ###  <a name="NotFoundStrings"></a> NotFoundStrings  
   
-|Nom|Texte|  
+|Nom|Text|  
 |----------|----------|  
 |LinkLabelHomePage|page d'accueil|  
 |LinkLabelSendUsEmail|Envoyez-nous un e-mail.|  
@@ -376,7 +376,7 @@ Les options de localisation suivantes sont prises en charge :
   
 ###  <a name="ProductDetailsStrings"></a> ProductDetailsStrings  
   
-|Nom|Texte|  
+|Nom|Text|  
 |----------|----------|  
 |WebProductsAgreement|En m’abonnant au produit {0}, j’accepte les `<a data-toggle='modal' href='#legal-terms'\>Terms of Use</a\>`.|  
 |WebProductsLegalTermsLink|Conditions d’utilisation|  
@@ -398,13 +398,13 @@ Les options de localisation suivantes sont prises en charge :
   
 ###  <a name="ProductsStrings"></a> ProductsStrings  
   
-|Nom|Texte|  
+|Nom|Text|  
 |----------|----------|  
 |PageTitleProducts|Produits|  
   
 ###  <a name="ProviderInfoStrings"></a> ProviderInfoStrings  
   
-|Nom|Texte|  
+|Nom|Text|  
 |----------|----------|  
 |TextboxExternalIdentitiesDisabled|La connexion est désactivée par les administrateurs pour l’instant.|  
 |TextboxExternalIdentitiesSigninInvitation|Vous pouvez également vous connecter avec|  
@@ -412,7 +412,7 @@ Les options de localisation suivantes sont prises en charge :
   
 ###  <a name="SigninResources"></a> SigninResources  
   
-|Nom|Texte|  
+|Nom|Text|  
 |----------|----------|  
 |PrincipalNotFound|Principal introuvable ou signature non valide.|  
 |ErrorSsoAuthenticationFailed|Échec de l’authentification SSO.|  
@@ -508,7 +508,7 @@ Les options de localisation suivantes sont prises en charge :
   
 ###  <a name="SigninStrings"></a> SigninStrings  
   
-|Nom|Texte|  
+|Nom|Text|  
 |----------|----------|  
 |WebAuthenticationForgotPassword|Vous avez oublié votre mot de passe ?|  
 |WebAuthenticationIfAdministrator|Si vous êtes un administrateur, vous devez vous connecter `<a href="{0}"\>here</a\>`.|  
@@ -520,7 +520,7 @@ Les options de localisation suivantes sont prises en charge :
   
 ###  <a name="SignupStrings"></a> SignupStrings  
   
-|Nom|Texte|  
+|Nom|Text|  
 |----------|----------|  
 |PageTitleSignup|Inscription|  
 |WebAuthenticationAlreadyAMember|Déjà membre ?|  
@@ -530,7 +530,7 @@ Les options de localisation suivantes sont prises en charge :
   
 ###  <a name="SubscriptionListStrings"></a> SubscriptionListStrings  
   
-|Nom|Texte|  
+|Nom|Text|  
 |----------|----------|  
 |SubscriptionCancelConfirmation|Voulez-vous vraiment annuler cet abonnement ?|  
 |SubscriptionRenewConfirmation|Voulez-vous vraiment renouveler cet abonnement ?|  
@@ -553,7 +553,7 @@ Les options de localisation suivantes sont prises en charge :
   
 ###  <a name="SubscriptionStrings"></a> SubscriptionStrings  
   
-|Nom|Texte|  
+|Nom|Text|  
 |----------|----------|  
 |SectionHeadingCloseAccount|Vous souhaitez fermer votre compte ?|  
 |PageTitleDeveloperProfile|Profil|  
@@ -564,14 +564,14 @@ Les options de localisation suivantes sont prises en charge :
   
 ###  <a name="UpdateProfileStrings"></a> UpdateProfileStrings  
   
-|Nom|Texte|  
+|Nom|Text|  
 |----------|----------|  
 |ButtonLabelUpdateProfile|Mettre à jour le profil|  
 |PageTitleUpdateProfile|Mettre à jour les informations du compte|  
   
 ###  <a name="UserProfile"></a> UserProfile  
   
-|Nom|Texte|  
+|Nom|Text|  
 |----------|----------|  
 |ButtonLabelChangeAccountInfo|Modifier les informations du compte|  
 |ButtonLabelChangePassword|Modifier le mot de passe|  

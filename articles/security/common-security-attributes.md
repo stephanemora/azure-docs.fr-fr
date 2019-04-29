@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 2eb480e10ca3b674895d2d22cc44fb52f305f988
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59007560"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60610007"
 ---
 # <a name="common-security-attributes-for-azure-services"></a>Attributs de sécurité courants pour les services Azure
 
@@ -80,7 +80,7 @@ La sécurité fait partie intégrante d'un service Azure. Cet article rassemble 
 | Chiffrement au repos :<ul><li>Chiffrement côté serveur</li><li>Chiffrement côté serveur avec des clés gérées par le client</li><li>Autres fonctionnalités de chiffrement (côté client, Always Encrypted, etc.)</ul>| Oui | Tous les objets sont chiffrés. |
 | Chiffrement en transit :<ul><li>Chiffrement Express Route</li><li>Chiffrement dans le réseau virtuel</li><li>Chiffrement de réseau virtuel à réseau virtuel</ul>| Oui | Toutes les communications se font par le biais d’appels d’API chiffrés |
 | Gestion des clés de chiffrement (CMK, BYOK, etc.)| Oui | Le client contrôle toutes les clés de son Key Vault. Lorsque les clés de module (HSM) soutenu de sécurité matériel sont spécifiées, un module de sécurité 2 de niveau FIPS protège la clé, le certificat ou la clé secrète. |
-| Chiffrement au niveau des colonnes (Azure Data Services)| S.O. |  |
+| Chiffrement au niveau des colonnes (Azure Data Services)| N/A |  |
 | Appels d’API chiffrés| Oui | Utilisation du protocole HTTPS. |
 
 ### <a name="network-segmentation"></a>Segmentation du réseau
@@ -129,7 +129,7 @@ La sécurité fait partie intégrante d'un service Azure. Cet article rassemble 
 | Chiffrement au repos :<ul><li>Chiffrement côté serveur</li><li>Chiffrement côté serveur avec des clés gérées par le client</li><li>Autres fonctionnalités de chiffrement (côté client, Always Encrypted, etc.)</ul>| Oui | Le cluster et le groupe de machines virtuelles identiques sur lequel le cluster est basé appartiennent au client. Chiffrement de disque Azure peut être activé sur les machines virtuelles identiques. |
 | Chiffrement en transit :<ul><li>Chiffrement Express Route</li><li>Chiffrement dans le réseau virtuel</li><li>Chiffrement de réseau virtuel à réseau virtuel</ul>| Oui |  |
 | Gestion des clés de chiffrement (CMK, BYOK, etc.)| Oui | Le cluster et le groupe de machines virtuelles identiques sur lequel le cluster est basé appartiennent au client. Chiffrement de disque Azure peut être activé sur les machines virtuelles identiques. |
-| Chiffrement au niveau des colonnes (Azure Data Services)| S.O. |  |
+| Chiffrement au niveau des colonnes (Azure Data Services)| N/A |  |
 | Appels d’API chiffrés| Oui | Les appels d’API Service Fabric sont effectués via Azure Resource Manager. Un jeton web JSON valide (JWT) est nécessaire. |
 
 ### <a name="network-segmentation"></a>Segmentation du réseau
@@ -160,7 +160,7 @@ La sécurité fait partie intégrante d'un service Azure. Cet article rassemble 
 | Attribut de sécurité | Oui/Non | Notes|
 |---|---|--|
 | Journalisation et audit du plan de gestion/contrôle| Oui | Toutes les opérations de plan de contrôle sont exécutées par le biais de processus pour l’audit et les approbations. |
-| Journalisation et audit du plan de données| S.O. | Le cluster appartient au client.  |
+| Journalisation et audit du plan de données| N/A | Le cluster appartient au client.  |
 
 ### <a name="configuration-management"></a>Gestion des configurations
 
@@ -178,7 +178,7 @@ La sécurité fait partie intégrante d'un service Azure. Cet article rassemble 
 | Chiffrement au repos :<ul><li>Chiffrement côté serveur</li><li>Chiffrement côté serveur avec des clés gérées par le client</li><li>Autres fonctionnalités de chiffrement (côté client, Always Encrypted, etc.)</ul>| Oui |  |
 | Chiffrement en transit :<ul><li>Chiffrement Express Route</li><li>Chiffrement dans le réseau virtuel</li><li>Chiffrement de réseau virtuel à réseau virtuel</ul>| Oui | Prend en charge les mécanismes HTTPS/TLS standard.  Les utilisateurs peuvent également chiffrer les données avant leur transmission au service. |
 | Gestion des clés de chiffrement (CMK, BYOK, etc.)| Oui | Consultez [Storage Service Encryption à l’aide de clés gérées par le client dans Azure Key Vault](../storage/common/storage-service-encryption-customer-managed-keys.md).|
-| Chiffrement au niveau des colonnes (Azure Data Services)| S.O. |  |
+| Chiffrement au niveau des colonnes (Azure Data Services)| N/A |  |
 | Appels d’API chiffrés| Oui |  |
 
 ### <a name="network-segmentation"></a>Segmentation du réseau
@@ -186,9 +186,9 @@ La sécurité fait partie intégrante d'un service Azure. Cet article rassemble 
 | Attribut de sécurité | Oui/Non | Notes |
 |---|---|--|
 | Prise en charge du point de terminaison de service| Oui |  |
-| Prise en charge de l’injection de réseau virtuel| S.O. |  |
+| Prise en charge de l’injection de réseau virtuel| N/A |  |
 | Prise en charge de l’isolement réseau et de l’installation de pare-feu| Oui | |
-| Prise en charge du tunneling forcé | S.O. |  |
+| Prise en charge du tunneling forcé | N/A |  |
 
 ### <a name="detection"></a>Détection
 

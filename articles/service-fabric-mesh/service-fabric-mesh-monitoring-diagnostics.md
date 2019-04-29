@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 06/22/2018
 ms.author: srrengar
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 9f857c23b5500bc7790a0ff7fcf81eaec51f37c9
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: 6166808c85bbee9465a8fa12332afe2163027982
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358276"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60810620"
 ---
 # <a name="monitoring-and-diagnostics"></a>Surveillance et diagnostics
 Azure Service Fabric mesh est un service entièrement géré qui permet aux développeurs de déployer des applications de microservices sans gestion de machines virtuelles, de stockage ou de mise en réseau. La surveillance et les diagnostics pour Service Fabric mesh portent sur trois types principaux de données de diagnostic :

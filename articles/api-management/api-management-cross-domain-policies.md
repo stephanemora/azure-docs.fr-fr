@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
 ms.openlocfilehash: ecbc1af97ce5ed158138f2bcf47f5729842c0fe9
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56098530"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60657490"
 ---
 # <a name="api-management-cross-domain-policies"></a>Gestion des API dans les stratégies de domaine
 Cette rubrique est une ressource de référence au sujet des stratégies Gestion des API suivantes. Pour plus d'informations sur l'ajout et la configuration des stratégies, consultez la page [Stratégies dans Gestion des API](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -56,7 +56,7 @@ La stratégie `cross-domain` rend l’API accessible depuis les navigateurs clie
 
 |Nom|Description|Obligatoire|
 |----------|-----------------|--------------|
-|inter-domaines|Élément racine. Les éléments enfants doivent être conformes à la [spécification de fichier de stratégie inter-domaines Adobe](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html).|OUI|
+|inter-domaines|Élément racine. Les éléments enfants doivent être conformes à la [spécification de fichier de stratégie inter-domaines Adobe](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html).|Oui|
 
 ### <a name="usage"></a>Usage
 Cette stratégie peut être utilisée dans les [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.
@@ -125,9 +125,9 @@ Cet exemple montre comment prendre en charge les demandes en amont, telles que c
 
 |Nom|Description|Obligatoire|Default|
 |----------|-----------------|--------------|-------------|
-|cors|Élément racine.|OUI|N/A|
-|allowed-origins|Contient des éléments `origin` qui décrivent les origines autorisées pour les demandes inter-domaines. `allowed-origins` peut contenir un seul élément `origin` qui spécifie `*` pour autoriser toute origine, ou un ou plusieurs éléments `origin` contenant un URI.|OUI|N/A|
-|origin|La valeur peut être `*` pour autoriser toutes les origines, ou un URI qui spécifie une origine unique. L'URI doit comprendre un modèle, un hôte et un port.|OUI|Si le port n’est pas spécifié dans l’URI, le port 80 est utilisé pour HTTP et le port 443 pour HTTPS.|
+|cors|Élément racine.|Oui|N/A|
+|allowed-origins|Contient des éléments `origin` qui décrivent les origines autorisées pour les demandes inter-domaines. `allowed-origins` peut contenir un seul élément `origin` qui spécifie `*` pour autoriser toute origine, ou un ou plusieurs éléments `origin` contenant un URI.|Oui|N/A|
+|origin|La valeur peut être `*` pour autoriser toutes les origines, ou un URI qui spécifie une origine unique. L'URI doit comprendre un modèle, un hôte et un port.|Oui|Si le port n’est pas spécifié dans l’URI, le port 80 est utilisé pour HTTP et le port 443 pour HTTPS.|
 |allowed-methods|Cet élément est requis si les méthodes autres que GET ou POST sont autorisées. Contient des éléments `method` qui spécifient les verbes HTTP pris en charge.|Non |Si cette section n’est pas présente, les méthodes GET et POST sont prises en charge.|
 |method|Spécifie un verbe HTTP.|Au moins un élément `method` est requis si la section `allowed-methods` est présente.|N/A|
 |allowed-headers|Cet élément contient des éléments `header` spécifiant les noms des en-têtes qui peuvent être inclus dans la demande.|Non |N/A|
@@ -170,13 +170,13 @@ Si vous ajoutez le paramètre de rappel `?cb=XXX`, il renvoie un résultat JSONP
 
 |Nom|Description|Obligatoire|
 |----------|-----------------|--------------|
-|jsonp|Élément racine.|OUI|
+|jsonp|Élément racine.|Oui|
 
 ### <a name="attributes"></a>Attributs
 
 |Nom|Description|Obligatoire|Default|
 |----------|-----------------|--------------|-------------|
-|callback-parameter-name|Appel de fonction JavaScript interdomaines avec comme préfixe le nom de domaine complet de l'emplacement de la fonction.|OUI|N/A|
+|callback-parameter-name|Appel de fonction JavaScript interdomaines avec comme préfixe le nom de domaine complet de l'emplacement de la fonction.|Oui|N/A|
 
 ### <a name="usage"></a>Usage
 Cette stratégie peut être utilisée dans les [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) suivantes.

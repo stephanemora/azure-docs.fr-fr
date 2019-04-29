@@ -1,5 +1,5 @@
 ---
-title: Niveaux de service Azure SQL Database - Modèle d'achat DTU | Microsoft Docs
+title: Niveaux de service Azure SQL Database - Modèle d’achat DTU | Microsoft Docs
 description: Découvrez les niveaux de service du modèle d'achat DTU des bases de données uniques et mises en pool pour la fourniture de tailles de calcul et de tailles de stockage.
 services: sql-database
 ms.service: sql-database
@@ -13,22 +13,22 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/25/2019
 ms.openlocfilehash: 57a20ac29ec3a15db26e0ab2c0b61b57ab3a5882
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60004004"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60709057"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>Niveaux de service du modèle d’achat DTU
 
-Les niveaux de service du modèle d'achat DTU se distinguent par une plage de tailles de calcul, avec un quantité fixe de stockage inclus, une période de conservation fixe des sauvegardes, ainsi qu’un prix fixe. Tous les niveaux de service du modèle d'achat DTU permettent de changer de taille de calcul, sans nécessiter de temps d’arrêt. Les bases de données et les pools élastiques sont facturés en fonction du niveau de service et de la taille du calcul.
+Les niveaux de service du modèle d'achat DTU se distinguent par une plage de tailles de calcul, avec un quantité fixe de stockage inclus, une période de conservation fixe des sauvegardes, ainsi qu’un prix fixe. Tous les niveaux de service du modèle d’achat DTU permettent de changer de taille de calcul, sans nécessiter de temps d’arrêt. Les bases de données et les pools élastiques sont facturés en fonction du niveau de service et de la taille du calcul.
 
 > [!IMPORTANT]
 > SQL Database Managed Instance ne prend pas en charge le modèle d’achat DTU. Pour plus d’informations, consultez [Azure SQL Database Managed Instance](sql-database-managed-instance.md).
 > [!NOTE]
-> Pour plus d’informations sur les niveaux de service basés sur vCore, voir [Niveaux de service basés sur des vCore](sql-database-service-tiers-vcore.md). Pour plus d’informations sur ce qui différencie les niveaux de service basés sur des unités DTU et les niveaux de service basés sur vCore, voir [Modèles d’achat d’Azure SQL Database](sql-database-purchase-models.md).
+> Pour plus d’informations sur les niveaux de service vCore, consultez [Niveaux de service vCore](sql-database-service-tiers-vcore.md). Pour plus d’informations sur ce qui différencie les niveaux de service DTU des niveaux de service vCore, consultez [Modèles d’achat Azure SQL Database](sql-database-purchase-models.md).
 
-## <a name="compare-the-dtu-based-service-tiers"></a>Comparer les niveaux de service basés sur des unités DTU
+## <a name="compare-the-dtu-based-service-tiers"></a>Comparer les niveaux de service DTU
 
 Le choix d’un niveau de service dépend principalement des exigences de continuité d’activité, de stockage et de performance.
 
@@ -40,8 +40,8 @@ Le choix d’un niveau de service dépend principalement des exigences de contin
 |UC|Faible|Faible, moyen, élevé|Faible, élevé|
 |Débit d’E/S (approximatif) |2,5 IOPS par DTU| 2,5 IOPS par DTU | 48 IOPS par DTU|
 |Latence d’E/S (approximative)|5 ms (lecture), 10 ms (écriture)|5 ms (lecture), 10 ms (écriture)|2 ms (lecture/écriture)|
-|Indexation Columnstore |S.O.|S3 et supérieur|Pris en charge|
-|OLTP en mémoire|S.O.|S.O.|Pris en charge|
+|Indexation Columnstore |N/A|S3 et supérieur|Pris en charge|
+|OLTP en mémoire|N/A|N/A|Pris en charge|
 |||||
 
 > [!NOTE]
@@ -49,7 +49,7 @@ Le choix d’un niveau de service dépend principalement des exigences de contin
 
 ## <a name="single-database-dtu-and-storage-limits"></a>Limites de stockage et unités DTU d’une base de données unique
 
-Les tailles de calcul sont exprimées en unités de transaction de base de données (DTU) pour les bases de données uniques, et en unités de transaction de base de données élastique (eDTU) pour les pools élastiques. Pour plus d’informations sur les DTU et les eDTU, voir [Modèle d’achat basé sur des unités DTU](sql-database-purchase-models.md#dtu-based-purchasing-model).
+Les tailles de calcul sont exprimées en unités de transaction de base de données (DTU) pour les bases de données uniques, et en unités de transaction de base de données élastique (eDTU) pour les pools élastiques. Pour plus d’informations sur les DTU et les eDTU, consultez [Modèle d’achat DTU](sql-database-purchase-models.md#dtu-based-purchasing-model).
 
 ||De base|standard|Premium|
 | :-- | --: | --: | --: |

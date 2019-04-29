@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 04/08/2019
 ms.author: raynew
 ms.openlocfilehash: b316d6a8293d9f23eb89e8b6fffedac316759df4
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59360146"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60564848"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>Matrice de prise en charge de la récupération d’urgence des machines virtuelles VMware et serveurs physiques sur un site secondaire
 
@@ -75,7 +75,7 @@ Machine virtuelle invitée - Plusieurs cartes réseau | Oui
 **Stockage (hôte)** | **Pris en charge** 
 --- | --- 
 NFS | Oui 
-SMB 3.0 | S.O. 
+SMB 3.0 | N/A 
 SAN (ISCSI) | Oui 
 Chemins d’accès multiples (MPIO) | Oui 
 
@@ -84,8 +84,8 @@ Chemins d’accès multiples (MPIO) | Oui
 **Configuration** | **Pris en charge** 
 --- | --- 
 VMDK | Oui 
-VHD/VHDX | S.O. 
-Machine virtuelle de 2e génération | S.O. 
+VHD/VHDX | N/A 
+Machine virtuelle de 2e génération | N/A 
 Disque de cluster partagé | Oui 
 Disque chiffré | Non  
 UEFI| Oui 
@@ -97,7 +97,7 @@ Volume avec disque à bandes > 1 To<br/><br/> LVM | Oui
 Espaces de stockage | Non  
 Ajout/suppression de disque à chaud | Oui 
 Exclure le disque | Oui 
-Chemins d’accès multiples (MPIO) | S.O. 
+Chemins d’accès multiples (MPIO) | N/A 
 
 ## <a name="vaults"></a>Coffres
 

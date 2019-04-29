@@ -12,11 +12,11 @@ ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
 ms.openlocfilehash: e3570ab1227ca388ac62bffdc74bb68b1ddc41d1
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230161"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62105664"
 ---
 # <a name="monitor-and-manage-wunderlist-by-using-azure-logic-apps"></a>Superviser et gérer Wunderlist à l’aide d’Azure Logic Apps
 
@@ -29,7 +29,7 @@ Avec Azure Logic Apps et le connecteur Wunderlist, vous pouvez créer des tâche
 
 [Wunderlist](https://www.wunderlist.com/) est un service qui vous permet de planifier, gérer et terminer vos projets, listes de tâches et tâches sur l’appareil de votre choix, où que vous soyez. Vous pouvez utiliser des déclencheurs qui obtiennent des réponses de votre compte Wunderlist et mettent la sortie à la disposition d’autres actions. Vous pouvez utiliser des actions qui effectuent des tâches avec votre compte Wunderlist. Vous pouvez également faire en sorte que des actions utilisent la sortie d’actions Wunderlist. Par exemple, quand de nouvelles tâches doivent être exécutées, vous pouvez publier des messages avec le connecteur Slack. Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azure Logic Apps ?](../logic-apps/logic-apps-overview.md)
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscrivez-vous pour bénéficier d’un compte Azure gratuit</a>. 
 

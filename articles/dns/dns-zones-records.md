@@ -15,12 +15,12 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/18/2017
 ms.author: victorh
-ms.openlocfilehash: 7f69d77ac7a6c2a17ef2568f0c7edaef2e1ee3f5
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 7da382a644c1db92b9915f1d3f1f3a459e8893b8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39174290"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60563362"
 ---
 # <a name="overview-of-dns-zones-and-records"></a>Vue d’ensemble des enregistrements et des zones DNS
 
@@ -59,7 +59,7 @@ Pour créer un jeu d’enregistrements génériques, utilisez le nom de jeu d’
 ### <a name="caa-records"></a>Enregistrements CAA
 
 Un enregistrement CAA permet aux propriétaires de domaine de spécifier les autorités de certification autorisées à émettre des certificats pour leur domaine. Ainsi, les autorités de certification peuvent éviter d’émettre des certificats incorrects dans certains cas. Les enregistrements CAA présentent trois propriétés :
-* **Flags** : il s’agit d’un entier compris entre 0 et 255, utilisé pour représenter l’indicateur critique qui a une signification particulière par le [RFC](https://tools.ietf.org/html/rfc6844#section-3).
+* **Indicateurs**: Il s’agit d’un entier compris entre 0 et 255, utilisé pour représenter l’indicateur critique qui a une signification particulière par le [RFC](https://tools.ietf.org/html/rfc6844#section-3)
 * **Tag** : une chaîne ASCII qui peut être l’un des éléments suivants :
     * **issue** : utilisez cette option si vous souhaitez spécifier quelles autorités de certification sont autorisées à émettre des certificats (de tous types).
     * **issuewild** : utilisez cette option si vous souhaitez spécifier quelles autorités de certification sont autorisées à émettre des certificats (certificats avec caractères génériques uniquement).

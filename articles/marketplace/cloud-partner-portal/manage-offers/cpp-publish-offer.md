@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 01/12/2019
 ms.author: pbutlerm
 ms.openlocfilehash: 7f2ad9a30b28d64b1a3c5a7776ac1689bbb29b82
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54355065"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60729685"
 ---
 # <a name="publish-azure-marketplace-and-appsource-offers"></a>Publier des offres sur la Place de marché Microsoft Azure et AppSource
 

@@ -14,11 +14,11 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: bd39b0aae5b76f37e2153f8e4c4502be994fa5b5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58081829"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61462001"
 ---
 # <a name="move-data-from-postgresql-using-azure-data-factory"></a>Déplacer des données depuis PostgreSQL à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -74,7 +74,7 @@ Le tableau suivant fournit la description des éléments JSON spécifiques au se
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| Type |La propriété type doit être définie sur : **OnPremisesPostgreSql** |Oui |
+| type |La propriété type doit être définie sur : **OnPremisesPostgreSql** |Oui |
 | serveur |Nom du serveur PostgreSQL. |Oui |
 | database |Nom de la base de données PostgreSQL. |Oui |
 | schema |Nom du schéma dans la base de données. Le nom du schéma respecte la casse. |Non  |
@@ -314,28 +314,28 @@ Lors du déplacement de données vers PostgreSQL, les mappages suivants sont uti
 | booléenne |bool |booléenne |
 | box | |Byte[], String |
 | bytea | |Byte[], String |
-| character [(n)] |char [(n)] |Chaîne |
-| character varying [(n)] |varchar [(n)] |Chaîne |
-| cid | |Chaîne |
-| cidr | |Chaîne |
+| character [(n)] |char [(n)] |String |
+| character varying [(n)] |varchar [(n)] |String |
+| cid | |String |
+| cidr | |String |
 | circle | |Byte[], String |
 | date | |DateTime |
-| daterange | |Chaîne |
+| daterange | |String |
 | double précision |float8 |Double |
 | inet | |Byte[], String |
-| intarry | |Chaîne |
-| int4range | |Chaîne |
-| int8range | |Chaîne |
+| intarry | |String |
+| int4range | |String |
+| int8range | |String |
 | integer |int, int4 |Int32 |
 | interval [champs] [(p)] | |Timespan |
-| json | |Chaîne |
+| json | |String |
 | jsonb | |Byte[] |
 | line | |Byte[], String |
 | lseg | |Byte[], String |
 | macaddr | |Byte[], String |
 | money | |Decimal |
 | numeric [(p, s)] |decimal [(p, s)] |Decimal |
-| numrange | |Chaîne |
+| numrange | |String |
 | oid | |Int32 |
 | chemin d’accès | |Byte[], String |
 | pg_lsn | |Int64 |
@@ -345,7 +345,7 @@ Lors du déplacement de données vers PostgreSQL, les mappages suivants sont uti
 | smallint |int2 |Int16 |
 | smallserial |serial2 |Int16 |
 | serial |serial4 |Int32 |
-| texte | |Chaîne |
+| text | |String |
 
 ## <a name="map-source-to-sink-columns"></a>Mapper les colonnes source aux colonnes du récepteur
 Pour en savoir plus sur le mappage de colonnes du jeu de données source à des colonnes du jeu de données récepteur, voir [Mappage des colonnes d’un jeu de données dans Azure Data Factory](data-factory-map-columns.md).

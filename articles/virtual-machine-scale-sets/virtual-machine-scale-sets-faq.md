@@ -17,11 +17,11 @@ ms.date: 03/13/2019
 ms.author: manayar
 ms.custom: na
 ms.openlocfilehash: 56a31770c374cdccaec4dbee751925a6da00fa59
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59683951"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60620241"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>FAQ sur les groupes de machines virtuelles identiques Azure
 
@@ -236,8 +236,8 @@ Vous pouvez fournir les clés publiques SSH en texte brut lorsque vous créez un
 nom d’élément linuxConfiguration | Obligatoire | Type | Description
 --- | --- | --- | --- 
 ssh | Non  | Collection | Spécifie la configuration de la clé SSH pour un système d’exploitation Linux
-chemin d’accès | Oui | Chaîne | Spécifie le chemin d’accès du fichier Linux où les clés SSH ou le certificat doivent être placés
-keyData | Oui | Chaîne | Spécifie une clé publique SSH encodée en base64
+chemin d’accès | Oui | String | Spécifie le chemin d’accès du fichier Linux où les clés SSH ou le certificat doivent être placés
+keyData | Oui | String | Spécifie une clé publique SSH encodée en base64
 
 Pour obtenir un exemple, consultez [le modèle de démarrage rapide GitHub 101-vm-sshkey](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
 

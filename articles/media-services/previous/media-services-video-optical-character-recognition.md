@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 91fad34073d7505c596bedfb6c93946ee7393dd7
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58315128"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60825606"
 ---
 # <a name="use-azure-media-analytics-to-convert-text-content-in-video-files-into-digital-text"></a>Utilisation d’Azure Media Analytics pour convertir le contenu texte de fichiers vidéo en texte numérique  
 ## <a name="overview"></a>Présentation
@@ -119,7 +119,7 @@ La sortie contient les attributs suivants :
 | Langage |langue du texte détecté dans une région |
 | orientation |orientation du texte détecté dans une région |
 | lignes |tableau de lignes de texte détecté dans une région |
-| texte |le texte réel |
+| text |le texte réel |
 
 ### <a name="json-output-example"></a>Exemple de sortie JSON
 L’exemple de sortie suivant contient des informations générales sur la vidéo et plusieurs fragments vidéo. Chaque fragment vidéo contient toutes les régions détectées par le processeur multimédia OCR selon la langue et l’orientation du texte choisies. La région contient également toutes les lignes de mots de cette région, avec le texte et la position de chaque ligne, et des informations sur chaque mot (contenu, position et niveau de confiance du mot). En voici un exemple (avec mes commentaires).

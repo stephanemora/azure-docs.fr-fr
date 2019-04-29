@@ -16,11 +16,11 @@ ms.date: 02/27/2017
 ms.author: lahugh
 ms.custom: seodec18
 ms.openlocfilehash: 085bfa582b676f34a02e4c1c5ae7e69c49e5cb4e
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53538121"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60550082"
 ---
 # <a name="use-visual-studio-project-templates-to-jump-start-batch-solutions"></a>Utiliser des modèles de projet Visual Studio pour lancer rapidement des solutions Batch
 
@@ -52,7 +52,7 @@ Comme indiqué dans le diagramme ci-dessous, un travail de calcul qui utilise ce
 
 ![Diagramme montrant comment le code client interagit avec le service Batch][diagram01]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 Voici les composants requis pour utiliser les modèles Batch :
 
 * Un ordinateur où Visual Studio 2015 est installé. Les modèles Batch sont actuellement pris en charge seulement pour Visual Studio 2015.

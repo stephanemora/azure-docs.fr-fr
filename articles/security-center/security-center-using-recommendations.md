@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 3/26/2019
 ms.author: monhaber
 ms.openlocfilehash: 82a46ae9523c4c2778f86c445e35d0bec961307f
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517689"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60703446"
 ---
 # <a name="use-azure-security-center-recommendations-to-enhance-security"></a>Utiliser les recommandations Azure Security Center pour améliorer la sécurité
 Vous pouvez réduire les risques d’un incident de sécurité en configurant une stratégie de sécurité, puis en implémentant les recommandations fournies par Azure Security Center. Cet article explique comment utiliser les stratégies de sécurité et les recommandations d'Azure Security Center pour prévenir une attaque de sécurité. 

@@ -14,11 +14,11 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 03/11/2019
 ms.openlocfilehash: d9cd5ba0b697cbf67f943eb49d66010745d8561e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59360817"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60584849"
 ---
 # <a name="choose-the-right-sql-server-option-in-azure"></a>Choisir l’option SQL Server appropriée dans Azure
 
@@ -103,7 +103,7 @@ Que vous soyez une start-up à court de liquidités ou une équipe dans une soci
 
 #### <a name="billing-and-licensing-basics"></a>Notions de base sur la facturation et les licences
 
-Actuellement, **SQL Database** est vendu en tant que service et est disponible sous la forme de plusieurs options de déploiement. Il propose plusieurs niveaux de service à des prix différents selon les ressources, et qui sont tous facturés à un tarif horaire fixe en fonction du niveau de service et de la taille de calcul choisis. Pour obtenir les dernières informations sur les niveaux de service, les tailles de calcul et les quantités de stockage actuels pris en charge, consultez [Modèle d’achat basé sur des DTU](sql-database-service-tiers-dtu.md) et [Modèle d’achat basé sur des vCores](sql-database-service-tiers-vcore.md).
+Actuellement, **SQL Database** est vendu en tant que service et est disponible sous la forme de plusieurs options de déploiement. Il propose plusieurs niveaux de service à des prix différents selon les ressources, et qui sont tous facturés à un tarif horaire fixe en fonction du niveau de service et de la taille de calcul choisis. Pour obtenir les dernières informations sur les niveaux de service, les tailles de calcul et les quantités de stockage actuels pris en charge, consultez [Modèle d’achat DTU](sql-database-service-tiers-dtu.md) et [Modèle d’achat vCore](sql-database-service-tiers-vcore.md).
 
 - Avec la base de données unique SQL Database, vous pouvez choisir un niveau de service adapté à vos besoins dans une large gamme de prix à partir de 5 USD par mois pour le niveau de base.
 - Vous pouvez créer des [pools élastiques](sql-database-elastic-pool.md) pour partager des ressources entre des instances de base de données pour réduire les coûts et vous adapter aux pics d’utilisation.

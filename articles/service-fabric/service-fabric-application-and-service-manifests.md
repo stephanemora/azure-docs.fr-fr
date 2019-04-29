@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 12/19/2018
 ms.author: atsenthi
 ms.openlocfilehash: 5e93bb3b206fbef6beb09b7aca6df0742a80ccf1
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662140"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60621511"
 ---
 # <a name="service-fabric-application-and-service-manifests"></a>Manifestes des services et applications Service Fabric
 Cet article explique comment les services et les applications Service Fabric sont définis et créés dans différentes versions à l’aide des fichiers ApplicationManifest.xml et ServiceManifest.xml.  Pour plus d’exemples, consultez les [exemples de manifeste de service et d’application](service-fabric-manifest-examples.md).  Le schéma XML pour ces fichiers manifestes est détaillé dans [Documentation relative au schéma ServiceFabricServiceModel.xsd](service-fabric-service-model-schema.md).

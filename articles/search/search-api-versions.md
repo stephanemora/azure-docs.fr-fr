@@ -11,11 +11,11 @@ ms.date: 06/28/2018
 ms.author: brjohnst
 ms.custom: seodec2018
 ms.openlocfilehash: c07a0c8f5440033455c69fe40806adf9b548c16f
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631148"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61126956"
 ---
 # <a name="api-versions-in-azure-search"></a>Versions d’API dans Azure Search
 Azure Search déploie régulièrement des mises à jour de fonctionnalités. Parfois, ces mises à jour requièrent une nouvelle version de l’API pour maintenir la compatibilité descendante. La publication d’une nouvelle version vous permet de contrôler quand et comment intégrer les mises à jour du service de recherche dans votre code.

@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 03/05/2019
 ms.author: juliako
-ms.openlocfilehash: e6dead0f08f50b32dd963832824d9166ff2467c0
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 89903d3f65c74da6903e53284f168d2d6a12168a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58893450"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60559903"
 ---
 # <a name="upload-and-index-your-videos"></a>Charger et indexer vos vidéos  
 
@@ -32,7 +32,7 @@ Une fois votre vidéo chargée, Video Indexer peut éventuellement l’encoder (
 
 - Lors du chargement de votre vidéo à partir de l’URL (par défaut), le point de terminaison doit être sécurisé avec TLS 1.2 (ou version ultérieure)
 - La taille de téléchargement avec l’option d’URL est limitée à 30 Go
-- Dans la plupart des navigateurs, la longueur de l’URL est limitée à 2 000 caractères
+- La longueur d’URL de la demande est limitée à 2048 caractères
 - La taille du chargement avec l’option Tableau d'octets est limitée à 2 Go
 - L’option Tableau d’octets expire après 30 minutes
 - L’URL fournie dans le paramètre `videoURL` doit être encodée

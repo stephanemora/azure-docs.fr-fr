@@ -17,11 +17,11 @@ ms.date: 12/15/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 00357641f51be703d2e5c52c5b9cc6187ce05ff6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58002691"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60543079"
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-linux-vms"></a>Procédure pas à pas d’exemple d’infrastructure Azure pour les machines virtuelles Linux
 Cet article vous guide à travers la création d’un exemple d’infrastructure d’application. Nous détaillons la conception d’une infrastructure pour un magasin en ligne simple qui réunit toutes les instructions et les décisions concernant les conventions de dénomination, les groupes à haute disponibilité, les réseaux virtuels et équilibreurs de charge, ainsi que le déploiement de vos machines virtuelles.

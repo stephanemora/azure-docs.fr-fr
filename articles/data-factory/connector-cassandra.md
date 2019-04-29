@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: jingwang
 ms.openlocfilehash: 743dad6032547f8f535543413adff416efb56ac0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57998392"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60640076"
 ---
 # <a name="copy-data-from-cassandra-using-azure-data-factory"></a>Copier des données de Cassandra à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -54,7 +54,7 @@ Les propriétés prises en charge pour le service lié Cassandra sont les suivan
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type |La propriété type doit être définie sur : **Cassandra** |Oui |
+| type |La propriété type doit être définie sur : **Cassandra** |Oui |
 | host |Une ou plusieurs adresses IP ou noms d’hôte de serveurs Cassandra.<br/>Renseignez une liste des adresses IP ou des noms d’hôte séparée par des virgules pour vous connecter simultanément à tous les serveurs. |Oui |
 | port |Le port TCP utilisé par le serveur Cassandra pour écouter les connexions clientes. |Non (la valeur par défaut 9042) |
 | authenticationType | Type d'authentification utilisé pour se connecter à la base de données Cassandra.<br/>Les valeurs autorisées sont les suivantes : **De base**, et **Anonyme**. |Oui |
@@ -97,9 +97,9 @@ Pour copier des données de Cassandra, affectez la valeur **CassandraTable** à 
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type du jeu de données doit être définie sur : **CassandraTable** | Oui |
+| type | La propriété type du jeu de données doit être définie sur : **CassandraTable** | Oui |
 | espace de clé |Nom de l’espace de clé ou du schéma dans la base de données Cassandra. |Non (si « query » pour « CassandraSource » est spécifié) |
-| TableName |Nom de la table dans la base de données Cassandra. |Non (si « query » pour « CassandraSource » est spécifié) |
+| tableName |Nom de la table dans la base de données Cassandra. |Non (si « query » pour « CassandraSource » est spécifié) |
 
 **Exemple :**
 
@@ -131,7 +131,7 @@ Pour copier des données de Cassandra, définissez **Source** comme type source 
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type de la source d’activité de copie doit être définie sur : **CassandraSource** | Oui |
+| type | La propriété type de la source d’activité de copie doit être définie sur : **CassandraSource** | Oui |
 | query |Utilise la requête personnalisée pour lire des données. Requête SQL-92 ou requête CQL. Reportez-vous à [référence CQL](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html). <br/><br/>Lorsque vous utilisez la requête SQL, indiquez **keyspace name.table name** pour représenter la table que vous souhaitez interroger. |Non (si « tableName » et « keyspace » sont spécifiés dans le jeu de données). |
 | Niveau de cohérence |Le niveau de cohérence spécifie le nombre de réplicas devant répondre à une demande de lecture avant de renvoyer des données à l’application cliente. Cassandra vérifie le nombre de réplicas spécifié pour permettre aux données de répondre à la demande de lecture. Reportez-vous à [Configuring data consistency (Configuration de la cohérence des données)](https://docs.datastax.com/en/cassandra/2.1/cassandra/dml/dml_config_consistency_c.html) pour plus d’informations.<br/><br/>Les valeurs autorisées sont les suivantes : **ONE**, **TWO**, **THREE**, **QUORUM**, **ALL**, **LOCAL_QUORUM**, **EACH_QUORUM** et **LOCAL_ONE**. |Non (la valeur par défaut est `ONE`) |
 
@@ -173,20 +173,20 @@ Lors de la copie de données de Cassandra, les mappages suivants sont utilisés 
 
 | Type de données Cassandra | Type de données intermédiaires de Data Factory |
 |:--- |:--- |
-| ASCII |Chaîne |
+| ASCII |String |
 | BIGINT |Int64 |
 | BLOB |Byte[] |
 | BOOLEAN |BOOLEAN |
 | DÉCIMAL |Decimal |
 | DOUBLE |DOUBLE |
 | FLOAT |Single |
-| INET |Chaîne |
+| INET |String |
 | INT |Int32 |
-| TEXTE |Chaîne |
+| TEXTE |String |
 | TIMESTAMP |DateTime |
 | TIMEUUID |Guid |
 | UUID |Guid |
-| VARCHAR |Chaîne |
+| VARCHAR |String |
 | VARINT |DÉCIMAL |
 
 > [!NOTE]

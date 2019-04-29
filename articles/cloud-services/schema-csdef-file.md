@@ -14,11 +14,11 @@ author: jpconnock
 ms.author: jeconnoc
 manager: timlt
 ms.openlocfilehash: 4e018af7df64c9ed8050a3c618cf2645d5509cdd
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58918499"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60613251"
 ---
 # <a name="azure-cloud-services-definition-schema-csdef-file"></a>Schéma de définition Microsoft Azure Cloud Services (fichier .csdef)
 Le fichier de définition de service définit le modèle de service d’une application. Le fichier contient les définitions des rôles disponibles pour un service cloud, spécifie les points de terminaison de service et établit les paramètres de configuration du service. Les valeurs des paramètres de configuration sont définies dans le fichier de configuration de service, comme indiqué dans le [schéma de configuration de services cloud (classique)](/previous-versions/azure/reference/ee758710(v=azure.100)).

@@ -16,11 +16,11 @@ ms.date: 12/07/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
 ms.openlocfilehash: 2233dffabd7c76ca55cf215f8bc04e66134f5799
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58338800"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60583602"
 ---
 # <a name="create-autoscale-policies-for-a-service-fabric-mesh-application"></a>Créer des stratégies de mise à l’échelle automatique pour une application Azure Service Fabric Mesh
 Le déploiement d’applications vers Service Fabric Mesh permet notamment d’augmenter ou de diminuer la taille de vos services en toute simplicité. Vous pouvez ainsi gérer des charges variables sur vos services ou améliorer la disponibilité. Vous pouvez mettre à l’échelle manuellement vos services ou configurer des stratégies de mise à l’échelle automatique.

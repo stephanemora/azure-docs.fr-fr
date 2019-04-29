@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: mayg
 ms.openlocfilehash: 98718709038d7fd753e5eb3d45c130085c5accd9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58099050"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60600191"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>Installer un serveur cible maître Linux pour la restauration automatique
 Après avoir basculé une machine virtuelle sur Azure, vous pouvez la restaurer automatiquement sur le site local. L’opération de restauration vous oblige à reprotéger la machine virtuelle à partir d’Azure sur le site local. Pour ce faire, vous avez besoin d’un serveur cible maître, capable de recevoir le trafic. 

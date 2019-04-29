@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 08/04/2017
 ms.author: tomsh
 ms.openlocfilehash: c5b5f80a43530fe6d0b90e65c3aef89a815157e4
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57241389"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60610885"
 ---
 # <a name="azure-service-fabric-security-overview"></a>Vue d’ensemble de la sécurité Azure Service Fabric
 [Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview) est une plateforme de systèmes distribués qui facilite le packaging, le déploiement et la gestion de microservices évolutifs et fiables. Service Fabric gère les difficultés du développement et de la gestion des applications cloud. C’est pourquoi les développeurs et administrateurs peuvent éviter les problèmes d’infrastructure complexes et se concentrer sur l’implémentation de charges de travail stratégiques et astreignantes qui sont scalables et fiables.

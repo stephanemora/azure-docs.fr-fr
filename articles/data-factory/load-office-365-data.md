@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 10/22/2018
 ms.author: jingwang
 ms.openlocfilehash: fe3a3b673f6512856f3640b3e103db8623570a88
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58445767"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60548106"
 ---
 # <a name="load-data-from-office-365-by-using-azure-data-factory"></a>Charger des données d’Office 365 à l’aide d’Azure Data Factory
 
@@ -24,7 +24,7 @@ Cet article vous montre comment _charger des données d’Office 365 dans le st
 
 ## <a name="create-a-data-factory"></a>Créer une fabrique de données
 
-1. Dans le menu de gauche, sélectionnez **créer une ressource** > **données + Analytique** > **Data Factory**: 
+1. Dans le menu de gauche, sélectionnez **Créer une ressource** > **Données + Analytique** > **Data Factory** : 
    
    ![Sélection Data Factory dans le volet « Nouveau »](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
 

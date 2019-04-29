@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
 ms.openlocfilehash: 271e18d370068e0445f183af0c694b19f0da22f2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58102752"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60672586"
 ---
 # <a name="contoso-migration-refactor-an-on-premises-app-to-an-azure-web-app-and-azure-sql-database"></a>Migration de Contoso : Refactoriser une application locale vers une application web Azure et une base de données SQL Azure
 
@@ -280,7 +280,7 @@ Les administrateurs Contoso doivent faire en sorte que les applications web et l
 5. Une fois les modifications apportées au code, les administrateurs doivent valider les modifications. À l’aide de Team Explorer dans Visual Studio, ils valider et synchroniser.
 
 
-## <a name="step-6-set-up-build-and-release-pipelines-in-azure-devops"></a>Étape 6 : Configurer les pipelines de build et de mise en production dans Azure DevOps
+## <a name="step-6-set-up-build-and-release-pipelines-in-azure-devops"></a>Étape 6 : Configurer les pipelines de build et de mise en production dans Azure DevOps
 
 Les administrateurs de Contoso configurent maintenant Azure DevOps pour lancer le processus de build et mise en production.
 

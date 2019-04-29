@@ -15,11 +15,11 @@ ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 18f00391beded0744c80eab73bb1efe1c6ab8dbc
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48806045"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60625038"
 ---
 <a name="cancel-operation"></a>Annuler une opération 
 =================
@@ -33,10 +33,10 @@ Vous pouvez fournir une liste d’adresses e-mail séparées par des virgules av
 <a name="uri-parameters"></a>Paramètres URI
 --------------
 
-|  **Nom**    |      **Description**                                  |    **Type de données**  |
+|  **Name**    |      **Description**                                  |    **Type de données**  |
 | ------------ |     ----------------                                  |     -----------   |
-| publisherid  |  Identificateur du serveur de publication, par exemple `contoso`         |   Chaîne          |
-| offerId      |  Identificateur de l’offre                                     |   Chaîne          |
+| publisherId  |  Identificateur du serveur de publication, par exemple `contoso`         |   String          |
+| offerId      |  Identificateur de l’offre                                     |   String          |
 | api-version  |  Version actuelle de l’API                               |    Date           |
 |  |  |  |
 
@@ -44,7 +44,7 @@ Vous pouvez fournir une liste d’adresses e-mail séparées par des virgules av
 <a name="header"></a>En-tête
 ------
 
-|  **Nom**              |  **Valeur**         |
+|  **Name**              |  **Valeur**         |
 |  ---------             |  ----------        |
 |  Content-Type          |  application/json  |
 |  Authorization         |  Porteur de VOTRE JETON |
@@ -66,7 +66,7 @@ Vous pouvez fournir une liste d’adresses e-mail séparées par des virgules av
 
 ### <a name="request-body-properties"></a>Propriétés du corps de la requête
 
-|  **Nom**                |  **Description**                                               |
+|  **Name**                |  **Description**                                               |
 |  --------                |  ---------------                                               |
 |  e-mails de notification     | Liste d’ID d’e-mail séparés par des virgules pour informer de la progression de l’opération de publication. |
 |  |  |
@@ -79,7 +79,7 @@ Vous pouvez fournir une liste d’adresses e-mail séparées par des virgules av
 
 ### <a name="response-header"></a>En-tête de réponse
 
-|  **Nom**             |    **Valeur**                       |
+|  **Name**             |    **Valeur**                       |
 |  ---------            |    ----------                      |
 | Operation-Location    | URL qui peut être interrogée pour déterminer l’état actuel de l’opération. |
 |  |  |

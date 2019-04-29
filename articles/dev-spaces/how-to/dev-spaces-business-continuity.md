@@ -8,14 +8,14 @@ ms.author: lcozzens
 ms.date: 01/28/2019
 ms.topic: conceptual
 description: Développement Kubernetes rapide avec des conteneurs et des microservices sur Azure
-keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, Helm, maille de services, service maillage du routage, kubectl, k8s '
+keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, Helm, service Mesh, routage du service Mesh, kubectl, k8s '
 manager: jeconnoc
 ms.openlocfilehash: 7b463be143ed3f89c1b10424dafc7a0e841ecbfc
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57775638"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60686967"
 ---
 # <a name="business-continuity-and-disaster-recovery-in-azure-dev-spaces"></a>Continuité d’activité et reprise d’activité dans Azure Dev Spaces
 

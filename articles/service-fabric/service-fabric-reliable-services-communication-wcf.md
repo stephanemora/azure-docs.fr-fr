@@ -15,11 +15,11 @@ ms.workload: required
 ms.date: 06/07/2017
 ms.author: bharatn
 ms.openlocfilehash: ae8a0ab0382083ebfca0834d2238403668efa71d
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670574"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60725599"
 ---
 # <a name="wcf-based-communication-stack-for-reliable-services"></a>Pile de communication WCF pour Reliable Services
 L'infrastructure Reliable Services permet aux auteurs de service de choisir la pile de communication qu'ils souhaitent utiliser pour leur service. Ils peuvent intégrer la pile de communication de leur choix par le biais du **ICommunicationListener** retourné à partir des méthodes [CreateServiceReplicaListeners ou CreateServiceInstanceListeners](service-fabric-reliable-services-communication.md) . L'infrastructure fournit une implémentation de la pile de communication basée sur Windows Communication Foundation (WCF) pour les auteurs de service qui souhaitent utiliser une communication WCF.

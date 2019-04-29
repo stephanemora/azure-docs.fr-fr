@@ -11,12 +11,12 @@ ms.author: prasantp
 author: prasanthpul
 ms.date: 12/3/2018
 ms.custom: seodec18
-ms.openlocfilehash: 33a93aa01499beb978f616f633588ba75e4b62a3
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 716286fdfb684a277c7147936f162089a2cdefd8
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59259182"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62118464"
 ---
 # <a name="onnx-and-azure-machine-learning-create-and-deploy-interoperable-ai-models"></a>ONNX et Azure Machine Learning : Créer et déployer des modèles d’intelligence artificielle interopérables
 
@@ -57,7 +57,7 @@ Vous pouvez convertir des modèles existants au format ONNX ou les enregistrer a
 |TensorFlow|[tensorflow-onnx converter](https://github.com/onnx/tensorflow-onnx)|
 |Chainer|[Bloc-notes Jupyter](https://github.com/onnx/tutorials/blob/master/tutorials/ChainerOnnxExport.ipynb)|
 |MXNet|[Bloc-notes Jupyter](https://github.com/onnx/tutorials/blob/master/tutorials/MXNetONNXExport.ipynb)|
-|Keras, ScitKit-Learn, CoreML<br/>XGBoost, et libSVM|[WinMLTools](https://docs.microsoft.com/windows/ai/convert-model-winmltools)|
+|Keras, ScitKit-Learn, CoreML<br/>XGBoost, et libSVM|[WinMLTools](/windows/ai/windows-ml/convert-model-winmltools)|
 |Microsoft&nbsp;Cognitive&nbsp;Toolkit|[Bloc-notes Jupyter](https://github.com/onnx/tutorials/blob/master/tutorials/CntkOnnxExport.ipynb)|
 
 Vous trouverez la liste la plus récente des frameworks et des convertisseurs pris en charge sur le [site des tutoriels ONNX](https://github.com/onnx/tutorials).

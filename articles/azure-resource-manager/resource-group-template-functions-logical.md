@@ -13,11 +13,11 @@ ms.workload: na
 ms.date: 04/15/2019
 ms.author: tomfitz
 ms.openlocfilehash: 2ccdd337d5c01a0ac0253fe1d1e131fa4e6d51a7
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59608910"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60782988"
 ---
 # <a name="logical-functions-for-azure-resource-manager-templates"></a>Fonctions logiques pour les modèles Azure Resource Manager
 
@@ -188,8 +188,8 @@ La sortie de l’exemple précédent est :
 
 | Nom | type | Valeur |
 | ---- | ---- | ----- |
-| yesOutput | Chaîne | Oui |
-| noOutput | Chaîne | no |
+| yesOutput | String | Oui |
+| noOutput | String | no |
 | objectOutput | Object | { "test": "value1" } |
 
 Ce qui suit [exemple de modèle](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/conditionWithReference.json) montre comment utiliser cette fonction avec des expressions qui sont uniquement valides de manière conditionnelle.

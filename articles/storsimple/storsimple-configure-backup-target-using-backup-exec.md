@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 12/05/2016
 ms.author: hkanna
 ms.openlocfilehash: e11d541f0450c0de4ba6d60f889fc7471b1fa1aa
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58011131"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60724318"
 ---
 # <a name="storsimple-as-a-backup-target-with-backup-exec"></a>StorSimple comme cible de sauvegarde avec Backup Exec
 
@@ -102,7 +102,7 @@ Les tableaux ci-après contiennent les informations d’aide initiales concernan
 | Scénario de sauvegarde  | Capacité de stockage local  | Capacité de stockage cloud  |
 |---|---|---|
 | Sauvegarde principale  | Sauvegardes récentes stockées sur le stockage local afin d’accélérer la récupération pour se conformer à l’objectif de point de récupération (RPO) | Capacité du cloud adaptée à l’historique des sauvegardes (RPO) |
-| Sauvegarde secondaire | Possibilité de stocker une copie secondaire des données de sauvegarde dans la capacité du cloud  | S.O.  |
+| Sauvegarde secondaire | Possibilité de stocker une copie secondaire des données de sauvegarde dans la capacité du cloud  | N/A  |
 
 ## <a name="storsimple-as-a-primary-backup-target"></a>Utiliser StorSimple comme cible de sauvegarde principale
 

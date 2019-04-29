@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 11/27/2018
 ms.author: magoedte
 ms.openlocfilehash: 0ed6747573edf4c059eb29d28107a22706c52856
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59426187"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60759977"
 ---
 # <a name="collect-alerts-from-nagios-and-zabbix-in-azure-monitor-from-log-analytics-agent-for-linux"></a>Collecte d’alertes de Nagios et Zabbix dans Azure Monitor à partir de l’agent Log Analytics pour Linux 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]

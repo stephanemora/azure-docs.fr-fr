@@ -12,11 +12,11 @@ ms.date: 10/27/2016
 ms.author: sumuth
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 0887f58ca455dfec0474c8d6a1acba584224f0d7
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54074408"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60929448"
 ---
 # <a name="faq-for-cleardb-mysql-databases-with-azure-app-service"></a>FAQ sur les bases de données MySQL ClearDB avec Azure App Service
 Ce FAQ répond aux questions courantes sur l’utilisation et l’achat de bases de données MySQL ClearDB pour Azure Web Apps.
@@ -74,7 +74,7 @@ Si vous avez créé une base de données ClearDB en classique, vous ne pourrez p
 Contactez le [support ClearDB](https://www.cleardb.com/developers/help/support) pour tout problème lié à la base de données. Préparez-vous à fournir des informations sur votre abonnement Azure.
 
 ## <a name="can-i-create-additional-users-for-my-cleardb-mysql-database-cluster-solution"></a>Puis-je créer des utilisateurs supplémentaires pour ma solution de cluster de base de données ClearDB MySQL ?
- Non. Vous ne pouvez pas créer des utilisateurs supplémentaires, mais vous pouvez créer des bases de données sur votre cluster de base de données ClearDB.  
+Non. Vous ne pouvez pas créer des utilisateurs supplémentaires, mais vous pouvez créer des bases de données sur votre cluster de base de données ClearDB.  
 
 ## <a name="can-basicpro-series-databases-be-upgraded-in-place-similar-to-planetary-plans-today-on-cleardb-portal"></a>Les bases de données Basic/Pro peuvent-elles être mises à niveau sur place comme les plans Planetary actuellement sur le portail de ClearDB ?
 Oui, les bases de données Basic peuvent être mises à niveau sur place (Basic 60 à Basic 500). Les bases de données Pro peuvent être mises à niveau sur place (Pro 125 à Pro 1000), à l’exception de Pro 60. Actuellement, nous ne prenons pas en charge la mise à niveau de la base de données Pro 60. 

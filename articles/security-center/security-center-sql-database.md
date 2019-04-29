@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 02/02/2017
 ms.author: rkarlin
 ms.openlocfilehash: 0a889de79b6a5921007614dac8d610c1be0222d2
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114085"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60704552"
 ---
 # <a name="azure-security-center-and-azure-sql-database-service"></a>Azure Security Center et service SQL Database
 [Azure Security Center](https://azure.microsoft.com/documentation/services/security-center/) vous aide à vous empêcher, détecter et répondre aux menaces. Il fournit une surveillance de la sécurité et une gestion des stratégies intégrées pour l’ensemble de vos abonnements Azure, vous aidant ainsi à détecter les menaces qui pourraient passer inaperçues. De plus, il est compatible avec un vaste écosystème de solutions de sécurité.
@@ -36,7 +36,7 @@ Security Center vous aide à protéger les données dans SQL Database en fournis
 
 En plus de vous aider à protéger vos ressources SQL Database, Security Center fournit également l’analyse de la sécurité et la gestion des machines virtuelles, services cloud, App Services et réseaux virtuels Azure, notamment. Pour en savoir plus sur Security Center, cliquez [ici](security-center-intro.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 Pour utiliser le Centre de sécurité, vous devez disposer d’un abonnement à Microsoft Azure. Le niveau Gratuit de Security Center est activé avec votre abonnement. Pour plus d’informations sur les niveaux Gratuit et Standard de Security Center, consultez [Tarification de Security Center](https://azure.microsoft.com/pricing/details/security-center/).
 
 Le Centre de sécurité prend en charge l’accès en fonction du rôle. Pour plus d’informations sur le contrôle d’accès en fonction du rôle, consultez [Contrôle d’accès en fonction du rôle Azure Active Directory](../role-based-access-control/role-assignments-portal.md). La FAQ de Security Center fournit des informations sur la [gestion des autorisations dans Security Center](security-center-faq.md#permissions).

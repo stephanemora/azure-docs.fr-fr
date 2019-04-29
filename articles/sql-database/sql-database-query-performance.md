@@ -13,11 +13,11 @@ ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 01/03/2019
 ms.openlocfilehash: 5d892005881436dec89c0d0d010f7f02e7bdebf9
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54039195"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60585260"
 ---
 # <a name="query-performance-insight-for-azure-sql-database"></a>Query Performance Insight pour Azure SQL Database
 
@@ -33,7 +33,7 @@ La gestion et de réglage des performances des bases de données relationnelles 
 > [!TIP]
 > Pour une supervision de base des performances avec Azure SQL Database, nous vous recommandons Query Performance Insight. Notez les limitations de produit publiées dans cet article. Pour une supervision avancée des performances de base de données à grande échelle, nous vous recommandons [Azure SQL Analytics](../azure-monitor/insights/azure-sql.md). Il intègre une intelligence pour résoudre automatiquement les problèmes de performances. Pour régler automatiquement certains problèmes de performances de base de données les plus courants, nous vous recommandons le [réglage automatique](sql-database-automatic-tuning.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Query Performance Insight nécessite que le [magasin de requêtes](https://msdn.microsoft.com/library/dn817826.aspx) soit actif sur votre base de données. Il est automatiquement activé pour toutes les bases de données SQL Azure par défaut. Si le magasin de requêtes n’est pas exécuté, le portail Azure vous invite à l’activer.
 

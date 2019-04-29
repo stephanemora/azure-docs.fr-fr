@@ -13,11 +13,11 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: b5ba5fadd229fa7119f9af791f7eaedbc984c92a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55457188"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60584945"
 ---
 # <a name="elastic-database-tools-frequently-asked-questions-faq"></a>Forum aux questions sur les outils de bases de données élastiques
 
@@ -55,6 +55,6 @@ Oui, une partition est une base de données individuelle, par conséquent, une p
 
 ## <a name="does-the-split-merge-tool-provision-or-delete-a-database-during-a-split-or-merge-operation"></a>Le service de fractionnement/fusion configure-t-il (ou supprime-t-il) une base de données pendant une opération de fractionnement ou de fusion ?
 
- Non. Pour les opérations de **fractionnement** , la base de données cible doit exister avec le schéma approprié et être enregistrée dans le gestionnaire de mappages de partition.  Pour les opérations de **fusion** , vous devez supprimer la partition à partir du gestionnaire de mappages de partition, puis supprimer la base de données.
+Non. Pour les opérations de **fractionnement** , la base de données cible doit exister avec le schéma approprié et être enregistrée dans le gestionnaire de mappages de partition.  Pour les opérations de **fusion** , vous devez supprimer la partition à partir du gestionnaire de mappages de partition, puis supprimer la base de données.
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]

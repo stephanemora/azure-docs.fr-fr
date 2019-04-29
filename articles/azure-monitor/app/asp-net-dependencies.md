@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: mbullwin
 ms.openlocfilehash: c77b5810164aef7508f717a0f75d90cf6cba2089
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59273105"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60691367"
 ---
 # <a name="set-up-application-insights-dependency-tracking"></a>Configurer Application Insights : Suivi des dépendances
 Un *dépendance* est un composant externe qui est appelé par votre application. Il s’agit habituellement d’un service appelé à l’aide de HTTP, d’une base de données ou d’un système de fichiers. [Application Insights](../../azure-monitor/app/app-insights-overview.md) mesure combien de temps votre application attend les dépendances et la fréquence à laquelle un appel de dépendance échoue. Vous pouvez examiner des appels spécifiques et les associer à des demandes et des exceptions.

@@ -8,14 +8,15 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 10/23/2018
-ms.author: azfuncdf, glenga
+origin.date: 10/23/2018
+ms.date: 03/25/2019
+ms.author: v-junlch
 ms.openlocfilehash: 1c60bd4dae6c279ccff637ff0aa798c48ebec6f1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58108067"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60710858"
 ---
 # <a name="create-durable-functions-using-the-azure-portal"></a>Créer des fonctions Durable Functions à l’aide du portail Azure
 
@@ -91,7 +92,7 @@ Si vous créez des fonctions Durable Functions JavaScript, vous devez installer 
 1. Utilisez un outil HTTP tel que Postman ou cURL pour envoyer une requête POST à l’URL que vous avez copiée. L’exemple suivant est une commande cURL qui envoie une requête POST à la fonction durable :
 
     ```bash
-    curl -X POST https://{your-function-app-name}.azurewebsites.net/api/orchestrators/HelloSequence
+    curl -X POST https://{your-function-app-name}.chinacloudsites.cn/api/orchestrators/HelloSequence
     ```
 
     Dans cet exemple, `{your-function-app-name}` est le domaine qui est le nom de votre application de fonction. Le message de réponse contient un ensemble de points de terminaison d’URI que vous pouvez utiliser pour surveiller et gérer l’exécution, qui ressemble à l’exemple suivant :
@@ -140,3 +141,5 @@ Votre première fonction durable est maintenant opérationnelle dans Azure.
 
 > [!div class="nextstepaction"]
 > [Découvrez maintenant les modèles courants de fonctions durables](durable-functions-concepts.md)
+
+<!-- Update_Description: wording update -->

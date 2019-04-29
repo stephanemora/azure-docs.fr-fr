@@ -11,11 +11,11 @@ ms.custom: seodec18
 ms.date: 04/15/2019
 ms.author: shvija
 ms.openlocfilehash: 823ebc985c77785f8b48d12d5919dbbd1b2b1459
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59682381"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60821686"
 ---
 # <a name="send-events-to-or-receive-events-from-event-hubs-using-go"></a>Envoyer des événements à ou recevoir des événements d’Event Hubs à l’aide de Go
 Azure Event Hubs est une plateforme de diffusion de données volumineuses et un service d’ingestion d’événements, capable de recevoir et de traiter des millions d’événements par seconde. Les concentrateurs d’événements peuvent traiter et stocker des événements, des données ou la télémétrie produits par des logiciels et appareils distribués. Les données envoyées à un concentrateur d’événements peuvent être transformées et stockées à l’aide d’adaptateurs de traitement par lot/stockage ou d’un fournisseur d’analyse en temps réel. Pour une présentation détaillée d’Event Hubs, consultez [Vue d’ensemble d’Event Hubs](event-hubs-about.md) et [Fonctionnalités d’Event Hubs](event-hubs-features.md).

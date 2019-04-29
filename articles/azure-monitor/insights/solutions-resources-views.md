@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 01/16/2018
 ms.author: bwren
 ms.openlocfilehash: cefb83d5336bb99fd09001b5ea369a0b8fc4b942
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57769121"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60596628"
 ---
 # <a name="views-in-management-solutions-preview"></a>Affichages dans des solutions de gestion (préversion)
 > [!NOTE]
@@ -93,7 +93,7 @@ Toutes les ressources Log Analytics définies dans un modèle Resource Manager o
 
  Le tableau suivant indique les versions de l’API Log Analytics pour les affichages dans des espaces de travail hérités et mis à niveau : 
 
-| Version de l’espace de travail | Version de l'API | Requête |
+| Version de l’espace de travail | Version de l'API | Interroger |
 |:---|:---|:---|
 | v1 (hérité)   | 2015-11-01-preview | Format hérité.<br> Exemple : Type=Event EventLevelName = Error  |
 | v2 (mis à niveau) | 2015-11-01-preview | Format hérité.  Converti au format mis à niveau durant l’installation.<br> Exemple : Type=Event EventLevelName = Error<br>Converti en : Event &#124; where EventLevelName == "Error"  |

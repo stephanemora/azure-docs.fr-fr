@@ -15,16 +15,16 @@ ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
 ms.openlocfilehash: 55d569d4a993a725137d7bfab37c113147fe81ef
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57242460"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60714914"
 ---
 # <a name="enable-fusion"></a>Activer la fusion
 
 > [!IMPORTANT]
-> Sentinel Azure est actuellement en version préliminaire publique.
+> Azure Sentinel est actuellement disponible en préversion publique.
 > Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge.
 > Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -58,7 +58,7 @@ Suivez la même procédure que ci-dessus et exécutez la commande suivante :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce document, vous avez appris à activer la Fusion dans Azure Sentinel. Pour en savoir plus sur Azure Sentinel, consultez les articles suivants :
+Dans ce document, vous avez appris à activer la Fusion dans Azure Sentinel. Pour en savoir plus sur Azure Sentinel, voir les articles suivants :
 - Découvrez comment [obtenez une visibilité sur vos données et les menaces potentielles](quickstart-get-visibility.md).
 - Prise en main [détecter des menaces avec Azure Sentinel](tutorial-detect-threats.md).
 

@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/28/2019
 ms.author: spelluru
 ms.openlocfilehash: 465352af52cbc84773e52782233065b3000921e7
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58653073"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60695365"
 ---
 # <a name="connect-your-labs-network-with-a-peer-virtual-network-in-azure-lab-services"></a>Connecter le réseau de votre laboratoire avec un réseau virtuel homologue dans Azure Lab Services 
 Cet article fournit des informations sur l’homologation de votre réseau de laboratoires avec un autre réseau. 

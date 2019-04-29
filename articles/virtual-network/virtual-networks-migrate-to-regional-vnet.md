@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: genli
-ms.openlocfilehash: 1fca7f6165998b95254f841638cf8bcbc1fb352d
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.openlocfilehash: d3bb93d12a217e6d9066d037ff92f071b6139ab3
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31792152"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60648633"
 ---
 # <a name="migrate-a-virtual-network-classic-from-an-affinity-group-to-a-region"></a>Migrer un réseau virtuel Azure (classique) depuis un groupe d’affinités vers une région
 
 > [!IMPORTANT]
-> Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [Resource Manager et classique](../resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Cet article traite du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle de déploiement Resource Manager.
+> Azure a deux modèles de déploiement différents pour créer et utiliser des ressources : [Resource Manager et classique](../resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Cet article traite du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle de déploiement Resource Manager.
 
 Les groupes d’affinités vous permettent de vous assurer que les ressources créées dans le même groupe d’affinités sont physiquement hébergées par des serveurs proches les uns des autres, ce qui leur permet de communiquer plus rapidement. Auparavant, les groupes d’affinités étaient requis pour la création des réseaux virtuels (classiques). À cette époque, le service de gestionnaire réseau qui gérait les réseaux virtuels (classiques) ne fonctionnait qu’au sein d’un ensemble de serveurs physiques ou d’une unité d’échelle. Les améliorations architecturales ont augmenté la portée de la gestion réseau à une région.
 
@@ -44,15 +44,15 @@ Nous vous recommandons de ne pas utiliser les groupes d’affinités en généra
 2. Modifiez le fichier de configuration réseau, en remplaçant le paramètre **AffinityGroup** par **Location**. Spécifiez une [région](https://azure.microsoft.com/regions) Azure pour le paramètre **Location**.
    
    > [!NOTE]
-   > Le paramètre **Location** correspond à la région que vous avez spécifiée pour le groupe d’affinités associé à votre réseau virtuel (classique). Par exemple, si votre réseau virtuel (classique) est associé à un groupe d’affinités qui se trouve dans l’Ouest des États-Unis, votre paramètre **Location** doit pointer sur Ouest des États-Unis pendant la migration. 
+   > Le paramètre **Location** correspond à la région que vous avez spécifiée pour le groupe d’affinités associé à votre réseau virtuel (classique). Par exemple, si votre réseau virtuel (classique) est associé à un groupe d’affinités qui se trouve dans USA Ouest, votre paramètre **Location** doit pointer sur USA Ouest pendant la migration. 
    > 
    > 
    
     Modifiez les lignes suivantes dans votre fichier de configuration réseau, en remplaçant les valeurs avec les vôtres : 
    
-    **Ancienne valeur :**\<VirtualNetworkSitename="VNetUSWest" AffinityGroup="VNetDemoAG"\> 
+    **Ancienne valeur :** \<VirtualNetworkSitename="VNetUSWest" AffinityGroup="VNetDemoAG"\> 
    
-    **Nouvelle valeur :**\<VirtualNetworkSitename="VNetUSWest" Location="West US"\>
+    **Nouvelle valeur :** \<VirtualNetworkSitename="VNetUSWest" Location="West US"\>
 3. Enregistrez vos modifications et [importez](virtual-networks-using-network-configuration-file.md#import) la configuration réseau dans Azure.
 
 > [!NOTE]

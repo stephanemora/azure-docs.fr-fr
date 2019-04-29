@@ -4,17 +4,18 @@ description: Découvrez comment ajouter une vignette Markdown à un tableau de b
 services: azure-portal
 keywords: ''
 author: kfollis
-ms.author: kfollis
-ms.date: 01/25/2019
+ms.author: v-biyu
+origin.date: 01/25/2019
+ms.date: 03/04/2019
 ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
 ms.openlocfilehash: ec8cbddda4137656a53fd4968c451cd413959274
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58110781"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60551592"
 ---
 # <a name="use-a-markdown-tile-on-azure-dashboards-to-show-custom-content"></a>Utiliser une vignette Markdown sur les tableaux de bord Azure pour afficher un contenu personnalisé
 
@@ -28,7 +29,7 @@ Vous pouvez ajouter une vignette Markdown à vos tableaux de bord Azure pour aff
 
 2. Dans la **Galerie de vignettes**, recherchez la vignette appelée **Markdown** et cliquez sur **Ajouter**. La vignette est ajoutée au tableau de bord et le volet **Modifier le balisage Markdown** s’ouvre.
 
-1. Modifiez les champs **Titre**, **Sous-titre** et **Contenu** afin de personnaliser la vignette. Dans l’exemple présenté ici, la vignette Markdown a été modifiée pour afficher des informations de support technique personnalisées.
+3. Modifiez les champs **Titre**, **Sous-titre** et **Contenu** afin de personnaliser la vignette. Dans l’exemple présenté ici, la vignette Markdown a été modifiée pour afficher des informations de support technique personnalisées.
 
    ![Capture d’écran montrant la vue d’édition de la vignette Markdown](./media/azure-portal-markdown-tile/azure-portal-edit-markdown-tile.png)
 

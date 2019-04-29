@@ -7,11 +7,11 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 11/09/2018
 ms.openlocfilehash: 672635c8d8c84fa16c106ae79e97332fd740928d
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53541079"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60745160"
 ---
 # <a name="how-to-use-explain-to-profile-query-performance-in-azure-database-for-mariadb"></a>Guide pratique pour utiliser l’instruction EXPLAIN visant à profiler les performances des requêtes dans Azure Database for MariaDB
 **EXPLAIN** est un outil pratique pour optimiser les requêtes. L’instruction EXPLAIN permet d’obtenir des informations sur la façon dont les instructions SQL sont exécutées. La sortie suivante présente un exemple d’exécution d’une instruction EXPLAIN.

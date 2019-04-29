@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: hrasheed
 ms.openlocfilehash: f0db36fa380d0d1bb7f2b581c4bf8fa1abfaadaf
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58805378"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60698822"
 ---
 # <a name="use-apache-ambari-to-optimize-hdinsight-cluster-configurations"></a>Utiliser Apache Ambari pour optimiser les configurations de cluster HDInsight
 
@@ -181,7 +181,7 @@ Les types de compression disponibles sont :
 | Gzip | Gzip | DEFLATE | .gz | Non  |
 | Bzip2 | Bzip2 | Bzip2 |.bz2 | Oui |
 | LZO | Lzop | LZO | .lzo | Oui, si indexé |
-| Snappy | S.O. | Snappy | Snappy | Non  |
+| Snappy | N/A | Snappy | Snappy | Non  |
 
 En règle générale, il est important d’avoir une méthode de compression fractionnable. Sinon, le nombre de mappeurs créés est très faible. Si les données d’entrée sont textuelles, `bzip2` est la meilleure option. Pour le format ORC, l’option de compression la plus rapide est Snappy.
 

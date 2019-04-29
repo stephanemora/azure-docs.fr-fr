@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: srinathv
 ms.openlocfilehash: 6f10d8bc7f813245a66296988e4bb3792d898e08
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59618190"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60550020"
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Dépannage de la sauvegarde de machine virtuelle Azure
 Vous pouvez résoudre les erreurs rencontrées pendant l’utilisation de Sauvegarde Azure à l’aide des informations figurant dans le tableau suivant :
@@ -40,7 +40,7 @@ L’opération de sauvegarde a échoué car la machine virtuelle est en état d�
 ### <a name="usererrorfsfreezefailed---failed-to-freeze-one-or-more-mount-points-of-the-vm-to-take-a-file-system-consistent-snapshot"></a>UserErrorFsFreezeFailed - Impossible de figer un ou plusieurs points de montage de la machine virtuelle pour prendre un instantané cohérent du système de fichiers
 
 Code d’erreur : UserErrorFsFreezeFailed <br/>
-Message d’erreur : Échec du gel d’un ou plusieurs points de montage de la machine virtuelle pour prendre un instantané cohérent du système de fichiers.
+Message d’erreur : Impossible de figer un ou plusieurs points de montage de la machine virtuelle pour prendre une capture instantanée cohérente au niveau du système de fichiers.
 
 * Vérifier l’état du système de fichiers de tous les périphériques montés à l’aide de la **tune2fs** de commande, par exemple **tune2fs -l/dev/sdb1 \\** .\| grep **l’état du système de fichiers**.
 * Démontez les périphériques pour lesquels l’état du système n’a pas été nettoyé, à l’aide de la **unmount** commande.

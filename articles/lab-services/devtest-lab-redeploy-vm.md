@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/11/2018
 ms.author: spelluru
 ms.openlocfilehash: 4500fcfa6fbfb346a6e5c7fd045ba0046a901b91
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57454253"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60561634"
 ---
 # <a name="redeploy-a-vm-in-a-lab-in-azure-devtest-labs"></a>Redéployer une machine virtuelle dans un labo dans Azure DevTest Labs
 Si vous ne pouvez pas vous connecter à une machine virtuelle (VM) dans un laboratoire via une connexion Bureau à distance, redéployez la machine virtuelle et réessayez de vous connecter à celui-ci. Quand vous redéployez une machine virtuelle, DevTest Labs la déplace depuis le nœud sur lequel elle est en cours d’exécution vers un nouveau nœud au sein de l’infrastructure Azure. Il démarre ensuite la machine virtuelle tout en conservant la totalité des options de configuration et des ressources associées. Ainsi, vous n’avez pas besoin de consacrer du temps à la résolution de problèmes liés à la connexion Bureau à distance ou à l’accès d’une application à des machines virtuelles Windows dans le labo. 

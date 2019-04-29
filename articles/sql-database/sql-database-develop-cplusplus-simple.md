@@ -13,11 +13,11 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 12/12/2018
 ms.openlocfilehash: 00a3904bd78f3bb76266c726af28582770b23921
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57316487"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60723987"
 ---
 # <a name="connect-to-sql-database-using-c-and-c"></a>Se connecter à SQL Database à l’aide de C et C++
 

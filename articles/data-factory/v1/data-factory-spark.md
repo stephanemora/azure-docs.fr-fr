@@ -15,11 +15,11 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 95c49eec6964984894f75ecd0a9e50c9c947683b
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015812"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61257566"
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Appeler des programmes Spark à partir des pipelines Azure Data Factory
 
@@ -38,7 +38,7 @@ ms.locfileid: "54015812"
 > [!NOTE]
 > Cet article s’applique à la version 1 d’Azure Data Factory, qui est mise à la disposition générale. Si vous utilisez la version actuelle du service Data Factory, consultez [Transformer des données à l’aide d’une activité Apache Spark dans Data Factory](../transform-data-using-spark.md).
 
-## <a name="introduction"></a>Introduction
+## <a name="introduction"></a>Présentation
 L’activité Spark est l’une des [activités de transformation des données](data-factory-data-transformation-activities.md) prises en charge par Data Factory. Cette activité exécute le programme Spark spécifié sur votre cluster Spark dans Azure HDInsight. 
 
 > [!IMPORTANT]
@@ -54,7 +54,7 @@ Voici les étapes classiques pour créer un pipeline de fabrique de données ave
 * Créez un jeu de données faisant référence au service lié Stockage. Actuellement, vous devez spécifier un jeu de données de sortie d’une activité même si aucune sortie n’est produite. 
 * Créez un pipeline avec une activité Spark faisant référence au service lié HDInsight que vous avez créé. L’activité est configurée avec le jeu de données que vous avez créé à l’étape précédente comme un jeu de données de sortie. Le jeu de données de sortie pilote la planification (horaire, quotidienne). Par conséquent, vous devez spécifier le jeu de données de sortie même si l’activité ne produit pas vraiment de sortie.
 
-### <a name="prerequisites"></a>Prérequis
+### <a name="prerequisites"></a>Conditions préalables
 1. Créez un compte de stockage à usage général en suivant les instructions fournies dans [Créer un compte de stockage](../../storage/common/storage-quickstart-create-account.md).
 
 1. Créez un cluster Spark dans HDInsight en suivant les instructions fournies dans le didacticiel [Créer un cluster Spark dans HDInsight](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). Associez le compte de stockage que vous avez créé à l’étape 1 à ce cluster.
@@ -267,7 +267,8 @@ Dans cette étape, vous créez un pipeline avec une activité HDInsightSpark. À
 
     ![Résultats de la requête Jupyter](media/data-factory-spark/jupyter-notebook-results.png)
 
-<!-- Removed bookmark #run-a-hive-query-using-spark-sql since it doesn't exist in the target article --> Pour obtenir des instructions détaillées, consultez la section [Exécuter une requête Spark SQL](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). 
+<!-- Removed bookmark #run-a-hive-query-using-spark-sql since it doesn't exist in the target article -->
+Pour obtenir des instructions détaillées, consultez la section [Exécuter une requête Spark SQL](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). 
 
 ### <a name="troubleshooting"></a>Résolution de problèmes
 Étant donné que vous définissez getDebugInfo sur **Toujours**, un sous-dossier log apparaît dans le dossier pyFiles de votre conteneur d’objets Blob. Le fichier journal figurant dans ce dossier fournit des informations supplémentaires. Ce fichier journal est particulièrement utile en cas d’erreur. Dans un environnement de production, vous souhaiterez peut-être définir cette propriété sur **Échec**.
@@ -346,7 +347,7 @@ L’activité Spark ne prend pas en charge un script en ligne, contrairement aux
 
 Créez la structure de dossiers suivante dans le stockage Blob référencé par le service lié HDInsight. Chargez ensuite les fichiers dépendants dans les sous-dossiers appropriés dans le dossier racine représenté par **entryFilePath**. Par exemple, chargez les fichiers Python dans le sous-dossier pyFiles et les fichiers jar dans le sous-dossier jars du dossier racine. Lors de l’exécution, le service Data Factory attend la structure de dossiers suivante dans le stockage Blob : 
 
-| path | Description | Obligatoire | type |
+| path | Description | Obligatoire | Type |
 | ---- | ----------- | -------- | ---- |
 | . | Chemin d’accès racine du travail Spark dans le service lié de stockage. | Oui | Dossier |
 | &lt;défini par l’utilisateur &gt; | Chemin d’accès qui pointe vers le fichier d’entrée du travail Spark. | Oui | Fichier |

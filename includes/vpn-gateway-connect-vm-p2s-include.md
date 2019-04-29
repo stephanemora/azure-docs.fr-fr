@@ -2,18 +2,19 @@
 title: Fichier Include
 description: Fichier Include
 services: vpn-gateway
-author: cherylmc
+author: WenJason
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 02/01/2019
-ms.author: cherylmc
+origin.date: 02/01/2019
+ms.date: 03/04/2019
+ms.author: v-jay
 ms.custom: include file
 ms.openlocfilehash: 35814de74fa03f9969cdd48882a5f672cfe306a1
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56418074"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60320128"
 ---
 Vous pouvez vous connecter à une machine virtuelle déployée sur votre réseau virtuel en créant une connexion Bureau à distance à votre machine virtuelle. La meilleure méthode pour vérifier initialement que vous pouvez vous connecter à votre machine virtuelle consiste à vous connecter à l’aide de son adresse IP privée, plutôt qu’avec le nom d’ordinateur. Vous testez ainsi si vous pouvez vous connecter, que la résolution de nom soit configurée correctement ou non.
 

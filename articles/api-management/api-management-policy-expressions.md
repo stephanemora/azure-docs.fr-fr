@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/22/2019
 ms.author: apimpm
 ms.openlocfilehash: 90b2dfdbec0d6dc81a05b845832fda92fe36d98c
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403089"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60656589"
 ---
 # <a name="api-management-policy-expressions"></a>Expressions de stratégie de la Gestion des API
 Cet article décrit la syntaxe des expressions de stratégie de C# 7. Chaque expression a accès à la variable de [contexte](api-management-policy-expressions.md#ContextVariables) fournie implicitement et à un [sous-ensemble](api-management-policy-expressions.md#CLRTypes) autorisé de types .NET Framework.
@@ -210,7 +210,7 @@ Une variable nommée `context` est implicitement disponible dans toutes les [exp
 
 |Variable de contexte|Méthodes, propriétés et valeurs de paramètres autorisées|
 |----------------------|-------------------------------------------------------|
-|context|Api: IApi<br /><br /> Déploiement<br /><br /> Elapsed: TimeSpan (intervalle de temps entre la valeur Timestamp et l’heure actuelle)<br /><br /> LastError<br /><br /> Opération<br /><br /> Produit<br /><br /> Requête<br /><br /> RequestId: Guid (identificateur de requête unique)<br /><br /> response<br /><br /> Abonnement<br /><br /> Timestamp: DateTime (point dans le temps où la requête a été reçue)<br /><br /> Tracing: bool (indique si le traçage est activé ou désactivé) <br /><br /> Utilisateur<br /><br /> Variables: IReadOnlyDictionary<string, object><br /><br /> void Trace(message: string)|
+|context|Api: IApi<br /><br /> Déploiement<br /><br /> Elapsed: TimeSpan (intervalle de temps entre la valeur Timestamp et l’heure actuelle)<br /><br /> lastError<br /><br /> Opération<br /><br /> Produit<br /><br /> Requête<br /><br /> RequestId: Guid (identificateur de requête unique)<br /><br /> response<br /><br /> Abonnement<br /><br /> Timestamp: DateTime (point dans le temps où la requête a été reçue)<br /><br /> Tracing: bool (indique si le traçage est activé ou désactivé) <br /><br /> Utilisateur<br /><br /> Variables: IReadOnlyDictionary<string, object><br /><br /> void Trace(message: string)|
 |context.Api|Id: string<br /><br /> IsCurrentRevision: bool<br /><br />  Name: string<br /><br /> Path: string<br /><br /> Revision: string<br /><br /> ServiceUrl: IUrl<br /><br /> Version: string |
 |context.Deployment|Region: string<br /><br /> ServiceName: string<br /><br /> Certificates: IReadOnlyDictionary<string, X509Certificate2>|
 |context.LastError|Source: string<br /><br /> Reason: string<br /><br /> Message: string<br /><br /> Scope: string<br /><br /> Section: string<br /><br /> Path: string<br /><br /> PolicyId: string<br /><br /> Pour plus d’informations sur context.LastError, consultez la page [Gestion des erreurs](api-management-error-handling-policies.md).|

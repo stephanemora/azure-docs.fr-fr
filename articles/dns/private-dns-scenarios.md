@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 03/15/2018
 ms.author: victorh
-ms.openlocfilehash: d84da36ad6b1ef3e2a507a0944aac583861d5ccb
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
-ms.translationtype: HT
+ms.openlocfilehash: 409595febded7b242eae876ebb2cb35ae4999e5e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39162165"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60686840"
 ---
 # <a name="azure-dns-private-zones-scenarios"></a>Scénarios Azure DNS Private Zones
 Azure DNS Private Zones fournit la résolution de noms au sein d’un réseau virtuel, ainsi qu’entre des réseaux virtuels. Dans cet article, nous étudions certains des scénarios courants pouvant être mis en œuvre à l’aide de cette fonctionnalité. 
@@ -38,13 +38,13 @@ Le schéma suivant présente une version simple de ce scénario, où il existe s
 
 ![Résolution pour plusieurs réseaux virtuels](./media/private-dns-scenarios/multi-vnet-resolution.png)
 
-## <a name="scenario-split-horizon-functionality"></a>Scénario : Fonctionnalité de découpage d’horizon
+## <a name="scenario-split-horizon-functionality"></a>Scénario : Fonctionnalités de divisée
 
 Dans ce scénario, vous avez un cas d’usage où vous souhaitez qu’un comportement de résolution DNS différent s’applique en fonction de l’endroit où se trouve le client (dans Azure ou sur Internet) pour la même zone DNS. Par exemple, vous avez peut-être une version privée et publique de votre application qui a des fonctionnalités ou un comportement différents, mais vous souhaitez utiliser le même nom de domaine pour les deux versions. Ce scénario peut être mis en œuvre avec Azure DNS en créant une zone DNS publique, ainsi qu’une zone privée, portant le même nom.
 
 Le schéma suivant illustre ce scénario. Vous avez un réseau virtuel A qui a deux machines virtuelles (VNETA-VM1 et VNETA-VM2) pour lesquelles des adresses IP privées et publiques sont allouées. Vous créez une zone DNS publique nommée contoso.com et enregistrez les adresses IP publiques pour ces machines virtuelles en tant qu’enregistrements DNS dans la zone. En outre, vous créez une zone DNS privée également nommée contoso.com en spécifiant A en tant que réseau virtuel d’inscription. Azure enregistre automatiquement les machines virtuelles en tant qu’enregistrements A dans la zone privée, en pointant vers leurs adresses IP privées.
 
-Maintenant, lorsqu’un client Internet émet une requête DNS pour rechercher VNETA-VM1.contoso.com, Azure renvoie l’enregistrement d’adresse IP publique de la zone publique. Si la même requête DNS est émise d’une autre machine virtuelle (par exemple, VNETA-VM2) dans le même réseau virtuel A, Azure renvoie l’enregistrement d’adresse IP privée de la zone privée. 
+Maintenant, lorsqu’un client Internet émet une requête DNS pour rechercher VNETA-VM1.contoso.com, Azure renvoie l’enregistrement d’adresse IP publique de la zone publique. Si la même requête DNS est émise à partir d’une autre machine virtuelle (par exemple : VNETA-VM2) dans le même réseau virtuel A, Azure renvoie l’enregistrement d’IP privées à partir de la zone privée. 
 
 ![Découpage - résolution Brian](./media/private-dns-scenarios/split-brain-resolution.png)
 
@@ -53,7 +53,7 @@ Pour en savoir plus sur les zones DNS privées, consultez la session relative �
 
 Découvrez comment [créer une zone DNS privée](./private-dns-getstarted-powershell.md) dans Azure DNS.
 
-Obteniez plus d’informations sur les zones et enregistrements DNS en consultant : [Vue d’ensemble des enregistrements et zones DNS](dns-zones-records.md).
+En savoir plus sur les enregistrements et zones DNS en vous rendant sur : [Vue d’ensemble des enregistrements et zones DNS](dns-zones-records.md).
 
 Découvrez certaines des autres [fonctionnalités de réseau](../networking/networking-overview.md) clés d’Azure.
 

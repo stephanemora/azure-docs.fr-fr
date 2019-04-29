@@ -8,11 +8,11 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 02/18/2019
 ms.openlocfilehash: 891d2acc42f8d6f03976f0553e2e3127bc6d16f7
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60011241"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60759324"
 ---
 # <a name="azure-data-explorer-data-ingestion"></a>Ingestion des données dans l’Explorateur de données Azure
 

@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 03/19/2018
 ms.author: vturecek
 ms.openlocfilehash: 7c10d00916ef65767c98616c7337bfa444c339a9
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58664724"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60725395"
 ---
 # <a name="access-save-and-remove-reliable-actors-state"></a>Utiliser, enregistrer et supprimer l’état de Reliable Actors
 [Reliable Actors](service-fabric-reliable-actors-introduction.md) désignent des objets monothread capables d’encapsuler la logique et l’état, et de maintenir l’état de manière fiable. Chaque instance d’acteur possède son propre [gestionnaire d’état](service-fabric-reliable-actors-state-management.md), c’est-à-dire une structure de données de type dictionnaire qui stocke les paires clé/valeur de manière fiable. Le gestionnaire d’état est un wrapper autour d’un fournisseur d’état. Vous pouvez l’utiliser pour stocker des données, quel que soit le [réglage de persistance](service-fabric-reliable-actors-state-management.md#state-persistence-and-replication) utilisé.

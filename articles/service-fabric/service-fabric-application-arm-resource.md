@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 12/06/2017
 ms.author: dekapur
 ms.openlocfilehash: e2e1b2ae354d26c3d9729e3a3fdf39bee43647ca
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58663126"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60621460"
 ---
 # <a name="manage-applications-and-services-as-azure-resource-manager-resources"></a>Gérer des applications et services en tant que ressources Azure Resource Manager
 

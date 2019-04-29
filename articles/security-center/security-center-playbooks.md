@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/28/2018
 ms.author: rkarlin
 ms.openlocfilehash: ec16e6daec099adbede625c5ec6fe6909059143b
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116743"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60907005"
 ---
 # <a name="security-playbook-in-azure-security-center-preview"></a>Playbook de sécurité dans Azure Security Center (préversion)
 Ce document vous aide à utiliser des playbooks de sécurité dans Azure Security Center pour gérer votre réponse aux incidents de sécurité.

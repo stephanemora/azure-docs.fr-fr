@@ -11,11 +11,11 @@ ms.date: 03/27/2019
 ms.author: jrj
 ms.reviewer: igorstan
 ms.openlocfilehash: 6860746a1b20fe06de2dafa6035ae560bde24a29
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59678664"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61477008"
 ---
 # <a name="sql-data-warehouse-business-intelligence-partners"></a>Partenaires décisionnels de SQL Data Warehouse
 Pour créer votre solution d’entrepôt de données de bout en bout, vous pouvez choisir parmi un large éventail d’outils performants.  Cet article met en évidence les sociétés partenaires de Microsoft avec les solutions d’analyse décisionnelle (BI) officielle prenant en charge d’Azure SQL Data Warehouse.

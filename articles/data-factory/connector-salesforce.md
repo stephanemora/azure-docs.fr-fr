@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 04/19/2019
 ms.author: jingwang
 ms.openlocfilehash: 6056df9aa9079887bfb06ca20ad564eb52baff38
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60008696"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60546582"
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>Copier des données depuis et vers Salesforce à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -318,8 +318,8 @@ Lorsque vous copiez des données de Salesforce, les mappages suivants sont utili
 | Numérotation automatique |String |
 | Case à cocher |Boolean |
 | Devise |Decimal |
-| Date |Datetime |
-| Date/Heure |Datetime |
+| Date |DateTime |
+| Date/Heure |DateTime |
 | Email |String |
 | ID |String |
 | Relation de recherche |String |

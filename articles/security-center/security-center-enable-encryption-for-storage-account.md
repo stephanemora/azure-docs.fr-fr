@@ -1,5 +1,5 @@
 ---
-title: Activation du chiffrement pour le compte de stockage dans Azure Security Center | Microsoft Docs
+title: Chiffrement pour le compte de stockage Azure dans Azure Security Center | Microsoft Docs
 description: Ce document vous montre comment implémenter la recommandation d’Azure Security Center **Activation du chiffrement pour le compte de stockage Azure**.
 services: security-center
 documentationcenter: na
@@ -14,47 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 9f8679e988513eecd778970ac796264b274a8088
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: cadf375b541900600be82e76673637ff01a8ad96
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56111660"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60703926"
 ---
-# <a name="enable-encryption-for-azure-storage-account-in-azure-security-center"></a>Activation du chiffrement pour le compte de stockage Azure dans Azure Security Center | Microsoft Docs
-Azure Security Center peut vous recommander d’activer le chiffrement du service Azure Storage pour les données au repos.
+# <a name="encryption-for-azure-storage-account-in-azure-security-center"></a>Chiffrement pour le compte de stockage Azure dans Azure Security Center
 
-SSE (Storage Service Encryption) chiffre les données lorsqu’elles sont écrites dans le stockage Azure et les déchiffre avant récupération.  SSE est actuellement disponible uniquement pour le service BLOB Azure et peut être utilisé pour les objets blob de blocs, les objets blob de pages les objets blob Append.  Pour en savoir plus, consultez [Azure Storage Service Encryption pour les données au repos](../storage/common/storage-service-encryption.md).
-
-
-> [!Note]
-> Après l’activation du chiffrement, seules les nouvelles données sont chiffrées. Tous les objets blob existants dans votre compte de stockage restent non chiffrés. Pour chiffrer les objets blob existants, consultez le [Forum aux questions sur le chiffrement du service de stockage](../storage/common/storage-service-encryption.md#faq-for-storage-service-encryption).
->
->
-
-SSE est uniquement pris en charge sur les comptes de stockage Resource Manager. Les comptes de stockage classiques ne sont actuellement pas pris en charge. Pour comprendre les modèles de déploiement de type classique et Resource Manager, consultez [Modèles de déploiement Azure](../azure-classic-rm.md).
-
-> [!NOTE]
-> Ce document présente le service à l’aide d’un exemple de déploiement.  Ce document n’est pas un guide pas à pas.
->
->
-
-## <a name="implement-the-recommendation"></a>Implémenter la recommandation
-1. Dans le panneau **Recommandations**, sélectionnez **Activation du chiffrement pour le compte de stockage Azure**.
-   ![Activer le chiffrement pour le compte Azure Storage][1]
-2. Le panneau **Activer le chiffrement du stockage** s’ouvre. Ce panneau répertorie les comptes de stockage Azure sur lesquels le chiffrement de stockage est désactivé. Dans cet exemple, sélectionnons **storageacct1**.
-   ![Activer le chiffrement du stockage][2]
-3. Le panneau **Chiffrement** de **storageacct1** s’ouvre. Sélectionnez **Enabled**.
-   ![Panneau Chiffrement][3]
-4. Sélectionnez **Enregistrer**.
-
-Vous avez activé le chiffrement de stockage pour **storageacct1**.
-
-
-## <a name="see-also"></a>Voir aussi
-Ce document vous montre comment implémenter la recommandation d’Azure Security Center « Activation du chiffrement pour le compte de stockage Azure ». Pour en savoir plus sur le chiffrement du service Azure Storage, consultez les ressources suivantes :
-
-* [Azure Storage Service Encryption pour les données au repos](../storage/common/storage-service-encryption.md)
+Chiffrement du stockage Azure pour les données au repos est activé par défaut pour tous les comptes de stockage Azure. Stockage Azure chiffre les données lorsqu’il est écrit dans le stockage Azure et les déchiffre avant récupération. Pour plus d’informations, consultez [chiffrement de stockage Azure pour les données au repos](../storage/common/storage-service-encryption.md).
 
 Pour plus d’informations sur le Centre de sécurité, consultez les rubriques suivantes :
 

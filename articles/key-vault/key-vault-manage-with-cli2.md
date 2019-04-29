@@ -2,23 +2,19 @@
 title: Gérer Azure Key Vault à l’aide de l’interface de ligne de commande (CLI) - Azure Key Vault | Microsoft Docs
 description: Utilisez cet article pour automatiser les tâches courantes dans Key Vault à l’aide de l’interface de ligne de commande Azure
 services: key-vault
-documentationcenter: ''
 author: barclayn
 manager: barbkess
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: barclayn
 ms.openlocfilehash: 1679fbe0dedc88ca3e8293512f9a79bb7da69790
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56115621"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60641022"
 ---
 # <a name="manage-key-vault-using-the-azure-cli"></a>Gérer Key Vault à l’aide de l’interface de ligne de commande Azure 
 
@@ -43,7 +39,7 @@ Azure Key Vault est disponible dans la plupart des régions. Pour plus d’infor
 Pour une vue d'ensemble d'Azure Key Vault, consultez [Présentation d’Azure Key Vault](key-vault-whatis.md)
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour utiliser les commandes Azure CLI de cet article, vous devez disposer des éléments suivants :
 

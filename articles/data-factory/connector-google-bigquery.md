@@ -3,21 +3,22 @@ title: Copier des données à partir de Google BigQuery avec Azure Data Factory 
 description: Découvrez comment utiliser l’activité de copie dans un pipeline de fabrique de données pour copier des données de Google BigQuery vers des banques de données réceptrices prises en charge.
 services: data-factory
 documentationcenter: ''
-author: linda33wj
-manager: craigg
+author: WenJason
+manager: digimobile
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/07/2018
-ms.author: jingwang
+origin.date: 12/07/2018
+ms.date: 04/22/2019
+ms.author: v-jay
 ms.openlocfilehash: c9320c8d0cf512bc9145accc07ab4c79630a7c84
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55301354"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60808889"
 ---
 # <a name="copy-data-from-google-bigquery-by-using-azure-data-factory"></a>Copier des données à partir de Google BigQuery avec Azure Data Factory
 
@@ -127,8 +128,8 @@ Pour copier des données à partir de Google BigQuery, définissez la propriét�
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type du jeu de données doit être définie sur : **GoogleBigQueryObject** | Oui |
-| TableName | Nom de la table. | Non (si « query » dans la source de l’activité est spécifié) |
+| type | La propriété type du jeu de données doit être définie sur : **GoogleBigQueryObject** | Oui |
+| tableName | Nom de la table. | Non (si « query » dans la source de l’activité est spécifié) |
 
 **Exemple**
 

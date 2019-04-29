@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e5a5d462be5555090d1dfced5fa07c9b748eb312
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
-ms.translationtype: HT
+ms.openlocfilehash: f046304121e0aed8efa1bbc2535d34186eba3496
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44345656"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60713705"
 ---
 # <a name="how-to-monitor-sap-hana-large-instances-on-azure"></a>Comment surveiller SAP HANA (grandes instances) sur Azure
 
@@ -32,13 +32,13 @@ SAP HANA sur Azure (grandes instances) est semblable aux autres déploiements Ia
 
 Avec les machines virtuelles Azure, vous devez déterminer si les classes de ressources ci-dessus sont suffisantes, ou si elles s’épuisent. Voici plus de détails sur chacune des classes :
 
-**Consommation des ressources du processeur :** le ratio défini par SAP pour certaines charges de travail sur HANA est appliqué pour vous assurer que les ressources du processeur disponibles sont suffisantes pour travailler avec les données stockées en mémoire. Toutefois, il peut arriver que HANA consomme un grand nombre de requêtes d’exécution du processeur en raison d’index manquants ou de problèmes similaires. Cela signifie que vous devez surveiller la consommation des ressources du processeur de l’unité de grande instance HANA, ainsi que les ressources du processeur consommées par les services HANA spécifiques.
+**Consommation des ressources du processeur :** Le ratio que SAP défini pour certaines charges de travail sur HANA est appliqué pour vous assurer qu’il doit y avoir suffisamment de ressources processeur disponibles pour travailler avec les données sont stockées en mémoire. Toutefois, il peut arriver que HANA consomme un grand nombre de requêtes d’exécution du processeur en raison d’index manquants ou de problèmes similaires. Cela signifie que vous devez surveiller la consommation des ressources du processeur de l’unité de grande instance HANA, ainsi que les ressources du processeur consommées par les services HANA spécifiques.
 
-**Consommation de mémoire :** sa surveillance est importante dans HANA, ainsi qu’en dehors de HANA sur l’unité. Dans HANA, surveillez comment les données consomment la mémoire allouée à HANA, afin de respecter les instructions de dimensionnement de SAP. Vous devez également surveiller la consommation de mémoire au niveau de la grande instance afin de vous assurer que les logiciels supplémentaires non HANA installés ne consomment pas trop de mémoire, et ne concurrencent donc pas HANA en termes de mémoire.
+**Consommation de mémoire :** Est important de surveiller à partir dans HANA, ainsi qu’en dehors de HANA sur l’unité. Dans HANA, surveillez comment les données consomment la mémoire allouée à HANA, afin de respecter les instructions de dimensionnement de SAP. Vous devez également surveiller la consommation de mémoire au niveau de la grande instance afin de vous assurer que les logiciels supplémentaires non HANA installés ne consomment pas trop de mémoire, et ne concurrencent donc pas HANA en termes de mémoire.
 
-**Bande passante réseau :** la passerelle de réseau virtuel Azure est limitée en bande passante pour le déplacement des données dans le réseau virtuel Azure. Il est donc utile de surveiller les données reçues par toutes les machines virtuelles Azure au sein d’un réseau virtuel pour déterminer s’il vous reste de la marge par rapport aux limites définies par la référence SKU de la passerelle Azure choisie. Sur l’unité de grande instance HANA, il est pertinent de surveiller également le trafic réseau entrant et sortant, et de suivre les volumes qui sont gérés au fil du temps.
+**Bande passante réseau :** La passerelle de réseau virtuel Azure est limitée en bande passante de déplacement des données dans le réseau virtuel Azure, il est donc utile de surveiller les données reçues par toutes les machines virtuelles Azure au sein d’un réseau virtuel pour déterminer la façon dont vous êtes les limites de la passerelle Azure référence (SKU) que vous avez sélectionné. Sur l’unité de grande instance HANA, il est pertinent de surveiller également le trafic réseau entrant et sortant, et de suivre les volumes qui sont gérés au fil du temps.
 
-**Espace disque :** la consommation d’espace disque augmente généralement au fil du temps. Les causes les plus courantes sont les suivantes : augmentation du volume de données, exécution de sauvegardes des journaux de transaction, stockage des fichiers de trace et création d’instantanés du stockage. Par conséquent, il est important de surveiller l’espace disque et de gérer l’espace disque associé à l’unité de grande instance HANA.
+**Espace disque :** La consommation d’espace disque augmente généralement au fil du temps. Les causes les plus courantes sont les suivantes : augmentation du volume de données, exécution de sauvegardes des journaux de transaction, stockage des fichiers de trace et création d’instantanés du stockage. Par conséquent, il est important de surveiller l’espace disque et de gérer l’espace disque associé à l’unité de grande instance HANA.
 
 Pour les **références SKU de Type II** des grandes instances HANA, le serveur est fourni avec des outils de diagnostic système préchargés. Vous pouvez utiliser ces outils de diagnostic pour vérifier l’intégrité du système. Exécutez la commande suivante pour générer le fichier journal de vérification d’intégrité sur /var/log/health_check.
 ```

@@ -10,17 +10,17 @@ ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 22e58f31e2f891eb09c3d42a01763c68cdcd11a8
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55696181"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60577603"
 ---
 # <a name="collect-distributed-traces-from-python-preview"></a>Collecter les traces distribuées à partir de Python (préversion)
 
 Application Insights prend désormais en charge le suivi distribué des applications Python grâce à une intégration à [OpenCensus](https://opencensus.io) et à notre nouveau [redirecteur local](./../../azure-monitor/app/opencensus-local-forwarder.md). Cet article vous guide étape par étape dans le processus de configuration d’OpenCensus pour Python et d’obtention de vos données de trace dans Application Insights.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 - Vous avez besoin d’un abonnement Azure.
 - Python doit être installé. Cet article s’appuie sur [Python 3.7.0](https://www.python.org/downloads/), mais quelques ajustements mineurs permettent d’utiliser des versions antérieures.
@@ -44,7 +44,7 @@ Vous devez tout d’abord créer une ressource Application Insights qui génère
 
     | Paramètres        | Valeur           | Description  |
    | ------------- |:-------------|:-----|
-   | **Nom**      | Valeur globalement unique | Nom identifiant l’application que vous analysez |
+   | **Name**      | Valeur globalement unique | Nom identifiant l’application que vous analysez |
    | **Type d’application** | Généralités | Type de l’application que vous analysez |
    | **Groupe de ressources**     | myResourceGroup      | Nom du nouveau groupe de ressources pour héberger les données Application Insights |
    | **Lieu** | USA Est | Choisissez un emplacement près de chez vous ou proche de l’endroit où votre application est hébergée |

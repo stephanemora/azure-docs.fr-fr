@@ -1,8 +1,9 @@
 ---
 title: Déf. Azure Cloud Services Schéma LoadBalancerProbe | Microsoft Docs
 ms.custom: ''
-ms.date: 04/14/2015
-services: cloud-services
+origin.date: 04/14/2015
+ms.date: 11/06/2017
+ms.prod: azure
 ms.reviewer: ''
 ms.service: cloud-services
 ms.suite: ''
@@ -10,15 +11,15 @@ ms.tgt_pltfrm: ''
 ms.topic: reference
 ms.assetid: 113374a8-8072-4994-9d99-de391a91e6ea
 caps.latest.revision: 14
-author: jpconnock
-ms.author: jeconnoc
+author: thraka
+ms.author: v-yiso
 manager: timlt
-ms.openlocfilehash: f7b0ba3b4797149798037dee0188850eff6baf1d
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
-ms.translationtype: HT
+ms.openlocfilehash: de365de7bf93c0a612f102b3ec2b25c79d1c3d18
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39003286"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60613874"
 ---
 # <a name="azure-cloud-services-definition-loadbalancerprobe-schema"></a>Schéma LoadBalancerProbe de définition Azure Cloud Services
 La sonde d’équilibreur de charge est une sonde d’intégrité définie par le client qui vérifie les points de terminaison UDP et les points de terminaison dans les instances de rôle. Le `LoadBalancerProbe` n’est pas un élément autonome ; il est associé au rôle web ou au rôle de travail dans un fichier de définition de service. Un `LoadBalancerProbe` peut être utilisé par plusieurs rôles.
@@ -59,7 +60,7 @@ L’élément `LoadBalancerProbe` définit la sonde d’intégrité pour un mod�
 
 Le tableau suivant décrit les attributs de l’élément `LoadBalancerProbe` :
 
-|Attribut|type|Description|
+|Attribut|Type|Description|
 | ------------------- | -------- | -----------------|
 | `name`              | `string` | Requis. Le nom de la sonde d’équilibreur de charge. Ce nom doit être unique.|
 | `protocol`          | `string` | Requis. Spécifie le protocole du point de terminaison. Les valeurs possibles sont `http` ou `tcp`. Si `tcp` est spécifié, une réponse ACK est requise pour que la sonde réussisse. Si `http` est spécifié, une réponse 200 OK de l’URI spécifiée est requise pour que la sonde réussisse.|

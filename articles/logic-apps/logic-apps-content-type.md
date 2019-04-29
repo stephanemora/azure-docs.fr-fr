@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 07/20/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 82eb9c895f016efe569651dc89885d2e4850fd59
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
-ms.translationtype: HT
+ms.openlocfilehash: 2a9318317d5a01136a42b4fb6d580bafaf53ec4e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39159089"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60685747"
 ---
 # <a name="handle-content-types-in-azure-logic-apps"></a>Gérer les types de contenu dans Azure Logic Apps
 
@@ -140,15 +140,15 @@ Pour conserver certains types de données, Logic Apps convertit le contenu en un
 
 Cette liste décrit comment Logic Apps convertit le contenu lorsque vous utilisez ces [fonctions](../logic-apps/workflow-definition-language-functions-reference.md) :
 
-* `json()` : caste les données en `application/json`
-* `xml()` : caste les données en `application/xml`
-* `binary()` : caste les données en `application/octet-stream`
-* `string()` : caste les données en `text/plain`
-* `base64()` : convertit le contenu en une chaîne encodée en base64
-* `base64toString()` : convertit une chaîne encodée en base64 en `text/plain`
-* `base64toBinary()` : convertit une chaîne encodée en base64 en `application/octet-stream`
-* `encodeDataUri()` : encode une chaîne en tableau d’octets dataUri
-* `decodeDataUri()` : décode un `dataUri` en tableau d’octets
+* `json()`: Données de casts à `application/json`
+* `xml()`: Données de casts à `application/xml`
+* `binary()`: Données de casts à `application/octet-stream`
+* `string()`: Données de casts à `text/plain`
+* `base64()`: Convertit le contenu en une chaîne en base64
+* `base64toString()`: Convertit une chaîne codée en base64 en `text/plain`
+* `base64toBinary()`: Convertit une chaîne codée en base64 en `application/octet-stream`
+* `encodeDataUri()`: Encode une chaîne sous la forme d’un tableau d’octets dataUri
+* `decodeDataUri()`: Décode un `dataUri` dans un tableau d’octets
 
 Par exemple, si vous recevez une requête HTTP où `Content-Type` est défini sur `application/xml`, tel que ce contenu :
 

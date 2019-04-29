@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/25/2018
 ms.author: apimpm
 ms.openlocfilehash: 478b80b021b4df36e2eccc37ac9c74f75e43a5bb
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58791624"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60658000"
 ---
 # <a name="how-to-use-named-values-in-azure-api-management-policies"></a>Guide pratique pour utiliser des valeurs nommées dans les stratégies Gestion des API Azure
 Les stratégies Gestion des API sont une fonctionnalité puissante du système qui permet au portail Azure de modifier le comportement de l’API grâce à la configuration. Les stratégies sont un ensemble d'instructions qui sont exécutées dans l'ordre sur demande ou sur réponse d'une API. Les instructions de la stratégie peuvent être construites à l’aide de valeurs de texte littéral, d’expressions de stratégie et de valeurs nommées. 
@@ -27,10 +27,10 @@ Chaque instance du service Gestion des API possède une collection de propriét�
 
 | Attribut | Type | Description |
 | --- | --- | --- |
-| `Display name` |string |Chaîne alphanumérique utilisée pour référencer la propriété dans les stratégies. |
-| `Value` |string |Valeur de la propriété. Elle ne peut pas être vide ni se composer uniquement d’espaces blancs. |
-| `Secret` |booléenne|Détermine si la valeur est un secret et doit être chiffrée.|
-| `Tags` |tableau de chaînes |Balises facultatives qui, lorsqu’elles sont fournies, peuvent être utilisées pour filtrer la liste de propriétés. |
+| Nom complet |string |Chaîne alphanumérique utilisée pour référencer la propriété dans les stratégies. |
+| Valeur |string |Valeur de la propriété. Elle ne peut pas être vide ni se composer uniquement d’espaces blancs. |
+|Secret|booléenne|Détermine si la valeur est un secret et doit être chiffrée.|
+| Balises |tableau de chaînes |Balises facultatives qui, lorsqu’elles sont fournies, peuvent être utilisées pour filtrer la liste de propriétés. |
 
 ![Valeurs nommées](./media/api-management-howto-properties/named-values.png)
 

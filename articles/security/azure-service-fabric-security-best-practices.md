@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 01/16/2019
 ms.author: tomsh
 ms.openlocfilehash: 8bafc4a95ca9af4567ed70c190a72f3b351da47c
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114703"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60611517"
 ---
 # <a name="azure-service-fabric-security-best-practices"></a>Bonnes pratiques pour la sécurité Azure Service Fabric
 Le déploiement d’une application sur Azure est rapide, simple et rentable. Avant de déployer votre application cloud dans l’environnement de production, passez en revue la liste des bonnes pratiques essentielles et recommandées pour l’implémentation de clusters sécurisés dans votre application.

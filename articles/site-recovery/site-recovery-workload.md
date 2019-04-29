@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 12/31/2018
 ms.author: raynew
 ms.openlocfilehash: 3ad3438f02ead9063a683a39d4ac5823274d55f7
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54155166"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61276135"
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>Quelles charges de travail pouvez-vous protéger avec Azure Site Recovery ?
 
@@ -20,7 +20,7 @@ Cet article décrit les charges de travail et les applications que vous pouvez p
 
 
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 
 Les organisations ont besoin d’une stratégie de continuité des activités et de récupération d’urgence pour que les charges de travail et les données demeurent en sécurité et disponibles pendant les temps d’arrêt prévus et imprévus, et pour rétablir au plus vite des conditions de travail normales.
 
@@ -146,7 +146,7 @@ Azure Site Recovery assure la récupération d’urgence en répliquant les comp
 ## <a name="protect-citrix-xenapp-and-xendesktop"></a>Protéger Citrix XenApp et XenDesktop
 Site Recovery permet de protéger vos déploiements Citrix XenApp XenDesktop, comme suit :
 
-* Protégez votre déploiement Citrix XenApp et XenDesktop en répliquant différentes couches de déploiement (serveur DNS Active Directory, serveur de base de données SQL, Citrix Delivery Controller, serveur StoreFront, XenApp Master (VDA), serveur de licences de Citrix XenApp) sur Azure.
+* Protégez votre déploiement Citrix XenApp et XenDesktop en répliquant différentes couches de déploiement (serveur DNS Active Directory, serveur SQL Database, Citrix Delivery Controller, serveur StoreFront, XenApp Master (VDA), serveur de licences de Citrix XenApp) sur Azure.
 * Simplifiez la migration vers le cloud en utilisant Site Recovery pour migrer votre déploiement Citrix XenApp et XenDesktop sur Azure.
 * Simplifiez le test de Citrix XenApp/XenDesktop en créant une copie de type production à la demande pour le test et le débogage.
 * Cette solution est uniquement applicable pour les bureaux virtuels du système d’exploitation Windows Server, et non pour les bureaux virtuels client. En effet, ces derniers ne sont pas encore pris en charge pour la gestion des licences dans Azure.

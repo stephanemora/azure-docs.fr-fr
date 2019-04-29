@@ -14,17 +14,17 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 9ae0caec211dc1199f0abd2ce9bc0c7ad11c02ec
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
-ms.translationtype: HT
+ms.openlocfilehash: ef8acf1c3c9211168ebacc8d62647f6789c745a2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2017
-ms.locfileid: "24030355"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60630562"
 ---
 # <a name="use-storsimple-monitoring-indicators-to-manage-your-device"></a>Utiliser les indicateurs de suivi StorSimple pour gérer votre appareil
 
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Présentation
 Votre appareil StorSimple comprend des diodes électroluminescentes (LED) et des alarmes que vous pouvez utiliser pour analyser l’état général de l’appareil StorSimple. Vous trouverez les indicateurs d’analyse sur les composants matériels du boîtier principal de l’appareil et sur le boîtier EBOD. Les indicateurs d’analyse peuvent être des LED ou des alarmes sonores.
 
 Les LED peuvent prendre trois états pour indiquer l’état d’un module : vert, clignotant en alternance du vert au rouge-orange ou rouge-orange.  
@@ -53,7 +53,7 @@ La principale différence entre les LED du panneau avant de l’appareil et cell
 ## <a name="front-panel-led-status"></a>État des LED du panneau avant
 Utilisez le tableau suivant pour identifier l’état indiqué par les LED du panneau avant de  l’appareil ou du boîtier EBOD.  
 
-| Alimentation du système | Panne de module | Erreur logique | Alarme | État |
+| Alimentation du système | Panne de module | Erreur logique | Alarme | Statut |
 | --- | --- | --- | --- | --- |
 | Rouge-orange |ÉTEINT |ÉTEINT |N/A |Alimentation secteur coupée, fonctionnement sur l’alimentation de secours ou alimentation secteur activée mais les modules de contrôleur ont été retirés. |
 | Vert |ACTIVÉ |ACTIVÉ |N/A |État de test panneau de commande à la mise sous tension (5 s) |
@@ -86,7 +86,7 @@ Légende des LED :
 L’état du PCM est indiqué sur le panneau de LED. Le panneau de LED du PCM de l’appareil comprend six LED. Quatre de ces LED indiquent l’état de l’alimentation et du ventilateur. Les deux LED restantes indiquent l’état du module de batterie de secours du PCM. Vous pouvez utiliser les tableaux suivants pour déterminer l’état du PCM.  
 
 ### <a name="pcm-indicator-leds-for-power-supply-and-fan"></a>Voyants LED du PCM relatifs à l’alimentation et au ventilateur
-| État | PCM OK (vert) | Panne d’alimentation secteur (orange) | Panne de ventilateur (orange) | Panne d’alimentation CC (orange) |
+| Statut | PCM OK (vert) | Panne d’alimentation secteur (orange) | Panne de ventilateur (orange) | Panne d’alimentation CC (orange) |
 | --- | --- | --- | --- | --- |
 | Absence d’alimentation secteur (vers le boîtier) |ÉTEINT |ÉTEINT |ÉTEINT |ÉTEINT |
 | Absence d’alimentation secteur (ce PCM uniquement) |ÉTEINT |ACTIVÉ |ÉTEINT |ACTIVÉ |
@@ -98,7 +98,7 @@ L’état du PCM est indiqué sur le panneau de LED. Le panneau de LED du PCM de
 | Téléchargement du microprogramme de PCM |ÉTEINT |Clignote |Clignote |Clignote |
 
 ### <a name="pcm-indicator-leds-for-the-backup-battery"></a>Voyants LED du PCM relatifs à la batterie de secours
-| État | Batterie en bon état (vert) | Panne de batterie (orange) |
+| Statut | Batterie en bon état (vert) | Panne de batterie (orange) |
 | --- | --- | --- |
 | Batterie non présente |ÉTEINT |ÉTEINT |
 | Batterie présente et chargée |ACTIVÉ |ÉTEINT |
@@ -114,7 +114,7 @@ Le boîtier EBOD est équipé d’un module PCM de 580 W,  sans batterie suppl�
 
 Vous pouvez utiliser le tableau suivant pour déterminer l’état du PCM.  
 
-| État | PCM OK (vert) | Panne d’alimentation secteur (orange) | Panne de ventilateur (orange) | Panne d’alimentation CC (orange) |
+| Statut | PCM OK (vert) | Panne d’alimentation secteur (orange) | Panne de ventilateur (orange) | Panne d’alimentation CC (orange) |
 | --- | --- | --- | --- | --- |
 | Absence d’alimentation secteur (vers le boîtier) |ÉTEINT |ÉTEINT |ÉTEINT |ÉTEINT |
 | Absence d’alimentation secteur (ce PCM uniquement) |ÉTEINT |ACTIVÉ |ÉTEINT |ACTIVÉ |
@@ -158,7 +158,7 @@ Chaque contrôleur EBOD SAS de 6 Gbits/s possède des LED qui indiquent son ét
 Utilisez le tableau suivant pour déterminer si le module de contrôleur EBOD fonctionne correctement.  
 
 ### <a name="ebod-controller-module-indicator-leds"></a>Voyants LED du module de contrôleur EBOD
-| État | Module d’E/S OK (vert) | Panne du module d’E/S (orange) | Activité sur les ports de l’hôte (vert) |
+| Statut | Module d’E/S OK (vert) | Panne du module d’E/S (orange) | Activité sur les ports de l’hôte (vert) |
 | --- | --- | --- | --- |
 | Module de contrôleur OK |ACTIVÉ |ÉTEINT |- |
 | Panne de module de contrôleur |ÉTEINT |ACTIVÉ |- |
@@ -177,7 +177,7 @@ Pour les lecteurs de disque, l’état du lecteur est indiqué par une LED verte
 Utilisez le tableau suivant pour déterminer l’état de chaque lecteur de disque, qui affecte à son tour l’état d’ensemble des LED du panneau avant.  
 
 ### <a name="disk-drive-indicator-leds-for-the-ebod-enclosure"></a>Voyants LED du lecteur de disque relatifs au boîtier EBOD
-| État | LED d’activité OK (verte) | LED de panne (rouge-orange) | LED associées du panneau de commande |
+| Statut | LED d’activité OK (verte) | LED de panne (rouge-orange) | LED associées du panneau de commande |
 | --- | --- | --- | --- |
 | Aucun disque installé |ÉTEINT |ÉTEINT |Aucun |
 | Disque installé et opérationnel |Clignotement avec l’activité |X |Aucun |
@@ -203,7 +203,7 @@ Le tableau suivant décrit les différents états d’alarme.
 | État d’alarme | Action | Action avec bouton muet enfoncé |
 | --- | --- | --- |
 | S0 |Mode normal : silencieux |Deux bips sonores |
-| S1 |Mode d’erreur : 1 seconde activée/1 seconde désactivée |Transition vers S2 ou S3 (voir remarques) |
+| S1 |Mode panne : 1 seconde allumé/1 seconde éteint |Transition vers S2 ou S3 (voir remarques) |
 | S2 |Mode rappel : signal sonore par intermittence |Aucun |
 | S3 |Mode muet : silencieux |Aucun |
 | S4 |Mode erreur/panne critique : signal sonore continu |Non disponible : le mode muet est désactivé |
@@ -219,7 +219,7 @@ Vous pouvez désactiver l’alarme sonore en appuyant sur le bouton muet du pann
 Le tableau suivant décrit les différentes conditions d’alarme.
 
 ### <a name="alarm-conditions"></a>Conditions d’alarme
-| État | Niveau de gravité | Alarme | LED du panneau de commande |
+| Statut | Niveau de gravité | Alarme | LED du panneau de commande |
 | --- | --- | --- | --- |
 | Alerte PCM : perte d’alimentation CC d’un seul PCM |Erreur : aucune perte de redondance |S1 |Panne de module |
 | Alerte PCM : perte d’alimentation CC d’un seul PCM |Erreur : perte de redondance |S1 |Panne de module |

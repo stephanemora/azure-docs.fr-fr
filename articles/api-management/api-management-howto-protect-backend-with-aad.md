@@ -14,23 +14,23 @@ ms.topic: article
 ms.date: 03/18/2018
 ms.author: apimpm
 ms.openlocfilehash: cfe2620801f743831f77fb76f344c156676966d3
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52635065"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60657558"
 ---
 # <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>Guide pratique pour protéger une API à l’aide d’OAuth 2.0 avec Azure Active Directory et Gestion des API
 
 Ce guide montre comment configurer votre instance de Gestion des API pour protéger une API à l’aide du protocole OAuth 2.0 avec Azure Active Directory (Azure AD). 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 Pour suivre les étapes décrites dans cet article, vous devez avoir :
 * Une instance Gestion des API
 * Une API publiée qui utilise l’instance Gestion des API
 * un locataire Azure AD ;
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 
 Voici un petit aperçu des étapes :
 

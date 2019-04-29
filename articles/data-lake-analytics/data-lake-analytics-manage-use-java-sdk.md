@@ -9,19 +9,19 @@ ms.reviewer: jasonwhowell
 ms.assetid: 07830b36-2fe3-4809-a846-129cf67b6a9e
 ms.topic: conceptual
 ms.date: 06/18/2017
-ms.openlocfilehash: 6a5d01ed1b3d60ce138fe5c4c5a60812961d9dfd
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
-ms.translationtype: HT
+ms.openlocfilehash: f2a4b98404139abead411c20648b82d9081481f9
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49953727"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60614990"
 ---
 # <a name="manage-azure-data-lake-analytics-using-a-java-app"></a>Gérer Azure Data Lake Analytics à l’aide d’une application Java
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
 Cet article explique comment gérer des comptes, des sources de données, des utilisateurs et des travaux Azure Data Lake Analytics à l’aide d’une application écrite avec le SDK Azure pour Java. 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 * **Kit de développement Java (JDK) 8** (à l’aide de Java version 1.8).
 * **IntelliJ** ou un autre environnement de développement Java approprié. Les instructions de ce document utilisent Intellij.
 * Création d’une application Azure Active Directory (AAD) et récupération de ses **ID client**, **ID de locataire** et **Clé**. Pour plus d’informations sur les applications AAD et pour savoir comment obtenir un ID client, consultez [Création de l’application Active Directory et du principal du service à l’aide du portail](../active-directory/develop/howto-create-service-principal-portal.md). L’URI de réponse et la Clé seront disponibles sur le portail une fois l’application créée et la clé générée.
@@ -376,6 +376,6 @@ public static String GetJobStatus(UUID jobId) throws IOException, CloudException
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour découvrir U-SQL, consultez les articles [Prise en main du langage U-SQL Azure Data Lake Analytics](data-lake-analytics-u-sql-get-started.md) et [Référence sur le langage U-SQL](http://go.microsoft.com/fwlink/?LinkId=691348).
+* Pour découvrir U-SQL, consultez les articles [Prise en main du langage U-SQL Azure Data Lake Analytics](data-lake-analytics-u-sql-get-started.md) et [Référence sur le langage U-SQL](https://go.microsoft.com/fwlink/?LinkId=691348).
 * Pour les tâches de gestion, consultez [Gestion d’Azure Data Lake Analytics à l’aide du portail Azure](data-lake-analytics-manage-use-portal.md).
 * Pour obtenir une vue d’ensemble de l’analyse de données Analytique Data Lake, consultez [Présentation d’Analytique Data Lake Azure](data-lake-analytics-overview.md).

@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 12/04/2018
+ms.date: 04/24/2019
 ms.author: pbutlerm
 ms.openlocfilehash: b12ba53f847b46479b3100c088c29372b58c1b8e
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58649031"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60594228"
 ---
 # <a name="saas-application-test-drive-tab"></a>Onglet Version d’évaluation de l’application SaaS
 
@@ -31,9 +31,11 @@ Nous vous recommandons de proposer une option d’évaluation à vos clients pou
 
 La version d’évaluation permet aux clients d’essayer les principales fonctionnalités de votre produit et d’en apprécier les avantages grâce à un scénario d’implémentation réel.
 
+
 ## <a name="how-a-test-drive-works"></a>Fonctionnement d’une version d’évaluation
 
 Un client potentiel accède à votre application après avoir lancé une recherche sur la Place de marché. Le client se connecte et accepte les conditions d’utilisation. À ce stade, le client reçoit votre environnement préconfiguré afin de l'essayer pendant un nombre d'heures défini, et vous disposez d'un prospect pertinent auquel vous pouvez donner suite. Pour plus d’informations, consultez la rubrique [Qu’est-ce qu’une version d’évaluation ?](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive)
+
 
 ## <a name="publishing-steps"></a>Étapes de publication
 
@@ -43,6 +45,7 @@ Les principales étapes de publication à suivre pour ajouter une version d'éva
 2. Créer et/ou modifier votre modèle Azure Resource Manager
 3. Créer le manuel pas à pas de votre version d’évaluation
 4. Republier votre offre
+
 
 ## <a name="setting-up-a-test-drive"></a>Configuration d’une version d’évaluation
 
@@ -54,6 +57,8 @@ Quatre types de versions d’évaluation sont disponibles en fonction du type de
 |       Hébergée             |       Une version d’évaluation hébergée simplifie la configuration par l’hébergement Microsoft et assure la maintenance du service qui effectue l’approvisionnement et le déprovisionnement de l’utilisateur de la version d’évaluation.             |         [Version d’évaluation hébergée](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/hosted-test-drive)          |
 |      Application logique              |       Une version d’évaluation d’application logique est un modèle de déploiement conçu pour englober toutes les architectures de solutions complexes. Les applications Dynamics et les produits personnalisés doivent tous utiliser ce type de version d'évaluation.            |      [Version d’évaluation d’une application logique](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/logic-app-test-drive)             |
 |       Power BI             |         Une version d’évaluation Power BI est composée d’un lien incorporé vers un tableau de bord personnalisé. Tous les produits dotés d'un visuel Power BI interactif doivent utiliser ce type de version d’évaluation. Il vous suffit de charger votre URL Power BI incorporée.          |        [Version d’évaluation de Power BI](#power-bi-test-drive)           |
+|   |   |   |
+
 
 ### <a name="power-bi-test-drive"></a>Version d’évaluation de Power BI
 

@@ -11,17 +11,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/22/2018
 ms.author: tomfitz
-ms.openlocfilehash: c88bdce64e88f8639da2c4ebb01f4594fccff8a0
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
-ms.translationtype: HT
+ms.openlocfilehash: b1392c29881a9077e26baafc8972148800d03d3d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42747086"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60746157"
 ---
 # <a name="test-azure-portal-interface-for-your-managed-application"></a>Tester l’interface de portail Azure pour votre application managée
 Après la [création du fichier createUiDefinition.json](create-uidefinition-overview.md) pour votre application gérée Azure, vous devez tester l’expérience utilisateur. Pour simplifier le test, utilisez un script qui charge votre fichier dans le portail. Vous n’avez pas besoin de déployer votre application managée.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 * Un fichier **createUiDefinition.json**. Si vous n’avez pas ce fichier, copiez l’[exemple de fichier](https://github.com/Azure/azure-quickstart-templates/blob/master/100-marketplace-sample/createUiDefinition.json) et enregistrez-le en local.
 

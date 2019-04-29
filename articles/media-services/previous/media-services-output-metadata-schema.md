@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 42227095c69924cd2922673d020b349aa29f2daa
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259514"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61129744"
 ---
 # <a name="output-metadata"></a>Métadonnées de sortie
 ## <a name="overview"></a>Présentation
@@ -47,7 +47,7 @@ Vous trouverez un exemple de XML [Exemple de XML](#xml).
 ### <a name="attributes"></a>Attributs
 | Nom | type | Description |
 | --- | --- | --- |
-| **Nom**<br/><br/> Obligatoire |**xs:string** |Le nom du fichier multimédia. |
+| **Name**<br/><br/> Obligatoire |**xs:string** |Le nom du fichier multimédia. |
 | **Taille**<br/><br/> minInclusive ="0"<br/><br/> Obligatoire |**xs:long** |Taille du fichier de ressource en octets. |
 | **Durée**<br/><br/> Obligatoire |**xs:duration** |Durée de lecture du contenu. |
 
@@ -76,7 +76,7 @@ Vous trouverez un exemple de XML [Exemple de XML](#xml).
 ### <a name="attributes"></a>Attributs
 | Nom | type | Description |
 | --- | --- | --- |
-| **Nom**<br/><br/> Obligatoire |**xs:string** |Nom du fichier source d’entrée. |
+| **Name**<br/><br/> Obligatoire |**xs:string** |Nom du fichier source d’entrée. |
 
 ## <a name="VideoTracks"></a> Élément VideoTracks
 Chaque élément AssetFile physique peut contenir zéro ou plusieurs pistes vidéo entrelacées dans un format de conteneur approprié. L’élément **VideoTracks** représente une collection de toutes les pistes vidéo.  

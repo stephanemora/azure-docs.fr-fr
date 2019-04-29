@@ -11,11 +11,11 @@ ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 03/20/2017
 ms.openlocfilehash: 34a72f2e7b6be90654c0f053d5b8978b0283d56c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57890516"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60860240"
 ---
 # <a name="manage-experiment-iterations-in-azure-machine-learning-studio"></a>Gestion des itérations d'expériences dans Azure Machine Learning Studio
 Le développement d'un modèle d'analyse prédictive est un processus itératif : lorsque vous modifiez les diverses fonctions et les paramètres de votre expérience, vos résultats convergent jusqu'à ce que l'efficacité du modèle formé vous donne satisfaction. L'élément clé de ce processus est le suivi des différentes itérations de vos paramètres d'expérience et de vos configurations.

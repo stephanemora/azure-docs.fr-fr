@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 02/03/2017
 ms.author: mbullwin
 ms.openlocfilehash: b81a555111ff49fcf2e14a75afdce81835d151bb
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54038547"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60691170"
 ---
 # <a name="more-telemetry-from-application-insights"></a>Plus de télémétrie dans Application Insights
 Une fois que vous avez [ajouté Application Insights à votre code ASP.NET](../../azure-monitor/app/asp-net.md), vous pouvez encore suivre quelques étapes supplémentaires pour obtenir davantage de données de télémétrie. 

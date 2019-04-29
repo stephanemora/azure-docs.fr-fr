@@ -7,11 +7,11 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.openlocfilehash: c904b6e6cd7a4dc0f9d5a442e20738e43595b369
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58485915"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60564002"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>Superviser les performances avec le Magasin des requêtes
 
@@ -112,7 +112,7 @@ Les requêtes sont normalisées en examinant leur structure après la suppressio
 ### <a name="querystoreqsview"></a>query_store.qs_view
 Cette vue retourne toutes les données du Magasin des requêtes. Il existe une ligne pour chaque ID de base de données distinct, ID d’utilisateur et ID de requête. 
 
-|**Nom**   |**Type** | **Informations de référence**  | **Description**|
+|**Name**   |**Type** | **Informations de référence**  | **Description**|
 |---|---|---|---|
 |runtime_stats_entry_id |bigint | | ID de la table runtime_stats_entries|
 |user_id    |oid    |pg_authid.oid  |OID de l’utilisateur qui a exécuté l’instruction|
@@ -145,7 +145,7 @@ Cette vue retourne toutes les données du Magasin des requêtes. Il existe une l
 ### <a name="querystorequerytextsview"></a>query_store.query_texts_view
 Cette vue retourne les données du texte des requêtes du Magasin des requêtes. Il existe une ligne pour chaque valeur query_text distincte.
 
-|**Nom**|  **Type**|   **Description**|
+|**Name**|  **Type**|   **Description**|
 |---|---|---|
 |query_text_id  |bigint     |ID de la table query_texts|
 |query_sql_text |Varchar(10000)     |Texte d’une instruction représentative. Différentes requêtes ayant la même structure sont regroupées en clusters ; ce texte est le texte de la première des requêtes du cluster.|
@@ -153,13 +153,13 @@ Cette vue retourne les données du texte des requêtes du Magasin des requêtes.
 ### <a name="querystorepgmswaitsamplingview"></a>query_store.pgms_wait_sampling_view
 Cette vue retourne les données des événements d’attente du Magasin des requêtes. Il existe une ligne pour chaque ID de base de données, ID d’utilisateur, ID de requête et événement distinct.
 
-|**Nom**|  **Type**|   **Informations de référence**| **Description**|
+|**Name**|  **Type**|   **Informations de référence**| **Description**|
 |---|---|---|---|
 |user_id    |oid    |pg_authid.oid  |OID de l’utilisateur qui a exécuté l’instruction|
 |db_id  |oid    |pg_database.oid    |OID de la base de données dans laquelle l’instruction a été exécutée|
 |query_id   |bigint     ||Code de hachage interne, calculé à partir de l’arborescence d’analyse de l’instruction|
-|event_type |texte       ||Type d’événement pour lequel le backend est en attente|
-|événement  |texte       ||Nom de l’événement d’attente si le backend est actuellement en attente|
+|event_type |text       ||Type d’événement pour lequel le backend est en attente|
+|événement  |text       ||Nom de l’événement d’attente si le backend est actuellement en attente|
 |calls  |Entier         ||Nombre du même événement capturé|
 
 

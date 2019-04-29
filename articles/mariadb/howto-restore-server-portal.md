@@ -7,11 +7,11 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 04/15/2019
 ms.openlocfilehash: 23d683fea494ad0509af359d6e49519f2bc6aa99
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59615776"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60746648"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mariadb-using-the-azure-portal"></a>Guide pratique pour sauvegarder et restaurer un serveur dans Azure Database for MariaDB à l’aide du portail Azure
 
@@ -79,7 +79,7 @@ Les étapes suivantes restaurent l’exemple de serveur à un point dans le temp
 ## <a name="geo-restore"></a>Restauration géographique
 Si vous avez configuré votre serveur pour les sauvegardes redondantes géographiquement, un serveur peut être créé à partir de la sauvegarde de ce serveur existant. Ce nouveau serveur peut être créé dans toutes les régions dans lesquelles Azure Database for MariaDB est disponible.  
 
-1. Sélectionnez **bases de données** > **Azure Database pour MariaDB**. Vous pouvez également taper **MariaDB** dans la zone de recherche pour localiser le service.
+1. Sélectionnez **Bases de données** > **Azure Database for MariaDB**. Vous pouvez également taper **MariaDB** dans la zone de recherche pour trouver le service.
 
    ![Option Azure Database for MariaDB](./media/howto-restore-server-portal/2_navigate-to-mariadb.png)
 

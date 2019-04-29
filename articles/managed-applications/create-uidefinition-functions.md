@@ -14,11 +14,11 @@ ms.workload: na
 ms.date: 10/12/2017
 ms.author: tomfitz
 ms.openlocfilehash: 80fd593eecf189d516a8c9d7ef2a94ec9f23fc39
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54063792"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60587918"
 ---
 # <a name="createuidefinition-functions"></a>Fonctions CreateUiDefinition
 Cette section contient les signatures pour toutes les fonctions prises en charge de CreateUiDefinition.
@@ -526,7 +526,7 @@ L’exemple suivant retourne `2.9`:
 "[float(2.9)]"
 ```
 
-### <a name="string"></a>chaîne
+### <a name="string"></a>string
 Convertit le paramètre en chaîne. Cette fonction prend en charge les paramètres de tous les types de données JSON.
 
 L’exemple suivant retourne `"1"`:

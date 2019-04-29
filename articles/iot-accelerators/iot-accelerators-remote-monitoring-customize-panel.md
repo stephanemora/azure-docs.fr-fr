@@ -1,19 +1,20 @@
 ---
-title: Ajouter un panneau à l’interface utilisateur de la solution de supervision à distance - Azure | Microsoft Docs
+title: Ajouter un panneau à la surveillance à distance solution de l’interface utilisateur - Azure | Microsoft Docs
 description: Cet article vous montre comment ajouter un nouveau panneau au tableau de bord dans l’interface utilisateur web de l’accélérateur de solution de supervision à distance.
 author: dominicbetts
 manager: timlt
-ms.author: dobett
+ms.author: v-yiso
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 10/05/2018
+origin.date: 10/05/2018
+ms.date: 11/26/2018
 ms.topic: conceptual
 ms.openlocfilehash: 3b855c3bed75945f44b55463bdacd049b7930aa7
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49165876"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61447061"
 ---
 # <a name="add-a-custom-panel-to-the-dashboard-in-the-remote-monitoring-solution-accelerator-web-ui"></a>Ajouter un panneau personnalisé au tableau de bord dans l’interface utilisateur web de l’accélérateur de solution de supervision à distance
 
@@ -24,7 +25,7 @@ Cet article vous montre comment ajouter un nouveau panneau à une page du tablea
 
 L’exemple de panneau dans cet article s’affiche dans la page du tableau de bord existante.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour effectuer les étapes de ce guide pratique, vous devez avoir installé les logiciels suivants sur votre machine de développement locale :
 
@@ -45,7 +46,6 @@ Pour vous aider à démarrer, le dossier **src/walkthrough/components/pages/dash
 
 **examplePanel.js**
 
-[!code-javascript[Example panel](~/remote-monitoring-webui/src/walkthrough/components/pages/dashboard/panels/examplePanel/examplePanel.js?name=panel "Example panel")]
 
 Copiez le dossier **src/walkthrough/components/pages/dashboard/panels/examplePanel** dans le dossier **src/components/pages/dashboard/panels**.
 

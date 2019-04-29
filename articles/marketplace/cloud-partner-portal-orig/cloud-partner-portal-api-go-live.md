@@ -15,11 +15,11 @@ ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pbutlerm
 ms.openlocfilehash: ea3f26d70c4a4ce07c988612890687504a4cf5ac
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56594676"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60624970"
 ---
 <a name="go-live"></a>Go Live
 =======
@@ -31,10 +31,10 @@ Cette API démarre le processus de transmission de type push d’une application
 <a name="uri-parameters"></a>Paramètres URI
 --------------
 
-|  **Nom**      |   **Description**                                                           | **Type de données** |
+|  **Name**      |   **Description**                                                           | **Type de données** |
 |  --------      |   ---------------                                                           | ------------- |
-| publisherId    | Identificateur du serveur de publication de l’offre à récupérer, par exemple `contoso`       |  Chaîne       |
-| offerId        | Identificateur de l’offre à récupérer                                   |  Chaîne       |
+| publisherId    | Identificateur du serveur de publication de l’offre à récupérer, par exemple `contoso`       |  String       |
+| offerId        | Identificateur de l’offre à récupérer                                   |  String       |
 | api-version    | Version la plus récente de l’API                                                   |  Date         |
 |  |  |  |
 
@@ -42,7 +42,7 @@ Cette API démarre le processus de transmission de type push d’une application
 <a name="header"></a>En-tête
 ------
 
-|  **Nom**       |     **Valeur**       |
+|  **Name**       |     **Valeur**       |
 |  ---------      |     ----------      |
 | Content-Type    | `application/json`  |
 | Authorization   | `Bearer YOUR_TOKEN` |
@@ -59,7 +59,7 @@ Cette API démarre le processus de transmission de type push d’une application
 
 ### <a name="response-header"></a>En-tête de réponse
 
-|  **Nom**             |      **Valeur**                                                            |
+|  **Name**             |      **Valeur**                                                            |
 |  --------             |      ----------                                                           |
 | Operation-Location    |  URL à interroger pour déterminer l’état actuel de l’opération.            |
 |  |  |

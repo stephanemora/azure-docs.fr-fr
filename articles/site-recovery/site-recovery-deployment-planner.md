@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: mayg
 ms.openlocfilehash: 0597f185df35a92696ed9287d23778180319b3de
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60005687"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61035790"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>À propos du planificateur de déploiement Azure Site Recovery pour VMware sur Azure
 Cet article est le guide de l’utilisateur d’Azure Site Recovery Deployment Planner portant sur les déploiements de production de VMware vers Azure.
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Présentation
 
 Avant de commencer à protéger les machines virtuelles VMware à l’aide de Azure Site Recovery, allouez suffisamment de bande passante en fonction de votre taux de modifications des données par jour pour atteindre votre objectif de point de récupération (RPO) souhaité. Assurez-vous de déployer le nombre approprié de serveurs de configuration et de serveurs de processus en local.
 

@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 04/09/2018
 ms.author: cynthn;davberg
 ms.openlocfilehash: 2a558f2cf91907e85bb8b14c7214a63afd1faca0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58001397"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60627722"
 ---
 # <a name="compute-benchmark-scores-for-linux-vms"></a>Calcul des scores de test d’évaluation pour les machines virtuelles Linux
 Les scores de test d’évaluation CoreMark suivants montrent les performances de calcul pour la gamme de machines virtuelles hautes performances d’Azure exécutant Ubuntu. Les scores de test d’évaluation de calcul sont également disponibles pour [les machines virtuelles Windows](../windows/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: fa89117e85bc3d3c9664e6aa037fac923b7432ce
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53135744"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60544862"
 ---
 # <a name="get-started-creating-an-internet-facing-load-balancer-classic-in-the-azure-classic-cli"></a>Bien démarrer avec la création d’un équilibreur de charge accessible sur Internet (classique) dans Azure CLI Classic
 

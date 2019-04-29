@@ -17,13 +17,13 @@ ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mikeray
 ms.openlocfilehash: d86538fca907f7181bf58ff236bba8de186641fb
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58003453"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60593426"
 ---
-# <a name="tutorial-configure-always-on-availability-group-in-azure-vm-manually"></a>Tutoriel : Configurer manuellement des groupes de disponibilité AlwaysOn dans une machine virtuelle Azure
+# <a name="tutorial-configure-always-on-availability-group-in-azure-vm-manually"></a>Didacticiel : Configurer manuellement des groupes de disponibilité AlwaysOn dans une machine virtuelle Azure
 
 Ce didacticiel montre comment créer un groupe de disponibilité AlwaysOn SQL Server sur des machines virtuelles Azure. Il crée un groupe de disponibilité avec un réplica de base de données sur deux serveurs SQL Server.
 
@@ -358,7 +358,7 @@ Un équilibreur de charge Azure peut être Standard ou De base. Une équilibreur
 
    | Paramètre | Champ |
    | --- | --- |
-   | **Nom** |Utilisez un nom pour l’équilibrage de charge, par exemple **sqlLB**. |
+   | **Name** |Utilisez un nom pour l’équilibrage de charge, par exemple **sqlLB**. |
    | **Type** |Interne |
    | **Réseau virtuel** |Utilisez le nom de votre réseau virtuel Azure. |
    | **Sous-réseau** |Utilisez le nom du sous-réseau auquel appartient la machine virtuelle.  |
@@ -402,7 +402,7 @@ Pour configurer l’équilibrage de charge, vous devez créer un pool principal 
 
    | Paramètre | Description | Exemples
    | --- | --- |---
-   | **Nom** | Texte | SQLAlwaysOnEndPointProbe |
+   | **Name** | Text | SQLAlwaysOnEndPointProbe |
    | **Protocole** | Choisissez TCP. | TCP |
    | **Port** | Tout port inutilisé. | 59999 |
    | **Intervalle**  | Durée entre les tentatives de la sonde, en secondes. |5. |
@@ -418,7 +418,7 @@ Pour configurer l’équilibrage de charge, vous devez créer un pool principal 
 
    | Paramètre | Description | Exemples
    | --- | --- |---
-   | **Nom** | Texte | SQLAlwaysOnEndPointListener |
+   | **Name** | Text | SQLAlwaysOnEndPointListener |
    | **Frontend IP address (Adresse IP frontale)** | Choisissez une adresse. |Utilisez l’adresse que vous avez créée lorsque vous avez créé l’équilibrage de charge. |
    | **Protocole** | Choisissez TCP. |TCP |
    | **Port** | Utiliser le port pour l'écouteur de groupe de disponibilité | 1433 |
@@ -445,7 +445,7 @@ L’adresse IP du cluster WSFC doit également se trouver sur l’équilibreur d
 
    | Paramètre | Description | Exemples
    | --- | --- |---
-   | **Nom** | Texte | WSFCEndPointProbe |
+   | **Name** | Text | WSFCEndPointProbe |
    | **Protocole** | Choisissez TCP. | TCP |
    | **Port** | Tout port inutilisé. | 58888 |
    | **Intervalle**  | Durée entre les tentatives de la sonde, en secondes. |5. |
@@ -459,7 +459,7 @@ L’adresse IP du cluster WSFC doit également se trouver sur l’équilibreur d
 
    | Paramètre | Description | Exemples
    | --- | --- |---
-   | **Nom** | Texte | WSFCEndPoint |
+   | **Name** | Text | WSFCEndPoint |
    | **Frontend IP address (Adresse IP frontale)** | Choisissez une adresse. |Utilisez l’adresse que vous avez créée quand vous avez configuré l’adresse IP du cluster WSFC. Celle-ci diffère de l’adresse IP de l’écouteur |
    | **Protocole** | Choisissez TCP. |TCP |
    | **Port** | Utilisez le port de l’adresse IP du cluster. Il s’agit d’un port disponible qui n’est pas utilisé pour le port de la sonde de l’écouteur. | 58888 |

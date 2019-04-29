@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
-ms.openlocfilehash: 855ea6c34082b859bb5b5b6e69b3e3f2fa54eb4a
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
-ms.translationtype: HT
+ms.openlocfilehash: b36d721896bd7b4f95d831eded500a96969937c5
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056461"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60631887"
 ---
 # <a name="technical-specifications-and-compliance-for-the-storsimple-device"></a>Caractéristiques techniques et conformité de l’appareil StorSimple
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 
 Les composants matériels de l’appareil Microsoft Azure StorSimple sont conformes aux caractéristiques techniques et normes réglementaires présentées dans cet article. Les caractéristiques techniques décrivent les modules d’alimentation et de refroidissement (PCM), les lecteurs de disque, la capacité de stockage et les boîtiers. Les informations de conformité couvrent les éléments tels que les normes internationales, la sécurité et les émissions et le câblage.
 
@@ -37,7 +37,7 @@ Le boîtier EBOD utilise un PCM de 580 W et le boîtier principal un PCM de 764
 | --- | --- | --- |
 | Puissance de sortie maximale |580 W |764 W |
 | Fréquence |50/60 Hz |50/60 Hz |
-| Sélection de la plage de tension |Détermination automatique : 90 à 264 V CA, 47/63 Hz |Détermination automatique : 90 à 264 V CA, 47/63 Hz |
+| Sélection de la plage de tension |Plage automatique : 90 – 264 V AC, 47/63 Hz |Plage automatique : 90 – 264 V AC, 47/63 Hz |
 | Courant d’appel maximal |20 A |20 A |
 | Correction du facteur de puissance |> 95 % de la tension d’entrée nominale |> 95 % de la tension d’entrée nominale |
 | Harmonique |Conforme à la norme EN61000-3-2 |Conforme à la norme EN61000-3-2 |
@@ -149,8 +149,8 @@ L’appareil Microsoft Azure StorSimple est conforme aux normes internationales 
 
 L’appareil Microsoft Azure StorSimple est conforme aux normes de sécurité suivantes :
 
-* Homologation du type de produit du système : UL, cUL, CE
-* Conformité aux normes de sécurité : UL 60950, CEI 60950, EN 60950
+* Homologation produit : UL, cUL, CE
+* Conformité de sécurité : UL 60950, CEI 60950, EN 60950
 
 ## <a name="emc-compliance"></a>Conformité électromagnétique
 
@@ -160,8 +160,8 @@ L’appareil Microsoft Azure StorSimple est conforme aux niveaux de sécurité s
 
 L’appareil est conforme aux normes CEM pour les niveaux d’émissions par conduction et par rayonnement.
 
-* Niveaux maximums d’émissions par conduction : CFR 47 partie 15 classe A, EN55022 classe A, CISPR classe A
-* Niveaux maximums d’émissions par rayonnement : CFR 47 partie 15B classe A, EN55022 classe A, CISPR classe A
+* Niveaux des émissions d’exécution : CFR 47 partie 15 b classe A EN55022 Classe A CISPR classe A
+* Rayonnées niveaux des émissions : CFR 47 partie 15 b classe A EN55022 Classe A CISPR classe A
 
 ### <a name="harmonics-and-flicker"></a>Harmonique et papillotement
 

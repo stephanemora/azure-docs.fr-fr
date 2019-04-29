@@ -14,11 +14,11 @@ ms.workload: na
 ms.date: 09/01/2017
 ms.author: kfollis
 ms.openlocfilehash: a7e9acbe78ffdca2e615873cc4c33f86b250a429
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54885691"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60551524"
 ---
 # <a name="the-structure-of-azure-dashboards"></a>Structure des tableaux de bord Azure
 Ce document décrit la structure d’un tableau de bord Azure, en utilisant le tableau de bord suivant comme exemple :

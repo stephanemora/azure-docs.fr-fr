@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 01/15/2018
 ms.custom: seodec2018
 ms.openlocfilehash: 369e5283d7350729e0d8cc44f94f1f2e71b133c3
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53316865"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60816993"
 ---
 # <a name="upgrading-to-the-azure-search-net-management-sdk-version-2"></a>Mise à niveau vers la version 2 du Kit de développement logiciel (SDK) .NET Management Recherche Azure
 Si vous utilisez la version 1.0.2 ou une version antérieure du [Kit de développement logiciel (SDK) .NET Management Recherche Azure](https://aka.ms/search-mgmt-sdk), cet article vous aidera à mettre à niveau votre application pour utiliser la version 2.

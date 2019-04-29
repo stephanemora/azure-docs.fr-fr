@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 02/10/2019
 ms.author: anzaman
 ms.openlocfilehash: e5a34a75c73401c567a0e898a1ce9f85cde96586
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59360505"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60553706"
 ---
 # <a name="customize-a-person-model-with-the-video-indexer-api"></a>Personnaliser un modèle de personne avec l’API Video Indexer
 
@@ -54,7 +54,7 @@ curl -v -X POST "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cus
 
 ### <a name="request-parameters"></a>Paramètres de la demande 
 
-|**Nom**|**Type**|**Obligatoire**|**Description**|
+|**Name**|**Type**|**Obligatoire**|**Description**|
 |---|---|---|---|
 |location|string|Oui|La région Azure vers laquelle l’appel doit être routé. Pour plus d’informations, consultez [Régions Azure et Video Indexer](regions.md).|
 |accountId|string|Oui|GUID pour ce compte|
@@ -99,7 +99,7 @@ curl -v -X DELETE "https://api.videoindexer.ai/{location}/Accounts/{accountId}/C
 
 ### <a name="request-parameters"></a>Paramètres de la demande
 
-|**Nom**|**Type**|**Obligatoire**|**Description**|
+|**Name**|**Type**|**Obligatoire**|**Description**|
 |---|---|---|---|
 |location|string|Oui|La région Azure vers laquelle l’appel doit être routé. Pour plus d’informations, consultez [Régions Azure et Video Indexer](regions.md).|
 |accountId|string|Oui|GUID pour ce compte|
@@ -136,7 +136,7 @@ curl -v -X GET "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cust
 
 ### <a name="request-parameters"></a>Paramètres de la demande
 
-|**Nom**|**Type**|**Obligatoire**|**Description**|
+|**Name**|**Type**|**Obligatoire**|**Description**|
 |---|---|---|---|
 |location|string|Oui|La région Azure vers laquelle l’appel doit être routé. Pour plus d’informations, consultez [Régions Azure et Video Indexer](regions.md).|
 |accountId|string|Oui|GUID pour ce compte|
@@ -191,7 +191,7 @@ curl -v -X PUT "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Vide
 
 ### <a name="request-parameters"></a>Paramètres de la demande
 
-|**Nom**|**Type**|**Obligatoire**|**Description**|
+|**Name**|**Type**|**Obligatoire**|**Description**|
 |---|---|---|---|
 |location|string|Oui|La région Azure vers laquelle l’appel doit être routé. Pour plus d’informations, consultez [Régions Azure et Video Indexer](regions.md).|
 |accountId|string|Oui|GUID pour ce compte|

@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: raynew
 ms.openlocfilehash: d3a2ffdedda7f541fb1a3f37a8b40bc7af3dcb57
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59996507"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60851857"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Installer le serveur de sauvegarde Azure sur Azure Stack
 

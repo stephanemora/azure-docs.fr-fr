@@ -11,11 +11,11 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
 ms.openlocfilehash: 5453bcdd371c0639cb1d3568f05a1768e6204d3d
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57315212"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60817165"
 ---
 # <a name="connect-to-and-index-azure-sql-database-content-using-azure-search-indexers"></a>Se connecter à Azure SQL Database et indexer le contenu à l’aide d’indexeurs Recherche Azure
 
@@ -297,8 +297,8 @@ Lorsque vous utilisez la technique de suppression réversible, vous pouvez spéc
 | smalldatetime, datetime, datetime2, date, datetimeoffset |Edm.DateTimeOffset, Edm.String | |
 | uniqueidentifer |Edm.String | |
 | Geography |Edm.GeographyPoint |Seules les instances Geography de type POINT avec SRID 4326 (valeur par défaut) sont prises en charge |
-| rowversion |S.O. |Les colonnes de version de ligne ne peuvent pas être stockées dans l'index de recherche, mais peuvent être utilisées pour le suivi des modifications |
-| time, timespan, binary, varbinary, image, xml, geometry, types CLR |S.O. |Non pris en charge |
+| rowversion |N/A |Les colonnes de version de ligne ne peuvent pas être stockées dans l'index de recherche, mais peuvent être utilisées pour le suivi des modifications |
+| time, timespan, binary, varbinary, image, xml, geometry, types CLR |N/A |Non pris en charge |
 
 ## <a name="configuration-settings"></a>Paramètres de configuration
 L’indexeur SQL expose plusieurs paramètres de configuration :

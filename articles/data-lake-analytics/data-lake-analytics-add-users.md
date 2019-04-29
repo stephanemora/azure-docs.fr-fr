@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: db35f16e-1565-4873-a851-bd987accdc58
 ms.topic: conceptual
 ms.date: 05/24/2018
-ms.openlocfilehash: f48dc07e27c6cb01a842f1f6d720ed6476028ef7
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
-ms.translationtype: HT
+ms.openlocfilehash: 8323c4e1b236444f55dab826d2567491f5f0f736
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45542310"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60629320"
 ---
 # <a name="adding-a-user-in-the-azure-portal"></a>Ajout d’un utilisateur dans le portail Azure
 
@@ -42,7 +42,7 @@ Accordez « R-X » ou « RWX », si nécessaire, sur les dossiers contenant 
 
 ## <a name="adding-a-user-using-powershell"></a>Ajout d’un utilisateur à l’aide de PowerShell
 
-1. Suivez les instructions de ce guide : [Installation et configuration d’Azure PowerShell](https://azure.microsoft.com/documentation/articles/powershell-install-configure/).
+1. Suivez les instructions de ce guide : [Guide pratique pour installer et configurer Azure PowerShell](https://azure.microsoft.com/documentation/articles/powershell-install-configure/).
 2. Téléchargez le script PowerShell [Add-AdlaJobUser.ps1](https://github.com/Azure/AzureDataLake/blob/master/Samples/PowerShell/ADLAUsers/Add-AdlaJobUser.ps1).
 3. Exécutez le script PowerShell. 
 

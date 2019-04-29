@@ -9,11 +9,11 @@ ms.topic: reference
 ms.date: 01/20/2019
 ms.author: babanisa
 ms.openlocfilehash: b67d656ed6ab537a01696ec9c0c98f84b880f03b
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54470614"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60561560"
 ---
 # <a name="azure-event-grid-event-schema"></a>Schéma d’événement Azure Event Grid
 
@@ -80,16 +80,16 @@ Par exemple, voici le schéma publié pour un événement de stockage Blob Azure
 
 Tous les événements contiennent les mêmes données de supérieur suivantes :
 
-| Propriété | type | Description |
+| Propriété | Type | Description |
 | -------- | ---- | ----------- |
-| rubrique | chaîne | Chemin d’accès complet à la source de l’événement. Ce champ n’est pas modifiable. Event Grid fournit cette valeur. |
-| subject | chaîne | Chemin de l’objet de l’événement, défini par le serveur de publication. |
-| eventType | chaîne | Un des types d’événements inscrits pour cette source d’événement. |
-| eventTime | chaîne | L’heure à quelle l’événement est généré selon l’heure UTC du fournisseur. |
-| id | chaîne | Identificateur unique de l’événement. |
+| rubrique | string | Chemin d’accès complet à la source de l’événement. Ce champ n’est pas modifiable. Event Grid fournit cette valeur. |
+| subject | string | Chemin de l’objet de l’événement, défini par le serveur de publication. |
+| eventType | string | Un des types d’événements inscrits pour cette source d’événement. |
+| eventTime | string | L’heure à quelle l’événement est généré selon l’heure UTC du fournisseur. |
+| id | string | Identificateur unique de l’événement. |
 | données | objet | Données d’événement spécifiques au fournisseur de ressources. |
-| dataVersion | chaîne | Version du schéma de l’objet de données. Le serveur de publication définit la version du schéma. |
-| metadataVersion | chaîne | Version du schéma des métadonnées d’événement. Event Grid définit le schéma des propriétés de niveau supérieur. Event Grid fournit cette valeur. |
+| dataVersion | string | Version du schéma de l’objet de données. Le serveur de publication définit la version du schéma. |
+| metadataVersion | string | Version du schéma des métadonnées d’événement. Event Grid définit le schéma des propriétés de niveau supérieur. Event Grid fournit cette valeur. |
 
 Pour connaître les propriétés de l’objet de données, consultez la source de l’événement :
 

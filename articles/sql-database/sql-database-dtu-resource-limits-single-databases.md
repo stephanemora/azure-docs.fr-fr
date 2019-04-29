@@ -13,15 +13,15 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 03/20/2019
 ms.openlocfilehash: b3514eca8db5d5b68b3e5784ee95e8583813945c
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60008965"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61075234"
 ---
 # <a name="resource-limits-for-single-databases-using-the-dtu-based-purchasing-model"></a>Limites de ressources pour des bases de données uniques suivant le modèle d’achat DTU
 
-Cet article détaille les limites de ressources des bases de données uniques Azure SQL Database suivant le modèle d’achat par DTU.
+Cet article détaille les limites de ressources des bases de données uniques Azure SQL Database suivant le modèle d’achat DTU.
 
 Pour connaître les limites de ressources des pools élastiques du modèle d’achat DTU, consultez [Limites des ressources DTU : pools élastiques](sql-database-dtu-resource-limits-elastic-pools.md). Pour voir les limites de ressources par vCore, consultez [Limites de ressources par vCore : bases de données uniques](sql-database-vcore-resource-limits-single-databases.md) et [Limites de ressources par vCore : pools élastiques](sql-database-vcore-resource-limits-elastic-pools.md). Pour plus d’informations concernant les différents modèles d’achat, consultez l’article décrivant les [modèles d’achat et niveaux de service](sql-database-purchase-models.md).
 
@@ -39,7 +39,7 @@ Les tableaux suivants indiquent les ressources disponibles pour une base de donn
 | DTU max | 5. |
 | Espace de stockage inclus (Go) | 2 |
 | Choix de stockage maximum (Go) | 2 |
-| Stockage In-Memory OLTP maximal (Go) |S.O. |
+| Stockage In-Memory OLTP maximal (Go) |N/A |
 | Nombre maximal d’ouvriers simultanés (demandes) | 30 |
 | Nombre maximal de sessions simultanées | 300 |
 |||
@@ -51,7 +51,7 @@ Les tableaux suivants indiquent les ressources disponibles pour une base de donn
 | DTU max | 10 | 20 | 50 | 100 |
 | Espace de stockage inclus (Go) | 250 | 250 | 250 | 250 |
 | Choix de stockage maximum (Go) | 250 | 250 | 250 | 250, 500, 750, 1 024 |
-| Stockage In-Memory OLTP maximal (Go) | S.O. | N/A | N/A | S.O. |
+| Stockage In-Memory OLTP maximal (Go) | N/A | N/A | N/A | N/A |
 | Nombre maximal d’ouvriers simultanés (demandes)| 60 | 90 | 120 | 200 |
 | Nombre maximal de sessions simultanées |600 | 900 | 1 200 | 2 400 |
 ||||||
@@ -63,7 +63,7 @@ Les tableaux suivants indiquent les ressources disponibles pour une base de donn
 | DTU max | 200 | 400 | 800 | 1 600 | 3000 |
 | Espace de stockage inclus (Go) | 250 | 250 | 250 | 250 | 250 |
 | Choix de stockage maximum (Go) | 250, 500, 750, 1 024 | 250, 500, 750, 1 024 | 250, 500, 750, 1 024 | 250, 500, 750, 1 024 | 250, 500, 750, 1 024 |
-| Stockage In-Memory OLTP maximal (Go) | S.O. | N/A | N/A | N/A |S.O. |
+| Stockage In-Memory OLTP maximal (Go) | N/A | N/A | N/A | N/A |N/A |
 | Nombre maximal d’ouvriers simultanés (demandes)| 400 | 800 | 1 600 | 3200 |6000 |
 | Nombre maximal de sessions simultanées |4 800 | 9 600 | 19 200 | 30000 |30000 |
 |||||||

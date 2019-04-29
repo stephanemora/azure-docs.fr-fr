@@ -2,7 +2,7 @@
 title: Événement de début de tâche Azure Batch | Microsoft Docs
 description: Référence pour l’événement de début de tâche Batch.
 services: batch
-author: laurenhughes
+author: dlepow
 manager: jeconnoc
 ms.assetid: ''
 ms.service: batch
@@ -10,14 +10,15 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-ms.date: 04/20/2017
-ms.author: lahugh
+origin.date: 04/20/2017
+ms.date: 05/15/2018
+ms.author: v-junlch
 ms.openlocfilehash: d50a0a7082e409084fd966370934a638ca9bb013
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55474426"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60549867"
 ---
 # <a name="task-start-event"></a>Événement de début de tâche
 
@@ -50,9 +51,9 @@ ms.locfileid: "55474426"
 
 |Nom de l'élément|Type|Notes|
 |------------------|----------|-----------|
-|jobId|Chaîne|ID du travail contenant la tâche.|
-|id|Chaîne|ID de la tâche.|
-|taskType|Chaîne|Type de la tâche. Ce peut être « JobManager », indiquant qu’il s’agit une tâche du gestionnaire, ou « User », indiquant qu’il ne s’agit pas d’une tâche du gestionnaire.|
+|jobId|String|ID du travail contenant la tâche.|
+|id|String|ID de la tâche.|
+|taskType|String|Type de la tâche. Ce peut être « JobManager », indiquant qu’il s’agit une tâche du gestionnaire, ou « User », indiquant qu’il ne s’agit pas d’une tâche du gestionnaire.|
 |systemTaskVersion|Int32|Compteur de tentatives internes d’exécution d’une tâche. En interne, le service Batch peut recommencer une tâche pour prendre en compte des problèmes temporaires. Ces problèmes peuvent être des erreurs de planification internes ou des tentatives de récupération à partir de nœuds de calcul en mauvais état.|
 |[nodeInfo](#nodeInfo)|Type complexe|Contient des informations sur le nœud de calcul sur lequel la tâche a été exécutée.|
 |[multiInstanceSettings](#multiInstanceSettings)|Type complexe|Spécifie que la tâche est une tâche multi-instance nécessitant plusieurs nœuds de calcul.  Pour plus d’informations, voir [multiInstanceSettings](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-task).|
@@ -63,8 +64,8 @@ ms.locfileid: "55474426"
 
 |Nom de l'élément|Type|Notes|
 |------------------|----------|-----------|
-|poolId|Chaîne|ID u pool sur lequel la tâche a été exécutée.|
-|nodeId|Chaîne|ID du nœud sur lequel la tâche a été exécutée.|
+|poolId|String|ID u pool sur lequel la tâche a été exécutée.|
+|nodeId|String|ID du nœud sur lequel la tâche a été exécutée.|
 
 ###  <a name="multiInstanceSettings"></a> multiInstanceSettings
 
@@ -83,3 +84,5 @@ ms.locfileid: "55474426"
 |Nom de l'élément|Type|Notes|
 |------------------|----------|-----------|
 |retryCount|Int32|Nombre de fois que le service Batch a réessayé d’exécuter la tâche. Si la tâche se termine avec un code de sortie autre que zéro, elle est retentée le nombre de fois spécifié par la valeur MaxTaskRetryCount|
+
+<!-- Update_Description: update metedata properties -->

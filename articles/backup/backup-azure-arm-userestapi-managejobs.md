@@ -1,5 +1,5 @@
 ---
-title: 'Sauvegarde Azure : gérer les travaux de sauvegarde à l’aide de l’API REST'
+title: 'Sauvegarde Azure : Gérer les travaux de sauvegarde à l’aide de l’API REST'
 description: Gérer les tâches de sauvegarde et de restauration de Sauvegarde Azure avec une API REST
 services: backup
 author: pvrk
@@ -11,11 +11,11 @@ ms.date: 08/03/2018
 ms.author: pullabhk
 ms.assetid: b234533e-ac51-4482-9452-d97444f98b38
 ms.openlocfilehash: eb8b7dc77d180eb56c2585e93e60a36742f6c84c
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51289426"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60646620"
 ---
 # <a name="track-backup-and-restore-jobs-using-rest-api"></a>Suivi des tâches de sauvegarde et de restauration à l’aide de l’API REST
 
@@ -23,7 +23,7 @@ Le service Azure Backup déclenche des tâches qui s’exécutent en arrière-pl
 
 ## <a name="fetch-job-information-from-operations"></a>Récupérer les informations sur tâches à partir des opérations
 
-Une opération telle que le déclenchement d’une sauvegarde renvoie toujours un ID de tâche (jobID). Par exemple, voici réponse finale d’une [opération d’API REST de sauvegarde de déclenchement](backup-azure-arm-userestapi-backupazurevms.md#example-responses-3) :
+Une opération telle que le déclenchement d’une sauvegarde renvoie toujours un ID de tâche (jobID). Pour, par exemple : La réponse finale d’un [déclencher l’opération d’API REST sauvegarde](backup-azure-arm-userestapi-backupazurevms.md#example-responses-3) se présente comme suit :
 
 ```http
 {
@@ -51,7 +51,7 @@ L’`{jobName}` est « jobId » comme indiqué précédemment. La réponse est
 
 ### <a name="response"></a>response
 
-|NOM  |type  |Description  |
+|Nom  |type  |Description  |
 |---------|---------|---------|
 |200 OK     | [JobResource](https://docs.microsoft.com/rest/api/backup/jobdetails/get#jobresource)        | OK        |
 

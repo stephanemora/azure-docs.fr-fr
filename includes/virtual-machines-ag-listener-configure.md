@@ -1,15 +1,16 @@
 ---
-author: cynthn
+author: rockboyfor
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 10/26/2018
-ms.author: cynthn
+origin.date: 10/26/2018
+ms.date: 04/01/2019
+ms.author: v-yeche
 ms.openlocfilehash: 276ddf0a70fa450451cd3ddc78c7610c4ab1edc1
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58494799"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60326117"
 ---
 L’écouteur de groupe de disponibilité est une adresse IP et un nom réseau sur lesquels le groupe de disponibilité de SQL Server écoute. Pour créer l’écouteur de groupe de disponibilité, procédez comme suit :
 
@@ -23,7 +24,7 @@ L’écouteur de groupe de disponibilité est une adresse IP et un nom réseau s
 
    ![Nom réseau du cluster](./media/virtual-machines-ag-listener-configure/90-clusternetworkname.png)
 
-1. <a name="addcap"></a>Ajoutez le point d’accès client.  
+2. <a name="addcap"></a>Ajoutez le point d’accès client.  
     Le point d’accès client est le nom réseau que les applications utilisent pour se connecter aux bases de données dans un groupe de disponibilité. Créez le point d’accès client dans le Gestionnaire du cluster de basculement .
 
     a. Développez le nom du cluster, puis cliquez sur **Rôles**.
@@ -37,9 +38,9 @@ L’écouteur de groupe de disponibilité est une adresse IP et un nom réseau s
 
     d. Pour terminer la création de l’écouteur, cliquez sur **Suivant** deux fois, puis cliquez sur **Terminer**. Ne mettez pas l'écouteur ou la ressource en ligne à ce stade.
 
-1. Désactivez le rôle de cluster de groupe de disponibilité. Dans le **Gestionnaire du cluster de basculement**, sous **Rôles**, cliquez avec le bouton droit sur le rôle, puis sélectionnez **Arrêter le rôle**.
+3. Désactivez le rôle de cluster de groupe de disponibilité. Dans le **Gestionnaire du cluster de basculement**, sous **Rôles**, cliquez avec le bouton droit sur le rôle, puis sélectionnez **Arrêter le rôle**.
 
-1. <a name="congroup"></a>Configurez la ressource IP du groupe de disponibilité.
+4. <a name="congroup"></a>Configurez la ressource IP du groupe de disponibilité.
 
     a. Cliquez sur l’onglet **Ressources**, puis développez le point d’accès client que vous avez créé.  
     Le point d’accès client est hors connexion.
@@ -56,7 +57,7 @@ L’écouteur de groupe de disponibilité est une adresse IP et un nom réseau s
     1. Disable NetBIOS for this address and click **OK**. Repeat this step for each IP resource if your solution spans multiple Azure VNets. 
     ------------------------->
 
-1. <a name = "dependencyGroup"></a>Créez une dépendance entre la ressource de groupe de disponibilité de SQL Server et le point d’accès client.
+5. <a name = "dependencyGroup"></a>Créez une dépendance entre la ressource de groupe de disponibilité de SQL Server et le point d’accès client.
 
     a. Dans le Gestionnaire du cluster de basculement, cliquez sur **Rôles**, puis sur votre groupe de disponibilité.
 
@@ -68,7 +69,7 @@ L’écouteur de groupe de disponibilité est une adresse IP et un nom réseau s
 
     d. Cliquez sur **OK**.
 
-1. <a name="listname"></a>Créez une dépendance entre la ressource du point d’accès client et l’adresse IP.
+6. <a name="listname"></a>Créez une dépendance entre la ressource du point d’accès client et l’adresse IP.
 
     a. Dans le Gestionnaire du cluster de basculement, cliquez sur **Rôles**, puis sur votre groupe de disponibilité. 
 
@@ -83,21 +84,20 @@ L’écouteur de groupe de disponibilité est une adresse IP et un nom réseau s
     >[!TIP]
     >Vous pouvez vérifier que les dépendances sont correctement configurées. Dans le Gestionnaire du cluster de basculement, accédez à Rôles, cliquez avez le bouton droit sur le groupe de disponibilité, et cliquez sur **Autres actions**, puis sur **Afficher le rapport de dépendance**. Lorsque les dépendances sont correctement configurées, le groupe de disponibilité dépend du nom réseau, et le nom réseau dépend de l’adresse IP. 
 
-
-1. <a name="setparam"></a>Définissez les paramètres de cluster dans PowerShell.
+7. <a name="setparam"></a>Définissez les paramètres de cluster dans PowerShell.
 
    a. Copiez le script PowerShell suivant sur l’une de vos instances SQL Server. Mettez à jour les variables de votre environnement.
 
    - `$ListenerILBIP` est l’adresse IP que vous avez créée sur l’équilibreur de charge Azure pour l’écouteur du groupe de disponibilité.
-    
+
    - `$ListenerProbePort` est le port que vous avez configuré sur l’équilibreur de charge Azure pour l’écouteur du groupe de disponibilité.
 
-   ```powershell
+   ```PowerShell
    $ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
    $IPResourceName = "<IPResourceName>" # the IP Address resource name
    $ListenerILBIP = "<n.n.n.n>" # the IP Address of the Internal Load Balancer (ILB). This is the static IP address for the load balancer you configured in the Azure portal.
    [int]$ListenerProbePort = <nnnnn>
-  
+
    Import-Module FailoverClusters
 
    Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ListenerILBIP";"ProbePort"=$ListenerProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
@@ -108,32 +108,32 @@ L’écouteur de groupe de disponibilité est une adresse IP et un nom réseau s
    > [!NOTE]
    > Si vos instances SQL Server se trouvent dans différentes régions, vous devez exécuter le script PowerShell à deux reprises. La première fois, utilisez `$ListenerILBIP` et `$ListenerProbePort` à partir de la première région. La seconde fois, utilisez `$ListenerILBIP` et `$ListenerProbePort` à partir de la seconde région. Le nom réseau du cluster et le nom de ressource IP du cluster sont également différents pour chaque région.
 
-1. Activez le rôle de cluster de groupe de disponibilité. Dans le **Gestionnaire du cluster de basculement**, sous **Rôles**, cliquez avec le bouton droit sur le rôle, puis sélectionnez **Démarrer le rôle**.
+8. Activez le rôle de cluster de groupe de disponibilité. Dans le **Gestionnaire du cluster de basculement**, sous **Rôles**, cliquez avec le bouton droit sur le rôle, puis sélectionnez **Démarrer le rôle**.
 
 Si nécessaire, répétez les étapes ci-dessus afin de définir les paramètres de cluster pour l’adresse IP du cluster WSFC.
 
 1. Obtenez le nom de l’adresse IP du cluster WSFC. Dans le **Gestionnaire du cluster de basculement**, sous **Principales ressources du cluster**, recherchez **Nom du serveur**.
 
-1. Cliquez avec le bouton droit sur **Adresse IP**, puis sélectionnez **Propriétés**.
+2. Cliquez avec le bouton droit sur **Adresse IP**, puis sélectionnez **Propriétés**.
 
-1. Copiez le **Nom** de l’adresse IP. Ce peut être `Cluster IP Address`. 
+3. Copiez le **Nom** de l’adresse IP. Ce peut être `Cluster IP Address`. 
 
-1. <a name="setwsfcparam"></a>Définissez les paramètres de cluster dans PowerShell.
-  
+4. <a name="setwsfcparam"></a>Définissez les paramètres de cluster dans PowerShell.
+
    a. Copiez le script PowerShell suivant sur l’une de vos instances SQL Server. Mettez à jour les variables de votre environnement.
 
    - `$ClusterCoreIP` est l’adresse IP que vous avez créée sur l’équilibreur de charge Azure pour la ressource principale de cluster WSFC. Cette adresse est différente de l’adresse IP de l’écouteur du groupe de disponibilité.
 
    - `$ClusterProbePort` est le port que vous avez configuré sur l’équilibreur de charge Azure pour la sonde d’intégrité WSFC. Ce port est différent de la sonde configurée pour l’écouteur du groupe de disponibilité.
 
-   ```powershell
+   ```PowerShell
    $ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
    $IPResourceName = "<ClusterIPResourceName>" # the IP Address resource name
    $ClusterCoreIP = "<n.n.n.n>" # the IP Address of the Cluster IP resource. This is the static IP address for the load balancer you configured in the Azure portal.
    [int]$ClusterProbePort = <nnnnn> # The probe port from the WSFCEndPointprobe in the Azure portal. This port must be different from the probe port for the availability group listener probe port.
-  
+
    Import-Module FailoverClusters
-  
+
    Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ClusterCoreIP";"ProbePort"=$ClusterProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
    ```
 
@@ -141,3 +141,5 @@ Si nécessaire, répétez les étapes ci-dessus afin de définir les paramètres
 
 >[!WARNING]
 >Le port pour la sonde d’intégrité de l’écouteur du groupe de disponibilité doit être différent du port pour la sonde d’intégrité de l’adresse IP principale du cluster. Dans ces exemples, le port de l’écouteur est 59999, et l’adresse IP principale du cluster est 58888. Une règle de pare-feu d’autorisation du trafic entrant doit être définie pour les deux ports.
+
+<!-- Update_Description: update meta propreties, wording update -->

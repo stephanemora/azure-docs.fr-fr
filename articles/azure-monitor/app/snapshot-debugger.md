@@ -13,11 +13,11 @@ ms.reviewer: brahmnes
 ms.date: 03/07/2019
 ms.author: mbullwin
 ms.openlocfilehash: 669b4d65798a553188a2b99080b72ffc7cd9e898
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57890574"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60783605"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Captures instantanées de débogage sur exceptions levées dans des applications .NET
 Quand une exception se produit, vous pouvez collecter automatiquement une capture instantanée de débogage à partir de votre application web dynamique. La capture instantanée indique l’état du code source et des variables au moment où l’exception a été levée. Le Débogueur de capture instantanée (préversion) dans [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) analyse la télémétrie des exceptions à partir de votre application web. Il collecte des captures instantanées sur les principales exceptions levées afin que vous disposiez des informations dont vous avez besoin pour diagnostiquer des problèmes de production. Incluez le [package NuGet de collecte des captures instantanées](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) dans votre application, et configurez éventuellement les paramètres de collecte dans [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md). Les captures instantanées apparaissent sur les [exceptions](../../azure-monitor/app/asp-net-exceptions.md) dans le portail Application Insights.

@@ -7,17 +7,18 @@ ms.subservice: data-movement
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
+author: WenJason
+ms.author: v-jay
 ms.reviewer: carlrab
-manager: craigg
-ms.date: 01/25/2019
+manager: digimobile
+origin.date: 01/25/2019
+ms.date: 03/04/2019
 ms.openlocfilehash: 8d0d81d9c140c15f2e60d3f6e3033a8b0b629228
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100905"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60702467"
 ---
 # <a name="load-data-from-csv-into-azure-sql-database-flat-files"></a>Charger des données à partir d’un fichier CSV une base de données SQL Azure (fichiers plats)
 
@@ -25,7 +26,7 @@ Vous pouvez utiliser l’utilitaire de ligne de commande BCP pour importer des d
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-### <a name="prerequisites"></a>Prérequis
+### <a name="prerequisites"></a>Conditions préalables
 
 Pour accomplir les étapes décrites dans cet article, vous avez besoin de ce qui suit :
 
@@ -124,3 +125,4 @@ Pour migrer une base de données SQL Server, consultez [Migration de base de don
 
 <!--Other Web references-->
 [Microsoft Download Center]: https://www.microsoft.com/download/details.aspx?id=36433
+<!--Update_Description: update metadata-->

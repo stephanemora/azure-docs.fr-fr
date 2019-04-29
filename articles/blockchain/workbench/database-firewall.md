@@ -11,11 +11,11 @@ ms.service: azure-blockchain
 ms.reviewer: mmercuri
 manager: femila
 ms.openlocfilehash: 0b8d5ac13b6c4b327a03eb85032a13407601c1ee
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54330175"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60867518"
 ---
 # <a name="configure-the-azure-blockchain-workbench-database-firewall"></a>Configurer le pare-feu de la base de données SQL Azure Blockchain Workbench
 

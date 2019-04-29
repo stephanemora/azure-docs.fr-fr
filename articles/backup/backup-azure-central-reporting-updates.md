@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: kasinh
 ms.openlocfilehash: 87bc7ed3bb59266484858f534080fa87a7230981
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55293959"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60641917"
 ---
 # <a name="update-the-azure-backup-central-reporting-content-pack"></a>Mettre à jour le pack de contenu de rapports centraux de Sauvegarde Azure 
 

@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: 29814cb8aef09a8ead30d6daa615554dd55135dd
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59678579"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60764364"
 ---
 # <a name="programming-guide-for-azure-event-hubs"></a>Guide de programmation pour Azure Event Hubs
 Cet article décrit quelques scénarios courants de l’écriture de code à l’aide du service Azure Event Hubs. Il suppose une connaissance préalable des concentrateurs d’événements. Pour une vue d’ensemble conceptuelle des concentrateurs d’événements, consultez [Vue d'ensemble des concentrateurs d’événements](event-hubs-what-is-event-hubs.md).

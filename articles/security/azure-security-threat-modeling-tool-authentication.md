@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.openlocfilehash: 56620dc1d3e315caa3e259715ed84a539b91356d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57888585"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60610877"
 ---
 # <a name="security-frame-authentication--mitigations"></a>Infrastructure de sécurité : Authentification | Mesures de correction 
 
@@ -46,8 +46,8 @@ ms.locfileid: "57888585"
 | **Composant**               | Application web | 
 | **Phase SDL**               | Créer |  
 | **Technologies applicables** | Générique |
-| **Attributs**              | S.O.  |
-| **Informations de référence**              | S.O.  |
+| **Attributs**              | N/A  |
+| **Informations de référence**              | N/A  |
 | Détails | <p>L’authentification désigne le processus dans lequel une entité prouve son identité, généralement par le biais d’informations d’identification, comme le nom d’utilisateur et le mot de passe. Il existe plusieurs protocoles d’authentification disponibles qui peuvent vous être utiles. Certains d’entre eux sont répertoriés ci-dessous :</p><ul><li>Certificats clients</li><li>Basé sur Windows</li><li>Basé sur des formulaires</li><li>Fédération - ADFS</li><li>Fédération - Azure AD</li><li>Fédération - IdentityServer</li></ul><p>Envisagez d’utiliser un mécanisme d’authentification standard pour identifier le processus source.</p>|
 
 ## <a id="handle-failed-authn"></a>Les applications doivent gérer les scénarios d’authentification ayant échoué en toute sécurité 
@@ -57,8 +57,8 @@ ms.locfileid: "57888585"
 | **Composant**               | Application web | 
 | **Phase SDL**               | Créer |  
 | **Technologies applicables** | Générique |
-| **Attributs**              | S.O.  |
-| **Informations de référence**              | S.O.  |
+| **Attributs**              | N/A  |
+| **Informations de référence**              | N/A  |
 | Détails | <p>Les applications qui authentifient explicitement les utilisateurs doivent gérer des scénarios d’authentification ayant échoué en toute sécurité. Le mécanisme d’authentification doit :</p><ul><li>Refuser l’accès aux ressources avec des privilèges lorsque l’authentification échoue.</li><li>Afficher un message d’erreur générique après l’échec d’authentification et le refus de l’accès.</li></ul><p>Test des éléments suivants :</p><ul><li>Protection des ressources avec des privilèges après les échecs de connexion.</li><li>Un message d’erreur générique est affiché après les événements d’échec d’authentification et de refus de l’accès.</li><li>Les comptes sont désactivés après un nombre excessif d’échecs.</li><ul>|
 
 ## <a id="step-up-adaptive-authn"></a>Activer l’authentification adaptative ou avancée
@@ -68,8 +68,8 @@ ms.locfileid: "57888585"
 | **Composant**               | Application web | 
 | **Phase SDL**               | Créer |  
 | **Technologies applicables** | Générique |
-| **Attributs**              | S.O.  |
-| **Informations de référence**              | S.O.  |
+| **Attributs**              | N/A  |
+| **Informations de référence**              | N/A  |
 | Détails | <p>Vérifiez que l’application dispose d’une autorisation supplémentaire (telle qu’une authentification adaptative ou avancée via l’authentification multifacteur comme l’envoi d’OTP par SMS, e-mail, etc. ou une demande de nouvelle authentification) pour que l’utilisateur soit interrogé avant d’obtenir l’accès aux informations sensibles. Cette règle s’applique également pour les modifications critiques d’une action ou d’un compte.</p><p>Cela signifie également que l’adaptation de l’authentification doit être implémentée de manière que l’application applique correctement l’autorisation sensible au contexte pour interdire les manipulations non autorisées via la falsification de paramètres par exemple.</p>|
 
 ## <a id="admin-interface-lockdown"></a>Garantir que les interfaces d’administration sont correctement verrouillées
@@ -79,8 +79,8 @@ ms.locfileid: "57888585"
 | **Composant**               | Application web | 
 | **Phase SDL**               | Créer |  
 | **Technologies applicables** | Générique |
-| **Attributs**              | S.O.  |
-| **Informations de référence**              | S.O.  |
+| **Attributs**              | N/A  |
+| **Informations de référence**              | N/A  |
 | Détails | La première solution consiste à accorder l’accès uniquement à partir d’une certaine plage d’adresses IP source à l’interface d’administration. Si cette solution n’est pas envisageable, il est toujours recommandé d’appliquer une authentification adaptative ou avancée pour la connexion à l’interface d’administration. |
 
 ## <a id="forgot-pword-fxn"></a>Implémenter des fonctionnalités de mot de passe oublié en toute sécurité
@@ -90,8 +90,8 @@ ms.locfileid: "57888585"
 | **Composant**               | Application web | 
 | **Phase SDL**               | Créer |  
 | **Technologies applicables** | Générique |
-| **Attributs**              | S.O.  |
-| **Informations de référence**              | S.O.  |
+| **Attributs**              | N/A  |
+| **Informations de référence**              | N/A  |
 | Détails | <p>La première chose consiste à vérifier que les chemins de mot de passe oublié ou autres chemins de récupération envoient un lien incluant un jeton d’activation à durée limitée plutôt que le mot de passe lui-même. Une authentification supplémentaire basée sur les jetons logiciels (par exemple, jeton SMS, applications mobiles natives, etc.) peut être utilisée avant l’envoi du lien. Ensuite, vous ne devez pas verrouiller les comptes des utilisateurs tant que le processus d’obtention d’un nouveau mot de passe est en cours.</p><p>Cela peut entraîner une attaque par déni de service lorsqu’un pirate décide de verrouiller intentionnellement les utilisateurs avec une attaque automatisée. Puis, lorsque la demande de nouveau mot de passe est en cours, le message que vous affichez doit être généralisé afin d’éviter l’énumération de nom d’utilisateur. Enfin, interdisez toujours l’utilisation des anciens mots de passe et implémentez une stratégie de mot de passe forte.</p> |
 
 ## <a id="pword-account-policy"></a>Garantir que la stratégie de compte et de mot de passe est implémentée
@@ -101,8 +101,8 @@ ms.locfileid: "57888585"
 | **Composant**               | Application web | 
 | **Phase SDL**               | Créer |  
 | **Technologies applicables** | Générique |
-| **Attributs**              | S.O.  |
-| **Informations de référence**              | S.O.  |
+| **Attributs**              | N/A  |
+| **Informations de référence**              | N/A  |
 | Détails | <p>Une stratégie de compte et de mot de passe conforme à la stratégie et aux bonnes pratiques de l’organisation doit être implémentée.</p><p>Pour se défendre contre les attaques en force brute et les vols basés sur le dictionnaire : une stratégie de mot de passe forte doit être implémentée pour garantir que les utilisateurs créent des mots de passe complexes (par exemple, longueur minimale de 12 caractères, caractères spéciaux et alphanumériques).</p><p>Les stratégies de verrouillage de compte peuvent être implémentées de la manière suivante :</p><ul><li>**Verrouillage léger :** il peut s’agir d’une bonne option pour protéger vos utilisateurs des attaques en force brute. Par exemple, lorsque l’utilisateur entre un mot de passe incorrect trois fois de suite, l’application peut verrouiller le compte pendant une minute pour ralentir le processus d’attaque en force brute de son mot de passe, réduisant le champ d’action du pirate. Si vous souhaitez implémenter des contre-mesures de verrouillage fort pour cet exemple, vous obtenez un « Dos » en verrouillant les comptes de manière permanente. Une application peut également générer un OTP (mot de passe à usage unique) et l’envoyer hors bande (par e-mail, sms, etc.) à l’utilisateur. Une autre approche peut consister à implémenter CAPTCHA après qu’un nombre maximum de tentatives est atteint.</li><li>**Verrouillage fort :** ce type de verrouillage doit être appliqué lorsque vous détectez qu’un utilisateur attaque votre application. Il est contré au moyen d’un verrouillage permanent de son compte jusqu’à ce qu’une équipe de réponse ait le temps de traiter le problème. Après ce processus, vous pouvez décider de rendre son compte à l’utilisateur ou d’entamer des poursuites contre lui. Ce type d’approche empêche le pirate de pénétrer davantage dans votre application et infrastructure.</li></ul><p>Pour se défendre contre les attaques sur les comptes par défaut et prévisibles, vérifiez que toutes les clés et que tous les mots de passe sont remplaçables et qu’ils sont générés ou remplacés après l’installation.</p><p>Si l’application doit générer automatiquement des mots de passe, assurez-vous que les mots de passe générés sont aléatoires et ont une entropie élevée.</p>|
 
 ## <a id="controls-username-enum"></a>Implémenter des contrôles pour empêcher l’énumération de nom d’utilisateur
@@ -112,8 +112,8 @@ ms.locfileid: "57888585"
 | **Composant**               | Application web | 
 | **Phase SDL**               | Créer |  
 | **Technologies applicables** | Générique |
-| **Attributs**              | S.O.  |
-| **Informations de référence**              | S.O.  |
+| **Attributs**              | N/A  |
+| **Informations de référence**              | N/A  |
 | **Étapes** | Tous les messages d’erreur doivent être généralisés afin d’éviter l’énumération de nom d’utilisateur. En outre, parfois vous ne pouvez pas éviter une fuite d’informations dans des fonctionnalités comme une page d’enregistrement. Ici, vous devez utiliser des méthodes de limite de débit comme CAPTCHA pour empêcher une attaque automatisée par un pirate. |
 
 ## <a id="win-authn-sql"></a>Si possible, utiliser l’authentification Windows pour la connexion à SQL Server
@@ -145,7 +145,7 @@ ms.locfileid: "57888585"
 | **Composant**               | Base de données | 
 | **Phase SDL**               | Créer |  
 | **Technologies applicables** | Générique |
-| **Attributs**              | S.O.  |
+| **Attributs**              | N/A  |
 | **Informations de référence**              | [Stratégie de mot de passe SQL Server](https://technet.microsoft.com/library/ms161959(v=sql.110).aspx) |
 | **Étapes** | Lorsque vous utilisez l’authentification SQL Server, les connexions sont créées dans SQL Server et ne sont pas basées sur les comptes d’utilisateur Windows. Le nom d’utilisateur et le mot de passe sont créés à l’aide de SQL Server et stockés dans SQL Server. SQL Server peut utiliser des mécanismes de stratégie de mot de passe Windows. Il peut appliquer la même complexité et les mêmes stratégies d’expiration utilisées dans Windows pour les mots de passe utilisés dans SQL Server. |
 
@@ -167,7 +167,7 @@ ms.locfileid: "57888585"
 | **Composant**               | Azure Event Hub | 
 | **Phase SDL**               | Créer |  
 | **Technologies applicables** | Générique |
-| **Attributs**              | S.O.  |
+| **Attributs**              | N/A  |
 | **Informations de référence**              | [Présentation du modèle de sécurité et de l’authentification Event Hubs](https://azure.microsoft.com/documentation/articles/event-hubs-authentication-and-security-model-overview/) |
 | **Étapes** | <p>Le modèle de sécurité Event Hubs est basé sur une combinaison de jetons de signature d’accès partagé (SAP) et d’éditeurs d’événements. Le nom de l’éditeur représente l’ID de l’appareil qui reçoit le jeton. Cela permet d’associer les jetons générés aux appareils respectifs.</p><p>Tous les messages sont marqués avec le donneur d’ordre côté service autorisant la détection de tentatives d’usurpation d’origine en charge utile. Lors de l’authentification des appareils, générez un jeton SAP par appareil limité à un éditeur unique.</p>|
 
@@ -178,7 +178,7 @@ ms.locfileid: "57888585"
 | **Composant**               | Délimitation d’approbation Azure | 
 | **Phase SDL**               | Déploiement |  
 | **Technologies applicables** | Générique |
-| **Attributs**              | S.O.  |
+| **Attributs**              | N/A  |
 | **Informations de référence**              | [Présentation d'Azure Multi-Factor Authentication](https://azure.microsoft.com/documentation/articles/multi-factor-authentication/) |
 | **Étapes** | <p>L’authentification multi-facteur est une méthode d’authentification qui nécessite plusieurs méthodes de vérification et ajoute une deuxième couche critique de sécurité aux connexions et transactions des utilisateurs. Cette authentification fonctionne en nécessitant au minimum deux des méthodes de vérification suivantes :</p><ul><li>Un élément que vous connaissez (généralement un mot de passe)</li><li>Un élément que vous possédez (un appareil de confiance qui n'est pas facilement dupliqué, comme un téléphone)</li><li>Un élément vous concernant particulièrement (biométrie)</li><ul>|
 
@@ -233,7 +233,7 @@ ms.locfileid: "57888585"
 | **Composant**               | IdentityServer | 
 | **Phase SDL**               | Créer |  
 | **Technologies applicables** | Générique |
-| **Attributs**              | S.O.  |
+| **Attributs**              | N/A  |
 | **Informations de référence**              | [IdentityServer3 - The Big Picture](https://identityserver.github.io/Documentation/docsv2/overview/bigPicture.html) (IdentityServer3 - Vue d’ensemble) |
 | **Étapes** | <p>Vous trouverez ci-dessous les interactions classiques prises en charge par IdentityServer :</p><ul><li>Les navigateurs communiquent avec les applications web.</li><li>Les applications web communiquent avec les API web (parfois pour elles-mêmes, parfois pour le compte d’un utilisateur).</li><li>Les applications basées sur un navigateur communiquent avec les API web.</li><li>Les applications natives communiquent avec les API web.</li><li>Les applications basées sur un serveur communiquent avec les API web.</li><li>Les API web communiquent avec les API web (parfois pour elles-mêmes, parfois pour le compte d’un utilisateur).</li></ul>|
 
@@ -244,7 +244,7 @@ ms.locfileid: "57888585"
 | **Composant**               | IdentityServer | 
 | **Phase SDL**               | Déploiement |  
 | **Technologies applicables** | Générique |
-| **Attributs**              | S.O.  |
+| **Attributs**              | N/A  |
 | **Informations de référence**              | [Identity Server Deployment - Caching](https://identityserver.github.io/Documentation/docsv2/advanced/deployment.html) (Déploiement d’IdentityServer - Mise en cache) |
 | **Étapes** | <p>IdentityServer a un cache en mémoire intégré simple. Bien que cette fonction soit utile pour les applications natives à petite échelle, elle n’est pas adaptée pour les applications de serveur principal et de niveau intermédiaire pour les raisons suivantes :</p><ul><li>Ces applications sont accessibles par plusieurs utilisateurs simultanément. L’enregistrement de tous les jetons d’accès dans le même magasin crée des problèmes d’isolation et présente des défis lors du fonctionnement à l’échelle : beaucoup d’utilisateurs, chacun avec autant de jetons que de ressources auxquelles l’application accède pour leur compte, peut entraîner un nombre très élevé d’opérations de recherche très coûteuses.</li><li>Ces applications sont généralement déployées sur des topologies distribuées, où plusieurs nœuds doivent accéder au même cache.</li><li>Les jetons mis en cache doivent survivre aux désactivations et recyclages de processus.</li><li>Pour toutes les raisons susmentionnées, lors de l’implémentation des applications web, il est recommandé de remplacer le cache de jeton d’IdentityServer par défaut avec une solution évolutive telle que le Cache Azure pour Redis</li></ul>|
 
@@ -255,8 +255,8 @@ ms.locfileid: "57888585"
 | **Composant**               | Délimitation d’approbation machine | 
 | **Phase SDL**               | Déploiement |  
 | **Technologies applicables** | Générique |
-| **Attributs**              | S.O.  |
-| **Informations de référence**              | S.O.  |
+| **Attributs**              | N/A  |
+| **Informations de référence**              | N/A  |
 | **Étapes** | Assurez-vous que les fichiers binaires de l’application déployée sont signés numériquement afin que l’intégrité des fichiers binaires puisse être vérifiée.|
 
 ## <a id="msmq-queues"></a>Activer l’authentification lors de la connexion aux files d’attente MSMQ dans WCF
@@ -266,7 +266,7 @@ ms.locfileid: "57888585"
 | **Composant**               | WCF | 
 | **Phase SDL**               | Créer |  
 | **Technologies applicables** | Générique, NET Framework 3 |
-| **Attributs**              | S.O. |
+| **Attributs**              | N/A |
 | **Informations de référence**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx) |
 | **Étapes** | Le programme ne parvient pas à activer l’authentification lors de la connexion aux files d’attente MSMQ, un pirate peut envoyer anonymement des messages à la file d’attente pour traitement. Si l’authentification n’est pas utilisée pour se connecter à une file d’attente MSMQ pour remettre un message à un autre programme, un pirate pourrait envoyer un message malveillant anonyme.|
 
@@ -338,7 +338,7 @@ L’élément `<netMsmqBinding/>` du fichier de configuration WCF ci-dessous ind
 | **Composant**               | API Web | 
 | **Phase SDL**               | Créer |  
 | **Technologies applicables** | Générique |
-| **Attributs**              | S.O.  |
+| **Attributs**              | N/A  |
 | **Informations de référence**              | [Authentication and Authorization in ASP.NET Web API](https://www.asp.net/web-api/overview/security/authentication-and-authorization-in-aspnet-web-api) (Authentification et autorisation dans l’API web ASP.NET), [External Authentication Services with ASP.NET Web API (C#)](https://www.asp.net/web-api/overview/security/external-authentication-services) (Services d’authentification externe avec l’API web ASP.NET (C#)) |
 | **Étapes** | <p>L’authentification désigne le processus dans lequel une entité prouve son identité, généralement par le biais d’informations d’identification, comme le nom d’utilisateur et le mot de passe. Il existe plusieurs protocoles d’authentification disponibles qui peuvent vous être utiles. Certains d’entre eux sont répertoriés ci-dessous :</p><ul><li>Certificats clients</li><li>Basé sur Windows</li><li>Basé sur des formulaires</li><li>Fédération - ADFS</li><li>Fédération - Azure AD</li><li>Fédération - IdentityServer</li></ul><p>Les liens dans la section Références fournissent des informations de bas niveau sur la façon dont les schémas d’authentification peuvent être implémentés pour sécuriser une API web.</p>|
 
@@ -349,7 +349,7 @@ L’élément `<netMsmqBinding/>` du fichier de configuration WCF ci-dessous ind
 | **Composant**               | Azure AD | 
 | **Phase SDL**               | Créer |  
 | **Technologies applicables** | Générique |
-| **Attributs**              | S.O.  |
+| **Attributs**              | N/A  |
 | **Informations de référence**              | [Scénarios d’authentification pour Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-authentication-scenarios/), [Exemples de code Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-code-samples/), [Guide du développeur Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-developers-guide/) |
 | **Étapes** | <p>Azure Active Directory (Azure AD) simplifie l’authentification pour les développeurs en fournissant l’identité en tant que service, avec la prise en charge des protocoles standard tels que OAuth 2.0 et OpenID Connect. Vous trouverez ci-dessous les cinq principaux scénarios d’application pris en charge par Azure AD :</p><ul><li>Navigateur web vers application web : un utilisateur doit se connecter à une application web sécurisée par Azure AD</li><li>Application à page unique (SPA) : un utilisateur doit se connecter à une application à page unique sécurisée par Azure AD</li><li>Application native vers API web : une application native qui s’exécute sur un téléphone, une tablette ou un PC doit authentifier un utilisateur pour obtenir des ressources d’une API web sécurisée par Azure AD</li><li>Application web vers API web : une application web doit obtenir des ressources d’une API web sécurisée par Azure AD</li><li>Application démon ou serveur vers API web : une application démon ou une application serveur sans interface utilisateur web doit obtenir des ressources d’une API web sécurisée par Azure AD</li></ul><p>Consultez les liens dans la section Références pour en savoir plus sur l’implémentation de bas niveau.</p>|
 
@@ -360,7 +360,7 @@ L’élément `<netMsmqBinding/>` du fichier de configuration WCF ci-dessous ind
 | **Composant**               | Azure AD | 
 | **Phase SDL**               | Créer |  
 | **Technologies applicables** | Générique |
-| **Attributs**              | S.O.  |
+| **Attributs**              | N/A  |
 | **Informations de référence**              | [Modern Authentication with Azure Active Directory for Web Applications](https://blogs.msdn.microsoft.com/microsoft_press/2016/01/04/new-book-modern-authentication-with-azure-active-directory-for-web-applications/) (Authentification moderne avec Azure Active Directory pour les applications web), [Using Redis as ADAL token cache](https://blogs.msdn.microsoft.com/mrochon/2016/09/19/using-redis-as-adal-token-cache/) (Utilisation de Redis en tant que cache de jeton ADAL)  |
 | **Étapes** | <p>Le cache par défaut utilisé par ADAL (bibliothèque d’authentification Active Directory) est un cache en mémoire qui s’appuie sur un magasin statique, disponible au niveau du processus. Bien que cela fonctionne pour les applications natives, cela n’est pas adapté pour les applications de serveur principal et de niveau intermédiaire pour les raisons suivantes :</p><ul><li>Ces applications sont accessibles par plusieurs utilisateurs simultanément. L’enregistrement de tous les jetons d’accès dans le même magasin crée des problèmes d’isolation et présente des défis lors du fonctionnement à l’échelle : beaucoup d’utilisateurs, chacun avec autant de jetons que de ressources auxquelles l’application accède pour leur compte, peut entraîner un nombre très élevé d’opérations de recherche très coûteuses.</li><li>Ces applications sont généralement déployées sur des topologies distribuées, où plusieurs nœuds doivent accéder au même cache.</li><li>Les jetons mis en cache doivent survivre aux désactivations et recyclages de processus.</li></ul><p>Pour toutes les raisons susmentionnées, lors de l’implémentation des applications web, il est recommandé de remplacer le cache de jeton ADAL par défaut avec une solution évolutive telle que le Cache Azure pour Redis.</p>|
 
@@ -371,7 +371,7 @@ L’élément `<netMsmqBinding/>` du fichier de configuration WCF ci-dessous ind
 | **Composant**               | Azure AD | 
 | **Phase SDL**               | Créer |  
 | **Technologies applicables** | Générique |
-| **Attributs**              | S.O.  |
+| **Attributs**              | N/A  |
 | **Informations de référence**              | [Modern Authentication with Azure Active Directory for Web Applications](https://blogs.msdn.microsoft.com/microsoft_press/2016/01/04/new-book-modern-authentication-with-azure-active-directory-for-web-applications/) (Authentification moderne avec Azure Active Directory pour les applications web) |
 | **Étapes** | <p>La propriété TokenReplayCache permet aux développeurs de définir un cache de relecture de jetons, un magasin qui peut être utilisé pour enregistrer les jetons afin de vérifier qu’aucun jeton ne peut être utilisé plusieurs fois.</p><p>Il s’agit d’une mesure contre une attaque courante, l’attaque judicieusement appelée relecture de jetons : un pirate interceptant le jeton envoyé à la connexion peut tenter de l’envoyer à nouveau à l’application (le « relire ») pour établir une nouvelle session. Par exemple, dans le flux d’octroi de code d’OIDC, après une authentification utilisateur réussie, une demande vers le point de terminaison « /signin-oidc » de la partie de confiance est réalisée avec les paramètres « id_token », « code » et « état ».</p><p>La partie de confiance valide cette demande et établit une nouvelle session. Si un adversaire capture cette demande et la relit, il peut réussir à établir une session et tromper l’utilisateur. La présence de la valeur à usage unique dans OpenID Connect peut limiter mais pas complètement éliminer les circonstances dans lesquelles l’attaque peut être mise en œuvre correctement. Pour protéger leurs applications, les développeurs peuvent fournir une implémentation de ITokenReplayCache et assigner une instance à TokenReplayCache.</p>|
 
@@ -432,7 +432,7 @@ Notez que pour tester l’efficacité de cette configuration, vous devez vous co
 | **Composant**               | Azure AD | 
 | **Phase SDL**               | Créer |  
 | **Technologies applicables** | Générique |
-| **Attributs**              | S.O.  |
+| **Attributs**              | N/A  |
 | **Informations de référence**              | [ADAL](https://azure.microsoft.com/documentation/articles/active-directory-authentication-libraries/) |
 | **Étapes** | <p>La bibliothèque d'authentification Azure AD (ADAL) permet aux développeurs d’applications clientes d’authentifier facilement les utilisateurs sur Active Directory (AD) en local ou sur le cloud, puis d'obtenir des jetons d'accès pour sécuriser les appels d'API.</p><p>ADAL possède de nombreuses fonctionnalités qui facilitent l'authentification aux développeurs, notamment la prise en charge asynchrone, un cache de jeton configurable qui stocke les jetons d'accès et les jetons d'actualisation, l'actualisation automatique des jetons lorsqu'un jeton d'accès expire et qu’un jeton d'actualisation est disponible, et bien plus encore.</p><p>En gérant l’essentiel de la complexité, la bibliothèque ADAL peut aider les développeurs à se concentrer sur la logique métier dans leur application et à sécuriser facilement les ressources sans être un expert de la sécurité. Des bibliothèques distinctes sont disponibles pour .NET, JavaScript (client et Node.js), iOS, Android et Java.</p>|
 
@@ -443,8 +443,8 @@ Notez que pour tester l’efficacité de cette configuration, vous devez vous co
 | **Composant**               | Passerelle de champ IoT | 
 | **Phase SDL**               | Créer |  
 | **Technologies applicables** | Générique |
-| **Attributs**              | S.O.  |
-| **Informations de référence**              | S.O.  |
+| **Attributs**              | N/A  |
+| **Informations de référence**              | N/A  |
 | **Étapes** | Assurez-vous que chaque appareil est authentifié par la passerelle de champ avant d’accepter des données provenant de ceux-ci et de faciliter les communications en amont avec la passerelle de cloud. En outre, assurez-vous que les appareils se connectent avec des informations d’identification par appareil, afin que chaque appareil puisse être identifié de manière unique.|
 
 ## <a id="authn-devices-cloud"></a>Garantir que les appareils se connectant à la passerelle de cloud sont authentifiés
@@ -576,6 +576,6 @@ await deviceClient.SendEventAsync(message);
 | **Composant**               | Stockage Azure | 
 | **Phase SDL**               | Créer |  
 | **Technologies applicables** | Générique |
-| **Attributs**              | S.O. |
+| **Attributs**              | N/A |
 | **Informations de référence**              | [Signatures d’accès partagé, partie 1 : présentation du modèle SAP](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/), [Signatures d’accès partagé, partie 2 : Créer et utiliser une signature d’accès partagé avec Stockage Blob](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-2/), [Comment déléguer l’accès aux objets dans votre compte à l’aide de signatures d’accès partagé et stratégies d’accès stockées](https://azure.microsoft.com/documentation/articles/storage-security-guide/#_how-to-delegate-access-to-objects-in-your-account-using-shared-access-signatures-and-stored-access-policies) |
 | **Étapes** | <p>Une signature d’accès partagé (SAP) constitue un moyen efficace pour octroyer aux autres clients un accès limité aux blobs dans un compte de stockage, sans exposer de clé d’accès de compte. La signature d'accès partagé est un URI qui englobe dans ses paramètres de requête toutes les informations nécessaires pour un accès authentifié à une ressource de stockage. Pour accéder aux ressources de stockage avec la signature d'accès partagé, il suffit au client de transmettre cette dernière à la méthode ou au constructeur approprié.</p><p>Vous pouvez utiliser une signature d'accès partagé lorsque vous voulez fournir un accès aux ressources dans votre compte de stockage à un client qui ne peut pas être approuvé avec la clé du compte. Vos clés de compte de stockage incluent une clé primaire et une clé secondaire, qui octroient toutes deux un accès administratif à votre compte et à toutes ses ressources. En exposant l'une ou l'autre des clés de votre compte, vous courez le risque d'une utilisation malveillante ou négligente de ce dernier. Les signatures d'accès partagé offrent une alternative sûre qui permet aux autres clients de lire, d'écrire et de supprimer des données dans votre compte de stockage en fonction des autorisations que vous avez octroyées, sans avoir besoin de la clé du compte.</p><p>Si vous avez un ensemble logique de paramètres qui sont chaque fois similaires, il est plus judicieux d’utiliser une stratégie d’accès stockée. Comme l’utilisation d’une signature d’accès partagé dérivée d’une stratégie d’accès stockée vous permet de révoquer immédiatement cette signature d’accès partagé, il est recommandé de toujours utiliser des stratégies d’accès stockées quand cela est possible.</p>|

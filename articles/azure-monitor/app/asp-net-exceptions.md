@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 09/19/2017
 ms.author: mbullwin
 ms.openlocfilehash: cb32069de295b883cdc6d3a9fa495b1bea719c39
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54116982"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60691810"
 ---
 # <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>Diagnostiquez les exceptions dans vos applications web avec Application Insights
 Les exceptions dans votre application web dynamique sont signalées par [Application Insights](../../azure-monitor/app/app-insights-overview.md). Vous pouvez associer les demandes ayant échoué à des exceptions et à d’autres événements sur le client et le serveur, ce qui vous permet de diagnostiquer rapidement les causes.

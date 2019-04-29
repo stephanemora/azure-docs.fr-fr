@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 39b77813e3494e809b92738924544e196d89a166
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: ed000dc4be1ae45382d688d4a596ec745c69d0bb
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34204649"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60711152"
 ---
 # <a name="role-based-access-control-for-service-fabric-clients"></a>Contrôle d’accès en fonction du rôle pour les clients de Service Fabric
 Azure Service Fabric prend en charge deux types de contrôle d’accès différents pour les clients qui sont connectés à un cluster Service Fabric : administrateur et utilisateur. Le contrôle d'accès permet à l'administrateur du cluster de limiter l'accès à certaines opérations de cluster pour différents groupes d'utilisateurs, renforçant ainsi la sécurité du cluster.  
@@ -52,9 +52,9 @@ Le type de contrôle d'accès administrateur a un accès complet à toutes les A
 * **RecoverSystemPartitions**: récupération des partitions d’un service système                             
 
 ### <a name="cluster-operations"></a>Opérations de cluster
-* **ProvisionFabric**: approvisionnement du manifeste de cluster et/ou MSI                             
+* **ProvisionFabric**: Approvisionnement du manifeste de cluster et/ou MSI                             
 * **UpgradeFabric**: démarrage des mises à niveau du cluster                             
-* **UnprovisionFabric**: désapprovisionnement du manifeste de cluster et/ou MSI                         
+* **UnprovisionFabric**: Du manifeste de cluster et/ou MSI                         
 * **MoveNextFabricUpgradeDomain**: reprise des mises à niveau du cluster avec un domaine de mise à jour explicite                             
 * **ReportFabricUpgradeHealth**: reprise des mises à niveau du cluster avec la progression de la mise à niveau actuelle                             
 * **StartInfrastructureTask**: démarrage des tâches d’infrastructure                             

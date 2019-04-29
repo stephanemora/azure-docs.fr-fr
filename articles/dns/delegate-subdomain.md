@@ -2,17 +2,18 @@
 title: Déléguer un sous-domaine Azure DNS
 description: Découvrez comment déléguer un sous-domaine Azure DNS.
 services: dns
-author: vhorne
+author: WenJason
 ms.service: dns
 ms.topic: article
-ms.date: 2/7/2019
-ms.author: victorh
+origin.date: 2/7/2019
+ms.date: 02/25/2019
+ms.author: v-jay
 ms.openlocfilehash: 31543db8e177701ddfe6beaaa3091d6465b0e9cd
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895478"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60790808"
 ---
 # <a name="delegate-an-azure-dns-subdomain"></a>Déléguer un sous-domaine Azure DNS
 
@@ -20,7 +21,7 @@ Vous pouvez utiliser le portail Azure pour déléguer un sous-domaine DNS. Par e
 
 Si vous préférez, vous pouvez déléguer un sous-domaine à l’aide d’[Azure PowerShell](delegate-subdomain-ps.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour déléguer un sous-domaine Azure DNS, vous devez tout d’abord déléguer votre domaine public à Azure DNS. Pour obtenir des instructions sur la façon de configurer vos serveurs de noms pour la délégation, consultez [Déléguer un domaine à Azure DNS](./dns-delegate-domain-azure-dns.md). Une fois votre domaine délégué à votre zone Azure DNS, vous pouvez déléguer votre sous-domaine.
 

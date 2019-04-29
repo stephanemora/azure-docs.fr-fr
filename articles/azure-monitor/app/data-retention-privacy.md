@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: mbullwin
-ms.openlocfilehash: 3c74d3a6c5b66053fb968ad52f72eca181799a3c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0f8f1c5585eb13506baea1e5ddbe611cc931758e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58003579"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60899231"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Collecte, rétention et stockage des données dans Application Insights
 
@@ -28,7 +28,7 @@ Tout d’abord, la réponse courte :
 * Les modules de télémétrie standard qui s’exécutent « dès le départ » sont peu susceptibles d’envoyer des données sensibles au service. La télémétrie s’attache aux métriques de charge, de performance et d’utilisation, aux rapports d’exception et autres données de diagnostic. Les données d’utilisateur principal visibles dans les rapports de diagnostics sont des URL ; mais votre application ne doit en aucun cas mettre des données sensibles en texte brut dans une URL.
 * Vous pouvez écrire du code qui envoie les données de télémétrie personnalisées supplémentaires, afin de vous aider avec les diagnostics et à surveiller l’utilisation. (Cette extensibilité est une fonctionnalité intéressante de Application Insights.) Il serait possible, par erreur, d’écrire ce code de manière à ce qu’il inclue les données personnelles et d’autres données sensibles. Si votre application fonctionne avec ces données, vous devez vérifier de manière approfondie l’ensemble du code que vous écrivez.
 * Pendant le développement et le test de votre application, il est facile d’examiner ce qui est envoyé par le Kit de développement logiciel (SDK). Les données apparaissent dans les fenêtres de sortie de débogage de l’IDE et du navigateur. 
-* Les données sont stockées sur des serveurs [Microsoft Azure](https://azure.com) aux États-Unis. (Mais votre application peut s’exécuter n’importe où.) Azure dispose de [processus de sécurité renforcés, il est conforme à une large gamme de normes de conformité](https://azure.microsoft.com/support/trust-center/). Seuls vous et votre équipe avez accès à vos données. Le personnel Microsoft peut avoir un accès restreint uniquement dans certaines circonstances définies, avec votre consentement. Il est chiffré en transit, mais pas dans les serveurs.
+* Les données sont stockées sur des serveurs [Microsoft Azure](https://azure.com) aux États-Unis. (Mais votre application peut s’exécuter n’importe où.) Azure dispose de [processus de sécurité renforcés, il est conforme à une large gamme de normes de conformité](https://azure.microsoft.com/support/trust-center/). Seuls vous et votre équipe avez accès à vos données. Le personnel Microsoft peut avoir un accès restreint uniquement dans certaines circonstances définies, avec votre consentement. Il est chiffré en transit et au repos.
 
 Le reste de cet article aborde plus en détail ces réponses. Il est conçu pour être autonome, afin que vous puissiez le montrer à des collègues qui ne font pas partie de votre équipe.
 
@@ -64,7 +64,7 @@ Les principales catégories sont :
 * [Les exceptions](../../azure-monitor/app/asp-net-exceptions.md) et les incidents : **vidages de pile**, génération d’id, type d’UC. 
 * [Les dépendances](../../azure-monitor/app/asp-net-dependencies.md) : les appels aux services externes tels que REST, SQL, AJAX. L’URI ou la chaîne de connexion, la durée, la réussite, la commande.
 * [Les tests de disponibilité](../../azure-monitor/app/monitor-web-app-availability.md) : durée et étapes du test, réponses.
-* [Les journaux de suivi](../../azure-monitor/app/asp-net-trace-logs.md) et [la télémétrie personnalisée](../../azure-monitor/app/api-custom-events-metrics.md) - **tout ce que vous codez dans vos journaux ou télémétrie**.
+* [Les journaux d’activité de suivi](../../azure-monitor/app/asp-net-trace-logs.md) et [la télémétrie personnalisée](../../azure-monitor/app/api-custom-events-metrics.md) - **tout ce que vous codez dans vos journaux d’activité ou télémétrie**.
 
 [Plus de détails](#data-sent-by-application-insights).
 
@@ -127,12 +127,9 @@ Oui, nous utilisons le protocole HTTPS pour envoyer les données au portail à p
 
 Oui, certains canaux de télémétrie conservent les données localement si un point de terminaison est inaccessible. Consultez ce qui suit pour voir les infrastructures et les canaux de télémétrie concernés.
 
-
 Les canaux de télémétrie qui utilisent le stockage local créent des fichiers temporaires dans les répertoires TEMP ou APPDATA qui sont limités au compte exécutant votre application. Cela se produit lorsqu’un point de terminaison a été temporairement indisponible ou lorsque vous avez atteint la limite de bande passante. Une fois ce problème résolu, le canal de télémétrie reprend l’envoi de toutes les données nouvelles et conservées.
 
-
-Ces données conservées n’étant **pas chiffrées**, il est vivement recommandé de modifier votre stratégie en désactivant la collecte de données privées. (Pour plus d’informations, consultez [Comment exporter et supprimer des données privées](https://docs.microsoft.com/azure/application-insights/app-insights-customer-data#how-to-export-and-delete-private-data).)
-
+Ces données persistantes ne sont pas chiffrées localement. S’il s’agit d’un problème, passez en revue les données et limiter la collection de données privées. (Pour plus d’informations, consultez [Comment exporter et supprimer des données privées](https://docs.microsoft.com/azure/application-insights/app-insights-customer-data#how-to-export-and-delete-private-data).)
 
 Si un client a besoin configurer ce répertoire avec des exigences de sécurité spécifiques, il peut être configuré conformément au framework. Vérifiez que le processus exécutant votre application a accès en écriture à ce répertoire, mais veillez également à que ce répertoire soit protégé pour éviter la lecture des données de télémétrie par des utilisateurs non autorisés.
 
@@ -206,7 +203,7 @@ Nous ne recommandons pas de configurer explicitement votre application de façon
 | Windows Server 2012 - 2016 | Pris en charge, activé par défaut. | Pour confirmer que vous utilisez toujours les [paramètres par défaut](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) |
 | Windows 7 SP1 et Windows Server 2008 R2 SP1 | Pris en charge, mais non activé par défaut. | Consultez la page [Paramètres de Registre de TLS](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) pour plus d’informations sur l’activation.  |
 | Windows Server 2008 SP2 | La prise en charge de TLS 1.2 nécessite une mise à jour. | Consultez [Mise à jour pour ajouter la prise en charge de TLS 1.2](https://support.microsoft.com/help/4019276/update-to-add-support-for-tls-1-1-and-tls-1-2-in-windows-server-2008-s) dans Windows Server 2008 SP2. |
-|Windows Vista | Non pris en charge. | S.O.
+|Windows Vista | Non pris en charge. | N/A
 
 ### <a name="check-what-version-of-openssl-your-linux-distribution-is-running"></a>Vérifier la version d’OpenSSL que votre distribution Linux exécute
 

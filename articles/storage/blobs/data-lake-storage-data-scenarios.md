@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: normesta
 ms.openlocfilehash: 9deaa2f1e381dffbd85b0ee150c5782098a9db6b
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60006809"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60628215"
 ---
 # <a name="using-azure-data-lake-storage-gen2-for-big-data-requirements"></a>Utilisation d’Azure Data Lake Storage Gen2 pour le Big Data
 
@@ -73,7 +73,7 @@ Ce tableau montre comment octroyer l'accès à chacun des services ou outils Azu
 |Apache DistCp | Affecter un rôle à une identité managée affectée par l’utilisateur | [Créer un cluster HDInsight avec Data Lake Storage Gen2](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2) |
 |Azure Data Factory| Attribuer un rôle à une identité managée affectée par l'utilisateur<br>**ou**<br> Attribuer un rôle à un principal de service<br>**ou**<br> Utiliser une clé de compte de stockage | [Propriétés du service lié](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#linked-service-properties) |
 |Azure HDInsight| Affecter un rôle à une identité managée affectée par l’utilisateur | [Créer un cluster HDInsight avec Data Lake Storage Gen2](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2)|
-|Azure Databricks| Attribuer un rôle à un principal de service | [Procédure : Utiliser le portail pour créer une application Azure AD et un principal de service ayant accès aux ressources](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)|
+|Azure Databricks| Attribuer un rôle à un principal de service | [Guide pratique : Utiliser le portail pour créer une application Azure AD et un principal de service ayant accès aux ressources](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)|
 
 Pour octroyer l'accès à des fichiers et dossiers spécifiques, consultez ces articles.
 

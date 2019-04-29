@@ -13,11 +13,11 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 01/03/2019
 ms.openlocfilehash: 3b2b472407175df307c569704d4c7611737c4ea1
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54040368"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60694342"
 ---
 # <a name="reporting-across-scaled-out-cloud-databases-preview"></a>Création de rapports sur des bases de données cloud mises à l’échelle (version préliminaire)
 
@@ -29,14 +29,14 @@ Pour démarrer rapidement, consultez la rubrique [Création de rapports sur des 
 
 Pour les bases de données non partitionnées, consultez [Interroger plusieurs bases de données cloud avec différents schémas](sql-database-elastic-query-vertical-partitioning.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 * Créez une carte de partitions à l’aide d’une bibliothèque de base de données élastique cliente. Consultez la rubrique [Gestion des cartes de partitions](sql-database-elastic-scale-shard-map-management.md). Ou utilisez l’exemple d’application de la rubrique [Prise en main des outils de base de données élastiques](sql-database-elastic-scale-get-started.md).
 * Vous pouvez également consulter la rubrique [Migrer des bases de données existantes vers des bases de données mises à l’échelle](sql-database-elastic-convert-to-use-elastic-tools.md).
 * L’utilisateur doit posséder l’autorisation ALTER ANY EXTERNAL DATA SOURCE. Cette autorisation est incluse dans l’autorisation ALTER DATABASE.
 * Les autorisations ALTER ANY EXTERNAL DATA SOURCE sont nécessaires pour faire référence à la source de données sous-jacente.
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 
 Ces instructions créent une représentation des métadonnées de votre couche de données partitionnées dans la base de données de requête élastique.
 

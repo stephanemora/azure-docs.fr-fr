@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: 37eb8ca3c25268dd7923087439a8fbf0fd1f168b
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: 56e87da0353a41504035a070d4c10bab0dda2279
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56269907"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60551751"
 ---
 # <a name="advanced-aggregations-in-azure-monitor-log-queries"></a>Agrégations dans les requêtes de journal Azure Monitor | Microsoft Docs
 
@@ -38,7 +38,8 @@ Event
 | order by TimeGenerated desc
 | summarize makelist(EventID) by Computer
 ```
-|Ordinateur|list_EventID|
+
+|Computer|list_EventID|
 |---|---|
 | computer1 | [704,701,1501,1500,1085,704,704,701] |
 | computer2 | [326,105,302,301,300,102] |
@@ -54,7 +55,8 @@ Event
 | order by TimeGenerated desc
 | summarize makeset(EventID) by Computer
 ```
-|Ordinateur|list_EventID|
+
+|Computer|list_EventID|
 |---|---|
 | computer1 | [704,701,1501,1500,1085] |
 | computer2 | [326,105,302,301,300,102] |
@@ -71,12 +73,12 @@ Heartbeat
 | project Computer, Solutions
 ```
 
-| Ordinateur | solutions | 
+| Computer | solutions | 
 |--------------|----------------------|
 | computer1 | "security", "updates", "changeTracking" |
 | computer2 | "security", "updates" |
 | computer3 | "antiMalware", "changeTracking" |
-| ... | ... | ... |
+| ... | ... |
 
 Utilisez `mvexpand` pour afficher chaque valeur dans une ligne distincte au lieu d’une liste séparée par des virgules :
 
@@ -87,7 +89,7 @@ Heartbeat
 | mvexpand Solutions
 ```
 
-| Ordinateur | solutions | 
+| Computer | solutions | 
 |--------------|----------------------|
 | computer1 | "security" |
 | computer1 | "updates" |
@@ -96,7 +98,7 @@ Heartbeat
 | computer2 | "updates" |
 | computer3 | "antiMalware" |
 | computer3 | "changeTracking" |
-| ... | ... | ... |
+| ... | ... |
 
 
 Vous pouvez ensuite utiliser à nouveau `makelist` pour regrouper les éléments et afficher cette fois la liste des ordinateurs par solution :
@@ -108,6 +110,7 @@ Heartbeat
 | mvexpand Solutions
 | summarize makelist(Computer) by tostring(Solutions) 
 ```
+
 |solutions | list_Computer |
 |--------------|----------------------|
 | "security" | ["computer1", "computer2"] |
@@ -124,6 +127,7 @@ Heartbeat
 | where TimeGenerated > ago(12h)
 | summarize count() by Category, bin(TimeGenerated, 1h)
 ```
+
 | Catégorie | TimeGenerated | count_ |
 |--------------|----------------------|--------|
 | Agent direct | 2017-06-06T17:00:00Z | 15 |
@@ -153,6 +157,7 @@ Heartbeat
 | mvexpand TimeGenerated, count_
 | project Category, TimeGenerated, count_
 ```
+
 | Catégorie | TimeGenerated | count_ |
 |--------------|----------------------|--------|
 | Agent direct | 2017-06-06T17:00:00Z | 15 |
@@ -181,7 +186,7 @@ WindowsFirewall
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Reportez-vous à d'autres leçons sur l'utilisation du [langage de requête Kusto](/azure/kusto/query/) avec des données de journal Azure Monitor :
+Reportez-vous à d’autres leçons sur l’utilisation du [langage de requête Kusto](/azure/kusto/query/) avec des données de journal Azure Monitor :
 
 - [Opérations de chaîne](string-operations.md)
 - [Opérations de date et d’heure](datetime-operations.md)

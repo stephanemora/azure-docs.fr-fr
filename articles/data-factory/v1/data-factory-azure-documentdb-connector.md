@@ -14,11 +14,11 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: bda3df3ce869d7717f572f72c38472e7eae4a0ef
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57437426"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60567212"
 ---
 # <a name="move-data-to-and-from-azure-cosmos-db-using-azure-data-factory"></a>Déplacer des données vers et à partir d’Azure Cosmos DB à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -484,16 +484,16 @@ Azure Cosmos DB est une banque NoSQL de documents JSON, où les structures imbri
 ## <a name="appendix"></a>Annexe
 1. **Question :** L’activité de copie prend-elle en charge la mise à jour d’enregistrements existants ?
 
-    **Réponse :**  Non.
+    **Réponse :** Non.
 2. **Question :** Comment une nouvelle tentative de copie vers Azure Cosmos DB gère-t-elle les enregistrements déjà copiés ?
 
     **Réponse :** Si les enregistrements ont un champ « ID » et que l’opération de copie tente d’insérer un enregistrement avec le même ID, l’opération de copie génère une erreur.
 3. **Question :** Data Factory prend-il en charge le [partitionnement de données basé sur un intervalle ou sur le hachage](../../cosmos-db/sql-api-partition-data.md) ?
 
-    **Réponse :**  Non.
+    **Réponse :** Non.
 4. **Question :** Puis-je indiquer plusieurs collections Azure Cosmos DB pour une table ?
 
-    **Réponse :**  Non. Il n’est possible d’indiquer qu’une collection pour le moment.
+    **Réponse :** Non. Il n’est possible d’indiquer qu’une collection pour le moment.
 
 ## <a name="performance-and-tuning"></a>Performances et réglage
 Consultez l’article [Guide sur les performances et le réglage de l’activité de copie](data-factory-copy-activity-performance.md) pour en savoir plus sur les facteurs clés affectant les performances de déplacement des données (activité de copie) dans Azure Data Factory et les différentes manières de les optimiser.

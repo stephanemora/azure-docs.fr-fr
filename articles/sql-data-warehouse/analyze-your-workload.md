@@ -2,20 +2,21 @@
 title: Analyser la charge de travail - Azure SQL Data Warehouse | Microsoft Docs
 description: Techniques d’analyse des priorités de requête de votre charge de travail dans Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: ronortloff
-manager: craigg
+author: WenJason
+manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload management
-ms.date: 03/13/2019
-ms.author: rortloff
+origin.date: 03/13/2019
+ms.date: 04/01/2019
+ms.author: v-jay
 ms.reviewer: jrasnick
 ms.openlocfilehash: 434cbb18a109308844dbc7ff219d40948678e86e
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58310725"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60679100"
 ---
 # <a name="analyze-your-workload-in-azure-sql-data-warehouse"></a>Analyser la charge de travail dans Azure SQL Data Warehouse
 

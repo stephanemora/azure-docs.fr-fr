@@ -2,20 +2,21 @@
 title: Orchestrations externes dans Fonctions durables - Azure
 description: Découvrez comment implémenter des orchestrations externes à l’aide de l’extension Fonctions durables pour Azure Functions.
 services: functions
-author: ggailey777
+author: kashimiz
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 12/07/2018
-ms.author: azfuncdf
+origin.date: 12/07/2018
+ms.date: 12/25/2018
+ms.author: v-junlch
 ms.openlocfilehash: c4adffd457338ffebfd1c9c7727023f82088dc57
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59607736"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60732414"
 ---
 # <a name="eternal-orchestrations-in-durable-functions-azure-functions"></a>Orchestrations externes dans Fonctions durables (Azure Functions)
 
@@ -84,3 +85,4 @@ Si une fonction d’orchestrateur entre dans une boucle infinie et doit être ar
 
 > [!div class="nextstepaction"]
 > [Apprendre à implémenter des orchestrations de singleton](durable-functions-singletons.md)
+

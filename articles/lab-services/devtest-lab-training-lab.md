@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 85eddaaf101c3e85eca7514b04660163d23c1c80
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.openlocfilehash: 0a7ce1640636c6fba246584d098043a91990b9a0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38666792"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60622834"
 ---
 # <a name="use-azure-devtest-labs-for-training"></a>Utiliser Azure DevTest Labs à des fins de formation
 Azure DevTest Labs peut être utilisé pour implémenter de nombreux scénarios clés en plus du développement et du test. Un de ces scénarios consiste à mettre en place un laboratoire à des fins de formation. Azure DevTest Labs vous permet de créer un laboratoire où vous pouvez fournir des modèles personnalisés utilisables par chaque participant pour créer des environnements de formation identiques et isolés. Vous pouvez appliquer des stratégies pour vous assurer que les environnements de formation sont à la disposition des participants uniquement lorsque ces derniers en ont besoin et qu’ils contiennent suffisamment de ressources (telles que des machines virtuelles) pour la formation. Enfin, vous pouvez facilement partager le laboratoire avec les participants, qui peuvent y accéder en un seul clic.
@@ -54,7 +54,7 @@ Cet article présente les différentes fonctionnalités d’Azure DevTest Labs q
    
    | Tâche | Contenu |
    | --- | --- |
-   | [Configurer des images Place de marché Azure](devtest-lab-configure-marketplace-images.md) |Découvrez comment mettre sur liste verte des images Azure Marketplace afin que seules les images souhaitées pour la formation soient sélectionnables. |
+   | [Configurer des images Place de marché Azure](devtest-lab-configure-marketplace-images.md) |Découvrez comment mettre sur liste blanche des images Azure Marketplace afin que seules les images souhaitées pour la formation soient sélectionnables. |
    | [Créer une image personnalisée](devtest-lab-create-template.md) |Créez une image personnalisée en préinstallant les logiciels dont vous avez besoin pour la formation afin que les participants puissent créer rapidement une machine virtuelle à l’aide de cette image. |
 3. **Créer des modèles réutilisables pour les machines de formation** 
    

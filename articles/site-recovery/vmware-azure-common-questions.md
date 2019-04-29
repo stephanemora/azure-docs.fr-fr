@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 services: site-recovery
-ms.date: 04/18/2019
+ms.date: 04/23/2019
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: d0e39f9e24b3c486eccd71eb1c19823cfd33391a
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: dffbb2c52b4e43eefe6b4f377bd7af529bae8cc5
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60004769"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62125557"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Questions courantes sur la réplication de VMware vers Azure
 
@@ -245,11 +245,15 @@ Oui, mais notez que cet ordinateur physique peut uniquement être a échoué à 
 
 Dans le coffre Recovery Services, cliquez sur **serveurs de Configuration** dans **Infrastructure Site Recovery** > **gérer**. Ensuite, dans **serveurs**, sélectionnez **télécharger une clé d’inscription** pour télécharger le fichier d’informations d’identification de coffre.
 
+## <a name="process-server"></a>Serveur de traitement
 
+### <a name="unable-to-select-process-server-during-enable-replication"></a>Impossible de sélectionner le serveur de traitement au cours d’activer la réplication
 
+À partir de la version 9.24, les améliorations sont effectuées pour fournir [des conseils de produit](vmware-azure-manage-process-server.md#process-server-selection-guidance) quand vous devez configurer un serveur de processus de scale-out. Il s’agit d’éviter la limitation du processus serveur et éviter l’utilisation du serveur de processus défectueux.
 
+### <a name="what-should-i-do-to-obtain-accurate-health-status-of-process-server"></a>Que dois-je faire pour obtenir l’état d’intégrité précis du serveur de processus ?
 
-
+Mettre à niveau les composants de Site Recovery pour le [dernières versions](service-updates-how-to.md#links-to-currently-supported-update-rollups) (au moins 9.24 ou version ultérieure).
 
 ## <a name="failover-and-failback"></a>Basculement et restauration automatique
 ### <a name="can-i-use-the-process-server-at-on-premises-for-failback"></a>Puis-je utiliser le serveur de processus en local pour la restauration automatique ?

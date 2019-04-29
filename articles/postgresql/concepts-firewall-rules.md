@@ -7,11 +7,11 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/28/2018
 ms.openlocfilehash: 793a68ee829d87a8433d5bdd77fe7b43e2f3af19
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53548831"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60560257"
 ---
 # <a name="azure-database-for-postgresql-server-firewall-rules"></a>Règles de pare-feu d’un serveur de base de données Azure pour PostgreSQL
 Le pare-feu Azure Database pour PostgreSQL empêche tout accès à votre serveur de base de données jusqu’à ce que vous spécifiiez les ordinateurs qui disposent d’autorisations. Le pare-feu octroie l’accès au serveur en fonction de l’adresse IP d’origine de chaque demande.

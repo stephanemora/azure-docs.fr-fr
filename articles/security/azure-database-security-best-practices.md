@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 09/20/2018
 ms.author: tomsh
 ms.openlocfilehash: 3e244f89904ce9aca161ed1ea435f4137e42bc5d
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56117967"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60587516"
 ---
 # <a name="azure-database-security-best-practices"></a>Meilleures pratiques en matière de sécurité pour les bases de données Azure
 La sécurité est une préoccupation majeure pour la gestion des bases de données, et elle a toujours été une priorité pour [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/). Vos bases de données peuvent être étroitement sécurisées pour permettre de répondre aux exigences réglementaires ou de sécurité, notamment HIPAA, ISO 27001/27002 et PCI DSS Level 1. Une liste à jour des certifications de conformité en matière de sécurité est disponible sur le [site du Centre de gestion de la confidentialité Microsoft](https://azure.microsoft.com/support/trust-center/services/). Vous pouvez également choisir de placer vos bases de données dans des centres de données Azure spécifiques, en fonction des exigences réglementaires.

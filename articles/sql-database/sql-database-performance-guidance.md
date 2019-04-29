@@ -13,11 +13,11 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: a49d30d3058a6cf3ce82d56076f348861ad631ff
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57438608"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60585074"
 ---
 # <a name="manual-tune-query-performance-in-azure-sql-database"></a>Ajustement manuel des performances de requêtes dans Azure SQL Database
 
@@ -26,7 +26,7 @@ Une fois que vous avez identifié un problème de performances avec SQL Database
 - Paramétrez votre application et appliquez quelques meilleures pratiques susceptibles d’améliorer les performances.
 - Paramétrez la base de données en modifiant les index et les requêtes afin d’utiliser plus efficacement les données.
 
-Cet article suppose que vous ayez déjà consulté les [recommandations de l’Assistant de base de données](sql-database-advisor.md) Azure SQL Database ainsi que les [recommandations de réglage automatique](sql-database-automatic-tuning.md) d’Azure SQL Database. Il suppose également que vous ayez consulté la section [Vue d’ensemble de la surveillance et du réglage](sql-database-monitor-tune-overview.md) et les articles connexes sur la résolution des problèmes de performances. Il suppose également que vous n’ayez aucun problème de performances lié à l’exécution en raison des ressources du processeur pouvant être résolu en augmentant la taille de la capacité de calcul ou le niveau de service afin de fournir davantage de ressources à votre base de données.
+Cet article suppose que vous ayez déjà consulté les [recommandations de l’Assistant de base de données](sql-database-advisor.md) Azure SQL Database ainsi que les [recommandations de réglage automatique](sql-database-automatic-tuning.md) d’Azure SQL Database. Il suppose également que vous ayez consulté la section [Vue d’ensemble de la surveillance et du réglage](sql-database-monitor-tune-overview.md) et les articles connexes sur la résolution des problèmes de performances. Il suppose également que vous n’ayez aucun problème de performances lié à l’exécution en raison des ressources du processeur pouvant être résolu en augmentant la taille de calcul ou le niveau de service afin de fournir davantage de ressources à votre base de données.
 
 ## <a name="tune-your-application"></a>Paramétrer votre application
 

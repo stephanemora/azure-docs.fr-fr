@@ -10,11 +10,11 @@ ms.date: 03/19/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 153bb0304102906f7be64ae55dd0e0f6bb8d7146
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58224889"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61304564"
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>Démarrage d’un runbook Azure Automation avec un webhook
 
@@ -110,7 +110,7 @@ http://<Webhook Server>/token?=<Token Value>
 
 Le client reçoit l'un des codes de réponse suivants à la requête POST.
 
-| Code | Texte | Description |
+| Code | Text | Description |
 |:--- |:--- |:--- |
 | 202 |Acceptée |La requête a été acceptée et le Runbook a été mis en file d'attente avec succès. |
 | 400 |Demande incorrecte |La requête a été refusée pour l'une des raisons suivantes : <ul> <li>Le webhook a expiré.</li> <li>Le webhook est désactivé.</li> <li>Le jeton de l’URL n’est pas valide.</li>  </ul> |

@@ -14,11 +14,11 @@ ms.date: 06/07/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 0a3adbd082c68121e762fd03c2221a0c800f0bc5
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57892640"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60823978"
 ---
 # <a name="move-data-from-an-on-premises-cassandra-database-using-azure-data-factory"></a>Déplacer des données depuis une base de données Cassandra locale à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -66,7 +66,7 @@ Le tableau suivant fournit la description des éléments JSON spécifiques au se
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| Type |La propriété type doit être définie sur : **OnPremisesCassandra** |Oui |
+| type |La propriété type doit être définie sur : **OnPremisesCassandra** |Oui |
 | host |Une ou plusieurs adresses IP ou noms d’hôte de serveurs Cassandra.<br/><br/>Renseignez une liste des adresses IP ou des noms d’hôte séparée par des virgules pour vous connecter simultanément à tous les serveurs. |Oui |
 | port |Le port TCP utilisé par le serveur Cassandra pour écouter les connexions clientes. |Aucune valeur par défaut : 9042 |
 | authenticationType |Basique ou anonyme |Oui |
@@ -262,20 +262,20 @@ Pour obtenir la liste des propriétés prises en charge par RelationalSource, co
 ### <a name="type-mapping-for-cassandra"></a>Mappage de type pour Cassandra
 | Type Cassandra | Type basé sur .NET |
 | --- | --- |
-| ASCII |Chaîne |
+| ASCII |String |
 | BIGINT |Int64 |
 | BLOB |Byte[] |
 | BOOLEAN |BOOLEAN |
 | DÉCIMAL |Decimal |
 | DOUBLE |DOUBLE |
 | FLOAT |Single |
-| INET |Chaîne |
+| INET |String |
 | INT |Int32 |
-| TEXTE |Chaîne |
+| TEXTE |String |
 | TIMESTAMP |DateTime |
 | TIMEUUID |Guid |
 | UUID |Guid |
-| VARCHAR |Chaîne |
+| VARCHAR |String |
 | VARINT |DÉCIMAL |
 
 > [!NOTE]

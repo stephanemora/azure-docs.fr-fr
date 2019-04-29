@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
 ms.openlocfilehash: 20bf38b87ce29f8506a5611ecd25cf38f6d4ed61
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56824984"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60550708"
 ---
 # <a name="manage-azure-resources-by-using-the-azure-portal"></a>Gérer les ressources Azure à l’aide du portail Azure
 
@@ -103,7 +103,7 @@ Pour plus d’informations, consultez [Verrouiller des ressources avec Azure Res
 Balisage vous aide à organiser votre groupe de ressources et les ressources logiquement. 
 
 1. Ouvrez la ressource dans le portail. Pour connaître les étapes, consultez [ouvrir ressources](#open-resources).
-2. Sélectionnez **balises**. La capture d’écran suivante montre les options de gestion pour un compte de stockage.
+2. Sélectionner **Étiquettes**. La capture d’écran suivante montre les options de gestion pour un compte de stockage.
 
     ![ressources de balise azure](./media/manage-resources-portal/manage-azure-resources-portal-tag-resource.png)
 3. Spécifiez les propriétés de la balise, puis sélectionnez **enregistrer**.

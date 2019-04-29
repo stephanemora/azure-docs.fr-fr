@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 02/23/2018
 ms.author: sngun
 ms.openlocfilehash: 1a63de4642850e425cc785e0d89197178ceec1a6
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54041014"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60889792"
 ---
 # <a name="deploy-azure-cosmos-db-and-azure-app-service-web-apps-using-an-azure-resource-manager-template"></a>Déployer Azure Cosmos DB et Azure App Service Web Apps avec un modèle Azure Resource Manager
 Ce didacticiel vous montre comment utiliser un modèle Azure Resource Manager pour déployer et intégrer [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/), une application web [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) et un exemple d’application web.
@@ -25,7 +25,7 @@ Après avoir terminé ce didacticiel, vous serez en mesure de répondre aux ques
 
 <a id="Prerequisites"></a>
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 > [!TIP]
 > Ce didacticiel ne suppose pas d’être familiarisé avec les modèles Azure Resource Manager ou JSON, sauf si vous envisagez de modifier les modèles référencés ou les options de déploiement.
 > 
@@ -115,7 +115,7 @@ Nous allons maintenant déployer notre deuxième modèle.  Ce modèle vous montr
 <a name="NextSteps"></a>
 
 ## <a name="next-steps"></a>Étapes suivantes
-Félicitations ! Vous avez déployé Azure Cosmos DB, une application web App Service et un exemple d’application web avec les modèles Azure Resource Manager.
+Félicitations ! Vous avez déployé Azure Cosmos DB, une application web App Service et un exemple d’application web avec les modèles Azure Resource Manager.
 
 * Pour en savoir plus sur Azure Cosmos DB, cliquez [ici](https://azure.microsoft.com/services/cosmos-db/).
 * Pour en savoir plus sur les applications web Azure App Service, cliquez [ici](https://go.microsoft.com/fwlink/?LinkId=325362).

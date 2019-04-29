@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/02/2018
 ms.author: cynthn
 ms.openlocfilehash: cfd46d5e9750a81d89ed6d3a79bcc9bffdc3d0dd
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58007293"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60844197"
 ---
 # <a name="use-the-d-drive-as-a-data-drive-on-a-windows-vm"></a>Utilisation du lecteur D comme lecteur de données sur une machine virtuelle Windows
 Si votre application doit utiliser le lecteur D pour stocker des données, suivez ces instructions pour utiliser une autre lettre de lecteur pour le disque temporaire. N'utilisez jamais le disque temporaire pour stocker des données à conserver.

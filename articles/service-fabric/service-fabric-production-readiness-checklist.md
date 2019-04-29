@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 7/10/2018
 ms.author: aljo
 ms.openlocfilehash: e94280f9df1d4ac59856a73f6f6c2b7f7a0b9cc0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58107489"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60726585"
 ---
 # <a name="production-readiness-checklist"></a>Liste de vérification de disponibilité de la production
 

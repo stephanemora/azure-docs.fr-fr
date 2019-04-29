@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 10/22/2018
 ms.reviewer: sngun
 ms.openlocfilehash: 4532962b6fd9f40fad625ab000116e5a617682e5
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258771"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60765908"
 ---
 # <a name="connect-qlik-sense-to-azure-cosmos-db-and-visualize-your-data"></a>Connecter Qlik Sense à Azure Cosmos DB et visualiser vos données
 

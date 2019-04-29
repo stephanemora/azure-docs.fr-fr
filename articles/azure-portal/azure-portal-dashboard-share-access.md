@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 08/01/2016
 ms.author: tomfitz
-ms.openlocfilehash: c07a9d92cac13d6325e66f44426f1a64e8ac53cb
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
-ms.translationtype: HT
+ms.openlocfilehash: fbbc8a4f636a95d18baa0dc5de541279ce36789b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47096198"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60551930"
 ---
 # <a name="share-azure-dashboards-by-using-role-based-access-control"></a>Partager des tableaux de bord Azure à l’aide du contrôle d’accès en fonction du rôle
 Après avoir configuré un tableau de bord, vous pouvez le publier et le partager avec d’autres utilisateurs de votre organisation. Vous permettez à d’autres utilisateurs de voir votre tableau de bord au moyen du [contrôle d’accès en fonction du rôle (RBAC)](../role-based-access-control/role-assignments-portal.md) Azure. Vous affectez un utilisateur ou un groupe d’utilisateurs à un rôle, qui définit si ces utilisateurs peuvent visualiser ou modifier le tableau de bord publié. 
@@ -75,6 +75,6 @@ Votre tableau de bord est à présent publié. Si les autorisations héritées d
      ![rôles affectés](./media/azure-portal-dashboard-share-access/assigned-roles.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Pour obtenir la liste des rôles, voir [RBAC : rôles intégrés](../role-based-access-control/built-in-roles.md).
+* Pour obtenir la liste des rôles, consultez [RBAC : pour les ressources Azure](../role-based-access-control/built-in-roles.md).
 * Pour plus d’informations sur la gestion des ressources, voir [Gérer les ressources Azure sur le portail](resource-group-portal.md).
 
