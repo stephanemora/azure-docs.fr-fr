@@ -2345,7 +2345,7 @@ Cette section décrit les paramètres de configuration globale disponibles pour 
 |Propriété  |Default | Description |
 |---------|---------|---------| 
 |GatewayMode|Passerelle|Le mode de connexion utilisé par la fonction lors de la connexion au service Azure Cosmos DB. Les options sont `Direct` et `Gateway`.|
-|Protocole|Https|Le protocole de connexion utilisé par la fonction lors de la connexion au service Azure Cosmos DB.  Voir [l’explication des deux modes](../cosmos-db/performance-tips.md#networking).| 
+|Protocol|Https|Le protocole de connexion utilisé par la fonction lors de la connexion au service Azure Cosmos DB.  Voir [l’explication des deux modes](../cosmos-db/performance-tips.md#networking).| 
 |leasePrefix|n/a|Préfixe de bail à utiliser dans toutes les fonctions d’une application.| 
 
 ## <a name="next-steps"></a>Étapes suivantes
