@@ -11,17 +11,17 @@ ms.topic: article
 ms.assetid: bb7d9432-b697-44db-aa88-bd16ddfad23f
 ms.date: 01/17/2019
 ms.openlocfilehash: 5ebdf45bec4e7cfceb75354af40c7a21c22c6eef
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54446780"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60846135"
 ---
 # <a name="manage-artifact-metadata-in-integration-accounts-with-azure-logic-apps-and-enterprise-integration-pack"></a>Gérer des métadonnées d’artefact à partir de comptes d’intégration avec Azure Logic Apps et Enterprise Integration Pack
 
 Vous pouvez définir des métadonnées personnalisées pour les artefacts dans les comptes d’intégration et obtenir ces métadonnées pendant l’exécution pour votre application logique à utiliser. Par exemple, vous pouvez fournir des métadonnées pour les artefacts tels que des partenaires, des contrats, des schémas et des cartes ; tous stockent les métadonnées à l’aide de paires clé-valeur. 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 * Un abonnement Azure. Si vous n’avez pas encore d’abonnement, vous pouvez <a href="https://azure.microsoft.com/free/" target="_blank">vous inscrire pour obtenir un compte Azure gratuitement</a>.
 
@@ -63,7 +63,7 @@ Vous pouvez définir des métadonnées personnalisées pour les artefacts dans l
 
 1. Fournissez les informations suivantes pour l’artefact que vous voulez rechercher :
 
-   | Propriété | Obligatoire | Valeur | Description | 
+   | Propriété | Obligatoire | Value | Description | 
    |----------|---------|-------|-------------| 
    | **Type d’artefact** | Oui | **Schéma**, **Carte**, **Partenaire**, **Contrat** ou un type personnalisé | Le type souhaité pour l’artefact | 
    | **Nom de l’artefact** | Oui | <*nom_artefact*> | Nom souhaité pour l’artefact | 
@@ -85,7 +85,7 @@ Vous pouvez définir des métadonnées personnalisées pour les artefacts dans l
 
       Par exemple, supposons que vous voulez obtenir les métadonnées `routingUrl` qui ont été ajoutées précédemment dans cette rubrique. Voici les valeurs de propriété que vous pouvez spécifier : 
 
-      | Propriété | Obligatoire | Valeur | Description | 
+      | Propriété | Obligatoire | Value | Description | 
       |----------|----------|-------|-------------| 
       | **Méthode** | Oui | <*operation-to-run*> | Opération HTTP à exécuter sur l’artefact. Par exemple, cette action HTTP utilise la méthode **GET**. | 
       | **URI** | Oui | <*metadata-location*> | Pour accéder à la valeur de métadonnées `routingUrl` à partir de l’artefact que vous avez récupéré, vous pouvez utiliser une expression ; par exemple : <p>`@{outputs('Integration_Account_Artifact_Lookup')['properties']['metadata']['routingUrl']}` | 

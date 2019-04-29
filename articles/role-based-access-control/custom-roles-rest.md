@@ -16,11 +16,11 @@ ms.date: 04/18/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 4024f6fdb40c752ef61f348d15f681e81d81c08c
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59999772"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60596691"
 ---
 # <a name="create-custom-roles-for-azure-resources-using-the-rest-api"></a>Créer des rôles personnalisés pour les ressources Azure à l'aide de l'API REST
 
@@ -54,7 +54,7 @@ Pour répertorier les rôles personnalisés dans une étendue, utilisez le [déf
 
 1. Dans l’URI, remplacez *{scope}* par l’étendue dont vous souhaitez lister les rôles.
 
-    | Étendue | type |
+    | Étendue | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Abonnement |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Groupe de ressources |
@@ -78,7 +78,7 @@ Pour obtenir des informations sur un rôle personnalisé par son nom d’afficha
 
 1. Dans l’URI, remplacez *{scope}* par l’étendue dont vous souhaitez lister les rôles.
 
-    | Étendue | type |
+    | Étendue | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Abonnement |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Groupe de ressources |
@@ -104,7 +104,7 @@ Pour obtenir des informations sur un rôle personnalisé par son identificateur 
 
 1. Dans l’URI, remplacez *{scope}* par l’étendue dont vous souhaitez lister les rôles.
 
-    | Étendue | type |
+    | Étendue | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Abonnement |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Groupe de ressources |
@@ -152,7 +152,7 @@ Pour créer un rôle personnalisé, utilisez l’API REST [Définitions de rôle
 
 1. Dans l’URI, remplacez *{scope}* par le premier élément `assignableScopes` du rôle personnalisé.
 
-    | Étendue | type |
+    | Étendue | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Abonnement |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Groupe de ressources |
@@ -217,7 +217,7 @@ Pour mettre à jour un rôle personnalisé, utilisez l’API REST [Définitions 
 
 1. Dans l’URI, remplacez *{scope}* par le premier élément `assignableScopes` du rôle personnalisé.
 
-    | Étendue | type |
+    | Étendue | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Abonnement |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Groupe de ressources |
@@ -301,7 +301,7 @@ Pour supprimer un rôle personnalisé, utilisez l’API REST [Définitions de r�
 
 1. Dans l’URI, remplacez *{scope}* par l’étendue dont vous souhaitez supprimer le rôle personnalisé.
 
-    | Étendue | type |
+    | Étendue | Type |
     | --- | --- |
     | `subscriptions/{subscriptionId}` | Abonnement |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Groupe de ressources |

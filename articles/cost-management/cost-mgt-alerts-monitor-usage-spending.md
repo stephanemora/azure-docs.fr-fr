@@ -11,11 +11,11 @@ ms.service: cost-management
 manager: alavital
 ms.custom: ''
 ms.openlocfilehash: feb7fcdd9005ef131acadfc63defbe4caeaca014
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57991927"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60576569"
 ---
 # <a name="use-cost-alerts-to-monitor-usage-and-spending"></a>Utiliser les alertes de coût pour surveiller l’utilisation et les dépenses
 
@@ -49,7 +49,7 @@ Prise en charge des types d’alerte varie selon le type de compte Azure que vou
 
 ## <a name="view-cost-alerts"></a>Afficher les alertes de coût
 
-Pour afficher les alertes de coût, ouvrez l’étendue souhaitée dans le portail Azure et sélectionnez **Budgets** dans le menu. Utilisez le **étendue** pilule pour basculer vers une étendue différente. Sélectionnez **coût alertes** dans le menu. Pour plus d’informations sur les étendues, consultez [comprendre et utiliser des étendues](understand-work-scopes.md).
+Pour afficher les alertes de coût, ouvrez l’étendue souhaitée dans le portail Azure et sélectionnez **Budgets** dans le menu. Utilisez le **étendue** pilule pour basculer vers une étendue différente. Sélectionnez **coût alertes** dans le menu. Pour plus d’informations sur les étendues, consultez [Comprendre et utiliser les étendues](understand-work-scopes.md).
 
 ![Exemple d’images d’alertes affichées dans Azure Cost Management](./media/cost-mgt-alerts-monitor-usage-spending/budget-alerts-fullscreen.png)
 

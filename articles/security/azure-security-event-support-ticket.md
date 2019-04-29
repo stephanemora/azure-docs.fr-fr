@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/13/2017
 ms.author: v-dabosl
-ms.openlocfilehash: 753d6abcdd063d5c092b0c90770396d176bc52e8
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
-ms.translationtype: HT
+ms.openlocfilehash: 243b6b7846719d3f848073e3aa973c9406ca59c7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2017
-ms.locfileid: "26129938"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60586571"
 ---
 # <a name="how-to-log-a-security-event-support-ticket"></a>Enregistrer un ticket de support d’événement de sécurité
 
@@ -32,7 +32,7 @@ ms.locfileid: "26129938"
 
     i. Quel est le problème et/ou la vulnérabilité ?
 
-    ii. Pour les vulnérabilités, indiquez le CVE (mitre.org) ou remplissez la calculatrice CVSS3 v3 (https://www.first.org/cvss/calculator/3.0).
+    ii. Pour les vulnérabilités, indiquez le CVE (mitre.org) ou la calculatrice CVSS3 v3 (https://www.first.org/cvss/calculator/3.0).
 
     iii. Existe-t-il une résolution ou atténuation ? Si oui, indiquez les étapes de correction.
 

@@ -11,17 +11,17 @@ ms.date: 11/14/2018
 ms.author: anvang
 ms.reviewer: igorstan
 ms.openlocfilehash: 3ed1f251c8c09a52def517f4c94ed2ca1420eda8
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59999635"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60778284"
 ---
 # <a name="sql-data-warehouse-capacity-limits"></a>Limites de la capacité de SQL Data Warehouse
 Valeurs maximales autorisées pour les différents composants d’Azure SQL Data Warehouse.
 
 ## <a name="workload-management"></a>Gestion des charges de travail
-| Category | Description | Maximale |
+| Catégorie | Description | Maximale |
 |:--- |:--- |:--- |
 | [Data Warehouse Units (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |DWU max pour un SQL Data Warehouse unique | Gen1 : DW6000<br></br>Gen2 : DW30000c |
 | [Data Warehouse Units (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |La valeur par défaut de DTU par serveur |54 000<br></br>Par défaut, le Quota de DTU de chaque serveur SQL (par exemple, myserver.database.windows.net) est de 54 000, ce qui permet jusqu’à 6 000 DW. Ce quota constitue simplement une limite de sécurité. Vous pouvez augmenter votre quota en [créant un ticket de support](sql-data-warehouse-get-started-create-support-ticket.md) et en sélectionnant *Quota* comme type de requête.  Pour calculer vos besoins en matière de DTU, multipliez le nombre total de DWU nécessaire par 7,5, ou multipliez le nombre total de cDWU nécessaire par 9,0. Par exemple : <br></br>6 000 DW x 7,5 = 45 000 DTU<br></br>DW6000c x 9,0 = 54 000 DTU.<br></br>Vous pouvez consulter votre consommation de DTU actuelle dans l’option SQL Server dans le portail. Les bases de données suspendues et réactivées sont prises en compte dans le quota de DTU. |
@@ -31,7 +31,7 @@ Valeurs maximales autorisées pour les différents composants d’Azure SQL Data
 | [tempdb](sql-data-warehouse-tables-temporary.md) |Go maximum |399 Go par DW100. Par conséquent, pour DWU1000, la taille de tempdb est 3,99 To. |
 
 ## <a name="database-objects"></a>Objets de base de données
-| Category | Description | Maximale |
+| Catégorie | Description | Maximale |
 |:--- |:--- |:--- |
 | Base de données |Taille maximale | Gen1 : 240 To compressés sur disque. Cet espace est indépendant de tempdb ou de l’espace de journalisation. Par conséquent, cet espace est dédié aux tables permanentes.  La compression du cluster columnstore est estimée à 5 X.  Cette compression permet à la base de données d’atteindre un volume d’environ 1 Po lorsque toutes les tables sont en cluster columnstore (le type de table par défaut). <br/><br/> Gen2 : 240 To pour rowstore et stockage illimité pour les tables columnstore |
 | Table |Taille maximale |60 To compressés sur disque |
@@ -52,12 +52,12 @@ Valeurs maximales autorisées pour les différents composants d’Azure SQL Data
 | Affichage |Colonnes par vue |1 024 |
 
 ## <a name="loads"></a>Charges
-| Category | Description | Maximale |
+| Catégorie | Description | Maximale |
 |:--- |:--- |:--- |
 | Charges Polybase |60 Mo par ligne |1<br/><br/>Polybase charge uniquement les lignes de moins de 1 Mo et ne peuvent pas charger vers VARCHAR(MAX), NVARCHAR(MAX) ou VARBINARY(MAX).<br/><br/> |
 
 ## <a name="queries"></a>Requêtes
-| Category | Description | Maximale |
+| Catégorie | Description | Maximale |
 |:--- |:--- |:--- |
 | Interroger |Requêtes mises en file d’attente sur les tables utilisateur. |1 000 |
 | Interroger |Requêtes simultanées sur les vues système. |100 |

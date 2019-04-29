@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: pbutlerm
 ms.openlocfilehash: 191f58252aadf776465bb097207a7e76c0f92003
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56415168"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60594971"
 ---
 # <a name="power-bi-app-contacts-tab"></a>Onglet Contacts des applications Power BI
 
@@ -35,11 +35,11 @@ Le tableau suivant décrit l’objectif de chaque champ :
 |   Champ               |   Description                                                            |
 |-----------------------|--------------------------------------------------------------------------|
 | *Engineering Contact* (Contact ingénierie) | Sert de contact technique entre AppSource et votre organisation.    |
-| **Nom**              | Nom de la personne ou du groupe qui assure le support technique ou ingénierie. |
+| **Name**              | Nom de la personne ou du groupe qui assure le support technique ou ingénierie. |
 | **E-mail**             | Adresse e-mail de ce contact technique.                                  |
 | **Téléphone**             | Numéro de téléphone du support technique.                                       |
 | *Contact de support*     | Reçoit les tickets de support ouverts par les clients dans AppSource.            |
-| **Nom**              | Nom de la personne ou du groupe qui assure le service clientèle.              |
+| **Name**              | Nom de la personne ou du groupe qui assure le service clientèle.              |
 | **E-mail**             | Adresse e-mail du support technique.                                        |
 |  |  |
 

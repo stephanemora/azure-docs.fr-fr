@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: pbutlerm
 ms.openlocfilehash: 2c99b20e554d92dbe63594d63525dd8e1d765423
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56806808"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60726184"
 ---
 # <a name="power-bi-app-storefront-details-tab"></a>Onglet Détails de la vitrine de Power BI app
 
@@ -73,14 +73,14 @@ Pour compléter les champs dans cette section, utilisez le tableau suivant :
 | **Logo de l’offre (format png, 48 x 48)**   | Chargez un logo à afficher dans la vue d’ensemble de l’application ou dans les résultats de recherche d’application. AppSource prend en charge uniquement les format PNG avec une résolution de 48 x 48 px.  |
 | **Logo de l’offre (format png, 216 x 216)** | Chargez un logo à afficher sur la page des détails de votre application.  AppSource prend en charge uniquement les format PNG avec une résolution de 216 x 216 px.  |
 | *Vidéos*                             |                                                                   |
-| **Nom**                             | Entrez le nom ou le titre de votre application.                                          |
+| **Name**                             | Entrez le nom ou le titre de votre application.                                          |
 | **URL**                              | Entrez l’URL d’une vidéo hébergée sur YouTube ou Vimeo.                              |
 | **Vidéo miniature**                        | Ajouter une image miniature de l’application.  AppSource prend en charge uniquement les format PNG avec une résolution de 1280 x 720 px.   |
 | *Documents*                          | Ajouter jusqu'à trois documents à afficher sur AppSource, sous le **en savoir plus** titre.  |
-| **Nom**                             | Entrez le nom ou le titre d’un document de prise en charge.                              |
+| **Name**                             | Entrez le nom ou le titre d’un document de prise en charge.                              |
 | **File**                             | Téléchargez un fichier PDF.                             |
 | *Captures d’écran*                        | Ajoutez jusqu'à cinq captures d’écran.                        |
-| **Nom**                             | Entrez un nom ou le titre d’une capture d’écran.                                       |
+| **Name**                             | Entrez un nom ou le titre d’une capture d’écran.                                       |
 | **Image**                            | Télécharger une capture d’écran PNG. Sa résolution doit être 1280 x 720 px.  | 
 |   |   |
 

@@ -13,13 +13,13 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
 ms.openlocfilehash: feabd055833e5f0d850138af528cce1da82cae49
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58439974"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60622612"
 ---
-# <a name="save-custom-images-and-distribute-to-multiple-labs"></a>Enregistrer des images personnalisées et la distribuer à plusieurs laboratoires
+# <a name="save-custom-images-and-distribute-to-multiple-labs"></a>Enregistrer les images personnalisées et les distribuer à plusieurs laboratoires
 Cet article couvre vous donne les étapes pour enregistrer des images personnalisées à partir des machines virtuelles déjà créées (VM). Il décrit également comment distribuer ces images personnalisées pour les autres dev/test dans l’organisation.
 
 ## <a name="prerequisites"></a>Conditions préalables

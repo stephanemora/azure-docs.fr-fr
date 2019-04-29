@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: malop;kumud
 ms.openlocfilehash: ad35d440904c7b65e27b4ead75cec00daa20f8ff
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58878500"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60596315"
 ---
 # <a name="virtual-network-traffic-routing"></a>Routage du trafic de réseau virtuel
 
@@ -134,7 +134,7 @@ Si plusieurs itinéraires contiennent le même préfixe d’adresse, Azure chois
 3. Itinéraire du système
 
 > [!NOTE]
-> Les itinéraires système pour le trafic lié au réseau virtuel, aux homologations de réseaux virtuels ou aux points de terminaison de service de réseau virtuel, sont les itinéraires sélectionnés par défaut, même si les itinéraires BGP sont plus spécifiques.
+> Les itinéraires système pour le trafic lié au réseau virtuel, aux peerings de réseaux virtuels ou aux points de terminaison de service de réseau virtuel, sont les itinéraires sélectionnés par défaut, même si les itinéraires BGP sont plus spécifiques.
 
 Par exemple, une table de routage contient les itinéraires suivants :
 

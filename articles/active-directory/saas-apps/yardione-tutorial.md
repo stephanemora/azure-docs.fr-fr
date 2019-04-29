@@ -17,13 +17,13 @@ ms.date: 04/16/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 22abdcc004f3b353042d84cf01070fde7650367b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56176184"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60629517"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-yardione"></a>Tutoriel : Intégration d’Azure Active Directory à YardiOne
+# <a name="tutorial-azure-active-directory-integration-with-yardione"></a>Didacticiel : Intégration d’Azure Active Directory à YardiOne
 
 Dans ce didacticiel, vous allez apprendre à intégrer YardiOne dans Azure Active Directory (Azure AD).
 
@@ -35,7 +35,7 @@ L’intégration de YardiOne avec Azure AD vous donne les avantages suivants :
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour configurer l’intégration d’Azure AD avec YardiOne, vous avez besoin des éléments suivants :
 

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 1/29/2019
 ms.author: barclayn
 ms.openlocfilehash: 13183282e5e607f0052194a474203f97e0160adb
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57246132"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60610911"
 ---
 # <a name="security-services-and-technologies-available-on-azure"></a>Services et technologies de sécurité disponibles sur Azure
 
@@ -91,4 +91,4 @@ Au fil du temps, cette liste sera modifiée et développée, tout comme Azure. V
 | [Proxy d’application Azure](../active-directory/active-directory-application-proxy-get-started.md)| Frontend d’authentification utilisé pour sécuriser l’accès à distance pour des applications web hébergées en local. |
 |[Pare-feu Azure](../firewall/overview.md)|Service de sécurité réseau cloud managé qui protège vos ressources Réseau virtuel Azure.|
 |[Protection DDoS Azure](../virtual-network/ddos-protection-overview.md)|Associé aux bonnes pratiques de conception d’application, assure une excellente protection contre les attaques DDoS.|
-|[Points de terminaison du service Réseau virtuel](../virtual-network/virtual-network-service-endpoints-overview.md)|Étend votre espace d’adressage privé de réseau virtuel et l’identité de votre réseau virtuel aux services Azure, par le biais d’une connexion directe.|
+|[Points de terminaison de service de réseau virtuel](../virtual-network/virtual-network-service-endpoints-overview.md)|Étend votre espace d’adressage privé de réseau virtuel et l’identité de votre réseau virtuel aux services Azure, par le biais d’une connexion directe.|

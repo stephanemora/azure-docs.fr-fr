@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 256d530590fadc9e2aeb1ea1efb7a52608014978
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 59a3bac39437b91eeee3b005bd23476a34a308b7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46988561"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60736579"
 ---
 # <a name="health-probes"></a>Sondes d’intégrité
 
@@ -58,5 +58,5 @@ Dès lors qu’un backend retrouve un état sain, la porte d’entrée reprend l
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Découvrez comment [créer un porte d’entrée](quickstart-create-front-door.md).
-- Découvrez [comment fonctionne une porte d’entrée](front-door-routing-architecture.md).
+- Découvrez comment [créer une porte d’entrée](quickstart-create-front-door.md).
+- Découvrez [comment fonctionne Front Door](front-door-routing-architecture.md).

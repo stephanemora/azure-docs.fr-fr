@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 09/17/2018
 ms.author: masnider
 ms.openlocfilehash: 085d5e560eec090ab76c263f8f93140786f2d734
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58668436"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60543204"
 ---
 # <a name="service-fabric-terminology-overview"></a>Présentation de la terminologie Service Fabric
 Azure Service Fabric est une plateforme de systèmes distribués qui permet d’empaqueter, de déployer et de gérer facilement des microservices scalables et fiables.  Vous pouvez [héberger des clusters Service Fabric n'importe où](service-fabric-deploy-anywhere.md) : dans Azure, dans un centre de données local ou auprès de n'importe quel fournisseur de services cloud.  Service Fabric est l’orchestrateur qui alimente [Azure Service Fabric Mesh](/azure/service-fabric-mesh). Vous pouvez utiliser n’importe quelle infrastructure pour écrire vos services, et choisir l’emplacement où exécuter l’application parmi plusieurs options d’environnement. Cet article décrit en détail la terminologie utilisée dans Service Fabric pour que vous compreniez les termes utilisés dans la documentation.
@@ -41,7 +41,7 @@ Azure Service Fabric est une plateforme de systèmes distribués qui permet d’
 
 **Service** : un service dans une application représente un microservice et exécute une fonction complète et autonome. Chaque service se compose d’un ou plusieurs packages de code qui décrivent tout ce qui est nécessaire pour exécuter l’image conteneur associée au package de code.  Le nombre de services dans une application peut être augmenté ou diminué.
 
-**Réseau** : une ressource réseau crée un réseau privé pour vos applications et est indépendante des applications ou services qui peuvent y faire référence. Plusieurs services de différentes applications peuvent faire partie d’un même réseau. Les réseaux sont des ressources pouvant être déployées qui sont référencées par les applications.
+**Réseau** : une ressource réseau crée un réseau privé pour vos applications et est indépendante des applications ou services qui peuvent y faire référence. Plusieurs services de différentes applications peuvent faire partie d’un même réseau. Les réseaux sont des ressources pouvant être déployées qui sont référencées par les applications.
 
 **Package de code** : les packages de code décrivent tout ce qui est nécessaire pour exécuter l’image conteneur associée au package de code, notamment :
 

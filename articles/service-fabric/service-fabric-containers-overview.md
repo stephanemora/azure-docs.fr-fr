@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 8/8/2018
 ms.author: aljo
 ms.openlocfilehash: 5a45f14e5ac1da5152f320bd92b1ebb42be1d214
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662740"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60881408"
 ---
 # <a name="service-fabric-and-containers"></a>Service Fabric et conteneurs
 
@@ -35,8 +35,8 @@ Par défaut, Service Fabric déploie et active ces services en tant que processu
 
 Pour vous familiariser rapidement et essayer les conteneurs sur Service Fabric, suivez un guide de démarrage rapide, un tutoriel ou un exemple pratique :  
 
-[Démarrage rapide : Déployer une application de conteneur Linux sur Service Fabric](service-fabric-quickstart-containers-linux.md)  
-[Démarrage rapide : Déployer une application de conteneur Windows sur Service Fabric](service-fabric-quickstart-containers.md)  
+[Démarrage rapide : Déployer une application de conteneur Linux sur Service Fabric](service-fabric-quickstart-containers-linux.md)  
+[Démarrage rapide : Déployer une application de conteneur Windows sur Service Fabric](service-fabric-quickstart-containers.md)  
 [Mettre en conteneur une application .NET](service-fabric-host-app-in-a-container.md)  
 [Exemples de conteneurs Service Fabric](https://azure.microsoft.com/resources/samples/service-fabric-containers/)  
 

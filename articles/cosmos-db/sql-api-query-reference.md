@@ -9,11 +9,11 @@ ms.date: 03/31/2019
 ms.author: mjbrown
 ms.custom: seodec18
 ms.openlocfilehash: 22b03417495625ef70650a015530d6f56b32fd4f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59283645"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60626875"
 ---
 # <a name="sql-language-reference-for-azure-cosmos-db"></a>Référence sur le langage SQL pour Azure Cosmos DB 
 
@@ -481,7 +481,7 @@ ORDER BY <sort_specification>
   
  **Opérateurs unaires :**  
   
-|**Nom**|**Opérateur**|**Détails**|  
+|**Name**|**Opérateur**|**Détails**|  
 |-|-|-|  
 |**Opérateurs arithmétiques**|+<br /><br /> -|Retourne la valeur de nombre.<br /><br /> Négation au niveau du bit. Retourne une valeur numérique avec négation.|  
 |**Opérateurs au niveau du bit**|~|Complément d’une valeur. Retourne un complément d’une valeur numérique.|  
@@ -489,7 +489,7 @@ ORDER BY <sort_specification>
   
  **Opérateurs binaires :**  
   
-|**Nom**|**Opérateur**|**Détails**|  
+|**Name**|**Opérateur**|**Détails**|  
 |-|-|-|  
 |**Opérateurs arithmétiques**|+<br /><br /> -<br /><br /> *<br /><br /> /<br /><br /> %|Addition.<br /><br /> Soustraction.<br /><br /> Multiplication.<br /><br /> Division.<br /><br /> Modulation.|  
 |**Opérateurs au niveau du bit**|&#124;<br /><br /> &<br /><br /> ^<br /><br /> <<<br /><br /> >><br /><br /> >>>|Opérateur OR au niveau du bit.<br /><br /> Opérateur AND au niveau du bit.<br /><br /> XOR au niveau du bit.<br /><br /> Décalage vers la gauche.<br /><br /> Décalage vers la droite.<br /><br /> Décalage vers la droite avec remplissage de zéros.|  
@@ -499,7 +499,7 @@ ORDER BY <sort_specification>
   
  **Opérateurs ternaires :**  
 
-|**Nom**|**Opérateur**|**Détails**| 
+|**Name**|**Opérateur**|**Détails**| 
 |-|-|-|  
 |Opérateur ternaire|?|Retourne le deuxième argument si le premier argument prend la valeur **true**, ou le troisième argument dans le cas contraire.|  
 

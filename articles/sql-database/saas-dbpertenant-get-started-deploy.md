@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 97570a16c7d87a3c8182909b61c04fde30b3fe9b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 14f76a716447e09299cfa18d6758245706c7b481
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58000202"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60556464"
 ---
 # <a name="deploy-and-explore-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>Déployer et explorer une application SaaS multilocataire qui utilise le modèle de base de données par locataire avec SQL Database
 
@@ -98,7 +98,7 @@ Les scripts se trouvent dans le dossier ...\\WingtipTicketsSaaS-DbPerTenant-mast
 Avant d’exécuter des scripts, mettez à jour les valeurs de groupe de ressources et d’utilisateur dans le fichier User Config. Pour ces variables, utilisez les valeurs que vous avez définies pendant le déploiement.
 
 1. Dans PowerShell ISE, ouvrez ...\\Learning Modules\\**UserConfig.psm1**
-1. Mettez à jour **ResourceGroupName** et **Name** avec les valeurs spécifiques à votre déploiement (lignes 10 et 11 uniquement).
+1. Mettez à jour **ResourceGroupName** et **Name** avec les valeurs spécifique de votre déploiement (sur les lignes 10 et 11 uniquement).
 1. Enregistrez les modifications.
 
 Ces valeurs sont référencées dans la quasi-totalité des scripts.

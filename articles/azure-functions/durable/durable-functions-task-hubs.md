@@ -8,14 +8,15 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 12/07/2017
-ms.author: azfuncdf
+origin.date: 12/07/2017
+ms.date: 02/21/2019
+ms.author: v-junlch
 ms.openlocfilehash: 596eedab39ff926fcdc880c82c49ac464b7ff23b
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55753466"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60730263"
 ---
 # <a name="task-hubs-in-durable-functions-azure-functions"></a>Hubs de tâches dans Fonctions durables (Azure Functions)
 
@@ -29,11 +30,11 @@ Si plusieurs applications de fonction partagent un compte de stockage, chaque ap
 
 Un hub de tâches se compose des ressources de stockage suivantes :
 
-* Une ou plusieurs files d’attente de contrôle.
-* Une file d’attente des éléments de travail.
-* Une table d’historique.
-* Une table d’instances.
-* Un conteneur de stockage comprenant un ou plusieurs objets blob de bail.
+- Une ou plusieurs files d’attente de contrôle.
+- Une file d’attente des éléments de travail.
+- Une table d’historique.
+- Une table d’instances.
+- Un conteneur de stockage comprenant un ou plusieurs objets blob de bail.
 
 Toutes ces ressources sont automatiquement créées dans le compte Stockage Azure par défaut lorsque des fonctions d’orchestrateur ou d’activité sont exécutées ou planifiées pour l’être. L’article [Performances et mise à l’échelle](durable-functions-perf-and-scale.md) explique comment ces ressources sont utilisées.
 
@@ -140,3 +141,5 @@ Les noms de hubs de tâches doivent commencer par une lettre et contenir uniquem
 
 > [!div class="nextstepaction"]
 > [Découvrez comment gérer les versions](durable-functions-versioning.md)
+
+<!-- Update_Description: wording update -->

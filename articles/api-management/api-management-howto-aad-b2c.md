@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: db701a239aedb312c7671e403cdfde7135130c6d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 644cc2a4175043b523d53b39f17483c6f3acfe96
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58089605"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60558403"
 ---
 # <a name="how-to-authorize-developer-accounts-by-using-azure-active-directory-b2c-in-azure-api-management"></a>Comment autoriser des comptes de développeurs avec Azure Active Directory B2C dans Gestion des API Azure
 
@@ -69,29 +69,20 @@ Azure Active Directory B2C est une solution de gestion des identités de cloud 
    ![ID d’application 1][api-management-howto-aad-b2c-app-id]
 
 9. Revenez au volet **Ajouter un fournisseur d’identité** dans Gestion des API et collez l’ID dans la zone de texte **ID client**.
-
-   ![ID d’application 2][api-management-howto-aad-b2c-client-id]
-
+    
 10. Revenez dans l’inscription d’application B2C, cliquez sur le bouton **Clés**, puis sur **Générer une clé**. Cliquez sur **Enregistrer** pour enregistrer la configuration et afficher la **clé d’application**. Copiez la clé dans le Presse-papiers.
 
     ![Clé d’application 1][api-management-howto-aad-b2c-app-key]
 
 11. Revenez au volet **Ajouter un fournisseur d’identité** dans Gestion des API et collez la clé dans la zone de texte **Secret client**.
+    
+12. Spécifiez le nom de domaine du locataire Azure Active Directory B2C dans **locataire de connexion**.
 
-    ![Clé d’application 2][api-management-howto-aad-b2c-client-secret]
+13. Le **autorité** champ vous permettre de contrôler l’URL de connexion Azure AD B2C à utiliser. Définissez la valeur sur **< your_b2c_tenant_name >. b2clogin.com**.
 
-12. Spécifiez le nom de domaine du client Azure Active Directory B2C dans **Client autorisé**.
+14. Spécifiez la **stratégie d’inscription** et la **stratégie de connexion** à partir des stratégies du locataire B2C. Si vous le souhaitez, vous pouvez également fournir la **Stratégie de modification du profil** et la **Stratégie de réinitialisation du mot de passe**.
 
-    ![Client autorisé][api-management-howto-aad-b2c-allowed-tenant]
-
-13. Spécifiez la **stratégie d’inscription** et la **stratégie de connexion** à partir des stratégies du locataire B2C. Si vous le souhaitez, vous pouvez également fournir la **Stratégie de modification du profil** et la **Stratégie de réinitialisation du mot de passe**.
-
-    ![Stratégies][api-management-howto-aad-b2c-policies]
-
-    > [!NOTE]
-    > Pour plus d’informations sur les stratégies, consultez [Azure Active Directory B2C : Structure de stratégie extensible].
-
-14. Après avoir spécifié la configuration souhaitée, cliquez sur **Enregistrer**.
+15. Après avoir spécifié la configuration souhaitée, cliquez sur **Enregistrer**.
 
     Après avoir enregistré les modifications, les développeurs pourront créer de nouveaux comptes et se connecter au portail des développeurs à l’aide d’Azure Active Directory B2C.
 

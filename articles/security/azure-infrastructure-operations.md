@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
 ms.openlocfilehash: 0099eb61d97f813f7adca320b47c195fa1aabbdc
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56104549"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60591473"
 ---
 # <a name="azure-production-operations-and-management"></a>Opérations et administration du réseau de production Azure    
 Pour administrer et faire fonctionner le réseau de production Azure, les équipes des opérations Azure et Azure SQL Database doivent coordonner leurs efforts. Ces dernières utilisent plusieurs outils de monitoring des performances système et d’application dans l’environnement. Elles utilisent également les outils appropriés pour superviser les appareils réseau, les serveurs, les services et les processus d’application.

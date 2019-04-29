@@ -2,18 +2,19 @@
 title: Fichier Include
 description: Fichier Include
 services: vpn-gateway
-author: cherylmc
+author: WenJason
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/21/2018
-ms.author: cherylmc
+origin.date: 03/21/2018
+ms.date: 12/24/2018
+ms.author: v-jay
 ms.custom: include file
-ms.openlocfilehash: 97d33bfcc8251b10ba121b7fb013800904450563
-ms.sourcegitcommit: baed5a8884cb998138787a6ecfff46de07b8473d
-ms.translationtype: HT
+ms.openlocfilehash: e2e91dc91cf0fbe6827808785a4c3cc25b06542b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "30197071"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60320152"
 ---
 [!INCLUDE [P2S FAQ All](vpn-gateway-faq-p2s-all-include.md)]
 
@@ -27,11 +28,11 @@ Vous pouvez utiliser votre solution de PKI d’entreprise (votre PKI interne), A
 
 ### <a name="certsettings"></a>Y a-t-il des instructions pour les paramètres de certificat ?
 
-* **PKI interne/Solution PKI d’entreprise :** reportez-vous aux étapes de [génération des certificats](../articles/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md#generatecert).
+* **Solution d’infrastructure à clé publique/Enterprise PKI interne :** Consultez les étapes pour [générer des certificats](../articles/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md#generatecert).
 
-* **Azure PowerShell :** consultez l’article [Azure PowerShell](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md) pour connaître la procédure.
+* **Azure PowerShell :** Consultez le [Azure PowerShell](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md) article pour obtenir des instructions.
 
-* **MakeCert :** consultez l’article [MakeCert](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site-makecert.md) pour connaître la procédure.
+* **MakeCert :** Consultez le [MakeCert](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site-makecert.md) article pour obtenir des instructions.
 
 * **OpenSSL :** 
 

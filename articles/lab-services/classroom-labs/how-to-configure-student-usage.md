@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/28/2019
 ms.author: spelluru
 ms.openlocfilehash: 494c285f1c096a84925d9d9a4fb98409960e5230
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58650078"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60703688"
 ---
 # <a name="configure-usage-settings-and-policies"></a>Configurer des paramètres et des stratégies d’utilisation
 Cet article explique comment ajouter des utilisateurs au labo, comment les inscrire au labo, comment contrôler le nombre d’heures qu’ils peuvent utiliser la machine virtuelle, et bien plus encore. 
@@ -47,15 +47,15 @@ Si l’option **Restreindre l’accès** est activée pour le labo, seuls les ut
 Azure Lab Services permet aux enseignants d’invitations de laboratoire à l’ensemble de la messagerie ou sélectionné les étudiants sans avoir à utiliser un autre client de messagerie. Les enseignants peuvent pointer sur individuels des étudiants dans la liste pour voir l’icône de courrier électronique pour chaque étudiant ou sélectionnez les étudiants d’un ou plusieurs et utiliser **envoyer une invitation** sur la barre d’outils. Cette fonctionnalité envoie un e-mail avec un lien d’inscription et un message (le cas échéant) est ajouté par le formateur. Une fois l’invitation est envoyée, l’état de l’invitation passe à **Invitation envoyée** afin que les enseignants peuvent effectuer le suivi des étudiants ont déjà reçu le lien d’inscription et la date d’expédition.
 
 1. Basculez vers la vue **Utilisateurs** si vous n’y êtes pas déjà. 
-2. Sélectionnez des utilisateurs spécifiques ou tous les utilisateurs dans la liste. Pour sélectionner des utilisateurs spécifiques, activez les cases à cocher dans la première colonne de la liste. Pour sélectionner tous les utilisateurs, sélectionnez la case à cocher devant le titre de la première colonne (**Nom**) ou sélectionnez toutes les cases à cocher pour tous les utilisateurs figurant dans la liste. Vous pouvez voir l’état de la **état de l’invitation** dans cette liste.  Dans l’image suivante, l’état de l’invitation pour tous les étudiants est défini sur **Invitation ne pas envoyée**. 
+2. Sélectionnez des utilisateurs spécifiques ou tous les utilisateurs dans la liste. Pour sélectionner des utilisateurs spécifiques, activez les cases à cocher dans la première colonne de la liste. Pour sélectionner tous les utilisateurs, sélectionnez la case à cocher devant le titre de la première colonne (**Nom**) ou sélectionnez toutes les cases à cocher pour tous les utilisateurs figurant dans la liste. Vous pouvez voir l’**état de l’invitation** dans cette liste.  Dans l’image suivante, l’état de l’invitation pour tous les étudiants est défini sur **Invitation non envoyée**. 
 
     ![Sélectionner des étudiants](../media/tutorial-setup-classroom-lab/select-students.png)
-1. Sélectionnez le **icône de courrier électronique (enveloppe)** dans une des lignes (ou) sélectionnez **envoyer une invitation** sur la barre d’outils. Vous pouvez également pointer la souris sur un nom de l’étudiant dans la liste pour afficher l’icône de courrier électronique. 
+1. Sélectionnez l’**icône d’e-mail (une enveloppe)** dans une des lignes (ou) sélectionnez **Envoyer une invitation** sur la barre d’outils. Vous pouvez également pointer la souris sur un nom d’étudiant dans la liste pour voir l’icône d’e-mail. 
 
     ![Envoyer un lien d’inscription par e-mail](../media/tutorial-setup-classroom-lab/send-email.png)
 4. Dans la page **Envoyer un lien d’inscription par e-mail**, procédez comme suit : 
     1. Tapez un **message facultatif** que vous souhaitez envoyer aux étudiants. L’e-mail inclut automatiquement le lien d’inscription. 
-    2. Dans la page **Envoyer un lien d’inscription par e-mail**, sélectionnez **Envoyer**. Vous voyez l’état de l’invitation à la modification de **envoi invitation** puis **Invitation envoyée**. 
+    2. Dans la page **Envoyer un lien d’inscription par e-mail**, sélectionnez **Envoyer**. Vous voyez l’état de l’invitation passer à **Envoi d’une invitation**, puis à **Invitation envoyée**. 
         
         ![Invitations envoyées](../media/tutorial-setup-classroom-lab/invitations-sent.png)
 

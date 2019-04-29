@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/15/2018
 ms.author: alkohli
-ms.openlocfilehash: 58007eea9ce25423bc3a9c2847de42db04be43eb
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
-ms.translationtype: HT
+ms.openlocfilehash: a987239669e7437a179f5f24034f4dbe45535663
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42140668"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60632822"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-monitor-hardware-components-and-status"></a>Utiliser le service StorSimple Device Manager pour surveiller les composants et l’état du matériel
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 Cet article décrit les différents composants physiques et logiques de votre appareil StorSimple série 8000 local. Il explique également comment surveiller l’état des composants de l’appareil à l’aide du panneau **État et intégrité du matériel** du service StorSimple Device Manager.
 
 Le panneau **État et intégrité du matériel** affiche l’état du matériel de tous les composants de l’appareil StorSimple.
@@ -79,7 +79,7 @@ Procédez comme suit pour afficher l'état du matériel d'un composant d’appar
 ## <a name="component-list-for-primary-enclosure-of-storsimple-device"></a>Liste des composants du boîtier principal de l'appareil StorSimple
 Le tableau suivant présente les composants physiques et logiques contenus dans le boîtier principal (sur les modèles 8100 et 8600) de votre appareil StorSimple local.
 
-| Composant | Module | type | Lieu | Unité remplaçable sur site (FRU) ? | Description |
+| Composant | Module | Type | Lieu | Unité remplaçable sur site (FRU) ? | Description |
 | --- | --- | --- | --- | --- | --- |
 | Lecteur à l’emplacement [0-11] |Lecteurs de disque |Physique |Partagé |Oui |Les disques SSD et HDD sont représentés par une ligne dans le boîtier principal. |
 | Capteur de température ambiante |Boîtier |Physique |Partagé |Non  |Mesure de la température à l’intérieur du châssis. |
@@ -120,7 +120,7 @@ Le tableau suivant présente les composants physiques et logiques contenus dans 
 ## <a name="component-list-for-ebod-enclosure-of-storsimple-device"></a>Liste des composants du boîtier EBOD de l'appareil StorSimple
 Le tableau suivant présente les composants physiques et logiques contenus dans le boîtier EBOD (uniquement sur le modèle 8600) de votre appareil StorSimple local.
 
-| Composant | Module | type | Lieu | FRU ? | Description |
+| Composant | Module | Type | Lieu | FRU ? | Description |
 | --- | --- | --- | --- | --- | --- |
 | Lecteur à l’emplacement [0-11] |Lecteurs de disque |Physique |Partagé |Oui |Une ligne représente chacun des disques HDD à l’avant du boîtier EBOD. |
 | Capteur de température ambiante |Boîtier |Physique |Partagé |Non  |Mesure de la température à l’intérieur du châssis. |

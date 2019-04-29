@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 06/20/2018
 ms.author: dlap
 ms.openlocfilehash: bb186ab2700b147bee3a7dd81474409ccafb76fc
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56341712"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60608091"
 ---
 # <a name="trusted-internet-connections-guidance"></a>Recommandations relatives à l’initiative Trusted Internet Connections
 
@@ -184,7 +184,7 @@ Une injection de réseau virtuel permet aux clients de déployer de manière sé
 
 ![Vue d’ensemble de l’injection de réseau virtuel](media/tic-diagram-f.png)
 
-#### <a name="option-b-use-virtual-network-service-endpoints-service-tunnel"></a>Option B : utiliser des points de terminaison de service de réseau virtuel (tunnel de service)
+#### <a name="option-b-use-virtual-network-service-endpoints-service-tunnel"></a>Option B : Utiliser des points de terminaison de service de réseau virtuel (tunnel de service)
 
 Un nombre croissant de services mutualisés Azure offrent des « points de terminaison de service ». Les points de terminaison de service sont une méthode alternative pour l’intégration à des réseaux virtuels Azure. Des points de terminaison de service de réseau virtuel étendent votre espace d’adressage IP de réseau virtuel et l’identité de votre réseau virtuel au service via une connexion directe. Le trafic du réseau virtuel vers le service Azure reste toujours à l’intérieur du réseau principal Azure. 
 
@@ -249,25 +249,25 @@ Vous pouvez aisément configurer l’accès pour Microsoft Azure, Office 365 et
 
 | Catégorie | Charge de travail | IaaS | PaaS dédié / Injection de réseau virtuel  | Points de terminaison de service  |
 |---------|---------|---------|---------|--------|
-| Calcul | Machines virtuelles Linux Azure | OUI | | |
-| Calcul | Machines virtuelles Windows Azure | OUI | | |
-| Calcul | Groupes identiques de machines virtuelles  | OUI | | |
+| Calcul | Machines virtuelles Linux Azure | Oui | | |
+| Calcul | Machines virtuelles Windows Azure | Oui | | |
+| Calcul | Groupes identiques de machines virtuelles  | Oui | | |
 | Calcul | Azure Functions | | Environnement App Service | |
 | Web et mobile | Application web interne | | Environnement App Service| |
 | Web et mobile | Application mobile interne | | Environnement App Service | |
 | Web et mobile | Applications API | | Environnement App Service | |
-| Containers | Azure Container Service | | | OUI |
-| Containers | Azure Kubernetes Service (AKS) \* | | | OUI |
+| Containers | Azure Container Service | | | Oui |
+| Containers | Azure Kubernetes Service (AKS) \* | | | Oui |
 | Base de données | Azure SQL Database | | Azure SQL Database Managed Instance \* | Azure SQL |
-| Base de données | Azure Database pour MySQL | | | OUI |
-| Base de données | Azure Database pour PostgreSQL | | | OUI |
-| Base de données | Azure SQL Data Warehouse | | | OUI |
-| Base de données | Azure Cosmos DB | | | OUI |
-| Base de données | Cache Azure pour Redis | | OUI | |
-| Stockage | Stockage d'objets blob Azure | OUI | | |
-| Stockage | Azure Files | OUI | | |
-| Stockage | Stockage File d’attente Azure | OUI | | |
-| Stockage | Stockage de tables Azure | OUI | | |
-| Stockage | Stockage sur disque Azure | OUI | | |
+| Base de données | Azure Database pour MySQL | | | Oui |
+| Base de données | Azure Database pour PostgreSQL | | | Oui |
+| Base de données | Azure SQL Data Warehouse | | | Oui |
+| Base de données | Azure Cosmos DB | | | Oui |
+| Base de données | Cache Azure pour Redis | | Oui | |
+| Stockage | Stockage d'objets blob Azure | Oui | | |
+| Stockage | Azure Files | Oui | | |
+| Stockage | Stockage File d’attente Azure | Oui | | |
+| Stockage | Stockage de tables Azure | Oui | | |
+| Stockage | Stockage sur disque Azure | Oui | | |
 
 \* Préversion publique dans Azure Government, mai 2018.

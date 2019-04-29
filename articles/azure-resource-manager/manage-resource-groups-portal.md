@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: jgao
 ms.openlocfilehash: cb1eb5ac27c53f4c0d48fe3644febc62f848486d
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58484693"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60551286"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-the-azure-portal"></a>Gérer des groupes de ressources Azure Resource Manager à l’aide du portail Azure
 
@@ -123,7 +123,7 @@ Il existe deux façons d’exporter un modèle :
 Cette méthode exporte les modèles pour certains déploiements. Si vous avez modifié les ressources à partir du portail, ou ajouté ou supprimé des ressources dans plusieurs déploiements, consultez [exporter des modèles de groupes de ressources](#export-templates-from-resource-groups).
 
 1. Ouvrez le groupe de ressources que vous voulez exporter.  Consultez [ouvrir des groupes de ressources](#open-resource-groups).
-2. Dans le volet gauche, sélectionnez **déploiements**, ou sélectionnez le lien situé sous **déploiements**.  Sur la capture d’écran suivante, il montre **Succeeded 4** suite à des quatre séparées par des déploiements avec quatre noms de déploiement différents. Vous pouvez voir **1 réussite**.
+2. Dans le volet gauche, sélectionnez **Déploiements**, ou sélectionnez le lien situé sous **Déploiements**.  Sur la capture d’écran suivante, il montre **Succeeded 4** suite à des quatre séparées par des déploiements avec quatre noms de déploiement différents. Vous pouvez voir **1 réussite**.
 
     ![modèles d’exportation de groupe de ressources Azure](./media/manage-resource-groups-portal/manage-resource-groups-export-templates-deployment-history.png)
 

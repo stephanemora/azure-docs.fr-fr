@@ -13,11 +13,11 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/30/2019
 ms.openlocfilehash: 928338a911efae051df7164239dbd19f9317338a
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55824958"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60584605"
 ---
 # <a name="planning-for-azure-maintenance-events-in-azure-sql-database"></a>Planification des événements de maintenance Azure dans Azure SQL Database
 

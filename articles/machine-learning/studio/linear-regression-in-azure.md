@@ -11,11 +11,11 @@ ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
 ms.openlocfilehash: f6b2f4ef9a4f3f1615081a422a16ea9f2e156571
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57864828"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60861090"
 ---
 # <a name="migrate-analytics-from-excel-to-azure-machine-learning-studio"></a>Migrer l’analytique d’Excel vers Azure Machine Learning Studio
 
@@ -54,8 +54,8 @@ Dans un premier temps, le modèle Excel a clairement surpassé le modèle Studio
 |  | Excel | Studio |
 | --- |:---:|:---:|
 | Performances | | |
-| <ul style="list-style-type: none;"><li>Carré R ajusté</li></ul> |0,96 |S.O. |
-| <ul style="list-style-type: none;"><li>Coefficient de <br />détermination</li></ul> |S.O. |0,78<br />(faible précision) |
+| <ul style="list-style-type: none;"><li>Carré R ajusté</li></ul> |0,96 |N/A |
+| <ul style="list-style-type: none;"><li>Coefficient de <br />détermination</li></ul> |N/A |0,78<br />(faible précision) |
 | Erreur d'absolue moyenne |9,5 M $ |19,4 M $ |
 | Erreur d’absolue moyenne (%) |6,03 % |12,2 % |
 
@@ -73,13 +73,13 @@ Quand nous avons appliqué les recommandations, nous avons obtenu les mêmes per
 | --- |:---:|:---:|:---:|
 | Valeur étiquetée |Chiffres réels (numérique) |identique |identique |
 | Apprenant |Excel -> Analyse des données -> Régression |Régression linéaire. |régression linéaire |
-| Options de l’apprenant |S.O. |Valeurs par défaut |moindres carrés ordinaires<br />L2 = 0,005 |
+| Options de l’apprenant |N/A |Valeurs par défaut |moindres carrés ordinaires<br />L2 = 0,005 |
 | Jeu de données |26 lignes, 3 fonctionnalités, 1 étiquette. Tout au format numérique. |identique |identique |
 | Split : Former |Excel a exécuté la formation sur les 18 premières lignes, et le test sur les 8 dernières lignes. |identique |identique |
 | Split : Test |Formule de régression Excel appliquée aux 8 dernières lignes |identique |identique |
 | **Performances** | | | |
-| Carré R ajusté |0,96 |S.O. | |
-| Coefficient de détermination |S.O. |0,78 |0,952049 |
+| Carré R ajusté |0,96 |N/A | |
+| Coefficient de détermination |N/A |0,78 |0,952049 |
 | Erreur d'absolue moyenne |9,5 M $ |19,4 M $ |9,5 M $ |
 | Erreur d’absolue moyenne (%) |<span style="background-color: 00FF00;"> 6,03 %</span> |12,2 % |<span style="background-color: 00FF00;"> 6,03 %</span> |
 

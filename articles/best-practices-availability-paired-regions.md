@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 04/17/2019
 ms.author: raynew
 ms.openlocfilehash: ecbe73e02631e3c3601bd929282d467cb05b41e4
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59678868"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60616838"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Continuité et reprise d’activité : Régions jumelées Azure
 
@@ -34,7 +34,7 @@ Figure 1 – Paires régionales Azure
 | Brésil |Brésil Sud |USA Centre Sud |
 | Canada |Centre du Canada |Est du Canada |
 | Chine |Chine du Nord |Chine orientale|
-| Chine |Chine Nord 2 |Chine orientale 2|
+| Chine |Chine Nord 2 |Chine Est 2|
 | Europe |Europe du Nord |Europe Ouest |
 | France |France Centre|France Sud|
 | Allemagne |Centre de l’Allemagne |Nord-Est de l’Allemagne |

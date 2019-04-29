@@ -17,11 +17,11 @@ ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
 ms.openlocfilehash: a758cce85645e72bfd9434a69393133d3da6b57d
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60011365"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60591597"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Configurer une instance de cluster de basculement SQL Server sur des machines virtuelles Azure
 
@@ -99,7 +99,7 @@ Avant de suivre les instructions de cet article, vérifiez que vous disposez dé
 
 Une fois ces conditions préalables en place, vous pouvez passer à la création de votre cluster de basculement. La première étape consiste à créer les machines virtuelles.
 
-## <a name="step-1-create-virtual-machines"></a>Étape 1 : Créer des machines virtuelles
+## <a name="step-1-create-virtual-machines"></a>Étape 1 : Créer des machines virtuelles
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) avec votre abonnement.
 
@@ -198,7 +198,7 @@ Une fois ces conditions préalables en place, vous pouvez passer à la création
 
 Une fois les machines virtuelles créées et configurées, vous pouvez configurer le cluster de basculement.
 
-## <a name="step-2-configure-the-windows-failover-cluster-with-s2d"></a>Étape 2 : Configurer le cluster de basculement Windows avec la technologie S2D
+## <a name="step-2-configure-the-windows-failover-cluster-with-s2d"></a>Étape 2 : Configurer le cluster de basculement Windows avec la technologie S2D
 
 L’étape suivante consiste à configurer le cluster de basculement avec la technologie S2D. Dans cette étape, vous allez exécuter les sous-étapes suivantes :
 
@@ -318,7 +318,7 @@ Les disques pour la technologie S2D doivent être vides et sans partitions ou au
 
 Dans le Gestionnaire du cluster de basculement, vérifiez que vous pouvez déplacer la ressource de stockage vers l’autre nœud du cluster. Si vous pouvez vous connecter au cluster de basculement avec le **Gestionnaire du cluster de basculement** et déplacer le stockage d’un nœud à l’autre, vous êtes prêt à configurer l’instance de cluster de basculement.
 
-## <a name="step-4-create-sql-server-fci"></a>Étape 4 : Créer l’instance de cluster de basculement SQL Server
+## <a name="step-4-create-sql-server-fci"></a>Étape 4 : Créer l’instance de cluster de basculement SQL Server
 
 Après avoir configuré le cluster de basculement et tous les composants du cluster, notamment le stockage, vous pouvez créer l’instance de cluster de basculement SQL Server.
 
@@ -347,7 +347,7 @@ Après avoir configuré le cluster de basculement et tous les composants du clus
    >[!NOTE]
    >Si vous avez utilisé une image de la galerie Azure Marketplace avec SQL Server, les outils SQL Server ont été inclus avec l’image. Si vous n’avez pas utilisé cette image, installez les outils SQL Server séparément. Consultez [Télécharger SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx).
 
-## <a name="step-5-create-azure-load-balancer"></a>Étape 5 : Créer un équilibreur de charge Azure
+## <a name="step-5-create-azure-load-balancer"></a>Étape 5 : Créer un équilibreur de charge Azure
 
 Sur les machines virtuelles Azure, les clusters utilisent un équilibrage de charge pour conserver une adresse IP qui doit se trouver sur un nœud de cluster à la fois. Dans cette solution, l’équilibrage de charge contient l’adresse IP de l’instance de cluster de basculement SQL Server.
 

@@ -14,17 +14,17 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 75d0bbc536c907e6530570b4d7568f39371cfced
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: HT
+ms.openlocfilehash: e2adccaf1371cf322b5a50b0e1f6ef64dde14b66
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2017
-ms.locfileid: "26367673"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60628657"
 ---
 # <a name="what-is-storsimple-for-cloud-solutions-providers-program"></a>Qu’est-ce que StorSimple pour le programme des fournisseurs de solutions cloud ?
 
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 
 Microsoft Azure StorSimple est une approche unique pour le stockage d’entreprise avec des capacités de stockage cloud hybride réelles. Il permet aux clients de tirer parti du stockage cloud économique pour les données inactives, tout en conservant leurs données critiques en local pour obtenir des niveaux de performances plus élevés. 
 
@@ -32,7 +32,7 @@ La baie virtuelle StorSimple pour le programme des fournisseurs de solutions clo
 
 Pour plus d’informations sur StorSimple pour le programme des fournisseurs de solutions cloud, accédez à la page [Vue d’ensemble du programme des fournisseurs de solutions cloud Azure](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview).
 
-Pour plus d’informations sur la facturation, la tarification, les offres incitatives et obtenir l’assistance relative aux fournisseurs de solutions cloud, accédez à [StorSimple for Cloud Solutions Provider Program: Frequently asked questions](storsimple-partner-csp-faq.md) (StorSimple pour le programme des fournisseurs de solutions cloud : Forum Aux Questions). 
+Pour plus d’informations sur la facturation, tarification, des primes et la prise en charge dans CSP, accédez à [StorSimple dans CSP : FORUM AUX QUESTIONS](storsimple-partner-csp-faq.md). 
 
 ## <a name="deploy-and-manage-storsimple-for-csp"></a>Déployer et gérer StorSimple pour le programme des fournisseurs de solutions cloud
 
@@ -42,5 +42,5 @@ Pour plus d’informations, consultez [Deploy StorSimple Virtual Array for Cloud
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Si vous avez des questions supplémentaires concernant StorSimple dans le programme des fournisseurs de solutions cloud, accédez à [StorSimple for Cloud Solutions Provider Program: Frequently asked questions](storsimple-partner-csp-faq.md) (StorSimple pour le programme des fournisseurs de solutions cloud : Forum Aux Questions).
+- Si vous avez des questions supplémentaires concernant StorSimple dans CSP, accédez à [StorSimple pour le fournisseur de services cryptographiques : questions fréquentes](storsimple-partner-csp-faq.md).
 - Si vous êtes prêt à déployer votre solution StorSimple, accédez à [Deploy StorSimple Virtual Array for Cloud Solution Provider Program](storsimple-partner-csp-deploy.md) (Déployer la baie virtuelle StorSimple pour le programme des fournisseurs de solutions cloud).

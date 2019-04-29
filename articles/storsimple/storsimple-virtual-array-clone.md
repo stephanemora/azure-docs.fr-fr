@@ -15,15 +15,15 @@ ms.workload: NA
 ms.date: 11/21/2016
 ms.author: alkohli
 ms.openlocfilehash: feffbb634af62d70a840febcf2a04afb7bdeeddd
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55496787"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60580858"
 ---
 # <a name="clone-from-a-backup-of-your-storsimple-virtual-array"></a>Cloner à partir d’une sauvegarde de votre instance StorSimple Virtual Array
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 
 Cet article décrit étape par étape comment cloner un jeu de sauvegarde de vos partages ou volumes sur votre instance Microsoft Azure StorSimple Virtual Array. La sauvegarde clonée est utilisée pour récupérer un fichier supprimé ou perdu. L'article inclut également une procédure détaillée pour effectuer une récupération au niveau de l’élément sur votre instance StorSimple Virtual Array configurée comme un serveur de fichiers.
 

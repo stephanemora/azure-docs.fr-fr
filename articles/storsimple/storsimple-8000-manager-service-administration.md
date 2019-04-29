@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/12/2017
 ms.author: alkohli
-ms.openlocfilehash: 0e7d7f44a70278a7777ba6c32c8e546074953fdc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: b5490c4e79ee1458b498f539c0db2cc189fce7f7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23108567"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60723304"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-administer-your-storsimple-device"></a>Utiliser le service StorSimple Device Manager pour gérer votre appareil StorSimple
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Présentation
 
 Cet article décrit l’interface du service StorSimple Device Manager, y compris la procédure pour s’y connecter et les options disponibles, et offre des liens vers les flux de travail spécifiques exécutables via cette interface utilisateur. Ce guide s’applique à la fois aux appareils physiques StorSimple et à StorSimple Cloud Appliance.
 
@@ -52,9 +52,9 @@ Pour plus d'informations sur chaque flux de travail, cliquez sur la procédure a
 
 | Pour ce faire... | Suivez cette procédure. |
 | --- | --- |
-| Création d’un service</br>Supprimer un service</br>Obtenir la clé d’inscription au service</br>Régénération d’une clé d’inscription de service |[Déployer un service StorSimple Device Manager](storsimple-8000-manage-service.md) |
+| Créer un service</br>Supprimer un service</br>Obtenir la clé d’inscription au service</br>Régénération d’une clé d’inscription de service |[Déployer un service StorSimple Device Manager](storsimple-8000-manage-service.md) |
 | Afficher les journaux d’activité |[Utiliser le panneau de synthèse du service StorSimple Device Manager](storsimple-8000-service-dashboard.md) |
-| Modifier la clé de chiffrement des données de service</br>Affichage des journaux des opérations |[Utilisation du tableau de bord du service StorSimple Device Manager](storsimple-8000-service-dashboard.md) |
+| Modifier la clé de chiffrement des données de service</br>Affichage des journaux d’activité des opérations |[Utilisation du tableau de bord du service StorSimple Device Manager](storsimple-8000-service-dashboard.md) |
 | Désactiver un appareil</br>Suppression d’un appareil |[Désactivation ou suppression d’un appareil](storsimple-8000-deactivate-and-delete-device.md) |
 | En savoir plus sur le basculement entre appareils et la récupération d’urgence</br>Basculement vers un appareil physique</br>Basculement vers un appareil virtuel</br>Continuité d’activité et récupération d’urgence (Business Continuity Disaster Recovery - BCDR) |[Basculement et récupération d’urgence pour votre appareil StorSimple](storsimple-8000-device-failover-disaster-recovery.md) |
 | Liste des sauvegardes d’un volume</br>Sélectionner un jeu de sauvegarde</br>Supprimer un jeu de sauvegarde |[Gestion des sauvegardes](storsimple-8000-manage-backup-catalog.md) |
@@ -66,7 +66,7 @@ Pour plus d'informations sur chaque flux de travail, cliquez sur la procédure a
 | Affichage des détails d’une tâche</br>Annulation d’une tâche |[Gestion des travaux](storsimple-8000-manage-jobs-u2.md) |
 | Réception de notifications d’alerte</br>Gérer les alertes</br>Consulter les alertes |[Affichage et gestion des alertes StorSimple](storsimple-8000-manage-alerts.md) |
 | Création de graphiques d’analyse |[Surveillance de votre appareil StorSimple](storsimple-monitor-device.md) |
-| Ajout d’un conteneur de volumes</br>Modifier un conteneur de volumes</br>Supprimer un conteneur de volumes |[Gestion de conteneurs de volume](storsimple-8000-manage-volume-containers.md) |
+| Ajouter un conteneur de volumes</br>Modifier un conteneur de volumes</br>Supprimer un conteneur de volumes |[Gestion de conteneurs de volume](storsimple-8000-manage-volume-containers.md) |
 | Ajout d’un volume</br>Modification d’un volume</br>Mise hors connexion d’un volume</br>Suppression d’un volume</br>Analyse d’un volume |[Gérer les volumes](storsimple-8000-manage-volumes-u2.md) |
 | Modification des paramètres de l’appareil</br>Modification des paramètres d’heure</br>Modification des paramètres DNS.md</br>Configuration d’interfaces réseau |[Modification de la configuration de votre appareil StorSimple](storsimple-8000-modify-device-config.md) |
 | Afficher les paramètres de proxy web |[Configuration du proxy web de votre appareil](storsimple-8000-configure-web-proxy.md) |
@@ -78,7 +78,7 @@ Pour plus d'informations sur chaque flux de travail, cliquez sur la procédure a
 | Arrêt des contrôleurs d’appareil</br>Redémarrage des contrôleurs de l’appareil</br>Arrêt des contrôleurs de l'appareil</br>Réinitialisation de votre appareil aux valeurs par défaut</br>(Les données ci-dessus s’appliquent aux appareils en local uniquement) |[Gestion du contrôleur d’appareil StorSimple](storsimple-8000-manage-device-controller.md) |
 | En savoir plus sur les composants matériels de StorSimple</br>Surveillance de l'état du matériel</br>(Les données ci-dessus s’appliquent aux appareils en local uniquement) |[Surveillance des composants matériels](storsimple-8000-monitor-hardware-status.md) |
 | Création d’un package de prise en charge |[Création et gestion d’un package de prise en charge](storsimple-8000-contact-microsoft-support.md#start-a-support-session-in-windows-powershell-for-storsimple) |
-| Installer les mises à jour logicielles |[Mettre à jour votre appareil](storsimple-update-device.md) |
+| Installer les mises à jour logicielles |[Mise à jour de votre appareil](storsimple-update-device.md) |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

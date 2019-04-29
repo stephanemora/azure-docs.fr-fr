@@ -16,11 +16,11 @@ ms.date: 08/24/2018
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 1e4feaed9f4e8f6dd3275da25e33e57197731572
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523441"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60838958"
 ---
 # <a name="security-in-azure-app-service"></a>Sécurité dans Azure App Service
 
@@ -87,7 +87,7 @@ Dans chacun de ces cas, App Service fournit un moyen d’établir des connexions
 
 Quand votre application se connecte à des ressources Azure, telles que [SQL Database](https://azure.microsoft.com/services/sql-database/) et [Stockage Azure](/azure/storage/), la connexion reste dans Azure et ne franchit pas les limites du réseau. Toutefois, comme la connexion emprunte le dispositif réseau partagé dans Azure, assurez-vous systématiquement qu’elle est chiffrée. 
 
-Si votre application est hébergée dans un [environnement App Service](environment/intro.md), vous devez [vous connecter à des services Azure pris en charge à l’aide de points de terminaison du service Réseau virtuel](../virtual-network/virtual-network-service-endpoints-overview.md).
+Si votre application est hébergée dans un [environnement App Service](environment/intro.md), vous devez [vous connecter à des services Azure pris en charge à l’aide de points de terminaison de service de réseau virtuel](../virtual-network/virtual-network-service-endpoints-overview.md).
 
 ### <a name="resources-inside-an-azure-virtual-network"></a>Ressources à l’intérieur d’un réseau virtuel Azure
 

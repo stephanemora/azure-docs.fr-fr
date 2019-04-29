@@ -2,18 +2,18 @@
 title: Points de terminaison de sécurité du service de provisionnement d’appareils IoT | Microsoft Docs
 description: 'Concepts : Comment contrôler l’accès au service de provisionnement des appareils IoT pour les applications principales. Inclut des informations sur les jetons de sécurité.'
 author: wesmc7777
-manager: philmea
+manager: timlt
 ms.service: iot-dps
 services: iot-dps
 ms.topic: conceptual
-ms.date: 04/09/2019
+ms.date: 09/28/2017
 ms.author: wesmc
 ms.openlocfilehash: 7ff622ceac9c49eda7ba6bca1a8bb3aaabccb816
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59495428"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60626646"
 ---
 # <a name="control-access-to-azure-iot-hub-device-provisioning-service"></a>Contrôler l’accès au service de provisionnement d’appareils Azure IoT Hub
 
@@ -39,7 +39,7 @@ Vous pouvez accorder des [autorisations](#device-provisioning-service-permission
 > [!NOTE]
 > Pour plus d’informations, consultez la page [Autorisations](#device-provisioning-service-permissions).
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Authentification
 
 Le service de provisionnement d’appareils Azure IoT Hub accorde l’accès aux points de terminaison en vérifiant la validité d’un jeton par rapport aux stratégies d’accès partagé. Les informations d’identification de sécurité telles que les clés symétriques ne sont jamais envoyées sur le réseau.
 

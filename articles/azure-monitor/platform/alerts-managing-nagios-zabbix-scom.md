@@ -9,17 +9,17 @@ ms.date: 09/24/2018
 ms.author: anantr
 ms.subservice: alerts
 ms.openlocfilehash: 48fb9d8eaf2003834a420b48d649c830c608fd6e
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54421213"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60712976"
 ---
 # <a name="manage-alerts-from-scom-zabbix-and-nagios-in-azure-monitor"></a>Gérer les alertes à partir de SCOM, Zabbix et Nagios dans Azure Monitor
 
 Vous pouvez maintenant visualiser vos alertes Nagios, Zabbix et System Center Operations Manager dans [Azure Monitor](https://aka.ms/azure-alerts-overview). Ces alertes sont issues des intégrations avec les serveurs Nagios/Zabbix ou System Center Operations Manager dans Log Analytics. 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 Tous les enregistrements dans le référentiel Log Analytics ayant le type Alerte sont importés dans Azure Monitor. Vous devez donc effectuer la configuration nécessaire pour collecter ces enregistrements.
 1. Pour les alertes **Nagios** et **Zabbix**, [configurez ces serveurs](https://docs.microsoft.com/azure/log-analytics/log-analytics-linux-agents) pour [envoyer des alertes](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-alerts-nagios-zabbix?toc=%2Fazure%2Fazure-monitor%2Ftoc.json) à Log Analytics.
 1. Pour les alertes **System Center Operations Manager**, [connectez votre groupe d’administration Operations Manager à votre espace de travail Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-om-agents). Ensuite, déployez la solution [Alert Management](https://docs.microsoft.com/azure/azure-monitor/platform/alert-management-solution) à partir de la Place de marché des solutions Azure. Quand vous avez terminé, toutes les alertes créées dans System Center Operations Manager sont importées dans Log Analytics.

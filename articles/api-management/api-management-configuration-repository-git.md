@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/12/2019
 ms.author: apimpm
 ms.openlocfilehash: adf4d8d5cfcef2dde8193ce1b7f2805a44e2d93d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58793269"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60657883"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Comment enregistrer et configurer votre configuration du service Gestion des API à l’aide de Git
 
@@ -165,7 +165,7 @@ Chaque dossier peut contenir un ou plusieurs fichiers et, dans certains cas, un 
 | --- | --- |
 | json |Informations de configuration sur l’entité concernée |
 | html |Descriptions de l’entité, souvent affichées dans le portail des développeurs |
-| xml |Policy statements |
+| Xml |Policy statements |
 | css |Feuilles de style pour la personnalisation du portail des développeurs |
 
 Ces fichiers peuvent être créés, supprimés, modifiés et gérés dans votre système de fichiers local, et les modifications peuvent être redéployées sur votre instance du service Gestion des API.

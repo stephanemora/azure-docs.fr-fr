@@ -13,15 +13,15 @@ ms.reviewer: mathoma
 manager: craigg
 ms.date: 02/07/2019
 ms.openlocfilehash: b20a119a69ac796bc9ea85083d335f0a7d2fdf2d
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58417953"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60646757"
 ---
 # <a name="configure-replication-in-an-azure-sql-database-managed-instance-database"></a>Configurer la réplication dans une base de données d’instances managées Azure SQL Database
 
-La réplication transactionnelle vous permet de répliquer des données dans une base de données d’instances managées Azure SQL Database à partir d’une base de données SQL Server ou d’une autre base de données d’instances. Vous pouvez également utiliser la réplication transactionnelle pour envoyer (push) les modifications apportées à une base de données d’instances dans une instance managée Azure SQL Database à une base de données SQL Server, une base de données unique dans Azure SQL Database, une base de données regroupée dans un pool élastique Azure SQL Database. La réplication transactionnelle est disponible en préversion publique dans une [instance managée Azure SQL Database](sql-database-managed-instance.md). Une instance managée peut héberger des bases de données de serveur de publication, de serveur de distribution et d’abonné. Consultez [Configurations de réplication transactionnelle](sql-database-managed-instance-transactional-replication.md#common-configurations) pour connaître les configurations disponibles.
+La réplication transactionnelle vous permet de répliquer des données dans une base de données d’instances managées Azure SQL Database à partir d’une base de données SQL Server ou d’une autre base de données d’instances. Vous pouvez également utiliser la réplication transactionnelle pour envoyer (push) les modifications apportées à une base de données d’instances dans une instance managée Azure SQL Database à une base de données SQL Server, une base de données unique dans Azure SQL Database, une base de données mise en pool dans un pool élastique Azure SQL Database. La réplication transactionnelle est disponible en préversion publique dans une [instance managée Azure SQL Database](sql-database-managed-instance.md). Une instance managée peut héberger des bases de données de serveur de publication, de serveur de distribution et d’abonné. Consultez [Configurations de réplication transactionnelle](sql-database-managed-instance-transactional-replication.md#common-configurations) pour connaître les configurations disponibles.
 
 ## <a name="requirements"></a>Configuration requise
 
@@ -30,7 +30,7 @@ La configuration d’une instance managée pour fonctionner en tant qu’éditeu
 - Que l’instance managée ne participe pas actuellement à une relation de géoréplication.
 
    >[!NOTE]
-   >Les bases de données uniques et les bases de données regroupées dans Azure SQL Database ne peuvent être que des abonnés.
+   >Les bases de données uniques et les bases de données mises en pool dans Azure SQL Database ne peuvent être que des abonnés.
 
 - Toutes les instances managées doivent se trouver sur le même réseau virtuel.
 
@@ -60,9 +60,9 @@ Les fonctionnalités suivantes ne sont pas prises en charge dans une instance ma
 
    Veillez à copier les clés de stockage. Consultez [Afficher et copier les clés d’accès de stockage](../storage/common/storage-account-manage.md#access-keys
 ).
-3. Créez une base de données d’instances pour le serveur de publication.
+3. Créez une base de données d’instance pour le serveur de publication.
 
-   Dans les exemples de scripts ci-dessous, remplacez `<Publishing_DB>` par le nom de cette base de données d’instances.
+   Dans les exemples de scripts ci-dessous, remplacez `<Publishing_DB>` par le nom de cette base de données d’instance.
 
 4. Créez un utilisateur de base de données avec l’authentification SQL pour le serveur de distribution. Utilisez un mot de passe sécurisé.
 

@@ -8,15 +8,15 @@ ms.topic: article
 ms.date: 03/26/2019
 ms.author: danlep
 ms.openlocfilehash: 7fdc1417ac524b422a12a087cf1661040efb9f8a
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521956"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60582831"
 ---
 # <a name="azure-container-registry-skus"></a>Références (SKU) Azure Container Registry
 
-Azure Container Registry (ACR) est disponible dans plusieurs niveaux de service, appelés références (SKU). Ces références SKU offrent une tarification prévisible et plusieurs options pour l’alignement en fonction de la capacité et des modèles d’utilisation de votre registre Docker privé dans Azure.
+Azure Container Registry (ACR) est disponible dans plusieurs niveaux de service, appelés références SKU. Ces références SKU offrent une tarification prévisible et plusieurs options pour l’alignement en fonction de la capacité et des modèles d’utilisation de votre registre Docker privé dans Azure.
 
 | SKU | Adresses IP gérées | Description |
 | --- | :-------: | ----------- |
@@ -28,7 +28,7 @@ Azure Container Registry (ACR) est disponible dans plusieurs niveaux de service,
 > [!IMPORTANT]
 > La référence (SKU) est en cours de Registre classique **déconseillée**et ne sera pas disponible après **avril 2019**. Nous vous recommandons d’utiliser la base, Standard ou Premium pour tous les nouveaux registres. Tous les registres classique existants doivent être mis à niveau avant avril 2019. Pour plus d’informations de mise à niveau, consultez [mettre à niveau un Registre classique][container-registry-upgrade].
 
-Les références de base, Standard et Premium (collectivement appelés *gérés registres*) fournissent tous des mêmes fonctionnalités de programmation. Ils bénéficient également des toutes [image stockage] [ container-registry-storage] entièrement géré par Azure. Une référence de niveau supérieur fournit de meilleures performances et une meilleure mise à l’échelle. Avec plusieurs niveaux de service, vous pouvez commencer avec un niveau basique, puis passer aux niveaux Standard et Premium au fur et à mesure que votre l’utilisation du registre augmente.
+Les références de base, Standard et Premium (collectivement appelés *gérés registres*) fournissent tous des mêmes fonctionnalités de programmation. Ils bénéficient également des toutes [image stockage] [ container-registry-storage] entièrement géré par Azure. Une référence de niveau supérieur fournit de meilleures performances et une meilleure mise à l’échelle. Avec plusieurs niveaux de service, vous pouvez commencer avec un niveau De base, puis passer aux niveaux Standard et Premium au fur et à mesure que votre utilisation du registre augmente.
 
 ## <a name="sku-feature-matrix"></a>Matrice de fonctionnalités des références SKU
 

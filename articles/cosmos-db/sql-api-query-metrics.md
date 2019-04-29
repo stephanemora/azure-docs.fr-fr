@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: sngun
 ms.openlocfilehash: c7b62f66830e17fd8f6607e0a629307a9ab6fc78
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56983589"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60546418"
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Réglage des performances de requête avec Azure Cosmos DB
 
@@ -259,7 +259,7 @@ Les kits SDK client peuvent effectuer plusieurs opérations de requête en inter
 
 Voici quelques exemples de requête, et la façon d’interpréter certains mesures retournées à partir de l’exécution des requêtes : 
 
-| Requête | Exemples de mesures | Description | 
+| Interroger | Exemples de mesures | Description | 
 | ------ | -----| ----------- |
 | `SELECT TOP 100 * FROM c` | `"RetrievedDocumentCount": 101` | Le nombre de documents récupérés est 100 + 1 pour correspondre à la clause TOP. Le temps de la requête est essentiellement consacré à `WriteOutputTime` et `DocumentLoadTime` puisqu’il s’agit d’une analyse. | 
 | `SELECT TOP 500 * FROM c` | `"RetrievedDocumentCount": 501` | RetrievedDocumentCount est désormais plus élevé (500 + 1 pour correspondre à la clause TOP). | 

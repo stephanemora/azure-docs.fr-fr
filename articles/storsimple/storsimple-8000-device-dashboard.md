@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 784d3ce9d8f926b00ac1c6fbf48a05c0b04f900a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 1d88af2c0739c30b2562bad7660015b890e8159c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23108257"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60578220"
 ---
 # <a name="use-the-device-summary-in-storsimple-device-manager-service"></a>Utiliser le panneau de synthèse de l’appareil dans le service StorSimple Device Manager
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Présentation
 Le panneau de synthèse de l’appareil StorSimple offre une vue d’ensemble des informations relatives à un appareil StorSimple spécifique, à la différence du panneau de synthèse du service, qui regroupe les informations concernant tous les appareils inclus dans votre solution Microsoft Azure StorSimple.
 
 Le panneau de synthèse de l’appareil fournit une vue récapitulative d’un appareil de la gamme StorSimple 8000 inscrit auprès d’une instance StorSimple Device Manager donnée, en mettant en évidence les problèmes qui nécessitent l’intervention d’un administrateur système. Ce didacticiel présente le panneau de synthèse des appareils, explique le contenu et la fonctionnalité et décrit les travaux que vous pouvez effectuer à partir de ce panneau.
@@ -44,7 +44,7 @@ La zone des éléments principaux comporte quelques-unes des propriétés import
 
 ![Éléments principaux des appareils](./media/storsimple-8000-device-dashboard/device-summary3.png)
 
-## <a name="monitoring"></a>Analyse
+## <a name="monitoring"></a>Surveillance
 
 * La vignette **Alertes** fournit un instantané de l’ensemble des alertes actives associées à votre appareil, regroupées par niveau de gravité.
 

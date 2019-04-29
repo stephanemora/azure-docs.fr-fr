@@ -1,17 +1,18 @@
 ---
 title: Concepts de haute disponibilité dans une base de données Azure pour PostgreSQL
 description: Cet article fournit des informations de haute disponibilité lors de l’utilisation d’Azure Database pour PostgreSQL.
-author: rachel-msft
-ms.author: raagyema
+author: WenJason
+ms.author: v-jay
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/01/2019
+origin.date: 02/01/2019
+ms.date: 02/18/2019
 ms.openlocfilehash: d43647b57469efa4581dc1c74a842a51e9d54ad7
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55699814"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60623814"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-postgresql"></a>Concepts de haute disponibilité dans une base de données Azure pour PostgreSQL
 Le service Azure Database pour PostgreSQL fournit un haut niveau de disponibilité garanti. Le contrat de niveau de service (SLA) est de 99,99 % selon la disponibilité générale. Il n’existe pratiquement aucun temps d’arrêt d’application lors de l’utilisation de ce service.

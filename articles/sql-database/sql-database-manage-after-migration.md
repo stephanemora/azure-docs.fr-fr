@@ -1,5 +1,5 @@
 ---
-title: Gérer des bases de données uniques et en pool après la migration - Azure SQL Database | Microsoft Docs
+title: Gérer des bases de données uniques et mises en pool après la migration - Azure SQL Database | Microsoft Docs
 description: Découvrez comment gérer votre base de données après la migration vers Azure SQL Database.
 services: sql-database
 ms.service: sql-database
@@ -13,21 +13,21 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 02/13/2019
 ms.openlocfilehash: a83bc6518409add8a0732e5a0b17ab46c36564af
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59358418"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60703312"
 ---
-# <a name="new-dba-in-the-cloud--managing-your-single-and-pooled-databases-in-azure-sql-database"></a>Nouvel administrateur de base de données dans le cloud - Gérer vos bases de données uniques et en pool dans Azure SQL Database
+# <a name="new-dba-in-the-cloud--managing-your-single-and-pooled-databases-in-azure-sql-database"></a>Nouvel administrateur de base de données dans le cloud - Gérer vos bases de données uniques et mises en pool dans Azure SQL Database
 
-Le passage d’un environnement autogéré et auto-contrôlé traditionnel à un environnement PaaS peut sembler un peu lourd dans un premier temps. En tant que développeur d’applications ou administrateur de base de données, vous avez besoin de connaître les principales fonctionnalités de la plateforme qui facilitent le maintien de la disponibilité, des performances, de la sécurité et de la résilience de votre application, en continu. Cet article va répondre précisément à ce besoin. L'article organise succinctement les ressources et vous fournit des conseils sur la façon de mieux utiliser les fonctionnalités clés de SQL Database avec des bases de données uniques et en pool pour gérer votre application, maintenir son efficacité et atteindre des résultats optimaux dans le cloud. Cet article vous intéresse si vous êtes dans les cas suivants :
+Le passage d’un environnement autogéré et auto-contrôlé traditionnel à un environnement PaaS peut sembler un peu lourd dans un premier temps. En tant que développeur d’applications ou administrateur de base de données, vous avez besoin de connaître les principales fonctionnalités de la plateforme qui facilitent le maintien de la disponibilité, des performances, de la sécurité et de la résilience de votre application, en continu. Cet article va répondre précisément à ce besoin. L'article organise succinctement les ressources et vous fournit des conseils sur la façon de mieux utiliser les fonctionnalités clés de SQL Database avec des bases de données uniques et mises en pool pour gérer votre application, maintenir son efficacité et atteindre des résultats optimaux dans le cloud. Cet article vous intéresse si vous êtes dans les cas suivants :
 
 - Vous êtes en train d'évaluer la migration de vos applications vers Azure SQL Database - Modernisation de vos applications.
 - Vous êtes en train d’effectuer la migration de vos applications – Scénario de migration en cours.
 - Vous avez récemment terminé la migration vers Azure SQL DB – Nouvel administrateur de base de données dans le cloud.
 
-Cet article traite de certaines caractéristiques essentielles d'Azure SQL Database en tant que plateforme, auxquelles vous pouvez facilement avoir recours lorsque vous utilisez des bases de données uniques et des bases de données regroupées dans des pools élastiques. Ces caractéristiques sont les suivantes :
+Cet article traite de certaines caractéristiques essentielles d'Azure SQL Database en tant que plateforme, auxquelles vous pouvez facilement avoir recours lorsque vous utilisez des bases de données uniques et des bases de données mises en pool dans des pools élastiques. Ces caractéristiques sont les suivantes :
 
 - Continuité d’activité et récupération d’urgence (BCDR)
 - Sécurité et conformité
@@ -43,7 +43,7 @@ Les possibilités de continuité d’activité et de récupération d’urgence 
 
 ### <a name="how-do-i-create-and-manage-backups-on-sql-database"></a>Comment créer et gérer les sauvegardes dans SQL Database
 
-Vous ne créez pas de sauvegardes sur Azure SQL Database parce que vous n’avez pas à le faire. SQL Database sauvegarde automatiquement les bases de données pour vous, donc vous n’avez plus à vous inquiéter de leur planification, leur exécution et leur gestion. La plateforme effectue une sauvegarde complète toutes les semaines, une sauvegarde différentielle à l’issue de quelques heures et une sauvegarde de journal toutes les 5 minutes pour garantir l’efficacité de la récupération d’urgence et une perte de données minimale. La première sauvegarde complète se produit dès que vous créez une base de données. Ces sauvegardes sont à votre disposition pendant un certain temps appelé « période de conservation », qui varie selon la taille de calcul que vous choisissez. SQL Database vous offre la possibilité d’effectuer une restauration à partir de n’importe quel point dans le temps compris dans cette période de rétention à l’aide d’une [récupération jusqu’à une date et heure](sql-database-recovery-using-backups.md#point-in-time-restore).
+Vous ne créez pas de sauvegardes sur Azure SQL Database parce que vous n’avez pas à le faire. SQL Database sauvegarde automatiquement les bases de données pour vous, donc vous n’avez plus à vous inquiéter de leur planification, leur exécution et leur gestion. La plateforme effectue une sauvegarde complète toutes les semaines, une sauvegarde différentielle à l’issue de quelques heures et une sauvegarde de journal toutes les 5 minutes pour garantir l’efficacité de la récupération d’urgence et une perte de données minimale. La première sauvegarde complète se produit dès que vous créez une base de données. Ces sauvegardes sont à votre disposition pendant un certain temps appelé « période de conservation », qui varie selon la taille de calcul que vous choisissez. SQL Database vous offre la possibilité d’effectuer une restauration à partir de n’importe quel point dans le temps compris dans cette période de rétention à l’aide d’une [récupération jusqu’à une date et heure](sql-database-recovery-using-backups.md#point-in-time-restore).
 
 |Niveau de service|Période de rétention en jours|
 |---|:---:|
@@ -111,7 +111,7 @@ Il existe plusieurs techniques à votre disposition pour garantir une organisati
 
 Un pare-feu empêche l’accès à votre serveur à partir d’une entité externe en autorisant uniquement l’accès à votre serveur SQL Database à des entités spécifiques. Par défaut, toutes les connexions et bases de données sont refusées au sein du serveur SQL Database, à l’exception des connexions provenant d’autres services Azure. Avec une règle de pare-feu, vous pouvez ouvrir l’accès à votre serveur à certaines entités uniquement (par exemple, un ordinateur de développeur) que vous approuvez, en autorisant l’adresse IP correspondante à traverser le pare-feu. Une règle vous permet également de spécifier une plage d’adresses IP auxquelles vous autorisez l’accès au serveur SQL Database. Par exemple, vous pouvez rapidement ajouter toutes les adresses IP des ordinateurs de développeur de votre organisation en spécifiant une plage dans la page des paramètres du pare-feu.
 
-Vous pouvez créer des règles de pare-feu au niveau du serveur ou de la base de données. Des règles de pare-feu IP de niveau serveur peuvent être créées à l'aide du portail Azure ou avec SSMS. Pour en savoir plus sur la façon de définir une règle de pare-feu au niveau du serveur et de la base de données, consultez : [Créer des règles de pare-feu IP dans SQL Database](sql-database-security-tutorial.md#create-firewall-rules).
+Vous pouvez créer des règles de pare-feu au niveau du serveur ou de la base de données. Des règles de pare-feu IP de niveau serveur peuvent être créées à l’aide du portail Azure ou avec SSMS. Pour en savoir plus sur la façon de définir une règle de pare-feu au niveau du serveur et de la base de données, consultez : [Créer des règles de pare-feu IP dans SQL Database](sql-database-security-tutorial.md#create-firewall-rules).
 
 #### <a name="service-endpoints"></a>Points de terminaison de service
 
