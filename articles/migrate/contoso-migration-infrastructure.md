@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 10/1/2018
 ms.author: raynew
 ms.openlocfilehash: 5dfe768ddb3509f896b90f913ffecdf33907357a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57876678"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60682417"
 ---
 # <a name="contoso---deploy-a-migration-infrastructure"></a>Contoso - Déployer une infrastructure de migration
 
@@ -781,7 +781,7 @@ Contoso a créé un modèle montrant le résultat potentiel pour ses application
 
 Les groupes de sécurité réseau associés aux groupes de sécurité d’application seront configurés avec des privilèges minimum pour s’assurer que seuls les paquets autorisés peuvent circuler d’une partie du réseau vers leur destination.
 
-**Action** | **Nom** | **Source** | **Cible** | **Port**
+**Action** | **Name** | **Source** | **Cible** | **Port**
 --- | --- | --- | --- | --- 
 AUTORISER | AllowiInternetToFE | VNET-HUB-EUS1/IB-TrustZone | APP1-FE 80, 443
 AUTORISER | AllowWebToApp | APP1-FE | APP1-DB | 1433

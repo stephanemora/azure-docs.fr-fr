@@ -2,20 +2,21 @@
 title: Utilisation du stockage de files d’attente à partir de Node.js | Microsoft Docs
 description: Découvrez comment utiliser le service de File d'attente Azure pour créer et supprimer des files d'attente, ainsi que pour insérer, récupérer et supprimer des messages. Les exemples sont écrits en Node.js.
 services: storage
-author: tamram
+author: WenJason
 ms.service: storage
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 12/08/2016
-ms.author: tamram
-ms.subservice: queues
+origin.date: 12/08/2016
+ms.date: 12/10/2018
+ms.author: v-jay
+ms.component: queues
 ms.openlocfilehash: 31f0be804085643d048a35dd61da9156f291f7da
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58006452"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62109591"
 ---
 # <a name="how-to-use-queue-storage-from-nodejs"></a>Utilisation du stockage de files d'attente à partir de Node.js
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -335,14 +336,14 @@ Maintenant que vous connaissez les bases du stockage des files d'attente, consul
 
 [Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node
 
-[using the REST API]: https://msdn.microsoft.com/library/azure/hh264518.aspx
+[using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
 
-[Azure Portal]: https://portal.azure.com
+[Azure Portal]: https://portal.azure.cn
 
 [Créer une application web Node.js dans Azure App Service](../../app-service/app-service-web-get-started-nodejs.md)
 
 [Création et déploiement d’une application Node.js dans Azure Cloud Services](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md)
 
-[Azure Storage Team Blog]: https://blogs.msdn.com/b/windowsazurestorage/
+[Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
 
 [Build and deploy a Node.js web app to Azure using Web Matrix]: https://www.microsoft.com/web/webmatrix/

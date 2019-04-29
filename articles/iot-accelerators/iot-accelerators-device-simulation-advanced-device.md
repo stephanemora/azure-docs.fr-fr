@@ -10,11 +10,11 @@ ms.custom: mvc
 ms.date: 03/18/2019
 ms.author: troyhop
 ms.openlocfilehash: 4401d4b93a27e76554368ce72d256b38de61df4c
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286123"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61449023"
 ---
 # <a name="create-an-advanced-device-model"></a>Créer un modèle d’appareil avancé
 
@@ -161,8 +161,8 @@ Les champs répertoriés dans le schéma peuvent avoir les types suivants :
 
 * Objet - sérialisé à l’aide de JSON
 * Binaire - sérialisé à l’aide de base64
-* Texte
-* Booléen
+* Text
+* Boolean
 * Entier 
 * Double
 * DateTime

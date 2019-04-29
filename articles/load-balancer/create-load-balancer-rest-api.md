@@ -14,11 +14,11 @@ ms.workload: load-balancer
 ms.date: 06/06/2018
 ms.author: kumud
 ms.openlocfilehash: 159fe9d6a891858d8d2cc2315e9544b79eb44cff
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53079719"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60884977"
 ---
 # <a name="create-an-azure-basic-load-balancer-using-rest-api"></a>Créer un équilibreur de charge Azure de base à l’aide de l’API REST
 
@@ -33,12 +33,12 @@ Utilisez la requête PUT HTTP suivante pour créer un équilibreur de charge Azu
   ```
 ### <a name="uri-parameters"></a>Paramètres URI
 
-|NOM  |Dans  |Obligatoire |type |Description |
+|Nom  |Dans  |Obligatoire |Type |Description |
 |---------|---------|---------|---------|--------|
-|subscriptionId   |  chemin d’accès       |  True       |   chaîne      |  Les informations d’identification d’abonnement qui identifient de façon unique l’abonnement Microsoft Azure. L’ID d’abonnement fait partie de l’URI pour chaque appel de service.      |
-|nom_groupe_ressources     |     chemin d’accès    | True        |  chaîne       |   Nom du groupe de ressources.     |
-|loadBalancerName     |  chemin d’accès       |      True   |    chaîne     |    Le nom de l’équilibreur de charge.    |
-|api-version    |   query     |  True       |     chaîne    |  Version d’API client.      |
+|subscriptionId   |  chemin d’accès       |  True       |   string      |  Les informations d’identification d’abonnement qui identifient de façon unique l’abonnement Microsoft Azure. L’ID d’abonnement fait partie de l’URI pour chaque appel de service.      |
+|nom_groupe_ressources     |     chemin d’accès    | True        |  string       |   Nom du groupe de ressources.     |
+|loadBalancerName     |  chemin d’accès       |      True   |    string     |    Le nom de l’équilibreur de charge.    |
+|api-version    |   query     |  True       |     string    |  Version d’API client.      |
 
 
 
@@ -46,9 +46,9 @@ Utilisez la requête PUT HTTP suivante pour créer un équilibreur de charge Azu
 
 Le seul paramètre requis est `location`. Si vous ne définissez pas la *SKU*, un équilibreur de charge est créé par défaut.  Utilisez [paramètres facultatifs](https://docs.microsoft.com/rest/api/load-balancer/loadbalancers/createorupdate#request-body) pour personnaliser l’équilibreur de charge.
 
-| NOM | type | Description |
+| Nom | type | Description |
 | :--- | :--- | :---------- |
-| location | chaîne | Emplacement de la ressource. Obtenir une liste actuelle des emplacements à l’aide de l’opération [Lister les emplacements](https://docs.microsoft.com/rest/api/resources/subscriptions/listlocations). |
+| location | string | Emplacement de la ressource. Obtenir une liste actuelle des emplacements à l’aide de l’opération [Lister les emplacements](https://docs.microsoft.com/rest/api/resources/subscriptions/listlocations). |
 
 
 ## <a name="example-create-and-update-a-basic-load-balancer"></a>Exemple : créer et mettre à jour d’un équilibreur de charge de base

@@ -1,19 +1,18 @@
 ---
 title: Activer la création automatique de rubriques dans Apache Kafka - Azure HDInsight
 description: Découvrez comment configurer Apache Kafka sur HDInsight pour créer des rubriques automatiquement. Vous pouvez configurer Kafka en définissant auto.create.topics.enable sur true par le biais d’Ambari ou pendant la création du cluster par le biais de PowerShell ou de modèles Resource Manager.
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/18/2018
-ms.openlocfilehash: b9f17ad0ccfd5e58d5b93bde91e6f9c537a15fa6
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: af26bcee08ded8eb66d640f954113be3e7672e1b
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53606892"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62097859"
 ---
 # <a name="how-to-configure-apache-kafka-on-hdinsight-to-automatically-create-topics"></a>Comment configurer Apache Kafka sur HDInsight pour créer des rubriques automatiquement
 
@@ -81,5 +80,5 @@ Quand vous créez un cluster Kafka à l’aide d’un modèle Azure Resource Man
 
 Dans ce document, vous avez appris à activer la création automatique de rubriques pour Apache Kafka sur HDInsight. Pour en savoir plus sur l’utilisation de Kafka, consultez les liens suivants :
 
-* [Analyser les journaux Apache Kafka](apache-kafka-log-analytics-operations-management.md)
+* [Analyser les journaux d’activité Apache Kafka](apache-kafka-log-analytics-operations-management.md)
 * [Répliquer des données d’un cluster Kafka à un autre](apache-kafka-mirroring.md)

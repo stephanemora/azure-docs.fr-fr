@@ -12,11 +12,11 @@ author: gauravmalhot
 ms.author: gamal
 manager: craigg
 ms.openlocfilehash: 0239c53f98fba201b6d70e1e2212eea36134e30d
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57574625"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60635526"
 ---
 # <a name="parameterize-linked-services-in-azure-data-factory"></a>Paramétrer les services liés dans Azure Data Factory
 
@@ -27,7 +27,7 @@ Vous pouvez utiliser l’interface utilisateur de Data Factory dans le portail A
 > [!TIP]
 > Nous vous recommandons de ne pas paramétrer les mots de passe ou les secrets. Au lieu de cela, conservez toutes les chaînes de connexion dans Azure Key Vault et paramétrez le *Nom du secret*.
 
-Pour voir une présentation de sept minutes et la démonstration de cette fonctionnalité, regardez la vidéo suivante :
+Pour voir une présentation et une démonstration de cette fonctionnalité, regardez la vidéo suivante (durée : 7 minutes) :
 
 > [!VIDEO https://channel9.msdn.com/shows/azure-friday/Parameterize-connections-to-your-data-stores-in-Azure-Data-Factory/player]
 

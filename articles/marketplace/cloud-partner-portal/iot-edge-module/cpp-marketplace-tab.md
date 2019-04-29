@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 30f44e0e8bae4071403b5c28cd4133970fc4d468
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58010956"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60913280"
 ---
 # <a name="iot-edge-module-marketplace-tab"></a>Onglet Place de marché d’un module IoT Edge
 
@@ -94,10 +94,10 @@ Cette section contient les sous-sections suivantes : **Logos**, **capture d’�
 | **Large**                  | Format PNG 255 x 115 pixels                                                   |
 | **Bannière**                  | Format PNG 815 x 290 pixels.  Facultatif. En revanche, une fois l’icône de bannière chargée, il n’est plus possible de la supprimer. |
 | *Captures d’écran*  | Les captures d’écran sont affichées sur la page de détails de votre produit. Il s’agit d’un excellent moyen de communiquer visuellement sur les actions et le mode de fonctionnement de votre module IoT Edge. Vous pouvez afficher des diagrammes architecturaux ou des illustrations de cas d’usage, par exemple. Facultatif ; cinq captures d’écran maximum par référence SKU. |
-| **Nom**                  | Nom ou titre. Longueur maximale de 100 caractères.                             |
+| **Name**                  | Nom ou titre. Longueur maximale de 100 caractères.                             |
 | **Image**                 | Image de capture d’écran, format PNG 533 x 324 pixels                                         |
 | *Vidéos*  | Les vidéos sont affichées sur la page de détails de votre produit. Il s’agit d’un excellent moyen de communiquer visuellement sur les actions et le mode de fonctionnement de votre module IoT Edge. |
-| **Nom**                  | Nom ou titre. Longueur maximale de 100 caractères.                              |
+| **Name**                  | Nom ou titre. Longueur maximale de 100 caractères.                              |
 | **Lien**                  | URL de la vidéo, hébergée sur YouTube ou Vimeo                                        |
 | **Miniature**             | Format PNG 533 x 324 pixels                                                           |
 

@@ -13,11 +13,11 @@ ms.reviewer: MightyPen, sstein
 manager: craigg
 ms.date: 12/18/2018
 ms.openlocfilehash: a658e2fe32ec95dfabad54684a0c9095af7a341d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57850290"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61484914"
 ---
 # <a name="explore-saas-analytics-with-azure-sql-database-sql-data-warehouse-data-factory-and-power-bi"></a>Explorer des analyses SaaS avec Azure SQL Database,SQL Data Warehouse, Data Factory et Power BI
 
@@ -96,7 +96,7 @@ Maintenant, examinez les ressources Azure déployées :
 #### <a name="tenant-databases-and-analytics-store"></a>Bases de données client et magasin d’analytique
 Utilisez [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) pour vous connecter aux serveurs **tenants1-dpt-&lt;utilisateur&gt;** et **catalogue-dpt-&lt;utilisateur&gt;**. Remplacez &lt;utilisateur&gt; par la valeur utilisée lors du déploiement de l’application. Utiliser une connexion = *développeur* et mot de passe = *P\@ssword1*. Consultez le [didacticiel d’introduction](saas-dbpertenant-wingtip-app-overview.md) pour plus d’informations.
 
-![Se connecter au serveur de base de données SQL à partir de SSMS](media/saas-tenancy-tenant-analytics/ssmsSignIn.JPG)
+![Se connecter au serveur SQL Database à partir de SSMS](media/saas-tenancy-tenant-analytics/ssmsSignIn.JPG)
 
 Dans l'Explorateur d'objets :
 

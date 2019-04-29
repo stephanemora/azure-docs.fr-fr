@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 01/19/2018
 ms.author: bwren
 ms.openlocfilehash: 06532369efb802606eb13a4b38a8579a3528f999
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382949"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60777015"
 ---
 # <a name="alert-management-solution-in-azure-log-analytics"></a>Solution Alert Management dans Azure Log Analytics
 
@@ -31,7 +31,7 @@ ms.locfileid: "54382949"
 
 La solution de gestion des alertes vous permet d’analyser toutes les alertes qui se produisent dans votre référentiel Log Analytics.  Ces alertes peuvent provenir de diverses sources, y compris celles [créées par Log Analytics](../../azure-monitor/platform/alerts-overview.md) ou [importées à partir de Nagios ou Zabbix](../../azure-monitor/learn/quick-collect-linux-computer.md). La solution importe également les alertes de tous les [groupes d’administration System Center Operations Manager connectés](../../azure-monitor/platform/om-agents.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 La solution fonctionnant avec tous les enregistrements dans le référentiel Log Analytics ayant le type **Alerte**, vous devez donc effectuer la configuration nécessaire pour collecter ces enregistrements.
 
 - Pour les alertes Log Analytics, [créez des règles d’alerte](../../azure-monitor/platform/alerts-overview.md) pour créer des enregistrements d’alerte directement dans le référentiel.
@@ -89,7 +89,7 @@ Cette solution importe également les alertes de System Center Operations Manage
 
 | Propriété | Description |
 |:--- |:--- |
-| type |*Alert* |
+| Type |*Alert* |
 | SourceSystem |*OpsManager* |
 | AlertContext |Détails de l’élément de données à l’origine de l’alerte générée au format XML. |
 | AlertDescription |Description détaillée de l’alerte. |
@@ -113,7 +113,7 @@ Cette solution importe également les alertes de System Center Operations Manage
 ## <a name="sample-log-searches"></a>Exemples de recherches dans les journaux
 Le tableau suivant fournit des exemples de recherches dans les journaux pour les enregistrements d’alerte collectés par cette solution : 
 
-| Requête | Description |
+| Interroger | Description |
 |:---|:---|
 | Alerte &#124; où SourceSystem == « OpsManager » et AlertSeverity == « erreur » et TimeRaised > ago(24 h) |Alertes critiques déclenchées au cours des dernières 24 heures |
 | Alerte &#124; où AlertSeverity == « avertissement » et TimeRaised > ago(24 h) |Alertes d’avertissement déclenchées au cours des dernières 24 heures |

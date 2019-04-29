@@ -9,11 +9,11 @@ ms.service: iot-central
 services: iot-central
 manager: peterpr
 ms.openlocfilehash: db8c8de7a8047f7aa6a81f6a3b372d161408f1be
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59679344"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62097137"
 ---
 # <a name="set-up-a-device-template"></a>Configurer un modèle d’appareil
 
@@ -237,7 +237,7 @@ Par exemple, vous pouvez ajouter un nouveau **Echo** commande en sélectionnant 
 
 | Nom d’affichage  | Nom du champ | Délai d’expiration par défaut | Type de données |
 | --------------| -----------|---------------- | --------- |
-| Commande echo  | echo       |  30             | texte      |
+| Commande echo  | echo       |  30             | text      |
 
 ![Formulaire « Configurer la commande » contenant les détails de l’écho](./media/howto-set-up-template/commandsecho.png)
 

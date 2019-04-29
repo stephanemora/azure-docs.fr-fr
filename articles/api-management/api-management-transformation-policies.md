@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/11/2019
 ms.author: apimpm
 ms.openlocfilehash: 72348085a69746306e40029bc7473df271b60221
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58105282"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60946607"
 ---
 # <a name="api-management-transformation-policies"></a>Stratégies de transformation de la Gestion des API
 Cette rubrique est une ressource de référence au sujet des stratégies Gestion des API suivantes. Pour plus d'informations sur l'ajout et la configuration des stratégies, consultez la page [Stratégies dans Gestion des API](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -78,7 +78,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 
 |Nom|Description|Obligatoire|Default|
 |----------|-----------------|--------------|-------------|
-|apply|L’attribut doit avoir l’une des valeurs suivantes.<br /><br /> -   always : toujours appliquer la conversion.<br />-   content-type-json : ne convertir que si l’en-tête de réponse Content-Type indique la présence de JSON.|Oui|S.O.|
+|apply|L’attribut doit avoir l’une des valeurs suivantes.<br /><br /> -   always : toujours appliquer la conversion.<br />-   content-type-json : ne convertir que si l’en-tête de réponse Content-Type indique la présence de JSON.|Oui|N/A|
 |consider-accept-header|L’attribut doit avoir l’une des valeurs suivantes.<br /><br /> -   true : appliquer la conversion si le format JSON est demandé dans l’en-tête d’acceptation de la demande.<br />-   false : toujours appliquer la conversion.|Non |true|
 |date de l’analyse|Quand les valeurs de date sont définies sur `false`, elles sont simplement copiées lors de la transformation|Non |true|
 
@@ -122,8 +122,8 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 
 |Nom|Description|Obligatoire|Default|
 |----------|-----------------|--------------|-------------|
-|kind|L’attribut doit avoir l’une des valeurs suivantes.<br /><br /> -   javascript-friendly : le JSON converti présente un format familier aux développeurs JavaScript.<br />-   direct : le JSON converti reflète la structure d’origine du document XML.|Oui|S.O.|
-|apply|L’attribut doit avoir l’une des valeurs suivantes.<br /><br /> -   always : toujours convertir.<br />-   content-type-xml : ne convertir que si l’en-tête de réponse Content-Type indique la présence de XML.|Oui|S.O.|
+|kind|L’attribut doit avoir l’une des valeurs suivantes.<br /><br /> -   javascript-friendly : le JSON converti présente un format familier aux développeurs JavaScript.<br />-   direct : le JSON converti reflète la structure d’origine du document XML.|Oui|N/A|
+|apply|L’attribut doit avoir l’une des valeurs suivantes.<br /><br /> -   always : toujours convertir.<br />-   content-type-xml : ne convertir que si l’en-tête de réponse Content-Type indique la présence de XML.|Oui|N/A|
 |consider-accept-header|L’attribut doit avoir l’une des valeurs suivantes.<br /><br /> -   true : appliquer la conversion si le format XML est demandé dans l’en-tête d’acceptation de la demande.<br />-   false : toujours appliquer la conversion.|Non |true|
 
 ### <a name="usage"></a>Usage
@@ -158,8 +158,8 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 
 |Nom|Description|Obligatoire|Default|
 |----------|-----------------|--------------|-------------|
-|from|Chaîne à rechercher.|Oui|S.O.|
-|to|Chaîne de remplacement. Spécifiez une chaîne de remplacement nulle pour supprimer la chaîne de recherche.|Oui|S.O.|
+|from|Chaîne à rechercher.|Oui|N/A|
+|to|Chaîne de remplacement. Spécifiez une chaîne de remplacement nulle pour supprimer la chaîne de recherche.|Oui|N/A|
 
 ### <a name="usage"></a>Usage
  Cette stratégie peut être utilisée dans les [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.
@@ -269,13 +269,13 @@ Dans cet exemple, la stratégie permet d’acheminer la requête vers un serveur
 
 |Nom|Description|Obligatoire|Default|
 |----------|-----------------|--------------|-------------|
-|base-url|Nouvelle URL de base du service principal.|Un des `base-url` ou `backend-id` doit être présent.|S.O.|
-|id de principal|Identificateur du serveur principal pour l’acheminement. (Les entités de serveur principal sont gérées via [API](https://docs.microsoft.com/en-us/rest/api/apimanagement/backend) et [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).)|Un des `base-url` ou `backend-id` doit être présent.|S.O.|
-|clé de partition SF|Applicable uniquement lorsque le serveur principal est un service Service Fabric et qu’il est spécifié à l’aide de « id principal ». Utilisé pour résoudre une partition spécifique à partir du service de résolution des noms.|Non |S.O.|
-|type de réplica SF|Applicable uniquement lorsque le serveur principal est un service Service Fabric et qu’il est spécifié à l’aide de « id principal ». Contrôle si la requête doit atteindre le réplica principal ou secondaire d’une partition. |Non |S.O.|
-|condition de résolution SF|Applicable uniquement lorsque le serveur principal est un service Service Fabric. Condition identifiant si l’appel au serveur principal Service Fabric doit être répété avec une nouvelle résolution.|Non |S.O.|
-|nom d’instance de service DF|Applicable uniquement lorsque le serveur principal est un service Service Fabric. Permet de modifier les instances de service lors de l’exécution. |Non |S.O.|
-|sf-listener-name|S’applique uniquement lorsque le back end est un service Service Fabric et qu’il est spécifié comme « backend-id ». Service Fabric Reliable Services permet de créer plusieurs écouteurs dans un service. Cet attribut permet de sélectionner un écouteur spécifique lorsqu’un service fiable principal dispose de plusieurs écouteurs. S’il n’est pas spécifié, la Gestion des API tentera d’utiliser un écouteur sans nom. Les écouteurs sans nom sont courants pour les services fiables qui n'ont qu’un seul écouteur. |Non |S.O.|
+|base-url|Nouvelle URL de base du service principal.|Un des `base-url` ou `backend-id` doit être présent.|N/A|
+|id de principal|Identificateur du serveur principal pour l’acheminement. (Les entités de serveur principal sont gérées via [API](https://docs.microsoft.com/en-us/rest/api/apimanagement/backend) et [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).)|Un des `base-url` ou `backend-id` doit être présent.|N/A|
+|clé de partition SF|Applicable uniquement lorsque le serveur principal est un service Service Fabric et qu’il est spécifié à l’aide de « id principal ». Utilisé pour résoudre une partition spécifique à partir du service de résolution des noms.|Non |N/A|
+|type de réplica SF|Applicable uniquement lorsque le serveur principal est un service Service Fabric et qu’il est spécifié à l’aide de « id principal ». Contrôle si la requête doit atteindre le réplica principal ou secondaire d’une partition. |Non |N/A|
+|condition de résolution SF|Applicable uniquement lorsque le serveur principal est un service Service Fabric. Condition identifiant si l’appel au serveur principal Service Fabric doit être répété avec une nouvelle résolution.|Non |N/A|
+|nom d’instance de service DF|Applicable uniquement lorsque le serveur principal est un service Service Fabric. Permet de modifier les instances de service lors de l’exécution. |Non |N/A|
+|sf-listener-name|S’applique uniquement lorsque le back end est un service Service Fabric et qu’il est spécifié comme « backend-id ». Service Fabric Reliable Services permet de créer plusieurs écouteurs dans un service. Cet attribut permet de sélectionner un écouteur spécifique lorsqu’un service fiable principal dispose de plusieurs écouteurs. S’il n’est pas spécifié, la Gestion des API tentera d’utiliser un écouteur sans nom. Les écouteurs sans nom sont courants pour les services fiables qui n'ont qu’un seul écouteur. |Non |N/A|
 
 ### <a name="usage"></a>Usage
  Cette stratégie peut être utilisée dans les [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.
@@ -514,7 +514,7 @@ OriginalUrl.
 |Nom|Description|Obligatoire|Default|
 |----------|-----------------|--------------|-------------|
 |exists-action|Spécifie l’action à entreprendre lorsque l’en-tête est déjà spécifié. Cet attribut doit avoir une des valeurs suivantes.<br /><br /> - override : remplace la valeur de l’en-tête actuel.<br />- skip : ne remplace pas la valeur de l’en-tête actuel.<br />- append : ajoute la valeur à celle de l’en-tête actuel.<br />- delete : supprime l’en-tête de la demande.<br /><br /> S’il a la valeur `override`, l’inscription de plusieurs entrées portant le même nom fait que l’en-tête est défini selon toutes les entrées (qui figurent plusieurs fois) ; seules les valeurs listées seront définies dans le résultat.|Non |override|
-|Nom|Spécifie le nom de l'en-tête à définir.|Oui|S.O.|
+|Nom|Spécifie le nom de l'en-tête à définir.|Oui|N/A|
 
 ### <a name="usage"></a>Usage
  Cette stratégie peut être utilisée dans les [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.
@@ -574,7 +574,7 @@ OriginalUrl.
 |Nom|Description|Obligatoire|Default|
 |----------|-----------------|--------------|-------------|
 |exists-action|Spécifie l’action à entreprendre lorsque le paramètre de requête est déjà spécifié. Cet attribut doit avoir une des valeurs suivantes.<br /><br /> - override : remplace la valeur du paramètre actuel.<br />- skip : ne remplace pas la valeur du paramètre de requête actuel.<br />- append : ajoute la valeur à celle du paramètre de requête actuel.<br />- delete : supprime le paramètre de requête de la demande.<br /><br /> S’il a la valeur `override`, l’ajout de plusieurs entrées portant le même nom fait que le paramètre de requête est défini selon toutes les entrées (qui figurent plusieurs fois) ; seules les valeurs listées seront définies dans le résultat.|Non |override|
-|Nom|Spécifie le nom du paramètre de requête à définir.|Oui|S.O.|
+|Nom|Spécifie le nom du paramètre de requête à définir.|Oui|N/A|
 
 ### <a name="usage"></a>Usage
  Cette stratégie peut être utilisée dans les [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.
@@ -651,7 +651,7 @@ OriginalUrl.
 
 |Attribut|Description|Obligatoire|Default|
 |---------------|-----------------|--------------|-------------|
-|template|URL de service web réelle avec les paramètres de chaîne de requête. Lorsque vous utilisez des expressions, la valeur entière doit être une expression.|Oui|S.O.|
+|template|URL de service web réelle avec les paramètres de chaîne de requête. Lorsque vous utilisez des expressions, la valeur entière doit être une expression.|Oui|N/A|
 |copy-unmatched-params|Spécifie si les paramètres de requête dans la requête entrante non présents dans le modèle d’URL d’origine sont ajoutés à l’URL définie par le modèle de réécriture|Non |true|
 
 ### <a name="usage"></a>Usage

@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 08/31/2018
 ms.author: dobett
 ms.openlocfilehash: 91d4eda566c8b534daa10c62637db28ccb01bbb6
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53628321"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61454490"
 ---
 # <a name="connect-your-device-to-the-remote-monitoring-solution-accelerator-linux"></a>Connecter votre appareil à l’accélérateur de solution de supervision à distance (Linux)
 
@@ -25,7 +25,7 @@ Comme avec la plupart des applications incorporées qui s’exécutent sur des a
 
 Si vous préférez simuler un appareil, consultez [Créer et tester un appareil simulé](iot-accelerators-remote-monitoring-create-simulated-device.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour effectuer les étapes dans ce guide pratique, votre appareil doit exécuter Ubuntu 15.04 ou version ultérieure. Avant toute chose, [configurez votre environnement de développement Linux](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md#linux).
 

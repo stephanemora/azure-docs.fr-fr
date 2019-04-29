@@ -10,11 +10,11 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
 ms.openlocfilehash: b6eb0c5b0d52bba3d34c9853a73b1f3e07b112a7
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54230286"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61322703"
 ---
 # <a name="properties-of-the-iot-edge-agent-and-iot-edge-hub-module-twins"></a>Propriétés des jumeaux de module de l’agent IoT Edge et du hub IoT Edge
 
@@ -57,9 +57,9 @@ Le jumeau de module de l’agent IoT Edge est appelé `$edgeAgent` et coordonne 
 
 Les propriétés signalées pour l’agent IoT Edge incluent trois informations principales :
 
-1. L’état de l’application de dernières propriétés souhaitées affichées
+1. l’état de l’application de dernières propriétés souhaitées affichées ;
 2. L’état des modules en cours d’exécution sur l’appareil, comme signalé par l’agent IoT Edge
-3. Une copie des propriétés souhaitées en cours d’exécution sur l’appareil
+3. une copie des propriétés souhaitées en cours d’exécution sur l’appareil.
 
 Cette dernière information est utile au cas où les dernières propriétés souhaitées ne seraient pas appliquées avec succès par le runtime, et que l’appareil exécuterait encore un manifeste de déploiement précédent.
 

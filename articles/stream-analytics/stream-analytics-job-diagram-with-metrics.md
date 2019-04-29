@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/01/2017
-ms.openlocfilehash: 3d50f96f3dea3646bb32a3a42d0248957dabf9f0
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
-ms.translationtype: HT
+ms.openlocfilehash: 4a6d359b27b9a2e52d71ed5f8547041645147605
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31526819"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61479916"
 ---
 # <a name="data-driven-debugging-by-using-the-job-diagram"></a>Débogage piloté par les données à l’aide du diagramme de travail
 
@@ -77,7 +77,7 @@ Si l’étape de requête précédente est un processeur d’entrée, utilisez l
  
 ### <a name="are-we-falling-behind-in-reading-data"></a>Sommes-nous en retard en matière de lecture des données ?
 
-*   **Événements d’entrée en backlog (total)** indique le nombre de messages supplémentaires devant être lus pour les entrées Event Hub et Azure IoT Hub. Lorsque ce nombre est supérieur à 0, cela signifie que votre travail ne peut pas traiter les données aussi rapidement qu’elles arrivent. Dans ce cas, vous devrez peut-être augmenter le nombre d’unités de streaming et/ou de vous assurer que votre travail peut être parallélisée. Vous pouvez voir plus d’informations à ce sujet à la page de parallélisation des requêtes](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization). 
+*   **Événements d’entrée en backlog (total)** indique le nombre de messages supplémentaires devant être lus pour les entrées Event Hub et Azure IoT Hub. Lorsque ce nombre est supérieur à 0, cela signifie que votre travail ne peut pas traiter les données aussi rapidement qu’elles arrivent. Dans ce cas, vous devrez peut-être augmenter le nombre d’unités de streaming et/ou de vous assurer que votre travail peut être parallélisée. Vous pouvez voir plus d’informations à ce sujet à la [page de parallélisation des requêtes](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization). 
 
 
 ## <a name="get-help"></a>Obtenir de l’aide

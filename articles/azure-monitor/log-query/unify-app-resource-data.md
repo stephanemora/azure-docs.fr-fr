@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: magoedte
 ms.openlocfilehash: 3f3de81197b05d4f025a3fd8638cffe4b07cecad
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429514"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61424639"
 ---
 # <a name="unify-multiple-azure-monitor-application-insights-resources"></a>Unifier plusieurs ressources Application Insights Azure Monitor 
 Cet article décrit comment interroger et afficher toutes vos données du journal d’application Application Insights à partir d’un emplacement unique, même quand elles se trouvent dans différents abonnements Azure, en remplacement de la dépréciation d’Application Insights Connector. Le nombre de ressources Application Insights que vous pouvez inclure dans une seule requête est limité à 100.  
@@ -112,7 +112,7 @@ Le tableau suivant montre les différences entre les schémas Log Analytics et A
 | Browser | client_browser |
 | City | client_city |
 | ClientIP | client_IP |
-| Ordinateur | cloud_RoleInstance | 
+| Computer | cloud_RoleInstance | 
 | Pays | client_CountryOrRegion | 
 | CustomEventCount | itemCount | 
 | CustomEventDimensions | customDimensions |

@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 02/04/2016
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1aae74d8077a75e5ab556703b1c1531f540bbdb4
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.openlocfilehash: 72d1c4d2ea3adf7d8751adfbb013435f8f2530f0
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38698562"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62125744"
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-classic-using-the-azure-portal"></a>Configurer des adresses IP privées pour une machine virtuelle (Classic) à l’aide du portail Azure
 
@@ -47,7 +47,7 @@ Pour créer une machine virtuelle nommée *DNS01* dans le sous-réseau *FrontEnd
 3. Sous **Créer une machine virtuelle**, entrez le nom de la machine virtuelle à créer (*DNS01* dans le scénario), le compte d’administrateur local et un mot de passe.
    
     ![Création d'une machine virtuelle dans le portail Azure](./media/virtual-networks-static-ip-classic-pportal/figure02.png)
-4. Sélectionnez **Configuration facultative** > **Réseau** > **Réseau virtuel**, puis sélectionnez **TestVNet**. Si l’option **TestVNet** n’est pas disponible, assurez-vous que vous utilisez l’emplacement *Centre des États-Unis* et avez créé l’environnement de test décrit au début de cet article.
+4. Sélectionnez **Configuration facultative** > **Réseau** > **Réseau virtuel**, puis sélectionnez **TestVNet**. Si l’option **TestVNet** n’est pas disponible, assurez-vous que vous utilisez l’emplacement *USA Centre* et avez créé l’environnement de test décrit au début de cet article.
    
     ![Création d'une machine virtuelle dans le portail Azure](./media/virtual-networks-static-ip-classic-pportal/figure03.png)
 5. Sous **Réseau**, vérifiez que le sous-réseau actuellement sélectionné est *FrontEnd*, puis sélectionnez **Adresses IP**. Sous **Affectation d’adresses IP**, sélectionnez **Statique**, puis entrez *192.168.1.101* pour **Adresse IP**, comme illustré ci-dessous.

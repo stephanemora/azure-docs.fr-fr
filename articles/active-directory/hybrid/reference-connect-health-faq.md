@@ -16,11 +16,11 @@ ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ec88caafa9a6168860a8e9e2ff9e2abe0cfd0e77
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57852958"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62096113"
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Forum Aux Questions (FAQ) Azure AD Connect Health
 Cet article répond aux questions fréquemment posées sur Azure Active Directory (Azure AD) Connect Health. Ces FAQ abordent l’utilisation du service, notamment le modèle de facturation, les fonctionnalités, les limitations et le support.
@@ -95,7 +95,7 @@ Les données suivantes sont fournies uniquement à titre approximatif :
 
 **Q : Devrai-je redémarrer mes serveurs durant l’installation des agents Azure AD Connect Health ?**
 
- Non. Vous ne devrez pas redémarrer les serveurs durant l’installation des agents. Toutefois, l’exécution de certaines des étapes pré-requises peut nécessiter un redémarrage du serveur.
+Non. Vous ne devrez pas redémarrer les serveurs durant l’installation des agents. Toutefois, l’exécution de certaines des étapes pré-requises peut nécessiter un redémarrage du serveur.
 
 Par exemple, sur Windows Server 2008 R2, l’installation de .NET 4.5 Framework requiert un redémarrage du serveur.
 
@@ -112,7 +112,7 @@ Si vous devez configurer un proxy lors de l’inscription de l’agent, il vous 
 
 **Q : Le service Azure AD Connect Health prend-il en charge l’authentification de base lors des connexions à des proxys HTTP ?**
 
- Non. Aucun mécanisme de définition de nom d’utilisateur/mot de passe arbitraire pour l’authentification De base n’est actuellement pris en charge.
+Non. Aucun mécanisme de définition de nom d’utilisateur/mot de passe arbitraire pour l’authentification De base n’est actuellement pris en charge.
 
 **Q : Quels paramètres de pare-feu dois-je ouvrir pour permettre le bon fonctionnement de l’agent Azure AD Connect Health ?**
 

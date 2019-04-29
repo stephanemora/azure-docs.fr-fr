@@ -10,11 +10,11 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 10/09/2018
 ms.openlocfilehash: 9ee484971e217b0ca4dd7ad855e9e6dc3313e5d4
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230333"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60684758"
 ---
 # <a name="create-conditional-statements-that-control-workflow-actions-in-azure-logic-apps"></a>Créer des instructions conditionnelles qui contrôlent des actions de workflow dans Azure Logic Apps
 
@@ -25,7 +25,7 @@ Par exemple, supposons que vous disposez d’une application logique qui envoie 
 > [!TIP]
 > Pour exécuter différentes étapes en fonction de diverses valeurs spécifiques, utilisez plutôt une [*instruction switch*](../logic-apps/logic-apps-control-flow-switch-statement.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 * Un abonnement Azure. Si vous n’avez pas encore d’abonnement, vous pouvez [vous inscrire pour obtenir un compte Azure gratuitement](https://azure.microsoft.com/free/).
 
@@ -45,7 +45,7 @@ Par exemple, supposons que vous disposez d’une application logique qui envoie 
 
    Quand vous souhaitez ajouter une condition à la fin de votre flux de travail, accédez au bas de votre application logique et sélectionnez **Nouvelle étape** > **Ajouter une action**.
 
-1. Dans la zone de recherche, entrez « condition » comme filtre. Sélectionnez cette action : **Condition - contrôle**
+1. Dans la zone de recherche, entrez « condition » comme filtre. Sélectionnez cette action : **Condition - contrôle**
 
    ![Ajouter une condition](./media/logic-apps-control-flow-conditional-statement/add-condition.png)
 
@@ -62,7 +62,7 @@ Par exemple, supposons que vous disposez d’une application logique qui envoie 
    Dans cet exemple, sélectionnez « **contains** ». 
 
    1. Dans la zone de droite, spécifiez une valeur ou un champ comme critères à respecter. 
-   Pour cet exemple, spécifiez la chaîne suivante : **Microsoft**
+   Pour cet exemple, spécifiez la chaîne suivante : **Microsoft**
 
    Voici la condition complète :
 

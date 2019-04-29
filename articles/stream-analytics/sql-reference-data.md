@@ -9,11 +9,11 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.openlocfilehash: 3368be291770133cdfa10158f6e30540e17b8223
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58084308"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61363536"
 ---
 # <a name="use-reference-data-from-a-sql-database-for-an-azure-stream-analytics-job-preview"></a>Utiliser les données de référence d’une base de données SQL pour une tâche Azure Stream Analytics (préversion)
 
@@ -205,5 +205,5 @@ Stream Analytics garantit un traitement des événements « Exactement une fois 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Utilisation de données de référence pour effectuer des recherches dans Stream Analytics](stream-analytics-use-reference-data.md)
-* [Démarrage rapide : créer une tâche Stream Analytics à l’aide des outils Azure Stream Analytics pour Visual Studio](stream-analytics-quick-create-vs.md)
+* [Démarrage rapide : créer une tâche Stream Analytics à l’aide des outils Azure Stream Analytics pour Visual Studio](stream-analytics-quick-create-vs.md)
 * [Tester des données actives localement à l’aide des outils Azure Stream Analytics pour Visual Studio (préversion)](stream-analytics-live-data-local-testing.md)

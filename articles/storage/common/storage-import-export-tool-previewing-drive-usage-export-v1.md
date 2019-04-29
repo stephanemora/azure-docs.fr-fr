@@ -9,11 +9,11 @@ ms.date: 01/15/2017
 ms.author: muralikk
 ms.subservice: common
 ms.openlocfilehash: 53ab1e28c5864b403d52bf5e73f0c5c41b8f18a8
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55454740"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61478451"
 ---
 # <a name="previewing-drive-usage-for-an-export-job"></a>Aperçu de l’utilisation des lecteurs pour un travail d’exportation
 Avant de créer un travail d’exportation, vous devez choisir un ensemble d’objets blob à exporter. Le service Microsoft Azure Import/Export vous permet d’utiliser une liste de chemins d’accès ou de préfixes d’objets blob pour représenter les objets blob que vous avez sélectionnés.  

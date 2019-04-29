@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/25/2014
 ms.author: MicrosoftHelp@twilio.com
 ms.openlocfilehash: 40b633c4e51a34e6640a9557be49bbe30543daf5
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426433"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61457649"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-ruby"></a>Utilisation de Twilio pour les fonctionnalités vocales et de SMS dans Ruby
 Ce guide présente l'exécution de tâches de programmation courantes avec le service API Twilio sur Azure. Les scénarios abordés comprennent notamment les appels téléphoniques et l'envoi de SMS. Pour plus d'informations sur Twilio et sur l'utilisation des fonctionnalités vocales et de SMS de vos applications, consultez la section [Étapes suivantes](#NextSteps) .
@@ -52,16 +52,16 @@ Les verbes Twilio sont des balises XML qui indiquent à Twilio les **actions**à
 
 La liste suivante présente les verbes Twilio.
 
-* **&lt;Dial&gt;** : connecte l'appelant à un autre téléphone.
-* **&lt;Gather&gt;** : rassemble les chiffres numériques entrés sur le clavier du téléphone.
-* **&lt;Hangup&gt;** : met fin à un appel.
-* **&lt;Play&gt;** : lit un fichier audio.
-* **&lt;Pause&gt;** : patiente silencieusement pendant un nombre déterminé de secondes.
-* **&lt;Record&gt;** : enregistre la voix de l'appelant et renvoie une URL permettant d'accéder à un fichier contenant l'enregistrement.
-* **&lt;Redirect&gt;** : transfère le contrôle d'un appel ou d'un SMS au TwiML à une autre URL.
-* **&lt;Reject&gt;** : refuse un appel entrant sur votre numéro Twilio sans vous facturer
-* **&lt;Say&gt;** : convertit le texte d'un appel en parole.
-* **&lt;Sms&gt;** : envoie un SMS.
+* **&lt;Composer&gt;**  : connecte l’appelant à un autre téléphone.
+* **&lt;Rassembler&gt;**  : collecte les chiffres numériques entrés sur le clavier du téléphone.
+* **&lt;Raccrocher&gt;**  : met fin à un appel.
+* **&lt;Lire&gt;**  : lit un fichier audio.
+* **&lt;Suspendre&gt;**  : patiente silencieusement pendant un nombre déterminé de secondes.
+* **&lt;Enregistrer&gt;**  : enregistre la voix de l’appelant et retourne l’URL d’un fichier contenant l’enregistrement.
+* **&lt;Rediriger&gt;**  : transfère le contrôle d’un appel ou d’un SMS au TwiML à une autre URL.
+* **&lt;Rejeter&gt;**  : refuse un appel entrant sur votre numéro Twilio sans vous facturer
+* **&lt;Dire&gt;**  : convertit le texte d’un appel par synthèse vocale.
+* **&lt;Sms&gt;**  : envoie un SMS.
 
 Pour plus d’informations sur les verbes Twilio, leurs attributs et le langage TwiML, consultez la page [TwiML][twiml]. Pour plus d’informations sur l’API Twilio, consultez la page [API Twilio][twilio_api].
 
@@ -109,7 +109,7 @@ Sur la ligne de commande, exécutez `bundle install`. Ensuite, ouvrez `web.rb` e
 
 Vous pouvez maintenant utiliser la bibliothèque d'aide Twilio dans votre application web.
 
-## <a id="howto_make_call"></a>Procédure : passer un appel sortant
+## <a id="howto_make_call"></a>Guide pratique : passer un appel sortant
 Le code suivant permet d'exécuter un appel sortant. Les concepts principaux incluent l'utilisation de la bibliothèque d'aide Twilio pour Ruby afin de passer des appels d'API REST et d'assurer le rendu TwiML. Remplacez vos valeurs pour les numéros de téléphone **From** (De) et **To** (À), puis assurez-vous de vérifier le numéro de téléphone **From** de votre compte Twilio avant d'exécuter le code.
 
 Ajoutez cette fonction à `web.md`:
@@ -146,7 +146,7 @@ Si vous ouvrez l’adresse `http://yourdomain.cloudapp.net/make_call` dans un na
 
 Le troisième paramètre (`url`) est l’URL demandée par Twilio pour obtenir les instructions à suivre une fois l’appel connecté. Dans notre exemple, nous avons défini une URL (`http://yourdomain.cloudapp.net`) qui renvoie un document TwiML simple utilisant le verbe `<Say>` pour convertir du texte en parole et dire « Hello Monkey » à la personne qui reçoit l’appel.
 
-## <a id="howto_receive_sms"></a>Réception d’un SMS
+## <a id="howto_receive_sms"></a>Guide pratique : Un message SMS
 Dans l'exemple précédent, nous avons émis un appel **sortant** . Cette fois, nous allons utiliser le numéro de téléphone fourni par Twilio lors de l'inscription pour traiter un SMS **entrant** .
 
 Commencez par vous connecter à votre [tableau de bord Twilio][twilio_account]. Cliquez sur « Numbers » dans la zone de navigation supérieure, puis sur le numéro fourni par Twilio. Deux URL sont disponibles pour configuration : une URL de requête vocale et une URL de requête SMS. Il s'agit des URL que Twilio appelle lors de toute émission d'appel ou toute réception de SMS. On parle de « raccordements Web » pour désigner ces URL.
@@ -161,7 +161,7 @@ Nous voulons traiter les messages SMS entrants ; nous allons donc mettre à jou
 
 Veillez à redémarrer l'application Web après avoir effectué cette modification. Maintenant, à l'aide de votre téléphone, envoyez un SMS à votre numéro Twilio. Vous devriez rapidement recevoir une réponse par SMS avec le message « Hey, merci pour le ping ! Twilio et Azure sont les meilleurs ! »
 
-## <a id="additional_services"></a>Utilisation de services Twilio supplémentaires
+## <a id="additional_services"></a>Guide pratique : Utiliser des services Twilio supplémentaires
 En plus des exemples présentés ici, Twilio offre des API Web que vous pouvez utiliser pour tirer profit d'autres fonctionnalités de Twilio à partir de votre application Azure. Pour plus d’informations, consultez la [documentation de l’API Twilio][twilio_api_documentation].
 
 ### <a id="NextSteps"></a>Étapes suivantes

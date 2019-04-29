@@ -14,15 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 5fbc407a9792d033037fdaa2b14f4055d94c15ab
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.openlocfilehash: b367b6e7126a442dc68646ff52a29c955f50b798
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38701940"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60631167"
 ---
 # <a name="unpack-rack-mount-and-cable-your-storsimple-8100-device"></a>Déballer, monter en rack et câbler votre appareil StorSimple 8100
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Présentation
 Votre appareil Microsoft Azure StorSimple 8100 doit être monté en rack sur un boîtier unique. Ce didacticiel explique comment déballer, monter en rack et brancher les câbles de votre appareil StorSimple 8100 avant de configurer et de déployer l’appareil StorSimple.
 
 ## <a name="unpack-your-storsimple-8100-device"></a>Déballage de votre appareil StorSimple 8100
@@ -157,7 +157,7 @@ L’étape suivante consiste à brancher l’alimentation, le réseau et l’acc
 ## <a name="cable-your-storsimple-8100-device"></a>Branchement des câbles de votre appareil StorSimple 8100
 Les procédures suivantes expliquent comment brancher les câbles d’alimentation, de réseau et d’accès en série sur votre appareil StorSimple 8100.
 
-### <a name="prerequisites"></a>Prérequis
+### <a name="prerequisites"></a>Conditions préalables
 Avant de commencer le câblage de votre appareil, vous devez disposer des éléments suivants :
 
 * Votre appareil de stockage, complètement déballé et monté en rack.
@@ -236,11 +236,11 @@ Procédez comme suit pour brancher les câbles de port série de votre appareil.
 2. Identifiez le contrôleur actif sur le fond de panier de votre appareil. Un voyant bleu clignotant indique que le contrôleur est actif.
 3. Utilisez les câbles série fournis (si nécessaire, le convertisseur USB de série pour votre ordinateur portable) et connectez votre console ou votre ordinateur (avec émulation de terminal vers l’appareil) au port série du contrôleur actif.
 4. Installez les pilotes USB de série (fournis avec l’appareil) sur votre ordinateur.
-5. Configurez la connexion série comme suit : 115 200 bauds, 8 bits de données, 1 bit d’arrêt, Aucune parité et Contrôle de flux défini sur Aucun.
+5. Configurez la connexion série comme suit : 115 200 bauds, 8 bits de données, 1 bit d’arrêt, aucune parité et flux de contrôlent défini sur None.
 6. Vérifiez que la connexion fonctionne en appuyant sur Entrée sur la console. Un menu de la console série doit apparaître.
 
 > [!NOTE]
-> **Gestion en service réduit :** lorsque l’appareil est installé dans un centre de données distant ou dans une salle informatique avec un accès limité, assurez-vous que les connexions série sur les deux contrôleurs sont toujours connectées à un commutateur de console série ou à un équipement similaire. Cela permet de commander à distance hors bande et de prendre en charge les opérations en cas d’interruptions du réseau ou en cas de défaillance inattendue.
+> **Gestion des pannes**: Lorsque l’appareil est installé dans un centre de données distant ou dans une salle informatique avec un accès limité, assurez-vous que les connexions série aux deux contrôleurs sont toujours connectées à un commutateur de console série ou d’un équipement similaire. Cela permet de commander à distance hors bande et de prendre en charge les opérations en cas d’interruptions du réseau ou en cas de défaillance inattendue.
 > 
 > 
 

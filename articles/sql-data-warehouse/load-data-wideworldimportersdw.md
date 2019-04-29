@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Chargement de données dans Azure SQL Data Warehouse | Microsoft Docs'
+title: 'Didacticiel : Chargement de données dans Azure SQL Data Warehouse | Microsoft Docs'
 description: Ce tutoriel utilise le portail Azure et SQL Server Management Studio pour charger l’entrepôt de données WideWorldImportersDW depuis un objet blob Azure public vers Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: ckarst
@@ -11,11 +11,11 @@ ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
 ms.openlocfilehash: 44ad37120034d59161fe3b5f0ed521fc6f630b0f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55454332"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61081356"
 ---
 # <a name="tutorial-load-data-to-azure-sql-data-warehouse"></a>Didacticiel : Chargement de données dans Azure SQL Data Warehouse
 
@@ -114,7 +114,7 @@ Le service SQL Data Warehouse crée un pare-feu au niveau du serveur qui empêch
 
     ![paramètres du serveur](media/load-data-wideworldimportersdw/server-settings.png) 
 
-5. Cliquez sur **Afficher les paramètres de pare-feu**. La page **Paramètres de pare-feu** du serveur de base de données SQL s’ouvre. 
+5. Cliquez sur **Afficher les paramètres de pare-feu**. La page **Paramètres de pare-feu** du serveur SQL Database s’ouvre. 
 
     ![règle de pare-feu de serveur](media/load-data-wideworldimportersdw/server-firewall-rule.png) 
 

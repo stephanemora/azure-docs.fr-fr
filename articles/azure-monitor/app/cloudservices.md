@@ -14,18 +14,18 @@ ms.workload: tbd
 ms.date: 09/05/2018
 ms.author: mbullwin
 ms.openlocfilehash: d27c0e9570959e01267d83a768ead45b48b7cea1
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54267230"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60903212"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights pour les services cloud Azure
 [Application Insights][start] peut superviser les [applications de service cloud Azure](https://azure.microsoft.com/services/cloud-services/) pour vérifier la disponibilité, les performances, les échecs et l’utilisation en combinant les données des SDK Application Insights avec les données d’[Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) de vos services cloud. Avec les retours que vous obtenez sur les performances et l’efficacité de votre application dans la nature, vous pouvez prendre des décisions avisées sur la direction de la conception de chaque cycle de développement.
 
 ![Vue d’ensemble du tableau de bord](./media/cloudservices/overview-graphs.png)
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 Avant de commencer, vous avez besoin des éléments suivants :
 
 * Un abonnement [Azure](https://azure.com). Une connexion avec un compte Microsoft pour Windows, Xbox Live ou d’autres services cloud de Microsoft. 
@@ -152,7 +152,7 @@ S’il n’y a pas de données, effectuez ce qui suit :
     Pour plus d’informations, consultez [Résolution des problèmes][qna].
 
 ## <a name="view-azure-diagnostics-events"></a>Voir les événements Diagnostics Azure
-Les informations de [Diagnostics Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) sont disponibles dans Application Insights aux emplacements suivants :
+Les informations d’[Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) sont disponibles dans Application Insights aux emplacements suivants :
 
 * Les compteurs de performances s’affichent comme mesures personnalisées. 
 * Les journaux des événements Windows s’affichent comme traces et événements personnalisés.
@@ -160,9 +160,9 @@ Les informations de [Diagnostics Azure](https://docs.microsoft.com/azure/monitor
 
 Pour voir les compteurs de performances et le nombre d’événements, ouvrez [Metrics Explorer](../../azure-monitor/app/metrics-explorer.md) et ajoutez le graphique suivant :
 
-![Données Diagnostics Azure](./media/cloudservices/23-wad.png)
+![Données Azure Diagnostics](./media/cloudservices/23-wad.png)
 
-Pour rechercher dans les différents journaux d’activité de trace envoyés par Azure Diagnostics, utilisez [Recherche](../../azure-monitor/app/diagnostic-search.md) ou une [requête Analytics](../../azure-monitor/log-query/get-started-portal.md). Par exemple, supposons qu’une exception non prise en charge a provoqué le blocage et le recyclage d’un rôle. Cette information s’affiche dans le canal Application du Journal des événements Windows. Vous pouvez utiliser Recherche pour voir l’erreur du Journal des événements Windows et obtenir la trace complète de l’exception. De cette façon, vous pouvez identifier la cause racine du problème.
+Pour rechercher dans les différents journaux de trace envoyés par Azure Diagnostics, utilisez [Recherche](../../azure-monitor/app/diagnostic-search.md) ou une [requête Analytics](../../azure-monitor/log-query/get-started-portal.md). Par exemple, supposons qu’une exception non prise en charge a provoqué le blocage et le recyclage d’un rôle. Cette information s’affiche dans le canal Application du Journal des événements Windows. Vous pouvez utiliser Recherche pour voir l’erreur du Journal des événements Windows et obtenir la trace complète de l’exception. De cette façon, vous pouvez identifier la cause racine du problème.
 
 ![Recherche de Diagnostics Azure](./media/cloudservices/25-wad.png)
 

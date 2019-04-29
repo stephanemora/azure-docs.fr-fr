@@ -16,11 +16,11 @@ ms.date: 10/30/2018
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: e5ab6651503766844b2aeef1849bffff9cf4d7bb
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54901783"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60835497"
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Fonctionnalités de système d’exploitation sur Azure App Service
 Cet article décrit les fonctionnalités de système d’exploitation communes de base accessibles à toutes les applications Windows exécutées sur [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). Ces fonctionnalités englobent notamment l’accès aux fichiers, l’accès réseau et l’accès au registre, ainsi que les journaux d’activité et événements de diagnostic. 

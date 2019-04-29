@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
 ms.openlocfilehash: 55ff6d37f18f4ffa2f12e17bd33dd196b77f79af
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025774"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61473057"
 ---
 # <a name="copy-data-from-sybase-using-azure-data-factory"></a>Copier des données à partir de Sybase à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -35,7 +35,7 @@ Plus précisément, ce connecteur Sybase prend en charge :
 - SAP Sybase SQL Anywhere (ASA) **version 16 et versions ultérieures** ; IQ et ASE ne sont pas pris en charge.
 - Copie des données avec l’authentification **De base** ou **Windows**.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour utiliser ce connecteur Sybase, vous devez :
 
@@ -54,7 +54,7 @@ Les propriétés suivantes sont prises en charge pour le service lié Sybase :
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type doit être définie sur : **Sybase** | Oui |
+| type | La propriété type doit être définie sur : **Sybase** | Oui |
 | serveur | Nom du serveur Sybase. |Oui |
 | database | Nom de la base de données Sybase. |Oui |
 | authenticationType | Type d'authentification utilisé pour se connecter à la base de données Sybase.<br/>Les valeurs autorisées sont les suivantes : **Basic** et **Windows**. |Oui |
@@ -95,8 +95,8 @@ Pour copier des données à partir de Sybase, affectez la valeur **RelationalTab
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type du jeu de données doit être définie sur : **RelationalTable** | Oui |
-| TableName | Nom de la table dans la base de données Sybase. | Non (si « query » dans la source de l’activité est spécifié) |
+| type | La propriété type du jeu de données doit être définie sur : **RelationalTable** | Oui |
+| tableName | Nom de la table dans la base de données Sybase. | Non (si « query » dans la source de l’activité est spécifié) |
 
 **Exemple**
 
@@ -124,7 +124,7 @@ Pour copier des données à partir de Sybase, définissez **RelationalSource** c
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type de la source d’activité de copie doit être définie sur : **RelationalSource** | Oui |
+| type | La propriété type de la source d’activité de copie doit être définie sur : **RelationalSource** | Oui |
 | query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"SELECT * FROM MyTable"`. | Non (si « tableName » est spécifié dans dataset) |
 
 **Exemple :**

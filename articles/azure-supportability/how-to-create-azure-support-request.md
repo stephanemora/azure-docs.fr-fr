@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2016
 ms.author: gangan
-ms.openlocfilehash: 0b45bd2a1a2599908d2077198dce0062071b79af
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
-ms.translationtype: HT
+ms.openlocfilehash: f6d9e683e1feff670c26b01a31ce977557295bff
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31512508"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62129057"
 ---
 # <a name="how-to-create-an-azure-support-request"></a>Création d’une demande de support Azure
 ## <a name="summary"></a>Résumé
@@ -32,9 +32,9 @@ Les clients Azure peuvent créer et gérer des demandes de support dans le Porta
 
 Suite aux commentaires des clients, nous avons mis à jour le processus de demande de support en fonction de trois objectifs principaux :
 
-* **Optimisation**: réduire le nombre de clics et de panneaux pour simplifier le processus d’envoi d’une demande de support.
-* **Intégration**: lorsque vous travaillez à la résolution d’un problème lié à une ressource Azure, il devrait être simple d’ouvrir une demande de support pour cette ressource, sans changer de contexte.
-* **Efficace** : collectez les informations clés dont votre ingénieur de support a besoin pour résoudre votre problème.
+* **Rationalisé**: Réduire les clics et les panneaux pour simplifier le processus consistant à soumettre une demande de support.
+* **Intégrée**: Lorsque vous résolvez un problème avec une ressource Azure, il doit être facile à ouvrir une demande de prise en charge pour cette ressource sans changement de contexte.
+* **Efficacité** : Collectez les informations de clé que votre ingénieur du support technique a besoin pour résoudre votre problème.
 
 ## <a name="getting-started"></a>Prise en main
 Vous pouvez créer une demande de support depuis le menu de navigation supérieur ou directement à partir d’un panneau de ressource.
@@ -54,7 +54,7 @@ Dans la page Aide et support, sélectionnez « Nouvelle demande de support »
 ## <a name="basics"></a>Concepts de base
 La première étape du processus de demande de support collecte des informations sur votre problème et votre plan de support.
 
-Prenons un exemple : vous êtes face à des difficultés techniques avec votre machine virtuelle et vous soupçonnez un problème de connectivité réseau.
+Prenons un exemple : Vous êtes confronté à des difficultés techniques avec votre machine virtuelle et que vous soupçonnez un problème de connectivité réseau.
 La première étape de l’Assistant, la sélection du service (« Machine virtuelle exécutant Windows ») et de la ressource (le nom de votre machine virtuelle), lance le processus d’obtention d’aide pour résoudre ce problème.
 
 ![Panneau Informations de base](./media/how-to-create-azure-support-request/Basics.png)

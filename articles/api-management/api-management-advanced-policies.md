@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
 ms.openlocfilehash: 43cbeea554f43e4db7d5440af83a9b414741d2f6
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756615"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60795883"
 ---
 # <a name="api-management-advanced-policies"></a>Stratégies avancées de la Gestion des API
 
@@ -304,8 +304,8 @@ L’exemple suivant montre comment limiter le nombre de requêtes transmises à 
 
 | Attribut | Description                                                                                        | Obligatoire | Default |
 | --------- | -------------------------------------------------------------------------------------------------- | -------- | ------- |
-| key       | Une chaîne. Expression autorisée. Spécifie l’étendue de la simultanéité. Peut être partagée par plusieurs stratégies. | Oui      | S.O.     |
-| max-count | Nombre entier. Spécifie le nombre maximal de requêtes autorisées à entrer dans la stratégie.           | Oui      | S.O.     |
+| key       | Une chaîne. Expression autorisée. Spécifie l’étendue de la simultanéité. Peut être partagée par plusieurs stratégies. | Oui      | N/A     |
+| max-count | Nombre entier. Spécifie le nombre maximal de requêtes autorisées à entrer dans la stratégie.           | Oui      | N/A     |
 
 ### <a name="usage"></a>Usage
 
@@ -461,11 +461,11 @@ Dans l’exemple suivant, le transfert de la demande est retenté jusqu’à dix
 
 | Attribut        | Description                                                                                                                                           | Obligatoire | Default |
 | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
-| condition        | [Expression](api-management-policy-expressions.md) ou littéral booléen spécifiant si les nouvelles tentatives doivent être arrêtées (`false`) ou poursuivies (`true`).      | Oui      | S.O.     |
-| count            | Nombre positif spécifiant le nombre maximal de nouvelles tentatives à effectuer.                                                                                | Oui      | S.O.     |
-| interval         | Nombre positif en secondes spécifiant le délai d’attente entre les tentatives.                                                                 | Oui      | S.O.     |
-| max-interval     | Nombre positif en secondes spécifiant le délai d’attente maximal entre les tentatives. Il est utilisé pour implémenter un algorithme de nouvelles tentatives exponentiel. | Non        | S.O.     |
-| delta            | Nombre positif en secondes spécifiant l’incrément du délai d’attente. Il est utilisé pour implémenter les algorithmes de nouvelles tentatives linéaires et exponentiels.             | Non        | S.O.     |
+| condition        | [Expression](api-management-policy-expressions.md) ou littéral booléen spécifiant si les nouvelles tentatives doivent être arrêtées (`false`) ou poursuivies (`true`).      | Oui      | N/A     |
+| count            | Nombre positif spécifiant le nombre maximal de nouvelles tentatives à effectuer.                                                                                | Oui      | N/A     |
+| interval         | Nombre positif en secondes spécifiant le délai d’attente entre les tentatives.                                                                 | Oui      | N/A     |
+| max-interval     | Nombre positif en secondes spécifiant le délai d’attente maximal entre les tentatives. Il est utilisé pour implémenter un algorithme de nouvelles tentatives exponentiel. | Non        | N/A     |
+| delta            | Nombre positif en secondes spécifiant l’incrément du délai d’attente. Il est utilisé pour implémenter les algorithmes de nouvelles tentatives linéaires et exponentiels.             | Non        | N/A     |
 | first-fast-retry | Si la valeur `true` , la première nouvelle tentative est effectuée immédiatement.                                                                                  | Non        | `false` |
 
 > [!NOTE]
@@ -594,7 +594,7 @@ Cet exemple de stratégie montre un exemple d’utilisation de la stratégie `se
 | Attribut     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Obligatoire | Default  |
 | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- |
 | mode="string" | Détermine s’il s’agit d’une nouvelle demande ou d’une copie de la demande actuelle. En mode outbound, mode=copy n’initialise pas le corps de la demande.                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Non        | Nouveau      |
-| Nom          | Spécifie le nom de l’en-tête à définir.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Oui      | S.O.      |
+| Nom          | Spécifie le nom de l’en-tête à définir.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Oui      | N/A      |
 | exists-action | Spécifie l’action à entreprendre lorsque l’en-tête est déjà spécifié. Cet attribut doit avoir une des valeurs suivantes.<br /><br /> -override : remplace la valeur de l’en-tête existant.<br />-skip : ne remplace pas la valeur d’en-tête existant.<br />-append : ajoute la valeur à la valeur d’en-tête existant.<br />-delete : supprime l’en-tête de la demande.<br /><br /> S’il a la valeur `override`, l’inscription de plusieurs entrées portant le même nom fait que l’en-tête est défini selon toutes les entrées (qui figurent plusieurs fois) ; seules les valeurs listées seront définies dans le résultat. | Non        | override |
 
 ### <a name="usage"></a>Usage
@@ -678,10 +678,10 @@ Cet exemple montre un moyen de vérifier un jeton de référence avec un serveur
 | Attribut                       | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Obligatoire | Default  |
 | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- |
 | mode="string"                   | Détermine s’il s’agit d’une nouvelle demande ou d’une copie de la demande actuelle. En mode outbound, mode=copy n’initialise pas le corps de la demande.                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Non        | Nouveau      |
-| response-variable-name="string" | Nom de la variable contextuelle qui recevra un objet Response. Si la variable n’existe pas, elle est créée après l’exécution réussie de la stratégie, et devient accessible par le biais de la collection [`context.Variable`](api-management-policy-expressions.md#ContextVariables).                                                                                                                                                                                                                                                                                                                          | Oui      | S.O.      |
+| response-variable-name="string" | Nom de la variable contextuelle qui recevra un objet Response. Si la variable n’existe pas, elle est créée après l’exécution réussie de la stratégie, et devient accessible par le biais de la collection [`context.Variable`](api-management-policy-expressions.md#ContextVariables).                                                                                                                                                                                                                                                                                                                          | Oui      | N/A      |
 | timeout="integer"               | Délai d’expiration en secondes avant l’échec de l’appel à l’URL.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Non        | 60       |
 | ignore-error                    | S’il a la valeur true et que la demande aboutit à une erreur :<br /><br /> -Si le nom de variable de réponse a été spécifié, il contiendra une valeur null.<br />-Si le nom de variable de réponse n’est pas spécifié, contexte. Demande ne sera pas mis à jour.                                                                                                                                                                                                                                                                                                                                                                                   | Non        | false    |
-| Nom                            | Spécifie le nom de l’en-tête à définir.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Oui      | S.O.      |
+| Nom                            | Spécifie le nom de l’en-tête à définir.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Oui      | N/A      |
 | exists-action                   | Spécifie l’action à entreprendre lorsque l’en-tête est déjà spécifié. Cet attribut doit avoir une des valeurs suivantes.<br /><br /> -override : remplace la valeur de l’en-tête existant.<br />-skip : ne remplace pas la valeur d’en-tête existant.<br />-append : ajoute la valeur à la valeur d’en-tête existant.<br />-delete : supprime l’en-tête de la demande.<br /><br /> S’il a la valeur `override`, l’inscription de plusieurs entrées portant le même nom fait que l’en-tête est défini selon toutes les entrées (qui figurent plusieurs fois) ; seules les valeurs listées seront définies dans le résultat. | Non        | override |
 
 ### <a name="usage"></a>Usage
@@ -722,9 +722,9 @@ Notez l’utilisation de [propriétés](api-management-howto-properties.md) en t
 
 | Attribut         | Description                                            | Obligatoire | Default |
 | ----------------- | ------------------------------------------------------ | -------- | ------- |
-| url="chaîne"      | URL du proxy sous la forme http://host:port.             | Oui      | S.O.     |
-| username="chaîne" | Nom d’utilisateur à utiliser pour l’authentification auprès du proxy. | Non        | S.O.     |
-| password="chaîne" | Mot de passe à utiliser pour l’authentification auprès du proxy. | Non        | S.O.     |
+| url="chaîne"      | URL du proxy sous la forme http://host:port.             | Oui      | N/A     |
+| username="chaîne" | Nom d’utilisateur à utiliser pour l’authentification auprès du proxy. | Non        | N/A     |
+| password="chaîne" | Mot de passe à utiliser pour l’authentification auprès du proxy. | Non        | N/A     |
 
 ### <a name="usage"></a>Usage
 
@@ -828,8 +828,8 @@ Cet exemple montre comment renvoyer une réponse 401 si le jeton d’autorisatio
 
 | Attribut       | Description                                                | Obligatoire | Default |
 | --------------- | ---------------------------------------------------------- | -------- | ------- |
-| code="integer"  | Code d’état HTTP à renvoyer.                            | Oui      | S.O.     |
-| reason="string" | Description du motif pour lequel le code d’état est renvoyé. | Oui      | S.O.     |
+| code="integer"  | Code d’état HTTP à renvoyer.                            | Oui      | N/A     |
+| reason="string" | Description du motif pour lequel le code d’état est renvoyé. | Oui      | N/A     |
 
 ### <a name="usage"></a>Usage
 
@@ -936,7 +936,7 @@ Le `trace` stratégie ajoute une chaîne à la [inspecteur d’API](https://azur
 
 | Attribut | Description                                                                             | Obligatoire | Default |
 | --------- | --------------------------------------------------------------------------------------- | -------- | ------- |
-| source    | Littéral chaîne significatif pour la visionneuse de trace, qui spécifie la source du message. | Oui      | S.O.     |
+| source    | Littéral chaîne significatif pour la visionneuse de trace, qui spécifie la source du message. | Oui      | N/A     |
 
 ### <a name="usage"></a>Usage
 

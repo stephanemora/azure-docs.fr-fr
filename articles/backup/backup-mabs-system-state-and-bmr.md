@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: raynew
 ms.openlocfilehash: 35ab150670cdc27efcedca233928e0c2184aeca6
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52880095"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62116173"
 ---
 # <a name="back-up-system-state-and-restore-to-bare-metal-with-azure-backup-server"></a>Sauvegarder l’état du système et effectuer une récupération complète avec le Serveur de sauvegarde Azure
 
@@ -24,7 +24,7 @@ Le Serveur de sauvegarde Azure sauvegarde l’état de votre système et effectu
     * Membre de domaine : fichiers de démarrage, base de données d’inscription de classe COM+, Registre
     * Contrôleur de domaine : Windows Server Active Directory (NTDS), fichiers de démarrage, base de données d’inscription de classe COM+, Registre, volume système (SYSVOL)
     * Ordinateur qui exécute les services de cluster : Métadonnées du serveur de cluster
-    * Ordinateur exécutant les services de certificats : données de certificat
+    * Ordinateur exécutant les services de certificats : Données du certificat
 * **Sauvegarde complète** : sauvegarde les fichiers du système d’exploitation et toutes les données sur les volumes critiques (sauf les données utilisateur). Par définition, une sauvegarde complète inclut une sauvegarde de l’état du système. Elle offre une protection quand un ordinateur ne démarre pas et que vous devez récupérer tous les éléments nécessaires.
 
 Le tableau suivant résume ce que vous pouvez sauvegarder et récupérer. Pour plus d’informations sur les versions d’application qui peuvent être protégées avec l’état du système et une récupération complète, voir [Qu’est-ce que le Serveur de sauvegarde Azure ?](backup-mabs-protection-matrix.md).

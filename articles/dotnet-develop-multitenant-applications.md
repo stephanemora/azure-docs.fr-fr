@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/05/2015
 ms.author: wpickett
 ms.openlocfilehash: 342c7903e58a5c3bc41278152630187fa0c63b7b
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425038"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62119144"
 ---
 # <a name="multitenant-applications-in-azure"></a>Applications mutualisées dans Azure
 Une application mutualisée est une ressource partagée qui autorise des utilisateurs distincts, appelés « locataires », à afficher l'application comme s'il s'agissait de la leur. Un scénario typique qui se prête à une application mutualisée est celui dans lequel tous les utilisateurs de l'application peuvent personnaliser leur expérience utilisateur, tout en ayant les mêmes besoins professionnels de base. Exemples d'applications mutualisées : Office 365, Outlook.com et visualstudio.com.
@@ -28,16 +28,16 @@ Du point de vue du fournisseur d'application, les avantages d'une architecture m
 
 Voici une liste des objectifs et exigences les plus significatifs du point de vue d'un fournisseur.
 
-* **Approvisionnement**: vous devez être en mesure approvisionner de nouveaux locataires de l’application.  Pour les applications mutualisées incluant un grand nombre de locataires, il est généralement nécessaire d'automatiser ce processus en activant l'approvisionnement libre-service.
-* **Maintenabilité**: vous devez pouvoir mettre à niveau l'application et effectuer d'autres tâches de maintenance pendant que plusieurs locataires sont en train de l'utiliser.
-* **Surveillance**: vous devez pouvoir surveiller l'application en toutes circonstances pour identifier et résoudre les éventuels problèmes. Cela inclut la surveillance de la façon dont chaque locataire utilise l'application.
+* **Approvisionnement**: Vous devez être en mesure d’approvisionner de nouveaux locataires pour l’application.  Pour les applications mutualisées incluant un grand nombre de locataires, il est généralement nécessaire d'automatiser ce processus en activant l'approvisionnement libre-service.
+* **La facilité de gestion**: Vous devez être en mesure de mettre à niveau de l’application et effectuer d’autres tâches de maintenance lorsque plusieurs clients l’utilisent.
+* **Supervision** : Vous devez être en mesure de surveiller l’application à tout moment pour identifier les problèmes et à les résoudre. Cela inclut la surveillance de la façon dont chaque locataire utilise l'application.
 
 Une application mutualisée correctement mise en œuvre offre les avantages suivants aux utilisateurs.
 
-* **Isolement**: les activités de locataires individuels n'affectent pas l'utilisation de l'application par les autres locataires. Les locataires ne peuvent pas accéder aux données des uns et des autres. Le locataire a ainsi l’impression d’avoir une utilisation exclusive de l’application.
-* **Disponibilité**: les locataires individuels veulent que l'application soit constamment disponible, sans doute avec des garanties définies dans un contrat SLA. À nouveau, les activités des autres locataires ne doivent pas affecter la disponibilité de l'application.
-* **Extensibilité**: l'application peut être mise à l'échelle pour répondre aux exigences de locataires individuels. La présence et les actions des autres locataires ne doivent pas affecter les performances de l'application.
-* **Coûts**: les coûts sont inférieurs au coût de l'exécution d'une application dédiée à un seul locataire, car une architecture mutualisée permet de partager les ressources.
+* **Isolation** : Les activités de locataires individuels n’affectent pas l’utilisation de l’application par d’autres clients. Les locataires ne peuvent pas accéder aux données des uns et des autres. Le locataire a ainsi l’impression d’avoir une utilisation exclusive de l’application.
+* **Disponibilité** : Locataires individuels veulent que l’application soit constamment disponible, peut-être avec des garanties définies dans un contrat SLA. À nouveau, les activités des autres locataires ne doivent pas affecter la disponibilité de l'application.
+* **Scalabilité** : L’application s’adapte à répondre à la demande de locataires individuels. La présence et les actions des autres locataires ne doivent pas affecter les performances de l'application.
+* **Coûts** : Les coûts sont inférieurs à ceux de l’exécution d’une application à locataire unique, dédiée, car une architecture mutualisée permet le partage des ressources.
 * **Possibilités de personnalisation**. possibilité de personnaliser l'application d'un locataire individuel de diverses façons telles qu'en ajoutant ou en supprimant des fonctionnalités, en changeant les couleurs et les logos, ou même en ajoutant son propre code ou script.
 
 En résumé, bien que de nombreux aspects soient à prendre en compte pour fournir un service hautement évolutif, il y a également une série d'objectifs et d'exigences communs à de nombreuses applications mutualisées. Certains peuvent ne pas concerner des scénarios spécifiques, et l'importance d'objectifs et d'exigences individuels peut différer pour chaque scénario. En tant que fournisseur de l'application mutualisée, vous aurez également des objectifs et des exigences tels que la satisfaction des objectifs et des exigences des locataires, la rentabilité, la facturation, les niveaux de service multiples, l'approvisionnement, la surveillance de la maintenabilité et l'automatisation.

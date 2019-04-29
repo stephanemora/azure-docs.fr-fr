@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: raynew
 ms.openlocfilehash: 4739308d301291bf88e8ae547ba85f9648339c4e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58118457"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60680938"
 ---
 # <a name="contoso-migration-assess-on-premises-workloads-for-migration-to-azure"></a>Migration de Contoso : Évaluer facilement vos charges de travail locales en vue d’une migration vers Azure
 
@@ -424,7 +424,7 @@ Une fois Microsoft Monitoring Agent installé, Contoso installe Dependency Agent
     wget --content-disposition https://aka.ms/dependencyagentlinux -O InstallDependencyAgent-Linux64.bin && sudo sh InstallDependencyAgent-Linux64.bin -s
     ```
 
-## <a name="step-6-run-and-analyze-the-vm-assessment"></a>Étape 6 : Exécuter et analyser l’évaluation de la machine virtuelle
+## <a name="step-6-run-and-analyze-the-vm-assessment"></a>Étape 6 : Exécuter et analyser l’évaluation de la machine virtuelle
 
 Contoso peut à présent vérifier les dépendances de machine et créer un groupe. Ensuite, Contoso effectue l’évaluation pour le groupe.
 

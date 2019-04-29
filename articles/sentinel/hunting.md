@@ -16,16 +16,16 @@ ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
 ms.openlocfilehash: adedc8bc1f574ae089f2a11033fab4f390c57a9a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58087021"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60714825"
 ---
 # <a name="hunt-for-threats-with-in-azure-sentinel-preview"></a>Recherche les menaces avec Sentinel version préliminaire d’Azure
 
 > [!IMPORTANT]
-> Sentinel Azure est actuellement en version préliminaire publique.
+> Azure Sentinel est actuellement disponible en préversion publique.
 > Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Si vous êtes un investigateur qui souhaite être proactive sur les menaces de sécurité, Azure Sentinel recherchez des outils de recherche et de requête puissant chasse à recherche les menaces de sécurité de vos sources de données de votre organisation. Générerez vos systèmes et les appliances de sécurité très volumineuse de données qui peuvent être difficiles à analyser et filtrer des événements significatifs. Pour aider à sécurité analystes recherchez proactive nouvelles anomalies qui n’ont pas été détectés par vos applications de sécurité Azure Sentinel « requêtes de recherche intégrée explique comment poser les bonnes questions pour rechercher les problèmes dans les données que vous avez déjà sur votre réseau. 
@@ -143,7 +143,7 @@ Cloner et modifier une requête de recherche existante :
    ![requête personnalisée](./media/tutorial-hunting/custom-query.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans cet article, vous avez appris comment exécuter une investigation de chasse avec Azure Sentinel. Pour en savoir plus sur Azure Sentinel, consultez les articles suivants :
+Dans cet article, vous avez appris comment exécuter une investigation de chasse avec Azure Sentinel. Pour en savoir plus sur Azure Sentinel, voir les articles suivants :
 
 
 - [Utiliser des blocs-notes pour lancer des campagnes de chasse automatisés](notebooks.md)

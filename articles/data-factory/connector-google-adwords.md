@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
 ms.openlocfilehash: 0f68627e2db3c08049f0273045906057526bd6aa
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55568050"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61094916"
 ---
 # <a name="copy-data-from-google-adwords-using-azure-data-factory-preview"></a>Copier des données de Google AdWords à l’aide d’Azure Data Factory (préversion)
 
@@ -44,7 +44,7 @@ Les propriétés prises en charge pour le service lié Google AdWords sont les s
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type doit être définie sur : **GoogleAdWords** | Oui |
+| type | La propriété type doit être définie sur : **GoogleAdWords** | Oui |
 | clientCustomerID | ID client du client du compte AdWords pour lequel vous souhaitez extraire des données de rapport.  | Oui |
 | developerToken | Jeton de développeur associé au compte de gestionnaire que vous utilisez pour accorder l’accès à l’API AdWords.  Vous pouvez choisir de marquer ce champ comme SecureString pour le stocker en toute sécurité dans le fichier de définition d'application, ou stocker le mot de passe dans Azure Key Vault et laisser l'activité de copie ADF en tirer (pull) les données lors de la copie. Pour plus d'informations, consultez la page [Stocker des informations d'identification dans Key Vault](store-credentials-in-key-vault.md). | Oui |
 | authenticationType | Mécanisme d’authentification OAuth 2.0 utilisé pour l’authentification. ServiceAuthentication ne peut être utilisé que sur un runtime d’intégration auto-hébergé. <br/>Les valeurs autorisées sont les suivantes : **ServiceAuthentication**, **UserAuthentication** | Oui |
@@ -100,8 +100,8 @@ Pour copier des données à partir de Google AdWords, définissez la propriété
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type du jeu de données doit être définie sur : **GoogleAdWordsObject** | Oui |
-| TableName | Nom de la table. | Non (si « query » dans la source de l’activité est spécifié) |
+| type | La propriété type du jeu de données doit être définie sur : **GoogleAdWordsObject** | Oui |
+| tableName | Nom de la table. | Non (si « query » dans la source de l’activité est spécifié) |
 
 **Exemple**
 
@@ -130,7 +130,7 @@ Pour copier des données à partir de Google AdWords, définissez le type de sou
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type de la source d’activité de copie doit être définie sur : **GoogleAdWordsSource** | Oui |
+| type | La propriété type de la source d’activité de copie doit être définie sur : **GoogleAdWordsSource** | Oui |
 | query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"SELECT * FROM MyTable"`. | Non (si « tableName » est spécifié dans dataset) |
 
 **Exemple :**

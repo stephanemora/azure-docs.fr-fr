@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.subservice: manage
 ms.date: 02/09/2019
 ms.openlocfilehash: e77556ac0d6f64797906c0f3b4181f147b1668e2
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58448422"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61475052"
 ---
 # <a name="azure-sql-data-warehouse-release-notes-and-documentation-updates"></a>Notes de publication et mises à jour de la documentation Azure SQL Data Warehouse
 

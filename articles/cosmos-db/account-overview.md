@@ -9,11 +9,11 @@ ms.date: 03/31/2019
 ms.author: rimman
 ms.reviewer: sngun
 ms.openlocfilehash: da55807d4ca803adf63a1dd2dfe3ce3794cdd509
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58762597"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60894615"
 ---
 # <a name="work-with-azure-cosmos-account"></a>Utiliser un compte Azure Cosmos
 

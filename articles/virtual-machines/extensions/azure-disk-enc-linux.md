@@ -14,20 +14,20 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: ejarvi
-ms.openlocfilehash: 36e8875e91e2f04dbb60bab3211f07b2053e78f5
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
-ms.translationtype: HT
+ms.openlocfilehash: 3ce881da4b683cf7034100d5044dd0f3c93edb52
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39414770"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60800187"
 ---
 # <a name="azure-disk-encryption-for-linux-microsoftazuresecurityazurediskencryptionforlinux"></a>Azure Disk Encryption pour Linux (Microsoft.Azure.Security.AzureDiskEncryptionForLinux)
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 
 Azure Disk Encryption tire profit du sous-système dm-crypt de Linux pour fournir un chiffrement de disque complet sur [une sélection de distributions Linux Azure](https://aka.ms/adelinux).  Cette solution est intégrée à Azure Key Vault pour gérer les secrets et clés de chiffrement de disque.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour obtenir la liste complète des conditions requises, consultez la page de [Prérequis pour Azure Disk Encryption](
 ../../security/azure-security-disk-encryption-prerequisites.md).
@@ -72,23 +72,23 @@ Azure Disk Encryption pour Linux doit être connecté à Internet accéder à Ac
 
 ### <a name="property-values"></a>Valeurs de propriétés
 
-| NOM | Valeur/Exemple | Type de données |
+| Nom | Valeur/Exemple | Type de données |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
-| publisher | Microsoft.Azure.Security | chaîne |
-| Type | AzureDiskEncryptionForLinux | chaîne |
+| publisher | Microsoft.Azure.Security | string |
+| Type | AzureDiskEncryptionForLinux | string |
 | typeHandlerVersion | 0.1, 1.1 (VMSS) | int |
 | AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | GUID | 
-| AADClientSecret | password | chaîne |
-| AADClientCertificate | thumbprint | chaîne |
+| AADClientSecret | password | string |
+| AADClientCertificate | thumbprint | string |
 | DiskFormatQuery | {"dev_path":"","name":"","file_system":""} | Dictionnaire JSON |
-| EncryptionOperation | EnableEncryption, EnableEncryptionFormatAll | chaîne | 
-| KeyEncryptionAlgorithm | « RSA-OAEP », « RSA-OAEP-256 », « RSA1_5 » | chaîne |
-| KeyEncryptionKeyURL | url | chaîne |
-| KeyVaultURL | url | chaîne |
-| Phrase secrète | password | chaîne | 
-| SequenceVersion | uniqueidentifier | chaîne |
-| VolumeType | Système d’exploitation, données, tout | chaîne |
+| EncryptionOperation | EnableEncryption, EnableEncryptionFormatAll | string | 
+| KeyEncryptionAlgorithm | « RSA-OAEP », « RSA-OAEP-256 », « RSA1_5 » | string |
+| KeyEncryptionKeyURL | url | string |
+| KeyVaultURL | url | string |
+| Phrase secrète | password | string | 
+| SequenceVersion | uniqueidentifier | string |
+| VolumeType | Système d’exploitation, données, tout | string |
 
 ## <a name="template-deployment"></a>Déploiement de modèle
 

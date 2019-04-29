@@ -10,11 +10,11 @@ ms.date: 1/10/2017
 ms.author: saurse
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 59236774f98af927082c78f4b75a1f5880a7cac4
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51259597"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60646916"
 ---
 # <a name="move-your-long-term-storage-from-tape-to-the-azure-cloud"></a>Déplacement de votre stockage à long terme de la bande vers le cloud Azure
 Les clients Azure Backup et System Center Data Protection Manager peuvent effectuer les actions suivantes :
@@ -44,10 +44,10 @@ Le nombre total de « points de rétention » spécifié dans cette stratégie
 ## <a name="example--putting-both-together"></a>Exemple – Combinaison des deux
 ![Exemple d’écran](./media/backup-azure-backup-cloud-as-tape/samplescreen.png)
 
-1. **Stratégie de rétention quotidienne**: les sauvegardes effectuées quotidiennement sont stockées pendant sept jours.
-2. **Stratégie de rétention hebdomadaire**: les sauvegardes effectuées tous les jours à minuit et à 18 h 00 le samedi sont conservées pendant quatre semaines.
-3. **Stratégie de rétention mensuelle**: les sauvegardes effectuées le dernier samedi de chaque mois à minuit et à 18 h 00 sont conservées pendant 12 mois.
-4. **Stratégie de rétention annuelle**: les sauvegardes effectuées le dernier samedi de chaque mois de mars à minuit sont conservées pendant 10 ans.
+1. **Stratégie de rétention quotidienne**: Les sauvegardes effectuées quotidiennement sont stockées pendant sept jours.
+2. **Stratégie de rétention hebdomadaire**: Les sauvegardes effectuées tous les jours à minuit et à 18 h 00 samedi sont conservées pendant quatre semaines
+3. **Stratégie de rétention mensuelle**: Sauvegardes effectuées à minuit et à 18 h 00 le dernier samedi de chaque mois sont conservées pendant 12 mois
+4. **Stratégie de rétention annuelle**: Sauvegardes effectuées à minuit le dernier samedi de chaque mois de mars sont conservées pendant 10 ans
 
 Le nombre total de « points de rétention » (points à partir duquel un client peut restaurer des données) dans le schéma précédent est calculé comme suit :
 

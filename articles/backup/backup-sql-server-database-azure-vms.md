@@ -6,14 +6,14 @@ author: sachdevaswati
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/19/2019
+ms.date: 03/23/2019
 ms.author: sachdevaswati
-ms.openlocfilehash: 5e4bd3647b557b260e65e3fb1ce297892f5d7d78
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
-ms.translationtype: MT
+ms.openlocfilehash: 08eff24dc42f594424d109b82933b01b5c1be454
+ms.sourcegitcommit: a95dcd3363d451bfbfea7ec1de6813cad86a36bb
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59578822"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62733898"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Sauvegarder des bases de données SQL Server sur des machines virtuelles Azure
 
@@ -40,12 +40,12 @@ Pour pouvoir sauvegarder votre base de données SQL Server, vérifiez les condit
 
 ### <a name="establish-network-connectivity"></a>Établir la connectivité réseau
 
-Pour toute opération, la machine virtuelle SQL Server a besoin d’une connectivité pour accéder aux adresses IP publiques Azure. Opérations de machine virtuelle (découverte de base de données, configurer des sauvegardes, planifier des sauvegardes, restaurer des points de récupération et ainsi de suite) échouer sans connectivité vers les adresses IP publiques. Établissez une connexion à l’aide d’une des options suivantes :
+Pour toute opération, la machine virtuelle SQL Server a besoin d’une connectivité pour accéder aux adresses IP publiques Azure. Les opérations de machine virtuelle (détection de la base de données, configurer des sauvegardes, planifier des sauvegardes, restaurer des points de récupération et ainsi de suite) échouent sans connectivité vers les adresses IP publiques. Établissez une connexion à l’aide d’une des options suivantes :
 
 - **Autoriser les plages d’adresses IP du centre de données Azure** : autorisez les [plages d’adresses IP](https://www.microsoft.com/download/details.aspx?id=41653) dans le téléchargement. Pour accéder au groupe de sécurité réseau (NSG), utilisez le **Set-AzureNetworkSecurityRule** applet de commande.
 - **Déployer un serveur proxy HTTP pour le routage du trafic** : lorsque vous sauvegardez une base de données SQL Server sur une machine virtuelle Azure, l’extension de sauvegarde sur la machine virtuelle utilise les API HTTPS pour envoyer des commandes de gestion à la sauvegarde Azure, et des données au stockage Azure. L’extension de sauvegarde utilise également Azure Active Directory (Azure AD) pour l’authentification. Acheminez le trafic de l’extension de sauvegarde pour ces trois services via le proxy HTTP. L’extension est le seul composant qui est configuré pour l’accès à l’internet public.
 
-Chaque option présente des avantages et des inconvénients
+Chaque option présente des avantages et inconvénients
 
 **Option** | **Avantages** | **Inconvénients**
 --- | --- | ---
@@ -60,11 +60,11 @@ La sauvegarde Azure effectue un certain nombre de choses lorsque vous configurez
 - Lors de la découverte des bases de données sur la machine virtuelle, la Sauvegarde Azure crée le compte **NT SERVICE\AzureWLBackupPluginSvc**. Ce compte est utilisé pour la sauvegarde et la restauration, il doit disposer d’autorisations sysadmin SQL.
 - La sauvegarde Azure utilise le compte **NT AUTHORITY\SYSTEM** pour la détection et l’interrogation des bases de données. Ce compte doit donc être une connexion publique sur SQL.
 
-Si vous n’avez pas créé la machine virtuelle SQL Server à partir de la Place de marché Azure, vous pouvez recevoir une erreur **UserErrorSQLNoSysadminMembership**. Si cela se produit, [suivez ces instructions](backup-azure-sql-database.md#fix-sql-sysadmin-permissions).
+Si vous n’avez pas créé la machine virtuelle SQL Server à partir de la Place de marché Azure, vous pouvez recevoir une erreur **UserErrorSQLNoSysadminMembership**. Si cela se produit [suivez ces instructions](backup-azure-sql-database.md#fix-sql-sysadmin-permissions).
 
 ### <a name="verify-database-naming-guidelines-for-azure-backup"></a>Vérifier les instructions de nommage des bases de données pour la sauvegarde Azure
 
-Évitez les éléments suivants pour les noms de base de données :
+Éviter la ci-dessous pour les noms de base de données :
 
   * Espaces au début ou à la fin
   * « ! » à la fin
@@ -106,7 +106,7 @@ Détectez les bases de données en cours d’exécution sur la machine virtuelle
 
     ![Message Déploiement réussi](./media/backup-azure-sql-database/notifications-db-discovered.png)
 
-8. La sauvegarde Azure détecte toutes les bases de données SQL Server résidant sur la machine virtuelle. Lors de la découverte, les événements suivants se produisent en arrière-plan :
+8. La sauvegarde Azure détecte toutes les bases de données SQL Server résidant sur la machine virtuelle. Lors de la découverte le ci-dessous se produit en arrière-plan :
 
     - La sauvegarde Azure inscrit la machine virtuelle auprès du coffre pour la sauvegarde de la charge de travail. Les bases de données présentes sur la machine virtuelle inscrite ne peuvent être sauvegardées que sur ce coffre.
     - La sauvegarde Azure installe l’extension **AzureBackupWindowsWorkload** sur la machine virtuelle. Aucun agent n’est installé sur la base de données SQL.
@@ -171,7 +171,7 @@ Une stratégie de sauvegarde définit le moment auquel les sauvegardes sont effe
 Pour créer une stratégie de sauvegarde :
 
 1. Dans le coffre, cliquez sur **Stratégies de sauvegarde** > **Ajouter**.
-2. Dans le menu **Ajouter**, cliquez sur **SQL Server dans une machine virtuelle Azure**. Le type de stratégie est alors défini.
+2. Dans le menu **Ajouter**, cliquez sur **SQL Server dans une machine virtuelle Azure**. Définit le type de stratégie.
 
    ![Choisissez un type de stratégie pour la nouvelle stratégie de sauvegarde](./media/backup-azure-sql-database/policy-type-details.png)
 
@@ -179,7 +179,7 @@ Pour créer une stratégie de sauvegarde :
 4. Dans **Stratégie de sauvegarde complète**, comme **Fréquence de sauvegarde**, sélectionnez **Tous les jours** ou **Toutes les semaines**.
 
    - Si vous sélectionnez **quotidienne**, sélectionnez l’heure et le fuseau horaire de début du travail de sauvegarde.
-   - Vous devez exécuter une sauvegarde complète, vous ne pouvez pas désactiver l’option **Sauvegarde complète**.
+   - Vous devez exécuter une sauvegarde complète que vous ne pouvez pas désactiver le **sauvegarde complète** option.
    - Cliquez sur **Sauvegarde complète** pour afficher la stratégie.
    - Si vous choisissez des sauvegardes complètes quotidiennes, vous ne pouvez pas créer de sauvegardes différentielles.
    - Si vous choisissez la fréquence **hebdomadaire**, sélectionnez le jour de la semaine, l’heure et le fuseau horaire indiquant le début du travail de sauvegarde.
@@ -238,7 +238,7 @@ Activer la protection automatique sauvegarder automatiquement toutes les bases d
 
 - Il n’existe aucune limite sur le nombre de bases de données que vous pouvez sélectionner pour la protection automatique d’un coup.
 - Vous ne pouvez pas protéger ou exclure des bases de données de la protection dans une instance au moment de l’activation de la protection automatique de manière sélective.
-- Si votre instance comprend déjà certaines bases de données protégées, elles continuent à être protégées par leurs politiques même après avoir activé la protection automatique. Toutefois, les bases de données qui seront ajoutés à l’avenir et toutes les bases de données non protégées aura qu’une seule stratégie que vous définissez au moment de l’activation de la protection automatique, sous **configurer la sauvegarde**. Toutefois, vous pouvez modifier la stratégie associée à une base de données protégée automatiquement plus tard.  
+- Si votre instance comprend déjà certaines bases de données protégées, elles continuent à être protégées par leurs politiques même après avoir activé la protection automatique. Toutefois, les bases de données qui seront ajoutés à l’avenir, et toutes les bases de données non protégées aura qu’une seule stratégie que vous définissez au moment de l’activation de la protection automatique, sous **configurer la sauvegarde**. Toutefois, vous pouvez modifier la stratégie associée à une base de données protégée automatiquement plus tard.  
 
 Étapes pour activer la protection automatique sont les suivantes :
 

@@ -1,7 +1,6 @@
 ---
 title: Accéder aux journaux des applications Apache Hadoop YARN dans HDInsight basé sur Linux - Azure
 description: Découvrez comment accéder aux journaux des applications YARN sur un cluster HDInsight sous Linux (Apache Hadoop) à l’aide de la ligne de commande et d’un navigateur web.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: hrasheed
-ms.openlocfilehash: 8412c82d460591cd3a9d2dc97d383a47e263fd50
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: MT
+ms.openlocfilehash: 0a3411cc4cc32c3e54583ab81ee98f2e151d4384
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53728174"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62098437"
 ---
 # <a name="access-apache-hadoop-yarn-application-logs-on-linux-based-hdinsight"></a>Accéder aux journaux des applications Apache Hadoop YARN dans HDInsight basé sur Linux
 
@@ -34,7 +33,7 @@ YARN Timeline Server inclut le type de données suivant :
 * Informations sur les tentatives effectuées afin de terminer l’application
 * Conteneurs utilisés par toute tentative d’application donnée
 
-## <a name="YARNAppsAndLogs"></a>Applications et journaux YARN
+## <a name="YARNAppsAndLogs"></a>Applications et journaux d’activité YARN
 
 YARN (Yet Another Resource Negotiator) prend en charge plusieurs modèles de programmation (dont [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html)) en séparant la gestion des ressources de la planification et de l’analyse des applications. YARN utilise les éléments suivant : *ResourceManager* (RM) global, *NodeManagers* (NM) par nœud worker et *ApplicationMasters* (AM) par application. Le maître d'application, propre à chaque application, négocie les ressources nécessaires (processeur, mémoire, disque, réseau) pour exécuter l'application avec le gestionnaire de ressources. Le gestionnaire de ressources fonctionne avec les gestionnaires de nœuds pour octroyer ces ressources sous forme de *conteneurs*. Le maître d'application est chargé de suivre la progression des conteneurs qui lui sont assignés par le gestionnaire de ressources. Selon la nature de l'application, celle-ci peut nécessiter de nombreux conteneurs.
 
@@ -50,7 +49,7 @@ Les journaux d’activité agrégés ne sont pas lisibles directement, car ils s
 
 ## <a name="yarn-cli-tools"></a>Outils de l’interface de ligne de commande YARN
 
-Pour utiliser les outils de l’interface de ligne de commande YARN, vous devez d’abord vous connecter au cluster HDInsight en utilisant le protocole SSH. Pour plus d’informations, consultez [Utiliser SSH avec HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+Pour utiliser les outils de l’interface de ligne de commande YARN, vous devez d’abord vous connecter au cluster HDInsight en utilisant le protocole SSH. Pour en savoir plus, voir [Utilisation de SSH avec HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 Vous pouvez afficher ces journaux d’activité en texte brut en exécutant l’une des commandes suivantes :
 

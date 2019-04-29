@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 3/25/2019
 ms.custom: seodec18
 ms.openlocfilehash: 03871c3f3627e85cc2af2f05a5fba38bd8069a15
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59609487"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61481106"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Comprendre les sorties d’Azure Stream Analytics
 Cet article décrit les types de sorties disponibles pour un travail Azure Stream Analytique. Les sorties permettent de stocker et d’enregistrer les résultats du travail Stream Analytics. En utilisant les données de sortie, vous pouvez faire encore plus analytique d’entreprise et d’entreposage de données de vos données.
