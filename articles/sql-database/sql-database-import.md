@@ -21,7 +21,7 @@ ms.locfileid: "60338612"
 ---
 # <a name="quickstart-import-a-bacpac-file-to-a-database-in-azure-sql-database"></a>Démarrage rapide : Importer un fichier BACPAC dans Azure SQL Database
 
-Vous pouvez importer une base de données SQL Server dans Azure SQL Database à l’aide d’un fichier [BACPAC](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/data-tier-applications#bacpac). Vous pouvez importer les données d’un fichier `BACPAC` stocké dans le Stockage Blob Azure (stockage standard uniquement) ou à partir d’un stockage local à un emplacement local. Pour optimiser la vitesse d’importation en fournissant des ressources plus nombreuses et plus rapides, mettez à l’échelle votre base de données à un niveau de service plus élevé et calculez la taille pendant le processus d’importation. Vous pouvez ensuite effectuer un scale-down après l’importation.
+Vous pouvez importer une base de données SQL Server dans Azure SQL Database à l’aide d’un fichier [BACPAC](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/data-tier-applications#bacpac). Vous pouvez importer les données d’un fichier `BACPAC` stocké dans le Stockage Blob Azure (stockage standard uniquement) ou à partir d’un stockage local à un emplacement local. Pour optimiser la vitesse d’importation en fournissant des ressources plus nombreuses et plus rapides, mettez à l’échelle votre base de données un niveau de service et une taille de calcul supérieurs pendant le processus d’importation. Vous pouvez ensuite effectuer un scale-down après l’importation.
 
 > [!NOTE]
 > Le niveau de compatibilité de la base de données importée est basé sur celui de la base de données source.

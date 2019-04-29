@@ -14,7 +14,7 @@ manager: craigg
 ms.date: 02/08/2019
 ms.openlocfilehash: 46a620900896d07273da22e53171330b85d3f1ec
 ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59360194"
@@ -28,7 +28,7 @@ Azure SQL Database vous permet d’acheter facilement un moteur de base de donn�
 
 Différents modèles d’achat sont disponibles dans les modèles de déploiement Azure SQL Database :
 
-- Les options de déploiement [Base de données unique](sql-database-single-databases-manage.md) et [Pool élastique](sql-database-elastic-pool.md) d'[Azure SQL Database](sql-database-technical-overview.md) proposent à la fois le [modèle d'achat DTU](sql-database-service-tiers-dtu.md) et le [modèle d'achat vCore](sql-database-service-tiers-vcore.md).
+- Les options de déploiement [Base de données unique](sql-database-single-databases-manage.md) et [Pool élastique](sql-database-elastic-pool.md) d’[Azure SQL Database](sql-database-technical-overview.md) proposent à la fois le [modèle d’achat DTU](sql-database-service-tiers-dtu.md) et le [modèle d’achat vCore](sql-database-service-tiers-vcore.md).
 - L'option de déploiement [Instance managée](sql-database-managed-instance.md) d'Azure SQL Database propose uniquement le [modèle d'achat vCore](sql-database-service-tiers-vcore.md).
 
 > [!IMPORTANT]
@@ -52,13 +52,13 @@ Le coût associé au calcul reflète la capacité de calcul totale provisionnée
 
 Les divers types de stockage sont facturés différemment. Pour le stockage des données, vous êtes facturé en fonction du stockage provisionné, sur la base de la taille maximum de la base de données ou du pool que vous sélectionnez. Le coût ne change pas, sauf si vous réduisez ou augmentez cette taille maximum. Le stockage de sauvegarde est associé aux sauvegardes automatisées de votre instance et il est alloué de manière dynamique. L’allongement de la période de rétention des sauvegardes a pour effet d’augmenter le volume de stockage de sauvegarde que votre instance utilise.
 
-7 jours de sauvegardes automatisées de vos bases de données sont copiés par défaut dans le stockage blob RA-GRS standard. Le stockage est utilisé pour des sauvegardes complètes hebdomadaires, des sauvegardes différentielles quotidiennes et des sauvegardes de fichiers journaux copiés toutes les 5 minutes. La taille du journal des transactions dépend la fréquence de changement de la base de données. Un volume de stockage minimal égal à 100 % de la taille de la base de données est fourni sans frais supplémentaires. Toute consommation supérieure de stockage de sauvegarde est facturée en Go/mois.
+7 jours de sauvegardes automatisées de vos bases de données sont copiés par défaut dans le stockage blob RA-GRS standard. Le stockage est utilisé pour des sauvegardes complètes hebdomadaires, des sauvegardes différentielles quotidiennes et des sauvegardes de fichiers journaux copiés toutes les 5 minutes. La taille du journal des transactions dépend la fréquence de changement de la base de données. Une quantité de stockage minimal égale à 100 % de la taille de la base de données est fourni sans frais supplémentaires. Toute consommation supérieure de stockage de sauvegarde est facturée en Go/mois.
 
 Pour plus d'informations sur les prix du stockage, consultez la page [Tarification](https://azure.microsoft.com/pricing/details/sql-database/single/).
 
 ## <a name="vcore-based-purchasing-model"></a>Modèle d’achat vCore
 
-Un vCore représente l’UC logique offerte avec une option permettant de choisir entre plusieurs générations de matériel et de caractéristiques physiques du matériel (par exemple, le nombre de cœurs, la mémoire, la taille de stockage). Le modèle d’achat vCore apporte flexibilité, contrôle et transparence pour la consommation des ressources individuelles. C’est aussi un moyen facile de traduire les exigences des charges de travail locales pour le cloud. Ce modèle permet de sélectionner le calcul, la mémoire et le stockage en fonction des besoins des charges de travail. Avec le modèle d'achat vCore, vous avez le choix entre les niveaux de service [Usage général](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability) et [Critique pour l'entreprise](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) pour les [bases de données uniques](sql-database-single-database-scale.md), les [pools élastiques](sql-database-elastic-pool.md) et les [instances managées](sql-database-managed-instance.md). Pour les bases de données uniques, vous pouvez également choisir le [niveau de service Hyperscale (préversion)](sql-database-service-tier-hyperscale.md).
+Un vCore représente l’UC logique offerte avec une option permettant de choisir entre plusieurs générations de matériel et de caractéristiques physiques du matériel (par exemple, le nombre de cœurs, la mémoire, la taille de stockage). Le modèle d’achat vCore apporte flexibilité, contrôle et transparence pour la consommation des ressources individuelles. C’est aussi un moyen facile de traduire les exigences des charges de travail locales pour le cloud. Ce modèle permet de sélectionner le calcul, la mémoire et le stockage en fonction des besoins des charges de travail. Avec le modèle d’achat vCore, vous avez le choix entre les niveaux de service [Usage général](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability) et [Critique pour l'entreprise](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) pour les [bases de données uniques](sql-database-single-database-scale.md), les [pools élastiques](sql-database-elastic-pool.md) et les [instances managées](sql-database-managed-instance.md). Pour les bases de données uniques, vous pouvez également choisir le [niveau de service Hyperscale (préversion)](sql-database-service-tier-hyperscale.md).
 
 Le modèle d’achat vCore vous permet de sélectionner les ressources de calcul et de stockage indépendamment les unes des autres, d’égaler les performances d’une exécution locale et d’optimiser les coûts. Dans le modèle d’achat vCore, les clients paient pour :
 
@@ -78,7 +78,7 @@ Si votre base de données unique ou votre pool élastique consomme plus de 300 
 
 ## <a name="dtu-based-purchasing-model"></a>Modèle d’achat DTU
 
-L’unité DTU (Database Transaction Unit) correspond à un mélange de mesures d’UC, de mémoire, de lectures et d’écritures. Le modèle d’achat DTU offre un ensemble préconfiguré de ressources de calcul et de stockage inclus pour obtenir différents niveaux de performance d’application. Les clients qui préfèrent la simplicité d’une offre groupée préconfigurée et de versements mensuels peuvent trouver le modèle DTU mieux adapté à leurs besoins. Avec le modèle d'achat DTU, les clients ont le choix entre les niveaux de service **De base**, **Standard** et **Premium** pour les [bases de données uniques](sql-database-single-database-scale.md) et les [pools élastiques](sql-database-elastic-pool.md). Ce modèle d’achat n’est pas disponible dans les [instances gérées](sql-database-managed-instance.md).
+L’unité DTU (Database Transaction Unit) correspond à un mélange de mesures d’UC, de mémoire, de lectures et d’écritures. Le modèle d’achat DTU offre un ensemble préconfiguré de ressources de calcul et de stockage inclus pour obtenir différents niveaux de performance d’application. Les clients qui préfèrent la simplicité d’une offre groupée préconfigurée et de versements mensuels peuvent trouver le modèle DTU mieux adapté à leurs besoins. Avec le modèle d’achat DTU, les clients ont le choix entre les niveaux de service **De base**, **Standard** et **Premium** pour les [bases de données uniques](sql-database-single-database-scale.md) et les [pools élastiques](sql-database-elastic-pool.md). Ce modèle d’achat n’est pas disponible dans les [instances gérées](sql-database-managed-instance.md).
 
 ### <a name="database-transaction-units-dtus"></a>Unités de transaction de base de données (DTU)
 
@@ -86,7 +86,7 @@ Pour les bases de données uniques ayant une taille de calcul spécifique et app
 
 ![cadre englobant](./media/sql-database-what-is-a-dtu/bounding-box.png)
 
-Les DTU sont particulièrement utiles pour comprendre la quantité relative de ressources des bases de données SQL Azure ayant différentes tailles de calcul et différents niveaux de service. Par exemple, le fait de doubler les DTU en augmentant la taille de calcul d’une base de données revient à doubler l’ensemble des ressources disponibles pour cette base de données. Par exemple, une base de données Premium P11 comprenant 1 750 DTU fournit une puissance de calcul DTU 350 fois plus importante qu’une base de données de base comprenant 5 DTU.  
+Les DTU sont particulièrement utiles pour comprendre la quantité relative de ressources des bases de données Azure SQL ayant différentes tailles de calcul et différents niveaux de service. Par exemple, le fait de doubler les DTU en augmentant la taille de calcul d’une base de données revient à doubler l’ensemble des ressources disponibles pour cette base de données. Par exemple, une base de données Premium P11 comprenant 1 750 DTU fournit une puissance de calcul DTU 350 fois plus importante qu’une base de données de base comprenant 5 DTU.  
 
 Afin d'avoir une idée plus précise de la consommation de ressources (DTU) de votre charge de travail, utilisez l'[analyse des performances des requêtes](sql-database-query-performance.md) pour :
 
@@ -108,7 +108,7 @@ Si vous souhaitez migrer une charge de travail de machine virtuelle SQL Server o
 
 ### <a name="workloads-that-benefit-from-an-elastic-pool-of-resources"></a>Charges de travail tirant avantage d’un pool élastique de ressources
 
-Les pools sont idéaux dans le cas de nombreuses bases de données avec des modèles d’utilisation spécifiques. Pour une base de données indiquée, ce modèle se caractérise par une moyenne d’utilisation faible avec des pics d’utilisation relativement rares. La base de données SQL évalue automatiquement l’historique d’utilisation en ressources des bases de données dans un serveur de base de données SQL existant et recommande la configuration de pool appropriée dans le portail Azure. Pour plus d’informations, consultez l’article [Quand utiliser un pool élastique ?](sql-database-elastic-pool.md).
+Les pools sont idéaux dans le cas de nombreuses bases de données avec des modèles d’utilisation spécifiques. Pour une base de données indiquée, ce modèle se caractérise par une moyenne d’utilisation faible avec des pics d’utilisation relativement rares. SQL Database évalue automatiquement l’historique d’utilisation en ressources des bases de données dans un serveur SQL Database existant et recommande la configuration de pool appropriée dans le portail Azure. Pour plus d’informations, consultez l’article [Quand utiliser un pool élastique ?](sql-database-elastic-pool.md).
 
 ## <a name="purchase-model-frequently-asked-questions-faq"></a>Forum Aux Questions (FAQ) - Modèle d'achat
 
@@ -116,11 +116,11 @@ Les pools sont idéaux dans le cas de nombreuses bases de données avec des mod�
 
 Les nouveaux niveaux de service offrent une méthode de conversion en ligne simple qui est similaire au processus actuel de mise à niveau des bases de données du niveau de service Standard au niveau Premium et inversement. Cette conversion peut être lancée à l’aide du portail Azure, de PowerShell, d’Azure CLI ou des API REST. Consultez [Gérer les ressources pour une base de données unique dans Azure SQL Database](sql-database-single-database-scale.md) et [Les pools élastiques vous aident à gérer et à mettre à l’échelle plusieurs bases de données Microsoft Azure SQL](sql-database-elastic-pool.md).
 
-### <a name="can-i-convert-a-database-from-a-service-tier-using-the-vcore-based-purchase-to-a-service-tier-using-the-dtu-based-purchasing-model"></a>Puis-je convertir une base de données d'un niveau de service utilisant le modèle d'achat vCore vers un niveau de service utilisant le modèle d'achat DTU ?
+### <a name="can-i-convert-a-database-from-a-service-tier-using-the-vcore-based-purchase-to-a-service-tier-using-the-dtu-based-purchasing-model"></a>Puis-je convertir une base de données d’un niveau de service utilisant le modèle d’achat vCore vers un niveau de service utilisant le modèle d’achat DTU ?
 
 Oui, vous pouvez facilement convertir votre base de données vers des objectifs de performance pris en charge à l’aide du portail ou par programme en utilisant le portail Azure, PowerShell, Azure CLI, T-SQL ou les API REST. Consultez [Gérer des bases de données uniques](sql-database-single-database-scale.md) et [Gérer des pools élastiques](sql-database-elastic-pool.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Pour le modèle d’achat vCore, voir [Modèle d’achat vCore](sql-database-service-tiers-vcore.md).
-- Pour le modèle d’achat basé sur les DTU, consultez [Modèle d’achat DTU](sql-database-service-tiers-dtu.md).
+- Pour le modèle d’achat DTU, consultez [Modèle d’achat DTU](sql-database-service-tiers-dtu.md).

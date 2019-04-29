@@ -19,7 +19,7 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60331472"
 ---
-# <a name="azure-sql-database-threat-detection-for-single-or-pooled-databases"></a>Détection des menaces Azure SQL Database pour bases de données uniques ou regroupées
+# <a name="azure-sql-database-threat-detection-for-single-or-pooled-databases"></a>Détection des menaces Azure SQL Database pour bases de données uniques et mises en pool
 
 La [Détection des menaces](sql-database-threat-detection-overview.md) pour bases de données uniques et regroupées détecte les activités anormales indiquant des tentatives inhabituelles et potentiellement dangereuses d'accès aux bases de données ou d'attaque de celles-ci. La Détection des menaces peut identifier une **injection SQL potentielle**, un **accès à partir d'un emplacement ou d'un centre de données inhabituel**, un **accès à partir d'un principal inconnu ou d'une application potentiellement dangereuse** et des **informations d'identification SQL par force brute**. Pour plus d'informations, consultez [Alertes de détection des menaces](sql-database-threat-detection-overview.md#advanced-threat-protection-alerts).
 

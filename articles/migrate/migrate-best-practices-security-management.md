@@ -419,7 +419,7 @@ Azure SQL Database est un moteur de base de données PaaS complètement managé.
 - SQL Database effectue automatiquement des sauvegardes hebdomadaires complètes des bases de données et des sauvegardes différentielles toutes les 12 heures. Les sauvegardes du journal des transactions sont effectuées toutes les cinq à dix minutes pour protéger la base de données contre la perte de données.
 - Les sauvegardes sont transparentes et n’entraînent des frais supplémentaires.
 - Les sauvegardes sont enregistrées dans le stockage géographiquement redondant avec accès en lecture (RA-GRS) pour la géoredondance et répliquées dans la région géographique jumelée.
-- La rétention des sauvegardes dépend du modèle d’achat. Les niveaux de service basés sur les DTU passent de sept jours pour le niveau de base à 35 jours pour les autres niveaux.
+- La conservation des sauvegardes dépend du modèle d’achat. Les niveaux de service DTU passent de sept jours pour le niveau de base à 35 jours pour les autres niveaux.
 - Vous pouvez restaurer une base de données à un point dans le temps dans la période de rétention. Vous pouvez également restaurer une base de données qui a été supprimée, la restaurer dans une autre région géographique ou la restaurer à partir d’une sauvegarde à long terme si la base de données possède une stratégie de conservation à long terme (LTR).
 
 

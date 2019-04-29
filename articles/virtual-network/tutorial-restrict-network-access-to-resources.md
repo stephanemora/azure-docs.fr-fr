@@ -1,6 +1,6 @@
 ---
 title: Restreindre l’accès réseau aux ressources PaaS - Didacticiel - Portail Azure | Microsoft Docs
-description: Dans ce didacticiel, découvrez comment limiter et restreindre l’accès réseau aux ressources Azure, telles que le service Stockage Azure et Azure SQL Database, à l’aide de points de terminaison de service de réseau virtuel en utilisant le portail Azure.
+description: Dans ce tutoriel, découvrez comment limiter et restreindre l’accès réseau aux ressources Azure, telles que le service Stockage Azure et Azure SQL Database, à l’aide de points de terminaison de service de réseau virtuel en utilisant le portail Azure.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
@@ -23,7 +23,7 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 08/24/2018
 ms.locfileid: "42810082"
 ---
-# <a name="tutorial-restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-portal"></a>Didacticiel : Restreindre l’accès réseau aux ressources PaaS avec des points de terminaison de service réseau virtuel en utilisant le portail Azure
+# <a name="tutorial-restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-portal"></a>Tutoriel : Restreindre l’accès réseau aux ressources PaaS avec des points de terminaison de service de réseau virtuel en utilisant le portail Azure
 
 Les points de terminaison de service de réseau virtuel permettent de restreindre l’accès réseau à certaines ressources du service Azure en n’autorisant leur accès qu’à partir d’un sous-réseau du réseau virtuel. Vous pouvez également supprimer l’accès Internet aux ressources. Les points de terminaison de service fournissent une connexion directe entre votre réseau virtuel et les services Azure pris en charge, ce qui vous permet d’utiliser l’espace d’adressage privé de votre réseau virtuel pour accéder aux services Azure. Le trafic destiné aux ressources Azure via les points de terminaison de service reste toujours sur le serveur principal de Microsoft Azure. Ce tutoriel vous montre comment effectuer les opérations suivantes :
 

@@ -1,6 +1,6 @@
 ---
 title: Règles de pare-feu IP Azure SQL Database et Data Warehouse | Microsoft Docs
-description: Apprenez à configurer un pare-feu Azure SQL Database ou SQL Data Warehouse avec des règles de pare-feu IP au niveau du serveur pour gérer les accès, et à configurer une base de données unique ou en pool avec des règles de pare-feu IP au niveau de la base de données.
+description: Apprenez à configurer un pare-feu Azure SQL Database ou SQL Data Warehouse avec des règles de pare-feu IP au niveau du serveur pour gérer les accès, et à configurer une base de données unique ou mise en pool avec des règles de pare-feu IP au niveau de la base de données.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -14,7 +14,7 @@ manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: 513836257a292069da709ad7a71e480f2b4d069d
 ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/13/2019
 ms.locfileid: "59549727"
@@ -34,7 +34,7 @@ Outre les règles d’adresses IP, le pare-feu gère également *les règles de
 
 ## <a name="overview"></a>Présentation
 
-À la base, tout accès à votre serveur SQL Azure est bloqué par le pare-feu SQL Database. Pour accéder à votre serveur de base de données, vous devez spécifier une ou plusieurs règles de pare-feu IP au niveau du serveur qui permettent l’accès à votre serveur SQL Azure. Utilisez les règles de pare-feu IP pour spécifier les plages d’adresses IP Internet qui sont autorisées, et si les applications Azure peuvent essayer de se connecter à votre serveur Azure SQL.
+À la base, tout accès à votre serveur SQL Azure est bloqué par le pare-feu SQL Database. Pour accéder à votre serveur de base de données, vous devez spécifier une ou plusieurs règles de pare-feu IP au niveau du serveur qui permettent l’accès à votre serveur Azure SQL. Utilisez les règles de pare-feu IP pour spécifier les plages d’adresses IP Internet qui sont autorisées, et si les applications Azure peuvent essayer de se connecter à votre serveur Azure SQL.
 
 Pour accorder l’accès de manière sélective à l’une des bases de données de votre serveur SQL Azure, vous devez créer une règle de niveau de la base de données pour la base de données requise. Spécifiez, pour la règle de pare-feu IP au niveau de la base de données, une plage d’adresses IP qui se situe au-delà de la plage d’adresses IP spécifiée dans la règle de pare-feu IP au niveau du serveur, et vérifiez que l’adresse IP du client appartient à la plage spécifiée dans la règle au niveau de la base de données.
 
@@ -67,7 +67,7 @@ Microsoft recommande d’utiliser quand c’est possible des règles de pare-feu
 Quand un ordinateur tente de se connecter à votre serveur de base de données à partir d’Internet, le pare-feu vérifie d’abord l’adresse IP d’origine de la demande par rapport aux règles de pare-feu IP au niveau de la base de données, pour la base de données demandée par la connexion :
 
 - Si l’adresse IP de la demande appartient à une des plages spécifiées dans les règles de pare-feu IP au niveau de la base de données, la connexion est accordée à la base de données SQL contenant la règle.
-- Si l’adresse IP de la demande n’appartient pas à une des plages spécifiées dans la règle de pare-feu IP au niveau de la base de données, les règles de pare-feu IP au niveau du serveur sont vérifiées. Si l’adresse IP de la demande appartient à une des plages spécifiées dans les règles de pare-feu IP au niveau du serveur, la connexion est accordée. Les règles de pare-feu IP au niveau du serveur s’appliquent à toutes les bases de données SQL sur le serveur SQL Azure.  
+- Si l’adresse IP de la demande n’appartient pas à une des plages spécifiées dans la règle de pare-feu IP au niveau de la base de données, les règles de pare-feu IP au niveau du serveur sont vérifiées. Si l’adresse IP de la demande appartient à une des plages spécifiées dans les règles de pare-feu IP au niveau du serveur, la connexion est accordée. Les règles de pare-feu IP au niveau du serveur s’appliquent à toutes les bases de données SQL sur le serveur Azure SQL.  
 - Si l’adresse IP de la demande n’appartient pas aux plages spécifiées dans les règles de pare-feu IP au niveau du serveur ou de la base de données, la demande de connexion échoue.
 
 > [!NOTE]

@@ -14,7 +14,7 @@ ms.reviewer: douglasl
 manager: craigg
 ms.openlocfilehash: d30ec0765627ec173f0027e49f44cb77f6b26ac6
 ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59361475"
@@ -23,7 +23,7 @@ ms.locfileid: "59361475"
 
 Cet article explique pas à pas comment provisionner Azure-SSIS Integration Runtime (IR) dans Azure Data Factory (ADF). Vous pouvez ensuite utiliser SQL Server Data Tools (SSDT) ou SQL Server Management Studio (SSMS) pour déployer et exécuter des packages SQL Server Integration Services (SSIS) sur ce runtime d’intégration dans Azure.
 
-Le [Tutoriel : Déployer des packages SSIS sur Azure](tutorial-create-azure-ssis-runtime-portal.md) montre comment créer un Azure-SSIS IR en utilisant le serveur Azure SQL Database pour héberger la base de données de catalogue SSIS (SSISDB). Cet article s’appuie sur le didacticiel et vous montre comment effectuer les opérations suivantes :
+Le [Tutoriel : Déployer des packages SSIS sur Azure](tutorial-create-azure-ssis-runtime-portal.md) montre comment créer un IR Azure-SSIS en utilisant le serveur Azure SQL Database pour héberger la base de données de catalogue SSIS (SSISDB). Cet article s’appuie sur le didacticiel et vous montre comment effectuer les opérations suivantes :
 
 - Si vous le souhaitez, vous pouvez utiliser le serveur Azure SQL Database avec des points de terminaison de service de réseau virtuel/Managed Instance pour héberger SSISDB. Pour obtenir de l’aide sur le choix du type de serveur de base de données pour héberger SSISDB, consultez [Comparer les bases de données uniques/pools élastiques Azure SQL Database et Managed Instance](create-azure-ssis-integration-runtime.md#compare-sql-database-single-databaseelastic-pool-and-sql-database-managed-instance). Comme prérequis, vous devez joindre votre Azure-SSIS IR à un réseau virtuel et configurer les paramètres et les autorisations de réseau virtuel comme il se doit. Consultez [Joindre le runtime d’intégration Azure-SSIS à un réseau virtuel](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network).
 
@@ -37,7 +37,7 @@ Cet article présente différentes façons de provisionner Azure-SSIS IR :
 - [Azure PowerShell](#azure-powershell)
 - [Modèle Azure Resource Manager](#azure-resource-manager-template)
 
-Quand vous créez un Azure-SSIS IR, le service ADF se connecte à votre serveur Azure SQL Database/Managed Instance pour préparer SSISDB. Il configure également les autorisations et les paramètres de votre réseau virtuel, s’ils sont spécifiés, et joint votre Azure-SSIS IR au réseau virtuel.
+Quand vous créez un IR Azure-SSIS, le service ADF se connecte à votre serveur Azure SQL Database/Managed Instance pour préparer SSISDB. Il configure également les autorisations et les paramètres de votre réseau virtuel, s’ils sont spécifiés, et joint votre Azure-SSIS IR au réseau virtuel.
 
 Quand vous provisionnez Azure-SSIS IR, les composants Azure Feature Pack pour SSIS et Access Redistributable sont également installés. Ces composants fournissent la connectivité aux fichiers Excel/Access et à diverses sources de données Azure, en plus des sources de données prises en charge par les composants intégrés. Vous pouvez également installer des composants supplémentaires. Pour plus d’informations, consultez [Custom setup for the Azure-SSIS integration runtime](how-to-configure-azure-ssis-ir-custom-setup.md) (Configuration personnalisée du runtime d’intégration Azure-SSIS).
 
@@ -64,13 +64,13 @@ Pour obtenir la liste des régions Azure dans lesquelles ADF et Azure-SSIS IR so
 
 ### <a name="compare-sql-database-single-databaseelastic-pool-and-sql-database-managed-instance"></a>Comparer une base de données unique/un pool élastique Azure SQL Database et SQL Database Managed Instance
 
-Le tableau suivant compare certaines fonctionnalités du serveur Azure SQL Database et de Managed Instance pour ce qui est d’Azure-SSIR IR :
+Le tableau suivant compare certaines fonctionnalités du serveur Azure SQL Database et Managed Instance concernant l’IR Azure-SSIR :
 
 | Fonctionnalité | base de données unique/pool élastique| Instance gérée |
 |---------|--------------|------------------|
 | **Planification** | SQL Server Agent n’est pas disponible.<br/><br/>Consultez [Planifier l’exécution de packages SSIS (SQL Server Integration Services) déployés dans Azure](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages?view=sql-server-2017#activity).| L’agent Managed Instance est disponible. |
 | **Authentification** | Vous pouvez créer SSISDB avec un utilisateur de base de données autonome représentant un groupe AAD avec l’identité managée de votre service ADF en tant que membre du rôle **db_owner**.<br/><br/>Consultez [Activer l’authentification Azure AD pour créer SSISDB sur le serveur Azure SQL Database](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database). | Vous pouvez créer SSISDB avec un utilisateur de base de données autonome représentant l’identité managée de votre service ADF. <br/><br/>Consultez [Activer l’authentification Azure AD pour créer SSISDB dans Azure SQL Database Managed Instance](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database-managed-instance). |
-| **Niveau de service** | Quand vous créez un Azure-SSIS IR avec votre serveur Azure SQL Database, vous pouvez sélectionner le niveau de service pour SSISDB. Il existe plusieurs niveaux de services. | Quand vous créez un Azure-SSIS IR avec votre Managed Instance, vous ne pouvez pas sélectionner le niveau de service pour SSISDB. Toutes les bases de données dans votre Managed Instance partagent la même ressource allouée à cette instance. |
+| **Niveau de service** | Quand vous créez un IR Azure-SSIS avec votre serveur Azure SQL Database, vous pouvez sélectionner le niveau de service pour SSISDB. Il existe plusieurs niveaux de service. | Quand vous créez un Azure-SSIS IR avec votre Managed Instance, vous ne pouvez pas sélectionner le niveau de service pour SSISDB. Toutes les bases de données dans votre Managed Instance partagent la même ressource allouée à cette instance. |
 | **Réseau virtuel** | Prend en charge uniquement les réseaux virtuels Azure Resource Manager pour la jonction de votre Azure-SSIS IR si vous utilisez un serveur Azure SQL Database avec des points de terminaison de service de réseau virtuel ou que vous nécessitez un accès aux banques de données locales. | Prend uniquement en charge les réseaux virtuels Azure Resource Manager pour la jonction de votre Azure-SSIS IR. Le réseau virtuel est toujours obligatoire.<br/><br/>Si vous associez votre Azure-SSIS IR au même réseau virtuel que votre Managed Instance, vérifiez que votre Azure-SSIS IR est sur un sous-réseau différent de celui de votre Managed Instance. Si vous associez votre Azure-SSIS IR à un réseau virtuel différent de celui de votre Managed Instance, nous recommandons l’appairage de réseau virtuel ou une connexion de réseau virtuel à réseau virtuel. Consultez [Connecter votre application à Azure SQL Database Managed Instance](../sql-database/sql-database-managed-instance-connect-app.md). |
 | **Transactions distribuées** | Prises en charge par le biais des Transactions élastiques. Les transactions MSDTC (Microsoft Distributed Transaction Coordinator) ne sont pas prises en charge. Si vos packages SSIS utilisent MSDTC pour coordonner les transactions distribuées, envisagez la migration vers les transactions élastiques pour Azure SQL Database. Pour plus d’informations, consultez [Transactions distribuées entre bases de données cloud](../sql-database/sql-database-elastic-transactions-overview.md). | Non pris en charge. |
 | | | |

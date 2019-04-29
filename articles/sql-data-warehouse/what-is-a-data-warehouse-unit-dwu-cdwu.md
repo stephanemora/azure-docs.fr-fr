@@ -12,7 +12,7 @@ ms.author: rortloff
 ms.reviewer: igorstan
 ms.openlocfilehash: 5f6e24dfa1b5c4ea4f0748af81104edfe88ceeae
 ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/18/2019
 ms.locfileid: "58099101"
@@ -100,7 +100,7 @@ Les rôles intégrés pour les ressources Azure, comme Contributeur de base de d
 Pour afficher le paramètre DWU actuel :
 
 1. Ouvrez l’Explorateur d’objets SQL Server dans Visual Studio.
-2. Connectez-vous à la base de données associée au serveur de base de données SQL logique.
+2. Connectez-vous à la base de données associée au serveur SQL Database logique.
 3. Sélectionnez dans la vue de gestion dynamique sys.database_service_objectives. Voici un exemple :  
 
 ```sql
@@ -140,7 +140,7 @@ Avec T-SQL, vous pouvez afficher les paramètres actuels de DWU ou cDWU, modifie
 
 Pour modifier les DWU ou les cDWU :
 
-1. Connectez-vous à la base de données associée à votre serveur de base de données SQL logique.
+1. Connectez-vous à la base de données associée à votre serveur SQL Database logique.
 2. Utilisez l’instruction TSQL [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql). L'exemple suivant définit l'objectif de niveau de service sur DW1000 pour la base de données MySQLDW. 
 
 ```Sql
@@ -176,7 +176,7 @@ Vous ne pouvez pas vérifier l’état de la base de données pour les opératio
 
 Pour vérifier l’état des modifications de DWU :
 
-1. Connectez-vous à la base de données associée à votre serveur de base de données SQL logique.
+1. Connectez-vous à la base de données associée à votre serveur SQL Database logique.
 2. Envoyez la requête suivante pour vérifier l’état de la base de données.
 
 

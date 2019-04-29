@@ -1433,7 +1433,7 @@ ms.locfileid: "54425676"
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Data Lake Store</h3>
-                                                    <p>Référentiel hyperscale pour les charges de travail d’analyse des Big Data</p>
+                                                    <p>Référentiel Hyperscale pour les charges de travail d’analytique du Big Data</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2180,7 +2180,7 @@ ms.locfileid: "54425676"
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Data Lake Store</h3>
-                                                    <p>Référentiel hyperscale pour les charges de travail d’analyse des Big Data</p>
+                                                    <p>Référentiel Hyperscale pour les charges de travail d’analytique du Big Data</p>
                                                 </div>
                                             </div>
                                         </div>

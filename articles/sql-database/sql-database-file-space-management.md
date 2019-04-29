@@ -1,6 +1,6 @@
 ---
-title: Gestion de l’espace de fichier avec bases de données uniques/en pool dans Azure SQL Database | Microsoft Docs
-description: Cette page explique comment gérer l’espace de fichier avec bases de données uniques et en pool dans Azure SQL Database et fournit des exemples de code pour déterminer si vous devez réduire une base de données unique ou en pool, ainsi que pour effectuer une opération de réduction de base de données.
+title: Gestion de l’espace de fichier avec bases de données uniques/mises en pool dans Azure SQL Database | Microsoft Docs
+description: Cette page explique comment gérer l’espace de fichier avec bases de données uniques et mises en pool dans Azure SQL Database et fournit des exemples de code pour déterminer si vous devez réduire une base de données unique ou mise en pool, ainsi que pour effectuer une opération de réduction de base de données.
 services: sql-database
 ms.service: sql-database
 ms.subservice: operations
@@ -14,14 +14,14 @@ manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: 043ceb6c46155ed169c080d08f37688b47e3e4b9
 ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/18/2019
 ms.locfileid: "57881161"
 ---
-# <a name="manage-file-space-for-single-and-pooled-databases-in-azure-sql-database"></a>Gérer l’espace de fichier des bases de données uniques et en pool dans Azure SQL Database
+# <a name="manage-file-space-for-single-and-pooled-databases-in-azure-sql-database"></a>Gérer l’espace de fichier des bases de données uniques et mises en pool dans Azure SQL Database
 
-Cet article décrit les différents types d’espace de stockage des bases de données uniques et en pool dans Azure SQL Database et les étapes à effectuer lorsque l’espace de fichier alloué aux bases de données et aux pools élastiques doit être géré explicitement.
+Cet article décrit les différents types d’espace de stockage des bases de données uniques et mises en pool dans Azure SQL Database et les étapes à effectuer lorsque l’espace de fichier alloué aux bases de données et aux pools élastiques doit être géré explicitement.
 
 > [!NOTE]
 > Cet article ne s’applique à l'option de déploiement d'instance géré dans Azure SQL Database.
@@ -32,7 +32,7 @@ Cet article décrit les différents types d’espace de stockage des bases de do
 > [!IMPORTANT]
 > Le module PowerShell Azure Resource Manager est toujours pris en charge par Azure SQL Database, mais tous les développements futurs sont pour le module Az.Sql. Pour ces applets de commande, consultez [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Les arguments pour les commandes dans le module Az et dans les modules AzureRm sont sensiblement identiques.
 
-Avec des bases de données uniques et en pool dans Azure SQL Database, il existe des modèles de charge de travail dans lesquels l’allocation des fichiers de données sous-jacents aux bases de données peut dépasser le nombre de pages de données utilisées. Ce scénario peut se produire quand l’espace utilisé augmente et que des données sont ensuite supprimées. La raison en est que l’espace de fichiers alloué n’est pas récupéré automatiquement quand des données sont supprimées.
+Avec des bases de données uniques et mises en pool dans Azure SQL Database, il existe des modèles de charge de travail dans lesquels l’allocation des fichiers de données sous-jacents aux bases de données peut dépasser le nombre de pages de données utilisées. Ce scénario peut se produire quand l’espace utilisé augmente et que des données sont ensuite supprimées. La raison en est que l’espace de fichiers alloué n’est pas récupéré automatiquement quand des données sont supprimées.
 
 La surveillance de l’utilisation de l’espace de fichiers et la réduction des fichiers de données peuvent être nécessaires dans les scénarios suivants :
 

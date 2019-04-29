@@ -1,6 +1,6 @@
 ---
 title: Créer et gérer des serveurs et des bases de données uniques Azure SQL Database | Microsoft Docs
-description: En savoir plus sur la création et la gestion de serveurs et bases de données uniques SQL Database.
+description: Découvrez la création et la gestion de serveurs et bases de données uniques SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
@@ -38,7 +38,7 @@ Pour créer une base de données unique SQL Azure à l’aide du [portail Azure]
   ![create database-1](./media/sql-database-get-started-portal/create-database-1.png)
 
 > [!IMPORTANT]
-> Pour plus d’informations sur la sélection du niveau tarifaire de votre base de données, consultez [Modèle d’achat basé sur des DTU](sql-database-service-tiers-dtu.md) et [Modèle d’achat basé sur des vCores](sql-database-service-tiers-vcore.md).
+> Pour plus d’informations sur la sélection du niveau tarifaire de votre base de données, consultez [Modèle d’achat DTU](sql-database-service-tiers-dtu.md) et [Modèle d’achat vCore](sql-database-service-tiers-vcore.md).
 
 Pour créer une option Managed Instance, consultez [Créer une option Managed Instance](sql-database-managed-instance-get-started.md)
 
@@ -51,7 +51,7 @@ Pour gérer une base de données existante, accédez à la page **Bases de donn�
    ![règle de pare-feu de serveur](./media/sql-database-get-started-portal/server-firewall-rule.png)
 
 > [!IMPORTANT]
-> Pour configurer les propriétés de performance d’une base de données, consultez [Modèle d’achat basé sur des DTU](sql-database-service-tiers-dtu.md) et [Modèle d’achat basé sur des vCores](sql-database-service-tiers-vcore.md).
+> Pour configurer les propriétés de performance d’une base de données, consultez [Modèle d’achat DTU](sql-database-service-tiers-dtu.md) et [Modèle d’achat vCore](sql-database-service-tiers-vcore.md).
 > [!TIP]
 > Pour un démarrage rapide du portail Azure, consultez la page[Créer une base de données SQL Azure à l’aide du portail Azure](sql-database-single-database-get-started.md).
 
@@ -61,10 +61,10 @@ Pour gérer une base de données existante, accédez à la page **Bases de donn�
 > [!IMPORTANT]
 > Le module PowerShell Azure Resource Manager est toujours pris en charge par Azure SQL Database, mais tous les développements futurs sont pour le module Az.Sql. Pour ces applets de commande, consultez [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Les arguments pour les commandes dans le module Az et dans les modules AzureRm sont sensiblement identiques.
 
-Pour créer et gérer des serveurs Azure SQL Database, des bases de données uniques et regroupées, ainsi que des pare-feu de serveur SQL Database avec Azure PowerShell, utilisez les cmdlets PowerShell suivantes. Si vous devez installer ou mettre à niveau PowerShell, consultez la section relative à [l’installation du module Azure PowerShell](/powershell/azure/install-az-ps).
+Pour créer et gérer des serveurs Azure SQL Database, des bases de données uniques et mises en pool, ainsi que des pare-feu de serveur SQL Database avec Azure PowerShell, utilisez les applets de commande PowerShell suivantes. Si vous devez installer ou mettre à niveau PowerShell, consultez la section relative à [l’installation du module Azure PowerShell](/powershell/azure/install-az-ps).
 
 > [!TIP]
-> Pour obtenir des exemples de script PowerShell, consultez [Utiliser PowerShell pour créer une base de données SQL Azure et configurer une règle de pare-feu](scripts/sql-database-create-and-configure-database-powershell.md) et [Utiliser PowerShell pour surveiller et mettre à l’échelle une base de données SQL](scripts/sql-database-monitor-and-scale-database-powershell.md).
+> Pour obtenir des exemples de script PowerShell, consultez [Utiliser PowerShell pour créer une base de données unique Azure SQL et configurer une règle de pare-feu pour le serveur SQL Database](scripts/sql-database-create-and-configure-database-powershell.md) et [Utiliser PowerShell pour surveiller et mettre à l’échelle une base de données SQL](scripts/sql-database-monitor-and-scale-database-powershell.md).
 
 | Applet de commande | Description |
 | --- | --- |
@@ -127,7 +127,7 @@ Pour créer et gérer le serveur, les bases de données et les pare-feux SQL Az
 |[CREATE DATABASE](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current)|Crée une base de données unique. Vous devez être connecté à la base de données MASTER pour créer une base de données.|
 | [ALTER DATABASE (Azure SQL Database)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |Modifie une base de données SQL Azure. |
 |[DROP DATABASE (Transact-SQL)](/sql/t-sql/statements/drop-database-transact-sql)|Supprime une base de données.|
-|[sys.database_service_objectives (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Renvoie l’édition (niveau de service), l’objectif de service (niveau tarifaire) et, le cas échéant, le nom du pool élastique Azure SQL Database ou d’un entrepôt de données Azure SQL Data Warehouse. Si vous êtes connecté à la base de données MASTER d’un serveur Azure SQL Database, renvoie les informations au sujet de toutes les bases de données. Pour Azure SQL Data Warehouse, vous devez être connecté à la base de données MASTER.|
+|[sys.database_service_objectives (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Renvoie l’édition (niveau de service), l’objectif de service (niveau tarifaire) et, le cas échéant, le nom du pool élastique Azure SQL Database ou d’un entrepôt de données Azure SQL Data Warehouse. Si vous êtes connecté à la base de données MASTER d’un serveur Azure SQL Database, retourne les informations sur toutes les bases de données. Pour Azure SQL Data Warehouse, vous devez être connecté à la base de données MASTER.|
 |[sys.dm_db_resource_stats (Azure SQL Database)](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)| Retourne la consommation de mémoire, d’E/S et d’UC d’une base de données Azure SQL Database. Il existe une ligne pour toutes les 15 secondes, même s’il n’existe aucune activité dans la base de données.|
 |[sys.resource_stats (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)|Renvoie les données de stockage et l’utilisation d’UC pour une base de données Azure SQL Database. Les données sont collectées et agrégées par intervalles de cinq minutes.|
 |[sys.database_connection_stats (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-connection-stats-azure-sql-database)|Contient des statistiques pour les événements de connectivité de base de données SQL Database, ce qui fournit une vue d’ensemble du nombre d’échecs et de réussites de connexion de base de données. |

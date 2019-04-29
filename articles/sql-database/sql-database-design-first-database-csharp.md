@@ -92,13 +92,13 @@ Le service SQL Database crée un pare-feu IP au niveau du serveur. Ce pare-feu e
 
    ![nom du serveur](./media/sql-database-design-first-database/server-name.png)
 
-3. Cliquez sur **Définir le pare-feu du serveur** dans la barre d’outils. La page **Paramètres de pare-feu** du serveur de base de données SQL s’ouvre.
+3. Cliquez sur **Définir le pare-feu du serveur** dans la barre d’outils. La page **Paramètres de pare-feu** du serveur SQL Database s’ouvre.
 
    ![règle de pare-feu IP au niveau du serveur](./media/sql-database-design-first-database/server-firewall-rule.png)
 
 4. Dans la barre d’outils, cliquez sur **Ajouter une adresse IP cliente** afin d’ajouter votre adresse IP actuelle à une nouvelle règle de pare-feu IP. Une règle de pare-feu IP peut ouvrir le port 1433 pour une seule adresse IP ou une plage d’adresses IP.
 
-5. Cliquez sur **Enregistrer**. Une règle de pare-feu au niveau du serveur est créée pour votre adresse IP actuelle et ouvre le port 1433 sur le serveur SQL Database.
+5. Cliquez sur **Enregistrer**. Une règle de pare-feu IP au niveau du serveur est créée pour votre adresse IP actuelle et ouvre le port 1433 sur le serveur SQL Database.
 
 6. Cliquez sur **OK**, puis fermez la page **Paramètres de pare-feu**.
 

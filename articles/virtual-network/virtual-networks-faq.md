@@ -305,7 +305,7 @@ Réseau virtuel TAP est disponible en version préliminaire. Pendant la période
 
 Vous pourrez ajouter une configuration TAP sur une interface réseau attachée à une machine virtuelle activée avec la mise en réseau accélérée. Mais l’ajout de la configuration TAP affecte les performances et la latence sur la machine virtuelle, car le déchargement pour la mise en miroir du trafic n’est actuellement pas prise en charge par la mise en réseau accélérée Azure.
 
-## <a name="virtual-network-service-endpoints"></a>Points de terminaison du service Réseau virtuel
+## <a name="virtual-network-service-endpoints"></a>Points de terminaison de service de réseau virtuel
 
 ### <a name="what-is-the-right-sequence-of-operations-to-set-up-service-endpoints-to-an-azure-service"></a>Dans quel ordre faut-il effectuer les opérations pour configurer les points de terminaison d’un service Azure ?
 La sécurisation d’une ressource de service Azure via des points de terminaison de service s’effectue en deux étapes :

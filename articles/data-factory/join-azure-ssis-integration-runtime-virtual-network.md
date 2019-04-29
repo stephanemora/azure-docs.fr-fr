@@ -14,7 +14,7 @@ ms.reviewer: douglasl
 manager: craigg
 ms.openlocfilehash: 6978b83e66f58e468d9f98394904861c8a4d8bd0
 ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/16/2019
 ms.locfileid: "59618139"
@@ -50,7 +50,7 @@ Si le catalogue SSIS est hébergé dans Azure SQL Database avec des points de te
 - Au même réseau virtuel 
 - À un réseau virtuel différent qui dispose d’une connexion réseau-à-réseau avec celui utilisé pour SQL Database Managed Instance 
 
-Si vous hébergez votre catalogue SSIS dans Azure SQL Database avec des points de terminaison de service réseau virtuel, assurez-vous de joindre votre runtime d’intégration Azure-SSIS aux mêmes réseau virtuel et sous-réseau.
+Si vous hébergez votre catalogue SSIS dans Azure SQL Database avec des points de terminaison de service de réseau virtuel, assurez-vous de joindre votre runtime d’intégration Azure-SSIS aux mêmes réseau virtuel et sous-réseau.
 
 Si vous associez votre runtime d’intégration Azure-SSIS au même réseau virtuel que Managed Instance, vérifiez que le runtime d’intégration Azure-SSIS est dans un sous-réseau différent de celui de Managed Instance. Si vous associez votre runtime d’intégration Azure-SSIS à un réseau virtuel différent de celui de Managed Instance, nous recommandons l’appairage de réseau virtuel (qui est limité à la même région) ou une connexion de réseau virtuel à réseau virtuel. Consultez [Connecter votre application à Azure SQL Database Managed Instance](../sql-database/sql-database-managed-instance-connect-app.md).
 

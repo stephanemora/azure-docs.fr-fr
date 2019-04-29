@@ -223,7 +223,7 @@ Si vous disposez déjà d’une base de données SQL, vous devez obtenir le nom 
     sudo apt-get --assume-yes install freetds-dev freetds-bin
     ```
 
-3. Dès l’installation terminée, utilisez la commande suivante pour vous connecter au serveur SQL Database. Remplacez **serverName** par le nom du serveur de base de données SQL. Remplacez **adminLogin** et **adminPassword** par les informations d’identification de la base de données SQL. Remplacez **databaseName** par le nom de la base de données.
+3. Dès l’installation terminée, utilisez la commande suivante pour vous connecter au serveur SQL Database. Remplacez **serverName** par le nom du serveur SQL Database. Remplacez **adminLogin** et **adminPassword** par les informations d’identification de la base de données SQL. Remplacez **databaseName** par le nom de la base de données.
 
     ```bash
     TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -p 1433 -D <databaseName>

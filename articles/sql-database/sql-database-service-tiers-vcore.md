@@ -14,7 +14,7 @@ manager: craigg
 ms.date: 02/07/2019
 ms.openlocfilehash: edba858f9be3350034ff48ea16d3c9137254bb97
 ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59357948"
@@ -29,11 +29,11 @@ Le modèle d’achat vCore vous permet de mettre à l’échelle les ressources 
 Le matériel Gen4 offre bien plus de mémoire par vCore. Toutefois, le matériel Gen5 vous permet de monter en puissance les ressources de calcul de façon plus importante.
 
 > [!NOTE]
-> Pour plus d’informations sur les niveaux de service basés sur DTU, voir [Niveaux de service basés sur DTU](sql-database-service-tiers-dtu.md). Pour plus d’informations sur ce qui différencie les niveaux de service basés sur des unités DTU et les niveaux de service basés sur vCore, voir [Modèles d’achat d’Azure SQL Database](sql-database-purchase-models.md).
+> Pour plus d’informations sur les niveaux de service DTU, consultez [Niveaux de service DTU](sql-database-service-tiers-dtu.md). Pour plus d’informations sur ce qui différencie les niveaux de service DTU des niveaux de service vCore, consultez [Modèles d’achat Azure SQL Database](sql-database-purchase-models.md).
 
 ## <a name="service-tier-characteristics"></a>Caractéristiques du niveau de service
 
-Le modèle vCore fournit trois niveaux de service, Usage général et Hyperscale et Critique pour l’entreprise. Chaque niveau de service se distingue par sa taille de calcul, sa conception de haute disponibilité, son isolation des défaillances, ses types et tailles de stockage, et sa plage d’E/S. Vous devez configurer séparément le stockage nécessaire et la période de rétention des sauvegardes. Dans le portail Azure, accédez à Serveur (pas à la base de données) > Managed Backups (Sauvegardes gérées) > Configurer la stratégie > Configuration de la limite de restauration dans le temps > 7 - 35 jours.
+Le modèle vCore fournit trois niveaux de service, Usage général, Hyperscale et Critique pour l’entreprise. Chaque niveau de service se distingue par sa taille de calcul, sa conception de haute disponibilité, son isolation des défaillances, ses types et tailles de stockage, et sa plage d’E/S. Vous devez configurer séparément le stockage nécessaire et la période de rétention des sauvegardes. Dans le portail Azure, accédez à Serveur (pas à la base de données) > Managed Backups (Sauvegardes gérées) > Configurer la stratégie > Configuration de la limite de restauration dans le temps > 7 - 35 jours.
 
 Le tableau suivant montre les différences entre les trois niveaux :
 
@@ -53,15 +53,15 @@ Le tableau suivant montre les différences entre les trois niveaux :
 > Vous pouvez obtenir une base de données SQL Azure gratuit au niveau de service de base en conjonction avec un compte Azure gratuit pour Explorer Azure. Pour plus d’informations, rendez-vous sur la page [Créer une base de données cloud managée avec votre compte gratuit Azure](https://azure.microsoft.com/free/services/sql-database/).
 
 - Pour plus d’informations, consultez [Limites de ressources vCore dans une base de données unique](sql-database-vcore-resource-limits-single-databases.md) et [Limites de ressources vCore dans une instance gérée](sql-database-managed-instance.md#vcore-based-purchasing-model).
-- Pour plus d’informations sur les niveaux de service Usage général et Critique pour l’entreprise, consultez l’article [General Purpose and Business Critical service tiers](sql-database-service-tiers-general-purpose-business-critical.md) (Niveaux de service Usage général et Critique pour l’entreprise).
-- Pour plus d’informations sur le niveau de service Hyperscale dans le modèle d’achat basé sur le nombre de cœurs virtuels, consultez [Niveau de service Hyperscale](sql-database-service-tier-hyperscale.md).  
+- Pour plus d’informations sur les niveaux de service Usage général et Critique pour l’entreprise, consultez [Niveaux de service Usage général et Critique pour l’entreprise](sql-database-service-tiers-general-purpose-business-critical.md).
+- Pour plus d’informations sur le niveau de service Hyperscale dans le modèle d’achat vCore, consultez [Niveau de service Hyperscale](sql-database-service-tier-hyperscale.md).  
 
 > [!IMPORTANT]
 > Si vous avez besoin d’une capacité de calcul inférieure à 1 vCore, utilisez le modèle d’achat DTU.
 
 ## <a name="azure-hybrid-benefit"></a>Azure Hybrid Benefit
 
-Dans le modèle d’achat basé sur le nombre de vCores, vous pouvez échanger vos licences existantes avec des tarifs réduits sur SQL Database, en utilisant [Azure Hybrid Benefit pour SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/). Cet avantage Azure vous permet d’utiliser vos licences SQL Server locales pour économiser jusqu’à 30 % sur Azure SQL Database, avec Software Assurance.
+Dans le modèle d’achat vCore, vous pouvez échanger vos licences existantes avec des tarifs réduits sur SQL Database, en utilisant [Azure Hybrid Benefit pour SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/). Cet avantage Azure vous permet d’utiliser vos licences SQL Server locales pour économiser jusqu’à 30 % sur Azure SQL Database, avec Software Assurance.
 
 ![Prix](./media/sql-database-service-tiers/pricing.png)
 
@@ -92,7 +92,7 @@ Azure Hybrid Benefit vous permet de choisir de payer uniquement pour l’infrast
 
 ### <a name="migration-of-a-database"></a>Migration d’une base de données
 
-La migration d’une base de données du modèle d’achat DTU vers le modèle d’achat basé sur le nombre de vCores est similaire à la mise à niveau ou au passage à une version antérieure entre les versions Standard et Premium des bases de données dans le modèle d’achat DTU.
+La migration d’une base de données du modèle d’achat DTU vers le modèle d’achat vCore est similaire à la mise à niveau ou au passage à une version antérieure entre les versions Standard et Premium des bases de données dans le modèle d’achat DTU.
 
 ### <a name="migration-of-databases-with-geo-replication-links"></a>Migration de bases de données avec des liens de géoréplication
 

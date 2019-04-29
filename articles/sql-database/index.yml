@@ -42,7 +42,7 @@ sections:
             html: <p>Adaptez les coûts et les performances à vos besoins avec des niveaux de service flexibles allant de bases de données abordables (5 $/mois) à de puissantes bases de données à 80 cœurs.</p>
             image:
               src: media/index/i_perftier.svg
-            title: Niveaux de prix/service
+            title: Niveaux de service/prix
           - href: /azure/sql-database/sql-database-scalability-index
             html: '<p>Étendez, augmentez la taille de vos bases de données ou divisez-les, selon vos besoins, afin d’améliorer les performances de votre application.</p>'
             image:

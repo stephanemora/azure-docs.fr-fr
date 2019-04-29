@@ -52,7 +52,7 @@ Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#az-group-create) | Crée un groupe de ressources dans lequel toutes les ressources sont stockées. |
 | [az sql server create](https://docs.microsoft.com/cli/azure/sql/server#az-sql-server-create) | Crée un serveur SQL Database qui héberge des bases de données uniques et des pools élastiques. |
-| [az sql db show-usage](https://docs.microsoft.com/cli/azure/sql#az-sql-show-usage) | Affiche les informations sur l’utilisation de la taille pour une base de données unique ou en pool. |
+| [az sql db show-usage](https://docs.microsoft.com/cli/azure/sql#az-sql-show-usage) | Affiche les informations sur l’utilisation de la taille pour une base de données unique ou mise en pool. |
 | [az sql db update](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update) | Met à jour les propriétés de la base de données (par exemple, le niveau de service ou la taille de calcul) ou déplace une base de données vers, hors ou entre des pools élastiques. |
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az-vm-extension-set) | Supprime un groupe de ressources, y compris toutes les ressources imbriquées. |
 |||

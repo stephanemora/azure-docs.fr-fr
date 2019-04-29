@@ -115,7 +115,7 @@ Vous pouvez configurer des comptes de stockage pour autoriser l’accès uniquem
 
 Activez un [point de terminaison de service](/azure/virtual-network/virtual-network-service-endpoints-overview) pour le stockage Azure dans le réseau virtuel. Ce point de terminaison donne au trafic une route optimale vers le service Stockage Azure. Les identités du réseau virtuel et du sous-réseau sont également transmises avec chaque demande. Les administrateurs peuvent ensuite configurer des règles de réseau pour le compte de stockage qui autorisent la réception des demandes à partir de sous-réseaux spécifiques dans le réseau virtuel. Les clients qui obtiennent un accès par le biais de ces règles de réseau doivent continuer à respecter les exigences d’autorisation du compte de stockage pour accéder aux données.
 
-Chaque compte de stockage prend en charge jusqu'à 100 règles de réseau virtuel qui peuvent être combinées avec des [règles de réseau IP](#grant-access-from-an-internet-ip-range).
+Chaque compte de stockage prend en charge jusqu’à 100 règles de réseau virtuel qui peuvent être combinées avec des [règles de réseau IP](#grant-access-from-an-internet-ip-range).
 
 ### <a name="available-virtual-network-regions"></a>Régions de réseau virtuel disponibles
 

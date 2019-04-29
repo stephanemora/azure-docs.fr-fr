@@ -222,7 +222,7 @@ Une fois le service créé, recherchez-le dans le portail Azure, ouvrez-le, puis
    ![Détails de la source](media/tutorial-rds-sql-to-azure-sql-and-managed-instance/dms-source-details3.png)
 
 ## <a name="specify-target-details"></a>Spécifier les détails de la cible
-1. Sélectionnez **Enregistrer** puis, dans l’écran **Détails de la cible de migration**, spécifiez les détails de connexion du serveur Azure SQL Database cible, à savoir l’instance Azure SQL Database pré-approvisionnée sur laquelle le schéma **AdventureWorks2012** a été déployé à l’aide de DMA.
+1. Sélectionnez **Enregistrer** puis, dans l’écran **Détails de la cible de migration**, spécifiez les détails de connexion du serveur Azure SQL Database cible, à savoir l’instance Azure SQL Database préprovisionnée sur laquelle le schéma **AdventureWorks2012** a été déployé à l’aide de DMA.
 
     ![Sélectionner la cible](media/tutorial-rds-sql-to-azure-sql-and-managed-instance/dms-select-target3.png)
 

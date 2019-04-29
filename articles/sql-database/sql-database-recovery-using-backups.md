@@ -14,7 +14,7 @@ manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: ca54ae11390b388c3158bd220ee5c7829172a5c3
 ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/29/2019
 ms.locfileid: "58620476"
@@ -71,7 +71,7 @@ Il n'existe aucune fonctionnalité intégrée pour une restauration en bloc. Le 
 
 ## <a name="point-in-time-restore"></a>Limite de restauration dans le temps
 
-Vous pouvez restaurer une base de données autonome, en pool ou d’instance à un moment antérieur en tant que nouvelle base de données sur le même serveur à l’aide du portail Azure, de [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) ou de [l’API REST](https://docs.microsoft.com/rest/api/sql/databases). Une base de données peut être restaurée sur n’importe quel niveau de service ou taille de capacité de calcul. Assurez-vous d’avoir suffisamment de ressources sur le serveur vers lequel vous restaurez la base de données. Une fois le processus terminé, la base de données restaurée est une base de données normale entièrement accessible en ligne. La base de données restaurée est facturée aux tarifs habituels en fonction du niveau de service et de la taille de calcul. Aucun frais ne vous sera facturé jusqu’à ce que la restauration de la base de données soit terminée.
+Vous pouvez restaurer une base de données autonome, mise en pool ou d’instance à un moment antérieur en tant que nouvelle base de données sur le même serveur à l’aide du portail Azure, de [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) ou de [l’API REST](https://docs.microsoft.com/rest/api/sql/databases). Une base de données peut être restaurée sur n’importe quel niveau de service ou taille de calcul. Assurez-vous d’avoir suffisamment de ressources sur le serveur vers lequel vous restaurez la base de données. Une fois le processus terminé, la base de données restaurée est une base de données normale entièrement accessible en ligne. La base de données restaurée est facturée aux tarifs habituels en fonction du niveau de service et de la taille de calcul. Aucun frais ne vous sera facturé jusqu’à ce que la restauration de la base de données soit terminée.
 
 En règle générale, vous restaurez une base de données à un point antérieur à des fins de récupération. Dans ce cas, vous pouvez traiter la base de données restaurée comme remplacement de la base de données d’origine, ou l’utiliser pour en extraire des données afin de mettre à jour la base de données d’origine.
 
@@ -83,7 +83,7 @@ En règle générale, vous restaurez une base de données à un point antérieur
 
   Si vous souhaitez récupérer des données à partir de la base de données restaurée suite à une erreur due à l'utilisateur ou à l'application, vous devez rédiger et exécuter les scripts de récupération de données nécessaires à l'extraction des données à partir de la base de données restaurée et les transférer vers la base de données d'origine. Bien que l’opération de restauration puisse prendre un certain temps, la base de données en cours de restauration sera visible dans la liste de bases de données pendant tout le processus de restauration. Si vous supprimez la base de données pendant la restauration, l’opération de restauration est annulée et vous ne serez pas facturé pour la base de données dont la restauration ne s’est pas terminée.
 
-Pour récupérer une base de données unique, en pool ou d'instance à un moment spécifique à l’aide du portail Azure, ouvrez la page de votre base de données, puis cliquez sur **Restaurer** dans la barre d’outils.
+Pour récupérer une base de données unique, mise en pool ou d'instance à un moment spécifique à l’aide du portail Azure, ouvrez la page de votre base de données, puis cliquez sur **Restaurer** dans la barre d’outils.
 
 ![point-in-time-restore](./media/sql-database-recovery-using-backups/point-in-time-recovery.png)
 
@@ -165,7 +165,7 @@ Comme indiqué précédemment, en plus du Portail Azure, la récupération de la
 
 ### <a name="rest-api"></a>API REST
 
-Pour restaurer une base de données unique ou en pool à l’aide de l’API REST :
+Pour restaurer une base de données unique ou mise en pool à l’aide de l’API REST :
 
 | API | Description |
 | --- | --- |
@@ -174,7 +174,7 @@ Pour restaurer une base de données unique ou en pool à l’aide de l’API RES
 
 ### <a name="azure-cli"></a>Azure CLI
 
-- Pour restaurer une base de données unique ou en pool à l’aide d’Azure CLI, consultez [az sql db restore](/cli/azure/sql/db#az-sql-db-restore).
+- Pour restaurer une base de données unique ou mise en pool à l’aide d’Azure CLI, consultez [az sql db restore](/cli/azure/sql/db#az-sql-db-restore).
 - Pour restaurer une instance gérée à l’aide d’Azure CLI, consultez [restauration de midb az sql](/cli/azure/sql/midb#az-sql-midb-restore)
 
 ## <a name="summary"></a>Résumé

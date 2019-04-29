@@ -14,7 +14,7 @@ manager: craigg
 ms.date: 04/12/2019
 ms.openlocfilehash: f0cff30f246bfeec528f440b507da9248ebbea9f
 ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59678596"
@@ -42,7 +42,7 @@ Vous pouvez utiliser ces sauvegardes aux fins suivantes :
 
 ## <a name="how-long-are-backups-kept"></a>Quelle est la durée de conservation des sauvegardes ?
 
-Chaque base de données SQL Database a une période de rétention de sauvegarde par défaut comprise entre 7 et 35 jours qui dépend du modèle d’achat et du niveau de service. Vous pouvez mettre à jour de la période de rétention des sauvegardes pour une base de données sur le serveur de base de données SQL. Consultez [Modification de la période de conservation](#how-to-change-the-pitr-backup-retention-period) pour plus d’informations.
+Chaque base de données SQL Database a une période de conservation de sauvegarde par défaut comprise entre 7 et 35 jours qui dépend du modèle d’achat et du niveau de service. Vous pouvez mettre à jour de la période de rétention des sauvegardes pour une base de données sur le serveur de base de données SQL. Consultez [Modification de la période de conservation](#how-to-change-the-pitr-backup-retention-period) pour plus d’informations.
 
 Si vous supprimez une base de données, SQL Database conserve les sauvegardes de la même façon que s’il s’agissait d’une base de données en ligne. Par exemple, si vous supprimez une base de données De base dont la période de conservation est de sept jours, une sauvegarde datant de quatre jours est enregistrée pendant encore trois jours.
 
@@ -57,13 +57,13 @@ Si vous souhaitez conserver les sauvegardes plus longtemps que la période de co
 
 La période de conservation par défaut pour une base de données créée à l’aide du modèle d’achat DTU varie selon le niveau de service :
 
-- Niveau de service De base : 1 jour.
-- Niveau de service Standard : 5 semaines.
-- Niveau de service Premium : 5 semaines.
+- Niveau de service De base : 1 semaine.
+- Niveau de service Standard : 5 semaines.
+- Niveau de service Premium : 5 semaines.
 
 #### <a name="vcore-based-purchasing-model"></a>Modèle d’achat vCore
 
-Si vous utilisez le [modèle d’achat basé sur vCore](sql-database-service-tiers-vcore.md), la période de conservation des sauvegardes par défaut est de 7 jours (pour les bases de données uniques, regroupées et d'instances). Pour toutes les bases de données SQL Azure (uniques, regroupées et d'instances), vous pouvez [modifier la période de conservation des sauvegardes et la prolonger jusqu’à 35 jours](#how-to-change-the-pitr-backup-retention-period).
+Si vous utilisez le [modèle d’achat vCore](sql-database-service-tiers-vcore.md), la période de conservation des sauvegardes par défaut est de 7 jours (pour les bases de données uniques, mises en pool et Managed Instance). Pour toutes les bases de données Azure SQL (uniques, mises en pool et d'instance), vous pouvez [modifier la période de conservation des sauvegardes et la prolonger jusqu’à 35 jours](#how-to-change-the-pitr-backup-retention-period).
 
 > [!WARNING]
 > Si vous réduisez la période de rétention en cours, toutes les sauvegardes antérieures à la nouvelle période de rétention ne sont plus disponibles. Si vous augmentez la période de rétention actuelle, SQL Database conserve les sauvegardes existantes jusqu’à ce que la période de rétention plus longue soit atteinte.
@@ -80,14 +80,14 @@ Pour plus d'informations, consultez [Limite de restauration dans le temps](sql-d
 
 ### <a name="backups-for-long-term-retention"></a>Sauvegardes pour la conservation à long terme
 
-Les bases de données uniques et en pool permettent de configurer une conservation à long terme des sauvegardes complètes allant jusqu’à 10 ans dans le service Stockage Blob Azure. Si la stratégie de conservation à long terme est activée, les sauvegardes complètes hebdomadaires sont automatiquement copiées vers un autre conteneur de stockage RA-GRS. Pour répondre aux différentes exigences de conformité, vous pouvez sélectionner plusieurs périodes de rétention pour les sauvegardes hebdomadaires, mensuelles ou annuelles. La consommation du stockage dépend de la fréquence sélectionnée des sauvegardes et des périodes de conservation. Vous pouvez utiliser la [calculatrice de prix LTR](https://azure.microsoft.com/pricing/calculator/?service=sql-database) pour estimer le coût du stockage de conservation à long terme.
+Les bases de données uniques et mises en pool permettent de configurer une conservation à long terme des sauvegardes complètes allant jusqu’à 10 ans dans le service Stockage Blob Azure. Si la stratégie de conservation à long terme est activée, les sauvegardes complètes hebdomadaires sont automatiquement copiées vers un autre conteneur de stockage RA-GRS. Pour répondre aux différentes exigences de conformité, vous pouvez sélectionner plusieurs périodes de rétention pour les sauvegardes hebdomadaires, mensuelles ou annuelles. La consommation du stockage dépend de la fréquence sélectionnée des sauvegardes et des périodes de conservation. Vous pouvez utiliser la [calculatrice de prix LTR](https://azure.microsoft.com/pricing/calculator/?service=sql-database) pour estimer le coût du stockage de conservation à long terme.
 
 Comme les sauvegardes PITR, les sauvegardes LTR sont géo-redondantes et protégées par la [réplication entre les régions du stockage Azure](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage).
 
 Pour plus d’informations, consultez [Conservation des sauvegardes à long terme](sql-database-long-term-retention.md).
 
 ## <a name="storage-costs"></a>Coûts de stockage
-7 jours de sauvegardes automatisées de vos bases de données sont copiés par défaut dans le stockage blob Standard RA-GRS. Le stockage est utilisé pour des sauvegardes complètes hebdomadaires, des sauvegardes différentielles quotidiennes et des sauvegardes de fichiers journaux copiés toutes les 5 minutes. La taille du journal des transactions dépend la fréquence de changement de la base de données. Un volume de stockage minimal égal à 100 % de la taille de la base de données est fourni sans frais supplémentaires. Toute consommation supérieure de stockage de sauvegarde est facturée en Go/mois.
+7 jours de sauvegardes automatisées de vos bases de données sont copiés par défaut dans le stockage blob Standard RA-GRS. Le stockage est utilisé pour des sauvegardes complètes hebdomadaires, des sauvegardes différentielles quotidiennes et des sauvegardes de fichiers journaux copiés toutes les 5 minutes. La taille du journal des transactions dépend la fréquence de changement de la base de données. Une quantité de stockage minimal égale à 100 % de la taille de la base de données est fourni sans frais supplémentaires. Toute consommation supérieure de stockage de sauvegarde est facturée en Go/mois.
 
 Pour plus d’informations sur les prix du stockage, consultez la page [Tarification](https://azure.microsoft.com/pricing/details/sql-database/single/). 
 

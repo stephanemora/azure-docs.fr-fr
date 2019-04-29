@@ -220,7 +220,7 @@ Dans cette étape, vous liez votre base de données SQL Azure à votre fabrique 
     ProvisioningState : Succeeded
     ```
 
-   Vérifiez que le paramètre **Autoriser l’accès aux services Azure** est activé pour votre serveur de base de données SQL. Pour vérifier et l’activer, procédez comme suit :
+   Vérifiez que le paramètre **Autoriser l’accès aux services Azure** est activé pour votre serveur SQL Database. Pour vérifier et l’activer, procédez comme suit :
 
     1. Connectez-vous au [portail Azure](https://portal.azure.com)
     1. Cliquez **Plus de services** à gauche, puis sur **Serveurs SQL** dans la catégorie **BASES DE DONNÉES**.

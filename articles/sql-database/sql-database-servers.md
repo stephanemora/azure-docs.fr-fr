@@ -14,7 +14,7 @@ manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: 851722838b4f22b1f193823af0b9b018106e9308
 ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/19/2019
 ms.locfileid: "57838763"
@@ -23,9 +23,9 @@ ms.locfileid: "57838763"
 
 ## <a name="what-is-an-azure-sql-database-server"></a>Qu’est-ce qu’un serveur Azure SQL Database ?
 
-Un serveur SQL Database est une construction logique qui fait office de point d'administration central pour plusieurs bases de données uniques ou [regroupées](sql-database-elastic-pool.md), [connexions](sql-database-manage-logins.md), [règles de pare-feu](sql-database-firewall-configure.md), [règles d'audit](sql-database-auditing.md), [stratégies de détection des menaces](sql-database-threat-detection.md) et [groupes de basculement](sql-database-auto-failover-group.md). Un serveur SQL Database peut se trouver dans une région différente de celle de son groupe de ressources. Avant de pouvoir créer la base de données SQL Azure, vous devez déjà posséder un serveur Azure SQL Database. Toutes les bases de données gérées par un serveur SQL Database sont créées dans la même région que le serveur SQL Database.
+Un serveur SQL Database est une construction logique qui fait office de point d'administration central pour plusieurs bases de données uniques ou [regroupées](sql-database-elastic-pool.md), [connexions](sql-database-manage-logins.md), [règles de pare-feu](sql-database-firewall-configure.md), [règles d'audit](sql-database-auditing.md), [stratégies de détection des menaces](sql-database-threat-detection.md) et [groupes de basculement](sql-database-auto-failover-group.md). Un serveur SQL Database peut se trouver dans une région différente de celle de son groupe de ressources. Avant de pouvoir créer la base de données Azure SQL, vous devez déjà avoir un serveur SQL Database. Toutes les bases de données gérées par un serveur SQL Database sont créées dans la même région que le serveur SQL Database.
 
-Un serveur SQL Database est distinct d’une instance SQL Server que vous connaissez peut-être dans le monde local. Plus précisément, le service SQL Database n’offre aucune garantie en ce qui concerne l’emplacement des bases de données par rapport au serveur SQL Database qui les gère et ne présente aucun accès ni aucune fonctionnalité au niveau de l’instance. En revanche, les bases de données d’instance dans une instance gérée sont toutes colocalisées, de la même manière que celle que vous connaissez avec SQL Server dans le monde local.
+Un serveur SQL Database est distinct d’une instance SQL Server que vous connaissez peut-être dans le monde local. Plus précisément, le service SQL Database n’offre aucune garantie en ce qui concerne l’emplacement des bases de données par rapport au serveur SQL Database qui les gère et ne présente aucun accès ni aucune fonctionnalité au niveau de l’instance. En revanche, les bases de données d’instance dans une instance managée sont toutes colocalisées, de la même manière que celle que vous connaissez avec SQL Server dans le monde local.
 
 Lorsque vous créez un serveur SQL Database, vous fournissez un compte de connexion du serveur et un mot de passe disposant de droits d’administration pour la base de données MASTER sur ce serveur, ainsi que sur l’ensemble des bases de données qui y sont créées. Ce compte initial est un compte de connexion SQL. Azure SQL Database prend en charge l’authentification SQL et l’authentification Azure Active Directory. Pour en savoir plus sur les connexions et l’authentification, consultez la page [Managing Databases and Logins in Azure SQL Database](sql-database-manage-logins.md) (Gérer les bases de données et les connexions dans Azure SQL Database). L’authentification Windows n’est pas prise en charge.
 
@@ -63,7 +63,7 @@ Pour créer une base de données SQL Azure à l’aide du [portail Azure](https
   ![create database-1](./media/sql-database-get-started-portal/create-database-1.png)
 
 > [!IMPORTANT]
-> Pour plus d’informations sur la sélection du niveau tarifaire de votre base de données, consultez [Modèle d’achat basé sur des DTU](sql-database-service-tiers-dtu.md) et [Modèle d’achat basé sur des vCores](sql-database-service-tiers-vcore.md).
+> Pour plus d’informations sur la sélection du niveau tarifaire de votre base de données, consultez [Modèle d’achat DTU](sql-database-service-tiers-dtu.md) et [Modèle d’achat vCore](sql-database-service-tiers-vcore.md).
 
 Pour créer une instance gérée, consultez [Créer une instance gérée](sql-database-managed-instance-get-started.md)
 
@@ -76,7 +76,7 @@ Pour gérer une base de données existante, accédez à la page **Bases de donn�
    ![règle de pare-feu de serveur](./media/sql-database-get-started-portal/server-firewall-rule.png)
 
 > [!IMPORTANT]
-> Pour configurer les propriétés de performance d’une base de données, consultez [Modèle d’achat basé sur des DTU](sql-database-service-tiers-dtu.md) et [Modèle d’achat basé sur des vCores](sql-database-service-tiers-vcore.md).
+> Pour configurer les propriétés de performance d’une base de données, consultez [Modèle d’achat DTU](sql-database-service-tiers-dtu.md) et [Modèle d’achat vCore](sql-database-service-tiers-vcore.md).
 > [!TIP]
 > Pour un démarrage rapide du portail Azure, consultez la page[Créer une base de données SQL Azure à l’aide du portail Azure](sql-database-single-database-get-started.md).
 
@@ -153,7 +153,7 @@ Pour créer et gérer le serveur, les bases de données et les pare-feux SQL Az
 | [ALTER DATABASE (Azure SQL Database)](/sql/t-sql/statements/alter-database-azure-sql-database) |Modifie une base de données SQL Azure. |
 |[ALTER DATABASE (Azure SQL Data Warehouse)](/sql/t-sql/statements/alter-database-azure-sql-data-warehouse)|Modifie un entrepôt de données Azure SQL Data Warehouse.|
 |[DROP DATABASE (Transact-SQL)](/sql/t-sql/statements/drop-database-transact-sql)|Supprime une base de données.|
-|[sys.database_service_objectives (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Renvoie l’édition (niveau de service), l’objectif de service (niveau tarifaire) et, le cas échéant, le nom du pool élastique Azure SQL Database ou d’un entrepôt de données Azure SQL Data Warehouse. Si vous êtes connecté à la base de données MASTER d’un serveur Azure SQL Database, renvoie les informations au sujet de toutes les bases de données. Pour Azure SQL Data Warehouse, vous devez être connecté à la base de données MASTER.|
+|[sys.database_service_objectives (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Renvoie l’édition (niveau de service), l’objectif de service (niveau tarifaire) et, le cas échéant, le nom du pool élastique Azure SQL Database ou d’un entrepôt de données Azure SQL Data Warehouse. Si vous êtes connecté à la base de données MASTER d’un serveur Azure SQL Database, retourne les informations sur toutes les bases de données. Pour Azure SQL Data Warehouse, vous devez être connecté à la base de données MASTER.|
 |[sys.dm_db_resource_stats (Azure SQL Database)](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)| Retourne la consommation de mémoire, d’E/S et d’UC d’une base de données Azure SQL Database. Il existe une ligne pour toutes les 15 secondes, même s’il n’existe aucune activité dans la base de données.|
 |[sys.resource_stats (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)|Renvoie les données de stockage et l’utilisation d’UC pour une base de données Azure SQL Database. Les données sont collectées et agrégées par intervalles de cinq minutes.|
 |[sys.database_connection_stats (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-connection-stats-azure-sql-database)|Contient des statistiques pour les événements de connectivité de base de données SQL Database, ce qui fournit une vue d’ensemble du nombre d’échecs et de réussites de connexion de base de données. |

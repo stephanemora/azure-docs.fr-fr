@@ -252,7 +252,7 @@ Vous avez besoin du nom du serveur de votre base de données SQL pour cette opé
    ```bash
    TDSVER=8.0 tsql -H '<server-name>.database.windows.net' -U '<admin-login>' -p 1433 -D '<database-name>'
     ```
-   * Remplacez l’espace réservé `<server-name>` par le nom du serveur de base de données SQL.
+   * Remplacez l’espace réservé `<server-name>` par le nom du serveur SQL Database.
 
    * Remplacez l’espace réservé `<admin-login>` par la connexion administrateur SQL Database.
 

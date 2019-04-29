@@ -19,11 +19,11 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60331109"
 ---
-# <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-a-single-database"></a>Limites du modèle d’achat par vCore d’Azure SQL Database pour une base de données unique
+# <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-a-single-database"></a>Limites du modèle d’achat vCore Azure SQL Database pour une base de données unique
 
-Cet article détaille les limites de ressources des bases de données uniques Azure SQL Database suivant le modèle d’achat par vCore.
+Cet article détaille les limites de ressources des bases de données uniques Azure SQL Database suivant le modèle d’achat vCore.
 
-Pour connaître les limites du modèle d’achat basé sur DTU pour les bases de données sur un serveur SQL Database, consultez [SQL Database resource limits for Azure SQL Database server](sql-database-resource-limits-database-server.md) (Limites de ressources SQL Database pour le serveur Azure SQL Database).
+Pour connaître les limites du modèle d’achat DTU pour les bases de données sur un serveur SQL Database, consultez [Vue d’ensemble des limites de ressources sur un serveur SQL Database](sql-database-resource-limits-database-server.md).
 
 > [!IMPORTANT]
 > Dans certaines circonstances, vous devrez peut-être réduire une base de données pour récupérer l’espace inutilisé. Pour plus d’informations, consultez l’article [Gérer l’espace du fichier de la base de données SQL Azure](sql-database-file-space-management.md).

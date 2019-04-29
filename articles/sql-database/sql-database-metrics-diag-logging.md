@@ -14,7 +14,7 @@ manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: fe53dd4419c06d376a1cc46db0d2621ccbc06f23
 ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/13/2019
 ms.locfileid: "59548631"
@@ -23,7 +23,7 @@ ms.locfileid: "59548631"
 
 Dans cette rubrique, vous allez apprendre à configurer la journalisation de télémétrie de diagnostic pour la base de données SQL Azure via le portail Azure, PowerShell, Azure CLI, API REST Azure Monitor et modèle Azure Resource Manager. Ces outils de diagnostic peuvent être utilisés pour évaluer l’utilisation des ressources et les statistiques d’exécution de requête. 
 
-Les bases de données uniques, les bases de données en pool dans les pools élastiques et les bases de données d’instances dans une instance gérée peuvent diffuser en continu des métriques et des journaux de diagnostic pour faciliter la supervision des performances. Vous pouvez configurer une base de données de sorte qu’elle transmette les informations relatives à l’utilisation des ressources, aux workers et sessions ainsi qu’à la connectivité à l’une de ces ressources Azure :
+Les bases de données uniques, les bases de données mises en pool dans les pools élastiques et les bases de données d’instance dans une instance managée peuvent diffuser en continu des métriques et des journaux de diagnostic pour faciliter la supervision des performances. Vous pouvez configurer une base de données de sorte qu’elle transmette les informations relatives à l’utilisation des ressources, aux workers et sessions ainsi qu’à la connectivité à l’une de ces ressources Azure :
 
 - **Azure SQL Analytics** : pour bénéficier d’une supervision intelligente de vos bases de données SQL Azure avec des rapports de performances, des alertes et des suggestions d’atténuation.
 - **Azure Event Hubs** : pour intégrer des données de télémétrie SQL Database à votre solution de supervision personnalisée ou à vos pipelines chauds.
@@ -62,7 +62,7 @@ Activez les métriques et la journalisation des diagnostics dans les bases de do
 
 Vous pouvez configurer les bases de données SQL Azure et instance pour collecter les données de télémétrie de diagnostic suivantes :
 
-| Analyse des données de télémétrie pour les bases de données | Prise en charge d’une base de données unique et d’une base de données en pool | Support de base de données d’instance |
+| Analyse des données de télémétrie pour les bases de données | Prise en charge d’une base de données unique et d’une base de données mise en pool | Support de base de données d’instance |
 | :------------------- | ----- | ----- |
 | [Toutes les métriques](#all-metrics) : Pourcentage DTU/CPU, Limite DTU/CPU, Pourcentage de lecture de données physiques, Pourcentage d’écriture du journal, Connexions réussies/en échec/bloquées par pare-feu, Pourcentage de sessions, Pourcentage de workers, Stockage, Pourcentage de stockage, Pourcentage de stockage XTP. | Oui | Non  |
 | [QueryStoreRuntimeStatistics](#query-store-runtime-statistics) : contient des informations sur les statistiques d’exécution de requête comme les statistiques concernant l’utilisation du processeur et la durée des requêtes. | Oui | Oui |
@@ -133,7 +133,7 @@ Pour activer la diffusion en continu de données de télémétrie de diagnostics
    - Vous pouvez créer jusqu’à trois connexions parallèles pour le streaming des données de télémétrie de diagnostic.
    - Sélectionnez **+Ajouter un paramètre de diagnostic** pour configurer le streaming parallèle des données de diagnostic vers plusieurs ressources.
 
-   ![Activer les diagnostics pour les bases de données uniques, en pool ou d’instances](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-enable.png)
+   ![Activer les diagnostics pour les bases de données uniques, mises en pool ou d’instances](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-enable.png)
 1. Entrez un nom de paramètre pour référence personnelle.
 1. Sélectionnez la ressource de destination pour les données de diagnostic de streaming : **Archiver dans un compte de stockage**, **Diffuser vers un hub d’événements** ou **Envoyer à Log Analytics**.
 1. Pour une expérience de supervision standard basée sur les événements, cochez les cases suivantes pour les données de télémétrie de journal de diagnostic de base de données : **SQLInsights**, **AutomaticTuning**, **QueryStoreRuntimeStatistics**, **QueryStoreWaitStatistics**, **Errors**, **DatabaseWaitStatistics**, **Timeouts**, **Blocks** et **Deadlocks**.
@@ -185,7 +185,7 @@ Pour activer la diffusion en continu des données de télémétrie de diagnostic
 
 ### <a name="configure-streaming-of-diagnostics-telemetry-for-instance-databases"></a>Configurer la diffusion en continu de données de télémétrie de diagnostic par exemple bases de données
 
-   ![Icône de base de données d’instance dans l’instance gérée](./media/sql-database-metrics-diag-logging/icon-mi-database-text.png)
+   ![Icône de base de données d’instance dans l’instance managée](./media/sql-database-metrics-diag-logging/icon-mi-database-text.png)
 
 Pour activer la diffusion en continu de données de télémétrie de diagnostic par exemple bases de données, procédez comme suit :
 
@@ -195,7 +195,7 @@ Pour activer la diffusion en continu de données de télémétrie de diagnostic 
    - Vous pouvez créer jusqu’à trois (3) connexions parallèles pour le streaming des données de télémétrie de diagnostic.
    - Sélectionnez **+Ajouter un paramètre de diagnostic** pour configurer le streaming parallèle des données de diagnostic vers plusieurs ressources.
 
-   ![Activer les diagnostics pour les bases de données d’instances](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-enable.png)
+   ![Activer les diagnostics pour les bases de données d’instance](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-enable.png)
 
 1. Entrez un nom de paramètre pour référence personnelle.
 1. Sélectionnez la ressource de destination pour les données de diagnostic de streaming : **Archiver dans un compte de stockage**, **Diffuser vers un hub d’événements** ou **Envoyer à Log Analytics**.

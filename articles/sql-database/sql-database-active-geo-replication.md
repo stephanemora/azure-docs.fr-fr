@@ -146,7 +146,7 @@ Pour mesurer le décalage par rapport à la base de données primaire, les modif
 
 Comme indiqué plus haut, la géoréplication active peut aussi être gérée par programme à l’aide d’Azure PowerShell et de l’API REST. Les tableaux ci-dessous décrivent l’ensemble des commandes disponibles. La géoréplication active comprend un ensemble d’API Azure Resource Manager pour la gestion, notamment [l’API REST Azure SQL Database](https://docs.microsoft.com/rest/api/sql/) et les [applets de commande Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview). Ces API nécessitent l’utilisation de groupes de ressources et la prise en charge de la sécurité basée sur les rôles (RBAC). Pour plus d’informations sur l’implémentation de rôles d’accès, consultez la page sur le [contrôle d’accès en fonction du rôle Azure](../role-based-access-control/overview.md).
 
-### <a name="t-sql-manage-failover-of-single-and-pooled-databases"></a>T-SQL : gérer le basculement des bases de données uniques et en pool
+### <a name="t-sql-manage-failover-of-single-and-pooled-databases"></a>T-SQL : Gérer le basculement des bases de données uniques et mises en pool
 
 > [!IMPORTANT]
 > Ces commandes Transact-SQL s’appliquent uniquement à la géoréplication active et ne s’appliquent pas aux groupes de basculement. Par conséquent, elles ne s’appliquent pas non plus aux instances managées, car elles prennent uniquement en charge les groupes de basculement.
@@ -162,7 +162,7 @@ Comme indiqué plus haut, la géoréplication active peut aussi être gérée pa
 | [sp_wait_for_database_copy_sync](/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync) |oblige l’application à attendre que toutes les transactions validées sont répliquées et acceptées par la base de données secondaire active. |
 |  | |
 
-### <a name="powershell-manage-failover-of-single-and-pooled-databases"></a>PowerShell : gérer le basculement des bases de données uniques et en pool
+### <a name="powershell-manage-failover-of-single-and-pooled-databases"></a>PowerShell : Gérer le basculement des bases de données uniques et mises en pool
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
@@ -178,9 +178,9 @@ Comme indiqué plus haut, la géoréplication active peut aussi être gérée pa
 |  | |
 
 > [!IMPORTANT]
-> Pour plus d’exemples de scripts, consultez [Configurer et basculer une base de données unique à l’aide de la géoréplication active](scripts/sql-database-setup-geodr-and-failover-database-powershell.md) et [Configurer et basculer une base de données regroupée à l’aide de la géoréplication active](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md).
+> Pour plus d’exemples de scripts, consultez [Configurer et basculer une base de données unique à l’aide de la géoréplication active](scripts/sql-database-setup-geodr-and-failover-database-powershell.md) et [Configurer et basculer une base de données mise en pool à l’aide de la géoréplication active](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md).
 
-### <a name="rest-api-manage-failover-of-single-and-pooled-databases"></a>API REST : gérer le basculement des bases de données uniques et en pool
+### <a name="rest-api-manage-failover-of-single-and-pooled-databases"></a>API REST : Gérer le basculement des bases de données uniques et mises en pool
 
 | API | Description |
 | --- | --- |

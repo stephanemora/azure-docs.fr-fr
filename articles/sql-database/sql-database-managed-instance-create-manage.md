@@ -14,7 +14,7 @@ manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: 6362084c11ce7aa9078823758700239694162765
 ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59359156"
@@ -45,7 +45,7 @@ Pour créer et gérer des instances gérées avec Azure PowerShell, utilisez les
 |[Set-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstance)|Définit les propriétés d’une instance Azure SQL Database Managed Instance|
 |[Remove-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstance)|Supprime une instance Azure SQL Database Managed Instance|
 |[New-AzSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlinstancedatabase)|Crée une base de données Azure SQL Database Managed Instance|
-|[Get-AzSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstancedatabase)|Retourne des informations sur la base de données Azure SQL Database Managed Instance|
+|[Get-AzSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstancedatabase)|Retourne des informations sur la base de données Azure SQL Managed Instance|
 |[Remove-AzSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstancedatabase)|Supprime une base de données Azure SQL Database Managed Instance|
 |[Restore-AzSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqlinstancedatabase)|Restaure une base de données Azure SQL Database Managed Instance|
 
@@ -68,9 +68,9 @@ Pour créer et gérer des instances gérées avec [Azure CLI](/cli/azure), utili
 |[az sql midb restore](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-restore)|Restaure une base de données managée|
 |[az sql midb delete](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-delete)|Supprime une base de données managée|
 
-## <a name="transact-sql-create-and-manage-instance-databases"></a>Transact-SQL : Créer et gérer des bases de données d’instances
+## <a name="transact-sql-create-and-manage-instance-databases"></a>Transact-SQL : Créer et gérer des bases de données d’instance
 
-Pour créer et gérer une base de données d’instance après avoir créé l’instance gérée, utilisez les commandes T-SQL suivantes. Vous pouvez émettre ces commandes via le portail Azure, [SQL Server Management Studio](/sql/ssms/use-sql-server-management-studio), [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/what-is), [Visual Studio Code](https://code.visualstudio.com/docs) ou tout autre programme capable de se connecter à un serveur Azure SQL Database et de transmettre des commandes Transact-SQL.
+Pour créer et gérer une base de données d’instance après avoir créé l’instance managée, utilisez les commandes T-SQL suivantes. Vous pouvez émettre ces commandes via le portail Azure, [SQL Server Management Studio](/sql/ssms/use-sql-server-management-studio), [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/what-is), [Visual Studio Code](https://code.visualstudio.com/docs) ou tout autre programme capable de se connecter à un serveur Azure SQL Database et de transmettre des commandes Transact-SQL.
 
 > [!TIP]
 > Pour des guides de démarrage rapide vous expliquant comment configurer et vous connecter à une instance managée en utilisant SQL Server Management Studio sur Microsoft Windows, consultez [Démarrage rapide : Configurer la machine virtuelle Azure pour qu’elle se connecte à Azure SQL Database Managed Instance](sql-database-managed-instance-configure-vm.md) et [Démarrage rapide : Configurer une connexion point à site sur Azure SQL Database Managed Instance à partir d’un emplacement local](sql-database-managed-instance-configure-p2s.md).

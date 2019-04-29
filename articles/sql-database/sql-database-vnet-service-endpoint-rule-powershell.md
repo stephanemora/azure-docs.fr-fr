@@ -1,5 +1,5 @@
 ---
-title: PowerShell pour points de terminaison de réseau virtuel et règles relatives aux bases de données uniques et regroupées dans Azure SQL| Microsoft Docs
+title: PowerShell pour points de terminaison de service de réseau virtuel et règles relatives aux bases de données uniques et mises en pool dans Azure SQL| Microsoft Docs
 description: Fournit des scripts PowerShell pour créer et gérer des points de terminaison de service virtuel pour Azure SQL Database et SQL Data Warehouse.
 services: sql-database
 ms.service: sql-database
@@ -121,7 +121,7 @@ Write-Host 'Completed script 1, the "Variables".';
 Ce script prépare le script suivant, où se déroule l’action du point de terminaison. Ce script crée pour vous les éléments suivants, mais uniquement s’ils n’existent pas déjà. Vous pouvez ignorer le script 2 si vous êtes sûr que ces éléments existent déjà :
 
 - Groupe de ressources Azure
-- Serveur de base de données SQL Azure
+- Serveur Azure SQL Database
 
 ### <a name="powershell-script-2-source-code"></a>Code source du script PowerShell 2
 
@@ -209,7 +209,7 @@ Write-Host 'Completed script 2, the "Prerequisites".';
 
 ## <a name="script-3-create-an-endpoint-and-a-rule"></a>Script 3 : Créer un point de terminaison et une règle
 
-Ce script crée un réseau virtuel avec un sous-réseau. Le script attribue ensuite le type de point de terminaison **Microsoft.Sql** à votre sous-réseau. Enfin, le script ajoute votre sous-réseau à la liste de contrôle d’accès (ACL) de votre serveur de base de données SQL, créant ainsi une règle.
+Ce script crée un réseau virtuel avec un sous-réseau. Le script attribue ensuite le type de point de terminaison **Microsoft.Sql** à votre sous-réseau. Enfin, le script ajoute votre sous-réseau à la liste de contrôle d’accès (ACL) de votre serveur SQL Database, créant ainsi une règle.
 
 ### <a name="powershell-script-3-source-code"></a>Code source du script PowerShell 3
 
@@ -297,7 +297,7 @@ Write-Host 'Completed script 3, the "Virtual-Network-Rule".';
 
 Ce dernier script supprime les ressources que les scripts précédents ont créées pour la démonstration. Toutefois, le script vous demande de confirmer la suppression des éléments suivants :
 
-- Serveur de base de données SQL Azure
+- Serveur Azure SQL Database
 - Groupe de ressources Azure
 
 Une fois le script 1 terminé, vous pouvez exécuter le script 4 à tout moment.

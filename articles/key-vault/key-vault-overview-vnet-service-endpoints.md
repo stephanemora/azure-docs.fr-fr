@@ -1,5 +1,4 @@
 ---
-ms.assetid: ''
 title: Points de terminaison de service de réseau virtuel pour Azure Key Vault - Azure Key Vault | Microsoft Docs
 description: Vue d’ensemble des points de terminaison de service de réseau virtuel pour Key Vault
 services: key-vault
@@ -8,11 +7,10 @@ ms.author: ambapat
 manager: barbkess
 ms.date: 01/02/2019
 ms.service: key-vault
-ms.workload: identity
 ms.topic: conceptual
 ms.openlocfilehash: bb5770f4e09c0ed764d17998936c0fe97bdaebfb
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60201259"
@@ -21,7 +19,7 @@ ms.locfileid: "60201259"
 
 Les points de terminaison de service de réseau virtuel pour Azure Key Vault permettent de restreindre l’accès à un réseau virtuel spécifié. Les points de terminaison vous permettent également de restreindre l’accès à une liste de plages d’adresses IPv4 (Internet Protocol version 4). L’accès est refusé à tout utilisateur se connectant à votre coffre de clés en dehors de ces sources.
 
-Il existe une exception importante à cette restriction. Si un utilisateur a choisi d’autoriser les services Microsoft approuvés, les connexions à partir de ces services se font à travers le pare-feu. Par exemple, ces services incluent Office 365 Exchange Online, Office 365 SharePoint Online, Calcul Azure, Azure Resource Manager et Sauvegarde Azure. Ces utilisateurs doivent néanmoins toujours présenter un jeton Azure Active Directory valide et disposer d’autorisations (configurées en tant que stratégies d’accès) pour effectuer l’opération demandée. Pour plus d’informations, consultez [Points de terminaison du service Réseau virtuel](../virtual-network/virtual-network-service-endpoints-overview.md).
+Il existe une exception importante à cette restriction. Si un utilisateur a choisi d’autoriser les services Microsoft approuvés, les connexions à partir de ces services se font à travers le pare-feu. Par exemple, ces services incluent Office 365 Exchange Online, Office 365 SharePoint Online, Calcul Azure, Azure Resource Manager et Sauvegarde Azure. Ces utilisateurs doivent néanmoins toujours présenter un jeton Azure Active Directory valide et disposer d’autorisations (configurées en tant que stratégies d’accès) pour effectuer l’opération demandée. Pour plus d’informations, consultez [Points de terminaison de service de réseau virtuel](../virtual-network/virtual-network-service-endpoints-overview.md).
 
 ## <a name="usage-scenarios"></a>Scénarios d’utilisation
 

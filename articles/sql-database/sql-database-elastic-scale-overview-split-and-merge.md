@@ -14,7 +14,7 @@ manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: 2127c05d7e52b0103d91ecfac4fb5977a4815f31
 ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/18/2019
 ms.locfileid: "57901931"
@@ -136,7 +136,7 @@ Le package de service de fractionnement et de fusion inclut un rôle de travail 
 
 - **Carte de partitions**
 
-  La section suivante concernant les paramètres des demandes couvre les informations relatives à la carte de partitions et à la base de données qui l’héberge. En particulier, vous devez fournir le nom du serveur de base de données SQL Azure et de la base de données hébergeant la carte de partitions, les informations d'identification pour se connecter à la base de données de mappage et, enfin, le nom de la carte. Actuellement, l'opération n'accepte qu'un seul ensemble d'informations d'identification. Ces dernières doivent disposer d’autorisations suffisantes pour apporter des modifications à la carte de partitions ainsi qu’aux données utilisateur des partitions.
+  La section suivante concernant les paramètres des demandes couvre les informations relatives à la carte de partitions et à la base de données qui l’héberge. En particulier, vous devez fournir le nom du serveur Azure SQL Database et de la base de données hébergeant la carte de partitions, les informations d'identification pour se connecter à la base de données de mappage et, enfin, le nom de la carte. Actuellement, l'opération n'accepte qu'un seul ensemble d'informations d'identification. Ces dernières doivent disposer d’autorisations suffisantes pour apporter des modifications à la carte de partitions ainsi qu’aux données utilisateur des partitions.
 
 - **Plage source (diviser et fusionner)**
 
@@ -248,7 +248,7 @@ La table WADLogsTable mise en surbrillance dans la figure ci-dessus comporte les
 
 ## <a name="performance"></a>Performances
 
-En général, les meilleures performances proviennent de niveaux de service élevés, plus performants, de la base de données SQL Azure. Des allocations d'E/S, de processeur et de mémoire plus élevées pour les niveaux de service supérieurs sont bénéfiques aux opérations de copie et de suppression en bloc que le service de fractionnement et de fusion utilise. Pour cette raison, augmentez le niveau de service pour ces bases de données pour une période limitée et définie.
+En général, les meilleures performances proviennent de niveaux de service élevés plus performants dans Azure SQL Database. Des allocations d'E/S, de processeur et de mémoire plus élevées pour les niveaux de service supérieurs sont bénéfiques aux opérations de copie et de suppression en bloc que le service de fractionnement et de fusion utilise. Pour cette raison, augmentez le niveau de service pour ces bases de données pour une période limitée et définie.
 
 Le service effectue également des requêtes de validation dans le cadre de ses opérations. Ces requêtes de validation recherchent la présence inattendue de données dans la plage cible et garantissent que les opérations de fractionnement, de fusion et de déplacement démarrent à partir d'un état cohérent. Ces requêtes fonctionnent toutes sur des plages de clés de partitionnement définies par l'étendue de l'opération de fractionnement, de fusion et de déplacement et la taille du batch fourni dans le cadre de la définition de la demande. Ces requêtes offrent de meilleures performances lorsqu'un index est présent et doté de la clé de partitionnement en tant que première colonne.
 

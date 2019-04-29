@@ -77,7 +77,7 @@ Conseils pour l’exploration et le parcours des scripts PowerShell :
 
 Utilisez [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) pour vous connecter et parcourir les bases de données et les serveurs de l’application.
 
-Des clients et des serveurs de base de données SQL de catalogue sont initialement connectés au déploiement. Les noms de serveurs dépendent du modèle de client de base de données (voir ci-dessous pour plus les détails). 
+Au départ, le déploiement a des locataires et des serveurs SQL Database de catalogue auxquels se connecter. Les noms de serveurs dépendent du modèle de client de base de données (voir ci-dessous pour plus les détails). 
 
    - **Application autonome :** serveurs pour chaque client (ex. serveur *contosoconcerthall-&lt;Utilisateur&gt;*) et *catalog-sa-&lt;Utilisateur&gt;*
    - **Base de données par client :** serveurs *tenants1-dpt-&lt;Utilisateur&gt;* et *catalog-dpt-&lt;Utilisateur&gt;*

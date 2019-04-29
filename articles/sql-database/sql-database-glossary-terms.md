@@ -31,14 +31,14 @@ ms.locfileid: "60341640"
 ||Serveur SQL Database Managed Instance, serveur Managed Instance ou instance de serveur|[Instance gérée](sql-database-managed-instance.md)|
 Objets de base de données|Base de données SQL Azure|Toute base de données dans Azure SQL Database|
 ||Base de données unique|Base de données créée à l’aide de l’option de déploiement de base de données unique|
-||Base de données regroupée|Base de données créée au sein d’un pool élastique ou déplacée vers un tel pool|
+||Base de données mise en pool|Base de données créée au sein d’un pool élastique ou déplacée vers un tel pool|
 ||Base de données d’instance|Base de données créée dans une instance gérée|
 ||Base de données de base|Base de données créée au niveau de service de base du modèle d’achat DTU ou déplacée vers ce niveau|
 ||Base de données standard|Base de données créée au niveau de service standard du modèle d’achat DTU ou déplacée vers ce niveau|
 ||Base de données premium|Base de données créée au niveau de service premium du modèle d’achat DTU ou déplacée vers ce niveau|
-||Base de données à usage général|Base de données créée au niveau de service à usage général du modèle d’achat vCore ou déplacée vers ce niveau|
-||Base de données hyperscale|Base de données créée au niveau de service hyperscale du modèle d’achat vCore ou déplacée vers ce niveau|
-||Base de données critique pour l’entreprise|Base de données créée au niveau de service critique pour l’entreprise du modèle d’achat vCore ou déplacée vers ce niveau|
+||Base de données à usage général|Base de données créée au niveau de service Usage général du modèle d’achat vCore ou déplacée vers ce niveau|
+||Base de données Hyperscale|Base de données créée au niveau de service Hyperscale du modèle d’achat vCore ou déplacée vers ce niveau|
+||Base de données critique pour l’entreprise|Base de données créée au niveau de service Critique pour l’entreprise du modèle d’achat vCore ou déplacée vers ce niveau|
 |[Modèles et ressources d’achat](sql-database-purchase-models.md)|Modèle d’achat DTU|[Modèle d’achat DTU](sql-database-service-tiers-dtu.md)|
 ||Modèle d’achat vCore|[Modèle d’achat vCore](sql-database-service-tiers-vcore.md)|
 ||vCore|Cœur fourni pour le système d’exploitation invité par l’hyperviseur|

@@ -15,7 +15,7 @@ ms.date: 02/12/2019
 ms.author: barclayn
 ms.openlocfilehash: 70a33b0ec55705c6fb00671cc801415cd7459558
 ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/12/2019
 ms.locfileid: "59522726"
@@ -60,7 +60,7 @@ Consultez le tableau qui suit pour connaître les conditions requises pour appor
 | Prérequis | Plus d’informations |
 | --- | --- |
 | Abonnement à Azure |Pour créer un coffre de clés Azure, vous avez besoin d’un abonnement Azure : [Inscrivez-vous pour un essai gratuit](https://azure.microsoft.com/pricing/free-trial/) |
-| Niveau de service Premium d’Azure Key Vault pour prendre en charge les clés protégées par HSM |Pour plus d’informations sur les niveaux de service et les capacités du coffre de clés Azure, consultez le site web [Tarifs du coffre de clés Azure](https://azure.microsoft.com/pricing/details/key-vault/) . |
+| Niveau de service Premium d’Azure Key Vault pour prendre en charge les clés protégées par HSM |Pour plus d’informations sur les niveaux de service et les capacités du coffre de clés Azure, consultez le site web [Tarifs Azure Key Vault](https://azure.microsoft.com/pricing/details/key-vault/). |
 | Modules de sécurité matérielle, cartes à puces et logiciel d’assistance de Thales |Vous devez disposer d’un accès au module de sécurité matérielle Thales et quelques notions sur les modules de sécurité matérielle d’HSM. Voir [Modules de sécurité matérielle Thales](https://www.thales-esecurity.com/msrms/buy) pour obtenir une liste des modèles compatibles ou acheter un module de sécurité matérielle si vous n’en n’avez pas encore. |
 | Les matériels et le logiciel suivants :<ol><li>Une station de travail x64 hors connexion avec le système d’exploitation Windows 7 ou version ultérieure, et le logiciel Thales nShield version 11.50 ou ultérieure.<br/><br/>Si cette station de travail exécute Windows 7, vous devez [installer Microsoft .NET Framework 4.5](https://download.microsoft.com/download/b/a/4/ba4a7e71-2906-4b2d-a0e1-80cf16844f5f/dotnetfx45_full_x86_x64.exe).</li><li>Une station de travail connectée à Internet et dotée du système d’exploitation Windows 7 et d’[Azure PowerShell](/powershell/azure/overview?view=azps-1.2.0) **version 1.1.0 ou ultérieure**.</li><li>Un lecteur USB ou tout autre appareil de stockage portable offrant au moins 16 Mo d’espace libre.</li></ol> |Pour des raisons sécurité, nous conseillons de faire en sorte que la première station de travail ne soit pas connectée à un réseau. Toutefois, cette recommandation n’est pas appliquée par programmation.<br/><br/>Dans les instructions qui suivent, cette station de travail est désignée en tant que station de travail déconnectée.</p></blockquote><br/>De plus, si votre clé de locataire est destinée à un réseau de production, nous vous recommandons d’utiliser un poste de travail distinct pour télécharger l’ensemble d’outils et charger la clé de locataire. À des fins de test, vous pouvez utiliser la même station de travail que la précédente.<br/><br/>Dans les instructions qui suivent, cette deuxième station de travail est désignée en tant que station de travail connectée à Internet.</p></blockquote><br/> |
 
