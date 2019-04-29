@@ -4,27 +4,26 @@ ms.service: databox
 ms.topic: include
 ms.date: 04/16/2019
 ms.author: alkohli
-ms.openlocfilehash: fa8340ec6f555258f159e14133305b847e2e3cc3
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: af4c3829c8b12bfcaae0602dde8f459de7e50f3a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59684421"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60754298"
 ---
-- **Détails de la commande** : une fois la commande créée, l’adresse de livraison, l’adresse e-mail, et les informations de contact des utilisateurs sont stockées dans le portail Azure. Les informations enregistrées incluent :
+- **Détails des commandes**. Lorsqu’une commande est créée, l’adresse d’expédition, adresse e-mail et des informations de contact de l’utilisateur est stocké dans le portail Azure. Les informations enregistrées incluent :
   - Nom du contact
   - Numéro de téléphone
-  - Email
+  - Adresse de messagerie
   - Adresse postale
   - City
-  - Code postal
+  - Code postal Code postal
   - État
-  - Pays/Province/Région
+  - Région/pays/région
   - Numéro de suivi d’expédition
 
-    Les détails de commande sont chiffrées et stockées dans le service. Le service conserve les informations jusqu'à ce que vous supprimiez explicitement la ressource ou l’ordre. En outre, la suppression de ressource et de la commande correspondante est bloquée à partir du moment que l’appareil est livré jusqu'à ce que l’appareil retourne à Microsoft.
+    Détails de la commande sont chiffrées et stockées dans le service. Le service conserve les informations jusqu'à ce que vous supprimiez explicitement la ressource ou l’ordre. La suppression de la ressource et la commande correspondante est bloquée à partir du moment que l’appareil est livré jusqu'à ce que l’appareil retourne à Microsoft.
 
-- **Adresse de livraison** – une fois que la commande est passée, service Data Box fournit l’adresse d’expédition aux transporteurs tiers tels que des sauvegardes.
+- **Adresse de livraison**. Une fois une commande est passée, service Data Box fournit l’adresse d’expédition aux transporteurs tiers UPS.
 
-- **Les utilisateurs de partager** -accessibles aux utilisateurs sur votre appareil également les données résidant sur les partages. La liste de ces utilisateurs s’affiche et peut être consultée. Cette liste est également supprimée lorsque les partages sont supprimés.
-
+- **Les utilisateurs de partager**. Utilisateurs sur votre appareil peuvent également accéder à données situées sur les partages. Une liste d’utilisateurs peuvent accéder à partager des données peut être affichée. Lorsque les partages sont supprimés, cette liste est également supprimée.

@@ -5,16 +5,16 @@ ms.topic: include
 ms.date: 11/25/2018
 ms.author: jeconnoc
 ms.openlocfilehash: 26910fe2b0b45a6e31f9c907ac31d83a74a95775
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52330953"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60528136"
 ---
 > [!NOTE]
 > Pour terminer cette section, vous devez avoir installé Node.js et le Kit de développement logiciel (SDK) Azure pour Node.js sur votre plateforme.
 > 
-> * Installez le kit de développement logiciel (SDK) Windows Azure pour Node.js : [Programme d’installation Windows](https://go.microsoft.com/fwlink/?LinkId=254279) | [Programme d’installation Mac](https://go.microsoft.com/fwlink/?LinkId=253471) | [Téléchargement pour Linux](https://go.microsoft.com/fwlink/?LinkId=253472)
+> * Installez le SDK Azure pour Node.js : [Programme d’installation de Windows](https://go.microsoft.com/fwlink/?LinkId=254279) | [programme d’installation Mac](https://go.microsoft.com/fwlink/?LinkId=253471) | [téléchargement pour Linux](https://go.microsoft.com/fwlink/?LinkId=253472)
 > * Si vous utilisez Mac ou Linux, installez Node.js à partir de [http://nodejs.org](http://nodejs.org). Le programme d’installation Windows contient déjà Node.js.
 > 
 > 

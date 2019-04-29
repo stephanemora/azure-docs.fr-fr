@@ -9,11 +9,11 @@ ms.date: 03/27/2018
 ms.author: zarhoads
 ms.custom: include file
 ms.openlocfilehash: fb296236fb73823690175b12f4e07c05b60cdbcf
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56333971"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60542598"
 ---
 # <a name="regions-and-availability-for-virtual-machines-in-azure"></a>Régions et disponibilité des machines virtuelles dans Azure
 Azure fonctionne dans plusieurs centres de données à travers le monde. Ces centres de données sont regroupés en régions géographiques, ce qui vous donne une certaine flexibilité dans le choix de l’emplacement où vous créez vos applications. Il est important de comprendre le fonctionnement des machines virtuelles et de connaître leur emplacement dans Azure, ainsi que les différentes options disponibles pour optimiser les performances, la disponibilité et la redondance. Cet article fournit une vue d’ensemble des fonctionnalités d’optimisation de la disponibilité et de redondance d’Azure.
@@ -54,7 +54,7 @@ Certains services ou fonctionnalités des machines virtuelles ne sont disponible
 ## <a name="storage-availability"></a>Disponibilité du stockage
 Il est important de bien comprendre les régions géographiques Azure lorsque vous considérez les options de réplication de stockage disponibles. Selon le type de stockage, vous disposez d’options de réplication différentes.
 
-**Azure Managed Disks**
+**Azure Disques managés**
 * Stockage localement redondant (LRS)
   * Réplique trois fois vos données dans la région dans laquelle vous avez créé votre compte de stockage.
 
@@ -72,8 +72,8 @@ Le tableau suivant fournit une rapide vue d’ensemble des différences entre le
 
 | Stratégie de réplication | LRS | ZRS | GRS | RA-GRS |
 |:--- |:--- |:--- |:--- |:--- |
-| Les données sont répliquées entre plusieurs installations. |Non  |OUI |OUI |OUI |
-| Les données peuvent être lues à partir de l’emplacement secondaire comme de l’emplacement principal. |Non  |Non  |Non  |OUI |
+| Les données sont répliquées entre plusieurs installations. |Non  |OUI |OUI |Oui |
+| Les données peuvent être lues à partir de l’emplacement secondaire comme de l’emplacement principal. |Non  |Non  |Non  |Oui |
 | Nombre de copies de données conservées sur des nœuds distincts. |3 |3 |6. |6. |
 
 Vous pouvez en savoir plus sur les [options de réplication de stockage Azure ici](../articles/storage/common/storage-redundancy.md). Pour plus d’informations sur les disques managés, consultez [Vue d’ensemble d’Azure Disques managés](../articles/virtual-machines/windows/managed-disks-overview.md).
@@ -81,7 +81,7 @@ Vous pouvez en savoir plus sur les [options de réplication de stockage Azure ic
 ### <a name="storage-costs"></a>Coûts de stockage
 Les prix varient selon le type de stockage et la disponibilité que vous sélectionnez.
 
-**Azure Managed Disks**
+**Azure Disques managés**
 * Les disques managés Premium s’appuient sur des disques SSD et les disques managés Standard sur des disques à rotation classique. Les fonctionnalités Disques managés Premium et Standard sont facturées en fonction de la capacité déployée pour le disque.
 
 **Disques non gérés**

@@ -2,18 +2,19 @@
 title: Fichier Include
 description: Fichier Include
 services: vpn-gateway
-author: cherylmc
+author: WenJason
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 12/14/2018
-ms.author: cherylmc
+origin.date: 12/14/2018
+ms.date: 12/24/2018
+ms.author: v-jay
 ms.custom: include file
 ms.openlocfilehash: 36b3fcfa90b5b1de9c9d3262da1f3e519cc99c19
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53444121"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60456434"
 ---
 ### <a name="is-custom-ipsecike-policy-supported-on-all-azure-vpn-gateway-skus"></a>La stratégie personnalisée IPsec/IKE est-elle prise en charge sur toutes les références de passerelle VPN Azure ?
 La stratégie personnalisée IPsec/IKE est prise en charge sur les passerelles VPN Azure **VpnGw1, VpnGw2, VpnGw3, Standard** et **HighPerformance**. La **référence SKU** de base **n’est pas** prise en charge.
@@ -101,7 +102,7 @@ Oui, vous pouvez appliquer la stratégie personnalisée pour des connexions IPse
 Oui. Un tunnel entre des réseaux virtuels se compose de deux ressources de connexion dans Azure, une pour chaque direction. Assurez-vous que les deux ressources de connexion ont la même stratégie, sinon la connexion de réseau virtuel à réseau virtuel ne pourra pas être établie.
 
 ### <a name="does-custom-ipsecike-policy-work-on-expressroute-connection"></a>La stratégie IPsec/IKE est-elle compatible avec une connexion ExpressRoute ?
- Non. La stratégie IPsec/IKE est uniquement compatible avec les connexions S2S VPN et entre des réseaux virtuels via les passerelles VPN Azure.
+Non. La stratégie IPsec/IKE est uniquement compatible avec les connexions S2S VPN et entre des réseaux virtuels via les passerelles VPN Azure.
 
 ### <a name="where-can-i-find-more-configuration-information-for-ipsec"></a>Où puis-je trouver des informations de configuration supplémentaires pour IPsec ?
 Consultez [Configurer la stratégie IPsec/IKE pour des connexions S2S ou de réseau virtuel à réseau virtuel](../articles/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell.md)

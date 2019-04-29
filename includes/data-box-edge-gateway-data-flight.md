@@ -4,18 +4,18 @@ ms.service: databox
 ms.topic: include
 ms.date: 04/16/2019
 ms.author: alkohli
-ms.openlocfilehash: bea14544949f90290bf3878295b49f1e08be9eea
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: acf1195616d45b155445604ef0204528e5f7ca03
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59684411"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60754286"
 ---
-Pour les données en transit :
+Pour les données en vol :
 
-- Pour les données qui sont placées entre l’appareil et Azure, standard TLS 1.2 est utilisé. Il n’existe aucun élément de secours à TLS 1.1 et versions antérieures. La communication de l’agent sera bloquée si TLS 1.2 n’est pas pris en charge. Le TLS 1.2 est également requise pour portail et les opérations de gestion de kit de développement logiciel.
-- Lorsque les clients accèdent à votre appareil via l’interface utilisateur web locale dans un navigateur, standard TLS 1.2 est utilisé comme le protocole sécurisé par défaut.
+- Standard TLS 1.2 est utilisé pour les données qui transitent entre le périphérique et Azure. Il n’existe aucun élément de secours à TLS 1.1 et versions antérieures. Communication de l’agent sera bloquée si TLS 1.2 n’est pas pris en charge. TLS 1.2 est également requise pour gestion de kit de développement logiciel et de portail.
+- Lorsque les clients accèdent à votre appareil via le web locale de l’interface utilisateur d’un navigateur, standard TLS 1.2 est utilisé comme le protocole sécurisé par défaut.
 
     - La meilleure pratique consiste à configurer votre navigateur pour utiliser TLS 1.2.
     - Si le navigateur ne prend pas en charge TLS 1.2, vous pouvez utiliser TLS 1.1 ou TLS 1.0.
-- Pour protéger les données lorsque vous la copiez à partir de vos serveurs de données, nous vous recommandons d’utiliser SMB 3.0 avec chiffrement.
+- Nous vous recommandons d’utiliser SMB 3.0 avec chiffrement pour protéger les données lorsque vous la copiez à partir de vos serveurs de données.

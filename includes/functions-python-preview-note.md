@@ -6,15 +6,18 @@ author: astay
 manager: edlaure
 ms.service: functions
 ms.topic: include
-ms.date: 08/30/2018
-ms.author: astay
+origin.date: 08/30/2018
+ms.date: 12/26/2018
+ms.author: v-junlch
 ms.custom: include file
 ms.openlocfilehash: 7a10ef292f3d131191fe7763635b4604498de326
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52853382"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61021261"
 ---
 > [!NOTE]
 > Python pour Azure Functions est actuellement disponible en préversion. Pour recevoir les mises à jour importantes, abonnez-vous au dépôt [Azure App Service announcements](https://github.com/Azure/app-service-announcements/issues) sur GitHub.  
+
+<!-- ms.date: 12/26/2018 -->

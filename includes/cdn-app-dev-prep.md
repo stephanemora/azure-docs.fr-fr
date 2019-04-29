@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/21/2018
 ms.author: mazha
 ms.openlocfilehash: 7f80c8f1773cfeb8ddfb222d068a5c6571c2e5c7
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52330958"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60564142"
 ---
 ## <a name="prerequisites"></a>Prérequis
 Avant d’écrire le code de gestion CDN, vous devez effectuer certaines tâches de préparation pour permettre à ce code d’interagir avec Azure Resource Manager. Ce travail de préparation implique les opérations suivantes :
@@ -32,7 +32,7 @@ Avant d’écrire le code de gestion CDN, vous devez effectuer certaines tâches
     ![Attribution d’un nom au groupe de ressources](./media/cdn-app-dev-prep/cdn-subscription-id-include.png)
 
 ### <a name="creating-the-azure-ad-application-and-applying-permissions"></a>Création d’une application Azure AD et application des autorisations
-Il existe deux approches pour authentifier une application avec Azure Active Directory : les utilisateurs individuels ou un principal de service. Un principal de service est similaire à un compte de service dans Windows.  Au lieu d’être octroyées à un utilisateur spécifique, les autorisations d’interagir avec les profils CDN sont accordées au principal de service.  Les principaux de service sont généralement utilisés pour des processus automatisés non interactifs.  Bien que le but de ce didacticiel soit de créer une application console interactive, nous allons nous adopter l’approche du principal de service.
+Il existe deux approches pour authentifier une application avec Azure Active Directory : Les utilisateurs individuels ou un principal de service. Un principal de service est similaire à un compte de service dans Windows.  Au lieu d’être octroyées à un utilisateur spécifique, les autorisations d’interagir avec les profils CDN sont accordées au principal de service.  Les principaux de service sont généralement utilisés pour des processus automatisés non interactifs.  Bien que le but de ce didacticiel soit de créer une application console interactive, nous allons nous adopter l’approche du principal de service.
 
 La création d’un principal de service comprend plusieurs étapes, dont la création d’une application Azure Active Directory.  Pour créer cette application, nous allons [suivre ce didacticiel](../articles/active-directory/develop/howto-create-service-principal-portal.md).
 

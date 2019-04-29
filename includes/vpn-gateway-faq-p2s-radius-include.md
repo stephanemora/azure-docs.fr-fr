@@ -2,18 +2,18 @@
 title: Fichier Include
 description: Fichier Include
 services: vpn-gateway
-author: cherylmc
+author: WenJason
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/21/2018
-ms.author: cherylmc
+ms.date: 09/02/2018
+ms.author: v-jay
 ms.custom: include file
 ms.openlocfilehash: 857d29f407c9939143fbb8263be40dadb040efdc
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53439215"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60456424"
 ---
 [!INCLUDE [P2S FAQ All](vpn-gateway-faq-p2s-all-include.md)]
 
@@ -23,7 +23,7 @@ L’authentification RADIUS est prise en charge pour les références SKU VpnGw1
  
 ### <a name="is-radius-authentication-supported-for-the-classic-deployment-model"></a>L’authentification RADIUS est-elle prise en charge pour le modèle de déploiement classique ?
  
- Non. L’authentification RADIUS n’est pas prise en charge pour le modèle de déploiement classique.
+Non. L’authentification RADIUS n’est pas prise en charge pour le modèle de déploiement classique.
  
 ### <a name="are-3rd-party-radius-servers-supported"></a>Les serveurs RADIUS tiers sont-ils pris en charge ?
 
@@ -35,7 +35,7 @@ Une connexion site à site au site local est nécessaire, avec les itinéraires 
  
 ### <a name="can-traffic-to-an-on-premises-radius-server-from-the-azure-vpn-gateway-be-routed-over-an-expressroute-connection"></a>Le trafic vers un serveur RADIUS local (à partir de la passerelle VPN Azure) peut-il être routé via une connexion ExpressRoute ?
 
- Non. Il ne peut être routé que via une connexion site à site.
+Non. Il ne peut être routé que via une connexion site à site.
  
 ### <a name="is-there-a-change-in-the-number-of-sstp-connections-supported-with-radius-authentication-what-is-the-maximum-number-of-sstp-and-ikev2-connections-supported"></a>Y a-t-il une modification du nombre de connexions SSTP prises en charge avec l’authentification RADIUS ? Quel est le nombre maximal de connexions SSTP et IKEv2 prises en charge ?
 

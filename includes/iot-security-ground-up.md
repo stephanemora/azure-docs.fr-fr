@@ -9,11 +9,11 @@ ms.date: 04/24/2018
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: 14e8eb7c73a1e2cf5047410d3571008c1cd1e1ca
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51289272"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60626461"
 ---
 # <a name="security-for-internet-of-things-iot-from-the-ground-up"></a>Sécurisation de l’Internet des objets (IdO) de bout en bout
 
@@ -23,7 +23,7 @@ Cet article étudie de quelle façon les accélérateurs de solution IoT fournis
 
 Les accélérateurs de solution offrent des fonctionnalités uniques qui font de l’approvisionnement des appareils IoT, de la connexion à ces appareils et du stockage des données qu’ils fournissent une opération simple et transparente et plus que tout, sécurisée. Cet article passe en revue les fonctionnalités de sécurité et les stratégies de déploiement des accélérateurs de solution Azure IoT afin de garantir sécurité, confidentialité et conformité.
 
-## <a name="introduction"></a>Introduction
+## <a name="introduction"></a>Présentation
 
 L’Internet des objets (IoT, Internet of Things) marque le début d’une nouvelle ère. Il offre aux entreprises des opportunités réelles et immédiates pour réduire leurs coûts, augmenter leur chiffre d’affaires et transformer leur activité. Beaucoup d’entreprises, cependant, hésitent à déployer l’IoT dans leurs organisations, préoccupées par la sécurité, la confidentialité et la conformité. La nature unique de l’infrastructure IoT représente un point de préoccupation majeur : cette infrastructure fusionne les mondes physique et informatique, réunissant les risques inhérents à chacun d’eux. La sécurité de l’IoT consiste à garantir l’intégrité du code s’exécutant sur les appareils, à assurer l’authentification des appareils et des utilisateurs, à définir clairement la propriété des appareils (et des données générées par ces appareils) et à résister aux cyber-attaques et aux attaques physiques.
 
@@ -103,14 +103,14 @@ De par leur conception, les accélérateurs de solution intègrent des mesures d
 
 Chaque accélérateur de solution crée des instances de services Azure, telles que :
 
-* [**Azure IoT Hub**](https://azure.microsoft.com/services/iot-hub/) : votre passerelle connectant le cloud aux appareils. Vous pouvez évoluer vers des millions de connexions par hub et traiter des volumes de données de grande envergure en bénéficiant de la prise en charge de l’authentification par appareil, qui vous aide à sécuriser votre solution.
+* [**Azure IoT Hub**](https://azure.microsoft.com/services/iot-hub/): Votre passerelle connectant le cloud aux appareils. Vous pouvez évoluer vers des millions de connexions par hub et traiter des volumes de données de grande envergure en bénéficiant de la prise en charge de l’authentification par appareil, qui vous aide à sécuriser votre solution.
 
-* [**Azure Cosmos DB**](https://azure.microsoft.com/services/cosmos-db/) : service de base de données évolutif et entièrement indexé pour données semi-structurées, qui gère les métadonnées (attributs, configuration, propriétés de sécurité, etc.) des appareils que vous approvisionnez. Azure Cosmos DB assure un traitement hautes performances et à débit élevé, ainsi qu’une indexation des données indépendante du schéma. Ce service offre également une interface de requête SQL enrichie.
+* [**Azure Cosmos DB**](https://azure.microsoft.com/services/cosmos-db/) : Un service de base de données évolutif et entièrement indexé pour données semi-structurées qui gère les métadonnées pour les appareils que vous approvisionnez, comme attributs, la configuration et les propriétés de sécurité. Azure Cosmos DB assure un traitement hautes performances et à débit élevé, ainsi qu’une indexation des données indépendante du schéma. Ce service offre également une interface de requête SQL enrichie.
 
-* [**Azure Stream Analytics**](https://azure.microsoft.com/services/stream-analytics/) : traitement des flux en temps réel dans le cloud, permettant de développer et de déployer rapidement une solution d’analyse à faible coût pour obtenir des informations en temps réel de la part des appareils, capteurs, infrastructures et applications. Les données de ce service entièrement géré peuvent être mises à l’échelle selon n’importe quel volume. Vous continuez à bénéficier d’un débit élevé, d’une faible latence et de la résilience.
+* [**Stream Azure Analytique**](https://azure.microsoft.com/services/stream-analytics/): Traitement dans le cloud qui vous permet de développer et déployer une solution d’analytique de faible coût pour obtenir des informations en temps réel à partir d’appareils, capteurs, infrastructures et applications de rapidement des flux en temps réel. Les données de ce service entièrement géré peuvent être mises à l’échelle selon n’importe quel volume. Vous continuez à bénéficier d’un débit élevé, d’une faible latence et de la résilience.
 
-* [**Azure App Services**](https://azure.microsoft.com/services/app-service/) : plateforme cloud permettant de créer de puissantes applications web et mobiles qui se connectent aux données n’importe où, que ce soit localement ou dans le cloud. Créez des applications mobiles attrayantes pour iOS, Android et Windows. Assurez l’intégration avec vos applications SaaS (Software as a Service) et d’entreprise grâce à une connectivité prête à l’emploi à des dizaines d’applications et services basés sur le cloud. Encodez dans votre environnement de développement intégré et votre langage favoris (.NET, Node.js, PHP, Python ou Java) pour créer rapidement des applications web et des API.
+* [**Azure App Services**](https://azure.microsoft.com/services/app-service/): Plateforme cloud permettant de créer de puissantes applications web et mobiles qui se connectent aux données de n’importe où ; dans le cloud ou les en local. Créez des applications mobiles attrayantes pour iOS, Android et Windows. Assurez l’intégration avec vos applications SaaS (Software as a Service) et d’entreprise grâce à une connectivité prête à l’emploi à des dizaines d’applications et services basés sur le cloud. Encodez dans votre environnement de développement intégré et votre langage favoris (.NET, Node.js, PHP, Python ou Java) pour créer rapidement des applications web et des API.
 
-* [**Logic Apps**](https://azure.microsoft.com/services/app-service/logic/) : fonctionnalité Azure App Service qui vous aide à intégrer votre solution IoT dans vos systèmes métier existants et à automatiser les processus de flux de travail. Logic Apps permet aux développeurs de concevoir des flux de travail qui démarrent à partir d’un déclencheur et exécutent une série d’étapes — des règles et actions utilisant des connecteurs puissants pour l’intégration à vos processus d’entreprise. Logic Apps offre une connectivité prête à l’emploi vers un vaste écosystème d’applications SaaS, basées sur le cloud et locales.
+* [**Logic Apps**](https://azure.microsoft.com/services/app-service/logic/): La fonctionnalité Logic Apps d’Azure App Service vous aide à intégrer votre solution IoT dans vos systèmes existants de line-of-business et automatisez les processus de flux de travail. Logic Apps permet aux développeurs de concevoir des flux de travail qui démarrent à partir d’un déclencheur et exécutent une série d’étapes — des règles et actions utilisant des connecteurs puissants pour l’intégration à vos processus d’entreprise. Logic Apps offre une connectivité prête à l’emploi vers un vaste écosystème d’applications SaaS, basées sur le cloud et locales.
 
-* [**Stockage Blob Azure**](https://azure.microsoft.com/services/storage/) : stockage cloud fiable et économique pour les données que vos appareils envoient au cloud.
+* [**Stockage d’objets Blob Azure**](https://azure.microsoft.com/services/storage/): Stockage cloud fiable et économique pour les données que vos appareils envoient au cloud.

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/15/2018
 ms.author: estfan
 ms.custom: include file
-ms.openlocfilehash: 4ffda692da0ab7b63f7376c36dfab0bec914e334
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
-ms.translationtype: HT
+ms.openlocfilehash: da03c5247b8ebe0a3305b08a05d661264497663f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37138063"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60540967"
 ---
 * Si vous utilisez Azure SQL Database, suivez les étapes décrites dans [Connexion à la base de données SQL Azure](#connect-azure-sql-db). 
 
@@ -104,7 +104,7 @@ Avant de pouvoir sélectionner votre passerelle, assurez-vous d’avoir [configu
    | Nom de la base de données SQL | <*ma-base-de-données-sql*>  | Nom de votre base de données SQL |
    | Nom d’utilisateur | <*mon-nom-utilisateur-sql*> | Nom d’utilisateur pour accéder à votre base de données |
    | Mot de passe | <*mon-mot-de-depasse-sql*> | Mot de passe pour accéder à votre base de données | 
-   | Type d’authentification | Windows ou De base | Facultatif : type d’authentification utilisé par votre serveur SQL | 
+   | Type d’authentification | Windows ou De base | Facultatif : Le type d’authentification utilisé par votre serveur SQL server | 
    | Passerelles | <*ma-passerelle-de-données*> | Nom de votre passerelle de données locale | 
    |||| 
 

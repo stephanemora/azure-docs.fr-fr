@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/13/2018
 ms.author: genli
 ms.custom: include file
-ms.openlocfilehash: 749cc5a5e5b8417abe602b7e37c103a26cc4dc03
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.openlocfilehash: cd686e1bf62bbd7f37f61ced767e92918edf919c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31805180"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60596984"
 ---
 ## <a name="how-to-create-a-classic-vnet-using-azure-cli"></a>Création d'un réseau virtuel classique à l'aide de l'interface de ligne de commande Azure
 Vous pouvez utiliser l'interface de ligne de commande Azure pour gérer vos ressources Azure à partir de l'invite de commande sur n'importe quel ordinateur exécutant Windows, Linux ou OSX.
@@ -37,7 +37,7 @@ Vous pouvez utiliser l'interface de ligne de commande Azure pour gérer vos ress
    * **-n (ou --subnet-name**). Nom du premier sous-réseau. Pour le scénario, *FrontEnd*.
    * **-p (ou --subnet-start-ip)**. Adresse IP de début pour le sous-réseau, ou espace d'adressage du sous-réseau. Pour le scénario, *192.168.1.0*.
    * **-r (ou --subnet-cidr)**. Masque de réseau au format CIDR pour le sous-réseau. Pour le scénario, *24*.
-   * **-l (ou --location)**. Région Azure où le réseau virtuel est créé. Pour notre scénario, *Centre des États-Unis*.
+   * **-l (ou --location)**. Région Azure où le réseau virtuel est créé. Pour notre scénario, *USA Centre*.
 3. Pour créer un sous-réseau, exécutez la commande **azure network vnet subnet create** :
    
             azure network vnet subnet create -t TestVNet -n BackEnd -a 192.168.2.0/24

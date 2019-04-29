@@ -9,11 +9,11 @@ ms.date: 02/12/2019
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: 32032f729283cb3f2a786412b563fdee88ba4c8a
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56238565"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60729618"
 ---
 Le stockage localement redondant (LRS) offre une durabilité des objets d’au moins 99,999999999 % (11 « neuf ») sur une année donnée. Le stockage localement redondant fournit la durabilité de cet objet en répliquant vos données sur une unité d’échelle de stockage. Un centre de données, qui se trouve dans la région où vous avez créé votre compte de stockage, héberge l’unité d’échelle de stockage. Une demande d’écriture adressée à un compte de stockage LRS retourne un indicateur de réussite seulement une fois que les données sont écrites dans tous les réplicas. Chaque réplica se trouve dans des domaines d’erreur et de mise à niveau distincts au sein d’une unité d’échelle de stockage.
 
