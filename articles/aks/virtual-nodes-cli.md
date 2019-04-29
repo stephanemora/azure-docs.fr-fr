@@ -8,11 +8,11 @@ ms.service: container-service
 ms.date: 12/03/2018
 ms.author: iainfou
 ms.openlocfilehash: 38b2654c8f3e8d302a66cac335913583bd4426ef
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59682965"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61024552"
 ---
 # <a name="preview---create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Afficher un aperçu : créer et configurer un cluster Azure Kubernetes service (AKS) pour utiliser des nœuds virtuels à l’aide de l’interface CLI Azure
 

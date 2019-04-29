@@ -16,11 +16,11 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: banders
 ms.openlocfilehash: 520d3f6a45b44ba2023dee34642f796689f48221
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58648844"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60918984"
 ---
 # <a name="view-and-download-your-azure-usage-and-charges"></a>Afficher et télécharger votre utilisation d’Azure et les frais
 

@@ -10,11 +10,11 @@ ms.date: 01/11/2019
 ms.author: adgera
 ms.custom: seodec18
 ms.openlocfilehash: ffd7d71c33b569b396b9f8babf8105968ee525b9
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54263065"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60926422"
 ---
 # <a name="add-blobs-to-objects-in-azure-digital-twins"></a>Ajouter des objets blob à des objets dans Azure Digital Twins
 
@@ -51,16 +51,16 @@ Les métadonnées d’objets blob JSON sont conformes au modèle suivant :
   }
 ```
 
-| Attribut | type | Description |
+| Attribut | Type | Description |
 | --- | --- | --- |
-| **parentId** | Chaîne | Entité parente avec laquelle associer l’objet blob (espaces, appareils ou utilisateurs) |
-| **name** |Chaîne | Nom convivial pour l’objet blob |
-| **type** | Chaîne | Type d’objet blob. Vous ne pouvez pas utiliser *type* et *typeId*  |
+| **parentId** | String | Entité parente avec laquelle associer l’objet blob (espaces, appareils ou utilisateurs) |
+| **name** |String | Nom convivial pour l’objet blob |
+| **type** | String | Type d’objet blob. Vous ne pouvez pas utiliser *type* et *typeId*  |
 | **typeId** | Entier  | ID de type d’objet blob. Vous ne pouvez pas utiliser *type* et *typeId* |
-| **subtype** | Chaîne | Sous-type d’objet blob. Vous ne pouvez pas utiliser *subtype* et *subtypeId* |
+| **subtype** | String | Sous-type d’objet blob. Vous ne pouvez pas utiliser *subtype* et *subtypeId* |
 | **subtypeId** | Entier  | ID de sous-type d’objet blob. Vous ne pouvez pas utiliser *subtype* et *subtypeId* |
-| **description** | Chaîne | Description personnalisée de l’objet blob |
-| **sharing** | Chaîne | Indique si l’objet blob peut être partagé - enum [`None`, `Tree`, `Global`] |
+| **description** | String | Description personnalisée de l’objet blob |
+| **sharing** | String | Indique si l’objet blob peut être partagé - enum [`None`, `Tree`, `Global`] |
 
 Les métadonnées d’objets blob sont toujours fournies en tant que premier segment avec **Content-Type** `application/json` ou en tant que fichier `.json`. Les données de fichiers sont fournies dans le deuxième segment et peuvent être de n’importe quel type MIME pris en charge.
 
@@ -108,20 +108,20 @@ Les objets blob retournés individuellement sont conformes au schéma JSON suiva
 }
 ```
 
-| Attribut | type | Description |
+| Attribut | Type | Description |
 | --- | --- | --- |
-| **id** | Chaîne | Identificateur unique de l’objet blob |
-| **name** |Chaîne | Nom convivial pour l’objet blob |
-| **parentId** | Chaîne | Entité parente avec laquelle associer l’objet blob (espaces, appareils ou utilisateurs) |
-| **type** | Chaîne | Type d’objet blob. Vous ne pouvez pas utiliser *type* et *typeId*  |
+| **id** | String | Identificateur unique de l’objet blob |
+| **name** |String | Nom convivial pour l’objet blob |
+| **parentId** | String | Entité parente avec laquelle associer l’objet blob (espaces, appareils ou utilisateurs) |
+| **type** | String | Type d’objet blob. Vous ne pouvez pas utiliser *type* et *typeId*  |
 | **typeId** | Entier  | ID de type d’objet blob. Vous ne pouvez pas utiliser *type* et *typeId* |
-| **subtype** | Chaîne | Sous-type d’objet blob. Vous ne pouvez pas utiliser *subtype* et *subtypeId* |
+| **subtype** | String | Sous-type d’objet blob. Vous ne pouvez pas utiliser *subtype* et *subtypeId* |
 | **subtypeId** | Entier  | ID de sous-type d’objet blob. Vous ne pouvez pas utiliser *subtype* et *subtypeId* |
-| **sharing** | Chaîne | Indique si l’objet blob peut être partagé - enum [`None`, `Tree`, `Global`] |
-| **description** | Chaîne | Description personnalisée de l’objet blob |
+| **sharing** | String | Indique si l’objet blob peut être partagé - enum [`None`, `Tree`, `Global`] |
+| **description** | String | Description personnalisée de l’objet blob |
 | **contentInfos** | Tableau | Spécifie les informations de métadonnées non structurées, notamment la version |
-| **fullName** | Chaîne | Nom complet de l’objet blob |
-| **spacePaths** | Chaîne | Chemin de l’espace |
+| **fullName** | String | Nom complet de l’objet blob |
+| **spacePaths** | String | Chemin de l’espace |
 
 Les métadonnées d’objets blob sont toujours fournies en tant que premier segment avec **Content-Type** `application/json` ou en tant que fichier `.json`. Les données de fichiers sont fournies dans le deuxième segment et peuvent être de n’importe quel type MIME pris en charge.
 

@@ -16,15 +16,15 @@ ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: e5cad797b633d43bcc9ead657a60fca8aa6679bb
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53090718"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60822378"
 ---
 # <a name="availability-and-consistency-in-event-hubs"></a>Disponibilité et cohérence dans Event Hubs
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 Azure Event Hubs utilise un [modèle de partitionnement](event-hubs-features.md#partitions) pour améliorer la disponibilité et la parallélisation dans un concentrateur d’événements unique. Par exemple, si un concentrateur d’événements a quatre partitions et que l’une de ces partitions est déplacée d’un serveur à l’autre dans une opération d’équilibrage de charge, vous pouvez quand même envoyer et recevoir à partir des trois autres partitions. En outre, avoir davantage de partitions vous permet d’avoir plus lecteurs pour traiter vos données simultanément, ce qui améliore le débit global. Comprendre les implications en matière de partitionnement et de classement dans un système distribué est un aspect essentiel de la conception de la solution.
 
 Pour expliquer le compromis entre classement et disponibilité, reportez-vous au [théorème CAP](https://en.wikipedia.org/wiki/CAP_theorem), également connu sous le nom de théorème de Brewer. Ce théorème discute le choix entre la cohérence, la disponibilité et la tolérance de la partition. Il stipule que pour les systèmes partitionnés par réseau, il existe toujours un compromis entre cohérence et disponibilité.

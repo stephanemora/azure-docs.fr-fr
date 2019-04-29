@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/07/2017
 ms.author: rogarana
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 05e687ab31b6c19193076033e1350952549d26e0
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 42ad7bc10cb7b93bd4db9260f950ae4ca12aba44
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56330747"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61126877"
 ---
 # <a name="migrate-from-amazon-web-services-aws-and-other-platforms-to-managed-disks-in-azure"></a>Migrer à partir d’Amazon Web Services (AWS) et d’autres plateformes vers la fonctionnalité Disques managés dans Azure
 
@@ -66,7 +66,7 @@ Passez en revue les caractéristiques de performances des machines virtuelles fo
 
 ### <a name="disk-sizes"></a>Tailles du disque
 
-**Disques gérés Premium**
+**Disques managés Premium**
 
 Il existe sept types de disques managés Premium qui peuvent être utilisés avec votre machine virtuelle, chacun d’eux présentant des limites d’E/S par seconde et de débit spécifiques. Prenez en compte ces limites lors de la sélection du type de disque Premium pour votre machine virtuelle en fonction des besoins en capacité, en performances, en extensibilité et en charges maximales de votre application.
 
@@ -76,7 +76,7 @@ Il existe sept types de disques managés Premium qui peuvent être utilisés ave
 | IOPS par disque       | 120   | 240   | 500   | 1100  |2 300              | 5 000              | 7500              | 7500              | 
 | Débit par disque | 25 Mo par seconde  | 50 Mo par seconde  | 100 Mo par seconde | 125 Mo par seconde |150 Mo par seconde | 200 Mo par seconde | 250 Mo par seconde | 250 Mo par seconde |
 
-**Disques gérés Standard**
+**Disques managés Standard**
 
 Il existe sept types de disques managés Standard qui peuvent être utilisés avec votre machine virtuelle. Chacun d’eux dispose d’une capacité différente, mais ils partagent les mêmes limites d’E/S par seconde et de débit. Choisissez le type de disque managé Standard selon les besoins en capacité de votre application.
 
@@ -88,7 +88,7 @@ Il existe sept types de disques managés Standard qui peuvent être utilisés av
 
 ### <a name="disk-caching-policy"></a>Stratégie de mise en cache du disque 
 
-**Disques gérés Premium**
+**Disques managés Premium**
 
 Par défaut, la stratégie de mise en cache est *Lecture seule* pour tous les disques de données Premium et *Lecture-écriture* pour le disque du système d’exploitation Premium attaché à la machine virtuelle. Ce paramètre de configuration est recommandé pour optimiser les performances des E/S de votre application. Pour les disques de données en écriture seule ou avec d'importantes opérations d'écriture (par ex., les fichiers journaux de SQL Server), désactivez la mise en cache du disque pour de meilleures performances de l'application.
 

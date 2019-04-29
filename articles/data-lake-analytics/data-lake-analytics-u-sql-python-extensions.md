@@ -9,16 +9,16 @@ ms.reviewer: jasonwhowell
 ms.assetid: c1c74e5e-3e4a-41ab-9e3f-e9085da1d315
 ms.topic: conceptual
 ms.date: 06/20/2017
-ms.openlocfilehash: b2179f9d81a2dad877c8ae58471f7440eb9edbe7
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
-ms.translationtype: HT
+ms.openlocfilehash: 0a49cbdb4caf474d0628fea3679ce712d37886e7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43050989"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60813399"
 ---
 # <a name="extend-u-sql-scripts-with-python-code-in-azure-data-lake-analytics"></a>Étendre des scripts U-SQL à l’aide de code Python dans Azure Data Lake Analytics
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Avant de commencer, vérifiez que les extensions Python sont installées dans votre compte Azure Data Lake Analytics.
 
@@ -26,7 +26,7 @@ Avant de commencer, vérifiez que les extensions Python sont installées dans vo
 * Dans le menu de gauche, sous **Démarrage**, cliquez sur **Exemples de scripts**
 * Cliquez sur **Installer des extensions U-SQL**, puis sur **OK**.
 
-## <a name="overview"></a>Vue d’ensemble 
+## <a name="overview"></a>Présentation 
 
 Les extensions de Python pour U-SQL permettent aux développeurs d’effectuer une exécution parallèle massive de code Python. L'exemple suivant illustre les étapes de base :
 

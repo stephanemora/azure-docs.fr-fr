@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 12/06/2018
 ms.author: spelluru
 ms.openlocfilehash: ccb2fa7b0805b332957513c52c0c1051d068d2cc
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55507533"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60821675"
 ---
 # <a name="use-firewall-rules"></a>Utiliser les règles de pare-feu
 
@@ -149,7 +149,7 @@ Pour déployer le modèle, suivez les instructions pour [Azure Resource Manager]
 
 Pour limiter l’accès à Event Hubs aux réseaux virtuels Azure, consultez le lien suivant :
 
-- [Points de terminaison du service de réseau virtuel pour Event Hubs][lnk-vnet]
+- [Points de terminaison de service de réseau virtuel pour Event Hubs][lnk-vnet]
 
 <!-- Links -->
 

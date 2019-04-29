@@ -17,13 +17,13 @@ ms.date: 07/19/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cb64debca10cf7be6e2e328a1f401f125b67d940
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57447164"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62098505"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-workrite"></a>Tutoriel : Intégration d’Azure Active Directory à Workrite
+# <a name="tutorial-azure-active-directory-integration-with-workrite"></a>Didacticiel : Intégration d’Azure Active Directory à Workrite
 
 Dans ce didacticiel, vous allez apprendre à intégrer Workrite à Azure Active Directory (Azure AD).
 

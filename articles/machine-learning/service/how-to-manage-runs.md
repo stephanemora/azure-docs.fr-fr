@@ -12,11 +12,11 @@ manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 04/05/2019
 ms.openlocfilehash: c0c1c1353b12944fa913dfb0789192917b99f234
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59543591"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60819200"
 ---
 # <a name="start-monitor-and-cancel-training-runs-in-python"></a>Démarrer, surveiller et annuler les exécutions de formation dans Python
 
@@ -33,7 +33,7 @@ Cet article répertorie des exemples des tâches suivantes :
 
 Vous aurez besoin des éléments suivants :
 
-* Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez dès aujourd'hui la [version gratuite ou payante d’Azure Machine Learning service](https://aka.ms/AMLFree).
+* Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez la [version gratuite ou payante d’Azure Machine Learning service](https://aka.ms/AMLFree) dès aujourd’hui.
 
 * Un [espace de travail de service Azure Machine Learning](setup-create-workspace.md).
 

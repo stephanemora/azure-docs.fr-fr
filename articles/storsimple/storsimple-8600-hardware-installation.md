@@ -14,15 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 5a8b460441323cb668a3d9939cce434636afc44d
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.openlocfilehash: be3f68a00647840801e7c205d7abb34b718bd61c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38719003"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60630878"
 ---
 # <a name="unpack-rack-mount-and-cable-your-storsimple-8600-device"></a>Déballer, monter en rack et câbler votre appareil StorSimple 8600
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Présentation
 Microsoft Azure StorSimple 8600 est un appareil composé d’un boîtier principal et d’un boîtier EBOD. Ce didacticiel explique comment déballer, monter en rack et brancher les câbles de votre appareil StorSimple 8600 avant de configurer son logiciel.
 
 ## <a name="unpack-your-storsimple-8600-device"></a>Déballage de votre appareil StorSimple 8600
@@ -168,7 +168,7 @@ L’étape suivante consiste à brancher l’alimentation, le réseau et l’acc
 ## <a name="cable-your-storsimple-8600-device"></a>Branchement des câbles de votre appareil StorSimple 8600
 Les procédures suivantes expliquent comment brancher les câbles d’alimentation, de réseau et d’accès en série sur votre appareil StorSimple 8600.
 
-### <a name="prerequisites"></a>Prérequis
+### <a name="prerequisites"></a>Conditions préalables
 Avant de commencer à raccorder votre appareil, vous devez disposer des éléments suivants :
 
 * Votre boîtier principal et votre boîtier EBOD, totalement déballés
@@ -260,7 +260,7 @@ Procédez comme suit pour brancher les câbles de port série de votre appareil.
 6. Vérifiez que la connexion fonctionne en appuyant sur Entrée sur la console. Un menu de la console série doit apparaître.
 
 > [!NOTE]
-> **Gestion en service réduit :** lorsque l’appareil est installé dans un centre de données distant ou dans une salle informatique avec un accès limité, assurez-vous que les connexions série sur les deux contrôleurs sont toujours connectées à un commutateur de console série ou à un équipement similaire. Cela permet de commander à distance hors bande et de prendre en charge les opérations en cas d’interruption du réseau ou en cas de défaillance inattendue.
+> **Gestion des pannes :** Lorsque l’appareil est installé dans un centre de données distant ou dans une salle informatique avec un accès limité, assurez-vous que les connexions série aux deux contrôleurs sont toujours connectées à un commutateur de console série ou d’un équipement similaire. Cela permet de commander à distance hors bande et de prendre en charge les opérations en cas d’interruption du réseau ou en cas de défaillance inattendue.
 > 
 > 
 

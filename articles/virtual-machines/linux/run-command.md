@@ -9,11 +9,11 @@ ms.date: 10/25/2018
 ms.topic: article
 manager: carmonm
 ms.openlocfilehash: e865d4e9cbad2c2064d961bc6e407440ce8556fc
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158803"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60772052"
 ---
 # <a name="run-shell-scripts-in-your-linux-vm-with-run-command"></a>Exécuter des scripts shell dans votre machine virtuelle Linux avec la commande Run
 
@@ -39,7 +39,7 @@ Voici une liste des restrictions présentes lors de l’utilisation de la comman
 * Une connectivité sortante à partir de la machine virtuelle est nécessaire pour retourner les résultats du script.
 
 > [!NOTE]
-> Pour fonctionner correctement, la commande Run a besoin d’une connectivité (port 443) aux adresses IP publiques Azure. Si l’extension n’a pas accès à ces points de terminaison, il se peut que les scripts s’exécutent correctement, mais ne retournent pas les résultats. Si vous bloquez le trafic sur la machine virtuelle, vous pouvez utiliser des [balises de service](../../virtual-network/security-overview.md#service-tags) pour autoriser le trafic à destination des adresses IP publiques Azure en utilisant la balise `AzureCloud`.
+> Pour fonctionner correctement, la commande Run a besoin d’une connectivité (port 443) aux adresses IP publiques Azure. Si l’extension n’a pas accès à ces points de terminaison, il se peut que les scripts s’exécutent correctement, mais qu’ils ne retournent pas les résultats. Si vous bloquez le trafic sur la machine virtuelle, vous pouvez utiliser des [balises de service](../../virtual-network/security-overview.md#service-tags) pour autoriser le trafic à destination des adresses IP publiques Azure en utilisant la balise `AzureCloud`.
 
 ## <a name="azure-cli"></a>Azure CLI
 
@@ -71,7 +71,7 @@ Une fois la commande choisie, cliquez sur **Run** pour exécuter le script. Le s
 
 Ce tableau affiche la liste des commandes disponibles pour les machines virtuelles Linux. La commande **RunShellScript** peut être utilisée pour exécuter n’importe quel script personnalisé de votre choix.
 
-|**Nom**|**Description**|
+|**Name**|**Description**|
 |---|---|
 |**RunShellScript**|Exécute un script de shell Linux.|
 |**ifconfig**| Obtenez la configuration de toutes les interfaces réseau.|

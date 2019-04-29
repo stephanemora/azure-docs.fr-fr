@@ -10,11 +10,11 @@ ms.topic: article
 manager: carmonm
 ms.custom: mvc
 ms.openlocfilehash: df59342bebae3ac0f6e80e5b58f429fedf3c3336
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59578490"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60739048"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>Activer les solutions Update Management, Change Tracking et Inventory sur plusieurs machines virtuelles
 
@@ -59,7 +59,7 @@ Si l’espace de travail sélectionné n’est pas lié à un compte Automation,
 
 ![Aucun espace de travail](media/automation-onboard-solutions-from-browse/no-workspace.png)
 
-Lorsque vous activez des solutions, uniquement dans certaines régions sont prises en charge pour la liaison d’un espace de travail Analytique de journal et un compte Automation.
+Lors de l’activation de solutions, seules certaines régions sont prises en charge pour la liaison d’un espace de travail Log Analytics et d’un compte Automation.
 
 Le tableau suivant renseigne sur les mappages pris en charge :
 

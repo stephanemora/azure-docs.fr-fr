@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 590aa440f35f97e854fa827b0d8db1c3f9211faf
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231935"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60749641"
 ---
 # <a name="offer-settings-tab"></a>Onglet des paramètres de l’offre
 
@@ -40,7 +40,7 @@ Comme indiqué dans l’exemple, l’**ID de l’offre** est ajouté à votre ID
 
 Cet identificateur est associé à votre compte. Une fois que vous êtes connecté avec votre compte professionnel, votre **ID d’éditeur** s’affiche dans le menu déroulant.
 
-### <a name="name"></a>NOM
+### <a name="name"></a>Nom
 
 Cette chaîne s’affiche en tant que nom de l’offre sur AppSource ou la Place de marché Microsoft Azure. La zone **Name** est limitée à 50 caractères. Le réviseur devra peut-être modifier votre titre pour ajouter la durée et le type d’offre au nom de votre offre.
 

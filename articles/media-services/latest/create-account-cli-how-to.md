@@ -13,11 +13,11 @@ ms.custom: seodec18
 ms.date: 02/15/2019
 ms.author: juliako
 ms.openlocfilehash: f4ce64599aad2b2eebbef6ca8d81acfca2a7a702
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342505"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60733881"
 ---
 # <a name="create-an-azure-media-services-account"></a>Créer un compte Azure Media Services
 
@@ -28,7 +28,7 @@ Pour commencer à chiffrer, coder, analyser, gérer et diffuser en continu du co
 
 Cet article décrit les étapes à suivre pour créer un compte Azure Media Services à l’aide d’Azure CLI.  
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Un abonnement Azure actif. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) avant de commencer.
 

@@ -12,11 +12,11 @@ ms.date: 02/22/2019
 ms.author: luisca
 ms.custom: seodec2018
 ms.openlocfilehash: 422b97414142c36669ed449a21c6045fd774581a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57902652"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61341962"
 ---
 #   <a name="key-phrase-extraction-cognitive-skill"></a>Compétence cognitive Extraction de phrases clés
 
@@ -48,7 +48,7 @@ Les paramètres respectent la casse.
 
 | Entrées     | Description |
 |--------------------|-------------|
-| texte | Texte à analyser.|
+| text | Texte à analyser.|
 | languageCode  |  Chaîne indiquant la langue des enregistrements. Si ce paramètre n’est pas spécifié, le code de langue par défaut est utilisé pour l’analyse des enregistrements. <br/>Consultez la [liste complète des langues prises en charge](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages).|
 
 ##  <a name="sample-definition"></a>Exemple de définition

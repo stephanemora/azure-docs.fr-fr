@@ -11,11 +11,11 @@ manager: jeconnoc
 ms.date: 01/05/2019
 ms.topic: article
 ms.openlocfilehash: 339d4270dc1803879607663e9e2db4a86591ec76
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59522999"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60683959"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Créer des boucles qui répètent des actions de workflow ou des tableaux de processus dans Azure Logic Apps
 
@@ -195,7 +195,7 @@ Voici quelques scénarios courants dans lesquels vous pouvez utiliser une boucle
 
    | Propriété | Valeur | Description |
    | -------- | ----- | ----------- |
-   | **Nom** | Limite | Nom de votre variable | 
+   | **Name** | Limite | Nom de votre variable | 
    | **Type** | Entier  | Type de données de votre variable | 
    | **Valeur** | 0 | Valeur de départ de votre variable | 
    |||| 

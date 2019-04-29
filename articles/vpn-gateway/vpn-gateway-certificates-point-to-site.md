@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 12/03/2018
 ms.author: cherylmc
 ms.openlocfilehash: 74639dee6fb548e1c9067cae6fc22f6e3cc872c3
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58096229"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60763889"
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-using-powershell"></a>Générer et exporter des certificats pour les connexions de point à site à l’aide de PowerShell
 

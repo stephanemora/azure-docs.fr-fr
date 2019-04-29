@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: dobett
 ms.openlocfilehash: 87f6b9cef50e4b8c388be835b2aa7bed8177ac4b
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53601081"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61447430"
 ---
 # <a name="use-the-azureiotsolutionscom-site-to-deploy-your-solution-accelerator"></a>Utiliser le site azureiotsolutions.com pour déployer votre accélérateur de solution
 
@@ -28,7 +28,7 @@ Vous pouvez déployer les accélérateurs de solution dans les configurations su
 
 * **Standard** : un déploiement étendu de l’infrastructure pour le développement d’un environnement de production. Azure Container Service déploie les microservices sur plusieurs machines virtuelles Azure. Kubernetes orchestre les conteneurs Docker qui hébergent les microservices individuels.
 * **De base** : une version à coût réduit pour une démonstration ou pour tester un déploiement. Tous les microservices se déploient sur une seule machine virtuelle Azure.
-* **Local** : un déploiement de machine local pour les tests et le développement. Cette approche déploie les microservices vers un conteneur Docker local et se connecte aux services IoT Hub, Azure Cosmos DB et Stockage Azure dans le cloud.
+* **Locales** : un déploiement de machine local pour les tests et le développement. Cette approche déploie les microservices vers un conteneur Docker local et se connecte aux services IoT Hub, Azure Cosmos DB et Stockage Azure dans le cloud.
 
 Chacun des accélérateurs de solution utilise une combinaison différente des services Azure comme IoT Hub, Azure Stream Analytics et Cosmos DB. Pour plus d’informations, visitez [AzureIoTSolutions.com](https://www.azureiotsolutions.com/Accelerators) et sélectionnez un accélérateur de solution.
 
@@ -66,7 +66,7 @@ Si vous êtes fabricant de matériel, cliquez sur **Devenir un partenaire** pour
 
 Pour essayer l’un des accélérateurs de solution IoT, consultez les démarrages rapides :
 
-* [Essayer une solution de surveillance à distance](quickstart-remote-monitoring-deploy.md)
+* [Essayer une solution de supervision à distance](quickstart-remote-monitoring-deploy.md)
 * [Essayer une solution d’usine connectée](quickstart-connected-factory-deploy.md)
 * [Essayer une solution de maintenance prédictive](quickstart-predictive-maintenance-deploy.md)
 * [Essayer une solution de simulation d’appareil](quickstart-device-simulation-deploy.md)

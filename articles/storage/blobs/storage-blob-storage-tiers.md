@@ -9,11 +9,11 @@ ms.date: 03/23/2019
 ms.author: mhopkins
 ms.subservice: blobs
 ms.openlocfilehash: 9be62e09fbf65081f166c89f5358cdb6677c22c6
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60004225"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61426797"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Stockage d’objets Blob Azure : chaud, froid et archive les niveaux d’accès
 
@@ -126,11 +126,11 @@ Le tableau présente une comparaison du stockage blob par blocs performances pre
 
 |                                           | **Performances de niveau Premium** | **Niveau chaud** | **Niveau froid** | **Niveau d’archive**
 | ----------------------------------------- | ---------------- | ------------ | ----- | ----- |
-| **Disponibilité**                          | 99,9 %            | 99,9 %        | 99 % | S.O. |
-| **Disponibilité** <br> **(Lectures RA-GRS)**  | S.O.              | 99,99 %       | 99,9 % | S.O. |
+| **Disponibilité**                          | 99,9 %            | 99,9 %        | 99 % | N/A |
+| **Disponibilité** <br> **(Lectures RA-GRS)**  | N/A              | 99,99 %       | 99,9 % | N/A |
 | **Frais d’utilisation**                         | Coûts de stockage supérieurs, accès inférieur et le coût de transaction | Coûts de stockage supérieurs, coûts d'accès et de transaction inférieurs | Coûts de stockage inférieurs, coûts d'accès et de transaction supérieurs | Coûts de stockage les plus faibles, coûts d'accès et de transaction les plus élevés |
-| **Taille minimale des objets**                   | S.O. | N/A | N/A | S.O. |
-| **Durée de stockage minimale**              | S.O. | S.O. | 30 jours (GPv2 uniquement) | 180 jours
+| **Taille minimale des objets**                   | N/A | N/A | N/A | N/A |
+| **Durée de stockage minimale**              | N/A | N/A | 30 jours (GPv2 uniquement) | 180 jours
 | **Latence** <br> **(Temps jusqu’au premier octet)** | Millisecondes de chiffre | millisecondes | millisecondes | < 15 h
 
 > [!NOTE]

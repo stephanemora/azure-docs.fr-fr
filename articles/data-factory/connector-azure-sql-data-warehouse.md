@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/19/2019
+ms.date: 04/23/2019
 ms.author: jingwang
-ms.openlocfilehash: b97d21503e8dcd75906581faf1851533bcd69fa6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8f1e2aebae88d34334200504915be4043f32013b
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/23/2019
-ms.locfileid: "60203371"
+ms.locfileid: "62107377"
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Copier des données depuis/vers Azure SQL Data Warehouse à l’aide d’Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
@@ -35,9 +35,6 @@ Plus précisément, ce connecteur Azure SQL Data Warehouse prend en charge les f
 - Copie de données à l’aide de l’authentification SQL et de l’authentification du jeton de l’application Azure Active Directory (Azure AD) avec un principal de service ou l’identité managée pour les ressources Azure.
 - En tant que source, récupération de données à l’aide d’une requête SQL ou d’une procédure stockée.
 - En tant que récepteur, chargement des données à l’aide de PolyBase ou d’une insertion en bloc. Nous recommandons PolyBase pour améliorer les performances de copie.
-
-> [!IMPORTANT]
-> Notez que PolyBase prend en charge uniquement l’authentification SQL, mais pas l’authentification Azure AD.
 
 > [!IMPORTANT]
 > Si vous copiez des données à l’aide d’Azure Data Factory Integration Runtime, configurez un [pare-feu de serveur Azure SQL](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) de façon à ce que les services Azure puissent accéder au serveur.

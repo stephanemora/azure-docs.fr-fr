@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: bwren
 ms.openlocfilehash: 31a902302ba806889854330c6517d9f5745f1c0c
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56888337"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60551728"
 ---
 # <a name="filters-in-azure-monitor-views"></a>Filtres dans les vues d’Azure Monitor
 Un **filtre** dans un [vue d’Azure Monitor](view-designer.md) permet aux utilisateurs de filtrer les données dans la vue par la valeur d’une propriété particulière sans modifier la vue proprement dite.  Par exemple, vous pouvez autoriser les utilisateurs de votre vue à filtrer l’affichage des données uniquement à partir d’un ordinateur ou d’un ensemble d’ordinateurs particulier.  Vous pouvez créer plusieurs filtres sur une seule et unique vue pour permettre aux utilisateurs d’effectuer un filtrage avec plusieurs propriétés.  Cet article décrit comment utiliser un filtre et en ajouter un à une vue personnalisée.
@@ -56,7 +56,7 @@ Le tableau suivant présente quelques exemples de filtres communs.
 
 | Nom du champ | Requêtes pour des valeurs | Tag |
 |:--|:--|:--|
-| Ordinateur   | Heartbeat &#124; distinct Computer &#124; sort by Computer asc | Ordinateurs |
+| Computer   | Heartbeat &#124; distinct Computer &#124; sort by Computer asc | Ordinateurs |
 | EventLevelName | Event &#124; distinct EventLevelName | Severity |
 | SeverityLevel | Syslog &#124; distinct SeverityLevel | Severity |
 | SvcChangeType | ConfigurationChange &#124; distinct svcChangeType | ChangeType |

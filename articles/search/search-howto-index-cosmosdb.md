@@ -11,11 +11,11 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
 ms.openlocfilehash: 019945c48342238a1caa7611bdff6d06fd1e2bd9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58883392"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60871693"
 ---
 # <a name="how-to-index-cosmos-db-using-an-azure-search-indexer"></a>Comment indexer Cosmos DB à l’aide d’un indexeur recherche Azure
 
@@ -253,11 +253,11 @@ Assurez-vous que le schéma de votre index cible est compatible avec le schéma 
 | Bool |Edm.Boolean, Edm.String |
 | Nombres qui ressemblent à des nombres entiers |Edm.Int32, Edm.Int64, Edm.String |
 | Nombres qui ressemblent à des nombres avec points flottants |Edm.Double, Edm.String |
-| Chaîne |Edm.String |
+| String |Edm.String |
 | Tableaux de types primitifs, par exemple ["a", "b", "c"] |Collection(Edm.String) |
 | Chaînes qui ressemblent à des dates |Edm.DateTimeOffset, Edm.String |
 | Objets GeoJSON, par exemple { "type": "Point", "coordinates": [long, lat] } |Edm.GeographyPoint |
-| Autres objets JSON |S.O. |
+| Autres objets JSON |N/A |
 
 ### <a name="4---configure-and-run-the-indexer"></a>4 - configurer et exécuter l’indexeur
 

@@ -8,13 +8,13 @@ ms.topic: article
 ms.date: 12/20/2018
 ms.author: absha
 ms.openlocfilehash: 4747d824dcf531ed883d476a0daad182ea081c39
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57314447"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60715094"
 ---
-# <a name="tutorial-create-an-application-gateway-and-rewrite-http-headers"></a>Tutoriel : Créer une passerelle d’application et réécrire des en-têtes HTTP
+# <a name="tutorial-create-an-application-gateway-and-rewrite-http-headers"></a>Didacticiel : Créer une passerelle d’application et réécrire des en-têtes HTTP
 
 Vous pouvez utiliser Azure PowerShell pour configurer des [règles de réécriture d’en-têtes de requête et de réponse HTTP](rewrite-http-headers.md) lorsque vous créez une [référence SKU de passerelle d’application se mettant à l’échelle automatiquement et redondante dans la zone](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
 
@@ -162,7 +162,7 @@ $appgw = New-AzApplicationGateway -Name "AutoscalingAppGw" -Zone 1,2,3 -Resource
 
 ## <a name="test-the-application-gateway"></a>Tester la passerelle d’application
 
-Utilisez Get-AzPublicIPAddress pour obtenir l’adresse IP publique de la passerelle d’application. Copiez l’adresse IP publique ou le nom DNS, puis collez cette donnée dans la barre d’adresses de votre navigateur.
+Utilisez Get-AzPublicIPAddress pour obtenir l’adresse IP publique de la passerelle d’application. Copiez l’adresse IP publique ou le nom DNS, puis collez cette donnée dans la barre d’adresses de votre navigateur.
 
 ```azurepowershell
 Get-AzPublicIPAddress -ResourceGroupName $rg -Name AppGwVIP

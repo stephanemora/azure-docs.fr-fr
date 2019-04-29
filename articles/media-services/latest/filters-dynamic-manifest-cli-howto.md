@@ -15,11 +15,11 @@ ms.date: 11/26/2018
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: 2ba3de32f4ec3b9f6faf1d5a51da9c1c91e4a2e4
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55099304"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60732431"
 ---
 # <a name="creating-filters-with-cli"></a>Créer des filtres avec l’interface CLI 
 
@@ -27,7 +27,7 @@ Quand vous transmettez votre contenu à un client (événements de streaming en 
 
 Cette rubrique explique comment définir un filtre pour un actif multimédia Vidéo à la demande et comment utiliser l’interface CLI dans Media Services v3 pour créer des [filtres de compte](https://docs.microsoft.com/cli/azure/ams/account-filter?view=azure-cli-latest) et des [filtres d’actif multimédia](https://docs.microsoft.com/cli/azure/ams/asset-filter?view=azure-cli-latest). 
 
-## <a name="prerequisites"></a>Prérequis 
+## <a name="prerequisites"></a>Conditions préalables 
 
 - [Créer un compte Media Services](create-account-cli-how-to.md). Veillez à mémoriser le nom du groupe de ressources et le nom du compte Media Services. 
 - Lire [Filtres et manifestes dynamiques](filters-dynamic-manifest-overview.md).

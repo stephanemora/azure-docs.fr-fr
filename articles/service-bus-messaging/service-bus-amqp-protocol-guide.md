@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: c99f4491af8fe3e5f0f0ed7a264995ae3ec5911f
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55658264"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60749381"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>Guide du protocole AMQP 1.0 dans Azure Service Bus et Event Hubs
 
@@ -361,9 +361,9 @@ Le message de demande possède les propriétés d’application suivantes :
 
 | Clé | Facultatif | Type de valeur | Contenu de la valeur |
 | --- | --- | --- | --- |
-| operation |Non  |chaîne |**put-token** |
-| Type |Non  |chaîne |Type du jeton placé. |
-| Nom |Non  |chaîne |« Audience » à laquelle le jeton s’applique. |
+| operation |Non  |string |**put-token** |
+| Type |Non  |string |Type du jeton placé. |
+| Nom |Non  |string |« Audience » à laquelle le jeton s’applique. |
 | expiration |Oui |timestamp |Délai d’expiration du jeton. |
 
 La propriété *name* identifie l’entité avec laquelle le jeton doit être associé. Dans Service Bus, il s’agit du chemin d’accès à la file d’attente ou à la rubrique/l’abonnement. La propriété *type* identifie le type de jeton :
@@ -381,7 +381,7 @@ Le message de réponse a les valeurs *application-properties* suivantes :
 | Clé | Facultatif | Type de valeur | Contenu de la valeur |
 | --- | --- | --- | --- |
 | status-code |Non  |int |Code de réponse HTTP **[RFC2616]**. |
-| status-description |Oui |chaîne |Description de l’état. |
+| status-description |Oui |string |Description de l’état. |
 
 Le client peut appeler *put-token* à plusieurs reprises pour toutes les entités de l’infrastructure de messagerie. Les jetons portent sur le client actuel et sont ancrés sur la connexion actuelle, ce qui signifie que le serveur annule tous les jetons conservés en cas d’abandon de la connexion.
 

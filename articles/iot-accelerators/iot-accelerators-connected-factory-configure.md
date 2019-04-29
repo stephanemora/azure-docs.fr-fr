@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
 ms.openlocfilehash: 3fd160fbccfb5298cefed6a731797ca6962b997c
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602271"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61450021"
 ---
 # <a name="configure-the-connected-factory-solution-accelerator"></a>Configurer l’accélérateur de solution Usine connectée
 
@@ -264,7 +264,7 @@ Toutes les propriétés utilisées dans le fichier de configuration peuvent êtr
 
 Les propriétés de cette catégorie définissent l’apparence visuelle du tableau de bord Usine connectée. Voici quelques exemples :
 
-* NOM
+* Nom
 * Description
 * Image
 * Lieu
@@ -330,7 +330,7 @@ Cette configuration permet d’interroger les valeurs de télémétrie de ce nœ
 
 * Le nombre de valeurs.
 * La valeur minimale.
-* La valeur maximale.
+* La valeur minimale.
 * La moyenne de toutes les valeurs.
 * La somme de toutes les valeurs pour toutes les paires **OpcUri** (**ApplicationUri**), **NodeId** uniques d’un intervalle de temps donné.
 

@@ -12,11 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: 92e8435e4336c68982e4becc2a95f99b2c776c0e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58861840"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60736636"
 ---
 # <a name="protocol-support-for-http-headers-in-azure-front-door-service"></a>Prise en charge de protocole pour les en-têtes HTTP dans le Service de porte d’entrée Azure
 Cet article décrit le protocole prend en charge de Service de la porte d’entrée avec le chemin d’appel (voir l’image). Les sections suivantes fournissent plus d’informations sur les en-têtes HTTP pris en charge par le Service de la porte d’entrée.

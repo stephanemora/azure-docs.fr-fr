@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
 ms.openlocfilehash: cc06ddf2fce93bef27e7aaee85b47179608e192b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57837029"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60625429"
 ---
 # <a name="appsource-package-preparation"></a>Préparation d'un package AppSource
 
@@ -86,7 +86,7 @@ Le package AppSource requiert quelques fichiers supplémentaires.
 1. jpg (résolution de 32 x 32)
 2. html (fichier au format HTML)
 3. **Content_Types.xml** (identique au précédent)
-4. xml
+4. Xml
 
 Voici un exemple de code pour le fichier input.xml. Voir les définitions dans le tableau ci-dessous.
 
@@ -133,7 +133,7 @@ La dernière étape consiste à compresser ce qui suit dans un seul fichier.
 
 1. zip (créé précédemment)
 2. **Content_Types.xml**
-3. xml
+3. Xml
 4. png
 5. html
 

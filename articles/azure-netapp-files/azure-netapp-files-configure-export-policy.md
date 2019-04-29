@@ -15,13 +15,13 @@ ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: b-juche
 ms.openlocfilehash: 8cda5921a1aec86d28beabbd9cea5b07a203a0e8
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58401480"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61086151"
 ---
-# <a name="configure-export-policy-for-an-nfs-volume"></a>Configurer la stratégie d’exportation pour un volume NFS
+# <a name="configure-export-policy-for-an-nfs-volume"></a>Configurer une stratégie d’exportation pour un volume NFS
 
 Si vous le souhaitez, vous pouvez configurer une stratégie d’exportation pour contrôler l’accès à un volume Azure NetApp Files. Stratégie d’exportation est prise en charge uniquement pour les volumes NFS. 
 

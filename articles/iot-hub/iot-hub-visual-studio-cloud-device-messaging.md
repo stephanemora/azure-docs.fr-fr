@@ -5,14 +5,15 @@ author: shizn
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 01/07/2018
+origin.date: 01/07/2018
+ms.date: 05/06/2019
 ms.author: xshi
 ms.openlocfilehash: ab3c02d7207bca70a90df8aa08c73c1484cd635d
-ms.sourcegitcommit: e89b9a75e3710559a9d2c705801c306c4e3de16c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59571309"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61440628"
 ---
 # <a name="use-cloud-explorer-for-visual-studio-to-send-and-receive-messages-between-your-device-and-iot-hub"></a>Utiliser Cloud Explorer pour Visual Studio afin d’envoyer et de recevoir des messages entre votre appareil et un hub IoT
 
@@ -48,14 +49,10 @@ Le composant Cloud Explorer de Visual Studio Installer prend uniquement en charg
 
     ![Cliquez sur Gestion de compte.](media/iot-hub-visual-studio-cloud-device-messaging/click-account-management.png)
 
-
-2. Cliquez sur **Gérer les comptes** dans Cloud Explorer.
-
-3. Cliquez sur **Ajouter un compte** dans la nouvelle fenêtre pour vous connecter à Azure pour la première fois.
-
-4. Une fois que vous êtes connecté, la liste de vos abonnements Azure s’affiche. Sélectionnez les abonnements Azure que vous souhaitez visualiser, puis cliquez sur **Appliquer**.
-
-5. Développez **Votre abonnement** > **IoT Hubs** > **Votre IoT Hub**, la liste des appareils s’affichent sous le nœud de votre hub IoT.
+1. Cliquez sur **Gérer les comptes** dans Cloud Explorer.
+1. Cliquez sur **Ajouter un compte** dans la nouvelle fenêtre pour vous connecter à Azure pour la première fois.
+1. Une fois que vous êtes connecté, la liste de vos abonnements Azure s’affiche. Sélectionnez les abonnements Azure que vous souhaitez visualiser, puis cliquez sur **Appliquer**.
+1. Développez **Votre abonnement** > **IoT Hubs** > **Votre IoT Hub**, la liste des appareils s’affichent sous le nœud de votre hub IoT.
 
     ![Liste des appareils](media/iot-hub-visual-studio-cloud-device-messaging/device-list.png)
 
@@ -67,11 +64,11 @@ Pour superviser les messages envoyés de votre appareil à votre hub IoT, effect
 
     ![Démarrer la supervision des messages appareil-à-cloud](media/iot-hub-visual-studio-cloud-device-messaging/start-monitoring-d2c-message.png)
 
-2. Les messages supervisés sont affichés dans le volet de sortie **IoT Hub**.
+1. Les messages supervisés sont affichés dans le volet de sortie **IoT Hub**.
 
     ![Résultat de supervision des messages appareil-à-cloud](media/iot-hub-visual-studio-cloud-device-messaging/monitor-d2c-message-result.png)
 
-3. Pour arrêter la supervision, cliquez avec le bouton droit sur n’importe quel appareil ou hub IoT et sélectionnez **Arrêter la supervision des messages appareil-à-cloud**.
+1. Pour arrêter la supervision, cliquez avec le bouton droit sur n’importe quel appareil ou hub IoT et sélectionnez **Arrêter la supervision des messages appareil-à-cloud**.
 
 ## <a name="send-cloud-to-device-messages"></a>Envoi de messages cloud vers appareil
 
@@ -81,9 +78,8 @@ Pour envoyer un message de votre hub IoT vers votre appareil, effectuez les éta
 
     ![Envoyer un message cloud-à-appareil](media/iot-hub-visual-studio-cloud-device-messaging/send-c2d-message.png)
 
-2. Entrez le message dans la zone de saisie.
-
-3. Les résultats sont affichés dans le volet de sortie **IoT Hub**.
+1. Entrez le message dans la zone de saisie.
+1. Les résultats sont affichés dans le volet de sortie **IoT Hub**.
 
     ![Résultat d’envoi de message cloud-à-appareil](media/iot-hub-visual-studio-cloud-device-messaging/send-c2d-message-result.png)
 

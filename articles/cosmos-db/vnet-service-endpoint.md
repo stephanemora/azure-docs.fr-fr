@@ -1,5 +1,5 @@
 ---
-title: Sécuriser l’accès à un compte Azure Cosmos DB à l’aide du point de terminaison de service Réseau virtuel Azure
+title: Sécuriser l’accès à un compte Azure Cosmos DB à l’aide du point de terminaison de service de réseau virtuel Azure
 description: Ce document présente le contrôle d’accès à un réseau virtuel et à un sous-réseau pour un compte Azure Cosmos.
 author: kanshiG
 ms.service: cosmos-db
@@ -8,11 +8,11 @@ ms.date: 11/06/2018
 ms.author: govindk
 ms.reviewer: sngun
 ms.openlocfilehash: 672c62c440708f8e949d67d545bee2179c6066b2
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58894933"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60765514"
 ---
 # <a name="access-azure-cosmos-db-from-virtual-networks-vnet"></a>Accéder à Azure Cosmos DB à partir de réseaux virtuels (VNet)
 
@@ -24,9 +24,9 @@ Par défaut, un compte Azure Cosmos est accessible depuis n’importe quelle sou
 
 Voici quelques questions fréquemment posées sur la configuration de l’accès à partir de réseaux virtuels :
 
-### <a name="can-i-specify-both-virtual-network-service-endpoint-and-ip-access-control-policy-on-an-azure-cosmos-account"></a>Puis-je spécifier à la fois le point de terminaison du service de réseau virtuel et la stratégie de contrôle d’accès IP sur un compte Azure Cosmos ? 
+### <a name="can-i-specify-both-virtual-network-service-endpoint-and-ip-access-control-policy-on-an-azure-cosmos-account"></a>Puis-je spécifier à la fois le point de terminaison de service de réseau virtuel et la stratégie de contrôle d’accès IP sur un compte Azure Cosmos ? 
 
-Vous pouvez activer à la fois le point de terminaison du service de réseau virtuel et une stratégie de contrôle d’accès IP (également appelé pare-feu) sur votre compte Azure Cosmos. Ces deux fonctionnalités sont complémentaires et garantissent collectivement l’isolation et la sécurité de votre compte Azure Cosmos. L’utilisation du pare-feu IP permet de s’assurer que les adresses IP statiques peuvent accéder à votre compte. 
+Vous pouvez activer à la fois le point de terminaison de service de réseau virtuel et une stratégie de contrôle d’accès IP (également appelé pare-feu) sur votre compte Azure Cosmos. Ces deux fonctionnalités sont complémentaires et garantissent collectivement l’isolation et la sécurité de votre compte Azure Cosmos. L’utilisation du pare-feu IP permet de s’assurer que les adresses IP statiques peuvent accéder à votre compte. 
 
 ### <a name="how-do-i-limit-access-to-subnet-within-a-virtual-network"></a>Comment limiter l’accès à un sous-réseau au sein d’un réseau virtuel ? 
 

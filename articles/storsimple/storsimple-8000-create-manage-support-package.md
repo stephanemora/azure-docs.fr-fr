@@ -15,15 +15,15 @@ ms.workload: na
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: dfc2d8d763a1eb64a37af73e03992f2d948a6856
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51254364"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61481865"
 ---
 # <a name="create-and-manage-a-support-package-for-storsimple-8000-series"></a>Création et gestion d’un package de prise en charge pour la gamme StorSimple 8000
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 
 Un package de support StorSimple est un mécanisme facile à utiliser qui collecte tous les journaux d’activité appropriés afin d’aider le support Microsoft à résoudre tout problème lié à votre appareil StorSimple. Les fichiers journaux d’activité collectés sont chiffrés et compressés.
 
@@ -121,7 +121,7 @@ Pour modifier un package de support avant de le télécharger sur le site de sup
         Supply values for the following parameters:EncryptionPassphrase: ****
 9. Notez la nouvelle phrase secrète afin de pouvoir la partager avec le support technique de Microsoft si nécessaire.
 
-### <a name="example-editing-files-in-a-support-package-on-a-password-protected-share"></a>Exemple : Modification de fichiers dans un package de support sur un partage protégé par mot de passe
+### <a name="example-editing-files-in-a-support-package-on-a-password-protected-share"></a>Exemple : Modification de fichiers dans un package de prise en charge sur un partage protégé par mot de passe
 
 L’exemple suivant illustre comment déchiffrer, modifier et re-chiffrer un package de support.
 

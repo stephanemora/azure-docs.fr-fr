@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
 ms.openlocfilehash: 28b4667a9ceb4b3534d85ba28668f06c750e22c5
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56112255"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60703846"
 ---
 # <a name="strengthen-your-security-posture-with-azure-security-center"></a>Renforcez votre sécurité avec Azure Security Center
 Cet article vous aide à renforcer votre sécurité. Utilisez les fonctionnalités de surveillance d’Azure Security Center pour vous assurer que la sécurité de votre ressource est aussi efficace que possible et contrôler la conformité aux stratégies.

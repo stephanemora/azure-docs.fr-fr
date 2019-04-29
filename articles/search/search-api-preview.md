@@ -13,11 +13,11 @@ ms.date: 06/28/2018
 ms.author: HeidiSteen
 ms.custom: seodec2018
 ms.openlocfilehash: 524c1a6d083db02349c7dae9a0131228613dc170
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55997608"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61127083"
 ---
 # <a name="azure-search-service-rest-api-version-2017-11-11-preview"></a>API REST du service Recherche Azure, version 2017-11-11-Preview
 Cet article décrit la version `api-version=2017-11-11-Preview` de l’API REST du service Recherche Azure, qui offre des fonctionnalités expérimentales pas encore mises à la disposition générale.

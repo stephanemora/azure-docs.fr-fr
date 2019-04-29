@@ -4,14 +4,15 @@ description: Cet article fournit des informations sur la personnalisation des r�
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.date: 2/22/2019
-ms.author: victorh
+origin.date: 02/22/2019
+ms.date: 02/26/2019
+ms.author: v-junlch
 ms.openlocfilehash: 5e364c597b8c524e95297f279003462f2d16abe1
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56726259"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60832895"
 ---
 # <a name="customize-web-application-firewall-rules-through-the-azure-cli"></a>Personnaliser les règles de pare-feu d’applications web par le biais d’Azure CLI
 
@@ -25,7 +26,7 @@ Voici des exemples de code montrant comment afficher les règles et les groupes 
 
 L’exemple suivant montre comment afficher les groupes de règles :
 
-```azurecli-interactive
+```azurecli
 az network application-gateway waf-config list-rule-sets --type OWASP
 ```
 
@@ -78,7 +79,7 @@ Voici un extrait de réponse issu de l’exemple précédent :
 
 L’exemple suivant montre comment afficher les règles dans un groupe de règles spécifique :
 
-```azurecli-interactive
+```azurecli
 az network application-gateway waf-config list-rule-sets --group "REQUEST-910-IP-REPUTATION"
 ```
 
@@ -117,7 +118,7 @@ Voici un extrait de réponse issu de l’exemple précédent :
 
 L’exemple suivant montre comment désactiver les règles `910018` et `910017` sur une passerelle d’application :
 
-```azurecli-interactive
+```azurecli
 az network application-gateway waf-config set --resource-group AdatumAppGatewayRG --gateway-name AdatumAppGateway --enabled true --rule-set-version 3.0 --disabled-rules 910018 910017
 ```
 
@@ -125,14 +126,14 @@ az network application-gateway waf-config set --resource-group AdatumAppGatewayR
 
 La liste suivante contient des conditions qui entraînent le WAF bloquer la demande en mode de prévention (en Mode de détection ils sont enregistrés en tant qu’exceptions). Il ne peut pas être configurées ou désactivés :
 
-* Échec d’analyser le corps de la requête entraîne la demande est bloquée, à moins que l’inspection du corps est mis sous tension (XML, JSON, les données de formulaire)
-* Longueur de données de corps (avec aucun fichier) de la demande est supérieure à la limite configurée
-* Demande de corps (y compris les fichiers) est supérieure à la limite
-* Une erreur interne s’est produite dans le moteur de WAF
+- Échec d’analyser le corps de la requête entraîne la demande est bloquée, à moins que l’inspection du corps est mis sous tension (XML, JSON, les données de formulaire)
+- Longueur de données de corps (avec aucun fichier) de la demande est supérieure à la limite configurée
+- Demande de corps (y compris les fichiers) est supérieure à la limite
+- Une erreur interne s’est produite dans le moteur de WAF
 
 CRS 3.x spécifiques :
 
-* Trafic entrant de seuil du score dépassé d’anomalie
+- Trafic entrant de seuil du score dépassé d’anomalie
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -142,3 +143,5 @@ Après avoir configuré vos règles désactivées, vous pouvez apprendre à affi
 [1]: ./media/application-gateway-customize-waf-rules-portal/figure1.png
 [2]: ./media/application-gateway-customize-waf-rules-portal/figure2.png
 [3]: ./media/application-gateway-customize-waf-rules-portal/figure3.png
+
+<!-- Update_Description: wording update -->

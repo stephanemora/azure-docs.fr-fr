@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.openlocfilehash: 3c078f7246140ee966f1d202d2248758dde49059
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57888466"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62121519"
 ---
 # <a name="security-frame-authorization--mitigations"></a>Infrastructure de sécurité : Autorisation | Mesures de correction 
 | Produit/Service | Article |
@@ -48,8 +48,8 @@ ms.locfileid: "57888466"
 | **Composant**               | Délimitation d’approbation machine | 
 | **Phase SDL**               | Déploiement |  
 | **Technologies applicables** | Générique |
-| **Attributs**              | S.O.  |
-| **Informations de référence**              | S.O.  |
+| **Attributs**              | N/A  |
+| **Informations de référence**              | N/A  |
 | **Étapes** | Vérifier que les ACL appropriées sont configurées pour limiter l’accès non autorisé aux données sur l’appareil|
 
 ## <a id="sensitive-directory"></a>Vérifier que le contenu sensible d’application spécifique à l’utilisateur est stocké dans le répertoire du profil utilisateur
@@ -59,8 +59,8 @@ ms.locfileid: "57888466"
 | **Composant**               | Délimitation d’approbation machine | 
 | **Phase SDL**               | Déploiement |  
 | **Technologies applicables** | Générique |
-| **Attributs**              | S.O.  |
-| **Informations de référence**              | S.O.  |
+| **Attributs**              | N/A  |
+| **Informations de référence**              | N/A  |
 | **Étapes** | Vérifiez que le contenu sensible d’application spécifique à l’utilisateur est stocké dans le répertoire du profil utilisateur. Cela vise à empêcher plusieurs utilisateurs de la machine d’accéder aux données des autres.|
 
 ## <a id="deployed-privileges"></a>Vérifier que les applications déployées sont exécutées avec des privilèges minimum
@@ -70,8 +70,8 @@ ms.locfileid: "57888466"
 | **Composant**               | Délimitation d’approbation machine | 
 | **Phase SDL**               | Déploiement |  
 | **Technologies applicables** | Générique |
-| **Attributs**              | S.O.  |
-| **Informations de référence**              | S.O.  |
+| **Attributs**              | N/A  |
+| **Informations de référence**              | N/A  |
 | **Étapes** | Vérifiez que l’application déployée est exécutée avec des privilèges minimum. |
 
 ## <a id="sequential-logic"></a>Appliquer l’ordre d’étapes séquentiel pendant le traitement du flux de logique d’entreprise
@@ -81,8 +81,8 @@ ms.locfileid: "57888466"
 | **Composant**               | Application web | 
 | **Phase SDL**               | Créer |  
 | **Technologies applicables** | Générique |
-| **Attributs**              | S.O.  |
-| **Informations de référence**              | S.O.  |
+| **Attributs**              | N/A  |
+| **Informations de référence**              | N/A  |
 | **Étapes** | Pour vérifier que cette étape a été exécutée par un utilisateur authentique, vous souhaitez forcer l’application à ne traiter que les flux de logique d’entreprise dans l’ordre séquentiel des étapes, toutes les étapes étant traitées sur une durée humainement réaliste, et à ne pas traiter des étapes ignorées externes à l’ordre, des étapes traitées par un autre utilisateur ou des transactions soumises trop rapidement.|
 
 ## <a id="rate-enumeration"></a>Implémenter le mécanisme de limitation du débit pour empêcher une énumération
@@ -92,8 +92,8 @@ ms.locfileid: "57888466"
 | **Composant**               | Application web | 
 | **Phase SDL**               | Créer |  
 | **Technologies applicables** | Générique |
-| **Attributs**              | S.O.  |
-| **Informations de référence**              | S.O.  |
+| **Attributs**              | N/A  |
+| **Informations de référence**              | N/A  |
 | **Étapes** | Vérifiez que les identificateurs sensibles sont aléatoires. Implémentez le contrôle CAPTCHA sur les pages anonymes. Vérifier que les erreurs et les exceptions ne révèlent pas de données spécifiques|
 
 ## <a id="principle-least-privilege"></a>Vérifier que l’autorisation appropriée est en place et que le principe de privilèges minimum est respecté
@@ -103,8 +103,8 @@ ms.locfileid: "57888466"
 | **Composant**               | Application web | 
 | **Phase SDL**               | Créer |  
 | **Technologies applicables** | Générique |
-| **Attributs**              | S.O.  |
-| **Informations de référence**              | S.O.  |
+| **Attributs**              | N/A  |
+| **Informations de référence**              | N/A  |
 | **Étapes** | <p>Le principe implique de n’accorder à un compte d’utilisateur que les privilèges essentiels pour que les utilisateurs puissent travailler. Par exemple, un utilisateur de sauvegarde n’a pas besoin d’installer de logiciels : l’utilisateur de sauvegarde dispose donc uniquement de droits d’exécution et d’applications liées à la sauvegarde. Tous les autres privilèges, comme l’installation de nouveaux logiciels, sont bloqués. Le principe s’applique également à un utilisateur d’ordinateur personnel qui utilise généralement un compte d’utilisateur normal et ouvre un compte privilégié, protégé par mot de passe (à savoir, un superutilisateur), uniquement lorsque la situation l’exige. </p><p>Ce principe peut également être appliqué à vos applications web. Plutôt que de dépendre uniquement de méthodes d’authentification basées sur le rôle à l’aide de sessions, nous souhaitons affecter des privilèges aux utilisateurs au moyen d’un système d’authentification basé sur la base de données. Nous utilisons toujours des sessions pour déterminer si l’utilisateur s’est connecté correctement. Mais plutôt que d’attribuer à cet utilisateur un rôle spécifique, nous lui accordons maintenant des privilèges pour vérifier les actions qu’il est autorisé à effectuer sur le système. Un avantage considérable de cette méthode est tel que, lorsque des privilèges inférieurs doivent être accordés à un utilisateur, vos modifications sont appliquées à la volée car l’affectation ne dépend pas la session qui arriverait à expiration en premier.</p>|
 
 ## <a id="logic-request-parameters"></a>Les décisions de logique d’entreprise et d’autorisation d’accès aux ressources ne doivent pas être basées sur les paramètres de demande entrante
@@ -114,8 +114,8 @@ ms.locfileid: "57888466"
 | **Composant**               | Application web | 
 | **Phase SDL**               | Créer |  
 | **Technologies applicables** | Générique |
-| **Attributs**              | S.O.  |
-| **Informations de référence**              | S.O.  |
+| **Attributs**              | N/A  |
+| **Informations de référence**              | N/A  |
 | **Étapes** | Chaque fois que vous vérifiez si un utilisateur est limité à la consultation de certaines données, les restrictions d’accès doivent être traitées côté serveur. L’ID utilisateur doit être stocké dans une variable de session au moment de la connexion et doit être utilisé pour récupérer les données utilisateur dans la base de données |
 
 ### <a name="example"></a>Exemples
@@ -133,8 +133,8 @@ Un éventuel intrus ne peut désormais plus altérer ni modifier l’opération 
 | **Composant**               | Application web | 
 | **Phase SDL**               | Créer |  
 | **Technologies applicables** | Générique |
-| **Attributs**              | S.O.  |
-| **Informations de référence**              | S.O.  |
+| **Attributs**              | N/A  |
+| **Informations de référence**              | N/A  |
 | **Étapes** | <p>Les fichiers statiques et de configuration sensibles ne doivent pas être conservés dans le webroot. Pour le contenu ne devant pas être rendu public, des contrôles d’accès appropriés doivent être appliqués ou le contenu lui-même doit être supprimé.</p><p>De plus, la navigation forcée est généralement combinée à des techniques de force brute pour collecter des informations en tentant d’accéder au plus grand nombre d’URL possible afin d’énumérer des répertoires et des fichiers sur un serveur. Les personnes malveillantes peuvent vérifier toutes les variantes des fichiers existants généralement. Par exemple, la recherche de fichiers de mot de passe peut englober des fichiers tels que psswd.txt, password.htm, password.dat et d’autres variations.</p><p>Pour corriger ce problème, des fonctionnalités de tentatives de détection en force brute doivent être incluses.</p>|
 
 ## <a id="privileged-server"></a>Vérifier que des comptes avec des privilèges minimum sont utilisés pour se connecter au serveur de base de données
@@ -144,7 +144,7 @@ Un éventuel intrus ne peut désormais plus altérer ni modifier l’opération 
 | **Composant**               | Base de données | 
 | **Phase SDL**               | Créer |  
 | **Technologies applicables** | Générique |
-| **Attributs**              | S.O.  |
+| **Attributs**              | N/A  |
 | **Informations de référence**              | [Hiérarchie des autorisations de base de données SQL](https://msdn.microsoft.com/library/ms191465), [éléments sécurisables de base de données SQL](https://msdn.microsoft.com/library/ms190401) |
 | **Étapes** | Des comptes avec des privilèges minimum doivent être utilisés pour se connecter à la base de données. La connexion d’application doit être limitée dans la base de données et ne doit exécuter que des procédures stockées sélectionnées. La connexion de l’application ne doit pas disposer d’un accès direct à la table. |
 
@@ -168,7 +168,7 @@ Veuillez noter que la RLS comme fonctionnalité de base de données prête à l�
 | **Composant**               | Base de données | 
 | **Phase SDL**               | Créer |  
 | **Technologies applicables** | Générique |
-| **Attributs**              | S.O.  |
+| **Attributs**              | N/A  |
 | **Informations de référence**              | [Hiérarchie des autorisations de base de données SQL](https://msdn.microsoft.com/library/ms191465), [éléments sécurisables de base de données SQL](https://msdn.microsoft.com/library/ms190401) |
 | **Étapes** | Les membres du rôle serveur fixe SysAdmin doivent être très limités et ne doivent jamais contenir des comptes utilisés par des applications.  Veuillez consulter la liste des utilisateurs du rôle et supprimer les comptes inutiles|
 
@@ -190,7 +190,7 @@ Veuillez noter que la RLS comme fonctionnalité de base de données prête à l�
 | **Composant**               | Azure Event Hub | 
 | **Phase SDL**               | Créer |  
 | **Technologies applicables** | Générique |
-| **Attributs**              | S.O.  |
+| **Attributs**              | N/A  |
 | **Informations de référence**              | [Présentation du modèle de sécurité et de l’authentification Event Hubs](https://azure.microsoft.com/documentation/articles/event-hubs-authentication-and-security-model-overview/) |
 | **Étapes** | Une clé SAP est utilisée pour générer des jetons d’appareils individuels. Utiliser une clé SAP d’autorisations d’envoi seulement pendant la génération du jeton d’appareil pour un éditeur donné|
 
@@ -201,7 +201,7 @@ Veuillez noter que la RLS comme fonctionnalité de base de données prête à l�
 | **Composant**               | Azure Event Hub | 
 | **Phase SDL**               | Créer |  
 | **Technologies applicables** | Générique |
-| **Attributs**              | S.O.  |
+| **Attributs**              | N/A  |
 | **Informations de référence**              | [Présentation du modèle de sécurité et de l’authentification Event Hubs](https://azure.microsoft.com/documentation/articles/event-hubs-authentication-and-security-model-overview/) |
 | **Étapes** | Un jeton qui accorde un accès direct au concentrateur d’événement ne doit pas être fourni à l’appareil. L’utilisation d’un jeton avec des privilèges minimum pour l’appareil, qui n’accorde l’accès qu’à un éditeur, permet d’identifier et de bloquer un appareil s’il est jugé non fiable ou compromis.|
 
@@ -212,7 +212,7 @@ Veuillez noter que la RLS comme fonctionnalité de base de données prête à l�
 | **Composant**               | Azure Event Hub | 
 | **Phase SDL**               | Créer |  
 | **Technologies applicables** | Générique |
-| **Attributs**              | S.O.  |
+| **Attributs**              | N/A  |
 | **Informations de référence**              | [Présentation du modèle de sécurité et de l’authentification Event Hubs](https://azure.microsoft.com/documentation/articles/event-hubs-authentication-and-security-model-overview/) |
 | **Étapes** | Accordez des autorisations avec des privilèges minimum à diverses applications principales qui se connectent au concentrateur d’événement. Générez des clés SAP distinctes pour chaque application principale et n’accordez que les autorisations requises (envoi, réception ou gestion).|
 
@@ -223,8 +223,8 @@ Veuillez noter que la RLS comme fonctionnalité de base de données prête à l�
 | **Composant**               | Azure Document DB | 
 | **Phase SDL**               | Créer |  
 | **Technologies applicables** | Générique |
-| **Attributs**              | S.O.  |
-| **Informations de référence**              | S.O.  |
+| **Attributs**              | N/A  |
+| **Informations de référence**              | N/A  |
 | **Étapes** | Un jeton de ressource est associé à une ressource d’autorisation Azure Cosmos DB et capture la relation entre l’utilisateur d’une base de données et l’autorisation dont cet utilisateur dispose sur une ressource d’application Azure Cosmos DB (collection, document, etc.). Utilisez toujours un jeton de ressource pour accéder à Azure Cosmos DB si le client ne peut pas être approuvé avec la gestion des clés principales ou en lecture seule, par exemple une application d’utilisateur final comme un client mobile ou de bureau. Utilisez une clé principale ou des clés en lecture seule d’applications principales capables de stocker ces clés en toute sécurité.|
 
 ## <a id="grained-rbac"></a>Activer la gestion des accès précis à un abonnement Azure à l’aide de RBAC
@@ -234,7 +234,7 @@ Veuillez noter que la RLS comme fonctionnalité de base de données prête à l�
 | **Composant**               | Délimitation d’approbation Azure | 
 | **Phase SDL**               | Créer |  
 | **Technologies applicables** | Générique |
-| **Attributs**              | S.O.  |
+| **Attributs**              | N/A  |
 | **Informations de référence**              | [Utiliser les attributions de rôle pour gérer l’accès à vos ressources d’abonnement Azure](https://azure.microsoft.com/documentation/articles/role-based-access-control-configure/)  |
 | **Étapes** | Le contrôle d’accès en fonction du rôle (RBAC) Azure permet une gestion précise de l’accès pour Azure. L’utilisation de RBAC vous permet de n’accorder que les droits d’accès dont les utilisateurs ont besoin pour effectuer leur travail.|
 
@@ -256,8 +256,8 @@ Veuillez noter que la RLS comme fonctionnalité de base de données prête à l�
 | **Composant**               | Dynamics CRM | 
 | **Phase SDL**               | Créer |  
 | **Technologies applicables** | Générique |
-| **Attributs**              | S.O.  |
-| **Informations de référence**              | S.O.  |
+| **Attributs**              | N/A  |
+| **Informations de référence**              | N/A  |
 | **Étapes** | Effectuer la modélisation de sécurité et utiliser la sécurité au niveau des champs si nécessaire|
 
 ## <a id="portal-security"></a>Effectuer la modélisation de sécurité des comptes du portail en gardant à l’esprit que le modèle de sécurité pour le portail est différent du reste de CRM
@@ -267,8 +267,8 @@ Veuillez noter que la RLS comme fonctionnalité de base de données prête à l�
 | **Composant**               | Portail Dynamics CRM | 
 | **Phase SDL**               | Créer |  
 | **Technologies applicables** | Générique |
-| **Attributs**              | S.O.  |
-| **Informations de référence**              | S.O.  |
+| **Attributs**              | N/A  |
+| **Informations de référence**              | N/A  |
 | **Étapes** | Effectuer la modélisation de sécurité des comptes du portail en gardant à l’esprit que le modèle de sécurité pour le portail est différent du reste de CRM|
 
 ## <a id="permission-entities"></a>Accorder une autorisation précise sur un ensemble d’entités dans Azure Table Storage
@@ -289,7 +289,7 @@ Veuillez noter que la RLS comme fonctionnalité de base de données prête à l�
 | **Composant**               | Stockage Azure | 
 | **Phase SDL**               | Créer |  
 | **Technologies applicables** | Générique |
-| **Attributs**              | S.O.  |
+| **Attributs**              | N/A  |
 | **Informations de référence**              | [Comment sécuriser un compte de stockage en utilisant le contrôle d’accès en fonction du rôle (RBAC)](https://azure.microsoft.com/documentation/articles/storage-security-guide/#management-plane-security) |
 | **Étapes** | <p>Lorsque vous créez un compte de stockage, vous sélectionnez un modèle de déploiement Classique ou Azure Resource Manager. Le modèle classique de création de ressources dans Azure autorise seulement un accès « tout ou rien » à l’abonnement et, à tour de rôle, au compte de stockage.</p><p>Avec le modèle Azure Resource Manager, vous devez placer le compte de stockage dans un groupe de ressources et contrôler l’accès au plan de gestion de ce compte de stockage spécifique à l’aide d’Azure Active Directory. Par exemple, vous pouvez permettre à certains utilisateurs d’accéder aux clés de compte de stockage, pendant que d’autres pourront voir les informations relatives au compte de stockage, mais pas accéder aux clés de compte de stockage.</p>|
 
@@ -300,8 +300,8 @@ Veuillez noter que la RLS comme fonctionnalité de base de données prête à l�
 | **Composant**               | Client mobile | 
 | **Phase SDL**               | Créer |  
 | **Technologies applicables** | Générique |
-| **Attributs**              | S.O.  |
-| **Informations de référence**              | S.O.  |
+| **Attributs**              | N/A  |
+| **Informations de référence**              | N/A  |
 | **Étapes** | <p>L’application doit protéger sa propre configuration et les données utilisateur au cas où le téléphone serait rooté ou libéré. Le rootage/la libération implique un accès non autorisé, ce que les utilisateurs normaux ne feront pas sur leurs téléphones. L’application doit donc disposer d’une logique de détection implicite au démarrage de l’application pour détecter si le téléphone a été rooté.</p><p>La logique de détection peut permettre d’accéder à des fichiers qui ne sont normalement accessibles qu’à l’utilisateur racine, par exemple :</p><ul><li>/system/app/Superuser.apk</li><li>/sbin/su</li><li>/system/bin/su</li><li>/system/xbin/su</li><li>/data/local/xbin/su</li><li>/data/local/bin/su</li><li>/system/sd/xbin/su</li><li>/system/bin/failsafe/su</li><li>/data/local/su</li></ul><p>Si l’application peut accéder à l’un de ces fichiers, cela signifie que l’application est exécutée en tant qu’utilisateur racine.</p>|
 
 ## <a id="weak-class-wcf"></a>Référence de classe faible dans WCF
@@ -311,7 +311,7 @@ Veuillez noter que la RLS comme fonctionnalité de base de données prête à l�
 | **Composant**               | WCF | 
 | **Phase SDL**               | Créer |  
 | **Technologies applicables** | Générique, NET Framework 3 |
-| **Attributs**              | S.O.  |
+| **Attributs**              | N/A  |
 | **Informations de référence**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_weak_class_reference) |
 | **Étapes** | <p>Le système utilise une référence de classe faible, permettant ainsi à une personne malveillante d’exécuter du code non autorisé. Le programme fait référence à une classe définie par l’utilisateur qui n’est pas identifiée de manière unique. Lorsque .NET charge cette classe identifiée de manière faible, le chargeur de type CLR recherche la classe dans les emplacements suivants, dans l’ordre indiqué :</p><ol><li>Si le type de l’assembly est connu, le chargeur recherche les emplacements de redirection du fichier de configuration, GAC, l’assembly actuel à l’aide d’informations de configuration et le répertoire de base d’application</li><li>Si l’assembly est inconnu, le chargeur recherche l’assembly actuel, mscorlib et l’emplacement renvoyé par le gestionnaire d’événements TypeResolve</li><li>Cet ordre de recherche CLR peut être modifié avec des raccordements tels que le mécanisme de transfert de type et l’événement AppDomain.TypeResolve</li></ol><p>Si une personne malveillante exploite l’ordre de recherche CLR en créant une autre classe portant le même nom et en la plaçant dans un emplacement autre que l’emplacement de chargement CLR initial, le CLR exécutera involontairement le code fourni par la personne malveillante</p>|
 
@@ -348,7 +348,7 @@ L’élément `<behaviorExtensions/>` du fichier de configuration WCF ci-dessous
 | **Composant**               | WCF | 
 | **Phase SDL**               | Créer |  
 | **Technologies applicables** | Générique, NET Framework 3 |
-| **Attributs**              | S.O.  |
+| **Attributs**              | N/A  |
 | **Informations de référence**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_weak_class_reference) |
 | **Étapes** | <p>Ce service n’utilise pas un contrôle d’autorisation. Lorsqu’un client appelle un service WCF particulier, WCF fournit divers schémas d’autorisation qui vérifient que l’appelant est autorisé à exécuter la méthode de service sur le serveur. Si les contrôles d’autorisation ne sont pas activés pour les services WCF, un utilisateur authentifié peut obtenir une élévation des privilèges.</p>|
 
@@ -447,8 +447,8 @@ public class CustomController : ApiController
 | **Composant**               | Appareil IoT | 
 | **Phase SDL**               | Créer |  
 | **Technologies applicables** | Générique |
-| **Attributs**              | S.O.  |
-| **Informations de référence**              | S.O.  |
+| **Attributs**              | N/A  |
+| **Informations de référence**              | N/A  |
 | **Étapes** | <p>L’appareil doit autoriser l’appelant afin de vérifier si l’appelant dispose des autorisations nécessaires pour exécuter l’action demandée. Par exemple, supposons que l’appareil est un verrouillage de porte intelligent qui peut être surveillé à partir du cloud ; il fournit en outre des fonctionnalités telles que le verrouillage à distance de la porte.</p><p>Le verrouillage de porte intelligent fournit des fonctionnalités de déverrouillage uniquement lorsqu’une personne se rapproche physiquement de la porte avec une carte. Dans ce cas, l’implémentation de la commande à distance et du contrôle doit être effectuée de manière à ce que toutes les fonctionnalités pour déverrouiller la porte ne soient pas fournies étant donné que la passerelle de cloud n’est pas autorisée à envoyer une commande de déverrouillage de la porte.</p>|
 
 ## <a id="field-permission"></a>Effectuer des vérifications d’autorisation dans la passerelle de champ si elle prend en charge diverses actions nécessitant différents niveaux d’autorisation
@@ -458,6 +458,6 @@ public class CustomController : ApiController
 | **Composant**               | Passerelle de champ IoT | 
 | **Phase SDL**               | Créer |  
 | **Technologies applicables** | Générique |
-| **Attributs**              | S.O.  |
-| **Informations de référence**              | S.O.  |
+| **Attributs**              | N/A  |
+| **Informations de référence**              | N/A  |
 | **Étapes** | La passerelle de champ doit autoriser l’appelant afin de vérifier si l’appelant dispose des autorisations nécessaires pour exécuter l’action demandée. Par exemple, les autorisations pour une interface/API d’utilisateur administrateur doivent être différentes de celles utilisées pour configurer une passerelle de champ par rapport aux appareils qui s’y connectent.|

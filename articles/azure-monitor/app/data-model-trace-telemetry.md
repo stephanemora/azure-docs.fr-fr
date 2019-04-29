@@ -13,11 +13,11 @@ ms.date: 04/25/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
 ms.openlocfilehash: df85aafc81b199610c02f0faecb06e804fda24bb
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118062"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60899283"
 ---
 # <a name="trace-telemetry-application-insights-data-model"></a>Télémétrie de trace : Modèle de données Application Insights
 
@@ -39,8 +39,8 @@ Niveau de gravité de trace. La valeur peut être `Verbose`, `Information`, `War
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Exploration des journaux .NET dans Application Insights](../../azure-monitor/app/asp-net-trace-logs.md).
-- [Exploration du suivi des journaux Java dans Application Insights](../../azure-monitor/app/java-trace-logs.md).
+- [Exploration des journaux d’activité .NET dans Application Insights](../../azure-monitor/app/asp-net-trace-logs.md).
+- [Exploration du suivi des journaux d’activité Java dans Application Insights](../../azure-monitor/app/java-trace-logs.md).
 - Pour connaître les types et les modèles de données Application Insights, consultez [Modèle de données](data-model.md).
 - [Écrire des données de télémétrie de trace personnalisées](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace)
 - Découvrez quelles [plateformes](../../azure-monitor/app/platforms.md) sont prises en charge par Application Insights.

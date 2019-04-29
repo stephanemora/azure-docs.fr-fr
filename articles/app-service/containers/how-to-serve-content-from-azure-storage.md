@@ -8,18 +8,18 @@ ms.workload: web
 ms.topic: article
 ms.date: 2/04/2019
 ms.author: msangapu-msft
-ms.openlocfilehash: 02ebd0629fed9037054a5c22931f3e99c09073c4
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: 40aa032654d81c947e2c31e9d93954ee050f78a2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59998598"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60849946"
 ---
 # <a name="serve-content-from-azure-storage-in-app-service-on-linux"></a>Distribuer du contenu issu du Stockage Azure dans App Service sur Linux
 
 Ce guide montre comment distribuer du contenu statique dans App Service sur Linux avec le [Stockage Azure](/azure/storage/common/storage-introduction). Les avantages sont multiples : sécurisation et portabilité du contenu, accès à plusieurs applications et multiplication des méthodes de transfert. Dans ce guide, vous allez apprendre à fournir du contenu sur le stockage Azure en configurant un stockage personnalisé.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 - une application web existante (App Service sur Linux ou Web App pour conteneurs) ;
 - [Azure CLI](/cli/azure/install-azure-cli) 2.0.46 (ou version ultérieure).

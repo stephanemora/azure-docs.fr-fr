@@ -13,11 +13,11 @@ ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: ''
 ms.openlocfilehash: afb97c1c14422f15a3fc2c00b2101c4a36675556
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60002478"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61025714"
 ---
 # <a name="call-a-function-from-powerapps"></a>Appeler une fonction dans PowerApps
 La plateforme [PowerApps](https://powerapps.microsoft.com) est conçue pour les experts d’entreprise qui souhaitent créer des applications sans code d’application traditionnel. Les développeurs professionnels peuvent utiliser Azure Functions pour étendre les fonctionnalités de PowerApps, tout en évitant les détails techniques liés à la création d’applications PowerApps.
@@ -42,7 +42,7 @@ Dans cette rubrique, vous allez apprendre à :
 > [!IMPORTANT]
 > La fonctionnalité OpenAPI est actuellement en préversion, et n’est disponible que pour la version 1.x du runtime Azure Functions.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 + Un [compte PowerApps](https://docs.microsoft.com/powerapps/maker/signup-for-powerapps) actif avec les mêmes informations d’identification que votre compte Azure. 
 + Excel et le [fichier d’exemple Excel](https://procsi.blob.core.windows.net/docs/turbine-data.xlsx) que vous allez utiliser comme source de données pour votre application.

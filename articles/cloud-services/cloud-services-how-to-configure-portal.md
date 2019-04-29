@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2016
 ms.author: jeconnoc
-ms.openlocfilehash: 904056363c685ef0a16b229ce72383eb80701a39
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
-ms.translationtype: HT
+ms.openlocfilehash: 4d8d3b93ef2a6347076fada53932b5fc56838d20
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39006411"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61435817"
 ---
 # <a name="how-to-configure-cloud-services"></a>Configuration des services cloud
 
@@ -98,7 +98,7 @@ Vous devrez peut-être reconfigurer votre service cloud via le fichier [configur
     ![Panneau de configuration](./media/cloud-services-how-to-configure-portal/cs-settings-config.png)
 3. Cliquez sur le bouton **Download** .
 
-    ![Download](./media/cloud-services-how-to-configure-portal/cs-settings-config-panel-download.png)
+    ![Téléchargement](./media/cloud-services-how-to-configure-portal/cs-settings-config-panel-download.png)
 4. Après la mise à jour du fichier de configuration de service, téléchargez et appliquez les mises à jour de la configuration :
 
     ![Télécharger](./media/cloud-services-how-to-configure-portal/cs-settings-config-panel-upload.png)

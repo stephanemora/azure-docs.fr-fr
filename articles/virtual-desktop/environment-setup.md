@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
 ms.openlocfilehash: ceed6a8bb74206b7c6689ce542482148800e4ba9
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403508"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60870317"
 ---
 # <a name="windows-virtual-desktop-preview-environment"></a>Environnement de version préliminaire de Windows Virtual Desktop
 
@@ -63,5 +63,5 @@ Pour savoir comment configurer votre client de bureau virtuel de Windows, consul
 
 Pour savoir comment se connecter à un bureau virtuel Windows, consultez les articles suivants :
 
-- [Se connecter au client Bureau à distance sur Windows 7 et Windows 10](connect-windows-7-and-10.md)
+- [Se connecter au client Bureau à distance sur Windows 7 et Windows 10](connect-windows-7-and-10.md)
 - [Se connecter au client web Windows Virtual Desktop Preview](connect-web.md)

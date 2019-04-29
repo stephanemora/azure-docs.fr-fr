@@ -13,11 +13,11 @@ ms.date: 09/18/2018
 ms.reviewer: nimolnar
 ms.author: mbullwin
 ms.openlocfilehash: a7efe663a75fa29a31e7157c5eab24c2973a3758
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58002821"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60699324"
 ---
 # <a name="local-forwarder-preview"></a>Redirecteur local (version préliminaire)
 
@@ -27,7 +27,7 @@ Le redirecteur local est un agent qui collecte des données de télémétrie App
 
 Le redirecteur local est un [projet Open Source sur GitHub](https://github.com/Microsoft/ApplicationInsights-LocalForwarder/releases). Plusieurs méthodes permettent d’exécuter un redirecteur local sur des plateformes différentes.
 
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 
 #### <a name="windows-service"></a>Service Windows
 

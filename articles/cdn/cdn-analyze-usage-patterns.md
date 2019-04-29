@@ -1,6 +1,6 @@
 ---
 title: Rapports principaux de Verizon | Microsoft Docs
-description: 'Vous pouvez afficher les modèles d’utilisation pour votre CDN en utilisant les rapports suivants : la bande passante, les données transférées, les correspondances, les statuts de cache, le taux d’accès au cache, les données transférées IPV4/IPV6.'
+description: 'Vous pouvez afficher des modèles d’utilisation pour votre CDN en utilisant les rapports suivants : La bande passante, les données transférées, accès, les États du Cache, taux, données IPV4/IPV6 transférées d’accès au Cache.'
 services: cdn
 documentationcenter: ''
 author: zhangmanling
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: d10a40d03f0f76676e70afdec94e9adfaa0dd09f
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
-ms.translationtype: HT
+ms.openlocfilehash: 6eb0fe592196466f7f49c21ce38afdf13b254d86
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44162068"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61061478"
 ---
 # <a name="core-reports-from-verizon"></a>Rapports principaux de Verizon
 
@@ -86,10 +86,10 @@ Pour réduire les correspondances de mise en cache expirées, définissez la val
 ![Rapport des états du cache](./media/cdn-reports/cdn-cache-statuses.png)
 
 ### <a name="main-cache-statuses-include"></a>Les états de cache principaux sont les suivants :
-* TCP_HIT : traité à partir du serveur Edge. L’objet était dans le cache et n’avait pas dépassé son max-age.
-* TCP_MISS : traité à partir du serveur d’origine. L’objet n’était pas dans le cache et la réponse a été renvoyée à l’origine.
-* TCP_EXPIRED _MISS : traités à partir du serveur d’origine après la revalidation avec l’origine. L’objet était dans le cache mais avait dépassé son max-age. Une revalidation avec l’origine a entraîné un remplacement de l'objet de cache par une nouvelle réponse de l'origine.
-* TCP_EXPIRED _HIT : traités à partir de Edge après la revalidation avec l'origine. L'objet était en cache mais avait dépassé son max-age. Une revalidation avec le serveur d'origine n’a entraîné aucune modification de l’objet de cache.
+* TCP_HIT : Pris en charge à partir du serveur edge. L’objet était dans le cache et n’avait pas dépassé son max-age.
+* TCP_MISS : Pris en charge à partir du serveur d’origine. L’objet n’était pas dans le cache et la réponse a été renvoyée à l’origine.
+* TCP_EXPIRED _MISS : Pris en charge à partir du serveur d’origine après la revalidation avec l’origine. L’objet était dans le cache mais avait dépassé son max-age. Une revalidation avec l’origine a entraîné un remplacement de l'objet de cache par une nouvelle réponse de l'origine.
+* TCP_EXPIRED _HIT : Pris en charge à partir de Edge après la revalidation avec l’origine. L'objet était en cache mais avait dépassé son max-age. Une revalidation avec le serveur d'origine n’a entraîné aucune modification de l’objet de cache.
 
 ### <a name="full-list-of-cache-statuses"></a>Liste complète des états de cache
 * TCP_HIT : cet état est signalé lorsqu'une requête est traitée directement du POP au client. Une ressource est immédiatement traitée à partir d’un POP lorsqu’elle est mise en cache sur le serveur POP le plus proche du client et que sa durée de vie (TTL) est valide. La durée de vie est déterminée par les en-têtes de réponse suivants :
@@ -97,16 +97,16 @@ Pour réduire les correspondances de mise en cache expirées, définissez la val
   * Cache-Control: s-maxage
   * Cache-Control: max-age
   * Expires
-* TCP_MISS : cet état indique qu'une version mise en cache de la ressource demandée est introuvable sur le serveur POP le plus proche du client. La ressource est demandée à partir d’un serveur d’origine ou d’un serveur de protection d’origine. Si le serveur d’origine ou le serveur de protection d’origine renvoie une ressource, elle est envoyée au client et mise en cache sur le client et le serveur Edge. Sinon, un code d’état autre que 200 (par exemple, 403 Interdit ou 404 Introuvable) est renvoyé.
-* TCP_EXPIRED _HIT : cet état est signalé lorsqu’une requête ciblant une ressource avec une durée de vie (TTL) expirée a été envoyée directement du POP au client. Par exemple, lorsque la propriété max-age de la ressource a expiré. 
+* TCP_MISS : Cet état indique qu’une version mise en cache de la ressource demandée est introuvable sur le serveur POP le plus proche du client. La ressource est demandée à partir d’un serveur d’origine ou d’un serveur de protection d’origine. Si le serveur d’origine ou le serveur de protection d’origine renvoie une ressource, elle est envoyée au client et mise en cache sur le client et le serveur Edge. Sinon, un code d’état autre que 200 (par exemple, 403 Interdit ou 404 Introuvable) est renvoyé.
+* TCP_EXPIRED _HIT : Cet état est signalé lorsqu’une demande ciblant une ressource avec une durée de vie expirée a été envoyée directement du POP au client. Par exemple, lorsque la propriété max-age de la ressource a expiré. 
   
    Une requête expirée entraîne généralement une demande de revalidation au serveur d'origine. Pour qu’un état TCP_EXPIRED_HIT se produise, le serveur d’origine doit indiquer qu’il n’existe pas de version plus récente de la ressource. Cette situation se produit généralement lors d’une mise à jour des en-têtes Cache-Control et Expires de la ressource.
-* TCP_EXPIRED _MISS : cet état est signalé lorsqu'une version plus récente d’une ressource mise en cache expirée est envoyée du POP au client. Cet état se produit lorsque la durée de vie d’une ressource mise en cache a expiré (par exemple, la propriété max-age a expiré) et que le serveur d’origine retourne une version plus récente de la ressource. Cette nouvelle version de la ressource est envoyée au client, plutôt que la version mise en cache. En outre, elle est mise en cache sur le serveur Edge et le client.
-* CONFIG_NOCACHE : cet état indique qu'une configuration spécifique au client sur le POP Edge a empêché la mise en cache de la ressource.
+* TCP_EXPIRED _MISS : Cet état est signalé lorsqu’une version plus récente d’une ressource mise en cache expirée est envoyée du POP au client. Cet état se produit lorsque la durée de vie d’une ressource mise en cache a expiré (par exemple, la propriété max-age a expiré) et que le serveur d’origine retourne une version plus récente de la ressource. Cette nouvelle version de la ressource est envoyée au client, plutôt que la version mise en cache. En outre, elle est mise en cache sur le serveur Edge et le client.
+* CONFIG_NOCACHE: Cet état indique qu’une configuration spécifique au client le POP edge a empêché la ressource à partir de la mise en cache.
 * NONE : cet état indique qu'une vérification de la fraîcheur du contenu du cache n'a pas été effectuée.
-* TCP_ CLIENT_REFRESH _MISS : cet état est signalé lorsqu’un client HTTP (par exemple, le navigateur) force un POP Edge à récupérer une nouvelle version d’une ressource obsolète à partir du serveur d’origine. Par défaut, les serveurs empêchent un client HTTP de forcer nos serveurs Edge à récupérer une nouvelle version de la ressource à partir du serveur d'origine.
-* TCP_ PARTIAL_HIT : cet état est signalé lorsqu'une demande de plage d'octets entraîne un accès à une ressource partiellement en cache. La plage d'octets demandée est immédiatement envoyée du serveur POP au client.
-* UNCACHEABLE : cet état est signalé lorsque les en-têtes `Cache-Control` et `Expires` d'une ressource indiquent qu'elle ne doit pas être mise en cache sur un POP ou par le client HTTP. Ces types de requêtes sont traités à partir du serveur d’origine.
+* TCP_CLIENT_REFRESH_MISS : Cet état est signalé lorsqu’un client HTTP, par exemple un navigateur, force un POP edge à récupérer une nouvelle version d’une ressource obsolète à partir du serveur d’origine. Par défaut, les serveurs empêchent un client HTTP de forcer nos serveurs Edge à récupérer une nouvelle version de la ressource à partir du serveur d'origine.
+* TCP PARTIAL_HIT : Cet état est signalé lorsqu’une demande de plage d’octets entraîne un accès à une ressource partiellement en cache. La plage d'octets demandée est immédiatement envoyée du serveur POP au client.
+* UNCACHEABLE : Cet état est signalé lors d’une ressource `Cache-Control` et `Expires` les en-têtes indiquent qu’il ne doit pas être mis en cache sur un POP ou par le client HTTP. Ces types de requêtes sont traités à partir du serveur d’origine.
 
 ## <a name="cache-hit-ratio"></a>Taux d'accès au cache
 Ce rapport indique le pourcentage de requêtes mises en cache traitées directement à partir de la mémoire cache.

@@ -1,5 +1,5 @@
 ---
-title: 'Sauvegarde Azure : créer des stratégies de sauvegarde à l’aide de l’API REST'
+title: 'Sauvegarde Azure : Créer des stratégies de sauvegarde à l’aide de l’API REST'
 description: Gérer les stratégies de sauvegarde (planification et rétention) à l’aide de l’API REST
 services: backup
 author: pvrk
@@ -11,11 +11,11 @@ ms.date: 08/21/2018
 ms.author: pullabhk
 ms.assetid: 5ffc4115-0ae5-4b85-a18c-8a942f6d4870
 ms.openlocfilehash: 657a777da0e984a145c1c617a6194bf4ef56306e
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51289646"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60648803"
 ---
 # <a name="create-azure-recovery-services-backup-policies-using-rest-api"></a>Créer des stratégies de sauvegarde Azure Recovery Services à l’aide de l’API REST
 
@@ -30,8 +30,8 @@ Les étapes de création d’une stratégie de sauvegarde pour un coffre Azure R
   - Partage de fichiers Azure
 - Une stratégie peut être attribuée à de nombreuses ressources. Une stratégie de sauvegarde de machine virtuelle Azure peut être utilisée pour protéger plusieurs machines virtuelles Azure.
 - Une stratégie est constituée de deux composants
-  - Planification : quand effectuer la sauvegarde
-  - Rétention : la durée de conservation de chaque sauvegarde.
+  - Planification : Quand effectuer la sauvegarde
+  - Rétention : Pour la durée pendant laquelle chaque sauvegarde doit être conservée.
 - La planification peut être définie comme « quotidienne » ou « hebdomadaire » avec un point de temps spécifique.
 - La rétention peut être définie pour les points de sauvegarde « quotidienne », « hebdomadaire », « mensuelle », « annuelle ».
 - « hebdomadaire » fait référence à une sauvegarde un jour donné de la semaine, « mensuelle » fait référence à une sauvegarde un jour donné du mois et « année » fait référence à une sauvegarde un jour donné de l’année.
@@ -50,7 +50,7 @@ PUT https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 Par exemple, voici les composants du corps de la requête pour une stratégie de sauvegarde de machine virtuelle Azure.
 
-|NOM  |Obligatoire  |type  |Description  |
+|Nom  |Obligatoire  |Type  |Description  |
 |---------|---------|---------|---------|
 |properties     |   True      |  ProtectionPolicy :[AzureIaaSVMProtectionPolicy](https://docs.microsoft.com/rest/api/backup/protectionpolicies/createorupdate#azureiaasvmprotectionpolicy)      | Propriétés de ProtectionPolicyResource        |
 |tags     |         | Object        |  Balises de ressource       |
@@ -154,11 +154,11 @@ La stratégie indique ce qui suit :
 
 ## <a name="responses"></a>Réponses
 
-La création/mise à jour de la stratégie de sauvegarde est une [opération asynchrone](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Cela signifie que cette opération crée une autre opération qui doit être suivie séparément.
+La création/mise à jour de la stratégie de sauvegarde est une [opération asynchrone](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). ce qui signifie qu’elle crée une autre opération qui doit faire l’objet d’un suivi distinct.
 
 Elle retourne deux réponses : 202 (Accepté) lors de la création d’une autre opération, puis 200 (OK) quand cette opération est terminée.
 
-|NOM  |type  |Description  |
+|Nom  |type  |Description  |
 |---------|---------|---------|
 |200 OK     |    [Protection PolicyResource](https://docs.microsoft.com/rest/api/backup/protectionpolicies/createorupdate#protectionpolicyresource)     |  OK       |
 |202 Accepté     |         |     Acceptée    |

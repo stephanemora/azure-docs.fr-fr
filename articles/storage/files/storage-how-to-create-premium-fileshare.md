@@ -9,11 +9,11 @@ ms.date: 03/25/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 72dec14dde47580313e57bb3b8d7315604929277
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59288425"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60844554"
 ---
 # <a name="how-to-create-an-azure-premium-file-share"></a>Comment créer un partage de fichiers Azure premium
 
@@ -79,7 +79,7 @@ Si vous souhaitez nettoyer les ressources créées dans cet article, vous pouvez
 
 Commencez par installer la dernière version du module [PowerShellGet](https://docs.microsoft.com/powershell/gallery/installing-psget).
 
-Ensuite, mettre à niveau de votre module powershell, connectez-vous à votre abonnement Azure, créer un groupe de ressources, puis créer un compte de stockage.
+Ensuite, mettez à niveau votre module PowerShell, connectez-vous à votre abonnement Azure, et créez un groupe de ressources, puis un compte de stockage.
 
 ### <a name="upgrade-your-powershell-module"></a>Mettre à niveau votre module powershell
 
@@ -93,7 +93,7 @@ Installer le module Az.Storage :
 Install-Module Az.Storage -Repository PSGallery -AllowPrerelease -AllowClobber -Force
 ```
 
-### <a name="sign-in-to-your-azure-subscription"></a>Connectez-vous à votre abonnement Azure
+### <a name="sign-in-to-your-azure-subscription"></a>Se connecter à votre abonnement Azure
 
 Utilisez la commande `Login-AzAccount` et suivez les instructions à l’écran pour l’authentification.
 
@@ -144,7 +144,7 @@ Remove-AzResourceGroup -Name $resourceGroup
 
 ## <a name="create-a-premium-file-share-using-azure-cli"></a>Créer un partage de fichiers de premium à l’aide d’Azure CLI
 
-Pour lancer Azure Cloud Shell, connectez-vous à la [Azure portal](https://portal.azure.com).
+Pour démarrer Azure Cloud Shell, connectez-vous au [portail Azure](https://portal.azure.com).
 
 Si vous souhaitez vous connecter à votre installation locale de la CLI, exécutez la commande de connexion :
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: 9f525e68502e32a3f9c7e7cebe6d45627f9077c3
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
-ms.translationtype: HT
+ms.openlocfilehash: 09df1421d6deae6db305cef2a46d6c40d0c12ba3
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39495007"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60835884"
 ---
 # <a name="disaster-recovery-for-an-oracle-database-12c-database-in-an-azure-environment"></a>Récupération d’urgence pour une base de données Oracle Database 12c dans votre environnement Azure
 
@@ -32,7 +32,7 @@ ms.locfileid: "39495007"
 ## <a name="goals"></a>Objectifs
 - Concevoir la topologie et la configuration adaptées à vos besoins de récupération d’urgence (DR).
 
-## <a name="scenario-1-primary-and-dr-sites-on-azure"></a>Scénario 1 : site principal et site de récupération d’urgence sur Azure
+## <a name="scenario-1-primary-and-dr-sites-on-azure"></a>Scénario 1 : Site principal et site de récupération d’urgence sur Azure
 
 Un client dispose d’une configuration de base de données Oracle sur le site principal. Un site de récupération d’urgence se trouve dans une autre région. Le client utilise Oracle Data Guard pour une récupération rapide entre ces sites. Le site principal possède également une base de données secondaire pour la création de rapports et d’autres utilisations. 
 
@@ -52,13 +52,13 @@ Voici un résumé de la configuration Azure :
 
 ![Capture d’écran de la page de topologie de récupération d’urgence](./media/oracle-disaster-recovery/oracle_topology_01.png)
 
-## <a name="scenario-2-primary-site-on-premises-and-dr-site-on-azure"></a>Scénario 2 : site principal local et site de récupération d’urgence sur Azure
+## <a name="scenario-2-primary-site-on-premises-and-dr-site-on-azure"></a>Scénario 2 : Site principal local et le site de récupération d’urgence sur Azure
 
 Un client dispose d’une configuration de base de données Oracle locale (site principal). Le site de récupération d’urgence est sur Azure. Oracle Data Guard permet une récupération rapide entre ces sites. Le site principal possède également une base de données secondaire pour la création de rapports et d’autres utilisations. 
 
 Deux approches sont possibles pour cette configuration.
 
-### <a name="approach-1-direct-connections-between-on-premises-and-azure-requiring-open-tcp-ports-on-the-firewall"></a>Approche 1 : connexions directes entre un site local et un site sur Azure, nécessitant des ports TCP ouverts sur le pare-feu 
+### <a name="approach-1-direct-connections-between-on-premises-and-azure-requiring-open-tcp-ports-on-the-firewall"></a>Approche 1 : Connexions directes entre en local et Azure, nécessitant des ports TCP ouverts sur le pare-feu 
 
 Nous ne recommandons pas des connexions directes, car ils exposent les ports TCP au monde extérieur.
 
@@ -106,5 +106,5 @@ Voici un résumé de la configuration Azure :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Didacticiel : créer des machines virtuelles hautement disponibles](../../linux/create-cli-complete.md)
+- [Tutoriel : Créer des machines virtuelles hautement disponibles](../../linux/create-cli-complete.md)
 - [Explorer des exemples Azure CLI de déploiement de machines virtuelles](../../linux/cli-samples.md)

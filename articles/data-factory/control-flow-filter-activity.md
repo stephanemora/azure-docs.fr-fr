@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: shlo
 ms.openlocfilehash: 787c9393e2700bd7ed349b501e70abc4a0687b9c
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54021830"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60554845"
 ---
 # <a name="filter-activity-in-azure-data-factory"></a>Activité de filtrage dans Azure Data Factory
 Vous pouvez utiliser une activité de filtrage dans un pipeline pour appliquer une expression de filtre à un tableau d’entrée. 
@@ -39,8 +39,8 @@ Vous pouvez utiliser une activité de filtrage dans un pipeline pour appliquer u
 
 Propriété | Description | Valeurs autorisées | Obligatoire
 -------- | ----------- | -------------- | --------
-name | Nom de l’activité `Filter`. | Chaîne | Oui
-type | Doit être défini sur **filter** | Chaîne | Oui
+Nom | Nom de l’activité `Filter`. | String | Oui
+Type | Doit être défini sur **filter** | String | Oui
 condition | Condition à utiliser pour filtrer l’entrée. | Expression | Oui
 items | Tableau d’entrée sur lequel le filtre sera appliqué. | Expression | Oui
 

@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/20/2018
 ms.author: jingwang
 ms.openlocfilehash: 99798b35419ec9574c99aaba42803fbeeb1555f1
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59267121"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60615642"
 ---
 # <a name="schema-mapping-in-copy-activity"></a>Mappage de schéma dans l’activité de copie
 Cet article décrit la manière dont l’activité de copie d’Azure Data Factory effectue un mappage de schéma et de type de données, des données sources au données du récepteur lors de la copie.
@@ -229,7 +229,7 @@ Vous pouvez trouver le mappage du type natif au type intermédiaire dans la sect
 Data Factory prend en charge les types de données intermédiaires suivants : Vous pouvez spécifier les valeurs ci-dessous lors de la configuration des informations de type dans la configuration de [structure du jeu de données](concepts-datasets-linked-services.md#dataset-structure) :
 
 * Byte[]
-* Booléen
+* Boolean
 * DateTime
 * Datetimeoffset
 * Decimal
@@ -239,7 +239,7 @@ Data Factory prend en charge les types de données intermédiaires suivants : V
 * Int32
 * Int64
 * Single
-* Chaîne
+* String
 * Timespan
 
 ### <a name="explicit-data-type-conversion"></a>Conversion de type de données explicite

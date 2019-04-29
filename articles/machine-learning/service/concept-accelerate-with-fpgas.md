@@ -12,11 +12,11 @@ ms.reviewer: jmartens
 ms.date: 1/10/2019
 ms.custom: seodec18
 ms.openlocfilehash: 716de6d491be753c5c32c0a2774404140010f72c
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823312"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60821207"
 ---
 # <a name="what-are-fpgas-and-project-brainwave"></a>Que sont FPGA et Project Brainwave ?
 
@@ -83,7 +83,7 @@ Pour commencer à déployer des modèles de réseaux neuronaux profonds entraîn
 
 Consultez ces vidéos et ces blogs :
 
-+ [Matériel hyperscale : ML à grande échelle sur Azure + FPGA : Build 2018 (vidéo)](https://www.youtube.com/watch?v=BMgQAHIx2eY)
++ [Matériel Hyperscale : ML à grande échelle sur Azure + FPGA : Build 2018 (vidéo)](https://www.youtube.com/watch?v=BMgQAHIx2eY)
 
 + [Immersion dans le cloud configurable basé sur le FPGA Microsoft (vidéo)](https://channel9.msdn.com/Events/Build/2017/B8063)
 

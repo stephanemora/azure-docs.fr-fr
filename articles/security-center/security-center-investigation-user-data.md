@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/20/2018
 ms.author: rkarlin
 ms.openlocfilehash: bec9be627937913c268d65bb6cdadcf68c7a3fb4
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57244296"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60909211"
 ---
 # <a name="manage-user-data-found-in-an-azure-security-center-investigation"></a>Gérer les données utilisateur trouvées dans une enquête Azure Security Center
 Cet article explique comment gérer les données utilisateur trouvées dans la fonctionnalité d’enquête d’Azure Security Center. Données d’enquête sont stockées dans [Azure Monitor enregistre](../log-analytics/log-analytics-overview.md) et exposées dans Security Center. La gestion des données utilisateur inclut la possibilité de supprimer ou d’exporter des données.

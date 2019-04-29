@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/13/2017
 ms.author: alkohli
-ms.openlocfilehash: 672757e82bcf645b705f46a9975e09c9dc5eef92
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
-ms.translationtype: HT
+ms.openlocfilehash: 462cbd6261723aa91bbfd23292611e758a800ed2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2017
-ms.locfileid: "24518917"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60844089"
 ---
 # <a name="storsimple-8000-series-update-5-release-notes"></a>Notes de publication de StorSimple 8000 Series Update 5
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Présentation
 
 Les notes de publication suivantes décrivent les nouvelles fonctionnalités et identifient les problèmes critiques non résolus relatifs à StorSimple 8000 Series Update 5. Elles contiennent également une liste des mises à jour du logiciel StorSimple incluses dans cette version.
 
@@ -51,9 +51,9 @@ Update 5 comporte les principaux correctifs de bogues et perfectionnements suiv
 
 Le tableau suivant récapitule les problèmes qui ont été résolus dans Update 5.
 
-| Non | Fonctionnalité | Problème | S’applique à un appareil physique | S’applique à un appareil virtuel |
+| Non  | Fonctionnalité | Problème | S’applique à un appareil physique | S’applique à un appareil virtuel |
 | --- | --- | --- | --- | --- |
-| 1 |Accès distant Windows PowerShell |Dans la version précédente, un utilisateur recevait une erreur lorsqu’il tentait d’établir une connexion à distance à StorSimple Cloud Appliance via Windows PowerShell. La cause racine de ce problème a été identifiée et il a été résolu dans cette version. |Non |Oui |
+| 1 |Accès distant Windows PowerShell |Dans la version précédente, un utilisateur recevait une erreur lorsqu’il tentait d’établir une connexion à distance à StorSimple Cloud Appliance via Windows PowerShell. La cause racine de ce problème a été identifiée et il a été résolu dans cette version. |Non  |Oui |
 | 2 |Modèles de bande passante |Dans la version précédente, un problème de modèles de bande passante aboutissait à l’utilisation d’une bande passante inférieure à celle pour laquelle l’appareil avait été configuré. Ce problème a été résolu dans cette version. |Oui |Oui |
 | 3 |Basculement |Dans la version précédente, quand un appareil doté d’un grand nombre de volumes basculait vers un autre appareil exécutant Update 4, le processus échouait lors de la tentative d’application des enregistrements de contrôle d’accès. Ce problème a été résolu dans cette version. |Oui |Oui |
 

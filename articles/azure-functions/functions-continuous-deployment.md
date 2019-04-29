@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 09/25/2016
 ms.author: glenga
 ms.openlocfilehash: fd8fa690c508b8bf748490668c1e9aaa811ac247
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56300276"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60731241"
 ---
 # <a name="continuous-deployment-for-azure-functions"></a>Déploiement continu pour Azure Functions
 Azure Functions vous permet de déployer votre Function App facilement à l’aide de l’intégration continue App Service. Functions s’intègre avec BitBucket, Dropbox, GitHub et Azure DevOps. Cela permet d’activer un workflow dans lequel les mises à jour du code de fonctions sont effectuées à l’aide d’un de ces services intégrés qui déclenchent le déploiement dans Azure. Si vous ne connaissez pas Azure Functions, commencez par consulter l’article [Vue d’ensemble d’Azure Functions](functions-overview.md).
@@ -93,9 +93,9 @@ Lorsque vous disposez de fonctions existantes que vous avez créées et conserv�
 > [!NOTE]
 > Après avoir configuré l’intégration continue, vous ne serez plus en mesure de modifier vos fichiers sources dans le portail Functions.
 
-- [Guide pratique pour configurer les informations d’identification de déploiement](#credentials)
-- [Guide pratique pour télécharger des fichiers via FTP](#downftp)
-- [Guide pratique pour télécharger des fichiers via le dépôt Git local](#downgit)
+- [Guide pratique : configurer les informations d’identification de déploiement](#credentials)
+- [Guide pratique : télécharger des fichiers via FTP](#downftp)
+- [Guide pratique : télécharger des fichiers via le dépôt Git local](#downgit)
 
 <a name="credentials"></a>
 #### <a name="how-to-configure-deployment-credentials"></a>Activation configurer les informations d’identification de déploiement

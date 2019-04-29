@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: c0fe63e395ee08cb65e9bbbadc4ce1f03032ce95
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58880081"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60878190"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-azure-active-directory"></a>Authentification de l’utilisateur final auprès d’Azure Data Lake Storage Gen1 à l’aide d’Azure Active Directory
 > [!div class="op_single_selector"]
@@ -72,7 +72,7 @@ Votre application peut fournir directement des informations d’identification d
 * Définir des autorisations déléguées
 
 
-## <a name="step-1-create-an-active-directory-native-application"></a>Étape 1 : Créer une application native Active Directory
+## <a name="step-1-create-an-active-directory-native-application"></a>Étape 1 : Créer une application native Active Directory
 
 Créez et configurez une application native Azure AD pour l’authentification de l’utilisateur final auprès de Data Lake Storage Gen1 à l’aide d’Azure Active Directory. Pour obtenir des instructions, consultez la page [Créer une application Azure AD](../active-directory/develop/howto-create-service-principal-portal.md).
 
@@ -80,7 +80,7 @@ Si vous suivez les instructions du lien, veillez à sélectionner le type d’ap
 
 ![Créer une application web](./media/data-lake-store-end-user-authenticate-using-active-directory/azure-active-directory-create-native-app.png "Créer une application native")
 
-## <a name="step-2-get-application-id-and-redirect-uri"></a>Étape 2 : Obtenir l’ID d’application et l’URI de redirection
+## <a name="step-2-get-application-id-and-redirect-uri"></a>Étape 2 : Obtenir l’ID d’application et l’URI de redirection
 
 Consultez [Obtenir l’ID d’application](../active-directory/develop/howto-create-service-principal-portal.md#get-application-id-and-authentication-key) pour récupérer l’ID d’application.
 
@@ -95,7 +95,7 @@ Pour récupérer l’URI de redirection, procédez comme suit.
 3. Copiez la valeur affichée.
 
 
-## <a name="step-3-set-permissions"></a>Étape 3 : Définir des autorisations
+## <a name="step-3-set-permissions"></a>Étape 3 : Définir des autorisations
 
 1. Dans le portail Azure, sélectionnez **Azure Active Directory**, cliquez sur **Inscriptions des applications**, puis cliquez sur l’application native Azure AD que vous venez de créer.
 

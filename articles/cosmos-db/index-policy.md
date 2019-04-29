@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: thweiss
 ms.openlocfilehash: 67bc3076be91ade140b39b7dd8037299902546a9
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60005092"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61046316"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Stratégies d’indexation dans Azure Cosmos DB
 
@@ -105,5 +105,5 @@ Lorsque vous travaillez avec des stratégies d’indexation, vous pouvez rencont
 
 Pour en savoir plus sur l’indexation, consultez les articles suivants :
 
-- [Vue d’ensemble d’indexation](index-overview.md)
+- [Vue d’ensemble de l’indexation](index-overview.md)
 - [Guide pratique pour gérer la stratégie d’indexation](how-to-manage-indexing-policy.md)

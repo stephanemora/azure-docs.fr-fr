@@ -16,16 +16,16 @@ ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
 ms.openlocfilehash: 9a7ceeab6d2ad761752f778038692256bd87624b
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57242834"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60596954"
 ---
 # <a name="keep-track-of-data-during-hunting"></a>Suivi des données au cours de chasse
 
 > [!IMPORTANT]
-> Sentinel Azure est actuellement en version préliminaire publique.
+> Azure Sentinel est actuellement disponible en préversion publique.
 > Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
  
 Chasse aux menaces nécessite généralement la vérification des montagnes de données de journal de rechercher des preuves de comportements malveillants. Pendant ce processus, enquêteurs trouve les événements qu’ils souhaitent n’oubliez pas, réexaminer et analyser dans le cadre de la validation des hypothèses potentiels et comprendre l’intégralité d’une compromission.
@@ -95,7 +95,7 @@ La suppression du signet supprime le signet dans la liste dans le **signet** ong
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans cet article, vous avez appris comment exécuter une investigation de chasse à l’aide de signets dans Azure Sentinel. Pour en savoir plus sur Azure Sentinel, consultez les articles suivants :
+Dans cet article, vous avez appris comment exécuter une investigation de chasse à l’aide de signets dans Azure Sentinel. Pour en savoir plus sur Azure Sentinel, voir les articles suivants :
 
 
 - [Recherche de façon proactive les menaces](hunting.md)

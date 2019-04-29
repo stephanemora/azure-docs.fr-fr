@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: pbutlerm
 ms.openlocfilehash: e15b20c4b874e68c09321e00604aed24b7970371
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54081850"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60873664"
 ---
 # <a name="azure-application-contacts-tab"></a>Onglet Contacts d’application Azure
 
@@ -34,7 +34,7 @@ Fournissez les valeurs suivantes pour définir le **Contact du support technique
 
 |    Champ        |  Description                    |
 |    ---------    |  ---------------                |
-|  **Nom**       |  Nom du contact du support technique pour votre application. Cette personne recevra des informations techniques de Microsoft.   |
+|  **Name**       |  Nom du contact du support technique pour votre application. Cette personne recevra des informations techniques de Microsoft.   |
 |  **E-mail**      |  Adresse e-mail du contact du support technique  |
 |  **Téléphone**      |  Numéro de téléphone du contact du support technique  |
 |  |  |
@@ -43,7 +43,7 @@ Fournissez les valeurs suivantes pour définir le **Contact du support** princip
 
 |    Champ        |   Description                   |
 |    ---------    |  ---------------                |
-|  **Nom**       |  Nom du contact du support client pour votre application. Cette personne recevra des informations de support de Microsoft.   |
+|  **Name**       |  Nom du contact du support client pour votre application. Cette personne recevra des informations de support de Microsoft.   |
 |  **E-mail**      |  Adresse e-mail du contact du support client  |
 |  **Téléphone**      |  Numéro de téléphone du contact du support client  |
 |  |  |

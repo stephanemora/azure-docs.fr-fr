@@ -13,11 +13,11 @@ ms.date: 01/17/2019
 ms.author: luisca
 ms.custom: seodec2018
 ms.openlocfilehash: fb7fe0689ce54031880565c0c6409afeab2ff523
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57777889"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61126969"
 ---
 # <a name="ocr-cognitive-skill"></a>Compétence cognitive OCR
 
@@ -60,7 +60,7 @@ Les paramètres respectent la casse.
 ## <a name="skill-outputs"></a>Sorties de la compétence
 | Nom de sortie     | Description                   |
 |---------------|-------------------------------|
-| texte          | Texte brut extrait de l’image.   |
+| text          | Texte brut extrait de l’image.   |
 | layoutText    | Type complexe qui décrit le texte extrait ainsi que l’emplacement où le texte a été trouvé.|
 
 

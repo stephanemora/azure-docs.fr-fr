@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: 82301a17bb461b6d8733d5f046fe791ffbcf3ecb
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58885704"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60749255"
 ---
 # <a name="use-service-bus-from-net-with-amqp-10"></a>Utiliser Service Bus à partir de .NET avec AMQP 1.0
 
@@ -78,7 +78,7 @@ Pour faciliter l’interopérabilité avec les clients autres que .NET, utilisez
 | char |char |Valeur AMQP |
 | DateTime |timestamp |Valeur AMQP |
 | Guid |uuid |Valeur AMQP |
-| byte[] |binaire |Valeur AMQP |
+| byte[] |binary |Valeur AMQP |
 | string |string |Valeur AMQP |
 | System.Collections.IList |list |Valeur AMQP : les éléments contenus dans la collection peuvent uniquement être ceux qui sont définis dans ce tableau. |
 | System.Array |array |Valeur AMQP : les éléments contenus dans la collection peuvent uniquement être ceux qui sont définis dans ce tableau. |
@@ -86,7 +86,7 @@ Pour faciliter l’interopérabilité avec les clients autres que .NET, utilisez
 | Uri |Valeur string décrite (voir le tableau suivant) |Valeur AMQP |
 | DatetimeOffset |Valeur long décrite (voir le tableau suivant) |Valeur AMQP |
 | TimeSpan |Valeur long décrite (voir la suite) |Valeur AMQP |
-| Stream |binaire |Données AMQP (peuvent être multiples). Les sections de données contiennent les octets bruts lus à partir de l’objet Stream. |
+| Stream |binary |Données AMQP (peuvent être multiples). Les sections de données contiennent les octets bruts lus à partir de l’objet Stream. |
 | Objet Other |binaire |Données AMQP (peuvent être multiples). Contient le binaire sérialisé de l’objet qui utilise DataContractSerializer ou un sérialiseur fourni par l’application. |
 
 | Type .NET | Type décrit AMQP mappé | Notes |

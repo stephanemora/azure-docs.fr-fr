@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
 ms.openlocfilehash: f57a83fb83152055692e6f614b7958d099b6c70d
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55561227"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60808919"
 ---
 # <a name="copy-data-from-concur-using-azure-data-factory-preview"></a>Copier des données de Concur avec Azure Data Factory (préversion)
 
@@ -47,7 +47,7 @@ Les propriétés suivantes sont prises en charge pour le service lié Concur :
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type doit être définie sur : **Concur** | Oui |
+| type | La propriété type doit être définie sur : **Concur** | Oui |
 | clientId | ID client d’application fourni par la gestion des applications Concur.  | Oui |
 | username | Nom d’utilisateur utilisé pour accéder au service Concur.  | Oui |
 | password | Mot de passe correspondant au nom d’utilisateur indiqué dans le champ username. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui |
@@ -82,8 +82,8 @@ Pour copier des données de Concur, affectez la valeur **ConcurObject** à la pr
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type du jeu de données doit être définie sur : **ConcurObject** | Oui |
-| TableName | Nom de la table. | Non (si « query » dans la source de l’activité est spécifié) |
+| type | La propriété type du jeu de données doit être définie sur : **ConcurObject** | Oui |
+| tableName | Nom de la table. | Non (si « query » dans la source de l’activité est spécifié) |
 
 
 **Exemple**
@@ -112,7 +112,7 @@ Pour copier des données de Concur, affectez la valeur **ConcurSource** au type 
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type de la source d’activité de copie doit être définie sur : **ConcurSource** | Oui |
+| type | La propriété type de la source d’activité de copie doit être définie sur : **ConcurSource** | Oui |
 | query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"SELECT * FROM Opportunities where Id = xxx "`. | Non (si « tableName » est spécifié dans dataset) |
 
 **Exemple :**

@@ -14,11 +14,11 @@ ms.topic: troubleshooting
 ms.date: 03/08/2018
 ms.author: tomfitz
 ms.openlocfilehash: ee4bce38e0fcde93ba0417617ae90dab2eefda67
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57316198"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61061389"
 ---
 # <a name="resolve-errors-for-invalid-template"></a>Résoudre les erreurs de modèle non valide
 

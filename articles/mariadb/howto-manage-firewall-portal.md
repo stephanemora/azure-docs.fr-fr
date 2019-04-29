@@ -7,11 +7,11 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 04/09/2019
 ms.openlocfilehash: e9ab243692f5a4a1ec7de25774f5bad867698fc3
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59787059"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60746245"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-firewall-rules-by-using-the-azure-portal"></a>Créer et gérer des règles de pare-feu Azure Database for MariaDB à l’aide du Portail Azure
 Règles de pare-feu de niveau serveur peuvent être utilisées pour gérer l’accès à une base de données Azure pour MariaDB Server à partir d’une adresse IP spécifiée ou une plage d’adresses IP.
