@@ -172,7 +172,7 @@ La chaîne de connexion nécessaire pour se connecter à SQL Database est légè
 
 ### <a name="connection-ip-address"></a>Connexion : Adresse IP
 
-Vous devez configurer le serveur de base de données SQL pour accepter les communications à partir de l’adresse IP de l’ordinateur qui héberge votre programme client. Pour définir cette configuration, modifiez les paramètres du pare-feu via le [portail Azure](https://portal.azure.com/).
+Vous devez configurer le serveur SQL Database pour accepter les communications à partir de l’adresse IP de l’ordinateur qui héberge votre programme client. Pour définir cette configuration, modifiez les paramètres du pare-feu via le [portail Azure](https://portal.azure.com/).
 
 Si vous oubliez de configurer l’adresse IP, votre programme échoue en envoyant un message d’erreur pratique indiquant l’adresse IP nécessaire.
 

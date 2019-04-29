@@ -13,7 +13,7 @@ ms.author: gamal
 manager: craigg
 ms.openlocfilehash: b62cbe75730da8c5764839d41887deb7e6cd0e90
 ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/07/2019
 ms.locfileid: "57576327"
@@ -171,7 +171,7 @@ Le runtime d’intégration Azure-SSIS est un cluster entièrement géré de mac
 | CatalogServerEndpoint | Point de terminaison du serveur Azure SQL Database/Managed Instance existant pour héberger la base de données SSISDB. |
 | CatalogAdminUserName | Nom d’utilisateur administrateur du serveur Azure SQL Database/ Managed Instance existant. Le service Data Factory utilise ces informations pour préparer et gérer pour vous la base de données SSISDB. |
 | CatalogAdminPassword | Mot de passe administrateur du serveur Azure SQL Database/ Managed Instance existant. |
-| CatalogPricingTier | Niveau de tarification de la base de données SSISDB hébergée par le serveur Azure SQL Database existant.  Ne s’applique pas à Azure SQL Database Managed Instance hébergeant la base de données SSISDB. |
+| CatalogPricingTier | Niveau tarifaire de la base de données SSISDB hébergée par le serveur Azure SQL Database existant.  Ne s’applique pas à Azure SQL Database Managed Instance hébergeant la base de données SSISDB. |
 | VNetId | ID de ressource de réseau virtuel que votre runtime d’intégration Azure-SSIS doit rejoindre. |
 | Sous-réseau | Nom du sous-réseau que pour votre runtime d’intégration Azure-SSIS doit rejoindre. |
 | ID | ID de ressource de votre runtime d’intégration Azure-SSIS. |

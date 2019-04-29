@@ -32,7 +32,7 @@ Azure SQL Database est une solution DBaaS relationnelle dans Microsoft Cloud (A
 *Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
 > [!NOTE]
-> Pour les besoins de ce tutoriel, nous utilisons une base de données unique. Vous pouvez également utiliser une base de données située dans un pool élastique ou une base de données située dans une instance gérée. Pour la connexion à une instance gérée, consultez ces guides de démarrage rapide des instances gérées : [Démarrage rapide : Configurer la machine virtuelle Azure pour qu’elle se connecte à Azure SQL Database Managed Instance](sql-database-managed-instance-configure-vm.md) et [Démarrage rapide : Configurer une connexion point à site sur Azure SQL Database Managed Instance à partir d’un emplacement local](sql-database-managed-instance-configure-p2s.md).
+> Pour les besoins de ce tutoriel, nous utilisons une base de données unique. Vous pouvez également utiliser une base de données mise en pool élastique ou une base de données d’instance située dans une instance managée. Pour la connexion à une instance gérée, consultez ces guides de démarrage rapide des instances gérées : [Démarrage rapide : Configurer la machine virtuelle Azure pour qu’elle se connecte à Azure SQL Database Managed Instance](sql-database-managed-instance-configure-vm.md) et [Démarrage rapide : Configurer une connexion point à site sur Azure SQL Database Managed Instance à partir d’un emplacement local](sql-database-managed-instance-configure-p2s.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -102,13 +102,13 @@ Le service SQL Database crée un pare-feu IP au niveau du serveur. Ce pare-feu e
 
    ![nom du serveur](./media/sql-database-design-first-database/server-name.png)
 
-3. Cliquez sur **Définir le pare-feu du serveur** dans la barre d’outils. La page **Paramètres de pare-feu** du serveur de base de données SQL s’ouvre.
+3. Cliquez sur **Définir le pare-feu du serveur** dans la barre d’outils. La page **Paramètres de pare-feu** du serveur SQL Database s’ouvre.
 
    ![règle de pare-feu IP au niveau du serveur](./media/sql-database-design-first-database/server-firewall-rule.png)
 
 4. Dans la barre d’outils, cliquez sur **Ajouter une adresse IP cliente** afin d’ajouter votre adresse IP actuelle à une nouvelle règle de pare-feu IP. Une règle de pare-feu IP peut ouvrir le port 1433 pour une seule adresse IP ou une plage d’adresses IP.
 
-5. Cliquez sur **Enregistrer**. Une règle de pare-feu au niveau du serveur est créée pour votre adresse IP actuelle et ouvre le port 1433 sur le serveur SQL Database.
+5. Cliquez sur **Enregistrer**. Une règle de pare-feu IP au niveau du serveur est créée pour votre adresse IP actuelle et ouvre le port 1433 sur le serveur SQL Database.
 
 6. Cliquez sur **OK**, puis fermez la page **Paramètres de pare-feu**.
 

@@ -1,6 +1,6 @@
 ---
 title: Vue d’ensemble du niveau Hyperscale dans Azure SQL Database | Microsoft Docs
-description: Cet article décrit le niveau de service Hyperscale dans le modèle d’achat basé sur le nombre de vCores dans Azure SQL Database, et explique en quoi il diffère des niveaux de service Usage général et Critique pour l’entreprise.
+description: Cet article décrit le niveau de service Hyperscale dans le modèle d’achat vCore dans Azure SQL Database, et explique en quoi il diffère des niveaux de service Usage général et Critique pour l’entreprise.
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
@@ -14,7 +14,7 @@ manager: craigg
 ms.date: 04/04/2019
 ms.openlocfilehash: 5e323b28913e0ba259654d39f97e0436e6bff2db
 ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59786014"
@@ -27,12 +27,12 @@ Azure SQL Database est basé sur une architecture de moteur de base de données 
 - Critique pour l’entreprise/Premium
 - Hyperscale
 
-Le niveau de service Hyperscale dans Azure SQL Database est le tout nouveau niveau de service du modèle d’achat basé sur le nombre de vCores. Ce niveau de service est un stockage hautement scalable et un niveau de performances de calcul qui tire partie de l’architecture Azure pour augmenter le stockage et les ressources de calcul d’une base de données SQL Azure bien au-delà des limites disponibles des niveaux Usage général et Critique pour l’entreprise.
+Le niveau de service Hyperscale dans Azure SQL Database est le tout nouveau niveau de service du modèle d’achat vCore. Ce niveau de service est un stockage hautement scalable et un niveau de performances de calcul qui tire partie de l’architecture Azure pour augmenter le stockage et les ressources de calcul d’une base de données SQL Azure bien au-delà des limites disponibles des niveaux Usage général et Critique pour l’entreprise.
 
 > [!IMPORTANT]
-> Le niveau de service Hyperscale est actuellement disponible en préversion publique dans un nombre limité de régions Azure. Pour obtenir la liste complète des régions, consultez [Régions disponibles pour le niveau de service Hyperscale](#available-regions). Nous vous recommandons de ne pas exécuter des charges de travail de production dans des bases de données Hyperscale pour le moment. Vous ne pouvez pas mettre à jour une base de données Hyperscale vers d’autres niveaux de service. À des fins de test, nous vous recommandons de faire une copie de votre base de données actuelle et de mettre à jour la copie vers le niveau de service Hyperscale.
+> Le niveau de service Hyperscale est actuellement disponible en préversion publique dans un nombre limité de régions Azure. Pour obtenir la liste complète des régions, consultez [Régions disponibles pour le niveau de service Hyperscale](#available-regions). Nous vous recommandons de ne pas exécuter des charges de travail de production dans des bases de données Hyperscale pour le moment. Vous ne pouvez pas mettre à jour une base de données Hyperscale avec d’autres niveaux de service. À des fins de test, nous vous recommandons de faire une copie de votre base de données actuelle et de mettre à jour la copie vers le niveau de service Hyperscale.
 > [!NOTE]
-> Pour en savoir plus sur les niveaux de service Usage général et Critique pour l’entreprise du modèle d’achat vCore, consultez les niveaux de service [Usage général](sql-database-service-tier-general-purpose.md) et [Critique pour l’entreprise](sql-database-service-tier-business-critical.md). Pour obtenir une comparaison du modèle d’achat basé sur le nombre de cœurs virtuelss avec le modèle d’achat basé sur des unités DTU, consultez [Ressources et modèles d’achat Azure SQL Database](sql-database-purchase-models.md).
+> Pour en savoir plus sur les niveaux de service Usage général et Critique pour l’entreprise du modèle d’achat vCore, consultez les niveaux de service [Usage général](sql-database-service-tier-general-purpose.md) et [Critique pour l’entreprise](sql-database-service-tier-business-critical.md). Pour obtenir une comparaison du modèle d’achat vCore avec le modèle d’achat DTU, consultez [Ressources et modèles d’achat Azure SQL Database](sql-database-purchase-models.md).
 
 ## <a name="what-are-the-hyperscale-capabilities"></a>Présentation des fonctionnalités Hyperscale
 
@@ -110,7 +110,7 @@ Avec la possibilité d’ajouter ou de supprimer rapidement des nœuds de calcul
 
 ## <a name="create-a-hyperscale-database"></a>Créer une base de données Hyperscale
 
-Une base de données de très grande échelle peut être créé à l’aide de la [Azure portal](https://portal.azure.com), [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current), [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabase) ou [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create). Les bases de données Hyperscale sont disponibles uniquement avec le [modèle d’achat basé sur le nombre de vCores](sql-database-service-tiers-vcore.md).
+Une base de données de très grande échelle peut être créé à l’aide de la [Azure portal](https://portal.azure.com), [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current), [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabase) ou [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create). Les bases de données Hyperscale sont disponibles uniquement avec le [modèle d’achat vCore](sql-database-service-tiers-vcore.md).
 
 La commande T-SQL suivante crée une base de données Hyperscale. Vous devez spécifier l’édition et l’objectif du service dans l’instruction `CREATE DATABASE`.
 
@@ -162,5 +162,5 @@ Le niveau de service Hyperscale est actuellement disponible en préversion publi
 - Pour consultez un forum aux questions sur Hyperscale, consultez [Questions fréquentes (FAQ) sur Hyperscale](sql-database-service-tier-hyperscale-faq.md).
 - Pour plus d’informations sur les niveaux de service, consultez [Niveaux de service](sql-database-purchase-models.md)
 - Pour plus d’informations sur les limites au niveau du serveur et de l’abonnement, consultez l’article [Vue d’ensemble des limites de ressources sur un serveur SQL Database](sql-database-resource-limits-database-server.md).
-- Pour connaître les limites du modèle d’achat pour une base de données unique, consultez [Limites du modèle d’achat basé sur le nombre de vCores d’Azure SQL Database pour une base de données unique](sql-database-vcore-resource-limits-single-databases.md).
+- Pour connaître les limites du modèle d’achat pour une base de données unique, consultez [Limites du modèle d’achat vCore Azure SQL Database pour une base de données unique](sql-database-vcore-resource-limits-single-databases.md).
 - Pour consulter la liste des fonctionnalités et les comparer, consultez [Fonctionnalités SQL communes](sql-database-features.md).

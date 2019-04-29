@@ -1,5 +1,5 @@
 ---
-title: Points de terminaison de réseau virtuel et règles relatives aux bases de données uniques et regroupées dans Azure SQL| Microsoft Docs
+title: Points de terminaison de service de réseau virtuel et règles relatives aux bases de données uniques et mises en pool dans Azure SQL| Microsoft Docs
 description: Marquez un sous-réseau en tant que point de terminaison de service de réseau virtuel, puis le point de terminaison en tant que règle de réseau virtuel dans l’ACL de votre serveur Azure SQL Database. Le serveur SQL Database accepte alors les communications provenant de toutes les machines virtuelles et d’autres nœuds sur le sous-réseau.
 services: sql-database
 ms.service: sql-database
@@ -54,7 +54,7 @@ Les machines virtuelles sur vos sous-réseaux ne peuvent pas communiquer avec vo
 
 ### <a name="a-allow-access-to-azure-services"></a>R. Autoriser l’accès aux services Azure
 
-Le volet du pare-feu dispose d’un bouton **ACTIVÉ/DÉSACTIVÉ** étiqueté **Autoriser l'accès aux services Azure**. Le paramètre **ACTIVÉ** autorise les communications provenant de toutes les adresses IP Azure et de tous les sous-réseaux Azure. Ces adresses IP ou sous-réseaux Azure ne vous appartiennent peut-être pas. Ce paramètre **ACTIVÉ** est sans doute plus ouvert que vous souhaitez que le soit votre serveur SQL Database. La fonctionnalité de règles de réseau virtuel offre un contrôle granulaire beaucoup plus précis.
+Le volet du pare-feu dispose d’un bouton **ACTIVÉ/DÉSACTIVÉ** étiqueté **Autoriser l'accès aux services Azure**. Le paramètre **ACTIVÉ** autorise les communications provenant de toutes les adresses IP Azure et de tous les sous-réseaux Azure. Ces adresses IP ou sous-réseaux Azure ne vous appartiennent peut-être pas. Ce paramètre **ACTIVÉ** est sans doute plus ouvert que vous souhaitez que le soit votre serveur SQL Database. La fonctionnalité de règle de réseau virtuel offre un contrôle beaucoup plus précis.
 
 ### <a name="b-ip-rules"></a>B. Règles IP
 
@@ -108,7 +108,7 @@ Vous avez la possibilité d’utiliser le [contrôle d’accès en fonction du r
 
 ## <a name="limitations"></a>Limites
 
-Pour Azure SQL Database, la fonctionnalité de règles de réseau virtuel présente les limitations suivantes :
+Pour Azure SQL Database, la fonctionnalité de règle de réseau virtuel présente les limitations suivantes :
 
 - Une application web peut être mappée à une adresse IP privée dans un sous-réseau/réseau virtuel. Même si les points de terminaison de service sont activés à partir du réseau virtuel/sous-réseau donné, les connexions entre l’application web et le serveur présenteront une source IP publique Azure, et non une source de sous-réseau/réseau virtuel. Pour activer la connectivité à partir d’une application web vers un serveur disposant de règles de pare-feu de réseau virtuel, vous devez activer le paramètre **Autoriser l’accès des services Azure au serveur**.
 
@@ -258,7 +258,7 @@ L’erreur de connexion 40914 est liée aux *règles de réseau virtuel*, comme 
 
 *Texte du message :* Impossible d'ouvrir le serveur '{0}' demandé par la connexion. Le client avec l'adresse IP '{1}' n'est pas autorisé à accéder au serveur.
 
-*Description de l’erreur :* le client tente de se connecter à partir d’une adresse IP qui n’est pas autorisée à se connecter au serveur Azure SQL Database. Le pare-feu du serveur ne dispose d’aucune règle d’adresse IP qui autorise un client à communiquer à partir de l’adresse IP donnée vers la base de données SQL Database.
+*Description de l’erreur :* Le client tente de se connecter à partir d’une adresse IP qui n’est pas autorisée à se connecter au serveur Azure SQL Database. Le pare-feu du serveur ne dispose d’aucune règle d’adresse IP qui autorise un client à communiquer à partir de l’adresse IP donnée vers la base de données SQL Database.
 
 *Résolution de l’erreur :* entrez l’adresse IP du client en tant que règle IP. Effectuez cette opération via le volet Pare-feu du portail Azure.
 
@@ -277,7 +277,7 @@ Cette section montre comment vous pouvez utiliser le [portail Azure][http-azure-
 
 ## <a name="powershell-alternative"></a>Alternative PowerShell
 
-Un script PowerShell peut également créer des règles de réseau virtuel L’applet de commande essentielle **New-AzSqlServerVirtualNetworkRule**. Si cette option vous intéresse, consultez [Utiliser PowerShell pour créer un point de terminaison de service de réseau virtuel et une règle pour Azure SQL Database][sql-db-vnet-service-endpoint-rule-powershell-md-52d].
+Un script PowerShell peut également créer des règles de réseau virtuel. L’applet de commande essentielle **New-AzSqlServerVirtualNetworkRule**. Si cette option vous intéresse, consultez [Utiliser PowerShell pour créer un point de terminaison de service de réseau virtuel et une règle pour Azure SQL Database][sql-db-vnet-service-endpoint-rule-powershell-md-52d].
 
 ## <a name="rest-api-alternative"></a>API REST de remplacement
 
@@ -303,7 +303,7 @@ Vous devez déjà disposer d’un sous-réseau étiqueté avec le *nom de type* 
 3. Définissez le contrôle **Autoriser l’accès aux services Azure** sur DÉSACTIVÉ.
 
     > [!IMPORTANT]
-    > Si vous maintenez le contrôle ACTIVÉ, votre serveur Azure SQL Database acceptera les communications à partir de n’importe quel sous-réseau. En termes de sécurité, le fait de laisser le contrôle ACTIVÉ peut avoir pour effet de multiplier excessivement les accès. La fonctionnalité de points de terminaison de service de réseau virtuel Microsoft Azure, associée à la fonctionnalité de règles de réseau virtuel de SQL Database, peuvent ensemble réduire votre surface d’exposition de sécurité.
+    > Si vous maintenez le contrôle ACTIVÉ, votre serveur Azure SQL Database acceptera les communications à partir de n’importe quel sous-réseau. En termes de sécurité, le fait de laisser le contrôle ACTIVÉ peut avoir pour effet de multiplier excessivement les accès. La fonctionnalité de points de terminaison de service de réseau virtuel Microsoft Azure, associée à la fonctionnalité de règle de réseau virtuel de SQL Database, peuvent ensemble réduire votre surface d’exposition de sécurité.
 
 4. Cliquez sur le contrôle **+ Ajouter existant** dans la section **Réseaux virtuels**.
 

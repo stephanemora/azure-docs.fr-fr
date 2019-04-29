@@ -1,5 +1,5 @@
 ---
-title: Sécuriser une base de données unique ou en pool dans Azure SQL Database | Microsoft Docs
+title: Sécuriser une base de données unique ou mise en pool dans Azure SQL Database | Microsoft Docs
 description: Un tutoriel qui vous apprend les techniques et les fonctionnalités permettant de sécuriser une base de données unique ou en pool dans Azure SQL Database.
 services: sql-database
 ms.service: sql-database
@@ -18,7 +18,7 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59496435"
 ---
-# <a name="tutorial-secure-a-single-or-pooled-database"></a>Didacticiel : Sécuriser une base de données unique ou en pool
+# <a name="tutorial-secure-a-single-or-pooled-database"></a>Didacticiel : Sécuriser une base de données unique ou mise en pool
 
 Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
@@ -28,7 +28,7 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 > - Gérer l’accès utilisateur avec l’authentification SQL, l’authentification Azure AD et des chaînes de connexion sécurisées
 > - Activer des fonctionnalités de sécurité, comme Advanced Data Security, l’audit, le masquage des données et le chiffrement
 
-Azure SQL Database sécurise les données dans une base de données unique ou en pool en vous permettant de :
+Azure SQL Database sécurise les données dans une base de données unique ou mise en pool en vous permettant de :
 
 - Limiter l’accès à l’aide de règles de pare-feu
 - Utiliser des mécanismes d’authentification qui nécessitent une identité
@@ -56,7 +56,7 @@ Pour connaître toutes les étapes du tutoriel, connectez-vous au [portail Azure
 
 ## <a name="create-firewall-rules"></a>Créer des règles de pare-feu
 
-Les bases de données SQL sont protégées par des pare-feu dans Azure. Par défaut, toutes les connexions au serveur et à la base de données sont rejetées, sauf celles provenant d’autres services Azure. Pour plus d’informations, consultez [Règles de pare-feu au niveau du serveur et de la base de données d’Azure SQL Database](sql-database-firewall-configure.md).
+Les bases de données SQL sont protégées par des pare-feu dans Azure. Par défaut, toutes les connexions au serveur et à la base de données sont rejetées, sauf celles provenant d’autres services Azure. Pour plus d’informations, consultez [Règles de pare-feu au niveau de la base de données et au niveau du serveur Azure SQL Database](sql-database-firewall-configure.md).
 
 Affectez au paramètre **Autoriser l’accès aux services Azure** la valeur **DÉSACTIVER** pour définir la configuration la plus sécurisée. Ensuite, créez une [adresse IP réservée (déploiement classique)](../virtual-network/virtual-networks-reserved-public-ip.md) pour la ressource à connecter, par exemple une machine virtuelle Azure ou un service cloud, puis autorisez uniquement l’accès de cette adresse IP à travers le pare-feu. Si vous utilisez le modèle de déploiement [Resource Manager](/azure/virtual-network/virtual-network-ip-addresses-overview-arm), une adresse IP publique dédiée est nécessaire pour chaque ressource.
 

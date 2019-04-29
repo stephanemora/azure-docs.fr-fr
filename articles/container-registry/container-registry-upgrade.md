@@ -16,7 +16,7 @@ ms.locfileid: "60480342"
 ---
 # <a name="upgrade-a-classic-container-registry"></a>Mettre à niveau un registre de conteneurs Classique
 
-Azure Container Registry (ACR) est disponible dans plusieurs niveaux de service, [appelés références (SKU)](container-registry-skus.md). La version initiale d’ACR proposait une référence unique Classique, à laquelle il manquait plusieurs fonctionnalités inhérentes aux références SKU Basic, Standard et Premium (collectivement appelées registres *managés*).
+Azure Container Registry (ACR) est disponible dans plusieurs niveaux de service, [appelés références SKU](container-registry-skus.md). La version initiale d’ACR proposait une référence unique Classique, à laquelle il manquait plusieurs fonctionnalités inhérentes aux références SKU Basic, Standard et Premium (collectivement appelées registres *managés*).
 
 La référence classique est déconseillée et n’est pas disponible après avril 2019. Cet article explique comment migrer votre registre Classique non managé sur une des références SKU managées afin de pouvoir tirer parti de leur jeu de fonctionnalités avancées.
 

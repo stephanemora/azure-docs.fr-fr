@@ -152,7 +152,7 @@ Après avoir approvisionné un administrateur Azure AD pour Managed Instance, vo
 > [!TIP]
 > Pour supprimer un administrateur, en haut de la page Administrateur Active Directory, sélectionnez **Supprimer l’administrateur**, puis **Enregistrer**.
 
-## <a name="provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server"></a>Approvisionner un administrateur Azure Active Directory pour votre serveur Azure SQL Database
+## <a name="provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server"></a>Provisionner un administrateur Azure Active Directory pour votre serveur Azure SQL Database
 
 > [!IMPORTANT]
 > Suivez ces étapes uniquement si vous configurez un serveur Azure SQL Database ou Data Warehouse.

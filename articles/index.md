@@ -2421,7 +2421,7 @@ Automatiser des tâches Azure à l’aide de scripts avec PowerShell </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Data Lake Storage Gen 1</h3>
-                                                    <p>Référentiel hyperscale pour les charges de travail d’analyse des Big Data</p>
+                                                    <p>Référentiel Hyperscale pour les charges de travail d’analytique du Big Data</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3605,7 +3605,7 @@ Automatiser des tâches Azure à l’aide de scripts avec PowerShell </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Data Lake Storage Gen 1</h3>
-                                                    <p>Référentiel hyperscale pour les charges de travail d’analyse des Big Data</p>
+                                                    <p>Référentiel Hyperscale pour les charges de travail d’analytique du Big Data</p>
                                                 </div>
                                             </div>
                                         </div>

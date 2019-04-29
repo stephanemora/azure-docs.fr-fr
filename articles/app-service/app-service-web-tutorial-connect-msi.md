@@ -172,7 +172,7 @@ Si vous souhaitez visualiser la sortie JSON complète pour chaque commande, supp
 
 ### <a name="reconfigure-azure-ad-administrator"></a>Reconfigurer l’administrateur Azure AD
 
-Vous avez jusqu’ici attribué l’identité managée en tant qu’administrateur Azure AD de votre service SQL Database. Vous ne pouvez pas utiliser cette identité pour une connexion interactive (en vue d’ajouter des utilisateurs de base de données) ; vous devez donc utiliser votre utilisateur Azure AD réel. Pour ajouter votre utilisateur Azure AD, suivez la procédure décrite à la section [Approvisionner un administrateur Azure Active Directory pour votre serveur Azure SQL Database](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server). 
+Vous avez jusqu’ici attribué l’identité managée en tant qu’administrateur Azure AD de votre service SQL Database. Vous ne pouvez pas utiliser cette identité pour une connexion interactive (en vue d’ajouter des utilisateurs de base de données) ; vous devez donc utiliser votre utilisateur Azure AD réel. Pour ajouter votre utilisateur Azure AD, suivez la procédure décrite dans [Provisionner un administrateur Azure Active Directory pour votre serveur Azure SQL Database](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server). 
 
 > [!IMPORTANT]
 > Une fois ajouté, ne supprimez pas cet administrateur Azure AD pour votre base de données SQL, sauf si vous souhaitez désactiver complètement l’accès Azure AD à la base de données SQL (à partir de tous les comptes Azure AD).

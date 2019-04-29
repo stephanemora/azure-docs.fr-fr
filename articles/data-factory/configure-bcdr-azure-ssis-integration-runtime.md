@@ -15,7 +15,7 @@ ms.reviewer: douglasl
 manager: craigg
 ms.openlocfilehash: dea0153b9ca6d8e751fd94cc558abd44b2591907
 ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/06/2019
 ms.locfileid: "57453029"
@@ -38,7 +38,7 @@ Cette section s’applique lorsque les conditions suivantes sont remplies :
 
   AND
 
-- Le serveur SQL Database n’est *pas* configuré avec la règle de point de terminaison de service du réseau virtuel.
+- Le serveur SQL Database n’est *pas* configuré avec la règle de point de terminaison de service de réseau virtuel.
 
 ### <a name="solution"></a>Solution
 
@@ -54,7 +54,7 @@ Cette section s’applique lorsque l’une des conditions suivantes est remplie�
 
   Ou
 
-- Le serveur Azure SQL Database est configuré avec la règle de point de terminaison de service du réseau virtuel.
+- Le serveur Azure SQL Database est configuré avec la règle de point de terminaison de service de réseau virtuel.
 
   Ou
 

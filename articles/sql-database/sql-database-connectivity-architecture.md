@@ -14,7 +14,7 @@ manager: craigg
 ms.date: 04/03/2019
 ms.openlocfilehash: 4ff6cc0ba18074f353eb5b99af7052edd658a80e
 ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59799267"
@@ -102,7 +102,7 @@ Le tableau suivant répertorie les adresses IP principales et secondaires de la 
 
 ## <a name="change-azure-sql-database-connection-policy"></a>Modifier la stratégie de connexion Azure SQL Database
 
-Pour modifier la stratégie de connexion Azure SQL Database pour un serveur Azure SQL Database, utilisez la commande [conn-policy](https://docs.microsoft.com/cli/azure/sql/server/conn-policy).
+Pour changer la stratégie de connexion Azure SQL Database pour un serveur Azure SQL Database, utilisez la commande [conn-policy](https://docs.microsoft.com/cli/azure/sql/server/conn-policy).
 
 - Si votre stratégie de connexion est définie sur `Proxy`, tous les paquets réseau transitent via la passerelle Azure SQL Database. Pour ce paramètre, vous devez autoriser le trafic sortant uniquement vers l’IP de la passerelle Azure SQL Database. L'utilisation d'un paramètre de `Proxy` offre plus de latence qu'un paramètre de `Redirect`.
 - Si votre stratégie de connexion repose sur le paramètre de `Redirect`, tous les paquets réseau se dirigent directement vers le cluster de bases de données. Pour ce paramètre, vous devez autoriser le trafic sortant vers plusieurs adresses IP.
@@ -155,6 +155,6 @@ az resource update --ids $id --set properties.connectionType=Proxy
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour obtenir des informations sur comment modifier la stratégie de connexion Azure SQL Database pour un serveur Azure SQL Database, consultez l’article [conn-policy](https://docs.microsoft.com/cli/azure/sql/server/conn-policy).
+- Pour des informations sur le changement de la stratégie de connexion Azure SQL Database pour un serveur Azure SQL Database, consultez [conn-policy](https://docs.microsoft.com/cli/azure/sql/server/conn-policy).
 - Pour plus d’informations sur le comportement de connexion d’Azure SQL Database pour les clients qui utilisent ADO.NET version 4.5 ou ultérieure, consultez [Ports au-delà de 1433 pour ADO.NET 4.5](sql-database-develop-direct-route-ports-adonet-v12.md).
 - Pour en savoir plus sur la vue d’ensemble du développement d’applications générales, consultez [Vue d’ensemble du développement de base de données SQL](sql-database-develop-overview.md).

@@ -1,5 +1,5 @@
 ---
-title: Migration de base de données SQL Server vers une base de données unique/en pool dans Azure SQL Database | Microsoft Docs
+title: Migration de base de données SQL Server vers une base de données unique/mise en pool dans Azure SQL Database | Microsoft Docs
 description: Découvrez la procédure de migration d’une base de données SQL Server vers une base de données unique ou un pool élastique dans Azure SQL Database.
 keywords: migration de base de données, migration de base de données sql server, outils de migration de base de données, migrer la base de données, migrer la base de données sql
 services: sql-database
@@ -22,11 +22,11 @@ ms.locfileid: "60331767"
 ---
 # <a name="sql-server-database-migration-to-azure-sql-database"></a>Migration de base de données SQL Server vers Azure SQL Database
 
-Cet article décrit les méthodes principales de migration d’une base de données SQL Server 2005 ou version ultérieure locale vers une base de données unique ou mise en pool Azure SQL Database. Pour plus d’informations sur la migration vers Managed Instance, consultez [Migration d’une instance SQL Server vers Azure SQL Database Managed Instance](sql-database-managed-instance-migrate.md). Pour obtenir des informations sur la migration à partir d’autres plateformes, consultez le [Guide de migration des bases de données Azure](https://datamigration.microsoft.com/).
+Cet article décrit les méthodes principales de migration d’une base de données SQL Server 2005 ou version ultérieure locale vers une base de données unique ou mise en pool dans Azure SQL Database. Pour plus d’informations sur la migration vers Managed Instance, consultez [Migration d’une instance SQL Server vers Azure SQL Database Managed Instance](sql-database-managed-instance-migrate.md). Pour obtenir des informations sur la migration à partir d’autres plateformes, consultez le [Guide de migration des bases de données Azure](https://datamigration.microsoft.com/).
 
 ## <a name="migrate-to-a-single-database-or-a-pooled-database"></a>Migrer vers une base de données unique ou une base de données mise en pool
 
-Il existe deux méthodes principales de migration d’une base de données SQL Server 2005 ou version ultérieure locale vers une base de données unique ou mise en pool Azure SQL Database. La première méthode est plus simple, mais elle implique un temps d’arrêt potentiellement important pendant la migration. La seconde méthode est plus complexe, mais elle élimine en grande partie les temps d’arrêt lors de la migration.
+Il existe deux méthodes principales de migration d’une base de données SQL Server 2005 ou version ultérieure locale vers une base de données unique ou mise en pool dans Azure SQL Database. La première méthode est plus simple, mais elle implique un temps d’arrêt potentiellement important pendant la migration. La seconde méthode est plus complexe, mais elle élimine en grande partie les temps d’arrêt lors de la migration.
 
 Dans les deux cas, vous devez vérifier que la base de données source est compatible avec Azure SQL Database à l’aide de [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595). SQL Database V12 approche de la [parité des fonctionnalités](sql-database-features.md) avec SQL Server, à l’exception des problèmes liés aux opérations au niveau du serveur et sur plusieurs bases de données. Les bases de données et les applications qui reposent sur des [fonctions partiellement ou pas du tout prises en charge](sql-database-transact-sql-information.md) ont besoin d’une [nouvelle ingénierie pour corriger ces incompatibilités](sql-database-single-database-migrate.md#resolving-database-migration-compatibility-issues) avant de pouvoir migrer la base de données SQL Server.
 

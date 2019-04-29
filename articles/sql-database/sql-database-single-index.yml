@@ -14,7 +14,7 @@ metadata:
   ms.author: jovanpop-msft
   ms.reviewer: carlrab
   manager: craigg
-  ms.date: 05/06/2019
+  ms.date: 04/26/2019
 abstract:
   description: 'Azure SQL Database est une base de données relationnelle en tant que service reposant sur la dernière version stable du moteur de base de données Microsoft SQL Server. SQL Database est une base de données hautes performances facile à utiliser, fiable et sécurisée, que vous pouvez utiliser pour créer des applications, des sites web et des microservices dans le langage de programmation de votre choix, sans avoir à gérer l’infrastructure. Découvrez comment utiliser SQL Database avec nos guides de démarrage rapide, nos didacticiels et nos exemples.'
   aside:
@@ -38,9 +38,9 @@ sections:
             html: <p>Les pools élastiques SQL Database représentent une solution simple et rentable de gestion et de mise à l’échelle de plusieurs bases de données qui ont des demandes d’utilisation variables et imprévisibles.</p>
             image:
               src: media/index/i_elasticpool.svg
-          - title: Serveur de base de données SQL
+          - title: Serveur SQL Database
             href: /azure/sql-database/sql-database-servers
-            html: '<p>Un serveur SQL Database est un point d’administration central permettant de configurer la sécurité, le paramétrage, la stratégie de sauvegarde et d’autres propriétés de configuration sur un ensemble de bases de données individuelles ou regroupées au sein du serveur.</p>'
+            html: '<p>Un serveur SQL Database est un point d’administration central permettant de configurer la sécurité, le paramétrage, la stratégie de sauvegarde et d’autres propriétés de configuration sur un ensemble de bases de données uniques ou mises en pool au sein du serveur.</p>'
             image:
               src: media/index/i_mi.svg
           - title: Prix et niveaux de service

@@ -107,7 +107,7 @@ Le service SQL Data Warehouse crée un pare-feu au niveau du serveur qui empêch
 
    ![paramètres du serveur](media/load-data-from-azure-blob-storage-using-polybase/server-settings.png) 
 
-5. Cliquez sur **Afficher les paramètres de pare-feu**. La page **Paramètres de pare-feu** du serveur de base de données SQL s’ouvre. 
+5. Cliquez sur **Afficher les paramètres de pare-feu**. La page **Paramètres de pare-feu** du serveur SQL Database s’ouvre. 
 
    ![règle de pare-feu de serveur](media/load-data-from-azure-blob-storage-using-polybase/server-firewall-rule.png) 
 

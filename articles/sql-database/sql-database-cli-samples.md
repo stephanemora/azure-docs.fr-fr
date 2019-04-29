@@ -37,7 +37,7 @@ Le tableau suivant comprend des liens vers des exemples de scripts Azure CLI po
 |---|---|
 |**Créer une base de données unique et un pool élastique**||
 | [Créer une base de données unique et configurer une règle de pare-feu](scripts/sql-database-create-and-configure-database-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Cet exemple de script CLI crée une base de données SQL Azure et configure une règle de pare-feu au niveau du serveur. |
-| [Créer des pools élastiques et déplacer les bases de données mises en pool](scripts/sql-database-move-database-between-pools-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Cet exemple de script CLI crée des pools élastiques SQL, déplace des bases de données SQL Azure mises en pool et modifie les tailles de calcul.|
+| [Créer des pools élastiques et déplacer les bases de données mises en pool](scripts/sql-database-move-database-between-pools-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Cet exemple de script CLI crée des pools élastiques SQL, déplace des bases de données Azure SQL mises en pool et modifie les tailles de calcul.|
 |**Mettre à l’échelle une base de données unique et un pool élastique**||
 | [Mettre à l’échelle une base de données unique](scripts/sql-database-monitor-and-scale-database-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Cet exemple de script CLI met à l’échelle une base de données Azure SQL vers une autre taille de calcul après avoir déterminé la taille de la base de données. |
 | [Mettre à l’échelle un pool élastique](scripts/sql-database-scale-pool-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Cet exemple de script CLI met à l’échelle un pool élastique SQL à une taille de calcul différente.  |

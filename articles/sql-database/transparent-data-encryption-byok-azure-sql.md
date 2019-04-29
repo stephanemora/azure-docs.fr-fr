@@ -155,7 +155,7 @@ Les étapes de configuration suivantes ne sont pas les mêmes si vous démarrez 
 
 **Étapes pour une base de données SQL existante avec le déploiement de géo-récupération d’urgence** :
 
-Étant donné que les serveurs SQL Database existent déjà et que les bases de données primaire et secondaire sont déjà affectées, les étapes de configuration d’Azure Key Vault doivent être effectuées dans l’ordre suivant :
+Étant donné que les serveurs SQL Database existent déjà et que les bases de données primaire et secondaire sont déjà affectées, les étapes de configuration d’Azure Key Vault doivent être effectuées dans l’ordre suivant :
 
 - Démarrez par le serveur SQL Database qui héberge la base de données secondaire :
   - Affecter le coffre de clés situé dans la même région

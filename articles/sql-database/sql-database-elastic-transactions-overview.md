@@ -134,7 +134,7 @@ Les transactions de base de données élastique sont prises en charge sur diffé
 
 Pour gérer les relations de communication entre serveurs pour les transactions de bases de données élastiques, utilisez les applets de commande PowerShell suivants :
 
-* **New-AzSqlServerCommunicationLink**: Utilisez cette cmdlet pour créer une nouvelle relation de communication entre deux serveurs SQL Database dans Azure SQL Database. La relation est symétrique, ce qui signifie que chacun des deux serveurs peut initier des transactions avec l'autre serveur.
+* **New-AzSqlServerCommunicationLink**: Utilisez cette applet de commande pour créer une nouvelle relation de communication entre deux serveurs SQL Database dans Azure SQL Database. La relation est symétrique, ce qui signifie que chacun des deux serveurs peut initier des transactions avec l'autre serveur.
 * **Get-AzSqlServerCommunicationLink**: Utilisez ce cmdlet pour extraire les relations de communication existantes et leurs propriétés.
 * **Remove-AzSqlServerCommunicationLink**: Utilisez ce cmdlet pour supprimer une relation de communication existante. 
 

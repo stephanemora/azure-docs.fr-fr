@@ -69,7 +69,7 @@ Elles représentent les limites pour chaque action de mise à jour, autrement di
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Apprenez quand et comment modifier les niveaux de service :
+Apprenez quand et comment changer les niveaux de service :
 
 * [QnA Maker](how-to/upgrade-qnamaker-service.md#upgrade-qna-maker-management-sku): Lorsque vous devez disposer de plusieurs fichiers sources ou plus de documents dans votre base de connaissances, au-delà de votre niveau actuel, mettez à niveau votre service QnA Maker niveau tarifaire.
 * [App Service](how-to/upgrade-qnamaker-service.md#upgrade-app-service): Lorsque votre base de connaissances doit répondre à un plus grand nombre de demandes de votre application client, mettez à niveau le niveau tarifaire de vos services applicatifs.
