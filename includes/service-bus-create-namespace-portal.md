@@ -9,11 +9,11 @@ ms.date: 02/20/2019
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: a95f5ee5105c45ba9e5b1705e83d60bf24b1dc12
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57458008"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60333436"
 ---
 ## <a name="create-a-namespace-in-the-azure-portal"></a>Créer un espace de noms dans le Portail Azure
 Pour commencer à utiliser des entités de messagerie Service Bus dans Azure, vous devez d’abord créer un espace de noms avec un nom unique dans Azure. Ce dernier fournit un conteneur d’étendue pour l’adressage des ressources Service Bus au sein de votre application.
@@ -25,7 +25,7 @@ Pour créer un espace de noms :
 
     ![Créer une ressource -> Intégration -> Service Bus](./media/service-bus-create-namespace-portal/create-resource-service-bus-menu.png)
 3. Dans la boîte de dialogue **Créer un espace de noms**, effectuez les étapes suivantes : 
-    1. Entrez un **nom pour l’espace de noms**. Le système vérifie immédiatement si le nom est disponible. Pour obtenir la liste des règles d’affectation de noms des espaces de noms, consultez [créer une API REST Namespace](/rest/api/servicebus/create-namespace).
+    1. Entrez un **nom pour l’espace de noms**. Le système vérifie immédiatement si le nom est disponible. Pour obtenir la liste des règles de nommage des espaces de noms, consultez [API REST de création des espaces de noms](/rest/api/servicebus/create-namespace).
     2. Sélectionnez le niveau tarifaire (De base, Standard ou Premium) pour l’espace de noms. Si vous voulez utiliser des [rubriques et des abonnements](../articles/service-bus-messaging/service-bus-queues-topics-subscriptions.md#topics-and-subscriptions), choisissez Standard ou Premium. Les rubriques/abonnements ne sont pas pris en charge dans le niveau tarifaire De base.
     3. Si vous avez sélectionné le niveau tarifaire **Premium**, suivez ces étapes : 
         1. Spécifiez le nombre d’**unités de messagerie**. Le niveau Premium isole les ressources au niveau du processeur et de la mémoire, ce qui permet d’exécuter chaque charge de travail de manière isolée. Ce conteneur de ressources est appelé unité de messagerie. Un espace de noms Premium a au moins une unité de messagerie. Vous pouvez sélectionner une, deux ou quatre unités de messagerie pour chaque espace de noms Service Bus Premium. Pour plus d’informations, consultez [Messagerie Service Bus Premium](../articles/service-bus-messaging/service-bus-premium-messaging.md).

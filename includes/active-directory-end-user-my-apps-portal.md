@@ -9,13 +9,13 @@ ms.date: 03/06/2019
 ms.author: lizross
 ms.custom: include file
 ms.openlocfilehash: e7e993cddbf675cab67cb9fc7ea5fc9446bc449b
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58340561"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60475787"
 ---
 | |
 |--|
-|Si vous voyez sur votre écran ne correspond pas à ce qui est qui seront abordé dans cet article, cela signifie que votre administrateur a activé la nouvelle **mon profil** (version préliminaire) expérience. Pour utiliser la nouvelle expérience, vous devez suivre les instructions et les informations contenues dans le [présentation du portail mon profil (version préliminaire)](https://docs.microsoft.com/azure/active-directory/user-help/myprofile-portal-overview) section.|
+|Si ce que vous voyez sur votre écran ne correspond pas à ce qui est qui est abordé dans cet article, cela signifie que votre administrateur n’a pas encore activé la nouvelle expérience **Mon profil** (en préversion). Pour utiliser la nouvelle expérience, vous devez suivre les instructions et les informations contenues dans la section [Vue d’ensemble du portail Mon profil (préversion)](https://docs.microsoft.com/azure/active-directory/user-help/myprofile-portal-overview).|
 | |
