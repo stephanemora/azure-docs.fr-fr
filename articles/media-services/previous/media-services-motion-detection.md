@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: milanga;juliako;
 ms.openlocfilehash: e0b083cba575f4d1c0eb19afb76fca29431ae75e
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259094"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61463529"
 ---
 # <a name="detect-motions-with-azure-media-analytics"></a>Détecter les mouvements avec Azure Media Analytics
 ## <a name="overview"></a>Présentation
@@ -101,7 +101,7 @@ Le tableau suivant décrit les éléments du fichier de sortie JSON.
 | Width, Height |Fait référence à la largeur et à la hauteur de la vidéo en pixels. |
 | Démarrer |L’horodatage de début en « cycles ». |
 | Duration |La durée de l’événement en « cycles ». |
-| Intervalle |L’intervalle de chaque entrée dans l’événement en « cycles ». |
+| Interval |L’intervalle de chaque entrée dans l’événement en « cycles ». |
 | Événements |Chaque fragment d’événement contient le mouvement détecté pendant cette durée. |
 | Type |Dans la version actuelle, cette valeur est toujours de « 2 » pour le mouvement générique. Ce libellé permet aux API vidéo de classer le mouvement dans les versions ultérieures. |
 | RegionID |Comme expliqué ci-dessus, cette valeur sera toujours « 0 » dans la présente version. Ce libellé permet aux API vidéo de détecter du mouvement dans différentes régions dans les versions ultérieures. |

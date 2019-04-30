@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: bwren
 ms.openlocfilehash: c80736dcd8be0c7ff3aae850aaaf9659f47daf36
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234790"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60996346"
 ---
 # <a name="custom-logs-in-azure-monitor"></a>Journaux d’activité personnalisés dans Azure Monitor
 La source de données Journaux d’activité personnalisés d’Azure Monitor vous permet de collecter des événements stockés dans des fichiers texte sur les ordinateurs Windows et Linux. De nombreuses applications consignent des informations dans des fichiers texte au lieu des services de journalisation standard tels que le Journal des événements Windows ou Syslog. Une fois la collecte terminée, vous pouvez analyser les données dans des champs individuels au sein de vos requêtes ou extraire les données lors de la collecte vers des champs individuels.
@@ -45,7 +45,7 @@ Les fichiers journaux à collecter doivent correspondre aux critères suivants.
 >[!NOTE]
 > Chaque espace de travail Log Analytics prend en charge les limites suivantes :
 > 
-> * Seuls 500 journaux d’activité personnalisés peuvent être créés.
+> * Seuls 500 journaux personnalisés peuvent être créés.
 > * Une table ne prend en charge que jusqu'à 500 colonnes. 
 > * Le nombre maximal de caractères pour le nom de colonne est 500. 
 >

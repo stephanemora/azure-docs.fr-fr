@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 04/07/2019
 ms.author: juliako
 ms.openlocfilehash: d55e246e6fc3a5eeb182a49d1e159887f66d6872
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60011315"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60560015"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-api"></a>Examinez la sortie de Video Indexer produite par API
 
@@ -32,7 +32,7 @@ Cet article examine le contenu JSON retourné par l’API **Get Video Index** (O
 
 ## <a name="root-elements"></a>Éléments racines
 
-|Name|Description|
+|Nom|Description|
 |---|---|
 |accountId|ID du compte Video Indexer de la playlist.|
 |id|ID de la playlist.|
@@ -92,7 +92,7 @@ Cette section présente le résumé des insights.
 
 ## <a name="videos"></a>videos
 
-|Name|Description|
+|Nom|Description|
 |---|---|
 |accountId|ID du compte Video Indexer de la vidéo.|
 |id|ID de la vidéo.|
@@ -197,7 +197,7 @@ instances|Liste des intervalles de temps de ce bloc.|
 
 #### <a name="transcript"></a>transcription
 
-|Name|Description|
+|Nom|Description|
 |---|---|
 |id|ID de la ligne.|
 |text|La transcription proprement dite.|
@@ -235,7 +235,7 @@ Exemple :
 
 #### <a name="ocr"></a>ocr
 
-|Name|Description|
+|Nom|Description|
 |---|---|
 |id|ID de la ligne ROC.|
 |text|Texte de l’OCR.|
@@ -270,7 +270,7 @@ Exemple :
 
 #### <a name="keywords"></a>mots clés
 
-|Name|Description|
+|Nom|Description|
 |---|---|
 |id|ID du mot clé.|
 |text|Texte du mot clé.|
@@ -301,7 +301,7 @@ Exemple :
 
 #### <a name="faces"></a>visages
 
-|Name|Description|
+|Nom|Description|
 |---|---|
 |id|ID du visage.|
 |Nom|Nom du visage. Il peut s'agir de la valeur « Unknown #0 », d’une célébrité identifiée ou d'une personne formée par le client.|
@@ -346,7 +346,7 @@ Exemple :
 
 #### <a name="labels"></a>étiquettes
 
-|Name|Description|
+|Nom|Description|
 |---|---|
 |id|ID de l’étiquette.|
 |Nom|Nom de l’étiquette (par exemple, « ordinateur », « TV »).|
@@ -405,7 +405,7 @@ Exemple :
 
 #### <a name="scenes"></a>scenes
 
-|Name|Description|
+|Nom|Description|
 |---|---|
 |id|L’ID de la scène.|
 |instances|Une liste des plages de temps de cette scène (une scène ne peut avoir 1 instance).|
@@ -438,7 +438,7 @@ Exemple :
 
 #### <a name="shots"></a>captures
 
-|Name|Description|
+|Nom|Description|
 |---|---|
 |id|ID de la capture.|
 |keyFrames|Une liste d’images clés dans la capture (chacune possède un ID et une liste des instances d’intervalles de temps). Chaque instance d’image clé a un champ thumbnailId, qui conserve la miniature de l’image clé ID.|
@@ -488,7 +488,7 @@ Exemple :
 
 Noms des entreprises et des marques de produits détectés dans la reconnaissance vocale et/ou la reconnaissance optique de caractères des vidéos. Cela n’inclut pas la reconnaissance visuelle des marques ni la détection des logos.
 
-|Name|Description|
+|Nom|Description|
 |---|---|
 |id|ID de la marque.|
 |Nom|Nom de la marque.|
@@ -547,7 +547,7 @@ Noms des entreprises et des marques de produits détectés dans la reconnaissanc
 
 #### <a name="statistics"></a>statistics
 
-|Name|Description|
+|Nom|Description|
 |---|---|
 |CorrespondenceCount|Nombre de correspondances contenues dans la vidéo.|
 |SpeakerWordCount|Nombre de mots par intervenant.|
@@ -557,7 +557,7 @@ Noms des entreprises et des marques de produits détectés dans la reconnaissanc
 
 #### <a name="a-idaudioeffectsaudioeffects"></a><a id="audioEffects"/>audioEffects
 
-|Name|Description|
+|Nom|Description|
 |---|---|
 |id|ID de l’effet audio.|
 |Type|Type d’effet audio (par exemple, applaudissements, discours, silence).|
@@ -586,7 +586,7 @@ Noms des entreprises et des marques de produits détectés dans la reconnaissanc
 
 Les sentiments sont regroupés par leur champ sentimentType (neutre/positif/négatif). Par exemple, 0-0.1, 0.1-0.2.
 
-|Name|Description|
+|Nom|Description|
 |---|---|
 |id|ID du sentiment.|
 |averageScore |Moyenne de tous les résultats obtenus pour toutes les instances de ce type de sentiment : neutre/positif/négatif|
@@ -625,7 +625,7 @@ Le bloc visualContentModeration contient des intervalles de temps qui sont susce
 
 Les vidéos trouvées qui contiennent des éléments pour adultes ou choquants peuvent être disponibles pour un affichage privé uniquement. Les utilisateurs peuvent soumettre une demande de révision manuelle du contenu, auquel cas l’attribut IsAdult contient le résultat de la révision manuelle.
 
-|Name|Description|
+|Nom|Description|
 |---|---|
 |id|ID de modération du contenu visuel.|
 |adultScore|Degré du contenu pour adultes (d’après Content Moderator).|
@@ -661,7 +661,7 @@ Les vidéos trouvées qui contiennent des éléments pour adultes ou choquants p
 
 #### <a name="textualcontentmoderation"></a>textualContentModeration 
 
-|Name|Description|
+|Nom|Description|
 |---|---|
 |id|ID de modération du contenu textuel.|
 |bannedWordsCount |Nombre de mots interdits.|
@@ -671,7 +671,7 @@ Les vidéos trouvées qui contiennent des éléments pour adultes ou choquants p
 
 Video Indexer identifie les émotions grâce à des signaux audio et vocaux. L’émotion identifiée peut être : le bonheur, la tristesse, la colère ou la peur.
 
-|Name|Description|
+|Nom|Description|
 |---|---|
 |id|ID de l’émotion.|
 |Type|Instant de l’émotion qui a été identifiée grâce à des signaux audio et vocaux. L’émotion peut être : le bonheur, la tristesse, la colère ou la peur.|
@@ -761,7 +761,7 @@ Video Indexer identifie les émotions grâce à des signaux audio et vocaux. L�
 
 Video Indexer fait des inférences des principales rubriques à partir de transcriptions. La taxonomie [IPTC](https://iptc.org/standards/media-topics/) de premier niveau est incluse lorsque cela est possible. 
 
-|Name|Description|
+|Nom|Description|
 |---|---|
 |id|ID de la rubrique.|
 |Nom|Nom de la rubrique, par exemple : « Produits pharmaceutiques ».|

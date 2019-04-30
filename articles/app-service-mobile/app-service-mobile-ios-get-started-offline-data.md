@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
 ms.openlocfilehash: 1283f812799fe71ef6987dbc7fab092aed4d3417
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57435131"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62112648"
 ---
 # <a name="enable-offline-syncing-with-ios-mobile-apps"></a>Activer la synchronisation hors connexion avec des applications mobiles iOS
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
@@ -162,9 +162,9 @@ Quand vous utilisez la fonctionnalité de synchronisation hors connexion, défin
 | Attribut | Type |
 | --- | --- |
 | id | Integer 64 |
-| itemId | Chaîne |
+| itemId | String |
 | properties | Binary Data |
-| table | Chaîne |
+| table | String |
 | tableKind | Integer 16 |
 
 
@@ -174,7 +174,7 @@ Quand vous utilisez la fonctionnalité de synchronisation hors connexion, défin
 
 | Attribut | Type |
 | --- | --- |
-| id |Chaîne |
+| id |String |
 | operationId |Integer 64 |
 | properties |Binary Data |
 | tableKind |Integer 16 |
@@ -185,11 +185,11 @@ Quand vous utilisez la fonctionnalité de synchronisation hors connexion, défin
 
 | Attribut | Type |
 | --- | --- |
-| id |Chaîne |
-| key |Chaîne |
+| id |String |
+| key |String |
 | keyType |Integer 64 |
-| table |Chaîne |
-| value |Chaîne |
+| table |String |
+| value |String |
 
 ### <a name="data-table"></a>Table de données
 
@@ -198,11 +198,11 @@ Quand vous utilisez la fonctionnalité de synchronisation hors connexion, défin
 | Attribut | Type | Remarque |
 | --- | --- | --- |
 | id | Chaîne, marquée requise |Clé primaire dans le magasin distant |
-| terminé | Booléen | Champ d’élément de tâche |
-| texte |Chaîne |Champ d’élément de tâche |
+| terminé | Boolean | Champ d’élément de tâche |
+| text |String |Champ d’élément de tâche |
 | createdAt | Date | (facultatif) Correspond à la propriété système **createdAt** |
 | updatedAt | Date | (facultatif) Correspond à la propriété système **updatedAt** |
-| version | Chaîne | (facultatif) Permet de détecter les conflits, correspond à version |
+| version | String | (facultatif) Permet de détecter les conflits, correspond à version |
 
 ## <a name="setup-sync"></a>Modification du comportement de synchronisation de l’application
 Dans cette section, vous modifiez l’application pour qu’elle ne se synchronise pas au démarrage de l’application ou quand vous insérez et mettez à jour des éléments. Elle se synchronise uniquement quand le mouvement d’actualisation est effectué.

@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 12/08/2017
 ms.author: alkohli
 ms.openlocfilehash: f7bfe41b4cdc9989c6b949011bc240275886b6f0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58093328"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60634816"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-volumes-update-3-or-later"></a>Utiliser le service StorSimple Device Manager pour gérer des volumes (Update 3 ou versions ultérieures)
 
@@ -65,8 +65,8 @@ Reportez-vous au tableau suivant pour connaître la capacité maximale allouée 
 | 8100 |64 To |8 To |
 | 8600 |64 To |20 To |
 | **Appareils virtuels** | | |
-| 8010 |30 To |S.O. |
-| 8020 |64 To |S.O. |
+| 8010 |30 To |N/A |
+| 8020 |64 To |N/A |
 
 ## <a name="the-volumes-blade"></a>Panneau Volumes
 

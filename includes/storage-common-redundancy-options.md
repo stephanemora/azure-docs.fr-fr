@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 03/26/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: b965fea3d4f166b1a801dda7cafd8e4190790c68
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
-ms.translationtype: HT
+ms.openlocfilehash: 60912adbecbfdb4e6bebd7ddfea59eafa09b985e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45739502"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61477968"
 ---
 Les options de réplication pour un compte de stockage comprennent :
 
-* [Stockage localement redondant (LRS)](../articles/storage/common/storage-redundancy-lrs.md) : une stratégie de réplication simple et économique. Les données sont répliquées au sein d’une même unité d’échelle de stockage.
-* [Stockage redondant dans une zone (ZRS)](../articles/storage/common/storage-redundancy-zrs.md) : réplication pour la durabilité et la haute disponibilité. Les données sont répliquées de façon synchrone sur trois zones de disponibilité. 
-* [Stockage géo-redondant (GRS)](../articles/storage/common/storage-redundancy-grs.md) : réplication entre les régions pour vous protéger en cas d’indisponibilité à l’échelle d’une région.
-* [Stockage géographiquement redondant avec accès en lecture (RA-GRS)](../articles/storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) : réplication entre les régions avec accès en lecture au réplica.
+* [Stockage localement redondant (LRS)](../articles/storage/common/storage-redundancy-lrs.md): Une stratégie de réplication simple et économique. Les données sont répliquées au sein d’une même unité d’échelle de stockage.
+* [Stockage redondant interzone (ZRS)](../articles/storage/common/storage-redundancy-zrs.md) : Réplication pour la haute disponibilité et durabilité. Les données sont répliquées de façon synchrone sur trois zones de disponibilité. 
+* [Stockage géo-redondant (GRS)](../articles/storage/common/storage-redundancy-grs.md) : Réplication entre les régions pour vous protéger contre une indisponibilité au niveau régional.
+* [Le stockage géo-redondant avec accès en lecture (RA-GRS)](../articles/storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage): Réplication entre les régions avec accès en lecture au réplica.

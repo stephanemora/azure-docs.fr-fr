@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 09/15/2016
 ms.author: alkohli
 ms.openlocfilehash: 635b5f4edf5d403c569b4957540fc105997b3e8e
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117671"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60629269"
 ---
 # <a name="storsimple-virtual-array-update-03-release-notes"></a>Notes de publication de StorSimple Virtual Array Update 0.3
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 Les notes suivantes identifient les problèmes majeurs existants et les problèmes résolus dans les mises à jour Microsoft Azure StorSimple Virtual Array.
 
 Les notes de publication sont régulièrement mises à jour ; les problèmes critiques nécessitant une solution de contournement sont ajoutés au fur et à mesure de leur découverte. Lisez les informations contenues dans les notes de publication avant de déployer votre instance StorSimple Virtual Array.
@@ -40,7 +40,7 @@ Update 0.3 est essentiellement une version de correctif de bogue. Dans cette ver
 ## <a name="issues-fixed-in-the-update-03"></a>Problèmes résolus dans Update 0.3
 Le tableau suivant récapitule les problèmes corrigés dans cette version.
 
-|  Non. | Fonctionnalité | Problème |
+| Non. | Fonctionnalité | Problème |
 | --- | --- | --- |
 | 1 |Sauvegardes |Un problème est apparu dans la version précédente : les sauvegardes échouaient pour un partage de fichiers. En cas de problème de ce type, le travail de sauvegarde ne peut pas s’effectuer. Une alerte critique est déclenchée sur le service StorSimple Manager pour notifier l’utilisateur. Ce problème n’affectait pas les données sur les partages ou l’accès aux données. La cause racine a été identifiée et résolue dans cette version. <br></br>  Le correctif ne s’applique pas rétroactivement aux partages qui rencontrent déjà ce problème. Les clients qui rencontrent ce problème doivent tout d’abord appliquer Update 0.3, puis contacter le Support Microsoft pour effectuer une sauvegarde complète du système afin de résoudre le problème. Sinon, ils peuvent également restaurer les partages affectés vers un nouveau partage d’une sauvegarde saine. |
 | 2 |iSCSI |Un problème est apparu dans la version précédente : les volumes disparaissaient lors de la copie de données vers un volume sur StorSimple Virtual Array. Ce problème a été résolu dans cette version. <br></br>  Les correctifs prennent effet uniquement sur les volumes nouvellement créés. Les correctifs ne s’appliquent pas rétroactivement aux volumes qui rencontrent déjà ce problème. Il est conseillé aux clients de mettre en ligne les volumes affectés par le biais du Portail Azure Classic, d’en effectuer une sauvegarde, puis de les restaurer sur de nouveaux volumes. |
@@ -48,7 +48,7 @@ Le tableau suivant récapitule les problèmes corrigés dans cette version.
 ## <a name="known-issues-in-the-update-03"></a>Problèmes connus dans Update 0.3
 Le tableau suivant récapitule les problèmes connus pour StorSimple Virtual Array et décrit les problèmes signalés dans les notes de version des versions précédentes. 
 
-|  Non. | Fonctionnalité | Problème | Solution de contournement/commentaires |
+| Non. | Fonctionnalité | Problème | Solution de contournement/commentaires |
 | --- | --- | --- | --- |
 | **1.** |Mises à jour |Les appareils virtuels créés dans la version préliminaire ne peuvent pas être mis à jour vers une version à disponibilité générale prise en charge. |Ces appareils virtuels doivent être basculés vers la version à disponibilité générale à l'aide d'un flux de travail de récupération d'urgence (DR). |
 | **2.** |Disque de données configuré |Une fois que vous avez configuré un disque de données d'une certaine spécifiée et créé l'appareil virtuel StorSimple correspondant, vous ne devez pas développer, ni réduire le disque de données. Toute tentative de ce type entraîne la perte de toutes les données aux niveaux locaux de l’appareil. | |

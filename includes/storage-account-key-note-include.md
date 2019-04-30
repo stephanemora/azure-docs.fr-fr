@@ -9,11 +9,11 @@ ms.date: 09/15/2018
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: 3cfdca99c91dc54a711801d92aa0da91fb9703e4
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56246870"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61484241"
 ---
 > [!IMPORTANT]
 > Votre clé de compte de stockage est similaire au mot de passe racine pour votre compte de stockage. Veillez toujours à protéger votre clé de compte. Évitez de la communiquer à d’autres utilisateurs, de la coder en dur ou de l’enregistrer en texte brut dans un emplacement accessible à d’autres personnes. Régénérez votre clé de compte à l’aide du Portail Azure si vous pensez que sa confidentialité est compromise.

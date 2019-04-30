@@ -9,11 +9,11 @@ ms.date: 03/23/2019
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: d4f57eca89cbb68d61546c6d5ce5bcd04f9256e7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59799505"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61477969"
 ---
 Stockage Azure offre plusieurs types de comptes de stockage. Chaque type prend en charge différentes fonctionnalités et a son propre modèle tarifaire. Avant de créer un compte de stockage, tenez compte de ces différences pour déterminer l’option qui convient le mieux à vos applications. Les types de comptes de stockage proposés sont les suivants :
 
@@ -28,9 +28,9 @@ Le tableau suivant répertorie les types de comptes de stockage disponibles et l
 | Type de compte de stockage | Services pris en charge                       | Niveaux de performances pris en charge      | Niveaux d’accès pris en charge         | Options de réplication               | Modèle de déploiement<sup>1</sup> | Chiffrement<sup>2</sup> |
 |----------------------|------------------------------------------|-----------------------------|--------------------------------|-----------------------------------|------------------------------|------------------------|
 | Universel v2   | Objets blob, fichiers, files d’attente, tables et disques       | Standard, Premium<sup>5</sup> | Chaud, froid, archive<sup>3</sup> | LRS, ZRS<sup>4</sup>, GRS, RA-GRS | Gestionnaire de ressources             | Chiffré              |
-| Universel v1   | Objets blob, fichiers, files d’attente, tables et disques       | Standard, Premium<sup>5</sup> | S.O.                            | LRS, GRS, RA-GRS                  | Resource Manager, Classic    | Chiffré              |
-| Stockage d’objets blob de bloc   | Objets blob (objets blob de blocs et objets blob d’ajout uniquement) | Premium                       | S.O.                            | LRS                               | Gestionnaire de ressources             | Chiffré              |
-| FileStorage (version préliminaire)   | Fichiers uniquement | Premium                       | S.O.                            | LRS                               | Gestionnaire de ressources             | Chiffré              |
+| Universel v1   | Objets blob, fichiers, files d’attente, tables et disques       | Standard, Premium<sup>5</sup> | N/A                            | LRS, GRS, RA-GRS                  | Resource Manager, Classic    | Chiffré              |
+| Stockage d’objets blob de bloc   | Objets blob (objets blob de blocs et objets blob d’ajout uniquement) | Premium                       | N/A                            | LRS                               | Gestionnaire de ressources             | Chiffré              |
+| FileStorage (version préliminaire)   | Fichiers uniquement | Premium                       | N/A                            | LRS                               | Gestionnaire de ressources             | Chiffré              |
 | Stockage d'objets blob         | Objets blob (objets blob de blocs et objets blob d’ajout uniquement) | standard                      | Chaud, froid, archive<sup>3</sup> | LRS, GRS, RA-GRS                  | Gestionnaire de ressources             | Chiffré              |
 
 <sup>1</sup>L’utilisation du modèle de déploiement Azure Resource Manager est recommandée. Les comptes de stockage qui utilisent le modèle de déploiement classique peuvent toujours être créés à certains emplacements, et les comptes classiques existants continuent d’être pris en charge. Pour plus d’informations, consultez [Déploiement Azure Resource Manager et déploiement Classic : comprendre les modèles de déploiement et l’état de vos ressources](../articles/azure-resource-manager/resource-manager-deployment-model.md).

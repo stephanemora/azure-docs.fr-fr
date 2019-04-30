@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 10/28/2018
 ms.author: glenga
 ms.openlocfilehash: 4ec2e9b931e6405aca5b4237bc044647af3b8bb3
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608577"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62120668"
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Utiliser Azure Functions pour se connecter à une base de données Azure SQL Database
 
@@ -24,7 +24,7 @@ Cet article vous montre comment utiliser Azure Functions pour créer un travail 
 
 Si c’est la première fois que vous utilisez Azure Functions pour C#, vous devez consulter les [Informations de référence pour les développeurs C# sur Azure Functions](functions-dotnet-class-library.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 + Suivez les étapes de l’article [Créer votre première fonction à l’aide de Visual Studio](functions-create-your-first-function-visual-studio.md) pour créer une application de fonction locale qui cible le runtime version 2.x. Vous devez également avoir publié votre projet sur une application de fonction dans Azure.
 

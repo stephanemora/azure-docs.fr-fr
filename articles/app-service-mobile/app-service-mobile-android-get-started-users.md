@@ -14,18 +14,18 @@ ms.devlang: java
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: crdun
-ms.openlocfilehash: 4ee71e00807fcfe698a7e965979434f338f5b870
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.openlocfilehash: 7b80c1148cf2716e71308d953ac445c4bb50cbc5
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38595526"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62119761"
 ---
 # <a name="add-authentication-to-your-android-app"></a>Ajout de l’authentification à votre application Android
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
 ## <a name="summary"></a>Résumé
-Dans ce didacticiel, vous allez ajouter l’authentification au projet de démarrage rapide todolist sur Android en faisant appel à un fournisseur d’identité pris en charge. Ce didacticiel est basé sur le didacticiel [Prise en main de Mobile Apps] , que vous devez effectuer en premier.
+Dans ce didacticiel, vous allez ajouter l’authentification au projet de démarrage rapide todolist sur Android en faisant appel à un fournisseur d’identité pris en charge. Ce didacticiel est basé sur le didacticiel [Prise en main des applications mobiles] , que vous devez effectuer en premier.
 
 ## <a name="register"></a>Inscription de votre application pour l’authentification et configuration d’Azure App Service
 [!INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
@@ -34,7 +34,7 @@ Dans ce didacticiel, vous allez ajouter l’authentification au projet de démar
 
 L’authentification sécurisée nécessite de définir un nouveau schéma d’URL pour votre application. Cela permet au système d’authentification de vous rediriger vers votre application une fois le processus d’authentification terminé. Dans ce didacticiel, nous utilisons le schéma d’URL _appname_. Toutefois, vous pouvez utiliser le schéma d’URL de votre choix. Il doit être propre à votre application mobile. Pour activer la redirection côté serveur, procédez comme suit :
 
-1. Dans le[Portail Azure], sélectionnez votre App Service.
+1. Dans le [portail Azure], sélectionnez votre App Service.
 
 2. Cliquez sur l’option de menu **Authentication/Authorisation**.
 
@@ -47,7 +47,7 @@ L’authentification sécurisée nécessite de définir un nouveau schéma d’U
 ## <a name="permissions"></a>Restriction des autorisations pour les utilisateurs authentifiés
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
-* Dans Android Studio, ouvrez le projet que vous avez terminé avec le didacticiel [Prise en main de Mobile Apps]. Dans le menu **Exécuter**, cliquez sur **Exécuter l’application** et vérifiez qu’une exception non prise en charge avec le code d’état 401 (Non autorisé) est générée après le démarrage de l’application.
+* Dans Android Studio, ouvrez le projet que vous avez terminé avec le didacticiel [Prise en main des applications mobiles]. Dans le menu **Exécuter**, cliquez sur **Exécuter l’application** et vérifiez qu’une exception non prise en charge avec le code d’état 401 (Non autorisé) est générée après le démarrage de l’application.
 
      Cela se produit car l’application essaie d’accéder au serveur principal en tant qu’utilisateur non authentifié, mais la table *TodoItem* requiert désormais l’authentification.
 
@@ -79,5 +79,5 @@ Maintenant que vous avez terminé ce didacticiel sur l'authentification de base,
 
 
 <!-- URLs. -->
-[Prise en main de Mobile Apps]: app-service-mobile-android-get-started.md
+[Prise en main des applications mobiles]: app-service-mobile-android-get-started.md
 [Portail Azure]: https://portal.azure.com/

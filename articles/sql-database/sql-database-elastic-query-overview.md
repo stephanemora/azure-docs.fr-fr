@@ -13,11 +13,11 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 01/19/2019
 ms.openlocfilehash: fad9437a631254d6c60d6d97267ae111d195040f
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567449"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60585680"
 ---
 # <a name="azure-sql-database-elastic-query-overview-preview"></a>Vue d’ensemble de la requête élastique Azure SQL Database (préversion)
 
@@ -31,7 +31,7 @@ Interrogez plusieurs bases de données SQL Azure entièrement dans T-SQL. Cela p
 
 ### <a name="available-on-standard-tier"></a>Disponible au niveau standard
 
-La fonctionnalité de requête élastique est prise en charge aux niveaux de service Standard et Premium. Consultez la section relative aux limitations de la préversion ci-dessous pour connaître les limitations de performances pour les niveaux de service inférieurs.
+La fonctionnalité de requête élastique est prise en charge dans les niveaux de service Standard et Premium. Consultez la section relative aux limitations de la préversion ci-dessous pour connaître les limitations de performances pour les niveaux de service inférieurs.
 
 ### <a name="push-parameters-to-remote-databases"></a>Distribuer les paramètres Push aux bases de données distantes
 

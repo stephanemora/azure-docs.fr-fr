@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: magoedte
 ms.openlocfilehash: 93f47529e3be44ff1db4e089bdcdca3eb1b4dea3
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728343"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61363408"
 ---
 # <a name="windows-and-linux-performance-data-sources-in-azure-monitor"></a>Sources de données de performance Windows et Linux dans Azure Monitor
 Les compteurs de performances dans Windows et Linux fournissent des informations sur les performances des composants matériels, systèmes d’exploitation et applications.  Azure Monitor peut non seulement collecter les compteurs de performances à intervalles réguliers pour effectuer une analyse en temps quasi réel, mais aussi agréger les données de performances pour réaliser des analyses à plus long terme et créer des rapports.
@@ -189,7 +189,7 @@ Les enregistrements de performances sont de type **Perf** et leurs propriétés 
 
 | Propriété | Description |
 |:--- |:--- |
-| Ordinateur |Ordinateur sur lequel l’événement a été collecté. |
+| Computer |Ordinateur sur lequel l’événement a été collecté. |
 | CounterName |Nom du compteur de performances. |
 | CounterPath |Chemin d’accès complet du compteur au format \\\\\<ordinateur>\\objet(instance)\\. |
 | CounterValue |Valeur numérique du compteur. |
@@ -206,7 +206,7 @@ Les enregistrements de performances sont de type **Perf** et leurs propriétés 
 ## <a name="log-queries-with-performance-records"></a>Requêtes de journal avec des enregistrements de performances
 Le tableau suivant fournit plusieurs exemples de requêtes qui extraient des enregistrements de performances.
 
-| Requête | Description |
+| Interroger | Description |
 |:--- |:--- |
 | Perf |Toutes les données de performances |
 | Perf &#124; où l’ordinateur == « MyComputer » |Toutes les données de performances d’un ordinateur particulier |

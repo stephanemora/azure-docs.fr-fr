@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 01/27/2019
 ms.author: cynthn
 ms.openlocfilehash: 2978da7f2e7ec27ded6b5994570fa50a9032d0d2
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55985416"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61473964"
 ---
 Vous pouvez tirer parti de nombreuses possibilités d’analyser vos machines virtuelles en collectant, affichant et analysant les données de diagnostic et de journal. Pour [analyser](../articles/azure-monitor/overview.md) simplement votre machine virtuelle, vous pouvez utiliser l’écran Vue d’ensemble de la machine virtuelle sur le portail Azure. Vous pouvez utiliser des [extensions](../articles/virtual-machines/windows/extensions-features.md) pour configurer des diagnostics sur vos machines virtuelles afin de collecter des données de mesure supplémentaires. Vous pouvez également utiliser des options d’analyse plus avancées, telles que [Application Insights](../articles/azure-monitor/app/app-insights-overview.md) et [Log Analytics](../articles/azure-monitor/log-query/log-query-overview.md).
 
@@ -54,7 +54,7 @@ Voici ce que vous pouvez faire avec le journal d’activité :
 
 Vous pouvez également accéder aux données de journal d’activité à l’aide d’[Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.insights/), d’[Azure CLI](https://docs.microsoft.com/cli/azure/monitor), ou des [API REST Monitor](https://docs.microsoft.com/rest/api/monitor/).
 
-Les [journaux de diagnostic Azure](../articles/azure-monitor/platform/diagnostic-logs-overview.md) sont des journaux émis par votre machine virtuelle qui fournissent des informations riches et fréquentes relatives à son opération. Le journal d’activité diffère du journal de diagnostic dans la mesure où il fournit un éclairage sur les opérations effectuées au sein de la machine virtuelle.
+Les [journaux de diagnostic Azure](../articles/azure-monitor/platform/diagnostic-logs-overview.md) sont des journaux d’activité émis par votre machine virtuelle qui fournissent des informations riches et fréquentes relatives à son opération. Le journal d’activité diffère du journal de diagnostic dans la mesure où il fournit un éclairage sur les opérations effectuées au sein de la machine virtuelle.
 
 Voici ce que vous pouvez faire avec les journaux de diagnostic :
 

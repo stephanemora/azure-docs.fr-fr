@@ -15,11 +15,11 @@ ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 9233a5919ad86adcbb7947cd095945654ed015a7
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48806555"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61093979"
 ---
 <a name="retrieve-offer-status"></a>Récupérer l’état de l’offre 
 =====================
@@ -31,10 +31,10 @@ Récupère l’état actuel de l’offre.
 <a name="uri-parameters"></a>Paramètres URI
 --------------
 
-|  **Nom**       |   **Description**                            |  **Type de données** |
+|  **Name**       |   **Description**                            |  **Type de données** |
 |  -------------  |  ------------------------------------------  |  ------------  |
-|  publisherId    | Identificateur du serveur de publication, par exemple `Contoso`  |     Chaîne     |
-|  offerId        | GUID qui identifie de façon unique l’offre      |     Chaîne     |
+|  publisherId    | Identificateur du serveur de publication, par exemple `Contoso`  |     String     |
+|  offerId        | GUID qui identifie de façon unique l’offre      |     String     |
 |  api-version    | Dernière version de l’API                        |     Date       |
 |  |  |
 
@@ -42,7 +42,7 @@ Récupère l’état actuel de l’offre.
 <a name="header"></a>En-tête
 ------
 
-|  NOM           |  Valeur               |
+|  Nom           |  Valeur               |
 |  -------------  | -------------------  |
 |  Content-Type   |  `application/json`  |
 |  Authorization  | `Bearer YOUR_TOKEN`  |
@@ -129,17 +129,17 @@ Récupère l’état actuel de l’offre.
 
 ### <a name="response-body-properties"></a>Propriétés du corps de réponse
 
-|  **Nom**             |    **Description**                                                                             |
+|  **Name**             |    **Description**                                                                             |
 | --------------------  |   -------------------------------------------------------------------------------------------- |
 |  status               | État de l’offre. Pour la liste des valeurs possibles, consultez [État de l’offre](#offer-status) ci-dessous. |
-|  Cloud vers appareil             | Tableau des messages associés à l’offre                                                    |
+|   Cloud vers appareil             | Tableau des messages associés à l’offre                                                    |
 |  steps                | Tableau des étapes par lesquelles l’offre passe au cours de la publication d’une offre                      |
 |  estimatedTimeFrame   | Estimation du temps qui serait nécessaire pour effectuer cette étape, dans un format convivial                       |
 |  id                   | Identificateur de l’étape                                                                         |
 |  stepName             | Nom de l’étape                                                                               |
 |  description          | Description de l’étape                                                                        |
 |  status               | État de l’étape. Pour la liste des valeurs possibles, consultez [État de l’étape](#step-status) ci-dessous.    |
-|  Cloud vers appareil             | Tableau de messages liés à l’étape                                                          |
+|   Cloud vers appareil             | Tableau de messages liés à l’étape                                                          |
 |  processPercentage    | Pourcentage d’achèvement de l’étape                                                              |
 |  previewLinks         | *Actuellement non implémenté*                                                                    |
 |  liveLinks            | *Actuellement non implémenté*                                                                    |
@@ -152,14 +152,14 @@ Récupère l’état actuel de l’offre.
 | **Code** |   **Description**                                                                                 |
 | -------  |   ----------------------------------------------------------------------------------------------- |
 |  200     |  `OK` : la demande a été correctement traitée et l’état actuel de l’offre a été retourné. |
-|  400     | `Bad/Malformed request` : Le corps de la réponse d’erreur peut contenir plus d’informations.                 |
-|  404     | `Not found` : l’entité spécifiée n’existe pas.                                                |
+|  400     | `Bad/Malformed request` : le corps de la réponse d’erreur peut contenir plus d’informations.                 |
+|  404     | `Not found` : l’entité spécifiée n’existe pas.                                                |
 |  |  |
 
 
 ### <a name="offer-status"></a>État de l’offre
 
-|  **Nom**                    |    **Description**                                       |
+|  **Name**                    |    **Description**                                       |
 |  --------------------------  |  ------------------------------------------------------  |
 |  NeverPublished              | L’offre n’a jamais été publiée.                          |
 |  NotStarted                  | L’offre est nouvelle et n’a pas démarré.                            |
@@ -173,7 +173,7 @@ Récupère l’état actuel de l’offre.
 
 ### <a name="step-status"></a>État de l’étape
 
-|  **Nom**                    |    **Description**                           |
+|  **Name**                    |    **Description**                           |
 |  -------------------------   |  ------------------------------------------  |
 |  NotStarted                  | L’étape n’a pas démarré.                        |
 |  InProgress                  | L’étape est en cours d’exécution.                             |

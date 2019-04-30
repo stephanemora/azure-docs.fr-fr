@@ -16,14 +16,14 @@ ms.date: 08/30/2016
 ms.author: stefsch
 ms.custom: seodec18
 ms.openlocfilehash: 5e25de1ad2042ac978c3698165b9d9baba20e816
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53274155"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62130685"
 ---
 # <a name="implementing-a-layered-security-architecture-with-app-service-environments"></a>Implémentation d’une architecture de sécurité en couche avec les environnements App Service
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 Dans la mesure où les environnements App Service fournissent un environnement d’exécution isolé déployé dans un réseau virtuel, les développeurs peuvent créer une architecture de sécurité en couche offrant différents niveaux d’accès réseau pour chaque couche application physique.
 
 Un souhait commun est de masquer les API principales de l’accès Internet général, et d’autoriser uniquement les API à être appelées par les applications web en amont.  Les [groupes de sécurité réseau (NSG)][NetworkSecurityGroups] peuvent être utilisés sur des sous-réseaux contenant des environnements App Service pour restreindre l’accès public aux applications API.

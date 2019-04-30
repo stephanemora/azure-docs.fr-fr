@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/05/2019
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d4798f8c3e262129135a6677ccf90dc0fb3be7f2
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 097b5e8ee69d945e0a9e24ba1c62b0ae82dd896b
+ms.sourcegitcommit: a95dcd3363d451bfbfea7ec1de6813cad86a36bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59999533"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62732415"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Planification et implémentation de machines virtuelles Azure pour SAP NetWeaver
 
@@ -451,7 +451,11 @@ Lisez [cet article][vpn-gateway-create-site-to-site-rm-powershell] pour plus d�
 >
 > Ces restrictions sont imposées par l’exigence d’un réseau hautes performances à faible latence dans un système SAP, en particulier entre les instances d’application et la couche SGBD d’un système SAP.
 >
->
+> Une planification spéciale des systèmes et des régions doit se produire lors de l’utilisation de plusieurs systèmes SAP qui sont hautement intégrés. Veillez à déployer ces systèmes aussi proche que possible entre eux pour réduire la latence du réseau. Les systèmes SAP hautement intégrés, citons :
+> * SAP BW, lecture des données à partir de systèmes SAP OLTP comme ERP ou CRM ou SRM ; ou
+> * SLT SAP utilisé pour répliquer des données entre plusieurs systèmes SPA ou même entre SAP et les systèmes non-SAP ; ou
+> * SAP s/4 connecté à un système ERP SAP ; et ainsi de suite
+
 
 ### <a name="supported-os-and-database-releases"></a>Versions de base de données et de système d’exploitation prises en charge
 * Les logiciels serveurs Microsoft pris en charge par les services de machine virtuelle Azure sont répertoriés dans l’article suivant : <https://support.microsoft.com/kb/2721672>.

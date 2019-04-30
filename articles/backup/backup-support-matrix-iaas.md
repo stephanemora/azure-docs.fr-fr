@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 02/24/2019
+ms.date: 04/23/2019
 ms.author: raynew
-ms.openlocfilehash: aacfe725310b3c8e4785e24b80728f0e60694814
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: eaad582dc6484cb62d0bebf1af447ff61301a3bb
+ms.sourcegitcommit: a95dcd3363d451bfbfea7ec1de6813cad86a36bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59496093"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62733965"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Tableau de prise en charge pour la sauvegarde de machines virtuelles Azure
 Vous pouvez utiliser la [service Azure Backup](backup-overview.md) pour sauvegarder des machines locales et les charges de travail et les machines virtuelles (VM) Azure. Cet article résume les paramètres de prise en charge et les limitations lors de la sauvegarde des machines virtuelles Azure avec sauvegarde Azure.
@@ -168,7 +168,7 @@ Redimensionner un disque sur une machine virtuelle protégée |  Pris en charge.
 Stockage partagé| Sauvegarde des machines virtuelles à l’aide de Volume partagé de Cluster (CSV) ou serveur de fichiers avec montée en puissance n’est pas recommandée. Enregistreurs CSV sont susceptibles d’échouer lors de la sauvegarde. Lors de la restauration, les disques contenant des volumes partagés de cluster ne peuvent pas arrivé à distance.
 
 > [!NOTE]
-> Sauvegarde Azure ne prend pas en charge les disques agrégés par bandes. Redimensionnement du disque n’est pas recommandé par sauvegarde Azure.
+> Redimensionnement du disque n’est pas recommandé par sauvegarde Azure.
 
 
 ## <a name="vm-network-support"></a>Prise en charge des réseaux de machines virtuelles

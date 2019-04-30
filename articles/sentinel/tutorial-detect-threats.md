@@ -15,16 +15,16 @@ ms.workload: na
 ms.date: 03/20/2019
 ms.author: rkarlin
 ms.openlocfilehash: a0a16fbda662ee1d3718dbafc4231de67aab277e
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400671"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60614803"
 ---
-# <a name="tutorial-detect-threats-with-azure-sentinel-preview"></a>Tutoriel : Détectez les menaces avec la version préliminaire d’Azure Sentinel
+# <a name="tutorial-detect-threats-with-azure-sentinel-preview"></a>Didacticiel : Détectez les menaces avec la version préliminaire d’Azure Sentinel
 
 > [!IMPORTANT]
-> Sentinel Azure est actuellement en version préliminaire publique.
+> Azure Sentinel est actuellement disponible en préversion publique.
 > Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Après avoir [vos sources de données connectées](quickstart-onboard.md) à Azure Sentinel, vous souhaitez être averti en cas de quelque chose suspectes. Pour vous permettre de procéder, Sentinel Azure vous permet de que créer des avancées règles d’alerte, qui génèrent des cas que vous pouvez affecter et les utiliser pour examiner profondément les anomalies et menaces dans votre environnement. 

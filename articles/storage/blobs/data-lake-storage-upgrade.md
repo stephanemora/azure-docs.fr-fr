@@ -8,12 +8,12 @@ ms.author: normesta
 ms.date: 02/07/2019
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 1a9d26736a444efb83f9040b51676202b1ea4450
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 84e3aff9c1c8cb3e7fe399c861c2c7d58c278fed
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60006112"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62107871"
 ---
 # <a name="upgrade-your-big-data-analytics-solutions-from-azure-data-lake-storage-gen1-to-azure-data-lake-storage-gen2"></a>Mettre à niveau vos solutions d’analytique de Big Data d’Azure Data Lake Storage Gen1 vers Azure Data Lake Storage Gen2
 
@@ -249,7 +249,7 @@ La tâche principale ici consiste à traduire les URI qui ont un préfixe de `ad
 
 Le schéma d’URI pour Data Lake Storage Gen1 est expliqué [ici](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-store) en détail, mais de manière générale, il suit le format *adl://mydatalakestore.azuredatalakestore.net/\<chemin_fichier\>.*
 
-Le schéma d’URI pour accéder aux fichiers de Data Lake Storage Gen2 est expliqué [ici](https://docs.microsoft.com/azure/storage/data-lake-storage/use-hdi-cluster) en détail, mais de manière générale, il est `abfss://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.widows.net/<PATH>`.
+Le schéma d’URI pour accéder aux fichiers de Data Lake Storage Gen2 est expliqué [ici](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md) en détail, mais de manière générale, il est `abfss://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.widows.net/<PATH>`.
 
 Vous devez passer par vos applications existantes et vérifier que vous avez correctement modifié les URI pour qu’ils pointent vers les URI Data Lake Storage Gen2. Vous devez également ajouter les informations d’identification appropriées. Enfin, la mise hors service des applications et leur remplacement par les nouvelles applications devront s’aligner étroitement avec votre stratégie de mise à niveau globale.
 

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako;johndeu
 ms.openlocfilehash: 549554521570d1d2f27b2da2b36ca1dfde25562f
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58293611"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60762516"
 ---
 # <a name="media-services-operations-rest-api-overview"></a>Vue d’ensemble de l’API REST Media Services Operations 
 [!INCLUDE [media-services-selector-setup](../../../includes/media-services-selector-setup.md)]
@@ -78,15 +78,15 @@ Voici un ensemble d’en-têtes facultatifs :
 | Accept-Charset |Type de jeu de caractères comme « UTF-8 » |La valeur par défaut est UTF-8. |
 | X-HTTP-Method |Méthode HTTP |Permet aux clients ou pare-feu ne prenant pas en charge les méthodes HTTP comme PUT ou DELETE d’utiliser ces méthodes, acheminées via un appel GET. |
 | Content-Type |Type de contenu |Le type de contenu du corps de la requête dans les demandes PUT ou POST. |
-| client-request-id |Chaîne |Une valeur définie par l’appelant qui identifie la requête donnée. Si spécifiée, cette valeur sera incluse dans le message de réponse comme une méthode de mappage de la requête. <p><p>**Important**<p> Les valeurs doivent être limitées à 2096 b (2k). |
+| client-request-id |String |Une valeur définie par l’appelant qui identifie la requête donnée. Si spécifiée, cette valeur sera incluse dans le message de réponse comme une méthode de mappage de la requête. <p><p>**Important**<p> Les valeurs doivent être limitées à 2096 b (2k). |
 
 ## <a name="standard-http-response-headers-supported-by-media-services"></a>En-têtes de réponse HTTP standard pris en charge par Media Services
 Voici un ensemble d’en-têtes pouvant être renvoyés, en fonction de la ressource demandée et de l’action à entreprendre.
 
 | En-tête | Type | Valeur |
 | --- | --- | --- |
-| request-id |Chaîne |Un identificateur unique pour l’opération actuelle, généré par le service. |
-| client-request-id |Chaîne |Un identificateur spécifié par l’appelant dans la requête d’origine, le cas échéant. |
+| request-id |String |Un identificateur unique pour l’opération actuelle, généré par le service. |
+| client-request-id |String |Un identificateur spécifié par l’appelant dans la requête d’origine, le cas échéant. |
 | Date |Date RFC 1123 |Les date et heure auxquelles la requête a été traitée. |
 | Content-Type |Varie |Le type de contenu du corps de la réponse. |
 | Content-Encoding |Varie |Gzip ou deflate, le cas échéant. |

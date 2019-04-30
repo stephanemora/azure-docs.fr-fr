@@ -2,18 +2,18 @@
 title: Fichier Include
 description: Fichier Include
 services: storage
-author: luywang
+author: roygara
 ms.service: storage
 ms.topic: include
 ms.date: 06/05/2018
-ms.author: luywang
+ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: efa43d7faf9d048ff963a74d8c69618ee535654c
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: c1b7785e5078fdd3fdc2fc3d407b8890f76cd558
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56443434"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63766248"
 ---
 # <a name="backup-and-disaster-recovery-for-azure-iaas-disks"></a>Sauvegarde et récupération d’urgence pour les disques IaaS Azure
 
@@ -21,7 +21,7 @@ Cet article explique comment planifier la sauvegarde et la récupération d’ur
 
 Nous abordons tout d’abord les fonctionnalités de tolérance de panne intégrées dans la plateforme Azure qui vous protègent contre les défaillances locales. Nous présentons ensuite les scénarios d’urgence qui ne sont pas entièrement couverts par les fonctionnalités intégrées. Nous montrons également plusieurs exemples de charges de travail où différentes considérations en matière de sauvegarde et de récupération d’urgence peuvent s’appliquer. Nous examinons ensuite les solutions possibles pour la récupération d’urgence des disques IaaS.
 
-## <a name="introduction"></a>Introduction
+## <a name="introduction"></a>Présentation
 
 La plateforme Azure utilise différentes méthodes pour la redondance et la tolérance de panne afin de protéger les clients contre les défaillances matérielles localisées. Les défaillances locales peuvent inclure des problèmes avec un serveur de stockage Azure qui stocke une partie des données d’un disque virtuel ou les défaillances d’un disque SSD ou d’un disque dur sur ce serveur. Ces défaillances isolées de composant matériel peuvent se produire pendant les opérations normales.
 

@@ -5,15 +5,15 @@ services: billing
 author: rothja
 ms.service: billing
 ms.topic: include
-ms.date: 04/02/2019
+ms.date: 04/22/2019
 ms.author: jroth
 ms.custom: include file
-ms.openlocfilehash: d490cab4d437c30fdb211ea27397777afc27e72e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 712b70960e09a9c2b0e7a998bc0bddbc28c1e112
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59803950"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63765877"
 ---
 | Ressource | Limite par défaut | Limite maximale |
 | --- | --- | --- |
@@ -29,13 +29,15 @@ ms.locfileid: "59803950"
 | Calculs de balise unique par abonnement<sup>2</sup> | 10 000 | 10 000 |
 | [Services cloud](../articles/cloud-services/cloud-services-choose-me.md) par abonnement |N/A<sup>3</sup> |N/A<sup>3</sup> |
 | [Groupes d'affinités](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md) par abonnement |N/A<sup>3</sup> |N/A<sup>3</sup> |
-| [Déploiements de niveau d’abonnement](../articles/azure-resource-manager/deploy-to-subscription.md) par emplacement | 800 | 800 |
+| [Déploiements de niveau d’abonnement](../articles/azure-resource-manager/deploy-to-subscription.md) par emplacement | 800<sup>4</sup> | 800 |
 
 <sup>1</sup>limites par défaut varient en type de catégorie d’offre, telles que la version d’évaluation gratuite et de paiement à l’utilisation et en série, telle que Dv2, F et G.
 
 <sup>2</sup>vous pouvez appliquer un nombre illimité de balises par abonnement. Le nombre de balises par ressource ou groupe de ressources est limité à 15. Resource Manager retourne un [liste de valeurs et le nom de balise unique](/rest/api/resources/tags) dans l’abonnement uniquement lorsque le nombre de balises est de 10 000 ou moins. Vous pouvez toujours trouver une ressource par balise lorsque le nombre dépasse 10 000.  
 
 <sup>3</sup>ces fonctionnalités ne sont plus nécessaires avec les groupes de ressources Azure et Resource Manager.
+
+<sup>4</sup>si vous atteignez la limite des 800 déploiements, supprimer les déploiements de l’historique qui ne sont plus nécessaires. Pour supprimer les déploiements de niveau d’abonnement, utilisez [Remove-AzDeployment](/powershell/module/az.resources/Remove-AzDeployment) ou [supprimer du déploiement de az](/cli/azure/deployment?view=azure-cli-latest#az-deployment-delete).
 
 > [!NOTE]
 > Cœurs de machines virtuelles ont une limite totale régionale. Ils ont également une limite pour les séries par taille régionales, telles que Dv2 et F. Ces limites sont appliquées séparément. Par exemple, considérons un abonnement dont le nombre total limite de cœurs de machine virtuelle est de 30 pour la région USA Est, de 30 pour la gamme A et de 30 pour la gamme D. Cet abonnement peut déployer 30 machines virtuelles A1, ou 30 machines virtuelles D1 ou une combinaison des deux afin de ne pas dépasser 30 cœurs au total. Un exemple d’une combinaison est de 10 machines virtuelles A1 et 20 machines virtuelles D1.  

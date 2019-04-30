@@ -2,23 +2,19 @@
 title: Qu’est-ce qu’Azure Key Vault ? | Microsoft Docs
 description: Découvrez comment Azure Key Vault protège les clés de chiffrement et utilisent des secrets que les applications et services en nuage.
 services: key-vault
-documentationcenter: ''
 author: barclayn
 manager: barbkess
 tags: azure-resource-manager
-ms.assetid: e759df6f-0638-43b1-98ed-30b3913f9b82
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: barclayn
 ms.openlocfilehash: 48ac0c3efe74723099e87a77871aa1a78834efbd
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958530"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60640541"
 ---
 # <a name="what-is-azure-key-vault"></a>Qu’est-ce qu’Azure Key Vault ?
 
@@ -57,7 +53,7 @@ Voici les termes importants :
 
     ![Diagramme de la façon dont les identités pour le travail de ressources Azure](./media/key-vault-whatis/msi.png)
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Authentification
 Pour effectuer des opérations avec Key Vault, vous devez d’abord s’authentifier auprès d’elle. Il existe trois façons de s’authentifier sur Key Vault :
 
 - [Identités managées pour les ressources Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) : Lorsque vous déployez une application sur une machine virtuelle dans Azure, vous pouvez affecter une identité à votre machine virtuelle qui a accès à Key Vault. Vous pouvez également affecter les identités à [autres ressources Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). L’avantage de cette approche est que l’application ou le service n’est pas la gestion de la rotation de la clé secrète premier. Azure fait alterner automatiquement l’identité. Nous recommandons cette approche comme une meilleure pratique. 

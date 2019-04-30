@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/18/2018
 ms.author: wgries
 ms.custom: include file
-ms.openlocfilehash: dfba8db87dab12f856fbd97d578321477e9f92b5
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 19c570be71583a2933a39780ba948edeb9f68498
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57553658"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62129094"
 ---
 | Ressource | Cible | Limite inconditionnelle |
 |----------|--------------|------------|
@@ -26,7 +26,7 @@ ms.locfileid: "57553658"
 | Taille de point de terminaison | 4 Tio | Non  |
 | Objets du système de fichiers (répertoires et fichiers) par groupe de synchronisation | 25 millions d’objets | Non  |
 | Nombre maximal d’objets de système de fichiers (répertoires et fichiers) dans un répertoire | 1 million d’objets | Oui |
-| Taille maximale du descripteur de sécurité d’objet (répertoires et fichiers) | 4 Kio | Oui |
+| Taille maximale du descripteur de sécurité d’objet (répertoires et fichiers) | 64 Kio | Oui |
 | Taille du fichier | 100 Gio | Non  |
 | Taille minimale d’un fichier à hiérarchiser | 64 Kio | Oui |
 | Sessions de synchronisation simultanées | Agent v4 et versions ultérieures : La limite varie en fonction des ressources système disponibles. <BR> Agent V3 : Deux sessions de synchronisation active par processeur ou un maximum de huit sessions de synchronisation active par serveur. | Oui
