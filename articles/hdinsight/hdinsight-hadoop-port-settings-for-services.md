@@ -35,7 +35,7 @@ Pour joindre des ordinateurs supplémentaires au réseau virtuel, vous devez d�
 
 Tous les nœuds dans un cluster HDInsight se trouvent dans un réseau virtuel Azure et ne sont pas directement accessibles depuis Internet. Une passerelle publique fournit l’accès à Internet pour les ports suivants, qui sont communs à tous les types de cluster HDInsight.
 
-| de diffusion en continu | Port | Protocole | Description |
+| de diffusion en continu | Port | Protocol | Description |
 | --- | --- | --- | --- |
 | sshd |22 |SSH |Connecte les clients à sshd sur le nœud principal primaire. Pour en savoir plus, voir [Utilisation de SSH avec Hadoop Linux sur HDInsight depuis Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md). |
 | sshd |22 |SSH |Connecte les clients à sshd sur le nœud de périmètre. Pour en savoir plus, voir [Utilisation de SSH avec Hadoop Linux sur HDInsight depuis Linux, Unix ou OS X](hdinsight-hadoop-linux-use-ssh-unix.md). |
@@ -48,7 +48,7 @@ Tous les nœuds dans un cluster HDInsight se trouvent dans un réseau virtuel Az
 
 Les éléments suivants sont disponibles pour les types de clusters spécifiques :
 
-| de diffusion en continu | Port | Protocole | Type de cluster | Description |
+| de diffusion en continu | Port | Protocol | Type de cluster | Description |
 | --- | --- | --- | --- | --- |
 | Stargate |443 |HTTPS |hbase |API REST HBase. Voir [Bien démarrer avec Apache HBase](hbase/apache-hbase-tutorial-get-started-linux.md) |
 | Livy |443 |HTTPS |Spark |API REST Spark. Voir [Envoi de tâches Apache Spark à distance avec Apache Livy](spark/apache-spark-livy-rest-interface.md) |
@@ -74,7 +74,7 @@ Tous les services exposés publiquement sur Internet doivent être authentifiés
 
 ### <a name="ambari"></a>Ambari
 
-| de diffusion en continu | Nœuds | Port | Chemin d'accès de l'URL | Protocole | 
+| de diffusion en continu | Nœuds | Port | Chemin d'accès de l'URL | Protocol | 
 | --- | --- | --- | --- | --- |
 | Interface utilisateur Web d'Ambari | Nœuds principaux | 8080 | / | HTTP |
 | API Ambari REST | Nœuds principaux | 8080 | /api/v1 | HTTP |
@@ -85,7 +85,7 @@ Exemples :
 
 ### <a name="hdfs-ports"></a>Ports HDFS
 
-| de diffusion en continu | Nœuds | Port | Protocole | Description |
+| de diffusion en continu | Nœuds | Port | Protocol | Description |
 | --- | --- | --- | --- | --- |
 | Interface utilisateur web de NameNode |Nœuds principaux |30070 |HTTPS |Interface utilisateur web pour afficher l’état |
 | Service de métadonnées NameNode |Nœuds principaux |8020 |IPC |Métadonnées du système de fichiers |
@@ -96,7 +96,7 @@ Exemples :
 
 ### <a name="yarn-ports"></a>Ports YARN
 
-| de diffusion en continu | Nœuds | Port | Protocole | Description |
+| de diffusion en continu | Nœuds | Port | Protocol | Description |
 | --- | --- | --- | --- | --- |
 | Interface utilisateur web de Resource Manager |Nœuds principaux |8088 |HTTP |Interface utilisateur web pour Resource Manager |
 | Interface utilisateur web de Resource Manager |Nœuds principaux |8090 |HTTPS |Interface utilisateur web pour Resource Manager |
@@ -110,20 +110,20 @@ Exemples :
 
 ### <a name="hive-ports"></a>Ports Hive
 
-| de diffusion en continu | Nœuds | Port | Protocole | Description |
+| de diffusion en continu | Nœuds | Port | Protocol | Description |
 | --- | --- | --- | --- | --- |
 | HiveServer2 |Nœuds principaux |10001 |Thrift |Service pour se connecter à Hive (Thrift/JDBC) |
 | Metastore Hive |Nœuds principaux |9083 |Thrift |Service pour se connecter aux métadonnées Hive (Thrift/JDBC) |
 
 ### <a name="webhcat-ports"></a>Ports WebHCat
 
-| de diffusion en continu | Nœuds | Port | Protocole | Description |
+| de diffusion en continu | Nœuds | Port | Protocol | Description |
 | --- | --- | --- | --- | --- |
 | Serveur WebHCat |Nœuds principaux |30111 |HTTP |API web sur HCatalog et d’autres services Hadoop |
 
 ### <a name="mapreduce-ports"></a>Ports MapReduce
 
-| de diffusion en continu | Nœuds | Port | Protocole | Description |
+| de diffusion en continu | Nœuds | Port | Protocol | Description |
 | --- | --- | --- | --- | --- |
 | JobHistory |Nœuds principaux |19888 |HTTP |Interface utilisateur web de MapReduce JobHistory |
 | JobHistory |Nœuds principaux |10020 |&nbsp; |Serveur MapReduce JobHistory |
@@ -131,21 +131,21 @@ Exemples :
 
 ### <a name="oozie"></a>Oozie
 
-| de diffusion en continu | Nœuds | Port | Protocole | Description |
+| de diffusion en continu | Nœuds | Port | Protocol | Description |
 | --- | --- | --- | --- | --- |
 | Serveur Oozie |Nœuds principaux |11000 |HTTP |URL du service Oozie |
 | Serveur Oozie |Nœuds principaux |11001 |HTTP |Port pour l’administration Oozie |
 
 ### <a name="ambari-metrics"></a>Mesures d’Ambari
 
-| de diffusion en continu | Nœuds | Port | Protocole | Description |
+| de diffusion en continu | Nœuds | Port | Protocol | Description |
 | --- | --- | --- | --- | --- |
 | TimeLine (historique d’application) |Nœuds principaux |6188 |HTTP |L’interface utilisateur web du service Timeline |
 | TimeLine (historique d’application) |Nœuds principaux |30200 |RPC |L’interface utilisateur web du service Timeline |
 
 ### <a name="hbase-ports"></a>Ports HBase
 
-| de diffusion en continu | Nœuds | Port | Protocole | Description |
+| de diffusion en continu | Nœuds | Port | Protocol | Description |
 | --- | --- | --- | --- | --- |
 | HMaster |Nœuds principaux |16000 |&nbsp; |&nbsp; |
 | Interface utilisateur web d’informations sur HMaster |Nœuds principaux |16010 |HTTP |Le port de l’interface utilisateur web principale de HBase Master |
@@ -154,14 +154,14 @@ Exemples :
 
 ### <a name="kafka-ports"></a>Ports Kafka
 
-| de diffusion en continu | Nœuds | Port | Protocole | Description |
+| de diffusion en continu | Nœuds | Port | Protocol | Description |
 | --- | --- | --- | --- | --- |
 | Service Broker |Nœuds de travail |9092 |[Protocole Kafka](https://kafka.apache.org/protocol.html) |Utilisé pour la communication client |
 | &nbsp; |Nœuds Zookeeper |2181 |&nbsp; |Le port que les clients utilisent pour se connecter à ZooKeeper |
 
 ### <a name="spark-ports"></a>Ports Spark
 
-| de diffusion en continu | Nœuds | Port | Protocole | Chemin d'accès de l'URL | Description |
+| de diffusion en continu | Nœuds | Port | Protocol | Chemin d'accès de l'URL | Description |
 | --- | --- | --- | --- | --- | --- |
 | Serveurs Thrift Spark |Nœuds principaux |10002 |Thrift | &nbsp; | Service de connexion à Spark SQL (Thrift/JDBC) |
 | Serveur Livy | Nœuds principaux | 8998 | HTTP | &nbsp; | Service d’exécution des instructions, des travaux et des applications |

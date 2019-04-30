@@ -57,8 +57,8 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
   
 |Nom|Description|Obligatoire|Default|  
 |----------|-----------------|--------------|-------------|  
-|username|Spécifie le nom d’utilisateur associé aux informations d’identification de base.|Oui|S.O.|  
-|password|Spécifie le mot de passe associé aux informations d’identification de base.|Oui|S.O.|  
+|username|Spécifie le nom d’utilisateur associé aux informations d’identification de base.|Oui|N/A|  
+|password|Spécifie le mot de passe associé aux informations d’identification de base.|Oui|N/A|  
   
 ### <a name="usage"></a>Usage  
  Cette stratégie peut être utilisée dans les [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.  
@@ -97,8 +97,8 @@ Dans cet exemple, certificat client est identifié par nom de la ressource.
   
 |Nom|Description|Obligatoire|Default|  
 |----------|-----------------|--------------|-------------|  
-|thumbprint|Empreinte du certificat client.|Soit `thumbprint` ou `certificate-id` doit être présent.|S.O.|  
-|certificate-id|Le nom de ressource de certificat.|Soit `thumbprint` ou `certificate-id` doit être présent.|S.O.|  
+|thumbprint|Empreinte du certificat client.|Soit `thumbprint` ou `certificate-id` doit être présent.|N/A|  
+|certificate-id|Le nom de ressource de certificat.|Soit `thumbprint` ou `certificate-id` doit être présent.|N/A|  
   
 ### <a name="usage"></a>Usage  
  Cette stratégie peut être utilisée dans les [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.  
@@ -132,8 +132,8 @@ Dans cet exemple, certificat client est identifié par nom de la ressource.
   
 |Nom|Description|Obligatoire|Default|  
 |----------|-----------------|--------------|-------------|  
-|resource|Chaîne. L’URI ID d’application de la cible API web (ressource sécurisée) dans Azure Active Directory.|Oui|S.O.|  
-|output-token-variable-name|Chaîne. Nom de la variable de contexte qui recevra la valeur du jeton en tant qu’un type d’objet `string`.|Non |S.O.|  
+|resource|Chaîne. L’URI ID d’application de la cible API web (ressource sécurisée) dans Azure Active Directory.|Oui|N/A|  
+|output-token-variable-name|Chaîne. Nom de la variable de contexte qui recevra la valeur du jeton en tant qu’un type d’objet `string`.|Non |N/A|  
 |ignore-error|Booléen. Si la valeur `true`, le pipeline de stratégie continuera à s’exécuter même si un jeton d’accès n’est pas obtenu.|Non |false|  
   
 ### <a name="usage"></a>Usage  
