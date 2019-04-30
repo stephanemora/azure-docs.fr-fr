@@ -88,7 +88,7 @@ La taille des documents doit être inférieure à 5 120 caractères par docume
 }
 ```    
     
-## <a name="step-1-structure-the-request"></a>Étape 1 : Structurer la requête
+## <a name="step-1-structure-the-request"></a>Étape 1 : Structurer la requête
 
 Vous trouverez plus d’informations sur la définition d’une demande dans [Guide pratique pour appeler l’API Analyse de texte](text-analytics-how-to-call-api.md). Les points suivants sont réaffirmés pour des raisons pratiques :
 

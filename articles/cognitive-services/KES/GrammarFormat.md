@@ -128,8 +128,8 @@ Le tableau suivant répertorie les valeurs `op` prises en charge pour chaque typ
 
 | Type d’attribut | Valeur op | Description | Opération d’index
 |----|----|----|----|
-| String | eq | Correspondance exacte de chaîne | equals |
-| String | starts_with | Correspondance de préfixe de chaîne | starts_with |
+| Chaîne | eq | Correspondance exacte de chaîne | equals |
+| Chaîne | starts_with | Correspondance de préfixe de chaîne | starts_with |
 | Int32, Int64, Double | eq |  Correspondance d’égalité numérique | equals |
 | Int32, Int64, Double | lt, le, gt, ge | Correspondance d’inégalité numérique (<, <=, >, >=) | is_between |
 | Int32, Int64, Double | starts_with | Correspondance de préfixe de valeur en notation décimale | starts_with |

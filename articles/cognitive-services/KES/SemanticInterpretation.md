@@ -35,7 +35,7 @@ Voici une liste des types de données actuellement pris en charge :
 
 |Type|Description|Exemples|
 |----|----|----|
-|String|Séquence de 0 caractères ou plus|« Hello World ! »<br/>""|
+|Chaîne|Séquence de 0 caractères ou plus|« Hello World ! »<br/>""|
 |Bool|Valeur booléenne|true<br/>false|
 |Int32|Entier signé 32 bits.  -2.1e9 à 2.1e9|123<br/>-321|
 |Int64|Entier signé 64 bits. -9.2e18 et 9.2e18|9876543210|

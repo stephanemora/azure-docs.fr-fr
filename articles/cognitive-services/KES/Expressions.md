@@ -31,9 +31,9 @@ Une expression de requête d’attribut identifie un ensemble d’objets selon l
 
 | Type | Opération | Exemples |
 |------|-------------|------------|
-| String | equals | Title='latent semantic analysis' (canonique + synonymes) |
-| String | equals | Author.Name=='susan t dumais' (canonique uniquement)|
-| String | starts_with | Title='latent s'... |
+| Chaîne | equals | Title='latent semantic analysis' (canonique + synonymes) |
+| Chaîne | equals | Author.Name=='susan t dumais' (canonique uniquement)|
+| Chaîne | starts_with | Title='latent s'... |
 | Int32/Int64/Double | equals | Year=2000 |
 | Int32/Int64/Double | starts_with | Year='20'... (toute valeur décimale commençant par « 20 ») |
 | Int32/Int64/Double | is_between | Year&lt;2000 <br/> Year&lt;=2000 <br/> Year&gt;2000 <br/> Year&gt;=2000 <br/> Year=[2010,2012) *(inclut la valeur limite gauche uniquement : 2010, 2011)* <br/> Year=[2000,2012] *(inclut les deux valeurs limites : 2010, 2011, 2012)* |
