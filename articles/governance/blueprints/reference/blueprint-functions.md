@@ -110,10 +110,10 @@ Quelques exemples de récupération de données à partir de la _myTemplateArtif
 | Expression | Type | Valeur |
 |:---|:---|:---|
 |`[artifacts("myTemplateArtifact").output.myArray]` | Tableau | \["first", "second"\] |
-|`[artifacts("myTemplateArtifact").output.myArray[0]]` | String | « première » |
-|`[artifacts("myTemplateArtifact").output.myString]` | String | « Mon valeur chaîne » |
+|`[artifacts("myTemplateArtifact").output.myArray[0]]` | Chaîne | « première » |
+|`[artifacts("myTemplateArtifact").output.myString]` | Chaîne | « Mon valeur chaîne » |
 |`[artifacts("myTemplateArtifact").output.myObject]` | Object | { "myproperty": "my value", "anotherProperty": true } |
-|`[artifacts("myTemplateArtifact").output.myObject.myProperty]` | String | « Mon valeur » |
+|`[artifacts("myTemplateArtifact").output.myObject.myProperty]` | Chaîne | « Mon valeur » |
 |`[artifacts("myTemplateArtifact").output.myObject.anotherProperty]` | Bool | True |
 
 ## <a name="concat"></a>concat

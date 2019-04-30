@@ -279,7 +279,7 @@ Les appareils IoT Edge standards n’avez pas besoin les connexions entrantes de
 
 Pour un scénario de passerelle fonctionne, au moins un des protocoles pris en charge du hub IoT Edge doit être ouvert pour le trafic entrant à partir d’appareils en aval. Les protocoles pris en charge sont MQTT, AMQP et HTTPS.
 
-| Port | Protocole |
+| Port | Protocol |
 | ---- | -------- |
 | 8883 | MQTT |
 | 5671 | AMQP |

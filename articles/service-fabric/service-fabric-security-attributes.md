@@ -29,7 +29,7 @@ La sécurité fait partie intégrante d'un service Azure. Cet article décrit le
 | Chiffrement au repos :<ul><li>Chiffrement côté serveur</li><li>Chiffrement côté serveur avec des clés gérées par le client</li><li>Autres fonctionnalités de chiffrement (côté client, Always Encrypted, etc.)</ul>| Oui | Le client possède le cluster et les machines virtuelles identiques sur lequel le cluster est basé. Chiffrement de disque Azure peut être activé sur les machines virtuelles identiques. |
 | Chiffrement en transit :<ul><li>Chiffrement Express Route</li><li>Chiffrement dans le réseau virtuel</li><li>Chiffrement de réseau virtuel à réseau virtuel</ul>| Oui |  |
 | Gestion de clé de chiffrement (clé CMK, BYOK, etc.).| Oui | Le client possède le cluster et les machines virtuelles identiques sur lequel le cluster est basé. Chiffrement de disque Azure peut être activé sur les machines virtuelles identiques. |
-| Chiffrement au niveau colonne (Services de données Azure)| S.O. |  |
+| Chiffrement au niveau colonne (Services de données Azure)| N/A |  |
 | Appels d’API chiffrés| Oui | Les appels d’API Service Fabric sont effectués via Azure Resource Manager. Un jeton web JSON valide (JWT) est nécessaire. |
 
 ## <a name="network-segmentation"></a>Segmentation du réseau
@@ -60,7 +60,7 @@ La sécurité fait partie intégrante d'un service Azure. Cet article décrit le
 | Attribut de sécurité | Oui/Non | Notes|
 |---|---|--|
 | Audit et consignation de plan de contrôle et de gestion| Oui | Toutes les opérations de plan de contrôle sont exécutées par le biais de processus pour l’audit et les approbations. |
-| Audit et consignation de plan de données| S.O. | Le cluster appartient au client.  |
+| Audit et consignation de plan de données| N/A | Le cluster appartient au client.  |
 
 ## <a name="configuration-management"></a>Gestion des configurations
 

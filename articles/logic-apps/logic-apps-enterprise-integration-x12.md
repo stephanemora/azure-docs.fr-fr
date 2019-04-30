@@ -122,7 +122,7 @@ Sélectionnez un schéma pour chaque type de transaction (ST1) et application de
 
 | Propriété | Description |
 | --- | --- |
-| `Version` |Sélectionnez la version X12 |
+| Version |Sélectionnez la version X12 |
 | Type de transaction (ST01) |Sélectionnez le type de transaction |
 | Application de l’expéditeur (GS02) |Sélectionnez l’application de l’expéditeur |
 | Schéma |Sélectionnez le fichier de schéma que vous souhaitez utiliser. Les schémas sont ajoutés à votre compte d’intégration. |
@@ -216,7 +216,7 @@ Votre contrat est maintenant prêt à traiter les messages sortants qui sont con
 
 | Propriété | Description |
 | --- | --- |
-| `Version` |Sélectionnez la version X12 |
+| Version |Sélectionnez la version X12 |
 | Type de transaction (ST01) |Sélectionnez le type de transaction |
 | Schéma |Sélectionnez le schéma à utiliser. Les schémas se trouvent dans votre compte d’intégration. Si vous sélectionnez schéma d’abord, il configure automatiquement la version et le type de transaction.  |
 

@@ -113,7 +113,7 @@ Pour afficher les résultats au format CSV :
 ### <a name="system-requirements"></a>Configuration requise
 - Un serveur exécutant Windows Server 2012 R2, Windows Server 2016 ou Windows Server 2019 :
 
-    | `Version` | Références prises en charge | Options de déploiement prises en charge |
+    | Version | Références prises en charge | Options de déploiement prises en charge |
     |---------|----------------|------------------------------|
     | Windows Server 2019 | Datacenter et Standard | Complète (serveur avec une interface utilisateur) |
     | Windows Server 2016 | Datacenter et Standard | Complète (serveur avec une interface utilisateur) |

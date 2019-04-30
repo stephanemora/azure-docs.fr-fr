@@ -17,7 +17,7 @@ ms.lasthandoff: 04/24/2019
 ms.locfileid: "63766199"
 ---
 # <a name="managing-concurrency-in-microsoft-azure-storage"></a>Gestion de l’accès concurrentiel dans Microsoft Azure Storage
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Présentation
 Dans les applications Internet modernes, les données sont généralement consultées et mises à jour par plusieurs utilisateurs à la fois. Les développeurs d'applications doivent donc bien réfléchir à la manière de proposer une expérience prévisible à leurs utilisateurs finaux, notamment lorsque plusieurs utilisateurs peuvent mettre à jour les mêmes données. Les développeurs prennent généralement en compte trois grandes stratégies d’accès concurrentiel aux données :  
 
 1. Accès concurrentiel optimiste – Une application procédant à une mise à jour vérifie, dans le cadre de la mise à jour, que les données n'ont pas été modifiées depuis la dernière lecture. Par exemple, si deux utilisateurs qui consultent une page wiki procèdent à une mise à jour de la même page, la plateforme wiki doit veiller à ce que la deuxième mise à jour n'écrase pas la première et à ce que les deux utilisateurs sachent si leur mise à jour a fonctionné ou non. Cette stratégie est la plus souvent utilisée dans les applications web.
