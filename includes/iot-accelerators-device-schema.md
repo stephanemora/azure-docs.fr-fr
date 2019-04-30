@@ -9,11 +9,11 @@ ms.date: 07/26/2018
 ms.author: dobett
 ms.custom: include file
 ms.openlocfilehash: 414bb0183e68cb46e52c379ea3f7aceda5d4170e
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55701180"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61446103"
 ---
 ## <a name="the-parts-of-the-device-model-schema"></a>Les parties d’un schéma de modèle d’appareil
 
@@ -141,8 +141,8 @@ Actuellement, vous ne pouvez utiliser que des schémas de message JSON. Les cham
 
 * Objet - sérialisé à l’aide de JSON
 * Binaire - sérialisé à l’aide de base64
-* Texte
-* Booléen
+* Text
+* Boolean
 * Entier 
 * Double
 * DateTime

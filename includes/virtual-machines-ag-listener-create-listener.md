@@ -1,15 +1,16 @@
 ---
-author: cynthn
+author: rockboyfor
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 10/26/2018
-ms.author: cynthn
+origin.date: 10/26/2018
+ms.date: 11/26/2018
+ms.author: v-yeche
 ms.openlocfilehash: 394b242ab46da7821f77e8d008836753f4e358e2
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50226924"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62097681"
 ---
 Dans cette étape, vous créez manuellement l’écouteur du groupe de disponibilité dans le Gestionnaire du cluster de basculement et SQL Server Management Studio.
 
@@ -20,7 +21,7 @@ Dans cette étape, vous créez manuellement l’écouteur du groupe de disponibi
 3. Développez le nom du cluster, puis cliquez sur **Rôles**.
 
 4. Dans le volet **Rôles**, cliquez avec le bouton droit sur le nom du groupe de disponibilité, puis sélectionnez **Ajouter une ressource** > **Point d’accès client**.
-   
+
     ![Ajouter un point d’accès client pour le groupe de disponibilité](./media/virtual-machines-sql-server-configure-alwayson-availability-group-listener/IC678769.gif)
 
 5. Dans la zone **Nom**, créez un nom pour ce nouvel écouteur, cliquez à deux reprises sur **Suivant**, puis cliquez sur **Terminer**.  
@@ -30,17 +31,17 @@ Dans cette étape, vous créez manuellement l’écouteur du groupe de disponibi
     La ressource d’adresse IP de chaque réseau de cluster dans votre cluster est affichée. S’il s’agit d’une solution basée uniquement sur Azure, une seule ressource d’adresse IP est affichée.
 
 7. Effectuez l’une des actions suivantes :
-   
+
    * Pour configurer une solution hybride :
-     
+
         a. Cliquez avec le bouton droit sur la ressource d’adresse IP qui correspond à votre sous-réseau local, puis sélectionnez **Propriétés**. Notez le nom de l’adresse IP et le nom du réseau.
-   
+
         b. Sélectionnez **Adresse IP statique**, affectez une adresse IP inutilisée, puis cliquez sur **OK**.
- 
+
    * Pour configurer une solution basée uniquement sur Azure :
 
         a. Cliquez avec le bouton droit sur la ressource d’adresse IP qui correspond à votre sous-réseau Azure, puis sélectionnez **Propriétés**.
-       
+
        > [!NOTE]
        > Si la mise en ligne de l’écouteur échoue par la suite en raison d’un conflit avec l’adresse IP sélectionnée par DHCP, vous pouvez configurer une adresse IP statique valide dans cette fenêtre de propriétés.
        > 
@@ -48,4 +49,5 @@ Dans cette étape, vous créez manuellement l’écouteur du groupe de disponibi
 
        b. Dans la même fenêtre de propriétés **Adresse IP**, modifiez le **Nom de l’adresse IP**.  
         Ce nom est utilisé dans la variable $IPResourceName du script PowerShell. Si votre solution couvre plusieurs réseaux virtuels Azure, répétez cette étape pour chaque ressource IP.
-
+        
+<!-- Update_Description: update meta properties -->

@@ -13,7 +13,7 @@ ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/23/2019
-ms.locfileid: "60187760"
+ms.locfileid: "61036105"
 ---
 Le concept d’unité Compute Azure (ACU) permet de comparer les performances de calcul (UC) des références SKU Azure. Cela vous aidera à identifier facilement la référence la plus à même de répondre à vos besoins en termes de performances.  L’unité ACU est actuellement normalisée sur une machine virtuelle de petite taille (Standard_A1) correspondant à 100, et toutes les autres références représentent ensuite approximativement la rapidité avec laquelle la référence en question peut exécuter un test d’évaluation. 
 

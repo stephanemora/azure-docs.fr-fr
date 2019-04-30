@@ -1,15 +1,16 @@
 ---
-author: cynthn
+author: rockboyfor
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 10/26/2018
-ms.author: cynthn
+origin.date: 10/26/2018
+ms.date: 11/26/2018
+ms.author: v-yeche
 ms.openlocfilehash: e128f3c67a41322d9c25a8d6941e937729760bf4
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50226860"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62097663"
 ---
 Au cours de cette étape, vous allez créer une règle de pare-feu pour ouvrir le port de la sonde du point de terminaison à charge équilibrée (59999, comme indiqué précédemment) et une autre règle pour ouvrir le port de l’écouteur de groupe de disponibilité. Comme vous avez créé le point de terminaison à charge équilibrée sur les machines virtuelles qui contiennent des réplicas du groupe de disponibilité, vous devez ouvrir le port de la sonde et le port de l’écouteur sur les machines virtuelles respectives.
 
@@ -29,3 +30,4 @@ Au cours de cette étape, vous allez créer une règle de pare-feu pour ouvrir l
 
 8. Répétez les étapes précédentes pour le port de l’écouteur de groupe de disponibilité (comme spécifié précédemment à l’aide du paramètre $EndpointPort du script), puis indiquez un nom de règle approprié, tel que **Port de l’écouteur toujours actif**.
 
+<!-- Update_Description: update meta properties -->

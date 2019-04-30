@@ -1,21 +1,22 @@
 ---
 title: Vue d’ensemble du point de terminaison de services de réseau virtuel pour le serveur Azure Database pour PostgreSQL
 description: Découvrez comment les points de terminaison de service de réseau virtuel fonctionnent pour votre serveur Azure Database pour PostgreSQL.
-author: bolzmj
-ms.author: mbolz
+author: WenJason
+ms.author: v-jay
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 08/20/2018
+origin.date: 08/20/2018
+ms.date: 04/22/2019
 ms.openlocfilehash: c6549ad170a0fc3b4387d5bc5163ca0548b92119
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60009189"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60560116"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-postgresql"></a>Utiliser des points de terminaison de service de réseau virtuel et des règles pour Azure Database pour PostgreSQL
 
-Les *règles de réseau virtuel* désignent une fonctionnalité de sécurité de pare-feu qui permet de contrôler si votre serveur Azure Database pour PostgreSQL doit accepter ou non les communications provenant de sous-réseaux spécifiques dans des réseaux virtuels. Cet article explique pourquoi la fonctionnalité de règles de réseau virtuel est parfois la meilleure solution pour autoriser en toute sécurité des communications sur votre serveur Azure Database pour PostgreSQL.
+Les *règles de réseau virtuel* désignent une fonctionnalité de sécurité de pare-feu qui permet de contrôler si votre serveur Azure Database pour PostgreSQL doit accepter ou non les communications provenant de sous-réseaux spécifiques dans des réseaux virtuels. Cet article explique pourquoi la fonctionnalité de règle de réseau virtuel est parfois la meilleure solution pour autoriser en toute sécurité des communications sur votre serveur Azure Database pour PostgreSQL.
 
 Pour créer une règle de réseau virtuel, il doit d’abord exister un [réseau virtuel][vm-virtual-network-overview] (VNet) et un [point de terminaison de service de réseau virtuel][vm-virtual-network-service-endpoints-overview-649d] pour la règle à référencer. L’image suivante illustre le fonctionnement d’un point de terminaison de service de réseau virtuel avec Azure Database pour PostgreSQL :
 
@@ -53,7 +54,7 @@ Les machines virtuelles sur vos sous-réseaux ne peuvent pas communiquer avec vo
 
 ### <a name="a-allow-access-to-azure-services"></a>R. Autoriser l’accès aux services Azure
 
-Le volet de sécurité de connexion dispose d’un bouton **ACTIVÉ/DÉSACTIVÉ** étiqueté **Autoriser l’accès aux services Azure**. Le paramètre **ACTIVÉ** autorise les communications provenant de toutes les adresses IP Azure et de tous les sous-réseaux Azure. Ces adresses IP ou sous-réseaux Azure ne vous appartiennent peut-être pas. Ce paramètre **ACTIVÉ** est sans doute plus ouvert que vous souhaitez que le soit votre serveur Azure Database pour PostgreSQL. La fonctionnalité de règles de réseau virtuel offre un contrôle granulaire beaucoup plus précis.
+Le volet de sécurité de connexion dispose d’un bouton **ACTIVÉ/DÉSACTIVÉ** étiqueté **Autoriser l’accès aux services Azure**. Le paramètre **ACTIVÉ** autorise les communications provenant de toutes les adresses IP Azure et de tous les sous-réseaux Azure. Ces adresses IP ou sous-réseaux Azure ne vous appartiennent peut-être pas. Ce paramètre **ACTIVÉ** est sans doute plus ouvert que vous souhaitez que le soit votre serveur Azure Database pour PostgreSQL. La fonctionnalité de règle de réseau virtuel offre un contrôle beaucoup plus précis.
 
 ### <a name="b-ip-rules"></a>B. Règles IP
 
@@ -105,7 +106,7 @@ Vous avez la possibilité d’utiliser le [contrôle d’accès en fonction du r
 
 ## <a name="limitations"></a>Limites
 
-Pour Azure Database pour PostgreSQL, la fonctionnalité de règles de réseau virtuel présente les limitations suivantes :
+Pour Azure Database pour PostgreSQL, la fonctionnalité de règle de réseau virtuel présente les limitations suivantes :
 
 - Une application web peut être mappée à une adresse IP privée dans un sous-réseau/réseau virtuel. Même si les points de terminaison de service sont activés à partir du réseau virtuel/sous-réseau donné, les connexions entre l’application web et le serveur présenteront une source IP publique Azure, et non une source de sous-réseau/réseau virtuel. Pour activer la connectivité à partir d’une application Web vers un serveur qui a des règles de pare-feu de réseau virtuel, vous devez les services Azure est autorisé pour accéder au serveur sur le serveur.
 
@@ -115,7 +116,7 @@ Pour Azure Database pour PostgreSQL, la fonctionnalité de règles de réseau vi
 
 - Les règles de réseau virtuel s’appliquent uniquement à des réseaux virtuels Azure Resource Manager, et non à des réseaux avec un [modèle de déploiement Classic][arm-deployment-model-568f].
 
-- Le fait d’activer les points de terminaison de service de réseau virtuel sur Azure Database pour MySQL l’aide du nom de service **Microsoft.Sql** a pour effet d’activer également les points de terminaison pour tous les services Azure Database : Azure Database pour MySQL, Azure Database pour PostgreSQL, Azure SQL Database et Azure SQL Data Warehouse.
+- Le fait d’activer les points de terminaison de service de réseau virtuel sur Azure Database pour PostgreSQL à l’aide du nom de service **Microsoft.Sql** a pour effet d’activer également les points de terminaison pour tous les services Azure Database : Azure Database pour MySQL, Azure Database pour PostgreSQL, Azure SQL Database et Azure SQL Data Warehouse.
 
 - Les points de terminaison de service de réseau virtuel sont uniquement pris en charge pour les serveurs Usage général et Mémoire optimisée.
 

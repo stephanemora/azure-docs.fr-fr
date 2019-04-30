@@ -5,15 +5,16 @@ services: functions
 author: nzthiago
 ms.service: azure-functions
 ms.topic: include
-ms.date: 02/21/2018
-ms.author: nzthiago
+origin.date: 02/21/2018
+ms.date: 03/25/2019
+ms.author: v-junlch
 ms.custom: include file
 ms.openlocfilehash: ffb29fc76313e8870b52cb0a63936da7853ea6ce
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58305382"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61036267"
 ---
 ## <a name="timeout"></a>Durée de délai d’attente d’application (fonction) 
 
@@ -28,3 +29,4 @@ La durée d’expiration d’une application de fonction est définie par la pro
 
 > [!NOTE] 
 > Quel que soit le paramètre de délai d’attente d’application fonction 230 secondes est la quantité maximale pendant laquelle une fonction déclenchée via HTTP peut effectuer pour répondre à une demande. Cela est dû au fait le [par défaut du délai d’inactivité de l’équilibreur de charge Azure](../articles/app-service/faq-availability-performance-application-issues.md#why-does-my-request-time-out-after-230-seconds). Pour les temps de traitement, envisagez d’utiliser le [modèle asynchrone de fonctions durables](../articles/azure-functions/durable/durable-functions-concepts.md#async-http) ou [différer le travail réel et de renvoyer une réponse immédiate](../articles/azure-functions/functions-best-practices.md#avoid-long-running-functions).
+

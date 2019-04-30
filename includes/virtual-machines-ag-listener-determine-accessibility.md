@@ -1,15 +1,16 @@
 ---
-author: cynthn
+author: rockboyfor
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 10/26/2018
-ms.author: cynthn
+origin.date: 10/26/2018
+ms.date: 11/26/2018
+ms.author: v-yeche
 ms.openlocfilehash: 8861396db6f6b680ddb55ce020e5579dc25b118e
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50227512"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62097680"
 ---
 Il est important de savoir qu’il existe deux manières de configurer un écouteur de groupe de disponibilité dans Azure. Ces méthodes diffèrent dans le type d’équilibrage de charge Azure que vous utilisez lorsque vous créez l’écouteur. Le tableau suivant décrit ces différences :
 
@@ -25,3 +26,4 @@ Il est important de savoir qu’il existe deux manières de configurer un écou
 
 Un équilibrage de charge interne ne peut être configuré que dans des réseaux virtuels à portée régionale. Les réseaux virtuels existants qui ont été configurés pour un groupe d’affinités ne peuvent pas utiliser un équilibrage de charge interne. Pour plus d’informations, voir [Présentation de l’équilibrage de charge interne](../articles/load-balancer/load-balancer-internal-overview.md).
 
+<!-- Update_Description: update meta properties -->
