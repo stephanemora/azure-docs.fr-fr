@@ -11,12 +11,12 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: 50bd9ecdd665cf72c146c63ae25efa6773934a3e
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
-ms.translationtype: HT
+ms.openlocfilehash: 840a010f8606387a250552d884621a96d0031f90
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35295378"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62106225"
 ---
 # <a name="get-started-with-the-onedrive-connector"></a>Prise en main du connecteur OneDrive
 Connexion à OneDrive pour gérer vos fichiers, y compris le téléchargement de fichiers, la suppression de fichiers, et plus encore. 
@@ -62,7 +62,7 @@ Un déclencheur est un événement qui peut être utilisé pour lancer le flux d
 ## <a name="use-an-action"></a>Utilisation d’une action
 Une action est une opération effectuée par le flux de travail défini dans une application logique. [En savoir plus sur les actions](../logic-apps/logic-apps-overview.md#logic-app-concepts).
 
-1. Sélectionnez le signe plus. Vous disposez de plusieurs options : **Ajouter une action**, **Ajouter une condition** ou l’une des options **Plus**.
+1. Sélectionnez le signe plus. Vous disposez de plusieurs options : **Ajouter une action**, **ajouter une condition**, ou l’un de le **plus** options.
    
     ![](./media/connectors-create-api-onedrive/add-action.png)
 2. Choisissez **Ajouter une action**.

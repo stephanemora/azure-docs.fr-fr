@@ -17,13 +17,13 @@ ms.date: 07/16/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1771fe1d94eb64cf1e5227953bdc5defa488e85f
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56208450"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60639094"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-voyance"></a>Tutoriel : Intégration d’Azure Active Directory avec Voyance
+# <a name="tutorial-azure-active-directory-integration-with-voyance"></a>Didacticiel : Intégration d’Azure Active Directory avec Voyance
 
 Dans ce didacticiel, vous allez apprendre à intégrer Voyance à Azure Active Directory (Azure AD).
 
@@ -35,7 +35,7 @@ L’intégration de Voyance à Azure AD vous offre les avantages suivants :
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour configurer l’intégration d’Azure AD à Voyance, vous avez besoin des éléments suivants :
 

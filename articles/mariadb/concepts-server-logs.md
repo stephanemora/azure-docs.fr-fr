@@ -7,11 +7,11 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: a26f61eb199d8f370e1a9dd010932dc868b74ae4
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53545176"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61041256"
 ---
 # <a name="server-logs-in-azure-database-for-mariadb"></a>Journaux d’activité de serveur dans Azure Database for MariaDB
 Dans Azure Database for MariaDB, le journal des requêtes lentes est accessible aux utilisateurs. L’accès aux journaux des transactions n’est pas pris en charge. Le journal des requêtes lentes peut être utilisé pour identifier les goulots d’étranglement en matière de performances, afin de les faire disparaître.
@@ -43,4 +43,4 @@ Les autres paramètres que vous pouvez ajuster incluent :
 Consultez la [documentation MariaDB consacrée au journal des requêtes lentes](https://mariadb.com/kb/en/library/slow-query-log-overview/) pour obtenir une description complète des paramètres du journal des requêtes lentes.
 
 ## <a name="next-steps"></a>Étapes suivantes
-- [Guide pratique pour configurer les journaux des serveurs et y accéder à partir du portail Azure](howto-configure-server-logs-portal.md).
+- [Guide pratique pour configurer les journaux d’activité des serveurs et y accéder à partir du portail Azure](howto-configure-server-logs-portal.md).

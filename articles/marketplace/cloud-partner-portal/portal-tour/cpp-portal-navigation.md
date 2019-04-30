@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 11/09/2018
 ms.author: pbutlerm
 ms.openlocfilehash: e963734af450a96ac08830769560a2b5e8eef9c6
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52266304"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62128621"
 ---
 # <a name="cloud-partner-portal-navigation"></a>Navigation dans le portail Microsoft Cloud Partner
 
@@ -41,7 +41,7 @@ Un clic sur le contenu de ces zones déclenche les actions suivantes :
 
 Ces menus et formulaires sont décrits ci-après.
 
-### <a name="help-menu"></a>Menu Aide
+### <a name="help-menu"></a>Menu aide
 
 Le menu **Aide** fournit des ressources utiles pour l’utilisateur du portail Microsoft Cloud Partner.
 

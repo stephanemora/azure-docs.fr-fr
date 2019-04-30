@@ -11,11 +11,11 @@ ms.custom: include file
 ms.date: 09/27/2018
 ms.author: diberry
 ms.openlocfilehash: a6958ff41220bfe21ee8a5dc4a3fe94975eabbd3
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "58114440"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60805456"
 ---
 En haut de la classe Program, ajoutez l’instruction suivante pour accéder à QnA Maker :
 

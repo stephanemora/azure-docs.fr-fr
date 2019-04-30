@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 3fea858f23c6b271a117f2edcc749e0c6b737e27
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
-ms.translationtype: HT
+ms.openlocfilehash: 346ebd9636623a2fc8b08d42c2170a21a5e9a316
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39159989"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62121076"
 ---
 # <a name="enable-lead-sharing"></a>Activer le partage des prospects
 Assurez-vous que la gestion des prospects est activée pour votre annonce dans la [Place de marché Azure](https://azuremarketplace.microsoft.com) ou [Microsoft AppSource](https://appsource.microsoft.com) afin que vous puissiez recevoir les coordonnées des publics suivants :

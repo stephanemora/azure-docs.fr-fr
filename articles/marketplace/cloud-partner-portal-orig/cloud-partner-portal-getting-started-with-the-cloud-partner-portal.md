@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 00558b9effed39e160aef93c22431863daf6aa0d
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48806050"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61067410"
 ---
 # <a name="getting-started-with-the-cloud-partner-portal"></a>Prise en main du portail Microsoft Cloud Partner
 
@@ -51,7 +51,7 @@ Dans la suite de la visite guidée, lorsque vous démarrez une nouvelle offre ou
 ![Page de l’offre](./media/cloud-partner-portal-getting-started-with-the-cloud-partner-portal/offer-page.png)
 
 Sur la page Offre, vous pouvez :
-- Ajouter du contenu ou vérifiez l’état de votre offre en basculant entre les deux modes de niveau supérieur : **Éditeur** et **État**.
+- Ajouter du contenu ou vérifiez le statut de votre offre en basculant entre les deux modes de niveau supérieur : **Éditeur** et **état**.
 - Utiliser la **Barre d’action** pour gérer explicitement les modifications de votre offre en enregistrant et en ignorant votre entrée.
 - Naviguer entre les **Formulaires** obligatoires pour chaque offre tandis que vous modifiez les paramètres de votre offre.
 

@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 02/27/2019
 ms.author: ellacroi
 ms.openlocfilehash: 516cb10fe368334d8fe30d998857d0688dcae972
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57220737"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60726897"
 ---
 # <a name="cloud-solution-providers"></a>Fournisseurs de solutions cloud
 
@@ -29,10 +29,10 @@ Le tableau suivant présente les types d’offre et les modèles de tarification
 | **Type d’offre**    | **BYOL**  |  **Gratuit** | **PAYG**   |
 | :---------------- | :---------|:----------|:-----------|
 | Machines virtuelles  | Oui | OUI | Oui |
-| Containers | S.O. | Oui | S.O. |
-| Modèles de solution | S.O. | Oui | S.O. |
-| Applications gérées | S.O. | Oui | Oui |
-| Solution informatique SaaS (par site de tarification) | S.O. | Oui | Oui |
+| Containers | N/A | Oui | N/A |
+| Modèles de solution | N/A | Oui | N/A |
+| Applications gérées | N/A | Oui | Oui |
+| Solution informatique SaaS (par site de tarification) | N/A | Oui | Oui |
 |   |   |   |
 
 ## <a name="how-to-opt-in"></a>Comment participer

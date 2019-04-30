@@ -5,21 +5,23 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/11/2019
+ms.date: 04/22/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 5c8f70ff76da458fcc1433226a51012fb7ccd18e
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.openlocfilehash: 81947baccf723ab759f2dc24df40b81af4502e09
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59544634"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61003983"
 ---
 # <a name="understand-cost-management-data"></a>Comprendre les données Cost Management
 
 Cet article vous aide à mieux comprendre les données incluses dans Azure Cost Management. Il décrit également la fréquence à laquelle les données sont traitées, collectées, affichées et fermées. L’utilisation d’Azure vous est facturée tous les mois. Toutefois, votre type d’abonnement Azure détermine quand votre mois de facturation se termine. La fréquence à laquelle Cost Management reçoit les données d’utilisation varie selon différents facteurs. Ces facteurs comprennent le temps nécessaire pour traiter les données et la fréquence à laquelle les services Azure envoient les données d’utilisation au système de facturation.
+
+Gestion des coûts inclut toutes les activités et achats, y compris des réservations et des offres tierces pour les comptes contrat entreprise (EA). Comptes de contrat de client de Microsoft (MCA) et les abonnements incluent uniquement l’utilisation des services Azure et la place de marché. Prise en charge et autres coûts ne sont pas inclus. Les coûts sont estimés jusqu'à ce qu’une facture est générée et ne se factorisent pas de crédits.
 
 ## <a name="supported-microsoft-offers"></a>Offres Microsoft prises en charge
 
@@ -31,8 +33,8 @@ Les informations suivantes présentent les [offres Microsoft Azure](https://azur
 | **Azure Government** | Azure Government Entreprise                                                         | EnterpriseAgreement_2014-09-01 | MS-AZR-USGOV-0017P |
 | **Contrat Entreprise (EA)** | Enterprise Dev/Test                                                        | MSDNDevTest_2014-09-01 | MS-AZR-0148P |
 | **Contrat Entreprise (EA)** | [Microsoft Azure Enterprise](https://azure.microsoft.com/offers/enterprise-agreement-support-upgrade) | EnterpriseAgreement_2014-09-01 | MS-AZR-0017P |
-| **Contrat de client de Microsoft** | [Plan de Microsoft Azure](https://azure.microsoft.com/offers/ms-azr-0017g) | EnterpriseAgreement_2014-09-01 | S.O. |
-| **Contrat de client de Microsoft** | [Plan de Microsoft Azure pour le développement/Test](https://azure.microsoft.com/offers/ms-azr-0148g)  | MSDNDevTest_2014-09-01 | S.O. |
+| **Contrat de client de Microsoft** | [Plan de Microsoft Azure](https://azure.microsoft.com/offers/ms-azr-0017g) | EnterpriseAgreement_2014-09-01 | N/A |
+| **Contrat de client de Microsoft** | [Plan de Microsoft Azure pour le développement/Test](https://azure.microsoft.com/offers/ms-azr-0148g)  | MSDNDevTest_2014-09-01 | N/A |
 | **MSDN (Microsoft Developer Network)** | [Plateformes MSDN](https://azure.microsoft.com/offers/ms-azr-0062p) | MSDN_2014-09-01 | MS-AZR-0062P |
 | **Pay-As-You-Go** | [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p)                       | PayAsYouGo_2014-09-01 | MS-AZR-0003P |
 | **Pay-As-You-Go** | [Pay-As-You-Go Dev/Test](https://azure.microsoft.com/offers/ms-azr-0023p)              | MSDNDevTest_2014-09-01 | MS-AZR-0023P |
@@ -86,6 +88,7 @@ Les tableaux suivants indiquent les données qui sont comprises ou non dans Cost
 |   | Crédits. Pour plus d’informations, consultez [Conditions de facturation expliquées](../billing/billing-understand-your-invoice.md). |
 
 <sup>1</sup> L’utilisation des services Azure est basée sur la réservation et des prix négociés.
+
 <sup>2</sup> offre l’utilisation de la place de marché n’est pas disponible pour le paiement à l’utilisation, MSDN, et Visual Studio propose pour l’instant.
 
 **Métadonnées**
@@ -113,7 +116,7 @@ Abonnements avec paiement à l’utilisation. Si le mois de facturation se termi
 
 ### <a name="rerated-data"></a>Données réestimées
 
-Que vous utilisiez les [API Cost Management](https://aka.ms/costmgmt/docs), Power BI ou le portail Azure pour récupérer des données, prévoyez une réestimation des frais de la période de facturation en cours, et donc des changements, jusqu’à la clôture de la facture.
+Si vous utilisez le [API de gestion des coûts](https://aka.ms/costmgmt/docs), Power BI ou le portail Azure pour récupérer des données, attendre des frais de la période de facturation en cours pour obtenir une idée nouveau et par conséquent modifier, jusqu'à la fermeture de la facture.
 
 ## <a name="usage-data-update-frequency-varies"></a>La fréquence de mise à jour des données d’utilisation varie
 

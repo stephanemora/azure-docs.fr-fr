@@ -13,15 +13,15 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 3/14/2019
 ms.openlocfilehash: d8aaf51c836a8e88c4e9b92798067167cd044e72
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58015371"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60848079"
 ---
 # <a name="scale-elastic-pool-resources-in-azure-sql-database"></a>Mettre à l’échelle un pool élastique dans Azure SQL Database
 
-Cet article décrit comment faire évoluer les ressources de calcul et de stockage disponibles pour les pools élastiques et les bases de données en pool dans Azure SQL Database.
+Cet article décrit comment faire évoluer les ressources de calcul et de stockage disponibles pour les pools élastiques et les bases de données mises en pool dans Azure SQL Database.
 
 ## <a name="change-compute-resources-vcores-or-dtus"></a>Modification des ressources de calcul (vCores ou dtu)
 
@@ -63,7 +63,7 @@ La latence pour modifier le niveau de service ou de mettre à l’échelle la ta
 ### <a name="additional-considerations-when-changing-service-tier-or-rescaling-compute-size"></a>Considérations supplémentaires lors de la modification de taille de calcul de niveau ou la remise à l’échelle du service
 
 - Lors de la baisse vCores ou Edtu pour un pool élastique, l’espace utilisé doit être inférieure à la taille maximale autorisée de la cible service niveau et pool d’Edtu.
-- Lors de la remise à l’échelle vCores ou Edtu pour un pool élastique, un coût de stockage supplémentaire s’applique si (1) la taille maximale de stockage du pool est pris en charge par le pool cible, et (2) la taille maximale de stockage dépasse la quantité de stockage inclus du pool cible. Par exemple, si un pool Standard de 100 eDTU avec une taille maximale de 100 Go est rétrogradé en pool Standard de 50 eDTU, un coût de stockage supplémentaire s’applique, car le pool cible prend en charge une taille maximale de 100 Go et la quantité de stockage incluse est de seulement 50 Go. Par conséquent, la quantité d’espace de stockage supplémentaire est de 100 Go - 50 Go = 50 Go. Pour la tarification du stockage supplémentaire, consultez [Tarification des bases de données SQL](https://azure.microsoft.com/pricing/details/sql-database/). Si la quantité réelle d’espace utilisé est inférieure à la quantité de stockage incluse, ce coût supplémentaire peut être évité en réduisant la taille maximale de la base de données à la quantité incluse.
+- Lors de la remise à l’échelle vCores ou Edtu pour un pool élastique, un coût de stockage supplémentaire s’applique si (1) la taille maximale de stockage du pool est pris en charge par le pool cible, et (2) la taille maximale de stockage dépasse la quantité de stockage inclus du pool cible. Par exemple, si un pool Standard de 100 eDTU avec une taille maximale de 100 Go est rétrogradé en pool Standard de 50 eDTU, un coût de stockage supplémentaire s’applique, car le pool cible prend en charge une taille maximale de 100 Go et la quantité de stockage incluse est de seulement 50 Go. Par conséquent, la quantité de stockage supplémentaire est de 100 Go - 50 Go = 50 Go. Pour la tarification du stockage supplémentaire, consultez [Tarification des bases de données SQL](https://azure.microsoft.com/pricing/details/sql-database/). Si la quantité réelle d’espace utilisé est inférieure à la quantité de stockage incluse, ce coût supplémentaire peut être évité en réduisant la taille maximale de la base de données à la quantité incluse.
 
 ### <a name="billing-during-rescaling"></a>Au cours de remise à l’échelle de facturation
 
@@ -78,10 +78,10 @@ Vous êtes facturé pour chaque heure d’existence de la base de données avec 
 
 - Le stockage peut être approvisionné jusqu’à la limite de taille maximale :
 
-  - Pour le stockage aux niveaux de service Standard et Usage général, augmentez ou diminuez la taille par incréments de 10 Go.
-  - Pour le stockage aux niveaux de service Premium et Critique pour l'entreprise, augmentez ou diminuez la taille par incréments de 250 Go.
+  - Pour le stockage des niveaux de service Standard et Usage général, augmentez ou diminuez la taille par incrément de 10 Go.
+  - Pour le stockage des niveaux de service Premium et Critique pour l’entreprise, augmentez ou diminuez la taille par incrément de 250 Go.
 - Le stockage pour un pool élastique peut être configuré en augmentant ou diminuant sa taille maximale.
-- Le prix du stockage pour un pool élastique est égal au volume de stockage multiplié par le prix unitaire du stockage pour le niveau de service. Pour plus d’informations sur le prix du stockage supplémentaire, consultez [Tarification des bases de données SQL](https://azure.microsoft.com/pricing/details/sql-database/).
+- Le prix du stockage pour un pool élastique est égal à la quantité de stockage multiplié par le prix unitaire du stockage pour le niveau de service. Pour plus d’informations sur le prix du stockage supplémentaire, consultez [Tarification des bases de données SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 
 > [!IMPORTANT]
 > Dans certaines circonstances, vous devrez peut-être réduire une base de données pour récupérer l’espace inutilisé. Pour plus d’informations, consultez l’article [Gérer l’espace du fichier de la base de données SQL Azure](sql-database-file-space-management.md).
@@ -90,7 +90,7 @@ Vous êtes facturé pour chaque heure d’existence de la base de données avec 
 
 - Le prix des eDTU pour un pool élastique inclut une certaine quantité de stockage sans coût supplémentaire. Un espace de stockage en plus du volume inclus peut être approvisionné pour un coût supplémentaire jusqu’à la limite de taille par incréments de 250 Go jusqu’à 1 To, puis par incréments de 256 Go au-delà de 1 To. Pour les quantités de stockage et limites de taille maximale incluses, consultez [Pool élastique : tailles de stockage et tailles de calcul](sql-database-dtu-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-compute-sizes).
 - Vous pouvez configurer du stockage supplémentaire pour un pool élastique en augmentant sa taille maximale à l’aide du [portail Azure](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), de [PowerShell](/powershell/module/az.sql/Get-AzSqlElasticPool), [d’Azure CLI](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update) ou de [l’API REST](https://docs.microsoft.com/rest/api/sql/elasticpools/update).
-- Le prix de l’espace de stockage supplémentaire pour un pool élastique est égal au volume de stockage supplémentaire multiplié par le prix unitaire du stockage supplémentaire pour le niveau de service. Pour plus d’informations sur le prix du stockage supplémentaire, consultez [Tarification des bases de données SQL](https://azure.microsoft.com/pricing/details/sql-database/).
+- Le prix de l’espace de stockage supplémentaire pour un pool élastique est égal à la quantité de stockage supplémentaire multiplié par le prix unitaire du stockage supplémentaire pour le niveau de service. Pour plus d’informations sur le prix du stockage supplémentaire, consultez [Tarification des bases de données SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 
 > [!IMPORTANT]
 > Dans certaines circonstances, vous devrez peut-être réduire une base de données pour récupérer l’espace inutilisé. Pour plus d’informations, consultez l’article [Gérer l’espace du fichier de la base de données SQL Azure](sql-database-file-space-management.md).

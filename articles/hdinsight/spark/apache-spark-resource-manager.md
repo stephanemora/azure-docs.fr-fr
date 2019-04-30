@@ -1,7 +1,6 @@
 ---
 title: Gérer les ressources du cluster Apache Spark dans Azure HDInsight
 description: Découvrez comment utiliser la gestion des ressources pour les clusters Spark sur Azure HDInsight pour obtenir de meilleures performances.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: 023fd8267a557fa57e98a6a57785fb9ebfcb12ab
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: dfd926f3e091f4516685fd73f3a6b87949330afb
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523968"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62098775"
 ---
 # <a name="manage-resources-for-apache-spark-cluster-on-azure-hdinsight"></a>Gérer les ressources du cluster Apache Spark dans Azure HDInsight 
 
@@ -152,7 +151,7 @@ Lancez l’interface utilisateur Yarn comme indiqué au début de l’article. D
     ![Arrêter App2](./media/apache-spark-resource-manager/kill-app2.png "Arrêter App2")
 
 ## <a name="see-also"></a>Voir aussi
-* [Track and debug jobs running on an Apache Spark cluster in HDInsight (Suivi et débogage des tâches en cours d’exécution sur un cluster Apache Spark dans HDInsight)](apache-spark-job-debugging.md)
+* [Suivi et débogage des tâches en cours d’exécution sur un cluster Apache Spark dans HDInsight](apache-spark-job-debugging.md)
 
 ### <a name="for-data-analysts"></a>Pour les analystes de données
 

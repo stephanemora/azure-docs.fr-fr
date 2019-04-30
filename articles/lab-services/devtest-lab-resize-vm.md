@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 9b9a1839bf4b028aec13b764b4de66385de4189e
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
-ms.translationtype: HT
+ms.openlocfilehash: a0bc618a9c0a02aae884d8be359df6bdbf4c0d2a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47090749"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60868064"
 ---
 # <a name="resize-a-vm-in-a-lab-in-azure-devtest-labs"></a>Redimensionner une machine virtuelle dans un labo dans Azure DevTest Labs
 L’une des fonctionnalités importantes des machines virtuelles Azure est la possibilité de changer la taille d’une machine virtuelle selon vos besoins en termes d’UC, de réseau ou de performances disque. Azure DevTest Labs prend en charge cette fonctionnalité pour les machines virtuelles dans un labo. La fonctionnalité de redimensionnement est conforme à la stratégie de labo pour les tailles de machine virtuelle autorisées dans le labo. Autrement dit, vous ne pouvez définir la taille d’une machine virtuelle que sur les tailles autorisées dans le labo. 

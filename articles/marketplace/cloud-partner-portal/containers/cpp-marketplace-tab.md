@@ -15,17 +15,17 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 220084dd0a3c61205a2cf53c29cf49291000efdb
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50980153"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61472961"
 ---
 # <a name="container-marketplace-tab"></a>Onglet Place de marché de conteneur
 
 L’onglet **Place de marché** de la page **Nouvelle offre** vous permet de proposer à vos clients potentiels des accords et informations juridiques, commerciaux et marketing, ainsi que de gérer des prospects depuis la Place de marché. Ajouter votre contenu marketing spécifiques à la section **Vue d’ensemble**.
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 
 Dans cette section, vous entrez les informations générales sur votre offre de la Place de marché Microsoft Azure.  Si un astérisque (*) se trouve en regard du nom du champ, cela signifie que ce champ est obligatoire.
 

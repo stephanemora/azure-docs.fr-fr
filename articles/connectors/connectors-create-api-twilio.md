@@ -12,17 +12,17 @@ ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
 ms.openlocfilehash: fab52236c701f10c8e8e23ac398362ca4583ea06
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50228837"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62104899"
 ---
 # <a name="manage-messages-in-twilio-with-azure-logic-apps"></a>Gérer les messages dans Twilio avec Azure Logic Apps
 
 Avec Azure Logic Apps et le connecteur Twilio, vous pouvez créer des tâches et des flux de travail automatisés qui reçoivent, envoient et répertorient des messages dans Twilio, notamment des messages SMS, MMS et IP globaux. Vous pouvez utiliser des actions pour effectuer des tâches avec votre compte Twilio. Vous pouvez également faire en sorte que des actions utilisent le résultat d’actions Twilio. Par exemple, lorsqu’un nouveau message arrive, vous pouvez envoyer son contenu avec le connecteur Slack. Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azure Logic Apps ?](../logic-apps/logic-apps-overview.md)
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscrivez-vous pour bénéficier d’un compte Azure gratuit</a>. 
 

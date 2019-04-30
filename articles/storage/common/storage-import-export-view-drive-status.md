@@ -9,11 +9,11 @@ ms.date: 05/17/2018
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: 225164fe00f70839446f8b74155cd3959f745a49
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467745"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61478021"
 ---
 # <a name="view-the-status-of-azure-importexport-jobs"></a>Voir l’état des tâches Azure Import/Export
 
@@ -51,7 +51,7 @@ Le tableau suivant décrit chacun des états par lesquels le disque d’une tâc
 | NeverReceived (Jamais reçu) | Le lecteur passe à l’état **NeverReceived** quand le colis associé à une tâche est arrivé, mais ne contient pas le lecteur. Un lecteur peut également passer à cet état si le colis n’est toujours pas arrivé au centre de données deux semaines après réception des informations d’expédition par le service. |
 | Transferring | Un lecteur passe à l’état **Transfert** quand le service commence à transférer les données du lecteur dans le Stockage Azure. |
 | Completed | Un lecteur passe à l’état **Effectué** quand le service a transféré toutes les données sans erreurs.
-| CompletedMoreInfo (Terminé avec des informations) | Un lecteur passe à l’état **CompletedMoreInfo** quand le service a rencontré des erreurs pendant la copie des données à partir du disque ou sur celui-ci. Les informations peuvent inclure des erreurs, des avertissements ou des messages d’informations sur le remplacement des objets blob.
+| CompletedMoreInfo (Terminé avec des informations) | Un lecteur passe à l’état **CompletedMoreInfo** quand le service a rencontré des erreurs pendant la copie des données à partir du disque ou sur celui-ci. Les informations peuvent inclure des erreurs, des avertissements ou des messages d’informations sur le remplacement des blobs.
 | ShippedBack (Renvoyé) | Un lecteur passe à l’état **ShippedBack** quand il a été réexpédié par le centre de données à l’adresse de retour. |
 
 Cette image à partir du portail Azure affiche l’état du lecteur d’un exemple de travail :

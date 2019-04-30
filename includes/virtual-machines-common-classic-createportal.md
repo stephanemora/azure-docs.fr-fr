@@ -1,15 +1,16 @@
 ---
-author: cynthn
+author: rockboyfor
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 10/26/2018
-ms.author: cynthn
+origin.date: 10/26/2018
+ms.date: 11/26/2018
+ms.author: v-yeche
 ms.openlocfilehash: 361d0ce5091d80198d47e4ad164f7cba8e21a55d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58114430"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61485273"
 ---
 Une machine virtuelle *personnalisée* correspond simplement à une machine virtuelle créée à l’aide d’une **Application recommandée** à partir de la **Place de marché**, car elle fait l’essentiel du travail à votre place. Cependant, vous pouvez toujours effectuer des choix de configuration parmi les éléments suivants :
 
@@ -28,9 +29,11 @@ Une machine virtuelle *personnalisée* correspond simplement à une machine virt
 
 > [!IMPORTANT]
 > si vous voulez que votre machine virtuelle utilise un réseau virtuel, assurez-vous de bien indiquer le réseau virtuel lorsque vous la créez.
-> 
 > * Il y a deux avantages à l’utilisation d’un réseau virtuel : se connecter directement à la machine virtuelle et configurer des connexions entre différents locaux.
-> 
 > * Vous pouvez configurer une machine virtuelle pour qu'elle rejoigne uniquement un réseau virtuel lorsque vous la créez. Pour plus d’informations sur les réseaux virtuels, consultez la page [Présentation du réseau virtuel Azure](../articles/virtual-network/virtual-networks-overview.md).
+>
+>
 
 ## <a name="to-create-the-virtual-machine"></a>Création de la machine virtuelle
+
+<!-- Update_Description: update meta properties -->

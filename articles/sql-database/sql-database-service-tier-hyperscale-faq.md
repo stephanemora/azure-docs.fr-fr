@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/26/2019
-ms.openlocfilehash: 7261a25251e93035c31004c9255612a0e3b45a2f
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: 7746d7256add185be0c67123edf63ea09b6b05a4
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59680897"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62111830"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>Questions fréquentes (FAQ) sur les bases de données SQL Azure Hyperscale
 
@@ -28,17 +28,17 @@ Cet article fournit des réponses aux questions fréquemment posées pour les cl
 
 ## <a name="general-questions"></a>Questions générales
 
-### <a name="what-is-a-hyperscale-database"></a>Qu’est-ce qu’une base de données hyperscale ?
+### <a name="what-is-a-hyperscale-database"></a>Qu’est-ce qu’une base de données Hyperscale ?
 
-Une base de données hyperscale est une base de données SQL Azure dans le niveau de service Hyperscale qui repose sur la technologie de stockage scale-out d’Hyperscale . Une base de données hyperscale prend en charge jusqu’à 100 To de données, et fournit des performances et un débit élevés, ainsi que la mise à l’échelle rapide pour s’adapter aux exigences des charges de travail. La mise à l’échelle est transparente pour l’application : la connectivité, le traitement des requêtes, etc., fonctionnent comme pour toute autre base de données SQL.
+Une base de données hyperscale est une base de données SQL Azure dans le niveau de service Hyperscale qui repose sur la technologie de stockage scale-out d’Hyperscale . Une base de données Hyperscale prend en charge jusqu’à 100 To de données, offre des performances et un débit élevés, ainsi qu’une mise à l’échelle rapide pour répondre aux exigences des charges de travail. La mise à l’échelle est transparente pour l’application : la connectivité, le traitement des requêtes, etc., fonctionnent comme pour toute autre base de données SQL.
 
-### <a name="what-resource-types-and-purchasing-models-support-hyperscale"></a>Quels sont les types de ressources et les modèles d’achat pris en charge par Hyperscale ?
+### <a name="what-resource-types-and-purchasing-models-support-hyperscale"></a>Quels sont les types de ressources et les modèles d’achat qui prennent en charge Hyperscale ?
 
-Le niveau de service Hyperscale est disponible seulement pour les bases de données uniques avec le modèle d’achat basé sur les cœurs virtuels dans Azure SQL Database.  
+Le niveau de service Hyperscale est disponible seulement pour les bases de données uniques avec le modèle d’achat vCore dans Azure SQL Database.  
 
 ### <a name="how-does-the-hyperscale-service-tier-differ-from-the-general-purpose-and-business-critical-service-tiers"></a>En quoi le niveau de service Hyperscale diffère-t-il des niveaux de service Usage général et Critique pour l’entreprise ?
 
-Les niveaux de service basés sur les cœurs virtuels diffèrent principalement quant à la disponibilité, au type de stockage et aux IOPS.
+Les niveaux de service vCore diffèrent principalement en disponibilité, type de stockage et IOPS.
 
 - Le niveau de service Usage général est approprié pour la plupart des charges de travail métier, offrant un ensemble équilibré d’options de calcul et de stockage, où les temps de latence des E/S et de basculement ne sont pas la priorité.
 - Le niveau de service Hyperscale est optimisé pour les charges de travail des bases de données très volumineuses.
@@ -49,12 +49,12 @@ Les niveaux de service basés sur les cœurs virtuels diffèrent principalement 
 | **Idéal pour** |Tous|  La plupart des charges de travail d’entreprise. Offre des options de calcul et de stockage équilibrées et économiques. | Applications de données avec des besoins en capacité pour des données volumineuses, et la possibilité de mettre à l’échelle automatiquement le stockage et de mettre à l’échelle la capacité de calcul de façon fluide. | Applications OLTP avec des débits de transactions élevés et la latence des E/S la plus faible. Offre la meilleure résilience aux défaillances grâce à l’utilisation de plusieurs réplicas isolés.|
 |  **Type de ressource** ||Base de données unique / pool élastique / instance managée | Base de données unique | Base de données unique / pool élastique / instance managée |
 | **Taille de calcul**|Base de données unique / pool élastique * | 1 à 80 cœurs virtuels | 1 à 80 cœurs virtuels* | 1 à 80 cœurs virtuels |
-| |Instance gérée | 8, 16, 24, 32, 40, 64, 80 cœurs virtuels | S.O. | 8, 16, 24, 32, 40, 64, 80 cœurs virtuels |
+| |Instance gérée | 8, 16, 24, 32, 40, 64, 80 cœurs virtuels | N/A | 8, 16, 24, 32, 40, 64, 80 cœurs virtuels |
 | **Type de stockage** | Tous |Stockage distant Premium (par instance) | Stockage découplé avec cache disque SSD local (par instance) | Stockage SSD local ultra-rapide (par instance) |
 | **Taille de stockage** | Base de données unique / pool élastique | 5 Go - 4 To | Jusqu’à 100 To | 5 Go - 4 To |
-| | Instance gérée  | 32 Go - 8 To | S.O. | 32 Go - 4 To |
+| | Instance gérée  | 32 Go - 8 To | N/A | 32 Go - 4 To |
 | **Débit d’E/S** | Base de données unique** | 500 IOPS par vCore avec 7000 IOPS au maximum | Inconnu jusqu’ici | 5 000 IOPS avec un maximum de 200 000 IOPS|
-| | Instance gérée | Dépend de la taille de fichier | S.O. | instance managée : Dépend de la taille de fichier|
+| | Instance gérée | Dépend de la taille de fichier | N/A | instance managée : Dépend de la taille de fichier|
 |**Disponibilité**|Tous|1 réplica, pas d’échelle lecture, pas de cache local | Plusieurs réplicas, jusqu’à 15 échelles lecture, cache local partiel | 3 réplicas, 1 échelle lecture, haute disponibilité redondante interzone, cache local complet |
 |**Sauvegardes**|Tous|RA-GRS, 7 à 35 jours (7 jours par défaut)| RA-GRS, 7 à 35 jours (7 jours par défaut), récupération jusqu`à une date et heure (PITR) à durée constante | RA-GRS, 7 à 35 jours (7 jours par défaut) |
 
@@ -77,7 +77,7 @@ Hyperscale est actuellement disponible pour les bases de données uniques dans l
 
 ### <a name="can-i-create-multiple-hyperscale-databases-per-sql-database-server"></a>Puis-je créer plusieurs bases de données Hyperscale dans un serveur SQL Database ?
 
-Oui. Pour plus d’informations et pour connaître les limites quant au nombre de bases de données Hyperscale par serveur SQL Database, consultez [SQL Database resource limits for Azure SQL Database server](sql-database-resource-limits-database-server.md) (Limites de ressources SQL Database pour le serveur SQL Database).
+Oui. Pour plus d’informations et pour connaître les limites quant au nombre de bases de données Hyperscale par serveur SQL Database, consultez [Limites des ressources SQL Database pour les bases de données uniques et mises en pool sur un serveur SQL Database](sql-database-resource-limits-database-server.md).
 
 ### <a name="what-are-the-performance-characteristic-of-a-hyperscale-database"></a>Quelles sont les caractéristiques en matière de performances d’une base de données Hyperscale ?
 
@@ -89,7 +89,7 @@ SQL Database Hyperscale offre une scalabilité rapide en fonction de la demande 
 
 - **Scale-up/down**
 
-  Avec Hyperscale, vous pouvez augmenter la taille de la capacité de calcul principale en termes de ressources, comme l’UC et la mémoire, puis mettre à l’échelle vers le bas, en durée constante. Comme le stockage est partagé, le scale-up et le scale-down ne sont pas une opération relative à la taille des données.  
+  Avec Hyperscale, vous pouvez augmenter la taille de calcul principale en termes de ressources, comme le processeur et la mémoire, puis mettre à l’échelle vers le bas, en durée constante. Comme le stockage est partagé, le scale-up et le scale-down ne sont pas une opération relative à la taille des données.  
 - **Scale-up/down**
 
   Avec Hyperscale, vous avec également la possibilité de provisionner un ou plusieurs nœuds de calcul supplémentaires, que vous pouvez utiliser pour répondre à vos demandes de lecture. Cela signifie que vous pouvez utiliser ces nœuds de calcul supplémentaires comme nœuds en lecture seule pour déporter votre charge de travail de lecture en dehors de la capacité de calcul principale. En plus des opérations en lecture seule, ces nœuds servent également comme serveur de secours en cas de basculement à partir du serveur principal.
@@ -132,7 +132,7 @@ Non.
 
 ### <a name="can-i-provision-a-compute-with-extra-ram-for-my-memory-intensive-workload"></a>Puis-je provisionner une capacité de calcul avec de la RAM supplémentaire pour ma charge de travail utilisant beaucoup de mémoire ?
 
-Non. Pour obtenir davantage de RAM, vous devez effectuer une mise à niveau vers une taille de capacité de calcul plus grande. Le matériel Gen4 offre davantage de RAM que le matériel Gen5. Pour plus d’informations, consultez [Tailles de stockage et de capacité de calcul d’Hyperscale](sql-database-vcore-resource-limits-single-databases.md#hyperscale-service-tier-preview).
+Non. Pour obtenir davantage de RAM, vous devez effectuer une mise à niveau vers une taille de calcul plus grande. Le matériel Gen4 offre davantage de RAM que le matériel Gen5. Pour plus d’informations, consultez [Tailles de stockage et taille de calcul Hyperscale](sql-database-vcore-resource-limits-single-databases.md#hyperscale-service-tier-preview-for-provisioned-compute-tier).
 
 ### <a name="can-i-provision-multiple-compute-nodes-of-different-sizes"></a>Puis-je provisionner plusieurs nœuds de calcul de tailles différentes ?
 
@@ -162,7 +162,7 @@ Le journal des transactions avec Hyperscale est pratiquement infini. Vous n’av
 
 ### <a name="does-my-temp-db-scale-as-my-database-grows"></a>Ma base de données temporaire évolue-t-elle au fil de la croissance de ma base de données ?
 
-Votre base de données `tempdb` se trouve sur un stockage SSD local et elle est configurée en fonction de la taille de la capacité de calcul que vous provisionnez. Votre base de données `tempdb` est optimisée et configurée de façon à fournir des performances optimales. La taille de `tempdb` n’est pas configurable et elle est gérée pour vous par le sous-système de stockage.
+Votre base de données `tempdb` se trouve sur un stockage SSD local et elle est configurée en fonction de la taille de calcul que vous provisionnez. Votre base de données `tempdb` est optimisée et configurée de façon à fournir des performances optimales. La taille de `tempdb` n’est pas configurable et elle est gérée pour vous par le sous-système de stockage.
 
 ### <a name="does-my-database-size-automatically-grow-or-do-i-have-to-manage-the-size-of-the-data-files"></a>La taille de ma base de données augmente-t-elle automatiquement ou dois-je gérer la taille des fichiers de données ?
 
@@ -377,7 +377,7 @@ Non, pas pendant la phase de préversion publique.
 
 ### <a name="do-i-get-different-temp-db-sizing-for-my-primary-compute-and-my-additional-secondary-compute-nodes"></a>Le dimensionnement de la base de données temporaire est-il différent pour ma capacité de calcul principale et pour mes nœuds de calcul secondaires supplémentaires ?
 
-Non. Votre base de données `tempdb` est configurée en fonction du provisionnement de la taille de la capacité de calcul : pendant la phase de préversion publique, vos nœuds de calcul secondaires ont la même taille que la capacité de calcul principale.
+Non. Votre base de données `tempdb` est configurée en fonction du provisionnement de la taille de calcul : pendant la phase de préversion publique, vos nœuds de calcul secondaires ont la même taille que la capacité de calcul principale.
 
 ### <a name="can-i-add-indexes-and-views-on-my-secondary-compute-nodes"></a>Puis-je ajouter des index et des vues sur mes nœuds de calcul secondaires ?
 

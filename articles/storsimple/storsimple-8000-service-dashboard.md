@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2017
 ms.author: alkohli
-ms.openlocfilehash: d987a4ae170f21532a886552cbe1eb5a0d25fc3f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: c174f6ce0fb3d40af953be205a7bfcca60fbfeec
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23108207"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60632974"
 ---
 # <a name="use-the-service-summary-blade-for-storsimple-8000-series-device"></a>Utiliser le panneau de synthèse du service pour un appareil de la gamme StorSimple 8000
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Présentation
 
 Le panneau de synthèse du service de StorSimple Device Manager fournit un aperçu de tous les appareils connectés au service StorSimple Device Manager, en mettant en surbrillance ceux qui requièrent une attention particulière d’un administrateur système. Ce didacticiel présente le panneau de synthèse du service, explique le contenu et la fonction du tableau de bord, et décrit les tâches que vous pouvez effectuer à partir de cette page.
 

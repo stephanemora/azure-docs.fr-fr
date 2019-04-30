@@ -1,6 +1,6 @@
 ---
 title: Vue d’ensemble d’Advanced Data Security pour Azure SQL Database | Microsoft Docs
-description: Cette rubrique décrit Advanced Data Security pour Azure SQL Database et explique son fonctionnement ainsi que ses différences par rapport à une base de données unique ou en pool dans Azure SQL Database.
+description: Cette rubrique décrit Advanced Data Security pour Azure SQL Database et explique son fonctionnement ainsi que ses différences par rapport à une base de données unique ou mise en pool dans Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
@@ -13,11 +13,11 @@ ms.reviewer: sstein, carlrab, vanto
 manager: craigg
 ms.date: 04/16/2019
 ms.openlocfilehash: 46c6972e20df69da236c151516d7d889f9db6084
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60002746"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62098528"
 ---
 # <a name="use-sql-database-advanced-data-security-with-virtual-networks-and-near-100-compatibility"></a>Utiliser Advanced Data Security pour SQL Database avec des réseaux virtuels et une compatibilité de presque 100 %
 
@@ -34,7 +34,7 @@ Le modèle de déploiement d’instance managée est conçu pour les clients qui
 
 L’option de déploiement d’instance managée a pour but d’assurer une compatibilité de la surface d’exposition proche de 100 % avec la dernière version locale de SQL Server par le biais d’un plan de mise en production par étapes.
 
-Pour choisir une des options de déploiement Azure SQL Database (base de données unique, base de données en pool, instance managée et SQL Server hébergé dans une machine virtuelle), consultez [Comment choisir la version appropriée de SQL Server dans Azure](sql-database-paas-vs-sql-server-iaas.md).
+Pour choisir une des options de déploiement Azure SQL Database (base de données unique, base de données mise en pool, instance managée et SQL Server hébergé dans une machine virtuelle), consultez [Comment choisir la version appropriée de SQL Server dans Azure](sql-database-paas-vs-sql-server-iaas.md).
 
 ## <a name="key-features-and-capabilities"></a>Fonctionnalités principales
 
@@ -77,14 +77,14 @@ Le [modèle d’achat vCore](sql-database-service-tiers-vcore.md) pour les insta
 
 Dans le modèle vCore, vous pouvez choisir entre différentes générations de matériel.
 
-- Les processeurs logiques **Gen4** sont basés sur des processeurs Intel E5-2673 v3 (Haswell) de 2,4 GHz, un disque SSD attaché, des cœurs physiques, 7 Go de RAM par cœur, et des tailles de capacité de calcul comprises entre 8 et 24 vCores.
-- Les processeurs logiques **Gen5** sont basés sur des processeurs Intel E5-2673 v4 (Broadwell) de 2,3 GHz, un disque SSD NVMe rapide, un cœur logique multithread, et des tailles de capacité de calcul comprises entre 8 et 80 cœurs.
+- Les processeurs logiques **Gen4** sont basés sur des processeurs Intel E5-2673 v3 (Haswell) de 2,4 GHz, un disque SSD attaché, des cœurs physiques, 7 Go de RAM par cœur, et des tailles de calcul comprises entre 8 et 24 vCores.
+- Les processeurs logiques **Gen5** sont basés sur des processeurs Intel E5-2673 v4 (Broadwell) de 2,3 GHz, un disque SSD NVMe rapide, un cœur logique multithread, et des tailles de calcul comprises entre 8 et 80 cœurs.
 
 Vous trouverez des informations sur les différences entre les générations de matériel dans les [limites de ressources d’instance managée](sql-database-managed-instance-resource-limits.md#hardware-generation-characteristics).
 
-## <a name="managed-instance-service-tiers"></a>Niveaux de service de l’instance managée
+## <a name="managed-instance-service-tiers"></a>Niveaux de service Managed Instance
 
-L’instance managée est disponible en deux niveaux de service :
+Managed Instance est disponible en deux niveaux de service :
 
 - **Usage général** : conçu pour des applications avec des exigences de performances et de latence d’E/S standard.
 - **Critique pour l’entreprise** : conçu pour les applications avec des exigences de latence d’E/S faible et un impact minimal des opérations de maintenance sous-jacentes sur la charge de travail.
@@ -101,9 +101,9 @@ La liste suivante décrit les principales caractéristiques du niveau de service
 
 Pour plus d’informations, consultez [storage layer in general purpose tier](https://medium.com/azure-sqldb-managed-instance/file-layout-in-general-purpose-azure-sql-managed-instance-cf21fff9c76c) et [Storage performance best practices and considerations for managed instances (general purpose)](https://blogs.msdn.microsoft.com/sqlcat/2018/07/20/storage-performance-best-practices-and-considerations-for-azure-sql-db-managed-instance-general-purpose/).
 
-Plus d’informations sur les différences entre les niveaux de service sont disponibles dans les [limites de ressources d’instance managée](sql-database-managed-instance-resource-limits.md#service-tier-characteristics).
+Vous trouverez plus d’informations sur les différences entre les niveaux de service dans les [limites de ressources d’instance managée](sql-database-managed-instance-resource-limits.md#service-tier-characteristics).
 
-### <a name="business-critical-service-tier"></a>Niveau de service critique pour l’entreprise
+### <a name="business-critical-service-tier"></a>Niveau de service Critique pour l’entreprise
 
 Le niveau de service Critique pour l’entreprise est conçu pour les applications dont les exigences en termes d’E/S sont élevées. Il offre la meilleure résilience face aux défaillances en utilisant plusieurs réplicas isolés.
 
@@ -192,7 +192,7 @@ L’approche de la migration s’appuie sur les sauvegardes SQL dans Stockage Bl
 
 ### <a name="data-migration-service"></a>Service de migration des données
 
-Azure Database Migration Service est un service entièrement géré conçu pour permettre des migrations transparentes de plusieurs sources de base de données vers des plateformes de données Azure avec un temps d’arrêt minime. Ce service simplifie les tâches nécessaires pour déplacer les bases de données de tiers et les bases de données SQL Server vers Azure SQL Database (bases de données uniques, bases de données en pool élastique et bases de données dans une instance managée) et SQL Server dans une machine virtuelle Azure. Consultez [Comment migrer votre base de données locale vers une instance managée à l’aide de DMS](https://aka.ms/migratetoMIusingDMS).
+Azure Database Migration Service est un service entièrement géré conçu pour permettre des migrations transparentes de plusieurs sources de base de données vers des plateformes de données Azure avec un temps d’arrêt minime. Ce service simplifie les tâches nécessaires pour déplacer les bases de données de tiers et les bases de données SQL Server vers Azure SQL Database (bases de données uniques, bases de données mises en pool élastique et bases de données d’instance dans une instance managée) et SQL Server dans une machine virtuelle Azure. Consultez [Comment migrer votre base de données locale vers une instance managée à l’aide de DMS](https://aka.ms/migratetoMIusingDMS).
 
 ## <a name="sql-features-supported"></a>Fonctionnalités SQL prises en charge
 

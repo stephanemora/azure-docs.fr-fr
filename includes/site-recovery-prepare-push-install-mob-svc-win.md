@@ -1,15 +1,10 @@
 ---
-author: rayne-wiselman
-ms.service: site-recovery
-ms.topic: include
-ms.date: 10/26/2018
-ms.author: raynew
 ms.openlocfilehash: ffc9b09c72ef1bf5180a0d626908d09b6fdd41ca
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "58115809"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62122793"
 ---
 ### <a name="prepare-for-a-push-installation-on-a-windows-computer"></a>Préparer une installation push sur un ordinateur Windows
 
@@ -18,7 +13,7 @@ ms.locfileid: "58115809"
 
    > [!NOTE]
    > Si vous n’utilisez pas de compte de domaine, désactivez le contrôle d’accès utilisateur distant sur l’ordinateur local. Pour désactiver le contrôle d’accès des utilisateurs distants, sous la clé de Registre HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System, ajoutez un nouveau DWORD : **LocalAccountTokenFilterPolicy**. Définissez la valeur sur **1**. Pour exécuter cette tâche à l’invite de commandes, exécutez la commande suivante :  
-   `REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1`
+   > `REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1`
    >
    >
 1. Dans le pare-feu Windows de l’ordinateur à protéger, sélectionnez **Autoriser une application ou une fonctionnalité à franchir le pare-feu**. Activez **Partage de fichiers et d’imprimantes** et **Windows Management Instrumentation (WMI)**. Pour les ordinateurs qui appartiennent à un domaine, vous pouvez configurer les paramètres de pare-feu avec un objet de stratégie de groupe.
@@ -36,3 +31,5 @@ ms.locfileid: "58115809"
     d. Ajoutez le compte que vous venez de créer.
 
     e. Entrez les informations d’identification utilisées lors de l’activation de la réplication d’un ordinateur.
+<!--Update_Description: wording update-->
+<!--ms.date: 09/17/2018-->

@@ -11,11 +11,11 @@ ms.topic: reference
 ms.date: 10/16/2018
 ms.author: mbullwin
 ms.openlocfilehash: 3ad2f4788a765366066023724772f5432d0d56eb
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54109424"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60699203"
 ---
 # <a name="application-insights-nuget-packages"></a>Packages NuGet Application Insights
 
@@ -23,7 +23,7 @@ Voici la liste actuelle des versions stables des Packages NuGet pour Application
 
 ## <a name="common-packages-for-aspnet"></a>Packages courants pour ASP.NET
 
-| Nom du package | Version stable | Description | Download |
+| Nom du package | Version stable | Description | Téléchargement |
 |-------------------------------|-----------------------|------------|----|
 | Microsoft.ApplicationInsights | 2.8.0 | Fournit des fonctionnalités essentielles pour la transmission de tous les types de données de télémétrie Application Insights et est un package dépendant pour tous les autres packages Application Insights | [Télécharger le package](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) |
 |Microsoft.ApplicationInsights.Agent.Intercept | 2.4.0 | Permet l’interception d’appels de méthode | [Télécharger le package](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Agent.Intercept/) |
@@ -35,7 +35,7 @@ Voici la liste actuelle des versions stables des Packages NuGet pour Application
 
 ## <a name="common-packages-for-aspnet-core"></a>Packages courants pour ASP.NET Core
 
-| Nom du package | Version stable | Description | Download |
+| Nom du package | Version stable | Description | Téléchargement |
 |-------------------------------|-----------------------|------------|----|
 | Microsoft.ApplicationInsights.AspNetCore | 2.5.0 | Application Insights pour applications web ASP.NET Core. | [Télécharger le package](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/) |
 | Microsoft.ApplicationInsights | 2.8.0 | Ce package fournit des fonctionnalités essentielles pour la transmission de tous les types de données de télémétrie Application Insights et est un package dépendant pour tous les autres packages Application Insights | [Télécharger le package](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) |
@@ -46,7 +46,7 @@ Voici la liste actuelle des versions stables des Packages NuGet pour Application
 
 ## <a name="listenerscollectorsappenders"></a>Écouteurs/collecteurs/appenders
 
-| Nom du package | Version stable | Description | Download |
+| Nom du package | Version stable | Description | Téléchargement |
 |-------------------------------|-----------------------|------------|----|
 | Microsoft.ApplicationInsights.DiagnosticSourceListener | 2.7.2 |  Permet le transfert d’événements depuis DiagnosticSource vers Application Insights. | [Télécharger le package](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DiagnosticSourceListener/) |
 | Microsoft.ApplicationInsights.EventSourceListener | 2.7.2 | Le package EventSourceListener Application Insights permet d’envoyer des données depuis les événements EventSource vers Application Insights. | [Télécharger le package](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EventSourceListener/) |
@@ -58,14 +58,14 @@ Voici la liste actuelle des versions stables des Packages NuGet pour Application
 
 ## <a name="service-fabric"></a>Service Fabric
 
-| Nom du package | Version stable | Description | Download |
+| Nom du package | Version stable | Description | Téléchargement |
 |-------------------------------|-----------------------|------------|----|
 | Microsoft.ApplicationInsights.ServiceFabric | 2.2.0 | Ce package fournit la décoration automatique des données de télémétrie avec le contexte Service Fabric dans lequel l’application est en cours d’exécution. N’utilisez pas ce package NuGet pour les applications Service Fabric natives. | [Télécharger le package](https://www.nuget.org/packages/Microsoft.ApplicationInsights.ServiceFabric/) |
 | Microsoft.ApplicationInsights.ServiceFabric.Native | 2.2.0 | Module Application Insights pour les applications Service Fabric. Utilisez ce package NuGet uniquement pour les applications Service Fabric natives. Pour les applications exécutées dans des conteneurs, utilisez le package Microsoft.ApplicationInsights.ServiceFabric. | [Télécharger le package](https://www.nuget.org/packages/Microsoft.ApplicationInsights.ServiceFabric.Native/) |  
 
 ## <a name="status-monitor"></a>Status Monitor
 
-| Nom du package | Version stable | Description | Download |
+| Nom du package | Version stable | Description | Téléchargement |
 |-------------------------------|-----------------------|------------|----|
 | Microsoft.ApplicationInsights.Agent_x64 | 2.2.1 |  Active la collecte des données de runtime pour les applications x64 | [Télécharger le package](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Agent_x64/) |
 | Microsoft.ApplicationInsights.Agent_x86 | 2.2.1 |  Active la collecte des données de runtime pour les applications x86. | [Télécharger le package](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Agent_x86/) |
@@ -74,7 +74,7 @@ Ces packages font partie des fonctionnalités essentielles de la supervision du 
 
 ## <a name="additional-packages"></a>Packages supplémentaires
 
-| Nom du package | Version stable | Description | Download |
+| Nom du package | Version stable | Description | Téléchargement |
 |-------------------------------|-----------------------|------------|----|
 | Microsoft.ApplicationInsights.AzureWebSites | 2.6.5 | Cette extension permet de superviser Application Insights sur un service Azure App Service. SDK version 2.6.1. Instructions : ajoutez les paramètres d’application « APPINSIGHTS_INSTRUMENTATIONKEY » avec votre clé d’instrumentation, puis redémarrez l’application web.| [Télécharger le package](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AzureWebSites/) |
 | Microsoft.ApplicationInsights.Injector | 2.6.7 | Ce package contient les fichiers nécessaires pour l’injection d’Application Insights sans code. | [Télécharger le package](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Injector/) |

@@ -2,19 +2,20 @@
 title: Traiter des règles configurables basées sur un seuil dans Azure Stream Analytics
 description: Cet article explique comment utiliser des données de référence pour obtenir une solution d’alerte comportant des règles configurables basées sur un seuil dans Azure Stream Analytics.
 services: stream-analytics
-author: zhongc
-ms.author: zhongc
-manager: kfile
+author: rockboyfor
+ms.author: v-yeche
+manager: digimobile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/30/2018
+origin.date: 04/30/2018
+ms.date: 08/20/2018
 ms.openlocfilehash: ce2cf6ebdfd74549114e94e4c7356e387576d3c8
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56731189"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60761724"
 ---
 # <a name="process-configurable-threshold-based-rules-in-azure-stream-analytics"></a>Traiter des règles configurables basées sur un seuil dans Azure Stream Analytics
 Cet article explique comment utiliser des données de référence pour obtenir une solution d’alerte utilisant des règles configurables basées sur un seuil dans Azure Stream Analytics.
@@ -46,7 +47,6 @@ Cet exemple de données de référence montre comment une règle de seuil peut �
 - Notez que la règle comporte un champ **opérateur**, qui est ensuite interprété dynamiquement dans la syntaxe de la requête avec `AVGGREATEROREQUAL`. 
 - La règle filtre les données selon une certaine clé de dimension `2` avec la valeur `C1`. Les autres champs affichent une chaîne vide, indiquant que le flux d’entrée ne sera pas filtré selon ces champs d’événements. Vous pouvez configurer d’autres règles de processeur afin de filtrer d’autres champs correspondants, selon vos besoins.
 - Toutes les colonnes ne seront incluses dans l’événement d’alerte de sortie. Dans ce cas, la clé `includedDim` numéro `2` est définie sur `TRUE` pour indiquer que le champ numéro 2 des données d’événement dans le flux de données sera inclus dans les événements de sortie correspondants. Les autres champs ne sont pas inclus dans la sortie d’alerte, mais la liste des champs peut être ajustée.
-
 
 ```json
 {
@@ -292,3 +292,4 @@ Cet exemple de données JSON de sortie affiche un seul événement d’alerte g�
 "alert":"hot node AVG CPU over 90","avg":96.5,"min":95.0,"max":98.0,
 "dim0":null,"dim1":null,"dim2":"N024","dim3":null,"dim4":null}
 ```
+<!--Update_Description: updat meta properties, wording update-->

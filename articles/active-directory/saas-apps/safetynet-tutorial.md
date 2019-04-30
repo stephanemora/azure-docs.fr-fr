@@ -17,13 +17,13 @@ ms.date: 04/16/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4fadebc689f10b40131bb0feb12d846d3bdde704
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56206682"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62104676"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-safetynet"></a>Tutoriel : Intégration d’Azure Active Directory à SafetyNet
+# <a name="tutorial-azure-active-directory-integration-with-safetynet"></a>Didacticiel : Intégration d’Azure Active Directory à SafetyNet
 
 L’objectif de ce didacticiel est de vous apprendre à intégrer SafetyNet à Azure Active Directory (Azure AD).
 
@@ -35,7 +35,7 @@ L’intégration de SafetyNet dans Azure AD vous offre les avantages suivants :
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour configurer l’intégration d’Azure AD à SafetyNet, vous avez besoin des éléments suivants :
 

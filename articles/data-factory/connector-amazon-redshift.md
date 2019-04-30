@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
 ms.openlocfilehash: 9e1dde57dc1903e87704bd55fb0b942b7cc349e5
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58010572"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61262211"
 ---
 # <a name="copy-data-from-amazon-redshift-using-azure-data-factory"></a>Copier des données d’Amazon Redshift à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -53,7 +53,7 @@ Les propriétés prises en charge pour le service lié Amazon Redshift sont les 
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type doit être définie sur : **AmazonRedshift** | Oui |
+| type | La propriété type doit être définie sur : **AmazonRedshift** | Oui |
 | serveur |Nom d’hôte ou adresse IP du serveur Amazon Redshift. |Oui |
 | port |Le numéro du port TCP utilisé par le serveur Amazon Redshift pour écouter les connexions clientes. |Non, la valeur par défaut est 5439 |
 | database |Nom de la base de données Amazon Redshift. |Oui |
@@ -95,8 +95,8 @@ Pour copier des données d’Amazon Redshift, affectez la valeur **RelationalTab
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type du jeu de données doit être définie sur : **RelationalTable** | Oui |
-| TableName | Nom de la table dans Amazon Redshift. | Non (si « query » dans la source de l’activité est spécifié) |
+| type | La propriété type du jeu de données doit être définie sur : **RelationalTable** | Oui |
+| tableName | Nom de la table dans Amazon Redshift. | Non (si « query » dans la source de l’activité est spécifié) |
 
 **Exemple**
 
@@ -125,7 +125,7 @@ Pour copier des données d’Amazon Redshift, définissez **AmazonRedshiftSource
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type de la source d’activité de copie doit être définie sur : **AmazonRedshiftSource** | Oui |
+| type | La propriété type de la source d’activité de copie doit être définie sur : **AmazonRedshiftSource** | Oui |
 | query |Utilise la requête personnalisée pour lire des données. Par exemple : select * from MyTable. |Non (si « tableName » est spécifié dans dataset) |
 | redshiftUnloadSettings | Groupe de propriétés lors de l’utilisation du mécanisme UNLOAD d’Amazon Redshift. | Non  |
 | s3LinkedServiceName | Fait référence à un service Amazon S3 à utiliser comme magasin temporaire en spécifiant un nom de service lié de type « AmazonS3 ». | Oui, en cas d’utilisation de UNLOAD |
@@ -210,17 +210,17 @@ Lors de la copie de données à partir d’Amazon Redshift, les mappages suivant
 | Type de données d’Amazon Redshift | Type de données intermédiaires de Data Factory |
 |:--- |:--- |
 | BIGINT |Int64 |
-| BOOLEAN |Chaîne |
-| CHAR |Chaîne |
+| BOOLEAN |String |
+| CHAR |String |
 | DATE |DateTime |
 | DÉCIMAL |Decimal |
 | DOUBLE PRECISION |Double |
 | INTEGER |Int32 |
 | REAL |Single |
 | SMALLINT |Int16 |
-| TEXTE |Chaîne |
+| TEXTE |String |
 | TIMESTAMP |DateTime |
-| VARCHAR |Chaîne |
+| VARCHAR |String |
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour obtenir la liste des banques de données prises en charge en tant que sources et récepteurs par l’activité de copie dans Azure Data Factory, consultez le tableau [banques de données prises en charge](copy-activity-overview.md##supported-data-stores-and-formats).

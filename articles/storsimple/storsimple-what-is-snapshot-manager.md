@@ -1,5 +1,5 @@
 ---
-title: Qu’est-ce que le Gestionnaire d’instantanés StorSimple ? | Microsoft Docs
+title: Qu’est-ce que le Gestionnaire d’instantanés StorSimple ? | Microsoft Docs
 description: Décrit le Gestionnaire d’instantanés StorSimple, son architecture et ses fonctionnalités.
 services: storsimple
 documentationcenter: NA
@@ -15,16 +15,16 @@ ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: v-sharos
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 38c197c7bc57110b29b1d8cb789d5b7310823da2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 3f7436bb63f52c9c2b697c8e7031922ce89d786b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23111467"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60789596"
 ---
 # <a name="an-introduction-to-storsimple-snapshot-manager"></a>Présentation de StorSimple Snapshot Manager
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Présentation
 Gestionnaire d’instantanés StorSimple est un composant logiciel enfichable Microsoft Management Console (MMC) qui simplifie la protection des données et la gestion des sauvegardes dans l’environnement Microsoft Azure StorSimple. Avec le Gestionnaire d’instantanés StorSimple, vous pouvez gérer les données Microsoft Azure StorSimple présentes dans le centre de données et dans le cloud comme avec une solution de stockage intégrée unique, ce qui simplifie les processus de sauvegarde et contribue à réduire les coûts.
 
 Cette vue d'ensemble présente le Gestionnaire d'instantanés StorSimple, décrit ses caractéristiques et explique son rôle dans Microsoft Azure StorSimple. 
@@ -93,7 +93,7 @@ L’implémentation du gestionnaire d’instantanés StorSimple de VSS fonctionn
 
 1. Le demandeur, en général une solution de gestion et de protection des données (par exemple Gestionnaire d’instantanés StorSimple) ou une application de sauvegarde, appelle le service VSS et lui demande de recueillir des informations du logiciel enregistreur dans l’application cible.
 2. Le service VSS contacte le composant enregistreur pour récupérer une description des données. L’enregistreur retourne la description des données à sauvegarder. 
-3. VSS demande à l’enregistreur de préparer l’application de sauvegarde. L’enregistreur prépare les données pour la sauvegarde en terminant des transactions en cours, en mettant à jour des journaux de transactions et ainsi de suite, puis notifie VSS.
+3. VSS demande à l’enregistreur de préparer l’application de sauvegarde. L’enregistreur prépare les données pour la sauvegarde en terminant des transactions en cours, en mettant à jour des journaux d’activité de transactions et ainsi de suite, puis notifie VSS.
 4. VSS ordonne à l’enregistreur d’arrêter provisoirement le stockage de données de l’application et s’assure qu’aucune donnée n’est écrite dans le volume pendant la création du cliché instantané. Cette étape garantit la cohérence des données et ne prend pas plus de 60 secondes.
 5. Le service VSS demande au fournisseur de créer le cliché instantané. Les fournisseurs logiciel ou matériel gèrent les modules en cours d’exécution et créent des clichés instantanés d’eux à la demande. Le fournisseur crée le cliché instantané et informe le service VSS à la fin de l’opération.
 6. Le service VSS contacte l’enregistreur pour notifier l’application d’entrée/sortie peut reprendre son fonctionnement et confirmer que les entrées/sorties ont été interrompues avec succès pendant la création de clichés instantanés. 

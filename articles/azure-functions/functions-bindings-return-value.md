@@ -8,14 +8,15 @@ manager: jeconnoc
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.date: 01/14/2019
-ms.author: cshoe
+origin.date: 01/14/2019
+ms.date: 03/04/2019
+ms.author: v-junlch
 ms.openlocfilehash: 4ccfe192eaea94cb9b199bd3c6f0bdacf1685519
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56740424"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61437716"
 ---
 # <a name="using-the-azure-function-return-value"></a>À l’aide de la valeur de retour de fonction Azure
 
@@ -23,8 +24,8 @@ Cet article explique comment des valeurs de retour à l’intérieur d’une fon
 
 Dans les langages qui ont une valeur de retour, vous pouvez lier une fonction [liaison de sortie](./functions-triggers-bindings.md#binding-direction) à la valeur de retour :
 
-* Dans une bibliothèque de classes C#, appliquez l’attribut de liaison de sortie à la valeur de retour de la méthode.
-* Dans d’autres langages, définissez la propriété `name` dans *function.json* sur `$return`.
+- Dans une bibliothèque de classes C#, appliquez l’attribut de liaison de sortie à la valeur de retour de la méthode.
+- Dans d’autres langages, définissez la propriété `name` dans *function.json* sur `$return`.
 
 S’il existe plusieurs liaisons de sortie, utilisez la valeur de retour pour un seul d’entre eux.
 
@@ -32,11 +33,11 @@ En C# et dans les scripts C#, les autres méthodes pour envoyer des données à 
 
 Consultez l’exemple spécifique à un langage montrant l’utilisation de la valeur de retour :
 
-* [C#](#c-example)
-* [Script C# (.csx)](#c-script-example)
-* [F#](#f-example)
-* [JavaScript](#javascript-example)
-* [Python](#python-example)
+- [C#](#c-example)
+- [Script C# (.csx)](#c-script-example)
+- [F#](#f-example)
+- [JavaScript](#javascript-example)
+- [Python](#python-example)
 
 ## <a name="c-example"></a>Exemple en code C#
 
@@ -169,3 +170,4 @@ def main(input: azure.functions.InputStream) -> str:
 
 > [!div class="nextstepaction"]
 > [Gérer les erreurs de liaison d’Azure Functions](./functions-bindings-errors.md)
+

@@ -1,6 +1,6 @@
 ---
 title: 'Didacticiel : Configurer Zendesk pour le provisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs'
-description: Découvrez comment configurer Azure Active Directory pour provisionner et retirer automatiquement des comptes d’utilisateur sur Zendesk.
+description: Découvrez comment configurer Azure Active Directory pour approvisionner et annuler l’approvisionnement de comptes d’utilisateurs à Zendesk automatiquement.
 services: active-directory
 documentationcenter: ''
 author: zhchia
@@ -16,81 +16,77 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: v-ant
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cf747fb75ea663d2c64038d73f48adb19d9fb804
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f559d2c2398998ba590419758de559f21d9b65f5
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/23/2019
-ms.locfileid: "60237255"
+ms.locfileid: "62114663"
 ---
 # <a name="tutorial-configure-zendesk-for-automatic-user-provisioning"></a>Didacticiel : Configurer Zendesk pour le provisionnement automatique d’utilisateurs
 
-L’objectif de ce tutoriel est de présenter les étapes à effectuer dans Zendesk et Azure Active Directory (Azure AD) afin de configurer Azure AD pour le provisionnement et le retrait automatiques d’utilisateurs et/ou de groupes sur Zendesk.
+Ce didacticiel présente les étapes à effectuer dans Zendesk et Azure Active Directory (Azure AD) pour configurer Azure AD pour approvisionner et annuler le déploiement d’utilisateurs et groupes dans Zendesk automatiquement.
 
 > [!NOTE]
-> Ce didacticiel décrit un connecteur reposant sur le service d’attribution d’utilisateurs Azure AD. Pour découvrir les informations importantes sur ce que fait ce service, comment il fonctionne et consulter le forum aux questions, reportez-vous à l’article [Automatiser l’attribution et l’annulation de l’attribution des utilisateurs dans les applications SaaS avec Azure Active Directory](../manage-apps/user-provisioning.md).
+> Ce didacticiel décrit un connecteur qui repose sur l’utilisateur Azure AD service d’approvisionnement. Pour plus d’informations sur ce service, son fonctionnement et les questions fréquemment posées, consultez [automatiser l’approvisionnement et annulation d’approvisionnement pour les applications de software-as-a-service (SaaS) avec Azure Active Directory](../manage-apps/user-provisioning.md).
 
 ## <a name="prerequisites"></a>Conditions préalables
 
-Le scénario décrit dans ce tutoriel part du principe que vous disposez des prérequis suivants :
+Le scénario décrit dans ce didacticiel suppose que vous avez :
 
-* un locataire Azure AD ;
-* Un locataire Zendesk avec le [plan Entreprise](https://www.zendesk.com/product/pricing/) ou mieux activé
-* Un compte d’utilisateur dans Zendesk avec des autorisations d’administrateur
+* Un locataire Azure AD.
+* Un locataire Zendesk avec le [Enterprise](https://www.zendesk.com/product/pricing/) ou supérieur activé.
+* Un compte d’utilisateur dans Zendesk avec des autorisations d’administrateur.
 
 > [!NOTE]
-> L’intégration du provisionnement Azure AD s’appuie sur l’[API Rest Zendesk](https://developer.zendesk.com/rest_api/docs/core/introduction), qui est disponible pour les équipes Zendesk disposant du forfait Entreprise ou mieux.
+> Intégration de l’approvisionnement Azure AD s’appuie sur le [API Rest Zendesk](https://developer.zendesk.com/rest_api/docs/core/introduction). Cette API est disponible pour les équipes Zendesk sur le plan d’entreprise ou mieux.
 
-## <a name="adding-zendesk-from-the-gallery"></a>Ajout de Zendesk depuis la galerie
+## <a name="add-zendesk-from-the-azure-marketplace"></a>Ajouter Zendesk à partir de la place de marché Azure
 
-Avant de configurer Zendesk pour le provisionnement automatique d’utilisateurs avec Azure AD, vous devez ajouter Zendesk à partir de la galerie d’applications Azure AD à votre liste d’applications SaaS managées.
+Avant de configurer Zendesk pour l’approvisionnement avec Azure AD automatique d’utilisateurs, ajouter Zendesk à partir de la place de marché Azure à votre liste d’applications SaaS gérées.
 
-**Pour ajouter Zendesk à partir de la galerie d’applications Azure AD, procédez comme suit :**
+Pour ajouter Zendesk à partir de la place de marché, procédez comme suit.
 
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
+1. Dans le [Azure portal](https://portal.azure.com), dans le volet de navigation de gauche, sélectionnez **Azure Active Directory**.
 
-    ![Bouton Azure Active Directory](common/select-azuread.png)
+    ![L’icône Azure Active Directory](common/select-azuread.png)
 
-2. Accédez à **Applications d’entreprise**, puis sélectionnez l’option **Toutes les applications**.
+2. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
-3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
+3. Pour ajouter une application, sélectionnez **Nouvelle application** en haut de la boîte de dialogue.
 
     ![Bouton Nouvelle application](common/add-new-app.png)
 
-4. Dans la zone de recherche, tapez **Zendesk**, sélectionnez **Zendesk** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+4. Dans la zone de recherche, entrez **Zendesk** et sélectionnez **Zendesk** le volet de résultats. Pour ajouter l’application, sélectionnez **ajouter**.
 
     ![Zendesk dans la liste des résultats](common/search-new-app.png)
 
-## <a name="assigning-users-to-zendesk"></a>Affectation d’utilisateurs à Zendesk
+## <a name="assign-users-to-zendesk"></a>Affecter des utilisateurs à Zendesk
 
-Azure Active Directory utilise un concept appelé « affectations » pour déterminer les utilisateurs devant recevoir l’accès aux applications sélectionnées. Dans le cadre de l’approvisionnement automatique d’utilisateurs, seuls les utilisateurs et/ou les groupes qui ont été « assignés » à une application dans Azure AD sont synchronisés.
+Azure Active Directory utilise un concept appelé *affectations* pour déterminer quels utilisateurs devant recevoir l’accès aux applications sélectionnées. Dans le contexte de l’approvisionnement automatique, uniquement les utilisateurs ou les groupes qui ont été affectés à une application dans Azure AD sont synchronisés.
 
-Avant de configurer et d’activer le provisionnement automatique d’utilisateurs, vous devez décider quels utilisateurs et/ou groupes dans Azure AD ont besoin d’accéder à Zendesk. Une fois que vous avez choisi, vous pouvez assigner ces utilisateurs et/ou groupes à votre application Zendesk en suivant les instructions fournies ici :
-
-* [Affecter un utilisateur ou un groupe à une application d’entreprise](../manage-apps/assign-user-or-group-access-portal.md)
+Avant de configurer et activer l’approvisionnement automatique d’utilisateurs, déterminer quels utilisateurs ou groupes dans Azure AD ont besoin d’accéder à Zendesk. Pour affecter ces utilisateurs ou groupes à Zendesk, suivez les instructions de [affecter un utilisateur ou un groupe à une application d’entreprise](../manage-apps/assign-user-or-group-access-portal.md).
 
 ### <a name="important-tips-for-assigning-users-to-zendesk"></a>Conseils importants pour l’affectation d’utilisateurs à Zendesk
 
-* Les rôles Zendesk sont désormais indiqués de manière dynamique et automatique dans l’interface utilisateur du Portail Azure. Avant d’assigner des rôles Zendesk aux utilisateurs, assurez-vous que la synchronisation initiale est effectuée par rapport à Zendesk afin de récupérer les rôles les plus récents dans votre tenant Zendesk.
+* Aujourd'hui, les rôles de Zendesk sont automatiquement et dynamiquement remplis dans l’interface utilisateur du portail Azure. Avant de vous attribuez des rôles de Zendesk pour les utilisateurs, assurez-vous que la synchronisation initiale est effectuée par rapport aux Zendesk pour récupérer les rôles les plus récentes dans votre locataire Zendesk.
 
-* Il est recommandé d’assigner un seul utilisateur Azure AD à Zendesk afin de tester la configuration initiale du provisionnement automatique d’utilisateurs. Les autres utilisateurs et/ou groupes peuvent être assignés ultérieurement, une fois les tests réussis.
-  
-* Il est recommandé de n’affecter qu’un seul utilisateur Azure AD à Zendesk afin de tester la configuration du provisionnement automatique d’utilisateurs. Les autres utilisateurs et/ou groupes peuvent être affectés ultérieurement.
+* Nous vous recommandons d’affecter un seul utilisateur Azure AD à Zendesk pour tester votre initiale approvisionnement automatique d’utilisateurs configuration. Vous pouvez affecter des utilisateurs ou groupes ultérieurement une fois que les tests réussissent.
 
-* Quand vous assignez un utilisateur à Zendesk, vous devez sélectionner un rôle valide propre à l’application (si disponible) dans la boîte de dialogue d’assignation. Les utilisateurs dont le rôle est **Accès par défaut** sont exclus de l’approvisionnement.
+* Lorsque vous affectez un utilisateur à Zendesk, sélectionnez un rôle spécifique à l’application valide, s’il est disponible, dans la boîte de dialogue d’attribution. Les utilisateurs dont le rôle est **Accès par défaut** sont exclus de l’approvisionnement.
 
-## <a name="configuring-automatic-user-provisioning-to-zendesk"></a>Configuration du provisionnement automatique d’utilisateurs sur Zendesk 
+## <a name="configure-automatic-user-provisioning-to-zendesk"></a>Configurer l’approvisionnement automatique d’utilisateurs à Zendesk 
 
-Cette section vous guide tout au long des étapes de configuration du service de provisionnement d’Azure AD pour créer, mettre à jour et désactiver des utilisateurs et/ou des groupes dans Zendesk en fonction des assignations d’utilisateurs et/ou de groupes dans Azure AD.
+Cette section vous guide tout au long des étapes de configuration du service d’approvisionnement d’Azure AD. Utilisez-le pour créer, mettre à jour et désactiver des utilisateurs ou groupes dans Zendesk en fonction des affectations d’utilisateur ou un groupe dans Azure AD.
 
 > [!TIP]
-> Vous pouvez également choisir d’activer l’authentification unique basée sur SAML pour Zendesk en suivant les instructions fournies dans le [didacticiel sur l’authentification unique Zendesk](zendesk-tutorial.md). L’authentification unique peut être configurée indépendamment de l’attribution automatique d’utilisateurs, bien que ces deux fonctionnalités se complètent.
+> Vous pouvez également activer basée sur SAML SSO pour Zendesk. Suivez les instructions de la [didacticiel l’authentification unique de le Zendesk](zendesk-tutorial.md). L’authentification unique peut être configurée indépendamment de l’approvisionnement automatique, bien que ces deux fonctionnalités complètent mutuellement.
 
-### <a name="to-configure-automatic-user-provisioning-for-zendesk-in-azure-ad"></a>Pour configurer le provisionnement automatique d’utilisateurs pour Zendesk dans Azure AD :
+### <a name="configure-automatic-user-provisioning-for-zendesk-in-azure-ad"></a>Configurer l’approvisionnement automatique d’utilisateurs pour Zendesk dans Azure AD
 
-1. Se connecter à la [Azure portal](https://portal.azure.com) et sélectionnez **Applications d’entreprise**, sélectionnez **toutes les applications**, puis sélectionnez **Zendesk**.
+1. Connectez-vous au [Portail Azure](https://portal.azure.com). Sélectionnez **applications d’entreprise** > **toutes les applications** > **Zendesk**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
@@ -104,77 +100,77 @@ Cette section vous guide tout au long des étapes de configuration du service de
 
 4. Définissez le **Mode d’approvisionnement** sur **Automatique**.
 
-    ![Provisionnement de Zendesk](./media/zendesk-provisioning-tutorial/ZenDesk1.png)
+    ![Mode d’approvisionnement de Zendesk](./media/zendesk-provisioning-tutorial/ZenDesk1.png)
 
-5. Dans la section **Informations d’identification de l’administrateur**, entrez le **Nom d’utilisateur de l’administrateur**, le **Jeton secret** et le **Domaine** de votre compte Zendesk. Voici des exemples de valeurs :
+5. Sous le **informations d’identification administrateur** section, entrez le nom d’utilisateur administrateur, le jeton secret et le domaine de votre compte Zendesk. Voici des exemples de valeurs :
 
-   * Dans le champ **Nom d’utilisateur de l’administrateur**, indiquez le nom de l’utilisateur du compte administrateur sur votre locataire Zendesk. Exemple : admin@contoso.com.
+   * Dans le **Admin Username** zone, renseignez le nom d’utilisateur du compte d’administrateur sur votre locataire Zendesk. Par exemple admin@contoso.com.
 
-   * Dans le champ **Jeton secret**, spécifiez le jeton secret comme décrit à l’étape 6.
+   * Dans le **jeton Secret** zone, renseignez le jeton secret comme décrit à l’étape 6.
 
-   * Dans le champ **Domaine**, spécifiez le sous-domaine de votre locataire Zendesk.
-     Exemple : pour un compte avec une URL de tenant `https://my-tenant.zendesk.com`, votre sous-domaine serait **my-tenant**.
+   * Dans le **domaine** zone, renseignez le sous-domaine de votre locataire Zendesk. Par exemple, pour un compte avec une URL de locataire `https://my-tenant.zendesk.com`, votre sous-domaine est **mon locataire**.
 
-6. Le **Jeton secret** pour votre compte se trouve dans **Admin > API > Paramètres**.
-   Assurez-vous que **Jeton d'accès** est défini sur **Activé**.
+6. Le jeton secret pour votre compte Zendesk se trouve dans **administrateur** > **API** > **paramètres**. Assurez-vous que l’option **accès du jeton** a la valeur **activé**.
 
-    ![Provisionnement de Zendesk](./media/zendesk-provisioning-tutorial/ZenDesk4.png)
+    ![Paramètres d’administration de Zendesk](./media/zendesk-provisioning-tutorial/ZenDesk4.png)
 
-    ![Provisionnement de Zendesk](./media/zendesk-provisioning-tutorial/ZenDesk2.png)
+    ![Jeton secret Zendesk](./media/zendesk-provisioning-tutorial/ZenDesk2.png)
 
-7. Après avoir renseigné les champs indiqués à l’étape 5, cliquez sur **Tester la connexion** pour vous assurer qu’Azure AD peut se connecter à Zendesk. Si la connexion échoue, vérifiez que votre compte Zendesk dispose des autorisations d’administrateur et réessayez.
+7. Une fois que vous remplissez les zones affichées à l’étape 5, sélectionnez **tester la connexion** pour vous assurer qu’Azure AD peut se connecter à Zendesk. Si la connexion échoue, vérifiez que votre compte Zendesk dispose des autorisations d’administrateur et réessayez.
 
-    ![Provisionnement de Zendesk](./media/zendesk-provisioning-tutorial/ZenDesk19.png)
+    ![Zendesk tester la connexion](./media/zendesk-provisioning-tutorial/ZenDesk19.png)
 
-8. Dans le champ **E-mail de notification**, entrez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur d’approvisionnement, puis cochez la case **Envoyer une notification par e-mail en cas de défaillance**.
+8. Dans le **E-mail de Notification** zone, entrez l’adresse e-mail de la personne ou le groupe pour recevoir les notifications d’erreur d’approvisionnement. Sélectionnez le **envoyer une notification par e-mail lorsqu’une défaillance se produit** case à cocher.
 
-    ![Provisionnement de Zendesk](./media/zendesk-provisioning-tutorial/ZenDesk9.png)
+    ![E-mail de Notification de Zendesk](./media/zendesk-provisioning-tutorial/ZenDesk9.png)
 
-9. Cliquez sur **Enregistrer**.
+9. Sélectionnez **Enregistrer**.
 
 10. Dans la section **Mappages**, sélectionnez **Synchroniser les utilisateurs Azure Active Directory avec Zendesk**.
 
-    ![Provisionnement de Zendesk](./media/zendesk-provisioning-tutorial/ZenDesk10.png)
+    ![Synchronisation de l’utilisateur de Zendesk](./media/zendesk-provisioning-tutorial/ZenDesk10.png)
 
-11. Dans la section **Mappages des attributs**, passez en revue les attributs utilisateur qui sont synchronisés entre Azure AD et Zendesk. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour faire correspondre les comptes d’utilisateur dans Zendesk pour les opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
+11. Passez en revue les attributs utilisateur qui sont synchronisés à partir d’Azure AD à Zendesk dans la **des mappages d’attributs** section. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour faire correspondre les comptes d’utilisateur dans Zendesk pour les opérations de mise à jour. Pour enregistrer les modifications, sélectionnez **enregistrer**.
 
-    ![Provisionnement de Zendesk](./media/zendesk-provisioning-tutorial/ZenDesk11.png)
+    ![Attributs d’utilisateur Zendesk correspondants](./media/zendesk-provisioning-tutorial/ZenDesk11.png)
 
-12. Dans la section **Mappages**, sélectionnez **Synchroniser les groupes Azure Active Directory avec Zendesk**.
+12. Sous le **mappages** section, sélectionnez **synchroniser les groupes Azure Active Directory à Zendesk**.
 
-    ![Provisionnement de Zendesk](./media/zendesk-provisioning-tutorial/ZenDesk12.png)
+    ![Synchronisation de groupe de Zendesk](./media/zendesk-provisioning-tutorial/ZenDesk12.png)
 
-13. Dans la section **Mappages des attributs**, passez en revue les attributs groupe qui sont synchronisés entre Azure AD et Zendesk. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour faire correspondre les groupes dans Zendesk pour les opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
+13. Passez en revue les attributs groupe qui sont synchronisés à partir d’Azure AD à Zendesk dans la **des mappages d’attributs** section. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour faire correspondre les groupes dans Zendesk pour les opérations de mise à jour. Pour enregistrer les modifications, sélectionnez **enregistrer**.
 
-    ![Provisionnement de Zendesk](./media/zendesk-provisioning-tutorial/ZenDesk13.png)
+    ![Attributs de groupe correspondants Zendesk](./media/zendesk-provisioning-tutorial/ZenDesk13.png)
 
-14. Pour configurer des filtres d’étendue, reportez-vous aux instructions suivantes fournies dans [Approvisionnement d’applications basé sur les attributs avec filtres d’étendue](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+14. Pour configurer des filtres d’étendue, suivez les instructions de la [didacticiel de filtre d’étendue](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
-15. Pour activer le service de provisionnement Azure AD pour Zendesk, modifiez le paramètre **État de mise en service** sur **Activé** dans la section **Paramètres**.
+15. Pour activer l’approvisionnement de service pour Zendesk, dans Azure AD le **paramètres** section, remplacez **état d’approvisionnement** à **sur**.
 
-    ![Provisionnement de Zendesk](./media/zendesk-provisioning-tutorial/ZenDesk14.png)
+    ![État d’approvisionnement de Zendesk](./media/zendesk-provisioning-tutorial/ZenDesk14.png)
 
-16. Définissez les utilisateurs et/ou groupes que vous souhaitez provisionner sur Zendesk en choisissant les valeurs souhaitées dans **Étendue** dans la section **Paramètres**.
+16. Définir les utilisateurs ou les groupes auxquels vous souhaitez provisionner sur Zendesk. Dans le **paramètres** , sélectionnez les valeurs souhaitées dans **étendue**.
 
-    ![Provisionnement de Zendesk](./media/zendesk-provisioning-tutorial/ZenDesk15.png)
+    ![Étendue de Zendesk](./media/zendesk-provisioning-tutorial/ZenDesk15.png)
 
-17. Lorsque vous êtes prêt à effectuer l’approvisionnement, cliquez sur **Enregistrer**.
+17. Lorsque vous êtes prêt à déployer, sélectionnez **enregistrer**.
 
-    ![Provisionnement de Zendesk](./media/zendesk-provisioning-tutorial/ZenDesk18.png)
+    ![Enregistrement de Zendesk](./media/zendesk-provisioning-tutorial/ZenDesk18.png)
 
-Cette opération démarre la synchronisation initiale de tous les utilisateurs et/ou groupes définis dans **Étendue** dans la section **Paramètres**. La synchronisation initiale prend plus de temps que les synchronisations suivantes, qui se produisent toutes les 40 minutes environ tant que le service de provisionnement Azure AD est en cours d’exécution. Vous pouvez utiliser la section **Détails de synchronisation** pour surveiller la progression et les liens vers les rapports d’activité de provisionnement, qui décrivent toutes les actions effectuées par le service de provisionnement Azure AD sur Zendesk.
+Cette opération démarre la synchronisation initiale de tous les utilisateurs ou groupes définis dans **étendue** dans le **paramètres** section. La synchronisation initiale prend plus de temps que les synchronisations ultérieures. Elles se produisent toutes les 40 minutes environ tant que le service d’approvisionnement AD Azure s’exécute. 
 
-Pour plus d’informations sur la lecture des journaux d’activité d’approvisionnement Azure AD, consultez [Création de rapports sur l’approvisionnement automatique de comptes d’utilisateur](../manage-apps/check-status-user-account-provisioning.md).
+Vous pouvez utiliser la **détails de la synchronisation** section pour surveiller la progression et suivre les liens vers le rapport d’activité d’approvisionnement. Le rapport décrit toutes les actions effectuées par le service sur Zendesk de provisionnement Azure AD.
+
+Pour avoir des informations sur la lecture des journaux d’activité d’approvisionnement Azure AD, consultez [Création de rapports sur l’approvisionnement automatique de comptes d’utilisateur](../manage-apps/check-status-user-account-provisioning.md).
 
 ## <a name="connector-limitations"></a>Limitations du connecteur
 
-* Zendesk prend en charge l’utilisation de groupes pour les utilisateurs avec les rôles Agent uniquement. Pour plus d’informations, consultez la [documentation de Zendesk](https://support.zendesk.com/hc/en-us/articles/203661966-Creating-managing-and-using-groups).
+* Zendesk prend en charge l’utilisation de groupes pour les utilisateurs avec **Agent** rôles uniquement. Pour plus d’informations, consultez le [Zendesk documentation](https://support.zendesk.com/hc/en-us/articles/203661966-Creating-managing-and-using-groups).
 
-* Quand un rôle personnalisé est affecté à un utilisateur et/ou groupe, le service de provisionnement automatique d’utilisateurs Azure AD affecte également le rôle par défaut **Agent**. Seuls les **Agents** peuvent recevoir un rôle personnalisé. Pour plus d’informations, reportez-vous à la [documentation sur les API Zendesk](https://developer.zendesk.com/rest_api/docs/support/users#json-format-for-agent-or-admin-requests).  
+* Lorsqu’un rôle personnalisé est affecté à un utilisateur ou un groupe, l’utilisateur automatique Azure AD également le service d’approvisionnement attribue le rôle par défaut **Agent**. Seuls les Agents peuvent avoir un rôle personnalisé. Pour plus d’informations, consultez le [documentation d’API Zendesk](https://developer.zendesk.com/rest_api/docs/support/users#json-format-for-agent-or-admin-requests). 
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-* [Gestion de l’approvisionnement de comptes d’utilisateur pour les applications d’entreprise](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Gestion du provisionnement de comptes d’utilisateur pour les applications d’entreprise](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -9,11 +9,11 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.openlocfilehash: 51b072bfd0827528a5504133dff8c1cdd7a7ca86
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58089384"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62122765"
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-portal"></a>Guide pratique pour gérer les inscriptions d’appareils avec le portail Azure
 
@@ -29,8 +29,8 @@ Il existe deux façons de procéder à l’inscription de vos appareils auprès 
     Vous pouvez créer un groupe d’inscriptions dans le portail pour un groupe d’appareils en effectuant les étapes suivantes :
 
   1. Connectez-vous au portail Azure et cliquez dans le menu de gauche sur **Toutes les ressources**.  
-  1. Dans la liste des ressources, cliquez sur le service Device Provisioning auquel vous souhaitez inscrire votre appareil.  
-  1. Dans votre service d’approvisionnement :  
+  2. Dans la liste des ressources, cliquez sur le service Device Provisioning auquel vous souhaitez inscrire votre appareil.  
+  3. Dans votre service d’approvisionnement :  
      a. Cliquez sur **Gérer les inscriptions** et sélectionnez l’onglet **Groupes d’inscriptions**.  
      b. Cliquez sur le bouton **Ajouter** en haut.  
      c. Lorsque le panneau « Ajouter un groupe d’inscription » s’affiche, saisissez les informations pour l’entrée de liste d’inscription.  Le **nom de groupe** est obligatoire. Sélectionnez également « CA or Intermediate » comme **type de certificat**et télécharger le **certificat principal** racine pour le groupe d’appareils.  

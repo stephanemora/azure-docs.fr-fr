@@ -9,11 +9,11 @@ ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
 ms.openlocfilehash: 00e226134039d29efd744290c4bc63abd50adc89
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55697830"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61478604"
 ---
 # <a name="azure-importexport-service-log-file-format"></a>Format de fichier journal du service Azure Import/Export
 Lorsque le service Microsoft Azure Import/Export exécute une action sur un lecteur dans le cadre d’un travail d’importation ou d’exportation, les journaux d’activité sont écrits pour bloquer des objets blob dans le compte de stockage associé à ce travail.  
@@ -105,15 +105,15 @@ Le tableau suivant décrit les éléments du fichier journal.
 |-----------------|----------|-----------------|  
 |`DriveLog`|Élément XML|Représente un journal de lecteur.|  
 |`Version`|Attribut, Chaîne|Version du format du journal.|  
-|`DriveId`|Chaîne|Numéro de série du matériel du lecteur.|  
-|`Status`|Chaîne|État de traitement du lecteur. Pour plus d’informations, consultez le tableau `Drive Status Codes` ci-après.|  
+|`DriveId`|String|Numéro de série du matériel du lecteur.|  
+|`Status`|String|État de traitement du lecteur. Pour plus d’informations, consultez le tableau `Drive Status Codes` ci-après.|  
 |`Blob`|Élément XML imbriqué|Représente un objet blob.|  
-|`Blob/BlobPath`|Chaîne|URI de l’objet blob.|  
-|`Blob/FilePath`|Chaîne|Chemin relatif d’accès au fichier sur le lecteur.|  
+|`Blob/BlobPath`|String|URI de l’objet blob.|  
+|`Blob/FilePath`|String|Chemin relatif d’accès au fichier sur le lecteur.|  
 |`Blob/Snapshot`|DateTime|Version de l’instantané de l’objet blob, pour un travail d’exportation.|  
 |`Blob/Length`|Entier |Longueur totale de l’objet blob en octets.|  
 |`Blob/LastModified`|DateTime|Date/heure de dernière modification de l’objet blob, pour un travail d’exportation.|  
-|`Blob/ImportDisposition`|Chaîne|Disposition d’importation de l’objet blob, pour un travail d’exportation uniquement.|  
+|`Blob/ImportDisposition`|String|Disposition d’importation de l’objet blob, pour un travail d’exportation uniquement.|  
 |`Blob/ImportDisposition/@Status`|Attribut, Chaîne|État de la disposition d’importation.|  
 |`PageRangeList`|Élément XML imbriqué|Représente une liste de plages de pages pour un objet blob de pages.|  
 |`PageRange`|Élément XML|Représente une plage de pages.|  
@@ -130,17 +130,17 @@ Le tableau suivant décrit les éléments du fichier journal.
 |`Block/@Status`|Attribut, Chaîne|État du traitement du bloc.|  
 |`Metadata`|Élément XML imbriqué|Représente les métadonnées de l’objet blob.|  
 |`Metadata/@Status`|Attribut, Chaîne|État de traitement des métadonnées de l’objet blob.|  
-|`Metadata/GlobalPath`|Chaîne|Chemin relatif d’accès au fichier de métadonnées global.|  
+|`Metadata/GlobalPath`|String|Chemin relatif d’accès au fichier de métadonnées global.|  
 |`Metadata/GlobalPath/@Hash`|Attribut, Chaîne|Hachage MD5 encodé en Base16 du fichier de métadonnées global.|  
-|`Metadata/Path`|Chaîne|Chemin relatif d’accès au fichier de métadonnées.|  
+|`Metadata/Path`|String|Chemin relatif d’accès au fichier de métadonnées.|  
 |`Metadata/Path/@Hash`|Attribut, Chaîne|Hachage MD5 encodé en Base16 du fichier de métadonnées.|  
 |`Properties`|Élément XML imbriqué|Représente les propriétés de l’objet blob.|  
 |`Properties/@Status`|Attribut, Chaîne|État de traitement des propriétés de l’objet blob, par exemple, fichier introuvable, terminé.|  
-|`Properties/GlobalPath`|Chaîne|Chemin relatif d’accès au fichier de propriétés global.|  
+|`Properties/GlobalPath`|String|Chemin relatif d’accès au fichier de propriétés global.|  
 |`Properties/GlobalPath/@Hash`|Attribut, Chaîne|Hachage MD5 encodé en Base16 du fichier de propriétés global.|  
-|`Properties/Path`|Chaîne|Chemin relatif d’accès au fichier de propriétés.|  
+|`Properties/Path`|String|Chemin relatif d’accès au fichier de propriétés.|  
 |`Properties/Path/@Hash`|Attribut, Chaîne|Hachage MD5 encodé en Base16 du fichier de propriétés.|  
-|`Blob/Status`|Chaîne|État du traitement de l’objet blob.|  
+|`Blob/Status`|String|État du traitement de l’objet blob.|  
   
 ## <a name="drive-status-codes"></a>Codes d’état du lecteur  
 Le tableau suivant répertorie les codes d’état pour le traitement d’un lecteur.  

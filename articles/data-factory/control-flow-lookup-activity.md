@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: shlo
-ms.openlocfilehash: bc695bf8398a39460eff9bbe4f791ba92b0fa7e0
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 4f0662a71ee14af3c2c1aafee210641fc8b51f1b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019306"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60768656"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Activité de recherche dans Azure Data Factory
 
@@ -53,14 +53,15 @@ Les sources de données suivantes sont prises en charge pour l’activité Look
 ```
 
 ## <a name="type-properties"></a>Propriétés type
-NOM | Description | type | Requis ?
+
+Nom | Description | type | Requis ?
 ---- | ----------- | ---- | --------
 dataset | Fournit la référence de jeu de données pour la recherche. Pour plus d’informations, voir la section **Propriétés du jeu de données** dans chaque article traitant du connecteur correspondant. | Paire clé/valeur | OUI
 source | Contient des propriétés sources spécifiques au jeu de données, identiques à la source de l’activité Copy. Pour plus d’informations, consultez la section **Propriétés de l’activité Copy** dans chaque article traitant du connecteur correspondant. | Paire clé/valeur | OUI
-firstRowOnly | Indique s’il faut retourner uniquement la première ligne ou toutes les lignes. | Booléen |  Non. Par défaut, il s’agit de `true`.
+firstRowOnly | Indique s’il faut retourner uniquement la première ligne ou toutes les lignes. | Booléen | Non. Par défaut, il s’agit de `true`.
 
 > [!NOTE]
-
+> 
 > * Les colonnes sources avec le type **ByteArray** ne sont pas prises en charge.
 > * Il n’y a pas de prise en charge pour **Structure** dans les définitions des jeux de données. Pour les fichiers de format texte, utilisez la ligne d’en-tête pour mentionner le nom de la colonne.
 > * Si votre source de recherche est un fichier JSON, le paramètre `jsonPathDefinition` pour la mise en forme de l’objet JSON n’est pas pris en charge. Les objets entiers sont récupérés.

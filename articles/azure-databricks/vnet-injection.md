@@ -9,11 +9,11 @@ ms.service: azure-databricks
 ms.topic: conceptual
 ms.date: 03/18/2019
 ms.openlocfilehash: 2db588a0cf67d7826408139e8facb43a2e897951
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60003443"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62126679"
 ---
 # <a name="deploy-azure-databricks-in-your-virtual-network-preview"></a>Déployer Azure Databricks dans votre réseau virtuel (version préliminaire)
 

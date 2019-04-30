@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.openlocfilehash: 021f18f588613817110539d408f9260fb9247895
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53603927"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61449344"
 ---
 # <a name="integrate-the-remote-monitoring-solution-with-azure-data-lake-store"></a>Intégrer la solution de supervision à distance à Azure Data Lake Store
 
@@ -21,11 +21,11 @@ La solution de supervision à distance ne répond peut-être pas à tous vos bes
 
 Dans cette procédure, vous allez utiliser une tâche Azure Stream Analytics pour transmettre des données du hub IoT dans votre solution de supervision à distance à Azure Data Lake Store.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour réaliser cette procédure, vous avez besoin des éléments suivants :
 
-* [Déployer l’accélérateur de solution de surveillance à distance](quickstart-remote-monitoring-deploy.md).
+* [Déployer l’accélérateur de solution de supervision à distance](quickstart-remote-monitoring-deploy.md).
   * La solution de supervision à distance déploie le hub IoT et la tâche Azure Stream Analytics utilisés dans cet article dans votre abonnement Azure.
 * [Déployer un service Azure Data Lake Store](../data-lake-store/data-lake-store-get-started-portal.md)
   * Data Lake Store doit être déployé sur la même région que votre solution de supervision à distance.

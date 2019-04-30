@@ -12,11 +12,11 @@ ms.reviewer: larryfr
 ms.date: 04/02/2019
 ms.custom: seoapril2019
 ms.openlocfilehash: a6ef53d56fa293791658b37b16cbaff94aee6ef3
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59280891"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60819847"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Déployer des modèles avec le service Azure Machine Learning
 
@@ -296,7 +296,7 @@ Azure Kubernetes Service offre les fonctionnalités suivantes :
 * Collection de données de modèle
 * Temps de réponse rapides pour vos services web
 * Arrêt TLS
-* Authentication
+* Authentification
 
 #### <a name="autoscaling"></a>Mise à l’échelle automatique
 

@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: b661499786057a3083f79684dfd12c85266b7b5c
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: b9e5d034db4711384d2ac8a1083da5c93ea11900
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46128789"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61437240"
 ---
 # <a name="performance-tuning-guidance-for-mapreduce-on-hdinsight-and-azure-data-lake-storage-gen1"></a>Recommandations en matière d’optimisation des performances pour MapReduce sur HDInsight et Azure Data Lake Storage Gen1
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 * **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Un compte Azure Data Lake Storage Gen1**. Pour savoir comment en créer un, consultez [Prise en main d’Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
@@ -44,20 +44,20 @@ Lors de l’exécution des travaux MapReduce, voici les paramètres les plus imp
 
 ## <a name="guidance"></a>Assistance
 
-**Étape 1 : Déterminer le nombre de travaux en cours d’exécution** : par défaut, MapReduce utilise l’ensemble du cluster pour votre travail.  Vous pouvez utiliser une partie moindre du cluster en utilisant moins de mappeurs que de conteneurs disponibles.  Les instructions de ce document supposent que votre application est la seule application en cours d’exécution sur votre cluster.      
+**Étape 1 : Déterminer le nombre de travaux en cours d’exécution** -par défaut, MapReduce utilise l’ensemble du cluster pour votre travail.  Vous pouvez utiliser une partie moindre du cluster en utilisant moins de mappeurs que de conteneurs disponibles.  Les instructions de ce document supposent que votre application est la seule application en cours d’exécution sur votre cluster.      
 
-**Étape 2 : Configurer mapreduce.map.memory/mapreduce.reduce.memory** : la taille de la mémoire pour les tâches de mappage et de réduction dépendra du travail en question.  Vous pouvez réduire la taille de la mémoire si vous souhaitez augmenter la simultanéité.  Le nombre de tâches exécutées simultanément varie selon le nombre de conteneurs.  En réduisant la quantité de mémoire par mappeur ou réducteur, il est possible de créer plus de conteneurs, pour permettre à plus de mappeurs ou réducteurs de s’exécuter simultanément.  Trop réduire la quantité de mémoire risque de causer des problèmes de mémoire insuffisante pour certains processus.  Si vous obtenez une erreur de segment de mémoire lors de l’exécution de votre travail, vous devez augmenter la mémoire par mappeur ou réducteur.  Vous devez prendre en compte le fait que l’ajout de conteneurs ajoute une charge pour chaque conteneur supplémentaire, ce qui peut dégrader les performances.  Une autre solution consiste à obtenir davantage de mémoire à l’aide d’un cluster qui possède une quantité supérieure de mémoire ou en augmentant le nombre de nœuds de votre cluster.  Une mémoire plus importante permettra d’utiliser plus de conteneurs, pour plus de simultanéité.  
+**Étape 2 : Configurer mapreduce.map.memory/mapreduce.reduce.memory** – la taille de la mémoire pour le mappage et réduire les tâches dépendra du travail en question.  Vous pouvez réduire la taille de la mémoire si vous souhaitez augmenter la simultanéité.  Le nombre de tâches exécutées simultanément varie selon le nombre de conteneurs.  En réduisant la quantité de mémoire par mappeur ou réducteur, il est possible de créer plus de conteneurs, pour permettre à plus de mappeurs ou réducteurs de s’exécuter simultanément.  Trop réduire la quantité de mémoire risque de causer des problèmes de mémoire insuffisante pour certains processus.  Si vous obtenez une erreur de segment de mémoire lors de l’exécution de votre travail, vous devez augmenter la mémoire par mappeur ou réducteur.  Vous devez prendre en compte le fait que l’ajout de conteneurs ajoute une charge pour chaque conteneur supplémentaire, ce qui peut dégrader les performances.  Une autre solution consiste à obtenir davantage de mémoire à l’aide d’un cluster qui possède une quantité supérieure de mémoire ou en augmentant le nombre de nœuds de votre cluster.  Une mémoire plus importante permettra d’utiliser plus de conteneurs, pour plus de simultanéité.  
 
-**Étape 3 : Déterminer la mémoire YARN totale** : pour régler mapreduce.job.maps/mapreduce.job.reduces, vous devez prendre en compte la quantité de mémoire YARN totale disponible pour utilisation.  Ces informations sont disponibles dans Ambari.  Accédez à YARN et affichez l’onglet Configurations.  La mémoire YARN s’affiche dans cette fenêtre.  Vous devez multiplier la mémoire YARN par le nombre de nœuds dans votre cluster pour obtenir la mémoire YARN totale.
+**Étape 3 : Déterminer la mémoire YARN totale** : pour régler mapreduce.job.maps/mapreduce.job.reduces, vous devez envisager la quantité de mémoire YARN totale disponible pour utilisation.  Ces informations sont disponibles dans Ambari.  Accédez à YARN et affichez l’onglet Configurations.  La mémoire YARN s’affiche dans cette fenêtre.  Vous devez multiplier la mémoire YARN par le nombre de nœuds dans votre cluster pour obtenir la mémoire YARN totale.
 
     Total YARN memory = nodes * YARN memory per node
 Si vous utilisez un cluster vide, la mémoire peut être la mémoire YARN totale pour votre cluster.  Si d’autres applications utilisent de la mémoire, vous pouvez choisir d’utiliser uniquement une partie de la mémoire de votre cluster en réduisant le nombre de mappeurs ou réducteurs au nombre de conteneurs que vous souhaitez utiliser.  
 
-**Étape 4 : Calculer le nombre de conteneurs YARN** : les conteneurs YARN déterminent la quantité de simultanéité disponible pour le travail.  Prenez la mémoire YARN totale et divisez-la par mapreduce.map.memory.  
+**Étape 4 : Calculer le nombre de conteneurs YARN** – conteneurs YARN déterminent la quantité de simultanéité disponible pour le travail.  Prenez la mémoire YARN totale et divisez-la par mapreduce.map.memory.  
 
     # of YARN containers = total YARN memory / mapreduce.map.memory
 
-**Étape 5 : Définir mapreduce.job.maps/mapreduce.job.reduces** Définissez mapreduce.job.maps/mapreduce.job.reduces sur le nombre de conteneurs disponibles, au minimum.  Vous pouvez expérimenter davantage en augmentant le nombre de mappeurs et de réducteurs pour voir si vous obtenez de meilleures performances.  N’oubliez pas que les mappeurs supplémentaires ajouteront une charge, ainsi un trop grand nombre de mappeurs peut dégrader les performances.  
+**Étape 5 : Définir mapreduce.job.maps/mapreduce.job.reduces** définir mapreduce.job.maps/mapreduce.job.reduces au moins au nombre de conteneurs disponibles.  Vous pouvez expérimenter davantage en augmentant le nombre de mappeurs et de réducteurs pour voir si vous obtenez de meilleures performances.  N’oubliez pas que les mappeurs supplémentaires ajouteront une charge, ainsi un trop grand nombre de mappeurs peut dégrader les performances.  
 
 La planification et l’isolation de processeur sont désactivées par défaut. Par conséquent, le nombre de conteneurs YARN est donc limité par la mémoire.
 
@@ -65,19 +65,19 @@ La planification et l’isolation de processeur sont désactivées par défaut. 
 
 Supposons que vous avez actuellement un cluster composé de 8 nœuds D14 et que vous souhaitez exécuter une tâche intensive en E/S.  Voici les calculs que vous devez faire :
 
-**Étape 1 : Déterminer le nombre de travaux en cours d’exécution** : dans notre exemple, nous supposons que notre travail est le seul en cours d’exécution.  
+**Étape 1 : Déterminer le nombre de travaux en cours d’exécution** -dans notre exemple, nous partons du principe que notre travail est le seul en cours d’exécution.  
 
-**Étape 2 : Configurer mapreduce.map.memory/mapreduce.reduce.memory** : dans notre exemple, vous exécutez une tâche intensive en E/S et décidez que 3 Go de mémoire suffiront pour les tâches de mappage.
+**Étape 2 : Configurer mapreduce.map.memory/mapreduce.reduce.memory** – dans notre exemple, vous exécutez une tâche intensive en e/s et décidez que 3 Go de mémoire pour les tâches de mappage sera suffisant.
 
     mapreduce.map.memory = 3GB
-**Étape 3 : Déterminer la mémoire YARN totale**
+**Étape 3 : Déterminer la mémoire YARN totale**
 
     total memory from the cluster is 8 nodes * 96GB of YARN memory for a D14 = 768GB
-**Étape 4 : Calculer le nombre de conteneurs YARN**
+**Étape 4 : Calculer le nombre de conteneurs YARN**
 
     # of YARN containers = 768GB of available memory / 3 GB of memory =   256
 
-**Étape 5 : Définir mapreduce.job.maps/mapreduce.job.reduces**
+**Étape 5 : Configurer mapreduce.job.maps/mapreduce.job.reduces**
 
     mapreduce.map.jobs = 256
 

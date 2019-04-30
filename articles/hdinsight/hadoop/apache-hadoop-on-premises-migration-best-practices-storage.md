@@ -1,7 +1,6 @@
 ---
 title: Migrer des clusters Apache Hadoop locaux vers Azure HDInsight - bonnes pratiques concernant le stockage
 description: Découvrez les bonnes pratiques concernant le stockage pour la migration des clusters Hadoop locaux vers Azure HDInsight.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: ashishth
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: f3ac60eb45c86b6cd2ded0340ac6bde478086464
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: c62a5384edf66fd9309bc7afcb50ada48e3fca7d
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60000060"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62095280"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---storage-best-practices"></a>Migrer des clusters Apache Hadoop locaux vers Azure HDInsight - bonnes pratiques concernant le stockage
 
@@ -172,11 +171,11 @@ Par défaut, HDInsight dispose d’un accès total aux données dans les comptes
 
 5. Pour limiter l’accès à un conteneur avec une signature d’accès partagé, ajoutez une entrée personnalisée à la configuration de core-site pour le cluster sous Ambari > HDFS > Configs > Advanced > Custom core-site > Add property.
 
-6. Utilisez les valeurs suivantes pour les champs  **Key** et **Value**  :
+6. Utilisez les valeurs suivantes pour les champs **Clé** et **Valeur** :
 
     **Clé** : **Valeur** `fs.azure.sas.YOURCONTAINER.YOURACCOUNT.blob.core.windows.net` : Clé SAP retournée l’application Python de l’étape 4 ci-dessus.
 
-7. Cliquez sur le bouton  **Ajouter**  pour enregistrer cette clé et cette valeur, puis cliquez sur le bouton  **Enregistrer**  pour enregistrer les modifications de configuration. Quand vous y êtes invité, ajoutez une description de la modification (par exemple « Ajout de l’accès au stockage avec signature d’accès partagé »), puis cliquez sur  **Enregistrer**.
+7. Cliquez sur le bouton **Ajouter** pour enregistrer cette clé et cette valeur, puis cliquez sur le bouton **Enregistrer** pour enregistrer les modifications de configuration. Lorsque vous y êtes invité, ajoutez une description de la modification (« Ajout d’accès de stockage SAP », par exemple), puis cliquez sur **Enregistrer**.
 
 8. Dans l’interface utilisateur web d’Ambari, sélectionnez HDFS dans la liste sur la gauche, puis sélectionnez  **Restart All Affected** (Redémarrer tous les éléments affectés) dans la liste déroulante Service Actions (Actions du service) située à droite. Quand vous y êtes invité, sélectionnez  **Confirm Restart All** (Confirmer le redémarrage de tout).
 

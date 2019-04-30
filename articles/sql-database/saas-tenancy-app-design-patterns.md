@@ -13,11 +13,11 @@ ms.reviewer: billgib, sstein
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: 6332555c1a176a06004ddfeee513844ad5875c30
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59260542"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61484452"
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>Modèles de location de base de données SaaS multi-locataire
 
@@ -174,7 +174,7 @@ Dans le modèle hybride, l’identificateur de locataire est inclus dans le sch�
 
 Vous pouvez à tout moment déplacer un locataire spécifique dans sa propre base de données multi-locataire.  Vous pouvez aussi à tout moment replacer le locataire dans une base de données contenant plusieurs locataires.  Vous pouvez également affecter un locataire à une nouvelle base de données à locataire unique quand vous provisionnez la nouvelle base de données.
 
-Le modèle hybride est particulièrement adapté quand des groupes identifiables de locataires ont des besoins en ressources très différents.  Par exemple, supposons que les locataires qui participent à un essai gratuit ne bénéficient pas systématiquement du même niveau de performance que les locataires abonnés.  La stratégie peut stipuler de stocker les locataires dans la phase d’essai gratuit dans une base de données multi-locataire qui est partagée entre tous les locataires de l’essai gratuit.  Quand un locataire dans la phase d’essai gratuit s’abonne au niveau de service de base, le locataire peut être déplacé dans une autre base de données multilocataire qui peut contenir moins de locataires.  Un abonné au service de niveau premium peut être déplacé dans sa nouvelle base de données à locataire unique.
+Le modèle hybride est particulièrement adapté quand des groupes identifiables de locataires ont des besoins en ressources très différents.  Par exemple, supposons que les locataires qui participent à un essai gratuit ne bénéficient pas systématiquement du même niveau de performance que les locataires abonnés.  La stratégie peut stipuler de stocker les locataires dans la phase d’essai gratuit dans une base de données multi-locataire qui est partagée entre tous les locataires de l’essai gratuit.  Quand un locataire dans la phase d’essai gratuit s’abonne au niveau de service de base, le locataire peut être déplacé dans une autre base de données multilocataire qui peut contenir moins de locataires.  Un abonné avec un niveau de service Premium peut être déplacé dans sa nouvelle base de données monolocataire.
 
 #### <a name="pools"></a>Pools
 

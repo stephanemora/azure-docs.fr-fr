@@ -12,11 +12,11 @@ ms.assetid: 40ce621e-4925-4653-93bb-71ab9abcbdf1
 tags: connectors
 ms.date: 08/24/2018
 ms.openlocfilehash: 663363d05c1875d22a0ecc0478abcf7e0ec89c99
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230367"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62105628"
 ---
 # <a name="manage-project-online-projects-tasks-and-resources-by-using-azure-logic-apps"></a>Gérer des projets, des tâches et des ressources Project Online à l’aide d’Azure Logic Apps
 
@@ -29,7 +29,7 @@ Avec Azure Logic Apps et le connecteur Project Online, vous pouvez créer des t�
 
 Grâce à des capacités de gestion de projets performantes, Project Online vous aide à planifier, à hiérarchiser et à gérer des projets et des investissements de portefeuilles de projets depuis presque n’importe où et sur pratiquement tous les appareils. Vous pouvez utiliser des déclencheurs Project Online qui obtiennent des réponses de Project Online et mettent le résultat à la disposition d’autres actions. Vous pouvez utiliser des actions dans vos applications logiques pour effectuer des tâches variées dans Project Online. Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azure Logic Apps ?](../logic-apps/logic-apps-overview.md)
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscrivez-vous pour bénéficier d’un compte Azure gratuit</a>. 
 

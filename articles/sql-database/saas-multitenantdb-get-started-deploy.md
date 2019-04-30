@@ -13,11 +13,11 @@ ms.reviewer: billgib, stein
 manager: craigg
 ms.date: 10/16/2018
 ms.openlocfilehash: 8f19303dba7fcf2a9edb325464fdd3748220903e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57994918"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61486154"
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application"></a>Déployer et explorer une application mutualisée sharded
 
@@ -111,7 +111,7 @@ Les scripts se trouvent dans le dossier *...\\WingtipTicketsSaaS-MultiTenantDb-m
 Avant d’exécuter des scripts, définissez les valeurs *resource group* et *user* dans **UserConfig.psm1**. Pour ces variables, utilisez les mêmes valeurs que vous avez définies pendant le déploiement.
 
 1. Ouvrez ...\\Learning Modules\\*UserConfig.psm1* dans *PowerShell ISE*.
-2. Mettez à jour *ResourceGroupName* et *Name* avec les valeurs spécifiques à votre déploiement (lignes 10 et 11 uniquement).
+2. Mettez à jour *ResourceGroupName* et *Name* avec les valeurs spécifique de votre déploiement (sur les lignes 10 et 11 uniquement).
 3. Enregistrez les modifications.
 
 Les valeurs définies dans ce fichier sont utilisées par tous les scripts. Il est donc important qu’elles soient exactes. Si vous redéployez l’application, vous devez choisir des valeurs différentes pour l’utilisateur et le groupe de ressources. Mettez ensuite à jour le fichier UserConfig.psm1 avec les nouvelles valeurs.

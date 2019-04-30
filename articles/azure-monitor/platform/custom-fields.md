@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 03/29/2019
 ms.author: bwren
 ms.openlocfilehash: 974a3391c592a1caf7bdcc6d9e01032f0c73aaa6
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60002865"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61461818"
 ---
 # <a name="create-custom-fields-in-a-log-analytics-workspace-in-azure-monitor"></a>Créer des champs personnalisés dans un espace de travail Analytique de journal dans Azure Monitor
 
@@ -27,7 +27,7 @@ ms.locfileid: "60002865"
 
 Le **champs personnalisés** fonctionnalité d’Azure Monitor vous permet d’étendre les enregistrements existants dans votre espace de travail Analytique de journal en ajoutant vos propres champs de recherche.  Les champs personnalisés sont renseignés automatiquement à partir des données extraites d’autres propriétés du même enregistrement.
 
-![Vue d'ensemble](media/custom-fields/overview.png)
+![Présentation](media/custom-fields/overview.png)
 
 Par exemple, l’enregistrement ci-dessous contient des données utiles dans la description de l’événement. Extraction de ces données dans une propriété distincte rend disponibles pour les actions telles que le tri et le filtrage.
 

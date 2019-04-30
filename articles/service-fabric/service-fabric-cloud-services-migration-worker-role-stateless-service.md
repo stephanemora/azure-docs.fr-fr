@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
 ms.openlocfilehash: 10fb44b0e76282ad78e7687beaa2e50e819e5cd9
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58667716"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62109999"
 ---
 # <a name="guide-to-converting-web-and-worker-roles-to-service-fabric-stateless-services"></a>Guide de conversion des rôles web et de travail en services sans état Service Fabric
 Cet article explique comment migrer vos rôles web et de travail des services cloud vers les services sans état Service Fabric. Il s’agit de la manière la plus simple de migrer des applications dont l’architecture globale va rester quasi identique des services cloud vers Service Fabric.
@@ -44,7 +44,7 @@ Comme pour le rôle de travail, un rôle web représente également une charge d
 | Formulaires web ASP.NET |Non  |Convertir en ASP.NET Core 1 MVC |
 | ASP.NET MVC |Avec migration |Mettre à niveau vers ASP.NET Core 1 MVC |
 | API Web ASP.NET |Avec migration |Utiliser un serveur auto-hébergé ou ASP.NET Core 1 |
-| ASP.NET Core 1 |Oui |S.O. |
+| ASP.NET Core 1 |Oui |N/A |
 
 ## <a name="entry-point-api-and-lifecycle"></a>API de point d’entrée et cycle de vie
 Les points d’entrée des API de rôle de travail et de Service Fabric sont semblables : 
@@ -52,9 +52,9 @@ Les points d’entrée des API de rôle de travail et de Service Fabric sont sem
 | **Point d’entrée** | **Instances de** | **Service Service Fabric** |
 | --- | --- | --- |
 | Traitement en cours |`Run()` |`RunAsync()` |
-| Démarrer la machine virtuelle |`OnStart()` |S.O. |
-| Arrêter la machine virtuelle |`OnStop()` |S.O. |
-| Ouvrir l’écouteur pour les requêtes du client |S.O. |<ul><li> Sans état : `CreateServiceInstanceListener()`</li><li>Avec état : `CreateServiceReplicaListener()`</li></ul> |
+| Démarrer la machine virtuelle |`OnStart()` |N/A |
+| Arrêter la machine virtuelle |`OnStop()` |N/A |
+| Ouvrir l’écouteur pour les requêtes du client |N/A |<ul><li> Sans état : `CreateServiceInstanceListener()`</li><li>Avec état : `CreateServiceReplicaListener()`</li></ul> |
 
 ### <a name="worker-role"></a>Instances de
 ```csharp
@@ -123,8 +123,8 @@ L’API d’environnement des services cloud fournit des informations et des fon
 | Paramètres de configuration et notification de modification |`RoleEnvironment` |`CodePackageActivationContext` |
 | Stockage local |`RoleEnvironment` |`CodePackageActivationContext` |
 | Informations sur le point de terminaison |`RoleInstance` <ul><li>Instance actuelle : `RoleEnvironment.CurrentRoleInstance`</li><li>Autres rôles et instances : `RoleEnvironment.Roles`</li> |<ul><li>`NodeContext` pour l’adresse du nœud actuel</li><li>`FabricClient` et `ServicePartitionResolver` pour la découverte de point de terminaison de service</li> |
-| Émulation de l’environnement |`RoleEnvironment.IsEmulated` |S.O. |
-| Événement de modification simultanée |`RoleEnvironment` |S.O. |
+| Émulation de l’environnement |`RoleEnvironment.IsEmulated` |N/A |
+| Événement de modification simultanée |`RoleEnvironment` |N/A |
 
 ## <a name="configuration-settings"></a>Paramètres de configuration
 Les paramètres de configuration des services cloud sont définis pour un rôle de machine virtuelle et s’appliquent à toutes les instances de ce rôle de machine virtuelle. Ces paramètres correspondent à des paires clé-valeur définies dans les fichiers ServiceConfiguration.*.cscfg. Ils sont accessibles directement via RoleEnvironment. Dans Service Fabric, les paramètres s’appliquent individuellement à chaque service et chaque application, plutôt qu’à une machine virtuelle. En effet, une machine virtuelle peut héberger plusieurs applications et services. Un service se compose de trois packages :

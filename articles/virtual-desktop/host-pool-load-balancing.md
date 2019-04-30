@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
 ms.openlocfilehash: 8b18224339654c067d8ab9b543fa49a9c7d55ddd
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400175"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60870521"
 ---
-# <a name="host-pool-load-balancing-methods"></a>Héberger des méthodes d’équilibrage de charge de pool
+# <a name="host-pool-load-balancing-methods"></a>Méthodes d’équilibrage de charge des pools d’hôtes
 
 Windows Virtual Desktop Preview prend en charge deux méthodes d’équilibrage de charge. Chaque méthode détermine quel hôte de session hébergera une session utilisateur lorsqu’ils se connectent à une ressource dans un pool de l’hôte.
 

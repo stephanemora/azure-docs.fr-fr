@@ -3,17 +3,17 @@ title: Créer un rapport à partir d’un jeu de données dans les Collections d
 description: Vous pouvez désormais créer des rapports Collections d’espaces de travail Power BI à partir d’un jeu de données dans votre propre application.
 services: power-bi-workspace-collections
 ms.service: power-bi-workspace-collections
-author: markingmyname
-ms.author: maghan
+author: rkarlin
+ms.author: rkarlin
 ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.openlocfilehash: 92f75a15374738d02972adc012b3a28918d7825d
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: MT
+ms.openlocfilehash: e7499345f03e3deedb8972b0d51e8e676cb6c982
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58518811"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62110612"
 ---
 # <a name="create-a-new-report-from-a-dataset-in-power-bi-workspace-collections"></a>Créer un rapport à partir d’un jeu de données dans Collections d’espaces de travail Power BI
 

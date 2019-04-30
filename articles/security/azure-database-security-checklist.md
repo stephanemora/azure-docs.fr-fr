@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
 ms.openlocfilehash: 424453e70e5b62e408f408cd5ae8169cddb14dd7
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56109926"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62121689"
 ---
 # <a name="azure-database-security-checklist"></a>Liste de contrôle de la sécurité des bases de données Azure
 
@@ -36,7 +36,7 @@ Il s’agit des actions suivantes :
 -   Audit de base de données SQL
 -   Détection de menaces pour les bases de données SQL
 
-## <a name="introduction"></a>Introduction
+## <a name="introduction"></a>Présentation
 Le cloud computing requiert de nouveaux modèles de sécurité avec lesquels de nombreux utilisateurs d’applications, administrateurs de bases de données et programmeurs ne sont pas familiarisés. Par conséquent, certaines organisations hésitent à implémenter une infrastructure de cloud pour la gestion des données en raison des risques de sécurité perçus. Pour une grande part toutefois, ces inquiétudes peuvent être calmées par une meilleure compréhension des fonctionnalités de sécurité intégrées dans Microsoft Azure et Microsoft Azure SQL Database.
 
 ## <a name="checklist"></a>Liste de contrôle
@@ -53,7 +53,7 @@ Nous vous recommandons de lire l’article [Azure Database Security Best Practic
 |<br>Accès aux applications| <ul><li>[Sécurité au niveau des lignes](https://msdn.microsoft.com/library/dn765131) (avec une stratégie de sécurité, tout en limitant l’accès au niveau des lignes selon l’identité des utilisateurs, leur rôle ou le contexte d’exécution).</li><li>[Masquage des données dynamiques](https://docs.microsoft.com/azure/sql-database/sql-database-dynamic-data-masking-get-started) (avec autorisation et stratégie, limite l’exposition des données sensibles en les masquant pour les utilisateurs sans privilège).</li></ul>|
 |**Surveillance proactive**||  
 | <br>Suivi et détection| <ul><li>L’[audit](https://docs.microsoft.com/azure/sql-database/sql-database-auditing) suit les événements de base de données et les écrit dans un journal d’audit ou d’activité dans votre [compte de stockage Azure](https://docs.microsoft.com/azure/storage/storage-create-storage-account).</li><li>Suivi de l’intégrité des bases de données Azure à l’aide des [journaux d’activité Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs).</li><li>La [détection des menaces](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection) permet de détecter les activités base de données anormales indiquant la présence potentielle de menaces de sécurité pour la base de données. </li></ul> |
-|<br>Azure Security Center| <ul><li>[Surveillance des données](https://docs.microsoft.com/azure/security-center/security-center-enable-auditing-on-sql-databases), avec Azure Security Center comme solution de surveillance de la sécurité centralisée pour SQL et d’autres services Azure.</li></ul>|       
+|<br>Azure Security Center| <ul><li>[Supervision des données](https://docs.microsoft.com/azure/security-center/security-center-enable-auditing-on-sql-databases), avec Azure Security Center comme solution de supervision de la sécurité centralisée pour SQL et d’autres services Azure.</li></ul>|       
 
 ## <a name="conclusion"></a>Conclusion
 Azure Database est une plateforme robuste de base de données, avec un éventail complet de fonctionnalités de sécurité qui répondent à nombreuses exigences en matière de conformité réglementaire et organisationnelles. Vous pouvez facilement protéger les données en contrôlant l’accès physique à vos données et à l’aide de diverses options de sécurité des données au niveau des fichiers, des colonnes ou des lignes avec le chiffrement transparent des données, le chiffrement au niveau des cellules ou de la sécurité au niveau des lignes. Always Encrypted active également des opérations sur les données chiffrées, ce qui simplifie le processus des mises à jour d’application. À son tour, l’accès aux journaux d’activité d’audit de l’activité SQL Database vous offre les informations dont vous avez besoin, ce qui vous permet de savoir quand et comment les utilisateurs ont accédé aux données.

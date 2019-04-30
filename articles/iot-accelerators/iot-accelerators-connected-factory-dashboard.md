@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 07/10/2018
 ms.author: dobett
-ms.openlocfilehash: 4af93b5667181941585cc1ac89f5696379962026
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
-ms.translationtype: HT
+ms.openlocfilehash: 05befc72f512f502456f798f25b6c72571451363
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39075302"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61450990"
 ---
 # <a name="use-features-in-the-connected-factory-solution-accelerator-dashboard"></a>Utiliser les fonctionnalités du tableau de bord de l’accélérateur de solution Usine connectée
 
@@ -23,7 +23,7 @@ Le guide de démarrage rapide [Déployer une solution cloud pour gérer mes appa
 
 Vous pouvez filtrer les informations affichées dans le tableau de bord dans le panneau **Emplacements des usines** ou dans le panneau **Alarmes** :
 
-1. Cliquez sur l’icône **Entonnoir** pour afficher la liste des filtres disponibles dans le panneau des emplacements d’usine ou le panneau des alarmes.
+1. Cliquez sur le **Entonnoir** pour afficher la liste des filtres disponibles dans le panneau des emplacements d’usine ou le panneau des alarmes.
 
 1. Le panneau des filtres s’affiche :
 

@@ -11,11 +11,11 @@ ms.workload: infrastructure-services
 ms.date: 04/08/2019
 ms.author: tyao;kumud
 ms.openlocfilehash: 4c2f070e9b3c972f063008df8880b196ddb069cc
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59797461"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61459366"
 ---
 # <a name="policy-settings-for-web-application-firewall-with-azure-front-door"></a>Paramètres de stratégie de pare-feu d’applications web avec Azure porte d’entrée
 

@@ -12,11 +12,11 @@ ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
 ms.openlocfilehash: 0fbd89202796cb4543dbecbeee605c9b87cc9d05
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230656"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62104984"
 ---
 # <a name="monitor-and-manage-twitter-by-using-azure-logic-apps"></a>Superviser et gérer Twitter à l’aide d’Azure Logic Apps
 
@@ -27,7 +27,7 @@ Avec Azure Logic Apps et le connecteur Twitter, vous pouvez créer des tâches e
 
 Vous pouvez utiliser des déclencheurs qui obtiennent des réponses de votre compte Twitter et mettent la sortie à la disposition d’autres actions. Vous pouvez utiliser des actions qui effectuent des tâches avec votre compte Twitter. Vous pouvez également faire en sorte que des actions utilisent la sortie d’actions Twitter. Par exemple, quand un nouveau tweet avec un mot-dièse spécifique s’affiche, vous pouvez envoyer des messages avec le connecteur Slack. Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azure Logic Apps ?](../logic-apps/logic-apps-overview.md)
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscrivez-vous pour bénéficier d’un compte Azure gratuit</a>. 
 
@@ -70,15 +70,15 @@ Vous pouvez utiliser des déclencheurs qui obtiennent des réponses de votre com
 
 ## <a name="examples"></a>Exemples
 
-### <a name="twitter-trigger-when-a-new-tweet-is-posted"></a>Déclencheur Twitter : Lors de la publication d’un nouveau tweet
+### <a name="twitter-trigger-when-a-new-tweet-is-posted"></a>Déclencheur Twitter : When a new tweet is posted (Lorsqu’un nouveau tweet est publié)
 
 Ce déclencheur démarre un flux de travail d’application logique quand il détecte un nouveau tweet, par exemple, avec le mot-dièse #Seattle. Par exemple, quand ces tweets sont détectés, vous pouvez ajouter un fichier avec le contenu des tweets dans le stockage, tel qu’un compte Dropbox à l’aide du connecteur Dropbox. 
 
 Si vous le souhaitez, vous pouvez inclure une condition stipulant que les tweets éligibles doivent provenir d’utilisateurs ayant un nombre minimum d’abonnés spécifié.
 
-**Exemple en entreprise** : vous pouvez utiliser ce déclencheur pour superviser les tweets relatifs à votre entreprise et charger leur contenu vers une base de données SQL.
+**Exemple en entreprise** : Vous pouvez utiliser ce déclencheur pour surveiller des tweets sur votre entreprise et de télécharger du contenu des tweets dans une base de données SQL.
 
-### <a name="twitter-action-post-a-tweet"></a>Action Twitter : Publier un tweet
+### <a name="twitter-action-post-a-tweet"></a>Action Twitter : Post a tweet (Publier un tweet)
 
 Cette action publie un tweet, mais vous pouvez configurer l’action afin que le tweet contienne le contenu des tweets trouvés par le déclencheur décrit précédemment. 
 

@@ -16,11 +16,11 @@ ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: ninarn
 ms.openlocfilehash: 988acec8d7044afe87523637e46c9a4deb92b55e
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53719708"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61477655"
 ---
 # <a name="application-patterns-and-development-strategies-for-sql-server-in-azure-virtual-machines"></a>Modèles d'application et stratégies de développement pour SQL Server dans les machines virtuelles Azure
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-both-include.md)]
@@ -36,7 +36,7 @@ Pour chaque modèle d’application, vous trouverez un scénario local, la solut
 
 **Réviseurs techniques :** Corey Sanders, Drew McDaniel, Narayan Annamalai, Nir Mashkowski, Sanjay Mishra, Silvano Coriani, Stefan Schackow, Tim Hickey, Tim Wieman et Xin Jin
 
-## <a name="introduction"></a>Introduction
+## <a name="introduction"></a>Présentation
 Vous pouvez développer de nombreux types d’applications multiniveaux en répartissant les composants des niveaux d’application sur différents ordinateurs ainsi que dans différents composants. Par exemple, vous pouvez placer l’application cliente et les composants de règles métier sur un ordinateur, les composants de niveau web frontal et d’accès aux données sur un deuxième ordinateur et un niveau de base de données principale sur un troisième ordinateur. Ce type de structure permet d’isoler les niveaux les uns des autres. Si vous modifiez la provenance des données, vous n’avez pas besoin de modifier l’application cliente ou web, mais seulement les composants de niveau d’accès aux données.
 
 Une application *multiniveau* type inclut la couche Présentation, la couche Métier et la couche Données :
@@ -58,7 +58,7 @@ Cet article décrit plusieurs modèles d’application qui peuvent convenir à d
 * Vous avez besoin d’une compatibilité complète avec une version locale de SQL Server tout en voulant déplacer des applications existantes vers Azure en l’état.
 * Vous souhaitez exploiter les fonctionnalités de l’environnement Azure mais la base de données SQL Azure ne prend pas en charge les fonctionnalités requises par votre application. Cela peut inclure les éléments suivants :
   
-  * **Taille de la base de données** : Au moment de la mise à jour de cet article, le service SQL Database prend en charge une base de données pouvant contenir jusqu’à 1 To de données. Si votre application nécessite plus de 1 To de données et que vous ne souhaitez pas mettre en œuvre des solutions de partitionnement personnalisé, nous vous recommandons d’utiliser SQL Server sur une machine virtuelle Azure. Pour plus d’informations, consultez [Montée en charge de la base de données Azure SQL Database](https://msdn.microsoft.com/library/azure/dn495641.aspx), [Modèle d’achat DTU](../../../sql-database/sql-database-service-tiers-dtu.md) et [Modèle achats vCore](../../../sql-database/sql-database-service-tiers-vcore.md)(préversion).
+  * **Taille de la base de données** : Au moment de la mise à jour de cet article, le service SQL Database prend en charge une base de données pouvant contenir jusqu’à 1 To de données. Si votre application nécessite plus de 1 To de données et que vous ne souhaitez pas mettre en œuvre des solutions de partitionnement personnalisé, nous vous recommandons d’utiliser SQL Server sur une machine virtuelle Azure. Pour plus d’informations, consultez [Scale-out Azure SQL Database](https://msdn.microsoft.com/library/azure/dn495641.aspx), [Modèle d’achat DTU](../../../sql-database/sql-database-service-tiers-dtu.md) et [Modèle d’achat vCore](../../../sql-database/sql-database-service-tiers-vcore.md)(préversion).
   * **Conformité HIPAA** : Les clients du secteur de la santé et les fournisseurs de logiciels indépendants (ISV) peuvent choisir le service [SQL Server dans des machines virtuelles Azure](virtual-machines-windows-sql-server-iaas-overview.md) au lieu du service [Azure SQL Database](../../../sql-database/sql-database-technical-overview.md), car le service SQL Server sur une machine virtuelle Azure est couvert par le contrat HIPAA Business Associate Agreement (BAA). Pour plus d’informations sur la conformité, consultez le [Centre de confidentialité Microsoft Azure : Conformité](https://azure.microsoft.com/support/trust-center/compliance/).
   * **Fonctionnalités au niveau de l’instance** : À ce stade, SQL Database ne prend pas en charge les fonctionnalités qui résident en dehors de la base de données (comme les serveurs liés, les travaux de l’agent, FileStream, Service Broker, etc.). Pour plus d’informations, consultez la section [Instructions et limitations de la Base de données SQL Azure](https://msdn.microsoft.com/library/azure/ff394102.aspx).
 
@@ -203,7 +203,7 @@ Dans ce modèle d’application, vous déployez une application de base de donn�
 
 Ce modèle d’application est utile dans les cas suivants :
 
-* Vous avez déjà un serveur de base de données SQL existant configuré dans Azure et vous souhaitez tester votre application rapidement.
+* Vous avez déjà un serveur SQL Database existant configuré dans Azure et vous souhaitez tester votre application rapidement.
 * Vous souhaitez tester les fonctionnalités de l’environnement Azure.
 * Vous voulez rapidement approvisionner des environnements de développement et de test pour de courtes périodes.
 * Vos composants de logique métier et d’accès aux données peuvent être autonomes dans une application web.

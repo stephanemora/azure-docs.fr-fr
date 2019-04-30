@@ -12,11 +12,11 @@ ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
 ms.openlocfilehash: 68378c87e18df874059579445352b8fd1b2b6c13
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232713"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62105578"
 ---
 # <a name="exchange-messages-in-the-cloud-with-azure-service-bus-and-azure-logic-apps"></a>Échanger des messages dans le cloud avec Azure Service Bus et Azure Logic Apps
 
@@ -31,7 +31,7 @@ Avec Azure Logic Apps et le connecteur Azure Service Bus, vous pouvez créer des
 
 Vous pouvez utiliser des déclencheurs afin d’obtenir des réponses de Service Bus et mettre la sortie à la disposition d’autres actions dans vos applications logiques. Vous pouvez également faire en sorte que d’autres actions utilisent la sortie d’actions Service Bus. Si vous ne connaissez pas Service Bus et Logic Apps, consultez [Qu’est-ce qu’Azure Service Bus ?](../service-bus-messaging/service-bus-messaging-overview.md) et [Qu’est-ce qu’Azure Logic Apps ?](../logic-apps/logic-apps-overview.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscrivez-vous pour bénéficier d’un compte Azure gratuit</a>. 
 
@@ -74,7 +74,7 @@ Vérifiez que votre application logique dispose des autorisations pour accéder 
 
 1. Pour ajouter un *déclencheur* à une application logique vide, dans la zone de recherche, entrez « Azure Service Bus » comme filtre. Dans la liste des déclencheurs, sélectionnez le déclencheur souhaité. 
 
-   Par exemple, pour déclencher votre application logique quand un nouvel élément est envoyé à une file d’attente Service Bus, sélectionnez le déclencheur suivant : **Quand une file d’attente reçoit un message (saisie semi-automatique)**
+   Par exemple, pour déclencher votre application logique lorsqu’un nouvel élément est envoyé à une file d’attente Service Bus, sélectionnez ce déclencheur : **Lorsqu’un message est reçu dans une file d’attente (saisie semi-auto)**
 
    ![Sélectionner un déclencheur Service Bus](./media/connectors-create-api-azure-service-bus/select-service-bus-trigger.png)
 
@@ -93,9 +93,9 @@ Vérifiez que votre application logique dispose des autorisations pour accéder 
       Cliquez sur le signe plus (**+**) qui s’affiche, puis sélectionnez **Ajouter une action**.
 
    1. Dans la zone de recherche, entrez « Azure Service Bus » en tant que filtre. 
-   Sous la liste des actions, sélectionnez l’action souhaitée. 
+   Dans la liste des actions, sélectionnez l’action souhaitée. 
  
-      Par exemple, sélectionnez l’action **Envoyer un message**
+      Par exemple, sélectionnez cette action : **Envoyer un message**
 
       ![Sélectionner une action Service Bus](./media/connectors-create-api-azure-service-bus/select-service-bus-send-message-action.png) 
 
@@ -118,14 +118,14 @@ Vérifiez que votre application logique dispose des autorisations pour accéder 
 
 1. Fournissez les informations nécessaires pour le déclencheur ou l’action. Pour cet exemple, suivez les étapes correspondantes pour votre déclencheur ou action : 
 
-   * **Pour l’exemple de déclencheur** : définissez l’intervalle d’interrogation et la fréquence de vérification de la file d’attente.
+   * **Pour le déclencheur exemple**: Définir l’intervalle d’interrogation et la fréquence de vérification de la file d’attente.
 
      ![Définir l’intervalle d'interrogation](./media/connectors-create-api-azure-service-bus/service-bus-trigger-details.png)
 
      Lorsque vous avez terminé, continuez la création du workflow de votre application logique en ajoutant les actions que vous souhaitez. Par exemple, vous pouvez ajouter une action qui envoie un e-mail lorsqu’un nouveau message arrive.
      Lorsque votre déclencheur vérifie la file d’attente et trouve un nouveau message, l’application logique exécute les actions que vous avez sélectionnées pour le message trouvé.
 
-   * **Pour l’exemple d’action** : saisissez le contenu du message ainsi que tous les autres détails. 
+   * **Pour l’action de l’exemple**: Entrez le contenu du message et tous les autres détails. 
 
      ![Fournir les détails et le contenu du message](./media/connectors-create-api-azure-service-bus/service-bus-send-message-details.png)
 

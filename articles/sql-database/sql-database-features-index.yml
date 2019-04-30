@@ -1,10 +1,4 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 18be472dfc6a9928b8ceea72fe1b277d77311a63
-ms.sourcegitcommit: b8f9200112cae265155b8877f7e1621c4bcc53fc
-ms.translationtype: MT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "57905330"
 documentType: LandingData
 title: Base de données SQL Azure - fonctionnalités
 metadata:
@@ -16,41 +10,41 @@ metadata:
   manager: craigg
   ms.service: sql-database
   ms.tgt_pltfrm: na
-  ms.devlang: 
+  ms.devlang: null
   ms.topic: overview
   ms.date: 02/06/2019
   ms.author: jovanpop-msft
 sections:
-- items:
-  - type: paragraph
-    text: Base de données SQL Azure est supérieure à un moteur de base de données relationnelle classique qui vous permet d’interroger des données à l’aide du langage SQL. Fonctionnalités de base de données dans Azure SQL Database permettent d’effectuer les opérations plus puissantes et implémenter des scénarios avancés.
-  - type: list
-    style: cards
-    className: cardsM
-    columns: 3
+  - items:
+      - type: paragraph
+        text: Base de données SQL Azure est supérieure à un moteur de base de données relationnelle classique qui vous permet d’interroger des données à l’aide du langage SQL. Fonctionnalités de base de données dans Azure SQL Database permettent d’effectuer les opérations plus puissantes et implémenter des scénarios avancés.
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 3
+        items:
+          - title: Technologies in-memory
+            href: /azure/sql-database/sql-database-in-memory
+            html: <p>Implémenter des applications hautes performances à l’aide de technologies en mémoire.</p>
+          - title: Fonctionnalités multimodèles
+            href: /azure/sql-database/sql-database-multi-model-features
+            html: '<p>En savoir plus sur le graphique, JSON, XML, des fonctionnalités spatiales dans la base de données SQL Azure.</p>'
+          - title: Réplication transactionnelle
+            href: /azure/sql-database/sql-database-managed-instance-transactional-replication
+            html: <p>Répliquez vos données entre les tables de base de données SQL Azure et SQL Server.</p>
+          - title: Synchronisation des données
+            href: /azure/sql-database/sql-database-sync-data
+            html: <p>Synchroniser les données entre plusieurs bases de données SQL et les instances de SQL Server.</p>
+          - title: Automatisation de travaux
+            href: /azure/sql-database/sql-database-job-automation-overview
+            html: <p>Planifier des tâches répétitives à l’aide de travaux SQL Agent et élastique.</p>
+          - title: Tables temporelles
+            href: /azure/sql-database/sql-database-temporal-tables
+            html: <p>Suivre et analyser l’historique complet des modifications dans vos données.</p>
+  - title: Autres ressources
     items:
-    - title: Technologies in-memory
-      href: /azure/sql-database/sql-database-in-memory
-      html: <p>Implémenter des applications hautes performances à l’aide de technologies en mémoire.</p>
-    - title: Fonctionnalités multimodèles
-      href: /azure/sql-database/sql-database-multi-model-features
-      html: <p>En savoir plus sur le graphique, JSON, XML, des fonctionnalités spatiales dans la base de données SQL Azure.</p>
-    - title: Réplication transactionnelle
-      href: /azure/sql-database/sql-database-managed-instance-transactional-replication
-      html: <p>Répliquez vos données entre les tables de base de données SQL Azure et SQL Server.</p>
-    - title: Synchronisation des données
-      href: /azure/sql-database/sql-database-sync-data
-      html: <p>Synchroniser les données entre plusieurs bases de données SQL et les instances de SQL Server.</p>
-    - title: Automatisation de travaux
-      href: /azure/sql-database/sql-database-job-automation-overview
-      html: <p>Planifier des tâches répétitives à l’aide de travaux SQL Agent et élastique.</p>
-    - title: Tables temporelles
-      href: /azure/sql-database/sql-database-temporal-tables
-      html: <p>Suivre et analyser l’historique complet des modifications dans vos données.</p>
-- title: Autres ressources
-  items:
-  - type: list
-    style: ordered
-    items:
-    - html: En savoir plus sur la <a href="/azure/sql-database/sql-database-features">fonctionnalités de la base de données des différences entre SQL Server et SQL Azure</a>.
-    - html: Découvrez comment utiliser ces fonctionnalités dans <a href="/azure/sql-database/sql-database-howto">Howto guides</a>.
+      - type: list
+        style: ordered
+        items:
+          - html: En savoir plus sur la <a href="/azure/sql-database/sql-database-features">fonctionnalités de la base de données des différences entre SQL Server et SQL Azure</a>.
+          - html: Découvrez comment utiliser ces fonctionnalités dans <a href="/azure/sql-database/sql-database-howto">Howto guides</a>.

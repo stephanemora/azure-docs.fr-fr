@@ -9,11 +9,11 @@ ms.service: azure-databricks
 ms.topic: conceptual
 ms.date: 04/02/2019
 ms.openlocfilehash: 345e07fac30f4ad0c8e9918cb8a1ff0fb8aeb811
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59288950"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60770637"
 ---
 # <a name="tutorial-query-a-sql-server-linux-docker-container-in-a-virtual-network-from-an-azure-databricks-notebook"></a>Didacticiel : Interroger un conteneur Docker SQL Server Linux dans un réseau virtuel à partir d’un bloc-notes Azure Databricks
 
@@ -195,11 +195,11 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Lorsque vous n’en avez plus besoin, supprimez le groupe de ressources, l’espace de travail Azure Databricks et toutes les ressources associées. La suppression du travail évite la facturation inutile. Si vous avez l’intention d’utiliser l’espace de travail Azure Databricks à l’avenir, vous pouvez arrêter le cluster et redémarrer ultérieurement. Si vous ne souhaitez pas continuer à utiliser cet espace de travail Azure Databricks, supprimez toutes les ressources que vous avez créé dans ce didacticiel en procédant comme suit :
+Lorsque vous n’en avez plus besoin, supprimez le groupe de ressources, l’espace de travail Azure Databricks et toutes les ressources associées. La suppression du travail évite une facturation inutile. Si vous avez l’intention d’utiliser l’espace de travail Azure Databricks à l’avenir, vous pouvez arrêter le cluster et le redémarrer ultérieurement. Si vous ne pensez pas continuer à utiliser cet espace de travail Azure Databricks, supprimez toutes les ressources créées au cours de ce tutoriel en procédant comme suit :
 
-1. Dans le menu de gauche dans le portail Azure, cliquez sur **groupes de ressources** puis cliquez sur le nom du groupe de ressources que vous avez créé.
+1. Dans le menu de gauche du portail Azure, cliquez sur **Groupes de ressources**, puis sur le nom de ressources que vous avez créé.
 
-2. Sur la page de votre groupe de ressources, sélectionnez **supprimer**, tapez le nom de la ressource à supprimer dans la zone de texte, puis sélectionnez **supprimer** à nouveau.
+2. Sur la page de votre groupe de ressources, sélectionnez **Supprimer**, saisissez le nom de la ressource à supprimer dans la zone de texte, puis sélectionnez à nouveau **Supprimer**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

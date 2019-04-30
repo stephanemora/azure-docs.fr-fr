@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: shlo
 ms.openlocfilehash: f2d780900a0cd24f2d70499573a4055dc836ae0b
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54013568"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61466984"
 ---
 # <a name="how-to-read-or-write-partitioned-data-in-azure-data-factory"></a>Guide pratique pour lire ou écrire des données partitionnées dans Azure Data Factory
 

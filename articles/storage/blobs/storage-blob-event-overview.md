@@ -9,11 +9,11 @@ ms.topic: article
 ms.service: storage
 ms.subservice: blobs
 ms.openlocfilehash: 4bc683908646a5c05fee14f721e2c26482518947
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751393"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61427612"
 ---
 # <a name="reacting-to-blob-storage-events"></a>Réaction aux événements de Stockage Blob
 
@@ -43,24 +43,24 @@ Les événements de stockage d’objets Blob contiennent toutes les informations
 
 > |Propriété|Type|Description|
 > |-------------------|------------------------|-----------------------------------------------------------------------|
-> |rubrique|chaîne|ID Azure Resource Manager complet du compte de stockage qui émet l’événement.|
-> |subject|chaîne|Le chemin d’accès de la ressource relative à l’objet qui est le sujet de l’événement, avec le même format Azure Resource Manager étendu que nous utilisons pour décrire les comptes de stockage, les services et mes conteneurs pour Azure RBAC.  Ce format comprend un nom d’objet blob en conservant la casse.|
-> |eventTime|chaîne|La date et l’heure de l’événement sont générées au format ISO 8601|
-> |eventType|chaîne|« Microsoft.Storage.BlobCreated » ou « Microsoft.Storage.BlobDeleted »|
-> |ID|chaîne|Identificateur unique si cet événement|
-> |dataVersion|chaîne|Version du schéma de l’objet de données.|
-> |metadataVersion|chaîne|Version du schéma des propriétés de niveau supérieur.|
+> |rubrique|string|ID Azure Resource Manager complet du compte de stockage qui émet l’événement.|
+> |subject|string|Le chemin d’accès de la ressource relative à l’objet qui est le sujet de l’événement, avec le même format Azure Resource Manager étendu que nous utilisons pour décrire les comptes de stockage, les services et mes conteneurs pour Azure RBAC.  Ce format comprend un nom d’objet blob en conservant la casse.|
+> |eventTime|string|La date et l’heure de l’événement sont générées au format ISO 8601|
+> |eventType|string|« Microsoft.Storage.BlobCreated » ou « Microsoft.Storage.BlobDeleted »|
+> |ID|string|Identificateur unique si cet événement|
+> |dataVersion|string|Version du schéma de l’objet de données.|
+> |metadataVersion|string|Version du schéma des propriétés de niveau supérieur.|
 > |données|objet|Collection de données d’événement spécifiques au stockage d’objets Blob|
-> |data.contentType|chaîne|Le type de contenu de l’objet Blob, comme renvoyé dans l’en-tête Content-Type, serait retourné à partir de l’objet Blob|
+> |data.contentType|string|Le type de contenu de l’objet Blob, comme renvoyé dans l’en-tête Content-Type, serait retourné à partir de l’objet Blob|
 > |data.contentLength|number|La taille de l’objet blob comme entier représentant un nombre d’octets, comme dans l’en-tête Content-Length serait retourné à partir de l’objet Blob.  Envoyé avec l’événement BlobCreated, mais pas avec BlobDeleted.|
-> |data.url|chaîne|L’URL de l’objet qui est le sujet de l’événement|
-> |data.eTag|chaîne|L’etag de l’objet lorsque cet événement est déclenché.  Non disponible pour l’événement BlobDeleted.|
-> |data.api|chaîne|Le nom de l’opération d’API qui a déclenché cet événement. Pour les événements BlobCreated, cette valeur est « PutBlob », « PutBlockList » ou « CopyBlob ». Pour les événements BlobDeleted, cette valeur est « DeleteBlob ». Ces valeurs sont les mêmes noms d’API que ceux présents dans les journaux de diagnostic de stockage Azure. Consultez [Opérations journalisées et messages d’état](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages).|
-> |data.sequencer|chaîne|Une valeur de chaîne opaque représentant l’ordre logique des événements pour n’importe quel nom d’objet Blob particulier.  Les utilisateurs peuvent utiliser la comparaison de chaînes standard pour comprendre l’ordre relatif de deux événements sur le même nom d’objet Blob.|
-> |data.requestId|chaîne|L’ID de requête de service généré pour l’opération de l’API de stockage. Peut être utilisé pour mettre en corrélation les journaux de diagnostic de stockage Azure en utilisant le champ « request-id-header » dans les journaux d’activité et est retourné lors de l’initialisation de l’appel d’API dans l’en-tête ’x-ms-request-id’. Consultez [Format de journal](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format).|
-> |data.clientRequestId|chaîne|L’ID de requête fourni par le client pour l’opération de l’API de stockage. Peut être utilisé pour mettre en corrélation les journaux de diagnostic de stockage Azure en utilisant le champ « client-request-id » dans les journaux d’activité et peut être fourni dans les demandes du client à l’aide de l’en-tête « x-ms-client-request-id ». Consultez [Format de journal](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format). |
+> |data.url|string|L’URL de l’objet qui est le sujet de l’événement|
+> |data.eTag|string|L’etag de l’objet lorsque cet événement est déclenché.  Non disponible pour l’événement BlobDeleted.|
+> |data.api|string|Le nom de l’opération d’API qui a déclenché cet événement. Pour les événements BlobCreated, cette valeur est « PutBlob », « PutBlockList » ou « CopyBlob ». Pour les événements BlobDeleted, cette valeur est « DeleteBlob ». Ces valeurs sont les mêmes noms d’API que ceux présents dans les journaux de diagnostic de stockage Azure. Consultez [Opérations journalisées et messages d’état](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages).|
+> |data.sequencer|string|Une valeur de chaîne opaque représentant l’ordre logique des événements pour n’importe quel nom d’objet Blob particulier.  Les utilisateurs peuvent utiliser la comparaison de chaînes standard pour comprendre l’ordre relatif de deux événements sur le même nom d’objet Blob.|
+> |data.requestId|string|L’ID de requête de service généré pour l’opération de l’API de stockage. Peut être utilisé pour mettre en corrélation les journaux de diagnostic de stockage Azure en utilisant le champ « request-id-header » dans les journaux d’activité et est retourné lors de l’initialisation de l’appel d’API dans l’en-tête ’x-ms-request-id’. Consultez [Format de journal](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format).|
+> |data.clientRequestId|string|L’ID de requête fourni par le client pour l’opération de l’API de stockage. Peut être utilisé pour mettre en corrélation les journaux de diagnostic de stockage Azure en utilisant le champ « client-request-id » dans les journaux d’activité et peut être fourni dans les demandes du client à l’aide de l’en-tête « x-ms-client-request-id ». Consultez [Format de journal](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format). |
 > |data.storageDiagnostics|objet|Des données de diagnostic occasionnellement incluses par le service de stockage Azure. Elles doivent, le cas échéant, être ignorées par les consommateurs d’événements.|
-|data.blobType|chaîne|Type de l’objet blob. Les valeurs valides sont « BlockBlob » ou « PageBlob ».| 
+|data.blobType|string|Type de l’objet blob. Les valeurs valides sont « BlockBlob » ou « PageBlob ».| 
 
 Voici un exemple d’événement BlobCreated :
 ```json

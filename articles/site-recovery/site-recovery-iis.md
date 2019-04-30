@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 11/27/2018
 ms.author: mayg
 ms.openlocfilehash: aa42371692cd5d0dc96835db5b66fe0877b90665
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54320495"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61280388"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-iis-based-web-application"></a>Configurer la reprise d’activité pour une application web multiniveau basée sur IIS
 
@@ -26,7 +26,7 @@ Une bonne solution de récupération d’urgence prend en charge la modélisatio
 
 Cet article explique comment protéger une application web qui s’appuie sur Internet Information Services (IIS) à l’aide d’[Azure Site Recovery](site-recovery-overview.md). Il décrit les recommandations à suivre pour répliquer une application web IIS à trois niveaux vers Azure, il indique également comment effectuer un test de récupération d’urgence et basculer l’application vers Azure.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Avant de commencer, assurez-vous que vous savez accomplir les tâches suivantes :
 

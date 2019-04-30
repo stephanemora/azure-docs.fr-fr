@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: roaror
 ms.openlocfilehash: c0c761fef481a1fdaa027f1329e9a4e72d62985a
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60013804"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61331208"
 ---
 # <a name="post-migration-optimization-steps-when-using-azure-cosmos-dbs-api-for-mongodb"></a>Étapes de post-migration optimisation lors de l’utilisation des API d’Azure Cosmos DB pour MongoDB 
 
-Après avoir migré les données stockées dans la base de données MongoDB à Azure Cosmos DB API pour MongoDB, vous pouvez vous connecter à Azure Cosmos DB et gérer les données. Ce guide fournit les étapes que vous devez envisager après la migration. Consultez le [migrer MongoDB à Azure Cosmos DB : API pour MongoDB didacticiel](../dms/tutorial-mongodb-cosmos-db.md) pour connaître les étapes de migration.
+Après avoir migré les données stockées dans la base de données MongoDB vers l’API Azure Cosmos DB pour MongoDB, vous pouvez vous connecter à Azure Cosmos DB et gérer les données. Ce guide fournit les étapes que vous devez envisager après la migration. Consultez le [migrer MongoDB à Azure Cosmos DB : API pour MongoDB didacticiel](../dms/tutorial-mongodb-cosmos-db.md) pour connaître les étapes de migration.
 
 Dans ce guide, vous allez apprendre à :
 - [Connecter votre application](#connect-account)
@@ -66,7 +66,7 @@ La plupart des utilisateurs laisser leur niveau de cohérence sur le paramètre 
 * [Faire expirer les données avec l’API d’Azure Cosmos DB pour MongoDB](mongodb-time-to-live.md)
 * [Niveaux de cohérence dans Azure Cosmos DB](consistency-levels.md)
 * [Indexation dans Azure Cosmos DB](index-overview.md)
-* [Unités de requête dans Azure Cosmos DB](request-units.md)
+* [Unités de requête dans Azure Cosmos DB](request-units.md)
 
 
 

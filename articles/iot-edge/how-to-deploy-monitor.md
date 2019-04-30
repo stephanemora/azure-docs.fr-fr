@@ -11,11 +11,11 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
 ms.openlocfilehash: 69ba0a882c0e52e7c0d063b8f77e7a0fe22526a1
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56428775"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62126358"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-portal"></a>Déployer et surveiller des modules IoT Edge à grande échelle à l’aide du portail Azure
 
@@ -126,15 +126,15 @@ Utilisez la propriété tags à partir de vos appareils pour cibler des appareil
 1. Entrez une **Condition cible** pour déterminer quels sont les appareils ciblés par ce déploiement. La condition est basée sur les balises de jumeau d’appareil ou sur les propriétés signalées du jumeau d’appareil et doit correspondre au format de l’expression. Par exemple, `tags.environment='test'` ou `properties.reported.devicemodel='4000x'`. 
 1. Sélectionnez **Suivant** pour passer à l’étape finale.
 
-### <a name="step-6-review-deployment"></a>Étape 6 : Vérifier le déploiement
+### <a name="step-6-review-deployment"></a>Étape 6 : Vérifier le déploiement
 
 Passez en revue les informations de votre déploiement, puis sélectionnez **Envoyer**.
 
 ## <a name="deploy-modules-from-azure-marketplace"></a>Déployer des modules à partir de la Place de marché Azure
 
-La Place de marché Azure est un marché d'applications et de services en ligne qui vous permet de naviguer au milieu d'un large éventail d'applications et de solutions d'entreprise certifiées et optimisées pour s'exécuter sur Azure, notamment les [modules IoT Edge](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules). Vous pouvez également accéder à la Place de marché Azure via le portail Azure sous **Créer une ressource**.
+La Place de marché Azure est un marché d’applications et de services en ligne qui vous permet de naviguer au milieu d’un large éventail d’applications et de solutions d’entreprise certifiées et optimisées pour s’exécuter sur Azure, notamment les [modules IoT Edge](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules). Vous pouvez également accéder à la Place de marché Azure via le Portail Azure sous **Créer une ressource**.
 
-Vous pouvez installer un module IoT Edge à partir de la Place de marché Azure ou du portail Azure :
+Vous pouvez installer un module IoT Edge à partir de la Place de marché Azure ou du Portail Azure :
 
 1. Recherchez un module et entamez le processus de déploiement.
 
@@ -143,7 +143,7 @@ Vous pouvez installer un module IoT Edge à partir de la Place de marché Azure 
    * Place de marché Azure :
 
      1. Recherchez un module et sélectionnez **Obtenir maintenant**.
-     1. Acceptez les conditions d'utilisation et la politique de confidentialité du fournisseur en sélectionnant **Continuer**.
+     1. Acceptez les conditions d’utilisation et la politique de confidentialité du fournisseur en sélectionnant **Continuer**.
 
 1. Choisissez votre abonnement et le hub IoT auquel l'appareil cible est joint.
 

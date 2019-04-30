@@ -1,5 +1,5 @@
 ---
-title: "Tutoriel : Intégration d'Azure Active Directory à Workspot Control | Microsoft Docs"
+title: "Didacticiel : Intégration d'Azure Active Directory à Workspot Control | Microsoft Docs"
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Workspot Control.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.date: 10/12/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 97f375c6f48d3dc497eb59e76f19fc64cf906b56
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57886500"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62098662"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-workspot-control"></a>Tutoriel : Intégration d'Azure Active Directory à Workspot Control
+# <a name="tutorial-azure-active-directory-integration-with-workspot-control"></a>Didacticiel : Intégration d'Azure Active Directory à Workspot Control
 
 Dans ce tutoriel, vous allez apprendre à intégrer Workspot Control à Azure Active Directory (Azure AD).
 
@@ -179,7 +179,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le **nom d’utilisateur** type de champ **brittasimon\@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Sélectionnez **Propriétés**, cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
@@ -206,7 +206,7 @@ Pour se connecter à Workspot Control, les utilisateurs d’Azure AD doivent ê
 
     b. Dans la zone de texte **Last Name** (Nom), saisissez le nom de famille de l’utilisateur, par exemple **Simon**.
 
-    c. Dans **E-mail** texte, entrez l’adresse e-mail de l’utilisateur, par exemple **Brittasimon\@contoso.com**.
+    c. Dans la zone de texte **E-mail**, tapez l’adresse e-mail de l’utilisateur, par exemple **brittasimon\@contoso.com**.
 
     d. Sélectionnez le rôle d’utilisateur approprié dans la liste déroulante **Role**.
 

@@ -16,11 +16,11 @@ ms.date: 03/28/2019
 ms.author: pbutlerm
 ROBOTS: NOINDEX
 ms.openlocfilehash: 4908233280c69a37ea470eed2ef077cb220a7930
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59009732"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62101096"
 ---
 # <a name="saas-fulfillment-apis-version-1--deprecated"></a>SaaS Fulfillment API Version 1 (déconseillée)
 
@@ -92,10 +92,10 @@ Lorsqu’un utilisateur est redirigé vers le site Web d’un éditeur de logici
 
 | **Nom du paramètre** | **Type de données** | **Description**                       |
 |--------------------|---------------|---------------------------------------|
-| id                 | Chaîne        | ID de l’abonnement SaaS.          |
-| subscriptionName| Chaîne| Nom de l’abonnement SaaS défini par l’utilisateur dans Azure lors de son abonnement au service SaaS.|
-| OfferId            | Chaîne        | ID de l’offre à laquelle l’utilisateur s’est abonné. |
-| planId             | Chaîne        | ID du plan auquel l’utilisateur s’est abonné.  |
+| id                 | String        | ID de l’abonnement SaaS.          |
+| subscriptionName| String| Nom de l’abonnement SaaS défini par l’utilisateur dans Azure lors de son abonnement au service SaaS.|
+| OfferId            | String        | ID de l’offre à laquelle l’utilisateur s’est abonné. |
+| planId             | String        | ID du plan auquel l’utilisateur s’est abonné.  |
 |  |  |  |
 
 
@@ -338,9 +338,9 @@ Ce terminal permet à l’utilisateur de suivre l’état d’une opération asy
 
 | **Nom du paramètre** | **Type de données** | **Description**                                                                                                                                               |
 |--------------------|---------------|-------------------------------------------------------------------------------------------|
-| id                 | Chaîne        | ID de l’opération.                                                                      |
+| id                 | String        | ID de l’opération.                                                                      |
 | status             | Enum          | État de l’opération, une des valeurs suivantes : `In Progress`, `Succeeded` ou `Failed`.          |
-| resourceLocation   | Chaîne        | Lien vers l’abonnement qui a été créé ou modifié. Cela permet au client d’obtenir une mise à jour de l’état après l’opération. Cette valeur n’est pas définie pour `Unsubscribe` opérations. |
+| resourceLocation   | String        | Lien vers l’abonnement qui a été créé ou modifié. Cela permet au client d’obtenir une mise à jour de l’état après l’opération. Cette valeur n’est pas définie pour `Unsubscribe` opérations. |
 | created            | DateTime      | Heure de création de l’opération en UTC.                                                           |
 | lastModified       | DateTime      | Dernière mise à jour de l’opération en heure UTC.                                                      |
 |  |  |  |
@@ -408,10 +408,10 @@ L’action Get sur le point de terminaison d’abonnement permet à un utilisate
 
 | **Nom du paramètre**     | **Type de données** | **Description**                               |
 |------------------------|---------------|-----------------------------------------------|
-| id                     | Chaîne        | ID de la ressource d’abonnement SaaS dans Azure.    |
-| offerId                | Chaîne        | ID de l’offre à laquelle l’utilisateur s’est abonné.         |
-| planId                 | Chaîne        | ID du plan auquel l’utilisateur s’est abonné.          |
-| saasSubscriptionName   | Chaîne        | Nom de l’abonnement SaaS.                |
+| id                     | String        | ID de la ressource d’abonnement SaaS dans Azure.    |
+| offerId                | String        | ID de l’offre à laquelle l’utilisateur s’est abonné.         |
+| planId                 | String        | ID du plan auquel l’utilisateur s’est abonné.          |
+| saasSubscriptionName   | String        | Nom de l’abonnement SaaS.                |
 | saasSubscriptionStatus | Enum          | État de l’opération.  Celui-ci peut avoir l'une des valeurs suivantes :  <br/> - `Subscribed` : l’abonnement est actif.  <br/> - `Pending` : l’utilisateur crée la ressource mais elle n’est pas activée par l’ISV.   <br/> - `Unsubscribed` : l’utilisateur a annulé son abonnement.   <br/> - `Suspended` : l’utilisateur a suspendu l’abonnement.   <br/> - `Deactivated` :  l’abonnement Azure est suspendu.  |
 | created                | DateTime      | Valeur d’horodatage de création de l’abonnement au format UTC. |
 | lastModified           | DateTime      | Valeur d’horodatage de création de l’abonnement au format UTC. |
@@ -480,10 +480,10 @@ L’action Get sur le point de terminaison d’abonnement permet à un utilisate
 
 | **Nom du paramètre**     | **Type de données** | **Description**                               |
 |------------------------|---------------|-----------------------------------------------|
-| id                     | Chaîne        | ID de la ressource d’abonnement SaaS dans Azure.    |
-| offerId                | Chaîne        | ID de l’offre à laquelle l’utilisateur s’est abonné.         |
-| planId                 | Chaîne        | ID du plan auquel l’utilisateur s’est abonné.          |
-| saasSubscriptionName   | Chaîne        | Nom de l’abonnement SaaS.                |
+| id                     | String        | ID de la ressource d’abonnement SaaS dans Azure.    |
+| offerId                | String        | ID de l’offre à laquelle l’utilisateur s’est abonné.         |
+| planId                 | String        | ID du plan auquel l’utilisateur s’est abonné.          |
+| saasSubscriptionName   | String        | Nom de l’abonnement SaaS.                |
 | saasSubscriptionStatus | Enum          | État de l’opération.  Celui-ci peut avoir l'une des valeurs suivantes :  <br/> - `Subscribed` : l’abonnement est actif.  <br/> - `Pending` : l’utilisateur crée la ressource mais elle n’est pas activée par l’ISV.   <br/> - `Unsubscribed` : l’utilisateur a annulé son abonnement.   <br/> - `Suspended` : l’utilisateur a suspendu l’abonnement.   <br/> - `Deactivated` :  l’abonnement Azure est suspendu.  |
 | created                | DateTime      | Valeur d’horodatage de création de l’abonnement au format UTC. |
 | lastModified           | DateTime      | Valeur d’horodatage de création de l’abonnement au format UTC. |
@@ -530,14 +530,14 @@ Un Webhook SaaS est utilisé pour notifier les modifications de manière proacti
 
 | **Nom du paramètre**     | **Type de données** | **Description**                               |
 |------------------------|---------------|-----------------------------------------------|
-| id  | Chaîne       | ID unique pour l’opération déclenchée.                |
-| activityId   | Chaîne        | Valeur de chaîne unique pour le suivi de la requête du service. Ceci est utilisé pour tous les rapprochements.               |
-| subscriptionId                     | Chaîne        | ID de la ressource d’abonnement SaaS dans Azure.    |
-| offerId                | Chaîne        | ID de l’offre à laquelle l’utilisateur s’est abonné. Fourni uniquement avec l’action « Update ».        |
-| publisherId                | Chaîne        | ID de l’éditeur de l’offre SaaS         |
-| planId                 | Chaîne        | ID du plan auquel l’utilisateur s’est abonné. Fourni uniquement avec l’action « Update ».          |
-| action                 | Chaîne        | Action qui déclenche cette notification. Valeurs possibles : Activate, Delete, Suspend, Reinstate, Update          |
-| timeStamp                 | Chaîne        | Valeur d’horodatage UTC correspondant au moment où cette notification a été déclenchée.          |
+| id  | String       | ID unique pour l’opération déclenchée.                |
+| activityId   | String        | Valeur de chaîne unique pour le suivi de la requête du service. Ceci est utilisé pour tous les rapprochements.               |
+| subscriptionId                     | String        | ID de la ressource d’abonnement SaaS dans Azure.    |
+| offerId                | String        | ID de l’offre à laquelle l’utilisateur s’est abonné. Fourni uniquement avec l’action « Update ».        |
+| publisherId                | String        | ID de l’éditeur de l’offre SaaS         |
+| planId                 | String        | ID du plan auquel l’utilisateur s’est abonné. Fourni uniquement avec l’action « Update ».          |
+| action                 | String        | Action qui déclenche cette notification. Valeurs possibles : Activate, Delete, Suspend, Reinstate, Update          |
+| timeStamp                 | String        | Valeur d’horodatage UTC correspondant au moment où cette notification a été déclenchée.          |
 |  |  |  |
 
 

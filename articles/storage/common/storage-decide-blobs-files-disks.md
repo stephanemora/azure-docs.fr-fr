@@ -9,11 +9,11 @@ ms.date: 11/28/2018
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: 869d2105ccf635a46a21e9b7f382ddbef713d68b
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56327008"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61483415"
 ---
 # <a name="deciding-when-to-use-azure-blobs-azure-files-or-azure-disks"></a>Quand utiliser des objets BLOB Azure, des fichiers Azure ou des disques Azure
 Microsoft Azure propose plusieurs fonctionnalités dans le stockage Azure pour stocker vos données dans le cloud et y accéder. Cet article traite des fichiers, des objets BLOB et des disques Azure, afin de vous aider à choisir entre ces fonctionnalités.
@@ -54,9 +54,9 @@ Le tableau suivant compare les fichiers Azure et les disques Azure.
 |-|-|-|  
 |**Attribut**|**Disques Azure**|**Azure Files**|  
 |Étendue|Exclusif à une seule machine virtuelle|Accès partagé entre plusieurs machines virtuelles|  
-|Captures instantanées et copie|OUI|OUI|  
+|Captures instantanées et copie|Oui|Oui|  
 |Configuration|Connexion au démarrage de la machine virtuelle|Connexion après le démarrage de la machine virtuelle|  
-|Authentication|Intégration|Configuration avec net use|  
+|Authentification|Intégration|Configuration avec net use|  
 |Accès à l’aide de REST|Les fichiers du disque dur virtuel ne sont pas accessibles|Les fichiers stockés dans un partage sont accessibles|  
 |Taille maximale|Disque de 4 Tio|Partage de fichiers de 5 Tio et fichier de 1 Tio au sein du partage|  
 |Nombre maximal d’IOPS|500 E/S par seconde|1 000 E/S par seconde|  

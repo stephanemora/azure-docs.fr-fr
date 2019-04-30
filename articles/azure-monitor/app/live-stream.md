@@ -10,15 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 01/28/2019
+ms.date: 04/22/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 588b8b11a02551a790145aafb013759699004267
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: bc85de0c8ec89ea88d2bae8e3f226da7d3163f53
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59009963"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62115326"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Flux de métriques temps réel : Surveiller et diagnostiquer avec une latence de 1 seconde
 
@@ -50,10 +50,13 @@ Métriques en temps réel sont actuellement pris en charge pour les applications
 
 4. [Sécurisez le canal de contrôle](#secure-the-control-channel) si vous utilisez des données sensibles comme des noms de clients dans vos filtres.
 
+### <a name="nodejs"></a>Node.js
+
+Pour utiliser les métriques temps réel avec Node.js, vous devez mettre à jour à 1,30 ou version ultérieure du Kit de développement. Par défaut les métriques temps réel est désactivée dans le Kit de développement Node.js. Pour activer les métriques temps réel ajouter `setSendLiveMetrics(true)` à votre [méthodes de configuration](https://github.com/Microsoft/ApplicationInsights-node.js#configuration) comme vous initialisez le Kit de développement.
+
 ### <a name="no-data-check-your-server-firewall"></a>Pas de données ? Vérifier le pare-feu de votre serveur
 
 Vérifiez que les [ports sortants pour le flux de métriques temps réel](../../azure-monitor/app/ip-addresses.md#outgoing-ports) sont ouverts dans le pare-feu de vos serveurs. 
-
 
 ## <a name="how-does-live-metrics-stream-differ-from-metrics-explorer-and-analytics"></a>En quoi les flux de métriques temps réel diffèrent-ils de Metrics Explorer et d’Analytique ?
 
@@ -65,7 +68,6 @@ Vérifiez que les [ports sortants pour le flux de métriques temps réel](../../
 |Gratuit|Pas de facturation pour les données du flux temps réel|Soumis à [tarification](../../azure-monitor/app/pricing.md)
 |échantillonnage|Tous les compteurs et métriques sélectionnés sont transmis. Les échecs et les traces de pile sont échantillonnés. Les processeurs de télémétrie ne sont pas appliqués.|Les événements peuvent être [échantillonnés](../../azure-monitor/app/api-filtering-sampling.md)|
 |Canal de contrôle|Les signaux de contrôle de filtre sont envoyés au SDK. Nous vous recommandons de sécuriser ce canal.|La communication est unidirectionnelle vers le portail|
-
 
 ## <a name="select-and-filter-your-metrics"></a>Sélectionner et filtrer vos métriques
 

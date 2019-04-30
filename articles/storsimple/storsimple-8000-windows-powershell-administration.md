@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/09/2018
 ms.author: alkohli@microsoft.com
-ms.openlocfilehash: e6053ef9b5e1fc113e3bd3057d627347f285cd99
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 564c121aa90746498a94022fd0fb8d8529142c91
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58003124"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62128581"
 ---
 # <a name="use-windows-powershell-for-storsimple-to-administer-your-device"></a>Utiliser Windows PowerShell pour StorSimple pour appliquer votre appareil
 
@@ -159,7 +159,7 @@ Le tableau suivant récapitule toutes les tâches de gestion courantes et les fl
 
 Dans Windows PowerShell pour StorSimple, une aide sur les applets de commande est disponible. Une version en ligne et à jour de cette aide est également disponible, que vous pouvez utiliser pour mettre à jour l’aide sur votre système.
 
-Obtenir de l’aide dans cette interface est similaire à ce qu’il faut faire dans Windows PowerShell, et la plupart des applets de commande relatives à l’aide fonctionnent. Vous pouvez trouver l’aide sur pour Windows PowerShell en ligne dans la bibliothèque TechNet : [Écriture de scripts avec Windows PowerShell](https://go.microsoft.com/fwlink/?LinkID=108518).
+Obtenir de l’aide dans cette interface est similaire à ce qu’il faut faire dans Windows PowerShell, et la plupart des applets de commande relatives à l’aide fonctionnent. Vous trouverez en ligne aide pour Windows PowerShell : [Microsoft.PowerShell.Core](/powershell/module/Microsoft.PowerShell.Core/).
 
 Voici une brève description des types d’aide pour cette interface Windows PowerShell, y compris la mise à jour de l’aide.
 

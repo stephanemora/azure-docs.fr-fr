@@ -10,11 +10,11 @@ ms.date: 04/01/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: fc26c0357dcb071c4c75e8684fe47144a04177e4
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58806885"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60880247"
 ---
 # <a name="variable-assets-in-azure-automation"></a>Ressources de variables dans Azure Automation
 
@@ -41,7 +41,7 @@ Vous pouvez stocker plusieurs valeurs dans une seule variable en créant un tabl
 
 Voici la liste des types de variable disponibles dans Automation :
 
-* Chaîne
+* String
 * Entier 
 * DateTime
 * Booléen

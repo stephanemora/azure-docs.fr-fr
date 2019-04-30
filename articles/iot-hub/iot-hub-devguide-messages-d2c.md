@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
 ms.openlocfilehash: dc5bfe6b431659b7b99140eb29a0e64922a42275
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57576333"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61364502"
 ---
 # <a name="use-iot-hub-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Utiliser le routage des messages IoT Hub pour envoyer des messages appareil-à-cloud à différents points de terminaison
 
@@ -39,7 +39,7 @@ Vous pouvez utiliser [l’intégration et les SDK standard Event Hubs](iot-hub-d
 
 ### <a name="azure-blob-storage"></a>un stockage Azure Blob
 
-IoT Hub prend en charge l’écriture de données dans le stockage Blob Azure dans le [Apache Avro](https://avro.apache.org/) , ainsi que le format JSON. La capacité à encoder au format JSON est en version préliminaire dans toutes les régions Qu'iot Hub est disponible, à l’exception des États-Unis, ouest des États-Unis et Europe de l’ouest. La valeur par défaut est AVRO. Le format d’encodage peut être défini uniquement lorsque le point de terminaison de stockage blob est configuré. Le format ne peut pas être modifié pour un point de terminaison existant. Lorsque vous utilisez l’encodage JSON, vous devez définir le contentType sur JSON et contentEncoding au format UTF-8 dans le message [propriétés système](iot-hub-devguide-routing-query-syntax.md#system-properties). Vous pouvez sélectionner le format d’encodage à l’aide de l’IoT Hub Create ou l’API REST de mise à jour, en particulier le [RoutingStorageContainerProperties](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate#routingstoragecontainerproperties), le portail Azure, [Azure CLI](https://docs.microsoft.com/cli/azure/iot/hub/routing-endpoint?view=azure-cli-latest) ou [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.iothub/add-aziothubroutingendpoint?view=azps-1.3.0). Le diagramme suivant montre comment sélectionner le format d’encodage dans le portail Azure.
+IoT Hub prend en charge l’écriture de données dans le stockage Blob Azure dans le [Apache Avro](https://avro.apache.org/) , ainsi que le format JSON. La fonctionnalité permettant d’encoder au format JSON est en préversion dans toutes les régions où IoT Hub est disponible, à l’exception des régions USA Est, USA Ouest et Europe Ouest. La valeur par défaut est AVRO. Le format d’encodage peut être défini uniquement lorsque le point de terminaison de stockage blob est configuré. Le format ne peut pas être modifié pour un point de terminaison existant. Lorsque vous utilisez l’encodage JSON, vous devez définir le contentType sur JSON et contentEncoding au format UTF-8 dans le message [propriétés système](iot-hub-devguide-routing-query-syntax.md#system-properties). Vous pouvez sélectionner le format d’encodage à l’aide de l’IoT Hub Create ou l’API REST de mise à jour, en particulier le [RoutingStorageContainerProperties](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate#routingstoragecontainerproperties), le portail Azure, [Azure CLI](https://docs.microsoft.com/cli/azure/iot/hub/routing-endpoint?view=azure-cli-latest) ou [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.iothub/add-aziothubroutingendpoint?view=azps-1.3.0). Le diagramme suivant montre comment sélectionner le format d’encodage dans le portail Azure.
 
 ![Encodage de point de terminaison de stockage BLOB](./media/iot-hub-devguide-messages-d2c/blobencoding.png)
 
@@ -51,7 +51,7 @@ IoT Hub regroupe les messages dans des lots et écrit les données dans un objet
 
 Vous pouvez utiliser n’importe quelle convention de nommage des fichiers, mais vous devez utiliser tous les jetons listés. IoT Hub écrit dans un objet blob vide s’il n’y a aucune donnée à écrire.
 
-Lors du routage pour le stockage d’objets blob, nous vous recommandons de l’inscription d’objets BLOB, puis l’itération sur ces derniers, pour vous assurer de tous les conteneurs sont lus sans faire d’hypothèses de partition. La plage de partition pourrait changer pendant une [basculement initié Microsoft](iot-hub-ha-dr.md#microsoft-initiated-failover) ou IoT Hub [basculement manuel](iot-hub-ha-dr.md#manual-failover-preview). Vous pouvez utiliser la [API des objets BLOB de liste](https://docs.microsoft.com/rest/api/storageservices/list-blobs) à énumérer la liste d’objets BLOB. Consultez l’exemple suivant comme guide.
+Pour effectuer un routage vers le stockage Blob, nous vous recommandons d’inscrire les objets Blob, puis d’exécuter une itération sur ces derniers, afin de garantir que tous les conteneurs seront lus, sans avoir à faire de suppositions concernant la partition. La plage de partition peut changer pendant un [basculement initié par Microsoft](iot-hub-ha-dr.md#microsoft-initiated-failover) ou pendant un [basculement manuel](iot-hub-ha-dr.md#manual-failover-preview) IoT Hub. Vous pouvez utiliser la [API des objets BLOB de liste](https://docs.microsoft.com/rest/api/storageservices/list-blobs) à énumérer la liste d’objets BLOB. Consultez l’exemple suivant comme guide.
 
    ```csharp
         public void ListBlobsInContainer(string containerName, string iothub)

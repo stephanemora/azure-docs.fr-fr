@@ -11,11 +11,11 @@ ms.topic: article
 ms.assetid: 433ae852-a833-44d3-a3c3-14cca33403a2
 ms.date: 01/27/2017
 ms.openlocfilehash: f919e9a7cca210fa5920bcc6bed05a9a41fba8bf
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57192382"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60847184"
 ---
 # <a name="create-custom-tracking-schemas-that-monitor-end-to-end-workflows-in-azure-logic-apps"></a>Créer des schémas de suivi personnalisé qui surveillent des flux de travail de bout en bout dans Azure Logic Apps
 
@@ -60,14 +60,14 @@ Cet article fournit un code personnalisé que vous pouvez utiliser dans les couc
 | --- | --- | --- |
 | sourceType |   | Type de source d’exécution. Les valeurs autorisées sont **Microsoft.Logic/workflows** et **custom**. (obligatoire) |
 | Source |   | Si le type de source est **Microsoft.Logic/workflows**, les informations source doivent suivre ce schéma. Si le type de source est **custom**, le schéma est un JToken. (obligatoire) |
-| systemId | Chaîne | ID système d’application logique. (obligatoire) |
-| runId | Chaîne | ID d’exécution d’application logique. (obligatoire) |
-| operationName | Chaîne | Nom de l’opération (par exemple action ou déclencheur). (obligatoire) |
-| repeatItemScopeName | Chaîne | Répéter le nom de l’élément si l’action se trouve au sein d’une boucle `foreach`/`until`. (obligatoire) |
+| systemId | String | ID système d’application logique. (obligatoire) |
+| runId | String | ID d’exécution d’application logique. (obligatoire) |
+| operationName | String | Nom de l’opération (par exemple action ou déclencheur). (obligatoire) |
+| repeatItemScopeName | String | Répéter le nom de l’élément si l’action se trouve au sein d’une boucle `foreach`/`until`. (obligatoire) |
 | repeatItemIndex | Entier  | Indique si l’action se trouve au sein d’une boucle `foreach`/`until`. Indique l’index de l’élément répété. (obligatoire) |
-| trackingId | Chaîne | ID de suivi permettant de corréler les messages. (facultatif) |
-| correlationId | Chaîne | ID de corrélation permettant de corréler les messages. (facultatif) |
-| clientRequestId | Chaîne | Le client peut remplir ce champ pour corréler les messages. (facultatif) |
+| trackingId | String | ID de suivi permettant de corréler les messages. (facultatif) |
+| correlationId | String | ID de corrélation permettant de corréler les messages. (facultatif) |
+| clientRequestId | String | Le client peut remplir ce champ pour corréler les messages. (facultatif) |
 | eventLevel |   | Niveau de l’événement. (obligatoire) |
 | eventTime |   | Heure de l’événement au format UTC AAAA-MM-JJTHH:MM:SS.00000Z. (obligatoire) |
 | recordType |   | Type de l’enregistrement de suivi. La valeur autorisée est **Custom**. (obligatoire) |

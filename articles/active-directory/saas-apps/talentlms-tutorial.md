@@ -1,5 +1,5 @@
 ---
-title: "Tutoriel : Intégration d'Azure Active Directory à TalentLMS | Microsoft Docs"
+title: "Didacticiel : Intégration d'Azure Active Directory à TalentLMS | Microsoft Docs"
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et TalentLMS.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.date: 07/13/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8fa78ec2b5623dfd010a8fe5709916a47e221a9e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57902193"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60732102"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-talentlms"></a>Tutoriel : Intégration d'Azure Active Directory à TalentLMS
+# <a name="tutorial-azure-active-directory-integration-with-talentlms"></a>Didacticiel : Intégration d'Azure Active Directory à TalentLMS
 
 Dans ce didacticiel, vous allez apprendre à intégrer TalentLMS à Azure Active Directory (Azure AD).
 
@@ -219,7 +219,7 @@ Pour se connecter à TalentLMS, les utilisateurs d’Azure AD doivent être appr
 
     b. Dans la zone de texte **Last name**, tapez le nom de l’utilisateur, par exemple **Simon**.
  
-    c. Dans le **adresse de messagerie** zone de texte, entrez l’adresse e-mail de l’utilisateur, par exemple **brittasimon\@contoso.com**.
+    c. Dans la zone de texte **Adresse e-mail**, entrez l’e-mail de l’utilisateur, par exemple **brittasimon\@contoso.com**.
 
     d. Cliquez sur **Add User**.
 

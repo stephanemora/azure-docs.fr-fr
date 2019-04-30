@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 12/21/2018
 ms.author: ellacroi
 ms.openlocfilehash: bdae273506a238c4d47c1cdce004cdd92b2d58a1
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54355096"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62121022"
 ---
 # <a name="marketing-best-practices"></a>Meilleures pratiques marketing
 
@@ -43,7 +43,7 @@ Une fois que vous aurez créé une annonce intéressante, les initiatives market
 
 * *Créez des campagnes marketing et publicitaires.* <br> Planifiez et créez des campagnes visant à attirer l’attention et à susciter l’engagement, avec un appel à l’action clair qui dirigera le trafic vers votre annonce sur la place de marché.
 
-* *Collectez les commentaires des clients.* <br> Invitez vos clients à donner un avis et une note à votre annonce de site. Une fois que vos clients ont démarré une version d’essai, ils reçoivent un e-mail les invitant à partager leur expérience avec d’autres clients.
+* *Collectez les commentaires des clients.* <br> Invitez vos clients à donner un avis et une note à votre annonce de site. Une fois que vos clients ont démarré une version d’évaluation, ils reçoivent un e-mail les invitant à partager leur expérience avec d’autres clients.
 
 ## <a name="build-an-effective-marketing-campaign"></a>Créer une campagne de marketing efficace
 
@@ -70,7 +70,7 @@ Vous devez définir la réussite de votre campagne dans la place de marché et c
 
 * *Vous venez de lancer votre produit sur la place de marché.* Dans ce cas, vous pouvez constater qu’il est particulièrement judicieux de consacrer vos ressources marketing à l’éducation du public et à la génération de prospects. La réussite peut être définie par le nombre de prospects générés à partir de l’annonce que vous avez publiée sur le marketplace. Dans ce cas, vos tactiques marketing (et votre page d’arrivée) doivent viser à attirer les clients vers votre annonce sur la place de marché.
 
-* *Vous proposez une version d’essai dans la place de marché.* Votre produit implique un certain niveau d’engagement et d’expérience avant de l’acheter. Envisagez comme objectif de campagne le nombre de versions d'essai téléchargées. Dans ce cas, l’appel à l’action de vos stratégies de campagne doit mettre l’accent sur l’encouragement à utiliser une version d’essai dans la place de marché.
+* *Vous proposez une version d’essai dans la place de marché.* Votre produit implique un certain niveau d’engagement et d’expérience avant de l’acheter. Envisagez comme objectif de campagne le nombre de versions d'essai téléchargées. Dans ce cas, l’appel à l’action pour vos stratégies de campagne doit mettre l’accent sur l’encouragement à utiliser une version d’évaluation dans la place de marché.
 
 * *Votre produit ou sa catégorie sont bien connus et vous avez des options d’achat configurées sur la place de marché.* Envisagez d’ignorer l’appel à l’action pour la version d’essai et de diriger votre public vers votre lien **Obtenir maintenant** sur la place de marché.
 

@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 10/08/2018
 ms.author: raynew
-ms.openlocfilehash: bd1761ecf16bbfb0d3fdc354ab1b9fa1f42f9c17
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 9253051d907a811ffedad3a714112c9b25543a35
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328576"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60667412"
 ---
 # <a name="contoso---scale-a-migration-to-azure"></a>Contoso - Mettre à l’échelle une migration vers Azure
 
@@ -241,7 +241,7 @@ Les données doivent aussi être prises en considération, surtout au vu du volu
 
 Contoso utilise essentiellement une paire de services et d’outils Azure pour la migration :
 
-- [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview) : Orchestre la récupération d’urgence et migre les machines virtuelles locales vers Azure.
+- [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview) : Orchestre la récupération d’urgence et migre les machines virtuelles locales vers Azure.
 - [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview) : Migre les bases de données locales comme SQL Server, MySQL et Oracle vers Azure.
 
 
@@ -293,6 +293,7 @@ Contoso doit savoir comment déployer ces composants en tenant compte des consid
 **Serveur de traitement** | Contoso prévoit de déployer un serveur de processus dédié autonome capable de répliquer entre 100 et 200 machines virtuelles :<br/><br/> Processeur : 16 processeurs virtuels (2 sockets * 8 cœurs à 2,5 GHz)<br/><br/> Mémoire : 32 Go<br/><br/> Disque cache : 1 To<br/><br/> Taux de modification des données : 1 To à 2 To.<br/><br/> Le serveur de processus sera fortement sollicité et doit donc se trouver sur un hôte ESXi capable de gérer les E/S disque, le trafic réseau et l’UC nécessaires à la réplication. Pour cela, Contoso examinera s’il y a lieu d’utiliser un hôte dédié. 
 **Mise en réseau** | Après avoir examiné l’infrastructure VPN de site à site actuelle, Contoso a décidé d’implémenter Azure ExpressRoute. Cette implémentation est cruciale, car elle permettra de réduire la latence et d’améliorer la bande passante pour la région Azure primaire de Contoso (USA Est 2).<br/><br/> **Supervision** : Contoso devra superviser attentivement les flux de données en provenance du serveur de processus. Si les données surchargent la bande passante réseau, Contoso envisagera de [limiter la bande passante du serveur de processus](../site-recovery/site-recovery-plan-capacity-vmware.md#control-network-bandwidth).
 **Azure Storage** | Pour la migration, Contoso doit identifier le type et le nombre appropriés de comptes Stockage Azure cibles.  Site Recovery réplique les données de machine virtuelle dans le stockage Azure.<br/><br/> Site Recovery peut répliquer dans des comptes de stockage Standard ou Premium (SSD).<br/><br/> Pour prendre une décision concernant le stockage, Contoso doit examiner les [limites de stockage](../virtual-machines/windows/disks-types.md) et tenir compte des perspectives de croissance et d’utilisation dans le temps. Compte tenu de la vitesse et de la priorité des migrations, Contoso a décidé d’utiliser des SSD Premium.<br/><br/>
+
 Contoso a décidé d’utiliser des disques managés pour toutes les machines virtuelles déployées dans Azure.  Le nombre d’opérations d’entrée/sortie par seconde (IOPS) dictera le type de disque qui sera utilisé : Standard (HDD ou SSD) ou Premium (SSD).<br/><br/>
 
 #### <a name="data-migration-service"></a>Service de migration des données
@@ -379,7 +380,7 @@ Contoso prévoit de s’appuyer sur Azure Security Center pour bénéficier de f
 
 ### <a name="monitoring"></a>Surveillance
 
-Contoso a besoin d’une visibilité sur l’intégrité et les performances des applications, de l’infrastructure et des données nouvellement migrées et s’exécutant désormais dans Azure. Contoso prévoit d’exploiter les outils de supervision cloud Azure intégrés comme Azure Monitor, Log Analytics et Application Insights.
+Contoso a besoin d’une visibilité sur l’intégrité et les performances des applications, de l’infrastructure et des données nouvellement migrées et s’exécutant désormais dans Azure. Contoso s’appuieront sur intégrée Azure cloud comme Azure Monitor, espace de travail Analytique de journal et Application Insights, les outils d’analyse.
  
 - Grâce à ces outils, Contoso pourra facilement collecter des données provenant de sources et bénéficier d’insights détaillés. Par exemple, Contoso peut mesurer l’utilisation de l’UC, de la mémoire et du disque des machines virtuelles, afficher les dépendances des applications et du réseau au niveau des diverses machines virtuelles et suivre les performances des applications.
 - Contoso se servira de ces outils de supervision du cloud pour prendre des mesures et s’intégrer à des solutions de service.

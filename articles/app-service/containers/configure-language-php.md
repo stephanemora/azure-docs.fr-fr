@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/28/2019
 ms.author: cephalin
 ms.openlocfilehash: 11d0648ee5090f02cb96c2d42a8d90cc3ea0ed28
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59551336"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60853301"
 ---
 # <a name="configure-a-linux-php-app-for-azure-app-service"></a>Configurer une application PHP de Linux pour Azure App Service
 
@@ -232,7 +232,7 @@ Pour que les modifications entrent en vigueur, redémarrez l’application.
 
 Quand une application PHP se comporte différemment dans App Service ou comporte des erreurs, essayez ce qui suit :
 
-- [Accéder au flux de journal](#access-diagnostic-logs).
+- [Accéder au flux de journaux](#access-diagnostic-logs).
 - Tester l’application localement en mode de production. App Service s’exécute vos applications Node.js en mode de production, vous devez vous assurer que votre projet fonctionne comme prévu en mode production localement. Par exemple : 
     - Selon votre *composer.json*, différents packages peuvent être installés pour le mode de production (`require` et `require-dev`).
     - Certaines infrastructures web peuvent déployer des fichiers statiques différemment en mode de production.
@@ -255,4 +255,4 @@ Vous pouvez ignorer ce message. `/robots933456.txt` est un chemin d’URL factic
 > [Tutoriel : Application PHP avec MySQL](tutorial-php-mysql-app.md)
 
 > [!div class="nextstepaction"]
-> [App Service Linux Forum aux questions](app-service-linux-faq.md)
+> [Questions fréquentes (FAQ) sur App Service sur Linux](app-service-linux-faq.md)

@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ghogen
-ms.openlocfilehash: b2b707585df4a7ec26f689b4213be74bdaab680d
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
-ms.translationtype: HT
+ms.openlocfilehash: 388c4d5f28e87f5cfe26336771d30fa44c6f9ef0
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42146498"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62123006"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-aspnet-core"></a>Prendre en main Stockage Blob Azure et les services connectés de Visual Studio (ASP.NET Core)
 
@@ -27,7 +27,7 @@ Cet article explique comment prendre en main Stockage Blob Azure dans Visual Stu
 
 Azure Blob storage is a service for storing large amounts of unstructured data that can be accessed from anywhere in the world via HTTP or HTTPS. Les objets blob peuvent être de toutes tailles. Il peut s'agir d'images, de fichiers audio ou vidéo, de données brutes ou de fichiers de documents. Cet article explique comment prendre en main Stockage Blob après avoir créé un compte de stockage Azure à l'aide de la fonctionnalité **Services connectés** de Visual Studio dans un projet ASP.NET Core.
 
-De la même manière que les fichiers résident dans des dossiers, le stockage des objets blob s'effectue dans des conteneurs. Après avoir créé un objet blob, créez un ou plusieurs conteneurs dans cet objet blob. Par exemple, dans un objet blob appelé « Scrapbook », vous pouvez créer des conteneurs nommés « images » pour stocker des photos et un autre nommé « audio » pour stocker des fichiers audio. Une fois que vous avez créé les conteneurs, vous pouvez y charger des fichiers individuels. Pour plus d’informations sur la manipulation des objets blob par programme, consultez la page [Démarrage rapide : charger, télécharger et lister des objets blob avec .NET](../storage/blobs/storage-quickstart-blobs-dotnet.md) .
+De la même manière que les fichiers résident dans des dossiers, le stockage des objets blob s'effectue dans des conteneurs. Après avoir créé un objet blob, créez un ou plusieurs conteneurs dans cet objet blob. Par exemple, dans un objet blob appelé « Scrapbook », vous pouvez créer des conteneurs nommés « images » pour stocker des photos et un autre nommé « audio » pour stocker des fichiers audio. Une fois que vous avez créé les conteneurs, vous pouvez y charger des fichiers individuels. Consultez [Démarrage rapide : Charger, télécharger et répertorier des objets BLOB à l’aide de .NET](../storage/blobs/storage-quickstart-blobs-dotnet.md) pour plus d’informations sur la manipulation par programmation des objets BLOB.
 
 Certaines des API Azure Storage sont asynchrones, et le code dans cet article suppose l'utilisation de méthodes asynchrones. Voir [Programmation asynchrone](https://docs.microsoft.com/dotnet/csharp/async) pour plus d'informations.
 
@@ -140,7 +140,7 @@ do
 } while (token != null);
 ```
 
-Pour découvrir d’autres moyens de lister le contenu d’un conteneur d’objets blob, consultez la page [Démarrage rapide : charger, télécharger et lister des objets blob avec .NET](../storage/blobs/storage-quickstart-blobs-dotnet.md#list-the-blobs-in-a-container) .
+Consultez [Démarrage rapide : Charger, télécharger et répertorier des objets BLOB à l’aide de .NET](../storage/blobs/storage-quickstart-blobs-dotnet.md#list-the-blobs-in-a-container) pour d’autres manières de répertorier le contenu d’un conteneur d’objets blob.
 
 ## <a name="download-a-blob"></a>Télécharger un objet blob
 
@@ -157,7 +157,7 @@ using (var fileStream = System.IO.File.OpenWrite(@"path\myfile"))
 }
 ```
 
-Pour découvrir d’autres moyens d’enregistrer des objets blob en tant que fichiers, consultez la page [Démarrage rapide : charger, télécharger et lister des objets blob avec .NET](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-blobs) .
+Consultez [Démarrage rapide : Charger, télécharger et répertorier des objets BLOB à l’aide de .NET](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-blobs) d’autres moyens d’enregistrer des objets BLOB en tant que fichiers.
 
 ## <a name="delete-a-blob"></a>Supprimer un objet blob
 

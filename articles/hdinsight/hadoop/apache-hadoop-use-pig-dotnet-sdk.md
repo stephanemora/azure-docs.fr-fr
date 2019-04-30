@@ -1,7 +1,6 @@
 ---
 title: Exécuter des travaux Apache Pig avec le SDK .NET pour Hadoop - Azure HDInsight
 description: Apprenez à utiliser le Kit de développement logiciel (SDK) .NET pour Hadoop afin de soumettre des tâches Pig vers Hadoop sur HDInsight.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: hrasheed
-ms.openlocfilehash: 721bb93dc259bd2b4cc9f51d8d0d665c9b921128
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: ebf1f2806a6606294c61860a24fb2f02033a4bf4
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53436838"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62110954"
 ---
 # <a name="run-apache-pig-jobs-using-the-net-sdk-for-apache-hadoop-in-hdinsight"></a>Exécution de tâches Apache Pig à l’aide du Kit de développement logiciel (SDK) .NET pour Apache Hadoop dans HDInsight
 
@@ -24,7 +23,7 @@ Apprenez à utiliser le Kit de développement logiciel (SDK) .NET pour Apache Ha
 
 Le Kit de développement logiciel (SDK) .NET HDInsight fournit des bibliothèques clientes .NET facilitant l'utilisation des clusters HDInsight à partir de .NET. Pig permet de créer des opérations MapReduce en modélisant une série de transformations de données. Dans ce document, vous apprenez à utiliser une application de base C# pour soumettre un travail Pig sur un cluster HDInsight.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour effectuer les étapes de cet article, vous avez besoin des éléments suivants.
 
@@ -47,7 +46,7 @@ Le Kit de développement logiciel (SDK) HDInsight .NET fournit des bibliothèque
    | ------ | ------ |
    | Catégorie | Modèles/Visual C#/Windows |
    | Modèle | Application console |
-   | NOM | SubmitPigJob |
+   | Nom | SubmitPigJob |
 
 3. Cliquez sur **OK** pour créer le projet.
 

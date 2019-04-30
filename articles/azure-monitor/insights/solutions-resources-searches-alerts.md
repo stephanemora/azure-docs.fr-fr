@@ -1,24 +1,24 @@
 ---
-title: Alertes et recherches enregistrées dans les solutions de gestion | Microsoft Docs
-description: Les solutions de gestion incluent généralement des recherches enregistrées dans Log Analytics afin d’analyser les données collectées par la solution. Elles peuvent également définir des alertes pour avertir l’utilisateur ou appliquer automatiquement une action en réponse à un problème critique. Cet article décrit comment définir les alertes et recherches enregistrées de Log Analytics dans un modèle Resource Manager, de sorte qu’elles puissent être incluses dans des solutions de gestion.
+title: Recherches enregistrées dans les solutions de gestion | Microsoft Docs
+description: Les solutions de gestion incluent généralement des recherches enregistrées dans Log Analytics afin d’analyser les données collectées par la solution. Elles peuvent également définir des alertes pour avertir l’utilisateur ou appliquer automatiquement une action en réponse à un problème critique. Cet article décrit comment définir l’Analytique de journal des recherches enregistrées dans un modèle Resource Manager afin qu’elles puissent être incluses dans les solutions de gestion.
 services: monitoring
 documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: tysonn
-ms.service: monitoring
+ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/18/2018
+ms.date: 02/27/2019
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 97e6029ff85ce7ee8572fd76d04a5d72b27b2950
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 0975b23a8f96da6fc2dfcc8bd9ad046847a68aa9
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55980106"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62104820"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Ajout de recherches et d’alertes enregistrées Log Analytics à une solution de gestion (préversion)
 
@@ -33,7 +33,7 @@ Les [solutions de gestion](solutions.md) incluent généralement des [recherches
 > [!NOTE]
 > Les exemples cités dans cet article utilisent des paramètres et des variables obligatoires ou communs aux solutions de gestion. Ils sont décrits dans la rubrique [Concevoir et générer une solution de gestion dans Azure](solutions-creating.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 Cet article suppose que vous êtes déjà familiarisé avec la [création d’une solution de gestion](solutions-creating.md) et la structure d’un [modèle Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) et d’un fichier solution.
 
 
@@ -49,7 +49,7 @@ Toutes les ressources Log Analytics définies dans un modèle Resource Manager o
 
 Le tableau suivant répertorie la version d’API pour les ressources utilisées dans cet exemple.
 
-| Type de ressource | Version de l'API | Requête |
+| Type de ressource | Version de l'API | Interroger |
 |:---|:---|:---|
 | savedSearches | 2017-03-15-preview | Event &#124; where EventLevelName == "Error"  |
 
@@ -90,7 +90,6 @@ Des [alertes Azure Log](../../azure-monitor/platform/alerts-unified-log.md) sont
 
 > [!NOTE]
 > Depuis le 14 mai 2018, toutes les alertes d’une instance de cloud public Azure d’un espace de travail Log Analytics ont été étendues à Azure. Pour plus d’informations, consultez [Étendre les alertes à Azure](../../azure-monitor/platform/alerts-extend.md). Pour les utilisateurs qui étendent des alertes à Azure, les actions sont désormais contrôlées dans les groupes d’actions Azure. Lorsqu’un espace de travail et ses alertes sont étendus à Azure, vous pouvez récupérer ou ajouter des actions avec [Groupe d’actions - Modèle Azure Resource Manager](../../azure-monitor/platform/action-groups-create-resource-manager-template.md).
-
 Les règles d’alerte d’une solution de gestion sont constituées des trois ressources suivantes.
 
 - **Recherche enregistrée.** Définit la recherche dans les journaux qui est exécutée. Plusieurs règles d’alerte peuvent partager une même recherche enregistrée.
@@ -120,29 +119,23 @@ Une recherche enregistrée peut avoir une ou plusieurs planifications, chacune d
             "enabled": "[variables('Schedule').Enabled]"
         }
     }
-
 Les propriétés des ressources de planification sont décrites dans le tableau suivant.
 
 | Nom de l'élément | Obligatoire | Description |
 |:--|:--|:--|
-| Activé       | OUI | Spécifie si l’alerte est activée lors de sa création. |
-| interval      | OUI | La fréquence d’exécution de la requête (en minutes). |
-| queryTimeSpan | OUI | Durée sur laquelle les résultats sont évalués (en minutes). |
+| Activé       | Oui | Spécifie si l’alerte est activée lors de sa création. |
+| interval      | Oui | La fréquence d’exécution de la requête (en minutes). |
+| queryTimeSpan | Oui | Durée sur laquelle les résultats sont évalués (en minutes). |
 
 La ressource de planification doit dépendre de la recherche enregistrée, de sorte qu’elle soit créée avant la planification.
-
 > [!NOTE]
 > Le nom d’une planification doit être unique au sein d’un espace de travail. Deux planifications ne peuvent pas avoir le même ID, même si elles sont associées à d’autres recherches enregistrées. De même, pour toutes les recherches enregistrées, planifications et actions créées avec l’API Log Analytics, le nom doit être en minuscules.
 
 ### <a name="actions"></a>Actions
 Une planification peut avoir plusieurs actions. Une action peut définir un ou plusieurs processus à effectuer, tels que l’envoi d’un courrier électronique ou le démarrage d’un runbook, ou elle peut définir un seuil qui détermine si les résultats d’une recherche satisfont à certains critères. Certaines actions définissent ces deux aspects afin que les processus soient exécutés quand le seuil est atteint.
-
 Les actions peuvent être définies à l’aide de la ressource [Groupe d’actions] ou de la ressource d’action.
-
 > [!NOTE]
 > Depuis le 14 mai 2018, toutes les alertes d’une instance de cloud public Azure d’un espace de travail Log Analytics ont été automatiquement étendues à Azure. Pour plus d’informations, consultez [Étendre les alertes à Azure](../../azure-monitor/platform/alerts-extend.md). Pour les utilisateurs qui étendent des alertes à Azure, les actions sont désormais contrôlées dans les groupes d’actions Azure. Lorsqu’un espace de travail et ses alertes sont étendus à Azure, vous pouvez récupérer ou ajouter des actions avec [Groupe d’actions - Modèle Azure Resource Manager](../../azure-monitor/platform/action-groups-create-resource-manager-template.md).
-
-
 La propriété **Type** spécifie deux types de ressources d’action. Une planification nécessite une action **Alert** qui définit les détails de la règle d’alerte et les actions appliquées lors de la création d’une alerte. Les ressources d’action ont un type `Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions`.
 
 Les actions d’alerte présentent la structure suivante. Cela inclut des variables et des paramètres courants, vous pouvez donc copier et coller cet extrait de code dans votre fichier de solution et modifier les noms des paramètres.
@@ -183,10 +176,10 @@ Les propriétés des ressources d’action d’alerte sont décrites dans les ta
 
 | Nom de l'élément | Obligatoire | Description |
 |:--|:--|:--|
-| Type | OUI | Type de l’action.  **Alert** pour les actions d’alerte. |
-| Nom | OUI | Nom d’affichage de l’alerte.  Il s’agit du nom qui s’affiche dans la console pour la règle d’alerte. |
+| Type | Oui | Type de l’action.  **Alert** pour les actions d’alerte. |
+| Nom | Oui | Nom d’affichage de l’alerte.  Il s’agit du nom qui s’affiche dans la console pour la règle d’alerte. |
 | Description | Non  | La description facultative de l’alerte. |
-| Severity | OUI | La gravité de l’enregistrement d’alerte selon les valeurs suivantes :<br><br> **critical**<br>**warning**<br>**informational**
+| Severity | Oui | La gravité de l’enregistrement d’alerte selon les valeurs suivantes :<br><br> **critical**<br>**warning**<br>**informational**
 
 
 #### <a name="threshold"></a>Seuil
@@ -194,8 +187,8 @@ Cette section est obligatoire. Elle définit les propriétés du seuil d’alert
 
 | Nom de l'élément | Obligatoire | Description |
 |:--|:--|:--|
-| Operator | OUI | L’opérateur de comparaison selon les valeurs suivantes :<br><br>**gt = supérieur à<br>lt = inférieur à** |
-| Valeur | OUI | La valeur par rapport à laquelle les résultats doivent être comparés. |
+| Operator | Oui | L’opérateur de comparaison selon les valeurs suivantes :<br><br>**gt = supérieur à<br>lt = inférieur à** |
+| Valeur | Oui | La valeur par rapport à laquelle les résultats doivent être comparés. |
 
 ##### <a name="metricstrigger"></a>MetricsTrigger
 Cette section est facultative. Vous devez l’inclure pour une alerte relative aux mesures métriques.
@@ -205,9 +198,9 @@ Cette section est facultative. Vous devez l’inclure pour une alerte relative a
 
 | Nom de l'élément | Obligatoire | Description |
 |:--|:--|:--|
-| TriggerCondition | OUI | Spécifie si le seuil est défini pour le nombre total de violations ou pour des violations consécutives selon les valeurs suivantes :<br><br>**Total<br>Consecutive** |
-| Operator | OUI | L’opérateur de comparaison selon les valeurs suivantes :<br><br>**gt = supérieur à<br>lt = inférieur à** |
-| Valeur | OUI | Le nombre de fois où les critères doivent être respectés pour que l’alerte soit déclenchée. |
+| TriggerCondition | Oui | Spécifie si le seuil est défini pour le nombre total de violations ou pour des violations consécutives selon les valeurs suivantes :<br><br>**Total<br>Consecutive** |
+| Operator | Oui | L’opérateur de comparaison selon les valeurs suivantes :<br><br>**gt = supérieur à<br>lt = inférieur à** |
+| Valeur | Oui | Le nombre de fois où les critères doivent être respectés pour que l’alerte soit déclenchée. |
 
 
 #### <a name="throttling"></a>Limitation
@@ -224,7 +217,7 @@ Pour les utilisateurs qui ont étendu leurs alertes dans Azure, une planificatio
 
 | Nom de l'élément | Obligatoire | Description |
 |:--|:--|:--|
-| AzNsNotification | OUI | ID de ressource du groupe d’actions Azure à associer à l’alerte pour entreprendre les actions nécessaires lorsque les critères d’alerte sont remplis. |
+| AzNsNotification | Oui | ID de ressource du groupe d’actions Azure à associer à l’alerte pour entreprendre les actions nécessaires lorsque les critères d’alerte sont remplis. |
 | CustomEmailSubject | Non  | Ligne d’objet personnalisée de l’e-mail envoyé à toutes les adresses spécifiées dans le groupe d’actions associé. |
 | CustomWebhookPayload | Non  | Charge utile personnalisée à envoyer à tous les points de terminaison Webhook définis dans le groupe d’actions associé. Le format dépend de ce qu’attend le Webhook, et doit être un JSON sérialisé valide. |
 
@@ -240,17 +233,17 @@ Chaque planification est associée à une action **Alert**. Ceci définit les d�
 
 | Nom de l'élément | Obligatoire | Description |
 |:--|:--|:--|
-| Destinataires | OUI | Liste des adresses e-mail (séparées par des virgules) auxquelles une notification est envoyée quand une alerte est créée, comme dans l’exemple suivant.<br><br>**[ "recipient1@contoso.com", "recipient2@contoso.com" ]** |
-| Objet | OUI | La ligne d’objet du message. |
-| Pièce jointe | Non  | Actuellement, les pièces jointes ne sont pas prises en charge. Si cet élément est inclus, il doit avoir la valeur **None**. |
+| Recipients | Oui | Liste des adresses e-mail (séparées par des virgules) auxquelles une notification est envoyée quand une alerte est créée, comme dans l’exemple suivant.<br><br>**[ "recipient1\@contoso.com", "recipient2\@contoso.com" ]** |
+| Subject | Oui | La ligne d’objet du message. |
+| Attachment | Non  | Actuellement, les pièces jointes ne sont pas prises en charge. Si cet élément est inclus, il doit avoir la valeur **None**. |
 
 ##### <a name="remediation"></a>Correction
-Cette section est facultative. Insérez-la si vous souhaitez qu’un runbook démarre en réponse à l’alerte. |
+Cette section est facultative. Insérez-la si vous souhaitez qu’un runbook démarre en réponse à l’alerte. 
 
 | Nom de l'élément | Obligatoire | Description |
 |:--|:--|:--|
-| RunbookName | OUI | Le nom du runbook à démarrer. |
-| WebhookUri | OUI | L’URI du webhook pour le runbook. |
+| RunbookName | Oui | Le nom du runbook à démarrer. |
+| WebhookUri | Oui | L’URI du webhook pour le runbook. |
 | Expiry | Non  | La date et l’heure d’expiration de la correction. |
 
 ##### <a name="webhook-actions"></a>Actions de webhook
@@ -274,14 +267,13 @@ Si votre alerte appelle un webhook, elle nécessite une ressource d’action ave
         "customPayload": "[variables('Alert').Webhook.CustomPayLoad]"
       }
     }
-
 Les propriétés des ressources d’action Webhook sont décrites dans les tableaux suivants.
 
 | Nom de l'élément | Obligatoire | Description |
 |:--|:--|:--|
-| Type | OUI | Type de l’action. **Webhook** pour les actions de webhook. |
-| Nom | OUI | Le nom d’affichage de l’action. Il n’est pas affiché dans la console. |
-| webhookUri | OUI | L’URI du webhook. |
+| Type | Oui | Type de l’action. **Webhook** pour les actions de webhook. |
+| Nom | Oui | Le nom d’affichage de l’action. Il n’est pas affiché dans la console. |
+| webhookUri | Oui | L’URI du webhook. |
 | customPayload | Non  | Charge utile personnalisée à envoyer au webhook. Le format dépend de ce que le webhook attend. |
 
 ## <a name="sample"></a>Exemple

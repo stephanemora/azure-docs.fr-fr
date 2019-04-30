@@ -12,14 +12,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache
 ms.devlang: multiple
 ms.topic: article
-ms.date: 01/23/2017
-ms.author: yegu
+origin.date: 01/23/2017
+ms.date: 02/27/2019
+ms.author: v-junlch
 ms.openlocfilehash: 73c771ab18d1cc2944298818c1cab90eb2f277ff
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56238400"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60829801"
 ---
 # <a name="azure-cache-for-redis-samples"></a>Exemples du cache Azure pour Redis
 Cette rubrique fournit une liste d'exemples relatifs au cache Azure pour Redis, qui couvrent les scénarios de connexion au cache, de lecture et écriture des données vers et depuis le cache, ainsi que l'utilisation des fournisseurs ASP.NET de cache Azure pour Redis. Certains de ces exemples sont des projets téléchargeables. D'autres fournissent des instructions étape par étape et incluent des extraits de code, mais ne sont pas liés à un projet téléchargeable.
@@ -31,14 +32,14 @@ L’exemple [Hello world](https://github.com/rustd/RedisSamples/tree/master/Hell
 
 Cet exemple montre comment :
 
-* Utiliser les différentes options de connexion
-* Lire et écrire des objets dans le cache à l’aide des opérations synchrones et asynchrones
-* Utiliser les commandes Redis MGET/MSET pour retourner les valeurs de clés spécifiées
-* Effectuer des opérations Redis transactionnelles
-* Utiliser des listes Redis et des ensembles triés
-* Stocker des objets .NET à l’aide des sérialiseurs JsonConvert
-* Utiliser les jeux Redis pour implémenter le balisage
-* Travailler avec le Cluster Redis
+- Utiliser les différentes options de connexion
+- Lire et écrire des objets dans le cache à l’aide des opérations synchrones et asynchrones
+- Utiliser les commandes Redis MGET/MSET pour retourner les valeurs de clés spécifiées
+- Effectuer des opérations Redis transactionnelles
+- Utiliser des listes Redis et des ensembles triés
+- Stocker des objets .NET à l’aide des sérialiseurs JsonConvert
+- Utiliser les jeux Redis pour implémenter le balisage
+- Travailler avec le Cluster Redis
 
 Pour plus d’informations, consultez la documentation [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) sur GitHub. Pour plus de scénarios d’utilisation, consultez les tests unitaires [StackExchange.Redis.Tests](https://github.com/StackExchange/StackExchange.Redis/tree/master/tests).
 
@@ -52,8 +53,8 @@ L’exemple [Use Azure Cache for Redis as a Scale out Backplane for ASP.NET Sign
 ## <a name="azure-cache-for-redis-customer-query-sample"></a>Cache Azure pour Redis - exemple de requête client
 Cet exemple compare les performances entre l'accès aux données à partir d'un cache et l'accès aux données à partir d'un espace de persistance. Cet exemple comporte deux projets.
 
-* [Démonstration de l’amélioration des performances par la mise en cache des données avec le cache Azure pour Redis](https://github.com/rustd/RedisSamples/tree/master/RedisCacheCustomerQuerySample)
-* [Amorcer la base de données et le cache pour la démonstration](https://github.com/rustd/RedisSamples/tree/master/SeedCacheForCustomerQuerySample)
+- [Démonstration de l’amélioration des performances par la mise en cache des données avec le cache Azure pour Redis](https://github.com/rustd/RedisSamples/tree/master/RedisCacheCustomerQuerySample)
+- [Amorcer la base de données et le cache pour la démonstration](https://github.com/rustd/RedisSamples/tree/master/SeedCacheForCustomerQuerySample)
 
 ## <a name="aspnet-session-state-and-output-caching"></a>État de session ASP.NET et mise en cache de la sortie
 L’exemple [Use Azure Cache for Redis to store ASP.NET SessionState and OutputCache](https://github.com/rustd/RedisSamples/tree/master/SessionState_OutputCaching) montre comment utiliser le cache Azure pour Redis afin de stocker les valeurs de session et de cache de sortie d’ASP.NET avec les fournisseurs SessionState et OutputCache de Redis.
@@ -69,4 +70,6 @@ L’exemple [Retwis](https://github.com/SyntaxC4-MSFT/retwis) est Redis Hello Wo
 
 ## <a name="bandwidth-monitor"></a>Surveiller la bande passante
 L’exemple [Bandwidth monitor](https://github.com/JonCole/SampleCode/tree/master/BandWidthMonitor) vous permet de surveiller la bande passante utilisée sur le client. Pour mesurer la bande passante, exécutez l’exemple sur l’ordinateur client du cache, effectuez des appels au cache et observez la bande passante signalée par l’exemple de surveillance de la bande passante.
+
+<!-- Update_Description: update metedata properties -->
 
