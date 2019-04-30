@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
 ms.openlocfilehash: 612e384a2ee5bdc449d22ba469026d38c7469e73
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59492120"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62117701"
 ---
 # <a name="connect-your-fortinet-appliance"></a>Se connecter à votre appliance Fortinet 
 
@@ -32,7 +32,7 @@ Vous pouvez vous connecter Azure Sentinel à n’importe quel matériel Fortinet
 > [!NOTE]
 > - Données seront stockées dans l’emplacement géographique de l’espace de travail sur lequel vous exécutez Azure Sentinel.
 
-## <a name="step-1-connect-your-fortinet-appliance-using-an-agent"></a>Étape 1 : Se connecter à votre appliance Fortinet à l’aide d’un agent
+## <a name="step-1-connect-your-fortinet-appliance-using-an-agent"></a>Étape 1 : Se connecter à votre appliance Fortinet à l’aide d’un agent
 
 Pour vous connecter à votre appliance Fortinet à Sentinel Azure, vous devez déployer un agent sur un ordinateur dédié (machine virtuelle ou en local) pour prendre en charge la communication entre l’appliance et Sentinel Azure. Vous pouvez déployer l’agent manuellement ou automatiquement. Le déploiement automatique n’est disponible que si votre machine dédiée est une nouvelle machine virtuelle que vous créez dans Azure. 
 
@@ -97,7 +97,7 @@ Si vous n’utilisez pas Azure, déployer manuellement l’agent Sentinel Azure 
       1. Redémarrez l’agent Syslog à l’aide de cette commande : `sudo /opt/microsoft/omsagent/bin/service_control restart [{workspace GUID}]`
       1. Confirmer qu’il n’existe aucune erreur dans le journal de l’agent en exécutant cette commande : `tail /var/opt/microsoft/omsagent/log/omsagent.log`
  
-## <a name="step-2-forward-fortinet-logs-to-the-syslog-agent"></a>Étape 2 : Transférer les journaux de Fortinet à l’agent Syslog
+## <a name="step-2-forward-fortinet-logs-to-the-syslog-agent"></a>Étape 2 : Transférer les journaux de Fortinet à l’agent Syslog
 
 Configurer Fortinet pour transférer les messages Syslog au format CEF à votre espace de travail Azure par le biais de l’agent Syslog :
 
@@ -120,7 +120,7 @@ Configurer Fortinet pour transférer les messages Syslog au format CEF à votre 
    > [!NOTE] 
    > Pour plus d’informations, accédez à la [bibliothèque de documents Fortinet](https://aka.ms/asi-syslog-fortinet-fortinetdocumentlibrary). Choisissez votre version et utiliser le **'s Handbook** et **référence des messages de journal**.
 
-## <a name="step-3-validate-connectivity"></a>Étape 3 : Valider la connectivité
+## <a name="step-3-validate-connectivity"></a>Étape 3 : Valider la connectivité
 
 Il peut prendre plus de 20 minutes jusqu'à ce que vos journaux commencent à apparaître dans le journal Analytique. 
 

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 63715f668438519131eba5bfff7aa38fc73267d0
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294482"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61094645"
 ---
 # <a name="retry-logic-in-the-media-services-sdk-for-net"></a>Logique de nouvelle tentative dans le Kit de développement logiciel (SDK) Media Services pour .NET  
 
@@ -37,7 +37,7 @@ Lorsque vous utilisez les services Microsoft Azure, des erreurs temporaires peuv
 ## <a name="exception-types"></a>Types d'exceptions
 Le tableau suivant décrit les exceptions que le Kit de développement logiciel (SDK) Media Services pour .NET gère ou ne gère pas pour certaines opérations susceptibles de provoquer des défaillances temporaires.  
 
-| Exception | Web Request | Stockage | Requête | SaveChanges |
+| Exception | Web Request | Stockage | Interroger | SaveChanges |
 | --- | --- | --- | --- | --- |
 | WebException<br/>Pour plus d’informations, voir la section [Codes d’état WebException](media-services-retry-logic-in-dotnet-sdk.md#WebExceptionStatus). |Oui |OUI |OUI |Oui |
 | DataServiceClientException<br/> Pour plus d’informations, voir [Codes d’état d’erreur HTTP](media-services-retry-logic-in-dotnet-sdk.md#HTTPStatusCode). |Non  |OUI |OUI |Oui |
@@ -52,7 +52,7 @@ Le tableau suivant décrit les exceptions que le Kit de développement logiciel 
 ### <a name="WebExceptionStatus"></a> Codes d’état WebException
 Le tableau suivant présente les codes d’erreur WebException pour lesquels la logique de nouvelle tentative est implémentée. L’énumération [WebExceptionStatus](https://msdn.microsoft.com/library/system.net.webexceptionstatus.aspx) définit les codes d’état.  
 
-| Statut | Web Request | Stockage | Requête | SaveChanges |
+| Statut | Web Request | Stockage | Interroger | SaveChanges |
 | --- | --- | --- | --- | --- |
 | ConnectFailure |Oui |OUI |OUI |Oui |
 | NameResolutionFailure |Oui |OUI |OUI |Oui |
@@ -70,7 +70,7 @@ Le tableau suivant présente les codes d’erreur WebException pour lesquels la 
 ### <a name="HTTPStatusCode"></a> Codes d’état d’erreur HTTP
 Lorsque les opérations Query et SaveChanges lèvent les exceptions DataServiceClientException, DataServiceQueryException ou DataServiceQueryException, le code d’état d’erreur HTTP est retourné dans la propriété StatusCode.  Le tableau suivant présente les codes d’erreur pour lesquels la logique de nouvelle tentative est implémentée.  
 
-| Statut | Web Request | Stockage | Requête | SaveChanges |
+| Statut | Web Request | Stockage | Interroger | SaveChanges |
 | --- | --- | --- | --- | --- |
 | 401 |Non  |Oui |Non  |Non  |
 | 403 |Non  |Oui<br/>Gestion des nouvelles tentatives avec attentes plus longues. |Non  |Non  |

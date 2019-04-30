@@ -1,18 +1,26 @@
 ---
 title: Développer avec Azure IoT Hub pour des appareils limités avec le kit SDK IoT Hub C | Microsoft Docs
 description: Guide du développeur - Aide sur la façon de développer avec les kits SDK Azure IoT pour les appareils contraints.
-author: yzhong94
-ms.service: iot-hub
 services: iot-hub
-ms.topic: conceptual
-ms.date: 05/24/2018
-ms.author: yizhon
+documentationcenter: c
+author: yzhong94
+manager: timlt
+editor: ''
+ms.assetid: 979136db-c92d-4288-870c-f305e8777bdd
+ms.service: iot-hub
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+origin.date: 05/24/2018
+ms.date: 04/29/2019
+ms.author: v-yiso
 ms.openlocfilehash: 7788bca621a59ec8cdfe36edf73a99efca8c460c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59261392"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61320875"
 ---
 # <a name="develop-for-constrained-devices-using-azure-iot-c-sdk"></a>Développer pour des appareils limités avec le kit SDK Azure IoT C
 
@@ -44,7 +52,6 @@ cmake -Duse_amqp=OFF -Duse_http=OFF <Path_to_cmake>
 ### <a name="remove-sdk-logging-capability"></a>Supprimer la fonctionnalité de journalisation du SDK
 
 Le SDK C fournit une journalisation complète qui facilite le débogage. Vous pouvez supprimer la fonctionnalité de journalisation pour les appareils en production avec la commande cmake suivante :
-
 ```
 cmake -Dno_logging=OFF <Path_to_cmake>
 ```
@@ -80,7 +87,15 @@ Le SDK C prend en charge deux modèles de programmation. Un ensemble a des API a
 Un autre ensemble d’API sans l’index _LL_ est appelé la couche pratique, où un thread de travail est lancé automatiquement. Par exemple, vous trouverez les API de la couche pratique pour le client d’appareil dans ce [fichier d’en-tête du client d’appareil IoT](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/inc/iothub_device_client.h). Pour les appareils contraints où chaque thread supplémentaire peut consommer un pourcentage important des ressources système, vous pouvez envisager d’utiliser les API _LL_.
 
 ## <a name="next-steps"></a>Étapes suivantes
-
 Pour plus d’informations sur l’architecture du SDK C Azure IoT :
--   [Code source du SDK C Azure IoT](https://github.com/Azure/azure-iot-sdk-c/)
--   [Présentation d’Azure IoT device SDK pour C](iot-hub-device-sdk-c-intro.md)
+- [Code source du SDK C Azure IoT](https://github.com/Azure/azure-iot-sdk-c/)
+- [Présentation d’Azure IoT device SDK pour C](iot-hub-device-sdk-c-intro.md)
+
+------
+[lnk-cmake]: https://cmake.org/
+[lnk-devbox-setup]:  https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md
+[lnk-choosing-protocol]: iot-hub-devguide-protocols.md
+[lnk-hub-file-upload]: iot-hub-devguide-file-upload.md
+[lnk-strip]: https://en.wikipedia.org/wiki/Strip_(Unix)
+[lnk-serializer]: https://github.com/Azure/azure-iot-sdk-c/tree/master/serializer
+[lnk-parson]: https://github.com/kgabis/parson

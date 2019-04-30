@@ -2,7 +2,6 @@
 title: Exemples storm-starter sur Apache Storm sur HDInsight - Azure
 description: Découvrez comment procéder à des analyses de Big Data et traiter les données en temps réel à l’aide d’Apache Storm et des exemples storm-starter sur HDInsight.
 keywords: storm-starter, exemple apache storm
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -10,12 +9,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 5c0fe0921446dde12771bacf096f806701b90444
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 40757c80878ef5a06d3368d4c20f65ebfa11e47b
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58117997"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62116385"
 ---
 # <a name="get-started-with-apache-storm-on-hdinsight-using-the-storm-starter-examples"></a>Prise en main d’Apache Storm sur HDInsight à l’aide des exemples storm-starter
 
@@ -32,7 +31,7 @@ Apache Storm est un système de calcul en temps réel, évolutif, distribué, à
 
 * **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-* **Des connaissances en SSH et SCP**. Pour plus d’informations, consultez [Utiliser SSH avec HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
+* **Des connaissances en SSH et SCP**. Pour en savoir plus, voir [Utilisation de SSH avec HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="create-an-apache-storm-cluster"></a>Créer un cluster Apache Storm
 
@@ -50,7 +49,7 @@ Utilisez les étapes suivantes pour créer un Storm sur un cluster HDInsight :
     * **Abonnement**: Sélectionnez l’abonnement à utiliser.
     * **Nom d’utilisateur de connexion au cluster** et **Mot de passe de connexion au cluster** : informations de connexion permettant d’accéder au cluster par le biais du protocole HTTPS. Vous utilisez ces informations d’identification pour accéder aux services tels que l’interface utilisateur Ambari Web ou l’API REST.
     * **Nom d’utilisateur SSH (Secure Shell)**  : Information de connexion permettant d’accéder au cluster suivant le protocole SSH. Par défaut, le mot de passe est le même que le mot de passe de connexion de cluster.
-    * **Groupe de ressources** : Groupe de ressources dans lequel le cluster sera créé.
+    * **Groupe de ressources** : Groupe de ressources dans lequel le cluster sera créé.
     * **Emplacement** : Région Azure dans laquelle le cluster sera créé.
 
    ![Sélectionnez un abonnement](./media/apache-storm-tutorial-get-started-linux/hdinsight-basic-configuration.png)

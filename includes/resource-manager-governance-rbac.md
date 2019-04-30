@@ -2,18 +2,20 @@
 title: Fichier Include
 description: Fichier Include
 services: azure-resource-manager
-author: tfitzmac
+author: rockboyfor
+manager: digimobile
 ms.service: azure-resource-manager
 ms.topic: include
-ms.date: 02/16/2018
-ms.author: tomfitz
+origin.date: 02/16/2018
+ms.date: 04/30/2018
+ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: b4b06119b9d46781b967fc8d98808c60d2b41ccb
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.openlocfilehash: f77a5d482c3f8632a3d86bd8e027fbb4418168c3
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38753644"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62122906"
 ---
 Vous devez vous assurer que les utilisateurs de votre organisation disposent du niveau d’accès approprié à ces ressources. Il n’est pas question de leur accorder un accès illimité, mais de faire en sorte qu’ils puissent accomplir leur travail. Le contrôle d’accès en fonction du rôle (RBAC) vous permet de définir les utilisateurs autorisés à effectuer des actions spécifiques dans une étendue. Un rôle définit un ensemble d’actions autorisées. Vous attribuez le rôle à une étendue et spécifiez les utilisateurs qui appartiennent à ce rôle pour l’étendue.
 
@@ -28,3 +30,4 @@ La plupart des utilisateurs obtiennent des [rôles propres aux ressources](../ar
 ### <a name="who-can-assign-roles"></a>Qui peut attribuer des rôles ?
 
 Pour créer et supprimer des attributions de rôles, les utilisateurs doivent disposer d’un accès `Microsoft.Authorization/roleAssignments/*`. Cet accès est accordé par le biais du rôle Propriétaire ou Administrateur de l’accès utilisateur.
+<!--ms.date: 04/30/2018-->

@@ -3,18 +3,18 @@ title: Déclarer des modules et des routes avec des manifestes de déploiement -
 description: Découvrez comment un manifeste de déploiement déclare les modules à déployer, comment les déployer et comment créer des itinéraires de messages entre eux.
 author: kgremban
 manager: philmea
-ms.author: kgremban
-ms.date: 03/28/2019
+ms.author: v-yiso
+origin.date: 03/28/2019
+ms.date: 04/22/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.custom: seodec18
 ms.openlocfilehash: f4a562cab445398986c1b8f379f6cb90ca843342
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758082"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61363157"
 ---
 # <a name="learn-how-to-deploy-modules-and-establish-routes-in-iot-edge"></a>Découvrez comment déployer des modules et établir des itinéraires dans IoT Edge.
 
@@ -276,3 +276,9 @@ L’exemple suivant montre à quoi peut ressembler un document de manifeste de d
 * Pour obtenir une liste complète des propriétés qui peuvent ou doivent être incluses dans $edgeAgent et $edgeHub, consultez [propriétés de l’agent IoT Edge et hub IoT Edge](module-edgeagent-edgehub.md).
 
 * Maintenant que vous savez comment les modules IoT Edge sont utilisés, vous pouvez lire [Comprendre les exigences et les outils de développement de modules IoT Edge](module-development.md).
+
+[lnk-deploy]: module-deployment-monitoring.md
+[lnk-iothub-query]: ../iot-hub/iot-hub-devguide-routing-query-syntax.md
+[lnk-docker-create-options]: https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate
+[lnk-docker-logging-options]: https://docs.docker.com/engine/admin/logging/overview/
+[lnk-module-dev]: module-development.md

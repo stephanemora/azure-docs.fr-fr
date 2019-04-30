@@ -1,7 +1,6 @@
 ---
 title: Activer des dumps de tas pour les services Apache Hadoop sur HDInsight – Azure
 description: Activez les services Apache Hadoop à partir des clusters HDInsight sur Linux pour le débogage et l’analyse.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: d4245ce35cfc1e3aa0ba9ee9307315c9a999b5ff
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: a1b816656e019a214e8c0dc72b79575c49d99e68
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53722037"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62098352"
 ---
 # <a name="enable-heap-dumps-for-apache-hadoop-services-on-linux-based-hdinsight"></a>Activer les dumps de tas pour les services Apache Hadoop sur HDInsight sur Linux
 

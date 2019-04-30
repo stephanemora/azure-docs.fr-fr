@@ -6,18 +6,22 @@ author: sachdevaswati
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/19/2019
+ms.date: 04/23/2019
 ms.author: sachdevaswati
-ms.openlocfilehash: 8d6323c73e5313a29b7b0df09ebdd24a190879f5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 649e50634d901ab48f1cb36c39d7331401c0cc51
+ms.sourcegitcommit: a95dcd3363d451bfbfea7ec1de6813cad86a36bb
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59791891"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62733546"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Forum aux questions sur les bases de données SQL Server qui sont exécutent sur une sauvegarde de machine virtuelle Azure
 
 Cet article répond aux questions courantes sur la sauvegarde de bases de données SQL Server qui s’exécutent sur des machines virtuelles (VM) Azure et qui utilisent le [sauvegarde Azure](backup-overview.md) service.
+
+## <a name="can-i-use-azure-backup-for-iaas-vm-as-well-as-sql-server-on-the-same-machine"></a>Puis-je utiliser sauvegarde Azure pour les VM IaaS, ainsi que SQL Server sur le même ordinateur ?
+Oui, vous pouvez avoir sauvegarde de machine virtuelle et sauvegarde SQL sur la même machine virtuelle. Dans ce cas, nous déclenchons en interne copie seule sauvegarde complète sur la machine virtuelle ne pas tronquer les journaux.
+
 
 ## <a name="does-the-solution-retry-or-auto-heal-the-backups"></a>La solution de nouvelle tentative ou les sauvegardes de correction automatique ?
 
@@ -45,7 +49,8 @@ Oui. Vous pouvez limiter la fréquence à laquelle la stratégie de sauvegarde s
   `{"DefaultBackupTasksThreshold": 5}`
 
 3. Enregistrez vos modifications et fermez le fichier.
-4. Sur l’instance SQL Server, ouvrez le **Gestionnaire des tâches**. Redémarrez le service **AzureWLBackupCoordinatorSvc**.
+4. Sur l’instance SQL Server, ouvrez le **Gestionnaire des tâches**. Redémarrez le service **AzureWLBackupCoordinatorSvc**.<br/> <br/>
+ Bien que cette méthode permet de si l’application de sauvegarde consomme beaucoup de ressources, SQL Server [du gouverneur de ressources](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor?view=sql-server-2017) est un moyen plus générique pour spécifier des limites sur la quantité d’UC, e/s physiques et mémoire capable de demandes d’application entrantes utiliser.
 
 > [!NOTE]
 > Dans l’expérience utilisateur vous pouvez toujours poursuivre et planifier des sauvegardes autant à un moment donné, toutefois, ils seront traités dans une fenêtre glissante de dire que 5, conformément à l’exemple ci-dessus.

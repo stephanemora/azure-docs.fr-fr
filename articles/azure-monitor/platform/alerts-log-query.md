@@ -9,11 +9,11 @@ ms.date: 02/19/2019
 ms.author: bwren
 ms.subservice: alerts
 ms.openlocfilehash: 429770b7651a93473c03f5e386d8f7b72692c161
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59784379"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60995937"
 ---
 # <a name="log-alert-queries-in-azure-monitor"></a>Requêtes d’alertes de journal dans Azure Monitor
 [Les règles d’alerte basées sur des journaux d’activité Azure Monitor](alerts-unified-log.md) s’exécutent à intervalles réguliers ; vous devez donc vous assurer que leur écriture minime la surcharge et la latence. Cet article fournit des recommandations concernant l’écriture de requêtes performantes pour les alertes de journal et un processus de conversion des requêtes existantes. 

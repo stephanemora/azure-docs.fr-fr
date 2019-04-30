@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
 ms.openlocfilehash: a029477dfd8046863ebfe34cd839562a0b1f3d87
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59607792"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61094453"
 ---
 <a name="pricing-for-virtual-machine-offers"></a>Tarification des offres de machine virtuelle
 ==================================
@@ -102,7 +102,7 @@ L'éditeur peut également charger sa feuille de calcul de tarification sur un e
 
 Le tableau suivant présente les différentes régions que vous pouvez spécifier pour la tarification de cœur personnalisée, ainsi que les codes devise correspondants.
 
-| **Région** | **Nom**             | **Code devise** |
+| **Région** | **Name**             | **Code devise** |
 |------------|----------------------|-------------------|
 | DZ         | Algérie              | DZD               |
 | AR         | Argentine            | ARS               |

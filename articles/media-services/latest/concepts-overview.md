@@ -9,22 +9,22 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 04/21/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 8f21374ae5da76c9954acc5227f593ab4be19ce9
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
-ms.translationtype: MT
+ms.openlocfilehash: 74a4ee03562963c8a50159f085e4b76b6d461ed9
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58630549"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62103836"
 ---
 # <a name="media-services-concepts"></a>Concepts Media Services
 
 Cette rubrique fournit une brève présentation des concepts Azure Media Services et fournit des liens vers des articles contenant une explication approfondie de Media Services v3 concepts et fonctionnalités. Il est recommandé d’examiner les concepts fondamentaux décrits dans ces rubriques avant de commencer le développement.
 
 > [!NOTE]
-> Actuellement, vous ne pouvez pas utiliser le portail Azure pour gérer des ressources v3. Utilisez le [API REST](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), ou l’un des prises en charge [kits de développement logiciel](developers-guide.md).
+> Actuellement, vous ne pouvez pas utiliser le portail Azure pour gérer des ressources v3. Utilisez l’[API REST](https://aka.ms/ams-v3-rest-ref), l’interface [CLI](https://aka.ms/ams-v3-cli-ref) ou l’un des kits [SDK](developers-guide.md) pris en charge.
 
 ## <a name="cloud-upload-and-storage"></a>Chargement et stockage sur le cloud
 
@@ -116,11 +116,15 @@ Vous pouvez utiliser Azure Media Player pour lire du contenu multimédia diffus�
 
 - [Présentation du Lecteur multimédia Azure](use-azure-media-player.md)
 
+## <a name="provide-feedback"></a>Fournir des commentaires
+
+Découvrez l’article [Communauté Azure Media Services](media-services-community.md) pour découvrir les différentes façons dont vous pouvez poser des questions, faire des commentaires et obtenir des mises à jour sur Media Services.
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Encoder le fichier distant et le flux vidéo – REST](stream-files-tutorial-with-rest.md)
-* [Encoder le fichier téléchargé et flux vidéo - .NET](stream-files-tutorial-with-api.md)
-* [Stream en direct - .NET](stream-live-tutorial-with-api.md)
+* [Encoder le fichier distant et diffuser la vidéo – REST](stream-files-tutorial-with-rest.md)
+* [Encoder le fichier chargé et diffuser la vidéo – REST](stream-files-tutorial-with-api.md)
+* [Diffuser en direct - .NET](stream-live-tutorial-with-api.md)
 * [Analyser votre vidéo - .NET](analyze-videos-tutorial-with-api.md)
 * [Chiffrement dynamique AES-128 - .NET](protect-with-aes128.md)
 * [Chiffrer dynamiquement avec multi-DRM - .NET](protect-with-drm.md) 

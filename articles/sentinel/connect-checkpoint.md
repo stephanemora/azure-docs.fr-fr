@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
 ms.openlocfilehash: 664b09a8ad0cb7d06019281869e390a465637c00
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59489174"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62120924"
 ---
 # <a name="connect-your-check-point-appliance"></a>Se connecter à votre appliance de Check Point
 
@@ -32,7 +32,7 @@ Vous pouvez vous connecter Azure Sentinel vers n’importe quel appareil Check P
 > [!NOTE]
 > Données seront stockées dans l’emplacement géographique de l’espace de travail sur lequel vous exécutez Azure Sentinel.
 
-## <a name="step-1-connect-your-check-point-appliance-using-an-agent"></a>Étape 1 : Se connecter à votre appliance de Check Point à l’aide d’un agent
+## <a name="step-1-connect-your-check-point-appliance-using-an-agent"></a>Étape 1 : Se connecter à votre appliance de Check Point à l’aide d’un agent
 
 Pour vous connecter à votre appliance de Check Point à Sentinel Azure, vous devez déployer un agent sur un ordinateur dédié (virtuel ou local) pour prendre en charge la communication entre l’appliance et Sentinel Azure. Vous pouvez déployer l’agent manuellement ou automatiquement. Le déploiement automatique n’est disponible que si votre machine dédiée est une nouvelle machine virtuelle que vous créez dans Azure. 
 
@@ -102,7 +102,7 @@ Si vous n’utilisez pas Azure, déployer manuellement l’agent Sentinel Azure 
       1. Redémarrez l’agent Syslog à l’aide de cette commande : `sudo /opt/microsoft/omsagent/bin/service_control restart [{workspace GUID}]`
       1. Confirmer qu’il n’existe aucune erreur dans le journal de l’agent en exécutant cette commande : `tail /var/opt/microsoft/omsagent/log/omsagent.log`
  
-## <a name="step-2-forward-check-point-logs-to-the-syslog-agent"></a>Étape 2 : Journaux du Point de vérification avant de l’agent Syslog
+## <a name="step-2-forward-check-point-logs-to-the-syslog-agent"></a>Étape 2 : Journaux du Point de vérification avant de l’agent Syslog
 
 Configurez votre appliance de Check Point pour transférer les messages Syslog au format CEF à votre espace de travail Azure par le biais de l’agent Syslog.
 
@@ -113,7 +113,7 @@ Configurez votre appliance de Check Point pour transférer les messages Syslog a
      - Définissez le format sur **CEF**.
 3. Si vous utilisez la version R77.30 ou R80.10, faites défiler jusqu'à **Installations** et suivez les instructions pour installer un exportateur de journal correspondant à votre version.
  
-## <a name="step-3-validate-connectivity"></a>Étape 3 : Valider la connectivité
+## <a name="step-3-validate-connectivity"></a>Étape 3 : Valider la connectivité
 
 Il peut prendre plus de 20 minutes jusqu'à ce que vos journaux commencent à apparaître dans le journal Analytique. 
 

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: c0571e202448951de0994d34f68e1649eabd5519
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259072"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61128078"
 ---
 # <a name="configure-content-protection-policies-by-using-the-azure-portal"></a>Configurer des stratégies de protection du contenu à l’aide du portail Azure
  Avec Azure Media Services, vous pouvez sécuriser votre contenu multimédia du moment où il quitte votre ordinateur jusqu’à la remise, en passant par le stockage et le traitement. Vous pouvez utiliser Media Services pour délivrer du contenu chiffré de manière dynamique avec la norme AES (Advanced Encryption Standard) à l’aide de clés de chiffrement 128 bits. Vous pouvez aussi l’utiliser avec le chiffrement commun (CENC) à l’aide de la gestion des droits numériques (DRM) PlayReady et/ou Widevine et Apple FairPlay. 

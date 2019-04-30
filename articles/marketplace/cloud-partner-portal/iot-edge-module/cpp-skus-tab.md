@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 370d8160661c1f73124151a3a49d0bb3170dfb77
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52276038"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60910934"
 ---
 # <a name="iot-edge-module-skus-tab"></a>Onglet Références de modules IoT Edge
 
@@ -41,7 +41,7 @@ L’onglet **Références** est actualisé et affiche les champs que vous modifi
 
 |  **Champ**       |     **Description**                                                          |
 |  ---------       |     ---------------                                                          |
-| **ID de SKU**       | Identificateur de cette référence SKU. Ce nom compte au maximum 50 caractères (minuscules, caractères alphanumériques ou tirets), mais ne peut pas se terminer par un tiret. **Remarque :** ce nom ne peut pas être modifié une fois l’offre publiée. Le nom est visible publiquement dans les URL de produit. |
+| **ID de SKU**       | Identificateur de cette référence SKU. Ce nom compte au maximum 50 caractères (minuscules, caractères alphanumériques ou tirets), mais ne peut pas se terminer par un tiret. **Remarque :** Vous ne pouvez pas modifier ce nom une fois publiée de l’offre de. Le nom est visible publiquement dans les URL de produit. |
 
 ## <a name="sku-details"></a>Détails de la référence SKU
 
@@ -109,7 +109,7 @@ Le tableau suivant décrit l’objectif, le contenu et le format des champs pour
 | **Identifiant d’abonnement**        | ID d’abonnement Azure de votre Azure Container Registry.|
 | **Nom de groupe ressources**      | Nom du groupe de ressources de votre Azure Container Registry.|
 | **Nom du registre**  | Nom de votre registre Azure Container Registry. Copiez uniquement le nom de registre, PAS le nom du serveur de connexion (par exemple, sans `azurecr.io`.) |
-| **Nom du référentiel**  | Le nom du référentiel de votre Azure Container Registry qui contient votre module IoT Edge. **Remarque :** une fois le nom défini, il ne peut pas être modifié ultérieurement. Utilisez un nom unique pour vous assurer qu’aucune autre offre dans votre compte ne porte le même. |
+| **Nom du référentiel**  | Le nom du référentiel de votre Azure Container Registry qui contient votre module IoT Edge. **Remarque :** Une fois que le nom est défini, il ne peut pas être modifié ultérieurement. Utilisez un nom unique pour vous assurer qu’aucune autre offre dans votre compte ne porte le même. |
 | **Nom d’utilisateur** | Nom d’utilisateur associé à votre Azure Container Registry (nom d’utilisateur administrateur). |
 | **Mot de passe** | Mot de passe associé à votre Azure Container Registry. |
 |  ***Version de l’image***   |  |

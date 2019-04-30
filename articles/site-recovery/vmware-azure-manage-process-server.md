@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: ramamill
-ms.openlocfilehash: ba80c8ce57495eaa46e915cb0c472eb4aabcee57
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0a0b6c83f800c0a479ba7a16c91b497d1a11da9e
+ms.sourcegitcommit: a95dcd3363d451bfbfea7ec1de6813cad86a36bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/23/2019
-ms.locfileid: "60318580"
+ms.locfileid: "62732483"
 ---
 # <a name="manage-process-servers"></a>Gérer des serveurs de processus
 
@@ -68,6 +68,19 @@ Avec cette option, toute la charge de travail protégée sous un serveur de proc
 2. Suivez la progression du travail sous **Coffre Recovery Services** > **Surveillance** > **Travaux Site Recovery**.
 3. Il faut 15 minutes pour que les modifications reflètent la réussite de cette opération OU pour [actualiser le serveur de configuration](vmware-azure-manage-configuration-server.md#refresh-configuration-server) pour un effet immédiat.
 
+## <a name="process-server-selection-guidance"></a>Guide de sélection de serveur de processus
+
+Azure Site Recovery identifie automatiquement si le serveur de processus est proche de ses limites d’utilisation. Aucune aide est fournie lorsque vous permettent de configurer une montée en puissance serveur de processus.
+
+|État d'intégrité   |Explication  | Disponibilité des ressources  | Recommandation|
+|---------|---------|---------|---------|
+| Intègre (vert)    |   Serveur de processus est connecté et qu’il est sain      |Utilisation du processeur et mémoire est inférieure à 80 % ; Espace libre disponible est supérieure à 30 %| Ce serveur de processus peut être utilisé pour protéger les serveurs supplémentaires. Vérifiez que la nouvelle charge de travail s’inscrit dans le [définie par les limites du processus serveur](vmware-azure-set-up-process-server-scale.md#sizing-requirements).
+|Avertissement (Orange)    |   Serveur de processus est connecté, mais certaines ressources sont sur le point d’atteindre les limites maximales  |   Utilisation du processeur et mémoire est entre 80 % à 95 % ; Disponibilité de l’espace libre est entre 25 à 30 %       | Utilisation du serveur de processus est proche de valeurs de seuil. Ajout de nouveaux serveurs au même serveur de processus entraîne le passage de valeurs de seuil et peut avoir un impact sur les éléments protégés existants. Il est conseillé de [le programme d’installation d’un serveur de traitement de montée en puissance](vmware-azure-set-up-process-server-scale.md#before-you-start) pour les réplications de nouveau.
+|Avertissement (Orange)   |   Serveur de processus est connecté mais de données n’a pas été téléchargées vers Azure dans les dernières 30 min  |   Utilisation des ressources est dans les limites de seuil       | Résoudre les problèmes [échecs de chargement de données](vmware-azure-troubleshoot-replication.md#monitor-process-server-health-to-avoid-replication-issues) avant d’ajouter de nouvelles charges de travail **ou** [le programme d’installation d’un serveur de traitement de montée en puissance](vmware-azure-set-up-process-server-scale.md#before-you-start) pour les réplications de nouveau.
+|Critique (rouge)    |     Serveur de processus est peut-être déconnecté  |  Utilisation des ressources est dans les limites de seuil      | Résoudre les problèmes [traiter les problèmes de connectivité server](vmware-azure-troubleshoot-replication.md#monitor-process-server-health-to-avoid-replication-issues) ou [le programme d’installation d’un serveur de traitement de montée en puissance](vmware-azure-set-up-process-server-scale.md#before-you-start) pour les réplications de nouveau.
+|Critique (rouge)    |     L’utilisation des ressources a dépassé les limites de seuil |  Utilisation du processeur et mémoire est supérieure à 95 % ; Disponibilité de l’espace libre est inférieur à 25 %.   | Ajout de nouvelles charges de travail au même serveur de processus est désactivé en tant que seuil ressource limites sont déjà remplies. Par conséquent, [le programme d’installation d’un serveur de traitement de montée en puissance](vmware-azure-set-up-process-server-scale.md#before-you-start) pour les réplications de nouveau.
+Critique (rouge)    |     Données n’a pas été téléchargées à partir d’Azure vers Azure dans la dernière 45 minutes. |  Utilisation des ressources est dans les limites de seuil      | Résoudre les problèmes [échecs de chargement de données](vmware-azure-troubleshoot-replication.md#monitor-process-server-health-to-avoid-replication-issues) avant d’ajouter de nouvelles charges de travail au même serveur de processus ou [le programme d’installation d’un serveur de traitement de montée en puissance](vmware-azure-set-up-process-server-scale.md#before-you-start)
+
 ## <a name="reregister-a-process-server"></a>Réinscrire un serveur de processus
 
 Si vous avez besoin de réinscrire un serveur de processus exécuté en local ou dans Azure, procédez comme suit au niveau du serveur de configuration :
@@ -109,7 +122,6 @@ Si le serveur de processus utilise un proxy pour se connecter à Site Recovery d
    exit
    ```
 
-
 ## <a name="remove-a-process-server"></a>Supprimer un serveur de processus
 
 [!INCLUDE [site-recovery-vmware-unregister-process-server](../../includes/site-recovery-vmware-unregister-process-server.md)]
@@ -126,4 +138,3 @@ Si un logiciel antivirus est actif sur un serveur de processus autonome ou un se
 - C:\ProgramData\LogUploadServiceLogs
 - C:\ProgramData\Microsoft Azure Site Recovery
 - Répertoire d’installation du serveur de traitement, par exemple : C:\Program Files (x86)\Microsoft Azure Site Recovery
-

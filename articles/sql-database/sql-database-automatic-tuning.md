@@ -13,11 +13,11 @@ ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 03/06/2019
 ms.openlocfilehash: 6e818da29b7ee0d17ebe4f8e523648146973fa63
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59796614"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61415759"
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>Réglage automatique dans Azure SQL Database
 
@@ -66,7 +66,7 @@ Pour obtenir une vue d’ensemble du fonctionnement du réglage automatique et d
 
 Les options de réglage automatique disponibles dans Azure SQL Database sont les suivantes :
 
-| Option de réglage automatique | Prise en charge d’une base de données unique et d’une base de données en pool | Support de base de données d’instance |
+| Option de réglage automatique | Prise en charge d’une base de données unique et d’une base de données mise en pool | Support de base de données d’instance |
 | :----------------------------- | ----- | ----- |
 | **CREATE INDEX** -identifie les index qui peuvent améliorer les performances de votre charge de travail, crée des index et vérifie automatiquement le gain de performances des requêtes. | Oui | Non  | 
 | **DROP INDEX** -identifie les index en doublons et redondants quotidiennement, à l’exception des index uniques et qui n’ont pas été utilisés pendant une longue période (> 90 jours). Notez que l’option à ce stade n’est pas compatible avec les applications utilisant la commutation de partition et les conseils d’index. | Oui | Non  |

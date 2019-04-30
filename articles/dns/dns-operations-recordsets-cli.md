@@ -3,8 +3,8 @@ title: Gestion des enregistrements DNS dans Azure DNS à l’aide de l’interfa
 description: Gestion des jeux d'enregistrements DNS et des enregistrements dans Azure DNS lorsque votre domaine est hébergé dans Azure DNS.
 services: dns
 documentationcenter: na
-author: vhorne
-manager: jeconnoc
+author: WenJason
+manager: digimobile
 ms.assetid: 5356a3a5-8dec-44ac-9709-0c2b707f6cb5
 ms.service: dns
 ms.devlang: azurecli
@@ -12,14 +12,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
-ms.date: 05/15/2018
-ms.author: victorh
+origin.date: 05/15/2018
+ms.date: 04/15/2019
+ms.author: v-jay
 ms.openlocfilehash: 4864a46b91b4e243ce6a2ae3d9d36df28fe74d8d
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58650969"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61293329"
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-the-azure-cli"></a>Gérer les enregistrements DNS et les jeux d’enregistrement dans Azure DNS à l’aide d’Azure CLI
 
@@ -255,7 +256,7 @@ Notez que cela s’applique uniquement au jeu d’enregistrements NS défini à 
 L’exemple suivant montre comment ajouter un serveur de noms supplémentaire au jeu d’enregistrements NS défini à l’apex de la zone :
 
 ```azurecli
-az network dns record-set ns add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name "@" --nsdname ns1.myotherdnsprovider.com 
+az network dns record-set ns add-record --resource-group myresourcegroup --zone-name contoso.com --record-set-name "@" --nsdname ns1.myotherdnsprovider.cn
 ```
 
 ### <a name="to-modify-the-ttl-of-an-existing-record-set"></a>Pour modifier la durée de vie (TTL) d’un jeu d’enregistrements

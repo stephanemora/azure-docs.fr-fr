@@ -11,11 +11,11 @@ ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
 ms.openlocfilehash: 704aefd68f35ca20f72a2a0c46bf11912c139e65
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59490706"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61024706"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Tutoriel : Créer et gérer des budgets Azure
 
@@ -65,7 +65,7 @@ Cliquez sur **Add**.
 
 Dans la fenêtre **Créer un budget**, entrez un nom de budget et un montant de budget. Choisissez ensuite une période mensuelle, trimestrielle ou annuelle. Ensuite, sélectionnez une date de fin. Les budgets nécessitent au moins un seuil de coût (% du budget) et une adresse e-mail correspondante. Si vous le souhaitez, vous pouvez inclure jusqu’à cinq seuils et cinq adresses e-mail dans un seul budget. Lorsqu’un seuil de budget est atteint, des notifications par e-mail sont normalement reçues en moins de huit heures. Pour plus d'informations sur les notifications, consultez [Utiliser les alertes de coût](cost-mgt-alerts-monitor-usage-spending.md).
 
-Si vous avez un abonnement de paiement à l’utilisation, MSDN ou Visual Studio, votre période de facturation de facture ne peut pas s’aligner au mois calendaire. Pour ces types d’abonnements et groupes de ressources, vous pouvez créer un budget qui est aligné pour votre période de facturation ou pour les mois calendaires. Pour créer un budget aligné sur votre période de facturation, sélectionnez une période de réinitialisation du mois de facturation, facturation trimestre ou année de facturation. Pour créer un budget aligné pour le mois calendaire, sélectionnez une période de réinitialisation de mensuelle, trimestrielle ou annuelle.
+Si vous avez un abonnement de paiement à l’utilisation, MSDN ou Visual Studio, votre période de facturation peut ne pas être alignée sur le mois calendaire. Pour ces types d’abonnements et groupes de ressources, vous pouvez créer un budget qui est aligné pour votre période de facturation ou pour les mois calendaires. Pour créer un budget aligné sur votre période de facturation, sélectionnez une période de réinitialisation du mois de facturation, facturation trimestre ou année de facturation. Pour créer un budget aligné pour le mois calendaire, sélectionnez une période de réinitialisation de mensuelle, trimestrielle ou annuelle.
 
 Voici un exemple de création de budget mensuel de 4 500 $. Une alerte par e-mail est générée quand 90 % du budget est atteint.
 

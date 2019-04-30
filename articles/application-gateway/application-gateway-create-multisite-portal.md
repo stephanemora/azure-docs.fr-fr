@@ -11,15 +11,15 @@ ms.workload: infrastructure-services
 ms.date: 01/26/2018
 ms.author: victorh
 ms.openlocfilehash: 85113a5007a171459b831684f584773ba4328b94
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58079944"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62122408"
 ---
 # <a name="create-an-application-gateway-with-multiple-site-hosting-using-the-azure-portal"></a>Créer une passerelle d’application hébergeant plusieurs sites à l’aide du portail Azure
 
-Vous pouvez utiliser le portail Azure pour configurer [l’hébergement de plusieurs sites web](application-gateway-multi-site-overview.md) quand vous créez une [passerelle d’application](application-gateway-introduction.md). Dans ce didacticiel, vous créez des pools backend à l’aide de groupes de machines virtuelles identiques. Vous configurez ensuite des écouteurs et des règles en fonction des domaines qui vous appartiennent pour vérifier que le trafic web arrive sur les serveurs appropriés dans les pools. Ce didacticiel part du principe que vous possédez plusieurs domaines, utilise les exemples de *www\.contoso.com* et *www\.fabrikam.com*.
+Vous pouvez utiliser le portail Azure pour configurer [l’hébergement de plusieurs sites web](application-gateway-multi-site-overview.md) quand vous créez une [passerelle d’application](application-gateway-introduction.md). Dans ce didacticiel, vous créez des pools backend à l’aide de groupes de machines virtuelles identiques. Vous configurez ensuite des écouteurs et des règles en fonction des domaines qui vous appartiennent pour vérifier que le trafic web arrive sur les serveurs appropriés dans les pools. Ce tutoriel, qui part du principe que vous possédez plusieurs domaines, utilise *www\.contoso.com* et *www\.fabrikam.com* en guise d’exemples.
 
 Dans cet article, vous apprendrez comment :
 
@@ -117,7 +117,7 @@ Dans cet exemple, vous créez deux machines virtuelles à utiliser en tant que s
       -Settings $publicSettings
     ```
 
-3. Créez la deuxième machine virtuelle et installez IIS en suivant la procédure que vous venez de terminer. Entrez les noms de *fabrikamVM* pour le nom et la valeur de VMName dans Set-AzVMExtension.
+3. Créez la deuxième machine virtuelle et installez IIS en suivant la procédure que vous venez de terminer. Entrez *fabrikamVM* comme nom et valeur de VMName dans Set-AzVMExtension.
 
 ## <a name="create-backend-pools-with-the-virtual-machines"></a>Créer des pools principaux avec les machines virtuelles
 

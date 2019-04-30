@@ -11,11 +11,11 @@ ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
 ms.openlocfilehash: 860c00b876427af7395e3c04e0626131c27aca67
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56878079"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60896419"
 ---
 # <a name="azure-blockchain-workbench-messaging-integration"></a>Intégration des messages Azure Blockchain Workbench
 
@@ -33,7 +33,7 @@ Crée un nouvel utilisateur.
 
 La requête requiert les champs suivants :
 
-| **Nom**             | **Description**                                      |
+| **Name**             | **Description**                                      |
 |----------------------|------------------------------------------------------|
 | requestId            | GUID fourni par le client                                |
 | firstName            | Prénom de l’utilisateur                              |
@@ -61,7 +61,7 @@ Exemple :
 
 Blockchain Workbench retourne une réponse avec les champs suivants :
 
-| **Nom**              | **Description**                                                                                                             |
+| **Name**              | **Description**                                                                                                             |
 |-----------------------|-----------------------------------------------------------------------------------------------------------------------------|
 | requestId             | GUID fourni par le client |
 | userId                | ID de l’utilisateur qui a été créé. |
@@ -111,7 +111,7 @@ Crée un nouveau contrat.
 
 La requête requiert les champs suivants :
 
-| **Nom**             | **Description**                                                                                                           |
+| **Name**             | **Description**                                                                                                           |
 |----------------------|---------------------------------------------------------------------------------------------------------------------------|
 | requestId            | GUID fourni par le client |
 | userChainIdentifier  | Adresse de l’utilisateur qui a été créé sur le réseau blockchain. Dans Ethereum, il s’agit de l’adresse **on-chain** de l’utilisateur. |
@@ -150,7 +150,7 @@ Exemple :
 
 Blockchain Workbench retourne une réponse avec les champs suivants :
 
-| **Nom**                 | **Description**                                                                   |
+| **Name**                 | **Description**                                                                   |
 |--------------------------|-----------------------------------------------------------------------------------|
 | requestId                | GUID fourni par le client                                                             |
 | contractId               | Identificateur unique du contrat dans Azure Blockchain Workbench |
@@ -215,7 +215,7 @@ Crée une nouvelle action de contrat.
 
 La requête requiert les champs suivants :
 
-| **Nom**                 | **Description**                                                                                                           |
+| **Name**                 | **Description**                                                                                                           |
 |--------------------------|---------------------------------------------------------------------------------------------------------------------------|
 | requestId                | GUID fourni par le client |
 | userChainIdentifier      | Adresse de l’utilisateur qui a été créé sur le réseau blockchain. Dans Ethereum, il s’agit de l’adresse **on-chain** de l’utilisateur. |
@@ -254,7 +254,7 @@ Exemple :
 
 Blockchain Workbench retourne une réponse avec les champs suivants :
 
-| **Nom**              | **Description**                                                                   |
+| **Name**              | **Description**                                                                   |
 |-----------------------|-----------------------------------------------------------------------------------|
 | requestId             | GUID fourni par le client|
 | contractId            | Identificateur unique du contrat dans Azure Blockchain Workbench |

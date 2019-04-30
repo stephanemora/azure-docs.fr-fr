@@ -1,28 +1,30 @@
 ---
-title: Configurer un serveur de processus dans Azure pour la restauration automatique pendant la reprise d’activité de machines virtuelles VMware et serveurs physiques avec Azure Site Recovery | Microsoft Docs
-description: Cet article décrit comment configurer un serveur de processus dans Azure pour la restauration automatique sur une infrastructure locale à partir d’Azure, pendant la reprise d’activité de machines virtuelles VMware et serveurs physiques.
+title: Configurer un serveur de traitement de montée en puissance pendant la récupération d’urgence de machines virtuelles VMware et des serveurs physiques avec Azure Site Recovery | 'Microsoft Docs
+description: Cet article décrit comment configurer le serveur de processus de montée en puissance pendant la récupération d’urgence de machines virtuelles VMware et des serveurs physiques.
 author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 4/9/2019
+ms.date: 4/23/2019
 ms.author: ramamill
-ms.openlocfilehash: 6849ffb6fa46365aa775b9410067cb0874c70ef8
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 678f9aa60d4970540ded8ba0bb1a4ddaa6281a49
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59362158"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62101895"
 ---
-# <a name="scale-for-failback-with-additional-process-servers"></a>Ajouter des serveurs de processus supplémentaires pour augmenter la capacité de restauration automatique
+# <a name="scale-with-additional-process-servers"></a>Mettre à l’échelle avec les serveurs de traitement supplémentaires
 
-Par défaut, lorsque vous répliquez des machines virtuelles VMware ou des serveurs physiques sur Azure avec [Site Recovery](site-recovery-overview.md), un serveur de processus est installé sur le serveur de configuration et permet de coordonner le transfert des données entre Site Recovery et votre infrastructure locale. Pour augmenter la capacité et faire évoluer votre déploiement de réplication, vous pouvez ajouter des serveurs de processus autonomes supplémentaires. Cet article décrit ce processus de reprotection.
+Par défaut, lorsque vous répliquez des machines virtuelles VMware ou des serveurs physiques sur Azure avec [Site Recovery](site-recovery-overview.md), un serveur de processus est installé sur le serveur de configuration et permet de coordonner le transfert des données entre Site Recovery et votre infrastructure locale. Pour augmenter la capacité et faire évoluer votre déploiement de réplication, vous pouvez ajouter des serveurs de processus autonomes supplémentaires. Cet article décrit comment configurer un serveur de traitement de montée en puissance.
 
 ## <a name="before-you-start"></a>Avant de commencer
 
 ### <a name="capacity-planning"></a>planification de la capacité
 
 Assurez-vous d’avoir effectué la [planification de la capacité](site-recovery-plan-capacity-vmware.md) pour la réplication VMware. Cela vous aide à déterminer comment et quand déployer des serveurs de traitement supplémentaires.
+
+À partir de la version 9.24, des conseils sont ajouté lors de la sélection du serveur de processus pour les réplications de nouveau. Serveur de processus sera marqué intègre, avertissement et critique pour selon certains critères. Pour comprendre les différents scénarios qui peuvent influencer l’état du serveur de processus, visitez [Guide de sélection de serveur de processus](vmware-azure-manage-process-server.md#process-server-selection-guidance).
 
 > [!NOTE]
 > L’utilisation d’un composant de serveur de processus cloné n’est pas prise en charge. Suivez les étapes décrites dans cet article pour chaque mise à l’échelle PS.
@@ -44,8 +46,6 @@ Où chaque machine source protégée est configurée avec 3 disques de 100 Go 
 La configuration requise pour le serveur de traitement supplémentaire est résumée dans le tableau suivant.
 
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
-
-
 
 ## <a name="download-installation-file"></a>Télécharger le fichier d’installation
 

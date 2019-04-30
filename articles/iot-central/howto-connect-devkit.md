@@ -9,11 +9,11 @@ ms.service: iot-central
 services: iot-central
 manager: philmea
 ms.openlocfilehash: 82222dd927f46761941a6a750d96222cc626e71b
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60006180"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60887267"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Connecter un appareil DevKit IoT MXChip à votre application Azure IoT Central
 
@@ -208,12 +208,12 @@ Une application créée à partir du modèle d’application Exemples de Devkits
 | gyroscopeZ     | mdps   | -2 000   | 2000    | 0              |
 
 #### <a name="states"></a>États 
-| Name          | Nom complet   | NORMAL | AVERTISSEMENT | DANGER | 
+| Nom          | Nom complet   | NORMAL | AVERTISSEMENT | DANGER | 
 | ------------- | -------------- | ------ | ------- | ------ | 
 | DeviceState   | État de l’appareil   | Vert  | Orange  | Rouge    | 
 
 #### <a name="events"></a>Événements 
-| Name             | Nom complet      | 
+| Nom             | Nom complet      | 
 | ---------------- | ----------------- | 
 | ButtonBPressed   | Bouton B enfoncé  | 
 
@@ -235,11 +235,11 @@ Paramètres de bascule
 
 ### <a name="properties"></a>properties
 
-| type            | Nom complet | Nom du champ | Type de données |
+| Type            | Nom complet | Nom du champ | Type de données |
 | --------------- | ------------ | ---------- | --------- |
 | Propriété d’appareil | Numéro gravé   | dieNumber  | number    |
 | Propriété d’appareil | Emplacement de l’appareil   | location  | location    |
-| Text            | Fabriqué dans     | manufacturedIn   | S.O.       |
+| Text            | Fabriqué dans     | manufacturedIn   | N/A       |
 
 ### <a name="commands"></a>Commandes
 

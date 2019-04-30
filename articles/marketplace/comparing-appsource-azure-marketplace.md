@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
 ms.openlocfilehash: f204f01fae0bd01f9f2f0e242c63ec2070d6d195
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52678047"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62121158"
 ---
 # <a name="comparing-appsource-and-the-azure-marketplace"></a>Comparaison entre AppSource et la Place de marché Azure
 Les vitrines dans la [Place de marché Azure](https://azuremarketplace.microsoft.com) et [Microsoft AppSource](https://appsource.microsoft.com) répondent aux besoins spécifiques du client. Utilisez les vitrines pour cibler les clients par rôle. Vous pouvez offrir la solution ou le service approprié en fonction de votre client.

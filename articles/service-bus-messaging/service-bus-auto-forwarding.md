@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 85ab5e3bb963ee692e5b70af3eb90cc68cec361f
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
-ms.translationtype: MT
+ms.openlocfilehash: 86fa7f62230c0ae0530b67ff2384942c876083d4
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56593384"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62098590"
 ---
 # <a name="chaining-service-bus-entities-with-autoforwarding"></a>Chaînage des entités Service Bus avec transfert automatique
 
@@ -46,6 +46,10 @@ Vous pouvez également utiliser le transfert automatique pour découpler les exp
 ![Scénario de transfert automatique][1]
 
 Si Alice part en vacances, sa file d’attente personnelle, et non la rubrique ERP, se remplit. Dans ce scénario, étant donné qu’un représentant commercial n’a pas reçu les messages, aucun des rubriques ERP n’atteint jamais son quota.
+
+> [!NOTE]
+> Lorsque le transfert automatique est configuré, la valeur pour AutoDeleteOnIdle sur la destination est automatiquement définie sur la valeur maximale du type de données.
+> Cela vise à garantir qu’il y a toujours une destination pour transférer le message à.
 
 ## <a name="autoforwarding-considerations"></a>Considérations relatives au transfert automatique
 

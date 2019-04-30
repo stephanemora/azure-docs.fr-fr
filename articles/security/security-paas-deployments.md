@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 03/05/2019
 ms.author: terrylan
 ms.openlocfilehash: e833317fa16576fa0006a774226d12974fd93ed8
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57404805"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62107436"
 ---
 # <a name="securing-paas-deployments"></a>Sécurisation des déploiements PaaS
 
@@ -111,7 +111,7 @@ Le tableau suivant répertorie les menaces STRIDE et donne des exemples d’att�
 
 | Menace | Propriété de sécurité | Atténuation des risques pour la plateforme Azure |
 | --- | --- | --- |
-| Usurpation d’identité | Authentication | Exigez des connexions HTTPS. |
+| Usurpation d’identité | Authentification | Exigez des connexions HTTPS. |
 | Falsification | Intégrité | Validez des certificats SSL. |
 | Répudiation | Non-répudiation | Activez [la surveillance et les diagnostics Azure](https://docs.microsoft.com/azure/architecture/best-practices/monitoring). |
 | Divulgation d’informations | Confidentialité | Chiffrez les données sensibles au repos à l’aide de [certificats de service](https://docs.microsoft.com/rest/api/appservice/certificates). |

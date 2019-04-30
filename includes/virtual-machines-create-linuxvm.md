@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: ae29451e3f7ec263f296e69656a5c66045334687
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "58115924"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61126719"
 ---
 1. Connectez-vous à votre abonnement Azure en suivant les étapes décrites dans [Se connecter à Azure à partir de l’interface de ligne de commande classique Azure](/cli/azure/authenticate-azure-cli).
 

@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: bwren
 ms.openlocfilehash: 9c0283081bd7245b1b886ed82ba03130a7a3bf2c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59495326"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61341742"
 ---
 # <a name="reference-guide-to-view-designer-tiles-in-azure-monitor"></a>Guide de référence des vignettes du Concepteur de vue dans Azure Monitor
 En utilisant le Concepteur de vues dans Azure Monitor, vous pouvez créer une variété de vues personnalisées dans le portail Azure qui peut vous aider à visualiser les données dans votre espace de travail Analytique de journal. Cet article est un guide de référence pour les paramètres des vignettes disponibles dans vos vues personnalisées.
@@ -96,7 +96,7 @@ La vignette **Anneau** affiche un nombre unique qui résume une colonne de valeu
 | **Anneau** | |
 | Interroger |Requête exécutée pour l’anneau. La première propriété est une valeur de texte et la seconde une valeur numérique. Cette requête utilise habituellement le mot clé *measure* pour synthétiser les résultats. |
 | **Anneau** |**&gt; Centrer** |
-| Texte |Texte affiché sous la valeur à l’intérieur de l’anneau. |
+| Text |Texte affiché sous la valeur à l’intérieur de l’anneau. |
 | Opération |Opération effectuée sur la valeur de propriété afin de la résumer en une valeur unique.<ul><li>Somme : additionner les valeurs de tous les enregistrements avec la valeur de propriété.</li><li>Pourcentage : pourcentage des valeurs additionnées des enregistrements avec la valeur de propriété, comparé aux valeurs additionnées de tous les enregistrements.</li></ul> |
 | Valeurs de résultat utilisées dans l’opération relative au centre |Vous pouvez sélectionner le signe plus (+) pour ajouter une ou plusieurs valeurs. Les résultats de la requête sont alors limités aux enregistrements dont vous avez spécifié les valeurs de propriété. Si aucune valeur n’est ajoutée, tous les enregistrements sont inclus dans la requête. |
 | **Anneau** |**&gt; Options supplémentaires** |

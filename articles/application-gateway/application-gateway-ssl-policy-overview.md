@@ -12,14 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure services
-ms.date: 08/03/2017
-ms.author: amsriva
+origin.date: 08/03/2017
+ms.date: 02/26/2019
+ms.author: v-junlch
 ms.openlocfilehash: 46a823e4e230656b53a93a97f195d0879fd08bf2
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56731954"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62122232"
 ---
 # <a name="application-gateway-ssl-policy-overview"></a>Vue d’ensemble de la stratégie SSL Application Gateway
 
@@ -64,9 +65,9 @@ Si une stratégie SSL prédéfinie doit être configurée pour vos besoins, vous
  
 ### <a name="ssl-protocol-versions"></a>Versions du protocole SSL
 
-* Les protocoles SSL 2.0 et 3.0 sont désactivés par défaut pour toutes les passerelles d’application. Ces versions de protocole ne sont pas configurables.
-* Une stratégie SSL personnalisée vous donne la possibilité de sélectionner l’un des trois protocoles suivants comme version minimale du protocole SSL pour votre passerelle : TLSv1_0, TLSv1_1 et TLSv1_2.
-* Si aucune stratégie SSL n’est définie, les trois protocoles (TLSv1_0, TLSv1_1 et TLSv1_2) sont activés.
+- Les protocoles SSL 2.0 et 3.0 sont désactivés par défaut pour toutes les passerelles d’application. Ces versions de protocole ne sont pas configurables.
+- Une stratégie SSL personnalisée vous donne la possibilité de sélectionner l’un des trois protocoles suivants comme version minimale du protocole SSL pour votre passerelle : TLSv1_0, TLSv1_1 et TLSv1_2.
+- Si aucune stratégie SSL n’est définie, les trois protocoles (TLSv1_0, TLSv1_1 et TLSv1_2) sont activés.
 
 ### <a name="cipher-suites"></a>Suites de chiffrement
 
@@ -105,3 +106,5 @@ Application Gateway prend en charge les suites de chiffrement suivantes à parti
 ## <a name="next-steps"></a>Étapes suivantes
 
 Si vous voulez apprendre à configurer une stratégie SSL, consultez [Configurer une stratégie SSL sur une passerelle d’application](application-gateway-configure-ssl-policy-powershell.md).
+
+<!-- Update_Description: wording update -->

@@ -15,11 +15,11 @@ ms.topic: reference
 ms.date: 09/14/2018
 ms.author: pbutlerm
 ms.openlocfilehash: a7666ada6c4535010297415eac8b0bd9e5226d9e
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51974465"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61094201"
 ---
 <a name="retrieve-operations"></a>Récupérer des opérations
 ===================
@@ -38,12 +38,12 @@ Récupère toutes les opérations sur l’offre ou pour obtenir une opération p
 <a name="uri-parameters"></a>Paramètres URI
 --------------
 
-|  **Nom**          |      **Description**                                                                                           | **Type de données** |
+|  **Name**          |      **Description**                                                                                           | **Type de données** |
 |  ----------------  |     --------------------------------------------------------------------------------------------------------   |  -----------  |
-|  publisherId       |  Identificateur du serveur de publication, par exemple `Contoso`                                                                   |  Chaîne       |
-|  offerId           |  Identificateur de l’offre                                                                                              |  Chaîne       |
+|  publisherId       |  Identificateur du serveur de publication, par exemple `Contoso`                                                                   |  String       |
+|  offerId           |  Identificateur de l’offre                                                                                              |  String       |
 |  operationId       |  GUID qui identifie de façon unique l’opération sur l’offre. La valeur operationId peut être récupérée à l’aide de cette API et elle est également retournée dans l’en-tête HTTP de la réponse pour toute opération de longue durée, comme celle de l’API de [publication de l’offre](./cloud-partner-portal-api-publish-offer.md).  |   Guid   |
-|  filteredStatus    | Paramètre de requête facultatif utilisé pour filtrer par état (par exemple `running`) sur la collection retournée par cette API.  |   Chaîne |
+|  filteredStatus    | Paramètre de requête facultatif utilisé pour filtrer par état (par exemple `running`) sur la collection retournée par cette API.  |   String |
 |  api-version       | Dernière version de l’API                                                                                           |    Date      |
 |  |  |  |
 
@@ -51,7 +51,7 @@ Récupère toutes les opérations sur l’offre ou pour obtenir une opération p
 <a name="header"></a>En-tête
 ------
 
-|  **Nom**          |  **Valeur**           |
+|  **Name**          |  **Valeur**           |
 |  ---------------   | -------------------- |
 |  Content-Type      | `application/json`   |
 |  Authorization     | `Bearer YOUR_TOKEN`  |
@@ -183,7 +183,7 @@ Récupère toutes les opérations sur l’offre ou pour obtenir une opération p
 
 ### <a name="response-body-properties"></a>Propriétés du corps de réponse
 
-|  **Nom**                    |  **Description**                                                                                  |
+|  **Name**                    |  **Description**                                                                                  |
 |  --------------------        |  ------------------------------------------------------------------------------------------------ |
 |  id                          | GUID qui identifie de façon unique l’opération                                                       |
 |  submissionType              | Identifie le type d’opération signalé pour l’offre, par exemple `Publish/GGoLive`      |

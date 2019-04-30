@@ -12,11 +12,11 @@ ms.reviewer: vanto
 manager: craigg
 ms.date: 03/31/2019
 ms.openlocfilehash: a078ac38cef5b395a19481188c474c7f908160d5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59784481"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61419554"
 ---
 # <a name="advanced-data-security-for-azure-sql-database"></a>Advanced Data Security pour Azure SQL Database
 
@@ -40,7 +40,7 @@ La procédure suivante vous aide à prendre en main Advanced Data Security.
 
 ## <a name="1-enable-ads"></a>1. Activer SQL Advanced Data Security
 
-Activez SQL Advanced Data Security en accédant à **Advanced Data Security** sous le titre **Sécurité** pour votre serveur de base de données SQL ou instance gérée. Pour activer SQL Advanced Data Security pour toutes les bases de données sur le serveur de base de données ou l’instance gérée, cliquez sur **Activer Advanced Data Security sur le serveur**.
+Activez SQL Advanced Data Security en accédant à **Advanced Data Security** sous le titre **Sécurité** pour votre serveur SQL Database ou instance managée. Pour activer SQL Advanced Data Security pour toutes les bases de données sur le serveur de base de données ou l’instance gérée, cliquez sur **Activer Advanced Data Security sur le serveur**.
 
 > [!NOTE]
 > Un compte de stockage est automatiquement créé et configuré pour stocker votre **évaluation des vulnérabilités** résultats d’analyse. Si vous avez déjà activé des publicités pour un autre serveur dans le même groupe de ressources et de la région, le compte de stockage existant est utilisé.

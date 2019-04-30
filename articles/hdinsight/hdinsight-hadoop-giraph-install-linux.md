@@ -1,27 +1,22 @@
 ---
-title: Installer et utiliser Giraph sur HDInsight (Hadoop) - Azure
-description: Découvrez comment installer Giraph sur des clusters HDInsight basés sur Linux à l’aide des actions de script. Les actions de script vous permettent de personnaliser le cluster pendant la création, en modifiant la configuration du cluster ou en installant des services et des utilitaires.
-services: hdinsight
+title: Installer et utiliser Giraph sur Azure HDInsight
+description: Découvrez comment installer Giraph sur des clusters HDInsight à l’aide des actions de script. Vous pouvez utiliser Giraph pour effectuer le traitement dans Apache Hadoop dans le cloud Azure des graphiques.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 04/23/2018
-ms.author: hrasheed
-ms.openlocfilehash: a2f964915efda6ce83439c3c1970de58b0467456
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
-ms.translationtype: MT
+ms.date: 04/22/2019
+ms.openlocfilehash: aa13d8dfc65f020f3f27183423913933cd0b9404
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58201719"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61395362"
 ---
 # <a name="install-apache-giraph-on-hdinsight-hadoop-clusters-and-use-giraph-to-process-large-scale-graphs"></a>Installation d’Apache Giraph sur les clusters Hadoop HDInsight et utilisation de Giraph pour traiter des graphiques à grande échelle
 
 Découvrez comment installer Apache Giraph sur un cluster HDInsight. La fonctionnalité d’action de script de HDInsight vous permet de personnaliser votre cluster en exécutant un script bash. Les scripts peuvent être utilisés pour personnaliser des clusters pendant et après la création du cluster.
-
-> [!IMPORTANT]  
-> Les étapes décrites dans ce document nécessitent un cluster HDInsight utilisant Linux. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="whatis"></a>Présentation de Giraph
 
@@ -58,7 +53,7 @@ Cette section explique comment utiliser l’exemple de script dans le cadre de l
 > [!NOTE]  
 > Les actions de script peuvent être appliquées selon les méthodes suivantes :
 > * Azure PowerShell
-> * Azure Classic CLI
+> * L’interface Azure CLI
 > * Le kit de développement logiciel (SDK) HDInsight .NET
 > * Modèles Microsoft Azure Resource Manager
 > 
@@ -94,7 +89,7 @@ Une fois le cluster créé, appliquez la procédure ci-après pour exécuter l�
     ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-    Pour plus d’informations, consultez [Utiliser SSH avec HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+    Pour en savoir plus, voir [Utilisation de SSH avec HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 2. Utilisez la commande suivante pour créer un fichier nommé **tiny_graph.txt** :
 
@@ -148,7 +143,7 @@ Une fois le cluster créé, appliquez la procédure ci-après pour exécuter l�
 
     Pour plus d’informations sur ces éléments et d’autres paramètres utilisés avec des exemples Giraph, consultez la section [Démarrage rapide de Giraph](https://giraph.apache.org/quick_start.html).
 
-6. Une fois la tâche terminée, les résultats sont stockés dans le répertoire **/example/out/shotestpaths**. Les noms de fichiers de sortie commencent par **part-m-** et se terminent par un nombre indiquant s’il s’agit du premier fichier, du deuxième fichier, etc. Pour afficher la sortie, utilisez la commande suivante :
+6. Une fois la tâche terminée, les résultats sont stockés dans le **/example/out/shortestpaths** directory. Les noms de fichiers de sortie commencent par **part-m-** et se terminent par un nombre indiquant s’il s’agit du premier fichier, du deuxième fichier, etc. Pour afficher la sortie, utilisez la commande suivante :
 
     ```bash
     hdfs dfs -text /example/output/shortestpaths/*

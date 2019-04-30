@@ -2,7 +2,6 @@
 title: Noyaux pour bloc-notes Jupyter sur les clusters Spark dans Azure HDInsight
 description: Découvrez les noyaux PySpark, PySpark3 et Spark pour bloc-notes Jupyter qui sont disponibles avec les clusters Spark sur Azure HDInsight.
 keywords: bloc-notes jupyter sur spark,jupyter spark
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -10,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: hrasheed
-ms.openlocfilehash: 68581c957e2835aa8841e3ce490c9a7898ed4ff5
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: fed8791fbc7cc7f049a1161fb3903c7f6d42d4e8
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59527470"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62124214"
 ---
 # <a name="kernels-for-jupyter-notebook-on-apache-spark-clusters-in-azure-hdinsight"></a>Noyaux pour Jupyter Notebook sur des clusters Apache Spark dans Azure HDInsight 
 

@@ -2,7 +2,6 @@
 title: Utiliser Apache Zeppelin pour exécuter des requêtes Apache Hive dans Azure HDInsight
 description: Apprenez à utiliser Apache Zeppelin pour exécuter des requêtes Apache Hive.
 keywords: hdinsight,hadoop,hive,interactive query,LLAP
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -10,18 +9,18 @@ ms.custom: hdinsightactive,
 ms.topic: conceptual
 ms.date: 11/05/2018
 ms.author: hrasheed
-ms.openlocfilehash: 035e70eef88d5d5dae08c329017430db25c20464
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 417e9f8ae78889374983bf77900ee00fa7fc6338
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52494823"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62098758"
 ---
 # <a name="use-apache-zeppelin-to-run-apache-hive-queries-in-azure-hdinsight"></a>Utiliser Apache Zeppelin pour exécuter des requêtes Apache Hive dans Azure HDInsight 
 
 Les clusters Interactive Query HDInsight incluent les blocs-notes [Apache Zeppelin](https://zeppelin.apache.org/) que vous pouvez utiliser pour exécuter des requêtes Hive interactives. Dans cet article, vous allez apprendre à utiliser Apache Zeppelin pour exécuter des requêtes [Apache Hive](https://hive.apache.org/) dans Azure HDInsight. 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 Avant de poursuivre cet article, vérifiez que vous avez les éléments suivants :
 
 * **Cluster Interactive Query HDInsight**. Consultez [Créer un cluster](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster) pour créer un cluster HDInsight.  Vous devez sélectionner le type Interactive Query. 

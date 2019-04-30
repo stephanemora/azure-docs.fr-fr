@@ -11,11 +11,11 @@ ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 6a52907fa6c0e2483479031fbb3d1ad68a121d95
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55475556"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61043305"
 ---
 # <a name="tasks-for-an-individual-contributor-in-the-team-data-science-process"></a>Tâches pour un contributeur individuel dans TDSP (Team Data Science Process)
 
@@ -45,7 +45,7 @@ Dans ce didacticiel, les noms des dépôts et des répertoires sont abrégés. C
 - **D5** : répertoire local cloné à partir de R5.
 
 
-## <a name="step-0-prerequisites"></a>Étape 0 : Prérequis
+## <a name="step-0-prerequisites"></a>Étape 0 : Conditions préalables
 
 Pour satisfaire aux prérequis, les tâches attribuées à votre responsable de groupe et décrites dans [Tâches du responsable de groupe pour une équipe de science des données](group-manager-tasks.md) doivent être effectuées. En résumé, avant de commencer les tâches du responsable d’équipe, les conditions suivantes doivent être remplies : 
 - Votre responsable de groupe a configuré le dépôt **GroupUtilities** (le cas échéant). 

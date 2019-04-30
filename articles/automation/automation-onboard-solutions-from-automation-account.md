@@ -10,11 +10,11 @@ ms.topic: conceptual
 manager: carmonm
 ms.custom: mvc
 ms.openlocfilehash: 41f0607908cde94ca08a4c4dfce0a47032eefbb3
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59578439"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60739228"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>Intégrer les solutions Update Management, Change Tracking et Inventory
 
@@ -32,7 +32,7 @@ Choisissez l’espace de travail Analytique de journal et le compte Automation p
 
 ![Intégrer la solution Inventory](media/automation-onboard-solutions-from-automation-account/onboardsolutions.png)
 
-Lorsque vous activez des solutions, uniquement dans certaines régions sont prises en charge pour la liaison d’un espace de travail Analytique de journal et un compte Automation.
+Lors de l’activation de solutions, seules certaines régions sont prises en charge pour la liaison d’un espace de travail Log Analytics et d’un compte Automation.
 
 Le tableau suivant renseigne sur les mappages pris en charge :
 

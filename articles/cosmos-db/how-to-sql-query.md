@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: mjbrown
 ms.openlocfilehash: 04a88558e3aea33c6d99bd0e4f1354c4316f5529
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59579212"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61054110"
 ---
 # <a name="sql-query-examples-for-azure-cosmos-db"></a>Exemples de requêtes SQL pour Azure Cosmos DB
 
@@ -448,7 +448,7 @@ Vous pouvez utiliser les opérateurs binaires pris en charge suivants :
 |Opérateurs au niveau du bit    | \|, &, ^, <<, >>, >>> (décalage vers la droite avec remplissage de zéros) |
 |Opérateurs logiques    | AND, OR, NOT      |
 |Opérateurs de comparaison | =, !=, &lt;, &gt;, &lt;=, &gt;=, <> |
-|Chaîne     |  \|\| (concaténer) |
+|String     |  \|\| (concaténer) |
 
 Les requêtes suivantes utilisent les opérateurs binaires :
 

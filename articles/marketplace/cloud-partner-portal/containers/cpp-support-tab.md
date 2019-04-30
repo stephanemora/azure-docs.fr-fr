@@ -15,15 +15,15 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 90a103bcdfdcd5d61433c05d4cadfa746c67e192
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50980165"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61472734"
 ---
 # <a name="container-support-tab"></a>Onglet Prise en charge du conteneur
 
-Dans l’onglet **Support** de la page **Nouvelle offre**, indiquez les ressources de support utilisateur et technique associées à votre offre.  Les zones d’entrée suivantes figurent sur le formulaire de support : **Engineering Contact** (Contact ingénierie), **Service clientèle** et **Support Urls** (URL de support). Si un astérisque (*) se trouve en regard du nom du champ, cela signifie que ce champ est obligatoire.
+Dans l’onglet **Support** de la page **Nouvelle offre**, indiquez les ressources de support utilisateur et technique associées à votre offre.  Les domaines d’entrée suivants sont fournis sur le formulaire de prise en charge : **Contact d’ingénierie**, **clientèle**, et **prennent en charge les URL**. Si un astérisque (*) se trouve en regard du nom du champ, cela signifie que ce champ est obligatoire.
 
 ## <a name="support-form-fields"></a>Champs du formulaire de support
 

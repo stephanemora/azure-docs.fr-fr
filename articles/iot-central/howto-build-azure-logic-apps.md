@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
 ms.openlocfilehash: 635c8d0f149895798eece8cf3b48712ab74374ea
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57759880"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60887082"
 ---
 # <a name="build-workflows-with-the-iot-central-connector-in-azure-logic-apps"></a>Créer des flux de travail avec le connecteur IoT Central dans Azure Logic Apps
 
@@ -38,7 +38,7 @@ Cette section vous explique comment publier un message dans Microsoft Teams lors
 
     ![Créer une application logique dans le portail Azure](./media/howto-build-azure-logic-apps/createinazureportal.png)
 
-1. Une fois que votre application logique a été créée avec succès, vous sont parcourues automatiquement pour le concepteur Logic Apps. Sélectionnez **logique application vide**. 
+1. Une fois que votre application logique a été créée avec succès, vous sont parcourues automatiquement pour le concepteur Logic Apps. Sélectionnez **Application logique vide**. 
 
     ![Créer une application logique vide](./media/howto-build-azure-logic-apps/blanklogicapp.png)
 

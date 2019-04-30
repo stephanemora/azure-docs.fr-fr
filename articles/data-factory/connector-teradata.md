@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
 ms.openlocfilehash: e9fd818990c8a985a77c2e7eeea19bf63c440e4e
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54018991"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61347665"
 ---
 # <a name="copy-data-from-teradata-using-azure-data-factory"></a>Copier des données à partir de Teradata à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -35,7 +35,7 @@ Plus précisément, ce connecteur Teradata prend en charge :
 - Teradata **version 12 et ultérieures**
 - Copie des données avec l’authentification **De base** ou **Windows**.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour utiliser ce connecteur Teradata, vous devez :
 
@@ -54,7 +54,7 @@ Les propriétés suivantes sont prises en charge pour le service lié Teradata 
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type doit être définie sur : **Teradata** | Oui |
+| type | La propriété type doit être définie sur : **Teradata** | Oui |
 | serveur | Nom du serveur Teradata. | Oui |
 | authenticationType | Type d'authentification utilisé pour se connecter à la base de données Teradata.<br/>Les valeurs autorisées sont les suivantes : **Basic** et **Windows**. | Oui |
 | username | Spécifiez le nom d’utilisateur associé à la connexion à la base de données Teradata. | Oui |
@@ -93,8 +93,8 @@ Pour copier des données à partir de Teradata, affectez la valeur **RelationalT
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type du jeu de données doit être définie sur : **RelationalTable** | Oui |
-| TableName | Nom de la table dans la base de données Teradata. | Non (si « query » dans la source de l’activité est spécifié) |
+| type | La propriété type du jeu de données doit être définie sur : **RelationalTable** | Oui |
+| tableName | Nom de la table dans la base de données Teradata. | Non (si « query » dans la source de l’activité est spécifié) |
 
 **Exemple :**
 
@@ -122,7 +122,7 @@ Pour copier des données à partir de Teradata, définissez **RelationalSource**
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type de la source d’activité de copie doit être définie sur : **RelationalSource** | Oui |
+| type | La propriété type de la source d’activité de copie doit être définie sur : **RelationalSource** | Oui |
 | query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"SELECT * FROM MyTable"`. | Non (si « tableName » est spécifié dans dataset) |
 
 **Exemple :**
@@ -167,41 +167,41 @@ Lors de la copie des données à partir de Teradata, les mappages suivants sont 
 | Blob |Byte[] |
 | Byte |Byte[] |
 | ByteInt |Int16 |
-| Char |Chaîne |
-| Clob |Chaîne |
-| Date |Datetime |
-| Décimal |Décimal |
+| Char |String |
+| Clob |String |
+| Date |DateTime |
+| Decimal |Decimal |
 | Double |Double |
-| Graphic |Chaîne |
+| Graphic |String |
 | Entier  |Int32 |
-| Interval Day |intervalle de temps |
-| Interval Day To Hour |intervalle de temps |
-| Interval Day To Minute |intervalle de temps |
-| Interval Day To Second |intervalle de temps |
-| Interval Hour |intervalle de temps |
-| Interval Hour To Minute |intervalle de temps |
-| Interval Hour To Second |intervalle de temps |
-| Interval Minute |intervalle de temps |
-| Interval Minute To Second |intervalle de temps |
-| Interval Month |Chaîne |
-| Interval Second |intervalle de temps |
-| Interval Year |Chaîne |
-| Interval Year To Month |Chaîne |
+| Interval Day |TimeSpan |
+| Interval Day To Hour |TimeSpan |
+| Interval Day To Minute |TimeSpan |
+| Interval Day To Second |TimeSpan |
+| Interval Hour |TimeSpan |
+| Interval Hour To Minute |TimeSpan |
+| Interval Hour To Second |TimeSpan |
+| Interval Minute |TimeSpan |
+| Interval Minute To Second |TimeSpan |
+| Interval Month |String |
+| Interval Second |TimeSpan |
+| Interval Year |String |
+| Interval Year To Month |String |
 | Number |Double |
-| Period(Date) |Chaîne |
-| Period(Time) |Chaîne |
-| Period(Time With Time Zone) |Chaîne |
-| Period(Timestamp) |Chaîne |
-| Period(Timestamp With Time Zone) |Chaîne |
+| Period(Date) |String |
+| Period(Time) |String |
+| Period(Time With Time Zone) |String |
+| Period(Timestamp) |String |
+| Period(Timestamp With Time Zone) |String |
 | SmallInt |Int16 |
-| Temps |intervalle de temps |
-| Time With Time Zone |Chaîne |
-| Timestamp |Datetime |
-| Timestamp With Time Zone |DatetimeOffset |
+| Temps |TimeSpan |
+| Time With Time Zone |String |
+| Timestamp |DateTime |
+| Timestamp With Time Zone |DateTimeOffset |
 | VarByte |Byte[] |
-| VarChar |Chaîne |
-| VarGraphic |Chaîne |
-| xml |Chaîne |
+| VarChar |String |
+| VarGraphic |String |
+| Xml |String |
 
 
 ## <a name="next-steps"></a>Étapes suivantes

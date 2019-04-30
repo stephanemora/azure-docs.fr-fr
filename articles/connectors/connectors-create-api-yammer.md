@@ -12,11 +12,11 @@ ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
 ms.openlocfilehash: ca2d28f3438fd166fa282488206662c95777bf3b
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233325"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62104729"
 ---
 # <a name="monitor-and-manage-your-yammer-account-by-using-azure-logic-apps"></a>Superviser et gérer votre compte Yammer à l’aide d’Azure Logic Apps
 
@@ -28,7 +28,7 @@ Avec Azure Logic Apps et le connecteur Yammer, vous pouvez créer des tâches et
 
 Vous pouvez utiliser des déclencheurs qui obtiennent des réponses de votre compte Yammer et mettent la sortie à la disposition d’autres actions. Vous pouvez utiliser des actions qui effectuent des tâches avec votre compte Yammer. Vous pouvez également faire en sorte que des actions utilisent la sortie d’actions Yammer. Par exemple, quand de nouveaux messages s’affichent dans des flux ou des groupes, vous pouvez partager ces messages avec le connecteur Slack. Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azure Logic Apps ?](../logic-apps/logic-apps-overview.md)
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscrivez-vous pour bénéficier d’un compte Azure gratuit</a>. 
 

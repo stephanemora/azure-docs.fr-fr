@@ -13,11 +13,11 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 02/12/2019
 ms.openlocfilehash: e1cd0d8462c31c8b843f7962f923accc6b63ae00
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58103398"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61414298"
 ---
 # <a name="connect-excel-to-a-single-database-in-azure-sql-database-and-create-a-report"></a>Connexion d’Excel à une base de données unique dans Azure SQL Database et création d’un rapport
 
@@ -41,12 +41,12 @@ Vous aurez besoin d’une copie d’Excel. Cet article utilise [Microsoft Excel�
 
    ![server-name.png](media/sql-database-connect-excel/server-name.png)
 
-4. Dans la boîte de dialogue **Base de données SQL Server**, sélectionnez **Base de données** sur le côté gauche et entrez vos **Nom d’utilisateur** et **Mot de passe** pour le serveur de base de données SQL auquel vous souhaitez vous connecter. Sélectionnez **Se connecter** pour ouvrir le **Navigateur**. 
+4. Dans la boîte de dialogue **Base de données SQL Server**, sélectionnez **Base de données** sur le côté gauche et entrez vos **Nom d’utilisateur** et **Mot de passe** pour le serveur SQL Database auquel vous souhaitez vous connecter. Sélectionnez **Se connecter** pour ouvrir le **Navigateur**. 
 
    ![Tapez le nom du serveur et les informations de connexion](./media/sql-database-connect-excel/connect-to-server.png)
 
    > [!TIP]
-   > Selon votre environnement réseau, vous n’êtes peut-être pas en mesure de vous connecter ou vous risquez de perdre la connexion si le serveur de base de données SQL n’autorise pas le trafic à partir de l’adresse IP du client. Accédez au [portail Azure](https://portal.azure.com/), cliquez sur Serveurs SQL, cliquez sur votre serveur, cliquez sur le pare-feu sous paramètres et ajoutez l’adresse IP du client. Pour plus d’informations, voir [Configuration des paramètres du pare-feu](sql-database-configure-firewall-settings.md)
+   > Selon votre environnement réseau, vous n’êtes peut-être pas en mesure de vous connecter ou vous risquez de perdre la connexion si le serveur SQL Database n’autorise pas le trafic à partir de l’adresse IP du client. Accédez au [portail Azure](https://portal.azure.com/), cliquez sur Serveurs SQL, cliquez sur votre serveur, cliquez sur le pare-feu sous paramètres et ajoutez l’adresse IP du client. Pour plus d’informations, voir [Configuration des paramètres du pare-feu](sql-database-configure-firewall-settings.md)
 
 5. Dans le **Navigateur**, sélectionnez la base de données à utiliser dans la liste, sélectionnez les tables ou vues à utiliser (nous avons choisi **vGetAllCategories**), puis sélectionnez **Charger** pour déplacer les données depuis votre base de données vers votre feuille de calcul Excel.
 

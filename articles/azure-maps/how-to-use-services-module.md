@@ -1,5 +1,5 @@
 ---
-title: L’utilisation du module de Services - Azure Maps | Microsoft Docs
+title: Utiliser le module de services - Azure Maps | Microsoft Docs
 description: Découvrez comment utiliser le module de services Azure Maps.
 author: rbrundritt
 ms.author: richbrun
@@ -8,95 +8,96 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
-ms.openlocfilehash: e89a4675f867e53c499bb82b239ddb9bec1aed6f
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: f3650d4db06a763308939e9fb1a98fddb0eaa04a
+ms.sourcegitcommit: a95dcd3363d451bfbfea7ec1de6813cad86a36bb
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59521197"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62738770"
 ---
-# <a name="using-the-azure-maps-services-module"></a>L’utilisation du module de Services de Azure Maps
+# <a name="use-the-azure-maps-services-module"></a>Utiliser le module de services Azure Maps
 
-Le Kit de développement logiciel Azure Maps Web fournit un module de services qui est une bibliothèque d’assistance qui permet de facilement utiliser les services Azure Maps REST dans les applications web ou Node.js à l’aide de JavaScript ou TypeScript.
+Le Kit de développement logiciel Azure Maps Web fournit un *module services*. Ce module est une bibliothèque d’assistance qui le rend facile à utiliser les services Azure Maps REST dans les applications web ou Node.js en utilisant JavaScript ou TypeScript.
 
-## <a name="using-the-services-module-in-a-web-page"></a>À l’aide du module de services dans une page web
+## <a name="use-the-services-module-in-a-webpage"></a>Utiliser le module de services dans une page Web
 
 1. Créez un fichier HTML.
-2. Charger dans le module de Services de Azure Maps. Cela est possible à l’aide de l’une des deux options suivantes.
+1. Charger le module de services Azure Maps. Vous pouvez y charger de deux manières :
+    - Utilisez la version d’Azure Content Delivery Network hébergée dans le monde entier, du module de services Azure Maps. Ajouter une référence de script à la `<head>` élément du fichier :
 
-    a. Utilisez la version CDN hébergée dans le monde entier du module de services Azure Maps en ajoutant une référence de script à la `<head>` élément du fichier :
-    
-    ```html
-    <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas-service.min.js"></script>
-    ```
-    
-    b. Vous pouvez également charger le code source de kit de développement logiciel de Azure mappe Web localement à l’aide la [rest d’azure maps](https://www.npmjs.com/package/azure-maps-rest) NPM empaqueter et hébergez-le avec votre application. Ce package inclut aussi des définitions de TypeScript.
-    
-    > npm install azure-maps-rest
-    
-    Puis ajoutez une référence de script à la `<head>` élément du fichier :
-    
-    ```html
-    <script src="node_modules/azure-maps-rest/dist/js/atlas-service.min.js"></script>
-    ```
+        ```html
+        <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas-service.min.js"></script>
+        ```
 
-3. Pour initialiser un point de terminaison de service URL client, vous devez d’abord créer un pipeline d’authentification. Utilisez votre propre clé de compte Azure Maps ou les informations d’identification Azure Active Directory (AAD) pour authentifier le client de service de recherche. Dans cet exemple, le client de URL de service de recherche est créé. Si vous utilisez une clé d’abonnement pour l’authentification :
+    - Vous pouvez également charger le code source du SDK Web de Azure mappe localement à l’aide la [rest d’azure maps](https://www.npmjs.com/package/azure-maps-rest) npm du package, puis l’hôte avec votre application. Ce package inclut aussi des définitions de TypeScript. Utilisez cette commande :
+    
+        > **npm install azure-maps-rest**
+    
+        Ensuite, ajoutez une référence de script à la `<head>` élément du fichier :
+
+         ```html
+        <script src="node_modules/azure-maps-rest/dist/js/atlas-service.min.js"></script>
+         ```
+
+1. Créer un pipeline d’authentification. Vous devez créer le pipeline avant que vous pouvez initialiser un point de terminaison de service URL client. Utilisez votre propre clé de compte Azure Maps ou les informations d’identification Azure Active Directory (Azure AD) pour authentifier un client de service de recherche de tables Azure. Dans cet exemple, le client de URL de service de recherche est créé. 
+
+    Si vous utilisez une clé d’abonnement pour l’authentification :
 
     ```javascript
-    //Get an Azure Maps key at https://azure.com/maps
+    // Get an Azure Maps key at https://azure.com/maps.
     var subscriptionKey = '<Your Azure Maps Key>';
-    
-    //Use SubscriptionKeyCredential with a subscription key.
+
+    // Use SubscriptionKeyCredential with a subscription key.
     var subscriptionKeyCredential = new atlas.service.SubscriptionKeyCredential(subscriptionKey);
-    
-    //Use subscriptionKeyCredential to create a pipeline.
+
+    // Use subscriptionKeyCredential to create a pipeline.
     var pipeline = atlas.service.MapsURL.newPipeline(subscriptionKeyCredential, {
       retryOptions: { maxTries: 4 } // Retry options
     });
-    
-    //Create an instance of the SearchURL client.
+
+    // Create an instance of the SearchURL client.
     var searchURL = new atlas.service.SearchURL(pipeline);
     ```
-    
-    En cas d’utilisation d’Azure Active Directory (AAD) pour l’authentification :
+
+    Si vous utilisez Azure AD pour l’authentification :
 
     ```javascript
-    // Enter your Azure Actiuve Directory client ID.
+    // Enter your Azure AD client ID.
     var clientId = "<Your Azure Active Directory Client Id>";
-    
-    // Use TokenCredential with OAuth token (AAD or Anonymous).
+
+    // Use TokenCredential with OAuth token (Azure AD or Anonymous).
     var aadToken = await getAadToken();
     var tokenCredential = new atlas.service.TokenCredential(clientId, aadToken);
-    
-    // Create a repeating timeout that will renew the AAD token.
-    // This timeout must be cleared once the TokenCredential object is no longer needed.
-    // If the timeout is not cleared the memory used by the TokenCredential will never be reclaimed.
+
+    // Create a repeating time-out that will renew the Azure AD token.
+    // This time-out must be cleared when the TokenCredential object is no longer needed.
+    // If the time-out is not cleared, the memory used by the TokenCredential will never be reclaimed.
     var renewToken = async () => {
-        try {
-            console.log("Renewing token");
-            var token = await getAadToken();
-            tokenCredential.token = token;
-            tokenRenewalTimer = setTimeout(renewToken, getExpiration(token));
-        } catch (error) {
-            console.log("Caught error when renewing token");
-            clearTimeout(tokenRenewalTimer);
-            throw error;
-        }
+    try {
+      console.log("Renewing token");
+      var token = await getAadToken();
+      tokenCredential.token = token;
+      tokenRenewalTimer = setTimeout(renewToken, getExpiration(token));
+    } catch (error) {
+      console.log("Caught error when renewing token");
+      clearTimeout(tokenRenewalTimer);
+      throw error;
+    }
     }
     tokenRenewalTimer = setTimeout(renewToken, getExpiration(aadToken));
-    
-    // Use tokenCredential to create a pipeline
+
+    // Use tokenCredential to create a pipeline.
     var pipeline = atlas.service.MapsURL.newPipeline(tokenCredential, {
-        retryOptions: { maxTries: 4 } // Retry options
+    retryOptions: { maxTries: 4 } // Retry options
     });
-    
-    //Create an instance of the SearchURL client.
+
+    // Create an instance of the SearchURL client.
     var searchURL = new atlas.service.SearchURL(pipeline);
 
     function getAadToken() {
-        //Use the logged in auth context to get a token.
+        // Use the signed-in auth context to get a token.
         return new Promise((resolve, reject) => {
-            //The resource should always be https://atlas.microsoft.com/.
+            // The resource should always be https://atlas.microsoft.com/.
             const resource = "https://atlas.microsoft.com/";
             authContext.acquireToken(resource, (error, token) => {
                 if (error) {
@@ -109,13 +110,13 @@ Le Kit de développement logiciel Azure Maps Web fournit un module de services q
     }
 
     function getExpiration(jwtToken) {
-        //Decode the JWT token to get the expiration timestamp.
+        // Decode the JSON Web Token (JWT) to get the expiration time stamp.
         const json = atob(jwtToken.split(".")[1]);
         const decode = JSON.parse(json);
 
-        //Return the milliseconds until the token needs renewed.
-        //Reduce the time until renew by 5 minutes to avoid using an expired token.
-        //The exp property is the timestamp of the expiration in seconds.
+        // Return the milliseconds remaining until the token must be renewed.
+        // Reduce the time until renewal by 5 minutes to avoid using an expired token.
+        // The exp property is the time stamp of the expiration, in seconds.
         const renewSkew = 300000;
         return (1000 * decode.exp) - Date.now() - renewSkew;
     }
@@ -123,37 +124,37 @@ Le Kit de développement logiciel Azure Maps Web fournit un module de services q
 
     Pour plus d’informations, consultez [l’authentification avec Azure Maps](azure-maps-authentication.md).
 
-4. Le code suivant utilise le client de URL de service de recherche nouvellement créé pour Géocode une adresse, à l’aide de « 1 Microsoft Way, Redmond, WA » le `searchAddress` de fonction et afficher les résultats sous forme de table dans le corps de la page. 
+1. Le code suivant utilise le client URL du service recherche Azure nouvellement créé à Géocode une adresse : "1 Microsoft Way, Redmond, WA". Le code utilise le `searchAddress` de fonction et affiche les résultats sous la forme d’une table dans le corps de la page.
 
     ```javascript
-    //Search for "1 microsoft way, redmond, wa".
+    // Search for "1 microsoft way, redmond, wa".
     searchURL.searchAddress(atlas.service.Aborter.timeout(10000), '1 microsoft way, redmond, wa').then(response => {
       var html = [];
-      
-      //Display the total results.
+
+      // Display the total results.
       html.push('Total results: ', response.summary.numResults, '<br/><br/>');
-     
-      //Create a table of the results.
+
+      // Create a table of the results.
       html.push('<table><tr><td></td><td>Result</td><td>Latitude</td><td>Longitude</td></tr>');
-      
+
       for(var i=0;i<response.results.length;i++){
         html.push('<tr><td>', (i+1), '.</td><td>', 
-                    response.results[i].address.freeformAddress, 
-                    '</td><td>', 
-                    response.results[i].position.lat,
-                    '</td><td>', 
-                    response.results[i].position.lon,
-                    '</td></tr>');
+          response.results[i].address.freeformAddress, 
+          '</td><td>', 
+          response.results[i].position.lat,
+          '</td><td>', 
+          response.results[i].position.lon,
+          '</td></tr>');
       }
-      
+
       html.push('</table>');
-      
-      //Add the result HTML to the body of the page.
+
+      // Add the resulting HTML to the body of the page.
       document.body.innerHTML = html.join('');
     });
     ```
 
-    Voici l’exemple de code complet en cours d’exécution :
+    Voici la complète en cours d’exécution des exemples de code :
 
 <br/>
 
@@ -180,7 +181,7 @@ En savoir plus sur les classes et les méthodes utilisées dans cet article :
 > [!div class="nextstepaction"]
 > [TokenCredential](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.tokencredential?view=azure-iot-typescript-latest)
 
-Consultez les articles suivants pour d’autres exemples de code qui utilisent le module de services :
+Pour d’autres exemples de code qui utilisent le module de services, consultez les articles suivants :
 
 > [!div class="nextstepaction"]
 > [Afficher les résultats de la recherche sur la carte](./map-search-location.md)

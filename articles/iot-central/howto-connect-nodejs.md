@@ -9,11 +9,11 @@ ms.service: iot-central
 services: iot-central
 manager: philmea
 ms.openlocfilehash: 5497e4956fbdc74eced302867c33a66d07d6a184
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59617935"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60888912"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Connecter une application cliente Node.js générique à votre application Azure IoT Central (Node.js)
 
@@ -75,8 +75,8 @@ Ajouter les propriétés d’appareil suivantes sur le **propriétés** page :
 
 | Nom d’affichage        | Nom du champ        | Type de données |
 | ------------------- | ----------------- | --------- |
-| Numéro de série       | serialNumber      | texte      |
-| Fabricant de l’appareil | manufacturer      | texte      |
+| Numéro de série       | serialNumber      | text      |
+| Fabricant de l’appareil | manufacturer      | text      |
 
 Entrez les noms des champs dans le modèle d’appareil exactement comme ils figurent dans le tableau. Si les noms de champs ne correspondent pas les noms de propriété dans le code d’appareil correspondant, les propriétés ne peuvent pas être affichées dans l’application.
 
@@ -97,7 +97,7 @@ Ajoutez la commande suivante sur le **commandes** page :
 
 | Nom d’affichage    | Nom du champ     | Délai d’expiration par défaut | Type de données |
 | --------------- | -------------- | --------------- | --------- |
-| Compte à rebours       | countdown      | 30              | number    |
+| compte à rebours       | countdown      | 30              | number    |
 
 Ajoutez le champ d’entrée suivant à la commande de compte à rebours :
 

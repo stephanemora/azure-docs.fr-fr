@@ -13,15 +13,15 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/14/2019
 ms.openlocfilehash: 6a2b3af4240a5c400bd1eaf4fd1e93b09fc702b1
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60002712"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61075247"
 ---
 # <a name="resources-limits-for-elastic-pools-using-the-dtu-based-purchasing-model"></a>Limites de ressources pour des pools élastiques suivant le modèle d’achat DTU
 
-Cet article détaille les limites de ressources des pools élastiques Azure SQL Database et des bases de données mises en pool suivant le modèle d’achat par DTU.
+Cet article détaille les limites de ressources des pools élastiques Azure SQL Database et des bases de données mises en pool suivant le modèle d’achat DTU.
 
 Pour connaître les limites de ressources des bases de données uniques du modèle d’achat DTU, consultez [Limites des ressources DTU : bases de données uniques](sql-database-vcore-resource-limits-elastic-pools.md). Pour voir les limites de ressources par vCore, consultez [Limites de ressources par vCore : bases de données uniques](sql-database-vcore-resource-limits-single-databases.md) et [Limites de ressources par vCore : pools élastiques](sql-database-vcore-resource-limits-elastic-pools.md).
 
@@ -40,7 +40,7 @@ Pour les pools élastiques SQL Database, les tableaux suivants indiquent les res
 |:---|---:|---:|---:| ---: | ---: | ---: | ---: | ---: |
 | Espace de stockage inclus par pool (Go) | 5. | 10 | 20 | 29 | 39 | 78 | 117 | 156 |
 | Choix de l’espace de stockage maximal par pool (Go) | 5. | 10 | 20 | 29 | 39 | 78 | 117 | 156 |
-| Stockage OLTP en mémoire maximal par pool (Go) | S.O. | N/A | N/A | N/A | N/A | N/A | N/A | S.O. |
+| Stockage OLTP en mémoire maximal par pool (Go) | N/A | N/A | N/A | N/A | N/A | N/A | N/A | N/A |
 | Nombre maximal de bases de données par pool | 100 | 200 | 500 | 500 | 500 | 500 | 500 | 500 |
 | Nombre maximal d’ouvriers simultanés (demandes) par pool | 100 | 200 | 400 | 600 | 800 | 1 600 | 2 400 | 3200 |
 | Nombre maximal de sessions simultanées par pool | 30000 | 30000 | 30000 | 30000 |30000 | 30000 | 30000 | 30000 |
@@ -55,7 +55,7 @@ Pour les pools élastiques SQL Database, les tableaux suivants indiquent les res
 |:---|---:|---:|---:| ---: | ---: | ---: |
 | Espace de stockage inclus par pool (Go) | 50 | 100 | 200 | 300 | 400 | 800 |
 | Choix de l’espace de stockage maximal par pool (Go) | 50, 250, 500 | 100, 250, 500, 750 | 200, 250, 500, 750, 1 024 | 300, 500, 750, 1 204, 1 280 | 400, 500, 750, 1 024, 1 280, 1 536 | 800, 1 024, 1 280, 1 536, 1 792, 2 048 |
-| Stockage OLTP en mémoire maximal par pool (Go) | S.O. | N/A | N/A | N/A | N/A | S.O. |
+| Stockage OLTP en mémoire maximal par pool (Go) | N/A | N/A | N/A | N/A | N/A | N/A |
 | Nombre maximal de bases de données par pool | 100 | 200 | 500 | 500 | 500 | 500 |
 | Nombre maximal d’ouvriers simultanés (demandes) par pool | 100 | 200 | 400 | 600 | 800 | 1 600 |
 | Nombre maximal de sessions simultanées par pool | 30000 | 30000 | 30000 | 30000 | 30000 | 30000 |
@@ -70,7 +70,7 @@ Pour les pools élastiques SQL Database, les tableaux suivants indiquent les res
 |:---|---:|---:|---:| ---: | ---: |
 | Espace de stockage inclus par pool (Go) | 1 200 | 1 600 | 2000 | 2 500 | 3000 |
 | Choix de l’espace de stockage maximal par pool (Go) | 1 200, 1 280, 1 536, 1792, 2 048, 2 304, 2 560 | 1 600, 1 792, 2 048, 2 304, 2 560, 2 816, 3 072 | 2 000, 2 048, 2 304, 2 560, 2 816, 3 072, 3 328, 3 584 | 2 500, 2 560, 2 816, 3 072, 3 328, 3 584, 3 840, 4 096 | 3 000, 3 072, 3 328, 3 584, 3 840, 4 096 |
-| Stockage OLTP en mémoire maximal par pool (Go) | S.O. | N/A | N/A | N/A | S.O. |
+| Stockage OLTP en mémoire maximal par pool (Go) | N/A | N/A | N/A | N/A | N/A |
 | Nombre maximal de bases de données par pool | 500 | 500 | 500 | 500 | 500 |
 | Nombre maximal d’ouvriers simultanés (demandes) par pool | 2 400 | 3200 | 4000 | 5 000 | 6000 |
 | Nombre maximal de sessions simultanées par pool | 30000 | 30000 | 30000 | 30000 | 30000 |

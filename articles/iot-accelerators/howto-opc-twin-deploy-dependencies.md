@@ -9,11 +9,11 @@ ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: ae9f2b05bfc6ea6315022d04c8d267d916cf282e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59491984"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61451597"
 ---
 # <a name="deploying-dependencies-for-local-development"></a>Déploiement des dépendances pour un développement local
 
@@ -32,7 +32,7 @@ Cet article explique comment déployer uniquement les Services de plateforme Azu
    deploy -type local
    ```
 
-2. Suivez les invites pour attribuer un nom au groupe de ressources pour votre déploiement.  Le script déploie uniquement les dépendances sur ce groupe de ressources dans votre abonnement Azure, mais pas les services micro-charges.  Le script enregistre également une Application dans Azure Active Directory.  Cela est nécessaire pour prendre en charge l’authentification OAUTH.  Déploiement peut prendre plusieurs minutes.
+2. Suivez les invites pour attribuer un nom au groupe de ressources pour votre déploiement.  Le script déploie uniquement les dépendances sur ce groupe de ressources dans votre abonnement Azure, mais pas les services micro-charges.  Le script enregistre également une Application dans Azure Active Directory.  Cela est nécessaire pour prendre en charge l’authentification OAUTH.  Le déploiement peut prendre plusieurs minutes.
 
 3. Une fois le script terminé, vous pouvez sélectionner pour enregistrer le fichier .env.  Le fichier d’environnement .env est le fichier de configuration de tous les services et outils que vous souhaitez exécuter sur votre ordinateur de développement.  
 

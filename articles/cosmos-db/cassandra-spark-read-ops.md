@@ -2,21 +2,23 @@
 title: Lecture des données de tables de l’API Cassandra à l’aide de Spark
 titleSufix: Azure Cosmos DB
 description: Cet article explique comment lire les données stockées des tables de l’API Cassandra dans Azure Cosmos DB.
-author: kanshiG
-ms.author: govindk
+author: rockboyfor
+ms.author: v-yeche
 ms.reviewer: sngun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
-ms.date: 12/06/2018
+origin.date: 12/06/2018
+ms.date: 03/18/2019
 ms.custom: seodec18
 ms.openlocfilehash: 01a9582062d8eb0d039473a03901fc83fe179020
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54033415"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60893388"
 ---
+<!--Verify sucessfully-->
 # <a name="read-data-from-azure-cosmos-db-cassandra-api-tables-using-spark"></a>Lire les données de tables de l’API Cassandra dans Azure Cosmos DB à l’aide de Spark
 
  Cet article explique comment lire les données stockées dans l’API Cassandra Azure Cosmos DB à partir de Spark.
@@ -32,7 +34,7 @@ import com.datastax.spark.connector.cql.CassandraConnector
 import com.microsoft.azure.cosmosdb.cassandra
 
 //Connection-related
-spark.conf.set("spark.cassandra.connection.host","YOUR_ACCOUNT_NAME.cassandra.cosmosdb.azure.com")
+spark.conf.set("spark.cassandra.connection.host","YOUR_ACCOUNT_NAME.cassandra.cosmosdb.azure.cn")
 spark.conf.set("spark.cassandra.connection.port","10350")
 spark.conf.set("spark.cassandra.connection.ssl.enabled","true")
 spark.conf.set("spark.cassandra.auth.username","YOUR_ACCOUNT_NAME")
@@ -139,9 +141,12 @@ select * from books_vw where book_pub_year > 1891
 ## <a name="next-steps"></a>Étapes suivantes
 
 Voici des articles supplémentaires sur l’utilisation de l’API Cassandra Azure Cosmos DB à partir de Spark :
- 
+
  * [Opérations d’upsert](cassandra-spark-upsert-ops.md)
  * [Opérations de suppression](cassandra-spark-delete-ops.md)
  * [Opérations d’agrégation](cassandra-spark-aggregation-ops.md)
  * [Opérations de copie de table](cassandra-spark-table-copy-ops.md)
 
+<!--Verify sucessfully-->
+<!--Update_Description: new articles on  -->
+<!--ms.date: 03/18/2019-->

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2019
 ms.author: spelluru
-ms.openlocfilehash: c26418d36271b4d2d39a43eda7e8b23585d69f4a
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.openlocfilehash: 91c598bde0912cffb8aa1dd7ba022c86a9084faa
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60149425"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62127393"
 ---
 # <a name="azure-devtest-labs-faq"></a>FAQ d’Azure DevTest Labs
 Obtenez des réponses aux questions les plus fréquemment posées sur Azure DevTest Labs.
@@ -350,7 +350,7 @@ Pour d’autres chaînes d’outils d’intégration continue (CI)/livraison con
 ### <a name="when-should-i-create-a-new-virtual-network-for-my-devtest-labs-environment-vs-using-an-existing-virtual-network"></a>Quand dois-je créer un réseau virtuel pour mon environnement DevTest Labs et quand dois-je utiliser un réseau virtuel existant ?
 Si vos machines virtuelles doivent interagir avec l’infrastructure existante, envisagez d’utiliser un réseau virtuel existant à l’intérieur de votre environnement de dev/test. Si vous utilisez ExpressRoute, vous souhaiterez réduire la quantité de réseaux virtuels / sous-réseaux afin que vous ne pas fragmenter votre espace d’adressage IP qui est affecté pour une utilisation dans les abonnements. 
 
-Envisagez d’utiliser le modèle de l’homologation de réseau virtuel ici ([Hub-and-Spoke modèle](/architecture/reference-architectures/hybrid-networking/hub-spoke)) trop. Cette approche permet une communication de réseau virtuel/sous-réseau via les abonnements. Sinon, chaque environnement DevTest Labs pourrait avoir son propre réseau virtuel. 
+Envisagez d’utiliser le modèle de l’homologation de réseau virtuel ici ([Hub-and-Spoke modèle](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)) trop. Cette approche permet une communication de réseau virtuel/sous-réseau via les abonnements. Sinon, chaque environnement DevTest Labs pourrait avoir son propre réseau virtuel. 
 
 Il existe [limites](../azure-subscription-service-limits.md) sur le nombre de réseaux virtuels par abonnement. Le nombre par défaut est de 50, mais cette limite peut être portée à 100.
 

@@ -9,11 +9,11 @@ ms.date: 01/15/2017
 ms.author: muralikk
 ms.subservice: common
 ms.openlocfilehash: 03b504524b2f489f1ee042c6e825ccffe0a60bb3
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58315060"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61478468"
 ---
 # <a name="preparing-hard-drives-for-an-import-job"></a>Préparation des disques durs pour un travail d’importation
 Pour préparer un ou plusieurs disques durs pour un travail d’importation, procédez comme suit :
@@ -111,7 +111,7 @@ Pour préparer un ou plusieurs disques durs pour un travail d’importation, pro
 |**/silentmode**|`Optional.` Spécifiez ce paramètre pour supprimer la confirmation du disque cible.|
 |**/encrypt**|`Optional.` Spécifiez ce paramètre quand le disque n’a pas encore été chiffré avec BitLocker et doit être chiffré par l’outil. Si le disque a déjà été chiffré avec BitLocker, ignorez ce paramètre et spécifiez le paramètre `/bk`, en fournissant la clé BitLocker existante.<br /><br /> Si vous spécifiez le paramètre `/format`, vous devez également spécifier le paramètre `/encrypt`.|
 |**/bk:**&lt;BitLockerKey\>|`Optional.`Si `/encrypt` est spécifié, omettez ce paramètre. Si `/encrypt` est omis, vous devez déjà avoir chiffré le disque avec BitLocker. Utilisez ce paramètre pour spécifier la clé BitLocker. Le chiffrement BitLocker est requis pour tous les disques durs pour les travaux d’importation.|
-|**/logdir:**&lt;LogDirectory\>|`Optional.` Le répertoire de journaux désigne le répertoire à utiliser pour stocker les journaux détaillés et les fichiers manifestes temporaires. Si ce paramètre n’est pas spécifié, le répertoire courant est utilisé comme répertoire de journaux.|
+|**/logdir:**&lt;LogDirectory\>|`Optional.` Le répertoire de journaux d’activité désigne le répertoire à utiliser pour stocker les journaux d’activité détaillés et les fichiers manifestes temporaires. Si ce paramètre n’est pas spécifié, le répertoire courant est utilisé comme répertoire de journaux.|
 
 ### <a name="parameters-required-for-all-copy-sessions"></a>Paramètres requis pour toutes les sessions de copie
  Le fichier journal contient l’état de toutes les sessions de copie pour un disque dur. Il contient également les informations nécessaires à la création du travail d’importation. Vous devez toujours spécifier un fichier journal lorsque vous exécutez l’outil Azure Import/Export, ainsi qu’un ID de session de copie :
@@ -141,8 +141,7 @@ Pour préparer un ou plusieurs disques durs pour un travail d’importation, pro
 |----------------------------|-----------------|
 |**/srcfile:**&lt;SourceFile\>|`Required.` Chemin d’accès complet au fichier à copier. Le chemin d’accès du répertoire doit être un chemin d’accès absolu (et non relatif).|
 |**/dstblob:**&lt;DestinationBlobPath\>|`Required.` Chemin d’accès au blob de destination dans votre compte de stockage Azure. Le blob peut déjà exister ou non.<br /><br /> Spécifiez le nom du blob commençant par le nom du conteneur. Le nom du blob ne peut pas commencer par « / » ni le nom du compte de stockage. Pour connaître les règles d’affectation de noms aux blobs, consultez [Naming and Referencing Containers, Blobs, and Metadata (Affectation de noms et références aux conteneurs, blobs et métadonnées)](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).<br /><br /> Lorsque le conteneur de destination est le conteneur racine, vous devez spécifier explicitement `$root` comme conteneur, tel que `$root/sample.txt`. Notez que les blobs sous le conteneur racine ne peuvent pas inclure « / » dans leur nom.|
-|
-  **/Disposition:**&amp;lt;rename&#124;no-overwrite&#124;overwrite&amp;gt;|`Optional.` Spécifie le comportement lorsqu’un blob avec l’adresse spécifiée existe déjà. Les valeurs valides pour ce paramètre sont : `rename`, `no-overwrite` et `overwrite`. Notez que ces valeurs sont sensibles à la casse. Si aucune valeur n’est spécifiée, la valeur par défaut est `rename`.|
+|**/Disposition:**&amp;amp;lt;rename&amp;#124;no-overwrite&amp;#124;overwrite&amp;amp;gt;|`Optional.` Spécifie le comportement lorsqu’un blob avec l’adresse spécifiée existe déjà. Les valeurs valides pour ce paramètre sont : `rename`, `no-overwrite` et `overwrite`. Notez que ces valeurs sont sensibles à la casse. Si aucune valeur n’est spécifiée, la valeur par défaut est `rename`.|
 |**/BlobType:**<BlockBlob&#124;PageBlob>|`Optional.` Spécifie le type de blob pour les blobs de destination. Les valeurs autorisées sont : `BlockBlob` et `PageBlob`. Notez que ces valeurs sont sensibles à la casse. Si aucune valeur n’est spécifiée, la valeur par défaut est `BlockBlob`.<br /><br /> Dans la plupart des cas, `BlockBlob` est recommandé. Si vous spécifiez `PageBlob`, la longueur de chaque fichier dans le répertoire doit être un multiple de 512, la taille d’une page pour les blobs de pages.|
 |**/PropertyFile:**&lt;PropertyFile\>|`Optional.` Chemin d’accès au fichier des propriétés des blobs de destination. Pour plus d’informations, consultez [Format de fichier de propriétés et de métadonnées du service d’importation/exportation](../storage-import-export-file-format-metadata-and-properties.md).|
 |**/MetadataFile:**&lt;MetadataFile\>|`Optional.` Chemin d’accès au fichier des métadonnées des blobs de destination. Pour plus d’informations, consultez [Format de fichier de propriétés et de métadonnées du service d’importation/exportation](../storage-import-export-file-format-metadata-and-properties.md).|

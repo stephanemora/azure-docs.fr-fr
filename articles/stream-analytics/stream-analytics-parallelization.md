@@ -10,11 +10,11 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.openlocfilehash: 0b68819ba032d7655433aadd30fe2852941096ce
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54000544"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61478876"
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Profiter de la parallélisation de requête dans Azure Stream Analytics
 Cet article explique comment tirer parti de la parallélisation dans Azure Stream Analytics. Vous découvrez comment mettre à l’échelle des travaux Stream Analytics en configurant des partitions d’entrée et en réglant la définition de requête Analytics.
@@ -180,7 +180,7 @@ Lorsqu’une requête est partitionnée, les événements d’entrée sont trait
 Toutes les étapes non partitionnées ensemble peuvent être mises à l’échelle jusqu’à atteindre six unités SU par travail Stream Analytics. En outre, vous pouvez ajouter 6 unités de streaming pour chaque partition dans une étape partitionnée.
 Vous pouvez voir quelques **exemples** dans le tableau ci-dessous.
 
-| Requête                                               | Nombre d’unités SU maximal pour le travail |
+| Interroger                                               | Nombre d’unités SU maximal pour le travail |
 | --------------------------------------------------- | ------------------- |
 | <ul><li>La requête contient une étape.</li><li>L'étape n'est pas partitionnée.</li></ul> | 6. |
 | <ul><li>Le flux de données d’entrée est partitionné par 16.</li><li>La requête contient une étape.</li><li>L'étape est partitionnée.</li></ul> | 96 (6 * 16 partitions) |

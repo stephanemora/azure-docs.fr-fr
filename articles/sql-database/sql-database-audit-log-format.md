@@ -13,11 +13,11 @@ ms.reviewer: vanto
 manager: craigg
 ms.date: 01/03/2019
 ms.openlocfilehash: 0fefe01e413e30e4aa3c1fa90de77cbdece39c38
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58001686"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61417386"
 ---
 # <a name="sql-database-audit-log-format"></a>Format du journal d’Audit de base de données SQL
 
@@ -46,30 +46,30 @@ Par exemple, pour la base de données `Database1` sur `Server1` ce qui suit est 
 | Nom (Blob) | Nom (Event Hubs/Log Analytique) | Description | Type d'objet BLOB | Type d’événement Hubs/Log Analytique |
 |-------------|---------------------------------|-------------|-----------|-------------------------------|
 | action_id | action_id_s | ID de l’action | varchar(4) | string |
-| action_name | action_name_s | Nom de l’action | S.O. | string |
+| action_name | action_name_s | Nom de l’action | N/A | string |
 | additional_information | additional_information_s | Des informations supplémentaires sur l’événement, stockée au format XML | nvarchar(4000) | string |
 | affected_rows | affected_rows_d | Nombre de lignes affectées par la requête | bigint | int |
 | application_name | application_name_s| Nom de l’application cliente | nvarchar(128) | string |
 | audit_schema_version | audit_schema_version_d | Toujours 1 | int | int |
 | class_type | class_type_s | Type d’entité pouvant être auditée qui se produit de l’audit sur | varchar(2) | string |
-| class_type_desc | class_type_description_s | Description de l’entité pouvant être auditée qui se produit de l’audit sur | S.O. | string |
+| class_type_desc | class_type_description_s | Description de l’entité pouvant être auditée qui se produit de l’audit sur | N/A | string |
 | client_ip | client_ip_s | Adresse IP de l’application cliente source | nvarchar(128) | string |
-| connection_id | S.O. | ID de la connexion dans le serveur | GUID | S.O. |
+| connection_id | N/A | ID de la connexion dans le serveur | GUID | N/A |
 | data_sensitivity_information | data_sensitivity_information_s | Types d’informations et des étiquettes de sensibilité retournés par la requête auditée, basée sur les colonnes classifiées dans la base de données. En savoir plus sur [découvrir des données Azure SQL Database et classification](sql-database-data-discovery-and-classification.md) | nvarchar(4000) | string |
 | database_name | database_name_s | Le contexte de base de données dans laquelle l’action s’est produite. | sysname | string |
 | database_principal_id | database_principal_id_d | ID du contexte d’utilisateur de base de données que l’action est effectuée dans | int | int |
 | database_principal_name | database_principal_name_s | Nom du contexte d’utilisateur de base de données dans lequel l’action est effectuée. | sysname | string |
 | duration_milliseconds | duration_milliseconds_d | Durée d’exécution de requête en millisecondes | bigint | int |
-| event_time | event_time_t | Date et heure lorsque l’action pouvant être auditée est déclenchée | datetime2 | Datetime |
-| HOST_NAME | S.O. | Nom d’hôte client | string | S.O. |
+| event_time | event_time_t | Date et heure lorsque l’action pouvant être auditée est déclenchée | datetime2 | datetime |
+| HOST_NAME | N/A | Nom d’hôte client | string | N/A |
 | is_column_permission | is_column_permission_s | Indicateur précisant s’il s’agit d’une autorisation de niveau colonne. 1 = true, 0 = false | bit | string |
-| S.O. | is_server_level_audit_s | Indicateur qui spécifie si cet audit est au niveau du serveur | S.O. | string |
+| N/A | is_server_level_audit_s | Indicateur qui spécifie si cet audit est au niveau du serveur | N/A | string |
 | object_ id | object_id_d | L’ID de l’entité sur laquelle l’audit s’est produite. Cela inclut la : objets server, bases de données, les objets de base de données et objets de schéma. 0 si l’entité est le serveur lui-même ou si l’audit n’est pas effectuée au niveau de l’objet | int | int |
 | object_name | object_name_s | Le nom de l’entité sur laquelle l’audit s’est produite. Cela inclut la : objets server, bases de données, les objets de base de données et objets de schéma. 0 si l’entité est le serveur lui-même ou si l’audit n’est pas effectuée au niveau de l’objet | sysname | string |
 | permission_bitmask | permission_bitmask_s | Le cas échéant, affiche les autorisations qui ont été accordées, refusées ou révoquées | varbinary(16) | string |
 | response_rows | response_rows_d | Nombre de lignes retournées dans le jeu de résultats | bigint | int |
 | schema_name | schema_name_s | Le contexte de schéma dans lequel l’action s’est produite. NULL pour les audits qui se produisent en dehors d’un schéma | sysname | string |
-| S.O. | securable_class_type_s | Objet sécurisable mappé au class_type audité | S.O. | string |
+| N/A | securable_class_type_s | Objet sécurisable mappé au class_type audité | N/A | string |
 | sequence_group_id | sequence_group_id_g | Identificateur unique | varbinary | GUID |
 | sequence_number | sequence_number_d | Effectue le suivi de la séquence d’enregistrements au sein d’un enregistrement d’audit unique qui était trop grande pour tenir dans le tampon d’écriture pour les audits | int | int |
 | server_instance_name | server_instance_name_s | Nom de l’instance de serveur où l’audit s’est produit | sysname | string |

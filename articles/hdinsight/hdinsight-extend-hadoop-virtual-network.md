@@ -1,19 +1,18 @@
 ---
 title: Étendre HDInsight avec un réseau virtuel - Azure
 description: Apprenez à utiliser Azure Virtual Network pour connecter HDInsight à d'autres ressources de cloud ou à des ressources de votre centre de données
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/29/2019
-ms.openlocfilehash: a2d06cdbcc6ce995c55c858cb7a50a93ef6b3fb1
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: f97c07c522dfb22818aca84d41d30c023f564d84
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58883562"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62097335"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Étendre HDInsight à l’aide d’un réseau virtuel Azure
 
@@ -283,7 +282,7 @@ Si vous utilisez des groupes de sécurité réseau, vous devez autoriser le traf
     | Chine | Chine du Nord | 42.159.96.170</br>139.217.2.219</br></br>42.159.198.178</br>42.159.234.157 | 443 | Trafic entrant |
     | &nbsp; | Chine orientale | 42.159.198.178</br>42.159.234.157</br></br>42.159.96.170</br>139.217.2.219 | 443 | Trafic entrant |
     | &nbsp; | Chine Nord 2 | 40.73.37.141</br>40.73.38.172 | 443 | Trafic entrant |
-    | &nbsp; | Chine orientale 2 | 139.217.227.106</br>139.217.228.187 | 443 | Trafic entrant |
+    | &nbsp; | Chine Est 2 | 139.217.227.106</br>139.217.228.187 | 443 | Trafic entrant |
     | Europe | Europe Nord | 52.164.210.96</br>13.74.153.132 | 443 | Trafic entrant |
     | &nbsp; | Europe Ouest| 52.166.243.90</br>52.174.36.244 | 443 | Trafic entrant |
     | France | France Centre| 20.188.39.64</br>40.89.157.135 | 443 | Trafic entrant |

@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
-ms.openlocfilehash: a507bf1866952cb79fa6334fed80c88cd207cd0a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: a233a9deb58a7c1abc87a622a4f1f2581ee2e477
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23110207"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62125795"
 ---
 # <a name="use-storsimple-device-manager-service-to-manage-volumes-on-the-storsimple-virtual-array"></a>Utiliser le service StorSimple Device Manager pour gérer les volumes sur l’instance StorSimple Virtual Array
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Présentation
 
 Ce didacticiel explique comment utiliser le service StorSimple Device Manager pour créer et gérer des volumes sur votre instance StorSimple Virtual Array.
 
@@ -33,7 +33,7 @@ Le service StorSimple Device Manager est une extension dans le portail Azure 
 
 Les volumes StorSimple peuvent être les suivants :
 
-* **Attaché localement** : les données de ces volumes demeurent à tout moment sur le tableau ; elles ne se dispersent pas dans le cloud.
+* **Attaché localement**: Données de ces volumes demeurent sur le tableau à tout moment et ne débordent pas sur le cloud.
 * **Hiérarchisé**: les données de ces volumes peuvent se disperser dans le cloud. Lorsque vous créez un volume à plusieurs niveaux, environ 10 % de l’espace est configuré au niveau local et 90 % dans le cloud. Par exemple, si vous avez configuré un volume de 1 To, 100 Go résident dans l'espace local et 900 Go sont utilisés dans le cloud lorsque les données sont stockées en niveaux. Cela implique que si vous n’avez plus d’espace local sur l’appareil, vous ne pouvez pas configurer un volume à plusieurs niveaux (car les 10 % requis sur l’espace local ne seront pas disponibles).
 
 ### <a name="provisioned-capacity"></a>Capacité allouée

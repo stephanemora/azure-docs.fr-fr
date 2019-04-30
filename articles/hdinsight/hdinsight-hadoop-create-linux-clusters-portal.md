@@ -1,7 +1,6 @@
 ---
 title: Créer des clusters Apache Hadoop à l’aide d’un navigateur web, Azure HDInsight
 description: Découvrez comment créer des clusters Apache Hadoop, Apache HBase, Apache Storm ou Apache Spark sur Linux pour HDInsight à l’aide d’un navigateur web et le portail Azure en préversion.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,19 +8,19 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/28/2018
 ms.author: hrasheed
-ms.openlocfilehash: 13d053c14b083390bfdd28fdad616caf13e7e4e0
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 9da9c6c438aac2c160a9ec7bc658e5d7b4ea207e
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54911555"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62124796"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-by-using-the-azure-portal"></a>Créer des clusters Linux dans HDInsight à l’aide du portail Azure
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
 Le portail Azure est un outil web qui permet de gérer les services et les ressources hébergés dans le cloud Microsoft Azure. Cet article vous montre comment créer des clusters Azure HDInsight Linux par le biais du portail.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 * **Un abonnement Azure**. Regardez la vidéo qui explique [comment obtenir un essai gratuit d’Azure pour tester Hadoop dans HDInsight](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
@@ -83,7 +82,7 @@ Le portail Azure expose la plupart des propriétés du cluster. Avec les modèle
 
      | Stockage                                      | Description |
      |----------------------------------------------|-------------|
-     | **Stockage Blob Azure comme stockage par défaut**   | <ul><li>Pour **Type de stockage principal**, sélectionnez **Stockage Azure**. Pour **Méthode de sélection**, choisissez **Mes abonnements** si vous voulez utiliser un compte de stockage qui fait partie de votre abonnement Azure. Sélectionnez ensuite le compte de stockage. Sinon, sélectionnez **Clé d’accès**. Entrez les informations du compte de stockage que vous souhaitez choisir en dehors de votre abonnement Azure.</li><li>Pour **Conteneur par défaut**, choisissez le nom de conteneur par défaut suggéré par le portail ou spécifiez celui de votre choix.</li><li>Si votre stockage par défaut est Stockage blob Azure, vous pouvez aussi sélectionner **Comptes de stockage supplémentaires** pour spécifier des comptes de stockage supplémentaires à associer au cluster. Pour **Clés de stockage Azure**, sélectionnez **Ajouter une clé de stockage**. Vous pouvez ensuite spécifier un compte de stockage de vos abonnements Azure ou d’autres abonnements. Indiquez la clé d’accès au compte de stockage.</li><li>Si votre stockage par défaut est Stockage blob Azure, vous pouvez aussi sélectionner **Accès à Data Lake Storage** pour spécifier Azure Data Lake Storage comme stockage supplémentaire. Pour plus d’informations, consultez [Démarrage rapide : Configurer des clusters dans HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).</li></ul> |
+     | **Stockage Blob Azure comme stockage par défaut**   | <ul><li>Pour **Type de stockage principal**, sélectionnez **Stockage Azure**. Pour **Méthode de sélection**, choisissez **Mes abonnements** si vous voulez utiliser un compte de stockage qui fait partie de votre abonnement Azure. Sélectionnez ensuite le compte de stockage. Sinon, sélectionnez **Clé d’accès**. Entrez les informations du compte de stockage que vous souhaitez choisir en dehors de votre abonnement Azure.</li><li>Pour **Conteneur par défaut**, choisissez le nom de conteneur par défaut suggéré par le portail ou spécifiez celui de votre choix.</li><li>Si votre stockage par défaut est Stockage blob Azure, vous pouvez aussi sélectionner **Comptes de stockage supplémentaires** pour spécifier des comptes de stockage supplémentaires à associer au cluster. Pour **Clés de stockage Azure**, sélectionnez **Ajouter une clé de stockage**. Vous pouvez ensuite spécifier un compte de stockage de vos abonnements Azure ou d’autres abonnements. Indiquez la clé d’accès au compte de stockage.</li><li>Si votre stockage par défaut est Stockage blob Azure, vous pouvez aussi sélectionner **Accès à Data Lake Storage** pour spécifier Azure Data Lake Storage comme stockage supplémentaire. Pour plus d’informations, consultez [Démarrage rapide : Configurer des clusters dans HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).</li></ul> |
      | **Azure Data Lake Storage comme stockage par défaut** | Pour **Type de stockage principal**, sélectionnez **Azure Data Lake Storage Gen1** ou **Azure Data Lake Storage Gen2**. Consultez ensuite l’article [Démarrage rapide : Configurer des clusters dans HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md) pour obtenir des instructions. |
      | **Metastores externes**                      | Spécifiez éventuellement une base de données SQL dans laquelle stocker les métadonnées Apache Hive et Apache Oozie associées au cluster. Pour **Sélectionner une base de données SQL pour Hive**, sélectionnez une base de données SQL. Indiquez ensuite le nom d’utilisateur et le mot de passe pour la base de données. Répétez ces étapes pour les métadonnées d’Oozie.<br><br>Voici quelques points à prendre en compte sur l’utilisation d’une base de données Azure SQL Database pour les metastores : <ul><li>La base de données Azure SQL Database utilisée pour le metastore doit autoriser la connectivité aux autres services Azure, dont Azure HDInsight. Sur le côté droit du tableau de bord de la base de données Azure SQL Database, sélectionnez le nom du serveur. Ce serveur est celui sur lequel s’exécute l’instance SQL Database. Quand vous êtes revenu à l’écran du serveur, sélectionnez **Configurer**. Pour **Services Azure**, sélectionnez **Oui**. Ensuite, sélectionnez **Enregistrer**.</li><li>Quand vous créez un metastore, choisissez un nom de base de données sans tiret ni trait d’union, car la présence de ces caractères peut faire échouer le processus de création du cluster.</li></ul> |
 

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
 ms.openlocfilehash: 12934ad53050d16b89dd5b4175ca19a24d1ec4d9
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118188"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60916276"
 ---
 # <a name="enable-vm-agent-in-azure-security-center"></a>Activer l’agent de machine virtuelle dans le Centre de sécurité Azure
 L’agent de machine virtuelle doit être installé sur les machines virtuelles pour [activer la collecte des données](security-center-enable-data-collection.md).  Le Centre de sécurité Azure vous permet de voir quelles machines virtuelles nécessitent l’agent de machine virtuelle et vous recommandera d’activer l’agent sur ces machines virtuelles.

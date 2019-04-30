@@ -15,11 +15,11 @@ ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pbutlerm
 ms.openlocfilehash: de9261548ec79e206b0db87caabc1fa4c9ad6771
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56591548"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61094503"
 ---
 <a name="retrieve-offers"></a>Récupération des offres
 ===============
@@ -32,9 +32,9 @@ Récupère une liste récapitulative des offres sous un espace de noms du serveu
 <a name="uri-parameters"></a>Paramètres URI
 --------------
 
-| **Nom**         |  **Description**                         |  **Type de données** |
+| **Name**         |  **Description**                         |  **Type de données** |
 | -------------    |  ------------------------------------    |  -----------   |
-|  publisherId     | Identificateur du serveur de publication, par exemple `contoso` |   Chaîne    |
+|  publisherId     | Identificateur du serveur de publication, par exemple `contoso` |   String    |
 |  api-version     | Dernière version de l’API                    |    Date        |
 |  |  |
 
@@ -42,7 +42,7 @@ Récupère une liste récapitulative des offres sous un espace de noms du serveu
 <a name="header"></a>En-tête
 ------
 
-|  **Nom**        |         **Valeur**       |
+|  **Name**        |         **Valeur**       |
 |  --------------- |       ----------------  |
 |  Content-Type    | `application/json`      |
 |  Authorization   | `Bearer YOUR_TOKEN`     |
@@ -73,7 +73,7 @@ Récupère une liste récapitulative des offres sous un espace de noms du serveu
 
 ### <a name="response-body-properties"></a>Propriétés du corps de réponse
 
-|  **Nom**       |       **Description**                                                                                                  |
+|  **Name**       |       **Description**                                                                                                  |
 |  -------------  |      --------------------------------------------------------------------------------------------------------------    |
 |  offerTypeId    | Identifie le type d’offre                                                                                           |
 |  publisherId    | L’identificateur qui identifie de façon unique ce serveur de publication                                                                      |
@@ -98,7 +98,7 @@ Récupère une liste récapitulative des offres sous un espace de noms du serveu
 
 ### <a name="offer-status"></a>État de l’offre
 
-|  **Nom**                    | **Description**                                  |
+|  **Name**                    | **Description**                                  |
 |  ------------------------    | -----------------------------------------------  |
 |  NeverPublished              | L’offre n’a jamais été publiée.                  |
 |  NotStarted                  | L’offre est nouvelle, mais n’a pas démarré.                 |

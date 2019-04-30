@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: bwren
 ms.openlocfilehash: dead1fae9bc3287ed0fc80c6120914e965ef96dd
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59493023"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61341881"
 ---
 # <a name="reference-guide-to-view-designer-visualization-parts-in-azure-monitor"></a>Guide de référence sur les composants de visualisation de Concepteur de vues dans Azure Monitor
 En utilisant le Concepteur de vues dans Azure Monitor, vous pouvez créer une variété de vues personnalisées dans le portail Azure qui peut vous aider à visualiser les données dans votre espace de travail Analytique de journal. Cet article est un guide de référence pour les paramètres des composants de visualisation disponibles dans vos vues personnalisées.
@@ -143,7 +143,7 @@ L’en-tête affiche un nombre unique qui résume une colonne de valeur dans une
 | Interroger |Requête à exécuter pour obtenir l’anneau. La première propriété est une valeur de texte et la seconde une valeur numérique. |
 | Navigation par clic | Action effectuée lorsque vous cliquez sur l’en-tête.  Pour plus d’informations, consultez [Paramètres courants](#click-through-navigation). |
 | **Anneau** |**&gt; Centrer** |
-| Texte |Texte affiché sous la valeur à l’intérieur de l’anneau. |
+| Text |Texte affiché sous la valeur à l’intérieur de l’anneau. |
 | Opération |Opération à effectuer sur la valeur de propriété afin de la résumer en une valeur unique.<ul><li>Somme : additionne les valeurs de tous les enregistrements.</li><li>Pourcentage : proportion des enregistrements retournés par les valeurs figurant dans **Valeurs de résultat utilisées dans l’opération relative au centre** par rapport au nombre total d’enregistrements dans la requête.</li></ul> |
 | Valeurs de résultat utilisées dans l’opération relative au centre |Vous pouvez sélectionner le signe plus (+) pour ajouter une ou plusieurs valeurs. Les résultats de la requête sont alors limités aux enregistrements dont vous avez spécifié les valeurs de propriété. Si aucune valeur n’est ajoutée, tous les enregistrements sont inclus dans la requête. |
 | **Options supplémentaires** |**&gt; Couleurs** |

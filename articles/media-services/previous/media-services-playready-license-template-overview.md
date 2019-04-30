@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: d2831472bcddf3480a87e69661b39e4ec715c786
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58257693"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61463206"
 ---
 # <a name="media-services-playready-license-template-overview"></a>Présentation du modèle de licence PlayReady de Media Services
 Azure Media Services fournit à présent un service pour la distribution de licences PlayReady. Lorsque le lecteur (par exemple Silverlight) tente de lire votre contenu PlayReady protégé, une requête est envoyée au service de remise des licences pour obtenir une licence. Si le service de licence approuve la requête, il émet la licence qui est envoyée au client et sert à déchiffrer et lire le contenu spécifié.

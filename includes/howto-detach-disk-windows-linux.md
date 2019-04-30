@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/25/2018
 ms.author: cynthn
 ms.openlocfilehash: c97c94492417dcc87d34751908f1766393ad37ed
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58115278"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61476253"
 ---
 Lorsque vous n’avez plus besoin d’un disque de données qui est attaché à une machine virtuelle, vous pouvez le détacher facilement. Détacher un disque supprime le disque de la machine virtuelle, mais ne supprime pas le disque du compte de stockage Azure.
 
@@ -28,7 +28,7 @@ Si vous ne connaissez pas le nom du disque ou souhaitez le vérifier avant de le
 
 3. Cliquez sur **Disques** sur le bord gauche du tableau de bord de la machine virtuelle, sous **Paramètres**.
 
-   Ce tableau de bord de machine virtuelle répertorie le nom et le type de tous les disques attachés. Par exemple, cet écran affiche une machine virtuelle avec un disque de système d’exploitation et un disque de données :
+ Ce tableau de bord de machine virtuelle répertorie le nom et le type de tous les disques attachés. Par exemple, cet écran affiche une machine virtuelle avec un disque de système d’exploitation et un disque de données :
 
     ![Rechercher un disque de données](./media/howto-detach-disk-windows-linux/vmwithdisklist.png)
 
@@ -39,14 +39,14 @@ Si vous ne connaissez pas le nom du disque ou souhaitez le vérifier avant de le
 
 3. Cliquez sur le disque que vous souhaitez détacher.
 
-   ![Identification du disque à détacher](./media/howto-detach-disk-windows-linux/disklist.png)
+  ![Identification du disque à détacher](./media/howto-detach-disk-windows-linux/disklist.png)
 
 4. Dans la barre de commandes, cliquez sur **Détacher**.
 
-   ![Localiser la commande de détachement](./media/howto-detach-disk-windows-linux/diskdetachcommand.png)
+  ![Localiser la commande de détachement](./media/howto-detach-disk-windows-linux/diskdetachcommand.png)
 
 5. Dans la fenêtre de confirmation, cliquez sur **Oui** pour détacher le disque.
 
-   ![Confirmation du détachement du disque](./media/howto-detach-disk-windows-linux/confirmdetach.png)
+  ![Confirmation du détachement du disque](./media/howto-detach-disk-windows-linux/confirmdetach.png)
 
 Le disque reste dans le stockage, mais il n’est plus attaché à une machine virtuelle.

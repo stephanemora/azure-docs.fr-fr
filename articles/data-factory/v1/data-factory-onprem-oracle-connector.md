@@ -14,11 +14,11 @@ ms.date: 05/15/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 4ff7f92d1d13966be5d17f37210bef961f64faf2
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58084604"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61462387"
 ---
 # <a name="copy-data-to-or-from-oracle-on-premises-by-using-azure-data-factory"></a>Copier des données vers ou à partir d’une instance locale d’Oracle à l’aide d’Azure Data Factory
 
@@ -153,7 +153,7 @@ La section **typeProperties** est différente pour chaque type de jeu de donnée
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| TableName |Nom de la table dans la base de données Oracle à laquelle le service lié fait référence. |Non (si **oracleReaderQuery** ou **OracleSource** est spécifié) |
+| tableName |Nom de la table dans la base de données Oracle à laquelle le service lié fait référence. |Non (si **oracleReaderQuery** ou **OracleSource** est spécifié) |
 
 ## <a name="copy-activity-properties"></a>Propriétés de l’activité de copie
 
@@ -599,27 +599,27 @@ Quand vous déplacez des données à partir d’Oracle, les mappages suivants so
 | --- | --- |
 | BFILE |Byte[] |
 | BLOB |Byte[]<br/>(uniquement pris en charge sur Oracle 10g et versions ultérieures lorsque vous utilisez le pilote Microsoft) |
-| CHAR |Chaîne |
-| CLOB |Chaîne |
+| CHAR |String |
+| CLOB |String |
 | DATE |DateTime |
 | FLOAT |Décimale, chaîne (si précision > 28) |
 | INTEGER |Décimale, chaîne (si précision > 28) |
 | INTERVAL YEAR TO MONTH |Int32 |
 | INTERVAL DAY TO SECOND |intervalle de temps |
-| LONG |Chaîne |
+| LONG |String |
 | LONG RAW |Byte[] |
-| NCHAR |Chaîne |
-| NCLOB |Chaîne |
+| NCHAR |String |
+| NCLOB |String |
 | NUMBER |Décimale, chaîne (si précision > 28) |
-| NVARCHAR2 |Chaîne |
+| NVARCHAR2 |String |
 | RAW |Byte[] |
-| ROWID |Chaîne |
+| ROWID |String |
 | TIMESTAMP |DateTime |
 | TIMESTAMP WITH LOCAL TIME ZONE |DateTime |
 | TIMESTAMP WITH TIME ZONE |DateTime |
 | UNSIGNED INTEGER |NUMBER |
-| VARCHAR2 |Chaîne |
-| XML |Chaîne |
+| VARCHAR2 |String |
+| XML |String |
 
 > [!NOTE]
 > Les types de données **INTERVAL YEAR TO MONTH** et **INTERVAL DAY TO SECOND** ne sont pas pris en charge lors de l’utilisation du pilote Microsoft.

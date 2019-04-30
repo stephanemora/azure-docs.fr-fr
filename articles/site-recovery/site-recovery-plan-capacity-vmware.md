@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 4/9/2019
 ms.topic: conceptual
 ms.author: ramamill
-ms.openlocfilehash: c198e6cd9d5c5e0aca69491db9df5d0ab8e08c7a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 7b10db06ab4ade1b23985b1a259d82d4818941b1
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59358014"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62124964"
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-disaster-recovery-to-azure"></a>Planifier la capacité et la mise à l’échelle pour la récupération d’urgence VMware vers Azure
 
@@ -120,7 +120,7 @@ Avant de configurer l’infrastructure Azure Site Recovery, accédez à l’envi
 
 ## <a name="deploy-additional-process-servers"></a>Déployer d’autres serveurs de traitement
 
-Si vous faites monter en charge votre déploiement au-delà de 200 machines sources, ou si votre taux d’activités quotidien dépasse 2 To, vous devez ajouter des serveurs de processus pour gérer le volume du trafic. Pour savoir comment configurer le serveur de processus, voir [Ajouter des serveurs de processus supplémentaires pour augmenter la capacité de restauration automatique](vmware-azure-set-up-process-server-scale.md). Après avoir configuré le serveur de processus, vous pouvez migrer les machines sources pour l’utiliser.
+Si vous faites monter en charge votre déploiement au-delà de 200 machines sources, ou si votre taux d’activités quotidien dépasse 2 To, vous devez ajouter des serveurs de processus pour gérer le volume du trafic. Nous avons amélioré le produit pour fournir la version 9.24 [des conseils de produit](vmware-azure-manage-process-server.md#process-server-selection-guidance) quand vous devez configurer un serveur de processus de scale-out. [Configurer le serveur de processus](vmware-azure-set-up-process-server-scale.md) pour protéger les nouvelles machines source ou [équilibrer la charge](vmware-azure-manage-process-server.md#balance-the-load-on-process-server).
 
 ### <a name="migrate-machines-to-use-the-new-process-server"></a>Migrez les machines pour utiliser le nouveau serveur de traitement
 

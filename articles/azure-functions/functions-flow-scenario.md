@@ -12,12 +12,12 @@ ms.date: 12/14/2017
 ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: ''
-ms.openlocfilehash: 662c78fc7074b0dafc53c393962aa4b578779095
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
-ms.translationtype: HT
+ms.openlocfilehash: 31e18285bf6211e73d994e037a91adc396972715
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092256"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62106968"
 ---
 # <a name="call-a-function-from-microsoft-flow"></a>Appeler une fonction à partir de Microsoft Flow
 
@@ -36,7 +36,7 @@ Dans cette rubrique, vous allez apprendre à :
 > * Créer un flux pour envoyer un e-mail si une réparation est rentable
 > * Exécuter le flux
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 + Un [compte Microsoft Flow](https://flow.microsoft.com/documentation/sign-up-sign-in/) actif avec les mêmes informations d’identification que votre compte Azure. 
 + SharePoint, que vous utilisez comme source de données pour ce flux. Inscrivez-vous à un [essai gratuit d’Office 365](https://signup.microsoft.com/Signup?OfferId=467eab54-127b-42d3-b046-3844b860bebf&dl=O365_BUSINESS_PREMIUM&ali=1) si vous n’avez pas encore SharePoint.
@@ -132,7 +132,7 @@ Dans un premier temps, vous créez un flux entièrement (sans modèle) et ajoute
 
     ![Ajouter une condition](media/functions-flow-scenario/add-condition.png)
 
-    Microsoft Flow ajoute deux branches au flux : **Si Oui** et **Si Non**. Vous ajoutez des étapes à une ou aux deux branches après avoir défini la condition à vérifier.
+    Microsoft Flow ajoute deux branches au flux : **Dans l’affirmative** et **si aucun**. Vous ajoutez des étapes à une ou aux deux branches après avoir défini la condition à vérifier.
 
     ![Branches de la condition](media/functions-flow-scenario/condition-branches.png)
 

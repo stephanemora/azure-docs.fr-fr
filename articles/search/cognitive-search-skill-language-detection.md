@@ -12,11 +12,11 @@ ms.date: 02/25/2019
 ms.author: luisca
 ms.custom: seodec2018
 ms.openlocfilehash: 605f4c639cfc8c0f9732f7347532e1bd7edc055f
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57404652"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61341623"
 ---
 #   <a name="language-detection-cognitive-skill"></a>Compétence cognitive Détection de la langue
 
@@ -43,7 +43,7 @@ Les paramètres respectent la casse.
 
 | Entrées     | Description |
 |--------------------|-------------|
-| texte | Texte à analyser.|
+| text | Texte à analyser.|
 
 ## <a name="skill-outputs"></a>Sorties de la compétence
 

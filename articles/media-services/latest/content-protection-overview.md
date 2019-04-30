@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 04/21/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 984c5d6b5e6e2010489533a3889501c5b524a6bd
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
-ms.translationtype: MT
+ms.openlocfilehash: 40e7ebcddb5cc215e071f1a34dfa8f3f4ea95141
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311320"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62103713"
 ---
 # <a name="content-protection-with-dynamic-encryption"></a>Protection du contenu avec chiffrement dynamique
 
@@ -206,6 +206,9 @@ Si vous obtenez le `MPE_ENC_ENCRYPTION_NOT_SET_IN_DELIVERY_POLICY` erreur, veill
 
 Si vous obtenez des erreurs qui se terminent par `_NOT_SPECIFIED_IN_URL`, assurez-vous que vous spécifiez le format de chiffrement dans l’URL. Par exemple : `…/manifest(format=m3u8-cmaf,encryption=cbcs-aapl)`. Consultez [protocoles et types de chiffrement de diffusion en continu](#streaming-protocols-and-encryption-types).
 
+## <a name="provide-feedback"></a>Fournir des commentaires
+
+Découvrez l’article [Communauté Azure Media Services](media-services-community.md) pour découvrir les différentes façons dont vous pouvez poser des questions, faire des commentaires et obtenir des mises à jour sur Media Services.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

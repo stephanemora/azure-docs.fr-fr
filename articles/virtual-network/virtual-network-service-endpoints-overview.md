@@ -1,5 +1,5 @@
 ---
-title: Points de terminaison du service de réseau virtuel Azure
+title: Points de terminaison de service de réseau virtuel Azure
 titlesuffix: Azure Virtual Network
 description: Découvrez comment activer l’accès direct aux ressources Azure à partir d’un réseau virtuel à l’aide de points de terminaison de service.
 services: virtual-network
@@ -14,11 +14,11 @@ ms.date: 08/15/2018
 ms.author: sumeet.mittal
 ms.custom: ''
 ms.openlocfilehash: 73621c3bbab7f0c49feacab29e1e5de1792b80e4
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59618156"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61032571"
 ---
 # <a name="virtual-network-service-endpoints"></a>Points de terminaison de service de réseau virtuel
 
@@ -144,7 +144,7 @@ Pour des questions fréquentes, consultez les [FAQ de point de terminaison de se
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Découvrez comment [configurer des points de terminaison de service de réseau virtuel](tutorial-restrict-network-access-to-resources.md)
+- Découvrez comment [configurer des points de terminaison de service de réseau virtuel](tutorial-restrict-network-access-to-resources.md).
 - Découvrez comment [sécuriser un compte de stockage Azure pour un réseau virtuel](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - Découvrez comment [sécuriser une base de données Azure SQL Database pour un réseau virtuel](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - Découvrez comment [sécuriser un Azure SQL Data Warehouse pour un réseau virtuel](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fsql-data-warehouse%2ftoc.json)

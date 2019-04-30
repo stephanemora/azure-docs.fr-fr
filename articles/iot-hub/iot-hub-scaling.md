@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: wesmc
-ms.openlocfilehash: 8be2e59898ea5fcca1dbf1710974d0420941973e
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 49e0db690818e67f96f5bcefa4f581b1db6da451
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60002134"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62125574"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Choisir le niveau IoT Hub correspondant à votre solution
 
@@ -83,7 +83,7 @@ La différence de fonctionnalités prises en charge entre les niveaux de base et
 | [Envoyer un événement d’appareil](https://docs.microsoft.com/rest/api/iothub/device/senddeviceevent) | Oui | Oui |
 | Envoyer un événement de module | Oui | Oui |
 | [Mettre à jour l’état de chargement des fichiers](https://docs.microsoft.com/rest/api/iothub/device/updatefileuploadstatus) | Oui | Oui |
-| [Opération sur l’appareil en bloc](/rest/api/iot-dps/runbulkenrollmentoperation/runbulkenrollmentgroupoperation) | Oui, à l’exception des fonctionnalités IoT Edge | Oui | 
+| [Opération sur l’appareil en bloc](/rest/api/iot-dps/runbulkenrollmentgroupoperation/runbulkenrollmentgroupoperation) | Oui, à l’exception des fonctionnalités IoT Edge | Oui | 
 | [Purger la file d’attente de commandes](https://docs.microsoft.com/rest/api/iothub/service/purgecommandqueue) |   | Oui |
 | [Obtenir un jumeau d’appareil](https://docs.microsoft.com/rest/api/iothub/service/gettwin) |   | Oui |
 | Obtenir un jumeau de module |   | Oui |

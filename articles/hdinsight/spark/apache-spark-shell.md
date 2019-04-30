@@ -1,7 +1,6 @@
 ---
 title: Utiliser un interpréteur de commandes Spark interactif dans Azure HDInsight
 description: Un interpréteur de commandes Spark interactif fournit un processus de lecture-exécution-impression pour l’exécution des commandes Spark les unes après les autres et l’affichage des résultats.
-services: hdinsight
 ms.service: hdinsight
 author: maxluk
 ms.author: maxluk
@@ -9,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/09/2018
-ms.openlocfilehash: 3da6260faa87aecb7eb13f16386006e0c856d46b
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 9044ed3ad9cf9ffa2f54d130bb50b37df121b86f
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653847"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62116071"
 ---
 # <a name="run-apache-spark-from-the-spark-shell"></a>Exécuter Apache Spark depuis l’interpréteur de commandes Spark
 

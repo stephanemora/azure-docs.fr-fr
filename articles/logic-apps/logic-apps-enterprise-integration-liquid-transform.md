@@ -10,11 +10,11 @@ ms.suite: integration
 ms.topic: article
 ms.date: 08/16/2018
 ms.openlocfilehash: 5472a8ce2670a34174d6d39f0d90faca8a7002ad
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58292884"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61467533"
 ---
 # <a name="perform-advanced-json-transformations-with-liquid-templates-in-azure-logic-apps"></a>Effectuez des transformations JSON avancées avec des modèles Liquid dans Azure Logic Apps
 
@@ -70,7 +70,7 @@ Avant de pouvoir effectuer une transformation Liquid dans votre application logi
 
    | Propriété | Valeur | Description | 
    |----------|-------|-------------|
-   | **Nom** | JsonToJsonTemplate | Nom de votre mappage (« JsontoJsonTemplate » dans cet exemple) | 
+   | **Name** | JsonToJsonTemplate | Nom de votre mappage (« JsontoJsonTemplate » dans cet exemple) | 
    | **Type de mappage** | **liquid** | Type de votre mappage. Pour une transformation JSON à JSON, vous devez sélectionner **liquid**. | 
    | **Map** | « SimpleJsonToJsonTemplate.liquid » | Fichier de modèle ou de mappage Liquid existant à utiliser pour la transformation (« SimpleJsonToJsonTemplate.liquid » dans cet exemple). Pour trouver ce fichier, vous pouvez utiliser le sélecteur de fichiers. |
    ||| 

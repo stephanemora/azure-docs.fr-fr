@@ -10,11 +10,11 @@ ms.date: 03/27/2017
 ms.author: saudas
 ms.custom: mvc
 ms.openlocfilehash: 342cf23db2df7d7c79a2b56df96d1a78d6ba215e
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52998139"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61467711"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-cluster-with-elk"></a>(DÉPRÉCIÉ) Superviser un cluster Azure Container Service avec ELK
 
@@ -22,7 +22,7 @@ ms.locfileid: "52998139"
 
 Dans cet article, nous montrons comment déployer la pile ELK (Elasticsearch, Logstash, Kibana) sur un cluster DC/OS dans Azure Container Service. 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 [Déployez](container-service-deployment.md) et [connectez](../container-service-connect.md) un cluster DC/OS configuré par Azure Container Service. Explorez le tableau de bord DC/OS et les services Marathon [ici](container-service-mesos-marathon-ui.md). Installez également [l’équilibrage de charge Marathon](container-service-load-balancing.md).
 
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 96432abe619ea23c1a06735567d00660e5430550
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.openlocfilehash: 5a293946e4672e7737f912f42511ad0907ba4a81
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38633279"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61293944"
 ---
 # <a name="use-azure-devtest-labs-for-developers"></a>Utiliser Azure DevTest Labs pour développeurs
 Azure Labs DevTest peut être utilisé pour implémenter de nombreux scénarios clés, dont celui qui implique l’utilisation de DevTest Labs dans l’hébergement d’ordinateurs de développement pour les développeurs. Dans ce scénario, DevTest Labs offre les avantages suivants :
@@ -54,7 +54,7 @@ Cet article présente les différentes fonctionnalités d’Azure DevTest Labs q
    
    | Tâche | Contenu |
    | --- | --- |
-   | [Configurer des images Place de marché Azure](devtest-lab-configure-marketplace-images.md) |Apprenez à ajouter à la liste verte des images de la Place de marché Azure afin que seules les images souhaitées pour les développeurs soient sélectionnables.|
+   | [Configurer des images Place de marché Azure](devtest-lab-configure-marketplace-images.md) |Apprenez à ajouter à la liste blanche des images de la Place de marché Azure afin que seules les images souhaitées pour les développeurs soient sélectionnables.|
    | [Créer une image personnalisée](devtest-lab-create-template.md) |Créez une image personnalisée en préinstallant les logiciels dont vous avez besoin afin que les développeurs puissent créer rapidement une machine virtuelle à l’aide de cette image.|
    | [En savoir sur la fabrique d’images](https://blogs.msdn.microsoft.com/devtestlab/2017/04/17/video-custom-image-factory-with-azure-devtest-labs/) |Visionnez une vidéo explicative sur la configuration et l’utilisation d’une fabrique d’images.|
 

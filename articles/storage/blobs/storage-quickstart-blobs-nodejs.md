@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 02/04/2019
 ms.author: tamram
 ms.openlocfilehash: 182315c705360d254c3bf342cd9c64ffafa0c021
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55750072"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62121536"
 ---
 # <a name="how-to-upload-download-and-list-blobs-using-the-client-library-for-nodejs-v2"></a>Guide pratique pour charger, télécharger et lister des objets blob à l’aide de la bibliothèque de client pour Node.js v2
 
@@ -22,7 +22,7 @@ Dans ce guide pratique, vous allez découvrir comment utiliser la bibliothèque 
 > [!TIP]
 > La dernière version de la bibliothèque de client pour Node.js du service Stockage Azure est la version 10. Si possible, Microsoft vous recommande d’utiliser la dernière version de la bibliothèque de client. Pour vous familiariser avec la version 10, reportez-vous à [Démarrage rapide : Charger, télécharger, lister et supprimer des objets blob à l’aide de la bibliothèque de client Azure Storage pour JavaScript v10 (préversion)](storage-quickstart-blobs-nodejs-v10.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 

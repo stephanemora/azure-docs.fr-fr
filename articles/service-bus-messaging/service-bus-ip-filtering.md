@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 52475a3976ef8897ffed07c499eb06e7476c0156
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 540435e3e018ae77477030ae8b9f727d71782121
+ms.sourcegitcommit: a95dcd3363d451bfbfea7ec1de6813cad86a36bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/23/2019
-ms.locfileid: "60310976"
+ms.locfileid: "62736809"
 ---
 # <a name="use-firewall-rules"></a>Utiliser des règles de pare-feu
 
@@ -149,7 +149,7 @@ Pour déployer le modèle, suivez les instructions pour [Azure Resource Manager]
 
 Pour limiter l’accès à Service Bus aux réseaux virtuels Azure, consultez le lien suivant :
 
-- [Points de terminaison du service de réseau virtuel pour Service Bus][lnk-vnet]
+- [Points de terminaison de service de réseau virtuel pour Service Bus][lnk-vnet]
 
 <!-- Links -->
 

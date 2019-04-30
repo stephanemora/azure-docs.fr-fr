@@ -16,11 +16,11 @@ ms.topic: conceptual
 ms.date: 3/13/2019
 ms.author: banders
 ms.openlocfilehash: b910cb3061b1451ea80b9843e2aa4047a784548f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57876865"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60918742"
 ---
 # <a name="add-update-or-remove-a-credit-or-debit-card-for-azure"></a>Ajouter, mettre à jour ou supprimer une carte de crédit ou débit pour Azure
 
@@ -40,7 +40,7 @@ Dans le portail Azure, vous pouvez ajouter une nouvelle carte de crédit, mettre
     ![Capture d’écran montrant la recherche](./media/billing-how-to-change-credit-card/search.png)
 
 1. Sélectionnez l’abonnement que vous souhaitez ajouter la carte de crédit à.
-1. Sélectionnez **modes de paiement**.
+1. Sélectionnez **Modes de paiement**.
 
     ![Capture d’écran qui montre l’option Gérer les modes de paiement sélectionnée.](./media/billing-how-to-change-credit-card/payment-methods-blade-x.png)
 
@@ -64,7 +64,7 @@ Si votre carte de crédit en cas de renouvellement et le nombre reste la même, 
 
     ![Capture d’écran montrant la recherche](./media/billing-how-to-change-credit-card/search.png)
 
-1. Sélectionnez **modes de paiement**.
+1. Sélectionnez **Modes de paiement**.
 
     ![Capture d’écran qui montre l’option Gérer les modes de paiement sélectionnée.](./media/billing-how-to-change-credit-card/payment-methods-blade-x.png)
 
@@ -85,7 +85,7 @@ Si plusieurs de vos abonnements ont la même méthode de paiement actif, puis en
     ![Capture d’écran montrant la recherche](./media/billing-how-to-change-credit-card/search.png)
 
 1. Sélectionnez l’abonnement que vous souhaitez ajouter la carte de crédit à.
-1. Sélectionnez **modes de paiement**.
+1. Sélectionnez **Modes de paiement**.
 
     ![Capture d’écran qui montre l’option Gérer les modes de paiement sélectionnée.](./media/billing-how-to-change-credit-card/payment-methods-blade-x.png)
 

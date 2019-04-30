@@ -10,11 +10,11 @@ ms.date: 08/08/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: b53cb65ec99637dadb16ed9d97c495571be956d7
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57451193"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61073895"
 ---
 # <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-state-configuration-and-chocolatey"></a>Exemple d’utilisation : déploiement continu sur des machines virtuelles à l’aide d’Automation State Configuration et Chocolatey
 
@@ -180,7 +180,7 @@ Ces étapes génèrent une nouvelle configuration de nœud nommée « ISVBoxCon
 Pour chaque package que vous placez dans le référentiel de packages, vous avez besoin d’un nuspec descriptif.
 Ce nuspec doit être compilé et stocké sur votre serveur NuGet. Cette opération est décrite [ici](https://docs.nuget.org/create/creating-and-publishing-a-package). Vous pouvez utiliser MyGet.org comme serveur NuGet. Bien que ce service soit payant, ils proposent gratuitement une référence SKU pour débutants. Rendez-vous sur NuGet.org pour obtenir des instructions sur l’installation de votre propre serveur NuGet pour vos packages privés.
 
-## <a name="step-6-tying-it-all-together"></a>Étape 6 : Exemple complet
+## <a name="step-6-tying-it-all-together"></a>Étape 6 : Exemple complet
 
 Chaque fois qu'une version passe l'assurance qualité et est approuvée pour le déploiement, le package est créé, nuspec et nupkg sont mis à jour et déployés sur le serveur NuGet. En outre, la configuration (étape 4 ci-dessus) doit être mise à jour pour correspondre au nouveau numéro de version. Elle doit être envoyée au serveur d’extraction puis compilée.
 À ce stade, les machines virtuelles qui dépendent de cette configuration doivent extraire la mise à jour et l'installer. Chacune de ces mises à jour est simple et ne nécessite qu’une ou deux lignes PowerShell. Dans le cas d’Azure DevOps, certaines d’entre elles sont encapsulées dans les tâches de génération et peuvent être chaînées dans une build. Cet [article](https://www.visualstudio.com/docs/alm-devops-feature-index#continuous-delivery) fournit plus de détails. Ce [référentiel GitHub](https://github.com/Microsoft/vso-agent-tasks) détaille les différentes tâches de génération disponibles.

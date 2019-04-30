@@ -2,18 +2,19 @@
 title: Modèles de conception de table de stockage Azure | Microsoft Docs
 description: Utilisez des modèles pour les solutions de service de Table Azure.
 services: storage
-author: tamram
+author: WenJason
 ms.service: storage
 ms.topic: article
-ms.date: 04/08/2019
-ms.author: tamram
+origin.date: 04/08/2019
+ms.date: 04/22/2019
+ms.author: v-jay
 ms.subservice: tables
 ms.openlocfilehash: a428abd95f955a16d03c4ab86f05644f6db65da5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59271626"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62101425"
 ---
 # <a name="table-design-patterns"></a>Modèles de conception de table
 Cet article décrit certains modèles adaptés aux solutions de service de Table. Par ailleurs, il explique comment traiter certains problèmes et compromis abordés dans les autres articles de conception de stockage de table. Le diagramme suivant récapitule les relations entre les différents modèles :  
@@ -348,7 +349,7 @@ Vous pouvez récupérer la valeur de date-heure en utilisant le code suivant :
 
 La requête de table ressemble à ceci :  
 
-`https://myaccount.table.core.windows.net/EmployeeExpense(PartitionKey='empid')?$top=10`  
+`https://myaccount.table.core.chinacloudapi.cn/EmployeeExpense(PartitionKey='empid')?$top=10`  
 
 ### <a name="issues-and-considerations"></a>Problèmes et considérations
 Prenez en compte les points suivants lorsque vous choisissez comment implémenter ce modèle :  

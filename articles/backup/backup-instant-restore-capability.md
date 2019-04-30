@@ -6,14 +6,14 @@ author: sogup
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 04/05/2019
+ms.date: 04/23/2019
 ms.author: sogup
-ms.openlocfilehash: 3aceffa719ef8938aa049f126231f8628822566b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c375eac0de3dd89986421f8c6628d0a13784a60d
+ms.sourcegitcommit: a95dcd3363d451bfbfea7ec1de6813cad86a36bb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59794775"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62733871"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Améliorer les performances de sauvegarde et de restauration avec la fonctionnalité de restauration instantanée de Sauvegarde Azure
 
@@ -24,7 +24,7 @@ Le nouveau modèle pour la restauration instantanée fournit les améliorations 
 
 * Possibilité d’utiliser des instantanés pris dans le cadre d’une tâche de sauvegarde qui peut être récupérée sans attendre la fin du transfert des données dans le coffre. Cela réduit le temps d’attente pour la copie des instantanés dans le coffre avant de déclencher la restauration.
 * Réduit les temps de sauvegarde et de restauration en conservant les instantanés localement pendant deux jours par défaut. Cette valeur de rétention de capture instantanée par défaut est configurable à n’importe quelle valeur comprise entre 1 à 5 jours.
-* Prise en charge des disques d’une taille maximale de 4 To Sauvegarde Azure ne prend pas en charge les disques agrégés par bandes. Redimensionnement du disque n’est pas recommandé par sauvegarde Azure.
+* Prise en charge des disques d’une taille maximale de 4 To Redimensionnement du disque n’est pas recommandé par sauvegarde Azure.
 * Prend en charge les disques SSD Standard, ainsi que les disques de disque dur Standard et Premium SSD.
 *   Possibilité d’utiliser les comptes de stockage d’origine d’une machine virtuelle non gérée (par disque) lors de la restauration. Cette possibilité existe même quand la machine virtuelle a des disques répartis entre des comptes de stockage. Ceci accélère les opérations de restauration pour une grande variété de configurations de machine virtuelle.
 
@@ -47,15 +47,15 @@ Par défaut, les instantanés sont conservés pendant deux jours. Cette fonction
 * Les instantanés sont stockés avec les disques afin d’accélérer la création des points de récupération et les opérations de restauration. Vous voyez donc des coûts de stockage correspondant aux instantanés pris pendant cette période.
 * Les instantanés incrémentiels sont stockés sous la forme d’objets blob de pages. Tout utilisateur qui utilise des disques non managés est facturé pour les instantanés stockés dans son compte de stockage local. Étant donné que les collections de points de restauration utilisées par les sauvegardes de machine virtuelle managée utilisent des instantanés d’objet blob au niveau du stockage sous-jacent, pour les disques managés vous voyez les coûts correspondant au tarif de l’instantané d’objet blob et ils sont incrémentiels.
 * Pour les comptes de stockage premium, les instantanés pris pour le nombre de points de récupération instantanée dans le nombre maximal de 10 To de l’espace alloué.
-* Vous pouvez configurer la rétention des instantanés en fonction des besoins de restauration. Selon vos exigences, vous pouvez définir la rétention des instantanés pendant au moins un jour dans le panneau de stratégie de sauvegarde, comme cela est expliqué ci-dessous. Cela peut vous aider à réduire les coûts de rétention des instantanés si vous n’effectuez pas fréquemment de restaurations.
-* Il s’agit d’une mise à un niveau directionnel, une fois mis à niveau vers la restauration instantanée, vous ne pouvez pas revenir en arrière.
+* Vous pouvez configurer la rétention des instantanés en fonction des besoins de restauration. Selon vos exigences, vous pouvez définir la rétention des instantanés pendant au moins un jour dans le panneau de stratégie de sauvegarde, comme cela est expliqué ci-dessous. Cela vous aidera à réduire les coûts de rétention des captures instantanées si vous n’effectuez fréquemment les restaurations.
+* Il est une mise à un niveau directionnel, une fois mis à niveau vers la restauration instantanée, vous ne pouvez pas revenir en arrière.
 
 >[!NOTE]
 >Avec cette mise à niveau de restauration instantanée, la durée de rétention d’instantanés de tous les clients (**tant nouveaux et qu’existants**) est définie sur une valeur par défaut de deux jours. Vous pouvez cependant définir une durée de 1 à 5 jours en fonction de vos besoins.
 
 ## <a name="cost-impact"></a>Impact sur les coûts
 
-Les instantanés incrémentiels sont stockés dans le compte de stockage de la machine virtuelle et sont utilisés pour la récupération instantanée. Le fait que l’instantané soit incrémentiel signifie que l’espace occupé par un instantané est égal à l’espace occupé par les pages qui sont écrites après la création de l’instantané. La facturation concerne toujours l’espace utilisé (par Go) occupé par l’instantané, et le prix par Go est identique à celui mentionné dans la [page de tarification](https://azure.microsoft.com/pricing/details/managed-disks/).
+Les captures instantanées incrémentielles sont stockées dans le compte de stockage des machines virtuelles, qui est utilisé pour la récupération instantanée. Le fait que l’instantané soit incrémentiel signifie que l’espace occupé par un instantané est égal à l’espace occupé par les pages qui sont écrites après la création de l’instantané. La facturation concerne toujours l’espace utilisé (par Go) occupé par l’instantané, et le prix par Go est identique à celui mentionné dans la [page de tarification](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 >[!NOTE]
 > Rétention des captures instantanées est fixée à 5 jours pour les stratégies hebdomadaire.

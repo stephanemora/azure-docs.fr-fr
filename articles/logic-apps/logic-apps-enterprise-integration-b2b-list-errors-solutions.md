@@ -9,12 +9,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 06/02/2017
-ms.openlocfilehash: 11fbec81e88eec6c7daa9136eb5421387b79d71c
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
-ms.translationtype: HT
+ms.openlocfilehash: f0591b47ce7ba6837f300088c856c0098fb66710
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43124332"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60998813"
 ---
 # <a name="b2b-errors-and-solutions-for-azure-logic-apps"></a>Erreurs et solutions B2B pour Azure Logic Apps
 
@@ -34,7 +34,7 @@ Cet article vous aide à comprendre les erreurs qui peuvent se produire dans le 
 
 |   |   | 
 |---|---|
-| Description de l’erreur | Aucun accord trouvé avec les identités : ’AS2Identity’::’Partner1’ et ’AS2Identity’::’Partner3’. | 
+| Description de l’erreur | Aucun accord trouvé avec les identités : 'AS2Identity'::'Partner1' and'AS2Identity'::'Partner3' | 
 | Action requise | En-tête AS2-From ou AS2-To non valide configuré pour l’accord. </br>Corriger les en-têtes « AS2-From » ou « AS2-To » du message AS2 ou l’accord pour faire correspondre les ID AS2 des en-têtes du message AS2 avec les configurations de l’accord. |
 |   |   |     
 
@@ -145,7 +145,7 @@ Par exemple :
 
 |   |   | 
 |---|---|
-| Description de l’erreur | Modèle non valide. Impossible de traiter les expressions de langage de gabarit dans les entrées d’action ’Flat_File_Decoding’ à la ligne « 1 » et à la colonne « 1902 » : La propriété « content » requise attend une valeur, mais a reçu null. Chemin d’accès « . ». |
+| Description de l’erreur | Modèle non valide. Impossible de traiter les expressions de langage de modèle dans l’action 'Flat_File_Decoding' entrées à la ligne « 1 » et la colonne « 1902 » : ' Requis la propriété « content » attend une valeur, mais a reçu null. Chemin d’accès « . ». |
 | Action requise | Cette erreur indique que le message d’entrée ne contient pas de corps. |
 |   |   | 
 

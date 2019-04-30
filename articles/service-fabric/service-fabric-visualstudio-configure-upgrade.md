@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/29/2017
 ms.author: mikkelhegn
-ms.openlocfilehash: faf7fd137d5c1efcd425cf28fd4860c62a719a67
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: 79120371ca2a62e5ef9f2bf38476635db12e9fcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34211648"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61082837"
 ---
 # <a name="configure-the-upgrade-of-a-service-fabric-application-in-visual-studio"></a>Configuration de la mise à niveau d’une application Service Fabric dans Visual Studio
 Les outils Visual Studio pour Azure Service Fabric fournissent une prise en charge des mises à niveau pour la publication vers des clusters locaux ou distants. Voici les trois cas dans lesquels vous devriez mettre à niveau votre application vers une version plus récente au lieu de la remplacer durant les tests et le débogage :
@@ -31,7 +31,7 @@ Les outils Visual Studio pour Azure Service Fabric fournissent une prise en char
 ## <a name="parameters-needed-to-upgrade"></a>Paramètres nécessaires à la mise à niveau
 Vous avez le choix entre deux types de déploiement : standard ou mise à niveau. Un déploiement standard efface les informations relatives à tout déploiement précédent ainsi que les données du cluster, tandis qu’un déploiement de mise à niveau les conserve. Lorsque vous mettez à niveau une application Service Fabric dans Visual Studio, vous devez fournir les paramètres de mise à niveau de l'application et les stratégies de contrôle d’intégrité. Les paramètres de mise à niveau de l’application permettent de contrôler la mise à niveau, tandis que les stratégies de contrôle d’intégrité déterminent si la mise à niveau a réussi. Pour en savoir plus, consultez [Mise à niveau d’une application Service Fabric : paramètres de mise à niveau](service-fabric-application-upgrade-parameters.md) .
 
-Il existe trois modes de mise à niveau : *Monitored*, *UnmonitoredAuto* et *UnmonitoredManual*.
+Il existe trois modes de mise à niveau : *Surveillé*, *UnmonitoredAuto*, et *UnmonitoredManual*.
 
 * Une mise à niveau Monitored automatise la mise à niveau et le contrôle d’intégrité de l’application.
 * Une mise à niveau UnmonitoredAuto automatise la mise à niveau, mais ignore le contrôle d’intégrité de l’application.
@@ -66,7 +66,7 @@ Si vous utilisez les outils Service Fabric de Visual Studio pour mettre à nivea
 3. Si vous sélectionnez le mode de mise à niveau UnmonitoredManual, vous devrez démarrer manuellement une console PowerShell pour continuer et terminer le processus de mise à niveau. Pour en savoir plus sur le fonctionnement de la mise à niveau manuelle, consultez [Mise à niveau d’une application Service Fabric : rubriques avancées](service-fabric-application-upgrade-advanced.md) .
 
 ## <a name="upgrade-an-application-by-using-powershell"></a>Mettre à niveau une application à l’aide de PowerShell
-Vous pouvez utiliser les applets de commande PowerShell pour mettre à niveau une application Service Fabric. Pour plus d’informations, consultez [Didacticiel sur la mise à niveau d’une application Service Fabric](service-fabric-application-upgrade-tutorial.md) et [Start-ServiceFabricApplicationUpgrade](https://msdn.microsoft.com/library/mt125975.aspx).
+Vous pouvez utiliser les applets de commande PowerShell pour mettre à niveau une application Service Fabric. Pour plus d’informations, consultez [Didacticiel sur la mise à niveau d’une application Service Fabric](service-fabric-application-upgrade-tutorial.md) et [Start-ServiceFabricApplicationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricapplicationupgrade).
 
 ## <a name="specify-a-health-check-policy-in-the-application-manifest-file"></a>Spécifier une stratégie de contrôle d’intégrité dans le fichier manifeste d’application
 Chaque service d’une application Service Fabric peut avoir ses propres paramètres de stratégie de contrôle d'intégrité, qui remplacent alors les valeurs par défaut. Vous pouvez définir les valeurs de ces paramètres dans le fichier manifeste d’application.

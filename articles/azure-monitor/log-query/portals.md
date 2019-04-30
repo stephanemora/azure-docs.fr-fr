@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 04/05/2019
 ms.author: bwren
 ms.openlocfilehash: 0e5b9b43e528b37fd994f9131f145abadb33c53b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59798474"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61425932"
 ---
 # <a name="viewing-and-analyzing-log-data-in-azure-monitor"></a>Affichage et analyse de données de journal dans Azure Monitor
 Log Analytics est la principale expérience d'utilisation de données de journal et de création de requêtes dans Azure Monitor. Ouvrez Log Analytics à partir de **Journaux d’activité** dans le menu **Azure Monitor**. Vous pouvez obtenir une introduction à ce portail et inspecter ses fonctionnalités dans la section [Prise en main de Log Analytics dans le portail Azure](get-started-portal.md).

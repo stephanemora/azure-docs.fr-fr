@@ -11,11 +11,11 @@ ms.date: 04/20/2018
 ms.author: brjohnst
 ms.custom: seodec2018
 ms.openlocfilehash: 23003859b9a75fb986fe65f5528004f3dd150f9b
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53633042"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61126989"
 ---
 # <a name="upgrade-to-the-latest-azure-search-service-rest-api-version"></a>Mettre à niveau vers la version la plus récente de l’API REST du service Recherche Azure
 Si vous utilisez une version antérieure de [l’API REST du service Recherche Azure](https://docs.microsoft.com/rest/api/searchservice/), cet article vous aidera à mettre à niveau votre application pour utiliser la nouvelle version de l’API (2017-11-11).

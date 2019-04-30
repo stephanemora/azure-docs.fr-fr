@@ -11,12 +11,12 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: c9bcf48254d05ccb18abc55e49ea44b714b727cd
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
-ms.translationtype: HT
+ms.openlocfilehash: ffe2760c004db24d503ee381b8752c875c286fca
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35295252"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62105834"
 ---
 # <a name="get-started-with-the-mailchimp-connector"></a>Prise en main du connecteur MailChimp
 MailChimp est un service SaaS qui permet aux entreprises de gérer et d’automatiser les activités de marketing par courrier électronique, notamment l’envoi d’e-mails marketing, de messages automatisés et de campagnes ciblées.
@@ -28,7 +28,7 @@ Pour créer des applications logiques avec MailChimp, vous devez d’abord crée
 
 | Propriété | Obligatoire | Description |
 | --- | --- | --- |
-| par jeton |OUI |Fournir des informations d’identification MailChimp |
+| par jeton |Oui |Fournir des informations d’identification MailChimp |
 
 > [!INCLUDE [Steps to create a connection to MailChimp](../../includes/connectors-create-api-mailchimp.md)]
 > 

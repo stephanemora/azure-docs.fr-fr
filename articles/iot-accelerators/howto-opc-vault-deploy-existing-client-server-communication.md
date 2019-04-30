@@ -9,14 +9,14 @@ ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: 5ba2dba02585598b3797dd1b490976ebe34b489e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59495292"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61450662"
 ---
 # <a name="secure-opc-ua-client-and-opc-ua-server-application"></a>Sécuriser OPC UA client et l’application de serveur OPC UA 
-OPC Vault est un microservice qui peut configurer, inscrire et gérer le cycle de vie de certificat pour le serveur UA OPC et les applications clientes dans le cloud. Cet article vous montre comment sécuriser un client OPC UA et un OPC UA application serveur avec une nouvelle paire de clés et le certificat à l’aide d’OPC coffre.
+OPC Vault est un microservice qui peut configurer, inscrire et gérer le cycle de vie des certificats pour les applications serveur et clientes OPC UA dans le cloud. Cet article vous montre comment sécuriser un client OPC UA et un OPC UA application serveur avec une nouvelle paire de clés et le certificat à l’aide d’OPC coffre.
 
 Dans la configuration suivante, le client OPC teste la connectivité à la PLC OPC. Par défaut, la connectivité n’est pas possible, car les deux composants n’ont pas été approvisionnés avec les certificats de droite. Dans ce flux de travail, nous pas utiliser les certificats auto-signés de composants OPC UA et signez-les via OPC Vault. Consultez le précédent [banc d’essai](howto-opc-vault-deploy-existing-client-plc-communication.md). Au lieu de cela, cette banc d’essai configure les composants avec un nouveau certificat, ainsi qu’avec une nouvelle clé privée qui sont générés par OPC Vault. Vous trouverez des informations générales sur la sécurité de OPC UA dans ce [livre blanc](https://opcfoundation.org/wp-content/uploads/2014/05/OPC-UA_Security_Model_for_Administrators_V1.00.pdf). Vous trouverez les informations complètes dans la spécification OPC UA.
 

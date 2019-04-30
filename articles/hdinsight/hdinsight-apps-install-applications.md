@@ -1,7 +1,6 @@
 ---
 title: Installer des applications tierces sur Azure HDInsight
 description: Découvrez comment installer des applications Hadoop tierces sur Azure HDInsight.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: hrasheed
-ms.openlocfilehash: 810f9bb81d367cfe70e59d62d81a9e129cf80e6b
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
-ms.translationtype: MT
+ms.openlocfilehash: 7cbcc8ac05e4541406abd08c14006a8abc0c91ca
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225977"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62097353"
 ---
 # <a name="install-third-party-apache-hadoop-applications-on-azure-hdinsight"></a>Installer des applications Apache Hadoop tierces sur Azure HDInsight
 
@@ -87,13 +86,13 @@ Le portail affiche une liste des applications HDInsight installées pour un clus
     |Nom de l’application |Nom de l’application. |
     |Statut |État de l’application. |
     |Page web |L’URL de l’application web que vous avez déployée sur le nœud de périphérie. Les informations d’identification sont les mêmes que celles de l’utilisateur HTTP configurées pour le cluster. |
-    |Point de terminaison SSH |Vous pouvez utiliser SSH pour vous connecter au nœud de périphérie. Les informations d’identification sont les mêmes que celles de l’utilisateur SSH configurées pour le cluster. Pour plus d’informations, consultez [Utiliser SSH avec HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md). |
+    |Point de terminaison SSH |Vous pouvez utiliser SSH pour vous connecter au nœud de périphérie. Les informations d’identification sont les mêmes que celles de l’utilisateur SSH configurées pour le cluster. Pour en savoir plus, voir [Utilisation de SSH avec HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md). |
     |Description | Description de l’application. |
 
 6. Pour supprimer une application, cliquez avec le bouton droit sur l’application, puis sur **Supprimer** dans le menu contextuel.
 
 ## <a name="connect-to-the-edge-node"></a>Connexion au nœud de périmètre
-Vous pouvez vous connecter au nœud de périmètre à l’aide de HTTP et SSH. Vous trouverez les informations de point de terminaison sur le [portail](#list-installed-hdinsight-apps-and-properties). Pour plus d’informations, consultez [Utiliser SSH avec HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+Vous pouvez vous connecter au nœud de périmètre à l’aide de HTTP et SSH. Vous trouverez les informations de point de terminaison sur le [portail](#list-installed-hdinsight-apps-and-properties). Pour en savoir plus, voir [Utilisation de SSH avec HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 Les informations d’identification du point de terminaison HTTP sont les informations d’identification de l’utilisateur HTTP configurées pour le cluster HDInsight ; les informations d’identification du point de terminaison SSH sont les informations d’identification SSH configurées pour le cluster HDInsight.
 

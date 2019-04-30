@@ -13,11 +13,11 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 12/04/2018
 ms.openlocfilehash: 32df3e7ac6dc22e247bd4aecea4f39bf6d3a8017
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316862"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61475760"
 ---
 # <a name="installing-elastic-database-jobs-overview"></a>Vue d’ensemble de l’installation de Tâches de bases de données élastiques
 
@@ -92,17 +92,17 @@ Les paramètres fournis dans cet exemple d'appel peuvent être remplacés par le
 
 <tr>
     <td>SqlServerDatabaseSlo</td>
-    <td>Fournit la taille de calcul pour une édition Standard. Ce paramètre est défini par défaut sur la valeur S0. Valeurs de paramètre de... /.. /.. /.. / S9/S12 sont acceptées, ce qui provoque la base de données SQL Azure à utiliser la taille de calcul respectifs. Pour plus d’informations sur les tailles de calcul de SQL Database, consultez l’article <a href="https://docs.microsoft.com/azure/sql-database/sql-database-elastic-jobs-overview#components-and-pricing">Composants et tarification des tâches de bases de données élastiques</a>.</td>
+    <td>Fournit la taille de calcul pour une édition Standard. Ce paramètre est défini par défaut sur la valeur S0. Valeurs de paramètre de... /.. /.. /.. / S9/S12 sont acceptées, ce qui provoque la base de données SQL Azure à utiliser la taille de calcul respectifs. Pour plus d’informations sur les tailles de calcul de SQL Database, consultez l’article <a href="https://docs.microsoft.com/azure/sql-database/sql-database-elastic-jobs-overview#components-and-pricing">Composants et tarification des tâches de base de données élastiques</a>.</td>
 </tr>
 
 <tr>
     <td>SqlServerAdministratorUserName</td>
-    <td>Fournit le nom d'utilisateur administrateur du serveur de base de données SQL Azure nouvellement créé. S’il n’est pas spécifié, une fenêtre d'informations d'identification PowerShell apparaît et vous demande de fournir les informations d'identification.</td>
+    <td>Fournit le nom d'utilisateur administrateur du serveur Azure SQL Database nouvellement créé. S’il n’est pas spécifié, une fenêtre d'informations d'identification PowerShell apparaît et vous demande de fournir les informations d'identification.</td>
 </tr>
 
 <tr>
     <td>SqlServerAdministratorPassword</td>
-    <td>Fournit le mot de passe administrateur du serveur de base de données SQL Azure nouvellement créé. S’il n’est pas fourni, une fenêtre d'informations d'identification PowerShell apparaît et vous demande de fournir les informations d'identification.</td>
+    <td>Fournit le mot de passe administrateur du serveur Azure SQL Database nouvellement créé. S’il n’est pas fourni, une fenêtre d'informations d'identification PowerShell apparaît et vous demande de fournir les informations d'identification.</td>
 </tr>
 </table>
 
@@ -153,7 +153,7 @@ Une fois que vous avez [créé un pool élastique](sql-database-elastic-pool-man
 4. Dans la vue « Installer les services », cliquez sur **JOB CREDENTIALS**.
    
     ![Installation des serveurs][1]
-5. Tapez un nom d'utilisateur et un mot de passe d'administrateur de base de données. Dans le cadre de l'installation, un nouveau serveur de base de données SQL Azure est créé. Sur ce nouveau serveur, une nouvelle base de données, appelée base de données de contrôle, est créée et utilisée pour contenir les métadonnées des tâches de bases de données élastiques. Le nom d'utilisateur et le mot de passe créés ici sont utilisés pour se connecter à la base de données de contrôle. Une information d'identification distincte est utilisée pour l'exécution du script sur les bases de données du pool.
+5. Tapez un nom d'utilisateur et un mot de passe d'administrateur de base de données. Dans le cadre de l'installation, un nouveau serveur Azure SQL Database est créé. Sur ce nouveau serveur, une nouvelle base de données, appelée base de données de contrôle, est créée et utilisée pour contenir les métadonnées des tâches de bases de données élastiques. Le nom d'utilisateur et le mot de passe créés ici sont utilisés pour se connecter à la base de données de contrôle. Une information d'identification distincte est utilisée pour l'exécution du script sur les bases de données du pool.
    
     ![Créer le nom d'utilisateur et le mot de passe][2]
 6. Cliquez sur le bouton OK. Les composants sont créés pour vous en quelques minutes dans un nouveau [groupe de ressources](../azure-resource-manager/resource-group-overview.md). Le nouveau groupe de ressources est épinglé au panneau de démarrage, comme illustré ci-dessous. Les tâches de bases de données élastiques (Service Cloud, Base de données SQL, Service Bus et Storage) sont toutes créées dans le groupe.

@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
 ms.openlocfilehash: 9f738ab5022d1378925d920818e3f89fc2a1ee6d
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670521"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60947057"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Préparer votre environnement de développement sur Linux
 > [!div class="op_single_selector"]
@@ -108,7 +108,7 @@ Pour installer le Kit de développement logiciel (SDK) et le package runtime ass
 
     ```bash
     sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0x219BD9C9
-    sudo apt-add-repository "deb http://repos.azul.com/azure-only/zulu/apt stable main"
+    sudo apt-add-repository 'deb http://repos.azulsystems.com/ubuntu stable main'
     ```
 
 8. Actualisez vos listes de packages selon les référentiels nouvellement ajoutés.
@@ -216,19 +216,20 @@ Service Fabric fournit des outils de génération de modèles automatique qui vo
 1. Installez Node.js et npm sur votre machine.
 
     ```bash
-    curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash
-    nvm install node
+    sudo apt-add-repository "deb https://deb.nodesource.com/node_8.x $(lsb_release -s -c) main"
+    sudo apt-get update
+    sudo apt-get install nodejs
     ```
 2. Installez le générateur de modèles [Yeoman](https://yeoman.io/) sur votre machine à partir de npm.
 
     ```bash
-    npm install -g yo
+    sudo npm install -g yo
     ```
 3. Installez le générateur de conteneurs Service Fabric Yeo et le générateur d’exécutables invités à partir de npm.
 
     ```bash
-    npm install -g generator-azuresfcontainer  # for Service Fabric container application
-    npm install -g generator-azuresfguest      # for Service Fabric guest executable application
+    sudo npm install -g generator-azuresfcontainer  # for Service Fabric container application
+    sudo npm install -g generator-azuresfguest      # for Service Fabric guest executable application
     ```
 
 Après avoir installé ces générateurs, vous devez être en mesure de créer un exécutable invité ou des services de conteneurs en exécutant respectivement `yo azuresfguest` ou `yo azuresfcontainer`.

@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 10/16/2018
 ms.author: srrengar
 ms.openlocfilehash: c2f953c98e41291951f07556bd0cd441d2793d1d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59796241"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60946590"
 ---
 # <a name="azure-service-fabric-monitoring-partners"></a>Solutions de partenaires pour la surveillance d’Azure Service Fabric
 

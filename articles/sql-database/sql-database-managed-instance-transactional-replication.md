@@ -1,6 +1,6 @@
 ---
 title: Réplication transactionnelle avec Azure SQL Database | Microsoft Docs
-description: Découvrez comment utiliser la réplication transactionnelle SQL Server avec des bases de données uniques, regroupées, et d’instance dans Azure SQL Database.
+description: Découvrez comment utiliser la réplication transactionnelle SQL Server avec des bases de données uniques, mises en pool, et d’instance dans Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
@@ -13,13 +13,13 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/08/2019
 ms.openlocfilehash: 409c1abd7e9f532bb243ecab00228b402215c77e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57852755"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61313668"
 ---
-# <a name="transactional-replication-with-single-pooled-and-instance-databases-in-azure-sql-database"></a>Réplication transactionnelle avec des bases de données uniques, regroupées, et d’instance dans Azure SQL Database
+# <a name="transactional-replication-with-single-pooled-and-instance-databases-in-azure-sql-database"></a>Réplication transactionnelle avec des bases de données uniques, mises en pool, et d’instance dans Azure SQL Database
 
 La réplication transactionnelle est une fonctionnalité d'Azure SQL Database et de SQL Server qui vous permet de répliquer les données d'une table d'Azure SQL Database ou d'une instance de SQL Server dans les tables placées sur des bases de données distantes. Cette fonctionnalité vous permet de synchroniser plusieurs tables dans différentes bases de données.
 
@@ -48,9 +48,9 @@ Le **serveur de publication** est une instance ou un serveur qui publie les chan
 
 Le **serveur de distribution** est une instance ou un serveur qui collecte les changements apportés aux articles à partir d’un serveur de publication et qui les distribue aux Abonnés. Le serveur de distribution peut être Azure SQL Database Managed Instance ou SQL Server (n’importe quelle version, tant qu’elle est égale ou supérieure à la version du serveur de publication). 
 
-L’**Abonné** est une instance ou un serveur qui reçoit les changements apportés sur le serveur de publication. Les abonnés peuvent être des bases de données uniques, regroupées, et d’instance dans Azure SQL Database ou des bases de données SQL Server. Un abonné sur une base de données unique ou regroupée doit être configuré en tant qu’abonné d’envoi (push). 
+L’**Abonné** est une instance ou un serveur qui reçoit les changements apportés sur le serveur de publication. Les abonnés peuvent être des bases de données uniques, mises en pool, et d’instance dans Azure SQL Database ou des bases de données SQL Server. Un abonné sur une base de données unique ou mise en pool doit être configuré en tant qu’abonné d’envoi (push). 
 
-| Rôle | Bases de données uniques et regroupées | Bases de données d’instance |
+| Rôle | Bases de données uniques et mises en pool | Bases de données d’instance |
 | :----| :------------- | :--------------- |
 | **Publisher** | Non  | Oui | 
 | **Serveur de distribution** | Non  | Oui|
@@ -64,7 +64,7 @@ L’**Abonné** est une instance ou un serveur qui reçoit les changements appor
 Il existe différents [types de réplications](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication) :
 
 
-| Réplication | Bases de données uniques et regroupées | Bases de données d’instance|
+| Réplication | Bases de données uniques et mises en pool | Bases de données d’instance|
 | :----| :------------- | :--------------- |
 | [**Transactionnelle**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) | Oui (uniquement en tant qu’Abonné) | Oui | 
 | [**Capture instantanée**](https://docs.microsoft.com/sql/relational-databases/replication/snapshot-replication) | Oui (uniquement en tant qu’Abonné) | Oui|
@@ -106,7 +106,7 @@ Il existe différents [types de réplications](https://docs.microsoft.com/sql/re
 | | Synchronisation des données | Réplication transactionnelle |
 |---|---|---|
 | Avantages | - Support actif/actif<br/>- Synchronisation bidirectionnelle entre la base de données SQL locale et Azure | - Latence réduite<br/>- Cohérence transactionnelle<br/>- Réutilisation de la topologie existante après la migration |
-| Inconvénients | - Latence de 5 minutes ou plus<br/>- Pas de cohérence transactionnelle<br/>- Impact plus important sur les performances | - Impossible de publier à partir d’une base de données unique Azure SQL Database ou d’une base de données regroupée<br/>- Coût de maintenance élevé |
+| Inconvénients | - Latence de 5 minutes ou plus<br/>- Pas de cohérence transactionnelle<br/>- Impact plus important sur les performances | - Impossible de publier à partir d’une base de données unique Azure SQL Database ou d’une base de données mise en pool<br/>- Coût de maintenance élevé |
 | | | |
 
 ## <a name="common-configurations"></a>Configurations courantes
@@ -117,11 +117,11 @@ En règle générale, le serveur de publication et le serveur de distribution do
 
 ![Instance unique faisant office de serveur de publication et de serveur de distribution](media/replication-with-sql-database-managed-instance/01-single-instance-asdbmi-pubdist.png)
 
-Le serveur de publication et le serveur de distribution sont configurés dans une même instance Managed Instance, et les changements sont distribués à d’autres instances Managed Instance, bases de données uniques, bases de données regroupées ou serveurs SQL Server en local. Dans cette configuration, l’instance Managed Instance faisant office de serveur de publication et de serveur de distribution ne peut pas être configurée avec [la géoréplication et des groupes de basculement automatique](sql-database-auto-failover-group.md).
+Le serveur de publication et le serveur de distribution sont configurés dans une même instance Managed Instance, et les changements sont distribués à d’autres instances Managed Instance, bases de données uniques, bases de données mises en pool ou serveurs SQL Server en local. Dans cette configuration, l’instance Managed Instance faisant office de serveur de publication et de serveur de distribution ne peut pas être configurée avec [la géoréplication et des groupes de basculement automatique](sql-database-auto-failover-group.md).
 
 ### <a name="publisher-with-remote-distributor-on-a-managed-instance"></a>Serveur de publication avec un serveur de distribution distant sur une instance Managed Instance
 
-Dans cette configuration, une instance Managed Instance publie les changements sur le serveur de distribution placé sur une autre instance Managed Instance qui peut servir plusieurs instances Managed Instance sources et distribuer les changements à une ou plusieurs cibles sur une instance Managed Instance, une base de données unique, une base de données regroupée ou un serveur SQL Server.
+Dans cette configuration, une instance Managed Instance publie les changements sur le serveur de distribution placé sur une autre instance Managed Instance qui peut servir plusieurs instances Managed Instance sources et distribuer les changements à une ou plusieurs cibles sur une instance Managed Instance, une base de données unique, une base de données mise en pool ou un serveur SQL Server.
 
 ![Instances séparées pour le serveur de publication et le serveur de distribution](media/replication-with-sql-database-managed-instance/02-separate-instances-asdbmi-pubdist.png)
 
@@ -131,18 +131,18 @@ Le serveur de publication et le serveur de distribution sont configurés sur deu
 - Les deux instances Managed Instance se trouvent au même emplacement.
 - Les instances Managed Instance qui hébergent les bases de données du serveur de publication et du serveur de distribution ne peuvent pas être [géorépliquées à l’aide de groupes de basculement automatique](sql-database-auto-failover-group.md).
 
-### <a name="publisher-and-distributor-on-premises-with-a-subscriber-on-a-single-pooled-and-instance-database"></a>Serveurs de publication et de distribution locaux avec un abonné sur une base de données unique, regroupée et d’instance 
+### <a name="publisher-and-distributor-on-premises-with-a-subscriber-on-a-single-pooled-and-instance-database"></a>Serveurs de publication et de distribution locaux avec un abonné sur une base de données unique, mise en pool et d’instance 
 
 ![Base de données SQL Azure en tant qu’Abonné](media/replication-with-sql-database-managed-instance/03-azure-sql-db-subscriber.png)
  
-Dans cette configuration, une Azure SQL Database (base de données unique, regroupée et d’instance) est un abonné. Cette configuration prend en charge la migration de données locales vers Azure. Si un abonné se trouve sur une base de données unique ou regroupée, il doit être en mode transmission de type push.  
+Dans cette configuration, une base de données Azure SQL (base de données unique, mise en pool et d’instance) est un abonné. Cette configuration prend en charge la migration de données locales vers Azure. Si un abonné se trouve sur une base de données unique ou mise en pool, il doit être en mode transmission de type push.  
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 1. [Configurer la réplication transactionnelle pour une instance Managed Instance](replication-with-sql-database-managed-instance.md#configure-publishing-and-distribution-example). 
 1. [Créer une publication](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication).
-1. [Créer un abonnement par émission de données](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription) en utilisant le nom du serveur Azure SQL Database en tant qu’abonné (par exemple, `N'azuresqldbdns.database.windows.net`) et le nom d’Azure SQL Database en tant que base de données de destination (par exemple, **Adventureworks**). )
+1. [Créer un abonnement par push](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription) en utilisant le nom du serveur Azure SQL Database en tant qu’abonné (par exemple, `N'azuresqldbdns.database.windows.net`) et le nom de la base de données Azure SQL comme base de données de destination (par exemple, **Adventureworks**). )
 
 
 

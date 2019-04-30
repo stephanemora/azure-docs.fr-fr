@@ -13,18 +13,18 @@ ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 04/19/2019
 ms.openlocfilehash: f382cc547640969f934b94405b635c9e84f10791
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60009067"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61417334"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Utiliser les groupes de basculement automatique pour permettre le basculement transparent et coordonné de plusieurs bases de données
 
 Les groupes de basculement automatique sont une fonctionnalité de SQL Database qui vous permet de gérer la réplication et le basculement d’un groupe de bases de données sur un serveur SQL Database ou de toutes les bases de données Managed Instance vers une autre région (actuellement en préversion publique pour Managed Instance). Cette fonction utilise la même technologie sous-jacente que la [géoréplication active](sql-database-active-geo-replication.md). Vous pouvez déclencher le basculement manuellement ou vous pouvez le déléguer au service SQL Database via une stratégie définie par l’utilisateur. Cette dernière option vous permet de récupérer automatiquement plusieurs bases de données associées dans une région secondaire après une défaillance grave ou un autre événement non planifié qui entraîne une perte totale ou partielle de la disponibilité du service SQL Database dans la région primaire. En outre, vous pouvez utiliser les bases de données secondaires accessibles en lecture pour décharger les charges de travail de requêtes en lecture seule. Comme les groupes de basculement automatique impliquent de nombreuses bases de données, celles-ci doivent être configurées sur le serveur primaire. Les serveurs primaire et secondaire pour les bases de données dans le groupe de basculement doivent faire partie du même abonnement. Les groupes de basculement automatique prennent en charge la réplication de toutes les bases de données du groupe vers un seul serveur secondaire situé dans une autre région,
 
 > [!NOTE]
-> Si vous utilisez des bases de données uniques ou en pool sur un serveur SQL Database et souhaitez que plusieurs bases de données secondaires se trouvent dans des régions identiques ou différentes, utilisez la [géoréplication active](sql-database-active-geo-replication.md).
+> Si vous utilisez des bases de données uniques ou mises en pool sur un serveur SQL Database et souhaitez que plusieurs bases de données secondaires se trouvent dans des régions identiques ou différentes, utilisez la [géoréplication active](sql-database-active-geo-replication.md).
 
 Lorsque vous utilisez des groupes de basculement automatique avec une stratégie de basculement automatique, toute panne qui affecte une ou plusieurs des bases de données du groupe donne lieu à un basculement automatique. En outre, les groupes de basculement automatique fournissent des points de terminaison d’écouteur de lecture-écriture et de lecture seule qui restent inchangés pendant les basculements. Que vous utilisiez l’activation manuelle ou automatique du basculement, ce dernier bascule toutes les bases de données secondaires du groupe en bases de données primaires. Une fois le basculement des bases de données terminé, l’enregistrement DNS est automatiquement mis à jour pour rediriger les points de terminaison vers la nouvelle région. Pour en savoir plus sur les données d’objectif de point et de délai de récupération, voir [Vue d’ensemble de la continuité des activités](sql-database-business-continuity.md).
 

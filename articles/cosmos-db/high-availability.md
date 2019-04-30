@@ -8,11 +8,11 @@ ms.date: 3/24/2019
 ms.author: mjbrown
 ms.reviewer: sngun
 ms.openlocfilehash: 1e866560ceab342f08a98ba3db05980a2b0947d2
-ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407553"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60888503"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Haute disponibilité avec Azure Cosmos DB
 
@@ -68,7 +68,7 @@ Pannes de courant régionales ne sont pas rares et Azure Cosmos DB permet de s�
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Ensuite, vous pouvez lire les articles suivants :
+Vous pouvez ensuite lire les articles suivants :
 
 * [Compromis entre disponibilité et performance pour différents niveaux de cohérence](consistency-levels-tradeoffs.md)
 * [Mise à l’échelle du débit provisionné au niveau global](scaling-throughput.md)

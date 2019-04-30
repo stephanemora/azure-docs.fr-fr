@@ -9,11 +9,11 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/09/2018
 ms.openlocfilehash: e5e92c40cef15e99431dc9652820c71e87935f67
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57008710"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61244342"
 ---
 # <a name="use-message-routes-and-custom-endpoints-for-device-to-cloud-messages"></a>Utiliser des itinéraires de messages et des points de terminaison personnalisés pour les messages appareil-à-cloud
 
@@ -23,7 +23,7 @@ Le [routage des messages](iot-hub-devguide-routing-query-syntax.md) IoT Hub perm
 
 | Propriété      | Description |
 | ------------- | ----------- |
-| **Nom**      | Nom unique qui identifie la requête. |
+| **Name**      | Nom unique qui identifie la requête. |
 | **Source**    | Origine du flux de données qui fait l’objet du traitement. Par exemple, télémétrie des appareils. |
 | **Condition** | L’expression de requête pour la requête de routage qui est exécutée sur les propriétés de l’application de messages, les propriétés système, le corps des messages, les étiquettes de jumeau d’appareil et les propriétés de jumeau d’appareil, pour déterminer s’il s’agit d’une correspondance pour le point de terminaison. Pour plus d’informations sur la construction d’une requête, consultez la [syntaxe des requêtes de routage des messages](iot-hub-devguide-routing-query-syntax.md) |
 | **Point de terminaison**  | Nom du point de terminaison auquel IoT Hub envoie les messages qui correspondent à la requête. Nous vous recommandons de choisir un point de terminaison dans la même région que votre hub IoT. |

@@ -13,11 +13,11 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 04/03/2019
 ms.openlocfilehash: ddb115370c62371e769ef98e0031f7e0379bafbf
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58916170"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61075493"
 ---
 # <a name="ports-beyond-1433-for-adonet-45"></a>Ports au-delà de 1433 pour ADO.NET 4.5
 
@@ -37,7 +37,7 @@ Le port 1433 est le seul port qui doit être ouvert sur votre ordinateur de bur
 
 ### <a name="inside-client-runs-on-azure"></a>*À l’intérieur :* Le client s’exécute sur Azure
 
-Quand votre client s’exécute à l’intérieur de la limite du cloud Azure, il utilise ce que nous pouvons appeler un *itinéraire direct* pour interagir avec le serveur de la base de données SQL. Une fois une connexion établie, les interactions suivantes entre le client et la base de données n’impliquent aucune passerelle Azure SQL Database.
+Quand votre client s’exécute à l’intérieur de la limite du cloud Azure, il utilise ce que nous pouvons appeler un *itinéraire direct* pour interagir avec le serveur SQL Database. Une fois une connexion établie, les interactions suivantes entre le client et la base de données n’impliquent aucune passerelle Azure SQL Database.
 
 La séquence est la suivante :
 
@@ -84,6 +84,6 @@ Cette section clarifie les monikers qui font référence aux versions du produit
 * [Liste des versions du protocole TDS](http://www.freetds.org/userguide/tdshistory.htm)
 * [Vue d’ensemble du développement de base de données SQL](sql-database-develop-overview.md)
 * [Pare-feu Azure SQL Database](sql-database-firewall-configure.md)
-* [Procédure : Configuration des paramètres du pare-feu sur SQL Database](sql-database-configure-firewall-settings.md)
+* [Guide pratique : Configuration des paramètres du pare-feu sur SQL Database](sql-database-configure-firewall-settings.md)
 
 

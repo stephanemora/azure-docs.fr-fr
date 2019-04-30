@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: roaror
 ms.openlocfilehash: 476a143555323bbb5058541000a5b1a26d23b71a
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60013905"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61330857"
 ---
 # <a name="pre-migration-steps-for-data-migrations-from-mongodb-to-azure-cosmos-dbs-api-for-mongodb"></a>Étapes pour les migrations de données avant la migration à partir de MongoDB à l’API d’Azure Cosmos DB pour MongoDB
 
@@ -89,4 +89,4 @@ Par défaut, Azure Cosmos DB indexe tous vos champs de données à l’ingestion
 * [Partitioning in Azure Cosmos DB](partition-data.md) (Partitionnement dans Azure Cosmos DB)
 * [Distribution mondiale dans Azure Cosmos DB](distribute-data-globally.md)
 * [Indexation dans Azure Cosmos DB](index-overview.md)
-* [Unités de requête dans Azure Cosmos DB](request-units.md)
+* [Unités de requête dans Azure Cosmos DB](request-units.md)

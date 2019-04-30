@@ -14,11 +14,11 @@ ms.date: 12/18/2018
 ms.reviewer: yossiy
 ms.author: mbullwin
 ms.openlocfilehash: cfa00504cd2a05985fde2af3357418eac8baceeb
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117654"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61299057"
 ---
 # <a name="smart-detection---failure-anomalies"></a>Détection intelligente des anomalies de type échec
 [Application Insights](../../azure-monitor/app/app-insights-overview.md) vous avertit automatiquement en temps quasi-réel si une augmentation anormale du taux des requêtes en échec est détectée dans votre application web. Il détecte une augmentation inhabituelle du nombre de demandes HTTP ou d’appels de dépendance signalés comme défaillants. Les demandes ayant échoué sont généralement celles dont le code de réponse est supérieur ou égal à 400. Pour vous aider à prioriser et à diagnostiquer le problème, la notification s’accompagne d’une analyse des caractéristiques des requêtes ayant échoué et de la télémétrie connexe. Elle fournit également des liens vers le portail Application Insights pour un diagnostic plus poussé. La fonctionnalité ne requiert ni installation ni configuration, puisqu’elle utilise des algorithmes d’apprentissage automatique pour prédire le taux d’échec normal.
@@ -131,11 +131,11 @@ La détection intelligente des anomalies de type échec vient compléter d’aut
 
 *Mais alors, vous examinez mes données ?*
 
-*  Non. Le service est entièrement automatique. Vous seul obtenez ces notifications. Vos données sont [privées](../../azure-monitor/app/data-retention-privacy.md).
+* Non. Le service est entièrement automatique. Vous seul obtenez ces notifications. Vos données sont [privées](../../azure-monitor/app/data-retention-privacy.md).
 
 *Dois-je m’abonner à cette alerte ?*
 
-*  Non. Chaque application qui envoie des données de télémétrie de requête possède la règle d’alerte de la détection intelligente.
+* Non. Chaque application qui envoie des données de télémétrie de requête possède la règle d’alerte de la détection intelligente.
 
 *Puis-je me désabonner ou obtenir des notifications envoyées à mes collègues ?*
 

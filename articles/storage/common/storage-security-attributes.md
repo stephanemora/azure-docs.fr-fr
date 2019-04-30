@@ -9,12 +9,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 33765d57f1a0e5788011b2d9d9c2f57d06713ddb
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: 8fa43998d0b10eddacdc9e0dd512295559814255
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59680687"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62101941"
 ---
 # <a name="common-security-attributes-for-azure-storage"></a>Attributs de sécurité courants pour le stockage Azure
 
@@ -28,8 +28,8 @@ La sécurité fait partie intégrante d'un service Azure. Cet article décrit le
 |---|---|--|
 | Chiffrement au repos :<ul><li>Chiffrement côté serveur</li><li>Chiffrement côté serveur avec des clés gérées par le client</li><li>Autres fonctionnalités de chiffrement (côté client, Always Encrypted, etc.)</ul>| Oui |  |
 | Chiffrement en transit :<ul><li>Chiffrement Express Route</li><li>Chiffrement dans le réseau virtuel</li><li>Chiffrement de réseau virtuel à réseau virtuel</ul>| Oui | Prend en charge les mécanismes HTTPS/TLS standard.  Les utilisateurs peuvent également chiffrer les données avant leur transmission au service. |
-| Gestion des clés de chiffrement (CMK, BYOK, etc.)| Oui | Consultez [Storage Service Encryption à l’aide de clés gérées par le client dans Azure Key Vault](storage-service-encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).|
-| Chiffrement au niveau des colonnes (Azure Data Services)| S.O. |  |
+| Gestion de clé de chiffrement (clé CMK, BYOK, etc.).| Oui | Consultez [Storage Service Encryption à l’aide de clés gérées par le client dans Azure Key Vault](storage-service-encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).|
+| Chiffrement au niveau colonne (Services de données Azure)| N/A |  |
 | Appels d’API chiffrés| Oui |  |
 
 ## <a name="network-segmentation"></a>Segmentation du réseau
@@ -37,9 +37,9 @@ La sécurité fait partie intégrante d'un service Azure. Cet article décrit le
 | Attribut de sécurité | Oui/Non | Notes |
 |---|---|--|
 | Prise en charge du point de terminaison de service| Oui |  |
-| Prise en charge de l’injection de réseau virtuel| S.O. |  |
-| Prise en charge de l’isolement réseau et de l’installation de pare-feu| Oui | |
-| Prise en charge du tunneling forcé | S.O. |  |
+| prise en charge l’injection de réseau virtuel| N/A |  |
+| Prise en charge des pare-feu et l’isolement réseau| Oui | |
+| Prise en charge de tunneling de forcé| N/A |  |
 
 ## <a name="detection"></a>Détection
 
@@ -47,20 +47,20 @@ La sécurité fait partie intégrante d'un service Azure. Cet article décrit le
 |---|---|--|
 | Prise en charge (analytique de journal, application insights, etc.) de surveillance Azure| Oui | Mesures Azure Monitor disponible consigne désormais, version préliminaire de départ |
 
-## <a name="iam-support"></a>Prise en charge d’IAM
+## <a name="identity-and-access-management"></a>Gestion de l’identité et de l’accès
 
 | Attribut de sécurité | Oui/Non | Notes|
 |---|---|--|
-| Gestion des accès – Authentification| Oui | Azure Active Directory, clé partagée, le jeton d’accès partagé. |
-| Gestion des accès – Autorisation| Oui | Autorisation de prise en charge par le biais de RBAC, les ACL POSIX et les jetons SAS |
+| Authentification| Oui | Azure Active Directory, clé partagée, le jeton d’accès partagé. |
+| Authorization| Oui | Autorisation de prise en charge par le biais de RBAC, les ACL POSIX et les jetons SAS |
 
 
 ## <a name="audit-trail"></a>Piste d’audit
 
 | Attribut de sécurité | Oui/Non | Notes|
 |---|---|--|
-| Journalisation et audit du plan de gestion/contrôle | Oui | Journal d’activité Azure Resource Manager |
-| Journalisation et audit du plan de données| Oui | Journaux de Diagnostic de service et l’aperçu de départ journalisation d’Azure Monitor  |
+| Audit et consignation de plan de contrôle et de gestion | Oui | Journal d’activité Azure Resource Manager |
+| Audit et consignation de plan de données| Oui | Journaux de Diagnostic de service et l’aperçu de départ journalisation d’Azure Monitor  |
 
 ## <a name="configuration-management"></a>Gestion des configurations
 

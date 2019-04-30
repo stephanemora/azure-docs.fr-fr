@@ -13,11 +13,11 @@ ms.date: 04/05/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.openlocfilehash: f67c2a4547ee923e5c1b49302c38693e9ffe87c4
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59262208"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61474247"
 ---
 # <a name="install-visual-studio-and-ssdt-for-sql-data-warehouse"></a>Installer Visual Studio et SSDT pour SQL Data Warehouse
 Utilisez Visual Studio 2017 pour développer des applications pour SQL Data Warehouse. Actuellement, Visual Studio 2019 SSDT n’est pas pris en charge pour SQL Data Warehouse. 
@@ -29,13 +29,13 @@ L’utilisation de Visual Studio avec SSDT vous permet d’utiliser l’Explorat
 > 
 > 
 
-## <a name="step-1-install-visual-studio"></a>Étape 1 : Installation de Visual Studio
+## <a name="step-1-install-visual-studio"></a>Étape 1 : Installation de Visual Studio
 Suivez ces liens pour télécharger et installer Visual Studio. Si Visual Studio 2013 ou ultérieur est déjà installé sur votre machine, passez à l’étape 2 pour installer SSDT.
 
 1. [Téléchargez Visual Studio][].
 2. Suivez le guide [d’installation de Visual Studio][Installing Visual Studio] sur MSDN et sélectionnez les configurations par défaut.
 
-## <a name="step-2-install-ssdt"></a>Étape 2 : Installer SSDT
+## <a name="step-2-install-ssdt"></a>Étape 2 : Installer SSDT
 Pour installer SSDT pour Visual Studio, commencez par vérifier la présence d’une mise à jour SSDT dans Visual Studio en procédant comme suit.
 
 1. Dans Visual Studio, cliquez sur **Outils** / **Extensions et mises à jour...** / **Mises à jour**

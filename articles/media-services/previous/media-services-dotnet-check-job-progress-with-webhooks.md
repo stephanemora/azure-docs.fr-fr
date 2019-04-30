@@ -1,6 +1,6 @@
 ---
 title: Utiliser Azure WebHooks pour surveiller les notifications de travaux Media Services avec .NET | Microsoft Docs
-description: Découvrez comment utiliser Azure Webhooks pour surveiller les notifications de travaux Media Services. L’exemple de code est écrit en C# et utilise le kit SDK Media Services pour .NET.
+description: Découvrez comment utiliser Azure Webhooks pour surveiller les notifications de travaux Media Services. L’exemple de code est écrit en C# et utilise le Kit de développement logiciel (SDK) Media Services pour .NET.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 36ef27dfb4a5d77ec2e595013a82f55cdf240c0b
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58312459"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61465692"
 ---
 # <a name="use-azure-webhooks-to-monitor-media-services-job-notifications-with-net"></a>Utiliser Azure Webhooks pour surveiller les notifications de travaux Media Services avec .NET 
 

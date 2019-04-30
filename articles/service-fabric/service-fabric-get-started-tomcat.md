@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 6/08/2018
 ms.author: v-jamebr
 ms.openlocfilehash: 5ae2ca352c6d3cbe02b659a97fe3147c1a31128f
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58664571"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60947391"
 ---
 # <a name="create-service-fabric-container-running-apache-tomcat-server-on-linux"></a>Créer un conteneur Service Fabric exécutant un serveur Apache Tomcat sur Linux
 Apache Tomcat est une implémentation open source populaire des technologies Java Servlet et Java Server. Cet article montre comment créer un conteneur avec Apache Tomcat et une application web simple, déployer le conteneur sur un cluster Service Fabric exécutant Linux, et se connecter à l’application web.  
