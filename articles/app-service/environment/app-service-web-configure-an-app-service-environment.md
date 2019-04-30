@@ -16,11 +16,11 @@ ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 5c0b4117f6e7b48dce1746ad6eb3dbe29c0d16af
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53723210"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62130617"
 ---
 # <a name="configuring-an-app-service-environment-v1"></a>Configuration d’un environnement App Service Environment v1
 
@@ -28,7 +28,7 @@ ms.locfileid: "53723210"
 > Cet article traite de l’environnement App Service Environment v1.  Il existe une version plus récente de l’environnement App Service Environment, plus facile à utiliser et qui s’exécute sur des infrastructures plus puissantes. Pour en savoir plus sur la nouvelle version, commencez par la section [Présentation de l’environnement App Service Environment](intro.md).
 > 
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 Globalement, un environnement Azure App Service se compose de plusieurs composants principaux :
 
 * Des ressources de calcul s’exécutant dans le service hébergé d’environnement App Service

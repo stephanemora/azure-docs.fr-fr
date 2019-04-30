@@ -16,11 +16,11 @@ ms.date: 10/14/2016
 ms.author: stefsch
 ms.custom: seodec18
 ms.openlocfilehash: e0fa87facec73efdfff1a9908dcba92838215425
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56113377"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62130668"
 ---
 # <a name="network-configuration-details-for-app-service-environment-for-powerapps-with-azure-expressroute"></a>Détails de la configuration réseau pour l’environnement App Service pour PowerApps avec Azure ExpressRoute
 
@@ -93,7 +93,7 @@ Pour savoir comment créer et configurer des itinéraires définis par l’utili
 
 Cette section présente un exemple de configuration d’itinéraire défini par l’utilisateur dans un environnement App Service.
 
-### <a name="prerequisites"></a>Prérequis
+### <a name="prerequisites"></a>Conditions préalables
 
 * Installez Azure Powershell à partir de la [page Téléchargements Azure][AzureDownloads]. Choisissez un téléchargement datant au minimum de juin 2015. Sous **Outils en ligne de commande** > **Windows PowerShell**, sélectionnez **Installer** pour installer les dernières applets de commande PowerShell.
 
