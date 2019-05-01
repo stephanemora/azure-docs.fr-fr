@@ -61,10 +61,10 @@ Vous pouvez utiliser une Validation dans un pipeline pour garantir le pipeline c
 
 Propriété | Description | Valeurs autorisées | Obligatoire
 -------- | ----------- | -------------- | --------
-Nom | Nom de l’activité « Validation » | String | Oui |
-Type | Doit être définie sur **Validation**. | String | Oui |
+Nom | Nom de l’activité « Validation » | Chaîne | Oui |
+Type | Doit être définie sur **Validation**. | Chaîne | Oui |
 dataset | Activité va bloquer l’exécution jusqu'à ce qu’il a validé cette référence de jeu de données existe et qu’il répond aux critères spécifiés, ou délai d’attente a été atteinte. Jeu de données fourni doit prendre en charge la propriété « MinimumSize » ou « ChildItems ». | Référence de DataSet | Oui |
-timeout | Spécifie le délai d’expiration d’exécution de l’activité. Si aucune valeur n’est spécifiée, la valeur par défaut est 7 jours (« 7.00:00:00 »). Le format est d.hh:mm:ss | String | Non  |
+timeout | Spécifie le délai d’expiration d’exécution de l’activité. Si aucune valeur n’est spécifiée, la valeur par défaut est 7 jours (« 7.00:00:00 »). Le format est d.hh:mm:ss | Chaîne | Non  |
 veille | Un délai en secondes entre les tentatives de validation. Si aucune valeur n’est spécifiée, la valeur par défaut est 10 secondes. | Entier  | Non  |
 childItems | Vérifie si le dossier a des éléments enfants. Peut être définie à true : Valider que le dossier existe et qu’il possède des éléments. Bloque jusqu'à ce qu’au moins un élément se trouve dans le dossier ou la valeur de délai d’attente est atteinte.-false : Vérifiez que le dossier existe et qu’il est vide. Bloque jusqu'à ce que le dossier est vide ou jusqu'à ce que le délai d’expiration la valeur est atteinte. Si aucune valeur n’est spécifiée, l’activité bloquera jusqu'à ce que le dossier existe ou jusqu'à ce que le délai d’expiration est atteint. | Boolean | Non  |
 minimumSize | Taille minimale d’un fichier en octets. Si aucune valeur n’est spécifiée, valeur par défaut est de 0 octet | Entier  | Non  |

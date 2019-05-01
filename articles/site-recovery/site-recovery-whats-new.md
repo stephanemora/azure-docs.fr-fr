@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: raynew
-ms.openlocfilehash: fece1adc9ad2f5844a7d6cc1e0e9cc92d44de6d8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 5ee1328dddb6ae1e1c878384097b0e10aa32feeb
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57892929"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60776286"
 ---
 # <a name="whats-new-in-site-recovery"></a>Nouveautés de Site Recovery
 
@@ -126,7 +126,7 @@ La reprise d’activité de machines virtuelles Azure occasionne des coûts lié
 **Mettre à jour** | **Détails**
 --- | ---
 **Fournisseurs et agents** | Une mise à jour des agents de récupération de Site et aux fournisseurs (comme décrit dans le correctif cumulatif)
-**Récupération d’urgence pour Linux** | **Machines virtuelles Azure** : Ajouté la prise en charge pour Red Hat Enterprise Linux 6.10 ; CentOS 6.10.<br/><br/> **Les machines virtuelles VMware**: Red Hat Enterprise Linux 6.10 ; CentOS 6.10.<br/><br/> Machines virtuelles Linux utiliser le style de partition GUID partition GPT (table) en mode de compatibilité BIOS hérité sont désormais pris en charge.
+**Récupération d’urgence pour Linux** | **Machines virtuelles Azure** : Ajouté la prise en charge pour Red Hat Enterprise Linux 6.10 ; CentOS 6.10.<br/><br/> **Les machines virtuelles VMware**: Red Hat Enterprise Linux 6.10 ; CentOS 6.10.<br/><br/> Machines virtuelles Linux utiliser le style de partition GUID partition GPT (table) en mode de compatibilité BIOS hérité sont désormais pris en charge. Consultez [Forum aux questions sur les disques de machine virtuelle Azure IaaS](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/faq-for-disks) pour plus d’informations. 
 **Prise en charge du cloud** | Prise en charge la récupération d’urgence pour les machines virtuelles Azure dans le cloud allemand.
 **Récupération d’urgence entre abonnements** | Prise en charge pour la réplication des machines virtuelles Azure dans une région vers une autre région dans un autre abonnement, au sein du même client Azure Active Directory. [Plus d’informations](https://aka.ms/cross-sub-blog)
 **Windows Server 2008** | Prise en charge pour la migration des machines en cours d’exécution de Windows Server 2008 R2/2008 64 bits et 32 bits.<br/><br/> Migration uniquement (réplication et basculement). La restauration automatique n’est pas pris en charge.

@@ -16,11 +16,11 @@ ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 3e7db670a125f3c5f308107aabfbbab9301b7561
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53718093"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60765123"
 ---
 # <a name="create-a-web-app-in-an-app-service-environment-v1"></a>Créer une application web dans un environnement App Service Environment v1
 
@@ -28,7 +28,7 @@ ms.locfileid: "53718093"
 > Cet article traite de l’environnement App Service Environment v1.  Il existe une version plus récente de l’environnement App Service Environment, plus facile à utiliser et qui s’exécute sur des infrastructures plus puissantes. Pour en savoir plus sur la nouvelle version, commencez par la section [Présentation de l’environnement App Service Environment](intro.md).
 > 
 
-## <a name="overview"></a>Vue d’ensemble
+## <a name="overview"></a>Présentation
 Ce didacticiel explique comment créer des applications web et des plans App Service dans un [environnement App Service Environment v1](app-service-app-service-environment-intro.md) (ASE). 
 
 > [!NOTE]
@@ -36,7 +36,7 @@ Ce didacticiel explique comment créer des applications web et des plans App Ser
 > 
 > 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 Ce didacticiel part du principe que vous avez créé un environnement App Service. Si ce n’est pas encore le cas, consultez [Créer un environnement App Service](app-service-web-how-to-create-an-app-service-environment.md). 
 
 ## <a name="create-a-web-app"></a>Créer une application web

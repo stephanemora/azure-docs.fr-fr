@@ -62,8 +62,8 @@ L’activité d’exécution du pipeline permet à un pipeline Data Factory d’
 
 Propriété | Description | Valeurs autorisées | Obligatoire
 -------- | ----------- | -------------- | --------
-Nom | Nom de l’activité d’exécution du pipeline. | String | Oui
-Type | Doit être défini sur : **ExecutePipeline**. | String | Oui
+Nom | Nom de l’activité d’exécution du pipeline. | Chaîne | Oui
+Type | Doit être défini sur : **ExecutePipeline**. | Chaîne | Oui
 pipeline | Référence de pipeline au pipeline dépendant que pipeline appelle. Un objet de référence de pipeline comporte deux propriétés : **referenceName** et **type**. La propriété referenceName spécifie le nom du pipeline de référence. La propriété de type doit être définie sur PipelineReference. | PipelineReference | Oui
 parameters | Paramètres à passer au pipeline appelé | Objet JSON qui mappe des noms de paramètres à des valeurs d’arguments | Non 
 waitOnCompletion | Définit si l’exécution de l’activité attend l’exécution du pipeline dépendant. La valeur par défaut est false. | Boolean | Non 

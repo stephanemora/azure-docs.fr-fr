@@ -16,11 +16,11 @@ ms.date: 07/06/2016
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 1e8bebdb3f54ac59ec19ef798cc3e794473bbec0
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53721459"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60832465"
 ---
 # <a name="restore-an-app-in-azure"></a>Restauration d'une application dans Azure App Service
 Cet article vous explique comment restaurer une application dans [Azure App Service](../app-service/overview.md) que vous avez précédemment sauvegardée (voir [Sauvegarde de votre application dans Azure](manage-backup.md)). Vous pouvez restaurer votre application avec ses bases de données liées à la demande à un état antérieur ou créer une application à partir de l’une des sauvegardes de votre application d’origine. Azure App Service prend en charge les bases de données suivantes pour la sauvegarde et restauration :

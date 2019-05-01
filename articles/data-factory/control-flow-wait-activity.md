@@ -39,8 +39,8 @@ Quand vous utilisez une activité Wait dans un pipeline, celui-ci attend pendant
 
 Propriété | Description | Valeurs autorisées | Obligatoire
 -------- | ----------- | -------------- | --------
-Nom | Nom de l’activité `Wait`. | String | Oui
-Type | Doit être défini sur **Wait**. | String | Oui
+Nom | Nom de l’activité `Wait`. | Chaîne | Oui
+Type | Doit être défini sur **Wait**. | Chaîne | Oui
 waitTimeInSeconds | Nombre de secondes pendant lesquelles le pipeline attend avant de poursuivre le traitement. | Entier  | Oui
 
 ## <a name="example"></a>Exemples

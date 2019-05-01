@@ -10,11 +10,11 @@ ms.reviewer: klam, LADocs
 ms.topic: reference
 ms.date: 04/30/2018
 ms.openlocfilehash: d80ffa862546f56e93a338a7a1db031e2cb55990
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59616796"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60845736"
 ---
 # <a name="schema-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Référence de schéma du langage de définition de workflow dans Azure Logic Apps
 
@@ -42,7 +42,7 @@ Voici la structure de haut niveau d’une définition de flux de travail :
 | Définition | Oui | Élément de départ de votre définition de flux de travail |
 | $schema | Uniquement en cas de référence externe à une définition de flux de travail | Emplacement du fichier de schéma JSON qui décrit la version du langage de définition de flux de travail, que vous pouvez trouver ici : <p>`https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json`</p> |
 | contentVersion | Non  | Numéro de version de votre définition de flux de travail (1.0.0.0 par défaut). Pour identifier et vérifier plus facilement la définition correcte lors du déploiement d’un flux de travail, spécifiez une valeur à utiliser. |
-| Paramètres | Non  | Définitions d’un ou plusieurs paramètres qui transmettent des données à votre flux de travail <p><p>Nombre maximal de paramètres : 50 |
+| parameters | Non  | Définitions d’un ou plusieurs paramètres qui transmettent des données à votre flux de travail <p><p>Nombre maximal de paramètres : 50 |
 | Déclencheurs | Non  | Définitions d’un ou plusieurs déclencheurs qui instancient votre flux de travail. Vous pouvez définir plus d’un déclencheur, mais uniquement avec le langage de définition de flux de travail (vous ne pouvez pas le faire visuellement via le Concepteur Logic Apps). <p><p>Nombre maximal de déclencheurs : 10 |
 | actions | Non  | Définitions d’une ou plusieurs actions à exécuter lors de l’exécution du flux de travail <p><p>Nombre maximal d'actions : 250 |
 | outputs | Non  | Définitions des sorties renvoyées lors de l’exécution d’un flux de travail <p><p>Nombre maximal de sorties : 10 |

@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 9cf363bc5f4230306c2fec99eb6287b23e598a4c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57833499"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60744344"
 ---
 # <a name="configure-the-azure-hosted-vm"></a>Configurer la machine virtuelle hébergée sur Azure
 
@@ -66,7 +66,7 @@ Pour plus d’informations sur les personnalisations Linux, consultez l’articl
 
 Toutes les images dans Azure Marketplace doivent être réutilisables de façon générale. Pour autoriser cette réutilisation, le VHD de système d’exploitation doit être *généralisé* : cette opération consiste à supprimer d’une machine virtuelle tous les pilotes logiciels et identificateurs propres à une instance.
 
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 
 Les disques de système d’exploitation Windows sont généralisés à l’aide de [l’outil sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview). Si vous mettez à jour ou reconfigurez le système d’exploitation par la suite, vous devrez réexécuter sysprep. 
 

@@ -306,39 +306,39 @@ Lors du déplacement de données vers MySQL, les mappages suivants sont utilisé
 | bit |Decimal |
 | objet blob |Byte[] |
 | valeur booléenne |Boolean |
-| char |String |
+| char |Chaîne |
 | date |DateTime |
 | datetime |DateTime |
 | décimal |Decimal |
 | double précision |Double |
 | Double |Double |
-| enum |String |
+| enum |Chaîne |
 | float |Single |
 | int non signé |Int64 |
 | int |Int32 |
 | entier non signé |Int64 |
 | integer |Int32 |
 | long varbinary |Byte[] |
-| long varchar |String |
+| long varchar |Chaîne |
 | longblob |Byte[] |
-| longtext |String |
+| longtext |Chaîne |
 | mediumblob |Byte[] |
 | mediumint non signé |Int64 |
 | mediumint |Int32 |
-| mediumtext |String |
+| mediumtext |Chaîne |
 | numérique |Decimal |
 | real |Double |
-| set |String |
+| set |Chaîne |
 | smallint non signé |Int32 |
 | smallint |Int16 |
-| text |String |
+| text |Chaîne |
 | time |TimeSpan |
 | timestamp |DateTime |
 | tinyblob |Byte[] |
 | tinyint non signé |Int16 |
 | tinyint |Int16 |
-| tinytext |String |
-| varchar |String |
+| tinytext |Chaîne |
+| varchar |Chaîne |
 | year |Int |
 
 ## <a name="map-source-to-sink-columns"></a>Mapper les colonnes source aux colonnes du récepteur

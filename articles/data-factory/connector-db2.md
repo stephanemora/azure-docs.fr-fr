@@ -176,28 +176,28 @@ Lors de la copie de données de DB2, les mappages suivants sont utilisés entre 
 | BigInt |Int64 |
 | Binary |Byte[] |
 | Blob |Byte[] |
-| Char |String |
-| Clob |String |
+| Char |Chaîne |
+| Clob |Chaîne |
 | Date |DateTime |
-| DB2DynArray |String |
-| DbClob |String |
+| DB2DynArray |Chaîne |
+| DbClob |Chaîne |
 | Decimal |Decimal |
 | DecimalFloat |Decimal |
 | Double |Double |
 | Float |Double |
-| Graphic |String |
+| Graphic |Chaîne |
 | Entier  |Int32 |
 | LongVarBinary |Byte[] |
-| LongVarChar |String |
-| LongVarGraphic |String |
+| LongVarChar |Chaîne |
+| LongVarGraphic |Chaîne |
 | Numeric |Decimal |
 | Real |Single |
 | SmallInt |Int16 |
 | Temps |TimeSpan |
 | Timestamp |DateTime |
 | VarBinary |Byte[] |
-| VarChar |String |
-| VarGraphic |String |
+| VarChar |Chaîne |
+| VarGraphic |Chaîne |
 | Xml |Byte[] |
 
 

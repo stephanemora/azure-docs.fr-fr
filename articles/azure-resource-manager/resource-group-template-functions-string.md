@@ -118,8 +118,8 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 | Nom | type | Valeur |
 | ---- | ---- | ----- |
-| base64Output | String | b25lLCB0d28sIHRocmVl |
-| toStringOutput | String | one, two, three |
+| base64Output | Chaîne | b25lLCB0d28sIHRocmVl |
+| toStringOutput | Chaîne | one, two, three |
 | toJsonOutput | Object | {"one": "a", "two": "b"} |
 
 ## <a name="base64tojson"></a>base64ToJson
@@ -183,8 +183,8 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 | Nom | type | Valeur |
 | ---- | ---- | ----- |
-| base64Output | String | b25lLCB0d28sIHRocmVl |
-| toStringOutput | String | one, two, three |
+| base64Output | Chaîne | b25lLCB0d28sIHRocmVl |
+| toStringOutput | Chaîne | one, two, three |
 | toJsonOutput | Object | {"one": "a", "two": "b"} |
 
 ## <a name="base64tostring"></a>base64ToString
@@ -248,8 +248,8 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 | Nom | type | Valeur |
 | ---- | ---- | ----- |
-| base64Output | String | b25lLCB0d28sIHRocmVl |
-| toStringOutput | String | one, two, three |
+| base64Output | Chaîne | b25lLCB0d28sIHRocmVl |
+| toStringOutput | Chaîne | one, two, three |
 | toJsonOutput | Object | {"one": "a", "two": "b"} |
 
 ## <a name="concat"></a>concat
@@ -296,7 +296,7 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 | Nom | type | Valeur |
 | ---- | ---- | ----- |
-| concatOutput | String | prefix-5yj4yjf5mbg72 |
+| concatOutput | Chaîne | prefix-5yj4yjf5mbg72 |
 
 [L’exemple de modèle](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/concat-array.json) suivant montre comment combiner deux tableaux.
 
@@ -472,8 +472,8 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 | Nom | type | Valeur |
 | ---- | ---- | ----- |
-| dataUriOutput | String | data: texte/brut;jeu de caractèresdata:text/plain;charset=utf8;base64,SGVsbG8= |
-| toStringOutput | String | Hello, World! |
+| dataUriOutput | Chaîne | data: texte/brut;jeu de caractèresdata:text/plain;charset=utf8;base64,SGVsbG8= |
+| toStringOutput | Chaîne | Hello, World! |
 
 ## <a name="datauritostring"></a>dataUriToString
 
@@ -527,8 +527,8 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 | Nom | type | Valeur |
 | ---- | ---- | ----- |
-| dataUriOutput | String | data: texte/brut;jeu de caractèresdata:text/plain;charset=utf8;base64,SGVsbG8= |
-| toStringOutput | String | Hello, World! |
+| dataUriOutput | Chaîne | data: texte/brut;jeu de caractèresdata:text/plain;charset=utf8;base64,SGVsbG8= |
+| toStringOutput | Chaîne | Hello, World! |
 
 ## <a name="empty"></a>empty
 
@@ -710,8 +710,8 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 | Nom | type | Valeur |
 | ---- | ---- | ----- |
-| arrayOutput | String | one |
-| stringOutput | String | O |
+| arrayOutput | Chaîne | one |
+| stringOutput | Chaîne | O |
 
 ## <a name="format"></a>format
 
@@ -768,7 +768,7 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 | Nom | type | Valeur |
 | ---- | ---- | ----- |
-| formatTest | String | Bonjour, utilisateur. Nombre mis en forme : 8,175,133 |
+| formatTest | Chaîne | Bonjour, utilisateur. Nombre mis en forme : 8,175,133 |
 
 ## <a name="guid"></a>GUID
 
@@ -951,8 +951,8 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 | Nom | type | Valeur |
 | ---- | ---- | ----- |
-| arrayOutput | String | three |
-| stringOutput | String | e |
+| arrayOutput | Chaîne | three |
+| stringOutput | Chaîne | e |
 
 ## <a name="lastindexof"></a>lastIndexOf
 
@@ -1219,7 +1219,7 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 | Nom | type | Valeur |
 | ---- | ---- | ----- |
-| stringOutput | String | 0000000123 |
+| stringOutput | Chaîne | 0000000123 |
 
 ## <a name="replace"></a>replace
 
@@ -1271,8 +1271,8 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 | Nom | type | Valeur |
 | ---- | ---- | ----- |
-| firstOutput | String | 1231231234 |
-| secodeOutput | String | 123-123-xxxx |
+| firstOutput | Chaîne | 1231231234 |
+| secodeOutput | Chaîne | 123-123-xxxx |
 
 ## <a name="skip"></a>skip
 
@@ -1340,7 +1340,7 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 | Nom | type | Valeur |
 | ---- | ---- | ----- |
 | arrayOutput | Tableau | ["three"] |
-| stringOutput | String | two three |
+| stringOutput | Chaîne | two three |
 
 ## <a name="split"></a>split
 
@@ -1534,9 +1534,9 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 | Nom | type | Valeur |
 | ---- | ---- | ----- |
-| objectOutput | String | {"valueA":10,"valueB":"Example Text"} |
-| arrayOutput | String | ["a","b","c"] |
-| intOutput | String | 5. |
+| objectOutput | Chaîne | {"valueA":10,"valueB":"Example Text"} |
+| arrayOutput | Chaîne | ["a","b","c"] |
+| intOutput | Chaîne | 5. |
 
 ## <a name="substring"></a>substring
 
@@ -1597,7 +1597,7 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 | Nom | type | Valeur |
 | ---- | ---- | ----- |
-| substringOutput | String | two |
+| substringOutput | Chaîne | two |
 
 ## <a name="take"></a>take
 
@@ -1665,7 +1665,7 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 | Nom | type | Valeur |
 | ---- | ---- | ----- |
 | arrayOutput | Tableau | ["one", "two"] |
-| stringOutput | String | sur |
+| stringOutput | Chaîne | sur |
 
 ## <a name="tolower"></a>toLower
 
@@ -1715,8 +1715,8 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 | Nom | type | Valeur |
 | ---- | ---- | ----- |
-| toLowerOutput | String | one two three |
-| toUpperOutput | String | ONE TWO THREE |
+| toLowerOutput | Chaîne | one two three |
+| toUpperOutput | Chaîne | ONE TWO THREE |
 
 ## <a name="toupper"></a>toUpper
 
@@ -1766,8 +1766,8 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 | Nom | type | Valeur |
 | ---- | ---- | ----- |
-| toLowerOutput | String | one two three |
-| toUpperOutput | String | ONE TWO THREE |
+| toLowerOutput | Chaîne | one two three |
+| toUpperOutput | Chaîne | ONE TWO THREE |
 
 ## <a name="trim"></a>découper
 
@@ -1813,7 +1813,7 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 | Nom | type | Valeur |
 | ---- | ---- | ----- |
-| return | String | one two three |
+| return | Chaîne | one two three |
 
 ## <a name="uniquestring"></a>uniqueString
 
@@ -1953,9 +1953,9 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 | Nom | type | Valeur |
 | ---- | ---- | ----- |
-| uriOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
-| componentOutput | String | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
-| toStringOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
+| uriOutput | Chaîne | http://contoso.com/resources/nested/azuredeploy.json |
+| componentOutput | Chaîne | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
+| toStringOutput | Chaîne | http://contoso.com/resources/nested/azuredeploy.json |
 
 ## <a name="uricomponent"></a>uriComponent
 
@@ -2008,9 +2008,9 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 | Nom | type | Valeur |
 | ---- | ---- | ----- |
-| uriOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
-| componentOutput | String | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
-| toStringOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
+| uriOutput | Chaîne | http://contoso.com/resources/nested/azuredeploy.json |
+| componentOutput | Chaîne | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
+| toStringOutput | Chaîne | http://contoso.com/resources/nested/azuredeploy.json |
 
 ## <a name="uricomponenttostring"></a>uriComponentToString
 
@@ -2063,9 +2063,9 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 | Nom | type | Valeur |
 | ---- | ---- | ----- |
-| uriOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
-| componentOutput | String | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
-| toStringOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
+| uriOutput | Chaîne | http://contoso.com/resources/nested/azuredeploy.json |
+| componentOutput | Chaîne | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
+| toStringOutput | Chaîne | http://contoso.com/resources/nested/azuredeploy.json |
 
 ## <a name="utcnow"></a>utcNow
 

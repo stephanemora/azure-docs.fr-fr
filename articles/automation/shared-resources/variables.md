@@ -41,7 +41,7 @@ Vous pouvez stocker plusieurs valeurs dans une seule variable en créant un tabl
 
 Voici la liste des types de variable disponibles dans Automation :
 
-* String
+* Chaîne
 * Entier 
 * DateTime
 * Booléen
