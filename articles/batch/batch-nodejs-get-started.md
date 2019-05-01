@@ -12,11 +12,11 @@ ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: shwetams
 ms.openlocfilehash: bb0bfa5eac3dd9031718fb12f270f5fc03bbaea6
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57772172"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60775212"
 ---
 # <a name="get-started-with-batch-sdk-for-nodejs"></a>Bien démarrer avec le Kit de développement logiciel (SDK) Batch pour Node.js
 
@@ -48,7 +48,7 @@ Le client Node.js déploie un traitement par lots avec une tâche de préparatio
 >
 >
 
-## <a name="build-the-application"></a>Créer l’application
+## <a name="build-the-application"></a>Création de l'application
 
 À présent, laissez-nous suivre la procédure étape par étape de création du client Node.js :
 

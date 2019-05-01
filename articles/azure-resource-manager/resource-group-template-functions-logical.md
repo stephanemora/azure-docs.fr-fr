@@ -188,8 +188,8 @@ La sortie de l’exemple précédent est :
 
 | Nom | type | Valeur |
 | ---- | ---- | ----- |
-| yesOutput | String | Oui |
-| noOutput | String | no |
+| yesOutput | Chaîne | Oui |
+| noOutput | Chaîne | no |
 | objectOutput | Object | { "test": "value1" } |
 
 Ce qui suit [exemple de modèle](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/conditionWithReference.json) montre comment utiliser cette fonction avec des expressions qui sont uniquement valides de manière conditionnelle.

@@ -2,18 +2,19 @@
 title: Conseils de réglage des performances d’Azure Data Lake Storage Gen2 | Microsoft Docs
 description: Conseils de réglage des performances d’Azure Data Lake Storage Gen2
 services: storage
-author: swums
+author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.author: stewu
+ms.author: normesta
+ms.reviewer: stewu
 ms.openlocfilehash: f175360586428b57d1ff10e3529ae9e3283399e8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58117050"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60804745"
 ---
 # <a name="tuning-azure-data-lake-storage-gen2-for-performance"></a>Réglage d’Azure Data Lake Storage Gen2 pour les performances
 

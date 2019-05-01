@@ -2,24 +2,18 @@
 title: Support pour la place de marché Azure et AppSource | Azure
 description: Informations et liens pour le support de la place de marché Azure et d’AppSource
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: ''
 author: yijenj
 manager: nunoc
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: yijenj
 ms.openlocfilehash: de31ceea4faeecabd54c0d23e9263cbb4090925d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59791818"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60733519"
 ---
 # <a name="support-for-the-marketplace"></a>Prise en charge de la Place de marché  
 Voici la liste des options de prise en charge pour la Place de marché.  

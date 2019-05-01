@@ -1,6 +1,6 @@
 ---
 title: 'Portail Azure : géoréplication SQL Database | Microsoft Docs'
-description: Configurer la géoréplication pour une base de données unique ou en pool dans Azure SQL Database dans le portail Azure et initier le basculement
+description: Configurer la géoréplication pour une base de données unique ou mise en pool dans Azure SQL Database dans le portail Azure et initier le basculement
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -13,17 +13,17 @@ ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 02/13/2019
 ms.openlocfilehash: 8bada96c648881a9943176c45115627a829fcc58
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59608603"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60864058"
 ---
 # <a name="configure-active-geo-replication-for-azure-sql-database-in-the-azure-portal-and-initiate-failover"></a>Configurer la géoréplication active pour Azure SQL Database dans le portail Azure et initier le basculement
 
-Cet article montre comment configurer la [géoréplication active pour les bases de données uniques ou en pool](sql-database-active-geo-replication.md#active-geo-replication-terminology-and-capabilities) dans Azure SQL Database via le [portail Azure](https://portal.azure.com) et initier le basculement.
+Cet article montre comment configurer la [géoréplication active pour les bases de données uniques ou mises en pool](sql-database-active-geo-replication.md#active-geo-replication-terminology-and-capabilities) dans Azure SQL Database via le [portail Azure](https://portal.azure.com) et initier le basculement.
 
-Pour plus d’informations sur les groupes de basculement automatique avec les bases de données uniques et en pool, consultez [Meilleures pratiques d’utilisation des groupes de basculement avec des bases de données uniques et en pool](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-single-databases-and-elastic-pools). Pour plus d’informations sur les groupes de basculement automatique avec Managed Instance (préversion), consultez [Meilleures pratiques d’utilisation des groupes de basculement avec des instances gérées](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-managed-instances).
+Pour plus d’informations sur les groupes de basculement automatique avec les bases de données uniques et mises en pool, consultez [Meilleures pratiques d’utilisation des groupes de basculement avec des bases de données uniques et mises en pool](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-single-databases-and-elastic-pools). Pour plus d’informations sur les groupes de basculement automatique avec Managed Instance (préversion), consultez [Meilleures pratiques d’utilisation des groupes de basculement avec des instances gérées](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-managed-instances).
 
 ## <a name="prerequisites"></a>Conditions préalables
 
@@ -40,7 +40,7 @@ Les étapes suivantes créent une nouvelle base de données secondaire dans un p
 
 Pour ajouter une base de données secondaire, vous devez être le propriétaire ou copropriétaire de l’abonnement.
 
-La base de données secondaire a le même nom que la base de données primaire et, par défaut, le même niveau de service et la même taille de calcul. La base de données secondaire peut être une base de données unique ou une base de données en pool. Pour plus d’informations, consultez [Modèle d’achat basé sur DTU](sql-database-service-tiers-dtu.md) et [Modèle d’achat basé sur vCore](sql-database-service-tiers-vcore.md).
+La base de données secondaire a le même nom que la base de données primaire et, par défaut, le même niveau de service et la même taille de calcul. La base de données secondaire peut être une base de données unique ou une base de données mise en pool. Pour plus d’informations, consultez [Modèle d’achat DTU](sql-database-service-tiers-dtu.md) et [Modèle d’achat vCore](sql-database-service-tiers-vcore.md).
 Une fois la base de données secondaire créée et amorcée, une réplication des données de la base de données primaire vers la base de données secondaire commence.
 
 > [!NOTE]

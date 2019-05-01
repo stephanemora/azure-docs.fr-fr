@@ -286,7 +286,7 @@ Un paramètre de module est défini à l’aide de l’élément enfant **Arg** 
     * Numeric
     * Boolean
     * Par catégorie
-    * String
+    * Chaîne
     * Étiquette
     * Fonctionnalité
     * Score

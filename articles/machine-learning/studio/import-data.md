@@ -64,7 +64,7 @@ Vous pouvez spécifier de manière explicite ou modifier les titres et les types
 
 Les types de données reconnus par Studio sont les suivants :
 
-* String
+* Chaîne
 * Entier 
 * Double
 * Boolean

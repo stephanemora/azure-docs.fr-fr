@@ -262,20 +262,20 @@ Pour obtenir la liste des propriétés prises en charge par RelationalSource, co
 ### <a name="type-mapping-for-cassandra"></a>Mappage de type pour Cassandra
 | Type Cassandra | Type basé sur .NET |
 | --- | --- |
-| ASCII |String |
+| ASCII |Chaîne |
 | BIGINT |Int64 |
 | BLOB |Byte[] |
 | BOOLEAN |BOOLEAN |
 | DÉCIMAL |Decimal |
 | DOUBLE |DOUBLE |
 | FLOAT |Single |
-| INET |String |
+| INET |Chaîne |
 | INT |Int32 |
-| TEXTE |String |
+| TEXTE |Chaîne |
 | TIMESTAMP |DateTime |
 | TIMEUUID |Guid |
 | UUID |Guid |
-| VARCHAR |String |
+| VARCHAR |Chaîne |
 | VARINT |DÉCIMAL |
 
 > [!NOTE]

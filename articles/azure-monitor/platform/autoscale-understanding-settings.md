@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 12/18/2017
 ms.author: ancav
-ms.subservice: autoscale
+ms.component: autoscale
 ms.openlocfilehash: 02840b8a909f46c37130bdb7162674c694a0ff96
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54474827"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60787493"
 ---
 # <a name="understand-autoscale-settings"></a>Comprendre les paramètres de mise à l’échelle automatique
 Les paramètres de mise à l’échelle automatique permettent de s’assurer qu’un nombre approprié de ressources s’exécute pour gérer la charge fluctuante de votre application. Vous pouvez configurer les paramètres de mise à l’échelle automatique de sorte qu’ils soient déclenchés en fonction de mesures indiquant la charge ou les performances, ou un déclenchement à une date et une heure planifiées. Cet article examine de manière détaillée l’anatomie d’un paramètre de mise à l’échelle automatique. L’article commence par le schéma et les propriétés d’un paramètre, puis examine les différents types de profil qui peuvent être configurés. Enfin, il explique comment la fonctionnalité de mise à l’échelle automatique dans Azure évalue chaque profil à exécuter à un moment donné.
@@ -95,7 +95,7 @@ Pour illustrer le schéma du paramètre de mise à l’échelle automatique, le 
 | Paramètre | Nom | Nom du paramètre de mise à l'échelle automatique. |
 | Paramètre | location | Emplacement du paramètre de mise à l’échelle automatique. Cet emplacement peut être différent de celui de la ressource en cours de mise à l’échelle. |
 | properties | targetResourceUri | ID de la ressource mise à l’échelle. Vous ne pouvez avoir qu’un seul paramètre de mise à l’échelle automatique par ressource. |
-| properties | profils | Un paramètre de mise à l’échelle automatique se compose d’un ou plusieurs profils. Chaque fois que le moteur de mise à l’échelle automatique s’exécute, un profil est exécuté. |
+| properties | profiles | Un paramètre de mise à l’échelle automatique se compose d’un ou plusieurs profils. Chaque fois que le moteur de mise à l’échelle automatique s’exécute, un profil est exécuté. |
 | Profil | Nom | Nom du profil. Vous pouvez choisir n’importe quel nom vous permettant d’identifier le profil. |
 | Profil | Capacity.maximum | Capacité maximale autorisée. Elle garantit que la mise à l’échelle automatique, lors de l’exécution de ce profil, ne met pas votre ressource à l’échelle au-dessus de ce nombre. |
 | Profil | Capacity.minimum | Capacité minimale autorisée. Elle garantit que la mise à l’échelle automatique, lors de l’exécution de ce profil, ne met pas votre ressource à l’échelle au-dessous de ce nombre. |
@@ -310,4 +310,3 @@ Pour en savoir plus sur la mise à l’échelle automatique, consultez les resso
 * [Meilleures pratiques pour la mise à l’échelle automatique d’Azure Insights](../../azure-monitor/platform/autoscale-best-practices.md)
 * [Utilisation d’actions de mise à l’échelle automatique pour envoyer des notifications d’alerte webhook et par courrier électronique](../../azure-monitor/platform/autoscale-webhook-email.md)
 * [Paramètres de mise à l’échelle automatique](https://msdn.microsoft.com/library/dn931953.aspx)
-

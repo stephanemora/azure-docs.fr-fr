@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 09/06/2018
 ms.author: robinsh
 ms.openlocfilehash: 21758d112cd7eaf45b8b279cf2a6f6060c44c9c1
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515843"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60742039"
 ---
 # <a name="create-an-iot-hub-using-the-azure-portal"></a>Création d’un IoT Hub à l’aide du portail Azure
 
@@ -34,13 +34,13 @@ Vous pouvez modifier les paramètres d’un hub IoT existant après sa création
 
 Voici quelques-unes des propriétés que vous pouvez définir pour un hub IoT :
 
-**Tarification et mise à l’échelle** : vous pouvez utiliser cette propriété pour migrer vers un autre niveau ou pour définir le nombre d’unités IoT Hub. 
+**Tarification et mise à l’échelle**: Vous pouvez utiliser cette propriété pour migrer vers un autre niveau ou de définir le nombre de IoT Hub unités. 
 
-**Surveillance des opérations** : activez ou désactivez les différentes catégories de surveillance, comme la journalisation pour les événements liés à des messages appareil-à-cloud ou cloud-à-appareil.
+**Surveillance des opérations**: Activez les différentes catégories de surveillance activée ou désactivée, tels que la journalisation pour les événements liés à des messages appareil-à-cloud ou des messages cloud-à-appareil.
 
-**Filtre IP** : spécifiez une plage d’adresses IP qui sont acceptées ou rejetées par le hub IoT.
+**Filtre IP**: Spécifiez une plage d’adresses IP qui seront acceptées ou rejetées par le hub IoT.
 
-**Propriétés** : fournit la liste des propriétés que vous pouvez copier et utiliser ailleurs, comme l’ID de ressource, le groupe de ressources, l’emplacement, etc.
+**Propriétés** : Fournit la liste des propriétés que vous pouvez copier et utiliser un autre emplacement, tels que l’ID de ressource, groupe de ressources, emplacement et ainsi de suite.
 
 ### <a name="shared-access-policies"></a>Stratégies d’accès partagé
 

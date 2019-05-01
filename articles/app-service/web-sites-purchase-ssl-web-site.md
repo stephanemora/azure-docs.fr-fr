@@ -16,11 +16,11 @@ ms.date: 10/16/2018
 ms.author: apurvajo;cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 3e113639dbe4220b943d49dc610ee22b6416e12a
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57216575"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60832776"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-azure-app-service"></a>Acheter et configurer un certificat SSL pour Azure App Service
 
@@ -121,7 +121,7 @@ Dans la boîte de dialogue **Liaisons SSL**, configurez la liaison en vous aidan
 
 Accédez à votre application en utilisant `HTTPS://<domain_name>` au lieu de `HTTP://<domain_name>` pour vérifier que le certificat a été configuré correctement.
 
-## <a name="rekey-certificate"></a>Recréer la clé du certificat
+## <a name="rekey-certificate"></a>Renouvellement de certificat
 
 Si vous pensez que privée du certificat de votre clé est compromise, vous pouvez alors renouveler votre certificat. Sélectionnez le certificat dans le [certificats App Service](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) page, puis sélectionnez **renouveler la clé et synchroniser** dans le volet de navigation gauche.
 

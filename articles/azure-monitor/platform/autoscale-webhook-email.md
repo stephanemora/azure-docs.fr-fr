@@ -9,11 +9,11 @@ ms.date: 04/03/2017
 ms.author: ancav
 ms.subservice: autoscale
 ms.openlocfilehash: 25ef2541dfa0b4cbd6e11d64381da645acfe653a
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259293"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60787299"
 ---
 # <a name="use-autoscale-actions-to-send-email-and-webhook-alert-notifications-in-azure-monitor"></a>Utilisation d’actions de mise à l’échelle automatique pour envoyer des notifications d’alerte webhook et par courrier électronique dans Azure Moonitor
 Cet article explique comment paramétrer des déclencheurs pour vous permettre d’appeler des URL web spécifiques ou d’envoyer des courriers électroniques en fonction d’actions de mise à l’échelle automatique dans Azure.  
@@ -116,7 +116,7 @@ Lorsque la notification de mise à l’échelle automatique est générée, les 
 | nom_groupe_ressources |Oui |Nom de groupe de ressources de la ressource cible mise à l’échelle |
 | resourceName |Oui |Nom de la ressource cible mise à l’échelle |
 | resourceType |Oui |Trois valeurs sont prises en charge : « microsoft.classiccompute/domainnames/slots/roles » - Rôles de service cloud, « microsoft.compute/virtualmachinescalesets » - Jeux de mise à l’échelle de machine virtuelle et « Microsoft.Web/serverfarms » - Application Web |
-| ResourceId |Oui |ID Resource Manager de la ressource cible mise à l’échelle |
+| resourceId |Oui |ID Resource Manager de la ressource cible mise à l’échelle |
 | portalLink |Oui |Lien du portail Azure vers la page de résumé de la ressource cible |
 | oldCapacity |Oui |Nombre d’instances (anciennes) actuel lors de l’exécution d’une action de mise à l’échelle par la mise à l’échelle automatique |
 | newCapacity |Oui |Le nouveau nombre d’instances auquel la mise à l’échelle automatique a mis la ressource à l’échelle |

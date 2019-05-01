@@ -3065,12 +3065,12 @@ Le numéro de port du point de terminaison. Remplace la valeur dans le manifeste
 |Nom|Port|
 |Type|xs:string|
 
-#### <a name="protocol"></a>Protocole
+#### <a name="protocol"></a>Protocol
 Protocole pour le point de terminaison. Remplace la valeur dans le manifeste de service. EndpointCertificate et EndpointBindingPolicy doivent également être déclarés dans le manifeste d’application des points de terminaison HTTPS. Le protocole ne peut pas être modifié ultérieure lors d’une mise à niveau de l’application. 
 
 |Attribut|Valeur|
 |---|---|
-|Nom|Protocole|
+|Nom|Protocol|
 |Type|xs:string|
 |use|facultatif|
 
@@ -3198,12 +3198,12 @@ Nom du point de terminaison.
 |Nom|Nom|
 |use|required|
 
-#### <a name="protocol"></a>Protocole
+#### <a name="protocol"></a>Protocol
 Le protocole du point de terminaison : http, https, tcp ou udp. EndpointCertificate et EndpointBindingPolicy doivent également être déclarés dans le manifeste d’application des points de terminaison HTTPS. Le protocole ne peut pas être modifié ultérieure lors d’une mise à niveau de l’application. 
 
 |Attribut|Valeur|
 |---|---|
-|Nom|Protocole|
+|Nom|Protocol|
 |use|facultatif|
 |default|tcp|
 
@@ -4626,11 +4626,11 @@ Décrit les certificats associés à ce type de nœud
 |Type|xs:positiveInteger|
 |use|required|
 
-#### <a name="protocol"></a>Protocole
+#### <a name="protocol"></a>Protocol
 
 |Attribut|Valeur|
 |---|---|
-|Nom|Protocole|
+|Nom|Protocol|
 |use|facultatif|
 |default|tcp|
 
@@ -4669,11 +4669,11 @@ Décrit les certificats associés à ce type de nœud
 |Type|xs:positiveInteger|
 |use|required|
 
-#### <a name="protocol"></a>Protocole
+#### <a name="protocol"></a>Protocol
 
 |Attribut|Valeur|
 |---|---|
-|Nom|Protocole|
+|Nom|Protocol|
 |use|facultatif|
 |default|tcp|
 

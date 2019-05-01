@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 9bbb6a8f8edf42ceb2ffb6d8e632f66a3ad9c6a6
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48806062"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60776669"
 ---
 # <a name="dynamics-365-for-operations-help-wiki"></a>Wiki d’aide sur Dynamics 365 for Operations
 

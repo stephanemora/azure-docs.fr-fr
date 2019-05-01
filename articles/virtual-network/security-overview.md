@@ -35,7 +35,7 @@ Un groupe de sécurité réseau contient le nombre des règles souhaité (ou auc
 |Nom|Nom unique au sein du groupe de sécurité réseau.|
 |Priorité | Nombre compris entre 100 et 4096. Les règles sont traitées dans l’ordre croissant, car les nombres les plus faibles sont prioritaires. Une fois que le trafic correspond à une règle, le traitement s’arrête. Par conséquent, les règles avec des priorités plus faibles (des nombres plus élevés) et ayant les mêmes attributs que les règles de priorité supérieure ne sont pas traitées.|
 |Source ou destination| Tout, ou adresse IP, bloc de routage CIDR (10.0.0.0/24, par exemple), une [balise de service](#service-tags) ou [groupe de sécurité d’application](#application-security-groups) individuel(le). Si vous spécifiez une adresse pour une ressource Azure, spécifiez l’adresse IP privée assignée à la ressource. Les groupes de sécurité réseau sont traités une fois qu’Azure a converti une adresse IP publique en adresse IP privée pour le trafic entrant, et avant qu’Azure ne convertisse une adresse IP privée en une adresse IP publique pour le trafic sortant. En savoir plus sur les [adresses IP](virtual-network-ip-addresses-overview-arm.md) Azure. En spécifiant une plage, une balise de service ou un groupe de sécurité d’application, vous pouvez créer moins des règles de sécurité. La possibilité de spécifier plusieurs adresses IP individuelles et plages (vous ne pouvez pas spécifier plusieurs balises de service ou groupes d’applications) dans une règle est désignée sous le nom de [règles de sécurité augmentée](#augmented-security-rules). Les règles de sécurité augmentée peuvent uniquement être créées dans des groupes de sécurité réseau créés par le biais du modèle de déploiement du Gestionnaire de ressources. Vous ne pouvez pas spécifier plusieurs adresses IP et plages d’adresses IP dans les groupes de sécurité réseau créés par le biais du modèle de déploiement classique. En savoir plus sur les [modèles de déploiement Azure](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).|
-|Protocole     | TCP, UDP ou Tout, ce qui inclut (sans s'y limiter) TCP, UDP et ICMP. Vous ne pouvez pas spécifier ICMP seul. Si vous avez besoin d’ICMP, vous devez donc utiliser Tout. |
+|Protocol     | TCP, UDP ou Tout, ce qui inclut (sans s'y limiter) TCP, UDP et ICMP. Vous ne pouvez pas spécifier ICMP seul. Si vous avez besoin d’ICMP, vous devez donc utiliser Tout. |
 |Direction| Indique si la règle s’applique au trafic entrant ou sortant.|
 |Plage de ports     |Vous pouvez spécifier un port individuel ou une plage de ports. Par exemple, indiquez 80 ou 10000-10005. La spécification de plages vous permet de créer moins de règles de sécurité. Les règles de sécurité augmentée peuvent uniquement être créées dans des groupes de sécurité réseau créés par le biais du modèle de déploiement du Gestionnaire de ressources. Vous ne pouvez pas spécifier plusieurs ports ou plages de ports dans les groupes de sécurité réseau créés par le biais du modèle de déploiement classique.   |
 |Action     | Autoriser ou refuser        |
@@ -96,19 +96,19 @@ Azure crée les règles par défaut suivantes dans chaque groupe de sécurité r
 
 #### <a name="allowvnetinbound"></a>AllowVNetInBound
 
-|Priorité|Source|Ports source|Destination|Ports de destination|Protocole|Access|
+|Priorité|Source|Ports source|Destination|Ports de destination|Protocol|Access|
 |---|---|---|---|---|---|---|
 |65 000|VirtualNetwork|0-65535|VirtualNetwork|0-65535|Tous|AUTORISER|
 
 #### <a name="allowazureloadbalancerinbound"></a>AllowAzureLoadBalancerInBound
 
-|Priorité|Source|Ports source|Destination|Ports de destination|Protocole|Access|
+|Priorité|Source|Ports source|Destination|Ports de destination|Protocol|Access|
 |---|---|---|---|---|---|---|
 |65 001|AzureLoadBalancer|0-65535|0.0.0.0/0|0-65535|Tous|AUTORISER|
 
 #### <a name="denyallinbound"></a>DenyAllInbound
 
-|Priorité|Source|Ports source|Destination|Ports de destination|Protocole|Access|
+|Priorité|Source|Ports source|Destination|Ports de destination|Protocol|Access|
 |---|---|---|---|---|---|---|
 |65 500|0.0.0.0/0|0-65535|0.0.0.0/0|0-65535|Tous|Deny|
 
@@ -116,19 +116,19 @@ Azure crée les règles par défaut suivantes dans chaque groupe de sécurité r
 
 #### <a name="allowvnetoutbound"></a>AllowVnetOutBound
 
-|Priorité|Source|Ports source| Destination | Ports de destination | Protocole | Access |
+|Priorité|Source|Ports source| Destination | Ports de destination | Protocol | Access |
 |---|---|---|---|---|---|---|
 | 65 000 | VirtualNetwork | 0-65535 | VirtualNetwork | 0-65535 | Tous | AUTORISER |
 
 #### <a name="allowinternetoutbound"></a>AllowInternetOutBound
 
-|Priorité|Source|Ports source| Destination | Ports de destination | Protocole | Access |
+|Priorité|Source|Ports source| Destination | Ports de destination | Protocol | Access |
 |---|---|---|---|---|---|---|
 | 65 001 | 0.0.0.0/0 | 0-65535 | Internet | 0-65535 | Tous | AUTORISER |
 
 #### <a name="denyalloutbound"></a>DenyAllOutBound
 
-|Priorité|Source|Ports source| Destination | Ports de destination | Protocole | Access |
+|Priorité|Source|Ports source| Destination | Ports de destination | Protocol | Access |
 |---|---|---|---|---|---|---|
 | 65 500 | 0.0.0.0/0 | 0-65535 | 0.0.0.0/0 | 0-65535 | Tous | Deny |
 
@@ -148,7 +148,7 @@ Dans l’image précédente, *NIC1* et *NIC2* sont membres du groupe de sécurit
 
 Cette règle est nécessaire pour autoriser le trafic internet vers les serveurs web. Étant donné que le trafic entrant à partir d’internet est refusé par la règle de sécurité par défaut [DenyAllInbound](#denyallinbound), aucune règle supplémentaire n’est nécessaire pour les groupes de sécurité d’application *AsgLogic* ou *AsgDb*.
 
-|Priorité|Source|Ports source| Destination | Ports de destination | Protocole | Access |
+|Priorité|Source|Ports source| Destination | Ports de destination | Protocol | Access |
 |---|---|---|---|---|---|---|
 | 100 | Internet | * | AsgWeb | 80 | TCP | AUTORISER |
 
@@ -156,7 +156,7 @@ Cette règle est nécessaire pour autoriser le trafic internet vers les serveurs
 
 Étant donné que la règle de sécurité par défaut [AllowVNetInBound](#allowvnetinbound) autorise toutes les communications entre les ressources dans le même réseau virtuel, cette règle est nécessaire pour refuser le trafic à partir de toutes les ressources.
 
-|Priorité|Source|Ports source| Destination | Ports de destination | Protocole | Access |
+|Priorité|Source|Ports source| Destination | Ports de destination | Protocol | Access |
 |---|---|---|---|---|---|---|
 | 120 | * | * | AsgDb | 1433 | Tous | Deny |
 
@@ -164,7 +164,7 @@ Cette règle est nécessaire pour autoriser le trafic internet vers les serveurs
 
 Cette règle autorise le trafic du groupe de sécurité d’application *AsgLogic* vers le groupe de sécurité d’application *AsgDb*. Cette règle est prioritaire par rapport à la règle *Deny-Database-All*. Par conséquent, cette règle est traitée avant la règle *Deny-Database-All*, c’est pourquoi le trafic en provenance du groupe de sécurité d’application *AsgLogic* est autorisé, tandis que tout autre trafic est bloqué.
 
-|Priorité|Source|Ports source| Destination | Ports de destination | Protocole | Access |
+|Priorité|Source|Ports source| Destination | Ports de destination | Protocol | Access |
 |---|---|---|---|---|---|---|
 | 110 | AsgLogic | * | AsgDb | 1433 | TCP | AUTORISER |
 

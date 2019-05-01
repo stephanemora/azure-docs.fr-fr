@@ -13,11 +13,11 @@ ms.custom: seodec18
 ms.date: 03/11/2019
 ms.author: juliako
 ms.openlocfilehash: dee7f831562dc1f4b2478d13b204aab1d8455e1e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57840628"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60733179"
 ---
 # <a name="azure-cli-examples-for-azure-media-services"></a>Exemples de l’interface de ligne de commande Azure pour Azure Media Services
 
@@ -47,4 +47,4 @@ Le tableau suivant comprend des liens vers les exemples de l’interface de lign
 ## <a name="see-also"></a>Voir aussi
 
 - [Interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
-- [Démarrage rapide : Fichiers vidéo Stream - CLI](stream-files-cli-quickstart.md)
+- [Démarrage rapide : Diffuser des fichiers vidéo en streaming - CLI](stream-files-cli-quickstart.md)

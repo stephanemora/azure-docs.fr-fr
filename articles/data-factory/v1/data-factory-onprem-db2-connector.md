@@ -321,19 +321,19 @@ Les mappages suivants sont utilisés lorsque l’activité de copie convertit le
 | Temps |TimeSpan |
 | Timestamp |Datetime |
 | Xml |Byte[] |
-| Char |String |
-| VarChar |String |
-| LongVarChar |String |
-| DB2DynArray |String |
+| Char |Chaîne |
+| VarChar |Chaîne |
+| LongVarChar |Chaîne |
+| DB2DynArray |Chaîne |
 | Binary |Byte[] |
 | VarBinary |Byte[] |
 | LongVarBinary |Byte[] |
-| Graphic |String |
-| VarGraphic |String |
-| LongVarGraphic |String |
-| Clob |String |
+| Graphic |Chaîne |
+| VarGraphic |Chaîne |
+| LongVarGraphic |Chaîne |
+| Clob |Chaîne |
 | Blob |Byte[] |
-| DbClob |String |
+| DbClob |Chaîne |
 | SmallInt |Int16 |
 | Entier  |Int32 |
 | BigInt |Int64 |
@@ -347,7 +347,7 @@ Les mappages suivants sont utilisés lorsque l’activité de copie convertit le
 | Temps |TimeSpan |
 | Timestamp |Datetime |
 | Xml |Byte[] |
-| Char |String |
+| Char |Chaîne |
 
 ## <a name="map-source-to-sink-columns"></a>Mapper les colonnes source aux colonnes du récepteur
 Pour savoir comment mapper des colonnes du jeu de données source à des colonnes du jeu de données récepteur, consultez [Mappage des colonnes d’un jeu de données dans Azure Data Factory](data-factory-map-columns.md).

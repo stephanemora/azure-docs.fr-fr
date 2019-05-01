@@ -15,16 +15,16 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: v-sharos
 ms.custom: ''
-ms.openlocfilehash: b48c507e38eb7cadff56259f617e336e4efe5708
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 46225e5a332e035e4d1cc256e71c4b5d8686fd47
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23113527"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60845135"
 ---
 # <a name="use-storsimple-snapshot-manager-user-interface-to-manage-backup-jobs-and-backup-catalog"></a>Utiliser l’interface utilisateur StorSimple Snapshot Manager pour gérer les tâches de sauvegarde et le catalogue de sauvegarde
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Présentation
 StorSimple Snapshot Manager présente une interface utilisateur intuitive qui vous permet de procéder à des sauvegardes et de les gérer. Ce didacticiel présente l’interface utilisateur, puis explique comment utiliser chacun des composants. Pour obtenir une description détaillée du Gestionnaire d'instantanés StorSimple, consultez [Qu'est-ce que le Gestionnaire d'instantanés StorSimple ?](storsimple-what-is-snapshot-manager.md)
 
 ### <a name="console-description"></a>Description de la console
@@ -124,7 +124,7 @@ Le tableau suivant contient une liste alphabétique des actions du Gestionnaire 
 | Actualiser l’appareil |Cliquez sur le nœud **Appareils**, puis cliquez avec le bouton droit dans le volet **Résultats**. |Cliquez sur **Actualiser l’appareil** pour synchroniser un appareil spécifique connecté avec le Gestionnaire d’instantanés StorSimple. |
 | Actualiser la liste des appareils |Cliquez avec le bouton droit de la souris sur le nœud **Appareils** . |Cliquez sur **Actualiser la liste des appareils** pour synchroniser la liste des appareils connectés avec le Gestionnaire d’instantanés StorSimple. |
 | Relancer l’analyse des volumes |Cliquez avec le bouton droit sur le nœud **Volumes** . |Cliquez sur **Relancer l’analyse des volumes** pour mettre à jour la liste des volumes qui s’affiche dans le volet **Résultats**. |
-| Restore  |Développez **Catalogue de sauvegarde**, développez un groupe de volumes, développez **Instantanés locaux** ou **Instantanés Cloud**, puis cliquez avec le bouton droit sur une sauvegarde. |Cliquez sur **Restaurer** pour remplacer les données du groupe de volumes actuel par les données de la sauvegarde sélectionnée. |
+| Restore |Développez **Catalogue de sauvegarde**, développez un groupe de volumes, développez **Instantanés locaux** ou **Instantanés Cloud**, puis cliquez avec le bouton droit sur une sauvegarde. |Cliquez sur **Restaurer** pour remplacer les données du groupe de volumes actuel par les données de la sauvegarde sélectionnée. |
 | Effectuer la sauvegarde |Effectuez l’une des actions suivantes :<ul><li>Développez **Groupes de volumes**, puis cliquez avec le bouton droit sur un groupe de volumes.</li><li>Développez **Catalogue de sauvegarde**, puis cliquez avec le bouton droit sur un groupe de volumes.</li></ul> |Cliquez sur **Créer une sauvegarde** pour démarrer immédiatement une opération de sauvegarde. |
 | Activer/désactiver l’affichage des importations |Cliquez avec le bouton droit sur le nœud supérieur dans le volet **Étendue** (nœud **Gestionnaire d’instantanés StorSimple** dans les exemples). |Cliquez sur **Activer/Désactiver l’affichage des importations** pour afficher ou masquer les groupes de volumes et les sauvegardes associées importés depuis le tableau de bord du service StorSimple Device Manager. |
 
@@ -308,7 +308,7 @@ Le nœud **Travaux** contient des informations sur les travaux de sauvegarde pla
 ## <a name="results-pane"></a>Volet Résultats
 Le volet **Résultats** est le volet central de l’interface utilisateur du Gestionnaire d’instantanés StorSimple. Il contient des listes et des informations d’état détaillées sur le nœud sélectionné dans le volet **Étendue** .
 
-### <a name="example"></a>Exemple
+### <a name="example"></a>Exemples
 Pour voir l’exemple suivant, cliquez sur le nœud **Groupes de volumes** dans le volet **Étendue**. Le volet **Résultats** affiche une liste des groupes de volumes contenant des détails sur chaque groupe.
 
 ![Volet Résultats](./media/storsimple-use-snapshot-manager/HCS_SSM_Results_pane.png) 
@@ -424,7 +424,7 @@ Les tableaux suivants montrent les combinaisons de touches de raccourci de chaqu
 #### <a name="backup-policies-node-shortcut-keys"></a>Touches de raccourci du nœud Stratégies de sauvegarde
 | Raccourci du menu | Résultat |
 |:--- |:--- |
-| B |Ouvre la page **Créer une stratégie** . |
+| b |Ouvre la page **Créer une stratégie** . |
 | V |Ouvre le menu **Affichage** . |
 | W |Ouvre une nouvelle console de Gestionnaire d’instantanés StorSimple axée sur le nœud **Groupes de volumes** . |
 | F |Met à jour la console du Gestionnaire d’instantanés StorSimple. |

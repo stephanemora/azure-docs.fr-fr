@@ -13,11 +13,11 @@ ms.reviewer: mbullwin
 ms.date: 03/07/2019
 ms.author: mbullwin
 ms.openlocfilehash: bf19d4f5ce60411413c21fce12f9fe9d2f391bf1
-ms.sourcegitcommit: f596d88d776a3699f8c8cf98415eb874187e2a48
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2019
-ms.locfileid: "58094937"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60783959"
 ---
 # <a id="troubleshooting"></a> Résoudre les problèmes de l’activation du débogueur de captures instantanées Application Insights ou affichage des instantanés
 Si vous activé le débogueur de captures instantanées Application Insights pour votre application, mais vous ne voyez pas de captures instantanées pour les exceptions, vous pouvez utiliser ces instructions pour résoudre les problèmes. Il peut y avoir différentes raisons pourquoi les captures instantanées ne sont pas générées. Vous pouvez exécuter le contrôle d’intégrité de capture instantanée pour l’identifier parmi les causes possibles.
