@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: fc05c5c5917667d4bd9c869c9370ac952893ab26
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 68d16a7e25e6f9a294dee1f077d53aa4551cda5e
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60456205"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924807"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Notes de publication de l’Explorateur Stockage Microsoft Azure
 
@@ -38,7 +38,7 @@ Cet article contient les notes de publication de l’Explorateur Stockage Azure 
 ### <a name="new"></a>Nouveau
 
 * Vous pouvez maintenant modifier le propriétaire et le groupe propriétaire lors de la gestion des accès pour un conteneur d’ADLS Gen2, un fichier ou un dossier.
-* Sous Windows, mise à jour à partir de l’Explorateur de stockage au sein du produit est désormais une installation incrémentielle. Cela doit entraîner une expérience de mise à jour plus rapide. Si vous préférez une nouvelle installation, vous pouvez télécharger le [programme d’installation](https://azure.microsoft.com/en-us/features/storage-explorer/) vous-même, puis installez manuellement. #1089
+* Sous Windows, mise à jour à partir de l’Explorateur de stockage au sein du produit est désormais une installation incrémentielle. Cela doit entraîner une expérience de mise à jour plus rapide. Si vous préférez une nouvelle installation, vous pouvez télécharger le [programme d’installation](https://azure.microsoft.com/features/storage-explorer/) vous-même, puis installez manuellement. #1089
 
 ### <a name="preview-features"></a>Fonctionnalités préliminaires
 
@@ -59,7 +59,7 @@ Cet article contient les notes de publication de l’Explorateur Stockage Azure 
 
 ### <a name="known-issues"></a>Problèmes connus
 
-* Lorsque vous utilisez RBAC, Explorateur de stockage requiert certaines autorisations de couche de gestion afin d’accéder à vos ressources de stockage. Consultez le [guide de dépannage](https://docs.microsoft.com/en-us/azure/storage/common/storage-explorer-troubleshooting) pour plus d’informations.
+* Lorsque vous utilisez RBAC, Explorateur de stockage requiert certaines autorisations de couche de gestion afin d’accéder à vos ressources de stockage. Consultez le [guide de dépannage](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting) pour plus d’informations.
 * Tente d’accéder aux objets BLOB de Gen2 ADLS lorsque derrière un proxy peut échouer.
 * Le détachement d’une ressource attachée par le biais d’un URI SAS, comme un conteneur d’objets blob, peut provoquer une erreur qui empêche les autres attachements de s’afficher correctement. Pour contourner ce problème, actualisez simplement le nœud du groupe. Voir #537 pour plus d’informations.
 * Le détachement d’une ressource attachée par le biais d’un URI SAS, comme un conteneur d’objets blob, peut provoquer une erreur qui empêche les autres attachements de s’afficher correctement. Pour contourner ce problème, actualisez simplement le nœud du groupe. Pour plus d’informations, consultez #537.

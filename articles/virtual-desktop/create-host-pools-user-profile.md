@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 04/05/2019
 ms.author: helohr
-ms.openlocfilehash: 0cb4df099faad8ca482fd15cf0bb50504c1528ab
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: f6516e37107a16d80c4d9eb9514782bdbcc44184
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60883868"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925207"
 ---
 # <a name="set-up-a-user-profile-share-for-a-host-pool"></a>Configurer un partage de profil utilisateur pour un pool d’hôtes
 
@@ -68,4 +68,4 @@ Pour configurer les machines virtuelles avec le logiciel FSLogix, procédez comm
 | VHDLocations        | Valeur de chaînes multiples | « Chemin d’accès réseau pour le partage de fichiers »     |
 
 >[!IMPORTANT]
->Pour contribuer à sécuriser votre environnement Windows Virtual Desktop dans Azure, nous vous recommandons de ne pas ouvrir le port entrant 3389 sur vos machines virtuelles. Windows Virtual Desktop ne nécessite pas l’ouverture du port entrant 3389 pour permettre aux utilisateurs d’accéder aux machines virtuelles du pool hôte. Si vous devez ouvrir le port 3389 pour résoudre des problèmes, nous vous recommandons d’utiliser un [accès à la machine virtuelle juste-à-temps](https://docs.microsoft.com/en-us/azure/security-center/security-center-just-in-time).
+>Pour contribuer à sécuriser votre environnement Windows Virtual Desktop dans Azure, nous vous recommandons de ne pas ouvrir le port entrant 3389 sur vos machines virtuelles. Windows Virtual Desktop ne nécessite pas l’ouverture du port entrant 3389 pour permettre aux utilisateurs d’accéder aux machines virtuelles du pool hôte. Si vous devez ouvrir le port 3389 pour résoudre des problèmes, nous vous recommandons d’utiliser un [accès à la machine virtuelle juste-à-temps](https://docs.microsoft.com/azure/security-center/security-center-just-in-time).

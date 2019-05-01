@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/13/2017
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 8793f6f4d135d6099541d24aa5f5cfc0b6c21b30
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ec87bdadc0e7f77cdeebb16403758026fd956c30
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61290058"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939856"
 ---
 # <a name="how-to-build-a-facet-filter-in-azure-search"></a>Comment créer un filtre de facette dans la Recherche Azure 
 
@@ -35,7 +35,7 @@ Vous découvrez ce type de navigation et souhaitez en savoir plus ? Consultez la
 
 ## <a name="choose-fields"></a>Choisir des champs
 
-Vous pouvez calculer des facettes sur la base de champs à une seule valeur, ou de collections. Les champs les plus efficaces dans une navigation par facettes présentent une cardinalité faible (un petit nombre de valeurs distinctes, qui se répètent tout au long d’un document dans votre corpus de recherche, par exemple une liste de couleurs, de pays ou de noms de marques). 
+Vous pouvez calculer des facettes sur la base de champs à une seule valeur, ou de collections. Les champs qui fonctionnent le mieux la navigation à facettes présentent une cardinalité faible : un petit nombre de valeurs distinctes qui se répètent tout au long de documents dans votre corpus de recherche (par exemple, une liste de couleurs, des pays/régions ou des noms de marques). 
 
 La création de facettes est activée champ par champ lorsque vous générez l’index, si vous définissez les attributs `filterable` et `facetable` sur TRUE. Seuls les champs filtrables peuvent être désignés comme étant à facettes.
 

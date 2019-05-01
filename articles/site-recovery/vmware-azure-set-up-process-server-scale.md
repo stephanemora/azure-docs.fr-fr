@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 4/23/2019
 ms.author: ramamill
-ms.openlocfilehash: 678f9aa60d4970540ded8ba0bb1a4ddaa6281a49
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: 1b6084b4e93f3dc17f633f1b8496f9c26e7f576f
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62101895"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925489"
 ---
 # <a name="scale-with-additional-process-servers"></a>Mettre à l’échelle avec les serveurs de traitement supplémentaires
 
@@ -24,7 +24,7 @@ Par défaut, lorsque vous répliquez des machines virtuelles VMware ou des serve
 
 Assurez-vous d’avoir effectué la [planification de la capacité](site-recovery-plan-capacity-vmware.md) pour la réplication VMware. Cela vous aide à déterminer comment et quand déployer des serveurs de traitement supplémentaires.
 
-À partir de la version 9.24, des conseils sont ajouté lors de la sélection du serveur de processus pour les réplications de nouveau. Serveur de processus sera marqué intègre, avertissement et critique pour selon certains critères. Pour comprendre les différents scénarios qui peuvent influencer l’état du serveur de processus, visitez [Guide de sélection de serveur de processus](vmware-azure-manage-process-server.md#process-server-selection-guidance).
+À partir de la version 9.24, des conseils sont ajouté lors de la sélection du serveur de processus pour les réplications de nouveau. Serveur de processus sera marqué intègre, avertissement et critique en fonction de certains critères. Pour comprendre les différents scénarios qui peuvent influencer l’état du serveur de processus, consultez le [traiter les alertes du serveur](vmware-physical-azure-monitor-process-server.md#process-server-alerts).
 
 > [!NOTE]
 > L’utilisation d’un composant de serveur de processus cloné n’est pas prise en charge. Suivez les étapes décrites dans cet article pour chaque mise à l’échelle PS.

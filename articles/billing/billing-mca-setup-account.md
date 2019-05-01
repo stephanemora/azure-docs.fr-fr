@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
-ms.openlocfilehash: 90f832319fa2343003af58bd99eb64c0cbd94dd8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 284480ab8b9973c02f365dbf3ebfd3a103ef4b42
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60371720"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919150"
 ---
 # <a name="set-up-your-billing-account-for-a-microsoft-customer-agreement"></a>Configurer votre compte de facturation d’un contrat de client de Microsoft
 
@@ -108,7 +108,7 @@ Un locataire Azure Active Directory est sélectionné pour le nouveau compte de 
 
 Votre nouveau compte prend uniquement en charge les utilisateurs du locataire qui a été sélectionné lors de la signature de l’accord de client de Microsoft. Si les utilisateurs disposant des autorisations d’administration sur votre contrat entreprise font partie du client, ils obtiendront l’accès au nouveau compte de facturation lors de l’installation. S’ils ne sont pas partie du locataire, ils ne pourront accéder le nouveau compte de facturation, sauf si vous les inviter.
 
-Si vous souhaitez inviter les utilisateurs, ils sont ajoutés au locataire en tant qu’utilisateurs invités et accédez au compte de facturation. Pour inviter les utilisateurs, l’accès invité doit être activé pour le locataire. Pour plus d’informations, consultez [contrôler l’accès des invités dans Azure Active Directory](https://docs.microsoft.com/en-us/microsoftteams/teams-dependencies#control-guest-access-in-azure-active-directory). Si l’accès invité est désactivé, contactez les administrateurs généraux de votre client pour l’activer. <!-- Todo - How can they find their global administrator -->
+Si vous souhaitez inviter les utilisateurs, ils sont ajoutés au locataire en tant qu’utilisateurs invités et accédez au compte de facturation. Pour inviter les utilisateurs, l’accès invité doit être activé pour le locataire. Pour plus d’informations, consultez [contrôler l’accès des invités dans Azure Active Directory](https://docs.microsoft.com/microsoftteams/teams-dependencies#control-guest-access-in-azure-active-directory). Si l’accès invité est désactivé, contactez les administrateurs généraux de votre client pour l’activer. <!-- Todo - How can they find their global administrator -->
 
 ## <a name="view-features-replaced-by-the-new-billing-account"></a>Afficher les fonctionnalités remplacées par le nouveau compte de facturation
 

@@ -1,25 +1,18 @@
 ---
-title: Configurer WinRM après la création d’une machine virtuelle Azure | Microsoft Docs
+title: Configurer WinRM après la création de machine virtuelle Azure | Place de marché Azure
 description: Explique comment configurer Windows Remote Management (WinRM) après la création d’une machine virtuelle hébergée sur Azure.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/27/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 6350d5bde737c46cf14a9aef75a7ec57260a6afa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.author: pabutler
+ms.openlocfilehash: 4a4248efcfda76dfd8907069e167fdfa144d0365
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60744525"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64938512"
 ---
 # <a name="configure-winrm-after-virtual-machine-creation"></a>Configurer WinRM après la création d’une machine virtuelle
 

@@ -11,12 +11,12 @@ ms.author: clauren
 ms.reviewer: jmartens
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 815be7400e0a0560ace7e07b317aeb25c2feacd5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: f81aea22014a2c7d5b37c500a546f0b5350b6435
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60817412"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925380"
 ---
 # <a name="troubleshooting-azure-machine-learning-service-aks-and-aci-deployments"></a>Résoudre les problèmes de déploiement AKS et ACI d’Azure Machine Learning service
 
@@ -307,7 +307,7 @@ Il existe deux choses qui peuvent aider à empêcher les codes d’état 503 :
     > [!NOTE]
     > Si vous recevez des pics de demande plus volumineux que les nouveaux réplicas minimale ne peuvent gérer, vous pouvez recevoir 503s à nouveau. Par exemple, en tant que le trafic vers votre augmente de service, vous devrez peut-être augmenter les réplicas minimale.
 
-Pour plus d’informations sur la configuration `autoscale_target_utilization`, `autoscale_max_replicas`, et `autoscale_min_replicas` pour, consultez le [AksWebservice](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py) référence de module.
+Pour plus d’informations sur la configuration `autoscale_target_utilization`, `autoscale_max_replicas`, et `autoscale_min_replicas` pour, consultez le [AksWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py) référence de module.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

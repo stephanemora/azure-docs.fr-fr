@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database Managed Instance horaire | Microsoft Docs »
+title: Fuseaux horaires Azure SQL Database Managed Instance | Microsoft Docs »
 description: En savoir plus sur les spécificités de fuseau horaire de Azure SQL Database Managed Instance
 services: sql-database
 ms.service: sql-database
@@ -10,42 +10,42 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: ''
 manager: craigg
-ms.date: 04/10/2019
-ms.openlocfilehash: 23314e97051da95ab164baeab6e9d089f486351a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.date: 04/25/2019
+ms.openlocfilehash: 6d7d065f45bca38cedd2c276bdd9b98dfd9675df
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61487396"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64866947"
 ---
-# <a name="time-zone-in-azure-sql-database-managed-instance-preview"></a>Fuseau horaire dans la base de données Azure SQL Managed Instance (version préliminaire)
+# <a name="time-zones-in-azure-sql-database-managed-instance-preview"></a>Fuseaux horaires dans Azure SQL Database Managed Instance (version préliminaire)
 
-À l’aide de temps universel coordonné (UTC) est une pratique recommandée pour la couche de données de solutions de cloud, Azure SQL Database Managed Instance offre un choix de fuseau horaire en fonction des besoins des applications existantes qui stockent les valeurs de date et d’heure et date de l’appel et fonctions d’heure avec un contexte implicite d’un fuseau horaire spécifique.
+Temps universel coordonné (UTC) est le fuseau horaire recommandé pour la couche de données de solutions de cloud. Azure SQL Database Managed Instance offre également un choix de fuseaux horaires pour répondre aux besoins des applications existantes qui stockent les valeurs de date et d’heure et appellent des fonctions de date et d’heure avec un contexte implicite d’un fuseau horaire spécifique.
 
-Les fonctions T-SQL comme [GETDATE()](https://docs.microsoft.com/sql/t-sql/functions/getdate-transact-sql) ou code CLR observer le fuseau horaire défini sur l’instance à niveau. Travaux SQL Agent suivre également la planification selon le fuseau horaire de l’instance.
+Les fonctions T-SQL comme [GETDATE()](https://docs.microsoft.com/sql/t-sql/functions/getdate-transact-sql) ou code CLR observer le fuseau horaire défini sur l’instance à niveau. Travaux SQL Server Agent Suivez également les planifications selon le fuseau horaire de l’instance.
 
   >[!NOTE]
   > Managed Instance est l’option de déploiement uniquement de base de données SQL Azure qui prend en charge le paramètre de fuseau horaire. Autres options de déploiement suivent toujours UTC.
-Utilisez [AT TIME ZONE](https://docs.microsoft.com/sql/t-sql/queries/at-time-zone-transact-sql) dans uniques et bureaux bases de données SQL si vous avez besoin d’interpréter les informations de date et d’heure dans le fuseau horaire non UTC.
+Utilisez [AT TIME ZONE](https://docs.microsoft.com/sql/t-sql/queries/at-time-zone-transact-sql) dans uniques et bureaux bases de données SQL si vous avez besoin d’interpréter les informations de date et d’heure dans un fuseau horaire de non-UTC.
 
 ## <a name="supported-time-zones"></a>Prise en charge des fuseaux horaires
 
-Un ensemble de fuseaux horaires pris en charge est hérité à partir du système d’exploitation sous-jacent de l’instance gérée et il est régulièrement mis à jour pour obtenir les nouvelles définitions de fuseau horaire et refléter les modifications apportées à des colonnes existantes.
+Un ensemble de fuseaux horaires pris en charge est hérité à partir du système d’exploitation sous-jacent de l’instance gérée. Il est régulièrement mis à jour pour obtenir de nouvelles définitions de fuseau horaire et refléter les modifications apportées à des colonnes existantes. 
 
 Une liste avec les noms des fuseaux horaires pris en charge est exposée via la [sys.time_zone_info](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-time-zone-info-transact-sql) vue système.
 
-## <a name="setting-time-zone"></a>Définition du fuseau horaire
+## <a name="set-a-time-zone"></a>Définir un fuseau horaire
 
-Un fuseau horaire de l’instance managée peut être défini lors de la création d’instance uniquement. Le fuseau horaire par défaut est le temps universel coordonné (UTC).
+Un fuseau horaire d’une instance managée peut être défini lors de la création d’instance uniquement. Le fuseau horaire par défaut est UTC.
 
   >[!NOTE]
   > Le fuseau horaire d’une instance managée existante ne peut pas être modifié.
 
-### <a name="setting-the-time-zone-through-azure-portal"></a>Définition du fuseau horaire via le portail Azure
+### <a name="set-the-time-zone-through-the-azure-portal"></a>Définir le fuseau horaire via le portail Azure
 
-Lorsque vous entrez des paramètres pour la nouvelle instance, sélectionnez un fuseau horaire dans la liste des fuseaux horaires pris en charge :
+Lorsque vous entrez des paramètres pour une nouvelle instance, sélectionnez un fuseau horaire dans la liste des fuseaux horaires pris en charge. 
   
-![Définition du fuseau horaire lors de la création d’instance](media/sql-database-managed-instance-timezone/01-setting_timezone-during-instance-creation.png)
+![Définition d’un fuseau horaire lors de la création d’instance](media/sql-database-managed-instance-timezone/01-setting_timezone-during-instance-creation.png)
 
 ### <a name="azure-resource-manager-template"></a>Modèle Azure Resource Manager
 
@@ -66,36 +66,35 @@ Spécifiez la propriété timezoneId dans votre [modèle Resource Manager](https
 
 ```
 
-Vous trouverez la liste de valeurs prises en charge pour la propriété timezoneId à la fin de cet article.
+Une liste de valeurs prises en charge pour la propriété timezoneId est à la fin de cet article.
 
-Si non spécifié, fuseau horaire est défini sur UTC.
+Si non spécifié, le fuseau horaire est défini sur UTC.
 
-## <a name="checking-the-time-zone-of-instance"></a>La vérification du fuseau horaire de l’instance
+## <a name="check-the-time-zone-of-an-instance"></a>Vérifier le fuseau horaire d’une instance
 
-[CURRENT_TIMEZONE](https://docs.microsoft.com/sql/t-sql/functions/current-timezone-transact-sql) fonction retourne un nom d’affichage du fuseau horaire de l’instance.
+Le [CURRENT_TIMEZONE](https://docs.microsoft.com/sql/t-sql/functions/current-timezone-transact-sql) fonction retourne un nom d’affichage du fuseau horaire de l’instance.
 
 ## <a name="cross-feature-considerations"></a>Considérations relatives à l’entre fonctionnalités
 
 ### <a name="restore-and-import"></a>Importation et restauration
 
-Vous pouvez restaurer le fichier de sauvegarde ou importer des données vers une instance gérée à partir d’une instance ou un serveur avec les paramètres de fuseau horaire différent. Toutefois, veillez à le faire avec précaution et pour analyser le comportement des applications et les résultats des requêtes et des rapports, comme lors du transfert des données entre deux instances de SQL Server avec les paramètres de fuseau horaire différent.
+Vous pouvez restaurer un fichier de sauvegarde ou importer des données dans une instance gérée à partir d’une instance ou un serveur avec les paramètres de fuseau horaire différent. Veillez à le faire avec précaution. Analyser le comportement des applications et les résultats des requêtes et des rapports, comme lorsque vous transférez des données entre deux instances de SQL Server avec les paramètres de fuseau horaire différent.
 
 ### <a name="point-in-time-restore"></a>Limite de restauration dans le temps
 
-Lorsque vous effectuez la restauration de point-à-temps, le temps à restaurer est interprété en heure UTC pour éviter toute ambiguïté en raison de l’heure d’été et de ses modifications potentielles.
+Lorsque vous effectuez une restauration de point-à-temps, le temps à restaurer est interprété en heure UTC. Ce paramètre permet d’éviter toute ambiguïté en raison de l’heure d’été et de ses modifications potentielles.
 
 ### <a name="auto-failover-groups"></a>Groupes de basculement automatique
 
-À l’aide de la même fuseau horaire sur l’instance principale et secondaire de basculement groupe n’est pas appliqué, mais il est fortement recommandé.
-  >[!IMPORTANT]
-  > Bien qu’il existe des scénarios valides pour avoir un autre fuseau horaire géo-secondaire instance utilisé pour l’échelle lecture uniquement, veuillez noter qu’en cas de basculement manuel ou automatique pour l’instance secondaire il conserve son fuseau horaire d’origine.
+À l’aide de la même fuseau horaire sur une instance principale et secondaire dans un groupe de basculement n’est pas appliqué, mais fortement recommandé.
+
+  >[!WARNING]
+  > Nous vous recommandons fortement d’utiliser le même fuseau horaire pour l’instance primaire et secondaire dans un groupe de basculement. En raison de certains cas rares, en conservant le même fuseau horaire pour les instances principales et secondaire n’est pas appliqué. Il est important de comprendre que, en cas de basculement manuel ou automatique, l’instance secondaire conserve son fuseau horaire d’origine.
 
 ## <a name="limitations"></a>Limites
 
-- Fuseau horaire de l’instance gérée existante ne peut pas être modifié.
-- Les processus externes lancées depuis les travaux SQL Agent ne tiennent pas compte de fuseau horaire de l’instance.
-- Instance managée de native [New-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlinstance) applet de commande PowerShell ne pas les temps de passage de prise en charge de la zone paramètre encore. Wrapper PowerShell utilisez [modèle Resource Manager](https://aka.ms/sql-mi-create-arm-posh) à la place.
-- Commande CLI [créer az sql mi](https://docs.microsoft.com/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-create) ne prend pas encore en charge le paramètre de fuseau horaire.
+- Le fuseau horaire de l’instance gérée existante ne peut pas être modifié.
+- Les processus externes lancées depuis les travaux SQL Server Agent n’observer le fuseau horaire de l’instance.
 
 ## <a name="list-of-supported-time-zones"></a>Liste des fuseaux horaires pris en charge
 
@@ -240,7 +239,7 @@ Lorsque vous effectuez la restauration de point-à-temps, le temps à restaurer 
 | Heure standard de Samoa | (UTC+13:00) Samoa |
 | Heure d'hiver Îles de la Ligne | (UTC+14:00) Île de Kiritimati |
 
-## <a name="see-also"></a>Voir aussi
+## <a name="see-also"></a>Voir aussi 
 
 - [CURRENT_TIMEZONE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/functions/current-timezone-transact-sql)
 - [AT TIME ZONE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/queries/at-time-zone-transact-sql)

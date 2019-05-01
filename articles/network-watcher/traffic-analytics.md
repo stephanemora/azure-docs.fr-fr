@@ -3,8 +3,8 @@ title: Azure Traffic Analytics | Microsoft Docs
 description: Découvrez comment analyser les journaux de flux du groupe de sécurité réseau Azure avec Traffic Analytics.
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 ms.service: network-watcher
 ms.devlang: na
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
-ms.author: yagup;jdial
-ms.openlocfilehash: 2f283421a851914822f5b0c9d05ed6bc929d28c4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: yagup;kumud
+ms.openlocfilehash: a4ae997398c85dc99af8711f1c6ce4e743592d73
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60429862"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939889"
 ---
 # <a name="traffic-analytics"></a>Traffic Analytics
 
@@ -176,7 +176,7 @@ Sélectionnez les options suivantes, comme indiqué dans l’image :
 
     ![Sélection du compte de stockage, de l’espace de travail Log Analytics et activation de Traffic Analytics](./media/traffic-analytics/selection-of-storage-account-log-analytics-workspace-and-traffic-analytics-enablement-nsg-flowlogs-v2.png)
 
-Répétez les étapes précédentes pour les autres groupes de sécurité réseau pour lesquels vous souhaitez activer Traffic Analytics. Les données des journaux de flux étant envoyées à l’espace de travail, assurez-vous que les lois et réglementations locales de votre pays autorisent le stockage de données dans la région où se trouve l’espace de travail.
+Répétez les étapes précédentes pour les autres groupes de sécurité réseau pour lesquels vous souhaitez activer Traffic Analytics. Données des journaux de flux sont envoyées à l’espace de travail, assurez-vous que les lois et réglementations locales dans votre pays/région permettent le stockage de données dans la région où se trouve l’espace de travail.
 
 Vous pouvez également configurer d’analytique du trafic à l’aide du [Set-AzNetworkWatcherConfigFlowLog](/powershell/module/az.network/set-aznetworkwatcherconfigflowlog) applet de commande PowerShell dans Azure PowerShell. Exécutez `Get-Module -ListAvailable Az` pour rechercher la version installée. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-Az-ps).
 
@@ -270,13 +270,13 @@ Certaines des informations que vous souhaitez obtenir une fois Traffic Analytics
 
     ![Tableau de bord présentant la distribution du trafic](./media/traffic-analytics/dashboard-showcasing-traffic-distribution.png)
 
-- La carte géographique affiche le ruban supérieur pour sélectionner les paramètres tels que les centres de données (Déployé/Aucun déploiement/Actif/Inactif/Traffic Analytics Enabled (Traffic Analytics activé)/Traffic Analytics Not Enabled(Traffic Analytics désactivé)) et les pays qui contribuent au trafic Inoffensif/Malveillant vers le déploiement actif :
+- La carte géographique montre le ruban supérieur pour sélectionner les paramètres tels que les centres de données (déployé/No-déploiement/actif/inactif/Traffic Analytique activé/Analytique du trafic n’est pas activée) et pays/régions envoyant du trafic inoffensifs/malveillants à la visualisation déploiement :
 
     ![Carte géographique présentant le déploiement actif](./media/traffic-analytics/geo-map-view-showcasing-active-deployment.png)
 
-- La carte géographique montre la distribution du trafic vers un centre de données à partir de pays et continents qui communiquent avec lui, représenté par des lignes bleues (trafic inoffensif) et des lignes rouges (trafic malveillant) :
+- La carte géographique montre la distribution du trafic vers un centre de données à partir de pays/régions et continents qui communiquent avec lui en bleu (trafic inoffensif) et rouges (trafic malveillant) des lignes :
 
-    ![Vue de la carte géographique présentant la distribution du trafic vers les pays et continents](./media/traffic-analytics/geo-map-view-showcasing-traffic-distribution-to-countries-and-continents.png)
+    ![Vue de la carte géographique présentant la distribution du trafic pour les continents et les pays/régions](./media/traffic-analytics/geo-map-view-showcasing-traffic-distribution-to-countries-and-continents.png)
 
     ![Détails du flux pour la distribution du trafic dans la recherche dans les journaux](./media/traffic-analytics/flow-details-for-traffic-distribution-in-log-search.png)
 

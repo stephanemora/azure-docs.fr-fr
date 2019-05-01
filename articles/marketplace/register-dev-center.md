@@ -2,24 +2,18 @@
 title: S’inscrire dans le centre de développement | Azure
 description: Comment s’inscrire dans le Centre de développement.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: ''
 author: jm-aditi-ms
 manager: pabutler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 682c9e209c4fa4a9f4971af5da901faf1ec58c22
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 559b5a519a48d4aa8022961a59f6f29cef28f948
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60735801"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64937603"
 ---
 # <a name="register-in-dev-center"></a>S’inscrire dans le centre de développement  
 Ouvrez une nouvelle session de navigation Internet Explorer InPrivate ou Chrome Incognito pour vérifier que vous n’êtes pas connecté à un compte de navigateur personnel.  
@@ -34,7 +28,7 @@ Ouvrez une nouvelle session de navigation Internet Explorer InPrivate ou Chrome 
     ![Informations sur le compte avec le champ pour indiquer le pays/la région](./media/marketplace-publishers-guide/devcenterregistrationaccountinfo.png)  
    
     >[!WARNING]
-    >Pour vendre vos services dans la Place de marché Azure, assurez-vous que l’entité inscrite réside dans l’un des pays *autorisés*. La restriction de l’emplacement est obligatoire pour des raisons de revenus et de taxes. 
+    >Pour vendre vos services dans Azure Marketplace, vérifiez que l’entité inscrite réside dans un de la liste approuvée *expéditeur* pays/régions. La restriction de l’emplacement est obligatoire pour des raisons de revenus et de taxes. 
     >*   Pour plus d’informations, consultez la page Politiques concernant la Participation à la Place de Marché Microsoft Azure à l’adresse [azure.microsoft.com/support/legal/marketplace/participation-policies/](https://azure.microsoft.com/support/legal/marketplace/participation-policies).  
 
 4.  Pour *Type de compte*, sélectionnez la case d’option `Company`.  

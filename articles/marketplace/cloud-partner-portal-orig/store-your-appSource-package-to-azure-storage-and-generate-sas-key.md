@@ -1,25 +1,18 @@
 ---
-title: Stocker votre package AppSource dans le stockage Azure et générer une URL à l’aide d’une clé SAS | Microsoft Docs
+title: Stocker votre package AppSource dans le stockage Azure et générez une URL à l’aide d’une clé SAS
 description: Détaille les étapes requises pour charger et sécuriser un package AppSource.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/18/2018
-ms.author: pbutlerm
-ms.openlocfilehash: ad0e6eaae5c0fad74ea484827e0f8d535cfbf579
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.author: pabutler
+ms.openlocfilehash: ac77767aee2dcde33f4266e1d2d09c49dcf5f8a3
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60750060"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64943299"
 ---
 <a name="store-your-appsource-package-to-azure-storage-and-generate-a-url-with-sas-key"></a>Stocker votre package AppSource dans le stockage Azure et générez une URL à l’aide d’une clé SAS
 =============================================================================

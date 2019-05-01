@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 02/06/2019
+ms.date: 04/2/2019
 ms.author: alkohli
-ms.openlocfilehash: ed6d567be255fe9b72be564c31d734541a1ffa73
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f9d01b56da2650be395878ce07e4aae73495061f
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60564944"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939636"
 ---
 # <a name="troubleshoot-issues-in-azure-data-box-disk"></a>Résoudre les problèmes rencontrés dans Azure Data Box Disk
 
@@ -54,12 +54,12 @@ Pour accéder au chemin d’accès du journal de copie, accédez au compte de st
 Utilisez les journaux d’activité pour rechercher une erreur lors de la résolution de problèmes ou pour surveiller la manière dont un utilisateur de votre organisation a modifié une ressource. Les journaux d’activité vous permettent de déterminer :
 
 - Les opérations qui ont été effectuées sur les ressources de votre abonnement.
-- Ce qui a initié l’opération. 
+- Ce qui a initié l’opération.
 - Le moment où a eu lieu l’opération.
 - L’état de l’opération.
 - Les valeurs d’autres propriétés qui peuvent vous aider à effectuer des recherches sur l’opération.
 
-Le journal d’activité contient toutes les opérations d’écriture (par exemple PUT, POST, DELETE) effectuées sur vos ressources, mais pas les opérations de lecture (comme GET). 
+Le journal d’activité contient toutes les opérations d’écriture (par exemple PUT, POST, DELETE) effectuées sur vos ressources, mais pas les opérations de lecture (comme GET).
 
 Les journaux d’activité sont conservés pendant 90 jours. Vous pouvez interroger une plage quelconque de dates, pour autant que la date de début ne remonte pas à plus de 90 jours dans le passé. Vous pouvez également filtrer le contenu en fonction d’une des requêtes intégrées dans Insights. Par exemple, cliquez sur une erreur, puis sélectionnez des échecs spécifiques et cliquez dessus pour comprendre la cause racine.
 
@@ -79,7 +79,7 @@ Les journaux d’activité sont conservés pendant 90 jours. Vous pouvez interr
 
 |Messages d’erreur/avertissements  |Recommandations |
 |---------|---------|
-|[Info] Récupération du mot de passe bitlocker du volume : m <br>[Erreur] Exception détectée lors de la récupération de la clé bitlocker du volume m :<br> La séquence ne contient aucun élément.|Cette erreur se produit lorsque la destination Data Box Disk est hors ligne. <br> Utilisez l’outil `diskmgmt.msc` sur les disques en ligne.|
+|[Info] Récupération de mot de passe BitLocker du volume : m <br>[Erreur] Exception interceptée lors de la récupération de clé BitLocker pour volume m:<br> La séquence ne contient aucun élément.|Cette erreur se produit lorsque la destination Data Box Disk est hors ligne. <br> Utilisez l’outil `diskmgmt.msc` sur les disques en ligne.|
 |[Erreur] Exception levée : Échec de l'opération WMI :<br> Method=UnlockWithNumericalPassword, ReturnValue=2150694965, <br>Win32Message=Le format du mot de passe de récupération fourni est invalide. <br>Les mots de passe de récupération BitLocker sont composés de 48 chiffres. <br>Vérifiez le format du mot de passe de récupération, puis essayez à nouveau.|Utilisez l’outil de déverrouillage de Data Box Disk Unlock pour déverrouiller les disques en premier lieu, puis essayez à nouveau la commande. Pour plus d’informations, consultez <li> [Déverrouillez Data Box Disk pour les clients Windows](data-box-disk-deploy-set-up.md#unlock-disks-on-windows-client). </li><li> [Déverrouillez Data Box Disk pour les clients Linux](data-box-disk-deploy-set-up.md#unlock-disks-on-linux-client). </li>|
 |[Erreur] Exception levée : Un fichier DriveManifest.xml se trouve sur le lecteur cible. <br> Cela signifie que le lecteur cible peut avoir été préparé avec un fichier journal différent. <br>Pour ajouter de nouvelles données sur le même lecteur, utilisez le fichier journal précédent. Pour supprimer les données existantes et réutiliser le lecteur cible pour un nouveau travail d’importation, supprimez le fichier DriveManifest.xml sur le lecteur. Exécutez à nouveau cette commande avec un nouveau fichier journal.| Cette erreur se produit lorsque vous essayez d’utiliser le même jeu de lecteurs pour plusieurs sessions d’importation. <br> Utilisez un jeu de lecteurs uniquement pour une seule session de fractionnement et de copie.|
 |[Erreur] Exception levée : CopySessionId importdata-sept-test-1 fait référence à une session de copie précédente et ne peut pas être réutilisé pour une nouvelle session de copie.|Cette erreur est signalée lorsque vous essayez de nommer un nouveau travail avec le même nom que celui d’un travail précédent terminé avec succès.<br> Attribuez un nom unique à votre nouveau travail.|
@@ -96,7 +96,7 @@ Cette section détaille certains des principaux problèmes rencontrés lors du d
 
 Cela peut être dû à un système de fichiers qui n’est pas propre. 
 
-Le remontage d'un lecteur en lecture-écriture ne fonctionne pas avec la solution Data Box Disk. Ce scénario n'est pas pris en charge avec les lecteurs déchiffrés par dislocker. Vous avez peut-être réussi à remonter le périphérique à l’aide de la commande suivante : 
+Le remontage d'un lecteur en lecture-écriture ne fonctionne pas avec la solution Data Box Disk. Ce scénario n'est pas pris en charge avec les lecteurs déchiffrés par dislocker. Vous avez peut-être réussi à remonter le périphérique à l’aide de la commande suivante :
 
     `# mount -o remount, rw /mnt/DataBoxDisk/mountVol1`
 
@@ -104,15 +104,37 @@ Bien que le remontage ait réussi, les données ne seront pas conservées.
 
 **Résolution :**
 
-Si vous voyez l’erreur ci-dessus, vous pouvez essayer l’une des solutions suivantes :
+Procédez comme suit sur votre système Linux :
 
-- Installez [`ntfsfix`](https://linux.die.net/man/8/ntfsfix) (disponible dans le package `ntfsprogs`) et exécutez-le sur la partition correspondante.
+1. Installer le `ntfsprogs` package pour l’utilitaire ntfsfix.
+2. Démontez les points de montage fournies pour le lecteur par l’outil de déverrouillage. Le nombre de points de montage varie pour les lecteurs.
 
-- Si vous avez accès à un système Windows
+    ```
+    unmount /mnt/DataBoxDisk/mountVol1
+    ```
 
-    - Chargez le lecteur dans le système Windows.
-    - Ouvrez une invite de commandes avec les privilèges d’administrateur. Exécutez `chkdsk` sur le volume.
-    - Supprimez le volume et essayez à nouveau en toute sécurité.
+3. Exécutez `ntfsfix` sur le chemin d’accès correspondante. Le nombre en surbrillance doit être identique à étape 2.
+
+    ```
+    ntfsfix /mnt/DataBoxDisk/bitlockerVol1/dislocker-file
+    ```
+
+4. Exécutez la commande suivante pour supprimer les métadonnées de mise en veille prolongée qui peuvent provoquer le problème de montage.
+
+    ```
+    ntfs-3g -o remove_hiberfile /mnt/DataBoxDisk/bitlockerVol1/dislocker-file /mnt/DataBoxDisk/mountVol1
+    ```
+
+5. Effectuer un nettoyage démonter.
+
+    ```
+    ./DataBoxDiskUnlock_x86_64 /unmount
+    ```
+
+6. Effectuez un nettoyage unlock et monter.
+7. Tester le point de montage en écrivant un fichier.
+8. Démontez et remontez pour valider la persistance du fichier.
+9. Continuer avec la copie des données.
  
 ### <a name="issue-error-with-data-not-persisting-after-copy"></a>Problème : Erreur avec des données non persistantes après copie
  

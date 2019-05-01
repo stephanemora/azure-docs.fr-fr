@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b141de4c22ba1ba1325982d8e027fa46e0909fbb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 06b6fdf7a3d21a6b7dc84c4347824d4eaeac046f
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60248761"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918412"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Associer ou ajouter un abonnement Azure à votre locataire Azure Active Directory
 
@@ -31,7 +31,7 @@ Tous vos utilisateurs ont un seul *domestique* répertoire pour l’authentifica
 > [!Important]
 > Lorsque vous associez un abonnement à un autre répertoire, les utilisateurs qui ont des rôles attribués à l’aide de [contrôle d’accès en fonction du rôle (RBAC)](../../role-based-access-control/role-assignments-portal.md) perdent leur accès. Les administrateurs d’abonnements Classic (administrateur de Service et aux coadministrateurs) seront également perdre l’accès.
 > 
-> En outre, le déplacement de votre cluster Azure Kubernetes Service (AKS) vers un autre abonnement ou le déplacement de l’abonnement qui possède le cluster vers un nouveau client, entraîne le cluster perd la fonctionnalité en raison des attributions de rôles perdues et les droits de principaux de service. Pour plus d’informations sur ACS, consultez [Azure Kubernetes Service (AKS)](https://docs.microsoft.com/en-us/azure/aks/).
+> En outre, le déplacement de votre cluster Azure Kubernetes Service (AKS) vers un autre abonnement ou le déplacement de l’abonnement qui possède le cluster vers un nouveau client, entraîne le cluster perd la fonctionnalité en raison des attributions de rôles perdues et les droits de principaux de service. Pour plus d’informations sur ACS, consultez [Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/).
 
 ## <a name="before-you-begin"></a>Avant de commencer
 

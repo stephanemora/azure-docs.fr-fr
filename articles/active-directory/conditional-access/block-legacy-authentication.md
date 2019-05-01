@@ -18,12 +18,12 @@ ms.date: 03/25/2019
 ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3d2841d3be584cae45ef49ad9ff20da8a232c366
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9fa7bc84558d2b794a569261ce3dd2db5d54493f
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60355118"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64917405"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Activation Bloquer l’authentification héritée à Azure AD avec l’accès conditionnel   
 
@@ -142,4 +142,4 @@ Si vous bloquez l'authentification héritée à l'aide de la condition des autre
 
 - Si vous ne savez pas encore configurer des stratégies d’accès conditionnel, consultez [Exiger l’authentification multifacteur (MFA) pour certaines applications disposant d’un accès conditionnel Azure Active Directory](app-based-mfa.md) pour en avoir un exemple.
 
-- Pour plus d’informations sur la prise en charge l’authentification moderne, consultez [modernes de fonctionnement de l’authentification pour les applications clientes Office 2013 et Office 2016](https://docs.microsoft.com/en-us/office365/enterprise/modern-auth-for-office-2013-and-2016) 
+- Pour plus d’informations sur la prise en charge l’authentification moderne, consultez [modernes de fonctionnement de l’authentification pour les applications clientes Office 2013 et Office 2016](https://docs.microsoft.com/office365/enterprise/modern-auth-for-office-2013-and-2016) 

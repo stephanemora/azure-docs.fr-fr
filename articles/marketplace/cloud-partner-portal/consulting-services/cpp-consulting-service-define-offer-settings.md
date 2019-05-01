@@ -1,25 +1,18 @@
 ---
-title: Offre de service de conseil Azure et Dynamics 365 - Définir les paramètres de l’offre | Microsoft Docs
-description: Guide pour la définition des paramètres de l’offre de service de conseil Azure ou Dynamics 365 sur le portail Cloud Partner.
+title: Définir les paramètres de l’offre pour une offre de service de Conseil | Place de marché Azure
+description: Définir les paramètres de l’offre dans une offre de service de conseil Azure ou Dynamics 365 dans le portail Cloud Partner pour Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: qianw211
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
-ms.date: 11/30/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 590aa440f35f97e854fa827b0d8db1c3f9211faf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.date: 04/23/2019
+ms.author: pabutler
+ms.openlocfilehash: 601ad62bddd1373742b0cab5a388a55cfd52f4bc
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60749641"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64942785"
 ---
 # <a name="offer-settings-tab"></a>Onglet des paramètres de l’offre
 
@@ -27,7 +20,8 @@ Dans l’écran **Nouvelle offre**, la première étape consiste à créer l’i
 
 ![Créer une offre de service de conseil : onglet Paramètres de l’offre](media/consultingoffer-settings-tab.png)
 
-### <a name="offer-id"></a>ID de l’offre
+
+### <a name="offer-id"></a>ID d’offre *
 
 Cet identificateur est un nom unique que vous créez lorsque vous soumettez l’offre pour la première fois. Il doit contenir uniquement des caractères alphanumériques en minuscules, des tirets ou des traits de soulignement. L’**ID de l’offre** étant présent dans l’URL, il affecte les résultats des moteurs de recherche. *yourcompanyname_exampleservice* est un exemple.
 
@@ -36,11 +30,13 @@ Comme indiqué dans l’exemple, l’**ID de l’offre** est ajouté à votre ID
 >[!Note]
 >Une fois une offre en ligne, son identificateur ne peut plus être mis à jour.
 
-### <a name="publisher-id"></a>ID de l’éditeur
+
+### <a name="publisher-id"></a>Publisher ID *
 
 Cet identificateur est associé à votre compte. Une fois que vous êtes connecté avec votre compte professionnel, votre **ID d’éditeur** s’affiche dans le menu déroulant.
 
-### <a name="name"></a>Nom
+
+### <a name="name"></a>Nom*
 
 Cette chaîne s’affiche en tant que nom de l’offre sur AppSource ou la Place de marché Microsoft Azure. La zone **Name** est limitée à 50 caractères. Le réviseur devra peut-être modifier votre titre pour ajouter la durée et le type d’offre au nom de votre offre.
 

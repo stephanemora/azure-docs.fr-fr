@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 services: site-recovery
-ms.date: 04/23/2019
+ms.date: 04/26/2019
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: dffbb2c52b4e43eefe6b4f377bd7af529bae8cc5
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: 22d3bdf8c60e6682c360395b44fe6f1dcc1207b0
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62125557"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925513"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Questions courantes sur la réplication de VMware vers Azure
 
@@ -93,8 +93,8 @@ Vous installez sur chaque machine virtuelle que vous souhaitez répliquer, à l�
 
 Site Recovery réplique des machines virtuelles VMware en local et des serveurs physiques vers des disques gérés dans Azure.
 - Le serveur de processus Site Recovery écrit des journaux de réplication dans un compte de stockage de cache dans la région cible.
-- Ces journaux sont utilisés pour créer des points de récupération sur les disques gérés.
-- En cas de basculement, le point de récupération que vous sélectionnez est utilisé pour créer le disque géré cible.
+- Ces journaux sont utilisés pour créer des points de récupération sur Azure des disques qui ont le préfixe d’asrseeddisk gérés.
+- En cas de basculement, le point de récupération que vous sélectionnez est utilisé pour créer un nouveau disque géré cible. Ce disque managé est attaché à la machine virtuelle dans Azure.
 - Machines virtuelles qui ont été précédemment répliqués vers un compte de stockage (antérieure à mars 2019) ne sont pas affectés.
 
 
@@ -111,7 +111,7 @@ Réplication de nouvelles machines virtuelles à un compte de stockage est uniqu
 
 ### <a name="can-i-change-the-managed-disk-type-after-machine-is-protected"></a>Puis-je modifier le type de disque géré une fois que l’ordinateur est protégé ?
 
-Oui, vous pouvez facilement [modifier le type de disque géré](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage). Avant de modifier le type, assurez-vous que vous révoquez l’URL SAS pour le disque en accédant à la ressource de disque managé sur le portail Azure. Dans le panneau Vue d’ensemble, annuler toute exportation en cours. Une fois que l’URL SAS est révoqué, modifiez le type du disque dans quelques minutes. Toutefois, si vous modifiez le type de disque managé, attendez que les points de récupération fraîches devant être généré par Azure Site Recovery. Utilisez les nouveaux points de récupération pour n’importe quel test de basculement ou le basculement à l’avenir.
+Oui, vous pouvez facilement [modifier le type de disque géré](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage) pour les réplications en cours. Avant de modifier le type, assurez-vous qu’aucune URL SAS n’est généré sur le disque géré. Dans le portail Azure, accédez à la ressource de disque géré et vérifiez si vous avez une bannière d’URL SAS dans le panneau de vue d’ensemble. Si elle est présente, cliquez dessus pour annuler l’exportation en cours. Une fois terminé, modifiez le type du disque dans quelques minutes. Toutefois, si vous modifiez le type de disque managé, attendez que les points de récupération fraîches devant être généré par Azure Site Recovery. Utilisez les nouveaux points de récupération pour n’importe quel test de basculement ou le basculement à l’avenir.
 
 ### <a name="can-i-switch-replication-from-managed-disks-to-unmanaged-disks"></a>Puis-je basculer la réplication à partir de disques gérés pour les disques non gérés ?
 
@@ -133,6 +133,10 @@ La réplication étendue ou chaînée n’est pas prise en charge. Demandez cett
 
 ### <a name="can-i-do-an-offline-initial-replication"></a>Puis-je effectuer une réplication initiale hors connexion ?
 Ceci n’est pas pris en charge. Demandez cette fonctionnalité dans le [forum de commentaires](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from).
+
+
+### <a name="what-is-asrseeddisk"></a>Qu’est asrseeddisk ?
+Pour chaque disque source, les données sont répliquées sur un disque géré dans Azure. Ce disque a le préfixe asrseeddisk. Il stocke la copie du disque source et de tous les instantanés de point de récupération.
 
 ### <a name="can-i-exclude-disks-from-replication"></a>Puis-je exclure des disques de la réplication ?
 Oui, vous pouvez exclure des disques.
@@ -249,7 +253,7 @@ Dans le coffre Recovery Services, cliquez sur **serveurs de Configuration** dans
 
 ### <a name="unable-to-select-process-server-during-enable-replication"></a>Impossible de sélectionner le serveur de traitement au cours d’activer la réplication
 
-À partir de la version 9.24, les améliorations sont effectuées pour fournir [des conseils de produit](vmware-azure-manage-process-server.md#process-server-selection-guidance) quand vous devez configurer un serveur de processus de scale-out. Il s’agit d’éviter la limitation du processus serveur et éviter l’utilisation du serveur de processus défectueux.
+À partir de la version 9.24, les améliorations sont effectuées pour fournir [traiter les alertes du serveur](vmware-physical-azure-monitor-process-server.md#process-server-alerts) quand vous devez configurer un serveur de processus de scale-out. Il s’agit d’éviter la limitation du processus serveur et éviter l’utilisation du serveur de processus défectueux.
 
 ### <a name="what-should-i-do-to-obtain-accurate-health-status-of-process-server"></a>Que dois-je faire pour obtenir l’état d’intégrité précis du serveur de processus ?
 

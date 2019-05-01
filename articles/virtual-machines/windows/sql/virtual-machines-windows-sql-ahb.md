@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 02/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: c68bae87440bddf704d18b575aeb1f4ba4760bbb
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.openlocfilehash: 3f62557d024f56b7014784b6956f15a950f8cca7
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59578241"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926251"
 ---
 # <a name="how-to-change-the-licensing-model-for-a-sql-server-virtual-machine-in-azure"></a>Guide pratique pour changer le modèle de licence d’une machine virtuelle SQL Server dans Azure
 Cet article décrit comment changer le modèle de licence d’une machine virtuelle SQL Server dans Azure à l’aide du nouveau fournisseur de ressources de machine virtuelle SQL, **Microsoft.SqlVirtualMachine**. Il existe deux modèles pour une machine virtuelle (VM) qui héberge SQL Server - paiement à l’utilisation, de licence et apportez votre propre licence (BYOL). Et, à l’aide du portail Azure, Azure CLI ou PowerShell vous pouvez maintenant modifier le modèle de licence utilise votre machine virtuelle SQL Server. 
@@ -33,10 +33,13 @@ Le passage d’un modèle à l’autre n’entraîne **aucun temps d’arrêt**,
 
 ## <a name="remarks"></a>Remarques
 
+
  - Les clients CSP peuvent utiliser l’avantage AHB en commençant par déployer une machine virtuelle avec paiement à l’utilisation, puis en la convertissant en licence BYOL. 
  - Lorsque vous inscrivez une image de machine virtuelle SQL Server personnalisée avec le fournisseur de ressources, spécifiez le type de licence que = 'AHUB'. En laissant la licence, tapez comme vide, ou la définition de « Paiement à l’utilisation » provoque l’inscription de l’échec. 
  - Si vous supprimez votre ressource de machine virtuelle SQL Server, vous revenez au paramètre codé en dur la licence de l’image. 
+ - Ajout d’une machine virtuelle SQL Server à un groupe à haute disponibilité nécessite la recréation de la machine virtuelle. En tant que machines virtuelles de ce type, n’importe quel est ajoutés à une disponibilité ensemble revient au type de licence de paiement à l’utilisation par défaut et AHB doit être activée à nouveau. 
  - La possibilité de modifier le modèle de licence est une fonctionnalité du fournisseur de ressources SQL VM. Déploiement d’une image de place de marché via le portail Azure automatiquement inscrit une machine virtuelle SQL Server avec le fournisseur de ressources. Toutefois, les clients qui installent automatiquement SQL Server devront manuellement [inscrire leur machine virtuelle SQL Server](#register-sql-server-vm-with-the-sql-vm-resource-provider). 
+ 
 
  
 ## <a name="limitations"></a>Limites
@@ -172,7 +175,7 @@ Inscrivez la machine virtuelle SQL Server à l’aide de PowerShell avec l’ext
 # Register your existing SQL Server VM with the new resource provider
 # example: $vm=Get-AzVm -ResourceGroupName AHBTest -Name AHBTest
 $vm=Get-AzVm -ResourceGroupName <ResourceGroupName> -Name <VMName>
-New-AzResource -ResourceName $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location -ResourceType Microsoft.SqlVirtualMachine/sqlVirtualMachines -Proper
+New-AzResource -ResourceName $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location -ResourceType Microsoft.SqlVirtualMachine/sqlVirtualMachines -Properties @{virtualMachineResourceId=$vm.Id}
 ```
 
 
@@ -190,7 +193,7 @@ Pour résoudre ce problème, installez l’extension IaaS SQL avant de tenter d�
   > L’installation de l’extension IaaS SQL redémarre le service SQL Server et doit uniquement être effectuée pendant une fenêtre de maintenance. Pour plus d’informations, consultez [Installation de l’extension IaaS SQL](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension#installation). 
 
 
-### <a name="the-resource-microsoftsqlvirtualmachinesqlvirtualmachinesresource-group-under-resource-group-resource-group-was-not-found-the-property-sqlserverlicensetype-cannot-be-found-on-this-object-verify-that-the-property-exists-and-can-be-set"></a>La ressource 'Microsoft.SqlVirtualMachine/SqlVirtualMachines/ < resource-group > sous le groupe de ressources '< resource-group >' est introuvable. La propriété 'sqlServerLicenseType' est introuvable sur cet objet. Vérifiez que la propriété existe et qu’il peut être définie.
+### <a name="the-resource-microsoftsqlvirtualmachinesqlvirtualmachinesresource-group-under-resource-group-resource-group-was-not-found-the-property-sqlserverlicensetype-cannot-be-found-on-this-object-verify-that-the-property-exists-and-can-be-set"></a>La ressource ' Microsoft.SqlVirtualMachine/SqlVirtualMachines/\<groupe de ressources >' sous le groupe de ressources '\<groupe de ressources >' est introuvable. La propriété 'sqlServerLicenseType' est introuvable sur cet objet. Vérifiez que la propriété existe et qu’il peut être définie.
 Cette erreur se produit lorsque vous tentez de modifier le modèle de licence sur une machine virtuelle de SQL Server qui n’a pas été inscrit avec le fournisseur de ressources SQL. Vous devez inscrire le fournisseur de ressources pour votre [abonnement](#register-sql-vm-resource-provider-with-subscription), puis enregistrez votre machine virtuelle SQL Server avec le code SQL [fournisseur de ressources](#register-sql-server-vm-with-sql-resource-provider). 
 
 ### <a name="cannot-validate-argument-on-parameter-sku"></a>Impossible de valider l’argument sur le paramètre « Sku »

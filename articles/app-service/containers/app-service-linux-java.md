@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 12/10/2018
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: 5c9f70650f518c72a75d9a7826e7cbc30a95a00c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: f19d193bef718bd4ad3d98f2112a7e705051b729
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60852703"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64920076"
 ---
 # <a name="java-developers-guide-for-app-service-on-linux"></a>Guide du développeur Java pour App Service sur Linux
 
@@ -112,7 +112,7 @@ Les développeurs exécutant une seule application avec un seul emplacement de d
 
 Lors du réglage des paramètres de segment de mémoire de l’application, consultez les détails de votre plan App Service et prenez en compte qu’avec plusieurs applications et emplacements de déploiement, vous devez trouver l’allocation de mémoire optimale.
 
-Si vous déployez une application du fichier JAR, il doit être nommé `app.jar` afin que l’image intégrée peut identifier correctement votre application. (Le plug-in Maven effectue automatiquement cette modification du nom). Si vous ne souhaitez pas renommer votre fichier JAR à `app.jar`, vous pouvez télécharger un script d’interpréteur de commandes avec la commande pour exécuter votre fichier JAR. Puis collez le chemin d’accès complet à ce script dans le [fichier de démarrage](https://docs.microsoft.com/en-us/azure/app-service/containers/app-service-linux-faq#startup-file) zone de texte dans la section de Configuration du portail.
+Si vous déployez une application du fichier JAR, il doit être nommé `app.jar` afin que l’image intégrée peut identifier correctement votre application. (Le plug-in Maven effectue automatiquement cette modification du nom). Si vous ne souhaitez pas renommer votre fichier JAR à `app.jar`, vous pouvez télécharger un script d’interpréteur de commandes avec la commande pour exécuter votre fichier JAR. Puis collez le chemin d’accès complet à ce script dans le [fichier de démarrage](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-faq#startup-file) zone de texte dans la section de Configuration du portail.
 
 ### <a name="turn-on-web-sockets"></a>Activer les sockets web
 

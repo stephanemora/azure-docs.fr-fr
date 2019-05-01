@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: aljo, subramar
-ms.openlocfilehash: 6f14b3184cabd1dfd84f04260f6b8c831037cbcf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ecb7ac4d3359142d3aef247e4b918f517e10c3bb
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60718153"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926128"
 ---
 # <a name="service-fabric-container-networking-modes"></a>Modes de mise en réseau du conteneur Service Fabric
 
@@ -30,7 +30,7 @@ Si vous avez un service de conteneur avec un point de terminaison statique dans 
 Lorsqu’un service de conteneur redémarre ou se déplace vers un autre nœud du cluster, l’adresse IP change. Pour cette raison, nous ne recommandons pas l’utilisation de l’adresse IP attribuée de manière dynamique pour découvrir les services de conteneur. Seul le service d’affectation de noms de Service Fabric ou le service DNS doivent être utilisés pour la découverte de services. 
 
 >[!WARNING]
->Azure permet un total d’adresses IP 65,356 par réseau virtuel. La somme du nombre de nœuds et le nombre d’instances de service de conteneur (qui utilisent le mode ouvert) ne peut pas dépasser 65,356 adresses IP au sein d’un réseau virtuel. Pour les scénarios de haute densités, nous recommandons le mode de mise en réseau nat. En outre, autres dépendances telles que l’équilibrage de charge aura autres [limitations](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits) à prendre en compte. Jusqu'à 50 IPs par nœud ont été testés et éprouvés stable. 
+>Azure permet un total d’adresses IP 65,356 par réseau virtuel. La somme du nombre de nœuds et le nombre d’instances de service de conteneur (qui utilisent le mode ouvert) ne peut pas dépasser 65,356 adresses IP au sein d’un réseau virtuel. Pour les scénarios de haute densités, nous recommandons le mode de mise en réseau nat. En outre, autres dépendances telles que l’équilibrage de charge aura autres [limitations](https://docs.microsoft.com/azure/azure-subscription-service-limits) à prendre en compte. Jusqu'à 50 IPs par nœud ont été testés et éprouvés stable. 
 >
 
 ## <a name="set-up-open-networking-mode"></a>Configurer le mode de mise en réseau Ouvert

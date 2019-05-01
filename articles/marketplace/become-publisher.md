@@ -1,25 +1,19 @@
 ---
-title: Devenir éditeur dans les vitrines de la Place de marché | Azure
+title: Devenir éditeur sur les vitrines de la place de marché | Place de marché Azure
 description: Cet article décrit comment devenir un éditeur dans la Place de marché.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: ''
 author: ellacroi
 manager: nunoc
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 223eff79d809a78d531d86d315fff80282cd29bb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5dcde10430308eaa1df0e6cca279803c3f7f5fe1
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60625514"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64935665"
 ---
 # <a name="become-a-cloud-marketplace-publisher"></a>Devenir un éditeur sur la Place de marché dans le cloud
 

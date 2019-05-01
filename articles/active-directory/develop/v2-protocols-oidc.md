@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2f4a7f2a4fe0e1ca455b1140e83f31f6b30a7511
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bfac577d7582caa5b538f05273a02e4c3baf71ff
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60250084"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918455"
 ---
 # <a name="microsoft-identity-platform-and-openid-connect-protocol"></a>Plateforme d’identité Microsoft et le protocole OpenID Connect
 
@@ -32,7 +32,7 @@ OpenID Connect est un protocole d’authentification basé sur OAuth 2.0 que vou
 > [!NOTE]
 > Le point de terminaison Microsoft identity plateforme ne prend pas en charge tous les scénarios d’Azure Active Directory (Azure AD) et les fonctionnalités. Pour déterminer si vous devez utiliser le point de terminaison Microsoft identity plateforme, consultez les [limitations de plateforme d’identité Microsoft](active-directory-v2-limitations.md).
 
-[OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) étend le protocole *d’autorisation* OAuth 2.0 pour l’utiliser en tant que protocole *d’authentification*, ce qui vous permet de procéder à une authentification unique à l’aide d’OAuth. OpenID Connect introduit le concept de *jeton d'ID*, qui est un jeton de sécurité permettant au client de vérifier l’identité de l’utilisateur. Il permet également les informations de base de profil de l'utilisateur. Comme OpenID Connect étend OAuth 2.0, les applications peuvent acquérir de manière sûre les *jetons d’accès* pouvant être utilisés pour accéder à des ressources sécurisées à l’aide d’un [serveur d’autorisation](active-directory-v2-protocols.md#the-basics). Le point de terminaison Microsoft identity platform permet également des applications tierces qui sont inscrits auprès d’Azure AD pour émettre des jetons d’accès pour des ressources sécurisées telles que les API Web. Pour plus d’informations sur la façon de configurer une application d’émettre des jetons d’accès, consultez [comment inscrire une application avec le point de terminaison Microsoft identity plateforme](quickstart-v2-register-an-app.md). Nous recommandons d'utiliser OpenID Connect si vous concevez une [application web](v2-app-types.md#web-apps) hébergée sur un serveur et accessible par le biais d’un navigateur.
+[OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) étend le protocole *d’autorisation* OAuth 2.0 pour l’utiliser en tant que protocole *d’authentification*, ce qui vous permet de procéder à une authentification unique à l’aide d’OAuth. OpenID Connect introduit le concept de *jeton d'ID*, qui est un jeton de sécurité permettant au client de vérifier l’identité de l’utilisateur. Il permet également les informations de base de profil de l'utilisateur. Comme OpenID Connect étend OAuth 2.0, les applications peuvent acquérir de manière sûre les *jetons d’accès* pouvant être utilisés pour accéder à des ressources sécurisées à l’aide d’un [serveur d’autorisation](active-directory-v2-protocols.md#the-basics). Le point de terminaison Microsoft identity platform permet également des applications tierces qui sont inscrits auprès d’Azure AD pour émettre des jetons d’accès pour des ressources sécurisées telles que les API Web. Pour plus d’informations sur la façon de configurer une application d’émettre des jetons d’accès, consultez [comment inscrire une application avec le point de terminaison Microsoft identity plateforme](quickstart-register-app.md). Nous recommandons d'utiliser OpenID Connect si vous concevez une [application web](v2-app-types.md#web-apps) hébergée sur un serveur et accessible par le biais d’un navigateur.
 
 ## <a name="protocol-diagram-sign-in"></a>Schéma de protocole : Connexion
 

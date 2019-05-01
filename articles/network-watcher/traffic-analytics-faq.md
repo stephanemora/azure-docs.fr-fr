@@ -3,8 +3,8 @@ title: Forum aux questions pour l’analyse de trafic Azure | Microsoft Docs
 description: Découvrez les réponses aux questions les plus fréquemment posées sur l’analyse de trafic.
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 ms.service: network-watcher
 ms.devlang: na
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
-ms.author: jdial
-ms.openlocfilehash: 0a5bbc0bb4b934ae9e60cbd8233b5efbae2a6e6e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: kumud
+ms.openlocfilehash: 88acfebcc6dd8489703014d790f09313ab9302ec
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60236615"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939903"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Forum aux questions pour Traffic Analytics
 
@@ -241,7 +241,7 @@ Par exemple, conformément au [plan tarifaire](https://azure.microsoft.com/prici
 
 ## <a name="how-frequently-does-traffic-analytics-process-data"></a>La fréquence à laquelle le trafic Analytique ne traite pas les données ?
 
-Reportez-vous à la [section d’agrégation de données](https://docs.microsoft.com/en-us/azure/network-watcher/traffic-analytics-schema#data-aggregation) dans le schéma d’Analytique du trafic et les données d’agrégation Document
+Reportez-vous à la [section d’agrégation de données](https://docs.microsoft.com/azure/network-watcher/traffic-analytics-schema#data-aggregation) dans le schéma d’Analytique du trafic et les données d’agrégation Document
 
 ## <a name="how-does-traffic-analytics-decide-that-an-ip-is-malicious"></a>Comment Analytique du trafic choisir qu’une adresse IP est malveillante ? 
 
@@ -253,14 +253,14 @@ Analytique du trafic n’a pas de prise en charge intégrée pour les alertes. T
 - Vous pouvez utiliser le lien court pour l’Analytique de journal dans l’Analytique du trafic. 
 - Utilisez le [schéma documenté ici](traffic-analytics-schema.md) pour écrire vos requêtes 
 - Cliquez sur « Nouvelle règle d’alerte » pour créer l’alerte
-- Reportez-vous à [documentation des alertes de journal](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/alerts-log) pour créer l’alerte
+- Reportez-vous à [documentation des alertes de journal](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log) pour créer l’alerte
 
 ## <a name="how-can-i-navigate-by-using-the-keyboard-in-the-geo-map-view"></a>Comment faire pour naviguer dans la vue de la carte géographique à l’aide du clavier ?
 
 La page de la carte géographique contient deux sections principales :
     
-- **Bannière** : la bannière en haut de la carte géographique fournit des boutons pour sélectionner les filtres de distribution du trafic (Déploiement, Trafic en provenance de pays, Malveillant, etc.). Quand vous sélectionnez un bouton, le filtre correspondant est appliqué sur la carte. Par exemple, si vous sélectionnez le bouton Actif, la carte met en surbrillance les centres de données actifs dans votre déploiement.
-- **Carte** : sous la bannière, la section de la carte montre la distribution du trafic entre les pays et les centres de données Azure.
+- **Bannière** : La bannière en haut de la carte géographique fournit des boutons pour sélectionner les filtres de distribution de trafic (par exemple, déploiement, le trafic à partir de pays/régions et malveillants). Quand vous sélectionnez un bouton, le filtre correspondant est appliqué sur la carte. Par exemple, si vous sélectionnez le bouton Actif, la carte met en surbrillance les centres de données actifs dans votre déploiement.
+- **Carte** : Sous la bannière, la section de la carte affiche la distribution du trafic entre les centres de données Azure et de pays/régions.
     
 ### <a name="keyboard-navigation-on-the-banner"></a>Navigation au clavier sur la bannière
     

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 42430c847149f7eda2f0dbed1cff006a92f372ee
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1fc4a4024893c29c35b4369d13227830cfbbca84
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60578615"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64943917"
 ---
 # <a name="provision-a-deep-learning-virtual-machine-on-azure"></a>Provisionner une machine virtuelle DLVM dans Azure 
 
@@ -35,10 +35,11 @@ Voici les étapes de création d’une instance Deep Learning Virtual Machine :
 ).
 2. Sélectionnez le bouton **Créer** au bas de l’écran pour accéder à un Assistant.![create-dlvm](./media/dlvm-provision-wizard.PNG)
 3. L’Assistant utilisé pour créer l’instance DLVM nécessite les **entrées** de chacune des **quatre étapes** énumérées à droite de cette figure. Voici les entrées nécessaires à la configuration de chacune de ces étapes :
-   
+
+   <a name="basics"></a>   
    1. **Concepts de base**
       
-      1. **Nom** : nom du serveur de science des données que vous créez.
+      1. **Nom** : nom du serveur de science des données que vous créez.
       2. **Sélectionner le type de système d’exploitation de la machine virtuelle Deep Learning** : choisissez Windows ou Linux (pour une machine virtuelle DSVM ayant une base Windows 2016 ou Ubuntu Linux).
       2. **Nom d’utilisateur** : ID de connexion du compte Administrateur.
       3. **Mot de passe** : mot de passe du compte Administrateur.
@@ -46,13 +47,14 @@ Voici les étapes de création d’une instance Deep Learning Virtual Machine :
       5. **Groupe de ressources** : vous pouvez en créer un nouveau ou utiliser un groupe de ressources Azure **vide** dans votre abonnement.
       6. **Emplacement** : sélectionnez le centre de données le plus adapté. Généralement, il s’agit du centre de données qui héberge la plupart de vos données ou du centre de données le plus proche de votre emplacement physique afin d’accélérer l’accès au réseau 
       
-> [!NOTE]
-> La machine virtuelle DLVM prend en charge toutes les instances de machine virtuelle GPU de série NC et ND. Lorsque vous approvisionnez la machine virtuelle DLVM, vous devez choisir l’un des emplacements d’Azure qui dispose de processeurs GPU. Dans la page [Azure Products by Region](https://azure.microsoft.com/regions/services/) (Produits Azure par région), consultez les emplacements disponibles et recherchez **Série NC**, **Série NCv2**, **Série NCv3** ou **Série ND** sous **Compute**. 
+      > [!NOTE]
+      > La machine virtuelle DLVM prend en charge toutes les instances de machine virtuelle GPU de série NC et ND. Lorsque vous approvisionnez la machine virtuelle DLVM, vous devez choisir l’un des emplacements d’Azure qui dispose de processeurs GPU. Dans la page [Azure Products by Region](https://azure.microsoft.com/regions/services/) (Produits Azure par région), consultez les emplacements disponibles et recherchez **Série NC**, **Série NCv2**, **Série NCv3** ou **Série ND** sous **Compute**. 
 
-1. **Paramètres**: sélectionnez une taille de machine virtuelle GPU de série NC (NC, NCv2 ou NCv3) ou ND adaptée à vos exigences fonctionnelles et à votre budget. Créez un compte de stockage pour votre machine virtuelle.  ![dlvm-settings](./media/dlvm-provision-step-2.PNG)
+   1. **Paramètres**: sélectionnez une taille de machine virtuelle GPU de série NC (NC, NCv2 ou NCv3) ou ND adaptée à vos exigences fonctionnelles et à votre budget. Créez un compte de stockage pour votre machine virtuelle.  ![dlvm-settings](./media/dlvm-provision-step-2.PNG)
    
-1. **Résumé**: Vérifiez que toutes les informations que vous avez saisies sont correctes.
-1. **Acheter**: cliquez sur **Acheter** pour commencer l’approvisionnement. Les conditions de la transaction vous sont communiquées via un lien. La machine virtuelle n'est pas assortie de frais supplémentaires au-delà du calcul de la taille de serveur que vous avez choisie à l'étape **Taille** . 
+   1. **Résumé**: Vérifiez que toutes les informations que vous avez saisies sont correctes.
+
+   1. **Acheter**: cliquez sur **Acheter** pour commencer l’approvisionnement. Les conditions de la transaction vous sont communiquées via un lien. La machine virtuelle n'est pas assortie de frais supplémentaires au-delà du calcul de la taille de serveur que vous avez choisie à l'étape **Taille** . 
 
 > [!NOTE]
 > L’approvisionnement prend environ 10 à 20 minutes. L’état de l’approvisionnement est affiché sur le portail Azure.
@@ -66,7 +68,7 @@ Une fois la machine virtuelle créée, vous pouvez vous y connecter à l’aide 
 
 ### <a name="linux-edition"></a>Édition Linux
 
-Une fois la machine virtuelle créée, vous pouvez vous y connecter avec SSH. Utilisez les informations d’identification de compte créées dans la section **Paramètres de base** de l’étape 3 de l’interface de l’interpréteur de commandes texte. Sur un client Windows, vous pouvez télécharger un outil client SSH tel que [Putty](https://www.putty.org). Si vous préférez un bureau graphique (système Windows X), vous pouvez utiliser le transfert X11 sur Putty ou installer le client X2Go.
+Une fois la machine virtuelle créée, vous pouvez vous y connecter avec SSH. Utilisez les informations d’identification de compte que vous avez créé dans le [ **notions de base** ](#basics) section de l’étape 3 de l’interface d’interpréteur de commandes texte. Pour plus d’informations sur les connexions SSH aux machines virtuelles Azure, consultez [installer et configurer le Bureau à distance pour se connecter à une VM Linux dans Azure](/azure/virtual-machines/linux/use-remote-desktop). Sur un client Windows, vous pouvez télécharger un outil de client SSH tel que [Putty](http://www.putty.org). Si vous préférez un bureau graphique (système Windows X), vous pouvez utiliser le transfert X11 sur Putty ou installer le client X2Go. 
 
 > [!NOTE]
 > Lors de tests, le client X2Go a obtenu de meilleures performances que le transfert X11. Nous recommandons d’utiliser le client X2Go pour une interface de bureau graphique.

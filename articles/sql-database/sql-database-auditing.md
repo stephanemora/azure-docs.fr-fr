@@ -12,12 +12,12 @@ ms.author: arib
 ms.reviewer: vanto
 manager: craigg
 ms.date: 04/16/2019
-ms.openlocfilehash: add3521a3961f230188e04ff23dda5aac537571a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 15d195361b9fe8523ae6e46ba035ca5927c4d242
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61418405"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924758"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Bien démarrer avec l’audit de bases de données SQL
 
@@ -90,7 +90,7 @@ La section suivante décrit la configuration de l’audit à l’aide du portail
 5. **Nouveau** : Vous disposez désormais de plusieurs options pour configurer l’emplacement d’écriture des journaux d’audit. Vous pouvez écrire des journaux à un compte de stockage Azure, à un espace de travail Analytique de journal pour la consommation par les journaux d’Azure Monitor ou à un concentrateur d’événements pour la consommation à l’aide du hub d’événements. Vous pouvez associer ces options comme vous le souhaitez. Les journaux d’audit seront écrits dans chacun des emplacements choisis.
 
    > [!WARNING]
-   > Activation de l’audit pour l’Analytique de journal est des frais selon les taux d’ingestion. Notez que le coût associé à l’aide de ce [option](https://azure.microsoft.com/en-us/pricing/details/monitor/), ou envisagez de stocker l’audit consigne dans un compte de stockage Azure.
+   > Activation de l’audit pour l’Analytique de journal est des frais selon les taux d’ingestion. Notez que le coût associé à l’aide de ce [option](https://azure.microsoft.com/pricing/details/monitor/), ou envisagez de stocker l’audit consigne dans un compte de stockage Azure.
 
     ![Options de stockage](./media/sql-database-auditing-get-started/auditing-select-destination.png)
 

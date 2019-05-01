@@ -1,25 +1,18 @@
 ---
-title: Informations techniques pour une offre d'application Power BI - Place de marché Azure | Microsoft Docs
+title: Informations techniques pour une offre d’application Power BI | Place de marché Azure
 description: Configurez les champs d’informations techniques d'une offre d'application Power BI pour la Place de marché Microsoft AppSource.
 services: Azure, AppSource, Marketplace, Cloud Partner Portal, Power BI
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
-ms.date: 01/29/2019
-ms.author: pbutlerm
-ms.openlocfilehash: ca77da897eed51c8d832cad7052c2144d6ada562
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.date: 04/24/2019
+ms.author: pabutler
+ms.openlocfilehash: 15f4e2a76724a70c15411dea767cc9bc433e4d4a
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60725758"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64943230"
 ---
 # <a name="power-bi-apps-technical-info-tab"></a>Onglet Informations techniques des applications Power BI
 
@@ -34,7 +27,7 @@ Sur le **informations techniques** onglet, renseignez les champs décrits dans l
 
 |        Champ          |  Description                                                                 |
 |    ---------------    |  ----------------------------------------------------------------------------|
-| **URL du programme d’installation**     | Power BI génère cette URL lorsque vous publiez l’application et passez en production.  Pour plus d’informations, consultez [publier des applications avec des tableaux de bord et rapports dans Power BI](https://docs.microsoft.com/power-bi/service-create-distribute-apps).  |
+| **URL du programme d’installation\***     | Power BI génère cette URL lorsque vous publiez l’application et passez en production.  Pour plus d’informations, consultez [publier des applications avec des tableaux de bord et rapports dans Power BI](https://docs.microsoft.com/power-bi/service-create-distribute-apps).  |
 |  **Instructions de validation**  |  Si vous le souhaitez, ajoutez des instructions (jusqu'à 3 000 caractères) pour aider l’équipe de validation de Microsoft de configurer, de se connecter et de tester votre application. Inclure les paramètres de configuration courants, des comptes, des paramètres ou d’autres informations qui peuvent être utilisées pour tester l’option de connexion de données. Ces informations sont visibles uniquement par l’équipe de validation, et il est utilisé uniquement à des fins de validation.  |
 | **Cette application est-elle créée comme pack de contenu Power BI ?** | Actuellement, ce champ est utilisé uniquement en interne. Laissez le paramètre par défaut **non**. Si vous modifiez le paramètre pour **Oui**, vous pouvez arrêter le processus de publication.  |  
 |  |  |

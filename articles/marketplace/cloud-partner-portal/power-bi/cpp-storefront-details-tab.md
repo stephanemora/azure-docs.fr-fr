@@ -1,25 +1,18 @@
 ---
-title: Détails de la vitrine d’une offre d’application Power BI - Place de marché Azure | Microsoft Docs
+title: Détails de la vitrine pour une application Power BI offrent | Place de marché Azure
 description: Configurez les champs Détails de la vitrine d’une offre d’application Power BI pour la Place de marché Microsoft AppSource.
 services: Azure, AppSource, Marketplace, Cloud Partner Portal, Power BI
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
-ms.date: 01/30/2019
-ms.author: pbutlerm
-ms.openlocfilehash: 2c99b20e554d92dbe63594d63525dd8e1d765423
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.date: 04/24/2019
+ms.author: pabutler
+ms.openlocfilehash: 0816e7a7add430a65af9b3948aa8626f9567053a
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60726184"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64942624"
 ---
 # <a name="power-bi-app-storefront-details-tab"></a>Onglet Détails de la vitrine de Power BI app
 
@@ -32,13 +25,13 @@ Dans le **détails de l’offre** section, entrez les informations générales r
 
 ![Section Détails de l’offre de l’onglet Détails de la vitrine](./media/offer-details-section.png)
 
-Pour compléter les champs dans cette section, utilisez le tableau suivant :
+Le tableau suivant fournit plus d’informations sur ces champs. Les champs obligatoires sont indiqués par un astérisque (*).  
 
 |   Champ               |   Description                                                                           |
 |-----------------------|-----------------------------------------------------------------------------------------|
-| **Offer summary** (Résumé de l’offre)     | Un brève objectif de l’application, à l’aide de 100 caractères au maximum.                             |
-| **Description de l’offre** | Une description de l’application, à l’aide de jusqu'à 3 000 caractères. Ce champ prend en charge la mise en forme du code HTML simple. |
-|                       |                                                                                         |
+| **Résumé de l’offre\***     | Un brève objectif de l’application, à l’aide de 100 caractères au maximum.                             |
+| **Description de l’offre\*** | Une description de l’application, à l’aide de jusqu'à 3 000 caractères. Ce champ prend en charge la mise en forme du code HTML simple. |
+|   |    |
 
 
 ## <a name="listing-details-section"></a>Section Détails de l’annonce
@@ -47,13 +40,13 @@ Le **détails répertoriant** section rassemble des informations sur le contexte
 
 ![Section Détails de l’annonce de l’onglet Détails de la vitrine](./media/listing-details-section.png)
 
-Pour compléter les champs dans cette section, utilisez le tableau suivant :
+Pour compléter les champs dans cette section, utilisez le tableau suivant.  Les champs obligatoires sont indiqués par un astérisque (*).
  
 |   Champ                                  |   Description                                                        |
 | --------------                           | ---------------------                                                |
 | **Secteurs d’activité**                           | Sélectionnez le secteur d’activité où votre application correspond le mieux. Si votre application est liée à plusieurs secteurs d’activité, laissez ce champ vide.      |
-| **Catégories**                           | Sélectionnez jusqu'à trois catégories qui se rapportent à votre application.     |
-| **Lien d’aide pour votre application**               | Fournir une URL vers une page qui propose une aide en ligne pour votre application.           |
+| **Catégories\***                           | Sélectionnez jusqu'à trois catégories qui se rapportent à votre application.     |
+| **Lien d’aide pour votre application\***               | Fournir une URL vers une page qui propose une aide en ligne pour votre application.           |
 | **Produits avec lesquels votre application fonctionne (3 max.)** | Sélectionnez le **New** signe plus pour créer un champ de texte. Dans le champ, entrez le nom d’un produit que votre application fonctionne avec. Liste des produits jusqu'à trois.       |
 | **Mots clés de recherche (3 max.)**              | Entrez jusqu'à trois mots clés que les utilisateurs utiliseront probablement à rechercher pour votre application dans AppSource. Par exemple, si l’application est appelée « Mon application de l’envoi d’un message », vos mots clés peuvent être **e-mails**, **publipostage**, et **application de messagerie**. |
 |  |  |
@@ -65,13 +58,13 @@ Dans le **artefacts Marketing** section téléchargement de personnalisation et 
 
 ![Section Artefacts marketing de l’onglet Détails de la vitrine](./media/marketing-artifacts-section.png)
 
-Pour compléter les champs dans cette section, utilisez le tableau suivant :
+Pour compléter les champs dans cette section, utilisez le tableau suivant. Les champs obligatoires sont indiqués par un astérisque (*).
  
 |    Champ                             |    Description                                                    |
 |   -----------                        |    -------------                                                  |
 | *Logos*                              |                                                                   |
-| **Logo de l’offre (format png, 48 x 48)**   | Chargez un logo à afficher dans la vue d’ensemble de l’application ou dans les résultats de recherche d’application. AppSource prend en charge uniquement les format PNG avec une résolution de 48 x 48 px.  |
-| **Logo de l’offre (format png, 216 x 216)** | Chargez un logo à afficher sur la page des détails de votre application.  AppSource prend en charge uniquement les format PNG avec une résolution de 216 x 216 px.  |
+| **Logo (format png, 48 x 48) de l’offre\***   | Chargez un logo à afficher dans la vue d’ensemble de l’application ou dans les résultats de recherche d’application. AppSource prend en charge uniquement les format PNG avec une résolution de 48 x 48 px.  |
+| **Logo de l’offre (format png, 216 x 216)\*** | Chargez un logo à afficher sur la page des détails de votre application.  AppSource prend en charge uniquement les format PNG avec une résolution de 216 x 216 px.  |
 | *Vidéos*                             |                                                                   |
 | **Name**                             | Entrez le nom ou le titre de votre application.                                          |
 | **URL**                              | Entrez l’URL d’une vidéo hébergée sur YouTube ou Vimeo.                              |
@@ -79,7 +72,7 @@ Pour compléter les champs dans cette section, utilisez le tableau suivant :
 | *Documents*                          | Ajouter jusqu'à trois documents à afficher sur AppSource, sous le **en savoir plus** titre.  |
 | **Name**                             | Entrez le nom ou le titre d’un document de prise en charge.                              |
 | **File**                             | Téléchargez un fichier PDF.                             |
-| *Captures d’écran*                        | Ajoutez jusqu'à cinq captures d’écran.                        |
+| *Captures d’écran\**                      | Ajoutez jusqu'à cinq captures d’écran.                        |
 | **Name**                             | Entrez un nom ou le titre d’une capture d’écran.                                       |
 | **Image**                            | Télécharger une capture d’écran PNG. Sa résolution doit être 1280 x 720 px.  | 
 |   |   |
@@ -100,8 +93,8 @@ Pour compléter les champs dans cette section, utilisez le tableau suivant :
 
 |   Champ                |   Description                           |
 |------------------------|--------------------------------------   |
-| **URL de stratégie de confidentialité** | URL de votre politique de confidentialité validée       |
-| **Conditions d’utilisation**       | Votre stratégie d’utilisation, sous forme de texte brut ou HTML simple     |
+| **URL de stratégie de confidentialité\*** | URL de votre politique de confidentialité validée       |
+| **Conditions d’utilisation\***       | Votre stratégie d’utilisation, sous forme de texte brut ou HTML simple     |
 |  |  |
 
 

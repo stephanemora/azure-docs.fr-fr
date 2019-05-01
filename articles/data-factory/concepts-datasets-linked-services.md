@@ -1,25 +1,25 @@
 ---
-title: Jeux de données et services liés dans Azure Data Factory | Microsoft Docs
-description: Apprenez-en davantage sur les jeux de données et les services liés dans Azure Data Factory. Les services liés lient le calcul et les banques de données à une fabrique de données. Les jeux de données représentent des données d’entrée/sortie.
+title: Jeux de données dans Azure Data Factory | Microsoft Docs
+description: En savoir plus sur les jeux de données dans Data Factory. Les jeux de données représentent des données d’entrée/sortie.
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
 manager: craigg
-ms.reviewer: douglasl
+ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/22/2018
+ms.date: 04/25/2019
 ms.author: shlo
-ms.openlocfilehash: 9e5da96cb02e681c83bd707fc038117050712ccf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 6b74f217d296b5de8886f608b1bc92e908b5d8b4
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61261950"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64866472"
 ---
-# <a name="datasets-and-linked-services-in-azure-data-factory"></a>Jeux de données et services liés dans Azure Data Factory
+# <a name="datasets-in-azure-data-factory"></a>Jeux de données dans Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-create-datasets.md)
 > * [Version actuelle](concepts-datasets-linked-services.md)
@@ -29,11 +29,9 @@ Cet article décrit les jeux de données, comment ils sont définis au format JS
 Si vous débutez avec Data Factory, consultez [Présentation d’Azure Data Factory](introduction.md) pour obtenir une vue d’ensemble.
 
 ## <a name="overview"></a>Présentation
-Une fabrique de données peut avoir un ou plusieurs pipelines. Un **pipeline** constitue un regroupement logique d’**activités** qui exécutent ensemble une tâche. Les activités d’un pipeline définissent les actions à effectuer sur les données. Par exemple, vous pouvez utiliser une activité de copie pour copier des données d’un serveur SQL Server local vers un stockage Blob Azure. Ensuite, vous pouvez utiliser une activité Hive qui exécute un script Hive sur un cluster Azure HDInsight pour traiter les données du stockage Blob afin de produire des données de sortie. Enfin, vous pouvez utiliser une deuxième activité de copie pour copier les données de sortie dans Azure SQL Data Warehouse sur lequel des solutions de génération de rapports décisionnelles sont développées. Pour plus d’informations sur les pipelines et les activités, voir [Pipelines et activités dans Azure Data Factory](concepts-pipelines-activities.md).
+Une fabrique de données peut avoir un ou plusieurs pipelines. Un **pipeline** constitue un regroupement logique d’**activités** qui exécutent ensemble une tâche. Les activités d’un pipeline définissent les actions à effectuer sur les données. À présent, un **jeu de données** est une vue de données nommée qui pointe ou fait référence simplement aux données que vous souhaitez utiliser dans vos **activités** en tant qu’entrées et sorties. Les jeux de données identifient les données dans différents magasins de données, par exemple des tables, des fichiers, des dossiers et des documents. Par exemple, un jeu de données d’objets blob Azure spécifie le conteneur et le dossier du Stockage Blob à partir duquel l’activité doit lire les données.
 
-À présent, un **jeu de données** est une vue de données nommée qui pointe ou fait référence simplement aux données que vous souhaitez utiliser dans vos **activités** en tant qu’entrées et sorties. Les jeux de données identifient les données dans différents magasins de données, par exemple des tables, des fichiers, des dossiers et des documents. Par exemple, un jeu de données d’objets blob Azure spécifie le conteneur et le dossier du Stockage Blob à partir duquel l’activité doit lire les données.
-
-Avant de créer un jeu de données, vous devez créer un **service lié** pour lier votre banque de données à la fabrique de données. Les services liés ressemblent à des chaînes de connexion. Ils définissent les informations de connexion nécessaires à Data Factory pour se connecter à des ressources externes. Considérez les choses de la façon suivante : le jeu de données représente la structure des données à l’intérieur des magasins de données liés, et le service lié définit la connexion à la source de données. Par exemple, un service lié de stockage Azure relie un compte de stockage à la fabrique de données. Un jeu de données d'objets blob représente le conteneur d’objets blob et le dossier à l’intérieur de ce compte de stockage Azure contenant les objets blob d’entrée à traiter.
+Avant de créer un jeu de données, vous devez créer un [ **service lié** ](concepts-linked-services.md) pour lier votre magasin de données à la fabrique de données. Les services liés ressemblent à des chaînes de connexion. Ils définissent les informations de connexion nécessaires à Data Factory pour se connecter à des ressources externes. Considérez les choses de la façon suivante : le jeu de données représente la structure des données à l’intérieur des magasins de données liés, et le service lié définit la connexion à la source de données. Par exemple, un service lié de stockage Azure relie un compte de stockage à la fabrique de données. Un jeu de données d'objets blob représente le conteneur d’objets blob et le dossier à l’intérieur de ce compte de stockage Azure contenant les objets blob d’entrée à traiter.
 
 Voici un exemple de scénario. Pour copier des données du stockage Blob vers une base de données SQL, vous devez créer deux services liés : Stockage Azure et Azure SQL Database. Créez ensuite deux jeux de données : le jeu de données d’objets blob Azure (qui fait référence au service lié Stockage Azure) et le jeu de données de table SQL Azure (qui fait référence au service lié Azure SQL Database). Les services liés de stockage Azure et de base de données SQL Azure contiennent des chaînes de connexion utilisées par la fabrique de données pendant l’exécution pour se connecter à votre stockage Azure et à la base de données SQL Azure, respectivement. Le jeu de données d’objets blob Azure spécifie le conteneur d’objets blob et le dossier d’objets blob qui contient les objets blob d’entrée dans votre stockage Blob. Le jeu de données de table SQL Azure spécifie la table SQL dans votre base de données SQL dans laquelle les données doivent être copiées.
 
@@ -41,58 +39,9 @@ Le diagramme suivant montre la relation entre le pipeline, l’activité, le jeu
 
 ![Relation entre le pipeline, l’activité, le jeu de données et les services liés](media/concepts-datasets-linked-services/relationship-between-data-factory-entities.png)
 
-## <a name="linked-service-json"></a>Service lié JSON
-Un service lié dans Data Factory se définit de la façon suivante au format JSON :
-
-```json
-{
-    "name": "<Name of the linked service>",
-    "properties": {
-        "type": "<Type of the linked service>",
-        "typeProperties": {
-              "<data store or compute-specific type properties>"
-        },
-        "connectVia": {
-            "referenceName": "<name of Integration Runtime>",
-            "type": "IntegrationRuntimeReference"
-        }
-    }
-}
-```
-
-La table suivante décrit les propriétés dans le JSON ci-dessus :
-
-Propriété | Description | Obligatoire |
--------- | ----------- | -------- |
-Nom | Nom du service lié. Voir [Azure Data Factory - Règles d’affectation des noms](naming-rules.md). |  Oui |
-Type | Type du service lié. Par exemple :  AzureStorage (magasin de données) ou AzureBatch (calcul). Consultez la description de typeProperties. | Oui |
-typeProperties | Les propriétés type sont différentes pour chaque magasin de données et chaque unité de calcul. <br/><br/> Vous trouverez la liste des types de magasins de données pris en charge et leurs propriétés dans le tableau [type de jeu de données](#dataset-type) de cet article. Accédez à l’article sur le connecteur de magasin de données pour en savoir plus sur les propriétés de type propres à un magasin de données. <br/><br/> Vous trouverez la liste des types de calcul pris en charge et leurs propriétés sur la page [Services liés de calcul](compute-linked-services.md). | Oui |
-connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Vous pouvez utiliser Azure Integration Runtime ou Integration Runtime auto-hébergé (si votre magasin de données se trouve dans un réseau privé). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. | Non 
-
-## <a name="linked-service-example"></a>Exemple de service lié
-Le service lié suivant est un service lié Stockage Azure. Notez que le type est défini sur AzureStorage. Les propriétés de type du service lié Stockage Azure comprennent une chaîne de connexion. Le service Data Factory l’utilise pour se connecter au magasin de données à l’exécution.
-
-```json
-{
-    "name": "AzureStorageLinkedService",
-    "properties": {
-        "type": "AzureStorage",
-        "typeProperties": {
-            "connectionString": {
-                "type": "SecureString",
-                "value": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
-            }
-        },
-        "connectVia": {
-            "referenceName": "<name of Integration Runtime>",
-            "type": "IntegrationRuntimeReference"
-        }
-    }
-}
-```
 
 ## <a name="dataset-json"></a>Jeu de données JSON
-Un jeu de données dans la fabrique de données est défini au format JSON comme suit :
+Un jeu de données dans Data Factory est défini dans le format JSON suivant :
 
 ```json
 {
@@ -115,7 +64,6 @@ Un jeu de données dans la fabrique de données est défini au format JSON comme
         }
     }
 }
-
 ```
 La table suivante décrit les propriétés dans le JSON ci-dessus :
 
@@ -123,8 +71,54 @@ Propriété | Description | Obligatoire |
 -------- | ----------- | -------- |
 Nom | Nom du jeu de données Voir [Azure Data Factory - Règles d’affectation des noms](naming-rules.md). |  Oui |
 Type | Type du jeu de données. Spécifiez l’un des types pris en charge par la fabrique de données (par exemple : AzureBlob, AzureSqlTable). <br/><br/>Pour plus de détails, voir [Types de jeux de données](#dataset-type). | Oui |
-structure | Schéma du jeu de données. Pour plus d’informations, consultez [Structure d’un jeu de données](#dataset-structure). | Non  |
+structure | Schéma du jeu de données. Pour plus d’informations, consultez [schéma de Dataset](#dataset-structure-or-schema). | Non  |
 typeProperties | Les propriétés de type sont différentes pour chaque type (par exemple : objet blob Azure, table SQL Azure). Pour plus d’informations sur les types pris en charge et leurs propriétés, consultez [Type du jeu de données](#dataset-type). | Oui |
+
+### <a name="data-flow-compatible-dataset"></a>Jeu de données compatible de flux de données
+
+[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
+Consultez [pris en charge les types dataset](#dataset-type) pour obtenir la liste des types de jeu de données qui sont [de flux de données](concepts-data-flow-overview.md) compatible. Jeux de données qui est compatibles pour le flux de données requièrent des définitions de jeu de données précis pour les transformations. Par conséquent, la définition JSON est légèrement différente. Au lieu d’un _structure_ propriété, les jeux de données qui sont compatibles de flux de données ont un _schéma_ propriété.
+
+Dans le flux de données, les jeux de données est utilisés dans les transformations de source et récepteur. Les jeux de données définissent les schémas de base de données. Si vos données sans schéma, vous pouvez utiliser une dérive du schéma pour votre source et le récepteur. Le schéma du jeu de données représente le type de données physique et la forme.
+
+En définissant le schéma du jeu de données, vous obtiendrez des types de données associées, formats de données, emplacement du fichier, les informations de connexion à partir du service lié associé. Métadonnées des jeux de données s’affiche dans votre transformation source comme source *projection*. La projection dans la transformation source représente les données de flux de données avec les types et les noms définis.
+
+Lorsque vous importez le schéma d’un jeu de données de flux de données, sélectionnez le **importer un schéma** bouton puis l’importer à partir de la source ou à partir d’un fichier local. Dans la plupart des cas, vous allez importer le schéma directement à partir de la source. Mais si vous avez déjà un fichier de schéma local (un fichier Parquet ou CSV avec en-têtes), vous pouvez diriger le schéma sur le fichier de base de la fabrique de données.
+
+
+```json
+{
+    "name": "<name of dataset>",
+    "properties": {
+        "type": "<type of dataset: AzureBlob, AzureSql etc...>",
+        "linkedServiceName": {
+                "referenceName": "<name of linked service>",
+                "type": "LinkedServiceReference",
+        },
+        "schema": [
+            {
+                "name": "<Name of the column>",
+                "type": "<Name of the type>"
+            }
+        ],
+        "typeProperties": {
+            "<type specific property>": "<value>",
+            "<type specific property 2>": "<value 2>",
+        }
+    }
+}
+```
+
+La table suivante décrit les propriétés dans le JSON ci-dessus :
+
+Propriété | Description | Obligatoire |
+-------- | ----------- | -------- |
+Nom | Nom du jeu de données Voir [Azure Data Factory - Règles d’affectation des noms](naming-rules.md). |  Oui |
+Type | Type du jeu de données. Spécifiez l’un des types pris en charge par la fabrique de données (par exemple : AzureBlob, AzureSqlTable). <br/><br/>Pour plus de détails, voir [Types de jeux de données](#dataset-type). | Oui |
+schema | Schéma du jeu de données. Pour plus d’informations, consultez [de flux de données des jeux de données compatible](#dataset-type). | Non  |
+typeProperties | Les propriétés de type sont différentes pour chaque type (par exemple : objet blob Azure, table SQL Azure). Pour plus d’informations sur les types pris en charge et leurs propriétés, consultez [Type du jeu de données](#dataset-type). | Oui |
+
 
 ## <a name="dataset-example"></a>Exemple de jeu de données
 Dans l’exemple suivant, le jeu de données représente une table nommée MyTable dans une base de données SQL.
@@ -155,7 +149,7 @@ Notez les points suivants :
 ## <a name="dataset-type"></a>Type de jeu de données
 Il existe différents types de jeux de données, selon la banque de données que vous utilisez. Consultez le tableau suivant pour obtenir la liste des magasins de données pris en charge par Data Factory. Cliquez sur un magasin de données pour savoir comment créer un service lié et un jeu de données pour ce magasin de données.
 
-[!INCLUDE [data-factory-v2-supported-data-stores](../../includes/data-factory-v2-supported-data-stores.md)]
+[!INCLUDE [data-factory-v2-supported-data-stores](../../includes/data-factory-v2-supported-data-stores-dataflow.md)]
 
 Dans l’exemple de la section précédente, le type du jeu de données est défini sur **AzureSqlTable**. De même, pour un jeu de données d’objets blob Azure, le type du jeu de données est défini sur **AzureBlob**, comme indiqué dans le JSON suivant :
 
@@ -180,8 +174,9 @@ Dans l’exemple de la section précédente, le type du jeu de données est déf
     }
 }
 ```
-## <a name="dataset-structure"></a>Structure de jeu de données
-La section **structure** est facultative. Elle définit le schéma du jeu de données en contenant une collection de noms et de types de données de colonnes. Vous utilisez la section structure pour fournir des informations sur le type utilisé pour convertir les types et colonnes de mappage depuis la source vers la destination.
+
+## <a name="dataset-structure-or-schema"></a>Structure de jeu de données ou schéma
+Le **structure** section ou **schéma** (flux de données compatible) section jeux de données est facultative. Elle définit le schéma du jeu de données en contenant une collection de noms et de types de données de colonnes. Vous utilisez la section structure pour fournir des informations sur le type utilisé pour convertir les types et colonnes de mappage depuis la source vers la destination.
 
 Chaque colonne de la structure contient les propriétés suivantes :
 
@@ -230,4 +225,4 @@ Consultez les didacticiels suivants pour obtenir des instructions pas à pas sur
 - [Démarrage rapide : créer une fabrique de données à l’aide de .NET](quickstart-create-data-factory-dot-net.md)
 - [Démarrage rapide : créer une fabrique de données à l’aide de PowerShell](quickstart-create-data-factory-powershell.md)
 - [Démarrage rapide : créer une fabrique de données à l’aide d’une API REST](quickstart-create-data-factory-rest-api.md)
-- Démarrage rapide : créer une fabrique de données à l’aide du portail Azure
+- [Démarrage rapide : créer une fabrique de données à l’aide du portail Azure](quickstart-create-data-factory-portal.md)

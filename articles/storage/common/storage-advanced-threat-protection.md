@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: monhaber
 ms.manager: shaik
-ms.openlocfilehash: 78338ece1bc70d8410bd71183a34aaf1a52f2d1b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c42867ff7aea2210f20a2cd2adb5c067b8f36c80
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61484150"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926499"
 ---
 # <a name="advanced-threat-protection-for-azure-storage"></a>Advanced Threat Protection pour le stockage Azure
 
@@ -23,7 +23,7 @@ Alertes de sécurité sont déclenchés lorsque des anomalies dans l’activité
 
 > [!NOTE]
 > * Protection avancée contre les menaces pour le stockage Azure est actuellement disponible uniquement pour le stockage d’objets Blob.
-> * Pour plus d’informations, y compris une version d’évaluation gratuite de 30 jours, consultez le [page de tarification Azure Security Center]( https://azure.microsoft.com/en-us/pricing/details/security-center/).
+> * Pour plus d’informations, y compris une version d’évaluation gratuite de 30 jours, consultez le [page de tarification Azure Security Center]( https://azure.microsoft.com/pricing/details/security-center/).
 > * ATP pour la fonctionnalité de stockage Azure n’est actuellement pas disponible dans Azure government et régions de cloud souverain.
 
 Protection avancée contre les menaces pour le stockage Azure reçoit des journaux de diagnostic de requêtes de lecture, écriture et delete pour le stockage d’objets Blob pour la détection des menaces. Pour examiner les alertes à partir de la protection contre les menaces avancées, vous pouvez afficher l’activité de stockage associé à l’aide de la journalisation du stockage Analytique. Pour plus d’informations, consultez Comment [configurer la journalisation du stockage Analytique](storage-monitor-storage-account.md#configure-logging).

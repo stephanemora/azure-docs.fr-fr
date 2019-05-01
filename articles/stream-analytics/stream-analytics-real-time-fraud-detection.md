@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: a13d3b24cd7845de144183d9f2ea825e0e24219f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 38353ed68469ac35f04d68e19afd11ac4b47f2ae
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60818406"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64943946"
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Bien démarrer avec Azure Stream Analytics : Détection des fraudes en temps réel
 
@@ -30,7 +30,7 @@ Dans ce didacticiel, nous utilisons l’exemple de la détection de fraudes en t
 
 ## <a name="scenario-telecommunications-and-sim-fraud-detection-in-real-time"></a>Scénario : Détection des fraudes de télécommunication et SIM en temps réel
 
-Une société de télécommunication dispose d’un volume important de données pour les appels entrants. La société souhaite détecter les appels frauduleux en temps réel afin de pouvoir informer ses clients ou arrêter un service à partir d’un nombre donné. Un type de fraude à la carte SIM implique plusieurs appels simultanés provenant d’une même identité, mais à des emplacements géographiquement distincts. Pour détecter ce type de fraude, la société doit examiner les enregistrements téléphoniques entrants et rechercher des modèles spécifiques, dans ce cas précis, des appels passés en même temps dans différents pays. Tous les enregistrements téléphoniques qui s’inscrivent dans cette catégorie sont écrits dans l’espace de stockage en vue d’une analyse ultérieure.
+Une société de télécommunication dispose d’un volume important de données pour les appels entrants. La société souhaite détecter les appels frauduleux en temps réel afin de pouvoir informer ses clients ou arrêter un service à partir d’un nombre donné. Un type de fraude à la carte SIM implique plusieurs appels simultanés provenant d’une même identité, mais à des emplacements géographiquement distincts. Pour détecter ce type de fraude, la société doit examiner les enregistrements téléphoniques entrants et rechercher des modèles spécifiques, dans ce cas, des appels passés en même temps dans différents pays/régions. Tous les enregistrements téléphoniques qui s’inscrivent dans cette catégorie sont écrits dans l’espace de stockage en vue d’une analyse ultérieure.
 
 ## <a name="prerequisites"></a>Conditions préalables
 
@@ -150,7 +150,7 @@ Voici certains champs clés que vous utiliserez dans cette application de détec
 |**Enregistrement**|**Définition**|
 |----------|--------------|
 |`CallrecTime`|Horodatage de l’heure de début d’appel. |
-|`SwitchNum`|Commutateur téléphonique utilisé pour connecter l’appel. Pour cet exemple, les commutateurs sont des chaînes qui représentent le pays d’origine (États-Unis, Chine, Royaume-Uni, Allemagne ou Australie). |
+|`SwitchNum`|Commutateur téléphonique utilisé pour connecter l’appel. Pour cet exemple, les commutateurs sont des chaînes qui représentent le pays/région d’origine (États-Unis, Chine, Royaume-Uni, Allemagne ou Australie). |
 |`CallingNum`|Numéro de téléphone de l’appelant. |
 |`CallingIMSI`|Identité de l’abonné mobile international (IMSI). Il s’agit de l’identificateur unique de l’appelant. |
 |`CalledNum`|Numéro de téléphone du destinataire de l’appel. |
@@ -276,7 +276,7 @@ Dans de nombreux cas, il n’est pas nécessaire d’insérer toutes les colonne
 
 Supposons que vous souhaitiez compter le nombre d’appels entrants par région. Dans les données de flux, lorsque vous souhaitez effectuer des fonctions d’agrégation telles que le comptage, vous devez segmenter le flux en unités temporelles (puisque le flux de données proprement dit est en réalité un nombre infini). Pour ce faire, utilisez une [fonction de fenêtre](stream-analytics-window-functions.md) Stream Analytics. Vous pouvez alors utiliser les données contenues dans cette fenêtre comme unité.
 
-Pour cette transformation, vous souhaitez une séquence de fenêtres temporelles ne se chevauchant pas ; chaque fenêtre contient un ensemble distinct de données que vous pouvez regrouper et agréger. Ce type de fenêtre est appelé *fenêtre bascule*. Dans la fenêtre bascule, vous pouvez obtenir le nombre des appels entrants, regroupés par `SwitchNum`, qui représente le pays d’origine de l’appel. 
+Pour cette transformation, vous souhaitez une séquence de fenêtres temporelles ne se chevauchant pas ; chaque fenêtre contient un ensemble distinct de données que vous pouvez regrouper et agréger. Ce type de fenêtre est appelé *fenêtre bascule*. Dans la fenêtre bascule, vous pouvez obtenir le nombre d’appels entrants, regroupés par `SwitchNum`, qui représente le pays/la région d'où provient de l’appel. 
 
 1. Dans l’éditeur de code, modifiez la requête comme suit :
 
@@ -292,7 +292,7 @@ Pour cette transformation, vous souhaitez une séquence de fenêtres temporelles
 
     La projection inclut `System.Timestamp`, qui retourne un horodatage pour la fin de chaque fenêtre. 
 
-    Pour spécifier que vous souhaitez utiliser une fenêtre bascule, vous utilisez le [TUMBLINGWINDOW](https://msdn.microsoft.com/library/dn835055.aspx) fonctionner dans le `GROUP BY` clause. Dans la fonction, indiquez une unité de temps (d’une microseconde à un jour) et une taille de fenêtre (nombre d’unités). Dans cet exemple, comme la fenêtre bascule se compose d’intervalles de 5 secondes vous obtenez un nombre (par pays) d’appels d’une valeur de 5 secondes.
+    Pour spécifier que vous souhaitez utiliser une fenêtre bascule, vous utilisez le [TUMBLINGWINDOW](https://msdn.microsoft.com/library/dn835055.aspx) fonctionner dans le `GROUP BY` clause. Dans la fonction, indiquez une unité de temps (d’une microseconde à un jour) et une taille de fenêtre (nombre d’unités). Dans cet exemple, la fenêtre bascule se compose d’intervalles de 5 secondes, vous obtenez un nombre par pays/région pour la valeur de chaque 5 secondes des appels.
 
 2. Cliquez de nouveau sur **Test**. Dans les résultats, notez que les horodatages indiqués sous **WindowEnd** sont exprimés par incréments de 5 secondes.
 
@@ -302,7 +302,7 @@ Pour cette transformation, vous souhaitez une séquence de fenêtres temporelles
 
 Pour cet exemple, envisagez l’utilisation frauduleuse suivante : appels provenant d’un même utilisateur, mais à différents lieux, espacés de 5 secondes à chaque fois. Par exemple, un même utilisateur ne peut pas légitimement passer simultanément un appel depuis les États-Unis et l’Australie. 
 
-Pour ces cas, vous pouvez utiliser une jointure réflexive des données de flux pour joindre le flux à lui-même en fonction de la valeur `CallRecTime`. Vous pouvez ensuite rechercher les enregistrements d’appels où la valeur `CallingIMSI` (numéro d’origine) est identique, contrairement à la valeur `SwitchNum` (pays d’origine).
+Pour ces cas, vous pouvez utiliser une jointure réflexive des données de flux pour joindre le flux à lui-même en fonction de la valeur `CallRecTime`. Vous pouvez ensuite rechercher pour appel les enregistrements dans lesquels le `CallingIMSI` valeur (numéro d’origine) est identique, mais la `SwitchNum` valeur (pays/région d’origine) n’est pas le même.
 
 Si vous utilisez une jointure avec des données de flux, la jointure doit indiquer certaines limites relatives à l’intervalle pouvant séparer des lignes correspondantes dans le temps. (Comme indiqué précédemment, les données de flux sont effectivement sans fin.) Les limites temporelles de la relation sont spécifiées dans la clause `ON` de la jointure, à l’aide de la fonction `DATEDIFF`. Dans ce cas, la jointure est basée sur un intervalle de 5 secondes des données d’appels.
 

@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/08/2018
-ms.openlocfilehash: f53e122eb1b2a5b6dabb9a44aef42394d0c7edb6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6568e5ebf356bb0e6b4ac8ff6059cd093f8da821
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60478727"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64917578"
 ---
 # <a name="mapping-data-flow-derived-column-transformation"></a>Mappage de flux de données dérivée de transformation de colonne
 
@@ -35,4 +35,4 @@ Si vos noms de colonnes sont des variables à partir de vos sources, vous pouvez
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-En savoir plus sur la [langage d’expression de fabrique de données pour les transformations](http://aka.ms/dataflowexpressions) et [Générateur d’expressions](concepts-data-flow-expression-builder.md)
+En savoir plus sur la [langage d’expression de fabrique de données pour les transformations](https://aka.ms/dataflowexpressions) et [Générateur d’expressions](concepts-data-flow-expression-builder.md)

@@ -10,25 +10,30 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/16/2019
+ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: 749b5690f5814bb2f63f9f4451bba85990166acd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 543defc622942f4a0643aca275ad4ad2fa9e1ab2
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60306270"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926542"
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Copier des données depuis/vers Azure SQL Database en utilisant Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you use:"]
 > * [Version 1](v1/data-factory-azure-sql-connector.md)
 > * [Version actuelle](connector-azure-sql-database.md)
 
-Cet article explique comment utiliser l’activité de copie dans Azure Data Factory pour copier des données vers ou à partir d’Azure SQL Database. Il s’appuie sur l’article [Vue d’ensemble de l’activité de copie](copy-activity-overview.md).
+Cet article explique comment copier des données vers et à partir de la base de données SQL Azure. Pour en savoir plus sur Azure Data Factory, lisez l’[article d’introduction](introduction.md).
 
 ## <a name="supported-capabilities"></a>Fonctionnalités prises en charge
 
-Vous pouvez copier des données entre Azure SQL Database et tout magasin de données récepteur pris en charge. Et vous pouvez copier des données à partir de tout magasin de données source pris en charge vers Azure SQL Database. Pour obtenir la liste des magasins de données pris en charge en tant que sources ou récepteurs par l’activité de copie, consultez le tableau [Magasins de données et formats pris en charge](copy-activity-overview.md#supported-data-stores-and-formats).
+Ce connecteur de base de données SQL Azure est pris en charge pour les activités suivantes :
+
+- [Activité de copie](copy-activity-overview.md) avec [pris en charge de la matrice de source/récepteur](copy-activity-overview.md) table
+- [Flux de données de mappage](concepts-data-flow-overview.md)
+- [Activité de recherche](control-flow-lookup-activity.md)
+- [Activité GetMetadata](control-flow-get-metadata-activity.md)
 
 Plus précisément, ce connecteur Azure SQL Database prend en charge les fonctions suivantes :
 
@@ -135,12 +140,12 @@ Pour utiliser l’authentification du jeton d’application Azure AD basée sur 
 2. **[Provisionnez un administrateur Azure Active Directory](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** pour votre serveur Azure SQL sur le portail Azure, si ce n’est pas déjà fait. L’administrateur Azure AD doit être un utilisateur Azure AD ou un groupe Azure AD, mais il ne doit pas s’agir d’un principal de service. Vous devez effectuer cette étape pour qu’à l’étape suivante vous puissiez utiliser une identité Azure AD pour créer un utilisateur de base de données autonome pour le principal de service.
 
 3. **[Créez des utilisateurs de base de données autonome](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)** pour le principal de service. Connectez-vous à la base de données vers ou à partir de laquelle vous souhaitez copier des données à l’aide d’outils tels que SSMS, avec une identité Azure AD qui a au moins l’autorisation ALTER ANY USER. Exécutez le code T-SQL suivant : 
-    
+  
     ```sql
     CREATE USER [your application name] FROM EXTERNAL PROVIDER;
     ```
 
-4. **Accordez les autorisations requises par le principal de service** comme vous le feriez d’habitude pour des utilisateurs SQL ou autres. Exécutez le code suivant, ou consultez davantage d’options [ici](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017).
+4. **Accordez les autorisations requises par le principal de service** comme vous le feriez d’habitude pour des utilisateurs SQL ou autres. Exécutez le code suivant, ou consultez davantage d’options [ici](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017).
 
     ```sql
     EXEC sp_addrolemember [role name], [your application name];
@@ -185,12 +190,12 @@ Pour utiliser l’authentification d’identité gérée, procédez comme suit 
 1. **[Provisionnez un administrateur Azure Active Directory](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** pour votre serveur Azure SQL sur le portail Azure, si ce n’est pas déjà fait. L’administrateur Azure AD peut être un utilisateur Azure AD ou un groupe Azure AD. Si vous accordez au groupe avec l’identité gérée un rôle d’administrateur, ignorez les étapes 3 et 4. L’administrateur aura un accès complet à la base de données.
 
 2. **[Créer des utilisateurs de base de données de relation contenant-contenu](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)**  pour l’identité gérée de fabrique de données. Connectez-vous à la base de données vers ou à partir de laquelle vous souhaitez copier des données à l’aide d’outils tels que SSMS, avec une identité Azure AD qui a au moins l’autorisation ALTER ANY USER. Exécutez le code T-SQL suivant : 
-    
+  
     ```sql
     CREATE USER [your Data Factory name] FROM EXTERNAL PROVIDER;
     ```
 
-3. **Accorder des autorisations requises de l’identité gérée de fabrique de données** comme vous le feriez normalement pour les utilisateurs SQL et d’autres. Exécutez le code suivant, ou consultez davantage d’options [ici](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017).
+3. **Accorder des autorisations requises de l’identité gérée de fabrique de données** comme vous le feriez normalement pour les utilisateurs SQL et d’autres. Exécutez le code suivant, ou consultez davantage d’options [ici](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017).
 
     ```sql
     EXEC sp_addrolemember [role name], [your Data Factory name];
@@ -587,6 +592,10 @@ CREATE TYPE [dbo].[MarketingType] AS TABLE(
 ```
 
 La fonction de procédure stockée tire parti des [paramètres Table-Valued](https://msdn.microsoft.com/library/bb675163.aspx).
+
+## <a name="mapping-data-flow-properties"></a>Mappage de propriétés de flux de données
+
+Découvrez plus de détails à partir de [transformation source](data-flow-source.md) et [récepteur transformation](data-flow-sink.md) dans le mappage de flux de données.
 
 ## <a name="data-type-mapping-for-azure-sql-database"></a>Mappage de type de données pour Azure SQL Database
 

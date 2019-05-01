@@ -2,24 +2,18 @@
 title: Comparaison entre AppSource et la Place de marché Azure | Azure
 description: Cet article décrit les vitrines sur AppSource et la Place de marché Azure.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: ''
 author: jm-aditi-ms
 manager: pabutler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: f204f01fae0bd01f9f2f0e242c63ec2070d6d195
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 905901c2a21c59bab9f48bf4229333663bc39131
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62121158"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64938635"
 ---
 # <a name="comparing-appsource-and-the-azure-marketplace"></a>Comparaison entre AppSource et la Place de marché Azure
 Les vitrines dans la [Place de marché Azure](https://azuremarketplace.microsoft.com) et [Microsoft AppSource](https://appsource.microsoft.com) répondent aux besoins spécifiques du client. Utilisez les vitrines pour cibler les clients par rôle. Vous pouvez offrir la solution ou le service approprié en fonction de votre client.

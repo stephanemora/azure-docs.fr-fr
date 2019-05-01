@@ -1,25 +1,18 @@
 ---
-title: Paramètres de Place de marché pour une image conteneurs Azure | Microsoft Docs
+title: Paramètres de la place de marché pour une image de conteneurs Azure | Place de marché Azure
 description: Configurez les paramètres de Place de marché d’un conteneur Azure.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: dan-wesley
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
-ms.date: 11/01/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 220084dd0a3c61205a2cf53c29cf49291000efdb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.date: 04/24/2019
+ms.author: pabutler
+ms.openlocfilehash: f2d735662fcd177f64d1ebc71a25b7d7629db3ce
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61472961"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64942654"
 ---
 # <a name="container-marketplace-tab"></a>Onglet Place de marché de conteneur
 
@@ -31,16 +24,18 @@ Dans cette section, vous entrez les informations générales sur votre offre de 
 
 ![Informations de la Place de marché](./media/containers-marketplace-tab.png)
 
-Le tableau suivant décrit l’objectif et le contenu de ces champs.
+Le tableau suivant décrit l’objectif et le contenu de ces champs. Les champs obligatoires sont indiqués par un astérisque (*).
 
-|  **Champ**                |     **Description**                                                          |
+|    Champ                  |       Description                                                            |
 |  ---------                |     ---------------                                                          |
-| **Titre**                 | Titre de l’offre. Il est affiché de façon visible dans la Place de marché.  La longueur maximale est de 50 caractères. |
-| **Résumé**               | Court résumé de l’offre. La longueur maximale est de 100 caractères. |
-| **Long Summary** (Résumé long)          | Résumé plus détaillé de l’offre (il peut être identique au contenu du champ **Résumé**).  La longueur maximale est de 256 caractères. |
-| **Description**           | Description de l’offre.  Longueur maximale de 3 000 caractères ; prend en charge la mise en forme HTML simple.
+| **Titre\***                 | Titre de l’offre. Il est affiché de façon visible dans la Place de marché.  La longueur maximale est de 50 caractères. |
+| **Résumé\***               | Court résumé de l’offre. La longueur maximale est de 100 caractères. |
+| **Résumé long\***          | Résumé plus détaillé de l’offre (il peut être identique au contenu du champ **Résumé**).  La longueur maximale est de 256 caractères. |
+| **Description\***           | Description de l’offre.  Longueur maximale de 3 000 caractères ; prend en charge la mise en forme HTML simple.
 | **Marketing Identifier** (Identificateur marketing)  | URL unique à associer à cette offre. Elle inclut généralement le nom de votre solution et de votre organisation. La longueur maximale est de 50 caractères.   |
-| **ID d’abonnement à la préversion** | Ajoutez entre 1 et 100 identificateurs d’abonnement d’utilisateurs de la préversion. Ces abonnements autorisés ont accès à l’offre dès sa publication, avant sa mise en service. |
+| **ID d’abonnement en version préliminaire\*** | Ajoutez entre 1 et 100 identificateurs d’abonnement d’utilisateurs de la préversion. Ces abonnements autorisés ont accès à l’offre dès sa publication, avant sa mise en service. |
+|  |  |
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

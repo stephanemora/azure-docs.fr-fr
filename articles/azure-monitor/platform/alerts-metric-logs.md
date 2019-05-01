@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 9f47ba44e7940414932371ef1b7a360d0b01e1ff
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 1c744e0063d5c56b2ca17f2b6c6fa694ad13a26c
+ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58483860"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64872578"
 ---
 # <a name="create-metric-alerts-for-logs-in-azure-monitor"></a>Créer des alertes de métrique de journaux d’activité dans Azure Monitor
 
@@ -57,7 +57,7 @@ Avant que la métrique pour des journaux d’activité rassemblés sur des donn�
 
 1. **Espace de travail Log Analytics actif** : un espace de travail Log Analytics actif doit être présent. Pour plus d’informations, consultez [Créer un espace de travail Log Analytics dans le portail Azure](../../azure-monitor/learn/quick-create-workspace.md).
 2. **Agent configuré pour l’espace de travail Log Analytics** : un agent doit être configuré pour les machines virtuelles Azure et/ou les machines virtuelles locales, afin d’envoyer des données à l’espace de travail Log Analytics utilisé dans l’étape précédente. Pour plus d’informations, consultez [Présentation des agents Azure pour surveiller les machines virtuelles Azure](../../azure-monitor/platform/agents-overview.md).
-3. **Solutions Log Analytics prises en charge installées** : Une solution Log Analytics doit être configurée et doit envoyer des données à l’espace de travail Log Analytics. Les solutions prises en charge sont les [compteurs de performances pour Windows et Linux](../../azure-monitor/platform/data-sources-performance-counters.md), les [enregistrements de pulsation pour Agent Health](../../azure-monitor/insights/solution-agenthealth.md), la [gestion des mises à jour] et les [données d’événement](../../azure-monitor/platform/data-sources-windows-events.md).
+3. **Solutions Log Analytics prises en charge installées** : Solution d’Analytique de journal doit être configurées et de l’envoi des données dans l’espace de travail Analytique de journal - prise en charge les solutions sont [compteurs de performances pour Windows et Linux](../../azure-monitor/platform/data-sources-performance-counters.md), [des enregistrements de pulsation pour l’intégrité de l’Agent](../../azure-monitor/insights/solution-agenthealth.md) , [Update management](../../automation/automation-update-management.md), et [données d’événement](../../azure-monitor/platform/data-sources-windows-events.md).
 4. **Solutions Log Analytics configurées pour envoyer des journaux** : une solution Log Analytics doit avoir les journaux d’activité/données correspondant aux [métriques prises en charge pour les espaces de travail Log Analytics](../../azure-monitor/platform/metrics-supported.md#microsoftoperationalinsightsworkspaces) activés. Par exemple, le compteur *% Available Memory* (% de mémoire disponible) doit d’abord être configuré dans la solution [Compteurs de performances](../../azure-monitor/platform/data-sources-performance-counters.md).
 
 ## <a name="configuring-metric-alert-for-logs"></a>Configuration d’une alerte de métrique pour des journaux d’activité

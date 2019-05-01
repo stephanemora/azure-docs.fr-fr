@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: yili
 ms.custom: seodec18
-ms.openlocfilehash: e3b6eed6f70eb2803ef4fa4e6b5d32fb0a4d843a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 7cc3a4d98901e618369c98ceee8125d2abbe94e3
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60851151"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919975"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>FAQ d’Azure App Service sur Linux
 
@@ -136,7 +136,7 @@ Ajoutez le nom complet de l’image, comprenant l’URL de registre privé (par 
 
 **Je veux exposer plusieurs ports sur l’image de mon conteneur personnalisé.**
 
-Nous ne prenons pas en charge actuellement l’exposition de plusieurs ports.
+Nous ne prennent en charge l’exposition de plusieurs ports.
 
 **Puis-je apporter mon propre système de stockage ?**
 
@@ -154,11 +154,11 @@ Nous avons la détection automatique du port. Vous pouvez également spécifier 
 
 Non, la plateforme gère l’annulation HTTPS au niveau des serveurs frontaux partagés.
 
-## <a name="multi-container-with-docker-compose-and-kubernetes"></a>Utilisation de plusieurs conteneurs avec Docker Compose et Kubernetes
+## <a name="multi-container-with-docker-compose"></a>Plusieurs conteneurs avec Docker Compose
 
 **Comment configurer Azure Container Registry (ACR) de manière à utiliser plusieurs conteneurs ?**
 
-Pour utiliser ACR avec plusieurs conteneurs, **toutes les images de conteneur** doivent être hébergées sur le même serveur de Registre ACR. Une fois qu’elles se trouvent sur le même serveur de Registre, vous devez créer des paramètres d’application, puis mettre à jour le fichier de configuration Kubernetes ou Docker Compose en y ajoutant le nom de l’image ACR.
+Pour utiliser ACR avec plusieurs conteneurs, **toutes les images de conteneur** doivent être hébergées sur le même serveur de Registre ACR. Une fois qu’ils se trouvent sur le même serveur de Registre, vous devez créer des paramètres d’application et mettez ensuite à jour le fichier de configuration de Docker Compose pour inclure le nom d’image ACR.
 
 Créez les paramètres d’application suivants :
 

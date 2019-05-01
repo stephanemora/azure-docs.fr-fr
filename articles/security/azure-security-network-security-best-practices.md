@@ -1,9 +1,8 @@
 ---
-title: Bonnes pratiques en matière de sécurité réseau | Microsoft Docs
+title: Meilleures pratiques de sécurité réseau - Microsoft Azure
 description: Cet article détaille les meilleures pratiques en matière de sécurité réseau, sur la base de capacités Azure intégrées.
 services: security
-documentationcenter: na
-author: TomShinder
+author: TerryLanfear
 manager: barbkess
 editor: TomShinder
 ms.assetid: 7f6aa45f-138f-4fde-a611-aaf7e8fe56d1
@@ -12,18 +11,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/17/2018
+ms.date: 04/28/2019
 ms.author: TomSh
-ms.openlocfilehash: b644a175814fb28563a2524e27f52d0285415d66
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 5bec7db1c4409165242416df16e437b121381b49
+ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60610958"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64872555"
 ---
 # <a name="azure-network-security-best-practices"></a>Meilleures pratiques en matière de sécurité réseau - Azure
-Vous pouvez connecter des [machines virtuelles Azure](https://azure.microsoft.com/services/virtual-machines/) et des appliances à d’autres appareils en réseau, en les plaçant sur des [réseaux virtuels Azure](https://azure.microsoft.com/documentation/services/virtual-network/). Autrement dit, vous pouvez connecter des cartes d’interface réseau virtuel à un réseau virtuel afin de permettre des communications TCP/IP entre les appareils en réseau. Les machines virtuelles connectées à un réseau virtuel Azure peuvent se connecter à des appareils se trouvant sur le même réseau virtuel, sur des réseaux virtuels différents, sur Internet ou sur vos réseaux locaux.
-
 Cet article décrit les bonnes pratiques en matière de sécurité réseau sur Azure. Ces meilleures pratiques sont issues de notre expérience dans le domaine de la mise en réseau Azure, mais également de celle des clients, comme vous.
 
 Cet article détaille les points suivants pour chaque bonne pratique :
@@ -35,8 +32,6 @@ Cet article détaille les points suivants pour chaque bonne pratique :
 * Comment apprendre à utiliser la bonne pratique
 
 Cet article repose sur un consensus, ainsi que sur les fonctionnalités et ensembles de fonctions de la plate-forme Azure disponibles lors de l’écriture. Les opinions et avis évoluent au fil du temps ; cet article sera régulièrement mis à jour de manière à tenir compte de ces changements.
-
-Les sections suivantes décrivent les meilleures pratiques liées à la sécurité réseau.
 
 ## <a name="logically-segment-subnets"></a>Segmentation logique des sous-réseaux
 Les réseaux virtuels Azure sont similaires à des réseaux LAN au sein de votre réseau local. Un réseau virtuel Azure repose sur un concept : la création d’un réseau basé sur un espace d’adressage IP privé unique, au sein duquel vous pouvez placer toutes vos machines virtuelles Azure. Les espaces d’adressage IP privés disponibles se trouvent dans les plages des classes A (10.0.0.0/8), B (172.16.0.0/12) et C (192.168.0.0/16).

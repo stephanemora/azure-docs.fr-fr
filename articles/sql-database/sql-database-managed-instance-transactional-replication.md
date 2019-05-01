@@ -12,12 +12,12 @@ ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: 409c1abd7e9f532bb243ecab00228b402215c77e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c8d5df0f83a7ae37b9f06a5e255e9809288b6d67
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61313668"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64917037"
 ---
 # <a name="transactional-replication-with-single-pooled-and-instance-databases-in-azure-sql-database"></a>Réplication transactionnelle avec des bases de données uniques, mises en pool, et d’instance dans Azure SQL Database
 
@@ -79,7 +79,7 @@ Il existe différents [types de réplications](https://docs.microsoft.com/sql/re
   > - Si vous configurez la réplication avec une version antérieure, les erreurs suivantes peuvent se produire : MSSQL_REPL20084 (le processus n’a pas pu se connecter à l’abonné) et MSSQL_REPL40532 (impossible d’ouvrir le serveur \<nom> demandé par la connexion. La connexion a échoué).
   > - Pour bénéficier de toutes les fonctionnalités d’Azure SQL Database, vous devez utiliser les dernières versions de [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) et de [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).
   
-  ### <a name="supportabilty-matrix-for-instance-databases-and-on-premises-systems"></a>Matrice Supportabilty pour les systèmes de l’Instance de bases de données et en local
+  ### <a name="supportability-matrix-for-instance-databases-and-on-premises-systems"></a>Matrice de prise en charge pour les systèmes de l’Instance de bases de données et en local
   La matrice de prise en charge de réplication par exemple les bases de données est identique à celui de SQL Server en local. 
   
   | **Publisher**   | **Serveur de distribution** | **abonné** |
@@ -140,7 +140,7 @@ Dans cette configuration, une base de données Azure SQL (base de données uniqu
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-1. [Configurer la réplication transactionnelle pour une instance Managed Instance](replication-with-sql-database-managed-instance.md#configure-publishing-and-distribution-example). 
+1. [Configurer la réplication transactionnelle pour une instance Managed Instance](replication-with-sql-database-managed-instance.md). 
 1. [Créer une publication](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication).
 1. [Créer un abonnement par push](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription) en utilisant le nom du serveur Azure SQL Database en tant qu’abonné (par exemple, `N'azuresqldbdns.database.windows.net`) et le nom de la base de données Azure SQL comme base de données de destination (par exemple, **Adventureworks**). )
 

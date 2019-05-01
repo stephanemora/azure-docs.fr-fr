@@ -1,25 +1,18 @@
 ---
-title: Offre d’image de conteneurs Azure | Microsoft Docs
+title: Azure offre d’image de conteneurs | Place de marché Azure
 description: Vue d’ensemble du processus de publication d’une offre de conteneur sur la Place de marché Microsoft Azure.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: dan-wesley
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/02/2018
-ms.author: pbutlerm
-ms.openlocfilehash: e40e83e16ab2bfd43c3bb5fa38e52a778694e90e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: 9617380822f5814d1cbd2bd2b69eac72722fe813
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61473086"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64942747"
 ---
 # <a name="containers"></a>Containers
 

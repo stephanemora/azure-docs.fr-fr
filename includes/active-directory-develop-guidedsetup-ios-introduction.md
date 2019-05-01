@@ -15,11 +15,11 @@ ms.date: 03/20/2019
 ms.author: dadobali
 ms.custom: include file
 ms.openlocfilehash: 971ae8cd44f1b345d3a71b8fa4f256c8f25ef961
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
-ms.translationtype: HT
+ms.sourcegitcommit: 807c318f5c034f8256f91c241e9d6f8f4d7de90a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59503106"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64951339"
 ---
 # <a name="call-the-microsoft-graph-api-from-an-ios-application"></a>Appeler l’API Microsoft Graph à partir d’une application iOS
 
@@ -27,7 +27,7 @@ Ce guide vous explique comment une application iOS native (Swift) peut appeler l
 
 Lorsque vous aurez effectué les exercices de ce guide, votre application pourra appeler l’API protégée d’une entreprise ou d’une organisation qui dispose d’Azure AD. Votre application peut appeler des API protégées à l’aide de comptes personnels comme outlook.com, live.com et autres, et de comptes professionnels ou scolaires.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 - XCode version 10.x est requis pour l’exemple à créer dans ce guide. Vous pouvez télécharger XCode sur le [site web d’iTunes ](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12 "XCode Download URL").
 - Vous aurez besoin du gestionnaire de dépendances [Carthage](https://github.com/Carthage/Carthage) pour la gestion des packages.

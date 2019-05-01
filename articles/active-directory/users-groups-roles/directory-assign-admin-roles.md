@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 82afadef58310f46046c8c3168ed93a34769b316
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c0811ce1509b7886bf0061cba955ca5e18990cd1
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60472394"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64920496"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Autorisations des rôles d’administrateur dans Azure Active Directory
 
@@ -58,6 +58,18 @@ Les rôles d’administrateur disponibles sont les suivants :
   * Propriétaires de groupe de sécurité et de groupe Office 365, qui peuvent gérer l’appartenance à un groupe. Ces groupes peuvent accorder l’accès à des informations sensibles ou privées ou à une configuration critique dans Azure AD et ailleurs.
   * Administrateurs d’autres services en dehors d’Azure AD, tels qu’Exchange Online, le Centre de sécurité et de conformité Office et les systèmes de ressources humaines.
   * Les non-administrateurs comme les cadres supérieurs, les conseillers juridiques et les employés des ressources humaines qui peuvent avoir accès à des informations sensibles ou privées.
+
+* **[Administrateur de flux d’utilisateurs B2C](#b2c-user-flow-administrator)**: Les utilisateurs disposant de ce rôle peuvent créer et gérer B2C User Flows (également appelé « intégrées » stratégies) dans le portail Azure. En créant ou modifiant des flux d’utilisateurs, ces utilisateurs peuvent modifier le contenu html, CSS et javascript de l’expérience utilisateur, exigences liées à MFA par flux de l’utilisateur de modifier, modifier les revendications du jeton et ajuster les paramètres de session pour toutes les stratégies dans le locataire. En revanche, ce rôle n’incluent la possibilité de consulter les données de l’utilisateur, ni apporter des modifications aux attributs qui sont inclus dans le schéma de locataire. Modifications apportées à l’infrastructure d’expérience d’identité (également appelé personnalisé) stratégies est également en dehors de l’étendue de ce rôle.
+
+* **[B2C utilisateur flux attribut administrateur](#b2c-user-flow-attribute-administrator)**: Les utilisateurs disposant de ce rôle ajouter ou supprimer des attributs personnalisés disponibles pour tous les flux d’utilisateur dans le client. Par conséquent, les utilisateurs disposant de ce rôle peuvent modifier ou ajouter de nouveaux éléments au schéma utilisateur final et avoir un impact sur le comportement de tous les flux d’utilisateur et indirectement risque de modifier les données peuvent être invitées des utilisateurs finaux et finalement envoyées en tant que revendications aux applications. Ce rôle ne peut pas modifier le flux d’utilisateurs.
+
+* **[Administrateur de jeu de clés B2C IEF](#b2c-ief-keyset-administrator)**:    Utilisateur peut créer et gérer des clés de stratégie et les secrets de chiffrement des jetons, signatures de jetons et chiffrement/déchiffrement de la revendication. En ajoutant de nouvelles clés aux conteneurs de clé existants, cet administrateur limité peut les secrets de substitution en fonction des besoins sans affecter les applications existantes. Cet utilisateur peut voir la totalité du contenu de ces secrets et leurs dates d’expiration, même après leur création.
+    
+  <b>Important :</b> il s’agit d’un rôle sensible. Le rôle d’administrateur de jeu de clés doit être soigneusement audité et attribué avec précaution au cours de préproduction et production.
+
+* **[Administrateur de la stratégie B2C IEF](#b2c-ief-policy-administrator)**: Les utilisateurs de ce rôle ont la possibilité de créer, lire, mettre à jour et supprimez toutes les stratégies personnalisées dans Azure AD B2C et par conséquent avoir un contrôle total sur l’infrastructure d’expérience d’identité dans le locataire Azure AD B2C pertinentes. En modifiant les stratégies, cet utilisateur peut établir une fédération directe avec les fournisseurs d’identité externes, modifiez le schéma de répertoire, modifier le contenu de tous les visibles par l’utilisateur (HTML, CSS et JavaScript), modifier la configuration requise pour effectuer une authentification, créer de nouveaux utilisateurs, envoyez les données utilisateur à des systèmes externes, notamment complète des migrations et modifier toutes les informations utilisateur, notamment les champs sensibles comme les mots de passe et les numéros de téléphone. À l’inverse, ce rôle ne peut pas modifier les clés de chiffrement ou modifier les clés secrètes utilisées pour la fédération dans le locataire.
+
+  <b>Important :</b> L’administrateur de la stratégie IEF B2 est un rôle très sensible qui doit être affecté de manière très limitée pour les clients en production. Activités par ces utilisateurs doivent être étroitement auditées, en particulier pour les clients en production.
 
 * **[Administrateur de facturation](#billing-administrator)**  : Effectue les achats, gère les abonnements, gère les tickets de support et supervise l’intégrité du service.
 
@@ -110,6 +122,9 @@ Les rôles d’administrateur disponibles sont les suivants :
   > [!NOTE]
   > Dans l’API Microsoft Graph, l’API Azure AD Graph et Azure AD PowerShell, ce rôle est identifié comme « Administrateur de services Exchange ». Il est appelé « Administrateur Exchange » dans le [portail Azure](https://portal.azure.com). Il est « Administrateur Exchange en ligne » dans le [centre d’administration Exchange](https://go.microsoft.com/fwlink/p/?LinkID=529144). 
 
+* **[Administrateur de fournisseur d’identité externe](#external-identity-provider-administrator)**: Cet administrateur gère la fédération entre les locataires Azure Active Directory et les fournisseurs d’identité externes. Avec ce rôle, les utilisateurs peuvent ajouter de nouveaux fournisseurs d’identité et configurer tous les paramètres disponibles (par exemple, chemin d’authentification, id de service, attribué des conteneurs de clé). Cet utilisateur peut activer le client approuve les authentifications à partir de fournisseurs d’identité externes. L’impact sur les expériences utilisateur final varie selon le type de client :
+  * Clients Azure Active Directory pour les employés et partenaires : L’ajout d’une fédération (par exemple, avec Gmail) affecte immédiatement toutes les invitations d’invités pas encore utilisées. Consultez [Ajout de Google comme fournisseur d’identité pour les utilisateurs invités B2B](https://docs.microsoft.com/azure/active-directory/b2b/google-federation).
+  * Clients Azure Active Directory B2C : L’ajout d’une fédération (par exemple, Facebook, ou avec un autre Azure Active Directory) n’affecte pas immédiatement le flux de l’utilisateur final jusqu'à ce que le fournisseur d’identité est ajouté en tant qu’option dans un flux d’utilisateur (également appelé stratégie intégrée). Consultez [configuration d’un compte Microsoft comme fournisseur d’identité](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-msa-app) pour obtenir un exemple. Pour modifier le flux d’utilisateurs, le rôle limité de « B2C User flux Administrator » est requis.
 
 * **[Administrateur général ou Administrateur d’entreprise](#company-administrator)**  : Les utilisateurs avec ce rôle ont accès à toutes les fonctionnalités d’administration dans Azure Active Directory, ainsi qu’aux services qui utilisent des identités Azure Active Directory comme le centre de sécurité Microsoft 365, le centre de conformité Microsoft 365, Exchange Online, SharePoint Online et Skype Entreprise Online. La personne qui s’inscrit pour le locataire Azure Active Directory devient administrateur général. Seuls les administrateurs généraux peuvent affecter d’autres rôles d’administrateur. Une entreprise peut comprendre plusieurs administrateurs généraux. Les administrateurs généraux peuvent réinitialiser le mot de passe des utilisateurs et de tous les autres administrateurs.
 
@@ -314,6 +329,34 @@ Permet d’afficher, de définir et de réinitialiser les informations de métho
 | microsoft.office365.webPortal/allEntities/basic/read | Lisez les propriétés de base sur toutes les ressources dans microsoft.office365.webPortal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Lisez et configurez Office 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Créez et gérez des tickets de support Office 365. |
+
+### <a name="b2c-user-flow-administrator"></a>Administrateur de flux d’utilisateurs B2C
+Créer et gérer tous les aspects de flux d’utilisateurs.
+
+| **Actions** | **Description** |
+| --- | --- |
+| microsoft.aad.b2c/userFlows/allTasks | Lire et configurer les flux d’utilisateurs dans Azure Active Directory B2C. |
+
+### <a name="b2c-user-flow-attribute-administrator"></a>B2C utilisateur flux attribut administrateur
+Créer et gérer le schéma d’attribut disponible pour tous les flux d’utilisateur.
+
+| **Actions** | **Description** |
+| --- | --- |
+| microsoft.aad.b2c/userAttributes/allTasks | Lire et configurer les attributs utilisateur dans Azure Active Directory B2C. |
+
+### <a name="b2c-ief-keyset-administrator"></a>Administrateur de jeu de clés IEF B2C
+Gérer les secrets pour la fédération et de chiffrement dans l’infrastructure d’expérience d’identité.
+
+| **Actions** | **Description** |
+| --- | --- |
+| microsoft.aad.b2c/trustFramework/keySets/allTasks | Lire et configurer des jeux de clés dans Azure Active Directory B2C. |
+
+### <a name="b2c-ief-policy-administrator"></a>Administrateur de la stratégie B2C IEF
+Créer et gérer des stratégies de framework d’approbation dans l’infrastructure d’expérience d’identité.
+
+| **Actions** | **Description** |
+| --- | --- |
+| microsoft.aad.b2c/trustFramework/policies/allTasks | Lire et configurer des stratégies personnalisées dans Azure Active Directory B2C. |
 
 ### <a name="billing-administrator"></a>Administrateur de facturation
 Peut effectuer des tâches de facturation courantes, comme la mise à jour des informations de paiement.
@@ -675,6 +718,13 @@ Peut gérer tous les aspects du produit Exchange.
 | microsoft.office365.exchange/allEntities/allTasks | Gérez tous les aspects d’Exchange Online. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Lisez et configurez Office 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Créez et gérez des tickets de support Office 365. |
+
+### <a name="external-identity-provider-administrator"></a>Administrateur de fournisseur d’identité externe
+Configurer les fournisseurs d’identité pour une utilisation dans une fédération directe.
+
+| **Actions** | **Description** |
+| --- | --- |
+| microsoft.aad.b2c/identityProviders/allTasks | Lire et configurer les fournisseurs d’identité dans Azure Active Directory B2C. |
 
 ### <a name="guest-inviter"></a>Inviteur
 Peut inviter des utilisateurs invités indépendamment du paramètre « Les membres peuvent inviter des invités ».

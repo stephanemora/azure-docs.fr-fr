@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: lastcoolnameleft
-ms.openlocfilehash: 926f470b8a4dbdb6d6cbfe09ee61349a819600e7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 5cac42505cd015cb018664b765e88f40667b1759
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60464550"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64920463"
 ---
 # <a name="best-practices-for-business-continuity-and-disaster-recovery-in-azure-kubernetes-service-aks"></a>Bonnes pratiques pour la continuité d’activité et la reprise d’activité dans AKS (Azure Kubernetes Services)
 
@@ -33,7 +33,7 @@ Cet article met l’accent sur certains points qui facilitent la planification d
 
 Un cluster AKS est déployé dans une seule région. Pour vous protéger contre la défaillance d’une région, déployez votre application sur plusieurs clusters AKS dans différentes régions. Quand vous planifiez les régions sur lesquelles déployer votre cluster AKS, tenez compte des points suivants :
 
-* [Disponibilité des régions AKS](https://docs.microsoft.com/azure/aks/container-service-quotas#region-availability)
+* [Disponibilité des régions AKS](https://docs.microsoft.com/azure/aks/quotas-skus-regions#region-availability)
   * Choisissez des régions proches de vos utilisateurs. AKS s’étend en permanence à de nouvelles régions.
 * [Régions appairées Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)
   * Pour votre zone géographique, choisissez deux régions appairées l’une à l’autre. Ces régions coordonnent les mises à jour de la plateforme et hiérarchisent les efforts de récupération si nécessaire.
@@ -62,7 +62,7 @@ Pour obtenir des instructions sur la façon de configurer ces points de terminai
 
 ### <a name="layer-7-application-routing-with-azure-front-door"></a>Routage d’application au niveau de la couche 7 avec Azure Front Door
 
-Azure Traffic Manager utilise DNS (couche 3) pour former le trafic. [Porte d’Azure (actuellement en version préliminaire)](https://docs.microsoft.com/azure/frontdoor/front-door-overview) fournit une option de routage HTTP/HTTPS (couche 7). Les fonctionnalités supplémentaires de Front Door incluent l’arrêt SSL, le domaine personnalisé, le pare-feu d’applications web, la réécriture d’URL et l’affinité de session.
+Azure Traffic Manager utilise DNS (couche 3) pour former le trafic. [Porte d’entrée Azure](https://docs.microsoft.com/azure/frontdoor/front-door-overview) fournit une option de routage HTTP/HTTPS (couche 7). Les fonctionnalités supplémentaires de Front Door incluent l’arrêt SSL, le domaine personnalisé, le pare-feu d’applications web, la réécriture d’URL et l’affinité de session.
 
 Passez en revue les besoins de trafic de votre application pour comprendre la solution qui est la plus adaptée.
 

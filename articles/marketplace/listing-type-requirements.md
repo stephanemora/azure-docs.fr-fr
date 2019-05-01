@@ -2,24 +2,18 @@
 title: Exigences par type de liste | Azure
 description: Cet article décrit les critères d’éligibilité et les exigences de publication pour les partenaires qui essaient de comprendre comment publier des applications dans la Place de marché Azure.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: ''
 author: jm-aditi-ms
 manager: pabutler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 12/19/2018
 ms.author: ellacroi
-ms.openlocfilehash: ebe344d9f596f862fe5ffbfef083725e6527d0d3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e45346ce8bd23ea8431faf8a123d57ecdee71606
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60599327"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64937893"
 ---
 # <a name="requirements-by-listing-type"></a>Exigences par type de liste  
 Les exigences techniques et de contenu marketing varient en fonction de la vitrine, du type d’offre et du type de liste. Consultez les spécifications suivantes pour vous assurer que vous respectez les critères.  

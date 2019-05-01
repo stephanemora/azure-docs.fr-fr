@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/02/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 9849b8209db0a4aa73a80d461b67bda9b0b3656a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 3e40e72a4cbb154a7ccef153959e81f7054ea003
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59049725"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926378"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Résoudre les problèmes liés à Azure Files sous Windows
 
@@ -96,7 +96,7 @@ Si la connexion a réussi, vous devez voir la sortie suivante :
 ### <a name="solution-for-cause-1"></a>Solution pour la cause 1
 
 #### <a name="solution-1---use-azure-file-sync"></a>Solution 1 - utiliser Azure File Sync
-Azure File Sync peut transforme votre serveur de Windows en local dans un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement, notamment SMB, NFS et FTPS. Azure File Sync fonctionne sur le port 443 et peut donc être utilisé comme solution de contournement pour accéder Azure Files à partir de clients qui ont le port 445 bloqué. [Découvrez comment configurer Azure File Sync](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-extend-servers).
+Azure File Sync peut transforme votre serveur de Windows en local dans un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement, notamment SMB, NFS et FTPS. Azure File Sync fonctionne sur le port 443 et peut donc être utilisé comme solution de contournement pour accéder Azure Files à partir de clients qui ont le port 445 bloqué. [Découvrez comment configurer Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-extend-servers).
 
 #### <a name="solution-2---use-vpn"></a>Solution 2 : utilisation VPN
 En configurant un VPN à votre compte de stockage spécifique, le trafic passe par un tunnel sécurisé par opposition à via internet. Suivez le [obtenir des instructions sur la configuration du VPN](https://github.com/Azure-Samples/azure-files-samples/tree/master/point-to-site-vpn-azure-files
@@ -106,7 +106,7 @@ En configurant un VPN à votre compte de stockage spécifique, le trafic passe p
 Travailler avec votre service informatique ou le fournisseur de services Internet pour ouvrir le port 445 sortant aux [plages IP Azure](https://www.microsoft.com/download/details.aspx?id=41653).
 
 #### <a name="solution-4---use-rest-api-based-tools-like-storage-explorerpowershell"></a>Solution 4 : utiliser l’API REST en fonction des outils tels que Storage Explorer ou de Powershell
-Azure Files prend également en charge REST en plus de SMB. L’accès REST fonctionne sur le port 443 (tcp standard). Il existe différents outils qui sont écrits à l’aide de l’API REST qui permettent l’expérience d’interface utilisateur riche. [Explorateur de stockage](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) est un d’eux. [Télécharger et installer l’Explorateur de stockage](https://azure.microsoft.com/en-us/features/storage-explorer/) et connectez-vous à votre partage de fichiers grâce à Azure Files. Vous pouvez également utiliser [PowerShell](https://docs.microsoft.com/en-us/azure/storage/files/storage-how-to-use-files-powershell) qui également utilisateur API REST.
+Azure Files prend également en charge REST en plus de SMB. L’accès REST fonctionne sur le port 443 (tcp standard). Il existe différents outils qui sont écrits à l’aide de l’API REST qui permettent l’expérience d’interface utilisateur riche. [Explorateur de stockage](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) est un d’eux. [Télécharger et installer l’Explorateur de stockage](https://azure.microsoft.com/features/storage-explorer/) et connectez-vous à votre partage de fichiers grâce à Azure Files. Vous pouvez également utiliser [PowerShell](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-powershell) qui également utilisateur API REST.
 
 
 ### <a name="cause-2-ntlmv1-is-enabled"></a>Cause 2 : NTLMv1 est activé

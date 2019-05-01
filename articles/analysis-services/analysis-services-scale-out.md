@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/23/2019
+ms.date: 04/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 8c226608f6c1c776463aa05c02b1d3cc04b699ec
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.openlocfilehash: 42cdf230379665c596761f9846e52454a3d99680
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63766831"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939667"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Montée en charge d’Azure Analysis Services
 
@@ -39,13 +39,13 @@ Pendant une synchronisation automatique est effectuée uniquement quand vous mon
 
 Lorsque vous effectuez une opération de montée en puissance ultérieure, par exemple, augmentation du nombre de réplicas dans le pool de requêtes de deux à cinq, les nouveaux réplicas sont alimentés avec les données à partir de la deuxième ensemble de fichiers dans le stockage blob. Il n’existe aucune synchronisation. Si vous deviez effectuer une synchronisation une fois que la montée en charge, les nouveaux réplicas dans le pool de requêtes serait alimenté deux fois : une alimentation redondante. Lorsque vous effectuez une opération de montée en puissance ultérieure, il est important de garder à l’esprit :
 
-* Effectuer une synchronisation *avant l’opération de montée en puissance* afin d’éviter d’alimentation redondante des réplicas ajoutés.
+* Effectuer une synchronisation *avant l’opération de montée en puissance* afin d’éviter d’alimentation redondante des réplicas ajoutés. Les opérations de montée en puissance en cours d’exécution en même temps et de synchronisation concurrente ne sont pas autorisées.
 
 * Lors de l’automatisation de ces deux traitement *et* opérations de montée en puissance, il est important de traiter tout d’abord les données sur le serveur principal, puis effectuer une synchronisation et puis effectuer l’opération de montée en puissance. Cette séquence garantit un impact minimal sur les ressources QPU et de la mémoire.
 
 * La synchronisation est autorisée même lorsqu’il n’existe aucun réplica dans le pool de requêtes. Si vous montent en puissance à partir de zéro à un ou plusieurs réplicas avec de nouvelles données à partir d’une opération de traitement sur le serveur principal, effectuez tout d’abord de la synchronisation sans aucun réplica dans le pool de requêtes et puis montée en puissance. Synchronisation avant la montée en puissance évite alimentation redondante des réplicas nouvellement ajoutés.
 
-* Lorsque vous supprimez une base de données model à partir du serveur principal, il ne pas automatiquement supprimé de réplicas dans le pool de requêtes. Vous devez effectuer une opération de synchronisation à l’aide de la [AzAnalysisServicesInstance de synchronisation](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) commande PowerShell qui supprime le fichier/s pour cette base de données d’emplacement de stockage d’objets blob partagé du réplica, puis supprime le modèle base de données sur les réplicas dans le pool de requêtes.
+* Lorsque vous supprimez une base de données model à partir du serveur principal, il ne pas automatiquement supprimé de réplicas dans le pool de requêtes. Vous devez effectuer une opération de synchronisation à l’aide de la [AzAnalysisServicesInstance de synchronisation](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) commande PowerShell qui supprime le fichier/s pour cette base de données d’emplacement de stockage d’objets blob partagé du réplica, puis supprime le modèle base de données sur les réplicas dans le pool de requêtes. Pour déterminer si une base de données de modèle existe sur les réplicas dans le pool de requêtes, mais pas sur le serveur principal, vérifiez le **séparer le serveur de traitement de l’interrogation de pool** paramètre consiste à **Oui**. Puis utilisez SSMS pour se connecter au serveur principal en utilisant le `:rw` qualificateur si la base de données existe déjà. Puis vous connecter aux réplicas dans le pool de requêtes en vous connectant sans le `:rw` qualificateur pour voir s’il existe également la même base de données. Si la base de données existe sur les réplicas dans le pool de requêtes, mais pas sur le serveur principal, exécutez une opération de synchronisation.   
 
 * Lorsque vous renommez une base de données sur le serveur principal, il existe une étape supplémentaire nécessaire pour garantir que la base de données est correctement synchronisé avec tous les réplicas. Après avoir renommé, effectuer une synchronisation à l’aide de la [AzAnalysisServicesInstance de synchronisation](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) commande en spécifiant le `-Database` paramètre avec l’ancien nom de base de données. Cette synchronisation supprime la base de données et les fichiers portant l’ancien nom de tous les réplicas. Puis effectuez une autre synchronisation spécification le `-Database` paramètre avec le nouveau nom de base de données. La synchronisation deuxième copie de la base de données qui vient d’être nommé dans le deuxième ensemble de fichiers et l’alimente tous les réplicas. Ces synchronisations ne peut pas être effectuées à l’aide de la commande de modèle de synchronisation dans le portail.
 
@@ -58,6 +58,8 @@ Pour optimiser les performances des opérations de traitement et de requête, vo
 Pour déterminer si une montée en charge est nécessaire pour votre serveur, surveillez votre serveur dans le portail Azure en utilisant des métriques. Si vos unités de traitement des requêtes atteignent régulièrement le maximum, cela signifie que le nombre de requêtes sur vos modèles dépasse la limite d’unités de traitement des requêtes pour votre forfait. La métrique Longueur de la file d’attente des travaux du pool de requêtes augmente aussi quand le nombre de requêtes dans la file d’attente du pool de threads de requêtes dépasse les unités de traitement des requêtes disponibles. 
 
 Une autre bonne métrique à surveiller est moyenne QPU par ServerResourceType. Cette mesure compare QPU moyenne pour le serveur principal avec qui le pool de requêtes. 
+
+![Requêtes avec montée métriques](media/analysis-services-scale-out/aas-scale-out-monitor.png)
 
 ### <a name="to-configure-qpu-by-serverresourcetype"></a>Pour configurer des QPU par ServerResourceType
 1. Dans un graphique en courbes mesures, cliquez sur **ajouter une métrique**. 
@@ -146,6 +148,8 @@ Pour SSMS, SSDT et les chaînes de connexion dans PowerShell, les applications d
 **Problème :** les utilisateurs obtiennent l’erreur **Cannot find server ’\<Name of the server>’ instance in connection mode ’ReadOnly’** (Impossible de trouver l’instance de serveur ’<Nom du serveur>’ en mode de connexion ’Lecture seule’).
 
 **Solution :** Lorsque vous sélectionnez le **séparer le serveur de traitement du pool de requêtes** option, les connexions client à l’aide de la chaîne de connexion par défaut (sans `:rw`) sont redirigés vers des réplicas de pool de requête. Si les réplicas du pool de requêtes ne sont pas encore en ligne, car la synchronisation n’est pas terminée, les connexions client redirigées peuvent échouer. Pour empêcher l’échec des connexions, vous devez avoir au moins deux serveurs dans le pool de requêtes quand vous effectuez une synchronisation. Chaque serveur est synchronisé individuellement pendant que les autres serveurs restent en ligne. Si vous choisissez de ne pas mettre le serveur de traitement dans le pool de requêtes durant le traitement, vous pouvez l’enlever du pool avant le traitement, puis le réintégrer au pool une fois le traitement terminé, mais avant la synchronisation. Utilisez les métriques Mémoire et QPU pour superviser l’état de synchronisation.
+
+
 
 ## <a name="related-information"></a>Informations connexes
 

@@ -2,21 +2,20 @@
 title: Fichier Include
 description: Fichier Include
 services: vpn-gateway
-author: WenJason
+author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-origin.date: 03/21/2018
-ms.date: 04/01/2019
-ms.author: v-jay
+ms.date: 04/26/2019
+ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 4535fd0e4ad09fe80f3474f716a14fc35040718f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7ff633b33a800e1dfe28c63b6ba880233e2b4a1c
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60760459"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64929374"
 ---
 | **Modèle/méthode de déploiement** | **Portail Azure** | **PowerShell** |
 | --- | --- | --- |
-| Gestionnaire de ressources |[Article](../articles/vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md) |Pris en charge |
-| Classique | Non pris en charge | [Article](../articles/vpn-gateway/vpn-gateway-multi-site.md) |
+| Gestionnaire de ressources |[Didacticiel](../articles/vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md) |Pris en charge |
+| Classique | Non pris en charge | [Didacticiel](../articles/vpn-gateway/vpn-gateway-multi-site.md) |

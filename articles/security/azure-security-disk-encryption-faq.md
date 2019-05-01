@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 04/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2a5fb822a84792cec059aa6c78b66b3a628f25af
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3de444d509684f0b4227abe91ec3c967f2bf8f03
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60611287"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926279"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>FAQ Azure Disk Encryption pour machines virtuelles IaaS
 
@@ -162,7 +162,7 @@ Volumes XFS sont pris en charge pour le chiffrement de disque de données unique
 
 ## <a name="can-i-backup-and-restore-an-encrypted-vm"></a>Puis-je sauvegarder et restaurer une machine virtuelle chiffrée ? 
 
-Sauvegarde Azure fournit un mécanisme permettant de sauvegarder et restaurer chiffrée de la machine virtuelle dans le même abonnement et région.  Pour obtenir des instructions, consultez [sauvegarder et restaurer des machines virtuelles chiffrées avec sauvegarde Azure](https://docs.microsoft.com/en-us/azure/backup/backup-azure-vms-encryption).  Restauration d’une machine virtuelle chiffrée dans une autre région n’est pas pris en charge actuellement.  
+Sauvegarde Azure fournit un mécanisme permettant de sauvegarder et restaurer chiffrée de la machine virtuelle dans le même abonnement et région.  Pour obtenir des instructions, consultez [sauvegarder et restaurer des machines virtuelles chiffrées avec sauvegarde Azure](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption).  Restauration d’une machine virtuelle chiffrée dans une autre région n’est pas pris en charge actuellement.  
 
 ## <a name="where-can-i-go-to-ask-questions-or-provide-feedback"></a>Où puis-je poser des questions ou envoyer des commentaires ?
 

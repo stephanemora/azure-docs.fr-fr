@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 4/12/2019
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 3d06024b7fa4356d4ad0e8b52c45c2ead62ef784
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 1c772756a90c3eee4e2b3fb4fd4a0ec9e98fa0da
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60778335"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919092"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Créer et gérer des groupes d’actions sur le Portail Azure
 ## <a name="overview"></a>Présentation ##
@@ -78,7 +78,7 @@ Après avoir créé un groupe d’actions, il est visible dans le **groupes d’
 
 Peut avoir un nombre limité d’actions de messagerie dans un groupe d’actions. Consultez l’article [Informations de limitation du débit](./../../azure-monitor/platform/alerts-rate-limiting.md)
 
-**ITSM** -avoir un nombre limité nombre limité d’actions ITSM dans un groupe d’actions. ITSM Action requiert une connexion ITSM. Découvrez comment créer une [connexion ITSM](../../azure-monitor/platform/itsmc-overview.md).
+**ITSM** -avoir un nombre limité d’actions ITSM dans un groupe d’actions. ITSM Action requiert une connexion ITSM. Découvrez comment créer une [connexion ITSM](../../azure-monitor/platform/itsmc-overview.md).
 
 **Application logique** -avoir un nombre limité d’actions d’application logique dans un groupe d’actions.
 
@@ -105,15 +105,12 @@ Plage d’adresses IP sources
  - 51.5.148.86
  - 51.5.149.19
 
-Pour recevoir des mises à jour sur les modifications apportées à ces adresses IP, nous vous recommandons configurer une [Service alerte d’intégrité, qui surveille pour les notifications d’information sur le service de groupes d’actions.
-
+Pour recevoir des mises à jour sur les modifications apportées à ces adresses IP, nous vous recommandons de que configurer une alerte de l’intégrité du Service, qui surveille pour les notifications d’information sur le service de groupes d’actions.
 
 ## <a name="next-steps"></a>Étapes suivantes ##
-
 * En savoir plus sur le [comportement des alertes SMS](../../azure-monitor/platform/alerts-sms-behavior.md).  
 * [Comprendre le schéma Webhook des alertes du journal d’activité](../../azure-monitor/platform/activity-log-alerts-webhook.md).  
 * En savoir plus sur [ITSM Connector](../../azure-monitor/platform/itsmc-overview.md)
 * En savoir plus sur la [limitation de la fréquence](../../azure-monitor/platform/alerts-rate-limiting.md) des alertes.
 * Obtenir une [vue d’ensemble des alertes du journal d’activité](../../azure-monitor/platform/alerts-overview.md) et découvrir comment recevoir des alertes.  
 * Découvrir comment [configurer des alertes lorsqu’une notification d’intégrité de service est publiée](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).
-
