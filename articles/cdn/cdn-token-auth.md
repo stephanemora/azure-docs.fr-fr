@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 11/17/2017
 ms.author: mezha
-ms.openlocfilehash: 75d6fb063a6cb5336a4d9945bf6a79a65ed25d40
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 640c65b1f6995a6c5fb7a3a1fcfeb580aecf5c43
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60324516"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64869410"
 ---
 # <a name="securing-azure-cdn-assets-with-token-authentication"></a>Sécurisation des ressources CDN Azure avec l’authentification du jeton
 
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Présentation
 
 L’authentification du jeton est un mécanisme qui vous permet d’empêcher Azure Content Delivery Network (CDN) de fournir des ressources à des clients non autorisés. L’authentification par jeton vise généralement à empêcher le *hotlinking* de contenu, dans le cadre duquel un autre site web, par exemple, un forum de discussion, utilise vos ressources sans autorisation. Le « hotlinking » peut avoir un impact sur vos coûts de distribution de contenu. En activant l’authentification du jeton sur CDN, les requêtes sont authentifiées par le serveur de périphérie CDN avant que CDN livre le contenu. 
 
@@ -33,7 +33,7 @@ L’authentification du jeton est un mécanisme qui vous permet d’empêcher Az
 
 L’authentification du jeton s’assure que les requêtes sont générées par un site de confiance en vérifiant qu’elles comportent une valeur de jeton contenant des informations codées sur le demandeur. Le contenu est fourni à un demandeur uniquement si les informations codées respectent les exigences définies. Dans le cas contraire, les requêtes sont refusées. Vous pouvez procéder à la configuration à l’aide d’un ou de plusieurs des paramètres suivants :
 
-- Pays : Autoriser ou refuser les demandes provenant des pays spécifiés par leurs [code pays](/previous-versions/azure/mt761717(v=azure.100)).
+- Pays : Autoriser ou refuser les demandes provenant des pays/régions spécifiées par leur [code pays](/previous-versions/azure/mt761717(v=azure.100)).
 - URL : Autoriser uniquement les demandes qui correspondent à l’élément multimédia spécifié ou le chemin d’accès.
 - Hôte : Autoriser ou refuser les demandes qui utilisent les ordinateurs hôtes indiqués dans l’en-tête de demande.
 - Référent : Autoriser ou refuser la demande provenant du référent spécifié.
@@ -86,7 +86,7 @@ L’organigramme suivant décrit comment Azure CDN valide une demande du client 
 
       ![Clé de configuration de l’authentification du jeton CDN](./media/cdn-token-auth/cdn-token-auth-setupkey.png)
     
-   4. Utilisez l’outil de chiffrement pour définir les paramètres de chiffrement et générer un jeton. Avec l’outil de chiffrement, vous pouvez autoriser ou refuser des requêtes en fonction de la date/heure d’expiration, du pays, du référent, du protocole et de l’IP du client (dans toute combinaison). Bien qu’il n’existe aucune restriction sur le nombre et la combinaison de paramètres pouvant être associés pour former un jeton, la longueur totale d’un jeton est limitée à 512 caractères. 
+   4. Utilisez l’outil de chiffrement pour définir les paramètres de chiffrement et générer un jeton. Avec l’outil de chiffrement, vous pouvez autoriser ou refuser les demandes en fonction de délai d’expiration, pays/région, référent, protocole et adresse IP du client (dans n’importe quelle combinaison). Bien qu’il n’existe aucune restriction sur le nombre et la combinaison de paramètres pouvant être associés pour former un jeton, la longueur totale d’un jeton est limitée à 512 caractères. 
 
       ![Outil de chiffrement CDN](./media/cdn-token-auth/cdn-token-auth-encrypttool.png)
 
@@ -120,11 +120,11 @@ L’organigramme suivant décrit comment Azure CDN valide une demande du client 
       > </tr>
       > <tr>
       >    <td><b>ec_country_allow</b></td> 
-      >    <td>Autorise uniquement les requêtes provenant d’un ou de plusieurs pays spécifiés. Les requêtes provenant de tous les autres pays sont refusées. Utilisez un [code de pays ISO 3166](/previous-versions/azure/mt761717(v=azure.100)) de deux lettres pour chaque pays, en séparant les codes par une virgule ; n’ajoutez pas d’espace. Par exemple, pour autoriser l’accès aux requêtes provenant uniquement des États-Unis et de France, entrez `US,FR`.</td>
+      >    <td>Autorise uniquement les demandes provenant d’un ou plusieurs pays/régions spécifiées. Les demandes provenant de tous les autres pays/régions sont refusées. Utilisez un [code de pays ISO 3166](/previous-versions/azure/mt761717(v=azure.100)) de deux lettres pour chaque pays, en séparant les codes par une virgule ; n’ajoutez pas d’espace. Par exemple, pour autoriser l’accès aux requêtes provenant uniquement des États-Unis et de France, entrez `US,FR`.</td>
       > </tr>
       > <tr>
       >    <td><b>ec_country_deny</b></td> 
-      >    <td>Refuse les requêtes provenant d’un ou de plusieurs pays spécifiés. Les requêtes provenant de tous les autres pays sont autorisées. L’implémentation est identique à celle du paramètre <b>ec_country_allow</b>. Si un code de pays est présent dans les paramètres <b>ec_country_allow</b> et <b>ec_country_deny</b>, le paramètre <b>ec_country_allow</b> est prioritaire.</td>
+      >    <td>Refuse les demandes issues d’un ou plusieurs pays/régions spécifiées. Les requêtes provenant de tous les autres pays/régions sont autorisées. L’implémentation est identique à celle du paramètre <b>ec_country_allow</b>. Si un code de pays est présent dans les paramètres <b>ec_country_allow</b> et <b>ec_country_deny</b>, le paramètre <b>ec_country_allow</b> est prioritaire.</td>
       > </tr>
       > <tr>
       >    <td><b>ec_ref_allow</b></td>

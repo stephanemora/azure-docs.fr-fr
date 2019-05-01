@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
-ms.openlocfilehash: ef473ea5f88b9108894787785fe1e9083fab1b0a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 197f5ba9d6921f4a9921b7074b9e05162d3e37b8
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61348016"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64868119"
 ---
 # <a name="azure-data-factory-mapping-data-flow-lookup-transformation"></a>Transformation de recherche de mappage de Data Flow pour Azure Data Factory
 
@@ -25,6 +25,10 @@ Utilisez la recherche pour ajouter des données de référence d’une autre sou
 Sélectionnez les champs clés que vous souhaitez mettre en correspondance entre les champs de flux de données entrantes et les champs provenant de la source de référence. Vous devez d’abord créer une nouvelle source sur le canevas de conception du Data Flow à utiliser comme partie droite de la recherche.
 
 Lorsque les correspondances sont trouvées, les lignes et les colonnes résultantes provenant de la source de référence seront ajoutés à votre flux de données. Vous pouvez choisir les champs d’intérêt que vous souhaitez inclure dans votre récepteur à la fin de votre Data Flow.
+
+## <a name="match--no-match"></a>Correspond à / aucune correspondance
+
+Après votre transformation de recherche, vous pouvez utiliser des transformations ultérieures pour inspecter les résultats de chaque ligne de correspondance à l’aide de la fonction de l’expression `isMatch()` pour effectuer des choix supplémentaires dans votre logique basée sur ou non la recherche a entraîné une correspondance de ligne ou non.
 
 ## <a name="optimizations"></a>Optimisations
 

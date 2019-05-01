@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 9e6bc1264e668ba5c6593ce36e721f54e685c391
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6b144f126e097a8db9fbbf29e47162fd6a1c2fbe
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61461253"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64916832"
 ---
 # <a name="what-is-speech-to-text"></a>Quelle est la parole-texte ?
 
-Parole-texte à partir des Services Azure de reconnaissance vocale, également appelé parole-texte, permet la transcription en temps réel de flux audio en texte pouvant consommer les applications, outils ou bien vos appareils, afficher et agir en tant qu’entrée de commande. Ce service est alimenté par la même technologie de reconnaissance que Microsoft utilise pour Cortana et les produits Office et fonctionne de façon transparente avec la traduction et la synthèse vocale.  Pour obtenir une liste complète des langues de reconnaissance vocale disponibles, consultez [langues prises en charge](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/language-support#speech-to-text).
+Parole-texte à partir des Services Azure de reconnaissance vocale, également appelé parole-texte, permet la transcription en temps réel de flux audio en texte pouvant consommer les applications, outils ou bien vos appareils, afficher et agir en tant qu’entrée de commande. Ce service est alimenté par la même technologie de reconnaissance que Microsoft utilise pour Cortana et les produits Office et fonctionne de façon transparente avec la traduction et la synthèse vocale.  Pour obtenir une liste complète des langues de reconnaissance vocale disponibles, consultez [langues prises en charge](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#speech-to-text).
 
 Par défaut, le service de reconnaissance vocale utilise le modèle de langage universelles. Ce modèle a été formé à l’aide de données appartenant à Microsoft et est déployé le cloud. Il est optimale pour conversationnel et scénarios de dictée. Si vous utilisez la reconnaissance vocale pour la reconnaissance et la transcription dans un environnement unique, vous pouvez créer et former des modèles de prononciation, de langue et acoustiques personnalisés pour prendre en compte un bruit ambiant ou le vocabulaire spécifique d’un secteur. 
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/13/2018
 ms.author: gwallace
 ms.custom: include file
-ms.openlocfilehash: b701183fa270b1aad9a622a21c5ce0795fc8057f
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: 04929de241ff36e4d67f24907747d89a16a73898
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60012497"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64733787"
 ---
 #### <a name="process-automation"></a>Automatisation de processus
 
@@ -31,6 +31,7 @@ ms.locfileid: "60012497"
 | Nombre maximal de sockets réseau affectés par le bac à sable<sup>1</sup> |1 000 |S’applique aux bacs à sable Azure uniquement.|
 | Durée d’exécution maximale autorisée par runbook<sup>1</sup> |3 heures |S’applique aux bacs à sable Azure uniquement.|
 | Nombre maximal de comptes Automation dans un abonnement |Aucune limite ||
+| Nombre maximal de groupes de workers hybrides par compte Automation|4 000||
 |Nombre maximal de travaux simultanés qui peuvent être exécutés sur un seul Runbook Worker hybride|50 ||
 | Taille de paramètre de tâche de runbook maximale   | 512 Ko||
 | Paramètres de runbook maximale   | 50|Si vous atteignez la limite de 50-paramètre, vous pouvez passer une chaîne JSON ou XML à un paramètre et l’analyse avec le runbook.|

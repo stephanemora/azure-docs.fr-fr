@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/11/2019
 ms.author: cynthn;azcspmt;jonbeck
 ms.custom: include file
-ms.openlocfilehash: d0802cfcf05874044b6e116ba194c16a79f9d309
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: da1328ba826ce940115bc45ffc8d6f417eeda798
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60541599"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64744134"
 ---
 Cette section fournit des informations sur les générations précédentes de tailles de machine virtuelle. Ces tailles peuvent toujours être utilisées, mais des générations plus récentes sont disponibles. 
 
@@ -27,7 +27,7 @@ ACU : 210 - 250
 
 Premium Storage :  Non pris en charge
 
-Mise en cache du Stockage Premium :  Non pris en charge
+Mise en cache de stockage Premium :  Non pris en charge
 
 | Taille         | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Débit de stockage temporaire max. : IOPS / Mbit/s en lecture / Mbit/s en écriture | Disques de données max. / débit : E/S par seconde | Nombre max de cartes réseau / Bande passante réseau attendue (Mbit/s) |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
@@ -45,7 +45,7 @@ ACU : 210 - 250
 
 Premium Storage :  Pris en charge
 
-Mise en cache du Stockage Premium :  Pris en charge
+Mise en cache de stockage Premium :  Pris en charge
 
 | Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire et mis en cache max. : IOPS / Mbit/s (taille du cache en Gio) | Débit du disque non mis en cache max. : IOPS / Mbit/s | Nombre max de cartes réseau / Bande passante réseau attendue (Mbit/s) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -69,7 +69,7 @@ ACU : 180-240
 
 Premium Storage :  Pris en charge
 
-Mise en cache du Stockage Premium :  Non pris en charge
+Mise en cache de stockage Premium :  Non pris en charge
  
 | Taille          | Processeurs virtuels | Mémoire (Gio) | Stockage temporaire (Gio) | Disques de données max. | Débit de stockage temporaire maximal (IOPS / Mbit/s) | Débit de disque maximal sans mise en cache (IOPS / Mbit/s) | Nombre max de cartes réseau / Bande passante réseau attendue (Mbit/s) | 
 |----------------|-----------|-------------|--------------------------|----------------|-------------------------------------------------------------|-------------------------------------------|------------------------------| 

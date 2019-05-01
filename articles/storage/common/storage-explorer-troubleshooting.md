@@ -7,12 +7,12 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: 3e26365c4273611c81682a760695522575f3875d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 385eee6223487e9d7ca5cc3b213d180bb0f1da46
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61483378"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64710864"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guide de dépannage de l’Explorateur de stockage Azure
 
@@ -96,10 +96,10 @@ Si vous ne trouvez aucun certificat auto-signé à l’aide des étapes précéd
 
 Vides connectez-vous boîtes de dialogue sont le plus souvent provoquées par ADFS demandant l’Explorateur de stockage pour effectuer une redirection, qui est pris en charge par Canon à. Pour contourner ce problème, vous pouvez essayer d'utiliser le flux de code de l'appareil dans le cadre de la connexion. Pour ce faire, suivez les étapes suivantes :
 
-1. « Accédez à la version préliminaire » -> « Utiliser appareil Code connectez-vous ».
+1. Menu : Version préliminaire -> « Utiliser appareil Code connectez-vous ».
 2. Ouvrez la boîte de dialogue de connexion (via l'icône de connexion de la barre verticale de gauche ou via l'option « Ajouter un compte » du panneau du compte).
 3. Choisissez quel environnement que vous souhaitez vous connecter à.
-4. Cliquez sur le bouton « Se connecter ».
+4. Cliquez sur le bouton « se connecter ».
 5. Suivez les instructions figurant sur le panneau.
 
 Si vous avez des problèmes de connexion dans le compte que vous souhaitez utiliser, car votre navigateur par défaut est déjà connecté à un autre compte, vous pouvez :

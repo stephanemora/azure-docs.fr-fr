@@ -1,5 +1,5 @@
 ---
-title: Sélectionner un contrat de page dans Azure Active Directory B2C | Microsoft Docs
+title: Sélectionnez un contrat de page - Azure Active Directory B2C | Microsoft Docs
 description: Découvrez comment sélectionner un contrat de page dans Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
@@ -7,24 +7,24 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 04/25/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 39198c0093f018b64a1292f023914651b51b4faf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 4cd29df19179f07fd9b61a2f484b1d49cc05c4cf
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60361045"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64570584"
 ---
 # <a name="select-a-page-contract-in-azure-active-directory-b2c-using-custom-policies"></a>Sélectionner un contrat de page dans Azure Active Directory B2C à l’aide de stratégies personnalisées
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-Vous pouvez activer le code JavaScript côté client dans vos stratégies Azure Active Directory (Azure AD) B2C si vous utilisez des flux d’utilisateurs ou des stratégies personnalisées. Cet article traite de la sélection d’un contrat de page dans Azure AD B2C en configurant celui-ci dans une [stratégie personnalisée](active-directory-b2c-overview-custom.md). Un contrat de page désigne une association d’éléments qu’Azure AD B2C fournit et du contenu que vous fournissez. Si vous prévoyez d’utiliser [JavaScript](javascript-samples.md), vous devez définir une version de contrat de page pour l’ensemble de vos définitions de contenu dans votre stratégie personnalisée.
+Vous pouvez activer le code JavaScript côté client dans vos stratégies Azure Active Directory (Azure AD) B2C si vous utilisez des flux d’utilisateurs ou des stratégies personnalisées. Pour activer JavaScript pour vos applications, vous devez ajouter un élément à votre [stratégie personnalisée](active-directory-b2c-overview-custom.md), sélectionnez une page de contrat et utiliser [b2clogin.com](b2clogin.md) dans vos requêtes. Un contrat de page désigne une association d’éléments qu’Azure AD B2C fournit et du contenu que vous fournissez. Cet article décrit comment sélectionner un contrat de page dans Azure AD B2C en le configurant dans une stratégie personnalisée.
 
 > [!NOTE]
-> Si vous voulez activer JavaScript pour les flux utilisateur, consultez [À propos de l’utilisation de JavaScript et des versions de contrat de page dans un flux utilisateur](user-flow-javascript-overview.md).
+> Si vous souhaitez activer JavaScript pour les flux d’utilisateurs, consultez [JavaScript et page de contrat de versions dans Azure Active Directory B2C](user-flow-javascript-overview.md).
 
 ## <a name="replace-datauri-values"></a>Remplacer les valeurs DataUri
 

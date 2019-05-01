@@ -8,18 +8,18 @@ ms.service: batch
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: lahugh
-ms.openlocfilehash: 233b26b330fabe7da8664114ba1857f74feea4bc
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.openlocfilehash: 886dea0e53519870aaa27dea721a9eb78515cf86
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63764283"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64706331"
 ---
 # <a name="use-a-custom-image-to-create-a-pool-of-virtual-machines"></a>Utiliser une image personnalisée pour créer un pool de machines virtuelles 
 
 Quand vous créez un pool Azure Batch à l’aide de Configuration de la machine virtuelle, vous spécifiez une image de machine virtuelle qui fournit le système d’exploitation pour chaque nœud de calcul dans le pool. Vous pouvez créer un pool de machines virtuelles avec une image Place de Marché Azure prise en charge ou avec une image personnalisée (image de machine virtuelle que vous avez créée et configurée vous-même). L’image personnalisée doit être une ressource *d’image managée* dans le même abonnement et la même région Azure que le compte Batch.
 
-## <a name="why-use-a-custom-image"></a>Pourquoi utiliser une image personnalisée ?
+## <a name="benefits-of-custom-images"></a>Avantages d’images personnalisées
 
 Quand vous fournissez une image personnalisée, vous contrôlez la configuration du système d’exploitation et le type de système d’exploitation et de disques de données à utiliser. Votre image personnalisée peut inclure des applications et des données de référence qui deviennent disponibles sur tous les nœuds du pool Batch dès qu’ils sont approvisionnés.
 
@@ -32,12 +32,11 @@ Le recours à une image personnalisée configurée pour votre scénario peut off
 - **Réduire la durée nécessaire au redémarrage des machines virtuelles.** L’installation d’application nécessite généralement un redémarrage de la machine virtuelle, ce qui prend du temps. Vous pouvez réduire la durée de redémarrage en préinstallant les applications. 
 - **Copier de très grandes quantités de données une seule fois.** Intégrez les données statiques à l’image personnalisée managée en les copiant sur les disques de données d’une image managée. Cette opération ne doit être effectuée qu’une seule fois et rend les données accessibles à chaque nœud du pool.
 - **Choix des types de disques.** Vous pouvez utiliser du stockage premium pour le disque du système d’exploitation et le disque de données.
-- **Croissance des pools vers une grande taille.** Lorsque vous utilisez une image personnalisée managée pour créer un pool, celui-ci peut croître sans avoir à effectuer des copies des disques durs virtuels d’objets blob d’image. 
-
+- **Croissance des pools vers une grande taille.** Lorsque vous utilisez une image personnalisée managée pour créer un pool, celui-ci peut croître sans avoir à effectuer des copies des disques durs virtuels d’objets blob d’image.
 
 ## <a name="prerequisites"></a>Conditions préalables
 
-- **Une ressource d’image managée**. Pour créer un pool de machines virtuelles à l’aide d’une image personnalisée, vous devez avoir ou créer une ressource d’image managée dans le même abonnement et la même région Azure que le compte Batch. L’image doit être créée à partir d’instantanés du disque de système d’exploitation de la machine virtuelle et, éventuellement, ses disques de données associés. Pour plus d’informations et connaître les étapes de préparation d’une image managée, consultez la section suivante. 
+- **Une ressource d’image managée**. Pour créer un pool de machines virtuelles à l’aide d’une image personnalisée, vous devez avoir ou créer une ressource d’image managée dans le même abonnement et la même région Azure que le compte Batch. L’image doit être créée à partir d’instantanés du disque de système d’exploitation de la machine virtuelle et, éventuellement, ses disques de données associés. Pour plus d’informations et connaître les étapes de préparation d’une image managée, consultez la section suivante.
   - Utilisez une image personnalisée unique pour chaque pool que vous créez.
   - Pour créer un pool avec l’image à l’aide des API Batch, spécifiez **l’ID de ressource** de l’image, qui est au format `/subscriptions/xxxx-xxxxxx-xxxxx-xxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/myImage`. Pour utiliser le portail, utilisez le **nom** de l’image.  
   - La ressource d’image managée doit exister pour faire monter la durée de vie du pool en puissance. Elle peut être supprimée une fois que le pool est supprimé.
@@ -46,7 +45,7 @@ Le recours à une image personnalisée configurée pour votre scénario peut off
 
 ## <a name="prepare-a-custom-image"></a>Préparer une image personnalisée
 
-Dans Azure, vous pouvez préparer une image managée à partir de captures instantanées de disques de données et de système d’exploitation d’une machine virtuelle Azure, à partir d’une machine virtuelle Azure généralisée avec des disques managées ou à partir d’un disque dur virtuel généralisé en local que vous téléchargez. Pour mettre à l’échelle des pools Batch de manière fiable avec une image personnalisée, nous vous recommandons de créer une image managée *uniquement* à l’aide de la première méthode: en utilisant des captures instantanées des disques de la machine virtuelle. Consultez les étapes suivantes pour préparer une machine virtuelle, prendre un instantané et créer une image à partir de l’instantané. 
+Dans Azure, vous pouvez préparer une image managée à partir de captures instantanées de disques de données et de système d’exploitation d’une machine virtuelle Azure, à partir d’une machine virtuelle Azure généralisée avec des disques managées ou à partir d’un disque dur virtuel généralisé en local que vous téléchargez. Pour mettre à l’échelle des pools Batch de manière fiable avec une image personnalisée, nous vous recommandons de créer une image managée *uniquement* à l’aide de la première méthode: en utilisant des captures instantanées des disques de la machine virtuelle. Consultez les étapes suivantes pour préparer une machine virtuelle, prendre un instantané et créer une image à partir de l’instantané.
 
 ### <a name="prepare-a-vm"></a>Préparer une machine virtuelle
 
@@ -60,6 +59,7 @@ Si vous créez une nouvelle machine virtuelle pour l’image, utilisez une image
 
 * Assurez-vous que la machine virtuelle est créée avec un disque managé. Il s’agit du paramètre de stockage par défaut quand vous créez une machine virtuelle.
 * N’installez pas d’extensions Azure, comme l’extension de script personnalisé, sur la machine virtuelle. Si l’image contient une extension préinstallée, Azure peut rencontrer des problèmes lors du déploiement du pool Batch.
+* À l’aide de disques de données associés, vous devez monter et formater les disques à partir d’une machine virtuelle pour les utiliser.
 * Vérifiez que l’image du système d’exploitation de base que vous fournissez utilise le lecteur temporaire par défaut. L’agent de nœud Batch s’attend actuellement à ce que le lecteur temporaire par défaut soit utilisé.
 * Une fois que la machine virtuelle s’exécute, connectez-la via le protocole RDP (pour Windows) ou SSH (pour Linux). Le cas échéant, installez les logiciels nécessaires ou copiez les données souhaitées.  
 

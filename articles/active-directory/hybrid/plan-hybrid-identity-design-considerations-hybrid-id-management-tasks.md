@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/30/2018
+ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d69ddbd38798d0667ce69fb7696597a972b5098
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 16d20e9ea2203c788a2b7b5eb0507b357350407d
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60455633"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918501"
 ---
 # <a name="plan-for-hybrid-identity-lifecycle"></a>Planifier le cycle de vie des identités hybrides
 L'identité est un des fondements de la stratégie de mobilité et d'accès aux applications de votre entreprise. Que vous vous connectiez à votre appareil mobile ou à une application SaaS, votre identité est la clé d'accès à tous les éléments. À son niveau le plus élevé, une solution de gestion des identités englobe l'unification et la synchronisation entre vos référentiels d'identités, ce qui inclut l'automatisation et la centralisation du processus de provisionnement des ressources. La solution d'identité doit être une identité centralisée en local et dans le cloud et, également, utiliser une forme de fédération d'identité, afin de gérer une authentification centralisée et partager ainsi que collaborer de manière sécurisée avec des utilisateurs et entreprises externes. Les ressources vont de systèmes d'exploitation et d’applications à des personnes dans ou affiliés à une organisation. La structure organisationnelle peut être modifiée pour prendre en compte les stratégies et les procédures d’approvisionnement.
@@ -32,7 +32,7 @@ Il est également important de disposer d'une solution d'identité conçue pour 
 ## <a name="determine-hybrid-identity-management-tasks"></a>Déterminer les tâches de gestion des identités hybrides
 La distribution de tâches administratives dans votre organisation améliore la précision et l'efficacité de l'administration, ainsi que l'équilibre de la charge de travail de l'organisation. Voici les tableaux croisés dynamiques qui définissent un système de gestion d'identité robuste.
 
- ![](./media/plan-hybrid-identity-design-considerations/Identity_management_considerations.png)
+ ![Considérations relatives à la gestion des identités](./media/plan-hybrid-identity-design-considerations/Identity_management_considerations.png)
 
 Pour définir les tâches de gestion d'identité hybride, vous devez comprendre certaines caractéristiques essentielles de l'organisation qui va adopter l'identité hybride. Il est important de comprendre les référentiels actuels utilisés pour les sources d'identité. En connaissant ces principaux éléments, vous aurez les exigences fondamentales et, sur cette base, vous devrez poser des questions plus précises qui vous permettront de prendre une meilleure décision de conception pour votre solution d'identité.  
 
@@ -61,7 +61,7 @@ Lors de la définition de ces exigences, assurez-vous qu'au moins les questions 
 ## <a name="synchronization-management"></a>Gestion de la synchronisation
 Un des objectifs d'un gestionnaire d'identités pour être en mesure de mettre tous les fournisseurs d'identité et de les conserver synchronisés. Vous conservez les données synchronisées sur la base d'un fournisseur d'identité principale faisant autorité. Dans un scénario d'identité hybride, avec un modèle de gestion synchronisée vous gérez toutes les identités d'utilisateurs et d'appareils sur un serveur local et synchronisez les comptes et, éventuellement, les mots de passe pour le cloud. L’utilisateur entre le même mot de passe, en local comme dans le cloud et, lors de la connexion, le mot de passe est vérifié par la solution d’identité. Ce modèle utilise un outil de synchronisation d'annuaire.
 
-![](./media/plan-hybrid-identity-design-considerations/Directory_synchronization.png) Pour une conception appropriée la synchronisation de votre solution d'identité hybride, vérifiez que les questions suivantes sont traitées: • Quelles sont les solutions de synchronisation disponibles pour la solution d'identité hybride ?
+![synchronisation d’annuaires](./media/plan-hybrid-identity-design-considerations/Directory_synchronization.png) pour une conception appropriée la synchronisation de votre solution d’identité hybride, vérifiez que les questions suivantes sont traitées : • quelles sont les solutions de synchronisation disponibles pour la solution d’identité hybride ?
 • Quelles sont les fonctionnalités d'authentification unique disponibles ?
 •    Quelles sont les options pour la fédération d'identité entre B2B et B2C ?
 

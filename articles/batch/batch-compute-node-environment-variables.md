@@ -1,6 +1,6 @@
 ---
-title: Variables d’environnement de nœud de calcul - Azure Batch | Microsoft Docs
-description: Référence de variable d’environnement de nœud de calcul pour Azure Batch Analytics.
+title: Variables d’environnement runtime - Azure Batch de tâches | Microsoft Docs
+description: Référence pour Azure Batch Analytique et des instructions relatives aux tâches runtime environnement variable.
 services: batch
 author: laurenhughes
 manager: jeconnoc
@@ -10,16 +10,16 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 02/07/2019
+ms.date: 04/23/2019
 ms.author: lahugh
-ms.openlocfilehash: 9902f38ddfd3035adcce697c2eb5b77bdc1d8c9c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: c46f75c447becc8b15d4a6b8f979330db7ab95c7
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60782223"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64575594"
 ---
-# <a name="azure-batch-compute-node-environment-variables"></a>Variables d’environnement de nœud de calcul Azure Batch
+# <a name="azure-batch-runtime-environment-variables"></a>Variables d’environnement de runtime de Azure Batch
 
 Le [service Azure Batch](https://azure.microsoft.com/services/batch/) définit les variables d’environnement suivantes sur les nœuds de calcul. Vous pouvez référencer ces variables d’environnement dans des lignes de commande de tâche, ainsi que dans les programmes et les scripts exécutés par les lignes de commande.
 
@@ -28,6 +28,12 @@ Pour plus d’informations sur l’utilisation de variables d’environnement, v
 ## <a name="environment-variable-visibility"></a>Visibilité des variables d’environnement
 
 Ces variables d’environnement sont disponibles uniquement dans le contexte de **l’utilisateur de la tâche**, c’est-à-dire le compte d’utilisateur sur le nœud sous lequel une tâche est exécutée. Vous ne les voyez *pas* si vous vous [connectez à distance](https://azure.microsoft.com/documentation/articles/batch-api-basics/#connecting-to-compute-nodes) à un nœud de calcul via RDP (Remote Desktop Protocol) ou SSH (Secure Shell), et répertoriez les variables d’environnement. Cela est dû au fait que le compte d’utilisateur qui est utilisé pour la connexion à distance n’est pas le même que le compte utilisé par la tâche.
+
+Pour obtenir la valeur actuelle d’une variable d’environnement, lancez `cmd.exe` sur un Windows le nœud de calcul ou `/bin/sh` sur un nœud Linux :
+
+`cmd /c set <ENV_VARIABLE_NAME>`
+
+`/bin/sh printenv <ENV_VARIABLE_NAME>`
 
 ## <a name="command-line-expansion-of-environment-variables"></a>Expansion par ligne de commande des variables d’environnement
 

@@ -12,16 +12,16 @@ ms.topic: article
 ms.date: 04/05/2019
 ms.author: sethm
 ms.custom: ''
-ms.openlocfilehash: 3c50502a8b873503ee937914fac5f2d92cb23a2b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: b0b5a74a6ca0085f945075a8896c05a724ff062c
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60733441"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64717950"
 ---
 # <a name="experimental-preset-for-content-aware-encoding"></a>Expérimental présélection d’encodage de contenu prenant en charge
 
-Pour préparer le contenu pour une remise par [streaming à débit adaptatif](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming), vidéo doit être encodé à plusieurs débits (élevée à la plus petite). Afin de garantir une dégradation progressive de la qualité, comme la vitesse de transmission est réduite est donc la résolution de la vidéo. Il en résulte une échelle encodage ce que l'on appelle – un tableau des résolutions et vitesses de transmission, comme vous pouvez le voir certains des fixes Présélections d’encodage, tel que [H264MultipleBitrate1080p](../previous/media-services-mes-preset-h264-multiple-bitrate-1080p.md).
+Pour préparer le contenu pour une remise par [streaming à débit adaptatif](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming), vidéo doit être encodé à plusieurs débits (élevée à la plus petite). Afin de garantir une dégradation progressive de la qualité, comme la vitesse de transmission est réduite est donc la résolution de la vidéo. Il en résulte une échelle encodage ce que l'on appelle – un tableau des résolutions et vitesses de transmission ; consultez les Services de support [Présélections d’encodage intégrées](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#encodernamedpreset).
 
 ## <a name="overview"></a>Présentation
 

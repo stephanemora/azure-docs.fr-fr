@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/10/2019
 ms.author: magoedte
-ms.openlocfilehash: 8b6745a2b9afe8d3101585e3f7a13f2fc978c84a
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: bca1b96e7dc5673cabef26fe6b2cfb8daa41fbf5
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62122589"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64702515"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms-preview"></a>Comment interroger des journaux d’activité des requête à partir d’Azure Monitor pour machines virtuelles (préversion)
 Azure Monitor pour les machines virtuelles collecte des performances et métriques de connexion, ordinateur et traiter les données de l’inventaire et informations d’état d’intégrité et la transfère à l’espace de travail Analytique de journal dans Azure Monitor.  Ces données sont disponibles pour [requête](../../azure-monitor/log-query/log-query-overview.md) dans Azure Monitor. Vous pouvez appliquer ces données à divers scénarios tels que la planification de la migration, l’analyse de la capacité, la détection et la résolution de problèmes de performances à la demande.
@@ -202,7 +202,7 @@ Les enregistrements de type *ServiceMapProcess_CL* ont des données d’inventai
 | ProductVersion_s | Version du produit |
 | FileVersion_s | Version du fichier |
 | CommandLine_s | Ligne de commande |
-| ExecutablePath _s | Chemin d’accès du fichier exécutable |
+| ExecutablePath_s | Chemin d’accès du fichier exécutable |
 | WorkingDirectory_s | Le répertoire de travail |
 | Nom d’utilisateur | Compte sous lequel le processus s’exécute |
 | UserDomain | Domaine sous lequel le processus s’exécute |

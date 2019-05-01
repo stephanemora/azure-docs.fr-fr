@@ -11,20 +11,21 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 manager: craigg
-ms.date: 02/07/2019
-ms.openlocfilehash: edba858f9be3350034ff48ea16d3c9137254bb97
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.date: 04/26/2019
+ms.openlocfilehash: 0f7765e5b13f2d9c1e1213064d778ce6db5ef115
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59357948"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64572681"
 ---
-# <a name="vcore-service-tiers-azure-hybrid-benefit-and-migration"></a>Niveaux de service vCore, Azure Hybrid Benefit et migration
+# <a name="choose-among-the-vcore-service-tiers-and-migrate-from-dtu-service-tiers"></a>Choisissez parmi les niveaux de service de vCore et migrer à partir de niveaux de service DTU
 
 Le modèle d’achat vCore vous permet de mettre à l’échelle les ressources de calcul et de stockage indépendamment les unes des autres, d’égaler les performances d’une exécution locale et d’optimiser les coûts. Il vous permet également de choisir la génération de matériel :
 
 - Gen4 : jusqu'à 24 processeurs logiques basés sur le processeur Intel E5-2673 v3 (Haswell) de 2,4 GHz, vCore = 1 PP (cœur physique), 7 Go par cœur, disque SSD attaché
 - Gen5 : jusqu’à 80 processeurs logiques basés sur le processeur Intel E5-2673 v4 (Broadwell) de 2,3 GHz, vCore = 1 LP (hyper-thread), 5.1 Go par cœur, disque SSD fast eNVM
+
 
 Le matériel Gen4 offre bien plus de mémoire par vCore. Toutefois, le matériel Gen5 vous permet de monter en puissance les ressources de calcul de façon plus importante.
 
@@ -40,9 +41,9 @@ Le tableau suivant montre les différences entre les trois niveaux :
 ||**Usage général**|**Critique pour l’entreprise**|**Hyperscale (préversion)**|
 |---|---|---|---|
 |Idéal pour|La plupart des charges de travail d’entreprise. Propose des options de calcul et de stockage équilibrées, évolutives et économiques.|Applications métier avec besoins en E/S élevés. Offre la meilleure résilience aux échecs en utilisant plusieurs répliques isolées.|La plupart des charges de travail métier avec des exigences de stockage et d’échelle lecture à haute scalabilité|
-|Calcul|Gen4 : de 1 à 24 vCore<br/>Gen5 : de 1 à 80 vCore|Gen4 : de 1 à 24 vCore<br/>Gen5 : de 1 à 80 vCore|Gen4 : de 1 à 24 vCore<br/>Gen5 : de 1 à 80 vCore|
-|Mémoire|Gen4 : 7 Go par cœur<br>Gen5 : 5,1 Go par cœur | Gen4 : 7 Go par cœur<br>Gen5 : 5,1 Go par cœur |Gen4 : 7 Go par cœur<br>Gen5 : 5,1 Go par cœur|
-|Stockage|Utilise le stockage à distance :<br/>Base de données unique : 5 Go - 4 To<br/>instance managée : 32 Go - 8 To |Utilise le stockage SSD local :<br/>Base de données unique : 5 Go - 4 To<br/>instance managée : 32 Go - 4 To |Croissance automatique et flexible du stockage en fonction des besoins. Prend en charge jusqu’à 100 To de stockage et au-delà. Stockage SSD local pour le cache du pool de mémoires tampons local et le stockage de données local. Stockage distant Azure comme magasin de données final à long terme. |
+|UC|**Mise en service de calcul**:<br/>Gen4 : de 1 à 24 vCore<br/>Gen5 : de 1 à 80 vCore<br/>**Calcul sans serveur**<br/>Gen5 : 0,5 - 4 vCore|**Mise en service de calcul**:<br/>Gen4 : de 1 à 24 vCore<br/>Gen5 : de 1 à 80 vCore|**Mise en service de calcul**:<br/>Gen4 : de 1 à 24 vCore<br/>Gen5 : de 1 à 80 vCore|
+|Mémoire|**Mise en service de calcul**:<br/>Gen4 : 7 Go par cœur<br/>Gen5 : 5,1 Go par cœur<br/>**Calcul sans serveur**<br/>Gen5 : 3 Go par cœur|**Mise en service de calcul**:<br/>Gen4 : 7 Go par cœur<br/>Gen5 : 5,1 Go par cœur |**Mise en service de calcul**:<br/>Gen4 : 7 Go par cœur<br/>Gen5 : 5,1 Go par cœur|
+|Stockage|Utilise le stockage à distance :<br/>**Base de données unique mis en service de calcul**:<br/>5 Go - 4 To<br/>**Calcul sans serveur de base de données unique**:<br/>5 GO À 1 TO<br/>**Managed Instance**: 32 Go - 8 To |Utilise le stockage SSD local :<br/>**Base de données unique mis en service de calcul**:<br/>5 Go - 4 To<br/>**Managed Instance**:<br/>32 Go - 4 To |Croissance automatique et flexible du stockage en fonction des besoins. Prend en charge jusqu’à 100 To de stockage et au-delà. Stockage SSD local pour le cache du pool de mémoires tampons local et le stockage de données local. Stockage distant Azure comme magasin de données final à long terme. |
 |Débit d’E/S (approximatif)|Base de données unique : 500 IOPS par vCore avec 7000 IOPS au maximum</br>instance managée : dépend de la [taille de fichier](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)|5000 IOPS par cœur avec 200 000 IOPS au maximum|TBD|
 |Disponibilité|1 réplica, sans échelle lecture|3 réplicas, 1 [réplica avec échelle lecture](sql-database-read-scale-out.md),<br/>Haute disponibilité redondante dans une zone|?|
 |Sauvegardes|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7 à 35 jours (7 jours par défaut)|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7 à 35 jours (7 jours par défaut)|Sauvegarde basée sur des instantanés dans le stockage distant Azur. Les restaurations utilisent ces instantanés pour une récupération rapide. Les sauvegardes sont instantanées et n’ont aucun impact sur les performances d’E/S du calcul. Les restaurations sont très rapides (elles durent quelques minutes plutôt que quelques heures ou jours).|
@@ -56,16 +57,18 @@ Le tableau suivant montre les différences entre les trois niveaux :
 - Pour plus d’informations sur les niveaux de service Usage général et Critique pour l’entreprise, consultez [Niveaux de service Usage général et Critique pour l’entreprise](sql-database-service-tiers-general-purpose-business-critical.md).
 - Pour plus d’informations sur le niveau de service Hyperscale dans le modèle d’achat vCore, consultez [Niveau de service Hyperscale](sql-database-service-tier-hyperscale.md).  
 
-> [!IMPORTANT]
-> Si vous avez besoin d’une capacité de calcul inférieure à 1 vCore, utilisez le modèle d’achat DTU.
+
 
 ## <a name="azure-hybrid-benefit"></a>Azure Hybrid Benefit
 
-Dans le modèle d’achat vCore, vous pouvez échanger vos licences existantes avec des tarifs réduits sur SQL Database, en utilisant [Azure Hybrid Benefit pour SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/). Cet avantage Azure vous permet d’utiliser vos licences SQL Server locales pour économiser jusqu’à 30 % sur Azure SQL Database, avec Software Assurance.
+Dans le niveau d’ordinateur approvisionné du modèle d’achat vCore, vous pouvez échanger vos licences existantes avec des tarifs réduits sur la base de données SQL à l’aide de la [Azure Hybrid Benefit pour SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/). Cet avantage Azure vous permet d’utiliser vos licences SQL Server locales pour économiser jusqu’à 30 % sur Azure SQL Database, avec Software Assurance.
 
 ![Prix](./media/sql-database-service-tiers/pricing.png)
 
-Azure Hybrid Benefit vous permet de choisir de payer uniquement pour l’infrastructure Azure sous-jacente utilisant votre licence SQL Server existante pour le moteur de base de données SQL (**BasePrice**) ou de payer à la fois pour l’infrastructure sous-jacente et pour la licence de SQL Server (**LicenseIncluded**). Vous pouvez choisir ou modifier votre modèle de licence en utilisant le portail Azure ou l’une des API suivantes.
+Azure Hybrid Benefit vous permet de choisir de payer uniquement pour l’infrastructure Azure sous-jacente utilisant votre licence SQL Server existante pour le moteur de base de données SQL (**BasePrice**) ou de payer à la fois pour l’infrastructure sous-jacente et pour la licence de SQL Server (**LicenseIncluded**).
+
+
+Vous pouvez choisir ou modifier votre modèle de licence en utilisant le portail Azure ou l’une des API suivantes.
 
 - Pour définir ou mettre à jour le type de licence en utilisant PowerShell :
 
@@ -130,5 +133,5 @@ Vous pouvez copier n’importe quelle base de données avec une taille de calcul
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour plus d’informations sur les tailles de calcul et les tailles de stockage disponibles pour les bases de données uniques, consultez [Limites des ressources vCore SQL Database pour les bases de données uniques](sql-database-vcore-resource-limits-single-databases.md#general-purpose-service-tier-storage-sizes-and-compute-sizes).
+- Pour plus d’informations sur les tailles de calcul et les tailles de stockage disponibles pour les bases de données uniques, consultez [Limites des ressources vCore SQL Database pour les bases de données uniques](sql-database-vcore-resource-limits-single-databases.md).
 - Pour plus d’informations sur les tailles de calcul et les tailles de stockage disponibles pour les pools élastiques, consultez [Limites des ressources vCore SQL Database pour les pools élastiques](sql-database-vcore-resource-limits-elastic-pools.md#general-purpose-service-tier-storage-sizes-and-compute-sizes).

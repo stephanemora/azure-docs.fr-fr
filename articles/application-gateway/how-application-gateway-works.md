@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/20/2019
 ms.author: absha
-ms.openlocfilehash: 2f27105aed940f0411abaa534cb09adf0be34bfe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: a16421182f533f5aa2ad4bcc2e58e910cc7e8ca6
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60830317"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64702406"
 ---
 # <a name="how-an-application-gateway-works"></a>Fonctionne d’une passerelle d’application
 
@@ -26,7 +26,7 @@ Cet article explique comment une passerelle d’application accepte les demandes
 
 2. Le DNS Azure renvoie l’adresse IP au client, qui est l’adresse IP de serveur frontal de la passerelle d’application.
 
-3. La passerelle d’application accepte le trafic entrant sur un ou plusieurs écouteurs. Un écouteur est une entité logique qui vérifie les demandes de connexion. Il est configuré avec un comme façade un adresse IP, le protocole et le numéro de port pour les connexions à partir de clients à la passerelle d’application.
+3. La passerelle d’application accepte le trafic entrant sur un ou plusieurs écouteurs. Un écouteur est une entité logique qui vérifie les demandes de connexion. Il est configuré avec une adresse IP frontale, le protocole et le numéro de port pour les connexions à partir de clients à la passerelle d’application.
 
 4. Si un pare-feu d’applications web (WAF) est en cours d’utilisation, la passerelle d’application vérifie les en-têtes de demande et le corps, le cas échéant, par rapport aux règles de pare-feu d’applications Web. Cette action détermine si la demande est une demande valide ou une menace de sécurité. Si la demande est valide, il est routé vers le serveur principal. Si la demande n’est pas valide, il est bloqué comme une menace de sécurité.
 

@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b477171be0f306431b0f7c5965ebede4f4680c22
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f344a4f928030c07f59c2f7aba201d153da123f1
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60249930"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918714"
 ---
 # <a name="web-api"></a>API Web
 
@@ -69,7 +69,7 @@ Consultez les exemples de code pour les scénarios du type application web vers 
 
 ## <a name="app-registration"></a>Inscription d'application
 
-Pour inscrire une application auprès du point de terminaison Azure AD v1.0, consultez [Inscrire une application auprès du point de terminaison Azure AD v1.0](quickstart-v1-add-azure-ad-app.md).
+Pour inscrire une application avec le point de terminaison Azure AD v1.0, consultez [inscrire une application](quickstart-register-app.md).
 
 * Application à locataire unique : pour les identités d’application et les identités d’utilisateur délégué, l’application web et l’API web doivent être inscrites dans le même annuaire dans Azure AD. L’API web peut être configurée pour exposer un ensemble d’autorisations utilisées pour limiter l’accès de l’application web à ses ressources. Si une identité d’utilisateur délégué est utilisée, l’application web doit sélectionner les autorisations souhaitées dans le menu déroulant **Autorisations pour d’autres applications** du portail Azure. Cette étape n’est pas requise si une identité d’application est utilisée.
 * Application mutualisée : tout d’abord, l’application web est configurée pour indiquer les autorisations dont elle a besoin pour fonctionner. Cette liste d’autorisations requises s’affiche dans une boîte de dialogue quand un utilisateur ou un administrateur de l’annuaire de destination donne son consentement à l’application, ce qui la met à disposition de son organisation. Certaines applications nécessitent uniquement des autorisations au niveau utilisateur pour lesquelles tous les utilisateurs de l’organisation peuvent donner leur consentement. D’autres nécessitent des autorisations administrateur, pour lesquelles un utilisateur de l’organisation ne peut pas donner son consentement. Seul un administrateur d’annuaires peut donner son consentement aux applications qui requièrent des autorisations de ce niveau. Une fois le consentement donné par l’utilisateur ou l’administrateur, l’application web et l’API web sont inscrites dans l’annuaire de l’organisation de l’utilisateur ou de l’administrateur.

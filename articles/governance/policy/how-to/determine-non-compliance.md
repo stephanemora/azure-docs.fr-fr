@@ -3,16 +3,16 @@ title: Déterminer les causes de non-conformité
 description: Lorsqu’une ressource est non conforme, il existe plusieurs raisons. Découvrez comment trouver ce qui a provoqué la non-conformité.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 03/30/2019
+ms.date: 04/26/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 0af3fd8596bf558f9d5cc97c95be773aa40954cc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2f856e9c42b26d4e286493e2eb5d019a8cff6c23
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60499330"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64868707"
 ---
 # <a name="determine-causes-of-non-compliance"></a>Déterminer les causes de non-conformité
 
@@ -105,9 +105,107 @@ La matrice suivante mappe chaque possible _raison_ pour le responsable [conditio
 |La valeur actuelle ne doit pas correspondre à la valeur cible (non-sensibilité à la casse). |notMatchInsensitively ou **pas** matchInsensitively |
 |Aucune ressource associées ne corresponde les détails de l’effet dans la définition de stratégie. |Une ressource du type défini dans **then.details.type** et associées à la ressource définie dans le **si** partie de la règle de stratégie n’existe pas. |
 
-## <a name="change-history-preview"></a>Historique des changements (préversion)
+## <a name="compliance-details-for-guest-configuration"></a>Détails de conformité pour la Configuration de l’invité
 
-Dans le cadre d’un nouveau **version préliminaire publique**, au cours des 14 derniers jours de modification de l’historique n’est disponible pour toutes les ressources Azure qui prennent en charge [mode suppression](../../../azure-resource-manager/complete-mode-deletion.md). L'historique des modifications indique quand une modification a été détectée et fournit un _différentiel visuel_ pour chaque modification. Une détection des modifications est déclenchée lorsque les propriétés de Resource Manager sont ajoutées, supprimées ou modifiées.
+Pour _audit_ des stratégies dans le _invité Configuration_ catégorie, il peut y avoir plusieurs paramètres évaluées à l’intérieur de la machine virtuelle et vous aurez besoin afficher les détails par paramètre. Par exemple, si vous êtes l’audit pour une liste des applications installées et l’état d’affectation est _Non conforme_, vous devez savoir quelles applications spécifiques sont manquantes.
+
+Vous ne disposez pas accès pour vous connecter directement à la machine virtuelle, mais vous devez créer un rapport sur la raison pour laquelle la machine virtuelle est _Non compatible_. Par exemple, vous pouvez effectuer un audit que les machines virtuelles sont jointes au domaine approprié et incluent l’appartenance au domaine actuel dans les détails de création de rapports.
+
+### <a name="azure-portal"></a>Portail Azure
+
+1. Lancez le service Azure Policy dans le portail Azure en cliquant sur **Tous les services**, puis en recherchant et en cliquant sur **Stratégie**.
+
+1. Sur le **vue d’ensemble** ou **conformité** , sélectionnez une affectation de stratégie pour n’importe quel initiative qui contient une définition de stratégie de Configuration de l’invité de _Non compatible_.
+
+1. Sélectionnez un _audit_ stratégie dans l’initiative de _Non compatible_.
+
+   ![Afficher les détails de définition d’audit](../media/determine-non-compliance/guestconfig-audit-compliance.png)
+
+1. Sur le **conformité des ressources** onglet, les informations suivantes sont fournies :
+
+   - **Nom** -le nom des affectations de Configuration d’invité.
+   - **Ressource parente** -la machine virtuelle dans un _Non conforme_ état pour l’attribution sélectionnée de la Configuration de l’invité.
+   - **Type de ressource** - le _guestConfigurationAssignments_ nom complet.
+   - **Dernière évaluation** - la dernière fois que le service de Configuration de l’invité notifié Azure Policy sur l’état de la machine virtuelle cible.
+
+   ![Afficher les détails de la conformité.](../media/determine-non-compliance/guestconfig-assignment-view.png)
+
+1. Sélectionnez le nom de l’affectation de Configuration invité dans le **nom** colonne pour ouvrir la **conformité des ressources** page.
+
+1. Sélectionnez le **ressource de la vue** bouton en haut de la page pour ouvrir la **invité attribution** page.
+
+Le **invité attribution** page affiche tous les détails de conformité disponibles. Chaque ligne dans la vue représente une version d’évaluation a été effectuée à l’intérieur de la machine virtuelle. Dans le **raison** colonne, une phrase qui décrit pourquoi l’attribution de l’invité est _Non conforme_ s’affiche. Par exemple, si vous êtes l’audit que les machines virtuelles doivent être joints à un domaine, le **raison** colonne afficherait texte, y compris l’appartenance au domaine actuel.
+
+![Afficher les détails de la conformité.](../media/determine-non-compliance/guestconfig-compliance-details.png)
+
+### <a name="azure-powershell"></a>Azure PowerShell
+
+Vous pouvez également afficher les détails de conformité à partir d’Azure PowerShell. Tout d’abord, assurez-vous que vous avez installé le module de Configuration de l’invité.
+
+```azurepowershell-interactive
+Install-Module Az.GuestConfiguration
+```
+
+Vous pouvez afficher l’état actuel de toutes les attributions d’invité pour une machine virtuelle à l’aide de la commande suivante :
+
+```azurepowershell-interactive
+Get-AzVMGuestPolicyReport -ResourceGroupName <resourcegroupname> -VMName <vmname>
+```
+
+```output
+PolicyDisplayName                                                         ComplianceReasons
+-----------------                                                         -----------------
+Audit that an application is installed inside Windows VMs                 {[InstalledApplication]bwhitelistedapp}
+Audit that an application is not installed inside Windows VMs.            {[InstalledApplication]NotInstalledApplica...
+```
+
+Pour afficher uniquement les _raison_ une phrase qui décrit la raison pour laquelle la machine virtuelle est _Non conforme_, retourner uniquement la propriété enfant de raison.
+
+```azurepowershell-interactive
+Get-AzVMGuestPolicyReport -ResourceGroupName <resourcegroupname> -VMName <vmname> | % ComplianceReasons | % Reasons | % Reason
+```
+
+```output
+The following applications are not installed: '<name>'.
+```
+
+Vous pouvez également générer un historique de conformité des affectations d’invité dans l’étendue de la machine virtuelle. La sortie de cette commande inclut les détails de chaque rapport pour la machine virtuelle.
+
+> [!NOTE]
+> La sortie peut retourner un gros volume de données. Il est recommandé de stocker la sortie dans une variable.
+
+```azurepowershell-interactive
+$guestHistory = Get-AzVMGuestPolicyStatusHistory -ResourceGroupName <resourcegroupname> -VMName <vmname>
+$guestHistory
+```
+
+```output
+PolicyDisplayName                                                         ComplianceStatus ComplianceReasons StartTime              EndTime                VMName LatestRepor
+                                                                                                                                                                  tId
+-----------------                                                         ---------------- ----------------- ---------              -------                ------ -----------
+[Preview]: Audit that an application is installed inside Windows VMs      NonCompliant                       02/10/2019 12:00:38 PM 02/10/2019 12:00:41 PM VM01  ../17fg0...
+<truncated>
+```
+
+Pour simplifier cet affichage, utilisez le **ShowChanged** paramètre. La sortie de cette commande inclut uniquement les rapports de suivi d’un changement d’état de conformité.
+
+```azurepowershell-interactive
+$guestHistory = Get-AzVMGuestPolicyStatusHistory -ResourceGroupName <resourcegroupname> -VMName <vmname> -ShowChanged
+$guestHistory
+```
+
+```output
+PolicyDisplayName                                                         ComplianceStatus ComplianceReasons StartTime              EndTime                VMName LatestRepor
+                                                                                                                                                                  tId
+-----------------                                                         ---------------- ----------------- ---------              -------                ------ -----------
+Audit that an application is installed inside Windows VMs                 NonCompliant                       02/10/2019 10:00:38 PM 02/10/2019 10:00:41 PM VM01  ../12ab0...
+Audit that an application is installed inside Windows VMs.                Compliant                          02/09/2019 11:00:38 AM 02/09/2019 11:00:39 AM VM01  ../e3665...
+Audit that an application is installed inside Windows VMs                 NonCompliant                       02/09/2019 09:00:20 AM 02/09/2019 09:00:23 AM VM01  ../15ze1...
+```
+
+## <a name="a-namechange-historychange-history-preview"></a><a name="change-history"/>Historique des modifications (version préliminaire)
+
+Dans le cadre d’un nouveau **version préliminaire publique**, les 14 derniers jours de l’historique des modifications sont disponibles pour toutes les ressources Azure qui prennent en charge [mode suppression](../../../azure-resource-manager/complete-mode-deletion.md). L'historique des modifications indique quand une modification a été détectée et fournit un _différentiel visuel_ pour chaque modification. Une détection des modifications est déclenchée lorsque les propriétés de Resource Manager sont ajoutées, supprimées ou modifiées.
 
 1. Lancez le service Azure Policy dans le portail Azure en cliquant sur **Tous les services**, puis en recherchant et en cliquant sur **Stratégie**.
 
@@ -129,10 +227,10 @@ Modification des données d’historique sont fournies par [graphique des ressou
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Consulter des exemples à la page [Exemples Azure Policy](../samples/index.md)
-- Consulter la page [Structure de définition Azure Policy](../concepts/definition-structure.md)
-- Consulter la page [Compréhension des effets d’Azure Policy](../concepts/effects.md)
-- Savoir comment [créer des stratégies par programmation](programmatically-create.md)
-- Découvrir comment [obtenir des données de conformité](getting-compliance-data.md)
-- Découvrir comment [corriger les ressources non conformes](remediate-resources.md)
-- Pour en savoir plus sur les groupes d’administration, consultez [Organiser vos ressources avec des groupes d’administration Azure](../../management-groups/overview.md).
+- Passez en revue les exemples à l’adresse [exemples Azure Policy](../samples/index.md).
+- Consultez la page [Structure de définition Azure Policy](../concepts/definition-structure.md).
+- Consultez la page [Compréhension des effets de Policy](../concepts/effects.md).
+- Comprendre comment [créer par programmation des stratégies](programmatically-create.md).
+- Découvrez comment [obtenir des données de conformité](getting-compliance-data.md).
+- Découvrez comment [corriger les ressources non conformes](remediate-resources.md).
+- Examinez un groupe d’administration avec [organiser vos ressources avec des groupes d’administration Azure](../../management-groups/overview.md).

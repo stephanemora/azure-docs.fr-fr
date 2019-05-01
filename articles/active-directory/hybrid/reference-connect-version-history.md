@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/27/2019
+ms.date: 04/26/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26f3fe9c2483dda3b9350c110b2e8adf60dcd21e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e2e783a7c34216624126946eef84f56977d4c049
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60387211"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64572416"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect : Historique de publication des versions
 L’équipe Azure Active Directory (Azure AD) met régulièrement à jour Azure AD Connect avec de nouvelles fonctions et fonctionnalités. Tous les ajouts ne sont pas applicables à toutes les configurations.
@@ -43,12 +43,12 @@ Télécharger| [Télécharger Azure AD Connect](https://go.microsoft.com/fwlink/
 Bien que nous examinerons ce processus, le numéro de version de la version s’affichera avec un « X » dans la position de numéro de version mineure, comme dans « 1.3.X.0 » - Cela indique que les notes de publication dans ce document sont valides pour toutes les versions commençant par « 1.3. ». Dès que nous avons de finalisation du processus de publication le numéro de version est actualisé à la version la plus récente et l’état de mise en production sera mise à jour de la « Lancé pour le téléchargement et mise à niveau automatique ».
 La mise à niveau automatique ne concernera pas toutes les versions d’Azure AD Connect. L’état de la version indique si une version est disponible en mise à niveau automatique ou en téléchargement uniquement. Si la mise à niveau automatique a été activée sur votre serveur Azure AD Connect, celui-ci sera automatiquement mis à niveau vers la dernière version d’Azure AD Connect qui est disponible en mise à niveau automatique. Certaines configurations Azure AD Connect seulement sont éligibles à la mise à niveau automatique. Veuillez suivre ce lien pour en savoir plus sur la [mise à niveau automatique](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-automatic-upgrade)
 
-## <a name="13x0"></a>1.3.X.0 
+## <a name="13200"></a>1.3.20.0 
 
 ### <a name="release-status"></a>État de la version 
 
-3/25/2019: Pending
- 
+04/24/2019: publiée pour téléchargement
+
 ### <a name="new-features-and-improvements"></a>Améliorations et nouvelles fonctionnalités 
 
 - Ajouter la prise en charge pour l’actualisation de domaine 
@@ -64,7 +64,7 @@ La mise à niveau automatique ne concernera pas toutes les versions d’Azure AD
 - Mise à niveau vers la bibliothèque ADAL 3.19.8 pour sélectionner un correctif de WS-Trust pour la commande Ping et ajouter la prise en charge pour les nouvelles instances Azure 
 - Modifier le groupe des règles de synchronisation à circuler samAccountName, DomainNetbios et DomainFQDN pour cloud - nécessaire pour les revendications 
 - Modification de gestion de règle de synchronisation par défaut – en savoir plus [ici](how-to-connect-fix-default-rules.md).
-- Ajouter un nouvel agent en cours d’exécution comme un service windows. Cet agent, nommé « Admin Agent », permet des diagnostics plus approfondis à distance du serveur Azure AD Connect pour résoudre les Engineers Microsoft lorsque vous ouvrez une demande de support. En savoir plus sur l’Agent d’administration [ici](whatis-aadc-admin-agent.md). 
+- Ajouter un nouvel agent en cours d’exécution comme un service windows. Cet agent, nommé « Admin Agent », permet des diagnostics plus approfondis à distance du serveur Azure AD Connect pour résoudre les Engineers Microsoft lorsque vous ouvrez une demande de support. Cet agent n’est pas installé et activé par défaut.  Pour plus d’informations sur la façon d’installer et activer l’agent, consultez [quel est l’Agent Azure AD Connect Admin ?](whatis-aadc-admin-agent.md). 
 - Mise à jour le contrat de licence utilisateur final (CLUF) 
 - Prise en charge automatique mise à niveau pour les déploiements qui utilisent AD FS en tant que leur type de connexion.  Cela a également de mise à jour de l’AD FS Azure AD de confiance dans le cadre du processus de mise à niveau. 
 - Ajouter une tâche de gestion de confiance Azure AD qui fournit deux options : analyser/mettre à jour le niveau de confiance et réinitialiser l’approbation. 

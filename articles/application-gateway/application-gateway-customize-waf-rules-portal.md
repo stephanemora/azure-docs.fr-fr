@@ -6,12 +6,12 @@ author: vhorne
 ms.service: application-gateway
 ms.date: 2/22/2019
 ms.author: victorh
-ms.openlocfilehash: b18c9666e58925746a3b61740db6fb5118c2010b
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: f7ffb8d6adfd4afc75618834a3fe82cf9a3d0c9f
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56733714"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64720385"
 ---
 # <a name="customize-web-application-firewall-rules-through-the-azure-portal"></a>Personnaliser les règles de pare-feu d’applications web via le portail Azure
 
@@ -33,11 +33,14 @@ Le pare-feu d’applications web (WAF) Azure Application Gateway fournit une pro
 
 ## <a name="search-for-rules-to-disable"></a>Rechercher des règles à désactiver
 
-Le panneau des **paramètres de pare-feu d’applications web** permet de filtrer les règles à l’aide d’une recherche de texte. Le résultat affiche uniquement les groupes de règles et les règles contenant le texte que vous avez recherché.
+Le **paramètres de pare-feu d’application Web** page offre la possibilité de filtrer les règles via une recherche de texte. Le résultat affiche uniquement les groupes de règles et les règles contenant le texte que vous avez recherché.
 
 ![Rechercher des règles][2]
 
 ## <a name="disable-rule-groups-and-rules"></a>Désactiver les règles et les groupes de règles
+
+> [!IMPORTANT]
+> Soyez prudent lors de la désactivation des groupes de règles ou des règles. Cela peut vous exposer à des risques de sécurité accrus.
 
 Lorsque vous désactivez des règles, vous pouvez désactiver un groupe de règles entier ou des règles spécifiques sous un ou plusieurs groupes de règles. 
 
@@ -51,7 +54,9 @@ Lorsque vous désactivez des règles, vous pouvez désactiver un groupe de règl
 
 ## <a name="mandatory-rules"></a>Règles obligatoires
 
-La liste suivante contient des conditions qui entraînent le WAF bloquer la demande en mode de prévention (en Mode de détection ils sont enregistrés en tant qu’exceptions). Il ne peut pas être configurées ou désactivés :
+La liste suivante contient des conditions qui entraînent le WAF bloquer la demande en mode de prévention. En Mode de détection, auquel ils sont connectés en tant qu’exceptions.
+
+Il ne peut pas être configurées ou désactivés :
 
 * Échec d’analyser le corps de la requête entraîne la demande est bloquée, à moins que l’inspection du corps est mis sous tension (XML, JSON, les données de formulaire)
 * Longueur de données de corps (avec aucun fichier) de la demande est supérieure à la limite configurée

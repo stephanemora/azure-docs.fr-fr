@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 253a5e247dbbea5fc7e0e556d8619328b43bff58
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cc38e2096b6a761060fab09a8ce2518808b370e1
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60300142"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64713343"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>Activation Fournir des revendications facultatives à votre application Azure AD
 
@@ -40,7 +40,7 @@ Revendications facultatives prend en charge à la fois v1.0 et v2.0 les jetons d
 
 | Type de compte | Jetons v1.0 | Jetons v2.0  |
 |--------------|---------------|----------------|
-| Compte Microsoft personnel  | S.O.  | Pris en charge|
+| Compte Microsoft personnel  | N/A  | Pris en charge|
 | Compte Azure AD      | Pris en charge | Pris en charge |
 
 ## <a name="v10-and-v20-optional-claims-set"></a>V1.0 et V2.0 des revendications facultatives définies
@@ -57,7 +57,7 @@ L’ensemble de revendications facultatives disponible par défaut pour les appl
 | `auth_time`                | Heure de dernière authentification de l’utilisateur. Voir les spécifications OpenID Connect.| JWT        |           |  |
 | `tenant_region_scope`      | Région du locataire de ressource. | JWT        |           | |
 | `home_oid`                 | Pour les utilisateurs invités, il s’agit de l’ID d’objet de l’utilisateur dans le locataire de base de l’utilisateur.| JWT        |           | |
-| `sid`                      | ID de session utilisé pour chaque session utilisateur de déconnexion. | JWT        |           |         |
+| `sid`                      | ID de session utilisé pour chaque session utilisateur de déconnexion. | JWT        |  Personnel et les comptes Azure AD.   |         |
 | `platf`                    | Plateforme d’appareil.    | JWT        |           | Limité aux appareils gérés qui peuvent vérifier le type d’appareil.|
 | `verified_primary_email`   | Obtenu à partir du PrimaryAuthoritativeEmail de l’utilisateur.      | JWT        |           |         |
 | `verified_secondary_email` | Obtenu à partir du SecondaryAuthoritativeEmail de l’utilisateur.   | JWT        |           |        |
@@ -91,7 +91,6 @@ Ces revendications sont toujours incluses dans les jetons d’Azure AD v1.0, mai
 | `family_name` | Nom                       | Fournit le dernier nom, nom de famille ou nom de famille de l’utilisateur, tel que défini dans l’objet utilisateur. <br>"family_name":"Miller" | Prise en charge dans le compte de service administré et AAD   |
 | `given_name`  | Prénom                      | Fournit le premier ou « prénom » de l’utilisateur, tel que défini dans l’objet utilisateur.<br>"given_name": "Frank"                   | Prise en charge dans le compte de service administré et AAD  |
 | `upn`         | Nom d’utilisateur principal | Identificateur de l'utilisateur qui peut être utilisé avec le paramètre username_hint.  Il ne s'agit pas d'un identificateur durable pour l'utilisateur et il ne doit pas être utilisé pour saisir des données. | Consultez les [propriétés supplémentaires](#additional-properties-of-optional-claims) ci-dessous pour en savoir plus sur la configuration de la revendication. |
-| `sid`         | ID de la session                      | Identificateur de session GUID, utilisé pour le suivi de session d’authentification avec le compte de service administré. | MSA.  Ne sera pas inclus pour les comptes Azure AD. | 
 
 
 ### <a name="additional-properties-of-optional-claims"></a>Propriétés supplémentaires des revendications facultatives
@@ -177,7 +176,7 @@ En cas de prise en charge par une revendication spécifique, vous pouvez égalem
 
 **Tableau 6 : Propriétés de type OptionalClaim**
 
-| Name                 | type                    | Description                                                                                                                                                                                                                                                                                                   |
+| Nom                 | type                    | Description                                                                                                                                                                                                                                                                                                   |
 |----------------------|-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `name`                 | Edm.String              | Nom de la revendication facultative.                                                                                                                                                                                                                                                                           |
 | `source`               | Edm.String              | Source (objet d’annuaire) de la revendication. Il existe des revendications prédéfinies et définies par l’utilisateur à partir des propriétés d’extension. Si la valeur source est null, la revendication est une revendication facultative prédéfinie. Si la valeur source est user, la valeur de la propriété name est la propriété d’extension à partir de l’objet utilisateur. |

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 7984172c2b66f2b09e31c646b111e4b9d04fce2b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 39c64b9fe4e03bb0b7216a8d1ba607bec10b4708
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60344250"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64744111"
 ---
 Les tailles de machine virtuelle à mémoire optimisée offrent un ration mémoire/processeur supérieur pour les serveurs de base de données relationnelle, les caches moyens à grands et l’analytique en mémoire. Cet article fournit des informations sur le nombre de processeurs virtuels, de disques de données et de cartes réseau ainsi que sur la bande passante réseau et le débit de stockage pour chaque taille de ce regroupement. 
 
@@ -33,7 +33,7 @@ ACU : 160-190 <sup>1</sup>
 
 Premium Storage :  Pris en charge
 
-Mise en cache du Stockage Premium :  Pris en charge
+Mise en cache de stockage Premium :  Pris en charge
 
 Les tailles des machines virtuelles de la série ESv3 sont basées sur le processeur Intel XEON® v4-2.0 5GHz (Broadwell) de 2673 GHz, peuvent aller jusqu’à 3,5 GHz avec Intel Turbo Boost Technology 2.0 et utilisent un stockage premium. Les tailles des machines virtuelles de la série ESv3 sont idéales pour les applications d’entreprise nécessitant une mémoire importante.
 
@@ -63,7 +63,7 @@ ACU : 160 - 190 <sup>1</sup>
 
 Premium Storage :  Non pris en charge
 
-Mise en cache du Stockage Premium :  Non pris en charge
+Mise en cache de stockage Premium :  Non pris en charge
 
 Les tailles des machines virtuelles de la série Ev3 sont basées sur le processeur Intel Xeon® v4-2.0 5GHz (Broadwell) de 2673 GHz et peuvent aller jusqu’à 3,5 GHz avec Intel Turbo Boost Technology 2.0. Les tailles des machines virtuelles de la série ESv3 sont idéales pour les applications d’entreprise nécessitant une mémoire importante.
 
@@ -94,7 +94,7 @@ ACU : 160-180 <sup>1</sup>
 
 Premium Storage :  Pris en charge
 
-Mise en cache du Stockage Premium :  Pris en charge
+Mise en cache de stockage Premium :  Pris en charge
 
 Accélérateur d’écriture :  [Pris en charge](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator)
 
@@ -132,7 +132,7 @@ ACU : 180 - 240 <sup>1</sup>
 
 Premium Storage :  Pris en charge
 
-Mise en cache du Stockage Premium :  Pris en charge
+Mise en cache de stockage Premium :  Pris en charge
 
 | Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire et mis en cache max. : IOPS / Mbit/s (taille du cache en Gio) | Débit du disque non mis en cache max. : IOPS / Mbit/s | Nombre max de cartes réseau / Bande passante réseau attendue (Mbit/s) |
 |---|---|---|---|---|---|---|---|
@@ -156,7 +156,7 @@ ACU : 180 - 240
 
 Premium Storage :  Non pris en charge
 
-Mise en cache du Stockage Premium :  Non pris en charge
+Mise en cache de stockage Premium :  Non pris en charge
 
 | Taille         | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Débit de stockage temporaire max. : IOPS / Mbit/s en lecture / Mbit/s en écriture | Disques de données max. / débit : E/S par seconde | Nombre max de cartes réseau / Bande passante réseau attendue (Mbit/s) |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
@@ -175,7 +175,7 @@ ACU : 210 - 250 <sup>1</sup>
 
 Premium Storage :  Pris en charge
 
-Mise en cache du Stockage Premium :  Pris en charge
+Mise en cache de stockage Premium :  Pris en charge
 
 | Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire et mis en cache max. : IOPS / Mbit/s (taille du cache en Gio) | Débit du disque non mis en cache max. : IOPS / Mbit/s | Nombre max de cartes réseau / Bande passante réseau attendue (Mbit/s) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -198,7 +198,7 @@ ACU : 210 - 250
 
 Premium Storage :  Non pris en charge
 
-Mise en cache du Stockage Premium :  Non pris en charge
+Mise en cache de stockage Premium :  Non pris en charge
 
 | Taille              | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Débit de stockage temporaire max. : IOPS / Mbit/s en lecture / Mbit/s en écriture | Disques de données max. / débit : E/S par seconde | Nombre max de cartes réseau / Bande passante réseau attendue (Mbit/s) |
 |-------------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|

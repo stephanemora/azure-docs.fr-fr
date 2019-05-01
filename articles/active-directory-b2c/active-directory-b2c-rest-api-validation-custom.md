@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/24/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: b08c5e6f2bc7d7970c47e14db84f4172e92eb820
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 090b0ef4d4f5f3d883ba1255e6f30d2bb0566274
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60316865"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64681245"
 ---
 # <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-on-user-input"></a>Procédure pas à pas : Intégrer les échanges de revendications de l’API REST dans votre parcours utilisateur Azure AD B2C comme validation d’une entrée de l’utilisateur
 
@@ -41,7 +41,7 @@ Nous pouvons vérifier que le nom fourni par l’utilisateur dans la modificatio
 - Un locataire Azure AD B2C configuré pour effectuer une inscription/connexion à un compte local, comme décrit dans [Bien démarrer](active-directory-b2c-get-started-custom.md).
 - Un point de terminaison API REST avec lequel vous allez interargir. Pour cette procédure pas à pas, nous avons configuré un site de démonstration appelé [WingTipGames](https://wingtipgamesb2c.azurewebsites.net/) avec un service de l’API REST.
 
-## <a name="step-1-prepare-the-rest-api-function"></a>Étape 1 : Préparer la fonction de l’API REST
+## <a name="step-1-prepare-the-rest-api-function"></a>Étape 1 : Préparer la fonction de l’API REST
 
 > [!NOTE]
 > Cet article ne traite pas de la configuration des fonctions de l’API REST. [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-reference) fournit un excellent kit de ressources pour la création de services RESTful dans le cloud.
@@ -75,7 +75,7 @@ return request.CreateResponse(HttpStatusCode.OK);
 
 L’infrastructure d’expérience d’identité attend la revendication `userMessage` retournée par la fonction Azure. Cette revendication est présentée sous forme de chaîne à l’utilisateur si la validation échoue, comme quand un état de conflit 409 est retourné dans l’exemple précédent.
 
-## <a name="step-2-configure-the-restful-api-claims-exchange-as-a-technical-profile-in-your-trustframeworkextensionsxml-file"></a>Étape 2 : Configurer l’échange de revendications de l’API RESTful comme profil technique dans votre fichier TrustFrameworkExtensions.xml
+## <a name="step-2-configure-the-restful-api-claims-exchange-as-a-technical-profile-in-your-trustframeworkextensionsxml-file"></a>Étape 2 : Configurer l’échange de revendications de l’API RESTful comme profil technique dans votre fichier TrustFrameworkExtensions.xml
 
 Le profil technique est la configuration complète de l’échange souhaité avec le service RESTful. Ouvrez le fichier TrustFrameworkExtensions.xml et ajoutez l’extrait de code XML suivant à l’intérieur de l’élément `<ClaimsProviders>`.
 
@@ -121,7 +121,7 @@ Pour ajouter l’échange de revendications au profil technique autodéclaré :
 2. Passez en revue la configuration de ce profil technique. Notez comment l’échange avec l’utilisateur est défini sous la forme de revendications demandées à l’utilisateur (revendications d’entrée) et de revendications attendues en retour par le fournisseur autodéclaré (revendications de sortie).
 3. Recherchez `TechnicalProfileReferenceId="SelfAsserted-ProfileUpdate`. Notez que ce profil est appelé au titre de l’étape d’orchestration 5 de `<UserJourney Id="ProfileEdit">`.
 
-## <a name="step-4-upload-and-test-the-profile-edit-rp-policy-file"></a>Étape 4 : Charger et tester le fichier de stratégie de partie de confiance de modification de profil
+## <a name="step-4-upload-and-test-the-profile-edit-rp-policy-file"></a>Étape 4 : Charger et tester le fichier de stratégie de partie de confiance de modification de profil
 
 1. Chargez la nouvelle version du fichier TrustFrameworkExtensions.xml.
 2. Sélectionnez **Exécuter maintenant** pour tester le fichier de stratégie de partie de confiance Modification de profil.

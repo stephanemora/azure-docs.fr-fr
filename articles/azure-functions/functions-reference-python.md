@@ -13,12 +13,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/16/2018
 ms.author: glenga
-ms.openlocfilehash: 28f2b395c7f9be1b194b500ef20456be8ff405b0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 039b0951484a6bf57703d9a91d604c9c5e5c9a66
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61021264"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64571185"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guide des développeurs Python sur Azure Functions
 
@@ -28,7 +28,7 @@ Cet article est une introduction au développement d’Azure Functions avec Pyth
 
 ## <a name="programming-model"></a>Modèle de programmation
 
-Une fonction Azure doit être une méthode sans état qui traite une entrée et produit une sortie dans un script Python. Par défaut, le runtime exige qu’elle soit implémentée sous forme de méthode globale nommée `main()` dans le fichier `__init__.py`.
+Une fonction Azure doit être une méthode sans état qui traite une entrée et produit une sortie dans un script Python. Par défaut, le runtime attend la méthode à être implémentée comme une méthode globale appelée `main()` dans le `__init__.py` fichier.
 
 Vous pouvez modifier la configuration par défaut en spécifiant les propriétés `scriptFile` et `entryPoint` dans le fichier `function.json`. Par exemple, _function.json_ (ci-dessous) indique au runtime d’utiliser la méthode _customentry()_ du fichier _main.py_ comme point d’entrée de la fonction Azure.
 
@@ -40,7 +40,7 @@ Vous pouvez modifier la configuration par défaut en spécifiant les propriété
 }
 ```
 
-Les données issues des déclencheurs et des liaisons sont liées à la fonction par des attributs de méthode avec la propriété `name` définie dans le fichier de configuration `function.json`. Par exemple, _function.json_ (ci-dessous) décrit une fonction simple déclenchée par une requête HTTP nommée `req` :
+Les données issues des déclencheurs et des liaisons sont liées à la fonction par des attributs de méthode avec la propriété `name` définie dans le fichier de configuration `function.json`. Par exemple, le _function.json_ ci-dessous décrit une fonction simple déclenchée par une requête HTTP nommée `req`:
 
 ```json
 {
@@ -109,15 +109,16 @@ Le code partagé doit être conservé dans un dossier distinct. Pour faire réf�
 from ..SharedCode import myFirstHelperFunction
 ```
 
-Les extensions de liaison utilisées par le runtime de Functions sont définies dans le fichier `extensions.csproj`, et les fichiers bibliothèque proprement dits dans le dossier `bin`. Si vous développez en local, vous devez [inscrire les extensions de liaison](./functions-bindings-register.md#local-development-azure-functions-core-tools) avec Azure Functions Core Tools. 
+Les extensions de liaison utilisées par le runtime de Functions sont définies dans le fichier `extensions.csproj`, et les fichiers bibliothèque proprement dits dans le dossier `bin`. Si vous développez en local, vous devez [inscrire les extensions de liaison](./functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles) avec Azure Functions Core Tools. 
 
 Lorsque vous déployez un projet Functions sur votre application de fonction dans Azure, l’ensemble du contenu du dossier FunctionApp (et non le dossier proprement dit) doit être inclus dans le package.
 
-## <a name="inputs"></a>Entrées
+## <a name="triggers-and-inputs"></a>Déclencheurs et des entrées
 
-Les entrées sont réparties en deux catégories dans Azure Functions : l’entrée du déclencheur et l’entrée supplémentaire. Bien qu’elles soient différentes dans `function.json`, leur utilisation est identique dans le code Python. L’extrait de code suivant en est un exemple :
+Les entrées sont réparties en deux catégories dans Azure Functions : l’entrée du déclencheur et l’entrée supplémentaire. Bien qu’elles soient différentes dans `function.json`, leur utilisation est identique dans le code Python.  Chaînes de connexion pour les sources de déclencheur et l’entrée doivent correspondre à des valeurs dans le `local.settings.json` fichier localement et les paramètres d’application lors de l’exécution dans Azure. L’extrait de code suivant en est un exemple :
 
 ```json
+// function.json
 {
   "scriptFile": "__init__.py",
   "bindings": [
@@ -139,7 +140,19 @@ Les entrées sont réparties en deux catégories dans Azure Functions : l’entr
 }
 ```
 
+```json
+// local.settings.json
+{
+  "IsEncrypted": false,
+  "Values": {
+    "FUNCTIONS_WORKER_RUNTIME": "python",
+    "AzureWebJobsStorage": "<azure-storage-connection-string>"
+  }
+}
+```
+
 ```python
+# __init__.py
 import azure.functions as func
 import logging
 
@@ -149,7 +162,8 @@ def main(req: func.HttpRequest,
     logging.info(f'Python HTTP triggered function processed: {obj.read()}')
 ```
 
-Quand la fonction est appelée, la requête HTTP est passée à la fonction dans `req`. Une entrée est récupérée dans Stockage Blob Azure à partir de _l’id_ dans l’URL de la route et mise à disposition comme `obj` dans le corps de la fonction.
+Quand la fonction est appelée, la requête HTTP est passée à la fonction dans `req`. Une entrée est récupérée à partir du stockage d’objets Blob Azure selon la _ID_ dans l’URL de routage et mis à disposition en tant que `obj` dans le corps de fonction.  Ici le compte de stockage spécifié de la chaîne de connexion se trouve dans `AzureWebJobsStorage` qui est le même compte de stockage utilisé par l’application de fonction.
+
 
 ## <a name="outputs"></a>Outputs
 

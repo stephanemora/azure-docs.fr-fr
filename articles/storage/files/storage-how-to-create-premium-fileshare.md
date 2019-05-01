@@ -1,6 +1,6 @@
 ---
-title: Créer un compte de stockage fichier Azure premium
-description: Dans cet article, vous allez apprendre à créer un compte de stockage fichier Azure premium et un partage de fichiers premium.
+title: Créer un compte de stockage Azure filestorage
+description: Dans cet article, vous allez apprendre à créer un filestorage (version préliminaire) et un partage de fichiers premium.
 services: storage
 author: roygara
 ms.service: storage
@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 72dec14dde47580313e57bb3b8d7315604929277
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 0eca706c9082b1fa60e13a0878fbb3061425c9bf
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60844554"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64574412"
 ---
 # <a name="how-to-create-an-azure-premium-file-share"></a>Comment créer un partage de fichiers Azure premium
 
-Le type de compte de stockage FileStorage (version préliminaire) représente un nouveau niveau pour les fichiers Azure, ce qui vous permet de créer des partages de fichiers avec les caractéristiques de performances premium. Ces partages de fichiers sont conçus pour hautes performances et des applications d’entreprise à l’échelle, fournissant une latence faible homogène, nombre élevé d’IOPS et débit élevé partages.
+Le type de compte de stockage filestorage (version préliminaire) représente un nouveau niveau pour les fichiers Azure, ce qui vous permet de créer des partages de fichiers avec les caractéristiques de performances premium. Ces partages de fichiers sont conçus pour hautes performances et des applications d’entreprise à l’échelle, fournissant une latence faible homogène, nombre élevé d’IOPS et débit élevé partages.
 
 Cet article vous montre comment créer ce nouveau type de compte à l’aide [Azure portal](https://portal.azure.com/), Azure PowerShell et Azure CLI.
 
@@ -31,7 +31,7 @@ Pour accéder à Stockage Azure, vous avez besoin d’un abonnement Azure. Si vo
 
 Connectez-vous au [Portail Azure](https://portal.azure.com/).
 
-### <a name="create-a-filestorage-preview-storage-account"></a>Créer un compte de stockage FileStorage (version préliminaire)
+### <a name="create-a-filestorage-preview-storage-account"></a>Créer un compte de stockage filestorage (version préliminaire)
 
 Vous êtes maintenant prêt à créer votre compte de stockage.
 
@@ -115,7 +115,7 @@ New-AzResourceGroup -Name $resourceGroup -Location $location
 
 ### <a name="create-a-filestorage-preview-storage-account"></a>Créer un compte de stockage filestorage (version préliminaire)
 
-Pour créer un compte de stockage FileStorage (version préliminaire) à partir de PowerShell, utilisez le [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount) commande :
+Pour créer un compte de stockage filestorage (version préliminaire) à partir de PowerShell, utilisez le [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount) commande :
 
 ```powershell
 $storageAcct = New-AzStorageAccount -ResourceGroupName $resourceGroup -Name "fileshowto" -SkuName "Premium_LRS" -Location "westus2" -Kind "FileStorage"
@@ -123,7 +123,7 @@ $storageAcct = New-AzStorageAccount -ResourceGroupName $resourceGroup -Name "fil
 
 ### <a name="create-a-premium-file-share"></a>Créer un partage de fichiers premium
 
-Maintenant que vous avez un compte FileStorage, vous pouvez créer un partage de fichiers premium. Utilisez le [New-AzStorageShare](/powershell/module/az.storage/New-AzStorageShare) applet de commande pour en créer un.
+Maintenant que vous avez un compte filestorage, vous pouvez créer un partage de fichiers premium. Utilisez le [New-AzStorageShare](/powershell/module/az.storage/New-AzStorageShare) applet de commande pour en créer un.
 
 > [!NOTE]
 > Tailles de partage provisionnée est spécifié par le quota de partage, partages de fichiers sont facturés selon la taille configurée, reportez-vous à la [page de tarification](https://azure.microsoft.com/pricing/details/storage/files/) pour plus d’informations.
@@ -168,9 +168,9 @@ az group create `
     --location westus2
 ```
 
-### <a name="create-a-filestorage-preview-storage-account"></a>Créer un compte de stockage FileStorage (version préliminaire)
+### <a name="create-a-filestorage-preview-storage-account"></a>Créer un compte de stockage filestorage (version préliminaire)
 
-Pour créer un compte de stockage FileStorage (version préliminaire) à partir de l’interface CLI, utilisez le [créer de compte de stockage az](/cli/azure/storage/account) commande.
+Pour créer un compte de stockage filestorage (version préliminaire) à partir de l’interface CLI, utilisez le [créer de compte de stockage az](/cli/azure/storage/account) commande.
 
 ```azurecli-interactive
 az storage account create `
@@ -194,7 +194,7 @@ STORAGEKEY=$(az storage account keys list \
 
 ### <a name="create-a-premium-file-share"></a>Créer un partage de fichiers premium
 
-Maintenant que vous avez un compte FileStorage, vous pouvez créer un partage de fichiers premium. Utilisez le [créer de partage de stockage az](/cli/azure/storage/share) commande pour créer un.
+Maintenant que vous avez un compte filestorage, vous pouvez créer un partage de fichiers premium. Utilisez le [créer de partage de stockage az](/cli/azure/storage/share) commande pour créer un.
 
 > [!NOTE]
 > Tailles de partage provisionnée est spécifié par le quota de partage, partages de fichiers sont facturés selon la taille configurée, reportez-vous à la [page de tarification](https://azure.microsoft.com/pricing/details/storage/files/) pour plus d’informations.

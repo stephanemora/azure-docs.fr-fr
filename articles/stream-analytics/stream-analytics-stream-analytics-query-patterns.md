@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.openlocfilehash: 9c9a5f219af0d474e1608f98595abe027b894117
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ef302ecaa6defc6ac0dc1dd58d4f8acc0f2fd263
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58001747"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64711452"
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>Exemples de requête pour les modes d’utilisation courants dans Stream Analytics
 
@@ -605,7 +605,7 @@ WHERE
 **Explication** : La première requête `max_power_during_last_3_mins` utilise la [fenêtre glissante](https://msdn.microsoft.com/azure/stream-analytics/reference/sliding-window-azure-stream-analytics) pour rechercher la valeur maximale du capteur de puissance pour chaque appareil, au cours des 3 dernières minutes. La seconde requête est jointe à la première pour rechercher la valeur de la puissance dans la fenêtre la plus récente, pertinente pour l’événement actuel. Une alerte est alors générée pour l’appareil sous réserve que les conditions soient remplies.
 
 ## <a name="query-example-process-events-independent-of-device-clock-skew-substreams"></a>Exemple de requête : Traiter les événements indépendamment des décalages entre horloges d’appareil (sous-flux)
-**Description** : Les événements peuvent arriver en retard ou dans le désordre en raison des décalages des horloges entre les producteurs d’événements, des décalages des horloges entre les partitions ou de la latence du réseau. Dans l’exemple suivant, l’horloge de l’appareil pour TollID 2 a dix secondes de plus que TollID 1, et l’horloge de l’appareil pour TollID 3 a cinq secondes de plus que TollID 1. 
+**Description** : Les événements peuvent arriver en retard ou dans le désordre en raison des décalages des horloges entre les producteurs d’événements, des décalages des horloges entre les partitions ou de la latence du réseau. Dans l’exemple suivant, l’horloge de l’appareil pour TollID 2 est de cinq secondes derrière TollID 1, et l’horloge de l’appareil pour TollID 3 est dix secondes derrière TollID 1. 
 
 
 **Entrée**:

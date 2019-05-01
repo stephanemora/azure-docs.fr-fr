@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/21/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 12598f3866cd1041cdf3cb89dac985b8d2caafce
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
-ms.translationtype: HT
+ms.openlocfilehash: 2a632ef79c0e9bb925689456d682e7f22504806b
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60148804"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64707845"
 ---
 # <a name="authenticate-access-to-azure-blobs-and-queues-using-azure-active-directory"></a>Authentifier l’accès aux objets BLOB Azure et files d’attente à l’aide d’Azure Active Directory
 
@@ -21,15 +21,15 @@ Le Stockage Azure prend en charge l’authentification et l’autorisation avec 
 
 L’authentification des utilisateurs et des applications à l’aide des informations d’identification Azure AD est plus sécurisée et plus facile à utiliser que les autres modes d’autorisation. Même si vous pouvez continuer à utiliser l’autorisation de clé partagée avec vos applications, avec Azure AD, vous n’avez plus besoin de stocker votre clé d’accès de compte avec votre code. Vous pouvez également continuer à utiliser des signatures d’accès partagé (SAP) pour accorder un accès affiné aux ressources de votre compte de stockage. Toutefois, Azure AD offre des fonctionnalités similaires sans nécessiter de gestion des jetons SAP, ni de révocation des SAP compromises. Dans la mesure du possible, Microsoft recommande d’utiliser l’authentification Azure AD pour les applications Stockage Azure.
 
-Authentification et autorisation avec les informations d’identification Azure AD est disponible pour tous les à usage général et comptes de stockage dans toutes les régions publiques d’objets Blob. Seuls les comptes de stockage créé avec la prise en charge du modèle de déploiement Azure Resource Manager d’Azure AD.
+Authentification et autorisation avec les informations d’identification Azure AD est disponible pour tous les à usage général et dans toutes les régions publiques et les clouds nationaux, les comptes de stockage d’objets Blob. Seuls les comptes de stockage créé avec la prise en charge du modèle de déploiement Azure Resource Manager d’Azure AD.
 
 ## <a name="overview-of-azure-ad-for-blobs-and-queues"></a>Vue d’ensemble d’Azure AD pour les objets BLOB et files d’attente
 
 Lorsqu’un principal de sécurité (utilisateur, groupe ou application) tente d’accéder à une ressource d’objet blob ou file d’attente, la demande doit être autorisée, sauf s’il est un objet blob disponible pour l’accès anonyme. Avec Azure AD, accès à une ressource est un processus en deux étapes. Tout d’abord, identité de l’entité de sécurité est authentifiée et un jeton OAuth 2.0 est retourné. Ensuite, le jeton est passé en tant que partie d’une demande au service Blob ou file d’attente et utilisé par le service pour autoriser l’accès à la ressource spécifiée.
 
-L’étape d’authentification exige qu’un ou plusieurs rôles RBAC soient attribués au principal de sécurité. Stockage Azure fournit des rôles RBAC qui englobent des ensembles communs d’autorisations pour les données d’objet blob et file d’attente. Les rôles qui sont attribués à un principal de sécurité déterminent l’accès dont ce principal. Pour en savoir plus sur l’attribution des rôles RBAC pour le stockage Azure, consultez [gérer les droits d’accès aux données de stockage avec RBAC](storage-auth-aad-rbac.md).
+L’étape de l’authentification nécessite qu’une application demande un jeton d’accès OAuth 2.0 lors de l’exécution. Si une application s’exécute à partir d’une entité Azure comme une machine virtuelle Azure, un jeu de mise à l’échelle de machine virtuelle ou une application Azure Functions, il peut utiliser un [identité gérée](../../active-directory/managed-identities-azure-resources/overview.md) pour l’accès aux objets BLOB ou les files d’attente. Pour savoir comment autoriser des demandes effectuées par une identité gérée sur le service de file d’attente ou d’objets Blob Azure, consultez [authentifier l’accès aux objets BLOB et files d’attente avec Azure Active Directory et des identités gérées pour les ressources Azure](storage-auth-aad-msi.md).
 
-L’étape d’autorisation requiert qu’une application demande un jeton d’accès OAuth 2.0 lors de l’exécution. Si une application s’exécute à partir d’une entité Azure comme une machine virtuelle Azure, un jeu de mise à l’échelle de machine virtuelle ou une application Azure Functions, il peut utiliser un [identité gérée](../../active-directory/managed-identities-azure-resources/overview.md) pour l’accès aux objets BLOB ou les files d’attente. Pour savoir comment autoriser des demandes effectuées par une identité gérée sur le service de file d’attente ou d’objets Blob Azure, consultez [authentifier l’accès aux objets BLOB et files d’attente avec Azure Active Directory et des identités gérées pour les ressources Azure](storage-auth-aad-msi.md).
+L’étape d’autorisation exige qu’un ou plusieurs rôles RBAC soient attribués à l’entité de sécurité. Stockage Azure fournit des rôles RBAC qui englobent des ensembles communs d’autorisations pour les données d’objet blob et file d’attente. Les rôles sont attribués à un principal de sécurité déterminent les autorisations dont le principal sera. Pour en savoir plus sur l’attribution des rôles RBAC pour le stockage Azure, consultez [gérer les droits d’accès aux données de stockage avec RBAC](storage-auth-aad-rbac.md).
 
 Applications natives et les applications web qui effectuent des demandes au service Blob Azure ou de la file d’attente peuvent également s’authentifier auprès d’Azure AD. Pour savoir comment demander un jeton d’accès et l’utiliser pour autoriser les demandes pour les données d’objet blob ou file d’attente, consultez [s’authentifier avec Azure AD à partir d’une application de stockage Azure](storage-auth-aad-app.md).
 
@@ -69,14 +69,9 @@ Le portail Azure permettre utiliser votre compte Azure AD ou les clés d’accè
 
 Lorsque vous tentez d’accéder aux données blob ou file d’attente, le portail Azure vérifie d’abord si vous avez été affecté un rôle RBAC avec **Microsoft.Storage/storageAccounts/listkeys/action**. Si vous avez été affecté à un rôle avec cette action, le portail Azure utilise la clé de compte pour accéder aux données blob et file d’attente par le biais de l’autorisation de clé partagée. Si vous n’avez pas été affecté un rôle avec cette action, le portail Azure tente d’accéder aux données à l’aide de votre compte Azure AD.
 
-Pour accéder aux données d’objet blob ou file d’attente à partir du portail Azure à l’aide de votre compte Azure AD, il se peut que les deux instructions suivantes doivent être remplies pour vous :
+Pour accéder aux objets blob ou file d’attente des données à partir du portail Azure à l’aide de votre compte Azure AD, vous avez besoin des autorisations pour accéder aux données blob et file d’attente, et vous devez également des autorisations pour parcourir les ressources de compte de stockage dans le portail Azure. Les rôles intégrés fournis par le stockage Azure accordent l’accès aux ressources d’objets blob et file d’attente, mais ils n’accorder des autorisations aux ressources de compte de stockage. Pour cette raison, l’accès au portail requiert également l’attribution d’un rôle de gestionnaire de ressources Azure telles que la [lecteur](../../role-based-access-control/built-in-roles.md#reader) rôle, étendu au niveau du compte de stockage ou une version ultérieure. Le **lecteur** rôle accorde les autorisations plus limitées, mais un autre rôle d’Azure Resource Manager qui accorde l’accès aux ressources de gestion de compte de stockage est également acceptable. Pour en savoir plus sur la façon d’affecter des autorisations aux utilisateurs pour accéder aux données dans le portail Azure avec un compte Azure AD, consultez [accorder l’accès aux données blob et file d’attente Azure avec RBAC dans le portail Azure](storage-auth-aad-rbac-portal.md).
 
-- Vous avez été assigné à Azure Resource Manager [lecteur](../../role-based-access-control/built-in-roles.md#reader) rôle, au minimum, avec étendue au niveau du compte de stockage ou une version ultérieure. Le **lecteur** rôle accorde les autorisations plus limitées, mais un autre rôle d’Azure Resource Manager qui accorde l’accès aux ressources de gestion de compte de stockage est également acceptable.
-- Vous avez été affecté soit un rôle RBAC intégré ou personnalisé qui fournit l’accès aux données d’objet blob ou file d’attente.
-
-Le portail Azure indique quel schéma est en cours d’utilisation lorsque vous accédez à un conteneur ou d’une file d’attente. Pour plus d’informations sur l’accès aux données dans le portail, consultez [utiliser le portail Azure pour accéder aux données blob ou file d’attente](storage-access-blobs-queues-portal.md).
-
-Pour en savoir plus sur la façon d’affecter des autorisations aux utilisateurs pour accéder aux données dans le portail Azure avec un compte Azure AD, consultez [accorder l’accès aux données blob et file d’attente Azure avec RBAC dans le portail Azure](storage-auth-aad-rbac-portal.md).
+Le portail Azure indique quel schéma d’autorisation est en cours d’utilisation lorsque vous accédez à un conteneur ou d’une file d’attente. Pour plus d’informations sur l’accès aux données dans le portail, consultez [utiliser le portail Azure pour accéder aux données blob ou file d’attente](storage-access-blobs-queues-portal.md).
 
 ### <a name="data-access-from-powershell-or-azure-cli"></a>Accès aux données à partir de PowerShell ou Azure CLI
 

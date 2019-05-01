@@ -9,12 +9,12 @@ ms.service: service-fabric
 ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: mbaldwin
-ms.openlocfilehash: b25400f21e24b18a0a21b9d849bdd505f6d47aac
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.openlocfilehash: f12d11cecbf682ae82f9c432804b1d611ee3e39f
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63765761"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64719400"
 ---
 # <a name="common-security-attributes-for-azure-service-fabric"></a>Attributs de sécurité courants pour Azure Service Fabric
 
@@ -27,7 +27,7 @@ La sécurité fait partie intégrante d'un service Azure. Cet article décrit le
 | Attribut de sécurité | Oui/Non | Notes |
 |---|---|--|
 | Chiffrement au repos :<ul><li>Chiffrement côté serveur</li><li>Chiffrement côté serveur avec des clés gérées par le client</li><li>Autres fonctionnalités de chiffrement (côté client, Always Encrypted, etc.)</ul>| Oui | Le client possède le cluster et les machines virtuelles identiques sur lequel le cluster est basé. Chiffrement de disque Azure peut être activé sur les machines virtuelles identiques. |
-| Chiffrement en transit :<ul><li>Chiffrement Express Route</li><li>Chiffrement dans le réseau virtuel</li><li>Chiffrement de réseau virtuel à réseau virtuel</ul>| Oui |  |
+| Chiffrement en transit :<ul><li>Chiffrement Express Route</li><li>Dans le chiffrement du réseau virtuel</li><li>Chiffrement de réseau virtuel à réseau virtuel</ul>| Oui |  |
 | Gestion de clé de chiffrement (clé CMK, BYOK, etc.).| Oui | Le client possède le cluster et les machines virtuelles identiques sur lequel le cluster est basé. Chiffrement de disque Azure peut être activé sur les machines virtuelles identiques. |
 | Chiffrement au niveau colonne (Services de données Azure)| N/A |  |
 | Appels d’API chiffrés| Oui | Les appels d’API Service Fabric sont effectués via Azure Resource Manager. Un jeton web JSON valide (JWT) est nécessaire. |
@@ -37,7 +37,7 @@ La sécurité fait partie intégrante d'un service Azure. Cet article décrit le
 | Attribut de sécurité | Oui/Non | Notes |
 |---|---|--|
 | Prise en charge du point de terminaison de service| Oui |  |
-| prise en charge l’injection de réseau virtuel| Oui |  |
+| Prise en charge l’injection de réseau virtuel| Oui |  |
 | Prise en charge des pare-feu et l’isolement réseau| Oui | Utilisation de groupes de sécurité réseau (NSG). |
 | Prise en charge de tunneling de forcé| Oui | La gestion réseau Azure fournit le tunneling forcé. |
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 0a82c2ba8bdf3d01041aa06f55eaaecab29817b2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3d14200faa06bc30df45a2100635ed7dc697a339
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60696781"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64868606"
 ---
 # <a name="language-and-region-support-for-the-speech-services"></a>Prise en charge de langue et région pour les Services de reconnaissance vocale
 
@@ -29,7 +29,7 @@ L’API de reconnaissance vocale Microsoft prend en charge les langues suivantes
   Code | Langage | [Adaptation acoustique](how-to-customize-acoustic-models.md) | [Adaptation de langage](how-to-customize-language-model.md) | [Adaptation de prononciation](how-to-customize-pronunciation.md)
  ------|----------|---------------------|---------------------|-------------------------
  ar-EG | Arabe (Égypte), standard moderne | Non  | Oui | Non 
- ca-ES | Catalan (Espagne) | Non  | Non  | Non 
+ ca-ES | Catalan | Non  | Non  | Non 
  da-DK | Danois (Danemark) | Non  | Non  | Non 
  de-DE | Allemand (Allemagne) | Oui | Oui | Non 
  en-AU | Anglais (Australie) | Non  | OUI | Oui
@@ -98,7 +98,7 @@ Paramètres régionaux | Langage | Sexe | Mappage du nom du service
 ar-EG\* | Arabe (Égypte) | Féminin | « Voix de synthèse vocale pour le service Speech Microsoft Server (ar-EG, Hoda) »
 ar-SA | Arabe (Arabie saoudite) | Masculin | « Voix de synthèse vocale pour le service Speech Microsoft Server (ar-SA, Naayf) »
 bg-BG | Bulgare | Masculin | « Voix de synthèse vocale pour le service Speech Microsoft Server (bg-BG, Ivan) »
-ca-ES | Catalan (Espagne) | Féminin | « Voix de synthèse vocale pour le service Speech Microsoft Server (ca-ES, HerenaRUS) »
+ca-ES | Catalan | Féminin | « Voix de synthèse vocale pour le service Speech Microsoft Server (ca-ES, HerenaRUS) »
 cs-CZ | Tchèque | Masculin | « Voix de synthèse vocale pour le service Speech Microsoft Server (cs-CZ, Jakub) »
 da-DK | Danois | Féminin | « Voix de synthèse vocale pour le service Speech Microsoft Server (da-DK, HelleRUS) »
 de-AT | Allemand (Autriche) | Masculin | « Voix de synthèse vocale pour le service Speech Microsoft Server (de-AT, Michael) »

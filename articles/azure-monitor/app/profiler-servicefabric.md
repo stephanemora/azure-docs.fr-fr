@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: 0b1a06d181fc4d2a44d389d47d1f9480c2fdcb40
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 5c01c2721a29bf142ee0ba53c9bc29ec66a7278f
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58401107"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64727908"
 ---
 # <a name="profile-live-azure-service-fabric-applications-with-application-insights"></a>Profiler des applications Azure Service Fabric en production avec Application Insights
 
@@ -32,7 +32,7 @@ Application Insights Profiler est fourni avec Diagnostics Azure. Vous pouvez ins
 
 Pour configurer votre environnement, effectuez les actions suivantes :
 
-1. Pour vérifier que vous utilisez [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) ou version ultérieure, il suffit de confirmer que le système d’exploitation déployé est `Windows Server 2012 R2` ou version ultérieure.
+1. Profiler prend en charge .NET Framework et.Net Core. Si vous utilisez .NET Framework, vérifiez que vous utilisez [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) ou version ultérieure. Il suffit de confirmer que le système d’exploitation déployé est `Windows Server 2012 R2` ou version ultérieure. Profiler prend en charge .NET Core 2.1 et les applications les plus récentes.
 
 1. Recherchez l'extension [Diagnostics Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) dans le fichier du modèle de déploiement.
 
@@ -55,11 +55,10 @@ Pour configurer votre environnement, effectuez les actions suivantes :
   Si vos paramètres sont corrects, Application Insights Profiler sera installé et activé une fois l'extension Diagnostics Azure installée. 
 
 1. Ajoutez Application Insights à votre application Service Fabric.  
-  Pour Profiler collecter les profils pour vos demandes, votre application doit être suivi des opérations avec Application Insights. Pour les API sans état, vous pouvez consulter les instructions fournies pour [suivi des demandes pour le profilage](profiler-trackrequests.md?toc=/azure/azure-monitor/toc.json). Pour plus d’informations sur le suivi des opérations personnalisées dans d’autres types d’applications, reportez-vous à [suivi des opérations personnalisées avec Application Insights .NET SDK](custom-operations-tracking.md?toc=/azure/azure-monitor/toc.json).
+  Pour Profiler collecter les profils pour vos demandes, votre application doit être suivi des opérations avec Application Insights. Pour les API sans état, vous pouvez consulter les instructions fournies pour [suivi des demandes pour le profilage](profiler-trackrequests.md?toc=/azure/azure-monitor/toc.json). Pour plus d’informations sur le suivi des opérations personnalisées dans d’autres types d’applications, consultez [suivi des opérations personnalisées avec Application Insights .NET SDK](custom-operations-tracking.md?toc=/azure/azure-monitor/toc.json).
 
 1. Redéployez votre application.
 
-> [ASTUCE] Pour les machines virtuelles, il existe une alternative à la précédente procédure basée sur JSON : sur le portail Azure, accédez à **Machines virtuelles** > **Paramètres de diagnostic** > **Récepteurs** > **, définissez Envoyer des données de diagnostic vers Application Insights sur Activé**, puis sélectionnez un compte Application Insights ou un ikey spécifique.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

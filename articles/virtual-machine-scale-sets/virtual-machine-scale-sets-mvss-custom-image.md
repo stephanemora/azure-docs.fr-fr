@@ -4,7 +4,7 @@ description: Découvrez comment ajouter une image personnalisée à un modèle d
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: mayanknayar
-manager: jeconnoc
+manager: drewm
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
@@ -13,23 +13,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/10/2017
-ms.date: 11/30/2018
-ms.author: v-junlch
-ms.openlocfilehash: 2e3c8177a32082c251be74e597a18730ae1c9d37
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.date: 04/26/2018
+ms.author: manayar
+ms.openlocfilehash: 2415d0dc2b9a2c4229d9910b42eb8ec9309ac7a7
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62108375"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64869113"
 ---
 # <a name="add-a-custom-image-to-an-azure-scale-set-template"></a>Ajout d’une image personnalisée à un modèle de groupe identique Azure
 
-Cet article montre comment modifier le [modèle de groupe identique viable minimal](./virtual-machine-scale-sets-mvss-start.md) afin de déployer avec une image personnalisée.
+Cet article explique comment modifier le [modèle de base identiques](virtual-machine-scale-sets-mvss-start.md) pour déployer à partir de l’image personnalisée.
 
 ## <a name="change-the-template-definition"></a>Modifier la définition du modèle
-
-Le modèle de groupe identique viable minimal peut être consulté [ici](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json) et le modèle de déploiement de groupe identique à partir d’une image personnalisée est disponible [ici](https://raw.githubusercontent.com/gatneil/mvss/custom-image/azuredeploy.json). Examinons le différentiel utilisé pour créer ce modèle (`git diff minimum-viable-scale-set custom-image`), élément par élément :
+Dans un [article précédent](virtual-machine-scale-sets-mvss-start.md) nous avions créé un modèle de groupe identique de base. Maintenant nous utiliser ce modèle antérieures et modifiez-le pour créer un modèle qui déploie un groupe identique à partir d’une image personnalisée.  
 
 ### <a name="creating-a-managed-disk-image"></a>Création d’une image de disque géré
 
@@ -59,7 +57,7 @@ Ensuite, ajoutez une ressource de type `Microsoft.Compute/images`, qui est l’i
    "resources": [
      {
 +      "type": "Microsoft.Compute/images",
-+      "apiVersion": "2016-04-30-preview",
++      "apiVersion": "2019-03-01",
 +      "name": "myCustomImage",
 +      "location": "[resourceGroup().location]",
 +      "properties": {
@@ -84,7 +82,7 @@ Dans la ressource groupe identique, ajoutez une clause `dependsOn` faisant réf�
 
 ```diff
        "location": "[resourceGroup().location]",
-       "apiVersion": "2016-04-30-preview",
+       "apiVersion": "2019-03-01-preview",
        "dependsOn": [
 -        "Microsoft.Network/virtualNetworks/myVnet"
 +        "Microsoft.Network/virtualNetworks/myVnet",
@@ -119,5 +117,3 @@ Dans cet exemple, utilisez la fonction `resourceId` pour obtenir l’ID de resso
 ## <a name="next-steps"></a>Étapes suivantes
 
 [!INCLUDE [mvss-next-steps-include](../../includes/mvss-next-steps.md)]
-
-<!-- Update_Description: update metedata properties -->

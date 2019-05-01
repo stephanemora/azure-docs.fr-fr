@@ -3,8 +3,8 @@ title: Utiliser une capture de paquets pour effectuer une surveillance proactive
 description: Cet article décrit la création d’une capture de paquets déclenchée par des alertes avec Azure Network Watcher
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: KumudD
+manager: twooley
 editor: ''
 ms.assetid: 75e6e7c4-b3ba-4173-8815-b00d7d824e11
 ms.service: network-watcher
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: jdial
-ms.openlocfilehash: c7bfd36bb4e36b10487edbbaa40421f067c9ed3e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.author: kumud
+ms.openlocfilehash: 37e42b05046be27254d2ceb15a59fbdb931ae161
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59048756"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64711915"
 ---
 # <a name="use-packet-capture-for-proactive-network-monitoring-with-alerts-and-azure-functions"></a>Utiliser une capture de paquets pour effectuer une surveillance proactive du réseau avec des alertes et Azure Functions
 
@@ -149,7 +149,7 @@ Pour utiliser les cmdlets PowerShell de Network Watcher, chargez le module Power
 
     ![Fichiers PowerShell][functions7]
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Authentification
 
 Pour utiliser les applets de commande PowerShell, vous devez vous authentifier. Vous configurez l’authentification dans l’application de fonction. Pour ce faire, vous devez configurer les variables d’environnement et charger un fichier de clé chiffré dans l’application de fonction.
 
@@ -346,7 +346,7 @@ Accédez à une machine virtuelle existante, puis ajoutez une règle d’alerte.
 
   |**Paramètre** | **Valeur** | **Détails** |
   |---|---|---|
-  |**Nom**|TCP_Segments_Sent_Exceeded|Nom de la règle d’alerte.|
+  |**Name**|TCP_Segments_Sent_Exceeded|Nom de la règle d’alerte.|
   |**Description**|Les segments TCP envoyés ont dépassé le seuil|Description de la règle d’alerte.|
   |**Mesure**|Segments TCP envoyés| Mesure à utiliser pour déclencher l’alerte. |
   |**Condition**|Supérieur à| Condition à utiliser lors de l’évaluation de la mesure.|

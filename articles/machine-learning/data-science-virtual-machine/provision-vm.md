@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: gokuma
-ms.openlocfilehash: 0b8349c6c59ac64be15c75b28c083a4483f2f68a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1f9ee5cf28de8fdb824bebf222e5e8d80e22c34f
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57896260"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64712436"
 ---
 # <a name="provision-a-windows-data-science-virtual-machine-on-azure"></a>Provisionner une machine virtuelle DSVM Windows sur Azure
 
@@ -94,7 +94,7 @@ Pour créer une instance de DSVM
       * **Emplacement**. Sélectionnez le centre de données qui convient le mieux. Pour un accès réseau plus rapide, il s’agit du centre de données qui héberge la plupart de vos données ou du centre de données le plus proche de votre emplacement physique.
    1. **Taille**: Sélectionnez l’un des types de serveur qui répond à vos exigences fonctionnelles et à vos contraintes de coût. Sélectionnez **Afficher tout** pour afficher d’autres tailles de machines virtuelles.
    1. **Paramètres**:  
-      * **Utiliser des disques gérés**. Choisissez **Géré** si vous voulez confier à Azure la gestion des disques de la machine virtuelle. Dans le cas contraire, vous devez spécifier un compte de stockage nouveau ou existant.  
+      * **Utiliser la fonctionnalité Disques managés**. Choisissez **Géré** si vous voulez confier à Azure la gestion des disques de la machine virtuelle. Dans le cas contraire, vous devez spécifier un compte de stockage nouveau ou existant.  
       * **Autres paramètres**. Vous pouvez utiliser les valeurs par défaut. Si vous ne souhaitez pas utiliser les valeurs par défaut, survolez le lien d’informations pour obtenir de l’aide sur les différents champs.
    1. **Résumé**: Vérifiez que toutes les informations que vous avez saisies sont correctes. Sélectionnez **Créer**.
 
@@ -116,7 +116,7 @@ Vous pouvez utiliser Microsoft Enterprise Library pour les langages R ou Python 
 
 Machine Learning Server prend en charge différentes statistiques Big Data, la modélisation prédictive et les tâches de machine learning. Il prend en charge la gamme complète d’analyses : exploration, analyse, visualisation et modélisation. En utilisant et en étendant les langages R et Python open source, Machine Learning Server est compatible avec les fonctions et scripts R et Python. Il est également compatible avec les packages Conda, pip et CRAN pour analyser les données au niveau de l’entreprise.
 
-Machine Learning Server traite également les limitations en mémoire du langage R open source en ajoutant le traitement des données en parallèle et mémorisé en bloc. Cela signifie que vous pouvez exécuter une analytique sur des données plus volumineuses que ce que peut contenir la mémoire principale. Visual Studio Community est inclus sur la machine virtuelle. Il est doté des outils R pour Visual Studio et des extensions PTVS (Python Tools pour Visual Studio) qui fournissent un IDE complet pour travailler avec R ou Python. Nous fournissons également d’autres IDE comme [RStudio](http://www.rstudio.com) et [l’édition PyCharm Community](https://www.jetbrains.com/pycharm/) sur la machine virtuelle.
+Machine Learning Server traite également les limitations en mémoire du langage R open source en ajoutant le traitement des données en parallèle et mémorisé en bloc. Cela signifie que vous pouvez exécuter une analytique sur des données plus volumineuses que ce que peut contenir la mémoire principale. Visual Studio Community est inclus sur la machine virtuelle. Il est doté des outils R pour Visual Studio et des extensions PTVS (Python Tools pour Visual Studio) qui fournissent un IDE complet pour travailler avec R ou Python. Nous fournissons également d’autres IDE comme [RStudio](https://www.rstudio.com) et [l’édition PyCharm Community](https://www.jetbrains.com/pycharm/) sur la machine virtuelle.
 
 ### <a name="python"></a>Python
 

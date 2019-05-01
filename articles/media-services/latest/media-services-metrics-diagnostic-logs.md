@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/05/2019
 ms.author: juliako
-ms.openlocfilehash: 23c87ae92a0f22b4a1a31c054df730af2efc07d1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7ce57e1f8b2732ea909625c89f3e8148cb70635c
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60322095"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64728839"
 ---
 # <a name="monitor-media-services-metrics-and-diagnostic-logs"></a>Surveiller les métriques de Media Services et des journaux de diagnostic
 
@@ -34,10 +34,10 @@ Les métriques sont collectées à intervalles réguliers, que la valeur change 
 
 Actuellement, les Services de média suivants [les points de terminaison de diffusion en continu](https://docs.microsoft.com/rest/api/media/streamingendpoints) métriques sont émis par Azure :
 
-|Name|Description|
+|Nom|Description|
 |---|---|
 |Demandes|Donne des détails concernant le nombre total de demandes traitées par le point de terminaison de diffusion en continu.|
-|Sortie|Nombre total d’octets de sortie. Par exemple, les octets transmis en continu par point de terminaison de diffusion en continu.|
+|Sortie|Nombre total d’octets de sortie. Par exemple, les octets envoyés par le point de terminaison de diffusion en continu.|
 |Latence de bout en bout de réussite| Fournit des informations sur la latence de bout en bout de demandes réussies.|
 
 Par exemple, pour obtenir des mesures de « Sortie » avec l’interface CLI, exécutez la commande suivante `az monitor metrics` commande CLI :

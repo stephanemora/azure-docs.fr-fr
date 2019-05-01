@@ -5,15 +5,15 @@ services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/25/2018
+ms.date: 04/26/2019
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: e865d4e9cbad2c2064d961bc6e407440ce8556fc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: fe0547c1ddb89b8d9ab3e876e83bbdea17a58743
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60772052"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64570595"
 ---
 # <a name="run-shell-scripts-in-your-linux-vm-with-run-command"></a>Exécuter des scripts shell dans votre machine virtuelle Linux avec la commande Run
 
@@ -78,9 +78,9 @@ Ce tableau affiche la liste des commandes disponibles pour les machines virtuell
 
 ## <a name="limiting-access-to-run-command"></a>Limitation de l’accès à la commande Run
 
-Répertorier les commandes Run ou afficher les détails d’une commande nécessite l’autorisation `Microsoft.Compute/locations/runCommands/read`, disponible avec le rôle intégré [Lecteur](../../role-based-access-control/built-in-roles.md#reader) et les rôles supérieurs.
+Répertorier les commandes d’exécution ou présentant les détails d’une commande nécessite le `Microsoft.Compute/locations/runCommands/read` autorisation au niveau de l’abonnement, qui intégrés [lecteur](../../role-based-access-control/built-in-roles.md#reader) rôle et ont une version ultérieure.
 
-L’exécution d’une commande nécessite l’autorisation `Microsoft.Compute/virtualMachines/runCommand/action`, disponible avec le rôle [Collaborateur](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) et les rôles supérieurs.
+Nécessite l’exécution d’une commande le `Microsoft.Compute/virtualMachines/runCommand/action` autorisation au niveau de l’abonnement, ce qui le [collaborateur de Machine virtuelle](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) rôle et ont une version ultérieure.
 
 Vous pouvez utiliser un des rôles [intégrés](../../role-based-access-control/built-in-roles.md) ou créer un rôle [personnalisé](../../role-based-access-control/custom-roles.md) afin d’exécuter la commande Run.
 

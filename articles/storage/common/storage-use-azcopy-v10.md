@@ -1,23 +1,23 @@
 ---
-title: Copier ou déplacer des données vers le stockage Azure à l’aide d’AzCopy v10 (version préliminaire) | Microsoft Docs
-description: Utiliser le v10 AzCopy utilitaire de ligne de commande (version préliminaire) pour déplacer ou copier des données vers ou à partir d’objets blob, data lake et contenu du fichier. Copiez des données vers Azure Storage à partir de fichiers locaux ou copiez des données dans ou entre des comptes de stockage. Migrez facilement vos données vers Azure Storage.
+title: Copier ou déplacer des données vers le stockage Azure à l’aide d’AzCopy v10 | Microsoft Docs
+description: Utilisez l’utilitaire de ligne de commande AzCopy pour déplacer ou copier des données vers ou à partir d’objets blob, data lake et contenu du fichier. Copiez des données vers Azure Storage à partir de fichiers locaux ou copiez des données dans ou entre des comptes de stockage. Migrez facilement vos données vers Azure Storage.
 services: storage
 author: seguler
 ms.service: storage
 ms.topic: article
-ms.date: 04/05/2019
+ms.date: 04/23/2019
 ms.author: seguler
 ms.subservice: common
-ms.openlocfilehash: ffd448db86c8658619da5339cd34eb9dba7e05ce
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c1de40b6bf3bb4dc6854a11eca92902203d492c3
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59278426"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64723182"
 ---
-# <a name="transfer-data-with-azcopy-v10-preview"></a>Transfert de données avec AzCopy v10 (version préliminaire)
+# <a name="transfer-data-with-azcopy-v10"></a>Transférer des données avec AzCopy v10
 
-AzCopy v10 (version préliminaire) est l’utilitaire de ligne de commande pour copier des données vers ou à partir d’objets Blob Microsoft Azure et stockage fichier. AzCopy v10 offre une interface de ligne de commande remaniée et transfère nouvelle architecture pour les données fiables. En utilisant AzCopy, vous pouvez copier des données entre un système de fichiers et un compte de stockage ou entre des comptes de stockage.
+AzCopy est l’utilitaire de ligne de commande pour copier des données vers ou à partir d’objets Blob Microsoft Azure et stockage fichier. AzCopy offre une interface de ligne de commande remaniée et transfère nouvelle architecture pour les données fiables. En utilisant AzCopy, vous pouvez copier des données entre un système de fichiers et un compte de stockage ou entre des comptes de stockage.
 
 ## <a name="whats-new-in-azcopy-v10"></a>Nouveautés d’AzCopy v10
 
@@ -33,28 +33,24 @@ AzCopy v10 (version préliminaire) est l’utilitaire de ligne de commande pour 
 
 ## <a name="download-and-install-azcopy"></a>Téléchargement et installation d’AzCopy
 
-### <a name="latest-preview-version-v10"></a>Dernière préversion (v10)
+### <a name="latest-production-version-v10"></a>Dernière version de production (v10)
 
-Téléchargez la dernière préversion d’AzCopy :
+Téléchargez la dernière version d’AzCopy :
 - [Windows](https://aka.ms/downloadazcopy-v10-windows) (zip)
 - [Linux](https://aka.ms/downloadazcopy-v10-linux) (tar)
 - [MacOS](https://aka.ms/downloadazcopy-v10-mac) (zip)
 
-### <a name="latest-production-version-v81"></a>Dernière version de production (v8.1)
-
-Téléchargez la [dernière version de production d’AzCopy pour Windows](https://aka.ms/downloadazcopy).
-
-### <a name="azcopy-supporting-table-storage-service-v73"></a>AzCopy prenant en charge le service Stockage Table (v7.3)
+### <a name="latest-azcopy-supporting-table-storage-service-v73"></a>Dernière AzCopy prise en charge du service de stockage de Table (v7.3)
 
 Téléchargez [AzCopy v7.3 prenant en charge la copie de données à destination/à partir du service Microsoft Azure Stockage Table](https://aka.ms/downloadazcopynet).
 
 ## <a name="post-installation-steps"></a>Étapes de post-installation
 
-AzCopy v10 ne nécessite pas une installation. Ouvrez l’application de ligne de commande de votre choix et accédez au dossier où `azcopy.exe` se trouve. Si nécessaire, vous pouvez ajouter l’emplacement du dossier AzCopy au chemin système pour sa facilité d’utilisation.
+AzCopy ne nécessite pas une installation. Ouvrez l’application de ligne de commande de votre choix et accédez au dossier où `azcopy.exe` se trouve. Si nécessaire, vous pouvez ajouter l’emplacement du dossier AzCopy au chemin système pour sa facilité d’utilisation.
 
 ## <a name="authentication-options"></a>Options d’authentification
 
-AzCopy v10 prend en charge les options suivantes lors de l’authentification avec le stockage Azure :
+AzCopy prend en charge les options suivantes lors de l’authentification avec le stockage Azure :
 - **Azure Active Directory** (prise en charge pour **services Blob et Data Lake Storage Gen2**). Utilisez ```.\azcopy login``` pour vous connecter avec Azure Active Directory.  L’utilisateur doit avoir [rôle « Contributeur aux données stockage Blob » affecté](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac) à écrire dans le stockage Blob avec l’authentification Azure Active Directory. Pour l’authentification via des identités gérées pour les ressources Azure, utilisez `azcopy login --identity`.
 - **Partagé des jetons de signature d’accès [pris en charge pour les services Blob et fichier]**. Ajouter le jeton de signature (SAS) d’accès partagé pour le chemin d’accès de l’objet blob sur la ligne de commande pour l’utiliser. Vous pouvez générer des jetons SAS avec le portail Azure, [Explorateur de stockage](https://blogs.msdn.microsoft.com/jpsanders/2017/10/12/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer/), [PowerShell](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageblobsastoken), ou d’autres outils de votre choix. Pour plus d’informations, consultez les [exemples](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2).
 
@@ -198,7 +194,7 @@ Vous pouvez également synchroniser un conteneur d’objets blob à un système 
 .\azcopy sync "https://account.blob.core.windows.net/mycontainer1" "C:\local\path" --recursive=true
 ```
 
-Cette commande synchronise incrémentielle de la source vers la destination en fonction des horodatages modifiés dernière. Si vous ajoutez ou supprimez un fichier dans la source, AzCopy v10 fait de même dans la destination. Avant la suppression, AzCopy vous invitera à confirmer.
+Cette commande synchronise incrémentielle de la source vers la destination en fonction des horodatages modifiés dernière. Si vous ajoutez ou supprimez un fichier dans la source, AzCopy effectue la même dans la destination. Avant la suppression, AzCopy vous invitera à confirmer.
 
 ## <a name="copy-data-from-amazon-web-services-aws-s3"></a>Copier des données à partir d’Amazon Web Services (AWS) S3
 
@@ -283,7 +279,7 @@ cat 04dc9ca9-158f-7945-5933-564021086c79.log | grep -i UPLOADFAILED
 ```
 ## <a name="troubleshooting"></a>Résolution de problèmes
 
-AzCopy v10 crée des fichiers journaux et les fichiers de plan pour chaque travail. Vous pouvez utiliser les journaux d’activité pour examiner et résoudre les problèmes potentiels. Les journaux d’activité contiennent l’état de la défaillance (UPLOADFAILED, COPYFAILED et DOWNLOADFAILED), le chemin complet et la raison de la défaillance. Les journaux d’activité des travaux et les fichiers de plan se trouvent dans le dossier %USERPROFILE\\.azcopy sous Windows et dans le dossier $HOME\\.azcopy sous Mac et Linux.
+AzCopy crée des fichiers journaux et les fichiers de plan pour chaque travail. Vous pouvez utiliser les journaux d’activité pour examiner et résoudre les problèmes potentiels. Les journaux d’activité contiennent l’état de la défaillance (UPLOADFAILED, COPYFAILED et DOWNLOADFAILED), le chemin complet et la raison de la défaillance. Les journaux d’activité des travaux et les fichiers de plan se trouvent dans le dossier %USERPROFILE\\.azcopy sous Windows et dans le dossier $HOME\\.azcopy sous Mac et Linux.
 
 > [!IMPORTANT]
 > Lorsque vous soumettez une demande de Support Microsoft (ou résoudre le problème impliquant un tiers), partagent la version rédigée de la commande que vous souhaitez exécuter. Cela garantit que la SAP n’est pas accidentellement partagée avec tout le monde. Vous trouverez la version expurgée au début du fichier journal.

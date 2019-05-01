@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: magoedte
-ms.openlocfilehash: 328433664d22925b4e991f2f18c858c5505cade1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: b410dab40d5434a6f23950a9f151e50240ace63b
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60781995"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64916374"
 ---
 # <a name="collect-log-data-with-the-azure-log-analytics-agent"></a>Collecter des données de journal avec l'agent Azure Log Analytics
 
@@ -38,7 +38,7 @@ Si vous analysez un ordinateur avec System Center Operations Manager 2012 R2 ou 
 
 L’agent Windows peut envoyer des rapports à quatre espaces de travail Log Analytics, contre un seul pour l’agent Linux.  
 
-L’agent pour Linux et Windows n’est pas uniquement pour la connexion à Azure Monitor, il prend également en charge Azure Automation pour héberger le rôle Runbook worker hybride et autres services tels que [Change Tracking](../../automation/automation-change-tracking.md) et [Update Management](../../automation/automation-update-management.md). Pour plus d’informations sur le rôle Runbook Worker hybride, consultez la page [Runbook Worker hybride d’Azure Automation](../../automation/automation-hybrid-runbook-worker.md).  
+L’agent pour Linux et Windows n’est pas uniquement pour la connexion à Azure Monitor, il prend également en charge Azure Automation pour héberger le rôle Runbook worker hybride et autres services tels que [Change Tracking](../../automation/change-tracking.md) et [Update Management](../../automation/automation-update-management.md). Pour plus d’informations sur le rôle Runbook Worker hybride, consultez la page [Runbook Worker hybride d’Azure Automation](../../automation/automation-hybrid-runbook-worker.md).  
 
 ## <a name="supported-windows-operating-systems"></a>Systèmes d’exploitation Windows pris en charge
 Les versions suivantes du système d’exploitation Windows sont officiellement prises en charge pour l’agent Windows :

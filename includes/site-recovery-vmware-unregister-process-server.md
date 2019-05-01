@@ -2,39 +2,41 @@
 author: Rajeswari-Mamilla
 ms.service: site-recovery
 ms.topic: include
-ms.date: 03/11/2019
+ms.date: 04/28/2019
 ms.author: ramamill
-ms.openlocfilehash: 0d090f43b69b42a07f1c8949d1662e8e720f3cf4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 00b0c1b1a40ad16db177916c57dba6e9d5a187a7
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57908533"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925644"
 ---
-Les étapes d’annulation de l’inscription d’un serveur de traitement diffèrent en fonction de son état de connexion avec le serveur de configuration.
+Suivez les étapes pour votre scénario spécifique.
 
-### <a name="unregister-a-process-server-that-is-in-a-connected-state"></a>Annuler l’inscription d’un serveur de traitement qui se trouve dans un état connecté
+### <a name="unregister-a-connected-process-server"></a>Annuler l’inscription d’un serveur de processus connectés
 
-1. Accédez à distance au serveur de traitement en tant qu’administrateur.
-2. Lancer le **le panneau de configuration** et ouvrez **programmes > désinstaller un programme**.
-3. Désinstaller un programme nommé **serveur cible de Microsoft Azure Site Recovery Mobility principale duService/**.
-4. Désinstaller un programme nommé **serveur de Configuration/traitement Microsoft Azure Site Recovery**.
-5. Lors de la désinstallation de programmes dans les étapes 3 et 4, vous pouvez désinstaller **dépendances du serveur Configuration/traitement Microsoft Azure Site Recovery**.
+1. Établir une connexion à distance au serveur de traitement en tant qu’administrateur.
+2. Dans le **le panneau de configuration**, ouvrez **programmes > désinstaller un programme**.
+3. Désinstallez le programme **serveur cible de Microsoft Azure Site Recovery Mobility principale duService/**.
+4. Désinstallez le programme **serveur de Configuration/traitement Microsoft Azure Site Recovery**.
+5. Une fois les programmes dans les étapes 3 et 4 sont désinstallées, désinstaller **dépendances du serveur Configuration/traitement Microsoft Azure Site Recovery**.
 
-### <a name="unregister-a-process-server-that-is-in-a-disconnected-state"></a>Annuler l’inscription d’un serveur de traitement qui se trouve dans un état déconnecté
+### <a name="unregister-a-disconnected-process-server"></a>Annuler l’inscription d’un serveur de processus déconnecté
 
-> [!WARNING]
-> Utilisez les étapes ci-après si il n’existe aucun moyen de réactiver l’ordinateur virtuel sur lequel le serveur de processus a été installé.
+N’utilisez ces étapes s’il n’existe aucun moyen de réactiver l’ordinateur sur lequel est installé le serveur de processus.
 
-1. Connectez-vous à votre serveur de configuration en tant qu’administrateur.
-2. Ouvrez une invite de commande d’administration et accédez au répertoire `%ProgramData%\ASR\home\svsystems\bin`.
-3. Ensuite, exécutez la commande.
+1. Se connecter le serveur de configuration en tant qu’administrateur.
+2. Ouvrez une invite de commandes d’administration et accédez à `%ProgramData%\ASR\home\svsystems\bin`.
+3. Exécutez cette commande pour obtenir une liste d’un ou plusieurs serveurs de processus.
 
     ```
     perl Unregister-ASRComponent.pl -IPAddress <IP_of_Process_Server> -Component PS
     ```
-4. La commande ci-dessus fournit la liste du ou des serveurs de processus (elle peut en comporter plusieurs en cas d’entrées en double) avec le numéro de série (S.No), l’adresse IP (IP), le nom de la machine virtuelle sur laquelle le serveur de processus est déployé (Name), ainsi que la pulsation de la machine virtuelle (Heartbeat) comme indiqué ci-dessous.
+    - S. Non : le numéro de série de processus serveur.
+    - Adresse IP/nom : L’adresse IP et le nom de l’ordinateur exécutant le serveur de processus.
+    - Vérification des pulsations : Dernière pulsation à partir de la machine serveur de processus.
     ![Unregister-cmd](media/site-recovery-vmware-unregister-process-server/Unregister-cmd.PNG)
-5. À présent, entrez le numéro de série du serveur de processus dont vous souhaitez annuler l’inscription.
-6. Cela effacera les détails du serveur de processus à partir du système et affiche le message : **Correctement désinscrit nom-serveur > (server-IP-address)**
+
+4. Spécifiez le numéro de série du serveur de processus que vous souhaitez annuler l’inscription.
+5. Annuler l’enregistrement d’un serveur de processus supprimer tous les détails du système et affiche le message : **Correctement désinscrit nom-serveur > (server-IP-address)**
 

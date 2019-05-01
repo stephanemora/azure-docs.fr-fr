@@ -11,13 +11,13 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: carlrab, jovanpop
 manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: 43793380fab2bcece215c53b82e09a3c3a849af3
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.date: 04/25/2019
+ms.openlocfilehash: f54950ab96664b17aab056b468db0644216e8654
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57833911"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64706100"
 ---
 # <a name="migrate-certificate-of-tde-protected-database-to-azure-sql-database-managed-instance"></a>Migrer le certificat d’une base de données protégée par TDE vers Azure SQL Database Managed Instance
 
@@ -31,7 +31,7 @@ Lorsque vous migrez une base de données protégée par [Transparent Data Encryp
 Pour prendre connaissance d’une autre possibilité de migration fluide d’une base de données protégée par TDE et du certificat correspondant à l’aide d’un service géré, consultez [Migrer SQL Server vers Azure SQL Database Managed Instance à l’aide de DMS](../dms/tutorial-sql-server-to-managed-instance.md).
 
 > [!IMPORTANT]
-> Le chiffrement Transparent Data Encryption d’Azure SQL Database Managed Instance fonctionne en mode géré par service. Un certificat migré permet de restaurer uniquement la base de données protégée par TDE. Peu après la restauration, le certificat migré est remplacé par un autre certificat géré par le système.
+> Un certificat migré permet de restaurer uniquement la base de données protégée par TDE. Peu après la restauration est effectuée, le certificat migré obtient remplacé par un protecteur différents, géré par le service de certificat ou clé asymétrique du coffre de clés, selon le type de chiffrement transparent des données que vous définissez sur l’instance.
 
 ## <a name="prerequisites"></a>Conditions préalables
 

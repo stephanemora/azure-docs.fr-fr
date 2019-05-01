@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: yalavi
 ms.reviewer: mbullwin
-ms.openlocfilehash: 772401c286a50774d201703cefcbbc12f0fcf88f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 3773a3e121c3b0162b83ea075601b7386228e4d5
+ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60775790"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64876192"
 ---
 # <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor-public-preview"></a>Alertes de métrique avec des seuils dynamiques dans Azure Monitor (préversion publique)
 
@@ -42,16 +42,16 @@ Les seuils dynamiques apprennent sans discontinuer les données de la série de 
 Les seuils sont sélectionnés de manière à ce qu’un écart par rapport à ces seuils indique une anomalie dans le comportement de la métrique.
 
 > [!NOTE]
-> Détection de modèle saisonnier est définie sur l’intervalle d’heures, jours ou semaines. Cela signifie que les autres modèles comme modèle de bihourly ou semi-hebdomadaire peuvent ne pas être détecté.
+> Détection de modèle saisonnier est définie à une heure, le jour ou l’intervalle de semaines. Cela signifie que les autres modèles comme modèle de bihourly ou semi-hebdomadaire peuvent ne pas être détecté.
 
 ## <a name="what-does-sensitivity-setting-in-dynamic-thresholds-mean"></a>Que signifie le paramètre « Sensibilité » dans les seuils dynamiques ?
 
 La sensibilité d’un seuil d’alerte est un concept général qui contrôle l’ampleur de l’écart par rapport à au comportement de la métrique nécessaire pour déclencher une alerte.
 Cette option ne nécessite pas de connaissances spécifiques sur la métrique comme le seuil statique. Voici les options disponibles :
 
-- Élevée : Les seuils sont stricts et proches du modèle de la série de métriques. La règle d’alerte est déclenchée dès le plus petit écart, ce qui génère un nombre plus important d’alertes.
+- Élevée : Les seuils sont stricts et proches du modèle de la série de métriques. Une règle d’alerte est déclenchée sur l’écart de plus petite, ce qui entraîne davantage d’alertes.
 - Moyenne : Les seuils sont moins stricts et plus équilibrés, les alertes moins nombreuses qu’avec une sensibilité élevée (par défaut).
-- Faible : Les seuils sont lâches et plus distants du modèle de la série de métriques. Règle d’alerte déclenche uniquement sur un grand écart, ce qui entraîne moins d’alertes.
+- Faible : Les seuils sont lâches et plus distants du modèle de la série de métriques. Une règle d’alerte déclenche uniquement sur les écarts importants, ce qui entraîne moins d’alertes.
 
 ## <a name="what-are-the-operator-setting-options-in-dynamic-thresholds"></a>Quelles sont les options du paramètre « Opérateur » dans les seuils dynamiques ?
 
@@ -83,7 +83,7 @@ Vous pouvez explorer des instances d’alerte déclenchées dans l’affichage d
 L’affichage des alertes affiche :
 
 - Tous les détails pour le moment de l’alerte des seuils dynamiques déclenchée métrique.
-- Un graphique de la période dans laquelle l’alerte a été de déclencheur qui inclut les seuils dynamiques utilisés à ce stade dans le temps.
+- Un graphique de la période dans laquelle l’alerte a été déclenchée, ce qui inclut les seuils dynamiques utilisés à ce stade dans le temps.
 - Possibilité de fournir des commentaires sur l’alerte de seuils dynamiques et les alertes à afficher l’expérience, qui peut améliorer les détections futures.
 
 ## <a name="will-slow-behavior-change-in-the-metric-trigger-an-alert"></a>Une modification de comportement lente dans la métrique déclenche-t-elle une alerte ?
@@ -92,7 +92,7 @@ Probablement pas. Les seuils dynamiques excellent à détecter des écarts signi
 
 ## <a name="how-much-data-is-used-to-preview-and-then-calculate-thresholds"></a>Quelle quantité de données est utilisée pour prévoir, puis calculer les seuils ?
 
-Les seuils qui apparaissent dans le graphique, avant qu’une règle d’alerte est créée sur la mesure, sont calculés en fonction des données d’historique suffisamment pour calculer des schémas saisonniers les heures ou tous les jours (10 jours). Une fois qu’une règle d’alerte est créée, les seuils dynamique utilisera nécessaires de toutes les données d’historique qui est disponible et apprendrez en permanence et adept selon de nouvelles données pour rendre les seuils plus précis. Cela signifie qu’une fois que ce graphique de calcul affiche également des séquences hebdomadaires.
+Les seuils qui apparaissent dans le graphique, avant qu’une règle d’alerte est créée sur la mesure, sont calculés en fonction suffisamment de données historiques pour calculer des schémas saisonniers les heures ou tous les jours (10 jours). Une fois qu’une règle d’alerte est créée, les seuils dynamique utilise toutes les données historiques nécessaires qui est disponible et seront en permanence en savoir plus et s’adapter en fonction des nouvelles données pour rendre les seuils plus précise. Cela signifie qu’après ce calcul, le graphique affiche également des modèles hebdomadaires.
 
 ## <a name="how-much-data-is-needed-to-trigger-an-alert"></a>La quantité de données est nécessaire pour déclencher une alerte ?
 

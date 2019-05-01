@@ -10,18 +10,18 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: lewlu
-ms.openlocfilehash: 30ceb0e396597530071c70c4448761d914acb4ac
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 02e9b64c89eda1471d644e0116bbf8c1c061ccc3
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59548402"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64682531"
 ---
 # <a name="migrate-your-face-data-to-a-different-face-subscription"></a>Migrer vos données de visage vers un autre abonnement API Visage
 
 Ce guide vous montre comment déplacer des données de visage (comme un objet **PersonGroup** de visages enregistré) vers un autre abonnement API Visage à l’aide de la fonctionnalité d’instantané. Cela vous évite d’avoir à créer et entraîner un objet **PersonGroup** ou **FaceList** à plusieurs reprises quand vous déplacez ou développez vos opérations. Par exemple, vous avez créé un objet **PersonGroup** à l’aide d’un abonnement d’essai gratuit et vous souhaitez à présent migrer cet objet vers votre abonnement payant, ou vous avez besoin de synchroniser les données de visage entre plusieurs régions en vue d’une opération à grande échelle.
 
-Cette même stratégie de migration s’applique également aux objets **LargePersonGroup** et **LargeFaceList**. Si vous ne connaissez pas bien les concepts utilisés dans ce guide, lisez les définitions correspondantes dans ce [glossaire](../Glossary.md). Ce guide utilise la bibliothèque cliente .NET de l’API Visage en C#.
+Cette même stratégie de migration s’applique également aux objets **LargePersonGroup** et **LargeFaceList**. Si vous n’êtes pas familiarisé avec les concepts abordés dans ce guide, consultez leurs définitions dans le [doivent faire Face les concepts de reconnaissance](../concepts/face-recognition.md) guide. Ce guide utilise la bibliothèque cliente .NET de l’API Visage en C#.
 
 ## <a name="prerequisites"></a>Conditions préalables
 
@@ -29,15 +29,13 @@ Cette même stratégie de migration s’applique également aux objets **LargePe
 - La chaîne de l’ID d’abonnement API Visage correspondant à l’abonnement cible (disponible dans le panneau **Vue d’ensemble** dans le portail Azure). 
 - N’importe quelle édition de [Visual Studio 2015 ou 2017](https://www.visualstudio.com/downloads/).
 
-
 ## <a name="create-the-visual-studio-project"></a>Créer le projet Visual Studio
 
 Ce guide utilise une application console simple pour effectuer la migration des données de visage. Pour obtenir une implémentation complète, consultez l’[exemple d’instantané de l’API Visage](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceApiSnapshotSample/FaceApiSnapshotSample) sur GitHub.
 
-1. Dans Visual Studio, créez un projet **Application console (.NET Framework)** et nommez-le **FaceApiSnapshotSample**. 
+1. Dans Visual Studio, créez un projet **Application console (.NET Framework)** et nommez-le **FaceApiSnapshotSample**.
 1. Récupérez les packages NuGet requis. Cliquez avec le bouton droit sur le projet dans l’Explorateur de solutions, puis sélectionnez **Gérer les packages NuGet**. Cliquez sur l’onglet **Parcourir**, sélectionnez **Inclure la préversion**, puis recherchez et installez le package suivant :
     - [Microsoft.Azure.CognitiveServices.Vision.Face 2.3.0-preview](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.2.0-preview)
-
 
 ## <a name="create-face-clients"></a>Créer des instances FaceClient
 
@@ -226,7 +224,9 @@ Une fois que vous avez terminé la migration des données de visage, nous vous r
 await FaceClientEastAsia.Snapshot.DeleteAsync(snapshotId);
 ```
 
-## <a name="related-topics"></a>Rubriques connexes
+## <a name="next-steps"></a>Étapes suivantes
+
+Ensuite, consultez la documentation de référence API pertinentes, Explorer un exemple d’application qui utilise la fonctionnalité de capture instantanée, ou suivez le guide pratique pour commencer à utiliser les autres opérations d’API mentionnées ici.
 
 - [Documentation de référence sur les instantanés (SDK .NET)](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.snapshotoperations?view=azure-dotnet)
 - [Exemple d’instantané de l’API Visage](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceApiSnapshotSample/FaceApiSnapshotSample)

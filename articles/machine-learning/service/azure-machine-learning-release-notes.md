@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 04/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: e79e610638b5ff271607da2e8855003707ea5932
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: cdd639f690d98651661226fbd340964dfdc7861f
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60821290"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64914922"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Notes de publication du service Azure Machine Learning
 
@@ -69,7 +69,7 @@ Remarque : Kit de développement Python de préparation des données n’est pl
 + **Nouvelles fonctionnalités**
   + Le Kit de développement logiciel Azure Machine Learning prend désormais en charge Python 3.7.
   + Azure Machine Learning réseau de neurones profond estimateurs fournissent désormais prise en charge intégrée de plusieurs version. Par exemple, `TensorFlow`  estimateur accepte maintenant un `framework_version` paramètre et les utilisateurs peuvent spécifier la version '1.10' ou '1.12'. Pour obtenir la liste des versions prises en charge par votre version de kit de développement logiciel actuelle, appelez `get_supported_versions()` sur la classe souhaitée du .NET framework (par exemple, `TensorFlow.get_supported_versions()`).
-  Pour obtenir la liste des versions prises en charge par la dernière version du Kit de développement logiciel, consultez le [documentation du réseau de neurones profond estimateur](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.dnn?view=azure-ml-py).
+  Pour obtenir la liste des versions prises en charge par la dernière version du Kit de développement logiciel, consultez le [documentation du réseau de neurones profond estimateur](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn?view=azure-ml-py).
 
 ### <a name="azure-machine-learning-data-prep-sdk-v111"></a>Kit de développement logiciel v1.1.1 de préparation des données d’Azure Machine Learning
 
@@ -143,13 +143,13 @@ Remarque : Kit de développement Python de préparation des données n’est pl
 
 + **Nouvelles fonctionnalités**
 
-  + Azure Machine Learning fournit désormais une prise en charge de première classe pour l’infrastructure de réseau de neurones profond populaire programme de chaînage. À l’aide de [ `Chainer` ](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) classe les utilisateurs peuvent facilement former et déployer des modèles de programme de chaînage.
+  + Azure Machine Learning fournit désormais une prise en charge de première classe pour l’infrastructure de réseau de neurones profond populaire programme de chaînage. À l’aide de [ `Chainer` ](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) classe les utilisateurs peuvent facilement former et déployer des modèles de programme de chaînage.
     + Découvrez comment [exécuter la formation distribuée avec ChainerMN](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/distributed-chainer/distributed-chainer.ipynb)
     + Découvrez comment [exécuter le réglage des hyperparamètres avec un programme de chaînage à l’aide de HyperDrive](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-chainer/train-hyperparameter-tune-deploy-with-chainer.ipynb)
   + Azure Machine Learning Pipelines ajouté déclencheur permet une exécution du Pipeline basé sur les modifications de la banque de données. Le pipeline [bloc-notes de planification](https://aka.ms/pl-schedule) est mis à jour afin de tirer parti de cette fonctionnalité.
 
 + **Correctifs de bogues et améliorations**
-  + Nous avons ajouté la prise en charge d’Azure Machine Learning Pipelines pour définir la propriété source_directory_data_store sur une banque de données de votre choix (par exemple, un stockage d’objets blob) sur [RunConfigurations](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py) qui sont fournies à la [ PythonScriptStep](https://docs.microsoft.com/en-us/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py). Par défaut étapes utilisent le magasin de fichiers Azure en tant que la banque de données de sauvegarde qui vous pouvez rencontrer des problèmes de limitation quand un grand nombre d’étapes est exécuté simultanément.
+  + Nous avons ajouté la prise en charge d’Azure Machine Learning Pipelines pour définir la propriété source_directory_data_store sur une banque de données de votre choix (par exemple, un stockage d’objets blob) sur [RunConfigurations](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py) qui sont fournies à la [ PythonScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py). Par défaut étapes utilisent le magasin de fichiers Azure en tant que la banque de données de sauvegarde qui vous pouvez rencontrer des problèmes de limitation quand un grand nombre d’étapes est exécuté simultanément.
 
 ### <a name="azure-portal"></a>Portail Azure
 

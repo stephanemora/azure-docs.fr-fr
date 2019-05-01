@@ -1,25 +1,18 @@
 ---
-title: Conditions préalables de la machine virtuelle pour Microsoft Azure | Microsoft Docs
+title: Configuration de machine virtuelle requise pour Microsoft Azure | Place de marché Azure
 description: Liste des conditions préalables requises pour publier une offre de machine virtuelle sur la place de marché Azure.
 services: Azure, Marketplace, Cloud Partner Portal
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 03/13/2019
-ms.author: pbutlerm
-ms.openlocfilehash: 5c26fd3d6c2593217aef8588e2a58377a86412ae
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.author: pabutler
+ms.openlocfilehash: 65ff96ba3aea889ff5b2e2431578f9344f6d840b
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60844038"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64938078"
 ---
 # <a name="virtual-machine-prerequisites"></a>Configuration requise pour les machines virtuelles
 
@@ -49,7 +42,7 @@ Les exigences de l’entreprise incluent des obligations procédurales, contract
     > Vous devez utiliser le même compte d’inscription à Microsoft Developer Center pour se connecter au [portail Cloud Partner](https://cloudpartner.azure.com).
     > Vous ne devez utiliser qu'un seul compte Microsoft pour vos offres Azure Marketplace. Celui-ci ne doit pas être propre à des services ou offres individuels.
     
-- Votre entreprise (ou sa filiale) doit être située dans un pays expéditeur pris en charge par la Place de marché Microsoft Azure.  Pour obtenir la liste actuelle de ces pays, consultez les [politiques concernant la participation à la Place de marché Microsoft Azure](https://azure.microsoft.com/support/legal/marketplace/participation-policies/).
+- Votre entreprise (ou sa filiale) doit se trouver dans un donneur d’ordre-de-pays/région pris en charge par la place de marché Azure.  Pour obtenir la liste actuelle de ces pays/régions, consultez [politique de participation à la place de marché Microsoft Azure](https://azure.microsoft.com/support/legal/marketplace/participation-policies/).
 - Votre produit doit être disponible sous licence d’une manière compatible avec les modèles de facturation pris en charge par la Place de marché Microsoft Azure.  Pour plus d’informations, consultez [Options de facturation sur la Place de marché Azure](https://docs.microsoft.com/azure/marketplace/billing-options-azure-marketplace). 
 - Il vous incombe de consentir tous les efforts raisonnables pour mettre à la disposition de vos clients un support technique. Ce support peut être gratuit, payant ou accessible via une communauté.
 - Il vous incombe de gérer les licences de vos logiciels et de toutes les dépendances de logiciels tiers.

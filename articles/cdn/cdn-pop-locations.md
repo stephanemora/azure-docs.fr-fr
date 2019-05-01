@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/01/2019
 ms.author: magattus
-ms.openlocfilehash: 53002fba9883d4ae0276ee1d91e915587f89177b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: ae316749d3e88bc8bfd99d0f4856d5386916a27f
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60627579"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64869642"
 ---
 # <a name="azure-cdn-coverage-by-metro"></a>Couverture Azure CDN par Metro 
 > [!div class="op_single_selector"]
@@ -43,7 +43,7 @@ Cet article répertorie les éléments Metro actuels contenant des emplacements 
 | Europe | Vienne, Autriche<br />Bruxelles, Belgique<br />Prague, République tchèque<br />Copenhague, Danemark<br /> Helsinki, Finlande<br />Marseille, France<br />Paris, France<br />Berlin, Allemagne<br />Frankfort, Allemagne<br />Athènes, Grèce<br />Budapest, Hongrie<br />Dublin, Irlande<br />Milan, Italie<br />Amsterdam, Pays-Bas<br />Varsovie, Pologne<br />Barcelone, Espagne<br />Madrid, Espagne<br />Stockholm, Suède<br />Zurich, Suisse<br />Londres, Royaume-Uni<br />Manchester, Royaume-Uni | Vienne, Autriche<br />Copenhague, Danemark<br />Helsinki, Finlande<br />Marseille, France<br />Paris, France<br />Frankfort, Allemagne<br />Milan, Italie<br />Riga, Lettonie<br />Amsterdam, Pays-Bas<br />Varsovie, Pologne<br />Madrid, Espagne<br />Stockholm, Suède<br />Londres, Royaume-Uni | Autriche<br />Bulgarie<br />Danemark<br />Finlande<br />France<br />Allemagne<br />Grèce<br />Irlande<br />Italie<br />Pays-bas<br />Pologne<br />Russie<br />Espagne<br />Suède<br />Suisse<br />Royaume-Uni |
 | Afrique | Cape Town, Afrique du Sud<br />Johannesbourg, Afrique du Sud | Johannesbourg, Afrique du Sud | Afrique du Sud |
 | Moyen-Orient | Dubaï, Émirats arabes unis | Muscat, Oman<br />Fujirah, Émirats Arabes Unis | Qatar<br />Émirats Arabes Unis |
-| Inde | Chennai, Inde<br />Mumbai, Inde<br />New Delhi, Inde | Bengaluru (Bangalore)<br />Chennai, Inde<br />Mumbai, Inde<br />New Delhi, Inde<br /> | Inde |
+| Inde | Chennai, Inde<br />Mumbai, Inde<br />New Delhi, Inde | Bengaluru (Bangalore), India<br />Chennai, Inde<br />Mumbai, Inde<br />New Delhi, Inde<br /> | Inde |
 | Asie | Hong Kong (R.A.S.)<br />Osaka, Japon<br />Tokyo, Japon<br />Kuala Lumpur, Malaisie<br />Manille, Philippines<br />Singapour<br />Busan, Corée du Sud<br />Séoul, Corée du Sud<br />Taipei, Taiwan<br />Bangkok, Thaïlande | Hong Kong (R.A.S.)<br />Batam, Indonésie<br />Jakarta, Indonésie<br />Osaka, Japon<br />Tokyo, Japon<br />Singapour<br />Busan, Corée du Sud<br />Séoul, Corée du Sud<br />Kaohsiung, Taïwan | Hong Kong (R.A.S.)<br />Indonésie<br />Israël<br />Japon<br />Macao R.A.S.<br />Malaisie<br />Philippines<br />Singapour<br />Corée du Sud<br />Taïwan<br />Thaïlande<br />Turquie<br />Vietnam |
 | Australie et Nouvelle Zélande | Brisbane, Australie<br />Melbourne, Australie<br />Perth, Australie<br />Sydney, Australie<br />Auckland, Nouvelle-Zélande | Melbourne, Australie<br />Sydney, Australie<br />Auckland, Nouvelle-Zélande | Australie<br />Nouvelle-Zélande |
 

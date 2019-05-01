@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 03/04/2019
+ms.date: 04/25/2019
 ms.author: iainfou
-ms.openlocfilehash: dc2e2f010de3dfe265cddbbaa6c050d081bd05dc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a1fe8929b5ae39c82850aa08899c7b3e6bb98c7e
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60464921"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64725308"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>Principaux de service avec Azure Kubernetes Service (AKS)
 
@@ -126,7 +126,7 @@ Lorsque vous travaillez avec des principaux de service AKS et Azure AD, gardez l
 - Par défaut, les informations d’identification du principal de service sont valides pendant un an. Vous pouvez [mettre à jour ou faire pivoter les informations d’identification du principal de service] [ update-credentials] à tout moment.
 - Chaque principal de service est associé à une application Azure AD. Le principal de service pour un cluster Kubernetes peut être associé à tout nom d’application Azure AD valide (par exemple : *https://www.contoso.org/example*). L’URL de l’application ne doit pas être un point de terminaison réel.
 - Lorsque vous spécifiez **l’ID client** du principal de service, utilisez la valeur de `appId`.
-- Sur les machines virtuelles principales et de nœud du cluster Kubernetes, les informations d’identification du principal de service sont stockées dans le fichier `/etc/kubernetes/azure.json`
+- Sur le nœud de l’agent machines virtuelles du cluster Kubernetes, les informations d’identification du principal de service sont stockées dans le fichier `/etc/kubernetes/azure.json`
 - Si vous utilisez la commande [az aks create][az-aks-create] pour générer automatiquement le principal de service, les informations d’identification du principal de service sont écrites dans le fichier `~/.azure/aksServicePrincipal.json` sur la machine utilisée pour exécuter la commande.
 - Lors de la suppression d’un cluster AKS qui a été créé par [az aks create][az-aks-create], le principal de service qui a été créé automatiquement ne sera pas supprimé.
     - Pour supprimer le principal du service, recherchez votre *servicePrincipalProfile.clientId* de cluster et procédez à la suppression au moyen de [az ad app delete][az-ad-app-delete]. Remplacez les noms de cluster et de groupe de ressources suivants par vos propres valeurs :

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: f135665b6fa7eb640526be513d2757c8e17ab8df
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: HT
+ms.openlocfilehash: 979a09da805abfd6558fac90e6adedb66de438f1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "30196787"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "64859016"
 ---
 > [!NOTE]
 > Les nouvelles références SKU de passerelle VPN (VpnGw1, VpnGw2 et VpnGw3) sont compatibles avec le modèle de déploiement du Gestionnaire de ressources uniquement. Les réseaux virtuels classiques doivent continuer à utiliser les anciennes références SKU (héritées).

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/31/2017
 ms.author: johnkem
 ms.subservice: alerts
-ms.openlocfilehash: 0ea34fe4862941bde882b3ea8ed5dbaa111ac742
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 9b86df3d08ec6dfcb3100cff333c4dc5653ee1c7
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57731496"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64688343"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Webhook des alertes du journal d’activité Azure
 Dans le cadre de la définition d’un groupe d’actions, vous pouvez configurer des points de terminaison Webhook pour qu’ils reçoivent des notifications d’alerte du journal d’activité. Grâce aux Webhooks, vous pouvez acheminer ces notifications vers d’autres systèmes à des fins de post-traitement ou d’exécution d’actions personnalisées. Cet article montre également à quoi ressemble la charge utile d’une requête HTTP POST pour un webhook.
@@ -21,6 +21,10 @@ Dans le cadre de la définition d’un groupe d’actions, vous pouvez configure
 Pour plus d’informations sur les alertes du journal d’activité, découvrez comment [créer des alertes du journal d’activité Azure](activity-log-alerts.md).
 
 Pour plus d’informations sur les groupes d’actions, découvrez comment [créer des groupes d’actions](../../azure-monitor/platform/action-groups.md).
+
+> [!NOTE]
+> Vous pouvez également utiliser le [schéma alerte commun](https://aka.ms/commonAlertSchemaDocs), qui offre l’avantage de générer un seul extensible et unifiée charge utile et alerte toutes les alertes des services dans Azure Monitor, pour les intégrations de votre webhook. [En savoir plus sur les définitions de schéma alerte courants.](https://aka.ms/commonAlertSchemaDefinitions)
+
 
 ## <a name="authenticate-the-webhook"></a>Authentifier le Webhook
 Le Webhook peut éventuellement utiliser l’autorisation par jeton à des fins d’authentification. L’URI du Webhook est enregistrée avec un ID de jeton, par exemple, `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`.
@@ -176,7 +180,7 @@ Pour obtenir des informations spécifiques au sujet des schémas de toutes les a
 | description |Description de l’alerte définie à la création de l’alerte. |
 | subscriptionId |ID d’abonnement Azure. |
 | timestamp |Heure à laquelle l’événement a été généré par le service Azure qui a traité la demande. |
-| ResourceId |ID de ressource de la ressource affectée. |
+| resourceId |ID de ressource de la ressource affectée. |
 | nom_groupe_ressources |Nom du groupe de ressources de la ressource affectée. |
 | properties |Ensemble de paires `<Key, Value>` (c’est-à-dire, `Dictionary<String, String>`) incluant des détails sur l’événement. |
 | événement |Élément contenant des métadonnées relatives à l’événement. |

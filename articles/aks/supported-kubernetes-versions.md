@@ -5,14 +5,14 @@ services: container-service
 author: sauryadas
 ms.service: container-service
 ms.topic: article
-ms.date: 02/15/2019
+ms.date: 04/26/2019
 ms.author: saudas
-ms.openlocfilehash: aafc6c5a240a1dd3e3c75dd33da26bde918b2288
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: d4287307ee3ed7f65b91f2865242113aa5b22bfd
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61031609"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64684173"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Versions de Kubernetes prises en charge dans Azure Kubernetes Service (AKS)
 
@@ -29,7 +29,7 @@ AKS prend en charge quatre versions mineures de Kubernetes :
 
 Par exemple, si AKS introduit *1.12.x* aujourd'hui, la prise en charge est également fournie pour *1.11.a* + *1.11.b*, *1.10.c*  +  *1.10d*, *1.9.e* + *1.9f* (où les versions des correctifs sous forme de lettre représentent les deux builds stables les plus récentes).
 
-Quand une nouvelle version mineure est introduite, la version mineure et les publications des correctifs les plus anciennes prises en charge sont mises hors service. 15 jours avant la publication de la nouvelle version mineure et la mise hors service à venir de la version, une annonce est faite via les [canaux de mise à jour d’Azure][azure-update-channel]. Dans l'exemple ci-dessus où *1.12.x* est publiée, les versions mises hors service sont *1.8.g* + *1.8.h*.
+Quand une nouvelle version mineure est introduite, la version mineure et les publications des correctifs les plus anciennes prises en charge sont mises hors service. 30 jours avant la publication de la nouvelle version mineure et la suppression de la version à venir, une annonce est effectuée via le [canaux de mise à jour Azure][azure-update-channel]. Dans l'exemple ci-dessus où *1.12.x* est publiée, les versions mises hors service sont *1.8.g* + *1.8.h*.
 
 Quand vous déployez un cluster AKS dans le portail ou avec Azure CLI, le cluster est toujours défini sur la version mineure n-1 et le dernier correctif. Par exemple, si AKS prend en charge *1.12.x*, *1.11.a* + *1.11.b*, *1.10.c* + *1.10d* , *1.9.e* + *1.9F*, est la version par défaut pour les nouveaux clusters *1.11.b*.
 

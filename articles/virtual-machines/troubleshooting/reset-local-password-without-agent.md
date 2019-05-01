@@ -11,14 +11,14 @@ ms.service: virtual-machines-windows
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 10/31/2018
+ms.date: 04/25/2019
 ms.author: genli
-ms.openlocfilehash: 6b77ceb2ab9abe232cec75254b30ce37c3dbbf60
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3c0152726aba115e1b370838308a7bf0af08cab7
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60307618"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64708133"
 ---
 # <a name="reset-local-windows-password-for-azure-vm-offline"></a>Réinitialiser un mot de passe Windows local pour la machine virtuelle Azure hors connexion
 Vous pouvez réinitialiser le mot de passe Windows local d’une machine virtuelle dans Azure à l’aide du [portail Azure ou Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) à condition que l’agent invité Azure soit installé. Cette méthode est le principal moyen de réinitialiser un mot de passe sur une machine virtuelle Azure. Si l’agent invité Azure ne répond pas ou ne parvient pas à s’installer après chargement d’une image personnalisée, vous pouvez réinitialiser manuellement un mot de passe Windows. Cet article explique comment réinitialiser un mot de passe de compte local en attachant le disque virtuel du système d’exploitation source à une autre machine virtuelle. Les étapes décrites dans cet article ne s’appliquent pas aux contrôleurs de domaine Windows. 
@@ -106,7 +106,7 @@ Essayez toujours de réinitialiser un mot de passe à l’aide du [portail Azure
      ```
      
      ![Créer le fichier gpt.ini](./media/reset-local-password-without-agent/create_gpt_ini.png)
-5. Créez `scripts.ini` dans `\Windows\System32\GroupPolicy\Machine\Scripts\Startup`. Vérifiez que les dossiers masqués sont affichés. Si nécessaire, créez les dossiers `Machine` ou `Scripts`.
+5. Créez `scripts.ini` dans `\Windows\System32\GroupPolicy\Machines\Scripts\`. Vérifiez que les dossiers masqués sont affichés. Si nécessaire, créez les dossiers `Machine` ou `Scripts`.
    
    * Ajoutez les lignes suivantes au fichier `scripts.ini` que vous avez créé :
      
@@ -156,7 +156,7 @@ Essayez toujours de réinitialiser un mot de passe à l’aide du [portail Azure
     
     * Dans %windir%\System32
       * supprimez FixAzureVM.cmd
-    * Dans %windir%\System32\GroupPolicy\Machine\
+    * À partir de %windir%\System32\GroupPolicy\Machine\Scripts
       * supprimez scripts.ini
     * Dans %windir%\System32\GroupPolicy
       * supprimez gpt.ini (si le fichier gpt.ini existait déjà, et que vous l’avez renommé gpt.ini.bak, renommez à nouveau le fichier .bak « gpt.ini »)

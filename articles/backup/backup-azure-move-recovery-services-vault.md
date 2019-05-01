@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: sogup
-ms.openlocfilehash: 8d5d6ed6c14927c57279cf500518f3b3a86d591d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 72bfbc34f57e7725ae9556e893825900474317cb
+ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60699763"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64876844"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>Déplacer un coffre Recovery Services entre les groupes de ressources et les abonnements Azure
 
@@ -21,7 +21,7 @@ Cet article explique comment déplacer un coffre Recovery Services configuré po
 
 ## <a name="supported-region"></a>Région prise en charge
 
-Déplacement de ressources pour le coffre Recovery Services ne prend en charge est de l’Australie, Sud-est de l’Australie, centre du Canada, est du Canada, Asie du Sud-est, Asie de l’est, centre des États-Unis, Amérique du Nord, est des États-Unis, est des États-Unis 2, sud du centre des États-Unis, ouest des États-Unis, centre-ouest 2, ouest des États-Unis, Centre de l’Inde, Inde du Sud, est du Japon, ouest du Japon, Corée centre, Corée Sud, Europe du Nord, Europe de l’ouest, Nord de l’Afrique du Sud, Afrique du Sud Ouest, Royaume-Uni Sud, Royaume-Uni ouest, Émirats arabes unis Central et nord des Émirats Arabes Unis.
+Déplacement de ressources pour le coffre Recovery Services ne prend en charge est de l’Australie, Sud-est de l’Australie, centre du Canada, est du Canada, Asie du Sud-est, Asie de l’est, centre des États-Unis, Amérique du Nord, est des États-Unis, est des États-Unis 2, sud du centre des États-Unis, ouest des États-Unis, centre-ouest 2, ouest des États-Unis, Centre de l’Inde, Inde du Sud, est du Japon, ouest du Japon, Corée centre, Corée Sud, Europe du Nord, Europe de l’ouest, Nord de l’Afrique du Sud, Afrique du Sud Ouest, Royaume-Uni Sud et Royaume-Uni ouest.
 
 ## <a name="prerequisites-for-moving-recovery-services-vault"></a>Configuration requise pour le déplacement coffre Recovery Services
 

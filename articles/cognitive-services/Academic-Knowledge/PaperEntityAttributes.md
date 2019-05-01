@@ -10,12 +10,12 @@ ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/31/2017
 ms.author: alch
-ms.openlocfilehash: bd37665e962ada59149b54075d7f8acbea895c50
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 92844b5faf691b67617c9f3424a1322aa05429bb
+ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61336822"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64875737"
 ---
 # <a name="paper-entity"></a>Entité Article
 
@@ -25,26 +25,26 @@ ms.locfileid: "61336822"
 Nom    |Description                                        |Type       | Opérations
 ------- | ------------------------------------------------- | --------- | ----------------------------
 ID      |L’ID d’entité                                          |Int64      |Égal à
-Ti      |Titre du papier                                        |String     |Equals,<br/>StartsWith
-L       |Code langue de l’article séparé par « \@@@ »            |String     |Égal à
+Ti      |Titre du papier                                        |Chaîne     |Equals,<br/>StartsWith
+L       |Code de langue de papier séparées par «\@\@\@»          |Chaîne     |Égal à
 O       |Année de l’article                                         |Int32      |Equals,<br/>IsBetween
 D       |Date de l’article                                         |Date       |Equals,<br/>IsBetween
 CC      |Nombre de citations                                     |Int32      |Aucun  
 ECC     |Estimation du nombre de citations                           |Int32      |Aucun
-AA.AuN  |Nom de l’auteur                                        |String     |Equals,<br/>StartsWith
+AA.AuN  |Nom de l’auteur                                        |Chaîne     |Equals,<br/>StartsWith
 AA.AuId |ID de l’auteur                                          |Int64      |Égal à
-AA.AfN  |Nom de l’affiliation de l’auteur                            |String     |Equals,<br/>StartsWith
+AA.AfN  |Nom de l’affiliation de l’auteur                            |Chaîne     |Equals,<br/>StartsWith
 AA.AfId |ID de l’affiliation de l’auteur                              |Int64      |Égal à
 AA.S    |Ordre de l’auteur de l’article                         |Int32      |Égal à
-F.FN    |Nom du champ d’étude                                |String     |Equals,<br/>StartsWith
+F.FN    |Nom du champ d’étude                                |Chaîne     |Equals,<br/>StartsWith
 F.FId   |ID du champ d’étude                                  |Int64      |Égal à
-J.JN    |Nom du journal                                       |String     |Equals,<br/>StartsWith
+J.JN    |Nom du journal                                       |Chaîne     |Equals,<br/>StartsWith
 J.JId   |ID du journal                                         |Int64      |Égal à
-C.CN    |Nom de la série de conférences                             |String     |Equals,<br/>StartsWith
+C.CN    |Nom de la série de conférences                             |Chaîne     |Equals,<br/>StartsWith
 C.CId   |ID de la série de conférences                               |Int64      |Égal à
 RId     |ID des articles référencés                              |Int64[]    |Égal à
 W       |Mots figurant dans le titre et le résumé de l’article                |String[]   |Égal à
-E       |Métadonnées étendues (voir le tableau ci-dessous)                |String     |Aucun  
+E       |Métadonnées étendues (voir le tableau ci-dessous)                |Chaîne     |Aucun  
         
 
 

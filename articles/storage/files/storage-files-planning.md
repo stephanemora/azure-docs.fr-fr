@@ -5,15 +5,15 @@ services: storage
 author: roygara
 ms.service: storage
 ms.topic: article
-ms.date: 03/25/2019
+ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: e2b2621ac8ee5b9ee84aaa978e8b915c98c5b702
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: fecefbbed39f4fc12db79c7466006409e3da7dd1
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61095575"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64574475"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planification d’un déploiement Azure Files
 
@@ -77,26 +77,16 @@ Si vous utilisez Azure File Sync pour accéder à votre partage de fichiers Azur
 Azure Files offre deux niveaux de performances : standard et premium.
 
 * Les **partages de fichiers Standard** s’appuient sur des lecteurs de disque dur (HDD) rotatifs qui offrent des performances fiables pour les charges de travail d’E/S moins sensibles à la variabilité des performances, telles que les partages de fichiers à usage général et les environnements de Dev/Test. Les partages de fichiers standard sont disponibles uniquement dans le cadre d’un modèle de facturation avec paiement à l’utilisation.
-* Les **partages de fichiers Premium (préversion)** s’appuient sur des disques SSD qui offrent de façon constante des performances élevées et une faible latence (à un chiffre en millisecondes pour la plupart des opérations d’E/S) pour les charges de travail les plus gourmandes en E/S. Ils sont ainsi adaptés à un vaste éventail de charges de travail telles que les bases de données, l’hébergement de site web, les environnements de développement, etc. Les partages de fichiers Premium sont disponibles uniquement dans le cadre d’un modèle de facturation avec approvisionnement. Partages de fichiers Premium utilisent un modèle de déploiement distinct à partir de partages de fichiers standard. Si vous souhaitez apprendre à créer un partage de fichiers premium, consultez notre article sur le sujet : [Comment créer un compte de stockage Azure premium fichier](storage-how-to-create-premium-fileshare.md).
+* Les **partages de fichiers Premium (préversion)** s’appuient sur des disques SSD qui offrent de façon constante des performances élevées et une faible latence (à un chiffre en millisecondes pour la plupart des opérations d’E/S) pour les charges de travail les plus gourmandes en E/S. Ils sont ainsi adaptés à un vaste éventail de charges de travail telles que les bases de données, l’hébergement de site web, les environnements de développement, etc. Les partages de fichiers Premium sont disponibles uniquement dans le cadre d’un modèle de facturation avec approvisionnement. Partages de fichiers Premium utilisent un modèle de déploiement distinct à partir de partages de fichiers standard.
+
+Sauvegarde Azure est disponible pour les partages de fichiers premium et Azure Kubernetes Service prend en charge les partages de fichiers premium dans la version 1.13 et versions ultérieures.
+
+Si vous souhaitez apprendre à créer un partage de fichiers premium, consultez notre article sur le sujet : [Comment créer un compte de stockage Azure premium fichier](storage-how-to-create-premium-fileshare.md).
+
+Actuellement, vous ne pouvez pas convertir directement entre un partage de fichiers standard et un partage de fichiers premium. Si vous souhaitez basculer vers une couche, vous devez créer un nouveau partage de fichiers de ce niveau et copier manuellement les données à partir de votre partage d’origine vers le nouveau partage que vous avez créé. Pour cela, à l’aide des outils de copie de fichiers Azure pris en charge, comme AzCopy.
 
 > [!IMPORTANT]
-> Fichier Premium partages sont toujours en version préliminaire, disponible uniquement pour le stockage LRS et sont uniquement disponibles dans un sous-ensemble de régions avec prise en charge de sauvegarde Azure soient disponibles dans Sélectionnez les régions :
-
-|Région disponible  |Support Sauvegarde Azure  |
-|---------|---------|
-|Est des États-Unis 2      | Oui|
-|USA Est       | Oui|
-|USA Ouest       | Non  |
-|Ouest des États-Unis 2      | Non  |
-|USA Centre    | Non  |
-|Europe Nord  | Non  |
-|Europe Ouest   | Oui|
-|Asie       | Oui|
-|Asie Est     | Non  |
-|Japon Est    | Non  |
-|Japon Ouest    | Non  |
-|Centre de la Corée | Non  |
-|Australie Est| Non  |
+> Partages de fichiers Premium sont toujours en version préliminaire sont uniquement disponibles pour le stockage LRS et sont disponibles dans la plupart des régions qui offrent des comptes de stockage. Pour savoir si les partages de fichiers premium sont actuellement disponibles dans votre région, consultez le [des produits disponibles par région](https://azure.microsoft.com/global-infrastructure/services/?products=storage) page pour Azure.
 
 ### <a name="provisioned-shares"></a>Partages approvisionnés
 
@@ -115,7 +105,9 @@ Partages doivent être approvisionnés incréments de 1 Go. Taille minimale est 
 >
 > taux d’entrée = 40 Mio/s + 0.04 * approvisionné Gio
 
-Taille du partage peut être augmentée à tout moment, mais peut être diminuée uniquement après 24 heures depuis l’augmentation de la dernière. Après avoir attendu sans augmenter la taille des dernières 24 heures, vous pouvez réduire la taille du partage autant de fois jusqu'à ce que vous l’augmentez à nouveau. Modifications de mise à l’échelle d’IOPS/débit entreront en vigueur après quelques minutes après le changement de taille.
+Taille du partage peut être augmentée à tout moment, mais peut être diminuée uniquement après 24 heures depuis l’augmentation de la dernière. Après avoir attendu sans augmenter la taille des dernières 24 heures, vous pouvez réduire la taille du partage autant de fois que vous le souhaitez, jusqu'à ce que vous l’augmentez à nouveau. Modifications de mise à l’échelle d’IOPS/débit entreront en vigueur après quelques minutes après le changement de taille.
+
+Il est possible de réduire la taille de votre partage provisionnée ci-dessous votre Gio utilisé. Si vous procédez ainsi, vous ne perdrez pas les données mais, vous serez toujours facturé pour la taille utilisée et que vous recevez les performances (e/s de la ligne de base, le débit et en rafale e/s) du partage approvisionné, pas la taille utilisée.
 
 Le tableau suivant illustre quelques exemples de ces formules pour les tailles de partage configuré :
 
@@ -141,7 +133,7 @@ Partages de fichiers Premium peuvent croître leur IOPS jusqu'à un facteur de t
 Crédits s’accumulent dans un compartiment de rafale chaque fois que le trafic pour votre partage de fichiers est sous la ligne de base e/s. Par exemple, un partage de Gio 100 a planifié 100 e/s. Si le trafic réel sur le partage a été 40 e/s pour un intervalle de 1 seconde spécifique, les IOPS inutilisés 60 sont créditées dans un compartiment en rafale. Ces crédits seront ensuite être utilisées lors d’opérations dépasserait la ligne de base e/s.
 
 > [!TIP]
-> Taille du compartiment en rafale = Baseline_IOPS * 2 * 3600.
+> Taille du compartiment en rafale = e/s de base * 2 * 3600.
 
 Chaque fois qu’un partage dépasse la ligne de base e/s et a des crédits dans un compartiment de rafale, il sera expédié. Partages peuvent continuer à croître tant que restant crédits, bien que les partages inférieures à 50 TIO restera uniquement atteint la limite de croissance pour atteindre une heure. Partages supérieur à 50 TIO techniquement de dépasser cette limite d’une heure, les deux heures, mais cela repose sur le nombre de crédits de rafale à recevoir. Chaque e/s au-delà de la ligne de base e/s consomme un crédit et une fois que tous les crédits consommés le partage retourne à la ligne de base e/s.
 

@@ -17,12 +17,12 @@ ms.date: 11/21/2018
 ms.author: joflore
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8b59471cd8af02513186fa4437a2249b056cc324
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 12d603ddbba9e36d562c8dcd6e3844af28c91255
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60354439"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918837"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Activation Planifier votre implémentation de la jointure d’Azure AD
 
@@ -32,7 +32,7 @@ La jonction Azure AD vous permet de joindre des appareils directement à Azure A
 Cet article vous fournit les informations nécessaires pour planifier votre implémentation de la jonction Azure AD.
 
  
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Cet article suppose que vous avez lu la [Présentation de la gestion des appareils dans Azure Active Directory](../device-management-introduction.md).
 
@@ -135,7 +135,11 @@ La jonction Azure AD :
 
 ### <a name="management-platform"></a>Plateforme de gestion
 
-La gestion des appareils pour les appareils joints à Azure AD est basée sur une plateforme MDM (comme Intune) et les fournisseurs de solutions Cloud MDM. Windows 10 a un agent MDM intégré qui fonctionne avec toutes les solutions MDM compatibles.
+Gestion des appareils pour les appareils joints Azure AD est basée sur une plateforme de gestion des appareils mobiles tels que Intune et MDM CSP. Windows 10 a un agent MDM intégré qui fonctionne avec toutes les solutions MDM compatibles.
+
+> [!NOTE]
+> Stratégies de groupe ne sont pas pris en charge dans les appareils joints Azure AD qu’ils ne sont pas connectés sur site Active Directory. Gestion des appareils joints Azure AD est uniquement possible via MDM
+
 
 Il existe deux approches pour la gestion des appareils joints à Azure AD :
 
@@ -143,7 +147,6 @@ Il existe deux approches pour la gestion des appareils joints à Azure AD :
 
 - **Cogestion** : un appareil est géré par un fournisseur MDM et SCCM. Dans cette approche, l’agent SCCM est installé sur un appareil géré par MDM pour administrer certains aspects.
 
-Comme les appareils joints à Azure AD ne sont pas connectés à Active Directory local, les stratégies de groupe ne sont pas prises en charge.
 
 
 Si vous utilisez des stratégies de groupe, évaluez votre parité de stratégie MDM avec l’[outil d’analyse de la migration MDM](https://github.com/WindowsDeviceManagement/MMAT). 

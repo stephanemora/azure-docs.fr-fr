@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 manager: craigg
 ms.date: 02/23/2019
-ms.openlocfilehash: 6a027e6c0afd526139484240f288205fa946d557
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: e2230bc8adf13825692f93b1e2bc33a4b79076e2
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62111797"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64574375"
 ---
 # <a name="azure-sql-database-service-tiers"></a>Niveaux de service Azure SQL Database
 
@@ -63,5 +63,5 @@ Du stockage de sauvegardes de base de données est alloué pour prendre en charg
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour plus d’informations sur les tailles de calcul et les tailles de stockage spécifiques disponibles pour une base de données unique dans les niveaux de service Usage général et Critique pour l’entreprise, consultez [Limites des ressources vCore SQL Database pour les bases de données uniques](sql-database-vcore-resource-limits-single-databases.md#general-purpose-service-tier).
-- Pour plus d’informations sur les tailles de calcul et les tailles de stockage spécifiques disponibles pour les pools élastiques dans les niveaux de service Usage général et Critique pour l’entreprise, consultez [Limites des ressources vCore SQL Database pour les pools élastiques](sql-database-vcore-resource-limits-elastic-pools.md#general-purpose-service-tier-storage-sizes-and-compute-sizes).
+- Pour plus d’informations sur les tailles de calcul et les tailles de stockage spécifiques disponibles pour une base de données unique dans les niveaux de service Usage général et Critique pour l’entreprise, consultez [Limites des ressources vCore SQL Database pour les bases de données uniques](sql-database-vcore-resource-limits-single-databases.md).
+- Pour plus d’informations sur les tailles de calcul et les tailles de stockage spécifiques disponibles pour les pools élastiques dans les niveaux de service Usage général et Critique pour l’entreprise, consultez [Limites des ressources vCore SQL Database pour les pools élastiques](sql-database-vcore-resource-limits-elastic-pools.md).

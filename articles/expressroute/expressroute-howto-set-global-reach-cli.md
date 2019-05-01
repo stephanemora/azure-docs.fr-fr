@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/12/2018
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 28df8f59944ccac9d731e15a558d864beed2f3ae
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 89ada41c5f3c9cf1ca7a2ac707363f57080c361d
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60364212"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64869980"
 ---
 # <a name="configure-expressroute-global-reach-by-using-the-azure-cli"></a>Configurer ExpressRoute de portée mondiale à l’aide de l’interface CLI Azure
 
@@ -48,7 +48,7 @@ az account set --subscription <your subscription ID>
 
 ### <a name="identify-your-expressroute-circuits-for-configuration"></a>Identifiez les circuits ExpressRoute à configurer
 
-Vous pouvez activer ExpressRoute Global Reach entre deux circuits ExpressRoute, à condition qu’ils se situent dans les pays pris en charge et qu’ils aient été créés dans des emplacements de peering différents. Si votre abonnement comprend les deux circuits, vous pouvez choisir celui de votre choix pour exécuter la configuration comme cela est expliqué dans cet article. Si les deux circuits se trouvent dans des abonnements Azure différents, vous devez avoir l’autorisation d’un abonnement Azure et transférer sa clé d’autorisation quand vous exécutez la commande de configuration dans l’autre abonnement Azure.
+Vous pouvez activer ExpressRoute de portée mondiale entre les deux circuits ExpressRoute, tant qu’ils sont trouvent dans des pays/régions pris en charge et ont été créés à différents emplacements d’homologation. Si votre abonnement comprend les deux circuits, vous pouvez choisir celui de votre choix pour exécuter la configuration comme cela est expliqué dans cet article. Si les deux circuits se trouvent dans des abonnements Azure différents, vous devez avoir l’autorisation d’un abonnement Azure et transférer sa clé d’autorisation quand vous exécutez la commande de configuration dans l’autre abonnement Azure.
 
 ## <a name="enable-connectivity-between-your-on-premises-networks"></a>Autoriser la connexion entre vos réseaux locaux
 

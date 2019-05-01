@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: f4e14435c2ccab98619bec57fef0e121e2df4403
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 677d0458acb9fa29f91a7fb849da56cb3cd67678
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57431604"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64707084"
 ---
 # <a name="azure-time-series-insights-preview-use-cases"></a>Cas d’usage de la préversion d’Azure Time Series Insights
 
@@ -32,7 +32,7 @@ Ce document fournit une vue d’ensemble des cas d’usage pour lesquels la pré
 
 ## <a name="introduction"></a>Présentation
 
-Time Series Insights est une offre PaaS de bout en bout. Elle est utilisée pour ingérer, traiter, stocker et interroger des données à l’échelle IoT optimisées pour une série chronologique hautement contextualisée. Time Series Insights est idéal pour analyse opérationnelle et l’exploration de données ad hoc. Il s’agit d’une offre de service personnalisée et extensible de manière unique qui répond aux besoins étendus des déploiements IoT sectoriels.
+Time Series Insights est une offre PaaS de bout en bout. Elle est utilisée pour ingérer, traiter, stocker et interroger des données à l’échelle IoT optimisées pour une série chronologique hautement contextualisée. Time Series Insights est idéal pour l’exploration de données ad hoc et l’analyse opérationnelle. Il s’agit d’une offre de service personnalisée et extensible de manière unique qui répond aux besoins étendus des déploiements IoT sectoriels.
 
 ## <a name="data-exploration-and-visual-anomaly-detection"></a>Exploration des données et détection d’anomalies visuelles
 
@@ -93,7 +93,9 @@ Pour combler les lacunes des données IoT pour effectuer des analyses avancées,
 ## <a name="next-steps"></a>Étapes suivantes
 
 - En savoir plus sur [l’explorateur de la préversion de Time Series Insights](./time-series-insights-update-explorer.md).
+
 - Pour planifier votre environnement, consultez [Time Series Insights planning](./time-series-insights-update-plan.md) (Planification de Time Series Insights).
+
 - Consultez la documentation [client de Time Series Insights](https://github.com/Microsoft/tsiclient).
 
 <!-- Images -->

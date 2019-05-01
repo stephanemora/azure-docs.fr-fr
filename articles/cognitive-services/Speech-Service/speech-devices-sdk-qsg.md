@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 0d520a9dc8d60a386d25694d441931fbc3ed38e4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: dec40f7ec21a4a059c6e4a7c75f6378f9757a479
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61457529"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64916845"
 ---
 # <a name="get-started-with-the-speech-devices-sdk"></a>Prise en main du Kit de développement logiciel (SDK) Speech Devices
 
@@ -28,7 +28,7 @@ Le code source de l’exemple d’application est fourni avec le Kit de dévelop
 
 Avant de commencer à développer des appareils avec le Kit de développement logiciel (SDK) Speech Devices, rassemblez les informations et les logiciels dont vous avez besoin :
 
-* Obtenez un [kit de développement auprès de ROOBO](http://ddk.roobo.com/). Les kits sont disponibles avec des configurations de réseau de microphones circulaires ou linéaires. Choisissez celle qui convient à vos besoins.
+* Obtenez un [kit de développement auprès de ROOBO](https://ddk.roobo.com/). Les kits sont disponibles avec des configurations de réseau de microphones circulaires ou linéaires. Choisissez celle qui convient à vos besoins.
 
     |Configuration du kit de développement|Emplacement de l'orateur|
     |-----------------------------|------------|
@@ -199,4 +199,4 @@ Si vous obtenez des erreurs de certificat lorsque vous utilisez les Services de 
 
 ### <a name="audio"></a>Audio
 
-ROOBO fournit un outil qui capture toutes les données audio en mémoire flash. Cet outil peut vous aider à résoudre les problèmes audio. Une version de cet outil est fournie avec chaque configuration de kit de développement. Sur le [site ROOBO](http://ddk.roobo.com/), sélectionnez votre appareil, puis sélectionnez le lien **ROOBO Tools** (Outils ROOBO) au bas de la page.
+ROOBO fournit un outil qui capture toutes les données audio en mémoire flash. Cet outil peut vous aider à résoudre les problèmes audio. Une version de cet outil est fournie avec chaque configuration de kit de développement. Sur le [site ROOBO](https://ddk.roobo.com/), sélectionnez votre appareil, puis sélectionnez le lien **ROOBO Tools** (Outils ROOBO) au bas de la page.

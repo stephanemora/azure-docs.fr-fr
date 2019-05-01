@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: a6304a93b1409cff871ed1c4c1d7e66d6c8c6f53
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 496f7c75e6633089d4ca88a9e3cd7c76ee415780
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60736708"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922410"
 ---
 # <a name="language-support-for-qna-maker"></a>Prise en charge linguistique pour QnA Maker
 
@@ -41,7 +41,7 @@ Si l’utilisateur prévoit de prendre en charge plusieurs langues, dont ils ont
 
 Vérifiez que la langue principale en procédant comme suit :
 
-1. Connectez-vous au [Portail Azure](http://portal.azure.com).  
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).  
 1. Recherchez et sélectionnez la ressource de recherche Azure créée dans le cadre de votre ressource QnA Maker. Le nom de ressource de recherche Azure commence avec le même nom que la ressource de QnA Maker et auront le type **service de recherche**. 
 1. À partir de la **vue d’ensemble** page de la ressource de recherche, sélectionnez **index**. 
 1. Sélectionnez l’index **testkb**.
