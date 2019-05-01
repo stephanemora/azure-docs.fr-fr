@@ -17,7 +17,7 @@ ms.locfileid: "60794425"
 ---
 Il existe certaines limites sur le nombre de mesures et les événements par application, autrement dit, chaque clé d’instrumentation. Les limites varient selon le [plan de tarification](https://azure.microsoft.com/pricing/details/application-insights/) que vous choisissez.
 
-| Resource | Limite par défaut | Remarque
+| Ressource | Limite par défaut | Remarque
 | --- | --- | --- |
 | Total des données par jour | 100 Go | Vous pouvez réduire les données en définissant une limite. Si vous avez besoin de davantage de données, vous pouvez augmenter la limite dans le portail, jusqu’à 1 000 Go. Pour une capacité supérieure à 1 000 Go, envoyez un e-mail à AIDataCap@microsoft.com.
 | Limitation | 32 000 événements par seconde | La limite est mesurée par minute.
