@@ -23,7 +23,7 @@ Si vous avez un grand nombre d’images managées à gérer et que vous voulez q
 
 La fonctionnalité Galerie d’images partagées a plusieurs types de ressources :
 
-| Resource | Description|
+| Ressource | Description|
 |----------|------------|
 | **Image managée** | Il s’agit d’une image de base pouvant être utilisée seule ou pour créer une **version de l’image**  dans une galerie d’images. Les images managées sont créées à partir de machines virtuelles généralisées. Une image managée est un type spécial de disque dur virtuel qui peut être utilisé pour définir plusieurs machines virtuelles et qui peut maintenant être utilisé pour créer des versions d’image partagée. |
 | **Galerie d’images** | Tout comme la Place de marché Azure, une **galerie d’images** est un dépôt permettant de gérer et partager des images, mais vous contrôlez les utilisateurs qui y ont accès. |

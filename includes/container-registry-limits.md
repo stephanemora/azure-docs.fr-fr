@@ -15,7 +15,7 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60582797"
 ---
-| Resource | De base | standard | Premium |
+| Ressource | De base | standard | Premium |
 |---|---|---|---|
 | Stockage<sup>1</sup> | 10 Go | 100 Go| 500 Go |
 | Taille de couche d’image maximale | 20 Gio | 20 Gio | 50 GiB |
@@ -24,8 +24,8 @@ ms.locfileid: "60582797"
 | Bande passante de téléchargement en Mbits/s<sup>2</sup> | 30 | 60 | 100 |
 | Bande passante de chargement en Mbits/s<sup>2</sup> | 10 | 20 | 50 |
 | Webhooks | 2 | 10 | 100 |
-| Géoréplication | S.O. | S.O. | [Pris en charge][geo-replication] |
-| Approbation du contenu (préversion) | S.O. | S.O. | [Pris en charge][content-trust] |
+| Géoréplication | N/A | N/A | [Pris en charge][geo-replication] |
+| Approbation du contenu (préversion) | N/A | N/A | [Pris en charge][content-trust] |
 
 <sup>1</sup>les limites de stockage spécifié sont la quantité de *inclus* stockage pour chaque niveau. Vous êtes facturé un tarif journalier supplémentaire pour chaque Gio de stockage d’images utilisé au-dessus de ces limites. Pour plus d’informations taux, consultez [tarification Azure Container Registry][pricing].
 

@@ -15,7 +15,7 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60768649"
 ---
-| Category | Banque de données |
+| Catégorie | Banque de données |
 |:--- |:--- |
 | **Microsoft Azure** |[stockage d’objets blob Azure](../articles/data-factory/connector-azure-blob-storage.md) |
 | &nbsp; |[Azure Cosmos DB (API SQL)](../articles/data-factory/connector-azure-cosmos-db.md) |
