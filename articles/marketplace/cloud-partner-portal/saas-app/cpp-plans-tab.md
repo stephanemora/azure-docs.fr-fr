@@ -1,25 +1,18 @@
 ---
-title: Plans d’offre d’application Azure SaaS | Microsoft Docs
+title: Les plans de l’offre application SaaS Azure | Place de marché Azure
 description: Créer un plan pour une offre d’application SaaS sur la place de marché Azure.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: dan-wesley
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/04/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 0394fa759f4b6f6af59e075d9bc67668886d8075
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.author: pabutler
+ms.openlocfilehash: 2ff86b39f67b170ce99b045f5cfa888e06057bbe
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62120203"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64943347"
 ---
 # <a name="saas-application-plans-tab"></a>Onglet Plans d’application SaaS
 

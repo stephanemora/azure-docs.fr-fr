@@ -14,12 +14,12 @@ ms.subservice: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 81d09978c3333a5b76c09f8c7dac85998d342f03
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f4b61b661d9da0748bc354b8defa4e6d67a047a2
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60472823"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64920478"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Sécurisation de l’accès privilégié pour les déploiements hybrides et cloud dans Azure AD
 
@@ -261,7 +261,7 @@ Si vous utilisez déjà Azure AD Privileged Identity Management, ajustez la plag
 
 #### <a name="determine-exposure-to-password-based-sign-in-protocols-if-using-exchange-online"></a>Déterminer l’exposition à des protocoles de connexion basés sur un mot de passe (si vous utilisez Exchange Online)
 
-Auparavant, les protocoles supposaient que les combinaisons de nom d’utilisateur/mot de passe étaient intégrées dans les appareils, comptes de messagerie, téléphones, etc. De nos jours, en raison du risque de cyber-attaques dans le cloud, nous vous recommandons d’identifier chaque utilisateur qui, si ses informations d’identification étaient compromises, pourrait être source de problèmes catastrophiques pour l’organisation, et de ne pas l’autoriser à se connecter à sa messagerie via son nom d’utilisateur/mot de passe en implémentant des exigences d’authentification forte et un accès conditionnel. Vous pouvez bloquer [authentification hérités à l’aide de l’accès conditionnel](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/block-legacy-authentication). Vérifiez les détails sur [comment bloquer l’authentification de base](https://docs.microsoft.com/en-us/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online) via Exchange en ligne. 
+Auparavant, les protocoles supposaient que les combinaisons de nom d’utilisateur/mot de passe étaient intégrées dans les appareils, comptes de messagerie, téléphones, etc. De nos jours, en raison du risque de cyber-attaques dans le cloud, nous vous recommandons d’identifier chaque utilisateur qui, si ses informations d’identification étaient compromises, pourrait être source de problèmes catastrophiques pour l’organisation, et de ne pas l’autoriser à se connecter à sa messagerie via son nom d’utilisateur/mot de passe en implémentant des exigences d’authentification forte et un accès conditionnel. Vous pouvez bloquer [authentification hérités à l’aide de l’accès conditionnel](https://docs.microsoft.com/azure/active-directory/conditional-access/block-legacy-authentication). Vérifiez les détails sur [comment bloquer l’authentification de base](https://docs.microsoft.com/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online) via Exchange en ligne. 
 
 #### <a name="complete-a-roles-review-assessment-for-office-365-roles-if-using-office-365"></a>Effectuer une évaluation de révision des rôles pour les rôles Office 365 (si vous utilisez Office 365)
 

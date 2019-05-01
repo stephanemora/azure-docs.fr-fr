@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 3/25/2019
 ms.author: rohink
-ms.openlocfilehash: fe63b76589c841706ae335c61e56a57c3c33fb3e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 763fc2952d7a1e2eac209cc9df53713c58ad83c9
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60640439"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925249"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Résolution de noms des ressources dans les réseaux virtuels Azure
 
@@ -96,7 +96,7 @@ Il existe plusieurs packages de mise en cache DNS différents (par exemple, dnsm
   * Démarrez le service dnsmasq avec `systemctl start dnsmasq.service`. 
   * Modifiez **/etc/sysconfig/network/config** et remplacez *NETCONFIG_DNS_FORWARDER=""* par *dnsmasq*.
   * Mettez à jour resolv.conf avec `netconfig update` pour définir le cache en tant que programme de résolution DNS local.
-* **OpenLogic (utilise NetworkManager)**:
+* **CentOS (utilise NetworkManager)**:
   * Installez le package dnsmasq avec `sudo yum install dnsmasq`.
   * Activez le service dnsmasq avec `systemctl enable dnsmasq.service`.
   * Démarrez le service dnsmasq avec `systemctl start dnsmasq.service`.
@@ -129,7 +129,7 @@ Le fichier resolv.conf est généralement généré automatiquement et ne doit p
 * **SUSE** (utilise netconf) :
   1. Ajoutez *timeout:1 attempts:5* au paramètre **NETCONFIG_DNS_RESOLVER_OPTIONS=""** dans **/etc/sysconfig/network/config**.
   2. Exécutez `netconfig update` pour effectuer la mise à jour.
-* **OpenLogic** (utilise NetworkManager) :
+* **CentOS** (utilise NetworkManager) :
   1. Ajoutez *echo "options timeout:1 attempts:5"* à **/etc/NetworkManager/dispatcher.d/11-dhclient**.
   2. Mettez à jour avec `service network restart`.
 

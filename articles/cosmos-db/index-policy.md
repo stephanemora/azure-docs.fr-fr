@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: thweiss
-ms.openlocfilehash: 67bc3076be91ade140b39b7dd8037299902546a9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: a089d8bd4f2197c93d43e70742743db29944b910
+ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61046316"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64872680"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Stratégies d’indexation dans Azure Cosmos DB
 
@@ -68,6 +68,8 @@ Toute stratégie d’indexation doit inclure le chemin d’accès racine `/*` co
 
 - Inclure le chemin d’accès racine pour exclure sélectivement des chemins d’accès que vous n’avez pas besoin d’être indexés. Il s’agit de l’approche recommandée car elle permet à Azure Cosmos DB proactivement toute nouvelle propriété qui peut être ajoutée à votre modèle d’index.
 - Exclure le chemin d’accès racine pour inclure sélectivement des chemins d’accès qui doivent être indexés.
+
+- Pour les chemins d’accès avec des caractères normaux qui incluent : des caractères alphanumériques et _ (caractère de soulignement), vous n’êtes pas obligé d’échappement de la chaîne de chemin d’accès autour des guillemets doubles (par exemple, « / path / ? »). Pour les chemins d’accès à d’autres caractères spéciaux, vous devez échapper la chaîne de chemin d’accès autour des guillemets doubles (par exemple, « /\"chemin d’accès-abc\"/ ? »). Si vous prévoyez des caractères spéciaux dans votre chemin d’accès, vous pouvez échapper chaque chemin d’accès pour la sécurité. Point de vue fonctionnel, il n’y aucune différence si vous échappe chaque chemin d’accès Vs seulement ceux qui ont des caractères spéciaux.
 
 Consultez [cette section](how-to-manage-indexing-policy.md#indexing-policy-examples) pour des exemples de stratégie d’indexation.
 

@@ -1,25 +1,18 @@
 ---
-title: Onglet Contacts d’une offre Dynamics 365 for Customer Engagement - Place de marché Azure | Microsoft Docs
+title: Dynamics 365 for Customer Engagement offre onglet Contacts | Place de marché Azure
 description: Configurez les informations de contact pour une offre Dynamics 365 for Customer Engagement sur la Place de marché AppSource.
 services: Dynamics 365 for Customer Engagement, Azure, AppSource, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
-ms.date: 12/27/2018
-ms.author: pbutlerm
-ms.openlocfilehash: e15b20c4b874e68c09321e00604aed24b7970371
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.date: 04/24/2019
+ms.author: pabutler
+ms.openlocfilehash: cdd3d01c9295ef5ae8e7bc1936b5926fb38cfe77
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60873664"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64942509"
 ---
 # <a name="azure-application-contacts-tab"></a>Onglet Contacts d’application Azure
 
@@ -30,22 +23,22 @@ Utilisez l’onglet **Contacts** pour fournir les informations de support client
 
 ## <a name="specify-customer-and-engineering-contacts"></a>Spécifier les contacts du support client et technique
 
-Fournissez les valeurs suivantes pour définir le **Contact du support technique** principal de votre offre.
+Fournissez les valeurs suivantes pour définir le **Contact du support technique** principal de votre offre. Les champs obligatoires sont indiqués par un astérisque (*).
 
 |    Champ        |  Description                    |
 |    ---------    |  ---------------                |
-|  **Name**       |  Nom du contact du support technique pour votre application. Cette personne recevra des informations techniques de Microsoft.   |
-|  **E-mail**      |  Adresse e-mail du contact du support technique  |
-|  **Téléphone**      |  Numéro de téléphone du contact du support technique  |
+|  **Nom\***       |  Nom du contact du support technique pour votre application. Cette personne recevra des informations techniques de Microsoft.   |
+|  **E-mail\***      |  Adresse e-mail du contact du support technique  |
+|  **Phone\***      |  Numéro de téléphone du contact du support technique  |
 |  |  |
 
 Fournissez les valeurs suivantes pour définir le **Contact du support** principal pour votre offre.
 
 |    Champ        |   Description                   |
 |    ---------    |  ---------------                |
-|  **Name**       |  Nom du contact du support client pour votre application. Cette personne recevra des informations de support de Microsoft.   |
-|  **E-mail**      |  Adresse e-mail du contact du support client  |
-|  **Téléphone**      |  Numéro de téléphone du contact du support client  |
+|  **Nom\***       |  Nom du contact du support client pour votre application. Cette personne recevra des informations de support de Microsoft.   |
+|  **E-mail\***      |  Adresse e-mail du contact du support client  |
+|  **Phone\***      |  Numéro de téléphone du contact du support client  |
 |  |  |
 
 

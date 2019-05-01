@@ -8,12 +8,12 @@ ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: kasparks
-ms.openlocfilehash: 6cca6692da37714c76f5241ed14e24c967b00563
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5850b683189136eac70451075933b0c57ecc37cd
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60467695"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64920445"
 ---
 # <a name="improve-performance-of-azure-applications-with-azure-advisor"></a>Améliorer les performances des applications Azure avec Azure Advisor
 
@@ -88,11 +88,11 @@ Une utilisation très élevée du processeur sur une période prolongée peut en
 Un taux d’accès au cache faible peut entraîner une baisse des performances de requête et les e/s accrue. Cela peut être dû à un mauvais plan de requête ou de l’exécution d’une charge de travail gourmandes en mémoire. Correction du plan de requête ou [augmentation de la mémoire](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers) de la base de données Azure pour le serveur de base de données PostgreSQL, serveur de base de données Azure MySQL ou MariaDB d’Azure server aidera à optimiser l’exécution de la charge de travail de base de données. Azure Advisor identifie les serveurs affectés en raison de cet évolution du pool de mémoire tampon haute et recommande la résolution du plan de requête, déplacement vers un SKU supérieur avec davantage de mémoire ou l’augmentation de taille de stockage pour obtenir plus d’IOPS.
 
 ### <a name="use-a-azure-mysql-or-azure-postgresql-read-replica-to-scale-out-reads-for-read-intensive-workloads"></a>Utiliser un Azure MySQL ou un réplica de lecture Azure PostgreSQL pour monter en charge de lectures pour les charges de travail intensives en lecture
-Azure Advisor s’appuie sur l’heuristique de basée sur la charge de travail telles que le taux de lectures et écritures sur le serveur au cours des sept jours pour identifier les charges de travail gourmandes en lecture. Votre Azure database pour PostgreSQL ressource ou la base de données Azure pour la ressource de MySQL avec un taux très élevé de lectures/écritures peut entraîner des conflits du processeur ou de la mémoire conduisant à ralentir les performances de requête. Ajout d’un [réplica](https://docs.microsoft.com/azure/postgresql/howto-read-replicas-portal) vous aidera à la montée en charge les lectures vers le serveur réplica, empêchant les contraintes de processeur ou de la mémoire sur le serveur principal. Advisor identifie les serveurs avec ces charges de travail gourmandes en lecture et vous recommandons d’ajouter un [réplica en lecture](https://docs.microsoft.com/en-us/azure/postgresql/concepts-read-replicas) pour décharger les charges de travail de lecture.
+Azure Advisor s’appuie sur l’heuristique de basée sur la charge de travail telles que le taux de lectures et écritures sur le serveur au cours des sept jours pour identifier les charges de travail gourmandes en lecture. Votre Azure database pour PostgreSQL ressource ou la base de données Azure pour la ressource de MySQL avec un taux très élevé de lectures/écritures peut entraîner des conflits du processeur ou de la mémoire conduisant à ralentir les performances de requête. Ajout d’un [réplica](https://docs.microsoft.com/azure/postgresql/howto-read-replicas-portal) vous aidera à la montée en charge les lectures vers le serveur réplica, empêchant les contraintes de processeur ou de la mémoire sur le serveur principal. Advisor identifie les serveurs avec ces charges de travail gourmandes en lecture et vous recommandons d’ajouter un [réplica en lecture](https://docs.microsoft.com/azure/postgresql/concepts-read-replicas) pour décharger les charges de travail de lecture.
 
 
 ### <a name="scale-your-azure-mysql-azure-postgresql-or-azure-mariadb-server-to-a-higher-sku-to-prevent-connection-constraints"></a>Mettre à l’échelle de votre serveur Azure MySQL, PostgreSQL Azure ou Azure MariaDB vers une référence SKU plus élevé pour empêcher les contraintes de connexion
-Chaque nouvelle connexion à votre serveur de base de données occupe la partie de la mémoire. Si l’échec des connexions à votre serveur fait de dégradent les performances du serveur de base de données un [limite supérieure](https://docs.microsoft.com/en-us/azure/postgresql/concepts-limits) en mémoire. Azure Advisor identifie les serveurs en cours d’exécution avec nombreux échecs de connexion et recommandons des limites de connexions de votre serveur pour fournir davantage de mémoire à votre serveur par la mise à l’échelle de calcul ou à l’aide de la mémoire optimisé références (SKU), qui ont un calcul plus par cœur de la mise à niveau.
+Chaque nouvelle connexion à votre serveur de base de données occupe la partie de la mémoire. Si l’échec des connexions à votre serveur fait de dégradent les performances du serveur de base de données un [limite supérieure](https://docs.microsoft.com/azure/postgresql/concepts-limits) en mémoire. Azure Advisor identifie les serveurs en cours d’exécution avec nombreux échecs de connexion et recommandons des limites de connexions de votre serveur pour fournir davantage de mémoire à votre serveur par la mise à l’échelle de calcul ou à l’aide de la mémoire optimisé références (SKU), qui ont un calcul plus par cœur de la mise à niveau.
 
 ## <a name="how-to-access-performance-recommendations-in-advisor"></a>Comment accéder aux recommandations en matière de performances dans le conseiller
 

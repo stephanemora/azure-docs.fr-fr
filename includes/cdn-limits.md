@@ -1,23 +1,22 @@
 ---
-author: rothja
+author: mdgattuso
 ms.service: billing
 ms.topic: include
-ms.date: 11/09/2018
-ms.author: jroth
-ms.openlocfilehash: b3a610fd1c4da99d1e98a5caea9e1a4151fc1fea
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.date: 04/29/2019
+ms.author: magattus
+ms.openlocfilehash: 0c989aa32c4f4defc9d22a2e510d85d7583ed1c8
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57553534"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64951521"
 ---
-| Ressource | Limite par défaut | Limite maximale | 
-| --- | --- | --- |
-| Profils Azure Content Delivery Network |25 |25 |
-| Points de terminaison de réseau de distribution contenus par profil |10 |25 |
-| Domaines personnalisés par point de terminaison |10 |25 |
+| Ressource | Limite par défaut |
+| --- | --- |
+| Profils Azure Content Delivery Network |25 |
+| Points de terminaison de réseau de distribution contenus par profil |25 |
+| Domaines personnalisés par point de terminaison |25 |
 
 Un abonnement Content Delivery Network peut contenir un ou plusieurs profils de Content Delivery Network. Un profil de Content Delivery Network peut contenir un ou plusieurs points de terminaison Content Delivery Network. Vous souhaiterez peut-être utiliser plusieurs profils pour organiser vos points de terminaison CDN par domaine internet, application web ou d’autres critères. 
 
-Pour demander une mise à jour des limites par défaut de votre abonnement, ouvrez un ticket de support.
 

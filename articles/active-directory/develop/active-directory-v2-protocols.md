@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dad05221376fa5871aadf6d89dcb15dff55a6dfa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7471bb82aece2b4c11f5071b6b3746f1a55a4a60
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60300173"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64917342"
 ---
 # <a name="microsoft-identity-platform-protocols"></a>Protocoles de plateforme d’identité Microsoft
 
@@ -51,7 +51,7 @@ Chaque application qui souhaite accepter à la fois personnelles et comptes prof
 * un **URI de redirection** ou un **identificateur de package** pouvant être utilisé pour diriger des réponses vers votre application ;
 * quelques valeurs spécifiques au scénario.
 
-Pour plus d’informations, découvrez comment [inscrire une application](quickstart-v2-register-an-app.md).
+Pour plus d’informations, découvrez comment [inscrire une application](quickstart-register-app.md).
 
 ## <a name="endpoints"></a>Points de terminaison
 

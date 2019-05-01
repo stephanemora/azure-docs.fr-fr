@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: dadobali
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5085acad8a82394340892a3a67a3d1e5d85384b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 46537ac1ca0ee8b1a163656d14f325a93f3a8717
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60410363"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64917277"
 ---
 # <a name="how-to-enable-cross-app-sso-on-android-using-adal"></a>Activation Activer l’authentification unique entre applications sur Android à l’aide de la bibliothèque ADAL
 
@@ -39,7 +39,7 @@ Dans cette procédure, vous allez découvrir comment configurer le Kit de dével
 
 Cette procédure suppose que vous savez comment :
 
-- Configurer votre application à l’aide du portail hérité pour Azure Active Directory (Azure AD). Pour plus d’informations, consultez l’article sur l’[inscription d’une application avec le point de terminaison Azure AD v1.0](quickstart-v1-add-azure-ad-app.md)
+- Configurer votre application à l’aide du portail hérité pour Azure Active Directory (Azure AD). Pour plus d’informations, consultez [inscrire une application](quickstart-register-app.md)
 - Intégrer votre application à [Android SDK Azure AD](https://github.com/AzureAD/azure-activedirectory-library-for-android).
 
 ## <a name="single-sign-on-concepts"></a>Concepts de l’authentification unique
@@ -109,7 +109,7 @@ Voici la procédure à suivre :
 2. Établir un nouvel URI de redirection à fournir à l’application et à votre inscription d’application
 3. Configuration des autorisations appropriées dans le manifeste Android
 
-#### <a name="step-1-enable-broker-mode-in-your-application"></a>Étape 1 : Activer le mode répartiteur dans votre application
+#### <a name="step-1-enable-broker-mode-in-your-application"></a>Étape 1 : Activer le mode répartiteur dans votre application
 
 La capacité de votre application à utiliser le répartiteur est activée lorsque vous créez les paramètres, ou la configuration initiale, de votre instance d’authentification. Pour ce faire dans votre application :
 
@@ -117,7 +117,7 @@ La capacité de votre application à utiliser le répartiteur est activée lorsq
 AuthenticationSettings.Instance.setUseBroker(true);
 ```
 
-#### <a name="step-2-establish-a-new-redirect-uri-with-your-url-scheme"></a>Étape 2 : Établissez un nouvel URI de redirection avec votre schéma d’URL
+#### <a name="step-2-establish-a-new-redirect-uri-with-your-url-scheme"></a>Étape 2 : Établissez un nouvel URI de redirection avec votre schéma d’URL
 
 Afin de garantir que la bonne application reçoit retourné les informations d’identification des jetons, il est nécessaire de s’assurer que l’appel à votre application d’une manière pouvant être vérifiée par le système d’exploitation Android. Le système d’exploitation Android utilise le hachage du certificat dans Google Play Store. Ce hachage du certificat ne peut pas être falsifié par une application non fiable. Avec l’URI de l’application de répartiteur, Microsoft vérifie que les jetons sont retournés à l’application appropriée. Une URI de redirection unique est nécessaire pour être inscrit sur l’application.
 

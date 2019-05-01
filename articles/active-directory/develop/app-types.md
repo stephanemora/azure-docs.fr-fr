@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef180fb444e32e8b055837fd418e21162ff58339
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: aa4b68d48ec3f4fbb61c7144a133d9c42938c723
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60411185"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64917279"
 ---
 # <a name="application-types-in-v10"></a>Types d’applications dans v1.0
 
@@ -63,7 +63,7 @@ Toute application qui externalise l’authentification pour la confier à Azure�
   * **Clé** : clé envoyée avec un ID d’application lors de l’authentification auprès d’Azure AD en vue d’appeler une API web.
 * Azure AD doit assurer que l’application dispose des autorisations nécessaires pour accéder à vos données d’annuaire, à d’autres applications de votre organisation, etc.
 
-Pour en savoir plus, consultez l’article sur [l’inscription d’une application avec le point de terminaison Azure AD v1.0](quickstart-v1-add-azure-ad-app.md).
+Pour en savoir plus, découvrez comment [inscrire une application](quickstart-register-app.md).
 
 ## <a name="single-tenant-and-multi-tenant-apps"></a>Application monolocataire et application multilocataire
 
