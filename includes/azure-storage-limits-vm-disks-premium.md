@@ -13,7 +13,7 @@ ms.locfileid: "60386295"
 ---
 **Disques Premium de machine virtuelle non gérée : Limites par compte**
 
-| Resource | Limite par défaut |
+| Ressource | Limite par défaut |
 | --- | --- |
 | Capacité totale des disques par compte |35 To |
 | Capacité totale des instantanés par compte |10 To |
@@ -32,7 +32,7 @@ ms.locfileid: "60386295"
 
 **Disques Premium de machine virtuelle non gérée : Limites par machine virtuelle**
 
-| Resource | Limite par défaut |
+| Ressource | Limite par défaut |
 | --- | --- |
 | Nombre maximal d’IOPS par machine virtuelle |80 000 E/S par seconde avec la machine virtuelle GS5 |
 | Débit maximal par machine virtuelle |2 000 Mo/s avec la machine virtuelle GS5 |
