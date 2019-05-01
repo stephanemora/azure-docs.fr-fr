@@ -14,7 +14,7 @@ ms.locfileid: "60557141"
 >[!NOTE]
 >Pour les ressources qui ne sont pas fixes, ouvrez un ticket de support pour demander une augmentation des quotas. Ne créez pas des comptes Azure Media Services supplémentaires dans une tentative d’obtention des limites plus élevées.
 
-| Resource | Limite par défaut | 
+| Ressource | Limite par défaut | 
 | --- | --- | 
 | Comptes Media Services Azure dans un seul abonnement | 25 (fixe) |
 | Unités par compte Media Services réservées de média |25 (S1)<br/>10 (S2, S3)<sup>1</sup> | 

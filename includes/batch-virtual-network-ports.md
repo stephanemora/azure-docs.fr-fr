@@ -64,14 +64,14 @@ Vous n’avez pas besoin spécifier de groupes de sécurité réseau au niveau d
 
 **Règles de sécurité entrantes**
 
-| Adresses IP sources | Balise du service source | Ports source | Destination | Ports de destination | Protocole | Action |
+| Adresses IP sources | Balise du service source | Ports source | Destination | Ports de destination | Protocol | Action |
 | --- | --- | --- | --- | --- | --- | --- |
-| S.O. | `BatchNodeManagement` [Balise de service](../articles/virtual-network/security-overview.md#service-tags) | * | Quelconque | 29876-29877 | TCP | AUTORISER |
-| Utilisateur adresses IP sources pour accéder à distance à des nœuds de calcul et/ou de sous-réseau de nœud de calcul pour les tâches multi-instances de Linux, si nécessaire. | S.O. | * | Quelconque | 3389 (Windows), 22 (Linux) | TCP | AUTORISER |
+| N/A | `BatchNodeManagement` [Balise de service](../articles/virtual-network/security-overview.md#service-tags) | * | Quelconque | 29876-29877 | TCP | AUTORISER |
+| Utilisateur adresses IP sources pour accéder à distance à des nœuds de calcul et/ou de sous-réseau de nœud de calcul pour les tâches multi-instances de Linux, si nécessaire. | N/A | * | Quelconque | 3389 (Windows), 22 (Linux) | TCP | AUTORISER |
 
 **Règles de sécurité de trafic entrant**
 
-| Source | Ports source | Destination | Identification de destination | Protocole | Action |
+| Source | Ports source | Destination | Identification de destination | Protocol | Action |
 | --- | --- | --- | --- | --- | --- |
 | Quelconque | 443 | [Balise du service](../articles/virtual-network/security-overview.md#service-tags) | `Storage` (dans la même région que votre compte Batch et le réseau virtuel)  | Quelconque | AUTORISER |
 
@@ -97,13 +97,13 @@ Configurer le trafic entrant sur le port 3389 pour Windows si vous souhaitez aut
 
 **Règles de sécurité entrantes**
 
-| Adresses IP sources | Ports source | Destination | Ports de destination | Protocole | Action |
+| Adresses IP sources | Ports source | Destination | Ports de destination | Protocol | Action |
 | --- | --- | --- | --- | --- | --- |
 Quelconque <br /><br />Bien que cela nécessite réellement de « tout autoriser », le service Batch applique une règle ACL au niveau de chaque nœud, excluant toutes les adresses IP des services autres que Batch. | * | Quelconque | 10100, 20100, 30100 | TCP | AUTORISER |
 | Facultatif, pour autoriser l’accès RDP sur les nœuds. | * | Quelconque | 3389 | TCP | AUTORISER |
 
 **Règles de sécurité de trafic entrant**
 
-| Source | Ports source | Destination | Ports de destination | Protocole | Action |
+| Source | Ports source | Destination | Ports de destination | Protocol | Action |
 | --- | --- | --- | --- | --- | --- |
 | Quelconque | * | Quelconque | 443  | Quelconque | AUTORISER |

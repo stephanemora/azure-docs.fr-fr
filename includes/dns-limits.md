@@ -11,7 +11,7 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60563345"
 ---
-| Resource | Limite par défaut |
+| Ressource | Limite par défaut |
 | --- | --- |
 | Zones par abonnement |100 <sup>1</sup> |
 | Jeux d’enregistrements par zone |5,000 <sup>1</sup> |
