@@ -1,25 +1,18 @@
 ---
-title: API de traitement des commandes SaaS - place de marché Azure | Microsoft Docs
+title: API de traitement des commandes SaaS | Place de marché Azure
 description: Présente les versions de l’exécution avec la place de marché Azure propose des API qui vous permettent d’intégrer votre SaaS.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 03/26/2019
-ms.author: pbutlerm
-ms.openlocfilehash: c7da46984d592abc6ed97d7490fde732bf26b0ba
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.author: pabutler
+ms.openlocfilehash: ec206c2d637f9fb2727d72cf17087050a765672c
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62101351"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64941957"
 ---
 # <a name="saas-fulfillment-apis"></a>API de traitement SaaS
 

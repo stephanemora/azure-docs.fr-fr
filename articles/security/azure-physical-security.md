@@ -1,6 +1,6 @@
 ---
-title: Sécurité locale et physique des centres de données Azure | Microsoft Docs
-description: Cet article décrit les centres de données Azure, notamment l’infrastructure physique, la sécurité et les offres de conformité.
+title: Sécurité physique des centres de données Azure - Microsoft Azure | Microsoft Docs
+description: Cet article décrit ce que fait Microsoft pour sécuriser les centres de données Azure, y compris des offres d’infrastructure, la sécurité et conformité physiques.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -12,19 +12,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/28/2018
+ms.date: 04/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 5f8378de18796fd679354c88880942df83399ad5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: d1b95695de809668987ebb6ef6720a3751205171
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60586785"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939844"
 ---
 # <a name="azure-facilities-premises-and-physical-security"></a>Sécurité locale et physique des centres de données Azure
+Cet article décrit ce que Microsoft fait pour sécuriser l’infrastructure Azure.
+
+## <a name="datacenter-infrastructure"></a>Infrastructure de centre de données
 Azure est composé d’une [infrastructure de centres de données distribuée à l’échelle mondiale](https://azure.microsoft.com/global-infrastructure/) qui gère des milliers de services en ligne et couvre plus de 100 installations de haute sécurité dans le monde entier.
 
-L’infrastructure est conçue pour rapprocher les applications des utilisateurs dans le monde entier, en préservant la résidence des données et en offrant aux clients des options complètes de conformité et de résilience. Azure est présent dans 52 régions du monde et disponible dans 140 pays.
+L’infrastructure est conçue pour rapprocher les applications des utilisateurs dans le monde entier, en préservant la résidence des données et en offrant aux clients des options complètes de conformité et de résilience. Azure a 52 régions du monde entier et est disponible dans 140 pays/régions.
 
 Une région est un ensemble de centres de données qui sont interconnectés dans un réseau massif et résilient. Par défaut, le réseau gère la distribution, l’équilibrage de charge, la redondance et le chiffrement du contenu. En proposant plus de régions dans le monde que les autres fournisseurs de cloud, Azure offre aux clients la possibilité de déployer des applications là où ils en ont besoin.
 
@@ -67,9 +70,9 @@ Microsoft utilise les procédures de bonne pratique et une solution d’effaceme
 À la fin du cycle de vie d’un système, le personnel d’exploitation de Microsoft suit les procédures rigoureuses de traitement des données et d’élimination de matériel afin de s’assurer qu’aucun matériel susceptible de contenir les données d’un client ne soit accessible à des tiers non approuvés. Nous utilisons une approche d’effacement sécurisée pour les disques durs qui la prennent en charge. Pour les disques durs qui ne peuvent pas être effacés, un processus de destruction est utilisé pour les détruire et rendre la récupération des informations impossible. Le processus de destruction peut être une désintégration, un déchiquetage, une pulvérisation ou une incinération. Nous déterminons les moyens d’élimination en fonction du type de ressource. Les enregistrements des destructions sont conservés. Tous les services Microsoft Azure utilisent des services de gestion des supports de stockage et d’élimination approuvés.
 
 ## <a name="compliance"></a>Conformité
-L’infrastructure Azure est conçue et gérée pour répondre à un large éventail de normes de conformité internationales et spécifiques au secteur, telles que ISO 27001, HIPAA, FedRAMP, SOC 1 et SOC 2. Les normes propres aux pays sont également respectées, comme l’IRAP en Australie, UK G-Cloud et la MTCS à Singapour. Des audits rigoureux de tiers, comme ceux effectués par le British Standards Institute, vérifient l’adhérence d’Azure aux contrôles de sécurité stricts imposés par ces normes.
+L’infrastructure Azure est conçue et gérée pour répondre à un large éventail de normes de conformité internationales et spécifiques au secteur, telles que ISO 27001, HIPAA, FedRAMP, SOC 1 et SOC 2. Nous respectons également les normes spécifiques à un pays ou une région, y compris la norme australienne IRAP, UK G-Cloud et mtcs (Singapour). Des audits rigoureux de tiers, comme ceux effectués par le British Standards Institute, vérifient l’adhérence d’Azure aux contrôles de sécurité stricts imposés par ces normes.
 
-Pour avoir une liste complète des normes de conformité observées par Azure, consultez les [Offres de conformité](https://www.microsoft.com/trustcenter/compliance/complianceofferings). 
+Pour avoir une liste complète des normes de conformité observées par Azure, consultez les [Offres de conformité](https://www.microsoft.com/trustcenter/compliance/complianceofferings).
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus sur ce que Microsoft fait pour sécuriser l’infrastructure Azure, consultez :

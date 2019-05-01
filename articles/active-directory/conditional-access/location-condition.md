@@ -12,12 +12,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6771cf093f62ef7823e57ced8223e4cc6c0dc57e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 7c4ef16457181b4147b763233c54bcca6598b05a
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60354669"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64917679"
 ---
 # <a name="what-is-the-location-condition-in-azure-active-directory-conditional-access"></a>Qu’est-ce que la condition d’emplacement dans l’accès conditionnel Azure Active Directory ? 
 
@@ -50,16 +50,13 @@ Un emplacement nommé se compose des éléments suivants :
 - **Plages d’adresses IP** : une ou plusieurs plages d’adresses IPv4 au format CIDR. En spécifiant une plage d’adresses IPv6 n’est pas pris en charge.
 
    > [!NOTE]
-   > Rangess d’adresse IPv6 ne peut pas actuellement être inclus dans un measn locationThis nommé IPv6 plages ne peut pas être exclus d’une stratégie d’accès conditionnel.
+   > Rangess d’adresse IPv6 ne peut pas actuellement être inclus dans un emplacement nommé. Cette plages IPv6 de measn ne peut pas être exclus d’une stratégie d’accès conditionnel.
 
 - **Marquer comme emplacement approuvé** : indicateur que vous pouvez définir pour un emplacement nommé afin d’indiquer un emplacement approuvé. Les emplacements approuvés sont généralement des zones de réseau qui sont contrôlées par votre service informatique. En plus de l’accès conditionnel, les emplacements nommés approuvés sont également utilisés par les rapports de sécurité Azure Identity Protection et Azure AD afin de réduire les [faux positifs](../reports-monitoring/concept-risk-events.md#impossible-travel-to-atypical-locations-1).
 - **Pays/régions** : cette option vous permet de sélectionner un ou plusieurs pays ou régions pour définir un emplacement nommé.
 - **Inclure les zones inconnues** : certaines adresses IP ne sont pas mappées à un pays spécifique. Cette option vous permet de choisir si ces adresses IP doivent être incluses dans l’emplacement nommé. Utilisez ce paramètre lorsque la stratégie utilisant l’emplacement nommé doit s’appliquer à des emplacements inconnus.
 
-Le nombre d’emplacements nommés que vous pouvez configurer est limité par la taille de l’objet associé dans Azure AD. Vous pouvez configurer des emplacements basés sur les limitations suivantes :
-
-- Un emplacement nommé avec 1200 plages d’adresses IP maximum.
-- Un maximum de 90 emplacements nommés avec une plage d’adresses IP assignée à chacun d’eux.
+Le nombre d’emplacements nommés que vous pouvez configurer est limité par la taille de l’objet associé dans Azure AD. Les organisations peuvent configurer jusqu'à 90 emplacements LAMÈD, chacun configuré avec des plages d’adresses IP jusqu'à 12000.
 
 Stratégie d’accès conditionnel s’applique au trafic IPv4 et IPv6. Emplacements nommés actuellement n’autorisent pas les plages d’adresses IPv6 à configurer. Cette limitation entraîne les situations suivantes :
 

@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/17/2018
-ms.openlocfilehash: 4351017cc1848e29cca038f82fd96548ae3492e0
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 84efdb0297a2dc69497baee5fb746fb51d02b1b7
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62122657"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939513"
 ---
 # <a name="multi-model-capabilities-of-azure-sql-database"></a>Fonctionnalités multimodèles d’Azure SQL Database
 
@@ -90,7 +90,7 @@ Vous pouvez utiliser des modèles de document au lieu de modèles relationnels d
 
 ## <a name="spatial-features"></a>Fonctionnalités spatiales
 
-Données spatiales représentent des informations sur l’emplacement physique et la forme d’objets géométriques. Ces objets peuvent être des emplacements précis ou des objets plus complexes, tels que des pays, des routes ou des lacs.
+Données spatiales représentent des informations sur l’emplacement physique et la forme d’objets géométriques. Ces objets peuvent être des emplacements de points ou des objets plus complexes tels que les pays/régions, des routes ou des lacs.
 
 Azure SQL Database prend en charge deux types de données spatiales : les données de type géométrique et les données de type géographique.
 - Le type géométrique représente des données dans un système de coordonnées euclidien (plat).

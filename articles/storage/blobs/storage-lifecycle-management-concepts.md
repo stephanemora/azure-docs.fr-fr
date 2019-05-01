@@ -5,15 +5,15 @@ services: storage
 author: yzheng-msft
 ms.service: storage
 ms.topic: conceptual
-ms.date: 3/20/2019
+ms.date: 4/29/2019
 ms.author: yzheng
 ms.subservice: common
-ms.openlocfilehash: 2de194e501c05ba0bdb9971ca6045e67a42b0fd9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f1fdd1b239301a5340716e1d5d098487afe27f9f
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60392464"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64938564"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Gérer le cycle de vie du stockage Blob Azure
 
@@ -42,7 +42,7 @@ La fonctionnalité de gestion du cycle de vie est disponible dans toutes les ré
 
 ## <a name="add-or-remove-a-policy"></a>Ajouter ou supprimer une stratégie 
 
-Vous pouvez ajouter, modifier ou supprimer une stratégie à l’aide du portail Azure, [Azure PowerShell](https://github.com/Azure/azure-powershell/releases), l’interface CLI, [API REST](https://docs.microsoft.com/en-us/rest/api/storagerp/managementpolicies), ou un outil client. Cet article explique comment gérer la stratégie en utilisant le portail et les méthodes de PowerShell.  
+Vous pouvez ajouter, modifier ou supprimer une stratégie à l’aide du portail Azure, [Azure PowerShell](https://github.com/Azure/azure-powershell/releases), l’interface CLI, [API REST](https://docs.microsoft.com/rest/api/storagerp/managementpolicies), ou un outil client. Cet article explique comment gérer la stratégie en utilisant le portail et les méthodes de PowerShell.  
 
 > [!NOTE]
 > Si vous activez les règles de pare-feu de votre compte de stockage, les requêtes de gestion du cycle de vie peuvent être bloquées. Vous pouvez débloquer ces requêtes en fournissant des exceptions. Le contournement requis sont : `Logging,  Metrics,  AzureServices`. Pour plus d’informations, consultez la section Exceptions dans [Configurer des pare-feu et des réseaux virtuels](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
@@ -80,7 +80,47 @@ $rule1 = New-AzStorageAccountManagementPolicyRule -Name Test -Action $action -Fi
 $policy = Set-AzStorageAccountManagementPolicy -ResourceGroupName $rgname -StorageAccountName $accountName -Rule $rule1
 
 ```
+## <a name="arm-template-with-lifecycle-management-policy"></a>Modèle ARM avec stratégie de gestion du cycle de vie
 
+Vous pouvez définir et déployer la gestion du cycle de vie dans le cadre de votre déploiement de solution Azure en utilisant les modèles ARM. Ce qui suit est un exemple de modèle pour déployer un compte de stockage RA-GRS GPv2 avec une stratégie de gestion du cycle de vie. 
+
+```json
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {},
+  "variables": {
+    "storageAccountName": "[uniqueString(resourceGroup().id)]"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "name": "[variables('storageAccountName')]",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2019-04-01",
+      "sku": {
+        "name": "Standard_RAGRS"
+      },
+      "kind": "StorageV2",
+      "properties": {
+        "networkAcls": {}
+      }
+    },
+    {
+      "name": "[concat(variables('storageAccountName'), '/default')]",
+      "type": "Microsoft.Storage/storageAccounts/managementPolicies",
+      "apiVersion": "2019-04-01",
+      "dependsOn": [
+        "[variables('storageAccountName')]"
+      ],
+      "properties": {
+        "policy": {...}
+      }
+    }
+  ],
+  "outputs": {}
+}
+```
 
 ## <a name="policy"></a>Stratégie
 
@@ -115,7 +155,7 @@ Chaque règle au sein de la stratégie a plusieurs paramètres :
 
 | Nom du paramètre | Type de paramètre | Notes | Obligatoire |
 |----------------|----------------|-------|----------|
-| Nom           | String |Un nom de règle peut contenir jusqu'à 256 caractères alphanumériques. Les noms de règle respectent la casse.  Ils doivent être uniques dans la stratégie. | True |
+| Nom           | Chaîne |Un nom de règle peut contenir jusqu'à 256 caractères alphanumériques. Les noms de règle respectent la casse.  Ils doivent être uniques dans la stratégie. | True |
 | Activé | Boolean | Une valeur booléenne facultative pour permettre une règle pour être temporaire est désactivé. Valeur par défaut est true si elle n’est pas définie. | False | 
 | Type           | Une valeur enum | Le type actuel valid est `Lifecycle`. | True |
 | Définition     | Un objet qui définit la règle du cycle de vie | Chaque définition se compose d’un jeu de filtres et d’un jeu d’actions. | True |
@@ -305,8 +345,8 @@ Pour les données qui sont modifiées et consultées régulièrement tout au lon
   ]
 }
 ```
-## <a name="faq---i-created-a-new-policy-why-are-the-actions-not-run-immediately"></a>FAQ - J’ai créé une stratégie, pourquoi les actions ne sont pas exécutées immédiatement ? 
-
+## <a name="faq"></a>Forum Aux Questions 
+**J’ai créé une nouvelle exécution de la stratégie, pourquoi sont les actions pas immédiatement ?**  
 La plateforme exécute la stratégie de cycle de vie une fois par jour. Une fois que vous configurez une stratégie, elle peut prendre jusqu'à 24 heures pour certaines actions (telles que la hiérarchisation et suppression) à exécuter pour la première fois.  
 
 ## <a name="next-steps"></a>Étapes suivantes

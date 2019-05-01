@@ -7,29 +7,28 @@ ms.subservice: B2B
 ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: mimart
-author: msmimart
+author: v-miegge
 manager: daveba
 ms.reviewer: sasubram
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: af106650f6e1d139ec7af2c8d243dc50f2e963fc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c2a0eaf75debf694421ac9e5f2f7eb13891a20cf
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60412396"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64917347"
 ---
 # <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>Résolution des problèmes d’Azure Active Directory B2B Collaboration
 
 Voici des solutions pour les problèmes courants liés à Azure Active Directory (Azure AD) B2B Collaboration.
 
-
 ## <a name="ive-added-an-external-user-but-do-not-see-them-in-my-global-address-book-or-in-the-people-picker"></a>J’ai ajouté un utilisateur externe, mais je ne le vois pas dans mon carnet d’adresses global ou dans le sélecteur de personnes
 
 Dans les cas où les utilisateurs externes ne sont pas renseignés dans la liste, la réplication de l’objet peut prendre quelques minutes.
 
-## <a name="a-b2b-guest-user-is-not-showing-up-in-sharepoint-onlineonedrive-people-picker"></a>Un utilisateur invité B2B ne s’affiche pas dans le sélecteur de personnes SharePoint Online/OneDrive 
- 
+## <a name="a-b2b-guest-user-is-not-showing-up-in-sharepoint-onlineonedrive-people-picker"></a>Un utilisateur invité B2B ne s’affiche pas dans le sélecteur de personnes SharePoint Online/OneDrive
+
 La fonctionnalité de recherche d’utilisateurs invités existants dans le sélecteur de personnes SharePoint Online (SPO) est désactivée par défaut pour correspondre au comportement hérité.
 
 Vous pouvez activer cette fonctionnalité à l’aide du paramètre ShowPeoplePickerSuggestionsForGuestUsers au niveau du client et de la collection du site. Vous pouvez définir cette fonctionnalité à l’aide des applets de commande Set-SPOTenant et Set-SPOSite qui permettent aux membres de rechercher tous les utilisateurs invités existants dans le répertoire. Les modifications apportées à la portée du client n’affectent pas les sites SPO déjà configurés.
@@ -79,10 +78,20 @@ Par respect des lois sur la confidentialité, nos API n’incluent pas de messag
 
 Si ce scénario est important pour vous, vous pouvez supprimer l’API qui envoie l’invitation par e-mail, et envoyer cette dernière au moyen d’un mécanisme de messagerie de votre choix. Consultez un conseiller juridique dans votre organisation pour vous assurer que tout e-mail que vous envoyez est également conforme aux lois relatives à la vie privée.
 
+## <a name="you-receive-an-aadsts65005-error-when-you-try-to-log-in-to-an-azure-resource"></a>Vous recevez une erreur « AADSTS65005 » lorsque vous essayez de vous connecter à une ressource Azure
+
+Un utilisateur disposant d’un compte invité ne peut pas ouvrir une session et reçoit le message d’erreur suivant :
+
+    AADSTS65005: Using application 'AppName' is currently not supported for your organization contoso.com because it is in an unmanaged state. An administrator needs to claim ownership of the company by DNS validation of contoso.com before the application AppName can be provisioned.
+
+L’utilisateur dispose d’un compte d’utilisateur Azure et est un locataire viral qui a été abandonné ou non géré. Il existe en outre, ne global ou dans le client, les administrateurs d’entreprise.
+
+Pour résoudre ce problème, vous devez effectuer sur le locataire abandonné. Reportez-vous à [reprendre un répertoire non géré en tant qu’administrateur dans Azure Active Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-admin-takeover). Vous devez également accéder à la DNS accessibles sur internet pour le suffixe de domaine en question afin de fournir la preuve directe que vous êtes dans le contrôle de l’espace de noms. Une fois que le client est renvoyé à un état géré, veuillez prendre contact avec le client si en laissant les utilisateurs et nom de domaine vérifié est la meilleure option pour leur organisation.
+
 ## <a name="a-guest-user-with-a-just-in-time-or-viral-tenant-is-unable-to-reset-their-password"></a>Un utilisateur invité avec locataire de type juste-à-temps ou « viral » ne peut pas réinitialiser son mot de passe
 
 Si le locataire de l'identité est un locataire de type juste-à-temps (JIT) ou « viral » (à savoir un locataire Azure distinct et non managé), seul l'utilisateur invité peut réinitialiser son mot de passe. Parfois, une organisation [reprend la gestion des locataires viraux](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-admin-takeover) qui sont créés lorsque des employés utilisent leur adresse e-mail professionnelle pour s'inscrire à des services. Dès lors que l'organisation adopte un locataire viral, seul un administrateur de cette organisation peut réinitialiser le mot de passe de l'utilisateur ou activer la réinitialisation de mot de passe en libre-service. Le cas échéant, en tant qu'organisation à l'origine de l'invitation, vous pouvez supprimer le compte d'utilisateur invité de votre annuaire et renvoyer une invitation.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Obtention de la prise en charge pour B2B Collaboration](get-support.md)
+[Obtention de la prise en charge pour B2B Collaboration](get-support.md)

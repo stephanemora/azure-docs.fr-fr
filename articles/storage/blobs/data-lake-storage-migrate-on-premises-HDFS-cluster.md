@@ -8,12 +8,12 @@ ms.date: 03/01/2019
 ms.author: normesta
 ms.topic: article
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: d0908e9edce8efb7a378ee04b6076b61cae2d2bf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 1eac7ecce88dc817b9bd7bd5330d10b019cc7dd2
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60708661"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939254"
 ---
 # <a name="use-azure-data-box-to-migrate-data-from-an-on-premises-hdfs-store-to-azure-storage"></a>Utiliser Azure Data Box pour migrer des données à partir d’un magasin HDFS en local vers le stockage Azure
 
@@ -70,14 +70,32 @@ Suivez ces étapes pour copier des données via le stockage REST API de/objet Bl
     ```
     Si vous utilisez un autre mécanisme pour DNS, vous devez vous assurer que la zone de données de point de terminaison peut être résolu.
     
-3. Définir une variable d’environnement `azjars` pour pointer vers le `hadoop-azure` et `microsoft-windowsazure-storage-sdk` fichiers jar. Ces fichiers sont sous le répertoire d’installation de Hadoop (vous pouvez vérifier si ces fichiers existent à l’aide de cette commande `ls -l $<hadoop_install_dir>/share/hadoop/tools/lib/ | grep azure` où `<hadoop_install_dir>` est le répertoire où vous avez installé Hadoop) utiliser les chemins d’accès complets. 
+4. Définir une variable d’environnement `azjars` pour pointer vers le `hadoop-azure` et `microsoft-windowsazure-storage-sdk` fichiers jar. Ces fichiers sont sous le répertoire d’installation de Hadoop (vous pouvez vérifier si ces fichiers existent à l’aide de cette commande `ls -l $<hadoop_install_dir>/share/hadoop/tools/lib/ | grep azure` où `<hadoop_install_dir>` est le répertoire où vous avez installé Hadoop) utiliser les chemins d’accès complets. 
     
     ```
     # azjars=$hadoop_install_dir/share/hadoop/tools/lib/hadoop-azure-2.6.0-cdh5.14.0.jar
     # azjars=$azjars,$hadoop_install_dir/share/hadoop/tools/lib/microsoft-windowsazure-storage-sdk-0.6.0.jar
     ```
 
-4. Copier des données à partir du HDFS Hadoop pour le stockage d’objets Blob de zone de données.
+5. Créer le conteneur de stockage que vous souhaitez utiliser pour la copie des données. Vous devez également spécifier un dossier de destination dans le cadre de cette commande. Cela peut être un dossier de destination factice à ce stade.
+
+    ```
+    # hadoop fs -libjars $azjars \
+    -D fs.AbstractFileSystem.wasb.Impl=org.apache.hadoop.fs.azure.Wasb \
+    -D fs.azure.account.key.[blob_service_endpoint]=[account_key] \
+    -mkdir -p  wasb://[container_name]@[blob_service_endpoint]/[destination_folder]
+    ```
+
+6. Exécuter une commande de la liste pour vous assurer que votre conteneur et le dossier ont été créés.
+
+    ```
+    # hadoop fs -libjars $azjars \
+    -D fs.AbstractFileSystem.wasb.Impl=org.apache.hadoop.fs.azure.Wasb \
+    -D fs.azure.account.key.[blob_service_endpoint]=[account_key] \
+    -ls -R  wasb://[container_name]@[blob_service_endpoint]/
+    ```
+
+7. Copier des données à partir du HDFS Hadoop pour le stockage d’objets Blob de zone de données, dans le conteneur que vous avez créé précédemment. Si le dossier que vous copiez dans est introuvable, la commande le crée automatiquement.
 
     ```
     # hadoop distcp \

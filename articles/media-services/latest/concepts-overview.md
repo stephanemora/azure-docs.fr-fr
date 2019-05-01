@@ -1,6 +1,6 @@
 ---
-title: Concepts d’Azure Media Services - Azure | Microsoft Docs
-description: Cette rubrique fournit une brève présentation des concepts Azure Media Services et fournit des liens pour plus d’informations.
+title: Azure la terminologie de Media Services et concepts - Azure | Microsoft Docs
+description: Cette rubrique fournit une vue d’ensemble des concepts et terminologie d’Azure Media Services et fournit des liens pour plus d’informations.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -12,20 +12,38 @@ ms.topic: article
 ms.date: 04/21/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 74a4ee03562963c8a50159f085e4b76b6d461ed9
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: feba7d53f196f6675aca965218046df67bbef81d
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62103836"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64867065"
 ---
 # <a name="media-services-concepts"></a>Concepts Media Services
 
-Cette rubrique fournit une brève présentation des concepts Azure Media Services et fournit des liens vers des articles contenant une explication approfondie de Media Services v3 concepts et fonctionnalités. Il est recommandé d’examiner les concepts fondamentaux décrits dans ces rubriques avant de commencer le développement.
+Cette rubrique donne une vue d’ensemble des concepts et terminologie d’Azure Media Services. L’article fournit également des liens vers des articles avec une explication détaillée des concepts de Media Services v3. 
+
+Il est recommandé d’examiner les concepts fondamentaux décrits dans ces rubriques avant de commencer le développement.
 
 > [!NOTE]
 > Actuellement, vous ne pouvez pas utiliser le portail Azure pour gérer des ressources v3. Utilisez l’[API REST](https://aka.ms/ams-v3-rest-ref), l’interface [CLI](https://aka.ms/ams-v3-cli-ref) ou l’un des kits [SDK](developers-guide.md) pris en charge.
 
+## <a name="terminology"></a>Terminologie
+
+Cette section montre comment certains termes courants mappent à l’API v3 de Media Services.
+
+### <a name="live-event"></a>Événement en temps réel
+
+Un **événement réel** représente un pipeline de réception, le transcodage (éventuellement) et l’empaquetage des flux live de métadonnées de vidéo et audio en temps réel.
+
+Pour les clients de la migration à partir de Media Services v2 API, le **événement réel** remplace le **canal** entity dans v2. Pour plus d’informations, consultez [migration de v2 vers v3](migrate-from-v2-to-v3.md).
+
+### <a name="streaming-endpoint-packaging-and-origin"></a>Point de terminaison (empaquetage et l’origine)
+
+Un **le point de terminaison de diffusion en continu** représente un dynamique (juste-à-temps) empaquetage et l’origine service qui peut fournir votre contenu en direct et à la demande directement à une application de lecteur client, à l’aide de la diffusion en continu media des protocoles courants (TLS ou DASH). En outre, le **le point de terminaison de diffusion en continu** fournit le chiffrement dynamique (juste-à-temps) pour ses systèmes de DRM de pointe.
+
+Dans la diffusion multimédia en continu du secteur, ce service est communément appelé un **Packager** ou **origine**.  Parmi les autres conditions dans le secteur pour cette fonctionnalité incluent JITP (juste en temps packager) ou JITE (juste en temps chiffrement). 
+ 
 ## <a name="cloud-upload-and-storage"></a>Chargement et stockage sur le cloud
 
 Pour démarrer la gestion, le chiffrement, codage, l’analyse et diffusion en continu de contenu multimédia dans Azure, vous devez créer un compte Media Services et charger vos fichiers numériques dans **ressources**.
@@ -52,7 +70,7 @@ Pour analyser vos fichiers vidéos et audio, vous devez également créer **tran
 
 ## <a name="packaging-delivery-protection"></a>Empaquetage, remise, protection
 
-Une fois que votre contenu est encodé, vous pouvez tirer parti de **empaquetage dynamique**. **Point de terminaison de diffusion en continu** est le service d’empaquetage dynamique dans Media Services est utilisé pour distribuer du contenu multimédia aux joueurs de client. Pour rendre vidéos dans la ressource en sortie aux clients pour la lecture, vous devez créer un **localisateur de diffusion en continu** , puis générer l’URL de diffusion. 
+Une fois que votre contenu est encodé, vous pouvez tirer parti de **empaquetage dynamique**. Dans Media Services, un **le point de terminaison de diffusion en continu**  /origine est le service de mise en package dynamique utilisé pour distribuer du contenu multimédia aux joueurs de client. Pour rendre vidéos dans la ressource en sortie aux clients pour la lecture, vous devez créer un **localisateur de diffusion en continu** , puis générer l’URL de diffusion. 
 
 Lorsque vous créez le **localisateur de diffusion en continu**, en plus du nom de l’élément multimédia, vous devez spécifier **stratégie de diffusion en continu**. **Stratégies de diffusion en continu** vous permettent de définir les protocoles de diffusion en continu et options de chiffrement (le cas échéant) pour votre **localisateurs de diffusion en continu**.
 

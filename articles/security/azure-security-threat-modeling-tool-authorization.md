@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 3c078f7246140ee966f1d202d2248758dde49059
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: c922556417ac92cc3667927fc8f846ace960a14a
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62121519"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64935878"
 ---
 # <a name="security-frame-authorization--mitigations"></a>Infrastructure de sécurité : Autorisation | Mesures de correction 
 | Produit/Service | Article |
@@ -280,7 +280,7 @@ Veuillez noter que la RLS comme fonctionnalité de base de données prête à l�
 | **Technologies applicables** | Générique |
 | **Attributs**              | StorageType - Table |
 | **Informations de référence**              | [Comment déléguer l’accès aux objets dans votre compte de stockage Azure à l’aide de SAP](https://azure.microsoft.com/documentation/articles/storage-security-guide/#_data-plane-security) |
-| **Étapes** | Dans certains scénarios d’entreprise, Azure Table Storage peut être nécessaire pour stocker des données sensibles répondant aux besoins des différentes parties. Par exemple, les données sensibles relatives aux différents pays. Dans ce cas, les signatures SAP peuvent être créées en spécifiant les plages de clés de partitions et de lignes, de sorte qu’un utilisateur puisse accéder aux données spécifiques à un pays particulier.| 
+| **Étapes** | Dans certains scénarios d’entreprise, Azure Table Storage peut être nécessaire pour stocker des données sensibles répondant aux besoins des différentes parties. Par exemple, les données sensibles relatives aux différents pays/régions. Dans ce cas, les signatures SAP peuvent être construits en spécifiant les plages clés de partition et de ligne, tels qu’un utilisateur peut accéder à des données spécifiques à un pays/une région particulière.| 
 
 ## <a id="rbac-azure-manager"></a>Activer le contrôle d’accès en fonction du rôle (RBAC) sur le compte de stockage Azure à l’aide d’Azure Resource Manager
 

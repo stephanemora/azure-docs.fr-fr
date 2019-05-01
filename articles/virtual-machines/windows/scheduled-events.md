@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: 2ed92486b55aa4fd7dce32f54f0b6567c7bb3cf2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ab0aefd5650aada9c301115813a80747ddd1f2ac
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60710997"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926314"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Instance Metadata Service : Événements planifiés pour les machines virtuelles Windows
 
@@ -48,7 +48,7 @@ Le service Événements planifiés fournit des événements dans les cas d’usa
 - Maintenance lancée par la plateforme (par exemple, mise à jour du système d’exploitation hôte)
 - Matériel détérioré
 - Maintenance lancée par l’utilisateur (par exemple, un utilisateur redémarre ou redéploie une machine virtuelle)
-- [Éviction de la machine virtuelle basse priorité](https://azure.microsoft.com/en-us/blog/low-priority-scale-sets) dans la mise à l’échelle définit
+- [Éviction de la machine virtuelle basse priorité](https://azure.microsoft.com/blog/low-priority-scale-sets) dans la mise à l’échelle définit
 
 ## <a name="the-basics"></a>Concepts de base  
 

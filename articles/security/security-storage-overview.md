@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/01/2019
+ms.date: 04/28/2019
 ms.author: terrylan
-ms.openlocfilehash: ec0e8ae1bf657cda59f3d133db23106436e184e3
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: 262ccc311b2b7ec634183eb4f914902048ba2c3b
+ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62120890"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64872039"
 ---
 # <a name="azure-storage-security-overview"></a>Présentation de la sécurité du Stockage Azure
 
-Le service Stockage Azure est la solution de stockage cloud pour les applications récentes qui s’appuient sur la durabilité, la disponibilité et la scalabilité pour répondre aux besoins des clients. Le Stockage Azure fournit un ensemble complet de fonctionnalités de sécurité. Vous pouvez :
+Cet article fournit une vue d’ensemble des fonctionnalités de sécurité Azure pouvant être utilisées avec le Stockage Azure. Le service Stockage Azure est la solution de stockage cloud pour les applications récentes qui s’appuient sur la durabilité, la disponibilité et la scalabilité pour répondre aux besoins des clients. Le Stockage Azure fournit un ensemble complet de fonctionnalités de sécurité. Vous pouvez :
 
 * Sécurisez le compte de stockage à l’aide du contrôle d’accès en fonction du rôle (RBAC) et d’Azure Active Directory.
 * Protégez les données en transit entre une application et Azure au moyen du chiffrement côté client, de HTTPS ou de SMB 3.0.
@@ -33,9 +33,6 @@ Le service Stockage Azure est la solution de stockage cloud pour les application
 * Utilisez l’analytique pour suivre la méthode d’authentification utilisée par une personne pour l’accès au stockage.
 
 Pour une étude plus détaillée de la sécurité dans le Stockage Azure, consultez le [Guide de sécurité du Stockage Azure](../storage/common/storage-security-guide.md). Ce guide fournit une présentation approfondie des fonctionnalités de sécurité du Stockage Azure. Ces fonctionnalités comprennent les clés de compte de stockage, le chiffrement des données en transit et au repos et l’analyse du stockage.
-
-
-Cet article fournit une vue d’ensemble des fonctionnalités de sécurité Azure pouvant être utilisées avec le Stockage Azure. Les liens vers les articles fournissent des informations complémentaires sur chaque fonctionnalité.
 
 ## <a name="role-based-access-control"></a>Contrôle d’accès en fonction du rôle
 

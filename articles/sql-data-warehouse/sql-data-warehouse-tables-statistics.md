@@ -11,12 +11,12 @@ ms.date: 05/09/2018
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: seoapril2019
-ms.openlocfilehash: 62007624bdf2b5f1b9c387bcc51d58c020860913
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7ef5c0a4e6694e9babcb3054831e88d9edceae85
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61474944"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64937274"
 ---
 # <a name="table-statistics-in-azure-sql-data-warehouse"></a>Statistiques de table dans Azure SQL Data Warehouse
 
@@ -71,7 +71,7 @@ La table table_name est le nom de la table qui contient les statistiques à affi
 
 ## <a name="updating-statistics"></a>Mettre à jour les statistiques
 
-Une meilleure pratique consiste à mettre à jour les statistiques sur les colonnes de date à chaque fois qu’une date est ajoutée. Chaque fois que de nouvelles lignes sont chargées dans l’entrepôt, de nouvelles dates de transaction et de chargement sont également ajoutées. Ces dernières affectent la distribution des données et rendent les statistiques obsolètes. À l’inverse, vous n’aurez peut-être jamais à mettre à jour les statistiques d’une colonne de pays dans une table des clients, car la distribution des valeurs change rarement. Si l’on part du principe que la distribution des données est constante d’un client à l’autre, l’ajout de nouvelles lignes dans une table ne devrait pas affecter cette distribution. Toutefois, si votre entrepôt de données indique un seul pays et si vous importez des données d’un nouveau pays, ce qui entraîne donc le stockage de données de plusieurs pays, il est nécessaire de mettre à jour les statistiques de la colonne de pays.
+Une meilleure pratique consiste à mettre à jour les statistiques sur les colonnes de date à chaque fois qu’une date est ajoutée. Chaque fois que de nouvelles lignes sont chargées dans l’entrepôt, de nouvelles dates de transaction et de chargement sont également ajoutées. Ces dernières affectent la distribution des données et rendent les statistiques obsolètes. À l’inverse, les statistiques sur une colonne de pays/région dans une table customer jamais devront être mis à jour, étant donné que la distribution des valeurs change rarement. Si l’on part du principe que la distribution des données est constante d’un client à l’autre, l’ajout de nouvelles lignes dans une table ne devrait pas affecter cette distribution. Toutefois, si votre entrepôt de données contient uniquement un pays/région et que vous importez des données à partir d’un nouveau pays/région, ce qui entraîne les données à partir de plusieurs pays ou régions, qui est stockées, vous devez mettre à jour des statistiques sur la colonne de pays/région.
 
 Voici certaines recommandations pour la mise à jour des statistiques :
 

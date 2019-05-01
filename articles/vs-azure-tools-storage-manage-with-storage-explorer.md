@@ -8,12 +8,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/22/2019
 ms.author: cawa
-ms.openlocfilehash: 3db1d638aa1e0d8488c310593a593465c2b9b336
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: 4ee91a91a20cbffebf7453ba573266962aa35806
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62128277"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924738"
 ---
 # <a name="get-started-with-storage-explorer"></a>Prise en main de l’Explorateur Stockage
 
@@ -55,7 +55,7 @@ L’Explorateur Stockage Azure est pris en charge sur les distributions suivante
 
 L’Explorateur Stockage Azure peut fonctionner d’autres distributions, mais seules celles répertoriés ci-dessus sont officiellement prises en charge.
 
-Pour plus d’aide sur l’installation de l’Explorateur de stockage sur Linux, consultez le [Guide de dépannage](https://docs.microsoft.com/en-us/azure/storage/common/storage-explorer-troubleshooting#linux-dependencies).
+Pour plus d’aide sur l’installation de l’Explorateur de stockage sur Linux, consultez le [Guide de dépannage](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting#linux-dependencies).
 
 Les [Notes de publication](https://go.microsoft.com/fwlink/?LinkId=838275&clcid=0x409) de l’Explorateur Stockage Azure contiennent des étapes propres à certaines distributions.
 

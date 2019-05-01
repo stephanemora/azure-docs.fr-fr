@@ -2,24 +2,18 @@
 title: Activer le partage de prospects dans la Place de marché Microsoft Azure | Azure
 description: Découvrez comment activer le partage des prospects dans la Place de marché Azure et AppSource, pour les éditeurs d’applications et de services.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: ''
 author: jm-aditi-ms
 manager: pabutler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 346ebd9636623a2fc8b08d42c2170a21a5e9a316
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 9aecef81547131e6f843fdd55db259d2c4299c9c
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62121076"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64938692"
 ---
 # <a name="enable-lead-sharing"></a>Activer le partage des prospects
 Assurez-vous que la gestion des prospects est activée pour votre annonce dans la [Place de marché Azure](https://azuremarketplace.microsoft.com) ou [Microsoft AppSource](https://appsource.microsoft.com) afin que vous puissiez recevoir les coordonnées des publics suivants :

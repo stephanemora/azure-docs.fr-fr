@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 4/9/2019
 ms.topic: conceptual
 ms.author: ramamill
-ms.openlocfilehash: 7b10db06ab4ade1b23985b1a259d82d4818941b1
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: 9a77b3982d8aed6ae694c32baecd7ae194c51724
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62124964"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924842"
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-disaster-recovery-to-azure"></a>Planifier la capacité et la mise à l’échelle pour la récupération d’urgence VMware vers Azure
 
@@ -120,7 +120,7 @@ Avant de configurer l’infrastructure Azure Site Recovery, accédez à l’envi
 
 ## <a name="deploy-additional-process-servers"></a>Déployer d’autres serveurs de traitement
 
-Si vous faites monter en charge votre déploiement au-delà de 200 machines sources, ou si votre taux d’activités quotidien dépasse 2 To, vous devez ajouter des serveurs de processus pour gérer le volume du trafic. Nous avons amélioré le produit pour fournir la version 9.24 [des conseils de produit](vmware-azure-manage-process-server.md#process-server-selection-guidance) quand vous devez configurer un serveur de processus de scale-out. [Configurer le serveur de processus](vmware-azure-set-up-process-server-scale.md) pour protéger les nouvelles machines source ou [équilibrer la charge](vmware-azure-manage-process-server.md#balance-the-load-on-process-server).
+Si vous faites monter en charge votre déploiement au-delà de 200 machines sources, ou si votre taux d’activités quotidien dépasse 2 To, vous devez ajouter des serveurs de processus pour gérer le volume du trafic. Nous avons amélioré le produit pour fournir la version 9.24 [traiter les alertes du serveur](vmware-physical-azure-monitor-process-server.md#process-server-alerts) quand vous devez configurer un serveur de processus de scale-out. [Configurer le serveur de processus](vmware-azure-set-up-process-server-scale.md) pour protéger les nouvelles machines source ou [équilibrer la charge](vmware-azure-manage-process-server.md#move-vms-to-balance-the-process-server-load).
 
 ### <a name="migrate-machines-to-use-the-new-process-server"></a>Migrez les machines pour utiliser le nouveau serveur de traitement
 

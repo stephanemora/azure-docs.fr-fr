@@ -1,6 +1,6 @@
 ---
-title: Disponibilité de l’infrastructure Azure
-description: Cet article décrit les niveaux de redondance pour garantir une disponibilité optimale des données des clients.
+title: Disponibilité de l’infrastructure Azure - sécurité Azure
+description: Cet article fournit des informations sur ce que Microsoft fait pour sécuriser l’infrastructure Azure et de garantir une disponibilité optimale des données des clients.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/06/2018
+ms.date: 04/28/2019
 ms.author: terrylan
-ms.openlocfilehash: a9a55f61f032512be032897d5f21ece405844634
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: d13c79152afe00cb326f69b523e9fd7f0c3550b0
+ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60587188"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64872603"
 ---
 # <a name="azure-infrastructure-availability"></a>Disponibilité de l’infrastructure Azure
-Azure fournit une disponibilité robuste basée sur une redondance étendue obtenue grâce à la technologie de virtualisation. Azure fournit de nombreux niveaux de redondance pour garantir une disponibilité optimale des données des clients.
+Cet article fournit des informations sur ce que Microsoft fait pour sécuriser l’infrastructure Azure et de garantir une disponibilité optimale des données des clients. Azure fournit une disponibilité robuste basée sur une redondance étendue obtenue grâce à la technologie de virtualisation.
 
 ## <a name="temporary-outages-and-natural-disaster"></a>Pannes temporaires et catastrophe naturelle
 L’équipe Microsoft Cloud Infrastructure and Operations conçoit, génère, exploite et améliore la sécurité de l’infrastructure cloud. Cette équipe garantit que l’infrastructure Azure offre une disponibilité et une fiabilité élevées, une haute efficacité et une extensibilité intelligente. L’équipe fournit un cloud privé plus sécurisé et fiable.

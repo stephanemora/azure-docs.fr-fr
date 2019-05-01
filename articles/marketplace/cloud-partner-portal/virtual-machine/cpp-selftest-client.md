@@ -1,25 +1,18 @@
 ---
-title: Client d’auto-test pour prévalider une machine virtuelle - Place de marché Azure | Microsoft Docs
+title: Client de test automatique afin de pré-valider sur une machine virtuelle | Place de marché Azure
 description: Comment créer un client d’auto-test pour prévalider une image de machine virtuelle pour la Place de marché Azure.
 services: Azure, Marketplace, Cloud Partner Portal, Virtual Machine
-documentationcenter: ''
 author: dan-wesley
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/23/2018
-ms.author: pbutlerm
-ms.openlocfilehash: ae01b0fb088035240e670c16d4d457d8abda1bfa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.author: pabutler
+ms.openlocfilehash: 117249feea04381b34f8fc1d95f77c2c1a567dba
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60846946"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64938719"
 ---
 # <a name="create-a-self-test-client-to-pre-validate-an-azure-virtual-machine-image"></a>Créer un client d’auto-test pour prévalider une image de machine virtuelle Azure
 

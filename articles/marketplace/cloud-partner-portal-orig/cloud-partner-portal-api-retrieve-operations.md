@@ -1,25 +1,18 @@
 ---
-title: API de récupération d’opérations | Microsoft Docs
+title: Récupérer les opérations API | Place de marché Azure
 description: Récupère toutes les opérations sur l’offre ou pour obtenir une opération particulière pour la valeur operationId spécifiée.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: reference
 ms.date: 09/14/2018
-ms.author: pbutlerm
-ms.openlocfilehash: a7666ada6c4535010297415eac8b0bd9e5226d9e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: 1fbcc1d50dbc4488c4123be64e85de612233ccc3
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61094201"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64935781"
 ---
 <a name="retrieve-operations"></a>Récupérer des opérations
 ===================
@@ -40,10 +33,10 @@ Récupère toutes les opérations sur l’offre ou pour obtenir une opération p
 
 |  **Name**          |      **Description**                                                                                           | **Type de données** |
 |  ----------------  |     --------------------------------------------------------------------------------------------------------   |  -----------  |
-|  publisherId       |  Identificateur du serveur de publication, par exemple `Contoso`                                                                   |  String       |
-|  offerId           |  Identificateur de l’offre                                                                                              |  String       |
+|  publisherId       |  Identificateur du serveur de publication, par exemple `Contoso`                                                                   |  Chaîne       |
+|  offerId           |  Identificateur de l’offre                                                                                              |  Chaîne       |
 |  operationId       |  GUID qui identifie de façon unique l’opération sur l’offre. La valeur operationId peut être récupérée à l’aide de cette API et elle est également retournée dans l’en-tête HTTP de la réponse pour toute opération de longue durée, comme celle de l’API de [publication de l’offre](./cloud-partner-portal-api-publish-offer.md).  |   Guid   |
-|  filteredStatus    | Paramètre de requête facultatif utilisé pour filtrer par état (par exemple `running`) sur la collection retournée par cette API.  |   String |
+|  filteredStatus    | Paramètre de requête facultatif utilisé pour filtrer par état (par exemple `running`) sur la collection retournée par cette API.  |   Chaîne |
 |  api-version       | Dernière version de l’API                                                                                           |    Date      |
 |  |  |  |
 

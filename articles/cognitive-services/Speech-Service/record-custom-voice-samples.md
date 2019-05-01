@@ -8,16 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-origin.date: 12/06/2018
-ms.date: 04/01/2019
-ms.author: v-biyu
+ms.date: 12/06/2018
+ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: d5d3d7031f9795db0ae04bc707bd9e7707137210
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b4360150064d2f42cc2dc2cc3ef9f7783a5cb175
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60481990"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64866542"
 ---
 # <a name="record-voice-samples-to-create-a-custom-voice"></a>Enregistrer des échantillons vocaux pour créer une voix personnalisée
 
@@ -110,7 +109,7 @@ Heureusement, il est possible d’éviter totalement ces problèmes. Il existe d
 |-|-|
 |[Corpus CMU Arctic](http://festvox.org/cmu_arctic/)|Environ 1 100 phrases sélectionnées provenant d’œuvres libres de droits et destinées spécifiquement à des projets de synthèse vocale. C’est un excellent point de départ.|
 |Œuvres libres<br>de droits|Il s’agit en général, d’œuvres publiées avant 1923. En anglais, le [projet Gutenberg](https://www.gutenberg.org/) propose des dizaines de milliers de ces œuvres. Vous pouvez vous concentrer sur des œuvres plus récentes car leur contenu sera plus proche de l’anglais moderne.|
-|Œuvres&nbsp;du gouvernement|Aux États-Unis, les œuvres créées par le gouvernement américain ne sont pas soumises au copyright, mais cela peut être le cas dans d’autres pays.|
+|Œuvres&nbsp;du gouvernement|Works créés par le gouvernement des États-Unis ne sont pas copyright aux États-Unis, bien que le gouvernement peut-être déclarer des droits d’auteur dans d’autres pays/régions.|
 |Domaine public|Œuvres pour lesquelles tout copyright a été explicitement exclu, ou qui sont destinées au domaine public. Certaines juridictions interdisent tout renoncement total au copyright.|
 |Œuvres cédées sous licence|Œuvres distribuées sous licence comme Creative Commons ou la Licence de documentation libre GNU (GFDL). Wikipédia utilise une licence GFDL. Certaines licences, toutefois, peuvent imposer des restrictions quant à une utilisation du contenu sous licence qui pourrait avoir un impact sur la création d’un modèle de voix personnalisée. Par conséquent, lisez attentivement la licence.|
 

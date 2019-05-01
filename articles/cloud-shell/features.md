@@ -12,14 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 04/10/2019
+ms.date: 04/26/2019
 ms.author: damaerte
-ms.openlocfilehash: 46c9350dd2a33d0d25fe193b2ae50c954f2d1f95
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: f873f20f97b822e1f4dee716cb69535b0522dc2c
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60614366"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64866500"
 ---
 # <a name="features--tools-for-azure-cloud-shell"></a>Fonctionnalités et outils pour Azure Cloud Shell
 
@@ -50,6 +50,18 @@ Vous pouvez continuer à utiliser les [applets de commande Azure PowerShell](htt
 Toutes les modifications apportées aux ressources Azure, effectuées directement dans le portail Azure ou via des applets de commande Azure PowerShell, sont répercutées dans le lecteur Azure.  Vous pouvez exécuter `dir -Force` pour actualiser vos ressources.
 
 ![](media/features-powershell/azure-drive.png)
+
+### <a name="manage-exchange-online"></a>Manage Exchange Online
+
+PowerShell dans Cloud Shell contient une build privée du module Exchange Online.  Exécutez `Connect-EXOPSSession` pour obtenir vos applets de commande Exchange.
+
+![](media/features-powershell/exchangeonline.png)
+
+ Exécutez `Get-Command -Module tmp_*`
+> [!NOTE]
+> Le nom du module doit commencer par `tmp_`, si vous avez installé des modules avec le même préfixe, leurs applets de commande seront également visibles. 
+
+![](media/features-powershell/exchangeonlinecmdlets.png)
 
 ### <a name="deep-integration-with-open-source-tooling"></a>Étroite intégration à des outils open source
 

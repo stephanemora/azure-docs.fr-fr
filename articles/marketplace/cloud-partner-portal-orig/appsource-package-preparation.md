@@ -1,25 +1,19 @@
 ---
-title: Préparation d'un package AppSource | Microsoft Docs
+title: Préparation du Package de AppSource | Place de marché Azure
 description: Explique comment préparer et créer un package AppSource.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: pbutlerm
 manager: Ricardo.Villalobos
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: cc06ddf2fce93bef27e7aaee85b47179608e192b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.author: pabutler
+ms.openlocfilehash: ff822e87bfec5daa161172c0d47975eb06cc2808
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60625429"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64935648"
 ---
 # <a name="appsource-package-preparation"></a>Préparation d'un package AppSource
 
@@ -117,7 +111,7 @@ Voici un exemple de code pour le fichier input.xml. Voir les définitions dans l
 |SolutionAnchorName |Nom du fichier zip de la solution dans l'outil Package Deployer utilisé pour le nom d’affichage et la description des ressources de la solution.|
 | StartDate| Date à laquelle le package de la solution sera disponible. Le format est MM/JJ/AAAA.|
 |EndDate|Date à partir de laquelle le package de la solution ne sera plus disponible. Le format est MM/JJ/AAAA. |
-|SupportedCountries |Liste des pays (séparés par des virgules) concernés par ce package. Contactez les services en ligne pour obtenir la liste de tous les codes de pays actuels. Dans le temps, de la rédaction la liste était : AE, AL, AM, AO, AR, AT, AUSTRALIE, ARIZONA, BA, BB, BD, ÊTRE BG, BH, BM, BN, BO, BR, PAR AUTORITÉ DE CERTIFICATION, CH, CI, CL, CM, COLORADO, CR, CV, PA, CY, CZ, DE, DK,, DZ, EC, EE, PAR EXEMPLE, ES, FI, FR, GO, GE, HG, GR, GT, HK , HN, RESSOURCES HUMAINES, HU, ID, INTERNET EXPLORER, IL, IN, IQ, EST, ELLE, JM, JO, JP, KE, KG, KN, CORÉE, KW, KY, KZ, LB, LK, LT, LU, LV, EP, MA, MC, MD, ME, MK, MN, MO, MT, MU, MX, MY, NG, NI, NL, NON, NZ, OM, PA, PE, PH , PK, PL, DEMANDE DE TIRAGE, PS, PT, PY, ASSURANCE QUALITÉ, RO, RS, RU, RW, SA, SE, SG, SI, SK, SN, SV, TH, TM, TN, TR, TT, TW, UA, AUX ÉTATS-UNIS, UY, UZ, VE, VI, VN, ZA, ZW |
+|SupportedCountries |Il s’agit d’une liste délimitée par des virgules de pays/régions, ce qui devrait être ce package. Contactez les services en ligne pour obtenir la liste de tous les codes de pays actuels. Dans le temps, de la rédaction la liste était : AE, AL, AM, AO, AR, AT, AUSTRALIE, ARIZONA, BA, BB, BD, ÊTRE BG, BH, BM, BN, BO, BR, PAR AUTORITÉ DE CERTIFICATION, CH, CI, CL, CM, COLORADO, CR, CV, PA, CY, CZ, DE, DK,, DZ, EC, EE, PAR EXEMPLE, ES, FI, FR, GO, GE, HG, GR, GT, HK , HN, RESSOURCES HUMAINES, HU, ID, INTERNET EXPLORER, IL, IN, IQ, EST, ELLE, JM, JO, JP, KE, KG, KN, CORÉE, KW, KY, KZ, LB, LK, LT, LU, LV, EP, MA, MC, MD, ME, MK, MN, MO, MT, MU, MX, MY, NG, NI, NL, NON, NZ, OM, PA, PE, PH , PK, PL, DEMANDE DE TIRAGE, PS, PT, PY, ASSURANCE QUALITÉ, RO, RS, RU, RW, SA, SE, SG, SI, SK, SN, SV, TH, TM, TN, TR, TT, TW, UA, AUX ÉTATS-UNIS, UY, UZ, VE, VI, VN, ZA, ZW |
 |LearnMoreLink | URL de la page Plus d’informations concernant ce package. |
 |Locales|Une instance de ce nœud pour chacune des langues que vous souhaitez prendre en charge dans l'expérience utilisateur préférée de la solution. Ce nœud contient des enfants qui décrivent les paramètres régionaux, le logo et les conditions de chaque langue.|
 |Paramètres régionaux : PackageLocale.Code|LCID de la langue correspondant à ce nœud. Exemple : Anglais des États-Unis est 1033|

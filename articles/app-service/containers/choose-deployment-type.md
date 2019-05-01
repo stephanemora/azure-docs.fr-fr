@@ -16,19 +16,19 @@ ms.topic: article
 ms.date: 05/04/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: c8a700bcd2780ef7b0c7ad1fbb513d4b4febffcb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: bba38bb69e5abaa94b01308924fe0c6bf07ca08e
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60849980"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919969"
 ---
 # <a name="custom-image-multi-container-or-built-in-platform-image"></a>Image personnalisée, groupe de plusieurs conteneurs ou image de plateforme intégrée ?
 
 [App Service sur Linux](app-service-linux-intro.md) offre trois moyens de publier votre application sur le web :
 
 - **Déploiement d’une image personnalisée** : « dockerisez » votre application dans une image Docker qui contient l’ensemble des fichiers et dépendances dans un package prêt à s’exécuter.
-- **Déploiement de plusieurs conteneurs** : dockerisez votre application sur plusieurs conteneurs à l’aide d’un fichier de configuration Docker Compose ou Kubernetes.
+- **Déploiement de plusieurs conteneurs** : « Dockerisez » votre application sur plusieurs conteneurs à l’aide d’un fichier de configuration de Docker Compose.
 - **Déploiement d’application avec une image de plateforme intégrée** : nos images de plateforme intégrées contiennent des runtimes et dépendances d’application web courants, tels que Node et PHP. Appliquez l’une des [méthodes de déploiement Azure App Service](../deploy-local-git.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) pour déployer votre application sur le stockage de votre application web, puis utilisez une image de plateforme intégrée pour l’exécuter.
 
 ## <a name="which-method-is-right-for-your-app"></a>Quelle est la méthode la plus adaptée à votre application ? 
@@ -43,3 +43,20 @@ Les principaux facteurs à prendre en compte sont les suivants :
 - **Exigences de lecture/écriture de disque** : un volume de stockage pour le contenu web est alloué à toutes les applications web. Ce volume, fourni par le stockage Azure, est monté sur `/home` dans le système de fichiers de l’application. Contrairement au fichiers du système de fichiers conteneur, les fichiers du volume de contenu sont accessibles par toutes les instances d’échelle d’une application, et les modifications sont conservées lors des redémarrages de l’application. Toutefois, la latence du disque du volume du contenu est plus élevée et plus variable que celle du système de fichiers conteneur local, et l’accès peut être impacté par les mises à niveau de la plateforme, les temps d’arrêt non planifiés et les problèmes de connectivité réseau. Le déploiement d’image personnalisée peut être bénéfique aux applications qui nécessitent un accès en lecture seule intensif aux fichiers de contenu, car les fichiers sont placés dans le système de fichiers image plutôt que sur le volume de contenu.
 - **Utilisation des ressources de build** : quand une application est déployée à partir de la source, les scripts de déploiement exécutés par Kudu utilisent les mêmes ressources de stockage et de calcul de plan App Service que l’application en cours d’exécution. Les déploiements d’applications à grande échelle peuvent consommer plus de ressources ou de temps que vous ne le souhaitez. En particulier, de nombreux flux de travail de déploiement génèrent une activité élevée du disque sur le volume de contenu d’application, qui n’est pas optimisé pour une telle activité. Une image personnalisée fournit tous les fichiers et les dépendances de votre application à Azure dans un package unique, sans qu’aucun transfert de fichiers ou action de déploiement supplémentaire ne soit nécessaire.
 - **Nécessité d’une itération rapide** : la dockerisation d’une application exige des étapes de génération supplémentaires. Pour que les modifications prennent effet, vous devez envoyer votre nouvelle image vers un référentiel lors de chaque mise à jour. Ces mises à jour sont ensuite tirées vers l’environnement Azure. Si l’un des conteneurs intégrés répond aux besoins de votre application, le déploiement à partir de la source peut offrir un flux de travail de développement plus rapide.
+
+## <a name="next-steps"></a>Étapes suivantes
+
+Conteneur personnalisé :
+* [Exécuter le conteneur personnalisé](quickstart-docker-go.md)
+
+Plusieurs conteneurs :
+* [Créer l’application à conteneurs multiples](quickstart-multi-container.md)
+
+Les articles suivants vous aideront à démarrer avec App Service sur Linux avec une image de plateforme intégrée :
+
+* [.NET Core](quickstart-dotnetcore.md)
+* [PHP](quickstart-php.md)
+* [Node.JS](quickstart-nodejs.md)
+* [Java](quickstart-java.md)
+* [Python](quickstart-python.md)
+* [Ruby](quickstart-ruby.md)

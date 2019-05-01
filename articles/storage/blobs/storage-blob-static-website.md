@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 02/25/2019
+ms.date: 04/29/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 67d3dcad4ec73ee09ec40282b2fbdea945daefe4
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: 21944c62f09518e20619313cd6ac28fb2ad600c7
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62122674"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925276"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Hébergement de sites web statiques dans le service Stockage Azure
 Les comptes GPv2 du service Stockage Azure vous permettent de distribuer du contenu statique (fichiers HTML, CSS, JavaScript et image) directement à partir d’un conteneur de stockage nommé *$web*. La fonctionnalité d’hébergement dans Stockage Azure vous permet d’utiliser des architectures serverless, notamment [Azure Functions](/azure/azure-functions/functions-overview) et d’autres services PaaS.
@@ -52,16 +52,21 @@ Lorsqu’un nom de fichier n’est pas fourni, le nom de fichier par défaut sé
 
 ## <a name="cdn-and-ssl-support"></a>Prise en charge du service CDN (réseau de distribution de contenu) et du protocole SSL
 
-Pour faire en sorte que vos fichiers de site web statique soient accessibles sur HTTPS, consultez l’article [Utilisation d’Azure CDN pour accéder aux objets blob avec des domaines personnalisés via HTTPS](storage-https-custom-domain-cdn.md). Dans le cadre de ce processus, vous devez *pointer votre CDN sur le point de terminaison web* plutôt que sur le point de terminaison d’objet blob. Vous devrez peut-être patienter quelques minutes avant que votre contenu soit visible, car la configuration du CDN n’est pas exécutée immédiatement.
+Pour rendre vos fichiers de site Web statique sur votre domaine personnalisé et le HTTPS, consultez [à l’aide d’Azure CDN pour accéder aux objets BLOB avec des domaines personnalisés via HTTPS](storage-https-custom-domain-cdn.md). Dans le cadre de ce processus, vous devez *pointer votre CDN sur le point de terminaison web* plutôt que sur le point de terminaison d’objet blob. Vous devrez peut-être patienter quelques minutes avant que votre contenu soit visible, car la configuration du CDN n’est pas exécutée immédiatement.
 
 Lorsque vous mettez à jour votre site Web statique, veillez à effacer le contenu mis en cache sur les serveurs de périphérie CDN en supprimant le point de terminaison CDN. Pour plus d’informations, consultez [Purger un point de terminaison CDN Azure](../../cdn/cdn-purge-endpoint.md).
+
+> [!NOTE]
+> HTTPS est pris en charge en mode natif via le point de terminaison web compte. L’utilisation de domaines personnalisés via HTTPS requiert l’utilisation d’Azure CDN pour l’instant. 
+>
+> Point de terminaison public compte web via le protocole HTTPS : `https://<ACCOUNT_NAME>.<ZONE_NAME>.web.core.windows.net/<FILE_NAME>`
 
 ## <a name="custom-domain-names"></a>Noms de domaine personnalisés
 
 Vous pouvez [configurer un nom de domaine personnalisé pour votre compte Stockage Azure](storage-custom-domain-name.md) afin que votre site web statique soit accessible par le biais d’un domaine personnalisé. Pour découvrir la procédure détaillée d’hébergement de votre domaine sur Azure, consultez l’article [Héberger votre domaine dans Azure DNS](../../dns/dns-delegate-domain-azure-dns.md).
 
 ## <a name="pricing"></a>Tarifs
-L’hébergement de sites web statiques est fourni sans coût supplémentaire. Pour plus de détails sur les prix du stockage Blob Azure, consultez la [page relative aux tarifs du stockage Blob Azure](https://azure.microsoft.com/pricing/details/storage/blobs/).
+L’activation de l’hébergement de site Web statique est gratuit. Les clients sont facturés pour les coûts de stockage et des opérations blob utilisé. Pour plus de détails sur les prix du stockage Blob Azure, consultez la [page relative aux tarifs du stockage Blob Azure](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 ## <a name="quickstart"></a>Démarrage rapide
 
@@ -159,7 +164,10 @@ Non, l’hébergement de sites web statiques est disponible uniquement dans les 
 Oui, le nouveau point de terminaison web respecte les règles de pare-feu et de réseau virtuel configurées pour le compte de stockage.
 
 **Le point de terminaison web respecte-t-il la casse ?**  
-Oui, le point de terminaison web respecte la casse, tout comme le point de terminaison d’objet blob. 
+Oui, le point de terminaison web respecte la casse, tout comme le point de terminaison d’objet blob.
+
+**Le point de terminaison web est accessible via HTTP et HTTPS ?**
+Oui, le point de terminaison web est accessible via les protocoles HTTP et HTTPS. Toutefois, si le compte de stockage est configuré pour exiger un transfert sécurisé via le protocole HTTPS, les utilisateurs doivent utiliser le point de terminaison HTTPS. Pour plus d’informations, consultez [exiger un transfert sécurisé dans le stockage Azure](../common/storage-require-secure-transfer.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Utilisation d’Azure CDN pour accéder aux objets blob avec des domaines personnalisés via HTTPS](storage-https-custom-domain-cdn.md)

@@ -1,25 +1,18 @@
 ---
-title: SaaS Fulfillment API V2 - place de marché Azure | Microsoft Docs
+title: SaaS Fulfillment API V2 | Place de marché Azure
 description: Explique comment créer une offre SaaS sur la place de marché Azure à l’aide de l’exécution associée V2 API.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 03/28/2019
-ms.author: pbutlerm
-ms.openlocfilehash: 437009079c1bebe3694aaa26f945bd726b3c9fb9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: e1715c2cb66398ff7ca55c0ccdbfe50685fae76e
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60594732"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64941974"
 ---
 # <a name="saas-fulfillment-apis-version-2"></a>Version d’API SaaS traitement 2 
 
@@ -39,7 +32,7 @@ Le tableau suivant répertorie les États d’approvisionnement pour un abonneme
 
 #### <a name="provisioning"></a>Approvisionnement
 
-Lorsqu’un client démarre un achat, l’ISV reçoit ces informations dans un AuthCode sur une page web interactive de client à l’aide d’un paramètre d’URL. Le AuthCode peut être validée et échangé pour les détails de ce qui doit être configuré.  Une fois le service SaaS d’approvisionnement, il envoie un appel de l’activer pour signaler que l’exécution est terminée et que le client peut être facturé.  Le diagramme suivant illustre la séquence d’appels d’API pour un scénario d’approvisionnement.  
+Lorsqu’un client démarre un achat, l’ISV reçoit ces informations dans un Code d’authentification sur une page web interactive de client à l’aide d’un paramètre d’URL. Par exemple : `https://contoso.com/signup?token=..`, où le fournisseur d’URL de page d’accueil dans Centre partenaires est `https://contoso.com/signup`. Le code d’authentification peut être validé et échangé pour les détails de ce qui doit être mis en service en appelant l’API résoudre.  Une fois le service SaaS d’approvisionnement, il envoie un appel de l’activer pour signaler que l’exécution est terminée et que le client peut être facturé.  Le diagramme suivant illustre la séquence d’appels d’API pour un scénario d’approvisionnement.  
 
 ![Appels d’API pour un service SaaS d’approvisionnement.](./media/saas-post-provisioning-api-v2-calls.png)
 
@@ -87,15 +80,73 @@ Le tableau suivant répertorie les définitions pour les entités utilisées par
 |     ----------------     |     ----------                         |
 | `subscriptionId`         | Identificateur GUID pour une ressource de SaaS  |
 | `name`                   | Nom convivial fourni pour cette ressource par le client |
-| `publisherId`            | Identificateur de chaîne unique généré automatiquement pour chaque serveur de publication, par exemple « conotosocorporation » |
-| `offerId`                | Identificateur de chaîne unique généré automatiquement pour chaque offre, par exemple « contosooffer1 »  |
-| `planId`                 | Identificateur de chaîne unique généré automatiquement pour chaque plan/référence (SKU), par exemple « contosobasicplan » |
+| `publisherId`            | Identificateur de chaîne unique pour chaque serveur de publication, par exemple « contoso » |
+| `offerId`                | Identificateur de chaîne unique pour chaque offre, par exemple « offer1 »  |
+| `planId`                 | Identificateur de chaîne unique pour chaque plan/référence (SKU), par exemple « silver » |
 | `operationId`            | Identificateur GUID pour une opération particulière  |
-|  `action`                | L’action effectuée sur une ressource, soit `subscribe`, `unsubscribe`, `suspend`, `reinstate`, ou `changePlan`  |
+|  `action`                | L’action effectuée sur une ressource, soit `subscribe`, `unsubscribe`, `suspend`, `reinstate`, ou `changePlan`, `changeQuantity`, `transfer`  |
 |   |   |
 
 Identificateurs globaux uniques ([GUID](https://en.wikipedia.org/wiki/Universally_unique_identifier)) sont des nombres (hexadécimal 32) 128 bits généralement générés automatiquement. 
 
+#### <a name="resolve-a-subscription"></a>Résoudre un abonnement 
+
+Le point de terminaison résolution permet à l’éditeur résoudre un jeton de la place de marché à un ID de ressource persistante. L’ID de ressource est l’identificateur unique de l’abonnement SAAS.  Lorsqu’un utilisateur est redirigé vers le site Web d’un éditeur de logiciels indépendant, les paramètres de requête figurant dans l’URL contiennent un jeton. L’éditeur de logiciels indépendant doit utiliser ce jeton et effectuer une requête pour le résoudre. La réponse contient l’ID d’abonnement SAAS unique, le nom, l’ID d’offre et le plan associé à la ressource. Ce jeton est valide pendant une heure uniquement. 
+
+**Publier :<br>`https://marketplaceapi.microsoft.com/api/saas/subscriptions/resolve?api-version=<ApiVersion>`**
+
+*Paramètres de requête :*
+
+|                    |                   |
+|  ---------------   |  ---------------  |
+|  ApiVersion        |  Version de l’opération à utiliser pour cette demande  |
+
+*En-têtes de requête :*
+ 
+|                    |                   |
+|  ---------------   |  ---------------  |
+|  Content-Type      | `application/json` |
+|  x-ms-requestid    |  Valeur de chaîne unique pour le suivi de la demande du client, de préférence un GUID. Si cette valeur n’est pas fournie, une valeur sera générée et fournie dans les en-têtes de réponse. |
+|  x-ms-correlationid |  Valeur de chaîne unique pour l’opération sur le client. Ce paramètre met en corrélation tous les événements à partir de l’opération du client avec des événements côté serveur. Si cette valeur n’est pas fournie, une valeur sera générée et fournie dans les en-têtes de réponse.  |
+|  autorisation     |  [Obtenir un jeton PORTEUR JSON web token (JWT)](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app) |
+|  x-ms-marketplace-token  |  Paramètre de requête de jeton dans l’URL lorsque l’utilisateur est redirigé vers site Web de l’éditeur de logiciels SaaS à partir d’Azure (pour par exemple : `https://contoso.com/signup?token=..`). *Remarque :* L’URL décode la valeur du jeton à partir du navigateur avant de l’utiliser.  |
+
+*Codes de réponse :*
+
+Code : 200<br>
+Résout le jeton opaque à un abonnement de SaaS.<br>
+
+```json
+Response body:
+{
+    "subscriptionId": "<guid>",  
+    "subscriptionName": "Contoso Cloud Solution",
+    "offerId": "offer1",
+    "planId": "silver",
+    "quantity": "20" 
+}
+```
+
+Code : 404<br>
+Introuvable
+
+Code : 400<br>
+Demande incorrecte. x-ms-marketplace-token est manquant, incorrect ou expiré.
+
+Code : 403<br>
+Non autorisé. Le jeton d’authentification n’a pas été fourni, n’est pas valide, ou la demande tente d’accéder une acquisition qui n’appartient pas au serveur de publication en cours.
+
+Code : 500<br>
+Erreur interne du serveur
+
+```json
+{
+    "error": {
+      "code": "UnexpectedError",
+      "message": "An unexpected error has occurred."
+    }
+}
+```
 
 ### <a name="subscription-api"></a>API d’abonnement
 
@@ -121,7 +172,7 @@ Répertorie tous les abonnements de SaaS pour un serveur de publication.
 | Content-Type       |  `application/json`  |
 | x-ms-requestid     |  Valeur de chaîne unique pour le suivi de la demande du client, de préférence un GUID. Si cette valeur n’est pas fournie, une valeur sera générée et fournie dans les en-têtes de réponse. |
 | x-ms-correlationid |  Valeur de chaîne unique pour l’opération sur le client. Ce paramètre met en corrélation tous les événements à partir de l’opération du client avec des événements côté serveur. Si cette valeur n’est pas fournie, une sera générée et fournie dans les en-têtes de réponse.  |
-| autorisation      |  Jeton du porteur Web JSON (JWT).  |
+| autorisation      |  [Obtenir un jeton PORTEUR JSON web token (JWT).](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
 
 *Codes de réponse :*
 
@@ -135,7 +186,7 @@ Selon le jeton d’authentification, obtenir le serveur de publication et les ab
           "id": "<guid>",
           "name": "Contoso Cloud Solution",
           "publisherId": "contoso",
-          "offerId": "cont-cld-tier2",
+          "offerId": "offer1",
           "planId": "silver",
           "quantity": "10",
           "beneficiary": { // Tenant for which SaaS subscription is purchased.
@@ -159,7 +210,7 @@ Le jeton de continuation sera uniquement présent s’il existe plus « pages 
 
 
 Code : 403 <br>
-Non autorisé. Le jeton d’authentification n’a pas été fourni, n’est pas valide, ou de la demande de tenter d’accéder à une acquisition qui n’appartient pas à l’utilisateur actuel. 
+Non autorisé. Le jeton d’authentification n’a pas été fourni, n’est pas valide, ou la demande tente d’accéder une acquisition qui n’appartient pas au serveur de publication en cours. 
 
 Code : 500 Erreur interne du serveur
 
@@ -192,7 +243,7 @@ Obtient l’abonnement spécifié de SaaS. Utilisez cet appel pour obtenir des i
 |  Content-Type      |  `application/json`  |
 |  x-ms-requestid    |  Valeur de chaîne unique pour le suivi de la demande du client, de préférence un GUID. Si cette valeur n’est pas fournie, une valeur sera générée et fournie dans les en-têtes de réponse. |
 |  x-ms-correlationid |  Valeur de chaîne unique pour l’opération sur le client. Ce paramètre met en corrélation tous les événements à partir de l’opération du client avec des événements côté serveur. Si cette valeur n’est pas fournie, une sera générée et fournie dans les en-têtes de réponse.  |
-|  autorisation     |  Jeton de porteur JSON web token (JWT)  |
+|  autorisation     |  [Obtenir un jeton PORTEUR JSON web token (JWT).](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
 
 *Codes de réponse :*
 
@@ -205,9 +256,9 @@ Response Body:
         "id":"",
         "name":"Contoso Cloud Solution",
         "publisherId": "contoso",
-        "offerId": "cont-cld-tier2",
+        "offerId": "offer1",
         "planId": "silver",
-        "quantity": "10"",
+        "quantity": "10",
           "beneficiary": { // Tenant for which SaaS subscription is purchased.
               "tenantId": "<guid>"
           },
@@ -224,7 +275,7 @@ Code : 404<br>
 Introuvable<br> 
 
 Code : 403<br>
-Non autorisé. Le jeton d’authentification n’a pas été fourni, n’est pas valide, ou de la demande de tenter d’accéder à une acquisition qui n’appartient pas à l’utilisateur actuel.
+Non autorisé. Le jeton d’authentification n’a pas été fourni, n’est pas valide, ou la demande tente d’accéder une acquisition qui n’appartient pas au serveur de publication en cours.
 
 Code : 500<br>
 Erreur interne du serveur<br>
@@ -239,7 +290,7 @@ Erreur interne du serveur<br>
 
 #### <a name="list-available-plans"></a>Liste des plans disponibles
 
-Utilisez cet appel pour déterminer s’il y a aucune offre publique/privée pour l’utilisateur actuel.
+Utilisez cet appel pour déterminer s’il y a aucune offre publique/privée pour le serveur de publication en cours.
 
 **Télécharger :<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/listAvailablePlans?api-version=<ApiVersion>`**
 
@@ -256,7 +307,7 @@ Utilisez cet appel pour déterminer s’il y a aucune offre publique/privée pou
 |   Content-Type     |  `application/json` |
 |   x-ms-requestid   |   Valeur de chaîne unique pour le suivi de la demande du client, de préférence un GUID. Si cette valeur n’est pas fournie, une valeur sera générée et fournie dans les en-têtes de réponse. |
 |  x-ms-correlationid  | Valeur de chaîne unique pour l’opération sur le client. Ce paramètre met en corrélation tous les événements à partir de l’opération du client avec des événements côté serveur. Si cette valeur n’est pas fournie, une valeur sera générée et fournie dans les en-têtes de réponse. |
-|  autorisation     |  Jeton de porteur JSON web token (JWT) |
+|  autorisation     |  [Obtenir un jeton PORTEUR JSON web token (JWT).](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app) |
 
 *Codes de réponse :*
 
@@ -279,7 +330,7 @@ Code : 404<br>
 Introuvable<br> 
 
 Code : 403<br>
-Non autorisé. Le jeton d’authentification n’a pas été fourni, n’est pas valide, ou de la demande de tenter d’accéder à une acquisition qui n’appartient pas à l’utilisateur actuel. <br> 
+Non autorisé. Le jeton d’authentification n’a pas été fourni, n’est pas valide, ou la demande tente d’accéder une acquisition qui n’appartient pas au serveur de publication en cours. <br> 
 
 Code : 500<br>
 Erreur interne du serveur<br>
@@ -290,66 +341,6 @@ Erreur interne du serveur<br>
       "code": "UnexpectedError", 
       "message": "An unexpected error has occurred." 
     } 
-```
-
-#### <a name="resolve-a-subscription"></a>Résoudre un abonnement 
-
-Le point de terminaison résolution permet aux utilisateurs de résoudre un jeton de la place de marché à un ID de ressource persistante. L’ID de ressource est l’identificateur unique de l’abonnement SAAS.  Lorsqu’un utilisateur est redirigé vers le site Web d’un éditeur de logiciels indépendant, les paramètres de requête figurant dans l’URL contiennent un jeton. L’éditeur de logiciels indépendant doit utiliser ce jeton et effectuer une requête pour le résoudre. La réponse contient l’ID d’abonnement SAAS unique, le nom, l’ID d’offre et le plan associé à la ressource. Ce jeton est valide pendant une heure uniquement. 
-
-**Publier :<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/resolve?api-version=<ApiVersion>`**
-
-*Paramètres de requête :*
-
-|                    |                   |
-|  ---------------   |  ---------------  |
-|  ApiVersion        |  Version de l’opération à utiliser pour cette demande  |
-
-*En-têtes de requête :*
- 
-|                    |                   |
-|  ---------------   |  ---------------  |
-|  Content-Type      | `application/json` |
-|  x-ms-requestid    |  Valeur de chaîne unique pour le suivi de la demande du client, de préférence un GUID. Si cette valeur n’est pas fournie, une valeur sera générée et fournie dans les en-têtes de réponse. |
-|  x-ms-correlationid |  Valeur de chaîne unique pour l’opération sur le client. Ce paramètre met en corrélation tous les événements à partir de l’opération du client avec des événements côté serveur. Si cette valeur n’est pas fournie, une valeur sera générée et fournie dans les en-têtes de réponse.  |
-|  autorisation     |  Jeton de porteur JSON web token (JWT)  |
-|  x-ms-marketplace-token  |  Paramètre de requête de jeton dans l’URL lorsque l’utilisateur est redirigé vers site Web de l’éditeur de logiciels SaaS à partir d’Azure. *Remarque :* L’URL décode la valeur du jeton à partir du navigateur avant de l’utiliser. |
-
-*Codes de réponse :*
-
-Code : 200<br>
-Résout le jeton opaque à un abonnement de SaaS.<br>
-
-```json
-Response body:
-{
-    "subscriptionId": "<guid>",  
-    "subscriptionName": "Contoso Cloud Solution",
-    "offerId": "cont-cld-tier2",
-    "planId": "silver",
-    "quantity": "20",
-    "operationId": "<guid>"  
-}
-```
-
-Code : 404<br>
-Introuvable
-
-Code : 400<br>
-Échecs de Validation de demande incorrect
-
-Code : 403<br>
-Non autorisé. Le jeton d’authentification n’a pas été fourni, n’est pas valide, ou de la demande de tenter d’accéder à une acquisition qui n’appartient pas à l’utilisateur actuel.
-
-Code : 500<br>
-Erreur interne du serveur
-
-```json
-{
-    "error": {
-      "code": "UnexpectedError",
-      "message": "An unexpected error has occurred."
-    }
-}
 ```
 
 #### <a name="activate-a-subscription"></a>Activer un abonnement
@@ -370,7 +361,7 @@ Erreur interne du serveur
 |  Content-Type      | `application/json`  |
 |  x-ms-requestid    | Valeur de chaîne unique pour le suivi de la demande du client, de préférence un GUID. Si cette valeur n’est pas fournie, une valeur sera générée et fournie dans les en-têtes de réponse.  |
 |  x-ms-correlationid  | Valeur de chaîne unique pour l’opération sur le client. Cette chaîne met en corrélation tous les événements à partir de l’opération du client avec des événements côté serveur. Si cette valeur n’est pas fournie, une sera générée et fournie dans les en-têtes de réponse.  |
-|  autorisation     |  Jeton de porteur JSON web token (JWT) |
+|  autorisation     |  [Obtenir un jeton PORTEUR JSON web token (JWT).](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app) |
 
 *Requête :*
 
@@ -393,7 +384,7 @@ Code : 400<br>
 Échecs de Validation de demande incorrect
 
 Code : 403<br>
-Non autorisé. Le jeton d’authentification n’a pas été fourni, n’est pas valide, ou de la demande de tenter d’accéder à une acquisition qui n’appartient pas à l’utilisateur actuel.
+Non autorisé. Le jeton d’authentification n’a pas été fourni, n’est pas valide, ou la demande tente d’accéder une acquisition qui n’appartient pas au serveur de publication en cours.
 
 Code : 500<br>
 Erreur interne du serveur
@@ -407,9 +398,9 @@ Erreur interne du serveur
 }
 ```
 
-#### <a name="update-a-subscription"></a>Mettre à jour un abonnement
+#### <a name="change-the-plan-on-the-subscription"></a>Modifier le plan de l’abonnement
 
-Mettre à jour ou modifier un plan d’abonnement avec les valeurs fournies.
+Mettre à jour le plan de l’abonnement.
 
 **Correctif :<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>?api-version=<ApiVersion>`**
 
@@ -427,15 +418,14 @@ Mettre à jour ou modifier un plan d’abonnement avec les valeurs fournies.
 |  Content-Type      | `application/json` |
 |  x-ms-requestid    |   Valeur de chaîne unique pour le suivi de la requête du client, de préférence un GUID. Si cette valeur n’est pas fournie, une valeur sera générée et fournie dans les en-têtes de réponse.  |
 |  x-ms-correlationid  |  Valeur de chaîne unique pour l’opération sur le client. Ce paramètre met en corrélation tous les événements à partir de l’opération du client avec des événements côté serveur. Si cette valeur n’est pas fournie, une sera générée et fournie dans les en-têtes de réponse.    |
-| autorisation      |  Jeton du porteur Web JSON (JWT).  |
+| autorisation      |  [Obtenir un jeton PORTEUR JSON web token (JWT).](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
 
 *Charge utile de demande :*
 
 ```json
 Request Body:
 {
-    "planId": "gold",
-    "quantity": ""
+    "planId": "gold"
 }
 ```
 
@@ -448,7 +438,7 @@ Request Body:
 *Codes de réponse :*
 
 Code : 202<br>
-ISV lance un plan de modification ou d’une quantité de modification. <br>
+La demande de modification de plan a été acceptée. Les éditeurs de logiciels indépendants doit interroger l’opération-Location pour déterminer la réussite ou l’échec. <br>
 
 Code : 404<br>
 Introuvable
@@ -460,7 +450,73 @@ Code : 400<br>
 >Seul un plan ou une quantité peut être corrigée en même temps, mais pas les deux. Modifie un abonnement avec **mise à jour** n’est pas dans `allowedCustomerOperations`.
 
 Code : 403<br>
-Non autorisé. Le jeton d’authentification n’a pas été fourni, n’est pas valide, ou de la demande de tenter d’accéder à une acquisition qui n’appartient pas à l’utilisateur actuel.
+Non autorisé. Le jeton d’authentification n’a pas été fourni, n’est pas valide, ou la demande tente d’accéder une acquisition qui n’appartient pas au serveur de publication en cours.
+
+Code : 500<br>
+Erreur interne du serveur
+
+```json
+{
+    "error": {
+      "code": "UnexpectedError",
+      "message": "An unexpected error has occurred."
+    }
+}
+```
+
+#### <a name="change-the-quantity-on-the-subscription"></a>Modifier la quantité sur l’abonnement
+
+Mettre à jour la quantité sur l’abonnement.
+
+**Correctif :<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>?api-version=<ApiVersion>`**
+
+*Paramètres de requête :*
+
+|                    |                   |
+|  ---------------   |  ---------------  |
+|  ApiVersion        |  Version de l’opération à utiliser pour cette requête.  |
+| subscriptionId     | Identificateur unique de l’abonnement de SaaS est obtenu après avoir résolu le jeton à l’aide de l’API résoudre.  |
+
+*En-têtes de requête :*
+
+|                    |                   |
+|  ---------------   |  ---------------  |
+|  Content-Type      | `application/json` |
+|  x-ms-requestid    |   Valeur de chaîne unique pour le suivi de la requête du client, de préférence un GUID. Si cette valeur n’est pas fournie, une valeur sera générée et fournie dans les en-têtes de réponse.  |
+|  x-ms-correlationid  |  Valeur de chaîne unique pour l’opération sur le client. Ce paramètre met en corrélation tous les événements à partir de l’opération du client avec des événements côté serveur. Si cette valeur n’est pas fournie, une sera générée et fournie dans les en-têtes de réponse.    |
+| autorisation      |  [Obtenir un jeton PORTEUR JSON web token (JWT).](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
+
+*Charge utile de demande :*
+
+```json
+Request Body:
+{
+    "quantity": 5
+}
+```
+
+*En-têtes de requête :*
+
+|                    |                   |
+|  ---------------   |  ---------------  |
+| Operation-Location | Lier à une ressource pour obtenir l’état de l’opération.   |
+
+*Codes de réponse :*
+
+Code : 202<br>
+Accepté. La demande de modification de quantité a été acceptée. Les éditeurs de logiciels indépendants doit interroger l’opération-Location pour déterminer la réussite ou l’échec. <br>
+
+Code : 404<br>
+Introuvable
+
+Code : 400<br>
+Échecs de Validation de demande incorrecte.
+
+>[!Note]
+>Seul un plan ou une quantité peut être corrigée en même temps, mais pas les deux. Modifie un abonnement avec **mise à jour** n’est pas dans `allowedCustomerOperations`.
+
+Code : 403<br>
+Non autorisé. Le jeton d’authentification n’a pas été fourni, n’est pas valide, ou la demande tente d’accéder une acquisition qui n’appartient pas au serveur de publication en cours.
 
 Code : 500<br>
 Erreur interne du serveur
@@ -494,7 +550,7 @@ Annuler l’abonnement et de supprimer l’abonnement spécifié.
 |   Content-Type     |  `application/json` |
 |  x-ms-requestid    |   Valeur de chaîne unique pour le suivi de la requête du client, de préférence un GUID. Si cette valeur n’est pas fournie, une sera générée et fournie dans les en-têtes de réponse.   |
 |  x-ms-correlationid  |  Valeur de chaîne unique pour l’opération sur le client. Ce paramètre met en corrélation tous les événements à partir de l’opération du client avec des événements côté serveur. Si cette valeur n’est pas fournie, une sera générée et fournie dans les en-têtes de réponse.   |
-|  autorisation     |  Jeton du porteur Web JSON (JWT).   |
+|  autorisation     |  [Obtenir un jeton PORTEUR JSON web token (JWT).](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
 
 *Codes de réponse :*
 
@@ -508,7 +564,7 @@ Code : 400<br>
 Supprimer un abonnement avec **supprimer** pas dans `allowedCustomerOperations`.
 
 Code : 403<br>
-Non autorisé. Le jeton d’authentification n’a pas été fourni, n’est pas valide, ou de la demande de tenter d’accéder à une acquisition qui n’appartient pas à l’utilisateur actuel.
+Non autorisé. Le jeton d’authentification n’a pas été fourni, n’est pas valide, ou la demande tente d’accéder une acquisition qui n’appartient pas au serveur de publication en cours.
 
 Code : 500<br>
 Erreur interne du serveur
@@ -527,10 +583,134 @@ Erreur interne du serveur
 
 L’API d’opérations prend en charge les opérations suivantes de correctifs et Get.
 
+#### <a name="list-outstanding-operations"></a>Liste des opérations en attente 
 
-#### <a name="update-a-subscription"></a>Mettre à jour un abonnement
+Répertorie les opérations en attente pour le serveur de publication en cours. 
 
-Mettre à jour un abonnement avec les valeurs fournies.
+**Télécharger :<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations?api-version=<ApiVersion>`**
+
+*Paramètres de requête :*
+
+|             |        |
+|  ---------------   |  ---------------  |
+|    ApiVersion                |   Version de l’opération à utiliser pour cette requête.                |
+| subscriptionId     | Identificateur unique de l’abonnement de SaaS est obtenu après avoir résolu le jeton à l’aide de l’API résoudre.  |
+
+*En-têtes de requête :*
+ 
+|                    |                   |
+|  ---------------   |  ---------------  |
+|   Content-Type     |  `application/json` |
+|  x-ms-requestid    |  Valeur de chaîne unique pour le suivi de la requête du client, de préférence un GUID. Si cette valeur n’est pas fournie, une valeur sera générée et fournie dans les en-têtes de réponse.  |
+|  x-ms-correlationid |  Valeur de chaîne unique pour l’opération sur le client. Ce paramètre met en corrélation tous les événements à partir de l’opération du client avec des événements côté serveur. Si cette valeur n’est pas fournie, une sera générée et fournie dans les en-têtes de réponse.  |
+|  autorisation     |  [Obtenir un jeton PORTEUR JSON web token (JWT).](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
+
+*Codes de réponse :*
+
+Code : 200<br> Obtient la liste des opérations en attente sur un abonnement.<br>
+Charge utile de réponse :
+
+```json
+[{
+    "id": "<guid>",  
+    "activityId": "<guid>",
+    "subscriptionId": "<guid>",
+    "offerId": "offer1",
+    "publisherId": "contoso",  
+    "planId": "silver",
+    "quantity": "20",
+    "action": "Convert",
+    "timeStamp": "2018-12-01T00:00:00",  
+    "status": "NotStarted"  
+}]
+```
+
+Code : 404<br>
+Introuvable
+
+Code : 400<br>
+Échecs de Validation de demande incorrect
+
+Code : 403<br>
+Non autorisé. Le jeton d’authentification n’a pas été fourni, n’est pas valide, ou la demande tente d’accéder une acquisition qui n’appartient pas au serveur de publication en cours.
+
+Code : 500<br>
+Erreur interne du serveur
+
+```json
+{
+    "error": {
+      "code": "UnexpectedError",
+      "message": "An unexpected error has occurred."
+    }
+}
+
+```
+
+#### <a name="get-operation-status"></a>Obtenir l’état de l’opération
+
+Permet à l’éditeur effectuer le suivi de l’état de l’opération asynchrone déclenchées spécifié (s’abonner / annuler l’abonnement / Modifier planification / Modifier quantité).
+
+**Télécharger :<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=<ApiVersion>`**
+
+*Paramètres de requête :*
+
+|                    |                   |
+|  ---------------   |  ---------------  |
+|  ApiVersion        |  Version de l’opération à utiliser pour cette requête.  |
+
+*En-têtes de requête :*
+
+|                    |                   |
+|  ---------------   |  ---------------  |
+|  Content-Type      |  `application/json`   |
+|  x-ms-requestid    |   Valeur de chaîne unique pour le suivi de la requête du client, de préférence un GUID. Si cette valeur n’est pas fournie, une valeur sera générée et fournie dans les en-têtes de réponse.  |
+|  x-ms-correlationid |  Valeur de chaîne unique pour l’opération sur le client. Ce paramètre met en corrélation tous les événements à partir de l’opération du client avec des événements côté serveur. Si cette valeur n’est pas fournie, une sera générée et fournie dans les en-têtes de réponse.  |
+|  autorisation     |[Obtenir un jeton PORTEUR JSON web token (JWT).](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
+
+*Codes de réponse :* Code : 200<br> Obtient le texte spécifié en attente de l’opération de SaaS<br>
+Charge utile de réponse :
+
+```json
+Response body:
+{
+    "id  ": "<guid>",
+    "activityId": "<guid>",
+    "subscriptionId":"<guid>",
+    "offerId": "offer1",
+    "publisherId": "contoso",  
+    "planId": "silver",
+    "quantity": "20",
+    "action": "Convert",
+    "timeStamp": "2018-12-01T00:00:00",
+    "status": "NotStarted"
+}
+
+```
+
+Code : 404<br>
+Introuvable
+
+Code : 400<br>
+Échecs de Validation de demande incorrect
+
+Code : 403<br>
+Non autorisé. Le jeton d’authentification n’a pas été fourni, n’est pas valide, ou la demande tente d’accéder une acquisition qui n’appartient pas au serveur de publication en cours.
+ 
+Code : 500<br> Erreur interne du serveur
+
+```json
+{
+    "error": {
+      "code": "UnexpectedError",
+      "message": "An unexpected error has occurred."
+    }
+}
+
+```
+#### <a name="update-the-status-of-an-operation"></a>Mettre à jour l’état d’une opération
+
+Mettre à jour l’état d’une opération pour indiquer la réussite/échec avec les valeurs fournies.
 
 **Correctif :<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=<ApiVersion>`**
 
@@ -549,16 +729,17 @@ Mettre à jour un abonnement avec les valeurs fournies.
 |   Content-Type     | `application/json`   |
 |   x-ms-requestid   |   Valeur de chaîne unique pour le suivi de la requête du client, de préférence un GUID. Si cette valeur n’est pas fournie, une valeur sera générée et fournie dans les en-têtes de réponse. |
 |  x-ms-correlationid |  Valeur de chaîne unique pour l’opération sur le client. Ce paramètre met en corrélation tous les événements à partir de l’opération du client avec des événements côté serveur. Si cette valeur n’est pas fournie, une sera générée et fournie dans les en-têtes de réponse. |
-|  autorisation     |  Jeton du porteur Web JSON (JWT).  |
+|  autorisation     |  [Obtenir un jeton PORTEUR JSON web token (JWT).](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app)  |
 
 *Charge utile de demande :*
 
 ```json
 {
-    "planId": "cont-cld-tier2",
+    "planId": "offer1",
     "quantity": "44",
     "status": "Success"    // Allowed Values: Success/Failure. Indicates the status of the operation.
 }
+
 ```
 
 *Codes de réponse :*
@@ -572,137 +753,11 @@ Code : 400<br>
 Échecs de Validation de demande incorrect
 
 Code : 403<br>
-Non autorisé. Le jeton d’authentification n’a pas été fourni, n’est pas valide, ou de la demande de tenter d’accéder à une acquisition qui n’appartient pas à l’utilisateur actuel.
+Non autorisé. Le jeton d’authentification n’a pas été fourni, n’est pas valide, ou la demande tente d’accéder une acquisition qui n’appartient pas au serveur de publication en cours.
 
 Code : 409<br>
 Conflit. Par exemple, une transaction la plus récente est déjà remplie
 
-Code : 500<br> Erreur interne du serveur
-
-```json
-{
-    "error": {
-      "code": "UnexpectedError",
-      "message": "An unexpected error has occurred."
-    }
-}
-
-```
-
-#### <a name="list-outstanding-operations"></a>Liste des opérations en attente 
-
-Répertorie les opérations en attente pour l’utilisateur actuel. 
-
-**Télécharger :<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations?api-version=<ApiVersion>`**
-
-*Paramètres de requête :*
-
-|             |        |
-|  ---------------   |  ---------------  |
-|    ApiVersion                |   Version de l’opération à utiliser pour cette requête.                |
-| subscriptionId     | Identificateur unique de l’abonnement de SaaS est obtenu après avoir résolu le jeton à l’aide de l’API résoudre.  |
-
-*En-têtes de requête :*
- 
-|                    |                   |
-|  ---------------   |  ---------------  |
-|   Content-Type     |  `application/json` |
-|  x-ms-requestid    |  Valeur de chaîne unique pour le suivi de la requête du client, de préférence un GUID. Si cette valeur n’est pas fournie, une valeur sera générée et fournie dans les en-têtes de réponse.  |
-|  x-ms-correlationid |  Valeur de chaîne unique pour l’opération sur le client. Ce paramètre met en corrélation tous les événements à partir de l’opération du client avec des événements côté serveur. Si cette valeur n’est pas fournie, une sera générée et fournie dans les en-têtes de réponse.  |
-|  autorisation     |  Jeton du porteur Web JSON (JWT).  |
-
-*Codes de réponse :*
-
-Code : 200<br> Obtient la liste des opérations en attente sur un abonnement.<br>
-Charge utile de réponse :
-
-```json
-[{
-    "id": "<guid>",  
-    "activityId": "<guid>",
-    "subscriptionId": "<guid>",
-    "offerId": "cont-cld-tier2",
-    "publisherId": "contoso",  
-    "planId": "silver",
-    "quantity": "20",
-    "action": "Convert",
-    "timeStamp": "2018-12-01T00:00:00",  
-    "status": "NotStarted"  
-}]
-```
-
-Code : 404<br>
-Introuvable
-
-Code : 400<br>
-Échecs de Validation de demande incorrect
-
-Code : 403<br>
-Non autorisé. Le jeton d’authentification n’a pas été fourni, n’est pas valide, ou de la demande de tenter d’accéder à une acquisition qui n’appartient pas à l’utilisateur actuel.
-
-Code : 500<br>
-Erreur interne du serveur
-
-```json
-{
-    "error": {
-      "code": "UnexpectedError",
-      "message": "An unexpected error has occurred."
-    }
-}
-
-```
-
-#### <a name="get-operation-status"></a>Obtenir l’état de l’opération
-
-Permet à l’utilisateur suivre l’état de l’opération asynchrone déclenchées spécifié (Subscribe/Unsubscribe/changer de plan).
-
-**Télécharger :<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=<ApiVersion>`**
-
-*Paramètres de requête :*
-
-|                    |                   |
-|  ---------------   |  ---------------  |
-|  ApiVersion        |  Version de l’opération à utiliser pour cette requête.  |
-
-*En-têtes de requête :*
-
-|                    |                   |
-|  ---------------   |  ---------------  |
-|  Content-Type      |  `application/json`   |
-|  x-ms-requestid    |   Valeur de chaîne unique pour le suivi de la requête du client, de préférence un GUID. Si cette valeur n’est pas fournie, une valeur sera générée et fournie dans les en-têtes de réponse.  |
-|  x-ms-correlationid |  Valeur de chaîne unique pour l’opération sur le client. Ce paramètre met en corrélation tous les événements à partir de l’opération du client avec des événements côté serveur. Si cette valeur n’est pas fournie, une sera générée et fournie dans les en-têtes de réponse.  |
-|  autorisation     | Jeton du porteur Web JSON (JWT).  |
-
-*Codes de réponse :* Code : 200<br> Obtient le texte spécifié en attente de l’opération de SaaS<br>
-Charge utile de réponse :
-
-```json
-Response body:
-{
-    "id  ": "<guid>",
-    "activityId": "<guid>",
-    "subscriptionId":"<guid>",
-    "offerId": "cont-cld-tier2",
-    "publisherId": "contoso",  
-    "planId": "silver",
-    "quantity": "20",
-    "action": "Convert",
-    "timeStamp": "2018-12-01T00:00:00",
-    "status": "NotStarted"
-}
-
-```
-
-Code : 404<br>
-Introuvable
-
-Code : 400<br>
-Échecs de Validation de demande incorrect
-
-Code : 403<br>
-Non autorisé. Le jeton d’authentification n’a pas été fourni, n’est pas valide, ou de la demande de tenter d’accéder à une acquisition qui n’appartient pas à l’utilisateur actuel.
- 
 Code : 500<br> Erreur interne du serveur
 
 ```json
@@ -724,14 +779,21 @@ Le serveur de publication doit implémenter un webhook dans ce service SaaS pour
     "operationId": "<guid>",
     "activityId": "<guid>",
     "subscriptionId":"<guid>",
-    "offerId": "cont-cld-tier2",
+    "offerId": "offer1",
     "publisherId": "contoso",
     "planId": "silver",
     "quantity": "20"  ,
-    "action": "Activate",   // Activate/Delete/Suspend/Reinstate/Change[new]  
+    "action": "Subscribe",
     "timeStamp": "2018-12-01T00:00:00"
 }
 
+Where action can be one of these: 
+       Subscribe, (When the resource has been activated)
+       Unsubscribe, (When the resource has been deleted)
+       ChangePlan, (When the change plan operation has completed)
+       ChangeQuantity, (When the change quantity operation has completed),
+       Suspend, (When resource has been suspended)
+       Reinstate, (When resource has been reinstated after suspension)
 ```
 
 

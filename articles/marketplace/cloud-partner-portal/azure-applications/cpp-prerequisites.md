@@ -1,25 +1,18 @@
 ---
-title: Conditions préalables à une offre Azure Application | Microsoft Docs
+title: Conditions préalables d’offre Application Azure | Place de marché Azure
 description: Conditions préalables à la publication d’une offre Azure Application sur la Place de marché Microsoft Azure.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 03/13/2019
-ms.author: pbutlerm
-ms.openlocfilehash: df127eec662f8598246f276ef9b1608ae3021512
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.author: pabutler
+ms.openlocfilehash: 296f843f9d09b57e12e867700f456126eca128b3
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60744922"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64942875"
 ---
 # <a name="azure-application-prerequisites"></a>Conditions préalables à Azure Application
 
@@ -36,7 +29,7 @@ La configuration technique requise inclut les éléments suivants :
 * Modèles de démarrage rapide Azure.<br> Pour plus d'informations, consultez les pages suivantes :
 
   * [Modèles de démarrage rapide Azure](https://azure.microsoft.com/documentation/templates/). Déployez des ressources Azure par le biais d’Azure Resource Manager avec des modèles distribués par la communauté pour améliorer votre productivité. Azure Resource Manager vous permet d’approvisionner vos applications à l'aide d'un modèle déclaratif. Dans un modèle unique, vous pouvez déployer plusieurs services avec leurs dépendances. Le même modèle vous permet de déployer plusieurs fois votre application à chaque phase du cycle de vie de l’application.
-  * [GitHub : Modèles de démarrage rapide Azure Resource Manager](https://github.com/azure/azure-quickstart-templates). Ce référentiel contient tous les modèles Azure Resource Manager disponibles actuellement et distribués par la communauté. Un index de modèles pouvant faire l’objet de recherches est conservé sur https://azure.microsoft.com/en-us/documentation/templates/.
+  * [GitHub : Modèles de démarrage rapide Azure Resource Manager](https://github.com/azure/azure-quickstart-templates). Ce référentiel contient tous les modèles Azure Resource Manager disponibles actuellement et distribués par la communauté. Un index de modèles pouvant faire l’objet de recherches est conservé sur https://azure.microsoft.com/documentation/templates/.
 * Créer des définitions d’interface utilisateur<br>
 Pour plus d’informations, consultez [Créer une interface utilisateur de portail Azure pour votre application managée](https://docs.microsoft.com/azure/azure-resource-manager/managed-application-createuidefinition-overview). Cet article présente les concepts de base du fichier createUiDefinition.json. Le portail Azure utilise ce fichier pour générer l’interface utilisateur permettant de créer une application managée.
 
@@ -50,7 +43,7 @@ Les exigences de l’entreprise incluent des obligations procédurales, contract
 >[!NOTE]
 >Vous devez utiliser le même compte d’inscription au Centre de développement Microsoft pour vous connecter au Portail Cloud Partner. Vous ne devez utiliser qu'un seul compte Microsoft pour vos offres Azure Marketplace. Ce compte ne doit pas être propre à des services ou des offres spécifiques.
 
-* Votre entreprise (ou sa filiale) doit être située dans un pays expéditeur pris en charge par la Place de marché Microsoft Azure. Pour obtenir la liste actuelle de ces pays, consultez les [politiques concernant la participation à la Place de marché Microsoft Azure](https://azure.microsoft.com/support/legal/marketplace/participation-policies/).
+* Votre entreprise (ou sa filiale) doit être dans un donneur d’ordre-de-pays/région pris en charge par la place de marché Azure. Pour obtenir la liste actuelle de ces pays/régions, consultez [politique de participation à la place de marché Microsoft Azure](https://azure.microsoft.com/support/legal/marketplace/participation-policies/).
 * Votre produit doit être disponible sous licence d’une manière compatible avec les modèles de facturation pris en charge par la Place de marché Microsoft Azure. Pour plus d’informations, consultez [Options de facturation sur la Place de marché Azure](https://docs.microsoft.com/azure/marketplace/marketplace-commercial-transaction-capabilities-and-considerations).
 * Il vous incombe de consentir tous les efforts raisonnables pour mettre à la disposition de vos clients un support technique. Ce support peut être gratuit, payant ou accessible via une communauté.
 * Il vous incombe de gérer les licences de vos logiciels et de toutes les dépendances de logiciels tiers.

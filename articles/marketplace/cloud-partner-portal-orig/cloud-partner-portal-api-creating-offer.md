@@ -1,25 +1,18 @@
 ---
-title: Créer ou modifier une offre | Microsoft Docs
+title: Créer ou modifier une offre | Place de marché Azure
 description: API pour créer une offre ou en mettre une à jour.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: reference
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: c7aed97c442c414e86c9531f9b0a8431e22b8b44
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: 55f6aa60c836d55333e1c5b02a44114b91df822d
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60624987"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64935518"
 ---
 <a name="create-or-modify-an-offer"></a>Créer ou modifier une offre
 =========================
@@ -34,8 +27,8 @@ Cet appel met à jour une offre spécifique dans l’espace de noms du serveur d
 
 |  **Name**         |  **Description**                      |  **Type de données**  |
 |  --------         |  ----------------                     |  -------------  |
-| publisherId       |  Identificateur du serveur de publication, par exemple `contoso` |   String |
-| offerId           |  Identificateur de l’offre                     |   String        |
+| publisherId       |  Identificateur du serveur de publication, par exemple `contoso` |   Chaîne |
+| offerId           |  Identificateur de l’offre                     |   Chaîne        |
 | api-version       |  Version la plus récente de l’API            |   Date           |
 |  |  |  |
 

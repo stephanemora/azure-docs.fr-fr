@@ -14,26 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: a4578703ebe224747c10956736b3be9c33a954dd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 86c91582256261d701dc3c73b1bdfdcb6002f6e6
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61463467"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64867220"
 ---
 # <a name="monitor-encoding-job-progress-with-the-azure-portal"></a>Surveiller la progression du travail d’encodage avec le Portail Azure
-> [!div class="op_single_selector"]
-> * [Portail](media-services-portal-check-job-progress.md)
-> * [.NET](media-services-check-job-progress.md)
-> * [REST](media-services-rest-check-job-progress.md)
-> 
-> 
+
+> [!NOTE]
+> Aucune nouvelle fonctionnalité ni fonction n’est ajoutée à Media Services v2. <br/>Découvrez la dernière version, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consultez également [conseils de migration de v2 vers v3](../latest/migrate-from-v2-to-v3.md)
 
 ## <a name="overview"></a>Présentation
-> [!NOTE]
-> Pour suivre ce tutoriel, vous avez besoin d’un compte Azure. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/). 
-> 
-> 
 
 Lorsque vous exécutez des travaux, vous avez généralement besoin de faire appel à une méthode de suivi de la progression du travail. 
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/11/2019
 ms.author: fryu
 ms.subservice: common
-ms.openlocfilehash: 09a5a6d823240b724e6ec88de38df068a58982d9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3daea17a491af8950b38f1e3183583fef63751e2
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61483500"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926488"
 ---
 # <a name="azure-storage-analytics-logging"></a>Journalisation analytique du stockage Azure
 
@@ -76,7 +76,7 @@ La plupart des outils de navigation de stockage vous permettre d’afficher les 
  }  
  ```  
 
-Pour plus d’informations sur la liste d’objets BLOB par programmation, consultez [l’énumération des ressources d’objet Blob](http://msdn.microsoft.com/library/azure/hh452233.aspx) et [définir et extraire les propriétés et métadonnées de ressources Blob](http://msdn.microsoft.com/library/azure/dd179404.aspx).  
+Pour plus d’informations sur la liste d’objets BLOB par programmation, consultez [l’énumération des ressources d’objet Blob](https://msdn.microsoft.com/library/azure/hh452233.aspx) et [définir et extraire les propriétés et métadonnées de ressources Blob](https://msdn.microsoft.com/library/azure/dd179404.aspx).  
 
 ### <a name="log-naming-conventions"></a>Conventions d'appellation de journal
 

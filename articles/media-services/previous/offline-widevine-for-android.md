@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: willzhan, dwgeo
-ms.openlocfilehash: 55d59871ee72f755fcd881e4f89e56e6d6d1d84e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 64c5bff0e48f55406476e71c82763bd8f3c03afd
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60637571"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64937241"
 ---
 # <a name="offline-widevine-streaming-for-android"></a>Widevine hors connexion pour Android  
 
@@ -32,8 +32,8 @@ ms.locfileid: "60637571"
 
 Outre la protection de contenu pour la diffusion en continu en ligne, les services d’abonnement et de location du contenu multimédia offrent un contenu téléchargeable qui fonctionne lorsque vous n’êtes pas connecté à internet. Vous devrez peut-être télécharger le contenu sur votre téléphone ou tablette pour une lecture en mode avion, lorsque vous êtes en vol et déconnecté du réseau. Scénarios supplémentaires, dans lesquels vous pouvez souhaiter télécharger du contenu :
 
-- Certains fournisseurs de contenu peuvent interdire la remise de licence DRM au-delà de la frontière d’un pays. Si un utilisateur souhaite regarder du contenu en voyage à l’étranger, le téléchargement hors connexion est nécessaire.
-- Dans certains pays, la disponibilité Internet et/ou la bande passante sont limitées. Les utilisateurs peuvent choisir de télécharger du contenu afin de pouvoir le regarder en résolution suffisamment élevée pour une expérience d’affichage satisfaisante.
+- Certains fournisseurs de contenu peuvent interdire la remise de licence DRM au-delà de la frontière d’un pays/région. Si un utilisateur souhaite regarder du contenu en voyage à l’étranger, le téléchargement hors connexion est nécessaire.
+- Dans certains pays/régions, la disponibilité Internet et/ou la bande passante est limitée. Les utilisateurs peuvent choisir de télécharger du contenu afin de pouvoir le regarder en résolution suffisamment élevée pour une expérience d’affichage satisfaisante.
 
 Cet article explique comment mettre en œuvre la lecture en mode hors connexion pour le contenu DASH protégé par Widevine sur les appareils Android. La gestion des droits numériques (DRM) hors connexion vous permet de fournir des modèles d’abonnement, de location et d’achat pour votre contenu, permettant aux clients de vos services d’emporter facilement du contenu avec eux lorsqu’ils sont déconnectés d’internet.
 

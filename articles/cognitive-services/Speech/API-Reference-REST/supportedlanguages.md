@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 044c0355b6ec9f064cae74ffd5259d457cb49147
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2cce7203d23d5de77200fdf75ab31042d9608352
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60515414"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64866376"
 ---
 # <a name="supported-languages"></a>Langues prises en charge
 
@@ -29,7 +29,7 @@ L’API de reconnaissance vocale de Microsoft prend en charge les langues suivan
 |Code | Langage | Code | Langage |
 |-----|-----|-----|-----|
 | ar-EG | Arabe (Égypte), standard moderne | hi-IN | Hindi (Inde) |
-| ca-ES | Catalan (Espagne) | it-IT | Italien (Italie)  |
+| ca-ES | Catalan | it-IT | Italien (Italie)  |
 | da-DK | Danois (Danemark) | ja-JP | Japonais (Japon) |
 | de-DE | Allemand (Allemagne) |ko-KR | Coréen (Corée) |
 | en-AU | Anglais (Australie) |nb-NO | Norvégien( Bokmål) (Norvège)  |

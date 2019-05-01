@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/08/2018
 ms.author: raynew
-ms.openlocfilehash: 6f6440e12840538614b4092b173ab25ae37a68a6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 48ce99bd830d2c35e5cb9703d2ef754a602d534b
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60790604"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926149"
 ---
 # <a name="best-practices-for-costing-and-sizing-workloads-migrated-to-azure"></a>Meilleures pratiques pour l’évaluation des coûts et le dimensionnement des charges de travail migrées vers Azure
 
@@ -331,7 +331,7 @@ Après la migration, suite à un examen approfondi de ces types de tâches, vous
 
 **En savoir plus :**
 - [En savoir plus](https://azure.microsoft.com/services/functions/) sur Azure Functions
-- [En savoir plus](https://azure.microsoft.com/en-us/services/batch/) sur Azure Batch
+- [En savoir plus](https://azure.microsoft.com/services/batch/) sur Azure Batch
   
 ## <a name="next-steps"></a>Étapes suivantes 
 

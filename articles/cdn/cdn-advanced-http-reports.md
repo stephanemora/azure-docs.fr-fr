@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: c8cb4713e38ca0da610c687325f3810f57da2b26
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 67bab857e66edd8e9fae7d45c6157f018da81ccf
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61216093"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64867036"
 ---
 # <a name="analyze-usage-statistics-with-azure-cdn-advanced-http-reports"></a>Analyser les statistiques d’utilisation avec les rapports HTTP avancés dans Microsoft Azure CDN
 ## <a name="overview"></a>Présentation
@@ -42,30 +42,30 @@ Ce document présente les rapports HTTP avancés disponibles dans Microsoft Azur
 ## <a name="geography-reports-map-based"></a>Rapports géographiques (à partir d’une carte)
 Cinq rapports utilisent une carte pour indiquer les régions à partir desquelles sont recensées les demandes de contenu. Il s’agit des rapports World Map, United States Map, Canada Map, Europe Map et Asia Pacific Map.
 
-Chaque rapport dérivé d’une carte classe les entités géographiques (par exemple, pays, États et provinces) en fonction du pourcentage d’accès provenant de cette région. Une carte est également fournie pour vous aider à visualiser les emplacements associés aux demandes de contenu. Cette visualisation est simplifiée grâce à l’utilisation d’un code couleur sur chaque région en fonction de la quantité de la demande recensée dans la région en question. Les régions ombrées plus claires indiquent une demande de contenu plus faible, tandis que les régions plus foncées illustrent des niveaux plus soutenus.
+Chaque rapport dérivé d’une carte classe les entités géographiques (par exemple, pays/régions, un mappage est fourni pour vous aider à visualiser les emplacements à partir de laquelle votre contenu est demandé. Cette visualisation est simplifiée grâce à l’utilisation d’un code couleur sur chaque région en fonction de la quantité de la demande recensée dans la région en question. Les régions ombrées plus claires indiquent une demande de contenu plus faible, tandis que les régions plus foncées illustrent des niveaux plus soutenus.
 
-Des informations détaillées sur le trafic et la bande passante sont fournies pour chaque région directement au-dessous de la carte. Vous pouvez ainsi afficher le nombre total d’accès, le pourcentage d’accès, la quantité totale de données transférées (en Go) et le pourcentage de données transférées pour chaque région. Vous pouvez afficher la description de chacune de ces mesures. Enfin, lorsque vous pointez sur une région (par exemple, pays, État ou province), le nom et le pourcentage d’accès recensé dans la région s’afficheront sous la forme d’une info-bulle.
+Des informations détaillées sur le trafic et la bande passante sont fournies pour chaque région directement au-dessous de la carte. Vous pouvez ainsi afficher le nombre total d’accès, le pourcentage d’accès, la quantité totale de données transférées (en Go) et le pourcentage de données transférées pour chaque région. Vous pouvez afficher la description de chacune de ces mesures. Enfin, lorsque vous pointez sur une région (par exemple, pays/région, état ou province), le nom et le pourcentage d’accès qui se sont produites dans la région apparaîtront en tant qu’une info-bulle.
 
 Une brève description est fournie ci-dessous pour chaque type de rapport géographique dérivé d’une carte.
 
 | Nom du rapport | Description |
 | --- | --- |
-| World Map |Ce rapport vous permet de visualiser la demande mondiale de votre contenu CDN. Chaque pays est coloré sur la carte du monde pour indiquer le pourcentage d’accès associé à cette région. |
+| World Map |Ce rapport vous permet de visualiser la demande mondiale de votre contenu CDN. Chaque pays/région est colorée sur la carte du monde pour indiquer le pourcentage d’accès associé à cette région. |
 | United States Map |Ce rapport vous permet de visualiser la demande de votre contenu CDN recensée aux États-Unis. Chaque État est coloré sur la carte pour indiquer le pourcentage d’accès associé à cette région. |
 | Canada Map |Ce rapport vous permet de visualiser la demande de votre contenu CDN recensée au Canada. Chaque province est colorée sur la carte pour indiquer le pourcentage d’accès associé à cette région. |
-| Europe Map |Ce rapport vous permet de visualiser la demande de votre contenu CDN recensée en Europe. Chaque pays est coloré sur la carte pour indiquer le pourcentage d’accès associé à cette région. |
-| Asia Pacific Map |Ce rapport vous permet de visualiser la demande de votre contenu CDN recensée en Asie. Chaque pays est coloré sur la carte pour indiquer le pourcentage d’accès associé à cette région. |
+| Europe Map |Ce rapport vous permet de visualiser la demande de votre contenu CDN recensée en Europe. Chaque pays/région est colorée sur la carte pour indiquer le pourcentage d’accès associé à cette région. |
+| Asia Pacific Map |Ce rapport vous permet de visualiser la demande de votre contenu CDN recensée en Asie. Chaque pays/région est colorée sur la carte pour indiquer le pourcentage d’accès associé à cette région. |
 
 ## <a name="geography-reports-bar-charts"></a>Rapports géographiques (graphiques à barres)
-Deux rapports supplémentaires fournissent des informations statistiques en fonction de la zone géographique : Top Cities et Top Countries. Ces rapports classent respectivement les villes et les pays selon le nombre d’accès recensés dans ces régions. Lors de la génération de ce type de rapport, un graphique à barres indique les 10 principales villes ou les 10 principaux pays ayant demandé du contenu sur une plateforme spécifique. Ce graphique à barres vous permet d’identifier rapidement les régions qui génèrent le plus grand nombre de demandes autour de votre contenu.
+Deux rapports supplémentaires fournissent des informations statistiques en fonction de la zone géographique : Top Cities et Top Countries. Ces rapports classent les villes et pays/régions, respectivement, en fonction du nombre de recensés dans ces pays/régions. Lors de la génération de ce type de rapport, un graphique à barres indique les 10 principales villes ou pays/régions ayant demandé du contenu sur une plateforme spécifique. Ce graphique à barres vous permet d’identifier rapidement les régions qui génèrent le plus grand nombre de demandes autour de votre contenu.
 
 La partie gauche du graphique (axe y) indique le nombre d’accès recensés dans la région spécifiée. Chacun des 10 principales régions est annotée directement sous le graphique (axe x).
 
 ### <a name="using-the-bar-charts"></a>Utilisation des graphiques à barres
 * Si vous pointez sur une barre, le nom et le nombre total d’accès recensés dans la région s’afficheront sous la forme d’une info-bulle.
-* L’info-bulle correspondant au rapport Top Cities identifie une ville par son nom, par l’État/province dont elle dépend ainsi que par l’abréviation du pays.
-* Si la ville ou la région (par exemple, État/province) dans laquelle a été initiée une demande n’a pas pu être identifiée, l’info-bulle précise qu’elles sont inconnues. Si le pays est inconnu, deux points d’interrogation (??) s’affichent.
-* Un rapport peut contenir des mesures pour les zones « Europe » ou « Asie/Pacifique ». Ces éléments ne sont pas destinés à fournir des informations statistiques sur l’ensemble des adresses IP de ces régions. Ils s’appliquent uniquement aux demandes issues d’adresses IP réparties sur toute la zone Europe ou Asie/Pacifique, sans s’attacher à une ville ou un pays en particulier.
+* L’info-bulle pour le rapport Top Cities identifie une ville par son nom, le département/province et l’abréviation du pays/région.
+* Si la ville ou la région (par exemple, État/province) dans laquelle a été initiée une demande n’a pas pu être identifiée, l’info-bulle précise qu’elles sont inconnues. Si le pays/région est inconnu, deux points d’interrogation ( ??), s’affichera.
+* Un rapport peut contenir des mesures pour les zones « Europe » ou « Asie/Pacifique ». Ces éléments ne sont pas destinés à fournir des informations statistiques sur l’ensemble des adresses IP de ces régions. Au lieu de cela, ils s’appliquent uniquement aux requêtes provenant d’adresses IP qui sont répartis dans Europe ou Asie/Pacifique au lieu d’une ville spécifique ou le pays/région.
 
 Vous pouvez afficher sous le graphique à barres les données qui ont été utilisées pour générer ce graphique. Vous obtenez alors le nombre total d’accès, le pourcentage d’accès, la quantité de données transférées (en Go) et le pourcentage de données transférées pour les 250 principales régions. Vous pouvez afficher la description de chacune de ces mesures.
 
@@ -74,7 +74,7 @@ Une brève description est fournie pour les deux types de rapports ci-dessous.
 | Nom du rapport | Description |
 | --- | --- |
 | Top Cities |Ce rapport évalue les villes en fonction du nombre d’accès recensés dans cette région. |
-| Top Countries |Ce rapport évalue les pays en fonction du nombre d’accès recensés dans cette région. |
+| Top Countries |Ce rapport évalue les pays/régions en fonction du nombre d’accès dont provient ce pays/région. |
 
 ## <a name="daily-summary"></a>Daily Summary
 Le rapport Daily Summary vous permet d’afficher le nombre total d’accès et de données transférées chaque jour sur une plateforme spécifique. Ces informations peuvent être utilisées pour identifier rapidement les modèles d’activités CDN. Par exemple, ce rapport peut vous aider à détecter les jours où a été recensé un trafic supérieur ou inférieur au niveau attendu.

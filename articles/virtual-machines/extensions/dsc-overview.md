@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: robreed
-ms.openlocfilehash: b3cfc33f435c6ddaabe8358c344b1944f7c271f6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 2130dcc27f81eb1e33fa56a7a4f963d81ac0de5b
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60799553"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926117"
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Présentation du gestionnaire d’extensions de configuration d’état souhaité Microsoft Azure
 
@@ -82,7 +82,7 @@ Ces informations peuvent être consultées dans le [Azure portal](../../automati
 ```
 
 Pour le nom de la Configuration de nœud, assurez-vous que vous utilisez le nom de la *Configuration de nœud* et pas la Configuration.
-Une Configuration est définie dans un script qui est utilisé [pour compiler la Configuration de nœud (fichiers MOF)](https://docs.microsoft.com/en-us/azure/automation/automation-dsc-compile).
+Une Configuration est définie dans un script qui est utilisé [pour compiler la Configuration de nœud (fichiers MOF)](https://docs.microsoft.com/azure/automation/automation-dsc-compile).
 Le nom sera toujours la Configuration du suivi d’un point `.` et `localhost` ou un nom d’ordinateur spécifique.
 
 ## <a name="dsc-extension-in-resource-manager-templates"></a>Extension DSC dans les modèles Resource Manager

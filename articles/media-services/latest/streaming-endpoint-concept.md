@@ -1,6 +1,6 @@
 ---
-title: Points de terminaison de streaming dans Azure Media Services | Microsoft Docs
-description: Cet article explique ce que sont les points de terminaison de streaming et comment ils sont utilisés par Azure Media Services.
+title: Diffusion en continu des points de terminaison (origine) dans Azure Media Services | Microsoft Docs
+description: Dans Azure Media Services, un point de terminaison de diffusion en continu (origine) représente un empaquetage dynamique et le service de diffusion en continu qui peut fournir du contenu directement à une application de lecteur cliente ou à un réseau de distribution de contenu (CDN) pour être redistribué.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -9,18 +9,20 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/21/2019
+ms.date: 04/27/2019
 ms.author: juliako
-ms.openlocfilehash: 8b6deadca610916a10f719d715fe6a17e29148bb
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: 1b29e75531c9e24d2f296442d528a28a23ffa947
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62125421"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64867608"
 ---
-# <a name="streaming-endpoints"></a>Points de terminaison de diffusion en continu
+# <a name="streaming-endpoints-origin"></a>Points de terminaison de diffusion en continu (origine)
 
-Dans Microsoft Azure Media Services (AMS), l’entité [Points de terminaison de streaming](https://docs.microsoft.com/rest/api/media/streamingendpoints) représente un service de streaming qui peut fournir du contenu directement à une application de lecteur cliente ou à un réseau de distribution de contenu (CDN) pour être redistribué. Le flux sortant d’un service de **point de terminaison de streaming** peut être un flux temps réel ou un actif multimédia de vidéo à la demande dans votre compte Media Services. Quand vous créez un compte Media Services, un point de terminaison de streaming **par défaut** est créé pour vous dans l’état Arrêté. Vous ne pouvez pas supprimer le point de terminaison de streaming **par défaut**. Vous pouvez créer d’autres points de terminaison de streaming sous votre compte. 
+Dans Microsoft Azure Media Services, un [le point de terminaison de diffusion en continu](https://docs.microsoft.com/rest/api/media/streamingendpoints) représente un dynamique (juste-à-temps) empaquetage et l’origine service qui peut fournir votre contenu en direct et à la demande directement à une application de lecteur client, à l’aide d’un de le diffusion en continu media protocoles communs (HLS ou DASH). En outre, le **le point de terminaison de diffusion en continu** fournit le chiffrement dynamique (juste-à-temps) pour ses systèmes de DRM de pointe.
+
+Quand vous créez un compte Media Services, un point de terminaison de streaming **par défaut** est créé pour vous dans l’état Arrêté. Vous ne pouvez pas supprimer le point de terminaison de streaming **par défaut**. Points de terminaison de diffusion en continu supplémentaires peuvent être créés sous le compte (consultez [Quotas et limitations](limits-quotas-constraints.md)). 
 
 > [!NOTE]
 > Pour démarrer le streaming de vidéos, vous devez démarrer le **point de terminaison de streaming** à partir duquel vous souhaitez diffuser la vidéo. 
@@ -35,33 +37,37 @@ Pour les points de terminaison supplémentaires : `{EndpointName}-{AccountName}
 
 ## <a name="types"></a>Types  
 
-Il existe deux types de **points de terminaison de streaming** : **Standard** et **Premium**. Le type est défini par le nombre d’unités d’échelle (`scaleUnits`) que vous allouez pour le point de terminaison de streaming. 
+Il existe deux types de **points de terminaison de streaming** : **Standard** (version préliminaire) et **Premium**. Le type est défini par le nombre d’unités d’échelle (`scaleUnits`) que vous allouez pour le point de terminaison de streaming. 
 
 Le tableau décrit les types :  
 
 |Type|Unités d’échelle|Description|
 |--------|--------|--------|  
-|**Point de terminaison de streaming Standard** (recommandé)|0|La valeur par défaut est le point de terminaison de diffusion en continu un **Standard** type, mais peut être remplacé par le type Premium.<br/> Le type Standard est l’option recommandée pour pratiquement tous les scénarios de diffusion en continu et la taille du public. Le type **Standard** met automatiquement à l’échelle la bande passante sortante. Le débit à partir de ce type de point de terminaison de diffusion en continu est jusqu'à 600 Mbits/s. Les fragments vidéo mis en cache dans le CDN, n’utilisez pas la bande passante de point de terminaison de diffusion en continu.<br/>Pour les clients avec des exigences extrêmement hautes, Media Services offre des points de terminaison de streaming **Premium**, qui peuvent être utilisés à des fins de scale out de la capacité pour les audiences Internet les plus étendues. Si vous pensez que le grand public et des utilisateurs simultanés, contactez-nous à amsstreaming\@microsoft.com pour obtenir des conseils sur la nécessité de déplacer vers le **Premium** type. |
-|**Point de terminaison de streaming Premium**|>0|Les points de terminaison de streaming **Premium** sont conçus pour les charges de travail avancées et fournissent une capacité de bande passante dédiée et scalable. Vous passez à un type **Premium** en ajustant les `scaleUnits`. Les `scaleUnits` vous offrent une capacité de sortie dédiée qui peut être achetée par incréments de 200 Mbits/s. Quand vous utilisez le type **Premium**, chaque unité activée fournit une capacité de bande passante supplémentaire à l’application. |
- 
-## <a name="comparing-streaming-types"></a>Comparaison des types de streaming
+|**Standard**|0|La valeur par défaut est le point de terminaison de diffusion en continu un **Standard** tapez, peut être converti en type Premium en ajustant `scaleUnits`.|
+|**Premium**|>0|**Premium** points de terminaison de diffusion en continu conviennent pour des charges de travail avancées, fournissent une capacité de bande passante dédiée et scalable. Vous déplacer vers un **Premium** type en ajustant `scaleUnits` (unités de diffusion en continu). Les `scaleUnits` vous offrent une capacité de sortie dédiée qui peut être achetée par incréments de 200 Mbits/s. Quand vous utilisez le type **Premium**, chaque unité activée fournit une capacité de bande passante supplémentaire à l’application. |
 
-### <a name="features"></a>Caractéristiques
+> [!NOTE]
+> Pour les clients qui souhaitent pour fournir du contenu à un large public internet, nous vous recommandons d’activer le CDN sur le point de terminaison de diffusion en continu.
+
+Pour plus d’informations de contrat SLA, consultez [tarification et les contrats SLA](https://azure.microsoft.com/pricing/details/media-services/).
+
+## <a name="comparing-streaming-types"></a>Comparaison des types de streaming
 
 Fonctionnalité|standard|Premium
 ---|---|---
-Gratuit les 15 premiers jours| Oui |Non 
-Débit |Jusqu'à 600 Mbits/s lorsqu’Azure CDN n’est pas utilisé. Mis à l’échelle avec CDN.|200 Mbits/s par unité de streaming (SU). Mis à l’échelle avec CDN.
+Gratuit les 15 premiers jours <sup>1</sup>| Oui |Non 
+Débit |Jusqu'à 600 Mbits/s et peut fournir un débit bien plus efficace important lors de l’utilisation d’un CDN.|200 Mbits/s par unité de streaming (SU). Peut de fournir un débit bien plus efficace important lors de l’utilisation d’un CDN.
 CDN|Azure CDN, CDN tiers ou sans CDN.|Azure CDN, CDN tiers ou sans CDN.
 La facturation est calculée sur la base d'un taux| Quotidien|Quotidien
 Chiffrement dynamique|Oui|Oui
 l’empaquetage dynamique|Oui|Oui
-Scale|Mise à l’échelle automatique vers le débit cible.|Unités de diffusion en continu supplémentaires
-Hôte de filtrage/G20/personnalisé IP <sup>1</sup>|Oui|Oui
+Scale|Mise à l’échelle automatique vers le débit cible.|Unités de recherche supplémentaires
+Hôte de filtrage/G20/personnalisé IP <sup>2</sup>|Oui|Oui
 Téléchargement progressif|Oui|Oui
-Utilisation recommandée |Recommandé pour la plupart des scénarios de streaming.|Utilisation professionnelle.<br/>Si vous pensez que vos besoins dépassent ce qu’offre l’abonnement Standard. Contactez-nous (amsstreaming@microsoft.com) si vous prévoyez une taille d’audience simultanée supérieure à 50 000 utilisateurs.
+Utilisation recommandée |Recommandé pour la plupart des scénarios de streaming.|Utilisation professionnelle.
 
-<sup>1</sup> uniquement utilisés directement sur le point de terminaison de diffusion en continu lorsque le CDN n’est pas activé sur le point de terminaison.
+<sup>1</sup> l’essai gratuit s’applique uniquement aux comptes de services de média nouvellement créé et la valeur par défaut point de terminaison de diffusion en continu.<br/>
+<sup>2</sup> uniquement utilisés directement sur le point de terminaison de diffusion en continu lorsque le CDN n’est pas activé sur le point de terminaison.<br/>
 
 ## <a name="properties"></a>properties 
 
