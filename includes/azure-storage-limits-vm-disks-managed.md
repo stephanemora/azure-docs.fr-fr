@@ -26,7 +26,7 @@ ms.locfileid: "60386322"
 
 **Premium SSD des disques gérés : Limites par machine virtuelle**
 
-| Resource | Limite par défaut |
+| Ressource | Limite par défaut |
 | --- | --- |
 | Nombre maximal d’IOPS par machine virtuelle |80 000 E/S par seconde avec la machine virtuelle GS5 |
 | Débit maximal par machine virtuelle |2 000 Mo/s avec la machine virtuelle GS5 |
