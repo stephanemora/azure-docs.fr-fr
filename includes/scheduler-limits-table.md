@@ -17,7 +17,7 @@ ms.locfileid: "60531286"
 ---
 Le tableau suivant décrit chaque quota, limite, valeur par défaut et limitation principaux dans Azure Scheduler.
 
-| Resource | Description de la limite |
+| Ressource | Description de la limite |
 | -------- | ----------------- |
 | **Taille du travail** | La taille maximale du travail est de 16 000. Si une opération PUT ou PATCH génère un travail qui dépasse ces limites de taille, le code d’état 400 Requête incorrecte est retourné. | 
 | **Collections de travaux** | Le nombre maximal de collections de travaux par abonnement Azure est de 200 000. | 
