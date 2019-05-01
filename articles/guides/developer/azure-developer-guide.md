@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: dc44cfbd24bd04caeede03dcbcfc60da06f61135
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 99e043adeac9a43432fb1eba85527b561c477354
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60921750"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64570553"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Guide de prise en main pour les développeurs Azure
 
@@ -199,7 +199,7 @@ Azure est une plateforme cloud mondiale qui est disponible dans de nombreuses r�
 
 ### <a name="choose-the-best-region-for-your-application-and-data"></a>Choisir la meilleure région pour votre application et vos données
 
-L’un des avantages de l’utilisation d’Azure est de pouvoir déployer des applications dans différents centres de données du monde. La région que vous choisissez peut affecter les performances de votre application. Par exemple, il est préférable de choisir une région proche de la plupart de vos clients afin de réduire la latence des demandes réseau. Vous pouvez également sélectionner votre région pour répondre aux exigences légales de distribution de votre application dans certains pays. Il est toujours recommandé de stocker les données d’application dans le même centre de données ou dans un centre de données aussi proche que possible du centre de données qui héberge votre application.
+L’un des avantages de l’utilisation d’Azure est de pouvoir déployer des applications dans différents centres de données du monde. La région que vous choisissez peut affecter les performances de votre application. Par exemple, il est préférable de choisir une région proche de la plupart de vos clients afin de réduire la latence des demandes réseau. Vous souhaiterez également sélectionnez votre région pour répondre aux exigences légales de distribution de votre application dans certains pays/régions. Il est toujours recommandé de stocker les données d’application dans le même centre de données ou dans un centre de données aussi proche que possible du centre de données qui héberge votre application.
 
 ### <a name="multi-region-apps"></a>Applications multirégions
 

@@ -18,12 +18,12 @@ ms.date: 03/23/2019
 ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a92d10f67533efc2f5893b012aefbcb92efee59a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: a5c6f1064d2d73ab3d99ca341cffd9b296723e97
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60411626"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64571108"
 ---
 # <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>Que sont les contrôles d’accès dans l’accès conditionnel Azure Active Directory ?
 
@@ -113,7 +113,7 @@ Vous pouvez demander à un utilisateur dans votre locataire de donner son consen
 
 ### <a name="custom-controls-preview"></a>Contrôles personnalisés (préversion)
 
-Vous pouvez créer des contrôles personnalisés dans l’accès conditionnel qui redirigent les utilisateurs vers un service compatible pour satisfaire à d’autres exigences en dehors d’Azure Active Directory. Cela vous permet d’utiliser certains fournisseurs de vérification et d’authentification multifacteur externes pour appliquer des règles d’accès conditionnel ou pour créer votre propre service personnalisé. Pour satisfaire à ce contrôle, le navigateur de l’utilisateur est redirigé vers le service externe, effectue les opérations d’authentification et de vérification requises, puis est redirigé vers Azure Active Directory. Si l’utilisateur a été correctement authentifié ou vérifié, il continue dans le flux d’accès conditionnel. 
+Vous pouvez ajouter des contrôles personnalisés dans l’accès conditionnel qui redirigent les utilisateurs vers un service compatible pour satisfaire à d’autres exigences en dehors d’Azure Active Directory. Cela vous permet d’utiliser certains fournisseurs de vérification et l’authentification multifacteur externes pour appliquer des exigences d’accès conditionnel. Pour satisfaire à ce contrôle, le navigateur de l’utilisateur est redirigé vers le service externe, effectue les opérations d’authentification et de vérification requises, puis est redirigé vers Azure Active Directory. Si l’utilisateur a été correctement authentifié ou vérifié, il continue dans le flux d’accès conditionnel. 
 
 ## <a name="custom-controls"></a>Contrôles personnalisés
 
@@ -137,6 +137,8 @@ Pour plus d’informations sur ces services, contactez directement les fournisse
 ### <a name="creating-custom-controls"></a>Création de contrôles personnalisés
 
 Pour créer un contrôle personnalisé, commencez par contacter le fournisseur que vous souhaitez utiliser. Les fournisseurs autres que Microsoft ont chacun leurs propres processus et exigences que vous devez suivre pour vous inscrire, vous abonner ou devenir membre du service, et pour demander à intégrer l’accès conditionnel. Le fournisseur vous fournit alors un bloc de données au format JSON. Ces données permettent au fournisseur et à l’accès conditionnel de fonctionner ensemble pour votre locataire, créent le contrôle et définissent de quelle façon l’accès conditionnel indique si vos utilisateurs ont réussi la vérification auprès du fournisseur.
+
+Contrôles personnalisés ne peut pas être utilisés avec l’automatisation du service Identity Protection exigeant une authentification multifacteur ou à élever les rôles dans Privileged Identity Manager (PIM).
 
 Copiez les données JSON et collez-les dans la zone de texte correspondante. Ne modifiez pas les données JSON, à moins d’être parfaitement sûr de la modification que vous apportez. Une modification inappropriée peut rompre la liaison entre le fournisseur et Microsoft, et potentiellement verrouiller l’accès à votre compte et aux comptes de vos utilisateurs.
 

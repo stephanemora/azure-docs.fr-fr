@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: c767406ceec703b5c14680ec96fdf703c2316044
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2c206d42e220534225cfef0415a65c1f9494f761
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60403680"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64569795"
 ---
 # <a name="message-sessions-first-in-first-out-fifo"></a>Sessions de messagerie : premier entré, premier sorti (FIFO) 
 
@@ -79,8 +79,7 @@ L’état de session stocké dans une file d’attente ou dans un abonnement est
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Découvrez [un exemple complet](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/Microsoft.Azure.ServiceBus/BasicSendReceiveUsingQueueClient) des procédures d’envoi et de réception de messages basés sur la session à partir de files d’attente Service Bus à l’aide de la bibliothèque .NET Standard.
-- Consultez [un exemple](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/Sessions) qui utilise le client .NET Framework pour traiter les messages prenant en charge la session. 
+- Consultez le [Microsoft.Azure.ServiceBus exemples](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/Sessions) ou [Microsoft.ServiceBus.Messaging exemples](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/Sessions) pour obtenir un exemple qui utilise le client de .NET Framework pour gérer les messages prenant en charge de session. 
 
 Pour plus d’informations sur la messagerie Service Bus, consultez les articles suivants :
 

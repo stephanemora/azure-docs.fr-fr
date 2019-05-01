@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/01/2019
 ms.author: banders
-ms.openlocfilehash: 810d0795bd005cc313ec3567811ad55ba1d9d522
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: be20ad0583558949f65b9706f0a478669360bf3d
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60370031"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64571207"
 ---
 # <a name="understand-your-azure-enterprise-agreement-bill"></a>Comprendre votre facture Azure Enterprise Agreement
 
@@ -29,7 +29,7 @@ Le crédit de votre organisation comprend votre engagement financier. L’engage
 
 ## <a name="invoices-for-most-customers"></a>Factures pour la plupart des clients
 
-Cette section ne s’applique pas aux clients Azure en Australie, Japon et Singapour. Si vous êtes dans un de ces pays, consultez [factures pour les autres clients](#invoices-for-other-customers).
+Cette section ne s’applique pas aux clients Azure en Australie, Japon et Singapour. Si vous êtes dans un de ces pays/régions, consultez [factures pour les autres clients](#invoices-for-other-customers).
 
 Vous recevez une facture Azure lorsque les éléments suivants se produisent pendant votre cycle de facturation :
 

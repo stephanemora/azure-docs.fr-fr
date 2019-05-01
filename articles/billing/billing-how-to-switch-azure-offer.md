@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: banders
-ms.openlocfilehash: bbdcbdc7ef288eeeb279c7e5e59baee492e1f292
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 11d3deb029ef0d8478844b64c54db7982ed1091e
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60918685"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64570986"
 ---
 # <a name="change-your-azure-pay-as-you-go-subscription-to-a-different-offer"></a>Changer votre abonnement Paiement à l’utilisation Azure pour une autre offre
 
@@ -86,7 +86,7 @@ Il est possible que le bouton **Changer pour une autre offre** ne s’affiche pa
 ### <a name="why-do-i-see-there-are-no-offers-available-in-your-region-or-country-at-this-time"></a>Pourquoi le message « Il n’y a pas d’offres disponibles dans votre région ou dans votre pays à l’heure actuelle. » s’affiche-t-il ?
 
 * Vous n’êtes peut-être pas éligible à un changement d’offre. Consultez la [liste des offres disponibles vers lesquelles vous pouvez basculer](#whats-supported) et vérifiez que vous avez activé les avantages adéquats avec Visual Studio ou Bizspark.
-* Certaines offres peuvent ne pas être disponibles dans tous les pays.
+* Certaines offres ne peuvent pas être disponibles dans tous les pays/régions.
 
 ### <a name="what-does-switching-azure-offers-do-to-my-service-and-billing"></a>Quel impact le basculement des offres Azure a-t-il sur mon service et ma facturation ?
 

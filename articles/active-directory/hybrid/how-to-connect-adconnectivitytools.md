@@ -1,28 +1,28 @@
 ---
 title: 'Azure AD Connect : Présentation du module PowerShell ADConnectivityTool | Microsoft Docs'
-description: Ce document présente le nouveau module PowerShell ADConnectivity.
+description: Ce document présente le nouveau module PowerShell de ADConnectivity et comment elle peut être utilisée pour résoudre les problèmes.
 services: active-directory
 author: billmath
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/19/2018
+ms.date: 4/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5b2471b28132b26c41844b620f6dcf49e3802a6e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cd5340cd8c802df4ffbe0207b5401d2fee4e207e
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60245652"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64571117"
 ---
-# <a name="what-is-the-adconnectivitytool-powershell-module"></a>Présentation du module PowerShell ADConnectivityTool
+# <a name="troubleshoot-azure-ad-connectivity-with-the-adconnectivitytool-powershell-module"></a>Résoudre les problèmes de connectivité d’Azure AD avec le module PowerShell de ADConnectivityTool
 
 L’outil ADConnectivity est un module PowerShell utilisé dans l’une des situations suivantes :
 
-- Pendant l’installation quand un problème de connectivité réseau empêche la validation des informations d’identification Active Directory fournies par l’utilisateur dans l’Assistant.
+- Lors de l’installation lorsqu’un problème de connectivité réseau empêche la validation réussie de l’annuaire Active Directory informations d’identification de l’utilisateur dans l’Assistant.
 - Après l’installation par un utilisateur qui appelle les fonctions à partir d’une session PowerShell.
 
 L’outil se trouve à l’emplacement suivant : **C:\Program Files\Microsoft Azure Active Directory Connect\Tools\ ADConnectivityTool.psm1** 

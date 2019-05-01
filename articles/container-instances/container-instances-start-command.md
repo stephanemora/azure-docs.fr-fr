@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: danlep
-ms.openlocfilehash: 78136a081e52ef3f12d672d01449ce616534462e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: da94a4c79694f511d41e5c8dda8c786fc7049726
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60537647"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64569639"
 ---
 # <a name="set-the-command-line-in-a-container-instance-to-override-the-default-command-line-operation"></a>Définir la ligne de commande dans une instance de conteneur pour remplacer l’opération de ligne de commande par défaut
 
@@ -24,7 +24,15 @@ Telles que la définition [variables d’environnement](container-instances-envi
 
 * Par défaut, la ligne de commande spécifie un *unique processus qui démarre sans un interpréteur de commandes* dans le conteneur. Par exemple, la ligne de commande peut exécuter un script Python ou un fichier exécutable. 
 
-* Pour exécuter plusieurs commandes, commencer votre ligne de commande en définissant un environnement d’interpréteur de commandes dans le système d’exploitation de conteneur (exemples : `bin/sh`, `/bin/bash`, `cmd`). Suivez les conventions de l’interpréteur de commandes pour combiner plusieurs commandes à exécuter dans la séquence.
+* Pour exécuter plusieurs commandes, commencer votre ligne de commande en définissant un environnement d’interface qui est pris en charge dans le système d’exploitation du conteneur. Exemples :
+
+  |Système d’exploitation  |Shell par défaut  |
+  |---------|---------|
+  |Ubuntu     |   `/bin/bash`      |
+  |Alpine     |   `/bin/sh`      |
+  |Windows     |    `cmd`     |
+
+  Suivez les conventions de l’interpréteur de commandes pour combiner plusieurs commandes à exécuter dans la séquence.
 
 * Selon la configuration du conteneur, vous devrez peut-être définir un chemin d’accès complet à l’exécutable de ligne de commande ou des arguments.
 

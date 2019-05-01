@@ -5,15 +5,15 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 01/29/2019
+ms.date: 04/24/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 6d1ce56ef66d224b89f49a00c2883ebbf22a5745
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: e1f94b7b2ab71afaa40831446e5e5aede00db7b1
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60364930"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64570851"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit"></a>Créer et modifier l’homologation pour un circuit ExpressRoute
 
@@ -91,7 +91,7 @@ Cette section explique comment créer, obtenir, mettre à jour et supprimer la c
 
 ### <a name="getmsft"></a>Pour afficher les détails de l’homologation Microsoft
 
-Vous pouvez afficher les propriétés d'homologation publique Azure en sélectionnant l'homologation.
+Vous pouvez afficher les propriétés de l’homologation en sélectionnant l’homologation Microsoft.
 
 ![](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft3.png)
 
@@ -159,6 +159,10 @@ Vous pouvez supprimer votre configuration d’homologation en sélectionnant l�
 ## <a name="public"></a>Homologation publique Azure
 
 Cette section explique comment créer, obtenir, mettre à jour et supprimer la configuration d’homologation publique Azure pour un circuit ExpressRoute.
+
+> [!Note]
+> L’homologation publique Azure est déconseillée pour les circuits de nouveau. Pour plus d’informations, consultez [l’homologation ExpressRoute](expressroute-circuit-peerings.md).
+>
 
 ### <a name="to-create-azure-public-peering"></a>Pour créer une homologation publique Azure
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/19/2017
 ms.author: magoedte
-ms.openlocfilehash: f431613d9fa1020f523e03c90cbe31f4d42ccf42
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 568ff99364923c43b7199bed1dacd32cf0d18ab9
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60596067"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64571152"
 ---
 #  <a name="agent-health-solution-in-azure-monitor"></a>Solution agent Health Azure Monitor
 La solution Agent Health dans Azure vous permet de comprendre, pour tous les agents de rapports directement à l’espace de travail Analytique de journal dans Azure Monitor ou un groupe d’administration System Center Operations Manager connecté à Azure Monitor, qui sont ne répond pas et envoi de données opérationnelles.  Vous pouvez aussi suivre le nombre d’agents déployés et leur localisation géographique, et réaliser diverses requêtes pour être au fait de la distribution d’agents déployés au sein d’Azure, d’environnements de cloud ou localement.    
@@ -63,7 +63,7 @@ Cliquez sur la vignette **Agent Health** pour ouvrir le tableau de bord **Agent 
 | Distribution selon la version de l’agent | Partition des versions des agents installées dans votre environnement, et leur nombre.|
 | Distribution selon la catégorie de l’agent | Partition des différentes catégories d’agents émettant des événements de pulsation : agents directs, agents Operations Manager ou serveur d’administration Operations Manager.|
 | Distribution selon le groupe d’administration | Une partition des différents groupes d’administration Operations Manager dans votre environnement.|
-| Géolocalisation des agents | Partition des différents pays dans lesquels vous disposez d’agents et nombre total d’agents installés par pays.|
+| Géolocalisation des agents | Une partition de l’autres pays/régions où vous avez des agents et un décompte du nombre d’agents qui ont été installés dans chaque pays/région.|
 | Nombre de passerelles installées | Nombre et liste des serveurs disposant de la passerelle Log Analytics.|
 
 ![Exemple de tableau de bord pour la solution Agent Health](./media/solution-agenthealth/agenthealth-solution-dashboard.png)  
