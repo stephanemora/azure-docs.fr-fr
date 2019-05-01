@@ -5,14 +5,14 @@ author: rayne-wiselman
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 04/26/2019
 ms.author: raynew
-ms.openlocfilehash: d9fdd6f42e1443c0515c2c38496e9d474c87715c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: c91629d24267d280edefdb7530e2614eb7be89fd
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60837431"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64704884"
 ---
 # <a name="vmware-to-azure-disaster-recovery-architecture"></a>Architecture pour la reprise d’activité de VMware sur Azure
 
@@ -53,6 +53,7 @@ Le tableau et le graphique suivants présentent une vue générale des composant
     - Le serveur de configuration orchestre la réplication avec Azure sur le port HTTPS 443 sortant.
     - Les machines virtuelles envoient des données de réplication au serveur de traitement (s’exécutant sur l’ordinateur du serveur de configuration) sur le port HTTPS 9443 entrant. Ce port peut être modifié.
     - Le serveur de traitement reçoit les données de réplication, les optimise et les chiffre, puis les envoie au stockage Azure via le port 443 sortant.
+5. Les données de réplication connecte présentée préalablement dans un compte de stockage de cache dans Azure. Ces journaux sont traitées et les données sont stockées dans un disque géré Azure (appelé en tant que disque de valeur initiale d’asr). Les points de récupération sont créés sur ce disque.
 
 
 

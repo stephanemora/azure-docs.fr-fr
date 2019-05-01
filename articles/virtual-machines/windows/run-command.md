@@ -5,15 +5,15 @@ services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/25/2018
+ms.date: 04/26/2019
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: d199a9db879263bbca49298df190c5a127444c42
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 23973445992ceaeb0cd3bc0589665f2fac5b64e5
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60251236"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64575337"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-with-run-command"></a>Exécuter des scripts PowerShell dans votre machine virtuelle Windows avec la commande Run
 
@@ -83,9 +83,9 @@ Invoke-AzVMRunCommand -ResourceGroupName '<myResourceGroup>' -Name '<myVMName>' 
 
 ## <a name="limiting-access-to-run-command"></a>Limitation de l’accès à la commande Run
 
-Répertorier les commandes Run ou afficher les détails d’une commande nécessite l’autorisation `Microsoft.Compute/locations/runCommands/read`, disponible avec le rôle intégré [Lecteur](../../role-based-access-control/built-in-roles.md#reader) et les rôles supérieurs.
+Répertorier les commandes d’exécution ou présentant les détails d’une commande nécessite le `Microsoft.Compute/locations/runCommands/read` autorisation au niveau de l’abonnement, qui intégrés [lecteur](../../role-based-access-control/built-in-roles.md#reader) rôle et ont une version ultérieure.
 
-Nécessite l’exécution d’une commande le `Microsoft.Compute/virtualMachines/runCommand/action` autorisation, ce qui le [collaborateur de Machine virtuelle](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) rôle et ont une version ultérieure.
+Nécessite l’exécution d’une commande le `Microsoft.Compute/virtualMachines/runCommand/action` autorisation au niveau de l’abonnement, ce qui le [collaborateur de Machine virtuelle](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) rôle et ont une version ultérieure.
 
 Vous pouvez utiliser un des rôles [intégrés](../../role-based-access-control/built-in-roles.md) ou créer un rôle [personnalisé](../../role-based-access-control/custom-roles.md) afin d’exécuter la commande Run.
 

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: raynew
-ms.openlocfilehash: 1e80b2083a2fce90259ac0634d9e7f796f459fcd
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 93be913182db56941c346ef0cad47f70c0d614c9
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57880949"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64706834"
 ---
 # <a name="about-azure-vm-backup"></a>À propos de la sauvegarde de machine virtuelle Azure
 
@@ -31,10 +31,14 @@ Voici comment Azure sauvegarde se termine une sauvegarde des machines virtuelles
     - Par défaut, la sauvegarde a des sauvegardes complètes de VSS.
     - Si la sauvegarde ne peut pas prendre un instantané cohérent au niveau de l’application, puis il prend un instantané cohérent de fichier du stockage sous-jacent (car aucune écriture de l’application se produire pendant l’arrêt de la machine virtuelle).
 1. Pour les machines virtuelles Linux, sauvegarde effectue une sauvegarde cohérentes au niveau fichier. Pour les instantanés cohérents d’application, vous devez personnaliser manuellement les scripts de pré/post.
-1. Une fois la sauvegarde a pris l’instantané, il transfère les données dans le coffre. 
+1. Une fois la sauvegarde a pris l’instantané, il transfère les données dans le coffre.
     - La sauvegarde est optimisée par la sauvegarde de chaque disque de machine virtuelle en parallèle.
     - Pour chaque disque qui est en cours de sauvegarde, sauvegarde Azure lit les blocs sur le disque et identifie et transfère uniquement les blocs de données qui a changé (delta) depuis la sauvegarde précédente.
     - Les données d’instantanés peuvent ne pas être immédiatement copiées dans le coffre. Aux heures de pointe, cela peut prendre quelques heures. Durée de sauvegarde totale pour une machine virtuelle sera inférieure à 24 heures pour les stratégies de sauvegarde quotidiennes.
+ 1. Les modifications apportées à une machine virtuelle Windows une fois la sauvegarde Azure est activé sur celui-ci sont :
+    -   Microsoft Visual C++ Redistributable(x64) 2013 - 12.0.40660 est installé dans la machine virtuelle
+    -   Type de démarrage du service de cliché instantané de Volume (VSS) passé à automatique de manuel
+    -   IaaSVmProvider Windows service est ajouté
 
 1. Lorsque le transfert de données est terminé, l’instantané est supprimé, et un point de récupération est créé.
 
@@ -57,7 +61,7 @@ BEKs sont également sauvegardées. Par conséquent, si les BEKs sont perdus, le
 
 ## <a name="snapshot-creation"></a>Création d’instantanés
 
-Sauvegarde Azure prend des captures instantanées en fonction de la planification de sauvegarde. 
+Sauvegarde Azure prend des captures instantanées en fonction de la planification de sauvegarde.
 
 - **Machines virtuelles Windows :** Pour les machines virtuelles Windows, le service de sauvegarde se coordonne avec VSS pour prendre un instantané cohérent de l’application de disques de machine virtuelle.
 
@@ -82,7 +86,7 @@ Le tableau suivant décrit les différents types de cohérence de l’instantan�
 **Système de fichiers cohérent** | Sauvegardes cohérentes de système de fichiers assurer la cohérence en prenant un instantané de tous les fichiers en même temps.<br/><br/> | Lorsque vous récupérez une machine virtuelle avec un instantané cohérent du système de fichiers, la machine virtuelle démarre. Il n’y a aucune altération ni perte des données. Les applications ont besoin d’implémenter leur propre mécanisme de « correction » pour s’assurer que les données restaurées sont cohérentes. | Windows : Certains enregistreurs VSS ont échoué <br/><br/> Linux : Par défaut (si les scripts de pré/post ne sont pas configurés ou échec)
 **Cohérence en cas d’incident** | Instantanés cohérents d’incident se produisent généralement si une machine virtuelle Azure s’arrête au moment de la sauvegarde. Seules les données déjà présentes sur le disque au moment de la sauvegarde sont capturées et sauvegardées.<br/><br/> Un point de récupération cohérent en cas d’incident ne garantit pas la cohérence des données pour le système d’exploitation ou l’application. | Bien qu’il n’y a aucune garantie, la machine virtuelle démarre généralement, puis démarre une vérification de disque pour résoudre les erreurs de corruption. N’importe quel données en mémoire ou les opérations d’écriture qui n’ont pas été transférées sur le disque avant l’incident sont perdues. Les applications implémentent leur propre vérification des données. Par exemple, une application de base de données peut utiliser son journal des transactions pour la vérification. Si le journal des transactions comporte des entrées qui ne figurent pas dans la base de données, le logiciel de base de données restaure les transactions jusqu'à ce que les données sont cohérentes. | La machine virtuelle est arrêtée
 
-## <a name="backup-and-restore-considerations"></a>Considérations relatives à la sauvegarde et de restauration 
+## <a name="backup-and-restore-considerations"></a>Considérations relatives à la sauvegarde et de restauration
 
 **Considération** | **Détails**
 --- | ---
@@ -99,8 +103,8 @@ Le tableau suivant décrit les différents types de cohérence de l’instantan�
 Ces scénarios courants peuvent affecter le temps de sauvegarde total :
 
 - **Ajout d’un disque à une machine virtuelle Azure protégée :** Si une machine virtuelle est en cours de sauvegarde incrémentielle et un nouveau disque est ajouté, l’heure de sauvegarde augmente. La durée totale de sauvegarde peut durer plus de 24 heures en raison de la réplication initiale du nouveau disque, ainsi que la réplication delta de disques existants.
-- **Disques fragmentés :** Opérations de sauvegarde sont plus rapides lorsque les modifications de disque sont contiguës. Si les changements sont dispersés et fragmentés sur un disque, la sauvegarde est plus lente. 
-- **Activité du disque :** Si protégé des disques qui sont en cours de sauvegarde incrémentielle ont un taux d’activité quotidienne de plus de 200 Go, la sauvegarde peut prendre beaucoup de temps (plus de huit heures). 
+- **Disques fragmentés :** Opérations de sauvegarde sont plus rapides lorsque les modifications de disque sont contiguës. Si les changements sont dispersés et fragmentés sur un disque, la sauvegarde est plus lente.
+- **Activité du disque :** Si protégé des disques qui sont en cours de sauvegarde incrémentielle ont un taux d’activité quotidienne de plus de 200 Go, la sauvegarde peut prendre beaucoup de temps (plus de huit heures).
 - **Versions de sauvegarde :** La dernière version de la sauvegarde (connu en tant que la version de la restauration instantanée) utilise un processus plus optimisé que la comparaison de la somme de contrôle pour identifier les modifications. Mais si vous êtes à l’aide de la restauration instantanée et que vous avez supprimé un instantané de sauvegarde, la sauvegarde bascule vers la comparaison de la somme de contrôle. Dans ce cas, l’opération de sauvegarde sera excéder 24 heures (ou échec).
 
 ## <a name="best-practices"></a>Bonnes pratiques

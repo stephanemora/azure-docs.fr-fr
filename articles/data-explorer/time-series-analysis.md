@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/07/2019
-ms.openlocfilehash: 8492f736e64366802b3601f9b5fc8bd1d9b6ea79
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: cb5e41feb9be978592a1c1708ade0188ba20d504
+ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60827367"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64873144"
 ---
 # <a name="time-series-analysis-in-azure-data-explorer"></a>Analyse des séries chronologiques dans Azure Data Explorer
 
@@ -260,3 +260,8 @@ demo_many_series1
 En moins de deux minutes, Azure Data Explorer a analysé près de 20 000 séries chronologiques et détecté deux séries chronologiques anormales dans lesquelles le nombre de lectures chutait soudainement.
 
 Ces fonctionnalités avancées combinées avec la rapidité des performances d’Azure Data Explorer produisent une solution unique et puissante pour l’analyse de séries chronologiques.
+
+## <a name="next-steps"></a>Étapes suivantes
+
+* En savoir plus sur [temps de détection des anomalies de série et les prévisions](/azure/data-explorer/anomaly-detection) dans l’Explorateur de données Azure.
+* En savoir plus sur [d’apprentissage fonctionnalités](/azure/data-explorer/machine-learning-clustering) dans l’Explorateur de données Azure.

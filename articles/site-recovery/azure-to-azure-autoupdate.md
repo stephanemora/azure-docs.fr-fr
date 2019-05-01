@@ -6,14 +6,14 @@ author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 04/29/2098
 ms.author: rajanaki
-ms.openlocfilehash: 67eb01ad596393c9095d72670e61b8c09776c588
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: aa135fef2850a692d45d932c15d4be74ccba5724
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59792926"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925709"
 ---
 # <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Mise à jour automatique du service mobilité dans la réplication Azure vers Azure
 
@@ -31,9 +31,10 @@ Lorsque vous utilisez Site Recovery pour gérer les mises à jour, elle déploie
 La planification du runbook par défaut se répète tous les jours à 12 h 00 dans le fuseau horaire de zone géographique de machine virtuelle répliquée. Vous pouvez également modifier la planification du runbook via le compte automation.
 
 > [!NOTE]
+> À partir de 35 de correctif cumulatif de mise à jour, vous pouvez choisir un compte automation existant à utiliser pour les mises à jour. Avant cette mise à jour, Site Recovery créé ce compte par défaut. Cette option est disponible lorsque vous activez la réplication pour une machine virtuelle. Si vous modifiez le paramètre, il s’applique pour toutes les machines virtuelles de Azure protégées dans le même coffre.
+ 
 > Activation des mises à jour automatiques ne requiert un redémarrage de vos machines virtuelles Azure ou affectent la réplication en cours.
 
-> [!NOTE]
 > Travail de facturation dans le compte automation est basé sur le nombre de minutes d’exécution de travail utilisé dans un mois. Par défaut, 500 minutes sont inclus en tant qu’unités gratuites pour un compte automation. L’exécution du travail prend quelques secondes environ une minute chaque jour et est couvert en tant qu’unités gratuites.
 
 | Unités gratuites incluses (chaque mois) | Prix |
@@ -63,7 +64,7 @@ Lorsque vous activez la réplication pour une machine virtuelle lançant [à par
 
 
 > [!Note]
-> Des deux options vous informe du compte automation utilisé pour la gestion des mises à jour. Si vous utilisez cette fonctionnalité dans un coffre pour la première fois, un nouveau compte automation est créé. Toutes les réplications enable suivantes dans le même coffre utilisent celui créé précédemment.
+> Des deux options vous informe du compte automation utilisé pour la gestion des mises à jour. Si vous utilisez cette fonctionnalité dans un coffre pour la première fois, un nouveau compte automation est créé par défaut. Alternativement, vous pouvez personnaliser le paramètre et choisir un compte automation existant. Toutes les réplications enable suivantes dans le même coffre utilisent celui créé précédemment.
 
 Pour un compte automation personnalisés, utilisez le script suivant :
 

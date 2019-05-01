@@ -1,24 +1,24 @@
 ---
-title: Comment utiliser le contrôle de carte Android dans Azure Maps | Microsoft Docs
+title: Mise en route avec le contrôle de carte Android dans Azure Maps | Microsoft Docs
 description: Le contrôle de carte Android dans Azure Maps.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 02/12/2019
+ms.date: 04/26/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 15706addbe6b7f6310223978130158c792a47c89
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: e655b442ba9290d4b4525108521f2d1a0c766b48
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60770327"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64869825"
 ---
-# <a name="how-to-use-the-azure-maps-android-sdk"></a>Comment utiliser le Kit de développement logiciel Android d’Azure Maps
+# <a name="getting-started-with-azure-maps-android-sdk"></a>Mise en route avec le Kit de développement logiciel Android d’Azure Maps
 
-Le Kit de développement logiciel Android d’Azure Maps est une bibliothèque de carte de vecteur pour Android. Cet article vous guide tout au long du processus d’installation le Kit de développement logiciel Android d’Azure Maps, le chargement d’une carte et placer un code confidentiel sur la carte.
+Le Kit de développement logiciel Android d’Azure Maps est une bibliothèque de carte de vecteur pour Android. Cet article vous guide tout au long du processus d’installation du SDK Android de Azure Maps et le chargement d’une carte.
 
 ## <a name="prerequisites"></a>Conditions préalables
 
@@ -55,7 +55,7 @@ Vous trouverez plus d’informations sur la configuration d’un AVD dans le [do
 
 L’étape suivante de la création de votre application consiste à installer le Kit de développement logiciel Android d’Azure Maps. Suivez ces étapes pour installer le Kit de développement :
 
-1. Ajoutez le code suivant à la **tous les projets**, **référentiels** bloquer votre **build.gradle** fichier.
+1. Ouvrez le niveau supérieur **build.gradle** fichier, puis ajoutez le code suivant à la **tous les projets**, **référentiels** bloquer la section :
 
     ```
     maven {
@@ -64,8 +64,10 @@ L’étape suivante de la création de votre application consiste à installer l
     ```
 
 2. Mise à jour votre **App/build.gradle** et lui ajouter le code suivant :
+    
+    1. Assurez-vous que l’option de votre projet **minSdkVersion** est à l’API 21 ou version ultérieure.
 
-    1. Ajoutez le code suivant au bloc Android :
+    2. Ajoutez le code suivant à la section Android :
 
         ```
         compileOptions {
@@ -73,24 +75,16 @@ L’étape suivante de la création de votre application consiste à installer l
             targetCompatibility JavaVersion.VERSION_1_8
         }
         ```
-    2. Mettre à jour de votre bloc de dépendances et ajoutez le code suivant à celui-ci :
+    3. Mettre à jour de votre bloc de dépendances et ajouter une nouvelle ligne de dépendance d’implémentation pour la dernière version du SDK Android de Azure Maps :
 
         ```
-        implementation "com.microsoft.azure.maps:mapcontrol:0.1"
+        implementation "com.microsoft.azure.maps:mapcontrol:0.2"
         ```
 
-3. Définir les autorisations en ajoutant le code XML suivant à votre **AndroidManifest.xml** fichier :
+    > [!Note]
+    > Le Kit de développement logiciel Android d’Azure Maps est régulièrement mis à niveau et améliorée. Vous pouvez voir le [mise en route avec contrôle de carte Android](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) documentation, pour obtenir le dernier numéro de version de mise en œuvre d’Azure Maps. En outre, vous pouvez définir le numéro de version à partir de « 0.2 » à « 0 » afin qu’il pointe toujours vers la dernière version.
 
-    ```xml
-    <?xml version="1.0" encoding="utf-8"?>
-    <manifest>
-        ...
-        <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-        ...
-    </manifest>
-    ```
-
-4. Modifier **res** > **disposition** > **activity_main.xml** afin qu’il ressemble à ce document XML :
+3. Modifier **res** > **disposition** > **activity_main.xml** et remplacez-le par le code suivant :
     
     ```XML
     <?xml version="1.0" encoding="utf-8"?>
@@ -105,16 +99,20 @@ L’étape suivante de la création de votre application consiste à installer l
             android:id="@+id/mapcontrol"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:mapcontrol_cameraTargetLat="47.64"
-            app:mapcontrol_cameraTargetLng="-122.33"
-            app:mapcontrol_cameraZoom="12"
             />
-
     </FrameLayout>
     ```
 
-5. Modifiez l’élément **MainActivity.java** pour créer une classe d’activité d’affichage de carte. Une fois que vous le modifiez, il doit ressembler à cette classe :
+4. Dans le **MainActivity.java** fichier, vous devez :
+    
+    * Ajoutez les importations pour le Kit de développement logiciel Azure Maps
+    * Définissez vos informations d’authentification Azure Maps
+    * obtenir l’instance de contrôle de carte le **onCreate** (méthode)
 
+    Définir les informations d’authentification sur la classe AzureMaps globalement à l’aide de méthodes setSubscriptionKey ou setAadProperties rend vous ne devez donc ajouter vos informations d’authentification sur chaque vue. Le contrôle de carte contient ses propres méthodes de cycle de vie pour la gestion OpenGL du cycle de vie d’Android, qui doit être appelée directement à partir de l’activité conteneur. Dans l’ordre de votre application appeler correctement, les méthodes de cycle de vie du contrôle de carte, vous devez substituer les méthodes de cycle de vie suivantes dans l’activité qui contient le contrôle de carte et appelez la méthode de contrôle de carte respectifs. 
+
+    Modifier le **MainActivity.java** de fichiers comme suit :
+    
     ```java
     package com.example.myapplication;
 
@@ -129,7 +127,7 @@ L’étape suivante de la création de votre application consiste à installer l
     public class MainActivity extends AppCompatActivity {
         
         static {
-            AzureMaps.setSubscriptionKey("{subscription-key}");
+            AzureMaps.setSubscriptionKey("<Your Azure Maps subscription key>");
         }
 
         MapControl mapControl;
@@ -197,97 +195,21 @@ Sélectionnez le bouton d’exécution, comme illustré à la suivante graphique
 
 Android Studio prendra quelques secondes pour générer l’application. Une fois la build terminée, vous pouvez tester votre application dans l’appareil émulé Android. Vous devez voir une carte comme celle-ci :
 
-![Carte Android](./media/how-to-use-android-map-control-library/android-map.png)
+<center>
 
-## <a name="add-a-marker-to-the-map"></a>Ajouter un marqueur sur la carte
+![Carte Android](./media/how-to-use-android-map-control-library/android-map.png)</center>
 
-Pour ajouter un marqueur à votre carte, ajoutez le `mapView.getMapAsync()` à fonction `MainActivity.java`. La dernière `MainActivity.java` code doit ressembler à ceci :
+## <a name="next-steps"></a>Étapes suivantes
 
-```java
-package com.example.myapplication;
+Pour ajouter des éléments à votre carte, consultez :
 
-import android.app.Activity;
-import android.os.Bundle;
-import com.mapbox.geojson.Feature;
-import com.mapbox.geojson.Point;
-import com.microsoft.azure.maps.mapcontrol.AzureMaps;
-import com.microsoft.azure.maps.mapcontrol.MapControl;
-import com.microsoft.azure.maps.mapcontrol.layer.SymbolLayer;
-import com.microsoft.azure.maps.mapcontrol.source.DataSource;
-import static com.microsoft.azure.maps.mapcontrol.options.SymbolLayerOptions.iconImage;
-public class MainActivity extends AppCompatActivity {
-    
-    static{
-            AzureMaps.setSubscriptionKey("{subscription-key}");
-        }
+> [!div class="nextstepaction"]
+> [Ajouter une couche de symbole à un mappage d’Android](https://review.docs.microsoft.com/azure/azure-maps/how-to-add-symbol-to-android-map)
 
-    MapControl mapControl;
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+> [!div class="nextstepaction"]
+> [Ajouter des formes à un mappage d’Android](https://docs.microsoft.com/azure/azure-maps/how-to-add-shapes-to-android-map)
 
-        mapControl = findViewById(R.id.mapcontrol);
+> [!div class="nextstepaction"]
+> [Modifier les styles de carte dans les mappages Android](https://docs.microsoft.com/azure/azure-maps/set-android-map-styles)
 
-        mapControl.onCreate(savedInstanceState);
 
-        mapControl.getMapAsync(map -> {
-            DataSource dataSource = new DataSource();
-            dataSource.add(Feature.fromGeometry(Point.fromLngLat(-122.33, 47.64)));
-
-            SymbolLayer symbolLayer = new SymbolLayer(dataSource);
-            symbolLayer.setOptions(iconImage("my-icon"));
-
-            map.images.add("my-icon", R.drawable.mapcontrol_marker_red);
-            map.sources.add(dataSource);
-            map.layers.add(symbolLayer);
-        });
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        mapControl.onStart();
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        mapControl.onResume();
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-        mapControl.onPause();
-    }
-
-    @Override
-    public void onStop() {
-        super.onStop();
-        mapControl.onStop();
-    }
-
-    @Override
-    public void onLowMemory() {
-        super.onLowMemory();
-        mapControl.onLowMemory();
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        mapControl.onDestroy();
-    }
-
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-        mapControl.onSaveInstanceState(outState);
-    }
-}
-```
-
-Exécutez à nouveau votre application. Vous devez voir un marqueur sur la carte, comme illustré ici :
-
-![Épingle sur une carte Android](./media/how-to-use-android-map-control-library/android-map-pin.png)

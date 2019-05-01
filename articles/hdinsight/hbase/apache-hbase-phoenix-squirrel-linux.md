@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 01/03/2018
 ms.author: hrasheed
 ms.openlocfilehash: 0bef586540635ee1bada3475f6316c84dea4308c
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62123159"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64722690"
 ---
 # <a name="use-apache-phoenix-with-linux-based-apache-hbase-clusters-in-hdinsight"></a>Utiliser Apache Phoenix avec les clusters Apache HBase basés sur Linux dans HDInsight
 Découvrez comment utiliser [Apache Phoenix](https://phoenix.apache.org/) dans Azure HDInsight et comment utiliser SQLLine. Pour plus d’informations sur Phoenix, consultez [Apache Phoenix en 15 minutes ou moins](https://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html). Pour en savoir plus sur la grammaire Phoenix, consultez [Grammaire Apache Phoenix](https://phoenix.apache.org/language/index.html).

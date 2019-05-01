@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: 6337477b55addefb7579d6f328473428ba72ba24
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: aacb4521f4c6e8699be357cf396a01b7eb54b552
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60799268"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924371"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Service de métadonnées Azure : événements planifiés pour les machines virtuelles Linux
 
@@ -49,7 +49,7 @@ Le service Événements planifiés fournit des événements dans les cas d’usa
 - La plateforme a lancé une maintenance (par exemple, la mise à jour du système d’exploitation hôte).
 - Matériel détérioré
 - L’utilisateur a lancé une maintenance (par exemple, un utilisateur redémarre ou redéploie une machine virtuelle).
-- [Éviction de la machine virtuelle basse priorité](https://azure.microsoft.com/en-us/blog/low-priority-scale-sets) dans la mise à l’échelle définit
+- [Éviction de la machine virtuelle basse priorité](https://azure.microsoft.com/blog/low-priority-scale-sets) dans la mise à l’échelle définit
 
 ## <a name="the-basics"></a>Concepts de base  
 

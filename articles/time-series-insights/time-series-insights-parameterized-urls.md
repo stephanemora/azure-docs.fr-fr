@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: big-data
 ms.date: 11/21/2017
 ms.custom: seodec18
-ms.openlocfilehash: 172e6f53b25a1aeef67afea0c1769e6fcaf497cd
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 3b6c4b8cebdff772ea1bd4ac95e4c8c06043f5d5
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58487870"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64728159"
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>Partager une vue personnalisée à l’aide d’une URL paramétrable
 
@@ -63,13 +63,13 @@ Les valeurs acceptées correspondent au menu **Quick Time** de l’Explorateur T
 
 Le paramètre `timeSeriesDefinitions=<collection of term objects>` indique les conditions d’une vue Time Series Insights :
 
-- "name":"<string>"
+- "name":"\<string>"
   - nom du *terme* ;
-- "splitBy":"<string>"
+- "splitBy":"\<string>"
   - nom de colonne pour le *fractionnement* ;
-- "measureName":"<string>"
+- "measureName":"\<string>"
   - nom de colonne de *mesure* ;
-- "predicate":"<string>"
+- "predicate":"\<string>"
   - clause *where* pour le filtrage côté serveur.
 - "useSum":"true"
   - Il s’agit d’un paramètre facultatif qui spécifie l’utilisation de la somme pour la mesure.  Notez que si "Events" est la mesure sélectionnée, le nombre est sélectionné par défaut.  Si "Events" n’est pas sélectionné, la moyenne est sélectionnée par défaut.  
@@ -121,4 +121,5 @@ La vue complète (y compris le graphique) s’afficherait comme suit :
 ![Vue de graphique](media/parameterized-url/url2.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Interroger des données à l’aide de C#](time-series-insights-query-data-csharp.md)
+
+- Découvrez comment [à l’aide de données de requête C# ](time-series-insights-query-data-csharp.md).

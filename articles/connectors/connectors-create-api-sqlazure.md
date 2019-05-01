@@ -11,12 +11,12 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: 29d53c7fbd26d3c8e2356ce82ff25c7e1b165728
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 998fcba50636cd92b14bdbe1633c2548e84a6bfc
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60540984"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64696421"
 ---
 # <a name="connect-to-sql-server-or-azure-sql-database-from-azure-logic-apps"></a>Se connecter à SQL Server ou Azure SQL Database depuis Azure Logic Apps
 
@@ -116,23 +116,26 @@ Dans Azure Logic Apps, une [action](../logic-apps/logic-apps-overview.md#logic-a
 
 [!INCLUDE [Create a connection to SQL Server or Azure SQL Database](../../includes/connectors-create-api-sqlazure.md)]
 
-## <a name="process-data-in-bulk"></a>Traiter des données en bloc
+## <a name="handle-bulk-data"></a>Gérer des données en bloc
 
-Lorsque vous manipulez des jeux de résultats tellement importants que le connecteur ne peut pas renvoyer tous les résultats en même temps, ou si vous souhaitez mieux contrôler la taille et la structure de vos jeux de résultats, vous pouvez utiliser la *pagination*, qui vous permet de gérer ces résultats sous forme d’ensembles plus petits. 
+Parfois, vous devrez peut-être travailler avec des jeux de résultats tellement important que le connecteur ne retourne pas tous les résultats en même temps, ou que vous souhaitez mieux contrôler la taille et la structure pour vos jeux de résultats. Voici quelques méthodes que vous pouvez gérer ces grands jeux de résultats :
 
-[!INCLUDE [Set up pagination for results exceeding default page size](../../includes/connectors-pagination-bulk-data-transfer.md)]
+* Pour vous aider à gérer les résultats sous forme de jeux plus petits, allumez *la pagination*. Pour plus d’informations, consultez [obtenir des données en bloc, les enregistrements et les éléments à l’aide de la pagination](../logic-apps/logic-apps-exceed-default-page-size-with-pagination.md).
 
-### <a name="create-a-stored-procedure"></a>Créer une procédure stockée
+* Créer une procédure stockée qui trie les résultats comme vous le souhaitez.
 
-Lorsque vous procédez à l’extraction ou à l’insertion de plusieurs lignes, votre application logique peut effectuer une itération dans ces éléments en utilisant une [*boucle Until*](../logic-apps/logic-apps-control-flow-loops.md#until-loop) dans ces [limites](../logic-apps/logic-apps-limits-and-config.md). Mais, parfois, votre application logique doit manipuler des jeux d’enregistrements si volumineux (plusieurs milliers ou millions de lignes, par exemple) que vous souhaitez réduire les coûts liés aux appels à la base de données. 
+  Durant l’obtention ou insertion de plusieurs lignes, votre application logique peut parcourir ces lignes à l’aide un [ *boucle until* ](../logic-apps/logic-apps-control-flow-loops.md#until-loop) dans ces [limites](../logic-apps/logic-apps-limits-and-config.md). 
+  Toutefois, lorsque votre application logique doit utiliser des jeux d’enregistrements tellement important, par exemple, des milliers ou des millions de lignes, que vous souhaitez réduire les coûts résultant des appels vers la base de données.
 
-À la place, vous pouvez créer une <a href="https://docs.microsoft.com/sql/relational-databases/stored-procedures/stored-procedures-database-engine" target="blank">*procédure stockée*</a> qui s’exécute dans votre instance SQL et utilise l’instruction **SELECT - ORDER BY** pour organiser les résultats comme vous le souhaitez. Cette solution vous permet de déterminer la taille et la structure de vos résultats. Votre application logique appelle la procédure stockée à l’aide de l’action **Exécuter la procédure stockée** du connecteur SQL Server. 
+  Pour organiser les résultats dans comme vous le souhaitez, vous pouvez créer un [ *procédure stockée* ](https://docs.microsoft.com/sql/relational-databases/stored-procedures/stored-procedures-database-engine) qui s’exécute dans votre instance SQL et utilise le **SELECT - clause ORDER BY** instruction. 
+  Cette solution vous permet de déterminer la taille et la structure de vos résultats. 
+  Votre application logique appelle la procédure stockée à l’aide de l’action **Exécuter la procédure stockée** du connecteur SQL Server.
 
-Pour en savoir plus sur la solution, consultez les articles suivants :
+  Pour en savoir plus sur la solution, consultez les articles suivants :
 
-* <a href="https://social.technet.microsoft.com/wiki/contents/articles/40060.sql-pagination-for-bulk-data-transfer-with-logic-apps.aspx" target="_blank">Pagination de SQL pour le transfert de données en bloc avec Logic Apps</a>
+  * [Pagination de SQL pour le transfert de données en bloc avec Logic Apps](https://social.technet.microsoft.com/wiki/contents/articles/40060.sql-pagination-for-bulk-data-transfer-with-logic-apps.aspx)
 
-* <a href="https://docs.microsoft.com/sql/t-sql/queries/select-order-by-clause-transact-sql" target="_blank">SELECT - Clause ORDER BY</a>
+  * [SELECT - Clause ORDER BY](https://docs.microsoft.com/sql/t-sql/queries/select-order-by-clause-transact-sql)
 
 ## <a name="connector-specific-details"></a>Détails spécifiques du connecteur
 

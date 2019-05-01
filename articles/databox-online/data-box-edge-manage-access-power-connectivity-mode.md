@@ -1,5 +1,5 @@
 ---
-title: Accès des appareils Microsoft Azure données boîte Edge, de puissance et de mode de connectivité | Microsoft Docs
+title: Accès des appareils Edge de zone de données Azure, de puissance et de mode de connectivité | Microsoft Docs
 description: Décrit comment gérer l’accès, de puissance et de mode de connectivité pour l’appareil de périphérie de zone de données Azure que vous aide à transférer des données vers Azure
 services: databox
 author: alkohli
@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 813563b500b9365289285a89536f2724fb87acad
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 5fbe8f3eb05ac60918e488c68869c3fe44051a3f
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60757291"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924361"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-edge"></a>Gérer l’accès, de puissance et de mode de connectivité pour votre zone de données Azure Edge
 

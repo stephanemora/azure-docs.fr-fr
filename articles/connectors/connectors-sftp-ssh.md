@@ -10,12 +10,12 @@ ms.reviewer: divswa, LADocs
 ms.topic: article
 tags: connectors
 ms.date: 01/15/2019
-ms.openlocfilehash: 660d785baf12052bddf5206d8641116c9ac606aa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5f82c654b443d58c9ce38c2fb0f48c1654daeb34
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60537698"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922257"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Superviser, créer et gérer des fichiers SFTP à l’aide de SSH et d’Azure Logic Apps
 
@@ -32,7 +32,7 @@ Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azu
 
 ## <a name="limits"></a>limites
 
-* Actions SFTP-SSH peuvent lire ou écrire des fichiers qui sont *1 Go ou plus petit* par la gestion des données en tant que *50 Mo pièces*, pas 1 Go pièces.
+* Actions SFTP-SSH peuvent lire ou écrire des fichiers qui sont *1 Go ou plus petit* par la gestion des données en tant que *15 Mo pièces*, pas 1 Go pièces.
 
 * Pour les fichiers *supérieure à 1 Go*, actions peuvent utiliser [segmentation du message](../logic-apps/logic-apps-handle-large-messages.md). Actuellement, les déclencheurs SFTP-SSH ne prennent en charge de segmentation.
 
@@ -44,7 +44,7 @@ Pour plus de différences, passez en revue [comparer SFTP-SSH et SFTP](#comparis
 
 Voici les autres principales différences entre le connecteur SFTP-SSH et le connecteur SFTP où le connecteur SFTP-SSH offre les fonctionnalités suivantes :
 
-* Il utilise la bibliothèque <a href="https://github.com/sshnet/SSH.NET" target="_blank">**SSH.NET**</a>, qui est une bibliothèque Secure Shell (SSH) open source prenant en charge .NET.
+* Utilise le [bibliothèque SSH.NET](https://github.com/sshnet/SSH.NET), qui est une bibliothèque de SSH (Secure Shell) open source qui prend en charge de .NET.
 
   > [!NOTE]
   >
@@ -54,7 +54,7 @@ Voici les autres principales différences entre le connecteur SFTP-SSH et le con
   > * **Algorithmes de chiffrement** : DES-EDE3-CBC, DES-EDE3-CFB, DES-CBC, AES-128-CBC, AES-192-CBC, and AES-256-CBC
   > * **Empreinte digitale** : MD5
 
-* Actions capable de lire ou écrire des fichiers *jusqu'à 1 Go* par rapport au connecteur SFTP, mais traite les données dans des pièces de 50 Mo, pas de 1 Go de pièces. Pour les fichiers supérieurs à 1 Go, les actions peuvent également utiliser la [segmentation de messages](../logic-apps/logic-apps-handle-large-messages.md). Actuellement, les déclencheurs SFTP-SSH ne prennent en charge de segmentation.
+* Actions capable de lire ou écrire des fichiers *jusqu'à 1 Go* par rapport au connecteur SFTP, mais traite les données en 15 Mo de plusieurs parties, pas de 1 Go de pièces. Pour les fichiers supérieurs à 1 Go, les actions peuvent également utiliser la [segmentation de messages](../logic-apps/logic-apps-handle-large-messages.md). Actuellement, les déclencheurs SFTP-SSH ne prennent en charge de segmentation.
 
 * Fournit l’action **Créer un dossier**, qui crée un dossier au niveau du chemin spécifié sur le serveur SFTP.
 
@@ -136,7 +136,7 @@ Les déclencheurs SFTP/SSH fonctionnent en interrogeant le système de fichiers 
 
 Quand un déclencheur détecte un nouveau fichier, il vérifie que le nouveau fichier est complet et non partiellement écrit. Par exemple, un fichier peut être en cours de modification lorsque le déclencheur vérifie le serveur de fichiers. Pour éviter de retourner un fichier partiellement écrit, le déclencheur note l’horodatage du fichier qui comporte des modifications récentes, mais ne retourne pas immédiatement ce fichier. Le déclencheur retourne le fichier uniquement lors d’une nouvelle interrogation du serveur. Parfois, ce comportement peut entraîner un retard correspondant à jusqu’à deux fois l’intervalle d’interrogation du déclencheur. 
 
-Quand ils demandent le contenu du fichier, les déclencheurs n’obtiennent pas les fichiers supérieurs à 50 Mo. Pour obtenir des fichiers supérieurs à 50 Mo, suivez ce modèle : 
+Lors de la demande le contenu du fichier, déclencheurs n’obtient pas les fichiers supérieurs à 15 Mo. Pour obtenir la taille supérieure à 15 Mo de fichiers, suivez ce modèle : 
 
 * Utilisez un déclencheur qui retourne des propriétés de fichier comme **Quand un fichier est ajouté ou modifié (propriétés uniquement)**.
 
@@ -152,7 +152,7 @@ Ce déclencheur démarre un flux de travail d’application logique quand un fic
 
 **Exemple en entreprise** : vous pouvez utiliser ce déclencheur pour superviser l’apparition dans un dossier SFTP de nouveaux fichiers représentant les commandes des clients. Vous pouvez ensuite utiliser une action SFTP comme **Obtenir le contenu du fichier** afin d’obtenir le contenu de la commande à des fins de traitement et stocker cette commande dans une base de données de commandes.
 
-Quand ils demandent le contenu du fichier, les déclencheurs n’obtiennent pas les fichiers supérieurs à 50 Mo. Pour obtenir des fichiers supérieurs à 50 Mo, suivez ce modèle : 
+Lors de la demande le contenu du fichier, déclencheurs n’obtient pas les fichiers supérieurs à 15 Mo. Pour obtenir la taille supérieure à 15 Mo de fichiers, suivez ce modèle : 
 
 * Utilisez un déclencheur qui retourne des propriétés de fichier comme **Quand un fichier est ajouté ou modifié (propriétés uniquement)**.
 
@@ -164,7 +164,7 @@ Quand ils demandent le contenu du fichier, les déclencheurs n’obtiennent pas 
 
 Cette action obtient le contenu d’un fichier sur un serveur SFTP. Par exemple, vous pouvez ajouter le déclencheur de l’exemple précédent et une condition à laquelle le contenu du fichier doit satisfaire. Si la condition est vérifiée, l’action qui obtient le contenu peut s’exécuter. 
 
-Quand ils demandent le contenu du fichier, les déclencheurs n’obtiennent pas les fichiers supérieurs à 50 Mo. Pour obtenir des fichiers supérieurs à 50 Mo, suivez ce modèle : 
+Lors de la demande le contenu du fichier, déclencheurs n’obtient pas les fichiers supérieurs à 15 Mo. Pour obtenir la taille supérieure à 15 Mo de fichiers, suivez ce modèle : 
 
 * Utilisez un déclencheur qui retourne des propriétés de fichier comme **Quand un fichier est ajouté ou modifié (propriétés uniquement)**.
 

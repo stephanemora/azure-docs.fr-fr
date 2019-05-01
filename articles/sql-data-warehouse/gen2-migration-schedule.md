@@ -10,12 +10,12 @@ ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.topic: article
 ms.date: 04/03/2019
-ms.openlocfilehash: d642addac36c6f3dbf361ec71102eabc00efd191
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.openlocfilehash: 0d3927fbc1826f9ab4f613a7c2a310f581b7f7c5
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63764257"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64729302"
 ---
 # <a name="upgrade-your-data-warehouse-to-gen2"></a>Mettre à niveau votre entrepôt de données vers Gen2
 
@@ -33,13 +33,13 @@ Le tableau suivant récapitule par région le moment où le niveau de capacité 
 | **Région** | **Gen2 inférieur disponible** | **Commencement de la mise à niveau automatique** |
 |:--- |:--- |:--- |
 | Australie Est |Disponible |1 juin 2019 |
-| Australie Sud-Est |26 avril 2019 |1er mai 2019 |
-| Brésil Sud |15 mai 2019 |1 juin 2019 |
+| Australie Sud-Est |Disponible |1er mai 2019 |
+| Brésil Sud |Disponible |1 juin 2019 |
 | Centre du Canada |Disponible |1 juin 2019 |
 | Est du Canada |\* |\* |
 | USA Centre |Disponible |1 juin 2019 |
 | Chine orientale |\* |\* |
-| Chine orientale 2 |\* |\* |
+| Chine Est 2 |\* |\* |
 | Chine du Nord |\* |\* |
 | Chine Nord 2 |\* |\* |
 | Asie Est |Disponible |1 juin 2019 |
@@ -49,20 +49,20 @@ Le tableau suivant récapitule par région le moment où le niveau de capacité 
 | Centre de l’Allemagne |\* |\* |
 | Ouest-Centre de l’Allemagne |1 septembre 2019|2 janvier 2020 |
 | Inde Centre |Disponible |1 juin 2019 |
-| Sud de l’Inde |26 avril 2019 |1 juin 2019 |
+| Sud de l’Inde |Disponible |1 juin 2019 |
 | Japon Est |Disponible |1 juin 2019 |
 | Japon Ouest |Disponible |1er mai 2019 |
-| Centre de la Corée |26 avril 2019 |1 juin 2019 |
-| Corée du Sud |26 avril 2019 |1er mai 2019 |
-| USA Centre Nord |26 avril 2019 |1er mai 2019 |
+| Centre de la Corée |Disponible |1 juin 2019 |
+| Corée du Sud |Disponible |1er mai 2019 |
+| USA Centre Nord |Disponible |1er mai 2019 |
 | Europe Nord |Disponible |1 juin 2019 |
 | USA Centre Sud |Disponible |1 juin 2019 |
 | Asie Sud-Est |Disponible |1 juin 2019 |
-| Sud du Royaume-Uni |26 avril 2019 |1 juin 2019 |
+| Sud du Royaume-Uni |Mise à la disposition 2019 |1 juin 2019 |
 | Ouest du Royaume-Uni |\*|\* |
 | USA Centre-Ouest |2 septembre 2019 |2 janvier 2020|
 | Europe Ouest |Disponible |1 juin 2019 |
-| USA Ouest |15 avril 2019 |1 juin 2019 |
+| USA Ouest |Disponible |1 juin 2019 |
 | USA Ouest 2 |Disponible |1 juin 2019 |
 
 ## <a name="automatic-upgrade-process"></a>Processus de mise à niveau automatique
@@ -85,8 +85,8 @@ Deux options s’offrent à vous quand vous procédez à une mise à niveau auto
 - [Effectuer une mise à niveau sur place](upgrade-to-latest-generation.md) : cette option met à niveau votre entrepôt de données Gen1 existant vers Gen2. Le processus de mise à niveau implique une brève liste de connectivité (environ 5 min) nous le redémarrage de votre entrepôt de données.  Une fois que votre entrepôt de données aura été redémarré, il sera entièrement disponible pour utilisation. Si vous rencontrez des problèmes lors de la mise à niveau, ouvrez un [demande de support](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket) et faire référence à « Mise à niveau Gen2 » comme cause possible.
 - [Effectuer une mise à niveau à partir du point de restauration](sql-data-warehouse-restore.md) : créez un point de restauration défini par l’utilisateur sur votre entrepôt de données Gen1 actuel, puis effectuez la restauration directement vers une instance Gen2. L’entrepôt de données Gen1 existant est conservé. Une fois la restauration terminée, votre entrepôt de données Gen2 sera entièrement disponible pour utilisation.  Une fois tous les processus de test et de validation exécutés sur l’instance Gen2 restaurée, l’instance Gen1 d’origine peut être supprimée.
 
-   - Étape 1 : À partir du portail Azure, [créez un point de restauration défini par l’utilisateur](sql-data-warehouse-restore.md#create-a-user-defined-restore-point-using-the-azure-portal).
-   - Étape 2 : Lors d’une restauration à partir d’un point de restauration défini par l’utilisateur, définissez le « niveau de performances » sur votre niveau Gen2 préféré.
+   - Étape 1 : À partir du portail Azure, [créez un point de restauration défini par l’utilisateur](sql-data-warehouse-restore.md#create-a-user-defined-restore-point-using-the-azure-portal).
+   - Étape 2 : Lors d’une restauration à partir d’un point de restauration défini par l’utilisateur, définissez le « niveau de performances » sur votre niveau Gen2 préféré.
 
 Vous pouvez être confronté à un délai de dégradation des performances pendant que le processus de mise à niveau continue à mettre à niveau les fichiers de données en arrière-plan. La durée totale de la dégradation des performances varie en fonction de la taille de vos fichiers de données.
 

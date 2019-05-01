@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: cephalin
-ms.openlocfilehash: 1e5faa8d356b891d825586414c0a1a1b9fa47090
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: feeb9ae4472fb3439ecc5d6505860cc407f9e4d3
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60853318"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919734"
 ---
 # <a name="configure-a-custom-linux-container-for-azure-app-service"></a>Configurer un conteneur Linux personnalisé pour Azure App Service
 
@@ -109,7 +109,6 @@ SSH permet d’établir une communication sécurisée entre un conteneur et un c
 - [Utiliser le stockage persistant dans Docker Compose](#use-persistent-storage-in-docker-compose)
 - [Limitations de la version préliminaire](#preview-limitations)
 - [Options de docker Compose](#docker-compose-options)
-- [Options de configuration Kubernetes](#kubernetes-configuration-options)
 
 ### <a name="use-persistent-storage-in-docker-compose"></a>Utiliser le stockage persistant dans Docker Compose
 
@@ -132,19 +131,6 @@ wordpress:
   - ${WEBAPP_STORAGE_HOME}/site/wwwroot:/var/www/html
   - ${WEBAPP_STORAGE_HOME}/phpmyadmin:/var/www/phpmyadmin
   - ${WEBAPP_STORAGE_HOME}/LogFiles:/var/log
-```
-
-### <a name="use-custom-storage-in-docker-compose"></a>Utilisation du stockage personnalisé dans Docker Compose
-
-Stockage Azure (Azure Files ou objets Blob Azure) peut être monté avec des applications à plusieurs conteneurs à l’aide de l’id personnalisé. Pour afficher le nom personnalisé-id, exécutez [ `az webapp config storage-account list --name <app_name> --resource-group <resource_group>` ](/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-list).
-
-Dans votre *docker-compose.yml* de fichiers, mappez le `volumes` option `custom-id`. Par exemple : 
-
-```yaml
-wordpress:
-  image: wordpress:latest
-  volumes:
-  - <custom-id>:<path_in_container>
 ```
 
 ### <a name="preview-limitations"></a>Limitations de la version préliminaire
@@ -179,22 +165,6 @@ Les listes suivantes présentent des options configuration Docker Compose prises
 
 > [!NOTE]
 > D’autres options pas explicitement indiquées sont ignorées en version préliminaire publique.
-
-### <a name="kubernetes-configuration-options"></a>Options de configuration Kubernetes
-
-Les options de configuration suivantes sont prises en charge pour Kubernetes :
-
-- args
-- command
-- containers
-- image
-- Nom
-- ports
-- spec
-
-> [!NOTE]
-> D’autres options pas explicitement indiquées ne sont pas pris en charge en version préliminaire publique.
->
 
 ## <a name="next-steps"></a>Étapes suivantes
 

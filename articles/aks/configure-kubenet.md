@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/31/2019
 ms.author: iainfou
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: b80177d17e0dc5a4e54396907ecee61890ec523f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4d2ab19fafc265d70028d5ee192efc60a5a8eaff
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60466754"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64709880"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Utiliser la mise en réseau kubenet avec vos propres plages d’adresses IP dans Azure Kubernetes Service (AKS)
 
@@ -165,26 +165,7 @@ az aks create \
     --client-secret <password>
 ```
 
-## <a name="associate-network-resources-with-the-node-subnet"></a>Associer des ressources réseau au sous-réseau de nœud
-
-Quand vous créez un cluster AKS, un groupe de sécurité réseau et une table de routage sont créés. Ces ressources réseau sont gérées par le plan de contrôle AKS et mises à jour quand vous créez et exposez des services. Associez le groupe de sécurité réseau et la table de routage à votre sous-réseau de réseau virtuel comme suit :
-
-```azurecli-interactive
-# Get the MC_ resource group for the AKS cluster resources
-MC_RESOURCE_GROUP=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv)
-
-# Get the route table for the cluster
-ROUTE_TABLE=$(az network route-table list -g ${MC_RESOURCE_GROUP} --query "[].id | [0]" -o tsv)
-
-# Get the network security group
-NODE_NSG=$(az network nsg list -g ${MC_RESOURCE_GROUP} --query "[].id | [0]" -o tsv)
-
-# Update the subnet to associate the route table and network security group
-az network vnet subnet update \
-    --route-table $ROUTE_TABLE \
-    --network-security-group $NODE_NSG \
-    --ids $SUBNET_ID
-```
+Quand vous créez un cluster AKS, un groupe de sécurité réseau et une table de routage sont créés. Ces ressources sont gérées par le plan de contrôle AKS. Le groupe de sécurité réseau est automatiquement associé avec les cartes réseau virtuelles sur vos nœuds. La table de routage est automatiquement associée au sous-réseau de réseau virtuel. Règles de groupe de sécurité réseau et les tables de routage et sont automatiquement mis à jour quand vous créez et exposez des services.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

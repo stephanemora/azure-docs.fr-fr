@@ -3,8 +3,8 @@ title: Créer, modifier ou supprimer une homologation de réseau virtuel Azure |
 description: Découvrez comment créer, modifier ou supprimer une homologation de réseau virtuel.
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/01/2019
 ms.author: anavin
-ms.openlocfilehash: 6bccb1e75dc999bcb0e8c6d909abe7bffffcec8c
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 18d913339556c0d4b0a06bd62f4495da6a4d4223
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59524040"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925916"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Créer, modifier ou supprimer une homologation de réseau virtuel
 
@@ -112,7 +112,7 @@ Si vous souhaitez que les réseaux virtuels communiquent occasionnellement, au l
 
 - <a name="cross-region"></a>Vous pouvez appairer des réseaux virtuels dans la même région ou dans différentes régions. Homologation de réseaux virtuels dans différentes régions est également appelé *Global VNet Peering*. 
 - Lorsque vous créez une homologation globale, les réseaux virtuels homologués peuvent exister dans n’importe quel cloud public Azure ou les régions de cloud de Chine ou les Government cloud régions. Vous ne pouvez pas homologuer dans les clouds. Par exemple, un réseau virtuel dans le cloud public Azure ne peut pas être homologué l’un à un réseau virtuel dans le cloud Azure China.
-- Ressources dans un réseau virtuel ne peut pas communiquer avec l’adresse IP frontale d’un équilibreur de charge interne de base dans un réseau virtuel homologué dans le monde entier. Prise en charge pour l’équilibreur de charge existe uniquement dans la même région. Prise en charge de l’équilibreur de charge Standard existe pour à la fois, l’homologation et Global VNet Peering.
+- Ressources dans un réseau virtuel ne peut pas communiquer avec l’adresse IP frontale d’un équilibreur de charge interne de base dans un réseau virtuel homologué dans le monde entier. Prise en charge pour l’équilibreur de charge existe uniquement dans la même région. Prise en charge de l’équilibreur de charge Standard existe pour à la fois, l’homologation et Global VNet Peering. Les services qui utilisent un équilibreur de charge de base qui ne fonctionne pas via une homologation de réseau virtuel Global sont documentées [ici.](virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers)
 - Vous pouvez utiliser des passerelles distantes ou autoriser le transit par passerelle dans les réseaux virtuels homologués dans le monde entier et les réseaux virtuels homologués localement.
 - Les réseaux virtuels peuvent être dans des abonnements identiques ou différents. Quand vous appairez des réseaux virtuels de différents abonnements, les deux abonnements peuvent être associés au même locataire Azure Active Directory ou à un locataire différent. Si vous ne disposez pas d’un locataire AD, vous pouvez [créez-le](../active-directory/develop/quickstart-create-new-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json-a-new-azure-ad-tenant). La prise en charge du peering entre réseaux virtuels à partir d’abonnements associés à différents locataires Azure Active Directory n’est pas disponible dans le portail. Vous pouvez utiliser l’interface CLI, PowerShell ou des modèles.
 - Les réseaux virtuels que vous homologuez doivent avoir des espaces d’adressage IP qui ne se chevauchent pas.

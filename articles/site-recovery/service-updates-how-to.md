@@ -6,14 +6,14 @@ author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/05/2019
+ms.date: 04/25/2019
 ms.author: rajanaki
-ms.openlocfilehash: e27dee213baf8365c3ad4efc69602f66e2081abe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: ea3076367fad78bd4a6991a9f62ba14b1f220387
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61036013"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64692744"
 ---
 # <a name="service-updates-in-azure-site-recovery"></a>Mises à jour de service dans Azure Site Recovery
 En tant qu’organisation, vous devez déterminer comment vous allez protéger vos données ainsi que les applications/charges de travail en cours d’exécution lors d’interruptions planifiées ou non. Azure Site Recovery contribue à la mise en œuvre de votre stratégie BCDR (continuité d’activité et reprise d’activité). En effet, en cas de panne du site, il maintient les applications en cours d’exécution sur des machines virtuelles et des serveurs physiques disponibles. Site Recovery réplique les charges de travail en cours d’exécution sur des machines virtuelles et des serveurs physiques, afin que ces charges restent disponibles à un second emplacement si jamais l’emplacement principal n’est pas disponible. Ce service récupère les charges de travail sur le site principal lorsqu’il fonctionne à nouveau.
@@ -118,12 +118,15 @@ Un redémarrage est recommandé après chaque mise à niveau de l’agent Mobili
 
 |Correctif cumulatif  |Fournisseur  |Installation unifiée| OVF  |MARS|
 |---------|---------|---------|---------|--------|
+|Correctif cumulatif 36 *     |   5.1.4150.0  |  9.24.5211.1   |  5.1.4150.0  | 2.0.9160.0
 |[Mise à jour cumulative 35](https://support.microsoft.com/en-us/help/4494485/update-rollup-35-for-azure-site-recovery)     |   5.1.4000.0  |  9.23.5163.1   |  5.1.4000.0  | 2.0.9156.0
 |[Correctif cumulatif 34](https://support.microsoft.com/en-us/help/4490016/update-rollup-34-for-azure-site-recovery) – Correctif logiciel     |   5.1.3950.0  |  9.22.5142.1   |  5.1.3950.0  | 2.0.9155.0
 |[Correctif cumulatif 33](https://support.microsoft.com/en-us/help/4489582/update-rollup-33-for-azure-site-recovery)     |   5.1.3900.0  |  9.22.5109.1   |  5.1.3900.0  | 2.0.9155.0
 |[Correctif cumulatif 32](https://support.microsoft.com/en-us/help/4485985/update-rollup-32-for-azure-site-recovery)     |   5.1.3800.0  |  9.21.5091.1   |  5.1.3800.0  |2.0.9144.0
 |[Correctif cumulatif 31](https://support.microsoft.com/help/4478871/update-rollup-31-for-azure-site-recovery)     |     5.1.3700.0      |   9.20.5051.1      |     5.1.3700.0    |2.0.9144.0
 |[Correctif cumulatif 30](https://support.microsoft.com/help/4468181/azure-site-recovery-update-rollup-30)     |    5.1.3650.0   |   9.19.5007.1    |     5.1.3650.0    |2.0.9139.0
+
+* Notes de publication est en cours. Reportez-vous aux documents de mise à niveau respectifs pour mettre à niveau les composants Site Recovery.
 
 ## <a name="previous-update-rollups"></a>Correctifs cumulatifs précédents
 

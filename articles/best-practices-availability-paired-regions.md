@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmon
 ms.service: multiple
 ms.topic: article
-ms.date: 04/17/2019
+ms.date: 04/28/2019
 ms.author: raynew
-ms.openlocfilehash: ecbe73e02631e3c3601bd929282d467cb05b41e4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: e23b5ff9917eda7272e378aa70d6e2dd79f4b9f1
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60616838"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918969"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Continuité et reprise d’activité : Régions jumelées Azure
 
@@ -38,7 +38,6 @@ Figure 1 – Paires régionales Azure
 | Europe |Europe du Nord |Europe Ouest |
 | France |France Centre|France Sud|
 | Allemagne |Centre de l’Allemagne |Nord-Est de l’Allemagne |
-| Allemagne |Nord de l’Allemagne | Ouest-Centre de l’Allemagne
 | Inde |Inde centrale |Inde du Sud |
 | Inde |Inde Ouest |Inde Sud |
 | Japon |Est du Japon |Ouest du Japon |
@@ -47,13 +46,8 @@ Figure 1 – Paires régionales Azure
 | Amérique du Nord |Est des États-Unis 2 |Centre des États-Unis |
 | Amérique du Nord |Centre-Nord des États-Unis |États-Unis - partie centrale méridionale |
 | Amérique du Nord |Ouest des États-Unis 2 |USA Centre-Ouest 
-| Amérique du Nord |Ouest des États-Unis 3 |USA Est
-| Norvège |Norvège Est |Norvège Ouest
 | Afrique du Sud | Afrique du Sud Nord | Afrique du Sud Ouest
-| Suède |Suède Central |Sud de la Suède
-| Suisse | Nord de la Suisse | Ouest de la Suisse
 | Royaume-Uni |Ouest du Royaume-Uni |Sud du Royaume-Uni |
-| Royaume-Uni |Nord du Royaume-Uni |Sud du Royaume-Uni 2
 | Émirats Arabes Unis | Nord des Émirats arabes unis | Centre des Émirats Arabes Unis
 | Ministère de la défense des États-Unis |Est des États-Unis – US DoD |Centre des États-Unis – US DoD |
 | Gouvernement américain |Gouvernement des États-Unis – Arizona |Gouvernement des États-Unis – Texas |

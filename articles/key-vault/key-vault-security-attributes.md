@@ -2,19 +2,18 @@
 title: Attributs de sécurité courants pour Azure Key Vault
 description: Check-list des attributs de sécurité couramment utilisés pour l'évaluation d'Azure Key Vault
 services: key-vault
-documentationcenter: ''
 author: msmbaldwin
 manager: barbkess
 ms.service: key-vault
 ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 3ccfc38136ba3e8ec7c6130658032b7565988e5c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 652e6ecb9ef9506fd306942eae45b13b52ae1c24
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60461403"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64691824"
 ---
 # <a name="common-security-attributes-for-azure-key-vault"></a>Attributs de sécurité courants pour Azure Key Vault
 
@@ -27,18 +26,18 @@ La sécurité fait partie intégrante d'un service Azure. Cet article décrit le
 | Attribut de sécurité | Oui/Non | Notes |
 |---|---|--|
 | Chiffrement au repos :<ul><li>Chiffrement côté serveur</li><li>Chiffrement côté serveur avec des clés gérées par le client</li><li>Autres fonctionnalités de chiffrement (côté client, Always Encrypted, etc.)</ul>| Oui | Tous les objets sont chiffrés. |
-| Chiffrement en transit :<ul><li>Chiffrement Express Route</li><li>Chiffrement dans le réseau virtuel</li><li>Chiffrement de réseau virtuel à réseau virtuel</ul>| Oui | Toutes les communications se font par le biais d’appels d’API chiffrés |
+| Chiffrement en transit :<ul><li>Chiffrement Express Route</li><li>Dans le chiffrement du réseau virtuel</li><li>Chiffrement de réseau virtuel à réseau virtuel</ul>| Oui | Toutes les communications se font par le biais d’appels d’API chiffrés |
 | Gestion de clé de chiffrement (clé CMK, BYOK, etc.).| Oui | Le client contrôle toutes les clés dans l’archivage de clé. Lorsque les clés de module (HSM) soutenu de sécurité matériel sont spécifiées, un module de sécurité 2 de niveau FIPS protège la clé, le certificat ou la clé secrète. |
-| Chiffrement au niveau colonne (Services de données Azure)| S.O. |  |
+| Chiffrement au niveau colonne (Services de données Azure)| N/A |  |
 | Appels d’API chiffrés| Oui | Utilisation du protocole HTTPS. |
 
 ## <a name="network-segmentation"></a>Segmentation du réseau
 
 | Attribut de sécurité | Oui/Non | Notes |
 |---|---|--|
-| Prise en charge du point de terminaison de service| Oui | Utilisation de points de terminaison de service de réseau virtuel. |
-| prise en charge l’injection de réseau virtuel| Non  |  |
-| Prise en charge des pare-feu et l’isolement réseau| Oui | Utilisation de règles de pare-feu de réseau virtuel. |
+| Prise en charge du point de terminaison de service| Oui | À l’aide de points de terminaison de service réseau virtuel (VNet). |
+| Prise en charge l’injection de réseau virtuel| Non  |  |
+| Prise en charge des pare-feu et l’isolement réseau| Oui | À l’aide de règles de pare-feu de réseau virtuel. |
 | Prise en charge de tunneling de forcé| Non  |  |
 
 ## <a name="detection"></a>Détection

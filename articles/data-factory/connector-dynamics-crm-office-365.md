@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/28/2018
+ms.date: 04/26/2019
 ms.author: jingwang
-ms.openlocfilehash: 772b9b191a2e6464ff481ff6661308e00ef6033a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6a52749c78cd0f090e66220fe51e3d04985f96e7
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60535318"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64869529"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Copier des données à partir et vers Dynamics 365 (Common Data Service) ou Dynamics CRM à l’aide d’Azure Data Factory
 
@@ -69,9 +69,6 @@ Les propriétés prises en charge pour le service lié Dynamics sont les suivant
 | password | Indiquez le mot de passe du compte d’utilisateur défini pour le nom d’utilisateur. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | OUI |
 | connectVia | Le [runtime d’intégration](concepts-integration-runtime.md) à utiliser pour se connecter à la banque de données. À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. | Non pour la source, oui pour le récepteur si le service lié à la source n’a pas de runtime d’intégration |
 
->[!IMPORTANT]
->Lorsque vous copiez des données dans Salesforce, le runtime d’intégration Azure par défaut ne peut pas être utilisé pour exécuter la copie. En d’autres termes, si votre service lié à la source n’a pas de runtime d’intégration spécifié, [créez un Runtime d’intégration Azure](create-azure-integration-runtime.md#create-azure-ir) de manière explicite, avec un emplacement près de votre instance Dynamics. Trouver où se trouve votre instance Dynamics en référençant le [la liste des régions pour Dynamics 365](https://docs.microsoft.com/dynamics365/customer-engagement/admin/datacenter/new-datacenter-regions). Associez-le dans le service lié Dynamics comme dans l’exemple suivant.
-
 >[!NOTE]
 >Le connecteur Dynamics utilisé pour la propriété facultative « organizationName » afin d’identifier votre instance de Dynamics CRM/365 Online. Pendant qu’il continue de fonctionner, vous êtes invité à spécifier à la place la nouvelle propriété « serviceUri » pour obtenir de meilleures performances pour l’instance de détection.
 
@@ -117,9 +114,6 @@ Les propriétés prises en charge pour le service lié Dynamics sont les suivant
 | password | Indiquez le mot de passe du compte d’utilisateur défini pour le nom d’utilisateur. Vous pouvez choisir de marquer ce champ comme SecureString pour le stocker en toute sécurité dans le fichier de définition d’application, ou stocker le mot de passe dans Azure Key Vault et laisser l’activité de copie en tirer (pull) les données lors de la copie. Pour plus d’informations, consultez la page [Stocker des informations d’identification dans Key Vault](store-credentials-in-key-vault.md). | Oui |
 | connectVia | Le [runtime d’intégration](concepts-integration-runtime.md) à utiliser pour se connecter à la banque de données. À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. | Non pour Source, Oui pour Récepteur |
 
->[!IMPORTANT]
->Pour copier des données dans Dynamics, [créer un runtime d’intégration Azure](create-azure-integration-runtime.md#create-azure-ir) de manière explicite, avec l’emplacement près de votre instance Dynamics. Associez-le dans le service lié comme dans l’exemple suivant.
-
 **Exemple : Dynamics local avec IFD utilisant l’authentification IFD**
 
 ```json
@@ -160,8 +154,8 @@ Pour copier des données depuis et vers Dynamics, définissez la propriété de 
 | entityName | Nom logique de l’entité à récupérer. | Non pour la source (si « query » est spécifié dans la source de l’activité) ; Oui pour le récepteur |
 
 > [!IMPORTANT]
->- Quand vous copiez des données à partir de Dynamics, la section « structure » est facultative, mais recommandée dans le jeu de données Dynamics pour garantir un résultat de copie déterministe. Il définit le nom de colonne et le type de données pour les données Dynamics que vous souhaitez copier. Pour en savoir plus, consultez [Dataset structure](concepts-datasets-linked-services.md#dataset-structure) (Structure du jeu de données) et [Mappage de type de données pour Dynamics](#data-type-mapping-for-dynamics).
->- Quand vous importez un schéma dans l’interface utilisateur de création, ADF déduit le schéma en échantillonnant les premières lignes du résultat de requête Dynamics pour initialiser la construction de la structure, dans laquelle les colonnes de cas sans valeurs seront omises. Vous pouvez examiner le schéma/la structure du jeu de données Dynamics et y ajouter des colonnes si nécessaire, ce qui sera respecté pendant l’exécution de la copie.
+>- Lorsque vous copiez des données à partir de Dynamics, la section « structure » est facultatif mais fortement recommandé dans le jeu de données Dynamics pour garantir un résultat déterministe de copie. Il définit le nom de colonne et le type de données pour les données Dynamics que vous souhaitez copier. Pour en savoir plus, consultez [Dataset structure](concepts-datasets-linked-services.md#dataset-structure-or-schema) (Structure du jeu de données) et [Mappage de type de données pour Dynamics](#data-type-mapping-for-dynamics).
+>- Quand vous importez un schéma dans l’interface utilisateur de création, ADF déduit le schéma en échantillonnant les premières lignes du résultat de requête Dynamics pour initialiser la construction de la structure, dans laquelle les colonnes de cas sans valeurs seront omises. Le même comportement s’applique pour copier des exécutions s’il n’existe aucune définition de structure explicite. Vous pouvez examiner le schéma/la structure du jeu de données Dynamics et y ajouter des colonnes si nécessaire, ce qui sera respecté pendant l’exécution de la copie.
 >- Lorsque vous copiez des données vers Dynamics, la section « structure » est facultative dans le jeu de données Dynamics. Les colonnes à copier sont déterminées par le schéma de données source. Si votre source est un fichier CSV sans en-tête, spécifiez la « structure » dans le jeu de données d’entrée avec le nom de colonne et le type de données. Ils sont mappés aux champs dans le fichier CSV un par un dans l’ordre.
 
 **Exemple :**
@@ -330,20 +324,20 @@ Configurez le type de données Data Factory correspondant dans la structure du j
 |:--- |:--- |:--- |:--- |
 | AttributeTypeCode.BigInt | long | ✓ | ✓ |
 | AttributeTypeCode.Boolean | Boolean | ✓ | ✓ |
-| AttributeType.Customer | Guid | ✓ | | 
+| AttributeType.Customer | Guid | ✓ | |
 | AttributeType.DateTime | DateTime | ✓ | ✓ |
 | AttributeType.Decimal | Decimal | ✓ | ✓ |
 | AttributeType.Double | Double | ✓ | ✓ |
-| AttributeType.EntityName | String | ✓ | ✓ |
+| AttributeType.EntityName | Chaîne | ✓ | ✓ |
 | AttributeType.Integer | Int32 | ✓ | ✓ |
 | AttributeType.Lookup | Guid | ✓ | ✓ (avec une seule cible associée) |
 | AttributeType.ManagedProperty | Boolean | ✓ | |
-| AttributeType.Memo | String | ✓ | ✓ |
+| AttributeType.Memo | Chaîne | ✓ | ✓ |
 | AttributeType.Money | Decimal | ✓ | ✓ |
 | AttributeType.Owner | Guid | ✓ | |
 | AttributeType.Picklist | Int32 | ✓ | ✓ |
 | AttributeType.Uniqueidentifier | Guid | ✓ | ✓ |
-| AttributeType.String | String | ✓ | ✓ |
+| AttributeType.String | Chaîne | ✓ | ✓ |
 | AttributeType.State | Int32 | ✓ | ✓ |
 | AttributeType.Status | Int32 | ✓ | ✓ |
 

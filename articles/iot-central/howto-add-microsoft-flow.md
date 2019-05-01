@@ -4,16 +4,16 @@ description: Utiliser le connecteur IoT Central dans Microsoft Flow pour déclen
 services: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 03/26/2019
+ms.date: 04/25/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: hegate
-ms.openlocfilehash: 2c4ee6a2feb737bcafc64b1c8503c03757a53364
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 5d1e9941244defbf84b20f95e9f2e0402bbe19f2
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60887676"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64693592"
 ---
 # <a name="build-workflows-with-the-iot-central-connector-in-microsoft-flow"></a>Créer des flux de travail avec le connecteur IoT Central dans Microsoft Flow
 
@@ -101,9 +101,12 @@ Cette section vous montre comment mettre à jour les paramètres et les proprié
 
 1. Ajoutez une nouvelle action. Recherchez l’action **Azure IoT Central - Mettre à jour un appareil**.
 
-1. Choisissez votre application dans la liste déroulante. Vous avez maintenant besoin d’un ID de l’appareil existant que vous voulez mettre à jour. Vous pouvez vous procurer l’ID de l’appareil IoT Central à partir de **Device Explorer**.
+1. Choisissez votre application dans la liste déroulante. Vous avez maintenant besoin d’un ID de l’appareil existant que vous voulez mettre à jour. 
 
-    ![ID d’appareil dans l’Explorateur d’appareils d’IoT Central](./media/howto-add-microsoft-flow/iotcdeviceid.png)
+    > [!NOTE] 
+    > **Vous devez utiliser l’ID figurant dans l’URL** sur la page de détails de l’appareil de l’appareil que vous souhaitez mettre à jour. L’ID d’appareil trouvé dans la liste de l’Explorateur d’appareils d’appareils n’est pas celui qui convient à utiliser dans Microsoft Flow.
+
+    ![ID de IoT Central à partir d’URL](./media/howto-add-microsoft-flow/iotcdeviceidurl.png)
 
 1. Vous pouvez mettre à jour le nom de l’appareil. Pour mettre à jour des propriétés et des paramètres de l’appareil, vous devez sélectionner le modèle d’appareil de l’appareil que vous voulez mettre à jour dans la liste déroulante **Modèle d’appareil**. La vignette de l’action se développe pour montrer tous les paramètres et propriétés que vous pouvez mettre à jour.
 
@@ -117,19 +120,32 @@ Cette section vous montre comment mettre à jour les paramètres et les proprié
 
 ## <a name="get-device-information-in-a-workflow"></a>Obtenir des informations de périphérique dans un flux de travail
 
-Vous pouvez obtenir des informations sur l’appareil par son ID de périphérique à l’aide de la **Azure IoT Central - obtenir un appareil** action. Vous pouvez obtenir des informations telles que le nom de l’appareil, nom de modèle d’appareil, les valeurs de propriété et les valeurs de paramètres à passer à des actions ultérieures dans votre flux de travail. Voici un exemple de workflow qui transmet la valeur de propriété de nom de client à partir d’un appareil à Microsoft Teams.
+Vous pouvez obtenir des informations sur l’appareil par son ID à l’aide de la **Azure IoT Central - obtenir un appareil** action. 
+> [!NOTE] 
+> **Vous devez utiliser l’ID figurant dans l’URL** sur la page de détails de l’appareil de l’appareil que vous souhaitez mettre à jour. L’ID d’appareil trouvé dans la liste de l’Explorateur d’appareils d’appareils n’est pas celui qui convient à utiliser dans Microsoft Flow.
+
+Vous pouvez obtenir des informations telles que le nom de l’appareil, nom de modèle d’appareil, les valeurs de propriété et les valeurs de paramètres à passer à des actions ultérieures dans votre flux de travail. Voici un exemple de workflow qui transmet la valeur de propriété de nom de client à partir d’un appareil à Microsoft Teams.
 
    ![Flux de travail de flux get appareil](./media/howto-add-microsoft-flow/flowgetdevice.png)
 
 
 ## <a name="run-a-command-on-a-device-in-a-workflow"></a>Exécuter une commande sur un appareil dans un flux de travail
-Vous pouvez exécuter une commande sur un périphérique spécifié par son ID de périphérique à l’aide de la **Azure IoT Central - exécuter une commande** action. Vous pouvez choisir la commande pour exécuter et transmettre les paramètres de la commande via cette action. Voici un exemple de workflow qui s’exécute une commande de redémarrage du périphérique à partir d’un bouton dans l’application mobile Microsoft Flow.
+Vous pouvez exécuter une commande sur un périphérique spécifié par son ID à l’aide de la **Azure IoT Central - exécuter une commande** action. 
+
+> [!NOTE] 
+> **Vous devez utiliser l’ID figurant dans l’URL** sur la page de détails de l’appareil de l’appareil que vous souhaitez mettre à jour. L’ID d’appareil trouvé dans la liste de l’Explorateur d’appareils d’appareils n’est pas celui qui convient à utiliser dans Microsoft Flow.
+    
+Vous pouvez choisir la commande pour exécuter et transmettre les paramètres de la commande via cette action. Voici un exemple de workflow qui s’exécute une commande de redémarrage du périphérique à partir d’un bouton dans l’application mobile Microsoft Flow.
 
    ![Flux de travail de flux get appareil](./media/howto-add-microsoft-flow/flowrunacommand.png)
 
 ## <a name="delete-a-device-in-a-workflow"></a>Supprimer un appareil dans un flux de travail
 
-Vous pouvez supprimer un appareil en utilisant son ID d’appareil avec l’action **Azure IoT Central - Supprimer un appareil**. Voici un exemple de flux de travail qui supprime un appareil quand l’utilisateur appuie sur un bouton dans l’application mobile Microsoft Flow.
+Vous pouvez supprimer un appareil par son ID à l’aide de la **Azure IoT Central - supprimer un appareil** action. 
+> [!NOTE] 
+> **Vous devez utiliser l’ID figurant dans l’URL** sur la page de détails de l’appareil de l’appareil que vous souhaitez mettre à jour. L’ID d’appareil trouvé dans la liste de l’Explorateur d’appareils d’appareils n’est pas celui qui convient à utiliser dans Microsoft Flow.
+
+Voici un exemple de flux de travail qui supprime un appareil quand l’utilisateur appuie sur un bouton dans l’application mobile Microsoft Flow.
 
    ![Flux de travail de suppression d’appareil dans Flow](./media/howto-add-microsoft-flow/flowdeletedevice.png)
 

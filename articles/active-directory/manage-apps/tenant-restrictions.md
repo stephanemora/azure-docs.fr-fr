@@ -15,12 +15,12 @@ ms.date: 03/28/2019
 ms.author: celested
 ms.reviewer: richagi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b78897e2e03085a20f07ce8724226f0e0171861e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: fa4eeb0a21525d636c7c1193c125d525774fa3fe
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60291232"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64707178"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Utiliser les restrictions du client pour gérer l’accès aux applications cloud SaaS
 
@@ -42,7 +42,7 @@ La solution comprend les composants suivants :
 
 3. **Logiciel client**: Pour prendre en charge les restrictions du client, le logiciel client doit demander des jetons directement à partir d’Azure AD, afin que l’infrastructure du proxy peut intercepter le trafic. Basée sur navigateur les applications Office 365 prennent actuellement en charge les restrictions du client, comme les clients Office qui utilisent l’authentification moderne (comme OAuth 2.0).
 
-4. **L’authentification moderne**: Services cloud doivent utiliser l’authentification moderne pour utiliser les restrictions du client et bloquer l’accès à tous les clients non autorisés. Vous devez configurer les services de cloud Office 365 pour utiliser les protocoles d’authentification moderne par défaut. Pour plus d’informations sur la prise en charge de l’authentification moderne par Office 365, consultez [Updated Office 365 modern authentication](https://blogs.office.com/2015/11/19/updated-office-365-modern-authentication-public-preview/) (Authentification moderne Office 365 mise à jour).
+4. **L’authentification moderne**: Services cloud doivent utiliser l’authentification moderne pour utiliser les restrictions du client et bloquer l’accès à tous les clients non autorisés. Vous devez configurer les services de cloud Office 365 pour utiliser les protocoles d’authentification moderne par défaut. Pour plus d’informations sur la prise en charge de l’authentification moderne par Office 365, consultez [Updated Office 365 modern authentication](https://www.microsoft.com/en-us/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/) (Authentification moderne Office 365 mise à jour).
 
 Le schéma suivant illustre le flux de trafic de niveau supérieur. Restrictions du client nécessite une inspection SSL uniquement sur le trafic vers Azure AD, pas pour les services de cloud Office 365. Cette distinction est importante, car le volume de trafic pour l’authentification à Azure AD est généralement beaucoup plus faible volume de trafic pour les applications SaaS comme Exchange Online et SharePoint Online.
 
@@ -60,7 +60,7 @@ Pour utiliser les restrictions du client, vos clients doivent être en mesure de
 
 La configuration suivante est nécessaire pour activer les restrictions du client via votre infrastructure de proxy. Ce guide est générique, donc consultez la documentation du fabricant de votre proxy pour obtenir les étapes d’implémentation spécifiques.
 
-#### <a name="prerequisites"></a>Prérequis
+#### <a name="prerequisites"></a>Conditions préalables
 
 - Le proxy doit être en mesure d’effectuer l’interception SSL, l’insertion d’en-tête HTTP et de filtrer les destinations à l’aide des noms de domaine complets/URL.
 
@@ -128,7 +128,7 @@ Les applications Office 365 doivent répondre aux deux critères pour prendre en
 1. Le client utilisé prend en charge l’authentification moderne.
 2. L’authentification moderne est activée comme protocole d’authentification par défaut pour le service cloud.
 
-Consultez [Updated Office 365 modern authentication](https://blogs.office.com/2015/11/19/updated-office-365-modern-authentication-public-preview/) (Authentification moderne Office 365 mise à jour) pour plus d’informations sur les clients Office qui prennent actuellement en charge l’authentification moderne. Cette page inclut également des liens vers des instructions relatives à l’activation de l’authentification moderne sur des clients Exchange Online et Skype Entreprise Online spécifiques. SharePoint Online permet déjà de l’authentification moderne par défaut.
+Consultez [Updated Office 365 modern authentication](https://www.microsoft.com/en-us/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/) (Authentification moderne Office 365 mise à jour) pour plus d’informations sur les clients Office qui prennent actuellement en charge l’authentification moderne. Cette page inclut également des liens vers des instructions relatives à l’activation de l’authentification moderne sur des clients Exchange Online et Skype Entreprise Online spécifiques. SharePoint Online permet déjà de l’authentification moderne par défaut.
 
 Les applications Web Office 365 (sites portail Office, Yammer, SharePoint, Outlook sur le Web et bien plus encore) prend actuellement en charge les restrictions du client. Clients lourds (Outlook, Skype pour entreprise, Word, Excel, PowerPoint, etc.) peuvent appliquer des restrictions du client uniquement lorsque vous utilisez l’authentification moderne.  
 
@@ -185,5 +185,5 @@ Pour plus d’informations spécifiques, consultez la documentation de votre ser
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- En savoir plus sur [l’authentification moderne Office 365 mise à jour](https://blogs.office.com/2015/11/19/updated-office-365-modern-authentication-public-preview/)
+- En savoir plus sur [l’authentification moderne Office 365 mise à jour](https://www.microsoft.com/en-us/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/)
 - Consultez les [URL et plages d’adresses IP Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2019
 ms.author: mlottner
-ms.openlocfilehash: 41b2d012ef2f6dd1ca5f57e04da43eb1a06dafde
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 00666e27c9251248aa6ecff75d88908baabf71f3
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61360147"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919724"
 ---
 # <a name="pricing-and-associated-costs"></a>Tarifs et coûts associés
 
@@ -40,7 +40,7 @@ L’ASC pour IoT, modèle de tarification se compose de deux parties et est fact
   >[!Note]
   > Messages de sécurité entraîne également la consommation de quota sur IoT Hub.
 
-Pour plus d’informations, consultez [tarification de Security Center](https://azure.microsoft.com/en-us/pricing/details/security-center/).
+Pour plus d’informations, consultez [tarification de Security Center](https://azure.microsoft.com/pricing/details/security-center/).
 
 ## <a name="associated-costs"></a>Coûts associés
 
@@ -65,7 +65,7 @@ Le tableau suivant fournit un récapitulatif des coûts associés et les implica
 |     | Usage | Commentaire |
 | --- | --- | --- |
 | **Consommation de quota de IoT Hub** |  |
-| [Exporter l’appareil](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-bulk-identity-mgmt#export-devices) travail (exportation de représentation) | 1 par jour | Désactiver _collection de métadonnées de représentations réussies_ |
+| [Exporter l’appareil](https://docs.microsoft.com/azure/iot-hub/iot-hub-bulk-identity-mgmt#export-devices) travail (exportation de représentation) | 1 par jour | Désactiver _collection de métadonnées de représentations réussies_ |
 | **Stockage d’Analytique de journal** |  |
 | Alertes et des recommandations de l’appareil| Recommandation de sécurité et les alertes générées par le service | Non facultatif |
 | Données de sécurité brute| Données de sécurité brute à partir d’appareils IoT, collectées par les agents de sécurité | Désactiver _stocker les événements de sécurité de périphérique brut_ |

@@ -12,12 +12,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: d146027ea3a21ab8df3750014c02893bc2f50dd6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: cfa9d6a1a287281bec91facf04c73506db81f84a
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58097727"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64711556"
 ---
 # <a name="customize-setup-for-the-azure-ssis-integration-runtime"></a>Personnalisation l’installation du runtime d’intégration Azure-SSIS
 
@@ -82,7 +82,7 @@ Pour personnaliser votre IR Azure-SSIS, vous avez besoin de ce qui suit :
 
       ![Création d’un conteneur d’objets blob](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image4.png)
 
-   1. Sélectionnez le nouveau conteneur et chargez votre script d’installation personnalisée et ses fichiers associés. Veillez à charger `main.cmd` au niveau supérieur de votre conteneur, pas dans un dossier. Vérifiez également que votre conteneur contient uniquement les fichiers d’installation personnalisée nécessaires afin que leur téléchargement ultérieur sur votre runtime d’intégration Azure-SSIS ne prenne pas beaucoup de temps.
+   1. Sélectionnez le nouveau conteneur et chargez votre script d’installation personnalisée et ses fichiers associés. Veillez à charger `main.cmd` au niveau supérieur de votre conteneur, pas dans un dossier. Vérifiez également que votre conteneur contient uniquement les fichiers d’installation personnalisée nécessaires afin que leur téléchargement ultérieur sur votre runtime d’intégration Azure-SSIS ne prenne pas beaucoup de temps. Le délai maximal pour le programme d’installation personnalisé est actuellement fixée à 45 minutes avant qu’il n’expire et cela inclut l’heure pour télécharger tous les fichiers à partir de votre conteneur et les installer sur IR Azure-SSIS. Si une période plus longue est nécessaire, veuillez soumettre un ticket de support.
 
       ![Chargez des fichiers vers le conteneur d’objets blob](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image5.png)
 

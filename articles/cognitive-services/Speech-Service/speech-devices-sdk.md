@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: cb0e079eee78f865d472b55b162fb65b5eadaf44
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9a1dadc29006a365f7e614db5722fa0e92e0129d
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61460443"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922505"
 ---
 # <a name="about-the-speech-devices-sdk-preview"></a>À propos du kit de développement logiciel (SDK) Speech Devices (préversion)
 
@@ -39,7 +39,7 @@ Actuellement, les conceptions de référence du système de bout en bout complè
 
 |||
 |-|-|
-|[![Logo ROOBO](media/speech-devices-sdk/roobo-logo.png)](http://ddk.roobo.com/)|ROOBO fournit des solutions de système d’intelligence artificielle (IA) complètes pour les appareils électroménagers, les automobiles, les robots, les jouets et d’autres secteurs d’activité. Conceptions de référence de ROOBO réduisent considérablement le développement temps-to-market via l’intégration avec les Services de reconnaissance vocale de Azure. [Visitez ROOBO](http://ddk.roobo.com/).|
+|[![Logo ROOBO](media/speech-devices-sdk/roobo-logo.png)](https://ddk.roobo.com/)|ROOBO fournit des solutions de système d’intelligence artificielle (IA) complètes pour les appareils électroménagers, les automobiles, les robots, les jouets et d’autres secteurs d’activité. Conceptions de référence de ROOBO réduisent considérablement le développement temps-to-market via l’intégration avec les Services de reconnaissance vocale de Azure. [Visitez ROOBO](https://ddk.roobo.com/).|
 
 ## <a name="next-steps"></a>Étapes suivantes
 

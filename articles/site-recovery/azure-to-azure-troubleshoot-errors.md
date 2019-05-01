@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/08/2019
 ms.author: sujayt
-ms.openlocfilehash: c7c91a2cf9a25d0a5a4aeed6621e89f9c7cc18f0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: fafa791039397e93e9bf8ab6be04a2190e8ed784
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60789856"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64699074"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Résoudre les problèmes de réplication de machine virtuelle Azure vers Azure
 
@@ -221,7 +221,17 @@ Vérifiez que les disques de données ont été initialisés, puis réessayez l�
 
 Si le problème persiste, contactez le support technique.
 
+## <a name="one-or-more-disks-are-available-for-protectionerror-code-153039"></a>Un ou plusieurs disques sont disponibles pour la protection (code d’erreur 153039)
+- **Cause possible** </br>
+  - Si un ou plusieurs disques ont été récemment ajoutés à la machine virtuelle après la protection. 
+  - Si un ou plusieurs disques ont été initialisés ultérieurement après la protection de la machine virtuelle.
 
+### <a name="fix-the-problem"></a>Résoudre le problème
+Vous pouvez choisir protéger les disques ou ignorer l’avertissement pour que l’état de réplication de la machine virtuelle à nouveau intègre.</br>
+1. Pour protéger l’ou les disques. Accédez à éléments répliqués > machine virtuelle > disques > cliquez sur le disque non protégé > activer la réplication.
+ ![add_disks](./media/azure-to-azure-troubleshoot-errors/add-disk.png)
+2. Pour ignorer l’avertissement. Accédez à éléments répliqués > machine virtuelle > cliquez sur l’alerte dismiss sous la section vue d’ensemble.
+![dismiss_warning](./media/azure-to-azure-troubleshoot-errors/dismiss-warning.png)
 ## <a name="unable-to-see-the-azure-vm-for-selection-in-enable-replication"></a>Impossible de sélectionner la machine virtuelle Azure dans « Activer la réplication »
 
  **Cause 1 :  le groupe de ressources et la machine virtuelle source se trouvent à un emplacement différent** <br>

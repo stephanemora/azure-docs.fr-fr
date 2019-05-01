@@ -8,16 +8,13 @@ ms.topic: include
 ms.date: 06/12/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: ee987448f9f6d95e6f97317bec2f696e734cba20
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: d067f1af3d5479aef28ddf2290cebe3fe45726b0
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58632911"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64733814"
 ---
-#### <a name="expressroute-limits"></a>Limites d’ExpressRoute
-Les limites suivantes s’appliquent aux ressources Azure ExpressRoute par abonnement.
-
 | Ressource | Limite par défaut/maximale |
 | --- | --- |
 | Circuits ExpressRoute par abonnement |10 |
@@ -27,7 +24,8 @@ Les limites suivantes s’appliquent aux ressources Azure ExpressRoute par abonn
 | Nombre maximal d’itinéraires pour l’homologation privée Azure à partir de l’espace d’adressage de réseau virtuel pour une connexion ExpressRoute |200 | 
 | Nombre maximal d’itinéraires pour l’homologation de Microsoft Azure avec ExpressRoute Standard |200 |
 | Nombre maximal d’itinéraires pour l’homologation de Microsoft Azure avec le module complémentaire ExpressRoute Premium |200 |
-| Nombre maximal de circuits ExpressRoute liés au même réseau virtuel dans différents emplacements d’appairage |4 |
+| Nombre maximal de circuits ExpressRoute lié au même réseau virtuel dans le même emplacement d’homologation |4 |
+| Nombre maximal de circuits ExpressRoute liés au même réseau virtuel dans différents emplacements d’appairage |> 4, varie selon la taille du sous-réseau de passerelle|
 | Nombre de liens de réseau virtuel autorisés par circuit ExpressRoute |Consultez le tableau suivant. |
 
 #### <a name="number-of-virtual-networks-per-expressroute-circuit"></a>Nombre de réseaux virtuels par circuit ExpressRoute

@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 03/19/2019
-ms.openlocfilehash: c4f94dd2730dd302951b4476a292b006041b7ee8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: d79154a8792b9017b98f9d21a2ab0360b7304d1c
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60820036"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64697858"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Automatique-former un modèle de prévision de séries chronologiques
 
@@ -67,7 +67,7 @@ y_test = X_test.pop("sales_quantity").values
 > [!NOTE]
 > Lors de l’apprentissage d’un modèle pour la prévision de valeurs futures, assurez-vous que toutes les fonctionnalités utilisées pour l’apprentissage peuvent être utilisées lors de l’exécution de prédictions pour votre horizon prévue. Par exemple, lorsque vous créez une prévision de la demande, y compris une fonctionnalité pour le prix actuel du stock peut augmenter massivement précision de l’apprentissage. Toutefois, si vous prévoyez un long horizon de prévision, vous n’êtes peut-être pas en mesure de prévoir avec précision les futures valeurs d’actions correspondant aux points de séries chronologiques futures et précision du modèle peut en ressentir.
 
-## <a name="configure-experiment"></a>Configurer une expérience
+## <a name="configure-and-run-experiment"></a>Configurer et exécuter l’expérience
 
 Pour la prévision des tâches, apprentissage automatisé utilise des étapes de prétraitement et de la fonctionnalité d’estimation qui sont spécifiques aux données de séries chronologiques. Les étapes de prétraitement suivantes sont exécutées :
 
@@ -126,6 +126,20 @@ best_run, fitted_model = local_run.get_output()
 > [!NOTE]
 > Pour la procédure (CV) de la validation croisée, les données de série chronologique peuvent violer les hypothèses statistiques de base de la stratégie de validation croisée de K-pli canonique, afin de l’apprentissage automatisé implémente une procédure de validation d’origine propagée à créer plis de validation croisée pour les données de série chronologique. Pour utiliser cette procédure, vous devez spécifier le `n_cross_validations` paramètre dans le `AutoMLConfig` objet. Vous pouvez ignorer la validation et l’utilisation de votre propre validation définit avec la `X_valid` et `y_valid` paramètres.
 
+### <a name="view-feature-engineering-summary"></a>Afficher le résumé ingénierie fonctionnalité
+
+Pour les types de tâche de séries chronologiques dans l’apprentissage automatique, vous pouvez afficher les détails de la fonctionnalité de processus de conception. Le code suivant montre chaque fonctionnalité brutes, ainsi que les attributs suivants :
+
+* Nom de la fonctionnalité brutes
+* Nombre de caractéristiques conçues formé en dehors de cette fonctionnalité brutes
+* Type détecté
+* Indique si la fonctionnalité a été supprimée
+* Liste des transformations de fonctionnalité pour la fonctionnalité brutes
+
+```python
+fitted_model.named_steps['timeseriestransformer'].get_featurization_summary()
+```
+
 ## <a name="forecasting-with-best-model"></a>Meilleur modèle de prévision
 
 Utiliser l’itération de modèle meilleures pour prévoir les valeurs du jeu de données de test.
@@ -133,6 +147,16 @@ Utiliser l’itération de modèle meilleures pour prévoir les valeurs du jeu d
 ```python
 y_predict = fitted_model.predict(X_test)
 y_actual = y_test.flatten()
+```
+
+Vous pouvez également utiliser le `forecast()` fonction au lieu de `predict()`, ce qui permettra de spécifications de lorsque les prédictions doivent démarrer. Dans l’exemple suivant, vous remplacez tout d’abord toutes les valeurs de `y_pred` avec `NaN`. L’origine de la prévision sera à la fin des données d’apprentissage dans ce cas, comme il le serait normalement lors de l’utilisation `predict()`. Toutefois, si vous avez remplacé uniquement le second semestre `y_pred` avec `NaN`, la fonction laisserait les valeurs numériques dans la première moitié non modifié, mais la prévision le `NaN` valeurs dans la deuxième moitié. La fonction retourne les valeurs prédites et les fonctionnalités alignées.
+
+Vous pouvez également utiliser le `forecast_destination` paramètre dans le `forecast()` fonction de prévision des valeurs jusqu'à une date spécifiée.
+
+```python
+y_query = y_test.copy().astype(np.float)
+y_query.fill(np.nan)
+y_fcst, X_trans = fitted_pipeline.forecast(X_test, y_query, forecast_destination=pd.Timestamp(2019, 1, 8))
 ```
 
 Calculer RMSE (l’erreur quadratique moyenne racine) entre le `y_test` valeurs réelles et les valeurs prédites dans `y_pred`.

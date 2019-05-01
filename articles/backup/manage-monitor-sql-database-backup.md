@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/14/2018
 ms.author: raynew
-ms.openlocfilehash: ea5495867d5f453db014e000e01d533d049dc628
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: f5ec5a64f1de39cd0d196242fb1a93669dbab15d
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60849363"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64681844"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>Gérer et surveiller des bases de données SQL Server sauvegardées
 
@@ -129,9 +129,9 @@ Annuler l’inscription d’une instance de SQL Server une fois que vous désact
 
 3. Dans **Serveurs protégés**, sélectionnez le serveur dont vous souhaitez annuler l'inscription. Si vous souhaitez supprimer le coffre, vous devez annuler l’inscription de tous les serveurs.
 
-4. Cliquez sur le serveur protégé, puis sélectionnez **supprimer**.
+4. Cliquez sur le serveur protégé, puis sélectionnez **Unregister**.
 
-   ![Sélectionner Supprimer](./media/backup-azure-sql-database/delete-protected-server.png)
+   ![Sélectionner Supprimer](./media/backup-azure-sql-database/delete-protected-server.jpg)
 
 ## <a name="re-register-extension-on-the-sql-server-vm"></a>Extension de Re-register sur la machine virtuelle SQL Server
 

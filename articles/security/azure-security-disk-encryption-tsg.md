@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3c6c552a6605278d8ab31264f5d180206e0badac
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 4715ec92c4ee45733cc0eb2839c533f9ee8968fe
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59490033"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64694127"
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Guide de rési=olution des problèmes Azure Disk Encryption
 
@@ -52,7 +52,7 @@ uname -a
 
 ## <a name="update-the-azure-virtual-machine-agent-and-extension-versions"></a>Mettre à jour l’Agent de Machine virtuelle Azure et les Versions d’Extension
 
-Les opérations de chiffrement de disque Azure peuvent échouer sur les images de machine virtuelle à l’aide de versions non pris en charge de l’Agent de Machine virtuelle Azure. Pour plus d’informations, reportez-vous à [prise en charge de la version minimale pour les agents de machine virtuelle dans Azure](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).  
+Les opérations de chiffrement de disque Azure peuvent échouer sur les images de machine virtuelle à l’aide de versions non pris en charge de l’Agent de Machine virtuelle Azure. Les images Linux avec les versions antérieures à 2.2.38 de l’agent doivent être mis à jour avant l’activation du chiffrement. Pour plus d’informations, consultez [comment mettre à jour le Linux Agent Azure sur une machine virtuelle](../virtual-machines/extensions/update-linux-agent.md) et [prise en charge de la version minimale pour les agents de machine virtuelle dans Azure](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).
 
 La version correcte de l’extension de l’agent invité Microsoft.Azure.Security.AzureDiskEncryption ou Microsoft.Azure.Security.AzureDiskEncryptionForLinux est également requise. Versions d’extension sont conservées et mis à jour automatiquement par la plateforme lors de la configuration requise de l’agent de Machine virtuelle Azure est satisfaite et qu’une version prise en charge de l’agent de machine virtuelle est utilisée.
 

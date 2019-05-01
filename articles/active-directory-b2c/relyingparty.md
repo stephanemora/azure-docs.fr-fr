@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 01/25/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 5d42568a738d946d7df65601044b9797a35f6b1f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: ca78e7a9ce44b492dafcc00c1663d54718ca7fac
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60360399"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64705082"
 ---
 # <a name="relyingparty"></a>RelyingParty
 
@@ -178,7 +178,7 @@ L’élément **TechnicalProfile** contient les éléments suivants :
 | ------- | ----------- | ----------- |
 | DisplayName | 0:1 | Chaîne qui contient le nom du profil technique présenté aux utilisateurs. |
 | Description | 0:1 | Chaîne qui contient la description du profil technique présentée aux utilisateurs. |
-| Protocole | 1:1 | Protocole utilisé pour la fédération. |
+| Protocol | 1:1 | Protocole utilisé pour la fédération. |
 | Métadonnées | 0:1 | Collection d’*éléments* de paires clé/valeur utilisée par le protocole pour communiquer avec le point de terminaison durant une transaction afin de configurer l’interaction entre la partie de confiance et les autres participants de la communauté. |
 | OutputClaims | 0:1 | Liste de types de revendications qui sont pris comme sortie dans le profil technique. Chacun de ces éléments contient une référence à un **ClaimType** déjà défini dans la section **ClaimsSchema** ou dans une stratégie dont hérite ce fichier de stratégie. |
 | SubjectNamingInfo | 0:1 | Nom du sujet utilisé dans les jetons. |

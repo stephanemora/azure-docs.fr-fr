@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/20/2018
+ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: 87505081f16008dff7da1f567c1265c695f3f0ab
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: f25b0f2c7b5e3148bae778c4b50a3f0bd0c148da
+ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60653770"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64875941"
 ---
 # <a name="copy-data-from-an-http-endpoint-by-using-azure-data-factory"></a>Copier des données d’un point de terminaison HTTP à l’aide d’Azure Data Factory
 
@@ -160,11 +160,55 @@ Si vous utilisez **certThumbprint** pour l’authentification et que le certific
 
 ## <a name="dataset-properties"></a>Propriétés du jeu de données
 
-Cette section contient la liste des propriétés prises en charge par le jeu de données HTTP. 
+Pour obtenir la liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article [Jeux de données](concepts-datasets-linked-services.md). 
 
-Pour obtenir la liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez [Jeux de données et services liés](concepts-datasets-linked-services.md). 
+- Pour **Parquet et le format de texte délimité**, reportez-vous à [jeu de données de format Parquet et texte délimité](#parquet-and-delimited-text-format-dataset) section.
+- Pour les autres formats tels que **format ORC/Avro/JSON/binaire**, reportez-vous à [autre jeu de données de format](#other-format-dataset) section.
 
-Pour copier des données de HTTP, définissez la propriété **type** du jeu de données sur **HttpFile**. Les propriétés prises en charge sont les suivantes :
+### <a name="parquet-and-delimited-text-format-dataset"></a>Parquet et le jeu de données de format texte délimité
+
+Pour copier des données à partir de HTTP dans **Parquet ou format de texte délimité**, reportez-vous à [format Parquet](format-parquet.md) et [format de texte délimité](format-delimited-text.md) l’article sur le jeu de données en fonction du format et la prise en charge Paramètres. Les propriétés suivantes sont prises en charge pour le protocole HTTP sous `location` paramètres dans le jeu de données en fonction du format :
+
+| Propriété    | Description                                                  | Obligatoire |
+| ----------- | ------------------------------------------------------------ | -------- |
+| Type        | La propriété de type sous `location` dans le jeu de données doit être définie sur **HttpServerLocation**. | Oui      |
+| relativeUrl | URL relative de la ressource qui contient les données.       | Non        |
+
+> [!NOTE]
+> La taille de charge utile de requête HTTP prise en charge est d’environ 500 Ko. Si la taille de charge utile que vous souhaitez passer au point de terminaison web est supérieure à 500 Ko, envisagez de la traiter en blocs plus petits.
+
+> [!NOTE]
+> **HttpFile** type de jeu de données avec le format Parquet/texte mentionné dans la section suivante est toujours prise en charge-est de l’activité de copie/recherche pour la compatibilité descendante. Il est recommandé d’utiliser ce nouveau modèle à l’avenir et ADF création de l’interface utilisateur est passée à la génération de ces nouveaux types.
+
+**Exemple :**
+
+```json
+{
+    "name": "DelimitedTextDataset",
+    "properties": {
+        "type": "DelimitedText",
+        "linkedServiceName": {
+            "referenceName": "<HTTP linked service name>",
+            "type": "LinkedServiceReference"
+        },
+        "schema": [ < physical schema, optional, auto retrieved during authoring > ],
+        "typeProperties": {
+            "location": {
+                "type": "HttpServerLocation",
+                "relativeUrl": "<relative url>"
+            },
+            "columnDelimiter": ",",
+            "quoteChar": "\"",
+            "firstRowAsHeader": true,
+            "compressionCodec": "gzip"
+        }
+    }
+}
+```
+
+### <a name="other-format-dataset"></a>Autre jeu de données de format
+
+Pour copier des données à partir de HTTP dans **format ORC/Avro/JSON/binaire**, les propriétés suivantes sont prises en charge :
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
@@ -226,7 +270,69 @@ Pour obtenir la liste complète des sections et des propriétés permettant de d
 
 ### <a name="http-as-source"></a>HTTP en tant que source
 
-Pour copier des données de HTTP, définissez le **type de source** dans l’activité de copie sur **HttpSource**. Les propriétés prises en charge dans la section **source** de l’activité de copie sont les suivantes :
+- Pour la copie depuis **Parquet et le format de texte délimité**, reportez-vous à [Parquet et source de format de texte délimité](#parquet-and-delimited-text-format-source) section.
+- Pour copier à partir d’autres formats tels que **format ORC/Avro/JSON/binaire**, reportez-vous à [autre source de format](#other-format-source) section.
+
+#### <a name="parquet-and-delimited-text-format-source"></a>Parquet et source de format de texte délimité
+
+Pour copier des données à partir de HTTP dans **Parquet ou format de texte délimité**, reportez-vous à [format Parquet](format-parquet.md) et [format de texte délimité](format-delimited-text.md) article sur la source d’activité de copie basée sur le format et paramètres pris en charge. Les propriétés suivantes sont prises en charge pour le protocole HTTP sous `storeSettings` paramètres de source de copie basée sur le format :
+
+| Propriété                 | Description                                                  | Obligatoire |
+| ------------------------ | ------------------------------------------------------------ | -------- |
+| Type                     | La propriété de type sous `storeSettings` doit être définie sur **HttpReadSetting**. | Oui      |
+| requestMethod            | Méthode HTTP. <br>Les valeurs autorisées sont **Get** (par défaut) et **Post**. | Non        |
+| addtionalHeaders         | En-têtes de requête HTTP supplémentaires.                             | Non        |
+| RequestBody              | Corps de la requête HTTP.                               | Non        |
+| requestTimeout           | Délai d’expiration (valeur **TimeSpan**) pour l’obtention d’une réponse par la requête HTTP. Cette valeur correspond au délai d’expiration pour l’obtention d’une réponse, et non au délai d’expiration pour la lecture des données de la réponse. La valeur par défaut est **00:01:40**. | Non        |
+| maxConcurrentConnections | Nombre de connexions pour se connecter au magasin de stockage simultanément. Spécifiez uniquement lorsque vous souhaitez limiter les connexions simultanées au magasin de données. | Non        |
+
+> [!NOTE]
+> Pour Parquet/texte délimité par des **HttpSource** source d’activité de copie type mentionné dans la section suivante est toujours prise en charge-concerne pour la compatibilité descendante. Il est recommandé d’utiliser ce nouveau modèle à l’avenir et ADF création de l’interface utilisateur est passée à la génération de ces nouveaux types.
+
+**Exemple :**
+
+```json
+"activities":[
+    {
+        "name": "CopyFromHTTP",
+        "type": "Copy",
+        "inputs": [
+            {
+                "referenceName": "<Delimited text input dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "outputs": [
+            {
+                "referenceName": "<output dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "typeProperties": {
+            "source": {
+                "type": "DelimitedTextSource",
+                "formatSettings":{
+                    "type": "DelimitedTextReadSetting",
+                    "skipLineCount": 10
+                },
+                "storeSettings":{
+                    "type": "HttpReadSetting",
+                    "requestMethod": "Post",
+                    "additionalHeaders": "<header key: header value>\n<header key: header value>\n",
+                    "requestBody": "<body for POST HTTP request>"
+                }
+            },
+            "sink": {
+                "type": "<sink type>"
+            }
+        }
+    }
+]
+```
+
+#### <a name="other-format-source"></a>Autre source de format
+
+Pour copier des données à partir de HTTP dans **format ORC/Avro/JSON/binaire**, les propriétés suivantes sont prises en charge dans l’activité de copie **source** section :
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |

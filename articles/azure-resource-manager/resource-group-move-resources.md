@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/19/2019
+ms.date: 04/25/2019
 ms.author: tomfitz
-ms.openlocfilehash: dfe2a103005cc48860c7bbeb3036afe94ff3a559
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4e94bc7686203bfbcd93200e5a1fb65b43ceeb91
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60239110"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64698489"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Déplacer des ressources vers un nouveau groupe de ressource ou un nouvel abonnement
 
@@ -221,6 +221,22 @@ Lors du déplacement d’une application Web _entre des abonnements_, les limite
     - Environnements App Service
 - Toutes les ressources App Service du groupe de ressources doivent être déplacées simultanément.
 - Les ressources App Service ne peuvent être déplacées qu’à partir du groupe de ressources dans lequel elles ont été créées à l’origine. Si une ressource App Service n’est plus dans son groupe de ressources d’origine, elle doit d’abord réintégrer ce groupe avant de pouvoir être déplacée entre les abonnements.
+
+Si vous ne connaissez pas le groupe de ressources d’origine, vous pouvez le trouver via les diagnostics. Pour votre application web, sélectionnez **diagnostiquer et résoudre les problèmes**. Ensuite, sélectionnez **Configuration et la gestion**.
+
+![Sélectionner les diagnostics](./media/resource-group-move-resources/select-diagnostics.png)
+
+Sélectionnez **Options de Migration**.
+
+![Sélectionnez les options de migration](./media/resource-group-move-resources/select-migration.png)
+
+Sélectionnez l’option pour les étapes recommandées déplacer l’application web.
+
+![Sélectionnez les étapes recommandées](./media/resource-group-move-resources/recommended-steps.png)
+
+Vous voyez les actions recommandées à prendre avant de déplacer les ressources. Les informations incluent le groupe de ressources d’origine de l’application web.
+
+![Recommandations](./media/resource-group-move-resources/recommendations.png)
 
 ### <a name="app-service-certificate-limitations"></a>Limitations d’App Service Certificate
 

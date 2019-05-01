@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/18/2019
+ms.date: 04/29/2019
 ms.author: mlottner
-ms.openlocfilehash: 49decb2d67c8ff16f9912fea8e8ece1a3bd9feb5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 253585d71ab2704efa0b3e4a06456e1d505b46ad
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60232816"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919674"
 ---
 # <a name="introducing-azure-security-center-for-iot"></a>Présentation d’Azure Security Center pour IoT
 
@@ -33,7 +33,7 @@ Unifier la gestion de la sécurité et activer l’analyse des menaces de bout e
 
 ## <a name="protect-iot-and-hybrid-cloud-workloads-against-evolving-cyber-attacks"></a>Protéger les charges de travail hybride et IoT cloud contre-cyberattaques en constante évolution
 
-L’Internet des objets transforme rapidement notre monde. Avec la possibilité de découverte insights à partir de vos périphériques connectés et les systèmes back-end, vous pouvez maintenant transformer ces informations dans les applications et services puissants pour aider votre entreprise à atteindre commerciaux et des niveaux inégalés d’opérationnelle performances. Toutefois, comme des milliards de nouveaux appareils sont connectés à internet et intégrées dans nos vies quotidiennes et de nos activités ; vos équipes d’opérations de sécurité doivent s’assurer que leurs stratégies de sécurité évoluent assez rapidement pour couvrir ces nouvelles surfaces d’attaque. Comme tout autre système, la sécurisation de votre solution IoT doit protection à chaque étape de votre implémentation. 
+L’Internet des objets transforme rapidement notre monde. Avec la possibilité de découvrir des informations à partir de vos périphériques connectés et les systèmes back-end, vous pouvez maintenant transformer ces informations dans les applications et services puissants pour aider votre entreprise à atteindre des niveaux inégalés d’opérationnelle et les performances de l’entreprise. Toutefois, comme des milliards de nouveaux appareils sont connectés à internet et intégrées dans nos vies quotidiennes et de nos activités ; vos équipes d’opérations de sécurité doivent s’assurer que leurs stratégies de sécurité évoluent assez rapidement pour couvrir ces nouvelles surfaces d’attaque. Comme tout autre système, la sécurisation de votre solution IoT doit protection à chaque étape de votre implémentation. 
 
 Azure Security Center (ASC) pour IoT simplifie la protection des charges de travail hybrides en fournissant une visibilité unifiée et de contrôle, de prévention adaptative des menaces et de détection intelligente des menaces et de réponse charges de travail en cours d’exécution sur les bords en local, dans Azure et dans autres clouds. 
 

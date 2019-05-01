@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ramamill
 ms.date: 02/27/2019
-ms.openlocfilehash: 0278332105f2102fc82122c5a74db6326f011e81
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 58c09c71aad2b6244f6e2f3d144c033665932f50
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60564670"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925577"
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>Résoudre les problèmes d’installation Push du service Mobilité
 
@@ -231,13 +231,13 @@ Il s’agit d’une erreur d’exécution due à une mémoire insuffisante pour 
 
 ### <a name="vss-error--2147023824-0x80070430---exit-code-517"></a>Erreur VSS -2147023824 [0x80070430] - code de sortie 517
 
-Cette erreur se produit lorsque le service fournisseur VSS d’Azure Site Recovery est [marqué pour suppression](https://msdn.microsoft.com/en-us/library/ms838153.aspx). Essayez d’installer manuellement VSS sur la machine source en exécutant la ligne de commande suivante
+Cette erreur se produit lorsque le service fournisseur VSS d’Azure Site Recovery est [marqué pour suppression](https://msdn.microsoft.com/library/ms838153.aspx). Essayez d’installer manuellement VSS sur la machine source en exécutant la ligne de commande suivante
 
 `C:\Program Files (x86)\Microsoft Azure Site Recovery\agent>"C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\InMageVSSProvider_Install.cmd"`
 
 ### <a name="vss-error--2147023841-0x8007041f---exit-code-512"></a>Erreur VSS -2147023841 [0x8007041F] - code de sortie 512
 
-Cette erreur se produit lorsque la base de données de service fournisseur VSS d’Azure Site Recovery est [verrouillée](https://msdn.microsoft.com/en-us/library/ms833798.aspx). Essayez d’installer manuellement VSS sur la machine source en exécutant la ligne de commande suivante
+Cette erreur se produit lorsque la base de données de service fournisseur VSS d’Azure Site Recovery est [verrouillée](https://msdn.microsoft.com/library/ms833798.aspx). Essayez d’installer manuellement VSS sur la machine source en exécutant la ligne de commande suivante
 
 `C:\Program Files (x86)\Microsoft Azure Site Recovery\agent>"C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\InMageVSSProvider_Install.cmd"`
 

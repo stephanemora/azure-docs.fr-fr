@@ -1,25 +1,18 @@
 ---
-title: Placement de votre application Microsoft Dynamics 365 Business Central dans Microsoft AppSource | Microsoft Docs
+title: Placement de votre application Microsoft Dynamics 365 Business Central dans Microsoft AppSource
 description: Vue d’ensemble de la publication d’une application Dynamics 365 Business Central dans Microsoft AppSource.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 03/13/2019
-ms.author: pbutlerm
-ms.openlocfilehash: 3bbcf5c2b6fb0939c47e24f25c1d5d834eb07dfb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: 062a16d02f26e3f2f6eb815432bed024d5e3746e
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60397740"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64935008"
 ---
 # <a name="bring-your-microsoft-dynamics-365-business-central-app-into-microsoft-appsource"></a>Placement de votre application Microsoft Dynamics 365 Business Central dans Microsoft AppSource
 

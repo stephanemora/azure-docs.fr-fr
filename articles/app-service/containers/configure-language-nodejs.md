@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: cephalin
-ms.openlocfilehash: 43dc76e6d1e1ec2a6167f1d3e3cc7b8780f843db
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 3074048dd4426a10e706e37e6d375ea4995fcbbb
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60850243"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919779"
 ---
 # <a name="configure-a-linux-nodejs-app-for-azure-app-service"></a>Configurer une application Node.js de Linux pour Azure App Service
 
@@ -55,7 +55,7 @@ Ce paramètre spécifie la version de Node.js à utiliser, à la fois lors de l�
 
 ## <a name="configure-nodejs-server"></a>Configurer le serveur Node.js
 
-Les conteneurs Node.js sont fournis avec [PM2](http://pm2.keymetrics.io/), un gestionnaire de processus de production. Vous pouvez configurer votre application pour démarrer avec PM2, ou avec NPM ou avec une commande personnalisée.
+Les conteneurs Node.js sont fournis avec [PM2](https://pm2.keymetrics.io/), un gestionnaire de processus de production. Vous pouvez configurer votre application pour démarrer avec PM2, ou avec NPM ou avec une commande personnalisée.
 
 - [Exécutez la commande personnalisée](#run-custom-command)
 - [Vous pouvez exécuter npm](#run-npm-start)
@@ -99,12 +99,12 @@ Le conteneur démarre automatiquement votre application avec PM2 lorsqu’un des
 - *app.js*
 - *index.js*
 - *hostingstart.js*
-- Une de ces [PM2 fichiers](http://pm2.keymetrics.io/docs/usage/application-declaration/#process-file): *process.json* et *ecosystem.config.js*
+- Une de ces [PM2 fichiers](https://pm2.keymetrics.io/docs/usage/application-declaration/#process-file): *process.json* et *ecosystem.config.js*
 
 Vous pouvez également configurer un fichier de démarrage personnalisée avec les extensions suivantes :
 
 - Un *.js* fichier
-- Un [fichier PM2](http://pm2.keymetrics.io/docs/usage/application-declaration/#process-file) avec l’extension *.json*, *. config.js*, *.yaml*, ou *.yml*
+- Un [fichier PM2](https://pm2.keymetrics.io/docs/usage/application-declaration/#process-file) avec l’extension *.json*, *. config.js*, *.yaml*, ou *.yml*
 
 Pour ajouter un fichier de démarrage personnalisée, exécutez la commande suivante le [Cloud Shell](https://shell.azure.com):
 
@@ -226,7 +226,7 @@ fi
 
 Dans App Service, une [terminaison SSL](https://wikipedia.org/wiki/TLS_termination_proxy) se produit au niveau des équilibreurs de charge réseau. Toutes les requêtes HTTPS accèdent donc à votre application en tant que requêtes HTTP non chiffrées. Si votre logique d’application doit vérifier si les requêtes utilisateur sont chiffrées ou non, inspectez l’en-tête `X-Forwarded-Proto`.
 
-Les frameworks web populaires vous permettent d’accéder aux informations `X-Forwarded-*` dans votre modèle d’application standard. Dans [Express](https://expressjs.com/), vous pouvez utiliser [confiance proxys](http://expressjs.com/guide/behind-proxies.html). Par exemple : 
+Les frameworks web populaires vous permettent d’accéder aux informations `X-Forwarded-*` dans votre modèle d’application standard. Dans [Express](https://expressjs.com/), vous pouvez utiliser [confiance proxys](https://expressjs.com/guide/behind-proxies.html). Par exemple : 
 
 ```javascript
 app.set('trust proxy', 1)
@@ -253,7 +253,7 @@ Quand une application Node.js de travail se comporte différemment dans App Serv
     - Selon votre *package.json*, différents packages peuvent être installés pour le mode de production (`dependencies` et `devDependencies`).
     - Certaines infrastructures web peuvent déployer des fichiers statiques différemment en mode de production.
     - Certaines infrastructures web peuvent utiliser des scripts de démarrage personnalisés lors de l’exécution en mode de production.
-- Exécutez votre application dans App Service en mode de développement. Par exemple, dans [MEAN.js](http://meanjs.org/), vous pouvez configurer votre application en mode de développement dans le runtime par [paramètre la `NODE_ENV` paramètre d’application](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json).
+- Exécutez votre application dans App Service en mode de développement. Par exemple, dans [MEAN.js](https://meanjs.org/), vous pouvez configurer votre application en mode de développement dans le runtime par [paramètre la `NODE_ENV` paramètre d’application](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

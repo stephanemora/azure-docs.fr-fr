@@ -3,20 +3,19 @@ title: Gérer la personnalisation des configurations SSO et de jetons avec des s
 description: En savoir plus sur la gestion de la personnalisation des configurations SSO et de jetons avec des stratégies personnalisées dans Azure Active Directory B2C
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-origin.date: 10/09/2018
-ms.date: 04/01/2019
-ms.author: v-junlch
+ms.date: 10/09/2018
+ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: c0f5be7fd77ae195b66f8a8fb052ab8573d48171
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 2033d37a4a847380003fb95243138082df804bbf
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60317171"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64703379"
 ---
 # <a name="manage-sso-and-token-customization-using-custom-policies-in-azure-active-directory-b2c"></a>Gérer la personnalisation des configurations SSO et de jetons avec des stratégies personnalisées dans Azure Active Directory B2C
 
@@ -24,7 +23,11 @@ Cet article explique comment gérer vos configurations de jetons, de session et 
 
 ## <a name="token-lifetimes-and-claims-configuration"></a>Configuration des revendications et de la durée de vie des jetons
 
-Pour modifier les paramètres de durée de vie de vos jetons, vous devez ajouter un élément [ClaimsProviders](claimsproviders.md) dans le fichier de partie de confiance de la stratégie que vous souhaitez affecter.  L’élément **ClaimsProviders** est un enfant de l’élément [TrustFrameworkPolicy](trustframeworkpolicy.md). À l’intérieur, vous devez indiquer les informations qui modifient la durée de vie de votre jeton. Le code XML ressemble à cet exemple :
+Pour modifier les paramètres de durée de vie de vos jetons, vous devez ajouter un élément [ClaimsProviders](claimsproviders.md) dans le fichier de partie de confiance de la stratégie que vous souhaitez affecter.  L’élément **ClaimsProviders** est un enfant de l’élément [TrustFrameworkPolicy](trustframeworkpolicy.md). 
+
+Insérer l’élément ClaimsProviders entre l’élément BasePolicy et l’élément de RelyingParty de fichier la partie de confiance.
+
+À l’intérieur, vous devez indiquer les informations qui modifient la durée de vie de votre jeton. Le code XML ressemble à cet exemple :
 
 ```XML
 <ClaimsProviders>
@@ -101,4 +104,3 @@ Les valeurs suivantes sont configurées dans l’exemple précédent :
 - **Authentification unique (SSO)** : l’authentification unique est configurée avec l’élément **SingleSignOn**. Les valeurs possibles sont `Tenant`, `Application`, `Policy` et `Suppressed`. 
 - **Durée de vie de la session de l’application web (minutes)** : la durée de vie de la session de l’application web est définie avec l’élément **SessionExpiryInSeconds**. La valeur par défaut est de 86400 secondes (1440 minutes).
 - **Délai d’expiration de la session de l’application web** : il est défini avec l’élément **SessionExpiryType**. Les valeurs possibles sont `Absolute` et `Rolling`.
-

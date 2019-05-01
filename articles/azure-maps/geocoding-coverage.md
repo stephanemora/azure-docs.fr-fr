@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 23f0110b3418e2df0434438247340f88678268ad
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: 2a2df8b47b60f29d8ecd3c040e8ef979ee23afa8
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60000927"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64575404"
 ---
 # <a name="azure-maps-geocoding-coverage"></a>Couverture de géocodage Azure Maps
 
@@ -44,7 +44,6 @@ La possibilité de géocoder dans un pays dépend de la couverture de données d
 | Canada                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Caïmans (îles)                                      |                 |                |       ✓      |      ✓     |          ✓         |
 | Chili                                               |       ✓         |        ✓       |       ✓      |      ✓     |          ✓         |
-| Îles Clipperton                                   |                 |                |              |      ✓     |                    |
 | Colombie                                            |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Costa Rica                                          |                 |                |       ✓      |      ✓     |          ✓         |
 | Cuba                                                |                 |                |       ✓      |      ✓     |          ✓         |
@@ -98,12 +97,12 @@ La possibilité de géocoder dans un pays dépend de la couverture de données d
 | Territoire britannique de l'océan Indien                      |                 |                |              |      ✓     |          ✓         |
 | Brunei                                              |        ✓        |                |       ✓      |      ✓     |          ✓         |
 | Cambodge                                            |                 |                |              |      ✓     |          ✓         |
-| Chine                                               |        ✓        |        ✓       |              |      ✓     |          ✓         |
+| Chine                                               |                 |                |              |      ✓     |          ✓         |
 | Christmas (île)                                    |        ✓        |                |       ✓      |      ✓     |          ✓         |
 | Îles Cocos (Keeling)                             |                 |                |              |      ✓     |          ✓         |
 | Comores                                             |                 |                |              |      ✓     |          ✓         |
 | Cook (îles)                                        |                 |                |              |      ✓     |          ✓         |
-| Fidji                                                |                  |                |              |      ✓     |          ✓         |
+| Fidji                                                |                  |                |              |      ✓     |          ✓        |
 | Polynésie française                                    |                 |                |              |      ✓     |          ✓         |
 | Heard et McDonald (îles)                   |                 |                |              |      ✓     |          ✓         |
 | Hong Kong (R.A.S.)                                       |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |

@@ -11,18 +11,18 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: glenga
-ms.openlocfilehash: 96656da078b79474dbf6576455a485d17868db49
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fecf6759dd7b277dda10fa2656e6ae9407490370
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60406639"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922961"
 ---
 # <a name="monitor-azure-functions"></a>Surveiller l’exécution des fonctions Azure
 
 [Azure Functions](functions-overview.md) est intégré à [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) pour surveiller les fonctions. Cet article vous montre comment configurer Azure Functions pour envoyer des fichiers de journaux générés par le système à Application Insights.
 
-Nous vous recommandons d’utiliser Application Insights, car il collecte des journaux, les performances et les données d’erreur. Automatiquement, il détecte les anomalies de performances et inclut des outils d’analytique puissants pour vous aider à diagnostiquer les problèmes et à comprendre l’utilisation de vos fonctions. Il a été conçu pour vous permettre d’améliorer continuellement les performances et la convivialité. Vous pouvez même utiliser Application Insights pendant le développement de projet application de fonction locale. Pour plus d’informations, consultez [What ' s Application Insights ?](../azure-monitor/app/app-insights-overview.md)
+Nous vous recommandons d’utiliser Application Insights, car il collecte des journaux, les performances et les données d’erreur. Automatiquement, il détecte les anomalies de performances et inclut des outils d’analytique puissants pour vous aider à diagnostiquer les problèmes et à comprendre l’utilisation de vos fonctions. Il a été conçu pour vous permettre d’améliorer continuellement les performances et la convivialité. Vous pouvez même utiliser Application Insights pendant le développement de projet application de fonction locale. Pour plus d’informations, consultez [What ' s Application Insights ?](../azure-monitor/app/app-insights-overview.md).
 
 Comme l’instrumentation Application Insights requise est intégrée à Azure Functions, il vous suffit est une clé d’instrumentation valide pour connecter votre application de fonction à une ressource Application Insights.
 
@@ -626,7 +626,7 @@ Il connecte à votre application dans le journal de service de diffusion en cont
 
 ### <a name="azure-cli"></a>Azure CLI
 
-Vous pouvez activer les journaux de diffusion en continu à l’aide de la [Interface de ligne de commande Azure (CLI)](/cli/azure/install-azure-cli). Pour l’interface CLI, utilisez les commandes suivantes pour vous connecter, choisir votre abonnement et diffuser les fichiers journaux :
+Vous pouvez activer les journaux de diffusion en continu à l’aide de la [Azure CLI](/cli/azure/install-azure-cli). Utilisez les commandes suivantes pour vous connecter, choisir votre abonnement et diffuser les fichiers journaux :
 
 ```azurecli
 az login

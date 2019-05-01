@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 02/02/2019
 ms.author: mbullwin
-ms.openlocfilehash: 4c3ecdd01106cc8d305764206bc75535fa4dac3a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: d75544a30a441b5178a1e9dd368f1ce41cd4d321
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60691903"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64574266"
 ---
 # <a name="analytics-in-application-insights"></a>Analytics dans Application Insights
 Analytics est le puissant outil de recherche et de requête d[’Application Insights](app-insights-overview.md). Analytics étant un outil web, aucune installation n’est nécessaire.
@@ -38,7 +38,7 @@ Vous ne pouvez pas accéder directement aux données d’un espace de travail Lo
 
 ## <a name="query-data-in-analytics"></a>Interrogation de données dans Analytics
 Une requête classique commence par un nom de table suivi d’une série *d’opérateurs* séparés par des `|`.
-Par exemple, nous allons rechercher le nombre de demandes que notre application a reçu en provenance de différents pays, au cours des 3 dernières heures :
+Par exemple, essayons de découvrir combien de demandes notre application a reçu à partir de différents pays/régions, au cours des 3 dernières heures :
 ```AIQL
 requests
 | where timestamp > ago(3h)

@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: jingwang
-ms.openlocfilehash: 28d8c077f106f12812f7ed710217febd24d81efc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d04bb965ddf9616aaa01f4c8822ac42aea6dab2d
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60387711"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64869555"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Activité de copie dans Azure Data Factory
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Présentation
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-data-movement-activities.md)
@@ -54,7 +54,7 @@ Pour copier des données d’une source vers un récepteur, l’activité de cop
 
 Vous pouvez utiliser l’activité de copie pour **copier des fichiers en l'état** entre deux banques de données de fichiers, auquel cas les données sont copiées efficacement sans aucune sérialisation/désérialisation.
 
-L’activité de copie prend également en charge la lecture et l’écriture de fichiers dans des formats spécifiés : **Texte, JSON, Avro, ORC et Parquet**, decompresing et la compression des fichiers et avec les codecs suivants : **GZip, Deflate, BZip2 et ZipDeflate**. Pour plus d’informations, consultez [Formats de fichier et de compression pris en charge](supported-file-formats-and-compression-codecs.md).
+L’activité de copie prend également en charge la lecture et l’écriture de fichiers dans des formats spécifiés : **Texte, JSON, Avro, ORC et Parquet**et compresser et décompresser des fichiers avec les codecs suivants : **GZip, Deflate, BZip2 et ZipDeflate**. Pour plus d’informations, consultez [Formats de fichier et de compression pris en charge](supported-file-formats-and-compression-codecs.md).
 
 Par exemple, vous pouvez effectuer les activités de copie suivantes :
 
@@ -74,7 +74,7 @@ Pour utiliser l’activité de copie dans Azure Data Factory, vous devez :
 
 1. **Créer des services liés pour les banques de données source et réceptrice.** Pour connaître la configuration et les propriétés prises en charge, voir la section « Propriétés du service lié » de l’article relatif au connecteur. La liste des connecteurs pris en charge figure dans la section [Banques de données et formats pris en charge](#supported-data-stores-and-formats).
 2. **Créer des jeux de données pour les banques de données source et réceptrice.** Pour connaître la configuration et les propriétés prises en charge, voir la section « Propriétés du jeu de données » des articles relatifs aux connecteurs source et récepteur.
-3. **Créer un pipeline avec une activité de copie.** La section suivante fournit un exemple.  
+3. **Créer un pipeline avec une activité de copie.** La section suivante fournit un exemple.
 
 ### <a name="syntax"></a>Syntaxe
 
@@ -139,7 +139,7 @@ Le modèle suivant d’activité de copie contient une liste exhaustive des prop
 | translator | Spécifiez des mappages de colonnes explicites de la source au récepteur. S’applique lorsque le comportement de copie par défaut ne peut pas répondre à vos besoins.<br/><br/>Découvrez plus de détails sur le [Mappage de schéma et de type de données](copy-activity-schema-and-type-mapping.md). | Non  |
 | dataIntegrationUnits | Spécifiez la puissance du [runtime d’intégration Azure](concepts-integration-runtime.md) pour dynamiser la copie des données. Anciennement appelé Unités de déplacement de données cloud. <br/><br/>Plus d’informations, consultez [unités d’intégration de données](copy-activity-performance.md#data-integration-units). | Non  |
 | parallelCopies | Spécifiez le parallélisme que l’activité de copie doit utiliser lors de la lecture des données de la source et l’écriture des données sur le récepteur.<br/><br/>Découvrez plus de détails sur la [Copie parallèle](copy-activity-performance.md#parallel-copy). | Non  |
-| enableStaging<br/>stagingSettings | Choisissez cette option pour placer les données dans un stockage blob intermédiaire au lieu de les copier des données directement de la source au récepteur.<br/><br/>Découvrez les scénarios et des détails de configuration utiles d’une [Copie intermédiaire](copy-activity-performance.md#staged-copy). | Non  |
+| enableStaging<br/>stagingSettings | Choisissez cette option à utiliser stocker les données intermédiaires dans un stockage d’objets blob au lieu de copier des données directement à partir de la source au récepteur.<br/><br/>Découvrez les scénarios et des détails de configuration utiles d’une [Copie intermédiaire](copy-activity-performance.md#staged-copy). | Non  |
 | enableSkipIncompatibleRow<br/>redirectIncompatibleRowSettings| Choisissez comment gérer les lignes incompatibles lors de la copie de données de la source vers le récepteur.<br/><br/>Découvrez plus de détails sur la [Tolérance de panne](copy-activity-fault-tolerance.md). | Non  |
 
 ## <a name="monitoring"></a>Surveillance
@@ -148,7 +148,7 @@ Vous pouvez surveiller l’exécution de l’activité de copie dans l’interfa
 
 ### <a name="monitor-visually"></a>Surveiller visuellement
 
-Pour surveiller visuellement l’exécution de l’activité de copie, accédez à votre fabrique de données -> **Créer et surveiller** -> **onglet Surveiller**. Une liste d’exécutions de pipeline s’affiche avec un lien « Afficher les exécutions d’activité » dans la colonne  **Actions**. 
+Pour surveiller visuellement l’exécution de l’activité de copie, accédez à votre fabrique de données -> **Créer et surveiller** -> **onglet Surveiller**. Une liste d’exécutions de pipeline s’affiche avec un lien « Afficher les exécutions d’activité » dans la colonne  **Actions**.
 
 ![Surveiller des exécutions de pipelines](./media/load-data-into-azure-data-lake-store/monitor-pipeline-runs.png)
 
@@ -156,7 +156,7 @@ Cliquez pour afficher la liste des activités dans cette exécution de pipeline.
 
 ![Surveiller des exécutions d’activités](./media/load-data-into-azure-data-lake-store/monitor-activity-runs.png)
 
-Cliquez sur le lien « **Détails** » sous **Actions** pour afficher les détails et les caractéristiques de performances de l’exécution de l’activité de copie. Parmi les informations répertoriées figurent le volume/les lignes/les fichiers de données copiés de la source vers le récepteur, le débit, les étapes effectuées avec la durée correspondante, et les configurations utilisées pour votre scénario de copie. 
+Cliquez sur le lien « **Détails** » sous **Actions** pour afficher les détails et les caractéristiques de performances de l’exécution de l’activité de copie. Parmi les informations répertoriées figurent le volume/les lignes/les fichiers de données copiés de la source vers le récepteur, le débit, les étapes effectuées avec la durée correspondante, et les configurations utilisées pour votre scénario de copie.
 
 >[!TIP]
 >Dans certains scénarios, vous pouvez également voir « **Conseils pour le réglage des performances** » en haut de la page de surveillance de la copie, qui vous indique le goulot d’étranglement identifié et vous guide pour savoir quelles modifications apporter pour accélérer le débit de copie ; consultez l’exemple détaillé [ici](#performance-and-tuning).
@@ -241,12 +241,12 @@ Dans certains cas, lorsque vous exécutez une activité de copie dans ADF, vous 
 
 **Exemple : copier dans Azure SQL Database avec des conseils pour le réglage des performances**
 
-Dans cet exemple, lors l’exécution de la copie, ADF remarque que l’instance Azure SQL DB de réception atteint une utilisation d’unités de transaction de base de données élevée qui ralentit les opérations d’écriture. La suggestion est d’augmenter le niveau Azure SQL DB avec plus de DTU. 
+Dans cet exemple, lors l’exécution de la copie, ADF remarque que l’instance Azure SQL DB de réception atteint une utilisation d’unités de transaction de base de données élevée qui ralentit les opérations d’écriture. La suggestion est d’augmenter le niveau Azure SQL DB avec plus de DTU.
 
 ![Surveillance de la copie avec des conseils pour le réglage des performances](./media/copy-activity-overview/copy-monitoring-with-performance-tuning-tips.png)
 
-## <a name="incremental-copy"></a>Copie incrémentielle 
-Data Factory prend en charge les scénarios de copie incrémentielle de données delta d’un magasin de données source vers un magasin de données de destination. Consultez [Didacticiel : Copier de façon incrémentielle des données](tutorial-incremental-copy-overview.md). 
+## <a name="incremental-copy"></a>Copie incrémentielle
+Data Factory prend en charge les scénarios de copie incrémentielle de données delta d’un magasin de données source vers un magasin de données de destination. Consultez [Didacticiel : Copier de façon incrémentielle des données](tutorial-incremental-copy-overview.md).
 
 ## <a name="read-and-write-partitioned-data"></a>Lire et écrire des données partitionnées
 Dans la version 1, Azure Data Factory prenait en charge la lecture et l’écriture de données partitionnées à l’aide des variables système SliceStart/SliceEnd/WindowStart/WindowEnd. Dans la version actuelle, ce comportement est obtenu à l’aide d’un paramètre de pipeline ayant comme valeur une heure de début ou une heure planifiée de déclencheur. Pour plus d’informations, consultez la page [Guide pratique pour lire ou écrire des données partitionnées](how-to-read-write-partitioned-data.md).

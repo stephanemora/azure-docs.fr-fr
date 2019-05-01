@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/11/2019
 ms.author: lahugh
 ms.custom: include file
-ms.openlocfilehash: d89a9c4c4498e249dbfbd453ef9772d18ffd213f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 7196a2ea794c1d17a2c55c05accb447d83929972
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60541634"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64744135"
 ---
 Cette section fournit des informations sur les générations plus anciennes tailles de machines virtuelles. Ces tailles sont toujours pris en charge mais ne reçoit pas de capacité supplémentaire. Il existe des tailles plus récente ou sur un autres qui sont généralement disponibles. Reportez-vous à [machines virtuelles de tailles pour Windows dans Azure](../articles/virtual-machines/windows/sizes.md) ou [tailles des machines virtuelles Linux dans Azure](../articles/virtual-machines/linux/sizes.md) pour choisir la machine virtuelle tailles qui conviendra le mieux adaptées à vos besoins.  
 
@@ -27,7 +27,7 @@ Pour plus d’informations sur le redimensionnement d’une VM Linux, consultez 
 
 Premium Storage :  Non pris en charge
 
-Mise en cache du Stockage Premium :  Non pris en charge
+Mise en cache de stockage Premium :  Non pris en charge
 
 Les tailles du niveau De base sont principalement destinées aux charges de travail de développement et aux autres applications qui ne requièrent pas d’équilibrage de charge ou de mise à l’échelle automatique, ou aux machines virtuelles utilisant beaucoup de mémoire.
 
@@ -49,7 +49,7 @@ ACU : 50-100
 
 Premium Storage :  Non pris en charge
 
-Mise en cache du Stockage Premium :  Non pris en charge
+Mise en cache de stockage Premium :  Non pris en charge
 
 | Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (HDD) : Gio | Disques de données max. | Débit de disque de données max. : E/S par seconde | Nombre max de cartes réseau / Bande passante réseau attendue (Mbit/s)  |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -74,7 +74,7 @@ ACU : 225
 
 Premium Storage :  Non pris en charge
 
-Mise en cache du Stockage Premium :  Non pris en charge
+Mise en cache de stockage Premium :  Non pris en charge
 
 Les tailles A8 à A11 et celles de la série H sont également appelées *instances nécessitant beaucoup de ressources système*. Le matériel qui exécute ces tailles a été conçu et optimisé pour les applications nécessitant beaucoup de ressources système et réseau, notamment les applications en cluster pour des calculs complexes, la modélisation et les simulations. La série A8-A11 utilise un processeur Intel Xeon E5-2670 cadencé à 2,6 GHZ, et la série H un processeur Intel Xeon E5-2667 v3 cadencé à 3,2 GHz.  
 
@@ -97,7 +97,7 @@ ACU : 160-250 <sup>1</sup>
 
 Premium Storage :  Non pris en charge
 
-Mise en cache du Stockage Premium :  Non pris en charge
+Mise en cache de stockage Premium :  Non pris en charge
 
 | Taille         | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Débit de stockage temporaire max. : IOPS / Mbit/s en lecture / Mbit/s en écriture | Disques de données max. / débit : E/S par seconde | Nombre max de cartes réseau / Bande passante réseau attendue (Mbit/s) |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
@@ -118,7 +118,7 @@ ACU : 160-250 <sup>1</sup>
 
 Premium Storage :  Non pris en charge
 
-Mise en cache du Stockage Premium :  Non pris en charge
+Mise en cache de stockage Premium :  Non pris en charge
 
 | Taille         | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Débit de stockage temporaire max. : IOPS / Mbit/s en lecture / Mbit/s en écriture | Disques de données max. / débit : E/S par seconde | Nombre max de cartes réseau / Bande passante réseau attendue (Mbit/s) |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
@@ -139,7 +139,7 @@ ACU : 160-250 <sup>1</sup>
 
 Premium Storage :  Pris en charge
 
-Mise en cache du Stockage Premium :  Pris en charge
+Mise en cache de stockage Premium :  Pris en charge
 
 | Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire et mis en cache max. : IOPS / Mbit/s (taille du cache en Gio) | Débit du disque non mis en cache max. : IOPS / Mbit/s | Nombre max de cartes réseau / Bande passante réseau attendue (Mbit/s) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -160,7 +160,7 @@ ACU : 160-250 <sup>1,2</sup>
 
 Premium Storage :  Pris en charge
 
-Mise en cache du Stockage Premium :  Pris en charge
+Mise en cache de stockage Premium :  Pris en charge
 
 | Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire et mis en cache max. : IOPS / Mbit/s (taille du cache en Gio) | Débit du disque non mis en cache max. : IOPS / Mbit/s | Nombre max de cartes réseau / Bande passante réseau attendue (Mbit/s) |
 | --- | --- | --- | --- | --- | --- | --- | --- |

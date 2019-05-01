@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 99175f79e030a55991947313e4a7e32a738d6adb
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: c8504c6bf25b186a4bc87c4e7565444dd3e57209
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62097388"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64570483"
 ---
 # <a name="use-apache-spark-rest-api-to-submit-remote-jobs-to-an-hdinsight-spark-cluster"></a>Utiliser l’API REST Spark Apache pour envoyer des travaux à distance à un cluster Spark HDInsight
 
@@ -164,16 +164,6 @@ Par défaut, un cluster HDInsight 3.5 ou version supérieure, désactive l’uti
 ## <a name="submitting-livy-jobs-for-a-cluster-within-an-azure-virtual-network"></a>Envoi de travaux Livy pour un cluster dans un réseau virtuel Azure
 
 Si vous vous connectez à un cluster HDInsight Spark à partir d’un réseau virtuel Azure, vous pouvez vous connecter directement à Livy sur le cluster. Dans ce cas, l’URL du point de terminaison Livy est `http://<IP address of the headnode>:8998/batches`. Ici, **8998** est le port sur lequel Livy s’exécute sur le nœud principal du cluster. Pour plus d’informations sur l’accès aux services sur des ports non publics, consultez [Ports utilisés par les services Apache Hadoop sur HDInsight](../hdinsight-hadoop-port-settings-for-services.md).
-
-## <a name="troubleshooting"></a>Résolution de problèmes
-
-Voici quelques problèmes que vous pouvez rencontrer lors de l’utilisation de Livy pour la soumission des travaux à distance à des clusters Spark.
-
-### <a name="using-an-external-jar-from-the-additional-storage-is-not-supported"></a>L’utilisation d’un fichier JAR externe à partir du stockage supplémentaire n’est pas prise en charge.
-
-**Problème :** Si votre travail Livy Spark référence un fichier jar externe à partir du compte de stockage supplémentaire associé au cluster, le travail échoue.
-
-**Résolution :** Vérifiez que le fichier JAR que vous voulez utiliser est présent dans le stockage par défaut associé au cluster HDInsight.
 
 
 

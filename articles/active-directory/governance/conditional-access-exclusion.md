@@ -16,12 +16,12 @@ ms.date: 09/25/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7675441316e42c7f0a220abe77bc8c62158ef918
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4169b15304afe1ecc4af9c5354798b29ad9dba38
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60351532"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64571366"
 ---
 # <a name="use-azure-ad-access-reviews-to-manage-users-excluded-from-conditional-access-policies"></a>Utilisation d’Azure AD les révisions d’accès pour gérer les utilisateurs exclus des stratégies d’accès conditionnel
 
@@ -38,7 +38,7 @@ Il est également possible que vous utilisiez des [emplacements nommés](../cond
 
 ![Emplacements nommés](./media/conditional-access-exclusion/named-locations.png)
 
-Toutefois, dans certains cas, les utilisateurs peuvent avoir un motif légitime de se connecter à partir de ces pays bloqués. Par exemple, ces utilisateurs peuvent être en déplacement pour des raisons professionnelles ou personnelles. Dans ce cas, la stratégie d’accès conditionnel destinée à bloquer ces pays peut comporter un groupe de sécurité cloud dédié pour les utilisateurs qui sont exclus de la stratégie. Les utilisateurs qui nécessitent un accès dans le cadre de leurs déplacements peuvent alors s’ajouter à ce groupe à l’aide de la fonctionnalité de [gestion de groupes en libre-service Azure AD](../users-groups-roles/groups-self-service-management.md).
+Toutefois, dans certains cas, les utilisateurs peuvent avoir une raison légitime pour vous connecter à partir de ces pays/régions bloquées. Par exemple, ces utilisateurs peuvent être en déplacement pour des raisons professionnelles ou personnelles. Dans cet exemple, la stratégie d’accès conditionnel pour bloquer ces pays/régions peut avoir un groupe de sécurité cloud dédié pour les utilisateurs qui sont exclus de la stratégie. Les utilisateurs qui nécessitent un accès dans le cadre de leurs déplacements peuvent alors s’ajouter à ce groupe à l’aide de la fonctionnalité de [gestion de groupes en libre-service Azure AD](../users-groups-roles/groups-self-service-management.md).
 
 Voici un troisième exemple : vous disposez d’une stratégie d’accès conditionnel qui [bloque l’authentification héritée pour la grande majorité de vos utilisateurs](https://cloudblogs.microsoft.com/enterprisemobility/2018/06/07/azure-ad-conditional-access-support-for-blocking-legacy-auth-is-in-public-preview/). Microsoft vous recommande vivement de bloquer l’utilisation des protocoles hérités dans votre locataire afin de renforcer vos mesures de sécurité. Toutefois, si certains de vos utilisateurs ont absolument besoin d’utiliser des méthodes d’authentification héritées pour accéder à vos ressources par le biais de clients Office 2010 ou IMAP/SMTP/POP, vous pouvez exclure ces utilisateurs de la stratégie qui bloque les méthodes d’authentification héritées.
 
@@ -97,9 +97,9 @@ Vous pouvez à présent créer une stratégie d’accès conditionnel qui utilis
 
 Examinons deux exemples dans lesquels vous pouvez utiliser les révisions d’accès pour gérer les exclusions dans les stratégies d’accès conditionnel.
 
-## <a name="example-1-access-review-for-users-accessing-from-blocked-countries"></a>Exemple 1 : Révision d’accès relative aux utilisateurs accédant au locataire à partir de pays bloqués
+## <a name="example-1-access-review-for-users-accessing-from-blocked-countriesregions"></a>Exemple 1 : Révision d’accès pour les utilisateurs qui accèdent à partir de pays/régions bloquées
 
-Supposons que vous disposiez d’une stratégie d’accès conditionnel qui bloque l’accès à partir de certains pays. Vous avez créé un groupe qui est exclu de la stratégie. Voici une révision d’accès recommandée qui passe en revue les membres du groupe.
+Supposons que vous avez une stratégie d’accès conditionnel qui bloque l’accès à partir de certains pays/régions. Vous avez créé un groupe qui est exclu de la stratégie. Voici une révision d’accès recommandée qui passe en revue les membres du groupe.
 
 > [!NOTE]
 > Un administrateur général ou rôle d’utilisateur administrateur est requis pour créer des révisions d’accès.
@@ -110,9 +110,9 @@ Supposons que vous disposiez d’une stratégie d’accès conditionnel qui bloq
 
 3. La révision porte sur tous les membres de ce groupe.
 
-4. Chaque utilisateur doit lui-même attester qu’il a toujours besoin d’un accès à partir des pays bloqués, et qu’il doit donc toujours être membre du groupe.
+4. Chaque utilisateur dispose alors d’attester automatique qu’ils doivent encore avoir accès à partir de ces pays/régions bloquées, par conséquent, ils doivent toujours être un membre du groupe.
 
-5. Si l’utilisateur ne répond pas à la requête de révision, il est automatiquement supprimé du groupe, et ne peut donc plus accéder au locataire pendant qu’il est en déplacement dans ces pays.
+5. Si l’utilisateur ne répond pas à la demande de révision, ils seront automatiquement supprimés du groupe et par conséquent, ne peuvent plus accéder le locataire en voyage vers ces pays/régions.
 
 6. Activez les notifications par e-mail afin que les utilisateurs soient avertis du démarrage et de l’achèvement de la révision d’accès.
 

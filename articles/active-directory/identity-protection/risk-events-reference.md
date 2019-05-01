@@ -16,12 +16,12 @@ ms.date: 01/25/2018
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d009022d4ec03990d3ed0321ebcb13c72c674ed8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: e988d03b60469940d8750cc07188a61fc7ab8b3a
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60294206"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64709613"
 ---
 # <a name="azure-active-directory-identity-protection-risk-events-reference"></a>Référence des événements à risque Azure Active Directory Identity Protection
 
@@ -80,10 +80,16 @@ Ce type d’événement à risque indique les connexions depuis des adresses IP 
 
 ## <a name="unfamiliar-sign-in-properties"></a>Propriétés de connexion inhabituelles
 
-**Type de détection :** Temps réel  
-**Ancien nom :** Connexions depuis des emplacements non connus
+**Type de détection :** En temps réel **ancien nom :** Connexions depuis des emplacements non connus
 
 Prend en compte de ce type d’événement à risque passés historique des connexions (IP, Latitude / Longitude et NSA) pour rechercher des anomalies de connexion. Le système stocke les informations sur les emplacements précédents d’un utilisateur et considère ces emplacements comme « connus ». L’événement à risque est déclenché quand la connexion se fait depuis un emplacement qui ne figure pas dans la liste des emplacements connus. Les utilisateurs nouvellement créés sera en « mode d’apprentissage » pendant une période de temps dans les propriétés de connexion inconnues événements à risque seront désactivées alors que nos algorithmes apprendre le comportement de l’utilisateur. L’apprentissage durée du mode est dynamique et varie sur combien de temps il faut l’algorithme pour collecter suffisamment d’informations sur les modèles de connexion de l’utilisateur. La durée minimale est de 5 jours. Un utilisateur peut revenir en arrière en mode d’apprentissage après une longue période d’inactivité. Le système ignore également les connexions depuis les appareils connus et les emplacements géographiquement proches d’un emplacement connu. 
 
 Nous exécutons également cette détection pour l’authentification de base (ou les protocoles existants). Étant donné que ces protocoles ne proposent pas les propriétés modernes, telles que l’ID client, les données de télémétrie pour réduire le nombre de faux positifs sont limitées. Nous recommandons à nos clients de passer à l’authentification moderne.
 
+
+## <a name="azure-ad-threat-intelligence"></a>Azure AD Threat Intelligence
+
+**Type de détection :** Hors ligne <br>
+**Ancien nom :** Cette détection s’affichera dans les rapports Azure AD Identity Protection hérités (utilisateurs avec indicateur de risque, les événements à risque) en tant que « Utilisateurs avec les informations d’identification divulguées »
+
+Ce type d’événement à risque indique l’activité de l’utilisateur qui est inhabituel pour l’utilisateur donné, soit cohérente avec les modèles d’attaque connus basés sur des sources intelligence de Microsoft contre les menaces internes et externes.

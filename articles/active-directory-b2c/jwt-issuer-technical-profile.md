@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 10/30/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 247ebdc8156453062eefe6738c5c281d393a9923
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 33dce27b69d080c57b925562ba83db0046b77ca9
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60396765"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64683781"
 ---
 # <a name="define-a-technical-profile-for-a-jwt-token-issuer-in-an-azure-active-directory-b2c-custom-policy"></a>Définir un profil technique pour un émetteur de jeton JSON Web Token dans une stratégie personnalisée Azure Active Directory B2C
 
@@ -23,7 +23,7 @@ ms.locfileid: "60396765"
 
 Azure Active Directory (Azure AD) B2C émet plusieurs types de jetons de sécurité lors du traitement de chaque flux d’authentification. Un profil technique pour un émetteur de jeton JSON Web Token émet un jeton JSON Web Token qui est retourné à l’application par partie de confiance. Ce profil technique est généralement la dernière étape d’orchestration dans le parcours utilisateur.
 
-## <a name="protocol"></a>Protocole
+## <a name="protocol"></a>Protocol
 
 L’attribut **Name** de l’élément **Protocol** doit être défini sur `None`. Définissez l’élément **OutputTokenFormat** sur `JWT`.
 

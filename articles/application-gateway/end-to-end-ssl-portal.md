@@ -2,25 +2,25 @@
 title: Guide de démarrage rapide - configurer le chiffrement SSL de bout en bout avec Azure Application Gateway - portail Azure | Microsoft Docs
 description: Découvrez comment utiliser le portail Azure pour créer une passerelle d’Application Azure avec chiffrement SSL de bout en bout.
 services: application-gateway
-author: abshamsft
+author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 3/19/2019
+ms.date: 4/30/2019
 ms.author: absha
 ms.custom: mvc
-ms.openlocfilehash: e47a3e1231701f3339057e25ee4388aff0c9fbd7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: bd165f81b45e3ae0c121fb8876ed88e68d493195
+ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60831949"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64946793"
 ---
 # <a name="configure-end-to-end-ssl-by-using-application-gateway-with-the-portal"></a>Configurer SSL de bout en bout à l’aide de la passerelle d’Application avec le portail
 
 Cet article vous montre comment utiliser le portail Azure pour configurer le chiffrement SSL de bout en bout avec une passerelle d’application v1 référence (SKU).  
 
 > [!NOTE]
-> V2 référence SKU de la passerelle application requiert des certificats racine approuvés pour la configuration de bout en bout pour l’activation. Support concernant le portail pour ajouter des certificats racines de confiance n’est pas encore disponible. Par conséquent, en cas de référence (SKU) V2 consultez [configurer SSL de bout en bout à l’aide de PowerShell](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell).
+> V2 référence SKU de la passerelle application requiert des certificats racine approuvés pour la configuration de bout en bout pour l’activation. Support concernant le portail pour ajouter des certificats racines de confiance n’est pas encore disponible. Par conséquent, en cas de v2 référence (SKU) consultez [configurer SSL de bout en bout à l’aide de PowerShell](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell).
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
@@ -32,7 +32,7 @@ Pour plus d’informations, consultez [SSL arrêt et SSL de bout en bout](https:
 
 ## <a name="create-a-new-application-gateway-with-end-to-end-ssl"></a>Créer une passerelle d’application avec SSL de bout en bout
 
-Pour créer une passerelle d’application avec chiffrement SSL de bout en bout, vous devez tout d’abord activer l’arrêt de SSL lors de la création d’une passerelle d’application. Cela active le chiffrement SSL pour la communication entre le client et l’application de passerelle. Ensuite, vous devrez les certificats d’autorisation pour les serveurs principaux dans les paramètres HTTP pour activer le chiffrement SSL pour la communication entre les serveurs de passerelle et backend application, par conséquent, pour accomplir le chiffrement SSL de bout en bout.
+Pour créer une passerelle d’application avec chiffrement SSL de bout en bout, vous devez d’abord activer un arrêt SSL lors de la création d’une passerelle d’application. Cela active le chiffrement SSL pour la communication entre le client et l’application de passerelle. Ensuite, vous devrez les certificats d’autorisation pour les serveurs principaux dans les paramètres HTTP pour activer le chiffrement SSL pour la communication entre les serveurs de passerelle et backend application, pour accomplir le chiffrement SSL de bout en bout.
 
 ### <a name="enable-ssl-termination-while-creating-a-new-application-gateway"></a>Activer l’arrêt SSL lors de la création d’une passerelle d’application
 
@@ -61,9 +61,9 @@ Consultez cet article pour comprendre comment [activer l’arrêt SSL lors de la
 
 ## <a name="enable-end-to-end-ssl-for-existing-application-gateway"></a>Activer le protocole SSL de bout en bout pour la passerelle d’application existante
 
-Pour configurer une passerelle d’application existante avec chiffrement SSL de bout en bout, vous devrez première activer un arrêt SSL dans l’écouteur. Cela active le chiffrement SSL pour la communication entre le client et l’application de passerelle. Ensuite, vous devrez les certificats d’autorisation pour les serveurs principaux dans les paramètres HTTP pour activer le chiffrement SSL pour la communication entre les serveurs de passerelle et backend application, par conséquent, pour accomplir le chiffrement SSL de bout en bout.
+Pour configurer une passerelle d’application existante avec chiffrement SSL de bout en bout, vous devrez première activer un arrêt SSL dans l’écouteur. Cela active le chiffrement SSL pour la communication entre le client et l’application de passerelle. Ensuite, vous devrez les certificats d’autorisation pour les serveurs principaux dans les paramètres HTTP pour activer le chiffrement SSL pour la communication entre les serveurs de passerelle et backend application, pour accomplir le chiffrement SSL de bout en bout.
 
-Vous devez utiliser un écouteur avec le protocole HTTPS et le certificat pour l’activation d’une terminaison SSL. Vous ne pouvez pas modifier le protocole d’un écouteur existant. Par conséquent, vous pouvez choisir d’utiliser un écouteur existant avec le certificat et le protocole HTTPS ou créer un écouteur. Si vous choisissez l’ancienne base de données, vous pouvez ignorer la comme suit pour **arrêt activer SSL dans la passerelle d’application existante** et passer directement à **liste verte des certificats pour les serveurs principaux** section. Si vous choisissez la dernière option, procédez comme suit. 
+Vous devez utiliser un écouteur avec le protocole HTTPS et le certificat pour l’activation d’une terminaison SSL. Vous ne pouvez pas modifier le protocole d’un écouteur existant. Par conséquent, vous pouvez choisir d’utiliser un écouteur existant avec le certificat et le protocole HTTPS ou créer un écouteur. Si vous choisissez l’ancienne base de données, vous pouvez ignorer la comme suit pour **arrêt activer SSL dans la passerelle d’application existante** et passer directement à **liste verte des certificats pour les serveurs principaux** section. Si vous choisissez la dernière option, utilisez ces étapes.
 
 ### <a name="enable-ssl-termination-in-existing-application-gateway"></a>Activer l’arrêt SSL dans la passerelle d’application existante
 

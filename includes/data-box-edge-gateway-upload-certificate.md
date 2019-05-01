@@ -2,14 +2,14 @@
 author: alkohli
 ms.service: databox
 ms.topic: include
-ms.date: 03/05/2019
+ms.date: 04/23/2019
 ms.author: alkohli
-ms.openlocfilehash: 216380cf7069468d13c4e533fc90b2596aa211c4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d7a9923d5bd9e357bcd75fae6e0a7d1bcd437a53
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58114332"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64732654"
 ---
 Un certificat SSL approprié permet de s’assurer que vous envoyez des informations chiffrées au serveur adéquat. Outre le chiffrement, le certificat permet également pour l’authentification. Vous pouvez télécharger votre propre certificat SSL approuvé par le biais de l’interface PowerShell de l’appareil.
 
@@ -23,6 +23,6 @@ Un certificat SSL approprié permet de s’assurer que vous envoyez des informat
      L’exemple suivant illustre l’utilisation de cette applet de commande :
 
      ```
-     Set-HcsCertificate -Scope LocalWebUI -CertificateFilePath "\\myfileshare\certificates\mycert.pfx" -CertificatePassword "mypassword" -Credentials "Username/Password"
+     Set-HcsCertificate -Scope LocalWebUI -CertificateFilePath "\\myfileshare\certificates\mycert.pfx" -CertificatePassword "mypassword" -Credential "Username/Password"
      ```
 

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: fe095b8f5a0080c0f28ec570303c9dc23962dfc8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: db781899a3fe0d13d030943ed3ab4ebd3d105ad1
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60507921"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64727578"
 ---
 # <a name="quickstart-create-a-basic-load-balancer-by-using-the-azure-portal"></a>Démarrage rapide : Créer un équilibreur de charge de base à l’aide du portail Azure
 
@@ -235,21 +235,27 @@ Installez Internet Information Services (IIS) sur les machines virtuelles pour f
    
    Le bureau de la machine virtuelle s’ouvre dans une nouvelle fenêtre. 
    
-**Pour installer IIS sur la machine virtuelle :**
+**Pour installer IIS**
 
-1. Si le **Gestionnaire de serveur** n’est pas déjà ouvert sur le bureau du serveur, accédez à **Outils d’administration Windows** > **Gestionnaire de serveur**.
-   
-1. Dans le **Gestionnaire de serveur**, sélectionnez **Ajouter des rôles et fonctionnalités**.
-   
-   ![Ajout du rôle du gestionnaire de serveur](./media/load-balancer-get-started-internet-portal/servermanager.png)
-   
-1. Dans l’**Assistant Ajout de rôles et de fonctionnalités** :
-   1. Sur la page **Sélectionner le type d’installation**, sélectionnez **Installation basée sur un rôle ou une fonctionnalité**.
-   1. Sur la page **Sélectionner un serveur de destination**, sélectionnez **MyVM1**.
-   1. Sur la page **Sélectionner le rôle du serveur**, sélectionnez **Serveur Web (IIS)**. 
-   1. À l’invite d’installation les outils nécessaires, sélectionnez **Ajouter des fonctionnalités**. 
-   1. Acceptez les valeurs par défaut, puis cliquez sur **Installer**. 
-   1. Une fois l’installation des fonctionnalités terminée, sélectionnez **Fermer**. 
+1. Sélectionnez **Tous les services** dans le menu de gauche, sélectionnez **Toutes les ressources**, puis dans la liste de ressources, sélectionnez **myVM1** qui se trouve dans le groupe de ressources *myResourceGroupSLB*.
+2. Sur la page **Vue d’ensemble**, sélectionnez **Connexion** à RDP dans la machine virtuelle.
+5. Connectez-vous à la machine virtuelle avec les informations d’identification fournies lors de sa création. Cela lance une session Bureau à distance avec une machine virtuelle, *myVM1*.
+6. Sur le bureau du serveur, accédez à **Outils d’administration Windows**>**Windows PowerShell**.
+7. Dans la fenêtre PowerShell, exécutez les commandes suivantes pour installer le serveur IIS, supprimez le fichier iisstart.htm par défaut, puis ajoutez un nouveau fichier iisstart.htm qui affiche le nom de la machine virtuelle :
+
+   ```azurepowershell
+    
+    # install IIS server role
+    Install-WindowsFeature -name Web-Server -IncludeManagementTools
+    
+    # remove default htm file
+    remove-item  C:\inetpub\wwwroot\iisstart.htm
+    
+    # Add a new htm file that displays server name
+    Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from " + $env:computername)
+   ```
+6. Fermez la session RDP avec *myVM1*.
+7. Répétez les étapes 1 à 6 pour installer IIS et le fichier iisstart.htm mis à jour sur *myVM2*.
    
 1. Répétez ces étapes pour la machine virtuelle **MyVM2**, excepté que vous devez définir **MyVM2** comme serveur de destination.
 
@@ -257,9 +263,9 @@ Installez Internet Information Services (IIS) sur les machines virtuelles pour f
 
 Ouvrez un navigateur et collez l’adresse IP publique de votre équilibreur de charge dans la barre d’adresse du navigateur. La page par défaut du serveur web IIS doit s’afficher dans le navigateur.
 
-![Serveur web IIS](./media/load-balancer-get-started-internet-portal/9-load-balancer-test.png)
+![Serveur Web IIS](./media/tutorial-load-balancer-standard-zonal-portal/load-balancer-test.png)
 
-Pour visualiser la distribution de trafic par l’équilibreur de charge sur les trois machines virtuelles exécutant votre application, vous pouvez forcer l’actualisation de votre navigateur web.
+Pour visualiser la distribution de trafic par l’équilibreur de charge sur les deux machines virtuelles exécutant votre application, vous pouvez forcer l’actualisation de votre navigateur web.
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Pour supprimer l’équilibreur de charge et toutes les ressources associées quand vous n’en avez plus besoin, ouvrez le groupe de ressources **MyResourceGroupLB**, puis sélectionnez **Supprimer un groupe de ressources**.

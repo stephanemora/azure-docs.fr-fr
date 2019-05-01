@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 38dd4d13aa45b69fc846ef9b6b2e1b56f56de573
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: f851fd2857650dd00e365abf71ec5f0199db6d57
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60738198"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64711583"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Exécution d'un Runbook dans Azure Automation
 
@@ -78,6 +78,9 @@ else
 ### <a name="time-dependant-scripts"></a>Scripts dépendants du temps
 
 Une attention particulière doit être portée à l'élaboration des runbooks. Comme mentionné précédemment, les runbooks doivent être créés de manière à être robustes et à pouvoir gérer les erreurs transitoires qui peuvent entraîner leur redémarrage ou leur échec. Si un runbook échoue, elle est retentée. Si un runbook s’exécute normalement dans une contrainte de temps, une logique pour vérifier la durée d’exécution doit être implémentée dans le runbook pour vous assurer d’opérations telles que de démarrer, arrêter ou de monter en charge sont exécutés uniquement à des moments spécifiques.
+
+> [!NOTE]
+> L’heure locale sur le processus de bac à sable Azure est défini sur l’heure UTC. Calculs de date et d’heure dans vos runbooks doivent prendre cela en compte.
 
 ### <a name="tracking-progress"></a>Suivi de la progression
 

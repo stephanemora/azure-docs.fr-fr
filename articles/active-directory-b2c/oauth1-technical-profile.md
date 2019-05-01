@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 3fe839de8cbaa0b321b0b0602b000b7575224dde
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 7b3d579e9d4ceb92ee961778ba6083292461c144
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60361096"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64699824"
 ---
 # <a name="define-an-oauth1-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Définir un profil technique OAuth1 dans une stratégie personnalisée Azure Active Directory B2C
 
@@ -23,7 +23,7 @@ ms.locfileid: "60361096"
 
 Azure Active Directory (Azure AD) B2C prend en charge le fournisseur d’identité de protocole [OAuth protocole 1.0](https://tools.ietf.org/html/rfc5849). Cet article décrit les caractéristiques d’un profil technique permettant d’interagir avec un fournisseur de revendications qui prend en charge ce protocole normalisé. Avec un profil technique OAuth1, vous pouvez fédérer avec un fournisseur d’identité basé sur OAuth1, tels que Twitter. Fédération avec le fournisseur d’identité permet aux utilisateurs de se connecter avec leurs réseaux sociaux existants ou les identités d’entreprise.
 
-## <a name="protocol"></a>Protocole
+## <a name="protocol"></a>Protocol
 
 L’attribut **Name** de l’élément **Protocol** doit être défini sur `OAuth1`. Par exemple, le protocole pour profil technique **Twitter-OAUTH1** est `OAuth1`.
 

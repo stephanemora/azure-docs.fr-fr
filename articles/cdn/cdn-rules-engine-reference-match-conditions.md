@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/21/2017
 ms.author: rli
-ms.openlocfilehash: 877d994968dbc575c8baa7ac4c8a40b76f6d617f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 75fe965a04bd02a1086551053c28d2072eae6468
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60323822"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64869508"
 ---
 # <a name="azure-cdn-rules-engine-match-conditions"></a>Conditions de correspondance du moteur de règles Azure CDN 
 Cet article fournit les descriptions détaillées des conditions de correspondance disponibles pour le [moteur de règles](cdn-rules-engine.md) Azure Content Delivery Network (CDN).
@@ -28,14 +28,14 @@ La deuxième partie d’une règle est la condition de correspondance. Une condi
 
 Par exemple, vous pouvez utiliser une condition de correspondance pour les tâches suivantes :
 - Filtrer les requêtes ciblant le contenu dans un emplacement particulier.
-- Filtrer les requêtes générées à partir d’une adresse IP ou d’un pays en particulier.
+- Filtrer les requêtes générées à partir d’une adresse IP particulière ou d’un pays/région.
 - Filtrer les requêtes d’après les informations d’en-tête.
 
 ## <a name="always-match-condition"></a>Condition de correspondance Toujours
 
 La condition de correspondance Toujours applique un ensemble de fonctionnalités par défaut à toutes les requêtes.
 
-Name | Objectif
+Nom | Objectif
 -----|--------
 [Toujours](#always) | Applique un ensemble de fonctionnalités par défaut à toutes les requêtes.
 
@@ -43,7 +43,7 @@ Name | Objectif
 
 La condition de correspondance Appareil identifie les requêtes effectuées à partir d’un appareil mobile selon ses propriétés.  
 
-Name | Objectif
+Nom | Objectif
 -----|--------
 [Appareil](#device) | Identifie les requêtes effectuées à partir d’un appareil mobile selon ses propriétés.
 
@@ -54,7 +54,7 @@ Les conditions de correspondance Emplacement identifient les requêtes selon l�
 Nom | Objectif
 -----|--------
 [Numéro AS](#as-number) | Identifie les requêtes issues d’un réseau particulier.
-[Pays](#country) | Identifie les requêtes provenant des pays spécifiés.
+[Pays](#country) | Identifie les requêtes qui sont issus les pays/régions spécifiées.
 
 ## <a name="origin-match-conditions"></a>Conditions de correspondance Origine
 
@@ -69,7 +69,7 @@ Nom | Objectif
 
 Les conditions de correspondance Requête identifient les requêtes selon leurs propriétés.
 
-Name | Objectif
+Nom | Objectif
 -----|--------
 [Adresse IP du client](#client-ip-address) | Identifie les requêtes issues d’une adresse IP particulière.
 [Paramètre de cookie](#cookie-parameter) | Recherche la valeur spécifiée dans les cookies associés à chaque requête.
@@ -235,7 +235,7 @@ Informations essentielles :
 
 ---
 ### <a name="country"></a>Pays
-Vous pouvez spécifier un pays à l’aide de son code de pays. 
+Vous pouvez spécifier un pays/région via son code de pays. 
 
 L’option **Correspond**/**Ne correspond pas** détermine les conditions sous lesquelles la condition de correspondance Pays est remplie :
 - **Correspond** : nécessite que la requête contienne les codets de pays spécifiés. 
@@ -260,9 +260,9 @@ Cette condition de correspondance vous permet d’effectuer une multitude de per
 - Correspondance de caractère générique du chemin d’URL : définissez la [condition de correspondance Caractère générique du chemin d’URL](#url-path-wildcard) sur le répertoire qui sera sécurisé. 
     Ajoutez un astérisque à la fin du chemin d’accès relatif pour vous assurer que l’accès à tous ses enfants sera limité par cette règle.
 
-- Correspondance de pays : définissez la condition de correspondance Pays sur l’ensemble de pays souhaité.
-   - Autoriser : définissez la condition de correspondance Pays sur **Ne correspond pas** pour autoriser uniquement l’accès des pays spécifiés au contenu stocké dans l’emplacement défini par la condition de correspondance Caractère générique du chemin d’URL.
-   - Bloquer : définissez la condition de correspondance Pays sur **Correspond** pour bloquer l’accès des pays spécifiés au contenu stocké dans l’emplacement défini par la condition de correspondance Caractère générique du chemin d’URL.
+- Correspondance de pays : Définir la condition de correspondance pays à l’ensemble de pays/régions souhaité.
+   - Autoriser : Définissez la condition de correspondance pays sur **ne correspond pas à** pour autoriser uniquement l’accès des pays/régions spécifié au contenu stocké dans l’emplacement défini par la condition de correspondance caractère générique du chemin d’accès URL.
+   - Bloquer : Définissez la condition de correspondance pays sur **correspondances** pour bloquer les pays/régions spécifiées d’accéder au contenu stocké dans l’emplacement défini par la condition de correspondance caractère générique du chemin d’accès URL.
 
 - Deny Access (403) Feature (Fonctionnalité Refuser l’accès (403)) : activez [Deny Access (403) feature](cdn-rules-engine-reference-features.md#deny-access-403) (Fonctionnalité Refuser l’accès (403)) pour répliquer la partie autorisée ou bloquée de la fonctionnalité de filtrage par pays.
 
@@ -960,7 +960,7 @@ Informations essentielles :
 #### <a name="sample-scenarios"></a>Exemples de scénarios
 L’exemple suivant montre comment cette option fonctionne dans des situations spécifiques :
 
- Name                 | Description
+ Nom                 | Description
  ---------------------|------------
 user=joe              | Ce modèle correspond lorsque la chaîne de requête d’une URL demandée est « ?user=joe ».
 \*user=\* \*optout=\* | Ce modèle correspond lorsque la requête d’URL CDN contient l’utilisateur ou le paramètre de désabonnement.

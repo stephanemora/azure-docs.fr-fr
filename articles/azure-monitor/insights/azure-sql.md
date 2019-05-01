@@ -10,12 +10,12 @@ ms.author: danil
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/17/2018
-ms.openlocfilehash: c68c278b2a7afa8287845c452e3bec5380cf05c0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 03f330f429be583d3a400eb1ee00875f7c305e74
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60498465"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64923012"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Superviser Azure SQL Database avec Azure SQL Analytics (préversion)
 
@@ -287,7 +287,7 @@ AzureDiagnostics
 
 ### <a name="pricing"></a>Tarifs
 
-La solution est gratuite, mais la consommation de la télémétrie de diagnostics qui dépasse les unités gratuites d’ingestion de données allouées chaque mois est facturée. Consultez [Tarifs de Log Analytics](https://azure.microsoft.com/en-us/pricing/details/monitor). Les unités gratuites d’ingestion de données fournies permettent de superviser gratuitement plusieurs bases de données chaque mois. Il faut savoir que les bases de données actives, traitant des charges de travail plus lourdes, ingèrent plus de données que les bases de données inactives. Vous pouvez facilement suivre votre consommation d’ingestion de données dans la solution en sélectionnant l’espace de travail OMS dans le menu de navigation d’Azure SQL Analytics, puis en sélectionnant Utilisation et estimation des coûts.
+La solution est gratuite, mais la consommation de la télémétrie de diagnostics qui dépasse les unités gratuites d’ingestion de données allouées chaque mois est facturée. Consultez [Tarifs de Log Analytics](https://azure.microsoft.com/pricing/details/monitor). Les unités gratuites d’ingestion de données fournies permettent de superviser gratuitement plusieurs bases de données chaque mois. Il faut savoir que les bases de données actives, traitant des charges de travail plus lourdes, ingèrent plus de données que les bases de données inactives. Vous pouvez facilement suivre votre consommation d’ingestion de données dans la solution en sélectionnant l’espace de travail OMS dans le menu de navigation d’Azure SQL Analytics, puis en sélectionnant Utilisation et estimation des coûts.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

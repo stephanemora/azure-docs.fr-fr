@@ -7,22 +7,22 @@ author: CelesteDG
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 09/24/2018
-ms.date: 12/29/2018
-ms.author: v-junlch
+ms.date: 09/24/2018
+ms.author: celested
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
-ms.openlocfilehash: 4c15890a5693235e8f2554ba8d0fdefc161770f3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 5e37e40cd0dbba7961cbde75b5dde44f2666dc21
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60443895"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918610"
 ---
 # <a name="native-apps"></a>Applications natives
 
@@ -52,10 +52,10 @@ Consultez les exemples de code pour les scénarios du type application native ve
 
 ## <a name="app-registration"></a>Inscription d'application
 
-Pour inscrire une application auprès du point de terminaison Azure AD v1.0, consultez [Inscrire une application auprès du point de terminaison Azure AD v1.0](quickstart-v1-add-azure-ad-app.md).
+Pour inscrire une application avec le point de terminaison Azure AD v1.0, consultez [inscrire une application](quickstart-register-app.md).
 
-- Application à client unique : l’application native et l’API web doivent être inscrites dans le même répertoire dans Azure AD. L’API web peut être configurée pour exposer un ensemble d’autorisations utilisées pour limiter l’accès de l’application native à ses ressources. L’application cliente sélectionne ensuite les autorisations souhaitées dans le menu déroulant « Autorisations pour d’autres applications » du portail Azure.
-- Application mutualisée : premièrement, l’application native est toujours inscrite dans l’annuaire du développeur ou de l’éditeur. Deuxièmement, l’application native est configurée pour indiquer les autorisations dont elle a besoin pour fonctionner. Cette liste d’autorisations requises s’affiche dans une boîte de dialogue quand un utilisateur ou un administrateur de l’annuaire de destination donne son consentement à l’application, ce qui la met à disposition de son organisation. Certaines applications nécessitent uniquement des autorisations au niveau utilisateur pour lesquelles tous les utilisateurs de l’organisation peuvent donner leur consentement. D’autres nécessitent des autorisations administrateur, pour lesquelles un utilisateur de l’organisation ne peut pas donner son consentement. Seul un administrateur d’annuaires peut donner son consentement aux applications qui requièrent des autorisations de ce niveau. Quand un utilisateur ou un administrateur donne son consentement, seule l’API web est inscrite dans son annuaire. 
+* Application à client unique : l’application native et l’API web doivent être inscrites dans le même répertoire dans Azure AD. L’API web peut être configurée pour exposer un ensemble d’autorisations utilisées pour limiter l’accès de l’application native à ses ressources. L’application cliente sélectionne ensuite les autorisations souhaitées dans le menu déroulant « Autorisations pour d’autres applications » du portail Azure.
+* Application mutualisée : premièrement, l’application native est toujours inscrite dans l’annuaire du développeur ou de l’éditeur. Deuxièmement, l’application native est configurée pour indiquer les autorisations dont elle a besoin pour fonctionner. Cette liste d’autorisations requises s’affiche dans une boîte de dialogue quand un utilisateur ou un administrateur de l’annuaire de destination donne son consentement à l’application, ce qui la met à disposition de son organisation. Certaines applications nécessitent uniquement des autorisations au niveau utilisateur pour lesquelles tous les utilisateurs de l’organisation peuvent donner leur consentement. D’autres nécessitent des autorisations administrateur, pour lesquelles un utilisateur de l’organisation ne peut pas donner son consentement. Seul un administrateur d’annuaires peut donner son consentement aux applications qui requièrent des autorisations de ce niveau. Quand un utilisateur ou un administrateur donne son consentement, seule l’API web est inscrite dans son annuaire. 
 
 ## <a name="token-expiration"></a>Expiration du jeton
 
@@ -65,5 +65,3 @@ Quand l’application native utilise son code d’autorisation pour obtenir un j
 
 - En savoir plus sur les autres [types d’applications et scénarios](app-types.md)
 - En savoir plus sur les [principes de base de l’authentification](authentication-scenarios.md) Azure AD
-
-<!-- Update_Description: link update -->

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 12/17/2018
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 20ebcb502e03f2d817fe18624d8c790e920c667f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ea2381287729579e10d457912c4147f59716bcc4
+ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61371885"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64875708"
 ---
 # <a name="test-your-knowledge-base-interactively-in-qna-maker"></a>Tester votre base de connaissances de manière interactive dans QnA Maker
 
@@ -24,8 +24,8 @@ Le test de votre base de connaissances QnA Maker est une partie importante d’u
 
 ## <a name="test-answer-matching"></a>Tester la concordance de réponse
 
-1.  Accédez à votre base de connaissances en sélectionnant son nom dans la page **Mes bases de connaissances**.
-2.  Pour accéder au panneau déroulant Test, sélectionnez **Test** dans le panneau supérieur de votre application.
+1.  Accédez à votre base de connaissances en sélectionnant son nom dans la page **Mes bases de connaissances**.
+2.  Pour accéder au panneau déroulant Test, sélectionnez **Test** dans le panneau supérieur de votre application.
 
     ![Accéder au panneau Test](../media/qnamaker-how-to-test-kb/access-test.png)
 
@@ -35,17 +35,17 @@ Le test de votre base de connaissances QnA Maker est une partie importante d’u
 
 ## <a name="clear-test-panel"></a>Effacer le panneau Test
 
-Pour effacer toutes les requêtes de test entrées et leurs résultats de la console de test, sélectionnez **Recommencer** dans l’angle supérieur gauche du panneau Test.
+Pour effacer toutes les questions de test entrées et leurs résultats de la console de test, sélectionnez **Recommencer** dans l’angle supérieur gauche du panneau Test.
 
 ## <a name="close-test-panel"></a>Fermer le panneau Test
 
-Pour fermer le panneau Test, sélectionnez à nouveau le bouton  **Test** . Tant que le panneau Test est ouvert, vous ne pouvez pas modifier le contenu de la base de connaissances.
+Pour fermer le panneau Test, sélectionnez le bouton **Test** à nouveau. Tant que le panneau Test est ouvert, vous ne pouvez pas modifier le contenu de la base de connaissances.
 
 ## <a name="inspect-score"></a>Inspecter le score
 
-Vous pouvez inspecter les détails du résultat du test dans le panneau Inspecter.
+Vous inspectez les détails du résultat du test dans le panneau Inspecter.
 
-1.  Dans le panneau déroulant Test ouvert, sélectionnez **Inspecter** pour obtenir des détails sur la réponse.
+1.  Avec le panneau déroulant Test ouvert, sélectionnez **Inspecter** pour obtenir plus d’informations sur cette réponse.
 
     ![Inspecter des réponses](../media/qnamaker-how-to-test-kb/inspect.png)
 

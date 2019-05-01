@@ -1,22 +1,19 @@
 ---
 title: Enregistrer des rapports dans les collections d’espaces de travail Power BI | Microsoft Docs
 description: Découvrez comment enregistrer des rapports dans les collections d’espaces de travail Power BI. Cela requiert les autorisations appropriées pour fonctionner correctement.
-services: power-bi-embedded
-author: markingmyname
-ROBOTS: NOINDEX
-ms.assetid: ''
-ms.service: power-bi-embedded
+services: power-bi-workspace-collections
+ms.service: power-bi-workspace-collections
+author: rkarlin
+ms.author: rkarlin
 ms.topic: article
 ms.workload: powerbi
-origin.date: 09/26/2018
-ms.date: 03/05/2019
-ms.author: v-junlch
+ms.date: 09/20/2017
 ms.openlocfilehash: b61abee3382697d50b9a18de763c8a4d01e1ccba
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62103880"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64701863"
 ---
 # <a name="save-reports-in-power-bi-workspace-collections"></a>Enregistrer des rapports dans les collections d’espaces de travail Power BI
 
@@ -29,15 +26,15 @@ Dans les collections d’espaces de travail Power BI, vous pouvez modifier des r
 
 Pour enregistrer un rapport, vous devez commencer par créer un jeton pour le rapport en question avec les étendues adaptées :
 
-- Pour activer « enregistrer », l’étendue Report.ReadWrite est requise.
-- Pour activer « enregistrer sous », les étendues Report.Read et Workspace.Report.Copy sont requises.
-- L’activation des fonctions « enregistrer » et « enregistrer sous » requiert Report.ReadWrite et Workspace.Report.Copy.
+* Pour activer « enregistrer », l’étendue Report.ReadWrite est requise.
+* Pour activer « enregistrer sous », les étendues Report.Read et Workspace.Report.Copy sont requises.
+* L’activation des fonctions « enregistrer » et « enregistrer sous » requiert Report.ReadWrite et Workspace.Report.Copy.
 
 Pour activer les boutons « enregistrer » / « enregistrer sous » adéquats dans le menu Fichier, vous devez fournir les autorisations appropriées dans la configuration d’incorporation lorsque vous incorporez le rapport :
 
-- models.Permissions.ReadWrite
-- models.Permissions.Copy
-- models.Permissions.All
+* models.Permissions.ReadWrite
+* models.Permissions.Copy
+* models.Permissions.All
 
 > [!NOTE]
 > Votre jeton d’accès a également besoin des étendues appropriées. Pour plus d’informations, consultez la page [Étendues](app-token-flow.md#scopes).
@@ -62,7 +59,7 @@ Par exemple, dans JavaScript :
     var config= {
         type: 'report',
         accessToken: 'eyJ0eXAiO...Qron7qYpY9MI',
-        embedUrl: 'https://embedded.powerbi.cn/appTokenReportEmbed',
+        embedUrl: 'https://embedded.powerbi.com/appTokenReportEmbed',
         id:  '5dac7a4a-4452-46b3-99f6-a25915e0fe55',
         permissions: models.Permissions.All /*both save & save as buttons will be visible*/,
         viewMode: models.ViewMode.Edit,
@@ -77,7 +74,7 @@ Par exemple, dans JavaScript :
 
     // Embed the report and display it within the div container.
     var report = powerbi.embed(reportContainer, config);
-    </script>    
+    </script>
 ```
 
 Un rapport est désormais incorporé dans votre application en mode d’édition.
@@ -115,10 +112,10 @@ Vous devrez ensuite charger le nouveau rapport après une opération *enregistre
 
 ```html
 <div id="reportContainer"></div>
-<script>  
+<script>
 var embedConfiguration = {
         accessToken: 'eyJ0eXAiO...Qron7qYpY9MJ',
-        embedUrl: 'https://embedded.powerbi.cn/appTokenReportEmbed',
+        embedUrl: 'https://embedded.powerbi.com/appTokenReportEmbed',
         reportId: '5dac7a4a-4452-46b3-99f6-a25915e0fe54',
     };
     
@@ -127,7 +124,7 @@ var embedConfiguration = {
 
     // Embed report
     var report = powerbi.embed(reportContainer, embedConfiguration);
-</script>    
+</script>
 ```
 
 ## <a name="see-also"></a>Voir aussi
@@ -141,5 +138,3 @@ var embedConfiguration = {
 
 Des questions ? [Essayer la communauté Power BI](https://community.powerbi.com/)
 
-
-<!-- Update_Description: update metedata properties -->

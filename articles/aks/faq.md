@@ -6,14 +6,14 @@ author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 08/17/2018
+ms.date: 04/25/2019
 ms.author: iainfou
-ms.openlocfilehash: ae92a5c894b186a1c8b471c1b446a88299742aec
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 04ed95317311b81af49f5d96addb203b7cfeb74a
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60466373"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64725640"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Forum aux questions sur Azure Kubernetes Service (AKS)
 
@@ -53,10 +53,27 @@ Pour plus d’informations sur l’utilisation de kured, consultez [Appliquer le
 
 Chaque déploiement AKS s’étend sur deux groupes de ressources :
 
-- Le premier, créé par vous, contient uniquement la ressource du service Kubernetes. Le fournisseur de ressources AKS crée automatiquement le second au cours du déploiement avec un nom tel que *MC_myResourceGroup_myAKSCluster_eastus*.
+- Le premier, créé par vous, contient uniquement la ressource du service Kubernetes. Le fournisseur de ressources AKS crée automatiquement le second au cours du déploiement avec un nom tel que *MC_myResourceGroup_myAKSCluster_eastus*. Pour plus d’informations sur la façon dont vous pouvez spécifier le nom de ce deuxième groupe de ressources, consultez la section suivante.
 - Le second groupe de ressources (*MC_myResourceGroup_myAKSCluster_eastus*, par exemple) contient toutes les ressources d’infrastructure associées au cluster. Ces ressources incluent les machines virtuelles de nœud Kubernetes, la mise en réseau et le stockage. Ce groupe de ressources distinct est créé pour simplifier le nettoyage des ressources.
 
 Si vous créez des ressources qui seront utilisées avec votre cluster AKS, tels que les comptes de stockage ou les adresses IP publiques réservées, vous devez les placer dans le groupe de ressources généré automatiquement.
+
+## <a name="can-i-provide-my-own-name-for-the-aks-infrastructure-resource-group"></a>Puis-je fournir ma propre nom pour le groupe de ressources d’infrastructure AKS ?
+
+Oui. Par défaut, le fournisseur de ressources AKS crée automatiquement un groupe de ressources secondaire pendant le déploiement, telles que *MC_myResourceGroup_myAKSCluster_eastus*. Pour respecter la stratégie d’entreprise, vous pouvez fournir votre propre nom pour ce cluster géré (*MC_*) groupe de ressources.
+
+Pour spécifier votre propre nom de groupe de ressources, vous devez installer le [aks-preview] [ aks-preview-cli] version de l’extension Azure CLI *0.3.2* ou version ultérieure. Lorsque vous créez un cluster AKS à l’aide la [créer az aks] [ az-aks-create] commande, utilisez le *--groupe de ressources de nœud* paramètre et spécifiez un nom pour le groupe de ressources. Si vous [utiliser un modèle Azure Resource Manager] [ aks-rm-template] pour déployer un cluster AKS, vous pouvez définir le nom du groupe de ressources en utilisant le *nodeResourceGroup* propriété.
+
+* Ce groupe de ressources est créé automatiquement par le fournisseur de ressources Azure dans votre propre abonnement.
+* Vous pouvez uniquement spécifier un nom de groupe de ressources personnalisé lorsque le cluster est créé.
+
+Les scénarios suivants ne sont pas prises en charge :
+
+* Vous ne pouvez pas spécifier un groupe de ressources existant pour *MC_* groupe.
+* Vous ne pouvez pas spécifier un autre abonnement pour le *MC_* groupe de ressources.
+* Vous ne pouvez pas modifier le *MC_* nom du groupe de ressources une fois que le cluster a été créé.
+* Vous ne pouvez pas spécifier des noms pour les ressources managées dans le *MC_* groupe de ressources.
+* Impossible de modifier ou de supprimer des balises de ressources gérées dans le *MC_* groupe de ressources (voir des informations supplémentaires dans la section suivante).
 
 ## <a name="can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-mc-resource-group"></a>Puis-je modifier les balises et d’autres propriétés des ressources AKS dans le groupe de ressources MC_* ?
 
@@ -100,6 +117,9 @@ Dans un contrat de niveau de service (SLA), le fournisseur accepte de rembourser
 [aks-advanced-networking]: ./configure-azure-cni.md
 [aks-rbac-aad]: ./azure-ad-integration.md
 [node-updates-kured]: node-updates-kured.md
+[aks-preview-cli]: /cli/azure/ext/aks-preview/aks
+[az-aks-create]: /cli/azure/aks#az-aks-create
+[aks-rm-template]: /rest/api/aks/managedclusters/createorupdate#managedcluster
 
 <!-- LINKS - external -->
 
@@ -108,4 +128,3 @@ Dans un contrat de niveau de service (SLA), le fournisseur accepte de rembourser
 [hexadite]: https://github.com/Hexadite/acs-keyvault-agent
 [admission-controllers]: https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/
 [keyvault-flexvolume]: https://github.com/Azure/kubernetes-keyvault-flexvol
-

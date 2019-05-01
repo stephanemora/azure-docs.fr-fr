@@ -7,25 +7,25 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/14/2019
+ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6911b19c680c2fdb8c372347c4dd0fca60bb0e0b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ff151ff8e14b5cf9602d4e7e2e9c6cb2118a8a65
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60245514"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918493"
 ---
 # <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect : Configurer les autorisations du compte de connecteur AD DS 
 
 Le module PowerShell dénommé [ADSyncConfig.psm1](reference-connect-adsyncconfig.md) a été introduit avec la version 1.1.880.0 (sortie en août 2018). Il fournit une collection de cmdlets pour vous aider à configurer les autorisations Active Directory adéquates pour votre déploiement Azure AD Connect. 
 
-## <a name="overview"></a>Vue d'ensemble 
+## <a name="overview"></a>Présentation 
 Les applets de commande PowerShell suivantes vous permettent de définir les autorisations du compte de connecteur AD DS, pour chaque fonctionnalité que vous sélectionnez pour l’activer dans Azure AD Connect. Pour éviter tout problème, vous devez définir les autorisations Active Directory préalablement à toute installation d’Azure AD Connect à l’aide d’un compte de domaine personnalisé, pour pouvoir ensuite vous connecter à votre forêt. Ce module ADSyncConfig est également utile pour configurer les autorisations après le déploiement d’Azure AD Connect.
 
-![](media/how-to-connect-configure-ad-ds-connector-account/configure1.png)
+![vue d’ensemble du compte ad ds](media/how-to-connect-configure-ad-ds-connector-account/configure1.png)
 
 Dans le cadre de l’installation Express d’Azure AD Connect, un compte généré automatiquement (MSOL_nnnnnnnnnn) est créé dans Active Directory avec toutes les autorisations nécessaires. Vous n’avez donc pas besoin du module ADSyncConfig, sauf si vous avez bloqué l’héritage des autorisations sur les unités d’organisation ou sur des objets Active Directory spécifiques que vous souhaitez synchroniser dans Azure AD. 
  

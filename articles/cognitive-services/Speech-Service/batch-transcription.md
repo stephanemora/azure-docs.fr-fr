@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 2/20/2019
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: b389d86fe4d23e3f4ee1c66e4270a74351098129
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 1a2d24be00b0e1224b5f8d52105e2969d64e5f64
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61059603"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922474"
 ---
 # <a name="why-use-batch-transcription"></a>Pourquoi utiliser la transcription Batch ?
 
@@ -29,7 +29,7 @@ La transcription Batch est idéale pour transcrire une grande quantité de donn�
 Comme pour toutes les fonctionnalités du service Speech, créez une clé d’abonnement à partir du [Portail Azure](https://portal.azure.com) en suivant les instructions du [guide de démarrage rapide](get-started.md). Si vous souhaitez obtenir des transcriptions de nos modèles de base, la création de la clé est la seule opération à faire.
 
 >[!NOTE]
-> Pour pouvoir utiliser la transcription Batch, vous avez besoin d’un abonnement standard (S0) pour les services Speech. Les clés d’abonnement gratuit (F0) ne fonctionnent pas. Pour obtenir des informations complémentaires, consultez [tarifs et limites](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/speech-services/).
+> Pour pouvoir utiliser la transcription Batch, vous avez besoin d’un abonnement standard (S0) pour les services Speech. Les clés d’abonnement gratuit (F0) ne fonctionnent pas. Pour obtenir des informations complémentaires, consultez [tarifs et limites](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
 ### <a name="custom-models"></a>Modèles personnalisés
 
@@ -72,7 +72,8 @@ Les paramètres de configuration sont fournis au format JSON :
   "properties": {
     "ProfanityFilterMode": "Masked",
     "PunctuationMode": "DictatedAndAutomatic",
-    "AddWordLevelTimestamps" : "True"
+    "AddWordLevelTimestamps" : "True",
+    "AddSentiment" : "True"
   }
 }
 ```
@@ -87,6 +88,7 @@ Les paramètres de configuration sont fournis au format JSON :
 | `ProfanityFilterMode` | Spécifie comment traiter la vulgarité dans les résultats de la reconnaissance. Les valeurs acceptées sont `none` qui désactive le d’obscénités, `masked` qui remplace les obscénités par des astérisques, `removed` qui supprime tous les obscénités du résultat ou `tags` qui ajoute les balises « obscénité ». Le paramètre par défaut est `masked`. | Facultatif |
 | `PunctuationMode` | Spécifie comment traiter la ponctuation dans les résultats de la reconnaissance. Les valeurs acceptées sont `none` qui désactive la ponctuation, `dictated` qui implique une ponctuation explicite, `automatic` qui permet au décodeur de gérer la ponctuation, ou `dictatedandautomatic` qui implique des marques de ponctuation dictées ou automatiques. | Facultatif |
  | `AddWordLevelTimestamps` | Spécifie si les timestamps au niveau des mots doivent être ajoutés à la sortie. Les valeurs acceptées sont `true`, qui permet des timestamps au niveau des mots, et `false` (la valeur par défaut) pour les désactiver. | Facultatif |
+ | `AddSentiment` | Spécifie le sentiment doit être ajouté à l’énoncé. Valeurs acceptées sont `true` ce qui permet de sentiment par énoncé et `false` (valeur par défaut) pour la désactiver. | Facultatif |
 
 ### <a name="storage"></a>Stockage
 
@@ -97,6 +99,57 @@ Batch prend en charge de la transcription [stockage Blob Azure](https://docs.mic
 Interrogeant le statut de transcription ne peut pas être la plus performante, ou fournir la meilleure expérience utilisateur. Pour effectuer une interrogation pour l’état, vous pouvez inscrire des rappels, qui informe le client quand longue transcription tâches sont terminées.
 
 Pour plus d’informations, consultez [Webhooks](webhooks.md).
+
+## <a name="sentiment"></a>Sentiments
+
+Sentiment est une nouvelle fonctionnalité dans l’API de Transcription de Batch et est une fonctionnalité importante dans le domaine de centre d’appel. Les clients peuvent utiliser le `AddSentiment` paramètres à leurs demandes à 
+
+1.  Obtenir des informations sur la satisfaction des clients
+2.  Obtenir des informations sur les performances des agents (équipe en prenant les appels)
+3.  Identifier le point exact dans le temps quand un appel a pris un tour dans une direction négative
+4.  Identifier la cause du problème bien lors de l’activation des appels négatives positive
+5.  Identifier ce que les clients aiment et qu’ils n’aime pas sur un produit ou un service
+
+Sentiment est évalué par segment audio où un segment audio est défini comme le temps écoulé entre le début de l’énoncé (décalage) et la latence de détection de la fin du flux d’octets. L’intégralité du texte au sein de ce segment est utilisé pour calculer les sentiments. Nous ne pas calculer des valeurs de sentiment d’agrégation pour l’appel entière ou la reconnaissance vocale entière de chaque canal. Ceux-ci sont laissées au propriétaire du domaine pour appliquer davantage.
+
+Sentiment est appliqué sur la forme lexicale.
+
+Un exemple de sortie JSON se présente comme suit :
+
+```json
+{
+  "AudioFileResults": [
+    {
+      "AudioFileName": "Channel.0.wav",
+      "AudioFileUrl": null,
+      "SegmentResults": [
+        {
+          "RecognitionStatus": "Success",
+          "ChannelNumber": null,
+          "Offset": 400000,
+          "Duration": 13300000,
+          "NBest": [
+            {
+              "Confidence": 0.976174,
+              "Lexical": "what's the weather like",
+              "ITN": "what's the weather like",
+              "MaskedITN": "what's the weather like",
+              "Display": "What's the weather like?",
+              "Words": null,
+              "Sentiment": {
+                "Negative": 0.206194,
+                "Neutral": 0.793785,
+                "Positive": 0.0
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+```
+Les fonctionnalités utilise un modèle de Sentiment qui est actuellement en version bêta.
 
 ## <a name="sample-code"></a>Exemple de code
 

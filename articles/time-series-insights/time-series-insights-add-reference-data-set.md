@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 02/15/2018
 ms.custom: seodec18
 ms.openlocfilehash: 17ba15ea12efc80dcc830f6338a837d1abb77a71
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63764446"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64708869"
 ---
 # <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-azure-portal"></a>Créer un jeu de données de référence pour votre environnement Time Series Insights à l’aide du portail Azure
 
@@ -97,5 +97,7 @@ Les données de référence ne sont pas jointes rétroactivement. Cela signifie 
     La page confirme la fin du téléchargement et affiche le message **Jeu de données chargé**.
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 * [Gérez les données de référence](time-series-insights-manage-reference-data-csharp.md) par programme.
+
 * Pour obtenir des informations de référence d’API complètes, consultez le document [API de données de référence](/rest/api/time-series-insights/ga-reference-data-api).

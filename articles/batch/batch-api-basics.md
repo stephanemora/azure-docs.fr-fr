@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 12/18/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 1107842444ad0ac77ab890f07e65c8b489030461
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 1fbe5b0a49960248133c35fb4a0401a31b95fb35
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60721684"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64700934"
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Développer des solutions de calcul parallèles à grande échelle avec Batch
 
@@ -132,7 +132,7 @@ Lorsque vous créez un pool Batch, vous pouvez spécifier la configuration de m
 
 - La **configuration de machines virtuelles** indique que le pool est composé de machines virtuelles Azure. Ces machines virtuelles peuvent être créées à partir d’images Linux ou Windows. 
 
-    Lorsque vous créez un pool basé sur la configuration de machine virtuelle, vous devez spécifier la taille des nœuds, mais aussi la source et les images utilisées pour les créer, la **référence d’image de machine virtuelle** et la **référence SKU de l’agent du nœud** à installer sur les nœuds. Pour plus d’informations sur la spécification des propriétés de pool, voir [Configurer des nœuds de calcul Linux dans des pools Azure Batch](batch-linux-nodes.md). Vous pouvez éventuellement attacher un ou plusieurs disques de données vides au pool de machines virtuelles créé à partir d’images de la Place de Marché, ou inclure des disques de données dans des images personnalisées utilisées pour créer les machines virtuelles.
+    Lorsque vous créez un pool basé sur la configuration de machine virtuelle, vous devez spécifier la taille des nœuds, mais aussi la source et les images utilisées pour les créer, la **référence d’image de machine virtuelle** et la **référence SKU de l’agent du nœud** à installer sur les nœuds. Pour plus d’informations sur la spécification des propriétés de pool, voir [Configurer des nœuds de calcul Linux dans des pools Azure Batch](batch-linux-nodes.md). Vous pouvez éventuellement attacher un ou plusieurs disques de données vides au pool de machines virtuelles créé à partir d’images de la Place de Marché, ou inclure des disques de données dans des images personnalisées utilisées pour créer les machines virtuelles. Lorsque vous incluez des disques de données, vous devez monter et formater les disques à partir d’une machine virtuelle pour les utiliser.
 
 - La **configuration de Cloud Services** indique que le pool est composé de nœuds Microsoft Azure Cloud Services. Ce dernier fournit *uniquement* des nœuds de calcul Windows.
 

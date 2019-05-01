@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 7ff14af756a55ccc6bbf40dd39d49c5168f4af1f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 0726c22e436658d51419b9e32d73f48db99ba805
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60418288"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64705301"
 ---
 # <a name="define-a-restful-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Définir un profil technique RESTful dans une stratégie personnalisée Azure Active Directory B2C
 
@@ -33,7 +33,7 @@ Votre stratégie peut envoyer des revendications d’entrée à votre API REST. 
 - **Profil technique de validation** : un profil technique de validation appelle le service RESTful. Le profil technique de validation valide les données fournies par l’utilisateur avant la poursuite du parcours de celui-ci. Avec le profil technique de validation, un message d’erreur est affiché sur une page déclarée automatiquement, et retourné dans des revendications de sortie.
 - **Échange de revendications** : un appel est effectué au service RESTful via une étape d’orchestration. Dans ce scénario, il n’existe pas d’interface utilisateur pour afficher le message d’erreur. Si votre API REST retourne une erreur, l’utilisateur est redirigé vers l’application de la partie de confiance avec le message d’erreur.
 
-## <a name="protocol"></a>Protocole
+## <a name="protocol"></a>Protocol
 
 L’attribut **Name** de l’élément **Protocol** doit être défini sur `Proprietary`. L’attribut **handler** doit contenir le nom qualifié complet d’Assembly de gestionnaire de protocole utilisé par Azure AD B2C : `Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`.
 

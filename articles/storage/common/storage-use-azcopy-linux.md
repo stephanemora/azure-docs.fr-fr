@@ -8,18 +8,22 @@ ms.topic: article
 ms.date: 04/26/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 0f87645537576f49ee04b823341acf8853798f88
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: ad6d7a60700727b73b87a78e364fde3fa1caa8c3
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60730053"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64572573"
 ---
 # <a name="transfer-data-with-azcopy-on-linux"></a>Transférer des données avec AzCopy sur Linux
 
 AzCopy est un utilitaire de ligne de commande conçu pour copier des données à destination/en provenance d’un Stockage Blob et d’un Stockage Fichier Microsoft Azure en utilisant des commandes simples destinées à optimiser les performances. Vous pouvez copier des données entre un système de fichiers et un compte de stockage, ou entre comptes de stockage.  
 
-Il existe deux versions d’AzCopy que vous pouvez télécharger. AzCopy sur Linux cible les plateformes Linux offrant des options de ligne de commande de style POSIX. [AzCopy sur Windows](../storage-use-azcopy.md) fournit des options de ligne de commande de style Windows. Cet article est consacré à AzCopy sur Linux. 
+> [!IMPORTANT]
+> Cet article décrit une ancienne version d’AzCopy.
+>Pour installer la version la plus récente d’AzCopy, consultez [AzCopy v10](storage-use-azcopy-v10.md).
+
+Si vous choisissez d’installer l’ancienne version d’AzCopy (AzCopy v8.1), il existe plusieurs versions d’AzCopy v8.1 que vous pouvez télécharger. AzCopy sur Linux cible les plateformes Linux offrant des options de ligne de commande de style POSIX. [AzCopy sur Windows](../storage-use-azcopy.md) fournit des options de ligne de commande de style Windows. Cet article est consacré à AzCopy sur Linux. 
 
 > [!NOTE]  
 > À partir de la version 7.2 d’AzCopy, les dépendances .NET Core sont fournies avec le package AzCopy. Si vous utilisez la version 7.2 ou une version ultérieure, vous n’avez plus besoin d’installer .NET Core au préalable.

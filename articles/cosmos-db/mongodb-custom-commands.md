@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: sngun
-ms.openlocfilehash: aef77f121f20d867c8ec5e764d8c9639c961713d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 94b1048befc8716caf5f7f51adb1f95d047d4077
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60446582"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925650"
 ---
 # <a name="use-mongodb-extension-commands-to-manage-data-stored-in-azure-cosmos-dbs-api-for-mongodb"></a>Utiliser des commandes d’extension MongoDB pour gérer les données stockées dans les API d’Azure Cosmos DB pour MongoDB 
 
@@ -162,7 +162,7 @@ Le tableau suivant décrit les paramètres au sein de la commande :
 
 |**Champ**|**Type** |**Description** |
 |---------|---------|---------|
-| customAction    | string | Nom de la commande personnalisée. Doit être « CreateDatabase »     |
+| customAction    | string | Nom de la commande personnalisée. Doit être « CreateCollection »     |
 | collection      | string | Nom de la collection                                   |
 | offerThroughput | int    | Débit approvisionné pour définir la base de données. Il est un paramètre facultatif |
 | shardKey        | string | Chemin d’accès des clé de partition pour créer une collection partitionnée. Il est un paramètre facultatif |

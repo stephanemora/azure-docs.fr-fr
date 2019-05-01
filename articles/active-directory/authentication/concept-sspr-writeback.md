@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2fcf2ef10cbc8f6f54a65e596ea003a98f410a7b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 78889cb3c04b9854a4cebb27c35488d5142ad3a7
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60415002"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64694827"
 ---
 # <a name="what-is-password-writeback"></a>Qu’est-ce que la réécriture du mot de passe ?
 
@@ -85,9 +85,6 @@ Lorsqu’un utilisateur fédéré ou disposant de la synchronisation du hachage 
    * Le lien de l’objet connecteur Active Directory au métaverse doit avoir pour règle de synchronisation `Microsoft.InfromADUserAccountEnabled.xxx` sur le lien.
    
    Lorsque l’appel provient du cloud, le moteur de synchronisation utilise l’attribut **cloudAnchor** pour rechercher l’objet CS (Connector Space) Azure Active Directory. Il suit ensuite le lien vers l’objet MV, puis le lien vers l’objet Active Directory. Étant donné qu’il peut exister plusieurs objets Active Directory (plusieurs forêts) pour le même utilisateur, le moteur de synchronisation s’appuie sur le lien `Microsoft.InfromADUserAccountEnabled.xxx` pour choisir celui qui convient.
-
-   > [!Note]
-   > Conformément à cette logique, Azure AD Connect doit être en mesure de communiquer avec l’émulateur de contrôleur de domaine principal (PDC) pour que l’écriture différée du mot de passe fonctionne. Si vous avez besoin d’activer cette option manuellement, vous pouvez connecter Azure AD Connect à l’émulateur PDC. Cliquez avec le bouton droit sur les **propriétés** du connecteur de synchronisation Active Directory, puis choisissez de **configurer les partitions d’annuaire**. À partir de là, recherchez la section correspondant aux **paramètres de connexion du contrôleur de domaine** et cochez la case intitulée **only use preferred domain controllers** (utiliser uniquement les contrôleurs de domaine préférés). Même si le contrôleur de domaine préféré n’est pas un émulateur PDC, Azure AD Connect cherche à se connecter au contrôleur de domaine principal pour l’écriture différée du mot de passe.
 
 1. Une fois le compte d’utilisateur trouvé, Une tentative de réinitialiser le mot de passe directement dans la forêt Active Directory appropriée est effectuée.
 1. Si l’opération de définition du mot de passe réussit, l’utilisateur reçoit le message que son mot de passe a été modifié.

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: 9603c45443c6339a127f977600eeff2ba57a283f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2bc32e28ffd6dd9dab2da61078684791a04709cc
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61228125"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922987"
 ---
 # <a name="configure-application-insights-profiler"></a>Configurer Application Insights Profiler
 
@@ -41,7 +41,7 @@ En fonction de la configuration de votre environnement Azure App Service, l’ap
 ## <a id="profileondemand"></a> Déclencher manuellement Profiler
 
 ### <a name="minimum-requirements"></a>Configuration minimale requise 
-Pour un utilisateur déclencher manuellement une session de profileur, ils nécessitent au minimum « accès en écriture » de leur rôle pour le composant Application Insights. Dans la plupart des cas vous obtenez automatiquement cet accès et aucun travail supplémentaire est nécessaire. Si vous rencontrez des problèmes, le rôle de portée d’abonnement pour ajouter serait le rôle « Contributeur de composant Application Insights ». [En savoir plus sur le contrôle d’accès de rôle avec Azure Monitoring](https://docs.microsoft.com/en-us/azure/azure-monitor/app/resources-roles-access-control).
+Pour un utilisateur déclencher manuellement une session de profileur, ils nécessitent au minimum « accès en écriture » de leur rôle pour le composant Application Insights. Dans la plupart des cas vous obtenez automatiquement cet accès et aucun travail supplémentaire est nécessaire. Si vous rencontrez des problèmes, le rôle de portée d’abonnement pour ajouter serait le rôle « Contributeur de composant Application Insights ». [En savoir plus sur le contrôle d’accès de rôle avec Azure Monitoring](https://docs.microsoft.com/azure/azure-monitor/app/resources-roles-access-control).
 
 Vous pouvez déclencher manuellement Profiler en un clic. Supposons que vous exécutez un test de performances web. Vous avez besoin des traces pour comprendre comment votre application web fonctionne avec une certaine charge. Pour savoir quand le test de charge est exécuté, vous avez besoin de contrôler le moment de capture des traces. Toutefois, l’intervalle d’échantillonnage aléatoire ne permet pas de le faire.
 

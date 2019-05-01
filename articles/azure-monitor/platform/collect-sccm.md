@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: magoedte
-ms.openlocfilehash: e5cf89b7fe01946de9944a7026ec448cd55dd6dc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 26ddb0cdd2728f9dff5d45494a14841cdc1a20cd
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60741660"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922884"
 ---
 # <a name="connect-configuration-manager-to-azure-monitor"></a>Connecter Configuration Manager à Azure Monitor
 Vous pouvez connecter votre environnement System Center Configuration Manager à Azure Monitor pour synchroniser les données de collection de périphérique et font référence à ces regroupements dans Azure Monitor et Azure Automation.  
@@ -67,7 +67,7 @@ Pour que vous puissiez ajouter une connexion Log Analytics, il faut que votre en
    
 2. Dans l’écran **Général**, vérifiez que vous avez effectué les actions suivantes et que vous disposez des détails de chaque élément, puis sélectionnez **Suivant**.
 
-   1. Dans le portail Azure, vous avez inscrit Configuration Manager en tant qu’application web et/ou application API web, et vous disposez de [l’ID client résultant de l’inscription](../../active-directory/develop/quickstart-v1-add-azure-ad-app.md).
+   1. Dans le portail Azure, vous avez inscrit Configuration Manager en tant qu’application web et/ou application API web, et vous disposez de [l’ID client résultant de l’inscription](../../active-directory/develop/quickstart-register-app.md).
    2. Dans le portail Azure, vous avez créé une clé secrète d’application pour l’application inscrite dans Azure Active Directory.  
    3. Dans le portail Azure, vous avez fourni l’application web inscrite avec l’autorisation d’accéder à l’espace de travail Analytique de journal dans Azure Monitor.  
       ![Page générale de l’Assistant Connexion à Log Analytics](./media/collect-sccm/sccm-console-general01.png)

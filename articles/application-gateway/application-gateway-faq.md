@@ -6,14 +6,14 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 3/20/2019
+ms.date: 4/30/2019
 ms.author: victorh
-ms.openlocfilehash: 3c8a2fe9f4486fe4d33754b58f4e7ebec1b3252d
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 72eaa18d570e85274efbea80f12e9a7301eecbfa
+ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59682948"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64947082"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Forum aux questions sur la passerelle d’Application
 
@@ -119,7 +119,7 @@ Traffic Manager permet de répartir le trafic entre plusieurs passerelles d’ap
 
 ### <a name="does-application-gateway-support-autoscaling"></a>Application Gateway prend-il en charge la mise à l’échelle ?
 
-Oui. La référence SKU v2 d’Application Gateway prend en charge la mise à l’échelle automatique. Pour plus d’informations, consultez [mise à l’échelle et la passerelle d’Application redondant dans une zone (préversion publique)](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant).
+Oui. La référence SKU v2 d’Application Gateway prend en charge la mise à l’échelle automatique. Pour plus d’informations, consultez [mise à l’échelle et passerelle d’Application redondant](application-gateway-autoscaling-zone-redundant.md).
 
 ### <a name="does-manual-scale-up-or-scale-down-cause-downtime"></a>Est mise à l’échelle manuelle ou réduire le temps d’arrêt de la cause ?
 
@@ -267,7 +267,7 @@ Application Gateway prend en charge jusqu'à 10 certificats d’authentification
 
 ### <a name="does-application-gateway-natively-integrate-with-azure-key-vault"></a>Application Gateway s’intègre-t-il en mode natif avec Azure Key Vault ?
 
-Non.
+Oui, la référence SKU de passerelle d’Application v2 prend en charge Key Vault. Pour plus d’informations, consultez [une terminaison SSL avec certificats Key Vault](key-vault-certs.md).
 
 ### <a name="how-do-i-configure-https-listeners-for-com-and-net-sites"></a>Comment configurer les écouteurs HTTPS pour les sites .com et .net ? 
 

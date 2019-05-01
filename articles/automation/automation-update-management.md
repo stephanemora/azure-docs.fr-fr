@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/22/2019
+ms.date: 04/29/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: f49b8ef3717675ae6d93d07218a00f2c22890de0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b39d9788372fb0f682bc1e5b737542b400dd4035
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61305962"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919699"
 ---
 # <a name="update-management-solution-in-azure"></a>Solution Update Management dans Azure
 
@@ -54,7 +54,9 @@ La solution rapporte l’état de mise à jour de l’ordinateur en fonction de 
 
 Vous pouvez déployer et installer des mises à jour logicielles sur des ordinateurs qui nécessitent les mises à jour en créant un déploiement planifié. Les mises à jour considérées comme *facultatives* ne sont pas incluses dans le déploiement des ordinateurs Windows. Seules les mises à jour nécessaires sont incluses dans le déploiement.
 
-Le déploiement planifié définit les ordinateurs cibles qui reçoivent les mises à jour applicables, soit en spécifiant explicitement les ordinateurs ou en sélectionnant un [groupe d’ordinateurs](../azure-monitor/platform/computer-groups.md) d’après des recherches dans les journaux d’un ensemble spécifique d’ordinateurs. Vous spécifiez également une planification pour approuver et définir la période pendant laquelle les mises à jour peuvent être installées. Ce laps de temps est appelé à la fenêtre de maintenance. Dix minutes de la fenêtre de maintenance est réservé pour les redémarrages si un redémarrage est nécessaire et que vous avez sélectionné l’option de redémarrage approprié. Si la mise à jour corrective prend plus longtemps que prévu, et il existe moins de dix minutes dans la fenêtre de maintenance, un redémarrage se produira pas.
+Le déploiement planifié définit les ordinateurs cibles qui reçoivent les mises à jour applicables, en spécifiant explicitement les ordinateurs ou en sélectionnant un [groupe d’ordinateurs](../azure-monitor/platform/computer-groups.md) qui repose sur des recherches dans les journaux d’un ensemble spécifique d’ordinateurs, ou un [Requête azure](#azure-machines) qui sélectionne de manière dynamique des machines virtuelles Azure en fonction de critères spécifiés. Ces groupes sont différentes de [Configuration d’étendue](../azure-monitor/insights/solution-targeting.md), qui est utilisé uniquement pour déterminer quelles machines obtenir les packs d’administration qui permettent la solution. 
+
+Vous spécifiez également une planification pour approuver et définir la période pendant laquelle les mises à jour peuvent être installées. Ce laps de temps est appelé à la fenêtre de maintenance. Dix minutes de la fenêtre de maintenance est réservé pour les redémarrages si un redémarrage est nécessaire et que vous avez sélectionné l’option de redémarrage approprié. Si la mise à jour corrective prend plus longtemps que prévu, et il existe moins de dix minutes dans la fenêtre de maintenance, un redémarrage se produira pas.
 
 Les mises à jour sont installées par des Runbooks dans Azure Automation. Vous ne pouvez pas visualiser ces Runbooks, qui ne nécessitent aucune configuration. Lorsqu’un déploiement de mises à jour est créé, il génère une planification qui démarre un Runbook de mises à jour principal au moment indiqué pour les ordinateurs inclus. Ce runbook principal lance un runbook enfant sur chaque agent pour installer les mises à jour obligatoires.
 
@@ -76,6 +78,9 @@ Le tableau suivant répertorie la liste des systèmes d’exploitation pris en c
 |Red Hat Enterprise 6 (x86/x64) et 7 (x64)     | Les agents Linux doivent avoir accès à un référentiel de mise à jour.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) et 12 (x64)     | Les agents Linux doivent avoir accès à un référentiel de mise à jour.        |
 |Ubuntu 14.04 LTS, 16.04 LTS et 18.04 (x86/x64)      |Les agents Linux doivent avoir accès à un référentiel de mise à jour.         |
+
+> [!NOTE]
+> Les machines virtuelles Azure identiques peuvent être gérés avec la gestion des mises à jour. Gestion de la mise à jour fonctionne sur les instances eux-mêmes et pas l’image de base. Vous aurez besoin planifier les mises à jour de façon incrémentielle, ne pas mise à jour toutes les instances de machine virtuelle à la fois.
 
 ### <a name="unsupported-client-types"></a>Types de clients non pris en charge
 

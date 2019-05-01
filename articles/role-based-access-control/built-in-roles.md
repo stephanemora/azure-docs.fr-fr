@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 04/01/2019
+ms.date: 04/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: f505f922685cd192525814df25cca1a1401d2913
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 36a98ea52ea48c9828ca5857dc480742632056fb
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60749323"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64689859"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Rôles intégrés pour les ressources Azure
 
@@ -87,6 +87,7 @@ Le tableau ci-après fournit une brève description de chaque rôle intégré. C
 | [Contributeur de compte DocumentDB](#documentdb-account-contributor) | Gérer des comptes Azure Cosmos DB. Azure Cosmos DB était auparavant appelé DocumentDB. |
 | [Contributeur EventGrid EventSubscription](#eventgrid-eventsubscription-contributor) | Vous permet de gérer les opérations d’abonnement aux événements EventGrid. |
 | [Lecteur EventGrid EventSubscription](#eventgrid-eventsubscription-reader) | Vous permet de lire les abonnements aux événements EventGrid. |
+| [Opérateur de Cluster de HDInsight](#hdinsight-cluster-operator) | Vous permet de lire et modifier des configurations de cluster HDInsight. |
 | [Contributeur HDInsight Domain Services](#hdinsight-domain-services-contributor) | Peut lire, créer, modifier et supprimer les opérations Domain Services nécessaires pour le pack Sécurité Entreprise HDInsight |
 | [Contributeur de compte Intelligent Systems](#intelligent-systems-account-contributor) | Permet de gérer des comptes Intelligent Systems, mais pas d’y accéder. |
 | [Contributeur Key Vault](#key-vault-contributor) | Permet de gérer des coffres de clés, mais pas d’y accéder. |
@@ -121,6 +122,7 @@ Le tableau ci-après fournit une brève description de chaque rôle intégré. C
 | [Propriétaire du compte ancres spatial](#spatial-anchors-account-owner) | Vous permet de gérer les points d'ancrage spatiaux dans votre compte, notamment les supprimer |
 | [Lecteur de compte ancres spatial](#spatial-anchors-account-reader) | Vous permet de localiser et de lire les propriétés des points d'ancrage spatiaux dans votre compte |
 | [Contributeur de base de données SQL](#sql-db-contributor) | Permet de gérer des bases de données SQL, mais pas d’y accéder. Vous ne pouvez pas non plus gérer leurs stratégies de sécurité ni leurs serveurs SQL parents. |
+| [SQL Managed Instance contributeur](#sql-managed-instance-contributor) | Vous permet de gérez les Instances gérées de SQL et requis configuration réseau, mais ne peut pas donner accès à d’autres personnes. |
 | [Gestionnaire de sécurité SQL](#sql-security-manager) | Permet de gérer les stratégies de sécurité des serveurs et bases de données SQL, mais pas d’y accéder. |
 | [Contributeur SQL Server](#sql-server-contributor) | Permet de gérer des serveurs et bases de données SQL, mais pas d’y accéder, ni de gérer leurs stratégies de sécurité. |
 | [Contributeur de compte de stockage](#storage-account-contributor) | Permet de gérer des comptes de stockage, mais pas d’y accéder. |
@@ -327,7 +329,7 @@ Le tableau ci-après fournit une brève description de chaque rôle intégré. C
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
 > | Microsoft.Support/* | Créer et gérer les tickets de support |
 > | **NotActions** |  |
-> | Microsoft.ApiManagement/service/users/keys/read | Obtenir la liste des clés utilisateur |
+> | Microsoft.ApiManagement/service/users/keys/read | Obtenir les clés associées à utilisateur |
 > | **DataActions** |  |
 > | *Aucune* |  |
 > | **NotDataActions** |  |
@@ -349,7 +351,7 @@ Le tableau ci-après fournit une brève description de chaque rôle intégré. C
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
 > | Microsoft.Support/* | Créer et gérer les tickets de support |
 > | **NotActions** |  |
-> | Microsoft.ApiManagement/service/users/keys/read | Obtenir la liste des clés utilisateur |
+> | Microsoft.ApiManagement/service/users/keys/read | Obtenir les clés associées à utilisateur |
 > | **DataActions** |  |
 > | *Aucune* |  |
 > | **NotDataActions** |  |
@@ -1385,6 +1387,28 @@ Le tableau ci-après fournit une brève description de chaque rôle intégré. C
 > | **NotDataActions** |  |
 > | *Aucune* |  |
 
+## <a name="hdinsight-cluster-operator"></a>Opérateur de Cluster de HDInsight
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Description** | Vous permet de lire et modifier des configurations de cluster HDInsight. |
+> | **Id** | 61ed4efc-fab3-44fd-b111-e24485cc132a |
+> | **Actions** |  |
+> | Microsoft.HDInsight/*/read |  |
+> | Microsoft.HDInsight/clusters/getGatewaySettings/action | Obtenir les paramètres de passerelle pour un HDInsight Cluster |
+> | Microsoft.HDInsight/clusters/updateGatewaySettings/action | Mettre à jour les paramètres de passerelle pour un HDInsight Cluster |
+> | Microsoft.HDInsight/clusters/configurations/* |  |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
+> | Microsoft.Resources/deployments/operations/read | Obtient ou répertorie les opérations de déploiement. |
+> | Microsoft.Insights/alertRules/* | Créer et gérer des règles d’alerte Insights |
+> | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | **NotActions** |  |
+> | *Aucune* |  |
+> | **DataActions** |  |
+> | *Aucune* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
+
 ## <a name="hdinsight-domain-services-contributor"></a>Contributeur HDInsight Domain Services
 > [!div class="mx-tableFixed"]
 > | | |
@@ -1807,6 +1831,7 @@ Le tableau ci-après fournit une brève description de chaque rôle intégré. C
 > | **Id** | c12c1c16-33a1-487b-954d-41c89c60f349 |
 > | **Actions** |  |
 > | Microsoft.Storage/storageAccounts/listKeys/action | Retourne les clés d’accès au compte de stockage spécifié. |
+> | Microsoft.Storage/storageAccounts/ListAccountSas/action | Retourne le jeton SAS du compte de stockage spécifié. |
 > | Microsoft.Storage/storageAccounts/read | Retourne la liste des comptes de stockage ou récupère les propriétés du compte de stockage spécifié. |
 > | **NotActions** |  |
 > | *Aucune* |  |
@@ -2228,6 +2253,34 @@ Le tableau ci-après fournit une brève description de chaque rôle intégré. C
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentScans/* |  |
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentSettings/* |  |
 > | Microsoft.Sql/servers/vulnerabilityAssessments/* |  |
+> | **DataActions** |  |
+> | *Aucune* |  |
+> | **NotDataActions** |  |
+> | *Aucune* |  |
+
+## <a name="sql-managed-instance-contributor"></a>SQL Managed Instance contributeur
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Description** | Vous permet de gérez les Instances gérées de SQL et requis configuration réseau, mais ne peut pas donner accès à d’autres personnes. |
+> | **Id** | 4939a1f6-9ae0-4e48-a1e0-f2cbe897382d |
+> | **Actions** |  |
+> | Microsoft.ResourceHealth/availabilityStatuses/read | Obtient les états de disponibilité de toutes les ressources dans l’étendue spécifiée. |
+> | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
+> | Microsoft.Network/networkSecurityGroups/* |  |
+> | Microsoft.Network/routeTables/* |  |
+> | Microsoft.Sql/locations/*/read |  |
+> | Microsoft.Sql/managedInstances/* |  |
+> | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | Microsoft.Network/virtualNetworks/subnets/* |  |
+> | Microsoft.Network/virtualNetworks/* |  |
+> | Microsoft.Authorization/*/read | Lire les rôles et les affectations de rôles |
+> | Microsoft.Insights/alertRules/* | Créer et gérer des règles d’alerte Insights |
+> | Microsoft.Insights/metrics/read | Lire des mesures |
+> | Microsoft.Insights/metricDefinitions/read | Lire les définitions des mesures |
+> | **NotActions** |  |
+> | *Aucune* |  |
 > | **DataActions** |  |
 > | *Aucune* |  |
 > | **NotDataActions** |  |

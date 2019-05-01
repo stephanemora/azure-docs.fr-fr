@@ -11,26 +11,28 @@ ms.assetid: e11c6b4d-65a5-4d2d-8e13-38150db09c0b
 ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: 01da06ca55199989a3a27012bec101580f5ef853
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 22b21512c78a06f2639ca9339f3b7a20c7f5bfa3
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60447558"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64713803"
 ---
 # <a name="call-http-or-https-endpoints-with-azure-logic-apps"></a>Appeler des points de terminaison HTTP ou HTTPS avec Azure Logic Apps
 
-Avec Azure Logic Apps et le connecteur HTTP (Hypertext Transfer Protocol), vous pouvez automatiser les flux de travail qui communiquent avec n’importe quel point de terminaison HTTP ou HTTPS en générant des applications logiques. Par exemple, vous pouvez superviser le point de terminaison de service pour votre site web. Quand un événement se produit à ce point de terminaison, tel qu’une panne de votre site web, l’événement déclenche le flux de travail de votre application logique et exécute les actions spécifiées. 
+Avec Azure Logic Apps et le connecteur HTTP (Hypertext Transfer Protocol), vous pouvez automatiser les flux de travail qui communiquent avec n’importe quel point de terminaison HTTP ou HTTPS en générant des applications logiques. Par exemple, vous pouvez superviser le point de terminaison de service pour votre site web. Quand un événement se produit à ce point de terminaison, tel qu’une panne de votre site web, l’événement déclenche le flux de travail de votre application logique et exécute les actions spécifiées.
 
 Vous pouvez utiliser le déclencheur HTTP comme première étape de votre flux de travail pour vérifier ou *interroger* un point de terminaison selon une planification régulière. À chaque vérification, le déclencheur envoie un appel ou une *demande* au point de terminaison. La réponse du point de terminaison détermine si le flux de travail de votre application logique s’exécute. Le déclencheur transmet le contenu de la réponse aux actions de votre application logique. 
 
-Vous pouvez utiliser l’action HTTP comme toute autre étape de votre flux de travail pour appeler le point de terminaison quand vous le souhaitez. La réponse du point de terminaison détermine la façon dont s’exécutent les actions restantes de votre flux de travail.
+Vous pouvez utiliser l’action HTTP comme toute autre étape de votre flux de travail pour appeler le point de terminaison quand vous le souhaitez. La réponse du point de terminaison détermine la façon dont s’exécutent les actions restantes de votre flux de travail. 
+
+En fonction des capacités du point de terminaison cible, ce connecteur prend en charge la sécurité TLS (Transport Layer) versions 1.0, 1.1 et 1.2. Logic Apps négocie avec le point de terminaison à l’aide de la version prise en charge la plus élevée possible. Par conséquent, par exemple, si le point de terminaison prend en charge 1.2, le connecteur utilise 1.2 tout d’abord. Sinon, le connecteur utilise la version prise en charge la plus élevée suivante.
 
 Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azure Logic Apps ?](../logic-apps/logic-apps-overview.md)
 
 ## <a name="prerequisites"></a>Conditions préalables
 
-* Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscrivez-vous pour bénéficier d’un compte Azure gratuit</a>. 
+* Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, [inscrivez-vous pour bénéficier d’un compte Azure gratuit](https://azure.microsoft.com/free/). 
 
 * L’URL du point de terminaison cible que vous souhaitez appeler 
 

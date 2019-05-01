@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: 44c6c8a55bbcbf76cf48fd17a6e52d188a5e99fc
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
-ms.translationtype: HT
+ms.openlocfilehash: 81877ad23728ad76cb5d4dc5084990511257c6df
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53556609"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64695070"
 ---
 # <a name="best-practices-for-choosing-a-time-series-id"></a>Meilleures pratiques pour choisir un ID de série chronologique
 
@@ -57,4 +57,5 @@ Les scénarios suivants décrivent la sélection de plusieurs propriétés de cl
 ## <a name="next-steps"></a>Étapes suivantes
 
 * En savoir plus sur la [modélisation des données](./time-series-insights-update-tsm.md).
+
 * Planifiez votre [environnement Azure Time Series Insights (préversion)](./time-series-insights-update-plan.md).

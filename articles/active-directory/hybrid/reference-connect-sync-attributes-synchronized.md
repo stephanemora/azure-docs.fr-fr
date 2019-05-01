@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 01/24/2019
+ms.date: 04/24/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fb7010ec16592fea2f530329916e00056ca03a70
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: 4d32564808151c4895d2b3802fb48d2bd2d8f753
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62096117"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64729537"
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Synchronisation d’Azure AD Connect : Attributs synchronisés avec Azure Active Directory
 Cette rubrique répertorie les attributs synchronisés par Azure AD Connect Sync.  
@@ -158,7 +158,6 @@ Dans ce cas, commencez par la liste des attributs dans cette rubrique et identif
 | pwdLastSet |X | | |propriété mécanique. Permet de savoir quand invalider les jetons déjà émis. Utilisé par la synchronisation de mot de passe et par la fédération. |
 | reportToOriginator | | |X | |
 | reportToOwner | | |X | |
-| securityEnabled | | |X |Dérivé de groupType |
 | sn |X |X | | |
 | sourceAnchor |X |X |X |propriété mécanique. Identificateur immuable pour maintenir la relation entre ADDS et Azure AD. |
 | st |X |X | | |
@@ -241,7 +240,6 @@ Dans ce cas, commencez par la liste des attributs dans cette rubrique et identif
 | pwdLastSet |X | | |propriété mécanique. Permet de savoir quand invalider les jetons déjà émis. S’applique à la synchronisation du hachage de mot de passe, l’authentification directe et la fédération. |
 | reportToOriginator | | |X | |
 | reportToOwner | | |X | |
-| securityEnabled | | |X |Dérivé de groupType |
 | sn |X |X | | |
 | sourceAnchor |X |X |X |propriété mécanique. Identificateur immuable pour maintenir la relation entre ADDS et Azure AD. |
 | st |X |X | | |
@@ -294,7 +292,6 @@ Dans ce cas, commencez par la liste des attributs dans cette rubrique et identif
 | preferredLanguage |X | | | |
 | proxyAddresses |X |X |X | |
 | pwdLastSet |X | | |propriété mécanique. Permet de savoir quand invalider les jetons déjà émis. S’applique à la synchronisation du hachage de mot de passe, l’authentification directe et la fédération. |
-| securityEnabled | | |X |Dérivé de groupType |
 | sn |X |X | | |
 | sourceAnchor |X |X |X |propriété mécanique. Identificateur immuable pour maintenir la relation entre ADDS et Azure AD. |
 | st |X |X | | |
@@ -317,7 +314,6 @@ Dans ce cas, commencez par la liste des attributs dans cette rubrique et identif
 | objectSID |X | |X |propriété mécanique. Identificateur d’utilisateur Active Directory utilisé pour maintenir la synchronisation entre Azure AD et Active Directory. |
 | proxyAddresses |X |X |X |propriété mécanique. Utilisé par Azure AD. Contient toutes les adresses de messagerie secondaires pour l’utilisateur. |
 | pwdLastSet |X | | |propriété mécanique. Permet de savoir quand invalider les jetons déjà émis. |
-| securityEnabled | | |X |Dérivé de groupType. |
 | sourceAnchor |X |X |X |propriété mécanique. Identificateur immuable pour maintenir la relation entre ADDS et Azure AD. |
 | usageLocation |X | | |propriété mécanique. Pays de l’utilisateur. Utilisé pour l’attribution de licence. |
 | userPrincipalName |X | | |Ce nom UPN est l’ID de connexion de l’utilisateur. Le plus souvent, identique à la valeur [mail]. |
@@ -336,7 +332,6 @@ Dans ce cas, commencez par la liste des attributs dans cette rubrique et identif
 | objectSID |X | |X |propriété mécanique. Identificateur d’utilisateur Active Directory utilisé pour maintenir la synchronisation entre Azure AD et Active Directory. |
 | proxyAddresses |X |X |X | |
 | pwdLastSet |X | | |propriété mécanique. Permet de savoir quand invalider les jetons déjà émis. S’applique à la synchronisation du hachage de mot de passe, l’authentification directe et la fédération. |
-| securityEnabled | | |X |Dérivé de groupType |
 | sourceAnchor |X |X |X |propriété mécanique. Identificateur immuable pour maintenir la relation entre ADDS et Azure AD. |
 | usageLocation |X | | |propriété mécanique. Pays de l’utilisateur. Utilisé pour l’attribution de licence. |
 | userPrincipalName |X | | |Le nom UPN est l’ID de connexion de l’utilisateur. Le plus souvent, identique à la valeur [mail]. |
@@ -364,7 +359,6 @@ Dans ce cas, commencez par la liste des attributs dans cette rubrique et identif
 | postalCode |X |X | | |
 | preferredLanguage |X | | | |
 | pwdLastSet |X | | |propriété mécanique. Permet de savoir quand invalider les jetons déjà émis. S’applique à la synchronisation du hachage de mot de passe, l’authentification directe et la fédération. |
-| securityEnabled | | |X |Dérivé de groupType |
 | sn |X |X | | |
 | sourceAnchor |X |X |X |propriété mécanique. Identificateur immuable pour maintenir la relation entre ADDS et Azure AD. |
 | st |X |X | | |

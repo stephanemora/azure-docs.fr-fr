@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: vinigam
-ms.openlocfilehash: 246c5256f56fd0b891d4e7d642c421b1e340fc6d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.openlocfilehash: 491f19abfd87c28ede45e98a24f31fe7e599b18b
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59799320"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64691411"
 ---
 # <a name="schema-and-data-aggregation-in-traffic-analytics"></a>Agrégation de schéma et les données dans le trafic Analytique
 
@@ -35,7 +35,7 @@ Traffic Analytics est une solution cloud qui offre une visibilité de l’activi
 1. Tous les journaux de flux à un groupe de sécurité réseau entre « FlowIntervalStartTime_t » et « FlowIntervalEndTime_t » sont capturées à des intervalles d’une minute dans le compte de stockage en tant qu’objets BLOB avant d’être traité par l’Analytique du trafic. 
 2. Intervalle de traitement d’Analytique du trafic par défaut est 60 minutes. Cela signifie que toutes les 60 minutes que Analytique du trafic récupère des objets BLOB à partir du stockage pour l’agrégation.
 3. Flux qui ont la même adresse IP Source, adresse IP de Destination, port de Destination, nom de groupe de sécurité réseau, règle NSG, Direction de flux et Transport de couche protocole (TCP ou UDP) (Remarque : Port source est exclue pour l’agrégation) sont proposée en un flux unique par Analytique du trafic
-4. Cet enregistrement unique est décoré (détails dans la section ci-dessous) et ingéré dans Analytique de journal par Analytique du trafic.
+4. Cet enregistrement unique est décorés (détails dans la section ci-dessous) et les journaux ingéré dans Analytique par le trafic Analytics.This processus peut prendre jusqu'à 1 heure maximum.
 5. FlowStartTime_t champ indique la première occurrence de ce type un flux agrégé (même de quatre tuples) dans l’intervalle entre « FlowIntervalStartTime_t » et « FlowIntervalEndTime_t » de traitement des journaux de flux. 
 6. Pour n’importe quelle ressource dans TA, le flux indiqué dans l’interface utilisateur est visibles par le groupe de sécurité réseau total des flux, mais dans Log Analytics utilisateur verra uniquement l’enregistrement unique, réduit. Pour afficher tous les flux, utilisez le champ blob_id, qui peut être référencé à partir du stockage. Le débit total compter pour qu’enregistrement correspondra le flux individuels vu dans l’objet blob.
 
@@ -60,7 +60,7 @@ Vous trouverez ci-dessous les champs dans le schéma et qu’elles signifient
 | SrcIP_s | Adresse IP source | Sera vide en cas de AzurePublic et les flux de ExternalPublic |
 | DestIP_s | Adresse IP de destination | Sera vide en cas de AzurePublic et les flux de ExternalPublic |
 | VMIP_s | Adresse IP de la machine virtuelle | Utilisé pour les flux AzurePublic et ExternalPublic |
-| PublicIP_S | Adresses IP publiques | Utilisé pour les flux AzurePublic et ExternalPublic |
+| PublicIP_s | Adresses IP publiques | Utilisé pour les flux AzurePublic et ExternalPublic |
 | DestPort_d | Port de destination | Port auquel le trafic est entrant | 
 | L4Protocol_s  | * T <br> * U  | Protocole de transport. T = TCP <br> U = UDP | 
 | L7Protocol_s  | Nom du protocole | Dérivé de port de destination |
@@ -121,6 +121,7 @@ Vous trouverez ci-dessous les champs dans le schéma et qu’elles signifient
 1. MaliciousFlow - une des adresses IP appartiennent à un réseau virtuel azure alors que l’autre adresse IP est une adresse IP publique qui n’est pas dans Azure et est signalée comme étant malveillante dans les flux ASC qui consomme d’Analytique du trafic pour l’intervalle de traitement entre » FlowIntervalStartTime_t » et « FlowIntervalEndTime_t ». 
 1. UnknownPrivate - une des adresses IP appartiennent au réseau virtuel Azure pendant que l’autre adresse IP appartient à la plage d’adresses IP privée, tel que défini dans RFC 1918 et pas pu être mappé par Analytique du trafic à un client appartenant à site ou réseau virtuel Azure.
 1. Inconnu : Impossible de mapper l’une de l’adresse IP adresses dans les flux avec la topologie de client dans Azure ainsi que sur site (site).
+1. Certains noms de champ sont ajoutés avec _s ou _d. Ces ne pas indiquer la source et destination.
 
 ### <a name="next-steps"></a>Étapes suivantes
 Pour obtenir des réponses aux questions fréquemment posées, consultez [analytique Forum aux questions du trafic](traffic-analytics-faq.md) pour obtenir plus d’informations sur les fonctionnalités, consultez [documentation d’analytique du trafic](traffic-analytics.md)

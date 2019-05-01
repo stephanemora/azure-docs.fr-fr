@@ -1,25 +1,18 @@
 ---
-title: Mettre à jour une offre de machine virtuelle existante dans Place de marché Azure | Microsoft Docs
+title: Mise à jour une offre de machine virtuelle existante dans Azure Marketplace
 description: Explique comment mettre à jour une offre de machine virtuelle existante dans Place de marché Azure.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 08/27/2018
 ms.author: Ankit.Sud
-ms.openlocfilehash: 254215389d129874f7ac3fc855b26819d41a095c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4a75d706d55512201786b2b74376047ff75380a7
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60343175"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64938116"
 ---
 # <a name="update-an-existing-vm-offer-on-azure-marketplace"></a>Mettre à jour une offre de machine virtuelle existante dans Place de marché Azure
 

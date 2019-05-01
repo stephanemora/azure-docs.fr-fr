@@ -3,19 +3,19 @@ title: Utiliser l’API Graph dans Azure Active Directory B2C | Microsoft Docs
 description: Comment appeler l’API Graph pour un client B2C à l’aide d’une identité d’application pour automatiser le processus.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/07/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 0f380aa9f2efc1ae9636b7704f7eb75004bb71f9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: ce4446f52fec4312466fc18cb97e25e93358ee1a
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58895052"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64697923"
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C : Utiliser l’API Azure AD Graph
 

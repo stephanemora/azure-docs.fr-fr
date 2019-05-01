@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2019
 ms.author: spelluru
-ms.openlocfilehash: 42b59c8da9e66b0f749d067e3df867911c7108e9
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: c1e74efa9cf99e8510ea17aedc840ce3b0731c3b
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58106829"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64916673"
 ---
 # <a name="add-an-artifact-repository-to-your-lab-in-devtest-labs"></a>Ajouter un référentiel d’artefacts à votre laboratoire dans DevTest Labs
 DevTest Labs vous permet de spécifier un artefact à ajouter à une machine virtuelle au moment de la création de la machine virtuelle ou une fois que la machine virtuelle est créée. Cet artefact peut être un outil ou une application que vous souhaitez installer sur la machine virtuelle. Artefacts sont définies dans un fichier JSON chargé à partir d’un référentiel GitHub ou VSTS Git. 
@@ -232,7 +232,7 @@ Folder under which artifacts can be found. Defaults to '/Artifacts'
 
 .PARAMETER PersonalAccessToken
 Security token for access to GitHub or VSOGit repository.
-See https://azure.microsoft.com/en-us/documentation/articles/devtest-lab-add-artifact-repo/ for instructions to get personal access token
+See https://azure.microsoft.com/documentation/articles/devtest-lab-add-artifact-repo/ for instructions to get personal access token
 
 .PARAMETER SourceType
 Whether artifact is VSOGit or GitHub repository.

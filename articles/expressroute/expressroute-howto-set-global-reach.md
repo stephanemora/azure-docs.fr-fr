@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 8ea3b3580cb70d0453a5ec6a38f6063788ebf7f4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: de9cbd9cfac766e2a67274684d3fb6b447e45200
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60364747"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64572760"
 ---
 # <a name="configure-expressroute-global-reach"></a>Configurer ExpressRoute Global Reach
 
@@ -39,7 +39,7 @@ Avant de commencer la configuration, vérifiez les éléments suivants :
 1. Pour démarrer la configuration, connectez-vous à votre compte Azure et sélectionnez l’abonnement que vous souhaitez utiliser.
 
    [!INCLUDE [sign in](../../includes/expressroute-cloud-shell-connect.md)]
-2. Identifiez les circuits ExpressRoute que vous souhaitez utiliser. Vous pouvez activer ExpressRoute Global Reach entre deux circuits ExpressRoute à condition qu’ils se situent dans les pays pris en charge et qu’ils aient été créés sur différents sites d’homologation. 
+2. Identifiez les circuits ExpressRoute que vous souhaitez utiliser. Vous pouvez activer ExpressRoute de portée mondiale entre les deux circuits ExpressRoute tant qu’ils sont trouvent dans les pays/régions pris en charge et ont été créés à différents emplacements d’homologation. 
 
    * Si votre abonnement comprend les deux circuits, vous pouvez choisir celui de votre choix pour exécuter la configuration dans les sections suivantes.
    * Si les deux circuits se trouvent dans des abonnements Azure différents, vous devez avoir l’autorisation d’un abonnement Azure, puis transférer la clé d’autorisation lorsque vous exécutez la commande de configuration dans l’autre abonnement Azure.

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/10/2019
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: ff6e08929d5ede86ba0632e7cfb38d81d21ca7ec
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 79c4530878783cbdb62cac630d81b65dc73c52a4
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59803945"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64733735"
 ---
 <a name="virtual-networking-limits-classic"></a>Les limites suivantes s’appliquent uniquement aux ressources de réseau gérées par le biais du modèle de déploiement classique par abonnement. Découvrez comment [afficher l’utilisation actuelle de vos ressources par rapport aux limites de votre abonnement](../articles/networking/check-usage-against-limits.md).
 
@@ -40,7 +40,7 @@ Les limites suivantes s’appliquent uniquement aux ressources de réseau géré
 > [!NOTE]
 > Récemment, nous avons augmenté toutes les limites par défaut à leur niveau maximal. S’il n’existe aucune colonne de limite maximale, la ressource n’a pas limites ajustables. Si vous avez ces limites augmentés de prise en charge dans le passé et que vous ne voyez pas les limites mises à jour dans les tableaux suivants, [ouvrir une demande de support clientèle en ligne sans frais](../articles/azure-resource-manager/resource-manager-quota-errors.md)
 
-| Ressource | Limite par défaut | 
+| Ressource | Limite de limite et maximales par défaut | 
 | --- | --- |
 | Réseaux virtuels |1 000 |
 | Nombre de sous-réseaux par réseau virtuel |3 000 |

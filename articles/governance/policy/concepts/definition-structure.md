@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 7bb25aa1f77a49363fe2e08d1430282b9b33caae
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 87f86f861ffc036077b25a2514fbd2d0c57da735
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60311639"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64716772"
 ---
 # <a name="azure-policy-definition-structure"></a>Structure de définition Azure Policy
 
@@ -66,7 +66,7 @@ Par exemple, le code JSON suivant illustre une stratégie qui limite les emplace
 }
 ```
 
-Tous les exemples Azure Policy se trouvent dans [Exemples de stratégies](../samples/index.md).
+Tous les exemples de stratégie Azure courent [exemples Azure Policy](../samples/index.md).
 
 [!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
@@ -99,6 +99,7 @@ Un paramètre possède les propriétés suivantes qui sont utilisées dans la d�
   - `description`: Explication du rôle du paramètre. Utilisable pour fournir des exemples de valeurs acceptables.
   - `displayName`: Nom convivial du paramètre visible dans le portail.
   - `strongType`: (Facultatif) Utilisé lors de l’affectation de la définition de stratégie via le portail. Fournit une liste prenant en compte le contexte. Pour plus d’informations, voir [strongType](#strongtype).
+  - `assignPermissions`: (Facultatif) Définir en tant que _true_ avoir portail Azure à créer des attributions de rôles lors de l’attribution de stratégie. Cette propriété est utile au cas où vous souhaitez affecter des autorisations en dehors de l’étendue d’attribution. Il existe une attribution de rôle par la définition de rôle dans la stratégie (ou par la définition de rôle dans toutes les stratégies dans l’initiative). La valeur du paramètre doit être une ressource valide ou une étendue.
 - `defaultValue`: (Facultatif) Définit la valeur du paramètre dans une affectation si aucune valeur n’est fournie. Obligatoire lors de la mise à jour d’une définition de stratégie existante qui est affectée.
 - `allowedValues`: (Facultatif) Fournit un tableau de valeurs que le paramètre accepte pendant leur affectation.
 
@@ -148,6 +149,7 @@ Dans la propriété `metadata`, vous pouvez utiliser **strongType** pour fournir
 - `omsWorkspace`
 - `Microsoft.EventHub/Namespaces/EventHubs`
 - `Microsoft.EventHub/Namespaces/EventHubs/AuthorizationRules`
+- `Microsoft.EventHub/Namespaces/AuthorizationRules`
 - `Microsoft.RecoveryServices/vaults`
 - `Microsoft.RecoveryServices/vaults/backupPolicies`
 
@@ -375,7 +377,7 @@ Avec la règle de stratégie révisée `if()` vérifie la longueur du **nom** av
 
 ### <a name="effect"></a>Résultat
 
-La stratégie prend en charge les types d’effet suivants :
+Stratégie Azure prend en charge les types d’effet suivants :
 
 - **deny** : génère un événement dans le journal d’activité et fait échouer la requête.
 - **audit** : génère un événement d’avertissement dans le journal d’activité, mais ne fait pas échouer la requête.
@@ -410,7 +412,7 @@ L’effet **DeployIfNotExists** requiert la présence de la propriété **roleDe
 }
 ```
 
-Pour plus d’informations sur chaque effet, l’ordre d’évaluation, les propriétés et des exemples, voir [Présentation des effets des stratégies](effects.md).
+Pour plus d’informations sur chaque effet, l’ordre d’évaluation, des propriétés et des exemples, consultez [compréhension des effets de stratégie Azure](effects.md).
 
 ### <a name="policy-functions"></a>Fonctions de stratégie
 
@@ -593,9 +595,9 @@ L’exemple suivant montre comment créer une initiative pour gérer deux balise
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Consulter des exemples à la page [Exemples Azure Policy](../samples/index.md)
-- Consulter la page [Compréhension des effets d’Azure Policy](effects.md)
-- Savoir comment [créer des stratégies par programmation](../how-to/programmatically-create.md)
-- Découvrir comment [obtenir des données de conformité](../how-to/getting-compliance-data.md)
-- Découvrir comment [corriger les ressources non conformes](../how-to/remediate-resources.md)
-- Pour en savoir plus sur les groupes d’administration, consultez [Organiser vos ressources avec des groupes d’administration Azure](../../management-groups/overview.md).
+- Passez en revue les exemples à l’adresse [exemples Azure Policy](../samples/index.md).
+- Consultez la page [Compréhension des effets de Policy](effects.md).
+- Comprendre comment [créer par programmation des stratégies](../how-to/programmatically-create.md).
+- Découvrez comment [obtenir des données de conformité](../how-to/getting-compliance-data.md).
+- Découvrez comment [corriger les ressources non conformes](../how-to/remediate-resources.md).
+- Examinez un groupe d’administration avec [organiser vos ressources avec des groupes d’administration Azure](../../management-groups/overview.md).

@@ -13,22 +13,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 01/24/2019
+ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d145407331ed652f21510483b51a4617bf28e2fa
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: 466b1aadb84bc92981b9adf1b1affa69f5f2ec25
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62096166"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919163"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect : Comptes et autorisations
 
 ## <a name="accounts-used-for-azure-ad-connect"></a>Comptes utilisés pour Azure AD Connect
 
-![](media/reference-connect-accounts-permissions/account5.png)
+![vue d’ensemble des comptes](media/reference-connect-accounts-permissions/account5.png)
 
 Azure AD Connect utilise 3 comptes pour synchroniser les informations provenant d’Active Directory local ou de Windows Server Active Directory sur Azure Active Directory.  Voici ces comptes :
 
@@ -111,10 +111,10 @@ Voici un résumé des pages de l’Assistant Installation personnalisée, des in
 | Installation des services de synchronisation, option Compte de service |Informations d’identification du compte d’utilisateur local ou AD |Utilisateur, les autorisations sont accordées par l’Assistant d’installation |Si l’administrateur spécifie un compte, ce dernier est utilisé comme compte de service pour le service de synchronisation. |
 | Se connecter à Azure AD |Informations d’identification Azure Active Directory |Rôle Administrateur général dans Azure AD |<li>Activation de la synchronisation dans l’annuaire Azure AD.</li>  <li>Création du compte de connecteur Azure AD à utiliser pour les opérations de synchronisation continue dans Azure AD.</li> |
 | Connexion de vos annuaires |Informations d’identification Active Directory locales pour chaque forêt connectée à Azure AD |Les autorisations varient selon les fonctionnalités que vous activez et se trouvent dans Créer le compte de connecteur AD DS |Ce compte permet de lire et d’écrire les informations d’annuaire pendant la synchronisation. |
-| Serveurs AD FS |Pour chaque serveur de la liste, l’Assistant recueille des informations d’identification si celles de l’utilisateur exécutant l’Assistant sont insuffisantes pour se connecter |Administrateur de domaine |Installation et configuration du rôle de serveur AD FS. |
-| Serveurs proxy d’application web |Pour chaque serveur de la liste, l’Assistant recueille des informations d’identification si celles de l’utilisateur exécutant l’Assistant sont insuffisantes pour se connecter |Administrateur local sur l’ordinateur cible |Installation et configuration du rôle de serveur WAP |
+| Serveurs AD FS |Pour chaque serveur dans la liste, l’Assistant recueille des informations d’identification lorsque les informations d’identification de connexion de l’utilisateur exécutant l’Assistant sont insuffisantes pour se connecter |Administrateur de domaine |Installation et configuration du rôle de serveur AD FS. |
+| Serveurs proxy d’application web |Pour chaque serveur dans la liste, l’Assistant recueille des informations d’identification lorsque les informations d’identification de connexion de l’utilisateur exécutant l’Assistant sont insuffisantes pour se connecter |Administrateur local sur l’ordinateur cible |Installation et configuration du rôle de serveur WAP |
 | Informations d’identification de confiance du proxy |Informations d’identification de confiance du service de fédération (informations d’identification que le proxy utilise pour obtenir un certificat d’approbation à partir de FS) |Compte de domaine qui est un administrateur local du serveur AD FS |Inscription initiale du certificat d’approbation FS-WAP. |
-| Page Compte de service AD FS, option Utilisation d’un compte d’utilisateur de domaine |Informations d’identification du compte d’utilisateur AD |Utilisateur de domaine |Le compte d’utilisateur AD dont les informations d’identification sont fournies est utilisé comme compte de connexion au service AD FS. |
+| Page Compte de service AD FS, option Utilisation d’un compte d’utilisateur de domaine |Informations d’identification du compte d’utilisateur AD |Utilisateur de domaine |Le compte d’utilisateur Azure AD dont informations d’identification sont fournies est utilisé en tant que le compte de connexion du service AD FS. |
 
 ### <a name="create-the-ad-ds-connector-account"></a>Créer le compte de connecteur AD DS
 
@@ -239,6 +239,11 @@ Le compte est créé avec un mot de passe long et complexe qui n’expire pas. I
 Il existe une limite de 20 comptes de service de synchronisation dans Azure AD. Pour obtenir la liste des comptes de service Azure AD existants dans Azure AD, exécutez l’applet de commande Azure AD PowerShell suivante : `Get-AzureADDirectoryRole | where {$_.DisplayName -eq "Directory Synchronization Accounts"} | Get-AzureADDirectoryRoleMember`
 
 Pour supprimer des comptes de service AD Azure inutilisés, exécutez l’applet de commande Azure AD PowerShell suivante :`Remove-AzureADUser -ObjectId <ObjectId-of-the-account-you-wish-to-remove>`
+
+>[!NOTE]
+>Avant de pouvoir utiliser les commandes PowerShell ci-dessus, vous devrez installer le [Azure Active Directory PowerShell pour le module de graphique](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0#installing-the-azure-ad-module) et connectez-vous à votre instance d’Azure AD à l’aide [Connect-AzureAD](https://docs.microsoft.com/powershell/module/azuread/connect-azuread?view=azureadps-2.0)
+
+Pour plus d’informations sur la façon de gérer ou de réinitialiser le mot de passe pour le compte de connecteur Azure AD, consultez [gérer le compte Azure AD Connect](how-to-connect-azureadaccount.md)
 
 ## <a name="related-documentation"></a>documentation connexe
 Si vous n’avez pas lu la documentation sur [l’Intégration de vos identités locales à Azure Active Directory](whatis-hybrid-identity.md), le tableau suivant fournit des liens vers des rubriques connexes.

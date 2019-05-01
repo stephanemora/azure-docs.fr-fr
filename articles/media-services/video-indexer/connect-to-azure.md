@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 01/12/2019
 ms.author: juliako
-ms.openlocfilehash: affa6f9a808543401b7d57812c7d2bef4324a83c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.openlocfilehash: 08f2dac6317f294c3c7360cc00cf9aaa60c9a7ca
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59796543"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64715105"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Créer un compte Video Indexer connecté à Azure
 
@@ -103,7 +103,7 @@ En cas d’échec de la connexion à Azure, vous pouvez tenter de résoudre le p
 
 1. Utilisez le portail [Azure](https://portal.azure.com/) pour créer un compte Azure Media Services tel que décrit dans [Création d’un compte](../previous/media-services-portal-create-account.md).
 
-    Lorsque vous créez un compte de stockage pour votre compte Media Services, sélectionnez **StorageV2** en tant que type de compte et **Stockage géo-redondant (GRS)** dans le champ Réplication.
+    Lorsque vous créez un compte de stockage pour votre compte Media Services, sélectionnez **StorageV2** pour le type de compte et **géo-redondant (GRS)** pour les champs de la réplication.
 
     ![nouveau compte AMS](./media/create-account/create-ams-account1.png)
 

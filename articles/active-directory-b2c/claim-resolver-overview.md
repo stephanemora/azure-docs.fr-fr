@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 01/25/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 44ac4a5fd14d262fdbd1f6fcd36bb2351d08f754
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 1f4bb5deb0c30ba113f315c69393e92bddfe0d27
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60313832"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64703476"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>À propos des résolveurs de revendication dans les stratégies personnalisées d’Azure Active Directory B2C
 
@@ -65,14 +65,14 @@ Les sections suivantes répertorient les résolveurs de revendication disponible
 
 | Revendication | Description | Exemples |
 | ----- | ----------- | --------|
-| {OIDC:AuthenticationContextReferences} |Paramètre de chaîne de requête `acr_values`. | S.O. |
+| {OIDC:AuthenticationContextReferences} |Paramètre de chaîne de requête `acr_values`. | N/A |
 | {OIDC:ClientId} |Paramètre de chaîne de requête `client_id`. | 00000000-0000-0000-0000-000000000000 |
 | {OIDC:DomainHint} |Paramètre de chaîne de requête `domain_hint`. | facebook.com |
 | {OIDC:LoginHint} |  Paramètre de chaîne de requête `login_hint`. | someone@contoso.com |
-| {OIDC:MaxAge} | Le `max_age`. | S.O. |
+| {OIDC:MaxAge} | Le `max_age`. | N/A |
 | {OIDC:Nonce} |Paramètre de chaîne de requête `Nonce`. | defaultNonce |
 | {OIDC:Prompt} | Paramètre de chaîne de requête `prompt`. | se connecter |
-| {OIDC:Resource} |Paramètre de chaîne de requête `resource`. | S.O. |
+| {OIDC:Resource} |Paramètre de chaîne de requête `resource`. | N/A |
 | {OIDC:scope} |Paramètre de chaîne de requête `scope`. | openid |
 
 ### <a name="context"></a>Context
@@ -95,13 +95,13 @@ Tous les noms de paramètre inclus dans le cadre d’une requête OIDC ou OAuth2
 | {OAUTH-KV:campaignId} | Paramètre de chaîne de requête. | hawaii |
 | {OAUTH-KV:app_session} | Paramètre de chaîne de requête. | A3C5R |
 | {OAUTH-KV:loyalty_number} | Paramètre de chaîne de requête. | 1234 |
-| {OAUTH-KV : n’importe quelle chaîne de requête personnalisée} | Paramètre de chaîne de requête. | S.O. |
+| {OAUTH-KV : n’importe quelle chaîne de requête personnalisée} | Paramètre de chaîne de requête. | N/A |
 
 ### <a name="oauth2"></a>OAuth2
 
 | Revendication | Description | Exemples |
 | ----- | ----------------------- | --------|
-| {oauth2:access_token} | Jeton d’accès. | S.O. |
+| {oauth2:access_token} | Jeton d’accès. | N/A |
 
 ## <a name="how-to-use-claim-resolvers"></a>Comment utiliser des résolveurs de revendication
 

@@ -1,25 +1,18 @@
 ---
-title: Déployer une machine virtuelle Azure à partir d’un disque dur virtuel utilisateur | Microsoft Docs
+title: Déployer une machine virtuelle Azure à partir d’un disque dur virtuel de l’utilisateur | Place de marché Azure
 description: Explique comment déployer une image de disque dur virtuel utilisateur pour créer une instance de machine virtuelle Azure.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 11/29/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 0885b187c4b9e9636144a3ab2a94b941008bec20
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.author: pabutler
+ms.openlocfilehash: e4da523fa54a513fe77fda037aea0a5fd530250b
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59046733"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64938244"
 ---
 # <a name="deploy-an-azure-vm-from-a-user-vhd"></a>Déployer une machine virtuelle Azure à partir d’un disque dur virtuel utilisateur
 

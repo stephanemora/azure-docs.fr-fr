@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: d1ed16465efb6c70b4426f22e8b9983112142c79
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ce9c6a83d664bc9ad1798792f7762556c9a0d541
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162643"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64690286"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Forum Aux Questions (FAQ) sur Event Hubs
 
@@ -50,6 +50,47 @@ Le niveau Standard des hubs d’événements prend actuellement en charge une p�
 
 ### <a name="how-do-i-monitor-my-event-hubs"></a>Comment puis-je surveiller mes Event Hubs ?
 Event Hubs émet des métriques exhaustives qui fournissent l’état de vos ressources à [Azure Monitor](../azure-monitor/overview.md). Elles vous permettent également d’évaluer l’intégrité globale du service Event Hubs non seulement au niveau de l’espace de noms mais également au niveau de l’entité. En savoir plus sur la supervision proposée pour les [Azure Event Hubs](event-hubs-metrics-azure-monitor.md).
+
+### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>Quels ports dois-je ouvrir sur le pare-feu ? 
+Vous pouvez utiliser les protocoles suivants avec Azure Service Bus pour envoyer et recevoir des messages :
+
+- Advanced Message Queuing Protocol (AMQP)
+- HTTP
+- Apache Kafka
+
+Consultez le tableau suivant pour les ports de sortie que vous devez ouvrir pour utiliser ces protocoles pour communiquer avec Azure Event Hubs. 
+
+| Protocol | Ports | Détails | 
+| -------- | ----- | ------- | 
+| AMQP | 5671 et 5672 | Consultez [guide du protocole AMQP](../service-bus-messaging/service-bus-amqp-protocol-guide.md) | 
+| HTTP, HTTPS | 80, 443 |  |
+| Kafka | 9092 | Consultez [utiliser Event Hubs à partir d’applications de Kafka](event-hubs-for-kafka-ecosystem-overview.md)
+
+### <a name="what-ip-addresses-do-i-need-to-whitelist"></a>Quelles adresses IP dois-je à la liste verte ?
+Pour trouver les adresses IP appropriées à la liste verte pour vos connexions, procédez comme suit :
+
+1. À partir d’une invite de commandes, exécutez la commande suivante : 
+
+    ```
+    nslookup <YourNamespaceName>.servicebus.windows.net
+    ```
+2. Notez l’adresse IP renvoyée dans `Non-authoritative answer`. Cette adresse IP est statique. Le seul point dans le temps qu’il pourrait être modifié est que si vous restaurez l’espace de noms à un autre cluster.
+
+Si vous utilisez la redondance de zone pour votre espace de noms, vous devez effectuer quelques étapes supplémentaires : 
+
+1. Tout d’abord, vous exécutez nslookup sur l’espace de noms.
+
+    ```
+    nslookup <yournamespace>.servicebus.windows.net
+    ```
+2. Notez le nom dans la **réponse ne faisant pas autorité** section, qui est dans un des formats suivants : 
+
+    ```
+    <name>-s1.servicebus.windows.net
+    <name>-s2.servicebus.windows.net
+    <name>-s3.servicebus.windows.net
+    ```
+3. Exécutez nslookup pour chacun d’eux avec des suffixes s1, s2 et s3 pour obtenir les adresses IP de tous les trois instances en cours d’exécution dans trois zones de disponibilité 
 
 ## <a name="apache-kafka-integration"></a>Intégration d’Apache Kafka
 

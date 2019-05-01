@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 3/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 03871c3f3627e85cc2af2f05a5fba38bd8069a15
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f9663fb502d9eda4810c54a89a94481b7d00cd43
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61481106"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926062"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Comprendre les sorties d’Azure Stream Analytics
 Cet article décrit les types de sorties disponibles pour un travail Azure Stream Analytique. Les sorties permettent de stocker et d’enregistrer les résultats du travail Stream Analytics. En utilisant les données de sortie, vous pouvez faire encore plus analytique d’entreprise et d’entreposage de données de vos données.
@@ -182,7 +182,7 @@ Power BI utilise la stratégie de rétention premier entré, premier sorti (FIFO
 ### <a name="convert-a-data-type-from-stream-analytics-to-power-bi"></a>Convertir un type de données à partir de Stream Analytique pour Power BI
 Azure Stream Analytics met à jour le modèle de données dynamiquement lors de l’exécution si le schéma de sortie est modifié. L’intégralité des modifications de nom de colonne, modifications de type de colonne et ajouts ou suppressions de colonnes sont suivis.
 
-Ce tableau décrit les conversions de type de données à partir de [les types de données Analytique de Stream](https://msdn.microsoft.com/library/azure/dn835065.aspx) à Power BI [types du modèle EDM (Entity Data Model)](https://docs.microsoft.com/en-us/dotnet/framework/data/adonet/entity-data-model), si un jeu de données Power BI et une table n’existent pas.
+Ce tableau décrit les conversions de type de données à partir de [les types de données Analytique de Stream](https://msdn.microsoft.com/library/azure/dn835065.aspx) à Power BI [types du modèle EDM (Entity Data Model)](https://docs.microsoft.com/dotnet/framework/data/adonet/entity-data-model), si un jeu de données Power BI et une table n’existent pas.
 
 De Stream Analytics | Vers Power BI
 -----|-----

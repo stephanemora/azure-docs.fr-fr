@@ -1,5 +1,5 @@
 ---
-title: Meilleures pratiques lors de l’utilisation de l’API de détecteur d’anomalie
+title: Bonnes pratiques concernant l’utilisation de l’API Détecteur d’anomalies
 description: En savoir plus sur les meilleures pratiques lors de la détection des anomalies avec l’API de détecteur d’anomalies.
 services: cognitive-services
 author: aahill
@@ -9,12 +9,12 @@ ms.subservice: anomaly-detector
 ms.topic: article
 ms.date: 03/26/2019
 ms.author: aahi
-ms.openlocfilehash: 467ac4e475a1c23e25b62c76cfbc959e7ed49465
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 766d009be3cd664d928a3c12f5fea38c26bbbdde
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58484031"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64692199"
 ---
 # <a name="best-practices-for-using-the-anomaly-detector-api"></a>Meilleures pratiques pour l’utilisation de l’API de détecteur d’anomalie
 
@@ -25,6 +25,29 @@ L’API de détecteur d’anomalie est un service de détection d’anomalie san
 * Le nombre de points de données dans votre demande d’API. 
 
 Utilisez cet article pour en savoir plus sur les meilleures pratiques pour l’utilisation de l’API d’obtenir de meilleurs résultats pour vos données. 
+
+## <a name="when-to-use-batch-entire-or-latest-last-point-anomaly-detection"></a>Quand utiliser batch (entier) ou plus tard (dernier) pointe de détection des anomalies
+
+Point de terminaison de détection de l’API de détecteur d’anomalie batch vous permet de détecter les anomalies tout votre temps les données de série. Dans ce mode de détection, un modèle statistique unique est créé et appliqué à chaque point dans le jeu de données. Si votre série chronologique a les caractéristiques, ci-après, nous recommandons l’utilisation de la détection de lot pour afficher un aperçu de vos données dans un seul appel d’API.
+
+* Une série chronologique saisonnière, avec les anomalies occasionnelles.
+* Une série de temps stable, avec des pics occasionnels/adresses IP dynamiques. 
+
+Nous ne recommandons pas à l’aide de la détection d’anomalie de lot pour les données en temps réel, analyse, ou son utilisation sur les données de série chronologique n’ayant pas au-dessus de caractéristiques. 
+
+* Détection de traitement par lots crée et s’applique à un seul modèle, la détection pour chaque point est effectuée dans le cadre de la série entière. Si les tendances de données de série temps haut et bas sans saisonnalité, certains points de modifier (chutes et pics dans les données) peut-être être omis par le modèle. De même, certains des points de modification sont moins importantes que celles plus loin dans le jeu de données ne peuvent pas être comptabilisés comme assez importante pour être incorporé dans le modèle.
+
+* Détection de lot est plus lente que la détection de l’état des anomalies du dernier point lors de la surveillance des données en temps réel, en raison du nombre de points en cours d’analyse.
+
+Pour l’analyse de données en temps réel, nous vous recommandons de détection de l’état des anomalies de votre dernier point de données uniquement. En appliquant en permanence dernier point de détection, analyse des données de diffusion en continu peut être effectuée plus efficacement et précisément.
+
+L’exemple ci-dessous décrit l’impact de que ces modes de détection peuvent avoir sur les performances. La première image montre le résultat de détection en permanence le point d’état plus récente d’anomalies le long des points de données de vues précédemment 28. Les points rouges sont des anomalies.
+
+![Image illustrant la détection d’anomalie en utilisant le dernier point](../media/last.png)
+
+Voici le même jeu de données à l’aide de la détection d’anomalie de lot. Le modèle créé pour l’opération a ignoré plusieurs anomalies, accompagnées des rectangles.
+
+![Image illustrant la détection d’anomalie à l’aide de la méthode de traitement par lots](../media/entire.png)
 
 ## <a name="data-preparation"></a>Préparation des données
 
@@ -71,4 +94,4 @@ Si vos données de diffusion en continu sont échantillonnées à un court inter
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Qu’est l’API de détecteur d’anomalie ?](../overview.md)
-* [Démarrage rapide : Détecter les anomalies dans vos données de série chronologique à l’aide de l’API REST de détecteur d’anomalie](../quickstarts/detect-data-anomalies-csharp.md)
+* [Démarrage rapide : Détecter les anomalies dans vos données de série chronologique à l’aide de l’API REST de détecteur d’anomalie](../quickstarts/detect-data-anomalies-csharp.md)

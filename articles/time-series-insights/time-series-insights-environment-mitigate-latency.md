@@ -12,14 +12,15 @@ ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 11/27/2017
 ms.custom: seodec18
-ms.openlocfilehash: 3a42570b51811cfbdd4329f196b98d75c8cd53f7
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
-ms.translationtype: HT
+ms.openlocfilehash: 6b5cdf8aebdf584216afef9f1d1421eea8c4ba4e
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53556745"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64685144"
 ---
 # <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights"></a>Surveiller et réduire la limitation afin d'éviter la latence dans Azure Time Series Insights
+
 Lorsque la quantité de données entrantes dépasse la configuration de votre environnement, vous pouvez rencontrer une latence ou une limitation dans Azure Time Series Insights.
 
 Vous pouvez éviter la latence et la limitation en configurant correctement votre environnement pour la quantité de données que vous souhaitez analyser.
@@ -31,7 +32,7 @@ Vous êtes susceptible de rencontrer une latence et une limitation lorsque vous 
 - Envoyez de grandes quantités d’événements historiques à une source d’événements, ce qui entraîne un décalage (que Time Series Insights devra rattraper).
 - Joignez des données de référence avec la télémétrie, ce qui entraîne une plus grande taille d’événement.  En termes de limitation, un paquet de données entré avec une taille de paquet de 32 Ko est considéré comme 32 événements, faisant chacun 1 Ko. La taille maximale autorisée de l’événement est 32 Ko ; les paquets de données d’une taille supérieure à 32 Ko sont tronqués.
 
-## <a name="video"></a>Vidéo : 
+## <a name="video"></a>Vidéo
 
 ### <a name="in-this-video-we-cover-time-series-insights-data-ingress-behavior-and-how-to-plan-for-itbr"></a>Dans cette vidéo, nous traitons du comportement d’entrée de données Time Series Insights et comment le planifier.</br>
 
@@ -61,7 +62,6 @@ Les alertes peuvent vous aider à diagnostiquer et réduire les problèmes de la
 |**Retard des messages reçus en entrée**    |  Différence en secondes entre l’heure à laquelle le message est placé en file d’attente dans la source d’événement et l’heure à laquelle il est traité en entrée.      |
 |**Décalage de nombre des messages reçus en entrée**    |  Différence entre le numéro de séquence du dernier message placé en file d’attente dans la partition source de l’événement et le numéro de séquence du message traité en entrée.      |
 
-
 ![Latence](media/environment-mitigate-latency/latency.png)
 
 Si vous êtes limité, une valeur s’affichera pour la mesure *Retard des messages reçus en entrée*, vous informant du décalage en secondes entre le TSI et l’horodatage réel de l’arrivée du message dans la source d’événement (sans tenir compte du délai d’indexation d’environ 30 à 60 secondes).  Le champ *Décalage de nombre des messages reçus en entrée* doit également comporter une valeur, vous octroyant une visibilité sur le nombre de messages de retard que vous accusez.  Le moyen le plus simple de rattraper le retard est d’augmenter la capacité de votre environnement à une taille qui vous permettra de combler la différence.  
@@ -74,11 +74,14 @@ Par exemple, si vous avez trois unités S1 configurées (ou 2 100 événements d
 
 En outre, si vous pensez que vous êtes limité, vous pouvez comparer vos **messages reçus en entrée** avec les messages de sortie de votre source d’événement.  Si l’entrée dans votre Event Hub est supérieure à vos **messages reçus en entrée**, vos informations Time Series Insights sont probablement limitées.
 
-## <a name="improving-performance"></a>Améliorer les performances 
+## <a name="improving-performance"></a>Améliorer les performances
+
 La meilleure façon de réduire la limitation ou la latence est de d’augmenter la capacité de votre environnement. 
 
 Vous pouvez éviter la latence et la limitation en configurant correctement votre environnement pour la quantité de données que vous souhaitez analyser. Pour plus d’informations sur comment augmenter la capacité de votre environnement, consultez l’article [Mettre à l’échelle votre environnement](time-series-insights-how-to-scale-your-environment.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 - Pour obtenir des étapes de dépannage supplémentaires, consultez l’article [Diagnostiquer et résoudre les problèmes dans votre environnement Time Series Insights](time-series-insights-diagnose-and-solve-problems.md).
+
 - Pour obtenir une assistance supplémentaire, démarrez une conversation sur le [Forum MSDN](https://social.msdn.microsoft.com/Forums/home?forum=AzureTimeSeriesInsights) ou sur [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-timeseries-insights). Vous pouvez également contacter le [Support Azure](https://azure.microsoft.com/support/options/) pour les options de support assisté.

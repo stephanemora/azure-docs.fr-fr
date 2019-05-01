@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2018
+ms.date: 04/29/2019
 ms.author: rkarlin
-ms.openlocfilehash: 9b63fb963408b8f22453c7ea78e36a49402273a7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: e2bcd92ffc8799b2edf04251b6ce160e96c7609c
+ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60906045"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64875605"
 ---
 # <a name="customize-the-sql-information-protection-policy-in-azure-security-center-preview"></a>Personnaliser la stratégie de protection des informations SQL dans Azure Security Center (préversion)
  
@@ -41,12 +41,11 @@ La protection des informations est fournie avec un ensemble intégré d’étiqu
 ## <a name="customize-the-information-protection-policy"></a>Personnaliser la politique de protection des informations
 Pour personnaliser la stratégie de protection des informations pour votre locataire Azure, vous devez disposer [des privilèges d’administrateur sur le groupe d’administration racine du locataire](security-center-management-groups.md). 
  
-1. Dans le menu principal de Security Center, sélectionnez **Stratégie de sécurité**.
-2. Choisissez **Vue hiérarchique (préversion)**, puis sous **Groupe racine du locataire**, cliquez sur **Modifier les paramètres**.
- 
+1. Dans le Security Center sous menu principal, **ressources sécurité hygiène** accédez à **stockage et données** , puis cliquez sur le **SQL Information Protection** bouton.
+
    ![Configurer la politique de protection des informations](./media/security-center-info-protection-policy/security-policy.png) 
  
-3. Sous **Composants de la stratégie**, cliquez sur **Protection des informations**. Sur la page **Paramètres de protection des informations**, vous pouvez afficher votre jeu d’étiquettes actuel. Il s’agit des principaux attributs de classification utilisés pour classer le niveau de sensibilité de vos données. À ce stade, vous pouvez configurer les **étiquettes de protection des informations** et les **types d’informations** du locataire. 
+2. Dans le **SQL Information Protection** page, vous pouvez afficher votre jeu actuel d’étiquettes. Il s’agit des principaux attributs de classification utilisés pour classer le niveau de sensibilité de vos données. À ce stade, vous pouvez configurer les **étiquettes de protection des informations** et les **types d’informations** du locataire. 
  
 ### <a name="customizing-labels"></a>Personnalisation des étiquettes
  

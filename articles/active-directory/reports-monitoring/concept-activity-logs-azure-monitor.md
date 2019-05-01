@@ -17,12 +17,12 @@ ms.date: 04/22/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 894c42e4102a3565ff43798d33afb4046fda76bd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 4b924746c00a438ec4ac81dacc02905565adf30e
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60286686"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64682111"
 ---
 # <a name="azure-ad-activity-logs-in-azure-monitor"></a>Journaux d’activité de AD Azure dans Azure Monitor
 
@@ -72,14 +72,24 @@ Si vous avez déjà une licence Azure AD, vous avez besoin d’un abonnement Azu
 
 Chaque événement du journal d’audit utilise environ 2 Ko de stockage de données. Par conséquent, pour un locataire possédant 100 000 utilisateurs, et qui impliquerait environ 1,5 million d’événements par jour, vous auriez besoin d’environ 3 Go de stockage de données par jour. Dans la mesure où les écritures sont réalisées par lots de cinq minutes environ, vous pouvez anticiper environ 9000 opérations d’écriture par mois. 
 
-Le tableau suivant contient une estimation des coûts, selon la taille du locataire. Ces coûts sont calculés pour un compte de stockage à usage général v2 dans la région USA Ouest, pendant au moins un an de rétention. Utilisez la [Calculatrice de prix de stockage Azure](https://azure.microsoft.com/pricing/details/storage/blobs/) pour obtenir une estimation plus précise du volume de données que vous prévoyez pour votre application. Le tableau inclut uniquement le coût de traitement ou de stockage et pas le coût de l’abonnement. 
+
+Le tableau suivant contient une estimation des coûts, selon la taille du locataire. Ces coûts sont calculés pour un compte de stockage à usage général v2 dans la région USA Ouest, pendant au moins un an de rétention. Utilisez la [Calculatrice de prix de stockage Azure](https://azure.microsoft.com/pricing/details/storage/blobs/) pour obtenir une estimation plus précise du volume de données que vous prévoyez pour votre application.
 
 
-| Catégorie de journal       | Nombre d’utilisateurs | Événements par jour | Événements par mois (30 jours) | Coût par mois en dollars américains (est). |
-| ---                | ---             | ---            | ---                        | ---                          | 
-| Audit et connexions | 100 000         | 16,500,000     | 495,000,000                | $1093                        |
-| Audit              | 100 000         | 1,500,000      | 45 000 000                 | $246.66                      |
-| Connexions           | 100 000         | 15 000 000     | 450,000,000                | $847.28                      |
+| Catégorie de journal | Nombre d’utilisateurs | Événements par jour | Volume de données par mois (estimation) | Coût par mois (estimation) | Coût par an (estimation) |
+|--------------|-----------------|----------------------|--------------------------------------|----------------------------|---------------------------|
+| Audit | 100 000 | 1,5&nbsp;million | 90 Go | 1,93 $ | 23,12 $ |
+| Audit | 1 000 | 15 000 | 900 Mo | 0,02 $ | 0,24 $ |
+| Connexions | 1 000 | 34800 | 4 Go | 0,13 $ | 1,56 $ |
+| Connexions | 100 000 | 15&nbsp;millions | 1,7 To | 35,41 $ | 424,92 $ |
+ 
+
+
+
+
+
+
+
 
 
 ### <a name="event-hub-messages-for-activity-logs"></a>Messages Event Hub pour les journaux d’activité

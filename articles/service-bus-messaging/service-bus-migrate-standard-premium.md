@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: aschhab
-ms.openlocfilehash: d2aa018566695b5b94cd8a7e64931a8b776b151d
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.openlocfilehash: 65f89e234317c5a17e4443e767528fb9be9a8b72
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63766298"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64687078"
 ---
 # <a name="migrate-existing-azure-service-bus-standard-namespaces-to-the-premium-tier"></a>Migrer les espaces de noms standards existants Azure Service Bus vers le niveau premium
 Précédemment, Azure Service Bus proposé des espaces de noms uniquement sur le niveau standard. Espaces de noms sont des configurations d’architecture mutualisées qui sont optimisées pour les environnements de développement et de faible débit. Le niveau premium offre des ressources dédiées par espace de noms pour la latence prévisible et un débit plus élevé à prix fixe. Le niveau premium est optimisé pour un débit élevé et les environnements de production qui nécessitent les fonctionnalités d’entreprise supplémentaires.
@@ -62,7 +62,7 @@ Pour migrer votre espace de noms Service Bus standard vers premium à l’aide d
    ```
 
     >[!IMPORTANT]
-    > Le nom de la post-migration (post_migration_dns_name) sera utilisé pour accéder à l’espace de noms standard ancien après la migration. Utilisez-le pour vider les files d’attente et les abonnements et supprimez l’espace de noms.
+    > Après la migration/nom d’alias (post_migration_dns_name) sera utilisé pour accéder à l’espace de noms standard ancien après la migration. Utilisez-le pour vider les files d’attente et les abonnements et supprimez l’espace de noms.
 
 1. Associer les espaces de noms standard et premium et démarrez la synchronisation à l’aide de la commande suivante :
 

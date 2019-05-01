@@ -3,19 +3,19 @@ title: ClaimsSchema  - Azure Active Directory B2C | Microsoft Docs
 description: Spécifiez l’élément ClaimsSchema d’une stratégie personnalisée dans Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 5d7036f2c7301223b27c80402dace8e9ea05b7f1
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 81df3532ee466f32ee42f0010de9aa74dbeb6d85
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58487819"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64721751"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
@@ -65,7 +65,7 @@ PredicateValidationReference| 0:1 | Référence à un élément **PredicateValid
 
 | Élément | Occurrences | Description |
 | ------- | ----------- | ----------- |
-| Protocole | 0:n | Liste de protocoles avec leur nom de type de revendication de partenaire par défaut. |
+| Protocol | 0:n | Liste de protocoles avec leur nom de type de revendication de partenaire par défaut. |
 
 L’élément **Protocol** contient les attributs suivants :
 
@@ -161,7 +161,7 @@ L’élément **Enumeration** contient les attributs suivants :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| Texte | Oui | Chaîne d’affichage présentée à l’utilisateur dans l’interface utilisateur pour cette option. |
+| Text | Oui | Chaîne d’affichage présentée à l’utilisateur dans l’interface utilisateur pour cette option. |
 |Valeur | Oui | Valeur de revendication associée à la sélection de cette option. |
 | SelectByDefault | Non  | Indique si cette option doit être sélectionnée par défaut dans l’interface utilisateur. Valeurs possibles : True ou False. |
 

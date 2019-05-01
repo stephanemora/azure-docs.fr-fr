@@ -12,21 +12,21 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: bwren
-ms.openlocfilehash: c4950d03449f2b293a87ab88f1ea3f49eee29557
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: 1496bf21ed1a81eedb44ca9cc9db777632e2a5cd
+ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62102014"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64876006"
 ---
 # <a name="oms-portal-moving-to-azure"></a>Migration du portail OMS vers Azure
 
 > [!NOTE]
 > Sauf indication contraire, cet article s’applique au cloud du secteur public et au cloud public Azure.
 
-Le portail Azure est le hub de tous les services Azure qui propose une expérience de gestion complète avec des fonctionnalités telles que des tableaux de bord pour épingler les ressources, la recherche intelligente pour rechercher des ressources et le balisage pour gérer les ressources. Pour consolider et rationaliser le flux de travail de monitoring et de gestion, nous avons commencé à ajouter les fonctionnalités du portail OMS dans le portail Azure. Toutes les fonctionnalités du portail OMS font désormais partie du portail Azure. En fait, certaines des nouvelles fonctionnalités, comme Traffic Analytics, ne sont disponibles que sur le Portail Azure. Vous pouvez faire tout ce que vous faisiez dans le portail OMS avec le portail Azure, et bien plus encore. Si ce n’est déjà fait, vous devriez commencer à utiliser le portail Azure dès aujourd’hui !
+**Le portail OMS pour le cloud public Azure a été retiré officiellement. Le portail OMS pour le cloud Azure Azure US Government sera retiré officiellement sur le 15 mai 2019.** Nous sommes heureux de migrer vers le portail Azure et pensons que la transition sera facile. Mais nous comprenons que les changements sont difficiles et peuvent entraîner des perturbations. Envoyer des questions, commentaires ou les problèmes à **LAUpgradeFeedback\@microsoft.com**. Le reste de cet article passe en revue les scénarios clés et la feuille de route pour cette transition.
 
-**Le portail OMS sera officiellement mis hors service le 15 janvier 2019** pour le cloud commercial Azure et pour le cloud Azure US Government, le portail OMS **sera officiellement mis hors service le 30 mars 2019.** Nous sommes heureux de migrer vers le portail Azure et pensons que la transition sera facile. Mais nous comprenons que les changements sont difficiles et peuvent entraîner des perturbations. Envoyer des questions, commentaires ou les problèmes à **LAUpgradeFeedback\@microsoft.com**. Le reste de cet article passe en revue les scénarios clés et la feuille de route pour cette transition.
+Le portail Azure est le hub de tous les services Azure qui propose une expérience de gestion complète avec des fonctionnalités telles que des tableaux de bord pour épingler les ressources, la recherche intelligente pour rechercher des ressources et le balisage pour gérer les ressources. Pour consolider et rationaliser le flux de travail de monitoring et de gestion, nous avons commencé à ajouter les fonctionnalités du portail OMS dans le portail Azure. Toutes les fonctionnalités du portail OMS font désormais partie du portail Azure. En fait, certaines des nouvelles fonctionnalités, comme Traffic Analytics, ne sont disponibles que sur le Portail Azure. Vous pouvez faire tout ce que vous faisiez dans le portail OMS avec le portail Azure, et bien plus encore. Si ce n’est déjà fait, vous devriez commencer à utiliser le portail Azure dès aujourd’hui !
 
 ## <a name="what-is-changing"></a>Qu’est-ce qui change ? 
 Les modifications suivantes sont annoncées avec l’abandon du portail OMS. Chacun de ces changements est décrit en détail dans les sections ci-dessous.
@@ -76,10 +76,7 @@ Vous ne pouvez plus créer d’espaces de travail à l’aide du portail OMS. Po
 
 ### <a name="alert-extension"></a>Extension d’alerte  
 
-> [!NOTE]
-> Les alertes ont été entièrement étendues au Portail Azure pour le cloud public. Les règles d’alerte existantes sont consultables sur le portail OMS, mais ne peuvent être gérées que sur le Portail Azure. L’extension des alertes dans le portail Azure pour le cloud du secteur public Azure débute en février 2019.
-
-Les alertes ont été [étendues au Portail Azure](alerts-extend.md). Une fois cette opération terminée, les actions de gestion des alertes seront disponibles uniquement dans le portail Azure. Les alertes existantes continueront à être répertoriées dans le portail OMS. Si vous accédez aux alertes par programme à l’aide de l’API REST Log Analytics Alert ou du modèle Log Analytics Alert Resource, vous devrez utiliser des groupes d’actions à la place des actions dans vos appels d’API, modèles Azure Resource Manager et commandes PowerShell.
+Alertes ont été [étendu dans le portail Azure](alerts-extend.md) les alertes existantes continueront à être répertoriées dans le portail OMS, mais vous pouvez uniquement gérer dans le portail Azure. Si vous accédez aux alertes par programme à l’aide de l’API REST Log Analytics Alert ou du modèle Log Analytics Alert Resource, vous devrez utiliser des groupes d’actions à la place des actions dans vos appels d’API, modèles Azure Resource Manager et commandes PowerShell.
 
 ### <a name="alert-management-solution"></a>solution de gestion des alertes
 Contrairement à ce qui avait été annoncé précédemment, la [solution de gestion des alertes](alert-management-solution.md) restera disponible et entièrement prise en charge dans le portail Azure. Vous pouvez continuer d'installer la solution depuis Place de marché Azure.

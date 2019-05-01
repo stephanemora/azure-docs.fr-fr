@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: 424476b91537c60a6d7f0f9a854453353bf98633
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
-ms.translationtype: HT
+ms.openlocfilehash: 55b19a6cf71730858fcf42880f71a2c9c07a3b31
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53557017"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64683976"
 ---
 # <a name="send-events-to-a-time-series-insights-environment-by-using-an-event-hub"></a>Envoyer des événements à un environnement Time Series Insights à l'aide d'un hub d'événements
 
@@ -104,7 +104,7 @@ Un objet JSON simple :
 
 #### <a name="output-one-event"></a>Sortie : Un événement
 
-|id| timestamp|
+|id|timestamp|
 |--------|---------------|
 |device1|2016-01-08T01:08:00Z|
 
@@ -129,7 +129,7 @@ Un tableau JSON avec deux objets JSON. Chaque objet JSON est converti en événe
 
 #### <a name="output-two-events"></a>Sortie : Deux événements
 
-|id| timestamp|
+|id|timestamp|
 |--------|---------------|
 |device1|2016-01-08T01:08:00Z|
 |device2|2016-01-08T01:17:00Z|
@@ -210,8 +210,7 @@ Objet JSON avec tableau JSON imbriqué contenant deux objets JSON. Cette entrée
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-> [!div class="nextstepaction"]
-> [Afficher votre environnement dans l'explorateur Time Series Insights](https://insights.timeseries.azure.com)
+- [Affichez votre environnement](https://insights.timeseries.azure.com) dans l’Explorateur Time Series Insights.
 
 <!-- Images -->
 [1]: media/send-events/updated.png

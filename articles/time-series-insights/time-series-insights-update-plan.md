@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: 251e95744f57d9b5e42df9bdc3743f4880ff5381
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0472f53d11ec4c990fcf6face633444fe66ba937
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58076994"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64702342"
 ---
 # <a name="plan-your-azure-time-series-insights-preview-environment"></a>Planifier votre environnement Azure Time Series Insights (préversion)
 
@@ -90,9 +90,7 @@ Time Series Insights est un service à haute disponibilité qui utilise des redo
 Pour plus d’informations sur les fonctionnalités intégrées Azure permettant la continuité d’activité et la récupération d’urgence, consultez l’article [Guide technique de la résilience Azure](https://docs.microsoft.com/azure/resiliency/resiliency-technical-guidance). Pour bénéficier de recommandations d’architecture concernant les stratégies permettant de mettre en place la haute disponibilité et la récupération d’urgence dans les applications Azure, consultez le document [Récupération d’urgence et haute disponibilité pour les applications Azure](https://docs.microsoft.com/azure/architecture/resiliency/index).
 
 > [!NOTE]
-> 
->  Time Series Insights ne comporte pas de fonctionnalités intégrées de continuité d’activité et reprise d’activité.
-> Par défaut, Stockage Azure, Azure IoT Hub et Azure Event Hubs disposent de ces fonctionnalités.
+> Time Series Insights ne comporte pas de fonctionnalités intégrées de continuité d’activité et reprise d’activité. Par défaut, Stockage Azure, Azure IoT Hub et Azure Event Hubs disposent de ces fonctionnalités.
 
 Pour plus d’informations, consultez :
 
@@ -115,7 +113,6 @@ Suivez ces étapes pour créer et utiliser un environnement Time Series Insights
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations, consultez :
+- En savoir plus sur [entrée et stockage](./time-series-insights-update-storage-ingress.md) dans le temps série Insights Preview.
 
-- [Azure Time Series Insights (préversion) - Stockage et entrée](./time-series-insights-update-storage-ingress.md)
-- [Modélisation des données](./time-series-insights-update-tsm.md)
+- En savoir plus sur [modélisation des données](./time-series-insights-update-tsm.md) dans le temps série Insights Preview.

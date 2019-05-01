@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2019
-ms.openlocfilehash: 307636b019b53c8457c65261824adbf8e52ca0a9
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 5c4fa2260b00043e016748010528926b1b9d74a3
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57875513"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64726541"
 ---
 # <a name="getting-started-with-the-r-programming-language-in-azure-machine-learning-studio"></a>Mise en route avec le langage dans Azure Machine Learning Studio de programmation R
 
@@ -1320,7 +1320,7 @@ Il existe de nombreux livres sur le langage R qui peuvent vous aider à vous lan
 * Le **Art of R Programming : Un Tour of Statistical Software Design** par Norman Matloff est une excellente introduction à la programmation en R.  
 * **R Cookbook** de Paul Teetor propose une approche problème et la solution à l’aide de R.  
 * **R en Action** par Robert Kabacoff est un autre ouvrage introductif utile. Le Compagnon [site Web rapide R](https://www.statmethods.net/) est une ressource utile.
-* **R Inferno** par Patrick Burns est un ton étonnamment humoristique ouvrage qui aborde sur un nombre de rubriques compliquées et difficiles qui peuvent être rencontrés lors de la programmation en R. Le livre est disponible gratuitement à [le R Inferno](http://www.burns-stat.com/documents/books/the-r-inferno/).
+* **R Inferno** par Patrick Burns est un ton étonnamment humoristique ouvrage qui aborde sur un nombre de rubriques compliquées et difficiles qui peuvent être rencontrés lors de la programmation en R. Le livre est disponible gratuitement à [le R Inferno](https://www.burns-stat.com/documents/books/the-r-inferno/).
 * Si vous souhaitez une présentation approfondie des rubriques avancées dans R, jetez un œil au livre **R avancés** par Hadley Wickham. La version en ligne de ce livre est disponible gratuitement à [ http://adv-r.had.co.nz/ ](http://adv-r.had.co.nz/).
 
 Vous trouverez un catalogue de packages R dans [CRAN affichage de la tâche : Heure d’analyse de série](https://cran.r-project.org/web/views/TimeSeries.html). Pour plus d’informations sur les packages d’objets chronologiques spécifiques, reportez-vous à la documentation de ce package.

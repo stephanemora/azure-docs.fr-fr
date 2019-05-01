@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 02/08/2019
-ms.openlocfilehash: a067d83c32f11e0bf091b0efc5528995ab6a021a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.date: 04/26/2019
+ms.openlocfilehash: cae806953721f3cedead023f013c7d1d585efeb6
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60341640"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64573386"
 ---
 # <a name="azure-sql-database-glossary-of-terms"></a>Lexique Azure SQL Database
 
@@ -39,6 +39,7 @@ Objets de base de données|Base de données SQL Azure|Toute base de données dan
 ||Base de données à usage général|Base de données créée au niveau de service Usage général du modèle d’achat vCore ou déplacée vers ce niveau|
 ||Base de données Hyperscale|Base de données créée au niveau de service Hyperscale du modèle d’achat vCore ou déplacée vers ce niveau|
 ||Base de données critique pour l’entreprise|Base de données créée au niveau de service Critique pour l’entreprise du modèle d’achat vCore ou déplacée vers ce niveau|
+||Base de données configuré|Une base de données configurée dans le niveau calcul provisionné|
 |[Modèles et ressources d’achat](sql-database-purchase-models.md)|Modèle d’achat DTU|[Modèle d’achat DTU](sql-database-service-tiers-dtu.md)|
 ||Modèle d’achat vCore|[Modèle d’achat vCore](sql-database-service-tiers-vcore.md)|
 ||vCore|Cœur fourni pour le système d’exploitation invité par l’hyperviseur|

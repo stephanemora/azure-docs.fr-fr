@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.reviewer: sdash
 ms.author: lagayhar
-ms.openlocfilehash: 9f48303396d1ecd03fdffd2c6ab1e0c122615a21
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: fe8549027bb7fcf9fcfc2db26816c0b6646c9da6
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60701541"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64916379"
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>Analyse de la disponibilité et de la réactivité d'un site Web
 Après avoir déployé votre application web ou votre site web sur un serveur, vous pouvez configurer des tests pour surveiller sa disponibilité et sa réactivité. [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) envoie des requêtes web à votre application à intervalles réguliers à partir de différents points du monde, et vous alerte si votre application réagit lentement ou pas du tout.
@@ -67,7 +67,7 @@ Ouvrez le panneau de disponibilité et ajoutez un test.
 
     **Réponse HTTP** : le code d’état retourné est comptabilisé comme un succès. 200 est le code qui indique qu’une page web normale a été retournée.
 
-    **Correspondance de contenu**: une chaîne telle que « Bienvenue ! Nous vérifions qu’une correspondance exacte respectant la casse est présente dans chaque réponse. Il doit s'agir d'une chaîne standard sans caractère générique. N'oubliez pas que si votre contenu change, vous devrez peut-être l'actualiser.
+    **Correspondance de contenu**: une chaîne telle que « Bienvenue ! Nous vérifions qu’une correspondance exacte respectant la casse est présente dans chaque réponse. Il doit s'agir d'une chaîne standard sans caractère générique. N'oubliez pas que si votre contenu change, vous devrez peut-être l'actualiser. **Seuls les caractères anglais sont actuellement pris en charge avec correspondance de contenu.** 
 
 * **Seuil d’emplacement de l’alerte** : nous recommandons un minimum de 3 à 5 emplacements. La relation optimale entre le seuil d’emplacement de l’alerte et le nombre d’emplacements de test est **seuil d’emplacement de l’alerte** = **nombre d’emplacements de test** - 2, avec un minimum de cinq emplacements de test.
 
@@ -92,7 +92,7 @@ Utilisez Visual Studio Enterprise pour enregistrer une session web.
 
     ![Dans Visual Studio édition Enterprise, créez un projet à partir du modèle Projet de test de performance Web et de charge.](./media/monitor-web-app-availability/appinsights-71webtest-multi-vs-create.png)
 
-   * *Le modèle Projet de test de performance Web et de charge ne s’affiche pas ?* - Fermez Visual Studio Enterprise. Ouvrez **le programme d’installation de Visual Studio** pour modifier votre installation de Visual Studio Enterprise. Sous **Composants individuels**, sélectionnez **Web Performance and load testing tools** (Outils de test de performance Web et de charge).
+ * *Le modèle Projet de test de performance Web et de charge ne s’affiche pas ?* - Fermez Visual Studio Enterprise. Ouvrez **le programme d’installation de Visual Studio** pour modifier votre installation de Visual Studio Enterprise. Sous **Composants individuels**, sélectionnez **Web Performance and load testing tools** (Outils de test de performance Web et de charge).
 
 2. Ouvrez le fichier .webtest et lancez l'enregistrement.
 
@@ -273,6 +273,9 @@ Si votre test doit se connecter à l’aide d’OAuth, l’approche générale e
   (Visual Studio tente de paramétrer le test, mais ne paramètre pas correctement les jetons.)
 
 ## <a name="performance-tests"></a>Tests de performance
+> [!NOTE]  
+> La service de test de charge basé sur le cloud est déconseillée. Vous pouvez trouver plus d’informations sur la dépréciation, la disponibilité du service et autres services [ici](https://docs.microsoft.com/en-us/azure/devops/test/load-test/overview?view=azure-devops).
+
 Vous pouvez effectuer un test de charge sur votre site web. Comme pour le test de disponibilité, vous pouvez envoyer des requêtes uniques ou des requêtes à plusieurs étapes à partir de nos points de présence dans le monde. Contrairement à un test de disponibilité, de nombreuses demandes sont envoyées, afin de simuler la présence de plusieurs utilisateurs simultanés.
 
 Sous **Configurer**, accédez à **Tests de performances**, puis cliquez sur Nouveau pour créer un test.

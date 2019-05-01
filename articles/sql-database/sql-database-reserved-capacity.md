@@ -9,19 +9,20 @@ ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: sstein
+ms.reviewer: sstein, carlrab
 manager: craigg
-ms.date: 02/08/2019
-ms.openlocfilehash: ec9bd3ee106571484c513c2d005a374a90c1d17e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 04/26/2019
+ms.openlocfilehash: 74a52df4eab8a3e471e541889cde74846af00fb8
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59359720"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64574188"
 ---
 # <a name="prepay-for-sql-database-compute-resources-with-azure-sql-database-reserved-capacity"></a>Prépayer des ressources de calcul SQL Database avec une capacité réservée Azure SQL Database
 
 Faites des économies avec Azure SQL Database en utilisant le prépaiement de ressources de calcul au lieu d’appliquer le tarif du paiement à l’utilisation. Avec une capacité réservée Azure SQL Database, vous prenez un engagement initial dans SQL Database, sur une période d’un an ou de trois ans, afin de bénéficier de remises importantes sur les coûts de calcul. Pour acheter une capacité réservée SQL Database, vous devez spécifier la région Azure, le type de déploiement, le niveau de performance et le terme.
+
 
 Vous n'êtes pas tenu d'affecter la réservation à des instances SQL Database spécifiques (bases de données uniques, pools élastiques ou instances gérées). Les instances SQL Database correspondantes, qui sont déjà en cours d’exécution ou récemment déployées, bénéficient automatiquement de cet avantage. En achetant une réservation, vous payez d’avance les coûts de calcul pendant une durée d’un an ou de trois ans. Dès que vous achetez une réservation, les frais de calcul SQL Database qui correspondent aux attributs de la réservation ne sont plus facturés au tarif du paiement à l’utilisation. Une réservation ne couvre pas les frais de logiciels, ni ceux de réseau ou de stockage qui sont associés à l’instance SQL Database. À l’issue de la période de réservation, la remise sur facturation cesse de s’appliquer et les bases de données SQL sont facturées au tarif du paiement à l’utilisation. Les réservations ne se renouvellent pas automatiquement. Pour plus d’informations sur les tarifs, consultez l’[offre de capacité réservée SQL Database](https://azure.microsoft.com/pricing/details/sql-database/managed/).
 

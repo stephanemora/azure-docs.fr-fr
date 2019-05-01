@@ -1,25 +1,18 @@
 ---
-title: Guide pratique pour remplir le formulaire Détails de la vitrine | Microsoft Docs
+title: Guide pratique pour remplir le formulaire Détails de la vitrine
 description: Décrit les valeurs du formulaire Détails de la vitrine pour une nouvelle application Dynamics 365 Business Central.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/17/2018
-ms.author: pbutlerm
-ms.openlocfilehash: f69a7f9ca94c0a83098300f01e9413b342bd4ae8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: a22a2ebe870280ddcdf18c037141b92894742400
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60397939"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64935021"
 ---
 <a name="how-to-fill-out-the-storefront-details-form"></a>Guide pratique pour remplir le formulaire Détails de la vitrine
 ===========================================
@@ -57,9 +50,9 @@ Vous devez proposer un lien d’aide actif qui oriente les clients vers une aide
 
 ### <a name="supported-countriesregions"></a>Pays/régions pris en charge
 
-Ce champ détermine les pays/régions dans lesquels votre offre pourra être essayée. Vous pouvez choisir uniquement des pays où Microsoft Dynamics 365 Business Central est déjà disponible ou en préversion. Pour obtenir la liste actuelle, consultez [Pays et traductions pris en charge](https://docs.microsoft.com/dynamics-nav/compliance/apptest-countries-and-translations).
+Ce champ détermine les pays/régions dans lesquels votre offre pourra être essayée. Vous pouvez uniquement choisir des pays/régions où Microsoft Dynamics 365 Business Central est déjà disponible ou disponible en version préliminaire. Pour obtenir la liste, consultez [traductions prises en charge et pays/régions](https://docs.microsoft.com/dynamics-nav/compliance/apptest-countries-and-translations).
 
-![Sélectionnez des pays et des traductions pris en charge](./media/d365-financials/image008.png)
+![Sélectionnez le pays/régions et les traductions pris en charge](./media/d365-financials/image008.png)
 
 
 ### <a name="supported-languages"></a>Langues prises en charge

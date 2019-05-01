@@ -5,20 +5,20 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 08/09/2018
+ms.date: 04/26/2019
 ms.author: iainfou
-ms.openlocfilehash: db92526bd02ba55be5df7ce6999e3099e72b8fa5
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: c23c13969fd4e2814fdc1894a98a3f876da7315b
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62116772"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64574292"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service"></a>Intégrer Azure Active Directory dans Azure Kubernetes Service
 
 Azure Kubernetes Service (AKS) peut être configuré pour utiliser Azure Active Directory (AD) pour l’authentification utilisateur. Dans cette configuration, connectez-vous à un cluster AKS à l’aide de votre jeton d’authentification Azure Active Directory. En outre, les administrateurs de cluster sont en mesure de configurer le contrôle d’accès en fonction du rôle Kubernetes (RBAC) selon l’appartenance au groupe d’un utilisateur identité ou un répertoire.
 
-Cet article vous montre comment déployer les conditions préalables pour AKS et Azure AD, puis comment déployer un cluster AD activé Azure et créer un rôle RBAC de base dans le cluster AKS.
+Cet article vous montre comment déployer les conditions préalables pour AKS et Azure AD, puis comment déployer un cluster AD activé Azure et créer un rôle RBAC de base dans le cluster AKS à l’aide du portail Azure. Vous pouvez également [terminer ces étapes à l’aide de l’interface CLI][azure-ad-cli].
 
 Les limites suivantes s'appliquent :
 
@@ -46,7 +46,7 @@ La première application Azure AD permet d’obtenir l’appartenance à un grou
 
 2. Sélectionnez **Manifeste** et définissez la valeur `groupMembershipClaims` sur `"All"`.
 
-   Enregistrez les mises à jour lorsque vous avez terminé.
+   **Enregistrer** les mises à jour une fois celle-ci terminée.
 
    ![Mettre à jour l’appartenance à un groupe pour l’appliquer à tous](media/aad-integration/edit-manifest.png)
 
@@ -64,11 +64,11 @@ La première application Azure AD permet d’obtenir l’appartenance à un grou
 
    ![Définir des autorisations d’application pour Microsoft Graph](media/aad-integration/read-directory.png)
 
-6. Sous **AUTORISATIONS DÉLÉGUÉES**, cochez la case en regard de **Se connecter et lire le profil utilisateur** et **Lire les données de l’annuaire**. Enregistrez les mises à jour lorsque vous avez terminé.
+6. Sous **AUTORISATIONS DÉLÉGUÉES**, cochez la case en regard de **Se connecter et lire le profil utilisateur** et **Lire les données de l’annuaire**. Choisissez **sélectionnez** pour enregistrer les mises à jour.
 
    ![Définir des autorisations d’application pour Microsoft Graph](media/aad-integration/delegated-permissions.png)
 
-   Sélectionnez **Terminé**.
+   Ensuite, sélectionnez **fait**.
 
 7. Choisissez *Microsoft Graph* dans la liste des API, puis sélectionnez **Accorder des autorisations**. Cette étape échouera si le compte actuel n’est pas un administrateur de locataire.
 
@@ -96,11 +96,13 @@ La deuxième application Azure AD est utilisée lors de la connexion avec la CLI
 
    ![Configurer des autorisations de l’application](media/aad-integration/select-api.png)
 
-3. Cochez la case en regard de l’application et cliquez sur **Sélectionner**.
+    Sélectionnez votre application serveur, puis choisissez **sélectionnez**.
+
+3. Sur le *ajouter un accès API* fenêtre, choisissez **sélectionner les autorisations**. Une coche sous, veuillez le *autorisations déléguées* pour accéder à votre application, puis choisissez **sélectionnez**.
 
    ![Sélectionnez le point de terminaison de l’application serveur AKS AAD](media/aad-integration/select-server-app.png)
 
-   Sélectionnez **Terminé**
+   Sur le *ajouter un accès API* fenêtre, sélectionnez **fait**.
 
 4. Sélectionnez l’API de votre serveur dans la liste, puis choisissez **Accorder des autorisations** :
 
@@ -259,3 +261,4 @@ Pour obtenir des recommandations sur le contrôle des identités et des ressourc
 [rbac-authorization]: concepts-identity.md#role-based-access-controls-rbac
 [operator-best-practices-identity]: operator-best-practices-identity.md
 [azure-ad-rbac]: azure-ad-rbac.md
+[azure-ad-cli]: azure-ad-integration-cli.md

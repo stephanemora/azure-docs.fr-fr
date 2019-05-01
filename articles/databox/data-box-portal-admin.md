@@ -1,23 +1,23 @@
 ---
-title: Guide d’administration du portail Azure Data Box | Microsoft Docs
+title: Gérer Azure Data Box via le portail Azure | Microsoft Docs
 description: Décrit comment utiliser le portail Azure pour administrer votre Azure Data Box.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
-ms.topic: overview
+ms.topic: article
 ms.date: 04/15/2019
 ms.author: alkohli
-ms.openlocfilehash: 483e1e0f6a472132446b20a161d012e69d83c4ac
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
-ms.translationtype: HT
+ms.openlocfilehash: bf1d810733df4eaae17d092caba42888a63cc59f
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59607107"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919214"
 ---
-# <a name="use-the-azure-portal-to-administer-your-data-box"></a>Utiliser le portail Azure pour administrer votre Data Box
+# <a name="use-the-azure-portal-to-administer-your-azure-data-box"></a>Utiliser le portail Azure pour administrer votre Azure Data Box
 
-Cet article décrit certains des flux de travail et tâches de gestion complexes qui peuvent être effectués sur la Data Box. Vous pouvez gérer la Data Box via le portail Azure ou via l’interface utilisateur web locale. 
+Cet article décrit certains des flux de travail complexes et des tâches de gestion qui peuvent être effectuées sur Azure Data Box. Vous pouvez gérer la Data Box via le portail Azure ou via l’interface utilisateur web locale.
 
 Cet article se concentre sur les tâches que vous pouvez effectuer à l’aide du portail Azure. Utilisez le portail Azure pour gérer les commandes et Data Box, et suivre l’état des commandes jusqu’à l’étape terminale.
 

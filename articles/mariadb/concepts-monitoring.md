@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 11/10/2018
-ms.openlocfilehash: f34e32b9bda83ac1185d0c7b7dcaaaa7b47161a1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 04/29/2019
+ms.openlocfilehash: babe2ac55953940370daa0731463ed6ed8988502
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60332802"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925919"
 ---
 # <a name="monitoring-in-azure-database-for-mariadb"></a>Supervision dans Azure Database for MariaDB
 La surveillance des données relatives à vos serveurs vous aide à résoudre les problèmes et à optimiser votre charge de travail. Azure Database pour MariaDB propose diverses métriques qui fournissent des insights sur le comportement de votre serveur.
@@ -41,7 +41,7 @@ Ces métriques sont disponibles pour Azure Database pour MariaDB :
 |network_bytes_ingress|Network In|Octets|Entrée réseau entre connexions actives.|
 
 ## <a name="server-logs"></a>Journaux d’activité du serveur
-Vous pouvez activer la journalisation des requêtes lentes sur votre serveur. Pour en savoir plus sur la journalisation, consultez la page [journaux d’activité serveur](concepts-server-logs.md).
+Vous pouvez activer la journalisation des requêtes lentes sur votre serveur. Ces journaux sont également disponibles via les journaux de Diagnostic Azure dans Azure Monitor journaux, Event Hubs et compte de stockage. Pour en savoir plus sur la journalisation, consultez la page  [journaux d’activité serveur](concepts-server-logs.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 - Pour plus d’informations sur la façon d’accéder aux métriques et de les exporter à l’aide du portail Azure, de l’API REST ou de CLI, consultez [Vue d’ensemble des métriques Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md).

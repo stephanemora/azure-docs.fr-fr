@@ -4,14 +4,14 @@ description: Indique les types de ressources Azure qui prennent en charge les é
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 02/13/2019
+ms.date: 04/26/2019
 ms.author: tomfitz
-ms.openlocfilehash: dd6836ef4f859ce77c1a56095d32373d8e08f468
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 32156f39d36d8485c76dada5fd00f9ea0918598c
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60388061"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64575450"
 ---
 # <a name="tag-support-for-azure-resources"></a>Prise en charge des étiquettes pour les ressources Azure
 Cet article indique si un type de ressource prend en charge les [étiquettes](resource-group-using-tags.md).
@@ -862,7 +862,7 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 | dnszones/SOA | Non  | 
 | dnszones/SRV | Non  | 
 | dnszones/TXT | Non  | 
-| expressRouteCircuits | Oui | 
+| expressRouteCircuits | Oui (valeur de balise n’actuellement consignés dans le rapport de coût) | 
 | expressRouteServiceProviders | Non  | 
 | frontdoors | Oui | 
 | frontdoorWebApplicationFirewallPolicies | Oui | 
@@ -876,7 +876,7 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 | networkInterfaces | Oui | 
 | networkProfiles | Oui | 
 | networkSecurityGroups | Oui | 
-| networkWatchers | Oui | 
+| networkWatchers | Oui (valeur de balise n’actuellement consignés dans le rapport de coût) | 
 | networkWatchers/connectionMonitors | Oui | 
 | networkWatchers/lenses | Oui | 
 | networkWatchers/pingMeshes | Oui | 
@@ -892,9 +892,10 @@ Pour obtenir les mêmes données qu’un fichier de valeurs séparées par des v
 | virtualHubs | Oui | 
 | virtualNetworkGateways | Oui | 
 | virtualNetworks | Oui | 
+| virtualNetworks/subnets | Non  | 
 | virtualNetworkTaps | Oui | 
 | virtualWans | Oui | 
-| vpnGateways | Oui | 
+| vpnGateways | Oui (valeur de balise n’actuellement consignés dans le rapport de coût) | 
 | vpnSites | Oui | 
 | webApplicationFirewallPolicies | Oui | 
 

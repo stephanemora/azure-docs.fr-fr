@@ -2,24 +2,17 @@
 title: Services de conseil dans la Place de marché Azure et AppSource
 description: Cet article décrit les critères d’éligibilité et les exigences de publication des nouvelles offres de services de conseil dans la Place de marché Azure.
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: ''
 author: yijenj
-manager: nuno costa
-editor: ''
-ms.assetid: e8d228c8-f9e8-4a80-9319-7b94d41c43a6
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: yijenj
-ms.openlocfilehash: fbaa89140033ee3b07017370e31e69601aa298db
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: e13111eb241c7734e25a28fcaeea55b1c70bc267
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62121129"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64938310"
 ---
 # <a name="consulting-services-for-azure-marketplace-and-appsource"></a>Services de conseil dans la Place de marché Azure et AppSource
 Les services de conseil dans la Place de marché Azure et AppSource permettent aux partenaires Microsoft de connecter les clients à des services pour gérer et étendre leur utilisation d’Azure en fonction de leurs besoins professionnels. 
@@ -48,7 +41,7 @@ Les offres de services qui sont basées sur Microsoft Dynamics 365, Office 365 e
 > [!TIP]
 > Pour publier une offre dans la vitrine Place de marché, vous effectuerez cette sélection en choisissant « Azure » dans le menu déroulant « Primary Product » (Produit principal) du Portail Cloud Partner. Pour publier une offre sur AppSource, vous procéderez à cette sélection en choisissant « Dynamics 365 », « Power BI » ou « Power Apps » dans le menu déroulant « Primary Product » (Produit principal) du Portail Cloud Partner.
 
-## <a name="eligible-partners-and-supported-countries"></a>Partenaires éligibles et pays pris en charge
+## <a name="eligible-partners-and-supported-countriesregions"></a>Les partenaires éligibles et pays/régions pris en charge
 
 Les partenaires doivent avoir une **compétence Silver ou Gold** dans le domaine de leur service. 
 
@@ -74,9 +67,9 @@ Les partenaires doivent avoir une **compétence Silver ou Gold** dans le domaine
 <b>Pour plus d’informations, consultez les [compétences via Microsoft Partner Network](https://partner.microsoft.com/membership/competencies). </b>
  
 
-**Les partenaires intégrateurs de systèmes peuvent envoyer des offres de services de conseil pour les 18 pays suivants**
+**Partenaires intégrateurs de systèmes peuvent envoyer des offres de services de Conseil pour les 18 pays suivants**
 
-|Pays éligibles |   |   |   |
+|Pays/régions éligibles |   |   |   |
 |---------|----------|----------|----------|
 |Australie |France  |     Mexique          |Espagne       |
 |Belgique   |Allemagne |     Pays-bas     |Suède       |
@@ -84,7 +77,7 @@ Les partenaires doivent avoir une **compétence Silver ou Gold** dans le domaine
 |Danemark   |Italie   |     Norvège          |États-Unis |
 |Finlande   |Japon   |     Pologne          
 
-Le lancement des services de conseil sera effectué dans une région géographique spécifique. Le premier lancement aura lieu dans les régions suivantes : États-Unis, Canada, Royaume-Uni et Australie. Les catalogues pour les autres pays seront lancés une fois qu’un nombre significatif et qu’une sélection attrayante d’offres de services auront été envoyés par les partenaires et approuvés par Microsoft.
+Le lancement des services de conseil sera effectué dans une région géographique spécifique. Le premier lancement aura lieu dans les régions suivantes : États-Unis, Canada, Royaume-Uni et Australie. Les catalogues pour les autres pays/régions seront lancés une fois qu’un nombre significatif et qu’une sélection des offres de service attrayante ont été envoyés par les partenaires et approuvés par Microsoft.
 
 ## <a name="how-to-register-for-consulting-services-in-azure-marketplace-and-appsource"></a>Comment s’inscrire aux services de conseil dans la Place de marché Azure et AppSource
 Commencez par [inscrire](https://azuremarketplace.microsoft.com/sell/signup) votre entreprise dans la Place de marché. Les éditeurs peuvent consulter [Devenir éditeur sur la Place de marché](https://docs.microsoft.com/azure/marketplace/become-publisher), pour obtenir une liste de vérification complète des conditions d’inscription. 
@@ -124,7 +117,7 @@ Le référencement de votre offre de services de conseil dans la Place de march�
 3. **Envoi** : fournissez les informations nécessaires qui sont indiquées dans les instructions. Tout le contenu et les documents de prise en charge doivent être envoyés en anglais. 
 4. **Révision** : notre équipe marketing et éditoriale examine votre envoi et optimise sa lisibilité, sa syntaxe et sa fluidité. 
 5. **Préproduction** : votre envoi vous est renvoyé pour révision. 
-6. **Publication** : une fois que Microsoft et vous-même êtes satisfaits du contenu intermédiaire, votre référencement est prêt à être mis en ligne sur la place de marché. La date de lancement de votre annonce varie selon le pays spécifié dans votre offre. Si le catalogue pour le pays sélectionné est déjà en ligne sur la Place de marché Azure ou AppSource, votre référencement s’affiche au bout de quelques heures. Sinon, l’annonce s’affiche dès que le catalogue est en ligne.
+6. **Publication** : une fois que Microsoft et vous-même êtes satisfaits du contenu intermédiaire, votre référencement est prêt à être mis en ligne sur la place de marché. La date de lancement de votre annonce varie selon le pays/région qui est spécifiée dans votre offre. Si le catalogue pour votre pays/région sélectionné est déjà en ligne sur la place de marché Azure ou AppSource, votre annonce dans quelques heures. Sinon, l’annonce s’affiche dès que le catalogue est en ligne.
 
 ## <a name="offer-listings-and-content-review-criteria"></a>Référencements des offres et critères de révision du contenu
 Les offres doivent correspondre à l’un des cinq types de services suivants (vous pouvez en répertorier plus d’un) : 

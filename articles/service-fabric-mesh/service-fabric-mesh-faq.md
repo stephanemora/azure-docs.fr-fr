@@ -5,16 +5,16 @@ services: service-fabric-mesh
 keywords: ''
 author: chackdan
 ms.author: chackdan
-ms.date: 12/12/2018
+ms.date: 4/23/2019
 ms.topic: troubleshooting
 ms.service: service-fabric-mesh
 manager: jeanpaul.connock
-ms.openlocfilehash: 27cf4d31f11eaf861d1cafc093d912aa15c8bec0
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 7f3bed454bce90d797ca5829043c7e5f8ce5b051
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55979749"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64728579"
 ---
 # <a name="commonly-asked-service-fabric-mesh-questions"></a>Questions fréquemment posées sur Service Fabric mesh
 
@@ -28,7 +28,7 @@ Posez des questions, obtenez des réponses d’ingénieurs Microsoft, et signale
 
 ### <a name="what-is-the-cost-of-participating-in-the-preview"></a>Quel est le coût de participation à la préversion ?
 
-Le déploiement d’applications ou de conteneurs sur la préversion de Mesh n’occasionne actuellement pas de frais. En revanche, nous vous invitons à supprimer les ressources que vous déployez et à ne pas les laisser s’exécuter, sauf si vous les testez de façon active.
+Le déploiement d’applications ou de conteneurs sur la préversion de Mesh n’occasionne actuellement pas de frais. Toutefois, nous vous encourageons à supprimer les ressources que vous déployez et pas de les laissez en cours d’exécution, sauf si vous êtes activement les tester.
 
 ### <a name="is-there-a-quota-limit-of-the-number-of-cores-and-ram"></a>Y a-t-il une limite de quota concernant le nombre de cœurs et la RAM ?
 
@@ -77,7 +77,9 @@ Par exemple :
 
 Pour supprimer le groupe de ressources, utilisez la commande `az group delete <nameOfResourceGroup>`.
 
-## <a name="supported-container-os-images"></a>Images de système d’exploitation du conteneur prises en charge
+## <a name="deployments"></a>Déploiements
+
+### <a name="what-container-images-are-supported"></a>Les images de conteneur sont pris en charge ?
 
 Si vous réalisez votre développement sur un ordinateur doté de Windows Fall Creators Update (version 1709), vous pouvez uniquement utiliser des images de la version 1709 de Windows.
 
@@ -90,6 +92,10 @@ Lors du déploiement des services, vous pouvez utiliser les images de système d
     - Windows Server version 1803
 - Linux
     - Aucune limitation connue
+
+### <a name="what-types-of-applications-can-i-deploy"></a>Les types d’applications puis-je déployer ? 
+
+Vous pouvez déployer tout ce qui s’exécute dans des conteneurs qui tiennent les restrictions placées sur une ressource d’application (voir ci-dessus pour plus d’informations sur les quotas). Si nous détectons que vous utilisez un maillage pour l’exécution de charges de travail non conformes ou utilisation abusive du système (par exemple, d’exploration de données), puis nous nous réservons le droit d’interrompre vos déploiements et la liste de blocage de votre abonnement s’exécute sur le service. Veuillez contacter contactez-nous si vous avez des questions sur l’exécution d’une charge de travail spécifique. 
 
 ## <a name="developer-experience-issues"></a>Problèmes relatifs à l’expérience de développement
 

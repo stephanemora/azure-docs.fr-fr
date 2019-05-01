@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 09/10/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: f2c6f45081b78d330033570ff322f90cd06e50dd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 847c928681451b4fef93198e2f2272d5bb04b1b8
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61074139"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919804"
 ---
 # <a name="compiling-dsc-configurations-in-azure-automation-state-configuration"></a>Compilation de configurations DSC dans Azure Automation State Configuration
 
@@ -287,11 +287,11 @@ Start-AzureRmAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -A
 
 ## <a name="partial-configuration"></a>Configuration partielle
 
-Configuration de l’état d’Automation Azure prend en charge l’utilisation de [configurations partielles](https://docs.microsoft.com/en-us/powershell/dsc/pull-server/partialconfigs).
+Configuration de l’état d’Automation Azure prend en charge l’utilisation de [configurations partielles](https://docs.microsoft.com/powershell/dsc/pull-server/partialconfigs).
 Dans ce scénario, DSC est configuré pour gérer plusieurs configurations de manière indépendante, et chaque configuration est retreieved à partir d’Azure Automation.
 Toutefois, qu’une seule configuration peut être affectée à un nœud par compte automation.
 Cela signifie que si vous utilisez deux configurations pour un nœud vous aurez besoin de deux comptes automation.
-Pour plus d’informations sur la façon dont les équipes peuvent travailler ensemble pour gérer les serveurs de façon collaborative à l’aide de la configuration en tant que code consultez [rôle de présentation DSC dans un Pipeline CI/CD](https://docs.microsoft.com/en-us/powershell/dsc/overview/authoringadvanced).
+Pour plus d’informations sur la façon dont les équipes peuvent travailler ensemble pour gérer les serveurs de façon collaborative à l’aide de la configuration en tant que code consultez [rôle de présentation DSC dans un Pipeline CI/CD](https://docs.microsoft.com/powershell/dsc/overview/authoringadvanced).
 
 ## <a name="importing-node-configurations"></a>Importation de configurations de nœuds
 

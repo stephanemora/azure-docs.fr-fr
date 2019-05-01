@@ -6,12 +6,12 @@ ms.author: janeng
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.openlocfilehash: a8dbb2c06d3622dcde19f298ee12fa49afb4cd4b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 4109679c03b13303c16cef8edd92ecddb6ca5e5f
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60559840"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64712370"
 ---
 # <a name="azure-database-for-postgresql-pricing-tiers"></a>Niveaux tarifaires d’Azure Database pour PostgreSQL
 
@@ -41,31 +41,25 @@ Après avoir créé un serveur, le nombre de vCores, la génération du matérie
 
 Les ressources de calcul sont fournies en tant que vCores, représentant le processeur logique du matériel sous-jacent. Actuellement, vous pouvez choisir entre deux générations de calcul, Gen 4 et Gen 5. Les processeurs logiques Gen 4 sont basés sur des processeurs Intel E5-2673 v3 (Haswell) 2.4 GHz. Les processeurs logiques Gen 5 sont basés sur des processeurs Intel E5-2673 v4 (Broadwell) 2.3 GHz. Les processeurs Gen 4 et Gen 5 sont disponibles dans les régions suivantes (« X » indique la disponibilité). 
 
-> [!IMPORTANT]
-> À compter du 12 décembre 2018, les nouveaux clients ne seront pas en mesure de provisionner les serveurs de calcul de génération 4 dans les zones Brésil Sud, Canada Centre, Canada Est, Asie Est, USA Est 2, Inde Centre, Inde Ouest, Japon Ouest, USA Centre Nord, USA Ouest. Les serveurs de calcul de génération 4 précédemment créés seront migrés vers la génération 5 à compter du 1er février 2019 dans ces régions.
->
-> [!IMPORTANT]
-> À compter du 19 février 2019, nouveaux clients pas sera en mesure d’approvisionner les serveurs de génération 4 de calcul dans le centre des États-Unis, est des États-Unis, est du Japon, Europe du Nord, sud du centre des États-Unis, Asie du Sud-est, Europe de l’ouest. Génération de calcul 4 serveurs seront migrés pour 5 depuis le 1 avril 2019 ces régions de génération de calcul créées au préalable.
-
 | **Région Azure** | **Gen 4** | **Gen 5** |
 |:---|:----------:|:--------------------:|
 | USA Centre |  | X |
 | USA Est |  | X |
 | USA Est 2 |  | X |
 | USA Centre Nord |  | X |
-| USA Centre Sud | X | X |
+| USA Centre Sud |  | X |
 | USA Ouest |  | X |
 | USA Ouest 2 |  | X |
 | Brésil Sud |  | X |
 | Centre du Canada |  | X |
 | Est du Canada |  | X |
-| Europe Nord | X | X |
+| Europe Nord |  | X |
 | Europe Ouest |  | X |
 | France Centre |  | X |
 | Sud du Royaume-Uni |  | X |
 | Ouest du Royaume-Uni |  | X |
 | Asie Est |  | X |
-| Asie Sud-Est | X | X |
+| Asie Sud-Est |  | X |
 | Australie Est |  | X |
 | Centre de l’Australie |  | X |
 | Centre de l’Australie 2 |  | X |
@@ -73,7 +67,7 @@ Les ressources de calcul sont fournies en tant que vCores, représentant le proc
 | Inde Centre |  | X |
 | Inde Sud |  | X |
 | Inde Ouest |  | X |
-| Japon Est | X | X |
+| Japon Est |  | X |
 | Japon Ouest |  | X |
 | Centre de la Corée |  | X |
 | Corée du Sud |  | X |

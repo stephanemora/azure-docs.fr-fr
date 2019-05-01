@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/05/2016
 ms.author: kumud
-ms.openlocfilehash: c959ee3bea24955e3281feb9db66e4e0cadc8bf9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 1bdc485dfb352144e8a8d0fb75965cbb78288e2c
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61034133"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64575593"
 ---
 # <a name="virtual-appliance-scenario"></a>Scénario d’appliance virtuelle
 Pour les clients Azure volumineux, il faut souvent fournir une application à deux niveaux exposée à Internet, tout en autorisant l’accès au niveau d’arrière-plan à partir d’un centre de données local. Ce document vous guide dans un scénario utilisant des itinéraires définis par l’utilisateur (UDR), une passerelle VPN et des appliances virtuelles de réseau pour déployer un environnement à deux niveaux conforme aux exigences suivantes :
@@ -30,14 +30,14 @@ Pour les clients Azure volumineux, il faut souvent fournir une application à de
 * Tout le trafic envoyé au serveur d’applications doit transiter par une appliance virtuelle de pare-feu. Cette appliance virtuelle sera utilisée pour accéder au serveur principal depuis le réseau local via une passerelle VPN.
 * Les administrateurs doivent pouvoir gérer les appliances virtuelles de pare-feu à partir de leurs ordinateurs locaux, en utilisant une troisième appliance virtuelle de pare-feu exclusivement à des fins de gestion.
 
-Il s’agit d’un scénario avec une zone DMZ et un réseau protégé. Ce scénario peut être mis en œuvre dans Azure à l’aide de groupes de sécurité réseau, d’appliances virtuelles de pare-feu ou d’une combinaison des deux. Le tableau ci-dessous présente certains avantages et inconvénients des groupes de sécurité réseau et appliances virtuelles de pare-feu.
+Il s’agit d’un scénario de réseau (également knowns en tant que zone DMZ) périmètre standard avec une zone DMZ et un réseau protégé. Ce scénario peut être construite dans Azure à l’aide de groupes de sécurité réseau, les appliances virtuelles de pare-feu ou une combinaison des deux. Le tableau ci-dessous présente certains avantages et inconvénients des groupes de sécurité réseau et appliances virtuelles de pare-feu.
 
 |  | Avantages | Inconvénients |
 | --- | --- | --- |
-| Groupe de sécurité réseau |Aucun coût. <br/>Intégré dans Azure RBAC. <br/>Possibilité de créer des règles dans les modèles ARM. |Complexité variable dans les environnements de grande taille. |
+| Groupe de sécurité réseau |Aucun coût. <br/>Intégré dans Azure RBAC. <br/>Règles peuvent être créées dans les modèles Azure Resource Manager. |Complexité variable dans les environnements de grande taille. |
 | Pare-feu |Contrôle total sur le plan des données. <br/>Gestion centralisée via la console du pare-feu. |Coût de l’appliance de pare-feu. <br/>Non intégré dans Azure RBAC. |
 
-La solution ci-dessous utilise des appliances virtuelles de pare-feu pour implémenter un scénario de zone DMZ/réseau protégé.
+La solution ci-dessous utilise des appliances virtuelles de pare-feu pour implémenter un réseau de périmètre (DMZ) / protégé le scénario de réseau.
 
 ## <a name="considerations"></a>Considérations
 Vous pouvez déployer l’environnement décrit ci-dessus dans Azure à l’aide de différentes fonctionnalités disponibles aujourd’hui, comme suit.
@@ -167,5 +167,5 @@ Pour déployer ce scénario, suivez la procédure générale suivante.
 2. Si vous souhaitez déployer un réseau virtuel pour imiter le réseau local, approvisionnez les ressources qui font partie de **ONPREMRG**.
 3. Approvisionnez les ressources qui font partie de **AZURERG**.
 4. Approvisionnez le tunnel reliant **onpremvnet** à **azurevnet**.
-5. Une fois toutes les ressources approvisionnées, ouvrez une session sur **onpremvm2** et envoyez la commande ping 10.0.3.101 pour tester la connectivité entre **onpremsn2** et **azsn3**.
+5. Une fois que toutes les ressources sont approvisionnées, connectez-vous à **onpremvm2** et la commande ping 10.0.3.101 pour tester la connectivité entre **onpremsn2** et **azsn3**.
 

@@ -2,18 +2,17 @@
 title: Bonnes pratiques de l’opérateur - Fonctionnalités avancées du planificateur dans Azure Kubernetes Service (AKS)
 description: Découvrir les bonnes pratiques de l’opérateur relatives à l’utilisation des fonctionnalités avancées du planificateur, notamment les teintes (taints) et tolérances (tolerations), les sélecteurs et l’affinité de nœud, ainsi que l’affinité ou l’anti-affinité entre pods dans Azure Kubernetes Service (AKS)
 services: container-service
-author: rockboyfor
+author: iainfoulds
 ms.service: container-service
 ms.topic: conceptual
-origin.date: 11/26/2018
-ms.date: 04/08/2019
-ms.author: v-yeche
-ms.openlocfilehash: 27c9c872f4dfb82b4a1389189d62c4e1f06ee272
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.date: 11/26/2018
+ms.author: iainfou
+ms.openlocfilehash: 9aa394a405e5b4392f900d1e7520d93e6d152e49
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60464966"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64690461"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Bonnes pratiques relatives aux fonctionnalités avancées du planificateur dans Azure Kubernetes Service (AKS)
 
@@ -37,7 +36,7 @@ Le planificateur Kubernetes peut utiliser des teintes et des tolérances pour re
 * Quand une **teinte** est appliquée à un nœud, seuls des pods spécifiques peuvent être planifiés sur le nœud.
 * Une **tolérance** est ensuite appliquée à un pod pour lui permettre de *tolérer* la teinte d’un nœud.
 
-Quand vous déployez un pod sur un cluster AKS, Kubernetes planifie uniquement des pods sur les nœuds où une tolérance est alignée avec la teinte. Par exemple, vous avez un pool de nœuds dans votre cluster AKS pour les nœuds avec prise en charge des GPU. Vous définissez un nom, comme *gpu*, puis une valeur pour la planification. Si vous affectez à cette valeur *NoSchedule*, le planificateur Kubernetes ne peut pas planifier de pods sur le nœud si le pod ne définit pas la tolérance appropriée.
+Quand vous déployez un pod sur un cluster AKS, Kubernetes planifie uniquement des pods sur les nœuds où une tolérance est alignée avec la teinte. Par exemple, prenons un pool de nœuds dans votre cluster AKS pour les nœuds avec GPU prend en charge. Vous définissez un nom, comme *gpu*, puis une valeur pour la planification. Si vous affectez à cette valeur *NoSchedule*, le planificateur Kubernetes ne peut pas planifier de pods sur le nœud si le pod ne définit pas la tolérance appropriée.
 
 ```console
 kubectl taint node aks-nodepool1 sku=gpu:NoSchedule
@@ -53,7 +52,7 @@ metadata:
 spec:
   containers:
   - name: tf-mnist
-    image: dockerhub.azk8s.cn/microsoft/samples-tf-mnist-demo:gpu
+    image: microsoft/samples-tf-mnist-demo:gpu
   resources:
     requests:
       cpu: 0.5
@@ -73,6 +72,23 @@ Quand ce pod est déployé, par exemple en utilisant `kubectl apply -f gpu-toler
 Quand vous appliquez des teintes, collaborez avec les développeurs et propriétaires d’applications pour leur permettre de définir les tolérances requises dans leurs déploiements.
 
 Pour plus d’informations sur les teintes et les tolérances, consultez [Application de teintes et de tolérances][k8s-taints-tolerations].
+
+### <a name="behavior-of-taints-and-tolerations-in-aks"></a>Comportement du soleil et tolerations dans ACS
+
+Lorsque vous mettez à niveau un pool de nœuds dans ACS, de soleil et tolerations suivent un modèle de jeu comme ils sont appliqués aux nouveaux nœuds :
+
+- **Par défaut des clusters sans prise en charge de mise à l’échelle de machine virtuelle**
+  - Supposons que vous avez un cluster à deux nœuds - *node1* et *node2*. Lorsque vous mettez à niveau, un nœud supplémentaire (*node3*) est créé.
+  - Le soleil à partir de *node1* sont appliquées aux *node3*, puis *node1* est ensuite supprimée.
+  - Un autre nœud est créé (nommé *node1*, depuis le dernier *node1* a été supprimée) et le *node2* contamination est appliquées au nouvel *node1*. Ensuite, *node2* est supprimé.
+  - En substance *node1* devient *node3*, et *node2* devient *node1*.
+
+- **Clusters qui utilisent des machines virtuelles identiques** (actuellement en version préliminaire dans ACS)
+  - Là encore, supposons que vous avez un cluster à deux nœuds - *node1* et *node2*. Vous mettez à niveau le pool de nœud.
+  - Deux nœuds supplémentaires sont créés, *node3* et *node4*, et le soleil est passés sur respectivement.
+  - La version d’origine *node1* et *node2* sont supprimés.
+
+Lorsque vous faites évoluer d’un pool de nœuds dans ACS, de soleil et tolerations ne transmettent pas en charge par conception.
 
 ## <a name="control-pod-scheduling-using-node-selectors-and-affinity"></a>Contrôler la planification des pods à l’aide de sélecteurs de nœud et de l’affinité de nœud
 
@@ -96,7 +112,7 @@ metadata:
 spec:
   containers:
   - name: tf-mnist
-    image: dockerhub.azk8s.cn/microsoft/samples-tf-mnist-demo:gpu
+    image: microsoft/samples-tf-mnist-demo:gpu
     resources:
       requests:
         cpu: 0.5
@@ -126,7 +142,7 @@ metadata:
 spec:
   containers:
   - name: tf-mnist
-    image: dockerhub.azk8s.cn/microsoft/samples-tf-mnist-demo:gpu
+    image: microsoft/samples-tf-mnist-demo:gpu
     resources:
       requests:
         cpu: 0.5

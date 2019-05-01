@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2018
 ms.author: banders
-ms.openlocfilehash: d215e2ba5d650b532b9d7554ccca9ad5537cf4de
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 146c74fe751e75fb85563378be6f812802928fe2
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60919323"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918931"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Éviter les charges inattendues avec la gestion de la facturation et des coûts dans Azure
 
@@ -203,7 +203,7 @@ Seuils de contrat SLA varient selon le service. Par exemple, SQL de niveau Web a
 
 Pour certains services, voici les conditions préalables pour le contrat SLA à appliquer. Par exemple, les Machines virtuelles doit avoir deux ou plusieurs instances déployées dans le même groupe à haute disponibilité.
 
-Pour plus d’informations, consultez le [les contrats de niveau de Service](https://azure.microsoft.com/en-us/support/legal/sla/) documentation et le [résumé des contrats SLA pour les services Azure](https://azure.microsoft.com/en-us/support/legal/sla/summary/) documentation.
+Pour plus d’informations, consultez le [les contrats de niveau de Service](https://azure.microsoft.com/support/legal/sla/) documentation et le [résumé des contrats SLA pour les services Azure](https://azure.microsoft.com/support/legal/sla/summary/) documentation.
 
 ## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Contactez-nous.
 

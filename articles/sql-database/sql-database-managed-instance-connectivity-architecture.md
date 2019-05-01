@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 manager: craigg
 ms.date: 04/16/2019
-ms.openlocfilehash: fa19ea0c7ebeea0170822db0dae298f84e958983
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: 399e2585f541f28b3880e69b508cfd643b2f2263
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60006129"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64686286"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Architecture de connectivité pour une instance gérée dans la base de données SQL Azure
 
@@ -80,7 +80,7 @@ Microsoft gère l’instance gérée à l’aide d’un point de terminaison de 
 Lorsque connexions commencent à l’intérieur de l’instance gérée (comme avec les sauvegardes et les journaux d’audit), le trafic s’affiche pour démarrer à partir de l’adresse IP du point de terminaison gestion. Vous pouvez limiter l’accès aux services publics à partir d’une instance gérée en définissant des règles de pare-feu pour autoriser uniquement les adresse IP de l’instance gérée. Pour plus d’informations, consultez [Vérifiez le pare-feu intégré de l’instance gérée](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md).
 
 > [!NOTE]
-> Le trafic qui accède à des services Azure qui se trouvent dans la région de l’instance managée est optimisé et pour cette raison pas transformée en adresse IP publique d’instance managées management point de terminaison. C’est pourquoi si vous devez utiliser des règles de pare-feu basé sur IP, plus souvent pour le stockage, service doit être dans une autre région à partir de l’instance gérée.
+> Le trafic qui accède à des services Azure qui se trouvent dans la région de l’instance managée est optimisé et pour cette raison pas transformée à managed instance management point de terminaison adresse IP. C’est pourquoi si vous devez utiliser des règles de pare-feu basé sur IP, plus souvent pour le stockage, service doit être dans une autre région à partir de l’instance gérée.
 
 ## <a name="network-requirements"></a>Configuration requise pour le réseau
 
@@ -97,7 +97,7 @@ Déployer une instance gérée dans un sous-réseau dédié à l’intérieur du
 
 ### <a name="mandatory-inbound-security-rules"></a>Règles de sécurité du trafic entrant obligatoires
 
-| Name       |Port                        |Protocole|Source           |Destination|Action|
+| Nom       |Port                        |Protocol|Source           |Destination|Action|
 |------------|----------------------------|--------|-----------------|-----------|------|
 |gestion  |9000, 9003, 1438, 1440, 1452|TCP     |Quelconque              |SOUS-RÉSEAU MI  |AUTORISER |
 |mi_subnet   |Quelconque                         |Quelconque     |SOUS-RÉSEAU MI        |SOUS-RÉSEAU MI  |AUTORISER |
@@ -105,7 +105,7 @@ Déployer une instance gérée dans un sous-réseau dédié à l’intérieur du
 
 ### <a name="mandatory-outbound-security-rules"></a>Règles de sécurité du trafic sortant obligatoires
 
-| Name       |Port          |Protocole|Source           |Destination|Action|
+| Nom       |Port          |Protocol|Source           |Destination|Action|
 |------------|--------------|--------|-----------------|-----------|------|
 |gestion  |80, 443, 12000|TCP     |SOUS-RÉSEAU MI        |AzureCloud |AUTORISER |
 |mi_subnet   |Quelconque           |Quelconque     |SOUS-RÉSEAU MI        |SOUS-RÉSEAU MI  |AUTORISER |
@@ -122,7 +122,7 @@ Déployer une instance gérée dans un sous-réseau dédié à l’intérieur du
 
 ### <a name="user-defined-routes"></a>itinéraires définis par l’utilisateur
 
-|Name|Préfixe de l’adresse|Tronçon suivant|
+|Nom|Préfixe de l’adresse|Tronçon suivant|
 |----|--------------|-------|
 |subnet_to_vnetlocal|SOUS-RÉSEAU MI|Réseau virtuel|
 |mi-13-64-11-nexthop-internet|13.64.0.0/11|Internet|

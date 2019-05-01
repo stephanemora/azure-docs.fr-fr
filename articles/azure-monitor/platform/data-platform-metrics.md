@@ -11,17 +11,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: c00f703c5cfa606eaeb6ea0dea5fe5d754d3de5d
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: 319def9072dbf38eff44ca4459428f1ef99a2b54
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62108082"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64867962"
 ---
 # <a name="metrics-in-azure-monitor"></a>Mesures dans Azure Monitor
 
 > [!NOTE]
-> La plateforme de données Azure Monitor est basée sur les deux types de données fondamentaux : Métriques et les journaux. Cet article décrit les métriques. Reportez-vous à [journaux dans Azure Monitor](data-platform-logs.md) pour obtenir une description détaillée des journaux et en [platforn de données Azure Monitor](data-platform.md) pour obtenir une comparaison des deux.
+> La plateforme de données Azure Monitor est basée sur les deux types de données fondamentaux : Métriques et les journaux. Cet article décrit les métriques. Reportez-vous à [journaux dans Azure Monitor](data-platform-logs.md) pour obtenir une description détaillée des journaux et en [plateforme de données Azure Monitor](data-platform.md) pour obtenir une comparaison des deux.
 
 Mesures dans Azure Monitor sont légères et prendre en charge les scénarios en temps réel, ce qui les rend particulièrement utile pour quasiment la détection d’alerte et rapide des problèmes. Cet article décrit comment les mesures sont structurés, ce que vous pouvez faire avec eux et identifie les différentes sources de données qui stockent les données dans les métriques.
 

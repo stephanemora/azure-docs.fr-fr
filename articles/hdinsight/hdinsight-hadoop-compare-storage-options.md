@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/08/2019
-ms.openlocfilehash: ac1a0e4eadc0b84fdd2a170c2e0f6e0a2f2af3a4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 2724451d44a793023f7b69196b186f68f6fc6a26
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60921940"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64720471"
 ---
 # <a name="compare-storage-options-for-use-with-azure-hdinsight-clusters"></a>Comparer les options de stockage à utiliser avec les clusters Azure HDInsight
 
@@ -31,8 +31,12 @@ Le tableau suivant récapitule les services de stockage Azure qui sont pris en c
 |Azure Data Lake Storage Gen2| Universel v2 | Hiérarchique (système de fichiers) | Blob | standard | À chaud, froid, Archive | 3.6+ | Tous |
 |Stockage Azure| Universel v2 | Object | Blob | standard | À chaud, froid, Archive | 3.6+ | Tous |
 |Stockage Azure| Universel v1 | Object | Blob | standard | S.O. | Tous | Tous |
-|Stockage Azure| Stockage Blob | Object | Blob | standard | À chaud, froid, Archive | Tous | Tous |
+|Stockage Azure| Stockage d’objets BLOB ** | Object | Objet blob de blocs | standard | À chaud, froid, Archive | Tous | Tous |
 |Azure Data Lake Storage Gen1| S.O. | Hiérarchique (système de fichiers) | S.O. | N/A | S.O. | 3.6 uniquement | Tout sauf HBase |
+
+** Pour les clusters HDInsight, seuls les comptes de stockage secondaire peuvent être de type BlobStorage.
+
+Pour plus d’informations sur les types de comptes de stockage Azure, consultez [vue d’ensemble du compte de stockage Azure](../storage/common/storage-account-overview.md)
 
 Pour plus d’informations sur les niveaux d’accès de stockage Azure, consultez [stockage Blob Azure : Premium (version préliminaire), les niveaux de stockage chaud, froid et Archive](../storage/blobs/storage-blob-storage-tiers.md)
 
@@ -40,14 +44,14 @@ Vous pouvez créer un cluster à l’aide de différentes combinaisons de servic
 
 | Version de HDInsight | Stockage principal | Stockage secondaire | Pris en charge |
 |---|---|---|---|
-| 3.6 & 4.0 | Objet Blob standard | Objet Blob standard | Oui |
-| 3.6 & 4.0 | Objet Blob standard | Data Lake Storage Gen2 | Non  |
-| 3.6 & 4.0 | Objet Blob standard | Data Lake Storage Gen 1 | Oui |
+| 3.6 & 4.0 | Usage général V1, usage général V2 | Usage général V1, V2 à usage général, BlobStorage (objets BLOB de blocs) | Oui |
+| 3.6 & 4.0 | Usage général V1, usage général V2 | Data Lake Storage Gen2 | Non  |
+| 3.6 & 4.0 | Usage général V1, usage général V2 | Data Lake Storage Gen 1 | Oui |
 | 3.6 & 4.0 | Data Lake Storage Gen2 * | Data Lake Storage Gen2 | Oui |
-| 3.6 & 4.0 | Data Lake Storage Gen2 * | Objet Blob standard | Oui |
+| 3.6 & 4.0 | Data Lake Storage Gen2 * | Usage général V1, V2 à usage général, BlobStorage (objets BLOB de blocs) | Oui |
 | 3.6 & 4.0 | Data Lake Storage Gen2 | Data Lake Storage Gen 1 | Non  |
 | 3.6 | Data Lake Storage Gen 1 | Data Lake Storage Gen 1 | Oui |
-| 3.6 | Data Lake Storage Gen 1 | Objet Blob standard | Oui |
+| 3.6 | Data Lake Storage Gen 1 | Usage général V1, V2 à usage général, BlobStorage (objets BLOB de blocs) | Oui |
 | 3.6 | Data Lake Storage Gen 1 | Data Lake Storage Gen2 | Non  |
 | 4.0 | Data Lake Storage Gen 1 | Quelconque | Non  |
 

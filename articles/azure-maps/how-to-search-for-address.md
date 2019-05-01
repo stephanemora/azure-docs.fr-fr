@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 8ab2c73030c0860fc709a774b9fd84d20a6d7c99
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 497ffb5acf6262dfb42f490efe68e1ea26c777cb
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60904084"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64572373"
 ---
 # <a name="find-an-address-using-the-azure-maps-search-service"></a>Rechercher une adresse à l’aide du service Azure Maps Search
 
@@ -68,7 +68,7 @@ La plupart des requêtes de recherche utilisent par défaut le paramétrage `max
 
     La chaîne de requête ambiguë « pizza » a retourné 10 [résultats de point d’intérêt](https://docs.microsoft.com/rest/api/maps/search/getsearchpoi#searchpoiresponse) dans les catégories « pizza » et « restaurant ». Chaque résultat retourne une adresse postale, les valeurs latitude/longitude, un point de vue et les points d’entrée de l’emplacement.
   
-    Les résultats peuvent varier pour cette requête et ne sont pas liés à un emplacement de référence particulier. Vous pouvez utiliser le paramètre **countrySet** pour ne spécifier que les pays que votre application doit couvrir ; en effet, le comportement par défaut consiste à rechercher dans le monde entier, ce qui peut engendrer des résultats superflus.
+    Les résultats peuvent varier pour cette requête et ne sont pas liés à un emplacement de référence particulier. Vous pouvez utiliser la **countrySet** paramètre pour spécifier uniquement les pays/régions pour lesquelles votre application doit couvrir, comme le comportement par défaut consiste à rechercher le monde entier, potentiellement retournant les résultats inutiles.
 
 5. Ajoutez la paire Clé/Valeur suivante à la section **Params** puis cliquez sur **Envoyer** :
 

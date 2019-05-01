@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 04/03/2019
 ms.author: rambala
-ms.openlocfilehash: 4923c7f2048b7368af6314d5e2288216115bc3bc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3bc189cf269084fdb26f141a36755c96554cad7b
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60368746"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64866000"
 ---
 # <a name="cross-network-connectivity"></a>Connectivité interréseau
 
@@ -119,7 +119,7 @@ Le tableau suivant montre la table de routage de l’homologation privée d’Ex
 
 Consultez [FAQ virtual network][VNet-FAQ], pour toute question supplémentaire sur le réseau virtuel et l’homologation de réseau virtuel. Consultez [Forum aux questions ExpressRoute] [ ER-FAQ] pour d’autres questions sur ExpressRoute et virtuels de connectivité réseau.
 
-Global Reach est déployé pays par pays. Pour vérifier si Global Reach est disponible dans les pays qui vous intéressent, consultez [ExpressRoute Global Reach][Global Reach].
+Portée mondiale est déployée sur une base de pays/région par pays/région. Pour voir si la portée mondiale est disponible dans les pays/régions que vous le souhaitez, consultez [portée mondiale ExpressRoute][Global Reach].
 
 <!--Image References-->
 [1]: ./media/cross-network-connectivity/premergerscenario.png "Scénario d’application"

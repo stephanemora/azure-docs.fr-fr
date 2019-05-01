@@ -2,17 +2,17 @@
 title: Présentation de la configuration Azure Application Gateway
 description: Cet article explique comment configurer les composants d’Azure Application Gateway
 services: application-gateway
-author: abshamsft
+author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 4/30/2019
 ms.author: absha
-ms.openlocfilehash: 4b8e04babfffaf49d3719d8a7e90af16598814f4
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: 5bfd1f930c190e717e435856f424f0cdf80deb2c
+ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59998904"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64946807"
 ---
 # <a name="application-gateway-configuration-overview"></a>Vue d’ensemble de configuration Application Gateway
 
@@ -71,7 +71,7 @@ Pour ce scénario, utilisez les groupes de sécurité réseau sur le sous-résea
 
 La référence (SKU) v1, itinéraires définis par l’utilisateur (UDR) sont prises en charge sur le sous-réseau de passerelle d’Application, tant qu’altérer communication demande/réponse de bout en bout. Par exemple, vous pouvez configurer un UDR dans le sous-réseau de passerelle d’Application pour pointer vers une appliance de pare-feu pour l’inspection de paquets. Mais vous devez vous assurer que le paquet peut atteindre sa destination prévue après inspection. Cela peut entraîner une sonde d’intégrité incorrect ou le comportement de routage du trafic. Cela inclut les itinéraires appris ou des itinéraires de 0.0.0.0/0 par défaut qui sont propagés par Azure ExpressRoute ou passerelles VPN dans le réseau virtuel.
 
-La référence (SKU) v2, UDR ne sont pas pris en charge sur le sous-réseau de passerelle d’Application. Pour plus d’informations, consultez [mise à l’échelle et la redondance dans une zone de passerelle d’Application](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant#known-issues-and-limitations).
+La référence (SKU) v2, UDR ne sont pas pris en charge sur le sous-réseau de passerelle d’Application. Pour plus d’informations, consultez [référence (SKU) de passerelle d’Application Azure v2](application-gateway-autoscaling-zone-redundant.md#differences-with-v1-sku).
 
 > [!NOTE]
 > À l’aide d’UDR sur le sous-réseau de passerelle d’Application entraîne l’état d’intégrité dans le [vue de contrôle d’intégrité du serveur principal](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics#back-end-health) apparaisse comme « Inconnu ». Elle entraîne également la génération de journaux de passerelle d’Application et des métriques à échouer. Nous recommandons que vous n’utilisez pas UDR sur le sous-réseau de passerelle d’Application afin que vous puissiez afficher le contrôle d’intégrité du serveur principal, les journaux et les mesures.
@@ -84,7 +84,7 @@ Une adresse IP publique n’est pas requise pour un point de terminaison interne
 
 1 seule adresse IP publique ou 1 adresse IP privée est pris en charge. Vous choisissez l’adresse IP frontale lorsque vous créez la passerelle d’application.
 
-- Pour une adresse IP publique, vous pouvez créer une nouvelle adresse IP publique ou utiliser une adresse IP publique existante dans le même emplacement que la passerelle d’application. Si vous créez une adresse IP publique, le type d’adresse IP que vous sélectionnez (statique ou dynamique) ne peut pas être modifié ultérieurement. Pour plus d’informations, consultez [statique et l’adresse IP publique dynamique](https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-components#static-vs-dynamic-public-ip-address).
+- Pour une adresse IP publique, vous pouvez créer une nouvelle adresse IP publique ou utiliser une adresse IP publique existante dans le même emplacement que la passerelle d’application. Si vous créez une adresse IP publique, le type d’adresse IP que vous sélectionnez (statique ou dynamique) ne peut pas être modifié ultérieurement. Pour plus d’informations, consultez [statique et l’adresse IP publique dynamique](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#static-vs-dynamic-public-ip-address).
 
 - Pour une adresse IP privée, vous pouvez spécifier une adresse IP privée à partir du sous-réseau dans lequel la passerelle d’application est créée. Si vous ne spécifiez pas, une adresse IP arbitraire est automatiquement sélectionnée à partir du sous-réseau. Pour plus d’informations, consultez [créer une passerelle d’application avec un équilibreur de charge interne](https://docs.microsoft.com/azure/application-gateway/application-gateway-ilb-arm).
 
@@ -118,7 +118,7 @@ Choisissez l’adresse IP frontale que vous souhaitez associer à cet écouteur.
 
 Choisissez le port frontal. Sélectionner un port existant ou créez-en un. Choisissez n’importe quelle valeur à partir de la [autorisée plage de ports](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#ports). Vous pouvez utiliser non seulement les ports bien connus, tels que 80 et 443, mais n’importe quel port personnalisé autorisé qui convient. Un port peut être utilisé pour les écouteurs destinées au public ou privé orientés écouteurs.
 
-### <a name="protocol"></a>Protocole
+### <a name="protocol"></a>Protocol
 
 Choisissez HTTP ou HTTPS :
 
@@ -259,7 +259,7 @@ Cette fonctionnalité est utile lorsque vous souhaitez conserver une session uti
 
 Drainage de connexion vous permet de supprimer correctement les membres du pool back-end pendant les mises à jour de service planifiée. Vous pouvez appliquer ce paramètre à tous les membres d’un pool back-end lors de la création de règle. Elle garantit que toutes les instances de l’annulation d’inscription d’un pool back-end ne reçoivent toutes les nouvelles requêtes. Pendant ce temps, les requêtes existantes sont autorisés à se terminer dans une limite de temps configurée. Drainage de connexion s’applique aux instances de serveur principal qui sont explicitement supprimés à partir du pool principal par un appel d’API. Il s’applique également aux instances de serveur principal qui sont signalés comme étant *défectueux* par l’intégrité des sondes.
 
-### <a name="protocol"></a>Protocole
+### <a name="protocol"></a>Protocol
 
 Application Gateway prend en charge les protocoles HTTP et HTTPS pour router les demandes vers les serveurs principaux. Si vous choisissez HTTP, le trafic vers les serveurs principaux est non chiffré. Si la communication non chiffrée n’est pas acceptable, sélectionnez HTTPS.
 

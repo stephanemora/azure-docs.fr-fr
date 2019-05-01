@@ -3,19 +3,19 @@ title: Ajouter un compte Microsoft (MSA) en tant que fournisseur d’identité e
 description: En vous aidant de cet exemple, découvrez comment utiliser Microsoft en tant que fournisseur d’identité à l’aide du protocole OpenID Connect (OIDC).
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 842d9497333d02a9f7918d86cd7d76e84b504063
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: 983b90af4aafe158bf32290b1e4a2092acc47b17
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60002106"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64706478"
 ---
 # <a name="set-up-sign-in-with-a-microsoft-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configurer la connexion avec un compte Microsoft à l’aide de stratégies personnalisées dans Azure Active Directory B2C
 

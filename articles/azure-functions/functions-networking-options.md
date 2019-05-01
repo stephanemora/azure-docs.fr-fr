@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: b7af0149a690e3cc3a357a5cb769751e3674d374
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 49f89d39b3b917ec6357b241d7c413c2790eca25
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61437682"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64575606"
 ---
 # <a name="azure-functions-networking-options"></a>Options de mise en réseau d’Azure Functions
 
@@ -31,15 +31,14 @@ Vous pouvez héberger des applications de fonction de deux façons :
 
 ## <a name="matrix-of-networking-features"></a>Matrice des fonctionnalités de mise en réseau
 
-|                |[Plan de consommation](functions-scale.md#consumption-plan)|⚠ [Plan Premium](functions-scale.md#premium-plan-public-preview)|[Plan App Service](functions-scale.md#app-service-plan)|[Environnement App Service](../app-service/environment/intro.md)|
+|                |[Plan de consommation](functions-scale.md#consumption-plan)|[Plan Premium (version préliminaire)](functions-scale.md#premium-plan-public-preview)|[Plan App Service](functions-scale.md#app-service-plan)|[Environnement App Service](../app-service/environment/intro.md)|
 |----------------|-----------|----------------|---------|-----------------------|  
 |[Restrictions d’adresse IP entrantes](#inbound-ip-restrictions)|✅Yes|✅Yes|✅Yes|✅Yes|
+|[Restrictions d’adresse IP sortante](#private-site-access)|❌No| ❌No|❌No|✅Yes|
 |[Intégration du réseau virtuel](#virtual-network-integration)|❌No|❌No|✅Yes|✅Yes|
-|[Version préliminaire d’intégration de réseau virtuel (points de terminaison de service et Azure ExpressRoute)](#preview-version-of-virtual-network-integration)|❌No|⚠Oui|⚠Oui|✅Yes|
+|[Afficher un aperçu d’intégration de réseau virtuel (Azure ExpressRoute et points de terminaison de service sortants)](#preview-version-of-virtual-network-integration)|❌No|✅Yes|✅Yes|✅Yes|
 |[connexions hybrides](#hybrid-connections)|❌No|❌No|✅Yes|✅Yes|
-|[accès privé aux sites](#private-site-access)|❌No| ❌No|❌No|✅Yes|
-
-⚠ Cette fonctionnalité en préversion n’est pas pour la production.
+|[accès privé aux sites](#private-site-access)|❌No| ✅Yes|✅Yes|✅Yes|
 
 ## <a name="inbound-ip-restrictions"></a>Restrictions d’adresse IP entrantes
 
@@ -49,6 +48,10 @@ Vous pouvez utiliser les restrictions d’adresse IP pour définir une liste ord
 > Pour utiliser l’Éditeur du portail Azure, le portail doit être en mesure d’accéder directement à votre application de fonction en cours d’exécution. En outre, l’appareil que vous utilisez pour accéder au portail doit avoir son dans la liste verte IP. Avec les restrictions de réseau en place, vous pouvez toujours accéder à toutes les fonctionnalités sur le **fonctionnalités de la plateforme** onglet.
 
 Pour plus d’informations, consultez [restrictions d’accès statique Azure App Service](../app-service/app-service-ip-restrictions.md).
+
+## <a name="outbound-ip-restrictions"></a>Restrictions d’adresse IP sortantes
+
+Restrictions d’adresse IP sortantes sont uniquement disponibles pour les fonctions déployées pour un environnement App Service. Vous pouvez configurer des restrictions sortantes pour le réseau virtuel où votre environnement App Service est déployé.
 
 ## <a name="virtual-network-integration"></a>Intégration du réseau virtuel
 
@@ -88,7 +91,10 @@ Pour plus d’informations, consultez le [documentation App Service pour les con
 
 ## <a name="private-site-access"></a>Accès aux sites privés
 
-Accès privé aux sites fait référence pour rendre votre application accessible uniquement à partir d’un réseau privé comme à partir d’un réseau virtuel Azure. Accès privé aux sites est disponible uniquement avec un environnement App Service configuré avec un équilibreur de charge interne (ILB). Pour plus d’informations, consultez [créer et utiliser un équilibreur de charge interne avec un environnement App Service](../app-service/environment/create-ilb-ase.md).
+Accès privé aux sites fait référence pour rendre votre application accessible uniquement à partir d’un réseau privé comme à partir d’un réseau virtuel Azure. 
+* Accès privé aux sites est disponible dans les App Service Premium planifier quand **points de terminaison de Service** sont configurés. Pour plus d’informations, consultez [points de terminaison de service réseau virtuel](../virtual-network/virtual-network-service-endpoints-overview.md)
+    * N’oubliez pas qu’avec les points de terminaison de Service, votre fonction toujours a un accès complet sortant à internet, même avec l’intégration de réseau virtuel configurée.
+* Accès privé aux sites est disponible uniquement avec un environnement App Service configuré avec un équilibreur de charge interne (ILB). Pour plus d’informations, consultez [créer et utiliser un équilibreur de charge interne avec un environnement App Service](../app-service/environment/create-ilb-ase.md).
 
 Il existe de nombreuses façons d’accéder aux ressources de réseau virtuel dans les autres options d’hébergement. Mais un environnement App Service est la seule façon d’autoriser les déclencheurs pour une fonction doit être effectuée via un réseau virtuel.
 

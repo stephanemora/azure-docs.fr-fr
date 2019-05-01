@@ -1,10 +1,10 @@
 ---
 title: En savoir plus sur les modèles de groupes de machines virtuelles identiques | Microsoft Docs
-description: Découvrez comment créer un modèle de groupe identique minimum viable pour les groupes de machines virtuelles identiques
+description: Apprenez à créer un modèle de groupe identique de base pour les machines virtuelles identiques
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: mayanknayar
-manager: jeconnoc
+manager: drewm
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
@@ -13,27 +13,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/01/2017
+ms.date: 04/26/2019
 ms.author: manayar
-ms.openlocfilehash: d4a3dd6ae390fd48a8085cca33063a6bb74bd96c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 8b6a6b78dc74572b22d397b5536efa1394401bbc
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60805582"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64868925"
 ---
 # <a name="learn-about-virtual-machine-scale-set-templates"></a>En savoir plus sur les modèles de groupes de machines virtuelles identiques
-Les [modèles Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment) constituent un excellent moyen de déployer des groupes de ressources liées. Cette série de didacticiels montre comment créer un modèle de jeu de mise à l’échelle viable minimal et comment modifier ce modèle pour l’adapter à différents scénarios. Tous les exemples proviennent de ce [référentiel GitHub](https://github.com/gatneil/mvss). 
+Les [modèles Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment) constituent un excellent moyen de déployer des groupes de ressources liées. Cette série de didacticiels montre comment créer un modèle de groupe identique de base et comment modifier ce modèle pour l’adapter à différents scénarios. Tous les exemples proviennent de ce [référentiel GitHub](https://github.com/gatneil/mvss).
 
 Ce modèle est conçu pour être simple. Pour des exemples plus complets de modèles de groupes identiques, consultez le [référentiel Github de modèles de démarrage rapide Azure](https://github.com/Azure/azure-quickstart-templates) et recherchez les dossiers qui contiennent la chaîne `vmss`.
 
 Si vous êtes déjà familiarisé avec la création de modèles, vous pouvez passer à la section « Étapes suivantes » pour découvrir comment modifier ce modèle.
-
-## <a name="review-the-template"></a>Vérifier le modèle
-
-Utilisez GitHub pour consulter le modèle de groupe identique minimum viable, [azuredeploy.json](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json).
-
-Dans ce didacticiel, examinons le différentiel (`git diff master minimum-viable-scale-set`) pour créer, étape par étape, le modèle de groupe identique minimum viable.
 
 ## <a name="define-schema-and-contentversion"></a>Définir $schema et contentVersion
 Tout d’abord, définissez `$schema` et `contentVersion` dans le modèle. L’élément `$schema` définit la version de langue du modèle et est utilisé pour le surlignage de syntaxe et d’autres fonctionnalités de validation similaires dans Visual Studio. L’élément `contentVersion` n’est pas utilisé par Azure. Au lieu de cela, il vous aide à effectuer le suivi de la version du modèle.
@@ -43,6 +37,7 @@ Tout d’abord, définissez `$schema` et `contentVersion` dans le modèle. L’�
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
   "contentVersion": "1.0.0.0",
 ```
+
 ## <a name="define-parameters"></a>Définir les paramètres
 Ensuite, définissez deux paramètres, `adminUsername` et `adminPassword`. Les paramètres sont des valeurs que vous spécifiez au moment du déploiement. Le paramètre `adminUsername` est simplement de type `string`, mais étant donné que `adminPassword` est un secret, donnez-lui un type `securestring`. Ensuite, ces paramètres sont passés dans la configuration du groupe identique.
 
@@ -70,13 +65,13 @@ Passons ensuite à la section des ressources du modèle. Vous définissez ici ce
    "resources": [
 ```
 
-Toutes les ressources nécessitent les propriétés `type`, `name`, `apiVersion` et `location`. La première ressource de cet exemple est de type [Microsoft.Network/virtualNetwork](/azure/templates/microsoft.network/virtualnetworks), avec le nom `myVnet` et apiVersion `2016-03-30`. (Pour trouver la dernière version de l’API pour un type de ressource, reportez-vous à la [documentation de référence des modèles Azure Resource Manager](/azure/templates/).)
+Toutes les ressources nécessitent les propriétés `type`, `name`, `apiVersion` et `location`. La première ressource de cet exemple est de type [Microsoft.Network/virtualNetwork](/azure/templates/microsoft.network/virtualnetworks), avec le nom `myVnet` et apiVersion `2018-11-01`. (Pour trouver la dernière version de l’API pour un type de ressource, reportez-vous à la [documentation de référence des modèles Azure Resource Manager](/azure/templates/).)
 
 ```json
      {
        "type": "Microsoft.Network/virtualNetworks",
        "name": "myVnet",
-       "apiVersion": "2016-12-01",
+       "apiVersion": "2018-11-01",
 ```
 
 ## <a name="specify-location"></a>Spécifier l’emplacement
@@ -117,7 +112,7 @@ Dans ce cas, la liste ne contient qu’un seul élément, le réseau virtuel iss
      {
        "type": "Microsoft.Compute/virtualMachineScaleSets",
        "name": "myScaleSet",
-       "apiVersion": "2016-04-30-preview",
+       "apiVersion": "2019-03-01",
        "location": "[resourceGroup().location]",
        "dependsOn": [
          "Microsoft.Network/virtualNetworks/myVnet"
@@ -136,7 +131,7 @@ Le groupe identique doit connaître la taille de machine virtuelle à créer (le
 ```
 
 ### <a name="choose-type-of-updates"></a>Choisir le type de mises à jour
-Le jeu de mise à l’échelle doit également savoir comment gérer les mises à jour sur l’ensemble du jeu de mise à l’échelle. Il existe actuellement deux options, `Manual` et `Automatic`. Pour plus d’informations sur les différences entre les deux, consultez la documentation sur la [Mise à niveau d’un jeu de mise à l’échelle](./virtual-machine-scale-sets-upgrade-scale-set.md).
+Le jeu de mise à l’échelle doit également savoir comment gérer les mises à jour sur l’ensemble du jeu de mise à l’échelle. Actuellement, il existe trois options, `Manual`, `Rolling` et `Automatic`. Pour plus d’informations sur les différences entre les deux, consultez la documentation sur la [Mise à niveau d’un jeu de mise à l’échelle](./virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model).
 
 ```json
        "properties": {

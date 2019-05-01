@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: troubleshooting
 ms.date: 4/11/2019
 ms.author: alkarche, glenga
-ms.openlocfilehash: 3cf6a0d080e2d8cafcab8e69a614b59a470c7aba
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: b673e625e1a50c32e3d8580ec442792ed8611703
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60637044"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64572601"
 ---
 # <a name="frequently-asked-questions-about-networking-in-azure-functions"></a>Questions fréquemment posées sur la mise en réseau dans Azure Functions
 
@@ -28,11 +28,14 @@ Déploiement d’une fonction dans un environnement App Service est actuellement
 Vous pouvez restreindre l’accès internet de deux manières :
 
 * [Restrictions d’adresse IP](../app-service/app-service-ip-restrictions.md): Limiter le trafic entrant à votre application de fonction par la plage d’adresses IP.
+    * Sous les restrictions d’adresse IP, vous pouvez également configurer [points de terminaison de Service](../virtual-network/virtual-network-service-endpoints-overview.md), qui permet de restreindre votre fonction pour accepter uniquement le trafic entrant à partir d’un réseau virtuel particulier.
 * Suppression de tous les déclencheurs HTTP. Pour certaines applications, il suffit simplement éviter des déclencheurs HTTP et utiliser toute autre source d’événement pour déclencher votre fonction.
 
 N’oubliez pas que l’Éditeur du portail Azure nécessite un accès direct à votre fonction en cours d’exécution. Les modifications de code via le portail Azure nécessitera l’appareil que vous utilisez pour parcourir le portail pour que son dans la liste verte IP. Mais vous pouvez toujours utiliser quoi que ce soit sous l’onglet fonctionnalités de plateforme avec des restrictions de réseau en place.
 
 ## <a name="how-do-i-restrict-my-function-app-to-a-virtual-network"></a>Comment limiter mon application de fonction à un réseau virtuel ?
+
+Vous êtes en mesure de limiter **entrant** le trafic pour une application de fonction à un réseau virtuel à l’aide [points de terminaison de Service](./functions-networking-options.md#private-site-access). Cette configuration permet toujours de l’application de fonction effectuer des appels sortants à internet.
 
 La seule façon de restreindre totalement une fonction de telle sorte que tout le trafic transite via un réseau virtuel consiste à utiliser un équilibrage de charge interne ASE. Cette option déploie votre site sur une infrastructure dédiée à l’intérieur d’un réseau virtuel et envoie tous les déclencheurs et le trafic via le réseau virtuel. 
 
@@ -48,8 +51,11 @@ Vous pouvez accéder aux ressources dans un réseau virtuel à partir d’une fo
 
 ## <a name="how-can-i-trigger-a-function-from-a-resource-in-a-virtual-network"></a>Comment puis-je déclencher une fonction à partir d’une ressource dans un réseau virtuel ?
 
-Vous pouvez déclencher une fonction à partir d’une ressource dans un réseau virtuel uniquement par le déploiement de votre application de fonction à un environnement App Service. Pour plus d’informations sur l’utilisation d’un environnement App Service, consultez [créer et utiliser un équilibreur de charge interne avec un environnement App Service](../app-service/environment/create-ilb-ase.md).
+Vous êtes en mesure d’autoriser les déclencheurs HTTP soit appelée à partir d’un réseau virtuel à l’aide [points de terminaison de Service](./functions-networking-options.md#private-site-access). 
 
+Vous pouvez également déclencher une fonction à partir d’une ressource dans un réseau virtuel en déployant votre application de fonction dans un environnement App Service. Pour plus d’informations sur l’utilisation d’un environnement App Service, consultez [créer et utiliser un équilibreur de charge interne avec un environnement App Service](../app-service/environment/create-ilb-ase.md).
+
+Les déclencheurs Premium et App Service plan prise en charge HTTP à partir d’un réseau virtuel, mais uniquement dans un environnement App Service prend en charge tous les autres types de déclencheurs de fonction via un réseau virtuel.
 
 ## <a name="how-can-i-deploy-my-function-app-in-a-virtual-network"></a>Comment puis-je déployer mon application de fonction dans un réseau virtuel ?
 

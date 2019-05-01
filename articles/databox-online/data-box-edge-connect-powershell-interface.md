@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/29/2019
+ms.date: 04/25/2019
 ms.author: alkohli
-ms.openlocfilehash: b4d047f4266d11a5f6b77f33054eb93e31f7090b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 8cd89b21e80662ec50746e0c7721a5544cfbce30
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58791573"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64717501"
 ---
 # <a name="manage-an-azure-data-box-edge-device-via-windows-powershell"></a>Gérer un appareil Edge de zone de données Azure via Windows PowerShell
 
@@ -24,7 +24,6 @@ Cet article se concentre sur les tâches que vous effectuez à l’aide de l’i
 Cet article inclut les procédures suivantes :
 
 - Se connecter à l’interface de PowerShell
-- Démarrer une session de support
 - Création d’un package de prise en charge
 - Téléchargement d’un certificat
 - Réinitialise l’appareil
@@ -59,7 +58,6 @@ Set-HcsCertificate -Scope IotEdge -RootCACertificateFilePath "\\hcfs\root-ca-cer
 Pour plus d’informations sur les certificats, accédez à [les certificats Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/iot-edge-certs) ou [installer des certificats sur une passerelle](https://docs.microsoft.com/azure/iot-edge/how-to-create-transparent-gateway#install-certificates-on-the-gateway).
 
 ## <a name="view-device-information"></a>Afficher les informations de périphérique
-
  
 [!INCLUDE [View device information](../../includes/data-box-edge-gateway-view-device-info.md)]
 
@@ -90,6 +88,9 @@ Si le rôle de calcul est configuré sur votre appareil, vous pouvez également 
 
 [!INCLUDE [Monitor and troubleshoot compute modules](../../includes/data-box-edge-monitor-troubleshoot-compute.md)]
 
+## <a name="exit-the-remote-session"></a>Quittez la session à distance
+
+Pour quitter la session PowerShell à distance, fermez la fenêtre PowerShell.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

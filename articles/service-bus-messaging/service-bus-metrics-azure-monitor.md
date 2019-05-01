@@ -10,12 +10,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 11/06/2018
 ms.author: aschhab
-ms.openlocfilehash: 175d5d5d4495986c29b75427a325088c14279e17
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: d5f5c1d9b1884c6e9975ceb0ce28ecd5f25e89b2
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60308598"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64716100"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor-preview"></a>Métriques Azure Service Bus dans Azure Monitor (préversion)
 
@@ -83,14 +83,14 @@ Les deux types d’erreurs suivants sont classées dans la catégorie des erreur
 |Messages sortants (préversion)|Le nombre d’événements ou de messages reçus à partir de Service Bus sur une période spécifiée.<br/><br/> Unité : Nombre <br/> Type d’agrégation : Total <br/> Dimension : EntityName|
 | Messages (préversion) | Nombre de messages dans une file d’attente/rubrique. <br/><br/> Unité : Nombre <br/> Type d’agrégation : Moyenne <br/> Dimension : EntityName |
 | ActiveMessages (préversion) | Nombre de messages actifs dans une file d’attente/rubrique. <br/><br/> Unité : Nombre <br/> Type d’agrégation : Moyenne <br/> Dimension : EntityName |
+| Messages mortes (version préliminaire) | Nombre de mortes des messages dans une file d’attente/rubrique. <br/><br/> Unité : Nombre <br/> Type d’agrégation : Moyenne <br/>Dimension : EntityName |
+| Messages planifiés (version préliminaire) | Nombre de messages planifiés dans une file d’attente/rubrique. <br/><br/> Unité : Nombre <br/> Type d’agrégation : Moyenne  <br/> Dimension : EntityName |
 
 ## <a name="connection-metrics"></a>Métriques de connexion
 
 | Nom de métrique | Description |
 | ------------------- | ----------------- |
 |ActiveConnections (préversion)|Le nombre de connexions actives sur un espace de noms ainsi que sur une entité.<br/><br/> Unité : Nombre <br/> Type d’agrégation : Total <br/> Dimension : EntityName|
-|Ouvertures de connexion (préversion)|Le nombre de connexions ouvertes.<br/><br/> Unité : Nombre <br/> Type d’agrégation : Total <br/> Dimension : EntityName|
-|Connexions fermées (préversion)|Le nombre de connexions fermées.<br/><br/> Unité : Nombre <br/> Type d’agrégation : Total <br/> Dimension : EntityName |
 
 ## <a name="resource-usage-metrics"></a>Métriques d’utilisation des ressources
 
@@ -115,7 +115,7 @@ Azure Service Bus prend en charge les dimensions suivantes pour les mesures dans
 1. Dans l’onglet **Métriques** de la page **Espace de noms Service Bus**, sélectionnez **Configurer les alertes**. 
 
     ![Page Métriques - menu Configurer les alertes](./media/service-bus-metrics-azure-monitor/metrics-page-configure-alerts-menu.png)
-2. Choisissez **Sélectionner la cible**, puis effectuez les actions suivantes dans la page **Sélectionner une ressource** : 
+2. Sélectionnez le **sélectionner une cible** option et effectuer les actions suivantes sur le **sélectionner une ressource** page : 
     1. Sélectionnez **Espace de noms Service Bus** pour le champ **Filtrer par type de ressource**. 
     2. Sélectionnez votre abonnement pour le champ **Filtrer par abonnement**.
     3. Sélectionnez l’**Espace de noms Service Bus** dans la liste. 

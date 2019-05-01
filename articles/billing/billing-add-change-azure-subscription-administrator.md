@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: banders
-ms.openlocfilehash: 6cc965f8e775e02e9dec9f610516739a9a2c1936
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: 000315a2d751a05d3e401ee1bb9f593c6e321194
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62127715"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922892"
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>Ajout ou modification des administrateurs d’abonnements Azure
 
 Pour gérer l’accès aux ressources Azure, vous devez disposer du rôle d’administrateur approprié. Azure repose sur un système d'autorisation appelé contrôle d'accès en fonction du rôle (RBAC) et vous pouvez faire votre choix parmi les différents rôles intégrés. Vous pouvez attribuer ces rôles à différents niveaux (ou étendues) : groupe de gestion, abonnement, groupe de ressources, etc.
 
-Microsoft vous recommande de gérer l'accès aux ressources à l'aide du RBAC. Toutefois, si vous utilisez encore le modèle de déploiement classique et que vous gérez les ressources classiques à l'aide du [module PowerShell d'Azure Service Management](https://docs.microsoft.com/en-us/powershell/module/servicemanagement/azure), vous devez utiliser un administrateur classique. 
+Microsoft vous recommande de gérer l'accès aux ressources à l'aide du RBAC. Toutefois, si vous utilisez encore le modèle de déploiement classique et que vous gérez les ressources classiques à l'aide du [module PowerShell d'Azure Service Management](https://docs.microsoft.com/powershell/module/servicemanagement/azure), vous devez utiliser un administrateur classique. 
 
 > [!TIP]
 > Si vous utilisez uniquement le portail Azure pour gérer les ressources classiques, vous n'avez pas besoin d'utiliser l'administrateur classique.

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/01/2019
 ms.author: anavin
-ms.openlocfilehash: b65bad57a300d941774f5d3e5d01967f0c13d684
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 22521abbc341fa9999738dd51301d3f84c18627a
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60186827"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919304"
 ---
 # <a name="virtual-network-peering"></a>Homologation de réseaux virtuels
 
@@ -78,7 +78,7 @@ Vous pouvez également essayer le [Utilitaire de dépannage pour les problèmes 
 ## <a name="requirements-and-constraints"></a>Exigences et contraintes
 
 Les contraintes ci-après s’appliquent uniquement quand des réseaux virtuels sont appairés à l’échelle mondiale :
-- Ressources dans un réseau virtuel ne peut pas communiquer avec l’adresse IP frontale d’un équilibreur de charge interne de base dans un réseau virtuel homologué dans le monde entier. Prise en charge pour l’équilibreur de charge existe uniquement dans la même région. Prise en charge pour l’équilibreur de charge Standard existe pour l’homologation globale.
+- Ressources dans un réseau virtuel ne peut pas communiquer avec l’adresse IP frontale d’un équilibreur de charge interne de base dans un réseau virtuel homologué dans le monde entier. Prise en charge pour l’équilibreur de charge existe uniquement dans la même région. Prise en charge de l’équilibreur de charge Standard existe pour à la fois, l’homologation et Global VNet Peering. Les services qui utilisent un équilibreur de charge de base qui ne fonctionne pas via une homologation de réseau virtuel Global sont documentées [ici.](virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers)
 
 Pour en savoir plus sur les exigences et les contraintes, consultez la section correspondante de l’article [Créer, modifier ou supprimer une homologation de réseau virtuel](virtual-network-manage-peering.md#requirements-and-constraints). Pour en savoir plus sur les limites concernant le nombre d’homologations que vous pouvez créer pour un réseau virtuel, consultez [Abonnement Azure et limites, quotas et contraintes de service](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). 
 

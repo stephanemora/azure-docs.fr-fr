@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/29/2017
 ms.author: kumud
-ms.openlocfilehash: 3f41edef56b238d8789264d00d73998794fec7eb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b609a0ace0b428e1af81634c6a25485e3a5e89bb
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60188711"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64916657"
 ---
 # <a name="traffic-manager-endpoints"></a>Points de terminaison Traffic Manager
 Microsoft Azure Traffic Manager vous permet de contrôler la distribution du trafic réseau sur vos déploiements d’applications exécutés dans différents centres de données. Vous pouvez configurer chaque déploiement d’application en tant que « point de terminaison » dans Traffic Manager. Lorsque Traffic Manager reçoit une demande DNS, il choisit un point de terminaison disponible à renvoyer dans la réponse DNS. Traffic Manager base son choix sur l’état du point de terminaison actuel et la méthode de routage du trafic. Pour plus d’informations, consultez l’article [Fonctionnement de Traffic Manager](traffic-manager-how-it-works.md).
@@ -63,7 +63,7 @@ Les points de terminaison imbriqués combinent plusieurs profils Traffic Manager
 
 D’autres aspects doivent être pris en compte lors de la configuration d’applications web en tant que points de terminaison dans Traffic Manager :
 
-1. Seules les applications web associées à une référence (SKU) « Standard » ou supérieures peuvent être utilisées avec Traffic Manager. Les tentatives d’ajout d’une application web d’une référence SKU inférieure échouent. Si vous utilisez une application web associée à une référence SKU inférieure, Traffic Manager n’envoie plus de trafic vers cette application web. Pour plus d'informations sur les plans pris en charge, consultez les [Plans App Service](https://azure.microsoft.com/en-us/pricing/details/app-service/plans/)
+1. Seules les applications web associées à une référence (SKU) « Standard » ou supérieures peuvent être utilisées avec Traffic Manager. Les tentatives d’ajout d’une application web d’une référence SKU inférieure échouent. Si vous utilisez une application web associée à une référence SKU inférieure, Traffic Manager n’envoie plus de trafic vers cette application web. Pour plus d'informations sur les plans pris en charge, consultez les [Plans App Service](https://azure.microsoft.com/pricing/details/app-service/plans/)
 2. Lorsqu’un point de terminaison reçoit une requête HTTP, il utilise l’en-tête « host » de la requête pour identifier l’application web qui doit traiter la requête. Cet en-tête contient le nom DNS utilisé pour lancer la requête, par exemple « contosoapp.azurewebsites.net ». Pour utiliser un autre nom DNS avec votre application web, le nom DNS doit être enregistré en tant que nom de domaine personnalisé pour l’application. Lorsque vous ajoutez un point de terminaison d’application web en tant que point de terminaison Azure, le nom DNS du profil Traffic Manager est automatiquement enregistré pour l’application. Cet enregistrement est supprimé automatiquement lors de la suppression du point de terminaison.
 3. Chaque profil Traffic Manager peut contenir au maximum un point de terminaison d’application web provenant de chaque région Azure. Pour éviter cette contrainte, vous pouvez configurer une application web en tant que point de terminaison externe. Pour plus d’informations, visitez le [FAQ](traffic-manager-faqs.md#traffic-manager-endpoints).
 

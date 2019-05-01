@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect : Résoudre les problèmes de connectivité | Microsoft Docs'
+title: 'Azure AD Connect : Résoudre les problèmes d’Azure AD des problèmes de connectivité | Microsoft Docs'
 description: Explique comment résoudre les problèmes de connectivité liés à Azure AD Connect.
 services: active-directory
 documentationcenter: ''
@@ -12,18 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/18/2017
+ms.date: 04/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c0afc31bf08a5037d91885bc6a85c6aeaf858825
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7519f47037d2d7ff37564ab27c1cc58b65ff6c14
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60386623"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64572784"
 ---
-# <a name="troubleshoot-connectivity-issues-with-azure-ad-connect"></a>Résoudre les problèmes de connectivité liés à Azure AD Connect
+# <a name="troubleshoot-azure-ad-connectivity"></a>Résoudre les problèmes de connectivité d’Azure AD
 Cet article décrit le fonctionnement de la connectivité entre Azure AD Connect et Azure AD ainsi que la résolution des problèmes de connectivité. Ces problèmes sont susceptibles de se produire dans un environnement doté d’un serveur proxy.
 
 ## <a name="troubleshoot-connectivity-issues-in-the-installation-wizard"></a>Résoudre les problèmes de connectivité dans l’Assistant Installation
