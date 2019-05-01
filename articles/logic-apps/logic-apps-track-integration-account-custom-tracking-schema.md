@@ -60,14 +60,14 @@ Cet article fournit un code personnalisé que vous pouvez utiliser dans les couc
 | --- | --- | --- |
 | sourceType |   | Type de source d’exécution. Les valeurs autorisées sont **Microsoft.Logic/workflows** et **custom**. (obligatoire) |
 | Source |   | Si le type de source est **Microsoft.Logic/workflows**, les informations source doivent suivre ce schéma. Si le type de source est **custom**, le schéma est un JToken. (obligatoire) |
-| systemId | String | ID système d’application logique. (obligatoire) |
-| runId | String | ID d’exécution d’application logique. (obligatoire) |
-| operationName | String | Nom de l’opération (par exemple action ou déclencheur). (obligatoire) |
-| repeatItemScopeName | String | Répéter le nom de l’élément si l’action se trouve au sein d’une boucle `foreach`/`until`. (obligatoire) |
+| systemId | Chaîne | ID système d’application logique. (obligatoire) |
+| runId | Chaîne | ID d’exécution d’application logique. (obligatoire) |
+| operationName | Chaîne | Nom de l’opération (par exemple action ou déclencheur). (obligatoire) |
+| repeatItemScopeName | Chaîne | Répéter le nom de l’élément si l’action se trouve au sein d’une boucle `foreach`/`until`. (obligatoire) |
 | repeatItemIndex | Entier  | Indique si l’action se trouve au sein d’une boucle `foreach`/`until`. Indique l’index de l’élément répété. (obligatoire) |
-| trackingId | String | ID de suivi permettant de corréler les messages. (facultatif) |
-| correlationId | String | ID de corrélation permettant de corréler les messages. (facultatif) |
-| clientRequestId | String | Le client peut remplir ce champ pour corréler les messages. (facultatif) |
+| trackingId | Chaîne | ID de suivi permettant de corréler les messages. (facultatif) |
+| correlationId | Chaîne | ID de corrélation permettant de corréler les messages. (facultatif) |
+| clientRequestId | Chaîne | Le client peut remplir ce champ pour corréler les messages. (facultatif) |
 | eventLevel |   | Niveau de l’événement. (obligatoire) |
 | eventTime |   | Heure de l’événement au format UTC AAAA-MM-JJTHH:MM:SS.00000Z. (obligatoire) |
 | recordType |   | Type de l’enregistrement de suivi. La valeur autorisée est **Custom**. (obligatoire) |
