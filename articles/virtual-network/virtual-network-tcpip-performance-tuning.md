@@ -28,12 +28,12 @@ ms.author:
 - minale
 - btalb
 - prachank
-ms.openlocfilehash: 1e8605a41cbe610c971b891309b2149d221b8b27
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 31ca0ee666ff37afa37fb9636860c557d92a52c7
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61032449"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924782"
 ---
 # <a name="tcpip-performance-tuning-for-azure-vms"></a>TCP/IP réglage des performances pour les machines virtuelles Azure
 
@@ -304,7 +304,7 @@ Mise en réseau accélérée est conçu pour améliorer les performances du rés
 
 Machines virtuelles Azure possèdent au moins une interface réseau qui leur sont attachée. Ils peuvent avoir plusieurs. La bande passante allouée à une machine virtuelle est la somme de tout le trafic sortant pour toutes les interfaces réseau attachées à la machine. En d’autres termes, la bande passante est allouée sur une base par machine virtuelle, quel que soit le nombre d’interfaces réseau est connecté à l’ordinateur.
 
-Débit sortant attendu et le nombre d’interfaces réseau pris en charge par chaque taille de machine virtuelle sont détaillés dans [machines virtuelles de tailles pour Windows dans Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json). Pour afficher le débit maximal, sélectionnez un type, par exemple **à usage général**, puis recherchez la section relative à la série de taille sur la page résultante (par exemple, « série Dv2 »). Pour chaque série, il existe une table qui fournit les spécifications de mise en réseau dans la dernière colonne, intitulée « cartes réseau Max / attendue de la bande passante du réseau (Mbits/s). »
+Débit sortant attendu et le nombre d’interfaces réseau pris en charge par chaque taille de machine virtuelle sont détaillés dans [machines virtuelles de tailles pour Windows dans Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json). Pour afficher le débit maximal, sélectionnez un type, par exemple **à usage général**, puis recherchez la section relative à la série de taille sur la page résultante (par exemple, « série Dv2 »). Pour chaque série, il existe une table qui fournit les spécifications de mise en réseau dans la dernière colonne, intitulée « cartes réseau Max / attendue de la bande passante du réseau (Mbits/s). »
 
 Cette limite de débit s’applique à la machine virtuelle. Débit n’est pas affecté par ces facteurs :
 
@@ -388,4 +388,4 @@ Cependant, ces types de paquets sont des indications que le débit TCP n’attei
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Maintenant que vous avez appris TCP/IP réglage des performances des machines virtuelles Azure, vous souhaiterez en savoir plus sur d’autres considérations pour [planification de réseaux virtuels](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-vnet-plan-design-arm) ou [en savoir plus sur la connexion et la configuration de réseaux virtuels ](https://docs.microsoft.com/en-us/azure/virtual-network/).
+Maintenant que vous avez appris TCP/IP réglage des performances des machines virtuelles Azure, vous souhaiterez en savoir plus sur d’autres considérations pour [planification de réseaux virtuels](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm) ou [en savoir plus sur la connexion et la configuration de réseaux virtuels ](https://docs.microsoft.com/azure/virtual-network/).

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: kumud
-ms.openlocfilehash: 6086c182763885b62f28ab093be2a7f3f8282b8a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: b89e9a48ce20c7c00bd3282623919b8066e34b25
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60803041"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64717063"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Forum Aux Questions (FAQ) relatif à Traffic Manager
 
@@ -320,7 +320,7 @@ Oui. Traffic Manager prend en charge la détection sur HTTPS. Configurez **HTTPS
 Traffic manager ne peut pas fournir de validation de certificat :
 
 * Les certificats côté serveur ne sont pas validés.
-* Les certificats SNI côté serveur ne sont pas pris en charge.
+* Les certificats SNI côté serveur ne sont pas validées.
 * Les certificats clients ne sont pas pris en charge.
 
 ### <a name="do-i-use-an-ip-address-or-a-dns-name-when-adding-an-endpoint"></a>Dois-je utiliser une adresse IP ou un nom DNS lors de l’ajout d’un point de terminaison ?

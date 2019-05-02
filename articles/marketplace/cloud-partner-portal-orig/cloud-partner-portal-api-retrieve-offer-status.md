@@ -1,25 +1,18 @@
 ---
-title: Récupérer l’état de l’offre | Microsoft Docs
+title: Récupérer l’état de l’offre | Place de marché Azure
 description: L’API récupère l’état actuel de l’offre.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: reference
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 9233a5919ad86adcbb7947cd095945654ed015a7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: 26ee8b5b1879c505f8200671558fe065ace068a3
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61093979"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64935455"
 ---
 <a name="retrieve-offer-status"></a>Récupérer l’état de l’offre 
 =====================
@@ -33,8 +26,8 @@ Récupère l’état actuel de l’offre.
 
 |  **Name**       |   **Description**                            |  **Type de données** |
 |  -------------  |  ------------------------------------------  |  ------------  |
-|  publisherId    | Identificateur du serveur de publication, par exemple `Contoso`  |     String     |
-|  offerId        | GUID qui identifie de façon unique l’offre      |     String     |
+|  publisherId    | Identificateur du serveur de publication, par exemple `Contoso`  |     Chaîne     |
+|  offerId        | GUID qui identifie de façon unique l’offre      |     Chaîne     |
 |  api-version    | Dernière version de l’API                        |     Date       |
 |  |  |
 

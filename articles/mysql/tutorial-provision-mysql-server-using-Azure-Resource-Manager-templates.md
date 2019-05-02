@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Provisionner un serveur Azure Database pour MySQL à l’aide d’un modèle Azure Resource Manager'
+title: 'Didacticiel : Provisionner un serveur Azure Database pour MySQL à l’aide d’un modèle Azure Resource Manager'
 description: Ce tutoriel explique comment provisionner et automatiser des déploiements de serveur Azure Database pour MySQL à l’aide d’un modèle Azure Resource Manager.
 author: savjani
 ms.author: pariks
@@ -8,18 +8,18 @@ ms.devlang: json
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.custom: mvc
-ms.openlocfilehash: 5d5398f4da7563c6f53c17d0305f54c4360f1c65
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6e4bb7622fe51c0cab4fc45e945e5bb07b1d32f1
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58076851"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925838"
 ---
-# <a name="tutorial-provision-an-azure-database-for-mysql-server-using-azure-resource-manager-template"></a>Tutoriel : Provisionner un serveur Azure Database pour MySQL à l’aide d’un modèle Azure Resource Manager
+# <a name="tutorial-provision-an-azure-database-for-mysql-server-using-azure-resource-manager-template"></a>Didacticiel : Provisionner un serveur Azure Database pour MySQL à l’aide d’un modèle Azure Resource Manager
 
 [L’API REST Azure Database pour MySQL](https://docs.microsoft.com/rest/api/mysql/) permet aux ingénieurs DevOps d’automatiser et d’intégrer l’approvisionnement, la configuration et les opérations des bases de données et des serveurs MySQL gérés dans Azure.  L’API permet la création, l’énumération, la gestion et la suppression des bases de données et serveurs MySQL sur le service Azure Database pour MySQL.
 
-Azure Resource Manager tire parti de l’API REST sous-jacente pour déclarer et programmer les ressources Azure nécessaires aux déploiements à grande échelle, en s’alignant avec l’infrastructure sous la forme d’un concept de code. Le modèle paramètre le nom de ressource Azure, la référence, le réseau, la configuration du pare-feu et les réglages. Vous pouvez ainsi le créer une fois et l’utiliser plusieurs fois.  Les modèles Azure Resource Manager peuvent être facilement créés à l’aide du [portail Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal) ou de [Visual Studio Code](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-visual-studio-code?tabs=CLI). Ils permettent la création d’applications, la normalisation et l’automatisation du déploiement, qui peuvent être intégrées dans le pipeline CI/CD DevOps.  Par exemple, si vous cherchez à déployer rapidement une application web avec le serveur principal Azure Database pour MySQL, vous pouvez effectuer le déploiement de bout en bout à l’aide de ce [modèle de démarrage rapide](https://azure.microsoft.com/en-us/resources/templates/101-webapp-managed-mysql/) depuis la galerie GitHub.
+Azure Resource Manager tire parti de l’API REST sous-jacente pour déclarer et programmer les ressources Azure nécessaires aux déploiements à grande échelle, en s’alignant avec l’infrastructure sous la forme d’un concept de code. Le modèle paramètre le nom de ressource Azure, la référence, le réseau, la configuration du pare-feu et les réglages. Vous pouvez ainsi le créer une fois et l’utiliser plusieurs fois.  Les modèles Azure Resource Manager peuvent être facilement créés à l’aide du [portail Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal) ou de [Visual Studio Code](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-visual-studio-code?tabs=CLI). Ils permettent la création d’applications, la normalisation et l’automatisation du déploiement, qui peuvent être intégrées dans le pipeline CI/CD DevOps.  Par exemple, si vous cherchez à déployer rapidement une application web avec le serveur principal Azure Database pour MySQL, vous pouvez effectuer le déploiement de bout en bout à l’aide de ce [modèle de démarrage rapide](https://azure.microsoft.com/resources/templates/101-webapp-managed-mysql/) depuis la galerie GitHub.
 
 Dans ce tutoriel, vous allez utiliser un modèle Azure Resource Manager et d’autres utilitaires pour apprendre à :
 

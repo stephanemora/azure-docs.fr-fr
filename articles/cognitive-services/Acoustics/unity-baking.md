@@ -10,18 +10,18 @@ ms.subservice: acoustics
 ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 8875674b0f9c621a573dda591b4dc2b6f018a83c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 2f0fcdcdf781c86179b67eeef0223d46da0fc65b
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59790227"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64917003"
 ---
 # <a name="project-acoustics-unity-bake-tutorial"></a>Tutoriel de baking Project Acoustics Unity
 Ce tutoriel décrit le baking acoustique avec Project Acoustics dans Unity.
 
 Configuration logicielle requise :
-* [Unity 2018.2+](http://unity3d.com) pour Windows
+* [Unity 2018.2+](https://unity3d.com) pour Windows
 * Le [plug-in Project Acoustics intégré dans votre projet Unity](unity-integration.md) ou l’[exemple de contenu Project Acoustics Unity](unity-quickstart.md)
 * Facultatif : Un [compte Azure Batch](create-azure-account.md) pour accélérer le baking en utilisant le cloud computing
 

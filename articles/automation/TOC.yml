@@ -59,7 +59,7 @@
     - name: Suivi des modifications
       items:
         - name: Vue d’ensemble du suivi des modifications
-          href: automation-change-tracking.md
+          href: change-tracking.md
           displayName: 'wildcard, recursion, environment variables, registry'
         - name: Afficher le contenu des fichiers suivis
           href: change-tracking-file-contents.md

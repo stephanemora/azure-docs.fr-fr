@@ -3,19 +3,19 @@ title: Tutoriel - Accorder l’accès à une API web Node.js à partir d’une a
 description: Didacticiel sur l’utilisation d’Active Directory B2C pour protéger une API web Node.js et l’appeler depuis une application de bureau .NET.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.author: davidmu
 ms.date: 02/04/2019
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 90a6a88ff0dc5aab1163e471b24cd1d00e548a1b
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: ef48c0f78083217581594b481b15a74a49fef4f9
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55755116"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64715842"
 ---
 # <a name="tutorial-grant-access-to-a-nodejs-web-api-from-a-desktop-app-using-azure-active-directory-b2c"></a>Tutoriel : Accorder l’accès à une API web Node.js depuis une application de bureau à l’aide d’Azure Active Directory B2C
 
@@ -45,14 +45,14 @@ Les ressources d’API web doivent être inscrites auprès de votre locataire po
 4. Sélectionnez **Applications**, puis **Ajouter**.
 5. Entrez un nom pour l’application. Par exemple, *webapi1*.
 6. Pour **inclure l’application web/l’API web** et **autoriser un flux implicite**, sélectionnez **Oui**.
-7. Pour l’**URL de réponse**, entrez un point de terminaison où Azure AD B2C doit retourner les jetons demandés par votre application. Dans ce tutoriel, l’exemple s’exécute localement et écoute `https://localhost:5000`.
+7. Pour l’**URL de réponse**, entrez un point de terminaison où Azure AD B2C doit retourner les jetons demandés par votre application. Dans ce tutoriel, l'exemple s'exécute localement et écoute `https://localhost:5000`.
 8. Pour l’**L’URI de l’ID d’application**, entrez l’identificateur utilisé pour votre API web. L’identificateur complet URI, y compris le domaine, est généré pour vous. Par exemple : `https://contosotenant.onmicrosoft.com/api`.
 9. Cliquez sur **Créer**.
-10. Dans la page des propriétés, enregistrez l’ID d’application que vous utiliserez pour configurer l’application web.
+10. Sur la page des propriétés, enregistrez l'ID d'application que vous utiliserez pour configurer l'application web.
 
 ## <a name="configure-scopes"></a>Configurer des étendues
 
-Les étendues permettent de gérer l’accès aux ressources protégées. Elles sont utilisées par l’API web pour implémenter le contrôle d’accès basé sur les étendues. Par exemple, certains utilisateurs peuvent bénéficier d’un accès en lecture et en écriture tandis que d’autres peuvent disposer d’autorisations d’accès en lecture seule. Dans ce didacticiel, vous allez définir des autorisations d’accès en lecture pour l’API web.
+Les étendues permettent de gérer l'accès aux ressources protégées. Elles sont utilisées par l’API web pour implémenter le contrôle d’accès basé sur les étendues. Par exemple, certains utilisateurs peuvent bénéficier d’un accès en lecture et en écriture tandis que d’autres peuvent disposer d’autorisations d’accès en lecture seule. Dans ce didacticiel, vous allez définir des autorisations d’accès en lecture pour l’API web.
 
 1. Sélectionnez **Applications**, puis *webapi1*.
 2. Sélectionnez **Étendues publiées**.

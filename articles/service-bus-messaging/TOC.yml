@@ -81,6 +81,8 @@
       href: service-bus-async-messaging.md
     - name: Gestion des urgences et des pannes
       href: service-bus-outages-disasters.md
+    - name: Attributs de sécurité courants Azure
+      href: service-bus-messaging-security-attributes.md
 - name: Guides pratiques
   items:
     - name: Créer un espace de noms

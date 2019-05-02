@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c19ee3bdd14ee6a2c5b59294f475f6c18b570fa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 1be88f0938a16302be4cf2308ba463900c067104
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60471967"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64920149"
 ---
 # <a name="configure-the-expiration-policy-for-office-365-groups"></a>Configurer la stratégie d’expiration pour les groupes Office 365
 
@@ -86,7 +86,7 @@ Le groupe peut être restauré dans les 30 jours suivant sa suppression. Pour ce
 Si le groupe que vous restaurez contient des documents, des sites SharePoint ou d’autres objets persistants, la restauration du groupe et de son contenu peut nécessiter jusqu’à 24 heures.
 
 ## <a name="how-to-retrieve-office-365-group-expiration-date"></a>Comment récupérer la date d’expiration du groupe Office 365
-En plus du volet d’accès où les utilisateurs peuvent afficher les détails du groupe, y compris la date d’expiration et la dernière date de renouvellement, la date d’expiration d’un groupe Office 365 peut être récupérée à partir de la version bêta de Microsoft Graph REST API. expirationDateTime comme une propriété de groupe a été activée dans la version bêta de Microsoft Graph. Il peut être récupéré avec une demande GET. Pour plus d’informations, reportez-vous à [cet exemple](https://docs.microsoft.com/en-us/graph/api/group-get?view=graph-rest-beta#example).
+En plus du volet d’accès où les utilisateurs peuvent afficher les détails du groupe, y compris la date d’expiration et la dernière date de renouvellement, la date d’expiration d’un groupe Office 365 peut être récupérée à partir de la version bêta de Microsoft Graph REST API. expirationDateTime comme une propriété de groupe a été activée dans la version bêta de Microsoft Graph. Il peut être récupéré avec une demande GET. Pour plus d’informations, reportez-vous à [cet exemple](https://docs.microsoft.com/graph/api/group-get?view=graph-rest-beta#example).
 
 > [!NOTE]
 > Pour gérer les appartenances aux groupes dans le volet d’accès, « Restreindre l’accès à des groupes dans le volet d’accès » doit être définie sur « Non » dans le paramètre général Azure Active Directory groupes.
@@ -101,10 +101,10 @@ La stratégie de conservation est configurée dans le Centre de conformité et d
 ## <a name="powershell-examples"></a>Exemples PowerShell
 Voici des exemples d’utilisation des applets de commande PowerShell permettant de configurer les paramètres d’expiration des groupes Office 365 de votre locataire :
 
-1. Installez le module de la préversion de PowerShell v2.0 (2.0.0.137) et connectez-vous à l’invite de PowerShell :
+1. Installer le module de v2.0 PowerShell et connectez-vous à l’invite PowerShell :
    ```powershell
-   Install-Module -Name AzureADPreview
-   connect-azuread 
+   Install-Module -Name AzureAD
+   Connect-AzureAD
    ```
 2. Configurez les paramètres d’expiration. New-AzureADMSGroupLifecyclePolicy :  cette applet de commande définit a durée de vie de tous les groupes Office 365 du locataire sur 365 jours. Les notifications de renouvellement pour les groupes Office 365 sans propriétaires sont envoyées à « emailaddress@contoso.com ».
   

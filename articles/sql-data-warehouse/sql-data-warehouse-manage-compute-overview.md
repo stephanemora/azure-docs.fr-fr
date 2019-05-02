@@ -11,11 +11,11 @@ ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.openlocfilehash: 47be738a4e5dcec144d482c28e39cbe950bba3e7
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55460384"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60748932"
 ---
 # <a name="manage-compute-in-azure-sql-data-warehouse"></a>Gérer les ressources de calcul dans Azure SQL Data Warehouse
 Découvrez comment gérer les ressources de calcul dans Azure SQL Data Warehouse. Vous pouvez alléger les coûts en suspendant l’entrepôt de données, ou mettre à l’échelle ce dernier afin de répondre aux exigences en matière de niveau de performance. 

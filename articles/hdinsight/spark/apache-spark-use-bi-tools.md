@@ -1,7 +1,6 @@
 ---
 title: 'Didacticiel : Analyser les données d’Apache Spark à l’aide de Power BI dans Azure HDInsight '
 description: Utiliser Microsoft Power BI pour visualiser les données Apache Spark stockées sur les clusters HDInsight
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,14 +8,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 05/07/2018
-ms.openlocfilehash: c058cfa3bc9fa976726731cedeb80eb76a1f0810
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: ed7beeadc0a550a28d1f936702aabeb45823b677
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999269"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64699602"
 ---
-# <a name="tutorial-analyze-apache-spark-data-using-power-bi-in-hdinsight"></a>Tutoriel : Analyser les données d’Apache Spark à l’aide de Power BI dans HDInsight 
+# <a name="tutorial-analyze-apache-spark-data-using-power-bi-in-hdinsight"></a>Didacticiel : Analyser les données d’Apache Spark à l’aide de Power BI dans HDInsight 
 
 Découvrez comment utiliser [Microsoft Power BI](https://powerbi.microsoft.com/) pour visualiser les données dans le cluster [Apache Spark](https://spark.apache.org/) sur [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/).
 
@@ -28,7 +27,7 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
 
 ## <a name="prerequisites"></a>Prérequis
 
-* **Suivez l’article [Didacticiel : Charger des données et exécuter des requêtes sur un cluster Apache Spark dans Azure HDInsight](./apache-spark-load-data-run-query.md)**.
+* **Suivre l’article [Tutoriel : Charger des données et exécuter des requêtes sur un cluster Apache Spark dans Azure HDInsight](./apache-spark-load-data-run-query.md)**.
 * **Power BI** : [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/) et [abonnement d’évaluation à Power BI](https://app.powerbi.com/signupredirect?pbi_source=web) (facultatif).
 
 

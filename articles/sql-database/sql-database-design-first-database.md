@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Concevoir votre première base de données relationnelle dans Azure SQL Database avec SSMS | Microsoft Docs'
+title: 'Didacticiel : Concevoir votre première base de données relationnelle dans Azure SQL Database avec SSMS | Microsoft Docs'
 description: Apprenez à concevoir votre première base de données relationnelle dans une base de données unique dans Azure SQL Database à l’aide de SQL Server Management Studio.
 services: sql-database
 ms.service: sql-database
@@ -10,12 +10,12 @@ ms.author: carlrab
 ms.reviewer: v-masebo
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: 3ca17ae905fff0911b58a0d336e0899ff385085c
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 3b802573bfc1eba74217d01005a2f232ff575fda
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55990477"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64730402"
 ---
 # <a name="tutorial-design-a-relational-database-in-a-single-database-within-azure-sql-database-using-ssms"></a>Didacticiel : Concevoir une base de données relationnelle dans une base de données unique au sein d’Azure SQL Database avec SSMS
 
@@ -227,10 +227,10 @@ Le diagramme suivant montre comment ces tables sont liées entre elles. Certaine
 4. Exécutez les commandes suivantes pour insérer des exemples de données dans les tables, en remplaçant les valeurs de *server*, *database*, *user* et *password* par les valeurs correspondant à votre environnement.
 
    ```cmd
-   bcp Course in SampleCourseData -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
-   bcp Person in SamplePersonData -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
-   bcp Student in SampleStudentData -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
-   bcp Credit in SampleCreditData -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
+   bcp Course in SampleCourseData.txt -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
+   bcp Person in SamplePersonData.txt -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
+   bcp Student in SampleStudentData.txt -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
+   bcp Credit in SampleCreditData.txt -S <server>.database.windows.net -d <database> -U <user> -P <password> -q -c -t ","
    ```
 
 Vous avez maintenant chargé des exemples de données dans les tables que vous avez créées précédemment.

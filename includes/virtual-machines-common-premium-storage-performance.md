@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: c81b0926b88ad2f1dbb3af7c1a2c51e8a79430f9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.openlocfilehash: ee721558e0e643a4b5fdcfa4cf0fe9c2195fa479
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59737076"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64736965"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Stockage Azure Premium : conception sous le signe de la haute performance
 
@@ -299,7 +299,7 @@ Par exemple, vous pouvez appliquer ces instructions à une instance SQL Server 
 1. Choisissez l’option « Aucun » pour le cache sur les disques de stockage Premium qui hébergent des fichiers journaux.  
    a.  Les fichiers journaux ont principalement des opérations d’écriture intensives. Ils ne bénéficient donc pas du cache en lecture seule.
 
-### <a name="optimize-performance-on-linux-vms"></a>Optimiser les performances sur les machines virtuelles Linux
+## <a name="optimize-performance-on-linux-vms"></a>Optimiser les performances sur les machines virtuelles Linux
 
 Pour tous les disques ultra ou SSD Premium dont le paramètre de cache est **ReadOnly** ou **None**, vous devez désactiver les « barrières » lorsque vous montez le système de fichiers. Ces barrières sont inutiles dans ce cas de figure, car les écritures sur les disques de stockage Premium sont pérennes avec ces paramètres de cache. Lorsque la demande d’écriture se termine, les données sont stockées dans le magasin permanent. Utilisez l’une des méthodes suivantes pour désactiver les « barrières ». Choisissez celle qui correspond à votre système de fichiers :
   
@@ -328,7 +328,7 @@ Certaines versions nécessitent également la dernière version 4.0 de Linux Int
 | Oracle | 7.0-7.1 | &nbsp; | UEK4 ou RHCK avec [LIS 4.1+](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
 | Oracle | 6.4-6.7 | &nbsp; | UEK4 ou RHCK avec [LIS 4.1+](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
 
-## <a name="lis-drivers-for-openlogic-centos"></a>Pilotes LIS pour Openlogic CentOS
+### <a name="lis-drivers-for-openlogic-centos"></a>Pilotes LIS pour Openlogic CentOS
 
 Si vous exécutez des machines virtuelles OpenLogic CentOS, exécutez la commande suivante pour installer les pilotes les plus récents :
 

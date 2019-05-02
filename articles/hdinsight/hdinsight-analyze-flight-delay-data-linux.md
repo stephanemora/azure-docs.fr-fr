@@ -1,7 +1,6 @@
 ---
 title: 'Tutoriel : Effectuer des opérations d’extraction, de transformation et de chargement (ETL) à l’aide d’Apache Hive sur Azure HDInsight '
 description: Découvrez comment extraire des données d’un jeu de données CSV brutes, les transformer dans Hive sur HDInsight, puis charger les données transformées dans la base de données Azure SQL à l’aide d’Apache Sqoop.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive,mvc
-ms.openlocfilehash: b8a45f3014b3fd5d0f5592b3f9bd408fc37b387b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: eb86dc8c5c3b215a2c90380b4009efd00d2a243c
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57999957"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64723149"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-apache-hive-on-azure-hdinsight"></a>Tutoriel : Extraire, transformer et charger des données à l’aide d’Apache Hive sur Azure HDInsight
 
@@ -223,7 +222,7 @@ Si vous disposez déjà d’une base de données SQL, vous devez obtenir le nom 
     sudo apt-get --assume-yes install freetds-dev freetds-bin
     ```
 
-3. Dès l’installation terminée, utilisez la commande suivante pour vous connecter au serveur SQL Database. Remplacez **serverName** par le nom du serveur SQL Database. Remplacez **adminLogin** et **adminPassword** par les informations d’identification de la base de données SQL. Remplacez **databaseName** par le nom de la base de données.
+3. Dès l’installation terminée, utilisez la commande suivante pour vous connecter au serveur SQL Database. Remplacez **NomServeur** par le nom du serveur SQL Database. Remplacez **adminLogin** et **adminPassword** par les informations d’identification de la base de données SQL. Remplacez **databaseName** par le nom de la base de données.
 
     ```bash
     TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -p 1433 -D <databaseName>
@@ -320,7 +319,7 @@ Pour découvrir d’autres façons d’utiliser les données dans HDInsight, con
 * [Utilisation d’Apache Hive avec HDInsight][hdinsight-use-hive]
 * [Utiliser Apache Pig avec HDInsight][hdinsight-use-pig]
 * [Développer des programmes MapReduce Java pour Apache Hadoop sur HDInsight][hdinsight-develop-mapreduce]
-* [Développer des programmes MapReduce de diffusion en continu Python pour HDInsight][hdinsight-develop-streaming]
+
 * [Utiliser Apache Oozie avec HDInsight][hdinsight-use-oozie]
 * [Utiliser Apache Sqoop avec HDInsight][hdinsight-use-sqoop]
 
@@ -342,7 +341,7 @@ Pour découvrir d’autres façons d’utiliser les données dans HDInsight, con
 [hdinsight-get-started]: hadoop/apache-hadoop-linux-tutorial-get-started.md
 [hdinsight-use-sqoop]:hadoop/apache-hadoop-use-sqoop-mac-linux.md
 [hdinsight-use-pig]:hadoop/hdinsight-use-pig.md
-[hdinsight-develop-streaming]:hadoop/apache-hadoop-streaming-python.md
+
 [hdinsight-develop-mapreduce]:hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md
 
 [hadoop-hiveql]: https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL

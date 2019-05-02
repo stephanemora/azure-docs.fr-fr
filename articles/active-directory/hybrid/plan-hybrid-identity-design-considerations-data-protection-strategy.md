@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/13/2017
+ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c5cad3f735494ee74156e22a9bf150911c36eb0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 05c1575781f280b3be1843abee0469af52baeb2d
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60381613"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918424"
 ---
 # <a name="define-data-protection-strategy-for-your-hybrid-identity-solution"></a>Définir la stratégie de protection des données pour votre solution d’identités hybrides
 Dans cette tâche, vous allez définir la stratégie de protection des données pour que votre solution d’identités hybrides réponde aux exigences de l’entreprise définies dans :
@@ -89,7 +89,7 @@ Une partie essentielle de la gestion de contenu est de comprendre qui a accès �
 ## <a name="define-access-control-options"></a>Définir les options de contrôle d’accès
 En tirant parti des fonctionnalités d’authentification, d’autorisation et de contrôle d’accès disponibles dans Azure AD, vous pouvez permettre à votre entreprise d’utiliser un référentiel central d’identités, tout en autorisant les utilisateurs et partenaires à utiliser l’authentification unique (SSO), comme illustré dans la figure suivante :
 
-![](./media/plan-hybrid-identity-design-considerations/centralized-management.png)
+![gestion centralisée](./media/plan-hybrid-identity-design-considerations/centralized-management.png)
 
 Gestion centralisée et intégration complète avec d’autres répertoires
 
@@ -115,7 +115,7 @@ Azure Active Directory fournit l’authentification unique à des milliers d�
 
 Une fois que l’utilisateur est authentifié à l’aide d’Azure AD, il est important d’évaluer le niveau d’accès dont l’utilisateur dispose. Le niveau d’accès dont dispose l’utilisateur sur une ressource peut varier. Bien qu’Azure AD puisse ajouter une couche de sécurité supplémentaire en contrôlant l’accès à certaines ressources, gardez à l’esprit que la ressource elle-même peut également avoir sa propre liste de contrôle d’accès séparée, comme le contrôle d’accès pour les fichiers situés sur un serveur de fichiers. L’illustration suivante résume les niveaux de contrôle d’accès dont vous pouvez disposer dans un scénario hybride :
 
-![](./media/plan-hybrid-identity-design-considerations/accesscontrol.png)
+![Contrôle d’accès](./media/plan-hybrid-identity-design-considerations/accesscontrol.png)
 
 Chaque interaction du schéma présenté dans la Figure X représente un scénario de contrôle d’accès qui peut être couvert par Azure AD. Une description de chaque scénario est disponible ci-dessous :
 

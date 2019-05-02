@@ -15,11 +15,11 @@ ms.date: 12/03/2018
 ms.author: cephalin;dariagrigoriu
 ms.custom: seodec18
 ms.openlocfilehash: fcb2c270b36d5efbe7b799787cf2a123b51bea5c
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58337542"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60765614"
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>Déploiement continu vers Azure App Service
 Cet article vous explique comment configurer un déploiement continu pour [Azure App Service](overview.md). Azure App Service permet un déploiement continu depuis BitBucket, GitHub et [Azure DevOps Services](https://www.visualstudio.com/team-services/) en extrayant les mises à jour les plus récentes de votre référentiel existant pour les envoyer dans l’un de ces services.

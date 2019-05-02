@@ -9,11 +9,11 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/15/2018
 ms.openlocfilehash: 95a1055df283765b24322f6f8efe3efcb9b19022
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62123076"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64707980"
 ---
 # <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>Configurer la réplication de cluster Apache HBase dans les réseaux virtuels Azure
 
@@ -288,7 +288,7 @@ Les étapes suivantes décrivent comment appeler le script d’action de script 
 5. Sélectionnez ou saisissez les informations suivantes :
 
    1. **Nom** : entrez **Activer la réplication**.
-   2. **URL du script Bash** : Entrez https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh**.
+   2. **URL du script Bash** : Entrez **https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh**.
    3. **Principal** : assurez-vous que cette option est sélectionnée. Supprimez les autres types de nœuds.
    4. **Paramètres** : les paramètres d'exemple suivants activent la réplication pour toutes les tables existantes, puis copient toutes les données du cluster source vers le cluster de destination :
 

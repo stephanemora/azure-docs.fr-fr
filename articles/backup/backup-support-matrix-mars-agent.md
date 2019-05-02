@@ -8,12 +8,12 @@ ms.date: 02/17/2019
 ms.topic: conceptual
 ms.author: raynew
 manager: carmonm
-ms.openlocfilehash: 3e2c6a550a9358656fd0870c7e785d131c5b6380
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9799914cdabf1f64fccfd6bfd891f9498b860e39
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57894391"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922998"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Tableau de prise en charge de la sauvegarde avec l’agent MARS (Microsoft Azure Recovery Services)
 
@@ -24,14 +24,14 @@ Vous pouvez utiliser la [service Azure Backup](backup-overview.md) pour sauvegar
 Sauvegarde Azure utilise l’agent MARS pour sauvegarder des données à partir de machines locales et machines virtuelles Azure dans un coffre Recovery Services sauvegarde Azure. L’agent MARS peut :
 - Exécuter sur les ordinateurs Windows en local afin qu’ils peuvent sauvegarder directement dans un coffre Recovery Services sauvegarde Azure.
 - Exécuter sur des machines virtuelles Windows afin qu’ils peuvent sauvegarder directement dans un coffre.
-- Exécuter sur le serveur de sauvegarde Microsoft Azure (MABS) ou un serveur de System Center Data Protection Manager (DPM). Dans ce scénario, les charges de travail et les machines sauvegarder vers MABS ou vers le serveur DPM. L’agent MARS sauvegarde puis ce serveur dans un coffre dans Azure. 
+- Exécuter sur le serveur de sauvegarde Microsoft Azure (MABS) ou un serveur de System Center Data Protection Manager (DPM). Dans ce scénario, les charges de travail et les machines sauvegarder vers MABS ou vers le serveur DPM. L’agent MARS sauvegarde puis ce serveur dans un coffre dans Azure.
 
 Vos options de sauvegarde varient selon lequel l’agent est installé. Pour plus d’informations, consultez [architecture de sauvegarde Azure à l’aide de l’agent MARS](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-server-machines-or-azure-vm-files-or-folders). Pour plus d’informations sur l’architecture de sauvegarde de serveur de sauvegarde AZURE et DPM, consultez [sauvegarder dans DPM ou MABS](backup-architecture.md#architecture-back-up-to-dpmmabs). Consultez également [exigences](backup-support-matrix-mabs-dpm.md) pour l’architecture de sauvegarde.
 
 **Installation** | **Détails**
 --- | ---
 Télécharger le dernier agent MARS | Vous pouvez télécharger la dernière version de l’agent à partir du coffre ou [le télécharger directement](https://aka.ms/azurebackup_agent).
-Installer directement sur un ordinateur | Vous pouvez installer l’agent MARS directement sur un serveur de Windows en local ou sur une machine virtuelle Windows qui exécute l’un de le [les systèmes d’exploitation pris en charge](https://docs.microsoft.com/en-us/azure/backup/backup-support-matrix-mabs-dpm#supported-mabs-and-dpm-operating-systems).
+Installer directement sur un ordinateur | Vous pouvez installer l’agent MARS directement sur un serveur de Windows en local ou sur une machine virtuelle Windows qui exécute l’un de le [les systèmes d’exploitation pris en charge](https://docs.microsoft.com/azure/backup/backup-support-matrix-mabs-dpm#supported-mabs-and-dpm-operating-systems).
 Installer sur un serveur de sauvegarde | Quand vous configurez DPM ou MABS pour la sauvegarde sur Azure, vous téléchargez et installez l’agent MARS sur le serveur. Vous pouvez installer l’agent sur [les systèmes d’exploitation pris en charge](backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems) dans la matrice de prise en charge du serveur de sauvegarde.
 
 > [!NOTE]
@@ -45,8 +45,8 @@ Lorsque vous utilisez l’agent MARS pour sauvegarder des données, l’agent pr
 
 **Cache** | **Détails**
 --- | ---
-Taille |  Espace libre dans le dossier du cache doit être au moins de 5 à 10 % de la taille globale de vos données de sauvegarde. 
-Lieu | Le dossier du cache doit être stocké localement sur l’ordinateur qui est en cours de sauvegarde, et il doit être en ligne. Le dossier du cache ne doit pas être sur un partage réseau, sur un support amovible ou sur un volume hors connexion. 
+Taille |  Espace libre dans le dossier du cache doit être au moins de 5 à 10 % de la taille globale de vos données de sauvegarde.
+Lieu | Le dossier du cache doit être stocké localement sur l’ordinateur qui est en cours de sauvegarde, et il doit être en ligne. Le dossier du cache ne doit pas être sur un partage réseau, sur un support amovible ou sur un volume hors connexion.
 Dossier | Le dossier du cache doit être chiffré sur un volume dédupliqué ou dans un dossier compressé, qui est partiellement alloué, ou qui a une nouvelle analyse de point.
 Changements d’emplacement | Vous pouvez modifier l’emplacement du cache en arrêtant le moteur de sauvegarde (`net stop bengine`) et de copier le dossier du cache sur un nouveau lecteur. (Assurez-vous que le nouveau lecteur possède suffisamment d’espace). Puis mettez à jour deux entrées de Registre sous **HKLM\SOFTWARE\Microsoft\Windows Azure Backup** (**Config/ScratchLocation** et **CloudBackupProvider/Config/ScratchLocation**) au nouvel emplacement et redémarrez le moteur.
 
@@ -103,9 +103,9 @@ Windows 7   | 1 700 GO
 
 ## <a name="supported-file-types-for-backup"></a>Types de fichiers pris en charge pour la sauvegarde
 
-**Type** | **Support** 
---- | --- 
-Chiffré   |  Pris en charge. 
+**Type** | **Support**
+--- | ---
+Chiffré   |  Pris en charge.
 Compressé |  Pris en charge.
 Partiellement alloué |  Pris en charge.
 Compressé et partiellement alloué |  Pris en charge.
@@ -114,7 +114,7 @@ Point d’analyse   | Non pris en charge. Ignoré.
 Chiffré et partiellement alloué |  Non pris en charge. Ignoré.
 Flux compressé   | Non pris en charge. Ignoré.
 Flux partiellement alloué   | Non pris en charge. Ignoré.
-OneDrive (fichiers synchronisés sont éparses flux)  | Non pris en charge. 
+OneDrive (fichiers synchronisés sont éparses flux)  | Non pris en charge.
 
 ## <a name="supported-drives-or-volumes-for-backup"></a>Prise en charge des lecteurs ou volumes pour la sauvegarde
 

@@ -1,7 +1,6 @@
 ---
-title: 'Tutoriel : Créer une application de machine learning Spark dans Azure HDInsight'
+title: 'Didacticiel : Créer une application de machine learning Spark dans Azure HDInsight'
 description: Instructions détaillées sur la création d’applications de Machine Learning Apache Spark sur des clusters Spark HDInsight à l’aide d’un bloc-notes Jupyter Notebook.
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,14 +8,14 @@ ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 54ef9ac72ffeebbf228a85768f6c2eb4b64862c9
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 87efac96aa0120bfcc804f7a2a49a5ac3da1036b
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57433397"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64719074"
 ---
-# <a name="tutorial-build-an-apache-spark-machine-learning-application-in-hdinsight"></a>Tutoriel : Créer une application de machine learning Apache Spark dans HDInsight 
+# <a name="tutorial-build-an-apache-spark-machine-learning-application-in-hdinsight"></a>Didacticiel : Créer une application de machine learning Apache Spark dans HDInsight 
 
 Dans ce tutoriel, vous allez apprendre à utiliser [Jupyter Notebook](https://jupyter.org/) afin de créer une application d’apprentissage automatique [Apache Spark](https://spark.apache.org/) pour Azure HDInsight. 
 

@@ -10,16 +10,16 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 02/18/2019
+ms.date: 03/22/2019
 ms.author: juliako
-ms.openlocfilehash: 82d8a8085ca285c95a550678cdc534e586a4faa7
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 53f69b6b8eb6cbbb8082ea0777af9dbceb7bdba1
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56415962"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64699687"
 ---
-# <a name="tutorial-upload-encode-and-stream-videos-using-net"></a>Tutoriel : Charger, encoder et diffuser en streaming des vidéos à l’aide de .NET
+# <a name="tutorial-upload-encode-and-stream-videos-using-net"></a>Didacticiel : Charger, encoder et diffuser en streaming des vidéos à l’aide de .NET
 
 Azure Media Services vous permet d’encoder vos fichiers multimédias dans des formats pouvant être lus sur un large choix de navigateurs et d’appareils. Par exemple, vous pouvez streamer votre contenu au format HLS ou MPEG DASH d’Apple. Avant la diffusion en continu, vous devez encoder votre fichier multimédia numérique haute qualité. Pour obtenir des instructions d’encodage, consultez [Encoding concept](encoding-concept.md) (Concept d’encodage). Ce didacticiel charge un fichier vidéo local et encode le fichier chargé. Vous pouvez également encoder du contenu que vous mettez à disposition via une URL HTTPS. Pour plus d’informations, consultez [Créer une entrée de travail à partir d’une URL HTTP(s)](job-input-from-http-how-to.md).
 
@@ -197,6 +197,10 @@ az group delete --name amsResourceGroup
 ## <a name="multithreading"></a>Multithreading
 
 Les Kits de développement logiciel (SDK) Azure Media Services v3 ne sont pas thread-safe. Lorsque vous développez une application multithread, vous devez générer et utiliser un nouvel objet AzureMediaServicesClient par thread.
+
+## <a name="provide-feedback"></a>Fournir des commentaires
+
+Découvrez l’article [Communauté Azure Media Services](media-services-community.md) pour découvrir les différentes façons dont vous pouvez poser des questions, faire des commentaires et obtenir des mises à jour sur Media Services.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

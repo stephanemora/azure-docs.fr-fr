@@ -3,19 +3,18 @@ title: Comprendre les tarifs Azure Data Factory à travers des exemples | Micros
 description: Cet article explique et décrit le modèle tarifaire Azure Data Factory avec des exemples détaillés.
 documentationcenter: ''
 author: shlo
-manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: shlo
-ms.openlocfilehash: 80b1f90ee0d9f5003c39eb6a853a07d2d64ca482
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 454899cd7cc592b87f96233d73ca8c4ed6ac333f
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60787461"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64935754"
 ---
 # <a name="understanding-data-factory-pricing-through-examples"></a>Comprendre les tarifs Data Factory à travers des exemples
 
@@ -122,6 +121,45 @@ Pour réaliser ce scénario, créez un pipeline avec les éléments suivants :
   - Activités de déplacement des données = 0,166 $ (au prorata de 10 minutes de durée d’exécution, à 0,25 $/h par Azure Integration Runtime)
   - Activité du pipeline = 0,00003 (au prorata d’1 minute de durée d’exécution, à 0,002 $/h par Azure Integration Runtime)
   - Activité du pipeline externe = 0,000041 $ (au prorata de 10 minutes de durée d’exécution, à 0,00025 $/h par Azure Integration Runtime)
+
+## <a name="using-mapping-data-flow-debug-for-a-normal-workday"></a>À l’aide du débogage de flux de données de mappage pour une journée de travail normale
+
+En tant qu’ingénieur de données, vous êtes responsable de conception, de création et de test de flux de données de mappage de tous les jours. Vous connectez à l’UI ADF le matin et activez le mode de débogage pour le flux de données. La valeur TTL par défaut pour les sessions de débogage est de 60 minutes. Vous travaillez pendant la journée pour 10 heures, votre session de débogage n’expire jamais. Par conséquent, le montant facturé pour la journée sera :
+
+**10 (heures) x 8 (cœurs) x $0.112 = $8.96**
+
+## <a name="transform-data-in-blob-store-with-mapping-data-flows"></a>Transformer des données dans le magasin d’objets blob avec le mappage de flux de données
+
+Dans ce scénario, vous souhaitez transformer des données dans le Store Blob visuellement dans ADF flux de données de mappage selon un planning horaire.
+
+Pour réaliser ce scénario, créez un pipeline avec les éléments suivants :
+
+1. Une activité de flux de données, avec la logique de transformation.
+
+2. Un jeu de données d’entrée pour les données sur le stockage Azure.
+
+3. Un jeu de données de sortie pour les données sur le Stockage Azure.
+
+4. Un déclencheur de planification pour exécuter le pipeline toutes les heures.
+
+| **Opérations** | **Types et unités** |
+| --- | --- |
+| Création d’un service lié | 2 entités en lecture/écriture  |
+| Création de jeux de données | 4 entités en lecture/écriture (2 pour la création du jeu de données, 2 pour les références de service lié) |
+| Création d’un pipeline | 3 entités de lecture/écriture (1 pour la création du pipeline, 2 pour les références de jeu de données) |
+| Récupération d’un pipeline | 1 entité en lecture/écriture |
+| Exécution d’un pipeline | 2 exécutions d’activité (1 pour l’exécution du déclencheur, 1 pour les exécutions d’activité) |
+| Durée d’exécution de hypothèses de flux de données : = 10 min + durée de vie 10 min | 10 \* 8 cœurs de calcul général avec la durée de vie de 10 |
+| Monitoring du pipeline – hypothèse : 1 seule exécution s’est produite | 2 enregistrements d’exécution de monitoring retentés (1 pour l’exécution du pipeline, 1 pour l’exécution d’activité) |
+
+**Nombre total de tarification de scénario : $0.3011**
+
+- Opérations Data Factory = **0,0001 $**
+  - Lecture/écriture = 10 \* 0,00001 = 0,0001 $ [1 lecture/écriture = 0,50 / 50 000 = 0,00001]
+  - Monitoring = 2 \* 0,000005 = 0,00001 $ [1 monitoring = 0,25 $/ 50 000 = 0,000005]
+- Orchestration de pipeline &amp; exécution = **$0.301**
+  - Exécutions d’activité = 0,001 \* 2 = 0,002 $ [1 exécution = 1 $ / 1 000 = 0,001]
+  - Activités de flux de données = $0.299 proportion pendant 20 minutes (durée d’exécution de 10 minutes + durée de vie de 10 minutes). 0.112 $/ heure, sur le Runtime d’intégration Azure en général de 8 cœurs de calcul
 
 ## <a name="next-steps"></a>Étapes suivantes
 

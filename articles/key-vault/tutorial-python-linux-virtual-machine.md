@@ -2,24 +2,21 @@
 title: 'Tutoriel : Utiliser une machine virtuelle Linux et une application Python pour stocker des secrets dans Azure Key Vault | Microsoft Docs'
 description: Dans ce tutoriel, vous allez découvrir comment configurer une application Python pour qu’elle lise un secret dans Azure Key Vault.
 services: key-vault
-documentationcenter: ''
-author: prashanthyv
+author: mbaldwin
 manager: rajvijan
-ms.assetid: 0e57f5c7-6f5a-46b7-a18a-043da8ca0d83
 ms.service: key-vault
-ms.workload: key-vault
 ms.topic: tutorial
 ms.date: 09/05/2018
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: b7077653ec959f99491cecd71573c091772448f4
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: a5923c3d5ea7888a3737d7976caded8eef9c1661
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56749628"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64702102"
 ---
-# <a name="tutorial-use-a-linux-vm-and-a-python-app-to-store-secrets-in-azure-key-vault"></a>Tutoriel : Utiliser une machine virtuelle Linux et une application Python pour stocker des secrets dans Azure Key Vault
+# <a name="tutorial-use-a-linux-vm-and-a-python-app-to-store-secrets-in-azure-key-vault"></a>Didacticiel : Utiliser une machine virtuelle Linux et une application Python pour stocker des secrets dans Azure Key Vault
 
 Azure Key Vault vous permet de protéger des secrets tels que les clés API et les chaînes de connexion de base de données nécessaires pour accéder à vos applications, services et ressources informatiques.
 

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
-ms.openlocfilehash: dc5bfe6b431659b7b99140eb29a0e64922a42275
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fddea12d4c6b7d09d87174d29c645ef6da54af6f
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61364502"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64917418"
 ---
 # <a name="use-iot-hub-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Utiliser le routage des messages IoT Hub pour envoyer des messages appareil-à-cloud à différents points de terminaison
 
@@ -119,7 +119,7 @@ Dans la plupart des cas, l’augmentation moyenne de la latence est inférieure 
 
 IoT Hub fournit plusieurs métriques liées aux routages et aux point de terminaison pour vous donner une vue d’ensemble de l’intégrité de votre hub et des messages envoyés. Vous pouvez combiner les informations de plusieurs métriques pour identifier la cause racine des problèmes. Par exemple, utilisez métrique **routage : messages de télémétrie déposés** ou **d2c.telemetry.egress.dropped** pour identifier le nombre de messages qui ont été interrompues lorsque ne correspondant pas aux requêtes sur un des itinéraires et l’itinéraire de secours a été désactivée. [Métriques IoT Hub](iot-hub-metrics.md) liste toutes les métriques activées par défaut pour votre hub IoT.
 
-Vous pouvez utiliser l’API REST [obtenir de l’intégrité du point de terminaison](https://docs.microsoft.com/de-de/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) pour obtenir [l’état d’intégrité](iot-hub-devguide-endpoints.md#custom-endpoints) des points de terminaison. Nous vous recommandons d’utiliser le [métriques IoT Hub](iot-hub-metrics.md) associées à la latence de message routage pour identifier et déboguer des erreurs lors de l’intégrité du point de terminaison est défectueux ou inactif. Par exemple, pour le type de point de terminaison Event Hubs, vous pouvez surveiller **d2c.endpoints.latency.eventHubs**. L’état d’un point de terminaison défectueux est être mis à jour intègre IoT Hub a établi un état cohérent d’intégrité.
+Vous pouvez utiliser l’API REST [obtenir de l’intégrité du point de terminaison](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) pour obtenir [l’état d’intégrité](iot-hub-devguide-endpoints.md#custom-endpoints) des points de terminaison. Nous vous recommandons d’utiliser le [métriques IoT Hub](iot-hub-metrics.md) associées à la latence de message routage pour identifier et déboguer des erreurs lors de l’intégrité du point de terminaison est défectueux ou inactif. Par exemple, pour le type de point de terminaison Event Hubs, vous pouvez surveiller **d2c.endpoints.latency.eventHubs**. L’état d’un point de terminaison défectueux est être mis à jour intègre IoT Hub a établi un état cohérent d’intégrité.
 
 Grâce aux journaux de diagnostic des **routes** dans les [paramètres de diagnostic](../iot-hub/iot-hub-monitor-resource-health.md) d’Azure Monitor, vous pouvez suivre les erreurs qui se produisent lors de l’évaluation d’une requête de routage et de l’intégrité du point de terminaison telle qu’elle est perçue par IoT Hub, par exemple quand un point de terminaison est inactif. Ces journaux de diagnostic peuvent être envoyés à des journaux Azure Monitor, Event Hubs ou stockage Azure pour un traitement personnalisé.
 

@@ -3,21 +3,21 @@ title: Tutoriel - Accorder l’accès à une API web ASP.NET Core dans une appli
 description: Didacticiel sur l’utilisation d’Active Directory B2C pour protéger une API web .NET Core et l’appeler depuis une application monopage.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.author: davidmu
 ms.date: 02/04/2019
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 13cbf1e81e0d203c181efb0881ec2a437cbaef24
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 13fedae2798311a59a5cee2805ce9e09b1bd5a0f
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55752175"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64724677"
 ---
-# <a name="tutorial-grant-access-to-an-aspnet-core-web-api-from-a-single-page-application-using-azure-active-directory-b2c"></a>Tutoriel : Accorder l’accès à une API web ASP.NET Core dans une application monopage à l’aide d’Azure Active Directory B2C
+# <a name="tutorial-grant-access-to-an-aspnet-core-web-api-from-a-single-page-application-using-azure-active-directory-b2c"></a>Didacticiel : Accorder l’accès à une API web ASP.NET Core dans une application monopage à l’aide d’Azure Active Directory B2C
 
 Ce tutoriel vous montre comment appeler une ressource d’API web ASP.NET Core protégée par Azure Active Directory (Azure AD) B2C dans une application monopage.
 
@@ -45,14 +45,14 @@ Les ressources d’API web doivent être inscrites auprès de votre locataire po
 4. Sélectionnez **Applications**, puis **Ajouter**.
 5. Entrez un nom pour l’application. Par exemple, *webapi1*.
 6. Pour **inclure l’application web/l’API web** et **autoriser un flux implicite**, sélectionnez **Oui**.
-7. Pour l’**URL de réponse**, entrez un point de terminaison où Azure AD B2C doit retourner les jetons demandés par votre application. Dans ce tutoriel, l’exemple s’exécute localement et écoute `https://localhost:5000`.
+7. Pour l’**URL de réponse**, entrez un point de terminaison où Azure AD B2C doit retourner les jetons demandés par votre application. Dans ce tutoriel, l'exemple s'exécute localement et écoute `https://localhost:5000`.
 8. Pour l’**L’URI de l’ID d’application**, entrez l’identificateur utilisé pour votre API web. L’identificateur complet URI, y compris le domaine, est généré pour vous. Par exemple : `https://contosotenant.onmicrosoft.com/api`.
 9. Cliquez sur **Créer**.
-10. Dans la page des propriétés, enregistrez l’ID d’application que vous utiliserez pour configurer l’application web.
+10. Sur la page des propriétés, enregistrez l'ID d'application que vous utiliserez pour configurer l'application web.
 
 ## <a name="configure-scopes"></a>Configurer des étendues
 
-Les étendues permettent de gérer l’accès aux ressources protégées. Elles sont utilisées par l’API web pour implémenter le contrôle d’accès basé sur les étendues. Par exemple, certains utilisateurs peuvent bénéficier d’un accès en lecture et en écriture tandis que d’autres peuvent disposer d’autorisations d’accès en lecture seule. Dans ce didacticiel, vous allez définir des autorisations d’accès en lecture pour l’API web.
+Les étendues permettent de gérer l'accès aux ressources protégées. Elles sont utilisées par l’API web pour implémenter le contrôle d’accès basé sur les étendues. Par exemple, certains utilisateurs peuvent bénéficier d’un accès en lecture et en écriture tandis que d’autres peuvent disposer d’autorisations d’accès en lecture seule. Dans ce didacticiel, vous allez définir des autorisations d’accès en lecture pour l’API web.
 
 1. Sélectionnez **Applications**, puis *webapi1*.
 2. Sélectionnez **Étendues publiées**.
@@ -64,7 +64,7 @@ Les étendues publiées peuvent servir à accorder à une application cliente un
 
 ## <a name="grant-permissions"></a>Accorder des autorisations
 
-Pour appeler une API web protégée à partir d’une application, vous devez accorder à cette application des autorisations d’accès à l’API. Dans le tutoriel de prérequis, vous avez créé une application web nommée *webapp1* dans Azure AD B2C. Vous allez utiliser cette application pour appeler l’API web.
+Pour appeler une API web protégée à partir d'une application, vous devez accorder à cette application les autorisations d'accès à l'API. Dans le cadre du tutoriel de prérequis, vous avez créé dans Azure AD B2C une application web nommée *webapp1*. Vous allez utiliser cette application pour appeler l’API web.
 
 1. Sélectionnez **Applications**, puis *webapp1*.
 2. Sélectionnez **Accès aux API**, puis sélectionnez **Ajouter**.

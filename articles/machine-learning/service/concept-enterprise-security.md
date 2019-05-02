@@ -11,11 +11,11 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 03/10/2019
 ms.openlocfilehash: b950e7d38235d089c6236c76136d8ec2fc7a1f74
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57731331"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60821339"
 ---
 # <a name="enterprise-security-for-azure-machine-learning-service"></a>Sécurité d’entreprise pour le service Azure Machine Learning
 
@@ -23,7 +23,7 @@ Dans cet article, vous allez découvrir les fonctionnalités de sécurité dispo
 
 Lorsque vous utilisez un service cloud, il est recommandé de restreindre l’accès uniquement aux utilisateurs qui en ont besoin. Cela commence par décrire le modèle d’authentification et d’autorisation utilisé par le service. Vous pouvez également restreindre l’accès réseau, ou joindre en toute sécurité des ressources dans votre réseau local avec ceux présents dans le cloud. Chiffrement des données est également essentiel, au repos et pendant que les données sont déplacées entre les services. Enfin, vous devez être en mesure de surveiller le service et de produire un journal d’audit de toutes les activités.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Authentification
 Multi-Factor authentication est pris en charge si Azure Active Directory (Azure AD) est configuré pour le même.
 * Client se connecte à Azure AD et obtient la jeton de Azure Resource Manager.  Les utilisateurs et principaux de Service sont entièrement pris en charge.
 * Client présente le jeton à Azure Resource Manager et tous les services Azure Machine Learning
@@ -70,7 +70,7 @@ Le tableau suivant répertorie certaines des principales opérations de service 
 | Exécutez une expérience | ✓ | ✓ | |
 | Afficher les exécutions/mesures | ✓ | ✓ | ✓ |
 | Inscrire le modèle | ✓ | ✓ | |
-| Créer une image | ✓ | ✓ | |
+| Création d’image | ✓ | ✓ | |
 | Déployer un service web | ✓ | ✓ | |
 | Vue modèles/images | ✓ | ✓ | ✓ |
 | Appeler le service web | ✓ | ✓ | ✓ |

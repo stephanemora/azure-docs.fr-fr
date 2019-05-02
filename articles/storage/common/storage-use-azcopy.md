@@ -8,29 +8,35 @@ ms.topic: article
 ms.date: 01/03/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 6ae3ec566c05d2460747439d61c87c995a90b19c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: a91910d474b13fe8cc5306c53109575d2883224e
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60728982"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64572935"
 ---
 # <a name="transfer-data-with-the-azcopy-on-windows"></a>Transférer des données avec AzCopy sur Windows
+
 AzCopy est un utilitaire de ligne de commande conçu pour copier des données à partir de/vers un stockage Blob, Fichier et Table Microsoft Azure en utilisant des commandes simples avec des performances optimales. Vous pouvez copier des données entre un système de fichiers et un compte de stockage, ou entre comptes de stockage.  
 
-Il existe deux versions d’AzCopy que vous pouvez télécharger. AzCopy sur Windows fournit des options de ligne de commande de type Windows. [AzCopy sur Linux](storage-use-azcopy-linux.md) cible les plateformes Linux offrant des options de ligne de commande de type POSIX. Cet article est consacré à AzCopy sur Windows.
+> [!IMPORTANT]
+> Cet article décrit une ancienne version d’AzCopy.
+>Pour installer la version la plus récente d’AzCopy, consultez [AzCopy v10](storage-use-azcopy-v10.md).
 
-## <a name="download-and-install-azcopy-on-windows"></a>Téléchargement et installation d’AzCopy sur Windows
+Si vous choisissez d’installer l’ancienne version d’AzCopy (AzCopy v8.1), il existe plusieurs versions que vous pouvez télécharger. AzCopy sur Windows fournit des options de ligne de commande de type Windows. [AzCopy sur Linux](storage-use-azcopy-linux.md) cible les plateformes Linux offrant des options de ligne de commande de type POSIX. Cet article est consacré à AzCopy sur Windows.
 
-### <a name="latest-version-v81"></a>Version la plus récente (v8.1)
-Téléchargez la [dernière version d’AzCopy sur Windows](https://aka.ms/downloadazcopy).
+## <a name="download-and-install-azcopy-v81-on-windows"></a>Téléchargez et installez AzCopy (v8.1) sur Windows
+
+Téléchargez le [AzCopy (v8.1) sur Windows](https://aka.ms/downloadazcopy).
 
 #### <a name="azcopy-on-windows-81-release-notes"></a>Notes de publication d’AzCopy sur Windows 8.1
+
 - Le service de Table n’est plus pris en charge dans la dernière version. Si vous utilisez la fonctionnalité d’exportation de table, téléchargez la version 7.3 d’AzCopy.
 - Comme la version est conçue avec .NET Core 2.1, toutes les dépendances .NET Core sont désormais empaquetées dans l’installation.
 - Ajout du support d’authentification OAuth. Utilisez ```azcopy login``` pour vous connecter à l’aide d’Azure Active Directory.
 
 ### <a name="azcopy-with-table-support-v73"></a>Azcopy avec prise en charge de la Table (v7.3)
+
 Téléchargez [AzCopy 7.3 avec prise en charge de la Table](https://aka.ms/downloadazcopynet).
 
 ### <a name="post-installation-step"></a>Étapes post-installation

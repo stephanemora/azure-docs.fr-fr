@@ -3,8 +3,8 @@ title: Créer une homologation de réseaux virtuels Azure - Modèles de déploie
 description: Découvrez comment créer une homologation de réseaux virtuels entre des réseaux virtuels créés via des modèles de déploiement Azure différents qui existent dans le même abonnement.
 services: virtual-network
 documentationcenter: ''
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/15/2018
-ms.author: jdial;anavin
-ms.openlocfilehash: 4aa6fe901a49f4618b4844f9f5d2a94903d49cbd
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.author: kumud;anavin
+ms.openlocfilehash: 56474ee56051c3b0b7482e81b0174b7945537654
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56652363"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64694708"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-same-subscription"></a>Créer une homologation de réseaux virtuels Azure - Modèles de déploiement différents, même abonnement
 
@@ -50,7 +50,7 @@ Pour créer une homologation de réseaux virtuels, vous pouvez utiliser le porta
     - **Nom du sous-réseau** : *par défaut*
     - **Plage d’adresses de sous-réseau** : *10.0.0.0/24*
     - **Abonnement**: Sélectionnez votre abonnement
-    - **Groupe de ressources** : Sélectionnez Créer et entrez *myResourceGroup*.
+    - **Groupe de ressources** : Sélectionnez **Créer** et entrez *myResourceGroup*.
     - **Emplacement** : *USA Est*
 4. Cliquez sur **+ Nouveau**. Dans le champ **Rechercher dans le marketplace**, tapez *Réseau virtuel*. Quand la mention **Réseau virtuel** apparaît dans les résultats de la recherche, cliquez dessus.
 5. Dans le panneau **Réseau virtuel**, sélectionnez **Classique** dans la zone **Sélectionnez un modèle de déploiement**, puis cliquez sur **Créer**.

@@ -4,7 +4,7 @@ titlesuffix: Azure Virtual Network
 description: Dans ce démarrage rapide, vous découvrez comment créer un réseau virtuel à l’aide d'Azure CLI. Un réseau virtuel permet à des ressources Azure, comme des machines virtuelles, de communiquer en privé entre elles et avec Internet.
 services: virtual-network
 documentationcenter: virtual-network
-author: jimdial
+author: KumudD
 Customer intent: I want to create a virtual network so that virtual machines can communicate with privately with each other and with the internet.
 ms.service: virtual-network
 ms.devlang: azurecli
@@ -12,13 +12,13 @@ ms.topic: quickstart
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 12/12/2018
-ms.author: jdial
-ms.openlocfilehash: affbfdebd91d341a4bc32b4a6bc9827919a48817
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.author: kumud
+ms.openlocfilehash: 6306d893f491f93cc31b7e478afe5632e997285c
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56427791"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64692647"
 ---
 # <a name="quickstart-create-a-virtual-network-using-the-azure-cli"></a>Démarrage rapide : Créer un réseau virtuel à l’aide d’Azure CLI
 

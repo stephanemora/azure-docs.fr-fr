@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Datahug | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Datahug | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Datahug.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a72b2c44550c0e481f7be4e37152e3bbe3a22f3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 08de78e598ef7fa751c5474a248f8d901c694ea8
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57889860"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918370"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-datahug"></a>Tutoriel : Intégration d’Azure Active Directory à Datahug
+# <a name="tutorial-azure-active-directory-integration-with-datahug"></a>Didacticiel : Intégration d’Azure Active Directory à Datahug
 
 Dans ce didacticiel, vous allez apprendre à intégrer Datahug avec Azure Active Directory (Azure AD).
 L’intégration de Datahug avec Azure AD vous offre les avantages suivants :
@@ -116,7 +116,7 @@ Pour configurer l’authentification unique Azure AD avec Datahug, effectuez le
     Dans la zone de texte **URL de connexion**, tapez une URL : `https://apps.datahug.com/`
 
     > [!NOTE]
-    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur et l’URL de réponse réels. Pour obtenir ces valeurs, contactez l’[équipe de support technique Datahug](http://datahug.com/about/contact-us/). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
+    > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur et l’URL de réponse réels. Pour obtenir ces valeurs, contactez l’[équipe de support technique Datahug](https://datahug.com/about/contact-us/). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
 6. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le fichier **XML de métadonnées de fédération** en fonction des options définies selon vos besoins, puis enregistrez-le sur votre ordinateur.
 
@@ -146,7 +146,7 @@ Pour configurer l’authentification unique Azure AD avec Datahug, effectuez le
 
 ### <a name="configure-datahug-single-sign-on"></a>Configurer l’authentification unique Datahug
 
-Pour configurer l’authentification unique côté **Datahug**, vous devez envoyer le **XML des métadonnées de fédération** téléchargé et les URL appropriées copiées à partir du portail Azure à l’[équipe du support technique Datahug](http://datahug.com/about/contact-us/). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+Pour configurer l’authentification unique côté **Datahug**, vous devez envoyer le **XML des métadonnées de fédération** téléchargé et les URL appropriées copiées à partir du portail Azure à l’[équipe du support technique Datahug](https://datahug.com/about/contact-us/). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD 
 
@@ -166,7 +166,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@votredomaineentreprise.extension**.  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotresociété.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.

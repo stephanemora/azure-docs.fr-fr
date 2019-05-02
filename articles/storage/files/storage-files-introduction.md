@@ -2,23 +2,23 @@
 title: Présentation d’Azure Files | Microsoft Docs
 description: Vue d’ensemble d’Azure Files, un service qui vous permet de créer et d’utiliser les partages de fichiers réseau dans le cloud à l’aide du protocole SMB standard du secteur.
 services: storage
-author: RenaShahMSFT
+author: roygara
 ms.service: storage
 ms.topic: overview
 ms.date: 07/19/2018
-ms.author: renash
+ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 647b1723136edd23f3e58f1c225c9226714d4d97
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 6e8e2843ad8e00b1fe334200b9b1a5c8a7c2c5df
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55466888"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64706952"
 ---
 # <a name="what-is-azure-files"></a>Qu’est-ce qu’Azure Files ?
 Azure Files offre des partages de fichiers managés dans le cloud qui sont accessibles via le protocole [SMB (Server Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) standard. Les partages de fichiers Azure peuvent être montés simultanément sur des déploiements cloud ou locaux de Windows, Linux et macOS. En outre, les partages de fichiers Azure peuvent être mis en cache sur les serveurs Windows avec Azure File Sync pour un accès rapide à proximité de l’endroit où les données sont utilisées.
 
-## <a name="videos"></a>vidéos
+## <a name="videos"></a>Videos
 | Présentation d’Azure File Sync (2 min) | Azure Files et Sync (Ignite 2017) (85 min)  |
 |-|-|
 | [![Capture vidéo de la présentation d’Azure File Sync – Cliquez pour lancer la vidéo !](./media/storage-files-introduction/azure-file-sync-video-snapshot.png)](https://www.youtube.com/watch?v=Zm2w8-TRn-o) | [![Capture vidéo de la présentation d’Azure Files et Sync – Cliquez pour lancer la vidéo !](./media/storage-files-introduction/azure-files-ignite-2017-video.png)](https://www.youtube.com/watch?v=r26jWDGF_rg) |

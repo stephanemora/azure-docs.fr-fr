@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 04/17/2019
 ms.author: rimman
-ms.openlocfilehash: a93bf9a9f43a0929aeb5f3d3121092739396c6a8
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 4a444631de4bc26881ab195333b1b798a7ee6719
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59678443"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925329"
 ---
 # <a name="manage-consistency-levels-in-azure-cosmos-db"></a>Gérer les niveaux de cohérence dans Azure Cosmos DB
 
@@ -211,7 +211,7 @@ item = client.ReadItem(doc_link, options)
 
 ## <a name="monitor-probabilistically-bounded-staleness-pbs-metric"></a>Surveiller la métrique de probabilités en fonction de l’obsolescence limitée (PBS)
 
-Quel est le degré d’éventualité de la cohérence éventuelle ? Pour le cas moyen, pouvons-nous offrir des limites d’obsolescence par rapport à l’historique de version et au moment ? La métrique [**PBS (Probabilistically Bounded Staleness)** ](http://pbs.cs.berkeley.edu/) essaie de quantifier la probabilité d’obsolescence et l’affiche sous forme de métrique. Pour afficher la métrique PBS, accédez à votre compte Azure Cosmos DB sur le portail Azure. Ouvrez le volet **Métriques**, puis sélectionnez l’onglet **Cohérence**. Examinez le graphe intitulé **Probability of strongly consistent reads based on your workload (see PBS)**.
+Quel est le degré d’éventualité de la cohérence éventuelle ? Pour le cas moyen, pouvons-nous offrir des limites d’obsolescence par rapport à l’historique de version et au moment ? La métrique [**PBS (Probabilistically Bounded Staleness)** ](https://pbs.cs.berkeley.edu/) essaie de quantifier la probabilité d’obsolescence et l’affiche sous forme de métrique. Pour afficher la métrique PBS, accédez à votre compte Azure Cosmos DB sur le portail Azure. Ouvrez le volet **Métriques**, puis sélectionnez l’onglet **Cohérence**. Examinez le graphe intitulé **Probability of strongly consistent reads based on your workload (see PBS)**.
 
 ![Graphe PBS dans le portail Azure](./media/how-to-manage-consistency/pbs-metric.png)
 

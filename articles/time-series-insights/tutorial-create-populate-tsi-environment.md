@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Créer un environnement Azure Time Series Insights | Microsoft Docs'
+title: 'Didacticiel : Créer un environnement Azure Time Series Insights | Microsoft Docs'
 description: Découvrez comment créer un environnement Time Series Insights, contenant des données issues d’appareils simulés.
 services: time-series-insights
 author: ashannon7
@@ -9,12 +9,12 @@ ms.date: 12/05/2018
 ms.author: anshan
 manager: cshankar
 ms.custom: seodec18
-ms.openlocfilehash: 58b19a039bb6aebcd2687ab80cdd29c5f378645e
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: c974e011e6f101eab617a370b24306f80c249b90
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200205"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64718417"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-environment"></a>Tutoriel : Créer un environnement Azure Time Series Insights
 
@@ -29,7 +29,7 @@ Ce didacticiel vous guidera tout au long du processus de création d’un enviro
 
 ## <a name="video"></a>Vidéo
 
-Dans cette vidéo, nous vous montrons comment utiliser un accélérateur de solution Azure IoT pour générer des données qui peuvent être utilisées pour démarrer avec Time Series Insights.
+### <a name="in-this-video-we-show-you-how-to-use-an-azure-iot-solution-accelerator-to-generate-data-that-can-be-used-to-get-started-with-time-series-insights-br"></a>Dans cette vidéo, nous vous montrons comment utiliser un accélérateur de solution Azure IoT pour générer des données qui peuvent être utilisées pour démarrer avec Time Series Insights. </br>
 
 > [!VIDEO https://www.youtube.com/embed/6ehNf6AJkFo]
 

@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 03/28/2019
 ms.author: astay;cephalin;kraigb
 ms.custom: seodec18
-ms.openlocfilehash: f8894132dae179be2d5d9d9b6887851be78d7746
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 7bbbe9629404733a76064d270480a0e162e2612b
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59548141"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919886"
 ---
 # <a name="configure-a-linux-python-app-for-azure-app-service"></a>Configurer une application Python Linux pour Azure App Service
 
@@ -182,8 +182,6 @@ Les frameworks web populaires vous permettent d’accéder aux informations `X-F
 - [Accéder au flux de journaux](#access-diagnostic-logs).
 
 ## <a name="next-steps"></a>Étapes suivantes
-
-L’image Python intégrée à App Service sur Linux est actuellement en préversion, et vous pouvez personnaliser la commande utilisée pour démarrer votre application. Pour créer des applications Python de production, vous pouvez également utiliser un conteneur personnalisé à la place.
 
 > [!div class="nextstepaction"]
 > [Tutoriel : Application Python avec PostgreSQL](tutorial-python-postgresql-app.md)

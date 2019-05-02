@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/02/2019
 ms.author: bwren
-ms.openlocfilehash: 9fd65dc0a6d2a5756acd2de7cb46fbf7943a8758
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 0f5a996d68c80fd9b1f55a36de37579ea245d99d
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60931796"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922780"
 ---
 # <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>Transmettre des données à Azure Monitor avec l’API Collecteur de données HTTP (préversion publique)
 Cet article vous montre comment utiliser l’API Collecte de données HTTP pour transmettre des données à Azure Monitor à partir d’un client API REST.  Il explique comment mettre en forme les données collectées par le script ou l’application, les inclure dans une requête et faire en sorte qu’Azure Monitor autorise cette requête.  Il est illustré par des exemples pour PowerShell, C# et Python.
@@ -476,7 +476,7 @@ Tandis que l’API de collecte de données doit couvrir la plupart de vos besoin
 
 | Alternative | Description | Idéal pour |
 |---|---|---|
-| [Événements personnalisés](https://docs.microsoft.com/en-us/azure/azure-monitor/app/api-custom-events-metrics?toc=%2Fazure%2Fazure-monitor%2Ftoc.json#properties): Native ingestion basée sur le Kit de développement logiciel dans Application Insights | Application Insights, généralement instrumentées via un kit SDK dans votre application, offre la possibilité pour pouvoir envoyer des données personnalisées par le biais des événements personnalisés. | <ul><li> Données qui sont générées au sein de votre application, mais pas récupérées par le Kit de développement logiciel via un des types de données par défaut (ie : demandes, dépendances, exceptions, etc.).</li><li> Données qui sont plus souvent corrélées à d’autres données d’application dans Application Insights </li></ul> |
+| [Événements personnalisés](https://docs.microsoft.com/azure/azure-monitor/app/api-custom-events-metrics?toc=%2Fazure%2Fazure-monitor%2Ftoc.json#properties): Native ingestion basée sur le Kit de développement logiciel dans Application Insights | Application Insights, généralement instrumentées via un kit SDK dans votre application, offre la possibilité pour pouvoir envoyer des données personnalisées par le biais des événements personnalisés. | <ul><li> Données qui sont générées au sein de votre application, mais pas récupérées par le Kit de développement logiciel via un des types de données par défaut (ie : demandes, dépendances, exceptions, etc.).</li><li> Données qui sont plus souvent corrélées à d’autres données d’application dans Application Insights </li></ul> |
 | [API du collecteur de données](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-collector-api) dans les journaux Azure Monitor | L’API de collecte de données dans les journaux d’Azure Monitor est un moyen entièrement flexible pour recevoir les données. Toutes les données mises en forme dans un objet JSON peuvent être envoyées ici. Après l’envoi, il sera traité, et disponible dans les journaux à être mis en corrélation avec d’autres données dans les journaux ou par rapport à d’autres Application Insights données. <br/><br/> Il est assez facile charger les données sous forme de fichiers vers un objet blob Azure Blob, à partir de ces fichiers seront traités et chargés dans le journal Analytique. Consultez [cela](https://docs.microsoft.com/azure/log-analytics/log-analytics-create-pipeline-datacollector-api) article pour un exemple d’implémentation de ce pipeline. | <ul><li> Données qui ne sont pas nécessairement générées au sein d’une application instrumentée dans Application Insights.</li><li> Exemples incluent les tables de faits et de recherche, les données de référence, les statistiques agrégées au préalable, etc. </li><li> Destiné aux données qui seront à référence croisée par rapport aux autres données d’Azure Monitor (par exemple, Application Insights, les autres types de données de journaux, Security Center, Azure Monitor pour les machines virtuelles/conteneurs, etc.). </li></ul> |
 | [Explorateur de données Azure](https://docs.microsoft.com/azure/data-explorer/ingest-data-overview) | Explorateur de données Azure (ADX) est la plate-forme de données Application Insights Analytique et les journaux d’Azure Monitor. Maintenant généralement disponible (« GA »), à l’aide de la plateforme de données dans leur forme brute vous fournit une flexibilité complète (mais nécessiter de surcharge de gestion) sur le cluster (RBAC, taux de rétention, schéma, etc.). ADX fournit de nombreuses [options d’ingestion](https://docs.microsoft.com/azure/data-explorer/ingest-data-overview#ingestion-methods) notamment [JSON, CSV et TSV](https://docs.microsoft.com/azure/kusto/management/mappings?branch=master) fichiers. | <ul><li> Données qui ne seront pas corrélées à d’autres données dans Application Insights ou de journaux. </li><li> Données nécessitant une avancée d’ingestion ou non disponibles dès aujourd'hui dans les journaux d’Azure Monitor de capacités de traitement. </li></ul> |
 

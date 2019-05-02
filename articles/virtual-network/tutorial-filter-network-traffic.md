@@ -4,7 +4,7 @@ titlesuffix: Azure Virtual Network
 description: Dans ce tutoriel, vous allez apprendre à filtrer le trafic réseau vers un sous-réseau, avec un groupe de sécurité réseau, à l’aide du portail Azure.
 services: virtual-network
 documentationcenter: virtual-network
-author: jimdial
+author: KumudD
 tags: azure-resource-manager
 Customer intent: I want to filter network traffic to virtual machines that perform similar functions, such as web servers.
 ms.service: virtual-network
@@ -13,13 +13,13 @@ ms.topic: tutorial
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 12/13/2018
-ms.author: jdial
-ms.openlocfilehash: caf9b91d5b98d028d7c9e971df30ad1f6ec448ad
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.author: kumud
+ms.openlocfilehash: ad34c6a876ca21bc7ef32cce638240e0d23b3177
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019025"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64723914"
 ---
 # <a name="tutorial-filter-network-traffic-with-a-network-security-group-using-the-azure-portal"></a>Didacticiel : Filtrer le trafic réseau avec un groupe de sécurité réseau à l’aide du portail Azure
 
@@ -65,7 +65,7 @@ Un groupe de sécurité d’application vous permet de regrouper des serveurs av
 
     | Paramètre        | Valeur                                                         |
     | ---            | ---                                                           |
-    | NOM           | myAsgWebServers                                               |
+    | Nom           | myAsgWebServers                                               |
     | Abonnement   | Sélectionnez votre abonnement.                                     |
     | Groupe de ressources | Sélectionnez **Utiliser l’existant**, puis **myResourceGroup**. |
     | Lieu       | USA Est                                                       |
@@ -74,7 +74,7 @@ Un groupe de sécurité d’application vous permet de regrouper des serveurs av
 
     | Paramètre        | Valeur                                                         |
     | ---            | ---                                                           |
-    | NOM           | myAsgMgmtServers                                              |
+    | Nom           | myAsgMgmtServers                                              |
     | Abonnement   | Sélectionnez votre abonnement.                                     |
     | Groupe de ressources | Sélectionnez **Utiliser l’existant**, puis **myResourceGroup**. |
     | Lieu       | USA Est                                                       |
@@ -87,7 +87,7 @@ Un groupe de sécurité d’application vous permet de regrouper des serveurs av
 
     |Paramètre|Valeur|
     |---|---|
-    |NOM|myNsg|
+    |Nom|myNsg|
     |Abonnement| Sélectionnez votre abonnement.|
     |Groupe de ressources | Sélectionnez **Utiliser l’existant**, puis *myResourceGroup*.|
     |Lieu|USA Est|
@@ -114,7 +114,7 @@ Un groupe de sécurité d’application vous permet de regrouper des serveurs av
     | Destination             | Sélectionnez **Groupe de sécurité d’application**, puis **myAsgWebServers** pour **Groupe de sécurité d’application**.  |
     | Plages de ports de destination | Entrer 80 et 443                                                                                                    |
     | Protocole                | Sélectionner TCP                                                                                                      |
-    | NOM                    | Allow-Web-All                                                                                                   |
+    | Nom                    | Allow-Web-All                                                                                                   |
 
 3. Répétez l’étape 2 en utilisant les valeurs suivantes :
 
@@ -124,7 +124,7 @@ Un groupe de sécurité d’application vous permet de regrouper des serveurs av
     | Plages de ports de destination | Entrer 3389                                                                                                      |
     | Protocole                | Sélectionner TCP                                                                                                      |
     | Priorité                | Entrer 110                                                                                                       |
-    | NOM                    | Allow-RDP-All                                                                                                   |
+    | Nom                    | Allow-RDP-All                                                                                                   |
 
     Dans ce tutoriel, le protocole RDP (port 3389) est exposé à Internet pour la machine virtuelle qui est affectée au groupe de sécurité d’application *myAsgMgmtServers*. Pour les environnements de production, au lieu d’exposer le port 3389 sur Internet, il est recommandé de vous connecter aux ressources Azure que vous souhaitez gérer à l’aide d’une connexion réseau VPN ou privée.
 
@@ -144,7 +144,7 @@ Créez deux machines virtuelles dans le réseau virtuel.
 
     |Paramètre|Valeur|
     |---|---|
-    |NOM|myVmWeb|
+    |Nom|myVmWeb|
     |Nom d'utilisateur| Entrez un nom d’utilisateur de votre choix.|
     |Mot de passe| Entrez un mot de passe de votre choix. Le mot de passe doit contenir au moins 12 caractères et satisfaire aux [exigences de complexité définies](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Abonnement| Sélectionnez votre abonnement.|

@@ -8,19 +8,16 @@ ms.topic: tutorial
 ms.date: 2/14/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 616a710237c31ef2b4a19c3e1e61838164a78530
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 8ee43a54df019b862d1f8698363d8b0a022bdcb4
+ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57308565"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64947141"
 ---
 # <a name="tutorial-create-an-application-gateway-that-improves-web-application-access"></a>Tutoriel : Créer une passerelle d'application qui améliore l'accès aux applications web
 
 Si vous êtes un administrateur informatique soucieux d'améliorer l'accès aux applications web, vous pouvez optimiser votre passerelle d'application pour qu'elle s'adapte à la demande des clients et s'étende sur plusieurs zones de disponibilité. Ce tutoriel vous aide à configurer les fonctionnalités Azure Application Gateway qui gèrent la mise à l'échelle automatique, la redondance de zone et les adresses IP virtuelles réservées (adresses IP statiques). Vous allez utiliser des cmdlets Azure PowerShell et le modèle de déploiement Azure Resource Manager pour résoudre le problème.
-
-> [!IMPORTANT] 
-> La référence SKU de la passerelle d’application redondante interzone et avec mise à l’échelle automatique est disponible en préversion publique. Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Consultez les [Conditions d’utilisation supplémentaires des préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 
 Ce tutoriel vous montre comment effectuer les opérations suivantes :
 

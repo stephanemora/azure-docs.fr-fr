@@ -3,21 +3,21 @@ title: Tutoriel - Activer l’authentification dans une application web - Azure 
 description: Didacticiel sur l’utilisation d’Azure Active Directory B2C pour fournir une connexion utilisateur pour une application web ASP.NET.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.author: davidmu
 ms.date: 02/04/2019
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: ced74cc5af829c3677a12aaf4bffdf9a518f6053
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 243df4457263a3653c501c7a409d2c3a77ee07e1
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55755626"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64690165"
 ---
-# <a name="tutorial-enable-authentication-in-a-web-application-using-azure-active-directory-b2c"></a>Tutoriel : Activer l’authentification dans une application web à l’aide d’Azure Active Directory B2C
+# <a name="tutorial-enable-authentication-in-a-web-application-using-azure-active-directory-b2c"></a>Didacticiel : Activer l’authentification dans une application web à l’aide d’Azure Active Directory B2C
 
 Ce tutoriel vous montre comment utiliser Azure Active Directory B2C pour connecter et inscrire des utilisateurs dans une application web ASP.NET. Azure AD B2C permet à vos applications de s’authentifier auprès de comptes de réseaux sociaux, de comptes d’entreprise et de comptes Azure Active Directory à l’aide de protocoles standards ouverts.
 

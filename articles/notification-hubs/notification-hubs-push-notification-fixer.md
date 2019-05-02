@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 4fc4175c03baa4ddb81507dd4001fcdbe7c7058b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: eebf9ef63a8622c4cc431322b786fdf30f6352fe
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61458725"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925819"
 ---
 # <a name="diagnose-dropped-notifications-in-azure-notification-hubs"></a>Diagnostiquer la perte des notifications dans Azure Notification Hubs
 
@@ -123,7 +123,7 @@ Voici les chemins d’accès pour diagnostiquer la cause racine des pertes de no
 
 #### <a name="push-notification-service-developer-portal"></a>Portail développeur de service de notifications Push ####
 
-Vérifiez les informations d’identification dans le portail des développeurs du service de notifications Push correspondant (Apple Push Notification Service, Firebase Cloud Messaging, service de notification Windows, etc.). Pour plus d’informations, consultez [Tutoriel : Envoyer des notifications vers des applications de plateforme Windows universelle avec Azure Notification Hubs](https://docs.microsoft.com/en-us/azure/notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification).
+Vérifiez les informations d’identification dans le portail des développeurs du service de notifications Push correspondant (Apple Push Notification Service, Firebase Cloud Messaging, service de notification Windows, etc.). Pour plus d’informations, consultez [Tutoriel : Envoyer des notifications vers des applications de plateforme Windows universelle avec Azure Notification Hubs](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification).
 
 #### <a name="azure-portal"></a>Portail Azure ####
 
@@ -180,7 +180,7 @@ Vous pouvez également envoyer des notifications de test à partir de Visual Stu
 
 Pour plus d’informations sur l’utilisation de Notification Hubs avec l’Explorateur de serveurs Visual Studio, consultez les articles suivants :
 
-* [Comment afficher les inscriptions d’appareils pour les concentrateurs de notification](https://docs.microsoft.com/en-us/previous-versions/windows/apps/dn792122(v=win.10))
+* [Comment afficher les inscriptions d’appareils pour les concentrateurs de notification](https://docs.microsoft.com/previous-versions/windows/apps/dn792122(v=win.10))
 * [Présentation approfondie : Visual Studio 2013 Update 2 RC and Azure SDK 2.3]
 * [Announcing release of Visual Studio 2013 Update 3 and Azure SDK 2.4]
 
@@ -261,7 +261,7 @@ Le portail vous permet d’obtenir un aperçu rapide de toutes les activités su
 
 #### <a name="programmatic-access"></a>Accès par programme ####
 
-Pour plus d’informations sur l’accès par programmation, consultez [accès par programme](https://docs.microsoft.com/en-us/previous-versions/azure/azure-services/dn458823(v=azure.100)).
+Pour plus d’informations sur l’accès par programmation, consultez [accès par programme](https://docs.microsoft.com/previous-versions/azure/azure-services/dn458823(v=azure.100)).
 
 > [!NOTE]
 > Plusieurs fonctionnalités de télémétrie, comme l’exportation et l’importation des inscriptions, et l’accès à la télémétrie via des API, sont disponibles uniquement avec le niveau de service Standard. Si vous essayez d’utiliser ces fonctionnalités à partir de gratuit ou de base de niveau de service, vous obtiendrez un message d’exception si vous utilisez le Kit de développement. Vous obtiendrez une erreur HTTP 403 (interdit) si vous utilisez les fonctionnalités directement à partir de l’API REST.

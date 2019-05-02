@@ -15,14 +15,14 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: kumud
-ms.openlocfilehash: 039667eae1dc605706100b7eabf0cd144709fd7f
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: cc4af6e00660684345f21125509b471dbdf2a641
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39443832"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60507212"
 ---
-# <a name="azure-cli-script-example-load-balance-traffic-to-vms-for-high-availability"></a>Exemple de script CLI Azure : équilibrage de charge du trafic vers les machines virtuelles pour haute disponibilité
+# <a name="azure-cli-script-example-load-balance-traffic-to-vms-for-high-availability"></a>Exemple de script Azure CLI : Équilibrer le trafic sur les machines virtuelles pour la haute disponibilité
 
 Cet exemple de script CLI Azure crée tous les éléments nécessaires pour exécuter plusieurs machines virtuelles Ubuntu configurées dans une configuration haute disponibilité avec équilibrage de la charge. Une fois que vous avez exécuté le script, vous obtenez trois machines virtuelles jointes à un groupe à haute disponibilité Azure et accessibles par le biais d’Azure Load Balancer. 
 

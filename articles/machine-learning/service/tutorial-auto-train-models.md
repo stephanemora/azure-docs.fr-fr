@@ -11,12 +11,12 @@ ms.author: nilesha
 ms.reviewer: trbye
 ms.date: 04/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: ee024d627efc42a87d7f6b1971fa8e2e92357a00
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 4d09fca68af55b577c47316363ed386e98525baf
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59545227"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925758"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>Didacticiel : Utiliser le Machine Learning automatisé pour générer votre modèle de régression
 
@@ -101,7 +101,7 @@ import os
 
 ### <a name="configure-workspace"></a>Configurer l’espace de travail
 
-Créez un objet d’espace de travail à partir de l’espace de travail existant. Un [espace de travail](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) est une classe qui accepte les informations concernant vos abonnements et vos ressources Azure. Il crée également une ressource cloud pour superviser et suivre les exécutions de votre modèle.
+Créez un objet d’espace de travail à partir de l’espace de travail existant. Un [espace de travail](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) est une classe qui accepte les informations concernant vos abonnements et vos ressources Azure. Il crée également une ressource cloud pour superviser et suivre les exécutions de votre modèle.
 
 `Workspace.from_config()` lit le fichier **config.json** et charge les détails dans un objet nommé `ws`.  `ws` est utilisé dans tout le reste du code de ce didacticiel.
 

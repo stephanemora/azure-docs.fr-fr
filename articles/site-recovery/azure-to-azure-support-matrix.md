@@ -1,23 +1,22 @@
 ---
 title: Matrice de prise en charge pour la récupération d’urgence de machines virtuelles Azure entre régions Azure avec Azure Site Recovery | Microsoft Docs
-description: Fournit un récapitulatif des systèmes d’exploitation et des configurations pris en charge pour la réplication de machines virtuelles Azure Site Recovery d’une région à une autre à des fins de récupération d’urgence.
-services: site-recovery
+description: Résume les conditions préalables et la prise en charge de la récupération d’urgence de machines virtuelles Azure à partir d’une région à l’autre avec Azure Site Recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 04/22/2019
+ms.date: 04/29/2019
 ms.author: raynew
-ms.openlocfilehash: c64148fbc0432bd25c5b02fb20b3e44134c1d9d5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9b905d532dfe71fea7c4ec0377eb53b9e3073907
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60502088"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926587"
 ---
 # <a name="support-matrix-for-replicating-azure-vms-from-one-region-to-another"></a>Matrice de prise en charge pour la réplication des machines virtuelles Azure à partir d’une région vers une autre
 
-Cet article récapitule les composants et les configurations pris en charge lorsque vous déployez la récupération d’urgence avec la réplication, le basculement et la récupération de machines virtuelles Azure d’une région Azure vers une autre, avec le service [Azure Site Recovery](site-recovery-overview.md).
+Cet article résume la prise en charge et les conditions préalables lorsque vous définissez de récupération d’urgence de machines virtuelles Azure à partir d’une région Azure sur un autre, en utilisant le [Azure Site Recovery](site-recovery-overview.md) service.
 
 
 ## <a name="deployment-method-support"></a>Prise en charge de la méthode de déploiement
@@ -96,10 +95,10 @@ Windows Server 2008 R2 | Exécutant SP1 ou version ultérieure
 Red Hat Enterprise Linux | 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6  
 CentOS | 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6
 Serveur LTS Ubuntu 14.04 | [Versions du noyau prises en charge](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
-Serveur LTS Ubuntu 16.04 | [Version du noyau prise en charge](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)<br/><br/> Sur les serveurs Ubuntu utilisant l’authentification et la connexion basées sur un mot de passe, et le package cloud-init pour configurer des machines virtuelles cloud, la connexion basée sur un mot de passe peut être désactivée lors du basculement (en fonction de la configuration de cloudinit). La connexion basée sur un mot de passe peut être réactivée sur la machine virtuelle en réinitialisant le mot de passe dans le menu Support > Résolution des problèmes > Paramètres (de la machine virtuelle basculée sur le portail Azure).
+Serveur LTS Ubuntu 16.04 | [Version du noyau prise en charge](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)<br/><br/> Les serveurs Ubuntu à l’aide de l’authentification basée sur mot de passe et vous connecter et le package cloud-init pour configurer des machines virtuelles, cloud peut-être authentification par mot de passe désactivé lors du basculement (en fonction de la configuration de cloudinit). Connexion basée sur mot de passe peut être réactivée sur la machine virtuelle en réinitialisant le mot de passe à partir de la prise en charge > résolution des problèmes > menu Paramètres (de la machine virtuelle basculée dans le portail Azure.
 Debian 7 | [Versions du noyau prises en charge](#supported-debian-kernel-versions-for-azure-virtual-machines)
 Debian 8 | [Versions du noyau prises en charge](#supported-debian-kernel-versions-for-azure-virtual-machines)
-SUSE Linux Enterprise Server 12 | SP1,SP2,SP3,SP4. [(Versions du noyau prises en charge)](#supported-suse-linux-enterprise-server-12-kernel-versions-for-azure-virtual-machines)
+SUSE Linux Enterprise Server 12 | SP1, SP2, SP3, SP4. [(Versions du noyau prises en charge)](#supported-suse-linux-enterprise-server-12-kernel-versions-for-azure-virtual-machines)
 SUSE Linux Enterprise Server 11 | SP3<br/><br/> La mise à niveau des machines de réplication SP3 vers SP4 n’est pas prise en charge. Si une machine répliquée a été mise à niveau, vous devez désactiver la réplication et la réactiver après la mise à niveau.
 SUSE Linux Enterprise Server 11 | SP4
 Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5 <br/><br/> Exécutant le noyau compatible Red Hat ou le noyau Unbreakable Enterprise Kernel Release 3 (UEK3).
@@ -191,7 +190,8 @@ Espaces de stockage | Pris en charge |
 Chiffrement au repos (SSE) | Pris en charge | SSE est le paramètre par défaut sur les comptes de stockage.   
 Azure Disk Encryption (ADE) pour système d’exploitation Windows | Prise en charge des machines virtuelles activées pour le [chiffrement avec Azure AD app](https://aka.ms/ade-aad-app) |
 Azure Disk Encryption (ADE) pour système d’exploitation Linux | Non pris en charge |
-Ajout/suppression de disque à chaud | Non pris en charge | Si vous ajoutez ou supprimez un disque de données sur la machine virtuelle, vous devez désactiver la réplication puis la réactiver pour la machine virtuelle.
+Ajout à chaud | Pris en charge | Activation de la réplication pour un disque de données que vous ajoutez à une machine virtuelle Azure répliquée est pris en charge pour les machines virtuelles qui utilisent des disques gérés.
+Suppression à chaud de disque | Non pris en charge | Si vous supprimez le disque de données sur la machine virtuelle, vous devez désactiver la réplication et activer la réplication à nouveau pour la machine virtuelle.
 Exclure le disque | prise en charge. Vous devez utiliser [Powershell](azure-to-azure-exclude-disks.md) à configurer. |  Disques temporaires sont exclus par défaut.
 Espaces de stockage direct  | Pris en charge pour les points de récupération cohérents d’incident. Les points de récupération cohérents d’incident ne sont pas pris en charge. |
 Serveur de fichiers avec montée en puissance parallèle  | Pris en charge pour les points de récupération cohérents d’incident. Les points de récupération cohérents d’incident ne sont pas pris en charge. |
@@ -241,7 +241,7 @@ Azure DNS | Pris en charge |
 Système DNS personnalisé  | Pris en charge |
 Proxy non authentifié | Pris en charge | [En savoir plus]. (site-recovery-azure-to-azure-networking-guidance.md)   
 Proxy authentifié | Non pris en charge | Si la machine virtuelle utilise un proxy authentifié pour la connectivité sortante, elle ne peut pas être répliquée à l’aide d’Azure Site Recovery.    
-Connexion de site à site VPN en local<br/><br/>(avec ou sans ExpressRoute)| Pris en charge | Vérifiez que les itinéraires définis par l’utilisateur et les groupes de sécurité réseau sont configurés de telle sorte que le trafic Site Recovery ne soit pas acheminé vers l’infrastructure locale. [En savoir plus](site-recovery-azure-to-azure-networking-guidance.md)    
+Connexion de site à site VPN en local<br/><br/>(avec ou sans ExpressRoute)| Pris en charge | Assurez-vous que l’UDR et les groupes de sécurité réseau sont configurés de telle sorte que le trafic de Site Recovery n’est pas acheminé au niveau local. [En savoir plus](site-recovery-azure-to-azure-networking-guidance.md)    
 Connexion de réseau virtuel à réseau virtuel | Pris en charge | [En savoir plus](site-recovery-azure-to-azure-networking-guidance.md)  
 Points de terminaison de service de réseau virtuel | Pris en charge | Si vous limitez l’accès au réseau virtuel aux comptes de stockage, assurez-vous que les services Microsoft de confiance sont autorisés à accéder au compte de stockage.
 Mise en réseau accélérée | Pris en charge | L’accélération réseau doit être activée sur la machine virtuelle source. [Plus d’informations](azure-vm-disaster-recovery-with-accelerated-networking.md)

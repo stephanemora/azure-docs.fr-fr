@@ -2,7 +2,6 @@
 title: 'Démarrage rapide : Bien démarrer avec Apache Hadoop et Apache Hive à l’aide du Portail Azure - Azure HDInsight'
 description: Découvrez comment créer des clusters HDInsight à l’aide du portail Azure et interroger des données avec Hive.
 keywords: prise en main de hadoop,hadoop sur linux,démarrage rapide de hadoop,prise en main de hive,démarrage rapide de hive
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -10,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 81eb750f271062bcb4891edf8008d76a18ac85c7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0c466840c3de9337d7bb8d22f00da0ba52227770
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57881195"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64697812"
 ---
 # <a name="quickstart-get-started-with-apache-hadoop-and-apache-hive-in-azure-hdinsight-using-the-azure-portal"></a>Démarrage rapide : Bien démarrer avec Apache Hadoop et Apache Hive dans Azure HDInsight à l’aide du Portail Azure
 

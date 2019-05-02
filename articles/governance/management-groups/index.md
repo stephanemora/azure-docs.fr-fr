@@ -4,15 +4,15 @@ description: Découvrez les groupes d’administration, le fonctionnement des au
 author: rthorn17
 ms.assetid: 482191ac-147e-4eb6-9655-c40c13846672
 ms.service: azure-resource-manager
-ms.date: 04/17/2019
+ms.date: 04/22/2019
 ms.author: rithorn
 ms.topic: overview
-ms.openlocfilehash: 157701e826d6a281a60393e1ec270cf061be8214
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: ceb606f2243ef723866e485c6580a6323c1c92ec
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59699379"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64722482"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Organiser vos ressources avec des groupes d’administration Azure
 
@@ -47,9 +47,8 @@ Ce groupe d’administration racine est intégré à la hiérarchie et contient 
 
 ### <a name="important-facts-about-the-root-management-group"></a>Faits importants sur le groupe d’administration racine
 
-- Le nom et l’ID du groupe d’administration racine sont fournis par défaut. Le nom d’affichage peut être mis à jour à tout moment au sein du portail Azure. Pour [changer le nom](manage.md#change-the-name-of-a-management-group), votre compte doit avoir le rôle Propriétaire ou Contributeur sur le groupe d’administration racine.
-  - Le nom sera « Groupe racine du locataire ».
-  - L’ID sera l’ID Azure Active Directory.
+- Par défaut, le nom d’affichage du groupe d’administration racine est **Groupe racine de locataire**. L’ID est l’ID Azure Active Directory.
+- Pour changer le nom d’affichage, votre compte doit avoir le rôle Propriétaire ou Contributeur sur le groupe d’administration racine. Pour connaître les étapes permettant de changer le nom, consultez [Changer le nom d’un groupe d’administration](manage.md#change-the-name-of-a-management-group).
 - Le groupe d’administration racine ne peut pas être déplacé ni supprimé, contrairement aux autres groupes d’administration.  
 - Tous les abonnements et groupes d’administration sont contenus dans le groupe d’administration racine de l’annuaire.
   - Toutes les ressources de l’annuaire sont contenues dans le groupe d’administration racine à des fins de gestion globale.

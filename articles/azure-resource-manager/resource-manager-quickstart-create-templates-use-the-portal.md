@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 03/04/2019
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: 84025953e74cb2ace358aa041f55dc1498d22f2f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4fe859b1343e2aea71bd41a3b7742a29bbff389f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58079058"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60464156"
 ---
 # <a name="quickstart-create-and-deploy-azure-resource-manager-templates-by-using-the-azure-portal"></a>Démarrage rapide : Créer et déployer des modèles Azure Resource Manager à l’aide du portail Azure
 
@@ -157,9 +157,9 @@ Azure requiert que chaque service Azure ait un nom unique. Le déploiement peut 
     |----|----|
     |**Groupe de ressources**|Sélectionnez le nom du groupe de ressources que vous avez créé dans la dernière section. |
     |**Lieu**|Sélectionnez un emplacement pour le compte de stockage. Par exemple, **USA Centre**. |
-    |**Type de compte**|Entrez **Standard_LRS** pour ce démarrage rapide. |
-    |**Type**|Entrez **StorageV2** pour ce démarrage rapide. |
-    |**Niveau d’accès**|Entrez **chaud** pour ce démarrage rapide. |
+    |**Type de compte**|entrez **Standard_LRS** pour ce démarrage rapide. |
+    |**Type**|entrez **StorageV2** pour ce démarrage rapide. |
+    |**Niveau d’accès**|entrez **chaud** pour ce démarrage rapide. |
     |**Seul le trafic HTTPS est activé**| Pour ce guide de démarrage rapide, sélectionnez **true**. |
     |**J’accepte les termes et conditions mentionnés ci-dessus**|(sélection)|
 

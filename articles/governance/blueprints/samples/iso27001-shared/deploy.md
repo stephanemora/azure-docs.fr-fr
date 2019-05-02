@@ -7,12 +7,12 @@ ms.date: 03/14/2019
 ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: d27f2495c70dbe6e10fb3adf5370a31903be3abf
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 88d5cfbbcb29cacc2e8c1c6a226367c5f23e8231
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59792399"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926303"
 ---
 # <a name="deploy-the-iso-27001-shared-services-blueprint-sample"></a>Déployer l’exemple de blueprint Services partagés ISO 27001
 
@@ -99,7 +99,7 @@ Une fois que la copie de l’exemple de blueprint a été **publiée**, elle peu
 1. Une fois tous les paramètres entrés, sélectionnez **Affecter** au bas de la page. L’affectation du blueprint est créée et le déploiement de l’artefact démarre. Le déploiement prend environ une heure. Pour vérifier l’état du déploiement, ouvrez l’affectation du blueprint.
 
 > [!WARNING]
-> Le service Azure Blueprints et les exemples de blueprint intégrés sont **gratuits**. Les ressources Azure sont [facturées par produit](https://azure.microsoft.com/en-us/pricing/). Utilisez la [calculatrice de prix](https://azure.microsoft.com/pricing/calculator/) pour estimer le coût d’exécution des ressources déployées par cet exemple de blueprint.
+> Le service Azure Blueprints et les exemples de blueprint intégrés sont **gratuits**. Les ressources Azure sont [facturées par produit](https://azure.microsoft.com/pricing/). Utilisez la [calculatrice de prix](https://azure.microsoft.com/pricing/calculator/) pour estimer le coût d’exécution des ressources déployées par cet exemple de blueprint.
 
 ## <a name="artifact-parameters-table"></a>Tableau des paramètres d’artefact
 
@@ -107,10 +107,10 @@ Le tableau suivant fournit la liste des paramètres d’artefact de blueprint :
 
 |Nom de l’artefact|Type d’artefact|Nom du paramètre|Description|
 |-|-|-|-|
-|[Préversion] : Déployer Log Analytics Agent pour Linux VM Scale Sets (VMSS)|Affectation de rôle|Facultatif : Liste des images de machine virtuelle ayant un système d’exploitation Linux pris en charge à ajouter à l’étendue|(Facultatif) La valeur par défaut est _["none"]_.|
-|[Préversion] : Déployer Log Analytics Agent pour les machines virtuelles Linux|Affectation de rôle|Facultatif : Liste des images de machine virtuelle ayant un système d’exploitation Linux pris en charge à ajouter à l’étendue|(Facultatif) La valeur par défaut est _["none"]_.|
-|[Préversion] : Déployer Log Analytics Agent pour Windows VM Scale Sets (VMSS)|Affectation de rôle|Facultatif : Liste des images de machine virtuelle ayant un système d’exploitation Windows pris en charge à ajouter à l’étendue|(Facultatif) La valeur par défaut est _["none"]_.|
-|[Préversion] : Déployer Log Analytics Agent pour les machines virtuelles Windows|Affectation de rôle|Facultatif : Liste des images de machine virtuelle ayant un système d’exploitation Windows pris en charge à ajouter à l’étendue|(Facultatif) La valeur par défaut est _["none"]_.|
+|\[Préversion\] : Déployer Log Analytics Agent pour Linux VM Scale Sets (VMSS)|Affectation de rôle|Facultatif : Liste des images de machine virtuelle ayant un système d’exploitation Linux pris en charge à ajouter à l’étendue|(Facultatif) La valeur par défaut est _["none"]_.|
+|\[Préversion\] : Déployer Log Analytics Agent pour les machines virtuelles Linux|Affectation de rôle|Facultatif : Liste des images de machine virtuelle ayant un système d’exploitation Linux pris en charge à ajouter à l’étendue|(Facultatif) La valeur par défaut est _["none"]_.|
+|\[Préversion\] : Déployer Log Analytics Agent pour Windows VM Scale Sets (VMSS)|Affectation de rôle|Facultatif : Liste des images de machine virtuelle ayant un système d’exploitation Windows pris en charge à ajouter à l’étendue|(Facultatif) La valeur par défaut est _["none"]_.|
+|\[Préversion\] : Déployer Log Analytics Agent pour les machines virtuelles Windows|Affectation de rôle|Facultatif : Liste des images de machine virtuelle ayant un système d’exploitation Windows pris en charge à ajouter à l’étendue|(Facultatif) La valeur par défaut est _["none"]_.|
 |Types de ressources autorisés|Affectation de rôle|Types de ressources autorisés|Liste des types de ressources pouvant être déployés. Cette liste est composée de tous les types de ressources déployés dans les Services partagés.|
 |Références SKU de compte de stockage autorisées|Affectation de rôle|Références SKU de stockage autorisées|Liste des références SKU de compte de stockage de journaux de diagnostic autorisées. La valeur par défaut est _["Standard_LRS"]_.|
 |Références SKU de machine virtuelle autorisées|Affectation de rôle|Liste des références SKU de machine virtuelle autorisées à être déployées. La valeur par défaut est _["Standard_DS1_v2", "Standard_DS2_v2"]_.|

@@ -3,21 +3,21 @@ title: Tutoriel - Accorder l’accès à une API web ASP.NET à l’aide d’Azu
 description: Tutoriel sur l’utilisation d’Active Directory B2C pour protéger une API web ASP.NET et l’appeler à partir d’une application web ASP.NET.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.author: davidmu
 ms.date: 02/04/2019
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: cc4db0f2fe8f5db41f6e8332a398029bd105f3af
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 77e3eaeffba862c727e021427e5f27967fcf35bd
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756340"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64687999"
 ---
-# <a name="tutorial-grant-access-to-an-aspnet-web-api-using-azure-active-directory-b2c"></a>Tutoriel : Accorder l’accès à une API web ASP.NET à l’aide d’Azure Active Directory B2C
+# <a name="tutorial-grant-access-to-an-aspnet-web-api-using-azure-active-directory-b2c"></a>Didacticiel : Accorder l’accès à une API web ASP.NET à l’aide d’Azure Active Directory B2C
 
 Ce tutoriel vous montre comment appeler une ressource d’API web protégée dans Azure Active Directory (Azure AD) B2C à partir d’une application web ASP.NET.
 
@@ -45,14 +45,14 @@ Les ressources d’API web doivent être inscrites auprès de votre locataire po
 4. Sélectionnez **Applications**, puis **Ajouter**.
 5. Entrez un nom pour l’application. Par exemple, *webapi1*.
 6. Pour **inclure l’application web/l’API web** et **autoriser un flux implicite**, sélectionnez **Oui**.
-7. Pour l’**URL de réponse**, entrez un point de terminaison où Azure AD B2C doit retourner les jetons demandés par votre application. Dans ce tutoriel, l’exemple s’exécute localement et écoute `https://localhost:44332`.
+7. Pour l’**URL de réponse**, entrez un point de terminaison où Azure AD B2C doit retourner les jetons demandés par votre application. Dans ce tutoriel, l'exemple s'exécute localement et écoute `https://localhost:44332`.
 8. Pour l’**L’URI de l’ID d’application**, entrez l’identificateur utilisé pour votre API web. L’identificateur complet URI, y compris le domaine, est généré pour vous. Par exemple : `https://contosotenant.onmicrosoft.com/api`.
 9. Cliquez sur **Créer**.
-10. Dans la page des propriétés, enregistrez l’ID d’application que vous utiliserez pour configurer l’application web.
+10. Sur la page des propriétés, enregistrez l'ID d'application que vous utiliserez pour configurer l'application web.
 
 ## <a name="configure-scopes"></a>Configurer des étendues
 
-Les étendues permettent de gérer l’accès aux ressources protégées. Elles sont utilisées par l’API web pour implémenter le contrôle d’accès basé sur les étendues. Par exemple, les utilisateurs de l’API web peuvent avoir un accès en lecture et en écriture, ou les utilisateurs de l’API web peuvent avoir l’accès en lecture uniquement. Dans ce didacticiel, vous allez utiliser des étendues pour définir des autorisations d’accès en lecture et en écriture pour l’API web.
+Les étendues permettent de gérer l'accès aux ressources protégées. Elles sont utilisées par l’API web pour implémenter le contrôle d’accès basé sur les étendues. Par exemple, les utilisateurs de l’API web peuvent avoir un accès en lecture et en écriture, ou les utilisateurs de l’API web peuvent avoir l’accès en lecture uniquement. Dans ce didacticiel, vous allez utiliser des étendues pour définir des autorisations d’accès en lecture et en écriture pour l’API web.
 
 1. Sélectionnez **Applications**, puis *webapi1*.
 2. Sélectionnez **Étendues publiées**.
@@ -60,11 +60,11 @@ Les étendues permettent de gérer l’accès aux ressources protégées. Elles 
 4. Pour **Étendue**, entrez `Hello.Write`, puis pour la description, entrez `Write access to hello`.
 5. Cliquez sur **Enregistrer**.
 
-Les étendues publiées peuvent servir à accorder à une application cliente une autorisation d’accès à l’API web.
+Les étendues publiées peuvent être utilisées pour accorder à une application cliente l'autorisation d'accéder à l'API web.
 
 ## <a name="grant-permissions"></a>Accorder des autorisations
 
-Pour appeler une API web protégée à partir d’une application, vous devez accorder à cette application des autorisations d’accès à l’API. Dans le tutoriel de prérequis, vous avez créé une application web nommée *webapp1* dans Azure AD B2C. Vous allez utiliser cette application pour appeler l’API web.
+Pour appeler une API web protégée à partir d'une application, vous devez accorder à cette application les autorisations d'accès à l'API. Dans le cadre du tutoriel de prérequis, vous avez créé dans Azure AD B2C une application web nommée *webapp1*. Vous allez utiliser cette application pour appeler l’API web.
 
 1. Sélectionnez **Applications**, puis *webapp1*.
 2. Sélectionnez **Accès aux API**, puis sélectionnez **Ajouter**.
@@ -72,7 +72,7 @@ Pour appeler une API web protégée à partir d’une application, vous devez ac
 4. Dans la liste déroulante **Sélectionnez des étendues**, sélectionnez les étendues **Hello.Read** et **Hello.Write** que vous avez définies précédemment.
 5. Cliquez sur **OK**.
 
-Votre application est inscrite pour appeler l’API web protégée. Un utilisateur s’authentifie auprès d’Azure AD B2C pour utiliser l’application. L’application obtient un octroi d’autorisation d’Azure AD B2C pour accéder à l’API web protégée.
+Votre application est inscrite pour appeler l'API web protégée. Un utilisateur s'authentifie auprès d'Azure AD B2C pour utiliser l'application. L’application obtient un octroi d’autorisation d’Azure AD B2C pour accéder à l’API web protégée.
 
 ## <a name="configure-the-sample"></a>Configurer l'exemple
 

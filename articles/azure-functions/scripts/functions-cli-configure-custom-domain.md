@@ -12,12 +12,12 @@ ms.topic: sample
 ms.date: 07/04/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 5299675656ea23b85f78b3dbfdc02814ab332a8b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 8874039d148cc89d3f47979370e64dd78777f268
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46979047"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60325746"
 ---
 # <a name="map-a-custom-domain-to-a-function-app"></a>Mapper un domaine personnalisé à une Function App
 
@@ -40,7 +40,7 @@ Si vous choisissez d’installer et d’utiliser l’interface CLI localement, v
 
 ## <a name="script-explanation"></a>Explication du script
 
-Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à une documentation spécifique.
+Ce script utilise les commandes suivantes : Chaque commande du tableau renvoie à une documentation spécifique.
 
 | Commande | Notes |
 |---|---|

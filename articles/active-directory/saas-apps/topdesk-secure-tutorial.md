@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à TOPdesk - Secure | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à TOPdesk - Secure | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et TOPdesk - Secure.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2a559191bb4e84b3b60529bf20a25e381c72f42a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 845ca13bdd8e3677f559bac373efa078f3b951be
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57840934"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64920367"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-topdesk---secure"></a>Tutoriel : Intégration d’Azure Active Directory à TOPdesk - Secure
+# <a name="tutorial-azure-active-directory-integration-with-topdesk---secure"></a>Didacticiel : Intégration d’Azure Active Directory à TOPdesk - Secure
 
 Dans ce didacticiel, vous allez apprendre à intégrer TOPdesk - Secure à Azure Active Directory (Azure AD).
 L’intégration de TOPdesk - Secure à Azure AD vous offre les avantages suivants :
@@ -180,7 +180,7 @@ Pour configurer l’authentification unique Azure AD avec TOPdesk - Secure, effe
 
     b. Pour charger votre fichier de certificat, sous **Certificate (RSA)**, cliquez sur **Browse**.
 
-    c. Pour **Private key(RSA, PKCS8, DER)**, vous pouvez charger votre propre clé privée ou contacter [l’équipe de support technique TOPdesk](http://www.topdesk.com/us/support) pour obtenir la clé privée.
+    c. Pour **Private key(RSA, PKCS8, DER)**, vous pouvez charger votre propre clé privée ou contacter [l’équipe de support technique TOPdesk](https://www.topdesk.com/us/support) pour obtenir la clé privée.
 
     d. Pour charger le fichier de logo que vous avez obtenu de l’équipe de support TOPdesk, sous **Logo icon**, cliquez sur **Browse**.
 
@@ -208,7 +208,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.

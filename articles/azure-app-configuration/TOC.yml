@@ -1,64 +1,59 @@
-items:
 - name: Documentation Azure App Configuration (préversion)
   href: index.yml
 - name: Vue d’ensemble
   items:
-  - name: À propos d’Azure App Configuration
-    href: overview.md
+    - name: À propos d’Azure App Configuration
+      href: overview.md
 - name: Démarrages rapides
-  items:
-  - name: Créer une application ASP.NET Core
-    href: quickstart-aspnet-core-app.md
-  - name: Créer une application .NET Core
-    href: quickstart-dotnet-core-app.md
-  - name: Créer une application .NET Framework
-    href: quickstart-dotnet-app.md
-  - name: Création d’une fonction Azure
-    href: quickstart-azure-function-csharp.md
-  - name: Créer une application Java Spring
-    href: quickstart-java-spring-app.md
   expanded: true
+  items:
+    - name: Créer une application ASP.NET Core
+      href: quickstart-aspnet-core-app.md
+    - name: Créer une application .NET Core
+      href: quickstart-dotnet-core-app.md
+    - name: Créer une application .NET Framework
+      href: quickstart-dotnet-app.md
+    - name: Création d’une fonction Azure
+      href: quickstart-azure-function-csharp.md
+    - name: Créer une application Java Spring
+      href: quickstart-java-spring-app.md
 - name: Tutoriels
   items:
-  - name: Activer la configuration dynamique dans ASP.NET Core
-    href: enable-dynamic-configuration-aspnet-core.md
-  - name: Intégrer avec un pipeline CI/CD
-    href: integrate-ci-cd-pipeline.md
+    - name: Activer la configuration dynamique dans ASP.NET Core
+      href: enable-dynamic-configuration-aspnet-core.md
+    - name: Intégrer avec un pipeline CI/CD
+      href: integrate-ci-cd-pipeline.md
 - name: Exemples
   items:
-  - name: Azure CLI
-    href: cli-samples.md
+    - name: Azure CLI
+      href: cli-samples.md
 - name: Concepts
   items:
-  - name: stockage clé-valeur
-    href: concept-key-value.md
-  - name: Capture instantanée à un point dans le temps
-    href: concept-point-time-snapshot.md
+    - name: stockage clé-valeur
+      href: concept-key-value.md
+    - name: Capture instantanée à un point dans le temps
+      href: concept-point-time-snapshot.md
 - name: Guides pratiques
   items:
-  - name: Intégrer avec Azure Managed Service Identity
-    href: howto-integrate-azure-managed-service-identity.md
-  - name: Importer ou exporter des données de configuration
-    href: howto-import-export-data.md
+    - name: Intégrer avec Azure Managed Service Identity
+      href: howto-integrate-azure-managed-service-identity.md
+    - name: Importer ou exporter des données de configuration
+      href: howto-import-export-data.md
 - name: Informations de référence
   items:
-  - name: Fournisseur de configuration .NET Core
-    href: https://go.microsoft.com/fwlink/?linkid=2074664
-  - name: Générateur de configuration .NET Framework
-    href: https://go.microsoft.com/fwlink/?linkid=2074663
-  - name: Fournisseur de configuration Java Spring
-    href: https://github.com/Microsoft/spring-cloud-azure/tree/azure-config/spring-cloud-azure-starters/spring-cloud-starter-azure-config
-  - name: Kit SDK .NET Azure
-    href: https://github.com/Azure/azure-sdk-for-net/tree/master/src/SDKs/Azure.ApplicationModel.Configuration/data-plane
-  - name: REST
-    href: https://go.microsoft.com/fwlink/?linkid=2078296
+    - name: Fournisseur de configuration .NET Core
+      href: 'https://go.microsoft.com/fwlink/?linkid=2074664'
+    - name: Générateur de configuration .NET Framework
+      href: 'https://go.microsoft.com/fwlink/?linkid=2074663'
+    - name: Fournisseur de configuration Java Spring
+      href: 'https://github.com/Microsoft/spring-cloud-azure/tree/azure-config/spring-cloud-azure-starters/spring-cloud-starter-azure-config'
+    - name: Kit SDK .NET Azure
+      href: 'https://github.com/Azure/azure-sdk-for-net/tree/master/src/SDKs/Azure.ApplicationModel.Configuration/data-plane'
+    - name: REST
+      href: 'https://go.microsoft.com/fwlink/?linkid=2078296'
 - name: Ressources
   items:
-  - name: Indiquer des commentaires sur le produit
-    href: https://github.com/Azure/AppConfiguration
-ms.openlocfilehash: 74de90cd0e8274f7192b177c41aba165eabbed40
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59699608"
+    - name: Vidéo de démarrage
+      href: 'https://channel9.msdn.com/Shows/Azure-Friday/Getting-started-with-Azure-App-Configuration'
+    - name: Indiquer des commentaires sur le produit
+      href: 'https://github.com/Azure/AppConfiguration/issues'

@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 04/02/2019
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 61a17842158326c927f049af893a00818f3acc55
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: be120ea8ae588da486c9a5acd4eb7bfdb4e45dee
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59793384"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64701564"
 ---
 # <a name="quickstart-build-and-run-a-container-image-using-azure-container-registry-tasks"></a>Démarrage rapide : générer et exécuter une image conteneur avec Azure Container Registry Tasks
 
@@ -52,7 +52,7 @@ Cet exemple crée un registre *De base*, option économique pour les développeu
 Maintenant, utilisez Azure Container Registry pour générer une image. Tout d’abord, créez un répertoire de travail, puis un fichier Dockerfile nommé *Dockerfile* avec le contenu suivant. Il s’agit d’un exemple simple pour générer une image conteneur Linux, mais vous pouvez créer votre propre fichier Dockerfile standard et générer des images pour d’autres plateformes.
 
 ```bash
-echo "FROM hello-world" > Dockerfile
+echo FROM hello-world > Dockerfile
 ```
 
 Exécutez la commande [az acr build][az-acr-build] pour générer l’image. Une fois correctement générée, l’image est envoyée (push) à votre registre. L’exemple suivant envoie (push) l’image `sample/hello-world:v1`. Le `.` à la fin de la commande définit l’emplacement du fichier Dockerfile, dans ce cas, le répertoire actif.

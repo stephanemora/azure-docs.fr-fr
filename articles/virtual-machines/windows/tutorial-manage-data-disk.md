@@ -17,12 +17,12 @@ ms.date: 11/29/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.subservice: disks
-ms.openlocfilehash: be6375972747c5c962bf1a8ef9b9b0093402bb7a
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 4a60d3d77408e7c05311a2bd6bcceeb9331bd1af
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58368253"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924682"
 ---
 # <a name="tutorial---manage-azure-disks-with-azure-powershell"></a>Didacticiel : gérer les disques Azure avec Azure PowerShell
 
@@ -51,7 +51,7 @@ Lorsqu’une machine virtuelle Azure est créée, deux disques sont automatiquem
 
 ## <a name="azure-data-disks"></a>Disques de données Azure
 
-Des disques de données supplémentaires peuvent être ajoutés pour installer des applications et stocker des données. Les disques de données doivent être utilisés dans les cas où un stockage des données durable et réactif est nécessaire. Chaque disque de données possède une capacité maximale de 4 To. La taille de la machine virtuelle détermine le nombre de disques de données pouvant être attachés à cette machine virtuelle. Pour chaque processeur virtuel de la machine virtuelle, quatre disques de données peuvent être attachés.
+Des disques de données supplémentaires peuvent être ajoutés pour installer des applications et stocker des données. Les disques de données doivent être utilisés dans les cas où un stockage des données durable et réactif est nécessaire. La taille de la machine virtuelle détermine le nombre de disques de données pouvant être attachés à cette machine virtuelle. Pour chaque processeur virtuel de la machine virtuelle, quatre disques de données peuvent être attachés.
 
 ## <a name="vm-disk-types"></a>Type de disque de machine virtuelle
 

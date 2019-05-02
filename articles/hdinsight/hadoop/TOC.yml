@@ -136,8 +136,6 @@
         - name: Utiliser des nœuds de périmètre vides
           href: ../hdinsight-apps-use-edge-node.md
           maintainContext: true
-        - name: Développer des programmes de diffusion en continu Python
-          href: apache-hadoop-streaming-python.md
         - name: Traiter et analyser des documents JSON
           href: using-json-in-hive.md
         - name: 'Utiliser des fonctions C# définies par l’utilisateur'

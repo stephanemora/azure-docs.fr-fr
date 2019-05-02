@@ -7,14 +7,14 @@ author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 04/26/2019
 ms.author: mbullwin
-ms.openlocfilehash: 25f620cb36c2bfb548ecf08c33dc04b37118a256
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c447a14f72c56e3e1e244011aa215a33b3f222a6
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59489620"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922465"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Analyser les performances d’Azure App Service
 
@@ -40,6 +40,10 @@ Il existe deux façons d’activer l’analyse des applications pour les applica
 > Si l’agent en fonction de surveillance et le Kit de développement logiciel manuels en fonction d’instrumentation est détectée qu'uniquement les paramètres d’une instrumentation manuelle seront honorées. Cela vise à éviter les données en double à partir d’envoyés. Pour en savoir plus sur cette extraction le [section Dépannage](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#troubleshooting) ci-dessous.
 
 ## <a name="enable-agent-based-monitoring-net"></a>Activer en fonction de l’agent de surveillance .NET
+
+> [!NOTE]
+> la combinaison de APPINSIGHTS_JAVASCRIPT_ENABLED et urlCompression n’est pas pris en charge. Pour plus d’informations, consultez l’explication dans le [section Dépannage](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#troubleshooting).
+
 
 1. **Sélectionnez Application Insights** dans le panneau de configuration Azure pour votre service d’application.
 
@@ -352,6 +356,15 @@ Le tableau ci-dessous fournit une explication plus détaillée de la signifient 
 |`AppContainsAspNetTelemetryCorrelationAssembly: true` | Cette valeur indique que l’extension détecté références à `Microsoft.AspNet.TelemetryCorrelation` dans l’application et sera temporisation. | Supprimez la référence.
 |`AppContainsDiagnosticSourceAssembly**:true`|Cette valeur indique que l’extension détecté références à `System.Diagnostics.DiagnosticSource` dans l’application et sera temporisation.| Supprimez la référence.
 |`IKeyExists:false`|Cette valeur indique que la clé d’instrumentation n’est pas présente dans l’élément AppSetting, `APPINSIGHTS_INSTRUMENTATIONKEY`. Causes possibles : Les valeurs a peut-être été accidentellement supprimé, vous avez oublié de définir les valeurs de script d’automatisation, etc. | Assurez-vous que le paramètre est présent dans les paramètres d’application App Service.
+
+### <a name="appinsightsjavascriptenabled-and-urlcompression-is-not-supported"></a>APPINSIGHTS_JAVASCRIPT_ENABLED et urlCompression n’est pas pris en charge
+
+Si vous utilisez APPINSIGHTS_JAVASCRIPT_ENABLED = true dans les cas où le contenu est encodé, vous obtiendrez peut-être des erreurs telles que : 
+
+- 500 Erreur de réécriture d’URL
+- 500.53 erreur du module de réécriture URL avec le message sortant des règles de réécriture ne peut pas être appliqué lorsque le contenu de la réponse HTTP est encodé (« gzip »). 
+
+Cela est en raison du paramètre d’application APPINSIGHTS_JAVASCRIPT_ENABLED définie sur true et le codage de contenu en cours présents en même temps. Ce scénario n’est pas encore pris en charge. La solution de contournement consiste à supprimer de APPINSIGHTS_JAVASCRIPT_ENABLED à partir de vos paramètres d’application. Malheureusement, cela signifie que si l’instrumentation de JavaScript côté client/navigateur est toujours requise, les références de kit de développement logiciel manuelles sont nécessaires pour vos pages Web. Veuillez suivre le [instructions](https://github.com/Microsoft/ApplicationInsights-JS#snippet-setup-ignore-if-using-npm-setup) pour une instrumentation manuelle avec le SDK JavaScript.
 
 Pour plus d’informations sur l’extension Application Insights agent, consultez le [notes de version](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/app-insights-web-app-extensions-releasenotes.md).
 

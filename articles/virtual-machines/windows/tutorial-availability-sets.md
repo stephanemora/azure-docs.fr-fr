@@ -16,14 +16,14 @@ ms.topic: tutorial
 ms.date: 11/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: f71bfa39e4ded0ea300cc2d329c442fdc6ddec37
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: afc3e550f0a3d135f1c62ee321fff8d7afc5cae6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57309075"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60785259"
 ---
-# <a name="tutorial-create-and-deploy-highly-available-virtual-machines-with-azure-powershell"></a>Tutoriel : Créer et déployer des machines virtuelles hautement disponibles avec Azure PowerShell
+# <a name="tutorial-create-and-deploy-highly-available-virtual-machines-with-azure-powershell"></a>Didacticiel : Créer et déployer des machines virtuelles hautement disponibles avec Azure PowerShell
 
 Dans ce tutoriel, vous allez apprendre à augmenter la disponibilité et la fiabilité de vos machines virtuelles à l’aide de groupes à haute disponibilité. Les groupes à haute disponibilité garantissent que les machines virtuelles que vous déployez sur Azure sont distribuées, sur plusieurs nœuds matériels isolés, dans un cluster. 
 

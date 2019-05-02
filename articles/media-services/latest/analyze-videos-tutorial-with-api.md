@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
-ms.date: 03/21/2019
+ms.date: 04/21/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 6508e90f76a374d628fdd5032c475e4dde8ffa78
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 48d08af1c33eaddd8d963d9e1ab0322c3972997e
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351777"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64693277"
 ---
 # <a name="tutorial-analyze-videos-with-media-services-v3-using-net"></a>Didacticiel : Analyser des vidéos avec Media Services v3 à l’aide de .NET
 
@@ -166,6 +166,10 @@ az group delete --name amsResourceGroup
 ## <a name="multithreading"></a>Multithreading
 
 Les Kits de développement logiciel (SDK) Azure Media Services v3 ne sont pas thread-safe. Lorsque vous travaillez avec une application multithread, vous devez générer un nouvel objet AzureMediaServicesClient par thread.
+
+## <a name="provide-feedback"></a>Fournir des commentaires
+
+Découvrez l’article [Communauté Azure Media Services](media-services-community.md) pour découvrir les différentes façons dont vous pouvez poser des questions, faire des commentaires et obtenir des mises à jour sur Media Services.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

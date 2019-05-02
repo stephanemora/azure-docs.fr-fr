@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/24/2018
 ms.author: cfowler
 ms.custom: include file
-ms.openlocfilehash: e431e7c45dc2cb41db5b9fa762abc908cc76b375
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: c58b226c0f3bd63cb2a54bd3d8c91eb750a26f0a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34665280"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60684619"
 ---
 ## <a name="create-a-new-cdn-profile"></a>Créer un profil CDN
 
@@ -33,10 +33,10 @@ Un profil CDN est un conteneur pour les points de terminaison CDN, qui spécifie
    
     | Paramètre  | Valeur |
     | -------- | ----- |
-    | **Name** | Entrez *my-cdn-profile-123* comme nom de profil. Ce nom doit être globalement unique. S’il est déjà utilisé, vous pouvez en entrer un autre. |
+    | **Nom** | Entrez *my-cdn-profile-123* comme nom de profil. Ce nom doit être globalement unique. S’il est déjà utilisé, vous pouvez en saisir un autre. |
     | **Abonnement** | Sélectionnez un abonnement Azure dans la liste déroulante. |
-    | **Groupe de ressources** | Sélectionnez **Créer** et entrez *my-resource-group-123* comme nom pour votre groupe de ressources. Ce nom doit être globalement unique. S’il est déjà utilisé, vous pouvez entrer un nom différent, ou vous pouvez sélectionner **Utiliser un existant** et sélectionnez **my-resource-group-123** dans la liste déroulante. | 
-    | **Emplacement du groupe de ressources** | Sélectionnez **Centre des États-Unis** dans la liste déroulante. |
+    | **Groupe de ressources** | Sélectionnez **Créer** et entrez *my-resource-group-123* comme nom pour votre groupe de ressources. Ce nom doit être globalement unique. S’il est déjà utilisé, vous pouvez entrer un nom différent, ou vous pouvez sélectionner **Utiliser l’existant**, puis **my-resource-group-123** dans la liste déroulante. | 
+    | **Emplacement du groupe de ressources** | Sélectionnez **USA Centre** dans la liste déroulante. |
     | **Niveau tarifaire** | Sélectionnez **Standard Verizon** dans la liste déroulante. |
     | **Créer un point de terminaison CDN maintenant** | Laissez non sélectionné. |  
    

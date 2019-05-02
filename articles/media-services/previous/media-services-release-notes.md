@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: ea5a6a70372571daf82e7639fc31c125d69fa44f
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 25da9fd787c467bdddb7c8dcd68b9df518d018b7
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621428"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64728040"
 ---
 # <a name="azure-media-services-release-notes"></a>Notes de publication d'Azure Media Services
 
@@ -321,10 +321,6 @@ Le [SDK Media Services](https://www.nuget.org/packages/windowsazure.mediaservice
 * Actuellement, vous ne pouvez pas ingérer un flux RTMP en direct sur une connexion SSL.
 * Vous ne pouvez transmettre en continu avec le protocole SSL que si le point de terminaison de streaming à partir duquel vous distribuez votre contenu a été créé après le 10 septembre 2014. Si vos URL de streaming sont basées sur des points de terminaison créés après le 10 septembre 2014, l’URL contient « streaming.mediaservices.windows.net » (le nouveau format). Les URL de streaming qui contiennent « origin.mediaservices.windows.net » (ancien format) ne sont pas compatibles avec le protocole SSL. Si votre URL suit l’ancien format et que vous souhaitez pouvoir diffuser par le biais du protocole SSL, [créez un point de terminaison de streaming](media-services-portal-manage-streaming-endpoints.md). Pour diffuser votre contenu avec le protocole SSL, utilisez des URL basées sur le nouveau point de terminaison de streaming.
 
-## <a id="october_changes_14"></a>Version d’octobre 2014
-### <a id="new_encoder_release"></a>Version de l’encodeur Media Services
- La nouvelle version de l’encodeur Azure Media Encoder de Media Services a été annoncée. Avec la version la plus récente de Media Encoder, vous êtes facturé uniquement pour les Go de sortie. Autrement, les fonctionnalités du nouvel encodeur sont compatibles avec celles de l’encodeur précédent. Pour plus d’informations, consultez [Tarification Media Services].
-
 ### <a id="oct_sdk"></a>Kit de développement logiciel (SDK) .NET de Media Services
 La dernière version des extensions du SDK Media Services pour .NET est la version 2.0.0.3.
 
@@ -396,14 +392,6 @@ Le SDK Media Services en est maintenant à la version 3.0.0.5. Les mises à jour
   * Quand vous recevez des exceptions web (par exemple lors d’une demande de jeton Access Control Service), les erreurs irrécupérables échouent plus rapidement maintenant.
 
 Pour plus d’informations, consultez [Logique de nouvelle tentative dans le SDK Media Services pour .NET].
-
-## <a id="april_changes_14"></a>Version de l’encodeur d’avril 2014
-### <a name="april_14_enocer_changes"></a>Mises à jour de l’encodeur Media Services
-* La prise en charge a été ajoutée pour ingérer des fichiers AVI créés à l’aide de l’éditeur non linéaire Grass Valley EDIUS. Dans ce processus, la vidéo est légèrement compressée à l’aide du codec Grass Valley HQ/HQX. Pour plus d’informations, consultez [Grass Valley announces EDIUS 7 streaming through the cloud].
-*  La prise en charge a été ajoutée afin de spécifier la convention d’affectation de noms pour les fichiers générés par l’encodeur Media Services. Pour plus d’informations, consultez [Contrôler les noms de fichiers de sortie de l’encodeur Media Services](https://msdn.microsoft.com/library/azure/dn303341.aspx).
-*  La prise en charge des superpositions vidéo et/ou audio a été ajoutée. Pour plus d’informations, consultez [Créer des superpositions](https://msdn.microsoft.com/library/azure/dn640496.aspx).
-*  La prise en charge de l’assemblage de plusieurs séquences vidéo a été ajoutée. Pour plus d’informations, consultez [Assembler des séquences vidéo](https://msdn.microsoft.com/library/azure/dn640504.aspx).
-* Correction d’un bogue lié au transcodage de fichiers MP4, où le fichier audio était encodé avec MPEG-1 Audio Layer 3 (également appelé MP3).
 
 ## <a id="jan_feb_changes_14"></a>Versions de janvier/février 2014
 ### <a name="jan_fab_14_donnet_changes"></a>SDK .NET Media Services 3.0.0.1, 3.0.0.2 et 3.0.0.3
@@ -556,7 +544,7 @@ La fonctionnalité suivante est une nouveauté de la version de novembre du SDK 
 <!--- URLs. --->
 [Forum MSDN sur Azure Media Services]: https://social.msdn.microsoft.com/forums/azure/home?forum=MediaServices
 [Référence de l’API REST d’Azure Media Services]: https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference
-[Tarification Media Services]: https://azure.microsoft.com/pricing/details/media-services/
+[Media Services pricing details]: https://azure.microsoft.com/pricing/details/media-services/
 [Métadonnées d’entrée]: https://msdn.microsoft.com/library/azure/dn783120.aspx
 [Métadonnées de sortie]: https://msdn.microsoft.com/library/azure/dn783217.aspx
 [Deliver content]: https://msdn.microsoft.com/library/azure/hh973618.aspx

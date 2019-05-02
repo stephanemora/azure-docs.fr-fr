@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 03/01/2019
+ms.date: 04/21/2019
 ms.author: juliako
-ms.openlocfilehash: 410955936e07b79128e1892d72644eaeb18ee036
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 74be798106ef5d028f3ad497a6e726439e86ad51
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57863761"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64714739"
 ---
-# <a name="tutorial-stream-live-with-media-services-v3-using-net"></a>Tutoriel : Diffuser en direct avec Media Services v3 à l’aide de .NET
+# <a name="tutorial-stream-live-with-media-services-v3-using-net"></a>Didacticiel : Diffuser en direct avec Media Services v3 à l’aide de .NET
 
 Dans Azure Media Services, les [événements en direct](https://docs.microsoft.com/rest/api/media/liveevents) sont responsables du traitement de contenu de streaming en direct. Un événement en direct fournit un point de terminaison d’entrée (URL de réception) que vous fournissez ensuite à un encodeur live. Il reçoit des flux d’entrée en temps réel d’un encodeur live et le rend disponible pour le streaming par le biais d’un ou de plusieurs [points de terminaison de streaming](https://docs.microsoft.com/rest/api/media/streamingendpoints). Les événements en direct fournissent également un point de terminaison d’aperçu (URL d’aperçu) que vous utilisez pour prévisualiser et valider votre flux avant de poursuivre le traitement ou la distribution. Ce didacticiel explique comment utiliser .NET Core pour créer un type de **canal direct** d’un événement en temps réel. 
 
@@ -182,6 +182,10 @@ az group delete --name amsResourceGroup
 
 > [!IMPORTANT]
 > Laisser l’événement en direct s’exécuter entraîne des frais. Sachez que si le projet/programme plante ou est fermé pour une quelconque raison, l’événement peut continuer de s’exécuter et ainsi entraîner des frais.
+
+## <a name="provide-feedback"></a>Fournir des commentaires
+
+Découvrez l’article [Communauté Azure Media Services](media-services-community.md) pour découvrir les différentes façons dont vous pouvez poser des questions, faire des commentaires et obtenir des mises à jour sur Media Services.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

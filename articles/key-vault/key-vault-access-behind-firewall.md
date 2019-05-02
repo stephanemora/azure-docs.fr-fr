@@ -2,23 +2,19 @@
 title: Accéder à Key Vault derrière un pare-feu - Azure Key Vault | Microsoft Docs
 description: Découvrez comment accéder à un coffre de clés à partir d’une application derrière un pare-feu.
 services: key-vault
-documentationcenter: ''
 author: amitbapat
 manager: barbkess
 tags: azure-resource-manager
-ms.assetid: 50d21774-2ee1-4212-8995-570c9de603c5
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: ambapat
-ms.openlocfilehash: 36b431d07ad517d495316963fd6710dafab6c297
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bc6315f5ab264108369410b73a667fa1e07e1e44
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60305422"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64689956"
 ---
 # <a name="access-azure-key-vault-behind-a-firewall"></a>Accès à Azure Key Vault derrière un pare-feu
 
