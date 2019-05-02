@@ -1,25 +1,18 @@
 ---
-title: Version d’évaluation d’une application logique | Microsoft Docs
+title: Lecteur de Test de l’application logique | Place de marché Azure
 description: Explique comment créer sa version d’évaluation qui se connectera à une instance Dynamics AX/CRM ou aux autres ressources qui ne se limitent pas à celles d’Azure.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: pbutlerm
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 4fd946b53956509844ad0a9396575f1ee2450414
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: 3dc5642541f411acc93301f6bb9828e901aba449
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61070327"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64940003"
 ---
 <a name="logic-app-test-drive"></a>Version d’évaluation d’une application logique
 ====================

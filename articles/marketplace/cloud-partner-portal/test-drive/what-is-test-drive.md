@@ -1,25 +1,19 @@
 ---
-title: Qu'est-ce qu'une version d'évaluation ? | Microsoft Docs
+title: Qu'est-ce qu'une version d'évaluation ? | Place de marché Azure
 description: Description de la fonctionnalité Version d’évaluation de la Place de marché
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: pbutlerm
 manager: Ricardo.Villalobos
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 0bdff77a4be6a28e2799d4f481492d2c7ba6bda0
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.author: pabutler
+ms.openlocfilehash: 5b23a5e93dcbb9c13243240bda760a16d108d731
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57457424"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64938453"
 ---
 <a name="what-is-test-drive"></a>Qu'est-ce qu'une version d'évaluation ?
 ===================
@@ -55,7 +49,7 @@ Quelle que soit la complexité votre application, votre version d'évaluation Mi
 
 - **[Azure Resource Manager](./azure-resource-manager-test-drive.md)**: Une version d’évaluation Azure ARM est un modèle de déploiement contenant toutes les ressources Azure qui constituent une solution générée par l’éditeur. Les produits adaptés à ce scénario sont ceux qui utilisent uniquement des ressources Azure.
 - **[Application logique](./logic-app-test-drive.md)**: Une version d’évaluation d’application logique est un modèle de déploiement est destiné à englober toutes les architectures de solution complexe. Les applications Dynamics et les produits personnalisés doivent tous utiliser ce type de version d'évaluation.
-- **Power BI** : Un essai Power BI est simplement un lien incorporé à un tableau de bord personnalisé créé. Tous les produits dotés d'un visuel Power BI interactif doivent utiliser ce type de version d'évaluation.
+- **Power BI** : Un essai Power BI est simplement un lien incorporé à un tableau de bord personnalisé créé. Tous les produits dotés d'un visuel Power BI interactif doivent utiliser ce type de version d'évaluation.
     Il vous suffit de charger votre URL Power BI incorporée.
 
 <a name="what-goes-on-in-the-background"></a>Que se passe-t-il en arrière-plan ?

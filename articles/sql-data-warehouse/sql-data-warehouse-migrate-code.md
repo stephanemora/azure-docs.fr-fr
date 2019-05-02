@@ -2,20 +2,21 @@
 title: Migration de votre code SQL vers SQL Data Warehouse | Microsoft Docs
 description: Conseils relatifs à la migration de votre code SQL vers Microsoft Azure SQL Data Warehouse, dans le cadre du développement de solutions.
 services: sql-data-warehouse
-author: jrowlandjones
-manager: craigg
+author: WenJason
+manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: implement
-ms.date: 04/17/2018
-ms.author: jrj
+origin.date: 04/17/2018
+ms.date: 04/01/2019
+ms.author: v-jay
 ms.reviewer: igorstan
 ms.openlocfilehash: fae3ae16ee0100ad446c0b6c7851553a3376bb4f
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400973"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61126785"
 ---
 # <a name="migrate-your-sql-code-to-sql-data-warehouse"></a>Migration de votre code SQL vers SQL Data Warehouse
 
@@ -35,7 +36,7 @@ La liste suivante répertorie les fonctionnalités les plus courantes que SQL Da
 * Fonctions en ligne définies par l’utilisateur
 * Fonctions à instructions multiples
 * Expressions de table commune
-* [Expressions récursives de table commune (CTE)](#Expressions-récursives-de-table-commune-(CTE)
+* [Expressions récursives de table commune (CTE)]\(#Expressions-récursives-de-table-commune-(CTE)
 * Fonctions et procédures CLR
 * Fonction $partition
 * Variables de table
@@ -139,3 +140,5 @@ Pour obtenir la liste complète de toutes les instructions T-SQL prises en charg
 <!--MSDN references-->
 
 <!--Other Web references-->
+
+<!--Update_Description: update meta properties, wording update-->

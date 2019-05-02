@@ -1,25 +1,19 @@
 ---
-title: Transformation des exemples pour la version d’évaluation | Microsoft Docs
+title: Transformation des exemples pour la version d’évaluation | Place de marché Azure
 description: Liste d’exemples dans Comment implémenter la version d’évaluation.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: pbutlerm
 manager: Ricardo.Villalobos
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 7e8263595a484500b86a8491d1408f02b4286181
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: 727028611c52a8d03026e5d3fa67b2e0ee7e2053
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60638132"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64938472"
 ---
 <a name="transforming-examples-for-test-drive"></a>Transformation des exemples pour la version d’évaluation
 ====================================

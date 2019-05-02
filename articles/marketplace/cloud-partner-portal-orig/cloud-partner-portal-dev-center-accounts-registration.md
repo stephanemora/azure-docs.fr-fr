@@ -1,25 +1,18 @@
 ---
-title: Créer un compte de développeur Microsoft | Microsoft Docs
+title: Créer un compte Microsoft Developer | Place de marché Azure
 description: Exigences et procédure de création d’un compte de développeur Microsoft.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: adfe0af646fae79bc9a954cd5d654626880915d3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: 4fde5d81fb97bec23fdb46ff53b05874c88d9d67
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60326780"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64935861"
 ---
 <a name="create-a-microsoft-developer-account"></a>Créer un compte de développeur Microsoft
 ====================================
@@ -106,7 +99,7 @@ Le Centre de développement Microsoft est utilisé pour enregistrer les informat
    ![Sélectionnez un pays/une région](./media/cloud-partner-portal-create-dev-center-registration/imgRegisterCo_04.png)
 
     >[!WARNING]
-    >Pays à partir desquels vous vendez : avant de pouvoir vendre vos services sur la Place de marché Azure, l’entité inscrite doit résider dans l’un des pays autorisés répertoriés dans la liste déroulante. Cette restriction s’applique pour des raisons de revenus et de taxes. Pour plus d’informations, consultez les Politiques concernant la Participation à la Place de marché Microsoft Azure.
+    >« Expéditeur » le pays/régions : Avant de pouvoir vendre vos services sur la place de marché Azure, l’entité inscrite doit résider dans un des approuvées « expéditeur » pays/régions indiquées dans la liste déroulante. Cette restriction s’applique pour des raisons de revenus et de taxes. Pour plus d’informations, consultez les Politiques concernant la Participation à la Place de marché Microsoft Azure.
 
 5. Sélectionnez **Entreprise** comme « Type de compte », puis sélectionnez **Suivant**.
 
