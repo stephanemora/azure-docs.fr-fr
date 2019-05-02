@@ -39,8 +39,8 @@ Vous pouvez utiliser une activité de filtrage dans un pipeline pour appliquer u
 
 Propriété | Description | Valeurs autorisées | Obligatoire
 -------- | ----------- | -------------- | --------
-Nom | Nom de l’activité `Filter`. | String | Oui
-Type | Doit être défini sur **filter** | String | Oui
+name | Nom de l’activité `Filter`. | String | Oui
+type | Doit être défini sur **filter** | String | Oui
 condition | Condition à utiliser pour filtrer l’entrée. | Expression | Oui
 items | Tableau d’entrée sur lequel le filtre sera appliqué. | Expression | Oui
 
