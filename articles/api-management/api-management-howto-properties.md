@@ -30,13 +30,13 @@ Chaque instance du service Gestion des API possède une collection de propriét�
 | Nom complet |string |Chaîne alphanumérique utilisée pour référencer la propriété dans les stratégies. |
 | Valeur |string |Valeur de la propriété. Elle ne peut pas être vide ni se composer uniquement d’espaces blancs. |
 |Secret|booléenne|Détermine si la valeur est un secret et doit être chiffrée.|
-| Balises |tableau de chaînes |Balises facultatives qui, lorsqu’elles sont fournies, peuvent être utilisées pour filtrer la liste de propriétés. |
+| Tags |tableau de chaînes |Balises facultatives qui, lorsqu’elles sont fournies, peuvent être utilisées pour filtrer la liste de propriétés. |
 
 ![Valeurs nommées](./media/api-management-howto-properties/named-values.png)
 
 Les valeurs de propriété peuvent contenir des chaînes littérales et des [expressions de stratégie](/azure/api-management/api-management-policy-expressions). Par exemple, la valeur de `ExpressionProperty` est une expression de stratégie qui retourne une chaîne contenant la date et l’heure actuelles. La propriété `ContosoHeaderValue` est marquée en tant que secret. Sa valeur ne s’affiche donc pas.
 
-| Nom | Valeur | Secret | Balises |
+| Nom | Valeur | Secret | Tags |
 | --- | --- | --- | --- |
 | ContosoHeader |TrackingId |False |Contoso |
 | ContosoHeaderValue |•••••••••••••••••••••• |True |Contoso |
