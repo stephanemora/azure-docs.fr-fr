@@ -15,7 +15,7 @@ ms.date: 01/19/2018
 ms.author: jingwang
 ms.openlocfilehash: d61874a57801a6c02af885cab6a97ed38da1deb1
 ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/26/2019
 ms.locfileid: "58487921"
@@ -86,7 +86,7 @@ Créez un service lié pour lier votre base de données Azure SQL qui héberge l
     4. Remplacez `<password>` par le mot de passe de l’utilisateur. 
     5. Déployez le service lié en cliquant sur le bouton **Déployer** dans la barre d’outils. 
 
-        ![Service lié pour base de données SQL Azure](./media/how-to-invoke-ssis-package-stored-procedure-activity/azure-sql-database-linked-service-definition.png)
+        ![Service lié Azure SQL Database](./media/how-to-invoke-ssis-package-stored-procedure-activity/azure-sql-database-linked-service-definition.png)
 
 ### <a name="create-a-dummy-dataset-for-output"></a>Créer un jeu de données factice pour la sortie
 Ce jeu de données de sortie est un jeu de données factice qui détermine la programmation du pipeline. Notez que la fréquence est définie sur Heure et l’intervalle sur 1. Ainsi, le pipeline s’exécute une fois par heure entre les heures de début et de fin du pipeline. 

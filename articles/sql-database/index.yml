@@ -3,7 +3,7 @@ documentType: LandingData
 title: Documentation Azure SQL Database
 metadata:
   document_id: 36d89c48-3646-380e-34a0-ae3ac62e2641
-  title: "Documentation Azure SQL Database\_– Didacticiels, informations de référence sur les API"
+  title: "Documentation Azure SQL Database\_– Tutoriels, informations de référence sur les API"
   meta.description: Learn how to use Azure SQL databases.
   services: sql-database
   author: CarlRabeler
@@ -81,7 +81,7 @@ sections:
   - title: "Démarrages en 5\_minutes"
     items:
       - type: paragraph
-        text: 'Azure SQL Database vous permet d’effectuer facilement des tâches de gestion basiques à l’aide du Portail Azure, d’Azure CLI et d’Azure PowerShell. Découvrez comment effectuer des tâches de gestion basiques à l’aide des exemples de guides de démarrage rapide suivants :'
+        text: 'Azure SQL Database vous permet d’effectuer facilement des tâches de gestion basiques à l’aide du portail Azure, d’Azure CLI et d’Azure PowerShell. Découvrez comment effectuer des tâches de gestion basiques à l’aide des exemples de guides de démarrage rapide suivants :'
       - type: table
         style: dataMatrix
         columns:
@@ -134,7 +134,7 @@ sections:
         style: cards
         className: cardsFTitle
         items:
-          - title: Provisionner une base de données SQL Azure pour stocker les données d’application
+          - title: Provisionner une base de données Azure SQL pour stocker les données d’application
             href: /learn/modules/provision-azure-sql-db/
             image:
               src: /learn/achievements/provision-azure-sql-db.svg

@@ -208,7 +208,7 @@ System.FM consigne la valeur OK lorsque la partition créée est intègre. Il �
 
 Si la partition présente une valeur inférieure au nombre minimal de réplicas, une erreur est signalée. Si la partition présente une valeur supérieure au nombre minimum de réplicas, mais inférieure au nombre cible de réplicas, un avertissement est signalé. Si la partition subit une perte de quorum, System.FM indique une erreur.
 
-Les autres événements notables incluent un avertissement quand la reconfiguration et la génération prennent plus de temps que prévu. Les délais impartis pour la génération et la reconfiguration sont configurables en fonction des scénarios de service. Par exemple, si un service présente un état défini en téraoctet, par exemple une instance Azure SQL Database, la génération prendra davantage de temps que celle d’un service affichant un état d’un volume moindre.
+Les autres événements notables incluent un avertissement quand la reconfiguration et la génération prennent plus de temps que prévu. Les délais impartis pour la génération et la reconfiguration sont configurables en fonction des scénarios de service. Par exemple, si un service présente un état défini en téraoctet, par exemple Azure SQL Database, la génération prendra davantage de temps que celle d’un service affichant un état d’un volume moindre.
 
 * **SourceId**: System.FM
 * **Propriété**: État.

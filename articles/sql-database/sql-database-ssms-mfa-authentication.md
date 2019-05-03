@@ -46,7 +46,7 @@ La méthode interactive est autrement également prend en charge Azure multi-fac
 Azure MFA contribue à sécuriser l’accès aux données et aux applications tout en répondant à la demande des utilisateurs souhaitant un processus d’authentification simple. Il assure une authentification forte avec une gamme d’options de vérification simples (appel téléphonique, SMS, cartes à puce avec code PIN ou notification d’application mobile) pour permettre aux utilisateurs de choisir leur méthode préférée. L’authentification multifacteur (MFA) interactive avec Azure AD peut afficher une boîte de dialogue contextuelle de validation.
 
 Pour une description de Multi-Factor Authentication, consultez la rubrique [Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md).
-Pour les étapes de configuration, consultez [Configuration de l’authentification multifacteur aux bases de données Azure SQL pour SQL Server Management Studio](sql-database-ssms-mfa-authentication-configure.md).
+Pour les étapes de configuration, consultez [Configuration de l’authentification multifacteur pour les bases de données Azure SQL pour SQL Server Management Studio](sql-database-ssms-mfa-authentication-configure.md).
 
 ### <a name="azure-ad-domain-name-or-tenant-id-parameter"></a>Nom de domaine Azure AD et paramètre d’ID de locataire   
 
@@ -68,7 +68,7 @@ Les utilisateurs Azure AD pris en charge pour les scénarios d’Azure AD B2B en
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour les étapes de configuration, consultez [Configuration de l’authentification multifacteur aux bases de données Azure SQL pour SQL Server Management Studio](sql-database-ssms-mfa-authentication-configure.md).
+- Pour les étapes de configuration, consultez [Configuration de l’authentification multifacteur pour les bases de données Azure SQL pour SQL Server Management Studio](sql-database-ssms-mfa-authentication-configure.md).
 - Octroyer à d'autres utilisateurs l'accès à votre base de données : [Authentification et autorisation SQL Database : octroyer l'accès](sql-database-manage-logins.md)  
 - Assurez-vous que les autres utilisateurs peuvent se connecter via le pare-feu : [Configurer une règle de pare-feu au niveau du serveur Azure SQL Database à l’aide du portail Azure](sql-database-configure-firewall-settings.md)  
 - [Configurer et gérer l’authentification Azure Active Directory avec SQL Database ou SQL Data Warehouse](sql-database-aad-authentication-configure.md)  

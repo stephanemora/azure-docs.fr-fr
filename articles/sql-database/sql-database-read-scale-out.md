@@ -1,5 +1,5 @@
 ---
-title: Base de données SQL Azure - lire des requêtes sur les réplicas | Microsoft Docs
+title: Azure SQL Database - lire des requêtes sur les réplicas | Microsoft Docs
 description: La base de données SQL Azure fournit la possibilité d’équilibrer la charge des charges de travail en lecture seule à l’aide de la capacité des réplicas en lecture seule - appelée lecture du Scale-Out.
 services: sql-database
 ms.service: sql-database

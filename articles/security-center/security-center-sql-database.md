@@ -1,5 +1,5 @@
 ---
-title: Azure Security Center et service SQL Database | Microsoft Docs
+title: Azure Security Center et service Azure SQL Database | Microsoft Docs
 description: Cet article explique comment Security Center peut vous aider à sécuriser vos bases de données dans Azure SQL Database.
 services: sql-database
 documentationcenter: na
@@ -21,7 +21,7 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60704552"
 ---
-# <a name="azure-security-center-and-azure-sql-database-service"></a>Azure Security Center et service SQL Database
+# <a name="azure-security-center-and-azure-sql-database-service"></a>Azure Security Center et service Azure SQL Database
 [Azure Security Center](https://azure.microsoft.com/documentation/services/security-center/) vous aide à vous empêcher, détecter et répondre aux menaces. Il fournit une surveillance de la sécurité et une gestion des stratégies intégrées pour l’ensemble de vos abonnements Azure, vous aidant ainsi à détecter les menaces qui pourraient passer inaperçues. De plus, il est compatible avec un vaste écosystème de solutions de sécurité.
 
 Cet article explique comment Security Center peut vous aider à sécuriser vos bases de données dans Azure SQL Database.

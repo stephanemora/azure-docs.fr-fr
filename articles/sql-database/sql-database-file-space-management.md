@@ -24,7 +24,7 @@ ms.locfileid: "57881161"
 Cet article décrit les différents types d’espace de stockage des bases de données uniques et mises en pool dans Azure SQL Database et les étapes à effectuer lorsque l’espace de fichier alloué aux bases de données et aux pools élastiques doit être géré explicitement.
 
 > [!NOTE]
-> Cet article ne s’applique à l'option de déploiement d'instance géré dans Azure SQL Database.
+> Cet article ne s’applique à l’option de déploiement d’instance managée dans Azure SQL Database.
 
 ## <a name="overview"></a>Présentation
 

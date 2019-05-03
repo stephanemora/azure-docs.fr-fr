@@ -1,6 +1,6 @@
 ---
 title: Transactions distribuées entre bases de données cloud
-description: Vue d’ensemble des transactions de bases de données élastiques avec la base de données SQL Azure
+description: Vue d’ensemble des transactions de bases de données élastiques avec Azure SQL Database
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
@@ -21,11 +21,11 @@ ms.locfileid: "60331880"
 ---
 # <a name="distributed-transactions-across-cloud-databases"></a>Transactions distribuées entre bases de données cloud
 
-Les transactions de bases de données élastiques pour la base de données SQL Azure (SQL DB) vous permettent d’exécuter des transactions qui s’étendent sur plusieurs bases de données dans SQL DB. Ces transactions sont disponibles pour les applications .NET utilisant ADO .NET et s’intègrent à une expérience de programmation familière basée sur les classes [System.Transaction](https://msdn.microsoft.com/library/system.transactions.aspx) . Pour obtenir la bibliothèque, consultez [.NET Framework 4.6.1 (programme d’installation web)](https://www.microsoft.com/download/details.aspx?id=49981).
+Les transactions de bases de données élastiques pour Azure SQL Database (SQL DB) vous permettent d’exécuter des transactions qui s’étendent sur plusieurs bases de données dans SQL DB. Ces transactions sont disponibles pour les applications .NET utilisant ADO .NET et s’intègrent à une expérience de programmation familière basée sur les classes [System.Transaction](https://msdn.microsoft.com/library/system.transactions.aspx) . Pour obtenir la bibliothèque, consultez [.NET Framework 4.6.1 (programme d’installation web)](https://www.microsoft.com/download/details.aspx?id=49981).
 
 En local, un tel scénario nécessitait généralement d’exécuter Microsoft Distributed Transaction Coordinator (MSDTC). Étant donné que MSDTC n’est pas disponible pour une application de plateforme en tant que service (PaaS) dans Azure, la fonctionnalité permettant de coordonner les transactions distribuées a maintenant été intégrée directement dans la base de données SQL. Les applications peuvent se connecter à n’importe quelle base de données SQL pour lancer des transactions distribuées, après quoi l’une des base de données coordonnera en toute transparence les transactions distribuées, comme illustré sur la figure suivante. 
 
-  ![Transactions distribuées avec la base de données SQL Azure utilisant les transactions de bases de données élastiques ][1]
+  ![Transactions distribuées avec Azure SQL Database utilisant les transactions de bases de données élastiques ][1]
 
 ## <a name="common-scenarios"></a>Scénarios courants
 
@@ -152,7 +152,7 @@ Les vues de gestion dynamique ci-dessous sont particulièrement utiles :
 
 Les limites suivantes s’appliquent actuellement aux transactions de bases de données élastiques dans la base de données SQL :
 
-* Seules les transactions entre les bases de données dans SQL DB sont prises en charge. Les autres fournisseurs de ressources [X/Open XA](https://en.wikipedia.org/wiki/X/Open_XA) et les bases de données résidant à l’extérieur de SQL DB ne peuvent pas participer aux transactions de bases de données élastiques. Cela signifie que les transactions de bases de données élastiques ne peuvent pas s’étendre sur des bases de données SQL Server et SQL Azure locales. Pour les transactions distribuées en local, continuez à utiliser MSDTC. 
+* Seules les transactions entre les bases de données dans SQL DB sont prises en charge. Les autres fournisseurs de ressources [X/Open XA](https://en.wikipedia.org/wiki/X/Open_XA) et les bases de données résidant à l’extérieur de SQL DB ne peuvent pas participer aux transactions de bases de données élastiques. Cela signifie que les transactions de bases de données élastiques ne peuvent pas s’étendre sur une base de données Azure SQL et SQL Server locale. Pour les transactions distribuées en local, continuez à utiliser MSDTC. 
 * Seules les transactions coordonnées par le client à partir d’une application .NET sont prises en charge. La prise en charge côté serveur de T-SQL, comme BEGIN DISTRIBUTED TRANSACTION, est planifiée, mais pas encore disponible. 
 * Les transactions entre les services WCF ne sont pas prises en charge. Par exemple, vous disposez d’une méthode de service WCF qui exécute une transaction. L’inclusion de l’appel dans une étendue de transaction échouera en levant l’exception [System.ServiceModel.ProtocolException](https://msdn.microsoft.com/library/system.servicemodel.protocolexception).
 

@@ -21,7 +21,7 @@ Azure SQL Database est une base de données en tant que service (DBaaS) relation
 
 ## <a name="5-minute-quickstarts"></a>Démarrages en 5 minutes
 
-Azure SQL Database vous permet d’effectuer facilement des tâches de gestion basiques à l’aide du Portail Azure, d’Azure CLI et d’Azure PowerShell. Découvrez comment effectuer des tâches de gestion basiques à l’aide des exemples de guides de démarrage rapide suivants :
+Azure SQL Database vous permet d’effectuer facilement des tâches de gestion basiques à l’aide du portail Azure, d’Azure CLI et d’Azure PowerShell. Découvrez comment effectuer des tâches de gestion basiques à l’aide des exemples de guides de démarrage rapide suivants :
 
 - [Portail Azure](/azure/sql-database/sql-database-single-database-get-started)
 - [Azure PowerShell](/azure/sql-database/sql-database-get-started-powershell)

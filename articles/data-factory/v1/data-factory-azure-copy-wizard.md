@@ -35,7 +35,7 @@ Cet Assistant vous permet de déplacer facilement et en quelques minutes des don
 ![Sélectionnez la source de données](./media/data-factory-copy-wizard/select-data-source-page.png)
 
 > [!NOTE]
-> Consultez le [didacticiel sur l’Assistant de copie](data-factory-copy-data-wizard-tutorial.md) pour obtenir des instructions détaillées sur la création d’un exemple de pipeline afin de copier des données d’un objet blob Azure vers une table Azure SQL Database.
+> Consultez le [tutoriel sur l’Assistant de copie](data-factory-copy-data-wizard-tutorial.md) pour obtenir des instructions détaillées sur la création d’un exemple de pipeline afin de copier des données d’un objet blob Azure vers une table Azure SQL Database.
 >
 >
 
@@ -50,7 +50,7 @@ Vous pouvez afficher un aperçu d’une partie des données à partir de la sour
 Le schéma des données d’entrée peut ne pas correspondre au schéma des données de sortie dans certains cas. Le cas échéant, vous devez mapper les colonnes du schéma source aux colonnes du schéma de destination.
 
 > [!TIP]
-> Lors de la copie de données à partir de SQL Server ou d’Azure SQL Data Warehouse vers Azure SQL Data Warehouse, si la table n’existe pas dans le magasin de destination, Data Factory prend en charge la création automatique de la table à l’aide du schéma de la source. Pour en savoir plus, consultez la rubrique [Déplacer des données vers et depuis Azure SQL Data Warehouse à l’aide d’Azure Data Factory](./data-factory-azure-sql-data-warehouse-connector.md).
+> Lors de la copie de données depuis SQL Server ou Azure SQL Database vers Azure SQL Data Warehouse, si la table n’existe pas dans le magasin de destination, Data Factory prend en charge la création automatique de la table à l’aide du schéma de la source. Pour en savoir plus, consultez la rubrique [Déplacer des données vers et depuis Azure SQL Data Warehouse à l’aide d’Azure Data Factory](./data-factory-azure-sql-data-warehouse-connector.md).
 >
 
 Utilisez une liste déroulante pour sélectionner une colonne du schéma source à mapper à une colonne du schéma de destination. L’Assistant de copie essaie de comprendre votre modèle de mappage des colonnes. Le même modèle est appliqué aux autres colonnes, ce qui vous évite de sélectionner les colonnes individuellement pour effectuer le mappage du schéma. Si vous le souhaitez, vous pouvez remplacer ces mappages en utilisant les listes déroulantes pour mapper les colonnes une par une. Le modèle devient plus précis à mesure que vous mappez des colonnes. L’Assistant de copie met continuellement à jour le modèle pour finalement obtenir le modèle adapté au mappage de colonnes que vous voulez.     

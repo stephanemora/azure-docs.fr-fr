@@ -32,4 +32,4 @@ Utilisez n’importe quel outil scanneur de sécurité pour tester ces ports. La
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’information sur les instances gérées et la connectivité, consultez [Architecture de la connectivité d’Azure SQL Database Managed Instance](sql-database-managed-instance-connectivity-architecture.md).
+Pour plus d’information sur les instances managées et la connectivité, consultez [Architecture de la connectivité d’Azure SQL Database Managed Instance](sql-database-managed-instance-connectivity-architecture.md).

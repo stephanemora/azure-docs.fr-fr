@@ -36,7 +36,7 @@ Cet Assistant vous permet de déplacer facilement et en quelques minutes des don
 ![Sélectionnez la source de données](./media/data-factory-copy-wizard/select-data-source-page.png)
 
 > [!NOTE]
-> Consultez l’article [Didacticiel : Créer un pipeline avec l’activité de copie à l’aide de l’Assistant Data Factory Copy](data-factory-copy-data-wizard-tutorial.md) pour obtenir les instructions détaillées pour créer un exemple de pipeline afin de copier des données d’un objet blob Azure vers une table Azure SQL Database. 
+> Consultez l’article [Tutoriel : Créer un pipeline avec l’activité de copie à l’aide de l’Assistant Data Factory Copy](data-factory-copy-data-wizard-tutorial.md) pour obtenir les instructions détaillées pour créer un exemple de pipeline afin de copier des données d’un objet blob Azure vers une table Azure SQL Database. 
 > 
 > 
 

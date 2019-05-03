@@ -25,9 +25,9 @@ ms.locfileid: "60580689"
 SQL Database est un service administré de bases de données relationnelles à usage général de Microsoft Azure qui prend en charge des structures telles que les données relationnelles, JSON, les données spatiales et XML. SQL Database offre des performances évolutives de façon dynamique dans deux modèles d’achat différents : l’un basé sur vCore, l’autre basé sur DTU. SQL Database fournit aussi des options telles que les [index columnstore](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) pour la génération de rapport et l’analyse extrême, et [OLTP en mémoire](sql-database-in-memory.md) pour le traitement transactionnel extrême. Microsoft gère toutes les applications de correctifs et mises à jour de la base de code SQL en toute transparence et élimine toute la gestion de l’infrastructure sous-jacente.
 
 > [!NOTE]
-> Pour connaître la signification des termes utilisés dans Azure SQL Database, consultez le [Lexique SQL Database](sql-database-glossary-terms.md).
+> Pour connaître la signification des termes dans Azure SQL Database, consultez le [Lexique SQL Database](sql-database-glossary-terms.md).
 
-Azure SQL Database fournit les options de déploiement suivantes pour une base de données SQL Azure :
+Azure SQL Database fournit les options de déploiement suivantes pour une base de données Azure SQL :
 
 - En tant que [base de données unique](sql-database-single-database.md) avec son propre ensemble de ressources géré via un serveur SQL Database. Une base de données unique est similaire à une [base de données autonome](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases) dans SQL Server.
 - Un [pool élastique](sql-database-elastic-pool.md) qui est une collection de bases de données avec un ensemble partagé de ressources gérées via un serveur SQL Database. Les bases de données uniques peuvent être déplacées dans et hors d’un pool élastique.
@@ -80,7 +80,7 @@ Pour de nombreuses entreprises et applications, la possibilité de créer des ba
 
 Les pools élastiques vous permettent de ne pas avoir à ajuster les performances de la base de données en fonction des besoins en ressources. Les bases de données regroupées consomment les ressources de performance du pool élastique en fonction des besoins. Les bases de données regroupées consomment mais ne dépassent pas les limites du pool. Vos coûts restent prévisibles, même si l’utilisation de la base de données individuelle ne l’est pas. Par ailleurs, vous pouvez [ajouter et supprimer des bases de données du pool](sql-database-elastic-pool-manage-portal.md), mettre à l’échelle votre application en passant de quelques bases de données à des milliers, le tout dans les limites d’un budget que vous contrôlez. Vous pouvez également contrôler le nombre minimal et maximal de ressources disponibles pour les bases de données dans le pool. Cela vous permet de garantir qu’aucune base de données du pool n’utilise toutes les ressources du pool et que chaque base de données dispose d’un nombre minimal de ressources. Pour en savoir plus sur les modèles de conception pour les applications SaaS avec des pools élastiques, voir [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md) (Modèles de conception pour les applications SaaS mutualisées avec SQL Database).
 
-Les scripts aident à la surveillance et à la mise à l’échelle des pools élastiques. Pour obtenir un exemple, consultez la rubrique [Utiliser PowerShell pour surveiller et mettre à l’échelle un pool élastique SQL dans Azure SQL Database](scripts/sql-database-monitor-and-scale-pool-powershell.md).
+Les scripts aident à la surveillance et à la mise à l’échelle des pools élastiques. Pour un exemple, consultez [Utiliser PowerShell pour surveiller et mettre à l’échelle un pool élastique SQL dans Azure SQL Database](scripts/sql-database-monitor-and-scale-pool-powershell.md).
 
 > [!IMPORTANT]
 > Une instance gérée ne prend pas en charge les pools élastiques. Au lieu de cela, une instance gérée est une collection de bases de données d’instance partageant des ressources d’instance gérée.
@@ -113,11 +113,11 @@ En fait, 99,99 % disponibilité d’Azure contrat de niveau de service [(SLA)](h
 
 - **[Sauvegardes automatiques](sql-database-automated-backups.md)** :
 
-  SQL Database effectue automatiquement des sauvegardes complètes, différentielles et du journal des transactions de bases de données SQL Azure pour vous permettre de restaurer à n’importe quel point dans le temps. Pour des bases de données uniques et des bases de données regroupées, vous pouvez configurer SQL Database de façon à stocker les sauvegardes de base de données complètes sur un stockage Azure en vue d’une rétention à long terme. Pour des instances gérées, vous pouvez également effectuer des sauvegardes de copie uniquement en vue d’une rétention à long terme.
+  SQL Database effectue automatiquement des sauvegardes complètes, différentielles et du journal des transactions de bases de données Azure SQL pour vous permettre de restaurer à n’importe quel point dans le temps. Pour des bases de données uniques et des bases de données regroupées, vous pouvez configurer SQL Database de façon à stocker les sauvegardes de base de données complètes sur un stockage Azure en vue d’une rétention à long terme. Pour des instances gérées, vous pouvez également effectuer des sauvegardes de copie uniquement en vue d’une rétention à long terme.
 
 - **[Restaurations à un point dans le temps](sql-database-recovery-using-backups.md)** :
 
-  Toutes les options de déploiement de SQL Database prennent en charge la récupération à n’importe quel point dans le temps au cours de la période de rétention de sauvegarde automatique pour toute base de données SQL Azure.
+  Toutes les options de déploiement de SQL Database prennent en charge la récupération à n’importe quel point dans le temps au cours de la période de conservation de sauvegarde automatique pour toute base de données Azure SQL.
 - **[Géo-réplication active](sql-database-active-geo-replication.md)** :
 
   Une base de données unique et des bases de données regroupées vous permettent de configurer jusqu’à quatre bases de données secondaires accessibles en lecture, que ce soit dans le même centre de données ou dans des centres de données distribués globalement.  Par exemple, si vous avez une application SaaS avec une base de données de catalogue qui a un volume élevé de transactions simultanées en lecture seule, utilisez la géo-réplication active pour permettre une mise à l’échelle de lecture globale et supprimer les goulots d’étranglement sur le serveur principal qui sont dus à des charges de travail en lecture. Pour des instances gérées, utilisez des groupes de basculement automatique.
@@ -200,7 +200,7 @@ SQL Database simplifie la création et la gestion des applications et vous fait 
   application client téléchargeable gratuitement dédiée à la gestion des infrastructures SQL, allant de SQL Server à SQL Database
 - **[SQL Server Data Tools dans Visual Studio](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)** :
 
-  application client téléchargeable gratuitement, dédiée au développement de bases de données relationnelles SQL Server, de bases de données SQL Azure, de packages Integration Services, de modèles de données Analysis Services et de rapports Reporting Services.
+  application cliente téléchargeable gratuite, dédiée au développement de bases de données relationnelles SQL Server, de bases de données Azure SQL, de packages Integration Services, de modèles de données Analysis Services et de rapports Reporting Services.
 - **[Visual Studio Code](https://code.visualstudio.com/docs)** :
 
   éditeur de code open source téléchargeable gratuitement pour Linux, macOS et Windows, qui prend en charge les extensions, notamment [l’extension mssql](https://aka.ms/mssql-marketplace) pour l’exécution de requêtes dans Microsoft SQL Server, Azure SQL Database et SQL Data Warehouse.

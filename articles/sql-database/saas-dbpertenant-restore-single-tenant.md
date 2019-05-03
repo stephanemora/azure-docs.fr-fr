@@ -1,5 +1,5 @@
 ---
-title: Restaurer une base de données SQL Azure dans une application SaaS multilocataire | Microsoft Docs
+title: Restaurer une base de données Azure SQL dans une application SaaS multilocataire | Microsoft Docs
 description: Découvrez comment restaurer une base de données SQL à locataire unique après la suppression accidentelle des données
 services: sql-database
 ms.service: sql-database

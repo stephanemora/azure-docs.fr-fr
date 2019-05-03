@@ -25,7 +25,7 @@ Les nouvelles versions de la [bibliothèque cliente de bases de données élasti
 
 **Pour vous procurer la version la plus récente :** accédez à [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/).
 
-Regénérez votre application avec la nouvelle bibliothèque et modifiez les métadonnées du gestionnaire de cartes de partitions qui sont stockées dans vos bases de données SQL Azure pour qu’elles prennent en charge les nouvelles fonctionnalités.
+Regénérez votre application avec la nouvelle bibliothèque et modifiez les métadonnées du gestionnaire de cartes de partitions qui sont stockées dans vos bases de données Azure SQL pour qu’elles prennent en charge les nouvelles fonctionnalités.
 
 Effectuez ces étapes afin de garantir que plus aucune version antérieure de la bibliothèque cliente ne reste présente dans votre environnement après la mise à jour des objets de métadonnées. De cette façon, il n’y aura pas d’objets de métadonnées d’une version antérieure qui seront créés après la mise à niveau.
 
@@ -34,7 +34,7 @@ Effectuez ces étapes afin de garantir que plus aucune version antérieure de la
 **1. Mettez à niveau vos applications.** Dans Visual Studio, téléchargez la dernière version de la bibliothèque cliente et ajoutez une référence à cette bibliothèque dans tous vos projets de développement qui utilisent la bibliothèque. Ensuite, régénérez et déployez les applications.
 
 * Dans votre solution Visual Studio, sélectionnez **Outils** --> **Gestionnaire de package NuGet** -->  **Gérer les packages NuGet pour la solution**.
-* (Visual Studio 2013) Dans le volet gauche, sélectionnez **Mises à jour**, puis cliquez sur le bouton **Mettre à jour** dans le package **Bibliothèque cliente de la mise à l’échelle élastique de base de données SQL Azure** qui s’affiche dans la fenêtre.
+* (Visual Studio 2013) Dans le volet gauche, sélectionnez **Mises à jour**, puis cliquez sur le bouton **Mettre à jour** dans le package **Bibliothèque cliente de mise à l’échelle élastique Azure SQL Database** qui s’affiche dans la fenêtre.
 * (Visual Studio 2015) Définissez la zone de filtre sur **Mise à niveau disponible**. Sélectionnez le package à mettre à jour puis cliquez sur le bouton **Mettre à jour** .
 * (Visual Studio 2017) En haut de la boîte de dialogue, sélectionnez **Mises à jour**. Sélectionnez le package à mettre à jour puis cliquez sur le bouton **Mettre à jour** .
 * Générez et déployez les applications.

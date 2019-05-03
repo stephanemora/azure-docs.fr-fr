@@ -24,7 +24,7 @@ ms.locfileid: "58487021"
 ---
 # <a name="tutorial-build-an-aspnet-app-in-azure-with-sql-database"></a>Tutoriel : Création d’une application ASP.NET dans Azure avec SQL Database
 
-[Azure App Service](overview.md) offre un service d’hébergement web hautement évolutif appliquant des mises à jour correctives automatiques. Ce tutoriel montre comment déployer une application ASP.NET pilotée par les données dans App Service et comment la connecter à [Azure SQL Database](../sql-database/sql-database-technical-overview.md). Quand vous avez terminé, vous disposez d’une application ASP.NET s’exécutant dans Azure et connectée à SQL Database.
+[Azure App Service](overview.md) offre un service d’hébergement web hautement évolutif appliquant des mises à jour correctives automatiques. Ce tutoriel montre comment déployer une application ASP.NET basée sur des données dans App Service et comment la connecter à [Azure SQL Database](../sql-database/sql-database-technical-overview.md). Quand vous avez terminé, vous disposez d’une application ASP.NET s’exécutant dans Azure et connectée à SQL Database.
 
 ![Application ASP.NET publiée dans Azure App Service](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-app-in-browser.png)
 
@@ -65,7 +65,7 @@ Entrez `Ctrl+F5` pour exécuter l’application sans débogage. L’application 
 
 Testez les liens **Edit**, **Details** et **Delete**.
 
-L’application utilise un contexte de base de données pour se connecter à la base de données. Dans cet exemple, le contexte de base de données utilise une chaîne de connexion appelée `MyDbConnection`. Cette chaîne de connexion est définie dans le fichier *Web.config* et référencée dans le fichier *Models\MyDatabaseContext.cs*. Utilisé plus loin dans ce tutoriel, le nom de chaîne de connexion permet de connecter l’application Azure à une base de données SQL Azure Database. 
+L’application utilise un contexte de base de données pour se connecter à la base de données. Dans cet exemple, le contexte de base de données utilise une chaîne de connexion appelée `MyDbConnection`. Cette chaîne de connexion est définie dans le fichier *Web.config* et référencée dans le fichier *Models\MyDatabaseContext.cs*. Utilisé plus loin dans ce tutoriel, le nom de chaîne de connexion permet de connecter l’application Azure à une base de données Azure SQL. 
 
 ## <a name="publish-to-azure-with-sql-database"></a>Publier dans Azure avec SQL Database
 
@@ -420,7 +420,7 @@ Dans ce tutoriel, vous avez appris à :
 > * Diffuser des journaux d’activité à partir d’Azure vers votre terminal
 > * Gérer l’application dans le portail Azure
 
-Passez au didacticiel suivant pour apprendre à améliorer facilement la sécurité de votre connexion à la base de données SQL Azure.
+Passez au tutoriel suivant pour apprendre à améliorer facilement la sécurité de votre connexion à la base de données Azure SQL.
 
 > [!div class="nextstepaction"]
 > [Accéder à Azure SQL Database en toute sécurité à l’aide d’identités managées pour les ressources Azure](app-service-web-tutorial-connect-msi.md)

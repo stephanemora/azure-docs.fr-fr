@@ -1,5 +1,5 @@
 ---
-title: Montée en puissance parallèle d’une base de données SQL Azure | Microsoft Docs
+title: Scale-out d’une base de données Azure SQL | Microsoft Docs
 description: Utilisation de ShardMapManager, la bibliothèque cliente de base de données élastique
 services: sql-database
 ms.service: sql-database

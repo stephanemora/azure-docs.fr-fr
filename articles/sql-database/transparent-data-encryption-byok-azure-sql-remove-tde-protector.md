@@ -29,7 +29,7 @@ ms.locfileid: "60330650"
 
 - Vous devez avoir un abonnement Azure et être un administrateur de cet abonnement
 - Vous devez disposer d’Azure PowerShell est installé et en cours d’exécution. 
-- Ce guide pratique part du principe que vous utilisez déjà une clé Azure Key Vault comme protecteur TDE pour une entité SQL Azure Database ou Data Warehouse. Consultez [Transparent Data Encryption with Bring Your Own Key support for Azure SQL Database and Data Warehouse](transparent-data-encryption-byok-azure-sql.md) (Transparent Data Encryption avec la prise en charge Bring Your Own Key pour Azure SQL Database et Data Warehouse) pour en savoir plus.
+- Ce guide pratique part du principe que vous utilisez déjà une clé Azure Key Vault comme protecteur TDE pour une base de données Azure SQL ou un entrepôt de données. Consultez [Transparent Data Encryption with Bring Your Own Key support for Azure SQL Database and Data Warehouse](transparent-data-encryption-byok-azure-sql.md) (Transparent Data Encryption avec la prise en charge Bring Your Own Key pour Azure SQL Database et Data Warehouse) pour en savoir plus.
 
 ## <a name="overview"></a>Vue d'ensemble
 
@@ -49,8 +49,8 @@ La commande PowerShell Get-AzureRmSqlServerKeyVaultKey fournit l’empreinte num
 
 Ce guide pratique expose deux approches possibles en fonction du résultat souhaité après la réponse aux incidents :
 
-- Pour garder les bases de données Azure SQL/Data Warehouse **accessibles**
-- Pour rendre les bases de données Azure SQL/Data Warehouse **inaccessibles**
+- Pour garder les bases de données Azure SQL/entrepôts de données **accessibles**
+- Pour rendre les bases de données Azure SQL/entrepôts de données **inaccessibles**
 
 ## <a name="to-keep-the-encrypted-resources-accessible"></a>Pour garder les ressources chiffrées accessibles
 

@@ -30,7 +30,7 @@ Comme indiqué précédemment, si des modifications sont apportées au pack de c
 
 ## <a name="coming-soon"></a>Bientôt disponible
    
-Le pack de contenu Sauvegarde Azure est mis à jour afin de gérer davantage de charges de travail. Parmi les charges de travail figurent Azure SQL Database pour la sauvegarde des machines virtuelles de l’IaaS et System Center Data Protection Manager. Cela s’ajoute à la prise en charge actuelle des sauvegardes Azure et des sauvegardes des machines virtuelles Azure. Il est ainsi possible de visualiser et d’analyser toutes les données de sauvegarde dans un seul endroit. Les [rapports peuvent également être personnalisés](https://youtu.be/26zyOtyHPJM) en fonction des besoins de votre organisation.
+Le pack de contenu Sauvegarde Azure est mis à jour afin de gérer davantage de charges de travail. Parmi les charges de travail figurent Azure SQL Database pour la sauvegarde des machines virtuelles IaaS et System Center Data Protection Manager. Cela s’ajoute à la prise en charge actuelle des sauvegardes Azure et des sauvegardes des machines virtuelles Azure. Il est ainsi possible de visualiser et d’analyser toutes les données de sauvegarde dans un seul endroit. Les [rapports peuvent également être personnalisés](https://youtu.be/26zyOtyHPJM) en fonction des besoins de votre organisation.
 
 Les rapports préconfigurés fournis avec le pack de contenu Sauvegarde Azure sont en train d’être modifiés. Les modifications apportées améliorent la pertinence des rapports de l’ensemble des charges de travail. Voici un aperçu de l’ensemble des rapports à venir.
 

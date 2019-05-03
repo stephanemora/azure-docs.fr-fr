@@ -85,7 +85,7 @@ Par exemple, vous pouvez effectuer les activités de copie suivantes :
 * Copier les données dans le SQL Server local et les écrire dans Azure Data Lake Store au format ORC.
 * Copier des fichiers au format texte (CSV) provenant d’un système de fichiers local et les écrire dans des objets blob Azure au format Avro.
 * Copier les fichiers compressés depuis le système de fichiers local, les décompresser, puis accéder à Azure Data Lake Store.
-* Copier des données au format texte compressé GZip (CSV) provenant d’objets blob Azure et les écrire dans une base de données SQL Azure.
+* Copier des données au format texte compressé GZip (CSV) provenant d’objets blob Azure et les écrire dans une base de données Azure SQL.
 
 ## <a name="global"></a>Déplacement des données disponible globalement
 Azure Data Factory est disponible uniquement dans les régions Europe Nord, USA Est et USA Ouest. Cependant, le service proposant l’activité de copie est disponible globalement dans les régions et zones géographiques suivantes. La topologie globalement disponible garantit le déplacement efficace des données en évitant généralement les sauts entre régions. Consultez la section [Services par région](https://azure.microsoft.com/regions/#services) pour connaître la disponibilité de Data Factory et du déplacement des données dans une région.
@@ -212,5 +212,5 @@ Les magasins de données ont différents types de systèmes natifs. L’activit�
 Le mappage d’un système de type natif donné en .NET pour une banque de données se trouve dans les articles de banque de données respectifs. (Cliquez sur le lien spécifié dans la table Magasins de données pris en charge). Vous pouvez utiliser ces mappages pour déterminer les types appropriés lors de la création de vos tables afin d'exécuter les conversions adaptées lors de l'activité de copie.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Pour en savoir plus sur l’activité de copie, consultez [Copie de données d’Azure Blob Storage vers une base de données SQL Azure](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+* Pour en savoir plus sur l’activité de copie, consultez [Copie de données depuis Stockage Blob Azure vers Azure SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 * Consultez [Déplacement de données entre des sources locales et le cloud à l’aide de la passerelle de gestion des données](data-factory-move-data-between-onprem-and-cloud.md)pour en savoir plus sur le déplacement des données depuis une banque de données locale vers une banque de données cloud.

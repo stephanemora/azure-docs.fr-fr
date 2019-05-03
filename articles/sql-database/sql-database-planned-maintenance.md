@@ -21,7 +21,7 @@ ms.locfileid: "60584605"
 ---
 # <a name="planning-for-azure-maintenance-events-in-azure-sql-database"></a>Planification des événements de maintenance Azure dans Azure SQL Database
 
-Apprenez à anticiper les événements de maintenance planifiée pour votre instance Azure SQL Database.
+Apprenez à anticiper les événements de maintenance planifiée pour votre base de données Azure SQL.
 
 ## <a name="what-is-a-planned-maintenance-event"></a>Qu’est-ce qu’un événement de maintenance planifiée ?
 

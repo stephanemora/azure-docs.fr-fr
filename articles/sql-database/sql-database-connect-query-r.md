@@ -22,7 +22,7 @@ ms.locfileid: "60001183"
 ---
 # <a name="quickstart-use-r-to-query-an-azure-sql-database-preview"></a>Démarrage rapide : Utiliser R pour interroger une base de données SQL Azure (préversion)
 
- Ce démarrage rapide explique comment utiliser [R](https://www.r-project.org/) avec Machine Learning Services pour se connecter à une base de données SQL Azure et recourir à des instructions Transact-SQL pour interroger des données. Machine Learning Services est une fonctionnalité d’Azure SQL Database pour l’exécution de scripts R dans les bases de données. Pour en savoir plus, consultez [Azure SQL Database Machine Learning Services avec R (préversion)](sql-database-machine-learning-services-overview.md).
+ Ce démarrage rapide explique comment utiliser [R](https://www.r-project.org/) avec Machine Learning Services pour se connecter à une base de données SQL Azure et recourir à des instructions Transact-SQL pour interroger des données. Machine Learning Services est une fonctionnalité Azure SQL Database pour l’exécution de scripts R dans les bases de données. Pour en savoir plus, consultez [Azure SQL Database Machine Learning Services avec R (préversion)](sql-database-machine-learning-services-overview.md).
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
@@ -30,7 +30,7 @@ ms.locfileid: "60001183"
 
 Pour suivre ce démarrage rapide, vérifiez que vous avez :
 
-- base de données SQL Azure. Utilisez l’un de ces guides de démarrage rapide pour créer et configurer une base de données dans Azure SQL Database :
+- base de données Azure SQL. Utilisez l’un de ces guides de démarrage rapide pour créer et configurer une base de données dans Azure SQL Database :
 
   || Base de données unique | Instance gérée |
   |:--- |:--- |:---|
@@ -47,7 +47,7 @@ Pour suivre ce démarrage rapide, vérifiez que vous avez :
 
 ## <a name="get-sql-server-connection-information"></a>Obtenir des informations de connexion SQL Server
 
-Procurez-vous les informations de connexion dont vous avez besoin pour vous connecter à la base de données SQL Azure. Vous aurez besoin du nom complet du serveur ou de l’hôte, du nom de la base de données et des informations de connexion pour les procédures suivantes.
+Procurez-vous les informations de connexion dont vous avez besoin pour vous connecter à la base de données Azure SQL. Vous aurez besoin du nom complet du serveur ou de l’hôte, du nom de la base de données et des informations de connexion pour les procédures suivantes.
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
 
@@ -59,7 +59,7 @@ Procurez-vous les informations de connexion dont vous avez besoin pour vous conn
 
 1. Ouvrez **SQL Server Management Studio**, puis connectez-vous à votre base de données SQL.
 
-   Si vous avez besoin d’aide pour la connexion, consultez [Démarrage rapide : utiliser SQL Server Management Studio pour se connecter à une base de données SQL Azure et l’interroger](sql-database-connect-query-ssms.md).
+   Si vous avez besoin d’aide pour la connexion, consultez [Démarrage rapide : utiliser SQL Server Management Studio pour se connecter à une base de données Azure SQL et l’interroger](sql-database-connect-query-ssms.md).
 
 1. Transmettez la totalité du script R à la procédure stockée [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql).
 

@@ -1,5 +1,5 @@
 ---
-title: Exemple PowerShell -sauvegarder et restaurer une base de données SQL Azure | Microsoft Docs
+title: Exemple PowerShell -sauvegarder et restaurer une base de données Azure SQL | Microsoft Docs
 description: Exemple de script Azure PowerShell pour restaurer une base de données unique SQL Azure à un point antérieur dans le passé à partir de sauvegardes automatiques
 services: sql-database
 ms.service: sql-database
@@ -60,4 +60,4 @@ Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à
 
 Pour plus d’informations sur Azure PowerShell, consultez la [documentation Azure PowerShell](/powershell/azure/overview).
 
-Vous trouverez des exemples supplémentaires de scripts SQL Database PowerShell sur la page [Scripts PowerShell Azure SQL Database](../sql-database-powershell-samples.md).
+Vous trouverez des exemples supplémentaires de scripts SQL Database PowerShell dans [Scripts PowerShell Azure SQL Database](../sql-database-powershell-samples.md).

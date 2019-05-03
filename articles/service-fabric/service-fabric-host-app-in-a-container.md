@@ -29,7 +29,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * Mettre en conteneur une application existante à l’aide de Visual Studio
-> * Création d’une base de données SQL Azure
+> * Création d’une base de données Azure SQL
 > * Créer un Azure Container Registry
 > * Déployer une application Service Fabric sur Azure
 
@@ -265,7 +265,7 @@ Dans ce tutoriel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Mettre en conteneur une application existante à l’aide de Visual Studio
-> * Création d’une base de données SQL Azure
+> * Création d’une base de données Azure SQL
 > * Créer un Azure Container Registry
 > * Déployer une application Service Fabric sur Azure
 

@@ -1,6 +1,6 @@
 ---
 title: Gestion des erreurs temporaires - Azure SQL Database | Microsoft Docs
-description: Découvrez comment diagnostiquer, résoudre et empêcher une erreur de connexion SQL ou une erreur temporaire dans Base de données SQL Azure.
+description: Découvrez comment diagnostiquer, résoudre et empêcher une erreur de connexion SQL ou une erreur temporaire dans Azure SQL Database.
 keywords: connexion SQL,chaîne de connexion,problèmes de connectivité,erreur temporaire,erreur de connexion
 services: sql-database
 ms.service: sql-database
@@ -22,7 +22,7 @@ ms.locfileid: "60202126"
 ---
 # <a name="working-with-sql-database-connection-issues-and-transient-errors"></a>Gestion des problèmes de connexion et des erreurs temporaires de base de données SQL
 
-Cet article décrit comment empêcher, résoudre, diagnostiquer et limiter les erreurs de connexion et les erreurs temporaires que votre application cliente rencontre lorsqu’elle interagit avec Base de données SQL Azure. Découvrez comment configurer une logique de nouvelle tentative, générer la chaîne de connexion et ajuster les autres paramètres de connexion.
+Cet article décrit comment empêcher, résoudre, diagnostiquer et limiter les erreurs de connexion et les erreurs temporaires que votre application cliente rencontre lorsqu’elle interagit avec Azure SQL Database. Découvrez comment configurer une logique de nouvelle tentative, générer la chaîne de connexion et ajuster les autres paramètres de connexion.
 
 <a id="i-transient-faults" name="i-transient-faults"></a>
 
@@ -202,7 +202,7 @@ Si votre programme utilise des classes ADO.NET comme **System.Data.SqlClient.Sq
 
 #### <a name="starting-with-adonet-462"></a>À compter d’ADO.NET 4.6.2
 
-- Une nouvelle tentative d’ouverture de connexion est effectuée immédiatement pour les bases de données SQL Azure, ce qui améliore les performances des applications compatibles avec le cloud.
+- Une nouvelle tentative d’ouverture de connexion est effectuée immédiatement pour les bases de données Azure SQL, ce qui améliore les performances des applications compatibles avec le cloud.
 
 #### <a name="starting-with-adonet-461"></a>À compter d’ADO.NET 4.6.1
 

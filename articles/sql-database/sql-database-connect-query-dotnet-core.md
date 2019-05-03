@@ -1,6 +1,6 @@
 ---
 title: Utilisation de .NET Core pour interroger Azure SQL Database | Microsoft Docs
-description: Cette rubrique vous explique comment utiliser .NET Core pour créer un programme qui se connecte à une base de données SQL Azure et l’interroge à l’aide d’instructions Transact-SQL.
+description: Cette rubrique vous explique comment utiliser .NET Core pour créer un programme qui se connecte à une base de données Azure SQL et l’interroge à l’aide d’instructions Transact-SQL.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -19,15 +19,15 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 03/26/2019
 ms.locfileid: "58447387"
 ---
-# <a name="quickstart-use-net-core-c-to-query-an-azure-sql-database"></a>Démarrage rapide : Utilisation de .NET Core (C#) pour interroger une base de données SQL Azure
+# <a name="quickstart-use-net-core-c-to-query-an-azure-sql-database"></a>Démarrage rapide : Utilisation de .NET Core (C#) pour interroger une base de données Azure SQL
 
-Dans ce démarrage rapide, vous allez utiliser [.NET Core](https://www.microsoft.com/net/) et du code C# pour vous connecter à une base de données SQL Azure. Vous allez ensuite exécuter une instruction Transact-SQL pour interroger des données.
+Dans ce guide de démarrage rapide, vous allez utiliser [.NET Core](https://www.microsoft.com/net/) et du code C# pour vous connecter à une base de données Azure SQL. Vous allez ensuite exécuter une instruction Transact-SQL pour interroger des données.
 
 ## <a name="prerequisites"></a>Prérequis
 
 Pour ce didacticiel, vous avez besoin des éléments suivants :
 
-- base de données SQL Azure. Utilisez l’un de ces guides de démarrage rapide pour créer et configurer une base de données dans Azure SQL Database :
+- base de données Azure SQL. Utilisez l’un de ces guides de démarrage rapide pour créer et configurer une base de données dans Azure SQL Database :
 
   || Base de données unique | Instance gérée |
   |:--- |:--- |:---|
@@ -50,7 +50,7 @@ Pour ce didacticiel, vous avez besoin des éléments suivants :
 
 ## <a name="get-sql-server-connection-information"></a>Obtenir des informations de connexion SQL Server
 
-Procurez-vous les informations de connexion dont vous avez besoin pour vous connecter à la base de données SQL Azure. Vous aurez besoin du nom complet du serveur ou de l’hôte, du nom de la base de données et des informations de connexion pour les procédures suivantes.
+Procurez-vous les informations de connexion dont vous avez besoin pour vous connecter à la base de données Azure SQL. Vous aurez besoin du nom complet du serveur ou de l’hôte, du nom de la base de données et des informations de connexion pour les procédures suivantes.
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
 
@@ -195,6 +195,6 @@ namespace sqltest
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Prise en main de .NET Core sur Windows/Linux/macOS à l’aide de la ligne de commande](/dotnet/core/tutorials/using-with-xplat-cli).
-- Découvrez comment [connecter et interroger une base de données SQL Azure à l’aide de .NET Framework et Visual Studio](sql-database-connect-query-dotnet-visual-studio.md).  
+- Découvrez comment [connecter et interroger une base de données Azure SQL à l’aide du .NET Framework et Visual Studio](sql-database-connect-query-dotnet-visual-studio.md).  
 - Découvrez comment [Concevoir votre première base de données Azure SQL à l’aide de SSMS](sql-database-design-first-database.md) ou comment [Concevoir une base de données Azure SQL et se connecter avec C# et ADO.NET](sql-database-design-first-database-csharp.md).
 - Pour plus d’informations sur .NET, consultez la [documentation .NET](https://docs.microsoft.com/dotnet/).

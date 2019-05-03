@@ -61,7 +61,7 @@ sections:
             html: <p>Choisissez entre les niveaux de service Usage général et Critique pour l’entreprise en fonction des besoins de votre entreprise.</p>
           - title: Sécurité avancée
             href: /azure/sql-database/sql-database-security-index
-            html: "<p>Sécurisez votre instance et vos bases de données avec les fonctionnalités intégrées de sécurité des bases de données SQL\_Azure.<p>"
+            html: <p>Sécurisez votre instance et vos bases de données avec les fonctionnalités intégrées de sécurité des bases de données Azure SQL.<p>
   - title: Nouveautés et fonctionnalités d'évaluation
     items:
       - type: paragraph

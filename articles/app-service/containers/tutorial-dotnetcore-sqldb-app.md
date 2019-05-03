@@ -90,7 +90,7 @@ Pour arrêter .NET Core à tout moment, appuyez sur `Ctrl+C` dans le terminal.
 
 Dans cette étape, vous allez créer une instance SQL Database dans Azure. Lorsque votre application est déployée sur Azure, elle utilise cette base de données cloud.
 
-Pour l’instance SQL Database, ce didacticiel utilise [Azure SQL Database](/azure/sql-database/).
+Pour l’instance SQL Database, ce tutoriel utilise [Azure SQL Database](/azure/sql-database/).
 
 ### <a name="create-a-resource-group"></a>Créer un groupe de ressources
 

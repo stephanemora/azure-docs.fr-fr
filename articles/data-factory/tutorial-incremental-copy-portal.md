@@ -1,6 +1,6 @@
 ---
 title: Copier de façon incrémentielle une table en utilisant Azure Data Factory | Microsoft Docs
-description: Dans ce didacticiel, vous allez créer un pipeline de fabrique de données Azure qui copie de façon incrémentielle les données d’une base de données SQL Azure dans un stockage Blob Azure.
+description: Dans ce tutoriel, vous allez créer un pipeline de fabrique de données Azure qui copie de façon incrémentielle les données d’une base de données Azure SQL dans un stockage Blob Azure.
 services: data-factory
 documentationcenter: ''
 author: dearandyxu
@@ -19,8 +19,8 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 03/26/2019
 ms.locfileid: "58447231"
 ---
-# <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Charger de façon incrémentielle les données d’une base de données SQL Azure dans un stockage Blob Azure
-Dans ce tutoriel, vous allez créer une fabrique de données Azure avec un pipeline qui charge les données delta d’une table d’une base de données SQL Azure vers un stockage Blob Azure. 
+# <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Charger de façon incrémentielle les données d’une base de données Azure SQL dans un stockage Blob Azure
+Dans ce tutoriel, vous allez créer une fabrique de données Azure avec un pipeline qui charge les données delta d’une table d’une base de données Azure SQL vers un stockage Blob Azure. 
 
 Dans ce tutoriel, vous allez effectuer les étapes suivantes :
 
@@ -169,7 +169,7 @@ END
          
         Pour plus d’informations sur les groupes de ressources, consultez [Utilisation des groupes de ressources pour gérer vos ressources Azure](../azure-resource-manager/resource-group-overview.md).  
 4. Sélectionnez **V2** pour la **version**.
-5. Sélectionnez **l’emplacement** de la fabrique de données. Seuls les emplacements pris en charge sont affichés dans la liste déroulante. Les magasins de données (Stockage Azure, Azure SQL Database, etc.) et les services de calcul (HDInsight, etc.) utilisés par la fabrique de données peuvent se trouver dans d’autres régions.
+5. Sélectionnez **l’emplacement** de la fabrique de données. Seuls les emplacements pris en charge sont affichés dans la liste déroulante. Les magasins de données (Stockage Azure, Azure SQL Database, etc.) et les services de calcul (HDInsight, etc.) utilisés par la fabrique de données peuvent être proposés dans d’autres régions.
 6. Sélectionnez **Épingler au tableau de bord**.     
 7. Cliquez sur **Créer**.      
 8. Sur le tableau de bord, vous voyez la vignette suivante avec l’état : **Déploiement de Data Factory**. 
@@ -195,13 +195,13 @@ Dans ce didacticiel, vous allez créer un pipeline avec deux activités de reche
 5. Basculez vers l’onglet **Paramètres**, puis cliquez sur **+ Nouveau** comme **jeu de données source**. Dans cette étape, vous créez un jeu de données pour représenter des données dans la **table filigrane**. Cette table contient l’ancien filigrane utilisé dans l’opération de copie précédente. 
 
    ![Menu de nouveau jeu de données - ancien filigrane](./media/tutorial-incremental-copy-portal/new-dataset-old-watermark.png)
-6. Dans la fenêtre **Nouveau jeu de données**, sélectionnez **Base de données SQL Azure**, puis cliquez sur **Terminer**. Vous voyez un nouvel onglet ouvert pour le jeu de données. 
+6. Dans la fenêtre **Nouveau jeu de données**, sélectionnez **Azure SQL Database**, puis cliquez sur **Terminer**. Vous voyez un nouvel onglet ouvert pour le jeu de données. 
 
-   ![Sélectionner une base de données SQL Azure](./media/tutorial-incremental-copy-portal/select-azure-sql-database-old-watermark.png)
+   ![Sélectionner Azure SQL Database](./media/tutorial-incremental-copy-portal/select-azure-sql-database-old-watermark.png)
 7. Dans la fenêtre Propriétés pour le jeu de données, entrez **WatermarkDataset** comme **nom**.
 
    ![Jeu de données de filigrane - nom](./media/tutorial-incremental-copy-portal/watermark-dataset-name.png)
-8. Basculez vers l’onglet **Connexion**, puis cliquez sur **+ Nouveau** pour établir une connexion (créer un service lié) à votre base de données SQL Azure. 
+8. Basculez vers l’onglet **Connexion**, puis cliquez sur **+ Nouveau** pour établir une connexion (créer un service lié) à votre base de données Azure SQL. 
 
    ![Bouton de nouveau service lié](./media/tutorial-incremental-copy-portal/watermark-dataset-new-connection-button.png)
 9. Dans la fenêtre **Nouveau service lié**, procédez comme suit :
@@ -210,7 +210,7 @@ Dans ce didacticiel, vous allez créer un pipeline avec deux activités de reche
     2. Sélectionnez votre serveur SQL Azure comme **nom de serveur**.
     3. Entrez le **nom d’utilisateur** pour accéder au serveur SQL Azure. 
     4. Entrez le **mot de passe** correspondant à l’utilisateur. 
-    5. Pour tester la connexion à la base de données SQL Azure, cliquez sur **Tester la connexion**.
+    5. Pour tester la connexion à la base de données Azure SQL, cliquez sur **Tester la connexion**.
     6. Cliquez sur **Enregistrer**.
     7. Dans l’onglet **Connexion**, vérifiez que **AzureSqlDatabaseLinkedService** est sélectionné comme **service lié**.
        
@@ -227,7 +227,7 @@ Dans ce didacticiel, vous allez créer un pipeline avec deux activités de reche
 13. Dans la fenêtre Propriétés pour la deuxième activité de **recherche**, basculez vers l’onglet **Paramètres**, puis cliquez sur **Nouveau**. Vous créez un jeu de données pour pointer vers la table source qui contient la nouvelle valeur du filigrane (valeur maximale de LastModifyTime). 
 
     ![Deuxième activité de recherche - nouveau jeu de données](./media/tutorial-incremental-copy-portal/second-lookup-activity-settings-new-button.png)
-14. Dans la fenêtre **Nouveau jeu de données**, sélectionnez **Base de données SQL Azure**, puis cliquez sur **Terminer**. Vous voyez un nouvel onglet ouvert pour ce jeu de données. Vous voyez également le jeu de données dans l’arborescence. 
+14. Dans la fenêtre **Nouveau jeu de données**, sélectionnez **Azure SQL Database**, puis cliquez sur **Terminer**. Vous voyez un nouvel onglet ouvert pour ce jeu de données. Vous voyez également le jeu de données dans l’arborescence. 
 15. Dans l’onglet **Général** de la fenêtre Propriétés, entrez **SourceDataset** comme **nom**. 
 
     ![Jeu de données source - nom](./media/tutorial-incremental-copy-portal/source-dataset-name.png)

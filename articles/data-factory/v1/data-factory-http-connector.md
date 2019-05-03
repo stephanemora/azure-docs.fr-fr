@@ -152,7 +152,7 @@ Ce service lié lie votre fabrique de données à un serveur web HTTP local. Il 
 
 ## <a name="dataset-properties"></a>Propriétés du jeu de données
 
-Certaines sections d’un fichier JSON de jeu de données, comme la structure, la disponibilité et la stratégie, sont similaires pour tous les types de jeux de données (par exemple, Azure SQL Database, stockage Blob Azure et stockage de tables Azure).
+Certaines sections d’un fichier JSON de jeu de données, comme la structure, la disponibilité et la stratégie, sont similaires pour tous les types de jeux de données (par exemple, Azure SQL Database, stockage Blob Azure et stockage Table Azure).
 
 Pour obtenir une liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l’article [Création de jeux de données](data-factory-create-datasets.md).
 

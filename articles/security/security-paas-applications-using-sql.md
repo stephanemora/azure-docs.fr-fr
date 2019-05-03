@@ -25,14 +25,14 @@ ms.locfileid: "60596673"
 
 Dans cet article, nous abordons un ensemble de bonnes pratiques de sécurité [Azure SQL Database](../sql-database/sql-database-technical-overview.md) et [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) pour protéger vos applications mobiles et web PaaS (Platform-as-a-Service). Ces bonnes pratiques sont issues de notre expérience d’Azure, mais également de celle des clients, comme vous.
 
-Azure SQL Database et SQL Data Warehouse fournissent un service de base de données relationnelle pour vos applications basées sur Internet. Examinons les services qui protègent vos applications et vos données lors de l’utilisation de SQL Database et de SQL Data Warehouse dans un déploiement PaaS :
+Azure SQL Database et SQL Data Warehouse fournissent un service de base de données relationnelle pour vos applications basées sur Internet. Examinons les services qui protègent vos applications et vos données lors de l’utilisation d’Azure SQL Database et de SQL Data Warehouse dans un déploiement PaaS :
 
 - Authentification Azure Active Directory (au lieu de l'authentification SQL Server)
 - Pare-feu SQL Azure
 - Chiffrement transparent des données (TDE)
 
 ## <a name="use-a-centralized-identity-repository"></a>Utiliser un référentiel d’identités centralisé
-Des bases de données SQL Azure peuvent être configurées pour utiliser l'un des deux types d’authentification :
+Des bases de données Azure SQL peuvent être configurées pour utiliser l'un des deux types d’authentification :
 
 - **L’authentification SQL** utilise un nom d’utilisateur et un mot de passe. Lorsque vous avez créé un serveur logique pour votre base de données, vous avez spécifié un compte de connexion « Admin serveur », associé à un nom d’utilisateur et à un mot de passe. À l’aide de ces informations d’identification, vous pouvez vous authentifier auprès de n’importe quelle base de données sur ce serveur en tant que propriétaire de la base de données.
 

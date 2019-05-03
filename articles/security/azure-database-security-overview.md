@@ -35,9 +35,9 @@ Microsoft offre des méthodes supplémentaires pour chiffrer des données d’en
 
 L’audit Azure SQL Database permet aux entreprises d’enregistrer les événements dans un journal d’audit dans Stockage Azure. Cette fonction s’intègre également dans Microsoft Power BI, afin de faciliter la création d’analyses et de rapports approfondis.
 
-Les bases de données SQL Azure peuvent être étroitement sécurisées conformément à la plupart des exigences réglementaires ou de sécurité, dont HIPAA, ISO 27001/27002 et PCI DSS Niveau 1. Une liste actualisée des certifications de conformité de sécurité est disponible sur le [site du Centre de confidentialité Azure](https://azure.microsoft.com/support/trust-center/services/).
+Les bases de données Azure SQL peuvent être étroitement sécurisées conformément à la plupart des exigences réglementaires ou de sécurité, dont HIPAA, ISO 27001/27002 et PCI DSS Niveau 1. Une liste actualisée des certifications de conformité de sécurité est disponible sur le [site du Centre de confidentialité Azure](https://azure.microsoft.com/support/trust-center/services/).
 
-Cet article présente les principes fondamentaux de la sécurisation des bases de données Microsoft Azure SQL Database pour les données structurées, tabulaires et relationnelles. Plus spécifiquement, cet article vous offre un aperçu sur les ressources dédiées à la protection des données, au contrôle d’accès et à la surveillance proactive.
+Cet article présente les principes fondamentaux de la sécurisation des bases de données Microsoft Azure SQL pour les données structurées, tabulaires et relationnelles. Plus spécifiquement, cet article vous offre un aperçu sur les ressources dédiées à la protection des données, au contrôle d’accès et à la surveillance proactive.
 
 ## <a name="protection-of-data"></a>Protection des données
 
@@ -106,7 +106,7 @@ La protection des données commence avec le contrôle de l’accès à celles-ci
 
 #### <a name="firewall-and-firewall-rules"></a>Pare-feu et règles de pare-feu
 
-[Azure SQL Database](https://azure.microsoft.com/services/sql-database/) fournit un service de base de données relationnelle pour Azure et d’autres applications basées sur Internet. Pour aider à protéger vos données, le pare-feu empêche tout accès à votre serveur de base de données jusqu’à ce que vous spécifiiez les ordinateurs qui disposent d’autorisations. Le pare-feu octroie l’accès à la base de données en fonction de l’adresse IP d’origine de chaque demande. Pour plus d’informations, consultez l’article [Vue d’ensemble des règles de pare-feu d’Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure).
+[Azure SQL Database](https://azure.microsoft.com/services/sql-database/) fournit un service de base de données relationnelle pour Azure et d’autres applications basées sur Internet. Pour aider à protéger vos données, le pare-feu empêche tout accès à votre serveur de base de données jusqu’à ce que vous spécifiiez les ordinateurs qui disposent d’autorisations. Le pare-feu octroie l’accès à la base de données en fonction de l’adresse IP d’origine de chaque demande. Pour plus d’informations, consultez [Vue d’ensemble des règles de pare-feu Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure).
 
 Le service Azure SQL Database n’est disponible que via le port TCP 1433. Pour accéder à une base de données SQL depuis votre ordinateur, vérifiez que le pare-feu du client autorise les communications TCP sortantes sur le port 1433. Si les connexions entrantes ne sont pas nécessaires aux autres applications, bloquez-les sur le port TCP 1433.
 
@@ -141,7 +141,7 @@ Vous pouvez définir une règle de masquage qui ne révèle que les quatre derni
 
 Vous pouvez également définir un masque de données approprié pour protéger les informations d’identification personnelle. Un développeur peut ensuite interroger les environnements de production à des fins de dépannage, sans enfreindre les réglementations de conformité.
 
-Le [masquage des données dynamiques de SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-dynamic-data-masking-get-started) limite l’exposition des données sensibles en les masquant aux utilisateurs sans privilège. Le masquage des données dynamiques est pris en charge pour la version V12 de la base de données SQL Azure.
+Le [masquage des données dynamiques de SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-dynamic-data-masking-get-started) limite l’exposition des données sensibles en les masquant aux utilisateurs sans privilège. Le masquage des données dynamiques est pris en charge pour la version V12 d’Azure SQL Database.
 
 Le [masquage dynamique des données](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking) contribue à empêcher tout accès non autorisé aux données sensibles en vous permettant d’indiquer la quantité de données sensibles à révéler avec un impact minimal sur la couche application. Il s’agit d’une fonctionnalité de sécurité basée sur des stratégies qui masque les données sensibles dans le jeu de résultats d’une requête dans les champs de la base de données désignés. Les données de la base de données ne sont pas modifiées.
 
@@ -218,7 +218,7 @@ Le Centre de sécurité prend en charge l’accès en fonction du rôle.
 
 [SQL Information Protection](../sql-database/sql-database-data-discovery-and-classification.md) détecte et classe automatiquement les données potentiellement sensibles, fournit un mécanisme permettant d’étiqueter de manière permanente les données sensibles avec des attributs de classification, et elle fournit un tableau de bord détaillé montrant l’état de classification de la base de données.  
 
-En outre, il calcule la sensibilité du jeu de résultats des requêtes SQL, pour permettre un audit explicite des requêtes extrayant des données sensibles, et protéger les données. Pour plus d’informations sur la protection des informations SQL, consultez Découverte et classification des données de base de données SQL Azure.
+En outre, il calcule la sensibilité du jeu de résultats des requêtes SQL, pour permettre un audit explicite des requêtes extrayant des données sensibles, et protéger les données. Pour plus d’informations sur la protection des informations SQL, consultez Découverte et classification des données Azure SQL Database.
 
 Vous pouvez configurer les [stratégies de protection des informations SQL](../security-center/security-center-info-protection-policy.md) dans Azure Security Center.
 

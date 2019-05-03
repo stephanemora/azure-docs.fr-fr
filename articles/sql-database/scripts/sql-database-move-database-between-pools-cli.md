@@ -1,5 +1,5 @@
 ---
-title: Script Azure CLI - Déplacer une instance SQL Database et des pools élastiques | Microsoft Docs
+title: Exemple CLI-Déplacer une base de données Azure SQL-pool élastique SQL | Microsoft Docs
 description: Exemple de script Azure CLI pour déplacer une base de données SQL dans un pool élastique SQL
 services: sql-database
 ms.service: sql-database
@@ -19,9 +19,9 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59357593"
 ---
-# <a name="use-cli-to-move-an-azure-sql-database-in-a-sql-elastic-pool"></a>Utiliser l’interface CLI afin de déplacer une base de données SQL Azure dans un pool élastique SQL
+# <a name="use-cli-to-move-an-azure-sql-database-in-a-sql-elastic-pool"></a>Utiliser l’interface CLI afin de déplacer une base de données Azure SQL dans un pool élastique SQL
 
-Cet exemple de script Azure CLI crée deux pools élastiques et déplace une base de données SQL Azure d’un pool élastique SQL vers un autre pool élastique SQL. Le script déplace ensuite la base de données en dehors d’un pool élastique vers une taille de calcul de base de données unique.
+Cet exemple de script Azure CLI crée deux pools élastiques et déplace une base de données Azure SQL d’un pool élastique SQL vers un autre pool élastique SQL. Le script déplace ensuite la base de données en dehors d’un pool élastique vers une taille de calcul de base de données unique.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -58,4 +58,4 @@ Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à
 
 Pour plus d’informations sur l’interface Azure CLI, consultez la [documentation relative à l’interface Azure CLI](https://docs.microsoft.com/cli/azure).
 
-Vous trouverez des exemples supplémentaires de scripts CLI SQL Database sur la page [Documentation Azure SQL Database](../sql-database-cli-samples.md).
+Vous trouverez des exemples supplémentaires de scripts CLI SQL Database dans [Documentation Azure SQL Database](../sql-database-cli-samples.md).

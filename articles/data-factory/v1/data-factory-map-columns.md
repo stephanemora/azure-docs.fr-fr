@@ -40,7 +40,7 @@ Voici une liste de conditions d’erreur qui entraînent la levée d’une excep
 > Les exemples suivants concernent SQL Azure et les objets blob Azure, mais sont applicables à tout magasin de données prenant en charge les jeux de données rectangulaires. Ajustez les définitions du jeu de données et du service lié dans les exemples de sorte qu’elles pointent vers les données de la source de données appropriée.
 
 ## <a name="sample-1--column-mapping-from-azure-sql-to-azure-blob"></a>Exemple 1 : mappage de colonnes depuis SQL Azure vers un objet blob Azure
-Dans cet exemple, la table d’entrée possède une structure et pointe vers une table SQL comprise dans une base de données SQL Azure.
+Dans cet exemple, la table d’entrée possède une structure et pointe vers une table SQL comprise dans une base de données Azure SQL.
 
 ```json
 {

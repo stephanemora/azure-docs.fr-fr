@@ -176,7 +176,7 @@ Consultez [Magasins de données pris en charge](data-factory-data-movement-activ
 }
 ```
 
-Consultez [Définition des pipelines](data-factory-create-pipelines.md#pipeline-json) pour plus d’informations sur les propriétés JSON permettant de définir le pipeline et les activités spécifiques que vous souhaitez déployer. Notez que le paramètre « dependsOn » spécifie le nom de la fabrique de données, ainsi que les services liés ou les jeux de données correspondants. Un exemple de pipeline qui copie des données depuis le Stockage Blob Azure vers une base de données SQL Azure est indiqué dans l’extrait de code JSON suivant :
+Consultez [Définition des pipelines](data-factory-create-pipelines.md#pipeline-json) pour plus d’informations sur les propriétés JSON permettant de définir le pipeline et les activités spécifiques que vous souhaitez déployer. Notez que le paramètre « dependsOn » spécifie le nom de la fabrique de données, ainsi que les services liés ou les jeux de données correspondants. Un exemple de pipeline qui copie des données depuis le Stockage Blob Azure vers une base de données Azure SQL est indiqué dans l’extrait de code JSON suivant :
 
 ```JSON
 "type": "datapipelines",

@@ -94,7 +94,7 @@ Pour améliorer les performances, les règles de pare-feu IP au niveau du serveu
 
 ## <a name="manage-server-level-ip-firewall-rules-using-the-azure-portal"></a>Gérer les règles de pare-feu IP au niveau du serveur avec le portail Azure
 
-Pour définir une règle de pare-feu IP au niveau du serveur dans le portail Azure, vous pouvez accéder à la page Vue d’ensemble de votre base de données SQL Azure ou de votre serveur SQL Database.
+Pour définir une règle de pare-feu IP au niveau du serveur dans le portail Azure, vous pouvez accéder à la page Vue d’ensemble de votre base de données Azure SQL ou de votre serveur SQL Database.
 
 > [!TIP]
 > Pour obtenir un didacticiel, consultez [Créer une base de données à l’aide du portail Azure](sql-database-single-database-get-started.md).
@@ -230,7 +230,7 @@ Considérez les points suivants quand l’accès au service Microsoft Azure SQL 
 
 - **Traduction d’adresses réseau (NAT) :**
 
-  En raison de la traduction d’adresses réseau, l’adresse IP utilisée par votre ordinateur pour se connecter à la base de données SQL Azure peut être différente de l’adresse IP affichée dans les paramètres de configuration IP de votre ordinateur. Pour afficher l’adresse IP qu’utilise votre ordinateur pour se connecter à Azure, connectez-vous au portail et accédez à l’onglet **Configurer** sur le serveur qui héberge votre base de données. Dans la section **Adresses IP autorisées**, l’**adresse IP du client actif** s’affiche. Cliquez sur **Ajouter** **aux adresses IP autorisées** pour que cet ordinateur puisse accéder au serveur.
+  En raison de la traduction d’adresses réseau, l’adresse IP utilisée par votre ordinateur pour se connecter à Azure SQL Database peut être différente de l’adresse IP affichée dans les paramètres de configuration IP de votre ordinateur. Pour afficher l’adresse IP qu’utilise votre ordinateur pour se connecter à Azure, connectez-vous au portail et accédez à l’onglet **Configurer** sur le serveur qui héberge votre base de données. Dans la section **Adresses IP autorisées**, l’**adresse IP du client actif** s’affiche. Cliquez sur **Ajouter** **aux adresses IP autorisées** pour que cet ordinateur puisse accéder au serveur.
 
 - **Les modifications apportées à la liste verte n’ont pas encore pris effet :**
 
@@ -250,8 +250,8 @@ Considérez les points suivants quand l’accès au service Microsoft Azure SQL 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Confirmez que votre environnement de réseau d’entreprise autorise les communications entrantes issues les plages d’adresses IP de calcul (y compris les plages SQL) utilisées par les centres de données Microsoft Azure. Il peut être nécessaire à la liste verte ces adresses IP, consultez [Microsoft Azure Datacenter IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653)  
-- Pour obtenir un guide de démarrage rapide sur la création d’une règle de pare-feu IP au niveau du serveur, consultez [Créer une base de données SQL Azure](sql-database-single-database-get-started.md).
-- Pour obtenir de l’aide afin de vous connecter à une base de données SQL Azure à partir d’applications open source ou tierces, consultez [Exemples de code de démarrage rapide client pour Base de données SQL](https://msdn.microsoft.com/library/azure/ee336282.aspx).
+- Pour obtenir un guide de démarrage rapide sur la création d’une règle de pare-feu IP au niveau du serveur, consultez [Créer une base de données Azure SQL](sql-database-single-database-get-started.md).
+- Pour de l’aide afin de vous connecter à une base de données Azure SQL à partir d’applications open source ou tierces, consultez [Exemples de code de démarrage rapide client pour Azure SQL Database](https://msdn.microsoft.com/library/azure/ee336282.aspx).
 - Pour plus d’informations sur les autres ports que vous devrez peut-être ouvrir, consultez la section **SQL Database : exécution externe ou exécution interne** de [Ports au-delà de 1433 pour ADO.NET 4.5 et SQL Database](sql-database-develop-direct-route-ports-adonet-v12.md).
 - Pour obtenir une vue d’ensemble de la sécurité Azure SQL Database, consultez [Sécurisation de votre base de données](sql-database-security-overview.md)
 

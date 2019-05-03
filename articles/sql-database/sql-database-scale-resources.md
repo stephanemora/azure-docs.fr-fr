@@ -1,5 +1,5 @@
 ---
-title: Ressources évolutives Azure SQL Database | Microsoft Docs
+title: Mettre à l’échelle des ressources Azure SQL Database | Microsoft Docs
 description: Cet article explique comment mettre à l'échelle votre base de données en ajoutant ou en supprimant des ressources allouées.
 services: sql-database
 ms.service: sql-database
@@ -45,8 +45,8 @@ Vous pouvez créer votre première application dans une petite base de données 
 > [!NOTE]
 > La scalabilité dynamique est différente de la mise à l’échelle automatique. La mise à l’échelle survient lorsqu’un service se met à l’échelle automatiquement en fonction de critères, tandis que l’extensibilité dynamique permet la mise à l’échelle manuelle sans temps d’arrêt.
 
-Une instance unique d’Azure SQL Database prend en charge l’extensibilité dynamique, mais pas la mise à l’échelle automatique. Pour plus expérience plus *automatique*, envisagez d’utiliser des pools élastiques, ce qui permet aux bases de données de partager des ressources dans un pool en fonction de leurs besoins individuels.
-Toutefois, il existe des scripts qui peuvent aider à automatiser l’extensibilité pour une instance unique d’Azure SQL Database. Pour obtenir un exemple, consultez la rubrique [Utiliser PowerShell pour surveiller et mettre à l’échelle une base de données SQL](scripts/sql-database-monitor-and-scale-database-powershell.md).
+Une base de données Azure SQL unique prend en charge la scalabilité dynamique, mais pas la mise à l’échelle automatique. Pour plus expérience plus *automatique*, envisagez d’utiliser des pools élastiques, ce qui permet aux bases de données de partager des ressources dans un pool en fonction de leurs besoins individuels.
+Toutefois, il existe des scripts qui peuvent aider à automatiser la scalabilité pour une base de données Azure SQL unique. Pour obtenir un exemple, consultez la rubrique [Utiliser PowerShell pour surveiller et mettre à l’échelle une base de données SQL](scripts/sql-database-monitor-and-scale-database-powershell.md).
 
 Vous pouvez changer les [niveaux de service DTU](sql-database-service-tiers-dtu.md) ou les [caractéristiques vCore](sql-database-vcore-resource-limits-single-databases.md) à tout moment, avec un temps d’arrêt minimal de votre application (généralement inférieur à quatre secondes). Pour de nombreuses entreprises et applications, la possibilité de créer des bases de données et d’augmenter ou ralentir les performances à la demande se révèle suffisante, surtout si les modèles d’utilisation sont relativement prévisibles. Mais si vous avez des modèles d'utilisation imprévisibles, il peut être difficile de gérer les coûts et votre modèle commercial. Pour ce scénario, vous utilisez un pool élastique avec un certain nombre d’eDTU qui sont partagées entre plusieurs bases de données dans le pool.
 
@@ -70,4 +70,4 @@ La mise à l'échelle des ressources reste la façon la plus facile et efficace 
 - Pour en savoir plus sur l’amélioration des performances d’une base de données en modifiant son code, consultez [Trouver et appliquer des recommandations de performances](sql-database-advisor-portal.md).
 - Pour en savoir sur l’optimisation de votre base de données par une intelligence intégrée, consultez [Ajustement automatique](sql-database-automatic-tuning.md).
 - Pour en savoir plus l’échelle lecture dans le service Azure SQL Database, consultez [Utiliser des réplicas en lecture seule pour équilibrer la charge de requêtes en lecture seule](sql-database-read-scale-out.md).
-- Pour en savoir plus sur le partitionnement de base de données, consultez la rubrique [Montée en charge avec Azure SQL Database](sql-database-elastic-scale-introduction.md).
+- Pour en savoir plus sur le partitionnement de base de données, consultez [Scale-out avec Azure SQL Database](sql-database-elastic-scale-introduction.md).

@@ -21,13 +21,13 @@ ms.locfileid: "60342173"
 ---
 # <a name="tutorial-set-up-sql-data-sync-between-azure-sql-database-and-sql-server-on-premises"></a>Didacticiel : configurer SQL Data Sync entre Azure SQL Database et SQL Server en local
 
-Dans ce tutoriel, vous allez apprendre à configurer Azure SQL Data Sync en créant un groupe de synchronisation contenant des instances SQL Database et SQL Server. Le groupe de synchronisation est configuré de manière personnalisée et se synchronise selon la planification définie.
+Dans ce tutoriel, vous allez apprendre à configurer Azure SQL Data Sync en créant un groupe de synchronisation contenant à la fois des instances Azure SQL Database et SQL Server. Le groupe de synchronisation est configuré de manière personnalisée et se synchronise selon la planification définie.
 
 Ce tutoriel part du principe que vous avez déjà utilisé SQL Database et SQL Server.
 
 Pour obtenir une vue d’ensemble de SQL Data Sync, consultez [Synchroniser des données entre des bases de données locales et cloud avec Azure SQL Data Sync](sql-database-sync-data.md).
 
-Pour obtenir des exemples PowerShell sur la façon de configurer SQL Data Sync, consultez les guides pratiques pour synchroniser les données [entre plusieurs bases de données SQL Azure](scripts/sql-database-sync-data-between-sql-databases.md) ou [entre une base de données SQL Azure et une base de données SQL Server locale](scripts/sql-database-sync-data-between-azure-onprem.md).
+Pour obtenir des exemples PowerShell sur la façon de configurer SQL Data Sync, consultez les guides pratiques pour synchroniser les données [entre plusieurs bases de données Azure SQL](scripts/sql-database-sync-data-between-sql-databases.md) ou [entre une base de données Azure SQL et une base de données SQL Server locale](scripts/sql-database-sync-data-between-azure-onprem.md).
 
 > [!IMPORTANT]
 > Azure SQL Data Sync ne prend **pas** en charge Azure SQL Database Managed Instance pour le moment.
@@ -69,13 +69,13 @@ Dans la section **Base de données Hub**, entrez les informations d’identifica
 
 ![Paramètres de l’étape 2](media/sql-database-get-started-sql-data-sync/steptwo.png)
 
-### <a name="to-add-an-azure-sql-database"></a>Pour ajouter une base de données SQL Azure
+### <a name="to-add-an-azure-sql-database"></a>Pour ajouter une base de données Azure SQL
 
-Dans la section **Base de données membre**, ajoutez éventuellement une base de données Azure SQL Database au groupe de synchronisation en sélectionnant **Add an Azure SQL Database** (Ajouter une instance Azure SQL Database). La page **Configure Azure SQL Database** (Configurer Azure SQL Database) s’ouvre.
+Dans la section **Base de données membre**, ajoutez éventuellement une base de données Azure SQL Database au groupe de synchronisation en sélectionnant **Add an Azure SQL Database** (Ajouter une instance Azure SQL Database). La page **Configurer Azure SQL Database** s’ouvre.
 
   ![Étape 2 : configurer la base de données](media/sql-database-get-started-sql-data-sync/steptwo-configure.png)
 
-  Dans la page **Configure Azure SQL Database** (Configurer Azure SQL Database), changez les paramètres suivants :
+  Dans la page **Configurer Azure SQL Database**, changez les paramètres suivants :
 
   | Paramètre                       | Description |
   | ----------------------------- | ------------------------------------------------- |

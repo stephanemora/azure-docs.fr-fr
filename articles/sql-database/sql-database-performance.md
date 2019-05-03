@@ -1,6 +1,6 @@
 ---
 title: Surveiller et améliorer les performances - Azure SQL Database | Microsoft Docs
-description: La base de données SQL Azure fournit des outils de performances pour vous aider à identifier les zones susceptibles d’améliorer les performances actuelles des requêtes.
+description: Azure SQL Database fournit des outils de performances pour vous aider à identifier les zones susceptibles d’améliorer les performances actuelles des requêtes.
 ms.service: sql-database
 ms.subservice: performance
 ms.custom: ''

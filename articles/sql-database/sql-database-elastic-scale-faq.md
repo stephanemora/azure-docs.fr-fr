@@ -1,6 +1,6 @@
 ---
 title: FAQ sur l’infrastructure élastique d’Azure SQL | Microsoft Docs
-description: Frequently Asked Questions about Azure SQL Database Elastic Scale.
+description: Questions fréquentes (FAQ) sur la mise à l’échelle élastique d’Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out

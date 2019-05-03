@@ -62,7 +62,7 @@ Les sections suivantes fournissent des commandes Azure CLI et Azure PowerShell p
 - Event Hub
 - Azure SQL server
 - Utilisateur SQL (et mot de passe)
-- Base de données SQL Azure
+- Base de données Azure SQL
 - Stockage Azure 
 - Application Azure Functions
 

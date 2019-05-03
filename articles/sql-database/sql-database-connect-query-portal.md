@@ -1,5 +1,5 @@
 ---
-title: 'Portail Azure : Interroger une base de données SQL Azure à l’aide de l’éditeur de requête | Microsoft Docs'
+title: 'Portail Azure : Interroger une base de données Azure SQL à l’aide de l’éditeur de requête | Microsoft Docs'
 description: Découvrez comment se connecter à une base de données SQL dans le portail Azure à l’aide de l’éditeur de requête SQL. Ensuite, exécutez des instructions Transact-SQL (T-SQL) pour interroger et modifier des données.
 keywords: se connecter à la base de données sql, portail azure, portail, éditeur de requête
 services: sql-database
@@ -22,13 +22,13 @@ ms.locfileid: "58105792"
 ---
 # <a name="quickstart-use-the-azure-portals-sql-query-editor-to-connect-and-query-data"></a>Démarrage rapide : Utiliser l’éditeur de requête SQL du portail Azure pour se connecter et interroger des données
 
-L’éditeur de requête SQL est un outil de navigateur du portail Azure qui offre un moyen simple d’exécuter des requêtes SQL sur votre base de données SQL Azure ou sur un entrepôt de données SQL Azure. Dans ce guide de démarrage rapide, vous utilisez l’éditeur de requête pour vous connecter à une base de données SQL, puis exécutez des instructions Transact-SQL pour interroger, insérer, mettre à jour et supprimer des données.
+L’éditeur de requête SQL est un outil de navigateur du portail Azure qui offre un moyen simple d’exécuter des requêtes SQL sur votre base de données Azure SQL ou sur un entrepôt de données Azure SQL. Dans ce guide de démarrage rapide, vous utilisez l’éditeur de requête pour vous connecter à une base de données SQL, puis exécutez des instructions Transact-SQL pour interroger, insérer, mettre à jour et supprimer des données.
 
 ## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
-- base de données SQL Azure. Utilisez l’un de ces guides de démarrage rapide pour créer et configurer une base de données dans Azure SQL Database :
+- base de données Azure SQL. Utilisez l’un de ces guides de démarrage rapide pour créer et configurer une base de données dans Azure SQL Database :
 
   || Base de données unique |
   |:--- |:--- |
@@ -175,4 +175,4 @@ Il y a quelques informations à connaître quand vous travaillez avec l’édite
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur les instructions Transact-SQL prises en charge dans les bases de données SQL Azure, consultez [Résolution des différences de Transact-SQL durant la migration vers SQL Database](sql-database-transact-sql-information.md).
+Pour plus d’informations sur les instructions Transact-SQL prises en charge dans les bases de données Azure SQL, consultez [Résolution des différences de Transact-SQL durant la migration vers SQL Database](sql-database-transact-sql-information.md).

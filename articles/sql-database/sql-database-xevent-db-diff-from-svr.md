@@ -1,6 +1,6 @@
 ---
 title: Événement étendus dans SQL Database | Microsoft Docs
-description: Décrit les événements étendus (XEvents) dans la base de données SQL Azure et les différences entre les sessions d’événements dans la base de données SQL Azure et dans Microsoft SQL Server.
+description: Décrit les événements étendus (XEvents) dans Azure SQL Database et les légères différences entre les sessions d’événements dans Microsoft SQL Server.
 services: sql-database
 ms.service: sql-database
 ms.subservice: monitor
@@ -22,7 +22,7 @@ ms.locfileid: "60330996"
 # <a name="extended-events-in-sql-database"></a>Événement étendus dans la base de données SQL
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
 
-Cette rubrique explique les quelques différences entre l’implémentation d’événements étendus dans la base de données SQL Azure et dans Microsoft SQL Server.
+Cette rubrique explique les quelques différences entre l’implémentation d’événements étendus dans Azure SQL Database et dans Microsoft SQL Server.
 
 - La base de données SQL V12 a intégré la fonctionnalité d’événements étendus au cours de la seconde moitié du calendrier 2015.
 - Cette fonctionnalité est présente dans SQL Server depuis 2008.
@@ -30,7 +30,7 @@ Cette rubrique explique les quelques différences entre l’implémentation d’
 
 *XEvents* est un surnom informel parfois utilisé pour désigne les « événements étendus » dans les blogs et autres emplacements informels.
 
-Des informations complémentaires sur les événements étendus, pour Base de données SQL Azure et Microsoft SQL Server, sont disponibles dans :
+Des informations complémentaires sur les événements étendus, pour Azure SQL Database et Microsoft SQL Server, sont disponibles dans :
 
 - [Démarrage rapide : Événement étendus dans SQL Server](https://msdn.microsoft.com/library/mt733217.aspx)
 - [Événements étendus](https://msdn.microsoft.com/library/bb630282.aspx)
@@ -94,7 +94,7 @@ Dans Microsoft SQL Server, les noms des vues catalogue similaires contiennent *
 
 ## <a name="new-dynamic-management-views-dmvshttpsmsdnmicrosoftcomlibraryms188754aspx"></a>Nouvelles vues de gestion dynamique [(DMV)](https://msdn.microsoft.com/library/ms188754.aspx)
 
-La base de données SQL Azure comporte des [vues de gestion dynamique (DMV)](https://msdn.microsoft.com/library/bb677293.aspx) qui prennent en charge les événements étendus. Les vues de gestion dynamique vous renseignent sur les sessions d’événements *actives* .
+Azure SQL Database a des [vues de gestion dynamique (DMV)](https://msdn.microsoft.com/library/bb677293.aspx) qui prennent en charge les événements étendus. Les vues de gestion dynamique vous renseignent sur les sessions d’événements *actives* .
 
 | Nom de la vue de gestion dynamique | Description |
 |:--- |:--- |
@@ -109,7 +109,7 @@ Dans Microsoft SQL Server, les noms des vues catalogue similaires ne contiennen
 - **sys.dm_xe_sessions**, au lieu de name<br/>**sys.dm_xe_database_sessions**.
 
 ### <a name="dmvs-common-to-both"></a>Vues de gestion dynamique communes aux deux produits
-Pour les événements étendus, il existe des vues de gestion dynamique supplémentaires qui sont communes à la base de données SQL Azure et Microsoft SQL Server :
+Pour les événements étendus, des vues de gestion dynamique supplémentaires sont communes à Azure SQL Database et Microsoft SQL Server :
 
 - **sys.dm_xe_map_values**
 - **sys.dm_xe_object_columns**
@@ -176,7 +176,7 @@ Le jeton SAP que vous générez pour votre conteneur Azure Storage doit spécifi
 
 ## <a name="performance-considerations"></a>Considérations relatives aux performances
 
-Il existe des scénarios où l’utilisation intensive des événements étendus peut accumuler plus de mémoire active qu’il n’en faut pour l’intégrité de l’ensemble du système. Par conséquent, le système de la base de données SQL Azure définit et ajuste dynamiquement les limites de quantité de mémoire active pouvant être accumulée par une session d’événements. De nombreux facteurs entrent dans le calcul dynamique.
+Il existe des scénarios où l’utilisation intensive des événements étendus peut accumuler plus de mémoire active qu’il n’en faut pour l’intégrité de l’ensemble du système. Par conséquent, le système Azure SQL Database définit et ajuste dynamiquement les limites de quantité de mémoire active pouvant être accumulée par une session d’événements. De nombreux facteurs entrent dans le calcul dynamique.
 
 Si vous recevez un message d’erreur indiquant qu’une quantité maximale de mémoire a été appliquée, vous pouvez envisager certaines actions correctives, notamment :
 
@@ -204,7 +204,7 @@ La cible **Fichier d’événement** peut rencontrer une latence ou des problèm
     - [https://azure.microsoft.com/updates/?service=sql-database](https://azure.microsoft.com/updates/?service=sql-database)
 
 
-Vous trouverez d’autres rubriques d’exemples de code pour les événements étendus en suivant le lien ci-dessous. Toutefois, vous devez vérifier régulièrement les exemples pour voir s’ils ciblent Microsoft SQL Server ou la base de données SQL Azure. Vous pouvez ensuite déterminer si vous devez apporter quelques modifications mineures avant d’exécuter un exemple.
+Vous trouverez d’autres rubriques d’exemples de code pour les événements étendus en suivant le lien ci-dessous. Toutefois, vous devez vérifier régulièrement les exemples pour voir s’ils ciblent Microsoft SQL Server ou Azure SQL Database. Vous pouvez ensuite déterminer si vous devez apporter quelques modifications mineures avant d’exécuter un exemple.
 
 <!--
 ('lock_acquired' event.)

@@ -60,7 +60,7 @@ La récupération d’urgence est un élément important à prendre en compte po
 > [!NOTE]
 > L’application est récupérée dans la région jumelée à celle dans laquelle l’application est déployée. Pour plus d’informations, consultez [Régions jumelées Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).   
 
-Ce didacticiel utilise les fonctionnalités d’Azure SQL Database et la plateforme Azure pour effectuer ces tâches :
+Ce tutoriel utilise les fonctionnalités Azure SQL Database et la plateforme Azure pour effectuer ces tâches :
 
 * [Modèles Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template) pour réserver toute la capacité nécessaire aussi rapidement que possible. Les modèles Azure Resource Manager sont utilisés pour provisionner une image miroir des serveurs et pools élastiques d’origine dans la région de récupération. Un serveur et un pool distincts sont également créés pour le provisionnement de nouveaux locataires.
 * [Bibliothèque cliente de base de données élastique](sql-database-elastic-database-client-library.md) (EDCL) pour créer et tenir à jour un catalogue de bases de données de locataire. Le catalogue augmenté inclut des informations de configuration de pool et de base de données régulièrement actualisées.
@@ -369,7 +369,7 @@ Dans ce tutoriel, vous avez appris à :
 > [!div class="checklist"]
 > 
 > * Utiliser le catalogue de locataire pour conserver régulièrement les informations de configuration actualisées, et ainsi créer un environnement de récupération d’image miroir dans une autre région.
-> * Récupérer des bases de données SQL Azure dans la région de récupération en utilisant la géorestauration.
+> * Récupérer des bases de données Azure SQL dans la région de récupération en utilisant la géorestauration.
 > * Mettre à jour le catalogue de locataire pour refléter les emplacements de bases de données de locataire restaurées. 
 > * Utiliser un alias DNS pour permettre à une application de se connecter au catalogue de locataire sans reconfiguration.
 > * Utiliser la géoréplication pour rapatrier des bases de données récupérées dans leur région d’origine après la résolution d’une panne.

@@ -1,5 +1,5 @@
 ---
-title: 'Exemple PowerShell : Déplacer une base de données SQL Azure - pool élastique | Microsoft Docs'
+title: 'Exemple PowerShell : Déplacer une base de données Azure SQL - pool élastique | Microsoft Docs'
 description: Exemple de script Azure PowerShell permettant de déplacer une base de données SQL entre des pools élastiques à l’aide de PowerShell
 services: sql-database
 ms.service: sql-database
@@ -59,4 +59,4 @@ Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à
 
 Pour plus d’informations sur Azure PowerShell, consultez la [documentation Azure PowerShell](/powershell/azure/overview).
 
-Vous trouverez des exemples supplémentaires de scripts SQL Database PowerShell sur la page [Scripts PowerShell Azure SQL Database](../sql-database-powershell-samples.md).
+Vous trouverez des exemples supplémentaires de scripts SQL Database PowerShell dans [Scripts PowerShell Azure SQL Database](../sql-database-powershell-samples.md).

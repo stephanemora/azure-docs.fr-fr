@@ -77,7 +77,7 @@ Supposez que vous exécutez une machine virtuelle SQL Database de 4e génératio
 
 ### <a name="statement-section-of-csv-file"></a>Section des relevés du fichier CSV
 
-Filtrez sur le nom de compteur **Utilisation des instances réservées** et choisissez la **catégorie du compteur** requise : Azure SQL Database ou Azure Cosmos DB. Vous devez voir quelque chose de similaire à la capture d’écran suivante :
+Filtrez sur le nom de compteur **Utilisation des instances réservées** et choisissez la **catégorie du compteur** requise : Azure SQL Database ou Azure Cosmos DB. Vous devez voir quelque chose de similaire à la capture d’écran suivante :
 
 ![Fichier CSV pour la capacité réservée SQL Database](./media/billing-understand-reserved-instance-usage/billing-payg-sql-db-reserved-capacity-csv-statements.png)
 

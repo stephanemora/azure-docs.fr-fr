@@ -24,7 +24,7 @@ ms.locfileid: "60709322"
 > [!NOTE]
 > Le niveau Critique pour l’entreprise s’appelle Premium dans le modèle d’achat DTU. Pour obtenir une comparaison du modèle d’achat vCore avec le modèle d’achat DTU, consultez [Ressources et modèles d’achat Azure SQL Database](sql-database-purchase-models.md).
 
-Azure SQL Database est basé sur une architecture de moteur de base de données SQL Server. Celle-ci est ajustée pour l’environnement cloud afin de garantir une disponibilité de 99,99 % même en cas de panne d’infrastructure. Trois modèles d’architecture sont utilisés dans Azure SQL Database :
+Azure SQL Database est basé sur une architecture de moteur de base de données SQL Server. Celle-ci est ajustée pour l’environnement cloud afin de garantir une disponibilité de 99,99 % même en cas de panne d’infrastructure. Trois modèles d’architecture sont utilisés dans Azure SQL Database :
 - Usage général/Standard 
 - Critique pour l’entreprise/Premium
 - Hyperscale
@@ -35,7 +35,7 @@ Azure met à niveau et corrige le système d’exploitation sous-jacent, les pil
 
 La disponibilité Premium, activée dans les niveaux de service Premium et Critique pour l’entreprise d’Azure SQL Database, est conçue pour les charges de travail intensives qui ne tolèrent aucun impact sur les performances résultant des opérations de maintenance en cours.
 
-Dans le modèle Azure, Azure SQL Database intègre les opérations de calcul et stockage sur le nœud unique. Dans le cadre de ce modèle d’architecture, la haute disponibilité est obtenue par la réplication du calcul (processus du moteur de base de données SQL Server) et du stockage (disque SSD attaché localement). Elle est déployée dans un cluster à quatre nœuds avec une technologie similaire aux [groupes de disponibilité AlwaysOn](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server) de SQL Server.
+Dans le modèle Azure, la base de données Azure SQL intègre les opérations de calcul et stockage sur le nœud unique. Dans le cadre de ce modèle d’architecture, la haute disponibilité est obtenue par la réplication du calcul (processus du moteur de base de données SQL Server) et du stockage (disque SSD attaché localement). Elle est déployée dans un cluster à quatre nœuds avec une technologie similaire aux [groupes de disponibilité AlwaysOn](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server) de SQL Server.
 
 ![Cluster de nœuds de moteur de base de données](media/sql-database-managed-instance/business-critical-service-tier.png)
 

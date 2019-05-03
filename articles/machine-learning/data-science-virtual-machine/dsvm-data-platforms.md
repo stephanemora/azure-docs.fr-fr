@@ -57,7 +57,7 @@ Pour exécuter SQL Server Management Studio, vous pouvez rechercher « SQL Serv
 
 Le serveur de base de données avec l’instance de base de données par défaut s’exécute automatiquement par défaut. Vous pouvez utiliser des outils tels que SQL Server Management Studio sur la machine virtuelle pour accéder à la base de données SQL Server localement. Les comptes Administrateurs local ont un accès administrateur à la base de données. 
 
-De plus, la machine virtuelle DSVM est fournie avec des pilotes ODBC et JDBC pour communiquer avec SQL Server, les bases de données SQL Azure et Azure SQL Data Warehouse à partir d’applications écrites dans plusieurs langages, notamment Python et R. 
+De plus, la machine virtuelle DSVM est fournie avec des pilotes ODBC et JDBC pour communiquer avec SQL Server, les bases de données Azure SQL et Azure SQL Data Warehouse à partir d’applications écrites dans plusieurs langages, notamment Python et R. 
 
 ### <a name="how-is-it-configured--installed-on-the-dsvm"></a>Comment est-il configuré / installé sur la machine virtuelle DSVM ? 
 

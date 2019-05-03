@@ -1,5 +1,5 @@
 ---
-title: Gérer la rétention des sauvegardes à long terme Azure SQL Database | Microsoft Docs
+title: Gérer la conservation à long terme des sauvegardes Azure SQL Database | Microsoft Docs
 description: Découvrez comment stocker des sauvegardes automatisées dans le stockage SQL Azure, puis les restaurer
 services: sql-database
 ms.service: sql-database
@@ -19,7 +19,7 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 04/17/2019
 ms.locfileid: "59680517"
 ---
-# <a name="manage-azure-sql-database-long-term-backup-retention"></a>Gérer la rétention des sauvegardes à long terme Azure SQL Database
+# <a name="manage-azure-sql-database-long-term-backup-retention"></a>Gérer la conservation à long terme des sauvegardes Azure SQL Database
 
 Dans Azure SQL Database, vous pouvez configurer une base de données unique ou mise en pool avec une stratégie de [conservation à long terme des sauvegardes ](sql-database-long-term-retention.md) (LTR) afin de conserver automatiquement des sauvegardes dans le stockage Blob Azure pendant une durée maximale de 10 ans. Vous pouvez ensuite récupérer une base de données à l’aide de ces sauvegardes via le portail Azure ou PowerShell.
 

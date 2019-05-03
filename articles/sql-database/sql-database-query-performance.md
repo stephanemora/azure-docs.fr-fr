@@ -1,6 +1,6 @@
 ---
 title: Query Performance Insight pour Azure SQL Database | Microsoft Docs
-description: La supervision des performances de requêtes identifie les requêtes consommant le plus de processeur pour une base de données SQL Azure.
+description: La supervision des performances de requêtes identifie les requêtes consommant le plus de processeur pour une base de données Azure SQL.
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
@@ -35,7 +35,7 @@ La gestion et de réglage des performances des bases de données relationnelles 
 
 ## <a name="prerequisites"></a>Conditions préalables
 
-Query Performance Insight nécessite que le [magasin de requêtes](https://msdn.microsoft.com/library/dn817826.aspx) soit actif sur votre base de données. Il est automatiquement activé pour toutes les bases de données SQL Azure par défaut. Si le magasin de requêtes n’est pas exécuté, le portail Azure vous invite à l’activer.
+Query Performance Insight nécessite que le [magasin de requêtes](https://msdn.microsoft.com/library/dn817826.aspx) soit actif sur votre base de données. Il est automatiquement activé pour toutes les bases de données Azure SQL par défaut. Si le magasin de requêtes n’est pas exécuté, le portail Azure vous invite à l’activer.
 
 > [!NOTE]
 > Si le message « Le magasin de requêtes n’est pas correctement configuré sur cette base de données » s’affiche dans le portail, consultez [Optimisation de la configuration du magasin de requêtes](#optimize-the-query-store-configuration-for-query-performance-insight).

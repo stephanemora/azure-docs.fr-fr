@@ -1,6 +1,6 @@
 ---
 title: Guide pour un exemple d’application mutualisée SQL Database - SaaS Wingtip | Microsoft Docs
-description: Fournit des instructions et des étapes pour installer et exécuter l’exemple d’application mutualisée qui utilise la base de données SQL Azure, l’exemple Wingtip Tickets SaaS.
+description: Fournit des instructions et des étapes pour installer et exécuter l’exemple d’application multilocataire qui utilise Azure SQL Database, l’exemple Wingtip Tickets SaaS.
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario

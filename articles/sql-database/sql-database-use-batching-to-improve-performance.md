@@ -1,6 +1,6 @@
 ---
-title: Comment utiliser le traitement par lots pour améliorer les performances des applications de base de données SQL Azure
-description: Cette rubrique explique comment le traitement par lots des opérations de base de données contribue à améliorer la rapidité et l'extensibilité de vos applications Azure SQL Database. Bien que ces techniques de traitement par lot fonctionnent pour les bases de données SQL Server, cet article porte exclusivement sur Azure.
+title: Comment utiliser le traitement par lots pour améliorer les performances des applications Azure SQL Database
+description: Cette rubrique explique comment le traitement par lots des opérations de base de données contribue à améliorer la rapidité et la scalabilité de vos applications Azure SQL Database. Bien que ces techniques de traitement par lot fonctionnent pour les bases de données SQL Server, cet article porte exclusivement sur Azure.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -21,7 +21,7 @@ ms.locfileid: "60331126"
 ---
 # <a name="how-to-use-batching-to-improve-sql-database-application-performance"></a>Comment utiliser le traitement par lots pour améliorer les performances des applications de base de données SQL
 
-Les opérations de traitement par lots sur la base de données SQL Azure améliorent considérablement les performances et l’évolutivité de vos applications. Pour en comprendre les avantages, la première partie de cet article présente des résultats de test qui comparent des demandes séquentielles à des demandes par lots exécutées sur une base de données SQL. Le reste de cet article décrit des techniques, des scénarios et des remarques à prendre en compte pour vous aider à utiliser efficacement le traitement par lots dans vos applications Azure.
+Les opérations de traitement par lots sur Azure SQL Database améliorent considérablement les performances et la scalabilité de vos applications. Pour en comprendre les avantages, la première partie de cet article présente des résultats de test qui comparent des demandes séquentielles à des demandes par lots exécutées sur une base de données SQL. Le reste de cet article décrit des techniques, des scénarios et des remarques à prendre en compte pour vous aider à utiliser efficacement le traitement par lots dans vos applications Azure.
 
 ## <a name="why-is-batching-important-for-sql-database"></a>Pourquoi le traitement par lots est-il important pour SQL Database ?
 
@@ -677,5 +677,5 @@ La liste suivante fournit un résumé des recommandations relatives au traitemen
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Cet article se concentre sur la façon dont les techniques de conception et de codage de bases de données basées sur un traitement par lots peuvent améliorer les performances et l’évolutivité de votre application. Mais cet aspect ne représente qu’un facteur parmi d’autres dans votre stratégie globale. Pour d’autres méthodes d’amélioration des performances et de l’évolutivité, consultez [Guide des performances Azure SQL Database pour les bases de données uniques](sql-database-performance-guidance.md) et [Considérations sur les prix et performances pour un pool élastique](sql-database-elastic-pool-guidance.md).
+Cet article se concentre sur la façon dont les techniques de conception et de codage de bases de données basées sur un traitement par lots peuvent améliorer les performances et l’évolutivité de votre application. Mais cet aspect ne représente qu’un facteur parmi d’autres dans votre stratégie globale. Pour d’autres méthodes d’amélioration des performances et de la scalabilité, consultez [Guide des performances Azure SQL Database pour les bases de données uniques](sql-database-performance-guidance.md) et [Considérations sur les prix et performances pour un pool élastique](sql-database-elastic-pool-guidance.md).
 

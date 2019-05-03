@@ -1,6 +1,6 @@
 ---
-title: Limites de ressources par vCore d’Azure SQL Database – pools élastiques | Microsoft Docs
-description: Cette page décrit certaines des limites de ressources courantes par vCore pour des pools élastiques dans Azure SQL Database.
+title: Limites de ressources vCore Azure SQL Database – pools élastiques | Microsoft Docs
+description: Cette page décrit certaines des limites de ressources vCore courantes pour des pools élastiques dans Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: elastic-pools
@@ -26,7 +26,7 @@ Cet article détaille les limites de ressources des pools élastiques Azure SQL 
 Pour connaître les limites du modèle d’achat DTU, consultez [Limites des ressources DTU de SQL Database – pools élastiques](sql-database-dtu-resource-limits-elastic-pools.md).
 
 > [!IMPORTANT]
-> Dans certaines circonstances, vous devrez peut-être réduire une base de données pour récupérer l’espace inutilisé. Pour plus d’informations, consultez l’article [Gérer l’espace du fichier de la base de données SQL Azure](sql-database-file-space-management.md).
+> Dans certaines circonstances, vous devrez peut-être réduire une base de données pour récupérer l’espace inutilisé. Pour plus d’informations, consultez [Gérer l’espace des fichiers dans Azure SQL Database](sql-database-file-space-management.md).
 
 Vous pouvez définir le niveau de service, la taille de calcul et la quantité de stockage à l’aide du [Portail Azure](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), de [PowerShell](sql-database-elastic-pool-manage.md#powershell-manage-elastic-pools-and-pooled-databases), [d’Azure CLI](sql-database-elastic-pool-manage.md#azure-cli-manage-elastic-pools-and-pooled-databases) ou de [l’API REST](sql-database-elastic-pool-manage.md#rest-api-manage-elastic-pools-and-pooled-databases).
 

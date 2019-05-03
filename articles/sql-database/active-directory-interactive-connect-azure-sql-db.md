@@ -14,7 +14,7 @@ ms.date: 03/12/2019
 manager: craigg
 ms.openlocfilehash: bc7274308b8a349d16866f107eac4a57e115be9e
 ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "58850174"
@@ -74,11 +74,11 @@ Pour inscrire votre application et définir les autorisations nécessaires :
 
 3. Sélectionnez **autorisations requises** > **ajouter** > **sélectionner une API** > **base de données SQL Azure**.
 
-    ![Ajouter un accès à l’API d’Azure SQL Database](media/active-directory-interactive-connect-azure-sql-db/sshot-registered-app-settings-required-permissions-add-api-access-Azure-sql-db-d11.png)
+    ![Ajouter un accès à l’API pour Azure SQL Database](media/active-directory-interactive-connect-azure-sql-db/sshot-registered-app-settings-required-permissions-add-api-access-Azure-sql-db-d11.png)
 
 4. Sélectionnez **accès à l’API** > **sélectionner les autorisations** > **autorisations déléguées**.
 
-    ![Déléguer des autorisations pour l’API d’Azure SQL Database](media/active-directory-interactive-connect-azure-sql-db/sshot-add-api-access-azure-sql-db-delegated-permissions-checkbox-e14.png)
+    ![Déléguer des autorisations à l’API pour Azure SQL Database](media/active-directory-interactive-connect-azure-sql-db/sshot-add-api-access-azure-sql-db-delegated-permissions-checkbox-e14.png)
 
 ### <a name="set-an-azure-ad-admin-for-your-sql-database-server"></a>Définir un administrateur Azure AD pour votre serveur SQL Database
 

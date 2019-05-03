@@ -1,5 +1,5 @@
 ---
-title: Importer un fichier BACPAC pour créer une base de données SQL Azure | Microsoft Docs
+title: Importer un fichier BACPAC pour créer une base de données Azure SQL | Microsoft Docs
 description: Créez une base de données SQL Azure en important un fichier BACPAC.
 services: sql-database
 ms.service: sql-database

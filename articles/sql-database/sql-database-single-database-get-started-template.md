@@ -154,7 +154,7 @@ Le fichier JSON suivant est le modèle utilisé dans cet article. Le modèle est
 
 2. Sélectionnez ou entrez les valeurs suivantes.  
 
-    ![Modèle Resource Manager - créer une base de données sql azure](./media/sql-database-single-database-get-started-template/create-azure-sql-database-resource-manager-template.png)
+    ![Modèle Resource Manager - créer une base de données Azure SQL](./media/sql-database-single-database-get-started-template/create-azure-sql-database-resource-manager-template.png)
 
     Sauf indication contraire, utilisez les valeurs par défaut.
 

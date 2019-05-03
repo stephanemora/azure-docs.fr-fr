@@ -20,13 +20,13 @@ ms.lasthandoff: 03/06/2019
 ms.locfileid: "57436593"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Copier plusieurs tables en bloc à l’aide d’Azure Data Factory
-Ce tutoriel montre **comment copier des tables Azure SQL Database dans Azure SQL Data Warehouse**. Vous pouvez appliquer le même modèle à d’autres scénarios de copie. Par exemple : copie de tables à partir de SQL Server/Oracle dans Azure SQL Database/Data Warehouse/Azure Blob, copie de différents chemins à partir de Blob dans des tables Azure SQL Database.
+Ce tutoriel montre **comment copier des tables d’Azure SQL Database dans Azure SQL Data Warehouse**. Vous pouvez appliquer le même modèle à d’autres scénarios de copie. Par exemple : copie de tables à partir de SQL Server/Oracle dans Azure SQL Database/Data Warehouse/Azure Blob, copie de différents chemins à partir de Blob dans des tables Azure SQL Database.
 
 Globalement, ce tutoriel implique les étapes suivantes :
 
 > [!div class="checklist"]
 > * Créer une fabrique de données.
-> * Créer des services liés à Azure SQL Database, Azure SQL Data Warehouse, et Stockage Azure.
+> * Créer des services liés Azure SQL Database, Azure SQL Data Warehouse et Stockage Azure.
 > * Créer des jeux de données Azure SQL Database et Azure SQL Data Warehouse.
 > * Créer un pipeline pour rechercher les tables à copier et un autre pipeline pour effectuer l’opération de copie. 
 > * Démarrer une exécution de pipeline.
@@ -57,7 +57,7 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
 
 **Préparer la base de données SQL Azure source** :
 
-Créez une base de données SQL Azure avec l’exemple de données Adventure Works LT. Pour cela, suivez les instructions de l’article [Créer une base de données SQL Azure](../sql-database/sql-database-get-started-portal.md). Ce didacticiel copie toutes les tables de cet exemple de base de données dans un entrepôt de données SQL.
+Créez une base de données Azure SQL avec l’exemple de données Adventure Works LT. Pour cela, suivez les instructions de l’article [Créer une base de données Azure SQL](../sql-database/sql-database-get-started-portal.md). Ce didacticiel copie toutes les tables de cet exemple de base de données dans un entrepôt de données SQL.
 
 **Préparer le récepteur Azure SQL Data Warehouse** :
 
@@ -67,7 +67,7 @@ Créez une base de données SQL Azure avec l’exemple de données Adventure Wor
 
 ## <a name="azure-services-to-access-sql-server"></a>Services Azure pour accéder au serveur SQL
 
-Pour SQL Database et SQL Data Warehouse, autorisez les services Azure à accéder au serveur SQL. Vérifiez que le paramètre **Autoriser l’accès aux services Azure** est **activé** pour votre serveur SQL Azure. Ce paramètre permet au service Data Factory de lire les données de votre base de données SQL Azure et de les écrire dans votre entrepôt de données SQL Azure. Pour vérifier et activer ce paramètre, procédez comme suit :
+Pour SQL Database et SQL Data Warehouse, autorisez les services Azure à accéder au serveur SQL. Vérifiez que le paramètre **Autoriser l’accès aux services Azure** est **activé** pour votre serveur SQL Azure. Ce paramètre permet au service Data Factory de lire les données de votre base de données Azure SQL et de les écrire dans votre entrepôt de données Azure SQL. Pour vérifier et activer ce paramètre, procédez comme suit :
 
 1. Cliquez sur **Tous les services** sur la gauche, puis sur **Serveurs SQL**.
 2. Sélectionnez votre serveur, puis cliquez sur **Pare-feu** sous **PARAMÈTRES**.
@@ -109,7 +109,7 @@ Pour SQL Database et SQL Data Warehouse, autorisez les services Azure à accéde
         ```
 
     * Pour créer des instances de fabrique de données, vous devez être un administrateur/collaborateur de l’abonnement Azure.
-    * Pour obtenir la liste des régions Azure dans lesquelles Data Factory est actuellement disponible, sélectionnez les régions qui vous intéressent dans la page suivante, puis développez **Analytique** pour localiser **Data Factory** : [Disponibilité des produits par région](https://azure.microsoft.com/global-infrastructure/services/). Les magasins de données (Stockage Azure, Azure SQL Database, etc.) et les services de calcul (HDInsight, etc.) utilisés par la fabrique de données peuvent se trouver dans d’autres régions.
+    * Pour obtenir la liste des régions Azure dans lesquelles Data Factory est actuellement disponible, sélectionnez les régions qui vous intéressent dans la page suivante, puis développez **Analytique** pour localiser **Data Factory** : [Disponibilité des produits par région](https://azure.microsoft.com/global-infrastructure/services/). Les magasins de données (Stockage Azure, Azure SQL Database, etc.) et les services de calcul (HDInsight, etc.) utilisés par la fabrique de données peuvent être proposés dans d’autres régions.
 
 ## <a name="create-linked-services"></a>Créez des services liés
 
@@ -120,7 +120,7 @@ Dans ce tutoriel, vous allez créer trois services liés (un pour la source, un 
 1. Créez un fichier JSON nommé **AzureSqlDatabaseLinkedService.json** dans le dossier **C:\ADFv2TutorialBulkCopy** avec le contenu suivant : (Créez le dossier ADFv2TutorialBulkCopy s’il n’existe pas déjà.)
 
     > [!IMPORTANT]
-    > Remplacez &lt;servername&gt;, &lt;databasename&gt;, &lt;username&gt;@&lt;servername&gt; et &lt;password&gt; par les valeurs de votre base de données SQL Azure avant d’enregistrer le fichier.
+    > Remplacez &lt;servername&gt;, &lt;databasename&gt;, &lt;username&gt;@&lt;servername&gt; et &lt;password&gt; par les valeurs de votre base de données Azure SQL avant d’enregistrer le fichier.
 
     ```json
     {
@@ -159,7 +159,7 @@ Dans ce tutoriel, vous allez créer trois services liés (un pour la source, un 
 1. Créez un fichier JSON nommé **AzureSqlDWLinkedService.json** dans le dossier **C:\ADFv2TutorialBulkCopy** avec le contenu suivant :
 
     > [!IMPORTANT]
-    > Remplacez &lt;servername&gt;, &lt;databasename&gt;, &lt;username&gt;@&lt;servername&gt; et &lt;password&gt; par les valeurs de votre base de données SQL Azure avant d’enregistrer le fichier.
+    > Remplacez &lt;servername&gt;, &lt;databasename&gt;, &lt;username&gt;@&lt;servername&gt; et &lt;password&gt; par les valeurs de votre base de données Azure SQL avant d’enregistrer le fichier.
 
     ```json
     {
@@ -320,7 +320,7 @@ Dans ce tutoriel, vous allez créer deux pipelines :
 
 ### <a name="create-the-pipeline-iterateandcopysqltables"></a>Créer le pipeline « IterateAndCopySQLTables »
 
-Ce pipeline prend une liste de tables comme paramètre. Pour chaque table dans la liste, il copie les données de la table dans Azure SQL Database vers Azure SQL Data Warehouse en utilisant la copie intermédiaire et PolyBase.
+Ce pipeline prend une liste de tables comme paramètre. Pour chaque table dans la liste, il copie les données de la table Azure SQL Database vers Azure SQL Data Warehouse en utilisant la copie intermédiaire et PolyBase.
 
 1. Créez un fichier JSON nommé **IterateAndCopySQLTables.json** dans le dossier **C:\ADFv2TutorialBulkCopy** avec le contenu suivant :
 
@@ -587,7 +587,7 @@ Dans ce didacticiel, vous avez effectué les étapes suivantes :
 
 > [!div class="checklist"]
 > * Créer une fabrique de données.
-> * Créer des services liés à Azure SQL Database, Azure SQL Data Warehouse, et Stockage Azure.
+> * Créer des services liés Azure SQL Database, Azure SQL Data Warehouse et Stockage Azure.
 > * Créer des jeux de données Azure SQL Database et Azure SQL Data Warehouse.
 > * Créer un pipeline pour rechercher les tables à copier et un autre pipeline pour effectuer l’opération de copie. 
 > * Démarrer une exécution de pipeline.

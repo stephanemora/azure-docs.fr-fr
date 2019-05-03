@@ -20,7 +20,7 @@ metadata:
 sections:
   - items:
       - type: paragraph
-        text: "Azure SQL Database est un moteur de base de données PaaS (Platform as a service) complètement managé qui prend en charge la plupart des fonctions de gestion de base de données telles que la mise à niveau, la mise à jour corrective, les sauvegardes et la surveillance sans intervention de l’utilisateur. Azure SQL Database s’exécute toujours sur la dernière version stable du moteur de base de données SQL Server et un système d’exploitation corrigé avec une disponibilité de 99,99\_%. Les fonctionnalités PaaS intégrées à Azure SQL Database vous permettent de vous concentrer sur les activités d’administration et d’optimisation de base de données spécifiques au domaine qui sont critiques pour l’entreprise."
+        text: "Azure SQL Database est un moteur de base de données PaaS (Platform as a service) complètement managé qui prend en charge la plupart des fonctions de gestion de base de données telles que la mise à niveau, la mise à jour corrective, les sauvegardes et la surveillance sans intervention de l’utilisateur. Azure SQL Database s’exécute toujours sur la dernière version stable du moteur de base de données SQL Server et un système d’exploitation corrigé avec une disponibilité de 99,99\_%. Les fonctionnalités PaaS intégrées à une base de données Azure SQL vous permettent de vous concentrer sur les activités d’administration et d’optimisation de base de données spécifiques au domaine qui sont critiques pour l’entreprise."
       - type: list
         style: cards
         className: cardsM
@@ -31,7 +31,7 @@ sections:
             html: '<p>Azure SQL Database permet à votre entreprise de continuer à fonctionner en cas d’interruption, notamment de son infrastructure informatique.</p>'
           - title: Haute disponibilité
             href: /azure/sql-database/sql-database-high-availability
-            html: "<p>Azure SQL Database garantit une disponibilité dans le temps de vos bases de données de 99,99\_%, éliminant tout souci lié à la maintenance et aux temps d’arrêt.</p>"
+            html: "<p>Azure SQL Database garantit une disponibilité de 99,99\_% de vos bases de données et vous évite tout souci lié à la maintenance et aux temps d’arrêt.</p>"
           - title: Sauvegardes automatisées
             href: /azure/sql-database/sql-database-automated-backups
             html: <p>Azure SQL Database crée automatiquement des sauvegardes de base de données et utilise le stockage géoredondant avec accès en lecture (RA-GRS) d’Azure pour fournir la géoredondance.</p>

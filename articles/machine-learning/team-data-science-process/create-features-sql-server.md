@@ -32,7 +32,7 @@ Cette tâche est une étape du [processus TDSP (Team Data Science Process)](http
 Cet article suppose que vous avez :
 
 * Créé un compte de stockage Azure. Si vous avez besoin d'aide, consultez [Créer un compte Azure Storage](../../storage/common/storage-quickstart-create-account.md)
-* Stocké vos données dans SQL Server. Si ce n’est pas le cas, consultez [Déplacement de données vers une base de données SQL Azure pour Azure Machine Learning](move-sql-azure.md) pour obtenir des instructions sur la façon d’y déplacer des données.
+* Stocké vos données dans SQL Server. Si ce n’est pas le cas, consultez [Déplacement de données vers une base de données Azure SQL pour Azure Machine Learning](move-sql-azure.md) pour obtenir des instructions sur la façon d’y déplacer des données.
 
 ## <a name="sql-featuregen"></a>Génération de fonctionnalités avec SQL
 Dans cette section, nous décrivons plusieurs manières de générer des fonctionnalités via SQL :  

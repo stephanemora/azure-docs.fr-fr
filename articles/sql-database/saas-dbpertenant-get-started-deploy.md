@@ -1,5 +1,5 @@
 ---
-title: Didacticiel SaaS du modèle de base de données par locataire - Azure SQL Database | Microsoft Docs
+title: Tutoriel SaaS du modèle de base de données par locataire - Azure SQL Database | Microsoft Docs
 description: Déployez et explorez l’application multilocataire SaaS Wingtip Tickets, qui illustre le modèle de base de données par locataire et d’autres modèles SaaS, en utilisant Azure SQL Database.
 services: sql-database
 ms.service: sql-database

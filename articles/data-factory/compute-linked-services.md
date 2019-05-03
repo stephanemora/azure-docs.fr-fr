@@ -13,7 +13,7 @@ ms.author: abnarain
 manager: craigg
 ms.openlocfilehash: b4078303a0fabf70fe8bda82875dd312714f73de
 ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 03/07/2019
 ms.locfileid: "57576886"
@@ -110,7 +110,7 @@ Le JSON suivant définit un service lié HDInsight à la demande sous Linux. Le 
 | sparkVersion                 | Version de spark si le type de cluster est « Spark » | Non        |
 | additionalLinkedServiceNames | Spécifie les comptes de stockage supplémentaires pour le service lié HDInsight afin que le service Data Factory puisse les enregistrer en votre nom. Ces comptes de stockage doivent être dans la même région que le cluster HDInsight, qui est créé dans la même région que le compte de stockage spécifié par linkedServiceName. | Non        |
 | osType                       | Type de système d'exploitation. Les valeurs autorisées sont les suivantes : Linux et Windows (pour HDInsight 3.3 uniquement). Par défaut, c’est Linux. | Non        |
-| hcatalogLinkedServiceName    | Le nom du service lié à SQL Azure pointant vers la base de données HCatalog. Le cluster HDInsight à la demande est créé en utilisant Azure SQL Database en tant que metastore. | Non        |
+| hcatalogLinkedServiceName    | Le nom du service lié à SQL Azure pointant vers la base de données HCatalog. Le cluster HDInsight à la demande est créé en utilisant la base de données Azure SQL en tant que metastore. | Non        |
 | connectVia                   | Runtime d’intégration à utiliser pour répartir les activités à ce service lié HDInsight. Pour le service lié HDInsight à la demande, il prend uniquement en charge un runtime d’intégration Azure. À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. | Non        |
 | clusterUserName                   | Nom d’utilisateur pour accéder au cluster. | Non        |
 | clusterPassword                   | Mot de passe sous forme de chaîne sécurisée pour accéder au cluster. | Non        |
@@ -496,7 +496,7 @@ Vous pouvez créer un **service Azure Databricks lié** pour inscrire l’espace
 | newClusterSparkConf  | un ensemble de paires clé-valeur de configuration Spark spécifiées par l’utilisateur et facultatives. Les utilisateurs peuvent également transmettre une chaîne d’options JVM supplémentaires au pilote et aux exécuteurs, respectivement via spark.driver.extraJavaOptions et spark.executor.extraJavaOptions. | Non   |
 
 
-## <a name="azure-sql-database-linked-service"></a>Service lié pour base de données SQL Azure
+## <a name="azure-sql-database-linked-service"></a>Service lié Azure SQL Database
 Créez un service lié Azure SQL et utilisez-le avec l’ [activité de procédure stockée](transform-data-using-stored-procedure.md) pour appeler une procédure stockée à partir d’un pipeline Data Factory. Pour plus d’informations sur ce service lié, consultez la page [Connecteur SQL Azure](connector-azure-sql-database.md#linked-service-properties) .
 
 ## <a name="azure-sql-data-warehouse-linked-service"></a>Service lié Azure SQL Data Warehouse

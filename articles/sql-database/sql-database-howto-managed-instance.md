@@ -1,6 +1,6 @@
 ---
-title: Configurer une instance gérée Azure SQL Database | Microsoft Docs
-description: Découvrez comment configurer et gérer une instance gérée Azure SQL Database.
+title: Configurer une instance managée Azure SQL Database | Microsoft Docs
+description: Découvrez comment configurer et gérer une instance managée Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
@@ -19,7 +19,7 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60340789"
 ---
-# <a name="how-to-use-a-managed-instance-in-azure-sql-database"></a>Utiliser une instance gérée dans Azure SQL Database
+# <a name="how-to-use-a-managed-instance-in-azure-sql-database"></a>Utiliser une instance managée dans Azure SQL Database
 
 Dans cet article, vous trouverez des guides, des scripts et des explications pour vous aider à gérer et à configurer votre instance gérée.
 

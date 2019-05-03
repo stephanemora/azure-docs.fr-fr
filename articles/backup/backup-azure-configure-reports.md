@@ -27,7 +27,7 @@ Téléchargez la dernière application (version 1.8) pour éviter ce problème.
 
 ## <a name="supported-scenarios"></a>Scénarios pris en charge
 - Les rapports de la Sauvegarde Azure sont pris en charge pour la sauvegarde de machines virtuelles Azure et de fichiers/dossiers dans le cloud à l’aide de l’agent Azure Recovery Services.
-- Les rapports pour la base de données SQL Azure, les partages de fichiers Azure, Data Protection Manager et le serveur de sauvegarde Azure ne sont pas pris en charge pour l’instant.
+- Les rapports pour la base de données Azure SQL, les partages de fichiers Azure, Data Protection Manager et le serveur de sauvegarde Azure ne sont pas pris en charge pour l’instant.
 - Vous pouvez afficher des rapports sur différents coffres et abonnements, à condition que le même compte de stockage soit configuré pour chacun des coffres. Le compte de stockage sélectionné doit se trouver dans la même région que le coffre Recovery Services.
 - La fréquence d’actualisation planifiée des rapports est de 24 heures dans Power BI. Vous pouvez également effectuer une actualisation ad hoc des rapports dans Power BI. Dans ce cas, les données les plus récentes dans le compte de stockage client sont utilisées pour restituer des rapports.
 

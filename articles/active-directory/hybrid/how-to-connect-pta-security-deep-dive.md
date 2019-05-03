@@ -103,7 +103,7 @@ Les agents d’authentification suivent la procédure ci-dessous pour s’inscri
     - L’autorité de certification est utilisée uniquement par la fonctionnalité d’authentification directe. L’autorité de certification est utilisée uniquement pour signer les CSR lors de l’inscription de l’agent d’authentification.
     -  Aucun des autres services Azure AD n’utilise cette autorité de certification.
     - L’objet du certificat (Nom unique ou DN) est défini sur votre ID de locataire. Ce DN est un GUID qui identifie de manière unique votre locataire. Avec ce DN, le certificat ne peut donc être utilisé qu’avec votre locataire.
-6. Azure AD stocke la clé publique de l’agent d’authentification dans une base de données SQL Azure accessible uniquement à Azure AD.
+6. Azure AD stocke la clé publique de l’agent d’authentification dans une base de données Azure SQL accessible uniquement à Azure AD.
 7. Le certificat (émis à l’étape 5) est stocké sur le serveur local dans le magasin de certificats Windows (plus précisément à l’emplacement [CERT_SYSTEM_STORE_LOCAL_MACHINE](https://msdn.microsoft.com/library/windows/desktop/aa388136.aspx#CERT_SYSTEM_STORE_LOCAL_MACHINE)). Il est utilisé par l’agent d’authentification et les applications du programme de mise à jour.
 
 ### <a name="authentication-agent-initialization"></a>Initialisation de l’agent d’authentification

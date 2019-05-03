@@ -1,6 +1,6 @@
 ---
-title: Charger des données à partir d’un fichier CSV dans la base de données SQL Azure (BCP) | Microsoft Docs
-description: Pour les données de taille réduite, utilise l’utilitaire de ligne de commande BCP pour importer les données dans la base de données SQL Azure.
+title: Charger des données à partir d’un fichier CSV dans Azure SQL Database (BCP) | Microsoft Docs
+description: Pour les données de taille réduite, utilise l’utilitaire de ligne de commande BCP pour importer les données dans Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
@@ -20,9 +20,9 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60702467"
 ---
-# <a name="load-data-from-csv-into-azure-sql-database-flat-files"></a>Charger des données à partir d’un fichier CSV une base de données SQL Azure (fichiers plats)
+# <a name="load-data-from-csv-into-azure-sql-database-flat-files"></a>Charger des données d’un fichier CSV sur Azure SQL Database (fichiers plats)
 
-Vous pouvez utiliser l’utilitaire de ligne de commande BCP pour importer des données à partir d’un fichier CSV dans la base de données SQL Azure.
+Vous pouvez utiliser l’utilitaire de ligne de commande BCP pour importer des données à partir d’un fichier CSV dans une base de données Azure SQL.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 

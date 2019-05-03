@@ -21,7 +21,7 @@ ms.locfileid: "60331336"
 ---
 # <a name="automate-the-replication-of-schema-changes-in-azure-sql-data-sync"></a>Automatiser la réplication des modifications de schéma dans Azure SQL Data Sync
 
-SQL Data Sync permet aux utilisateurs de synchroniser des données entre des bases de données SQL Azure et un serveur SQL Server local, de façon unidirectionnelle ou bidirectionnelle. Une des limitations actuelles de SQL Data Sync est un manque de prise en charge pour la réplication des modifications de schéma. À chaque fois que vous modifiez le schéma de table, vous devez appliquer les modifications manuellement sur tous les points de terminaison, notamment le concentrateur et tous les membres, puis mettre à jour le schéma de synchronisation.
+SQL Data Sync permet aux utilisateurs de synchroniser des données entre des bases de données Azure SQL et un serveur SQL Server local, de façon unidirectionnelle ou bidirectionnelle. Une des limitations actuelles de SQL Data Sync est un manque de prise en charge pour la réplication des modifications de schéma. À chaque fois que vous modifiez le schéma de table, vous devez appliquer les modifications manuellement sur tous les points de terminaison, notamment le concentrateur et tous les membres, puis mettre à jour le schéma de synchronisation.
 
 Cet article présente une solution pour répliquer automatiquement les modifications de schéma sur tous les points de terminaison SQL Data Sync.
 1. Cette solution utilise un déclencheur DDL pour effectuer le suivi des modifications de schéma.

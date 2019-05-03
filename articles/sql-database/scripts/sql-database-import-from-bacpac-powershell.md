@@ -1,5 +1,5 @@
 ---
-title: Exemple PowerShell d’importation d’un fichier BACPAC dans une base de données SQL Azure | Microsoft Docs
+title: Exemple PowerShell d’importation d’un fichier BACPAC dans une base de données Azure SQL | Microsoft Docs
 description: Exemple de script Azure PowerShell qui importe un fichier BACPAC dans une base de données SQL
 services: sql-database
 ms.service: sql-database
@@ -19,9 +19,9 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59361211"
 ---
-# <a name="use-powershell-to-import-a-bacpac-file-into-an-azure-sql-database"></a>Utiliser PowerShell pour importer un fichier BACPAC dans une base de données SQL Azure
+# <a name="use-powershell-to-import-a-bacpac-file-into-an-azure-sql-database"></a>Utiliser PowerShell pour importer un fichier BACPAC dans une base de données Azure SQL
 
-Cet exemple de script PowerShell importe dans une base de données SQL Azure une base de données contenue dans un fichier BACPAC.  
+Cet exemple de script PowerShell importe dans une base de données Azure SQL une base de données contenue dans un fichier BACPAC.  
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
@@ -57,4 +57,4 @@ Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à
 
 Pour plus d’informations sur Azure PowerShell, consultez la [documentation Azure PowerShell](/powershell/azure/overview).
 
-Vous trouverez des exemples supplémentaires de scripts SQL Database PowerShell sur la page [Scripts PowerShell Azure SQL Database](../sql-database-powershell-samples.md).
+Vous trouverez des exemples supplémentaires de scripts SQL Database PowerShell dans [Scripts PowerShell Azure SQL Database](../sql-database-powershell-samples.md).

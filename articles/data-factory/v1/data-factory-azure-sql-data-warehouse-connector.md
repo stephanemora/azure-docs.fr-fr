@@ -43,7 +43,7 @@ Vous pouvez copier des données depuis les magasins de données suivants **vers 
 [!INCLUDE [data-factory-supported-sources](../../../includes/data-factory-supported-sources.md)]
 
 > [!TIP]
-> Lors de la copie de données à partir de SQL Server ou d’Azure SQL Data Warehouse dans Azure SQL Data Warehouse, si la table n’existe pas dans le magasin de destination, Data Factory peut automatiquement créer la table dans SQL Data Warehouse en utilisant le schéma de la table dans le magasin de données source. Consultez [Création automatique de la table](#auto-table-creation) pour plus d’informations.
+> Lors de la copie de données depuis SQL Server ou Azure SQL Database vers Azure SQL Data Warehouse, si la table n’existe pas dans le magasin de destination, Data Factory peut automatiquement créer la table dans SQL Data Warehouse en utilisant le schéma de la table dans le magasin de données source. Consultez [Création automatique de la table](#auto-table-creation) pour plus d’informations.
 
 ## <a name="supported-authentication-type"></a>Type d’authentification pris en charge
 Le connecteur Azure SQL Data Warehouse prend en charge l’authentification de base.
@@ -296,7 +296,7 @@ All columns of the table must be specified in the INSERT BULK statement.
 La valeur NULL est une forme spéciale de valeur par défaut. Si la colonne accepte la valeur Null, les données d’entrée (dans l’objet blob) de cette colonne peuvent être vides (ne peuvent pas être absentes du jeu de données d’entrée). PolyBase insère NULL pour ces données dans Azure SQL Data Warehouse.
 
 ## <a name="auto-table-creation"></a>Création automatique de la table
-Si vous utilisez l’assistant de copie pour copier des données à partir de SQL Server ou d’Azure SQL Data Warehouse dans Azure SQL Data Warehouse et que la table qui correspond à la table source n’existe pas dans le magasin de destination, Data Factory peut automatiquement créer la table dans SQL Data Warehouse en utilisant le schéma de table source.
+Si vous utilisez l’Assistant de copie pour copier des données depuis SQL Server ou Azure SQL Database vers Azure SQL Data Warehouse et que la table qui correspond à la table source n’existe pas dans le magasin de destination, Data Factory peut automatiquement créer la table dans SQL Data Warehouse en utilisant le schéma de table source.
 
 Data Factory crée la table dans le magasin de destination portant le même nom de table dans le magasin de données source. Les types de données des colonnes sont choisis en fonction du mappage de type suivant. Si nécessaire, des conversions de type sont effectuées pour corriger les éventuelles incompatibilités entre les magasins source et de destination. Il utilise également la distribution de tables en tourniquet (Round Robin).
 

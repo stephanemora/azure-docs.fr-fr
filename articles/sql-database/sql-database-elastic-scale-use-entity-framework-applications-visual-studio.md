@@ -33,7 +33,7 @@ Pour télécharger le code utilisé dans cet article :
 * Dans Visual Studio, sélectionnez Fichier -> Ouvrir un projet/une solution. 
 * Dans la boîte de dialogue **Ouvrir un projet**, accédez à l’exemple que vous avez téléchargé, puis sélectionnez **EntityFrameworkCodeFirst.sln** pour ouvrir l’exemple. 
 
-Pour exécuter l'exemple, vous devez créer trois bases de données vides dans Base de données SQL Azure :
+Pour exécuter l'exemple, vous devez créer trois bases de données vides dans Azure SQL Database :
 
 * Une base de données du gestionnaire des cartes de partitions
 * Une base de données nommée Shard 1

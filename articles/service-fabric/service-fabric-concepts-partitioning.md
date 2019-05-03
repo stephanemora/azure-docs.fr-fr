@@ -32,7 +32,7 @@ Pour les services sans état, vous pouvez considérer une partition comme une un
 
 ![Service sans état](./media/service-fabric-concepts-partitioning/statelessinstances.png)
 
-Il existe en réalité deux types de solutions de service sans état. Le premier est un service qui conserve son état en externe, par exemple dans une base de données SQL Azure (comme un site web qui stocke les données et les informations de la session). Le second est un service de calcul uniquement (comme une calculatrice ou la miniaturisation des images) qui ne gère aucun état persistant.
+Il existe en réalité deux types de solutions de service sans état. Le premier est un service qui conserve son état en externe, par exemple dans une base de données Azure SQL (comme un site web qui stocke les données et les informations de la session). Le second est un service de calcul uniquement (comme une calculatrice ou la miniaturisation des images) qui ne gère aucun état persistant.
 
 Dans les deux cas, le partitionnement d’un service sans état constitue un scénario extrêmement rare. L’évolutivité et la disponibilité passent normalement par une augmentation du nombre d’instances. Il n’y a que lorsque vous devez répondre à des demandes de routage spéciales qu’il est judicieux d’envisager plusieurs partitions pour des instances de service sans état.
 

@@ -63,7 +63,7 @@ Cette figure montre comment les pipelines de données apparaissent dans l’inte
 2. Le pipeline **EnrichGameLogsPipeline** associe des événements de jeu partitionnés à des données de référence de code géographique et les enrichit en mappant les adresses IP avec les emplacements géographiques correspondants.
 3. Le pipeline **AnalyzeMarketingCampaignPipeline** utilise les données enrichies et les traite avec les données de publicité pour créer la sortie finale contenant l’efficacité de la campagne marketing.
 
-Dans cet exemple, Data Factory sert à orchestrer les activités qui copient les données d’entrée, transforment et traitent les données, et à générer les données finales dans une base de données SQL Azure.  Vous pouvez également visualiser le réseau des pipelines de données, les gérer et surveiller leur état à partir de l'interface utilisateur.
+Dans cet exemple, Data Factory sert à orchestrer les activités qui copient les données d’entrée, transforment et traitent les données, et à générer les données finales dans une base de données Azure SQL.  Vous pouvez également visualiser le réseau des pipelines de données, les gérer et surveiller leur état à partir de l'interface utilisateur.
 
 ## <a name="benefits"></a>Avantages
 En optimisant l’analyse du profil de ses utilisateurs et en l’alignant sur ses objectifs commerciaux, le développeur de jeux peut recueillir rapidement des modèles d’utilisation et analyser l’efficacité de ses campagnes marketing.

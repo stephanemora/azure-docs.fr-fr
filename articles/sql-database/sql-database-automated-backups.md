@@ -93,7 +93,7 @@ Pour plus d’informations sur les prix du stockage, consultez la page [Tarifica
 
 ## <a name="are-backups-encrypted"></a>Les sauvegardes sont-elles chiffrées ?
 
-Si votre base de données est chiffrée à l’aide de TDE, les sauvegardes sont automatiquement chiffrées au repos, y compris les sauvegardes LTR. Lorsque le TDE est activé pour une base de données SQL Azure, les sauvegardes sont également chiffrées. Le TDE est configuré par défaut sur l’ensemble des nouvelles bases de données SQL Azure. Pour en savoir plus sur le TDE, consultez la page [Chiffrement transparent des données avec Azure SQL Database](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql).
+Si votre base de données est chiffrée à l’aide de TDE, les sauvegardes sont automatiquement chiffrées au repos, y compris les sauvegardes LTR. Lorsque TDE est activé pour une base de données Azure SQL, les sauvegardes sont également chiffrées. TDE est configuré par défaut sur l’ensemble des nouvelles bases de données Azure SQL. Pour en savoir plus sur le TDE, consultez [Transparent Data Encryption avec Azure SQL Database](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql).
 
 ## <a name="how-does-microsoft-ensure-backup-integrity"></a>Comment Microsoft garantit l’intégrité de la sauvegarde ?
 

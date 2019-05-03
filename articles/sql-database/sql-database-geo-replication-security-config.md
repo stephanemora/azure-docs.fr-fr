@@ -1,5 +1,5 @@
 ---
-title: Configurer la sécurité d’Azure SQL Database pour la récupération d’urgence | Microsoft Docs
+title: Configurer la sécurité d’Azure SQL Database pour la reprise d’activité | Microsoft Docs
 description: Découvrez les considérations de sécurité pour la configuration et la gestion de la sécurité après une restauration de base de données ou un basculement vers un serveur secondaire.
 services: sql-database
 ms.service: sql-database
@@ -14,7 +14,7 @@ manager: craigg
 ms.date: 12/18/2018
 ms.openlocfilehash: 50cec0774729073678498922b2c58f1ca62d7d82
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60341945"

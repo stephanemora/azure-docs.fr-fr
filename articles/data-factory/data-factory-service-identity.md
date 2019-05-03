@@ -13,7 +13,7 @@ ms.date: 04/08/2019
 ms.author: jingwang
 ms.openlocfilehash: 3c1bb38eb12ce77d172257706cd458cebda4bd8c
 ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59260746"
@@ -31,7 +31,7 @@ Lorsque vous créez une fabrique de données, une identité gérée peut être c
 Une identité gérée pour Data Factory avantages pour les fonctionnalités suivantes :
 
 - [Store d’informations d’identification dans Azure Key Vault](store-credentials-in-key-vault.md), auquel cas l’identité gérée de fabrique de données est utilisée pour l’authentification Azure Key Vault.
-- Connecteurs, notamment [Stockage blob Azure ](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure SQL Database](connector-azure-sql-database.md) et [Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md).
+- Connecteurs, notamment [Stockage Blob Azure](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure SQL Database](connector-azure-sql-database.md) et [Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md).
 - [Activité web](control-flow-web-activity.md).
 
 ## <a name="generate-managed-identity"></a>Générer l’identité gérée

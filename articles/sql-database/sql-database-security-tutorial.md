@@ -36,7 +36,7 @@ Azure SQL Database sécurise les données dans une base de données unique ou mi
 - Activer les fonctionnalités de sécurité
 
 > [!NOTE]
-> Une base de données SQL Azure sur une instance managée se sécurise à l’aide de règles de sécurité réseau et de points de terminaison privés, comme décrit dans [Instance managée de base de données SQL Azure](sql-database-managed-instance-index.yml) et [Architecture de connectivité](sql-database-managed-instance-connectivity-architecture.md).
+> Une base de données Azure SQL sur une instance managée se sécurise à l’aide de règles de sécurité réseau et de points de terminaison privés, comme décrit dans [Instance managée de base de données Azure SQL](sql-database-managed-instance-index.yml) et [Architecture de connectivité](sql-database-managed-instance-connectivity-architecture.md).
 
 Pour plus d’informations, consultez les articles [Vue d’ensemble de la sécurité dans Azure SQL Database](/azure/sql-database/sql-database-security-index) et [Capacités](sql-database-security-overview.md).
 
@@ -112,7 +112,7 @@ Pour configurer une règle de pare-feu au niveau de la base de données :
 
 ## <a name="create-an-azure-ad-admin"></a>Créer une application Azure AD
 
-Vérifiez que vous utilisez le domaine géré Azure Active Directory (AD) approprié. Pour sélectionner le domaine AD, utilisez le coin supérieur droit du portail Azure. Ce processus confirme que le même abonnement est utilisé pour Azure AD et SQL Server, qui hébergent votre entrepôt de données ou base de données SQL Azure.
+Vérifiez que vous utilisez le domaine géré Azure Active Directory (AD) approprié. Pour sélectionner le domaine AD, utilisez le coin supérieur droit du portail Azure. Ce processus confirme que le même abonnement est utilisé pour Azure AD et SQL Server, qui hébergent votre entrepôt de données ou base de données Azure SQL.
 
    ![choose-ad](./media/sql-database-security-tutorial/8choose-ad.png)
 

@@ -158,7 +158,7 @@ Les stratégies affectent le comportement d'exécution d'une activité, en parti
 | longRetryInterval |TimeSpan |00:00:00 |Le délai entre les nouvelles tentatives longues |
 
 ## <a name="sample-copy-pipeline"></a>Exemple de pipeline de copie
-Dans l’exemple de pipeline suivant, il existe une activité de type **Copy** in the **d’activités** . Dans cet exemple, l’[activité de copie](data-factory-data-movement-activities.md) copie des données d’un stockage Blob Azure vers une base de données SQL Azure.
+Dans l’exemple de pipeline suivant, il existe une activité de type **Copy** in the **d’activités** . Dans cet exemple, l’[activité de copie](data-factory-data-movement-activities.md) copie des données d’un stockage Blob Azure vers une base de données Azure SQL.
 
 ```json
 {

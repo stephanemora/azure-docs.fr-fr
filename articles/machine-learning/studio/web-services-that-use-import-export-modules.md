@@ -26,7 +26,7 @@ ms.locfileid: "60345117"
 
 Lorsque vous créez une expérience prédictive, vous ajoutez généralement une entrée et une sortie de service web. Lorsque vous déployez l’expérience, les consommateurs peuvent envoyer et recevoir des données à partir du service web via les entrées et sorties. Pour certaines applications, les données d’un consommateur peuvent être disponibles à partir d’un flux de données ou figurer déjà dans une source de données externe tels que le stockage d’objets blob Azure. Dans ces cas, elles n’ont pas besoin de lire ni d’écrire les données en utilisant des entrées et sorties de service web. Au lieu de cela, elles peuvent utiliser le Service d’exécution de lots (BES, Batch Execution Service) pour lire les données à partir de la source de données à l’aide d’un module Importer des données et écrire les résultats de la notation dans un autre emplacement de données à l’aide d’un module d’exporter de données.
 
-Les modules Importer des données et Exporter des données peuvent lire et écrire dans divers emplacements de données, par exemple une URL web via HTTP, une requête Hive, une base de données SQL Azure, un stockage de table Azure, un stockage d’objets blob Azure, un flux de données ou une base de données SQL locale.
+Les modules Importer des données et Exporter des données peuvent lire et écrire dans divers emplacements de données, par exemple une URL web via HTTP, une requête Hive, une base de données Azure SQL, un stockage de table Azure, un stockage d’objets blob Azure, un flux de données ou une base de données SQL locale.
 
 Cette rubrique utilise l’exemple « Sample 5: Train, Test, Evaluate for Binary Classification: Adult Dataset » et suppose que le jeu de données a déjà été chargé dans une table SQL Azure nommée censusdata.
 
@@ -41,7 +41,7 @@ Pour lire les données à partir de la table SQL Azure :
 2. Dans la zone de recherche des composants, tapez import.
 3. Dans la liste des résultats, ajoutez un module *Importer des données* à la zone de dessin de l’expérience.
 4. Connectez la sortie du module *Importer des données* à l’entrée du module *Nettoyer les données manquantes*.
-5. Dans le panneau Propriétés, sélectionnez **Base de données SQL Azure** in the **Source de données** .
+5. Dans le panneau Propriétés, sélectionnez **Azure SQL Database** dans la liste déroulante **Source de données**.
 6. Dans les champs **Nom du serveur de base de données**, **Nom de la base de données**, **Nom d’utilisateur** et **Mot de passe** saisissez les informations appropriées pour votre base de données.
 7. Dans le champ de requête de base de données, entrez la requête suivante.
 
@@ -72,7 +72,7 @@ Maintenant, vous devez configurer l’expérience prédictive à partir de laque
 3. Dans la zone de recherche des composants, tapez export.
 4. Dans la liste des résultats, ajoutez un module *Exporter des données* à la zone de dessin de l’expérience.
 5. Connectez la sortie du module *Noter le modèle* à l’entrée du module *Exporter des données*.
-6. Dans le panneau Propriétés, sélectionnez **Base de données SQL Azure** dans la liste déroulante de destination des données.
+6. Dans le panneau Propriétés, sélectionnez **Azure SQL Database** dans la liste déroulante de destination des données.
 7. Dans les champs **Nom du serveur de base de données**, **Nom de la base de données**, **Nom de compte d’utilisateur du serveur** et **Mot de passe de compte d’utilisateur du serveur**, saisissez les informations appropriées pour votre base de données.
 8. Dans le champ **Liste de colonnes séparées par des virgules à enregistrer** , tapez Étiquettes notées.
 9. Dans le **champ du nom de la table de données**, tapez dbo.ScoredLabels. Si la table n’existe pas, elle est créée lors de l’exécution de l’expérience ou lors de l’appel du service web.

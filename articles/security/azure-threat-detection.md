@@ -241,13 +241,13 @@ Voici les fonctionnalités d’Azure permettant de déployer et activer Microsof
 
 -   **Collecte d’événements du logiciel anti-programme malveillant** : enregistre l’intégrité du service Antimalware, les activités suspectes et les mesures de correction prises dans le journal des événements du système d’exploitation et les rassemble dans le compte de stockage Azure du client.
 
-### <a name="azure-sql-database-threat-detection"></a>Azure SQL Database Threat Detection
+### <a name="azure-sql-database-threat-detection"></a>Détection des menaces Azure SQL Database
 
-[Azure SQL Database Threat Detection](https://azure.microsoft.com/blog/azure-sql-database-threat-detection-your-built-in-security-expert/) est une nouvelle fonctionnalité de sécurité intelligence intégrée dans le service Azure SQL Database. Conçue pour identifier, profiler et détecter 24 heures sur 24 les activités anormales sur la base de données, la fonction Azure SQL Database Threat Detection identifie les menaces potentielles pour la base de données.
+[Azure SQL Database Threat Detection](https://azure.microsoft.com/blog/azure-sql-database-threat-detection-your-built-in-security-expert/) est une nouvelle fonctionnalité de sécurité intelligence intégrée dans le service Azure SQL Database. Conçue pour identifier, profiler et détecter 24 heures sur 24 les activités anormales sur la base de données, la détection des menaces Azure SQL Database identifie les menaces potentielles pour la base de données.
 
 Les responsables de la sécurité ou autres administrateurs désignés peuvent obtenir une notification immédiate concernant les activités suspectes qui interviennent sur la base de données. Chaque notification contient des détails sur l’activité suspecte et fournit des recommandations pour vous aider à étudier et corriger la menace.
 
-Azure SQL Database Threat Detection détecte actuellement les vulnérabilités potentielles et les attaque par injection SQL, ainsi que les schémas d’accès anormaux à la base de données.
+La détection des menaces Azure SQL Database détecte actuellement les vulnérabilités potentielles et les attaque par injection SQL, ainsi que les schémas d’accès anormaux à la base de données.
 
 Lorsqu’ils reçoivent une notification de détection des menaces par e-mail, les utilisateurs sont en mesure d’accéder aux enregistrements d’audit concernés et de les consulter via un lien profond dans l’e-mail. Le lien ouvre une visionneuse d’audit ou un modèle Excel d’audit préconfiguré qui affiche les enregistrements d’audit concernés au moment de l’événement suspect, selon :
 

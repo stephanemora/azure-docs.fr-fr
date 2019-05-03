@@ -1,6 +1,6 @@
 ---
 title: Déploiement des mises à niveau d’applications - Azure SQL Database | Microsoft Docs
-description: Découvrez comment utiliser la géo-réplication de la base de données SQL pour prendre en charge les mises à niveau en ligne de votre application cloud.
+description: Découvrez comment utiliser la géo-réplication Azure SQL Database pour prendre en charge les mises à niveau en ligne de votre application cloud.
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability

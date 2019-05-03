@@ -39,7 +39,7 @@ Pour effectuer cette procédure, vous avez besoin de :
  
   Si vous n’en avez pas encore :
     - Pour Azure SQL Database, créez un serveur Azure SQL Database (sans base de données) à l’aide du portail Microsoft Azure en accédant au [formulaire](https://ms.portal.azure.com/#create/Microsoft.SQLServer) SQL Server (serveur logique uniquement).
-    - Pour Azure SQL Database Managed Instance, suivez les indications détaillées de l’article [Créer une Azure SQL Database Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started).
+    - Pour Azure SQL Database Managed Instance, suivez les indications détaillées dans [Créer une instance Azure SQL Database Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started).
 
 - SSIS doit être provisionné dans une instance Azure Data Factory (ADF) contenant Azure-SSIS Integration Runtime avec la SSISDB de destination hébergée par l’instance du serveur Azure SQL Database (comme décrit dans l’article [Provisionner le runtime d’intégration Azure-SSIS dans Azure Data Factory](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure)) ou Azure SQL Database Managed Instance (comme décrit dans l’article [Créer le runtime d’intégration Azure-SSIS dans Azure Data Factory](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime)). 
 

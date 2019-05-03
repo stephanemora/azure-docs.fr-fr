@@ -10,7 +10,7 @@ ms.date: 10/11/2018
 ms.author: raynew
 ms.openlocfilehash: 74c33d73f15c4edf63a02ea5c9a0cdcad88bb68c
 ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/18/2019
 ms.locfileid: "59049743"
@@ -643,7 +643,7 @@ Une fois les ressources migrées dans Azure, Contoso doit rendre la nouvelle inf
 
 ### <a name="backups-and-disaster-recovery"></a>Sauvegardes et récupération d’urgence
 
-- Contoso doit examiner les exigences de sauvegarde pour Azure SQL Database. [Plus d’informations](https://docs.microsoft.com/azure/sql-database/sql-database-automated-backups)
+- Contoso doit examiner les besoins de sauvegarde de la base de données Azure SQL. [Plus d’informations](https://docs.microsoft.com/azure/sql-database/sql-database-automated-backups)
 - Contoso devrait envisager d’implémenter des groupes de basculement SQL afin de fournir un basculement régional pour la base de données. [Plus d’informations](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview)
 - Contoso peut tirer parti de la géoréplication pour la référence (SKU) premium d’ACR. [Plus d’informations](https://docs.microsoft.com/azure/container-registry/container-registry-geo-replication)
 - Cosmos DB effectue des sauvegardes automatiquement. Contoso peut [en savoir plus](https://docs.microsoft.com/azure/cosmos-db/online-backup-and-restore) sur ce processus.

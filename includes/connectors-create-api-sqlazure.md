@@ -15,13 +15,13 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60540967"
 ---
-* Si vous utilisez Azure SQL Database, suivez les étapes décrites dans [Connexion à la base de données SQL Azure](#connect-azure-sql-db). 
+* Si vous utilisez Azure SQL Database, suivez les étapes décrites dans [Connexion à Azure SQL Database](#connect-azure-sql-db). 
 
 * Si vous utilisez SQL Server, suivez les étapes décrites dans [Se connecter à SQL Server](#connect-sql-server).
 
 <a name="connect-azure-sql-db"></a>
 
-### <a name="connect-to-azure-sql-database"></a>Connexion à la base de données SQL Azure
+### <a name="connect-to-azure-sql-database"></a>Connexion à Azure SQL Database
 
 1. Lorsque le déclencheur ou l’action SQL vous invite à fournir des informations de connexion, effectuez les étapes suivantes :
 
