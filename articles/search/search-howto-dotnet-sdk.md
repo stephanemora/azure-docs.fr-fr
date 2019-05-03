@@ -7,17 +7,21 @@ services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 04/20/2018
+ms.date: 05/02/2019
 ms.author: brjohnst
-ms.custom: seodec2018
-ms.openlocfilehash: afc60e933c9fcc154af74c47e382d8b8e7b0df8d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 25a156c4403b7a89f7a7bf7f6acf22fa34216791
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60871295"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65025123"
 ---
 # <a name="how-to-use-azure-search-from-a-net-application"></a>Comment utiliser Azure Search à partir d'une application .NET
+
+> [!Important]
+> Ce contenu est en cours de construction. Version 9.0 du SDK .NET Azure Search est disponible sur NuGet. Nous travaillons sur la mise à jour de ce guide de migration pour expliquer comment mettre à niveau vers la nouvelle version. Restez connecté.
+>
+
 Cet article est une procédure pas à pas dont le but est de vous aider à utiliser le [SDK .NET Azure Search](https://aka.ms/search-sdk). Vous pouvez utiliser le SDK .NET pour intégrer une expérience de recherche enrichie dans votre application à l'aide d’Azure Search.
 
 ## <a name="whats-in-the-azure-search-sdk"></a>Contenu du SDK Azure Search
@@ -38,7 +42,7 @@ Les différentes bibliothèques clientes définissent des classes comme `Index`,
 
 La version actuelle du Kit de développement logiciel (SDK) .NET Azure Search est désormais mise à la disposition générale. Si vous souhaitez fournir des commentaires que nous pourrons intégrer dans la prochaine version, consultez notre [page de commentaires](https://feedback.azure.com/forums/263029-azure-search/).
 
-Le Kit de développement logiciel (SDK) .NET prend en charge la version `2017-11-11` de [l’API REST de la Recherche Azure](https://docs.microsoft.com/rest/api/searchservice/). Cette version inclut désormais la prise en charge des synonymes, ainsi que des améliorations incrémentielles pour les indexeurs. Les fonctionnalités préliminaires qui ne font *pas* partie de cette version, par exemple la prise en charge de l’indexation des tableaux JSON et des fichiers CSV, sont disponibles en [préversion](search-api-2016-09-01-preview.md) et accessibles par l’intermédiaire de la [version 4.0-preview du Kit SDK .NET](https://aka.ms/search-sdk-preview).
+Le Kit de développement logiciel (SDK) .NET prend en charge la version `2017-11-11` de [l’API REST de la Recherche Azure](https://docs.microsoft.com/rest/api/searchservice/). Cette version inclut désormais la prise en charge des synonymes, ainsi que des améliorations incrémentielles pour les indexeurs. 
 
 Ce Kit de développement logiciel (SDK) ne prend pas en charge les [opérations de gestion](https://docs.microsoft.com/rest/api/searchmanagement/) telles que la création et la mise à l’échelle des services de recherche, ainsi que la gestion des clés API. Si vous avez besoin de gérer vos ressources de recherche à partir d’une application .NET, vous pouvez utiliser le [Kit de développement logiciel (SDK) .NET de la Recherche Azure](https://aka.ms/search-mgmt-sdk).
 
@@ -392,7 +396,7 @@ public partial class Hotel
 La première chose à remarquer est que chaque propriété publique de `Hotel` correspond à un champ dans la définition de l’index, mais à une différence près : Le nom de chaque champ commence par une lettre minuscule, tandis que le nom de chaque propriété publique de `Hotel` commence par une lettre majuscule. Il s'agit d'un scénario courant dans les applications .NET qui effectuent une liaison de données là où le schéma cible est en dehors du contrôle du développeur de l'application. Plutôt que de violer les consignes d’affectation de noms de .NET en faisant commencer les noms de propriété par une minuscule, vous pouvez demander au SDK d’attribuer automatiquement une casse minuscule aux noms de propriété avec l’attribut `[SerializePropertyNamesAsCamelCase]` .
 
 > [!NOTE]
-> Le SDK .NET Azure Search utilise la bibliothèque [NewtonSoft JSON.NET](https://www.newtonsoft.com/json/help/html/Introduction.htm) pour sérialiser et désérialiser vos objets de modèle personnalisés vers et à partir de JSON. Vous pouvez personnaliser cette sérialisation si nécessaire. Pour plus d’informations, consultez [Sérialisation personnalisée avec JSON.NET](#JsonDotNet).
+> Le SDK .NET Azure Search utilise la bibliothèque [NewtonSoft JSON.NET](https://www.newtonsoft.com/json/help/html/Introduction.htm) pour sérialiser et désérialiser vos objets de modèle personnalisés vers et à partir de JSON. Vous pouvez personnaliser cette sérialisation si nécessaire. Pour plus d’informations, consultez [sérialisation personnalisée avec JSON.NET](#JsonDotNet).
 > 
 > 
 

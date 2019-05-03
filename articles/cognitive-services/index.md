@@ -7,14 +7,14 @@ author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.author: nitinme
-ms.date: 02/21/2019
+ms.date: 05/02/2019
 ms.topic: hub-page
-ms.openlocfilehash: 621cf49284ac1080bf18619f80f14c8a21c2f761
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b76f670c6d2e28ea2cb5ee1cece13cf1023af09f
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61294226"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65021497"
 ---
 <div id="main" class="v2">
 <h1>Documentation Azure Cognitive Services</h1>
@@ -295,9 +295,10 @@ ms.locfileid: "61294226"
                     <div class="cardText">
                         <h3>API Vision</h3>
                         <p><a href="/azure/cognitive-services/computer-vision/">Vision par ordinateur</a></p>
-                        <p><a href="/azure/cognitive-services/content-moderator/">Content Moderator</a></p>
                         <p><a href="/azure/cognitive-services/Custom-Vision-Service/">Service Custom Vision</a></p>
                         <p><a href="/azure/cognitive-services/face/">API Visage</a></p>
+                        <p><a href="https://go.microsoft.com/fwlink/?linkid=2088514"><span>Forms Recognizer&nbsp;<sup style="font-size:70%">APERÇU</sup></span></a></p>
+                        <p><a href="https://go.microsoft.com/fwlink/?linkid=2088323"><span>Ink Recognizer&nbsp;<sup style="font-size:70%">APERÇU</sup></span></a></p>
                         <p><a href="/azure/cognitive-services/video-indexer/video-indexer-overview">Video Indexer</a></p>
                     </div>
                 </div>
@@ -310,7 +311,7 @@ ms.locfileid: "61294226"
                 <div class="card">
                     <div class="cardText">
                         <h3>API Microsoft Speech</h3>
-                        <p><a href="/azure/cognitive-services/speech-service">API Speech Service</a></p>
+                        <p><a href="/azure/cognitive-services/speech-service">Services Speech</a></p>
                         <p><a href="/azure/cognitive-services/speaker-recognition/home"><span>Reconnaissance de l’orateur&nbsp;<sup style="font-size:70%">PRÉVERSION</sup></span></a></p>
                         <p><a href="/azure/cognitive-services/speech/home"><span>API Reconnaissance vocale Bing&nbsp;<sup style="font-size:70%">RETRAIT</sup></span></a></p>
                         <p><a href="/azure/cognitive-services/translator-speech/"><span>Traduction de conversation Translator Speech&nbsp;<sup style="font-size:70%">RETRAIT</sup></span></a></p>
@@ -325,22 +326,10 @@ ms.locfileid: "61294226"
                 <div class="card">
                     <div class="cardText">
                         <h3>API de langage</h3>
-                        <p><a href="/azure/cognitive-services/bing-spell-check/">Vérification orthographique Bing</a></p>
                         <p><a href="/azure/cognitive-services/luis/">Language Understanding (LUIS)</a></p>
+                        <p><a href="/azure/cognitive-services/qnamaker/index">QnA Maker</a></p>
                         <p><a href="/azure/cognitive-services/text-analytics/">Analyse de texte</a></p>
                         <p><a href="/azure/cognitive-services/translator/">Translator Text</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>API Connaissances</h3>
-                            <p><a href="/azure/cognitive-services/qnamaker/index">QnA Maker</a></p>
                     </div>
                 </div>
             </div>
@@ -360,6 +349,7 @@ ms.locfileid: "61294226"
                         <p><a href="/azure/cognitive-services/bing-entities-search/">Recherche d’entités Bing</a></p>
                         <p><a href="/azure/cognitive-services/bing-image-search">Recherche d’images Bing</a></p>
                         <p><a href="/azure/cognitive-services/bing-visual-search">Recherche visuelle Bing</a></p>
+                        <p><a href="/azure/cognitive-services/bing-spell-check/">Vérification orthographique Bing</a></p>
                         <p><a href="/azure/cognitive-services/bing-local-business-search"><span>Recherche d’entreprises locales Bing&nbsp;<sup style="font-size:70%">APERÇU</sup></span></a></p>
                     </div>
                 </div>
@@ -371,8 +361,10 @@ ms.locfileid: "61294226"
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Détection des anomalies</h3>
-                        <p><a href="/azure/cognitive-services/anomaly-detector/"><span>Détecteur d’anomalies&nbsp;<sup style="font-size:70%">Préversion</sup></span></a></p>               
+                        <h3>API de décision</h3>
+                        <p><a href="/azure/cognitive-services/anomaly-detector/"><span>Détecteur d’anomalies&nbsp;<sup style="font-size:70%">Préversion</sup></span></a></p>
+                        <p><a href="/azure/cognitive-services/content-moderator/">Content Moderator</a></p>
+                        <p><a href="https://go.microsoft.com/fwlink/?linkid=2088324"><span>Personalizer&nbsp;<sup style="font-size:70%">APERÇU</sup></span></a></p>
                     </div>
                 </div>
             </div>

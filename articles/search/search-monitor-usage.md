@@ -8,15 +8,15 @@ services: search
 ms.service: search
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/04/2019
+ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: f4a0cba18f27c9cabfc03d1934469e6899c5cd18
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bf78cd9b70aa4a82ef96fdd529d3ee5b1641038c
+ms.sourcegitcommit: eea74d11a6d6ea6d187e90e368e70e46b76cd2aa
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60564738"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65035352"
 ---
 # <a name="monitor-resource-consumption-and-query-activity-in-azure-search"></a>Superviser la consommation des ressources et l’activité des requêtes dans la Recherche Azure
 
@@ -114,7 +114,7 @@ Les objets blob contenant vos journaux d’activité du trafic de votre service 
 | time |Datetime |"2018-12-07T00:00:43.6872559Z" |Horodatage de l’opération |
 | ResourceId |string |«/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>  MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE » |Votre ID de ressource |
 | operationName |string |« Query.Search » |Nom de l’opération |
-| operationVersion |string |"2017-11-11" |Version d’API utilisée |
+| operationVersion |string |"2019-05-06" |Version d’API utilisée |
 | category |string |« OperationLogs » |constant |
 | resultType |string |« Success » |Valeurs possibles : Réussite ou Échec |
 | resultSignature |int |200 |Code de résultat HTTP |
@@ -126,7 +126,7 @@ Les objets blob contenant vos journaux d’activité du trafic de votre service 
 | Nom | Type | Exemples | Notes |
 | --- | --- | --- | --- |
 | Description |string |« GET /indexes(’content’)/docs » |Point de terminaison de l’opération |
-| Interroger |string |"?search=AzureSearch&$count=true&api-version=2017-11-11" |Paramètres de requête |
+| Interroger |string |"?search=AzureSearch&$count=true&api-version=2019-05-06" |Paramètres de requête |
 | Documents |int |42 |Nombre de documents traités |
 | IndexName |string |« testindex » |Nom de l’index associé à l’opération |
 

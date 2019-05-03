@@ -9,19 +9,19 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 21c75c0f377f55614e2c7fa0bb27628cf598e3e7
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 43c072cb72935a80da0e48e6b8343f38ee08876b
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924585"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65023955"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-search"></a>Implémentation de la navigation à facettes dans Azure Search
 La navigation à facettes est un mécanisme de filtrage qui fournit une navigation autonome d'extraction dans les applications de recherche. Le terme « navigation à facettes » peut vous sembler peu familier, mais vous l’avez très certainement déjà utilisé. Comme l'indique l'exemple ci-dessous, la navigation à facettes correspond tout simplement aux catégories utilisées pour filtrer les résultats.
 
  ![Démonstration du portail de recrutement Recherche Azure][1]
 
-La navigation à facettes constitue un autre point d’entrée pour la recherche. Elle offre une alternative pratique à la saisie manuelle d’expressions de recherche complexes. Les facettes peuvent vous aider à trouver ce que vous recherchez, tout en vous assurant d’obtenir au moins un résultat. En tant que développeur, les facettes vous permettent d'exposer les critères de recherche les plus utiles pour naviguer dans votre corpus de recherche. Dans les applications de vente au détail en ligne, la navigation à facettes repose souvent sur les marques, les catégories (chaussures pour enfants), la taille, le prix, la popularité et les évaluations. 
+La navigation à facettes constitue un autre point d’entrée pour la recherche. Elle offre une alternative pratique à la saisie manuelle d’expressions de recherche complexes. Les facettes peuvent vous aider à trouver ce que vous recherchez, tout en vous assurant d’obtenir au moins un résultat. En tant que développeur, les facettes vous permettent d’exposer les critères de recherche plus utiles pour naviguer dans votre index de recherche. Dans les applications de vente au détail en ligne, la navigation à facettes repose souvent sur les marques, les catégories (chaussures pour enfants), la taille, le prix, la popularité et les évaluations. 
 
 L’implémentation de la navigation par facettes varie en fonction des technologies de recherche. Dans Recherche Azure, la navigation à facettes est créée au moment de la requête, à l’aide de champs précédemment attribués dans votre schéma.
 
