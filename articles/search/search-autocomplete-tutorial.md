@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 04/04/2019
+ms.date: 05/02/2019
 ms.author: mcarter
 ms.custom: seodec2018
-ms.openlocfilehash: ed2e0bd352823a932cfea719c18e05ae6c913621
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f5cb8d2fee706600251039d80232d9fc7f60d5fb
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61126736"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65025153"
 ---
 # <a name="example-add-suggestions-or-autocomplete-to-your-azure-search-application"></a>Exemple : Ajouter des Suggestions ou avec saisie semi-automatique à votre application de recherche Azure
 
@@ -23,7 +23,7 @@ Dans cet article, découvrez comment utiliser [suggestions](https://docs.microso
 
 + *Suggestions* sont des suggestions de résultats générés en cours de frappe, où chaque suggestion est un résultat unique à partir de l’index qui correspond à ce que vous avez tapé jusqu'à présent. 
 
-+ *La saisie semi-automatique*, [une fonctionnalité préliminaire](search-api-preview.md), « terminée », le mot ou expression actuellement saisie d’un utilisateur. Au lieu de retourner des résultats, il termine une requête, vous pouvez ensuite exécuter pour retourner les résultats. Comme avec des suggestions, un terminé mot ou une expression dans une requête repose sur une correspondance dans l’index. Le service n’offre des requêtes qui retournent des résultats nuls dans l’index.
++ *La saisie semi-automatique* « terminée », le mot ou expression actuellement saisie d’un utilisateur. Au lieu de retourner des résultats, il termine une requête, vous pouvez ensuite exécuter pour retourner les résultats. Comme avec des suggestions, un terminé mot ou une expression dans une requête repose sur une correspondance dans l’index. Le service n’offre des requêtes qui retournent des résultats nuls dans l’index.
 
 Vous pouvez télécharger et exécuter l’exemple de code dans **DotNetHowToAutocomplete** pour évaluer ces fonctionnalités. L’exemple de code cible d’un index prédéfini rempli avec [NYCJobs les données de démonstration](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs). L’index NYCJobs contient un [construction du Générateur de suggestions](index-add-suggesters.md), qui est une condition requise pour l’utilisation des suggestions ou la saisie semi-automatique. Vous pouvez utiliser l’index préparée hébergée dans un service de bac à sable, ou [remplir votre propre index](#configure-app) à l’aide d’un chargeur de données dans l’exemple de solution NYCJobs. 
 

@@ -12,14 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 07/02/2018
+ms.date: 04/30/2019
 ms.author: shants
-ms.openlocfilehash: cfd88118b483067f4c6ee62ee013a2202f0d7e67
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 76e0f496acf37d4220f57a599f0ce449ca130bba
+ms.sourcegitcommit: abeefca6cd5ca01c3e0b281832212aceff08bf3e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60301742"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "64992896"
 ---
 # <a name="handling-planned-maintenance-notifications-for-windows-virtual-machines"></a>Gestion de notifications de maintenance planifiées pour les machines virtuelles Windows
 
@@ -33,7 +33,7 @@ Azure exécute régulièrement des mises à jour afin d’améliorer la fiabilit
 La maintenance planifiée nécessitant un redémarrage s’effectue par vagues. Chaque vague a une portée différente (régions).
 
 - Une vague commence par une notification aux clients. Par défaut, la notification est envoyée aux propriétaire et copropriétaires de l’abonnement. Vous pouvez ajouter plusieurs destinataires et options de messagerie, telles que les e-mails, les SMS et les Webhooks, aux notifications à l’aide des [alertes de journal d’activité](../../azure-monitor/platform/activity-logs-overview.md) Azure.  
-- Au moment de la notification, une *fenêtre de libre-service* est disponible. Pendant cet intervalle, vous pouvez rechercher quelles machines virtuelles sont incluses dans cette vague et démarrer la maintenance de manière proactive en fonction de vos besoins de planification.
+- Au moment de la notification, une *fenêtre de libre-service* est disponible. Pendant cet intervalle est en général quatre semaines, vous trouverez parmi vos machines virtuelles sont incluses dans cette vague et démarrer proactive la maintenance en fonction de vos propres besoins de planification.
 - Après la fenêtre de libre-service, une *fenêtre de maintenance planifiée* apparaît. Au cours de cette fenêtre, Azure planifie et applique la maintenance requise à votre machine virtuelle. 
 
 L’objectif de ces deux fenêtres est de vous donner suffisamment de temps pour commencer la maintenance et redémarrer votre machine virtuelle tout en sachant à quel moment Azure démarrera automatiquement la maintenance.

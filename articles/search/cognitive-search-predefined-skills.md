@@ -7,24 +7,25 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 05/01/2018
+ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: eddbb41f346661e86c64b1dd703321f434c5bbb6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7925f3aef4123fddd3a96c6e62971b881ae4cbc3
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61342605"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65021874"
 ---
 # <a name="predefined-skills-for-content-enrichment-azure-search"></a>Compétences prédéfinies pour l’enrichissement de contenu (Recherche Azure)
 
 Dans cet article, vous allez découvrir les compétences cognitives fournies avec Recherche Azure. Une *compétence cognitive* est une opération qui transforme du contenu d’une certaine façon. Souvent, il s’agit d’un composant qui extrait des données ou déduit une structure, renforçant ainsi notre compréhension des données d’entrée. Presque toujours, la sortie est basée sur du texte. Un *ensemble de compétences* est la collection des compétences qui définissent le pipeline d’enrichissement. 
 
 > [!NOTE]
-> À compter du 21 décembre 2018, vous pouvez associer une ressource Cognitive Services à un ensemble de qualifications Recherche Azure. Cela nous permet de commencer la facturation pour l’exécution des ensembles de qualifications. Ce jour-là, nous commencerons également à facturer l’extraction d’images dans le cadre de notre étape de décodage de documents. L’extraction de texte à partir de documents continuera d’être offerte sans frais supplémentaires.
+> Comme vous développez étendue en augmentant la fréquence de traitement, l’ajout de plusieurs documents, ou ajoutez plusieurs algorithmes d’intelligence artificielle, vous devrez [attacher une ressource Cognitive Services facturable](cognitive-search-attach-cognitive-services.md). Des frais sont applicables durant l’appel des API dans Cognitive Services ainsi que pour l’extraction d’images durant la phase d’extraction du contenu des documents du service Recherche Azure. L’extraction de texte à partir des documents est gratuite.
 >
-> L’exécution des compétences intégrées sera facturée au prix actuel du [paiement à l’utilisation de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/). Les tarifs de l’extraction d’images sont ceux de la préversion. Ils sont décrits dans la page [Tarification de Recherche Azure](https://go.microsoft.com/fwlink/?linkid=2042400). En savoir [plus](cognitive-search-attach-cognitive-services.md).
+> L’exécution de compétences intégrées est facturée existant [Cognitive Services paie-sous-vous accédez prix](https://azure.microsoft.com/pricing/details/cognitive-services/). Image de tarification d’extraction est décrit sur le [page de tarification de Azure Search](https://go.microsoft.com/fwlink/?linkid=2042400).
+
 
 ## <a name="predefined-skills"></a>Compétences prédéfinies
 

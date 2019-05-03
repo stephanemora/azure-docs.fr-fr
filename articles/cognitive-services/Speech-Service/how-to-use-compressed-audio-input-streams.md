@@ -8,26 +8,26 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 04/03/2019
+ms.date: 05/02/2019
 ms.author: amishu
-ms.openlocfilehash: 2066dc3e20ab9fc92b23fd071728ea6a920d3324
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c6ab43b530c045eb4f2920b65f601ba981dfc8a2
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60697653"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65020768"
 ---
 # <a name="stream-compressed-audio-with-the-speech-sdk"></a>Audio Stream compressée avec le Speech SDK
 
 Le Kit de développement Speech **compressés Audio d’entrée Stream** API permet de diffuser des fichiers audio compressés au Service de reconnaissance vocale à l’aide de PullStream ou PushStream.
 
 > [!IMPORTANT]
-> Flux audio compressé est uniquement pris en charge pour C++, C#et Java sur Linux (Ubuntu 16.04 ou Ubuntu 18.04).
+> Flux audio compressé est uniquement pris en charge pour C++, C#et Java sur Linux (Ubuntu 16.04, 18.04 d’Ubuntu, Debian 9).
 > Prise en charge est limitée à OPUS/OGG et MP3.
 
 ## <a name="prerequisites"></a>Conditions préalables
 
-Vous devez installer ces dépendances pour utiliser l’entrée audio compressée avec le Speech SDK pour Linux :
+Installer ces dépendances supplémentaires pour utiliser l’entrée audio compressée avec le Speech SDK pour Linux :
 
 ```sh
 sudo apt install libgstreamer1.0-0 gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly
@@ -37,7 +37,7 @@ sudo apt install libgstreamer1.0-0 gstreamer1.0-plugins-base gstreamer1.0-plugin
 
 Pour diffuser en continu dans un format audio compressé pour les Services de reconnaissance vocale, créer `PullAudioInputStream` ou `PushAudioInputStream`. Ensuite, créez un `AudioConfig` à partir d’une instance de votre classe de flux, en spécifiant le format de compression du flux de données.
 
-Supposons que vous disposez d’une classe de flux d’entrée appelée `myPushStream` et que vous utilisez OPUS/OGG. Voici à quoi peut ressembler le code : 
+Supposons que vous disposez d’une classe de flux d’entrée appelée `myPushStream` et que vous utilisez OPUS/OGG. Votre code peut ressembler à ceci :
 
 ```csharp
 using Microsoft.CognitiveServices.Speech;

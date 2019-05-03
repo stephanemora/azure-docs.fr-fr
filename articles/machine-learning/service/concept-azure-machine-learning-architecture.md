@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 04/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 83ca4d2bf767d338943c396330b36f3f8180e170
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b06e3ff50eba4763403450a807aa90ef6335f1a9
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60821273"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65025232"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Voici comment Azure Machine Learning service fonctionne : Architecture et concepts
 
@@ -68,7 +68,7 @@ Lorsque vous créez un nouvel espace de travail, celui-ci crée automatiquement 
 
 Le diagramme suivant représente une taxonomie de l’espace de travail :
 
-[![Taxonomie de l’espace de travail](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.svg)](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png#lightbox)
+[![Taxonomie de l’espace de travail](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png)](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png#lightbox)
 
 ## <a name="experiment"></a>Expérience
 
@@ -106,6 +106,16 @@ Une configuration d’exécution peut être rendue persistante dans un fichier d
 
 Pour obtenir des exemples de configurations d’exécutions, consultez [Sélectionner et utiliser une cible de calcul pour entraîner votre modèle](how-to-set-up-training-targets.md).
 
+## <a name="dataset"></a>Jeu de données
+
+Azure Machine Learning jeux de données (version préliminaire) facilitent l’accéder et travailler avec vos données. Jeux de données gérer les données dans divers scénarios tels que la formation de modèle et la création du pipeline. À l’aide du Kit de développement logiciel Azure Machine Learning, vous pouvez accéder au stockage sous-jacent, Explorer et préparer des données, gérer le cycle de vie de différentes définitions de jeu de données et comparer entre les jeux de données utilisés dans la formation et de production.
+
+Jeux de données fournit des méthodes pour manipuler des données dans des formats courants, comme l’utilisation de `from_delimited_files()` ou `to_pandas_dataframe()`.
+
+Pour plus d’informations, consultez [créer et inscrire les jeux de données Azure Machine Learning](how-to-create-register-datasets.md).
+
+Pour obtenir un exemple d’utilisation de jeux de données, consultez le [exemples de blocs-notes](https://aka.ms/dataset-tutorial).
+
 ## <a name="datastore"></a>Magasin de données
 
 Un magasin de données est une abstraction de stockage d’un compte de stockage Azure. Le magasin de données peut utiliser un conteneur d’objets blob Azure ou un partage de fichiers Azure en tant que stockage backend. Chaque espace de travail comprend un magasin de données par défaut, et peut inscrire des magasins de données supplémentaires.
@@ -127,7 +137,7 @@ Une cible de calcul est une ressource de calcul que vous utilisez pour exécuter
 | Azure Container Instances | &nbsp; | ✓ |
 | Azure Kubernetes Service | &nbsp; | ✓ |
 | Azure IoT Edge | &nbsp; | ✓ |
-| Projet Brainwave</br>(Field programmable gate array) | &nbsp; | ✓ |
+| FPGA (Field-Programmable Gate Array) | &nbsp; | ✓ |
 
 Les cibles de calcul sont attachées à un espace de travail. Les cibles de calcul autres que l’ordinateur local sont partagées par les utilisateurs de l’espace de travail.
 
@@ -189,8 +199,6 @@ Azure Machine Learning peut créer deux types d’image :
 * **Image Docker** : Utilisée lorsque vous effectuez un déploiement vers des cibles de calcul autres que les tableaux FPGA. Il peut s’agir, par exemple, d’Azure Container Instances et d’Azure Kubernetes Service.
 
 Le service Azure Machine Learning fournit une image de base, qui est utilisée par défaut. Vous pouvez également fournir vos propres images personnalisées.
-
-Pour plus d’informations, consultez la section consacrée à la configuration et à l’inscription d’une image dans l’article [Déployer des modèles](how-to-deploy-and-where.md#configureimage).
 
 Pour obtenir un exemple de création d’image, consultez [Déployer un modèle de classification d’images dans Azure Container Instances](tutorial-deploy-models-with-aml.md).
 

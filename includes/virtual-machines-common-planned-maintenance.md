@@ -5,21 +5,21 @@ services: virtual-machines
 author: shants123
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 12/14/2018
+ms.date: 4/30/2019
 ms.author: shants
 ms.custom: include file
-ms.openlocfilehash: c26c037455b6d14a906894ec39bf46630826950b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 747fb9a38cc0c27d162192f4f3ed928e8a968f27
+ms.sourcegitcommit: abeefca6cd5ca01c3e0b281832212aceff08bf3e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60301708"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "64993110"
 ---
 Azure met régulièrement à jour la plateforme pour améliorer la fiabilité, le niveau de performance et la sécurité de l’infrastructure hôte des machines virtuelles. Ces mises à jour vont de l’application d’une mise à jour corrective aux composants logiciels de l’environnement d’hébergement, en passant par la mise à niveau des composants réseau, à la désactivation du matériel. La majorité de ces mises à jour n’a aucun impact sur les machines virtuelles hébergées. Toutefois, dans certains cas, les mises à jour ont un impact. Azure choisit alors la méthode ayant le moins d’impact pour l’exécution des mises à jour :
 
 - Si une mise à jour sans redémarrage est possible, la machine virtuelle est en pause pendant la mise à jour de l’hôte ou fait l’objet d’une migration dynamique vers un hôte déjà mis à jour.
 
-- Si la maintenance nécessite un redémarrage, une notification vous dira pour quand est prévue la maintenance. Azure vous permet également de disposer d’une fenêtre de temps où vous pouvez démarrer la maintenance vous-même, au moment qui vous convient. Azure investit dans des technologies qui permettent de réduire le nombre de cas où les machines virtuelles doivent redémarrer pour une maintenance planifiée de la plateforme. 
+- Si la maintenance nécessite un redémarrage, une notification vous dira pour quand est prévue la maintenance. Azure vous permet également de disposer d’une fenêtre de temps où vous pouvez démarrer la maintenance vous-même, au moment qui vous convient. Fenêtre de temps de maintenance automatique est généralement des quatre dernières semaines, sauf si elle est urgente pour effectuer la maintenance. Azure investit également dans les technologies afin de réduire les cas lorsque les machines virtuelles doivent être redémarrés pour une maintenance planifiée de plateforme. 
 
 Cette page décrit la façon dont Azure effectue les deux types de maintenance. Pour plus d’informations sur les événements non planifiés (interruptions), consultez Gérer la disponibilité des machines virtuelles pour [Windows](../articles/virtual-machines/windows/manage-availability.md) ou [Linux](../articles/virtual-machines/linux/manage-availability.md).
 
@@ -29,18 +29,30 @@ Pour obtenir des guides pratiques sur la gestion de la maintenance planifiée, c
 
 ## <a name="maintenance-not-requiring-a-reboot"></a>Maintenance ne pas nécessitant un redémarrage
 
-L’objectif de la plupart des maintenance qui ne nécessite pas un redémarrage est inférieure à 10 secondes Suspendre pour la machine virtuelle. Dans certains cas, des mécanismes de maintenance liés à la conservation de la mémoire sont utilisés, ce qui permet de mettre la machine virtuelle en pause pendant 30 secondes au maximum et de préserver le contenu de la RAM. La machine virtuelle est redémarrée et l’horloge de la machine virtuelle est automatiquement synchronisée. Azure utilise de plus en plus les technologies de migration dynamique et améliore le mécanisme de maintenance lié à la conservation de la mémoire pour réduire la durée de la mise en pause.
+L’objectif pour la maintenance d’impact plus différente de zéro qui ne nécessite pas un redémarrage est inférieure à 10 secondes Suspendre pour la machine virtuelle. Azure choisit le mécanisme de mise à jour qui est moins d’influence sur les ordinateurs virtuels des clients. Dans certains cas, mécanismes de maintenance de préservation de mémoire sont utilisés, qui s’arrête la machine virtuelle jusqu'à 30 secondes et conserve la mémoire RAM. La machine virtuelle est redémarrée et son horloge est automatiquement synchronisée. Azure utilise de plus en plus les technologies de migration dynamique et améliore le mécanisme de maintenance lié à la conservation de la mémoire pour réduire la durée de la mise en pause.  
 
 Ces opérations de maintenance sans redémarrage sont appliquées domaine d’erreur par domaine d’erreur et sont arrêtées si des signaux d’avertissement sont reçus. 
 
 Certaines applications peuvent être affectées par ces types de mises à jour. Si la machine virtuelle fait l’objet d’une migration dynamique vers un autre hôte, certaines charges de travail sensibles peuvent subir une légère détérioration des performances au cours des quelques minutes qui précèdent la mise en pause de la machine virtuelle. De telles applications peuvent tirer parti de l’utilisation de Scheduled Events pour [Windows](../articles/virtual-machines/windows/scheduled-events.md) ou [Linux](../articles/virtual-machines/linux/scheduled-events.md) afin de préparer la maintenance de la machine virtuelle, et n’ont aucun impact sur la maintenance d’Azure. Azure travaille également sur les fonctionnalités de contrôle de maintenance pour ces applications ultra-sensibles. 
 
+## <a name="live-migration"></a>Migration dynamique
+
+La Migration dynamique est une opération non rebootful qui conserve la mémoire pour la machine virtuelle et les résultats dans une limitée suspendent ou figer, dure généralement pas plus de 5 secondes. Aujourd'hui, toute l’Infrastructure comme Machines virtuelles Service (IaaS), en dehors de la série G, M, N et H, sont éligibles pour la Migration en direct. Cela équivaut à plus de 90 % des machines virtuelles IaaS déployées sur le parc de Azure. 
+
+Migration dynamique est lancée par l’infrastructure Azure dans les scénarios suivants :
+- Maintenance planifiée
+- Défaillance matérielle
+- Optimisations d’allocation
+
+Migration dynamique est exploitée dans certains scénarios de maintenance planifiée et les événements planifiés peuvent servir à savoir à l’avance, lorsque Live début des opérations de migration.
+
+Migration dynamique est également utilisée pour déplacer des ordinateurs virtuels sur un matériel avec un échec prédit imminent lors de la détection par nos algorithmes d’apprentissage automatique et optimiser les allocations de la Machine virtuelle. Pour en savoir plus sur notre modélisation prédictive qui détecte les instances du matériel détérioré, consultez notre billet de blog intitulée [la résilience d’amélioration de la Machine virtuelle avec ML prédictive et la migration dynamique](https://azure.microsoft.com/blog/improving-azure-virtual-machine-resiliency-with-predictive-ml-and-live-migration/?WT.mc_id=thomasmaurer-blog-thmaure). Les clients sont toujours informés une Migration dynamique dans leur portail Azure dans le moniteur / l’intégrité du Service se connecte, ainsi que via les événements planifiés si elles sont utilisées.
 
 ## <a name="maintenance-requiring-a-reboot"></a>Maintenance nécessitant un redémarrage
 
 Dans les rares cas où les machines virtuelles doivent redémarrer pour une maintenance planifiée, vous recevez une notification à l’avance. Une maintenance planifiée comprend deux phases : la fenêtre de libre-service et une fenêtre de maintenance planifiée.
 
-La **fenêtre libre-service** vous permet de démarrer la maintenance sur vos machines virtuelles. Pendant ce temps, vous pouvez interroger chaque machine virtuelle pour afficher leur état et vérifier le résultat de votre dernière requête de maintenance.
+La **fenêtre libre-service** vous permet de démarrer la maintenance sur vos machines virtuelles. Pendant ce temps qui correspond généralement à quatre semaines, vous pouvez interroger chaque machine virtuelle pour afficher leur état et vérifier le résultat de votre dernière demande de maintenance.
 
 Quand vous démarrez la maintenance libre-service, votre machine virtuelle est redéployée sur un nœud déjà mis à jour. À cause du redémarrage de la machine virtuelle, le disque temporaire est perdu et les adresses IP dynamiques associées à l’interface réseau virtuelle sont mises à jour.
 
@@ -50,7 +62,7 @@ C’est après la fenêtre de libre-service qu’apparaît la **fenêtre de main
 
 Pour obtenir des informations sur la gestion de la maintenance nécessitant un redémarrage, consultez « Gestion des notifications de maintenance planifiée » pour [Linux](../articles/virtual-machines/linux/maintenance-notifications.md) ou [Windows](../articles/virtual-machines/windows/maintenance-notifications.md). 
 
-### <a name="availability-considerations-during-scheduled-maintenance"></a>Considérations relatives à la disponibilité lors de la maintenance planifiée 
+### <a name="availability-considerations-during-scheduled-maintenance"></a>Considérations sur la disponibilité lors de la maintenance planifiée 
 
 Si vous décidez d’attendre jusqu’à la fenêtre de maintenance planifiée, plusieurs éléments sont à prendre en compte si vous voulez maintenir une haute disponibilité de vos machines virtuelles. 
 

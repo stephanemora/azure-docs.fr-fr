@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: jordane
 author: jpe316
-ms.date: 04/30/2019
+ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2992ec9f43aac9e0d80c5e42873d26ac3a9c3fd1
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 9cc6ad4f7b33de4d132efe63ff11c34f10b614af
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64916972"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65023379"
 ---
 # <a name="use-the-cli-extension-for-azure-machine-learning-service"></a>Utiliser l’extension CLI pour le service Azure Machine Learning
 
@@ -80,7 +80,6 @@ Les commandes suivantes montrent comment utiliser l'interface de ligne de comman
     ```
 
 + Attacher une configuration de l’espace de travail dans un dossier pour activer la prise en compte contextuelle CLI.
-
     ```azurecli-interactive
     az ml folder attach -w myworkspace -g myresourcegroup
     ```
@@ -90,26 +89,14 @@ Les commandes suivantes montrent comment utiliser l'interface de ligne de comman
     ```azurecli-interactive
     az ml datastore attach-blob  -n datastorename -a accountname -c containername
     ```
-
+    
 + Joindre un cluster AKS comme cible de calcul.
 
     ```azurecli-interactive
     az ml computetarget attach aks -n myaks -i myaksresourceid -g myrg -w myworkspace
     ```
 
-+ Créer une nouvelle cible AMLcompute
-
-    ```azurecli-interactive
-    az ml computetarget create amlcompute -n cpu --min-nodes 1 --max-nodes 1 -s STANDARD_D3_V2
-    ```
-    
 ## <a id="experiments"></a>Exécuter des expériences
-
-+ Attacher une configuration de l’espace de travail dans un dossier pour activer la prise en compte contextuelle CLI.
-
-    ```azurecli-interactive
-    az ml folder attach -w myworkspace -g myresourcegroup
-    ```
 
 * Exécutez votre expérimentation. Lorsque vous utilisez cette commande, spécifiez le nom du fichier runconfig (le texte avant \*.runconfig si vous cherchez à votre système de fichiers) avec le paramètre - c.
 
@@ -123,7 +110,7 @@ Les commandes suivantes montrent comment utiliser l'interface de ligne de comman
     az ml experiment list
     ```
 
-## <a name="model-registration-profiling-deployment"></a>Inscription du modèle, de profilage, déploiement
+## <a name="model-registration-profiling--deployment"></a>L’inscription de modèle, de profilage et de déploiement
 
 Les commandes suivantes montrent comment inscrire un modèle entraîné, puis le déployer en tant que service de production :
 

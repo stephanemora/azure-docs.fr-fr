@@ -6,15 +6,15 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 03/18/2019
+ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: f9cadfcf0c027f4aec4f9d4928872709ee7d3e99
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5b81e4b9a8773cc8e4cc76582ccf2df88565d3d8
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61281775"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65025166"
 ---
 # <a name="example-add-synonyms-for-azure-search-in-c"></a>Exemple : Ajouter des synonymes pour le service Recherche Azure en C#
 
@@ -23,13 +23,15 @@ Les synonymes développent une requête en faisant correspondre les termes consi
 Dans la Recherche Azure, les synonymes sont définis dans une *carte de synonymes*, via des *règles de mappage* qui associent des termes équivalents. Cet exemple couvre les étapes essentielles pour l’ajout et l’utilisation de synonymes avec un index existant. Vous allez apprendre à effectuer les actions suivantes :
 
 > [!div class="checklist"]
-> * Activer des synonymes en créant et en publiant des règles de mappage 
-> * Référencer une carte de synonymes dans une chaîne de requête
+> * Créer une carte de synonyme, en utilisant le [SynonymMap](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.synonymmap?view=azure-dotnet) classe. 
+> * Définir le [SynonymMaps](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.synonymmaps?view=azure-dotnet) propriété sur les champs qui doit de prendre en charge d’extension de requête par le biais de synonymes.
+
+Vous pouvez interroger un champ de synonyme comme vous le feriez normalement. Il n’existe aucune syntaxe de requête supplémentaires requis pour accéder aux synonymes.
 
 Vous pouvez créer plusieurs cartes de synonymes, les valider en tant que ressources du service disponible pour tout index, et ensuite référencer ceux que vous souhaitez utiliser au niveau du champ. Au moment de la requête, outre la recherche dans un index, la Recherche Azure effectue une recherche dans une carte de synonymes, si une carte est spécifiée dans les champs utilisés dans la requête.
 
 > [!NOTE]
-> Les synonymes sont pris en charge dans les dernières versions de l’API et du Kit de développement logiciel (SDK) (version de l’API : 2017-11-11 ; version du SDK : 5.0.0). Il n’existe aucune prise en charge sur le portail Azure pour l’instant. Si la prise en charge des synonymes par le portail Azure peut vous être utile, donnez-nous votre avis sur [UserVoice](https://feedback.azure.com/forums/263029-azure-search)
+> Les synonymes peuvent être créées par programmation, mais pas dans le portail. Si la prise en charge des synonymes par le portail Azure peut vous être utile, donnez-nous votre avis sur [UserVoice](https://feedback.azure.com/forums/263029-azure-search)
 
 ## <a name="prerequisites"></a>Conditions préalables
 
@@ -172,7 +174,7 @@ Le moyen le plus rapide pour nettoyer une fois un exemple en supprimant le group
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Cet exemple a montré la [API REST de synonymes](https://aka.ms/rgm6rq) dans C# code pour créer et publier des règles de mappage, puis appelez la carte de synonymes pour une requête. Vous trouverez des informations supplémentaires dans la documentation de référence du [Kit de développement logiciel (SDK) .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search) et de [l’API REST](https://docs.microsoft.com/rest/api/searchservice/).
+Cet exemple a montré la fonctionnalité de synonymes dans C# code pour créer et publier des règles de mappage, puis appelez la carte de synonymes pour une requête. Vous trouverez des informations supplémentaires dans la documentation de référence du [Kit de développement logiciel (SDK) .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search) et de [l’API REST](https://docs.microsoft.com/rest/api/searchservice/).
 
 > [!div class="nextstepaction"]
 > [Utilisation des synonymes dans le service Recherche Azure](search-synonyms.md)

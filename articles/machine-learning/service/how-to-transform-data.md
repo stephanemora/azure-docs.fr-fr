@@ -10,18 +10,21 @@ ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: jmartens
-ms.date: 12/04/2018
+ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: d2bd271557ae0deefeb12a2dc7343c46fbd35363
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8b8cba8d0a400efb720d8374cdca886a2a638938
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60817556"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65023783"
 ---
 # <a name="transform-data-with-the-azure-machine-learning-data-prep-sdk"></a>Transformer des données avec le SDK de préparation des données Azure Machine Learning
 
 Dans cet article, vous découvrez les différentes méthodes de la transformation des données à l’aide du SDK Azure Machine Learning Data Prep. Le Kit de développement logiciel offre des fonctions qui le rendent simple ajouter des colonnes, filtrer les lignes ou colonnes et imputer les valeurs manquantes. Pour voir la documentation de référence pour le SDK, consultez le [vue d’ensemble](https://aka.ms/data-prep-sdk).
+
+> [!Important]
+> Si vous générez une nouvelle solution, essayez le [jeux de données Azure Machine Learning](how-to-explore-prepare-data.md) (version préliminaire) pour transformer vos données, les données d’instantané et de stocker les définitions de jeu de données avec contrôle de version. Jeux de données est la prochaine version de la préparation des données SDK, offre des fonctionnalités étendues pour la gestion des jeux de données dans les solutions d’intelligence artificielle.
 
 Cette procédure montre des exemples pour les tâches suivantes :
 
@@ -35,7 +38,7 @@ Cette procédure montre des exemples pour les tâches suivantes :
 
 Le SDK de préparation des données Azure Machine Learning inclut des expressions `substring` que vous pouvez utiliser pour calculer une valeur à partir de colonnes existantes, puis placer cette valeur dans une nouvelle colonne. Dans cet exemple, vous chargez des données et essayez d’ajouter des colonnes à ces données d’entrée.
 
-```python
+```Python
 import azureml.dataprep as dprep
 
 # loading data
@@ -52,7 +55,7 @@ dflow.head(3)
 
 Utilisez l’expression `substring(start, length)` pour extraire le préfixe de la colonne Case Number et placer cette chaîne dans une nouvelle colonne : `Case Category`. Le fait de passer la variable `substring_expression` au paramètre `expression` crée une colonne calculée qui exécute l’expression sur chaque enregistrement.
 
-```python
+```Python
 substring_expression = dprep.col('Case Number').substring(0, 2)
 case_category = dflow.add_column(new_column_name='Case Category',
                                     prior_column='Case Number',
@@ -67,10 +70,9 @@ case_category.head(3)
 |2|10140270|HY329253|HY|07/05/2015 11:20:00 PM|121XX S FRONT AVE|0486|BATTERY|DOMESTIC BATTERY SIMPLE|STREET|false|true|...|9|53|08B|||2015|07/12/2015 12:42:46 PM|
 
 
-
 Utilisez l’expression `substring(start)` pour extraire uniquement le nombre de la colonne Case Number et créez une colonne. Convertissez-la en type de données numérique à l’aide de la fonction `to_number()` et indiquez le nom de la colonne de type chaîne comme paramètre.
 
-```python
+```Python
 substring_expression2 = dprep.col('Case Number').substring(2)
 case_id = dflow.add_column(new_column_name='Case Id',
                               prior_column='Case Number',

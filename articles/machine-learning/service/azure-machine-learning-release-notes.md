@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 04/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: cdd639f690d98651661226fbd340964dfdc7861f
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 4d22764cfb038bc2021b99d0743f3cbac17d91d8
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64914922"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024924"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Notes de publication du service Azure Machine Learning
 
@@ -23,10 +23,24 @@ Dans cet article, découvrez les versions du service Azure Machine Learning.  Po
 + [**Kit de développement logiciel (SDK) principal pour Python**](https://aka.ms/aml-sdk) d’Azure Machine Learning
 + [**Kit de développement logiciel (SDK) de préparation de données**](https://aka.ms/data-prep-sdk) Azure Machine Learning
 
+Consultez la [liste des problèmes connus](resource-known-issues.md) pour en savoir plus sur les bogues connus et les solutions de contournement.
+
+## <a name="2019-05-02"></a>2019-05-02
+
+### <a name="azure-portal"></a>Portail Azure
+
++ Créer des expériences ML automatisés dans le portail.
+
 
 ## <a name="2019-04-22"></a>2019-04-22
 
 ### <a name="azure-machine-learning-sdk-for-python-v1030"></a>Azure Machine Learning SDK pour Python v1.0.30
++ **Nouvelles fonctionnalités**
+  + Groupes de données
+
++ **Correctifs de bogues et améliorations**
+  + Aucun
+
 
 ## <a name="2019-04-17"></a>2019-04-17
 

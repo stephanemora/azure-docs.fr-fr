@@ -11,16 +11,33 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: db0eccb542cb4253e6e891fa9fa51e60fb7951a1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 242b7cb45e9a73e78ae9f9b62e83311e110e07ee
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60752332"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65021104"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>Problèmes connus et dépannage du service Azure Machine Learning
 
 Cet article vous permet de rechercher et de corriger les erreurs ou les défaillances rencontrées lors de l’utilisation du service Azure Machine Learning.
+
+## <a name="visual-interface-issues"></a>Problèmes de l’interface visuelle
+
+Interface visuelle pour les problèmes de service d’apprentissage.
+
+### <a name="long-compute-preparation-time"></a>Calcul de longue durée de préparation
+
+Créer nouveau calcul ou évoquer laissant calcul prend du temps, peut-être quelques minutes ou plus longtemps. L’équipe travaille pour l’optimisation.
+
+
+### <a name="cannot-run-an-experiment-only-contains-dataset"></a>Ne peut pas exécuter une expérience contient uniquement jeu de données 
+
+Vous souhaiterez peut-être exécuter une expérience contient uniquement le jeu de données pour visualiser le jeu de données. Toutefois, il n’a pas autorisé à exécuter une expérience contient uniquement des dataset dès aujourd'hui. Nous résolvons activement ce problème.
+ 
+Avant le correctif, vous pouvez connecter le jeu de données à n’importe quel module de transformation de données (sélectionner des colonnes dans le jeu de données, modifier les métadonnées, etc. des données de fractionnement) et exécutez l’expérience. Vous pouvez ensuite visualiser le jeu de données. 
+
+Ci-dessous image montre comment : ![visulize-data](./media/resource-known-issues/aml-visualize-data.png)
 
 ## <a name="sdk-installation-issues"></a>Problèmes d’installation de Kit de développement logiciel (SDK)
 

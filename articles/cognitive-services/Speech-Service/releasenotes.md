@@ -8,18 +8,41 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 4/24/2019
+ms.date: 05/02/2019
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: 6a9e66b1731a06d81e89b5f3fc4467a0f0344160
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 1310ecd15498c4c319febc87cbc3b18e0a7ca524
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64697878"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65020336"
 ---
 # <a name="release-notes"></a>Notes de publication
 
+## <a name="speech-sdk-150-2019-may-release"></a>Speech SDK 1.5.0 : Mise en production mai 2019
+
+**Nouvelles fonctionnalités**
+
+* Mot clé de la détection de fonctionnalité (KWS) est disponible pour Windows et Linux. Les fonctionnalités KWS peuvent fonctionnent avec n’importe quel type de microphone, officielle KWS prennent en charge, toutefois, est limité aux tableaux microphone figurant actuellement dans le matériel Azure Kinect DK ou les appareils de Speech SDK.
+* Fonctionnalités d’indicateur de phrase sont disponible via le Kit de développement. Vous pourrez trouver plus d’informations [ici](how-to-phrase-lists.md).
+* Fonctionnalités de transcription de conversation sont disponible via le Kit de développement. Voir [ici](conversation-transcription-service.md).
+* Ajouter la prise en charge pour les assistants virtuels de voix en premier en utilisant le canal Direct vocale de ligne.
+
+**Exemples**
+
+* Ajout d’exemples pour les nouvelles fonctionnalités ou de nouveaux services pris en charge par le Kit de développement.
+
+**Améliorations/Modifications**
+
+* Ajouté différentes propriétés de module de reconnaissance pour ajuster le comportement de service ou le résultat de service (par exemple, le masquage des grossièretés et autres).
+* Vous pouvez maintenant configurer le module de reconnaissance via les propriétés de configuration standard, même si vous avez créé le module de reconnaissance `FromEndpoint`.
+* Objective-c : `OutputFormat` propriété a été ajoutée à SPXSpeechConfiguration.
+* Le Kit de développement logiciel prend désormais en charge Debian 9 comme une distribution Linux.
+
+**Résolution des bogues**
+
+* Correction d’un problème où la ressource de l’orateur a été détruite trop tôt dans la synthèse vocale.
 ## <a name="speech-sdk-142"></a>Speech SDK 1.4.2
 
 Il s’agit d’une version de correctif de bogue et affecte uniquement le Kit de développement natif/managé. Il n’affecte pas la version JavaScript du SDK.
@@ -28,7 +51,7 @@ Il s’agit d’une version de correctif de bogue et affecte uniquement le Kit d
 
 Il s’agit d’une version JavaScript uniquement. Aucune fonctionnalité n’a été ajoutée. Les correctifs suivants ont été appliqués :
 
-* Webpack empêcher le chargement de l’agent proxy https.
+* Pack de web empêcher le chargement de l’agent proxy https.
 
 ## <a name="speech-sdk-140-2019-april-release"></a>Speech SDK 1.4.0 : Version d’avril 2019
 
@@ -49,7 +72,7 @@ Il s’agit d’une version JavaScript uniquement. Aucune fonctionnalité n’a 
 **Améliorations/Modifications**
 
 * Python : Les propriétés supplémentaires des résultats de reconnaissance sont désormais exposées la `properties` propriété.
-* Pour la prise en charge de développement et de débogage supplémentaire, vous pouvez rediriger SDK journalisation et informations de diagnostic dans un fichier journal (plus de détails [ici](how-to-use-logging.md)).
+* Pour la prise en charge du débogage et de développement supplémentaires, vous pouvez rediriger les informations de journalisation et de diagnostics du kit SDK dans un fichier journal (plus de détails [ici](how-to-use-logging.md)).
 * JavaScript : Améliorer les performances de traitement audio.
 
 **Résolution des bogues**
@@ -70,8 +93,8 @@ Il s’agit d’une version de correctif de bogue et affecte uniquement le Kit d
 
 **Nouvelles fonctionnalités**
 
-* Le SDK Speech prend en charge la sélection du microphone d’entrée via la classe AudioConfig. Cela vous permet de transmettre les données audio aux Services de reconnaissance vocale à partir d’un microphone par défaut. Pour plus d’informations, consultez la documentation décrivant [sélection du périphérique d’entrée audio](how-to-select-audio-input-devices.md). JavaScript ne propose pas encore cette fonctionnalité.
-* Le SDK Speech prend désormais en charge Unity dans une version bêta. Merci d’envoyer des commentaires via la section problèmes dans le [dépôt d’exemples GitHub](https://aka.ms/csspeech/samples). Cette version prend en charge Unity sur Windows x86 et x64 (applications de bureau autonome ou plateforme Windows universelle) et Android (ARM32/64, x86). Des informations supplémentaires sont disponibles dans notre [Démarrage rapide Unity](quickstart-csharp-unity.md).
+* Le SDK Speech prend en charge la sélection du microphone d’entrée via la classe AudioConfig. Cela vous permet de transmettre les données audio aux Services de reconnaissance vocale à partir d’un microphone par défaut. Pour plus d’informations, consultez la documentation décrivant [sélection du périphérique d’entrée audio](how-to-select-audio-input-devices.md). Cette fonctionnalité n’est pas encore disponible à partir de JavaScript.
+* Le SDK Speech prend désormais en charge Unity dans une version bêta. Fournir des commentaires via la section de problème dans le [référentiel d’exemples GitHub](https://aka.ms/csspeech/samples). Cette version prend en charge Unity sur Windows x86 et x64 (applications de bureau autonome ou plateforme Windows universelle) et Android (ARM32/64, x86). Des informations supplémentaires sont disponibles dans notre [Démarrage rapide Unity](quickstart-csharp-unity.md).
 * Le fichier `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` (fourni dans les versions précédentes) n’est plus nécessaire. La fonctionnalité est maintenant intégrée dans le SDK core.
 
 
@@ -107,9 +130,9 @@ Le nouveau contenu suivant est disponible dans notre [dépôt d’exemples](http
 **Résolution des bogues**
 
 * Le nom d’utilisateur et le mot de passe du proxy vides n’étaient pas été traités correctement. Avec cette version, si vous définissez un nom d’utilisateur et un mot de passe proxy en tant que chaîne vide, ils ne seront pas soumis lors de la connexion au proxy.
-* Les SessionId créés par le SDK n’étaient pas toujours vraiment aléatoires pour certains langages&nbsp;/ environnements. L’ajout de l’initialisation du générateur aléatoire a permis de corriger ce problème.
+* Les SessionId créés par le SDK n’étaient pas toujours vraiment aléatoires pour certains langages&nbsp;/ environnements. Ajouté à l’initialisation du Générateur d’aléatoires pour résoudre ce problème.
 * Amélioration de la gestion du jeton d’autorisation. Si vous souhaitez utiliser un jeton d’autorisation, spécifiez-le dans le SpeechConfig et ne renseignez pas la clé d’abonnement. Créez ensuite le module de reconnaissance comme d’habitude.
-* Dans certains cas, la connexion de l’objet n’a pas été libéré correctement. Ce problème a été résolu.
+* Dans certains cas, la connexion de l’objet n’a pas été libéré correctement. Ce problème est à présent résolu.
 * L’exemple JavaScript a été corrigé de façon à prendre en charge la sortie audio pour la synthèse de traduction également dans Safari.
 
 ## <a name="speech-sdk-121"></a>Kit de développement logiciel (SDK) Speech 1.2.1
@@ -134,7 +157,7 @@ Il s’agit d’une version JavaScript uniquement. Aucune fonctionnalité n’a 
   * La restriction sur la longueur des sessions audio a été supprimée. La reconnexion se produit automatiquement à l’arrière-plan.
 * Objet Connection
   * Du module de reconnaissance, vous pouvez accéder à un objet de connexion. Cet objet vous permet de lancer explicitement la connexion au service et de vous abonner à des événements de connexion et de déconnexion.
-    (JavaScript et Python ne proposent pas encore cette fonctionnalité.)
+    (Cette fonctionnalité n’est pas encore disponible à partir de JavaScript et Python.)
 * Prise en charge d’Ubuntu 18.04.
 * Android
   * Prise en charge de ProGuard activée durant la génération d’APK.
@@ -142,7 +165,7 @@ Il s’agit d’une version JavaScript uniquement. Aucune fonctionnalité n’a 
 **Améliorations**
 
 * Améliorations apportées à l’utilisation des threads internes afin de réduire le nombre de threads, de verrous et de mutex.
-* Amélioration des rapports d’erreurs et des informations sur les erreurs. Dans plusieurs cas, des messages d’erreur n’ont pas été entièrement propagés.
+* Amélioration des rapports d’erreurs et des informations sur les erreurs. Dans plusieurs cas, les messages d’erreur n'ont pas été propagées avant toute chose.
 * Mise à jour des dépendances de développement dans JavaScript pour utiliser des modules à jour.
 
 **Résolution des bogues**
@@ -218,7 +241,7 @@ Dans notre [exemple de référentiel](https://aka.ms/csspeech/samples), un nouve
 **Dernières modifications**
 
 * Avec cette version, un nombre de modifications avec rupture est introduit.
-  Pour plus d’informations, consultez [cette page](https://aka.ms/csspeech/breakingchanges_1_0_0).
+  Vérifiez [cette page](https://aka.ms/csspeech/breakingchanges_1_0_0) pour plus d’informations.
 
 ## <a name="cognitive-services-speech-sdk-060-2018-august-release"></a>Cognitive Services Speech SDK 0.6.0 : version d’août 2018
 

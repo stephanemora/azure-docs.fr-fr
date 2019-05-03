@@ -1,7 +1,7 @@
 ---
 title: Contenu de l’index du stockage de tables Azure pour la recherche en texte intégral - Recherche Azure
 description: Découvrez comment indexer les données stockées dans Stockage Table Azure avec un indexeur Recherche Azure.
-ms.date: 03/01/2019
+ms.date: 05/02/2019
 author: mgottein
 manager: cgronlun
 ms.author: magottei
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: e1b411ab54a5b666849893ba9d246eff85e7e54e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5f0e7feb52b34a4bd29bef01925bf9ea8f84d7db
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60871232"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024795"
 ---
 # <a name="index-azure-table-storage-with-azure-search"></a>Indexer le stockage de tables Azure avec Azure Search
 Cet article montre comment utiliser Azure Search pour indexer les données stockées dans le stockage de tables Azure.
@@ -49,7 +49,7 @@ Pour l’indexation des tables, la source de données doit avoir les propriété
 
 Pour créer une source de données :
 
-    POST https://[service name].search.windows.net/datasources?api-version=2017-11-11
+    POST https://[service name].search.windows.net/datasources?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key]
 
@@ -81,7 +81,7 @@ L’index spécifie les champs d’un document, les attributs et d’autres cons
 
 Pour créer un index :
 
-    POST https://[service name].search.windows.net/indexes?api-version=2017-11-11
+    POST https://[service name].search.windows.net/indexes?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key]
 
@@ -100,7 +100,7 @@ Un indexeur connecte une source de données à un index de recherche cible et fo
 
 Une fois l’index et la source de données créés, vous êtes prêt à créer l’indexeur :
 
-    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11
+    POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key]
 
@@ -133,7 +133,7 @@ Lorsque vous configurez un indexeur de table pour l’exécuter de manière plan
 
 Pour indiquer que certains documents doivent être supprimés de l’index, vous pouvez utiliser une stratégie de suppression réversible. Plutôt que de supprimer une ligne, ajoutez une propriété pour signaler sa suppression, puis configurez une stratégie de détection des suppressions réversibles sur la source de données. Par exemple, la stratégie suivante considère qu’une ligne est supprimée si elle a une propriété `IsDeleted` avec la valeur `"true"` :
 
-    PUT https://[service name].search.windows.net/datasources?api-version=2017-11-11
+    PUT https://[service name].search.windows.net/datasources?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key]
 

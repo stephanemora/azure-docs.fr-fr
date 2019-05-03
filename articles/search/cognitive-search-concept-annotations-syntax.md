@@ -8,15 +8,15 @@ ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 02/22/2019
+ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: bfb8f5ca9b4d204b7a5efdc1b54a0fdd150e5ed6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 637edc0e45daa37a753fbaa15313b076e8af4d7c
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60344204"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65023872"
 ---
 # <a name="how-to-reference-annotations-in-a-cognitive-search-skillset"></a>Comment référencer des annotations dans un jeu de compétences de recherche cognitive
 
@@ -36,13 +36,13 @@ Avant d’examiner la syntaxe, revenons sur quelques concepts importants pour mi
 <a name="example-1"></a>
 ## <a name="example-1-simple-annotation-reference"></a>Exemple 1 : référencer une annotation simple
 
-Dans un stockage d’objets blob Azure, supposons que vous ayez une variété de fichiers contenant des références à des noms de personnes que vous souhaitez extraire à l’aide d’une reconnaissance d’entité nommée. Dans la définition de compétence ci-dessous, `"/document/content"` est la représentation textuelle du document entier, et « personnes » une extraction de noms complets d’entités identifiées en tant que personnes.
+Dans le stockage Blob Azure, supposons que vous avez plusieurs fichiers contenant des références aux noms de personnes que vous souhaitez extraire à l’aide de la reconnaissance d’entité. Dans la définition de compétence ci-dessous, `"/document/content"` est la représentation textuelle du document entier, et « personnes » une extraction de noms complets d’entités identifiées en tant que personnes.
 
 Le contexte par défaut étant `"/document"`, la liste de personnes peut désormais être référencée comme `"/document/people"`. En l’occurrence, `"/document/people"` est une annotation qui peut maintenant être mappée à un champ dans un index, ou utilisée dans une autre compétence du même jeu de compétences.
 
 ```json
   {
-    "@odata.type": "#Microsoft.Skills.Text.NamedEntityRecognitionSkill",
+    "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
     "categories": [ "Person"],
     "defaultLanguageCode": "en",
     "inputs": [

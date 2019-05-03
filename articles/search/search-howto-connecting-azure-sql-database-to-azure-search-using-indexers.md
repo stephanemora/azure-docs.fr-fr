@@ -1,7 +1,7 @@
 ---
 title: Se connecter à Azure SQL Database et indexer le contenu à l’aide d’indexeurs - Recherche Azure
 description: Découvrez comment analyser des données dans Azure SQL Database à l’aide d’indexeurs pour la recherche en texte intégral dans Recherche Azure. Cet article traite des connexions, de la configuration des indexeurs et de l’ingestion des données.
-ms.date: 03/01/2019
+ms.date: 05/02/2019
 author: mgottein
 manager: cgronlun
 ms.author: magottei
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 5453bcdd371c0639cb1d3568f05a1768e6204d3d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c23933e7f379a438d436fd99c5fea7899c5891ef
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60817165"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65025359"
 ---
 # <a name="connect-to-and-index-azure-sql-database-content-using-azure-search-indexers"></a>Se connecter à Azure SQL Database et indexer le contenu à l’aide d’indexeurs Recherche Azure
 
@@ -63,7 +63,7 @@ Selon plusieurs facteurs relatifs à vos données, l'utilisation de l'indexeur A
 1. Créez la source de données :
 
    ```
-    POST https://myservice.search.windows.net/datasources?api-version=2017-11-11
+    POST https://myservice.search.windows.net/datasources?api-version=2019-05-06
     Content-Type: application/json
     api-key: admin-key
 
@@ -82,7 +82,7 @@ Selon plusieurs facteurs relatifs à vos données, l'utilisation de l'indexeur A
 3. Créez l’indexeur en lui attribuant un nom et en référençant les sources de données sources et cibles :
 
     ```
-    POST https://myservice.search.windows.net/indexers?api-version=2017-11-11
+    POST https://myservice.search.windows.net/indexers?api-version=2019-05-06
     Content-Type: application/json
     api-key: admin-key
 
@@ -95,7 +95,7 @@ Selon plusieurs facteurs relatifs à vos données, l'utilisation de l'indexeur A
 
 Un indexeur créé de cette façon n’a pas de planification. Il s’exécute automatiquement une fois créé. Vous pouvez le réexécuter à tout moment à l'aide d’une requête **run indexer** :
 
-    POST https://myservice.search.windows.net/indexers/myindexer/run?api-version=2017-11-11
+    POST https://myservice.search.windows.net/indexers/myindexer/run?api-version=2019-05-06
     api-key: admin-key
 
 Vous pouvez personnaliser différents aspects du comportement des indexeurs, notamment la taille du lot et le nombre de documents pouvant être ignorés avant que l’exécution d’un indexeur n’échoue. Pour plus d’informations, consultez [Créer une API d’indexeur](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer).
@@ -104,7 +104,7 @@ Il se peut que vous deviez autoriser des services Azure pour vous connecter à v
 
 Pour surveiller l’état et l’historique d’exécution de l'indexeur (nombre d’éléments indexés, échecs, etc.), utilisez une requête **indexer status** :
 
-    GET https://myservice.search.windows.net/indexers/myindexer/status?api-version=2017-11-11
+    GET https://myservice.search.windows.net/indexers/myindexer/status?api-version=2019-05-06
     api-key: admin-key
 
 La réponse doit être semblable à ce qui suit :
@@ -146,7 +146,7 @@ Vous trouverez des informations supplémentaires sur la réponse dans [Obtenir l
 ## <a name="run-indexers-on-a-schedule"></a>Exécuter des indexeurs selon une planification
 Vous pouvez également configurer l'indexeur pour qu’il s’exécute à intervalles périodiques. Pour ce faire, ajoutez la propriété **schedule** lors de la création ou de la mise à jour de l’indexeur. L'exemple ci-dessous montre une requête PUT mettant à jour l'indexeur :
 
-    PUT https://myservice.search.windows.net/indexers/myindexer?api-version=2017-11-11
+    PUT https://myservice.search.windows.net/indexers/myindexer?api-version=2019-05-06
     Content-Type: application/json
     api-key: admin-key
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 2c5c2bc2b8dd1930efef9833bd442fcad5566e2a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cbabdde2dd5df2ca40ee45fe0f7b0437f095673b
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61460267"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65020376"
 ---
 # <a name="what-is-text-to-speech"></a>Quelle est la synthèse vocale ?
 
@@ -32,7 +32,9 @@ Voix standard est créés à l’aide de techniques statistiques de synthèse pa
 
 Voix neuronal utiliser les réseaux neuronaux en profondeur pour surmonter les limites des systèmes de synthèse vocale traditionnels dans correspondent aux modèles de stress et intonation dans la langue parlée et en synthétisant les unités de reconnaissance vocale dans une voix de l’ordinateur. Synthèse vocale standard décompose prosodie dans analyse linguistique distincte et étapes de prédiction acoustique sont régies par les modèles indépendants. Qui peut se produire dans la synthèse vocale des, buzzy. Notre fonctionnalité NEURONALE effectue la synthèse vocale et de prédiction prosodie simultanément, ce qui entraîne une voix plus fluide et plus naturel.
 
-Les voix neuronales peuvent être utilisées pour rendre les interactions avec les chatbots et les assistants virtuels plus naturelles et agréables, convertir des textes numériques comme les livres électroniques en livres audio et améliorer les systèmes de navigation embarqués. Prosodie naturelle quasi humaine et claire articulation de mots, voix neuronal réduire considérablement fatigue écoute lorsque vous interagissez avec les systèmes d’intelligence artificielle. Pour plus d’informations sur les voix neuronales, consultez [langues prises en charge](language-support.md#text-to-speech).
+Les voix neuronales peuvent être utilisées pour rendre les interactions avec les chatbots et les assistants virtuels plus naturelles et agréables, convertir des textes numériques comme les livres électroniques en livres audio et améliorer les systèmes de navigation embarqués. Prosodie naturelle quasi humaine et claire articulation de mots, voix neuronal réduire considérablement fatigue écoute lorsque vous interagissez avec les systèmes d’intelligence artificielle. 
+
+Voix neuronal prend en charge des styles différents, tels que neutre et heureuses. Par exemple, la voix Jessa (en-US) peut énoncer cheerfully, qui est optimisé pour la conversation à chaud, heureuse. Vous pouvez ajuster la sortie de la voix, comme le ton, tonalité et à l’aide de la vitesse [Speech Synthesis Markup Language](speech-synthesis-markup.md). Pour obtenir une liste complète des voix disponibles, consultez [langues prises en charge](language-support.md#text-to-speech).
 
 Pour en savoir plus sur les avantages de voix neuronal, consultez [nouveau service neuronal synthèse vocale de Microsoft vous aide à machines parler tels que des personnes](https://azure.microsoft.com/blog/microsoft-s-new-neural-text-to-speech-service-helps-machines-speak-like-people/).
 

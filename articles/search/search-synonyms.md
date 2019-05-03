@@ -6,16 +6,16 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.date: 04/20/2018
+ms.date: 05/02/2019
 manager: jlembicz
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: 4383cc327d8058ca44acd892f41a7a256e3b1727
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 567124f50745080da12178a458957a0f6c8266b5
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61281800"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024315"
 ---
 # <a name="synonyms-in-azure-search"></a>Synonymes dans Recherche Azure
 
@@ -23,11 +23,13 @@ Dans les moteurs de recherche, les synonymes associent des termes équivalents q
 
 Dans Azure Search, l’expansion des synonymes est effectuée au moment de la requête. Vous pouvez ajouter des cartes de synonymes à un service sans interrompre les opérations existantes. Vous pouvez ajouter une propriété **synonymMaps** à une définition de champ sans avoir à reconstruire l’index.
 
-## <a name="feature-availability"></a>Disponibilité des fonctionnalités
+## <a name="create-synonyms"></a>Créer des synonymes
 
-La fonctionnalité des synonymes est prise en charge dans la dernière version de l’API (version de l’API : 2017-11-11). Il n’existe aucune prise en charge sur le portail Azure pour l’instant.
+Il n’existe aucune prise en charge de portail pour la création de synonymes, mais vous pouvez utiliser l’API REST ou le Kit de développement .NET. Pour vous familiariser avec REST, nous vous recommandons de [à l’aide de Postman](search-fiddler.md) et de formulation des demandes à l’aide de cette API : [Créer des cartes de synonymes](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map). Pour C# les développeurs, vous pouvez commencer avec [ajouter des synonymes dans recherche Azure à l’aide de C# ](search-synonyms-tutorial-sdk.md).
 
-## <a name="how-to-use-synonyms-in-azure-search"></a>Guide pratique pour utiliser des synonymes dans Azure Search
+Si vous le souhaitez, si vous utilisez [clés gérée par le client](search-security-manage-encryption-keys.md) pour côté service chiffrement au repos, vous pouvez appliquer cette protection pour le contenu de votre carte de synonymes.
+
+## <a name="use-synonyms"></a>Utiliser des synonymes
 
 Dans Azure Search, la prise en charge des synonymes repose sur des cartes de synonymes que vous définissez et chargez sur votre service. Ces cartes constituent des ressources indépendantes (telles que des index ou des sources de données) et peuvent être utilisées par n’importe quel champ de recherche dans un index de votre service de recherche.
 
@@ -49,7 +51,7 @@ Les cartes de synonymes doivent être au format Apache Solr décrit ci-dessous. 
 
 Vous pouvez créer une nouvelle carte de synonymes à l’aide d’une requête HTTP POST, comme dans l’exemple suivant :
 
-    POST https://[servicename].search.windows.net/synonymmaps?api-version=2017-11-11
+    POST https://[servicename].search.windows.net/synonymmaps?api-version=2019-05-06
     api-key: [admin key]
 
     {
@@ -62,7 +64,7 @@ Vous pouvez créer une nouvelle carte de synonymes à l’aide d’une requête 
 
 Vous pouvez également utiliser une requête PUT en spécifiant le nom de la carte de synonymes sur l'URI. Si la carte de synonymes n'existe pas, elle est créée.
 
-    PUT https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2017-11-11
+    PUT https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2019-05-06
     api-key: [admin key]
 
     {
@@ -74,38 +76,38 @@ Vous pouvez également utiliser une requête PUT en spécifiant le nom de la car
 
 ##### <a name="apache-solr-synonym-format"></a>Format de synonymes Apache Solr
 
-Le format Solr prend en charge les cartes de synonymes équivalentes et explicites. Les règles de mappage respectent la spécification de filtre de synonyme open source d’Apache Solr, décrite dans ce document : [SynonymFilter](https://cwiki.apache.org/confluence/display/solr/Filter+Descriptions#FilterDescriptions-SynonymFilter). Voici un exemple de règle pour des synonymes équivalents.
+Le format Solr prend en charge les cartes de synonymes équivalentes et explicites. Règles de mappage est conforme à la spécification de filtre de synonyme d’open source d’Apache Solr, décrite dans ce document : [SynonymFilter](https://cwiki.apache.org/confluence/display/solr/Filter+Descriptions#FilterDescriptions-SynonymFilter). Voici un exemple de règle pour des synonymes équivalents.
 ```
 USA, United States, United States of America
 ```
 
 Avec la règle ci-dessus, une requête de recherche « USA » s’étendra à « USA » OR « United States » OR « United States of America ».
 
-Un mappage explicite est indiqué par une flèche « => ». Lorsqu’elle spécifiée, une séquence de termes d’une requête de recherche qui correspond à la partie gauche de « => » est remplacée par les alternatives sur la partie droite. Étant donné la règle ci-dessous, les requêtes de recherche « Washington », « Wash. » ou « WA » seront réécrites « WA ». Le mappage explicite s’applique dans le sens spécifié uniquement et ne réécrit pas la requête « WA » en « Washington » dans ce cas.
+Un mappage explicite est indiqué par une flèche « => ». Si spécifié, une séquence de termes d’une requête de recherche qui correspond à la partie gauche de « = > » sera remplacée par les alternatives sur le côté droit. Étant donné la règle ci-dessous, les requêtes de recherche « Washington », « Wash. » ou « WA » seront réécrites « WA ». Le mappage explicite s’applique dans le sens spécifié uniquement et ne réécrit pas la requête « WA » en « Washington » dans ce cas.
 ```
 Washington, Wash., WA => WA
 ```
 
 #### <a name="list-synonym-maps-under-your-service"></a>Répertorier les cartes de synonymes de votre service.
 
-    GET https://[servicename].search.windows.net/synonymmaps?api-version=2017-11-11
+    GET https://[servicename].search.windows.net/synonymmaps?api-version=2019-05-06
     api-key: [admin key]
 
 #### <a name="get-a-synonym-map-under-your-service"></a>Obtenir une carte de synonymes pour votre service.
 
-    GET https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2017-11-11
+    GET https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2019-05-06
     api-key: [admin key]
 
 #### <a name="delete-a-synonyms-map-under-your-service"></a>Supprimer une carte de synonymes de votre service.
 
-    DELETE https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2017-11-11
+    DELETE https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2019-05-06
     api-key: [admin key]
 
 ### <a name="configure-a-searchable-field-to-use-the-synonym-map-in-the-index-definition"></a>Configurez un champ pouvant faire l’objet d’une recherche pour utiliser la carte de synonymes dans la définition d’index.
 
 Une nouvelle propriété de champ **synonymMaps** permet de spécifier une carte de synonymes à utiliser pour un champ pouvant faire l’objet d’une recherche. Les cartes de synonymes sont des ressources de niveau de service et peuvent être référencées selon n’importe quel champ d’index dans le service.
 
-    POST https://[servicename].search.windows.net/indexes?api-version=2017-11-11
+    POST https://[servicename].search.windows.net/indexes?api-version=2019-05-06
     api-key: [admin key]
 
     {

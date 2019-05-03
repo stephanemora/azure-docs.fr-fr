@@ -8,15 +8,15 @@ ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 02/25/2019
+ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: e4849487c2dd9330dbf9e6b6cf0ed4d1b6b96020
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f773cd298c8faaac90b30d88a74e8ddcb51c3afa
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60637516"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65021949"
 ---
 # <a name="deprecated-cognitive-search-skills"></a>Compétences de recherche cognitive déconseillées
 
@@ -31,7 +31,7 @@ Ce document décrit les compétences cognitives qui sont considérées comme dé
 
 ### <a name="last-available-api-version"></a>Dernière version d’API disponible
 
-2017-11-11-preview
+2019-05-06-preview
 
 ### <a name="end-of-support"></a>Fin de la prise en charge
 
@@ -43,7 +43,8 @@ Utilisez [Microsoft.Skills.Text.EntityRecognitionSkill](cognitive-search-skill-e
 
 Pour migrer vers la [compétence de reconnaissance des entités](cognitive-search-skill-entity-recognition.md), vous devrez apporter une ou plusieurs des modifications suivantes à votre définition de compétence. Vous pouvez mettre à jour la définition de compétence à l’aide de l’[API de mise à jour de compétences](https://docs.microsoft.com/rest/api/searchservice/update-skillset).
 
-_Remarque_: actuellement, le score de confiance comme concept n’est pas pris en charge. Il sera pris en charge dans un futur proche. Le paramètre `minimumPrecision` existe sur `EntityRecognitionSkill` pour une utilisation ultérieure et la compatibilité descendante.
+> [!NOTE]
+> actuellement, le score de confiance comme concept n’est pas pris en charge. Le paramètre `minimumPrecision` existe sur `EntityRecognitionSkill` pour une utilisation ultérieure et la compatibilité descendante.
 
 1. *(Obligatoire)* Modifiez `@odata.type` en remplaçant `"#Microsoft.Skills.Text.NamedEntityRecognitionSkill"` par `"#Microsoft.Skills.Text.EntityRecognitionSkill"`.
 

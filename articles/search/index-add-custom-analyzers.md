@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 9a15078c953c1fab40ad521eff079a623c93b9d9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5983c2036ff206825a82072b57ca2b9bb44ca678
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60914906"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65021655"
 ---
 # <a name="add-custom-analyzers-to-an-azure-search-index"></a>Ajouter des analyseurs personnalisés à un index de Recherche Azure
 
@@ -300,7 +300,7 @@ Dans le tableau ci-dessous, les filtres de caractères qui sont implémentés av
 |[mapping](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/charfilter/MappingCharFilter.html)|MappingCharFilter|Un filtre de caractères applique des mappages définis avec l’option mappings. La mise en correspondance est gourmande en ressources (la correspondance du modèle le plus long à un point donné l’emporte). La chaîne vide est autorisée comme remplacement.<br /><br /> **Options**<br /><br /> Mappings (type : tableau de chaînes) : une liste de mappages au format suivant : « a=>b » (toutes les occurrences du caractère « a » sont remplacées par le caractère « b »). Requis.|  
 |[pattern_replace](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/pattern/PatternReplaceCharFilter.html)|PatternReplaceCharFilter|Un filtre de caractères qui remplace des caractères dans la chaîne d’entrée. Il utilise une expression régulière pour identifier les séquences de caractères à conserver et un modèle de remplacement pour identifier les caractères à remplacer. Par exemple, texte d’entrée = "aa  bb aa bb", modèle = "(aa)\\\s+(bb)" remplacement = "$1#$2", résultat = "aa#bb aa#bb".<br /><br /> **Options**<br /><br /> pattern (type : chaîne) : obligatoire.<br /><br /> replacement (type : chaîne) : obligatoire.|  
 
- <sup>1</sup> Les types de filtres de caractères sont toujours préfixés dans le code par « #Microsoft.Azure.Search » ; ainsi, « MappingCharFilter » serait spécifié sous la forme « #Microsoft.Azure.Search.MappingCharFilter ». Nous avons supprimé le préfixe pour réduire la largeur du tableau, mais n’oubliez pas de l’inclure dans votre code. Notez que le type de filtre de caractères (type_filtre_caractères) est fourni seulement pour les filtres qui peuvent être personnalisés. S’il n’existe pas d’options, comme c’est le cas avec html_strip, aucun type #Microsoft.Azure.Search n’est associé.
+ <sup>1</sup> Les types de filtres de caractères sont toujours préfixés dans le code par « #Microsoft.Azure.Search » ; ainsi, « MappingCharFilter » serait spécifié sous la forme « #Microsoft.Azure.Search.MappingCharFilter ». Nous avons supprimé le préfixe pour réduire la largeur du tableau, mais n’oubliez pas de l’inclure dans votre code. Notez que char_filter_type est uniquement fourni pour les filtres qui peuvent être personnalisés. S’il n’existe pas d’options, comme c’est le cas avec html_strip, aucun type #Microsoft.Azure.Search n’est associé.
 
 <a name="Tokenizers"></a>
 
@@ -324,7 +324,7 @@ Dans le tableau ci-dessous, les générateurs de jetons qui sont implémentés a
 |[uax_url_email](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/standard/UAX29URLEmailTokenizer.html)|UaxUrlEmailTokenizer|Génère des jetons pour des URL et des e-mails sous la forme d’un seul jeton.<br /><br /> **Options**<br /><br /> maxTokenLength (type : entier) : la longueur maximale des jetons. Valeur par défaut : 255, maximum : 300. Les jetons dépassant la longueur maximale sont fractionnés.|  
 |[whitespace](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/core/WhitespaceTokenizer.html)|(le type s’applique seulement quand des options sont disponibles) |Divise le texte au niveau des espaces. Les jetons d’une longueur supérieure à 255 caractères sont fractionnés.|  
 
- <sup>1</sup> Les types de générateurs de jetons sont toujours préfixés dans le code par « #Microsoft.Azure.Search » ; ainsi, « ClassicTokenizer » serait spécifié sous la forme « #Microsoft.Azure.Search.ClassicTokenizer ». Nous avons supprimé le préfixe pour réduire la largeur du tableau, mais n’oubliez pas de l’inclure dans votre code. Notez que le type de générateur de jetons (type_générateur_jetons) est fourni seulement pour les générateurs de jetons qui peuvent être personnalisés. S’il n’existe pas d’options, comme c’est le cas avec le générateur de jetons letter, aucun type #Microsoft.Azure.Search n’est associé.
+ <sup>1</sup> Les types de générateurs de jetons sont toujours préfixés dans le code par « #Microsoft.Azure.Search » ; ainsi, « ClassicTokenizer » serait spécifié sous la forme « #Microsoft.Azure.Search.ClassicTokenizer ». Nous avons supprimé le préfixe pour réduire la largeur du tableau, mais n’oubliez pas de l’inclure dans votre code. Notez que tokenizer_type est uniquement fourni pour les générateurs de jetons qui peuvent être personnalisés. S’il n’existe pas d’options, comme c’est le cas avec le générateur de jetons letter, aucun type #Microsoft.Azure.Search n’est associé.
 
 <a name="TokenFilters"></a>
 

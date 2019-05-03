@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: ab0aefd5650aada9c301115813a80747ddd1f2ac
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 1a82b9256405e2cac12f4c5611ee3bdad459162b
+ms.sourcegitcommit: abeefca6cd5ca01c3e0b281832212aceff08bf3e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64926314"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "64992936"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Instance Metadata Service : Événements planifiés pour les machines virtuelles Windows
 
@@ -45,7 +45,7 @@ De nombreuses applications peuvent bénéficier d’un délai pour se préparer 
 Avec Événements planifiés, votre application peut savoir quand une maintenance aura lieu et déclencher des tâches pour limiter son impact. Les événements planifiés laissent à votre machine virtuelle une période minimale avant l’activité de maintenance. Pour plus d’informations, voir la section Planification d’événements ci-dessous.
 
 Le service Événements planifiés fournit des événements dans les cas d’usage suivants :
-- Maintenance lancée par la plateforme (par exemple, mise à jour du système d’exploitation hôte)
+- [Plateforme a lancé une maintenance](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/maintenance-and-updates) (par exemple, machine virtuelle redémarrage, migration dynamique ou mémoire en conservant les mises à jour pour l’hôte)
 - Matériel détérioré
 - Maintenance lancée par l’utilisateur (par exemple, un utilisateur redémarre ou redéploie une machine virtuelle)
 - [Éviction de la machine virtuelle basse priorité](https://azure.microsoft.com/blog/low-priority-scale-sets) dans la mise à l’échelle définit
@@ -119,7 +119,7 @@ DocumentIncarnation est un ETag qui permet d’inspecter facilement la charge ut
 |Propriété  |  Description |
 | - | - |
 | EventId | GUID pour cet événement. <br><br> Exemple : <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
-| Type d’événement | Impact provoqué par cet événement. <br><br> Valeurs : <br><ul><li> `Freeze`: une pause de quelques secondes est planifiée pour la machine virtuelle. Le processeur est mis en pause, mais cela n’a aucun impact sur la mémoire, les fichiers ouverts ou les connexions réseau. <li>`Reboot`: un redémarrage est planifié pour la machine virtuelle (la mémoire non persistante est effacée). <li>`Redeploy`: un déplacement vers un autre nœud est planifié pour la machine virtuelle (le contenu des disques éphémères est perdu). <li>`Preempt`: La Machine virtuelle de faible priorité est en cours de suppression (disques éphémères sont perdues).|
+| Type d’événement | Impact provoqué par cet événement. <br><br> Valeurs : <br><ul><li> `Freeze`: La Machine virtuelle est planifiée pour mettre en pause pendant quelques secondes. Processeur et la connectivité réseau peut être suspendue, mais n’a aucun impact sur la mémoire ou les fichiers ouverts. <li>`Reboot`: un redémarrage est planifié pour la machine virtuelle (la mémoire non persistante est effacée). <li>`Redeploy`: un déplacement vers un autre nœud est planifié pour la machine virtuelle (le contenu des disques éphémères est perdu). <li>`Preempt`: La Machine virtuelle de faible priorité est en cours de suppression (disques éphémères sont perdues).|
 | ResourceType | Type de ressource affecté par cet événement. <br><br> Valeurs : <ul><li>`VirtualMachine`|
 | Ressources| Liste des ressources affectées par cet événement. Elle contient à coup sûr des machines d’au plus un [domaine de mise à jour](manage-availability.md), mais elle peut ne pas contenir toutes les machines du domaine utilisateur. <br><br> Exemple : <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
 | Event Status | État de cet événement. <br><br> Valeurs : <ul><li>`Scheduled`: cet événement est planifié pour démarrer après l’heure spécifiée dans la propriété `NotBefore`.<li>`Started`: cet événement a démarré.</ul> Aucun état `Completed` ou similaire n’est jamais fourni, car l’événement n’est plus retourné une fois qu’il est terminé.
@@ -136,7 +136,8 @@ Chaque événement est planifié à un minimum de temps dans le futur, en foncti
 | Préempter | 30 secondes |
 
 ### <a name="event-scope"></a>Portée de l’événement     
-Les événements planifiés sont remis à :        
+Les événements planifiés sont remis à :
+ - Machines virtuelles autonomes
  - Toutes les machines virtuelles d’un service cloud      
  - Toutes les machines virtuelles d’un groupe à haute disponibilité      
  - Toutes les machines virtuelles d’un groupe de placement de groupe identique.         

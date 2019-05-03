@@ -8,19 +8,19 @@ ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 01/31/2019
+ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seojan2018
-ms.openlocfilehash: 1fcb12fc2cfae98376210e1924a670cce444f4f2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e5f7ee172563a81d45e3a35da2cfc7e8731de48d
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61343337"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65023852"
 ---
 # <a name="custom-web-api-skill"></a>Compétence API web personnalisée
 
-La compétence **API web personnalisée** vous permet d’étendre la recherche cognitive en appelant un point de terminaison d’API web qui fournit des opérations personnalisées. Tout comme les compétences intégrées, une compétence **API web personnalisée** a des entrées et des sorties. Selon les entrées, votre API web reçoit une charge utile JSON pendant l’exécution de l’indexeur et génère une charge utile JSON en réponse, ainsi qu’un code d’état de réussite. La réponse est censée avoir les sorties spécifiées par votre compétence personnalisée. Toute autre réponse est considérée comme une erreur et aucun enrichissement n’est effectué.
+Le **API Web personnalisée** compétence vous permet d’étendre la recherche cognitive en appelant un point de terminaison API Web qui fournissent des opérations personnalisées. Tout comme les compétences intégrées, une compétence **API web personnalisée** a des entrées et des sorties. Selon les entrées, votre API Web reçoit une charge utile JSON lors de l’indexeur s’exécute et génère une charge utile JSON en tant que réponse, ainsi que d’un code d’état de réussite. La réponse est censée avoir les sorties spécifiées par votre compétence personnalisée. Toute autre réponse est considérée comme une erreur et aucun enrichissement n’est effectué.
 
 La structure des charges utiles JSON est décrite plus bas dans ce document.
 
@@ -38,7 +38,7 @@ Les paramètres respectent la casse.
 
 | Nom du paramètre     | Description |
 |--------------------|-------------|
-| URI | URI de l’API web à laquelle la charge utile _JSON_ est envoyée. Seul le schéma d’URI **https** est autorisé |
+| URI | L’URI de l’API Web à laquelle le _JSON_ charge utile est envoyé. Seul le schéma d’URI **https** est autorisé |
 | httpMethod | Méthode à utiliser pour envoyer la charge utile. Les méthodes autorisées sont `PUT` ou `POST` |
 | httpHeaders | Collection de paires clé-valeur où les clés représentent les noms d’en-tête et les valeurs représentent les valeurs d’en-tête à envoyer à votre API web avec la charge utile. Les en-têtes suivants sont interdits dans cette collection : `Accept`, `Accept-Charset`, `Accept-Encoding`, `Content-Length`, `Content-Type`, `Cookie`, `Host`, `TE`, `Upgrade`, `Via` |
 | timeout | (Facultatif) Si spécifié, indique le délai d’expiration pour le client http qui effectue l’appel d’API. Il doit être formaté en tant que valeur « dayTimeDuration » XSD (un sous-ensemble limité d'une valeur de [durée ISO 8601](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) ). Par exemple, `PT60S` pour 60 secondes. S’il n’est pas défini, une valeur par défaut de 30 secondes est choisie. Le délai d’expiration peut être défini sur 90 secondes maximum et 1 seconde minimum. |
@@ -139,10 +139,10 @@ Elle suit toujours ces contraintes :
 
 ## <a name="sample-output-json-structure"></a>Exemple de structure JSON de sortie
 
-« output » correspond à la réponse renvoyée par votre API web. L’API web doit retourner uniquement une charge utile _JSON_ (vérifiée en examinant l’en-tête de réponse `Content-Type`) et doit satisfaire les contraintes suivantes :
+Le « output » correspond à la réponse renvoyée à partir de votre API Web. L’API Web doit retourner uniquement un _JSON_ charge utile (vérifié en examinant le `Content-Type` en-tête de réponse) et doit satisfaire les contraintes suivantes :
 
 * Il doit y avoir une entité de niveau supérieur appelée `values` qui doit être un tableau d’objets.
-* Le nombre d’objets dans le tableau doit être le même que le nombre d’objets envoyés à l’API web.
+* Le nombre d’objets dans le tableau doit être le même que le nombre d’objets envoyés à l’API Web.
 * Chaque objet doit avoir :
    * Une propriété `recordId`
    * Une propriété `data`, qui est un objet dans lequel les champs sont des enrichissements correspondant aux « noms » dans `output` et dont la valeur est considérée comme l’enrichissement.

@@ -1,7 +1,7 @@
 ---
 title: Mappages de champs pour une indexation automatisée à l’aide d’indexeurs - Recherche Azure
 description: Configurez les mappages de champs de l’indexeur Recherche Azure pour tenir compte des différences dans les noms de champs et les représentations des données.
-ms.date: 03/01/2019
+ms.date: 05/02/2019
 author: mgottein
 manager: cgronlun
 ms.author: magottei
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 9bb8a168f54658ea14b174d19a1795e575646304
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d3e0d876550b0c3baf89f3f13e0458fc97e11351
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60749340"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65025213"
 ---
 # <a name="field-mappings-in-azure-search-indexers"></a>Mappages de champs dans les indexeurs de la Recherche Azure
 Lorsque vous utilisez des indexeurs Azure Search, vous pouvez parfois vous retrouver dans des situations où vos données d'entrée ne correspondent pas tout à fait au schéma de votre index cible. Dans ce cas, vous pouvez utiliser les **mappages de champs** pour transformer vos données au format souhaité.

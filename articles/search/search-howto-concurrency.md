@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/21/2017
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 4599498918b7a01a1207f20135c26924c6758eb8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7e569fa30727f2df7411eee5fa6d48f9b9454460
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60871363"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65025335"
 ---
 # <a name="how-to-manage-concurrency-in-azure-search"></a>Gestion de l’accès concurrentiel dans Recherche Azure
 
@@ -170,7 +170,7 @@ Le code suivant illustre les contrôles accessCondition pour les opérations de 
 
 Un modèle de conception pour l’implémentation de l’accès concurrentiel optimiste doit inclure une boucle qui effectue une nouvelle tentative de contrôle de la condition d’accès, un test de la condition d’accès et récupère éventuellement une ressource mise à jour avant d’essayer de réappliquer les modifications.
 
-Cet extrait de code illustre l’ajout d’une ressource synonymMap à un index existant. Ce code est tiré le [synonymes (version préliminaire) C# exemple pour Azure Search](search-synonyms-tutorial-sdk.md).
+Cet extrait de code illustre l’ajout d’une ressource synonymMap à un index existant. Ce code est tiré le [synonyme C# exemple pour Azure Search](search-synonyms-tutorial-sdk.md).
 
 L’extrait de code obtient l’index « hotel », vérifie la version de l’objet pour une opération de mise à jour, lève une exception si la condition échoue, puis retente l’opération (jusqu’à trois fois), en commençant par extraire l’index du serveur pour obtenir sa dernière version.
 

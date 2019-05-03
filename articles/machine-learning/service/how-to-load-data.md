@@ -10,22 +10,24 @@ ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: jmartens
-ms.date: 2/22/2019
+ms.date: 02/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 34dd20826928d1ab2ba1fc7980c7d47b796ea663
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7dc07ba7f1d62b49232b1cd892070804099fab8c
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60819215"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024014"
 ---
-# <a name="load-and-read-data-with-azure-machine-learning"></a>Charger et lire des données avec Azure Machine Learning
-
+# <a name="load-and-read-data-with-the-azure-machine-learning-data-prep-sdk"></a>Charger et lire des données avec le SDK Azure Machine Learning Data Prep
 Dans cet article, vous découvrez les différentes méthodes de chargement des données à l’aide du SDK Azure Machine Learning Data Prep. Pour voir la documentation de référence pour le SDK, consultez le [vue d’ensemble](https://aka.ms/data-prep-sdk). Le SDK prend en charge plusieurs fonctionnalités d’ingestion des données, notamment :
 
 * Chargement à partir de nombreux types de fichiers avec déduction des paramètres d’analyse (codage, séparateur, en-têtes)
 * Conversion de type à l’aide de l’inférence pendant le chargement de fichier
 * Prise en charge de la connexion pour MS SQL Server et Azure Data Lake Storage
+
+> [!Important]
+> Si vous générez une nouvelle solution, essayez le [jeux de données Azure Machine Learning](how-to-explore-prepare-data.md) (aperçu) pour l’exploration de données et la préparation. Jeux de données est la prochaine version de la préparation des données SDK, offre des fonctionnalités étendues pour la gestion des jeux de données dans les solutions d’intelligence artificielle.
 
 Le tableau suivant présente une sélection de fonctions utilisées pour le chargement des données à partir de types de fichiers courants.
 

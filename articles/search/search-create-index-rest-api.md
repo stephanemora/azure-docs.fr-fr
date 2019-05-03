@@ -1,7 +1,7 @@
 ---
 title: 'Démarrage rapide : Créer, charger et interroger un index à l’aide de PowerShell et l’API REST - recherche Azure'
 description: Créer, charger et interroger un index à l’aide de PowerShell Invoke-RestMethod et l’API REST Azure Search.
-ms.date: 04/08/2019
+ms.date: 05/02/2019
 author: heidisteen
 manager: cgronlun
 ms.author: heidist
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 2deba4bf941d561fcef7c2dff804646732e7ce24
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9459ab44f366c87660297a8564534156a56777bd
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60817139"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024138"
 ---
 # <a name="quickstart-create-an-azure-search-index-using-powershell-and-the-rest-api"></a>Démarrage rapide : Créer un index Azure Search à l’aide de PowerShell et l’API REST
 > [!div class="op_single_selector"]
@@ -61,7 +61,7 @@ $headers = @{
 Créer un **$url** objet qui spécifie le service indexe la collection. Le `mydemo` nom du service est conçu comme un espace réservé. Remplacez-le par un service de recherche valide dans un abonnement actif tout au long de cet exemple.
 
 ```powershell
-$url = "https://mydemo.search.windows.net/indexes?api-version=2017-11-11"
+$url = "https://mydemo.search.windows.net/indexes?api-version=2019-05-06"
 ```
 
 Exécutez **Invoke-RestMethod** pour envoyer une demande GET au service et de vérifier la connexion. Ajouter **ConvertTo-Json** afin que vous puissiez afficher les réponses envoyées vers le service.
@@ -116,7 +116,7 @@ $body = @"
 Définir l’URI à la collection d’index sur votre service et le *hôtels* index.
 
 ```powershell
-$url = "https://mydemo.search.windows.net/indexes/hotels?api-version=2017-11-11"
+$url = "https://mydemo.search.windows.net/indexes/hotels?api-version=2019-05-06"
 ```
 
 Exécutez la commande avec **$url**, **$headers**, et **$body** pour créer l’index sur le service. 
@@ -223,7 +223,7 @@ $body = @"
 La valeur est le point de terminaison le *hôtels* collection de documents et inclure l’opération d’index (index/hotels/docs/index).
 
 ```powershell
-$url = "https://mydemo.search.windows.net/indexes/hotels/docs/index?api-version=2017-11-11"
+$url = "https://mydemo.search.windows.net/indexes/hotels/docs/index?api-version=2019-05-06"
 ```
 
 Exécutez la commande avec **$url**, **$headers**, et **$body** pour charger des documents dans l’index des hôtels.
@@ -266,7 +266,7 @@ Cette étape vous montre comment interroger un index à l’aide de la [recherch
 La valeur est le point de terminaison le *hôtels* collection de documents et ajoutez un **recherche** paramètre pour inclure les chaînes de requête. Cette chaîne est une recherche vide et retourne une liste unranked de tous les documents.
 
 ```powershell
-$url = 'https://mydemo.search.windows.net/indexes/hotels/docs?api-version=2017-11-11&search=*'
+$url = 'https://mydemo.search.windows.net/indexes/hotels/docs?api-version=2019-05-06&search=*'
 ```
 
 Exécutez la commande pour envoyer le **$url** au service.
@@ -336,17 +336,17 @@ Essayez quelques autres exemples de requête pour obtenir un aperçu de la synta
 # Query example 1
 # Search the entire index for the term 'budget'
 # Return only the `hotelName` field, "Roach hotel"
-$url = 'https://mydemo.search.windows.net/indexes/hotels/docs?api-version=2017-11-11&search=budget&$select=hotelName'
+$url = 'https://mydemo.search.windows.net/indexes/hotels/docs?api-version=2019-05-06&search=budget&$select=hotelName'
 
 # Query example 2 
 # Apply a filter to the index to find hotels cheaper than $150 per night
 # Returns the `hotelId` and `description`. Two documents match.
-$url = 'https://mydemo.search.windows.net/indexes/hotels/docs?api-version=2017-11-11&search=*&$filter=baseRate lt 150&$select=hotelId,description'
+$url = 'https://mydemo.search.windows.net/indexes/hotels/docs?api-version=2019-05-06&search=*&$filter=baseRate lt 150&$select=hotelId,description'
 
 # Query example 3
 # Search the entire index, order by a specific field (`lastRenovationDate`) in descending order
 # Take the top two results, and show only `hotelName` and `lastRenovationDate`
-$url = 'https://mydemo.search.windows.net/indexes/hotels/docs?api-version=2017-11-11&search=*&$top=2&$orderby=lastRenovationDate desc&$select=hotelName,lastRenovationDate'
+$url = 'https://mydemo.search.windows.net/indexes/hotels/docs?api-version=2019-05-06&search=*&$top=2&$orderby=lastRenovationDate desc&$select=hotelName,lastRenovationDate'
 ```
 ## <a name="clean-up"></a>Nettoyer 
 
@@ -354,7 +354,7 @@ Vous devez supprimer l’index si vous n’avez plus besoin. Un service gratuit 
 
 ```powershell
 # Set the URI to the hotel index
-$url = 'https://mydemo.search.windows.net/indexes/hotels?api-version=2017-11-11'
+$url = 'https://mydemo.search.windows.net/indexes/hotels?api-version=2019-05-06'
 
 # Delete the index
 Invoke-RestMethod -Uri $url -Headers $headers -Method Delete

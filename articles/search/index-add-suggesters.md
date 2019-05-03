@@ -1,7 +1,7 @@
 ---
 title: Ajouter des requêtes prédictives à un index - recherche Azure
 description: Activer les actions de requête type-ahead dans recherche Azure en créant des générateurs de suggestions et de formuler des requêtes qui appellent la saisie semi-automatique ou d’autosuggested termes de requête.
-ms.date: 03/22/2019
+ms.date: 05/02/2019
 services: search
 ms.service: search
 ms.topic: conceptual
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: a8bc86c2d3511fa04e595b8b2988d9a98bf084b2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 400b1613a87d4de65879a512642e16884c7d03b4
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60844427"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65021891"
 ---
 # <a name="add-suggesters-to-an-index-for-typeahead-in-azure-search"></a>Ajouter des générateurs de suggestions à un index pour prédictives dans Azure Search
 
@@ -39,9 +39,6 @@ Pour implémenter ces comportements dans recherche Azure, il existe un composant
 + Le composant d’index est un générateur de suggestions. Vous pouvez utiliser le portail, l’API REST ou du SDK .NET pour créer un générateur de suggestions. 
 
 + Le composant de requête est une action spécifiée sur la demande de requête (action une suggestion ou la saisie semi-automatique). 
-
-> [!Important]
-> La saisie semi-automatique est actuellement en version préliminaire, disponible en version préliminaire API REST et du SDK .NET. Il n’est pas destinée à être des applications de production. 
 
 Prise en charge de la recherche en tant que-vous-type est activée sur une base par champ. Vous pouvez implémenter les deux comportements prédictives dans la même solution de recherche si vous souhaitez une expérience similaire à celui indiqué dans la capture d’écran. Les deux cibles de demandes le *documents* collection d’index spécifique et les réponses sont retournés après un utilisateur a fourni au moins une chaîne d’entrée de trois caractères.
 
@@ -106,7 +103,7 @@ Les propriétés suivantes définissent un générateur de suggestions :
 
 |Propriété      |Description      |
 |--------------|-----------------|
-|`name`        |Le nom du Générateur de suggestions. Vous utilisez le nom du Générateur de suggestions lors de l’appel le [API REST de Suggestions](https://docs.microsoft.com/rest/api/searchservice/suggestions) ou [API REST de la saisie semi-automatique (version préliminaire)](https://docs.microsoft.com/rest/api/searchservice/autocomplete).|
+|`name`        |Le nom du Générateur de suggestions. Vous utilisez le nom du Générateur de suggestions lors de l’appel le [API REST de Suggestions](https://docs.microsoft.com/rest/api/searchservice/suggestions) ou [API REST de la saisie semi-automatique](https://docs.microsoft.com/rest/api/searchservice/autocomplete).|
 |`searchMode`  |Stratégie utilisée pour rechercher des expressions candidates. Le seul mode actuellement pris en charge est `analyzingInfixMatching`, qui effectue une correspondance flexible des expressions en début ou au milieu des phrases.|
 |`sourceFields`|Liste d’un ou de plusieurs champs constituant la source du contenu pour des suggestions. Seuls les champs de type `Edm.String` et `Collection(Edm.String)` peuvent être des sources pour des suggestions. Seuls les champs qui n’ont pas un analyseur de langue personnalisé défini peuvent être utilisés.<p/>Spécifiez uniquement les champs qui se prêtent à une réponse attendue et appropriée, qu’il s’agisse d’une chaîne complète dans une barre de recherche ou une liste déroulante.<p/>Un nom d’hôtel est un bon candidat, car il comporte la précision. Les champs détaillés tels que des descriptions et les commentaires sont trop denses. De même, les champs répétitifs, tels que les balises et les catégories sont moins efficaces. Dans les exemples, nous incluons « catégorie » quand même afin de démontrer que vous pouvez inclure plusieurs champs. |
 
@@ -120,7 +117,7 @@ Si vous ajoutez un générateur de suggestions à un index existant, où les cha
 
 Comme indiqué précédemment, vous pouvez utiliser un générateur de suggestions pour les requêtes suggérées, la saisie semi-automatique ou les deux. 
 
-Un générateur de suggestions est référencé dans la demande, ainsi que l’opération. Par exemple, sur un appel GET REST, spécifiez `suggest` ou `autocomplete` sur la collection de documents. Pour REST, après la création d’un générateur de suggestions, utilisez le [API Suggestions](https://docs.microsoft.com/rest/api/searchservice/suggestions) ou [la saisie semi-automatique API (version préliminaire)](https://docs.microsoft.com/rest/api/searchservice/autocomplete) dans votre logique de requête.
+Un générateur de suggestions est référencé dans la demande, ainsi que l’opération. Par exemple, sur un appel GET REST, spécifiez `suggest` ou `autocomplete` sur la collection de documents. Pour REST, après la création d’un générateur de suggestions, utilisez le [API Suggestions](https://docs.microsoft.com/rest/api/searchservice/suggestions) ou [la saisie semi-automatique API](https://docs.microsoft.com/rest/api/searchservice/autocomplete) dans votre logique de requête.
 
 Pour .NET, utilisez [SuggestWithHttpMessagesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.suggestwithhttpmessagesasync?view=azure-dotnet-preview) ou [AutocompleteWithHttpMessagesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.autocompletewithhttpmessagesasync?view=azure-dotnet-preview&viewFallbackFrom=azure-dotnet).
 

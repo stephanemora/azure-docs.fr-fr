@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/02/2019
 ms.author: liamca
 ms.custom: seodec2018
-ms.openlocfilehash: 8a07657d04cee57cb69c9f5f7862fed3e7965716
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 32352a857f0a74dc008dc1ad76b4a5951a36b956
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61283575"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024545"
 ---
 # <a name="deployment-strategies-and-best-practices-for-optimizing-performance-on-azure-search"></a>Stratégies de déploiement et les meilleures pratiques pour optimiser les performances sur Azure Search
 
@@ -81,7 +81,7 @@ Il existe deux options pour synchroniser vos services de recherche distribués 
 
 ### <a name="use-indexers-for-updating-content-on-multiple-services"></a>Utilisez des indexeurs pour la mise à jour de contenu sur plusieurs services
 
-Si vous utilisez déjà l’indexeur sur un seul service, vous pouvez configurer un indexeur deuxième sur un deuxième service pour utiliser le même objet de source de données, en extrayant des données à partir de l’emplacement. Chaque service dans chaque région a son propre indexeur et un index cible (votre corpus de recherche non partagé, ce qui signifie que les données sont dupliquées), mais chaque indexeur fait référence à la même source de données.
+Si vous utilisez déjà l’indexeur sur un seul service, vous pouvez configurer un indexeur deuxième sur un deuxième service pour utiliser le même objet de source de données, en extrayant des données à partir de l’emplacement. Chaque service dans chaque région a son propre indexeur et un index cible (votre index de recherche non partagé, ce qui signifie que les données sont dupliquées), mais chaque indexeur fait référence à la même source de données.
 
 Voici un visuel de haut niveau de quoi ressemblerait cette architecture.
 

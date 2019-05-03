@@ -1,7 +1,7 @@
 ---
 title: Indexer le contenu du stockage Blob Azure pour la recherche en texte intégral - Recherche Azure
 description: Découvrez comment indexer le stockage Blob Azure et extraire le texte de documents avec la Recherche Azure.
-ms.date: 03/01/2019
+ms.date: 05/02/2019
 author: mgottein
 manager: cgronlun
 ms.author: magottei
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 87dc1dab0670f69ff8c418be476986baec2821fb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e55d596cfaf34c177f6dc43c27aaac37da87d2f7
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60871335"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024852"
 ---
 # <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>Indexation de documents dans Azure Blob Storage avec Azure Search
 Cet article explique comment utiliser Azure Search pour indexer des documents (tels que des fichiers PDF, des documents Microsoft Office et plusieurs autres formats courants) stockés dans le stockage d’objets blob Azure. Tout d’abord, il présente les concepts de base de la définition et de la configuration d’un indexeur d’objets blob. Ensuite, il offre une exploration plus approfondie des comportements et des scénarios que vous êtes susceptible de rencontrer.
@@ -50,7 +50,7 @@ Pour l’indexation des objets blob, la source de données doit avoir les propri
 
 Pour créer une source de données :
 
-    POST https://[service name].search.windows.net/datasources?api-version=2017-11-11
+    POST https://[service name].search.windows.net/datasources?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key]
 
@@ -82,7 +82,7 @@ L’index spécifie les champs d’un document, les attributs et d’autres cons
 
 Voici comment créer un index avec un champ `content` pouvant faire l'objet d'une recherche afin de stocker le texte extrait d'objets blob :   
 
-    POST https://[service name].search.windows.net/indexes?api-version=2017-11-11
+    POST https://[service name].search.windows.net/indexes?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key]
 
@@ -101,7 +101,7 @@ Un indexeur connecte une source de données à un index de recherche cible et fo
 
 Une fois l'index et la source de données créés, vous êtes prêt à créer l’indexeur :
 
-    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11
+    POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key]
 
@@ -121,7 +121,7 @@ Pour plus d’informations sur l’API Créer un indexeur, consultez [Créer un 
 En fonction de sa [configuration](#PartsOfBlobToIndex), l’indexeur d’objets blob peut indexer uniquement les métadonnées de stockage (une fonctionnalité utile lorsque vous ne vous préoccupez que des métadonnées et n’avez pas besoin d’indexer le contenu des objets blob), le stockage et le contenu des métadonnées, ou les métadonnées et le contenu textuel. Par défaut, l’indexeur extrait les métadonnées et le contenu.
 
 > [!NOTE]
-> Par défaut, les objets blob avec contenu structuré tels que JSON ou CSV sont indexés en tant que bloc de texte unique. Si vous souhaitez indexer des objets blob JSON et CSV de manière structurée, consultez les fonctionnalités en version préliminaire dans [Indexation d’objets blob JSON](search-howto-index-json-blobs.md) et [Indexation d’objets blob CSV](search-howto-index-csv-blobs.md).
+> Par défaut, les objets blob avec contenu structuré tels que JSON ou CSV sont indexés en tant que bloc de texte unique. Si vous souhaitez indexer des objets BLOB JSON et CSV de façon structurée, consultez [d’objets BLOB JSON de l’indexation](search-howto-index-json-blobs.md) et [d’objets BLOB CSV indexation](search-howto-index-csv-blobs.md) pour plus d’informations.
 >
 > Un document composé ou incorporé (tel qu’une archive ZIP ou un document Word avec e-mail Outlook incorporé intégrant des pièces jointes) est également indexé en tant que document unique.
 
@@ -172,7 +172,7 @@ Pour cet exemple, sélectionnons le champ `metadata_storage_name` en tant que cl
 
 Pour regrouper tous ces éléments, utilisez le code ci-après pour ajouter des mappages de champs et activer le codage base 64 des clés pour un indexeur existant :
 
-    PUT https://[service name].search.windows.net/indexers/blob-indexer?api-version=2017-11-11
+    PUT https://[service name].search.windows.net/indexers/blob-indexer?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key]
 
@@ -198,7 +198,7 @@ Vous pouvez contrôler les objets BLOB qui sont indexés et ignorés.
 ### <a name="index-only-the-blobs-with-specific-file-extensions"></a>Indexer uniquement les objets blob avec des extensions de fichier spécifiques
 Vous pouvez indexer uniquement les objets blob avec des extensions de nom de fichier que vous spécifiez à l’aide du paramètre de configuration d’indexeur `indexedFileNameExtensions`. La valeur est une chaîne contenant une liste d'extensions de fichier séparées par des virgules (précédées d'un point). Par exemple, pour indexer uniquement les objets blob .PDF et .DOCX, procédez comme suit :
 
-    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2017-11-11
+    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key]
 
@@ -210,7 +210,7 @@ Vous pouvez indexer uniquement les objets blob avec des extensions de nom de fic
 ### <a name="exclude-blobs-with-specific-file-extensions"></a>Exclusion d’objets blob avec des extensions de fichier spécifiques
 Vous pouvez exclure de l’indexation des objets blob avec des extensions de nom de fichier spécifiques à l’aide du paramètre de configuration `excludedFileNameExtensions`. La valeur est une chaîne contenant une liste d'extensions de fichier séparées par des virgules (précédées d'un point). Par exemple, pour indexer tous les objets blob, sauf ceux qui ont les extensions .PNG et .JPEG, procédez comme suit :
 
-    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2017-11-11
+    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key]
 
@@ -232,7 +232,7 @@ Vous pouvez contrôler les parties des objets blob à indexer à l’aide du par
 
 Par exemple, pour indexer uniquement les métadonnées de stockage, utilisez :
 
-    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2017-11-11
+    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key]
 
@@ -255,7 +255,7 @@ Les paramètres de configuration décrits ci-dessus s’appliquent à tous les o
 
 Par défaut, l’indexeur d’objets blob s’arrête dès qu’il rencontre un objet blob avec un type de contenu non pris en charge (par exemple, une image). Vous pouvez évidemment utiliser le paramètre `excludedFileNameExtensions` pour ignorer certains types de contenu. Toutefois, vous devrez peut-être indexer des objets blob sans connaître à l’avance tous les types de contenu possibles. Pour poursuivre l’indexation lorsqu’un type de contenu non pris en charge est détecté, définissez le paramètre de configuration `failOnUnsupportedContentType` sur `false` :
 
-    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2017-11-11
+    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key]
 
@@ -293,7 +293,7 @@ Pour prendre en charge la suppression de documents, utilisez une approche de typ
 
 Par exemple, la stratégie suivante considère qu’un objet blob est supprimé s’il présente une propriété de métadonnées `IsDeleted` avec la valeur `true` :
 
-    PUT https://[service name].search.windows.net/datasources/blob-datasource?api-version=2017-11-11
+    PUT https://[service name].search.windows.net/datasources/blob-datasource?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key]
 
@@ -340,7 +340,7 @@ Pour ce faire, tous les indexeurs et les autres composants doivent s’accorder 
 
 Si tous vos objets BLOB contiennent du texte brut dans le même encodage, vous pouvez améliorer considérablement les performances d’indexation à l’aide du **mode d’analyse de texte**. Pour utiliser le mode d’analyse de texte, définissez la `parsingMode` propriété configuration à `text`:
 
-    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2017-11-11
+    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key]
 

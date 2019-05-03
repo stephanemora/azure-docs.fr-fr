@@ -7,14 +7,14 @@ ms.author: heidist
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 02/13/2019
+ms.date: 05/02/2019
 ms.custom: seodec2018
-ms.openlocfilehash: 645f3177913b903e8262c1fec08c452130e2a671
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 462a99ffab8038f34b1ffd038ce5c8e8ec9a8565
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60308223"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024439"
 ---
 # <a name="create-a-basic-index-in-azure-search"></a>Créer un index de base dans la Recherche Azure
 
@@ -54,7 +54,7 @@ Pour une conception itérative, il est recommandé de privilégier une approche 
 
 Schématiquement, un index Recherche Azure se compose des éléments suivants. 
 
-La [*collection de champs*](#fields-collection) correspond généralement à la majeure partie de l’index, dans laquelle chaque champ est nommé, tapé et pourvu de comportements autorisés qui déterminent son utilisation. Il existe d’autres éléments, comme les [suggesteurs](#suggesters), les [profils de score](#scoring-profiles), les [analyseurs](#analyzers) avec les composants pour prendre en charge la personnalisation et les options [CORS](#cors).
+La [*collection de champs*](#fields-collection) correspond généralement à la majeure partie de l’index, dans laquelle chaque champ est nommé, tapé et pourvu de comportements autorisés qui déterminent son utilisation. D’autres éléments incluent [générateurs de suggestions](#suggesters), [profils de score](#scoring-profiles), [analyseurs](#analyzers) avec les composants pour prendre en charge la personnalisation, [CORS](#cors) et [clé de chiffrement](#encryption-key) options.
 
 ```json
 {
@@ -126,6 +126,15 @@ La [*collection de champs*](#fields-collection) correspond généralement à la 
   "corsOptions": (optional) {
     "allowedOrigins": ["*"] | ["origin_1", "origin_2", ...],
     "maxAgeInSeconds": (optional) max_age_in_seconds (non-negative integer)
+  },
+  "encryptionKey":(optional){
+    "keyVaultUri": "azure_key_vault_uri",
+    "keyVaultKeyName": "name_of_azure_key_vault_key",
+    "keyVaultKeyVersion": "version_of_azure_key_vault_key",
+    "accessCredentials":(optional){
+      "applicationId": "azure_active_directory_application_id",
+      "applicationSecret": "azure_active_directory_application_authentication_key"
+    }
   }
 }
 ```
@@ -166,7 +175,7 @@ Pour plus d’informations sur les attributs d’index du service Recherche Azur
 
 Les attributs que vous sélectionnez ont un impact sur le stockage. La capture d’écran suivante illustre les caractéristiques du stockage d’index résultant des différentes combinaisons d’attributs.
 
-L’index est basé sur la source de données de l’[l’exemple intégré realestate](search-get-started-portal.md), que vous pouvez indexer et interroger sur le portail. Bien que les schémas de l’index ne soient pas montrés, vous pouvez en déduire les attributs d’après le nom de l’index. Par exemple, pour l’index *realestate-searchable*, seul l’attribut **searchable** est sélectionné ; pour l’index *realestate-retrievable*, seul l’index **retrievable** est sélectionné, et ainsi de suite.
+L’index est basé sur le [intégrés immobilier exemple](search-get-started-portal.md) source de données, vous pouvez indexer et de requête dans le portail. Bien que les schémas de l’index ne soient pas montrés, vous pouvez en déduire les attributs d’après le nom de l’index. Par exemple, pour l’index *realestate-searchable*, seul l’attribut **searchable** est sélectionné ; pour l’index *realestate-retrievable*, seul l’index **retrievable** est sélectionné, et ainsi de suite.
 
 ![Taille d’index en fonction de la sélection d’attributs](./media/search-what-is-an-index/realestate-index-size.png "Taille d’index en fonction de la sélection d’attributs")
 
@@ -203,6 +212,10 @@ Les options suivantes peuvent être définies pour CORS :
   Si vous voulez autoriser l'accès à toutes les origines, incluez uniquement l’élément `*` dans le tableau **allowedOrigins**. Si *cette pratique est déconseillée pour les services de recherche de production*, elle est souvent utile pour le développement et le débogage.
 
 + **maxAgeInSeconds** (facultatif) : les navigateurs utilisent cette valeur pour déterminer la durée (en secondes) de mise en cache des réponses CORS préliminaires. Il doit s'agir d'un entier non négatif. Plus cette valeur est importante, meilleures sont les performances, mais plus il faut de temps pour que les modifications apportées à la stratégie CORS prennent effet. Si la valeur n'est pas définie, une durée par défaut de 5 minutes est utilisée.
+
+## <a name="encryption-key"></a>Clé de chiffrement
+
+Bien que tous les index de recherche Azure sont chiffrées par défaut à l’aide de clés gérées par Microsoft, les index peuvent être configurés pour être chiffré avec **clés gérées par le client** dans Key Vault. Pour plus d’informations, consultez [gérer les clés de chiffrement dans Azure Search](search-security-manage-encryption-keys.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

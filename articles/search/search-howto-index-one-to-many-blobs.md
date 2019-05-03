@@ -1,7 +1,7 @@
 ---
 title: Indexer des objets BLOB contenant plusieurs rechercher indexer des documents à partir de l’indexeur d’objets Blob Azure pour la recherche en texte intégral - recherche Azure
 description: Analyser les objets BLOB Azure pour le contenu de texte à l’aide de l’indexeur d’objets Blob Azure Search. Chaque objet blob peut contenir un ou plusieurs documents d’index de recherche Azure.
-ms.date: 02/12/2019
+ms.date: 05/02/2019
 author: arv100kri
 manager: briansmi
 ms.author: arjagann
@@ -10,21 +10,18 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seofeb2018
-ms.openlocfilehash: e95eff015340659b642dff800a03f615e22c1577
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 628ced069c9d32c6e874c2e36a1e3b752c476003
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60871197"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024663"
 ---
 # <a name="indexing-blobs-producing-multiple-search-documents"></a>Indexation d’objets BLOB de la production de plusieurs documents de recherche
 Par défaut, un indexeur d’objets blob traite le contenu d’un objet blob comme un document de recherche unique. Certains **parsingMode** valeurs prennent en charge les scénarios où un objet blob individuel peut entraîner plusieurs documents de recherche. Les différents types de **parsingMode** qui permettent à un indexeur pour extraire plus de document d’une recherche à partir d’un objet blob est :
 + `delimitedText`
 + `jsonArray`
 + `jsonLines`
-
-> [!IMPORTANT]
-> `jsonLines` mode d’analyse est en version préliminaire publique et ne doit pas être utilisé dans les environnements de production. Pour plus d’informations, consultez [REST api-version=2017-11-11-Preview](search-api-2017-11-11-preview.md). 
 
 ## <a name="one-to-many-document-key"></a>Clé de document de type un-à-plusieurs
 Chaque document qui s’affiche dans un index Azure Search est identifiée par une clé de document. 
@@ -106,7 +103,7 @@ Si vous ne souhaitez pas configurer un mappage de champs explicites, assurez-vou
 + [Indexeurs dans Recherche Azure](search-indexer-overview.md)
 + [Indexation de Stockage Blob Azure avec Recherche Azure](search-howto-index-json-blobs.md)
 + [Indexation d’objets blob CSV avec l’indexeur d’objets blob Recherche Azure](search-howto-index-csv-blobs.md)
-+ [Indexation d’objets BLOB JSON avec l’indexeur d’objets blob Azure Search](search-howto-index-csv-blobs.md)
++ [Indexation d’objets BLOB JSON avec l’indexeur d’objets blob Azure Search](search-howto-index-json-blobs.md)
 
 ## <a name="NextSteps"></a>Étapes suivantes
 * Pour en savoir plus sur la Recherche Azure, consultez la [page du service Recherche](https://azure.microsoft.com/services/search/).

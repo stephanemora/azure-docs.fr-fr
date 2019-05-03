@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: ph-com
 ms.author: pahusban
-ms.date: 09/24/2018
+ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3f40606d5fae3b3784ac7f1fdcf4977b7fd9eb1f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3b55282adf56bedb0724eca578b8eaea00c26074
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60819430"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65023971"
 ---
 # <a name="export-or-delete-your-machine-learning-service-workspace-data"></a>Exporter ou supprimer vos données d’espace de travail Machine Learning 
 
@@ -231,3 +231,29 @@ Vous pouvez obtenir des modèles avec :
 Vous pouvez obtenir des sources de données avec :
 
     https://{location}.aether.ms/api/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/DataSources/{id}
+
+## <a name="delete-visual-interface-assets"></a>Supprimer les ressources de l’interface visuelle
+
+Dans l’interface visuelle où vous avez créé votre expérience, supprimez les ressources individuelles :
+
+1. Sur la gauche, sélectionnez le type de ressource que vous souhaitez supprimer.
+
+    ![Supprimer des ressources](media/how-to-export-delete-data.md/delete-experiment.png)
+
+1. Dans la liste, sélectionnez les ressources à supprimer.
+
+1. En bas, sélectionnez **supprimer**.
+
+## <a name="export-visual-interface-data"></a>Exporter des données de l’interface visuelle
+
+Dans l’interface visuelle où vous avez créé votre expérience, exporter des données que vous avez ajouté :
+
+1. Sur la gauche, sélectionnez **données**.
+
+1. En haut, sélectionnez **mes jeux de données** ou **exemples** pour localiser les données que vous voulez exporter.
+
+    ![Télécharger des données](media/how-to-export-delete-data.md/download-data.png)
+
+1. Dans la liste, sélectionnez les jeux de données individuels à exporter.
+
+1. En bas, sélectionnez **télécharger**.

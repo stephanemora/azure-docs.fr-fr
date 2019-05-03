@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: ff2b843e00ffdf005d952cf62eab6b93c9434913
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 419c533aabd67637efa64777387c491dd890596e
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60193119"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024634"
 ---
 # <a name="service-limits-in-azure-search"></a>Limites de service d’Azure Search
 Limites maximales de stockage, les charges de travail et les quantités d’index, de documents et autres objets varient selon que vous [recherche Azure](search-create-service-portal.md) à **gratuit**, **base**,  **Standard**, ou **stockage optimisé** niveaux tarifaires.
@@ -50,7 +50,10 @@ Limites maximales de stockage, les charges de travail et les quantités d’inde
 | Ressource | Gratuit | De base&nbsp;<sup>1</sup>  | S1 | S2 | S3 | S3&nbsp;HD | L1 | L2 |
 | -------- | ---- | ------------------- | --- | --- | --- | --- | --- | --- |
 | Nombre maximal d’index |3 |5 ou 15 |50 |200 |200 |1 000 par partition ou 3 000 par service |10 |10 |
-| Nombre maximal de champs par index |1 000 |100 |1 000 |1 000 |1 000 |1 000 |1 000 |1 000 |
+| Nombre maximal de champs par index simple |1 000 |100 |1 000 |1 000 |1 000 |1 000 |1 000 |1 000 |
+| Champs de collection complexe maximale par index |40 |40 |40 |40 |40 |40 |40 |40 |
+| Nombre maximal d’éléments dans toutes les collections complexes par document |3000 |3000 |3000 |3000 |3000 |3000 |3000 |3000 |
+| Nombre maximal de champs complexes |10 |10 |10 |10 |10 |10 |10 |10 |
 | Nombre maximal de [générateurs de suggestions](https://docs.microsoft.com/rest/api/searchservice/suggesters) par index |1 |1 |1 |1 |1 |1 |1 |1 |
 | Nombre maximal de [profils de score](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) par index |100 |100 |100 |100 |100 |100 |100 |100 |
 | Nombre maximal de fonctions par profil |8 |8 |8 |8 |8 |8 |8 |8 |
@@ -102,17 +105,17 @@ Pour réduire la taille du document, pensez à exclure de la requête les donné
 Heures d’exécution maximales existent pour fournir le solde et la stabilité au service dans son ensemble, mais les jeux de données volumineux peut prendre indexation plus de temps que la valeur maximale permet. Si un travail d’indexation ne peut pas être terminé dans le délai maximal autorisé, essayez de l’exécuter selon une planification. Le planificateur effectue le suivi de l’état de l’indexation. Si une tâche d’indexation planifiée est interrompue pour une raison quelconque, à la prochaine exécution planifiée, l’indexeur peut repartir de là où il s’était arrêté.
 
 
-| Ressource | Gratuit&nbsp;<sup>1</sup> | De base&nbsp;<sup>2</sup>| S1 | S2 | S3 | S3&nbsp;HD&nbsp;<sup>3</sup>|L1 |L2 |
+| Resource | Gratuit&nbsp;<sup>1</sup> | De base&nbsp;<sup>2</sup>| S1 | S2 | S3 | S3&nbsp;HD&nbsp;<sup>3</sup>|L1 |L2 |
 | -------- | ----------------- | ----------------- | --- | --- | --- | --- | --- | --- |
-| Nombre maximal d’indexeurs |3 |5 ou 15|50 |200 |200 |S.O. |10 |10 |
-| Nombre maximal de sources de données |3 |5 ou 15 |50 |200 |200 |S.O. |10 |10 |
-| Compétences maximales <sup>4</sup> |3 |5 ou 15 |50 |200 |200 |S.O. |10 |10 |
-| Charge d’indexation maximale par appel |10 000 documents |Limité uniquement par le nombre maximal de documents |Limité uniquement par le nombre maximal de documents |Limité uniquement par le nombre maximal de documents |Limité uniquement par le nombre maximal de documents |S.O. |Aucune limite |Aucune limite |
+| Nombre maximal d’indexeurs |3 |5 ou 15|50 |200 |200 |N/A |10 |10 |
+| Nombre maximal de sources de données |3 |5 ou 15 |50 |200 |200 |N/A |10 |10 |
+| Compétences maximales <sup>4</sup> |3 |5 ou 15 |50 |200 |200 |N/A |10 |10 |
+| Charge d’indexation maximale par appel |10 000 documents |Limité uniquement par le nombre maximal de documents |Limité uniquement par le nombre maximal de documents |Limité uniquement par le nombre maximal de documents |Limité uniquement par le nombre maximal de documents |N/A |Aucune limite |Aucune limite |
 | Planification minimale | 5 minutes |5 minutes |5 minutes |5 minutes |5 minutes |5 minutes |5 minutes | 5 minutes |
-| Durée maximale d’exécution <sup>5</sup> | 1-3 minutes |24 heures |24 heures |24 heures |24 heures |S.O.  |24 heures |24 heures |
-| Valeur maximale pour l’exécution de recherches cognitives ou de l’indexation d’objets blob avec analyse d’images <sup>5</sup> | 3-10 minutes |2 heures |2 heures |2 heures |2 heures |S.O.  |2 heures |2 heures |
-| Indexeur d’objets blob : taille maximale des objets blob, en Mo |16 |16 |128 |256 |256 |S.O.  |256 |256 |
-| Indexeur d’objets blob : nombre maximal de caractères du contenu extrait d’un objet blob |32 000 |64 000 |4&nbsp;million |4&nbsp;million |4&nbsp;million |S.O. |4&nbsp;million |4&nbsp;million |
+| Durée maximale d’exécution <sup>5</sup> | 1-3 minutes |24 heures |24 heures |24 heures |24 heures |N/A  |24 heures |24 heures |
+| Valeur maximale pour l’exécution de recherches cognitives ou de l’indexation d’objets blob avec analyse d’images <sup>5</sup> | 3-10 minutes |2 heures |2 heures |2 heures |2 heures |N/A  |2 heures |2 heures |
+| Indexeur d’objets blob : taille maximale des objets blob, en Mo |16 |16 |128 |256 |256 |N/A  |256 |256 |
+| Indexeur d’objets blob : nombre maximal de caractères du contenu extrait d’un objet blob |32 000 |64 000 |4&nbsp;million |4&nbsp;million |4&nbsp;million |N/A |4&nbsp;million |4&nbsp;million |
 
 <sup>1</sup> Les services du niveau Gratuit bénéficient d’une durée d’exécution maximale de l’indexeur de 3 minutes pour les sources d’objets blob, et de 1 minute pour toutes les autres sources de données. Pour l’intelligence artificielle qui appelle la méthode dans Cognitive Services d’indexation, les services gratuits sont limités à 20 transactions gratuites par jour, où une transaction est définie comme un document qui réussit à travers le pipeline d’enrichissement.
 

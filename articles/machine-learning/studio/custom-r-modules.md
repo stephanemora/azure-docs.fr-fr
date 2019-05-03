@@ -1,7 +1,7 @@
 ---
 title: Définir des modules R personnalisés
 titleSuffix: Azure Machine Learning Studio
-description: Cette rubrique explique comment créer et déployer un module R personnalisé dans Azure Machine Learning Studio. Elle explique ce qu’est un module R personnalisé, en détaillant les fichiers utilisés pour le définir.
+description: Cette rubrique décrit comment créer et déployer un Studio de R personnalisé. Elle explique ce qu’est un module R personnalisé, en détaillant les fichiers utilisés pour le définir.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,16 +10,16 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: 0dec86eff9b9df70514be6f32f3aad60bfb311ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6d330340ff09ddb6c2bec04259f964f2298dbffc
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60751203"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65025060"
 ---
 # <a name="define-custom-r-modules-for-azure-machine-learning-studio"></a>Définir des modules R personnalisés pour Azure Machine Learning Studio
 
-Cette rubrique explique comment créer et déployer un module R personnalisé dans Azure Machine Learning Studio. Elle explique ce qu’est un module R personnalisé, en détaillant les fichiers utilisés pour le définir. Par ailleurs, elle illustre la construction de ces fichiers et l’inscription du module à des fins de déploiement dans un espace de travail Machine Learning. Les éléments et attributs utilisés dans la définition du module personnalisé sont ensuite décrits plus en détail. Par ailleurs, nous allons découvrir comment utiliser les fichiers et la fonctionnalité auxiliaires, ainsi que les sorties multiples. 
+Cette rubrique décrit comment créer et déployer un Studio de R personnalisé. Elle explique ce qu’est un module R personnalisé, en détaillant les fichiers utilisés pour le définir. Par ailleurs, elle illustre la construction de ces fichiers et l’inscription du module à des fins de déploiement dans un espace de travail Machine Learning. Les éléments et attributs utilisés dans la définition du module personnalisé sont ensuite décrits plus en détail. Par ailleurs, nous allons découvrir comment utiliser les fichiers et la fonctionnalité auxiliaires, ainsi que les sorties multiples. 
 
 
 
@@ -159,7 +159,7 @@ Pour les ports **DataTable** facultatifs qui ne sont pas transmis comme entrée 
             <Description>Zip files to be extracted to the R working directory.</Description>
            </Input>
 
-Pour les modules R personnalisés, l’id d’un port Zip ne doit pas nécessairement correspondre aux paramètres de la fonction R. En effet, le fichier zip est automatiquement extrait dans le répertoire de travail R.
+Pour les modules R personnalisés, l’ID d’un port Zip ne devra pas correspondre aux paramètres de la fonction R. En effet, le fichier zip est automatiquement extrait dans le répertoire de travail R.
 
 **Règles d'entrée :**
 
@@ -225,7 +225,7 @@ Ensuite, renvoyez la liste des objets dans une liste respectant l’ordre adéqu
 ### <a name="arguments"></a>Arguments
 Des données supplémentaires peuvent être transmises à la fonction R via les paramètres de module qui sont définis dans l’élément **Arguments** . Ces paramètres apparaissent dans le volet des propriétés de l’interface utilisateur de Machine Learning le plus à droite lorsque le module est sélectionné. Les arguments peuvent être de n’importe quel type pris en charge, ou vous pouvez créer une énumération personnalisée lorsque cela s’avère nécessaire. Comme pour les éléments **Ports**, les éléments **Arguments** peuvent avoir un élément **Description** facultatif spécifiant le texte qui apparaît lorsque vous passez la souris sur le nom du paramètre.
 Les propriétés facultatives pour un module, telles que defaultValue, minValue et maxValue, peuvent être ajoutées à n’importe quel argument en tant qu’attributs d’un élément **Properties** . Les propriétés valides pour l’élément **Properties** dépendent du type d’argument et sont décrites avec les types d’arguments pris en charge dans la section suivante. Pour les arguments dont la propriété **isOptional** est définie sur **« true »**, l’utilisateur n’a pas à entrer de valeur. Si aucune valeur n’est fournie à l’argument, celui-ci n’est pas transmis à la fonction de point d’entrée. Les arguments de la fonction de point d’entrée qui sont facultatifs doivent être gérés explicitement par la fonction, par exemple se voir attribuer la valeur NULL par défaut dans la définition de fonction de point d’entrée. Un argument facultatif applique uniquement les autres contraintes d’argument, par exemple min ou max, si une valeur est fournie par l’utilisateur.
-Comme dans le cas des entrées et sorties, il est essentiel que chaque paramètre soit associé à une valeur d’ID unique. Dans notre exemple de démarrage rapide, l’ID/paramètre associé était *swap*.
+Comme avec les entrées et sorties, il est essentiel que chacun des paramètres ont des valeurs d’ID uniques qui s’y rapportent. Dans notre exemple de démarrage rapide id/paramètre associé était *échange*.
 
 ### <a name="arg-element"></a>Élément Arg
 Un paramètre de module est défini à l’aide de l’élément enfant **Arg** de la section **Arguments** du fichier de définition XML. Comme dans le cas des éléments enfants de la section **Ports**, l’ordre des paramètres de la section **Arguments** définit la disposition rencontrée dans l’expérience utilisateur. Les paramètres apparaissent de haut en bas dans l’interface utilisateur dans le même ordre que celui dans lequel ils sont définis dans le fichier XML. Les types pris en charge par Machine Learning pour les paramètres sont répertoriés ici. 
@@ -270,7 +270,7 @@ Un paramètre de module est défini à l’aide de l’élément enfant **Arg** 
 
 * *Propriétés facultatives* : **default** et **isOptional**
 
-**ColumnPicker**: paramètre de sélection de colonne. Ce type est représenté sous la forme d’un sélecteur de colonne dans l’interface utilisateur. L’élément **Property** est utilisé ici pour spécifier l’ID du port à partir duquel les colonnes sont sélectionnées, où le type de port cible doit être *DataTable*. Le résultat de la sélection des colonnes est transmis à la fonction R sous forme d’une liste de chaînes contenant les noms des colonnes sélectionnées. 
+**ColumnPicker**: paramètre de sélection de colonne. Ce type est représenté sous la forme d’un sélecteur de colonne dans l’interface utilisateur. Le **propriété** élément est utilisé ici pour spécifier l’ID du port à partir de laquelle les colonnes sont sélectionnées, où le type de port cible doit être *DataTable*. Le résultat de la sélection des colonnes est transmis à la fonction R sous forme d’une liste de chaînes contenant les noms des colonnes sélectionnées. 
 
         <Arg id="colset" name="Column set" type="ColumnPicker">      
           <Properties portId="datasetIn1" allowedTypes="Numeric" default="NumericAll"/>
@@ -278,7 +278,7 @@ Un paramètre de module est défini à l’aide de l’élément enfant **Arg** 
         </Arg>
 
 
-* *Propriétés obligatoires* : **portId**. Correspond à l’ID d’un élément Input de type *DataTable*.
+* *Propriétés requises*: **portId** -correspond à l’ID d’un élément d’entrée avec le type *DataTable*.
 * *Propriétés facultatives*:
   
   * **allowedTypes**. Filtre les types de colonnes que vous pouvez choisir. Les valeurs valides incluent : 
@@ -286,7 +286,7 @@ Un paramètre de module est défini à l’aide de l’élément enfant **Arg** 
     * Numeric
     * Boolean
     * Par catégorie
-    * Chaîne
+    * String
     * Étiquette
     * Fonctionnalité
     * Score
@@ -327,7 +327,7 @@ Un paramètre de module est défini à l’aide de l’élément enfant **Arg** 
     </Arg>    
 
 * *Propriétés facultatives*:
-  * **default** : la valeur de la propriété par défaut doit correspondre à une valeur d’ID de l’un des éléments **Item**.
+  * **par défaut** -la valeur de la propriété par défaut doit correspondre à une valeur d’ID d’un de la **élément** éléments.
 
 ### <a name="auxiliary-files"></a>Fichiers auxiliaires
 Tout fichier placé dans le fichier ZIP de votre module personnalisé sera disponible pour une utilisation au moment de l’exécution. Toutes les structures de répertoire présentes sont conservées. Cela signifie que l’approvisionnement du fichier fonctionne de la même façon en local et lors de l’exécution d’Azure Machine Learning Studio. 

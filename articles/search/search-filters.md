@@ -6,15 +6,15 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 04/20/2018
+ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: a9e8d2cbc067fd92208fac778ba17c58bdc7a5e4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 49f971fb50d0a8a6a0dab09158f780206a4d32f1
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61289584"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024845"
 ---
 # <a name="filters-in-azure-search"></a>Filtres dans Recherche Azure 
 
@@ -73,10 +73,10 @@ Les exemples suivants illustrent des définitions de filtre prototypiques dans p
 
 ```http
 # Option 1:  Use $filter for GET
-GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&$filter=baseRate lt 150&$select=hotelId,description&api-version=2017-11-11
+GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&$filter=baseRate lt 150&$select=hotelId,description&api-version=2019-05-06
 
 # Option 2: Use filter for POST and pass it in the header
-POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2017-11-11
+POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2019-05-06
 {
     "search": "*",
     "filter": "baseRate lt 150",
@@ -146,7 +146,7 @@ La régénération de champs individuels peut être une opération de faible inc
 
 ## <a name="text-filter-fundamentals"></a>Notions de base concernant les filtres de texte
 
-Les filtres de texte sont valides pour des champs de chaîne dont vous voulez extraire une collection arbitraire de documents en fonction de valeurs définies dans un corpus de recherche.
+Filtres de texte sont valides pour les champs de type chaîne, à partir duquel vous souhaitez extraire une collection arbitraire de documents en fonction des valeurs au sein de l’index de recherche.
 
 Les filtres de texte composés de chaînes n’appliquant aucune analyse lexicale ou césure de mots, les comparaisons portent uniquement sur des correspondances exactes. Par exemple, supposons un champ *f* contenant les mots « Sunny day » (journée ensoleillée). `$filter=f eq 'Sunny day'` sera une correspondance, mais pas `$filter=f eq 'Sunny'`. 
 

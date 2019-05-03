@@ -6,15 +6,15 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 04/06/2019
+ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 11b2fb5a246dfa8f5b1295a11cc57de36120898e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f366726f539a817f515a78fbc35bfeaa3b65514e
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61283372"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024496"
 ---
 # <a name="security-and-data-privacy-in-azure-search"></a>Sécurité et confidentialité dans Recherche Azure
 
@@ -43,11 +43,8 @@ Le chiffrement s’étend dans tout le pipeline d’indexation : des connexions 
 | Calque de sécurité | Description |
 |----------------|-------------|
 | Chiffrement en transit <br>(HTTPS/SSL/TLS) | Recherche Azure écoute le port HTTPS 443. Sur la plateforme, les connexions aux services Azure sont chiffrées. <br/><br/>Toutes les interactions client-service de Recherche Azure sont compatibles SSL/TLS 1.2.  Veillez à utiliser TLSv1.2 pour les connexions SSL à votre service.|
-| Chiffrement au repos | Le chiffrement est entièrement internalisé dans le processus d’indexation, sans aucun impact mesurable sur la durée d’exécution de l’indexation ou la taille de l’index. Il se produit automatiquement lors de toutes les indexations, y compris lors des mises à jour incrémentielles d’un index qui n’est pas entièrement chiffré (créé avant janvier 2018).<br><br>En interne, le chiffrement est basé sur le [chiffrement du service de stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-service-encryption), à l’aide du [chiffrement AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) 256 bits.|
-
-Le chiffrement est interne à Recherche Azure, tandis que les certificats et les clés de chiffrement sont gérés en interne par Microsoft et appliqués universellement. Vous ne pouvez pas activer ou désactiver le chiffrement, gérer ou substituer vos propres clés, ni afficher les paramètres de chiffrement dans le portail ou par programme. 
-
-Le chiffrement au repos a été annoncé le 24 janvier 2018 et s’applique à tous les niveaux de service, y compris les services partagés (gratuits), dans toutes les régions. Pour un chiffrement complet, les index créés avant cette date doivent être supprimés et recréés afin que le chiffrement soit effectué. Dans le cas contraire, seules les nouvelles données ajoutées après le 24 janvier sont chiffrées.
+| Chiffrement au repos <br>Clés gérées par Microsoft | Le chiffrement est entièrement internalisé dans le processus d’indexation, sans aucun impact mesurable sur la durée d’exécution de l’indexation ou la taille de l’index. Il se produit automatiquement lors de toutes les indexations, y compris lors des mises à jour incrémentielles d’un index qui n’est pas entièrement chiffré (créé avant janvier 2018).<br><br>En interne, le chiffrement est basé sur le [chiffrement du service de stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-service-encryption), à l’aide du [chiffrement AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) 256 bits.<br><br> Le chiffrement est interne à Recherche Azure, tandis que les certificats et les clés de chiffrement sont gérés en interne par Microsoft et appliqués universellement. Vous ne pouvez pas activer ou désactiver le chiffrement, gérer ou substituer vos propres clés, ni afficher les paramètres de chiffrement dans le portail ou par programme.<br><br>Le chiffrement au repos a été annoncé le 24 janvier 2018 et s’applique à tous les niveaux de service, y compris les services partagés (gratuits), dans toutes les régions. Pour un chiffrement complet, les index créés avant cette date doivent être supprimés et recréés afin que le chiffrement soit effectué. Dans le cas contraire, seules les nouvelles données ajoutées après le 24 janvier sont chiffrées.|
+| Chiffrement au repos <br>Clés gérées par le client | Le chiffrement avec des clés gérées par le client est un **aperçu** services de fonctionnalité qui n’est pas disponible gratuitement. Pour les services payants, il est uniquement disponible pour les services de recherche créés sur ou après janvier 2019, à l’aide de la dernière version préliminaire version de l’api (api-version = 2019-05-06-Preview).<br><br>Index de recherche Azure et des cartes de synonymes peuvent maintenant être chiffrées au repos avec clés gérées de clés client dans Azure Key Vault. Pour plus d’informations, consultez [gérer les clés de chiffrement dans Azure Search](search-security-manage-encryption-keys.md).<br>Cette fonctionnalité n’est pas en remplaçant le chiffrement au repos par défaut, mais au lieu de cela appliqués en plus de cela.<br>L’activation de cette fonctionnalité pour augmenter la taille de l’index et dégrader les performances des requêtes. Selon les observations à ce jour, vous pouvez vous attendre à constater une augmentation de 30 à 60 % temps de requête, bien que les performances réelles varient en fonction de la définition d’index et les types de requêtes. En raison de cet impact sur les performances, nous vous recommandons d’uniquement activer cette fonctionnalité sur les index qui en ont réellement besoin.
 
 ## <a name="azure-wide-user-access-controls"></a>Contrôles d’accès utilisateur à l’échelle d’Azure
 

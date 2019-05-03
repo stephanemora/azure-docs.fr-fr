@@ -7,17 +7,29 @@ services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 01/15/2018
+ms.date: 05/02/2019
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: 4acf609ca1f81e69babfa1a319b43e20e84a8395
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 488a9fe24fb8fca0b7309dea63d0640a6384f95c
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61291533"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024096"
 ---
 # <a name="upgrading-to-the-azure-search-net-sdk-version-3"></a>Mise à niveau vers la version du Kit de développement logiciel Azure Search .NET SDK version 3
+
+> [!Important]
+> Ce contenu est en cours de construction. Version 9.0 du SDK .NET Azure Search est disponible sur NuGet. Nous travaillons sur cet article expliquer comment mettre à niveau vers 9.0. 
+> 
+
+<!--- DETAILS in the word doc
+cosmosdb
+NER v1 skill 
+Indexer execution result errors no longer have status
+the data source API will no longer return in the response of any REST operation, the connection string specified by the user.
+--->
+
 Si vous utilisez la version préliminaire 2.0 ou une version antérieure du [Kit de développement logiciel (SDK) .NET Azure Search](https://aka.ms/search-sdk), cet article vous aidera à mettre à niveau votre application pour utiliser la version 3.
 
 Pour avoir un aperçu général du kit de développement logiciel et avoir des exemples, voir [Comment utiliser Azure Search à partir d’une application .NET](search-howto-dotnet-sdk.md).

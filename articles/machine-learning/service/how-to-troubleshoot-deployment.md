@@ -9,20 +9,20 @@ ms.topic: conceptual
 author: chris-lauren
 ms.author: clauren
 ms.reviewer: jmartens
-ms.date: 12/04/2018
+ms.date: 05/02/2018
 ms.custom: seodec18
-ms.openlocfilehash: f81aea22014a2c7d5b37c500a546f0b5350b6435
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 90e85e0030a696dd024dd65d27a0f4dbdc7e3cdc
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925380"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65023668"
 ---
 # <a name="troubleshooting-azure-machine-learning-service-aks-and-aci-deployments"></a>Résoudre les problèmes de déploiement AKS et ACI d’Azure Machine Learning service
 
-Dans cet article, vous allez découvrir comment contourner et résoudre les erreurs courantes de déploiement Docker avec Azure Container Instances (ACI) et Azure Kubernetes Service (AKS) à l’aide d’Azure Machine Learning service.
+Apprenez à contourner ou résoudre des erreurs courantes de déploiement de Docker avec Azure Container Instances (ACI) et Azure Kubernetes Service (AKS) à l’aide du service Azure Machine Learning.
 
-Quand vous déployez un modèle dans le service Azure Machine Learning, le système effectue une série de tâches. Il s’agit d’une séquence d’événements complexe au cours de laquelle des problèmes surviennent parfois. Les tâches de déploiement sont les suivantes :
+Quand vous déployez un modèle dans le service Azure Machine Learning, le système effectue une série de tâches. Les tâches de déploiement sont les suivantes :
 
 1. Inscrire le modèle dans le registre de modèles de l’espace de travail.
 
@@ -33,6 +33,9 @@ Quand vous déployez un modèle dans le service Azure Machine Learning, le syst�
     4. Créer une image Docker à l’aide du fichier Docker.
     5. Inscrire l’image Docker auprès du registre Azure Container Registry associé à l’espace de travail.
 
+    > [!IMPORTANT]
+    > En fonction de votre code, la création d’images se produire automatiquement sans votre intervention.
+
 3. Déployer l’image Docker sur le service Azure Container Instance (ACI) ou Azure Kubernetes Service (AKS).
 
 4. Démarrer un nouveau conteneur (ou de nouveaux conteneurs) dans ACI ou AKS. 
@@ -41,9 +44,9 @@ Découvrez-en plus sur ce processus dans la présentation de la [gestion des mod
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Si vous rencontrez un problème, la première chose à faire consiste à l’isoler en décomposant la tâche de déploiement (décrite précédemment) en étapes individuelles. 
+Si vous rencontrez un problème, la première chose à faire consiste à l’isoler en décomposant la tâche de déploiement (décrite précédemment) en étapes individuelles.
 
-Cela est utile si vous utilisez le `Webservice.deploy` API, ou `Webservice.deploy_from_model` API, dans la mesure où ces fonctions regroupement les étapes mentionnées précédemment dans une seule action. En général, ces API sont commodes, mais il est utile de diviser les étapes lors de la résolution des problèmes en les remplaçant par le ci-dessous les appels d’API.
+Diviser le déploiement en tâches est utile si vous utilisez le [Webservice.deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#deploy-workspace--name--model-paths--image-config--deployment-config-none--deployment-target-none-) API, ou [Webservice.deploy_from_model()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#deploy-from-model-workspace--name--models--image-config--deployment-config-none--deployment-target-none-) API, en tant que ces deux fonctions effectuer les étapes mentionnées précédemment comme un action unique. En général, ces API sont commodes, mais il est utile de diviser les étapes lors de la résolution des problèmes en les remplaçant par le ci-dessous les appels d’API.
 
 1. Inscrire le modèle. Voici un exemple de code :
 
@@ -86,7 +89,8 @@ Cela est utile si vous utilisez le `Webservice.deploy` API, ou `Webservice.deplo
 Une fois que vous avez décomposé le processus de déploiement en tâches distinctes, nous pouvons examiner certaines des erreurs les plus courantes.
 
 ## <a name="image-building-fails"></a>Échec de la génération de l’image
-Si le système ne peut pas générer l’image Docker, l’appel `image.wait_for_creation()` échoue avec certains messages d’erreur qui peuvent offrir certains indices. Vous trouverez également plus d’informations sur les erreurs dans le journal de génération de l’image. Voici un exemple de code qui montre comment découvrir l’URI du journal de génération de l’image.
+
+Si l’image Docker ne peut pas être générée, le [image.wait_for_creation()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.image(class)?view=azure-ml-py#wait-for-creation-show-output-false-) ou [service.wait_for_deployment()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#wait-for-deployment-show-output-false-) appel échoue avec certains messages d’erreur qui peuvent offrir certains indices. Vous trouverez également plus d’informations sur les erreurs dans le journal de génération de l’image. Voici un exemple de code qui montre comment découvrir l’URI du journal de génération de l’image.
 
 ```python
 # if you already have the image object handy
@@ -99,13 +103,14 @@ print(ws.images['myimg'].image_build_log_uri)
 for name, img in ws.images.items():
     print (img.name, img.version, img.image_build_log_uri)
 ```
+
 L’URI du journal de l’image est une URL SAP pointant vers un fichier journal stocké dans votre stockage blob Azure. Copiez et collez simplement l’URI dans une fenêtre de navigateur ; vous pouvez alors télécharger et afficher le fichier journal.
 
 ### <a name="azure-key-vault-access-policy-and-azure-resource-manager-templates"></a>Stratégie d’accès Azure Key Vault et les modèles Azure Resource Manager
 
-La génération d’image peut également échouer en raison d’un problème avec la stratégie d’accès sur Azure Key Vault. Cela peut se produire lorsque vous utilisez un modèle Azure Resource Manager pour créer l’espace de travail et les ressources associées (y compris Azure Key Vault), plusieurs fois. Par exemple, à l’aide du modèle plusieurs fois avec les mêmes paramètres dans le cadre d’une intégration continue et le pipeline de déploiement.
+La génération d’image peut également échouer en raison d’un problème avec la stratégie d’accès sur Azure Key Vault. Cette situation peut se produire lorsque vous utilisez un modèle Azure Resource Manager pour créer l’espace de travail et les ressources associées (y compris Azure Key Vault), plusieurs fois. Par exemple, à l’aide du modèle plusieurs fois avec les mêmes paramètres dans le cadre d’une intégration continue et le pipeline de déploiement.
 
-La plupart des opérations de création de ressources via des modèles sont idempotentes, mais Key Vault efface les stratégies d’accès chaque fois que le modèle est utilisé. Cela arrête l’accès à Key Vault pour n’importe quel espace de travail existant qui est à l’aide. Cela entraîne des erreurs lorsque vous tentez de créer de nouvelles images. Voici quelques exemples d’erreurs que vous pouvez recevoir :
+La plupart des opérations de création de ressources via des modèles sont idempotentes, mais Key Vault efface les stratégies d’accès chaque fois que le modèle est utilisé. Effacement de l’accès de sauts de stratégies accès à Key Vault pour n’importe quel espace de travail existant qui est à l’aide. Cette condition entraîne des erreurs lorsque vous tentez de créer de nouvelles images. Voici quelques exemples d’erreurs que vous pouvez recevoir :
 
 __Portail__ :
 ```text
@@ -144,16 +149,81 @@ b\'{"code":"InternalServerError","statusCode":500,"message":"An internal server 
 Pour éviter ce problème, nous vous recommandons d’une des approches suivantes :
 
 * Ne déployez pas le modèle plusieurs fois pour les mêmes paramètres. Ou supprimer les ressources existantes avant d’utiliser le modèle au pour recréer.
-* Examiner les stratégies d’accès Key Vault et utilisez-la pour définir le `accessPolicies` propriété du modèle.
+* Examiner les stratégies d’accès Key Vault et ensuite utiliser ces stratégies pour définir le `accessPolicies` propriété du modèle.
 * Vérifiez si la ressource de coffre de clés existe déjà. Le cas échéant, ne pas recréer un il via le modèle. Par exemple, ajoutez un paramètre qui vous permet de désactiver la création de la ressource Key Vault si elle existe déjà.
 
-## <a name="service-launch-fails"></a>Échec du lancement du service
-Une fois l’image correctement générée, le système tente de démarrer un conteneur dans ACI ou AKS, selon la configuration du déploiement. Il est recommandé de commencer par un déploiement ACI, puisqu’il s’agit d’un déploiement plus simple de conteneur unique. De cette façon, vous pouvez écarter tout problème lié à AKS.
+## <a name="debug-locally"></a>Déboguer localement
 
-Dans le cadre du processus de démarrage du conteneur, la fonction `init()` dans votre script de scoring est appelée par le système. Si la fonction `init()` comprend des exceptions non interceptées, l’erreur **CrashLoopBackOff** apparaît peut-être dans le message d’erreur. Voici quelques conseils pour vous aider à résoudre le problème.
+Si vous rencontrez des problèmes de déploiement d’un modèle ACI ou AKS, essayez de le déployer comme un service web local. À l’aide d’un service web local facilite la résolution des problèmes. L’image Docker contenant le modèle est téléchargé et démarré sur votre système local.
 
-### <a name="inspect-the-docker-log"></a>Examiner le journal Docker
-Vous pouvez afficher les messages détaillés du journal du moteur Docker à partir de l’objet de service.
+> [!IMPORTANT]
+> Déploiements de service web local nécessitent un travail installation Docker sur votre système local. Docker doit être en cours d’exécution avant de déployer un service web local. Pour plus d’informations sur l’installation et à l’aide de Docker, consultez [ https://www.docker.com/ ](https://www.docker.com/).
+
+> [!WARNING]
+> Déploiements de service web local ne sont pas pris en charge pour les scénarios de production.
+
+Pour déployer en local, modifiez votre code pour utiliser `LocalWebservice.deploy_configuration()` pour créer une configuration de déploiement. Utilisez ensuite `Model.deploy()` pour déployer le service. L’exemple suivant déploie un modèle (contenus dans le `model` variable) comme un service web local :
+
+```python
+from azureml.core.model import InferenceConfig
+from azureml.core.webservice import LocalWebservice
+
+# Create inferencing configuration. This creates a docker image that contains the model.
+inference_config = InferenceConfig(runtime= "python", 
+                                   execution_script="score.py",
+                                   conda_file="myenv.yml")
+
+# Create a local deployment, using port 8890 for the web service endpoint
+deployment_config = LocalWebservice.deploy_configuration(port=8890)
+# Deploy the service
+service = Model.deploy(ws, "mymodel", [model], inference_config, deployment_config)
+# Wait for the deployment to complete
+service.wait_for_deployment(True)
+# Display the port that the web service is available on
+print(service.port)
+```
+
+À ce stade, vous pouvez travailler avec le service comme d’habitude. Par exemple, le code suivant illustre le service envoie des données :
+
+```python
+import json
+
+test_sample = json.dumps({'data': [
+    [1,2,3,4,5,6,7,8,9,10], 
+    [10,9,8,7,6,5,4,3,2,1]
+]})
+
+test_sample = bytes(test_sample,encoding = 'utf8')
+
+prediction = service.run(input_data=test_sample)
+print(prediction)
+```
+
+### <a name="update-the-service"></a>Mettre à jour le service
+
+Pendant le test local, vous devrez peut-être mettre à jour le `score.py` fichier pour ajouter la journalisation ou tenter de résoudre les problèmes que vous avez découvertes. Pour recharger les modifications apportées à la `score.py` , utilisez `reload()`. Par exemple, le code suivant recharge le script pour le service et lui envoie des données. Les données sont calculées à l’aide de la mise à jour `score.py` fichier :
+
+```python
+service.reload()
+print(service.run(input_data=test_sample))
+```
+
+> [!NOTE]
+> Le script est rechargé à partir de l’emplacement spécifié par le `InferenceConfig` objet utilisé par le service.
+
+Pour modifier le modèle, les dépendances Conda ou configuration de déploiement, utilisez [update()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#update--args-). L’exemple suivant met à jour le modèle utilisé par le service :
+
+```python
+service.update([different_model], inference_config, deployment_config)
+```
+
+### <a name="delete-the-service"></a>Supprimer le service
+
+Pour supprimer le service, utilisez [delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#delete--).
+
+### <a id="dockerlog"></a> Examiner le journal de Docker
+
+Vous pouvez afficher les messages détaillés du journal du moteur Docker à partir de l’objet de service. Vous pouvez afficher le journal pour les déploiements locaux ACI et AKS. L’exemple suivant montre comment imprimer les journaux.
 
 ```python
 # if you already have the service object handy
@@ -163,82 +233,15 @@ print(service.get_logs())
 print(ws.webservices['mysvc'].get_logs())
 ```
 
-### <a name="debug-the-docker-image-locally"></a>Déboguer l’image Docker localement
-Le journal Docker n’émet parfois pas suffisamment d’informations sur le problème en cours. Vous pouvez aller plus loin en extrayant l’image Docker générée, en démarrant un conteneur local et en effectuant le débogage directement dans le conteneur actif de manière interactive. Pour démarrer un conteneur local, vous devez disposer d’un moteur Docker en cours d’exécution localement ; votre tâche serait grandement facilitée si l’[interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) est également installé.
+## <a name="service-launch-fails"></a>Échec du lancement du service
 
-Nous devons d’abord déterminer l’emplacement de l’image :
+Une fois que l’image est créée avec succès, le système tente de démarrer un conteneur à l’aide de la configuration de votre déploiement. Dans le cadre du processus de démarrage du conteneur, la fonction `init()` dans votre script de scoring est appelée par le système. Si la fonction `init()` comprend des exceptions non interceptées, l’erreur **CrashLoopBackOff** apparaît peut-être dans le message d’erreur.
 
-```python
-# print image location
-print(image.image_location)
-```
-
-Voici le format de l’emplacement de l’image : `<acr-name>.azurecr.io/<image-name>:<version-number>`, par exemple `myworkpaceacr.azurecr.io/myimage:3`. 
-
-Accédez maintenant à votre fenêtre de ligne de commande. Si l’interface de ligne de commande Azure est installée, vous pouvez taper les commandes suivantes pour vous connecter à l’ACR (Azure Container Registry) associé à l’espace de travail où l’image est stockée. 
-
-```sh
-# log on to Azure first if you haven't done so before
-$ az login
-
-# make sure you set the right subscription in case you have access to multiple subscriptions
-$ az account set -s <subscription_name_or_id>
-
-# now let's log in to the workspace ACR
-# note the acr-name is the domain name WITHOUT the ".azurecr.io" postfix
-# e.g.: az acr login -n myworkpaceacr
-$ az acr login -n <acr-name>
-```
-Si l’interface de ligne de commande Azure n’est pas installée, vous pouvez utiliser la commande `docker login` pour vous connecter au registre ACR. Mais vous devez récupérer tout d’abord le nom d’utilisateur et le mot de passe du registre ACR à partir du portail Azure.
-
-Une fois connecté au registre ACR, vous pouvez extraire l’image Docker et démarrer un conteneur localement, puis lancer une session bash de débogage à l’aide de la commande `docker run` :
-
-```sh
-# note the image_id is <acr-name>.azurecr.io/<image-name>:<version-number>
-# for example: myworkpaceacr.azurecr.io/myimage:3
-$ docker run -it <image_id> /bin/bash
-```
-
-Une fois que vous avez lancé une session bash sur le conteneur en cours d’exécution, vous pouvez trouver vos scripts de scoring dans le dossier `/var/azureml-app`. Vous pouvez ensuite lancer une session Python pour déboguer vos scripts de scoring. 
-
-```sh
-# enter the directory where scoring scripts live
-cd /var/azureml-app
-
-# find what Python packages are installed in the python environment
-pip freeze
-
-# sanity-check on score.py
-# you might want to edit the score.py to trigger init().
-# as most of the errors happen in init() when you are trying to load the model.
-python score.py
-```
-Si vous avez besoin d’un éditeur de texte pour modifier vos scripts, vous pouvez installer vim, nano, Emacs ou votre éditeur de prédilection.
-
-```sh
-# update package index
-apt-get update
-
-# install a text editor of your choice
-apt-get install vim
-apt-get install nano
-apt-get install emacs
-
-# launch emacs (for example) to edit score.py
-emacs score.py
-
-# exit the container bash shell
-exit
-```
-
-Vous pouvez également démarrer le service web localement et lui envoyer du trafic HTTP. Le serveur Flask dans le conteneur Docker s’exécute sur le port 5001. Vous pouvez effectuer un mappage à tous les ports disponibles sur la machine hôte.
-```sh
-# you can find the scoring API at: http://localhost:8000/score
-$ docker run -p 8000:5001 <image_id>
-```
+Utilisez les informations dans le [examiner le journal de Docker](#dockerlog) section pour vérifier les journaux.
 
 ## <a name="function-fails-getmodelpath"></a>Échec de la fonction : get_model_path()
-Souvent, dans la fonction `init()` du script de scoring, la fonction `Model.get_model_path()` est appelée pour rechercher un fichier de modèle ou un dossier de fichiers de modèle dans le conteneur. Il s’agit souvent d’une source de défaillance si le fichier de modèle ou le dossier est introuvable. Le moyen le plus simple de déboguer cette erreur consiste à exécuter le code Python ci-dessous dans l’interpréteur de commandes du conteneur :
+
+Souvent, dans le `init()` fonction dans le script de notation, [Model.get_model_path()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#get-model-path-model-name--version-none---workspace-none-) fonction est appelée pour rechercher un fichier de modèle ou un dossier de fichiers de modèle dans le conteneur. Si le fichier de modèle ou le dossier est introuvable, la fonction échoue. Le moyen le plus simple de déboguer cette erreur consiste à exécuter le code Python ci-dessous dans l’interpréteur de commandes du conteneur :
 
 ```python
 import logging
@@ -247,11 +250,12 @@ from azureml.core.model import Model
 print(Model.get_model_path(model_name='my-best-model'))
 ```
 
-Ce code affiche le chemin local (relatif à `/var/azureml-app`) sur le conteneur où votre script de scoring est censé trouver le fichier de modèle ou le dossier. Vous pouvez ensuite vérifier si le fichier ou dossier se trouve effectivement à l’emplacement indiqué.
+Cet exemple imprime le chemin d’accès local (relatif à `/var/azureml-app`) dans le conteneur où les votre script de notation s’attend à trouver le fichier de modèle ou le dossier. Vous pouvez ensuite vérifier si le fichier ou dossier se trouve effectivement à l’emplacement indiqué.
 
-La définition du niveau de journalisation sur DEBUG peut entraîner l’enregistrement d’informations supplémentaires, qui peuvent être utiles pour identifier l’échec.
+Le niveau de journalisation DEBUG risque d’être connecté, des informations supplémentaires qui peuvent être utiles pour identifier l’échec.
 
 ## <a name="function-fails-runinputdata"></a>Échec de la fonction : run(input_data)
+
 Si le service est déployé avec succès, mais qu’il plante quand vous publiez des données sur le point de terminaison de scoring, vous pouvez ajouter une instruction d’interception d’erreur dans votre fonction `run(input_data)` afin qu’elle retourne un message d’erreur détaillé. Par exemple : 
 
 ```python
@@ -266,7 +270,8 @@ def run(input_data):
         # return error message back to the client
         return json.dumps({"error": result})
 ```
-**Remarque**: Retournez les messages d’erreur à partir de l’appel `run(input_data)` exclusivement à des fins de débogage. Pour des raisons de sécurité, évitez cette approche dans un environnement de production.
+
+**Remarque**: Retournez les messages d’erreur à partir de l’appel `run(input_data)` exclusivement à des fins de débogage. Pour des raisons de sécurité, vous ne devez pas retourner des messages d’erreur de cette façon dans un environnement de production.
 
 ## <a name="http-status-code-503"></a>Code d’état HTTP 503
 
@@ -312,7 +317,7 @@ Pour plus d’informations sur la configuration `autoscale_target_utilization`, 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour en savoir plus sur le déploiement : 
-* [Où et comment effectuer un déploiement](how-to-deploy-and-where.md)
+Pour en savoir plus sur le déploiement :
 
+* [Où et comment effectuer un déploiement](how-to-deploy-and-where.md)
 * [Tutoriel : Effectuer l'apprentissage de modèles et les déployer](tutorial-train-models-with-aml.md)

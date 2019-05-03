@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: aacb4521f4c6e8699be357cf396a01b7eb54b552
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: b35a06fc4e100d71e787e183299825b61d342e69
+ms.sourcegitcommit: abeefca6cd5ca01c3e0b281832212aceff08bf3e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924371"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "64993161"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Service de métadonnées Azure : événements planifiés pour les machines virtuelles Linux
 
@@ -46,7 +46,7 @@ Avec le service Événements planifiés, votre application peut savoir quand une
 
 Le service Événements planifiés fournit des événements dans les cas d’usage suivants :
 
-- La plateforme a lancé une maintenance (par exemple, la mise à jour du système d’exploitation hôte).
+- [Plateforme a lancé une maintenance](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/maintenance-and-updates) (par exemple, machine virtuelle redémarrage, migration dynamique ou mémoire en conservant les mises à jour pour l’hôte)
 - Matériel détérioré
 - L’utilisateur a lancé une maintenance (par exemple, un utilisateur redémarre ou redéploie une machine virtuelle).
 - [Éviction de la machine virtuelle basse priorité](https://azure.microsoft.com/blog/low-priority-scale-sets) dans la mise à l’échelle définit
@@ -58,6 +58,7 @@ Le service Événements planifiés fournit des événements dans les cas d’usa
 ### <a name="scope"></a>Étendue
 Les événements planifiés sont remis à :
 
+- Machines virtuelles autonomes.
 - Toutes les machines virtuelles d’un service cloud
 - Toutes les machines virtuelles d’un groupe à haute disponibilité
 - Toutes les machines virtuelles d’un groupe de placement de groupe identique 
@@ -129,7 +130,7 @@ S’il existe des événements planifiés, la réponse contient un tableau d’�
 |Propriété  |  Description |
 | - | - |
 | EventId | GUID pour cet événement. <br><br> Exemple : <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
-| Type d’événement | Impact provoqué par cet événement. <br><br> Valeurs : <br><ul><li> `Freeze`: une pause de quelques secondes est planifiée pour la machine virtuelle. Le processeur est mis en pause, mais cela n’a aucun impact sur la mémoire, les fichiers ouverts ou les connexions réseau. <li>`Reboot`: un redémarrage est planifié pour la machine virtuelle (la mémoire non persistante est effacée). <li>`Redeploy`: un déplacement vers un autre nœud est planifié pour la machine virtuelle (le contenu des disques éphémères est perdu). <li>`Preempt`: La Machine virtuelle de faible priorité est en cours de suppression (disques éphémères sont perdues).|
+| Type d’événement | Impact provoqué par cet événement. <br><br> Valeurs : <br><ul><li> `Freeze`: La Machine virtuelle est planifiée pour mettre en pause pendant quelques secondes. Processeur et la connectivité réseau peut être suspendue, mais n’a aucun impact sur la mémoire ou les fichiers ouverts.<li>`Reboot`: un redémarrage est planifié pour la machine virtuelle (la mémoire non persistante est effacée). <li>`Redeploy`: un déplacement vers un autre nœud est planifié pour la machine virtuelle (le contenu des disques éphémères est perdu). <li>`Preempt`: La Machine virtuelle de faible priorité est en cours de suppression (disques éphémères sont perdues).|
 | ResourceType | Type de ressource affecté par cet événement. <br><br> Valeurs : <ul><li>`VirtualMachine`|
 | Ressources| Liste de ressources affectée par cet événement. Elle contient à coup sûr des machines d’au plus un [domaine de mise à jour](manage-availability.md), mais elle peut tout aussi bien ne pas contenir toutes les machines de ce domaine. <br><br> Exemple : <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
 | EventStatus | État de cet événement. <br><br> Valeurs : <ul><li>`Scheduled`: cet événement est planifié pour démarrer après l’heure spécifiée dans la propriété `NotBefore`.<li>`Started`: cet événement a démarré.</ul> Aucun état `Completed` ou similaire n’est fourni. L’événement n’est plus renvoyé lorsqu’il est terminé.

@@ -10,18 +10,21 @@ ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: jmartens
-ms.date: 12/04/2018
+ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 92f04d80ea956f3036d7778a5d6de62e53b969ad
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d8644c2c0d4ee5b6ee4dcf16e470e4f2fa478237
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60817366"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65023708"
 ---
-# <a name="write-and-configure-data-using-azure-machine-learning"></a>Écrire et de configurer les données à l’aide d’Azure Machine Learning
+# <a name="write-and-configure-data--with-the-azure-machine-learning-data-prep-sdk"></a>Écrire et de configurer les données avec le SDK Azure Machine Learning Data Prep
 
 Dans cet article, vous découvrez différentes méthodes pour écrire des données à l’aide de la [SDK Python de Azure Machine Learning Data Prep](https://aka.ms/data-prep-sdk) et comment configurer ces données pour l’expérimentation avec le [Azure Machine Learning SDK pour Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).  Les données de sortie peuvent être écrites à tout moment dans un flux de données. Les écritures sont ajoutés comme suit au flux de données qui en résulte et ces étapes s’exécutent chaque fois que le flux de données s’exécute. Les données sont écrites dans plusieurs fichiers de partition pour permettre des écritures parallèles.
+
+> [!Important]
+> Si vous générez une nouvelle solution, essayez le [jeux de données Azure Machine Learning](how-to-explore-prepare-data.md) (version préliminaire) pour transformer vos données, les données d’instantané et de stocker les définitions de jeu de données avec contrôle de version. Jeux de données est la prochaine version de la préparation des données SDK, offre des fonctionnalités étendues pour la gestion des jeux de données dans les solutions d’intelligence artificielle.
 
 Dans la mesure où il n’existe pas de limitation quant au nombre d’étapes d’écriture qu’un pipeline peu contenir, vous pouvez facilement d’écrire des étapes pour obtenir des résultats intermédiaires utilisables pour la résolution des problèmes ou dans d’autres pipelines.
 
