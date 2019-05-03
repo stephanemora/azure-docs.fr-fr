@@ -10,14 +10,18 @@ ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: 82823bae76521080634d4f7ff285d94ce8495fbf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3f47656bb13d08ea56cf25a2a29897722abb1cdb
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61292798"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024163"
 ---
 # <a name="upgrading-to-the-azure-search-net-sdk-version-11"></a>Mise à niveau vers la version du Kit de développement logiciel Azure Search .NET SDK version 1.1
+
+> [!Important]
+> Ce contenu est en cours de construction. Version 9.0 du SDK .NET Azure Search est disponible sur NuGet. Nous travaillons sur cet article expliquer comment mettre à niveau vers 9.0. 
+> 
 
 Si vous utilisez la version préliminaire 1.0.2 ou une version antérieure du [Kit de développement logiciel (SDK) .NET Azure Search](https://aka.ms/search-sdk), cet article vous aidera à mettre à niveau votre application pour utiliser la version 1.1.
 

@@ -1,7 +1,7 @@
 ---
 title: Indexer des objets blob CSV avec l’indexeur Blob de la Recherche Azure – Recherche Azure
 description: Analysez des objets blob CSV dans le Stockage Blob Azure pour la recherche en texte intégral à l’aide d’un index de Recherche Azure. Les indexeurs automatisent l’ingestion des données pour certaines sources de données, comme le Stockage Blob Azure.
-ms.date: 03/01/2019
+ms.date: 05/02/2019
 author: mgottein
 manager: cgronlun
 ms.author: magottei
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 0bbb131b5fb155443c8c3dc340185f3a6fa950a3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 193ed7099293fb1ee4c056abcc5c2f34d78627b7
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60871261"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024706"
 ---
 # <a name="indexing-csv-blobs-with-azure-search-blob-indexer"></a>Indexation d’objets blob CSV avec l’indexeur d’objets blob Azure Search
 Par défaut, l’ [indexeur d’objets blob Azure Search](search-howto-indexing-azure-blob-storage.md) analyse les objets blob de texte délimité comme un bloc de texte unique. Toutefois, avec des objets blob contenant des données CSV, vous souhaitez généralement traiter chaque ligne dans l’objet blob comme un document distinct. Par exemple, vous pouvez analyser le texte délimité suivant dans deux documents contenant chacun les champs « id », « datePublished » et « tags » : 
@@ -24,7 +24,9 @@ Par défaut, l’ [indexeur d’objets blob Azure Search](search-howto-indexing-
     1, 2016-01-12, "azure-search,azure,cloud" 
     2, 2016-07-07, "cloud,mobile" 
 
-Dans cet article, vous découvrirez comment analyser les objets blob CSV avec un indexeur d’objets blob Recherche Azure. 
+Dans cet article, vous allez apprendre à analyser des objets BLOB CSV avec un paramètre indexerby d’objets blob Azure Search les `delimitedText` mode d’analyse. 
+
+Le `delimitedText` mode d’analyse est actuellement en version préliminaire publique et pas recommandé pour les charges de travail de production.
 
 > [!NOTE]
 > Suivez les recommandations de configuration d’indexeur de [l’indexation un-à-plusieurs](search-howto-index-one-to-many-blobs.md) pour générer plusieurs documents de recherche à partir d’un objet blob Azure.
@@ -62,7 +64,7 @@ En résumé, voici des exemples complets de charges utiles.
 
 Source de données : 
 
-    POST https://[service name].search.windows.net/datasources?api-version=2017-11-11-Preview
+    POST https://[service name].search.windows.net/datasources?api-version=2019-05-06-Preview
     Content-Type: application/json
     api-key: [admin key]
 
@@ -75,7 +77,7 @@ Source de données :
 
 Indexeur :
 
-    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11-Preview
+    POST https://[service name].search.windows.net/indexers?api-version=2019-05-06-Preview
     Content-Type: application/json
     api-key: [admin key]
 
