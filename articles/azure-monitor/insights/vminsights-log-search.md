@@ -53,12 +53,12 @@ Les champs et les conventions suivantes s’appliquent à VMConnection et VMBoun
 | Propriété | Description |
 |:--|:--|
 |Direction |Direction de la connexion (valeur *inbound* ou *outbound*) |
-|Ordinateur |Nom de domaine complet (FQDN) de l’ordinateur |
+|Machine |Nom de domaine complet (FQDN) de l’ordinateur |
 |Process |Identité du processus ou de groupes de processus initialisant/acceptant la connexion |
 |SourceIp |Adresse IP de la source |
 |DestinationIp |Adresse IP de la destination |
 |DestinationPort |Numéro de port de la destination |
-|Protocole |Protocole utilisé pour la connexion.  La valeur est *tcp*. |
+|Protocol |Protocole utilisé pour la connexion.  La valeur est *tcp*. |
 
 Pour prendre en compte l’impact du regroupement, les informations sur le nombre de connexions physiques groupées sont fournies dans les propriétés suivantes de l’enregistrement :
 
@@ -137,9 +137,9 @@ Chaque enregistrement dans VMBoundPort est identifiée par les champs suivants 
 | Propriété | Description |
 |:--|:--|
 |Process | Identité de processus (ou groupes de processus) avec laquelle le port est associé.|
-|Adresse IP | L’adresse IP du port (peut être l’adresse IP de caractère générique, *0.0.0.0*) |
+|Ip | L’adresse IP du port (peut être l’adresse IP de caractère générique, *0.0.0.0*) |
 |Port |Le numéro de Port |
-|Protocole | Le protocole.  Exemple, *tcp* ou *udp* (uniquement *tcp* est actuellement pris en charge).|
+|Protocol | Le protocole.  Exemple, *tcp* ou *udp* (uniquement *tcp* est actuellement pris en charge).|
  
 L’identité un port est dérivé de cinq champs ci-dessus et est stocké dans la propriété ID de port. Cette propriété peut être utilisée pour rechercher rapidement des enregistrements pour un port spécifique dans le temps. 
 

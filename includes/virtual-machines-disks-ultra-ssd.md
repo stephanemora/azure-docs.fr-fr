@@ -35,13 +35,13 @@ Certaines fonctionnalités clées de disques ultra sont :
 
 - Capacité du disque : Disques Ultra offre une plage de tailles de disque différent à partir de 4 Go jusqu'à 64 To.
 - IOPS du disque : Disques Ultra prennent en charge les limites d’IOPS des Gio/300 e/s, avec un maximum de 160 Ko IOPS par disque. Pour atteindre le nombre d’IOPS provisionné, vérifiez que le nombre d’IOPS du disque sélectionné est inférieur au nombre d’IOPS de la machine virtuelle. Le nombre minimal d’IOPS du disque est 100.
-- Débit du disque : Avec des disques ultra, la limite de débit d’un seul disque est 256 Kio/s pour chacune configurée e/s, avec un maximum de 2000 les Mbits/s par disque (où Mbits/s = 10 ^ 6 octets par seconde). Le débit minimal du disque est 1 Mio.
+- Débit du disque : Avec des disques ultra, la limite de débit d’un seul disque est 256 Kio/s pour chacune configurée e/s, avec un maximum de 2000 les Mo/s par disque (où Mo/s = 10 ^ 6 octets par seconde). Le débit minimal du disque est 1 Mio.
 
 Le tableau suivant récapitule les différentes configurations prises en charge pour les différentes tailles de disque :  
 
 ### <a name="ultra-disks-managed-disk-offerings"></a>Ultra disques gérés de disque
 
-|Taille de disque (Gio)  |Nombre limite d’IOPS  |Débit limite (Mbits/s)  |
+|Taille de disque (Gio)  |Nombre limite d’IOPS  |Débit limite (Mo/s)  |
 |---------|---------|---------|
 |4     |1,200         |300         |
 |8     |2 400         |600         |
@@ -78,7 +78,7 @@ La formule suivante illustre la relation entre le débit et le nombre d’IOPS 
 
 Par conséquent, il est important de déterminer les valeurs optimales de débit et d’E/S par seconde dont a besoin votre application. Lorsque vous essayez d’optimiser une de ces valeurs, l’autre est également affectée. Nous vous recommandons de commencer par un débit correspondant à la taille d’E/S de 16 Kio et de l’ajuster si vous avez besoin de plus de débit.
 
-Pour plus d’informations sur le débit de disque pris en charge sur les disques ultra, consultez le tableau dans la section objectifs de Performance et évolutivité ci-dessus. Tout comme la taille et le nombre d’IOPS du disque, le débit provisionné est facturé à l’heure par nombre de Mbits/s provisionnés.
+Pour plus d’informations sur le débit de disque pris en charge sur les disques ultra, consultez le tableau dans la section objectifs de Performance et évolutivité ci-dessus. Tout comme la taille et le nombre d’IOPS du disque, le débit provisionné est facturé à l’heure par nombre de Mo/s provisionnés.
 
 ### <a name="ultra-disk-vm-reservation-fee"></a>Frais de réservation de machine virtuelle de disque ultra
 

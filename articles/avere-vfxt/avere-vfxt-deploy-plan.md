@@ -76,7 +76,7 @@ Chaque nœud vFXT est identique. Autrement dit, si vous créez un cluster à tro
 
 | Type d’instance | Processeurs virtuels | Mémoire  | Stockage SSD local  | Disques de données max. | Débit du disque non mis en cache | Cartes réseau (nombre) |
 | --- | --- | --- | --- | --- | --- | --- |
-| Standard_E32s_v3 | 32  | 256 Gio | 512 Go  | 32 | 51 200 IOPS <br/> 768 Mbits/s | 16 000 Mbits/s (8)  |
+| Standard_E32s_v3 | 32  | 256 Gio | 512 Go  | 32 | 51 200 IOPS <br/> 768 Mo/s | 16 000 Mo/s (8)  |
 
 La taille du cache de disque par nœud est configurable et peut aller de 1 000 Go à 8 000 Go. 4 To par nœud est la taille de cache recommandée pour les nœuds de Standard_E32s_v3.
 

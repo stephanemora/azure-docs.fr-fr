@@ -44,7 +44,7 @@ Reportez-vous également à l’exemple de [création d’une machine virtuelle 
 
 Les éléments suivants décrivent les nouveautés et les modifications du modèle Resource Manager : **apiVersion** pour `Microsoft.Compute/virtualMachines` et `Microsoft.Compute/Disks` doit être défini sur `2018-06-01` (ou version ultérieure).
 
-Spécifiez la référence SKU UltraSSD_LRS, la capacité du disque, les IOPS et le débit en Mbits/s pour créer un disque Ultra SSD. Voici un exemple qui crée un disque de 1 024 Go (Gio = 2^30 octets), 80 000 IOPS et 1 200 Mbits/s (Mbits/s = 10^6 octets par seconde) :
+Spécifiez la référence SKU UltraSSD_LRS, la capacité du disque, les IOPS et le débit en Mo/s pour créer un disque Ultra SSD. Voici un exemple qui crée un disque de 1 024 Go (Gio = 2^30 octets), 80 000 IOPS et 1 200 Mo/s (Mo/s = 10^6 octets par seconde) :
 
 ```json
 "properties": {  

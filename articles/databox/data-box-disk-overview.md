@@ -83,7 +83,7 @@ Pour plus d’informations, accédez à [Azure Data Box Disk security and data p
 | Capacité stockage du disque                                   | 8 To (environ 7 To utilisables)|
 | Interface de données                                          | USB   |
 | Sécurité                                                | Préalablement chiffré à l’aide de BitLocker et mise à jour sécurisée <br> Disques protégés par clé d’accès <br> Données chiffrées en permanence  |
-| Vitesse de transfert de données                                      | jusqu’à 430 Mbits/s en fonction de la taille du fichier      |
+| Vitesse de transfert de données                                      | jusqu’à 430 Mo/s en fonction de la taille du fichier      |
 |gestion                                               | Portail Azure |
 
 

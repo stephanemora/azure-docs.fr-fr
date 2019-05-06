@@ -123,15 +123,15 @@ Faire *pas* dépasser les valeurs en surbrillance dans les deux tables suivantes
 |       Echo                        | Unit1 | Unit2 | Unit5 | Unit10 | Unit20 | Unit50 | Unit100 |
 |-----------------------------------|-------|-------|-------|--------|--------|--------|---------|
 | connexions                       | 1 000 | 2 000 | 5 000 | 10 000 | 20 000 | 50 000 | 100 000 |
-| **Bande passante entrante** | **2 Mbits/s**    | **4 Mbits/s**    | **10 Mbits/s**   | **20 Mbits/s**    | **40 Mbits/s**    | **100 Mbits/s**   | **200 Mbits/s**    |
-| Bande passante sortante | 2 Mbits/s   | 4 Mbits/s   | 10 Mbits/s  | 20 Mbits/s   | 40 Mbits/s   | 100 Mbits/s  | 200 Mbits/s   |
+| **Bande passante entrante** | **2 Mo/s**    | **4 Mo/s**    | **10 Mo/s**   | **20 Mo/s**    | **40 Mo/s**    | **100 Mo/s**   | **200 Mo/s**    |
+| Bande passante sortante | 2 Mo/s   | 4 Mo/s   | 10 Mo/s  | 20 Mo/s   | 40 Mo/s   | 100 Mo/s  | 200 Mo/s   |
 
 
 |     Diffusion             | Unit1 | Unit2 | Unit5  | Unit10 | Unit20 | Unit50  | Unit100 |
 |---------------------------|-------|-------|--------|--------|--------|---------|---------|
 | connexions               | 1 000 | 2 000 | 5 000  | 10 000 | 20 000 | 50 000  | 100 000 |
 | Bande passante entrante  | 4 Kbits/s   | 4 Kbits/s   | 4 Kbits/s    | 4 Kbits/s    | 4 Kbits/s    | 4 Kbits/s     | 4 Kbits/s    |
-| **Bande passante sortante** | **4 Mbits/s**    | **8 Mbits/s**    | **20 Mbits/s**    | **40 Mbits/s**    | **80 Mbits/s**    | **200 Mbits/s**    | **400 Mbits/s**   |
+| **Bande passante sortante** | **4 Mo/s**    | **8 Mo/s**    | **20 Mo/s**    | **40 Mo/s**    | **80 Mo/s**    | **200 Mo/s**    | **400 Mo/s**   |
 
 *Bande passante entrante* et *la bande passante sortante* sont la taille totale du message par seconde.  Voici les formules pour eux :
 ```
@@ -215,7 +215,7 @@ Le comportement de **echo** détermine que la bande passante entrante maximale e
 |-----------------------------------|-------|-------|-------|--------|--------|--------|---------|
 | connexions                       | 1 000 | 2 000 | 5 000 | 10 000 | 20 000 | 50 000 | 100 000 |
 | Messages entrants/sortants par seconde | 1 000 | 2 000 | 5 000 | 10 000 | 20 000 | 50 000 | 100 000 |
-| Bande passante entrante/sortante | 2 Mbits/s   | 4 Mbits/s   | 10 Mbits/s  | 20 Mbits/s   | 40 Mbits/s   | 100 Mbits/s  | 200 Mbits/s   |
+| Bande passante entrante/sortante | 2 Mo/s   | 4 Mo/s   | 10 Mo/s  | 20 Mo/s   | 40 Mo/s   | 100 Mo/s  | 200 Mo/s   |
 
 Dans ce cas, chaque client appelle le concentrateur défini dans le serveur d’application. Le hub appelle simplement la méthode définie dans le côté client d’origine. Ce hub est le hub plus légère pour **echo**.
 
@@ -253,7 +253,7 @@ Le tableau suivant récapitule les connexions clientes maximale, nombre de messa
 | Messages entrants par seconde  | 2     | 2     | 2      | 2      | 2      | 2       | 2       |
 | Messages sortants par seconde | 2 000 | 4 000 | 10 000 | 20 000 | 40 000 | 100 000 | 200 000 |
 | Bande passante entrante  | 4 Kbits/s   | 4 Kbits/s   | 4 Kbits/s    | 4 Kbits/s    | 4 Kbits/s    | 4 Kbits/s     | 4 Kbits/s     |
-| Bande passante sortante | 4 Mbits/s   | 8 Mbits/s   | 20 Mbits/s   | 40 Mbits/s   | 80 Mbits/s   | 200 Mbits/s   | 400 Mbits/s   |
+| Bande passante sortante | 4 Mo/s   | 8 Mo/s   | 20 Mo/s   | 40 Mo/s   | 80 Mo/s   | 200 Mo/s   | 400 Mo/s   |
 
 Les clients de diffusion qui publient des messages sont pas plus de quatre. Ils ont besoin les serveurs d’applications moins par rapport aux **echo** , car la quantité de message entrant est faible. Deux serveurs d’applications sont suffisants pour considérations sur les performances et de contrat SLA. Mais vous devez augmenter les connexions du serveur par défaut pour éviter un déséquilibre, en particulier pour Unit50 et Unit100.
 
@@ -291,9 +291,9 @@ Le coût de routage est important pour l’envoi de message à de nombreux petit
 | Nombre de membres de groupe        | 10    | 10    | 10     | 10     | 10     | 10     | 10 
 | Nombre de groupes               | 100   | 200   | 500    | 1 000  | 2 000  | 5 000  | 10 000 
 | Messages entrants par seconde  | 200   | 400   | 1 000  | 2 500  | 4 000  | 7 000  | 7 000   |
-| Bande passante entrante  | 400 Kbits/s  | 800 Kbits/s  | 2 Mbits/s     | 5 Mbits/s     | 8 Mbits/s     | 14 Mbits/s    | 14 Mbits/s     |
+| Bande passante entrante  | 400 Kbits/s  | 800 Kbits/s  | 2 Mo/s     | 5 Mo/s     | 8 Mo/s     | 14 Mo/s    | 14 Mo/s     |
 | Messages sortants par seconde | 2 000 | 4 000 | 10 000 | 25 000 | 40 000 | 70,000 | 70,000  |
-| Bande passante sortante | 4 Mbits/s    | 8 Mbits/s    | 20 Mbits/s    | 50 Mbits/s     | 80 Mbits/s    | 140 Mbits/s   | 140 Mbits/s    |
+| Bande passante sortante | 4 Mo/s    | 8 Mo/s    | 20 Mo/s    | 50 Mo/s     | 80 Mo/s    | 140 Mo/s   | 140 Mo/s    |
 
 Nombre de connexions client est appelant le hub, par conséquent, le nombre de serveur d’application est également critique pour les performances. Le tableau suivant répertorie le nombre de serveurs d’application suggérée.
 
@@ -317,7 +317,7 @@ Pour **envoient au groupe big**, la bande passante sortante devienne le goulot d
 | Messages entrants par seconde  | 20    | 20    | 20     | 20     | 20     | 20      | 20      |
 | Bande passante entrante  | 80 Kbits/s   | 40 Kbits/s   | 40 Kbits/s    | 20 Kbits/s    | 40 Kbits/s    | 40 Kbits/s     | 40 Kbits/s     |
 | Messages sortants par seconde | 2 000 | 4 000 | 10 000 | 20 000 | 40 000 | 100 000 | 200 000 |
-| Bande passante sortante | 8 Mbits/s    | 8 Mbits/s    | 20 Mbits/s    | 40 Mbits/s    | 80 Mbits/s    | 200 Mbits/s    | 400 Mbits/s    |
+| Bande passante sortante | 8 Mo/s    | 8 Mo/s    | 20 Mo/s    | 40 Mo/s    | 80 Mo/s    | 200 Mo/s    | 400 Mo/s    |
 
 Le nombre de connexions envoi n’est pas plus de 40. La charge pesant sur le serveur d’applications est petite, donc le nombre suggéré d’applications web est faible.
 
@@ -347,7 +347,7 @@ Le tableau suivant est un résumé statistique après de nombreux essais d’ex�
 |------------------------------------|-------|-------|-------|--------|--------|-----------------|-----------------|
 | connexions                        | 1 000 | 2 000 | 5 000 | 10 000 | 20 000 | 50 000          | 100 000         |
 | Messages entrants/sortants par seconde | 1 000 | 2 000 | 5 000 | 8 000  | 9 000  | 20 000 | 20 000 |
-| Bande passante entrante/sortante | 2 Mbits/s    | 4 Mbits/s    | 10 Mbits/s   | 16 Mbits/s    | 18 Mbits/s    | 40 Mbits/s       | 40 Mbits/s       |
+| Bande passante entrante/sortante | 2 Mo/s    | 4 Mo/s    | 10 Mo/s   | 16 Mo/s    | 18 Mo/s    | 40 Mo/s       | 40 Mo/s       |
 
 Ce cas d’usage nécessite une charge élevée sur le côté de serveur d’application. Voir le serveur d’applications suggérées compter dans le tableau suivant.
 
@@ -401,7 +401,7 @@ Tous les clients établissent des connexions WebSocket avec le Service Azure Sig
 | Messages entrants par seconde  | 2     | 2     | 2      | 2      | 2      | 2       | 2       |
 | Messages sortants par seconde | 2 000 | 4 000 | 10 000 | 20 000 | 40 000 | 100 000 | 200 000 |
 | Bande passante entrante  | 4 Kbits/s    | 4 Kbits/s    | 4 Kbits/s     | 4 Kbits/s     | 4 Kbits/s     | 4 Kbits/s      | 4 Kbits/s      |
-| Bande passante sortante | 4 Mbits/s    | 8 Mbits/s    | 20 Mbits/s    | 40 Mbits/s    | 80 Mbits/s    | 200 Mbits/s    | 400 Mbits/s    |
+| Bande passante sortante | 4 Mo/s    | 8 Mo/s    | 20 Mo/s    | 40 Mo/s    | 80 Mo/s    | 200 Mo/s    | 400 Mo/s    |
 
 #### <a name="send-to-user-through-rest-api"></a>Envoyer à l’utilisateur via l’API REST
 Le test d’évaluation attribue des noms d’utilisateur à tous les clients avant qu’ils commencent à se connecter au Service Azure SignalR. Une fois que les clients établissent des connexions WebSocket avec le Service Azure SignalR, ils commencer à envoyer des messages à d’autres personnes via HTTP Post.
@@ -411,8 +411,8 @@ Le test d’évaluation attribue des noms d’utilisateur à tous les clients av
 | connexions               | 1 000 | 2 000 | 5 000  | 10 000 | 20 000 | 50 000  | 100 000 |
 | Messages entrants par seconde  | 300   | 600   | 900    | 1,300  | 2 000  | 10 000  | 18,000  |
 | Messages sortants par seconde | 300   | 600   | 900    | 1,300  | 2 000  | 10 000  | 18,000 |
-| Bande passante entrante  | 600 Kbits/s  | 1.2 Mbits/s  | 1.8 Mbits/s   | 2.6 Mbits/s   | 4 Mbits/s     | 10 Mbits/s     | 36 Mbits/s    |
-| Bande passante sortante | 600 Kbits/s  | 1.2 Mbits/s  | 1.8 Mbits/s   | 2.6 Mbits/s   | 4 Mbits/s     | 10 Mbits/s     | 36 Mbits/s    |
+| Bande passante entrante  | 600 Kbits/s  | 1.2 Mo/s  | 1.8 Mo/s   | 2.6 Mo/s   | 4 Mo/s     | 10 Mo/s     | 36 Mo/s    |
+| Bande passante sortante | 600 Kbits/s  | 1.2 Mo/s  | 1.8 Mo/s   | 2.6 Mo/s   | 4 Mo/s     | 10 Mo/s     | 36 Mo/s    |
 
 ## <a name="performance-test-environments"></a>Environnements de test de performances
 

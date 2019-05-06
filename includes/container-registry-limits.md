@@ -21,8 +21,8 @@ ms.locfileid: "64951523"
 | Taille de couche d’image maximale | 200 GiB | 200 GiB | 200 GiB |
 | ReadOps par minute<sup>2, 3</sup> | 1 000 | 3 000 | 10 000 |
 | WriteOps par minute<sup>2, 4</sup> | 100 | 500 | 2 000 |
-| Bande passante de téléchargement en Mbits/s<sup>2</sup> | 30 | 60 | 100 |
-| Bande passante de chargement en Mbits/s<sup>2</sup> | 10 | 20 | 50 |
+| Bande passante de téléchargement en Mo/s<sup>2</sup> | 30 | 60 | 100 |
+| Bande passante de chargement en Mo/s<sup>2</sup> | 10 | 20 | 50 |
 | Webhooks | 2 | 10 | 100 |
 | Géoréplication | N/A | N/A | [Pris en charge][geo-replication] |
 | Approbation du contenu (préversion) | N/A | N/A | [Pris en charge][content-trust] |

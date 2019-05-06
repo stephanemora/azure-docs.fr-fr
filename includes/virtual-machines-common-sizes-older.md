@@ -169,7 +169,7 @@ Mise en cache de stockage Premium :  Pris en charge
 | Standard_DS13 |8 |56 |112 |32 |32 000 / 256 (288) |25 600 / 256 |8 / 4 000 |
 | Standard_DS14 |16 |112 |224 |64 |64 000 / 512 (576) |51 200 / 512 |8 / 8000 |
 
-<sup>1</sup> Le débit de disque maximal possible (E/S par seconde ou Mbits/s) avec une machine virtuelle de la série DS peut être limité par le nombre, la taille et la répartition des disques attachés.  Pour plus d’informations, consultez [Conception pour de hautes performances](../articles/virtual-machines/windows/premium-storage-performance.md).   
+<sup>1</sup> Le débit de disque maximal possible (E/S par seconde ou Mo/s) avec une machine virtuelle de la série DS peut être limité par le nombre, la taille et la répartition des disques attachés.  Pour plus d’informations, consultez [Conception pour de hautes performances](../articles/virtual-machines/windows/premium-storage-performance.md).   
 <sup>2</sup> famille de machines virtuelles peuvent s’exécuter sur un de l’unité centrale suivantes : 2,2 GHz Intel Xeon® E5-2660 v2, 2,4 GHz Intel Xeon® E5-2673 v3 (Haswell) ou de 2,3 GHz Intel XEON® E5-2673 v4 (Broadwell)  
 
 <br>

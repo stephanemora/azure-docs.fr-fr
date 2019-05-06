@@ -14,7 +14,7 @@ manager: craigg
 ms.date: 03/19/2019
 ms.openlocfilehash: aa9217251965b35dd90e09c619607c9421a9f6f4
 ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/28/2019
 ms.locfileid: "64572650"
@@ -50,7 +50,7 @@ Vous pouvez définir le niveau de service, la taille de calcul et la quantité d
 |Type de stockage|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|
 |Latence d’E/S (approximative)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|
 |IOPS cible (64 ko)|500|1 000|1 500|2000|2 500|3000|
-|Limites de taux de journal (Mbits/s)|2.5|5.|7.5|10|12.5|15|
+|Limites de taux de journal (Mo/s)|2.5|5.|7.5|10|12.5|15|
 |Nombre maximal d’ouvriers simultanés (demandes)|200|400|600|800|1 000|1 200|
 |Nombre maximal de sessions autorisé|30000|30000|30000|30000|30000|30000|
 |Nombre de réplicas|1|1|1|1|1|1|
@@ -73,7 +73,7 @@ Vous pouvez définir le niveau de service, la taille de calcul et la quantité d
 |Type de stockage|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|
 |Latence d’E/S (approximative)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)
 |IOPS cible (64 ko)|3 500|4000|4500|5 000|7000|7000|
-|Limites de taux de journal (Mbits/s)|17.5|20|20|20|20|20|
+|Limites de taux de journal (Mo/s)|17.5|20|20|20|20|20|
 |Nombre maximal d’ouvriers simultanés (demandes)|1400|1 600|1 800|2000|3200|4 800|
 |Nombre maximal de sessions autorisé|30000|30000|30000|30000|30000|30000|
 |Nombre de réplicas|1|1|1|1|1|1|
@@ -96,7 +96,7 @@ Vous pouvez définir le niveau de service, la taille de calcul et la quantité d
 |Type de stockage|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|
 |Latence d’E/S (approximative)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|
 |IOPS cible (64 ko)|500|1 000|1 500|2000|2 500|3000|3 500|
-|Limites de taux de journal (Mbits/s)|2.5|56|7.5|10|12.5|15|17.5|
+|Limites de taux de journal (Mo/s)|2.5|56|7.5|10|12.5|15|17.5|
 |Nombre maximal d’ouvriers simultanés (demandes)|200|400|600|800|1 000|1 200|1400|
 |Nombre maximal de sessions autorisé|30000|30000|30000|30000|30000|30000|30000|
 |Nombre de réplicas|1|1|1|1|1|1|1|
@@ -119,7 +119,7 @@ Vous pouvez définir le niveau de service, la taille de calcul et la quantité d
 |Type de stockage|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|
 |Latence d’E/S (approximative)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|
 |IOPS cible (64 ko)|4000|4500|5 000|6000|7000|7000|7000|
-|Limites de taux de journal (Mbits/s)|20|20|20|20|20|20|20|
+|Limites de taux de journal (Mo/s)|20|20|20|20|20|20|20|
 |Nombre maximal d’ouvriers simultanés (demandes)|1 600|1 800|2000|2 400|3200|4000|8000|
 |Nombre maximal de sessions autorisé|30000|30000|30000|30000|30000|30000|30000|
 |Nombre de réplicas|1|1|1|1|1|1|1|
@@ -144,7 +144,7 @@ Vous pouvez définir le niveau de service, la taille de calcul et la quantité d
 |Taille de TEMPDB (Go)|32|64|96|128|160|192|
 |Latence d’E/S (approximative)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|
 |IOPS cible (64 ko)|5 000|10000|15000|20000|25000|30000|
-|Limites de taux de journal (Mbits/s)|6.|12|18|24|30|36|
+|Limites de taux de journal (Mo/s)|6.|12|18|24|30|36|
 |Nombre maximal d’ouvriers simultanés (demandes)|200|400|600|800|1 000|1 200|
 |Nombre maximal de connexions simultanées|200|400|600|800|1 000|1 200|
 |Nombre maximal de sessions autorisé|30000|30000|30000|30000|30000|30000|
@@ -168,7 +168,7 @@ Vous pouvez définir le niveau de service, la taille de calcul et la quantité d
 |Taille de TEMPDB (Go)|224|256|288|320|384|384|
 |Latence d’E/S (approximative)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|
 |IOPS cible (64 ko)|35000|40000|45000|50000|80000|120 000|
-|Limites de taux de journal (Mbits/s)|42|48|54|60|64|64|
+|Limites de taux de journal (Mo/s)|42|48|54|60|64|64|
 |Nombre maximal d’ouvriers simultanés (demandes)|1400|1 600|1 800|2000|3200|4 800|
 |Nombre maximal de connexions simultanées (demandes)|1400|1 600|1 800|2000|3200|4 800|
 |Nombre maximal de sessions autorisé|30000|30000|30000|30000|30000|30000|
@@ -192,7 +192,7 @@ Vous pouvez définir le niveau de service, la taille de calcul et la quantité d
 |Type de stockage|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
 |Latence d’E/S (approximative)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|
 |IOPS cible (64 ko)|5 000|10000|15000|20000|25000|30000|35000|
-|Limites de taux de journal (Mbits/s)|6.|12|18|24|30|36|42|
+|Limites de taux de journal (Mo/s)|6.|12|18|24|30|36|42|
 |Nombre maximal d’ouvriers simultanés (demandes)|200|400|600|800|1 000|1 200|1400|
 |Nombre maximal de connexions simultanées|200|400|600|800|1 000|1 200|1400|
 |Nombre maximal de sessions autorisé|30000|30000|30000|30000|30000|30000|30000|
@@ -216,7 +216,7 @@ Vous pouvez définir le niveau de service, la taille de calcul et la quantité d
 |Type de stockage|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
 |Latence d’E/S (approximative)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|
 |IOPS cible (64 ko)|40000|45000|50000|60000|80000|100000|200000|
-|Limites de taux de journal (Mbits/s)|48|54|60|72|96|96|96|
+|Limites de taux de journal (Mo/s)|48|54|60|72|96|96|96|
 |Nombre maximal d’ouvriers simultanés (demandes)|1 600|1 800|2000|2 400|3200|4000|8000|
 |Nombre maximal de connexions simultanées|1 600|1 800|2000|2 400|3200|4000|8000|
 |Nombre maximal de sessions autorisé|30000|30000|30000|30000|30000|30000|30000|

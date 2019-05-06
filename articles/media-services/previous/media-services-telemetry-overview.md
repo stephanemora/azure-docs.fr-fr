@@ -172,7 +172,7 @@ L’utilisation moyenne bande passante est la moyenne des octets envoyés sur un
 ### <a name="how-to-define-streaming-unit-count"></a>Comment définir le nombre d’unités de diffusion en continu ?
 
 Le nombre d’unités de diffusion en continu peut être défini comme le débit maximal à partir des points de terminaison de streaming du service divisé par le débit maximal d’un point de terminaison. Le débit utilisable maximal d’un point de terminaison est de 160 Mbits/s.
-Par exemple, supposons que le débit maximal du service d’un client est de 40 Mbits/s (la valeur maximale d’octets envoyés sur un intervalle de temps). Le nombre d’unités de diffusion en continu est égal à (40 Mbits/s) x (8 bits/octet) /(160 Mbits/s) = 2 unités de diffusion en continu.
+Par exemple, supposons que le débit maximal du service d’un client est de 40 Mo/s (la valeur maximale d’octets envoyés sur un intervalle de temps). Le nombre d’unités de diffusion en continu est égal à (40 Mo/s) x (8 bits/octet) /(160 Mo/s) = 2 unités de diffusion en continu.
 
 ### <a name="how-to-find-average-requestssecond"></a>Comment trouver des demandes/seconde moyennes ?
 

@@ -55,7 +55,7 @@ Si vous avez supprimé accidentellement un fichier et que vous voulez le restaur
    > L’option de restauration de fichiers et dossiers individuels requiert .NET Framework version 4.5.2 ou ultérieure. Si vous ne voyez pas l’option **Individual Files and Folders** (Fichiers et dossiers individuels), vous devez mettre à niveau .NET Framework vers la version 4.5.2 ou une version ultérieure, puis réessayer.
 
    > [!TIP]
-   > L’option **Individual Files and Folders** (Fichiers et dossiers individuels) autorise un accès rapide aux données de point de récupération. Elle convient pour la récupération de fichiers individuels, avec des tailles ne totalisant pas plus de 80 Go, et offre des vitesses de transfert ou de copie pouvant atteindre 6 Mbits/s lors de la récupération. L’option **Volume** récupère toutes les données sauvegardées dans un volume spécifié. Cette option offre des vitesses de transfert supérieures (jusqu’à 60 Mbits/s), ce qui est idéal pour la récupération de données de grande taille ou de volumes entiers.
+   > L’option **Individual Files and Folders** (Fichiers et dossiers individuels) autorise un accès rapide aux données de point de récupération. Elle convient pour la récupération de fichiers individuels, avec des tailles ne totalisant pas plus de 80 Go, et offre des vitesses de transfert ou de copie pouvant atteindre 6 Mo/s lors de la récupération. L’option **Volume** récupère toutes les données sauvegardées dans un volume spécifié. Cette option offre des vitesses de transfert supérieures (jusqu’à 60 Mo/s), ce qui est idéal pour la récupération de données de grande taille ou de volumes entiers.
 
 5. Dans la page **Sélectionner le volume et la date**, sélectionnez le volume qui contient les fichiers et dossiers à restaurer.
 

@@ -76,7 +76,7 @@ Après avoir défini précisément les objectifs et exigences, Contoso conçoit 
 
 - Contoso a un centre de données principal (**contoso-datacenter**). Le centre de données principal se trouve dans la ville de New York dans l’Est des États-Unis.
 - Contoso a trois branches locales supplémentaires aux États-Unis.
-- Le centre de données principal est connecté à Internet par le biais d’une connexion Ethernet Fiber Metro (500 Mbits/s).
+- Le centre de données principal est connecté à Internet par le biais d’une connexion Ethernet Fiber Metro (500 Mo/s).
 - Chaque branche est connectée localement à Internet par le biais de connexions de qualité professionnelle, avec des tunnels VPN IPsec vers le centre de données principal. Cette configuration permet au réseau entier d’être connecté en permanence, et elle optimise la connectivité Internet.
 - Le centre de données principal est entièrement virtualisé avec VMware. Contoso dispose de deux hôtes de virtualisation ESXi 6.5 gérés par vCenter Server 6.5.
 - Contoso utilise Active Directory pour la gestion d’identité. Contoso utilise des serveurs DNS sur le réseau interne.

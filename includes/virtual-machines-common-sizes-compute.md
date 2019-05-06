@@ -31,7 +31,7 @@ Premium Storage :  Pris en charge
 
 Mise en cache de stockage Premium :  Pris en charge
 
-| Taille             | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire et mis en cache max. : IOPS / Mbit/s (taille du cache en Gio) | Débit du disque non mis en cache max. : IOPS / Mbit/s | Nombre max de cartes réseau / Bande passante réseau attendue (MBps) |
+| Taille             | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire et mis en cache max. : IOPS / Mbit/s (taille du cache en Gio) | Débit du disque non mis en cache max. : IOPS / Mbit/s | Nombre max de cartes réseau / Bande passante réseau attendue (Mbit/s) |
 |------------------|--------|-------------|----------------|----------------|--------------------------|--------------------------|-------------------------|
 | Standard_F2s_v2  | 2      | 4           | 16             | 4              | 4 000 / 31 (32)           | 3 200 / 47                | 2 / 875                 |
 | Standard_F4s_v2  | 4      | 8           | 32             | 8              | 8 000 / 63 (64)           | 6 400 / 95                | 2 / 1,750               |
