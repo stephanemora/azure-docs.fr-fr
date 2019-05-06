@@ -97,7 +97,7 @@
           href: iot-accelerators-remote-monitoring-rbac.md
         - name: Explorer la télémétrie
           items:
-            - name: Visualiser des données de télémétrie avec PowerBI
+            - name: "Visualiser les données de télémétrie avec Power\_BI"
               href: iot-accelerators-integrate-data-powerbi.md
             - name: Intégrer Azure Time Series Insights à la Supervision à distance
               href: iot-accelerators-remote-monitoring-integrate-time-series-insights.md
@@ -133,26 +133,22 @@
       items:
         - name: Définition de l’IoT industriel
           href: overview-iot-industrial.md
-        - name: OPC Twin
-          items:
-            - name: Définition d’OPC Twin
-              href: overview-opc-twin.md
-            - name: Architecture d’OPC Twin
-              href: overview-opc-twin-architecture.md
-        - name: OPC Vault
-          items:
-            - name: Définition d’OPC Vault
-              href: overview-opc-vault.md
-        - name: Fabrique connectée
-          items:
-            - name: Vue d’ensemble de Connected Factory
-              href: iot-accelerators-connected-factory-features.md
-            - name: Architecture de Connected Factory
-              href: iot-accelerators-connected-factory-sample-walkthrough.md
+        - name: Définition d’OPC Twin
+          href: overview-opc-twin.md
+        - name: Définition d’OPC Vault
+          href: overview-opc-vault.md
+        - name: Définition d’une fabrique connectée
+          href: iot-accelerators-connected-factory-features.md
     - name: Démarrages rapides
       items:
         - name: Essayer une solution de fabrique connectée
           href: quickstart-connected-factory-deploy.md
+    - name: Concepts
+      items:
+        - name: Architecture d’OPC Twin
+          href: overview-opc-twin-architecture.md
+        - name: Architecture de Connected Factory
+          href: iot-accelerators-connected-factory-sample-walkthrough.md
     - name: Guides pratiques
       items:
         - name: Fabrique connectée

@@ -1,5 +1,5 @@
 ---
-title: Didacticiel SaaS monolocataire – Azure SQL Database | Microsoft Docs
+title: Tutoriel SaaS monolocataire – Azure SQL Database | Microsoft Docs
 description: Déployer et explorer une application SaaS à client unique autonome qui utilise Azure SQL Database.
 services: sql-database
 ms.service: sql-database
@@ -21,7 +21,7 @@ ms.locfileid: "61485127"
 ---
 # <a name="deploy-and-explore-a-standalone-single-tenant-application-that-uses-azure-sql-database"></a>Déployer et explorer une application à client unique autonome qui utilise Azure SQL Database
 
-Ce didacticiel décrit comment déployer et explorer l’exemple d’application SaaS Wingtip Tickets développé à l’aide du modèle application autonome ou d’application par client.  L’application est conçue pour présenter des fonctionnalités d’Azure SQL Database qui simplifient l’activation de scénarios SaaS mutualisés.
+Ce didacticiel décrit comment déployer et explorer l’exemple d’application SaaS Wingtip Tickets développé à l’aide du modèle application autonome ou d’application par client.  L’application est conçue pour présenter des fonctionnalités Azure SQL Database qui simplifient la prise en charge de scénarios SaaS mutualisés.
 
 Le modèle application autonome ou d’application par client déploie une instance d’application pour chaque client.  Chaque application est configurée pour un client spécifique, et déployée dans un groupe de ressources Azure distinct. Plusieurs instances de l’application sont approvisionnées pour fournir une solution mutualisée. Ce modèle convient parfaitement pour des nombres restreints de clients où l’isolation des clients est une priorité de premier plan. Azure disposent de programmes partenaires qui permettent le déploiement de ressources dans un abonnement du client et leur gestion par un fournisseur de services pour le compte du client. 
 

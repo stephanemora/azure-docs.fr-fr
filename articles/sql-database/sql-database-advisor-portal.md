@@ -1,6 +1,6 @@
 ---
 title: Appliquer les recommandations relatives aux performances - Azure SQL Database | Microsoft Docs
-description: Utilisez le portail Azure pour trouver des recommandations vous permettant d’optimiser les performances de votre Azure SQL Database.
+description: Utilisez le portail Azure pour trouver des recommandations vous permettant d’optimiser les performances de votre base de données Azure SQL.
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
@@ -21,7 +21,7 @@ ms.locfileid: "61420303"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Rechercher et appliquer les recommandations en matière de performances
 
-Vous pouvez utiliser le portail Azure pour trouver des recommandations vous permettant d’optimiser les performances de votre Azure SQL Database ou pour résoudre un problème identifié dans votre charge de travail. La page **Recommandations en matière de performances** du portail Azure vous permet de trouver les meilleures recommandations en fonction de leur impact potentiel. 
+Vous pouvez utiliser le portail Azure pour trouver des recommandations vous permettant d’optimiser les performances de votre base de données Azure SQL ou pour résoudre un problème identifié dans votre charge de travail. La page **Recommandations en matière de performances** du portail Azure vous permet de trouver les meilleures recommandations en fonction de leur impact potentiel. 
 
 ## <a name="viewing-recommendations"></a>Affichage des recommandations
 

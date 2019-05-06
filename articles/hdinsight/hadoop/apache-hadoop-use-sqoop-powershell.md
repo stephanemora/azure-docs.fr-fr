@@ -1,6 +1,6 @@
 ---
 title: Exécuter des tâches Apache Sqoop avec PowerShell et Azure HDInsight
-description: Découvrez comment utiliser Azure PowerShell à partir d’un poste de travail pour exécuter des commandes Apache Sqoop import et export entre un cluster Apache Hadoop et une base de données SQL Azure.
+description: Découvrez comment utiliser Azure PowerShell à partir d’un poste de travail pour exécuter des commandes Apache Sqoop import et export entre un cluster Apache Hadoop et une base de données Azure SQL.
 ms.reviewer: jasonh
 author: hrasheed-msft
 ms.service: hdinsight

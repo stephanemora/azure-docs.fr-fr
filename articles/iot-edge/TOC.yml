@@ -13,28 +13,44 @@
       href: quickstart.md
 - name: Tutoriels
   items:
-    - name: Filtrer des données avec Azure Functions
-      href: tutorial-deploy-function.md
-    - name: Rechercher des moyennes avec ASA
-      href: tutorial-deploy-stream-analytics.md
-    - name: Attribuer un score avec Azure Machine Learning service
-      href: tutorial-deploy-machine-learning.md
-    - name: Classer des images avec Service Vision personnalisée
-      href: tutorial-deploy-custom-vision.md
-    - name: Stocker des données localement avec SQL
-      href: tutorial-store-data-sql-server.md
-    - name: Développer des modules de code personnalisés
+    - name: 1. Configurer l’environnement de développement
       items:
+        - name: Développer pour des appareils Linux
+          href: tutorial-develop-for-linux.md
+        - name: Développer pour des appareils Windows
+          href: tutorial-develop-for-windows.md
+    - name: 2. Développer des modules de code personnalisés
+      items:
+        - name: C
+          items:
+            - name: "Modules en\_C pour les appareils Linux"
+              href: tutorial-c-module.md
+            - name: "Modules en\_C pour les appareils Windows"
+              href: tutorial-c-module-windows.md
         - name: 'C#'
-          href: tutorial-csharp-module.md
-        - name: Python
-          href: tutorial-python-module.md
-        - name: Node.js
-          href: tutorial-node-module.md
+          items:
+            - name: "Modules en\_C# pour les appareils Linux"
+              href: tutorial-csharp-module.md
+            - name: "Modules en\_C# pour les appareils Windows"
+              href: tutorial-csharp-module-windows.md
         - name: Java
           href: tutorial-java-module.md
-        - name: C
-          href: tutorial-c-module.md
+        - name: Node.js
+          href: tutorial-node-module.md
+        - name: Python
+          href: tutorial-python-module.md
+    - name: 3. Déployer des services Azure sous forme de modules
+      items:
+        - name: Filtrer des données avec Azure Functions
+          href: tutorial-deploy-function.md
+        - name: Rechercher des moyennes avec ASA
+          href: tutorial-deploy-stream-analytics.md
+        - name: Attribuer un score avec Azure Machine Learning service
+          href: tutorial-deploy-machine-learning.md
+        - name: Classer des images avec Service Vision personnalisée
+          href: tutorial-deploy-custom-vision.md
+        - name: Stocker des données localement avec SQL
+          href: tutorial-store-data-sql-server.md
 - name: Concepts
   items:
     - name: Runtime IoT Edge

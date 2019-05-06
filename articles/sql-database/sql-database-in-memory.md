@@ -35,7 +35,7 @@ Les technologies en mémoire peuvent améliorer les performances de ces charges 
 
 ## <a name="overview"></a>Présentation
 
-L’Azure SQL Database comprend les technologies en mémoire suivantes :
+Azure SQL Database comprend les technologies en mémoire suivantes :
 - *[OLTP en mémoire](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization)* augmente le nombre de transactions par seconde et réduit la latence du traitement transactionnel. Les scénarios qui bénéficient de l’OLTP en mémoire sont : le traitement de transactions haut débit, notamment les données commerciales et de jeux, l’ingestion de données d’événements ou d’appareils IoT, la mise en cache, le chargement de données, les tables temporaires et les scénarios de variables de table.
 - Les *index columnstore en cluster* réduisent l’encombrement de stockage (jusqu'à 10 fois) et améliorent les performances des requêtes d’analyse et de création de rapports. Vous pouvez les utiliser avec des tables de faits dans vos mini-Data Warehouses pour faire tenir plus de données dans votre base de données et optimiser les performances. Vous pouvez également les utiliser avec des données historiques dans votre base de données opérationnelles pour archiver et être en mesure d’interroger jusqu’à 10 fois plus de données.
 - Les *index columnstore sans cluster* pour HTAP vous aident à obtenir un aperçu en temps réel de votre activité en interrogeant la base de données opérationnelle directement, sans avoir à exécuter de processus d’extraction, de transformation et de chargement (ETL) coûteux et à attendre que l’entrepôt de données se remplisse. Les index columnstore sans cluster permettent une exécution rapide des requêtes d’analyse sur la base de données OLTP, tout en réduisant l’impact sur la charge de travail opérationnelle.
@@ -56,9 +56,9 @@ Voici deux exemples illustrant comment la technologie OLTP en mémoire a permis 
   - Pour plus d’informations, consultez le billet de blog : [Billet de blog OLTP en mémoire dans Azure SQL Database](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/)
 
 > [!NOTE]  
-> Les technologies en mémoire sont disponibles dans les niveaux Premium et Critique pour l’entreprise des bases de données SQL Azure, et dans les pools élastiques Premium.
+> Les technologies en mémoire sont disponibles dans les niveaux Premium et Critique pour l’entreprise des bases de données Azure SQL et des pools élastiques Premium.
 
-La vidéo suivante explique les gains de performance potentiels que peuvent apporter les technologies en mémoire dans l’Azure SQL Database. N’oubliez pas que le gain de performance que vous remarquez dépend de nombreux facteurs, notamment de la nature de la charge de travail et des données, du modèle d’accès de la base de données, etc.
+La vidéo suivante explique les gains de performance potentiels que peuvent apporter les technologies en mémoire dans Azure SQL Database. N’oubliez pas que le gain de performance que vous remarquez dépend de nombreux facteurs, notamment de la nature de la charge de travail et des données, du modèle d’accès de la base de données, etc.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-In-Memory-Technologies/player]
 >
@@ -68,7 +68,7 @@ Cet article décrit des aspects de l’OLTP en mémoire et des index columnstore
 
 - Vous verrez l’impact de ces technologies sur le stockage et les limites de taille des données.
 - Vous verrez ensuite comment gérer le déplacement de bases de données qui exploitent ces technologies entre les différents niveaux tarifaires.
-- Vous verrez deux exemples qui illustrent l’utilisation d’OLTP en mémoire, ainsi que les index columnstore dans la base de données SQL Azure.
+- Vous verrez deux exemples qui illustrent l’utilisation d’OLTP en mémoire, ainsi que les index columnstore dans la base de données Azure SQL.
 
 Pour plus d'informations, consultez les pages suivantes :
 

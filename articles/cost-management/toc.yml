@@ -34,6 +34,10 @@
           href: assign-access-acm-data.md
         - name: Utiliser les alertes de coût
           href: cost-mgt-alerts-monitor-usage-spending.md
+        - name: Installer et configurer l’intégration AWS
+          href: aws-integration-set-up-configure.md
+        - name: Gérer le coût et l’utilisation d’AWS
+          href: aws-integration-manage.md
     - name: Informations de référence
       items:
         - name: API REST d’Azure Cost Management

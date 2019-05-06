@@ -103,7 +103,7 @@ Data Lake Tools pour Visual Studio fournit les modèles suivants :
 | Type de projet | Illustre le |
 | --- | --- |
 | Application Storm |Projet de topologie Storm vide |
-| Exemple d’enregistreur SQL Azure Storm |Écriture dans Azure SQL Database |
+| Exemple d’enregistreur SQL Azure Storm |Écriture dans Azure SQL Database. |
 | Exemple de lecteur Azure Cosmos DB Storm |Lecture à partir d’Azure Cosmos DB |
 | Exemple d’enregistreur Azure Cosmos DB Storm |Écriture dans Azure Cosmos DB |
 | Exemple de lecteur EventHub Storm |Lecture à partir d’Azure Event Hubs |

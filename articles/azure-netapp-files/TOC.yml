@@ -9,7 +9,7 @@
 - name: Démarrages rapides
   expanded: true
   items:
-    - name: Configurer Azure NetApp Files et créer un volume
+    - name: Configurer Azure NetApp Files et créer un volume NFS
       href: azure-netapp-files-quickstart-set-up-account-create-volumes.md
 - name: Concepts
   items:
@@ -19,8 +19,8 @@
       href: azure-netapp-files-resource-limits.md
     - name: Métriques pour Azure NetApp Files
       href: azure-netapp-files-metrics.md
-    - name: Corriger les erreurs du fournisseur de ressources Azure NetApp Files
-      href: azure-netapp-files-troubleshoot-resource-provider-errors.md
+    - name: Tests de performances pour Azure NetApp Files
+      href: azure-netapp-files-performance-benchmarks.md
 - name: Guides pratiques
   items:
     - name: S’inscrire à Azure NetApp Files
@@ -47,6 +47,8 @@
       items:
         - name: REST
           href: azure-netapp-files-develop-with-rest-api.md
+        - name: Corriger les erreurs du fournisseur de ressources Azure NetApp Files
+          href: azure-netapp-files-troubleshoot-resource-provider-errors.md
 - name: Informations de référence
   items:
     - name: REST

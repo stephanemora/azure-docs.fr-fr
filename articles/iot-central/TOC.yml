@@ -113,6 +113,8 @@
           href: howto-personalize-dashboard.md
         - name: Gérer vos préférences
           href: howto-manage-preferences.md
+        - name: Activer ou désactiver les conversations en direct
+          href: howto-show-hide-chat.md
 - name: Rubriques connexes
   items:
     - name: solutions

@@ -188,7 +188,7 @@ Transforme une chaîne formatée en tant que tableau de chaînes JSON en un tabl
 Par exemple, si la chaîne d’entrée est `["red", "white", "blue"]`, le champ cible de type `Collection(Edm.String)` est rempli avec les valeurs `red`, `white` et `blue`. Pour les valeurs d’entrée qui ne peuvent pas être analysées en tant que tableaux de chaînes JSON, une erreur est retournée.
 
 ### <a name="sample-use-case"></a>Exemple de cas d’utilisation
-Une base de données SQL Azure n'a pas de type de données intégré qui se mappe naturellement aux champs `Collection(Edm.String)` dans Azure Search. Pour remplir les champs de la collection de chaînes, mettez vos données sources sous forme de tableau de chaînes JSON et utilisez cette fonction.
+Une base de données Azure SQL n'a pas de type de données intégré qui se mappe naturellement aux champs `Collection(Edm.String)` dans Recherche Azure. Pour remplir les champs de la collection de chaînes, mettez vos données sources sous forme de tableau de chaînes JSON et utilisez cette fonction.
 
 ### <a name="example"></a>Exemples
 ```JSON

@@ -31,7 +31,7 @@ Cette page fournit des informations sur les problèmes de performances liés à 
 
 Intelligent Insights détecte automatiquement les problèmes de performances liés à SQL Database et Managed Instance en fonction des temps d’attente d’exécution des requêtes, des erreurs ou des expirations de délais d’attente. L’outil envoie les modèles de performances détectés au journal de diagnostic. Les modèles de performances détectables sont résumés dans le tableau ci-dessous.
 
-| Modèles de performances détectables | Description pour Azure SQL Database et les pools élastiques | Description pour les bases de données dans Managed Instance |
+| Modèles de performances détectables | Description des bases de données Azure SQL et des pools élastiques | Description pour les bases de données dans Managed Instance |
 | :------------------- | ------------------- | ------------------- |
 | [Atteinte des limites de ressources](sql-database-intelligent-insights-troubleshoot-performance.md#reaching-resource-limits) | La consommation des ressources disponibles (DTU), les threads de travail de base de données ou les sessions de connexion de base de données disponibles sur l’abonnement surveillé ont atteint leurs limites. Ce phénomène affecte les performances de SQL Database. | La consommation des ressources de l’UC atteint les limites de Managed Instance. Ce phénomène affecte les performances de la base de données. |
 | [Augmentation de la charge de travail](sql-database-intelligent-insights-troubleshoot-performance.md#workload-increase) | Une augmentation de la charge de travail ou une accumulation continue de la charge de travail sur la base de données a été détectée. Ce phénomène affecte les performances de SQL Database. | Une augmentation de la charge de travail a été détectée. Ce phénomène affecte les performances de la base de données. |
@@ -201,7 +201,7 @@ Parfois, l’écriture d’une requête efficace est une tâche difficile. Pour 
 
 Le journal de diagnostic génère des informations sur deux nouvelles requêtes, au maximum, parmi celles qui consomment le plus d’UC, avec notamment leurs codes de hachage. Dans la mesure où la requête détectée affecte les performances de la charge de travail, vous pouvez optimiser votre requête. Il est conseillé de récupérer uniquement les données que vous devez utiliser. Nous vous recommandons également d’utiliser les requêtes avec une clause WHERE. Nous vous recommandons également de simplifier les requêtes complexes et de les décomposer en requêtes plus petites. Il est conseillé de fractionner les requêtes de traitement par lots volumineuses en requêtes plus petites. Introduire des index pour les nouvelles requêtes constitue généralement une bonne pratique pour atténuer ce problème de performances.
 
-Utilisez éventuellement [Query Performance Insight d’Azure SQL Database](sql-database-query-performance.md).
+Utilisez éventuellement [Azure SQL Database Query Performance Insight](sql-database-query-performance.md).
 
 ## <a name="increased-wait-statistic"></a>Augmentation des statistiques d’attente
 

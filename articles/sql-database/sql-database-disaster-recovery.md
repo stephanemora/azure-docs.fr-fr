@@ -19,9 +19,9 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "61075810"
 ---
-# <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>Restaurer une base de données SQL Azure ou basculer vers une base de données secondaire
+# <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>Restaurer une base de données Azure SQL ou basculer vers une base de données secondaire
 
-Le service Base de données SQL Azure offre les fonctionnalités suivantes pour la récupération après une panne :
+Azure SQL Database offre les fonctionnalités suivantes pour la récupération après une panne :
 
 - [Géo-réplication active](sql-database-active-geo-replication.md)
 - [Groupes de basculement automatique](sql-database-auto-failover-group.md)
@@ -98,7 +98,7 @@ Pour plus d’informations sur la modification des chaînes de connexion, consul
 
 ### <a name="configure-firewall-rules"></a>Configurer les règles de pare-feu
 
-Vous devez vous assurer que les règles de pare-feu configurées sur le serveur et sur la base de données correspondent à celles du serveur principal et de la base de données primaire. Pour plus d’informations, consultez [Guide pratique pour configurer des paramètres du pare-feu (Base de données SQL Azure)](sql-database-configure-firewall-settings.md)
+Vous devez vous assurer que les règles de pare-feu configurées sur le serveur et sur la base de données correspondent à celles du serveur principal et de la base de données primaire. Pour plus d’informations, consultez [Guide pratique pour Configurer des paramètres du pare-feu (Azure SQL Database)](sql-database-configure-firewall-settings.md)
 
 ### <a name="configure-logins-and-database-users"></a>Configurer les identifiants de connexion et les utilisateurs de la base de données
 
@@ -119,6 +119,6 @@ Si la fonction d’audit doit accéder à votre base de données, vous devez l�
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour en savoir plus sur les sauvegardes automatisées d’une base de données SQL Azure, consultez [Sauvegardes automatisées d’une base de données SQL](sql-database-automated-backups.md)
+- Pour en savoir plus sur les sauvegardes automatisées Azure SQL Database, consultez [Sauvegardes automatisées SQL Database](sql-database-automated-backups.md)
 - Pour en savoir plus sur la conception de la continuité des activités et les scénarios de récupération, consultez [Scénarios de continuité des activités](sql-database-business-continuity.md)
 - Pour en savoir plus sur l’utilisation des sauvegardes automatisées pour la récupération, consultez [Restaurer une base de données à partir des sauvegardes initiées par le service](sql-database-recovery-using-backups.md)
