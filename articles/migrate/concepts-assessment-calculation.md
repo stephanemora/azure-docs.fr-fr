@@ -90,7 +90,7 @@ Pour le dimensionnement basé sur les performances, Azure Migrate commence par l
     - Si les données de performances des disques ne sont pas disponibles, tous les disques sont mappés à des disques standard dans Azure.
 
 - **Réseau** : Azure Migrate essaie de trouver une machine virtuelle Azure qui peut prendre en charge le nombre de cartes réseau raccordées à la machine locale et les performances requises par ces cartes réseau.
-    - Pour obtenir les performances réseau effectives de la machine virtuelle locale, Azure Migrate regroupe les données transmises par seconde (Mbits/s) à partir de l’ordinateur (données sortantes), parmi toutes les cartes réseau, et applique le facteur de confort. Ce nombre est utilisé pour trouver une machine virtuelle Azure qui prend en charge les performances réseau nécessaires.
+    - Pour obtenir les performances réseau effectives de la machine virtuelle locale, Azure Migrate regroupe les données transmises par seconde (Mo/s) à partir de l’ordinateur (données sortantes), parmi toutes les cartes réseau, et applique le facteur de confort. Ce nombre est utilisé pour trouver une machine virtuelle Azure qui prend en charge les performances réseau nécessaires.
     - Outre les performances réseau, il évalue également si la machine virtuelle Azure peut prendre en charge le nombre de cartes réseau requises.
     - Si aucune donnée de performances réseau n’est disponible, seul le nombre de cartes réseau est pris en considération pour le dimensionnement de la machine virtuelle.
 

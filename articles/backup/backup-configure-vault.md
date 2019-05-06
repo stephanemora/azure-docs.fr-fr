@@ -241,7 +241,7 @@ Activer la limitation réseau comme suit :
 2. Sur le **limitation** onglet, vérification **activer l’utilisation de la bande passante internet de limitation pour les opérations de sauvegarde**.
 
     ![Limitation du réseau](./media/backup-configure-vault/throttling-dialog.png)
-3. Spécifiez la bande passante autorisée pendant le travail et en dehors des heures de travail. Les valeurs de bande passante qui démarrent à 512 Kbits/s, aller jusqu'à 1 023 Mbits/s. Cliquez ensuite sur **OK**.
+3. Spécifiez la bande passante autorisée pendant le travail et en dehors des heures de travail. Les valeurs de bande passante qui démarrent à 512 Kbits/s, aller jusqu'à 1 023 Mo/s. Cliquez ensuite sur **OK**.
 
 ## <a name="run-an-ad-hoc-backup"></a>Exécuter une sauvegarde ad hoc
 

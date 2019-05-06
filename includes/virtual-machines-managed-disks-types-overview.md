@@ -43,11 +43,11 @@ Voici certaines fonctionnalités clés des disques Ultra SSD :
 
 - Capacité du disque : La capacité des disques SSD Ultra s'échelonne de 4 Gio 64 Tio.
 - IOPS du disque : Les disques SSD Ultra prennent en charge des limites d’IOPS de 300 IOPS/Gio, avec un maximum de 160 000 IOPS par disque. Pour atteindre le nombre d’IOPS provisionné, vérifiez que le nombre d’IOPS du disque sélectionné est inférieur au nombre d’IOPS de la machine virtuelle. Le nombre minimal d’IOPS du disque est 100.
-- Débit du disque : Avec les disques SSD Ultra, la limite de débit d’un seul disque est de 256 Kio/s pour chaque IOPS approvisionnée, avec un maximum de 2000 Mbits/s par disque (où 1 Mbit/s = 10^6 octets par seconde). Le débit minimal du disque est 1 Mio.
+- Débit du disque : Avec les disques SSD Ultra, la limite de débit d’un seul disque est de 256 Kio/s pour chaque IOPS approvisionnée, avec un maximum de 2000 Mo/s par disque (où 1 Mbit/s = 10^6 octets par seconde). Le débit minimal du disque est 1 Mio.
 
 ### <a name="disk-size"></a>Taille du disque
 
-|Taille de disque (Gio)  |Nombre limite d’IOPS  |Débit limite (Mbits/s)  |
+|Taille de disque (Gio)  |Nombre limite d’IOPS  |Débit limite (Mo/s)  |
 |---------|---------|---------|
 |4     |1,200         |300         |
 |8     |2 400         |600         |

@@ -132,7 +132,7 @@ Le diagramme suivant montre la relation entre le débit et le nombre d’E/S par
 
 Le débit réseau total est estimé selon les informations suivantes  :
 - Trafic SQL*Net
-- Mbits/s x nombre de serveurs (flux sortant tel qu’Oracle Data Guard)
+- Mo/s x nombre de serveurs (flux sortant tel qu’Oracle Data Guard)
 - Autres facteurs, comme la réplication de l’application
 
 ![Capture d’écran du débit SQL*Net](./media/oracle-design/sqlnet_info.png)

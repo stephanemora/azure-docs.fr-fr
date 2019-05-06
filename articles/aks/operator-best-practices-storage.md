@@ -9,7 +9,7 @@ ms.date: 12/04/2018
 ms.author: iainfou
 ms.openlocfilehash: 7476747de31819907cf144e5a6b33cb29e1f866f
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60463935"
@@ -62,7 +62,7 @@ Les nœuds AKS sont exécutés en tant que machines virtuelles Azure. Différent
 
 Si vos applications nécessitent des disques Azure comme solution de stockage, planifiez et choisissez une taille de machine virtuelle de nœud appropriée. La quantité d’UC et de mémoire n’est pas le seul facteur à prendre en compte lorsque vous choisissez une taille de machine virtuelle. Les capacités de stockage sont également importantes. Par exemple, les tailles de machine virtuelle *Standard_B2ms* et *Standard_DS2_v2* incluent une quantité similaire de ressources d’UC et de mémoire. Leurs performances de stockage potentielles sont toutefois différentes, comme indiqué dans le tableau suivant :
 
-| Taille et type de nœud | Processeurs virtuels | Mémoire (Gio) | Disques de données max. | IOPS de disque non mis en cache max. | Débit non mis en cache max. (Mbits/s) |
+| Taille et type de nœud | Processeurs virtuels | Mémoire (Gio) | Disques de données max. | IOPS de disque non mis en cache max. | Débit non mis en cache max. (Mo/s) |
 |--------------------|------|--------------|----------------|------------------------|--------------------------------|
 | Standard_B2ms      | 2    | 8            | 4              | 1 920                  | 22,5                           |
 | Standard_DS2_v2    | 2    | 7            | 8              | 6 400                  | 96                             |
