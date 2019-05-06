@@ -24,10 +24,10 @@ ms.locfileid: "61486948"
 Cet article est un index annoté dans les emplacements de temps d’une vidéo de 81 minutes sur les modèles ou motifs de location SaaS. Cet article vous permet de faire défiler la vidéo en avant ou en arrière jusqu’à la partie qui vous intéresse. La vidéo explique les options de conception importantes pour une application de base de données multi-locataire sur Azure SQL Database. La vidéo inclut des démonstrations, des guides de code de gestion et propose plus d'informations basées sur l’expérience que n'en contient notre documentation écrite.
 
 La vidéo amplifie les informations de notre documentation écrite, par exemple : 
-- *Doc conceptuel :* Modèles de client de base de données SaaS mutualisée[saas-concept-design-patterns-563e]
+- *Doc conceptuel :* [Modèles de client de base de données SaaS mutualisée][saas-concept-design-patterns-563e]
 - *Tutoriels:* [Application SaaS Wingtip Tickets][saas-how-welcome-wingtip-app-679t]
 
-La vidéo et les articles décrivent les différentes phases de création d’une application multi-locataire sur Azure SQL Database dans le cloud. Des fonctionnalités spéciales de Azure SQL Database facilitent le développement et la mise en œuvre des applications multi-locataires, toutes les deux plus faciles à gérer et fonctionnant de façon fiable.
+La vidéo et les articles décrivent les différentes phases de création d’une application multi-locataire sur Azure SQL Database dans le cloud. Des fonctionnalités Azure SQL Database spéciales facilitent le développement et la mise en œuvre des applications multi-locataires, toutes les deux plus faciles à gérer et fonctionnant de façon fiable.
 
 Nous mettons à jour régulièrement notre documentation écrite. La vidéo n’est pas modifiée ni mise à jour, par conséquent, davantage d’informations peuvent devenir obsolètes.
 
