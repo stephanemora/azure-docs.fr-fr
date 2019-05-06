@@ -1,5 +1,5 @@
 ---
-title: Exécuter des requêtes de rapport ad hoc sur plusieurs bases de données SQL Azure | Microsoft Docs
+title: Exécuter des requêtes de rapport ad hoc sur plusieurs bases de données Azure SQL | Microsoft Docs
 description: Exécutez des requêtes de rapport ad hoc sur plusieurs bases de données SQL dans un exemple d’application multiclient.
 services: sql-database
 ms.service: sql-database
@@ -19,7 +19,7 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "61485746"
 ---
-# <a name="run-ad-hoc-analytics-queries-across-multiple-azure-sql-databases"></a>Exécuter des requêtes d’analyse ad hoc sur plusieurs bases de données SQL Azure
+# <a name="run-ad-hoc-analytics-queries-across-multiple-azure-sql-databases"></a>Exécuter des requêtes d’analyse ad hoc sur plusieurs bases de données Azure SQL
 
 Dans ce didacticiel, vous allez exécuter des requêtes distribuées sur l’ensemble des bases de données client pour permettre un rapport ad hoc. Ces requêtes peuvent extraire des analyses enfouies dans les données opérationnelles quotidiennes de l’application SaaS Wingtip Tickets. Pour effectuer ces extractions, vous déployez une base de données analytique supplémentaire sur le serveur de catalogue et utilisez une requête élastique pour activer les requêtes distribuées.
 

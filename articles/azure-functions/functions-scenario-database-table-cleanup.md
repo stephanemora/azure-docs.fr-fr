@@ -1,6 +1,6 @@
 ---
 title: Utiliser Azure Functions pour effectuer une tâche de nettoyage de base de données | Microsoft Docs
-description: Utilisez Azure Functions pour planifier une tâche qui se connecte à Azure SQL Database pour nettoyer des lignes périodiquement.
+description: Utilisez Azure Functions pour planifier une tâche qui se connecte à Azure SQL Database pour nettoyer des lignes régulièrement.
 services: functions
 documentationcenter: na
 author: ggailey777
@@ -28,13 +28,13 @@ Si c’est la première fois que vous utilisez Azure Functions pour C#, vous dev
 
 + Suivez les étapes de l’article [Créer votre première fonction à l’aide de Visual Studio](functions-create-your-first-function-visual-studio.md) pour créer une application de fonction locale qui cible le runtime version 2.x. Vous devez également avoir publié votre projet sur une application de fonction dans Azure.
 
-+ Cette article montre une commande Transact-SQL qui exécute une opération de nettoyage en bloc dans la table nommée **SalesOrderHeader** de l’exemple de base de données AdventureWorksLT. Pour créer l’exemple de base de données AdventureWorksLT, effectuez les étapes de l’article [Création d’une base de données SQL Azure dans le portail Azure](../sql-database/sql-database-get-started-portal.md).
++ Cette article montre une commande Transact-SQL qui exécute une opération de nettoyage en bloc dans la table nommée **SalesOrderHeader** de l’exemple de base de données AdventureWorksLT. Pour créer l’exemple de base de données AdventureWorksLT, effectuez les étapes de l’article [Création d’une base de données Azure SQL dans le portail Azure](../sql-database/sql-database-get-started-portal.md).
 
 + Vous devez ajouter une [règle de pare-feu au niveau du serveur](../sql-database/sql-database-get-started-portal-firewall.md) pour l’adresse IP publique de l’ordinateur que vous utilisez pour ce guide de démarrage rapide. Cette règle vous permet d’accéder à l’instance de base de données SQL à partir de votre ordinateur local.  
 
 ## <a name="get-connection-information"></a>Obtenir des informations de connexion
 
-Vous devez obtenir la chaîne de connexion pour la base de données que vous avez créée quand vous avez effectué les étapes de [Création d’une base de données SQL Azure dans le portail Azure](../sql-database/sql-database-get-started-portal.md).
+Vous devez obtenir la chaîne de connexion pour la base de données que vous avez créée quand vous avez effectué les étapes de [Créer une base de données Azure SQL dans le portail Azure](../sql-database/sql-database-get-started-portal.md).
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
 

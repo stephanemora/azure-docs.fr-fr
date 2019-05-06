@@ -61,7 +61,7 @@ Le tableau suivant montre les différences entre les trois niveaux :
 
 ## <a name="azure-hybrid-benefit"></a>Azure Hybrid Benefit
 
-Dans le niveau d’ordinateur approvisionné du modèle d’achat vCore, vous pouvez échanger vos licences existantes avec des tarifs réduits sur la base de données SQL à l’aide de la [Azure Hybrid Benefit pour SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/). Cet avantage Azure vous permet d’utiliser vos licences SQL Server locales pour économiser jusqu’à 30 % sur Azure SQL Database, avec Software Assurance.
+Dans le niveau d’ordinateur approvisionné du modèle d’achat vCore, vous pouvez échanger vos licences existantes avec des tarifs réduits sur la base de données SQL à l’aide de la [Azure Hybrid Benefit pour SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/). Cet avantage Azure vous permet d’utiliser vos licences SQL Server locales pour économiser jusqu’à 30 % sur Azure SQL Database, avec la Software Assurance.
 
 ![Prix](./media/sql-database-service-tiers/pricing.png)
 

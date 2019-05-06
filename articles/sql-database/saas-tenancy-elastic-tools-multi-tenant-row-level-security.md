@@ -21,7 +21,7 @@ ms.locfileid: "61485379"
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>Applications multi-locataires avec des outils de base de données élastique et la sécurité au niveau des lignes
 
-Les [outils de base de données élastique](sql-database-elastic-scale-get-started.md) et la fonction de [sécurité au niveau des lignes (SNL)][rls] coopèrent pour permettre d’étendre la couche Données d’une application mutualisée au moyen d’Azure SQL Database. Ensemble, ces technologies vous aident à générer une application possédant une couche Données hautement évolutive. La couche Données prend en charge les partitions mutualisées et utilise **ADO.NET SqlClient** ou **Entity Framework**. Pour plus d’informations, consultez [Modèles de conception pour les applications SaaS mutualisées avec Microsoft Azure SQL Database](saas-tenancy-app-design-patterns.md).
+Les [outils de base de données élastique](sql-database-elastic-scale-get-started.md) et la fonction de [sécurité au niveau des lignes (SNL)][rls] coopèrent pour permettre d’étendre la couche Données d’une application mutualisée au moyen d’Azure SQL Database. Ensemble, ces technologies vous aident à générer une application possédant une couche Données hautement évolutive. La couche Données prend en charge les partitions mutualisées et utilise **ADO.NET SqlClient** ou **Entity Framework**. Pour plus d’informations, consultez [Modèles de conception pour les applications SaaS multilocataires avec Azure SQL Database](saas-tenancy-app-design-patterns.md).
 
 - Les **outils de base de données élastique** permettent aux développeurs de monter en charge la couche Données avec des pratiques de partitionnement standard à l’aide de bibliothèques .NET et de modèles de service Microsoft Azure. En gérant les partitions via la [bibliothèque cliente de base de données élastique][s-d-elastic-database-client-library], vous rationalisez et automatisez de nombreuses tâches de l’infrastructure portant généralement sur le partitionnement.
 - La **sécurité au niveau des lignes** permet aux développeurs de stocker en toute sécurité des données pour plusieurs locataires dans la même base de données. Les stratégies de sécurité SNL filtrent les lignes qui n’appartiennent pas au locataire exécutant une requête. La centralisation de la logique de filtre à l’intérieur de la base de données simplifie la maintenance et réduit le risque d’une erreur de sécurité. L’alternative consistant à s’appuyer sur la totalité du code client pour appliquer la sécurité est risquée.
@@ -40,7 +40,7 @@ L’objectif est d’utiliser les API de [routage dépendant des données](sql-d
 ### <a name="prerequisites"></a>Conditions préalables
 
 - Exécuter Visual Studio version 2012 ou plus
-- Créer trois bases de données SQL Azure
+- Créer trois bases de données Azure SQL
 - Téléchargez l’exemple de projet : [Outils de base de données élastique pour SQL Azure - Partitions multilocataires](https://go.microsoft.com/?linkid=9888163)
   - Saisissez les informations sur vos bases de données au début du fichier **Program.cs**
 

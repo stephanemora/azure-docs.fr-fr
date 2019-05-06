@@ -114,7 +114,7 @@ Si le certificat est conservé dans le magasin de certificats de l’ordinateur 
 
 4. Suivez l’Assistant pour exporter le certificat et la clé privée au format Personal Information Exchange.
 
-## <a name="upload-certificate-to-azure-sql-database-managed-instance-using-azure-powershell-cmdlet"></a>Charger le certificat vers Azure SQL Database Managed Instance à l’aide d’une cmdlet Azure PowerShell
+## <a name="upload-certificate-to-azure-sql-database-managed-instance-using-azure-powershell-cmdlet"></a>Charger le certificat vers Azure SQL Database Managed Instance à l’aide d’une applet de commande Azure PowerShell
 
 1. Commencez par les étapes de préparation dans PowerShell :
 

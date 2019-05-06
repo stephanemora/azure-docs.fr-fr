@@ -225,7 +225,7 @@ Cela peut se produire pour différentes raisons et la procédure de résolution 
 #### <a name="resolution"></a>Résolution :
 Autorisez les connexions TCP sortantes sur le port TCP/1433 côté client de la passerelle de gestion des données avant la connexion à une base de données SQL.
 
-Si la base de données cible est une base de données SQL Azure, vérifiez également les paramètres de pare-feu SQL Server pour Azure.
+Si la base de données cible est une base de données Azure SQL, vérifiez également les paramètres de pare-feu SQL Server pour Azure.
 
 Consultez la section suivante pour tester la connexion à la banque de données locale.
 

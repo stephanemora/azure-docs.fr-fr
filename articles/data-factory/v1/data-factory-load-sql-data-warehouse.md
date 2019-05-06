@@ -41,7 +41,7 @@ Cet article fournit des instructions détaillées pour déplacer les données da
 > [!NOTE]
 >  Pour des informations générales sur les fonctionnalités de Data Factory permettant de déplacer des données vers et depuis Azure SQL Data Warehouse, consultez [Déplacer des données vers et depuis Azure SQL Data Warehouse à l’aide d’Azure Data Factory](data-factory-azure-sql-data-warehouse-connector.md).
 >
-> Vous pouvez également créer des pipelines à l’aide du portail Azure, de Visual Studio, de PowerShell, etc. Consultez le [tutoriel : Copier des données d’Azure Blob Storage vers Azure SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) pour obtenir une brève procédure pas à pas de l’utilisation de l’activité de copie dans Azure Data Factory.  
+> Vous pouvez également créer des pipelines à l’aide du portail Azure, de Visual Studio, de PowerShell, etc. Consultez le [tutoriel : Copier des données d’Azure Blob vers Azure SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) pour obtenir une brève procédure pas à pas de l’utilisation de l’activité de copie dans Azure Data Factory.  
 >
 >
 

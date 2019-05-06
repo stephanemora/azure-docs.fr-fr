@@ -1,6 +1,6 @@
 ---
-title: Audit d’Azure SQL Database Managed Instance | Microsoft Docs
-description: Découvrez comment prendre en main l’audit d’Azure SQL Database Managed Instance à l’aide de T-SQL
+title: Audit des instances managées Azure SQL Database | Microsoft Docs
+description: Découvrez comment démarrer avec l’audit d’instances managées Azure SQL Database à l’aide de T-SQL
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -225,7 +225,7 @@ Journaux d’Azure Monitor vous donne des informations opérationnelles en temps
 
 Les principales différences entre l’audit des bases de données dans Azure SQL Database et des bases de données dans SQL Server sont les suivantes :
 
-- Avec l’option de déploiement d’instance gérée dans Azure SQL Database, l’audit s’effectue au niveau du serveur et stocke les fichiers journaux `.xel` dans Stockage Blob Azure.
+- Avec l’option de déploiement d’instance managée dans Azure SQL Database, l’audit s’effectue au niveau du serveur et stocke les fichiers journaux `.xel` dans Stockage Blob Azure.
 - Avec les options de déploiement de base de données unique et de pool élastique dans Azure SQL Database, l’audit fonctionne au niveau de la base de données.
 - Dans SQL Server (en local ou sur machines virtuelles), l’audit fonctionne au niveau du serveur, mais stocke les événements dans les journaux des événements du système de fichiers/Windows.
 

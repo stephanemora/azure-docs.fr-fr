@@ -35,4 +35,4 @@ Supposons que l’hôte Managed Instance est `mi-demo.xxxxxx.database.windows.ne
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’information sur les instances gérées et la connectivité, consultez [Architecture de la connectivité d’Azure SQL Database Managed Instance](sql-database-managed-instance-connectivity-architecture.md).
+Pour plus d’information sur les instances managées et la connectivité, consultez [Architecture de la connectivité d’Azure SQL Database Managed Instance](sql-database-managed-instance-connectivity-architecture.md).

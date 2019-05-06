@@ -1,6 +1,6 @@
 ---
 title: Questions fréquentes (FAQ) sur le niveau Hyperscale dans Azure SQL Database | Microsoft Docs
-description: Réponses aux questions fréquemment posées par les clients sur une base de données SQL Azure dans le niveau de service Hyperscale, communément appelée « base de données Hyperscale ».
+description: Réponses aux questions fréquemment posées par les clients sur une base de données Azure SQL dans le niveau de service Hyperscale, communément appelée « base de données Hyperscale ».
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
@@ -21,7 +21,7 @@ ms.locfileid: "64574275"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>Questions fréquentes (FAQ) sur les bases de données SQL Azure Hyperscale
 
-Cet article fournit des réponses aux questions fréquemment posées pour les clients envisageant l’utilisation d’une base de données dans le niveau de service Azure SQL Database Hyperscale, communément appelée « base de données hyperscale » (actuellement en préversion publique). Cet article décrit les scénarios pris en charge par Hyperscale et les services multifonctionnalités qui sont compatibles avec SQL Database Hyperscale en général.
+Cet article fournit des réponses aux questions fréquemment posées pour les clients envisageant l’utilisation d’une base de données dans le niveau de service Hyperscale Azure SQL Database, communément appelée « base de données Hyperscale » (actuellement en préversion publique). Cet article décrit les scénarios pris en charge par Hyperscale et les services multifonctionnalités qui sont compatibles avec SQL Database Hyperscale en général.
 
 - Ce FAQ est destiné aux personnes qui ont des connaissances générales sur le niveau de service Hyperscale et qui cherchent des réponses à leurs questions et préoccupations spécifiques.
 - Il n’est pas un guide de mise en œuvre et n’est pas destiné à répondre à des questions sur la façon d’utiliser une base de données SQL Database Hyperscale. Pour cela, nous vous recommandons de vous reporter à la documentation [Azure SQL Database Hyperscale](sql-database-service-tier-hyperscale.md).
@@ -30,7 +30,7 @@ Cet article fournit des réponses aux questions fréquemment posées pour les cl
 
 ### <a name="what-is-a-hyperscale-database"></a>Qu’est-ce qu’une base de données Hyperscale ?
 
-Une base de données hyperscale est une base de données SQL Azure dans le niveau de service Hyperscale qui repose sur la technologie de stockage scale-out d’Hyperscale . Une base de données Hyperscale prend en charge jusqu’à 100 To de données, offre des performances et un débit élevés, ainsi qu’une mise à l’échelle rapide pour répondre aux exigences des charges de travail. La mise à l’échelle est transparente pour l’application : la connectivité, le traitement des requêtes, etc., fonctionnent comme pour toute autre base de données SQL.
+Une base de données Hyperscale est une base de données Azure SQL dans le niveau de service Hyperscale qui repose sur la technologie de stockage scale-out d’Hyperscale. Une base de données Hyperscale prend en charge jusqu’à 100 To de données, offre des performances et un débit élevés, ainsi qu’une mise à l’échelle rapide pour répondre aux exigences des charges de travail. La mise à l’échelle est transparente pour l’application : la connectivité, le traitement des requêtes, etc., fonctionnent comme pour toute autre base de données SQL.
 
 ### <a name="what-resource-types-and-purchasing-models-support-hyperscale"></a>Quels sont les types de ressources et les modèles d’achat qui prennent en charge Hyperscale ?
 
@@ -104,7 +104,7 @@ Oui, vous pouvez.
 
 ### <a name="does-hyperscale-require-my-application-programming-model-to-change"></a>Hyperscale nécessite-t-il la modification de mon modèle de programmation d’application ?
 
-Non, votre modèle de programmation d’application reste tel quel. Vous utilisez votre chaîne de connexion comme d’habitude et les autres modes normaux pour interagir avec votre base de données SQL Azure.
+Non, votre modèle de programmation d’application reste tel quel. Vous utilisez votre chaîne de connexion comme d’habitude et les autres modes normaux pour interagir avec votre base de données Azure SQL.
 
 ### <a name="what-transaction-isolation-levels-are-going-to-be-default-on-sql-database-hyperscale-database"></a>Quels sont les niveaux d’isolation des transactions par défaut sur une base de données SQL Database Hyperscale ?
 
@@ -206,9 +206,9 @@ Oui. Les pages de données associées à une table donnée peuvent être stocké
 
 ## <a name="data-migration-questions"></a>Questions relatives à la migration des données
 
-### <a name="can-i-move-my-existing-azure-sql-databases-to-the-hyperscale-service-tier"></a>Puis-je déplacer mes bases de données SQL Azure vers le niveau de service Hyperscale ?
+### <a name="can-i-move-my-existing-azure-sql-databases-to-the-hyperscale-service-tier"></a>Puis-je déplacer mes bases de données Azure SQL vers le niveau de service Hyperscale ?
 
-Oui. Vous pouvez déplacer vos bases de données SQL Azure existantes vers Hyperscale. Dans la préversion publique, il s’agit d’une migration unidirectionnelle. Vous ne pouvez pas déplacer des bases de données depuis Hyperscale vers un autre niveau de service. Nous vous recommandons d’effectuer une copie de vos bases de données de production et de migrer vers Hyperscale pour la preuve de concepts.
+Oui. Vous pouvez déplacer vos bases de données Azure SQL existantes vers Hyperscale. Dans la préversion publique, il s’agit d’une migration unidirectionnelle. Vous ne pouvez pas déplacer des bases de données depuis Hyperscale vers un autre niveau de service. Nous vous recommandons d’effectuer une copie de vos bases de données de production et de migrer vers Hyperscale pour la preuve de concepts.
   
 ### <a name="can-i-move-my-hyperscale-databases-to-other-editions"></a>Puis-je déplacer mes bases de données Hyperscale vers d’autres éditions ?
 
@@ -233,7 +233,7 @@ Pas encore connu (toujours en préversion)
 
 ### <a name="can-i-read-data-from-blob-storage-and-do-fast-load-like-polybase-and-sql-data-warehouse"></a>Puis-je lire des données dans un stockage d’objets blob (comme PolyBase et SQL Data Warehouse) et faire un chargement rapide ?
 
-Vous pouvez lire des données depuis Stockage Azure et charger des données dans une base de données Hyperscale (exactement comme vous pouvez le faire avec une base de données unique normale). PolyBase n’est actuellement pas pris en charge sur Azure SQL Database. Vous pouvez faire comme si vous aviez PolyBase en utilisant [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/) ou en exécutant un travail Spark dans [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/) avec le [connecteur Spark pour SQL](sql-database-spark-connector.md). Le connecteur Spark pour SQL prend en charge l’insertion en bloc.
+Vous pouvez lire des données depuis Stockage Azure et charger des données dans une base de données Hyperscale (exactement comme vous pouvez le faire avec une base de données unique normale). Actuellement, PolyBase n’est pas pris en charge sur Azure SQL Database. Vous pouvez faire comme si vous aviez PolyBase en utilisant [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/) ou en exécutant un travail Spark dans [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/) avec le [connecteur Spark pour SQL](sql-database-spark-connector.md). Le connecteur Spark pour SQL prend en charge l’insertion en bloc.
 
 Le modèle de récupération simple ou de journalisation en bloc n’est pas pris en charge dans Hyperscale. Le modèle de récupération complète est nécessaire pour fournir la haute disponibilité. Cependant, Hyperscale fournit un meilleur débit d’ingestion par rapport à une base de données unique, en raison de la nouvelle architecture de journal.
 
@@ -255,7 +255,7 @@ Oui. L’utilisation de données provenant d’autres sources de données que SQ
 
 En règle générale, un contrat SLA n’est pas fourni pendant une préversion publique. Cependant Hyperscale fournit le même niveau de haute disponibilité que les offres actuelles de SQL Database. Consultez [Contrat SLA](https://azure.microsoft.com/support/legal/sla/).
 
-### <a name="are-the-database-backups-managed-for-me-by-the-azure-sql-database-service"></a>Les sauvegardes de base de données sont-elles gérées pour moi par le service Azure SQL Database ?
+### <a name="are-the-database-backups-managed-for-me-by-the-azure-sql-database-service"></a>Les sauvegardes de base de données sont-elles gérées pour moi par le service Azure SQL Database ?
 
 Oui
 

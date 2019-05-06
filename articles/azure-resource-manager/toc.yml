@@ -68,6 +68,8 @@
       href: resource-group-delete.md
     - name: Déploiements Gestionnaire des ressources et classiques
       href: resource-manager-deployment-model.md
+    - name: Attributs de sécurité courants Azure
+      href: azure-resource-manager-security-attributes.md
 - name: Procédures
   items:
     - name: Créer des modèles
@@ -225,6 +227,8 @@
           href: move-support-resources.md
         - name: Aide relative aux balises
           href: tag-support.md
+    - name: Fournisseurs de ressources par service
+      href: azure-services-resource-providers.md
     - name: REST - Resource Manager
       href: /rest/api/resources/
     - name: REST - Gestionnaire de déploiement

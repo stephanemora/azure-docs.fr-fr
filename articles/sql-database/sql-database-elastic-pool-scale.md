@@ -1,5 +1,5 @@
 ---
-title: Mettre à l’échelle un pool élastique - Azure SQL Database | Microsoft Docs
+title: Mettre à l’échelle des ressources de pool élastique - Azure SQL Database | Microsoft Docs
 description: Cette page décrit les ressources de mise à l’échelle pour les pools élastiques dans Azure SQL Database.
 services: sql-database
 ms.service: sql-database
@@ -72,7 +72,7 @@ Vous êtes facturé pour chaque heure d’existence de la base de données avec 
 ## <a name="change-elastic-pool-storage-size"></a>modifier la taille de stockage de pool élastique
 
 > [!IMPORTANT]
-> Dans certaines circonstances, vous devrez peut-être réduire une base de données pour récupérer l’espace inutilisé. Pour plus d’informations, consultez l’article [Gérer l’espace du fichier de la base de données SQL Azure](sql-database-file-space-management.md).
+> Dans certaines circonstances, vous devrez peut-être réduire une base de données pour récupérer l’espace inutilisé. Pour plus d’informations, consultez [Gérer l’espace des fichiers dans Azure SQL Database](sql-database-file-space-management.md).
 
 ### <a name="vcore-based-purchasing-model"></a>Modèle d’achat vCore
 
@@ -84,7 +84,7 @@ Vous êtes facturé pour chaque heure d’existence de la base de données avec 
 - Le prix du stockage pour un pool élastique est égal à la quantité de stockage multiplié par le prix unitaire du stockage pour le niveau de service. Pour plus d’informations sur le prix du stockage supplémentaire, consultez [Tarification des bases de données SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 
 > [!IMPORTANT]
-> Dans certaines circonstances, vous devrez peut-être réduire une base de données pour récupérer l’espace inutilisé. Pour plus d’informations, consultez l’article [Gérer l’espace du fichier de la base de données SQL Azure](sql-database-file-space-management.md).
+> Dans certaines circonstances, vous devrez peut-être réduire une base de données pour récupérer l’espace inutilisé. Pour plus d’informations, consultez [Gérer l’espace des fichiers dans Azure SQL Database](sql-database-file-space-management.md).
 
 ### <a name="dtu-based-purchasing-model"></a>Modèle d’achat DTU
 
@@ -93,7 +93,7 @@ Vous êtes facturé pour chaque heure d’existence de la base de données avec 
 - Le prix de l’espace de stockage supplémentaire pour un pool élastique est égal à la quantité de stockage supplémentaire multiplié par le prix unitaire du stockage supplémentaire pour le niveau de service. Pour plus d’informations sur le prix du stockage supplémentaire, consultez [Tarification des bases de données SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 
 > [!IMPORTANT]
-> Dans certaines circonstances, vous devrez peut-être réduire une base de données pour récupérer l’espace inutilisé. Pour plus d’informations, consultez l’article [Gérer l’espace du fichier de la base de données SQL Azure](sql-database-file-space-management.md).
+> Dans certaines circonstances, vous devrez peut-être réduire une base de données pour récupérer l’espace inutilisé. Pour plus d’informations, consultez [Gérer l’espace des fichiers dans Azure SQL Database](sql-database-file-space-management.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

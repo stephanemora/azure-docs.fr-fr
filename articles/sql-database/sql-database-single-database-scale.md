@@ -1,6 +1,6 @@
 ---
-title: Mise à l'échelle de ressources de singletons Azure SQL Database unique | Microsoft Docs
-description: Cet article décrit comment faire évoluer les ressources de calcul et de stockage disponibles pour un singleton dans Azure SQL Database.
+title: Mettre à l’échelle des ressources de base de données unique - Azure SQL Database | Microsoft Docs
+description: Cet article décrit comment mettre à l’échelle les ressources de calcul et de stockage disponibles d’une base de données unique dans Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
@@ -19,7 +19,7 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 04/28/2019
 ms.locfileid: "64572865"
 ---
-# <a name="scale-single-database-resources-in-azure-sql-database"></a>Mise à l'échelle de ressources de singletons Azure SQL Database unique
+# <a name="scale-single-database-resources-in-azure-sql-database"></a>Mettre à l’échelle des ressources de base de données unique dans Azure SQL Database
 
 Cet article décrit la mise à l’échelle les ressources de calcul et de stockage disponibles pour une base de données unique au niveau de calcul provisionné. 
 
@@ -37,7 +37,7 @@ La vidéo suivante montre la modification dynamique du niveau de service et de l
 >
 
 > [!IMPORTANT]
-> Dans certaines circonstances, vous devrez peut-être réduire une base de données pour récupérer l’espace inutilisé. Pour plus d’informations, consultez l’article [Gérer l’espace du fichier de la base de données SQL Azure](sql-database-file-space-management.md).
+> Dans certaines circonstances, vous devrez peut-être réduire une base de données pour récupérer l’espace inutilisé. Pour plus d’informations, consultez [Gérer l’espace des fichiers dans Azure SQL Database](sql-database-file-space-management.md).
 
 ### <a name="impact-of-changing-service-tier-or-rescaling-compute-size"></a>Impact du changement de taille de service de niveau ou de remise à l’échelle de calcul
 
@@ -122,7 +122,7 @@ Vous êtes facturé pour chaque heure d’existence de la base de données avec 
 - Le prix du stockage pour une base de données unique est égal à la somme des quantités de stockage des données et de stockage des journaux multipliée par le prix unitaire du stockage pour le niveau de service. Le coût de TempDB est inclus dans le prix de vCore. Pour plus d’informations sur le prix du stockage supplémentaire, consultez [Tarification des bases de données SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 
 > [!IMPORTANT]
-> Dans certaines circonstances, vous devrez peut-être réduire une base de données pour récupérer l’espace inutilisé. Pour plus d’informations, consultez l’article [Gérer l’espace du fichier de la base de données SQL Azure](sql-database-file-space-management.md).
+> Dans certaines circonstances, vous devrez peut-être réduire une base de données pour récupérer l’espace inutilisé. Pour plus d’informations, consultez [Gérer l’espace des fichiers dans Azure SQL Database](sql-database-file-space-management.md).
 
 ### <a name="dtu-based-purchasing-model"></a>Modèle d’achat DTU
 
@@ -131,7 +131,7 @@ Vous êtes facturé pour chaque heure d’existence de la base de données avec 
 - Le prix de l’espace de stockage supplémentaire pour une base de données unique est égal à la quantité de stockage supplémentaire multiplié par le prix unitaire du stockage supplémentaire pour le niveau de service. Pour plus d’informations sur le prix du stockage supplémentaire, consultez [Tarification des bases de données SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 
 > [!IMPORTANT]
-> Dans certaines circonstances, vous devrez peut-être réduire une base de données pour récupérer l’espace inutilisé. Pour plus d’informations, consultez l’article [Gérer l’espace du fichier de la base de données SQL Azure](sql-database-file-space-management.md).
+> Dans certaines circonstances, vous devrez peut-être réduire une base de données pour récupérer l’espace inutilisé. Pour plus d’informations, consultez [Gérer l’espace des fichiers dans Azure SQL Database](sql-database-file-space-management.md).
 
 ## <a name="p11-and-p15-constraints-when-max-size-greater-than-1-tb"></a>Contraintes de P11 et P15 lorsque max taille est supérieure à 1 to
 

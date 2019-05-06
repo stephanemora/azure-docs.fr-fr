@@ -1,5 +1,5 @@
 ---
-title: Didacticiel SaaS multi-locataire - Azure SQL Database | Microsoft Docs
+title: Tutoriel SaaS multi-locataire - Azure SQL Database | Microsoft Docs
 description: Approvisionner et cataloguer de nouveaux clients à l’aide du modèle d’application autonome
 services: sql-database
 ms.service: sql-database

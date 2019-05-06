@@ -1,6 +1,6 @@
 ---
 title: Solution d’Analytique de SQL Azure dans Azure Monitor | Microsoft Docs
-description: La solution Azure SQL Analytics vous permet de gérer vos instances Azure SQL Database.
+description: La solution Azure SQL Analytics vous permet de gérer vos bases de données Azure SQL.
 services: log-analytics
 ms.service: log-analytics
 ms.custom: ''
@@ -45,7 +45,7 @@ Azure SQL Analytics est une solution de supervision entièrement dans le cloud q
 ## <a name="configuration"></a>Configuration
 Utilisez la procédure décrite dans [solutions ajouter Azure Monitor à partir de la galerie de Solutions](../../azure-monitor/insights/solutions.md) pour ajouter la solution d’Analytique de SQL Azure (version préliminaire) à votre espace de travail Analytique de journal.
 
-### <a name="configure-azure-sql-databases-elastic-pools-and-managed-instances-to-stream-diagnostics-telemetry"></a>Configurer des instances Azure SQL Database, des pools élastiques et des instances Managed Instance pour la diffusion en continu des données de télémétrie de diagnostic
+### <a name="configure-azure-sql-databases-elastic-pools-and-managed-instances-to-stream-diagnostics-telemetry"></a>Configurer des bases de données Azure SQL, des pools élastiques et des instances managées pour envoyer en streaming des données de télémétrie de diagnostic
 
 Après avoir créé une solution Azure SQL Analytics dans votre espace de travail, **configurez chacune** des ressources pour lesquelles vous souhaitez effectuer un monitoring pour diffuser en continu ses données de télémétrie de diagnostic vers la solution. Suivez les instructions détaillées de cette page :
 
@@ -63,9 +63,9 @@ Une fois chargé, la vignette affiche le nombre de bases de données SQL Azure, 
 
 ![Vignette Azure SQL Analytics](./media/azure-sql/azure-sql-sol-tile-02.png)
 
-La solution offre deux vues distinctes : l’une pour la supervision des instances Azure SQL Database et des pools élastiques, et l’autre pour la supervision des instances Managed Instance et de leurs bases de données.
+La solution offre deux vues distinctes : l’une pour la supervision des bases de données Azure SQL et des pools élastiques, et l’autre pour la supervision des instances managées et de leurs bases de données.
 
-Pour visualiser le tableau de bord de supervision Azure SQL Analytics pour les instances Azure SQL Database et les pools élastiques, cliquez sur la partie supérieure de la vignette. Pour visualiser le tableau de bord de supervision Azure SQL Analytics pour les instances Managed Instance et leurs bases de données, cliquez sur la partie inférieure de la vignette.
+Pour visualiser le tableau de bord de supervision Azure SQL Analytics pour les bases de données Azure SQL et les pools élastiques, cliquez sur la partie supérieure de la vignette. Pour visualiser le tableau de bord de supervision Azure SQL Analytics pour les instances Managed Instance et leurs bases de données, cliquez sur la partie inférieure de la vignette.
 
 ### <a name="viewing-azure-sql-analytics-data"></a>Affichage des données Azure SQL Analytics
 
@@ -73,7 +73,7 @@ Ce tableau de bord propose un aperçu de toutes les bases de données surveillé
 
 Notez que si certaines métriques ou les journaux ne sont pas diffusés en continu dans Azure Monitor, les vignettes de la solution ne sont pas remplis avec les informations de surveillance.
 
-### <a name="azure-sql-database-and-elastic-pool-view"></a>Vue des instances Azure SQL Database et des pools élastiques
+### <a name="azure-sql-database-and-elastic-pool-view"></a>Vue des bases de données Azure SQL et des pools élastiques
 
 Lorsque la vignette Azure SQL Analytics de la base de données est sélectionnée, le tableau de bord de monitoring s’affiche.
 
@@ -99,7 +99,7 @@ La sélection de la vue des instances Managed Instance présente les détails co
 
 ### <a name="perspectives"></a>Perspectives
 
-Le tableau ci-après présente les perspectives prises en charge pour les deux versions du tableau de bord, l’une pour les bases de données SQL Azure et les pools élastiques, et l’autre pour les instances Managed Instance.
+Le tableau ci-après présente les perspectives prises en charge pour les deux versions du tableau de bord, l’une pour les bases de données Azure SQL et les pools élastiques, et l’autre pour les instances managées.
 
 | Perspective | Description | Prise en charge pour les instances SQL Database et les pools élastiques | Prise en charge pour les instances Managed Instance |
 | --- | ------- | ----- | ----- |
@@ -114,7 +114,7 @@ Le tableau ci-après présente les perspectives prises en charge pour les deux v
 
 ### <a name="intelligent-insights-report"></a>Rapport Intelligent Insights
 
-Azure SQL Database [Intelligent Insights](../../sql-database/sql-database-intelligent-insights.md) permet de suivre les performances de toutes les bases de données SQL Azure. Toutes les analyses Intelligent Insights collectées peut être visualisées et sont accessibles par le biais de la perspective Insights.
+Azure SQL Database [Intelligent Insights](../../sql-database/sql-database-intelligent-insights.md) permet de suivre les performances de toutes les bases de données Azure SQL. Toutes les analyses Intelligent Insights collectées peut être visualisées et sont accessibles par le biais de la perspective Insights.
 
 ![Insights Azure SQL Analytics](./media/azure-sql/azure-sql-sol-insights.png)
 

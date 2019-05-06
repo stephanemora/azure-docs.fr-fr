@@ -26,7 +26,7 @@ La réplication transactionnelle est une fonctionnalité d'Azure SQL Database et
 ## <a name="when-to-use-transactional-replication"></a>Quand utiliser la réplication transactionnelle
 
 La réplication transactionnelle est utile dans les scénarios suivants :
-- Publier les changements apportés dans une ou plusieurs tables d’une base de données et les distribuer à une ou plusieurs bases de données SQL Server ou SQL Azure abonnées aux changements.
+- Publier les changements apportés dans une ou plusieurs tables d’une base de données et les distribuer à une ou plusieurs bases de données SQL Server ou Azure SQL abonnées aux changements.
 - Maintenir plusieurs bases de données distribuées dans un état synchronisé.
 - Migrer des bases de données d’un serveur SQL Server ou d’une instance Managed Instance vers une autre base de données en publiant les modifications en continu.
 
@@ -36,7 +36,7 @@ Les composants clés de la réplication transactionnelle sont présentés dans l
 
 ![réplication avec SQL Database](media/replication-to-sql-database/replication-to-sql-database.png)
 
-Le **serveur de publication** est une instance ou un serveur qui publie les changements apportés à des tables (articles) en envoyant les mises à jour au serveur de distribution. La publication dans une base de données SQL Azure à partir d'une instance locale de SQL Server est prise en charge sur les versions suivantes de SQL Server :
+Le **serveur de publication** est une instance ou un serveur qui publie les changements apportés à des tables (articles) en envoyant les mises à jour au serveur de distribution. La publication dans une base de données Azure SQL à partir d'une instance locale de SQL Server est prise en charge sur les versions suivantes de SQL Server :
 
 - SQL Server 2019 (préversion)
 - SQL Server 2016 à SQL 2017
@@ -105,7 +105,7 @@ Il existe différents [types de réplications](https://docs.microsoft.com/sql/re
 
 | | Synchronisation des données | Réplication transactionnelle |
 |---|---|---|
-| Avantages | - Support actif/actif<br/>- Synchronisation bidirectionnelle entre la base de données SQL locale et Azure | - Latence réduite<br/>- Cohérence transactionnelle<br/>- Réutilisation de la topologie existante après la migration |
+| Avantages | - Support actif/actif<br/>- Synchronisation bidirectionnelle entre la base de données Azure SQL et locale | - Latence réduite<br/>- Cohérence transactionnelle<br/>- Réutilisation de la topologie existante après la migration |
 | Inconvénients | - Latence de 5 minutes ou plus<br/>- Pas de cohérence transactionnelle<br/>- Impact plus important sur les performances | - Impossible de publier à partir d’une base de données unique Azure SQL Database ou d’une base de données mise en pool<br/>- Coût de maintenance élevé |
 | | | |
 

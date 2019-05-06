@@ -27,7 +27,7 @@ L’outil Certification Test Tool for Azure Certified s’exécute sur une machi
 2. Ouvrez l’outil de certification, puis cliquez sur le bouton **Start New Test** (Commencer un nouveau test).
 3. Dans l’écran **Test Information** (Informations sur le test), entrez un nom de test dans le champ **Test Name** (Nom du test) pour la série de tests.
 4. Dans le champ **Platform** (Plateforme), sélectionnez la plateforme pour votre machine virtuelle, soit `Windows Server`, soit `Linux`. La plateforme que vous choisissez a une incidence sur le reste des options.
-5. Si votre machine virtuelle utilise ce service de base de données, cochez la case **Test for Azure SQL Database** (Test pour Azure SQL Database).
+5. Si votre machine virtuelle utilise ce service de base de données, cochez la case **Test pour Azure SQL Database**.
 
    ![Page initiale de l’outil de test de certification](./media/publishvm_025.png)
 

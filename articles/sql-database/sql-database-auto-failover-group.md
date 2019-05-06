@@ -254,7 +254,7 @@ Si votre plan de continuité d’activité nécessite un basculement à l’aide
 2. [Créez un équilibreur de charge public](../load-balancer/quickstart-create-basic-load-balancer-portal.md#create-a-basic-load-balancer) et affectez-lui l’adresse IP publique.
 3. [Créez un réseau virtuel et les machines virtuelles](../load-balancer/quickstart-create-basic-load-balancer-portal.md#create-back-end-servers) pour vos composants frontend.
 4. [Créez un groupe de sécurité réseau](../virtual-network/security-overview.md) et configurez les connexions entrantes.
-5. Vérifiez que les connexions sortantes sont ouvertes pour Azure SQL Database à l’aide de la [balise de service](../virtual-network/security-overview.md#service-tags) « Sql ».
+5. Vérifiez que les connexions sortantes sont ouvertes pour la base de données Azure SQL à l’aide de la [balise de service](../virtual-network/security-overview.md#service-tags) « Sql ».
 6. Créez une [règle de pare-feu de base de données SQL](sql-database-firewall-configure.md) pour autoriser le trafic entrant à partir de l’adresse IP publique que vous créez à l’étape 1.
 
 Pour plus d’informations sur la configuration de l’accès sortant et l’adresse IP à utiliser dans les règles de pare-feu, consultez [Connexions sortantes de l’équilibreur de charge](../load-balancer/load-balancer-outbound-connections.md).
@@ -380,6 +380,6 @@ Comme indiqué plus haut, les groupes de basculement automatique et la géo-rép
   - [Configurer et basculer une base de données regroupée à l’aide de la géoréplication active](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md)
   - [Configurer et basculer un groupe de basculement pour une base de données unique](scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md)
 - Pour une vue d’ensemble de la continuité des activités et des scénarios, consultez [Vue d’ensemble de la continuité des activités](sql-database-business-continuity.md)
-- Pour en savoir plus sur les sauvegardes automatisées Azure SQL Database, consultez [Sauvegardes automatisées d’une base de données SQL](sql-database-automated-backups.md).
+- Pour en savoir plus sur les sauvegardes automatisées d’une base de données Azure SQL, consultez [Sauvegardes automatisées d’une base de données SQL](sql-database-automated-backups.md).
 - Pour en savoir plus sur l’utilisation des sauvegardes automatisées pour la récupération, consultez [Restaurer une base de données à partir des sauvegardes initiées par le service](sql-database-recovery-using-backups.md).
 - Pour en savoir plus sur les exigences d’authentification pour de nouveaux serveurs et bases de données primaires, consultez [Gestion de la sécurité de la base de données SQL Azure après la récupération d’urgence](sql-database-geo-replication-security-config.md).

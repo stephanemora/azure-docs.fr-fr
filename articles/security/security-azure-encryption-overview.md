@@ -94,7 +94,7 @@ TDE protège les données et les fichiers journaux, à l’aide d’algorithmes 
 
 #### <a name="always-encrypted-feature"></a>Fonctionnalité Always Encrypted
 
-Avec la fonctionnalité [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) dans SQL Azure, vous pouvez chiffrer les données dans les applications clientes avant de les stocker dans Azure SQL Database. Vous pouvez également activer la délégation de l’administration locale de base de données à des tiers, et maintenir la séparation entre ceux qui possèdent et peuvent afficher les données et ceux qui les gèrent, mais qui ne doivent pas pouvoir y accéder.
+Avec la fonctionnalité [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) dans Azure SQL, vous pouvez chiffrer les données dans les applications clientes avant de les stocker dans Azure SQL Database. Vous pouvez également activer la délégation de l’administration locale de base de données à des tiers, et maintenir la séparation entre ceux qui possèdent et peuvent afficher les données et ceux qui les gèrent, mais qui ne doivent pas pouvoir y accéder.
 
 #### <a name="cell-level-or-column-level-encryption"></a>Chiffrement au niveau des cellules ou au niveau des colonnes
 

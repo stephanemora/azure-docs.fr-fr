@@ -30,7 +30,7 @@ Lorsque vous copiez des données dans [SQL Server](data-factory-sqlserver-connec
 L’exemple suivant montre comment invoquer une procédure stockée dans une base de données SQL Server à partir d’un pipeline Data Factory (activité de copie) :  
 
 ## <a name="output-dataset-json"></a>JSON du jeu de données de sortie
-Dans le JSON du jeu de données de sortie, définissez le **type** sur : **SqlServerTable**. Affectez-lui la valeur **AzureSqlTable** pour l’utiliser avec une base de données SQL Azure. La valeur de la propriété **tableName** doit correspondre au nom du premier paramètre de la procédure stockée.  
+Dans le JSON du jeu de données de sortie, définissez le **type** sur : **SqlServerTable**. Affectez-lui la valeur **AzureSqlTable** pour l’utiliser avec une base de données Azure SQL. La valeur de la propriété **tableName** doit correspondre au nom du premier paramètre de la procédure stockée.  
 
 ```json
 {

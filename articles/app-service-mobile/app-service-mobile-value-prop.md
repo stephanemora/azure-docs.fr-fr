@@ -43,7 +43,7 @@ Les fonctions qui suivent sont importantes pour le développement mobile Cloud :
 
     Apprenez-en davantage sur les [fonctionnalités d’authentification].
 
-* **Accès aux données** : Mobile Apps offre une source de données OData v3 compatible avec les mobiles liée à SQL Azure Database ou à un serveur SQL Server local. Étant donné que ce service peut être développé à partir d’Entity Framework, vous pouvez l’intégrer facilement à d’autres fournisseurs de données NoSQL et SQL, notamment le [Stockage Table Azure], MongoDB, [Azure Cosmos DB] et des fournisseurs d’API SaaS comme Office 365 et Salesforce.com.
+* **Accès aux données** : Mobile Apps offre une source de données OData v3 compatible avec les mobiles liée à Azure SQL Database ou à un serveur SQL Server local. Étant donné que ce service peut être développé à partir d’Entity Framework, vous pouvez l’intégrer facilement à d’autres fournisseurs de données NoSQL et SQL, notamment le [Stockage Table Azure], MongoDB, [Azure Cosmos DB] et des fournisseurs d’API SaaS comme Office 365 et Salesforce.com.
 
 * **Synchronisation hors connexion** : les Kits de développement logiciel (SDK) clients permettent de facilement générer des applications mobiles robustes et réactives exploitables sur des jeux de données hors connexion. Vous pouvez synchroniser automatiquement les données principales, y compris la prise en charge de la résolution de conflit.
 

@@ -49,7 +49,7 @@ Pour effectuer ce qui est décrit dans cet article, vous avez besoin des éléme
 
 ## <a name="prepare-a-bacpac-file"></a>Préparer un fichier BACPAC
 
-Un fichier BACPAC est partagé sur un [compte de Stockage Azure](https://armtutorials.blob.core.windows.net/sqlextensionbacpac/SQLDatabaseExtension.bacpac) avec l’accès public. Pour créer le vôtre, consultez [Exporter une base de données SQL Azure dans un fichier BACPAC](../sql-database/sql-database-export.md). Si vous choisissez de publier le fichier sur votre propre emplacement, vous devez mettre à jour le modèle plus tard dans ce didacticiel.
+Un fichier BACPAC est partagé sur un [compte de Stockage Azure](https://armtutorials.blob.core.windows.net/sqlextensionbacpac/SQLDatabaseExtension.bacpac) avec l’accès public. Pour créer le vôtre, consultez [Exporter une base de données Azure SQL dans un fichier BACPAC](../sql-database/sql-database-export.md). Si vous choisissez de publier le fichier sur votre propre emplacement, vous devez mettre à jour le modèle plus tard dans ce didacticiel.
 
 ## <a name="open-a-quickstart-template"></a>Ouvrir un modèle de démarrage rapide
 

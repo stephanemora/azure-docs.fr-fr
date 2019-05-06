@@ -1,6 +1,6 @@
 ---
 title: Approvisionnement dans une application SaaS multilocataire Azure | Microsoft Docs
-description: Découvrez comment approvisionner et cataloguer de nouveaux locataires dans une application SaaS multilocataire Azure SQL Database.
+description: Découvrez comment provisionner et cataloguer de nouveaux locataires dans une application SaaS multilocataire Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario

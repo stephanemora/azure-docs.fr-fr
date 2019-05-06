@@ -26,7 +26,7 @@ La même application *Wingtip Tickets* SaaS est implémentée dans chacun des tr
 
 ## <a name="three-saas-application-and-tenancy-patterns"></a>3 modèles d’application SaaS et de clients
 
-Trois versions de l’application sont disponibles, chacune explorant un modèle différent d’architecture mutualisée de base de données sur Azure SQL Database.  Le premier utilise une application autonome par client avec sa propre base de données. La deuxième utilise une application multi-locataire avec une base de données par locataire. La troisième utilise une application multi-locataire avec des bases de données multi-locataires partitionnées.
+Trois versions de l’application sont disponibles, chacune explorant un modèle différent d’architecture multilocataire de base de données sur Azure SQL Database.  Le premier utilise une application autonome par client avec sa propre base de données. La deuxième utilise une application multi-locataire avec une base de données par locataire. La troisième utilise une application multi-locataire avec des bases de données multi-locataires partitionnées.
 
 ![Trois modèles d’architecture mutualisée][image-three-tenancy-patterns]
 

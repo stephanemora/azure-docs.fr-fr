@@ -23,7 +23,7 @@ ms.locfileid: "61475653"
 
 [!INCLUDE [elastic-database-jobs-deprecation](../../includes/sql-database-elastic-jobs-deprecate.md)]
 
-**Bases de données élastiques** est un Service hébergé par le client de Cloud Azure qui permet l’exécution de tâches d’administration ad hoc et planifiées, appelées **travaux**. Grâce aux travaux, vous pouvez facilement gérer, de façon fiable, de grands groupes de bases de données SQL Azure en exécutant les scripts Transact-SQL pour effectuer des opérations administratives.
+**Bases de données élastiques** est un Service hébergé par le client de Cloud Azure qui permet l’exécution de tâches d’administration ad hoc et planifiées, appelées **travaux**. Grâce aux travaux, vous pouvez facilement gérer, de façon fiable, de grands groupes de bases de données Azure SQL en exécutant les scripts Transact-SQL pour effectuer des opérations administratives.
 
 Pour gérer les bases de données partitionnées avec montée en charge, la fonction **Tâches de base de données élastique** (version préliminaire) vous permet d’exécuter un script Transact-SQL (T-SQL) fiable dans un groupe de bases de données, notamment :
 
@@ -50,11 +50,11 @@ Effectuer facilement des modifications de schéma, la gestion des informations d
 
 ### <a name="reports"></a>Rapports
 
-Agréger des données provenant d’une collection de bases de données SQL Azure dans un tableau de destination unique.
+Agréger des données provenant d’une collection de bases de données Azure SQL dans un tableau de destination unique.
 
 ### <a name="reduce-overhead"></a>Réduire la surcharge
 
-Normalement, vous devez vous connecter indépendamment à chaque base de données pour exécuter les instructions Transact-SQL ou effectuer d'autres tâches administratives. Un travail gère la tâche de connexion à chaque base de données dans le groupe cible. Vous pouvez également définir, gérer et conserver des scripts Transact-SQL à exécuter dans un groupe de bases de données SQL Azure.
+Normalement, vous devez vous connecter indépendamment à chaque base de données pour exécuter les instructions Transact-SQL ou effectuer d'autres tâches administratives. Un travail gère la tâche de connexion à chaque base de données dans le groupe cible. Vous pouvez également définir, gérer et conserver des scripts Transact-SQL à exécuter dans un groupe de bases de données Azure SQL.
 
 ### <a name="accounting"></a>Comptabilité
 
@@ -62,7 +62,7 @@ Les tâches exécutent le script et enregistrent l’état d’exécution pour c
 
 ### <a name="flexibility"></a>Flexibilité
 
-Définir des groupes personnalisés de bases de données SQL Azure, ainsi que des planifications pour l’exécution d’un travail.
+Définir des groupes personnalisés de bases de données Azure SQL, ainsi que des planifications pour l’exécution d’un travail.
 
 > [!NOTE]
 > Dans le portail Azure, seul un ensemble réduit de fonctions limitées aux pools élastiques SQL Azure est disponible. Utiliser les APIs PowerShell pour accéder à l'ensemble des fonctionnalités actuelles.
@@ -122,7 +122,7 @@ Les composants suivants fonctionnent ensemble pour créer un service Cloud Azure
 
 - Azure SQL Database
 
-  Le service utilise une base de données SQL Azure appelée **base de données de contrôle** pour stocker toutes les métadonnées du travail. Le niveau de service par défaut est S0. Pour en savoir plus, voir [Tarification - SQL Database](https://azure.microsoft.com/pricing/details/sql-database/).
+  Le service utilise une base de données Azure SQL appelée **base de données de contrôle** pour stocker toutes les métadonnées du travail. Le niveau de service par défaut est S0. Pour en savoir plus, voir [Tarification - SQL Database](https://azure.microsoft.com/pricing/details/sql-database/).
 
 - Azure Service Bus
 
@@ -134,7 +134,7 @@ Les composants suivants fonctionnent ensemble pour créer un service Cloud Azure
 
 ## <a name="how-elastic-database-jobs-work"></a>Fonctionnement des tâches de bases de données élastiques
 
-1. Une base de données SQL Azure est conçue comme une **base de données de contrôle** qui stocke toutes les métadonnées et les données d’état.
+1. Une base de données Azure SQL est conçue comme une **base de données de contrôle** qui stocke toutes les métadonnées et les données d’état.
 2. Pour accéder à la base de données de contrôle, accédez au **service des tâches** pour lancer les tâches à exécuter et en assurer le suivi.
 3. Deux rôles communiquent avec la base de données de contrôle :
    - Contrôleur : détermine les travaux qui nécessitent des tâches pour être menées à bien et tente à nouveau les tâches ayant échoué en créant de nouvelles tâches de travail.

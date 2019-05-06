@@ -49,4 +49,4 @@ Pour restaurer un entrepôt de données supprimé :
 > 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour plus d’informations sur les fonctionnalités de continuité d’activité des éditions de Base de données SQL Azure, voir [Vue d’ensemble de la continuité des activités de la base de données SQL Azure](../sql-database/sql-database-business-continuity.md).
+Pour plus d’informations sur les fonctionnalités de continuité d’activité des éditions Azure SQL Database, consultez [Vue d’ensemble de la continuité des activités Azure SQL Database](../sql-database/sql-database-business-continuity.md).

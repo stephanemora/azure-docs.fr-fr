@@ -24,7 +24,7 @@ ms.locfileid: "61075493"
 Cette rubrique décrit le comportement de connexion d’Azure SQL Database pour les clients qui utilisent ADO.NET version 4.5 ou ultérieure.
 
 > [!IMPORTANT]
-> Pour plus d’informations sur l’architecture de connectivité, consultez [Azure SQL Database connectivity architecture](sql-database-connectivity-architecture.md) (Architecture de connectivité d’Azure SQL Database).
+> Pour plus d’informations sur l’architecture de connectivité, consultez [Architecture de connectivité d’Azure SQL Database](sql-database-connectivity-architecture.md).
 >
 
 ## <a name="outside-vs-inside"></a>À l’extérieur et à l’intérieur

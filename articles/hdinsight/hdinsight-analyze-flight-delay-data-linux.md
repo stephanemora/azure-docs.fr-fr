@@ -42,7 +42,7 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
 
 * **Cluster Hadoop Linux sur HDInsight**. Pour savoir comment créer un cluster HDInsight basé sur Linux, consultez [Bien démarrer avec Apache Hadoop dans HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 
-* **Base de données SQL Azure**. Vous allez utiliser une base de données SQL Azure comme magasin de données cible. Si vous n’avez pas de base de données SQL, consultez [Créer une base de données Azure SQL dans le portail Azure](../sql-database/sql-database-get-started.md).
+* **Base de données SQL Azure**. Vous allez utiliser une base de données Azure SQL comme magasin de données cible. Si vous n’avez pas de base de données SQL, consultez [Créer une base de données Azure SQL dans le portail Azure](../sql-database/sql-database-get-started.md).
 
 * **Azure CLI**. Si vous n’avez pas installé l’interface de ligne de commande Azure, consultez [Installer l’interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) pour connaître les étapes à suivre.
 
@@ -200,7 +200,7 @@ Dans le cadre du travail Hive, vous allez importer les données du fichier .csv 
     GROUP BY origin_city_name;
     ```
 
-    Cette requête récupère la liste des villes qui ont enregistré des retards liés aux conditions météo, ainsi que le temps de retard moyen, et l’enregistre dans `/tutorials/flightdelays/output`. Sqoop lit ensuite les données à partir de cet emplacement et les exporte vers Azure SQL Database.
+    Cette requête récupère la liste des villes qui ont enregistré des retards liés aux conditions météo, ainsi que le temps de retard moyen, et l’enregistre dans `/tutorials/flightdelays/output`. Sqoop lit ensuite les données à partir de cet emplacement et les exporte vers Azure SQL Database.
 
 6. Pour quitter Beeline, entrez `!quit` à l’invite de commandes.
 

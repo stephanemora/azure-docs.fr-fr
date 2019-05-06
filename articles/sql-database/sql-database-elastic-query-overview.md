@@ -27,7 +27,7 @@ La fonctionnalité de requête élastique, en préversion, vous permet d’exéc
 
 ### <a name="azure-sql-database"></a>Azure SQL Database
 
-Interrogez plusieurs bases de données SQL Azure entièrement dans T-SQL. Cela permet d’interroger en lecture seule les bases de données distantes et donne aux clients SQL Server locaux actuels la possibilité de migrer des applications en utilisant des noms en trois et quatre parties ou un serveur lié à une base de données SQL.
+Interrogez plusieurs bases de données Azure SQL entièrement dans T-SQL. Cela permet d’interroger en lecture seule les bases de données distantes et donne aux clients SQL Server locaux actuels la possibilité de migrer des applications en utilisant des noms en trois et quatre parties ou un serveur lié à une base de données SQL.
 
 ### <a name="available-on-standard-tier"></a>Disponible au niveau standard
 
@@ -96,7 +96,7 @@ Après avoir exécuté les instructions DDL, vous pouvez accéder à la table di
 
 ## <a name="horizontal-partitioning---sharding"></a>Partitionnement horizontal - partitionnement
 
-L’utilisation d’une requête élastique destinée à effectuer des tâches de création de rapports sur une couche de données partitionnée exige un [mappage de partitionnement de base de données élastique](sql-database-elastic-scale-shard-map-management.md) pour représenter les bases de données de la couche de données. En règle générale, un seul mappage de partition est utilisé dans ce scénario, et une base de données partitionnée dédiée avec des fonctions d’interrogation élastique (nœud principal) sert de point d’entrée pour les requêtes de création de rapport. Seule cette base de données dédiée doit avoir accès à la table de partition. La figure 4 illustre cette topologie et sa configuration avec la base de données de requête élastique et du mappage de partition. Les bases de données de la couche de données peuvent appartenir à n’importe quelle version ou édition d’Azure SQL Database. Pour plus d’informations sur la bibliothèque cliente de base de données élastique, consultez [gestion de mappage de partition](sql-database-elastic-scale-shard-map-management.md).
+L’utilisation d’une requête élastique destinée à effectuer des tâches de création de rapports sur une couche de données partitionnée exige un [mappage de partitionnement de base de données élastique](sql-database-elastic-scale-shard-map-management.md) pour représenter les bases de données de la couche de données. En règle générale, un seul mappage de partition est utilisé dans ce scénario, et une base de données partitionnée dédiée avec des fonctions d’interrogation élastique (nœud principal) sert de point d’entrée pour les requêtes de création de rapport. Seule cette base de données dédiée doit avoir accès à la table de partition. La figure 4 illustre cette topologie et sa configuration avec la base de données de requête élastique et du mappage de partition. Les bases de données de la couche de données peuvent appartenir à n’importe quelle version ou édition Azure SQL Database. Pour plus d’informations sur la bibliothèque cliente de base de données élastique, consultez [gestion de mappage de partition](sql-database-elastic-scale-shard-map-management.md).
 
 **Figure 4** partitionnement horizontal : utilisation d’une requête élastique pour les rapports sur les couches de données partitionnées
 

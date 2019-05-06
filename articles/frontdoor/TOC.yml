@@ -72,7 +72,9 @@
           href: waf-front-door-custom-rules-powershell.md
         - name: Configurer un code de réponse personnalisé
           href: waf-front-door-configure-custom-response-code.md
-        - name: Configurer une limite de débit WAF - Azure PowerShell
+        - name: "Configurer des restrictions\_IP"
+          href: waf-front-door-configure-ip-restriction.md
+        - name: Configurer une limite de débit - Azure PowerShell
           href: waf-front-door-rate-limit-powershell.md
 - name: Forum Aux Questions
   items:

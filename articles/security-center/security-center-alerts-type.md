@@ -168,7 +168,7 @@ La détection des menaces sur le réseau assurée par Azure Security Center fonc
 
 ## <a name="sql-database-and-sql-data-warehouse-analysis"></a>Analyse de SQL Database et SQL Data Warehouse
 
-Dans Security Center, l’analyse des ressources se concentre sur les services PaaS, comme l’intégration avec la [détection des menaces de la base de données SQL Azure](../sql-database/sql-database-threat-detection.md) et Azure SQL Data Warehouse. La fonctionnalité de détection des menaces SQL détecte les activités anormales indiquant des tentatives inhabituelles ou potentiellement dangereuses visant à utiliser des bases de données ou à exploiter leurs failles de sécurité, et déclenche les alertes suivantes :
+Dans Security Center, l’analyse des ressources se concentre sur les services PaaS, comme l’intégration avec la [détection des menaces pour Azure SQL Database](../sql-database/sql-database-threat-detection.md) et Azure SQL Data Warehouse. La fonctionnalité de détection des menaces SQL détecte les activités anormales indiquant des tentatives inhabituelles ou potentiellement dangereuses visant à utiliser des bases de données ou à exploiter leurs failles de sécurité, et déclenche les alertes suivantes :
 
 * **Vulnérabilité aux injections SQL** : cette alerte est déclenchée quand une application génère une instruction SQL défectueuse dans la base de données. Cela peut éventuellement indiquer une vulnérabilité aux attaques par injection de code SQL. Deux raisons possibles expliquent la génération d’une instruction défectueuse :
     * Un défaut dans le code d’application qui crée l’instruction SQL défectueuse

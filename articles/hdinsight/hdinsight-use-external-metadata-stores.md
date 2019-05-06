@@ -39,7 +39,7 @@ Ce metastore par défaut est généralement utilisé pour les charges de travail
 ## <a name="custom-metastore"></a>Metastore personnalisé
 
 HDInsight prend également en charge les magasins de métadonnées personnalisés, qui sont recommandés pour les clusters de production :
-- Vous spécifiez votre propre base de données SQL Azure en tant que metastore.
+- Vous spécifiez votre propre base de données Azure SQL en tant que metastore.
 - Le cycle de vie du metastore n’est pas lié à un cycle de vie de cluster, vous pouvez donc créer et supprimer des clusters sans perdre les métadonnées. Les métadonnées telles que vos schémas Hive sont conservées même une fois que vous supprimez et recréez le cluster HDInsight.
 - Un metastore personnalisé vous permet d’attacher plusieurs clusters et types de cluster à ce metastore. Par exemple, un seul metastore peut être partagé entre les clusters de requête interactive, Hive et Spark dans HDInsight.
 - Vous payez le coût d’un metastore (Azure SQL DB), selon le niveau de performance que vous choisissez.
@@ -65,7 +65,7 @@ Voici certaines des meilleures pratiques pour les metastores Hive dans HDInsight
 - Utilisez un metastore personnalisé aussi souvent que possible, afin de mieux séparer les ressources de calcul (votre cluster en cours d’exécution) et les métadonnées (stockées dans le metastore).
 - Commencez avec un niveau S2, qui fournit 50 DTU et 250 Go de stockage. Si vous voyez un goulot d’étranglement, vous pouvez mettre à l’échelle la base de données.
 - Si vous prévoyez d’utiliser plusieurs clusters HDInsight pour accéder aux données distinctes, utilisez une base de données distincte pour le metastore sur chaque cluster. Si vous partagez un metastore sur plusieurs clusters HDInsight, cela signifie que les clusters utilisent les mêmes métadonnées et fichiers de données utilisateur sous-jacentes.
-- Sauvegardez régulièrement votre metastore personnalisé. Azure SQL Database génère automatiquement des sauvegardes, mais la période de rétention des sauvegardes varie. Pour plus d’informations, consultez [En savoir plus sur les sauvegardes automatiques SQL Database](../sql-database/sql-database-automated-backups.md).
+- Sauvegardez régulièrement votre metastore personnalisé. Azure SQL Database génère automatiquement des sauvegardes, mais la période de conservation des sauvegardes varie. Pour plus d’informations, consultez [En savoir plus sur les sauvegardes automatiques SQL Database](../sql-database/sql-database-automated-backups.md).
 - Localisez votre metastore et votre cluster HDInsight dans la même région, pour des performances optimales et des frais de sortie de réseau plus bas.
 - Surveiller les performances et la disponibilité à l’aide des outils de surveillance de base de données SQL Azure, tels que le portail Azure ou les journaux d’Azure Monitor de votre metastore.
 - Lorsqu’une nouvelle version d’Azure HDInsight plus élevée est créée sur une base de données de metastore personnalisée existante, le système met à niveau le schéma du metastore, qui est irréversible sans restaurer la base de données à partir de la sauvegarde.

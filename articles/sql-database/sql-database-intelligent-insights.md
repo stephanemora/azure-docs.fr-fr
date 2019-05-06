@@ -77,7 +77,7 @@ La sortie d’Intelligent Insights est un journal intelligent de diagnostic des 
 
 Pour intégrer Intelligent Insights à d’autres produits tels qu’Azure SQL Analytics, Azure Event Hubs et le Stockage Azure, ou à des produits tiers, en vue d’une consommation de données, vous devez d’abord activer la journalisation Intelligent Insights (le journal « SQLInsights ») dans le panneau des paramètres de diagnostic, puis configurer les données du journal Intelligent Insights afin de les diffuser en continu dans l’un de ces produits.
 
-Pour plus d'informations sur l'activation de la journalisation Intelligent Insights et la configuration des données du journal afin de les diffuser en continu dans un produit de consommation, consultez [Journalisation des métriques et diagnostics d’Azure SQL Database](sql-database-metrics-diag-logging.md).
+Pour plus d’informations sur l’activation de la journalisation Intelligent Insights et la configuration des données du journal afin de les diffuser en continu dans un produit de consommation, consultez [Journalisation des métriques et diagnostics d’Azure SQL Database](sql-database-metrics-diag-logging.md).
 
 ### <a name="set-up-with-azure-sql-analytics"></a>Configurer Azure SQL Analytics
 

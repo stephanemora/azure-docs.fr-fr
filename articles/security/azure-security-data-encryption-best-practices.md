@@ -93,7 +93,7 @@ Le [chiffrement des données au repos](https://cloudblogs.microsoft.com/microsof
 **Bonne pratique** : Appliquez le chiffrement des disques pour protéger vos données.   
 **Détail** : Utilisez [Azure Disk Encryption](azure-security-disk-encryption.md). Il permet aux administrateurs informatiques de chiffrer les disques des machines virtuelles IaaS Windows et Linux. Il utilise la fonctionnalité standard BitLocker de Windows et la fonctionnalité dm-crypt de Linux pour chiffrer les volumes des disques du système d’exploitation et des données.
 
-Le Stockage Azure et Azure SQL Database chiffrent les données au repos par défaut, et de nombreux services offrent le chiffrement en option. Vous pouvez utiliser Azure Key Vault pour garder le contrôle des clés qui accèdent à vos données et les chiffrent. Consultez [Prise en charge du modèle de chiffrement des fournisseurs de ressources Azure pour en savoir](azure-security-encryption-atrest.md#azure-resource-providers-encryption-model-support).
+Stockage Azure et Azure SQL Database chiffrent les données au repos par défaut, et de nombreux services offrent le chiffrement en option. Vous pouvez utiliser Azure Key Vault pour garder le contrôle des clés qui accèdent à vos données et les chiffrent. Consultez [Prise en charge du modèle de chiffrement des fournisseurs de ressources Azure pour en savoir](azure-security-encryption-atrest.md#azure-resource-providers-encryption-model-support).
 
 **Bonnes pratiques** : Utilisez le chiffrement pour réduire les risques d’accès non autorisé aux données.
 **Détail** : Chiffrez vos lecteurs avant d’y écrire des données sensibles.

@@ -90,7 +90,7 @@ Le tableau suivant répertorie les noms des propriétés et leur description pou
 |Correspondance du nombre de lots| La limite recommandée sur le nombre d’enregistrements envoyés avec chaque bloc insérer une transaction.|
 
 > [!NOTE]
-> L’offre de base de données SQL Azure est actuellement prise en charge pour une sortie de tâche dans Stream Analytics. Une machine virtuelle Azure exécutant SQL Server avec une base de données attachée n’est pas pris en charge. Cela est susceptible de changer dans des futures versions.
+> L’offre Azure SQL Database est actuellement prise en charge pour une sortie de tâche dans Stream Analytics. Une machine virtuelle Azure exécutant SQL Server avec une base de données attachée n’est pas pris en charge. Cela est susceptible de changer dans des futures versions.
 >
 
 ## <a name="blob-storage"></a>Stockage d'objets blob

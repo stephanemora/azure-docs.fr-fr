@@ -1,6 +1,6 @@
 ---
 title: Exécuter des tâches Apache Sqoop avec .NET et HDInsight - Azure
-description: Découvrez comment utiliser le Kit de développement logiciel (SDK) .NET HDInsight pour exécuter l’exportation et l’importation Apache Sqoop entre un cluster Apache Hadoop et une base de données SQL Azure.
+description: Découvrez comment utiliser le kit SDK .NET HDInsight pour exécuter l’exportation et l’importation Apache Sqoop entre un cluster Apache Hadoop et une base de données Azure SQL.
 keywords: travail sqoop
 ms.reviewer: jasonh
 author: hrasheed-msft
@@ -19,7 +19,7 @@ ms.locfileid: "64710116"
 # <a name="run-apache-sqoop-jobs-by-using-net-sdk-for-apache-hadoop-in-hdinsight"></a>Exécuter des tâches Apache Sqoop avec le SDK .NET pour Apache Hadoop dans HDInsight
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
 
-Découvrez comment utiliser le Kit de développement logiciel (SDK) .NET Azure HDInsight pour exécuter des tâches Apache Sqoop dans HDInsight afin d’effectuer des opérations d’importation et d’exportation entre un cluster HDInsight et une base de données SQL Azure ou SQL Server.
+Découvrez comment utiliser le kit SDK .NET Azure HDInsight pour exécuter des tâches Apache Sqoop dans HDInsight afin d’effectuer des opérations d’importation et d’exportation entre un cluster HDInsight et une base de données Azure SQL ou SQL Server.
 
 > [!NOTE]
 > Même si vous pouvez utiliser les procédures décrites dans cet article avec un cluster HDInsight Windows ou Linux, ces dernières fonctionnent uniquement à partir d’un client Windows. Pour choisir d’autres méthodes, utilisez le sélecteur d’onglet en haut de cet article.
@@ -30,7 +30,7 @@ Avant de commencer ce didacticiel, vous devez disposer de l’élément suivant�
 * Un cluster Apache Hadoop dans HDInsight. Pour plus d’informations, consultez [Création du cluster et de la base de données SQL](hdinsight-use-sqoop.md#create-cluster-and-sql-database).
 
 ## <a name="use-sqoop-on-hdinsight-clusters-with-the-net-sdk"></a>Utiliser Sqoop sur des clusters HDInsight avec le Kit de développement logiciel (SDK) .NET
-Le Kit de développement logiciel (SDK) .NET HDInsight fournit des bibliothèques clientes .NET facilitant l'utilisation des clusters HDInsight à partir de .NET. Dans cette section, vous allez créer une application console C# pour exporter la table hivesampletable vers la table de base de données SQL Azure créée précédemment dans ce didacticiel.
+Le Kit de développement logiciel (SDK) .NET HDInsight fournit des bibliothèques clientes .NET facilitant l'utilisation des clusters HDInsight à partir de .NET. Dans cette section, vous allez créer une application console C# pour exporter la table hivesampletable vers la table Azure SQL Database créée précédemment dans ce tutoriel.
 
 ## <a name="submit-a-sqoop-job"></a>Envoyer un travail Sqoop
 

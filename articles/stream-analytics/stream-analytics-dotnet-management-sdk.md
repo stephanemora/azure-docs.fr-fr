@@ -213,7 +213,7 @@ La méthode **TestConnection** teste si le travail Stream Analytics est en mesur
 ## <a name="create-a-stream-analytics-output-target"></a>Création d’une cible de sortie Stream Analytics
 La création d’une cible de sortie est très similaire à la création d’une source d’entrée Stream Analytics. Tout comme les sources d’entrée, les cibles de sortie sont liées à une tâche spécifique. Pour utiliser la même cible de sortie pour différents travaux, vous devez appeler la méthode à nouveau et spécifier un nom de travail différent.
 
-Le code suivant crée une cible de sortie (base de données SQL Azure). Vous pouvez personnaliser le type de données de la cible de sortie et/ou le type de sérialisation.
+Le code suivant crée une cible de sortie (base de données Azure SQL). Vous pouvez personnaliser le type de données de la cible de sortie et/ou le type de sérialisation.
 
    ```csharp
    // Create an output

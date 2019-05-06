@@ -44,6 +44,18 @@
       href: delegated-access-virtual-desktop.md
     - name: Méthodes d’équilibrage de charge des pools d’hôtes
       href: host-pool-load-balancing.md
+- name: Résolution des problèmes
+  items:
+    - name: 'Vue d’ensemble du dépannage, commentaires et support'
+      href: troubleshoot-set-up-overview.md
+    - name: Création d’un pool de locataires et d’hôtes
+      href: troubleshoot-set-up-issues.md
+    - name: Configuration d’une machine virtuelle hôte de session
+      href: troubleshoot-vm-configuration.md
+    - name: Connexions au client Bureau à distance
+      href: troubleshoot-client-connection.md
+    - name: Windows Virtual Desktop PowerShell
+      href: troubleshoot-powershell.md
 - name: Informations de référence
   items:
     - name: PowerShell

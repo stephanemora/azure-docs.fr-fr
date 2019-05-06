@@ -3,7 +3,7 @@ documentType: LandingData
 title: Documentation sur Azure AD Identity Governance
 metadata:
   document_id: null
-  title: "Documentation sur Azure Active Directory Identity Governance\_| Microsoft Docs"
+  title: "Documentation Azure Active Directory Identity Governance\_| Microsoft Docs"
   description: Découvrez la gouvernance du cycle de vie des identités et des accès et sécurisez l’administration entre employés et partenaires.
   services: active-directory
   author: rolyon
@@ -12,10 +12,10 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 08/16/2018
+  ms.date: 04/18/2019
   ms.author: rolyon
 abstract:
-  description: Azure Active Directory Identity Governance permet aux entreprises de régir le cycle de vie des identités et des accès et de sécuriser l’administration entre employés et partenaires.
+  description: Azure Active Directory Identity Governance permet aux entreprises de régir le cycle de vie des identités et des accès ainsi que de sécuriser l’administration entre employés et partenaires.
   aside:
     image:
       alt: null
@@ -31,18 +31,26 @@ sections:
       - type: list
         style: unordered
         items:
-          - html: "<a href=\"/azure/active-directory/governance/identity-governance-overview\">Qu’est-ce que la gouvernance des identités\_?</a>"
+          - html: <a href="/azure/active-directory/governance/identity-governance-overview">Présentation de la gouvernance des identités</a>
+  - title: Gestion des droits d’utilisation (préversion)
+    items:
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/active-directory/governance/entitlement-management-overview">Présentation de la gestion des droits d’utilisation Azure AD</a>
+          - html: "<a href=\"/azure/active-directory/governance/entitlement-management-access-package-first\">Tutoriel\_: Créer votre premier package d’accès</a>"
+          - html: <a href="/azure/active-directory/governance/entitlement-management-access-package-edit">Modifier et gérer un package d’accès existant</a>
   - title: Révisions d’accès
     items:
       - type: list
         style: unordered
         items:
-          - html: "<a href=\"/azure/active-directory/governance/access-reviews-overview\">Qu’est-ce qu’une révision d’accès\_?</a>"
-          - html: <a href="/azure/active-directory/governance/manage-user-access-with-access-reviews">Gérer l’accès des utilisateurs avec les révisions d’accès</a>
-          - html: <a href="/azure/active-directory/governance/manage-guest-access-with-access-reviews">Gérer l’accès des invités avec les révisions d’accès</a>
+          - html: <a href="/azure/active-directory/governance/access-reviews-overview">Présentation des révisions d’accès Azure AD</a>
+          - html: <a href="/azure/active-directory/governance/create-access-review">Créer une révision d’accès des groupes ou des applications</a>
+          - html: <a href="/azure/active-directory/governance/perform-access-review">Vérifier l’accès à des groupes ou applications</a>
   - title: Conditions d’utilisation
     items:
       - type: list
         style: unordered
         items:
-          - html: <a href="/azure/active-directory/conditional-access/terms-of-use">Que puis-je faire avec Conditions d’utilisation ?</a>
+          - html: "<a href=\"/azure/active-directory/conditional-access/terms-of-use\">Des conditions d’utilisation sont requises\_?</a>"

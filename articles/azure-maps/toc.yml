@@ -42,7 +42,7 @@
           href: render-coverage.md
         - name: Couverture du routage
           href: routing-coverage.md
-    - name: Langues prises en charge
+    - name: Prise en charge de la localisation
       href: supported-languages.md
     - name: Styles de carte pris en charge
       href: supported-map-styles.md
@@ -74,11 +74,11 @@
       items:
         - name: Commandes de la carte
           items:
-            - name: Utiliser le contrôle de carte
+            - name: Bien démarrer avec le contrôle de carte web
               href: how-to-use-map-control.md
             - name: Créer une carte
               href: map-create.md
-            - name: Choisir un style de mappage
+            - name: Changer le style de la carte
               href: choose-map-style.md
             - name: Ajouter des commandes à la carte
               href: map-add-controls.md
@@ -120,8 +120,14 @@
               href: map-route.md
     - name: Développer avec le kit Android SDK
       items:
-        - name: Guide pratique pour utiliser les commandes de carte Android
+        - name: Bien démarrer avec le contrôle de carte Android
           href: how-to-use-android-map-control-library.md
+        - name: Ajouter un calque de symboles
+          href: how-to-add-symbol-to-android-map.md
+        - name: Ajouter des formes
+          href: how-to-add-shapes-to-android-map.md
+        - name: Changer le style de la carte
+          href: set-android-map-styles.md
 - name: Informations de référence
   items:
     - name: Extensions d’API et de paramètre

@@ -23,7 +23,7 @@ ms.locfileid: "61261983"
 IR est l’infrastructure de calcul utilisée par Azure Data Factory pour fournir les fonctionnalités d’intégration de données suivantes entre différents environnements réseau :
 
 - **Déplacement des données** : copie des données entre les banques de données d’un réseau public et celles d’un réseau privé (sur un réseau privé local ou virtuel). Les connecteurs intégrés, la conversion de format, le mappage de colonnes, ainsi que les transferts de données performants et évolutifs sont pris en charge.
-- **Répartition des activités** :  répartit et analyse les activités de transformation exécutées sur un large éventail de services de calcul, tels qu’Azure HDInsight, Azure Machine Learning, Azure SQL Database, SQL Server, etc.
+- **Répartition des activités** :  Répartit et analyse les activités de transformation exécutées sur un large éventail de services de calcul, tels qu’Azure HDInsight, Azure Machine Learning, Azure SQL Database, SQL Server, etc.
 - **Exécution des packages SSIS** : exécute en mode natif les packages SSIS (SQL Server Integration Services) dans un environnement Compute Azure managé.
 
 Dans Data Factory, une activité désigne l’action à effectuer. Un service lié désigne un magasin de données cible ou un service de calcul. Un runtime d’intégration permet de créer une passerelle entre l’activité et les services liés.  Il est référencé par le service lié et fournit l’environnement de calcul dans lequel l’activité s’exécute ou depuis lequel elle est envoyée.  L’activité peut être effectuée de la façon la plus efficace possible dans la région la plus proche du magasin de données cible ou du service de calcul, tout en respectant les exigences de conformité et de sécurité.

@@ -1,5 +1,5 @@
 ---
-title: Exemple Azure SQL Database en mémoire | Microsoft Docs
+title: Exemple de technologies en mémoire Azure SQL Database | Microsoft Docs
 description: Essayez les technologies en mémoire d’Azure SQL Database avec l’exemple columnstore et OLTP.
 services: sql-database
 ms.service: sql-database
@@ -46,7 +46,7 @@ Pour une démonstration plus simple mais intéressante des performances de l’O
 
 #### <a name="installation-steps"></a>Procédure d’installation :
 
-1. Dans le [portail Azure](https://portal.azure.com/), créez une base de données Premium ou Critique pour l’entreprise sur un serveur. Définissez comme valeur **Source** l’exemple de base de données AdventureWorksLT. Pour obtenir des instructions détaillées, consultez [Créer votre première base de données SQL Azure](sql-database-single-database-get-started.md).
+1. Dans le [portail Azure](https://portal.azure.com/), créez une base de données Premium ou Critique pour l’entreprise sur un serveur. Définissez comme valeur **Source** l’exemple de base de données AdventureWorksLT. Pour obtenir des instructions détaillées, consultez [Créer votre première base de données Azure SQL](sql-database-single-database-get-started.md).
 
 2. Connectez-vous à la base de données avec [SQL Server Management Studio (SSMS.exe)](https://msdn.microsoft.com/library/mt238290.aspx).
 

@@ -57,7 +57,7 @@ Prend en charge :
 - Les abonnés peuvent être dans les bases de données de SQL Server sur site, les instances de bases de données unique/gérées dans Azure SQL Database ou bases de données regroupées dans des pools élastiques Azure SQL Database.
 - La réplication unidirectionnelle ou bidirectionnelle.
 
-Les fonctionnalités suivantes ne sont pas prises en charge dans une instance managée d’Azure SQL Database :
+Les fonctionnalités suivantes ne sont pas prises en charge dans une instance managée Azure SQL Database :
 
 - [À abonnements](/sql/relational-databases/replication/transactional/updatable-subscriptions-for-transactional-replication).
 - [Géo-réplication Active](sql-database-active-geo-replication.md) et [groupes de basculement automatique](sql-database-auto-failover-group.md) ne doit pas être utilisé si la réplication transactionnelle est configurée.

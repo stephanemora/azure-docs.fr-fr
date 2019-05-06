@@ -1,6 +1,6 @@
 ---
 title: 'Application SaaS : Superviser les performances de nombreuses bases de données Azure SQL | Microsoft Docs'
-description: Surveiller et gérer les performances des bases de données SQL Azure et des pools dans une application SaaS multilocataire
+description: Surveiller et gérer les performances des bases de données Azure SQL et des pools dans une application SaaS multilocataire
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
@@ -19,7 +19,7 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "61388590"
 ---
-# <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>Surveiller et gérer les performances des bases de données SQL Azure et des pools dans une application SaaS multilocataire
+# <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>Surveiller et gérer les performances des bases de données Azure SQL et des pools dans une application SaaS multilocataire
 
 Ce didacticiel aborde plusieurs scénarios de gestion de performance clés utilisés dans les applications SaaS. Les fonctionnalités intégrées de surveillance et d’alerte de base de données de SQL Database, ainsi que les pools élastiques sont illustrés à l’aide d’un générateur de charge destiné à simuler l’activité de toutes les bases de données client.
 

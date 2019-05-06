@@ -292,7 +292,7 @@ Le tableau suivant répertorie les champs qui font partie des données de diffus
 
 Vous avez défini un flux d’événements, une entrée de concentrateur Event Hub pour ingérer des événements, et une requête pour effectuer une transformation sur le flux. La dernière étape consiste à définir un récepteur de sortie pour le travail.  
 
-Dans ce didacticiel, vous écrivez les événements de tweet agrégés de la requête de travail dans un stockage Blob Azure.  Selon les besoins de votre application, vous pouvez également transmettre vos résultats à une base de données Azure SQL Database, un stockage Table Azure, Event Hubs ou Power BI.
+Dans ce didacticiel, vous écrivez les événements de tweet agrégés de la requête de travail dans un stockage Blob Azure.  Selon les besoins de votre application, vous pouvez également transmettre vos résultats à Azure SQL Database, le stockage Table Azure, Event Hubs ou Power BI.
 
 ## <a name="specify-the-job-output"></a>Spécification de la sortie du travail
 

@@ -87,7 +87,7 @@ Pour copier des données à partir de Table web, affectez la valeur **WebTable**
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | type | La propriété type du jeu de données doit être définie sur : **WebTable** | Oui |
-| chemin d’accès |URL relative de la ressource qui contient la table. |Non. Quand le chemin d’accès n’est pas spécifié, seule l’URL spécifiée dans la définition du service lié est utilisée. |
+| path |URL relative de la ressource qui contient la table. |Non. Quand le chemin d’accès n’est pas spécifié, seule l’URL spécifiée dans la définition du service lié est utilisée. |
 | index |Index de la table dans la ressource. Pour savoir comment obtenir l’index d’une table dans une page HTML, consultez la section [Obtenir l’index d’une table dans une page HTML](#get-index-of-a-table-in-an-html-page) . |Oui |
 
 **Exemple :**

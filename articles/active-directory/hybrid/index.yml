@@ -4,7 +4,7 @@ title: Documentation des identités hybrides
 metadata:
   document_id: 44409b3f-ab8c-053d-cdf4-5d7e823a275e
   title: Documentation des identités hybrides
-  meta.description: 'Azure AD Connect will integrate your on-premises directories with Azure Active Directory. This allows you to provide a common identity for your users for Office 365, Azure, and SaaS applications integrated with Azure AD.'
+  description: 'Azure AD Connect intègre vos répertoires locaux à Azure Active Directory. Cela vous permet de fournir une identité commune à vos utilisateurs pour les applications Office 365, Azure et SaaS intégrées à Azure AD.'
   services: active-directory
   author: billmath
   manager: daveba
@@ -18,7 +18,7 @@ abstract:
   description: "Les solutions d'identité de Microsoft regroupent des fonctionnalités, locales et cloud, de création d'une identité d'utilisateur unique pour l'authentification et l'autorisation d'accès à toutes les ressources, indépendamment de l'emplacement. Nous appelons cette identité «\_identité hybride\_».</br></br></br>Azure AD Connect intègre vos répertoires locaux à Azure Active Directory. Cela vous permet de fournir une identité commune à vos utilisateurs pour les applications Office 365, Azure et SaaS intégrées à Azure AD. Cette rubrique vous guide dans les étapes de planification, de déploiement et opérationnelles. Elle comporte un ensemble de liens vers les rubriques associées à cette zone."
   aside:
     image:
-      alt: null
+      alt: "vidéo channel\_9"
       height: 110
       src: media/index/video2.png
       width: 250
@@ -36,16 +36,19 @@ sections:
           - href: /azure/active-directory/hybrid/tutorial-password-hash-sync
             html: <p>Découvrez comment étendre vos identités au cloud avec la synchronisation du hachage de mot de passe.</p>
             image:
+              alt: synchronisation du hachage de mot de passe
               src: media/index/azuread2.png
             title: Intégrer une forêt AD unique avec la synchronisation du hachage de mot de passe (PHS)
           - href: /azure/active-directory/hybrid/tutorial-passthrough-authentication
             html: <p>Découvrez comment étendre vos identités au cloud avec l’authentification directe.</p>
             image:
+              alt: authentification directe
               src: media/index/manage2.png
             title: Intégrer une forêt AD unique avec l’authentification directe (PTA)
           - href: /azure/active-directory/hybrid/tutorial-federation
             html: <p>Découvrez comment fédérer Azure Active Directory (Azure AD) Connect avec les services locaux Active Directory Federation Services (AD FS) et Azure AD.</p>
             image:
+              alt: fédération
               src: media/index/federate2.png
             title: Intégrer une forêt AD unique avec la fédération
   - title: Guides pratiques

@@ -152,6 +152,8 @@
         - name: Quotas de processeurs virtuels
           href: ../virtual-machines/windows/quotas.md
           maintainContext: true
+    - name: FAQ sur le groupe identique
+      href: virtual-machine-scale-sets-faq.md
 - name: Procédure
   items:
     - name: Planifier et concevoir
@@ -183,6 +185,9 @@
               href: virtual-machine-scale-sets-autoscale-portal.md
             - name: Mise à l’échelle automatique avancée
               href: ../azure-monitor/platform/autoscale-virtual-machine-scale-sets.md
+              maintainContext: true
+            - name: Résoudre les problèmes de mise à l’échelle
+              href: virtual-machine-scale-sets-troubleshoot.md
         - name: Applications dans les groupes de machines virtuelles identiques
           href: virtual-machine-scale-sets-deploy-app.md
         - name: Extensions sur les groupes identiques
@@ -199,6 +204,9 @@
               href: virtual-machine-scale-sets-encrypt-disks-ps.md
             - name: "Utilisation de l’interface de ligne de commande Microsoft\_Azure"
               href: virtual-machine-scale-sets-encrypt-disks-cli.md
+            - name: Chiffrement de disque avec séquencement d’extensions
+              href: ../security/azure-security-disk-encryption-extension-sequencing.md
+              maintainContext: true
         - name: Travailler avec des groupes identiques de grande taille
           href: virtual-machine-scale-sets-placement-groups.md
         - name: Convertir un modèle de groupe identique pour utiliser un disque géré
@@ -247,14 +255,6 @@
         - name: Mettre à l’échelle un groupe identique
           href: /azure/ansible/ansible-auto-scale-vmss
           maintainContext: true
-    - name: Résolution des problèmes
-      items:
-        - name: Autoscale
-          href: virtual-machine-scale-sets-troubleshoot.md
-    - name: Forum Aux Questions
-      items:
-        - name: FAQ sur le groupe identique
-          href: virtual-machine-scale-sets-faq.md
 - name: Informations de référence
   items:
     - name: Azure PowerShell

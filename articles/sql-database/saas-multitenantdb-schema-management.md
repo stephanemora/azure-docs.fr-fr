@@ -1,6 +1,6 @@
 ---
-title: Gérer le schéma Azure SQL Database dans une application mutualisée | Microsoft Docs
-description: Gérer un schéma pour plusieurs locataires dans une application mutualisée qui utilise Azure SQL Database
+title: Gérer le schéma Azure SQL Database dans une application multilocataire | Microsoft Docs
+description: Gérer un schéma pour plusieurs locataires dans une application multilocataire qui utilise Azure SQL Database
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
@@ -53,7 +53,7 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 - Azure PowerShell doit être installé. Pour plus d’informations, consultez [Prise en main d’Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
 > [!NOTE]
-> Ce didacticiel utilise des fonctionnalités du service Azure SQL Database en préversion limitée ([tâches de base de données élastiques](sql-database-elastic-database-client-library.md)). Si vous souhaitez réaliser ce didacticiel, indiquez votre ID d’abonnement à *SaaSFeedback\@microsoft.com* avec l’objet = préversion des travaux élastiques. Une fois que vous avez reçu la confirmation que votre abonnement a été activé, [téléchargez et installez les dernières applets de commande pour les travaux en version préliminaire](https://github.com/jaredmoo/azure-powershell/releases). Cette préversion est limitée, par conséquent, contactez *SaaSFeedback\@microsoft.com* pour toute question ou associée prise en charge.
+> Ce tutoriel utilise des fonctionnalités du service Azure SQL Database en préversion limitée ([tâches de base de données élastiques](sql-database-elastic-database-client-library.md)). Si vous souhaitez réaliser ce didacticiel, indiquez votre ID d’abonnement à *SaaSFeedback\@microsoft.com* avec l’objet = préversion des travaux élastiques. Une fois que vous avez reçu la confirmation que votre abonnement a été activé, [téléchargez et installez les dernières applets de commande pour les travaux en version préliminaire](https://github.com/jaredmoo/azure-powershell/releases). Cette préversion est limitée, par conséquent, contactez *SaaSFeedback\@microsoft.com* pour toute question ou associée prise en charge.
 
 ## <a name="introduction-to-saas-schema-management-patterns"></a>Présentation des modèles de gestion de schéma SaaS
 
@@ -73,7 +73,7 @@ Les scripts de base de données Wingtip Tickets SaaS mutualisée et le code sour
 
 ## <a name="create-a-job-agent-database-and-new-job-agent"></a>Créer une base de données d’agent de travail et un nouvel agent de travail
 
-Ce didacticiel nécessite l’utilisation de PowerShell pour créer la base de données de l’agent de travail et l’agent de travail. Comme la base de données MSDB utilisée par SQL Agent, un agent de travail utilise une base de données SQL Azure pour stocker les définitions, l’état et l’historique des travaux. Une fois l’agent de travail créé, vous pouvez immédiatement créer et surveiller des travaux.
+Ce didacticiel nécessite l’utilisation de PowerShell pour créer la base de données de l’agent de travail et l’agent de travail. Comme la base de données MSDB utilisée par SQL Agent, un agent de travail utilise une base de données Azure SQL pour stocker les définitions, l’état et l’historique des travaux. Une fois l’agent de travail créé, vous pouvez immédiatement créer et surveiller des travaux.
 
 1. Dans **PowerShell ISE**, ouvrez *...\\Learning Modules\\Schema Management\\Demo-SchemaManagement.ps1*.
 2. Appuyez sur **F5** pour exécuter le script.

@@ -1,6 +1,6 @@
 ---
-title: Limites de ressources Azure SQL Database - instance gérée | Microsoft Docs
-description: Cet article fournit une vue d’ensemble des limites de ressources Azure SQL Database pour les instances gérées.
+title: Limites des ressources Azure SQL Database - instance managée | Microsoft Docs
+description: Cet article fournit une vue d’ensemble des limites de ressources Azure SQL Database pour les instances managées.
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance

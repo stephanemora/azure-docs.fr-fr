@@ -1,5 +1,5 @@
 ---
-title: Topologies de réseau pour des migrations d’Azure SQL Database Managed Instance à l’aide de Azure Database Migration Service | Microsoft Docs
+title: Topologies réseau pour des migrations d’Azure SQL Database Managed Instance avec Azure Database Migration Service | Microsoft Docs
 description: Découvrez les configurations de la source et de la cible pour Database Migration Service.
 services: database-migration
 author: HJToland3
@@ -22,7 +22,7 @@ ms.locfileid: "61097790"
 Cet article traite de différentes topologies de réseau avec lesquelles Azure Database Migration Service peut fonctionner pour offrir une expérience de la migration complète vers Azure SQL Database Managed Instance à partir de serveurs SQL locaux.
 
 ## <a name="azure-sql-database-managed-instance-configured-for-hybrid-workloads"></a>Azure SQL Database Managed Instance configuré pour les charges de travail hybrides 
-Utilisez cette topologie si votre Azure SQL Database Managed Instance est connecté à votre réseau local. Cette approche fournit le routage réseau le plus simplifié et génère le débit de données maximale lors de la migration.
+Utilisez cette topologie si votre instance Azure SQL Database Managed Instance est connectée à votre réseau local. Cette approche fournit le routage réseau le plus simplifié et génère le débit de données maximale lors de la migration.
 
 ![Topologie de réseau pour les charges de travail hybrides](media/resource-network-topologies/hybrid-workloads.png)
 
@@ -32,7 +32,7 @@ Utilisez cette topologie si votre Azure SQL Database Managed Instance est connec
 
 ## <a name="azure-sql-database-managed-instance-isolated-from-the-on-premises-network"></a>Azure SQL Database Managed Instance isolé du réseau local
 Utilisez cette topologie de réseau si votre environnement requiert un ou plusieurs des scénarios suivants :
-- Azure SQL Database Managed Instance est isolé de la connectivité locale, mais votre Azure Database Migration Service Instance est connecté au réseau local.
+- Azure SQL Database Managed Instance est isolé de la connectivité locale, mais votre instance Azure Database Migration Service est connectée au réseau local.
 - Si les stratégies RBAC (Role Based Access Control) sont en place et que vous devez limiter l’accès utilisateur au même abonnement que celui qui héberge Azure SQL Database Managed Instance.
 - Les réseaux virtuels utilisés pour Azure SQL Database Managed Instance et Azure Database Migration Service Instance se trouvent dans des abonnements différents.
 
@@ -78,7 +78,7 @@ Utilisez cette topologie de réseau si votre environnement requiert un ou plusie
 | Diagnostics               | 12 000                                                 | TCP          | Quelconque        | Quelconque                       | AUTORISER      | DMS utilise cette règle pour collecter des informations de diagnostic à des fins de dépannage.                                                                                                                      |
 | Serveur source SQL         | 1433 (ou port TCP IP que SQL Server écoute) | TCP          | Quelconque        | Espace d’adressage local | AUTORISER      | Connectivité source SQL Server à partir de DMS <br/>(Si vous disposez d’une connectivité de site à site, vous n’aurez peut-être pas besoin de cette règle.)                                                                                       |
 | Instance nommée SQL Server | 1434                                                  | UDP          | Quelconque        | Espace d’adressage local | AUTORISER      | Connectivité source de l’instance nommée SQL Server à partir de DMS <br/>(Si vous disposez d’une connectivité de site à site, vous n’aurez peut-être pas besoin de cette règle.)                                                                        |
-| Partage SMB                 | 445                                                   | TCP          | Quelconque        | Espace d’adressage local | AUTORISER      | Partage réseau SMB pour DMS afin de stocker les fichiers de sauvegarde des bases de données pour les migrations vers Azure SQL Database MI et SQL Server sur Azure VM <br/>(Si vous disposez d’une connectivité de site à site, vous n’aurez peut-être pas besoin de cette règle). |
+| Partage SMB                 | 445                                                   | TCP          | Quelconque        | Espace d’adressage local | AUTORISER      | Partage réseau SMB pour DMS afin de stocker les fichiers de sauvegarde des bases de données pour les migrations vers Azure SQL Database MI et SQL Server sur machines virtuelles Azure <br/>(Si vous disposez d’une connectivité de site à site, vous n’aurez peut-être pas besoin de cette règle). |
 | DMS_subnet                | Quelconque                                                   | Quelconque          | Quelconque        | DMS_subnet                | AUTORISER      |                                                                                                                                                                                                  |
 
 ## <a name="see-also"></a>Voir aussi

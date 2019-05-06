@@ -60,16 +60,22 @@
     - name: Vue d’ensemble de l’ingestion de données
       displayName: 'pipelines, connectors, plugins, Python, .NET, Java, Node, REST'
       href: ingest-data-overview.md
-    - name: Analyse des séries chronologiques
-      href: time-series-analysis.md
 - name: Guides pratiques
   items:
     - name: Prise en main
       items:
-        - name: Rédiger des requêtes
-          href: write-queries.md
         - name: Ingérer des exemples de données
           href: ingest-sample-data.md
+    - name: Données de requête
+      items:
+        - name: Rédiger des requêtes
+          href: write-queries.md
+        - name: Analyse des séries chronologiques
+          href: time-series-analysis.md
+        - name: Détection d’anomalies et prévision
+          href: anomaly-detection.md
+        - name: Apprentissage automatique
+          href: machine-learning-clustering.md
     - name: gérer
       items:
         - name: Gérer des autorisations de base de données
@@ -90,6 +96,8 @@
           href: using-metrics.md
     - name: Utiliser d’autres outils
       items:
+        - name: Connecteur Apache Spark
+          href: spark-connector.md
         - name: Se connecter à partir de Databricks à l’aide de Python
           href: connect-from-databricks.md
         - name: Analyser des données dans Jupyter Notebook et Kqlmagic

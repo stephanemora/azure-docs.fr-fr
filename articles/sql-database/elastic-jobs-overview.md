@@ -1,6 +1,6 @@
 ---
 title: Travaux de base de données élastiques SQL Azure | Microsoft Docs
-description: Configurer des travaux de base de données élastiques pour exécuter des scripts T-SQL (Transact-SQL) sur une ou plusieurs bases de données SQL Azure
+description: Configurer des travaux de base de données élastiques pour exécuter des scripts T-SQL (Transact-SQL) sur une ou plusieurs bases de données Azure SQL
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out

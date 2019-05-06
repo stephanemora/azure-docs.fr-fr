@@ -1,6 +1,6 @@
 ---
 title: Exemple de synchronisation PowerShell entre plusieurs bases de données Azure SQL | Microsoft Docs
-description: Exemple de script Azure PowerShell pour la synchronisation entre plusieurs bases de données SQL Azure
+description: Exemple de script Azure PowerShell pour la synchronisation entre plusieurs bases de données Azure SQL
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement

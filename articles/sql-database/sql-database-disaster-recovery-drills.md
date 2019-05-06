@@ -1,6 +1,6 @@
 ---
 title: Exercices de récupération d’urgence de SQL Database | Microsoft Docs
-description: Découvrez les conseils et meilleures pratiques pour l’utilisation d’Azure SQL Database pour effectuer des exercices de récupération d’urgence.
+description: Découvrez les conseils et bonnes pratiques pour l’utilisation d’Azure SQL Database pour effectuer des exercices de récupération d’urgence.
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -29,7 +29,7 @@ L'exécution d'un exercice de récupération d'urgence comprend :
 * la récupération
 * la validation de l'intégrité des applications après la récupération
 
-Le flux de travail à exécuter peut varier en fonction de la [conception de votre application pour la continuité des activités](sql-database-business-continuity.md). Cet article décrit les bonnes pratiques pour l’exécution d’un exercice de récupération d’urgence dans le contexte d’Azure SQL Database.
+Le flux de travail à exécuter peut varier en fonction de la [conception de votre application pour la continuité des activités](sql-database-business-continuity.md). Cet article décrit les bonnes pratiques pour effectuer une reprise d’activité après sinistre dans le contexte d’une base de données Azure SQL.
 
 ## <a name="geo-restore"></a>Géo-restauration
 
@@ -69,6 +69,6 @@ Terminez l’exercice en vérifiant l’intégrité de l’application après la
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour en savoir plus sur les scénarios de continuité d’activité, consultez [Scénarios de continuité](sql-database-business-continuity.md).
-* Pour en savoir plus sur les sauvegardes automatisées d’une base de données SQL Azure, consultez [Sauvegardes automatisées d’une base de données SQL](sql-database-automated-backups.md)
+* Pour en savoir plus sur les sauvegardes automatisées Azure SQL Database, consultez [Sauvegardes automatisées SQL Database](sql-database-automated-backups.md)
 * Pour en savoir plus sur l’utilisation des sauvegardes automatisées pour la récupération, consultez [Restaurer une base de données à partir des sauvegardes initiées par le service](sql-database-recovery-using-backups.md).
 * Pour découvrir des options de récupération plus rapides, consultez [Géoréplication active](sql-database-active-geo-replication.md) et [Groupes de basculement automatique](sql-database-auto-failover-group.md).

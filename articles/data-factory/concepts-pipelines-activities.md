@@ -254,7 +254,7 @@ Par exemple, si un pipeline contient Activité A -> Activité B, les différents
 ```
 
 ## <a name="sample-copy-pipeline"></a>Exemple de pipeline de copie
-Dans l’exemple de pipeline suivant, il existe une activité de type **Copy** in the **d’activités** . Dans cet exemple, l’[activité de copie](copy-activity-overview.md) copie des données d’un stockage Blob Azure vers une base de données SQL Azure.
+Dans l’exemple de pipeline suivant, il existe une activité de type **Copy** in the **d’activités** . Dans cet exemple, l’[activité de copie](copy-activity-overview.md) copie des données d’un stockage Blob Azure vers une base de données Azure SQL.
 
 ```json
 {

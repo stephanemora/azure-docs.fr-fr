@@ -26,8 +26,8 @@ La réplication SQL Server peut être configurée pour les bases de données uni
 ## <a name="supported-configurations"></a>**Configurations prises en charge :**
   
 - Le serveur SQL Server peut être une instance SQL Server exécutée localement ou une instance SQL Server exécutée sur une machine virtuelle Azure dans le cloud. Pour plus d’informations, consultez [Présentation de SQL Server sur les machines virtuelles Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-sql-server-infrastructure-services/).  
-- La base de données SQL Azure doit être abonnée à un abonnement par émission de données sur un serveur de publication SQL Server.  
-- La base de données de distribution et les agents de réplication ne peuvent pas être placés dans une base de données SQL Azure.  
+- La base de données Azure SQL doit être abonnée à un abonnement par push sur un serveur de publication SQL Server.  
+- La base de données de distribution et les agents de réplication ne peuvent pas être placés dans une base de données Azure SQL.  
 - Les réplications par capture instantanée et par transaction monodirectionnelle sont prises en charge. Les réplications transactionnelles pair à pair et les réplications de fusion ne sont pas prises en charge.
 - La réplication est disponible en préversion publique dans Azure SQL Database Managed Instance. Managed Instance peut héberger des bases de données de serveur de publication, de serveur de distribution et d’abonné. Pour plus d’informations, consultez [Réplication avec SQL Database Managed Instance](replication-with-sql-database-managed-instance.md).
 
@@ -40,18 +40,18 @@ La réplication SQL Server peut être configurée pour les bases de données uni
 - SQL Server 2014 (12.x) RTM CU10
 - SQL Server 2012 (11.x) SP2 CU8 ou SP3
 - Si vous configurez la réplication avec une version antérieure, les erreurs suivantes pourront se produire : MSSQL_REPL20084 (le processus n’a pas pu se connecter à l’abonné) et MSSQL_REPL40532 (impossible d’ouvrir le serveur \<nom> demandé par la connexion. La connexion a échoué).  
-- Pour bénéficier de toutes les fonctionnalités d’Azure SQL Database, vous devez utiliser les dernières versions de [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) et de [SQL Server Data Tools](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).  
+- Pour bénéficier de toutes les fonctionnalités Azure SQL Database, vous devez utiliser les dernières versions de [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) et de [SQL Server Data Tools](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).  
   
 ## <a name="remarks"></a>Remarques
 
 - La réplication peut être configurée à l’aide de [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) ou en exécutant des instructions Transact-SQL sur le serveur de publication. Vous ne pouvez pas configurer la réplication dans le portail Azure.  
-- La réplication peut uniquement utiliser des connexions d’authentification SQL Server pour se connecter à une base de données SQL Azure.
+- La réplication peut uniquement utiliser des connexions d’authentification SQL Server pour se connecter à une base de données Azure SQL.
 - Les tables répliquées doivent avoir une clé primaire.  
 - Vous devez disposer d’un abonnement Azure existant.  
-- L’abonné à la base de données SQL Azure peut se trouver dans n’importe quelle région.  
+- L’abonné à la base de données Azure SQL peut se trouver dans n’importe quelle région.  
 - Une même publication sur SQL Server peut prendre en charge à la fois les abonnés Azure SQL Database et SQL Server (localement et sur une machine virtuelle Azure).  
 - La gestion, la supervision et le dépannage des réplications doivent être effectués sur l’instance locale de SQL Server.  
-- Seuls les abonnements par émission de données à Azure SQL Database sont pris en charge.  
+- Seuls les abonnements par push à Azure SQL Database sont pris en charge.  
 - Seul `@subscriber_type = 0` est pris en charge dans **sp_addsubscription** pour SQL Database.  
 - Azure SQL Database ne prend pas en charge les réplications bidirectionnelles, immédiates, actualisables et de pair à pair.
 
@@ -70,12 +70,12 @@ La réplication SQL Server peut être configurée pour les bases de données uni
 ### <a name="data-migration-scenario"></a>Scénario de migration des données  
 
 1. Utilisez la réplication transactionnelle pour répliquer les données d’une base de données SQL Server locale vers Azure SQL Database.  
-2. Redirigez les applications clientes ou de niveau intermédiaire pour mettre à jour la copie de la base de données SQL Azure.  
+2. Redirigez les applications clientes ou de niveau intermédiaire pour mettre à jour la copie de la base de données Azure SQL.  
 3. Arrêtez la mise à jour de la version SQL Server de la table, puis supprimez la publication.  
 
 ## <a name="limitations"></a>Limites
 
-Les options suivantes ne sont pas prises en charge pour les abonnements Azure SQL Database :
+Les options suivantes ne sont pas prises en charge pour les abonnements Azure SQL Database :
 
 - Copier les associations de groupes de fichiers  
 - Copier les schémas de partition de table  

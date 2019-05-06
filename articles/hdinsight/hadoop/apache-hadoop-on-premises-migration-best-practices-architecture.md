@@ -89,7 +89,7 @@ HDInsight utilise Azure SQL Database pour les metastores Hive et Oozie. Deux mé
 
 1. Metastore externe personnalisé
 
-    - Spécifiez une base de données SQL Azure externe comme metastore.
+    - Spécifiez une base de données Azure SQL externe comme metastore.
     - Les clusters peuvent être créés et supprimés sans perte des métadonnées (y compris le schéma Hive et les détails d’un travail Oozie).
     - Une seule base de données de metastore peut être partagée avec différents types de clusters.
     - Le metastore peut faire l’objet d’un scale-up selon les besoins.

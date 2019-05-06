@@ -126,7 +126,7 @@ Un metastore HDInsight créé pour une version de cluster HDInsight ne peut pas 
 Pour améliorer les performances avec Oozie, utilisez un metastore personnalisé. Un metastore permet également d’accéder aux données de travail Oozie après la suppression de votre cluster. 
 
 > [!IMPORTANT]  
-> Vous ne pouvez pas réutiliser un metastore Oozie personnalisé. Pour utiliser un metastore Oozie personnalisé, vous devez fournir une base de données SQL Azure vide lors de la création du cluster HDInsight.
+> Vous ne pouvez pas réutiliser un metastore Oozie personnalisé. Pour utiliser un metastore Oozie personnalisé, vous devez fournir une base de données Azure SQL vide lors de la création du cluster HDInsight.
 
 
 ## <a name="custom-cluster-setup"></a>Configuration du cluster personnalisé

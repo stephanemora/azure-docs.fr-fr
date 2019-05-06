@@ -18,14 +18,14 @@ ms.locfileid: "64939186"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-apache-hive-on-azure-hdinsight"></a>Didacticiel : Extraire, transformer et charger des données à l’aide d’Apache Hive sur Azure HDInsight
 
-Dans ce tutoriel, vous effectuez une opération ETL : extraction, transformation et chargement de données. Vous prenez un fichier de données CSV brut, vous l’importez dans un cluster Azure HDInsight, le transformez avec Apache Hive, puis vous le chargez dans une base de données SQL Azure avec Apache Sqoop.
+Dans ce tutoriel, vous effectuez une opération ETL : extraction, transformation et chargement de données. Vous prenez un fichier de données CSV brut, vous l’importez dans un cluster Azure HDInsight, le transformez avec Apache Hive, puis vous le chargez dans une base de données Azure SQL avec Apache Sqoop.
 
 Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * Extrayez et chargez les données dans un cluster HDInsight.
 > * Transformez les données à l’aide d’Apache Hive.
-> * Chargez les données dans une base de données SQL Azure à l’aide de Sqoop.
+> * Chargez les données dans une base de données Azure SQL à l’aide de Sqoop.
 
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
@@ -39,7 +39,7 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
 
     Consultez [Démarrage rapide : Bien démarrer avec Apache Hadoop et Apache Hive dans Azure HDInsight à l’aide du portail Azure](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-linux-create-cluster-get-started-portal).
 
-* **Azure SQL Database** : Vous allez utiliser une base de données SQL Azure comme magasin de données cible. Si vous n’avez pas de base de données SQL, consultez [Créer une base de données Azure SQL dans le portail Azure](../../sql-database/sql-database-get-started.md).
+* **Azure SQL Database** : Vous allez utiliser une base de données Azure SQL comme magasin de données cible. Si vous n’avez pas de base de données SQL, consultez [Créer une base de données Azure SQL dans le portail Azure](../../sql-database/sql-database-get-started.md).
 
 * **Azure CLI** : Si vous n’avez pas installé l’interface de ligne de commande Azure, consultez [Installer l’interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
@@ -222,7 +222,7 @@ Dans le cadre du travail Apache Hive, vous allez importer les données du fichie
     GROUP BY origin_city_name;
     ```
 
-   Cette requête récupère la liste des villes qui ont enregistré des retards liés aux conditions météo, ainsi que le temps de retard moyen, et l’enregistre dans `abfs://<file-system-name>@<storage-account-name>.dfs.core.windows.net/tutorials/flightdelays/output`. Sqoop lit ensuite les données à partir de cet emplacement et les exporte vers Azure SQL Database.
+   Cette requête récupère la liste des villes qui ont enregistré des retards liés aux conditions météo, ainsi que le temps de retard moyen, et l’enregistre dans `abfs://<file-system-name>@<storage-account-name>.dfs.core.windows.net/tutorials/flightdelays/output`. Sqoop lit ensuite les données à partir de cet emplacement et les exporte vers Azure SQL Database.
 
 7. Pour quitter Beeline, entrez `!quit` à l’invite de commandes.
 
@@ -304,7 +304,7 @@ Vous avez besoin du nom du serveur de votre base de données SQL pour cette opé
 
 ## <a name="export-and-load-the-data"></a>Exporter et charger les données
 
-Dans les sections précédentes, vous avez copié les données transformées à l’emplacement `abfs://<file-system-name>@<storage-account-name>.dfs.core.windows.net/tutorials/flightdelays/output`. Dans cette section, vous allez utiliser Sqoop pour exporter les données de `abfs://<file-system-name>@<storage-account-name>.dfs.core.windows.net/tutorials/flightdelays/output` vers la table que vous avez créée dans la base de données SQL Azure.
+Dans les sections précédentes, vous avez copié les données transformées à l’emplacement `abfs://<file-system-name>@<storage-account-name>.dfs.core.windows.net/tutorials/flightdelays/output`. Dans cette section, vous allez utiliser Sqoop pour exporter les données de `abfs://<file-system-name>@<storage-account-name>.dfs.core.windows.net/tutorials/flightdelays/output` vers la table que vous avez créée dans la base de données Azure SQL.
 
 1. Utilisez la commande suivante pour vérifier que Sqoop peut voir votre base de données SQL :
 

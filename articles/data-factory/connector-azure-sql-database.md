@@ -528,7 +528,7 @@ Quand vous copiez des données dans Azure SQL Database, vous pouvez également c
 
 Vous pouvez utiliser une procédure stockée à la place des mécanismes de copie intégrée. Elles sont généralement utilisées quand une upsert, insertion plus mise à jour, ou traitement supplémentaire doivent être effectués avant l’insertion finale des données sources dans la table de destination. Fusionner des colonnes, rechercher des valeurs supplémentaires et effectuer des insertions dans plusieurs tables sont des exemples de traitement supplémentaire.
 
-L’exemple suivant montre comment utiliser une procédure stockée pour effectuer une opération upsert dans une table d’Azure SQL Database. En supposant que les données d’entrée et la table réceptrice **Marketing** ont trois colonnes : **ProfileID**, **State** et **Category**. Effectuez l’opération upsert basée sur la colonne **ProfileID** et appliquez-la uniquement à une catégorie spécifique.
+L’exemple suivant montre comment utiliser une procédure stockée pour effectuer une opération upsert dans une table Azure SQL Database. En supposant que les données d’entrée et la table réceptrice **Marketing** ont trois colonnes : **ProfileID**, **State** et **Category**. Effectuez l’opération upsert basée sur la colonne **ProfileID** et appliquez-la uniquement à une catégorie spécifique.
 
 **Jeu de données de sortie :** « tableName » doit être le même nom de paramètre de type table dans votre procédure stockée (voir ci-dessous le script de procédure stockée).
 

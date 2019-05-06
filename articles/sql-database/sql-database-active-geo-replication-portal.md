@@ -29,7 +29,7 @@ Pour plus d’informations sur les groupes de basculement automatique avec les b
 
 Pour configurer la géo-réplication active à l’aide du portail Azure, vous devez disposer des ressources suivantes :
 
-* Une base de données SQL Azure : la base de données primaire que vous souhaitez répliquer vers une autre région géographique.
+* Une base de données Azure SQL : la base de données primaire que vous souhaitez répliquer vers une autre région géographique.
 
 > [!Note]
 > Lorsque vous utilisez le portail Azure, pour créer une base de données secondaire, vous devez utiliser l'abonnement associé à la base de données principale. Si la base de données secondaire doit être associée à un autre abonnement, utilisez l'[API REST Créer une base de données](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) ou l'[API Transact-SQL ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql).

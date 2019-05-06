@@ -21,7 +21,7 @@ ms.locfileid: "60723406"
 ---
 # <a name="sql-database-application-development-overview"></a>Vue d’ensemble du développement de base de données SQL
 
-Cet article explique les aspects de base qu’un développeur doit prendre en compte lors de l’écriture de code permettant d’établir une connexion à la base de données SQL Azure. Cet article s’applique à tous les modèles de déploiement d’Azure SQL Database (base de données unique, pools élastiques, instance gérée).
+Cet article explique les aspects de base qu’un développeur doit prendre en compte lors de l’écriture de code permettant d’établir une connexion à Azure SQL Database. Cet article s’applique à tous les modèles de déploiement Azure SQL Database (base de données unique, pools élastiques, instance managée).
 
 > [!TIP]
 > Recherchez [Bases de données uniques](sql-database-single-database-quickstart-guide.md) et [Instances gérées](sql-database-managed-instance-quickstart-guide.md) dans les guides de prise en main si vous devez configurer votre base de données Azure SQL.
@@ -29,7 +29,7 @@ Cet article explique les aspects de base qu’un développeur doit prendre en co
 
 ## <a name="language-and-platform"></a>Langage et plateforme
 
-Vous pouvez utiliser différents [langages de programmation et plateformes](sql-database-connect-query.md) pour vous connecter à Azure SQL Database et l’interroger. Vous trouverez des [exemples d’application](https://azure.microsoft.com/resources/samples/?service=sql-database&sort=0) qui peuvent vous permettre de vous connecter à Azure SQL Database.
+Vous pouvez utiliser différents [langages de programmation et plateformes](sql-database-connect-query.md) pour vous connecter à une base de données Azure SQL et l’interroger. Vous trouverez des [exemples d’application](https://azure.microsoft.com/resources/samples/?service=sql-database&sort=0) qui peuvent vous permettre de vous connecter à la base de données Azure SQL.
 
 Vous pouvez tirer parti des outils open source comme [cheetah](https://github.com/wunderlist/cheetah), [sql-cli](https://www.npmjs.com/package/sql-cli) et [VS Code](https://code.visualstudio.com/). En outre, Azure SQL Database fonctionne avec des outils Microsoft, tels que [Visual Studio](https://www.visualstudio.com/downloads/) et [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx). Le Portail Azure, PowerShell et les API REST peuvent également contribuer à accroître votre productivité.
 
@@ -57,7 +57,7 @@ Pour plus d’informations sur la préparation aux événements de maintenance p
 
 - Assurez-vous que le pare-feu de l’ordinateur qui héberge votre programme client autorise les communications TCP sortantes sur le port 1433.  Plus d’informations : [Règles de pare-feu Azure SQL Database et SQL Data Warehouse](sql-database-configure-firewall-settings.md).
 - Si votre programme client se connecte à la base de données SQL pendant que votre client s’exécute sur une machine virtuelle Azure, vous devez ouvrir certaines plages de ports sur la machine virtuelle. Plus d’informations : [Ports au-delà de 1433 pour ADO .NET 4.5 et SQL Database](sql-database-develop-direct-route-ports-adonet-v12.md).
-- Parfois, les connexions clientes à Azure SQL Database ignorent le proxy et interagissent directement avec la base de données. Les ports autres que le port 1433 deviennent importants. Pour plus d’informations, consultez [Azure SQL Database connectivity architecture](sql-database-connectivity-architecture.md) (Architecture de connectivité d’Azure SQL Database) et [Ports au-delà de 1433 pour ADO.NET 4.5 et SQL Database](sql-database-develop-direct-route-ports-adonet-v12.md).
+- Parfois, les connexions clientes à Azure SQL Database ignorent le proxy et interagissent directement avec la base de données. Les ports autres que le port 1433 deviennent importants. Pour plus d’informations, consultez [Architecture de connectivité d’Azure SQL Database](sql-database-connectivity-architecture.md) et [Ports au-delà de 1433 pour ADO.NET 4.5 et SQL Database](sql-database-develop-direct-route-ports-adonet-v12.md).
 - Pour la configuration réseau pour une instance gérée, consultez [configuration réseau pour les instances gérées](sql-database-howto-managed-instance.md#network-configuration).
 
 ## <a name="next-steps"></a>Étapes suivantes

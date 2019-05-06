@@ -22,7 +22,7 @@ ms.locfileid: "61429346"
 
 Cet article montre comment déplacer des données d’une base de données SQL Server locale vers une base de données SQL Azure via le stockage d’objets blob Azure à l’aide d’Azure Data Factory (ADF).
 
-Pour accéder à un tableau résumant les différentes options de déplacement de données dans une base de données SQL Azure, consultez [Déplacer des données dans une base de données SQL Azure pour Azure Machine Learning](move-sql-azure.md).
+Pour accéder à un tableau résumant les différentes options de déplacement de données dans une base de données Azure SQL, consultez [Déplacer des données dans une base de données Azure SQL pour Azure Machine Learning](move-sql-azure.md).
 
 ## <a name="intro"></a>Présentation : Qu’est-ce qu’ADF et quand doit-il être utilisé pour migrer des données ?
 Azure Data Factory est un service d’intégration de données dans le cloud entièrement géré qui gère et automatise le déplacement et la transformation des données. Le concept clé du modèle ADF est le pipeline. Un pipeline est un regroupement logique d’activités, chacune d'elles définissant les actions à effectuer sur les données contenues dans des groupes de données. Les services liés sont utilisés pour définir les informations nécessaires à Data Factory pour se connecter à des ressources de données.
@@ -40,7 +40,7 @@ ADF permet la planification et la surveillance des travaux à l'aide de scripts�
 Nous allons configurer un pipeline ADF qui se compose de deux activités de migration de données. Ensemble, ces activités déplacent les données quotidiennement entre une base de données SQL locale et une base de données Azure SQL dans le cloud. Les deux activités sont :
 
 * copie de données depuis une base de données SQL Server locale vers un compte de stockage d’objets blob Azure ;
-* copie de données à partir du compte de stockage d'objets blob Azure vers une base de données Azure SQL.
+* copie de données à partir du compte Stockage Blob Azure vers une base de données Azure SQL.
 
 > [!NOTE]
 > Les étapes présentées ici ont été adaptées du tutoriel plus détaillé fourni par l’équipe ADF : [Copier des données depuis une base de données SQL Server locale vers un stockage Blob Azure](https://docs.microsoft.com/azure/data-factory/tutorial-hybrid-copy-portal/) fait référence aux sections appropriées de cette rubrique sont fournies si nécessaire.
@@ -78,7 +78,7 @@ Un service lié définit les informations nécessaires à Azure Data Factory p
 
 1. SQL Server local
 2. un stockage Azure Blob
-3. Base de données SQL Azure
+3. Base de données Azure SQL
 
 La procédure pas à pas pour la création de services liés est fournie dans [Créer des services liés](../../data-factory/tutorial-hybrid-copy-portal.md#create-a-pipeline).
 

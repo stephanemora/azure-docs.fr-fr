@@ -1,26 +1,57 @@
 - name: Documentation sur Azure AD Identity Governance
   href: index.yml
 - name: Vue d’ensemble
-  expanded: false
+  expanded: true
   items:
-    - name: "Qu’est-ce que la gouvernance des identités\_?"
+    - name: Présentation de la gouvernance des identités
       href: identity-governance-overview.md
+    - name: Présentation de la gestion des droits d’utilisation (Préversion)
+      href: entitlement-management-overview.md
     - name: Que sont les révisions d’accès ?
       href: access-reviews-overview.md
-- name: Concepts
-  expanded: false
+- name: Tutoriels
+  expanded: true
   items:
-    - name: Gérer l’accès des invités avec les révisions
-      href: manage-guest-access-with-access-reviews.md
-    - name: Gérer l’accès utilisateur avec les révisions
-      href: manage-user-access-with-access-reviews.md
-    - name: Gérer des programmes et leurs contrôles
-      href: manage-programs-controls.md
-    - name: Gérer les utilisateurs exclus de l’accès conditionnel
-      href: conditional-access-exclusion.md
+    - name: Créer votre premier package d’accès
+      href: entitlement-management-access-package-first.md
+- name: Concepts
+  expanded: true
+  items:
+    - name: Gestion des droits d’utilisation
+      items:
+        - name: Processus de demande et e-mails
+          href: entitlement-management-process.md
+    - name: Révisions d’accès
+      items:
+        - name: Gérer l’accès des invités avec les révisions
+          href: manage-guest-access-with-access-reviews.md
+        - name: Gérer l’accès utilisateur avec les révisions
+          href: manage-user-access-with-access-reviews.md
+        - name: Gérer des programmes et leurs contrôles
+          href: manage-programs-controls.md
+        - name: Gérer les utilisateurs exclus de l’accès conditionnel
+          href: conditional-access-exclusion.md
 - name: Guides pratiques
   expanded: true
   items:
+    - name: Gestion des droits d’utilisation
+      items:
+        - name: Scénarios courants
+          href: entitlement-management-scenarios.md
+        - name: Créer un package d’accès
+          href: entitlement-management-access-package-create.md
+        - name: Modifier un package d’accès
+          href: entitlement-management-access-package-edit.md
+        - name: Créer un catalogue
+          href: entitlement-management-catalog-create.md
+        - name: Demander l'accès
+          href: entitlement-management-request-access.md
+        - name: Approuver les demandes
+          href: entitlement-management-request-approve.md
+        - name: Afficher les rapports et les journaux
+          href: entitlement-management-reports.md
+        - name: Résolution des problèmes
+          href: entitlement-management-troubleshoot.md
     - name: Révisions d’accès
       items:
         - name: Groupes et applications

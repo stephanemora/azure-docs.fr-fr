@@ -30,7 +30,7 @@ Les étapes suivantes montrent comment configurer SQL Database pour appliquer un
 
 ## <a name="prerequisites"></a>Conditions préalables  
 - Vous devez configurer SQL Database ou SQL Data Warehouse pour prendre en charge l’authentification Azure Active Directory. Pour connaître la procédure spécifique, consultez [Configurer et gérer l’authentification Azure Active Directory avec SQL Database ou SQL Data Warehouse](sql-database-aad-authentication-configure.md).  
-- Quand Multi-Factor Authentication est activé, vous devez vous connecter avec un outil pris en charge, tel que la dernière version de SSMS. Pour plus d’informations, consultez [Configurer Azure SQL Database Multi-Factor Authentication pour SQL Server Management Studio](sql-database-ssms-mfa-authentication-configure.md).  
+- Quand Multi-Factor Authentication est activé, vous devez vous connecter avec un outil pris en charge, tel que la dernière version de SSMS. Pour plus d’informations, consultez [Configurer l’authentification multifacteur Azure SQL Database pour SQL Server Management Studio](sql-database-ssms-mfa-authentication-configure.md).  
 
 ## <a name="configure-ca-for-azure-sql-dbdw"></a>Configurer l’accès conditionnel pour Azure SQL DB/DW  
 1. Connectez-vous au portail, sélectionnez **Azure Active Directory**, puis **Accès conditionnel**. Pour plus d’informations, consultez [Référence technique de l’accès conditionnel Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference).  
@@ -45,14 +45,14 @@ Les étapes suivantes montrent comment configurer SQL Database pour appliquer un
    Si vous ne trouvez pas **base de données SQL Azure** répertorié dans la capture d’écran tiers suivant, procédez comme suit :   
    - Connectez-vous à votre instance Azure SQL DB/DW à l’aide de SSMS avec un compte d’administrateur AAD.  
    - Exécutez `CREATE USER [user@yourtenant.com] FROM EXTERNAL PROVIDER`.  
-   - Connectez-vous à AAD et vérifiez qu’Azure SQL Database et Data Warehouse sont répertoriés dans les applications d’AAD.  
+   - Connectez-vous à AAD et vérifiez qu’Azure SQL Database et Data Warehouse sont répertoriés dans AAD.  
 
 5. Sélectionnez **Contrôles d’accès**, **Accorder**, puis cochez la stratégie que vous souhaitez appliquer. Pour cet exemple, nous sélectionnons **Imposer l’authentification multifacteur**.  
    ![sélectionner Accorder l’accès](./media/sql-database-conditional-access/grant-access.png)  
 
 ## <a name="summary"></a>Résumé  
 L’application sélectionnée (Azure SQL Database), qui permet de se connecter à Azure SQL DB/DW à l’aide d’Azure AD Premium, applique maintenant la stratégie d’accès conditionnel sélectionnée **Imposer l’authentification multifacteur**.  
-Pour toute question sur Azure SQL Database et Data Warehouse en ce qui concerne Multi-Factor Authentication, contactez MFAforSQLDB@microsoft.com.  
+Pour toute question sur Azure SQL Database et Data Warehouse concernant l’authentification multifacteur, contactez MFAforSQLDB@microsoft.com.  
 
 ## <a name="next-steps"></a>Étapes suivantes  
 

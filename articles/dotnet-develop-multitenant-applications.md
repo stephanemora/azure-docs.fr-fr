@@ -42,7 +42,7 @@ Une application mutualisée correctement mise en œuvre offre les avantages suiv
 
 En résumé, bien que de nombreux aspects soient à prendre en compte pour fournir un service hautement évolutif, il y a également une série d'objectifs et d'exigences communs à de nombreuses applications mutualisées. Certains peuvent ne pas concerner des scénarios spécifiques, et l'importance d'objectifs et d'exigences individuels peut différer pour chaque scénario. En tant que fournisseur de l'application mutualisée, vous aurez également des objectifs et des exigences tels que la satisfaction des objectifs et des exigences des locataires, la rentabilité, la facturation, les niveaux de service multiples, l'approvisionnement, la surveillance de la maintenabilité et l'automatisation.
 
-Pour plus d'informations sur les considérations supplémentaires d'une application mutualisée en matière de conception, consultez la page [Hébergement d'une application mutualisée dans Azure][Hosting a Multi-Tenant Application on Azure]. Pour plus d’informations sur les modèles d’architecture de données des applications de base de données de logiciels en tant que service (SaaS) mutualisés, consultez [Modèles de conception pour les applications SaaS mutualisées avec Base de données SQL Azure](sql-database/sql-database-design-patterns-multi-tenancy-saas-applications.md). 
+Pour plus d'informations sur les considérations supplémentaires d'une application mutualisée en matière de conception, consultez la page [Hébergement d'une application mutualisée dans Azure][Hosting a Multi-Tenant Application on Azure]. Pour plus d’informations sur les modèles d’architecture de données courants pour les applications de base de données SaaS (software as a service) multilocataires, consultez [Modèles de conception pour les applications SaaS multilocataires avec Azure SQL Database](sql-database/sql-database-design-patterns-multi-tenancy-saas-applications.md). 
 
 Azure offre de nombreuses fonctionnalités vous permettant de résoudre les problèmes clés rencontrés lors de la conception d'un système mutualisé.
 
@@ -56,7 +56,7 @@ Azure offre de nombreuses fonctionnalités vous permettant de résoudre les prob
 
 **Stockage**
 
-Gestion des données telles que la Base de données SQL Azure ou les services Azure Storage tels que le service Table qui fournit des services pour le stockage de grandes quantités de données non structurées, et le service BLOB qui fournit des services pour le stockage de grandes quantités de texte non structuré ou de données binaires telles que de la vidéo, de l'audio et des images.
+Gestion des données telles qu’Azure SQL Database ou les services Stockage Azure comme le service Table qui fournit des services pour le stockage de grandes quantités de données non structurées, et le service Blob qui fournit des services pour le stockage de grandes quantités de texte non structuré ou de données binaires telles que du contenu vidéo, audio et des images.
 
 * Sécurisation de données mutualisées dans des connexions SQL Server par locataire appropriées de la base de données SQL.
 * Utilisation de tables Azure pour les ressources d'application : en spécifiant une stratégie d'accès de niveau conteneur, vous pouvez modifier les autorisations sans avoir à émettre de nouvelles URL pour les ressources protégées au moyen de signatures d'accès partagé.

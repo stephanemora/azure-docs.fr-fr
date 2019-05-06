@@ -1,5 +1,5 @@
 ---
-title: Concevoir des solutions de récupération d’urgence - Azure SQL Database | Microsoft Docs
+title: Concevoir des solutions de reprise d’activité après sinistre - Azure SQL Database | Microsoft Docs
 description: Apprenez à concevoir votre solution cloud pour la récupération d’urgence en choisissant le modèle de basculement approprié.
 services: sql-database
 ms.service: sql-database
@@ -169,7 +169,7 @@ Cet article aborde les différentes stratégies de récupération d’urgence po
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour en savoir plus sur les sauvegardes automatisées Azure SQL Database, consultez [Sauvegardes automatisées d’une base de données SQL](sql-database-automated-backups.md).
+* Pour en savoir plus sur les sauvegardes automatisées d’une base de données Azure SQL, consultez [Sauvegardes automatisées d’une base de données SQL](sql-database-automated-backups.md).
 * Pour une vue d’ensemble de la continuité des activités et des scénarios, consultez [Vue d’ensemble de la continuité des activités](sql-database-business-continuity.md).
 * Pour en savoir plus sur l’utilisation des sauvegardes automatisées pour la récupération, consultez [Restaurer une base de données à partir des sauvegardes initiées par le service](sql-database-recovery-using-backups.md).
 * Pour découvrir des options de récupération plus rapides, consultez [Géoréplication active](sql-database-active-geo-replication.md) et [Groupes de basculement automatique](sql-database-auto-failover-group.md).

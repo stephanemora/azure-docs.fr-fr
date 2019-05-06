@@ -85,13 +85,13 @@
           href: sql-database-design-first-database-csharp.md
     - name: Migrer vers SQL Database
       items:
-        - name: Migrer vers une base de données unique/en pool avec DMS
+        - name: Migrer vers une base de données unique/mise en pool avec DMS
           href: ../dms/tutorial-sql-server-to-azure-sql.md?toc=/azure/sql-database/toc.json
         - name: Migrer vers une instance managée avec DMS
           href: ../dms/tutorial-sql-server-to-managed-instance.md?toc=/azure/sql-database/toc.json
     - name: Sécurité dans SQL Database
       items:
-        - name: Sécurité des bases de données uniques et en pool
+        - name: Sécurité des bases de données uniques et mises en pool
           href: sql-database-security-tutorial.md
         - name: Sécurité de l’instance gérée
           href: sql-database-managed-instance-aad-security-tutorial.md
@@ -128,11 +128,12 @@
       items:
         - name: Vue d’ensemble
           href: sql-database-service-tiers-general-purpose-business-critical.md
+          displayName: provisioned compute tier
         - name: Niveaux de service Usage général / Standard
           href: sql-database-service-tier-general-purpose.md
         - name: Niveaux de service Critique pour l’entreprise / Premium
           href: sql-database-service-tier-business-critical.md
-        - name: Niveau de service hyperscale
+        - name: Niveau de service Hyperscale
           href: sql-database-service-tier-hyperscale.md
         - name: FAQ relatif à Hyperscale
           href: sql-database-service-tier-hyperscale-faq.md
@@ -231,8 +232,6 @@
     - name: Sécurité
       items:
         - name: Présentation de la sécurité
-          href: sql-database-security-index.yml
-        - name: Fonctionnalités de sécurité
           href: sql-database-security-overview.md
           displayName: 'compliance, fedramp, soc, fact, fisc, hitrust, pci, iso'
         - name: Advanced Data Security
@@ -355,9 +354,9 @@
           href: sql-database-temporal-tables.md
         - name: Automatisation de travaux
           href: sql-database-job-automation-overview.md
-        - name: Apprentissage automatique
+        - name: Machine Learning Services
           items:
-            - name: Vue d’ensemble du machine learning
+            - name: Vue d’ensemble
               href: sql-database-machine-learning-services-overview.md
             - name: Différences clés
               href: sql-database-machine-learning-services-differences.md
@@ -369,7 +368,7 @@
       items:
         - name: Vue d’ensemble
           href: sql-database-howto-single-database.md
-        - name: Migrer vers une base de données unique/en pool
+        - name: Migrer vers une base de données unique/mise en pool
           href: sql-database-single-database-migrate.md
         - name: Gérer une base de données SQL après sa migration
           href: sql-database-manage-after-migration.md
@@ -473,6 +472,8 @@
           href: sql-database-managed-instance-threat-detection.md
         - name: Connecter des applications
           href: sql-database-managed-instance-connect-app.md
+        - name: Configurer un point de terminaison public
+          href: sql-database-managed-instance-public-endpoint-configure.md
     - name: Charger et déplacer des données
       items:
         - name: Copier une base de données dans Azure
@@ -657,6 +658,8 @@
           href: sql-database-machine-learning-services-functions.md
         - name: Utiliser des données R et SQL
           href: sql-database-machine-learning-services-data-issues.md
+        - name: Ajouter des packages R
+          href: sql-database-machine-learning-services-add-r-packages.md
 - name: Informations de référence
   items:
     - name: Azure PowerShell

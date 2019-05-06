@@ -1,5 +1,5 @@
 ---
-title: Interroger des bases de données SQL Azure partitionnées | Microsoft Docs
+title: Interroger des bases de données Azure SQL partitionnées | Microsoft Docs
 description: Exécutez des requêtes en utilisant la bibliothèque cliente des bases de données élastiques.
 services: sql-database
 ms.service: sql-database

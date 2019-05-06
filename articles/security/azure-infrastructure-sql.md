@@ -22,7 +22,7 @@ ms.lasthandoff: 04/23/2019
 ms.locfileid: "62121654"
 ---
 # <a name="azure-sql-database-security-features"></a>Fonctionnalités de sécurité Azure SQL Database    
-Microsoft Azure SQL Database fournit un service de base de données relationnelle dans Azure. Pour protéger les données des clients et fournir des fonctionnalités de sécurité renforcée que les clients attendent d’un service de base de données relationnelle, SQL Database a ses propres jeux de fonctionnalités de sécurité. Ces fonctionnalités reposent sur les contrôles hérités d’Azure.
+Azure SQL Database fournit un service de base de données relationnelle dans Azure. Pour protéger les données des clients et fournir des fonctionnalités de sécurité renforcée que les clients attendent d’un service de base de données relationnelle, SQL Database a ses propres jeux de fonctionnalités de sécurité. Ces fonctionnalités reposent sur les contrôles hérités d’Azure.
 
 ## <a name="security-capabilities"></a>Fonctionnalités de sécurité
 
@@ -48,7 +48,7 @@ En outre, la passerelle Azure SQL Database effectue :
 
 Le principe dominant de la sécurité réseau du produit Azure SQL Database consiste à autoriser uniquement les connexions et les communications qui sont nécessaires au fonctionnement du service. Tous les autres ports, protocoles et connexions sont bloqués par défaut. Les réseaux locaux virtuels (VLAN) et les listes ACL sont utilisés pour limiter les communications réseau en fonction des réseaux sources et cibles, des protocoles et des numéros de port.
 
-Les mécanismes approuvés pour implémenter des listes ACL basées sur le réseau comprennent les listes ACL sur les routeurs et les équilibreurs de charge. Ils sont gérés par le réseau Azure, le pare-feu de machine virtuelle invitée et les règles de pare-feu de la passerelle Microsoft Azure SQL Database, qui sont configurées par le client.
+Les mécanismes approuvés pour implémenter des listes ACL basées sur le réseau comprennent les listes ACL sur les routeurs et les équilibreurs de charge. Ils sont gérés par le réseau Azure, le pare-feu de machine virtuelle invitée et les règles de pare-feu de la passerelle Azure SQL Database, qui sont configurées par le client.
 
 ## <a name="data-segregation-and-customer-isolation"></a>Séparation des données et isolation des clients
 Le réseau de production Azure est structuré de sorte que les composants système accessibles à tous soient séparés des ressources internes. Des limites physiques et logiques existent entre les serveurs web qui fournissent un accès au portail Azure public et à l’infrastructure virtuelle Azure sous-jacente, où se trouvent les données et les instances d’application des clients.

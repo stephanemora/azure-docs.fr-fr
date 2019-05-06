@@ -190,7 +190,7 @@ Si vous voulez que cette option soit disponible uniquement pour un développemen
 
 ## <a name="TableOperations"></a>Opérations de table
 
-Le Kit de développement logiciel (SDK) Node.js Server azure-mobile-apps fournit des mécanismes permettant d’exposer les tables de données stockées dans Azure SQL Database sous la forme d’une API Web. Il fournit cinq opérations :
+Le kit SDK Node.js Server azure-mobile-apps fournit des mécanismes permettant d’exposer les tables de données stockées dans Azure SQL Database sous la forme d’une API Web. Il fournit cinq opérations :
 
 | Opération | Description |
 | --- | --- |
@@ -397,7 +397,7 @@ La modification de la plupart des paramètres requiert le redémarrage du servic
 
 <!--- ALTERNATE INCLUDE - we can't use ../includes/app-service-mobile-dotnet-backend-create-new-service.md - slightly different semantics -->
 
-L’utilisation de la base de données SQL Azure en tant que datastore est identique pour tous les types d’applications Azure App Service. Si vous ne l’avez pas déjà fait, suivez ces étapes pour créer un serveur principal Mobile Apps :
+L’utilisation d’Azure SQL Database en tant que datastore est identique pour tous les types d’applications Azure App Service. Si vous ne l’avez pas déjà fait, suivez ces étapes pour créer un serveur principal Mobile Apps :
 
 1. Connectez-vous au [Portail Azure].
 1. Dans le coin supérieur gauche de la fenêtre, sélectionnez le bouton **+ NOUVEAU** > **Web + Mobile**>**Application mobile**, puis indiquez un nom pour votre serveur principal Mobile Apps.
@@ -426,7 +426,7 @@ Vous pouvez choisir de connecter une base de données SQL existante à votre ser
 1. Dans le volet **Ajouter une connexion de données**, sélectionnez **Base de données SQL - Configurer les paramètres requis** > **Créer une base de données**. Entrez le nom de la nouvelle base de données dans le champ **Nom**.
 1. Sélectionnez **Serveur**. Dans le volet **Nouveau serveur**, entrez un nom de serveur unique dans le champ **Nom du serveur**, et indiquez un nom de connexion d’administration serveur et un mot de passe appropriés. Vérifiez que l’option **Autoriser les services Azure à accéder au serveur** est sélectionnée. Sélectionnez **OK**.
 
-   ![Création d’une base de données SQL Azure][6]
+   ![Création d’une base de données Azure SQL][6]
 1. Dans le volet **Nouvelle base de données**, sélectionnez **OK**.
 1. Dans le volet **Ajouter une connexion de données**, sélectionnez **Chaîne de connexion**, entrez le nom de connexion et le mot de passe que vous avez indiqués lors de la création de la base de données. Si vous utilisez une base de données existante, indiquez les informations d’identification de connexion à celle-ci. Sélectionnez **OK**.
 1. Dans le volet **Ajouter une connexion de données**, sélectionnez **OK** pour créer la base de données.

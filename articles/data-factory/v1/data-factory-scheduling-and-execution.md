@@ -235,7 +235,7 @@ La section **policy** de la définition du jeu de données définit les critère
 | Nom de la stratégie | Description | Appliqué(e) à | Obligatoire | Default |
 | --- | --- | --- | --- | --- |
 | minimumSizeMB | Valide le fait que les données dans un **objet blob Azure** répondent aux exigences de taille minimale (en mégaoctets). |objet blob Azure |Non  |N/D |
-| minimumRows | Valide le fait que les données dans une **base de données SQL Azure** ou une **table Azure** contiennent le nombre minimal de lignes. |<ul><li>Azure SQL Database</li><li>table Azure</li></ul> |Non  |N/D |
+| minimumRows | Valide le fait que les données dans une **base de données Azure SQL** ou une **table Azure** contiennent le nombre minimal de lignes. |<ul><li>Azure SQL Database</li><li>table Azure</li></ul> |Non  |N/D |
 
 #### <a name="examples"></a>Exemples
 **minimumSizeMB :**

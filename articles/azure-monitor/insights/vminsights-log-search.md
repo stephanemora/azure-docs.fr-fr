@@ -204,7 +204,7 @@ Les enregistrements de type *ServiceMapProcess_CL* ont des données d’inventai
 | CommandLine_s | Ligne de commande |
 | ExecutablePath_s | Chemin d’accès du fichier exécutable |
 | WorkingDirectory_s | Le répertoire de travail |
-| Nom d’utilisateur | Compte sous lequel le processus s’exécute |
+| UserName | Compte sous lequel le processus s’exécute |
 | UserDomain | Domaine sous lequel le processus s’exécute |
 
 ## <a name="sample-log-searches"></a>Exemples de recherches dans les journaux

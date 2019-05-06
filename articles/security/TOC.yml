@@ -5,13 +5,13 @@
   expanded: false
   items:
     - name: Détection avancée des menaces
-      displayName: 'vulnerability, virus, ids, incident'
+      displayName: 'vulnerability, virus, IDs, incident'
       href: azure-threat-detection.md
     - name: Journalisation et audit Azure
       displayName: incident
       href: azure-log-audit.md
     - name: Azure Network Security
-      displayName: 'firewall, ssl, vpn, ids, gateway, https, application gateway, azure application gateway, ips, waf'
+      displayName: 'firewall, ssl, vpn, IDs, gateway, https, application gateway, azure application gateway, ips, waf'
       href: abstract-azure-network-security.md
     - name: Sécurité de la plateforme sans serveur Azure
       href: abstract-serverless-platform-security.md
@@ -50,7 +50,7 @@
         - name: Chiffrement de disque pour les VM IaaS
           items:
             - name: À propos d’Azure Disk Encryption
-              displayName: 'bitlocker, bek'
+              displayName: 'Bitlocker, bek'
               href: azure-security-disk-encryption-overview.md
             - name: Démarrages rapides
               items:
@@ -141,7 +141,7 @@
           displayName: identity
           href: azure-security-global-admin.md
     - name: Sécurité du réseau
-      displayName: 'firewall, ssl, vpn, ids, gateway, https, azure application gateway, application gateway, ips, waf'
+      displayName: 'firewall, ssl, vpn, IDs, gateway, https, azure application gateway, application gateway, ips, waf'
       href: security-network-overview.md
       items:
         - name: Bonnes pratiques
@@ -270,6 +270,11 @@
           href: ./blueprints/pcidss-iaaswa-overview.md
         - name: Application web PaaS
           href: ./blueprints/pcidss-paaswa-overview.md
+    - name: SCCA
+      displayName: 'blueprint, privacy, certifications'
+      items:
+        - name: Sécuriser l’architecture de calcul Azure
+          href: ./compliance/secure-azure-computing-architecture.md
     - name: TIC
       displayName: 'blueprint, privacy, certifications'
       items:
@@ -327,13 +332,13 @@
         - name: Publications
           href: azure-security-threat-modeling-tool-releases.md
           items:
-            - name: "Disponibilité générale de Threat Modeling Tool version\_7.1.5091.2 - 12/09/2018"
+            - name: "Version en disponibilité générale de Threat Modeling Tool\_7.1.5091.2\_- 12\_septembre\_2018"
               href: azure-security-threat-modeling-tool-releases-71509112.md
-            - name: "Mise à jour de Threat Modeling Tool version\_7.1.51023.1 - 01/11/2018"
+            - name: "Version mise à jour de Threat Modeling Tool\_7.1.51023.1\_- 1er\_novembre\_2018"
               href: azure-security-threat-modeling-tool-releases-71510231.md
-            - name: "Mise à jour de Threat Modeling Tool version\_7.1.60126.1 - 29/01/2019"
+            - name: "Version mise à jour de Threat Modeling Tool\_7.1.60126.1\_- 29\_janvier\_2019"
               href: azure-security-threat-modeling-tool-releases-71601261.md
-            - name: "Mise à jour de Threat Modeling Tool version\_7.1.60408.1 - 09/04/2019"
+            - name: "Version mise à jour de Threat Modeling Tool\_7.1.60408.1\_- 9\_avril\_2019"
               href: azure-security-threat-modeling-tool-releases-71604081.md
         - name: Corrections
           href: azure-security-threat-modeling-tool-mitigations.md

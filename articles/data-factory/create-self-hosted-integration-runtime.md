@@ -241,7 +241,7 @@ Au niveau du *pare-feu Windows* (niveau de la machine), ces ports de sortie sont
 ### <a name="copy-data-from-a-source-to-a-sink"></a>Copier des données d’une source vers un récepteur
 Assurez-vous que les règles de pare-feu sont correctement activées sur le pare-feu d’entreprise, sur le pare-feu Windows de la machine du runtime d’intégration auto-hébergé, ainsi que sur le magasin de données lui-même. Activer ces règles permet au runtime d’intégration autohébergé de se connecter correctement à la source et au récepteur. Activez les règles pour chaque magasin de données impliqué dans l’opération de copie.
 
-Par exemple, pour effectuer une copie à partir d’un magasin de données local vers un récepteur Azure SQL Database ou un récepteur Azure SQL Data Warehouse, procédez comme suit :
+Par exemple, pour effectuer une copie à partir d’un magasin de données local vers un récepteur Azure SQL Database ou un récepteur Azure SQL Data Warehouse, procédez comme suit :
 
 1. Autorisez le trafic TCP sortant sur le port 1433 pour le pare-feu Windows et le pare-feu d’entreprise.
 2. Configurez les paramètres de pare-feu de la base de données Azure SQL pour ajouter l’adresse IP de la machine du runtime d’intégration auto-hébergé à la liste des adresses IP autorisées.

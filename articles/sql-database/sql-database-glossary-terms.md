@@ -29,7 +29,7 @@ ms.locfileid: "64573386"
 ||Instance gérée|[instance gérée](sql-database-managed-instance.md)|
 |Objets serveur|Serveur Azure SQL Database ou serveur de base de données|[Serveur de base de données](sql-database-servers.md)|
 ||Serveur SQL Database Managed Instance, serveur Managed Instance ou instance de serveur|[Instance gérée](sql-database-managed-instance.md)|
-Objets de base de données|Base de données SQL Azure|Toute base de données dans Azure SQL Database|
+Objets de base de données|Base de données Azure SQL|Toute base de données dans Azure SQL Database|
 ||Base de données unique|Base de données créée à l’aide de l’option de déploiement de base de données unique|
 ||Base de données mise en pool|Base de données créée au sein d’un pool élastique ou déplacée vers un tel pool|
 ||Base de données d’instance|Base de données créée dans une instance gérée|

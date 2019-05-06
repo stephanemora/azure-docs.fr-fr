@@ -1,6 +1,6 @@
 ---
 title: Exécuter l’analytique entre locataires à l’aide des données extraites | Microsoft Docs
-description: Obtenez des informations sur les requêtes analytiques entre locataires à l’aide de données extraites de plusieurs bases de données SQL Azure Database dans une application monolocataire.
+description: Obtenez des informations sur les requêtes analytiques entre locataires à l’aide de données extraites de plusieurs bases de données Azure SQL Database dans une application monolocataire.
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario

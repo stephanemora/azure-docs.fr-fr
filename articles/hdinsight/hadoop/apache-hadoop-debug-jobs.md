@@ -133,7 +133,7 @@ Les messages d’erreur répertoriés dans cette section visent à aider les uti
 Certains de ces messages d'erreur peuvent également apparaître dans le portail Azure lorsqu'il sert à gérer les clusters HDinsight. Mais d'autres messages d'erreur que vous pouvez rencontrer ici sont moins granulaires, en raison des contraintes qui s'appliquent aux mesures correctives possibles dans ce contexte. D'autres encore sont fournis dans les contextes où l'atténuation est évidente. 
 
 ### <a id="AtLeastOneSqlMetastoreMustBeProvided"></a>AtLeastOneSqlMetastoreMustBeProvided
-* **Description** : Fournissez des informations détaillées sur la base de données SQL Azure pour au moins un composant afin d’utiliser les paramètres personnalisés pour les metastores Hive et Oozie.
+* **Description** : Fournissez des informations détaillées sur la base de données Azure SQL pour au moins un composant afin d’utiliser les paramètres personnalisés pour les metastores Hive et Oozie.
 * **Atténuation** : Vous devez fournir un metastore SQL Azure valide et relancer la requête.  
 
 ### <a id="AzureRegionNotSupported"></a>AzureRegionNotSupported

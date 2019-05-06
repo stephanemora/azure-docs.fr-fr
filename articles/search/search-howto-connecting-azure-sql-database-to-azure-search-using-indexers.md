@@ -21,9 +21,9 @@ ms.locfileid: "65025359"
 
 Avant d’interroger un [index Recherche Azure](search-what-is-an-index.md), vous devez le remplir avec vos données. Si les données se trouvent dans une base de données Azure SQL Database, un **indexeur Recherche Azure pour Azure SQL Database** (ou **indexeur Azure SQL**) peut automatiser le processus d’indexation. En d’autres termes, vous avez moins de code à écrire et la maintenance de l’infrastructure est moins lourde.
 
-Cet article décrit l’utilisation des [indexeurs](search-indexer-overview.md), mais aussi les fonctionnalités propres aux bases de données Azure SQL Database (par exemple, le suivi intégré des modifications). 
+Cet article décrit l’utilisation des [indexeurs](search-indexer-overview.md), mais aussi les fonctionnalités propres aux bases de données Azure SQL (par exemple, le suivi intégré des modifications). 
 
-En plus des bases de données SQL Azure Database, Recherche Azure fournit des indexeurs pour [Azure Cosmos DB](search-howto-index-cosmosdb.md), le [stockage blob Azure](search-howto-indexing-azure-blob-storage.md) et le [stockage de table Azure](search-howto-indexing-azure-tables.md). Pour obtenir de l’aide concernant d’autres sources de données, indiquez vos souhaits sur le [forum Recherche Azure](https://feedback.azure.com/forums/263029-azure-search/).
+En plus des bases de données Azure SQL, Recherche Azure fournit des indexeurs pour [Azure Cosmos DB](search-howto-index-cosmosdb.md), le [stockage blob Azure](search-howto-indexing-azure-blob-storage.md) et le [stockage de table Azure](search-howto-indexing-azure-tables.md). Pour obtenir de l’aide concernant d’autres sources de données, indiquez vos souhaits sur le [forum Recherche Azure](https://feedback.azure.com/forums/263029-azure-search/).
 
 ## <a name="indexers-and-data-sources"></a>Indexeurs et sources de données
 

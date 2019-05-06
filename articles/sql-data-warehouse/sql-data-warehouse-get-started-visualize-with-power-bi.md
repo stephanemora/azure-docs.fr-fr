@@ -78,7 +78,7 @@ Vous êtes maintenant prêt à utiliser Power BI pour analyser vos exemples de d
 Vous pouvez enregistrer votre progression à tout moment en cliquant sur **Fichier**, puis en sélectionnant **Enregistrer**.
 
 ## <a name="using-direct-connect"></a>Utilisation de la connexion directe
-Comme avec Azure SQL Database, la fonction de connexion directe de SQL Data Warehouse permet un pushdown logique, en complément des fonctionnalités d’analyse de Power BI. Grâce à la connexion directe, les requêtes sont renvoyées vers votre solution Azure SQL Data Warehouse en temps réel lorsque vous explorez les données.  Combinée à la puissance de SQL Data Warehouse, cette fonctionnalité vous permet de créer des rapports dynamiques en quelques minutes pour plusieurs téraoctets de données. En outre, l’introduction du bouton Open in Power BI permet aux utilisateurs de connecter directement Power BI à leur solution SQL Data Warehouse sans collecter d’informations à partir d’autres sections d’Azure.
+Comme avec Azure SQL Database, la fonction de connexion directe de SQL Data Warehouse permet un pushdown logique, en complément des fonctionnalités analytiques de Power BI. Grâce à la connexion directe, les requêtes sont renvoyées vers votre solution Azure SQL Data Warehouse en temps réel lorsque vous explorez les données.  Combinée à la puissance de SQL Data Warehouse, cette fonctionnalité vous permet de créer des rapports dynamiques en quelques minutes pour plusieurs téraoctets de données. En outre, l’introduction du bouton Open in Power BI permet aux utilisateurs de connecter directement Power BI à leur solution SQL Data Warehouse sans collecter d’informations à partir d’autres sections d’Azure.
 
 Quand vous utilisez la fonction de connexion directe :
 

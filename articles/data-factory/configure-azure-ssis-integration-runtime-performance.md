@@ -114,7 +114,7 @@ Voici les instructions à suivre pour définir la valeur correcte pour la propri
 
 **SSISDBPricingTier** est le niveau de tarification pour la base de données du catalogue SSIS (SSISDB) sur une base de données Azure SQL. Ce paramètre affecte le nombre maximal de rôles de travail dans l’instance IR, la vitesse de la file d’attente de l’exécution d’un package et la vitesse de chargement du journal d’exécution.
 
--   Si vous ne vous souciez pas de la vitesse d’exécution de la file d’attente du package et de chargement du journal d’exécution, vous pouvez choisir le niveau tarifaire le plus bas de la base de données. Azure SQL Database avec la tarification de base prend en charge 8 threads de travail dans une instance de runtime d’intégration.
+-   Si vous ne vous souciez pas de la vitesse d’exécution de la file d’attente du package et de chargement du journal d’exécution, vous pouvez choisir le niveau tarifaire le plus bas de la base de données. Azure SQL Database avec le tarif De base prend en charge 8 threads de travail dans une instance de runtime d’intégration.
 
 -   Choisissez une base de données plus puissante que la base de données de base si le nombre de rôles de travail est supérieur à 8, ou si le nombre de cœurs est supérieur à 50. Dans le cas contraire, la base de données devient le goulot d’étranglement de l’instance du runtime d’intégration et les performances s’en ressentent.
 

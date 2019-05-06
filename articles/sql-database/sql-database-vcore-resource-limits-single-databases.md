@@ -1,6 +1,6 @@
 ---
-title: Limites de ressources par vCore d’Azure SQL Database – base de données unique | Microsoft Docs
-description: Cette page décrit certaines des limites de ressources courantes par vCore pour une base de données unique dans Azure SQL Database.
+title: Limites de ressources vCore Azure SQL Database – base de données unique | Microsoft Docs
+description: Cette page décrit certaines des limites de ressources vCore courantes pour une base de données unique dans Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
@@ -26,7 +26,7 @@ Cet article détaille les limites de ressources des bases de données uniques Az
 Pour connaître les limites du modèle d’achat DTU pour les bases de données sur un serveur SQL Database, consultez [Vue d’ensemble des limites de ressources sur un serveur SQL Database](sql-database-resource-limits-database-server.md).
 
 > [!IMPORTANT]
-> Dans certaines circonstances, vous devrez peut-être réduire une base de données pour récupérer l’espace inutilisé. Pour plus d’informations, consultez l’article [Gérer l’espace du fichier de la base de données SQL Azure](sql-database-file-space-management.md).
+> Dans certaines circonstances, vous devrez peut-être réduire une base de données pour récupérer l’espace inutilisé. Pour plus d’informations, consultez [Gérer l’espace des fichiers dans Azure SQL Database](sql-database-file-space-management.md).
 
 Vous pouvez définir le niveau de service, la taille de calcul et la quantité de stockage pour une base de données unique à l’aide du [Portail Azure](sql-database-single-databases-manage.md#manage-an-existing-sql-database-server), de [Transact-SQL](sql-database-single-databases-manage.md#transact-sql-manage-sql-database-servers-and-single-databases), de [PowerShell](sql-database-single-databases-manage.md#powershell-manage-sql-database-servers-and-single-databases), [d’Azure CLI](sql-database-single-databases-manage.md#azure-cli-manage-sql-database-servers-and-single-databases) ou de [l’API REST](sql-database-single-databases-manage.md#rest-api-manage-sql-database-servers-and-single-databases).
 

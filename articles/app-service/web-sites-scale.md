@@ -59,7 +59,7 @@ Pour plus d’informations sur la tarification et les fonctionnalités de chaque
 <a name="ScalingSQLServer"></a>
 
 ## <a name="scale-related-resources"></a>Mettre à l’échelle des ressources associées
-Si votre application dépend d’autres services, tels qu’Azure SQL Database ou Stockage Microsoft Azure, vous pouvez faire monter en puissance ces ressources séparément. Ces ressources ne sont pas gérées par le plan App Service.
+Si votre application dépend d’autres services, comme Azure SQL Database ou Stockage Azure, vous pouvez effectuer un scale-up de ces ressources séparément. Ces ressources ne sont pas gérées par le plan App Service.
 
 1. Dans **Essentials**, cliquez sur le lien **Groupe de ressources**.
    

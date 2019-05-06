@@ -25,7 +25,7 @@ Cette architecture de référence, le guide d’implémentation et le modèle de
 
 ## <a name="architecture-diagram-and-components"></a>Diagramme et composants de l’architecture
 
-Cette solution fournit une architecture de référence pour une application web PaaS avec un serveur principal Azure SQL Database. L’application web est hébergée dans un environnement Azure App Service dédié, privé et isolé dans un centre de données Azure. L’environnement équilibre la charge du trafic pour l’application web entre des machines virtuelles gérées par Azure. Toutes les connexions externes requièrent TLSv1.2. Cette architecture inclut également des groupes de sécurité réseau, une passerelle d’application (Azure Application Gateway), un DNS (Azure DNS) et un équilibreur de charge (Azure Load Balancer).
+Cette solution fournit une architecture de référence pour une application web PaaS avec un back-end Azure SQL Database. L’application web est hébergée dans un environnement Azure App Service dédié, privé et isolé dans un centre de données Azure. L’environnement équilibre la charge du trafic pour l’application web entre des machines virtuelles gérées par Azure. Toutes les connexions externes requièrent TLSv1.2. Cette architecture inclut également des groupes de sécurité réseau, une passerelle d’application (Azure Application Gateway), un DNS (Azure DNS) et un équilibreur de charge (Azure Load Balancer).
 
 La solution utilise des comptes de stockage Azure que les clients peuvent configurer pour utiliser Storage Service Encryption afin de maintenir la confidentialité des données au repos. Azure enregistre trois copies des données au sein d’un centre de données sélectionné par le client pour assurer la résilience. Le stockage géographiquement redondant permet de s’assurer de la réplication des données vers un centre de données secondaire situé à des centaines de kilomètres et du stockage de trois copies dans ce centre de données, empêchant ainsi une perte de données en cas de dysfonctionnement au niveau du centre de données primaire du client.
 
@@ -89,7 +89,7 @@ L’architecture définit un réseau privé virtuel avec l’espace d’adressag
 
 - un groupe de sécurité réseau pour Application Gateway
 - un groupe de sécurité réseau pour App Service Environment
-- un groupe de sécurité réseau pour Azure SQL Database
+- 1 groupe de sécurité réseau pour Azure SQL Database
 
 Chaque groupe de sécurité réseau a des ports et protocoles spécifiques ouverts afin que la solution puisse fonctionner correctement et en toute sécurité. Par ailleurs, les configurations suivantes sont activées pour chaque groupe de sécurité réseau :
 

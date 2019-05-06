@@ -1,6 +1,6 @@
 ---
 title: Supervision des performances d’Azure SQL Database à l’aide de vues DMV | Microsoft Docs
-description: Apprenez à détecter et à diagnostiquer des problèmes de performances courants à l’aide de vues de gestion dynamique pour surveiller une base de données SQL Microsoft Azure.
+description: Apprenez à détecter et à diagnostiquer des problèmes de performances courants avec des vues de gestion dynamique permettant de superviser Microsoft Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
@@ -21,7 +21,7 @@ ms.locfileid: "62103761"
 ---
 # <a name="monitoring-performance-azure-sql-database-using-dynamic-management-views"></a>Supervision des performances d’Azure SQL Database à l’aide de vues de gestion dynamique
 
-La Base de données SQL Microsoft Azure active un sous-ensemble de vues de gestion dynamique permettant de diagnostiquer des problèmes de performances qui peuvent être causés par des requêtes bloquées ou longues, des goulots d’étranglement des ressources, des plans de requête médiocres, et ainsi de suite. Cette rubrique fournit des informations sur la façon de détecter des problèmes de performances courants à l’aide des vues de gestion dynamique.
+Microsoft Azure SQL Database active un sous-ensemble de vues de gestion dynamique permettant de diagnostiquer des problèmes de performances qui peuvent être causés par des requêtes bloquées ou longues, des goulots d’étranglement des ressources, des plans de requête médiocres, et ainsi de suite. Cette rubrique fournit des informations sur la façon de détecter des problèmes de performances courants à l’aide des vues de gestion dynamique.
 
 La base de données SQL prend partiellement en charge trois catégories de vues de gestion dynamique :
 
@@ -546,7 +546,7 @@ D’après les données, cette base de données présente actuellement une charg
 
 D’autres types d’applications peuvent interpréter différemment le même graphique. Par exemple, si une application essaie de traiter les données de paie chaque jour et obtient le même graphique, ce genre de modèle de « traitement par lot » peut convenir avec une taille de calcul P1. La taille de calcul P1 comprend 100 DTU, contre 200 DTU pour la taille de calcul P2. La taille de calcul P1 fournit la moitié des performances de la taille de calcul P2. Par conséquent, 50 % d’utilisation de l’UC au niveau P2 correspond à 100 % d’utilisation de l’UC au niveau de performance P1. Si l’application n’a pas de délai d’expiration, le fait qu’une tâche volumineuse s’exécute en 2 h ou 2 h 30 peut ne pas avoir d’importance à condition qu’elle soit effectuée le jour même. Une application de cette catégorie peut probablement utiliser une taille de calcul P1. Vous pouvez tirer parti du fait qu’il y a des périodes pendant la journée où l’utilisation des ressources est moindre, ce qui signifie que toute période de pointe peut déborder sur l’un des creux plus tard dans la journée. La taille de calcul P1 peut convenir pour une application de ce type (et permettre de réaliser des économies) tant que les travaux peuvent se terminer à temps chaque jour.
 
-La SQL Database Azure expose les informations sur les ressources utilisées pour chaque base de données active dans la vue **sys.resource_stats** de la base de données **master** dans chaque serveur. Les données de la table sont agrégées par intervalle de 5 minutes. Avec les niveaux de service De base, Standard et Premium, les données peuvent prendre plus de 5 minutes pour apparaître dans la table, ce qui signifie qu’elles conviennent mieux aux analyses historiques qu’aux analyses en quasi-temps réel. L’interrogation de la vue **sys.resource_stats** affiche l’historique récent d’une base de données et confirme si la réservation sélectionnée a fourni la performance souhaitée lorsque c’était nécessaire.
+Azure SQL Database expose les informations sur les ressources utilisées pour chaque base de données active dans la vue **sys.resource_stats** de la base de données **master** dans chaque serveur. Les données de la table sont agrégées par intervalle de 5 minutes. Avec les niveaux de service De base, Standard et Premium, les données peuvent prendre plus de 5 minutes pour apparaître dans la table, ce qui signifie qu’elles conviennent mieux aux analyses historiques qu’aux analyses en quasi-temps réel. L’interrogation de la vue **sys.resource_stats** affiche l’historique récent d’une base de données et confirme si la réservation sélectionnée a fourni la performance souhaitée lorsque c’était nécessaire.
 
 > [!NOTE]
 > Vous devez être connecté à la base de données **master** de votre serveur SQL Database pour interroger **sys.resource_stats** dans les exemples suivants.
@@ -707,7 +707,7 @@ L’exemple suivant renvoie des informations relatives aux cinq premières requ�
 
 ### <a name="monitoring-blocked-queries"></a>Surveillance des requêtes bloquées
 
-Des requêtes lentes ou longues peuvent contribuer à une consommation excessive de ressources et être la conséquence de requêtes bloquées. La cause du blocage peut être une conception médiocre d’application, de mauvais plans de requête, le manque d’index utiles, et ainsi de suite. La vue sys.dm_tran_locks permet d’obtenir des informations sur l’activité de verrouillage actuelle dans votre base de données SQL Azure. Pour un exemple de code, voir [sys.dm_tran_locks (Transact-SQL)](https://msdn.microsoft.com/library/ms190345.aspx) dans la documentation en ligne de SQL Server.
+Des requêtes lentes ou longues peuvent contribuer à une consommation excessive de ressources et être la conséquence de requêtes bloquées. La cause du blocage peut être une conception médiocre d’application, de mauvais plans de requête, le manque d’index utiles, et ainsi de suite. La vue sys.dm_tran_locks permet d’obtenir des informations sur l’activité de verrouillage actuelle dans votre base de données Azure SQL. Pour un exemple de code, voir [sys.dm_tran_locks (Transact-SQL)](https://msdn.microsoft.com/library/ms190345.aspx) dans la documentation en ligne de SQL Server.
 
 ### <a name="monitoring-query-plans"></a>Analyse des plans de requête
 

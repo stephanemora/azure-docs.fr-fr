@@ -33,7 +33,7 @@ Pour définir une stratégie de masquage de données dynamiques sur le Portail A
 
 ### <a name="dynamic-data-masking-permissions"></a>Autorisations du masquage des données dynamiques
 
-Le masquage des données dynamiques peut être configuré par les rôles d’administrateur de base de données SQL Azure, d’administrateur de serveur ou [Gestionnaire de la sécurité SQL](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-security-manager).
+Le masquage des données dynamiques peut être configuré par les rôles d’administrateur, d’administrateur de serveur ou [Gestionnaire de la sécurité SQL](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-security-manager) Azure SQL Database.
 
 ### <a name="dynamic-data-masking-policy"></a>Stratégie de masquage des données dynamiques
 
@@ -57,7 +57,7 @@ Le moteur de recommandations DDM signale certains champs de votre base de donné
 
 ## <a name="set-up-dynamic-data-masking-for-your-database-using-powershell-cmdlets"></a>Configuration des données dynamiques pour votre base de données à l’aide des applets de commande PowerShell de masquage
 
-Voir [Cmdlets de la base de données SQL Azure](https://docs.microsoft.com/powershell/module/az.sql).
+Consultez [Applets de commande Azure SQL Database](https://docs.microsoft.com/powershell/module/az.sql).
 
 ## <a name="set-up-dynamic-data-masking-for-your-database-using-rest-api"></a>Configuration du masquage des données dynamiques pour votre base de données à l’aide de l’API REST
 

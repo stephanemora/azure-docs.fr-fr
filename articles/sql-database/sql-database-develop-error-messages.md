@@ -26,7 +26,7 @@ Cet article répertorie les codes d’erreur SQL pour les applications clientes 
 
 ## <a name="database-connection-errors-transient-errors-and-other-temporary-errors"></a>Erreurs de connexion de base de données et erreurs temporaires
 
-Le tableau suivant décrit les codes d’erreur SQL pour les erreurs de perte de connexion, et autres erreurs temporaires, que vous pouvez rencontrer quand votre application tente d’accéder à SQL Database. Pour obtenir des didacticiels sur la façon de se connecter à la base de données SQL Azure, consultez [Connexion à la base de données SQL Azure](sql-database-libraries.md).
+Le tableau suivant décrit les codes d’erreur SQL pour les erreurs de perte de connexion, et autres erreurs temporaires, que vous pouvez rencontrer quand votre application tente d’accéder à SQL Database. Pour des tutoriels de démarrage sur la façon de se connecter à Azure SQL Database, consultez [Connexion à Azure SQL Database](sql-database-libraries.md).
 
 ### <a name="most-common-database-connection-errors-and-transient-fault-errors"></a>Erreurs de connexion de base de données et erreurs temporaires les plus courantes
 
@@ -66,7 +66,7 @@ Les erreurs suivantes sont temporaires et doivent être relancées dans la logiq
 
 ## <a name="database-copy-errors"></a>Erreurs de copie de base de données
 
-Les erreurs suivantes peuvent survenir lors de la copie d’une base de données dans la base de données SQL Azure. Pour en savoir plus, consultez [Copie d’une base de données SQL Azure](sql-database-copy.md).
+Les erreurs suivantes peuvent survenir lors de la copie d’une base de données dans Azure SQL Database. Pour en savoir plus, consultez [Copie d’une base de données Azure SQL](sql-database-copy.md).
 
 | Code d'erreur | Severity | Description |
 | ---:| ---:|:--- |

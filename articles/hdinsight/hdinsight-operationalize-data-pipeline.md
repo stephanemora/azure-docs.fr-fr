@@ -49,7 +49,7 @@ Le diagramme suivant illustre la conception générale de cet exemple de pipelin
 
 Ce pipeline a besoin d’une base de données Azure SQL Database et d’un cluster HDInsight Hadoop au même emplacement. La base de données Azure SQL Database stocke à la fois les données résumées produites par le pipeline et le magasin de métadonnées Oozie.
 
-#### <a name="provision-azure-sql-database"></a>Approvisionner Azure SQL Database
+#### <a name="provision-azure-sql-database"></a>Provisionner Azure SQL Database
 
 1. Sur le Portail Azure, créez un nouveau groupe de ressources nommé `oozie` pour contenir toutes les ressources utilisées par cet exemple.
 2. Dans le groupe de ressources `oozie`, approvisionnez un serveur et une base de données SQL Azure. Il est inutile que la base de données soit supérieure au niveau tarifaire Standard S1.

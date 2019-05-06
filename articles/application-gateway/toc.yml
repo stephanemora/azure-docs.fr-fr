@@ -45,6 +45,8 @@
           href: application-gateway-components.md
         - name: Présentation de la configuration
           href: configuration-overview.md
+    - name: "Référence SKU de mise à l’échelle version\_2"
+      href: application-gateway-autoscaling-zone-redundant.md
     - name: Routage
       items:
         - name: Hébergement de plusieurs sites
@@ -77,8 +79,6 @@
           href: application-gateway-probe-overview.md
         - name: Diagnostics
           href: application-gateway-diagnostics.md
-    - name: Mise à l’échelle automatique et redondance de zone
-      href: application-gateway-autoscaling-zone-redundant.md
     - name: Application web App Service et prise en charge multilocataire
       href: application-gateway-web-app-overview.md
     - name: Prise en charge de WebSocket
@@ -183,6 +183,8 @@
           href: rewrite-http-headers-portal.md
         - name: Azure PowerShell
           href: add-http-header-rewrite-rule-powershell.md
+        - name: Créer et réécrire des en-têtes HTTP
+          href: tutorial-http-header-rewrite-powershell.md
     - name: Configurer une application web App Service et un service multilocataire
       items:
         - name: Portail

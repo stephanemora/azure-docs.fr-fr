@@ -182,7 +182,7 @@ Les sections suivantes présentent quelques exemples de scénarios. Pour chaque 
 1. Lisez les données directement à partir de SQL Server à l’aide du module [Importer des données][import-data]. Collez la requête nécessaire qui extrait les champs, crée les fonctionnalités et échantillonne les données, le cas échéant, directement dans la requête [Import Data][import-data].
 1. Flux d’expérience Azure Machine Learning simple commençant par le jeu de données téléchargé.
 
-### <a name="alternate-method-to-copy-a-full-database-from-an-on-premises--sql-server-to-azure-sql-database"></a>Autre méthode pour copier une base de données complète à partir d’un serveur SQL local vers une base de données SQL Azure
+### <a name="alternate-method-to-copy-a-full-database-from-an-on-premises--sql-server-to-azure-sql-database"></a>Autre méthode pour copier une base de données complète à partir d’un serveur SQL local vers une base de données Azure SQL
 ![Détacher la base de données locale et l’attacher à la base de données SQL dans Azure][7]
 
 #### <a name="additional-azure-resources-azure-virtual-machine-sql-server--ipython-notebook-server"></a>Autres ressources Azure : Machine virtuelle Azure (SQL Server / serveur IPython Notebook)

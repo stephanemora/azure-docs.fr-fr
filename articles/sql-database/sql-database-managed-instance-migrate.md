@@ -1,6 +1,6 @@
 ---
-title: Migrer une instance SQL vers une instance gérée Azure SQL Database | Microsoft Docs
-description: Apprenez à migrer une instance SQL Server vers une instance gérée Azure SQL Database Managed.
+title: Migrer une instance SQL vers une instance managée Azure SQL Database | Microsoft Docs
+description: Apprenez à migrer une instance SQL Server vers une instance managée Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: migration
@@ -19,9 +19,9 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "61315555"
 ---
-# <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>Migration d’une instance SQL Server vers une instance gérée Azure SQL Database
+# <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>Migration d’une instance SQL Server vers une instance managée Azure SQL Database
 
-Dans cet article, vous allez découvrir les méthodes possibles pour la migration d’une instance SQL Server 2005 (ou version ultérieure) vers un [instance gérée Azure SQL Database](sql-database-managed-instance.md). Pour obtenir des informations sur la migration vers une base de données unique ou un pool élastique, consultez [Migration vers une base de données unique ou mise en pool](sql-database-cloud-migrate.md). Pour obtenir des informations sur la migration à partir d’autres plateformes, consultez [Guide de migration des bases de données Azure](https://datamigration.microsoft.com/).
+Dans cet article, vous allez découvrir les méthodes possibles pour la migration d’une instance SQL Server 2005 ou ultérieure vers une [instance managée Azure SQL Database](sql-database-managed-instance.md). Pour obtenir des informations sur la migration vers une base de données unique ou un pool élastique, consultez [Migration vers une base de données unique ou mise en pool](sql-database-cloud-migrate.md). Pour obtenir des informations sur la migration à partir d’autres plateformes, consultez [Guide de migration des bases de données Azure](https://datamigration.microsoft.com/).
 
 Le processus général de migration d’une base de données ressemble à ce qui suit :
 
@@ -40,7 +40,7 @@ Le processus général de migration d’une base de données ressemble à ce qui
 
 Tout d’abord, déterminez si l’instance gérée est compatible avec les exigences de base de données de votre application. L’option de déploiement d’instance gérée est conçue pour faciliter la migration « lift-and-shift » de la plupart des applications existantes qui utilisent SQL Server localement ou sur des machines virtuelles. Toutefois, vous risquez parfois d’avoir besoin de fonctionnalités qui ne sont pas encore prises en charge et dont le coût d’implémentation d’une solution de contournement est trop élevé.
 
-Utilisez l’[Assistant Migration de données](https://docs.microsoft.com/sql/dma/dma-overview) pour détecter les éventuels problèmes de compatibilité qui impactent le fonctionnement de la base de données sur Azure SQL Database. Cet Assistant ne prend pas encore en charge une instance gérée en tant que destination de migration, mais il est recommandé d’effectuer une évaluation par rapport à Azure SQL Database et d’examiner attentivement la liste des problèmes de compatibilité et de parité de fonctionnalité signalés par rapport à la documentation du produit. Consultez les [fonctionnalités Azure SQL Database](sql-database-features.md) pour savoir si des problèmes de blocage sont signalés dans l’instance gérée, car la plupart des problèmes de blocage empêchant de migrer vers une base de données Azure SQL Database ont été supprimés avec l’instance gérée. Par exemple, des fonctionnalités comme les requêtes entre plusieurs bases de données, les transactions entre plusieurs bases de données au sein de la même instance, un serveur lié à d’autres sources SQL, la prise en charge du Common Language Runtime, les tables temporaires globales, les affichages au niveau de l’instance, Service Broker, etc. sont disponibles dans les instances gérées.
+Utilisez l’[Assistant Migration de données](https://docs.microsoft.com/sql/dma/dma-overview) pour détecter les éventuels problèmes de compatibilité qui impactent le fonctionnement de la base de données sur Azure SQL Database. Cet Assistant ne prend pas encore en charge une instance managée en tant que destination de migration, mais il est recommandé d’effectuer une évaluation par rapport à Azure SQL Database et d’examiner attentivement la liste des problèmes de compatibilité et de parité de fonctionnalité signalés par rapport à la documentation du produit. Consultez les [fonctionnalités Azure SQL Database](sql-database-features.md) pour savoir si des problèmes de blocage sont signalés dans l’instance gérée, car la plupart des problèmes de blocage empêchant de migrer vers une base de données Azure SQL Database ont été supprimés avec l’instance gérée. Par exemple, des fonctionnalités comme les requêtes entre plusieurs bases de données, les transactions entre plusieurs bases de données au sein de la même instance, un serveur lié à d’autres sources SQL, la prise en charge du Common Language Runtime, les tables temporaires globales, les affichages au niveau de l’instance, Service Broker, etc. sont disponibles dans les instances gérées.
 
 Si certains problèmes de blocage signalés ne sont pas supprimés avec l’option de déploiement d’instance gérée, vous devrez peut-être envisager une autre solution, comme l’utilisation de [SQL Server sur des machines virtuelles Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/). Voici quelques exemples :
 

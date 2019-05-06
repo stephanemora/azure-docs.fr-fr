@@ -833,7 +833,7 @@ Dans cet exercice, nous avons déjà exploré et généré les données dans SQL
 1. Importez les données dans Azure Machine Learning Studio avec le module [Importer les données][import-data], disponible dans la section **Entrée et sortie des données**. Pour plus d’informations, consultez la page de référence du module [Importer les données][import-data] .
 
     ![Importer les données Azure ML][17]
-2. Dans le panneau **Propriétés**, sélectionnez **Azure SQL Database** dans le champ **Source de données**.
+2. Dans le panneau **Propriétés**, sélectionnez **Base de données Azure SQL** dans le champ **Source de données**.
 3. Dans le champ **Nom du serveur de base de données** , entrez le nom DNS de la base de données. Format : `tcp:<your_virtual_machine_DNS_name>,1433`
 4. Dans le champ **Nom de la base de données** , entrez le nom de la base de données.
 5. Entrez le *nom d’utilisateur SQL* dans le champ **Nom de compte d’utilisateur du serveur**, et le *mot de passe* dans le champ **Mot de passe de compte d’utilisateur du serveur**.

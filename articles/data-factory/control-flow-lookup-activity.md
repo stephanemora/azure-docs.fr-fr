@@ -249,7 +249,7 @@ Ce compte de stockage contient le fichier JSON avec les noms des tables SQL.
 }
 ```
 
-### <a name="azure-sql-database-linked-service"></a>Service lié pour base de données SQL Azure
+### <a name="azure-sql-database-linked-service"></a>Service lié Azure SQL Database
 Cette instance Azure SQL Database contient les données à copier dans le stockage Blob. 
 
 ```json

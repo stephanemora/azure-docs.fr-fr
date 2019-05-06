@@ -1,5 +1,5 @@
 ---
-title: Exécuter des requêtes de rapport sur plusieurs bases de données SQL Azure | Microsoft Docs
+title: Exécuter des requêtes de rapport sur plusieurs bases de données Azure SQL | Microsoft Docs
 description: Création de rapports inter-clients à l’aide de requêtes distribuées.
 services: sql-database
 ms.service: sql-database

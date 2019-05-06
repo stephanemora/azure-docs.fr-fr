@@ -1,6 +1,6 @@
 ---
 title: Qu’est-ce qu’une base de données Azure SQL Database unique | Microsoft Docs
-description: En savoir plus sur la base de données unique dans Azure SQL Database
+description: En savoir plus sur les bases de données uniques dans Azure SQL Database
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
@@ -21,12 +21,12 @@ ms.locfileid: "64572667"
 ---
 # <a name="what-is-a-single-database-in-azure-sql-database"></a>Qu’est-ce qu’une base de données Azure SQL Database unique
 
-L'option de déploiement d'une base de données unique crée dans Azure SQL Database une base de données dotée de ses propres ressources, et celle-ci est gérée par le biais d'un serveur SQL Database. Avec une base de données unique, chaque base de données est portable et isolée de l’autre. Chacune a son propre niveau de service dans le [modèle d’achat DTU](sql-database-service-tiers-dtu.md) ou le [modèle d’achat vCore](sql-database-service-tiers-vcore.md), ainsi qu’une taille de calcul garantie.
+L’option de déploiement d’une base de données unique crée dans Azure SQL Database une base de données dotée de ses propres ressources, et celle-ci est gérée par le biais d’un serveur SQL Database. Avec une base de données unique, chaque base de données est portable et isolée de l’autre. Chacune a son propre niveau de service dans le [modèle d’achat DTU](sql-database-service-tiers-dtu.md) ou le [modèle d’achat vCore](sql-database-service-tiers-vcore.md), ainsi qu’une taille de calcul garantie.
 
 > [!IMPORTANT]
 > Une base de données unique est l’une des trois options de déploiement Azure SQL Database. Les deux autres sont [les pools élastiques](sql-database-elastic-pool.md) et [l’instance gérée](sql-database-managed-instance.md).
 > [!NOTE]
-> Pour connaître la signification des termes utilisés dans Azure SQL Database, consultez le [Lexique SQL Database](sql-database-glossary-terms.md).
+> Pour connaître la signification des termes dans Azure SQL Database, consultez le [Lexique SQL Database](sql-database-glossary-terms.md).
 
 ## <a name="dynamic-scalability"></a>Évolutivité dynamique
 
@@ -61,5 +61,5 @@ SQL Database fournit toute une gamme de [fonctionnalités intégrées de sécuri
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Pour commencer à utiliser une base de données unique, consultez la documentation [Guide de démarrage rapide sur les bases de données uniques.md](sql-database-single-database-quickstart-guide.md).
-- Pour en savoir plus sur la migration d’une base de données SQL Server, consultez la section [Migrer une base de données SQL](sql-database-single-database-migrate.md).
+- Pour en savoir plus sur la migration d’une base de données SQL Server, consultez la section [Migrer une base de données Azure SQL](sql-database-single-database-migrate.md).
 - Pour plus d’informations sur les fonctionnalités prises en charge, consultez la page [Fonctionnalités](sql-database-features.md).

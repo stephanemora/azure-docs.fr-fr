@@ -25,7 +25,7 @@
       href: tutorial-custom-images.md
     - name: 5 - Machines virtuelles hautement disponibles
       href: tutorial-availability-sets.md
-    - name: 6 - Créer un groupe de machines virtuelles identiques
+    - name: 6 - Créer un groupe identique
       href: tutorial-create-vmss.md
     - name: 7 - Équilibrer la charge des machines virtuelles
       href: tutorial-load-balancer.md
@@ -259,6 +259,8 @@
               href: shared-image-galleries.md
             - name: Créer des images partagées avec CLI
               href: shared-images.md
+            - name: Portail
+              href: shared-images-portal.md
             - name: Résoudre les problèmes relatifs aux images partagées
               href: troubleshooting-shared-images.md
         - name: Trouver et utiliser des images

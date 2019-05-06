@@ -98,5 +98,5 @@ Apprenez à utiliser Apache Sqoop pour échanger des données entre un cluster A
 Vous maîtrisez à présent l'utilisation de Sqoop. Pour plus d'informations, consultez les rubriques suivantes :
 
 * [Utiliser Apache Oozie avec HDInsight](../hdinsight-use-oozie-linux-mac.md) : Utilisez l’action Sqoop dans un workflow Oozie.
-* [Analyser des données sur les retards de vol avec HDInsight](../hdinsight-analyze-flight-delay-data-linux.md) : utilisez Apache Hive pour analyser des données sur les retards de vol, puis utilisez Sqoop pour exporter ces données vers une base de données SQL Azure.
+* [Analyser des données sur les retards de vol avec HDInsight](../hdinsight-analyze-flight-delay-data-linux.md) : Utilisez Apache Hive pour analyser des données sur les retards de vol, puis utilisez Sqoop pour exporter ces données vers une base de données Azure SQL.
 * [Chargez des données dans HDInsight](../hdinsight-upload-data.md) : Découvrez d’autres méthodes pour charger des données dans HDInsight ou le stockage Blob Azure.

@@ -1,5 +1,5 @@
 ---
-title: Configurer la détection des menaces - Instance gérée Azure SQL Database | Microsoft Docs
+title: Configurer la détection des menaces - Instance managée Azure SQL Database | Microsoft Docs
 description: La détection des menaces permet de détecter les activités de base de données anormales indiquant la présence potentielle de menaces de sécurité pour une base de données d’une instance gérée.
 services: sql-database
 ms.service: sql-database
@@ -19,7 +19,7 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "61313894"
 ---
-# <a name="configure-threat-detection-preview-in-azure-sql-database-managed-instance"></a>Configurer la détection des menaces (préversion) dans une instance gérée Azure SQL Database
+# <a name="configure-threat-detection-preview-in-azure-sql-database-managed-instance"></a>Configurer la détection des menaces (préversion) dans une instance managée Azure SQL Database
 
 La [détection des menaces](sql-database-threat-detection-overview.md) pour une [instance gérée](sql-database-managed-instance-index.yml) détecte les activités anormales indiquant des tentatives d’accès ou d’exploitation inhabituelles ou potentiellement dangereuses de bases de données. La détection des menaces peut identifier une **injection SQL potentielle**, un **accès à partir d’un emplacement ou d’un centre de données inhabituel**, un **accès à partir d’un principal inconnu ou d’une application potentiellement dangereuse** et des **informations d’identification SQL par force brute**. Pour plus d’informations, consultez [Alertes de détection des menaces](sql-database-threat-detection-overview.md#advanced-threat-protection-alerts).
 

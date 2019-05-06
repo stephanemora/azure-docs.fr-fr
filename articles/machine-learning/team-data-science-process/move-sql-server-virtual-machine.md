@@ -22,7 +22,7 @@ ms.locfileid: "61429494"
 
 Cet article présente les options de déplacement des données à partir de fichiers plats (format CSV ou TSV) ou d’un serveur SQL Server local vers un serveur SQL Server sur une machine virtuelle Azure. Ces tâches permettant de déplacer des données vers le cloud font partie du processus TDSP (Team Data Science Process).
 
-Pour la rubrique présentant les options de déplacement de données sur une base de données SQL Azure pour Machine Learning, consultez [Déplacement de données vers une base de données SQL Azure pour Azure Machine Learning](move-sql-azure.md).
+Pour la rubrique présentant les options de déplacement de données sur une base de données Azure SQL pour Machine Learning, consultez [Déplacement de données vers une base de données Azure SQL pour Azure Machine Learning](move-sql-azure.md).
 
 Le tableau suivant récapitule les options de déplacement de données vers SQL Server sur une machine virtuelle Azure.
 

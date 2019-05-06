@@ -89,7 +89,7 @@ Pour restaurer une base de données supprimée :
 >
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour plus d’informations sur les fonctionnalités de continuité des activités des éditions de Base de données SQL Azure, consultez [Vue d’ensemble de la continuité des activités de la base de données SQL Azure][Azure SQL Database business continuity overview].
+Pour plus d’informations sur les fonctionnalités de continuité des activités des éditions Azure SQL Database, consultez [Vue d’ensemble de la continuité des activités Azure SQL Database][Azure SQL Database business continuity overview].
 
 <!--Image references-->
 

@@ -278,7 +278,7 @@ Dans cette étape, vous allez créer des jeux de données d’entrée et de sort
    * **type** est défini sur **AzureBlob**.
    * Le paramètre **linkedServiceName** est défini sur **AzureStorageLinkedService** (que vous avez créé à l’étape 2).
    * Le paramètre **folderPath** est défini sur **adftutorial/outfromonpremdf**, où « outfromonpremdf » est le dossier dans le conteneur adftutorial. S’il n’existe pas déjà, créez le conteneur **adftutorial** .
-   * **availability** est défini sur **hourly** (**frequency** a la valeur **hour** et **interval** est défini sur **1**).  Le service Data Factory génère une tranche de données de sortie toutes les heures dans la table **emp** de la base de données SQL Azure.
+   * **availability** est défini sur **hourly** (**frequency** a la valeur **hour** et **interval** est défini sur **1**).  Le service Data Factory génère une tranche de données de sortie toutes les heures dans la table **emp** de la base de données Azure SQL.
 
    Si vous ne spécifiez pas un **fileName** pour un **table de sortie**, les fichiers générés dans le **folderPath** sont nommés selon le format suivant : `Data.<Guid>.txt` (par exemple : : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
 

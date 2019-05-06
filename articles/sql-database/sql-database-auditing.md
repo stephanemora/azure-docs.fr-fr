@@ -1,5 +1,5 @@
 ---
-title: Bien démarrer avec l’audit de bases de données SQL Azure | Microsoft Docs
+title: Prise en main de l’audit Azure SQL Database | Microsoft Docs
 description: Utilisez la fonctionnalité d’audit d’Azure SQL Database pour effectuer le suivi des événements de base de données dans un journal d’audit.
 services: sql-database
 ms.service: sql-database
@@ -211,7 +211,7 @@ Dans un environnement de production, vous allez probablement actualiser périodi
 - Pour plus d’informations sur le format du journal, la hiérarchie du dossier de stockage et les conventions d’affectation de nom,consultez le [document de référence sur le format des journaux d’audit d’objets blob](https://go.microsoft.com/fwlink/?linkid=829599).
 
     > [!IMPORTANT]
-    > Azure SQL Database stocke 4 000 caractères de données pour des champs caractères dans un enregistrement d’audit. Lorsque l’**instruction** ou les valeurs **data_sensitivity_information** retournées à partir d’une action pouvant être auditée contiennent plus de 4 000 caractères, toutes les données au-delà des 4 000 premiers caractères sont  **tronquées et ne sont pas auditées**.
+    > L’audit Azure SQL Database stocke 4 000 caractères de données pour des champs de caractères dans un enregistrement d’audit. Lorsque l’**instruction** ou les valeurs **data_sensitivity_information** retournées à partir d’une action pouvant être auditée contiennent plus de 4 000 caractères, toutes les données au-delà des 4 000 premiers caractères sont  **tronquées et ne sont pas auditées**.
 
 - Les journaux d’audit sont écrits dans des **Blobs d’ajout** dans un stockage Blob Azure avec votre abonnement Azure :
   - **Stockage Premium** n’est actuellement  **pas pris en charge** par l’ajout d’objets blob.
@@ -257,7 +257,7 @@ Prise en charge de la stratégie étendue avec la clause WHERE pour un filtrage 
 
 ## <a id="subheading-10"></a>Gérer l’audit de base de données SQL à l’aide de modèles ARM
 
-Vous pouvez gérer l’audit de base de données SQL Azure à l’aide de modèles [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), comme indiqué dans ces exemples :
+Vous pouvez gérer l’audit de bases de données Azure SQL à l’aide de modèles [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), comme indiqué dans ces exemples :
 
 - [Déployer un serveur Azure SQL Server avec l’audit activé pour écrire des journaux d’audit dans le compte de stockage blob Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-blob-storage)
 - [Déployer un serveur SQL Azure avec l’audit activé pour écrire des journaux d’audit dans Log Analytics](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-oms)

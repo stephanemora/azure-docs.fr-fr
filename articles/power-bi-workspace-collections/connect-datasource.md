@@ -36,7 +36,7 @@ Pour l’instant, les collections d’espaces de travail Power BI vous permette
 ## <a name="supported-data-sources"></a>Sources de données prises en charge
 
 **DirectQuery**
-* Base de données SQL Azure
+* Base de données Azure SQL
 * Azure SQL Data Warehouse
 
 **Importationation**

@@ -27,7 +27,7 @@ Cet article explique comment utiliser l'activité de copie d'Azure Data Factor
 
 Vous pouvez copier des données d'Azure SQL Database Managed Instance vers n'importe quel magasin de données récepteur pris en charge. Vous pouvez également copier des données de n'importe quel magasin de données source pris en charge vers l'instance gérée. Pour obtenir la liste des magasins de données pris en charge en tant que sources ou récepteurs par l'activité de copie, consultez le tableau [Magasins de données pris en charge](copy-activity-overview.md#supported-data-stores-and-formats).
 
-Plus précisément, ce connecteur Azure SQL Database Managed Instance prend en charge :
+Plus précisément, ce connecteur Azure SQL Database Managed Instance prend en charge :
 
 - La copie des données à l'aide de l'authentification SQL ou Windows
 - En tant que source, la récupération de données à l'aide d'une requête SQL ou d'une procédure stockée

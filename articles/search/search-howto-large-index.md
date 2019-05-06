@@ -83,7 +83,7 @@ Pour les indexeurs, la capacité de traitement est plus ou moins basée sur un s
 
 2. Sous **Paramètres** > **Échelle**, [augmentez le nombre de réplicas](search-capacity-planning.md) pour le traitement parallèle : un réplica supplémentaire pour chaque charge de travail d’indexeur. Conservez-en un nombre suffisant pour le volume de requêtes existant. Sacrifier les charges de travail de requête au profit de l’indexation n’est pas judicieux.
 
-3. Répartissez les données dans plusieurs conteneurs à un niveau qui est accessible par les indexeurs Recherche Azure. Placez-les par exemple dans plusieurs tables Azure SQL Database, dans différents conteneurs du stockage Blob Azure ou dans plusieurs collections. Définissez un objet de source de données pour chaque table ou conteneur.
+3. Répartissez les données dans plusieurs conteneurs à un niveau qui est accessible par les indexeurs Recherche Azure. Placez-les par exemple dans plusieurs tables dans Azure SQL Database, dans différents conteneurs du stockage Blob Azure ou dans plusieurs collections. Définissez un objet de source de données pour chaque table ou conteneur.
 
 4. Créez plusieurs indexeurs et planifiez leur exécution parallèle :
 

@@ -228,6 +228,8 @@
           href: custom-translator/how-to-manage-settings.md
         - name: Migrer à partir du hub
           href: custom-translator/how-to-migrate.md
+        - name: Déploiements de langages non pris en charge
+          href: custom-translator/unsupported-language-deployments.md
     - name: Ressources
       items:
         - name: Prise en charge des langages

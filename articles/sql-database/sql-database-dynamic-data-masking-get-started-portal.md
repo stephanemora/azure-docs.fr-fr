@@ -21,7 +21,7 @@ ms.locfileid: "61077711"
 ---
 # <a name="get-started-with-sql-database-dynamic-data-masking-with-the-azure-portal"></a>Prise en main du masquage des données dynamiques de base de données SQL dans le portail Azure
 
-Cet article vous montre comment implémenter [le masquage des données dynamiques](sql-database-dynamic-data-masking-get-started.md) avec le portail Azure. Vous pouvez également implémenter le masquage de données dynamique avec les [applets de commande de base de données Azure](https://docs.microsoft.com/powershell/module/az.sql/) ou [l’API REST](https://docs.microsoft.com/rest/api/sql/).
+Cet article vous montre comment implémenter [le masquage des données dynamiques](sql-database-dynamic-data-masking-get-started.md) avec le portail Azure. Vous pouvez également implémenter le masquage de données dynamique avec les [applets de commande Azure SQL Database](https://docs.microsoft.com/powershell/module/az.sql/) ou [l’API REST](https://docs.microsoft.com/rest/api/sql/).
 
 ## <a name="set-up-dynamic-data-masking-for-your-database-using-the-azure-portal"></a>Configuration du masquage des données dynamiques pour votre base de données à l’aide du portail Azure
 
@@ -59,4 +59,4 @@ Cet article vous montre comment implémenter [le masquage des données dynamique
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour une vue d’ensemble du masquage des données dynamiques, consultez [Masquage des données dynamiques](sql-database-dynamic-data-masking-get-started.md).
-* Vous pouvez également implémenter le masquage de données dynamique avec les [applets de commande de base de données Azure](https://docs.microsoft.com/powershell/module/az.sql/) ou [l’API REST](https://docs.microsoft.com/rest/api/sql/).
+* Vous pouvez également implémenter le masquage de données dynamique avec les [applets de commande Azure SQL Database](https://docs.microsoft.com/powershell/module/az.sql/) ou [l’API REST](https://docs.microsoft.com/rest/api/sql/).

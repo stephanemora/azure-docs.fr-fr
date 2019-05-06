@@ -124,9 +124,9 @@ Analysis Services, Reporting Services, le moteur de base de données SQL Server 
 
 ![scénario BI iaas avec 2 machines virtuelles](./media/virtual-machines-windows-classic-ps-sql-bi/IC650109.gif)
 
-### <a name="mixed-azure--data-on-azure-sql-database"></a>Topologie mixte Azure - données sur Base de données SQL Azure
+### <a name="mixed-azure--data-on-azure-sql-database"></a>Topologie mixte Azure - données sur Azure SQL Database
 * Analysis Services, Reporting Services et le moteur de base de données SQL Server sont sur une seule machine virtuelle. Ce déploiement inclut les bases de données du serveur de rapports.
-* La source de données est la Base de données SQL Azure.
+* La source de données est Azure SQL Database.
 
 ![machine virtuelle de scénarios BI iaas et AzureSQL comme source de données](./media/virtual-machines-windows-classic-ps-sql-bi/IC650110.gif)
 

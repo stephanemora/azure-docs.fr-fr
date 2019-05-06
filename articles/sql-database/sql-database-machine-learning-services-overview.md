@@ -20,7 +20,7 @@ ms.locfileid: "64723988"
 ---
 # <a name="azure-sql-database-machine-learning-services-with-r-preview"></a>SQL Database Services Azure Machine Learning avec R (version préliminaire)
 
-Machine Learning Services est une fonctionnalité d’Azure SQL Database pour l’exécution de scripts R dans les bases de données. La fonctionnalité inclut les packages Microsoft R pour l’analyse prédictive haute performance et le machine learning. Les données relationnelles peuvent être utilisées dans des scripts R au moyen de procédures stockées, de scripts T-SQL contenant des instructions R ou de code R contenant T-SQL.
+Machine Learning Services est une fonctionnalité Azure SQL Database pour l’exécution de scripts R dans les bases de données. La fonctionnalité inclut les packages Microsoft R pour l’analyse prédictive haute performance et le machine learning. Les données relationnelles peuvent être utilisées dans des scripts R au moyen de procédures stockées, de scripts T-SQL contenant des instructions R ou de code R contenant T-SQL.
 
 > [!IMPORTANT]
 > Azure SQL Database Machine Learning Services (avec R) est actuellement en version préliminaire publique.

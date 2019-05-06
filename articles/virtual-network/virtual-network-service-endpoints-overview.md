@@ -82,7 +82,7 @@ Les points de terminaison de service fournissent les avantages suivants :
 ### <a name="configuration"></a>Configuration
 
 - Les points de terminaison de service sont configurés sur un sous-réseau dans un réseau virtuel. Les points de terminaison fonctionnent avec n’importe quel type d’instances de calcul en cours d’exécution dans ce sous-réseau.
-- Vous pouvez configurer plusieurs points de terminaison de service pour tous les services Azure pris en charge (par exemple, stockage Azure ou Azure SQL Database) sur un sous-réseau.
+- Vous pouvez configurer plusieurs points de terminaison de service pour tous les services Azure pris en charge (par exemple, Stockage Azure ou Azure SQL Database) sur un sous-réseau.
 - Pour Azure SQL Database, les réseaux virtuels doivent être dans la même région que la ressource de service Azure. Si vous utilisez les comptes de stockage Azure GRS et RA-GRS, le compte principal doit être dans la même région que le réseau virtuel. Pour tous les autres services, les ressources du service Azure peuvent être sécurisées sur les réseaux virtuels de n’importe quelle région. 
 - Le réseau virtuel dans lequel est configuré le point de terminaison peut être dans le même abonnement ou dans un abonnement différent de celui de la ressource du service Azure. Pour plus d’informations sur les autorisations requises pour la configuration de points de terminaison et la sécurisation des services Azure, consultez [Approvisionnement](#provisioning).
 - Pour les services pris en charge, vous pouvez sécuriser des ressources nouvelles ou existantes pour des réseaux virtuels à l’aide de points de terminaison de service.
@@ -128,7 +128,7 @@ Les réseaux virtuels et les ressources du service Azure peuvent être dans des 
 
 ## <a name="pricing-and-limits"></a>Tarification et limites
 
-L’utilisation de points de terminaison de service n’engendre pas de frais supplémentaires. Le modèle de tarification actuel pour les services Azure (stockage Azure, Azure SQL Database, etc.) reste le même.
+L’utilisation de points de terminaison de service n’engendre pas de frais supplémentaires. Le modèle tarifaire actuel pour les services Azure (Stockage Azure, Azure SQL Database, etc.) reste le même.
 
 Il n’existe aucune limite sur le nombre total de points de terminaison de service dans un réseau virtuel.
 

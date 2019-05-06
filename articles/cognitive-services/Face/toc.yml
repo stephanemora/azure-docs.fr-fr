@@ -45,14 +45,22 @@
           href: Tutorials/FaceAPIinCSharpTutorial.md
         - name: Android
           href: Tutorials/FaceAPIinJavaForAndroidTutorial.md
-- name: Guides pratiques
+- name: Concepts
   items:
     - name: Détection des visages
+      href: concepts/face-detection.md
+    - name: Reconnaissance faciale
+      href: concepts/face-recognition.md
+- name: Guides pratiques
+  items:
+    - name: Détecter des visages
       href: Face-API-How-to-Topics/HowtoDetectFacesinImage.md
-    - name: Identification des visages
+    - name: Identifier des visages
       href: Face-API-How-to-Topics/HowtoIdentifyFacesinImage.md
     - name: Ajouter des visages
       href: Face-API-How-to-Topics/how-to-add-faces.md
+    - name: Utiliser HeadPose pour faire pivoter un rectangle
+      href: Face-API-How-to-Topics/how-to-use-headpose.md
     - name: Spécifier un modèle de reconnaissance faciale
       href: Face-API-How-to-Topics/specify-recognition-model.md
     - name: Utilisez la fonctionnalité à grande échelle
@@ -69,10 +77,6 @@
           href: face-resource-container-config.md
     - name: Utilisez le service connecté de l’API Visage
       href: vs-face-connected-service.md
-- name: Exemples
-  items:
-    - name: Exemples de code
-      href: 'https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=Face'
 - name: Informations de référence
   items:
     - name: API Visage
@@ -93,10 +97,10 @@
           href: 'https://github.com/Microsoft/Cognitive-Face-iOS'
 - name: Ressources
   items:
-    - name: Glossaire
-      href: Glossary.md
-    - name: Forum Aux Questions
-      href: FAQ.md
+    - name: Exemples
+      items:
+        - name: Exemples d’API Visage
+          href: 'https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=Face'
     - name: Tarification et limites
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/face-api'
     - name: UserVoice

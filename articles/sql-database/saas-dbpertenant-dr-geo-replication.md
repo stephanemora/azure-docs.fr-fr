@@ -1,6 +1,6 @@
 ---
-title: Récupération d’urgence des applications SaaS à l’aide de la géoréplication Azure SQL Database | Microsoft Docs
-description: Apprendre à utiliser des géoréplicas Azure SQL Database pour récupérer une application SaaS multi-locataire en cas de panne
+title: Reprise d’activité des applications SaaS à l’aide de la géoréplication Azure SQL Database | Microsoft Docs
+description: Apprendre à utiliser des géoréplicas Azure SQL Database pour récupérer une application SaaS multilocataire en cas de panne
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
@@ -64,7 +64,7 @@ Toutes les parties doivent être examinées avec précaution, surtout en cas de 
 * Rapatriement 
     * Basculer les bases de données à partir de la région de récupération vers les réplicas dans la région d’origine avec un impact minimal sur les locataires : aucune perte de données et durée minimale hors ligne par client.   
 
-Dans ce didacticiel, ces tâches sont effectuées à l’aide des fonctionnalités d’Azure SQL Database et de la plateforme Azure :
+Dans ce tutoriel, ces tâches sont effectuées à l’aide des fonctionnalités Azure SQL Database et de la plateforme Azure :
 
 * [Modèles Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template) pour réserver toute la capacité nécessaire aussi rapidement que possible. Les modèles Azure Resource Manager sont utilisés pour approvisionner une image miroir des serveurs de production et des pools élastiques dans la région de récupération.
 * [Géoréplication](sql-database-geo-replication-overview.md) pour créer des copies secondaires en lecture seule et répliquées de façon asynchrone pour toutes les bases de données. Pendant la panne, vous basculez vers les réplicas dans la région de récupération.  Une fois la panne résolue, vous restaurez automatiquement les bases de données dans la région d’origine sans aucune perte de données.

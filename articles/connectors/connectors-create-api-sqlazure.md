@@ -30,9 +30,9 @@ Si vous n’avez pas d’abonnement Azure, <a href="https://azure.microsoft.com/
 
 * L’application logique où vous devez avoir accès à votre base de données SQL. Pour démarrer votre application logique avec un déclencheur SQL, vous avez besoin d’une [application logique vide](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
 
-* Une [base de données SQL Azure](../sql-database/sql-database-get-started-portal.md) ou une [base de données SQL Server](https://docs.microsoft.com/sql/relational-databases/databases/create-a-database) 
+* Une [base de données Azure SQL](../sql-database/sql-database-get-started-portal.md) ou une [base de données SQL Server](https://docs.microsoft.com/sql/relational-databases/databases/create-a-database) 
 
-  Vos tables doivent contenir des données afin que votre application logique puisse renvoyer les résultats lors de l’appel des opérations. Si vous créez une base de données SQL Azure, vous pouvez utiliser les exemples de bases de données inclus. 
+  Vos tables doivent contenir des données afin que votre application logique puisse renvoyer les résultats lors de l’appel des opérations. Si vous créez une base de données Azure SQL, vous pouvez utiliser les exemples de bases de données inclus. 
 
 * Le nom de votre serveur SQL, le nom de la base de données, votre nom d’utilisateur et votre mot de passe. Vous avez besoin de ces informations d’identification pour autoriser votre application logique à accéder à votre serveur SQL. 
 

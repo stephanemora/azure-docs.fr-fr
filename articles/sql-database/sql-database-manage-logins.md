@@ -143,7 +143,7 @@ GRANT ALTER ANY USER TO Mary;
 
 Pour donner le contrôle total de la base de données aux utilisateurs supplémentaires, faites-les membres du rôle de base de données fixe **db_owner**.
 
-Dans Azure SQL Database, utilisez l'instruction `ALTER ROLE`.
+Dans Azure SQL Database, utilisez l’instruction `ALTER ROLE`.
 
 ```sql
 ALTER ROLE db_owner ADD MEMBER Mary;
@@ -156,7 +156,7 @@ EXEC sp_addrolemember 'db_owner', 'Mary';
 
 
 > [!NOTE]
-> L’un des motifs courants de création d’un utilisateur de base de données reposant sur une connexion serveur SQL Database correspond à la nécessité pour les utilisateurs d’accéder à plusieurs bases de données. Étant donné que les utilisateurs de base de données autonome constituent des entités individuelles, chaque base de données gère un utilisateur et un mot de passe qui lui sont propres. Cela risque d’entraîner un surcroît de complexité dans la mesure où l’utilisateur doit mémoriser le mot de passe de chacune des bases de données, cette situation pouvant même devenir intenable lorsqu’il devient nécessaire de modifier plusieurs mots de passe pour un grand nombre de bases de données. Toutefois, en cas d’utilisation des connexions SQL Server et de la haute disponibilité (géoréplication active et groupes de basculement), les connexions SQL Server doivent être définies manuellement sur chaque serveur. Dans le cas contraire, l’utilisateur de base de données ne sera plus mappé sur la connexion serveur après un basculement et ne sera pas en mesure d’accéder à la base de données suite au basculement. Pour plus d’informations sur la configuration de connexions pour la géoréplication, consultez l’article [Configurer et gérer la sécurité Azure SQL Database pour la géo-restauration ou le basculement](sql-database-geo-replication-security-config.md).
+> L’un des motifs courants de création d’un utilisateur de base de données reposant sur une connexion serveur SQL Database correspond à la nécessité pour les utilisateurs d’accéder à plusieurs bases de données. Étant donné que les utilisateurs de base de données autonome constituent des entités individuelles, chaque base de données gère un utilisateur et un mot de passe qui lui sont propres. Cela risque d’entraîner un surcroît de complexité dans la mesure où l’utilisateur doit mémoriser le mot de passe de chacune des bases de données, cette situation pouvant même devenir intenable lorsqu’il devient nécessaire de modifier plusieurs mots de passe pour un grand nombre de bases de données. Toutefois, en cas d’utilisation des connexions SQL Server et de la haute disponibilité (géoréplication active et groupes de basculement), les connexions SQL Server doivent être définies manuellement sur chaque serveur. Dans le cas contraire, l’utilisateur de base de données ne sera plus mappé sur la connexion serveur après un basculement et ne sera pas en mesure d’accéder à la base de données suite au basculement. Pour plus d’informations sur la configuration de connexions pour la géoréplication, consultez [Configurer et gérer la sécurité Azure SQL Database pour la géo-restauration ou le basculement](sql-database-geo-replication-security-config.md).
 
 ### <a name="configuring-the-database-level-firewall"></a>Configuration du pare-feu au niveau de la base de données
 
@@ -219,8 +219,8 @@ Prenez en compte les aspects suivants lors de la gestion des connexions et des u
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour en savoir plus sur les règles de pare-feu, consultez [Vue d’ensemble des règles de pare-feu d’Azure SQL Database](sql-database-firewall-configure.md).
+- Pour en savoir plus sur les règles de pare-feu, consultez [Vue d’ensemble des règles de pare-feu Azure SQL Database](sql-database-firewall-configure.md).
 - Pour une vue d’ensemble des fonctionnalités de sécurité de SQL Database, consultez [Vue d’ensemble de la sécurité SQL](sql-database-security-overview.md).
-- Pour obtenir un didacticiel, consultez [Sécuriser votre base de données SQL Azure](sql-database-security-tutorial.md).
+- Pour un tutoriel, consultez [Sécuriser votre base de données Azure SQL](sql-database-security-tutorial.md).
 - Pour plus d’informations sur les vues et procédures stockées, consultez [Création des vues et des procédures stockées](https://msdn.microsoft.com/library/ms365311.aspx).
 - Pour plus d’informations sur l’octroi d’accès à un objet de base de données, consultez [Octroi de l’accès à un objet de base de données](https://msdn.microsoft.com/library/ms365327.aspx).

@@ -67,11 +67,11 @@ Il n’est rien qu’une base de données de graphe puisse accomplir qui ne puis
 
 ## <a name="json-features"></a>Fonctionnalités JSON
 
-Base de données SQL Azure vous permet d’analyser et d’interroger des données représentées au format JavaScript Object Notation [(JSON)](https://www.json.org/) , et d’exporter vos données relationnelles en tant que texte JSON.
+Azure SQL Database vous permet d’analyser et d’interroger des données représentées au format JavaScript Object Notation [(JSON)](https://www.json.org/) , et d’exporter vos données relationnelles en tant que texte JSON.
 
 JSON est un format de données largement répandu, utilisé pour l’échange de données dans des applications mobiles et web modernes. JSON est également utilisé pour stocker des données semi-structurées dans des fichiers journaux ou des bases de données NoSQL, par exemple [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). De nombreux services web REST retournent des résultats au format de texte JSON, ou acceptent des données au format JSON. La plupart des services Azure tels que [Recherche Azure](https://azure.microsoft.com/services/search/), [Stockage Azure](https://azure.microsoft.com/services/storage/) et [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) ont des points de terminaison REST qui renvoient ou utilisent des données JSON.
 
-Base de données SQL Azure vous permet de travailler facilement avec des données JSON, et d’intégrer votre base de données avec des services modernes. Base de données SQL Azure offre les fonctions suivantes pour manipuler des données JSON :
+Azure SQL Database vous permet de travailler facilement avec des données JSON, et d’intégrer votre base de données avec des services modernes. Azure SQL Database offre les fonctions suivantes pour manipuler des données JSON :
 
 ![Fonctions JSON](./media/sql-database-json-features/image_1.png)
 
@@ -138,7 +138,7 @@ Vous pouvez personnaliser cette structure clé-valeur selon vos besoins sans con
 Découvrez [comment BWin utilise la technologie OLTP en mémoire pour atteindre des performances et une échelle sans précédent ](https://blogs.msdn.microsoft.com/sqlcat/20../../how-bwin-is-using-sql-server-2016-in-memory-oltp-to-achieve-unprecedented-performance-and-scale/) pour sa solution de mise en cache ASP.NET, qui a atteint 1 200 000 lots par seconde. Cet exemple montre à quel point un modèle relationnel peut être utilisé efficacement en tant que solution de paire clé-valeur dans la pratique.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Les fonctionnalités multimodèles des bases de données SQL Azure sont également les fonctionnalités essentielles du moteur de base de données SQL Server que partagent Azure SQL Database et SQL Server. Pour plus d’informations sur ces fonctionnalités, visitez les pages de documentation sur la base de données relationnelle SQL :
+Les fonctionnalités multimodèles des bases de données Azure SQL sont également les fonctionnalités essentielles du moteur de base de données SQL Server que partagent Azure SQL Database et SQL Server. Pour plus d’informations sur ces fonctionnalités, visitez les pages de documentation sur la base de données relationnelle SQL :
 
 * [Traitement de graphe](https://docs.microsoft.com/sql/relational-databases/graphs/sql-graph-overview)
 * [Données JSON](https://docs.microsoft.com/sql/relational-databases/json/json-data-sql-server)

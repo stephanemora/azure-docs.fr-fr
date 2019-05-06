@@ -68,7 +68,7 @@ Le service Azure Dedicated HSM convient plus particulièrement aux scénarios «
 
 ### <a name="not-a-fit"></a>Inadéquation
 
-Le service Azure Dedicated HSM n’est pas adapté au type de scénario suivant : Les services cloud Microsoft qui prennent en charge le chiffrement avec des clés gérées par le client (tels qu’Azure Information Protection, Azure Disk Encryption, Azure Data Lake Store, Azure Storage, Azure SQL Database et Clé client Office 365) ne sont pas intégrés à Azure Dedicated HSM.
+Le service Azure Dedicated HSM n’est pas adapté au type de scénario suivant : Les services cloud Microsoft qui prennent en charge le chiffrement avec des clés gérées par le client (tels qu’Azure Information Protection, Azure Disk Encryption, Azure Data Lake Store, Stockage Azure, Azure SQL Database et Clé client Office 365) ne sont pas intégrés à Azure Dedicated HSM.
 
 ### <a name="it-depends"></a>Cela dépend
 

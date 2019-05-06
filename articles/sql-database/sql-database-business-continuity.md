@@ -1,6 +1,6 @@
 ---
 title: Continuité des activités cloud - récupération de base de données - SQL Database | Microsoft Docs
-description: Découvrez comment Azure SQL Database prend en charge la continuité des activités cloud et la récupération de base de données et vous aide à maintenir les applications cloud opérationnelles.
+description: Découvrez comment Azure SQL Database prend en charge la continuité des activités cloud et la récupération de base de données et vous aide à maintenir les applications cloud critiques pour la mission.
 keywords: continuité des activités, continuité des activités cloud, récupération d’urgence de base de données, récupération de base de données
 services: sql-database
 ms.service: sql-database
@@ -31,7 +31,7 @@ La **continuité d’activité** dans Azure SQL Database fait référence aux m�
 
 Azure SQL Database n’a aucun contrôle sur ces situations. Par conséquent, vous devez utiliser les fonctionnalités de continuité d’activité de SQL Database, qui vous permettent de récupérer vos données et de préserver l’exécution de vos applications.
 
-Cette vue d’ensemble décrit les fonctionnalités de la base de données SQL Azure en matière de continuité d’activité et de récupération d’urgence. Découvrez les options, les recommandations et les didacticiels pour la récupération à partir d’événements d’interruption qui pourraient entraîner une perte de données ou l’indisponibilité de votre base de données et de votre application. Connaissez la procédure à suivre lorsqu’un utilisateur ou qu’une erreur d’application affecte l’intégrité des données, lorsqu’une région Azure subit une panne ou que votre application nécessite une maintenance.
+Cette vue d’ensemble décrit les fonctionnalités que fournit Azure SQL Database pour la continuité d’activité et la reprise d’activité après sinistre. Découvrez les options, les recommandations et les didacticiels pour la récupération à partir d’événements d’interruption qui pourraient entraîner une perte de données ou l’indisponibilité de votre base de données et de votre application. Connaissez la procédure à suivre lorsqu’un utilisateur ou qu’une erreur d’application affecte l’intégrité des données, lorsqu’une région Azure subit une panne ou que votre application nécessite une maintenance.
 
 ## <a name="sql-database-features-that-you-can-use-to-provide-business-continuity"></a>Fonctionnalités de la base de données SQL que vous pouvez utiliser pour garantir une continuité d’activité
 

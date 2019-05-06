@@ -161,7 +161,7 @@ $Job | Set-AzureRmSqlElasticJob -IntervalType $IntervalType -IntervalCount $Inte
 
 Les exemples de scripts Transact-SQL suivants créent un nouveau travail élastique pour déclencher la procédure stockée de nettoyage du journal SSISDB. Pour plus d’informations, consultez [Utiliser Transact-SQL (T-SQL) pour créer et gérer des travaux de base de données élastique](../sql-database/elastic-jobs-tsql.md).
 
-1. Créez ou identifiez un S0 vide ou une Azure SQL Database de niveau supérieur comme base de données des travaux SSISDBCleanup. Créez ensuite un agent de travail élastique dans le [portail Azure](https://ms.portal.azure.com/#create/Microsoft.SQLElasticJobAgent).
+1. Créez ou identifiez une base de données Azure SQL S0 ou supérieur vide comme base de données des travaux SSISDBCleanup. Créez ensuite un agent de travail élastique dans le [portail Azure](https://ms.portal.azure.com/#create/Microsoft.SQLElasticJobAgent).
 
 2. Dans la base de données des travaux, créez des informations d’identification pour le travail de nettoyage du journal SSISDB. Ces informations d’identification sont utilisées pour se connecter à votre base de données SSISDB dans le but de nettoyer les journaux d’activité.
 

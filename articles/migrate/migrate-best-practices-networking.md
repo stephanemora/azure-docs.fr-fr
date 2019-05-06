@@ -326,7 +326,7 @@ Une balise de service représente un groupe de préfixes d’adresses IP. L’ut
 - Microsoft gère les préfixes d’adresse associés à une balise de service et met à jour automatiquement la balise de service quand les adresses changent.
 - Vous ne pouvez pas créer votre propre balise de service, ni spécifier les adresses IP incluses dans une balise.
 
-Les balises de service permettent d’automatiser l’attribution d’une règle à des groupes de services Azure. Par exemple, si vous souhaitez autoriser un sous-réseau de réseau virtuel dans lequel des serveurs web accèdent à une base de données SQL Azure, vous pouvez créer une règle de trafic sortant sur le port 1433 et utiliser la balise de service **Sql**.
+Les balises de service permettent d’automatiser l’attribution d’une règle à des groupes de services Azure. Par exemple, si vous souhaitez autoriser un sous-réseau de réseau virtuel dans lequel des serveurs web accèdent à une base de données Azure SQL, vous pouvez créer une règle de trafic sortant sur le port 1433 et utiliser la balise de service **Sql**.
 - Cette balise **Sql** désigne les préfixes d’adresses des services Azure SQL Database et Azure SQL Data Warehouse.
 - Si vous spécifiez **Sql** comme valeur, le trafic vers Sql est autorisé ou refusé.
 - Si vous souhaitez uniquement autoriser l’accès à Sql dans une **région** spécifique, vous pouvez préciser cette région. Par exemple, si vous souhaitez autoriser l’accès à Azure SQL Database uniquement dans la région USA Est, vous pouvez spécifier **Sql.EastUS** comme balise de service.

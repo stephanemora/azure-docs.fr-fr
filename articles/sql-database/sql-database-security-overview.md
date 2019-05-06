@@ -21,7 +21,7 @@ ms.locfileid: "64867662"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Une vue d’ensemble des fonctionnalités de sécurité d’Azure SQL Database
 
-Cet article décrit les principes de la sécurisation de la couche Données d’une application à l’aide de Microsoft Azure SQL Database. La stratégie de sécurité décrite suit une approche en couches de défense en profondeur comme illustré ci-après, et se déplace de l’extérieur vers :
+Cet article décrit les principes de la sécurisation de la couche Données d’une application avec Azure SQL Database. La stratégie de sécurité décrite suit une approche en couches de défense en profondeur comme illustré ci-après, et se déplace de l’extérieur vers :
 
 ![sql-security-layer.png](media/sql-database-security-overview/sql-security-layer.png)
 
@@ -31,7 +31,7 @@ Microsoft Azure SQL Database fournit un service de base de données relationnell
 
 ### <a name="ip-firewall-rules"></a>Règles de pare-feu IP
 
-Les règles de pare-feu IP octroient l’accès à la base de données en fonction de l’adresse IP d’origine de chaque requête. Pour plus d’informations, consultez [Vue d’ensemble des règles de pare-feu d’Azure SQL Database et de SQL Data Warehouse](sql-database-firewall-configure.md).
+Les règles de pare-feu IP octroient l’accès à la base de données en fonction de l’adresse IP d’origine de chaque requête. Pour plus d’informations, consultez [Vue d’ensemble des règles de pare-feu Azure SQL Database et SQL Data Warehouse](sql-database-firewall-configure.md).
 
 ### <a name="virtual-network-firewall-rules"></a>Règles de pare-feu de réseau virtuel
 
@@ -57,7 +57,7 @@ L’authentification est le processus consistant à prouver que l’utilisateur 
 
 - **Authentification Azure Active Directory** :
 
-    L’authentification Azure Active Directory est un mécanisme servant à se connecter aux services Azure [SQL Database](sql-database-technical-overview.md) et [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) à l’aide d’identités dans Azure Active Directory (Azure AD). L’authentification Azure AD permet aux administrateurs de gérer de manière centralisée les identités des utilisateurs de base de données et d’autres services Microsoft dans un emplacement centralisé. Cela permet de réduire le stockage des mots de passe et d'activer des stratégies de rotation centralisée des mots de passe.
+    L’authentification Azure Active Directory est un mécanisme servant à se connecter à [Azure SQL Database](sql-database-technical-overview.md) et [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) à l’aide d’identités dans Azure Active Directory (Azure AD). L’authentification Azure AD permet aux administrateurs de gérer de manière centralisée les identités des utilisateurs de base de données et d’autres services Microsoft dans un emplacement centralisé. Cela permet de réduire le stockage des mots de passe et d'activer des stratégies de rotation centralisée des mots de passe.
 
      Un administrateur de serveur appelé **administrateur Active Directory** doit être créé pour utiliser l’authentification Azure AD avec SQL Database. Pour plus d’informations, consultez [Connexion à SQL Database avec l’authentification Azure Active Directory](sql-database-aad-authentication.md). L’authentification Azure AD prend en charge les comptes managés et fédérés. Les comptes fédérés prennent en charge les utilisateurs et groupes Windows pour un domaine de client fédéré avec Azure AD.
 

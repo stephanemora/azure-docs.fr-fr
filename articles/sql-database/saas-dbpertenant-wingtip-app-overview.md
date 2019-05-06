@@ -1,6 +1,6 @@
 ---
-title: Exemple d’application mutualisée Azure SQL Database - SaaS Wingtip | Microsoft Docs
-description: Apprendre à l’aide d’un exemple d’application mutualisée utilisant l’exemple Azure SQL Database - SaaS Wingtip
+title: Exemple d’application multilocataire Azure SQL Database - SaaS Wingtip | Microsoft Docs
+description: Apprendre à l’aide d’un exemple d’application multilocataire utilisant l’exemple Azure SQL Database - SaaS Wingtip
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
@@ -21,7 +21,7 @@ ms.locfileid: "61485196"
 ---
 # <a name="introduction-to-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>Présentation d’une application SaaS mutualisée qui utilise le modèle de base de données par locataire avec SQL Database
 
-L’application SaaS Wingtip est un exemple d’application mutualisée. L’application utilise le modèle d’application SaaS de base de données par locataire pour traiter plusieurs locataires. L’application présente les fonctionnalités d’Azure SQL Database qui activent des scénarios SaaS, à l’aide de plusieurs modèles de gestion et de conception SaaS. Pour que vous soyez rapidement opérationnel, l’application SaaS Wingtip se déploie en moins de cinq minutes.
+L’application SaaS Wingtip est un exemple d’application mutualisée. L’application utilise le modèle d’application SaaS de base de données par locataire pour traiter plusieurs locataires. L’application présente les fonctionnalités Azure SQL Database qui permettent des scénarios SaaS à l’aide de plusieurs modèles de gestion et de conception SaaS. Pour que vous soyez rapidement opérationnel, l’application SaaS Wingtip se déploie en moins de cinq minutes.
 
 Le code source de l’application et les scripts de gestion sont disponibles dans le référentiel GitHub [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant). Avant de commencer, consultez les [conseils généraux](saas-tenancy-wingtip-app-guidance-tips.md) pour télécharger et débloquer les scripts de gestion Wingtip Tickets.
 

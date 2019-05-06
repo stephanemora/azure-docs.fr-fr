@@ -1,6 +1,6 @@
 ---
 title: Exécuter des tâches Apache Sqoop avec Azure HDInsight (Apache Hadoop)
-description: Découvrez comment utiliser Azure PowerShell sur une station de travail pour exécuter des importations/exportations de Sqoop entre un cluster Hadoop et une base de données SQL Azure.
+description: Découvrez comment utiliser Azure PowerShell sur une station de travail pour exécuter des importations/exportations de Sqoop entre un cluster Hadoop et une base de données Azure SQL.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -111,7 +111,7 @@ HDInsight peut exécuter des tâches Sqoop à l’aide de différentes méthodes
 
 ## <a name="limitations"></a>Limites
 
-* Exportation en bloc : avec HDInsight sous Linux, le connecteur Sqoop utilisé pour exporter des données vers Microsoft SQL Server ou la base de données SQL Azure ne prend pas en charge les insertions en bloc.
+* Exportation en bloc : avec HDInsight sous Linux, le connecteur Sqoop utilisé pour exporter des données vers Microsoft SQL Server ou Azure SQL Database ne prend pas en charge les insertions en bloc.
 * Traitement par lots : avec HDInsight sous Linux, lorsque vous utilisez le commutateur `-batch` pour effectuer des insertions, Sqoop effectue plusieurs insertions plutôt qu’un traitement par lots des opérations d’insertion.
 
 ## <a name="next-steps"></a>Étapes suivantes
