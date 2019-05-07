@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 04/18/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 58f6d6cf8bf16f7c35bab35a69cfcdf8759f66ae
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 357ed4c42cc2758766b9ccd45a3fafa541338d11
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60814037"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65154567"
 ---
 # <a name="boundaries-for-your-luis-model-and-keys"></a>Limites pour vos clés et modèle LUIS
 LUIS comporte plusieurs domaines limites. Le premier est la [limite de modèle](#model-boundaries), qui contrôle les intentions, les entités et les fonctionnalités dans LUIS. Le deuxième domaine est la [limite de quota](#key-limits), qui est fonction du type de clé. Le troisième domaine de limites est la [combinaison clavier](#keyboard-controls) pour contrôler le site web LUIS. Un quatrième domaine est le [mappage de régions du monde](luis-reference-regions.md) entre le site web de création de LUIS et les API du [point de terminaison](luis-glossary.md#endpoint) de LUIS. 
@@ -31,9 +31,11 @@ Si votre application dépasse les limites du modèle LUIS, envisagez d’utilise
 | [Nom de l’application][luis-get-started-create-app] | * Nombre maximum de caractère par défaut |
 | [Test par lot][batch-testing]| jeux de 10 données, 1 000 énoncés par jeu de données|
 | Liste explicite | 50 par application|
+| Entités externes | aucune limite |
 | [Intentions][intents]|500 par application : 499 intentions personnalisées et l’intention _Aucune_ obligatoire.<br>L’application [dispatch](https://aka.ms/dispatch-tool) a 500 sources de dispatch correspondantes.|
 | [Répertorier des entités](./luis-concept-entity-types.md) | Parent : 50, Enfant : 20 000 éléments. Le nom canonique est *nombre maximum de caractère par défaut. Les valeurs synonymes n’ont aucune restriction de longueur. |
-| [Entités issues de l’apprentissage automatique](./luis-concept-entity-types.md) :<br> Composite<br>  Hiérarchique<br> Simple|Une limite de 100 entités parentes (sans inclure les enfants hiérarchiques) ou de 330 entités (en incluant les enfants hiérarchiques), selon celle que l’utilisateur atteint en premier.<br><br>Un exemple de hiérarchie inclurait 30 hiérarchies avec chacune 10 enfants.  Les enfants consomment un total de 300, tandis que les éléments de la hiérarchie consomment les 30 restants. |
+| [Entités machine a appris + rôles](./luis-concept-entity-types.md):<br> Composite,<br>simple,<br>rôle de l’entité|Une limite de 100 entités parent ou 330 entités, selon ce qui limite le nombre d’accès utilisateur tout d’abord. Un rôle est comptabilisé comme une entité pour les besoins de cette limite. Un exemple est un composite avec une entité simple qui possède 2 rôles est : 1 simple composite + 1 + 2 rôles = 4 des 330 entités.|
+| [Version préliminaire - entités de liste dynamique](https://aka.ms/luis-api-v3-doc#dynamic-lists-passed-in-at-prediction-time)|2 listes d’environ 1 Ko par requête de point de terminaison de prédiction|
 | [Modèles](luis-concept-patterns.md)|500 modèles par application.<br>La longueur maximale du modèle est de 400 caractères.<br>3 entités Pattern.any par modèle<br>2 textes facultatifs maximum imbriqués dans le modèle|
 | [Pattern.any](./luis-concept-entity-types.md)|100 par application, 3 entités pattern.any par modèle |
 | [Liste d’expressions][phrase-list]|10 listes d’expressions, 5 000 éléments par liste|

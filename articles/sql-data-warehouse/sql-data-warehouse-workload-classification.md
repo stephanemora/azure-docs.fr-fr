@@ -7,22 +7,19 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload management
-ms.date: 03/13/2019
+ms.date: 05/01/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: 888a64de29178834fc47199a033eb6bc62858e57
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 208308533753370575b844633c45f7e4aeda0864
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61474825"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65154207"
 ---
-# <a name="sql-data-warehouse-workload-classification-preview"></a>Classification de la charge de travail de SQL Data Warehouse (version préliminaire)
+# <a name="sql-data-warehouse-workload-classification"></a>Classification de la charge de travail de SQL Data Warehouse
 
 Cet article explique le processus de classification de la charge de travail de SQL Data Warehouse d’affectation d’une classe de ressources et l’importance aux requêtes entrantes.
-
-> [!Note]
-> La classification de charge de travail est disponible en préversion dans SQL Data Warehouse Gen2. Les informations relatives à l’importance et à la classification de la gestion des charges de travail (préversion) concernent les builds publiées au plus tôt le 9 avril 2019.  Les utilisateurs doivent éviter d’utiliser les builds antérieures à cette date à des fins de test de la gestion des charges de travail.  Pour déterminer si votre build est compatible avec la gestion des charges de travail, exécutez select @@version quand vous êtes connecté à votre instance SQL Data Warehouse.
 
 ## <a name="classification"></a>classification ;
 
@@ -63,10 +60,10 @@ Les classifieurs système créées en votre nom permettent un accès facile pour
 
 Examinez le scénario suivant :
 
-Entrepôt de données existant •un a un utilisateur de base de données que dbauser attribué au rôle de classe de ressources largerc. L’attribution de classe de ressource a été effectuée avec sp_addrolemember.
-Entrepôt de données •la est désormais mis à jour avec gestion de la charge de travail.
-•Pour tester la nouvelle syntaxe de classification, le rôle de base de données DBARole (c'est-à-dire DBAUser membre), a un classifieur créé pour lui mappant à mediumrc et une importance haute.
-•When DBAUser se connecte et exécute une requête, la requête sera attribuée à largerc. Étant donné que l’utilisateur est prioritaire sur une appartenance au rôle.
+- Un entrepôt de données a un utilisateur de base de données que dbauser attribué au rôle de classe de ressources largerc. L’attribution de classe de ressource a été effectuée avec sp_addrolemember.
+- L’entrepôt de données est désormais mis à jour avec gestion de la charge de travail.
+- Pour tester la nouvelle syntaxe de classification, le rôle de base de données DBARole (c'est-à-dire DBAUser membre), a un classifieur créé pour lui mappant à mediumrc et une importance haute.
+- Lorsque DBAUser se connecte et exécute une requête, la requête est assignée à largerc. Étant donné que l’utilisateur est prioritaire sur une appartenance au rôle.
 
 Pour simplifier la résolution des problèmes de classification incorrecte, nous vous recommandons de que supprimer mappages de rôle de classe de ressource que vous créez les classifieurs de charge de travail.  Le code ci-dessous retourne des appartenances aux rôles de classe ressource existante.  Exécutez [sp_droprolemember](/sql/relational-databases/system-stored-procedures/sp-droprolemember-transact-sql) pour chaque nom de membre retournée à partir de la classe de ressource correspondante.
 
@@ -84,4 +81,4 @@ sp_droprolemember ‘[Resource Class]’, membername
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur la classification de la charge de travail de SQL Data Warehouse et l’importance, consultez [créer un classifieur de charge de travail](quickstart-create-a-workload-classifier-tsql.md) et [Importance de l’entrepôt de données SQL](sql-data-warehouse-workload-importance.md). Consultez [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) pour voir les requêtes et l’importance attribuée.
+Pour commencer à la création d’un classifieur, consultez le [créer le classifieur de charge de travail (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-workload-classifier-transact-sql).  Pour plus d’informations sur la classification de la charge de travail de SQL Data Warehouse et l’importance, consultez [créer un classifieur de charge de travail](quickstart-create-a-workload-classifier-tsql.md) et [Importance de l’entrepôt de données SQL](sql-data-warehouse-workload-importance.md). Consultez [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) pour voir les requêtes et l’importance attribuée.

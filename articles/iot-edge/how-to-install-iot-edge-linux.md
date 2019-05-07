@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: 5829606f3ad226507c49f18dcc8ac4831d573b17
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: b519ed21b4d2e0e258c48bd1dc12750176281c9e
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62126307"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65152790"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-linux-x64"></a>Installer le runtime Azure IoT Edge sur Linux (x64)
 
@@ -23,7 +23,7 @@ Le runtime Azure IoT Edge est ce qui transforme un appareil en appareil IoT Edge
 
 Pour plus d’informations, consultez [comprendre le runtime Azure IoT Edge et son architecture](iot-edge-runtime.md).
 
-Cet article répertorie les étapes pour installer le runtime Azure IoT Edge sur votre Ubuntu Linux x64 (Intel/AMD) appareil IoT Edge. Reportez-vous à [prise en charge Azure IoT Edge](support.md#operating-systems) pour obtenir la liste des systèmes d’exploitation AMD64.
+Cet article répertorie les étapes pour installer le runtime Azure IoT Edge sur votre Ubuntu Linux x64 (Intel/AMD) appareil IoT Edge. Reportez-vous à [Azure IoT Edge systèmes pris en charge](support.md#operating-systems) pour obtenir la liste des systèmes d’exploitation AMD64.
 
 > [!NOTE]
 > Chaque package des référentiels de logiciels Linux est soumis aux termes du contrat de licence qu’il contient (/usr/share/doc/*nom_package*). Lisez les termes du contrat de licence avant d’utiliser le package. Le fait d’installer et d’utiliser le package revient à accepter ces termes. Si vous n’acceptez pas les termes du contrat de licence, n’utilisez pas le package.

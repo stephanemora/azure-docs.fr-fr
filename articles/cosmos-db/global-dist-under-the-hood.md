@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/31/2019
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: 84ce13ae3bb0a4b66b8167e61b720fe6cecbe95c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8c916a2fcff606a99e5c567318c1818ff7d5d273
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60888805"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65071943"
 ---
 # <a name="global-data-distribution-with-azure-cosmos-db---under-the-hood"></a>Distribution de données mondiale avec Azure Cosmos DB - Sous le capot
 
@@ -84,5 +84,5 @@ La sémantique des modèles de cinq cohérence dans Cosmos DB est décrites [ici
 Découvrez ensuite comment configurer la distribution mondiale à l’aide les articles suivants :
 
 * [Ajouter/supprimer des régions à partir de votre compte de base de données](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
-* [Article relatif à la configuration des clients pour le multihébergement](how-to-manage-database-account.md#configure-clients-for-multi-homing)
+* [Article relatif à la configuration des clients pour le multihébergement](how-to-manage-database-account.md#configure-multiple-write-regions)
 * [Comment créer une stratégie de résolution de conflits personnalisé](how-to-manage-conflicts.md#create-a-custom-conflict-resolution-policy)

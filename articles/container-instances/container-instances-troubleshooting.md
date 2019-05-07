@@ -6,25 +6,25 @@ author: dlepow
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
-ms.date: 02/15/2019
+ms.date: 04/25/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: bf783c988c0163fe562669a8331c332dbf8d535e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9dc3e19f9429a6055a799f3f013c732538fa370d
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61067323"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65070863"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Résoudre les problèmes courants dans Azure Container Instances
 
-Cet article explique comment résoudre les problèmes courants de gestion ou de déploiement de conteneurs dans Azure Container Instances.
+Cet article explique comment résoudre les problèmes courants de gestion ou de déploiement de conteneurs dans Azure Container Instances. Voir aussi [Forum aux questions](container-instances-faq.md).
 
 ## <a name="naming-conventions"></a>Conventions d’affectation de noms
 
 Lorsque vous définissez la spécification du conteneur, certains paramètres requièrent le respect des restrictions en matière d’affectation de noms. Le tableau suivant indique les exigences spécifiques des propriétés du groupe de conteneurs. Pour plus d’informations sur les conventions d’affectation de noms Azure, consultez [Conventions d’affectation de noms][azure-name-restrictions] dans Azure Architecture Center.
 
-| Étendue | Longueur | Casse | Caractères valides | Modèle suggéré | Exemples |
+| `Scope` | Longueur | Casse | Caractères valides | Modèle suggéré | Exemples |
 | --- | --- | --- | --- | --- | --- |
 | Nom du groupe de conteneurs | 1-64 |Insensible à la casse |Caractères alphanumériques et traits d’union n’importe où sauf en première ou dernière position |`<name>-<role>-CG<number>` |`web-batch-CG1` |
 | Nom du conteneur | 1-64 |Insensible à la casse |Caractères alphanumériques et traits d’union n’importe où sauf en première ou dernière position |`<name>-<role>-CG<number>` |`web-batch-CG1` |
@@ -46,11 +46,7 @@ Si l’image spécifiée n’est pas prise en charge par Azure Container Instanc
 }
 ```
 
-Cette erreur se produit généralement lorsque vous déployez des images Windows qui sont basées sur une version du canal semi-annuel (SAC). Par exemple, les versions Windows 1709 et 1803 sont des versions du SAC et génèrent cette erreur lors du déploiement.
-
-Actuellement, Azure Container Instances prend en charge les images Windows basées sur la version du **canal de maintenance à long terme (LTSC) Windows Server 2016**. Pour résoudre ce problème lorsque vous déployez les conteneurs Windows, déployez toujours les images basées sur Windows Server 2016 (LTSC). Les images basées sur Windows Server 2019 (LTSC) ne sont pas prises en charge.
-
-Pour plus d’informations sur les versions de LTSC et du SAC Windows, consultez [Vue d’ensemble du canal semi-annuel du serveur Windows][windows-sac-overview].
+Cette erreur se produit généralement lorsque les images de déploiement Windows qui reposent sur canal semi-annuel version 1709 ou 1803, qui ne sont pas pris en charge. Pour les images de Windows prises en charge dans Azure Container Instances, consultez [Forum aux questions](container-instances-faq.md#what-windows-base-os-images-are-supported).
 
 ## <a name="unable-to-pull-image"></a>Impossible d’extraire l’image
 
@@ -102,7 +98,7 @@ az container create -g MyResourceGroup --name myapp --image ubuntu --command-lin
 
 ```azurecli-interactive 
 ## Deploying a Windows container
-az container create -g myResourceGroup --name mywindowsapp --os-type Windows --image mcr.microsoft.com/windows/servercore:ltsc2016
+az container create -g myResourceGroup --name mywindowsapp --os-type Windows --image mcr.microsoft.com/windows/servercore:ltsc2019
  --command-line "ping -t localhost"
 ```
 
@@ -156,7 +152,7 @@ Les deux principaux facteurs qui contribuent à l’heure de démarrage dans Azu
 * [Taille de l'image](#image-size)
 * [Emplacement de l’image](#image-location)
 
-Les images Windows ont des [considérations supplémentaires](#cached-windows-images).
+Les images Windows ont des [considérations supplémentaires](#cached-images).
 
 ### <a name="image-size"></a>Taille de l'image
 
@@ -176,14 +172,12 @@ Pour que l’image conserve une petite taille, faites en sorte que l’image fin
 
 Il existe une autre façon de réduire l’impact de l’extraction de l’image sur le temps de démarrage de votre conteneur. Elle consiste à héberger l’image du conteneur dans [Azure Container Registry](/azure/container-registry/) dans la région où vous envisagez de déployer Azure Container Instances. Cette opération raccourcit le chemin réseau que l’image conteneur doit parcourir, réduisant considérablement le temps de téléchargement.
 
-### <a name="cached-windows-images"></a>Images Windows mises en cache
+### <a name="cached-images"></a>Mise en cache d’images
 
-Azure Container Instances utilise un mécanisme de mise en cache pour le temps de démarrage de conteneur vitesse pour des images basées sur des images courantes de Windows et Linux. Pour obtenir une liste détaillée des images mis en cache et les balises, utilisez le [liste mise en cache des Images] [ list-cached-images] API.
+Azure Container Instances utilise un mécanisme de mise en cache pour aider aux temps de démarrage de conteneur de vitesse pour les images créées commun [images de base Windows](container-instances-faq.md#what-windows-base-os-images-are-supported), y compris `nanoserver:1809`, `servercore:ltsc2019`, et `servercore:1809`. Couramment utilisés comme images Linux `ubuntu:1604` et `alpine:3.6` sont également mis en cache. Pour obtenir une liste actualisée des images mises en cache et les balises, utilisez le [liste mise en cache des Images] [ list-cached-images] API.
 
-Pour garantir le meilleur temps de démarrage du conteneur Windows, utilisez une des **trois dernières** versions des **deux images** suivantes en tant qu’image de base :
-
-* [Windows Server Core 2016] [ docker-hub-windows-core] (LTSC uniquement)
-* [Windows Server 2016 Nano Server][docker-hub-windows-nano]
+> [!NOTE]
+> Utilisation d’images de Windows Server 2019 dans Azure Container Instances est disponible en version préliminaire.
 
 ### <a name="windows-containers-slow-network-readiness"></a>Disponibilité lente du réseau des conteneurs Windows
 

@@ -1,25 +1,28 @@
 ---
 title: Chiffrement du stockage Azure pour les données au repos | Microsoft Docs
-description: Stockage Azure protège vos données en chiffrant automatiquement avant du rendre persistantes dans le cloud. Toutes les données dans le stockage Azure, que ce soit dans les objets BLOB, les disques, les fichiers, les files d’attente ou les tables sont chiffrées et déchiffrées en toute transparence à l’aide du chiffrement AES 256 bits et n’est conformes aux normes FIPS 140-2.
+description: Stockage Azure protège vos données en chiffrant automatiquement avant du rendre persistantes dans le cloud. Toutes les données dans un stockage Azure sont chiffrées et déchiffrées en toute transparence à l’aide du chiffrement AES 256 bits et n’est conformes aux normes FIPS 140-2.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 04/16/2019
+ms.date: 04/30/2019
 ms.author: tamram
+ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 211cfeb3aba29245e154f4a7db86fb4a3659c36f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 6eb7de7810ce23aed4031cca9f038da7149a6f9c
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60730824"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153083"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>Chiffrement du stockage Azure pour les données au repos
 
 Stockage Azure chiffre automatiquement vos données lorsqu’il rend persistante dans le cloud. Chiffrement protège vos données et pour vous aider à répondre à vos engagements en matière de sécurité et de conformité d’organisation. Données dans le stockage Azure sont chiffrées et déchiffrées en toute transparence à l’aide de 256 bits [chiffrement AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), celui du bloc plus fort chiffrements et n’est conformes aux normes FIPS 140-2. Chiffrement du stockage Azure est similaire pour le chiffrement BitLocker sur Windows.
 
-Chiffrement du stockage Azure est activé pour tous les comptes de stockage nouveaux et existants et ne peut pas être désactivé. Étant donné que vos données sont sécurisées par défaut, vous n’avez pas besoin de modifier votre code ou les applications pour tirer parti du chiffrement de stockage Azure. Comptes de stockage sont chiffrées, quel que soit leur niveau de performances (standard ou premium) ou un modèle de déploiement (Azure Resource Manager ou classique). Toutes les options de redondance de stockage Azure prend en charge le chiffrement, et toutes les copies d’un compte de stockage sont chiffrées. Toutes les ressources de stockage Azure sont chiffrées, y compris les objets BLOB, les disques, les fichiers, les files d’attente et les tables.
+Chiffrement du stockage Azure est activé pour tous les comptes de stockage nouveaux et existants et ne peut pas être désactivé. Étant donné que vos données sont sécurisées par défaut, vous n’avez pas besoin de modifier votre code ou les applications pour tirer parti du chiffrement de stockage Azure. 
+
+Comptes de stockage sont chiffrées, quel que soit leur niveau de performances (standard ou premium) ou un modèle de déploiement (Azure Resource Manager ou classique). Toutes les options de redondance de stockage Azure prend en charge le chiffrement, et toutes les copies d’un compte de stockage sont chiffrées. Toutes les ressources de stockage Azure sont chiffrées, y compris les objets BLOB, les disques, les fichiers, les files d’attente et les tables. Toutes les métadonnées d’objet sont également chiffrées.
 
 Le chiffrement n’affecte pas les performances de stockage Azure. Il n’existe aucun coût supplémentaire pour le chiffrement de stockage Azure.
 

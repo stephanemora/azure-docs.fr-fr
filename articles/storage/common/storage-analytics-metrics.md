@@ -2,18 +2,19 @@
 title: Mesure analytique du stockage Azure (classique)
 description: Découvrez comment utiliser des mesures dans le stockage Azure.
 services: storage
-author: fhryo-msft
+author: normesta
 ms.service: storage
 ms.topic: article
 ms.date: 03/11/2019
-ms.author: fryu
+ms.author: normesta
+ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: c15242b0c480e2da39897b850ab7b2a2fd05bf11
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f0dfed10190685c1d51822b8bec2b3c80cea7bb2
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61483517"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153936"
 ---
 # <a name="azure-storage-analytics-metrics-classic"></a>Mesure analytique du stockage Azure (classique)
 

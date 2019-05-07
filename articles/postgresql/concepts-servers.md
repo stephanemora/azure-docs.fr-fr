@@ -1,23 +1,23 @@
 ---
-title: Concepts de serveur dans Azure Database pour PostgreSQL
-description: Cet article indique les éléments à prendre en considération et fournit des instructions pour configurer et gérer des serveurs Azure Database pour PostgreSQL.
+title: Concepts de serveur dans la base de données Azure pour PostgreSQL - serveur unique
+description: Cet article fournit des considérations et instructions pour configurer et gérer la base de données Azure pour PostgreSQL - serveur unique.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 11/07/2018
-ms.openlocfilehash: a5b6db9f4bfbe9a11119270e9236580b41fae8c7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: bc135e58d0fbabc809f3718915e9f4e35b8ed875
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60422097"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65067157"
 ---
-# <a name="azure-database-for-postgresql-servers"></a>Serveurs Azure Database pour PostgreSQL
-Cet article présente des considérations et des instructions relatives à l’utilisation des serveurs Azure Database pour PostgreSQL.
+# <a name="azure-database-for-postgresql---single-server"></a>Azure Database pour PostgreSQL - serveur unique
+Cet article fournit des considérations et instructions pour l’utilisation avec Azure Database pour PostgreSQL - serveur unique.
 
 ## <a name="what-is-an-azure-database-for-postgresql-server"></a>Qu’est-ce qu’un serveur de base de données Azure pour PostgreSQL ?
-Un serveur de base de données Azure pour PostgreSQL est un point d’administration central pour plusieurs bases de données. Il s’agit de la structure de serveur PostgreSQL que vous connaissez peut-être en local. Plus précisément, le service PostgreSQL est géré, fournit des garanties de performances et propose des fonctionnalités et des accès au niveau du serveur.
+Un serveur dans la base de données Azure pour PostgreSQL - option de déploiement de serveur unique est un point d’administration central pour plusieurs bases de données. Il s’agit de la structure de serveur PostgreSQL que vous connaissez peut-être en local. Plus précisément, le service PostgreSQL est géré, fournit des garanties de performances et propose des fonctionnalités et des accès au niveau du serveur.
 
 Un serveur de base de données Azure pour PostgreSQL :
 

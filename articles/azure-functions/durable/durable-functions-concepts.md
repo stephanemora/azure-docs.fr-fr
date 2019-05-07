@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: azfuncdf
-ms.openlocfilehash: aa9563266f6b43e3bc2f21fbc0b340c86c5895ae
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 95ec6a863f951a8c26abd865041c68df333a4e38
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60862019"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65071329"
 ---
 # <a name="durable-functions-patterns-and-technical-concepts-azure-functions"></a>Les modèles de fonctions durables et concepts techniques (Azure Functions)
 
@@ -219,9 +219,6 @@ module.exports = async function (context, req) {
 };
 ```
 
-> [!WARNING]
-> Lorsque vous développez localement dans JavaScript, pour utiliser des méthodes sur `DurableOrchestrationClient`, vous devez définir la variable d’environnement `WEBSITE_HOSTNAME` à `localhost:<port>` (par exemple, `localhost:7071`). Pour plus d’informations sur cette exigence, consultez [GitHub problème 28](https://github.com/Azure/azure-functions-durable-js/issues/28).
-
 Dans .NET, le paramètre [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) `starter` est une valeur provenant de la liaison de sortie `orchestrationClient`, qui fait partie de l’extension Durable Functions. En JavaScript, cet objet est retourné en appelant `df.getClient(context)`. Ces objets fournissent des méthodes que vous pouvez utiliser pour démarrer, envoyer des événements à, terminer et de requête pour les instances de fonction d’orchestrateur nouvelles ou existantes.
 
 Dans les exemples précédents, une fonction déclenchée par HTTP utilise un `functionName` valeur à partir de l’URL entrante et transmet la valeur à [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_). Le [CreateCheckStatusResponse](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_CreateCheckStatusResponse_System_Net_Http_HttpRequestMessage_System_String_) liaison API puis renvoie une réponse qui contient un `Location` en-tête et des informations supplémentaires sur l’instance. Vous pouvez utiliser les informations ultérieurement pour rechercher l’état de l’instance démarrée ou pour mettre fin à l’instance.
@@ -377,6 +374,63 @@ module.exports = async function (context) {
 };
 ```
 
+## <a name="pattern-6-aggregator-preview"></a>Modèle #6 : Agrégation (version préliminaire)
+
+Le modèle sixième est sur l’agrégation des données d’événement sur une période de temps en un seul, adressable *entité*. Dans ce modèle, les données en cours d’agrégation peuvent provenir de plusieurs sources, peuvent être transmises par lots ou peuvent être dispersées sur de longues périodes. L’agrégation devrez peut-être effectuer une action sur les données d’événement comme il arrive, et peut-être des clients externes interroger les données agrégées.
+
+![Diagramme d’agrégation](./media/durable-functions-concepts/aggregator.png)
+
+La difficulté essayé d’implémenter ce modèle avec normal, les fonctions sans état est que le contrôle d’accès concurrentiel devienne un défi de taille. Non seulement devez-vous à vous soucier de plusieurs threads modifient les mêmes données en même temps, vous devez également à vous soucier de s’assurer que l’aggregator s’exécute uniquement sur une seule machine virtuelle à la fois.
+
+À l’aide un [fonction de l’entité Durable](durable-functions-preview.md#entity-functions), possible d’implémenter ce modèle facilement en tant qu’une seule fonction.
+
+```csharp
+public static async Task Counter(
+    [EntityTrigger(EntityClassName = "Counter")] IDurableEntityContext ctx)
+{
+    int currentValue = ctx.GetState<int>();
+    int operand = ctx.GetInput<int>();
+
+    switch (ctx.OperationName)
+    {
+        case "add":
+            currentValue += operand;
+            break;
+        case "subtract":
+            currentValue -= operand;
+            break;
+        case "reset":
+            await SendResetNotificationAsync();
+            currentValue = 0;
+            break;
+    }
+
+    ctx.SetState(currentValue);
+}
+```
+
+Les clients peuvent de file d’attente *opérations* pour (également appelé « signalisation ») une fonction d’entité en utilisant le `orchestrationClient` liaison.
+
+```csharp
+[FunctionName("EventHubTriggerCSharp")]
+public static async Task Run(
+    [EventHubTrigger("device-sensor-events")] EventData eventData,
+    [OrchestrationClient] IDurableOrchestrationClient entityClient)
+{
+    var metricType = (string)eventData.Properties["metric"];
+    var delta = BitConverter.ToInt32(eventData.Body, eventData.Body.Offset);
+
+    // The "Counter/{metricType}" entity is created on-demand.
+    var entityId = new EntityId("Counter", metricType);
+    await entityClient.SignalEntityAsync(entityId, "add", delta);
+}
+```
+
+De même, les clients peuvent interroger pour l’état d’une fonction d’entité à l’aide de méthodes sur le `orchestrationClient` liaison.
+
+> [!NOTE]
+> Fonctions de l’entité sont actuellement disponibles uniquement dans le [Durable Functions 2.0 preview](durable-functions-preview.md).
+
 ## <a name="the-technology"></a>La technologie
 
 Dans les coulisses, l’extension fonctions durables repose sur le [Durable Task Framework](https://github.com/Azure/durabletask), une bibliothèque open source sur GitHub qui est utilisé pour générer des orchestrations de tâches durables. Par exemple, Azure Functions est l’évolution sans serveur d’Azure WebJobs, fonctions durables est l’évolution sans serveur de l’infrastructure des tâches durables. Microsoft et autres organisations utilisent largement Durable Task Framework pour automatiser les processus critiques. Il convient parfaitement à l’environnement Azure Functions sans serveur.
@@ -423,7 +477,7 @@ Objets BLOB de stockage est principalement utilisés comme un mécanisme de bail
 
 ![Une capture d’écran de l’Explorateur de stockage Azure](./media/durable-functions-concepts/storage-explorer.png)
 
-> [!WARNING]
+> [!NOTE]
 > Bien qu’il soit facile et pratique d’afficher l’historique d’exécution dans le stockage table, n’effectuez pas toutes les dépendances sur cette table. La table peut changer à mesure que l’extension fonctions durables évolue.
 
 ## <a name="known-issues"></a>Problèmes connus

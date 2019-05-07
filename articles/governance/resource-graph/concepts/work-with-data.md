@@ -7,12 +7,12 @@ ms.date: 04/01/2019
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: 729e9fe749212942c6dc18fc7d6301934e7dd184
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ff9513418857562408c162533c48f6495b1f83c4
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60775895"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65137854"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>Utilisation de jeux de données volumineux d’Azure Resource Graph
 
@@ -67,8 +67,18 @@ La valeur **resultTruncated** est une valeur booléenne qui informe l’utilisat
 
 Lorsque la valeur **resultTruncated** est **true**, la propriété **$skipToken** est définie dans la réponse. Cette valeur est utilisée avec les mêmes valeurs de requête et d’abonnement pour obtenir le jeu d’enregistrements suivant correspondant à la requête.
 
+Les exemples suivants montrent comment **ignorer** le premier 3000 enregistrements et retourner le **premier** 1 000 enregistrements après ceux ignorée avec Azure CLI et Azure PowerShell :
+
+```azurecli-interactive
+az graph query -q "project id, name | order by id asc" --first 1000 --skip 3000
+```
+
+```azurepowershell-interactive
+Search-AzGraph -Query "project id, name | order by id asc" -First 1000 -Skip 3000
+```
+
 > [!IMPORTANT]
-> Pour que la pagination fonctionne, la requête doit **projeter** le champ **id**. S’il est manquant à partir de la requête, la réponse de l’API REST n’inclut pas le **$skipToken**.
+> Pour que la pagination fonctionne, la requête doit **projeter** le champ **id**. S’il est manquant à partir de la requête, la réponse n’inclut pas le **$skipToken**.
 
 Pour obtenir un exemple, voir [Requête Page suivante](/rest/api/azureresourcegraph/resources/resources#next_page_query) dans la documentation de l’API REST.
 

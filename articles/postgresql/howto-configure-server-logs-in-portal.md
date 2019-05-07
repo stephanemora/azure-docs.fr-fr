@@ -1,21 +1,21 @@
 ---
-title: Configurer et consulter les journaux d’activité du serveur pour PostgreSQL dans le portail Azure
-description: Cet article décrit comment configurer et consulter les journaux d’activité du serveur dans Azure Database pour PostgreSQL à partir du portail Azure.
+title: Configurer et consulter les journaux du serveur de base de données Azure pour PostgreSQL - serveur unique dans le portail Azure
+description: Cet article décrit comment configurer et consulter les journaux du serveur de base de données Azure pour PostgreSQL - serveur unique à partir du portail Azure.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: 509c3af66e8228f142126dae6938ad74daf1d7ad
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 13a8c1ee4b7ca114211f93245d74866e5aa5d52c
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60421855"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65067449"
 ---
-# <a name="configure-and-access-server-logs-in-the-azure-portal"></a>Configurer et consulter les journaux d’activité du serveur dans le portail Azure
+# <a name="configure-and-access-azure-database-for-postgresql---single-server-logs-in-the-azure-portal"></a>Configurer et accéder à Azure Database pour PostgreSQL - journaux de serveur unique dans le portail Azure
 
-Vous pouvez configurer, répertorier et télécharger les [journaux d’activité du serveur Azure Database pour PostgreSQL](concepts-server-logs.md) à partir du portail Azure.
+Vous pouvez configurer, répertorier et télécharger le [Azure Database pour PostgreSQL journaux](concepts-server-logs.md) à partir du portail Azure.
 
 ## <a name="prerequisites"></a>Conditions préalables
 Pour parcourir ce guide pratique, vous avez besoin des éléments suivants :

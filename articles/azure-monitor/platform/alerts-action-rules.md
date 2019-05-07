@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: anantr
 ms.component: alerts
-ms.openlocfilehash: c260273c647dd5dd6050f1fd543ebd5a5aa47b89
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: e5d04fd136848684e866fae9768b252e3b6ca77f
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64922765"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65137976"
 ---
 # <a name="action-rules-preview"></a>Règles d’action (version préliminaire)
 
@@ -46,7 +46,7 @@ Vous devez maintenant voir le flux de création de règle action ouverte. Config
 
 ![Nouveau flux de création de règle d’action](media/alerts-action-rules/action-rules-new-rule-creation-flow.png)
 
-### <a name="scope"></a>Étendue
+### <a name="scope"></a>`Scope`
 
 Tout d’abord, choisissez l’étendue, autrement dit, ressource cible, groupe de ressources ou abonnement. Vous avez également la possibilité d’enfoncée pour sélectionner une combinaison quelconque des options ci-dessus (dans un seul abonnement). 
 
@@ -184,8 +184,8 @@ Meilleures exploiter les alertes de journal avec des règles d’action, nous vo
 
 * Q. Que se passe-t-il si j’ai une ressource analysée dans les deux règles d’action séparée ? Obtenir une ou deux notifications ? Par exemple « VM2 » dans ce scénario :
 
-      action rule 'AR1' defined for 'VM1' and 'VM2' with action group 'AG1' 
-      action rule 'AR2' defined for 'VM2' and 'VM3' with action group 'AG1' 
+      action rule 'AR1' defined for 'VM1' and 'VM2' with action group 'AG1'
+      action rule 'AR2' defined for 'VM2' and 'VM3' with action group 'AG1'
 
     R. Pour chaque alerte sur « VM1 » et « VM3 », 'AG1' groupe d’actions se déclenche une seule fois. Pour chaque alerte sur '2', 'AG1' groupe d’actions est déclenchée deux fois (**règles d’action ne dupliquent pas retirer des actions**). 
 
@@ -198,9 +198,10 @@ Meilleures exploiter les alertes de journal avec des règles d’action, nous vo
 
 * Q. Que se passe-t-il si j’ai une règle d’alerte et une règle d’action définie pour la même ressource appelant des groupes d’actions différents ? Par exemple, « VM1 » dans ce scénario :
 
-     règle d’alerte « règle1 » sur « VM1 » avec la règle d’action groupe 'AG2' action 'AR1' défini pour « VM1 » avec le groupe d’actions 'AG1',  
+      alert rule  'rule1' on          'VM1' with action group 'AG2'
+      action rule 'AR1'   defined for 'VM1' with action group 'AG1' 
  
-    R. Pour chaque alerte sur « VM1 », groupe d’actions 'AG1' se déclenche une seule fois. Chaque fois que la règle d’alerte « règle1 » est déclenchée, elle déclenche également « AG2 » par ailleurs. (**action groupes définis dans les règles d’action et des règles d’alerte fonctionnent indépendamment, avec aucune déduplication**) 
+    R. Pour chaque alerte sur « VM1 », groupe d’actions 'AG1' se déclenche une seule fois. Chaque fois que la règle d’alerte « règle1 » est déclenchée, elle déclenche également « AG2 » par ailleurs. **Groupes d’actions définies dans les règles d’action et de règles d’alerte fonctionnent indépendamment, avec aucune déduplication**. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -4,14 +4,14 @@ description: Découvrez comment configurer et modifier la valeur par défaut pou
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 05/06/2019
 ms.author: thweiss
-ms.openlocfilehash: a089d8bd4f2197c93d43e70742743db29944b910
-ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.openlocfilehash: c7f2ccd2c074f2488c86b45a09859b308655df8d
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64872680"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65068600"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Stratégies d’indexation dans Azure Cosmos DB
 
@@ -72,6 +72,36 @@ Toute stratégie d’indexation doit inclure le chemin d’accès racine `/*` co
 - Pour les chemins d’accès avec des caractères normaux qui incluent : des caractères alphanumériques et _ (caractère de soulignement), vous n’êtes pas obligé d’échappement de la chaîne de chemin d’accès autour des guillemets doubles (par exemple, « / path / ? »). Pour les chemins d’accès à d’autres caractères spéciaux, vous devez échapper la chaîne de chemin d’accès autour des guillemets doubles (par exemple, « /\"chemin d’accès-abc\"/ ? »). Si vous prévoyez des caractères spéciaux dans votre chemin d’accès, vous pouvez échapper chaque chemin d’accès pour la sécurité. Point de vue fonctionnel, il n’y aucune différence si vous échappe chaque chemin d’accès Vs seulement ceux qui ont des caractères spéciaux.
 
 Consultez [cette section](how-to-manage-indexing-policy.md#indexing-policy-examples) pour des exemples de stratégie d’indexation.
+
+## <a name="composite-indexes"></a>Index composites
+
+Les requêtes qui `ORDER BY` deux ou plusieurs propriétés nécessitent un index composite. Actuellement, les index composites sont uniquement utilisées par plusieurs `ORDER BY` requêtes. Par défaut, aucun index composites n’est définis et vous devez donc [ajouter des index composites](how-to-manage-indexing-policy.md#composite-indexing-policy-examples) en fonction des besoins.
+
+Lorsque vous définissez un index composite, vous spécifiez :
+
+- Deux ou plusieurs chemins de propriété. La séquence de propriété qui sont des chemins d’accès définie dans tous ses États.
+- L’ordre (croissant ou décroissant).
+
+Les considérations suivantes sont utilisées lors de l’utilisation des index composites :
+
+- Si les chemins d’accès de l’index composite ne correspondent pas à la séquence des propriétés dans la clause ORDER BY, puis l’index composite ne peut pas prendre en charge la requête
+
+- L’ordre des chemins d’accès de l’index composite (croissant ou décroissant) doit également correspondre à l’ordre dans la clause ORDER BY.
+
+- L’index composite prend également en charge une clause ORDER BY avec l’ordre inverse sur tous les chemins d’accès.
+
+Prenons l’exemple suivant, où un index composite est défini sur les propriétés a, b et c :
+
+| **Index composite**     | **Exemple `ORDER BY` requête**      | **Prise en charge par les Index ?** |
+| ----------------------- | -------------------------------- | -------------- |
+| ```(a asc, b asc)```         | ```ORDER BY  a asc, bcasc```        | ```Yes```            |
+| ```(a asc, b asc)```          | ```ORDER BY  b asc, a asc```        | ```No```             |
+| ```(a asc, b asc)```          | ```ORDER BY  a desc, b desc```      | ```Yes```            |
+| ```(a asc, b asc)```          | ```ORDER BY  a asc, b desc```       | ```No```             |
+| ```(a asc, b asc, c asc)``` | ```ORDER BY  a asc, b asc, c asc``` | ```Yes```            |
+| ```(a asc, b asc, c asc)``` | ```ORDER BY  a asc, b asc```        | ```No```            |
+
+Vous devez personnaliser votre stratégie d’indexation afin de vous servir tout nécessaire `ORDER BY` requêtes.
 
 ## <a name="modifying-the-indexing-policy"></a>Modification de la stratégie d’indexation
 

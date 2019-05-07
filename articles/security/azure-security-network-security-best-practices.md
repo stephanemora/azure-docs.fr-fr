@@ -11,17 +11,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/28/2019
+ms.date: 05/05/2019
 ms.author: TomSh
-ms.openlocfilehash: 5bec7db1c4409165242416df16e437b121381b49
-ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.openlocfilehash: 78402d3e388f08eae6652859a71c93ff408a5b0d
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64872555"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65152992"
 ---
-# <a name="azure-network-security-best-practices"></a>Meilleures pratiques en matière de sécurité réseau - Azure
-Cet article décrit les bonnes pratiques en matière de sécurité réseau sur Azure. Ces meilleures pratiques sont issues de notre expérience dans le domaine de la mise en réseau Azure, mais également de celle des clients, comme vous.
+# <a name="azure-best-practices-for-network-security"></a>Meilleures pratiques Azure pour la sécurité du réseau
+Cet article décrit une collection de meilleures pratiques Azure pour améliorer la sécurité de votre réseau. Ces meilleures pratiques sont issues de notre expérience dans le domaine de la mise en réseau Azure, mais également de celle des clients, comme vous.
 
 Cet article détaille les points suivants pour chaque bonne pratique :
 
@@ -31,20 +31,57 @@ Cet article détaille les points suivants pour chaque bonne pratique :
 * Alternatives possibles à la meilleure pratique
 * Comment apprendre à utiliser la bonne pratique
 
-Cet article repose sur un consensus, ainsi que sur les fonctionnalités et ensembles de fonctions de la plate-forme Azure disponibles lors de l’écriture. Les opinions et avis évoluent au fil du temps ; cet article sera régulièrement mis à jour de manière à tenir compte de ces changements.
+Ces meilleures pratiques sont basées sur un avis consensus et les fonctionnalités de la plateforme Azure et les ensembles, telles qu’elles existent au moment de la que rédaction de cet article. Les opinions et avis évoluent au fil du temps ; cet article sera régulièrement mis à jour de manière à tenir compte de ces changements.
+
+## <a name="use-strong-network-controls"></a>Utilisation des contrôles réseau fort
+Vous pouvez connecter des [machines virtuelles Azure](https://azure.microsoft.com/services/virtual-machines/) et des appliances à d’autres appareils en réseau, en les plaçant sur des [réseaux virtuels Azure](https://docs.microsoft.com/azure/virtual-network/). Autrement dit, vous pouvez connecter des cartes d’interface réseau virtuel à un réseau virtuel afin de permettre des communications TCP/IP entre les appareils en réseau. Les machines virtuelles connectées à un réseau virtuel Azure peuvent se connecter à des appareils se trouvant sur le même réseau virtuel, sur des réseaux virtuels différents, sur Internet ou sur vos réseaux locaux.
+
+Lorsque vous planifiez votre réseau et la sécurité de votre réseau, nous vous recommandons de centraliser :
+
+- Gestion des fonctions de réseau de base comme ExpressRoute, réseau virtuel et l’approvisionnement de sous-réseau et l’adressage IP.
+- Gouvernance des éléments de sécurité réseau, tels que les fonctions d’appliance virtuelle réseau comme ExpressRoute, réseau virtuel et l’approvisionnement de sous-réseau et l’adressage IP.
+
+Si vous utilisez un ensemble commun d’outils de gestion pour surveiller votre réseau et la sécurité de votre réseau, vous obtenez une visibilité claire dans les deux. Une stratégie de sécurité simple et unifiée, réduit les erreurs, car elle augmente la compréhension humaine et la fiabilité de l’automatisation.
 
 ## <a name="logically-segment-subnets"></a>Segmentation logique des sous-réseaux
-Les réseaux virtuels Azure sont similaires à des réseaux LAN au sein de votre réseau local. Un réseau virtuel Azure repose sur un concept : la création d’un réseau basé sur un espace d’adressage IP privé unique, au sein duquel vous pouvez placer toutes vos machines virtuelles Azure. Les espaces d’adressage IP privés disponibles se trouvent dans les plages des classes A (10.0.0.0/8), B (172.16.0.0/12) et C (192.168.0.0/16).
+Réseaux virtuels Azure sont similaires aux réseaux locaux sur votre réseau local. L’idée derrière un réseau virtuel Azure est que vous créez un réseau basé sur un seul espace d’adressage IP, sur lequel vous pouvez placer toutes vos machines virtuelles Azure. Les espaces d’adressage IP privés disponibles se trouvent dans les plages des classes A (10.0.0.0/8), B (172.16.0.0/12) et C (192.168.0.0/16).
 
 Meilleures pratiques pour segmenter logiquement les sous-réseaux :
+
+**Bonne pratique** : N’attribuez pas de règles avec larges plages d’autorisation (par exemple, autoriser 0.0.0.0 et 255.255.255.255).  
+**Détail** : Vérifiez les procédures de dépannage décourager ou interdire la configuration de ces types de règles. Ces autoriser prospect de règles à un faux sentiment de sécurité et sont fréquemment trouvées et exploitées par des équipes rouges.
 
 **Bonne pratique** : Segmentez l’espace d’adressage plus volumineux en sous-réseaux.   
 **Détail** : Pour créer vos sous-réseaux, utilisez les principes de création de sous-réseau reposant sur [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
 
-**Bonne pratique** : Créez des contrôles d’accès réseau entre les sous-réseaux. Le routage entre les sous-réseaux se produit automatiquement. Il est donc inutile de configurer manuellement des tables de routage. Par défaut, il n’y a aucun contrôle d’accès réseau entre les sous-réseaux que vous créez sur le réseau virtuel Azure.   
-**Détail** : Utilisez un [groupe de sécurité réseau ](../virtual-network/virtual-networks-nsg.md) (NSG). Un groupe de sécurité réseau est un simple appareil d’inspection des paquets, avec état, qui applique la méthode basée sur les 5 tuples (adresse IP source, port source, adresse IP de destination, port de destination et protocole de couche 4) pour créer des règles visant à autoriser ou refuser le trafic réseau. Vous pouvez autoriser ou refuser le trafic vers et depuis une ou plusieurs adresses IP, ou entre des sous-réseaux entiers, dans les deux directions.
+**Bonne pratique** : Créez des contrôles d’accès réseau entre les sous-réseaux. Le routage entre les sous-réseaux se produit automatiquement. Il est donc inutile de configurer manuellement des tables de routage. Par défaut, il n’existe aucun contrôle d’accès réseau entre les sous-réseaux que vous créez sur un réseau virtuel Azure.   
+**Détail** : Utilisez un [groupe de sécurité réseau](../virtual-network/virtual-networks-nsg.md) pour vous protéger contre le trafic non sollicité en sous-réseaux Azure. Groupes de sécurité réseau sont des appareils d’inspection des paquets avec état simple qui utilisent l’approche de 5 tuples (adresse IP source, port source, adresse IP de destination, port de destination et protocole de couche 4) pour créer des règles autoriser ou refuser le trafic réseau. Vous pouvez autoriser ou refuser le trafic vers et depuis une ou plusieurs adresses IP, ou entre des sous-réseaux entiers, dans les deux directions.
 
-Lorsque vous utilisez des groupes de sécurité réseau pour le contrôle d’accès réseau entre les sous-réseaux, vous pouvez placer des ressources appartenant au même rôle ou à la même zone de sécurité dans leurs propres sous-réseaux.
+Lorsque vous utilisez des groupes de sécurité réseau pour le contrôle d’accès réseau entre les sous-réseaux, vous pouvez placer les ressources qui appartiennent à la même zone de sécurité ou d’un rôle dans leurs propres sous-réseaux.
+
+**Bonne pratique** : Évitez de petits réseaux et sous-réseaux virtuels pour garantir la simplicité et flexibilité.   
+**Détail** : La plupart des organisations ajouter davantage de ressources qu’initialement prévue et ré-allocation d’adresses est laborieux. À l’aide de sous-réseaux de petite taille enrichit une sécurité limitée, et mappage d’un groupe de sécurité réseau à chaque sous-réseau ajoute une surcharge. Définir des sous-réseaux largement pour vous assurer que vous disposez d’une flexibilité pour la croissance.
+
+**Bonne pratique** : Simplifier la gestion de règle de groupe de sécurité réseau en définissant [groupes de sécurité d’Application](https://docs.microsoft.com/rest/api/virtualnetwork/applicationsecuritygroups).  
+**Détail** : Définir un groupe de sécurité d’Application pour les listes d’adresses IP que vous pensez que peut être modifiée dans le futur ou être utilisées sur plusieurs groupes de sécurité réseau. N’oubliez pas de nom de la sécurité des applications groupes clairement par conséquent, d’autres peuvent comprendre leur contenu et l’objectif.
+
+## <a name="adopt-a-zero-trust-approach"></a>Adopter une approche de confiance de zéro
+Les réseaux basés sur le périmètre fonctionnent sur l’hypothèse que tous les systèmes au sein d’un réseau peuvent être approuvés. Mais les employés d’aujourd'hui accéder aux ressources de leur organisation à partir de n’importe où sur divers appareils et applications, ce qui rend périmètre des contrôles de sécurité non pertinentes. Accès aux stratégies de contrôle qui vous concentrer uniquement sur qui peuvent accéder à une ressource ne sont pas suffisants. Pour maîtriser l’équilibre entre sécurité et productivité, les administrateurs de sécurité doivent aussi prendre *comment* une ressource est accédée.
+
+Réseaux doivent évoluer de défenses traditionnels, car les réseaux peuvent être vulnérables à des failles : une personne malveillante peut compromettre un point de terminaison unique au sein de la limite de confiance, puis rapidement une brèche dans tout le réseau. [Zéro approbation](https://www.microsoft.com/security/blog/2018/06/14/building-zero-trust-networks-with-microsoft-365/) réseaux éliminent le concept d’approbation selon l’emplacement réseau au sein d’un périmètre. Au lieu de cela, les architectures de confiance de zéro utilisent appareil et utilisateur des revendications de confiance pour réguler l’accès aux données de l’organisation et aux ressources. De nouvelles initiatives, adopter les approches d’approbation de zéro qui valident l’approbation au moment de l’accès.
+
+Meilleures pratiques sont :
+
+**Bonne pratique** : Donner l’accès conditionnel aux ressources en fonction de l’appareil, identité, de garantie, emplacement réseau et bien plus encore.  
+**Détail** : [Accès conditionnel Azure AD](../active-directory/conditional-access/overview.md) permet de vous appliquez les contrôles d’accès appropriés en implémentant des décisions de contrôle d’accès automatisée basées sur les conditions requises. Pour plus d’informations, consultez [gérer l’accès à la gestion Azure avec accès conditionnel](../role-based-access-control/conditional-access-azure-management.md).
+
+**Bonne pratique** : Activer l’accès de port uniquement après l’approbation de flux de travail.  
+**Détail** : Vous pouvez utiliser [machine virtuelle l’accès juste-à-temps dans Azure Security Center](../security-center/security-center-just-in-time.md) pour verrouiller le trafic entrant vers vos machines virtuelles Azure, ce qui réduit l’exposition aux attaques tout en fournissant un accès facile pour vous connecter à des machines virtuelles si nécessaire.
+
+**Bonne pratique** : Accorder des autorisations temporaires pour effectuer des tâches privilégiées, ce qui empêche les utilisateurs malveillants ou non autorisés d’accéder une fois que les autorisations ont expiré. L’accès est accordé uniquement au moment où les utilisateurs en ont besoin.  
+**Détail** : Utilisez l’accès juste-à-temps dans Azure AD Privileged Identity Management ou dans une solution tierce pour accorder des autorisations pour effectuer des tâches privilégiées.
+
+Aucune approbation est la prochaine évolution de sécurité réseau. L’état des cyberattaques lecteurs aux organisations de prendre la mentalité « faille supposée », mais cette approche ne doit pas être limitée. Zéro réseaux de confiance protéger les ressources et les données d’entreprise tout en garantissant que les organisations peuvent créer un espace de travail moderne à l’aide de technologies qui permettent aux employés d’être productifs à tout moment et en tout lieu, en aucune façon.
 
 ## <a name="control-routing-behavior"></a>Contrôle du comportement de routage
 Lorsque vous placez une machine virtuelle sur un réseau virtuel Azure, celle-ci peut se connecter à n’importe quelle autre machine virtuelle du même réseau virtuel, même si les autres machines virtuelles se trouvent sur des sous-réseaux différents. Ce type de communication est rendu possible par une collection d’itinéraires système qui sont activés par défaut. Grâce à ces itinéraires par défaut, les machines virtuelles placées sur le même réseau virtuel peuvent initier des connexions les unes avec les autres, ainsi qu’avec Internet (pour les communications sortantes vers Internet uniquement).
@@ -58,17 +95,8 @@ Nous vous recommandons de configurer des [itinéraires définis par l’utilisat
 >
 >
 
-## <a name="enable-forced-tunneling"></a>Activation du tunneling forcé
-Pour mieux appréhender le concept de « tunneling forcé », il peut être utile de comprendre le fonctionnement du « tunneling fractionné ». L’exemple le plus courant de tunneling fractionné est associé aux connexions de réseau privé virtuel (VPN). Prenons un exemple : vous établissez une connexion VPN entre votre chambre d’hôtel et votre réseau d’entreprise. Cette connexion vous permet d’accéder aux ressources d’entreprise. Toutes les communications établies avec votre réseau d’entreprise passent par le tunnel VPN.
-
-Que se passe-t-il si vous souhaitez vous connecter à des ressources sur Internet ? Lorsque le tunneling fractionné est activé, ces connexions accèdent directement à Internet, sans passer par le tunnel VPN. Certains experts en matière de sécurité considèrent qu’il s’agit là d’un risque potentiel. Ils recommandent de désactiver le tunneling fractionné et de s’assurer que toutes les connexions, celles qui sont destinées à Internet et celles qui sont destinées à des ressources d’entreprise, passent par le tunnel VPN. La désactivation du tunneling fractionné présente l’avantage suivant : les connexions à Internet sont donc contraintes de passer par les périphériques de sécurité du réseau d’entreprise. Ce ne serait pas le cas si le client VPN était connecté à Internet en dehors du tunnel VPN.
-
-Revenons à présent aux machines virtuelles situées sur un réseau virtuel Azure. Les itinéraires par défaut d’un réseau virtuel Azure permettent aux machines virtuelles d’initier tout trafic vers Internet. Cela peut également constituer un risque de sécurité, car ces connexions sortantes sont susceptibles d’augmenter la surface d’attaque d’une machine virtuelle et d’être utilisées par des attaquants. C’est pour cette raison que nous vous recommandons [d’activer le tunneling forcé](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md) sur vos machines virtuelles lorsque la connectivité entre locaux est établie entre votre réseau virtuel Azure et votre réseau local. Nous parlerons un peu plus tard de la connectivité entre locaux dans les meilleures pratiques en matière de réseaux.
-
-Si aucune connexion entre locaux n’est établie, veillez à tirer parti des groupes de sécurité réseau (voir ci-dessus) ou des appliances de sécurité du réseau virtuel Azure (voir ci-dessous) pour empêcher toute connexion sortante vers Internet depuis vos machines virtuelles Azure.
-
 ## <a name="use-virtual-network-appliances"></a>Utilisation d’appliances de réseau virtuel
-Les groupes de sécurité réseau et le routage défini par l’utilisateur peuvent assurer un certain niveau de sécurité réseau au niveau des couches réseau et transport du [modèle OSI](https://en.wikipedia.org/wiki/OSI_model), mais dans certaines situations, vous souhaiterez ou devrez activer la sécurité aux niveaux élevés de la pile. Le cas échéant, nous vous recommandons de déployer les appliances de sécurité de réseau virtuel fournies par les partenaires d’Azure.
+Groupes de sécurité réseau et routage défini par l’utilisateur peuvent fournir une certaine mesure de sécurité réseau au niveau des couches réseau et transport de la [modèle OSI](https://en.wikipedia.org/wiki/OSI_model). mais dans certaines situations, vous souhaiterez ou devrez activer la sécurité aux niveaux élevés de la pile. Le cas échéant, nous vous recommandons de déployer les appliances de sécurité de réseau virtuel fournies par les partenaires d’Azure.
 
 Les appliances de sécurité réseau Azure peuvent offrir des niveaux de sécurité supérieurs à ceux des contrôles appliqués au niveau du réseau. Fonctionnalités de sécurité réseau des appliances de sécurité de réseau virtuel :
 
@@ -87,19 +115,27 @@ Pour trouver les appliances de sécurité de réseau virtuel Azure disponibles, 
 ## <a name="deploy-perimeter-networks-for-security-zones"></a>Déploiement des réseaux de périmètre pour les zones de sécurité
 Un [réseau de périmètre](https://docs.microsoft.com/azure/best-practices-network-security) (également appelé zone DMZ) est un segment de réseau logique ou physique qui fournit une couche de sécurité supplémentaire entre vos ressources et Internet. Les périphériques de contrôle d’accès réseau spécialisés situés à la périphérie d’un réseau de périmètre autorisent uniquement le trafic souhaité entrant dans votre réseau virtuel.
 
-Les réseaux de périmètre sont utiles, car vous pouvez concentrer la gestion des contrôles d’accès réseau, la surveillance, la journalisation et la création de rapports sur les appareils situés à la périphérie de votre réseau virtuel Azure. Ici, vous devez généralement activer la prévention de déni de service distribué (DDoS), les systèmes de détection et de prévention des intrusions (IDS/IPS), les règles et stratégies de pare-feu, le filtrage web, les logiciels anti-programme malveillant du réseau, etc. Les appareils dédiés à la sécurité réseau se trouvent entre Internet et le réseau virtuel Azure, et disposent d’une interface sur les deux réseaux.
+Les réseaux de périmètre sont utiles, car vous pouvez concentrer la gestion des contrôles d’accès réseau, la surveillance, la journalisation et la création de rapports sur les appareils situés à la périphérie de votre réseau virtuel Azure. Un réseau de périmètre est où vous activez généralement distribuées par déni de service (distribué DDoS) prévention, intrusion détection/prévention des intrusions (IDS/IPS), règles de pare-feu et stratégies, filtrage de contenu web, anti-programme malveillant du réseau et bien plus encore. Les appareils dédiés à la sécurité réseau se trouvent entre Internet et le réseau virtuel Azure, et disposent d’une interface sur les deux réseaux.
 
-Même s’il s’agit là de la conception de base d’un réseau de périmètre, il existe de nombreuses conceptions différentes, par exemple dos à dos, à triple hébergement et multirésidentes.
+Il s’agit de la conception de base d’un réseau de périmètre, mais il existe de nombreuses conceptions différentes, telles que DOS à DOS, triple hébergement et multi-hébergés.
 
-Pour tous les déploiements haute sécurité, nous vous recommandons de penser à utiliser un réseau de périmètre pour améliorer le niveau de la sécurité réseau de vos ressources Azure.
+Selon le concept d’approbation zéro mentionné précédemment, nous vous recommandons d’envisager à l’aide d’un réseau de périmètre pour tous les déploiements de haute sécurité pour améliorer le niveau de contrôle d’accès et de sécurité réseau pour vos ressources Azure. Vous pouvez utiliser Azure ou une solution tierce pour fournir une couche supplémentaire de sécurité entre vos ressources et internet :
 
-## <a name="avoid-exposure-to-the-internet-with-dedicated-wan-links"></a>Suppression de toute exposition à Internet grâce à des liaisons réseau étendu dédiées
-De nombreuses organisations ont opté pour l’informatique hybride. Dans un environnement informatique hybride, certaines ressources informatiques de l’entreprise se trouvent sur Azure, alors que d’autres restent en local. Dans de nombreux cas, certains composants d’un service sont exécutés dans Azure, tandis que d’autres le sont localement.
+- Contrôles natifs Azure. [Pare-feu Azure](../firewall/overview.md) et [pare-feu d’applications web dans Application Gateway](../application-gateway/overview.md#web-application-firewall) offrent une sécurité de base avec un pare-feu entièrement dynamique en tant que service, la haute disponibilité intégrée, l’extensibilité du cloud sans restriction, filtrage du nom de domaine complet , prise en charge des ensembles de règles OWASP core et le programme d’installation simple et la configuration.
+- Offres de tiers. Recherche le [place de marché Azure](https://azuremarketplace.microsoft.com/) pour le pare-feu de nouvelle génération (NGFW) et d’autres offres de tiers qui fournissent des outils de sécurité courantes et considérablement améliorer le niveau de sécurité réseau. Configuration peut être plus complexe, mais une offre de tiers peut vous permettre d’utiliser les compétences et capacités existantes.
 
-Un scénario hybride propose généralement un certain type de connectivité entre locaux. La connectivité entre locaux permet à l’entreprise de relier ses réseaux locaux aux réseaux virtuels Azure. Deux solutions de connectivité entre locaux sont disponibles :
+## <a name="avoid-exposure-to-the-internet-with-dedicated-wan-links"></a>Éviter l’exposition à internet avec des liaisons WAN dédiées
+De nombreuses organisations ont opté pour l’informatique hybride. Avec l’environnement informatique hybride, certaines des informations de la société sont dans Azure et d’autres restent en local. Dans de nombreux cas, certains composants d’un service sont exécutés dans Azure, tandis que d’autres le sont localement.
 
-* **VPN de site à site** : Il s’agit d’une technologie établie, fiable et approuvée, mais la connexion s’effectue via Internet. La bande passante est limitée à un maximum d’environ 200 Mbits/s. L’option VPN de site à site est souhaitable dans certains scénarios. Elle est décrite ultérieurement dans la section [Désactivation de l’accès RDP/SSH aux machines virtuelles](#disable-rdpssh-access-to-virtual-machines).
-* **Azure ExpressRoute** : Nous vous recommandons d’utiliser [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) pour la connectivité entre locaux. ExpressRoute représente une liaison réseau étendu dédiée entre le site local et un fournisseur d’hébergement Exchange. Comme il s’agit d’une connexion de télécommunications, vos données ne transitent pas par Internet et ne sont donc pas exposées aux risques potentiels inhérents aux communications Internet.
+Dans un scénario informatique hybride, il existe généralement un certain type de connectivité entre différents locaux. La connectivité entre locaux permet à l’entreprise de relier ses réseaux locaux aux réseaux virtuels Azure. Deux solutions de connectivité entre locaux sont disponibles :
+
+* [VPN de site à site](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md). Il s’agit d’une technologie établie, fiable et approuvée, mais la connexion s’effectue via Internet. La bande passante est limitée à un maximum d’environ 200 Mbits/s. VPN de site à site est une option souhaitable dans certains scénarios.
+* **Azure ExpressRoute**. Nous vous recommandons d’utiliser [ExpressRoute](../expressroute/expressroute-introduction.md) pour la connectivité entre locaux. ExpressRoute vous permet d’étendre vos réseaux locaux au cloud de Microsoft via une connexion privée assurée par un fournisseur de connectivité. Grâce à ExpressRoute, vous pouvez établir des connexions aux services de cloud Microsoft comme Azure, Office 365 et Dynamics 365. ExpressRoute est un liaison réseau étendu dédiée lien entre votre emplacement local ou un fournisseur d’hébergement Microsoft Exchange. Comme il s’agit d’une connexion de télécommunications, vos données ne transitent pas par internet, donc il n’est pas exposé aux risques potentiels de communications internet.
+
+L’emplacement de votre connexion ExpressRoute peut affecter la capacité de pare-feu, d’évolutivité, fiabilité et une visibilité de trafic réseau. Vous devez identifier l’emplacement où mettre fin à ExpressRoute dans les réseaux existants (local). Vous pouvez :
+
+- Mettre fin à l’extérieur du pare-feu (le paradigme de réseau de périmètre) si vous avez besoin d’une visibilité sur le trafic, si vous avez besoin continuer une pratique existante de l’isolation des centres de données, ou si vous placez uniquement les ressources extranets sur Azure.
+- Mettre fin à l’intérieur du pare-feu (le paradigme d’extension de réseau). Il s’agit de la recommandation par défaut. Dans tous les autres cas, nous vous recommandons de traitement Azure comme un centre de données nième.
 
 ## <a name="optimize-uptime-and-performance"></a>Optimisation de la durée active et des performances
 Si un service est défaillant, les informations sont inaccessibles. Si les performances sont tellement médiocres que les données en sont inutilisables, vous pouvez considérer que ces dernières sont inaccessibles. Du point de vue de la sécurité, vous devez faire tout ce qui est en votre pouvoir pour garantir des performances et une durée de fonctionnement optimales pour vos services.
@@ -172,5 +208,5 @@ Les points de terminaison de service fournissent les avantages suivants :
 
 Pour en savoir plus sur les points de terminaison de service et sur les services et régions Azure pour lesquels ces points de terminaison sont disponibles, consultez [Points de terminaison de service de réseau virtuel](../virtual-network/virtual-network-service-endpoints-overview.md).
 
-## <a name="next-step"></a>Étape suivante
+## <a name="next-steps"></a>Étapes suivantes
 Consultez l’article [Bonnes pratiques et tendances Azure relatives à la sécurité](security-best-practices-and-patterns.md) pour découvrir d’autres bonnes pratiques en matière de sécurité à appliquer dans le cadre de la conception, du déploiement et de la gestion de vos solutions cloud avec Azure.

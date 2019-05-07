@@ -10,16 +10,28 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/07/2018
 ms.author: gracez
-ms.openlocfilehash: 33a03b24de56ab1090cc8e07c9619eda17f33e27
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 9147f02f6ef2e2f3f776e67aa1f103e95ef132aa
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64711891"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153036"
 ---
 # <a name="release-notes-of-cognitive-services-speech-devices-sdk"></a>Notes de publication du Kit de développement logiciel (SDK) Speech Devices de Cognitive Services
 
 Les sections suivantes dressent la liste des modifications dans les versions les plus récentes.
+
+## <a name="cognitive-services-speech-devices-sdk-150-2019-may-release"></a>Appareils de reconnaissance vocale de COGNITIVE Services SDK 1.5.0 : Mise en production mai 2019
+
+*   Appareils de Speech SDK est désormais GA et n’est plus une préversion contrôlée.
+*   Mise à jour le [Speech SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) composant vers la version 1.5.0. Pour plus d’informations, consultez ses [notes de publication](https://aka.ms/csspeech/whatsnew).
+*   Nouvelle technologie de mise en éveil word apporte des améliorations de la qualité, consultez les modifications avec rupture.
+*   Nouveau pipeline de traitement audio pour la reconnaissance lointain champ améliorée.
+
+**Dernières modifications**
+
+*   En raison de la nouvelle technologie de word de mise en éveil tous les mots de mise en éveil doivent être recréées sur notre portail de word améliorées de mise en éveil. Pour supprimer complètement les anciens mots clés à partir de l’appareil désinstaller l’ancienne application.
+    - adb uninstall com.microsoft.coginitiveservices.speech.samples.sdsdkstarterapp
 
 ## <a name="cognitive-services-speech-devices-sdk-140-2019-apr-release"></a>Appareils vocale de COGNITIVE Services SDK 1.4.0 : Mise en production avril 2019 
 

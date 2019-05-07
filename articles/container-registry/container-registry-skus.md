@@ -5,14 +5,14 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 03/26/2019
+ms.date: 05/06/2019
 ms.author: danlep
-ms.openlocfilehash: 7fdc1417ac524b422a12a087cf1661040efb9f8a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f36b206ff015511dea7369617febe9220282bbe5
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60582831"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65069037"
 ---
 # <a name="azure-container-registry-skus"></a>Références (SKU) Azure Container Registry
 
@@ -22,7 +22,7 @@ Azure Container Registry (ACR) est disponible dans plusieurs niveaux de service,
 | --- | :-------: | ----------- |
 | **De base** | Oui | Point d’entrée au coût optimisé pour les développeurs apprenant Azure Container Registry. Registres de base ont les mêmes fonctionnalités de programmation comme Standard et Premium (tels qu’Azure Active Directory [intégration de l’authentification](container-registry-authentication.md#individual-login-with-azure-ad), [suppression de l’image][container-registry-delete], et [webhooks][container-registry-webhook]). Toutefois, le stockage inclus et le débit d’image sont parfaitement appropriés pour des scénarios d’utilisation inférieure. |
 | **Standard** | Oui | Les registres Standard offrent les mêmes fonctionnalités que la version De base, avec un stockage inclus et un débit d’image accrus. Les registres Standard devraient satisfaire les besoins de la plupart des scénarios de production. |
-| **Premium** | Oui | Les registres Premium fournissent la quantité la plus élevée de stockage inclus et d’opérations simultanées, permettant des scénarios impliquant des volumes importants. En plus d’un débit plus élevé d’image, version Premium ajoute des fonctionnalités, notamment [géo-réplication] [ container-registry-geo-replication] pour la gestion d’un Registre dans plusieurs régions, [(version préliminaire)d’approbationdecontenu](container-registry-content-trust.md) pour la signature de balise image, et [les pare-feux et réseaux virtuels (version préliminaire)](container-registry-vnet.md) pour restreindre l’accès au Registre. |
+| **Premium** | Oui | Les registres Premium fournissent la quantité la plus élevée de stockage inclus et d’opérations simultanées, permettant des scénarios impliquant des volumes importants. En plus d’un débit plus élevé d’image, version Premium ajoute des fonctionnalités, notamment [géo-réplication] [ container-registry-geo-replication] pour la gestion d’un Registre dans plusieurs régions, [approbation de contenu](container-registry-content-trust.md) pour la signature de balise image, et [les pare-feux et réseaux virtuels (version préliminaire)](container-registry-vnet.md) pour restreindre l’accès au Registre. |
 |  Classique (*non disponible après avril 2019*) | Non  | La référence SKU a permis la publication initiale du service Azure Container Registry dans Azure. Les registres classiques sont secondés par un compte de stockage crée par Azure dans votre abonnement, qui limite la capacité d’ACR à fournir des fonctionnalités de niveau supérieur telles que l’augmentation du débit et la géoréplication. |
 
 > [!IMPORTANT]
