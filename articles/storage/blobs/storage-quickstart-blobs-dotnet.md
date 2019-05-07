@@ -2,18 +2,19 @@
 title: 'Démarrage rapide : Utiliser .NET pour créer un objet blob dans le stockage d’objets - Stockage Azure'
 description: Dans ce guide de démarrage rapide, vous apprenez à utiliser la bibliothèque cliente de stockage Azure pour .NET, puis vous créez un conteneur et un objet blob dans le stockage (d’objets) Blob. Vous apprenez ensuite à télécharger l’objet blob sur votre ordinateur local et à lister tous les objets blob dans un conteneur.
 services: storage
-author: tamram
+author: mhopkins-msft
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 ms.date: 11/14/2018
-ms.author: tamram
-ms.openlocfilehash: 2708efc22d373db6ee55dfee6b8adfa35bd450ef
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.author: mhopkins
+ms.reviewer: seguler
+ms.openlocfilehash: 0b7a7ac7b8a71f33871247a1117c16609bbbcd88
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924349"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65191051"
 ---
 # <a name="quickstart-use-net-to-create-a-blob-in-object-storage"></a>Démarrage rapide : Utiliser .NET pour créer un objet blob dans le stockage d’objets
 
@@ -152,7 +153,7 @@ Ensuite, explorez l’exemple de code pour comprendre son fonctionnement.
 
 ### <a name="try-parsing-the-connection-string"></a>Essayez d’analyser la chaîne de connexion.
 
-L’exemple vérifie d’abord si la variable d’environnement contient une chaîne de connexion à analyser pour créer un objet [CloudStorageAccount](/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount) pointant vers le compte de stockage. Pour vérifier si la chaîne de connexion est valide, utilisez la méthode [TryParse](/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount.tryparse). Si la méthode **TryParse** réussit, la variable *storageAccount* est initialisée et la valeur **true** est retournée.
+L’exemple vérifie d’abord si la variable d’environnement contient une chaîne de connexion à analyser pour créer un objet [CloudStorageAccount](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount) pointant vers le compte de stockage. Pour vérifier si la chaîne de connexion est valide, utilisez la méthode [TryParse](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount.tryparse). Si la méthode **TryParse** réussit, la variable *storageAccount* est initialisée et la valeur **true** est retournée.
 
 ```csharp
 // Retrieve the connection string for use with the application. The storage connection string is stored
@@ -184,9 +185,9 @@ else
 
 Ensuite, l’exemple crée un conteneur et définit ses autorisations afin que tous les objets blob du conteneur soient publics. Si un objet blob est public, n’importe quel client peut y accéder de façon anonyme.
 
-Pour créer le conteneur, créez d’abord une instance de l’objet [CloudBlobClient](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobclient) pointant vers le stockage d’objets blob de votre compte de stockage. Ensuite, créez une instance de l’objet [CloudBlobContainer](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer) puis le conteneur.
+Pour créer le conteneur, créez d’abord une instance de l’objet [CloudBlobClient](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient) pointant vers le stockage d’objets blob de votre compte de stockage. Ensuite, créez une instance de l’objet [CloudBlobContainer](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer) puis le conteneur.
 
-Dans ce cas, l’exemple appelle la méthode [CreateAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.createasync) pour créer le conteneur. Une valeur GUID est ajoutée au nom du conteneur pour s’assurer qu’il est unique. Dans un environnement de production, il est souvent préférable d’utiliser la méthode [CreateIfNotExistsAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.createifnotexistsasync) pour créer un conteneur uniquement s’il n’existe pas déjà et ainsi éviter des conflits de nom.
+Dans ce cas, l’exemple appelle la méthode [CreateAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.createasync) pour créer le conteneur. Une valeur GUID est ajoutée au nom du conteneur pour s’assurer qu’il est unique. Dans un environnement de production, il est souvent préférable d’utiliser la méthode [CreateIfNotExistsAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.createifnotexistsasync) pour créer un conteneur uniquement s’il n’existe pas déjà et ainsi éviter des conflits de nom.
 
 > [!IMPORTANT]
 > Les noms de conteneurs doivent être en minuscules. Pour plus d’informations sur l’affectation de noms aux conteneurs et objets blob, consultez [Affectation de noms et références aux conteneurs, objets blob et métadonnées](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
@@ -209,7 +210,7 @@ await cloudBlobContainer.SetPermissionsAsync(permissions);
 
 ### <a name="upload-blobs-to-the-container"></a>Charger des objets blob dans le conteneur
 
-Ensuite, l’exemple charge un fichier local à un objet blob de blocs. L’exemple de code attribue une référence à un objet **CloudBlockBlob** en appelant la méthode [GetBlockBlobReference](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.getblockblobreference) sur le conteneur créé dans la section précédente. Il charge ensuite le fichier sélectionné dans l’objet blob en appelant la méthode [UploadFromFileAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.uploadfromfileasync). Cette méthode crée l’objet blob s’il n’existe pas déjà, et le remplace s’il existe.
+Ensuite, l’exemple charge un fichier local à un objet blob de blocs. L’exemple de code attribue une référence à un objet **CloudBlockBlob** en appelant la méthode [GetBlockBlobReference](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.getblockblobreference) sur le conteneur créé dans la section précédente. Il charge ensuite le fichier sélectionné dans l’objet blob en appelant la méthode [UploadFromFileAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob.uploadfromfileasync). Cette méthode crée l’objet blob s’il n’existe pas déjà, et le remplace s’il existe.
 
 ```csharp
 // Create a file in your local MyDocuments folder to upload to a blob.
@@ -230,7 +231,7 @@ await cloudBlockBlob.UploadFromFileAsync(sourceFile);
 
 ### <a name="list-the-blobs-in-a-container"></a>Créer la liste des objets blob d’un conteneur
 
-L’exemple répertorie les objets blob du conteneur avec la méthode [ListBlobsSegmentedAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobssegmentedasync). Dans le cas de cet exemple, seul un objet blob a été ajouté au conteneur. Il n’y a donc qu’un objet blob répertorié.
+L’exemple répertorie les objets blob du conteneur avec la méthode [ListBlobsSegmentedAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.listblobssegmentedasync). Dans le cas de cet exemple, seul un objet blob a été ajouté au conteneur. Il n’y a donc qu’un objet blob répertorié.
 
 Si trop d’objets blob sont retournés en un seul appel (plus de 5 000 par défaut), alors la méthode **ListBlobsSegmentedAsync** retourne un segment du jeu de résultats total ainsi qu’un jeton de continuation. Pour récupérer le segment d’objets blob suivant, vous devez fournir le jeton de continuation retourné par l’appel précédent, jusqu’à ce que le jeton soit null. Un jeton de continuation null indique que tous les objets blob ont été récupérés. L’exemple de code montre comment utiliser le jeton de continuation, dans l’intérêt des meilleures pratiques.
 
@@ -253,7 +254,7 @@ do
 
 ### <a name="download-blobs"></a>Télécharger des objets blob
 
-Ensuite, l’exemple télécharge l’objet blob créé précédemment dans votre système de fichiers local avec la méthode [DownloadToFileAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync). L’exemple de code ajoute le suffixe « _DOWNLOADED » au nom de l’objet blob afin que vous puissiez voir les deux fichiers dans votre système de fichiers local.
+Ensuite, l’exemple télécharge l’objet blob créé précédemment dans votre système de fichiers local avec la méthode [DownloadToFileAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.downloadtofileasync). L’exemple de code ajoute le suffixe « _DOWNLOADED » au nom de l’objet blob afin que vous puissiez voir les deux fichiers dans votre système de fichiers local.
 
 ```csharp
 // Download the blob to a local file, using the reference created earlier.
@@ -265,7 +266,7 @@ await cloudBlockBlob.DownloadToFileAsync(destinationFile, FileMode.Create);
 
 ### <a name="clean-up-resources"></a>Supprimer des ressources
 
-L’exemple se débarrasse des ressources créées en supprimant l’ensemble du conteneur avec la méthode [CloudBlobContainer.DeleteAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.deleteasync). Si vous voulez, vous pouvez aussi supprimer les fichiers locaux.
+L’exemple se débarrasse des ressources créées en supprimant l’ensemble du conteneur avec la méthode [CloudBlobContainer.DeleteAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.deleteasync). Si vous voulez, vous pouvez aussi supprimer les fichiers locaux.
 
 ```csharp
 Console.WriteLine("Press the 'Enter' key to delete the sample files, example container, and exit the application.");
