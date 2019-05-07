@@ -49,7 +49,7 @@ Cet article aborde les points suivants :
 
 ## <a name="performance-reference"></a>Performances de référence
 
-À titre de référence, le tableau ci-dessous décrit la valeur de débit de copie en Mbits/s pour les paires de source et de récepteur données à partir de tests internes. À des fins de comparaison, il montre également comment les différents paramètres [d’unités de déplacement des données cloud](#cloud-data-movement-units) ou [d’évolutivité de la passerelle de gestion des données](data-factory-data-management-gateway-high-availability-scalability.md) (plusieurs nœuds de passerelle) peuvent améliorer les performances de copie.
+À titre de référence, le tableau ci-dessous décrit la valeur de débit de copie en Mo/s pour les paires de source et de récepteur données à partir de tests internes. À des fins de comparaison, il montre également comment les différents paramètres [d’unités de déplacement des données cloud](#cloud-data-movement-units) ou [d’évolutivité de la passerelle de gestion des données](data-factory-data-management-gateway-high-availability-scalability.md) (plusieurs nœuds de passerelle) peuvent améliorer les performances de copie.
 
 ![Matrice des performances](./media/data-factory-copy-activity-performance/CopyPerfRef.png)
 
@@ -370,7 +370,7 @@ Faites attention au nombre de jeux de données et d’activités de copie néces
 ## <a name="sample-scenario-copy-from-an-on-premises-sql-server-to-blob-storage"></a>Exemple de scénario : copie depuis un SQL Server local vers le stockage Blob
 **Scénario** : un pipeline est conçu pour copier des données d’un serveur SQL Server local vers un stockage Blob au format CSV. Pour accélérer la copie des travaux, les fichiers CSV doivent être compressés au format bzip2.
 
-**Test et analyse** : le débit de l’activité de copie est inférieur à 2 Mbits/s, ce qui est beaucoup plus lent que le test d’évaluation des performances.
+**Test et analyse** : le débit de l’activité de copie est inférieur à 2 Mo/s, ce qui est beaucoup plus lent que le test d’évaluation des performances.
 
 **Analyse des performances et réglage** : pour résoudre le problème de performances, nous allons tout d’abord examiner la manière dont les données sont traitées et déplacées.
 
@@ -389,9 +389,9 @@ Un ou plusieurs des facteurs suivants peuvent entraîner un goulot d’étrangle
   * **LAN** : la passerelle est éloignée de l’ordinateur SQL Server et dispose d’une connexion à faible bande passante.
   * **Passerelle** : la passerelle a atteint ses limites de charge pour effectuer les opérations suivantes :
     * **Sérialisation** : la sérialisation du flux de données au format CSV présente un débit lent.
-    * **Compression** : vous avez choisi un codec de compression lent (par exemple, bzip2, c’est-à-dire 2,8 Mbits/s avec Core i7).
+    * **Compression** : vous avez choisi un codec de compression lent (par exemple, bzip2, c’est-à-dire 2,8 Mo/s avec Core i7).
   * **WAN** : la bande passante entre le réseau d’entreprise et vos services Azure est faible (par exemple, T1 = 1 544 Kbits/s ; T2 = 6 312 Kbits/s).
-* **Récepteur** : le stockage Blob a un faible débit. (Ce scénario est peu probable car son contrat SLA garantit un minimum de 60 Mbits/s.)
+* **Récepteur** : le stockage Blob a un faible débit. (Ce scénario est peu probable car son contrat SLA garantit un minimum de 60 Mo/s.)
 
 Dans ce cas, la compression de données bzip2 pourrait ralentir l’ensemble du pipeline. Un basculement vers le codec de compression gzip peut résoudre ce goulot d’étranglement.
 

@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/12/2017
+ms.date: 05/01/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d5f4dec48d81b032de293bb6c68ad62ac48d475
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 309adfbebd4f4b615ac1f4061823ca01f3d3ee15
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60347876"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65139287"
 ---
 # <a name="azure-ad-connect-sync-scheduler"></a>Synchronisation d’Azure AD Connect : Scheduler
-Cette rubrique décrit le planificateur intégré dans Azure AD Connect Sync (également appelé moteur de synchronisation).
+Cette rubrique décrit le Planificateur intégré dans Azure AD Connect sync (moteur de synchronisation).
 
 Cette fonctionnalité a été introduite avec la version 1.1.105.0 (publiée en février 2016).
 
@@ -92,29 +92,62 @@ Une fois vos modifications apportées, n’oubliez pas d’activer de nouveau le
 ## <a name="start-the-scheduler"></a>Démarrer le planificateur
 Par défaut, le planificateur s’exécute toutes les 30 minutes. Dans certains cas, vous souhaiterez peut-être exécuter un cycle de synchronisation entre les cycles planifiés ou vous devrez exécuter un autre type de synchronisation.
 
-**Cycle de synchronisation delta**  
+### <a name="delta-sync-cycle"></a>Cycle de synchronisation delta
  Un cycle de synchronisation delta comprend les étapes suivantes :
 
-* Importation delta sur tous les connecteurs
-* Synchronisation delta sur tous les connecteurs
-* Exportation sur tous les connecteurs
 
-Cela peut indiquer une modification urgente à synchroniser immédiatement, nécessitant l’exécution manuelle d’un cycle. Si vous avez besoin d’exécuter un cycle manuellement, exécutez `Start-ADSyncSyncCycle -PolicyType Delta`à partir de PowerShell.
+- Importation delta sur tous les connecteurs
+- Synchronisation delta sur tous les connecteurs
+- Exportation sur tous les connecteurs
 
-**Cycle de synchronisation complet**  
-Si vous avez effectué l’une des modifications de configuration suivantes, vous devez exécuter un cycle de synchronisation complet (également appelé Initial) :
+### <a name="full-sync-cycle"></a>Cycle de synchronisation complète
+Un cycle de synchronisation complète comprend les étapes suivantes :
 
-* Ajout de plusieurs objets ou attributs à importer à partir d’un répertoire source
-* Modifications apportées aux règles de synchronisation
-* Le [filtrage](how-to-connect-sync-configure-filtering.md) étant modifié, un nombre différent d’objets doit être inclus
+- Importation complète sur tous les connecteurs
+- Synchronisation complète sur tous les connecteurs
+- Exportation sur tous les connecteurs
 
-Si vous avez effectué l’une de ces modifications, vous devez exécuter un cycle de synchronisation complète, afin que le moteur de synchronisation ait la possibilité de reconsolider les espaces du connecteur. Un cycle de synchronisation complète comprend les étapes suivantes :
+Cela peut indiquer une modification urgente à synchroniser immédiatement, nécessitant l’exécution manuelle d’un cycle. 
 
-* Importation complète sur tous les connecteurs
-* Synchronisation complète sur tous les connecteurs
-* Exportation sur tous les connecteurs
+Si vous avez besoin d’exécuter manuellement un cycle de synchronisation, puis à partir de PowerShell exécuter `Start-ADSyncSyncCycle -PolicyType Delta`.
 
-Pour initier un cycle de synchronisation complète, exécutez `Start-ADSyncSyncCycle -PolicyType Initial` à partir d’une invite PowerShell. Cette commande démarre un cycle de synchronisation complet.
+Pour initier un cycle de synchronisation complète, exécutez `Start-ADSyncSyncCycle -PolicyType Initial` à partir d’une invite PowerShell.   
+
+Exécute un cycle de synchronisation complète peut être très long, lisez la section suivante pour découvrir comment optimiser ce processus.
+
+### <a name="sync-steps-required-for-different-configuration-changes"></a>Les étapes requises pour les modifications de configuration différents de synchronisation
+Modifications de configuration différents nécessitent des étapes de synchronisation différents permettant de vérifier que les modifications sont correctement appliquées à tous les objets.
+
+- Ajouté plusieurs objets ou attributs sera importé à partir d’un répertoire source (par ajout/en modifiant les règles de synchronisation)
+    - Une importation complète est requise sur le connecteur pour ce répertoire source
+- Modifications apportées aux règles de synchronisation
+    - Une synchronisation complète est requise sur le connecteur pour les règles de synchronisation modifiées
+- Le [filtrage](how-to-connect-sync-configure-filtering.md) étant modifié, un nombre différent d’objets doit être inclus
+    - Une importation complète est requis sur le connecteur pour chaque connecteur Active Directory, sauf si vous utilisez filtrage basé sur un attribut basé sur des attributs qui sont déjà importés dans le moteur de synchronisation
+
+### <a name="customizing-a-sync-cycle-run-the-right-mix-of-delta-and-full-sync-steps"></a>Personnalisation d’un cycle de synchronisation exécuter la bonne combinaison entre les étapes de synchronisation Delta et complet
+Pour éviter d’exécuter un cycle de synchronisation complète, vous pouvez marquer des connecteurs spécifiques pour exécuter une étape complète à l’aide des applets de commande suivantes.
+
+`Set-ADSyncSchedulerConnectorOverride -Connector <ConnectorGuid> -FullImportRequired $true`
+
+`Set-ADSyncSchedulerConnectorOverride -Connector <ConnectorGuid> -FullSyncRequired $true`
+
+`Get-ADSyncSchedulerConnectorOverride -Connector <ConnectorGuid>` 
+
+Exemple :  Si vous avez modifié les règles de synchronisation pour le connecteur « Forêt AD A » qui ne nécessitent pas tous les nouveaux attributs à être importé, vous exécuteriez ce qui suit les applets de commande pour exécuter une synchronisation delta cycle qui également avez fait une synchronisation complète l’étape pour ce connecteur.
+
+`Set-ADSyncSchedulerConnectorOverride -ConnectorName “AD Forest A” -FullSyncRequired $true`
+
+`Start-ADSyncSyncCycle -PolicyType Delta`
+
+Exemple :  Si vous avez modifié les règles de synchronisation pour le connecteur « Forêt AD A » afin qu’elles nécessitent désormais un nouvel attribut à être importé, vous exécuteriez les applets de commande suivantes pour exécuter un cycle de synchronisation delta qui a également une importation complète, l’étape de synchronisation complète pour ce connecteur.
+
+`Set-ADSyncSchedulerConnectorOverride -ConnectorName “AD Forest A” -FullImportRequired $true`
+
+`Set-ADSyncSchedulerConnectorOverride -ConnectorName “AD Forest A” -FullSyncRequired $true`
+
+`Start-ADSyncSyncCycle -PolicyType Delta`
+
 
 ## <a name="stop-the-scheduler"></a>Arrêter le planificateur
 Si le planificateur exécute un cycle de synchronisation, vous devrez l’arrêter. Par exemple, si vous démarrez l’Assistant d’installation et que vous obtenez l’erreur suivante :

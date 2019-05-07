@@ -4,12 +4,12 @@ ms.author: robinsh
 ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
-ms.openlocfilehash: 1bdf73dc6a4edf0c170b51e70fca2128d22e0eb8
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 104849557a8580e16fa1860b7919d1c0252debe9
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59803962"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150335"
 ---
 Le tableau suivant répertorie les limites associées à différents niveaux de service S1, S2, S3 et F1. Pour plus d’informations sur le coût de chaque *unité* dans chaque couche, consultez [tarification d’Azure IoT Hub](https://azure.microsoft.com/pricing/details/iot-hub/).
 
@@ -40,9 +40,9 @@ Le tableau suivant répertorie les limites qui s’appliquent aux ressources IoT
 | Nombre de remises maximal pour les messages  <br/>  Cloud vers appareil |100 |
 | Nombre de remises maximal pour les messages de commentaire  <br/>  en réponse à un message Cloud vers appareil |100 |
 | Durée de vie maximale des messages de commentaire  <br/>  en réponse à un message Cloud vers appareil |2 jours |
-| Taille maximale du jumeau d’appareil <br/> (balises, propriétés signalées et propriétés souhaitées) | 8 Ko |
+| [Taille maximale de représentation d’appareil](../articles/iot-hub/iot-hub-devguide-device-twins.md#device-twin-size) <br/> (balises, propriétés signalées et propriétés souhaitées) | 8 Ko |
 | Taille maximale de la valeur de chaîne du jumeau d’appareil | 4 Ko |
-| Profondeur maximale de l’objet dans le jumeau d’appareil | 5. |
+| [Profondeur maximale d’objet dans la représentation d’appareil](../articles/iot-hub/iot-hub-devguide-device-twins.md#tags-and-properties-format) | 5. |
 | Taille maximale de la charge utile de la méthode directe | 128 Ko |
 | Conservation maximale de l’historique des travaux | 30 jours |
 | Nombre maximal de travaux simultanés | 10 (pour S3), 5 pour (S2), 1 (pour S1) |
@@ -51,10 +51,8 @@ Le tableau suivant répertorie les limites qui s’appliquent aux ressources IoT
 | Nombre maximal de flux d’appareils connectés simultanément | 50 (pour S1, S2, S3 et F1 uniquement) |
 | Transfert de données de flux d’appareil maximal | 300 Mo par jour (pour S1, S2, S3 et F1 uniquement) |
 
-
 > [!NOTE]
 > Si vous avez besoin de plus de 50 IoT hubs payants dans un abonnement Azure, contactez le Support Microsoft.
-
 
 > [!NOTE]
 > Actuellement, le nombre maximal d’appareils que vous pouvez connecter à un hub IoT unique est 1 000 000. Si vous souhaitez augmenter cette limite, contactez le [support Microsoft](https://azure.microsoft.com/support/options/).

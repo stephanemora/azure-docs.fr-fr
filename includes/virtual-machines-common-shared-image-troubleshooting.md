@@ -5,15 +5,15 @@ services: virtual-machines
 author: axayjo
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 09/20/2018
+ms.date: 04/25/2019
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 0eb47c8ec470ef05f3c6ae37bdc75e5bb1043eb0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1476830313296615591a69a2cadd04bcc56b22bc
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60418646"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65149620"
 ---
 Si vous rencontrez des problèmes en exécutant des opérations sur les galeries d’images partagées, les définitions d’image et les versions d’image, réexécutez la commande ayant échoué en mode débogage. Le mode débogage est activé avec le commutateur **-debug** dans l’interface CLI et le commutateur **-Debug** dans PowerShell. Une fois que vous avez localisé l’erreur, suivez ce document pour corriger les erreurs.
 
@@ -24,7 +24,7 @@ Causes possibles :
 
 *Le nom de la galerie n’est pas valide.*
 
-Les caractères autorisés pour le nom de galerie sont les lettres majuscules ou minuscules, les chiffres et les points. Le nom de galerie ne peut pas contenir de tirets. Changez le nom de galerie, puis réessayez. 
+Les caractères autorisés pour le nom de galerie sont les lettres majuscules ou minuscules, les chiffres et les points. Le nom de la galerie ne peut pas contenir de tirets. Changez le nom de galerie, puis réessayez. 
 
 *Le nom de galerie n’est pas unique dans votre abonnement.*
 
@@ -37,7 +37,7 @@ Causes possibles :
 
 *Le nom de définition d’image n’est pas valide.*
 
-Les caractères autorisés pour la définition d’image sont les lettres majuscules ou minuscules, les chiffres, les tirets et les points. Changez le nom de définition d’image, puis réessayez.
+Caractères autorisés pour la définition de l’image sont des périodes, des chiffres, des points, des tirets et des lettres majuscules ou minuscules. Changez le nom de définition d’image, puis réessayez.
 
 *Les propriétés obligatoires pour créer une définition d’image ne sont pas remplies.*
 
@@ -62,20 +62,7 @@ Vérifiez si l’image source existe et qu’elle est dans la même région que 
 
 Vérifiez que l’état de provisionnement de l’image managée source est **Réussi**.
 
-*La région source n’est pas encore prise en charge.*
-
-Utilisez le tableau ci-dessous pour voir si la région source souhaitée est prise en charge :
-<br>
-
-| Créer une galerie dans ou « région source »   | Répliquer la version sur ou « région cible » |
-|----------------------------------------|-------------------------------------------|
-| USA Centre-Ouest                        | Toutes les régions de cloud public Azure            |
-| USA Centre Sud                       |                                           |
-| USA Est 2                              |                                           |
-| Asie Sud-Est                         |                                           |
-| Europe Ouest                            |                                           |
-
-<br>
+*La liste des régions cible n’inclut pas la région source.*
 
 La liste des régions cibles doit inclure la région source de la version d’image. Vérifiez que vous avez inclus la région source dans la liste des régions cibles où vous voulez qu’Azure réplique votre version d’image.
 
@@ -101,7 +88,7 @@ Vérifiez que la valeur **OSType** de la version d’image à partir de laquelle
 
 ## <a name="unable-to-share-resources"></a>Impossible de partager les ressources
 
-Le partage des ressources de galerie d’images partagées, définition d’image et version d’image entre abonnements est activé à l’aide du [contrôle d'accès en fonction du rôle](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles) (RBAC). 
+Le partage de la galerie d’images partagé, la définition de l’image et ressources de la version image entre abonnements est activé à l’aide de [contrôle d’accès en fonction du rôle](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles) (RBAC). 
 
 ## <a name="replication-is-slow"></a>La réplication est lente
 

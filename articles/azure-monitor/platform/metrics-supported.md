@@ -1039,16 +1039,16 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 |IoBytesPerTotalOps|Octets d’E/S par opération pour toutes les opérations|octets/op|Moyenne|Somme de tous les octets d’E/S d’opération|Aucune dimension|
 |IoBytesPerWriteOps|Octets d’E/S par opérations d’écriture|octets/op|Moyenne|Nombre d’octets d’E/S par opération d’écriture|Aucune dimension|
 |OtherIops|Autres E/S par seconde|opérations/seconde|Moyenne|Autre opération d’E/S par seconde|Aucune dimension|
-|OtherThroughput|Autre débit|Mbits/s|Moyenne|Autre débit (qui n’est pas en lecture ou écriture) en mégaoctets par seconde|Aucune dimension|
+|OtherThroughput|Autre débit|Mo/s|Moyenne|Autre débit (qui n’est pas en lecture ou écriture) en mégaoctets par seconde|Aucune dimension|
 |ReadIops|E/S par seconde en lecture|opérations/seconde|Moyenne|Opérations d’E/S en lecture par seconde|Aucune dimension|
-|ReadThroughput|Débit de lecture|Mbits/s|Moyenne|Débit de lecture en mégaoctets par seconde|Aucune dimension|
+|ReadThroughput|Débit de lecture|Mo/s|Moyenne|Débit de lecture en mégaoctets par seconde|Aucune dimension|
 |TotalIops|Nombre total d’E/S par seconde|opérations/seconde|Moyenne|Somme de toutes opérations d’E/S en lecture par seconde|Aucune dimension|
-|TotalThroughput|Débit total|Mbits/s|Moyenne|Somme de tout le débit en mégaoctets par seconde|Aucune dimension|
+|TotalThroughput|Débit total|Mo/s|Moyenne|Somme de tout le débit en mégaoctets par seconde|Aucune dimension|
 |VolumeAllocatedSize|Taille allouée de volume|octets|Moyenne|Taille allouée du volume (pas les octets utilisés réels)|Aucune dimension|
 |VolumeLogicalSize|Taille logique du volume|octets|Moyenne|Taille logique du volume (octets utilisés)|Aucune dimension|
 |VolumeSnapshotSize|Taille d’instantané du volume|octets|Moyenne|Taille de tous les instantanés dans le volume|Aucune dimension|
 |WriteIops|E/S par seconde en écriture|opérations/seconde|Moyenne|Opérations d’E/S en écriture par seconde|Aucune dimension|
-|WriteThroughput|Débit d’écriture|Mbits/s|Moyenne|Débit d’écriture en mégaoctets par seconde|Aucune dimension|
+|WriteThroughput|Débit d’écriture|Mo/s|Moyenne|Débit d’écriture en mégaoctets par seconde|Aucune dimension|
 
 ## <a name="microsoftnetappnetappaccountscapacitypools"></a>Microsoft.NetApp/netAppAccounts/capacityPools
 

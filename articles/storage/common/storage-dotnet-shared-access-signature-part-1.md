@@ -7,13 +7,14 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/18/2017
 ms.author: tamram
+ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: e9e78d3226f90ef780a1ed2114ba256c293463dc
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 25c562e144b635cb66c5df9b5b7bd6237ce3122c
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58001584"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65154428"
 ---
 # <a name="using-shared-access-signatures-sas"></a>Utilisation des signatures d’accès partagé (SAP)
 
@@ -117,7 +118,7 @@ https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2015-04-05&s
 | Ressource |`sr=b` |La ressource est un objet blob. |
 | Autorisations |`sp=rw` |Les autorisations octroyées par la signature d'accès partagé incluent les opérations de lecture (r) et d'écriture (w). |
 | Plage d’adresses IP |`sip=168.1.5.60-168.1.5.70` |Plage d’adresses IP dont les demandes seront acceptées. |
-| Protocole |`spr=https` |Seules les demandes utilisant HTTPS sont autorisées. |
+| Protocol |`spr=https` |Seules les demandes utilisant HTTPS sont autorisées. |
 | Signature |`sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D` |Utilisée pour autoriser l’accès à l’objet blob. La signature est un HMAC calculé sur une chaîne de signature et une clé à l'aide de l'algorithme SHA256, puis codé en Base64. |
 
 ### <a name="account-sas-uri-example"></a>Exemple d’URI SAP de compte
