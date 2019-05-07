@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: brahmnes
 ms.date: 03/07/2019
 ms.author: mbullwin
-ms.openlocfilehash: 669b4d65798a553188a2b99080b72ffc7cd9e898
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 074b701422f32f4cd18fd2eb05e3453e139e17ae
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60783605"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205598"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Captures instantanées de débogage sur exceptions levées dans des applications .NET
 Quand une exception se produit, vous pouvez collecter automatiquement une capture instantanée de débogage à partir de votre application web dynamique. La capture instantanée indique l’état du code source et des variables au moment où l’exception a été levée. Le Débogueur de capture instantanée (préversion) dans [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) analyse la télémétrie des exceptions à partir de votre application web. Il collecte des captures instantanées sur les principales exceptions levées afin que vous disposiez des informations dont vous avez besoin pour diagnostiquer des problèmes de production. Incluez le [package NuGet de collecte des captures instantanées](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) dans votre application, et configurez éventuellement les paramètres de collecte dans [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md). Les captures instantanées apparaissent sur les [exceptions](../../azure-monitor/app/asp-net-exceptions.md) dans le portail Application Insights.
@@ -112,7 +112,7 @@ Le processus principal continue à s’exécuter et à assurer le trafic pour le
 
 ## <a name="limitations"></a>Limites
 
-La période de rétention de données par défaut est de 7 jours. Pour chaque instance Application Insights, un nombre maximal de 50 instantanés est autorisé par jour.
+La période de rétention de données par défaut est 15 jours. Pour chaque instance Application Insights, un nombre maximal de 50 instantanés est autorisé par jour.
 
 ### <a name="publish-symbols"></a>Publier des symboles
 Le débogueur de captures instantanées nécessite que des fichiers de symboles se trouvent sur le serveur de production pour le décodage des variables et pour fournir une fonctionnalité de débogage dans Visual Studio.

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: 56d91d7801c576064b941ac6089a52e74b4a3b7b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d1c1ed7388ff55e4f17559742054cea973f65ba7
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61031403"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65192290"
 ---
 # <a name="aks-troubleshooting"></a>Résolution des problèmes liés à AKS
 
@@ -94,3 +94,27 @@ Opérations de cluster sont limitées lors des opérations de mise à niveau act
 ## <a name="can-i-move-my-cluster-to-a-different-subscription-or-my-subscription-with-my-cluster-to-a-new-tenant"></a>Puis-je déplacer mon cluster vers un autre abonnement ou mon abonnement avec mon cluster à un nouveau locataire ?
 
 Si vous avez déplacé votre cluster AKS à un autre abonnement ou le propriétaire d’abonnement vers un nouveau client au cluster, le cluster perdrez la fonctionnalité en raison de perdante attributions de rôles et droits de principaux de service. **AKS ne prend pas en charge les clusters déplacement entre abonnements ou les locataires** en raison de cette contrainte.
+
+## <a name="im-receiving-errors-trying-to-use-features-that-require-virtual-machine-scale-sets"></a>Je reçois des erreurs essaie d’utiliser les fonctionnalités qui nécessitent des machines virtuelles identiques
+
+*Cette assistance de dépannage est redirigée via aka.ms/aks-vmss-activation*
+
+Vous pouvez recevoir des erreurs indiquant que votre cluster AKS n’est pas sur un jeu de mise à l’échelle de machine virtuelle, comme l’exemple suivant :
+
+**AgentPool « d’agentpool » a défini la mise à l’échelle automatique comme activé mais n’est pas sur les machines virtuelles identiques**
+
+Pour utiliser des fonctionnalités telles que l’autoscaler de cluster ou nœud plusieurs pools, les clusters AKS qui doivent être créés qui utilisent les jeux de mise à l’échelle de machine virtuelle. Erreurs sont retournées si vous essayez d’utiliser les fonctionnalités qui dépendent de machines virtuelles identiques et que vous ciblez un cluster AKS de jeu de mise à l’échelle régulières, machine non virtuelle. Prise en charge du jeu de machine virtuelle mise à l’échelle est actuellement en version préliminaire dans ACS.
+
+Suivez le *avant de commencer* étapes décrites dans la documentation appropriée pour l’inscrire pour les machines virtuelles identiques fonctionnalité Afficher un aperçu et créer un cluster AKS :
+
+* [Utiliser le cluster autoscaler](cluster-autoscaler.md)
+* [Créer et utiliser plusieurs pools de nœuds](use-multiple-node-pools.md)
+ 
+## <a name="what-naming-restrictions-are-enforced-for-aks-resources-and-parameters"></a>Les restrictions d’affectation de noms sont appliquées pour les paramètres et les ressources AKS ?
+
+*Cette assistance de dépannage est redirigée via aka.ms/aks-règles d’appellation*
+
+Restrictions d’affectation de noms sont implémentées par la plateforme Azure et le AKS. Si un nom de ressource ou le paramètre interrompt un de ces restrictions, une erreur est retournée pour vous demander de que vous fournir une entrée différente. Les instructions d’affectation de noms courantes suivantes s’appliquent :
+
+* Le AKS *MC_* nom_groupe_ressources combine le nom de groupe de ressources et le nom de la ressource. La syntaxe générée automatiquement de `MC_resourceGroupName_resourceName_AzureRegion` doit pas être supérieure à 80 caractères. Si nécessaire, réduisez la longueur de votre nom de groupe de ressources ou le nom du cluster AKS.
+* Le *dnsPrefix* doit commencer et se terminer par des valeurs alphanumériques. Les caractères valides incluent des valeurs alphanumériques et des traits d’union (-). Le *dnsPrefix* ne peut pas inclure des caractères spéciaux tels que d’un point (.).

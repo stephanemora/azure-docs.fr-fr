@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 05/02/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 1da232c2a81c9989cc78eccf1be97b5d75a48666
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 113c894122fe2b0673dfb47f8a9c0cbecf4c6290
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024483"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205079"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Déployer des modèles avec le service Azure Machine Learning
 
@@ -193,7 +193,7 @@ inference_config = InferenceConfig(source_directory="C:/abc",
 
 Dans cet exemple, la configuration contient les éléments suivants :
 
-* Un répertoire qui contient les ressources nécessaires pour effectuer l’inférence
+* Un répertoire qui contient les ressources nécessaires à l’inférence
 * Que ce modèle nécessite Python
 * Le [script d’entrée](#script), qui est utilisé pour gérer les requêtes web envoyées au service déployé
 * Le fichier conda qui décrit les packages Python nécessaires pour exécuter l’inférence

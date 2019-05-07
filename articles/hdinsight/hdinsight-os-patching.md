@@ -7,12 +7,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/24/2019
-ms.openlocfilehash: a887d6c69b9fa80f3144434e72a097e80d123a1b
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 5b8ed75863087e077d483c792ac4134a0c3e1eb0
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64722304"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65203634"
 ---
 # <a name="os-patching-for-hdinsight"></a>Mise à jour corrective du système d’exploitation pour HDInsight 
 
@@ -23,29 +23,25 @@ ms.locfileid: "64722304"
 Les machines virtuelles d’un cluster HDInsight doivent être occasionnellement redémarrées pour assurer l’installation des correctifs de sécurité importants. 
 
 À l’aide de l’action de script décrite dans cet article, vous pouvez modifier la planification de la mise à jour corrective du système d’exploitation comme suit :
-1. Activez ou désactivez les redémarrages automatiques.
-2. Définissez la fréquence de redémarrage (en jours entre les redémarrages).
-3. Définissez le jour de la semaine auquel s’effectue le redémarrage.
+1. Installez les mises à jour du système d’exploitation complets ou uniquement les mises à jour de sécurité
+2. Redémarrez la machine virtuelle
 
 > [!NOTE]  
-> Cette action de script fonctionne uniquement avec les clusters HDInsight sous Linux créés après le 1er août 2016. Les correctifs seront appliqués une fois les machines virtuelles redémarrées. 
+> Cette action de script fonctionne uniquement avec les clusters HDInsight sous Linux créés après le 1er août 2016. Les correctifs seront appliqués une fois les machines virtuelles redémarrées. Ce script n’applique pas automatiquement les mises à jour de tous les cycles de mise à jour ultérieure. Exécutez le script que chaque fois qu’une nouvelle mises à jour doivent être appliquées pour installer les mises à jour et de redémarrer la machine virtuelle.
 
 ## <a name="how-to-use-the-script"></a>Utilisation du script 
 
 L’utilisation de ce script requiert les informations suivantes :
-1. L’emplacement du script : https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv01/os-patching-reboot-config.sh.  HDInsight utilise cet URI pour rechercher et exécuter le script sur toutes les machines virtuelles du cluster.
+1. L’emplacement du script : https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv02/os-patching-reboot-config.sh.  HDInsight utilise cet URI pour rechercher et exécuter le script sur toutes les machines virtuelles du cluster.
   
-2. Les types de nœud de cluster auxquels s’applique le script : headnode, workernode, zookeeper. Ce script doit être appliqué à tous les types de nœud du cluster. S’il n’est pas appliqué à un type de nœud, les machines virtuelles associées au type de nœud concerné continueront d’utiliser la planification de mise à jour corrective précédente.
+2. Les types de nœud de cluster auxquels s’applique le script : headnode, workernode, zookeeper. Ce script doit être appliqué à tous les types de nœud du cluster. S’il n’est pas appliqué à un type de nœud, puis les machines virtuelles pour ce type de nœud ne sera pas mis à jour.
 
 
-3.  Paramètre : ce script accepte trois paramètres numériques :
+3.  Paramètre : Ce script accepte un paramètre numérique :
 
     | Paramètre | Définition |
     | --- | --- |
-    | Activation ou désactivation des redémarrages automatiques |0 ou 1. La valeur 0 désactive les redémarrages automatiques et la valeur 1 les active. |
-    | Fréquence |7 à 90 (valeur inclusive). Le nombre de jours d’attente avant le redémarrage des machines virtuelles pour les correctifs qui nécessitent un redémarrage. |
-    | Jour de semaine |1 à 7 (valeur inclusive). La valeur 1 indique que le redémarrage doit s’effectuer un lundi et la valeur 7 indique qu’il doit s’effectuer un dimanche. Par exemple, avec les paramètres 1 60 2, les redémarrages automatiques s’effectueront tous les 60 jours (au plus) le mardi. |
-    | Persistance |Lorsque vous appliquez une action de script à un cluster existant, vous pouvez marquer le script comme persistant. Les scripts persistants sont appliqués lorsque de nouveaux nœuds de type workernode sont ajoutés au cluster lors d’opérations de mise à l’échelle. |
+    | Du système d’exploitation complet de l’installation des mises à jour/installer uniquement les mises à jour de sécurité |0 ou 1. La valeur 0 installe les mises à jour de sécurité uniquement pendant que 1 installe des mises à jour de système d’exploitation complets. Si aucun paramètre n’est fourni à que la valeur par défaut est 0. |
 
 > [!NOTE]  
 > Vous devez marquer ce script comme persistant lorsqu’il s’applique à un cluster existant. Sinon, les nœuds créés lors d’opérations de mise à l’échelle utilisent la planification de mise à jour corrective par défaut.  Si vous appliquez le script dans le cadre du processus de création du cluster, il est automatiquement défini comme persistant.

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 5/7/2019
 ms.author: victorh
-ms.openlocfilehash: 0506ef82a00b46bf9be14757f15195bcbf8ab432
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: b1cdcfc9e81938f3f562046b971407b31a593525
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148899"
+ms.locfileid: "65202907"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway"></a>Mise à l’échelle et la passerelle d’Application redondant 
 
@@ -22,6 +22,8 @@ La nouvelle référence (SKU) v2 inclut les améliorations suivantes :
 
 - **Mise à l’échelle automatique** : les déploiements d’Application Gateway ou du WAF sous la référence SKU de la mise à l’échelle automatique peuvent augmenter ou diminuer en fonction de l’évolution des modèles de charge du trafic. La mise à l’échelle automatique vous évite aussi d’avoir à choisir une taille de déploiement ou un nombre d’instances au moment du provisionnement. Cette référence (SKU) offre l’élasticité true. Dans Standard_v2 et WAF_v2 référence (SKU), la passerelle d’Application peut fonctionner dans capacité fixe (à l’échelle automatique désactivée) et en mode de mise à l’échelle est activée. Le mode de capacité fixe est utile pour les scénarios avec des charges de travail cohérentes et prévisibles. Mode de mise à l’échelle est utile dans les applications qui consultez variance dans le trafic d’application.
 - **Redondance de zone** : Une passerelle d’Application ou d’un déploiement de WAF peut s’étendre sur plusieurs Zones de disponibilité, évite d’avoir à provisionner des instances de passerelle d’Application distincts dans chaque zone avec un gestionnaire de trafic. Vous pouvez choisir une ou plusieurs zones où les instances de passerelle d’Application sont déployés, ce qui le rend plus résistants aux échecs de zone. Le pool principal pour les applications peut être distribué de la même façon entre les différentes zones de disponibilité.
+
+  Redondance de zone est disponible uniquement où les Zones Azure sont disponibles. Dans d’autres régions, toutes les autres fonctionnalités sont prises en charge. Pour plus d’informations, consultez [quelles sont les Zones de disponibilité dans Azure ?](../availability-zones/az-overview.md#services-support-by-region)
 - **Adresse IP virtuelle statique** : Application gateway v2 référence (SKU) prend en charge l’adresse IP virtuelle statique tapez exclusivement. Cela garantit que l’adresse IP virtuelle associé avec la passerelle d’application ne change pas pendant le cycle de vie du déploiement, même après un redémarrage.
 - **Réécriture de l’en-tête**: Application Gateway vous permet de vous ajouter, supprimer ou mettre à jour des en-têtes de demande et de réponse HTTP avec la référence (SKU) v2. Pour plus d’informations, consultez [en-têtes HTTP réécrire avec Application Gateway](rewrite-http-headers.md)
 - **Key Vault Integration (version préliminaire)**: Application Gateway v2 prend en charge l’intégration avec Key Vault (en préversion publique) pour les certificats de serveur qui sont attachés aux écouteurs d’activation du HTTPS. Pour plus d’informations, consultez [une terminaison SSL avec certificats Key Vault](key-vault-certs.md).

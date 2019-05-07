@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: article
 ms.date: 04/19/2019
 ms.author: alkohli
-ms.openlocfilehash: ee2820d78e95924e09a0219753f87d6910c0e736
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c5ceeb2e6419cab7945454087edd4c821db28343
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60782954"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65204215"
 ---
 # <a name="troubleshoot-issues-related-to-azure-data-box-blob-storage"></a>Résoudre les problèmes liés au stockage Blob de zone de données Azure
 
@@ -55,7 +55,7 @@ Cette section détaille certains des principaux problèmes rencontrés lors du d
 |Message d’erreur  |Action recommandée |
 |---------|---------|
 |La valeur d’un des en-têtes HTTP n’est pas dans le format correct. |La version installée de la bibliothèque de stockage Microsoft Azure pour Python n’est pas pris en charge par Data Box. Consultez les exigences de stockage Blob de zone de données Azure pour les versions prises en charge.|
-|… [SSL : CERTIFICATE_VERIFY_FAILED] …|Avant d’exécuter Python, définissez la variable d’environnement REQUESTS_CA_BUNDLE pour le chemin d’accès du fichier de certificat SSL codée en Base64 (voir comment [télécharger le certificat]()). <br>Par exemple : <br>`export REQUESTS_CA_BUNDLE=/tmp/mycert.cer` <br>`python` <br>Vous pouvez également ajouter le certificat au magasin de certificats du système et puis définissez cette variable d’environnement pour le chemin d’accès de ce magasin. <br> Par exemple, sur Ubuntu : <br>`export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt` <br>`python`|
+|… [SSL : CERTIFICATE_VERIFY_FAILED] …|Avant d’exécuter Python, définissez la variable d’environnement REQUESTS_CA_BUNDLE pour le chemin d’accès du fichier de certificat SSL codée en Base64 (voir comment [télécharger le certificat](data-box-deploy-copy-data-via-rest.md#download-certificate)). <br>Par exemple : <br>`export REQUESTS_CA_BUNDLE=/tmp/mycert.cer` <br>`python` <br>Vous pouvez également ajouter le certificat au magasin de certificats du système et puis définissez cette variable d’environnement pour le chemin d’accès de ce magasin. <br> Par exemple, sur Ubuntu : <br>`export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt` <br>`python`|
 
 
 ## <a name="common-errors"></a>Erreurs courantes

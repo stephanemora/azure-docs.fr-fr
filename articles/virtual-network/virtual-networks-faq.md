@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: kumud
-ms.openlocfilehash: 25c71019227c52bf0c1530dcdf655fc7575d8032
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: bf36de1965a8c819af0ef5af98a2393d4cefa1b3
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148519"
+ms.locfileid: "65205713"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>FAQ sur les réseaux virtuels Azure
 
@@ -67,7 +67,7 @@ Oui. Pour plus d’informations sur les plages d’adresses IP publiques, consul
 Oui. Pour plus d’informations, consultez [Limites de mise en réseau](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits). Les espaces d’adressage de sous-réseau ne peuvent pas se chevaucher.
 
 ### <a name="are-there-any-restrictions-on-using-ip-addresses-within-these-subnets"></a>Existe-t-il des restrictions sur l’utilisation des adresses IP au sein de ces sous-réseaux ?
-Oui. Azure réserve des adresses IP dans chaque sous-réseau. Les première et dernière adresses IP de chaque sous-réseau sont réservées à la conformité du protocole, et les adresses x.x.x.1-x.x.x.3 de chaque sous-réseau sont utilisées pour les services Azure.
+Oui. Azure réserve 5 adresses IP dans chaque sous-réseau. Les première et dernière adresses IP de chaque sous-réseau sont réservées à la conformité du protocole, et les adresses x.x.x.1-x.x.x.3 de chaque sous-réseau sont utilisées pour les services Azure.
 
 ### <a name="how-small-and-how-large-can-vnets-and-subnets-be"></a>Quelle taille peuvent avoir les réseaux virtuels et les sous-réseaux ?
 Le plus petit sous-réseau pris en charge est /29 et le plus grand est /8 (à l’aide de définitions de sous-réseau CIDR).
@@ -231,7 +231,7 @@ Oui. En savoir plus sur l’utilisation des éléments suivants :
 L’appairage VNet (ou appairage de réseau virtuel) permet de connecter des réseaux virtuels. Une connexion d’appairage VNet entre réseaux virtuels vous permet d’acheminer le trafic entre eux de façon privée par le biais d’adresses IPv4. Les machines virtuelles dans les réseaux virtuels appairés peuvent communiquer entre elles comme si elles se trouvaient dans le même réseau. Ces réseaux virtuels peuvent se situer dans la même région ou dans des régions différentes (Global VNet Peering). Il est également possible de créer des connexions d’appairage VNet dans les abonnements Azure.
 
 ### <a name="can-i-create-a-peering-connection-to-a-vnet-in-a-different-region"></a>Puis-je créer une connexion d’homologation pour un réseau virtuel dans une autre région ?
-Oui. Global VNet Peering vous permet d’homologuer des réseaux virtuels dans différentes régions. Global VNet Peering est disponible dans toutes les régions publiques Azure et dans les régions cloud de Chine. Vous ne pouvez pas procéder au peering mondial de régions publiques Azure avec des régions cloud nationales. Le peering mondial n'est actuellement pas disponible dans le cloud Government.
+Oui. Global VNet Peering vous permet d’homologuer des réseaux virtuels dans différentes régions. Global VNet peering est disponible dans toutes les régions publiques Azure, les régions de cloud de Chine et régions de cloud Government. Vous ne pouvez pas globalement homologuer à partir des régions publiques Azure aux régions de cloud national.
 
 ### <a name="what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers"></a>Quelles sont les contraintes liées aux équilibreurs de charge et de Global VNet Peering ?
 Si les deux réseaux virtuels sont dans une autre région (Global VNet Peering), vous ne pouvez pas vous connecter aux ressources qui utilisent l’équilibreur de charge. Vous pouvez vous connecter aux ressources qui utilisent l’équilibrage de charge Standard.
@@ -241,7 +241,6 @@ Les ressources suivantes utilisent base équilibreurs de charge, ce qui signifie
 - Cache Redis 
 - Passerelle d’application (v1) référence (SKU)
 - Service Fabric
-- SQL Always on
 - SQL MI
 - Gestion des API
 - Service de domaine Active Directory (AD DS)

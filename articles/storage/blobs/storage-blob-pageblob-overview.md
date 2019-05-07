@@ -9,12 +9,12 @@ ms.date: 01/03/2019
 ms.author: tamram
 ms.reviewer: wielriac
 ms.subservice: blobs
-ms.openlocfilehash: a0fc9a8356f4a322ae81a668515a6a60c6001011
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: HT
+ms.openlocfilehash: c0d5108ee235be74f6188bfc8b590069a4e790b5
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65141243"
+ms.locfileid: "65192643"
 ---
 # <a name="overview-of-azure-page-blobs"></a>Vue d’ensemble des objets blob de pages Azure
 
@@ -43,7 +43,7 @@ Le diagramme suivant décrit les relations globales entre le compte, les contene
 ![](./media/storage-blob-pageblob-overview/storage-blob-pageblob-overview-figure1.png)
 
 #### <a name="creating-an-empty-page-blob-of-a-specified-size"></a>Création d’un objet blob de pages vide d’une taille spécifique
-Pour créer un objet blob de pages, nous créons tout d’abord un objet **CloudBlobClient**, avec l’URI de base pour accéder au stockage blob de votre compte de stockage (*pbaccount* dans la figure 1), ainsi que l’objet **StorageCredentialsAccountAndKey**, comme dans l’exemple ci-dessous. L’exemple montre ensuite la création d’une référence à un objet **CloudBlobContainer**, puis la création du conteneur (*testvhds*) s’il n’existe pas déjà. Ensuite, à l’aide de l’objet **CloudBlobContainer**, nous pouvons créer une référence à un objet **CloudPageBlob** en spécifiant le nom de l’objet blob de pages (os4.vhd) auquel nous voulons accéder. Pour créer l’objet blob de pages, appelez [CloudPageBlob.Create](/dotnet/api/microsoft.windowsazure.storage.blob.cloudpageblob.create?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudPageBlob_Create_System_Int64_Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) en indiquant la taille maximale de l’objet blob à créer. *blobSize* doit être un multiple de 512 octets.
+Pour créer un objet blob de pages, nous créons tout d’abord un objet **CloudBlobClient**, avec l’URI de base pour accéder au stockage blob de votre compte de stockage (*pbaccount* dans la figure 1), ainsi que l’objet **StorageCredentialsAccountAndKey**, comme dans l’exemple ci-dessous. L’exemple montre ensuite la création d’une référence à un objet **CloudBlobContainer**, puis la création du conteneur (*testvhds*) s’il n’existe pas déjà. Ensuite, à l’aide de l’objet **CloudBlobContainer**, nous pouvons créer une référence à un objet **CloudPageBlob** en spécifiant le nom de l’objet blob de pages (os4.vhd) auquel nous voulons accéder. Pour créer l’objet blob de pages, appelez [CloudPageBlob.Create](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.create?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudPageBlob_Create_System_Int64_Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) en indiquant la taille maximale de l’objet blob à créer. *blobSize* doit être un multiple de 512 octets.
 
 ```csharp
 using Microsoft.WindowsAzure.StorageClient;
@@ -66,13 +66,13 @@ pageBlob.Create(16 * OneGigabyteAsBytes);
 ```
 
 #### <a name="resizing-a-page-blob"></a>Redimensionnement d’un objet blob de pages
-Pour redimensionner un objet blob de pages après sa création, utilisez l’API [Redimensionner](/dotnet/api/microsoft.windowsazure.storage.blob.cloudpageblob.resize?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudPageBlob_Resize_System_Int64_Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_). La taille demandée doit être un multiple de 512 octets.
+Pour redimensionner un objet blob de pages après sa création, utilisez l’API [Redimensionner](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.resize?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudPageBlob_Resize_System_Int64_Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_). La taille demandée doit être un multiple de 512 octets.
 ```csharp
 pageBlob.Resize(32 * OneGigabyteAsBytes); 
 ```
 
 #### <a name="writing-pages-to-a-page-blob"></a>Écriture de pages sur un objet blob de pages
-Pour écrire des pages, utilisez la méthode [CloudPageBlob.WritePages](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudpageblob.beginwritepages?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudPageBlob_BeginWritePages_System_IO_Stream_System_Int64_System_String_Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_System_AsyncCallback_System_Object_).  Cela vous permet d’écrire un ensemble séquentiel de pages jusqu’à 4 Mo. Le décalage écrit doit commencer sur une limite de 512 octets (startingOffset % 512 == 0) et se terminer sur une limite de 512 - 1.  L’exemple de code suivant montre comment appeler **WritePages** pour un objet blob :
+Pour écrire des pages, utilisez la méthode [CloudPageBlob.WritePages](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.beginwritepages?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudPageBlob_BeginWritePages_System_IO_Stream_System_Int64_System_String_Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_System_AsyncCallback_System_Object_).  Cela vous permet d’écrire un ensemble séquentiel de pages jusqu’à 4 Mo. Le décalage écrit doit commencer sur une limite de 512 octets (startingOffset % 512 == 0) et se terminer sur une limite de 512 - 1.  L’exemple de code suivant montre comment appeler **WritePages** pour un objet blob :
 
 ```csharp
 pageBlob.WritePages(dataStream, startingOffset); 
@@ -88,7 +88,7 @@ Le diagramme ci-dessous montre 2 opérations d’écriture distinctes :
 2.  Une opération d’écriture commençant au décalage 4096 d’une longueur de 1 024 
 
 #### <a name="reading-pages-from-a-page-blob"></a>Lecture de pages d’un objet blob de pages
-Pour lire des pages, utilisez la méthode [CloudPageBlob.DownloadRangeToByteArray](/dotnet/api/microsoft.windowsazure.storage.blob.icloudblob.downloadrangetobytearray?view=azure-dotnet) pour lire une plage d’octets de l’objet blob de pages. Cela vous permet de télécharger le blob complet ou une plage d’octets commençant à un décalage quelconque dans le blob. Lors de la lecture, le décalage ne doit pas nécessairement commencer sur un multiple de 512. Lors de la lecture d’octets d’une page NUL, le service retourne zéro octet.
+Pour lire des pages, utilisez la méthode [CloudPageBlob.DownloadRangeToByteArray](/dotnet/api/microsoft.azure.storage.blob.icloudblob.downloadrangetobytearray?view=azure-dotnet) pour lire une plage d’octets de l’objet blob de pages. Cela vous permet de télécharger le blob complet ou une plage d’octets commençant à un décalage quelconque dans le blob. Lors de la lecture, le décalage ne doit pas nécessairement commencer sur un multiple de 512. Lors de la lecture d’octets d’une page NUL, le service retourne zéro octet.
 ```csharp
 byte[] buffer = new byte[rangeSize];
 pageBlob.DownloadRangeToByteArray(buffer, bufferOffset, pageBlobOffset, rangeSize); 
@@ -97,7 +97,7 @@ La figure suivante montre une opération de lecture avec BlobOffSet de 256 et ra
 
 ![](./media/storage-blob-pageblob-overview/storage-blob-pageblob-overview-figure3.png)
 
-Si vous disposez d’un objet blob peu rempli, vous pouvez vous contenter de télécharger les régions de page valides pour éviter les coûts d’entrée de zéro octet et pour réduire la latence du téléchargement.  Pour déterminer les pages contenant des données, utilisez [CloudPageBlob.GetPageRanges](/dotnet/api/microsoft.windowsazure.storage.blob.cloudpageblob.getpageranges?view=azure-dotnet). Vous pouvez alors énumérer les plages retournées et télécharger les données dans chaque plage. 
+Si vous disposez d’un objet blob peu rempli, vous pouvez vous contenter de télécharger les régions de page valides pour éviter les coûts d’entrée de zéro octet et pour réduire la latence du téléchargement.  Pour déterminer les pages contenant des données, utilisez [CloudPageBlob.GetPageRanges](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.getpageranges?view=azure-dotnet). Vous pouvez alors énumérer les plages retournées et télécharger les données dans chaque plage. 
 ```csharp
 IEnumerable<PageRange> pageRanges = pageBlob.GetPageRanges();
 

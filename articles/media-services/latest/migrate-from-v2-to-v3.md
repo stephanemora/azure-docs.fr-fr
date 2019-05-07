@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 03/27/2019
+ms.date: 05/01/2019
 ms.author: juliako
-ms.openlocfilehash: 921d154226862d822802562442f59bf1c37c4745
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: e64b18cef44a5fa6d63137f57fcada27adcd0299
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148909"
+ms.locfileid: "65205486"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Conseils de migration pour le passage de Media Services v2 à Media Services v3
 
@@ -71,7 +71,7 @@ Si vous avez un service vidéo développé aujourd’hui sur la base des [API h�
     * StreamingLocator remplace Locator.
     * LiveEvent remplace Channel.<br/>La facturation des événements en direct est basée sur les compteurs de canal live. Pour plus d’informations, consultez [facturation](live-event-states-billing.md) et [tarifs](https://azure.microsoft.com/pricing/details/media-services/).
     * LiveOutput remplace Program.
-* Il n’est pas nécessaire de démarrer les sorties en direct de manière explicite. Elles démarrent lors de leur création et s’arrêtent lors de leur suppression. Les programmes fonctionnaient différemment dans les API v2. Il fallait les démarrer après leur création.
+* Les sorties en direct démarrent dès leur création et s’arrêtent à leur suppression. Les programmes fonctionnaient différemment dans les API v2. Il fallait les démarrer après leur création.
 *  Pour obtenir des informations sur une tâche, vous devez connaître le nom de la transformation sous lequel le travail a été créé. 
 
 ## <a name="feature-gaps-with-respect-to-v2-apis"></a>Différences de fonctionnalités par rapport aux API v2

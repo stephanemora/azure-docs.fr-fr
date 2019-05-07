@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/28/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 61f65340c3b683674be195f1d30788494b6855a7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6cd0c72f94c020f9243a1a95faa799f1f798f36c
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60728739"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65199009"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Forum aux questions sur les disques de machines virtuelles et les disques Premium gérés et non gérés Azure IaaS
 
@@ -140,6 +140,20 @@ Vous ne pouvez pas renommer les disques managés. Par contre, vous pouvez renomm
 **Puis-je utiliser le partitionnement GPT sur un disque Azure ?**
 
 Le partitionnement GPT peut être utilisé uniquement sur les disques de données, pas sur les disques de système d’exploitation. Les disques de système d’exploitation doivent utiliser le style de partition MBR.
+
+## <a name="uploading-to-a-managed-disk"></a>Charger sur un disque géré
+
+**Puis-je télécharger des données à un disque géré existant ?**
+
+Non, chargement est utilisable uniquement lors de la création d’un nouveau disque vide avec le **ReadyToUpload** état.
+
+**Puis-je attacher un disque à une machine virtuelle s’il est dans un état de chargement ?**
+
+Non.
+
+**Puis-je effectuer une capture instantanée d’un disque géré dans un état de chargement ?**
+
+Non.
 
 ## <a name="standard-ssd-disks"></a>Disques SSD Standard
 

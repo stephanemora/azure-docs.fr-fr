@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: mjbrown
-ms.openlocfilehash: ee1568274792621b8ed9f25d211c40440a82208c
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 46df484303237722f4eb66099748f2fcef8240b4
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65160034"
+ms.locfileid: "65205833"
 ---
 # <a name="create-containers-with-large-partition-key"></a>Créer des conteneurs avec clé de partition volumineuse
 
@@ -43,6 +43,17 @@ database,
 Pour créer une clé de partition volumineuse, alors que vous créez un conteneur à l’aide du portail Azure, activez la **ma clé de partition est supérieure à 100 octets** option. Par défaut, tous les nouveaux conteneurs a été sélectionnés en utilisant les clés de grande partition. Désélectionnez la case à cocher si vous n’avez pas besoin des clés de partition volumineuse ou si vous avez des applications qui s’exécutent sur les kits de développement logiciel version antérieure à 1,18.
 
 ![Créer des clés de partition volumineuse à l’aide du portail Azure](./media/large-partition-keys/large-partition-key-with-portal.png)
+
+
+## <a name="supported-sdk-versions"></a>Versions prises en charge du kit de développement logiciel (SDK)
+
+Les clés de partition volumineux sont pris en charge avec les versions minimales suivantes de kits de développement logiciel :
+
+|Type du Kit de développement logiciel  | Version minimale   |
+|---------|---------|
+|.Net     |    1.18     |
+|Synchronisation de Java     |   2.4.0      |
+|Java Async   |  2.5.0        |
  
 ## <a name="next-steps"></a>Étapes suivantes
 

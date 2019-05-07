@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: sample
 ms.date: 03/11/2019
-ms.openlocfilehash: f2f207b62522ceef9fe72d47026f4c2f8ed02e3b
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 0a329722b65e407f011016a1f55e86ef17b47d70
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62130419"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65192398"
 ---
 # <a name="get-started-with-azure-cosmos-db-table-api-and-azure-table-storage-using-the-net-sdk"></a>Bien démarrer avec l’API Table d’Azure Cosmos DB et le stockage Table Azure à l’aide du SDK .NET
 
@@ -135,7 +135,7 @@ Pour obtenir le package NuGet, effectuez les étapes suivantes :
 
 ## <a name="create-a-table"></a>Créer une table 
 
-La classe [CloudTableClient](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.table.cloudtableclient?redirectedfrom=MSDN&view=azure-dotnet) vous permet de récupérer des tables et entités stockées dans Table Storage. Étant donné qu’il n’y a pas de tables dans le compte d’API Table Cosmos DB, nous allons en créer une en ajoutant la méthode `CreateTableAsync` à la classe **Common.cs** :
+La classe [CloudTableClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.cloudtableclient) vous permet de récupérer des tables et entités stockées dans Table Storage. Étant donné qu’il n’y a pas de tables dans le compte d’API Table Cosmos DB, nous allons en créer une en ajoutant la méthode `CreateTableAsync` à la classe **Common.cs** :
 
 ```csharp
 public static async Task<CloudTable> CreateTableAsync(string tableName)
@@ -168,7 +168,7 @@ public static async Task<CloudTable> CreateTableAsync(string tableName)
 
 ## <a name="define-the-entity"></a>Définir l’entité 
 
-Les entités mappent vers les objets C# en utilisant une classe personnalisée dérivée d’une [TableEntity](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tableentity.aspx). Pour ajouter une entité à une table, créez une classe définissant les propriétés de votre entité.
+Les entités mappent vers les objets C# en utilisant une classe personnalisée dérivée d’une [TableEntity](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.tableentity). Pour ajouter une entité à une table, créez une classe définissant les propriétés de votre entité.
 
 Cliquez avec le bouton droit sur votre projet **CosmosTableSamples**. Sélectionnez **Ajouter**, **Nouveau dossier** et nommez le dossier **Model** (Modèle). Dans le dossier Model, ajoutez une classe nommée **CustomerEntity.cs** et ajoutez-y le code suivant.
 
@@ -194,11 +194,11 @@ namespace CosmosTableSamples.Model
 }
 ```
 
-Ce code définit une classe d’entité où le prénom et le nom de famille du client sont utilisés en tant que clé de ligne et clé de partition, respectivement. Ensemble, les clés de partition et de ligne d’une entité l’identifient de façon unique dans la table. Les requêtes sur des entités ayant la même clé de partition sont plus rapides que celles effectuées sur des entités qui n’ont pas la même, mais l’utilisation de clés de partition différentes améliore la scalabilité des opérations parallèles. Les entités à stocker dans des tables doivent être d’un type pris en charge, par exemple dérivé de la classe [TableEntity](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.table.tableentity?redirectedfrom=MSDN&view=azure-dotnet). Les propriétés de l’entité à stocker dans une table doivent être des propriétés publiques du type et prendre en charge la récupération et la définition de valeurs. De plus, le type d’entité doit exposer un constructeur sans paramètre.
+Ce code définit une classe d’entité où le prénom et le nom de famille du client sont utilisés en tant que clé de ligne et clé de partition, respectivement. Ensemble, les clés de partition et de ligne d’une entité l’identifient de façon unique dans la table. Les requêtes sur des entités ayant la même clé de partition sont plus rapides que celles effectuées sur des entités qui n’ont pas la même, mais l’utilisation de clés de partition différentes améliore la scalabilité des opérations parallèles. Les entités à stocker dans des tables doivent être d’un type pris en charge, par exemple dérivé de la classe [TableEntity](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.tableentity). Les propriétés de l’entité à stocker dans une table doivent être des propriétés publiques du type et prendre en charge la récupération et la définition de valeurs. De plus, le type d’entité doit exposer un constructeur sans paramètre.
 
 ## <a name="insert-or-merge-an-entity"></a>Insérer ou fusionner une entité
 
-L’exemple de code suivant crée un objet entité et l’ajoute à la table. La méthode InsertOrMerge dans la classe [TableOperation](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.table.tableoperation?redirectedfrom=MSDN&view=azure-dotnet) s’utilise pour insérer ou fusionner une entité. La méthode [CloudTable.ExecuteAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.table.cloudtable.executeasync?view=azure-dotnet) est appelée pour exécuter l’opération. 
+L’exemple de code suivant crée un objet entité et l’ajoute à la table. La méthode InsertOrMerge dans la classe [TableOperation](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.tableoperation) s’utilise pour insérer ou fusionner une entité. La méthode [CloudTable.ExecuteAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.cloudtable.executeasync?view=azure-dotnet) est appelée pour exécuter l’opération. 
 
 Cliquez avec le bouton droit sur votre projet **CosmosTableSamples**. Sélectionnez **Ajouter**, **Nouvel élément** et ajoutez une classe nommée **SamplesUtils.cs**. Cette classe stocke tout le code requis pour effectuer des opérations CRUD sur les entités. 
 
@@ -237,7 +237,7 @@ public static async Task<CustomerEntity> InsertOrMergeEntityAsync(CloudTable tab
 
 ### <a name="get-an-entity-from-a-partition"></a>Obtenir une entité à partir d’une partition
 
-Vous pouvez obtenir une entité à partir d’une partition en utilisant la méthode Retrieve dans la classe [TableOperation](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.table.tableoperation?redirectedfrom=MSDN&view=azure-dotnet). L’exemple de code suivant obtient la clé de ligne de la clé de partition, l’e-mail et le numéro de téléphone d’une entité client. Cet exemple affiche également les unités de requête consommées pour obtenir l’entité. Pour rechercher une entité, ajoutez le code suivant au fichier **SamplesUtils.cs** : 
+Vous pouvez obtenir une entité à partir d’une partition en utilisant la méthode Retrieve dans la classe [TableOperation](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.tableoperation). L’exemple de code suivant obtient la clé de ligne de la clé de partition, l’e-mail et le numéro de téléphone d’une entité client. Cet exemple affiche également les unités de requête consommées pour obtenir l’entité. Pour rechercher une entité, ajoutez le code suivant au fichier **SamplesUtils.cs** : 
 
 ```csharp
 public static async Task<CustomerEntity> RetrieveEntityUsingPointQueryAsync(CloudTable table, string partitionKey, string rowKey)

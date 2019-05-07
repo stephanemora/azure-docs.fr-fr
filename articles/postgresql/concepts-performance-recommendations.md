@@ -1,21 +1,21 @@
 ---
-title: Recommandations sur les performances dans Azure Database pour PostgreSQL
-description: Cet article décrit la fonctionnalité de recommandation sur les performances dans Azure Database pour PostgreSQL.
+title: Recommandations relatives aux performances dans Azure Database pour PostgreSQL - serveur unique
+description: Cet article décrit la fonctionnalité de recommandation sur les performances dans Azure Database pour PostgreSQL - serveur unique.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 03/28/2018
-ms.openlocfilehash: c5324618eeda90b4ef1a512385fb2f14bf391215
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 31d8c0fdf1b4df3ee00f3652c933b4b738384bea
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60564468"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65068837"
 ---
-# <a name="performance-recommendations-in-azure-database-for-postgresql"></a>Recommandations sur les performances dans Azure Database pour PostgreSQL
+# <a name="performance-recommendations-in-azure-database-for-postgresql---single-server"></a>Recommandations relatives aux performances dans Azure Database pour PostgreSQL - serveur unique
 
-**S’applique à :** Azure Database pour PostgreSQL 9.6 et 10
+**S’applique à :** Azure Database pour PostgreSQL - monoserveur 9.6 et 10
 
 La fonctionnalité de recommandations relatives aux performances analyse vos bases de données pour créer des suggestions personnalisées pour améliorer les performances. Pour produire les recommandations, l’analyse examine les différentes caractéristiques de base de données, y compris le schéma. Activer [requête Store](concepts-query-store.md) sur votre serveur pour utiliser pleinement la fonctionnalité de recommandations relatives aux performances. Après avoir implémenté une recommandation de performances, vous devez tester les performances pour évaluer l’impact de ces modifications. 
 

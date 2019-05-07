@@ -5,7 +5,7 @@ services: asc-for-iot
 ms.service: ascforiot
 documentationcenter: na
 author: mlottner
-manager: barbkess
+manager: rkarlin
 editor: ''
 ms.assetid: 790cbcb7-1340-4cc1-9509-7b262e7c3181
 ms.devlang: na
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: f09d768c0c6c1d351f737b053da9fd3282867099
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 973b0044844fbdf38eefde2072631586a8ace593
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60505340"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65192605"
 ---
 # <a name="azure-security-center-for-iot-prerequisites"></a>Azure Security Center, configuration requise pour l’IoT
 
@@ -46,7 +46,7 @@ ASC pour insights IoT et les rapports sont disponibles à l’aide d’Azure IoT
 ASC pour IoT est actuellement pris en charge pour les Hubs IoT dans les régions Azure suivantes :
   - USA Centre
   - Europe du Nord
-  - Asie Sud-Est
+  - Asie du Sud-Est
 
 ## <a name="wheres-my-iot-hub"></a>Où est mon IoT Hub ?
 

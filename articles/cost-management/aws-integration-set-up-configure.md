@@ -5,23 +5,23 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2019
+ms.date: 06/06/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: ormaoz
 ms.custom: ''
-ms.openlocfilehash: 688bcc02b14d101008afc76662fd6548446cb329
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: a7a020284f44eda0da62f307866c74b0a8df493d
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64870281"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205697"
 ---
 # <a name="set-up-and-configure-aws-cost-and-usage-report-integration"></a>Installer et configurer l’intégration de rapport de coût de AWS et d’utilisation
 
 Avec l’intégration de rapport de coût de Amazon Web Services et d’utilisation, vous pouvez surveiller et contrôler vos dépenses AWS dans Azure Cost Management. L’intégration permet à un emplacement unique dans le portail Azure où vous pouvez surveiller et le contrôle de dépense pour Azure et AWS. Cet article explique comment configurer l’intégration et la configurer de sorte que vous utilisez les fonctionnalités de gestion des coûts pour analyser les coûts et passez en revue les budgets.
 
-Gestion des coûts lit le rapport de coût de AWS et d’utilisation stocké dans un compartiment S3 à l’aide de vos informations d’identification d’accès AWS pour obtenir les définitions de rapport et télécharger des fichiers GZIP CSV de rapport.
+Processus de gestion des coûts du rapport de coût de AWS et d’utilisation stocké dans un compartiment S3 à l’aide de vos informations d’identification d’accès AWS pour obtenir les définitions de rapport et télécharger des fichiers GZIP CSV de rapport.
 
 ## <a name="create-a-cost-and-usage-report-in-aws"></a>Créer un rapport de coût et d’utilisation dans AWS
 
@@ -45,13 +45,15 @@ Utilisez le **rapports** page de la console de facturation et gestion des coûts
 14. Une fois que vous avez passé en revue les paramètres pour votre rapport, cliquez sur **revue et terminer**.
     Remarque la **nom_élément_rapport**. Vous allez l’utiliser dans les étapes ultérieures.
 
-Il peut prendre jusqu'à 24 heures avant que AWS démarrer la remise des rapports à votre compartiment Amazon S3. Après le démarrage de la remise, AWS met à jour les fichiers de rapport AWS coût et d’utilisation au moins une fois par jour.
+Il peut prendre jusqu'à 24 heures avant que AWS démarrer la remise des rapports à votre compartiment Amazon S3. Après le démarrage de la remise, AWS met à jour les fichiers de rapport AWS coût et d’utilisation au moins une fois par jour. Vous pouvez poursuivre la configuration de votre environnement AWS sans attendre la livraison à démarrer.
 
 ## <a name="create-a-role-and-policy-in-aws"></a>Créer un rôle et une stratégie dans AWS
 
 Gestion des coûts Azure accède au compartiment S3 où le rapport de coût et d’utilisation se trouve plusieurs fois par jour. Cost Management a besoin d’accéder aux informations d’identification dont vous recherchez de nouvelles données. Vous créez un rôle et une stratégie dans AWS pour autoriser l’accès à Cost Management.
 
 Pour activer l’accès en fonction du rôle à un compte AWS dans Azure Cost Management, le rôle est créé dans la console AWS. Vous devez avoir le _Role ARN_ et _ID externe_ à partir de la console AWS. Plus tard, vous les utiliser dans la création d’une page du connecteur AWS dans Azure Cost Management.
+
+Utilisez l’Assistant Création d’un nouveau rôle :
 
 1. Connectez-vous à votre console AWS et sélectionnez **Services**.
 2. Dans la liste des services, sélectionnez **IAM**.
@@ -64,30 +66,42 @@ Pour activer l’accès en fonction du rôle à un compte AWS dans Azure Cost Ma
 8. Cliquez sur **Suivant : Autorisations**.
 9. Cliquez sur **Create policy** (Créer une stratégie). Un nouvel onglet de navigateur s’ouvre dans laquelle vous créez une nouvelle stratégie.
 10. Cliquez sur **choisir un service**.
-11. Type **coût et le rapport d’utilisation**.
-12. Sélectionnez **niveau d’accès**, **en lecture** > **DescribeReportDefinitions**. Cela permet la que Gestion des coûts lire que CUR il signale sont définis et déterminer s’ils correspondent à la condition préalable définition de rapport.
-13. Cliquez sur **ajouter des autorisations supplémentaires**.
-14. Cliquez sur **choisir un service**.
-15. Type _S3_.
-16. Sélectionnez **niveau d’accès**, **liste** > **ListBucket**. Cette action Obtient la liste des objets dans le compartiment S3.
-17. Sélectionnez **niveau d’accès**, **en lecture** > **GetObject**. Cette action permet la facturation de téléchargement de fichiers.
-18. Sélectionnez **ressources**.
-19. Sélectionnez **compartiment – ARN ajouter**.
-20. Dans **nom du compartiment**, entrez le compartiment utilisé pour stocker les fichiers CUR.
-21. Sélectionnez **objet – ARN ajouter**.
-22. Dans **nom du compartiment**, entrez le compartiment utilisé pour stocker les fichiers CUR.
-23. Dans **nom de l’objet**, sélectionnez **n’importe quel**.
-24. Cliquez sur **ajouter des autorisations supplémentaires**.
-25. Cliquez sur **choisir un service**.
-26. Type _coût Service Explorer_.
-27. Sélectionnez **actions de tous les services de l’Explorateur de coût (ce :\*)**. Cette action valide le fait que la collection est correcte.
-28. Cliquez sur **ajouter des autorisations supplémentaires**.
-29. Type **organisations**.
-30. Sélectionnez **niveau d’accès, liste** > **ListAccounts**. Cette action Obtient les noms des comptes.
-31. Dans **vérifier la stratégie**, entrez un nom pour la nouvelle stratégie. Vérification pour vous assurer que vous avez entré les informations correctes, puis cliquez sur **créer une stratégie**.
-32. Revenez à l’onglet précédent et actualiser votre page de navigateur web. Dans la barre de recherche, recherchez votre nouvelle stratégie.
-33. Sélectionnez **suivant : révision**.
-34. Entrez un nom pour le nouveau rôle. Vérification pour vous assurer que vous avez entré les informations correctes, puis cliquez sur **Create Role**.
+
+Configurer les autorisations de coût et le rapport d’utilisation :
+
+1. Type **coût et le rapport d’utilisation**.
+2. Sélectionnez **niveau d’accès**, **en lecture** > **DescribeReportDefinitions**. Cela permet la que Gestion des coûts lire que CUR il signale sont définis et déterminer s’ils correspondent à la condition préalable définition de rapport.
+3. Cliquez sur **ajouter des autorisations supplémentaires**.
+
+Configurer votre autorisation de compartiment et les objets S3 :
+
+1. Cliquez sur **choisir un service**.
+2. Type _S3_.
+3. Sélectionnez **niveau d’accès**, **liste** > **ListBucket**. Cette action Obtient la liste des objets dans le compartiment S3.
+4. Sélectionnez **niveau d’accès**, **en lecture** > **GetObject**. Cette action permet la facturation de téléchargement de fichiers.
+5. Sélectionnez **ressources**.
+6. Sélectionnez **compartiment – ARN ajouter**.
+7. Dans **nom du compartiment**, entrez le compartiment utilisé pour stocker les fichiers CUR.
+8. Sélectionnez **objet – ARN ajouter**.
+9. Dans **nom du compartiment**, entrez le compartiment utilisé pour stocker les fichiers CUR.
+10. Dans **nom de l’objet**, sélectionnez **n’importe quel**.
+11. Cliquez sur **ajouter des autorisations supplémentaires**.
+
+Configurer l’autorisation de l’Explorateur de coût :
+
+1. Cliquez sur **choisir un service**.
+2. Type _coût Service Explorer_.
+3. Sélectionnez **actions de tous les services de l’Explorateur de coût (ce :\*)**. Cette action valide le fait que la collection est correcte.
+4. Cliquez sur **ajouter des autorisations supplémentaires**.
+
+Ajoutez l’autorisation d’organisations :
+
+1. Type **organisations**.
+2. Sélectionnez **niveau d’accès, liste** > **ListAccounts**. Cette action Obtient les noms des comptes.
+3. Dans **vérifier la stratégie**, entrez un nom pour la nouvelle stratégie. Vérification pour vous assurer que vous avez entré les informations correctes, puis cliquez sur **créer une stratégie**.
+4. Revenez à l’onglet précédent et actualiser votre page de navigateur web. Dans la barre de recherche, recherchez votre nouvelle stratégie.
+5. Sélectionnez **suivant : révision**.
+6. Entrez un nom pour le nouveau rôle. Vérification pour vous assurer que vous avez entré les informations correctes, puis cliquez sur **Create Role**.
     Remarque la **Role ARN** et **ID externe** utilisé dans les étapes précédentes lorsque vous avez créé le rôle. Vous allez les utiliser ultérieurement lorsque vous configurez le connecteur Azure Cost Management.
 
 La stratégie de JSON doit ressembler à l’exemple suivant. Remplacez _bucketname_ par le nom de votre compartiment S3.

@@ -8,23 +8,22 @@ ms.topic: include
 ms.date: 04/30/2019
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 7e4ca54d8f97646192d19d5923bee24a906e8df7
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.openlocfilehash: 9647cdd584b53f581f46f728ca2d08f9a113ce92
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149713"
+ms.locfileid: "65199055"
 ---
+## <a name="before-you-begin"></a>Avant de commencer
+
+Pour suivre l’exemple de cet article, vous devez avoir l’image managée d’une machine virtuelle généralisée. Pour plus d’informations, consultez [Tutoriel : Créer une image personnalisée d’une machine virtuelle Azure avec Azure CLI 2.0](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-custom-images). Si l’image managée contient un disque de données, la taille de disque de données ne peut pas être supérieur à 1 To.
+
 ## <a name="launch-azure-cloud-shell"></a>Lancement d’Azure Cloud Shell
 
 Azure Cloud Shell est un interpréteur de commandes interactif et gratuit que vous pouvez utiliser pour exécuter les étapes de cet article. Il contient des outils Azure courants préinstallés et configurés pour être utilisés avec votre compte. 
 
 Pour ouvrir Cloud Shell, sélectionnez simplement **Essayer** en haut à droite d’un bloc de code. Vous pouvez également lancer Cloud Shell dans un onglet distinct du navigateur en accédant à [https://shell.azure.com/bash](https://shell.azure.com/bash). Sélectionnez **Copier** pour copier les blocs de code, collez-les dans Cloud Shell, puis appuyez sur Entrée pour les exécuter.
-
-## <a name="before-you-begin"></a>Avant de commencer
-
-Pour suivre l’exemple de cet article, vous devez avoir l’image managée d’une machine virtuelle généralisée. Pour plus d’informations, consultez [Tutoriel : Créer une image personnalisée d’une machine virtuelle Azure avec Azure CLI 2.0](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-custom-images). 
-
 
 ## <a name="create-an-image-gallery"></a>Créer une galerie d’images 
 
@@ -77,3 +76,6 @@ az sig image-version create \
 
 > [!NOTE]
 > Vous devez attendre que la version de l’image se termine complètement les cours de génération et de réplication avant de pouvoir utiliser la même image managée pour créer une autre version de l’image.
+>
+> Vous pouvez également stocker votre version de l’image dans [stockage redondant](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) en ajoutant `--storage-account-type standard_zrs` lorsque vous créez la version de l’image.
+>

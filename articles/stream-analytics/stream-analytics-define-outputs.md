@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 3/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: f9663fb502d9eda4810c54a89a94481b7d00cd43
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 3fab76613bb992b29ceeef12cf5f410c5c3b208d
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64926062"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205527"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Comprendre les sorties d’Azure Stream Analytics
 Cet article décrit les types de sorties disponibles pour un travail Azure Stream Analytique. Les sorties permettent de stocker et d’enregistrer les résultats du travail Stream Analytics. En utilisant les données de sortie, vous pouvez faire encore plus analytique d’entreprise et d’entreposage de données de vos données.
@@ -228,7 +228,7 @@ Le tableau suivant répertorie les noms des propriétés et leurs descriptions p
 | Nom de la table |Nom de la table. La table est créée si elle n’existe pas. |
 | Clé de partition |Le nom de la colonne de sortie qui contient la clé de partition. La clé de partition est un identificateur unique pour la partition dans une table qui constitue la première partie de la clé primaire d’une entité. C’est une valeur de chaîne qui peut être jusqu'à 1 Ko. |
 | Clé de ligne |Le nom de la colonne de sortie qui contient la clé de ligne. La clé de ligne est un identificateur unique pour une entité dans une partition. Elle constitue la deuxième partie de la clé primaire d’une entité. La clé de ligne est une valeur de chaîne qui peut être jusqu'à 1 Ko. |
-| Taille du lot |Nombre d’enregistrements d’une opération par lot. La valeur par défaut (100) est suffisante pour la plupart des travaux. Consultez le [spécifications des opérations de traitement par lots de Table](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablebatchoperation.aspx) pour plus d’informations sur la modification de ce paramètre. |
+| Taille du lot |Nombre d’enregistrements d’une opération par lot. La valeur par défaut (100) est suffisante pour la plupart des travaux. Consultez le [spécifications des opérations de traitement par lots de Table](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.table._table_batch_operation) pour plus d’informations sur la modification de ce paramètre. |
 
 ## <a name="service-bus-queues"></a>Files d’attente Service Bus
 [Files d’attente Service Bus](https://msdn.microsoft.com/library/azure/hh367516.aspx) offrent une remise de messages FIFO à un ou plusieurs destinataires concurrents. En règle générale, les messages sont reçus et traités par les destinataires dans l’ordre dans lequel ils ont été ajoutés à la file d’attente. Chaque message est reçu et traité par un consommateur d’un seul message.

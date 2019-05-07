@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/19/2019
-ms.openlocfilehash: b1bc0a68a9cf52e886c0664a474a4dbb75126698
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7f9100686eaab8c4c75e3d862026b18b6c46ed09
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60735956"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65203704"
 ---
 # <a name="customize-hdinsight-clusters-using-bootstrap"></a>Personnalisation de clusters HDInsight à l’aide de Bootstrap
 
@@ -55,7 +55,7 @@ Pour plus d’informations sur l’installation des composants supplémentaires 
 Le code PowerShell suivant permet de personnaliser une configuration [Apache Hive](https://hive.apache.org/) :
 
 > [!IMPORTANT]  
-> Le paramètre `Spark2Defaults` peut doivent être utilisées avec [Add-AzHDInsightConfigValues](https://docs.microsoft.com/powershell/module/az.hdinsight/add-azhdinsightconfigvalues). Vous pouvez passer des valeurs vides pour le paramètre, comme indiqué dans l’exemple de code ci-dessous.
+> Le paramètre `Spark2Defaults` peut doivent être utilisées avec [Add-AzHDInsightConfigValue](https://docs.microsoft.com/powershell/module/az.hdinsight/add-azhdinsightconfigvalue). Vous pouvez passer des valeurs vides pour le paramètre, comme indiqué dans l’exemple de code ci-dessous.
 
 
 ```powershell
@@ -66,7 +66,7 @@ $config = New-AzHDInsightClusterConfig `
     | Set-AzHDInsightDefaultStorage `
         -StorageAccountName "$defaultStorageAccountName.blob.core.windows.net" `
         -StorageAccountKey $defaultStorageAccountKey `
-    | Add-AzHDInsightConfigValues `
+    | Add-AzHDInsightConfigValue `
         -HiveSite $hiveConfigValues `
         -Spark2Defaults @{}
 
@@ -243,7 +243,7 @@ $config = New-AzHDInsightClusterConfig `
     | Set-AzHDInsightDefaultStorage `
         -StorageAccountName "$defaultStorageAccountName.blob.core.windows.net" `
         -StorageAccountKey $defaultStorageAccountKey `
-    | Add-AzHDInsightConfigValues `
+    | Add-AzHDInsightConfigValue `
         -HiveSite $hiveConfigValues `
         -Spark2Defaults @{}
 

@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/19/2017
 ms.author: alkohli
-ms.openlocfilehash: be5719d2c383c838ef70c6862c1055c3374e05e5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 956cf45eb9e246f2e1f917f2bf487ac14deba90e
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60362445"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65204245"
 ---
 # <a name="configure-web-proxy-for-your-storsimple-device"></a>Configurer le proxy web pour votre appareil StorSimple
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Présentation
 
 Ce didacticiel explique comment utiliser Windows PowerShell for StorSimple afin de configurer et d’afficher les paramètres du proxy web pour votre appareil StorSimple. Les paramètres de proxy web sont utilisés par l’appareil StorSimple lors de la communication avec le cloud. Un serveur proxy web est utilisé pour ajouter une autre couche de sécurité, filtrer le contenu, mettre en cache les données afin d’alléger la bande passante voire faciliter l’analyse.
 
@@ -68,7 +68,7 @@ Utilisez l’Assistant d’installation pour vous accompagner dans les différen
     `http://<IP address or FQDN of the web proxy server>:<TCP port number>`
    
     Par défaut, le numéro de port TCP 8080 est spécifié.
-4. Choisissez le type d’authentification **NTLM**, **De base** ou **Aucun**. L’option De base est l’authentification la moins sécurisée pour la configuration du serveur proxy. NT LAN Manager (NTLM) est un protocole d’authentification hautement sécurisé et plus complexe qui utilise un système de messagerie à trois voies (parfois quatre si une intégrité supplémentaire est requise) pour authentifier un utilisateur. L’authentification par défaut est NTLM. Pour plus d’informations, voir la rubrique Authentification [de base](http://hc.apache.org/httpclient-3.x/authentication.html) et [NTLM](http://hc.apache.org/httpclient-3.x/authentication.html). 
+4. Choisissez le type d’authentification **NTLM**, **De base** ou **Aucun**. L’option De base est l’authentification la moins sécurisée pour la configuration du serveur proxy. NT LAN Manager (NTLM) est un protocole d’authentification hautement sécurisé et plus complexe qui utilise un système de messagerie à trois voies (parfois quatre si une intégrité supplémentaire est requise) pour authentifier un utilisateur. L’authentification par défaut est NTLM. Pour plus d’informations, voir la rubrique Authentification [de base](https://hc.apache.org/httpclient-3.x/authentication.html) et [NTLM](https://hc.apache.org/httpclient-3.x/authentication.html). 
    
    > [!IMPORTANT]
    > **Dans le service StorSimple Device Manager, les graphiques d’analyse de l’appareil ne fonctionnent pas lorsque l’authentification de base ou NTLM est activée dans la configuration du serveur proxy pour l’appareil. Pour que les graphiques d’analyse fonctionnent, vous devez vous assurer que l’authentification est définie sur Aucune.**

@@ -1,6 +1,6 @@
 ---
 title: Transférer des données de travaux Azure Automation aux journaux d’activité Azure Monitor
-description: Cet article montre comment envoyer des flux de travail runbook et l’état du travail dans les journaux Azure Azure Monitor pour fournir une gestion et obtenir des informations supplémentaires.
+description: Cet article montre comment envoyer des flux de travail runbook et l’état du travail dans les journaux d’Azure Monitor pour fournir une gestion et obtenir des informations supplémentaires.
 services: automation
 ms.service: automation
 ms.subservice: process-automation
@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 02/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 82baef7ce0d91713c8bef202ab0ea0925d290f3a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8672bc28ea5e8562472408810a38ea0de6778cfd
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60739107"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65200604"
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-azure-monitor-logs"></a>Transférer l’état du travail et flux de travail d’Automation dans les journaux d’Azure Monitor
 

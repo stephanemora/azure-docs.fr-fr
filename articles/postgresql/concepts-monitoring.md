@@ -1,19 +1,19 @@
 ---
-title: Superviser et optimiser Azure Database pour PostgreSQL
-description: Cet article décrit les fonctionnalités de supervision et d’optimisation disponibles dans Azure Database pour PostgreSQL.
+title: Surveiller et régler dans Azure Database pour PostgreSQL - serveur unique
+description: Cet article décrit les fonctionnalités de surveillance et de paramétrage de base de données Azure pour PostgreSQL - serveur unique.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 11/05/2018
-ms.openlocfilehash: 0d5508fe6b07bd5664bd0708960559537d8f6be1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 5e03a3e33d618c393241a649be50fe78632caafe
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61456221"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65068994"
 ---
-# <a name="monitor-and-tune"></a>Surveiller et régler
+# <a name="monitor-and-tune-azure-database-for-postgresql---single-server"></a>Surveiller et régler la base de données Azure pour PostgreSQL - serveur unique
 La surveillance des données relatives à vos serveurs vous aide à résoudre les problèmes et à optimiser votre charge de travail. Azure Database pour PostgreSQL propose différentes options de supervision pour fournir un insight sur le comportement de votre serveur.
 
 ## <a name="metrics"></a>Mesures

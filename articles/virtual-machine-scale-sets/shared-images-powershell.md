@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 04/25/2019
 ms.author: akjosh; cynthn
 ms.custom: ''
-ms.openlocfilehash: 44cb068f1aa40169e728fc28787990b161e148ae
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: HT
+ms.openlocfilehash: ff8d94213e4e07b6597f6195126116a607c18bf7
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65150077"
+ms.locfileid: "65191697"
 ---
 # <a name="create-and-use-shared-images-for-virtual-machine-scale-sets-with-the-azure-powershell"></a>Créer et utiliser des images partagées pour les groupe de machines virtuelles identiques avec Azure PowerShell
 
@@ -48,7 +48,9 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 Les étapes ci-dessous expliquent comment prendre une machine virtuelle existante et la transformer en une image personnalisée réutilisable que vous pouvez utiliser pour créer de nouvelles instances de machines virtuelles.
 
-Pour suivre l’exemple de cet article, vous devez avoir l’image managée. Vous pouvez suivre le [Tutoriel : Créer et utiliser une image personnalisée pour des groupes de machines virtuelles identiques avec Azure PowerShell](tutorial-use-custom-image-powershell.md) si nécessaire. Au cours de cet article, remplacez les noms du groupe de ressources et de la machine virtuelle si nécessaire.
+Pour suivre l’exemple de cet article, vous devez avoir l’image managée. Vous pouvez suivre le [Tutoriel : Créer et utiliser une image personnalisée pour des groupes de machines virtuelles identiques avec Azure PowerShell](tutorial-use-custom-image-powershell.md) si nécessaire. Si l’image managée contient un disque de données, la taille de disque de données ne peut pas être supérieur à 1 To.
+
+Au cours de cet article, remplacez les noms du groupe de ressources et de la machine virtuelle si nécessaire.
 
 
 [!INCLUDE [virtual-machines-common-shared-images-ps](../../includes/virtual-machines-common-shared-images-powershell.md)]

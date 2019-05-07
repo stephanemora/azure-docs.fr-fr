@@ -1,5 +1,5 @@
 ---
-title: Résoudre les problèmes d’un cluster HDInsight défaillant ou lent - Azure HDInsight
+title: Résoudre les problèmes d’un travail défaillant ou lent sur un cluster HDInsight - Azure HDInsight
 description: Diagnostiquer et résoudre les problèmes d’un cluster HDInsight défaillant ou lent.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,16 +8,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/19/2019
-ms.openlocfilehash: 785eac065e10c64b99839ab8667e9b613f62aeb9
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 0f405f542a8408c290704f1707ca10a24b08f861
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64708916"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65203626"
 ---
-# <a name="troubleshoot-a-slow-or-failing-hdinsight-cluster"></a>Résoudre les problèmes d’un cluster HDInsight défaillant ou lent
+# <a name="troubleshoot-a-slow-or-failing-job-on-a-hdinsight-cluster"></a>Résoudre les problèmes d’un travail défaillant ou lent sur un cluster HDInsight
 
-En cas de ralentissement d’un cluster HDInsight ou d’échec du cluster avec un code d’erreur, vous disposez de plusieurs options de dépannage. Si l’exécution de vos travaux prend plus de temps que prévu ou si vous constatez généralement des temps de réponse assez longs, il est possible que ces problèmes soient imputables à des défaillances en amont à de votre cluster (par exemple, les services sur lesquels s’exécute le cluster). Mais une mise à l’échelle insuffisante est la cause la plus courante de ces ralentissements. Lorsque vous créez un nouveau cluster HDInsight, sélectionnez l’option appropriée [tailles de machine virtuelle](hdinsight-component-versioning.md#default-node-configuration-and-virtual-machine-sizes-for-clusters).
+Si une application de traitement des données sur un cluster HDInsight est qu’elle s’exécute lentement ou échouent avec un code d’erreur, vous avez plusieurs options de dépannage. Si l’exécution de vos travaux prend plus de temps que prévu ou si vous constatez généralement des temps de réponse assez longs, il est possible que ces problèmes soient imputables à des défaillances en amont à de votre cluster (par exemple, les services sur lesquels s’exécute le cluster). Mais une mise à l’échelle insuffisante est la cause la plus courante de ces ralentissements. Lorsque vous créez un nouveau cluster HDInsight, sélectionnez l’option appropriée [tailles de machine virtuelle](hdinsight-component-versioning.md#default-node-configuration-and-virtual-machine-sizes-for-clusters).
 
 Pour diagnostiquer un cluster lent ou défaillant, essayez de recueillir des informations sur tous les aspects de l’environnement, notamment les services Azure associés, la configuration du cluster ou encore les informations relatives à l’exécution du travail. Pour diagnostiquer les problèmes, le mieux est d’essayer de reproduire l’état d’erreur sur un autre cluster.
 

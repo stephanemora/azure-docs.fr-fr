@@ -1,19 +1,19 @@
 ---
-title: Redémarrer un serveur Azure Database pour PostgreSQL avec le portail Azure
-description: Cet article décrit comment vous pouvez redémarrer un serveur Azure Database pour PostgreSQL à l’aide du portail Azure.
+title: Redémarrez la base de données Azure pour PostgreSQL - serveur unique à l’aide du portail Azure
+description: Cet article décrit comment vous pouvez redémarrer une base de données Azure pour PostgreSQL - serveur unique à l’aide du portail Azure.
 author: ajlam
 ms.author: andrela
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 3/18/2019
-ms.openlocfilehash: bf73120e462b740de5d2245f8a647896ac61f2c8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: fd92e27f53f52de3e9a7fd65d577c9dfea44991b
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60420418"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65066837"
 ---
-# <a name="restart-azure-database-for-postgresql-server-using-the-azure-portal"></a>Redémarrez la base de données Azure pour serveur PostgreSQL à l’aide du portail Azure
+# <a name="restart-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Redémarrez la base de données Azure pour PostgreSQL - serveur unique à l’aide du portail Azure
 Cette rubrique explique comment redémarrer un serveur Azure Database pour PostgreSQL. Vous pouvez avoir besoin de redémarrer votre serveur pour des raisons de maintenance, ce qui entraîne une brève interruption de service pendant que le serveur effectue l’opération.
 
 Le redémarrage du serveur est bloqué si le service est occupé. Par exemple, le service peut traiter une opération précédemment demandée, telle que la mise à l’échelle de vCores.

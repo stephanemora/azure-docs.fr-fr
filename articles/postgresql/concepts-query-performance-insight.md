@@ -1,21 +1,21 @@
 ---
-title: Analyse des performances des requêtes dans Azure Database pour PostgreSQL
-description: Cet article décrit la fonctionnalité Analyse des performances des requêtes dans Azure Database pour PostgreSQL.
+title: Query Performance Insight dans base de données Azure pour PostgreSQL - serveur unique
+description: Cet article décrit la fonctionnalité de Query Performance Insight dans base de données Azure pour PostgreSQL - serveur unique.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 03/28/2019
-ms.openlocfilehash: 56abdd819e78312e64209078c3966826385df7bc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: d45b79e2ca3b3d478102bebdcff3c8892bef2cb5
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60564417"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65067554"
 ---
 # <a name="query-performance-insight"></a>Query Performance Insight 
 
-**S’applique à :** Azure Database pour PostgreSQL 9.6 et 10
+**S’applique à :** Azure Database pour PostgreSQL - monoserveur 9.6 et 10
 
 L’analyse des performances des requêtes vous aide à identifier rapidement vos requêtes les plus longues, comment elles évoluent au fil du temps et les attentes qui les affectent.
 

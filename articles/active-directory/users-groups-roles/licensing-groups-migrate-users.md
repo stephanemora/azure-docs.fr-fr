@@ -1,6 +1,6 @@
 ---
-title: Migrer des utilisateurs individuellement sous licence aux licences par groupe - Azure Active Directory | Microsoft Docs
-description: Comment passer de licences utilisateur individuelles à des licences basées sur le groupe avec Azure Active Directory
+title: Ajouter des utilisateurs individuellement sous licence aux licences par groupe - Azure Active Directory | Microsoft Docs
+description: Comment migrer à partir de licences utilisateur individuelles pour le groupe de gestion des licences à l’aide d’Azure Active Directory
 services: active-directory
 keywords: Gestion des licences Azure AD
 documentationcenter: ''
@@ -16,14 +16,14 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: seohack1;it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b6fd2eb51c7178421b0656e3b1d0e0ea36176c16
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 333f0ae0153073b57740446ecf47e36a1f9ce590
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60471034"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65192453"
 ---
-# <a name="how-to-add-migrate-users-with-individual-licenses-to-groups-for-licensing"></a>L’ajout de migrer des utilisateurs avec licences individuelles à des groupes pour les licences
+# <a name="how-to-migrate-users-with-individual-licenses-to-groups-for-licensing"></a>Comment migrer les utilisateurs disposant de licences individuelles à des groupes pour les licences
 
 Vous pouvez disposer de licences existantes déployées pour les utilisateurs dans les organisations par le biais d’une « attribution directe », autrement dit utiliser des scripts PowerShell ou d’autres outils pour attribuer des licences utilisateur individuelles. Avant de commencer à l’aide de gestion des licences par groupe pour gérer les licences de votre organisation, vous pouvez utiliser ce plan de migration pour remplacer en toute transparence les solutions existantes avec la gestion des licences par groupe.
 

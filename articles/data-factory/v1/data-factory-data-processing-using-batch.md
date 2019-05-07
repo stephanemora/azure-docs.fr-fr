@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: f78275af5faaf19a4993a5ae4414b0163f9a4d9d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e95f167cf6dcfe90fff1c2be174ca197cb2aa004
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60487694"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65204037"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Traiter des jeux de données volumineux à l’aide de Data Factory et de Batch
 > [!NOTE]
@@ -409,7 +409,7 @@ Cette méthode a quelques composants clés qu’il est important de comprendre :
 #### <a name="execute-method"></a>Méthode Execute
 Cette section fournit des informations supplémentaires concernant le code dans la méthode Execute.
 
-1. Les membres nécessaires pour l’itération dans la collection d’entrée se trouvent dans l’espace de noms [Microsoft.WindowsAzure.Storage.Blob](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.blob.aspx) . L’itération dans la collection d’objets blob requiert l’utilisation de la classe **BlobContinuationToken**. Vous devez utiliser une boucle do-while en utilisant le jeton pour sortir de la boucle. Pour plus d’informations, consultez [Use Blob storage from .NET (Utiliser le stockage d’objets blob à partir de .NET)](../../storage/blobs/storage-dotnet-how-to-use-blobs.md). Une boucle de base est illustrée ici :
+1. Les membres nécessaires pour l’itération dans la collection d’entrée se trouvent dans l’espace de noms [Microsoft.WindowsAzure.Storage.Blob](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob) . L’itération dans la collection d’objets blob requiert l’utilisation de la classe **BlobContinuationToken**. Vous devez utiliser une boucle do-while en utilisant le jeton pour sortir de la boucle. Pour plus d’informations, consultez [Use Blob storage from .NET (Utiliser le stockage d’objets blob à partir de .NET)](../../storage/blobs/storage-dotnet-how-to-use-blobs.md). Une boucle de base est illustrée ici :
 
     ```csharp
     // Initialize the continuation token.
@@ -432,7 +432,7 @@ Cette section fournit des informations supplémentaires concernant le code dans 
     } while (continuationToken != null);
 
     ```
-   Pour plus d’informations, consultez la documentation de la méthode [ListBlobsSegmented](https://msdn.microsoft.com/library/jj717596.aspx).
+   Pour plus d’informations, consultez la documentation de la méthode [ListBlobsSegmented](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_blob_container.listblobssegmented).
 
 1. Le code permettant de parcourir l’ensemble d’objets blob s’inscrit logiquement dans la boucle do-while. Dans la méthode **Execute**, la boucle do-while transmet la liste d’objets blob à une méthode nommée **Calculate**. La méthode renvoie une variable de chaîne nommée **output** , qui correspond au résultat de l’itération dans tous les objets blob du segment.
 

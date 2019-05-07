@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: mbullwin
-ms.openlocfilehash: 0f8f1c5585eb13506baea1e5ddbe611cc931758e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c6a5ec8685de53d7a611328025d5da8e5ce698a3
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60899231"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65204886"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Collecte, rétention et stockage des données dans Application Insights
 
@@ -87,7 +87,7 @@ Les points de données brutes (autrement dit, les éléments que vous pouvez int
 
 Les données agrégées (autrement dit, les nombres, moyennes et autres données statistiques que vous voyez dans Metrics Explorer) sont conservées avec une granularité de 1 minute pendant 90 jours.
 
-Les [captures instantanées de débogage](../../azure-monitor/app/snapshot-debugger.md) sont stockées pendant sept jours. Cette stratégie de rétention est définie application par application. Si vous devez augmenter cette valeur, faites-en la demande en ouvrant une demande de support dans le portail Azure.
+[Déboguer des captures instantanées](../../azure-monitor/app/snapshot-debugger.md) sont stockés pendant 15 jours. Cette stratégie de rétention est définie application par application. Si vous devez augmenter cette valeur, faites-en la demande en ouvrant une demande de support dans le portail Azure.
 
 ## <a name="who-can-access-the-data"></a>Qui peut accéder aux données ?
 Les données sont visibles par vous et, si vous disposez un compte d’organisation, par les membres de votre équipe. 
@@ -237,7 +237,7 @@ Les kits de développement logiciel (SDK) varient en fonction des plateformes et
 
 | Votre action | Classes de données collectées (voir tableau suivant) |
 | --- | --- |
-| [Ajouter le kit de développement logiciel (SDK) Application Insights à un projet web .NET][greenbrown] |ServerContext<br/>Inferred<br/>Perf counters<br/>Demandes<br/>**Exceptions**<br/>session<br/>users |
+| [Ajouter le kit de développement logiciel (SDK) Application Insights à un projet web .NET][greenbrown] |ServerContext<br/>Inferred<br/>Perf counters<br/>Requests<br/>**Exceptions**<br/>session<br/>users |
 | [Installer Status Monitor sur IIS][redfield] |Dépendances<br/>ServerContext<br/>Inferred<br/>Perf counters |
 | [Ajouter le kit de développement logiciel (SDK) Application Insights à une application web Java][java] |ServerContext<br/>Inferred<br/>Requête<br/>session<br/>users |
 | [Ajouter le kit de développement logiciel (SDK) JavaScript à une page web][client] |ClientContext  <br/>Inferred<br/>Page<br/>ClientPerf<br/>Ajax |
@@ -264,7 +264,7 @@ Pour les [Kits de développement logiciel (SDK) des autres plateformes][platform
 | PageViews |URL et nom de la page ou de l’écran |
 | Client perf |URL/nom de la page, temps de chargement du navigateur |
 | Ajax |Appels HTTP de la page web au serveur |
-| Demandes |URL, durée, code de réponse |
+| Requests |URL, durée, code de réponse |
 | Les dépendances |Type (SQL, HTTP, ...), chaîne de connexion ou URI, synchronisation/désynchronisation, durée, réussite, instruction SQL (avec Status Monitor) |
 | **Exceptions** |Type, **message**, piles d’appels, fichier source et numéro ligne, ID du thread |
 | Crashes |ID de processus, ID de processus parent, ID de thread d’incident ; correctif de l’application, ID, version ; type d’exception, adresse, motif ; symboles et enregistrements masqués, adresses binaires de début et de fin, nom et chemin du fichier binaire, type de processeur |

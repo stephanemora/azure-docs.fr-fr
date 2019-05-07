@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/02/19
-ms.openlocfilehash: 4b3fa69156146037ff59a41eab8c8373f6e01dc4
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 65a861c647c2dc92e416fa356075821aa5060042
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65029114"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205037"
 ---
 # <a name="create-and-register-azure-machine-learning-datasets-preview"></a>Créer et enregistrer des jeux de données Azure Machine Learning (version préliminaire)
 
@@ -44,7 +44,7 @@ Charger des fichiers à partir de votre ordinateur local en spécifiant le chemi
 * Déduction et la conversion des types de données de colonne.
 
 ```Python
-from azureml.core import Dataset
+from azureml.core.dataset import Dataset
 
 dataset = Dataset.auto_read_files('./data/crime.csv')
 ```
@@ -60,7 +60,9 @@ Pour créer des jeux de données à partir d’un magasin de données Azure, vei
 * Importer le [ `Workspace` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) et [ `Datastore` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#definition) et `Dataset` packages à partir du SDK.
 
 ```Python
-from azureml.core import Workspace, Datastore, Dataset
+from azureml.core.workspace import Workspace
+from azureml.core.datastore import Datastore
+from azureml.core.dataset import Dataset
 
 datastore_name = 'your datastore name'
 
@@ -74,7 +76,7 @@ workspace = Workspace.from_config()
 dstore = Datastore.get(workspace, datastore_name)
 ```
 
-Utilisez le `from_delimited_files()` méthode pour lire des fichiers délimités et créer des jeux de données en mémoire.
+Utilisez le `from_delimited_files()` méthode lire dans les fichiers délimités, et créer un jeu de données non enregistré.
 
 ```Python
 # create an in-memory Dataset on your local machine
@@ -98,23 +100,22 @@ dataset.head(5)
 Utilisez le [ `register()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#register-workspace--name--description-none--tags-none--visible-true--exist-ok-false--update-if-exist-false-) méthode pour inscrire des jeux de données à votre espace de travail pour le partage et la réutiliser dans votre organisation et entre les différentes expériences.
 
 ```Python
-dataset = dataset.register(workspace = 'workspace_name',
-                           name = "dataset_crime",
+dataset = dataset.register(workspace = workspace,
+                           name = 'dataset_crime',
+
                            description = 'Training data',
                            exist_ok = False
                            )
 ```
 
 >[!NOTE]
-> La valeur du paramètre par défaut pour `register()` est « exist_ok = False'. Si vous essayez d’inscrire un jeu de données portant le même nom sans modifier ce paramètre, qu'une erreur se produit.
+> La valeur du paramètre par défaut pour `register()` est `exist_ok = False`. Si vous essayez d’inscrire un jeu de données portant le même nom sans modifier ce paramètre, qu'une erreur se produit.
 
-Le `register()` méthode met à jour la définition d’un jeu de données déjà inscrite avec la valeur du paramètre, `exist_ok = True`.
+Le `register()` méthode retourne le jeu de données déjà inscrite avec la valeur du paramètre, `exist_ok = True`.
 
 ```Python
-dataset = dataset.register(workspace = workspace_name,
-                           name = "dataset_crime",
-                           description = 'Training data',
-                           exist_ok = True)
+dataset = dataset.register(workspace = workspace,
+                           name = 'dataset_crime',
 ```
 
 Utilisez `list()` pour voir tous les jeux de données inscrits dans votre espace de travail.
@@ -137,7 +138,7 @@ Jeux de données inscrits est accessibles et consommables localement, à distanc
 ```Python
 workspace = Workspace.from_config()
 
-dataset = workspace.Datasets['dataset_crime']
+dataset = workspace.datasets['dataset_crime']
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

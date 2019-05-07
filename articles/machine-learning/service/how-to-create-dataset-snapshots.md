@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.author: sihhu
 author: MayMSFT
 ms.date: 05/02/2019
-ms.openlocfilehash: ed10cb259802321769605bc0399a610131ddb174
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 51d0dcfc543834e9a8725d11fa82b566a5132a6b
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65029144"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65204985"
 ---
 # <a name="compare-data-and-ensure-reproducibility-with-snapshots-preview"></a>Comparer les données et de garantir la reproductibilité des instantanés (préversion)
 
-Dans cet article, vous apprendrez à créer et gérer des instantanés de votre [jeux de données Azure Machine Learning](how-to-create-register-datasets.md) (jeux de données) afin de capturer ou comparer les données au fil du temps. Jeux de données facilite l’accéder et travailler avec vos données dans le cloud dans différents scénarios. 
+Dans cet article, vous apprendrez à créer et gérer des instantanés de votre [jeux de données Azure Machine Learning](how-to-create-register-datasets.md) (jeux de données) afin de capturer ou comparer les données au fil du temps. Jeux de données facilite l’accéder et travailler avec vos données dans le cloud dans différents scénarios.
 
-**Captures instantanées du jeu de données** stocker un profil (statistiques de synthèse) des données au moment de sa création. Vous pouvez choisir pour également stocker une copie des données de votre instantané de reproductibilité. 
+**Captures instantanées du jeu de données** stocker un profil (statistiques de synthèse) des données au moment de sa création. Vous pouvez choisir pour également stocker une copie des données de votre instantané de reproductibilité.
 
 >[!Important]
 > Captures instantanées entraînent des frais de stockage. Stocker une copie des données de votre instantané nécessite davantage de stockage. Utilisez [ `dataset.delete_snapshot()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#delete-snapshot-snapshot-name-) quand ils ne sont plus nécessaires.
@@ -29,9 +29,9 @@ Dans cet article, vous apprendrez à créer et gérer des instantanés de votre 
 
 Il existe trois principales utilisations des instantanés :
 
-+ **Validation de modèle**: Comparer le profil de données de différents instantanés entre les exécutions d’apprentissage ou sur les données de production. 
++ **Validation de modèle**: Comparer le profil de données de différents instantanés entre les exécutions d’apprentissage ou sur les données de production.
 
-+ **Modèle reproductibilité**: Reproduire les résultats en appelant un instantané qui inclut des données pendant la formation. 
++ **Modèle reproductibilité**: Reproduire les résultats en appelant un instantané qui inclut des données pendant la formation.
 
 + **Suivre les données au fil du temps**: Voir comment le jeu de données a évolué en [comparaison des profils](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_snapshot.datasetsnapshot?view=azure-ml-py#compare-profiles-rhs-dataset-snapshot--include-columns-none--exclude-columns-none--histogram-compare-method--histogramcomparemethod-wasserstein--0--)
   
@@ -41,16 +41,17 @@ Pour créer des captures instantanées du jeu de données, vous avez besoin d’
 
 ## <a name="create-dataset-snapshots"></a>Créer des captures instantanées du jeu de données
 
-Pour créer un instantané d’un jeu de données, utilisez [ `dataset.create_snapshot()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset(class)?#create-snapshot-snapshot-name--compute-target-none--create-data-snapshot-false--target-datastore-none-) à partir du Kit de développement logiciel Azure Machine Learning. 
+Pour créer un instantané d’un jeu de données, utilisez [ `dataset.create_snapshot()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset(class)?#create-snapshot-snapshot-name--compute-target-none--create-data-snapshot-false--target-datastore-none-) à partir du Kit de développement logiciel Azure Machine Learning.
 
 Par défaut, l’instantané stocke le profil (statistiques de synthèse) des données avec la dernière version [définition du dataset](how-to-manage-dataset-definitions.md) appliqué. Une définition de dataset contient un enregistrement de toutes les étapes transformation définie pour les données. Il est un excellent moyen d’optimiser votre préparation des données reproductible.
 
-Si vous le souhaitez, vous pouvez également inclure une copie des données de votre instantané en ajoutant `create_data_snapshot = True`.  Ces données peuvent être utiles pour la reproductibilité. 
+Si vous le souhaitez, vous pouvez également inclure une copie des données de votre instantané en ajoutant `create_data_snapshot = True`.  Ces données peuvent être utiles pour la reproductibilité.
 
 Cet exemple utilise [échantillonner des données de crime](https://dprepdata.blob.core.windows.net/dataset-sample-files/crime.csv) et un jeu de données appelé `dataset_crime` créé à l’aide de l’article, [« créer et inscrire des jeux de données »](how-to-create-register-datasets.md).
 
 ```Python
-from azureml.core.dataset import Workspace, Dataset
+from azureml.core.workspace import Workspace
+from azureml.core.dataset import Dataset
 from azureml.data.dataset_snapshot import DatasetSnapshot
 import datetime
 
@@ -58,7 +59,7 @@ import datetime
 workspace = Workspace.from_config()
 
 # get existing, named dataset:
-dataset = workspace.Dataset['dataset_crime']
+dataset = workspace.datasets['dataset_crime']
 
 # assign name to snapshot
 snapshot_name = 'snapshot_' + datetime.datetime.today().strftime('%Y%m%d%H%M%S')
@@ -69,11 +70,10 @@ snapshot = dataset.create_snapshot(snapshot_name = snapshot_name,
                                    compute_target = remote_compute_target,
                                    create_data_snapshot = True)
 ```
- 
 
 Étant donné que les instantanés sont créés de façon asynchrone, utilisez la [ `wait_for_completion()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_snapshot.datasetsnapshot?view=azure-ml-py#wait-for-completion-show-output-true--status-update-frequency-10-) (méthode) pour surveiller le processus.
 
-```python
+```Python
 # monitor process every 10 seconds
 snapshot.wait_for_completion(show_output=True, status_update_frequency=10)
 
@@ -102,7 +102,7 @@ Utilisez [ `dataset.delete_snapshot()` ](https://docs.microsoft.com/python/api/a
 
 Pour récupérer un instantané existant, utilisez [ `get_snapshot()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset(class)?view=azure-ml-py#get-snapshot-snapshot-name-).
 
-Pour obtenir une liste de vos captures instantanées enregistrées d’un jeu de données, utilisez [ `get_all_snapshots()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset(class)?view=azure-ml-py#get-all-snapshots--). 
+Pour obtenir une liste de vos captures instantanées enregistrées d’un jeu de données, utilisez [ `get_all_snapshots()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset(class)?view=azure-ml-py#get-all-snapshots--).
 
 ```Python
 # Get named snapshot for this dataset
@@ -141,12 +141,11 @@ District|FieldType.INTEGER|5.|24|10.0|0.0|10.0|0.0|0.0|0.0|5.|5.|5.|6.|13|19|24|
 Ward|FieldType.INTEGER|1|48|10.0|0.0|10.0|0.0|0.0|0.0|1|5.|1|9|22,5|40|48|48|48|24,5|16.2635|264.5|0.173723|-1.51271
 Community Area|FieldType.INTEGER|4|77|10.0|0.0|10.0|0.0|0.0|0.0|4|8.5|4|24|37.5|71|77|77|77|41.2|26.6366|709.511|0.112157|-1.73379
 
-
 ### <a name="get-the-data-from-the-snapshot"></a>Obtenir les données à partir de l’instantané
 
 Pour obtenir une copie des données enregistrées dans un instantané de jeu de données, générer une trame de données pandas avec les [ `to_pandas_dataframe()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#to-pandas-dataframe--) (méthode).
 
-Cette méthode échoue si une copie des données n’a pas été demandée lors de la création de capture instantanée. 
+Cette méthode échoue si une copie des données n’a pas été demandée lors de la création de capture instantanée.
 
 ```Python
 snapshot.to_pandas_dataframe().head(3)
@@ -157,7 +156,6 @@ snapshot.to_pandas_dataframe().head(3)
 0|10498554|HZ239907|2016-04-04 23:56:00|007XX E 111TH ST|1153|PRATIQUE FRAUDULEUSE|USURPATION D’IDENTITÉ FINANCIÈRE SUR 300 DOLLARS|OTHER|False|False|...|9|50|11|1183356.0|1831503.0|2016|2016-05-11 15:48:00|41.692834|-87.604319|(41.692833841, -87.60431945)
 1|10516598|HZ258664|2016-04-15 17:00:00|ENREGISTRER LES MARSHFIELD 082XX S|890|THEFT|À PARTIR DE LA GÉNÉRATION|LIEU DE RÉSIDENCE|False|False|...|21|71|6.|1166776.0|1850053.0|2016|2016-05-12 15:48:00|41.744107|-87.664494|(41.744106973, -87.664494285)
 2|10519196|HZ261252|2016-04-15 10:00:00|ENREGISTRER LES SACRAMENTO 104XX S|1154|PRATIQUE FRAUDULEUSE|USURPATION D’IDENTITÉ FINANCIÈRE 300 DOLLARS ET, SOUS|LIEU DE RÉSIDENCE|False|False|...|19|74|11|NaN|NaN|2016|2016-05-12 15:50:00|NaN|NaN|
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 

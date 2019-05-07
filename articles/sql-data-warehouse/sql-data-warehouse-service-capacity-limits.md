@@ -10,12 +10,12 @@ ms.subservice: implement
 ms.date: 11/14/2018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: b37f16ab914fe4062bc9720ae9cc0139c573fb93
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: a8512e128d757e2faf4c3f63c5ad113b1d67b4ee
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65154273"
+ms.locfileid: "65204908"
 ---
 # <a name="sql-data-warehouse-capacity-limits"></a>Limites de la capacité de SQL Data Warehouse
 Valeurs maximales autorisées pour les différents composants d’Azure SQL Data Warehouse.
@@ -25,7 +25,7 @@ Valeurs maximales autorisées pour les différents composants d’Azure SQL Data
 |:--- |:--- |:--- |
 | [Data Warehouse Units (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |DWU max pour un SQL Data Warehouse unique | Gen1 : DW6000<br></br>Gen2 : DW30000c |
 | [Data Warehouse Units (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |La valeur par défaut de DTU par serveur |54 000<br></br>Par défaut, le Quota de DTU de chaque serveur SQL (par exemple, myserver.database.windows.net) est de 54 000, ce qui permet jusqu’à 6 000 DW. Ce quota constitue simplement une limite de sécurité. Vous pouvez augmenter votre quota en [créant un ticket de support](sql-data-warehouse-get-started-create-support-ticket.md) et en sélectionnant *Quota* comme type de requête.  Pour calculer vos besoins en matière de DTU, multipliez le nombre total de DWU nécessaire par 7,5, ou multipliez le nombre total de cDWU nécessaire par 9,0. Par exemple : <br></br>6 000 DW x 7,5 = 45 000 DTU<br></br>DW6000c x 9,0 = 54 000 DTU.<br></br>Vous pouvez consulter votre consommation de DTU actuelle dans l’option SQL Server dans le portail. Les bases de données suspendues et réactivées sont prises en compte dans le quota de DTU. |
-| Connexion de base de données |Simultanées maximale ouvrir des sessions |1 024<br/><br/>Le nombre de sessions simultanées ouvertes peut varier en fonction du DWU sélectionnée. DWU500c et ultérieure prend en charge un maximum de 1 024 ouvrir des sessions. DWU400c et ci-dessous prennent en charge une limite d’ouverture de session simultanées maximales de 512. Notez qu’il existe des limites sur le nombre de requêtes pouvant s’exécuter simultanément. En cas de dépassement d’une limite de concurrence, la demande est placée dans une file d’attente interne où elle attend d’être traitée. |
+| Connexion de base de données |Simultanées maximale ouvrir des sessions |1 024<br/><br/>Le nombre de sessions simultanées ouvertes peut varier en fonction du DWU sélectionnée. DWU600c et ultérieure prend en charge un maximum de 1 024 ouvrir des sessions. DWU500c et ci-dessous prennent en charge une limite d’ouverture de session simultanées maximales de 512. Notez qu’il existe des limites sur le nombre de requêtes pouvant s’exécuter simultanément. En cas de dépassement d’une limite de concurrence, la demande est placée dans une file d’attente interne où elle attend d’être traitée. |
 | Connexion de base de données |Mémoire maximale pour les instructions préparées |20 Mo |
 | [Gestion des charges de travail](resource-classes-for-workload-management.md) |Nombre maximal de requêtes concurrentes |128<br/><br/> SQL Data Warehouse peut exécuter un maximum de 128 requêtes et files d’attente simultanées.<br/><br/>Le nombre de requêtes simultanées peut diminuer lorsque les utilisateurs sont assignés à des classes de ressources plus élevées ou lorsque SQL Data Warehouse a un paramètre [d’unité d’entrepôt de données](memory-and-concurrency-limits.md) inférieur. Certaines requêtes, comme les requêtes DMV, sont toujours autorisées à s’exécuter et n’affectent pas la limite de requêtes simultanées. Pour plus d’informations sur l’exécution de requêtes simultanées, consultez l’article [Valeurs maximales de concurrence](memory-and-concurrency-limits.md#concurrency-maximums). |
 | [tempdb](sql-data-warehouse-tables-temporary.md) |Go maximum |399 Go par DW100. Par conséquent, pour DWU1000, la taille de tempdb est 3,99 To. |

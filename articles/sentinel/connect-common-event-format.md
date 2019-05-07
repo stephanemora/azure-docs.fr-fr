@@ -4,7 +4,7 @@ description: Découvrez comment connecter des données CEF à Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: barbkess
+manager: rkarlin
 editor: ''
 ms.assetid: cbf5003b-76cf-446f-adb6-6d816beca70f
 ms.service: sentinel
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/02/2019
 ms.author: rkarlin
-ms.openlocfilehash: 18eb305beb79913713898b939ef840ca9ffab014
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8c0b895c3ef811268c7b67393a5382362601d875
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60445508"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65204386"
 ---
 # <a name="connect-your-external-solution-using-common-event-format"></a>Connectez votre solution externe à l’aide du Format d’événement commun
 
@@ -45,7 +45,7 @@ La connexion entre Azure Sentinel et votre appliance CEF a lieu en trois étapes
 3. L’agent stocke les données dans un espace de travail Analytique de journal, donc il peut être interrogé en fonction des besoins, à l’aide d’analytique, les règles de corrélation et les tableaux de bord.
 
 
-## <a name="step-1-connect-to-your-cef-appliance-via-dedicated-azure-vm"></a>Étape 1 : Se connecter à votre appliance CEF par le biais de machine virtuelle Azure dédiée
+## <a name="step-1-connect-to-your-cef-appliance-via-dedicated-azure-vm"></a>Étape 1 : Se connecter à votre appliance CEF par le biais de machine virtuelle Azure dédiée
 
 Vous devez déployer un agent sur un ordinateur Linux dédié (machine virtuelle ou en local) pour prendre en charge la communication entre l’appliance et Sentinel Azure. Vous pouvez déployer l’agent manuellement ou automatiquement. Déploiement automatique est basé sur des modèles Resource Manager et peut être utilisé uniquement si votre ordinateur Linux dédié est une nouvelle machine virtuelle que vous créez dans Azure.
 
@@ -113,7 +113,7 @@ Si vous n’utilisez pas Azure, déployer manuellement l’agent Sentinel Azure 
       1. Redémarrez l’agent Syslog à l’aide de cette commande : `sudo /opt/microsoft/omsagent/bin/service_control restart [{workspace GUID}]`
       1. Confirmer qu’il n’existe aucune erreur dans le journal de l’agent en exécutant cette commande : `tail /var/opt/microsoft/omsagent/log/omsagent.log`
   
-## <a name="step-2-validate-connectivity"></a>Étape 2 : Valider la connectivité
+## <a name="step-2-validate-connectivity"></a>Étape 2 : Valider la connectivité
 
 Il peut prendre plus de 20 minutes jusqu'à ce que vos journaux commencent à apparaître dans le journal Analytique. 
 

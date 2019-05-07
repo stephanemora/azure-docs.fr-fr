@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 7/13/2018
 ms.author: victorh
-ms.openlocfilehash: a9bff2ab8569a6e070ce5ea4c02b022a172450a3
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 123b3991e2cfe5b41f9d75cd8902609d73e92a91
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62098001"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65202828"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-azure-powershell"></a>Créer une passerelle d’application avec redirection de HTTP vers HTTPS à l’aide d’Azure PowerShell
 
@@ -25,7 +25,7 @@ Vous pouvez utiliser Azure PowerShell pour créer une [passerelle d’applicatio
 Dans cet article, vous apprendrez comment :
 
 > [!div class="checklist"]
-> * Créer un certificat auto-signé
+> * Création d’un certificat auto-signé
 > * Configurer un réseau
 > * Créer une passerelle d’application avec le certificat
 > * Ajouter un écouteur et une règle de redirection
@@ -37,7 +37,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 Ce didacticiel requiert le module Azure PowerShell version 1.0.0 ou version ultérieure. Exécutez `Get-Module -ListAvailable Az` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-az-ps). Pour exécuter les commandes de ce didacticiel, vous devez également exécuter `Login-AzAccount` pour créer une connexion avec Azure.
 
-## <a name="create-a-self-signed-certificate"></a>Créer un certificat auto-signé
+## <a name="create-a-self-signed-certificate"></a>Création d’un certificat auto-signé
 
 Dans un environnement de production, vous devez importer un certificat valide signé par un fournisseur approuvé. Pour ce didacticiel, vous créez un certificat auto-signé à l’aide de [New-SelfSignedCertificate](https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate). Vous pouvez utiliser [Export-PfxCertificate](https://docs.microsoft.com/powershell/module/pkiclient/export-pfxcertificate) avec l’empreinte numérique qui a été retournée pour exporter un fichier pfx du certificat.
 
@@ -123,7 +123,7 @@ $frontendPort = New-AzApplicationGatewayFrontendPort `
 
 ### <a name="create-the-backend-pool-and-settings"></a>Créer le pool principal et les paramètres
 
-Créez le pool back-end nommé *appGatewayBackendPool* pour la passerelle d’application à l’aide de [New-AzApplicationGatewayBackendAddressPool](/powershell/module/az.network/new-azapplicationgatewaybackendaddresspool). Configurez les paramètres pour le pool back-end à l’aide de [New-AzApplicationGatewayBackendHttpSettings](/powershell/module/az.network/new-azapplicationgatewaybackendhttpsettings).
+Créez le pool back-end nommé *appGatewayBackendPool* pour la passerelle d’application à l’aide de [New-AzApplicationGatewayBackendAddressPool](/powershell/module/az.network/new-azapplicationgatewaybackendaddresspool). Configurez les paramètres pour le pool back-end à l’aide de [New-AzApplicationGatewayBackendHttpSettings](/powershell/module/az.network/new-azapplicationgatewaybackendhttpsetting).
 
 ```powershell
 $defaultPool = New-AzApplicationGatewayBackendAddressPool `
@@ -341,7 +341,7 @@ Pour accepter l’avertissement de sécurité si vous avez utilisé un certifica
 Dans ce tutoriel, vous avez appris à :
 
 > [!div class="checklist"]
-> * Créer un certificat auto-signé
+> * Création d’un certificat auto-signé
 > * Configurer un réseau
 > * Créer une passerelle d’application avec le certificat
 > * Ajouter un écouteur et une règle de redirection

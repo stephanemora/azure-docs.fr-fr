@@ -15,19 +15,19 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: apurvajo;cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 3e113639dbe4220b943d49dc610ee22b6416e12a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b561091eedb43e1c77f3c97951beeb92bfcf4751
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60832776"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65202925"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-azure-app-service"></a>Acheter et configurer un certificat SSL pour Azure App Service
 
 Ce tutoriel vous montre comment sécuriser votre [application App Service](https://docs.microsoft.com/azure/app-service/) ou votre [Function App](https://docs.microsoft.com/azure/azure-functions/) en créant (en achetant) un certificat App Service dans [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis), puis comment lier ce certificat à une application App Service.
 
 > [!TIP]
-> Les certificats App Service peuvent être utilisés pour n’importe quel service Azure ou non Azure et ne sont pas limités aux App Services. Pour cela, vous devez créer une copie PFX locale d’un certificat App Service afin de pouvoir l’utiliser où vous voulez. Pour plus d’informations, consultez [Création d’une copie PFX locale d’un certificat App Service](https://blogs.msdn.microsoft.com/appserviceteam/2017/02/24/creating-a-local-pfx-copy-of-app-service-certificate/).
+> Les certificats App Service peuvent être utilisés pour n’importe quel service Azure ou non Azure et ne sont pas limités aux App Services. Pour cela, vous devez créer une copie PFX locale d’un certificat App Service afin de pouvoir l’utiliser où vous voulez. Pour plus d’informations, consultez [Création d’une copie PFX locale d’un certificat App Service](https://blogs.msdn.microsoft.com/benjaminperkins/2017/04/12/export-an-azure-app-service-certificate-pfx-powershell/).
 >
 
 ## <a name="prerequisites"></a>Conditions préalables
@@ -121,7 +121,7 @@ Dans la boîte de dialogue **Liaisons SSL**, configurez la liaison en vous aidan
 
 Accédez à votre application en utilisant `HTTPS://<domain_name>` au lieu de `HTTP://<domain_name>` pour vérifier que le certificat a été configuré correctement.
 
-## <a name="rekey-certificate"></a>Renouvellement de certificat
+## <a name="rekey-certificate"></a>Recréer la clé du certificat
 
 Si vous pensez que privée du certificat de votre clé est compromise, vous pouvez alors renouveler votre certificat. Sélectionnez le certificat dans le [certificats App Service](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) page, puis sélectionnez **renouveler la clé et synchroniser** dans le volet de navigation gauche.
 

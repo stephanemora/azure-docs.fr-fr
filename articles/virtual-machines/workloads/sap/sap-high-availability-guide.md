@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2b88ac9a728606581c3364ac536b6c3fc2691024
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: eb7919c6f4ff1b3cf2480333273a98f2cca9a223
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60720343"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65204933"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver"></a>Haute disponibilité des machines virtuelles Azure pour SAP NetWeaver
 
@@ -283,7 +283,7 @@ Vous avez besoin d’un stockage partagé en cluster pour bénéficier d’une i
 2. Exécutez SIOS DataKeeper Cluster Edition sur les deux nœuds de machine virtuelle.
 3. Configurez SIOS DataKeeper Cluster Edition de sorte qu’il mette en miroir le contenu du volume attaché au disque supplémentaire de la machine virtuelle source vers le volume attaché au disque supplémentaire de la machine virtuelle cible. SIOS DataKeeper extrait les volumes locaux source et cible, puis les présente au clustering de basculement Windows Server comme un seul disque partagé.
 
-Vous trouverez plus d’informations sur SIOS DataKeeper [ici](http://us.sios.com/products/datakeeper-cluster/).
+Vous trouverez plus d’informations sur SIOS DataKeeper [ici](https://us.sios.com/products/datakeeper-cluster/).
 
 ![Figure 3 : Configuration du clustering de basculement Windows Server dans Azure avec SIOS DataKeeper][sap-ha-guide-figure-1002]
 

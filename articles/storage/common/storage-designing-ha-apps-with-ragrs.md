@@ -1,5 +1,5 @@
 ---
-title: Conception d'applications hautement disponibles à l'aide du stockage géographiquement redondant avec accès en lecture (RA-GRS) | Microsoft Docs
+title: Conception d’Applications hautement disponibles à l’aide du stockage géoredondant avec accès en lecture (RA-GRS) | Microsoft Docs
 description: Comment utiliser le stockage RA-GRS Azure pour concevoir une application hautement disponible suffisamment flexible pour gérer les interruptions.
 services: storage
 author: tamram
@@ -10,12 +10,12 @@ ms.date: 01/17/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 6dc497ac2afd54965485ff553bb25f47d7cf0491
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: c4d213a7c08162ef0b107572cfb79b6e96e271d6
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65139340"
+ms.locfileid: "65205497"
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>Conception d'applications hautement disponibles à l'aide du stockage géographiquement redondant avec accès en lecture (RA-GRS)
 
@@ -148,7 +148,7 @@ Vous devez également réfléchir à la façon de gérer plusieurs instances d�
 
 Vous disposez de trois options principales pour la surveillance de la fréquence des nouvelles tentatives dans la région primaire, en vue de déterminer à quel moment basculer vers la région secondaire et faire passer l’application en mode lecture seule.
 
-*   Ajoutez un gestionnaire pour l’événement [**Retrying**](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.operationcontext.retrying.aspx) sur l’objet [**OperationContext**](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.operationcontext.aspx) transmis à vos demandes de stockage. Il s’agit de la méthode présentée dans cet article et utilisée dans l’exemple qui l’accompagne. Ces événements se déclenchent à chaque fois que le client tente une nouvelle demande, ce qui vous permet de suivre la fréquence à laquelle le client rencontre des erreurs renouvelables sur un point de terminaison principal.
+*   Ajoutez un gestionnaire pour l’événement [**Retrying**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.operationcontext.retrying) sur l’objet [**OperationContext**](https://docs.microsoft.com/java/api/com.microsoft.applicationinsights.extensibility.context.operationcontext) transmis à vos demandes de stockage. Il s’agit de la méthode présentée dans cet article et utilisée dans l’exemple qui l’accompagne. Ces événements se déclenchent à chaque fois que le client tente une nouvelle demande, ce qui vous permet de suivre la fréquence à laquelle le client rencontre des erreurs renouvelables sur un point de terminaison principal.
 
     ```csharp 
     operationContext.Retrying += (sender, arguments) =>
@@ -159,7 +159,7 @@ Vous disposez de trois options principales pour la surveillance de la fréquence
     };
     ```
 
-*   Dans la méthode [**Evaluate**](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.retrypolicies.iextendedretrypolicy.evaluate.aspx) d’une stratégie de nouvelle tentative personnalisée, vous pouvez exécuter du code personnalisé chaque fois qu’une nouvelle tentative est effectuée. Le moment où une nouvelle tentative est effectuée est enregistré. En outre, cela vous donne également la possibilité de modifier le comportement de nouvelle tentative.
+*   Dans la méthode [**Evaluate**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.iextendedretrypolicy.evaluate) d’une stratégie de nouvelle tentative personnalisée, vous pouvez exécuter du code personnalisé chaque fois qu’une nouvelle tentative est effectuée. Le moment où une nouvelle tentative est effectuée est enregistré. En outre, cela vous donne également la possibilité de modifier le comportement de nouvelle tentative.
 
     ```csharp 
     public RetryInfo Evaluate(RetryContext retryContext,

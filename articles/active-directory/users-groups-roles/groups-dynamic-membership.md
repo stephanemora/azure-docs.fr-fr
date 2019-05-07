@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 10a78df5169741371c122971afa47cb53ecc5a64
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: eebb68218fd6f9cbda229aae3d9e544e87441562
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60471640"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65192429"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Règles d’appartenance de groupe dynamique dans Azure Active Directory
 
@@ -61,7 +61,7 @@ Les parenthèses sont facultatives pour une expression unique. La longueur total
 Il existe trois types de propriétés utilisables pour construire une règle d’appartenance.
 
 * Boolean
-* String
+* Chaîne
 * Collection de chaînes
 
 Les propriétés utilisateur que vous pouvez utiliser pour créer une expression unique sont les suivantes.
@@ -346,8 +346,8 @@ Les attributs d’appareil suivants peuvent être utilisés.
  Attribut d’appareil  | Valeurs | Exemples
  ----- | ----- | ----------------
  accountEnabled | true false | (device.accountEnabled -eq true)
- displayName | Toute valeur de chaîne. |(device.displayName -eq "Rob Iphone”)
- deviceOSType | Toute valeur de chaîne. | (device.deviceOSType -eq "iPad") ou (device.deviceOSType -eq "iPhone")
+ displayName | Toute valeur de chaîne. |(device.displayName -eq "Rob iPhone")
+ deviceOSType | Toute valeur de chaîne. | (device.deviceOSType -eq "iPad") ou (device.deviceOSType -eq "iPhone")<br>(device.deviceOSType -contains "AndroidEnterprise")<br>(device.deviceOSType -eq "AndroidForWork")
  deviceOSVersion | Toute valeur de chaîne. | (device.deviceOSVersion -eq "9.1")
  deviceCategory | Un nom de catégorie d’appareil valide. | (device.deviceCategory -eq "BYOD")
  deviceManufacturer | Toute valeur de chaîne. | (device.deviceManufacturer -eq "Samsung")

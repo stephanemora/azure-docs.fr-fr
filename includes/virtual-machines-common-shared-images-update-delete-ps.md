@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/25/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 10b95a92f36ad6eb340ae864cbfd9fcbeac371a8
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: d2a85f3947e9993e5d1853e45c6d03586a074cf6
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148779"
+ms.locfileid: "65191720"
 ---
 ## <a name="update-resources"></a>Mettre à jour les ressources
 
@@ -34,7 +34,7 @@ Version d’image :
 - Exclusion du dernier
 - Date de fin de vie
 
-
+Si vous prévoyez d’ajouter des régions de réplica, ne supprimez pas l’image managée source. L’image managée source est nécessaire pour la réplication de la version de l’image vers d’autres régions. 
 
 Pour mettre à jour la description de la galerie, utilisez [AzGallery de mise à jour](https://docs.microsoft.com/powershell/module/az.compute/update-azgallery).
 

@@ -1,20 +1,19 @@
 ---
-title: Réplicas en lecture dans Azure Database pour PostgreSQL
-description: Cet article décrit la fonctionnalité de réplica en lecture dans Azure Database pour PostgreSQL.
-author: WenJason
-ms.author: v-jay
+title: Réplicas en lecture dans Azure Database pour PostgreSQL - serveur unique
+description: Cet article décrit la fonctionnalité de réplica en lecture dans Azure Database pour PostgreSQL - serveur unique.
+author: rachel-msft
+ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-origin.date: 04/01/2019
-ms.date: 04/22/2019
-ms.openlocfilehash: f340f1e42b6993a1f834ab05570c669d4241222b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 1d75d01df74a239ba865d9a4e2b216a410e6069c
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60564355"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65067436"
 ---
-# <a name="read-replicas-in-azure-database-for-postgresql"></a>Réplicas en lecture dans Azure Database pour PostgreSQL
+# <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Réplicas en lecture dans Azure Database pour PostgreSQL - serveur unique
 
 La fonctionnalité de réplica en lecture vous permet de répliquer les données d’un serveur Azure Database pour PostgreSQL sur un serveur en lecture seule. Vous pouvez effectuer la réplication à partir du serveur maître vers cinq réplicas au maximum dans la même région Azure. Les réplicas sont mis à jour de manière asynchrone à l’aide de la technologie de réplication native du moteur PostgreSQL.
 
@@ -51,7 +50,7 @@ Le réplica hérite du compte Administrateur du serveur maître. Tous les compte
 Vous pouvez vous connecter au réplica à l’aide de son nom d’hôte et d’un compte d’utilisateur valide, comme vous le faites sur un serveur Azure Database pour PostgreSQL classique. Sur un serveur nommé **myreplica**, à l’aide du nom d’utilisateur administrateur **myadmin**, vous pouvez vous connecter au réplica via psql :
 
 ```
-psql -h myreplica.postgres.database.chinacloudapi.cn -U myadmin@myreplica -d postgres
+psql -h myreplica.postgres.database.azure.com -U myadmin@myreplica -d postgres
 ```
 
 À l’invite, entrez le mot de passe du compte d’utilisateur.

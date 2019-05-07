@@ -4,7 +4,7 @@ description: Découvrez comment connecter des données de Cisco pour Azure Senti
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: barbkess
+manager: rkarlin
 editor: ''
 ms.assetid: 62029b5c-29d3-4336-8a22-a9db8214eb7e
 ms.service: sentinel
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: 5bc57d448b8aa04b8cb6fb16000205fda8964150
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 965fef42a398180475050a7273a0142a45a32305
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60443872"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65204421"
 ---
 # <a name="connect-your-cisco-asa-appliance"></a>Connecter votre application Cisco ASA 
 
@@ -32,7 +32,7 @@ Vous pouvez connecter Azure Sentinel vers n’importe quel appareil Cisco ASA. C
 > [!NOTE]
 > Données seront stockées dans l’emplacement géographique de l’espace de travail sur lequel vous exécutez Azure Sentinel.
 
-## <a name="step-1-connect-your-cisco-asa-appliance-using-an-agent"></a>Étape 1 : Connecter votre application Cisco ASA à l’aide d’un agent
+## <a name="step-1-connect-your-cisco-asa-appliance-using-an-agent"></a>Étape 1 : Connecter votre application Cisco ASA à l’aide d’un agent
 
 Pour vous connecter à votre appliance de Cisco ASA à Sentinel Azure, vous devez déployer un agent sur un ordinateur dédié (machine virtuelle ou en local) pour prendre en charge la communication entre l’appliance et Sentinel Azure. Vous pouvez déployer l’agent manuellement ou automatiquement. Le déploiement automatique n’est disponible que si votre machine dédiée est une nouvelle machine virtuelle que vous créez dans Azure. 
 
@@ -97,7 +97,7 @@ Si vous n’utilisez pas Azure, déployer manuellement l’agent Sentinel Azure 
       1. Redémarrez l’agent Syslog à l’aide de cette commande : `sudo /opt/microsoft/omsagent/bin/service_control restart [{workspace GUID}]`
       1. Confirmer qu’il n’existe aucune erreur dans le journal de l’agent en exécutant cette commande : `tail /var/opt/microsoft/omsagent/log/omsagent.log`
  
-## <a name="step-2-forward-cisco-asa-logs-to-the-syslog-agent"></a>Étape 2 : Transférer les journaux de Cisco ASA à l’agent Syslog
+## <a name="step-2-forward-cisco-asa-logs-to-the-syslog-agent"></a>Étape 2 : Transférer les journaux de Cisco ASA à l’agent Syslog
 
 Configurer Cisco ASA pour transférer les messages Syslog à votre espace de travail Azure par le biais de l’agent Syslog :
 

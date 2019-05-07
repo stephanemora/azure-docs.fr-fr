@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/12/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 768179f8569eac14166bcbb0a888e1cdbe41d497
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: b97fe5d638b5967f533e489a67d4235bbc5a3db1
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62128413"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65198575"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Intégrer une application à un réseau Azure Virtual Network
 Ce document décrit la fonctionnalité d’intégration au réseau virtuel d’Azure App Service et explique comment la configurer avec des applications dans [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). Les [réseaux virtuels Azure][VNETOverview] vous permettent de placer un grand nombre de vos ressources Azure dans un réseau routable non-Internet. Ces réseaux peuvent ensuite être connectés à vos réseaux locaux avec les technologies VPN. 
@@ -271,9 +271,9 @@ La nouvelle version est une préversion et elle a les caractéristiques suivante
 * Vous pouvez accéder à des ressources via des connexions ExpressRoute sans configuration supplémentaire au-delà de l’intégration du réseau virtuel connecté à ExpressRoute.
 * L’application et le réseau virtuel doivent être dans la même région.
 * La nouvelle fonctionnalité nécessite un sous-réseau non utilisé dans votre réseau virtuel Resource Manager.
+* Votre application doit être dans un déploiement Azure App Service qui est capable de passer à Premium v2.
 * Votre plan App Service doit être un plan Standard, Premium ou PremiumV2.
 * Les charges de travail de production ne sont pas prises en charge sur la nouvelle fonctionnalité tant qu’elle est en préversion.
-* Votre application doit être dans un déploiement Azure App Service qui est capable de passer à Premium v2.
 * La nouvelle fonctionnalité d’intégration au réseau virtuel ne fonctionne pas pour les applications dans un environnement App Service.
 * Vous ne pouvez pas supprimer un réseau virtuel avec une application intégrée.  
 * Les tables de routage et l’appairage global ne sont pas encore disponibles avec la nouvelle intégration au réseau virtuel.  

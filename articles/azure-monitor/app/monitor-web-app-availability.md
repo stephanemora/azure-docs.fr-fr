@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.reviewer: sdash
 ms.author: lagayhar
-ms.openlocfilehash: fe8549027bb7fcf9fcfc2db26816c0b6646c9da6
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 6cd5413d64be2117cc5f64202ecdaaf40f35db4b
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64916379"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205373"
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>Analyse de la disponibilité et de la réactivité d'un site Web
 Après avoir déployé votre application web ou votre site web sur un serveur, vous pouvez configurer des tests pour surveiller sa disponibilité et sa réactivité. [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) envoie des requêtes web à votre application à intervalles réguliers à partir de différents points du monde, et vous alerte si votre application réagit lentement ou pas du tout.
@@ -274,7 +274,7 @@ Si votre test doit se connecter à l’aide d’OAuth, l’approche générale e
 
 ## <a name="performance-tests"></a>Tests de performance
 > [!NOTE]  
-> La service de test de charge basé sur le cloud est déconseillée. Vous pouvez trouver plus d’informations sur la dépréciation, la disponibilité du service et autres services [ici](https://docs.microsoft.com/en-us/azure/devops/test/load-test/overview?view=azure-devops).
+> La service de test de charge basé sur le cloud est déconseillée. Vous pouvez trouver plus d’informations sur la dépréciation, la disponibilité du service et autres services [ici](https://docs.microsoft.com/azure/devops/test/load-test/overview?view=azure-devops).
 
 Vous pouvez effectuer un test de charge sur votre site web. Comme pour le test de disponibilité, vous pouvez envoyer des requêtes uniques ou des requêtes à plusieurs étapes à partir de nos points de présence dans le monde. Contrairement à un test de disponibilité, de nombreuses demandes sont envoyées, afin de simuler la présence de plusieurs utilisateurs simultanés.
 

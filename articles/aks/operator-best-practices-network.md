@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/10/2018
 ms.author: iainfou
-ms.openlocfilehash: 2bdc18ba4dc77178d5fcc5d2ba6d89aa109d923c
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
-ms.translationtype: HT
+ms.openlocfilehash: b26af87de8a09f987d69f0441a817638e626b4af
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65074142"
+ms.locfileid: "65192234"
 ---
 # <a name="best-practices-for-network-connectivity-and-security-in-azure-kubernetes-service-aks"></a>Meilleures pratiques pour la connectivité réseau et la sécurité dans Azure Kubernetes Service (AKS)
 
@@ -47,7 +47,7 @@ Avec une mise en réseau Azure CNI, la ressource de réseau virtuel se trouve da
 
 Pour plus d’informations sur la délégation du principal du service AKS, voir [Déléguer l’accès à d’autres ressources Azure][sp-delegation].
 
-Dans la mesure où chaque nœud et chaque pod reçoit sa propre adresse IP, planifiez les plages d’adresses des sous-réseaux AKS. Le sous-réseau doit être assez grand pour offrir une adresse IP à chacun des nœuds, pods et ressources réseau déployés. Chaque cluster AKS doit être placé dans son propre sous-réseau. Pour autoriser la connexion à des réseaux locaux ou en peering dans Azure, n’utilisez pas de plages d’adresses IP qui recouvrent des ressources réseau existantes. Des limites par défaut s’appliquent au nombre de pods qu’exécute chaque nœud avec une mise en réseau Kubenet ou Azure CNI. Pour gérer les événements de montée en puissance et les mises à niveau de cluster, des adresses IP supplémentaires sont également nécessaires dans le sous-réseau attribué. Cet espace d’adressage supplémentaire est particulièrement important si vous utilisez des conteneurs Windows Server (actuellement en version préliminaire dans ACS), car ces pools de nœuds nécessitent une mise à niveau pour appliquer les derniers correctifs de sécurité. Pour plus d’informations sur les nœuds Windows Server, consultez [mise à niveau d’un pool de nœuds dans ACS][nodepool-upgrade].
+Dans la mesure où chaque nœud et chaque pod reçoit sa propre adresse IP, planifiez les plages d’adresses des sous-réseaux AKS. Le sous-réseau doit être assez grand pour offrir une adresse IP à chacun des nœuds, pods et ressources réseau déployés. Chaque cluster AKS doit être placé dans son propre sous-réseau. Pour autoriser la connexion à des réseaux locaux ou en peering dans Azure, n’utilisez pas de plages d’adresses IP qui recouvrent des ressources réseau existantes. Des limites par défaut s’appliquent au nombre de pods qu’exécute chaque nœud avec une mise en réseau Kubenet ou Azure CNI. Pour gérer les événements de montée en puissance et les mises à niveau de cluster, des adresses IP supplémentaires sont également nécessaires dans le sous-réseau attribué.
 
 Pour calculer l’adresse IP requise, voir [Configurer la mise en réseau Azure CNI dans AKS][advanced-networking].
 
@@ -101,8 +101,6 @@ spec:
 
 Un contrôleur d’entrée est un démon qui s’exécute sur un nœud AKS et surveille les demandes entrantes. Le trafic est ensuite distribué selon les règles définies dans la ressource d’entrée. Le contrôleur d’entrée le plus courant est basé sur [NGINX], mais AKS ne limite pas à un contrôleur spécifique : vous pouvez utiliser d’autres contrôleurs comme [Contour][contour], [HAProxy][haproxy] ou [Traefik][traefik].
 
-Les contrôleurs d’entrée doivent être planifiées sur un nœud Linux. Les nœuds de Windows Server (actuellement en version préliminaire dans ACS) ne doit pas exécuter le contrôleur d’entrée. Utiliser un sélecteur de nœud dans votre manifeste d’YAML ou d’un déploiement de graphique Helm pour indiquer que la ressource doit s’exécuter sur un nœud basés sur Linux. Pour plus d’informations, consultez [utiliser des sélecteurs de nœud pour contrôler où les pods sont planifiées dans AKS][concepts-node-selectors].
-
 Il existe de nombreux scénarios pour l’entrée, notamment ceux des guides pratiques suivants :
 
 * [Créer un contrôleur d’entrée de base avec une connectivité réseau externe][aks-ingress-basic]
@@ -128,7 +126,7 @@ Les ressources d’équilibrage de charge ou d’entrée continuent de s’exéc
 
 L’utilisation de stratégies réseau est une fonctionnalité Kubernetes qui vous permet de contrôler le flux de trafic entre les pods. Vous pouvez choisir d’autoriser ou de refuser le trafic selon des paramètres tels que les étiquettes attribuées, l’espace de noms ou le port de trafic. L’utilisation de stratégies réseau offre une méthode native du cloud pour contrôler le flux de trafic. Les pods étant créés de façon dynamique dans un cluster AKS, les stratégies réseau nécessaires peuvent être appliquées automatiquement. N’utilisez pas des groupes de sécurité réseau Azure pour contrôler le trafic de pod à pod, mais plutôt des stratégies réseau.
 
-Pour utiliser une stratégie réseau, la fonctionnalité doit être activée lorsque vous créez un cluster AKS. Vous ne pouvez pas activer une stratégie réseau sur un cluster AKS existant. Prévoyez le temps nécessaire pour vérifier que vous activez la stratégie réseau sur les clusters et que vous pouvez les utiliser selon vos besoins. Stratégie de réseau doit uniquement être utilisée pour Linux sur les nœuds et pods dans ACS.
+Pour utiliser une stratégie réseau, la fonctionnalité doit être activée lorsque vous créez un cluster AKS. Vous ne pouvez pas activer une stratégie réseau sur un cluster AKS existant. Prévoyez le temps nécessaire pour vérifier que vous activez la stratégie réseau sur les clusters et que vous pouvez les utiliser selon vos besoins.
 
 Une stratégie réseau est créée en tant que ressource Kubernetes à l’aide d’un manifeste YAML. Les stratégies sont appliquées à des pods définis, puis des règles d’entrée ou de sortie définissent la circulation du trafic. L’exemple suivant applique une stratégie réseau à des pods dotés de l’étiquette *app: backend*. La règle d’entrée autorise ensuite uniquement le trafic provenant des pods dotés de l’étiquette *app: frontend* :
 
@@ -188,5 +186,3 @@ Cet article porte sur la sécurité et la connectivité réseau. Pour plus d’i
 [use-network-policies]: use-network-policies.md
 [advanced-networking]: configure-azure-cni.md
 [aks-configure-kubenet-networking]: configure-kubenet.md
-[concepts-node-selectors]: concepts-clusters-workloads.md#node-selectors
-[nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool

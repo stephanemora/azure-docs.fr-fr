@@ -1,19 +1,19 @@
 ---
-title: Configurer la connectivité SSL dans la base de données Azure pour PostgreSQL
-description: Instructions et informations de configuration de la base de données Azure pour PostgreSQL et des applications associées afin d’utiliser correctement les connexions SSL.
+title: Configurer la connectivité SSL dans Azure Database pour PostgreSQL - serveur unique
+description: Instructions et informations de configuration de la base de données Azure pour PostgreSQL - serveur unique et les applications associées afin d’utiliser correctement les connexions SSL.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 03/12/2019
-ms.openlocfilehash: 5a0fc99052b18dc1fa837147aa914a473d27d832
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 56611267872ca79d7d2fe3a08c9b9f49a9b1840b
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60871403"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65067409"
 ---
-# <a name="configure-ssl-connectivity-in-azure-database-for-postgresql"></a>Configurer la connectivité SSL dans la base de données Azure pour PostgreSQL
+# <a name="configure-ssl-connectivity-in-azure-database-for-postgresql---single-server"></a>Configurer la connectivité SSL dans Azure Database pour PostgreSQL - serveur unique
 La base de données Azure pour PostgreSQL préfère connecter vos applications clientes au service PostgreSQL via SSL (Secure Sockets Layer). L’application de connexions SSL entre votre serveur de base de données et vos applications clientes vous protège contre les « attaques de l’intercepteur » en chiffrant le flux de données entre le serveur et votre application.
 
 Par défaut, le service de base de données PostgreSQL est configuré de façon à exiger une connexion SSL. Vous avez la possibilité de désactiver le recours obligatoire au protocole SSL pour la connexion à votre service de base de données si votre application cliente ne prend pas en charge la connectivité SSL. 

@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/02/19
-ms.openlocfilehash: 683f916596b4c77ec1dbc2acf1f91876c0752c08
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: f9087d1fda7574043879983e31d7b608dbe58798
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65028829"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65204965"
 ---
 # <a name="explore-and-prepare-data-with-the-dataset-class-preview"></a>Explorer et préparer des données avec la classe de jeu de données (version préliminaire)
 
@@ -44,7 +44,7 @@ Pour Explorer et préparer vos données, vous devez :
 Prendre un échantillon de vos données pour obtenir une présentation initiale de votre architecture de données et du contenu. À ce stade, le [ `sample()` ](https://docs.microsoft.com//python/api/azureml-core/azureml.core.dataset(class)?view=azure-ml-py#sample-sample-strategy--arguments-) méthode à partir de la classe de jeu de données prend en charge les stratégies d’échantillonnage Top N Simple aléatoire et Stratified.
 
 ```Python
-from azureml.core import Dataset
+from azureml.core.dataset import Dataset
 import random
 
 # create an in-memory Dataset from a local file
@@ -109,7 +109,6 @@ sample_dataset.to_pandas_dataframe()
 1|10534446|HZ277630|4/15/2016 10:00|055XX N KEDZIE AVE|890|THEFT|...
 2|10535059|HZ278872|4/15/2016 4:30|ENREGISTRER LES KILBOURN 004XX S|810|THEFT|...
 
-
 ## <a name="explore-with-summary-statistics"></a>Explorer avec des statistiques de synthèse
 
  Détecter les anomalies, pas les valeurs, ou le nombre d’erreurs avec le [ `get_profile()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#get-profile-arguments-none--generate-if-not-exist-true--workspace-none--compute-target-none-) (méthode). Cette fonction obtient le profil et des statistiques de synthèse de vos données, qui à son tour vous aide à déterminent les opérations de préparation des données nécessaires à appliquer.
@@ -152,7 +151,7 @@ Dans les jeux de données, les valeurs null, NaN et les valeurs qui ne contienne
 Tout d’abord, obtenez la définition la plus récente du jeu de données avec [ `get_definition()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#get-definition-version-id-none-) et alléger les données avec [ `keep_columns()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#keep-columns-columns--multicolumnselection-----azureml-dataprep-api-dataflow-dataflow), donc nous afficher uniquement les colonnes que nous souhaitons adresse.
 
 ```Python
-from azureml.core import Dataset
+from azureml.core.dataset import Dataset
 import azureml.dataprep as dprep
 
 # get the latest definition of Dataset
@@ -222,7 +221,6 @@ Comme indiqué dans le tableau de sortie suivant, la latitude manquante a été 
 1|10516598|False|41.744107|-87.664494
 2|10519196|False|41.780049|-87.000000
 
-
 Mettre à jour la définition du Dataset, [ `update_definition()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset(class)?view=azure-ml-py#update-definition-definition--definition-update-message-) pour conserver les étapes de transformation effectuée.
 
 ```Python
@@ -240,12 +238,13 @@ dataset.head(3)
 
 Souvent, les données nous travaillons avec lors du nettoyage et préparation des données est uniquement un sous-ensemble des données totales que nous avons besoin pour la production. Par conséquent, certaines hypothèses que nous rendre dans le cadre de notre nettoyage peuvent s’avérer pour être false. Par exemple, dans un jeu de données qui met à jour en continu, une colonne qui contenait initialement numéros dans une certaine plage peut contenir une plage plus large de valeurs dans les exécutions ultérieures. Ces erreurs entraînent souvent dans les pipelines rompus ou des données incorrectes.
 
-Jeux de données prend en charge la création des assertions sur les données, qui sont évaluées à mesure que le pipeline s’exécute. Ces assertions nous permettent de vérifier que nos hypothèses sur les données continuent à être précis et, si non, pour gérer les défaillances en conséquence.
+Prise en charge des jeux de données créez des assertions sur les données, qui sont évaluées à mesure que le pipeline s’exécute. Ces assertions nous permettent de vérifier que nos hypothèses sur les données continuent à être précis et, si non, pour gérer les défaillances en conséquence.
 
 Par exemple, si vous souhaitez limiter `Latitude` et `Longitude` valeurs dans votre jeu de données à des plages numériques spécifiques, le [ `assert_value()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#assert-value-columns--multicolumnselection--expression--azureml-dataprep-api-expressions-expression--policy--azureml-dataprep-api-engineapi-typedefinitions-assertpolicy----assertpolicy-errorvalue--1---error-code--str----assertionfailed------azureml-dataprep-api-dataflow-dataflow) méthode garantit que c’est toujours le cas.
 
 ```Python
 from azureml.dataprep import value
+from azureml.core.dataset import Dataset
 
 # get the latest definition of the Dataset
 ds_def = dataset.get_definition()
@@ -282,7 +281,7 @@ print(error.originalValue)
 Un des outils plus avancés pour les jeux de données est la possibilité de dériver des colonnes à l’aide des exemples de résultats souhaités. Cela vous permet de donner le SDK un exemple, donc il peut générer du code pour obtenir les transformations prévues.
 
 ```Python
-from azureml.dataset import Dataset
+from azureml.core.dataset import Dataset
 
 # create an in-memory Dataset from a local file
 dataset = Dataset.auto_read_files('./data/crime.csv')
@@ -302,8 +301,8 @@ Le code suivant fournit deux exemples de sortie souhaitée, (« 2016-04-04 23:5
 ```Python
 ds_def = dataset.get_definition()
 ds_def = ds_def.derive_column_by_example(
-        source_columns = "Date", 
-        new_column_name = "Date_Time_Range", 
+        source_columns = "Date",
+        new_column_name = "Date_Time_Range",
         example_data = [("2016-04-04 23:56:00", "2016-04-04 10PM-12AM"), ("2016-04-15 17:00:00", "2016-04-15 4PM-6PM")]
     )
 ds_def.keep_columns(['ID','Date','Date_Time_Range']).head(3)
@@ -329,7 +328,7 @@ Lorsque vous collecter des données provenant de différentes sources, vous pouv
 Par exemple, la colonne `inspections.business.city` contient plusieurs formulaires du nom de ville « San Francisco ».
 
 ```Python
-from azureml.Dataset import Dataset
+from azureml.core.dataset import Dataset
 
 # create an in-memory Dataset from a local json file
 dataset = Dataset.auto_read_files('./data/city.json')

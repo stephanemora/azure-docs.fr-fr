@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: xiaoharper
 ms.author: amlstudiodocs
 ms.date: 04/25/2019
-ms.openlocfilehash: e3c2587fceed265c9768b6ea6f2ecf3b9a8b7b1a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bee42f8a9582908963c0eef95a2fd04742cd425e
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61094338"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205661"
 ---
 # <a name="powershell-modules-for-azure-machine-learning-studio"></a>Modules PowerShell pour Azure Machine Learning Studio
 
@@ -57,7 +57,7 @@ PowerShell classiques peuvent être installés en même temps que Az ou AzureRM 
 | Gérer les plans d’engagement espace de travail | [New-AzMlCommitmentPlan](https://docs.microsoft.com/powershell/module/az.machinelearning/new-azmlcommitmentplan) | |
 | Gérer les utilisateurs de l’espace de travail |  | [Add-AmlWorkspaceUsers](https://github.com/hning86/azuremlps#add-amlworkspaceusers)|
 | Gérer des services web | [New-AzMlWebService](https://docs.microsoft.com/powershell/module/az.machinelearning/new-azmlwebservice) <br>(« nouveau » web services)|| [New-AmlWebService](https://github.com/hning86/azuremlps#manage-classic-web-service) <br>(services web « classiques ») |
-| Gérer les points de terminaison de service web/clés |  [Get-AzMlWebServiceKeys](https://docs.microsoft.com/powershell/module/az.machinelearning/get-azmlwebservicekeys)|  [Add-AmlWebServiceEndpoint](https://github.com/hning86/azuremlps#manage-classic-web-servcie-endpoint)|
+| Gérer les points de terminaison de service web/clés |  [Get-AzMlWebServiceKey](https://docs.microsoft.com/powershell/module/az.machinelearning/get-azmlwebservicekey)|  [Add-AmlWebServiceEndpoint](https://github.com/hning86/azuremlps#manage-classic-web-servcie-endpoint)|
 | Gérer les modèles formés/jeux de données utilisateur| | [Get-AmlDataset](https://github.com/hning86/azuremlps#manage-user-assets-dataset-trained-model-transform) |
 | Gérer les expériences utilisateur |  | [Start-AmlExperiment](https://github.com/hning86/azuremlps#manage-experiment) |
 | Gérer les modules personnalisés | | [New-AmlCustomModule](https://github.com/hning86/azuremlps#manage-custom-module) |
