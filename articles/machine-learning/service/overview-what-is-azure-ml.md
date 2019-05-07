@@ -6,17 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: overview
-ms.reviewer: jmartens
-author: garyericson
-ms.author: garye
-ms.date: 12/04/2018
+author: j-martens
+ms.author: jmartens
+ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 26248616c6b490de00028d8ecc8a0e225da0c0a6
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 201ee251b195845e33ed3829be8540664811f2ab
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59257108"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65025278"
 ---
 # <a name="what-is-azure-machine-learning-service"></a>Qu'est-ce que le service Azure Machine Learning ?
 
@@ -30,53 +29,69 @@ Les prévisions ou prédictions générées à partir de Machine Learning peuven
 
 ## <a name="what-is-azure-machine-learning-service"></a>Qu'est-ce que le service Azure Machine Learning ?
 
-Le service Azure Machine Learning fournit un environnement cloud que vous pouvez utiliser pour préparer les données, entraîner, tester, déployer, gérer et suivre des modèles Machine Learning.
+Le service Azure Machine Learning fournit un environnement cloud que vous pouvez utiliser pour préparer les données, entraîner, tester, déployer, gérer et suivre des modèles Machine Learning. Commencez à vous entraîner sur votre ordinateur local, puis effectuez un scale-out sur le cloud. Le service prend entièrement en charge les technologies open source comme PyTorch, TensorFlow et scikit-learn et peut être utilisé pour n’importe quel type de machine learning, du machine learning classique au deep learning (apprentissage profond), pour l’apprentissage supervisé ou non supervisé. 
 
-[![Workflow Azure Machine Learning service](./media/overview-what-is-azure-ml/aml.png)](./media/overview-what-is-azure-ml/aml.png#lightbox)
-
-Le service Azure Machine Learning prend entièrement en charge les technologies open source. Vous pouvez utiliser des dizaines de milliers de packages Python open source avec des composants de machine learning. Par exemple : PyTorch, TensorFlow et scikit-learn.
-La prise en charge d’outils complets facilite l’exploration et la préparation interactive des données, puis le développement et le test de modèles. Par exemple : [les notebooks Jupyter](https://jupyter.org) ou l’extension [Azure Machine Learning pour Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai#overview).
-Le service Azure Machine Learning comprend également des fonctionnalités qui [automatisent la génération et le réglage de modèles](tutorial-auto-train-models.md), ce qui vous permet de facilement créer des modèles efficaces et précis.
-
-Avec le service Azure Machine Learning, vous pouvez commencer l’entraînement sur votre ordinateur local, puis effectuer un scale-out sur le cloud. Les nombreuses [cibles de calcul](how-to-set-up-training-targets.md) disponibles, comme la Capacité de calcul Azure Machine Learning et [Azure Databricks](/azure/azure-databricks/what-is-azure-databricks), ainsi que les [services de réglage d’hyperparamètres avancés](how-to-tune-hyperparameters.md), vous permettent de générer de meilleurs modèles plus rapidement en tirant parti de la puissance du cloud.
-
-Une fois que vous disposez du modèle approprié, vous pouvez facilement le déployer dans un conteneur tel que Docker. Vous pouvez donc simplement effectuer le déploiement sur Azure Container Instances ou Azure Kubernetes Service. Vous pouvez aussi utiliser le conteneur dans vos propres déploiements, localement ou dans le cloud. Pour plus d’informations, consultez l’article qui explique [comment et où effectuer le déploiement](how-to-deploy-and-where.md).
-
-Vous pouvez gérer les modèles déployés et suivre plusieurs exécutions pendant les essais pour trouver la meilleure solution.
-Une fois déployé, votre modèle peut retourner des prédictions [en temps réel](how-to-consume-web-service.md) ou [de manière asynchrone](how-to-run-batch-predictions.md) sur de grandes quantités de données.
-
-Et avec les [pipelines de machine learning](concept-ml-pipelines.md) avancés, vous pouvez collaborer sur toutes les étapes de préparation des données et d’entraînement, d’évaluation et de déploiement du modèle.
+Explorez et préparez des données, entraînez et testez des modèles, puis déployez-les à l’aide d’outils élaborés comme :
++ Une [interface visuelle](ui-quickstart-run-experiment.md) dans laquelle vous pouvez glisser-déplacer des modules afin de générer vos expériences et déployer des modèles
++ Des [notebooks Jupyter](https://jupyter.org) dans lesquels vous pouvez utiliser les [SDK](https://docs.microsoft.com/azure/machine-learning/service/#reference) pour écrire votre propre code, comme [ces exemples de notebooks](https://aka.ms/aml-notebooks)
++ [Extension Visual Studio Code](how-to-vscode-tools.md)
 
 ## <a name="what-can-i-do-with-azure-machine-learning-service"></a>Que faire avec Azure Machine Learning ?
 
-Avec le <a href="https://aka.ms/aml-sdk" target="_blank">SDK Python principal</a> et le <a href="https://aka.ms/data-prep-sdk" target="_blank">SDK de préparation des données</a> pour Azure Machine Learning ainsi que les packages Python open source, vous pouvez créer et entraîner vous-même des modèles Machine Learning extrêmement précis et des modèles d’apprentissage profond dans un espace de travail du service Azure Machine Learning.
-Vous pouvez choisir parmi les nombreux composants de machine learning disponibles dans les packages Python open source, par exemple :
+En utilisant le <a href="https://aka.ms/aml-sdk" target="_blank">kit SDK Python Azure Machine Learning</a> avec des packages Python open source ou en utilisant l’[interface visuelle](ui-quickstart-run-experiment.md), vous pouvez générer et entraîner vous-même des modèles Machine Learning et des modèles de deep learning extrêmement précis dans un espace de travail Azure Machine Learning service.
 
-- <a href="https://scikit-learn.org/stable/" target="_blank">Scikit-learn</a>
-- <a href="https://www.tensorflow.org" target="_blank">Tensorflow</a>
-- <a href="https://pytorch.org" target="_blank">PyTorch</a>
-- <a href="https://mxnet.io" target="_blank">MXNet</a>
+Vous pouvez choisir parmi les nombreux composants de machine learning disponibles dans les packages Python open source, comme <a href="https://scikit-learn.org/stable/" target="_blank">Scikit-learn</a>, <a href="https://www.tensorflow.org" target="_blank">Tensorflow</a>, <a href="https://pytorch.org" target="_blank">PyTorch</a> et <a href="https://mxnet.io" target="_blank">MXNet</a>.
 
-Le service Azure Machine Learning peut aussi entraîner automatiquement un modèle et l’optimiser automatiquement pour vous.
-Pour en voir un exemple, consultez [Entraîner un modèle de régression avec le machine learning automatisé](tutorial-auto-train-models.md).
+Si vous écrivez du code ou utilisez l’interface visuelle, vous pouvez suivre plusieurs exécutions que vous expérimentez afin de trouver la meilleure solution et gérer les modèles déployés.
 
-Une fois que vous avez un modèle, utilisez-le pour créer un conteneur (par exemple Docker) qui peut être déployé localement pour les tests. Une fois les tests effectués, vous pouvez déployer le modèle sous forme de service web de production dans Azure Container Instances ou Azure Kubernetes Service. Pour plus d’informations, consultez l’article qui explique [comment et où effectuer le déploiement](how-to-deploy-and-where.md).
+### <a name="code-first-experience"></a>Expérience orientée code
 
-Vous pouvez ensuite gérer vos modèles déployés à l’aide du [SDK Azure Machine Learning pour Python](https://aka.ms/aml-sdk) ou du [portail Azure](https://portal.azure.com/).
-Vous pouvez évaluer les métriques du modèle, réentraîner et redéployer de nouvelles versions du modèle, tout en suivant les expériences du modèle.
+Commencez à vous entraîner sur votre ordinateur local en utilisant le <a href="https://aka.ms/aml-sdk" target="_blank">SDK Python Azure Machine Learning</a>, puis effectuez un scale-out sur le cloud. Les nombreuses [cibles de calcul](how-to-set-up-training-targets.md) disponibles, comme la Capacité de calcul Azure Machine Learning et [Azure Databricks](/azure/azure-databricks/what-is-azure-databricks), ainsi que les [services de réglage d’hyperparamètres avancés](how-to-tune-hyperparameters.md), vous permettent de générer de meilleurs modèles plus rapidement en tirant parti de la puissance du cloud.
+
+Vous pouvez aussi [automatiser l’entraînement et l’optimisation de modèle](tutorial-auto-train-models.md) à l’aide du SDK.
+
+### <a name="code-free--low-code-experience"></a>Expérience avec peu ou pas de code
+
+Pour l’entraînement sans code, essayez :
+
++ L’interface visuelle pour l’expérimentation et le déploiement par glisser-déplacer
+    
+    ![L’interface visuelle pour Azure Machine Learning service](media/overview-what-is-azure-ml/visual-interface.png)
+
++ L’option du portail Azure pour les expériences ML automatisées
+
+### <a name="operationalization-mlops"></a>Opérationnalisation (MLOps)
+
+Quand vous disposez du modèle adéquat, vous pouvez facilement l’utiliser dans un service web, sur un appareil IoT ou à partir de Power BI. Pour plus d’informations, consultez l’article qui explique [comment et où effectuer le déploiement](how-to-deploy-and-where.md). 
+
+Vous pouvez ensuite gérer vos modèles déployés à l’aide du [SDK Azure Machine Learning pour Python](https://aka.ms/aml-sdk) ou du [portail Azure](https://portal.azure.com/). 
+
+Une fois déployé, votre modèle peut retourner des prédictions [en temps réel](how-to-consume-web-service.md) ou [de manière asynchrone](how-to-run-batch-predictions.md) sur de grandes quantités de données.
+
+Et avec les [pipelines de machine learning](concept-ml-pipelines.md) avancés, vous pouvez collaborer à chaque étape, de la préparation des données jusqu’à l’entraînement et à l’évaluation des modèles, en passant par le déploiement.
 
 Pour commencer à utiliser le service Azure Machine Learning, consultez [Étapes suivantes](#next-steps).
 
-## <a name="how-is-azure-machine-learning-service-different-from-machine-learning-studio"></a>En quoi le service Azure Machine Learning est-il différent de Machine Learning Studio ?
+## <a name="how-does-azure-machine-learning-service-differ-from-studio"></a>En quoi Azure Machine Learning service se distingue-t-il de Studio ?
 
-[Azure Machine Learning Studio](../studio/what-is-ml-studio.md) est un espace de travail collaboratif visuel par glisser-déplacer dans lequel vous pouvez créer, tester et déployer des solutions de machine learning sans avoir besoin d’écrire du code. Il utilise des algorithmes de machine learning prédéfinis et préconfigurés, ainsi que des modules de gestion de données.
+[Machine Learning Studio](../studio/what-is-ml-studio.md) est un espace de travail visuel collaboratif par glisser-déplacer dans lequel vous pouvez générer, tester et déployer des solutions de machine learning sans avoir à écrire du code. Il s’appuie sur des algorithmes de machine learning et des modules de traitement des données prédéfinis et préconfigurés, mais aussi sur une plateforme de calcul propriétaire.
 
-Utilisez Machine Learning Studio lorsque vous souhaitez essayer rapidement et simplement des modèles Machine Learning et que les algorithmes de machine learning intégrés sont suffisants pour vos solutions.
+Azure Machine Learning service propose les deux kits SDK **plus** une interface visuelle (préversion) qui vous permet de préparer rapidement les données, d’entraîner et de déployer des modèles Machine Learning. Cette interface visuelle (préversion) offre une expérience de glisser-déplacer similaire à Studio. Cependant, contrairement à la plateforme de calcul propriétaires de Studio, l’interface visuelle utilise vos propres ressources de calcul et est entièrement intégré dans Azure Machine Learning service.
 
-Utilisez le service Machine Learning si vous travaillez dans un environnement Python, si vous souhaitez davantage de contrôle sur vos algorithmes de machine learning ou si vous souhaitez utiliser des bibliothèques de machine learning open source.
+Voici une comparaison rapide.
+
+|| Machine Learning Studio | Azure Machine Learning service :<br/>Interface visuelle|
+|---| --- | --- |
+|| Disponibilité générale (GA) | En préversion|
+|Modules pour l’interface| Divers | Jeu initial de modules courants|
+|Cibles de calcul d’entraînement| Cible de calcul propriétaire, prise en charge CPU uniquement| Prend en charge le calcul Azure Machine Learning, GPU ou CPU<br/>(Autres calculs pris en charge dans le SDK)|
+|Cibles de calcul de déploiement| Format de service web propriétaire, non personnalisable | Options de sécurité d’entreprise et Azure Kubernetes Service. <br/>([Autres calculs](how-to-deploy-and-where.md) pris en charge dans le SDK) |
+|Entraînement de modèle automatisé et optimisation des hyperparamètres | Non  | Pas encore dans l’interface visuelle. <br/> (Pris en charge dans le SDK et sur le portail Azure). | 
+
+Essayez l’interface visuelle (préversion) avec le [Démarrage rapide : Préparer et visualiser des données sans écrire de code](ui-quickstart-run-experiment.md)
 
 > [!NOTE]
-> Les modèles créés dans Azure Machine Learning Studio ne peuvent pas être déployés ni gérés par le service Azure Machine Learning.
+> Les modèles créés dans Studio ne peuvent pas être déployés ni gérés par Azure Machine Learning service. En revanche, les modèles créés et déployés dans l’interface visuelle du service peuvent être gérés via l’espace de travail Azure Machine Learning service.
 
 ## <a name="free-trial"></a>Essai gratuit
 

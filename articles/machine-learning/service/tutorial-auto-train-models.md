@@ -11,12 +11,12 @@ ms.author: nilesha
 ms.reviewer: trbye
 ms.date: 04/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4d09fca68af55b577c47316363ed386e98525baf
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: d6e478cba13c7b4cf628535a4a1ecdbec344a733
+ms.sourcegitcommit: eea74d11a6d6ea6d187e90e368e70e46b76cd2aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925758"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65035463"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>Didacticiel : Utiliser le Machine Learning automatisé pour générer votre modèle de régression
 
@@ -54,16 +54,16 @@ Passez à la section [Configurer votre environnement de développement](#start) 
 
 Obtenir tous ces prérequis à partir de l’une des sections ci-dessous.
 
-* Utiliser [Azure Notebooks](#azure)
+* Utiliser un [serveur de notebooks cloud dans votre espace de travail](#azure) 
 * Utiliser [votre propre serveur de notebooks](#server)
 
-### <a name="azure"></a>Utiliser Azure Notebooks : Notebooks Jupyter gratuits dans le cloud
+### <a name="azure"></a>Utiliser un serveur de notebooks cloud dans votre espace de travail
 
-La prise en main d’Azure Notebooks est simple. Le [kit SDK Azure Machine Learning pour Python](https://aka.ms/aml-sdk) est déjà installé et configuré dans [Azure Notebooks](https://notebooks.azure.com/). L’installation et les futures mises à jour sont gérées automatiquement par le biais des services Azure.
-
-Après avoir terminé les étapes ci-dessous, exécutez le notebook **tutorials/regression-part2-automated-ml.ipynb** dans votre projet **Bien démarrer**.
+Il est facile de bien démarrer avec votre propre serveur de notebooks basé sur le cloud. Le [kit SDK Azure Machine Learning pour Python](https://aka.ms/aml-sdk) est déjà installé et configuré pour vous une fois que vous avez créé cette ressource cloud.
 
 [!INCLUDE [aml-azure-notebooks](../../../includes/aml-azure-notebooks.md)]
+
+* Après avoir lancé la page web de notebook, exécutez le notebook **utorials/regression-part2-automated-ml.ipynb**.
 
 ### <a name="server"></a>Utiliser votre propre serveur de notebooks Jupyter
 

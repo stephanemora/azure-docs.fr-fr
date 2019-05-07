@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 2/20/2019
+ms.date: 05/02/2019
 ms.author: fmegen
-ms.openlocfilehash: fe565d63e72b5ec2798dde03ba4f4bd9ff4f48a7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 771168a13d7192581aae2ff4128e979b6924484a
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59009397"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65020669"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-java"></a>Démarrage rapide : reconnaissance vocale à l’aide du SDK Speech pour Java
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-Dans cet article, vous créez une application console Java au moyen du [kit SDK Speech](speech-sdk.md). Vous transcrivez la reconnaissance vocale en temps réel à partir du microphone de votre PC. L’application est générée avec le package Maven du SDK Speech et l’IDE Eclipse Java (v4.8) sur Windows 64 bits, Ubuntu Linux 64 bits 16.04 / 18.04, ou macOS 10.13 ou ultérieur. Elle s’exécute sur un environnement d’exécution Java 8 (JRE) 64 bits.
+Dans cet article, vous créez une application console Java au moyen du [kit SDK Speech](speech-sdk.md). Vous transcrivez la reconnaissance vocale en temps réel à partir du microphone de votre PC. L’application est générée avec le package Maven du SDK Speech et l’IDE Eclipse Java (v4.8) sur Windows 64 bits, Linux 64 bits (Ubuntu 16.04, Ubuntu 18.04, Debian 9) ou sur macOS version 10.13 ou ultérieure. Elle s’exécute sur un environnement d’exécution Java 8 (JRE) 64 bits.
 
 > [!NOTE]
 > Pour le kit SDK Speech et l’appareil Roobo, consultez le [kit SDK Speech Devices](speech-devices-sdk.md).
@@ -30,21 +30,29 @@ Dans cet article, vous créez une application console Java au moyen du [kit SDK 
 
 Ce démarrage rapide nécessite :
 
-* Système d’exploitation : Windows (64 bits), Ubuntu Linux 16.04/18.04 (64 bits), ou macOS 10.13 ou ultérieur
+* Système d’exploitation : Windows 64 bits, Linux 64 bits (Ubuntu 16.04, Ubuntu 18.04, Debian 9) ou macOS version 10.13 ou ultérieure
 * [IDE Eclipse Java](https://www.eclipse.org/downloads/)
 * [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) ou [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * Clé d’abonnement Azure pour le service Speech. [Vous pouvez en obtenir une gratuitement](get-started.md).
 
-Si vous exécutez Ubuntu 16.04/18.04, vérifiez que ces dépendances sont installées avant de démarrer Eclipse.
+Si vous exécutez Linux, vérifiez que ces dépendances sont installées avant de démarrer Eclipse.
 
-```console
-sudo apt-get update
-sudo apt-get install build-essential libssl1.0.0 libasound2 wget
-```
+* Sur Ubuntu :
+
+  ```sh
+  sudo apt-get update
+  sudo apt-get install libssl1.0.0 libasound2
+  ```
+
+* Sur Debian 9 :
+
+  ```sh
+  sudo apt-get update
+  sudo apt-get install libssl1.0.2 libasound2
+  ```
 
 Si vous exécutez Windows (64 bits), vérifiez que vous avez installé Microsoft Visual C++ Redistributable pour votre plateforme.
 * [Télécharger Redistributable Visual C++ pour Visual Studio 2017](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)
-
 
 ## <a name="create-and-configure-project"></a>Créer et configurer un projet
 

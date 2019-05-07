@@ -1,0 +1,62 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentation Personalizer
+metadata:
+  document_id: null
+  title: "Personalizer\_- Tutoriels, Guides de démarrage rapide, Informations de référence sur l’API"
+  description: 'Apprenez à utiliser le service Personalizer pour permettre à votre application de choisir la meilleure expérience à montrer à vos utilisateurs, en apprenant de leur comportement en temps réel.'
+  author: nitinme
+  manager: cgronlun
+  ms.service: cognitive-services
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 05/07/2019
+  ms.author: nitinme
+abstract:
+  description: 'Azure Personalizer est un service d’API cloud qui vous permet de choisir la meilleure expérience à montrer à vos utilisateurs, en apprenant de leur comportement en temps réel.'
+sections:
+  - items:
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 3
+        items:
+          - href: /azure/cognitive-services/personalizer/what-is-personalizer
+            html: <p>Découvrez les actions et le mode de fonctionnement de Personalizer.</p>
+            image:
+              src: ../media/index/i_guidelines.svg
+            title: "Qu’est-ce que Personalizer\_?"
+          - href: /azure/cognitive-services/personalizer/how-personalizer-works
+            html: <p>Découvrez le fonctionnement de la boucle de rétroaction Personalizer avec les API de classement et de récompense.</p>
+            image:
+              src: ../media/index/i_overview.svg
+            title: Fonctionnement de Personalizer
+          - href: /azure/cognitive-services/personalizer/ethics-responsible-use
+            html: <p>Implémentez une personnalisation de manière à ce que votre entreprise et votre service inspirent confiance.</p>
+            image:
+              src: ../media/index/i_guidelines.svg
+            title: Déontologie et responsabilité
+  - title: "Démarrages en 5\_minutes"
+    items:
+      - type: paragraph
+        text: ''
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: ../media/index/logo_Csharp.svg
+            href: csharp-quickstart-commandline-feedback-loop.md
+            text: 'C#'
+  - title: Informations de référence
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: API REST
+            html: "<p><a href=\"https://aka.ms/personalizer-rest-api-docs\">\_API Personalizer</a></p>"
+          - title: PowerShell
+            html: '<p><a href="https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>'
+          - title: Interface de ligne de commande
+            html: '<p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az-cognitiveservices-list">Interface de ligne de commande Azure</a></p>'

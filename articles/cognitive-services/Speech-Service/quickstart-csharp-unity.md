@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: wolfma
-ms.openlocfilehash: cdde9f0ec69bec48ae0fb747db0cc49e81920817
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 3cedfaf1ae16c17026314fc24dbdc7bb11494caf
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57872560"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65020951"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-unity-beta"></a>Démarrage rapide : Reconnaissance vocale avec le SDK Speech pour Unity (bêta).
 
@@ -27,14 +27,15 @@ Si vous ne connaissez pas Unity, nous vous recommandons d’étudier le [manuel 
 
 > [!NOTE]
 > Le SDK Speech pour Unity est actuellement en version bêta.
-> Il prend en charge Windows x86 et x64 (application de bureau autonome ou plateforme Windows universelle) et Android (ARM32/64, x86).
+> Il prend en charge Windows Desktop (x86 et x64), ou la plateforme Windows universelle (x86, x64, ARM/ARM64), et Android (x86, ARM32/64).
 
 ## <a name="prerequisites"></a>Prérequis
 
 Pour mener à bien ce projet, vous aurez besoin des éléments suivants :
 
-* [Unity 2018.3 ou ultérieur](https://store.unity.com/)
+* [Unity version 2018.3 ou ultérieure](https://store.unity.com/) avec [Unity 2019.1 pour la prise en charge d’UWP ARM64](https://blogs.unity3d.com/2019/04/16/introducing-unity-2019-1/#universal)
 * [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
+     * Pour la prise en charge d’ARM64, installez les [outils de génération facultatifs pour ARM64 et le SDK Windows 10 pour ARM64](https://blogs.windows.com/buildingapps/2018/11/15/official-support-for-windows-10-on-arm-development/). 
 * Clé d’abonnement pour le service Speech. [Vous pouvez en obtenir une gratuitement](get-started.md).
 * Accès au microphone de l’ordinateur.
 

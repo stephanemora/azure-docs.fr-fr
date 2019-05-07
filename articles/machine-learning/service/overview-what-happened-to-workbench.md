@@ -11,12 +11,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 01/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: 217eecfe8f380718361c2f1b56965e4af85d54c9
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 61c5d60f0c2fab3786aa6adfa194c0716e621ea3
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59526705"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65023644"
 ---
 # <a name="what-happened-to-azure-machine-learning-workbench"></a>Qu’est-il arrivé à Azure Machine Learning Workbench ?
 
@@ -87,7 +87,7 @@ run = exp.submit(source_directory = script_folder, script = 'train.py', run_conf
 
 Les modèles que vous avez enregistrés dans votre ancien registre de modèles doivent être migrés vers votre nouvel espace de travail si vous voulez continuer à les utiliser. Pour migrer vos modèles, téléchargez les modèles et réinscrivez-les dans votre nouvel espace de travail. 
 
-Les images que vous avez créées dans votre ancien registre d’images doivent être recréées dans le nouvel espace de travail pour continuer à les utiliser. Vous pouvez recréer ces images en suivant les sections [Configurer et créer une image](how-to-deploy-and-where.md#configureimage). 
+Les images que vous avez créées dans votre ancien registre d’images ne peuvent pas être directement migrées vers le nouvel espace de travail. Dans la plupart des cas, le modèle peut être déployé sans avoir à créer une image. Si nécessaire, vous pouvez créer une image pour le modèle dans le nouvel espace de travail. Pour plus d’informations, consultez [Gérer, inscrire, déployer et surveiller des modèles Machine Learning](concept-model-management-and-deployment.md).
 
 ## <a name="what-about-deployed-web-services"></a>Qu’en est-il des services web déployés ?
 

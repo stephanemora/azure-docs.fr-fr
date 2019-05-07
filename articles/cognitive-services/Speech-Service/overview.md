@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: overview
-ms.date: 04/03/2019
+ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 61f22568aa6e6cf04963b40ad7c47163e87b9800
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 2e82e033e56af10bd8e676570e9409941753eb38
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59010190"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65020981"
 ---
 # <a name="what-are-the-speech-services"></a>Qu’est-ce que Speech Services ?
 
-Les services Speech Azure sont l’unification de la reconnaissance vocale, de la synthèse vocale et de la traduction vocale dans un seul abonnement Azure. Vous pouvez aisément activer vos applications, outils et appareils pour les services Speech avec le [Kit de développement logiciel (SDK) Speech](speech-sdk-reference.md), le [Kit de développement logiciel (SDK) Speech Devices](speech-devices-sdk-qsg.md) ou des [API REST](rest-apis.md).
+Les services Speech Azure sont l’unification de la reconnaissance vocale, de la synthèse vocale et de la traduction vocale dans un seul abonnement Azure. Vous pouvez aisément activer vos applications, outils et appareils pour les services Speech avec le [Kit de développement logiciel (SDK) Speech](speech-sdk-reference.md), le [Kit de développement logiciel (SDK) Speech Devices](https://aka.ms/sdsdk-quickstart) ou des [API REST](rest-apis.md).
 
 > [!IMPORTANT]
 > Les services Speech ont remplacé l’API Reconnaissance vocale Bing, Translator Speech et Custom Speech. Pour obtenir des instructions de migration, voir *Guides pratiques > Migration*.
@@ -30,6 +30,7 @@ Ces fonctionnalités constituent les services Speech Azure. Pour en savoir plus 
 |---------|---------|-------------|-----|------|
 | [Reconnaissance vocale](speech-to-text.md) | Reconnaissance vocale | La reconnaissance vocale transcrit en temps réel des flux audio en texte que vos applications, outils ou appareils peuvent utiliser ou afficher. Utilisez la reconnaissance vocale avec [LUIS (Language Understanding Intelligent Service)](https://docs.microsoft.com/azure/cognitive-services/luis/) pour déduire les intentions de l’utilisateur à partir des transcriptions et agir sur des commandes vocales. | [Oui](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [Oui](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | | [Transcription par lot](batch-transcription.md) | La transcription par lot permet de transcrire une reconnaissance vocale asynchrone de gros volumes de données. Il s’agit d’un service basé sur REST qui utilise le même point de terminaison que la personnalisation et la gestion des modèles. | Non  | [Oui](https://westus.cris.ai/swagger/ui/index) |
+| | [Service de transcription de conversation](conversation-transcription-service.md) | Permet la reconnaissance vocale en temps réel, l’identification de l’orateur et la structuration (diarisation). Il est parfait pour la transcription de rencontres en personne, avec possibilité de distinguer les orateurs. | OUI | Non  |
 | | [Personnalisation](#customize-your-speech-experience) | Si vous utilisez la reconnaissance vocale pour la reconnaissance et la transcription dans un environnement unique, vous pouvez créer et former des modèles de prononciation, de langue et acoustiques personnalisés pour prendre en compte un bruit ambiant ou le vocabulaire spécifique d’un secteur. | Non  | [Oui](https://westus.cris.ai/swagger/ui/index) |
 | [Synthèse vocale](text-to-speech.md) | Synthèse vocale | La synthèse vocale convertit le texte d’entrée en parole synthétisée quasi humaine. Faites votre choix parmi les voix standard et les voix neuronales (voir [Prise en charge linguistique](language-support.md)). | [Oui](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [Oui](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | | [Personnalisation](#customize-your-speech-experience) | Créez des polices de voix personnalisées propres à vos marques ou produits. | Non  | [Oui](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
@@ -39,7 +40,8 @@ Ces fonctionnalités constituent les services Speech Azure. Pour en savoir plus 
 
 Découvrez les nouveautés introduites dans les services Speech Azure.
 
-* Avril 2019 - Publication du SDK Speech 1.4.0 avec prise en charge de la synthèse vocale (bêta) pour C++, C# et Java sur Windows et Linux. En outre, le SDK prend désormais en charge les formats audio MP3 et Opus/Ogg pour C++ et C# sur Linux. Pour la liste complète des mises à jour, des améliorations et des problèmes connus, consultez [Notes de publication](releasenotes.md). 
+* Mai 2019  - Publication du SDK Speech 1.5.0. Pour la liste complète des mises à jour, des améliorations et des problèmes connus, consultez [Notes de publication](releasenotes.md).
+* Avril 2019 - Publication du SDK Speech 1.4.0 avec prise en charge de la synthèse vocale (bêta) pour C++, C# et Java sur Windows et Linux. En outre, le SDK prend désormais en charge les formats audio MP3 et Opus/Ogg pour C++ et C# sur Linux. Pour la liste complète des mises à jour, des améliorations et des problèmes connus, consultez [Notes de publication](releasenotes.md).
 * Mars 2019 - Un nouveau point de terminaison de synthèse vocale (TTS), qui retourne la liste complète des voix disponibles dans une région spécifique, est désormais disponible. De plus, de nouvelles régions sont désormais prises en charge pour la synthèse vocale. Pour plus d’informations, consultez [Informations de référence sur l’API de synthèse vocale (REST)](rest-text-to-speech.md).
 * Février 2019 : publication du Kit de développement logiciel (SDK) Speech 1.3.0 avec prise en charge de [Unity (bêta)](quickstart-csharp-unity.md). Ajout de la prise en charge de la classe `AudioInput` qui vous permet de choisir la source de diffusion en continu pour l’audio. Pour la liste complète des améliorations et problèmes connus, voir les [Notes de publication](releasenotes.md).
 * Décembre 2018 : publication du Kit de développement logiciel (SDK) Speech 1.2.0 avec prise en charge de [Python](quickstart-python.md) et [Node.js](quickstart-js-node.md), ainsi que d’Ubuntu 18.04 LTS. Pour plus d’informations, voir les [Notes de publication](releasenotes.md).

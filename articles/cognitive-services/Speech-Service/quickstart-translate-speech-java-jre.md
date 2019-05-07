@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 03/13/2019
+ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 36eaaeabcf888aac10bcf9b8a27e3590d21079ec
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5dc1852a57970c2994d9f36cbd7242a18b580a61
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57897098"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65020993"
 ---
 # <a name="quickstart-translate-speech-with-the-speech-sdk-for-java"></a>Démarrage rapide : Traduire une entrée vocale à l’aide du kit de développement logiciel (SDK) Speech pour Java
 
-Dans ce guide de démarrage rapide, vous allez créer une application Java simple qui capture les paroles de l’utilisateur à partir du microphone de votre ordinateur, les traduit, puis transcrit le texte traduit à la ligne de commande en temps réel. Cette application est conçue pour une exécution sous Windows 64 bits ou Ubuntu Linux 64 bits 16.04/18.04. Elle est générée avec le package Maven du SDK Speech et l’IDE Eclipse Java (v4.64).
+Dans ce guide de démarrage rapide, vous allez créer une application Java simple qui capture les paroles de l’utilisateur à partir du microphone de votre ordinateur, les traduit, puis transcrit le texte traduit à la ligne de commande en temps réel. Cette application est conçue pour s’exécuter sur Windows 64 bits ou Linux 64 bits (Ubuntu 16.04, Ubuntu 18.04, Debian 9) ou sur macOS version 10.13 ou ultérieure. Elle est générée avec le package Maven du SDK Speech et l’IDE Eclipse Java.
 
 Pour obtenir la liste complète des langues disponibles pour la traduction vocale, consultez [Prise en charge linguistique](language-support.md).
 
@@ -27,17 +27,26 @@ Pour obtenir la liste complète des langues disponibles pour la traduction vocal
 
 Ce démarrage rapide nécessite :
 
-* Système d’exploitation : Windows 64 bits ou Ubuntu Linux 64 bits 16.04/18.04
+* Système d’exploitation : Windows 64 bits, Linux 64 bits (Ubuntu 16.04, Ubuntu 18.04, Debian 9) ou macOS version 10.13 ou ultérieure
 * [IDE Eclipse Java](https://www.eclipse.org/downloads/)
 * [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) ou [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * Clé d’abonnement Azure pour le service Speech. [Vous pouvez en obtenir une gratuitement](get-started.md).
 
-Si vous exécutez Ubuntu 16.04/18.04, vérifiez que ces dépendances sont installées avant de démarrer Eclipse.
+Si vous exécutez Linux, vérifiez que ces dépendances sont installées avant de démarrer Eclipse.
 
-```console
-sudo apt-get update
-sudo apt-get install build-essential libssl1.0.0 libasound2 wget
-```
+ * Sur Ubuntu :
+
+   ```sh
+   sudo apt-get update
+   sudo apt-get install libssl1.0.0 libasound2
+   ```
+
+ * Sur Debian 9 :
+
+   ```sh
+   sudo apt-get update
+   sudo apt-get install libssl1.0.2 libasound2
+   ```
 
 > [!NOTE]
 > Pour le kit SDK Speech et l’appareil Roobo, consultez le [kit SDK Speech Devices](speech-devices-sdk.md).
