@@ -54,7 +54,7 @@ Les propriétés prises en charge pour le service lié Amazon Redshift sont les 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | type | La propriété type doit être définie sur : **AmazonRedshift** | Oui |
-| serveur |Nom d’hôte ou adresse IP du serveur Amazon Redshift. |Oui |
+| server |Nom d’hôte ou adresse IP du serveur Amazon Redshift. |Oui |
 | port |Le numéro du port TCP utilisé par le serveur Amazon Redshift pour écouter les connexions clientes. |Non, la valeur par défaut est 5439 |
 | database |Nom de la base de données Amazon Redshift. |Oui |
 | username |Nom d’utilisateur ayant accès à la base de données. |Oui |
@@ -213,12 +213,12 @@ Lors de la copie de données à partir d’Amazon Redshift, les mappages suivant
 | BOOLEAN |String |
 | CHAR |String |
 | DATE |DateTime |
-| DÉCIMAL |Decimal |
+| DECIMAL |Decimal |
 | DOUBLE PRECISION |Double |
 | INTEGER |Int32 |
 | REAL |Single |
 | SMALLINT |Int16 |
-| TEXTE |String |
+| TEXT |String |
 | TIMESTAMP |DateTime |
 | VARCHAR |String |
 
