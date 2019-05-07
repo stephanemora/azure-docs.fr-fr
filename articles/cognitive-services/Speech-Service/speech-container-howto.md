@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: e000c034d10efc652f328fa8d1db8d1902fac693
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 2adcbad55236917685ddcdbabe4809f36ab5a730
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026116"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153046"
 ---
 # <a name="install-and-run-speech-service-containers"></a>Installer et exécuter des conteneurs de Service de reconnaissance vocale
 
@@ -178,7 +178,7 @@ Une fois que le conteneur est sur l’[ordinateur hôte](#the-host-computer), ap
 
 Utilisez la commande [docker run](https://docs.docker.com/engine/reference/commandline/run/) pour exécuter l’un des trois conteneurs. La commande utilise les paramètres suivants :
 
-**La version préliminaire privée**, les paramètres de facturation doivent être valides pour démarrer le conteneur, mais vous n’êtes pas facturé pour l’utilisation.
+**Dans la version préliminaire**, les paramètres de facturation doivent être valides pour démarrer le conteneur, mais vous n’êtes pas facturé pour l’utilisation.
 
 | Placeholder | Valeur |
 |-------------|-------|
@@ -226,7 +226,7 @@ Cette commande :
 
 ### <a name="speech-to-text"></a>Reconnaissance vocale
 
-Le conteneur fournit des API, qui sont accessibles par le biais du point de terminaison de requête fondée sur un websocket [SDK documentation des services de reconnaissance vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/).
+Le conteneur fournit le point de terminaison de requête fondée sur un websocket API, qui sont accessibles via le [Speech SDK](index.yml).
 
 Par défaut, le Speech SDK utilise les services de reconnaissance vocale en ligne. Pour utiliser le conteneur, vous devez modifier la méthode d’initialisation. Consultez les exemples ci-dessous.
 

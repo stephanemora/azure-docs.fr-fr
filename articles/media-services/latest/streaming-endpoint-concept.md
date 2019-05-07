@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 04/27/2019
 ms.author: juliako
-ms.openlocfilehash: 1b29e75531c9e24d2f296442d528a28a23ffa947
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 3f939154d2b34e6dc043e505ab89897221bcfe23
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64867608"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65149233"
 ---
 # <a name="streaming-endpoints-origin"></a>Points de terminaison de diffusion en continu (origine)
 
@@ -156,7 +156,7 @@ L’intégration du CDN est activée dans tous les centres de données Azure, sa
 
 Vous pouvez déterminer si DNS a été modifié sur un point de terminaison de diffusion en continu (le trafic dirigé vers le CDN Azure) à l’aide de https://www.digwebinterface.com. Si les résultats contient des noms de domaine azureedge.net dans les résultats, le trafic est maintenant pointé le CDN.
 
-## <a name="provide-feedback"></a>Fournir des commentaires
+## <a name="ask-questions-give-feedback-get-updates"></a>Posez des questions, commentaires, obtenir des mises à jour
 
 Découvrez l’article [Communauté Azure Media Services](media-services-community.md) pour découvrir les différentes façons dont vous pouvez poser des questions, faire des commentaires et obtenir des mises à jour sur Media Services.
 

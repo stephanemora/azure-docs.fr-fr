@@ -7,12 +7,12 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: 385eee6223487e9d7ca5cc3b213d180bb0f1da46
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 6ada4a25f24a6dcbb1ebd54daad15b37127f7a21
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64710864"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65154189"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guide de dépannage de l’Explorateur de stockage Azure
 
@@ -235,7 +235,7 @@ Si vous avez attaché accidentellement une URL de SAP non valide et que vous n�
 
 En règle générale, les packages suivants sont requis pour exécuter l’Explorateur de stockage sur Linux :
 
-* [Runtime .NET core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)
+* [.NET core 2.0 Runtime](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x) Remarque : Explorateur de stockage version 1.7.0 et antérieures nécessitent .NET Core 2.0. Si vous avez une version plus récente de .NET Core installé vous devrez corriger l’Explorateur de stockage (voir ci-dessous). Si vous exécutez l’Explorateur de stockage 1.8.0 ou supérieure puis vous devez être en mesure d’utiliser jusqu'à .NET Core 2.2. Versions ultérieures 2.2 n’ont pas été vérifiées à utiliser pour l’instant.
 * `libgnome-keyring-common` et `libgnome-keyring-dev`
 * `libgconf-2-4`
 

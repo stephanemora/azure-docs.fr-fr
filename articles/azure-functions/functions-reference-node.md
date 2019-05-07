@@ -12,12 +12,12 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 02/24/2019
 ms.author: glenga
-ms.openlocfilehash: 37d00abbbf726dc1b92bdcc5f39b16301de9b93d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 2eea1a1d30558765a2f8320b0b23efdbe3368807
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64697838"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65140958"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guide des développeurs JavaScript sur Azure Functions
 
@@ -204,7 +204,9 @@ module.exports = function(ctx) {
 context.bindings
 ```
 
-Retourne un objet nommé qui contient toutes vos données d’entrée et de sortie. Par exemple, les définitions de liaison suivantes dans votre function.json vous permettent d’accéder au contenu d’une file d’attente à partir de l’objet `context.bindings.myInput` et d’assigner des sorties à une file d’attente à l’aide de `context.bindings.myOutput`.
+Retourne un objet nommé qui est utilisé pour la lecture ou d’assignation de liaison de données. Entrée et déclencheur de liaison de données est accessible par la lecture des propriétés sur `context.bindings`. Données de liaison de sortie peuvent être affectées par ajout de données à `context.bindings`
+
+Par exemple, les définitions de liaison suivantes dans votre function.json vous permettent d’accéder au contenu d’une file d’attente à partir de l’objet `context.bindings.myInput` et d’assigner des sorties à une file d’attente à l’aide de `context.bindings.myOutput`.
 
 ```json
 {
@@ -290,7 +292,7 @@ Consultez [Supervision des fonctions Azure](functions-monitoring.md) pour en sav
 
 ## <a name="writing-trace-output-to-the-console"></a>Écrire la sortie de trace dans la console 
 
-Dans Functions, vous utilisez les méthodes `context.log` pour écrire la sortie de trace dans la console. Dans Functions v2.x, les sorties de trace via `console.log` sont capturées au niveau de l’application Functions. Cela signifie que les sorties de `console.log` ne sont pas liées à un appel de fonction spécifique et qu’elles ne sont donc pas affichées dans les journaux d’activité d’une fonction spécifique. Elles sont, toutefois, propagées à Application Insights. Dans Functions v1.x, vous ne pouvez pas utiliser `console.log` pour écrire dans la console.
+Dans Functions, vous utilisez les méthodes `context.log` pour écrire la sortie de trace dans la console. Dans Functions v2.x, les sorties de trace via `console.log` sont capturées au niveau de l’application Functions. Cela signifie que les sorties de `console.log` ne sont pas liés à un appel de fonction spécifique et ne sont pas affichées dans les journaux d’une fonction spécifique. Elles sont, toutefois, propagées à Application Insights. Dans Functions v1.x, vous ne pouvez pas utiliser `console.log` pour écrire dans la console.
 
 Lorsque vous appelez `context.log()`, votre message est écrit dans la console au niveau de trace par défaut, qui est le niveau de trace d’_informations_. Le code suivant écrit dans la console au niveau de trace d’informations :
 

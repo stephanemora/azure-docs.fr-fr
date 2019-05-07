@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: brjohnst
-ms.openlocfilehash: f361417f25579b0ca605b33bafa4a581f68b1798
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 21374e20a2ba2c9134ed12e4b1072ff5c320c75e
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024408"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65149777"
 ---
 # <a name="api-versions-in-azure-search"></a>Versions d’API dans Azure Search
 Azure Search déploie régulièrement des mises à jour de fonctionnalités. Parfois, ces mises à jour requièrent une nouvelle version de l’API pour maintenir la compatibilité descendante. La publication d’une nouvelle version vous permet de contrôler quand et comment intégrer les mises à jour du service de recherche dans votre code.
@@ -32,8 +32,8 @@ Vous trouverez ci-dessous un instantané des versions actuelles de toutes les in
 
 | Interfaces | Version majeure la plus récente | Statut |
 | --- | --- | --- |
-| [Kit de développement logiciel (SDK) .NET](https://aka.ms/search-sdk) |9.0 |Mise à la disposition générale en mai 2019. Le contenu est toujours en cours de construction.  |
-| [Version préliminaire du Kit de développement logiciel (SDK) .NET](https://aka.ms/search-sdk-preview) |8.0.0-Preview |Préversion, publiée en avril 2019. Le contenu est toujours en cours de construction.|
+| [Kit de développement logiciel (SDK) .NET](https://aka.ms/search-sdk) |9.0 |Disposition générale en mai 2019 |
+| [Version préliminaire du Kit de développement logiciel (SDK) .NET](https://aka.ms/search-sdk-preview) |8.0.0-Preview |Préversion, publiée en avril 2019 |
 | [API REST du service](https://docs.microsoft.com/rest/api/searchservice/) |2019-05-06 |Mise à la disposition générale |
 | [Service REST API 2019-05-06-Preview](search-api-preview.md) |2019-05-06-preview |VERSION PRÉLIMINAIRE |
 | [.NET Management SDK](https://aka.ms/search-mgmt-sdk) |3.0 |Mise à la disposition générale |
@@ -57,6 +57,6 @@ Les fonctionnalités en préversion sont disponibles pour le test et l’expéri
 
 C’est pour ces raisons que nous vous recommandons de ne pas écrire un code de production dépendant des préversions. Si vous utilisez une préversion antérieure, nous vous recommandons de migrer vers la version mise à la disposition générale.
 
-Pour le Kit de développement logiciel (SDK) .NET : des conseils sur la migration du code sont disponibles à la page [Mise à niveau vers la version du Kit de développement logiciel Azure Search .NET SDK version 3](search-dotnet-sdk-migration.md).
+Pour le Kit de développement logiciel (SDK) .NET : des conseils sur la migration du code sont disponibles à la page [Mise à niveau vers la version du Kit de développement logiciel Azure Search .NET SDK version 3](search-dotnet-sdk-migration-version-9.md).
 
 La mise à la disposition générale signifie qu’Azure Search est désormais associé à un contrat SLA. Ce contrat SLA est disponible à la page sur les [contrats SLA Azure Search](https://azure.microsoft.com/support/legal/sla/search/v1_0/).

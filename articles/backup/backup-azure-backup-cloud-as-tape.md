@@ -1,20 +1,18 @@
 ---
 title: Utilisation d’Azure Backup pour remplacer votre infrastructure sur bande
 description: Découvrez comment Azure Backup fournit une sémantique de type bande qui permet de sauvegarder et de restaurer des données dans Azure.
-services: backup
-author: trinadhk
-manager: vijayts
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 1/10/2017
-ms.author: saurse
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 59236774f98af927082c78f4b75a1f5880a7cac4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 04/30/2017
+ms.author: dacurwin
+ms.openlocfilehash: d768f0fae9487a555f6ace12303f8a4bd7cb8bd1
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60646916"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65146022"
 ---
 # <a name="move-your-long-term-storage-from-tape-to-the-azure-cloud"></a>Déplacement de votre stockage à long terme de la bande vers le cloud Azure
 Les clients Azure Backup et System Center Data Protection Manager peuvent effectuer les actions suivantes :
@@ -59,8 +57,7 @@ Le nombre total de « points de rétention » (points à partir duquel un clie
 Le nombre total de points de récupération est 56.
 
 > [!NOTE]
-> La sauvegarde Azure n'impose aucune restriction sur le nombre de points de récupération.
->
+> À l’aide de la sauvegarde Azure, vous pouvez créer jusqu'à 9 999 points de récupération par instance protégée. Une instance protégée est un ordinateur, un serveur (physique ou virtuel) ou une charge de travail sauvegardé dans Azure.
 >
 
 ## <a name="advanced-configuration"></a>Configuration avancée

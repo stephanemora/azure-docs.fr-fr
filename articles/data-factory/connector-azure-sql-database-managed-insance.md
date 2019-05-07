@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: jingwang
-ms.openlocfilehash: 9cb3c028c14e6c47d47eafcf6279a918c0917442
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3f29db5786c682188b4eadec12275df46ae3b547
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61093945"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153337"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-managed-instance-by-using-azure-data-factory"></a>Copier des données vers et depuis Azure SQL Database Managed Instance à l'aide d'Azure Data Factory
 
@@ -142,7 +142,7 @@ Les propriétés prises en charge pour le service lié Azure SQL Database Manage
 
 Pour obtenir la liste complète des sections et propriétés disponibles pour la définition de jeux de données, consultez l'article consacré aux jeux de données. Cette section fournit la liste des propriétés prises en charge par le jeu de données Azure SQL Database Managed Instance.
 
-Pour copier des données vers et depuis Azure SQL Database Managed Instance, définissez la propriété type du jeu de données sur **SqlServerTable**. Les propriétés prises en charge sont les suivantes :
+Pour copier des données vers et depuis Azure SQL Database Managed Instance, les propriétés suivantes sont prises en charge :
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
@@ -161,6 +161,7 @@ Pour copier des données vers et depuis Azure SQL Database Managed Instance, dé
             "referenceName": "<Managed Instance linked service name>",
             "type": "LinkedServiceReference"
         },
+        "schema": [ < physical schema, optional, retrievable during authoring > ],
         "typeProperties": {
             "tableName": "MyTable"
         }
@@ -282,7 +283,7 @@ Pour copier des données vers Azure SQL Database Managed Instance, définissez *
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | type | La propriété type du récepteur de l'activité de copie doit être définie sur **SqlSink**. | Oui. |
-| writeBatchSize |Nombre de lignes pour les insertions dans la table SQL **par lot**.<br/>Les valeurs autorisées sont des entiers pour le nombre de lignes. |Non (valeur par défaut : 10 000). |
+| writeBatchSize |Nombre de lignes pour les insertions dans la table SQL **par lot**.<br/>Les valeurs autorisées sont des entiers pour le nombre de lignes. Par défaut, Data Factory déterminer dynamiquement la taille de lot approprié selon la taille de ligne.  |Non  |
 | writeBatchTimeout |Cette propriété spécifie le délai d'attente avant expiration de l'opération d'insertion de lot.<br/>Les valeurs autorisées sont celles qui expriment une durée. Par exemple, « 00:30:00 » (30 minutes). |Non. |
 | preCopyScript |Cette propriété spécifie une requête SQL que l'activité de copie doit exécuter avant l'écriture des données dans l'instance gérée. Elle n'est appelée qu'une seule fois par copie. Vous pouvez utiliser cette propriété pour nettoyer des données préchargées. |Non. |
 | sqlWriterStoredProcedureName |Ce nom est celui de la procédure stockée qui définit le mode d'application des données sources dans une table cible. Les opérations d'upsert ou de transformations effectuées à l'aide de votre propre logique métier sont des exemples de procédures. <br/><br/>Cette procédure stockée est *appelée par lot*. Pour effectuer une opération qui ne s'exécute qu'une seule fois et n'a rien à voir avec les données sources (par exemple, supprimer ou tronquer), utilisez la propriété `preCopyScript`. |Non. |

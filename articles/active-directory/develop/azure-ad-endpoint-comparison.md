@@ -1,31 +1,30 @@
 ---
-title: Comparer le point de terminaison de l’identité de plateforme (v2.0) Microsoft avec le point de terminaison Azure AD v1.0 | Microsoft Docs
-description: Connaître les différences entre le point de terminaison Microsoft identity platform (v2.0) et le point de terminaison v1.0 Azure Active Directory (Azure AD).
+title: Pourquoi mettre à jour à la plateforme d’identité Microsoft (v2.0) | Azure
+description: Connaître les différences entre le point de terminaison Microsoft identity platform (v2.0) et le point de terminaison v1.0 Azure Active Directory (Azure AD) et découvrez les avantages de la mise à jour vers la version 2.0.
 services: active-directory
 documentationcenter: ''
 author: CelesteDG
 manager: mtillman
 editor: ''
-ms.assetid: 5060da46-b091-4e25-9fa8-af4ae4359b6c
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/05/2019
+ms.date: 05/07/2019
 ms.author: celested
-ms.reviewer: hirsin, andret, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, dadobali, negoe
+ms.reviewer: saeeda, hirsin, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, dadobali, negoe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4dd443c95e8cf6dbddd66e5531b182469a118e4c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: dba74735b4c703123f9ff89b63a57d53faa84fde
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60410665"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65138786"
 ---
-# <a name="comparing-the-microsoft-identity-platform-endpoint-and-azure-ad-v10-endpoint"></a>Comparaison du point de terminaison de plateforme Microsoft identity et le point de terminaison Azure AD v1.0
+# <a name="why-update-to-microsoft-identity-platform-v20"></a>Pourquoi mettre à jour à la plateforme d’identité Microsoft (v2.0) ?
 
 Lorsque vous développez une nouvelle application, il est important de connaître les différences entre la plateforme d’identité Microsoft (v2.0) et les points de terminaison Azure Active Directory (v1.0). Cet article décrit les principales différences entre les points de terminaison et des limitations existantes pour la plateforme d’identité Microsoft.
 
@@ -56,7 +55,7 @@ Les autorisations qui sont directement définies sur l’inscription d’applica
 
 * L’application doit connaître au préalable l’ensemble des ressources auxquelles elle est susceptible d’accéder. Il était difficile de créer des applications pouvant accéder à un nombre arbitraire de ressources.
 
-Avec le point de terminaison Microsoft identity plateforme, vous pouvez ignorer les autorisations de statiques définies dans les informations de d’inscription d’application dans les autorisations de demande et le portail Azure de façon incrémentielle au lieu de cela, ce qui signifie que la demande d’un ensemble minimal de système d’autorisations dès le départ et cumuler plus au fil du temps que le client utilise les fonctionnalités des applications supplémentaires. Pour cela, vous pouvez spécifier les étendues dont votre application a besoin à tout moment en incluant les nouvelles étendues dans le paramètre `scope` quand vous demandez un jeton d’accès, sans qu’il soit nécessaire de les définir au préalable dans les informations d’inscription de l’application. Si l’utilisateur n’a pas encore consenti aux nouvelles étendues ajoutées à la demande, il est invité à donner son consentement seulement aux nouvelles autorisations. Pour plus d’informations, consultez [Autorisations, consentements et étendues](v2-permissions-and-consent.md).
+Avec le point de terminaison Microsoft identity plateforme, vous pouvez ignorer les autorisations de statiques définies dans les informations de d’inscription d’application dans les autorisations de demande et le portail Azure de façon incrémentielle au lieu de cela, ce qui signifie que la demande d’un ensemble minimal de système d’autorisations dès le départ et augmente plus au fil du temps que le client utilise les fonctionnalités des applications supplémentaires. Pour cela, vous pouvez spécifier les étendues dont votre application a besoin à tout moment en incluant les nouvelles étendues dans le paramètre `scope` quand vous demandez un jeton d’accès, sans qu’il soit nécessaire de les définir au préalable dans les informations d’inscription de l’application. Si l’utilisateur n’a pas encore consenti aux nouvelles étendues ajoutées à la demande, il est invité à donner son consentement seulement aux nouvelles autorisations. Pour plus d’informations, consultez [Autorisations, consentements et étendues](v2-permissions-and-consent.md).
 
 En permettant à l’application de demander des autorisations de façon dynamique grâce au paramètre `scope`, les développeurs maîtrisent totalement l’expérience de vos utilisateurs. Vous pouvez aussi anticiper l’expérience de consentement et demander toutes les autorisations dans une même demande d’autorisation initiale. Si votre application nécessite un grand nombre d’autorisations, vous pouvez les demander à l’utilisateur de façon incrémentielle quand il essaie d’utiliser certaines fonctionnalités de votre application au fil du temps.
 
@@ -69,7 +68,7 @@ Lorsqu’elle utilise le point de terminaison v1.0, une application peut se comp
 * Identificateur de ressource, ou `AppID URI` : `https://graph.windows.net/`
 * Étendues ou `oAuth2Permissions`: `Directory.Read`, `Directory.Write`, et ainsi de suite.
 
-Cela est vrai pour le point de terminaison Microsoft identity platform. Une application peut toujours se comporter comme une ressource, définir des étendues et être identifiée par un URI. Les applications clientes peuvent toujours demander l’accès à ces étendues. Toutefois, la manière dont le client demande ces autorisations a changé.
+Cela est vrai pour le point de terminaison Microsoft identity platform. Une application peut toujours se comporter comme une ressource, définir des étendues et être identifiée par un URI. Les applications clientes peuvent toujours demander l’accès à ces étendues. Toutefois, la manière qu’un client demande ces autorisations ont été modifiés.
 
 Pour le point de terminaison v1.0, une demande d’autorisation OAuth 2.0 à Azure AD pouvait ressembler à ceci :
 
@@ -91,7 +90,7 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e
 ...
 ```
 
-Ici, le paramètre **scope** indique la ressource et les autorisations pour lesquelles l’application demande une autorisation. La ressource souhaitée est toujours présente dans la demande : elle est englobée dans chacune des valeurs du paramètre d’étendue. Utiliser le paramètre d’étendue de cette manière permet à l’extrémité de plateforme d’identité Microsoft être plus conforme à la spécification OAuth 2.0 et aligne plus étroitement avec les pratiques courantes du secteur. Il permet également aux applications d’effectuer un [consentement incrémentiel](#incremental-and-dynamic-consent) : demander des autorisations seulement quand l’application en a besoin, et non pas au préalable.
+Ici, le paramètre **scope** indique la ressource et les autorisations pour lesquelles l’application demande une autorisation. La ressource souhaitée est toujours présente dans la demande : elle est englobée dans chacune des valeurs du paramètre d’étendue. Utiliser le paramètre d’étendue de cette manière permet à l’extrémité de plateforme d’identité Microsoft être plus conforme à la spécification OAuth 2.0 et aligne plus étroitement avec les pratiques courantes du secteur. Il permet également pour les applications [consentement incrémentiel](#incremental-and-dynamic-consent) : seules demande des autorisations lors de l’application en a besoin, par opposition à en amont.
 
 ## <a name="well-known-scopes"></a>Étendues connues
 
@@ -99,7 +98,7 @@ Ici, le paramètre **scope** indique la ressource et les autorisations pour lesq
 
 Applications à l’aide du point de terminaison Microsoft identity plateforme peuvent nécessiter l’utilisation d’une nouvelle autorisation bien connue pour les applications - le `offline_access` étendue. Toutes les applications doivent demander cette autorisation si elles doivent accéder aux ressources au nom d’un utilisateur pendant une période prolongée, même si l’utilisateur n’utilise peut-être pas activement l’application donnée. L’étendue `offline_access` apparaît à l’utilisateur dans la boîte de dialogue de consentement **Accéder aux données à tout moment**, que l’utilisateur doit accepter. Demande le `offline_access` autorisation permettra à votre application web recevoir les jetons d’actualisation OAuth 2.0 à partir de l’extrémité de plateforme Microsoft identity. Les jetons d’actualisation ont une durée de vie assez longue, et peuvent être échangés contre les nouveaux jetons d’accès OAuth 2.0 pour des périodes d’accès prolongées.
 
-Si votre application ne demande pas l’étendue `offline_access`, elle ne reçoit pas de jetons d’actualisation. Ainsi, quand vous échangez un code d’autorisation dans le flux de code d’autorisation OAuth 2.0, vous recevez seulement en retour un jeton d’accès du point de terminaison `/token`. Ce jeton d’accès demeure valide pendant une courte période de temps (généralement une heure), mais il finit par expirer. À ce stade, votre application doit rediriger l’utilisateur vers le point de terminaison `/authorize` afin de récupérer un nouveau code d’autorisation. Lors de cette redirection, il peut ou non être demandé à l’utilisateur d’entrer à nouveau ses informations d’identification ou de consentir une nouvelle fois les autorisations, en fonction du type d’application.
+Si votre application ne sollicite la `offline_access` étendue, elle ne reçoit pas les jetons d’actualisation. Ainsi, quand vous échangez un code d’autorisation dans le flux de code d’autorisation OAuth 2.0, vous recevez seulement en retour un jeton d’accès du point de terminaison `/token`. Ce jeton d’accès demeure valide pendant une courte période de temps (généralement une heure), mais il finit par expirer. À ce stade, votre application doit rediriger l’utilisateur vers le point de terminaison `/authorize` afin de récupérer un nouveau code d’autorisation. Lors de cette redirection, il peut ou non être demandé à l’utilisateur d’entrer à nouveau ses informations d’identification ou de consentir une nouvelle fois les autorisations, en fonction du type d’application.
 
 Pour en savoir plus sur OAuth 2.0, `refresh_tokens`, et `access_tokens`, consultez le [référence de protocole plateforme Microsoft identity](active-directory-v2-protocols.md).
 
@@ -109,8 +108,8 @@ Historiquement, le plus simple flux OpenID Connect connectez-vous avec la platef
 
 Les informations auxquelles l’étendue `openid` permet à votre application d’accéder sont maintenant restreintes. L’étendue `openid` ne l’autorisera qu’à connecter l’utilisateur et à recevoir un identificateur propre à l’application pour l’utilisateur. Si vous voulez obtenir des données personnelles sur l’utilisateur dans votre application, celle-ci doit lui demander des autorisations supplémentaires. Deux nouvelles étendues, `email` et `profile`, vous permettent de le faire.
 
-* L’étendue `email` permet à votre application d’accéder à l’adresse e-mail principale de l’utilisateur via la revendication `email` contenue dans id_token, en supposant que l’utilisateur ait une adresse e-mail utilisable. 
-* L’étendue `profile` permet à votre application d’accéder à toutes les autres informations de base sur l’utilisateur contenues dans id-token, comme le nom, le nom d’utilisateur par défaut, l’ID d’objet, etc.
+* L’étendue `email` permet à votre application d’accéder à l’adresse e-mail principale de l’utilisateur via la revendication `email` contenue dans id_token, en supposant que l’utilisateur ait une adresse e-mail utilisable.
+* Le `profile` étendue permet à votre application l’accès à toutes les autres informations de base relatives à l’utilisateur, telles que leur nom, nom d’utilisateur privilégié, ID d’objet et ainsi de suite, dans le paramètre id_token.
 
 Ces étendues vous permettent de coder votre application en divulguant le moins possible d’informations : vous pouvez vous contenter de demander à l’utilisateur les informations nécessaires à l’exécution de votre application. Pour plus d’informations sur ces étendues, consultez [la référence de portée de plateforme Microsoft identity](v2-permissions-and-consent.md).
 
@@ -124,7 +123,7 @@ Il existe quelques restrictions à connaître lors de l’utilisation de platefo
 
 Lorsque vous générez des applications qui s’intègrent à la plateforme Microsoft identity, vous devez déterminer si les Microsoft identity plateforme point de terminaison de protocoles d’authentification et répondent à vos besoins. Le point de terminaison v1.0 et la plateforme est toujours intégralement pris en charge et, à certains égards, est plus riche en fonctionnalités que la plateforme d’identité Microsoft. Toutefois, plateforme d’identité Microsoft [présente des avantages significatifs](azure-ad-endpoint-comparison.md) pour les développeurs.
 
-Voici une suggestion simplifiée pour les développeurs à ce stade :
+Voici maintenant une recommandation simplifiée pour les développeurs :
 
 * Si vous voulez ou devez prendre en charge des comptes personnels Microsoft dans votre application, ou que vous écrivez une nouvelle application, utilisez la plateforme d’identité Microsoft. Avant cela, comprenez cependant bien les limitations exposées dans cet article.
 * Si vous utilisez la migration ou la mise à jour d’une application qui s’appuie sur SAML, vous ne pouvez pas utiliser la plateforme d’identité Microsoft. Au lieu de cela, reportez-vous à la [guide Azure Active Directory v1.0](v1-overview.md).
@@ -133,7 +132,7 @@ Le point de terminaison Microsoft identity plateforme va évoluer pour éliminer
 
 ### <a name="restrictions-on-app-registrations"></a>Restrictions sur les inscriptions d’application
 
-Pour chaque application que vous souhaitez intégrer avec le point de terminaison Microsoft identity plateforme, vous pouvez créer une inscription d’application dans le nouveau [ **inscriptions** expérience](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview) dans le portail Azure. Les applications de compte Microsoft existantes ne sont pas compatibles avec la version préliminaire du portail, mais toutes les applications Azure AD sont, où et quand ils ont été enregistrés.
+Pour chaque application que vous souhaitez intégrer avec le point de terminaison Microsoft identity plateforme, vous pouvez créer une inscription d’application dans le nouveau [ **inscriptions** expérience](https://aka.ms/appregistrations) dans le portail Azure. Les applications de compte Microsoft existantes ne sont pas compatibles avec le portail, mais toutes les applications Azure AD sont, où et quand ils ont été enregistrés.
 
 Les inscriptions d’applications qui prennent en charge les comptes professionnels et scolaires ont les caractéristiques suivantes :
 
@@ -168,9 +167,9 @@ Si vous voulez que votre application utilise les URL de redirection `login-east.
 `https://login-east.contoso.com`  
 `https://login-west.contoso.com`  
 
-Vous pouvez ajouter les deux dernières, car ce sont des sous-domaines de la première URL de redirection, contoso.com. Cette limitation sera supprimée dans une version ultérieure.
+Vous pouvez ajouter les deux derniers parce qu’ils sont des sous-domaines de la première URL de redirection, contoso.com.
 
-Notez également que vous pouvez avoir seulement 20 URL de réponse pour une application donnée : cette limite s’applique à tous les types d’application pris en charge par l’inscription (application monopage, client natif, application web et service).  
+Vous pouvez avoir que 20 URL de réponse pour une application particulière : cette limite s’applique pour tous les types d’application que l’inscription prend en charge (application à page unique (SPA) native client, application web et service).  
 
 Pour savoir comment inscrire une application pour une utilisation avec la plateforme d’identité Microsoft, consultez [inscrire une application à l’aide de la nouvelle expérience d’inscriptions application](quickstart-register-app.md).
 
@@ -178,8 +177,8 @@ Pour savoir comment inscrire une application pour une utilisation avec la platef
 
 Actuellement, la prise en charge de la bibliothèque pour le point de terminaison Microsoft identity plateforme est limitée. Si vous souhaitez utiliser le point de terminaison Microsoft identity plateforme dans une application de production, vous disposez des options suivantes :
 
-* Si vous créez une application web, vous pouvez utiliser sans problème le middleware (intergiciel) côté serveur en disponibilité générale pour vous connecter et procéder à la validation des jetons. Il s’agit notamment du middleware OWIN OpenID Connect pour ASP.NET et du plug-in Node.js Passport. Pour obtenir des exemples de code qui utilisent l’intergiciel (middleware) de Microsoft, consultez le [plateforme d’identité Microsoft mise en route](v2-overview.md#getting-started) section.
-* Si vous créez une application mobile ou pour poste de travail, vous pouvez utiliser une des bibliothèques d’authentification Microsoft (MSAL). Bien qu’il s’agisse de versions préliminaires, ces bibliothèques sont utilisables dans des applications de production. Pour plus d’informations sur les conditions d’utilisation de la préversion et sur les bibliothèques disponibles, consultez la [documentation de référence sur les bibliothèques d’authentification](reference-v2-libraries.md).
+* Si vous créez une application web, vous pouvez en toute sécurité utiliser l’intergiciel (middleware) côté serveur à la disposition générale pour la connexion et validation des jetons. Il s’agit notamment du middleware OWIN OpenID Connect pour ASP.NET et du plug-in Node.js Passport. Pour obtenir des exemples de code qui utilisent l’intergiciel (middleware) de Microsoft, consultez le [plateforme d’identité Microsoft mise en route](v2-overview.md#getting-started) section.
+* Si vous créez une application de bureau ou mobile, vous pouvez utiliser une de bibliothèques d’authentification Microsoft (MSAL). Ces bibliothèques sont à la disposition générale ou dans une version préliminaire pris en charge de production, il est donc sans risque les utiliser dans les applications de production. Pour plus d’informations sur les conditions d’utilisation de la préversion et sur les bibliothèques disponibles, consultez la [documentation de référence sur les bibliothèques d’authentification](reference-v2-libraries.md).
 * Pour les plateformes non couvertes par les bibliothèques de Microsoft, vous pouvez intégrer avec le point de terminaison Microsoft identity plateforme par directement envoyer et recevoir des messages de protocole dans votre code d’application. Les protocoles OpenID Connect et OAuth [sont explicitement documentés](active-directory-v2-protocols.md) pour vous aider à effectuer une telle intégration.
 * Enfin, vous pouvez utiliser les bibliothèques open source OpenID Connect et OAuth à intégrer à l’extrémité de plateforme Microsoft identity. Le point de terminaison Microsoft identity plateforme doit être compatible avec de nombreuses bibliothèques de protocole open source sans modification. La disponibilité de ces types de bibliothèques varie en fonction de la langue et de la plateforme. Les sites web [OpenID Connect](https://openid.net/connect/) et [OAuth 2.0](https://oauth.net/2/) contiennent une liste à jour des implémentations les plus courantes. Pour plus d’informations, consultez [Microsoft identity platform et bibliothèques d’authentification](reference-v2-libraries.md)et la liste des bibliothèques clientes open source et des exemples qui ont été testés avec le point de terminaison Microsoft identity platform.
 * Pour référence, le `.well-known` point de terminaison pour le point de terminaison de Microsoft identity plateforme commune est `https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration`. Remplacez `common` par votre ID de locataire pour obtenir des données spécifiques à votre locataire.  
@@ -196,4 +195,4 @@ Pour mieux comprendre l’étendue de la fonctionnalité de protocole pris en ch
 
 #### <a name="saml-restrictions"></a>Restrictions SAML
 
-Si vous avez utilisé la bibliothèque ADAL (Active Directory Authentication Library) dans des applications Windows, vous avez peut-être tiré parti de l’authentification intégrée Windows, qui utilise l’octroi d’assertions SAML (Security Assertion Markup Language). Avec cet octroi, les utilisateurs de locataires Azure AD fédérés peuvent s’authentifier en mode silencieux auprès de leur instance d’Active Directory locale sans entrer leurs informations d’identification. L’octroi d’assertion SAML n’est pas pris en charge sur le point de terminaison Microsoft identity platform.
+Si vous avez utilisé Active Directory Authentication Library (ADAL) dans les applications Windows, vous pouvez avoir dirigé parti de l’authentification Windows intégrée, qui utilise l’octroi d’assertion Security Assertion Markup Language (SAML). Avec cet octroi, les utilisateurs de locataires Azure AD fédérés peuvent s’authentifier en mode silencieux auprès de leur instance d’Active Directory locale sans entrer leurs informations d’identification. L’octroi d’assertion SAML n’est pas pris en charge sur le point de terminaison Microsoft identity platform.

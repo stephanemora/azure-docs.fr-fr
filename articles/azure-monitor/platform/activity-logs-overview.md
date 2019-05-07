@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: be2f5fdebc5ae4f779fe6e3da74ad7ea583226ef
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: d9583f232a7afd6ab64421d57bbf14a45299e374
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59995657"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65138234"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Surveiller l’activité d’abonnement avec le journal d’activité Azure
 
@@ -63,6 +63,7 @@ Voici ce que vous pouvez faire avec le journal d’activité :
 * Analysez-le dans Powerbi à l’aide de la [ **pack de contenu Power BI**](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs/).
 * [Enregistrez-le dans un **compte de stockage** pour l’archivage ou l’inspection manuelle](../../azure-monitor/platform/archive-activity-log.md). Vous pouvez spécifier la durée de rétention (en jours) à l’aide du **Profil de journal**.
 * Interrogez-le via l’applet de commande PowerShell, l’interface de ligne de commande ou l’API REST.
+* Afficher le [l’historique des modifications](#view-change-history) pour certains événements
 
 ## <a name="query-the-activity-log-in-the-azure-portal"></a>Interroger le journal d’activité dans le portail Azure
 
@@ -183,6 +184,20 @@ Pour obtenir la documentation complète sur la création d’un profil de monite
 ```azurecli
 az monitor log-profiles delete --name <profile name>
 ```
+
+## <a name="view-change-history"></a>Afficher l’historique de modification
+
+Lorsque vous examinez le journal d’activité, elle peut aider à voir ce que les modifications apportées pendant cette heure de l’événement. Vous pouvez afficher ces informations avec l’historique des modifications.
+
+Accédez au journal d’activité à l’aide du menu sur le côté gauche du portail. Sélectionnez un événement dans le journal d’activité que vous souhaitez rechercher plus profondément dans. Sélectionnez le **historique (version préliminaire) des modifications** onglet Afficher toutes les modifications associées avec l’événement.
+
+![Modifier la liste d’historique pour un événement](./media/activity-logs-overview/change-history-event.png)
+
+Si des modifications sont apportées à l’événement associées, vous verrez une liste des modifications que vous pouvez sélectionner. Cela ouvre le **historique (version préliminaire) des modifications** page. Dans cette page, vous voyez les modifications apportées à la ressource. Comme vous pouvez le voir à partir de l’exemple suivant, nous sommes en mesure de voir non seulement que la machine virtuelle modifié tailles, mais ce que la taille de machine virtuelle précédente était avant la modification et qu’il a été remplacé par.
+
+![Page de l’historique de modification montrant les différences](./media/activity-logs-overview/change-history-event-details.png)
+
+Pour en savoir plus sur l’historique des modifications, consultez [obtenir les modifications des ressources](../../governance/resource-graph/how-to/get-resource-changes.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

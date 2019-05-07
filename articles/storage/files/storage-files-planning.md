@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: fecefbbed39f4fc12db79c7466006409e3da7dd1
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 82a2330aeadb14bb421260a290a25581232293e5
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64574475"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073352"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planification d’un déploiement Azure Files
 
@@ -111,20 +111,16 @@ Il est possible de réduire la taille de votre partage provisionnée ci-dessous 
 
 Le tableau suivant illustre quelques exemples de ces formules pour les tailles de partage configuré :
 
-(Tailles dénoté par un * sont en version préliminaire publique limitée)
-
 |Capacité (Go) | IOPS de base | Rafale d’e/s | Sortie (Mio/s) | Entrée (Mio/s) |
 |---------|---------|---------|---------|---------|
 |100         | 100     | Jusqu’à 300     | 66   | 44   |
 |500         | 500     | Jusqu'à 1 500   | 90   | 60   |
 |1 024       | 1 024   | Jusqu'à 3 072   | 122   | 81   |
 |5 120       | 5 120   | Jusqu'à 15 360  | 368   | 245   |
-|10,240 *     | 10,240  | Jusqu'à 30 720  | 675 | 450   |
-|33,792 *     | 33,792  | Jusqu'à 100 000 | 2,088 | 1,392   |
-|51,200 *     | 51,200  | Jusqu'à 100 000 | 3 132 | 2,088   |
-|102,400 *    | 100 000 | Jusqu'à 100 000 | 6,204 | 4,136   |
-
-Actuellement, taille de partage de fichier jusqu'à 5 To est en version préliminaire publique, tandis que les tailles jusqu'à 100 To sont en version préliminaire publique limitée, pour demander l’accès à la version préliminaire publique limitée complète [cette enquête.](https://aka.ms/azurefilesatscalesurvey)
+|10,240      | 10,240  | Jusqu'à 30 720  | 675 | 450   |
+|33,792      | 33,792  | Jusqu'à 100 000 | 2,088 | 1,392   |
+|51,200      | 51,200  | Jusqu'à 100 000 | 3 132 | 2,088   |
+|102,400     | 100 000 | Jusqu'à 100 000 | 6,204 | 4,136   |
 
 ### <a name="bursting"></a>Rupture
 
@@ -184,7 +180,7 @@ Gardez ces points à l’esprit au moment de choisir une option de réplication�
 
 ## <a name="data-growth-pattern"></a>Modèle de croissance des données
 
-Aujourd'hui, la taille maximale d’un partage de fichiers Azure est 5 To (100 To pour le fichier de premium partagent une version préliminaire publique limitée). En raison de cette limitation actuelle, vous devez prendre en compte la croissance attendue des données quand vous déployez un partage de fichiers Azure.
+Aujourd'hui, la taille maximale d’un partage de fichiers Azure est 5 To (100 To pour les partages de fichiers premium, qui sont en version préliminaire publique). En raison de cette limitation actuelle, vous devez prendre en compte la croissance attendue des données quand vous déployez un partage de fichiers Azure.
 
 Vous pouvez synchroniser plusieurs partages de fichiers Azure sur un même serveur de fichiers Windows avec Azure File Sync. Cela vous permet d’inclure dans Azure File Sync des partages de fichiers plus anciens et très volumineux que vous pouvez avoir localement. Pour plus d’informations, voir [Planification d’un déploiement Azure File Sync](storage-files-planning.md).
 

@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: travisw
 ms.custom: ''
-ms.openlocfilehash: f40e53c67f099fea739e45f6bdc6963ee1e235cb
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: c9ed6f898f4bcf8a5d4b2548cc1f3cf51f71bb2a
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026103"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65138163"
 ---
 # <a name="about-custom-voice-first-virtual-assistants-preview"></a>Sur les assistants virtuel personnalisé voix en premier aperçu
 
-Les assistants virtuels personnalisés à l’aide des Services de reconnaissance vocale Azure encouragent les développeurs à créer des interfaces conversationnelles naturelles, de type humain pour leurs applications et les expériences. Canal de reconnaissance vocale de ligne directe de l’infrastructure Bot améliore ces fonctionnalités en fournissant un point d’entrée coordonné et orchestrée pour un robot compatible qui permet la voix dans voix interaction avec une faible latence et une haute fiabilité. Ces robots peuvent utiliser la reconnaissance vocale (LUIS de Microsoft) pour l’interaction en langage naturel. Direct ligne vocale est accessible par les appareils à l’aide du Kit de développement logiciel (SDK) de Speech Services.
+Les assistants virtuels personnalisés à l’aide des Services de reconnaissance vocale Azure encouragent les développeurs à créer des interfaces conversationnelles naturelles, de type humain pour leurs applications et les expériences. Canal de reconnaissance vocale de ligne directe de l’infrastructure Bot améliore ces fonctionnalités en fournissant un point d’entrée coordonné et orchestrée pour un robot compatible qui permet la voix dans voix interaction avec une faible latence et une haute fiabilité. Ces robots peuvent utiliser la reconnaissance vocale (LUIS de Microsoft) pour l’interaction en langage naturel. Reconnaissance vocale de ligne directe est accessible par les appareils à l’aide du Kit de développement logiciel (SDK) de reconnaissance vocale.
 
    ![Diagramme conceptuel d’un flux de service par ligne directe vocale d’orchestration](media/voice-first-virtual-assistants/overview.png "flux de la chaîne de reconnaissance vocale")
 
@@ -28,12 +28,12 @@ Vocale de ligne directe et ses fonctionnalités pour les assistants de virtuels 
 
 ## <a name="core-features"></a>Fonctionnalités de base
 
-| Category | Caractéristiques |
+| Catégorie | Caractéristiques |
 |----------|----------|
 |[Mise en éveil personnalisé word](speech-devices-sdk-create-kws.md) | Vous pouvez autoriser les utilisateurs à commencer des conversations avec des robots à l’aide d’un mot clé personnalisé comme « Hey Contoso. » Cette tâche est réalisée par un moteur de word personnalisé de mise en éveil dans le Speech SDK, qui peut être configuré avec un mot de mise en éveil personnalisé [que vous pouvez générer ici](speech-devices-sdk-create-kws.md). Le canal Direct vocale ligne inclut la vérification de mot de mise en éveil du côté service qui améliore la précision de l’activation de word de mise en éveil par rapport à l’appareil uniquement.
 |[Reconnaissance vocale](speech-to-text.md) | Le canal Direct vocale ligne inclut la transcription audio en temps réel dans à l’aide du texte reconnu [parole-texte](speech-to-text.md) à partir des Services de reconnaissance vocale de Azure. Ce texte est disponible pour votre robot et votre application cliente comme il est de transcription.
-|[Conversion de texte par synthèse vocale](text-to-speech.md) | Réponses textuelles à partir de votre robot seront synthétisés à l’aide de [synthèse vocale](text-to-speech.md) à partir des Services de reconnaissance vocale de Azure. Cette synthèse puis sera disponible pour votre application cliente comme un flux audio. Microsoft offre la possibilité de créer votre propre [personnalisée de qualité vocale TTS neuronal](https://aka.ms/customneuraltts) qui donne une voix à votre marque.
-|[Reconnaissance vocale par ligne directe](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech.md) | En tant que canal dans le cadre de robot, vocale de ligne directe permet une connexion fluide et homogène entre votre application cliente, un robot compatible et les fonctionnalités des Services de reconnaissance vocale de Azure. Pour plus d’informations sur la configuration de votre robot pour utiliser le canal Direct vocale de ligne, consultez [sa page dans la documentation de Bot Framework](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech.md).
+|[Conversion de texte par synthèse vocale](text-to-speech.md) | Réponses textuelles à partir de votre robot seront synthétisés à l’aide de [synthèse vocale](text-to-speech.md) à partir des Services de reconnaissance vocale de Azure. Cette synthèse puis sera disponible pour votre application cliente comme un flux audio. Microsoft offre la possibilité de créer votre propre voix TTS neuronal personnalisé et de haute qualité qui offre une voix à votre marque, pour en savoir plus [contactez-nous](mailto:mstts@microsoft.com).
+|[Reconnaissance vocale par ligne directe](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech) | En tant que canal dans le cadre de robot, vocale de ligne directe permet une connexion fluide et homogène entre votre application cliente, un robot compatible et les fonctionnalités des Services de reconnaissance vocale de Azure. Pour plus d’informations sur la configuration de votre robot pour utiliser le canal Direct vocale de ligne, consultez [sa page dans la documentation de Bot Framework](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech).
 
 ## <a name="sample-code"></a>Exemple de code
 

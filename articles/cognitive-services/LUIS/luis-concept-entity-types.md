@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 59a05e7a20f6b229b37977a75d22611c0d5c31d9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7fd9ae3ab1f50dc91118ba11bc357a0f6dc0e771
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60813207"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65141041"
 ---
 # <a name="entity-types-and-their-purposes-in-luis"></a>Types d’entités et leurs objectifs dans LUIS
 
@@ -97,7 +97,6 @@ Une fois que l’entité extraite, ses données peuvent être représentées com
 |Issue de l’apprentissage automatique|Peut marquer|Didacticiel|Exemples<br>response|Type d’entité|Objectif|
 |--|--|--|--|--|--|
 |✔|✔|[✔](luis-tutorial-composite-entity.md)|[✔](luis-concept-data-extraction.md#composite-entity-data)|[**Composite**](#composite-entity)|Regroupement d’entités, quel que soit le type d’entité.|
-|✔|✔|-|[✔](luis-concept-data-extraction.md#hierarchical-entity-data)|[**Hiérarchique**](#hierarchical-entity)|Regroupement d’entités simples.|
 |||[✔](luis-quickstart-intent-and-list-entity.md)|[✔](luis-concept-data-extraction.md#list-entity-data)|[**Liste**](#list-entity)|Liste d’éléments et de leurs synonymes extraits avec une correspondance de texte exact.|
 |Mixte||[✔](luis-tutorial-pattern.md)|[✔](luis-concept-data-extraction.md#patternany-entity-data)|[**Pattern.any**](#patternany-entity)|Entité dont la fin est difficile à déterminer.|
 |||[✔](luis-tutorial-prebuilt-intents-entities.md)|[✔](luis-concept-data-extraction.md#prebuilt-entity-data)|[**Prédéfinie**](#prebuilt-entity)|Déjà formée pour extraire différents types de données.|
@@ -112,7 +111,7 @@ Les entités mixtes utilisent une combinaison de méthodes de détection d’ent
 
 ## <a name="composite-entity"></a>Entité composite
 
-Une entité composite est constituée d’autres entités (prédéfinies, simples, expressions régulières, listes ou hiérarchiques). Les entités distinctes forment une entité entière. 
+Une entité composite se compose d’autres entités, telles que des entités prédéfinies, simple, expression régulière et entités de la liste. Les entités distinctes forment une entité entière. 
 
 Cette entité convient bien lorsque les données :
 
@@ -126,18 +125,6 @@ Cette entité convient bien lorsque les données :
 
 [Didacticiel](luis-tutorial-composite-entity.md)<br>
 [Exemple de réponse JSON pour une entité](luis-concept-data-extraction.md#composite-entity-data)<br>
-
-## <a name="hierarchical-entity"></a>Entité hiérarchique
-
-**Entités hiérarchiques risque d’être dépréciées. Utilisez [rôles de l’entité](luis-concept-roles.md) pour déterminer des sous-types d’entité, au lieu d’entités hiérarchiques.**
-
-Une entité hiérarchique est une catégorie d’entités simples apprises de façon contextuelle, appelées enfants.
-
-![entité hiérarchique](./media/luis-concept-entities/hierarchical-entity.png)
-
-### <a name="roles-versus-hierarchical-entities"></a>Rôles et entités hiérarchiques
-
-[Rôles](luis-concept-roles.md) résoudre le même problème comme entités hiérarchiques, mais s’applique à tous les types d’entité.  
 
 ## <a name="list-entity"></a>Entité de liste
 
@@ -171,10 +158,10 @@ Dans le tableau suivant, chaque ligne contient deux versions de l’énoncé. L�
 
 |Énoncé|
 |--|
-|L’Homme qui prenait sa femme pour un chapeau a-t-il été écrit par un Americain cette année ?<br>**L’Homme qui prenait sa femme pour un chapeau** a-t-il été écrit par un Americain cette année ?|
-|Nature morte avec pivert a-t-il été par un Américain cette année ?<br>**Nature morte avec pivert** a-t-il été par un Américain cette année ?|
-|La singulière tristesse du gâteau au citron : est-il un roman écrit par un Américain cette année ?<br>La **singulière tristesse du gâteau au citron** est-il un roman écrit par un Américain cette année ?|
-|Le Petit Prince a-t-il été écrit par un Américain cette année ?<br>**Le Petit Prince** a-t-il été écrit par un Américain cette année ?|
+|' A été l’homme qui a confondu avec son épouse pour Hat et autres histoires cliniques écrit par un American cette année ?<br>**L’Homme qui prenait sa femme pour un chapeau** a-t-il été écrit par un Americain cette année ?|
+|`Was Half Asleep in Frog Pajamas written by an American this year?`<br>`Was **Half Asleep in Frog Pajamas** written by an American this year?`|
+|`Was The Particular Sadness of Lemon Cake: A Novel written by an American this year?`<br>`Was **The Particular Sadness of Lemon Cake: A Novel** written by an American this year?`|
+|`Was There's A Wocket In My Pocket! written by an American this year?`<br>`Was **There's A Wocket In My Pocket!** written by an American this year?`|
 
 ## <a name="prebuilt-entity"></a>Entité prédéfinie
 

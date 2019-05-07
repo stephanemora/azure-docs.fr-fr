@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc38e2096b6a761060fab09a8ce2518808b370e1
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 2fd7b05a5411c03e1324871fbff3c29061ce7b3d
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64713343"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65139239"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>Activation Fournir des revendications facultatives à votre application Azure AD
 
@@ -70,7 +70,8 @@ L’ensemble de revendications facultatives disponible par défaut pour les appl
 | `xms_pl`                   | Langue par défaut de l’utilisateur  | JWT ||La langue par défaut de l’utilisateur, si celle-ci a été définie. Dans les scénarios d’accès invité, provient du locataire de base. Au format langue-pays (« fr-fr »). |
 | `xms_tpl`                  | Langue par défaut du locataire| JWT | | Langue par défaut du locataire de la ressource, si celle-ci est définie. Au format langue (« fr »). |
 | `ztdid`                    | ID de déploiement sans intervention | JWT | | Identité d’appareil utilisée pour [Windows AutoPilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) |
-| `email`                    | Adresse e-mail de l'utilisateur, le cas échéant.  | JWT, SAML | MSA, AAD | Cette valeur est incluse par défaut si l’utilisateur est un invité du locataire.  Pour les utilisateurs gérés (à l’intérieur du locataire), elle doit être demandée via cette revendication facultative ou, sur la version 2.0 uniquement, avec l’étendue OpenID.  Pour les utilisateurs gérés, l’adresse e-mail doit être définie dans le [portail d’administration Office](https://portal.office.com/adminportal/home#/users).|  
+| `email`                    | Adresse e-mail de l'utilisateur, le cas échéant.  | JWT, SAML | MSA, AAD | Cette valeur est incluse par défaut si l’utilisateur est un invité du locataire.  Pour les utilisateurs gérés (à l’intérieur du locataire), elle doit être demandée via cette revendication facultative ou, sur la version 2.0 uniquement, avec l’étendue OpenID.  Pour les utilisateurs gérés, l’adresse e-mail doit être définie dans le [portail d’administration Office](https://portal.office.com/adminportal/home#/users).| 
+| `groups`| Option de mise en forme pour les revendications de groupe |JWT, SAML| |Utilisé conjointement avec le paramètre GroupMembershipClaims dans le [manifeste d’application](reference-app-manifest.md), qui doit également être défini. Pour plus d’informations, consultez [revendications de groupe](#Configuring-group-optional claims) ci-dessous. Pour plus d’informations sur les revendications de groupe, consultez [comment configurer des revendications de groupe](../hybrid/how-to-connect-fed-group-claims.md)
 | `acct`             | Statut du compte utilisateur dans le client. | JWT, SAML | | Si l’utilisateur est membre du client, la valeur est `0`. S’il est un invité, la valeur est `1`. |
 | `upn`                      | Revendication UserPrincipalName. | JWT, SAML  |           | Bien que cette revendication soit incluse automatiquement, vous pouvez la spécifier en tant que revendication facultative pour attacher des propriétés supplémentaires afin de modifier son comportement en cas d’utilisateur invité.  |
 
@@ -91,7 +92,6 @@ Ces revendications sont toujours incluses dans les jetons d’Azure AD v1.0, mai
 | `family_name` | Nom                       | Fournit le dernier nom, nom de famille ou nom de famille de l’utilisateur, tel que défini dans l’objet utilisateur. <br>"family_name":"Miller" | Prise en charge dans le compte de service administré et AAD   |
 | `given_name`  | Prénom                      | Fournit le premier ou « prénom » de l’utilisateur, tel que défini dans l’objet utilisateur.<br>"given_name": "Frank"                   | Prise en charge dans le compte de service administré et AAD  |
 | `upn`         | Nom d’utilisateur principal | Identificateur de l'utilisateur qui peut être utilisé avec le paramètre username_hint.  Il ne s'agit pas d'un identificateur durable pour l'utilisateur et il ne doit pas être utilisé pour saisir des données. | Consultez les [propriétés supplémentaires](#additional-properties-of-optional-claims) ci-dessous pour en savoir plus sur la configuration de la revendication. |
-
 
 ### <a name="additional-properties-of-optional-claims"></a>Propriétés supplémentaires des revendications facultatives
 
@@ -131,24 +131,24 @@ Vous pouvez configurer des revendications facultatives pour votre application en
 ```json
 "optionalClaims":  
    {
-       "idToken": [
-             { 
-                   "name": "auth_time", 
-                   "essential": false
-              }
-        ],
- "accessToken": [ 
+      "idToken": [
+            {
+                  "name": "auth_time", 
+                  "essential": false
+             }
+      ],
+      "accessToken": [
              {
                     "name": "ipaddr", 
                     "essential": false
               }
-        ],
-"saml2Token": [ 
-              { 
+      ],
+      "saml2Token": [
+              {
                     "name": "upn", 
                     "essential": false
                },
-               { 
+               {
                     "name": "extension_ab603c56068041afb2f6832e2a17e237_skypeId",
                     "source": "user", 
                     "essential": false
@@ -187,7 +187,7 @@ En cas de prise en charge par une revendication spécifique, vous pouvez égalem
 En plus de l’ensemble de revendications facultatives standard, vous pouvez également configurer des jetons pour inclure des extensions de schéma d’annuaire. Pour plus d’informations, consultez [extensions de schéma d’annuaire](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions). Cette fonctionnalité est utile pour joindre des informations utilisateur supplémentaires utilisables par votre application, par exemple un identificateur supplémentaire ou une option de configuration importante que l’utilisateur a définie. 
 
 > [!Note]
-> Les extensions de schéma d’annuaire sont une fonctionnalité AAD uniquement. Par conséquent, si le manifeste de votre application demande une extension personnalisée et qu’un utilisateur MSA se connecte à votre application, ces extensions ne sont pas retournées. 
+> Les extensions de schéma d’annuaire sont une fonctionnalité AAD uniquement. Par conséquent, si le manifeste de votre application demande une extension personnalisée et qu’un utilisateur MSA se connecte à votre application, ces extensions ne sont pas retournées.
 
 ### <a name="directory-extension-formatting"></a>Extension de répertoire de mise en forme
 
@@ -196,6 +196,98 @@ Pour les attributs d’extension, utilisez le nom complet de l’extension (au f
 Dans les jetons JWT, ces revendications seront émises avec le format de nom suivant : `extn.<attributename>`.
 
 Dans les jetons SAML, ces revendications seront émises avec le format d’URI suivant : `http://schemas.microsoft.com/identity/claims/extn.<attributename>`.
+
+## <a name="configuring-group-optional-claims"></a>Configuration des revendications facultatives groupe
+
+   > [!NOTE]
+   > La possibilité d’émettre les noms de groupe pour les utilisateurs et groupes synchronisés en local est la version préliminaire publique
+
+Cette section décrit les options de configuration sous les revendications facultatives pour modifier les attributs de groupe utilisés dans les revendications de groupe à partir de l’objectID du groupe par défaut pour les attributs synchronisés à partir d’Active Directory de Windows en local
+> [!IMPORTANT]
+> Consultez [configurer des revendications de groupe pour les applications avec Azure Active Directory](../hybrid/how-to-connect-fed-group-claims.md) pour plus d’informations, y compris les réserves importantes pour la version préliminaire de revendications de groupe à partir des attributs d’en local.
+
+1. Dans le portail -> Azure Active Directory -> Application inscriptions -> sélectionnez Application -> manifeste
+
+2. Activer les revendications de l’appartenance au groupe en modifiant le groupMembershipClaim
+
+   Les valeurs valides sont :
+
+   - « Tout »
+   - « SecurityGroup »
+   - « DistributionList »
+   - « DirectoryRole »
+
+   Par exemple : 
+
+   ```json
+   "groupMembershipClaims": "SecurityGroup"
+   ```
+
+   Valeur de revendication par défaut Qu'objectid du groupe sera émise dans le groupe.  Pour modifier la valeur de revendication pour contenir des attributs de groupe local, ou pour modifier le type de revendication de rôle, utilisez OptionalClaims configuration comme suit :
+
+3. Définir des revendications de groupe nom configuration facultatives.
+
+   Si vous souhaitez à des groupes dans le jeton contiennent les locaux des attributs de groupe AD dans la section de revendications facultatives spécifient quels revendication facultative de type de jeton doit être appliquée à, le nom de la revendication facultative demandé et toutes les propriétés que vous le souhaitez.  Vous pouvez spécifier plusieurs types de jetons :
+
+   - idToken pour le jeton d’ID de OIDC
+   - accessToken pour le jeton d’accès OAuth/OIDC
+   - Saml2Token pour les jetons SAML.
+
+   > [!NOTE]
+   > Le type Saml2Token s’applique à la fois SAML1.1 et SAML2.0 jetons de format
+
+   Pour chaque type de jeton approprié, modifiez la revendication groupes à utiliser la section OptionalClaims dans le manifeste. Le schéma OptionalClaims est comme suit :
+
+   ```json
+   {
+   "name": "groups",
+   "source": null,
+   "essential": false,
+   "additionalProperties": []
+   }
+   ```
+
+   | Schéma de revendications facultatives | Valeur |
+   |----------|-------------|
+   | **Nom :** | Doit être « groupes » |
+   | **Source :** | Non utilisé. Omettez ou spécifiez la valeur null |
+   | **essentielles :** | Non utilisé. Omettez ou spécifiez la valeur false |
+   | **additionalProperties :** | Liste de propriétés supplémentaires.  Les options valides sont « sam_account_name », « dns_domain_and_sam_account_name », « netbios_domain_and_sam_account_name », « emit_as_roles » |
+
+   Dans additionalProperties seul « sam_account_name », « dns_domain_and_sam_account_name », « netbios_domain_and_sam_account_name » sont nécessaires.  Si plusieurs instances sont présente, la première est utilisée et tous les autres ignorée.
+
+   Certaines applications requièrent des informations de groupe sur l’utilisateur dans la revendication de rôle.  Pour modifier le type de revendication pour à partir d’une revendication de groupe pour une revendication de rôle, ajoutez « emit_as_roles » à des propriétés supplémentaires.  Les valeurs de groupe seront émises dans la revendication de rôle.
+
+   > [!NOTE]
+   > Si « emit_as_roles » est utilisé des rôles d’Application configuré que l’utilisateur est affecté sera n’apparaît pas dans la revendication de rôle
+
+**Exemples :** Émettre des groupes en tant que noms de groupe dans les jetons d’accès OAuth au format de dnsDomainName\sAMAccountName
+
+```json
+"optionalClaims": {
+    "accessToken": [{
+        "name": "groups",
+        "additionalProperties": ["dns_domain_and_sam_account_name"]
+    }]
+}
+ ```
+
+Pour émettre les noms de groupe à retourner dans le format de netbiosDomain\sAMAccountName comme les rôles de revendication SAML et jetons d’ID OIDC :
+
+```json
+"optionalClaims": {
+    "saml2Token": [{
+        "name": "groups",
+        "additionalProperties": ["netbios_name_and_sam_account_name", "emit_as_roles"]
+    }],
+
+    "idToken": [{
+        "name": "groups",
+        "additionalProperties": ["netbios_name_and_sam_account_name", "emit_as_roles"]
+    }]
+ }
+
+ ```
 
 ## <a name="optional-claims-example"></a>Exemple de revendications facultatives
 
@@ -213,7 +305,7 @@ Plusieurs options sont disponibles pour mettre à jour les propriétés de confi
 1. Dans la page de l’application, cliquez sur **Manifeste** pour ouvrir l’éditeur de manifeste en ligne. 
 1. Vous pouvez modifier directement le manifeste à l’aide de cet éditeur. Le manifeste respecte le schéma de l’[entité Application](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest) et met automatiquement en forme le manifeste une fois enregistré. Les nouveaux éléments sont ajoutés à la propriété `OptionalClaims`.
 
-      ```json
+    ```json
       "optionalClaims": 
       {
             "idToken": [ 
@@ -223,13 +315,13 @@ Plusieurs options sont disponibles pour mettre à jour les propriétés de confi
                         "additionalProperties": [ "include_externally_authenticated_upn"]  
                   }
             ],
-      "accessToken": [ 
+            "accessToken": [ 
                   {
                         "name": "auth_time", 
                         "essential": false
                   }
             ],
-      "saml2Token": [ 
+            "saml2Token": [ 
                   { 
                         "name": "extension_ab603c56068041afb2f6832e2a17e237_skypeId",
                         "source": "user", 
@@ -237,8 +329,10 @@ Plusieurs options sont disponibles pour mettre à jour les propriétés de confi
                   }
             ]
       }
-      ```
-      Ici, différentes revendications facultatives ont été ajoutées à chaque type de jeton que l’application peut recevoir. Les jetons d’ID contiendront désormais l’UPN pour les utilisateurs fédérés au format complet (`<upn>_<homedomain>#EXT#@<resourcedomain>`). Les jetons d’accès demandés par d’autres clients pour cette application incluront désormais la revendication auth_time. Les jetons SAML contiendront désormais l’extension de schéma d’annuaire skypeId (dans cet exemple, l’ID d’application pour cette application est ab603c56068041afb2f6832e2a17e237). Les jetons SAML exposeront l’ID Skype en tant que `extension_skypeId`.
+
+    ```
+
+    Ici, différentes revendications facultatives ont été ajoutées à chaque type de jeton que l’application peut recevoir. Les jetons d’ID contiendront désormais l’UPN pour les utilisateurs fédérés au format complet (`<upn>_<homedomain>#EXT#@<resourcedomain>`). Les jetons d’accès demandés par d’autres clients pour cette application incluront désormais la revendication auth_time. Les jetons SAML contiendront désormais l’extension de schéma d’annuaire skypeId (dans cet exemple, l’ID d’application pour cette application est ab603c56068041afb2f6832e2a17e237). Les jetons SAML exposeront l’ID Skype en tant que `extension_skypeId`.
 
 1. Quand vous avez terminé de mettre à jour le manifeste, cliquez sur **Enregistrer** pour enregistrer le manifeste.
 

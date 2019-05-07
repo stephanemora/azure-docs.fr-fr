@@ -7,22 +7,19 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload management
-ms.date: 03/13/2019
+ms.date: 05/01/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: 12e7d9bc22eff14bbf302aed50080412d04a40d3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9c26bca66b0f82ea58d01d0eb8358f521168a799
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61474700"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65154133"
 ---
-# <a name="sql-data-warehouse-workload-importance-preview"></a>Importance de la charge de travail de SQL Data Warehouse (version préliminaire)
+# <a name="sql-data-warehouse-workload-importance"></a>Importance de la charge de travail de SQL Data Warehouse
 
 Cet article explique comment importance de la charge de travail peut influencer l’ordre d’exécution pour les requêtes SQL Data Warehouse.
-
-> [!Note]
-> La classification de charge de travail est disponible en préversion dans SQL Data Warehouse Gen2. Les informations relatives à l’importance et à la classification de la gestion des charges de travail (préversion) concernent les builds publiées au plus tôt le 9 avril 2019.  Les utilisateurs doivent éviter d’utiliser les builds antérieures à cette date à des fins de test de la gestion des charges de travail.  Pour déterminer si votre build est compatible avec la gestion des charges de travail, exécutez select @@version quand vous êtes connecté à votre instance SQL Data Warehouse.
 
 ## <a name="importance"></a>importance
 
@@ -64,4 +61,4 @@ Q5 étant mediumrc, elle nécessite deux emplacements de concurrence.  Q5 doit a
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur la classification de la charge de travail de SQL Data Warehouse, consultez [SQL Data Warehouse charge de travail Classification](sql-data-warehouse-workload-classification.md) et [créer un classifieur de charge de travail](quickstart-create-a-workload-classifier-tsql.md). Consultez [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) pour voir les requêtes et l’importance attribuée.
+Pour commencer à la création d’un classifieur, consultez le [créer le classifieur de charge de travail (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-workload-classifier-transact-sql).  Pour plus d’informations sur la classification de la charge de travail de SQL Data Warehouse, consultez [SQL Data Warehouse charge de travail Classification](sql-data-warehouse-workload-classification.md).  Consultez le Guide de démarrage rapide sur la création d’un classifieur de charge de travail [créer un classifieur de charge de travail](quickstart-create-a-workload-classifier-tsql.md). Consultez [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) pour voir les requêtes et l’importance attribuée.

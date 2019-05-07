@@ -18,18 +18,18 @@ ms.author: celested
 ms.reviewer: lenalepa
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b77b5185056329113ee1fd17fa3ed3f364380ca2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9b77f2a403bd4f410665d00bc69b3b1bcf0c3aaa
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60411213"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65139168"
 ---
 # <a name="app-registration-reference"></a>Informations de référence sur l’inscription des applications
 Ce document fournit le contexte et les descriptions de différentes fonctionnalités figurant dans le [portail d’inscription des applications](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/).
 
 > [!NOTE]
-> Nous prendrons en charge n’est plus l’inscription et la gestion d’applications AD convergées Azure dans le [portail d’inscription des applications](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/) début mai 2019. Nous vous recommandons de gérez vos applications existantes et enregistrez les nouvelles applications à l’aide de la [inscriptions d’application (version préliminaire)](https://aka.ms/appregistrations) expérience dans le portail Azure.
+> Nous prendrons en charge n’est plus l’inscription et la gestion d’applications AD convergées Azure dans le [portail d’inscription des applications](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/) début mai 2019. Nous vous recommandons de gérez vos applications existantes et enregistrez les nouvelles applications à l’aide de la [inscriptions](https://aka.ms/appregistrations) expérience dans le portail Azure.
 
 ## <a name="my-applications-or-converged-applications"></a>Mes applications ou Applications convergentes
 Cette liste contient toutes les applications inscrites pour une utilisation avec le point de terminaison Azure AD v2.0. Ces applications permettent de connecter des utilisateurs avec à la fois des comptes personnels Microsoft et des comptes professionnels/scolaires Azure Active Directory. Pour en savoir plus sur le point de terminaison Azure AD v2.0, consultez la [présentation de v2.0](active-directory-appmodel-v2-overview.md). Ces applications peuvent également servir à l’intégration au point de terminaison d’authentification de compte Microsoft, `https://login.live.com`.

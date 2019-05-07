@@ -2,18 +2,19 @@
 title: 'Tutoriel : Activer un domaine personnalisé avec SSL sur un site web statique à l’aide d’Azure CDN - Stockage Azure'
 description: Découvrez comment configurer un domaine personnalisé pour l’hébergement de site web statique.
 services: storage
-author: tamram
+author: normesta
 ms.service: storage
 ms.topic: tutorial
 ms.date: 12/07/2018
-ms.author: tamram
+ms.author: normesta
+ms.reviewer: seguler
 ms.custom: seodec18
-ms.openlocfilehash: 6ccd33805fe4b62d3456121321edc4eec3bff2e5
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 4b074c9dee93ba44659b0321ae3eee7fbea1c61f
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53110314"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65145055"
 ---
 # <a name="tutorial-use-azure-cdn-to-enable-a-custom-domain-with-ssl-for-a-static-website"></a>Tutoriel : Utiliser Azure CDN pour activer un domaine personnalisé avec SSL pour un site web statique
 
@@ -31,7 +32,7 @@ Dans ce deuxième volet, vous apprenez à :
 
 Avant de commencer ce tutoriel, suivez la première partie, [Tutoriel : Héberger un site web statique sur le Stockage Blob](storage-blob-static-website-host.md). 
 
-## <a name="sign-in-to-the-azure-portal"></a>Se connecter au portail Azure
+## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
 
 Pour commencer, connectez-vous au [portail Azure](https://portal.azure.com/).
 

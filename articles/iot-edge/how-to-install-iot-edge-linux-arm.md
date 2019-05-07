@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: kgremban
-ms.openlocfilehash: ad7e34110b0c6d047eb7454b7fac9f8c10df8be2
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 6c22680102c57fdfc3d25beb19e5bc9847995b28
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62126363"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65152726"
 ---
 # <a name="install-azure-iot-edge-runtime-on-linux-arm32v7armhf"></a>Installer le runtime Azure IoT Edge sur Linux (ARM32v7/armhf)
 
@@ -22,7 +22,7 @@ Le runtime Azure IoT Edge est ce qui transforme un appareil en appareil IoT Edge
 
 Pour en savoir plus sur le fonctionnement du runtime IoT Edge et les composants inclus, consultez [Présentation du runtime Azure IoT Edge et de son architecture](iot-edge-runtime.md).
 
-Cet article répertorie les étapes pour installer le runtime Azure IoT Edge sur un appareil Linux ARM32v7/armhf IoT Edge. Par exemple, ces étapes sont adaptées aux appareils Raspberry Pi. Pour obtenir la liste des systèmes d’exploitation ARM32, consultez [prise en charge Azure IoT Edge](support.md#operating-systems). 
+Cet article répertorie les étapes pour installer le runtime Azure IoT Edge sur un appareil Linux ARM32v7/armhf IoT Edge. Par exemple, ces étapes sont adaptées aux appareils Raspberry Pi. Pour obtenir la liste des systèmes d’exploitation ARM32, consultez [Azure IoT Edge systèmes pris en charge](support.md#operating-systems). 
 
 >[!NOTE]
 >Chaque package des référentiels de logiciels Linux est soumis aux termes du contrat de licence qu’il contient (/usr/share/doc/*nom_package*). Lisez les termes du contrat de licence avant d’utiliser le package. Le fait d’installer et d’utiliser le package revient à accepter ces termes. Si vous n’acceptez pas les termes du contrat de licence, n’utilisez pas le package.

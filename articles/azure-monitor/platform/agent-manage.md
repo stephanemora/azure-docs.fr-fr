@@ -1,6 +1,6 @@
 ---
 title: Gestion de l’agent Azure Log Analytics | Microsoft Docs
-description: Cet article décrit les différentes tâches de gestion à effectuer en règle générale pendant le cycle de vie de Microsoft Monitoring Agent (MMA) déployé sur une machine.
+description: Cet article décrit les différentes tâches de gestion qui s’effectue généralement pendant le cycle de vie du journal Analytique Windows ou Linux agent est déployé sur un ordinateur.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: magoedte
-ms.openlocfilehash: 19530aa676e681f9a6ec50d2cacf77711dcb0110
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 1809cc50f3ad3c285e0b69bc6e383a2c7c398238
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64730275"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65139260"
 ---
 # <a name="managing-and-maintaining-the-log-analytics-agent-for-windows-and-linux"></a>Gestion et maintenance de l’agent Log Analytics sous Windows et Linux
 
-Après le déploiement initial du journal Analytique Windows ou de l’agent Linux dans Azure Monitor, vous devrez peut-être reconfigurer l’agent, mettre à niveau ou supprimez-le de l’ordinateur si a atteint la phase de mise hors service dans son cycle de vie. Vous pouvez facilement effectuer ces tâches de maintenance de routine manuellement ou automatiquement ce qui réduit les erreurs opérationnelles et les coûts.
+Après le déploiement initial du journal Analytique Windows ou de l’agent Linux dans Azure Monitor, vous devrez peut-être reconfigurer l’agent, de mettre à niveau ou de supprimer de l’ordinateur s’il a atteint la phase de mise hors service dans son cycle de vie. Vous pouvez facilement effectuer ces tâches de maintenance de routine manuellement ou automatiquement ce qui réduit les erreurs opérationnelles et les coûts.
 
 ## <a name="upgrading-agent"></a>La mise à niveau de l’agent
 
@@ -40,7 +40,7 @@ Pour mettre à jour l’agent sur une machine virtuelle Windows vers la dernièr
 
 Vous pouvez télécharger la dernière version de l’agent Windows à partir de votre espace de travail Analytique de journal, en effectuant les étapes suivantes.
 
-1. Connectez-vous au portail Azure.
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 
 2. Dans le portail Azure, cliquez sur **Tous les services**. Dans la liste de ressources, saisissez **Log Analytics**. Au fur et à mesure de la saisie, la liste est filtrée. Sélectionnez **Espaces de travail Log Analytics**.
 
@@ -91,6 +91,7 @@ Exécutez la commande suivante pour mettre à niveau l’agent.
 ## <a name="adding-or-removing-a-workspace"></a>Ajout ou suppression d’un espace de travail
 
 ### <a name="windows-agent"></a>Agent Windows
+Les étapes décrites dans cette section sont nécessaires lorsque vous souhaitez non seulement de reconfigurer l’agent Windows pour signaler à un autre espace de travail ou pour supprimer un espace de travail à partir de sa configuration, mais également lorsque vous souhaitez configurer l’agent pour signaler à plus d’un espace de travail (généralement appelée hébergement multiple). Configuration de l’agent Windows pour signaler à plusieurs espaces de travail ne peut être effectuée après l’installation initiale de l’agent et à l’aide des méthodes décrites ci-dessous.    
 
 #### <a name="update-settings-from-control-panel"></a>Mettre à jour les paramètres dans le Panneau de configuration
 
@@ -140,7 +141,7 @@ $mma.ReloadConfiguration()
 >
 
 ### <a name="linux-agent"></a>Agent Linux
-Les étapes suivantes montrent comment reconfigurer l’agent Linux si vous décidez de l’enregistrer avec un autre espace de travail ou si vous souhaitez supprimer un espace de travail à partir de sa configuration.
+Les étapes suivantes montrent comment reconfigurer l’agent Linux si vous décidez d’enregistrer avec un autre espace de travail ou pour supprimer un espace de travail à partir de sa configuration.
 
 1. Pour vérifier qu’il est enregistré dans un espace de travail, exécutez la commande suivante :
 
@@ -160,7 +161,7 @@ Les étapes suivantes montrent comment reconfigurer l’agent Linux si vous déc
 
     `/opt/microsoft/omsagent/bin/omsadmin.sh -w <workspace id> -s <shared key> [-d <top level domain>]`
     
-4. Pour vérifier que vos modifications sont effectives, exécutez la commande suivante :
+4. Pour vérifier la prise d’effet de vos modifications, exécutez la commande suivante :
 
     `/opt/microsoft/omsagent/bin/omsadmin.sh -l`
 
@@ -231,7 +232,7 @@ Effectuez les opérations suivantes si vos ordinateurs Linux doivent communiquer
     ```
 
 ## <a name="uninstall-agent"></a>Désinstaller l’agent
-Utilisez l’une des procédures suivantes pour désinstaller l’agent Windows ou Linux à l’aide de la ligne de commande ou de l’assistant d’installation.
+Utilisez une des procédures suivantes pour désinstaller l’agent Windows ou Linux à l’aide de la ligne de commande ou l’Assistant installation.
 
 ### <a name="windows-agent"></a>Agent Windows
 
