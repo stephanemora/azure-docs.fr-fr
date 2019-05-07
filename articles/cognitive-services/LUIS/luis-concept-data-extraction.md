@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 3bad247263af09462a44e04329e7f911afa3ad5c
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 15d6b0d28f926bdb39b35b763b89422cddcccc84
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64867719"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150698"
 ---
 # <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>Extraire des données de texte énoncé avec les intentions et entités
 LUIS donne la possibilité d’obtenir des informations à partir des énoncés d’un utilisateur en langage naturel. Les informations sont extraites de façon à pouvoir être utilisées par un programme, une application ou un chatbot de manière exploitable. Dans les sections suivantes, découvrez quelles sont les données retournées à partir des intentions et des entités avec des exemples de JSON.
@@ -172,34 +172,6 @@ Le point de terminaison retourne les données suivantes : nom de l’entité, te
 |--|--|--|
 |Entité simple|`Customer`|`bob jones`|
 
-## <a name="hierarchical-entity-data"></a>Données d’entité hiérarchique
-
-**Entités hiérarchiques risque d’être dépréciées. Utilisez [rôles de l’entité](luis-concept-roles.md) pour déterminer des sous-types d’entité, au lieu d’entités hiérarchiques.**
-
-Les entités [hiérarchiques](luis-concept-entity-types.md) sont des valeurs issues du Machine Learning. Elles peuvent comporter un mot ou une expression. Les enfants sont identifiés par le contexte. Si vous recherchez une relation parent-enfant avec correspondance de texte exacte, utilisez une entité de [liste](#list-entity-data).
-
-`book 2 tickets to paris`
-
-Dans l’énoncé précédent, `paris` est étiqueté comme enfant `Location::ToLocation` de l’entité hiérarchique `Location`.
-
-Le point de terminaison retourne les données suivantes : nom de l’entité et de l’enfant, texte découvert dans l’énoncé, emplacement de ce texte et score.
-
-```JSON
-"entities": [
-  {
-    "entity": "paris",
-    "type": "Location::ToLocation",
-    "startIndex": 18,
-    "endIndex": 22,
-    "score": 0.6866132
-  }
-]
-```
-
-|Objet de données|Parent|Enfant|Valeur|
-|--|--|--|--|
-|Entité hiérarchique|Lieu|ToLocation|"paris"|
-
 ## <a name="composite-entity-data"></a>Données d’entité composite
 Les entités [composites](luis-concept-entity-types.md) sont des valeurs issues du Machine Learning. Elles peuvent comporter un mot ou une expression. Prenons l’exemple d’une entité composite de `number` et `Location::ToLocation` prédéfinis avec l’énoncé suivant :
 
@@ -212,53 +184,54 @@ Notez qu’entre `2`, le nombre, et `paris`, ToLocation, se trouvent des mots qu
 Les entités composites sont retournées dans un tableau `compositeEntities`, et toutes les entités qui la composent dans le tableau `entities` :
 
 ```JSON
-  "entities": [
+
+"entities": [
     {
-      "entity": "paris",
-      "type": "Location::ToLocation",
-      "startIndex": 18,
-      "endIndex": 22,
-      "score": 0.956998169
+    "entity": "2 tickets to cairo",
+    "type": "ticketInfo",
+    "startIndex": 0,
+    "endIndex": 17,
+    "score": 0.67200166
     },
     {
-      "entity": "2",
-      "type": "builtin.number",
-      "startIndex": 5,
-      "endIndex": 5,
-      "resolution": {
+    "entity": "2",
+    "type": "builtin.number",
+    "startIndex": 0,
+    "endIndex": 0,
+    "resolution": {
+        "subtype": "integer",
         "value": "2"
-      }
+    }
     },
     {
-      "entity": "2 tickets to paris",
-      "type": "Order",
-      "startIndex": 5,
-      "endIndex": 22,
-      "score": 0.7714499
+    "entity": "cairo",
+    "type": "builtin.geographyV2",
+    "startIndex": 13,
+    "endIndex": 17
     }
-  ],
-  "compositeEntities": [
+],
+"compositeEntities": [
     {
-      "parentType": "Order",
-      "value": "2 tickets to paris",
-      "children": [
+    "parentType": "ticketInfo",
+    "value": "2 tickets to cairo",
+    "children": [
         {
-          "type": "builtin.number",
-          "value": "2"
+        "type": "builtin.geographyV2",
+        "value": "cairo"
         },
         {
-          "type": "Location::ToLocation",
-          "value": "paris"
+        "type": "builtin.number",
+        "value": "2"
         }
-      ]
+    ]
     }
-  ]
+]
 ```    
 
 |Objet de données|Nom de l’entité|Valeur|
 |--|--|--|
 |Entité prédéfinie – nombre|"builtin.number"|"2"|
-|Entité hiérarchique – Location|"Location::ToLocation"|"paris"|
+|Entité prédéfinie - GeographyV2|"Location::ToLocation"|"paris"|
 
 ## <a name="list-entity-data"></a>Données d’entité de liste
 
@@ -268,8 +241,8 @@ Supposons que l’application comporte une liste nommée `Cities`, permettant de
 
 |Élément de liste|Synonymes de l’élément|
 |---|---|
-|Seattle|sea-tac, sea, 98101, 206, +1 |
-|Paris|cdg, roissy, 75001, 1, +33|
+|`Seattle`|`sea-tac`, `sea`, `98101`, `206`, `+1` |
+|`Paris`|`cdg`, `roissy`, `ory`, `75001`, `1`, `+33`|
 
 `book 2 tickets to paris`
 

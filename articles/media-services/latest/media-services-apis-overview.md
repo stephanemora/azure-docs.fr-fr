@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 04/21/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: a336f7faae24517aa4e29c991886107c6a82d2b5
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b80f11ef97a10728f07cebe1fe80b954e506da52
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64692554"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65147890"
 ---
 # <a name="developing-with-media-services-v3-apis"></a>Développement avec Media Services v3 API
 
@@ -88,7 +88,7 @@ Media Services a les opérations de longue suivantes :
 
 Consultez [filtrage, classement, la pagination des entités Azure Media Services](entities-overview.md)
 
-## <a name="provide-feedback"></a>Fournir des commentaires
+## <a name="ask-questions-give-feedback-get-updates"></a>Posez des questions, commentaires, obtenir des mises à jour
 
 Découvrez l’article [Communauté Azure Media Services](media-services-community.md) pour découvrir les différentes façons dont vous pouvez poser des questions, faire des commentaires et obtenir des mises à jour sur Media Services.
 

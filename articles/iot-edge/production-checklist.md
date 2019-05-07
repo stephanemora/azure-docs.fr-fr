@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: c64db6b35aa2f1daa4484f137c8505b1415c5a0b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 80bf4718b63496c0b220aa79dcdd27f2711b70ce
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60998453"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148096"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Préparer le déploiement en production d’une solution IoT Edge
 
@@ -186,7 +186,11 @@ Si vos appareils sont destinés à être déployés sur un réseau qui utilise u
 
 ### <a name="set-up-logs-and-diagnostics"></a>Configurer les journaux d’activité et les diagnostics
 
-Sur Linux, le démon IoT Edge utilise les journaux en tant que le pilote de journalisation par défaut. Vous pouvez vous servir de l’outil en ligne de commande `journalctl` pour interroger les journaux d’activité du démon. Sous Windows, le démon IoT Edge utilise les diagnostics PowerShell. Interrogez les journaux d’activité du démon avec `Get-WinEvent`. Modules IoT Edge utilisent le pilote JSON pour la journalisation, qui est la valeur par défaut.  
+Sur Linux, le démon IoT Edge utilise les journaux en tant que le pilote de journalisation par défaut. Vous pouvez vous servir de l’outil en ligne de commande `journalctl` pour interroger les journaux d’activité du démon. Sous Windows, le démon IoT Edge utilise les diagnostics PowerShell. Interrogez les journaux d’activité du démon avec `Get-IoTEdgeLog`. Modules IoT Edge utilisent le pilote JSON pour la journalisation, qui est la valeur par défaut.  
+
+```powershell
+. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
+```
 
 Lorsque vous testez un déploiement IoT Edge, vous pouvez généralement accéder à vos appareils pour récupérer les journaux d’activité et résoudre les problèmes. Dans un scénario de déploiement, vous n’avez pas forcément cette option. Réfléchissez à la façon dont vous allez collecter des informations sur vos appareils en production. Il est possible d’utiliser un module de journalisation, par exemple, [logspout-loganalytics](https://github.com/veyalla/logspout-loganalytics), qui recueille des informations auprès des autres modules et les envoie vers le cloud. Vous pouvez également concevoir votre propre module de journalisation. 
 

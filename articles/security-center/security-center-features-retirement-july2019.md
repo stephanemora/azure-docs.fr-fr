@@ -8,12 +8,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 4/16/2019
 ms.author: yoafr
-ms.openlocfilehash: 392782310d8bc3b38a3dd1349cb1760ca287acd1
-ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.openlocfilehash: ac677a7f9586dbe893cbcbc480564aceac0149a0
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64875582"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65147929"
 ---
 # <a name="retirement-of-security-center-features-july-2019"></a>Retrait des fonctionnalités de Security Center (2019 juillet)
 
@@ -155,7 +155,7 @@ Cette fonctionnalité a été en version préliminaire et va être mis hors serv
 
 ### <a name="edit-security-configurations---new-experience"></a>Modifier les configurations de sécurité - nouvelle expérience
 
-Security Center prend en charge la [agent dans l’invité](https://docs.microsoft.com/azure/governance/policy/concepts/guest-configuration) dans un avenir proche, ce qui permet un ensemble de fonctionnalités plus riche - y compris la prise en charge pour l’intégration avec la configuration invité avec les stratégies Azure (dans l’invité et d’autres systèmes d’exploitation stratégies). Cela fournit également la possibilité de contrôler à l’échelle et s’appliquent automatiquement sur les nouvelles ressources.
+Security Center prend en charge la [agent de configuration invité](https://docs.microsoft.com/azure/governance/policy/concepts/guest-configuration) dans un avenir proche, ce qui permet un ensemble de fonctionnalités plus riche - y compris la prise en charge pour l’intégration avec la configuration d’invité avec les stratégies Azure (et d’autres systèmes d’exploitation stratégies dans l’invité). Cela fournit également la possibilité de contrôler à l’échelle et s’appliquent automatiquement sur les nouvelles ressources.
 
 ## Sécurité et audit tableau de bord (initialement utilisé dans le portail OMS) pour les espaces de travail Analytique de journal<a name="menu_securityomsdashboard"></a>
 

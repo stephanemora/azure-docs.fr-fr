@@ -2,18 +2,19 @@
 title: Surveiller et résoudre les problèmes d’une application de stockage cloud dans Azure | Microsoft Docs
 description: Utilisez des outils de diagnostic, des métriques et la génération d’alertes pour surveiller et résoudre les problèmes d’une application cloud.
 services: storage
-author: tamram
+author: normesta
 ms.service: storage
 ms.topic: tutorial
 ms.date: 07/20/2018
-ms.author: tamram
+ms.author: normesta
+ms.reviewer: fryu
 ms.custom: mvc
-ms.openlocfilehash: 1bd237d4b8ecd826caf4ba9a150f1dd50f0c5bb6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 1383ccd570e23d80343ccdfd586d08ee25ebbc8d
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51259987"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148243"
 ---
 # <a name="monitor-and-troubleshoot-a-cloud-storage-application"></a>Surveiller et résoudre les problèmes d’une application de stockage cloud
 
@@ -105,7 +106,7 @@ Une fois le journal ouvert, vous pouvez consulter les événements de stockage. 
 
 ![Microsoft Message Analyzer - Affichage des événements](media/storage-monitor-troubleshoot-storage-application/figure5.png)
 
-L’[Explorateur Stockage](https://azure.microsoft.com/features/storage-explorer/) est un autre outil qui peut être utilisé pour interagir avec vos comptes de stockage, y compris le conteneur **$logs** et les fichiers journaux qu’il contient.
+L’[Explorateur Stockage](https://azure.microsoft.com/features/storage-explorer/) est un autre outil qui peut être utilisé pour interagir avec vos comptes de stockage, y compris le conteneur **$logs** et les fichiers journaux d’activité qu’il contient.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

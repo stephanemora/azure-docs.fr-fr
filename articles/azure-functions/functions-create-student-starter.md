@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 02/22/2019
 ms.author: alkarche
-ms.openlocfilehash: 5fd9f51185b8461269d498b254d9e9d9f4118270
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 860fedb13e84054e8ba264116be4e452445b7e9b
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57344038"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143096"
 ---
 # <a name="create-a-function-using-azure-for-students-starter"></a>Créer une fonction à l’aide de Microsoft Azure for Students Starter
 
@@ -76,8 +76,6 @@ Vous devez disposer d’une Function App pour héberger l’exécution de vos fo
 
 8. Sélectionnez **Accéder à la ressource** pour afficher votre nouvelle application de fonction.
 
-> [!TIP]
-> Si vous avez des difficultés à trouver vos applications de fonction dans le portail, essayez [d’ajouter des applications de fonction à vos favoris dans le portail Azure](./functions-how-to-use-azure-function-app-settings.md#favorite).
 Créez ensuite une fonction dans la nouvelle Function App.
 
 ## <a name="create-function"></a>Créer une fonction déclenchée via HTTP

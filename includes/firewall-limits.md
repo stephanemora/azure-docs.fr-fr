@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: include
-ms.date: 3/25/2019
+ms.date: 5/3/2019
 ms.author: victorh
 ms.custom: include file
-ms.openlocfilehash: 0467359cd9d6a067e519a62532f00459bc5f68cb
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 8709d4d903bd31ff94d04ec61e226857e4190407
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59803966"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150340"
 ---
 | Ressource | Limite par défaut |
 | --- | --- |
@@ -21,6 +21,6 @@ ms.locfileid: "59803966"
 |Règles|10 000, tous les règles des types associés.|
 |Taille minimale d’AzureFirewallSubnet |/26|
 |Plage de ports dans les règles de réseau et d’application|0-64,000. Nous nous efforçons actuellement d’assouplir cette limitation.|
-|Table de routage|Par défaut, AzureFirewallSubnet dispose d’un itinéraire 0.0.0.0/0 avec la valeur de type de tronçon suivant définie sur **Internet**.<br><br>Si vous activez le tunneling forcé au niveau local via ExpressRoute ou passerelle VPN, vous devrez configurer un itinéraire de défini par l’utilisateur (UDR) 0.0.0.0/0 avec l’ensemble de valeurs de NextHopType comme Internet et l’associer à votre AzureFirewallSubnet explicitement. Cela remplace une passerelle par défaut potentiels annonce BGP à votre réseau local. Si votre organisation exige que le tunneling forcé pour le pare-feu Azure diriger le trafic de passerelle par défaut par le biais de votre réseau local, contactez le Support technique. Nous pouvons liste verte de votre abonnement pour vous assurer de la connectivité Internet de pare-feu requis est conservée.|
+|Table de routage|Par défaut, AzureFirewallSubnet dispose d’un itinéraire 0.0.0.0/0 avec la valeur de type de tronçon suivant définie sur **Internet**.<br><br>Pare-feu Azure doit avoir une connectivité Internet directe. Si votre AzureFirewallSubnet prend connaissance d’un itinéraire par défaut pour votre réseau local via le protocole BGP, vous devez la remplacer par un UDR 0.0.0.0/0 avec le **NextHopType** valeur définie en tant que **Internet** pour mettre à jour directe Connexion Internet. Par défaut, les pare-feu Azure ne prend en charge le tunneling forcé à un réseau local.<br><br>Toutefois, si votre configuration nécessite le tunneling forcé à un réseau local, Microsoft prendra en charge il cas par cas. Contactez le Support technique afin que nous pouvons examiner votre cas. Si accepté, nous liste verte votre abonnement et garantir que la conservation de la connectivité Internet de pare-feu nécessaires.|
 
 <sup>1</sup>si vous avez besoin d’augmenter ces limites, contactez le Support Azure.

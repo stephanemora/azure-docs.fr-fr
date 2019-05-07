@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/17/2019
+ms.date: 05/06/2019
 ms.author: magoedte
-ms.openlocfilehash: 8fb1d0083796671119de2b4d7feefe738b602fe2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ed387f7038c5dee1a1685c918abcae49942cd55d
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60497225"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148845"
 ---
 # <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers"></a>Comprendre les performances du cluster AKS avec Azure Monitor pour les conteneurs 
 Avec Azure Monitor pour les conteneurs, vous pouvez utiliser les graphiques de performances et l’état d’intégrité pour surveiller la charge de travail de vos clusters Azure Kubernetes Service (AKS) selon deux perspectives, directement à partir d’un cluster AKS ou tous les clusters AKS d’un abonnement à partir d’Azure Monitor. L’affichage d’ACI (Azure Container Instances) est également possible lorsque vous surveillez un cluster ACS spécifique.
@@ -27,7 +27,19 @@ Cet article vous aidera à comprendre l’expérience entre les deux perspective
 
 Pour plus d’informations sur l’activation d’Azure Monitor pour les conteneurs, consultez [Onboard Azure Monitor for containers](container-insights-onboard.md) (Intégrer Azure Monitor pour les conteneurs).
 
-Azure Monitor fournit une vue multicluster affichant l’état d’intégrité de tous les clusters AKS surveillés déployés dans les groupes de ressources de vos abonnements.  Il montre les clusters AKS découverts et qui ne sont pas surveillés par la solution. Immédiatement, vous pouvez comprendre l’intégrité du cluster et à partir de là, vous pouvez explorer le nœud et la page de performances du contrôleur, ou naviguer pour voir les graphiques de performances du cluster.  Pour les clusters AKS détectés et identifiés comme non surveillés, vous pouvez activer la surveillance de ces clusters à tout moment.  
+> [!IMPORTANT]
+> Azure Monitor pour la prise en charge des conteneurs pour surveiller un cluster ACS exécutant Windows Server 2019 est actuellement en version préliminaire publique.
+> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Azure Monitor fournit une vue multicluster affichant l’état d’intégrité de tous les clusters AKS analysés exécutant Linux et Windows Server 2019 déployé un groupe de ressources dans vos abonnements.  Il montre les clusters AKS découverts et qui ne sont pas surveillés par la solution. Immédiatement, vous pouvez comprendre l’intégrité du cluster et à partir de là, vous pouvez explorer le nœud et la page de performances du contrôleur, ou naviguer pour voir les graphiques de performances du cluster.  Pour les clusters AKS détectés et identifiés comme non surveillés, vous pouvez activer la surveillance de ces clusters à tout moment.  
+
+Les principales différences de surveillance d’un cluster Windows Server avec Azure Monitor pour les conteneurs par rapport à un cluster Linux sont les suivantes :
+
+- Métrique RSS de mémoire n’est pas disponible pour les conteneurs et de nœud de Windows 
+- Informations de capacité de stockage de disque ne sont pas disponibles pour les nœuds Windows
+- Prise en charge des journaux en direct est disponible à l’exception des fichiers journaux de conteneurs Windows.
+- Uniquement pod environnements sont surveillés, pas les environnements Docker.
+- Avec la version préliminaire, un maximum de 30 conteneurs Windows Server sont prises en charge. Cette limitation ne s’applique pas aux conteneurs Linux.  
 
 ## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
 Connectez-vous au [Portail Azure](https://portal.azure.com). 
@@ -35,7 +47,7 @@ Connectez-vous au [Portail Azure](https://portal.azure.com).
 ## <a name="multi-cluster-view-from-azure-monitor"></a>Vue multicluster à partir d’Azure Monitor 
 Pour afficher l’état d’intégrité de tous les clusters AKS déployés, sélectionnez **Surveiller** dans le volet de gauche du portail Azure.  Sous la section **Insights**, sélectionnez **Conteneurs**.  
 
-![Exemple de tableau de bord multicluster dans Azure Monitor](./media/container-insights-analyze/azmon-containers-multiview-1018.png)
+![Exemple de tableau de bord multicluster dans Azure Monitor](./media/container-insights-analyze/azmon-containers-multiview.png)
 
 Dans l’onglet **Monitored clusters** (Clusters surveillés), vous découvrez les informations suivantes :
 
@@ -128,11 +140,11 @@ Vous pouvez appliquer [fractionnement](../platform/metrics-charts.md#apply-split
 
 ## <a name="analyze-nodes-controllers-and-container-health"></a>Analyser l’intégrité des conteneurs, les contrôleurs et les nœuds
 
-Quand vous passez à l’onglet **Nodes** (Nœuds), **Controllers** (Contrôleurs) et **Containers** (Conteneurs), le volet des propriétés s’affiche automatiquement à droite de la page.  Il montre les propriétés de l’élément sélectionné, notamment les étiquettes que vous définissez pour organiser les objets Kubernetes. Cliquez sur le lien **>>** dans le volet pour afficher ou masquer le volet.  
+Quand vous passez à l’onglet **Nodes** (Nœuds), **Controllers** (Contrôleurs) et **Containers** (Conteneurs), le volet des propriétés s’affiche automatiquement à droite de la page. Il montre les propriétés de l’élément sélectionné, notamment les étiquettes que vous définissez pour organiser les objets Kubernetes. Lorsqu’un nœud Linux est sélectionné, il apparaît également sous la section **capacité du disque Local** espace disque disponible et utilisé pour chaque disque présenté au nœud pour cent. Cliquez sur le lien **>>** dans le volet pour afficher ou masquer le volet. 
 
 ![Exemple du volet de propriétés des perspectives Kubernetes](./media/container-insights-analyze/perspectives-preview-pane-01.png)
 
-Quand vous développez les objets dans la hiérarchie, le volet des propriétés est mis à jour en fonction de l’objet sélectionné. Dans le volet, vous pouvez également afficher les événements Kubernetes avec des recherches dans les journaux d’activité prédéfinies en cliquant sur le lien **Afficher les journaux des événements Kubernetes** en haut du volet. Pour plus d’informations sur l’affichage des données des journaux d’activité Kubernetes, consultez [Rechercher dans les journaux d’activité pour analyser les données](container-insights-log-search.md). Lorsque vous consultez vos conteneurs dans la vue **Conteneurs**, vous pouvez voir les journaux d’activité de conteneur en temps réel. Pour plus d’informations sur cette fonctionnalité et la configuration requise pour accorder et contrôler les accès, consultez [Comment afficher les journaux d’activité de conteneur en temps réel avec Azure Monitor pour les conteneurs](container-insights-live-logs.md). 
+Quand vous développez les objets dans la hiérarchie, le volet des propriétés est mis à jour en fonction de l’objet sélectionné. Dans le volet, vous pouvez également afficher les événements Kubernetes avec des recherches dans les journaux d’activité prédéfinies en cliquant sur le lien **Afficher les journaux des événements Kubernetes** en haut du volet. Pour plus d’informations sur l’affichage des données des journaux d’activité Kubernetes, consultez [Rechercher dans les journaux d’activité pour analyser les données](container-insights-log-search.md). Lorsque vous consultez les ressources de cluster, vous pouvez voir les journaux du conteneur et les événements en temps réel. Pour plus d’informations sur cette fonctionnalité et la configuration requise pour accorder et contrôler l’accès, consultez [comment afficher les journaux en temps réel avec Azure Monitor pour les conteneurs](container-insights-live-logs.md). 
 
 Utilisez le **+ ajouter un filtre** option à partir du haut de la page pour filtrer les résultats de la vue par **Service**, **nœud**, **Namespace**, ou  **Pool de nœud** et après avoir sélectionné la portée du filtre, vous puis sélectionnez une des valeurs indiquées dans le **valeurs** champ.  Une fois que le filtre est configuré, il est appliqué globalement lors de l’affichage de n’importe quel point de vue du cluster AKS.  La formule prend uniquement en charge le signe égal.  Vous pouvez ajouter des filtres supplémentaires au-dessus du premier pour affiner davantage vos résultats.  Par exemple, si vous avez spécifié un filtre par **Nœud**, votre deuxième filtre vous permet uniquement de sélectionner **Service** ou **Espace de noms**.  
 
@@ -143,6 +155,10 @@ La spécification d’un filtre dans un onglet continue d’être appliquée qua
 Sous l’onglet **Nodes** (Nœuds), la hiérarchie de ligne suit le modèle d’objet Kubernetes commençant par un nœud dans votre cluster. Développez le nœud pour voir les pods qui y sont actuellement exécutés. Si plusieurs conteneurs sont regroupés dans un pod, ils sont affichés comme la dernière ligne de la hiérarchie. Vous pouvez également voir le nombre de charges de travail non associées à un pod qui sont actuellement exécutées sur l’ordinateur hôte si le processeur ou la mémoire de l’hôte sont très sollicités.
 
 ![Exemple de hiérarchie de nœud Kubernetes dans l’affichage des performances](./media/container-insights-analyze/containers-nodes-view.png)
+
+Les conteneurs Windows Server exécutant le système d’exploitation Windows Server 2019 sont affichées après tous les nœuds basés sur Linux dans la liste. Lorsque vous développez un nœud Windows Server, vous pouvez afficher un ou plusieurs pods et les conteneurs en cours d’exécution sur le nœud. Lorsqu’un nœud est sélectionné, le volet Propriétés affiche les informations de version, à l’exclusion des informations d’agent dans la mesure où les nœuds de Windows Server n’ont pas d’un agent est installé.  
+
+![Exemple de hiérarchie de nœud avec les nœuds Windows Server répertoriés](./media/container-insights-analyze/nodes-view-windows.png) 
 
 Les nœuds virtuels Azure Container Instances exécutant le système d’exploitation Linux sont affichés après le dernier nœud de cluster AKS sur la liste.  Lorsque vous développez un nœud virtuel ACI, vous pouvez afficher un ou plusieurs pods et conteneurs d’ACI en cours d’exécution sur le nœud.  Les métriques ne sont pas collectées et signalées pour les nœuds, uniquement pour les pods.
 

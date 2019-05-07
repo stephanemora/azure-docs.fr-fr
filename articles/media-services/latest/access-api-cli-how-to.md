@@ -10,14 +10,14 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: article
 ms.custom: mvc
-ms.date: 04/15/2019
+ms.date: 05/01/2019
 ms.author: juliako
-ms.openlocfilehash: 8374e4c49012a2c49de41001be0fdb30f9151332
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a27f7597ddc934b925d63507a816ac5816b682d6
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60733502"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65151046"
 ---
 # <a name="access-azure-media-services-api-with-the-azure-cli"></a>Accéder à l’API Azure Media Services avec Azure CLI
  
@@ -54,7 +54,11 @@ Veillez à mémoriser les valeurs que vous avez utilisées pour le nom du groupe
 - [Créer une grille d’événement - CLI](./scripts/cli-create-event-grid.md)
 - [Publier un actif multimédia - CLI](./scripts/cli-publish-asset.md)
 - [Filtrer - CLI](filters-dynamic-manifest-cli-howto.md)
+- [Interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
+Le point de terminaison de diffusion en continu à partir de laquelle vous souhaitez diffuser du contenu doit être en cours d’exécution. La commande CLI suivante démarre votre point de terminaison de diffusion en continu par défaut :
+
+
+`az ams streaming-endpoint start -n default -a <amsaccount> -g <amsResourceGroup>`

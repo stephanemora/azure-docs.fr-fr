@@ -2,18 +2,18 @@
 title: Démarrage rapide Azure - Créer un objet blob dans un stockage d’objets à l’aide d’Azure PowerShell | Microsoft Docs
 description: Dans ce guide de démarrage rapide, vous utilisez Azure PowerShell dans un stockage d’objets (blob). Ensuite, vous utilisez PowerShell pour charger un objet blob dans Stockage Azure, télécharger un objet blob et répertorier les objets blob dans un conteneur.
 services: storage
-author: roygara
+author: tamram
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 ms.date: 02/14/2019
-ms.author: rogarana
-ms.openlocfilehash: 464f3db86c2b6dc4cfe51c74b224a8da4d512103
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.author: tamram
+ms.openlocfilehash: c0a5f7271628e11dbc8fa8b18b21358923f567cc
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58485592"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65149403"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-by-using-azure-powershell"></a>Démarrage rapide : charger, télécharger et répertorier des objets blob à l’aide d’Azure PowerShell
 

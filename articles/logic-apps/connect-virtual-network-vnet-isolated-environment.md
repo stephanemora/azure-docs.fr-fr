@@ -8,18 +8,15 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 03/12/2019
-ms.openlocfilehash: 8cbc02f80244b02b397162309fa5ae047f3f460a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/06/2019
+ms.openlocfilehash: 8809a2fed5a44910e3a353d9dc5bc41ea964a1ce
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60511313"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150481"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Connexion à des réseaux virtuels Azure à partir d’Azure Logic Apps à l'aide d'un environnement de service d’intégration (ISE)
-
-> [!NOTE]
-> Cette fonctionnalité est disponible en [ *version préliminaire publique*](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Pour les scénarios où vos applications logiques et vos comptes d’intégration ont besoin d’accéder à un [réseau virtuel Azure](../virtual-network/virtual-networks-overview.md), créez un [*environnement de service d’intégration* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). Une fenêtre ISE est un environnement privé et isolé qui utilise le stockage dédié et autres ressources qui sont maintenues séparées à partir du service Logic Apps public ou « global ». Cette séparation réduit également l’impact que d’autres locataires Azure peuvent avoir sur les performances de vos applications. Votre environnement ISE est *injecté* dans votre réseau virtuel Azure, qui déploie ensuite le service Logic Apps dans votre réseau virtuel. Quand vous créez une application logique ou un compte d’intégration, sélectionnez cet environnement ISE comme emplacement. Votre application logique ou votre compte d’intégration peut ensuite accéder directement à des ressources, comme des machines virtuelles, des serveurs, des systèmes et des services, dans votre réseau virtuel.
 
@@ -101,13 +98,11 @@ Pour contrôler le trafic entre les sous-réseaux du réseau virtuel dans lequel
 Pour créer votre environnement de service d’intégration, effectuez les étapes suivantes :
 
 1. Dans le [portail Azure](https://portal.azure.com), dans le menu principal d’Azure, sélectionnez **Créer une ressource**.
+Dans la zone de recherche, entrez « environnement de service d’intégration » comme filtre.
 
    ![Créer une ressource](./media/connect-virtual-network-vnet-isolated-environment/find-integration-service-environment.png)
 
-1. Dans la zone de recherche, entrez « environnement de service d’intégration » comme filtre.
-Dans la liste des résultats, sélectionnez **Environnement de service d’intégration (préversion)**, puis choisissez **Créer**.
-
-   ![Sélectionner « Environnement de service d’intégration »](./media/connect-virtual-network-vnet-isolated-environment/select-integration-service-environment.png)
+1. Dans le volet de la création d’environnement de Service d’intégration, choisissez **créer**.
 
    ![Choisissez « Créer ».](./media/connect-virtual-network-vnet-isolated-environment/create-integration-service-environment.png)
 
@@ -121,8 +116,8 @@ Dans la liste des résultats, sélectionnez **Environnement de service d’inté
    | **Groupe de ressources** | Oui | <*nom-groupe-de-ressources-Azure*> | Groupe de ressources Azure où vous voulez créer votre environnement |
    | **Nom de l’environnement de service d’intégration** | Oui | <*nom-environnement*> | Nom à donner à votre environnement |
    | **Lieu** | Oui | <*région-centre de données-Azure*> | Région du centre de données Azure où déployer votre environnement |
-   | **Capacité supplémentaire** | Oui | 0, 1, 2, 3 | Le nombre d’unités de traitement à utiliser pour cette ressource ISE. Pour ajouter capacité après sa création, consultez [Ajouter capacité](#add-capacity). |
-   | **Réseau virtuel** | Oui | <*Azure-virtual-network-name*> | Réseau virtuel Azure où vous voulez injecter votre environnement, pour que les applications logiques de cet environnement puissent accéder à votre réseau virtuel. Si vous n’avez pas de réseau, vous devez en créer un ici. <p>**Important** : Vous pouvez effectuer cette injection *seulement*  quand vous créez votre ISE. Toutefois, avant de pouvoir créer cette relation, assurez-vous que vous déjà configuré le contrôle d’accès en fonction du rôle dans votre réseau virtuel pour Azure Logic Apps. |
+   | **Capacité supplémentaire** | Oui | 0 à 10 | Le nombre d’unités de traitement supplémentaires à utiliser pour cette ressource ISE. Pour ajouter capacité après sa création, consultez [capacité d’ajouter des ISE](#add-capacity). |
+   | **Réseau virtuel** | Oui | <*Azure-virtual-network-name*> | Réseau virtuel Azure où vous voulez injecter votre environnement, pour que les applications logiques de cet environnement puissent accéder à votre réseau virtuel. Si vous n’avez pas un réseau, [créez d’abord un réseau virtuel Azure](../virtual-network/quick-create-portal.md). <p>**Important !** Vous pouvez effectuer cette injection *seulement*  quand vous créez votre ISE. |
    | **Sous-réseaux** | Oui | <*subnet-resource-list*> | Un environnement ISE nécessite quatre sous-réseaux *vides* pour la création des ressources dans votre environnement. Pour créer chaque sous-réseau, [suivez les étapes décrites dans ce tableau](#create-subnet).  |
    |||||
 
@@ -172,6 +167,9 @@ Dans la liste des résultats, sélectionnez **Environnement de service d’inté
 
    1. Répétez ces étapes pour trois autres sous-réseaux.
 
+      > [!NOTE]
+      > Si les sous-réseaux que vous tentez de créer ne sont pas valides, le portail Azure affiche un message, mais ne bloque pas votre progression.
+
 1. Une fois qu’Azure a validé les informations de votre ISE, choisissez **Créer**, par exemple :
 
    ![Après la validation, choisissez « Créer »](./media/connect-virtual-network-vnet-isolated-environment/ise-validation-success.png)
@@ -185,34 +183,17 @@ Dans la liste des résultats, sélectionnez **Environnement de service d’inté
 
    ![Déploiement réussi](./media/connect-virtual-network-vnet-isolated-environment/deployment-success.png)
 
+   Sinon, suivez les instructions pour le portail Azure pour la résolution des problèmes de déploiement.
+
    > [!NOTE]
-   > Si le déploiement échoue ou si vous supprimez votre ISE, Azure *peut* prendre jusqu’à une heure avant de libérer vos sous-réseaux. Par conséquent, vous devrez peut-être attendre avant de réutiliser ces sous-réseaux dans un autre ISE.
+   > Si le déploiement échoue ou si vous supprimez votre ISE, Azure peut prendre jusqu'à une heure avant de libérer vos sous-réseaux. Ce délai signifie signifie que vous devrez peut-être patienter avant de réutiliser ces sous-réseaux dans un autre ISE. 
+   >
+   > Si vous supprimez votre réseau virtuel, Azure prend généralement jusqu'à deux heures avant de libérer de vos sous-réseaux, mais cette opération peut prendre plus longtemps. 
+   > Lors de la suppression de réseaux virtuels, assurez-vous qu’aucune ressource n’est toujours connectés. Consultez [supprimer le réseau virtuel](../virtual-network/manage-virtual-network.md#delete-a-virtual-network).
 
 1. Pour voir votre environnement, choisissez **Accéder à la ressource** si Azure n’accède pas automatiquement à votre environnement une fois le déploiement terminé.  
 
-<a name="add-capacity"></a>
-
-### <a name="add-capacity"></a>Ajouter de la capacité
-
-Votre unité de base ISE a résolu la capacité, si vous avez besoin de davantage de débit, vous pouvez donc ajouter des unités d’échelle. Vous pouvez l’échelle automatique basée sur les mesures de performances ou sur un nombre d’unités de traitement. Si vous choisissez la mise à l’échelle en fonction de mesures, vous pouvez choisir à partir de différents critères et spécifier les conditions de seuil pour répondre à ces critères.
-
-1. Dans le portail Azure, recherchez votre ISE.
-
-1. Pour afficher les mesures de performances pour votre ISE, sur le menu principal de votre ISE, choisissez **vue d’ensemble**.
-
-1. Comment configurer la mise à l’échelle, sous **paramètres**, sélectionnez **monter en charge**. Sur le **configurer** , choisir **activer la mise à l’échelle**.
-
-1. Dans le **par défaut** , choisissez soit **mise à l’échelle selon une mesure** ou **mise à l’échelle à un nombre d’instances spécifique**.
-
-1. Si vous choisissez basée sur l’instance, entrez le nombre d’unités de traitement comprise entre 0 et 3 (inclus). Sinon, de suivi basé sur la mesure, comme suit :
-
-   1. Dans le **par défaut** , choisissez **ajouter une règle**.
-
-   1. Sur le **règle de mise à l’échelle** volet, configurer vos critères et l’action à prendre lorsque la règle se déclenche.
-
-   1. Lorsque vous avez terminé, choisissez **ajouter**.
-
-1. Lorsque vous avez terminé, pensez à enregistrer vos modifications.
+Pour plus d’informations sur la création de sous-réseaux, consultez [ajouter un sous-réseau de réseau virtuel](../virtual-network/virtual-network-manage-subnet.md).
 
 <a name="create-logic-apps-environment"></a>
 
@@ -248,10 +229,37 @@ Pour créer un compte d’intégration qui utilise un environnement de service d
 
 ![Sélection d’un environnement de service d’intégration](./media/connect-virtual-network-vnet-isolated-environment/create-integration-account-with-integration-service-environment.png)
 
-## <a name="get-support"></a>Obtenir de l’aide
+<a name="add-capacity"></a>
 
-* Si vous avez des questions, consultez le <a href="https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps" target="_blank">forum Azure Logic Apps</a>.
-* Pour voter pour des idées de fonctionnalités ou pour en soumettre, visitez le <a href="https://aka.ms/logicapps-wish" target="_blank">site de commentaires des utilisateurs Logic Apps</a>.
+## <a name="add-ise-capacity"></a>Ajouter de la capacité de l’ISE
+
+Votre unité de base ISE a résolu la capacité, si vous avez besoin de davantage de débit, vous pouvez donc ajouter des unités d’échelle. Vous pouvez l’échelle automatique basée sur les mesures de performances ou sur un nombre d’unités de traitement supplémentaire. Si vous choisissez la mise à l’échelle en fonction de mesures, vous pouvez choisir à partir de différents critères et spécifier les conditions de seuil pour répondre à ces critères.
+
+1. Dans le portail Azure, recherchez votre ISE.
+
+1. Pour consulter les mesures de performances et d’utilisation pour votre ISE, sur le menu principal de votre ISE, sélectionnez **vue d’ensemble**.
+
+   ![Afficher l’utilisation pour ISE](./media/connect-virtual-network-vnet-isolated-environment/integration-service-environment-usage.png)
+
+1. Comment configurer la mise à l’échelle, sous **paramètres**, sélectionnez **monter en charge**. Sur le **configurer** , choisir **activer la mise à l’échelle**.
+
+   ![Activer la mise à l’échelle](./media/connect-virtual-network-vnet-isolated-environment/scale-out.png)
+
+1. Pour **nom du paramètre de mise à l’échelle**, fournissez un nom pour votre paramètre.
+
+1. Dans le **par défaut** , choisissez soit **mise à l’échelle selon une mesure** ou **mise à l’échelle à un nombre d’instances spécifique**.
+
+   * Si vous choisissez basée sur l’instance, entrez le nombre d’unités de traitement entre 0 et 10 (inclus).
+
+   * Si vous choisissez basée sur une mesure, procédez comme suit :
+
+     1. Dans le **règles** , choisissez **ajouter une règle**.
+
+     1. Sur le **règle de mise à l’échelle** volet, configurer vos critères et l’action à prendre lorsque la règle se déclenche.
+
+     1. Lorsque vous avez terminé, choisissez **ajouter**.
+
+1. Lorsque vous avez terminé avec vos paramètres de mise à l’échelle, enregistrez vos modifications.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

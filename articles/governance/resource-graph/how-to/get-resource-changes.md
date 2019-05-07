@@ -8,12 +8,12 @@ ms.date: 04/20/2019
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: 0ae85b45dfcd80056316ed5f2099aab4057d24c8
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 81cb5e62c8abc93aa5defb690628c7178fd2a869
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64720330"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142533"
 ---
 # <a name="get-resource-changes"></a>Obtenir les changements des ressources
 
@@ -29,7 +29,7 @@ Détection des modifications et les détails sont utiles pour les exemples de sc
 - En conservant une base de données de gestion de Configuration, appelé une base de données, à jour. Au lieu de l’actualisation de toutes les ressources et leurs jeux de propriétés complet selon une fréquence planifiée, obtenir uniquement ce qui a changé.
 - Comprendre quelles autres propriétés ont été modifiées lorsqu’une ressource a changé d’état de conformité. Évaluation de ces propriétés supplémentaires peut fournir des informations dans les autres propriétés devant être gérés via une définition de stratégie de Azure.
 
-Cet article montre comment rassembler ces informations via le kit SDK du graphique de la ressource. Pour obtenir ces informations dans le portail Azure, consultez de la stratégie Azure [l’historique des modifications](../../policy/how-to/determine-non-compliance.md#change-history-preview).
+Cet article montre comment rassembler ces informations via le kit SDK du graphique de la ressource. Pour obtenir ces informations dans le portail Azure, consultez de la stratégie Azure [l’historique des modifications](../../policy/how-to/determine-non-compliance.md#change-history-preview) ou le journal d’activité Azure [l’historique des modifications](../../../azure-monitor/platform/activity-logs-overview.md#view-change-history).
 
 > [!NOTE]
 > Détail des modifications dans le graphique des ressources est pour les propriétés de Resource Manager. Pour le suivi des modifications à l’intérieur d’une machine virtuelle, consultez d’Azure Automation [le suivi des modifications](../../../automation/automation-change-tracking.md) ou de la stratégie Azure [Configuration invité pour les machines virtuelles](../../policy/concepts/guest-configuration.md).

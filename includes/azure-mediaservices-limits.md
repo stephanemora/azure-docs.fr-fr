@@ -4,12 +4,12 @@ ms.service: billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: b275a86f8fd35c43865fd920d1bfc9994a796a9c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: de3fd8dc0d45ea10e64af8e2258682a9e98639dc
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60557141"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150331"
 ---
 >[!NOTE]
 >Pour les ressources qui ne sont pas fixes, ouvrez un ticket de support pour demander une augmentation des quotas. Ne créez pas des comptes Azure Media Services supplémentaires dans une tentative d’obtention des limites plus élevées.
@@ -50,12 +50,12 @@ Depuis le 1er avril 2017, les enregistrements de travaux dans votre compte plu d
 >[!NOTE]
 > Si vous toujours utilisez le même nombre de jours et les autorisations d’accès, utilisez le même ID de stratégie. Pour plus d’informations et un exemple, consultez [gérer les ressources avec le SDK Media Services .NET](../articles/media-services/previous/media-services-dotnet-manage-entities.md#limit-access-policies).
 
-<sup>7</sup>si vous téléchargez le contenu à un élément multimédia dans Media Services à traiter avec des processeurs multimédias dans le service, notez la taille maximale de fichier pris en charge. Les ressources incluent des encodeurs comme Media Encoder Standard et les moteurs de Media Encoder Premium Workflow ou l’analyse comme Face Detector.
+<sup>7</sup>la taille maximale prise en charge pour un seul objet blob est actuellement jusqu'à 5 To dans stockage Blob Azure. Limites supplémentaires s’appliquent dans Media Services basée sur les tailles de machines virtuelles qui sont utilisés par le service. La limite de taille s’applique aux fichiers que vous téléchargez et également les fichiers qui sont générés à la suite de traitement (encodage ou l’analyse) de Media Services. Si votre fichier source est supérieur à 260 Go, votre travail échouera probablement. 
 
-La taille maximale prise en charge pour un seul objet blob est actuellement jusqu'à 5 To de stockage d’objets Blob Azure. Limites supplémentaires s’appliquent dans Media Services basée sur les tailles de machines virtuelles qui sont utilisés par le service. Le tableau suivant indique les limites sur réservées multimédia unités S1, S2 et S3. Si votre fichier source est supérieur à la limite définie dans la table, votre travail d’encodage échoue. Si vous encodez des sources de résolution 4K de longue durée, vous devez utiliser des unités réservées multimédia de S3 pour optimiser les performances nécessité. Si vous avez du contenu 4K qui dépasse la limite de 260 Go sur les unités réservées multimédia S3, contactez-nous à l’adresse amshelp@microsoft.com pour les solutions d’atténuation possibles prendre en charge votre scénario.
+Le tableau suivant indique les limites sur réservées multimédia unités S1, S2 et S3. Si votre fichier source est supérieur à la limite définie dans la table, votre travail d’encodage échoue. Si vous encodez des sources de résolution 4K de longue durée, vous devez utiliser des unités réservées multimédia de S3 pour optimiser les performances nécessité. Si vous avez du contenu 4K qui dépasse la limite de 260 Go sur les unités réservées multimédia S3, contactez-nous à l’adresse amshelp@microsoft.com pour les solutions d’atténuation possibles prendre en charge votre scénario.
 
-| Type d’unité réservée de média | Taille maximale en entrée (Go)| 
-| --- | --- | 
-|S1 | 325|
-|S2 | 640|
-|S3 | 260|
+|Type d’unité réservée de média   |Taille maximale en entrée (Go)|
+|---|---|
+|S1 |   26|
+|S2 | 60|
+|S3 |260|

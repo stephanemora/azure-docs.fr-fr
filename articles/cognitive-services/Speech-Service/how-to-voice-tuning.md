@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 2d56aba6d62d70c482ed1489a09276eeaa11f956
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 6d602491c66669007ae220c3b8143ce3e805246f
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025843"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65147990"
 ---
 # <a name="fine-tune-text-to-speech-output"></a>Ajuster la sortie de synthèse vocale
 
@@ -43,7 +43,7 @@ Avant de commencer le réglage de la sortie avec l’outil de réglage de la voi
    * Recherchez et sélectionnez **tous les abonnements**.  
    * Sélectionnez **Connecter un abonnement existant**.  
      ![Se connecter à un abonnement existant](./media/custom-voice/custom-voice-connect-subscription.png).
-   * Entrez votre clé d’abonnement Azure de Services de reconnaissance vocale à partir du portail Azure, puis sélectionnez **ajouter**. Vos clés d’abonnement sont disponibles dans le portail Azure à partir du volet de gestion des ressources.  Vous pouvez également obtenir les clés à partir de la liste des abonnements dans le portail de réglage de la voix.
+   * Entrez votre clé d’abonnement Azure Speech Services, puis sélectionnez **ajouter**. Vos clés d’abonnement sont disponibles dans le portail de personnalisation de reconnaissance vocale à partir de la [page abonnement](https://go.microsoft.com/fwlink/?linkid=2090458). Vous pouvez également obtenir les clés à partir du volet de gestion des ressources dans le [Azure portal](https://portal.azure.com/). 
    * Si vous avez plusieurs abonnements de Services de reconnaissance vocale que vous projetez d’utiliser, répétez ces étapes pour chaque abonnement.
 
 ## <a name="customize-the-text-to-speech-output"></a>Personnaliser la sortie de synthèse vocale

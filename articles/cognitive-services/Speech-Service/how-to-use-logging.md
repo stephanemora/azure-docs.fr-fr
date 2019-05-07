@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: amishu
-ms.openlocfilehash: 75eaea22c4809eda78e54514961d13113b4a5f3a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e8f470647c218188705cfa65cba7077e62d1b2ac
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60696849"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148027"
 ---
 # <a name="enable-logging-in-the-speech-sdk"></a>Activer la journalisation dans le Speech SDK
 
-La journalisation au fichier est une fonctionnalité facultative pour le Speech SDK. Au cours du développement journalisation fournit des informations supplémentaires et des diagnostics à partir de composants de base de la Speeck SDK. Il peut être activé en définissant la propriété `Speech_LogFilename` sur un objet de configuration de reconnaissance vocale à l’emplacement et le nom du fichier journal. Journalisation sera activée dans le monde entier une fois qu’un module de reconnaissance est créé à partir de cette configuration et ne peut pas être désactivée par la suite. Vous ne pouvez pas modifier le nom d’un fichier journal pendant une session de journalisation en cours d’exécution.
+La journalisation au fichier est une fonctionnalité facultative pour le Speech SDK. Au cours du développement journalisation fournit des informations supplémentaires et des diagnostics à partir de composants de base du SDK de reconnaissance vocale. Il peut être activé en définissant la propriété `Speech_LogFilename` sur un objet de configuration de reconnaissance vocale à l’emplacement et le nom du fichier journal. Journalisation sera activée dans le monde entier une fois qu’un module de reconnaissance est créé à partir de cette configuration et ne peut pas être désactivée par la suite. Vous ne pouvez pas modifier le nom d’un fichier journal pendant une session de journalisation en cours d’exécution.
 
 > [!NOTE]
 > La journalisation est disponible dans le Kit de développement de Speech pris en charge tous les langages de programmation, à l’exception de JavaScript.

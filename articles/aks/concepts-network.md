@@ -2,18 +2,17 @@
 title: 'Concepts : mise en réseau dans AKS (Azure Kubernetes Service)'
 description: Découvrez la mise en réseau dans AKS (Azure Kubernetes Service), notamment la mise en réseau kubenet et Azure CNI, les contrôleurs d’entrée, les équilibreurs de charge et les adresses IP statiques.
 services: container-service
-author: rockboyfor
+author: iainfoulds
 ms.service: container-service
 ms.topic: conceptual
-origin.date: 02/28/2019
-ms.date: 04/08/2019
-ms.author: v-yeche
-ms.openlocfilehash: cbdbf7dcd6269991d23c61d316dcee68e6678171
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 02/28/2019
+ms.author: iainfou
+ms.openlocfilehash: 2d51699138914e4a8ad5d2a133161fcfce71e9fe
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60467245"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65074062"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Concepts de réseau pour les applications dans AKS (Azure Kubernetes Service)
 
@@ -65,7 +64,6 @@ Dans AKS, vous pouvez déployer un cluster qui utilise un des deux modèles de r
 - Mise en réseau *Kubenet* : les ressources réseau sont généralement créées et configurées quand le cluster AKS est déployé.
 - Mise en réseau *Azure CNI (Container Networking Interface)*  : le cluster AKS est connecté à des configurations et ressources de réseau virtuel existantes.
 
-<a name="kubenet-basic-networking"></a>
 ### <a name="kubenet-basic-networking"></a>Mise en réseau Kubenet (de base)
 
 L’option de mise en réseau *kubenet* est la configuration par défaut de la création de cluster AKS. Avec *kubenet*, les nœuds obtiennent une adresse IP du sous-réseau du réseau virtuel Azure. Les pods reçoivent une adresse IP du sous-réseau de réseau virtuel Azure des nœuds à partir d’un espace d’adressage logiquement différent. La traduction d’adresses réseau (NAT) est ensuite configurée afin que les pods puissent accéder aux ressources sur le réseau virtuel Azure. L’adresse IP source du trafic fait l’objet d’une opération NAT sur l’adresse IP principale du nœud.
@@ -74,7 +72,6 @@ Les nœuds utilisent le plug-in Kubernetes [kubenet][kubenet]. Vous pouvez laiss
 
 Pour plus d’informations, consultez [Configurer une mise en réseau kubenet pour un cluster AKS][aks-configure-kubenet-networking].
 
-<a name="azure-cni-advanced-networking"></a>
 ### <a name="azure-cni-advanced-networking"></a>Mise en réseau Azure CNI (avancée)
 
 Avec Azure CNI, chaque pod reçoit une adresse IP du sous-réseau et est accessible directement. Ces adresses IP doivent être uniques dans votre espace réseau et doivent être planifiées à l’avance. Chaque nœud possède un paramètre de configuration pour le nombre maximal de pods qu’il prend en charge. Le nombre équivalent d’adresses IP par nœud est alors réservé à l’avance pour ce nœud. Cette approche nécessite davantage de planification. De plus, elle conduit souvent à l’épuisement des adresses IP ou à la nécessité de regénérer les clusters dans un sous-réseau plus vaste à mesure que vos demandes d’applications augmentent.
@@ -111,7 +108,7 @@ Un groupe de sécurité réseau filtre le trafic pour des machines virtuelles, p
 
 Par défaut, tous les pods d’un cluster AKS peuvent envoyer et recevoir du trafic sans limitations. Pour une sécurité accrue, vous pouvez définir des règles qui contrôlent le flux de trafic. Les applications principales sont souvent exposées uniquement aux services frontaux obligatoires, ou les composants de base de données sont uniquement accessibles aux couches d’application qui s’y connectent.
 
-Stratégie de réseau est une fonctionnalité de Kubernetes actuellement en version préliminaire dans ACS qui vous permet de contrôler le flux de trafic entre les pods. Vous pouvez choisir d’autoriser ou de refuser un trafic en fonction de paramètres, tels que des étiquettes attribuées, un espace de noms ou un port de trafic. Les groupes de sécurité réseau sont plus adaptés aux nœuds AKS qu’aux pods. L’utilisation de stratégies réseau est un moyen plus adapté et natif du cloud de contrôler le flux de trafic. Les pods étant créés de façon dynamique dans un cluster AKS, les stratégies réseau nécessaires peuvent être appliquées automatiquement.
+Stratégie de réseau est une fonctionnalité de Kubernetes dans AKS qui vous permet de contrôler le flux de trafic entre les pods. Vous pouvez choisir d’autoriser ou de refuser un trafic en fonction de paramètres, tels que des étiquettes attribuées, un espace de noms ou un port de trafic. Les groupes de sécurité réseau sont plus adaptés aux nœuds AKS qu’aux pods. L’utilisation de stratégies réseau est un moyen plus adapté et natif du cloud de contrôler le flux de trafic. Les pods étant créés de façon dynamique dans un cluster AKS, les stratégies réseau nécessaires peuvent être appliquées automatiquement.
 
 Pour plus d’informations, consultez [Sécuriser le trafic entre les pods avec des stratégies réseau dans Azure Kubernetes Service (AKS)][use-network-policies].
 
@@ -142,10 +139,7 @@ Pour plus d’informations sur les concepts fondamentaux de Kubernetes et d’AK
 
 <!-- LINKS - Internal -->
 [aks-http-routing]: http-application-routing.md
-[aks-ingress-tls]: ingress-tls.md
-
-<!--Mooncake : URL redirect to ingress-tls.md-->
-
+[aks-ingress-tls]: ingress.md
 [aks-configure-kubenet-networking]: configure-kubenet.md
 [aks-configure-advanced-networking]: configure-azure-cni.md
 [aks-concepts-clusters-workloads]: concepts-clusters-workloads.md

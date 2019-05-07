@@ -5,23 +5,23 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 4/30/2019
+ms.date: 5/7/2019
 ms.author: victorh
-ms.openlocfilehash: 86693e829ab08c3cb7befc6f0047472e8faa61fa
-ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
+ms.openlocfilehash: 0506ef82a00b46bf9be14757f15195bcbf8ab432
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64947207"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148899"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway"></a>Mise à l’échelle et la passerelle d’Application redondant 
 
-Passerelle d’application et de pare-feu d’applications Web (WAF) sont également disponibles sous un Standard_v2 et WAF_v2 référence (SKU) qui offre des améliorations des performances et ajoute la prise en charge des nouvelles fonctionnalités critiques telles que la mise à l’échelle, de redondance de zone et de prise en charge des adresses IP virtuelles statiques. Des fonctionnalités existantes sous Standard et de la référence SKU WAF continuent à être pris en charge dans la nouvelle référence SKU v2, avec quelques exceptions répertoriées dans la section de comparaison. 
+Passerelle d’application et de pare-feu d’applications Web (WAF) sont également disponibles sous un Standard_v2 et WAF_v2 référence (SKU). La référence (SKU) v2 offre des améliorations de performances et ajoute la prise en charge des nouvelles fonctionnalités critiques telles que la mise à l’échelle, de redondance de zone et de prise en charge des adresses IP virtuelles statiques. Les fonctionnalités existantes sous Standard et de la référence SKU WAF continuent à être pris en charge dans la nouvelle référence SKU v2, avec quelques exceptions répertoriées dans [comparaison](#differences-with-v1-sku) section.
 
 La nouvelle référence (SKU) v2 inclut les améliorations suivantes :
 
 - **Mise à l’échelle automatique** : les déploiements d’Application Gateway ou du WAF sous la référence SKU de la mise à l’échelle automatique peuvent augmenter ou diminuer en fonction de l’évolution des modèles de charge du trafic. La mise à l’échelle automatique vous évite aussi d’avoir à choisir une taille de déploiement ou un nombre d’instances au moment du provisionnement. Cette référence (SKU) offre l’élasticité true. Dans Standard_v2 et WAF_v2 référence (SKU), la passerelle d’Application peut fonctionner dans capacité fixe (à l’échelle automatique désactivée) et en mode de mise à l’échelle est activée. Le mode de capacité fixe est utile pour les scénarios avec des charges de travail cohérentes et prévisibles. Mode de mise à l’échelle est utile dans les applications qui consultez variance dans le trafic d’application.
-- **Redondance de zone** : Une passerelle d’Application ou d’un déploiement de WAF peut s’étendre sur plusieurs Zones de disponibilité, évite d’avoir à provisionner des instances de passerelle d’Application distincts dans chaque zone avec un gestionnaire de trafic. Vous pouvez choisir une ou plusieurs zones où les instances d’Application Gateway sont déployées, assurant ainsi une résilience en cas d’échec de la zone. Le pool principal pour les applications peut être distribué de la même façon entre les différentes zones de disponibilité.
+- **Redondance de zone** : Une passerelle d’Application ou d’un déploiement de WAF peut s’étendre sur plusieurs Zones de disponibilité, évite d’avoir à provisionner des instances de passerelle d’Application distincts dans chaque zone avec un gestionnaire de trafic. Vous pouvez choisir une ou plusieurs zones où les instances de passerelle d’Application sont déployés, ce qui le rend plus résistants aux échecs de zone. Le pool principal pour les applications peut être distribué de la même façon entre les différentes zones de disponibilité.
 - **Adresse IP virtuelle statique** : Application gateway v2 référence (SKU) prend en charge l’adresse IP virtuelle statique tapez exclusivement. Cela garantit que l’adresse IP virtuelle associé avec la passerelle d’application ne change pas pendant le cycle de vie du déploiement, même après un redémarrage.
 - **Réécriture de l’en-tête**: Application Gateway vous permet de vous ajouter, supprimer ou mettre à jour des en-têtes de demande et de réponse HTTP avec la référence (SKU) v2. Pour plus d’informations, consultez [en-têtes HTTP réécrire avec Application Gateway](rewrite-http-headers.md)
 - **Key Vault Integration (version préliminaire)**: Application Gateway v2 prend en charge l’intégration avec Key Vault (en préversion publique) pour les certificats de serveur qui sont attachés aux écouteurs d’activation du HTTPS. Pour plus d’informations, consultez [une terminaison SSL avec certificats Key Vault](key-vault-certs.md).
@@ -33,7 +33,7 @@ La nouvelle référence (SKU) v2 inclut les améliorations suivantes :
 
 ## <a name="supported-regions"></a>Régions prises en charge
 
-Le Standard_v2 et WAF_v2 référence (SKU) est disponible dans les régions suivantes : USA Centre Nord, USA Centre Sud, USA Ouest, USA Ouest 2, USA Est, USA Est 2, USA Centre, Europe Nord, Europe Ouest, Asie Sud-Est, France Centre, Royaume-Uni Ouest, Japon Est, Japon Ouest. Prise en charge pour d’autres régions est à venir.
+Le Standard_v2 et WAF_v2 référence (SKU) est disponible dans les régions suivantes : USA Centre Nord, USA Centre Sud, USA Ouest, USA Ouest 2, USA Est, USA Est 2, USA Centre, Europe Nord, Europe Ouest, Asie Sud-Est, France Centre, Royaume-Uni Ouest, Japon Est, Japon Ouest. D’autres régions seront ajoutées à l’avenir.
 
 ## <a name="pricing"></a>Tarifs
 
@@ -42,12 +42,12 @@ Avec la référence (SKU) v2, le modèle de tarification est piloté par la cons
 - **Prix fixe** -il s’agit toutes les heures (ou entamée) prix pour approvisionner un Standard_v2 ou une passerelle de WAF_v2.
 - **Prix unitaire de la capacité** -il s’agit des coûts basé sur la consommation qui sont facturé en plus du coût fixe. Frais d’unités de capacité est également calculé toutes les heures ou partielle toutes les heures. Il existe trois dimensions à une unité de capacité : unité, des connexions persistantes et le débit de calcul. Unité de calcul est une mesure de capacité de processeur consommée. Facteurs affectant l’unité de calcul sont des connexions TLS/s, calculs de réécriture d’URL et le traitement des règles WAF. Une connexion permanente est une mesure de connexions TCP établies pour la passerelle d’application dans un intervalle de facturation donné. Le débit est moyenne mégabits par seconde traitées par le système dans un intervalle de facturation donné.
 
-Chaque unité de capacité comprend au maximum : 1 unité, ou des connexions persistantes 2500 ou 2.22 débit de Mbits/s de calcul.
+Chaque unité de capacité est composée d’au maximum : 1 unité, ou de connexions persistantes 2500 ou de débit de Mbits/s 2.22 de calcul.
 
 Guide de l’unité de calcul :
 
 - **Standard_v2** -chaque unité de calcul est capable d’environ 50 connexions par seconde avec un certificat TLS de la clé RSA 2048 bits.
-- **WAF_v2** : chaque unité de calcul est capable d’environ 10 requêtes simultanées par seconde pour 70-30 % combinaison du trafic avec 70 % des demandes inférieure à 2 Ko GET/POST et restant supérieur. Performances de WAF n’est pas actuellement affectée par la taille de la réponse.
+- **WAF_v2** : chaque unité peut prendre en charge environ 10 requêtes simultanées par seconde pour 70-30 % combinaison du trafic avec 70 % des demandes inférieure à 2 Ko GET/POST de calcul et restant supérieur. Performances de WAF n’est pas actuellement affectée par la taille de la réponse.
 
 > [!NOTE]
 > Chaque instance peut prend actuellement en charge environ 10 unités de capacité.
@@ -83,7 +83,7 @@ Prix total = $148. 23.81 8 + = $172.61
 
 **Exemple 3**
 
-Un WAF_v2 de passerelle d’Application est configurée pour un mois et pendant ce temps, il reçoit les 25 nouvelles SSL connexions par seconde, moyenne 8.88 Mbits/s transfert de données et est de 80 demandes par seconde. En supposant que les connexions sont de courtes durée de vie, et que le calcul d’unité de calcul pour l’application prend en charge de RPS 10 par unité de calcul, vos prix serait :
+Un WAF_v2 de passerelle d’Application est configurée pour un mois. Pendant ce temps, il reçoit 25 nouvelles SSL connexions par seconde, moyenne de transfert de données 8.88 Mbits/s et est de 80 demandes par seconde. En supposant que les connexions sont de courtes durée de vie, et que le calcul d’unité de calcul pour l’application prend en charge de RPS 10 par unité de calcul, vos prix serait :
 
 Prix fixe = 744(hours) * 0,36 $ = $267.84
 
@@ -97,8 +97,8 @@ Le [page de tarification](https://azure.microsoft.com/en-us/pricing/details/appl
 
 Passerelle d’application et de pare-feu d’applications Web peuvent être configurés à l’échelle dans deux modes :
 
-- **Mise à l’échelle** : la mise à l’échelle activée la passerelle d’Application et les références (SKU) de WAF v2 sera mise à l’échelle vers le haut ou vers le bas en fonction des besoins de trafic d’application. Ce mode offre une meilleure élasticité à votre application et vous évite de devoir deviner le nombre de taille ou d’instances de passerelle application. Ce mode permet également à réduire les coûts en vous évitant pour exécuter des passerelles à sa capacité maximale configurée pour la charge du trafic maximal prévu. Les clients doivent spécifier un nombre d’instances minimum et maximum si vous le souhaitez. Capacité minimale garantit que les Application Gateway et WAF v2 ne prennent pas inférieur au nombre minimal d’instances spécifié même en l’absence de trafic. Vous êtes facturé pour cette capacité minimale même en l’absence de tout le trafic. Vous pouvez également éventuellement spécifier le nombre maximal d’instances qui permet de s’assurer que la passerelle d’Application n’évolue pas au-delà du nombre spécifié d’instances. Vous continuerez à être facturé pour la quantité de trafic traité par la passerelle. Le nombre d’instances peut varier de 0 à 125. Valeur par défaut pour le nombre maximal d’instances est 20 si non spécifié.
-- **Manuel** -vous pouvez aussi choisir le mode manuel, où la passerelle ne sera pas mise à l’échelle. Dans ce mode, si plus de trafic est envoyé à quelle Application Gateway ou le WAF est capable de gérer, cela peut entraîner une perte de trafic. Nombre d’instances en spécifiant le mode manuel est obligatoire. Nombre d’instances peut varier de 1 à 125 instances.
+- **Mise à l’échelle** : la mise à l’échelle est activée, la passerelle d’Application et le WAF v2 références (SKU) mettre à l’échelle vers le haut ou vers le bas en fonction des besoins de trafic d’application. Ce mode offre une meilleure élasticité à votre application et vous évite de devoir deviner le nombre de taille ou d’instances de passerelle application. Ce mode permet également à réduire les coûts en vous évitant pour exécuter des passerelles à sa capacité maximale configurée pour la charge du trafic maximal prévu. Les clients doivent spécifier un nombre d’instances minimum et maximum si vous le souhaitez. Capacité minimale garantit que les Application Gateway et WAF v2 ne prennent pas inférieur au nombre minimal d’instances spécifié, même en l’absence de trafic. Vous serez facturé pour cette capacité minimale même en l’absence de tout le trafic. Vous pouvez également spécifier un nombre maximal d’instances, ce qui garantit que la passerelle d’Application n’évolue pas au-delà du nombre spécifié d’instances. Vous continuerez à être facturé pour la quantité de trafic traité par la passerelle. Le nombre d’instances peut varier de 0 à 125. La valeur par défaut pour le nombre maximal d’instances est de 20 si elle n’est pas spécifié.
+- **Manuel** -vous pouvez aussi choisir le mode manuel, où la passerelle ne sont pas mise à l’échelle. Dans ce mode, s’il existe davantage de trafic que les Application Gateway ou le WAF est capable de gérer, cela peut entraîner une perte de trafic. Avec le mode manuel, en spécifiant le nombre d’instances est obligatoire. Nombre d’instances peut varier de 1 à 125 instances.
 
 ## <a name="feature-comparison-between-v1-sku-and-v2-sku"></a>Comparaison des fonctionnalités de la référence (SKU) v1 et v2 référence (SKU)
 
@@ -125,7 +125,7 @@ Le tableau suivant compare les fonctionnalités disponibles avec chaque référe
 | Vidage des connexions                               | &#x2713; | &#x2713; |
 
 > [!NOTE]
-> La mise à l’échelle et la passerelle d’application redondant référence (SKU) prend désormais en charge [sondes d’intégrité par défaut](application-gateway-probe-overview.md#default-health-probe) pour surveiller l’intégrité de toutes les ressources dans son pool back-end et mettez en surbrillance ces membres principaux qui sont considérés comme automatiquement défectueux. La sonde de contrôle d’intégrité par défaut finiront par être automatiquement configurés pour ces serveurs principaux pour lesquels vous n’avez pas configuré de n’importe quelle configuration de sonde personnalisée. Pour plus d’informations, consultez [sondes d’intégrité dans application gateway](application-gateway-probe-overview.md).
+> Le v2 mise à l’échelle référence (SKU) prend désormais en charge [sondes d’intégrité par défaut](application-gateway-probe-overview.md#default-health-probe) pour surveiller l’intégrité de toutes les ressources dans son pool back-end et mettez en surbrillance ces membres principaux qui sont considérés comme non intègre automatiquement. La sonde d’intégrité par défaut est automatiquement configurée pour les serveurs principaux qui n’ont pas n’importe quelle configuration de sonde personnalisée. Pour plus d’informations, consultez [sondes d’intégrité dans application gateway](application-gateway-probe-overview.md).
 
 ## <a name="differences-with-v1-sku"></a>Différences avec la référence (SKU) v1
 
@@ -140,6 +140,7 @@ Le tableau suivant compare les fonctionnalités disponibles avec chaque référe
 |Mode FIPS|Ils ne sont pas pris en charge.|
 |Mode ILB uniquement|Non pris en charge actuellement. Les modes public et ILB sont pris en charge ensemble.|
 |Intégration de Network Watcher|Non pris en charge.|
+|Intégration du centre de Support Azure|Pas encore disponible.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

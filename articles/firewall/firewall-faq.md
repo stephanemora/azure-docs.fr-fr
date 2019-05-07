@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 4/17/2019
+ms.date: 5/3/2019
 ms.author: victorh
-ms.openlocfilehash: 5e009d5659a503fe8168f21a26939acff9944f2f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 4c4a6776e3bb56026a48963ec83fe582380c68d0
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64718814"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65145962"
 ---
 # <a name="azure-firewall-faq"></a>FAQ Pare-feu Azure
 
@@ -123,11 +123,9 @@ Oui. Toutefois, la configuration de l’UDR pour rediriger le trafic entre sous-
 
 Le tunneling forcé n’est pas pris en charge par défaut, mais il peut être activé à l’aide de la prise en charge.
 
-Pare-feu Azure doit avoir une connectivité Internet directe. Par défaut, AzureFirewallSubnet dispose d’un itinéraire 0.0.0.0/0 avec la valeur de type de tronçon suivant définie sur **Internet**.
+Pare-feu Azure doit avoir une connectivité Internet directe. Si votre AzureFirewallSubnet prend connaissance d’un itinéraire par défaut pour votre réseau local via le protocole BGP, vous devez la remplacer par un UDR 0.0.0.0/0 avec le **NextHopType** valeur définie en tant que **Internet** pour mettre à jour directe Connexion Internet. Par défaut, les pare-feu Azure ne prend en charge le tunneling forcé à un réseau local.
 
-Si vous activez le tunneling forcé au niveau local via ExpressRoute ou passerelle VPN, vous devrez configurer un itinéraire de défini par l’utilisateur (UDR) 0.0.0.0/0 avec l’ensemble de valeurs de NextHopType comme Internet et l’associer à votre AzureFirewallSubnet explicitement. Cela remplace une passerelle par défaut potentiels annonce BGP à votre réseau local.
-
-Si votre organisation exige que le tunneling forcé pour le pare-feu Azure diriger le trafic de passerelle par défaut par le biais de votre réseau local, contactez le Support technique. Nous pouvons liste verte de votre abonnement pour vous assurer de la connectivité Internet de pare-feu requis est conservée.
+Toutefois, si votre configuration nécessite le tunneling forcé à un réseau local, Microsoft prendra en charge il cas par cas. Contactez le Support technique afin que nous pouvons examiner votre cas. Si accepté, nous liste verte votre abonnement et garantir que la conservation de la connectivité Internet de pare-feu nécessaires.
 
 ## <a name="are-there-any-firewall-resource-group-restrictions"></a>Les groupes de ressources de pare-feu font-ils l’objet de restrictions ?
 

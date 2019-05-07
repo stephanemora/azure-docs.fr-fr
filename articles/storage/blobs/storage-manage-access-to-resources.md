@@ -5,28 +5,31 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 04/26/2017
+ms.date: 04/30/2019
 ms.author: tamram
-ms.openlocfilehash: 3996f22db2f5dc597939995a2699c4fe228821e3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.reviewer: cbrooks
+ms.openlocfilehash: e0f93b0a95a228b26fae266129aea4b595b05e0f
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60392555"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148350"
 ---
 # <a name="manage-anonymous-read-access-to-containers-and-blobs"></a>Gestion de l’accès en lecture anonyme aux conteneurs et aux objets blob
+
 Vous pouvez activer l’accès en lecture anonyme public pour un conteneur et ses objets blob dans Stockage Blob Azure. En procédant ainsi, vous pouvez accorder un accès en lecture seule à ces ressources sans partager votre clé de compte et sans exiger de signature d’accès partagé (SAP).
 
 L’accès en lecture public est idéal dans les situations où vous voulez conférer à certains objets blob un accès en lecture anonyme permanent. Pour un contrôle plus précis, vous pouvez créer une signature d’accès partagé. Les signatures d’accès partagé vous permettent d’accorder un accès restreint avec différentes autorisations sur une période donnée. Pour plus d’informations sur la création de signatures d’accès partagé, consultez [Utilisation des signatures d’accès partagé (SAP) dans le Stockage Azure](../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 ## <a name="grant-anonymous-users-permissions-to-containers-and-blobs"></a>Accorder à des utilisateurs anonymes des autorisations d’accès aux conteneurs et objets blob
-Par défaut, un conteneur et tous les objets blob qu'il contient sont accessibles uniquement par le propriétaire du compte de stockage. Pour fournir aux utilisateurs anonymes des autorisations de lecture sur un conteneur et ses objets blob, vous pouvez configurer les autorisations du conteneur afin d’autoriser l’accès public. Les utilisateurs anonymes peuvent lire les objets blob d’un conteneur accessible publiquement sans avoir à authentifier la demande.
+
+Par défaut, un conteneur et tous les objets BLOB qu’il contient sont accessibles uniquement par un utilisateur qui a été accordé des autorisations appropriées. Pour accorder un accès en lecture aux utilisateurs anonymes à un conteneur et ses objets BLOB, vous pouvez définir le niveau d’accès public du conteneur. Lorsque vous autorisez l’accès public à un conteneur, les utilisateurs anonymes peuvent lire les objets BLOB dans un conteneur accessible publiquement sans autoriser la demande.
 
 Vous pouvez configurer un conteneur avec les autorisations suivantes :
 
 * **Aucun accès en lecture public :** Le conteneur et ses objets BLOB sont accessibles uniquement par le propriétaire de compte de stockage. Il s’agit de la configuration par défaut de tous les nouveaux conteneurs.
 * **Accès en lecture public pour les objets BLOB uniquement :** Objets BLOB dans le conteneur peuvent être lu par une demande anonyme, mais les données de conteneur ne seront pas disponibles. Les clients anonymes ne peuvent pas énumérer les objets blob présents dans le conteneur.
-* **Accès en lecture public complet :** Tous les conteneurs et les données blob peuvent être lues par une demande anonyme. Les clients peuvent énumérer les objets blob présents dans le conteneur par une demande anonyme, mais ne peuvent pas énumérer les conteneurs présents dans le compte de stockage.
+* **Public accès en lecture pour conteneur et ses objets BLOB :** Tous les conteneurs et les données blob peuvent être lues par une demande anonyme. Les clients peuvent énumérer les objets blob présents dans le conteneur par une demande anonyme, mais ne peuvent pas énumérer les conteneurs présents dans le compte de stockage.
 
 Vous pouvez définir les autorisations de conteneur par les moyens suivants :
 
@@ -35,18 +38,25 @@ Vous pouvez définir les autorisations de conteneur par les moyens suivants :
 * [Interface de ligne de commande Azure](../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#create-and-manage-blobs)
 * Par programmation, en utilisant l’une des bibliothèques clientes de stockage ou l’API REST
 
-### <a name="set-container-permissions-in-the-azure-portal"></a>Définir des autorisations de conteneur dans le portail Azure
-Pour définir des autorisations de conteneur dans le [portail Azure](https://portal.azure.com), effectuez les étapes suivantes :
+### <a name="set-container-public-access-level-in-the-azure-portal"></a>Définir le niveau d’accès public du conteneur dans le portail Azure
 
-1. Ouvrez le panneau de votre **Compte de stockage** dans le portail. Vous pouvez trouver votre compte de stockage en sélectionnant **Comptes de stockage** dans le panneau de menu principal du portail.
-1. Sous l’élément **Service Blob** du panneau de menu, sélectionnez **Objets blob**.
-1. Cliquez avec le bouton droit sur la ligne du conteneur ou sélectionnez les points de suspension pour ouvrir le **menu contextuel** du conteneur.
-1. Sélectionnez **Stratégie d’accès** dans le menu contextuel.
-1. Sélectionnez un **type d’accès** dans le menu déroulant.
+À partir de la [Azure portal](https://portal.azure.com), vous pouvez mettre à jour le niveau d’accès public pour un ou plusieurs conteneurs :
 
-    ![Boîte de dialogue Modifier les métadonnées du conteneur](./media/storage-manage-access-to-resources/storage-manage-access-to-resources-0.png)
+1. Accédez à votre compte de stockage dans le portail Azure.
+1. Sous **service Blob** dans le panneau de menu, sélectionnez **Blobs**.
+1. Sélectionnez les conteneurs pour lequel vous souhaitez définir le niveau d’accès public.
+1. Utilisez le **modifier le niveau accès** bouton pour afficher les paramètres d’accès public.
+1. Sélectionnez le niveau d’accès public souhaité à partir de la **niveau d’accès Public** liste déroulante et cliquez sur le bouton OK pour appliquer la modification pour les conteneurs sélectionnés.
 
-### <a name="set-container-permissions-with-net"></a>Définir des autorisations de conteneur avec .NET
+La capture d’écran suivante montre comment modifier le niveau d’accès public pour les conteneurs sélectionnés.
+
+![Capture d’écran montrant comment définir le niveau d’accès public dans le portail](./media/storage-manage-access-to-resources/storage-manage-access-to-resources-0.png)
+
+> [!NOTE]
+> Vous ne pouvez pas modifier le niveau d’accès public pour un objet blob individuel. Niveau d’accès public est défini uniquement au niveau du conteneur.
+
+### <a name="set-container-public-access-level-with-net"></a>Définir le niveau d’accès public de conteneur avec .NET
+
 Pour définir les autorisations d’un conteneur en utilisant C# et la bibliothèque cliente de stockage pour .NET, vous devez d’abord récupérer les autorisations existantes du conteneur en appelant la méthode **GetPermissions**. Définissez ensuite la propriété **PublicAccess** de l’objet **BlobContainerPermissions** qui est retourné par la méthode **GetPermissions**. Pour finir, appelez la méthode **SetPermissions** avec les autorisations mises à jour.
 
 Dans l’exemple suivant, nous définissons les autorisations du conteneur pour permettre un accès en lecture public complet. Pour autoriser un accès en lecture public pour les objets Blob uniquement, définissez la propriété **PublicAccess** sur **BlobContainerPublicAccessType.Blob**. Pour supprimer toutes les autorisations pour les utilisateurs anonymes, définissez la propriété sur **BlobContainerPublicAccessType.Off**.
@@ -61,15 +71,17 @@ public static void SetPublicContainerPermissions(CloudBlobContainer container)
 ```
 
 ## <a name="access-containers-and-blobs-anonymously"></a>Accéder anonymement aux conteneurs et aux objets Blob
-Un client ayant un accès anonyme aux conteneurs et aux objets Blob peut utiliser des constructeurs qui ne nécessitent pas d’informations d’identification. Les exemples suivants illustrent différentes manières de référencer des ressources de service Blob de façon anonyme.
+
+Un client ayant un accès anonyme aux conteneurs et aux objets Blob peut utiliser des constructeurs qui ne nécessitent pas d’informations d’identification. Les exemples suivants montrent différentes manières pour référencer des conteneurs et objets BLOB de façon anonyme.
 
 ### <a name="create-an-anonymous-client-object"></a>Créer un objet de client anonyme
-Vous pouvez créer un nouvel objet de client de service pour permettre un accès anonyme en spécifiant le point de terminaison du service Blob associé au compte. Toutefois, vous devez également connaître le nom d’un conteneur attaché à ce compte qui est disponible pour un accès anonyme.
+
+Vous pouvez créer un nouvel objet de client de service pour l’accès anonyme en fournissant le point de terminaison de stockage Blob pour le compte. Toutefois, vous devez également connaître le nom d’un conteneur attaché à ce compte qui est disponible pour un accès anonyme.
 
 ```csharp
 public static void CreateAnonymousBlobClient()
 {
-    // Create the client object using the Blob service endpoint.
+    // Create the client object using the Blob storage endpoint.
     CloudBlobClient blobClient = new CloudBlobClient(new Uri(@"https://storagesample.blob.core.windows.net"));
 
     // Get a reference to a container that's available for anonymous access.
@@ -83,6 +95,7 @@ public static void CreateAnonymousBlobClient()
 ```
 
 ### <a name="reference-a-container-anonymously"></a>Référencer un conteneur de manière anonyme
+
 Si vous disposez de l’URL permettant d’accéder à un conteneur accessible de manière anonyme, vous pouvez l’utiliser pour référencer directement le conteneur.
 
 ```csharp
@@ -100,6 +113,7 @@ public static void ListBlobsAnonymously()
 ```
 
 ### <a name="reference-a-blob-anonymously"></a>Référencer un objet Blob de façon anonyme
+
 Si vous disposez de l’URL permettant d’accéder à un objet Blob accessible de manière anonyme, vous pouvez l’utiliser pour référencer directement l’objet Blob :
 
 ```csharp
@@ -111,39 +125,39 @@ public static void DownloadBlobAnonymously()
 ```
 
 ## <a name="features-available-to-anonymous-users"></a>Fonctionnalités accessibles aux utilisateurs anonymes
-Le tableau suivant indique les opérations pouvant être appelées par les utilisateurs anonymes quand la liste de contrôle d’accès (ACL, Access Control List) est définie pour autoriser l’accès public.
 
-| Opération REST | Autorisation avec accès en lecture public complet | Autorisation avec accès en lecture public pour les objets blob uniquement |
+Le tableau suivant présente les opérations pouvant être appelées anonymement lorsqu’un conteneur est configuré pour l’accès public.
+
+| Opération REST | Accès en lecture public au conteneur | Accès en lecture public aux objets blob uniquement |
 | --- | --- | --- |
-| List Containers |Propriétaire uniquement |Propriétaire uniquement |
-| Create Container |Propriétaire uniquement |Propriétaire uniquement |
-| Get Container Properties |Tous |Propriétaire uniquement |
-| Get Container Metadata |Tous |Propriétaire uniquement |
-| Set Container Metadata |Propriétaire uniquement |Propriétaire uniquement |
-| Get Container ACL |Propriétaire uniquement |Propriétaire uniquement |
-| Set Container ACL |Propriétaire uniquement |Propriétaire uniquement |
-| Delete Container |Propriétaire uniquement |Propriétaire uniquement |
-| List Blobs |Tous |Propriétaire uniquement |
-| Put Blob |Propriétaire uniquement |Propriétaire uniquement |
-| Get Blob |Tous |Tous |
-| Get Blob Properties |Tous |Tous |
-| Set Blob Properties |Propriétaire uniquement |Propriétaire uniquement |
-| Get Blob Metadata |Tous |Tous |
-| Set Blob Metadata |Propriétaire uniquement |Propriétaire uniquement |
-| Put Block |Propriétaire uniquement |Propriétaire uniquement |
-| Get Block List (blocs validés uniquement) |Tous |Tous |
-| Get Block List (blocs non validés uniquement ou tous les blocs) |Propriétaire uniquement |Propriétaire uniquement |
-| Put Block List |Propriétaire uniquement |Propriétaire uniquement |
-| Delete Blob |Propriétaire uniquement |Propriétaire uniquement |
-| Copie d'un objet blob |Propriétaire uniquement |Propriétaire uniquement |
-| Snapshot Blob |Propriétaire uniquement |Propriétaire uniquement |
-| Lease Blob |Propriétaire uniquement |Propriétaire uniquement |
-| Put Page |Propriétaire uniquement |Propriétaire uniquement |
-| Get Page Ranges |Tous |Tous |
-| Append Blob |Propriétaire uniquement |Propriétaire uniquement |
+| List Containers | Requêtes autorisées | Requêtes autorisées |
+| Create Container | Requêtes autorisées | Requêtes autorisées |
+| Get Container Properties | Demandes anonymes autorisés | Requêtes autorisées |
+| Get Container Metadata | Demandes anonymes autorisés | Requêtes autorisées |
+| Set Container Metadata | Requêtes autorisées | Requêtes autorisées |
+| Get Container ACL | Requêtes autorisées | Requêtes autorisées |
+| Set Container ACL | Requêtes autorisées | Requêtes autorisées |
+| Delete Container | Requêtes autorisées | Requêtes autorisées |
+| List Blobs | Demandes anonymes autorisés | Requêtes autorisées |
+| Put Blob | Requêtes autorisées | Requêtes autorisées |
+| Get Blob | Demandes anonymes autorisés | Demandes anonymes autorisés |
+| Get Blob Properties | Demandes anonymes autorisés | Demandes anonymes autorisés |
+| Set Blob Properties | Requêtes autorisées | Requêtes autorisées |
+| Get Blob Metadata | Demandes anonymes autorisés | Demandes anonymes autorisés |
+| Set Blob Metadata | Requêtes autorisées | Requêtes autorisées |
+| Put Block | Requêtes autorisées | Requêtes autorisées |
+| Get Block List (blocs validés uniquement) | Demandes anonymes autorisés | Demandes anonymes autorisés |
+| Get Block List (blocs non validés uniquement ou tous les blocs) | Requêtes autorisées | Requêtes autorisées |
+| Put Block List | Requêtes autorisées | Requêtes autorisées |
+| Delete Blob | Requêtes autorisées | Requêtes autorisées |
+| Copie d'un objet blob | Requêtes autorisées | Requêtes autorisées |
+| Snapshot Blob | Requêtes autorisées | Requêtes autorisées |
+| Lease Blob | Requêtes autorisées | Requêtes autorisées |
+| Put Page | Requêtes autorisées | Requêtes autorisées |
+| Get Page Ranges | Demandes anonymes autorisés | Demandes anonymes autorisés |
+| Append Blob | Requêtes autorisées | Requêtes autorisées |
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Authentification pour les services de stockage Azure](https://msdn.microsoft.com/library/azure/dd179428.aspx)
+* [Autorisation pour les Services de stockage Azure](https://docs.microsoft.com/rest/api/storageservices/authorization-for-the-azure-storage-services)
 * [Utilisation des signatures d’accès partagé (SAP)](../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
-* [Délégation de l'accès avec une signature d'accès partagé](https://msdn.microsoft.com/library/azure/ee395415.aspx)

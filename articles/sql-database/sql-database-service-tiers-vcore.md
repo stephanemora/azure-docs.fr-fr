@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 manager: craigg
-ms.date: 04/26/2019
-ms.openlocfilehash: 0f7765e5b13f2d9c1e1213064d778ce6db5ef115
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 05/06/2019
+ms.openlocfilehash: 981198063b8e0951d4a4a4c4627d4b7966f34154
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64572681"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148976"
 ---
 # <a name="choose-among-the-vcore-service-tiers-and-migrate-from-dtu-service-tiers"></a>Choisissez parmi les niveaux de service de vCore et migrer à partir de niveaux de service DTU
 
@@ -38,14 +38,16 @@ Le modèle vCore fournit trois niveaux de service, Usage général, Hyperscale e
 
 Le tableau suivant montre les différences entre les trois niveaux :
 
-||**Usage général**|**Critique pour l’entreprise**|**Hyperscale (préversion)**|
+||**Usage général**|**Critique pour l’entreprise**|**Hyperscale**|
 |---|---|---|---|
 |Idéal pour|La plupart des charges de travail d’entreprise. Propose des options de calcul et de stockage équilibrées, évolutives et économiques.|Applications métier avec besoins en E/S élevés. Offre la meilleure résilience aux échecs en utilisant plusieurs répliques isolées.|La plupart des charges de travail métier avec des exigences de stockage et d’échelle lecture à haute scalabilité|
-|UC|**Mise en service de calcul**:<br/>Gen4 : de 1 à 24 vCore<br/>Gen5 : de 1 à 80 vCore<br/>**Calcul sans serveur**<br/>Gen5 : 0,5 - 4 vCore|**Mise en service de calcul**:<br/>Gen4 : de 1 à 24 vCore<br/>Gen5 : de 1 à 80 vCore|**Mise en service de calcul**:<br/>Gen4 : de 1 à 24 vCore<br/>Gen5 : de 1 à 80 vCore|
-|Mémoire|**Mise en service de calcul**:<br/>Gen4 : 7 Go par cœur<br/>Gen5 : 5,1 Go par cœur<br/>**Calcul sans serveur**<br/>Gen5 : 3 Go par cœur|**Mise en service de calcul**:<br/>Gen4 : 7 Go par cœur<br/>Gen5 : 5,1 Go par cœur |**Mise en service de calcul**:<br/>Gen4 : 7 Go par cœur<br/>Gen5 : 5,1 Go par cœur|
+|Calcul|**Mise en service de calcul**:<br/>Gen4 : de 1 à 24 vCore<br/>Gen5 : 2 à 80 vCore<br/>**Calcul sans serveur**<br/>Gen5 : 0,5 - 4 vCore|**Mise en service de calcul**:<br/>Gen4 : de 1 à 24 vCore<br/>Gen5 : 2 à 80 vCore|**Mise en service de calcul**:<br/>Gen4 : de 1 à 24 vCore<br/>Gen5 : 2 à 80 vCore|
+|Mémoire|**Mise en service de calcul**:<br/>Gen4 : 7 Go par vCore<br/>Gen5 : 5,1 Go par vCore<br/>**Calcul sans serveur**<br/>Gen5 : 3 Go par vCore|**Mise en service de calcul**:<br/>Gen4 : 7 Go par vCore<br/>Gen5 : 5,1 Go par vCore |**Mise en service de calcul**:<br/>Gen4 : 7 Go par vCore<br/>Gen5 : 5,1 Go par vCore|
 |Stockage|Utilise le stockage à distance :<br/>**Base de données unique mis en service de calcul**:<br/>5 Go - 4 To<br/>**Calcul sans serveur de base de données unique**:<br/>5 GO À 1 TO<br/>**Managed Instance**: 32 Go - 8 To |Utilise le stockage SSD local :<br/>**Base de données unique mis en service de calcul**:<br/>5 Go - 4 To<br/>**Managed Instance**:<br/>32 Go - 4 To |Croissance automatique et flexible du stockage en fonction des besoins. Prend en charge jusqu’à 100 To de stockage et au-delà. Stockage SSD local pour le cache du pool de mémoires tampons local et le stockage de données local. Stockage distant Azure comme magasin de données final à long terme. |
+|Mémoire|Gen4 : 7 Go par cœur<br>Gen5 : 5,1 Go par cœur | Gen4 : 7 Go par cœur<br>Gen5 : 5,1 Go par cœur |Gen5 : 5,1 Go par cœur|
+|Stockage|Utilise le stockage à distance :<br/>Base de données unique : 5 Go - 4 To<br/>instance managée : 32 Go - 8 To |Utilise le stockage SSD local :<br/>Base de données unique : 5 Go - 4 To<br/>instance managée : 32 Go - 4 To |Croissance automatique et flexible du stockage en fonction des besoins. Prend en charge jusqu’à 100 To de stockage et au-delà. Stockage SSD local pour le cache du pool de mémoires tampons local et le stockage de données local. Stockage distant Azure comme magasin de données final à long terme. |
 |Débit d’E/S (approximatif)|Base de données unique : 500 IOPS par vCore avec 7000 IOPS au maximum</br>instance managée : dépend de la [taille de fichier](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)|5000 IOPS par cœur avec 200 000 IOPS au maximum|TBD|
-|Disponibilité|1 réplica, sans échelle lecture|3 réplicas, 1 [réplica avec échelle lecture](sql-database-read-scale-out.md),<br/>Haute disponibilité redondante dans une zone|?|
+|Disponibilité|1 réplica, sans échelle lecture|3 réplicas, 1 [réplica avec échelle lecture](sql-database-read-scale-out.md),<br/>Haute disponibilité redondante dans une zone|réplica en lecture/1 écriture et 0-4 [les réplicas en lecture à l’échelle](sql-database-read-scale-out.md)|
 |Sauvegardes|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7 à 35 jours (7 jours par défaut)|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7 à 35 jours (7 jours par défaut)|Sauvegarde basée sur des instantanés dans le stockage distant Azur. Les restaurations utilisent ces instantanés pour une récupération rapide. Les sauvegardes sont instantanées et n’ont aucun impact sur les performances d’E/S du calcul. Les restaurations sont très rapides (elles durent quelques minutes plutôt que quelques heures ou jours).|
 |En mémoire|Non pris en charge|Pris en charge|Non pris en charge|
 |||
@@ -56,8 +58,6 @@ Le tableau suivant montre les différences entre les trois niveaux :
 - Pour plus d’informations, consultez [Limites de ressources vCore dans une base de données unique](sql-database-vcore-resource-limits-single-databases.md) et [Limites de ressources vCore dans une instance gérée](sql-database-managed-instance.md#vcore-based-purchasing-model).
 - Pour plus d’informations sur les niveaux de service Usage général et Critique pour l’entreprise, consultez [Niveaux de service Usage général et Critique pour l’entreprise](sql-database-service-tiers-general-purpose-business-critical.md).
 - Pour plus d’informations sur le niveau de service Hyperscale dans le modèle d’achat vCore, consultez [Niveau de service Hyperscale](sql-database-service-tier-hyperscale.md).  
-
-
 
 ## <a name="azure-hybrid-benefit"></a>Azure Hybrid Benefit
 

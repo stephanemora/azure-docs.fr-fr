@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: diberry
 ms.service: cognitive-services
-ms.openlocfilehash: ed180563ea6138b3b4bab6092b39eeacf9dbf840
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 0c42ab44ba317888b982ba7c72f78be4ca73d93c
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62097029"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148159"
 ---
 # <a name="add-intents-to-determine-user-intention-of-utterances"></a>Ajouter des intentions pour déterminer l’intention de l’utilisateur des énoncés
 
@@ -42,16 +42,25 @@ Les exemples d’énoncés sont des exemples de texte de questions ou de command
 
     LUIS convertit tous les énoncés en minuscules et ajoute des espaces autour des jetons tels que les traits d’union.
 
-## <a name="intent-prediction-discrepancy-errors"></a>Erreurs de différence de prédiction d’intention 
+<a name="#intent-prediction-discrepancy-errors"></a>
 
-Un énoncé dans une intention peut présenter une différence de prédiction d’intention entre l’intention sélectionnée et le score de prédiction. LUIS signale cette différence en entourant en rouge l’**intention étiquetée** sur la ligne de l’exemple d’énoncé. 
+## <a name="intent-prediction-errors"></a>Erreurs de prédiction Intent 
 
-![Capture d’écran de la page de détails Intents (Intentions), avec erreurs d’incohérence de prédiction d’énoncé](./media/luis-how-to-add-intents/prediction-discrepancy-intent.png) 
+Un énoncé de l’exemple dans une intention peut-être une erreur intentionnelle de prédiction entre l’intention de l’énoncé de l’exemple en cours et l’intention de prédiction déterminé au cours de formation. 
 
-Dans la barre de navigation supérieure, sélectionnez **Train** (Entraîner). La différence de prédiction a désormais disparu.
+Pour rechercher des erreurs de prédiction d’énoncé et corrigez-les, utilisez le **filtre** l’option **évaluation** options de Incorrect et Unclear combinées avec le **vue** option de **Vue détaillée**. 
 
-> [!Note]
-> Lorsqu’une ligne rouge est soumis à un mot ou une phrase dans l’énoncé de l’exemple, un [erreur de prédiction d’entité](luis-how-to-add-example-utterances.md#entity-status-predictions) s’est produite. Vous avez besoin résoudre ce problème. 
+![Pour rechercher des erreurs de prédiction d’énoncé et corrigez-les, utilisez l’option de filtre.](./media/luis-how-to-add-intents/find-intent-prediction-errors.png)
+
+Lorsque les filtres et la vue sont appliquées et il existe des énoncés d’exemple avec des erreurs, l’exemple de liste énoncé montre énoncés et les problèmes.
+
+![! [Lorsque les filtres et la vue sont appliqués, et il existe des énoncés d’exemple avec des erreurs, l’exemple de liste énoncé affiche énoncés et les problèmes.] (. / media/luis-how-to-add-intents/find-errors-in-utterances.png)](./media/luis-how-to-add-intents/find-errors-in-utterances.png#lightbox)
+
+Chaque ligne affiche le score de prédiction de la formation en cours pour l’énoncé d’exemple, le score du rival le plus proche, est la différence entre ces deux scores. 
+
+### <a name="fixing-intents"></a>Résolution des intentions
+
+Pour savoir comment corriger les erreurs de l’intention de prédiction, utilisez le [tableau de bord Résumé](luis-how-to-use-dashboard.md). Le tableau de bord résumé fournit une analyse pour l’apprentissage de dernière de la version active et offre des suggestions supérieures pour corriger votre modèle.  
 
 ## <a name="add-a-custom-entity"></a>Ajouter une entité personnalisée
 

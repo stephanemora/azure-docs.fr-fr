@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 12/19/2018
+ms.date: 04/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: f13dd1282a6384a0acca4c6936fe7900a051795f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b35977061b7e5806d15f4b7b0087fcafa4f291ef
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60497390"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65141152"
 ---
 # <a name="connecting-to-on-premises-data-sources-with-on-premises-data-gateway"></a>Connexion aux sources de données locales avec la passerelle de données locale
 La passerelle de données locale assure un transfert de données sécurisé entre des sources de données locales et vos serveurs Azure Analysis Services dans le cloud. Pouvant être utilisée avec plusieurs serveurs Azure Analysis Services dans la même région, la dernière version de la passerelle fonctionne également avec Azure Logic Apps, Power BI, Power Apps et Microsoft Flow. Vous pouvez associer plusieurs services dans le même abonnement et la même région avec une passerelle unique. 
@@ -176,30 +176,9 @@ Les fichiers journaux constituent une ressource importante lors du dépannage.
 
 `C:\Users\<username>\AppData\Local\Microsoft\On-premises data gateway\GatewayConfigurator.log`
 
-
 #### <a name="event-logs"></a>Journaux d’événements
 
 Les journaux d’activité de passerelle de gestion des données et PowerBIGateway figurent sous **Journaux des applications et services**.
-
-
-## <a name="telemetry"></a>Télémétrie
-La télémétrie peut être utilisée pour la surveillance et la résolution des problèmes. Par défaut
-
-**Pour activer la télémétrie**
-
-1.  Vérifiez le répertoire client de la passerelle de données sur site sur l’ordinateur. En règle générale, il s’agit de la **passerelle de données %systemdrive%\Program Files\On-premises**. Vous pouvez également ouvrir une console Services et vérifier le chemin du fichier exécutable : une propriété du service de passerelle de données locale.
-2.  Dans le fichier Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config du répertoire client. Modifiez le paramètre SendTelemetry sur true.
-        
-    ```
-        <setting name="SendTelemetry" serializeAs="String">
-                    <value>true</value>
-        </setting>
-    ```
-
-3.  Enregistrez vos modifications et redémarrez le service Windows : service de passerelle de données locale.
-
-
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Installer et configurer une passerelle de données locale](analysis-services-gateway-install.md).   

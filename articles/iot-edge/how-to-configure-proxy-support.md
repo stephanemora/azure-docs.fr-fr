@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 4fa5402b87eea969a5a4093000dda06d3cb5675d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 883f6022f3d0f609de2d8f33b0285d8c40b7bee9
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61216240"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142123"
 ---
 # <a name="configure-an-iot-edge-device-to-communicate-through-a-proxy-server"></a>Configurer un appareil IoT Edge pour communiquer via un serveur proxy
 
@@ -43,22 +43,28 @@ Les URL de proxy se présentent sous ce format : **protocol**://**proxy_host**:
 
 Si vous installez le runtime IoT Edge sur un appareil Linux, configurez le Gestionnaire de package de sorte à passer par votre serveur proxy pour accéder au package d’installation. Par exemple, [Configurez apt-get pour utiliser un proxy http](https://help.ubuntu.com/community/AptGet/Howto/#Setting_up_apt-get_to_use_a_http-proxy). Une fois que votre gestionnaire de package est configuré, suivez les instructions dans [Installer le runtime Azure IoT Edge sur Linux (ARM32v7/armhf)](how-to-install-iot-edge-linux-arm.md) ou [Installer le runtime Azure IoT Edge sur Linux (x64)](how-to-install-iot-edge-linux.md) comme d’habitude.
 
-Si vous installez le runtime IoT Edge sur un appareil Windows, vous devez passer par le serveur de proxy à deux reprises. La première connexion consiste à télécharger le fichier de script d’installation et la seconde connexion est pendant l’installation pour télécharger les composants nécessaires. Vous pouvez configurer les informations de proxy dans les paramètres Windows ou inclure vos informations de proxy directement dans le script d’installation. Le script Powershell suivant est un exemple d’installation de Windows qui utilise l’argument `-proxy` :
+Si vous installez le runtime IoT Edge sur un appareil Windows, vous devez passer par le serveur de proxy à deux reprises. La première connexion consiste à télécharger le fichier de script d’installation et la seconde connexion est pendant l’installation pour télécharger les composants nécessaires. Vous pouvez configurer les informations de proxy dans les paramètres de Windows, ou inclure vos informations de proxy directement dans les commandes PowerShell. Les étapes suivantes montrent un exemple d’une installation de windows en utilisant le `-proxy` argument :
 
-```powershell
-. {Invoke-WebRequest -proxy <proxy URL> -useb aka.ms/iotedge-win} | Invoke-Expression; `
-Install-SecurityDaemon -Manual -ContainerOs Windows -proxy <proxy URL>
-```
+1. La commande Invoke-WebRequest a besoin des informations de proxy pour accéder au script du programme d’installation. La commande déployer-IoTEdge doit ensuite les informations de proxy pour télécharger les fichiers d’installation. 
 
-Si vous avez des informations d’identification complexes pour le serveur proxy qui ne peuvent pas être incluses dans l’URL, utilisez le paramètre `-ProxyCredential` dans `-InvokeWebRequestParameters`. Par exemple,
+   ```powershell
+   . {Invoke-WebRequest -proxy <proxy URL> -useb aka.ms/iotedge-win} | Invoke-Expression; Deploy-IoTEdge -proxy <proxy URL>
+   ```
+
+2. La commande Initialize-IoTEdge n’a pas besoin d’accéder via le serveur proxy, pour la deuxième étape nécessite uniquement des informations de proxy pour Invoke-WebRequest.
+
+   ```powershell
+   . {Invoke-WebRequest -proxy <proxy URL> -useb aka.ms/iotedge-win} | Invoke-Expression; Initialize-IoTEdge
+
+If you have complicated credentials for the proxy server that can't be included in the URL, use the `-ProxyCredential` parameter within `-InvokeWebRequestParameters`. For example,
 
 ```powershell
 $proxyCredential = (Get-Credential).GetNetworkCredential()
 . {Invoke-WebRequest -proxy <proxy URL> -ProxyCredential $proxyCredential -useb aka.ms/iotedge-win} | Invoke-Expression; `
-Install-SecurityDaemon -Manual -ContainerOs Windows -InvokeWebRequestParameters @{ '-Proxy' = '<proxy URL>'; '-ProxyCredential' = $proxyCredential }
+Deploy-IoTEdge -InvokeWebRequestParameters @{ '-Proxy' = '<proxy URL>'; '-ProxyCredential' = $proxyCredential }
 ```
 
-Pour plus d’informations sur les paramètres de proxy, consultez [Invoke-WebRequest](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-webrequest). Pour plus d’informations sur les options d’installation, consultez [Installer le runtime Azure IoT Edge sur Windows](how-to-install-iot-edge-windows.md).
+Pour plus d’informations sur les paramètres de proxy, consultez [Invoke-WebRequest](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-webrequest). Pour plus d’informations sur les options d’installation de Windows, consultez [runtime installer Azure IoT Edge sur Windows](how-to-install-iot-edge-windows.md).
 
 Une fois que le runtime IoT Edge est installé, utilisez la section suivante pour le configurer avec vos informations de proxy. 
 

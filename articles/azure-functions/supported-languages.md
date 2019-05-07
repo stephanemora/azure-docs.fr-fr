@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 08/02/2018
 ms.author: glenga
-ms.openlocfilehash: 5f55122b3bf4bb7160459d524b20dd1303cc0fd8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8839fc0fb9f19a1cfa95a4191213503dba7602c6
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60325454"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148820"
 ---
 # <a name="supported-languages-in-azure-functions"></a>Langages pris en charge dans Azure Functions
 
@@ -37,7 +37,7 @@ Il existe trois niveaux de prise en charge :
 
 ### <a name="experimental-languages"></a>Langages expérimentaux
 
-Les langages expérimentaux dans la version 1.x ne sont pas très propices à la mise à l’échelle et ne prennent pas en charge toutes les liaisons. Par exemple, la prise en charge expérimentale pour PowerShell dans 1.x est limitée à la version 5.1, car c’est celle qui est installée par défaut sur les machines virtuelles où sont exécutées les applications de fonction. Si vous souhaitez exécuter des scripts PowerShell, utilisez [Azure Automation](https://azure.microsoft.com/services/automation/).
+Les langages expérimentaux dans la version 1.x ne sont pas très propices à la mise à l’échelle et ne prennent pas en charge toutes les liaisons.
 
 N’utilisez pas les fonctionnalités expérimentales pour tout ce qui est important, car il n’existe aucune prise en charge officielle pour celles-ci. Évitez d’ouvrir des cas de support pour les problèmes liés aux langages expérimentaux. 
 

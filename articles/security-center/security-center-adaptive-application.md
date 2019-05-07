@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/26/2019
+ms.date: 05/02/2019
 ms.author: monhaber
-ms.openlocfilehash: c4b2ed1269ef669def2b6f2036d34a40fb181c5d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 581db3ebe3ce1cad5c8db3702af179e141f334b4
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60910406"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143453"
 ---
 # <a name="adaptive-application-controls-in-azure-security-center"></a>Contrôles d’application adaptative dans Azure Security Center
 Découvrez comment configurer le contrôle d’application dans Azure Security Center à l’aide de cette procédure pas à pas.
@@ -154,6 +154,22 @@ La liste contient :
 
 Azure Security Center vous permet également de définir une stratégie de mise en liste verte des applications sur des groupes non recommandés de machines virtuelles. Suivez les mêmes principes que ceux indiqués précédemment, pour configurer une stratégie de mise en liste verte des applications sur ces groupes.
 
+## <a name="move-a-vm-from-one-group-to-another"></a>Déplacer une machine virtuelle d’un groupe à un autre
+
+ Lorsque vous déplacez une machine virtuelle à partir d’un groupe à un autre, modifie la stratégie application control appliquée aux paramètres du groupe, que vous avez déplacé vers. Vous pouvez également déplacer une machine virtuelle à partir d’un groupe configuré pour un groupe non configuré, ce qui entraîne la suppression de toute stratégie de contrôle d’application qui a été précédemment appliquée à la machine virtuelle.
+
+ 1. À partir de la **contrôles d’application adaptative** page, à partir de la **configuré** onglet, cliquez sur le groupe auquel appartient la machine virtuelle à déplacer actuellement.
+1. Cliquez sur **configuré des machines virtuelles et ordinateurs**.
+1. Cliquez sur les trois points dans la ligne de la machine virtuelle à déplacer, puis cliquez sur **déplacer**. Le **déplacer l’ordinateur au groupe différents** fenêtre s’ouvre.
+
+    ![Protection](./media/security-center-adaptive-application/adaptive-application-move-group.png)
+
+ 1. Sélectionnez le groupe à déplacer de la machine virtuelle, puis cliquez sur **déplacer un ordinateur**, puis cliquez sur **enregistrer**.
+
+    ![Protection](./media/security-center-adaptive-application/adaptive-application-move-group2.png)
+
+ > [!NOTE]
+> Veillez à cliquer sur **enregistrer** après avoir cliqué sur **déplacer un ordinateur**. Si vous ne cliquez pas sur **enregistrer**, puis l’ordinateur n’est pas déplacé.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Dans ce document, vous avez appris comment utiliser des contrôles d’application adaptative dans Azure Security Center pour la liste verte des applications en cours d’exécution dans Azure et machines virtuelles - Azure. Pour plus d’informations sur le Centre de sécurité Azure, consultez les rubriques suivantes :

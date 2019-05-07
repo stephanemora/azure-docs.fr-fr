@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: 4e365ef01b8c7a89d61efad25bd18943e7b2d1a4
-ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.openlocfilehash: 407b8ba2fda35d3acbf1b425bb15fe20778613d7
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64877967"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65145997"
 ---
 # <a name="delimited-text-format-in-azure-data-factory"></a>Format de texte délimité dans Azure Data Factory
 
@@ -51,7 +51,7 @@ Voici un exemple de jeu de données de texte délimité sur stockage Blob Azure�
             "referenceName": "<Azure Blob Storage linked service name>",
             "type": "LinkedServiceReference"
         },
-        "schema": [ < physical schema, optional, auto retrieved during authoring > ],
+        "schema": [ < physical schema, optional, retrievable during authoring > ],
         "typeProperties": {
             "location": {
                 "type": "AzureBlobStorageLocation",

@@ -9,14 +9,14 @@ ms.reviewer: mldocs
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 03/29/2019
+ms.date: 04/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: 242b7cb45e9a73e78ae9f9b62e83311e110e07ee
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 80bb7af0f7ed20336ab08d4f3ca9639057b9c67f
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65021104"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65149769"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>Problèmes connus et dépannage du service Azure Machine Learning
 
@@ -69,6 +69,9 @@ Vous ne serez pas en mesure de déployer des modèles sur des FPGA tant que vous
 
 Apprentissage automatisé de flux de tenseur ne gère pas actuellement les version de flux de tenseur 1.13. Installation de cette version entraînerait des dépendances de package cesser de fonctionner. Nous nous efforçons de résoudre ce problème dans une version ultérieure. 
 
+### <a name="experiment-charts"></a>Graphiques d’expérience
+
+Graphiques de classification binaire (rappel de précision, ROC, obtenir la courbe, etc.) indiqués dans les itérations d’expériences ML automatisées ne sont pas correctement rendu dans l’interface utilisateur depuis le 12/4. Les tracés de graphique sont actuellement affichant les résultats inverse, où les modèles plus performantes sont affichés avec les résultats de moindre. Une résolution est étudié.
 
 ## <a name="databricks"></a>Databricks
 

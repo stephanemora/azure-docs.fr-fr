@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: cephalin
-ms.openlocfilehash: 544ef8947f3a593071cabea018c722db96ab1475
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: d62632d6c28ac137095307e95dbbdab7e8573bbc
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59266203"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65137876"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configurer des environnements intermédiaires dans Azure App Service
 <a name="Overview"></a>
@@ -265,6 +265,8 @@ Pour permettre aux utilisateurs d’accepter votre application bêta, définisse
 ```
 <webappname>.azurewebsites.net/?x-ms-routing-name=staging
 ```
+
+Par défaut, les emplacements de nouveau bénéficient d’une règle de routage de `0%`, affichés en gris. En définissant explicitement cette valeur sur `0%` (affichés en texte noir), vos utilisateurs peuvent accéder à l’emplacement intermédiaire manuellement à l’aide de le `x-ms-routing-name` paramètre de requête, mais ils ne seront pas routées vers l’emplacement automatiquement dans la mesure où le pourcentage de routage est défini sur 0. Il s’agit d’un scénario avancé où vous pouvez « masquer » votre emplacement intermédiaire du public tout en permettant aux équipes internes tester les modifications sur l’emplacement.
 
 <a name="Delete"></a>
 

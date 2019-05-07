@@ -11,14 +11,14 @@ ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: bb88da48f8961969176fd67bf6e5fa346655aeac
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 77bc33747964a5f4ee1a67aba777dc3ed76b9a51
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60388719"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073468"
 ---
-# <a name="accelerated-database-recovery-preview"></a>Récupération de base de données accélérée (préversion)
+# <a name="accelerated-database-recovery"></a>Récupération de la base de données accélérée
 
 La **récupération de base de données accélérée** est une nouvelle fonctionnalité du moteur de base de données SQL qui améliore considérablement la disponibilité des bases de données, en particulier en présence de transactions d’une durée d’exécution longue, grâce à une nouvelle conception du processus de récupération du moteur de base de données SQL. La récupération de base de données accélérée est disponible pour les bases de données uniques et les bases de données mises en pool dans Azure SQL Database, et les bases de données dans Azure SQL Data Warehouse. Les principaux avantages de la récupération de base de données accélérée sont :
 
@@ -65,7 +65,7 @@ La récupération de base de données accélérée résout les problèmes évoqu
 - La rendre instantanée/avec une durée constante en évitant de devoir analyser le journal à partir de/jusqu’au début de la transaction active la plus ancienne. Avec la règle ADR, le journal des transactions est traité seulement à partir du dernier point de contrôle réussi (ou de la page de modifications plus ancien numéro de séquence de journal (LSN)). Par conséquent, le temps de récupération n’est pas affecté par les transactions longues.
 - Réduire au minimum l’espace du journal des transactions, car il n’est plus nécessaire de traiter le journal pour toute la transaction. Par conséquent, le journal des transactions peut être tronqué de façon agressive au fil de la réalisation des points de contrôle et des sauvegardes.
 
-Globalement, la récupération de base de données accélérée effectue une récupération rapide d’une base de données en gérant des versions de toutes les modifications de la base de données physique et en annulant seulement les opérations logiques, qui sont limitées et peuvent être annulées quasi instantanément. Les transactions qui étaient actives au moment d’un plantage sont marquées comme étant abandonnées et par conséquent, toutes les versions générées par ces transactions peuvent être ignorées par les requêtes utilisateur simultanées.
+À un niveau élevé, ADR réalise récupération rapide de base de données par le contrôle de version, toutes les modifications de base de données physique et seules opérations logiques annulation, qui sont limités et ne peuvent être annulée presque instantanément. Les transactions qui étaient actives au moment d’un plantage sont marquées comme étant abandonnées et par conséquent, toutes les versions générées par ces transactions peuvent être ignorées par les requêtes utilisateur simultanées.
 
 Le processus de récupération de la récupération de base de données accélérée a les trois mêmes phases que le processus de récupération actuel. Le fonctionnement de ces phases avec la récupération de base de données accélérée est illustré dans le diagramme suivant et expliqué plus en détails après celui-ci.
 
@@ -128,6 +128,3 @@ Les types suivants de clients doivent envisager l’utilisation de la récupéra
 - Les clients qui ont rencontré des cas où des transactions actives provoquent un accroissement significatif du journal des transactions.  
 - Les clients ayant subi de longues périodes d’indisponibilité de la base de données en raison de la longueur de la récupération de SQL Server (comme un redémarrage manuel de SQL Server ou l’annulation manuelle de transactions).
 
-## <a name="to-enable-adr-during-this-preview-period"></a>Pour activer la récupération de base de données accélérée pendant cette période de préversion
-
-Pendant la période de préversion, pour activer cette fonctionnalité, envoyez un e-mail à [adr@microsoft.com](mailto:adr@microsoft.com) pour en savoir plus et essayer la récupération de base de données accélérée. Dans le courrier électronique, indiquez le nom de votre serveur SQL Database (pour les bases de données uniques et les bases de données mises en pool dans SQL Database, et les bases de données dans Azure Data Warehouse). Cette fonctionnalité étant en préversion, votre serveur de test ne doit pas être un serveur de production.

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/21/2019
 ms.author: juliako
-ms.openlocfilehash: aa6b4ef76b039e9e24b4a72cfb6e76dcfae8378d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: c957a98cdb6c195f7ed9b41dabc66a32714f57e7
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64691252"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142522"
 ---
 # <a name="tutorial-use-aes-128-dynamic-encryption-and-the-key-delivery-service"></a>Didacticiel : Utiliser le chiffrement dynamique AES-128 et le service de distribution des clés
 
@@ -159,7 +159,7 @@ Exécutez la commande CLI suivante :
 az group delete --name amsResourceGroup
 ```
 
-## <a name="provide-feedback"></a>Fournir des commentaires
+## <a name="ask-questions-give-feedback-get-updates"></a>Posez des questions, commentaires, obtenir des mises à jour
 
 Découvrez l’article [Communauté Azure Media Services](media-services-community.md) pour découvrir les différentes façons dont vous pouvez poser des questions, faire des commentaires et obtenir des mises à jour sur Media Services.
 

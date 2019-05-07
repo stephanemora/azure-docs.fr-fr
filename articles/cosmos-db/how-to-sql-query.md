@@ -4,14 +4,14 @@ description: Obtenez plus d’informations sur la syntaxe SQL, les concepts de b
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/04/2019
+ms.date: 05/06/2019
 ms.author: mjbrown
-ms.openlocfilehash: 04a88558e3aea33c6d99bd0e4f1354c4316f5529
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a5cc6bfca67f3d90467fa2339bc991c1f0bbeadf
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61054110"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148947"
 ---
 # <a name="sql-query-examples-for-azure-cosmos-db"></a>Exemples de requêtes SQL pour Azure Cosmos DB
 
@@ -139,14 +139,14 @@ Les résultats de requête sont :
     }]
 ```
 
-La requête suivante renvoie tous les noms donnés des enfants de la famille dont `id` correspond à `WakefieldFamily`, classée par catégorie.
+La requête suivante renvoie tous les noms donnés des enfants de la famille dont `id` correspond à `WakefieldFamily`, classée par la ville de résidence.
 
 ```sql
     SELECT c.givenName
     FROM Families f
     JOIN c IN f.children
     WHERE f.id = 'WakefieldFamily'
-    ORDER BY f.grade ASC
+    ORDER BY f.address.city ASC
 ```
 
 Les résultats sont :
@@ -314,6 +314,70 @@ Les résultats sont :
     ]
 ```
 
+## <a id="DistinctKeyword"></a>Mot clé DISTINCT
+
+Le mot clé DISTINCT élimine les doublons dans la projection de la requête.
+
+```sql
+SELECT DISTINCT VALUE f.lastName
+FROM Families f
+```
+
+Dans cet exemple, la requête projette les valeurs pour chaque nom de famille.
+
+Les résultats sont :
+
+```json
+[
+    "Andersen"
+]
+```
+
+Vous pouvez également projeter des objets uniques. Dans ce cas, le champ nom n’existe pas dans un des deux documents, par conséquent, la requête retourne un objet vide.
+
+```sql
+SELECT DISTINCT f.lastName
+FROM Families f
+```
+
+Les résultats sont :
+
+```json
+[
+    {
+        "lastName": "Andersen"
+    },
+    {}
+]
+```
+
+DISTINCT peut également être utilisé dans la projection dans une sous-requête :
+
+```sql
+SELECT f.id, ARRAY(SELECT DISTINCT VALUE c.givenName FROM c IN f.children) as ChildNames
+FROM f
+```
+
+Cette requête projette un tableau qui contient les givenName de chaque enfant en supprimant les doublons. Ce tableau a pour alias ChildNames et projetés dans la requête externe.
+
+Les résultats sont :
+
+```json
+[
+    {
+        "id": "AndersenFamily",
+        "ChildNames": []
+    },
+    {
+        "id": "WakefieldFamily",
+        "ChildNames": [
+            "Jesse",
+            "Lisa"
+        ]
+    }
+]
+```
+
 ## <a name="aliasing"></a>Alias
 
 Vous pouvez explicitement alias valeurs dans les requêtes. Si une requête a deux propriétés portant le même nom, utilisez des alias pour renommer les moins le des propriétés afin qu’ils vous éviter toute ambiguïtés dans le résultat projeté.
@@ -380,7 +444,7 @@ Les résultats sont :
         }
       ],
       [
-        {
+       {
             "familyName": "Merriam",
             "givenName": "Jesse",
             "gender": "female",
@@ -448,7 +512,7 @@ Vous pouvez utiliser les opérateurs binaires pris en charge suivants :
 |Opérateurs au niveau du bit    | \|, &, ^, <<, >>, >>> (décalage vers la droite avec remplissage de zéros) |
 |Opérateurs logiques    | AND, OR, NOT      |
 |Opérateurs de comparaison | =, !=, &lt;, &gt;, &lt;=, &gt;=, <> |
-|String     |  \|\| (concaténer) |
+|Chaîne     |  \|\| (concaténer) |
 
 Les requêtes suivantes utilisent les opérateurs binaires :
 
@@ -599,7 +663,7 @@ Utilisez le ?? opérateur pour vérifier une propriété dans un élément lors
 
 ## <a id="TopKeyword"></a>Opérateur TOP
 
-Le mot clé TOP retourne le premier `N` nombre de résultats de la requête dans un ordre non défini. Comme meilleure pratique, utilisez haut avec la clause ORDER BY pour limiter les résultats à la première `N` nombre de valeurs ordonnés. Combinaison de ces deux clauses est la seule façon d’indiquer de manière prévisible les lignes affecte supérieur. 
+Le mot clé TOP retourne le premier `N` nombre de résultats de la requête dans un ordre non défini. Comme meilleure pratique, utilisez haut avec la clause ORDER BY pour limiter les résultats à la première `N` nombre de valeurs ordonnés. Combinaison de ces deux clauses est la seule façon d’indiquer de manière prévisible les lignes affecte supérieur.
 
 Vous pouvez utiliser TOP avec une valeur constante, comme dans l’exemple suivant, ou avec une valeur de la variable à l’aide de requêtes paramétrables. Pour plus d’informations, consultez le [des requêtes paramétrables](#parameterized-queries) section.
 
@@ -679,6 +743,65 @@ Les résultats sont :
       }
     ]
 ```
+
+En outre, vous pouvez commander plusieurs propriétés. Une requête qui trie par plusieurs propriétés requiert un [index composite](index-policy.md#composite-indexes). Examinez la requête suivante :
+
+```sql
+    SELECT f.id, f.creationDate
+    FROM Families f
+    ORDER BY f.address.city ASC, f.creationDate DESC
+```
+
+Cette requête récupère la famille `id` dans l’ordre croissant de nom de ville. Si plusieurs éléments ont le même nom de ville, la requête sera commander par le `creationDate` dans l’ordre décroissant.
+
+## <a id="OffsetLimitClause"></a>Clause de limite de décalage
+
+LIMITE de décalage est une clause facultative à ignorer, puis prendre certains nombre de valeurs à partir de la requête. Le nombre de décalage et le nombre limite sont requis dans la clause de limite de décalage.
+
+Lors de la limite de décalage est utilisée conjointement avec une clause ORDER BY, le jeu de résultats est généré en effectuant l’ignorer et effectuez sur les valeurs ordonnées. Si aucune clause ORDER BY n’est utilisée, cela entraînerait un ordre déterministe des valeurs.
+
+Par exemple, voici une requête qui ignore la première valeur et retourne la deuxième valeur (dans l’ordre du nom de la ville de résidence) :
+
+```sql
+    SELECT f.id, f.address.city
+    FROM Families f
+    ORDER BY f.address.city
+    OFFSET 1 LIMIT 1
+```
+
+Les résultats sont :
+
+```json
+    [
+      {
+        "id": "AndersenFamily",
+        "city": "Seattle"
+      }
+    ]
+```
+
+Voici une requête qui ignore la première valeur et retourne la deuxième valeur (sans classement) :
+
+```sql
+   SELECT f.id, f.address.city
+    FROM Families f
+    OFFSET 1 LIMIT 1
+```
+
+Les résultats sont :
+
+```json
+    [
+      {
+        "id": "WakefieldFamily",
+        "city": "Seattle"
+      }
+    ]
+```
+
+
+
+
 ## <a name="scalar-expressions"></a>Expressions scalaires
 
 La clause SELECT prend en charge les expressions scalaires telles que des constantes, des expressions arithmétiques et des expressions logiques. La requête suivante utilise une expression scalaire :
@@ -1018,7 +1141,7 @@ L’exemple suivant inscrit une fonction UDF sous un conteneur d’éléments da
        {
            Id = "REGEX_MATCH",
            Body = @"function (input, pattern) {
-                       return input.match(pattern) !== null;
+                      return input.match(pattern) !== null;
                    };",
        };
 

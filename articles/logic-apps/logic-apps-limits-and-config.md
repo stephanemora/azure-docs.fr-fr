@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 11/16/2018
-ms.openlocfilehash: f371376a7c801eecb6231d551546b13dbc68dd26
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.date: 05/06/2019
+ms.openlocfilehash: 634f3948f9a5e28454e9b2b29f950c3fb00f6c19
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64916809"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65147740"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limites et informations de configuration pour Azure Logic Apps
 
@@ -48,20 +48,20 @@ Les limites pour la définition d’une application logique sont les suivantes :
 
 Les limites pour l’exécution d’une application logique sont les suivantes :
 
-| Nom | Limite | Notes |
-|------|-------|-------|
-| Durée d’exécution | 90 jours | Pour changer cette limite, consultez [Modifier la durée d’exécution et la rétention de stockage](#change-duration). |
-| Intervalle de périodicité minimal | 1 seconde | |
-| Intervalle de périodicité maximal | 500 jours | |
-| Rétention de stockage | 90 jours à compter de l’heure de début de l’exécution | Pour modifier cette limite par une valeur comprise entre 7 jours et 90 jours, consultez [modifier la rétention de stockage](#change-retention). |
-||||
+| Nom | Limite de l’architecture mutualisée | Limite d’environnement Integration Services | Notes |
+|------|--------------------|---------------------------------------|-------|
+| Durée d’exécution | 90 jours | 365 jours | Pour modifier la limite par défaut, consultez [durée d’exécution de modification](#change-duration). |
+| Rétention de stockage | 90 jours à compter de l’heure de début de l’exécution | 365 jours | Pour modifier la limite par défaut, consultez [modifier la rétention du stockage](#change-retention). |
+| Intervalle de périodicité minimal | 1 seconde | 1 seconde ||
+| Intervalle de périodicité maximal | 500 jours | 500 jours ||
+|||||
 
 <a name="change-duration"></a>
 <a name="change-retention"></a>
 
 ### <a name="change-run-duration-and-storage-retention"></a>Modifier la durée d’exécution et la rétention de stockage
 
-Pour modifier la limite par défaut par une valeur comprise entre 7 jours et 90 jours, procédez comme suit. Pour pouvoir dépasser la limite maximale, [contactez l’équipe Logic Apps](mailto://logicappsemail@microsoft.com) pour obtenir de l’aide pour vos exigences.
+Pour modifier la limite par défaut pour la durée d’exécution et de rétention du stockage, procédez comme suit. Pour pouvoir dépasser la limite maximale, [contactez l’équipe Logic Apps](mailto://logicappsemail@microsoft.com) pour obtenir de l’aide pour vos exigences.
 
 1. Dans le portail Azure, dans le menu de votre application logique, choisissez **Workflow settings** (Paramètres de workflow).
 
@@ -91,7 +91,7 @@ Les limites pour l’exécution d’une application logique sont les suivantes :
 
 Les limites pour l’exécution d’une application logique sont les suivantes :
 
-### <a name="global-logic-apps-service"></a>Service global de Logic Apps
+### <a name="multi-tenant-logic-apps-service"></a>Service de Logic Apps mutualisé
 
 | Nom | Limite | Notes |
 | ---- | ----- | ----- |
@@ -107,9 +107,9 @@ Les limites pour l’exécution d’une application logique sont les suivantes :
 
 | Nom | Limite | Notes |
 |------|-------|-------|
-| Limite de l’exécution d’unité de base | 10 000 exécutions d’action toutes les 5 minutes, <br>c'est-à-dire, les exécutions d’action ~ 80 millions par mois | |
-| Limite d’unités d’exécution de mise à l’échelle | 5 000 exécutions d’action toutes les 5 minutes, <br>c'est-à-dire, les exécutions d’action ~ 40 millions par mois | |
-| Unités d’échelle maximale que vous pouvez ajouter | 3 | |
+| Limite de l’exécution d’unité de base | Système limité lors de la capacité de l’infrastructure atteint 80 % | Fournit des exécutions d’action environ 4 000 par minute, ce qui est des exécutions d’action ~ 160 millions par mois | |
+| Limite d’unités d’exécution de mise à l’échelle | Système limité lors de la capacité de l’infrastructure atteint 80 % | Chaque unité d’échelle peut fournir des exécutions d’action supplémentaire de ~ 2 000 par minute, ce qui est d’environ 80 millions plusieurs exécutions d’action par mois | |
+| Unités d’échelle maximale que vous pouvez ajouter | 10 | |
 ||||
 
 Pour dépasser ces limites dans le cadre d’un traitement normal ou exécuter des tests de charge susceptibles d’entraîner leur dépassement, [contactez l’équipe Logic Apps](mailto://logicappsemail@microsoft.com) afin d’obtenir de l’aide.
@@ -124,20 +124,20 @@ Les limites pour un appel de connecteur synchrone ou de requête HTTP unique son
 
 Comme certaines opérations de connecteur effectuent des appels asynchrones ou écoutent les demandes de webhook, le délai d’expiration pour ces opérations peut dépasser ces limites. Pour plus d’informations, consultez les détails techniques pour le connecteur spécifique et aussi [Actions et déclencheurs de workflow](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action).
 
-| Nom | Limite | Notes |
-| ---- | ----- | ----- |
-| Requête sortante | 120 secondes | Pour les opérations en cours d’exécution plus longues, utilisez un [modèle d’interrogation asynchrone](../logic-apps/logic-apps-create-api-app.md#async-pattern) ou une [boucle Until](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action). |
-| Réponse synchrone | 120 secondes | Pour que la requête d’origine obtienne la réponse, toutes les étapes de la réponse doivent être terminées avant la limite, sauf si vous appelez une autre application logique en tant que workflow imbriqué. Pour plus d’informations, consultez [Appeler, déclencher ou imbriquer des applications logiques](../logic-apps/logic-apps-http-endpoint.md). |
-|||| 
+| Nom | Limite de l’architecture mutualisée | Limite d’environnement Integration Services | Notes |
+|------|--------------------|---------------------------------------|-------|
+| Requête sortante | 120 secondes | 240 secondes | Pour les opérations en cours d’exécution plus longues, utilisez un [modèle d’interrogation asynchrone](../logic-apps/logic-apps-create-api-app.md#async-pattern) ou une [boucle Until](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action). |
+| Réponse synchrone | 120 secondes | 240 secondes | Pour que la requête d’origine obtienne la réponse, toutes les étapes de la réponse doivent être terminées avant la limite, sauf si vous appelez une autre application logique en tant que workflow imbriqué. Pour plus d’informations, consultez [Appeler, déclencher ou imbriquer des applications logiques](../logic-apps/logic-apps-http-endpoint.md). |
+|||||
 
 #### <a name="message-size"></a>Taille des messages
 
-| Nom | Limite | Notes |
-| ---- | ----- | ----- |
-| Taille des messages | 100 Mo | Pour contourner cette limite, consultez [Gérer les messages volumineux avec la segmentation](../logic-apps/logic-apps-handle-large-messages.md). Toutefois, certains connecteurs et API peuvent ne pas prendre en charge la segmentation ou même la limite par défaut. |
-| Taille des messages avec segmentation | 1 Go | Cette limite s’applique aux actions qui prennent en charge la segmentation en mode natif ou vous permettent d’activer la segmentation dans la configuration de leur runtime. Pour plus d’informations, consultez [Gérer les messages volumineux avec la segmentation](../logic-apps/logic-apps-handle-large-messages.md). |
-| Limite d’évaluation des expressions | 131 072 caractères | Les expressions `@concat()`, `@base64()`, `@string()` ne peuvent pas contenir plus de caractères. |
-||||
+| Nom | Limite de l’architecture mutualisée | Limite d’environnement Integration Services | Notes |
+|------|--------------------|---------------------------------------|-------|
+| Taille des messages | 100 Mo | 200 Mo | Pour contourner cette limite, consultez [Gérer les messages volumineux avec la segmentation](../logic-apps/logic-apps-handle-large-messages.md). Toutefois, certains connecteurs et API peuvent ne pas prendre en charge la segmentation ou même la limite par défaut. |
+| Taille des messages avec segmentation | 1 Go | 5 GO | Cette limite s’applique aux actions qui prennent en charge la segmentation en mode natif ou vous permettent d’activer la segmentation dans la configuration de leur runtime. <p>Pour l’environnement de service d’intégration, le moteur Logic Apps prend en charge cette limite, mais les connecteurs ont leurs propres limites segmentation jusqu'à la limite de moteur, par exemple, consultez [connecteur stockage Blob Azure](/connectors/azureblob/). Pour plus d’informations segmentation, consultez [gérer les messages volumineux avec segmentation](../logic-apps/logic-apps-handle-large-messages.md). |
+| Limite d’évaluation des expressions | 131 072 caractères | 131 072 caractères | Les expressions `@concat()`, `@base64()`, `@string()` ne peuvent pas contenir plus de caractères. |
+|||||
 
 #### <a name="retry-policy"></a>Stratégie de nouvelle tentative
 
@@ -154,10 +154,10 @@ Comme certaines opérations de connecteur effectuent des appels asynchrones ou �
 
 Les limites pour les connecteurs personnalisés qu’il est possible de créer à partir d’API web sont les suivantes.
 
-| Nom | Limite |
-| ---- | ----- |
-| Nombre de connecteurs personnalisés | 1 000 par abonnement Azure |
-| Nombre de demandes par minute pour chaque connexion créée par un connecteur personnalisé | 500 demandes par connexion |
+| Nom | Limite de l’architecture mutualisée | Limite d’environnement Integration Services | Notes |
+|------|--------------------|---------------------------------------|-------|
+| Nombre de connecteurs personnalisés | 1 000 par abonnement Azure | 1 000 par abonnement Azure ||
+| Nombre de demandes par minute pour un connecteur personnalisé | 500 demandes par minute par connexion | 2 000 demandes par minute par *connecteur personnalisé* ||
 |||
 
 <a name="managed-identity"></a>
@@ -216,13 +216,13 @@ Les limites du nombre d’artefacts pour chaque compte d’intégration sont les
 
 ### <a name="b2b-protocol-as2-x12-edifact-message-size"></a>Taille des messages de protocole B2B (AS2, X12, EDIFACT)
 
-Les limites qui s’appliquent aux protocoles B2B sont les suivantes :
+Voici les limites de taille de message qui s’appliquent à des protocoles B2B :
 
-| Nom | Limite | Notes |
-| ---- | ----- | ----- |
-| AS2 | 50 Mo | S’applique au décodage et à l’encodage. |
-| X 12 | 50 Mo | S’applique au décodage et à l’encodage. |
-| EDIFACT | 50 Mo | S’applique au décodage et à l’encodage. |
+| Nom | Limite de l’architecture mutualisée | Limite d’environnement Integration Services | Notes |
+|------|--------------------|---------------------------------------|-------|
+| AS2 | v2 - 100 Mo<br>v1 - 50 Mo | v2 - 200 Mo <br>v1 - 50 Mo | S’applique au décodage et à l’encodage. |
+| X 12 | 50 Mo | 50 Mo | S’applique au décodage et à l’encodage. |
+| EDIFACT | 50 Mo | 50 Mo | S’applique au décodage et à l’encodage. |
 ||||
 
 <a name="disable-delete"></a>
@@ -275,7 +275,7 @@ Logic Apps ne prend pas en charge la connexion directe à des comptes de stockag
 | Europe Nord | 13.79.173.49, 40.112.90.39, 52.169.218.253, 52.169.220.174 |
 | USA Centre Sud | 13.65.98.39, 13.84.41.46, 13.84.43.45, 40.84.138.132 |
 | Inde Sud | 52.172.9.47, 52.172.49.43, 52.172.51.140, 104.211.225.152 |
-| Asie Sud-Est | 52.163.93.214, 52.187.65.81, 52.187.65.155, 104.215.181.6 |
+| Asie du Sud-Est | 52.163.93.214, 52.187.65.81, 52.187.65.155, 104.215.181.6 |
 | USA Centre-Ouest | 13.78.137.247, 52.161.8.128, 52.161.19.82, 52.161.26.172 |
 | Europe Ouest | 13.95.155.53, 51.144.176.185, 52.174.49.6, 52.174.54.218 |
 | Inde Ouest | 104.211.157.237, 104.211.164.25, 104.211.164.112, 104.211.165.81 |
@@ -307,7 +307,7 @@ Logic Apps ne prend pas en charge la connexion directe à des comptes de stockag
 | Europe Nord | 40.112.92.104, 40.112.95.216, 40.113.1.181, 40.113.3.202, 40.113.4.18, 40.113.12.95, 52.178.165.215, 52.178.166.21 | 13.69.227.208 - 13.69.227.223, 52.178.150.68, 104.45.93.9 |
 | USA Centre Sud | 13.65.82.17, 13.66.52.232, 23.100.124.84, 23.100.127.172, 23.101.183.225, 70.37.54.122, 70.37.50.6, 104.210.144.48 | 13.65.86.57, 104.214.19.48 - 104.214.19.63, 104.214.70.191 |
 | Inde Sud | 52.172.50.24, 52.172.52.0, 52.172.55.231, 104.211.227.229, 104.211.229.115, 104.211.230.126, 104.211.230.129, 104.211.231.39 | 13.71.125.22, 40.78.194.240 - 40.78.194.255, 104.211.227.225 |
-| Asie Sud-Est | 13.67.91.135, 13.67.107.128, 13.67.110.109, 13.76.4.194, 13.76.5.96, 13.76.133.155, 52.163.228.93, 52.163.230.166 | 13.67.8.240 - 13.67.8.255, 13.76.231.68, 52.187.68.19 |
+| Asie du Sud-Est | 13.67.91.135, 13.67.107.128, 13.67.110.109, 13.76.4.194, 13.76.5.96, 13.76.133.155, 52.163.228.93, 52.163.230.166 | 13.67.8.240 - 13.67.8.255, 13.76.231.68, 52.187.68.19 |
 | USA Centre-Ouest | 13.78.129.20, 13.78.137.179, 13.78.141.75, 13.78.148.140, 13.78.151.161, 52.161.18.218, 52.161.9.108, 52.161.27.190 | 13.71.195.32 - 13.71.195.47, 52.161.24.128, 52.161.26.212, 52.161.27.108, 52.161.29.35, 52.161.30.5, 52.161.102.22 |
 | Europe Ouest | 13.95.147.65, 23.97.210.126, 23.97.211.179, 23.97.218.130, 40.68.209.23, 40.68.222.65, 51.144.182.201, 104.45.9.52 | 13.69.64.208 - 13.69.64.223, 40.115.50.13, 52.174.88.118 |
 | Inde Ouest | 104.211.154.7, 104.211.154.59, 104.211.156.153, 104.211.158.123, 104.211.158.127, 104.211.162.205, 104.211.164.80, 104.211.164.136 | 104.211.146.224 - 104.211.146.239, 104.211.161.203, 104.211.189.218 |

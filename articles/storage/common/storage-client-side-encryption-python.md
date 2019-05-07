@@ -2,19 +2,20 @@
 title: Chiffrement côté client avec Python pour Microsoft Azure Storage | Microsoft Docs
 description: La bibliothèque cliente de stockage Azure pour Python prend en charge le chiffrement côté client pour assurer une sécurité maximale à vos applications Azure Storage.
 services: storage
-author: lakasa
+author: tamram
 ms.service: storage
 ms.devlang: python
 ms.topic: article
 ms.date: 05/11/2017
-ms.author: lakasa
+ms.author: tamram
+ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: ecfd86a7e4a8ef97663cc930906fd909b6f0fae8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d04c1e137a190b01554106c041853aa2fd6786d7
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58011122"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65146910"
 ---
 # <a name="client-side-encryption-with-python-for-microsoft-azure-storage"></a>Chiffrement côté client avec Python pour Microsoft Azure Storage
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -138,7 +139,7 @@ Le programme de résolution de clé doit implémenter au moins une méthode qui,
   * S’il est spécifié, le programme de résolution de clé est appelé pour obtenir la clé. Si le programme de résolution est spécifié, mais ne comporte pas de mappage pour l’identificateur de clé, une erreur est générée.
   * Si le programme de résolution n’est pas spécifié, mais qu’une clé est spécifiée, celle-ci est utilisée si son identificateur correspond à l’identificateur de clé nécessaire. Si l’identificateur ne correspond pas, une erreur est générée.
 
-    Les exemples de chiffrement dans azure.storage.samples <fix URL>présentent un scénario de bout en bout plus détaillé pour les objets blob, les files d’attente et les tables.
+    Les exemples de chiffrement dans azure.storage.samples illustrent un scénario de bout en bout plus détaillé pour les objets BLOB, files d’attente et tables.
       Des exemples d’implémentation de la KEK et du résolveur de clé sont fournis dans les exemples de fichiers en tant que KeyWrapper et KeyResolver respectivement.
 
 ### <a name="requireencryption-mode"></a>Mode RequireEncryption

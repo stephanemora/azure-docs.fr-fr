@@ -5,15 +5,15 @@ author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 03/31/2019
+ms.date: 05/06/2019
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: 22b03417495625ef70650a015530d6f56b32fd4f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1d874b9c8f14b1489ab5e5b8bbdddaff0669165e
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60626875"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65145196"
 ---
 # <a name="sql-language-reference-for-azure-cosmos-db"></a>Référence sur le langage SQL pour Azure Cosmos DB 
 
@@ -31,7 +31,8 @@ Chaque requête se compose d'une clause SELECT et de clauses FROM et WHERE facul
 SELECT <select_specification>   
     [ FROM <from_specification>]   
     [ WHERE <filter_condition> ]  
-    [ ORDER BY <sort_specification> ]  
+    [ ORDER BY <sort_specification> ] 
+    [ OFFSET <offset_amount> LIMIT <limit_amount>]
 ```  
   
  **Remarques**  
@@ -42,6 +43,8 @@ SELECT <select_specification>
 -   [Clause FROM](#bk_from_clause)    
 -   [Clause WHERE](#bk_where_clause)    
 -   [Clause ORDER BY](#bk_orderby_clause)  
+-   [Clause de limite de décalage](#bk_offsetlimit_clause)
+
   
 Les clauses de l’instruction SELECT doivent être classées comme indiqué ci-dessus. N’importe laquelle des clauses facultatives peut être omise. Mais lorsque des clauses facultatives sont utilisées, elles doivent apparaître dans le bon ordre.  
   
@@ -52,7 +55,8 @@ L’ordre dans lequel les clauses sont traitées est le suivant :
 1.  [Clause FROM](#bk_from_clause)  
 2.  [Clause WHERE](#bk_where_clause)  
 3.  [Clause ORDER BY](#bk_orderby_clause)  
-4.  [Clause SELECT](#bk_select_query)  
+4.  [Clause SELECT](#bk_select_query)
+5.  [Clause de limite de décalage](#bk_offsetlimit_clause)
 
 Notez que cela diffère de l’ordre dans lequel elles apparaissent dans la syntaxe. Le classement se fait de telle façon que tous les nouveaux symboles introduits par une clause traitée sont visibles et peuvent être utilisés dans des clauses traitées ultérieurement. Par exemple, les alias déclarés dans une clause FROM sont accessibles dans les clauses WHERE et SELECT.  
 
@@ -76,8 +80,8 @@ SELECT <select_specification>
 
 <select_specification> ::=   
       '*'   
-      | <object_property_list>   
-      | VALUE <scalar_expression> [[ AS ] value_alias]  
+      | [DISTINCT] <object_property_list>   
+      | [DISTINCT] VALUE <scalar_expression> [[ AS ] value_alias]  
   
 <object_property_list> ::=   
 { <scalar_expression> [ [ AS ] property_alias ] } [ ,...n ]  
@@ -101,7 +105,11 @@ SELECT <select_specification>
 - `VALUE`  
 
   Spécifie que la valeur JSON doit être récupérée au lieu de l’objet JSON complet. Cela, contrairement à `<property_list>`, n’encapsule pas la valeur projetée dans un objet.  
+ 
+- `DISTINCT`
   
+  Spécifie que les doublons de propriétés projetées doivent être supprimés.  
+
 - `<scalar_expression>`  
 
   Expression représentant la valeur à calculer. Consultez la section [Expressions scalaires](#bk_scalar_expressions) pour plus d’informations.  
@@ -341,23 +349,23 @@ WHERE <filter_condition>
 ```sql  
 ORDER BY <sort_specification>  
 <sort_specification> ::= <sort_expression> [, <sort_expression>]  
-<sort_expression> ::= <scalar_expression> [ASC | DESC]  
+<sort_expression> ::= {<scalar_expression> [ASC | DESC]} [ ,...n ]  
   
 ```  
-  
+
  **Arguments**  
   
 - `<sort_specification>`  
   
-   Spécifie une propriété ou expression sur laquelle trier le jeu de résultats de requête. Une colonne de tri peut être spécifiée comme un alias de nom ou de la colonne.  
+   Spécifie une propriété ou expression sur laquelle trier le jeu de résultats de requête. Une colonne de tri peut être spécifiée comme un alias de nom ou une propriété.  
   
-   Plusieurs colonnes de tri peuvent être spécifiées. Les noms de colonne doivent être uniques. La séquence des colonnes de tri dans la clause ORDER BY détermine l’organisation du jeu de résultats trié. Autrement dit, le jeu de résultats est trié par la première propriété, puis cette liste triée est triée par la deuxième propriété, et ainsi de suite.  
+   Plusieurs propriétés peuvent être spécifiées. Les noms de propriété doivent être uniques. La séquence des propriétés de tri dans la clause ORDER BY détermine l’organisation du jeu de résultats trié. Autrement dit, le jeu de résultats est trié par la première propriété, puis cette liste triée est triée par la deuxième propriété, et ainsi de suite.  
   
-   Les noms de colonnes référencés dans la clause ORDER BY doivent correspondre à une colonne dans la liste de sélection ou à une colonne définie dans une table spécifiée dans la clause FROM sans ambiguïté.  
+   Les noms de propriété référencées dans la clause ORDER BY doivent correspondre à la propriété dans la liste de sélection ou à une propriété définie dans la collection spécifiée dans la clause FROM sans ambiguïté.  
   
 - `<sort_expression>`  
   
-   Spécifie une propriété ou expression unique sur laquelle trier le jeu de résultats de requête.  
+   Spécifie un ou plusieurs des propriétés ou des expressions sur laquelle trier le jeu de résultats de requête.  
   
 - `<scalar_expression>`  
   
@@ -369,8 +377,34 @@ ORDER BY <sort_specification>
   
   **Remarques**  
   
-  Même si la grammaire de la requête prend en charge plusieurs propriétés Order by, l’exécution de la requête Cosmos DB prend seulement en charge le tri sur une seule propriété et uniquement sur les noms de propriété (pas sur les propriétés calculées). Le tri requiert également que la stratégie d’indexation comprenne un index de plage pour la propriété et le type spécifiés, avec la précision maximale. Consultez la documentation sur la stratégie d’indexation pour plus de détails.  
+   La clause ORDER BY nécessite que la stratégie d’indexation comprenne un index pour les champs en cours de tri. Exécution de la requête Azure Cosmos DB prend en charge le tri par rapport à un nom de propriété et non par rapport aux propriétés calculées. Azure Cosmos DB prend en charge plusieurs propriétés ORDER BY. Pour exécuter une requête avec plusieurs propriétés ORDER BY, vous devez définir un [index composite](index-policy.md#composite-indexes) sur les champs en cours de tri.
+
+
+##  <a name=bk_offsetlimit_clause></a> Clause de limite de décalage
+
+Spécifie le nombre d’éléments ignorés et le nombre d’éléments renvoyés. Pour obtenir des exemples, consultez [exemples de clause de limite de décalage](how-to-sql-query.md#OffsetLimitClause)
   
+ **Syntaxe**  
+  
+```sql  
+OFFSET <offset_amount> LIMIT <limit_amount>
+```  
+  
+ **Arguments**  
+ 
+- `<offset_amount>`
+
+   Spécifie le nombre entier d’éléments qui doivent ignorer les résultats de la requête.
+
+
+- `<limit_amount>`
+  
+   Spécifie le nombre entier d’éléments que les résultats de requête doivent inclure
+
+  **Remarques**  
+  
+  Le nombre de décalage et le nombre limite sont requises dans la clause de limite de décalage. Si un facultatif `ORDER BY` clause est utilisée, le jeu de résultats est généré en effectuant l’opération skip sur les valeurs ordonnées. Sinon, la requête retournera un ordre fixe de valeurs.
+
 ##  <a name="bk_scalar_expressions"></a> Expressions scalaires  
  Une expression scalaire est une combinaison de symboles et d’opérateurs qui peut être évaluée pour obtenir une valeur unique. Les expressions simples peuvent être des constantes, des références de propriété, des références d’élément de tableau, des références d’alias ou des appels de fonction. Les expressions simples peuvent être combinées dans des expressions complexes utilisant des opérateurs. Pour découvrir des exemples, consultez les [exemples d’expressions scalaires](how-to-sql-query.md#scalar-expressions).
   
@@ -681,7 +715,8 @@ ORDER BY <sort_specification>
 |[Fonctions mathématiques](#bk_mathematical_functions)|Chaque fonction mathématique effectue un calcul, généralement basé sur les valeurs d'entrée fournies comme arguments, et retourne une valeur numérique.|  
 |[Fonctions de vérification du type](#bk_type_checking_functions)|Les fonctions de vérification du type vous permettent de vérifier le type d'une expression donnée dans les requêtes SQL.|  
 |[Fonctions de chaîne](#bk_string_functions)|Les fonctions de chaîne effectuent une opération sur une valeur d’entrée de chaîne et retournent une valeur de type chaîne, une valeur numérique ou une valeur booléenne.|  
-|[Fonctions de tableau](#bk_array_functions)|Les fonctions de tableau effectuent une opération sur une valeur d’entrée de tableau et retournent une valeur numérique, une valeur booléenne ou une valeur de tableau.|  
+|[Fonctions de tableau](#bk_array_functions)|Les fonctions de tableau effectuent une opération sur une valeur d’entrée de tableau et retournent une valeur numérique, une valeur booléenne ou une valeur de tableau.|
+|[Fonctions de date et heure](#bk_date_and_time_functions)|Les fonctions de date et d’heure autorisent vous permettant d’obtenir la date UTC actuelle et l’heure sous deux formes ; un horodatage numérique dont la valeur est l’époque Unix, en millisecondes, ou sous forme de chaîne conforme au format ISO 8601.|
 |[Fonctions spatiales](#bk_spatial_functions)|Les fonctions spatiales effectuent une opération sur une valeur d’entrée de chaîne et retournent une valeur d’entrée d’objet spatial, une valeur numérique ou une valeur booléenne.|  
   
 ###  <a name="bk_mathematical_functions"></a> Fonctions mathématiques  
@@ -2363,13 +2398,13 @@ SELECT
     StringToArray('[1,2,3, "[4,5,6]",[7,8]]') AS a5
 ```
 
- Voici le jeu de résultats obtenu.
+Voici le jeu de résultats obtenu.
 
 ```
 [{"a1": [], "a2": [1,2,3], "a3": ["str",2,3], "a4": [["5","6","7"],["8"],["9"]], "a5": [1,2,3,"[4,5,6]",[7,8]]}]
 ```
 
- Voici un exemple d’entrée non valide. 
+Voici un exemple d’entrée non valide. 
    
  Les guillemets simples dans le tableau ne sont pas un JSON valide.
 Même si elles sont valides dans une requête, ils n’analyse pas aux tableaux valides. Chaînes dans la chaîne de tableau doivent soit être échappés » [\\»\\«] » ou le devis environnant doit être unique ' [ » «] ».
@@ -2379,13 +2414,13 @@ SELECT
     StringToArray("['5','6','7']")
 ```
 
- Voici le jeu de résultats obtenu.
+Voici le jeu de résultats obtenu.
 
 ```
 [{}]
 ```
 
- Voici quelques exemples d’entrée non valide.
+Voici quelques exemples d’entrée non valide.
    
  L’expression passée sera analysée sous forme de tableau JSON ; les éléments suivants ne sont pas évaluent pour le type de tableau et retournent donc pas défini.
    
@@ -2398,7 +2433,7 @@ SELECT
     StringToArray(undefined)
 ```
 
- Voici le jeu de résultats obtenu.
+Voici le jeu de résultats obtenu.
 
 ```
 [{}]
@@ -2429,7 +2464,7 @@ StringToBoolean(<expr>)
  
  Voici quelques exemples avec une entrée valide.
 
- Espace blanc est autorisé uniquement avant ou après « true » / « false ».
+Espace blanc est autorisé uniquement avant ou après « true » / « false ».
 
 ```  
 SELECT 
@@ -2444,8 +2479,8 @@ SELECT
 [{"b1": true, "b2": false, "b3": false}]
 ```  
 
- Voici quelques exemples avec entrée non valide.
- 
+Voici quelques exemples avec entrée non valide.
+
  Valeurs booléennes respectent la casse et doivent être écrites avec tous les caractères en minuscules par exemple, « trues » et « false ».
 
 ```  
@@ -2454,15 +2489,15 @@ SELECT
     StringToBoolean("False")
 ```  
 
- Voici le jeu de résultats obtenu.  
+Voici le jeu de résultats obtenu.  
   
 ```  
 [{}]
 ``` 
 
- L’expression passée sera analysée comme une expression booléenne ; Ces entrées ne sont pas évaluent pour le type booléen et donc renvoyer non défini.
+L’expression passée sera analysée comme une expression booléenne ; Ces entrées ne sont pas évaluent pour le type booléen et donc renvoyer non défini.
 
- ```  
+```  
 SELECT 
     StringToBoolean("null"),
     StringToBoolean(undefined),
@@ -2471,7 +2506,7 @@ SELECT
     StringToBoolean(true)
 ```  
 
- Voici le jeu de résultats obtenu.  
+Voici le jeu de résultats obtenu.  
   
 ```  
 [{}]
@@ -2500,8 +2535,8 @@ StringToNull(<expr>)
   
   L’exemple suivant montre comment StringToNull se comporte dans différents types. 
 
- Voici quelques exemples avec une entrée valide.
- 
+Voici quelques exemples avec une entrée valide.
+
  Espace blanc est autorisé uniquement avant ou après « null ».
 
 ```  
@@ -2517,9 +2552,9 @@ SELECT
 [{"n1": null, "n2": null, "n3": true}]
 ```  
 
- Voici quelques exemples avec entrée non valide.
+Voici quelques exemples avec entrée non valide.
 
- NULL respecte la casse et doit être écrites avec tous les caractères minuscules par exemple, « nulles ».
+NULL respecte la casse et doit être écrites avec tous les caractères minuscules par exemple, « nulles ».
 
 ```  
 SELECT    
@@ -2533,7 +2568,7 @@ SELECT
 [{}]
 ```  
 
- L’expression passée sera analysée comme une expression null ; Ces entrées ne sont pas évaluent pour type de valeur null et donc renvoyer non défini.
+L’expression passée sera analysée comme une expression null ; Ces entrées ne sont pas évaluent pour type de valeur null et donc renvoyer non défini.
 
 ```  
 SELECT    
@@ -2572,8 +2607,8 @@ StringToNumber(<expr>)
   
   L’exemple suivant montre comment StringToNumber se comporte dans différents types. 
 
- Espace blanc est autorisé uniquement avant ou après le nombre.
- 
+Espace blanc est autorisé uniquement avant ou après le nombre.
+
 ```  
 SELECT 
     StringToNumber("1.000000") AS num1, 
@@ -2588,8 +2623,8 @@ SELECT
 {{"num1": 1, "num2": 3.14, "num3": 60, "num4": -1.79769e+308}}
 ```  
 
- Dans JSON, un nombre valide doit être soit être un entier ou flottante nombre à virgule.
- 
+Dans JSON, un nombre valide doit être soit être un entier ou flottante nombre à virgule.
+
 ```  
 SELECT   
     StringToNumber("0xF")
@@ -2601,7 +2636,7 @@ SELECT
 {{}}
 ```  
 
- L’expression passée sera analysée comme une expression numérique ; Ces entrées ne sont pas évaluent pour type nombre et donc renvoyer non défini. 
+L’expression passée sera analysée comme une expression numérique ; Ces entrées ne sont pas évaluent pour type nombre et donc renvoyer non défini. 
 
 ```  
 SELECT 
@@ -2643,7 +2678,7 @@ StringToObject(<expr>)
   L’exemple suivant montre comment StringToObject se comporte dans différents types. 
   
  Voici quelques exemples avec une entrée valide.
- 
+
 ``` 
 SELECT 
     StringToObject("{}") AS obj1, 
@@ -2652,7 +2687,7 @@ SELECT
     StringToObject("{\"C\":[{\"c1\":[5,6,7]},{\"c2\":8},{\"c3\":9}]}") AS obj4
 ``` 
 
- Voici le jeu de résultats obtenu.
+Voici le jeu de résultats obtenu.
 
 ```
 [{"obj1": {}, 
@@ -2660,40 +2695,40 @@ SELECT
   "obj3": {"B":[{"b1":[5,6,7]},{"b2":8},{"b3":9}]},
   "obj4": {"C":[{"c1":[5,6,7]},{"c2":8},{"c3":9}]}}]
 ```
- 
+
  Voici quelques exemples avec entrée non valide.
 Même si elles sont valides dans une requête, ils n’analyse pas aux objets valides. Chaînes dans la chaîne de l’objet doivent soit être échappés » {\\» un\\» :\\» str\\»} » ou le devis environnant doit être unique ' {« a » : « str »} ».
 
- Les guillemets simples autour des noms de propriété ne sont pas un JSON valide.
+Les guillemets simples autour des noms de propriété ne sont pas un JSON valide.
 
 ``` 
 SELECT 
     StringToObject("{'a':[1,2,3]}")
 ```
 
- Voici le jeu de résultats obtenu.
+Voici le jeu de résultats obtenu.
 
 ```  
 [{}]
 ```  
 
- Sans les guillemets encadrant les noms de propriété ne sont pas un JSON valide.
+Sans les guillemets encadrant les noms de propriété ne sont pas un JSON valide.
 
 ``` 
 SELECT 
     StringToObject("{a:[1,2,3]}")
 ```
 
- Voici le jeu de résultats obtenu.
+Voici le jeu de résultats obtenu.
 
 ```  
 [{}]
 ``` 
 
- Voici quelques exemples avec entrée non valide.
- 
+Voici quelques exemples avec entrée non valide.
+
  L’expression passée sera analysée en tant qu’objet JSON ; Ces entrées n’évaluent pas pour objet de type et donc renvoyer non défini.
- 
+
 ``` 
 SELECT 
     StringToObject("}"),
@@ -2798,20 +2833,20 @@ CONCAT(ToString(p.Weight), p.WeightUnits)
 FROM p in c.Products 
 ```  
 
- Voici le jeu de résultats obtenu.  
+Voici le jeu de résultats obtenu.  
   
 ```  
 [{"$1":"4lb" },
- {"$1":"32kg"},
- {"$1":"400g" },
- {"$1":"8999mg" }]
+{"$1":"32kg"},
+{"$1":"400g" },
+{"$1":"8999mg" }]
 
 ```  
 Étant donné l’entrée suivante :
 ```
 {"id":"08259","description":"Cereals ready-to-eat, KELLOGG, KELLOGG'S CRISPIX","nutrients":[{"id":"305","description":"Caffeine","units":"mg"},{"id":"306","description":"Cholesterol, HDL","nutritionValue":30,"units":"mg"},{"id":"307","description":"Sodium, NA","nutritionValue":612,"units":"mg"},{"id":"308","description":"Protein, ABP","nutritionValue":60,"units":"mg"},{"id":"309","description":"Zinc, ZN","nutritionValue":null,"units":"mg"}]}
 ```
- L’exemple suivant illustre l’utilisation de ToString avec d’autres fonctions de chaîne telles que REPLACE.   
+L’exemple suivant illustre l’utilisation de ToString avec d’autres fonctions de chaîne telles que REPLACE.   
 ```
 SELECT 
     n.id AS nutrientID,
@@ -2819,14 +2854,14 @@ SELECT
 FROM food 
 JOIN n IN food.nutrients
 ```
- Voici le jeu de résultats obtenu.  
+Voici le jeu de résultats obtenu.  
  ```
 [{"nutrientID":"305"},
 {"nutrientID":"306","nutritionVal":"30"},
 {"nutrientID":"307","nutritionVal":"912"},
 {"nutrientID":"308","nutritionVal":"90"},
 {"nutrientID":"309","nutritionVal":"null"}]
- ``` 
+``` 
  
 ####  <a name="bk_trim"></a> TRIM  
  Renvoie une expression de chaîne après avoir supprimé les espaces de début et de fin.  
@@ -2937,7 +2972,7 @@ SELECT ARRAY_CONCAT(["apples", "strawberries"], ["bananas"]) AS arrayConcat
 ####  <a name="bk_array_contains"></a> ARRAY_CONTAINS  
 Retourne une valeur booléenne qui indique si le tableau contient la valeur spécifiée. Vous pouvez rechercher une correspondance partielle ou totale d'un objet en utilisant une expression booléenne dans la commande. 
 
- **Syntaxe**  
+**Syntaxe**  
   
 ```  
 ARRAY_CONTAINS (<arr_expr>, <expr> [, bool_expr])  
@@ -2977,7 +3012,7 @@ SELECT
 [{"b1": true, "b2": false}]  
 ```  
 
- L’exemple suivant montre comment rechercher une correspondance partielle de JSON dans un tableau avec ARRAY_CONTAINS.  
+L’exemple suivant montre comment rechercher une correspondance partielle de JSON dans un tableau avec ARRAY_CONTAINS.  
   
 ```  
 SELECT  
@@ -3085,7 +3120,100 @@ SELECT
            "s7": [] 
 }]  
 ```  
- 
+
+###  <a name="bk_date_and_time_functions"></a> Fonctions de date et heure
+ Les fonctions scalaires suivantes permettent d’obtenir la date UTC actuelle et l’heure sous deux formes ; un horodatage numérique dont la valeur est l’époque Unix, en millisecondes, ou sous forme de chaîne conforme au format ISO 8601. 
+
+|||
+|-|-|
+|[GetCurrentDateTime](#bk_get_current_date_time)|[GetCurrentTimestamp](#bk_get_current_timestamp)||
+
+####  <a name="bk_get_current_date_time"></a> GetCurrentDateTime
+ Retourne la date UTC actuelle et l’heure sous forme de chaîne ISO 8601.
+  
+ **Syntaxe**
+  
+```
+GetCurrentDateTime ()
+```
+  
+  **Types de retour**
+  
+  Retourne l’heure UTC date et heure ISO 8601 chaîne valeur actuelle. 
+
+  Cette dernière est exprimée au format AAAA-MM-DDThh:mm:ss.sssZ où :
+  
+  |||
+  |-|-|
+  |YYYY|année à quatre chiffres|
+  |MM|mois à deux chiffres (01 = janvier, etc..)|
+  |DD|jour à deux chiffres du mois (01 à 31)|
+  |T|signifier pour le début des éléments d’heure|
+  |hh|heure à deux chiffres (de 00 à 23)|
+  |MM|minutes à deux chiffres (de 00 à 59)|
+  |ss|secondes à deux chiffres (de 00 à 59)|
+  |.sss|trois chiffres de fractions décimales de seconde|
+  |Z|Indicateur UTC (Coordinated Universal Time)||
+  
+  Pour plus d’informations sur le format ISO 8601, consultez [ISO_8601](https://en.wikipedia.org/wiki/ISO_8601)
+
+  **Remarques**
+
+  GetCurrentDateTime est une fonction non déterministe. 
+  
+  Le résultat retourné est UTC (Coordinated Universal Time).
+
+  **Exemples**  
+  
+  L’exemple suivant montre comment obtenir l’heure UTC actuelle à l’aide de la fonction intégrée GetCurrentDateTime.
+  
+```  
+SELECT GetCurrentDateTime() AS currentUtcDateTime
+```  
+  
+ Voici un exemple de jeu de résultats.
+  
+```  
+[{
+  "currentUtcDateTime": "2019-05-03T20:36:17.784Z"
+}]  
+```  
+
+####  <a name="bk_get_current_timestamp"></a> GetCurrentTimestamp
+ Retourne le nombre de millisecondes qui se sont écoulées depuis 00:00:00 jeudi 1er janvier 1970. 
+  
+ **Syntaxe**  
+  
+```  
+GetCurrentTimestamp ()  
+```  
+  
+  **Types de retour**  
+  
+  Retourne une valeur numérique, le nombre actuel de millisecondes qui se sont écoulées depuis l’époque Unix par exemple, le nombre de millisecondes qui se sont écoulées depuis 00:00:00 jeudi 1er janvier 1970.
+
+  **Remarques**
+
+  GetCurrentTimestamp est une fonction non déterministe. 
+  
+  Le résultat retourné est UTC (Coordinated Universal Time).
+
+  **Exemples**  
+  
+  L’exemple suivant montre comment obtenir l’horodateur actuel à l’aide de la fonction intégrée GetCurrentTimestamp.
+  
+```  
+SELECT GetCurrentTimestamp() AS currentUtcTimestamp
+```  
+  
+ Voici un exemple de jeu de résultats.
+  
+```  
+[{
+  "currentUtcTimestamp": 1556916469065
+}]  
+```  
+
 ###  <a name="bk_spatial_functions"></a> Fonctions spatiales  
  Les fonctions scalaires suivantes effectuent une opération sur une valeur d’entrée de chaîne et retournent une valeur d’entrée d’objet spatial, une valeur numérique ou une valeur booléenne.  
   
@@ -3292,7 +3420,7 @@ SELECT ST_ISVALIDDETAILED({
   }  
 }]  
 ```  
-  
+ 
 ## <a name="next-steps"></a>Étapes suivantes  
 
 - [Syntaxe SQL et requête SQL pour Cosmos DB](how-to-sql-query.md)

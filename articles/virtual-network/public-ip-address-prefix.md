@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: anavin
-ms.openlocfilehash: 3cc4933ae70ad1d661835749dd23e7e634ab54f0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 68ca35590aaadba431d5f1dc06e0405162ebc69f
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61474434"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65154482"
 ---
 # <a name="public-ip-address-prefix"></a>Préfixe d’adresse IP publique
 
@@ -29,9 +29,6 @@ Un préfixe d’adresse IP publique est une plage réservée d’adresses IP p
 Les adresses IP publiques sont attribuées à partir d’un pool d’adresses dans chaque région Azure. Vous pouvez [télécharger](https://www.microsoft.com/download/details.aspx?id=56519) la liste des plages qu’Azure utilise pour chaque région. Par exemple, 40.121.0.0/16 est une plage parmi plus de 100 plages qu’Azure utilise dans la région USA Est. La plage inclut les adresses utilisables comprises entre 40.121.0.1 et 40.121.255.254.
 
 Vous créez un préfixe d’adresse IP publique dans une région et un abonnement Azure en spécifiant un nom et le nombre d’adresses que le préfixe doit inclure. Par exemple, si vous créez le préfixe d’adresse IP publique /28, Azure alloue automatiquement 16 adresses parmi l’une de ses plages. Vous ne savez pas quelle plage Azure attribue jusqu’à ce que vous créiez la plage, mais les adresses sont contiguës. Les préfixes d’adresses IP publiques entraînent des frais. Pour plus d’informations, consultez [Tarifs des adresses IP](https://azure.microsoft.com/pricing/details/ip-addresses).
-
-> [!IMPORTANT]
-> Le préfixe d’adresse IP publique est en préversion publique dans un nombre limité de régions. Vous pouvez [découvrir ce que signifie l’état de préversion](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Le préfixe d'adresse IP publique est actuellement disponible dans les régions suivantes : USA Centre-Ouest, USA Ouest, USA Ouest 2, USA Centre, Europe Nord, Europe Ouest et Asie Sud-Est. Pour obtenir la liste actualisée des régions, visitez [Mises à jour Azure](https://azure.microsoft.com/updates/?product=virtual-network).
 
 ## <a name="why-create-a-public-ip-address-prefix"></a>Pourquoi créer un préfixe d’adresse IP publique ?
 
@@ -58,6 +55,7 @@ Vous pouvez associer les ressources suivantes à une adresse IP publique statiq
 ## <a name="constraints"></a>Contraintes
 
 - Vous ne pouvez pas spécifier les adresses IP pour le préfixe. Azure alloue les adresses IP pour le préfixe, en fonction de la taille que vous spécifiez.
+- La taille par défaut d’un préfixe est/28 ou 16 des adresses IP publiques.
 - Vous ne pouvez pas changer la plage une fois que vous avez créé le préfixe.
 - La plage est destinée uniquement aux adresses IPv4. La plage ne contient pas d’adresses IPv6.
 - Seules les adresses IP publiques créées avec la référence (SKU) standard peuvent être attribuées à partir de la plage du préfixe. Pour en savoir plus sur les références (SKU) d’adresses IP publiques, consultez [Adresse IP publique](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses).

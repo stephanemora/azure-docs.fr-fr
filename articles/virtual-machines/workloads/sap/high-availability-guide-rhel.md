@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/15/2019
+ms.date: 04/30/2019
 ms.author: sedusch
-ms.openlocfilehash: c6746dc4bd5732a13c25793ed572a85acfca82d4
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 4e224a1abf72bfa068bebaf971e34c492b15d7c0
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925796"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142990"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver-on-red-hat-enterprise-linux"></a>Haute disponibilité des machines virtuelles Azure pour SAP NetWeaver sur Red Hat Enterprise Linux
 
@@ -87,6 +87,9 @@ Pour obtenir une haute disponibilité, SAP NetWeaver nécessite stockage partag�
 
 SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS et la base de données SAP HANA utilisent un nom d’hôte virtuel et des adresses IP virtuelles. Sur Azure, un équilibreur de charge est nécessaire pour utiliser une adresse IP virtuelle. La liste suivante illustre la configuration de l’équilibreur de charge des instances (A)SCS et ERS.
 
+> [!IMPORTANT]
+> Le clustering multi-SID de SAP ASC/ERS avec Red Hat Linux comme système d’exploitation invité des machines virtuelles Azure est **ne pas pris en charge**. Clustering multi-SID décrit l’installation de plusieurs instances SAP ASCS/ERS avec des SID différents dans un même cluster Pacemaker.
+
 ### <a name="ascs"></a>(A)SCS
 
 * Configuration du frontend
@@ -113,6 +116,7 @@ SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS et la base de données 
 * Port de la sonde
   * Port 621<strong>&lt;nr&gt;</strong>
 * Règles d’équilibrage de charge
+  * TCP 32<strong>&lt;nr&gt;</strong>
   * TCP 33<strong>&lt;nr&gt;</strong>
   * TCP 5<strong>&lt;nr&gt;</strong>13
   * TCP 5<strong>&lt;nr&gt;</strong>14
@@ -124,11 +128,11 @@ SAP NetWeaver nécessite un stockage partagé pour le répertoire de transport e
 
 ## <a name="setting-up-ascs"></a>Configuration de (A)SCS
 
-Vous pouvez utiliser un modèle Azure de github pour déployer l’ensemble des ressources Azure requises, notamment les machines virtuelles, les groupes à haute disponibilité et l’équilibreur de charge. Vous pouvez également déployer les ressources manuellement.
+Vous pouvez utiliser un modèle Azure de GitHub pour déployer l’ensemble des ressources Azure, notamment les machines virtuelles, les groupes à haute disponibilité et l’équilibreur de charge ou vous pouvez déployer les ressources manuellement.
 
 ### <a name="deploy-linux-via-azure-template"></a>Déployer Linux via le modèle Azure
 
-La Place de marché Azure contient une image de Red Hat Enterprise Linux que vous pouvez utiliser pour déployer de nouvelles machines virtuelles. Vous pouvez utiliser un des modèles de démarrage rapide disponibles sur github pour déployer toutes les ressources nécessaires. Le modèle déploie les machines virtuelles, l’équilibrage de charge, le groupe à haute disponibilité, etc. Suivez ces étapes pour déployer le modèle :
+La Place de marché Azure contient une image de Red Hat Enterprise Linux que vous pouvez utiliser pour déployer de nouvelles machines virtuelles. Vous pouvez utiliser l’un des modèles de démarrage rapide disponibles sur GitHub pour déployer toutes les ressources nécessaires. Le modèle déploie les machines virtuelles, l’équilibrage de charge, le groupe à haute disponibilité, etc. Suivez ces étapes pour déployer le modèle :
 
 1. Ouvrir le [modèle ASCS/SCS][template-multisid-xscs] dans le portail Azure  
 1. Entrez les paramètres suivants
@@ -145,7 +149,7 @@ La Place de marché Azure contient une image de Red Hat Enterprise Linux que vou
    1. Disponibilité du système  
       Sélectionnez la haute disponibilité (HA).
    1. Nom d’utilisateur administrateur, mot de passe d’administrateur ou clé SSH  
-      Un utilisateur pouvant être utilisé pour ouvrir une session sur la machine est créé.
+      Création d’un utilisateur qui peut être utilisé pour se connecter à l’ordinateur.
    1. ID de sous-réseau  
    Si vous voulez déployer la machine virtuelle dans un réseau virtuel existant où vous avez défini un sous-réseau auquel la machine virtuelle doit être attribuée, nommez l’ID de ce sous-réseau spécifique. L’ID se présente généralement comme suit : /subscriptions/**&lt;ID_abonnement&gt;**/resourceGroups/**&lt;nom_groupe_ressources&gt;**/providers/Microsoft.Network/virtualNetworks/**&lt;nom_réseau_virtuel&gt;**/subnets/**&lt;nom_sous_réseau&gt;**
 
@@ -194,7 +198,7 @@ Vous devez tout d’abord créer les machines virtuelles pour ce cluster. Par la
          * Répéter les étapes ci-dessus pour créer une sonde d’intégrité pour l’instance ERS (par exemple **62102** et **nw1-aers-hp**)
    1. Règles d’équilibrage de charge
       1. TCP 32**00** pour l’instance ASCS
-         1. Ouvrir l’équilibrage de charge, sélectionner les règles d’équilibrage de charge et cliquer sur Ajouter
+         1. Ouvrir l’équilibrage de charge, sélectionnez les règles d’équilibrage de charge et cliquez sur Ajouter
          1. Entrer le nom de la nouvelle règle d’équilibrage de charge (par exemple **nw1-lb-3200**)
          1. Sélectionner l’adresse IP du serveur frontal, le pool principal et la sonde d’intégrité créés précédemment (par exemple **nw1-ascs-frontend**)
          1. Conserver le protocole **TCP** et indiquer le port **3200**
@@ -457,7 +461,7 @@ Les éléments suivants sont précédés de **[A]** (applicable à tous les nœu
 
 1. **[A]** Configurer Keep Alive
 
-   La communication entre le serveur d’applications SAP NetWeaver et l’ASCS/SCS est routée par l’intermédiaire d’un équilibreur de charge logiciel. L’équilibreur de charge déconnecte les connexions inactives après un délai configurable. Pour éviter ce problème, vous devez définir un paramètre dans le profil SAP NetWeaver ASCS/SCS et changer les paramètres système de Linux. Pour plus d’informations, consultez la [Note SAP 1410736][1410736].
+   La communication entre le serveur d’applications SAP NetWeaver et l’ASCS/SCS est routée par l’intermédiaire d’un équilibreur de charge logiciel. L’équilibreur de charge déconnecte les connexions inactives après un délai configurable. Pour éviter ce problème, vous devez définir un paramètre dans le profil SAP NetWeaver ASCS/SCS et modifier les paramètres du système Linux. Pour plus d’informations, consultez la [Note SAP 1410736][1410736].
 
    Le paramètre de profil ASCS/SCS enque/encni/set_so_keepalive a déjà été ajouté lors de la dernière étape.
 
@@ -527,7 +531,7 @@ Les éléments suivants sont précédés de **[A]** (applicable à tous les nœu
    sudo pcs property set maintenance-mode=false
    </code></pre>
 
-   Si vous êtes la mise à niveau à partir d’une version antérieure et le basculement vers le serveur de file d’attente 2, consultez la note sap [2641322](https://launchpad.support.sap.com/#/notes/2641322). 
+   Si vous êtes la mise à niveau à partir d’une version antérieure et le basculement vers le serveur de file d’attente 2, consultez SAP note [2641322](https://launchpad.support.sap.com/#/notes/2641322). 
 
    Vérifiez que l’état du cluster est OK et que toutes les ressources sont démarrées. Le nœud sur lequel les ressources s’exécutent n’a aucune importance.
 

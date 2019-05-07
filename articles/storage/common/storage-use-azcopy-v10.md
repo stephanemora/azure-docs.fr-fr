@@ -2,18 +2,19 @@
 title: Copier ou déplacer des données vers le stockage Azure à l’aide d’AzCopy v10 | Microsoft Docs
 description: Utilisez l’utilitaire de ligne de commande AzCopy pour déplacer ou copier des données vers ou à partir d’objets blob, data lake et contenu du fichier. Copiez des données vers Azure Storage à partir de fichiers locaux ou copiez des données dans ou entre des comptes de stockage. Migrez facilement vos données vers Azure Storage.
 services: storage
-author: seguler
+author: normesta
 ms.service: storage
 ms.topic: article
 ms.date: 04/23/2019
-ms.author: seguler
+ms.author: normesta
+ms.reviewer: seguler
 ms.subservice: common
-ms.openlocfilehash: c1de40b6bf3bb4dc6854a11eca92902203d492c3
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: d05cbd30565ced73352736508fc4bcc376985554
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64723182"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65149039"
 ---
 # <a name="transfer-data-with-azcopy-v10"></a>Transférer des données avec AzCopy v10
 
