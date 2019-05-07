@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/11/2019
 ms.author: barclayn
-ms.openlocfilehash: fa845ba81139c9930f66ce9bd8e99a5f65eece56
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b75a6ef341483201dc9cb2a30f68b4854332cbce
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60610982"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190418"
 ---
 # <a name="azure-security-mvp-program"></a>Programme MVP sur la sécurité Azure
 
@@ -36,5 +36,3 @@ Il n’existe aucun examen pour devenir MVP. Ceci est dû en partie au fait que 
 - Les conférences et les groupes d’utilisateurs
 - Les podcasts, les sites web, les blogs et les réseaux sociaux
 - Les articles et les livres.
-
-Vous êtes un expert en matière de sécurité Azure ? Vous connaissez des personnes qui le sont ? [Nommez-vous ou une personne que vous connaissez](https://mvp.microsoft.com/Nomination/nominate-an-mvp) pour devenir un MVP en sécurité Azure dès aujourd’hui !

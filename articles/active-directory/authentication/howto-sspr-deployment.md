@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/17/2018
+ms.date: 05/06/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cb9333845a78204ea1c6e56e17b3b6f9e5513c9c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9c254ef3a71e95b33df2a779c728d47fff3c3759
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60357991"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190369"
 ---
 # <a name="how-to-successfully-roll-out-self-service-password-reset"></a>Comment réussir le lancement de la réinitialisation de mot de passe en libre-service
 
@@ -32,6 +32,10 @@ Pour garantir le déploiement sans problèmes de la fonctionnalité de réinitia
    * Leur avez-vous fourni les URL pour l’inscription et la réinitialisation ?
       * Inscription : https://aka.ms/ssprsetup
       * Réinitialisation : https://aka.ms/sspr
+
+   > [!WARNING]
+   > Utilisation de la case à cocher « utilisateur doit changer mot de passe à la prochaine ouverture de session » dans les outils d’administration Active Directory sur site telles que les utilisateurs Active Directory et les ordinateurs ou le centre d’administration d’Active Directory n’est pas prise en charge. Lorsque vous modifiez un mot de passe en local ne vérifie pas cette option. 
+
 1. Formez vos utilisateurs.
    * Les sections suivantes de ce document comprennent les exemples de communication, les portails de mot de passe, l’application d’inscription, et le remplissage de données d’authentification.
    * Le groupe de produits Azure Active Directory a créé un [plan de déploiement étape par étape](https://aka.ms/SSPRDeploymentPlan) que les organisations peuvent utiliser en parallèle avec la documentation disponible sur ce site pour effectuer une étude de cas et un plan de déploiement de la réinitialisation de mot de passe en libre-service.

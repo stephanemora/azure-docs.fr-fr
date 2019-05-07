@@ -1,9 +1,9 @@
 ---
-title: Meilleures pratiques en matière de sécurité pour les bases de données Azure | Microsoft Docs
+title: Meilleures pratiques de sécurité - Microsoft Azure de base de données
 description: Cet article fournit un ensemble de meilleures pratiques pour la sécurité des bases de données Azure.
 services: security
 documentationcenter: na
-author: unifycloud
+author: TerryLanfear
 manager: barbkess
 editor: tomsh
 ms.assetid: ''
@@ -13,27 +13,21 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
-ms.author: tomsh
-ms.openlocfilehash: 3e244f89904ce9aca161ed1ea435f4137e42bc5d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: terrylan
+ms.openlocfilehash: f59d349da023f9a1b21477a05750d4f8e9aef500
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60587516"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65187762"
 ---
 # <a name="azure-database-security-best-practices"></a>Meilleures pratiques en matière de sécurité pour les bases de données Azure
+Cet article décrit les meilleures pratiques pour la sécurité de la base de données.
+
+Ces meilleures pratiques font l’objet d’un consensus et sont compatibles avec les capacités et fonctionnalités actuelles de la plateforme Azure. Les opinions et avis évoluent au fil du temps, et cet article est mis à jour régulièrement afin de refléter ces modifications.
+
+## <a name="secure-databases"></a>Bases de données sécurisées
 La sécurité est une préoccupation majeure pour la gestion des bases de données, et elle a toujours été une priorité pour [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/). Vos bases de données peuvent être étroitement sécurisées pour permettre de répondre aux exigences réglementaires ou de sécurité, notamment HIPAA, ISO 27001/27002 et PCI DSS Level 1. Une liste à jour des certifications de conformité en matière de sécurité est disponible sur le [site du Centre de gestion de la confidentialité Microsoft](https://azure.microsoft.com/support/trust-center/services/). Vous pouvez également choisir de placer vos bases de données dans des centres de données Azure spécifiques, en fonction des exigences réglementaires.
-
-Dans cet article, nous abordons différentes bonnes pratiques relatives à la sécurité pour les bases de données Azure. Ces bonnes pratiques sont issues de notre expérience dans le domaine de la sécurité des bases de données Azure, mais également de celle des clients comme vous.
-
-Pour chaque bonne pratique, nous détaillons les éléments suivants :
-
--   Nature de la bonne pratique
--   Raison pour laquelle activer cette bonne pratique
--   Conséquence possible en cas de non-utilisation de la bonne pratique
--   Comment apprendre à utiliser la bonne pratique
-
-Cet article repose sur un consensus, ainsi que sur les fonctionnalités et ensembles de fonctions de la plateforme Azure disponibles au moment de la rédaction du présent document. Les opinions et avis évoluent au fil du temps ; cet article sera régulièrement mis à jour de manière à tenir compte de ces changements.
 
 ## <a name="use-firewall-rules-to-restrict-database-access"></a>Utiliser des règles de pare-feu pour restreindre l’accès aux bases de données
 Microsoft Azure SQL Database fournit un service de base de données relationnelle pour Azure et d’autres applications basées sur Internet. Pour assurer la sécurité des accès, SQL Database contrôle l’accès à l’aide des éléments suivants :

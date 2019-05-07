@@ -2,22 +2,22 @@
 title: Performances de fichiers Azure guide de dépannage
 description: Performances des problèmes connus avec les partages de fichiers Azure premium (version préliminaire) et les solutions de contournement associées.
 services: storage
-author: jeffpatt24
+author: gunjanj
 ms.service: storage
 ms.topic: article
 ms.date: 04/25/2019
-ms.author: jeffpatt
+ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 767473a037bf890756df68719698c3872fed6a9c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 5ae0bb736a7cc0bbc38df5905abc5d8a71f60eb9
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64577914"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190050"
 ---
 # <a name="troubleshoot-azure-files-performance-issues"></a>Résoudre les problèmes de performances d’Azure Files
 
-Cet article répertorie certains problèmes courants liés aux partages de fichiers Microsoft Azure premium (version préliminaire). Il fournit les causes et solutions de contournement lorsque ces problèmes sont produisent.
+Cet article répertorie certains problèmes courants liés à des partages de fichiers Azure premium (version préliminaire). Il fournit les causes et solutions de contournement lorsque ces problèmes sont produisent.
 
 ## <a name="high-latency-low-throughput-and-general-performance-issues"></a>Une latence élevée, un débit faible et les problèmes de performances générales
 
@@ -27,7 +27,7 @@ Le quota par défaut sur un partage est de 100 Go, qui fournit à la ligne de ba
 
 Pour vérifier si votre partage est limité, vous pouvez tirer parti des métriques Azure dans le portail.
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 
 1. Sélectionnez **tous les services** , puis recherchez **métriques**.
 
@@ -80,7 +80,7 @@ La machine virtuelle cliente a été trouvée dans une autre région que le part
 
 ## <a name="client-unable-to-achieve-maximum-throughput-supported-by-the-network"></a>Impossible d’atteindre le débit maximal pris en charge par le réseau du client
 
-Une cause potentielle de ce manque fo SMB prise en charge de plusieurs canaux. Actuellement, les fichiers premium uniquement prenant en charge monocanal, il n'est qu’une seule connexion à partir de la machine virtuelle cliente au serveur. Cette connexion unique est fixée à un seul processeur sur l’ordinateur virtuel client, donc le débit maximal réalisable à partir d’une machine virtuelle est lié par un seul cœur.
+Une cause potentielle de ce manque fo SMB prise en charge de plusieurs canaux. Actuellement, les partages de fichiers Azure prennent uniquement en charge les monocanal, par conséquent, il n'est qu’une seule connexion à partir de la machine virtuelle cliente au serveur. Cette connexion unique est fixée à un seul processeur sur l’ordinateur virtuel client, donc le débit maximal réalisable à partir d’une machine virtuelle est lié par un seul cœur.
 
 ### <a name="workaround"></a>Solution de contournement
 

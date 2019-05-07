@@ -12,12 +12,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c4ef16457181b4147b763233c54bcca6598b05a
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: d7b12f5c7736307f0b62b6f6c2b526eb0108569c
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64917679"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190179"
 ---
 # <a name="what-is-the-location-condition-in-azure-active-directory-conditional-access"></a>Qu’est-ce que la condition d’emplacement dans l’accès conditionnel Azure Active Directory ? 
 
@@ -56,7 +56,7 @@ Un emplacement nommé se compose des éléments suivants :
 - **Pays/régions** : cette option vous permet de sélectionner un ou plusieurs pays ou régions pour définir un emplacement nommé.
 - **Inclure les zones inconnues** : certaines adresses IP ne sont pas mappées à un pays spécifique. Cette option vous permet de choisir si ces adresses IP doivent être incluses dans l’emplacement nommé. Utilisez ce paramètre lorsque la stratégie utilisant l’emplacement nommé doit s’appliquer à des emplacements inconnus.
 
-Le nombre d’emplacements nommés que vous pouvez configurer est limité par la taille de l’objet associé dans Azure AD. Les organisations peuvent configurer jusqu'à 90 emplacements LAMÈD, chacun configuré avec des plages d’adresses IP jusqu'à 12000.
+Le nombre d’emplacements nommés que vous pouvez configurer est limité par la taille de l’objet associé dans Azure AD. Les organisations peuvent configurer jusqu'à 90 emplacements nommés, chacun configuré avec des plages d’adresses IP jusqu'à 12000.
 
 Stratégie d’accès conditionnel s’applique au trafic IPv4 et IPv6. Emplacements nommés actuellement n’autorisent pas les plages d’adresses IPv6 à configurer. Cette limitation entraîne les situations suivantes :
 

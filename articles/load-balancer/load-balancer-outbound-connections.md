@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/05/2019
+ms.date: 05/02/2019
 ms.author: kumud
-ms.openlocfilehash: a42a56b8a4a54c33297461a427a2b64b72357020
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d5f52829f5895b30afd160cc8ded755332aca5c5
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60591457"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190168"
 ---
 # <a name="outbound-connections-in-azure"></a>Connexions sortantes dans Azure
 
@@ -176,13 +176,13 @@ Les allocations de ports SNAT sont spécifiques au protocole de transport IP (TC
 
 ### <a name="tcp-snat-port-release"></a>Mis à disposition du port TCP SNAT
 
-- Si le client et le serveur envoient tous deux un paquet FIN/ACK, le port SNAT est mis à disposition après un délai de 240 secondes.
+- Si un serveur/client envoie FINACK, port SNAT est libérée après 240 secondes.
 - Si une instance RST est visible, le port SNAT est mis à disposition après un délai de 15 secondes.
-- le délai d’inactivité a été atteint
+- Si le délai d’inactivité a été atteint, le port est libéré.
 
 ### <a name="udp-snat-port-release"></a>Mis à disposition du port UDP SNAT
 
-- le délai d’inactivité a été atteint
+- Si le délai d’inactivité a été atteint, le port est libéré.
 
 ## <a name="problemsolving"></a> Résolution des problèmes 
 

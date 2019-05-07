@@ -5,15 +5,15 @@ services: storage
 author: roygara
 ms.service: storage
 ms.topic: article
-ms.date: 7/19/2018
+ms.date: 5/5/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: bd60d6453b71387578b880ad580fb1741e6e512b
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: c4928050f945ac88dd1f86e2a13b5d26d385e55a
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64697903"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190031"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Objectifs de performance et d’extensibilité d'Azure Files
 
@@ -34,15 +34,15 @@ La ressource parente d’un partage de fichiers Azure est un compte de stockage 
 
 ## <a name="azure-files-scale-targets"></a>Objectifs de mise à l’échelle Azure Files
 
-### <a name="premium-files-scale-targets"></a>Fichiers Premium mettre à l’échelle cibles
+### <a name="premium-scale-targets"></a>Objectifs de mise à l’échelle Premium
 
-Il existe trois catégories de limitations à prendre en compte pour les fichiers de premium : comptes de stockage et partages de fichiers.
+Il existe trois catégories de limitations à prendre en compte pour les partages de fichiers premium : comptes de stockage et partages de fichiers.
 
 Par exemple :  Un partage unique peut atteindre 100 000 e/s et un seul fichier peut évoluer jusqu'à 5 000 e/s. Par conséquent, par exemple, si vous avez trois fichiers dans un partage, les IOPS maximum, vous pouvez obtenir à partir de ce partage est de 15 000.
 
-### <a name="premium-filestorage-account-limits"></a>Limites de compte Premium filestorage
+### <a name="premium-filestorage-account-limits"></a>Limites de compte Premium FileStorage
 
-Fichiers Premium utilisent un compte de stockage unique appelé **filestorage (version préliminaire)**, ce compte dispose des cibles de mise à l’échelle légèrement différent que le compte de stockage utilisé par les fichiers standards. Pour les cibles de mise à l’échelle de compte de stockage, reportez-vous à la table dans le [objectifs de mise à l’échelle de compte de stockage Azure](#azure-storage-account-scale-targets) section.
+Partages de fichiers Premium sont approvisionnées dans un compte de stockage spécial appelé **filestorage (version préliminaire)**. Ce compte dispose des cibles de mise à l’échelle légèrement différent que le compte de stockage utilisé pour les partages de fichiers standard. Pour les cibles de mise à l’échelle de compte de stockage, reportez-vous à la table dans le [objectifs de mise à l’échelle de compte de stockage Azure](#azure-storage-account-scale-targets) section.
 
 > [!IMPORTANT]
 > Limites de compte de stockage s’appliquent à tous les partages. Mise à l’échelle jusqu'à la valeur maximale pour les comptes de stockage n’est réalisable s’il en existe qu’un seul partage par compte de stockage.

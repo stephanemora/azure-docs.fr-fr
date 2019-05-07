@@ -15,12 +15,12 @@ ms.date: 04/03/2019
 ms.author: celested
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b63118a7c5fae49edebe4ae4976a1362781ae8cf
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: c9db6babff3ae0c91f730e6ec2e6e2a41d55b0bf
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64712852"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65191514"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Personnalisation des mappages d’attributs d’attribution d’utilisateurs pour les applications SaaS dans Azure Active Directory
 Microsoft Azure AD prend en charge pour l’approvisionnement pour les applications SaaS de fournisseurs tiers tels que Salesforce, G Suite et d’autres utilisateurs. Si vous activez l’approvisionnement des utilisateurs pour une application SaaS, le portail Azure contrôle ses valeurs d’attribut via des mappages d’attributs.
@@ -149,6 +149,8 @@ Cette option sera forcée une resynchronisation de tous les utilisateurs tandis 
 * La mise à jour des mappages d’attributs impacte les performances d’un cycle de synchronisation. Une mise à jour de la configuration des mappages d’attributs nécessite une réévaluation de tous les objets gérés. 
 
 * Une pratique recommandée consiste à limiter le nombre de modifications consécutives de vos mappages d’attributs au minimum.
+
+* Ajout d’un attribut photo pour être approvisionnés dans une application n'est pas pris en charge aujourd'hui comme vous ne pouvez pas spécifier le format pour synchroniser la photo. Vous pouvez demander la fonctionnalité sur [User Voice](https://feedback.azure.com/forums/169401-azure-active-directory)
 
 
 ## <a name="next-steps"></a>Étapes suivantes

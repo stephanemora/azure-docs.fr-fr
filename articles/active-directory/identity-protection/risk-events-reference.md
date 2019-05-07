@@ -16,12 +16,12 @@ ms.date: 01/25/2018
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e988d03b60469940d8750cc07188a61fc7ab8b3a
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 3973a35acb4cb95d3392a8daa59e7fd9a8c56eb1
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64709613"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65191522"
 ---
 # <a name="azure-active-directory-identity-protection-risk-events-reference"></a>Référence des événements à risque Azure Active Directory Identity Protection
 
@@ -80,7 +80,9 @@ Ce type d’événement à risque indique les connexions depuis des adresses IP 
 
 ## <a name="unfamiliar-sign-in-properties"></a>Propriétés de connexion inhabituelles
 
-**Type de détection :** En temps réel **ancien nom :** Connexions depuis des emplacements non connus
+**Type de détection :** Temps réel  
+**Ancien nom :** Connexions depuis des emplacements non connus
+
 
 Prend en compte de ce type d’événement à risque passés historique des connexions (IP, Latitude / Longitude et NSA) pour rechercher des anomalies de connexion. Le système stocke les informations sur les emplacements précédents d’un utilisateur et considère ces emplacements comme « connus ». L’événement à risque est déclenché quand la connexion se fait depuis un emplacement qui ne figure pas dans la liste des emplacements connus. Les utilisateurs nouvellement créés sera en « mode d’apprentissage » pendant une période de temps dans les propriétés de connexion inconnues événements à risque seront désactivées alors que nos algorithmes apprendre le comportement de l’utilisateur. L’apprentissage durée du mode est dynamique et varie sur combien de temps il faut l’algorithme pour collecter suffisamment d’informations sur les modèles de connexion de l’utilisateur. La durée minimale est de 5 jours. Un utilisateur peut revenir en arrière en mode d’apprentissage après une longue période d’inactivité. Le système ignore également les connexions depuis les appareils connus et les emplacements géographiquement proches d’un emplacement connu. 
 

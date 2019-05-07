@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d90af62c8d6267001ede567c71b7e1204f6ce74
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 73d3c2846ed97b725d745cc76714738ac34ed1a0
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64917213"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190201"
 ---
 # <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>Activation Activer l’authentification unique entre applications sur iOS à l’aide de la bibliothèque ADAL
 
@@ -165,7 +165,7 @@ Les Kits de développement logiciel (SDK) prennent en charge une grande partie d
 
 Pour activer l’authentification unique sur l’ensemble des applications que vous possédez, vous devez effectuer les opérations suivantes :
 
-1. Vérifiez que l’ensemble de vos applications utilisent le même ID client ou ID d’application.
+1. Assurez-vous que toutes vos applications utilisent le même ID Client ou ID d’Application.
 2. Vérifiez que l’ensemble de vos applications partagent le même certificat de signature fourni par Apple, de manière à ce que vous puissiez partager les trousseaux.
 3. Demandez la même éligibilité de trousseau pour l’ensemble de vos applications.
 4. Indiquez aux Kits de développement logiciel le trousseau partagé que vous souhaitez utiliser.

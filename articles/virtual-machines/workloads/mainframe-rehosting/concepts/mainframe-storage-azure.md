@@ -6,12 +6,12 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: 4fea787e7fe20d60de91761811e1b69bebf3a010
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: dc78f87d9b47745119da91b8ed1f8f6c8572968c
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61485517"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190444"
 ---
 # <a name="move-mainframe-storage-to-azure"></a>Déplacer le stockage de macroordinateur à Azure
 
@@ -113,10 +113,10 @@ Stockage d’objets BLOB fournit le plus grand volume de stockage sur Azure. En 
 ### <a name="ibm-resources"></a>Ressources d’IBM
 
 - [Parallel Sysplex sur IBM Z](https://www.ibm.com/it-infrastructure/z/technologies/parallel-sysplex-resources)
-- [IBM CICS et la fonctionnalité de couplage faible : Notions avancées](http://www.redbooks.ibm.com/redbooks/pdfs/sg248420.pdf)
+- [IBM CICS et la fonctionnalité de couplage faible : Notions avancées](https://www.redbooks.ibm.com/redbooks/pdfs/sg248420.pdf)
 - [Création des utilisateurs requis pour l’installation d’une fonctionnalité DB2 pureScale](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.qb.server.doc/doc/t0055374.html?pos=2)
 - [DB2icrt - Commande Créer une instance](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.admin.cmd.doc/doc/r0002057.html)
-- [DB2 pureScale Solution de base de données de cluster](http://www.ibmbigdatahub.com/blog/db2-purescale-clustered-database-solution-part-1)
+- [DB2 pureScale Solution de base de données de cluster](https://www.ibmbigdatahub.com/blog/db2-purescale-clustered-database-solution-part-1)
 - [IBMData Studio](https://www.ibm.com/developerworks/downloads/im/data/index.html/)
 
 ### <a name="azure-government"></a>Azure Government

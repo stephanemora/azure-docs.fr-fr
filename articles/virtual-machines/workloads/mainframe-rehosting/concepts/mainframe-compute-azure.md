@@ -6,12 +6,12 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
-ms.openlocfilehash: 8aea4a74ba84855f011dada70ea75ec0d5fb64fe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 335a056a34412a7ed148613bfff59ecb30053e09
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61485641"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190313"
 ---
 # <a name="move-mainframe-compute-to-azure"></a>Déplacer le calcul de macroordinateur vers Azure
 
@@ -47,7 +47,7 @@ Gros ordinateurs IBM offrent la possibilité de mettre à l’échelle jusqu'à 
 
 Un CF permet de partager des données avec un accès direct, les clusters de calcul. Il est utilisé pour le verrouillage de plus d’informations, les informations de cache et la liste des ressources de données partagée. Un Sysplex parallèle à l’aide d’un ou plusieurs CFs peut être considéré comme un « partagé tout » cluster de calcul de la montée en puissance. Pour plus d’informations sur ces fonctionnalités, consultez [Parallel Sysplex sur IBM Z](https://www.ibm.com/it-infrastructure/z/technologies/parallel-sysplex-resources) sur le site Web d’IBM.
 
-Applications peuvent utiliser ces fonctionnalités pour fournir des performances de montée en puissance et haute disponibilité. Pour plus d’informations sur l’utilisation CICS Parallel Sysplex avec CF, téléchargez le [IBM CICS et la fonctionnalité de couplage : Pour approfondir](http://www.redbooks.ibm.com/redbooks/pdfs/sg248420.pdf) rouge.
+Applications peuvent utiliser ces fonctionnalités pour fournir des performances de montée en puissance et haute disponibilité. Pour plus d’informations sur l’utilisation CICS Parallel Sysplex avec CF, téléchargez le [IBM CICS et la fonctionnalité de couplage : Pour approfondir](https://www.redbooks.ibm.com/redbooks/pdfs/sg248420.pdf) rouge.
 
 ## <a name="azure-compute-at-a-glance"></a>Calcul Azure en un clin de œil
 
@@ -121,10 +121,10 @@ Chaque niveau peut également fournir urgence approprié des services de récup�
 ### <a name="ibm-resources"></a>Ressources d’IBM
 
 - [Parallel Sysplex sur IBM Z](https://www.ibm.com/it-infrastructure/z/technologies/parallel-sysplex-resources)
-- [IBM CICS et la fonctionnalité de couplage faible : Notions avancées](http://www.redbooks.ibm.com/redbooks/pdfs/sg248420.pdf)
+- [IBM CICS et la fonctionnalité de couplage faible : Notions avancées](https://www.redbooks.ibm.com/redbooks/pdfs/sg248420.pdf)
 - [Création des utilisateurs requis pour l’installation d’une fonctionnalité DB2 pureScale](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.qb.server.doc/doc/t0055374.html?pos=2)
 - [DB2icrt - Commande Créer une instance](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.admin.cmd.doc/doc/r0002057.html)
-- [DB2 pureScale Solution de base de données de cluster](http://www.ibmbigdatahub.com/blog/db2-purescale-clustered-database-solution-part-1)
+- [DB2 pureScale Solution de base de données de cluster](https://www.ibmbigdatahub.com/blog/db2-purescale-clustered-database-solution-part-1)
 - [IBMData Studio](https://www.ibm.com/developerworks/downloads/im/data/index.html/)
 
 ### <a name="azure-government"></a>Azure Government

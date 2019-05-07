@@ -17,12 +17,12 @@ ms.date: 04/10/2019
 ms.author: joflore
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8827a51a23b2ea274d8096a154e630c9cecbba7c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 0d8f1024ba660bc0e879940f20db70d547eea40e
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60351990"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190488"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Procédure : Planifier l’implémentation de la jonction Azure AD Hybride
 
@@ -41,7 +41,7 @@ Si vous disposez d’un environnement Active Directory local et que vous souhait
 Cet article suppose que vous avez lu la [Présentation de la gestion des appareils dans Azure Active Directory](../device-management-introduction.md).
 
 > [!NOTE]
-> Le minimum requis fonctionnel de domaine et les niveaux fonctionnels de forêt pour une jointure hybrid Azure AD Windows 10 est Windows Server 2008 R2. Sur des versions inférieures, l’utilisateur ne peut pas obtenir un principal jeton d’actualisation au cours d’ouverture de session Windows en raison de problèmes LSA.
+> Le minimum requis fonctionnel de domaine et les niveaux fonctionnels de forêt pour une jointure hybrid Azure AD Windows 10 est Windows Server 2008 R2.
 
 ## <a name="plan-your-implementation"></a>Planifier l’implémentation
 
@@ -121,6 +121,9 @@ Si votre environnement comporte des domaines managés, la jointure Azure AD hybr
 
 - Authentification directe (PTA)
 - Synchronisation de hachage de mot de passe (PHS)
+
+> [!NOTE]
+> Azure AD ne prend pas en charge les cartes à puce ou des certificats dans des domaines gérés.
 
 Depuis la version 1.1.819.0, Azure AD Connect comporte un Assistant permettant de configurer la jointure Azure AD hybride. Il simplifie considérablement le processus de configuration. Pour plus d'informations, consultez les pages suivantes :
 

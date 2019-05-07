@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6aed38c8c670c751ee51de95e6622685caea1ce
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 3073d34a6ffeadd1c1c0022b5c1636f06cc6210a
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62112196"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190830"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-client-credentials-flow"></a>Plateforme d’identité Microsoft et le flux des informations d’identification client OAuth 2.0
 
@@ -249,6 +249,10 @@ Une réponse d’erreur ressemble à ceci :
 | `timestamp` | Heure à laquelle l'erreur s'est produite. |
 | `trace_id` | Identifiant unique de la demande pour faciliter les tests de diagnostic. |
 | `correlation_id` | Identifiant unique de la demande pour faciliter les tests de diagnostic sur les différents composants. |
+
+> [!NOTE]
+> Afin que votre application soit en mesure de recevoir le jeton v2, vous pouvez mettre à jour le fichier manifeste de l’application depuis le portail azure. Vous pouvez ajouter l’attribut `accessTokenAcceptedVersion` et la valeur est la valeur 2 comme `"accessTokenAcceptedVersion": 2`. Consultez l’article [manifeste d’Application](https://docs.microsoft.com/en-us/azure/active-directory/develop/reference-app-manifest#manifest-reference) pour en savoir plus sur le même. Par défaut, l’application actuellement reçoit un jeton de v1. Si ce n’est pas défini dans le manifeste d’application/API Web, il a la valeur de cet attribut dans le manifeste par défaut 1, et par conséquent, l’application recevra le jeton de v1.  
+
 
 ## <a name="use-a-token"></a>Utilisation d’un jeton
 

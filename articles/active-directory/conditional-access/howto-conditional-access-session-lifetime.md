@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 884b3c2d3f4414427df87ee5f04138416f363b1c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 0ff9ad850b111cf080447b699d35b4ef8205e006
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64577224"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190216"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>Configurer la gestion de session d’authentification avec l’accès conditionnel
 
@@ -53,7 +53,7 @@ La valeur par défaut de Azure AD pour la persistance de session de navigateur p
 Accès conditionnel est une fonctionnalité d’Azure AD Premium et requiert une licence premium. Pour plus d’informations sur l’accès conditionnel, voir [Présentation de l’accès conditionnel dans Azure Active Directory](overview.md#license-requirements-for-using-conditional-access).
 
 > [!WARNING]
-> Si vous utilisez le [les durées de vie de jeton configurables](../develop/active-directory-configurable-token-lifetimes.md) fonctionnalité actuellement en version préliminaire publique, veuillez noter que nous ne prennent en charge deux stratégies différentes pour la même combinaison de l’utilisateur ou une application de création : une avec cette fonctionnalité et un autre avec fonctionnalité de durée de vie de jeton configurable. Microsoft prévoit de mettre hors service de la fonctionnalité de durée de vie de jeton configurable le 1er novembre et remplacez-la par la fonctionnalité de gestion de session d’authentification accès conditionnel.  
+> Si vous utilisez le [les durées de vie de jeton configurables](../develop/active-directory-configurable-token-lifetimes.md) fonctionnalité actuellement en version préliminaire publique, veuillez noter que nous ne prennent en charge deux stratégies différentes pour la même combinaison de l’utilisateur ou une application de création : une avec cette fonctionnalité et un autre avec fonctionnalité de durée de vie de jeton configurable. Microsoft prévoit de mettre hors service de la fonctionnalité de durée de vie de jeton configurable le 15 octobre et remplacez-la par la fonctionnalité de gestion de session d’authentification accès conditionnel.  
 
 ### <a name="policy-1-sign-in-frequency-control"></a>Stratégie 1 : Contrôle de fréquence de la connexion
 

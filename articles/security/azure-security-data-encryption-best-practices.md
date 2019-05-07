@@ -1,10 +1,10 @@
 ---
-title: Bonnes pratiques en matière de chiffrement et de sécurité des données | Microsoft Docs
+title: Sécurité des données et le chiffrement meilleures pratiques - Microsoft Azure
 description: Cet article détaille les meilleures pratiques en matière de chiffrement et de sécurité des données, à l’aide de capacités Azure intégrées.
 services: security
 documentationcenter: na
-author: barclayn
-manager: mbalwin
+author: TerryLanfear
+manager: barbkess
 editor: TomSh
 ms.assetid: 17ba67ad-e5cd-4a8f-b435-5218df753ca4
 ms.service: security
@@ -12,33 +12,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/19/2018
-ms.author: barclayn
-ms.openlocfilehash: 686d4a8ac5239af12206b57072cc00aa10114d79
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.date: 05/06/2019
+ms.author: terrylan
+ms.openlocfilehash: 9955450b468ef38ba456d7ee73d9681de677494d
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62125117"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190705"
 ---
-# <a name="azure-data-security-and-encryption-best-practices"></a>Meilleures pratiques en matière de chiffrement et de sécurité des données - Azure
+# <a name="azure-data-security-and-encryption-best-practices"></a>Méthodes conseillées pour la sécurité des données Azure et chiffrement
+Cet article décrit les meilleures pratiques pour la sécurité des données et le chiffrement.
 
+Ces meilleures pratiques font l’objet d’un consensus et sont compatibles avec les capacités et fonctionnalités actuelles de la plateforme Azure. Les opinions et avis évoluent au fil du temps, et cet article est mis à jour régulièrement afin de refléter ces modifications.
+
+## <a name="protect-data"></a>Protection des données
 Pour assurer la protection des données dans le cloud, vous devez tenir compte des états que les données peuvent présenter, mais aussi des contrôles disponibles pour ces états. Les bonnes pratiques pour la sécurité et le chiffrement des données Azure s’apparentent aux états des données suivants :
 
 - Au repos : Ceci inclut tous les objets de stockage, conteneurs et types d’informations présents de manière statique sur un support physique, qu’il s’agisse d’un disque magnétique ou d’un disque optique.
 - En transit : Quand des données sont transférées entre des composants, des emplacements ou des programmes, elles sont considérées comme étant « en transit ». Exemples : transfert sur le réseau, sur un bus des services (du réseau local au cloud et inversement, y compris les connexions hybrides telles que ExpressRoute), ou pendant un traitement d’entrée/sortie.
-
-Dans cet article, nous aborderons différentes meilleures pratiques d’Azure en matière de chiffrement et de sécurité des données. Ces meilleures pratiques sont issues de notre expérience dans le domaine du chiffrement et de la sécurité des données Azure, mais également de celle des clients, comme vous.
-
-Pour chaque meilleure pratique, nous allons détailler les éléments suivants :
-
-* Nature de la bonne pratique
-* Raison pour laquelle activer cette bonne pratique
-* Conséquence possible en cas de non-utilisation de la meilleure pratique
-* Alternatives possibles à la meilleure pratique
-* Comment apprendre à utiliser la bonne pratique
-
-Cet article repose sur un consensus, ainsi que sur les fonctionnalités et ensembles de fonctions de la plate-forme Azure disponibles lors de la rédaction. Les opinions et avis évoluent au fil du temps ; cet article sera régulièrement mis à jour de manière à tenir compte de ces changements.
 
 ## <a name="choose-a-key-management-solution"></a>Choisir une solution de gestion des clés
 
@@ -95,7 +87,7 @@ Le [chiffrement des données au repos](https://cloudblogs.microsoft.com/microsof
 
 Stockage Azure et Azure SQL Database chiffrent les données au repos par défaut, et de nombreux services offrent le chiffrement en option. Vous pouvez utiliser Azure Key Vault pour garder le contrôle des clés qui accèdent à vos données et les chiffrent. Consultez [Prise en charge du modèle de chiffrement des fournisseurs de ressources Azure pour en savoir](azure-security-encryption-atrest.md#azure-resource-providers-encryption-model-support).
 
-**Bonnes pratiques** : Utilisez le chiffrement pour réduire les risques d’accès non autorisé aux données.
+**Bonnes pratiques** : Utilisez le chiffrement pour réduire les risques d’accès non autorisé aux données.   
 **Détail** : Chiffrez vos lecteurs avant d’y écrire des données sensibles.
 
 Les organisations qui ne chiffrent pas leurs données sont plus exposées aux problèmes de confidentialité des données. Par exemple, les utilisateurs non autorisés ou non fiables peuvent voler des données dans des comptes compromis ou accéder indûment à des données codées en ClearFormat. Les entreprises doivent prouver leur diligence et utiliser les contrôles de sécurité appropriés pour améliorer la sécurité des données afin de se conformer aux règlementations du secteur.
@@ -118,7 +110,7 @@ Voici les bonnes pratiques relatives à la passerelle VPN Azure, et les protocol
 **Détail** : Utilisez [ExpressRoute](../expressroute/expressroute-introduction.md). Si vous choisissez d’utiliser ExpressRoute, vous pouvez également chiffrer les données au niveau des applications par le biais de [SSL/TLS](https://support.microsoft.com/kb/257591) ou d’autres protocoles, pour optimiser la protection.
 
 **Bonne pratique** : Interagissez avec Stockage Azure via le portail Azure.   
-**Détail** : Toutes les transactions se font via HTTPS. Vous pouvez aussi utiliser l’[API de stockage REST](https://msdn.microsoft.com/library/azure/dd179355.aspx) par le biais de HTTPS pour interagir avec [Stockage Azure](https://azure.microsoft.com/services/storage/) et [Azure SQL Database](https://azure.microsoft.com/services/sql-database/).
+**Détail** : Toutes les transactions se font via HTTPS. Vous pouvez également utiliser [API REST de stockage](https://msdn.microsoft.com/library/azure/dd179355.aspx) via le protocole HTTPS pour interagir avec [stockage Azure](https://azure.microsoft.com/services/storage/).
 
 Les organisations qui ne parviennent pas à protéger les données en transit sont plus sensibles aux [attaques d’intercepteur](https://technet.microsoft.com/library/gg195821.aspx), aux [écoutes électroniques](https://technet.microsoft.com/library/gg195641.aspx) et au piratage de session. Ces attaques peuvent être la première étape d’un processus visant à accéder à des données confidentielles.
 
