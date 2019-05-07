@@ -17,12 +17,12 @@ ms.date: 04/12/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9d2e9aa5e5e805b302763f5417110cdd078eb3b
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: c45cd1627eb1eb98b2fc19f6663d5635b001ce0c
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59997595"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65067789"
 ---
 # <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Démarrage rapide : Appeler l’API Microsoft Graph à partir d’une application de plateforme Windows universelle (UWP)
 
@@ -51,14 +51,15 @@ Ce guide de démarrage rapide contient un exemple de code qui montre comment une
 > Pour inscrire votre application et ajouter les informations d’inscription de l’application à votre solution, procédez comme suit :
 > 1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
 > 1. Si votre compte vous propose un accès à plusieurs locataires, sélectionnez votre compte en haut à droite et définissez votre session de portail sur le locataire Azure AD souhaité.
-> 1. Accédez à la page [Inscriptions des applications](https://go.microsoft.com/fwlink/?linkid=2083908) de la plateforme d’identité Microsoft pour les développeurs.
+> 1. Accédez à la page [Inscriptions des applications](https://aka.ms/MobileAppReg) de la plateforme d’identité Microsoft pour les développeurs.
 > 1. Sélectionnez **Nouvelle inscription**.
 > 1. Lorsque la page **Inscrire une application** s’affiche, saisissez les informations d’inscription de votre application :
 >      - Dans la section **Nom**, saisissez un nom d’application cohérent qui s’affichera pour les utilisateurs de l’application, par exemple `UWP-App-calling-MsGraph`.
 >      - Dans la section **Types de comptes pris en charge**, sélectionnez **Comptes dans un annuaire organisationnel et comptes personnels Microsoft (par exemple, Skype, Xbox, Outlook.com)**.
 >      - Sélectionnez **Inscrire** pour créer l’application.
 > 1. Dans la liste des pages de l’application, sélectionnez **Authentification**.
-> 1. Dans la section **URI de redirection**, recherchez la section **URI de redirection suggérés pour les clients publics (mobile, bureau)**, puis sélectionnez **"urn:ietf:wg:oauth:2.0:oob**.
+> 1. Développez la section **Bureau + appareils**.  (Si vous ne voyez pas **Bureau + appareils**, cliquez d’abord sur la bannière supérieure pour voir l’aperçu de l’expérience d’authentification)
+> 1. Sous la section **URI de redirection**, sélectionnez **Ajouter un URI**.  Tapez **urn:ietf:wg:oauth:2.0:oob**.
 > 1. Sélectionnez **Enregistrer**.
 
 > [!div renderon="portal" class="sxs-lookup alert alert-info"]

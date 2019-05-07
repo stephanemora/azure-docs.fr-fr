@@ -26,8 +26,10 @@
     - name: Analyser votre vidéo - .NET
       displayName: 'job, transform'
       href: analyze-videos-tutorial-with-api.md
-    - name: Chiffrement dynamique AES-128 - .NET
+    - name: Chiffrer dynamiquement avec AES-128 - .NET
       href: protect-with-aes128.md
+    - name: Chiffrer dynamiquement avec DRM - .NET
+      href: protect-with-drm.md
 - name: Exemples
   items:
     - name: "Exemples de code\_Azure"
@@ -56,10 +58,9 @@
         - name: Autogen échelle de débit adaptatif
           href: autogen-bitrate-ladder.md
         - name: Encodage sensible au contenu
-          displayName: 'content, aware, cae'
           href: cae-experimental.md
         - name: Codes d’erreur des tâches
-          href: 'https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode'
+          href: job-error-codes.md
     - name: Analytique multimédia
       items:
         - name: Vue d’ensemble
@@ -68,7 +69,7 @@
         - name: Transformations et travaux
           href: transforms-jobs-concept.md
         - name: Codes d’erreur des tâches
-          href: 'https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode'
+          href: job-error-codes.md
     - name: 'Empaquetage, remise, protection'
       items:
         - name: Packaging
@@ -150,7 +151,7 @@
             - name: Codes d’erreur initiaux
               href: origin-error-codes.md
             - name: Codes d’erreur des tâches
-              href: 'https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode'
+              href: job-error-codes.md
     - name: Conseils de migration de v2 vers v3
       href: migrate-from-v2-to-v3.md
 - name: Guides pratiques
@@ -215,8 +216,6 @@
       items:
         - name: Obtenir une stratégie de clé de contenu - .NET
           href: get-content-key-policy-dotnet-howto.md
-        - name: Chiffrement dynamique DRM - .NET
-          href: protect-with-drm.md
         - name: FairPlay hors connexion pour iOS
           href: offline-fairplay-for-ios.md
         - name: Widevine hors connexion pour Android
@@ -258,7 +257,7 @@
         - name: Codes d’erreur initiaux
           href: origin-error-codes.md
         - name: Codes d’erreur des tâches
-          href: 'https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode'
+          href: job-error-codes.md
 - name: Ressources
   items:
     - name: Communauté Azure Media Services

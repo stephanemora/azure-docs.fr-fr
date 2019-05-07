@@ -18,9 +18,9 @@
   items:
     - name: Se connecter à des ressources Windows Virtual Desktop
       items:
-        - name: "Se connecter avec Windows\_7 et Windows\_10"
+        - name: "Se connecter à partir de Windows\_10 ou Windows\_7"
           href: connect-windows-7-and-10.md
-        - name: Se connecter avec le client web
+        - name: Se connecter à partir d’un navigateur web
           href: connect-web.md
     - name: Créer un pool d’hôtes avec le modèle Azure Resource Manager
       href: create-host-pools-arm-template.md
@@ -34,6 +34,8 @@
       href: diagnostics-role-service.md
     - name: Préparer et personnaliser une image de disque dur virtuel principale
       href: set-up-customize-master-image.md
+    - name: Configurer le GPU pour Windows Virtual Desktop
+      href: configure-vm-gpu.md
     - name: Mettre automatiquement à l’échelle vos hôtes de session
       href: set-up-scaling-script.md
 - name: Concepts

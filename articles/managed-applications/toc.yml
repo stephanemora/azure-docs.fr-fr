@@ -17,6 +17,8 @@
       href: publish-service-catalog-app.md
     - name: Publier l’application marketplace
       href: publish-marketplace-app.md
+    - name: Créer un fournisseur de ressources personnalisé
+      href: create-custom-provider.md
 - name: Exemples
   items:
     - name: Azure CLI
@@ -25,6 +27,10 @@
       href: powershell-samples.md
     - name: Solutions d’applications managées
       href: sample-projects.md
+- name: Concepts
+  items:
+    - name: Fournisseurs personnalisés
+      href: custom-providers-overview.md
 - name: Guides pratiques
   items:
     - name: Éditeurs

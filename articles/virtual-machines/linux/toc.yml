@@ -112,6 +112,8 @@
           href: disk-scalability-targets.md
         - name: Sauvegarde et récupération d’urgence pour les disques
           href: backup-and-disaster-recovery-for-azure-iaas-disks.md
+        - name: Disques de système d’exploitation éphémères
+          href: ephemeral-os-disks.md
     - name: Mise en réseau
       href: network-overview.md
     - name: Applications de mise à l’échelle automatique
@@ -253,16 +255,32 @@
           href: reserved-vm-instance-size-flexibility.md
     - name: Utiliser des images
       items:
-        - name: Galeries d’images partagées (préversion)
+        - name: Galeries d’images partagées
           items:
             - name: Vue d’ensemble
               href: shared-image-galleries.md
-            - name: Créer des images partagées avec CLI
+            - name: Interface de ligne de commande
               href: shared-images.md
             - name: Portail
               href: shared-images-portal.md
+            - name: Partager des images entre locataires
+              href: share-images-across-tenants.md
             - name: Résoudre les problèmes relatifs aux images partagées
               href: troubleshooting-shared-images.md
+        - name: Générateur d’images (préversion)
+          items:
+            - name: Vue d’ensemble
+              href: image-builder-overview.md
+            - name: Utiliser l’interface de ligne de commande 2.0
+              href: image-builder.md
+            - name: Référence de modèle
+              href: image-builder-json.md
+            - name: Utiliser des galeries
+              href: image-builder-gallery.md
+            - name: Mettre à jour une version d’image
+              href: image-builder-gallery-update-image-version.md
+            - name: Résolution des problèmes
+              href: 'https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md'
         - name: Trouver et utiliser des images
           href: cli-ps-findimage.md
         - name: Créer une image personnalisée

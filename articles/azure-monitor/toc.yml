@@ -556,6 +556,8 @@
                   href: app/usage-workbooks.md
             - name: Solution Analytics d’application web
               href: insights/azure-web-apps-analytics.md
+            - name: Applications hébergées Kubernetes
+              href: app/kubernetes.md
         - name: Analyser les conteneurs
           items:
             - name: Azure Monitor pour des conteneurs
@@ -564,13 +566,19 @@
                   href: insights/container-insights-overview.md
                 - name: Forum Aux Questions
                   href: insights/container-insights-faq.md
-                - name: Intégrer
-                  href: insights/container-insights-onboard.md
+                - name: Activer la supervision
+                  items:
+                    - name: Vue d’ensemble de l’activation de la supervision
+                      href: insights/container-insights-onboard.md
+                    - name: Activer pour un nouveau cluster
+                      href: insights/container-insights-enable-new-cluster.md
+                    - name: Activer pour un cluster existant
+                      href: insights/container-insights-enable-existing-clusters.md
                 - name: Analyser
                   href: insights/container-insights-analyze.md
                 - name: Désactiver l’analyse
                   href: insights/container-insights-optout.md
-                - name: Afficher les journaux d’activité en temps réel d’un conteneur
+                - name: Afficher les journaux d’activité dynamiques
                   href: insights/container-insights-live-logs.md
                 - name: Analyser des données avec des requêtes de journal
                   href: insights/container-insights-log-search.md
@@ -586,8 +594,6 @@
               href: insights/containers.md
             - name: Analyse des applications Docker
               href: app/docker.md
-            - name: Application Insights pour Kubernetes
-              href: app/kubernetes.md
         - name: Surveiller les groupes de ressources
           href: insights/resource-group-insights.md
         - name: Superviser les bases de données

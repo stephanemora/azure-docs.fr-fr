@@ -66,6 +66,10 @@
       items:
         - name: Ingérer des exemples de données
           href: ingest-sample-data.md
+    - name: Déployer
+      items:
+        - name: Tâche DevOps
+          href: devops.md
     - name: Données de requête
       items:
         - name: Rédiger des requêtes

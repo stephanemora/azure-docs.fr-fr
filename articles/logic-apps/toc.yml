@@ -55,7 +55,9 @@
           href: logic-apps-create-variables-store-values.md
         - name: Effectuer des opérations sur des données
           href: logic-apps-perform-data-operations.md
-        - name: Ajouter du code personnalisé avec Azure Functions
+        - name: Ajouter et exécuter des extraits de code avec du code inline
+          href: logic-apps-add-run-inline-code.md
+        - name: Ajouter et exécuter du code avec Azure Functions
           href: logic-apps-azure-functions.md
         - name: Appeler des applications logiques avec Azure Functions
           href: logic-apps-scenario-function-sb-trigger.md

@@ -129,6 +129,8 @@
         - name: Performances de stockage Premium
           href: ../virtual-machines/windows/premium-storage-performance.md
           maintainContext: true
+        - name: Disques de système d’exploitation éphémères
+          href: ephemeral-os-disks.md
         - name: Objectifs d’extensibilité pour les disques
           href: ../virtual-machines/windows/disk-scalability-targets.md
           maintainContext: true
@@ -204,7 +206,7 @@
               href: virtual-machine-scale-sets-encrypt-disks-ps.md
             - name: "Utilisation de l’interface de ligne de commande Microsoft\_Azure"
               href: virtual-machine-scale-sets-encrypt-disks-cli.md
-            - name: Chiffrement de disque avec séquencement d’extensions
+            - name: Séquencement d’extensions
               href: ../security/azure-security-disk-encryption-extension-sequencing.md
               maintainContext: true
         - name: Travailler avec des groupes identiques de grande taille
@@ -221,13 +223,16 @@
               href: virtual-machine-scale-sets-manage-cli.md
             - name: Utilisation d'Azure PowerShell
               href: virtual-machine-scale-sets-manage-powershell.md
-        - name: Galeries d’images partagées (préversion)
-          href: shared-image-galleries.md
+        - name: Galeries d’images partagées
           items:
+            - name: Vue d’ensemble
+              href: shared-image-galleries.md
             - name: Interface de ligne de commande
               href: shared-images-cli.md
             - name: PowerShell
               href: shared-images-powershell.md
+            - name: Partager des images entre locataires
+              href: share-images-across-tenants.md
             - name: Résoudre les problèmes relatifs aux images partagées
               href: troubleshooting-shared-images.md
         - name: Mise à l’échelle verticale dans un groupe de machines virtuelles identiques

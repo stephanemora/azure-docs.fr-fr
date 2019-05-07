@@ -63,6 +63,7 @@ sections:
           - html: <a href="/azure/app-service/containers/tutorial-multi-container-app">Créer une application multiconteneur dans Web App pour conteneurs</a>
           - html: <a href="/azure/container-registry/container-registry-tutorial-quick-task">Créer et déployer des images conteneur avec Azure Container Registry Tasks</a>
           - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-app">Créer et déployer un conteneur dans Azure Container Instances</a>
+          - html: <a href="/azure/openshift/tutorial-create-cluster">Créer un cluster de Red Hat OpenShift sur Azure</a>
   - title: Développer vos compétences avec Microsoft Learn
     items:
       - type: list

@@ -51,6 +51,8 @@
           href: event-hubs-capture-python.md
     - name: Diffuser en continu dans Event Hubs pour Kafka
       href: event-hubs-quickstart-kafka-enabled-event-hubs.md
+    - name: Créer un cluster Event Hubs dédié
+      href: event-hubs-dedicated-cluster-create-portal.md
 - name: Tutoriels
   items:
     - name: Visualiser les anomalies de données sur les flux de données Event Hubs
