@@ -59,7 +59,7 @@ Les propriétés prises en charge pour le service lié Amazon S3 prises en charg
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété de type doit être définie sur **AmazonS3**. | OUI |
+| type | La propriété de type doit être définie sur **AmazonS3**. | OUI |
 | accessKeyId | ID de la clé d’accès secrète. |OUI |
 | secretAccessKey | La clé d’accès secrète elle-même. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). |Oui |
 | serviceUrl | Spécifiez le point de terminaison S3 personnalisé si vous copiez des données à partir d’un fournisseur de stockage compatible S3 autre que le service Amazon S3 officiel. Par exemple, pour copier des données à partir de Google Cloud Storage, spécifiez `https://storage.googleapis.com`. | Non  |
@@ -107,7 +107,7 @@ Pour copier des données d’Amazon S3 dans **Parquet ou format de texte délimi
 
 | Propriété   | Description                                                  | Obligatoire |
 | ---------- | ------------------------------------------------------------ | -------- |
-| Type       | La propriété de type sous `location` dans le jeu de données doit être définie sur **AmazonS3Location**. | Oui      |
+| type       | La propriété de type sous `location` dans le jeu de données doit être définie sur **AmazonS3Location**. | Oui      |
 | bucketName | Le nom de compartiment S3.                                          | Oui      |
 | folderPath | Le chemin d’accès au dossier sous le compartiment donné. Si vous souhaitez utiliser le caractère générique pour filtrer le dossier, ignorez ce paramètre et spécifiez dans les paramètres de source d’activité. | Non        |
 | fileName   | Le nom du fichier sous le compartiment donné + folderPath. Si vous souhaitez utiliser le caractère générique pour filtrer les fichiers, ignorez ce paramètre et spécifiez dans les paramètres de source d’activité. | Non        |
@@ -235,7 +235,7 @@ Pour copier des données d’Amazon S3 dans **Parquet ou format de texte délimi
 
 | Propriété                 | Description                                                  | Obligatoire                                                    |
 | ------------------------ | ------------------------------------------------------------ | ----------------------------------------------------------- |
-| Type                     | La propriété de type sous `storeSettings` doit être définie sur **AmazonS3ReadSetting**. | Oui                                                         |
+| type                     | La propriété de type sous `storeSettings` doit être définie sur **AmazonS3ReadSetting**. | Oui                                                         |
 | recursive                | Indique si les données sont lues de manière récursive à partir des sous-dossiers ou uniquement du dossier spécifié. Notez que lorsque l’option « recursive » est définie sur true et que le récepteur est un magasin basé sur un fichier, un dossier vide ou un sous-dossier n’est pas copié ou créé sur le récepteur. Les valeurs autorisées sont **true** (par défaut) et **false**. | Non                                                           |
 | prefix                   | Préfixe pour la clé d’objet S3 sous le compartiment donné configuré dans le jeu de données pour filtrer les objets de source. Les objets dont les clés commencent par ce préfixe sont sélectionnés. <br>S’applique uniquement lorsque `wildcardFolderPath` et `wildcardFileName` propriétés ne sont pas spécifiées. | Non                                                           |
 | wildcardFolderPath       | Le chemin d’accès de dossier avec des caractères génériques sous le compartiment donné configuré dans le jeu de données sur les dossiers de code source de filtre. <br>Les caractères génériques autorisés sont : `*` (correspond à zéro ou plusieurs caractères) et `?` (correspond à zéro ou un caractère) ; utilisez `^` en guise d’échappement si votre nom de dossier contient effectivement ce caractère d’échappement ou générique. <br>Consultez d’autres exemples dans les [exemples de filtre de dossier et de fichier](#folder-and-file-filter-examples). | Non                                                           |
