@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 04/16/2019
+ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 93803a7d885bb68c1d5d6637eaf90fb090dabeb2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7c3b93db18cb8e2660118927da47ffe95abb900f
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60598931"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073002"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Installer et exécuter des conteneurs Docker LUIS
  
@@ -337,19 +337,28 @@ L’envoie de conteneur LUIS, informations de facturation pour Azure, à l’aid
 
 Pour plus d’informations sur ces options, consultez [Configurer des conteneurs](luis-container-configuration.md).
 
-## <a name="unsupported-dependencies"></a>Dépendances non prises en charge
+## <a name="supported-dependencies-for-latest-container"></a>Prise en charge des dépendances pour `latest` conteneur
+
+Le dernier conteneur, libéré à 2019 / / Build, prendra en charge :
+
+* Vérification orthographique Bing : demandes au point de terminaison de prédiction de requête avec la `&spellCheck=true&bing-spell-check-subscription-key={bingKey}` des paramètres de chaîne de requête. Utilisez le [vérification orthographique Bing le didacticiel v7](luis-tutorial-bing-spellcheck.md) pour en savoir plus. Si cette fonctionnalité est utilisée, le conteneur envoie l’énoncé à votre ressource V7 de vérification orthographique Bing.
+* [Nouveaux domaines prédéfinis](luis-reference-prebuilt-domains.md): ces domaines orientés entreprise incluent des entités, des énoncés d’exemple et des modèles. Étendre ces domaines pour votre usage personnel. 
+
+<a name="unsupported-dependencies"></a>
+
+## <a name="unsupported-dependencies-for-latest-container"></a>Non pris en charge des dépendances pour `latest` conteneur
+
+Si votre application LUIS a des dépendances non pris en charge, vous ne pourrez [exporter pour conteneur](#export-packaged-app-from-luis) jusqu'à ce que vous supprimiez les fonctionnalités non prises en charge. Lorsque vous tentez d’exporter pour le conteneur, le portail LUIS signale les fonctionnalités non prises en charge, que vous devez supprimer.
 
 Vous pouvez utiliser une application LUIS si elle **n’inclut aucune** des dépendances suivantes :
 
 Configurations d’application non prises en charge|Détails|
 |--|--|
-|Cultures de conteneur non prises en charge| Allemand (de-DE)<br>Néerlandais (nl-NL)<br>Japonais (ja-JP)<br>|
-|Domaines non pris en charge|Domaines prédéfinis, y compris les entités et les intentions de domaine prédéfinis|
+|Cultures de conteneur non prises en charge| Néerlandais (nl-NL)<br>Japonais (ja-JP)<br>Allemand est uniquement pris en charge avec le [1.0.1 Générateur de jetons ou une version ultérieure](luis-language-support.md#custom-tokenizer-versions).|
 |Entités non prises en charge pour toutes les cultures|Entité prédéfinie [KeyPhrase](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-prebuilt-keyphrase) pour toutes les cultures|
 |Entités non prises en charge pour la culture anglais (en-US)|Entités prédéfinies [GeographyV2](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-prebuilt-geographyv2)|
 |Préparation vocale|Les dépendances externes ne sont pas prises en charge dans le conteneur.|
 |analyse de sentiments|Les dépendances externes ne sont pas prises en charge dans le conteneur.|
-|Vérification orthographique Bing|Les dépendances externes ne sont pas prises en charge dans le conteneur.|
 
 ## <a name="summary"></a>Résumé
 

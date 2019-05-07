@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2018
 ms.author: apimpm
-ms.openlocfilehash: cfe2620801f743831f77fb76f344c156676966d3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b5467711f06380ca61b4a9d5150b66c3f945c08c
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60657558"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65141073"
 ---
 # <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>Guide pratique pour protéger une API à l’aide d’OAuth 2.0 avec Azure Active Directory et Gestion des API
 
@@ -44,7 +44,7 @@ Voici un petit aperçu des étapes :
 
 Pour protéger une API avec Azure AD, la première étape consiste à inscrire dans Azure AD une application qui représente l’API. 
 
-1. Accédez à votre locataire Azure AD, puis accédez à **Inscriptions des applications**.
+1. Accédez à votre client Azure AD, puis accédez à **inscriptions d’application (hérité)**.
 
 2. Sélectionnez **Nouvelle inscription d’application**. 
 
@@ -62,7 +62,7 @@ Une fois l’application créée, prenez note de l’**ID d’application** ; vo
 
 Chaque application cliente qui appelle l’API doit également être inscrite en tant qu’application dans Azure AD. Ici, l’exemple d’application cliente est la console de développeur dans le portail des développeurs de Gestion des API. Voici comment inscrire une autre application dans Azure AD pour représenter la console de développeur.
 
-1. Sélectionnez **Nouvelle inscription d’application**. 
+1. Lorsque vous êtes dans **inscriptions d’application (hérité)**, sélectionnez **nouvelle inscription d’application**. 
 
 2. Spécifiez le nom de l’application. (Pour cet exemple, le nom est `client-app`.)
 
@@ -86,7 +86,7 @@ Prenez note de la valeur de la clé.
 
 Maintenant que vous avez inscrit deux applications pour représenter l’API et la console de développeur, vous devez accorder des autorisations pour permettre à client-app d’appeler backend-app.  
 
-1. Accédez à **Inscriptions des applications**. 
+1. Accédez à **inscriptions d’Application (hérité)**. 
 
 2. Sélectionnez `client-app` et accédez à **Paramètres**.
 

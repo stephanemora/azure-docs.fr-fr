@@ -1,20 +1,19 @@
 ---
-title: Vue d’ensemble du point de terminaison de services de réseau virtuel pour le serveur Azure Database pour PostgreSQL
-description: Découvrez comment les points de terminaison de service de réseau virtuel fonctionnent pour votre serveur Azure Database pour PostgreSQL.
-author: WenJason
-ms.author: v-jay
+title: Réseau virtuel (VNet) services vue d’ensemble du point de terminaison dans Azure Database pour PostgreSQL - serveur unique
+description: Découvrez le fonctionnement des points de terminaison de service réseau virtuel (VNet) pour Azure Database pour PostgreSQL - serveur unique.
+author: bolzmj
+ms.author: mbolz
 ms.service: postgresql
 ms.topic: conceptual
-origin.date: 08/20/2018
-ms.date: 04/22/2019
-ms.openlocfilehash: c6549ad170a0fc3b4387d5bc5163ca0548b92119
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: c873abcdf3c64f8357c584c8e24809270946bf74
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60560116"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073475"
 ---
-# <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-postgresql"></a>Utiliser des points de terminaison de service de réseau virtuel et des règles pour Azure Database pour PostgreSQL
+# <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-postgresql---single-server"></a>Utiliser des points de terminaison de service réseau virtuel et des règles pour Azure Database pour PostgreSQL - serveur unique
 
 Les *règles de réseau virtuel* désignent une fonctionnalité de sécurité de pare-feu qui permet de contrôler si votre serveur Azure Database pour PostgreSQL doit accepter ou non les communications provenant de sous-réseaux spécifiques dans des réseaux virtuels. Cet article explique pourquoi la fonctionnalité de règle de réseau virtuel est parfois la meilleure solution pour autoriser en toute sécurité des communications sur votre serveur Azure Database pour PostgreSQL.
 

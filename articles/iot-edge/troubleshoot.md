@@ -4,27 +4,53 @@ description: Cet article vous permettra d’acquérir des compétences de diagno
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 02/26/2019
+ms.date: 04/26/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 83595bf045de412954c176028babc4f94fcb21e1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 02d50b81cb91a74e2cdb039c56195e2a15858ca1
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60612259"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142861"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Problèmes courants et résolutions pour Azure IoT Edge
 
-Si vous rencontrez des problèmes lors de l’exécution d’Azure IoT Edge dans votre environnement, consultez cet article qui vous guidera pour la résolution des problèmes. 
+Si vous rencontrez des problèmes lors de l’exécution d’Azure IoT Edge dans votre environnement, consultez cet article qui vous guidera pour la résolution des problèmes.
 
-## <a name="standard-diagnostic-steps"></a>Étapes de diagnostic standard 
+## <a name="run-the-iotedge-check-command"></a>Exécutez la commande « vérifier » d’iotedge
 
-Quand vous rencontrez un problème, obtenez des informations supplémentaires sur l’état de votre appareil IoT Edge en examinant les journaux d’activité du conteneur et les messages transitant par l’appareil. Utilisez les commandes et les outils de cette section pour recueillir des informations. 
+La première étape lors du dépannage de IoT Edge doit consister à utiliser le `check` commande, qui effectue une série de tests de configuration et de connectivité pour les problèmes courants. Le `check` commande est disponible dans [version 1.0.7](https://github.com/Azure/azure-iotedge/releases/tag/1.0.7) et versions ultérieures.
 
-### <a name="check-the-status-of-the-iot-edge-security-manager-and-its-logs"></a>Vérifiez l’état du gestionnaire de sécurité IoT Edge et de ses journaux d’activité :
+Vous pouvez exécuter la `check` commande comme suit, ou incluez le `--help` indicateur pour afficher une liste complète des options :
+
+* Sur Linux :
+
+  ```bash
+  sudo iotedge check
+  ```
+
+* Sous Windows :
+
+  ```powershell
+  iotedge check
+  ```
+
+Les types de vérifications à exécuter par l’outil peuvent être classés en tant que :
+
+* Vérifications de la configuration : Examine les détails qui peuvent empêcher des appareils Edge à partir de la connexion au cloud, y compris les problèmes avec *config.yaml* et le moteur de conteneur.
+* Vérification de la connexion : Vérifie le runtime IoT Edge peut accéder aux ports sur l’appareil de l’hôte et tous les composants d’IoT Edge peuvent se connecter à IoT Hub.
+* Vérifications de disponibilité de production : Recherche de production recommandée meilleures pratiques, telles que l’état des certificats d’autorité de certification de périphérique et de configuration du fichier journal module.
+
+Pour obtenir une liste complète des vérifications de diagnostic, consultez [intégrés de résolution des problèmes de fonctionnalité](https://github.com/Azure/iotedge/blob/master/doc/troubleshoot-checks.md).
+
+## <a name="standard-diagnostic-steps"></a>Étapes de diagnostic standard
+
+Si vous rencontrez un problème, vous pouvez en savoir plus sur l’état de votre appareil IoT Edge en examinant les journaux du conteneur et les messages qui transitent vers et à partir de l’appareil. Utilisez les commandes et les outils de cette section pour recueillir des informations.
+
+### <a name="check-the-status-of-the-iot-edge-security-manager-and-its-logs"></a>Vérifier l’état de ses journaux et le Gestionnaire de sécurité IoT Edge
 
 Sur Linux :
 - Pour voir l’état du gestionnaire de sécurité IoT Edge :
@@ -72,20 +98,13 @@ Sous Windows :
 - Pour voir les journaux d’activité du gestionnaire de sécurité IoT Edge :
 
    ```powershell
-   # Displays logs from today, newest at the bottom.
- 
-   Get-WinEvent -ea SilentlyContinue `
-   -FilterHashtable @{ProviderName= "iotedged";
-     LogName = "application"; StartTime = [datetime]::Today} |
-   select TimeCreated, Message |
-   sort-object @{Expression="TimeCreated";Descending=$false} |
-   format-table -autosize -wrap
+   . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
    ```
 
 ### <a name="if-the-iot-edge-security-manager-is-not-running-verify-your-yaml-configuration-file"></a>Si le gestionnaire de sécurité IoT Edge n’est pas en cours d’exécution, vérifiez votre fichier de configuration yaml
 
 > [!WARNING]
-> Les fichiers YAML ne peuvent pas contenir de tabulations en guise de mise en retrait. Utilisez 2 espaces à la place.
+> Fichiers YAML ne peut pas contenir des onglets en tant que mise en retrait. Utilisez 2 espaces à la place.
 
 Sur Linux :
 

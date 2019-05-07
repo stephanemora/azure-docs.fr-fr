@@ -12,14 +12,14 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: fac14281365ccf3c191684af8cfdebda69e734e0
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 77c2cd9e0eac6717d91a73a6fc033dcaa2390444
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64870446"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65145043"
 ---
-# <a name="status-monitor-v2"></a>État du moniteur v2
+# <a name="status-monitor-v2"></a>Status Monitor version 2
 
 État du moniteur v2 est un Module PowerShell publié sur le [PowerShellGallery](https://www.powershellgallery.com/packages/Az.ApplicationMonitor) et remplace [Status Monitor](https://docs.microsoft.com/azure/azure-monitor/app/monitor-performance-live-website-now). Ce module fournit une instrumentation sans code des applications web .NET Web hébergé par IIS.
 Données de télémétrie seront envoyées au portail Azure dans laquelle vous pouvez [moniteur](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) votre application.
@@ -61,3 +61,19 @@ https://www.powershellgallery.com/packages/Az.ApplicationMonitor
 - Comment vérifier l’activation a réussi ?
 
    Nous n’avons une applet de commande pour vérifier que cette activation a réussi. Nous vous recommandons d’utiliser [métriques temps réel](https://docs.microsoft.com/azure/azure-monitor/app/live-stream) à observer rapidement si votre application nous est envoyant des données de télémétrie.
+
+## <a name="next-steps"></a>Étapes suivantes
+
+Affichez vos données de télémétrie :
+
+* [Explorez les mesures](../../azure-monitor/app/metrics-explorer.md) pour surveiller les performances et l’utilisation
+* [Recherchez les événements et journaux](../../azure-monitor/app/diagnostic-search.md) pour diagnostiquer les problèmes
+* [Utilisez la fonctionnalité Analytics](../../azure-monitor/app/analytics.md) pour des requêtes plus élaborées
+* [Créez des tableaux de bord](../../azure-monitor/app/app-insights-dashboards.md)
+
+Ajoutez des données de télémétrie :
+
+* [Créez des tests web](monitor-web-app-availability.md) s’assurer que votre site reste actif.
+* [Ajoutez la télémétrie de client web](../../azure-monitor/app/javascript.md) pour afficher les exceptions à partir du code de page web et vous permettre d’insérer des appels de trace.
+* [Ajoutez le kit SDK Application Insights à votre code](../../azure-monitor/app/asp-net.md) afin que vous pouvez insérer un suivi et enregistrer les appels
+

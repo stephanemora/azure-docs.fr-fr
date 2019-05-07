@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 0044cbc9e6142989a57e79de5fd1e78e999bb5e1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 241e89ac7fa78184e7c55f9e8065e1534cea9143
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60196097"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148725"
 ---
 # <a name="create-entities-without-utterances"></a>Créer des entités sans énoncés
 
@@ -66,29 +66,6 @@ Une entité d’expression régulière sert à extraire des données de l’éno
 
     Cette expression régulière correspond à des caractères littéraux `hrf-`, puis à 6 chiffres pour représenter un formulaire numéro pour un formulaire de ressources humaines.
 
-## <a name="add-hierarchical-entities"></a>Ajouter des entités hiérarchiques
-
-Une entité hiérarchique est une catégorie d’entités apprises de façon contextuelle et associées de façon conceptuelle. Dans l’exemple suivant, l’entité contient des lieux de départ et de destination. 
-
-Dans l’énoncé `Move John Smith from Seattle to Cairo`, Seattle est le lieu de départ et Cairo (Le Caire) le lieu de destination. Chaque lieu est différent sur le plan du contexte, et appris à partir de l’ordre des mots et du choix des mots dans l’énoncé.
-
-Pour ajouter des entités hiérarchiques, suivez les étapes ci-dessous : 
-
-1. Dans votre application, sélectionnez **Entités** dans le volet de navigation gauche, puis **Créer une entité**.
-
-1. Dans la boîte de dialogue contextuelle, tapez `Location` dans la zone **Nom de l’entité**, puis sélectionnez **Hiérarchique** dans la liste **Type d’entité**.
-
-    ![Ajouter une entité hiérarchique](./media/add-entities/hier-location-entity-creation.png)
-
-1. Sélectionnez **Add Child** (Ajouter un enfant), puis entrez `Origin` dans la zone **Child #1**. 
-
-1. Sélectionnez **Add Child**, puis entrez `Destination` dans la zone **Child #2**. Sélectionnez **Terminé**.
-
-    >[!CAUTION]
-    >Les noms d’entité enfant doivent être uniques parmi toutes les entités dans une même application. Deux entités hiérarchiques différentes ne peuvent pas contenir d’entités enfants portant le même nom. 
-
-    Une fois cette entité créée, accédez à toutes les intentions qui ont des exemples d’énoncés contenant l’entité. Sélectionnez le texte dans l’exemple d’énoncé et marquez-le en tant qu’entité. 
-
 <a name="add-composite-entities"></a>
 
 ## <a name="add-composite-entities-to-group-into-a-parent-child-relationship"></a>Ajouter des entités composites à regrouper dans une relation parent-enfant
@@ -137,9 +114,7 @@ Dans l’énoncé `Where is Request relocation from employee new to the company 
 
 Un rôle est un sous-type nommé en fonction du contexte. Il est disponible dans toutes les entités, y compris des entités prédéfinies et non-machine-appris. 
 
-Si l’on continue avec le même exemple d’entité hiérarchique de villes d’origine et de destination, la différence est qu’un rôle est nommé origine au lieu d’un enfant hiérarchique. 
-
-La syntaxe d’un rôle est **{nom_entité:nom_rôle}**, le nom de l’entité étant suivi de deux-points, puis du nom du rôle. Par exemple : `Move {personName} from {LocationUsingRoles:Origin} to {LocationUsingRoles:Destination}`.
+La syntaxe pour un rôle est **`{Entityname:Rolename}`** où le nom de l’entité est suivi d’un signe deux-points, puis le nom du rôle. Par exemple : `Move {personName} from {LocationUsingRoles:Origin} to {LocationUsingRoles:Destination}`.
 
 1. Dans la section **Build**, sélectionnez **Entities** dans le volet gauche.
 

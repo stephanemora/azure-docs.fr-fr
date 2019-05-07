@@ -1,28 +1,28 @@
 ---
-title: Configurer et accéder aux journaux d’activité de serveur pour PostgreSQL à l’aide de l’interface de ligne de commande Azure
-description: Cet article décrit comment configurer les journaux d’activité du serveur dans Azure Database pour PostgreSQL à l’aide de la ligne de commande Azure CLI et comment y accéder.
+title: Configurer et consulter les journaux du serveur pour PostgreSQL - serveur unique à l’aide d’Azure CLI
+description: Cet article décrit comment configurer et consulter les journaux du serveur de base de données Azure pour PostgreSQL - serveur unique à l’aide de la ligne de commande Azure CLI.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: 3ca77c1ffa5f5a3f384009299701f4aa674baf59
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 4702db31ffeb15481584b9638f5be1aa640ff39e
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60421184"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65067207"
 ---
 # <a name="configure-and-access-server-logs-by-using-azure-cli"></a>Configurer et accéder aux journaux d’activité du serveur à l’aide d’Azure CLI
 Vous pouvez télécharger les journaux d’activité des erreurs du serveur PostgreSQL à l’aide de l’interface de ligne de commande (Azure CLI). Toutefois, l’accès aux journaux d’activité des transactions n’est pas pris en charge. 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 Pour parcourir ce guide pratique, vous avez besoin des éléments suivants :
 - [Un serveur Azure Database pour PostgreSQL](quickstart-create-server-database-azure-cli.md)
 - L’utilitaire en ligne de commande [Azure CLI](/cli/azure/install-azure-cli) ou Azure Cloud Shell dans le navigateur
 
-## <a name="configure-logging-for-azure-database-for-postgresql"></a>Configuration de la journalisation pour Azure Database pour PostgreSQL
+## <a name="configure-logging"></a>Configuration de la journalisation
 Vous pouvez configurer le serveur afin d’accéder aux journaux d’activité de requêtes et aux journaux d’activité d’erreurs. Les journaux d’activité des erreurs peuvent contenir des informations sur le nettoyage automatique, la connexion et les points de contrôle.
 1. Activez la journalisation.
 2. Pour activer la journalisation des requêtes, mettez à jour **log\_statement** et **log\_min\_duration\_statement**.
@@ -30,7 +30,7 @@ Vous pouvez configurer le serveur afin d’accéder aux journaux d’activité d
 
 Pour plus d’informations, consultez [Personnalisation des paramètres de configuration du serveur](howto-configure-server-parameters-using-cli.md).
 
-## <a name="list-logs-for-azure-database-for-postgresql-server"></a>Répertorier les journaux d’activité pour le serveur Azure Database pour PostgreSQL
+## <a name="list-logs"></a>Répertorier les journaux
 Pour répertorier les fichiers journaux disponibles pour votre serveur, exécutez la commande [az postgres server-logs list](/cli/azure/postgres/server-logs).
 
 Vous pouvez répertorier les fichiers journaux pour le serveur **mydemoserver.postgres.database.azure.com** sous le groupe de ressources **myresourcegroup**. Puis, dirigez la liste des fichiers journaux vers un fichier texte appelé **log\_files\_list.txt**.

@@ -1,19 +1,19 @@
 ---
-title: Niveaux tarifaires pour Azure Database pour PostgreSQL
-description: Cet article présente les niveaux tarifaires pour Azure Database pour PostgreSQL.
+title: Niveaux tarifaires pour Azure Database pour PostgreSQL - serveur unique
+description: Cet article décrit les niveaux de tarification pour Azure Database pour PostgreSQL - serveur unique.
 author: jan-eng
 ms.author: janeng
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/01/2019
-ms.openlocfilehash: 4109679c03b13303c16cef8edd92ecddb6ca5e5f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 5/6/2019
+ms.openlocfilehash: e2580a57f943ad8da16cfbaeda2ee35d0f4bb691
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64712370"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073193"
 ---
-# <a name="azure-database-for-postgresql-pricing-tiers"></a>Niveaux tarifaires d’Azure Database pour PostgreSQL
+# <a name="pricing-tiers-in-azure-database-for-postgresql---single-server"></a>Niveaux tarifaires dans Azure Database pour PostgreSQL - serveur unique
 
 Vous pouvez créer un serveur Azure Database pour PostgreSQL dans un des trois différents niveaux tarifaires : De base, Usage général et À mémoire optimisée. Les niveaux tarifaires diffèrent par la quantité de calcul dans vCores qui peut être configurée, la mémoire par vCore et la technologie de stockage utilisée pour stocker les données. Toutes les ressources sont approvisionnées au niveau du serveur PostgreSQL. Un serveur peut avoir une ou plusieurs bases de données.
 

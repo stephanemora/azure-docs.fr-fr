@@ -9,19 +9,17 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: e82c842ec8fce703c48c98eaf09ea5c8d91be9be
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 74d2601c2319ccad9cc980b83894a3242705aa46
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60998511"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148116"
 ---
-# <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices-preview"></a>Comprendre les fonctionnalités hors connexion étendues pour les appareils, modules et appareils enfants IoT Edge (préversion)
+# <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices"></a>Comprendre l’étendue des fonctionnalités hors connexion pour les appareils IoT Edge, les modules et les périphériques enfants
 
 Azure IoT Edge prend en charge les opérations hors connexion étendues sur vos appareils IoT Edge et permet également certaines opérations hors connexion sur les appareils enfants non Edge. Dès lors qu’un appareil IoT Edge s’est connecté au moins une fois à IoT Hub, cet appareil et tous les appareils enfants assignés peuvent continuer à fonctionner même s’ils sont déconnectés de façon prolongée ou intermittente. 
 
->[!NOTE]
->La prise en charge du mode hors connexion pour IoT Edge est en [préversion publique](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="how-it-works"></a>Fonctionnement
 
@@ -61,24 +59,49 @@ Pour étendre les fonctionnalités hors connexion étendues d’un appareil IoT 
 
 ### <a name="assign-child-devices"></a>Assigner des appareils enfants
 
-Les appareils enfants sont des appareils non Edge inscrits auprès du même IoT Hub. Vous pouvez gérer leurs relations parent-enfant au moment où vous créez un appareil, ou à partir de la page de détails de l’appareil IoT Edge parent ou de l’appareil IoT enfant. 
+Les appareils enfants sont des appareils non Edge inscrits auprès du même IoT Hub. Un appareil parent peut avoir plusieurs appareils enfants, mais un appareil enfant ne peut avoir qu’un seul appareil parent. Il existe trois options pour définir les périphériques enfants sur un appareil edge :
+
+#### <a name="option-1-iot-hub-portal"></a>Option 1 : Portail IoT Hub
+
+ Vous pouvez gérer leurs relations parent-enfant au moment où vous créez un appareil, ou à partir de la page de détails de l’appareil IoT Edge parent ou de l’appareil IoT enfant. 
 
    ![Gérer les appareils enfants à partir de la page de détails de l’appareil IoT Edge](./media/offline-capabilities/manage-child-devices.png)
 
-Un appareil parent peut avoir plusieurs appareils enfants, mais un appareil enfant ne peut avoir qu’un seul appareil parent.
+
+#### <a name="option-2-use-the-az-command-line-tool"></a>Option 2 : Utilisez le `az` outil de ligne de commande
+
+À l’aide de la [interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) avec [extension IoT](https://github.com/azure/azure-iot-cli-extension) (v0.7.0 ou une version ultérieure), vous pouvez gérer les relations parent-enfant avec le [identité d’appareil](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest) sous-commandes. Dans l’exemple ci-dessous, nous exécutons une requête pour attribuer des appareils dans le hub de tous les non IoT Edge en tant qu’appareils enfant d’un appareil IoT Edge. 
+
+```shell
+# Set IoT Edge parent device
+egde_device="edge-device1"
+
+# Get All IoT Devices
+device_list=$(az iot hub query \
+        --hub-name replace-with-hub-name \
+        --subscription replace-with-sub-name \
+        --resource-group replace-with-rg-name \
+        -q "SELECT * FROM devices WHERE capabilities.iotEdge = false" \
+        --query 'join(`, `, [].deviceId)' -o tsv)
+
+# Add all IoT devices to IoT Edge (as child)
+az iot hub device-identity add-children \
+  --device-id $egde_device \
+  --child-list $device_list \
+  --hub-name replace-with-hub-name \
+  --resource-group replace-with-rg-name \
+  --subscription replace-with-sub-name 
+```
+
+Vous pouvez modifier le [requête](../iot-hub/iot-hub-devguide-query-language.md) pour sélectionner un autre sous-ensemble des appareils. La commande peut prendre plusieurs secondes si vous spécifiez une grande variété d’appareils.
+
+#### <a name="option-3-use-iot-hub-service-sdk"></a>Option 3 : Utiliser IoT Hub Service SDK 
+
+Enfin, vous pouvez gérer les relations parent-enfant par programme en utilisant soit C#, Java ou Node.js IoT Hub Service SDK. Voici une [exemple d’affectation d’un périphérique enfant](https://aka.ms/set-child-iot-device-c-sharp) à l’aide de la C# SDK.
 
 ### <a name="specifying-dns-servers"></a>Spécification des serveurs DNS 
 
-Pour améliorer la robustesse, il est recommandé de spécifier les adresses de serveur DNS utilisées dans votre environnement. Par exemple, sur Linux, mettez à jour **/etc/docker/daemon.json** (vous devrez peut-être créer le fichier) pour inclure :
-
-```json
-{
-    "dns": ["1.1.1.1"]
-}
-```
-
-Si vous utilisez un serveur DNS local, remplacez 1.1.1.1 par l’adresse IP du serveur DNS local. Redémarrez le service Docker pour que les modifications prennent effet.
-
+Pour améliorer la robustesse, il est hautement recommandé de que spécifier les adresses de serveur DNS utilisés dans votre environnement. Veuillez consulter la [deux options pour le faire à partir de l’article de dépannage](troubleshoot.md#resolution-7).
 
 ## <a name="optional-offline-settings"></a>Paramètres hors connexion facultatifs
 
@@ -86,7 +109,7 @@ Si vous prévoyez de collecter tous les messages générés par vos appareils au
 
 ### <a name="time-to-live"></a>Durée de vie
 
-Le paramètre de durée de vie définit la durée (en secondes) pendant laquelle un message peut attendre d’être remis avant d’expirer. La durée par défaut est de 7 200 secondes (deux heures). 
+Le paramètre de durée de vie définit la durée (en secondes) pendant laquelle un message peut attendre d’être remis avant d’expirer. La durée par défaut est de 7 200 secondes (deux heures). La valeur maximale est limitée uniquement par la valeur maximale d’une variable entière, ce qui est d’environ 2 milliards. 
 
 Ce paramètre est une propriété désirée du hub IoT Edge, qui est stockée dans le jumeau du module. Vous pouvez le configurer dans le portail Azure, dans la section **Configurer les paramètres avancés du runtime Edge** ou directement dans le manifeste de déploiement. 
 

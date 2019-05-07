@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: article
 ms.date: 03/21/2019
 ms.author: diberry
-ms.openlocfilehash: f59f281b1bf7fa2851ab7759a0167b5d39ef44c1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3e54e8dcb6efa9251262c651730376a0d04edcf9
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61372671"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65144961"
 ---
 # <a name="use-active-learning-to-improve-your-knowledge-base"></a>Utilisez la formation active pour améliorer votre base de connaissances
 
@@ -75,7 +75,7 @@ L’apprentissage actif est désactivé par défaut. Activez-le pour afficher le
 
 ## <a name="add-active-learning-suggestion-to-knowledge-base"></a>Ajout d’une suggestion d’apprentissage actif à la base de connaissances
 
-1. Pour afficher les suggestions de questions, dans la page **Edit knowledge base** (Modifier la base de connaissances), sélectionnez **Afficher les suggestions**. 
+1. Pour afficher les suggestions de questions, sur le **modifier** page de base de connaissances, sélectionnez **Options d’affichage**, puis sélectionnez **afficher les suggestions d’apprentissage actif**. 
 
     [![Dans la section Modifier du portail, sélectionnez Afficher les Suggestions afin de voir les nouvelles alternatives de question d’apprentissage actif.](../media/improve-knowledge-base/show-suggestions-button.png)](../media/improve-knowledge-base/show-suggestions-button.png#lightbox)
 

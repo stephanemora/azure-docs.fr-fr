@@ -1,19 +1,19 @@
 ---
-title: Journaux d’activité de serveur dans une base de données Azure pour PostgreSQL
-description: Cet article explique comment Azure Database pour PostgreSQL génère les journaux d’activité des requêtes et des erreurs et comment la rétention de journal d’activité est configurée.
+title: Journaux du serveur de base de données Azure pour PostgreSQL - serveur unique
+description: Cet article décrit comment Azure Database pour PostgreSQL - monoserveur génère la requête et les journaux des erreurs et la configuration de rétention du journal.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/28/2019
-ms.openlocfilehash: 99deef907818ffdb1ce858c8e988e26cbd53a1a1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 4d1cf2c59e324cedd9b747b1ac65d6edcb9deb45
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60871523"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65067350"
 ---
-# <a name="server-logs-in-azure-database-for-postgresql"></a>Journaux d’activité de serveur dans Azure Database pour PostgreSQL 
+# <a name="server-logs-in-azure-database-for-postgresql---single-server"></a>Journaux du serveur de base de données Azure pour PostgreSQL - serveur unique
 La base de données Azure pour PostgreSQL génère des journaux d’activité des requêtes et des erreurs. Les journaux d’activité des requêtes et des erreurs peuvent être utilisés pour identifier, résoudre et réparer les erreurs de configuration et les problèmes de performances. (L’accès aux journaux d’activité des transactions n’est pas pris en charge.) 
 
 ## <a name="configure-logging"></a>Configuration de la journalisation 

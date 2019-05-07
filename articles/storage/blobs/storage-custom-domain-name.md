@@ -2,22 +2,23 @@
 title: Configurer un nom de domaine personnalisé pour votre compte de Stockage Azure | Microsoft Docs
 description: Utilisez le portail Azure pour mapper votre propre nom canonique (CNAME) au point de terminaison de stockage Blob ou web dans un compte de stockage Azure.
 services: storage
-author: tamram
+author: normesta
 ms.service: storage
 ms.topic: article
 ms.date: 06/26/2018
-ms.author: tamram
+ms.author: normesta
+ms.reviewer: seguler
 ms.subservice: blobs
-ms.openlocfilehash: e40b6fe115d6b6dea38ead9f0b2550d96bd04c7a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 4f6776a5f15cf391f3a65aceb6e9e783d87a2078
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58112634"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148928"
 ---
 # <a name="configure-a-custom-domain-name-for-your-azure-storage-account"></a>Configurer un nom de domaine personnalisé pour votre compte de Stockage Azure
 
-Vous pouvez configurer un domaine personnalisé pour accéder à des données d’objets blob dans votre compte de stockage Azure. Le point de terminaison par défaut pour le stockage d’objets blob Azure est *\<storage-account-name >. blob.core.windows.net*. Vous pouvez également utiliser le point de terminaison web généré dans le cadre de la [fonctionnalité de sites web statiques (préversion)](storage-blob-static-website.md). Si vous mappez un domaine personnalisé et un sous-domaine, tel que *www\.contoso.com*, au point de terminaison blob ou web pour votre compte de stockage, vos utilisateurs peuvent utiliser ce domaine pour accéder aux données de blob dans votre compte de stockage.
+Vous pouvez configurer un domaine personnalisé pour accéder à des données d’objets blob dans votre compte de stockage Azure. Le point de terminaison par défaut pour le stockage d’objets blob Azure est *\<storage-account-name >. blob.core.windows.net*. Vous pouvez également utiliser le point de terminaison web qui est généré dans le cadre de la [fonctionnalité de sites Web statiques](storage-blob-static-website.md). Si vous mappez un domaine personnalisé et un sous-domaine, tel que *www\.contoso.com*, au point de terminaison blob ou web pour votre compte de stockage, vos utilisateurs peuvent utiliser ce domaine pour accéder aux données de blob dans votre compte de stockage.
 
 > [!IMPORTANT]
 > Stockage Azure ne prend pas encore en charge HTTPS nativement avec des domaines personnalisés. Vous pouvez [utiliser Azure CDN pour accéder aux objets blob à l’aide des domaines personnalisés via HTTPS](storage-https-custom-domain-cdn.md).

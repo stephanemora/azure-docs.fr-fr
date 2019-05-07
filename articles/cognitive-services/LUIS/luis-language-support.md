@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: diberry
-ms.openlocfilehash: 10fe5d90e7a7a59a1b543209a37b998376fdda1e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8f067bc005c4de9ddc87ed598b1717f8fbb29a6a
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60196216"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65072377"
 ---
 # <a name="language-and-region-support-for-luis"></a>Prise en charge de la région et de la langue pour LUIS
 
@@ -102,7 +102,7 @@ Les cultures suivantes ont des versions du Générateur de jetons personnalisé�
 |Culture|Version|Objectif|
 |--|--|--|
 |Allemand<br>`de-de`|1.0.0|Crée des jetons mots en les fractionnant à l’aide d’un ordinateur basé sur un apprentissage Générateur de jetons qui tente de se décomposer des mots composés en leurs composants uniques.<br>Si un utilisateur entre `Ich fahre einen krankenwagen` comme énoncé, elle est activée `Ich fahre einen kranken wagen`. Ce qui permet le marquage de `kranken` et `wagen` indépendamment en tant que différentes entités.|
-|Allemand<br>`de-de`|1.0.1|Crée des jetons en les fractionnant sur les espaces de mots.<br> Si un utilisateur entre `Ich fahre einen krankenwagen` comme énoncé, il reste un jeton unique. Par conséquent `krankenwagen` est marquée comme une seule entité. |
+|Allemand<br>`de-de`|1.0.2|Crée des jetons en les fractionnant sur les espaces de mots.<br> Si un utilisateur entre `Ich fahre einen krankenwagen` comme énoncé, il reste un jeton unique. Par conséquent `krankenwagen` est marquée comme une seule entité. |
 
 ### <a name="migrating-between-tokenizer-versions"></a>Migration entre les versions du Générateur de jetons
 <!--

@@ -4,14 +4,14 @@ description: Comprendre le fonctionnement de l’indexation dans Azure Cosmos DB
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 05/06/2019
 ms.author: thweiss
-ms.openlocfilehash: 3bb8913725acf04f71aba8b4c4350235f2c44dfb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 44706e5ebe2442dcb45dfc45e2c322938cf7dca9
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61051868"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65068654"
 ---
 # <a name="indexing-in-azure-cosmos-db---overview"></a>L’indexation dans Azure Cosmos DB - vue d’ensemble
 
@@ -66,19 +66,41 @@ Azure Cosmos DB prend actuellement en charge deux types d’index :
 
 Le **plage** type d’index est utilisé pour :
 
-- requêtes d’égalité : `SELECT * FROM container c WHERE c.property = 'value'`
-- les requêtes de plage : `SELECT * FROM container c WHERE c.property > 'value'` (convient `>`, `<`, `>=`, `<=`, `!=`)
-- `ORDER BY` requêtes : `SELECT * FROM container c ORDER BY c.property`
-- `JOIN` requêtes : `SELECT child FROM container c JOIN child IN c.properties WHERE child = 'value'`
+- requêtes d’égalité : 
+
+   ```sql SELECT * FROM container c WHERE c.property = 'value'```
+
+- Les requêtes de plage : 
+
+   ```sql SELECT * FROM container c WHERE c.property > 'value'``` (fonctionne pour `>`, `<`, `>=`, `<=`, `!=`)
+
+- `ORDER BY` requêtes :
+
+   ```sql SELECT * FROM container c ORDER BY c.property```
+
+- `JOIN` requêtes : 
+
+   ```sql SELECT child FROM container c JOIN child IN c.properties WHERE child = 'value'```
 
 Index de plage peuvent être utilisés sur des valeurs scalaires (chaîne ou nombre).
 
 Le **spatial** type d’index est utilisé pour :
 
-- requêtes géospatiales à distance : `SELECT * FROM container c WHERE ST_DISTANCE(c.property, { "type": "Point", "coordinates": [0.0, 10.0] }) < 40`
-- Geospatial dans des requêtes : `SELECT * FROM container c WHERE ST_WITHIN(c.property, {"type": "Point", "coordinates": [0.0, 10.0] } })`
+- requêtes géospatiales à distance : 
+
+   ```sql SELECT * FROM container c WHERE ST_DISTANCE(c.property, { "type": "Point", "coordinates": [0.0, 10.0] }) < 40```
+
+- Geospatial dans des requêtes : 
+
+   ```sql SELECT * FROM container c WHERE ST_WITHIN(c.property, {"type": "Point", "coordinates": [0.0, 10.0] } })```
 
 Les index spatiaux peuvent être utilisés sur correctement mis en forme [GeoJSON](geospatial.md) objets. Points, LineStrings et polygones sont actuellement pris en charge.
+
+Le **composite** type d’index est utilisé pour :
+
+- `ORDER BY` requêtes sur plusieurs propriétés : 
+
+   ```sql SELECT * FROM container c ORDER BY c.firstName, c.lastName```
 
 ## <a name="querying-with-indexes"></a>Interrogation avec des index
 
@@ -89,7 +111,7 @@ Par exemple, considérez la requête suivante : `SELECT location FROM location 
 ![Mise en correspondance un chemin d’accès spécifique au sein d’une arborescence](./media/index-overview/matching-path.png)
 
 > [!NOTE]
-> Un `ORDER BY` clause *toujours* a besoin d’une plage d’index et échoue si le chemin d’accès, elle fait référence à n’en possède pas.
+> Un `ORDER BY` clause trie par une seule propriété *toujours* a besoin d’une plage d’index et échoue si le chemin d’accès, elle fait référence à n’en possède pas. De même, un multiple `ORDER BY` requête *toujours* a besoin d’un index composite.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

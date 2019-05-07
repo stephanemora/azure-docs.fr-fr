@@ -13,12 +13,12 @@ ms.author: sstein
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/08/2019
-ms.openlocfilehash: ecfd0cbc3eaaae64a956568a506252fdbeddcac2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ed94677eea91e3543dced9825a1372f60550a524
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60580689"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073610"
 ---
 # <a name="what-is-azure-sql-database-service"></a>Qu’est le service de base de données SQL Azure
 
@@ -54,7 +54,7 @@ SQL Database offre des performances prévisibles pour plusieurs types de ressour
 
 ## <a name="scalable-performance-and-pools"></a>Pools et performances évolutives
 
-- Avec des bases de données uniques, chaque base de données est isolée des autres et portable, avec sa propre garantie quantité de ressources de calcul, de mémoire et de stockage. SQL Database fournit des ressources de calcul, de mémoire et de stockage différentes pour répondre à différents besoins, ainsi que la possibilité de [mettre à l’échelle des ressources de base de données unique](sql-database-single-database-scale.md) de façon dynamique. Le [niveau de service hyperscale](sql-database-service-tier-hyperscale.md) (préversion) pour une base de données unique vous permet de mettre à l’échelle jusqu’à 100 To, avec des fonctionnalités de sauvegarde et de restauration.
+- Avec des bases de données uniques, chaque base de données est isolée des autres et portable, avec sa propre garantie quantité de ressources de calcul, de mémoire et de stockage. SQL Database fournit des ressources de calcul, de mémoire et de stockage différentes pour répondre à différents besoins, ainsi que la possibilité de [mettre à l’échelle des ressources de base de données unique](sql-database-single-database-scale.md) de façon dynamique. Le [niveau de service hyperscale](sql-database-service-tier-hyperscale.md) d’une base de données unique permet de vous adapter aux 100 To, avec des sauvegardes et des capacités de restauration.
 - Avec des pools élastiques, vous pouvez créer des bases de données ou déplacer des bases de données uniques dans un pool de ressources pour optimiser l’utilisation des ressources et réaliser des économies, en ayant la possibilité de [mettre à l’échelle des ressources de pool élastique](sql-database-elastic-pool-scale.md) de façon dynamique.
 - Avec des instances gérées, chaque instance est isolée des autres avec des ressources garanties. Au sein d’une instance gérée, les bases de données d’instance partagent un ensemble de ressources, avec la possibilité de [mettre à l’échelle des ressources d’instance gérée](sql-database-managed-instance-resource-limits.md) de façon dynamique.
 
@@ -69,8 +69,7 @@ SQL Database est disponible en deux modèles d’achat :
 - Le [modèle d’achat DTU](sql-database-service-tiers-dtu.md) offre une combinaison de ressources de calcul, de mémoire et d’E/S réparties sur trois niveaux de service pour prendre en charge les charges de travail de base de données, tant légères qu’importantes. Les tailles de calcul de chaque niveau fournissent une combinaison différente de ces ressources, auxquelles vous pouvez ajouter d’autres ressources de stockage.
 - Le [modèle d’achat vCore](sql-database-service-tiers-vcore.md) vous permet de choisir le nombre de vCores, la quantité de mémoire et de stockage, ainsi que la vitesse de stockage. Le modèle d’achat vCore vous permet également d’utiliser [Azure Hybrid Benefit pour SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/) afin de réduire les coûts. Pour en savoir plus sur Azure Hybrid Benefit, consultez le [forum aux questions](#sql-database-frequently-asked-questions-faq).
 
-  > [!IMPORTANT]
-  > Le [niveau de service hyperscale](sql-database-service-tier-hyperscale.md) pour les bases de données uniques est actuellement en préversion publique. Nous vous recommandons de ne pas exécuter des charges de travail de production dans des bases de données hyperscale pour le moment. Vous ne pouvez pas mettre à jour une base de données hyperscale vers d’autres niveaux de service. À des fins de test, nous vous recommandons de faire une copie de votre base de données actuelle et de mettre à jour la copie vers le niveau de service hyperscale.
+  
 
 ### <a name="elastic-pools-to-maximize-resource-utilization"></a>Pools élastiques pour optimiser l’utilisation des ressources
 

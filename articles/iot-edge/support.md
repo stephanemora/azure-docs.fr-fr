@@ -4,17 +4,17 @@ description: Découvrez quels systèmes d’exploitation peuvent exécuter le ru
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 03/18/2019
+ms.date: 05/06/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 5bc133e81f9917aafb406a6bfb27922cdba48ef5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1db999f5d3172734311ecc7dbec72214a1e07e91
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60612241"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65137807"
 ---
 # <a name="azure-iot-edge-supported-systems"></a>Systèmes pris en charge Azure IoT Edge
 
@@ -60,14 +60,15 @@ Mise à la disposition générale
 | Raspbian-stretch | Non  | Oui|
 | Ubuntu Server 16.04 | Oui | Non  |
 | Ubuntu Server 18.04 | Oui | Non  |
+| Windows 10 IoT entreprise, build 17763 | Oui | Non  |
 
 Préversion publique
 
 | Système d’exploitation | AMD64 | ARM32v7 |
 | ---------------- | ----- | ----- |
 | Windows 10 IoT Core, build 17763 | Oui | Non  |
-| Windows 10 IoT entreprise, build 17763 | Oui | Non  |
-| Windows Server 2019 | Oui | Non  |
+| Windows Server 2019, build 17763 | Oui | Non  |
+| Windows Server IoT 2019, build 17763 | Oui | Non  |
 
 Les systèmes d’exploitation Windows répertoriés ci-dessus sont les conditions requises pour les appareils qui exécutent les conteneurs Windows sur Windows. Cette configuration est la seule configuration prise en charge pour la production. Les packages d’installation Azure IoT Edge pour Windows permettent l’utilisation de conteneurs Linux sur Windows ; Toutefois, cette configuration est pour le développement et de test uniquement. L’utilisation de conteneurs Linux sur Windows n’est pas une configuration prise en charge pour la production. N’importe quelle version de Windows 10 build 14393 ou version ultérieure et de Windows Server 2016 ou version ultérieure peut être utilisée pour ce scénario de développement.
 

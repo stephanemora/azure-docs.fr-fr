@@ -8,12 +8,12 @@ ms.date: 03/20/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: eaafee304f606ae4d511a6cea1824c26db838635
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 16a03840f6bbf44853cf01e50189a194672d153e
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62119127"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65145161"
 ---
 # <a name="troubleshoot-errors-when-onboarding-solutions"></a>Résolution des erreurs d’intégration des solutions
 
@@ -78,6 +78,36 @@ Pour déployer correctement la solution, vous devez envisager de modifier la str
   * en révisant l’ensemble de ressources que cette stratégie a été configurée pour refuser.
 
 Consultez les notifications dans l’angle supérieur droit du portail Azure ou accédez au groupe de ressources qui contient votre compte automation, puis sélectionnez **déploiements** sous **paramètres** pour afficher l’ayant échoué déploiement. Pour en apprendre davantage sur Azure Policy, consultez : [Présentation d’Azure Policy](../../governance/policy/overview.md?toc=%2fazure%2fautomation%2ftoc.json).
+
+### <a name="unlink"></a>Scénario : Erreurs tente de supprimer le lien d’un espace de travail
+
+#### <a name="issue"></a>Problème
+
+L’erreur suivante s’affiche lorsque vous tentez de supprimer le lien d’un espace de travail :
+
+```error
+The link cannot be updated or deleted because it is linked to Update Management and/or ChangeTracking Solutions.
+```
+
+#### <a name="cause"></a>Cause :
+
+Cette erreur se produit lorsque vous avez toujours des solutions actives dans votre espace de travail Analytique de journal qui dépendent de votre espace de travail compte Automation et d’analyse de journal qui est lié.
+
+### <a name="resolution"></a>Résolution :
+
+Pour résoudre ce problème, vous devrez supprimer les solutions suivantes à partir de votre espace de travail si vous utilisez :
+
+* Update Management
+* Suivi des modifications
+* Démarrer/arrêter des machines virtuelles pendant les heures creuses
+
+Une fois que vous supprimez les solutions que vous pouvez dissocier votre espace de travail. Il est important de nettoyer tous les artefacts existants à partir de ces solutions à partir de votre espace de travail et le compte Automation.  
+
+* Update Management
+  * Supprimer les déploiements de mises à jour (planifications) à partir de votre compte Automation
+* Démarrer/arrêter des machines virtuelles pendant les heures creuses
+  * Supprimer tous les verrous sur les composants de la solution dans votre compte Automation sous **paramètres** > **verrous**.
+  * Pour obtenir des instructions supplémentaires supprimer les machines virtuelles de Start/Stop au cours de la solution d’heures creuses consultez, [supprimer la machine virtuelle de démarrage/arrêt au cours de la solution d’heures creuses](../automation-solution-vm-management.md##remove-the-solution).
 
 ## <a name="mma-extension-failures"></a>Échecs d’extension MMA
 

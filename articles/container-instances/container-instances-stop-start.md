@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: danlep
-ms.openlocfilehash: 50f3ecf69561313a5bda67827cfb02d2f61d461f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8e62d106a42dfbec897e5e14cf68fd3d7fd823c4
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60653659"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65070811"
 ---
 # <a name="manually-stop-or-start-containers-in-azure-container-instances"></a>Arrêter ou démarrer des conteneurs dans Azure Container Instances manuellement
 
@@ -24,7 +24,7 @@ Arrêtez manuellement un groupe de conteneurs en cours d’exécution - par exem
 
 *Lorsqu’un groupe de conteneurs entre en état arrêté, il se termine et recycle tous les conteneurs dans le groupe. Il ne conserve pas l’état du conteneur.*
 
-Bien que les conteneurs dans un groupe de conteneurs arrêté sont recyclées, le [ressources](container-instances-container-groups.md#resource-allocation) restent allouées pour votre usage. Par conséquent, la facturation continue pour un groupe de conteneurs arrêté.
+Lorsque les conteneurs sont recyclées, le [ressources](container-instances-container-groups.md#resource-allocation) sont libérées et la facturation s’arrête pour le groupe de conteneurs.
 
 L’action d’arrêt n’a aucun effet si le groupe de conteneurs est déjà terminée (est en état d’une opération réussie ou échec). Par exemple, un groupe de conteneurs avec les tâches de conteneur d’exécution unique qui a été correctement exécutée se termine dans l’état de réussite. Tente d’arrêter le groupe dans la mesure état ne changent pas l’état. 
 

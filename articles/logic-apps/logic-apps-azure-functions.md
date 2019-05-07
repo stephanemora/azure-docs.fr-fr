@@ -1,37 +1,35 @@
 ---
-title: Ajouter et exécuter du code personnalisé dans Azure Logic Apps avec Azure Functions | Microsoft Docs
-description: Découvrez comment ajouter et exécuter des extraits de code personnalisés dans Azure Logic Apps avec Azure Functions
+title: Ajouter et exécuter du code dans Azure Logic Apps avec Azure Functions
+description: Ajouter et exécuter du code dans Azure Logic Apps avec Azure Functions
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
 ms.topic: article
 ms.date: 08/20/2018
 ms.reviewer: klam, LADocs
-ms.suite: integration
-ms.openlocfilehash: 2bec33a4a8540f9599cf1d479f1f59c4cde39bd2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e371a6abe32a1a41d3babeaa27aaec3e30bd3323
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60687597"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142322"
 ---
-# <a name="add-and-run-custom-code-snippets-in-azure-logic-apps-with-azure-functions"></a>Ajouter et exécuter des extraits de code personnalisés dans Azure Logic Apps avec Azure Functions
+# <a name="add-and-run-code-by-using-azure-functions-in-azure-logic-apps"></a>Ajouter et exécuter du code à l’aide d’Azure Functions dans Azure Logic Apps
 
-Quand vous souhaitez exécuter uniquement du code qui effectue une tâche spécifique dans vos applications logiques, vous pouvez créer vos propres fonctions avec [Azure Functions](../azure-functions/functions-overview.md). Ce service vous permet de créer des extraits de code Node.js, C# et F# pour ne pas avoir à créer une application complète ou l’infrastructure pour l’exécution de votre code. Azure Functions fournit une informatique sans serveur dans le cloud et est utile pour effectuer des tâches telles que les suivantes :
+Lorsque vous souhaitez exécuter le code qui effectue un travail spécifique dans vos applications logiques, vous pouvez créer vos propres fonctions avec [Azure Functions](../azure-functions/functions-overview.md). Ce service vous permet de créer de Node.js, C#, et F# code afin que vous n’êtes pas obligé de créer une application complète ou l’infrastructure pour l’exécution de votre code. Vous pouvez également [appeler des applications logiques à l’intérieur de fonctions Azure](#call-logic-app).
+Azure Functions fournit une informatique sans serveur dans le cloud et est utile pour effectuer des tâches telles que les suivantes :
 
 * Étendre le comportement de votre application logique avec des fonctions dans Node.js ou C#
 * Effectuer des calculs dans le workflow de votre application logique
 * Appliquer une mise en forme avancée ou calculer des champs dans vos applications logiques
 
-Vous pouvez également [appeler des applications logiques à l’intérieur de fonctions Azure](#call-logic-app).
+Pour exécuter des extraits de code sans créer des fonctions Azure, découvrez comment [ajouter et exécuter le code inline](../logic-apps/logic-apps-add-run-inline-code.md).
 
 ## <a name="prerequisites"></a>Conditions préalables
 
-Pour suivre cet article, vous avez besoin de ce qui suit :
-
-* Si vous n’avez pas encore d’abonnement Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscrivez-vous pour bénéficier d’un compte Azure gratuit</a>. 
+* Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, [inscrivez-vous pour bénéficier d’un compte Azure gratuit](https://azure.microsoft.com/free/).
 
 * Une application de fonction Azure, qui est un conteneur pour les fonctions Azure, et votre fonction Azure. Si vous n’avez pas d’application de fonction, [créez-la en premier lieu](../azure-functions/functions-create-first-azure-function.md). Vous pouvez ensuite créer votre fonction soit [séparément à l’extérieur de votre application logique](#create-function-external), soit [à partir de l’intérieur de votre application logique](#create-function-designer) dans le Concepteur d’applications logiques
 
@@ -58,7 +56,7 @@ Pour suivre cet article, vous avez besoin de ce qui suit :
 
 ## <a name="create-functions-outside-logic-apps"></a>Créer des fonctions en dehors des applications logiques
 
-Dans le <a href="https://portal.azure.com" target="_blank">portail Azure</a>, créez votre application de fonction Azure, qui doit avoir le même abonnement Azure que votre application logique, puis créez votre fonction Azure.
+Dans le [portail Azure](https://portal.azure.com), créez votre application de fonction Azure, qui doit avoir le même abonnement Azure que votre application logique, puis créez votre fonction Azure.
 Si vous débutez avec la création de fonctions Azure, découvrez comment [créer votre première fonction dans le portail Azure](../azure-functions/functions-create-first-azure-function.md), mais notez ces exigences relatives à la création de fonctions que vous pouvez appeler à partir d’applications logiques :
 
 * Veillez à sélectionner le modèle de fonction **Déclencheur HTTP** pour **JavaScript** ou **C#**.
@@ -116,7 +114,7 @@ Maintenant que vous avez créé votre fonction Azure, suivez les étapes pour d�
 
 Avant de pouvoir créer une fonction Azure à partir de l’intérieur de votre application logique dans le Concepteur d’applications logiques, vous devez d’abord disposer d’une application de fonction Azure, qui est un conteneur pour vos fonctions. Si vous n’avez pas d’application de fonction, créez-la en premier lieu. Voir [Créer votre première fonction à l’aide du portail Azure](../azure-functions/functions-create-first-azure-function.md). 
 
-1. Dans le <a href="https://portal.azure.com" target="_blank">portail Azure</a>, ouvrez votre application logique dans le Concepteur d’applications logiques. 
+1. Dans le [portail Azure](https://portal.azure.com), ouvrez votre application logique dans le Concepteur d’applications logiques. 
 
 2. Pour créer et ajouter votre fonction, suivez l’étape qui s’applique à votre scénario :
 
@@ -176,7 +174,7 @@ Dans la liste des actions, sélectionnez cette action : **Choisissez une foncti
 
 Pour appeler des fonctions Azure existantes à partir de vos applications logiques, vous pouvez ajouter des fonctions Azure comme toute autre action dans le Concepteur d’applications logiques. 
 
-1. Dans le <a href="https://portal.azure.com" target="_blank">portail Azure</a>, ouvrez votre application logique dans le Concepteur d’applications logiques. 
+1. Dans le [portail Azure](https://portal.azure.com), ouvrez votre application logique dans le Concepteur d’applications logiques. 
 
 2. Sous l’étape où vous souhaitez ajouter la fonction, choisissez **Nouvelle étape** > **Ajouter une action**. 
 

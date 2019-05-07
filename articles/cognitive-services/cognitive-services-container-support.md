@@ -10,12 +10,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 61d958ae4e53b5f2b123f3fa3660ef62a6cdcabe
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 241bda5c684197a43cc5564e950e924fed668b89
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65021506"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65147561"
 ---
 # <a name="container-support-in-azure-cognitive-services"></a>Prise en charge des conteneurs dans Azure Cognitive Services
 
@@ -26,6 +26,7 @@ La prise en charge des conteneurs dans Azure Cognitive Services permet aux déve
 * [Visage](Face/Overview.md)
 * [Module de reconnaissance de forme](https://go.microsoft.com/fwlink/?linkid=2083826&clcid=0x409)
 * [Compréhension du langage](LUIS/luis-container-howto.md) (LUIS)
+* [Personalizer](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409)
 * [API Speech Service](https://go.microsoft.com/fwlink/?linkid=2083926&clcid=0x409)
 * [Analyse de texte](text-analytics/overview.md)
 
@@ -56,6 +57,7 @@ Les conteneurs Azure Cognitive Services fournissent l’ensemble suivant de cont
 |[Visage](Face/face-how-to-install-containers.md) |F0, S0|**Visage** |Détecter les visages humains sur des images et identifier les attributs, y compris les caractéristiques (par exemple, le nez et les yeux), le sexe, l’âge et d’autres caractéristiques du visage prévues par la machine. En plus de la détection, le conteneur Visage peut vérifier si deux visages sur la même image ou sur des images différentes sont identiques à l’aide d’un score de confiance, ou de comparer des visages par rapport à une base de données pour voir si un visage similaire ou identique existe déjà. Il peut également regrouper des visages similaires à l’aide de caractéristiques visuelles partagées.<br>[Demander l’accès](Face/face-how-to-install-containers.md#request-access-to-the-private-container-registry) |
 |[Module de reconnaissance de forme](https://go.microsoft.com/fwlink/?linkid=2083826&clcid=0x409) |F0, S0|**Module de reconnaissance de forme** |Présentation du formulaire s’applique la technologie machine learning pour identifier et extraire des tables et des paires clé-valeur à partir de formulaires.<br>[Demander l’accès](https://aka.ms/FormRecognizerContainerRequestAccess)|
 |[LUIS](LUIS/luis-container-howto.md) |F0, S0|**LUIS** ([image](https://go.microsoft.com/fwlink/?linkid=2043204&clcid=0x409))|Charge un modèle Language Understanding entraîné ou publié, également connu sous le nom d’application LUIS, dans un conteneur docker et fournit l’accès aux prédictions de requête à partir des points de terminaison d’API du conteneur. Vous pouvez collecter les journaux d’activité de requêtes du conteneur et les charger sur le [portail LUIS](https://www.luis.ai) pour améliorer la précision de prédiction de l’application.|
+|[Personalizer](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409) |F0, S0|**Personalizer** ([image](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409))|Personalizer Azure est un service API basée sur le cloud qui vous permet de choisir la meilleure expérience pour montrer à vos utilisateurs, de formation à partir de leur comportement en temps réel.|
 |[API Speech Service](https://go.microsoft.com/fwlink/?linkid=2083926&clcid=0x409) |F0, S0|**Reconnaissance vocale** |Retranscrit une voix en un texte de façon continue et en temps réel.<br>[Demander l’accès](https://aka.ms/speechcontainerspreview/)|
 |[API Speech Service](https://go.microsoft.com/fwlink/?linkid=2083926&clcid=0x409) |F0, S0|**Synthèse vocale** |Convertit le texte en paroles naturelles.<br>[Demander l’accès](https://aka.ms/speechcontainerspreview/)|
 |[Analyse de texte](text-analytics/how-tos/text-analytics-how-to-install-containers.md) |F0, S|**Extraction de phrases clés** ([image](https://go.microsoft.com/fwlink/?linkid=2018757&clcid=0x409)) |Extraire des expressions clés pour identifier les points principaux. Par exemple, pour le texte d’entrée « Le repas était délicieux et le personnel adorable », l’API renvoie les principaux points de discussion : « repas » et « personnel adorable ». |
@@ -103,5 +105,6 @@ Installer et explorer les fonctionnalités fournies par les conteneurs dans Azur
 * [Conteneurs de visage](Face/face-how-to-install-containers.md)
 * [Conteneurs de module de reconnaissance de forme](https://go.microsoft.com/fwlink/?linkid=2083826&clcid=0x409)
 * [Conteneurs de langage vocale (LUIS)](LUIS/luis-container-howto.md)
+* [Conteneurs personalizer](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409)
 * [Conteneurs d’API de Service de reconnaissance vocale](https://go.microsoft.com/fwlink/?linkid=2083926&clcid=0x409)
 * [Conteneurs d’Analytique de texte](text-analytics/how-tos/text-analytics-how-to-install-containers.md)

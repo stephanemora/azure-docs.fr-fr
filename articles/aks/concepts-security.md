@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: iainfou
-ms.openlocfilehash: 8fd5b726c01b056d38e7e187cec8270ee4e127a9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2e655627267546d88f76a2487817bca3153ee91d
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60466732"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65074015"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Concepts de sécurité pour les applications et les clusters dans AKS (Azure Kubernetes Service)
 
@@ -34,9 +34,11 @@ Par défaut, le serveur d’API Kubernetes utilise une adresse IP publique avec 
 
 ## <a name="node-security"></a>Sécurité des nœuds
 
-Les nœuds AKS sont des machines virtuelles Azure dont vous assurez la gestion et la maintenance. Les nœuds exécutent une distribution Ubuntu Linux optimisée à l’aide de l’exécution du conteneur Moby. Quand un cluster AKS est créé ou fait l’objet d’un scale-up, les nœuds sont déployés automatiquement avec les dernières configurations et mises à jour de sécurité du système d’exploitation.
+Les nœuds AKS sont des machines virtuelles Azure dont vous assurez la gestion et la maintenance. Exécutez une distribution Ubuntu optimisée à l’aide de l’exécution du conteneur Moby des nœuds Linux. Nœuds Windows Server (actuellement en version préliminaire dans ACS) exécuter une optimisation 2019 de serveur Windows mise en production et utilisent également l’exécution du conteneur Moby. Quand un cluster AKS est créé ou fait l’objet d’un scale-up, les nœuds sont déployés automatiquement avec les dernières configurations et mises à jour de sécurité du système d’exploitation.
 
-La plateforme Azure applique automatiquement les correctifs de sécurité du système d’exploitation aux nœuds chaque nuit. Si une mise à jour de la sécurité du système d’exploitation nécessite un redémarrage de l’hôte, ce redémarrage n’est pas effectué automatiquement. Vous pouvez redémarrer les nœuds manuellement, ou bien appliquer une approche courante qui consiste à utiliser [Kured][kured], démon de redémarrage open source pour Kubernetes. Kured s’exécute comme un [DaemonSet][aks-daemonsets] et analyse chaque nœud à la recherche d’un fichier indiquant qu’un redémarrage est nécessaire. Les redémarrages sont gérés au sein du cluster à l’aide du même [processus d’isolation et de drainage](#cordon-and-drain) que celui appliqué pour la mise à niveau du cluster.
+La plateforme Azure applique automatiquement les correctifs de sécurité du système d’exploitation à des nœuds Linux chaque nuit. Si une mise à jour de la sécurité du système d’exploitation Linux nécessite un redémarrage de l’hôte, ce redémarrage n’est pas effectué automatiquement. Vous pouvez redémarrer manuellement les nœuds Linux, ou une approche courante consiste à utiliser [Kured][kured], un démon de redémarrage open source pour Kubernetes. Kured s’exécute comme un [DaemonSet][aks-daemonsets] et analyse chaque nœud à la recherche d’un fichier indiquant qu’un redémarrage est nécessaire. Les redémarrages sont gérés au sein du cluster à l’aide du même [processus d’isolation et de drainage](#cordon-and-drain) que celui appliqué pour la mise à niveau du cluster.
+
+Pour les nœuds de Windows Server (actuellement en version préliminaire dans ACS), mise à jour de Windows n’exécute pas automatiquement et appliquer les dernières mises à jour. Selon une planification régulière autour de cycle de mise à jour de Windows et votre propre processus de validation, vous devez effectuer une mise à niveau sur l’ou les pools nœud Windows Server dans votre cluster AKS. Ce processus de mise à niveau crée des nœuds qui exécutent la dernière image Windows Server et les correctifs, puis supprime les nœuds plus anciens. Pour plus d’informations sur ce processus, consultez [mise à niveau d’un pool de nœuds dans ACS][nodepool-upgrade].
 
 Les nœuds sont déployés sur un sous-réseau de réseau virtuel privé, sans aucune adresse IP publique affectée. Pour des raisons de gestion et de résolution des problèmes, SSH est activé par défaut. Cet accès SSH n’est disponible qu’au moyen de l’adresse IP interne.
 
@@ -50,12 +52,12 @@ Pour des raisons de conformité et de sécurité, ou pour que soient utilisées 
 
 ### <a name="cordon-and-drain"></a>Isolation et drainage
 
-Pendant le processus de mise à niveau, les nœuds AKS sont chacun isolés du cluster afin que de nouveaux pods ne soient pas planifiés sur ces nœuds. Les nœuds sont ensuite drainés et mis à niveau comme suit :
+Pendant le processus de mise à niveau, les nœuds AKS sont coordonnés individuellement à partir du cluster afin de nouveaux pods ne sont pas planifiés sur ces derniers. Les nœuds sont ensuite drainés et mis à niveau comme suit :
 
-- Les pods existants sont normalement arrêtés et planifiés sur les nœuds restants.
-- Le nœud est redémarré, le processus de mise à niveau est effectué, puis le nœud rejoint le cluster AKS.
-- Les pods sont planifiés pour être réexécutés sur les nœuds.
-- Le nœud suivant dans le cluster est isolé et drainé au moyen du même processus jusqu’à ce que tous les nœuds soient mis à niveau.
+- Un nouveau nœud est déployé dans le pool de nœud. Ce nœud s’exécute la dernière image du système d’exploitation et les correctifs.
+- Un des nœuds existants est identifié pour être mise à niveau. PODS sur ce nœud sont normalement s’est arrêtés et planifiées sur les autres nœuds dans le pool de nœud.
+- Ce nœud existant est supprimé du cluster AKS.
+- Le nœud suivant dans le cluster est coordonné et purgés à l’aide du même processus jusqu'à ce que tous les nœuds sont remplacés avec succès dans le cadre du processus de mise à niveau.
 
 Pour plus d’informations, consultez [Mettre à niveau un cluster AKS][aks-upgrade-cluster].
 
@@ -102,3 +104,4 @@ Pour plus d’informations sur les concepts fondamentaux de Kubernetes et d’AK
 [aks-concepts-network]: concepts-network.md
 [cluster-isolation]: operator-best-practices-cluster-isolation.md
 [operator-best-practices-cluster-security]: operator-best-practices-cluster-security.md
+[nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool

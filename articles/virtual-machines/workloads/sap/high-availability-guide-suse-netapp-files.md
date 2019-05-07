@@ -14,14 +14,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/015/2019
+ms.date: 04/30/2019
 ms.author: radeltch
-ms.openlocfilehash: cd2479aed1e348a27c5cba56c6d809ffb24e4fc0
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 3bd8600d0839c31a17221bb5421dc36165deb434
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925773"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142978"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-with-azure-netapp-files-for-sap-applications"></a>Haute disponibilité pour SAP NetWeaver sur machines virtuelles Azure sur SUSE Linux Enterprise Server avec Azure Files de NetApp pour les applications SAP
 
@@ -99,6 +99,10 @@ Maintenant, il est possible d’atteindre des SAP Netweaver à haute disponibili
 
 SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS et la base de données SAP HANA utilisent un nom d’hôte virtuel et des adresses IP virtuelles. Sur Azure, un [équilibreur de charge](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) est nécessaire pour utiliser une adresse IP virtuelle. La liste suivante illustre la configuration de l’équilibreur de charge des instances (A)SCS et ERS.
 
+> [!IMPORTANT]
+> Le clustering multi-SID de SAP ASC/ERS avec SUSE Linux comme système d’exploitation invité des machines virtuelles Azure est **ne pas pris en charge**. Clustering multi-SID décrit l’installation de plusieurs instances SAP ASCS/ERS avec des SID différents dans un même cluster Pacemaker
+
+
 ### <a name="ascs"></a>(A)SCS
 
 * Configuration du frontend
@@ -107,7 +111,7 @@ SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS et la base de données 
   * Connecté aux interfaces réseau principales de toutes les machines virtuelles qui doivent faire partie du cluster (A)SCS/ERS
 * Port de la sonde
   * Port 620<strong>&lt;nr&gt;</strong>
-* Règles d'équilibrage de charge
+* Règles d’équilibrage de charge
   * TCP 32<strong>&lt;nr&gt;</strong>
   * TCP 36<strong>&lt;nr&gt;</strong>
   * TCP 39<strong>&lt;nr&gt;</strong>
@@ -124,7 +128,8 @@ SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS et la base de données 
   * Connecté aux interfaces réseau principales de toutes les machines virtuelles qui doivent faire partie du cluster (A)SCS/ERS
 * Port de la sonde
   * Port 621<strong>&lt;nr&gt;</strong>
-* Règles d'équilibrage de charge
+* Règles d’équilibrage de charge
+  * TCP 32<strong>&lt;nr&gt;</strong>
   * TCP 33<strong>&lt;nr&gt;</strong>
   * TCP 5<strong>&lt;nr&gt;</strong>13
   * TCP 5<strong>&lt;nr&gt;</strong>14
@@ -228,7 +233,7 @@ Vous devez d’abord créer des volumes de fichiers NetApp de Azure. Déployer l
          1. Cliquez sur OK
       1. Port 621**01** pour les instances ASCS ERS
             * Répétez les étapes ci-dessus sous « c » pour créer une sonde d’intégrité pour l’instance ERS (par exemple 621**01** et **contrôle d’intégrité. ASSURANCE QUALITÉ. ERS**)
-   1. Règles d'équilibrage de charge
+   1. Règles d’équilibrage de charge
       1. TCP 32**00** pour l’instance ASCS
          1. Ouvrir l’équilibrage de charge, sélectionnez les règles d’équilibrage de charge et cliquez sur Ajouter
          1. Entrez le nom de la nouvelle règle d’équilibrage de charge (par exemple **lb. ASSURANCE QUALITÉ. ASCS.3200**)
@@ -626,7 +631,7 @@ Si vous utilisez l’architecture de serveur 2 de file d’attente ([ENSA2](http
    sudo crm configure property maintenance-mode="false"
    </code></pre>
 
-   Si vous êtes la mise à niveau à partir d’une version antérieure et le basculement vers le serveur de file d’attente 2, consultez la note sap [2641019](https://launchpad.support.sap.com/#/notes/2641019). 
+   Si vous êtes la mise à niveau à partir d’une version antérieure et le basculement vers le serveur de file d’attente 2, consultez SAP note [2641019](https://launchpad.support.sap.com/#/notes/2641019). 
 
    Vérifiez que l’état du cluster est OK et que toutes les ressources sont démarrées. Le nœud sur lequel les ressources s’exécutent n’a aucune importance.
 

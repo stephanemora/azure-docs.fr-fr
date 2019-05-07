@@ -9,12 +9,12 @@ ms.date: 4/23/2019
 ms.topic: troubleshooting
 ms.service: service-fabric-mesh
 manager: jeanpaul.connock
-ms.openlocfilehash: 7f3bed454bce90d797ca5829043c7e5f8ce5b051
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 950f9ac89b9d3224db29b32fe2d1e403ccc98116
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64728579"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143291"
 ---
 # <a name="commonly-asked-service-fabric-mesh-questions"></a>Questions fréquemment posées sur Service Fabric mesh
 
@@ -28,7 +28,7 @@ Posez des questions, obtenez des réponses d’ingénieurs Microsoft, et signale
 
 ### <a name="what-is-the-cost-of-participating-in-the-preview"></a>Quel est le coût de participation à la préversion ?
 
-Le déploiement d’applications ou de conteneurs sur la préversion de Mesh n’occasionne actuellement pas de frais. Toutefois, nous vous encourageons à supprimer les ressources que vous déployez et pas de les laissez en cours d’exécution, sauf si vous êtes activement les tester.
+Il n’existe actuellement aucun frais pour le déploiement d’applications ou les conteneurs à l’aperçu de la maille. Regardez les mises à jour en mai pour l’activation pour la facturation. Toutefois, nous vous encourageons à supprimer les ressources que vous déployez et pas de les laissez en cours d’exécution, sauf si vous êtes activement les tester.
 
 ### <a name="is-there-a-quota-limit-of-the-number-of-cores-and-ram"></a>Y a-t-il une limite de quota concernant le nombre de cœurs et la RAM ?
 
@@ -88,10 +88,15 @@ Si vous réalisez votre développement sur un ordinateur doté de la mise à jou
 Lors du déploiement des services, vous pouvez utiliser les images de système d’exploitation du conteneur suivantes :
 
 - Windows : windowsservercore et nanoserver
-    - Windows Server version 1709
-    - Windows Server version 1803
+    - Windows Server 1709
+    - Windows Server 1803
+    - Windows Server 1809
+    - Windows Server 2019 LTSC
 - Linux
     - Aucune limitation connue
+
+> [!NOTE]
+> Outils de maillage de Visual Studio ne prend pas en charge déploiement dans Windows Server 2019 et 1809 conteneurs.
 
 ### <a name="what-types-of-applications-can-i-deploy"></a>Les types d’applications puis-je déployer ? 
 
@@ -138,6 +143,10 @@ Il se peut que la disponibilité du processeur et les limites fixées pour toute
 Il est impossible de déployer plusieurs applications sur un cluster à un nœud. Solution de contournement :
 - Utilisez un cluster à cinq nœuds lors du déploiement de plusieurs applications sur un cluster local.
 - Supprimez les applications qui ne sont pas actuellement en test.
+
+### <a name="vs-tooling-has-limited-support-for-windows-containers"></a>Outils VS a limité la prise en charge pour les conteneurs Windows
+
+Les outils de Visual Studio prend uniquement en charge le déploiement de conteneurs de Windows avec une version de système d’exploitation de base de Windows Server 1709 et 1803 dès aujourd'hui. 
 
 ## <a name="feature-gaps-and-other-known-issues"></a>Lacunes relatives aux fonctionnalités et autres problèmes connus
 

@@ -12,22 +12,27 @@ ms.author: sstein
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/26/2019
-ms.openlocfilehash: 89ff11246c7cd36732df1332da94ec5318d7f1d7
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: f17df53c1ea77bf99ab86329fe914d058eb00f64
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64574090"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65072701"
 ---
 # <a name="choose-between-the-vcore-and-the-dtu-purchasing-model"></a>Choisir entre la vCore et le modèle d’achat DTU
 
 Azure SQL Database vous permet d’acheter facilement un moteur de base de données PaaS adapté à vos exigences en terme de performances et de coûts. Selon le modèle de déploiement Azure SQL Database, vous pouvez sélectionner le modèle d’achat adapté à vos besoins :
+
+- [modèle d’achat vCore](sql-database-service-tiers-vcore.md) (recommandé). Ce modèle d’achat propose le choix entre le niveau de calcul provisionné et un niveau de calcul sans serveur (version préliminaire). Avec le niveau calcul provisionné, vous choisissez la quantité exacte de calcul qui est toujours approvisionné pour votre charge de travail. Avec la couche de calcul sans serveur, vous configurez l’automatique-mise à l’échelle de calcul sur une plage de calcul configurable. Avec ce niveau de calcul, vous avez également une option permettant de suspendre et reprendre la base de données en fonction des activités de la charge de travail automatiquement. Le prix unitaire de vCore par unité de temps est inférieur au niveau de calcul provisionné que dans le serverless le niveau de calcul.
+- [Modèle d’achat DTU](sql-database-service-tiers-dtu.md). Ce modèle d’achat fournit des packages de calcul et de stockage groupés à charge équilibrées pour les charges de travail courantes.
 
 Différents modèles d’achat sont disponibles dans les modèles de déploiement Azure SQL Database :
 
 - Les options de déploiement [Base de données unique](sql-database-single-databases-manage.md) et [Pool élastique](sql-database-elastic-pool.md) d’[Azure SQL Database](sql-database-technical-overview.md) proposent à la fois le [modèle d’achat DTU](sql-database-service-tiers-dtu.md) et le [modèle d’achat vCore](sql-database-service-tiers-vcore.md).
 - L'option de déploiement [Instance managée](sql-database-managed-instance.md) d'Azure SQL Database propose uniquement le [modèle d'achat vCore](sql-database-service-tiers-vcore.md).
 
+
+- Le [niveau de service hyperscale](sql-database-service-tier-hyperscale.md) est actuellement disponible pour les bases de données uniques à l’aide de la[modèle d’achat vCore](sql-database-service-tiers-vcore.md).
 
 Le tableau et graphique suivants comparent et comparez la vCore et le nombre de modèles d’achat DTU.
 
@@ -45,6 +50,9 @@ Le tableau et graphique suivants comparent et comparez la vCore et le nombre de 
 
 Dans le niveau calcul provisionné, le coût de calcul reflète la capacité de calcul total est configurée pour l’application.  Dans le niveau de service Critique pour l’entreprise, nous allouons automatiquement au moins 3 réplicas. Pour refléter cette allocation supplémentaire de ressources de calcul, le prix du modèle d’achat vCore du niveau de service Critique pour l'entreprise est approximativement 2,7 fois supérieur à celui du niveau de service Usage général. Pour la même raison, le prix plus élevé du stockage par Go dans le niveau de service Critique pour l’entreprise reflète le nombre important d’E/S et la faible latence du stockage SSD. Dans le même temps, le coût du stockage de sauvegarde n’est pas différent entre ces deux niveaux de service, car dans les deux cas, nous utilisons une classe de stockage standard.
 
+### <a name="serverless-compute-costs"></a>Coûts de calcul sans serveur
+
+Pour la couche de calcul sans serveur, consultez [SQL de base de données sans serveur (version préliminaire)](sql-database-serverless.md) pour obtenir une description de la définition de la capacité de calcul et les coûts sont calculés.
 
 ## <a name="storage-costs"></a>Coûts de stockage
 
@@ -56,7 +64,7 @@ Pour plus d'informations sur les prix du stockage, consultez la page [Tarificati
 
 ## <a name="vcore-based-purchasing-model"></a>Modèle d’achat vCore
 
-Un vCore représente l’UC logique offerte avec une option permettant de choisir entre plusieurs générations de matériel et de caractéristiques physiques du matériel (par exemple, le nombre de cœurs, la mémoire, la taille de stockage). Le modèle d’achat vCore apporte flexibilité, contrôle et transparence pour la consommation des ressources individuelles. C’est aussi un moyen facile de traduire les exigences des charges de travail locales pour le cloud. Ce modèle permet de sélectionner le calcul, la mémoire et le stockage en fonction des besoins des charges de travail. Avec le modèle d’achat vCore, vous avez le choix entre les niveaux de service [Usage général](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability) et [Critique pour l'entreprise](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) pour les [bases de données uniques](sql-database-single-database-scale.md), les [pools élastiques](sql-database-elastic-pool.md) et les [instances managées](sql-database-managed-instance.md). Pour les bases de données uniques, vous pouvez également choisir le [niveau de service Hyperscale (préversion)](sql-database-service-tier-hyperscale.md).
+Un vCore représente l’UC logique offerte avec une option permettant de choisir entre plusieurs générations de matériel et de caractéristiques physiques du matériel (par exemple, le nombre de cœurs, la mémoire, la taille de stockage). Le modèle d’achat vCore apporte flexibilité, contrôle et transparence pour la consommation des ressources individuelles. C’est aussi un moyen facile de traduire les exigences des charges de travail locales pour le cloud. Ce modèle permet de sélectionner le calcul, la mémoire et le stockage en fonction des besoins des charges de travail. Avec le modèle d’achat vCore, vous avez le choix entre les niveaux de service [Usage général](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability) et [Critique pour l'entreprise](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) pour les [bases de données uniques](sql-database-single-database-scale.md), les [pools élastiques](sql-database-elastic-pool.md) et les [instances managées](sql-database-managed-instance.md). Pour les bases de données uniques, vous pouvez également choisir le [niveau de service hyperscale](sql-database-service-tier-hyperscale.md).
 
 Le modèle d’achat vCore vous permet de sélectionner les ressources de calcul et de stockage indépendamment les unes des autres, d’égaler les performances d’une exécution locale et d’optimiser les coûts. Dans le modèle d’achat vCore, les clients paient pour :
 

@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/27/2019
+ms.date: 05/06/2019
 ms.author: magoedte
-ms.openlocfilehash: f0c9b84f31810a4b0cec93738f7ce327bc24d8d0
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: f4e15c4fc7bd7b786c5204153fe64f010e5ffe85
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64685636"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148866"
 ---
 # <a name="how-to-update-azure-monitor-for-containers-to-enable-metrics"></a>Comment mettre à jour d’Azure Monitor pour les conteneurs pour activer les mesures
 Azure Monitor pour les conteneurs introduit la prise en charge pour la collecte de mesures à partir des nœuds de clusters Azure Kubernetes service (AKS) et les blocs et en les écrivant dans le magasin de métriques Azure Monitor. Cette modification vise à fournir la rapidité d’exécution améliorée lors de la présentation des calculs d’agrégation (Avg, Count, Max, Min, Sum) dans les graphiques de performances, prise en charge de l’épinglage des graphiques de performances dans les tableaux de bord portail Azure et prend en charge les alertes de métrique.
@@ -55,7 +55,7 @@ Procédez comme suit pour mettre à jour tous les clusters dans votre abonnement
     ```azurecli
     az login
     az account set --subscription "Subscription Name"
-    curl -sL https://git.io/aks-mdm-onboarding-atscale | bash -s subscriptionId   
+    curl -sL https://aka.ms/ci-md-onboard-atscale | bash -s subscriptionId   
     ```
 
     La modification de configuration peut prendre quelques secondes. Lorsqu’il est terminé, un message similaire à celui-ci s’affiche avec les résultats :
