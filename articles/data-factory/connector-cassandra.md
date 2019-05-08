@@ -98,7 +98,7 @@ Pour copier des données de Cassandra, affectez la valeur **CassandraTable** à 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | type | La propriété type du jeu de données doit être définie sur : **CassandraTable** | Oui |
-| espace de clé |Nom de l’espace de clé ou du schéma dans la base de données Cassandra. |Non (si « query » pour « CassandraSource » est spécifié) |
+| keySpace |Nom de l’espace de clé ou du schéma dans la base de données Cassandra. |Non (si « query » pour « CassandraSource » est spécifié) |
 | tableName |Nom de la table dans la base de données Cassandra. |Non (si « query » pour « CassandraSource » est spécifié) |
 
 **Exemple :**
@@ -133,7 +133,7 @@ Pour copier des données de Cassandra, définissez **Source** comme type source 
 |:--- |:--- |:--- |
 | type | La propriété type de la source d’activité de copie doit être définie sur : **CassandraSource** | Oui |
 | query |Utilise la requête personnalisée pour lire des données. Requête SQL-92 ou requête CQL. Reportez-vous à [référence CQL](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html). <br/><br/>Lorsque vous utilisez la requête SQL, indiquez **keyspace name.table name** pour représenter la table que vous souhaitez interroger. |Non (si « tableName » et « keyspace » sont spécifiés dans le jeu de données). |
-| Niveau de cohérence |Le niveau de cohérence spécifie le nombre de réplicas devant répondre à une demande de lecture avant de renvoyer des données à l’application cliente. Cassandra vérifie le nombre de réplicas spécifié pour permettre aux données de répondre à la demande de lecture. Reportez-vous à [Configuring data consistency (Configuration de la cohérence des données)](https://docs.datastax.com/en/cassandra/2.1/cassandra/dml/dml_config_consistency_c.html) pour plus d’informations.<br/><br/>Les valeurs autorisées sont les suivantes : **ONE**, **TWO**, **THREE**, **QUORUM**, **ALL**, **LOCAL_QUORUM**, **EACH_QUORUM** et **LOCAL_ONE**. |Non (la valeur par défaut est `ONE`) |
+| consistencyLevel |Le niveau de cohérence spécifie le nombre de réplicas devant répondre à une demande de lecture avant de renvoyer des données à l’application cliente. Cassandra vérifie le nombre de réplicas spécifié pour permettre aux données de répondre à la demande de lecture. Reportez-vous à [Configuring data consistency (Configuration de la cohérence des données)](https://docs.datastax.com/en/cassandra/2.1/cassandra/dml/dml_config_consistency_c.html) pour plus d’informations.<br/><br/>Les valeurs autorisées sont les suivantes : **ONE**, **TWO**, **THREE**, **QUORUM**, **ALL**, **LOCAL_QUORUM**, **EACH_QUORUM** et **LOCAL_ONE**. |Non (la valeur par défaut est `ONE`) |
 
 **Exemple :**
 
@@ -176,18 +176,18 @@ Lors de la copie de données de Cassandra, les mappages suivants sont utilisés 
 | ASCII |String |
 | BIGINT |Int64 |
 | BLOB |Byte[] |
-| BOOLEAN |BOOLEAN |
-| DÉCIMAL |Decimal |
-| DOUBLE |DOUBLE |
+| BOOLEAN |Boolean |
+| DECIMAL |Decimal |
+| DOUBLE |Double |
 | FLOAT |Single |
 | INET |String |
 | INT |Int32 |
-| TEXTE |String |
+| TEXT |String |
 | TIMESTAMP |DateTime |
 | TIMEUUID |Guid |
 | UUID |Guid |
 | VARCHAR |String |
-| VARINT |DÉCIMAL |
+| VARINT |Decimal |
 
 > [!NOTE]
 > Pour les types de collections (mappages, ensembles, listes, etc.), reportez-vous à la section [Work with Cassandra collection types using virtual table (Travailler avec les types de collections Cassandra à l’aide d’une table virtuelle)](#work-with-collections-using-virtual-table) .
