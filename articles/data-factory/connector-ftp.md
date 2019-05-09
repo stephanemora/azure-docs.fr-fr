@@ -127,7 +127,7 @@ Pour copier des données à partir de FTP dans **Parquet ou format de texte dél
 
 | Propriété   | Description                                                  | Obligatoire |
 | ---------- | ------------------------------------------------------------ | -------- |
-| Type       | La propriété de type sous `location` dans le jeu de données doit être définie sur **FtpServerLocation**. | Oui      |
+| type       | La propriété de type sous `location` dans le jeu de données doit être définie sur **FtpServerLocation**. | Oui      |
 | folderPath | Le chemin d’accès au dossier. Si vous souhaitez utiliser le caractère générique pour filtrer le dossier, ignorez ce paramètre et spécifiez dans les paramètres de source d’activité. | Non        |
 | fileName   | Le nom du fichier sous le paramètre folderPath donné. Si vous souhaitez utiliser le caractère générique pour filtrer les fichiers, ignorez ce paramètre et spécifiez dans les paramètres de source d’activité. | Non        |
 
@@ -222,7 +222,7 @@ Pour copier des données à partir de FTP dans **Parquet ou format de texte dél
 
 | Propriété                 | Description                                                  | Obligatoire                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
-| Type                     | La propriété de type sous `storeSettings` doit être définie sur **FtpReadSetting**. | Oui                                           |
+| type                     | La propriété de type sous `storeSettings` doit être définie sur **FtpReadSetting**. | Oui                                           |
 | recursive                | Indique si les données sont lues de manière récursive à partir des sous-dossiers ou uniquement du dossier spécifié. Notez que lorsque l’option « recursive » est définie sur true et que le récepteur est un magasin basé sur un fichier, un dossier vide ou un sous-dossier n’est pas copié ou créé sur le récepteur. Les valeurs autorisées sont **true** (par défaut) et **false**. | Non                                             |
 | wildcardFolderPath       | Le chemin d’accès de dossier avec des caractères génériques pour filtrer les dossiers de code source. <br>Les caractères génériques autorisés sont : `*` (correspond à zéro ou plusieurs caractères) et `?` (correspond à zéro ou un caractère) ; utilisez `^` en guise d’échappement si votre nom de dossier contient effectivement ce caractère d’échappement ou générique. <br>Consultez d’autres exemples dans les [exemples de filtre de dossier et de fichier](#folder-and-file-filter-examples). | Non                                             |
 | wildcardFileName         | Le nom de fichier avec des caractères génériques sous folderPath/wildcardFolderPath donné pour filtrer les fichiers source. <br>Les caractères génériques autorisés sont : `*` (correspond à zéro ou plusieurs caractères) et `?` (correspond à zéro ou un caractère) ; utilisez `^` en guise d’échappement si votre nom de dossier contient effectivement ce caractère d’échappement ou générique.  Consultez d’autres exemples dans les [exemples de filtre de dossier et de fichier](#folder-and-file-filter-examples). | Oui, si `fileName` n’est pas spécifié dans le jeu de données |
