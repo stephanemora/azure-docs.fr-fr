@@ -62,7 +62,7 @@ Les propriétés prises en charge pour le service lié DB2 sont les suivantes :
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | type | La propriété type doit être définie sur : **Db2** | Oui |
-| serveur |Nom du serveur DB2. Vous pouvez spécifier le numéro de port à la suite du nom du serveur en le séparant par un signe deux-points, par exemple, `server:port`. |Oui |
+| server |Nom du serveur DB2. Vous pouvez spécifier le numéro de port à la suite du nom du serveur en le séparant par un signe deux-points, par exemple, `server:port`. |Oui |
 | database |Nom de la base de données DB2. |Oui |
 | authenticationType |Type d'authentification utilisé pour se connecter à la base de données DB2.<br/>Valeur autorisée : **De base**. |Oui |
 | username |Spécifiez le nom d’utilisateur pour la connexion à la base de données DB2. |Oui |
@@ -176,28 +176,28 @@ Lors de la copie de données de DB2, les mappages suivants sont utilisés entre 
 | BigInt |Int64 |
 | Binary |Byte[] |
 | Blob |Byte[] |
-| Char |Chaîne |
-| Clob |Chaîne |
-| Date |DateTime |
-| DB2DynArray |Chaîne |
-| DbClob |Chaîne |
+| Char |String |
+| Clob |String |
+| Date |Datetime |
+| DB2DynArray |String |
+| DbClob |String |
 | Decimal |Decimal |
 | DecimalFloat |Decimal |
 | Double |Double |
 | Float |Double |
-| Graphic |Chaîne |
-| Entier  |Int32 |
+| Graphic |String |
+| Integer |Int32 |
 | LongVarBinary |Byte[] |
-| LongVarChar |Chaîne |
-| LongVarGraphic |Chaîne |
+| LongVarChar |String |
+| LongVarGraphic |String |
 | Numeric |Decimal |
 | Real |Single |
 | SmallInt |Int16 |
-| Temps |TimeSpan |
+| Time |TimeSpan |
 | Timestamp |DateTime |
 | VarBinary |Byte[] |
-| VarChar |Chaîne |
-| VarGraphic |Chaîne |
+| VarChar |String |
+| VarGraphic |String |
 | Xml |Byte[] |
 
 
