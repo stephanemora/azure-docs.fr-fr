@@ -56,11 +56,11 @@ Les propriétés prises en charge pour le service lié Dynamics AX sont les suiv
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété **type** doit être définie sur **DynamicsAX**. |Oui |
+| type | La propriété **type** doit être définie sur **DynamicsAX**. |Oui |
 | url | Point de terminaison OData de l’instance Dynamics AX (ou Dynamics 365 for Finances and Operations). |Oui |
 | servicePrincipalId | Spécifiez l’ID client de l’application. | OUI |
 | servicePrincipalKey | Spécifiez la clé de l’application. Marquez ce champ en tant que **SecureString** afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui |
-| locataire | Spécifiez les informations de locataire (nom de domaine ou ID de locataire) dans lesquels se trouve votre application. Récupérez-le en pointant la souris dans le coin supérieur droit du Portail Azure. | Oui |
+| tenant | Spécifiez les informations de locataire (nom de domaine ou ID de locataire) dans lesquels se trouve votre application. Récupérez-le en pointant la souris dans le coin supérieur droit du Portail Azure. | Oui |
 | aadResourceId | Spécifiez la ressource AAD pour laquelle vous demandez une autorisation. Par exemple, si votre URL Dynamics est `https://sampledynamics.sandbox.operations.dynamics.com/data/`, la ressource AAD correspondante est généralement `https://sampledynamics.sandbox.operations.dynamics.com`. | Oui |
 | connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion au magasin de données. Vous pouvez choisir Azure Integration Runtime ou un runtime d’intégration auto-hébergé si votre magasin de données se trouve dans un réseau privé. À défaut de spécification, l’Azure Integration Runtime par défaut est utilisé. |Non  |
 
@@ -100,8 +100,8 @@ Pour copier des données de Dynamics AX, définissez la propriété **type** du 
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété **type** du jeu de données doit être définie sur **DynamicsAXResource**. | Oui |
-| chemin d’accès | Chemin de l’entité OData Dynamics AX. | Oui |
+| type | La propriété **type** du jeu de données doit être définie sur **DynamicsAXResource**. | Oui |
+| path | Chemin de l’entité OData Dynamics AX. | Oui |
 
 **Exemple**
 
@@ -133,7 +133,7 @@ Pour copier des données de Dynamics AX, définissez le type **source** de l’a
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété **type** de la source de l’activité de copie doit être définie sur **DynamicsAXSource**. | Oui |
+| type | La propriété **type** de la source de l’activité de copie doit être définie sur **DynamicsAXSource**. | Oui |
 | query | Options de requête OData pour filtrer les données. Exemple : `"?$select=Name,Description&$top=5"`.<br/><br/>**Remarque**: Le connecteur copie les données à partir de l’URL combinée : `[URL specified in linked service]/[path specified in dataset][query specified in copy activity source]`. Pour plus d’informations, consultez [OData URL components](https://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Non  |
 
 **Exemple**
