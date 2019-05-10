@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 04/25/2019
+ms.date: 05/06/2019
 ms.author: cynthn
 ms.custom: ''
-ms.openlocfilehash: a3c035715de736b816027b08a1e242e6a65d1f13
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 0a44f7d9c18e406850e2dbfb091088be0b8c2113
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148777"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65235897"
 ---
 # <a name="create-a-shared-image-gallery-with-azure-powershell"></a>Créer une galerie d’images partagées avec Azure PowerShell 
 
@@ -33,7 +33,7 @@ La galerie est une ressource de niveau supérieur qui fournit le contrôle d’a
 
 La fonctionnalité Galerie d’images partagées présente plusieurs types de ressources. Dans cet article, nous allons utiliser ou générer ce qui suit :
 
-| Ressource | Description|
+| Ressource | Description |
 |----------|------------|
 | **Image managée** | Il s’agit d’une image de base pouvant être utilisée seule ou pour créer une **version de l’image**  dans une galerie d’images. Les images managées sont créées à partir de machines virtuelles généralisées. Une image managée est un type spécial de disque dur virtuel qui peut être utilisé pour définir plusieurs machines virtuelles et qui peut maintenant être utilisé pour créer des versions d’image partagée. |
 | **Galerie d’images** | Tout comme la Place de marché Azure, une **galerie d’images** est un dépôt permettant de gérer et partager des images, mais vous contrôlez les utilisateurs qui y ont accès. |
@@ -44,7 +44,9 @@ La fonctionnalité Galerie d’images partagées présente plusieurs types de re
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Pour suivre l’exemple de cet article, vous devez avoir l’image managée. Vous pouvez suivre le [Tutoriel : créer une image personnalisée d’une machine virtuelle Azure avec Azure PowerShell](tutorial-custom-images.md) si nécessaire. Au cours de cet article, remplacez les noms du groupe de ressources et de la machine virtuelle si nécessaire.
+Pour suivre l’exemple de cet article, vous devez avoir l’image managée. Vous pouvez suivre le [Tutoriel : créer une image personnalisée d’une machine virtuelle Azure avec Azure PowerShell](tutorial-custom-images.md) si nécessaire. Si l’image managée contient un disque de données, la taille de disque de données ne peut pas être supérieur à 1 To.
+
+Au cours de cet article, remplacez les noms du groupe de ressources et de la machine virtuelle si nécessaire.
 
 [!INCLUDE [virtual-machines-common-shared-images-powershell](../../../includes/virtual-machines-common-shared-images-powershell.md)]
  
@@ -72,6 +74,7 @@ New-AzVm `
 [!INCLUDE [virtual-machines-common-shared-images-update-delete-ps](../../../includes/virtual-machines-common-shared-images-update-delete-ps.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
+[Générateur d’images Azure (aperçu)](image-builder-overview.md) peut aider à automatiser la création d’images version, vous pouvez même l’utiliser pour mettre à jour et [créer une nouvelle version de l’image à partir d’une version existante de l’image](image-builder-gallery-update-image-version.md). 
 
 Vous pouvez également créer la ressource de galerie d’images partagées à l’aide de modèles. Plusieurs modèles de démarrage rapide Azure sont disponibles : 
 

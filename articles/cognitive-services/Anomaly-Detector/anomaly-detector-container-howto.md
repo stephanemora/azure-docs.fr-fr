@@ -9,12 +9,12 @@ ms.subservice: anomaly-detection
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: aahi
-ms.openlocfilehash: 5dcec0d5f313b1c746c0674d0f9bf4d30ed19e5c
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: cc82e091ae4c033bda7f1d91c9aed36bb081de88
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026311"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233620"
 ---
 # <a name="install-and-run-anomaly-detector-containers"></a>Installer et exécuter des conteneurs de détecteur d’anomalies
 
@@ -37,9 +37,9 @@ Vous devez remplir les conditions préalables suivantes avant d’utiliser des c
 |--|--|
 |Moteur Docker| Vous avez besoin d’un moteur Docker installé sur un [ordinateur hôte](#the-host-computer). Docker fournit des packages qui configurent l’environnement Docker sur [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) et [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Pour apprendre les principes de base de Docker et des conteneurs, consultez la [vue d’ensemble de Docker](https://docs.docker.com/engine/docker-overview/).<br><br> Vous devez configurer Docker pour permettre aux conteneurs de se connecter à Azure et de lui envoyer des données de facturation. <br><br> **Sur Windows**, vous devez également configurer Docker pour prendre en charge les conteneurs Linux.<br><br>|
 |Bonne connaissance de Docker | Vous devez avoir une compréhension élémentaire des concepts Docker, notamment les registres, référentiels, conteneurs et images conteneurs, ainsi qu’une maîtrise des commandes `docker` de base.| 
-|Ressources de détecteur d’anomalies |Pour pouvoir utiliser ces conteneurs, vous devez disposer de :<br><br>Un _détecteur d’anomalies_ des ressources Azure pour obtenir la clé de facturation associée et l’URI de point de terminaison facturation. Les deux valeurs sont disponibles sur les pages de vue d’ensemble du détecteur d’anomalies et les clés du portail Azure et sont nécessaires pour démarrer le conteneur.<br><br>**{BILLING_KEY}**  : clé de ressource<br><br>**{BILLING_ENDPOINT_URI}**  : exemple d’UURI de point de terminaison : `https://westus2.api.cognitive.microsoft.com`|
+|Ressources de détecteur d’anomalies |Pour pouvoir utiliser ces conteneurs, vous devez avoir :<br><br>Un _détecteur d’anomalies_ des ressources Azure pour obtenir la clé de facturation associée et l’URI de point de terminaison facturation. Les deux valeurs sont disponibles sur les pages de vue d’ensemble du détecteur d’anomalies et les clés du portail Azure et sont nécessaires pour démarrer le conteneur.<br><br>**{BILLING_KEY}**  : clé de ressource<br><br>**{BILLING_ENDPOINT_URI}**  : exemple d’UURI de point de terminaison : `https://westus2.api.cognitive.microsoft.com`|
 
-## <a name="request-access-to-the-container-registry"></a>Demander l’accès au Registre de conteneurs
+## <a name="request-access-to-the-container-registry"></a>Demander l’accès au registre de conteneurs
 
 Vous devez tout d’abord terminer et envoyer la [formulaire de demande de conteneur de détecteur d’anomalies](https://aka.ms/adcontainer) pour demander l’accès au conteneur.
 
@@ -49,11 +49,8 @@ Vous devez tout d’abord terminer et envoyer la [formulaire de demande de conte
 
 ## <a name="the-host-computer"></a>L’ordinateur hôte
 
-L’**hôte** est l’ordinateur qui exécute le conteneur docker. Il peut s’agir d’un ordinateur local ou d’un service d’hébergement docker dans Azure, notamment :
+[!INCLUDE [Host Computer requirements](../../../includes/cognitive-services-containers-host-computer.md)]
 
-* [Azure Kubernetes Service](https://docs.microsoft.com/azure-stack/user/azure-stack-solution-template-kubernetes-deploy)
-* [Azure Container Instances](https://docs.microsoft.com/container-instances/index.yml)
-* Cluster [Kubernetes](https://kubernetes.io/) déployé sur [Azure Stack](https://docs.microsoft.com/azure-stack/index.yml). Pour plus d’informations, consultez [Déployer Kubernetes sur Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-solution-template-kubernetes-deploy.md).
 <!--* [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/). For instructions of deploying Anomaly Detector module in IoT Edge, see [How to deploy Anomaly Detector module in IoT Edge](how-to-deploy-anomaly-detector-module-in-iot-edge.md).-->
 
 ### <a name="container-requirements-and-recommendations"></a>Exigences et suggestions relatives au conteneur
@@ -73,7 +70,7 @@ Le nombre de cœurs et la quantité de mémoire correspondent aux paramètres `-
 
 Utilisez la commande [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) pour télécharger une image conteneur.
 
-| Conteneur | Référentiel |
+| Conteneur | Dépôt |
 |-----------|------------|
 | cognitive-services-anomaly-detector | `containerpreview.azurecr.io/microsoft/cognitive-services-anomaly-detector:latest` |
 
@@ -127,11 +124,11 @@ Cette commande :
 
 ### <a name="running-multiple-containers-on-the-same-host"></a>Plusieurs conteneurs en cours d’exécution sur le même hôte
 
-Si vous envisagez d’exécuter plusieurs conteneurs avec les ports exposés, veillez à exécuter chaque conteneur avec un autre port. Par exemple, exécutez le premier conteneur sur le port 5000 et le second conteneur sur le port 5001.
+Si vous envisagez d’exécuter plusieurs conteneurs avec les ports exposés, veillez à exécuter chaque conteneur avec un port différent. Par exemple, exécutez le premier conteneur sur le port 5000 et le second conteneur sur le port 5001.
 
-Remplacez le `<container-registry>` et `<container-name>` avec les valeurs des conteneurs que vous utilisez. Il est inutile d’être le même conteneur. Vous pouvez avoir le conteneur de détecteur d’anomalies et le conteneur de LUIS qui exécutent ensemble sur l’ordinateur hôte, ou vous pouvez avoir plusieurs conteneurs de détecteur d’anomalies en cours d’exécution. 
+Remplacez `<container-registry>` et `<container-name>` par les valeurs des conteneurs que vous utilisez. Ils n’ont pas besoin d’être le même conteneur. Vous pouvez avoir le conteneur de détecteur d’anomalies et le conteneur de LUIS qui exécutent ensemble sur l’ordinateur hôte, ou vous pouvez avoir plusieurs conteneurs de détecteur d’anomalies en cours d’exécution. 
 
-Exécutez le premier conteneur sur le port 5000. 
+Exécutez le premier conteneur sur le port 5000. 
 
 ```bash 
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
@@ -141,7 +138,7 @@ Billing={BILLING_ENDPOINT_URI} \
 ApiKey={BILLING_KEY}
 ```
 
-Exécutez le second conteneur sur le port 5001.
+Exécutez le deuxième conteneur sur le port 5001.
 
 
 ```bash 
@@ -152,7 +149,7 @@ Billing={BILLING_ENDPOINT_URI} \
 ApiKey={BILLING_KEY}
 ```
 
-Chaque conteneur suivant doit être sur un autre port. 
+Tous les conteneurs suivants doivent être sur un port différent. 
 
 ## <a name="query-the-containers-prediction-endpoint"></a>Interroger le point de terminaison de prédiction du conteneur
 

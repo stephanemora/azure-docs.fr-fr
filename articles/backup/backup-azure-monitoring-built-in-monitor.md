@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/05/2019
 ms.author: pullabhk
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: 8d3e3257f16fe4e0f846c2268bfefc2771387de6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ab7d2c0af4bc71733a7995b7e781f0facbfbb29f
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60809070"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236433"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Surveillance des charges de travail de sauvegarde Azure
 
@@ -49,7 +49,7 @@ Les alertes sont principalement les scénarios où les utilisateurs sont avertis
 Les scénarios suivants sont définis par le service en tant que scénarios alertables.
 
   - Échecs de sauvegarde/restauration
-  - Sauvegarde réussi avec avertissements
+  - Sauvegarde réussie avec des avertissements pour l’Agent de sauvegarde Azure (ACM)
   - Conserver les arrêtez la protection des données/arrêter la protection avec suppression des données
 
 ### <a name="exceptions-when-an-alert-is-not-raised"></a>Exceptions quand une alerte n’est pas déclenchée.
@@ -92,7 +92,7 @@ Lors de la notification est configurée, vous recevrez un e-mail de bienvenue ou
 Si la fréquence était définie sur une synthèse horaire et une alerte a été déclenchée et résolue en une heure, il ne sera pas une partie de la synthèse horaire à venir.
 
 > [!NOTE]
-> 
+>
 > * Si une opération destructive comme **arrêter la protection avec suppression des données** est effectuée, une alerte est déclenchée et un e-mail est envoyé aux propriétaires d’abonnements, les administrateurs et coadministrateurs, même si les notifications ne sont pas configurées pour le Service de récupération coffre.
 > * Pour configurer la notification pour utilisent des travaux réussis [Analytique de journal](backup-azure-monitoring-use-azuremonitor.md#using-log-analytics-workspace).
 

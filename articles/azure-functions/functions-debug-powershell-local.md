@@ -10,12 +10,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: tyleonha, glenga
-ms.openlocfilehash: 554b7b7f401ec7cdb1ae08839550b81d797764f2
-ms.sourcegitcommit: 111a7b3e19d5515ce7036287cea00a7204ca8b56
+ms.openlocfilehash: b699379448863c8df84fda0e059fc10846c09931
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64530330"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65230076"
 ---
 # <a name="debug-powershell-azure-functions-locally"></a>Déboguer localement des fonctions d’Azure PowerShell
 
@@ -97,7 +97,7 @@ Avec `Wait-Debugger` en place, vous pouvez maintenant déboguer les fonctions à
 
 Pour déboguer vos fonctions PowerShell dans Visual Studio Code, vous devez disposer des extensions suivantes pour Visual Studio Code :
 
-* [PowerShell](/powershell/scripting/components/Visual Studio Code/using-Visual Studio Code)
+* [PowerShell](/powershell/scripting/components/vscode/using-vscode)
 * [Azure Functions](functions-create-first-function-vs-code.md)
 
 Après avoir installé les extensions PowerShell et Azure Functions, charger un projet d’application de fonction existante. Vous pouvez également [créer un projet Functions](functions-create-first-function-vs-code.md).
@@ -189,7 +189,7 @@ Prenez note de la `ProcessId` pour l’élément dans la table avec la `ProcessN
 Ensuite, exécutez l’extrait de code suivant :
 
 ```powershell
-# This enters into the the Azure Functions PowerShell process.
+# This enters into the Azure Functions PowerShell process.
 # Put your value of `ProcessId` here.
 Enter-PSHostProcess -Id $ProcessId
 

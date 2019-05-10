@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/29/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 892906089ae3538b3427d97165173fd82621f58a
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
-ms.translationtype: MT
+ms.openlocfilehash: 5d8e7bba6d43ba1daa3173ce5d7e043e2310a482
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64919980"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65229987"
 ---
 # <a name="use-an-alert-to-trigger-an-azure-automation-runbook"></a>Utiliser une alerte pour déclencher un runbook Azure Automation
 
@@ -25,7 +25,7 @@ Vous pouvez utiliser [Azure Monitor](../azure-monitor/overview.md?toc=%2fazure%2
 Vous pouvez utiliser des runbooks automation avec quatre types d’alerte :
 
 * Alertes courantes
-* Alertes de journal d’activité
+* Alertes de journal d'activité
 * Alerte de métrique quasiment en temps réel
 
 > [!NOTE]
@@ -33,7 +33,7 @@ Vous pouvez utiliser des runbooks automation avec quatre types d’alerte :
 
 Quand une alerte appelle un runbook, l’appel réel est une demande HTTP POST vers le Webhook. Le corps de la demande POST contient un objet au format JSON qui contient les propriétés utiles relatives à l’alerte. Le tableau suivant contient des liens vers le schéma de la charge utile pour chaque type d’alerte :
 
-|Alerte  |Description|Schéma de la charge utile  |
+|Alerte  |Description |Schéma de la charge utile  |
 |---------|---------|---------|
 |[Alerte courantes](../azure-monitor/platform/alerts-common-schema.md?toc=%2fazure%2fautomation%2ftoc.json)|Le schéma alerte commun qui normalise l’expérience de consommation pour les notifications d’alerte dans Azure dès aujourd'hui.|[Schéma de charge utile et alerte commun](../azure-monitor/platform/alerts-common-schema-definitions.md?toc=%2fazure%2fautomation%2ftoc.json#sample-alert-payload)|
 |[Alerte du journal d’activité](../azure-monitor/platform/activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json)    |Envoie une notification lorsqu’un nouvel événement du journal d’activité remplit des conditions spécifiques. Par exemple, lorsqu’une opération `Delete VM` est effectuée dans **myProductionResourceGroup** ou lorsqu’un nouvel événement Azure Service Health avec un statut **Actif** apparaît.| [Schéma de la charge utile et alerte de journal d’activité](../azure-monitor/platform/activity-log-alerts-webhook.md)        |
@@ -60,6 +60,14 @@ Utilisez cet exemple pour créer un runbook appelé **Stop-AzureVmInResponsetoVM
 5. Copiez l’exemple PowerShell suivant dans le **modifier** page.
 
     ```powershell-interactive
+    [OutputType("PSAzureOperationResponse")]
+    param
+    (
+        [Parameter (Mandatory=$false)]
+        [object] $WebhookData
+    )
+    $ErrorActionPreference = "stop"
+
     if ($WebhookData)
     {
         # Get the data object from WebhookData

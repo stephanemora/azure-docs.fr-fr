@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/18/2019
 ms.author: haroldw
-ms.openlocfilehash: 296bc42313ef80425004d3c9b43c6792cbaf97f4
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 664099322bef3ac85d980fbe5e43dcc49cba862b
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64718243"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65411563"
 ---
 # <a name="deploy-openshift-container-platform-in-azure"></a>Déployer OpenShift Container Platform dans Azure
 
@@ -66,7 +66,7 @@ L’exemple suivant montre un fichier de paramètres nommé azuredeploy.paramete
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "_artifactsLocation": {
@@ -249,7 +249,7 @@ Les paramètres peuvent différer selon les versions. Vérifiez quels sont les p
 
 ### <a name="azuredeployparametersjson-file-explained"></a>azuredeploy. Expliqué du fichier Parameters.JSON
 
-| Propriété | Description | Options valides | Valeur par défaut |
+| Propriété | Description  | Options valides | Valeur par défaut |
 |----------|-------------|---------------|---------------|
 | `_artifactsLocation`  | URL pour les artefacts (json, scripts, etc.). |  |  https :\//raw.githubusercontent.com/Microsoft/openshift-container-platform/master  |
 | `location` | Région Azure pour déployer des ressources pour |  |  |
@@ -257,7 +257,7 @@ Les paramètres peuvent différer selon les versions. Vérifiez quels sont les p
 | `infraVmSize` | Taille de l’infrastructure machine virtuelle. Sélectionnez une des tailles de machine virtuelle autorisées répertoriés dans le fichier azuredeploy.json |  | Standard_D4s_v3 |
 | `nodeVmSize` | Taille de machine virtuelle du nœud d’application. Sélectionnez une des tailles de machine virtuelle autorisées répertoriés dans le fichier azuredeploy.json |  | Standard_D4s_v3 |
 | `cnsVmSize` | Taille de la machine virtuelle du nœud de stockage natif (CNS) de conteneur. Sélectionnez une des tailles de machine virtuelle autorisées répertoriés dans le fichier azuredeploy.json |  | Standard_E4s_v3 |
-| `osImageType` | L’image RHEL à utiliser. defaultgallery : À la demande ; place de marché : image tiers | defaultgallery <br> place de marché | defaultgallery |
+| `osImageType` | L’image RHEL à utiliser. defaultgallery : À la demande ; place de marché : image tiers | defaultgallery <br> marketplace | defaultgallery |
 | `marketplaceOsImage` | Si `osImageType` est la place de marché, puis entrez les valeurs appropriées pour les « publisher » « offre », « sku », « version » de l’offre de la place de marché. Ce paramètre est un type d’objet |  |  |
 | `storageKind` | Le type de stockage à utiliser  | géré<br> non managé | géré |
 | `openshiftClusterPrefix` | Préfixe utilisé pour configurer les noms d’hôtes pour tous les nœuds du cluster.  Entre 1 et 20 caractères |  | MyCluster |
@@ -283,11 +283,11 @@ Les paramètres peuvent différer selon les versions. Vérifiez quels sont les p
 | `enableAzure` | Activer le fournisseur de Cloud Azure | true <br> false | true |
 | `aadClientId` | ID Azure Active Directory Client également connu en tant qu’ID d’Application pour le Principal de Service |  |  |
 | `domainName` | Nom du nom de domaine personnalisé à utiliser (le cas échéant). La valeur « none » si n’est pas le déploiement de cluster entièrement privé |  | Aucun |
-| `masterClusterDnsType` | Type de domaine pour la console web de OpenShift. 'default' utilisera étiquette DNS du maître d’infrastructure IP publique. « personnalisé » vous permet de définir votre propre nom | default <br> personnalisé | default |
+| `masterClusterDnsType` | Type de domaine pour la console web de OpenShift. 'default' utilisera étiquette DNS du maître d’infrastructure IP publique. « personnalisé » vous permet de définir votre propre nom | par défaut <br> personnalisé | par défaut |
 | `masterClusterDns` | Le nom DNS personnalisé à utiliser pour accéder à la console web de OpenShift si vous avez sélectionné 'personnalisé' pour `masterClusterDnsType` |  | console.contoso.com |
 | `routingSubDomainType` | Si la valeur est « nipio », `routingSubDomain` utilisera nip.io.  Utilisez 'custom' Si vous avez votre propre domaine que vous souhaitez utiliser pour le routage | nipio <br> personnalisé | nipio |
 | `routingSubDomain` | Le nom DNS générique à utiliser pour le routage si vous avez sélectionné 'personnalisé' pour `routingSubDomainType` |  | apps.contoso.com |
-| `virtualNetworkNewOrExisting` | Indiquez si vous souhaitez utiliser un réseau virtuel existant ou créez un réseau virtuel | Existant <br> new | new |
+| `virtualNetworkNewOrExisting` | Indiquez si vous souhaitez utiliser un réseau virtuel existant ou créez un réseau virtuel | Existant <br> nouveau | nouveau |
 | `virtualNetworkResourceGroupName` | Nom du groupe de ressources pour le nouveau réseau virtuel si vous avez sélectionné 'new' pour `virtualNetworkNewOrExisting` |  | resourceGroup().name |
 | `virtualNetworkName` | Le nom du nouveau réseau virtuel à créer si vous avez sélectionné 'new' pour `virtualNetworkNewOrExisting` |  | openshiftvnet |
 | `addressPrefixes` | Préfixe d’adresse du nouveau réseau virtuel |  | 10.0.0.0/14 |
@@ -301,9 +301,9 @@ Les paramètres peuvent différer selon les versions. Vérifiez quels sont les p
 | `existingInfraSubnetReference` | Référence complète à un sous-réseau existant pour infra nœuds. Ne pas nécessaire si la création du nouveau réseau virtuel / sous-réseau |  |  |
 | `existingCnsSubnetReference` | Référence complète à un sous-réseau existant pour les nœuds de noms communs. Ne pas nécessaire si la création du nouveau réseau virtuel / sous-réseau |  |  |
 | `existingNodeSubnetReference` | Référence complète à un sous-réseau existant pour les nœuds de calcul. Ne pas nécessaire si la création du nouveau réseau virtuel / sous-réseau |  |  |
-| `masterClusterType` | Spécifiez si le cluster utilise des nœuds principaux privés ou publics. Si vous choisissez privé, les nœuds principaux ne soient pas exposés à Internet via une adresse IP publique. Au lieu de cela, il utilisera l’adresse IP privée, spécifié dans le `masterPrivateClusterIp` | public <br> private | public |
+| `masterClusterType` | Spécifiez si le cluster utilise des nœuds principaux privés ou publics. Si vous choisissez privé, les nœuds principaux ne soient pas exposés à Internet via une adresse IP publique. Au lieu de cela, il utilisera l’adresse IP privée, spécifié dans le `masterPrivateClusterIp` | public <br> privé | public |
 | `masterPrivateClusterIp` | Si les nœuds principaux privés sont sélectionnées, une adresse IP privée doit être spécifiée pour une utilisation par l’équilibreur de charge interne pour les nœuds principaux. Cette adresse IP statique doit être dans le bloc CIDR pour le sous-réseau principal et n’est déjà en cours d’utilisation. Si les nœuds master publics sont sélectionnés, cette valeur ne sera pas utilisée mais doit toujours être spécifiée |  | 10.1.0.200 |
-| `routerClusterType` | Spécifiez si le cluster utilise public ou privé infra nœuds. Si vous choisissez privé, l’infrastructure nœuds ne soient pas exposés à Internet via une adresse IP publique. Au lieu de cela, il utilisera l’adresse IP privée, spécifié dans le `routerPrivateClusterIp` | public <br> private | public |
+| `routerClusterType` | Spécifiez si le cluster utilise public ou privé infra nœuds. Si vous choisissez privé, l’infrastructure nœuds ne soient pas exposés à Internet via une adresse IP publique. Au lieu de cela, il utilisera l’adresse IP privée, spécifié dans le `routerPrivateClusterIp` | public <br> privé | public |
 | `routerPrivateClusterIp` | S’ils sont privés infra nœuds sont sélectionnés, puis une adresse IP privée est obligatoire pour utiliser par l’équilibreur de charge interne pour infra nœuds. Cette adresse IP statique doit être dans le bloc CIDR pour le sous-réseau principal et n’est déjà en cours d’utilisation. S’ils sont publics infra nœuds sont sélectionnés, cette valeur ne sera pas utilisée mais doit toujours être spécifiée |  | 10.2.0.200 |
 | `routingCertType` | Utiliser un certificat personnalisé pour le domaine de routage ou le certificat auto-signé par défaut : suivez les instructions dans **certificats personnalisés** section | selfsigned <br> personnalisé | selfsigned |
 | `masterCertType` | Utiliser un certificat personnalisé pour le domaine principal ou le certificat auto-signé par défaut : suivez les instructions dans **certificats personnalisés** section | selfsigned <br> personnalisé | selfsigned |

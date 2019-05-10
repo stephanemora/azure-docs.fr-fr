@@ -12,22 +12,22 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/02/2017
+ms.date: 04/25/2019
 ms.author: atsenthi
-ms.openlocfilehash: 1e02e4fdf0dbe04d8756fc6355c6a9e414b27d2b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: feb82d2abb756d636aeb77042cc817b7b05f6b0c
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60719166"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233662"
 ---
 # <a name="why-a-microservices-approach-to-building-applications"></a>Pourquoi une approche de microservices pour la conception d’applications ?
 
-Pour les développeurs de logiciels que nous sommes, il n’y a rien de nouveau dans notre conception de l’affacturage d’une application en composants. En règle générale, une approche hiérarchisée est adoptée avec un magasin principal, une logique métier de couche intermédiaire et une interface utilisateur frontale. Ce qui *a* changé au cours des dernières années, c’est que nous, en tant que développeurs, créons des applications distribuées pour le cloud.
+En tant que développeurs de logiciels, réfléchir en tenant compte d’une application en composants n’est pas nouveau. En règle générale, une approche hiérarchisée est adoptée avec un magasin principal, une logique métier de couche intermédiaire et une interface utilisateur frontale. Ce qui *a* changé au cours des dernières années, c’est que nous, en tant que développeurs, créons des applications distribuées pour le cloud.
 
 Les nouveaux besoins de l’entreprise sont les suivants :
 
-* Service dont la création et le fonctionnement se font à l’échelle pour atteindre les clients situés dans de nouvelles régions géographiques.
+* Un service qui est construit et géré à l’échelle pour atteindre les clients dans nouvelles régions géographiques.
 * Distribution plus rapide des fonctionnalités pour être en mesure de répondre aux demandes des clients d’une manière agile.
 * Meilleure utilisation des ressources pour réduire les coûts.
 
@@ -37,15 +37,15 @@ Pour plus d’informations sur l’approche d’Azure à l’égard des microser
 
 ## <a name="monolithic-vs-microservice-design-approach"></a>Approches de conception monolithique et de microservices
 
-Les applications évoluent au fil du temps. Les applications réussies évoluent en étant utiles aux utilisateurs. Les applications ratées n’évoluent pas et sont, en fin de compte, déconseillées. La question est la suivante : Que savez-vous de vos besoins aujourd’hui et que seront-ils à l’avenir ? Par exemple, supposons que vous créez une application de création de rapports pour un service. Vous êtes certain que l’application s’applique uniquement dans l’étendue de votre entreprise et que les rapports ont une durée de vie limitée. L’approche que vous choisirez est différente de celle adoptée pour la création d’un service de distribution de contenu vidéo à des dizaines de millions de clients par exemple.
+Les applications évoluent au fil du temps. Les applications réussies évoluent en étant utiles aux utilisateurs. Les applications ratées n’évoluent pas et sont, en fin de compte, déconseillées. La question est la suivante : Combien vous savez-vous de vos besoins aujourd'hui et ce qu’elle seront à l’avenir ? Par exemple, supposons que vous créez une application de création de rapports pour un service. Vous êtes certain que l’application s’applique uniquement dans l’étendue de votre entreprise et que les rapports ont une durée de vie limitée. L’approche que vous choisirez est différente de celle adoptée pour la création d’un service de distribution de contenu vidéo à des dizaines de millions de clients par exemple.
 
-Parfois, la sortie d’un élément en tant que preuve de concept constitue un facteur déterminant lorsque l’on sait que l’application peut être repensée ultérieurement. Il n’est pas très pertinent de lancer une ingénierie complexe pour quelque chose qui ne sera jamais utilisé. C’est un compromis habituel en ingénierie. Par ailleurs, lorsque des entreprises parlent de mettre en place le cloud, leurs attentes concernent la croissance et l’utilisation. Le problème, c’est que la croissance et l’évolutivité sont imprévisibles. Nous souhaitons pouvoir créer des prototypes rapidement, mais, dans le même temps, savoir que nous sommes sur la voie du succès. C’est l’approche d’une lean startup : créer, mesurer, apprendre et itérer.
+Parfois, un élément en la porte de la mise en tant que preuve de concept est le facteur déterminant, sachant que l’application peut être repensée ultérieurement. Il n’est pas très pertinent de lancer une ingénierie complexe pour quelque chose qui ne sera jamais utilisé. Par ailleurs, lorsque des entreprises parlent de mettre en place le cloud, leurs attentes concernent la croissance et l’utilisation. Le problème, c’est que la croissance et l’évolutivité sont imprévisibles. Nous souhaitons pouvoir créer des prototypes rapidement tout également savoir que nous sommes sur un chemin d’accès qui peut gérer réussite future. C’est l’approche d’une lean startup : créer, mesurer, apprendre et itérer.
 
-À l’ère client-serveur, nous avions tendance à nous concentrer sur la création d’applications hiérarchisées à l’aide de technologies spécifiques dans chaque niveau. Le qualificatif *monolithique* a vu le jour pour ces applications. Les interfaces avaient tendance à se trouver entre les niveaux, et une conception plus étroitement couplée était utilisée entre les composants de chaque niveau. Les développeurs concevaient et factorisaient des classes compilées dans des bibliothèques et liaient celles-ci dans quelques fichiers exécutables et DLL. 
+À l’ère client-serveur, nous avions tendance à nous concentrer sur la création d’applications hiérarchisées à l’aide de technologies spécifiques dans chaque niveau. Le qualificatif *monolithique* a vu le jour pour ces applications. Les interfaces avaient tendance à se trouver entre les niveaux, et une conception plus étroitement couplée était utilisée entre les composants de chaque niveau. Les développeurs concevaient et factorisaient des classes compilées dans des bibliothèques et liaient celles-ci dans quelques fichiers exécutables et DLL.
 
 Une telle approche de conception monolithique présente des avantages. La conception est souvent plus simple, et les appels entre les composants sont plus rapides dans la mesure où ils sont souvent effectués via IPC (communication entre processus). En outre, chacun teste un produit unique, ce qui est plus efficace en termes de ressources de personnel. L’inconvénient est la création d’un couplage étroit entre les couches hiérarchisées et l’impossibilité de mettre à l’échelle les composants individuels. Si vous devez appliquer des correctifs ou des mises à niveau, vous devez attendre que les autres terminent leurs tests, et il devient plus difficile de faire preuve d’agilité.
 
-Les microservices gèrent ces inconvénients et s’alignent plus étroitement sur les exigences métier précédentes, mais ils présentent eux aussi des avantages et des inconvénients. Avantages des microservices : en général, chacun encapsule des fonctionnalités métier plus simples, qui peuvent faire l’objet d’un « scale up «, d’un « scale down » et que vous pouvez tester, déployer et gérer indépendamment. L’un des avantages importants d’une approche de microservices est que les équipes sont davantage orientées par les scénarios métier que par la technologie, ce qui est encouragé par l’approche hiérarchisée. Dans la pratique, de plus petites équipes développent un microservice en s’appuyant sur un scénario client et utilisent les technologies de leur choix.
+Les microservices gèrent ces inconvénients et s’alignent plus étroitement sur les exigences métier précédentes, mais ils présentent eux aussi des avantages et des inconvénients. Avantages des microservices : en général, chacun encapsule des fonctionnalités métier plus simples, qui peuvent faire l’objet d’un « scale up «, d’un « scale down » et que vous pouvez tester, déployer et gérer indépendamment. Un des principaux atouts d’une approche de microservices sont que les équipes sont davantage orientées par les scénarios métier que par la technologie. Dans la pratique, de plus petites équipes développent un microservice en s’appuyant sur un scénario client et utilisent les technologies de leur choix.
 
 En d’autres termes, l’organisation n’a pas besoin de standardiser la technologie pour maintenir les applications de microservices. Les équipes individuelles qui possèdent des services peuvent effectuer les actions les plus pertinentes pour elles en fonction de leur expertise ou de ce qui est le plus approprié pour le problème à résoudre. Dans la pratique, il est préférable de disposer d’un ensemble de technologies recommandées, par exemple d’un magasin NoSQL particulier ou d’une infrastructure d’application web.
 
@@ -71,11 +71,11 @@ Tandis qu’un nombre croissant d’applications cloud sont produites, les gens 
 
 Concevoir avec une approche de microservices n’est pas la panacée pour tous les projets, mais cette vision se rapproche davantage des objectifs métier décrits précédemment. Commencer par une approche monolithique est acceptable si vous savez que vous n’aurez pas la possibilité de retravailler le code en une conception de microservices. Le scénario le plus courant est le suivant : vous débutez avec une application monolithique que vous fractionnez lentement en étapes, en commençant par les zones fonctionnelles qui doivent être plus évolutives ou agiles.
 
-L’approche de microservices signifie que vous composez votre application avec plusieurs petits services. Les services sont exécutés dans des conteneurs déployés sur un cluster de machines. De plus petites équipes développent un service qui se concentre sur un scénario et testent, contrôlent les versions, déploient et mettent à l’échelle chaque service indépendamment, afin que l’intégralité de l’application puisse évoluer.
+L’approche de microservices signifie que vous composez votre application avec plusieurs petits services. Ces services s’exécutent dans des conteneurs qui sont déployés sur un cluster de machines. De plus petites équipes développent un service qui se concentre sur un scénario et testent, contrôlent les versions, déploient et mettent à l’échelle chaque service indépendamment, afin que l’intégralité de l’application puisse évoluer.
 
 ## <a name="what-is-a-microservice"></a>Que sont les microservices ?
 
-Il existe plusieurs définitions du terme « microservice ». Néanmoins, la plupart des caractéristiques suivantes des microservices font l’objet d’un large consensus :
+Il existe plusieurs définitions du terme « microservice ». Cependant, la plupart des caractéristiques suivantes des microservices est largement acceptée :
 
 * Ils encapsulent un scénario client ou d’entreprise. Quel est le problème que vous cherchez à résoudre ?
 * Ils sont développés par une petite équipe d’ingénierie.
@@ -93,11 +93,11 @@ En résumé :
 
 En tant que développeurs, nous voulons être libres d’opter pour le langage ou l’infrastructure de notre choix, selon nos compétences ou les besoins du service. Dans certains services, vous pouvez avant tout apprécier les avantages en termes de performances de C++. Dans d’autres services, la facilité du développement géré en C# ou Java peut être plus importante. Dans certains cas, vous devrez peut-être utiliser la bibliothèque d’un partenaire, une technologie de stockage de données ou un moyen d’exposer le service aux clients.
 
-Après avoir choisi une technologie, vous arrivez à l’étape de gestion du cycle de vie ou des opérations et de la mise à l’échelle du service.
+Après avoir choisi une technologie, vous arrivez à la gestion du cycle de vie ou des opérations et de mise à l’échelle du service.
 
 ### <a name="allows-code-and-state-to-be-independently-versioned-deployed-and-scaled"></a>Le code et l’état peuvent être indépendamment gérés en termes de version, déployés et mis à l’échelle
 
-Toutefois, si vous choisissez d’écrire vos microservices, le code et, éventuellement, l’état, doivent être déployés, mis à niveau et mis à l’échelle indépendamment. C’est un des problèmes les plus difficiles à résoudre, puisque cela dépend de votre choix de technologies. Pour la mise à l’échelle, comprendre comment partitionner le code et l’état est difficile. Lorsque le code et l’état utilisent des technologies distinctes (ce qui est courant à l’heure actuelle), les scripts de déploiement pour votre microservice doivent pouvoir les mettre à l’échelle. Cela concerne également l’agilité et la flexibilité afin que vous puissiez mettre à niveau certains des microservices sans avoir à les mettre à niveau tous en même temps.
+Quelle que soit la façon dont vous choisissez d’écrire vos microservices, le code et éventuellement l’état, doit indépendamment déployer, mettre à niveau et mettre à l’échelle. C’est un des problèmes les plus difficiles à résoudre, puisque cela dépend de votre choix de technologies. Pour la mise à l’échelle, comprendre comment partitionner le code et l’état est difficile. Lorsque le code et l’état utilisent des technologies distinctes (ce qui est courant à l’heure actuelle), les scripts de déploiement pour votre microservice doivent pouvoir les mettre à l’échelle. Cela concerne également l’agilité et la flexibilité afin que vous puissiez mettre à niveau certains des microservices sans avoir à les mettre à niveau tous en même temps.
 
 Revenons à la comparaison entre approche monolithique et approche de microservices pour un instant. Le schéma suivant illustre les différences dans l’approche de stockage de l’état.
 
@@ -121,7 +121,7 @@ De nombreux ouvrages sur l’architecture orientée service, qui décrivent des 
 
 ### <a name="has-a-unique-name-url-used-to-resolve-its-location"></a>Ils possèdent un nom unique (URL) utilisé pour résoudre leur emplacement
 
-Votre microservice doit être adressable partout où il est exécuté. Si vous pensez à des machines et à celles qui exécutent un microservice spécifique, les choses tournent mal rapidement. 
+Votre microservice doit être adressable partout où il est exécuté. Si vous pensez à des machines et à celles qui exécutent un microservice spécifique, les choses tournent mal rapidement.
 
 De la même façon que le DNS résout une URL spécifique pour une machine spécifique, votre microservice doit avoir un nom unique pour que le système puisse découvrir son emplacement actuel. Les microservices ont besoin de noms adressables indépendants de l’infrastructure sur laquelle ils sont exécutés. Bien sûr, cela implique l’existence d’une interaction entre le mode de déploiement de votre service et la méthode permettant de le découvrir, dans la mesure où un Registre de service doit être disponible. Lorsqu’une machine tombe en panne, le registre de services doit vous indiquer le nouvel emplacement d’exécution du service.
 
@@ -138,6 +138,9 @@ La résilience est difficile à atteindre lorsque des défaillances surviennent 
 Cela peut paraître évident, et c’est souvent négligé, mais un microservice doit générer des rapports sur son intégrité et ses diagnostics. Dans le cas contraire, les connaissances concernant l’intégrité d’un point de vue opérationnel sont limitées. Corréler des événements de diagnostic sur un ensemble de services indépendants et gérer les variations d’horloges des machines afin de déterminer l’ordre des événements représente un défi. De la même manière que vous interagissez avec un microservice selon des protocoles et des formats de données convenus, vous devez standardiser la manière de journaliser les événements d’intégrité et de diagnostic qui finiront dans un magasin d’événements que l’on peut interroger et afficher. Dans une approche de microservices, il est essentiel que les différentes équipes soient d’accord sur un format de journalisation unique. Une approche cohérente doit être adoptée pour afficher les événements de diagnostic dans l’application comme un tout.
 
 L’intégrité diffère des diagnostics. L’intégrité fait référence aux rapports du microservice sur son état actuel de sorte que des actions appropriées puissent être prises. Un bon exemple de cela est l’utilisation de mécanismes de mise à niveau et de déploiement pour garantir la disponibilité. Même si un service est défectueux en raison d’un blocage de processus ou d’un redémarrage de machine, il peut demeurer opérationnel. La dernière chose dont vous avez besoin est d’empirer les choses en effectuant une mise à niveau. La meilleure solution est de commencer par mener une enquête ou de laisser le temps au microservice de récupérer. Les événements d’intégrité d’un microservice nous aident à prendre des décisions avisées et nous aident effectivement à créer des services de réparation spontanée.
+
+## <a name="microservices-design-guidance-on-azure"></a>Guide de conception de Microservices sur Azure
+Visitez le centre d’architecture Azure pour obtenir des conseils de conception sur [création de microservices sur Azure](https://docs.microsoft.com/azure/architecture/microservices/)
 
 ## <a name="service-fabric-as-a-microservices-platform"></a>Service Fabric en tant que plateforme de microservices
 
@@ -170,8 +173,8 @@ Il est important d’insister à nouveau sur le fait que vous pouvez **commencer
 **Opération lift-and-shift**  
 De nombreuses entreprises déplacent des applications monolithiques existantes vers des conteneurs pour deux raisons :
 
-- Une réduction des coûts liée à la consolidation et à la suppression de matériel existant ou d’applications en cours d’exécution à une densité plus élevée.
-- Un contrat de déploiement cohérent entre le développement et les opérations.
+* Une réduction des coûts liée à la consolidation et à la suppression de matériel existant ou d’applications en cours d’exécution à une densité plus élevée.
+* Un contrat de déploiement cohérent entre le développement et les opérations.
 
 Les réductions de coûts sont compréhensibles et, au sein de Microsoft, un grand nombre d’applications existantes sont placées en conteneur simplement pour économiser des millions de dollars. Un déploiement cohérent est plus difficile à évaluer, mais tout aussi important. Il permet aux développeurs de toujours rester libres de choisir la technologie qui leur convient le mieux. Toutefois, les opérations acceptent un seul moyen de déployer et de gérer ces applications. Ainsi, les opérations n’ont pas à gérer la complexité liée à de nombreuses technologies différentes ou à obliger les développeurs à ne choisir que certaines d’entre elles. En principe, chaque application est placée dans des images de déploiement autonomes.
 
@@ -181,23 +184,24 @@ De nombreuses organisations ne vont pas plus loin. Elles bénéficient déjà de
 L’ajout de nouveaux services en plus du code en conteneur existant. Si vous souhaitez du code, il est conseillé de suivre quelques étapes liées aux microservices. Cela peut consister dans l’ajout d’un nouveau point de terminaison d’API REST ou d’une nouvelle logique métier. De cette manière, vous commencez à créer de nouveau microservices et vous vous exercez à leur développement et déploiement.
 
 **Innovation**  
-Les microservices vous permettent de mieux vous adapter aux changements de vos besoins. À ce stade, la décision repose sur la question de savoir si vous devez commencer à fractionner l’application monolithique ou opter pour l’innovation. Un exemple : une base de données utilisée comme file d’attente de flux de travail devient un goulot d’étranglement qui ralentit le traitement. L’augmentation des demandes de workflow requiert une distribution du travail pour la mise à l’échelle. Concernant cette partie de l’application qui n’est pas mise à l’échelle, ou qui doit être mise à jour plus fréquemment, il est conseillé de la fractionner en microservices et d’opter pour l’innovation.
+Les microservices vous permettent de mieux vous adapter aux changements de vos besoins. À ce stade, la décision repose sur la question de savoir si vous devez commencer à fractionner l’application monolithique ou opter pour l’innovation. Ici un exemple classique est quand une base de données utilisé comme une file d’attente de flux de travail devient un goulot d’étranglement. L’augmentation des demandes de workflow requiert une distribution du travail pour la mise à l’échelle. Concernant cette partie de l’application qui n’est pas mise à l’échelle, ou qui doit être mise à jour plus fréquemment, il est conseillé de la fractionner en microservices et d’opter pour l’innovation.
 
 **Transformation en microservices**  
-Votre application est entièrement composée de (ou décomposée) en microservices. Pour atteindre ce stade, vous avez suivi la procédure liée aux microservices. Vous pouvez commencer ici. Toutefois, effectuer cette opération sans l’aide d’une plate-forme de microservices demande un investissement important. 
+Il s’agit dans lequel votre application est entièrement composé de (ou moins) fractionnées en microservices. Pour atteindre ce stade, vous avez suivi la procédure liée aux microservices. Vous pouvez commencer ici. Toutefois, effectuer cette opération sans l’aide d’une plate-forme de microservices demande un investissement important.
 
 ### <a name="are-microservices-right-for-my-application"></a>Les microservices conviennent-ils à mon application ?
 
 Peut-être. Nous avons constaté qu’étant donné que de plus en plus d’équipes Microsoft ont commencé à créer en gardant le cloud à l’esprit pour des raisons métier, nombre d’entre elles ont pris conscience des avantages d’une approche de microservices. Bing, par exemple, développe l’utilisation des microservices depuis des années. Pour les autres équipes, l’approche des microservices était une nouveauté. Les équipes trouvaient qu’il existait des problèmes difficiles à résoudre en dehors de leurs principaux domaines d’expertise. C’est pourquoi Service Fabric est très populaire en tant que technologie pour créer des services.
 
 L’objectif de Service Fabric consiste à réduire la complexité de la création d’applications de microservices afin de vous éviter des refontes coûteuses. Commencez petit, mettez à l’échelle lorsque c’est nécessaire, déconseillez les services inutiles, ajoutez-en de nouveaux, évoluez avec l’utilisation des clients. Nous savons également qu’il existe de nombreux autres problèmes à résoudre pour que les microservices soient plus abordables pour la plupart des développeurs. Les conteneurs et le modèle de programmation Actor sont des exemples de petites étapes dans cette direction, et nous sommes persuadés que plusieurs innovations vont apparaître pour simplifier ce processus.
- 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Présentation de la terminologie Service Fabric](service-fabric-technical-overview.md)
 * [Microservices : An application revolution powered by the cloud](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/).
+* [Centre des architectures Azure : Création de microservices sur Azure](https://docs.microsoft.com/azure/architecture/microservices/)
+* [Méthodes conseillées pour Azure application Service Fabric et cluster](service-fabric-best-practices-overview.md)
+* [Présentation de la terminologie Service Fabric](service-fabric-technical-overview.md)
 
 [Image1]: media/service-fabric-overview-microservices/monolithic-vs-micro.png
 [Image2]: media/service-fabric-overview-microservices/statemonolithic-vs-micro.png

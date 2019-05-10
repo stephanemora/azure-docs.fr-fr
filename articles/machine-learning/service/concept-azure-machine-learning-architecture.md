@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 04/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: b06e3ff50eba4763403450a807aa90ef6335f1a9
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: cb716e0d9f97d3ea2e9584a9fc3d7a6f57da9179
+ms.sourcegitcommit: 1d257ad14ab837dd13145a6908bc0ed7af7f50a2
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025232"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65502105"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Voici comment Azure Machine Learning service fonctionne : Architecture et concepts
 
@@ -32,9 +32,7 @@ Le flux de travail machine learning suit généralement cette séquence :
 1. **Envoyez les scripts** à la cible de calcul configurée en vue de leur exécution dans cet environnement. Pendant l’entraînement, les scripts peuvent lire ou écrire dans un **magasin de données**. De plus, les enregistrements de l’exécution sont enregistrés en tant que **séries** dans l’**espace de travail** et regroupés dans des **expériences**.
 1. **Interrogez cette expérience** pour obtenir les métriques journalisées relatives aux exécutions actuelles et passées. Si les métriques ne montrent pas le résultat souhaité, retournez à l’étape 1, puis itérez vos scripts.
 1. Une fois qu’une exécution satisfaisante est trouvée, inscrivez le modèle persistant dans le **registre de modèles**.
-1. Développez un script de scoring.
-1. **Créez une image** et inscrivez-la dans le **registre d’images**.
-1. **Déployez l’image** comme un **service web** dans Azure.
+1. Développer un script de notation qui utilise le modèle et **déployer le modèle** comme un **service web** dans Azure, ou à un **appareil IoT Edge**.
 
 
 > [!NOTE]
@@ -46,7 +44,7 @@ L’espace de travail est la ressource de niveau supérieur du service Azure Mac
 
 L’espace de travail conserve une liste de cibles de calcul que vous pouvez utiliser pour entraîner votre modèle. Il conserve également un historique des exécutions d’entraînement, y compris les journaux d’activité, métriques, sorties et instantanés de vos scripts. Vous utilisez ces informations pour déterminer quelle exécution d’entraînement produit le meilleur modèle.
 
-Vous inscrivez les modèles dans l’espace de travail. Vous utilisez un modèle inscrit et des scripts de scoring pour créer une image. Vous pouvez alors déployer l’image dans Azure Container Instances, Azure Kubernetes Service ou dans un tableau FPGA, comme point de terminaison HTTP basé sur REST. Vous pouvez également déployer l’image en tant que module sur un appareil Azure IoT Edge.
+Vous inscrivez les modèles dans l’espace de travail. Vous utilisez un modèle inscrit et scripts de calcul de score pour déployer un modèle sur Azure Container Instances, Azure Kubernetes Service, ou à un tableau de portes à champ programmable (FPGA) comme point de terminaison HTTP basé sur REST. Vous pouvez également déployer l’image en tant que module sur un appareil Azure IoT Edge. En interne, une image docker est créée pour héberger l’image déployée. Si nécessaire, vous pouvez spécifier votre propre image.
 
 Vous pouvez créer plusieurs espaces de travail, et chacun d’eux peut être partagé par plusieurs personnes. Lorsque vous partagez un espace de travail, vous pouvez contrôler l’accès à ce dernier en assignant des utilisateurs aux rôles suivants :
 
@@ -94,7 +92,7 @@ Les modèles sont identifiés par leur nom et par leur version. Chaque fois que 
 
 Lorsque vous inscrivez le modèle, vous pouvez fournir des étiquettes de métadonnées supplémentaires, puis utiliser les étiquettes lorsque vous recherchez des modèles.
 
-Vous ne pouvez pas supprimer les modèles qui sont utilisés par une image.
+Vous ne pouvez pas supprimer les modèles qui sont utilisés par un déploiement actif.
 
 Pour obtenir un exemple d’inscription de modèle, consultez [Entraîner un modèle de classification d’images avec Azure Machine Learning](tutorial-train-models-with-aml.md).
 
@@ -208,11 +206,11 @@ Le registre d’images effectue le suivi des images qui sont créées à partir 
 
 ## <a name="deployment"></a>Déploiement
 
-Un déploiement est une instanciation de votre image soit dans un service web pouvant être hébergé dans le cloud, soit dans un module IoT pour les déploiements d’appareils intégrés.
+Un déploiement est une instanciation de votre modèle dans un service web qui peut être hébergé dans le cloud ou un module IoT pour les déploiements de l’appareil intégré.
 
 ### <a name="web-service"></a>Service Web
 
-Un service web déployé peut utiliser Azure Container Instances, Azure Kubernetes Service ou des tableaux FPGA. Vous créez le service à partir d’une image qui encapsule votre modèle, votre script et les fichiers associés. L’image a un point de terminaison HTTP à charge équilibrée qui reçoit les requêtes de scoring qui sont envoyées au service web.
+Un service web déployé peut utiliser Azure Container Instances, Azure Kubernetes Service ou des tableaux FPGA. Vous créez le service à partir de votre modèle, les scripts et les fichiers associés. Ceux-ci sont encapsulées dans une image, qui fournit l’environnement d’exécution pour le service web. L’image a un point de terminaison HTTP à charge équilibrée qui reçoit les requêtes de scoring qui sont envoyées au service web.
 
 Azure vous permet de superviser le déploiement de votre service web en collectant les données de télémétrie Application Insights ou les données de télémétrie des modèles, si vous avez choisi d’activer cette fonctionnalité. Vous seul pouvez accéder aux données de télémétrie qui sont stockées dans votre instance Application Insights et votre instance de compte de stockage.
 

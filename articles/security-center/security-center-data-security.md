@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 7a327c963f32d6bf5b0cf7751557c61327fd26e9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cd91b83bc808d811fc50293fbf1726d609ad5b46
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60911542"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65234072"
 ---
 # <a name="azure-security-center-data-security"></a>Sécurité des données du Centre de sécurité Azure
 Pour aider les clients à prévenir, détecter et contrer les menaces, Azure Security Center collecte et traite des données de sécurité, notamment des informations de configuration, des métadonnées, des journaux d’événements et des fichiers de vidage sur incident. Microsoft adhère aux recommandations strictes de conformité et de sécurité, du codage jusqu'à l'exploitation d'un service.
@@ -46,12 +46,18 @@ Pour assurer une visibilité sur l’état de la sécurité, identifier les vuln
 
 **Vos espaces de travail** : Un espace de travail est spécifié pour les zones géographiques ci-après, et les données collectées à partir de vos machines virtuelles Azure, notamment les vidages sur incident et certains types de données d’alerte, sont stockées dans l’espace de travail le plus proche.
 
-| Zone géographique de machine virtuelle                        | Zone géographique d’espace de travail |
-|-------------------------------|---------------|
-| États-Unis, Brésil, Canada | États-Unis |
-| Europe, Royaume-Uni        | Europe        |
-| Asie-Pacifique, Japon, Inde    | Asie-Pacifique  |
-| Australie                     | Australie     |
+| Zone géographique de machine virtuelle                              | Zone géographique d’espace de travail |
+|-------------------------------------|---------------|
+| Afrique du Sud des États-Unis, Brésil, | États-Unis |
+| Canada                              | Canada        |
+| Europe (à l’exclusion du Royaume-Uni)   | Europe        |
+| Royaume-Uni                      | Royaume-Uni |
+| Asie (à l’exception de l’Inde, Japon, Corée, Chine)   | Asie-Pacifique  |
+| Corée du Sud                              | Asie-Pacifique  |
+| Inde                               | Inde         |
+| Japon                               | Japon         |
+| Chine                               | Chine         |
+| Australie                           | Australie     |
 
 
 Les captures instantanées des disques de machine virtuelle sont stockées dans le même compte de stockage que celui de ces disques.

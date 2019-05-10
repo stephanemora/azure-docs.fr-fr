@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: f3e7cab6e33fa9373095441685f6ecb04f1d91a5
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 73b7822c56e2b07eeefdedce1bce6d410d110ebc
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65029369"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65411462"
 ---
 # <a name="two-class-decision-forest-module"></a>Module de Two-Class Decision Forest
 
@@ -46,7 +46,7 @@ Arbres de décision présentent en général de nombreux avantages pour les tâc
 
 Toutefois, les arbres de décision simple peuvent dépasser sur les données et sont moins généralisables que les ensembles d’arborescence.
 
-Pour plus d’informations, consultez [forêts décisionnelles](http://go.microsoft.com/fwlink/?LinkId=403677).  
+Pour plus d’informations, consultez [forêts décisionnelles](https://go.microsoft.com/fwlink/?LinkId=403677).  
 
 ## <a name="how-to-configure"></a>Comment configurer
   

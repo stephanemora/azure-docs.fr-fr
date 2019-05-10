@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 82a2330aeadb14bb421260a290a25581232293e5
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 82c0aa53fa8905e0e58cb784a478ade474ec5601
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65073352"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65232763"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planification d’un déploiement Azure Files
 
@@ -94,7 +94,7 @@ Partages de fichiers Premium (version préliminaire) sont configurés selon un r
 
 Dans la mesure du possible, tous les partages peuvent atteindre en rafale jusqu’à trois IOPS par Gio de stockage approvisionné pendant 60 minutes ou plus, selon la taille du partage. Les nouveaux partages démarrent avec le crédit de rafale complète basé sur la capacité approvisionnée.
 
-Partages doivent être approvisionnés incréments de 1 Go. Taille minimale est de 100 Go, la taille suivante est GIO 101 et ainsi de suite.
+Partages doivent être approvisionnés incréments de 1 Go. Taille minimale est de 100 Go, la taille suivante est Gio 101 et ainsi de suite.
 
 > [!TIP]
 > Ligne de base d’e/s = 1 * approvisionné Gio. (Jusqu'à un maximum de 100 000 e/s).

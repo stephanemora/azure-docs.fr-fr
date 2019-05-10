@@ -12,12 +12,12 @@ ms.author: moslake
 ms.reviewer: sstein, carlrab
 manager: craigg
 ms.date: 05/07/2019
-ms.openlocfilehash: 2ab8f272fc264f153144803be772d381c1780512
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 7f850f309034d128efef89ea842db41d35b8491e
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65143265"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65235743"
 ---
 # <a name="sql-database-serverless-preview"></a>Base de données SQL sans serveur (version préliminaire)
 
@@ -72,7 +72,7 @@ Le tableau suivant compare le niveau de calcul sans serveur avec le niveau de ca
 
 ## <a name="purchasing-model-and-service-tier"></a>Niveau de service et de modèle d’achat
 
-SQL Database sans serveur est actuellement pris en charge uniquement dans le niveau usage général sur du matériel de génération 5 dans le modèle d’achat de vcores.
+SQL Database sans serveur est actuellement pris en charge uniquement dans le niveau usage général sur du matériel de génération 5 dans le modèle d’achat de Vcores.
 
 ## <a name="autoscaling"></a>Mise à l’échelle automatique
 
@@ -106,7 +106,7 @@ Autoresume est déclenchée si une des conditions suivantes sont remplie à tout
 |Découverte et classification des données|Ajout, modification, suppression ou l’affichage des étiquettes de sensibilité|
 |Audit|Affichage des enregistrements d’audit.<br>La mise à jour ou la consultation de stratégie d’audit|
 |Masquage de données|Ajout, modification, suppression ou l’affichage des règles de masquage des données|
-|Chiffrement transparent des données|État d’affichage ou l’état de chiffrement transparent des données|
+|Transparent Data Encryption|État d’affichage ou l’état de chiffrement transparent des données|
 |Magasin de données de requête (performance)|Modification ou l’affichage des paramètres de magasin de requête ; le réglage automatique|
 |Réglage automatique|Application et vérification des recommandations de réglage automatique telles que l’indexation automatique|
 |Copie de base de données|Créer la base de données en tant que copie<br>Exporter vers un fichier BACPAC|
@@ -227,7 +227,7 @@ Le pool de ressources utilisateur est interne à la plupart des limite de gestio
 
 ### <a name="metrics"></a>Mesures
 
-|Entité|Métrique|Description|Units|
+|Entité|Métrique|Description |Unités|
 |---|---|---|---|
 |Package d’application|app_cpu_percent|Pourcentage de VCORE utilisés par l’application par rapport à VCORE maximale autorisée pour l’application.|Pourcentage|
 |Package d’application|app_cpu_billed|La quantité de calcul facturée pour l’application pendant la période du rapport. Le montant payé pendant cette période est le produit de cette mesure et le prix unitaire de vCore.<br>Valeurs de cette métrique sont déterminées par l’agrégation au fil du temps, le nombre maximal de processeur utilisé et la mémoire utilisée par seconde.<br>Si la quantité utilisée est inférieure à la quantité minimale configurée en tant que jeu par le nombre minimal de VCORE et la mémoire minimum, la quantité minimale configurée est facturée.  Pour comparer des UC avec mémoire pour la facturation, mémoire est normalisée en unités de VCORE par remise à l’échelle de la quantité de mémoire en Go par 3 Go par vCore.|secondes de vCore|
@@ -264,7 +264,7 @@ Pour les limites de ressources, consultez [niveau de calcul sans serveur](sql-da
 
 La quantité de calcul facturée par seconde est le nombre maximal de processeur utilisée et la mémoire utilisée par seconde. Si la quantité d’UC utilisée et de mémoire utilisée est inférieure à la quantité minimale pour chacune, le montant configuré est facturé. Pour comparer des UC avec mémoire pour la facturation, mémoire est normalisée en unités de VCORE par remise à l’échelle de la quantité de mémoire en Go par 3 Go par vCore.
 
-- **Ressource facturé**: Processeur et mémoire
+- **Ressource facturé**: UC et mémoire
 - **Montant facturé ($)**: vCore UnitPrice * max (nombre minimal de VCORE, vCores utilisés, mémoire min Go * 1/3, mémoire utilisé Go * 1/3) 
 - **Fréquence de facturation**: par seconde
 

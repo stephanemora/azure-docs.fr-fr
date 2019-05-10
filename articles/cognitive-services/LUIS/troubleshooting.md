@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: ea3bb551a32fdfb7e4a378c36858860808e27419
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 132ba922fa73c73d0e001e84659b5a24996d406b
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65072770"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65235796"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Forum aux questions (FAQ) sur Language Understanding
 
@@ -294,7 +294,7 @@ Les fonctionnalités suivantes ont été publiées lors de la conférence de 201
 
 * [Aperçu du guide de migration V3 API](luis-migration-api-v3.md)
 * [Tableau de bord analytique améliorée](luis-how-to-use-dashboard.md)
-* [Amélioration des domaines prédéfinis](luis-reference-prebuilt-domains.md) fonctionnent avec V2 et V3 API
+* [Amélioration des domaines prédéfinis](luis-reference-prebuilt-domains.md) 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

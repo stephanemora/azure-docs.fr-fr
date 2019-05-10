@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp
 manager: craigg
 ms.date: 02/27/2019
-ms.openlocfilehash: 09ab154494ad3e1276239e36068255c2042358c5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e2068283414ef2fabb44e9876f6727cc0fe3530b
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61487540"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233505"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Vue d’ensemble des limites de ressources Azure SQL Database Managed Instance
 
@@ -37,11 +37,11 @@ Azure SQL Database Managed Instance peut être déployé sur deux générations 
 |   | **Gen4** | **Gen5** |
 | --- | --- | --- |
 | Matériel | Processeurs Intel E5-2673 v3 (Haswell) 2,4 GHz, disque SSD attaché, vCore = 1 PP (cœur physique) | Processeurs Intel E5-2673 v4 (Broadwell) 2,3 GHz, disque SSD fast NVMe, vCore = 1 LP (hyperthread) |
-| Calcul | 8, 16, 24 vCores | 8, 16, 24, 32, 40, 64, 80 vCores |
+| vCores | 8, 16, 24 vCores | 8, 16, 24, 32, 40, 64, 80 vCores |
 | Mémoire | 7 Go par vCore | 5,1 Go par vCore |
-| OLTP en mémoire | 3 Go par vCore | 2,6 Go par vCore |
-| Espace de stockage maximal (usage général) |  8 To | 8 To |
-| Espace de stockage maximal (Critique pour l’entreprise) | 1 To | 1 To, 2 To ou 4 To, en fonction du nombre de cœurs |
+| Mémoire de l’OLTP en mémoire maximal | 3 Go par vCore | 2,6 Go par vCore |
+| Stockage d’instance max (usage général) |  8 To | 8 To |
+| Stockage d’instance max (critique pour l’entreprise) | 1 To | 1 To, 2 To ou 4 To, en fonction du nombre de cœurs |
 
 ### <a name="service-tier-characteristics"></a>Caractéristiques du niveau de service
 
@@ -50,12 +50,12 @@ Managed Instance propose deux niveaux de service : Usage général et Critique 
 | **Fonctionnalité** | **Usage général** | **Critique pour l’entreprise** |
 | --- | --- | --- |
 | Nombre de vCores\* | Gen4 : 8, 16, 24<br/>Gen5 : 8, 16, 24, 32, 40, 64, 80 | Gen4 : 8, 16, 24, 32 <br/> Gen5 : 8, 16, 24, 32, 40, 64, 80 |
-| Mémoire | Gen4 : 56 Go- 168 Go<br/>Gen5 : 40,8 Go - 408 Go<br/>\*Proportionnel au nombre de vCores | Gen4 : 56 Go- 168 Go <br/> Gen5 : 40,8 Go - 408 Go<br/>\*Proportionnel au nombre de vCores |
-| Taille de stockage maximale | 8 To | Gen4 : 1 To <br/> Gen5 : <br/>- 1 To pour 8, 16 vCores<br/>- 2 To pour 24 vCores<br/>- 4 To pour 32, 40, 64, 80 vCores |
+| Mémoire | Gen4 : 56-168 Go (7 Go/vCore)<br/>Gen5 : 40,8-408 Go (5.1 Go/vCore) | Gen4 : 56-168 Go (7 Go/vCore)<br/>Gen5 : 40,8-408 Go (5.1 Go/vCore) |
+| Taille maximale de stockage instance | 8 To | Gen4 : 1 To <br/> Gen5 : <br/>- 1 To pour 8, 16 vCores<br/>- 2 To pour 24 vCores<br/>- 4 To pour 32, 40, 64, 80 vCores |
 | Espace de stockage maximal par base de données | Déterminé par la taille de stockage maximale par instance | Déterminé par la taille de stockage maximale par instance |
 | Nombre maximal de bases de données par instance | 100 | 100 |
 | Nombre maximal de fichiers de base de données par instance | Jusqu’à 280 | 32 767 fichiers par base de données |
-| IOPS de données/journal (approximatives) | 500 - 7 500 par fichier<br/>\*[Dépend de la taille du fichier](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)| 11 K - 110 K (1 375 par vCore) |
+| IOPS de données/journal (approximatives) | 500 - 7 500 par fichier<br/>\*[Dépend de la taille du fichier](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)| 11 K - 110 K (1375/vCore) |
 | Débit du journal | 22 Mo/s par instance | 3 Mo/s par vCore<br/>Max 48 Mo/s par instance|
 | Débit de données (approximatif) | 100 - 250 Mo/s par fichier<br/>\*[Dépend de la taille du fichier](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | 24 - 48 Mo/s par vCore |
 | Latence d’E/S (approximative) | 5 - 10 ms | 1 - 2 ms |

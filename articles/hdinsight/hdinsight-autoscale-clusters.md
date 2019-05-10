@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: hrasheed
-ms.openlocfilehash: 92f4616a415c4ddebd0d9b2e466536b2f30c486f
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: f8803a498e62958a5488f2ac8830137c37533e54
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65146385"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65413689"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters-preview"></a>Automatiquement à l’échelle des clusters Azure HDInsight (version préliminaire)
 
@@ -21,14 +21,17 @@ Fonctionnalité de mise à l’échelle d’Azure HDInsight cluster s’ajuste a
 
 ## <a name="cluster-compatibility"></a>Compatibilité de cluster
 
+> [!Important]
+> La fonctionnalité de mise à l’échelle fonctionne uniquement pour les clusters créés après la disponibilité publique de la fonctionnalité de mai 2019. Il ne fonctionnera pas pour les clusters préexistants.
+
 Le tableau suivant décrit les types de cluster et les versions qui sont compatibles avec la fonctionnalité de mise à l’échelle.
 
 | Version | Spark | Hive | LLAP | hbase | Kafka | Storm | ML |
 |---|---|---|---|---|---|---|---|
-| HDInsight 3.6 sans ESP | Oui | Oui | Non  | Non  | Non  | Non  | Non  |
-| HDInsight 4.0 sans ESP | Oui | Oui | Non  | Non  | Non  | Non  | Non  |
-| HDInsight 3.6 avec ESP | Oui | Oui | Non  | Non  | Non  | Non  | Non  |
-| HDInsight 3.6 avec ESP | Oui | Oui | Non  | Non  | Non  | Non  | Non  |
+| HDInsight 3.6 sans ESP | Oui | Oui | Non  | Non  | Non  | Non  | Non |
+| HDInsight 4.0 sans ESP | Oui | Oui | Non  | Non  | Non  | Non  | Non |
+| HDInsight 3.6 avec ESP | Oui | Oui | Non  | Non  | Non  | Non  | Non |
+| HDInsight 3.6 avec ESP | Oui | Oui | Non  | Non  | Non  | Non  | Non |
 
 ## <a name="how-it-works"></a>Fonctionnement
 

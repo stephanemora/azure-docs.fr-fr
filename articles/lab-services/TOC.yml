@@ -64,26 +64,34 @@
   items:
     - name: Laboratoires de salle de classe
       items:
-        - name: Gérer les comptes de laboratoire
-          href: classroom-labs/how-to-manage-lab-accounts.md
-        - name: Gérer les laboratoires de salle de classe
-          href: classroom-labs/how-to-manage-classroom-labs.md
-        - name: Configurer et publier des modèles
-          href: classroom-labs/how-to-create-manage-template.md
-        - name: Configurer et contrôler l’utilisation
-          href: classroom-labs/how-to-configure-student-usage.md
-        - name: Accéder aux laboratoires de salle de classe
-          href: classroom-labs/how-to-use-classroom-lab.md
-        - name: Créer et gérer des planifications
-          href: classroom-labs/how-to-create-schedules.md
-        - name: Créer un environnement avec plusieurs machines virtuelles dans une machine virtuelle modèle
-          href: classroom-labs/how-to-enable-multi-vm-environment.md
-        - name: Connecter vos laboratoires à un réseau virtuel pair
-          href: classroom-labs/how-to-connect-peer-virtual-network.md
-        - name: Attacher et utiliser une galerie d’images partagées
-          href: classroom-labs/how-to-use-shared-image-gallery.md
-        - name: Activer la connexion Bureau à distance pour Linux
-          href: classroom-labs/how-to-enable-remote-desktop-linux.md
+        - name: Créer et configurer des comptes lab
+          items:
+            - name: Créer et gérer des comptes lab
+              href: classroom-labs/how-to-manage-lab-accounts.md
+            - name: Configurer des comptes lab
+              href: classroom-labs/how-to-configure-lab-accounts.md
+            - name: Connecter vos laboratoires à un réseau virtuel pair
+              href: classroom-labs/how-to-connect-peer-virtual-network.md
+            - name: Attacher ou détacher une galerie d’images partagées
+              href: classroom-labs/how-to-attach-detach-shared-image-gallery.md
+        - name: 'Créer, configurer et utiliser des laboratoires de classe'
+          items:
+            - name: Créer et gérer des laboratoires de classe
+              href: classroom-labs/how-to-manage-classroom-labs.md
+            - name: Configurer et publier des modèles
+              href: classroom-labs/how-to-create-manage-template.md
+            - name: Configurer et contrôler l’utilisation
+              href: classroom-labs/how-to-configure-student-usage.md
+            - name: Accéder aux laboratoires de salle de classe
+              href: classroom-labs/how-to-use-classroom-lab.md
+            - name: Créer et gérer des planifications
+              href: classroom-labs/how-to-create-schedules.md
+            - name: Créer un environnement avec plusieurs machines virtuelles dans une machine virtuelle modèle
+              href: classroom-labs/how-to-enable-multi-vm-environment.md
+            - name: Utiliser une galerie d’images partagées
+              href: classroom-labs/how-to-use-shared-image-gallery.md
+            - name: Activer la connexion Bureau à distance pour Linux
+              href: classroom-labs/how-to-enable-remote-desktop-linux.md
     - name: DevTest Labs
       items:
         - name: Spécifier un groupe de ressources pour les machines virtuelles lab

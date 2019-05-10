@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: d5ff1809886198f7f1e4f4b9c36f877ce61d512e
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 10364d014431a500e7c38a02d47f432cd464feb6
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65029429"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65411474"
 ---
 # <a name="multiclass-decision-forest-module"></a>Module de forêt de décision multiclasse
 
@@ -36,7 +36,7 @@ Arbres de décision présentent plusieurs avantages :
 + Ils effectuent la sélection des fonctionnalités intégrées et classification.
 + Ils sont résilients en présence de fonctionnalités bruyantes.
 
-Le classifieur de forêt de décision dans Azure Machine Learning se compose d’un ensemble d’arbres de décision. En règle générale, les modèles d’ensemble fournissent une meilleure couverture et précision que les arbres de décision uniques. Pour plus d’informations, consultez [arbres de décision](http://go.microsoft.com/fwlink/?LinkId=403677).
+Le classifieur de forêt de décision dans Azure Machine Learning se compose d’un ensemble d’arbres de décision. En règle générale, les modèles d’ensemble fournissent une meilleure couverture et précision que les arbres de décision uniques. Pour plus d’informations, consultez [arbres de décision](https://go.microsoft.com/fwlink/?LinkId=403677).
 
 ## <a name="how-to-configure-multiclass-decision-forest"></a>Comment configurer la forêt de décision Multiclasse
 

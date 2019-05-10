@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 04/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fef2d42282291bb0ea6afeea03e60234d3d47a4d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 93fae0babdee5eac87d50679fdd5b2b938c4df2e
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60648786"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236902"
 ---
 # <a name="sap-workload-on-azure-planning-and-deployment-checklist"></a>Check-list relative à la planification et au déploiement de la charge de travail SAP sur Azure 
 
@@ -140,9 +140,10 @@ La phase pilote peut se dérouler avant la planification et la préparation du p
       2. Pour éviter les expirations de délai d'attente entre les interfaces GUI et les couches Application SAP déployées dans Azure, vérifiez que les paramètres suivants sont définis dans le fichier default.pfl ou dans le profil de l'instance :
          1.   rdisp/keepalive_timeout = 3600
          2.   rdisp/keepalive = 20
-      3. Si vous utilisez une configuration de cluster de basculement Windows, assurez-vous que le temps de réaction relatifs aux nœuds non réactifs est correctement défini pour Azure. L'article Microsoft [Réglage des seuils réseau des clusters de basculement](https://blogs.msdn.microsoft.com/clustering/2012/11/21/tuning-failover-cluster-network-thresholds/) répertorie les paramètres et leur impact sur la sensibilité de basculement. Parmi les paramètres répertoriés, ceux-ci doivent être définis sur les valeurs suivantes :
-         1.   SameSubNetDelay = 2
+      3. Si vous utilisez une configuration de cluster de basculement Windows, assurez-vous que le temps de réaction relatifs aux nœuds non réactifs est correctement défini pour Azure. L'article Microsoft [Réglage des seuils réseau des clusters de basculement](https://techcommunity.microsoft.com/t5/Failover-Clustering/Tuning-Failover-Cluster-Network-Thresholds/ba-p/371834) répertorie les paramètres et leur impact sur la sensibilité de basculement. En supposant que les nœuds de cluster sont dans le même sous-réseau, les paramètres suivants doivent être modifiés :
+         1.   SameSubNetDelay = 2000
          2.   SameSubNetThreshold = 15
+         3.   RoutingHistorylength = 30
 4. Testez vos procédures de haute disponibilité et de récupération d'urgence.
    1. Simulez des situations de basculement en arrêtant les machines virtuelles (OS invité Windows) ou en mettant les systèmes d’exploitation en mode panique (OS invité Linux) pour déterminer si vos configurations de basculement fonctionnent comme prévu. 
    2. Mesurez le temps nécessaire à l'exécution d'un basculement. Si les délais sont trop longs :

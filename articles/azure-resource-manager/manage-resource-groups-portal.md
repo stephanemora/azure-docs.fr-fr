@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: jgao
-ms.openlocfilehash: cb1eb5ac27c53f4c0d48fe3644febc62f848486d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 559c1874c119eabef2c35a954961c1e669df3c06
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60551286"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65507224"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-the-azure-portal"></a>Gérer des groupes de ressources Azure Resource Manager à l’aide du portail Azure
 
@@ -31,7 +31,7 @@ Autres articles sur la gestion des groupes de ressources :
 
 ## <a name="what-is-a-resource-group"></a>Qu'est-ce qu'un groupe de ressources
 
-Un groupe de ressources est un conteneur réunissant les ressources associées d’une solution Azure. Le groupe de ressources peut inclure toutes les ressources de la solution, ou uniquement celles que vous souhaitez gérer en tant que groupe. Pour déterminer comment allouer des ressources aux groupes de ressources, choisissez l’approche la plus pertinente pour votre organisation. En règle générale, il convient d’ajouter des ressources qui partagent le même cycle de vie dans un même groupe de ressources afin de pouvoir facilement les déployer, les mettre à jour et les supprimer en tant que groupe.
+Un groupe de ressources est un conteneur qui inclut les ressources associées à une solution Azure. Le groupe de ressources peut inclure toutes les ressources de la solution, ou uniquement celles que vous souhaitez gérer en tant que groupe. Pour déterminer comment allouer des ressources aux groupes de ressources, choisissez l’approche la plus pertinente pour votre organisation. En règle générale, il convient d’ajouter des ressources qui partagent le même cycle de vie dans un même groupe de ressources afin de pouvoir facilement les déployer, les mettre à jour et les supprimer en tant que groupe.
 
 Le groupe de ressources stocke des métadonnées sur les ressources. Par conséquent, lorsque vous spécifiez un emplacement pour le groupe de ressources, vous indiquez où stocker ces métadonnées. Pour des raisons de conformité, vous devrez peut-être vous assurer que vos données sont stockées dans une région particulière.
 
@@ -108,64 +108,7 @@ Vous pouvez appliquer des balises à des groupes de ressources pour organiser lo
 
 ## <a name="export-resource-groups-to-templates"></a>Exporter les groupes de ressources à des modèles
 
-Après avoir correctement configuré votre groupe de ressources, vous souhaiterez afficher le modèle Resource Manager pour le groupe de ressources. L’exportation du modèle offre deux avantages :
-
-- Automatiser les déploiements futurs de la solution, car le modèle contient toute l’infrastructure complète.
-- Découvrez la syntaxe de modèle en regardant dans la Notation JSON (JavaScript Object) qui représente votre solution.
-
-Il existe deux façons d’exporter un modèle :
-
-- Vous pouvez exporter le modèle réel utilisé pour le déploiement. Le modèle exporté inclut l’ensemble des paramètres et des variables exactement comme ils apparaissent dans le modèle d’origine. Cette approche est utile lorsque vous avez déployé des ressources au moyen du portail et que vous souhaitez voir le modèle pour créer ces ressources. Ce modèle est facilement utilisable. 
-- Vous pouvez exporter un modèle généré qui représente l’état actuel du groupe de ressources. Le modèle exporté n’est pas basé sur un modèle utilisé pour le déploiement. Au lieu de cela, il crée un modèle qui est un « instantané » ou une « sauvegarde » du groupe de ressources. Le modèle exporté a probablement de nombreuses valeurs codées en dur et pas autant de paramètres que vous pourriez généralement définir. Cette option permet de redéployer les ressources sur le même groupe de ressources. Pour utiliser ce modèle pour un autre groupe de ressources, vous devrez peut-être le modifier de façon significative.
-
-### <a name="export-templates-from-deployment-history"></a>Exporter des modèles à partir de l’historique de déploiement
-
-Cette méthode exporte les modèles pour certains déploiements. Si vous avez modifié les ressources à partir du portail, ou ajouté ou supprimé des ressources dans plusieurs déploiements, consultez [exporter des modèles de groupes de ressources](#export-templates-from-resource-groups).
-
-1. Ouvrez le groupe de ressources que vous voulez exporter.  Consultez [ouvrir des groupes de ressources](#open-resource-groups).
-2. Dans le volet gauche, sélectionnez **Déploiements**, ou sélectionnez le lien situé sous **Déploiements**.  Sur la capture d’écran suivante, il montre **Succeeded 4** suite à des quatre séparées par des déploiements avec quatre noms de déploiement différents. Vous pouvez voir **1 réussite**.
-
-    ![modèles d’exportation de groupe de ressources Azure](./media/manage-resource-groups-portal/manage-resource-groups-export-templates-deployment-history.png)
-
-3. Dans la liste, sélectionnez un des déploiements.
-4. Dans le volet gauche, sélectionnez **modèle**. Resource Manager récupère pour vous les six fichiers ci-dessous :
-
-   - **Modèle** - Modèle définissant l’infrastructure de votre solution. Lorsque vous avez créé le compte de stockage via le portail, Resource Manager a utilisé un modèle pour le déployer et a enregistré ce modèle pour référence ultérieure.
-   - **Paramètres** - Fichier de paramètres que vous pouvez utiliser pour transmettre des valeurs au cours du déploiement. Il contient les valeurs que vous avez fournies pendant le premier déploiement. Vous pouvez modifier ces valeurs lorsque vous redéployez le modèle.
-   - **CLI** - Fichier de script Azure CLI que vous pouvez utiliser pour déployer le modèle.
-   - **PowerShell** - Fichier de script Azure PowerShell que vous pouvez utiliser pour déployer le modèle.
-   - **.NET** - Classe .NET que vous pouvez utiliser pour déployer le modèle.
-   - **Ruby** - Classe Ruby que vous pouvez utiliser pour déployer le modèle.
-
-     Par défaut, le portail affiche le modèle.
-
-5. Sélectionnez **télécharger** pour exporter un modèle sur votre ordinateur local.
-
-    ![modèles d’exportation de groupe de ressources Azure](./media/manage-resource-groups-portal/manage-resource-groups-export-templates-deployment-history-download.png)
-
-<a name="export-templates-from-resource-groups"></a>
-### <a name="export-templates-from-resource-groups"></a>Exporter des modèles de groupes de ressources
-
-Si vous avez modifié vos ressources à partir du portail, ou ajoutez/supprimer des ressources dans plusieurs déploiements, la récupération d’un modèle à partir de l’historique de déploiement ne reflète l’état actuel du groupe de ressources. Cette section vous montre comment exporter un modèle qui représente l’état actuel du groupe de ressources. Il s’agit d’un instantané du groupe de ressources, qui vous permet de refaire un déploiement sur le même groupe de ressources. Pour utiliser le modèle exporté pour d’autres solutions, vous devez le modifier considérablement.
-
-1. Ouvrez le groupe de ressources que vous voulez exporter.  Consultez [ouvrir des groupes de ressources](#open-resource-groups).
-2. Dans le volet gauche, sélectionnez **exporter le modèle**. Resource Manager récupère pour vous les six fichiers ci-dessous :
-
-   - **Modèle** - Modèle définissant l’infrastructure de votre solution. Lorsque vous avez créé le compte de stockage via le portail, Resource Manager a utilisé un modèle pour le déployer et a enregistré ce modèle pour référence ultérieure.
-   - **Paramètres** - Fichier de paramètres que vous pouvez utiliser pour transmettre des valeurs au cours du déploiement. Il contient les valeurs que vous avez fournies pendant le premier déploiement. Vous pouvez modifier ces valeurs lorsque vous redéployez le modèle.
-   - **CLI** - Fichier de script Azure CLI que vous pouvez utiliser pour déployer le modèle.
-   - **PowerShell** - Fichier de script Azure PowerShell que vous pouvez utiliser pour déployer le modèle.
-   - **.NET** - Classe .NET que vous pouvez utiliser pour déployer le modèle.
-   - **Ruby** - Classe Ruby que vous pouvez utiliser pour déployer le modèle.
-
-     Par défaut, le portail affiche le modèle.
-3. Sélectionnez **télécharger** pour exporter un modèle sur votre ordinateur local.
-
-Certains modèles exportés doivent certaines modifications avant de pouvoir être utilisés. Pour savoir comment développer des modèles, consultez le [didacticiels pas à pas](/azure/azure-resource-manager/).
-
-### <a name="export-template-before-deploying"></a>Exporter le modèle avant de déployer
-
-Vous pouvez utiliser le portail pour définir une ressource.  Avant de déployer la ressource, vous pouvez afficher et exporter un modèle. Pour obtenir des instructions, consultez [Démarrage rapide : Créer et déployer des modèles Azure Resource Manager à l’aide du portail Azure](./resource-manager-quickstart-create-templates-use-the-portal.md).
+Pour plus d’informations sur l’exportation de modèles, consultez [exportation unique et plusieurs ressource de modèle - portail](export-template-portal.md).
 
 ### <a name="fix-export-issues"></a>Résoudre les problèmes d’exportation
 

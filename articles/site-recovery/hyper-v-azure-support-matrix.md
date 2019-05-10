@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 03/18/2019
+ms.date: 05/07/2019
 ms.author: raynew
-ms.openlocfilehash: ea9f6a65ae804d4d2e5004ff4e2c61a2a85b976d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e311a328c1c3d78fa8e5ba7065dcc6484006eaaf
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60748983"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65235882"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Prendre en charge la matrice pour effectuer une récupération d’urgence de machines virtuelles Hyper-V locales vers Azure
 
@@ -33,8 +33,8 @@ Hyper-V sans Virtual Machine Manager | Vous pouvez effectuer la récupération d
 
 **Serveur** | **Configuration requise** | **Détails**
 --- | --- | ---
-Hyper-V (exécuté sans Virtual Machine Manager) | Windows Server 2016 (installation de Server Core incluse), Windows Server 2012 R2 avec les dernières mises à jour | Si vous avez déjà configuré Windows Server 2012 R2 avec/ou SCVMM 2012 R2 avec Azure Site Recovery et que vous prévoyez de mettre à niveau le système d’exploitation, suivez les instructions de la [documentation.](upgrade-2012R2-to-2016.md) 
-Hyper-V (exécuté avec Virtual Machine Manager) | Virtual Machine Manager 2016, Virtual Machine Manager 2012 R2 | Si Virtual Machine Manager est utilisé, les hôtes Windows Server 2016 doivent être managés dans Virtual Machine Manager 2016.<br/><br/>
+Hyper-V (exécuté sans Virtual Machine Manager) |  Windows Server 2019, Windows Server 2016 (y compris server core installation), Windows Server 2012 R2 avec les dernières mises à jour | Si vous avez déjà configuré Windows Server 2012 R2 avec/ou SCVMM 2012 R2 avec Azure Site Recovery et que vous prévoyez de mettre à niveau le système d’exploitation, suivez les instructions de la [documentation.](upgrade-2012R2-to-2016.md) 
+Hyper-V (exécuté avec Virtual Machine Manager) | Virtual Machine Manager 2019, Virtual Machine Manager 2016, Virtual Machine Manager 2012 R2 | Si Virtual Machine Manager est utilisé, les hôtes de Windows Server 2019 doivent être gérés dans Virtual Machine Manager 2019. De même, les hôtes Windows Server 2016 doivent être gérés dans Virtual Machine Manager 2016.<br/><br/>
 
 
 ## <a name="replicated-vms"></a>Machines virtuelles répliquées

@@ -10,12 +10,12 @@ ms.service: billing
 ms.topic: article
 ms.date: 04/19/2019
 ms.author: byvinyal
-ms.openlocfilehash: 8d7fa7bbb501675ee38ccc9183e981ce7bb714cf
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: cb0203e3413ab525d6885f23c5936c64e1bef189
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65150324"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233710"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Abonnement Azure et limites, quotas et contraintes de service
 Ce document répertorie quelques-unes des limites de Microsoft Azure les plus courantes, parfois appelées des quotas. Ce document ne couvre pas actuellement tous les services Azure. Au fil du temps, la liste est étendue et mis à jour pour couvrir plusieurs services.
@@ -127,9 +127,9 @@ Les limites suivantes s’appliquent lorsque vous utilisez Azure Resource Manage
 #### <a name="shared-image-gallery-limits"></a>Partagé des limites de la galerie d’images
 
 Il existe des limites, par abonnement, pour le déploiement de ressources à l’aide des galeries d’images partagé :
-- 10 galeries d’images partagées par abonnement, par région
-- 200 définitions d’image par abonnement, par région
-- 2 000 versions d’image par abonnement, par région
+- galeries d’images partagé 100, par abonnement, par région
+- définitions d’image 1 000, par abonnement, par région
+- versions d’image 10 000, par abonnement, par région
 
 ### <a name="virtual-machine-scale-sets-limits"></a>Limites de machines virtuelles identiques
 [!INCLUDE [virtual-machine-scale-sets-limits](../includes/azure-virtual-machine-scale-sets-limits.md)]

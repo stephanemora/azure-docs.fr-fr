@@ -4,7 +4,7 @@ description: Découvrez Azure Sentinel, ses fonctionnalités principales et son 
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: barbkess
+manager: rkarlin
 editor: ''
 ms.assetid: 10cce91a-421b-4959-acdf-7177d261f6f2
 ms.service: sentinel
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: 2859df94b1418cfa9fbfaa341e6bf08b257875bf
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 7d64f02c7bebb6d4326281ba87d118eab075eba9
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57245283"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65228604"
 ---
 # <a name="what-is-azure-sentinel-preview"></a>Qu’est-ce que la préversion d’Azure Sentinel ?
 
@@ -104,5 +104,5 @@ La communauté Azure Sentinel est une ressource importante pour l’automatisati
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour utiliser le Azure Sentinel, vous devez disposer d’un abonnement à Microsoft Azure. Si vous n’avez pas d’abonnement, vous pouvez vous inscrire à un [essai gratuit](https://azure.microsoft.com/free/).
+- Pour commencer à utiliser Azure Sentinel, vous devez disposer d’un abonnement à Microsoft Azure. Si vous n’avez pas d’abonnement, vous pouvez vous inscrire à un [essai gratuit](https://azure.microsoft.com/free/).
 - Découvrez comment [intégrer vos données à Azure Sentinel](quickstart-onboard.md) et [obtenir une visibilité de vos données et des menaces potentielles](quickstart-get-visibility.md).

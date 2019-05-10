@@ -6,26 +6,26 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
-author: peterlu
+author: peterclu
 ms.author: amlstudiodocs
 ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/14/2019
-ms.openlocfilehash: fa4448c2a44a3c56548120bd04abf53df9a85ba0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b636883ee1f08fa0fb6d080b6980cd07553dde1b
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60502411"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65234044"
 ---
 # <a name="retrain-and-deploy-a-classic-studio-web-service"></a>Réentraîner et déployer un service web Studio classique
 
 Réentraîner des modèles de Machine Learning est une façon de s’assurer qu’ils restent précis et qu’ils reposent sur les données les plus pertinentes. Cet article vous montre comment réentraîner un service web Studio classique. Pour obtenir un guide sur la façon de réentraîner un nouveau service web Studio, [consultez cet article pratique.](retrain-machine-learning-model.md)
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Cet article suppose que vous avez déjà une expérience de réentraînement et une expérience prédictive. Ces étapes sont expliquées dans [Réentraîner et déployer un modèle Machine Learning.](/azure/machine-learning/studio/retrain-machine-learning-model) Toutefois, au lieu de déployer votre modèle Machine Learning comme un nouveau service web, vous allez déployer votre expérience prédictive comme un service web classique.
      
-## <a name="add-a-new-endpoint"></a>Ajouter un point de terminaison
+## <a name="add-a-new-endpoint"></a>Ajout d'un nouveau point de terminaison
 
 Le service web prédictif que vous avez déployé contient un point de terminaison de notation par défaut qui est synchronisé avec le modèle formé pour les expériences de formation et de notation d’origine. Pour mettre à jour votre service web avec un nouveau modèle formé, vous devez créer un point de terminaison de notation.
 
@@ -53,7 +53,7 @@ Vous pouvez ajouter des points de terminaison de notation à l’aide de l’exe
 
 ### <a name="retrieve-patch-url"></a>Récupérer l’URL PATCH
 
-### <a name="option-1-programmatically"></a>Option 1 : Par programmation
+### <a name="option-1-programmatically"></a>Option 1 : Par programmation
 
 Pour obtenir l’URL PATCH correcte programmatiquement, procédez comme suit :
 

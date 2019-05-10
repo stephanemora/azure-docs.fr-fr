@@ -9,17 +9,17 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/19/2019
+ms.date: 05/02/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 2ec2ddbac5d0368aaf1b46208c9ebb44bf12a622
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0fc44bfdb98b81bf218cb2f1824f0f1bb14de4fa
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60734352"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65235682"
 ---
-# <a name="assets"></a>Éléments multimédias
+# <a name="assets"></a>Ressources
 
 Dans Azure Media Services, un [actif multimédia](https://docs.microsoft.com/rest/api/media/assets) contient des fichiers numériques (notamment des données vidéo, des données audio, des images, des collections de miniatures, des pistes de texte et des fichiers de sous-titres) et les métadonnées associées à ces fichiers. Une fois les fichiers numériques chargés dans un actif multimédia, ils peuvent être utilisés dans des workflows Media Services d’encodage, de diffusion et d’analyse de contenu. Pour plus d’informations, consultez la section [Charger des fichiers numériques dans des actifs multimédias](#upload-digital-files-into-assets), ci-dessous.
 
@@ -33,6 +33,9 @@ Le niveau de stockage **Archive** est recommandé uniquement pour les fichiers s
 ## <a name="upload-digital-files-into-assets"></a>Charger des fichiers numériques dans des actifs multimédias
 
 L’un des workflows Media Services courants consiste à charger, à encoder et à diffuser en continu un fichier. Cette section décrit les étapes générales.
+
+> [!TIP]
+> Passez en revue avant de commencer à développer, [développement avec Media Services v3 API](media-services-apis-overview.md) (inclut des informations sur l’accès aux API, les conventions d’affectation de noms, etc.).
 
 1. Utilisez l’API Media Services v3 pour créer un actif multimédia « d’entrée ». Cette opération crée un conteneur dans le compte de stockage associé à votre compte Media Services. L’API retourne le nom du conteneur (par exemple, `"container": "asset-b8d8b68a-2d7f-4d8c-81bb-8c7bbbe67ee4"`).
    
@@ -92,7 +95,7 @@ Consultez [Filtrage, tri et pagination des entités Media Services](entities-ove
 
 Pour protéger vos éléments au repos, les ressources doivent être chiffrées par le chiffrement côté stockage. Le tableau suivant montre comment le chiffrement côté stockage fonctionne dans Media Services :
 
-|Option de chiffrement|Description|Media Services v2|Media Services v3|
+|Option de chiffrement|Description |Media Services v2|Media Services v3|
 |---|---|---|---|
 |Chiffrement du stockage de Media Services|Chiffrement AES-256, clé gérée par Media Services|Pris en charge<sup>(1)</sup>|Non pris en charge<sup>(2)</sup>|
 |[Storage Service Encryption pour les données au repos](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)|Chiffrement côté serveur proposé par le stockage Azure, clé gérée par Azure ou par un client|Pris en charge|Pris en charge|
