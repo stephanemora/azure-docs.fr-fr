@@ -45,7 +45,7 @@ Les propriétés prises en charge pour le service lié Google BigQuery sont les 
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type doit être définie sur **GoogleBigQuery**. | Oui |
+| type | La propriété type doit être définie sur **GoogleBigQuery**. | Oui |
 | project | L’ID du projet BigQuery par défaut sur lequel exécuter la requête.  | Oui |
 | additionalProjects | Liste séparée par des virgules des ID de projets BigQuery publics accessibles.  | Non  |
 | requestGoogleDriveScope | Pour demander l’accès à Google Drive. Autoriser l’accès à Google Drive active la prise en charge des tables fédérées qui combinent les données BigQuery avec les données issues de Google Drive. La valeur par défaut est **false**.  | Non  |
@@ -157,7 +157,7 @@ Pour copier des données à partir de Google BigQuery, définissez le type de so
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type de la source d’activité de copie doit être définie sur **GoogleBigQuerySource**. | Oui |
+| type | La propriété type de la source d’activité de copie doit être définie sur **GoogleBigQuerySource**. | Oui |
 | query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple `"SELECT * FROM MyTable"`. | Non (si « tableName » est spécifié dans dataset) |
 
 **Exemple :**
