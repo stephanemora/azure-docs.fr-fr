@@ -21,12 +21,12 @@ ms.lasthandoff: 04/30/2019
 ms.locfileid: "64916405"
 ---
 # <a name="devtest-labs-in-the-enterprise"></a>Dev/test dans l’entreprise
-Les entreprises adoptent rapidement le cloud en raison de [avantages](/azure/architecture/cloud-adoption/business-strategy/cloud-migration-business-case) qui incluent l’économie, la flexibilité et agilité. Les premières étapes sont souvent développement et test des charges de travail. Azure DevTest Labs offre [fonctionnalités](devtest-lab-concepts.md) qui bénéficient de l’entreprise et la prise en charge [principaux scénarios de développement/test](devtest-lab-guidance-get-started.md).
+Les entreprises adoptent rapidement le cloud en raison des [avantages](/azure/architecture/cloud-adoption/business-strategy/cloud-migration-business-case) qui incluent l’économie, la flexibilité et l'agilité. Les premières étapes sont souvent le développement et le test des charges de travail. Azure DevTest Labs offre des [fonctionnalités](devtest-lab-concepts.md) qui bénéficient à l’entreprise et la prise en charge des [principaux scénarios de développement/test](devtest-lab-guidance-get-started.md).
 
-Problèmes courants pour les entreprises qui migrer des charges de travail vers le cloud sont les suivantes :
+Problèmes courants pour les entreprises qui migrent des charges de travail vers le cloud sont les suivantes :
 
-- [Sécurisation des ressources de développement/test](devtest-lab-guidance-governance-policy-compliance.md)
-- [La gestion et comprendre les coûts](devtest-lab-guidance-governance-cost-ownership.md)
+- [La sécurisation des ressources de développement/test](devtest-lab-guidance-governance-policy-compliance.md)
+- [La gestion et la compréhension les coûts](devtest-lab-guidance-governance-cost-ownership.md)
 - L’activation de libre-service pour les développeurs sans compromettre la sécurité d’entreprise et de conformité
 - Automatisation et l’extension de DevTest Labs pour couvrir des scénarios supplémentaires
 - [Mise à l’échelle d’une solution basée sur les DevTest Labs à des milliers de ressources](devtest-lab-guidance-scale.md)
