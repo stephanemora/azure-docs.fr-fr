@@ -40,6 +40,16 @@
           href: time-series-insights-explorer.md
         - name: Comprendre la rétention des données
           href: time-series-insights-concepts-retention.md
+        - name: Développement
+          items:
+            - name: Authentifier et autoriser
+              href: time-series-insights-authentication-and-authorization.md
+            - name: "Interroger des données à l’aide de\_C#"
+              href: time-series-insights-query-data-csharp.md
+            - name: 'Gérer des données de référence dans C#'
+              href: time-series-insights-manage-reference-data-csharp.md
+            - name: Partager un affichage personnalisé
+              href: time-series-insights-parameterized-urls.md
     - name: Préversion d’Azure Time Series Insights
       items:
         - name: Planifier votre environnement
@@ -54,16 +64,12 @@
           href: time-series-insights-update-tsq.md
         - name: Visualiser des données dans l’explorateur (préversion)
           href: time-series-insights-update-explorer.md
-    - name: Développement
-      items:
-        - name: Authentifier et autoriser
-          href: time-series-insights-authentication-and-authorization.md
-        - name: "Interroger des données à l’aide de\_C#"
-          href: time-series-insights-query-data-csharp.md
-        - name: 'Gérer des données de référence dans C#'
-          href: time-series-insights-manage-reference-data-csharp.md
-        - name: Partager un affichage personnalisé
-          href: time-series-insights-parameterized-urls.md
+        - name: Développement
+          items:
+            - name: Authentifier et autoriser
+              href: time-series-insights-authentication-and-authorization.md
+            - name: "Interroger des données à l’aide de\_C#"
+              href: time-series-insights-update-query-data-csharp.md
 - name: Guides pratiques
   items:
     - name: Accorder l’accès aux données

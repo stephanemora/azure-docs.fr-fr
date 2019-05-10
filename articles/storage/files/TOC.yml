@@ -168,7 +168,7 @@
         - name: 'Objets blob, files d’attente, tables et fichiers'
           href: 'https://docs.microsoft.com/dotnet/api/overview/azure/storage/client'
         - name: Déplacement des données
-          href: 'https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.datamovement'
+          href: 'https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.datamovement'
         - name: Gestionnaire de ressources
           href: 'https://docs.microsoft.com/dotnet/api/overview/azure/storage/management'
     - name: Java
