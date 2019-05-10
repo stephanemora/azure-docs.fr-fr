@@ -12,14 +12,14 @@ ms.topic: article
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/14/2018
+ms.date: 05/07/2019
 ms.author: kumud
-ms.openlocfilehash: 913693e684ba8640a93f50d21dd3df6a6295e1c5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e488a4a6438279270f3d86dafa16c45eda184059
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60884756"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65415710"
 ---
 # <a name="load-balancer-health-probes"></a>Sondes d’intégrité Load Balancer
 
@@ -30,7 +30,7 @@ Les sondes d’intégrité prennent en charge plusieurs protocoles. La disponibi
 | | Référence SKU standard | Référence SKU De base |
 | --- | --- | --- |
 | [Types de sonde](#types) | TCP, HTTP, HTTPS | TCP, HTTP |
-| [Comportement en cas de panne de sonde](#probedown) | Toutes les sondes sont en panne, tous les flux TCP continuent. | Toutes les sondes sont en panne, tous les flux TCP sont terminés. | 
+| [Comportement en cas de panne de sonde](#probedown) | Toutes les sondes sont en panne, tous les flux TCP continuent. | Toutes les sondes vers le bas, tous les flux TCP expirent. | 
 
 > [!IMPORTANT]
 > Les sondes d’intégrité d’un équilibreur de charge proviennent de l’adresse IP 168.63.129.16 et ne doivent pas être bloquées pour pouvoir annoter votre instance.  Consultez [adresse IP source de sonde](#probesource) pour plus d’informations.
@@ -178,7 +178,7 @@ Load Balancer utilise un service de détection distribué pour son modèle de co
 
 L’étiquette du service AzureLoadBalancer identifie cette adresse IP source dans vos [groupes de sécurité réseau](../virtual-network/security-overview.md) et autorise par défaut le trafic de la sonde d’intégrité.
 
-En plus des sondes d’intégrité Load Balancer, les opérations suivantes utilisent cette adresse IP :
+En plus de l’équilibreur de charge les sondes d’intégrité, la [les opérations suivantes utilisent cette adresse IP](../virtual-network/what-is-ip-address-168-63-129-16.md):
 
 - Permet à l’agent de machine virtuelle de communiquer avec la plateforme pour signaler qu’il est dans un état « Prêt »
 - Permet la communication avec le serveur virtuel DNS pour fournir la résolution de nom filtré aux clients qui ne définissent pas de serveurs DNS personnalisés.  Ce filtrage permet de s’assurer que les clients peuvent uniquement résoudre les noms d’hôte de leur déploiement.

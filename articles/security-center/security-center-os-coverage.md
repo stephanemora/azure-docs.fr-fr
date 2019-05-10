@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 4/17/2019
+ms.date: 5/02/2019
 ms.author: monhaber
-ms.openlocfilehash: b5eafd15344156965d0a191688f602ffe1b5a498
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4e334af353e1d9556641914056ab0a3071ca361e
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60703572"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233602"
 ---
 # <a name="platforms-and-features-supported-by-azure-security-center"></a>Plateformes et fonctionnalités prises en charge par Azure Security Center
 
@@ -72,21 +72,21 @@ Les machines virtuelles en cours d’exécution dans un service cloud sont égal
 
 |Serveur|Windows||Linux||
 |----|----|----|----|----|
-|Environnement|Azure|Non-Azure|Azure|Non-Azure|
+|Environnement|Azure|Non Azure|Azure|Non Azure|
 |Alertes de détection des menaces VMBA|✔|✔|✔ (sur les versions prises en charge)|✔|
 |Alertes de détection des menaces réseau|✔|X|✔|X|
 |Intégration de Windows Defender ATP|✔ (sur les versions prises en charge)|✔|X|X|
 |Correctifs manquants|✔|✔|✔|✔|
 |Configurations de sécurité|✔|✔|✔|✔|
-|Protection du point de terminaison|✔|✔|X|X|
-|Accès JIT à la machine virtuelle|✔|X|✔|X|
-|Contrôles d’application adaptative|✔|X|X|X|
+|Endpoint protection|✔|✔|X|X|
+|Accès JIT à la MV|✔|X|✔|X|
+|Contrôles d’applications adaptatifs|✔|✔|✔|✔|
 |FIM|✔|✔|✔|✔|
 |Chiffrement de disque|✔|X|✔|X|
 |Déploiement tiers|✔|X|✔|X|
 |Groupes de sécurité réseau|✔|X|✔|X|
 |Détection des menaces sans fichier|✔|✔|X|X|
-|Mappage réseau|✔|X|✔|X|
+|Carte réseau|✔|X|✔|X|
 |Contrôles réseau adaptatifs|✔|X|✔|X|
 
 
@@ -96,15 +96,15 @@ Le tableau suivant fournit une matrice de ce qui suit :
  - Si vous pouvez utiliser Azure Security Center pour installer chaque solution.
  - Les solutions de protection du point de terminaison que Security Center peut détecter. Si une de ces solutions de protection du point de terminaison est détectée, Security Center vous déconseillera d'en installer une autre.
 
-| Protection du point de terminaison| Plateformes | Installation du centre de sécurité | Détection du centre de sécurité |
+| Endpoint Protection| Plateformes | Installation du centre de sécurité | Détection du centre de sécurité |
 |------|------|-----|-----|
 | Windows Defender (logiciel anti-programme malveillant de Microsoft)| Windows Server 2016| Non, intégré au système d’exploitation| Oui |
 | System Center Endpoint Protection (logiciel anti-programme malveillant de Microsoft) | Windows Server 2012 R2, 2012, 2008 R2 (voir la remarque ci-dessous) | Via l’extension | Oui |
-| Trend Micro : toutes les versions | Gamme Windows Server  | Non  | Oui |
-| Symantec v12.1.1100+| Gamme Windows Server  | Non  | Oui |
-| McAfee v10+ | Gamme Windows Server  | Non  | Oui |
-| Kaspersky| Gamme Windows Server  | Non  | Non   |
-| Sophos| Gamme Windows Server  | Non  | Non   |
+| Trend Micro : toutes les versions | Gamme Windows Server  | Non | Oui |
+| Symantec v12.1.1100+| Gamme Windows Server  | Non | Oui |
+| McAfee v10+ | Gamme Windows Server  | Non | Oui |
+| Kaspersky| Gamme Windows Server  | Non | Non  |
+| Sophos| Gamme Windows Server  | Non | Non  |
 
 > [!NOTE]
 > - La détection de System Center Endpoint Protection (SCEP) sur une machine virtuelle Windows Server 2008 R2 requiert l’installation de SCEP après celle de PowerShell 3.0 (ou d’une version ultérieure).

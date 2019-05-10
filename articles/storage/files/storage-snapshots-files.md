@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/17/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 7305c6a5047bd09f6c9bda018748643ff81fe893
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: d83cf20c856d37d337f4eb22c30ee9b6823d096b
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64708098"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65235817"
 ---
 # <a name="overview-of-share-snapshots-for-azure-files"></a>Vue d’ensemble des instantanés de partage pour Azure Files 
 Azure Files vous permet de prendre des instantanés de partages de fichiers. Les instantanés de partage capturent l’état d’un partage à ce point dans le temps. Dans cet article, nous décrivons les fonctionnalités fournies par les instantanés de partage et comment vous pouvez en tirer parti dans votre propre cas d’usage.
@@ -40,7 +40,7 @@ La fonctionnalité d’instantané de partage est fournie au niveau du partage d
 
 Un instantané d’un partage d’un partage de fichiers est identique au partage de fichiers de base, à ceci près que l’URI du partage présente une valeur **DateTime** à la fin qui indique l’heure à laquelle l’instantané de partage a été pris. Par exemple, si l’URI d’un partage de fichiers est http://storagesample.core.file.windows.net/myshare, l’URI de l’instantané de partage est similaire à ceci :
 ```
-http://storagesample.file.core.windows.net/myshare?snapshot=2011-03-09T01:42:34.9360000Z
+http://storagesample.core.file.windows.net/myshare?snapshot=2011-03-09T01:42:34.9360000Z
 ```
 
 Les instantanés de partage sont conservés jusqu’à ce qu’ils soient explicitement supprimés. Un instantané de partage ne peut pas être conservé plus longtemps que son partage de fichiers de base. Vous pouvez énumérer les instantanés associés au partage de fichiers de base pour effectuer le suivi de vos instantanés actuels. 

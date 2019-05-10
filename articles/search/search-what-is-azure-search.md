@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 797d0cdb8d164955991de321d8df22e43f5c6a40
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: c3b2134fae86b988fb21e993cd01b77a90bd2896
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024338"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65467061"
 ---
 # <a name="what-is-azure-search"></a>Présentation de Recherche Azure
 La Recherche Azure est une solution cloud de recherche en tant que service, qui offre aux développeurs des API et des outils permettant d’ajouter une expérience de recherche riche concernant du contenu privé et hétérogène dans les applications web, mobiles et d’entreprise. L’exécution d’une requête est effectué sur un index défini par l’utilisateur.
@@ -44,7 +44,7 @@ Cette fonctionnalité est exposée par le biais d’une [API REST](/rest/api/sea
 | Enrichissement&nbsp;IA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       | Caractéristiques |
 |-------------------|----------|
 |Documents enrichis par l'IA | Une [**recherche cognitive**](cognitive-search-concept-intro.md) à des fins d'analyse de texte et d'images peut être appliquée à un pipeline d'indexation afin d'extraire des informations textuelles à partir de contenus bruts. Parmi les [compétences intégrées](cognitive-search-predefined-skills.md), on peut citer la reconnaissance de caractères optiques (ce qui rend possible la recherche de JPEG), la reconnaissance d’entité (identifiant une organisation, un nom ou un emplacement), et la reconnaissance de phrase clé. Vous pouvez aussi [coder des compétences personnalisées](cognitive-search-create-custom-skill-example.md) à attacher au pipeline. |
-| Enrichissements stockés à des fins d'analyse et d'utilisation| La [**Base de connaissances**](knowledge-store-concept-intro.md) est une extension de l'indexation basée sur l'IA. Avec Stockage Azure en tant que principal, vous pouvez enregistrer les enrichissements créés lors de l'indexation. Ces artefacts peuvent vous aider à concevoir des ensembles de compétences plus performants ou à créer une forme et une structure à partir de données amorphes ou ambiguës. Vous pouvez créer des projections de ces structures afin de cibler des charges de travail ou des utilisateurs spécifiques. Vous pouvez également analyser directement les données extraites ou les charger dans d'autres applications.<br/><br/> |
+| Enrichissements stockés à des fins d'analyse et d'utilisation| La [**Base de connaissances (préversion)**](knowledge-store-concept-intro.md) est une extension de l’indexation basée sur l’IA. Avec Stockage Azure en tant que principal, vous pouvez enregistrer les enrichissements créés lors de l'indexation. Ces artefacts peuvent vous aider à concevoir des ensembles de compétences plus performants ou à créer une forme et une structure à partir de données amorphes ou ambiguës. Vous pouvez créer des projections de ces structures afin de cibler des charges de travail ou des utilisateurs spécifiques. Vous pouvez également analyser directement les données extraites ou les charger dans d'autres applications.<br/><br/> |
 
 | Importation/indexation&nbsp;de données | Caractéristiques |
 |----------------------------------|----------|
@@ -57,7 +57,7 @@ Cette fonctionnalité est exposée par le biais d’une [API REST](/rest/api/sea
 |-------------------|----------|
 | Outils de prototypage et d’inspection | Dans le portail, vous pouvez utiliser l’[**Assistant Importation de données**](search-import-data-portal.md) pour configurer des indexeurs, le concepteur d’index pour créer un index, et l’[**Explorateur de recherche**](search-explorer.md) pour tester les requêtes et affiner les profils de score. Vous pouvez également ouvrir un index pour consulter son schéma. |
 | Surveillance et diagnostics | [**Activez les fonctionnalités de surveillance**](search-monitor-usage.md) pour aller au-delà des métriques visibles en un coup d'œil sur le portail. Des mesures sur les requêtes par seconde, la latence et la limitation sont capturées et affichées sur les pages du portail sans aucune configuration supplémentaire. <br/><br/>L'[**Analytique du trafic des recherches**](search-traffic-analytics.md) constitue une autre alternative de surveillance. Les données côté serveur et côté client sont collectées et analysées pour dévoiler des insights sur ce que les utilisateurs saisissent dans la zone de recherche. |
-| Chiffrement côté serveur | Le [**chiffrement au repos géré par Microsoft**](search-security-overview.md#encrypted-transmission-and-storage) est intégré dans la couche de stockage interne et est irrévocable. Vous pouvez également compléter le chiffrement par défaut avec des [**clés de chiffrement gérées par le client**](search-security-manage-encryption-keys.md). Les clés que vous créez et gérez dans Azure Key Vault permettent de chiffrer les index et les mappages de synonymes dans Recherche Azure. |
+| Chiffrement côté serveur | Le [**chiffrement au repos géré par Microsoft**](search-security-overview.md#encrypted-transmission-and-storage) est intégré dans la couche de stockage interne et est irrévocable. Vous pouvez également compléter le chiffrement par défaut avec des [**clés de chiffrement gérées par le client (préversion)**](search-security-manage-encryption-keys.md). Les clés que vous créez et gérez dans Azure Key Vault permettent de chiffrer les index et les mappages de synonymes dans Recherche Azure. |
 | Infrastructure | La **plateforme haute disponibilité** garantit une expérience de service de recherche extrêmement fiable. Lorsqu’il est correctement mis à l'échelle, [Azure Search offre un SLA de 99,9 %](https://azure.microsoft.com/support/legal/sla/search/v1_0/).<br/><br/> En tant que solution complète **entièrement gérée et extensible**, Recherche Azure n’exige absolument aucune gestion d’infrastructure. Votre service peut être adapté à vos besoins avec la mise à l’échelle en deux dimensions pour gérer plus de stockage de documents, plus de charge de requêtes, ou les deux.<br/><br/>|
 
 ## <a name="how-to-use-azure-search"></a>Utilisation de Recherche Azure

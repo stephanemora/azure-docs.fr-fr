@@ -10,14 +10,14 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: troubleshooting
-ms.date: 11/27/2017
+ms.date: 05/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6b5cdf8aebdf584216afef9f1d1421eea8c4ba4e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 4b2f73013b399dd2ca3d549e2ac2ec4ffba65b81
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64685144"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65471734"
 ---
 # <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights"></a>Surveiller et réduire la limitation afin d'éviter la latence dans Azure Time Series Insights
 
@@ -34,25 +34,25 @@ Vous êtes susceptible de rencontrer une latence et une limitation lorsque vous 
 
 ## <a name="video"></a>Vidéo
 
-### <a name="in-this-video-we-cover-time-series-insights-data-ingress-behavior-and-how-to-plan-for-itbr"></a>Dans cette vidéo, nous traitons du comportement d’entrée de données Time Series Insights et comment le planifier.</br>
+### <a name="learn-about-time-series-insights-data-ingress-behavior-and-how-to-plan-for-itbr"></a>En savoir plus sur le comportement d’entrée Time Series Insights données et la planification pour celle-ci.</br>
 
 > [!VIDEO https://www.youtube.com/embed/npeZLAd9lxo]
 
 ## <a name="monitor-latency-and-throttling-with-alerts"></a>Analyser la latence et la limitation à l’aide d’alertes
 
-Les alertes peuvent vous aider à diagnostiquer et réduire les problèmes de latence dus à votre environnement. 
+Les alertes peuvent vous aider à diagnostiquer et réduire les problèmes de latence dus à votre environnement.
 
-1. Dans le portail Azure, cliquez sur **Mesures**. 
+1. Dans le portail Azure, cliquez sur **Mesures**.
 
-   ![Mesures](media/environment-mitigate-latency/add-metrics.png)
+   [![Métriques](media/environment-mitigate-latency/add-metrics.png)](media/environment-mitigate-latency/add-metrics.png#lightbox)
 
-2. Cliquez sur **Ajouter une alerte de mesure**.  
+1. Cliquez sur **Ajouter une alerte de mesure**.  
 
-    ![Ajouter une alerte de mesure](media/environment-mitigate-latency/add-metric-alert.png)
+   [![Ajouter une alerte métrique](media/environment-mitigate-latency/add-metric-alert.png)](media/environment-mitigate-latency/add-metric-alert.png#lightbox)
 
 À partir de là, vous pouvez configurer des alertes à l’aide des mesures suivantes :
 
-|Métrique  |Description  |
+|Métrique  |Description   |
 |---------|---------|
 |**Octets reçus en entrée**     | Nombre d’octets bruts lus à partir des sources d’événements. Le nombre brut inclut généralement le nom de la propriété et la valeur.  |  
 |**Messages non valides reçus en entrée**     | Nombre de messages non valides lus à partir de la totalité des Event Hubs Azure ou des sources d’événements Azure IoT Hub.      |
@@ -64,19 +64,19 @@ Les alertes peuvent vous aider à diagnostiquer et réduire les problèmes de la
 
 ![Latence](media/environment-mitigate-latency/latency.png)
 
-Si vous êtes limité, une valeur s’affichera pour la mesure *Retard des messages reçus en entrée*, vous informant du décalage en secondes entre le TSI et l’horodatage réel de l’arrivée du message dans la source d’événement (sans tenir compte du délai d’indexation d’environ 30 à 60 secondes).  Le champ *Décalage de nombre des messages reçus en entrée* doit également comporter une valeur, vous octroyant une visibilité sur le nombre de messages de retard que vous accusez.  Le moyen le plus simple de rattraper le retard est d’augmenter la capacité de votre environnement à une taille qui vous permettra de combler la différence.  
+* Si vous êtes limité, vous verrez une valeur pour le *entrée reçu Message décalage dans le temps*, qui vous informe du nombre de secondes derrière votre TSI est à partir de l’heure réelle du message atteint la source d’événements (à l’exception de délai d’indexation de. 30 à 60 secondes).  Le champ *Décalage de nombre des messages reçus en entrée* doit également comporter une valeur, vous octroyant une visibilité sur le nombre de messages de retard que vous accusez.  Le moyen le plus simple de rattraper le retard est d’augmenter la capacité de votre environnement à une taille qui vous permettra de combler la différence.  
 
-Par exemple, si vous disposez d’un environnement S1 à une seule unité et constatez un décalage de 5 millions de messages, vous avez intérêt à augmenter la taille de votre environnement à 6 unités durant environ une journée pour refaire votre retard.  Vous pouvez même augmenter davantage pour rattraper plus vite le retard.  La période de rattrapage se produit souvent lors du provisionnement initial d’un environnement, plus particulièrement lorsque vous le connectez à une source d’événement qui présente déjà des événements ou quand vous chargez de manière groupée de gros volumes de données d’historique.
+  Par exemple, si vous disposez d’un environnement unique unité S1 et il y a un décalage de 5 000 000 de message, vous pouvez augmenter la taille de votre environnement à 6 unités durant environ une journée de rattraper.  Vous pouvez même augmenter davantage pour rattraper plus vite le retard. La période de rattrapage se produit souvent lors du provisionnement initial d’un environnement, plus particulièrement lorsque vous le connectez à une source d’événement qui présente déjà des événements ou quand vous chargez de manière groupée de gros volumes de données d’historique.
 
-Une autre technique est de définir une alerte d’**événements stockés en entrée** >= à un seuil légèrement inférieur à la capacité totale de votre environnement pour une période de 2 heures.  Cette alerte peut vous aider à comprendre si vous êtes en permanence à votre capacité maximale, ce qui implique une forte probabilité de latence.  
+* Une autre technique est de définir une alerte d’**événements stockés en entrée** >= à un seuil légèrement inférieur à la capacité totale de votre environnement pour une période de 2 heures.  Cette alerte peut vous aider à comprendre si vous êtes en permanence à votre capacité maximale, ce qui implique une forte probabilité de latence. 
 
-Par exemple, si vous avez trois unités S1 configurées (ou 2 100 événements de capacité d’entrée par minute), vous pouvez définir une alerte d’**événements stockés en entrée** pour >= 1 900 événements pendant 2 heures. Si vous dépassez en permanence ce seuil et par conséquent, vous déclenchez l’alerte, vous êtes probablement sous-configuré.  
+  Par exemple, si vous avez trois unités S1 configurées (ou 2 100 événements de capacité d’entrée par minute), vous pouvez définir une alerte d’**événements stockés en entrée** pour >= 1 900 événements pendant 2 heures. Si vous dépassez en permanence ce seuil et par conséquent, vous déclenchez l’alerte, vous êtes probablement sous-configuré.  
 
-En outre, si vous pensez que vous êtes limité, vous pouvez comparer vos **messages reçus en entrée** avec les messages de sortie de votre source d’événement.  Si l’entrée dans votre Event Hub est supérieure à vos **messages reçus en entrée**, vos informations Time Series Insights sont probablement limitées.
+* Si vous pensez que vous êtes limité, vous pouvez comparer votre **Messages reçus en entrée** avec votre événement source du messages de sortie.  Si l’entrée dans votre Event Hub est supérieure à vos **messages reçus en entrée**, vos informations Time Series Insights sont probablement limitées.
 
 ## <a name="improving-performance"></a>Améliorer les performances
 
-La meilleure façon de réduire la limitation ou la latence est de d’augmenter la capacité de votre environnement. 
+La meilleure façon de réduire la limitation ou la latence est de d’augmenter la capacité de votre environnement.
 
 Vous pouvez éviter la latence et la limitation en configurant correctement votre environnement pour la quantité de données que vous souhaitez analyser. Pour plus d’informations sur comment augmenter la capacité de votre environnement, consultez l’article [Mettre à l’échelle votre environnement](time-series-insights-how-to-scale-your-environment.md).
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/15/2019
 ms.author: tomfitz
-ms.openlocfilehash: 2ccdd337d5c01a0ac0253fe1d1e131fa4e6d51a7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4684c38fe506ed912c6827f1e60b94b847024347
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60782988"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65405671"
 ---
 # <a name="logical-functions-for-azure-resource-manager-templates"></a>Fonctions logiques pour les modèles Azure Resource Manager
 
@@ -27,7 +27,7 @@ Resource Manager fournit plusieurs fonctions pour effectuer des comparaisons dan
 * [bool](#bool)
 * [si](#if)
 * [non](#not)
-* [ou](#or)
+* [ou Gestionnaire de configuration](#or)
 
 ## <a name="and"></a>and
 
@@ -37,11 +37,11 @@ Vérifie si toutes les valeurs de paramètres sont true.
 
 ### <a name="parameters"></a>parameters
 
-| Paramètre | Obligatoire | Type | Description |
+| Paramètre | Obligatoire | Type | Description  |
 |:--- |:--- |:--- |:--- |
 | arg1 |Oui |booléenne |La première valeur pour vérifier si c’est true. |
 | arg2 |Oui |booléenne |La deuxième valeur pour vérifier si c’est true. |
-| arguments supplémentaires |Non  |booléenne |Arguments supplémentaires pour vérifier si les valeurs sont égales à true. |
+| arguments supplémentaires |Non |booléenne |Arguments supplémentaires pour vérifier si les valeurs sont égales à true. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -89,7 +89,7 @@ Convertit le paramètre en valeur booléenne.
 
 ### <a name="parameters"></a>parameters
 
-| Paramètre | Obligatoire | Type | Description |
+| Paramètre | Obligatoire | Type | Description  |
 |:--- |:--- |:--- |:--- |
 | arg1 |Oui |chaîne ou entier |La valeur à convertir en booléen. |
 
@@ -143,7 +143,7 @@ Retourne une valeur indiquant si une condition est true ou false.
 
 ### <a name="parameters"></a>parameters
 
-| Paramètre | Obligatoire | Type | Description |
+| Paramètre | Obligatoire | Type | Description  |
 |:--- |:--- |:--- |:--- |
 | condition |Oui |booléenne |Valeur à vérifier s’il est true ou false. |
 | trueValue |Oui | chaîne, int, objet ou tableau |La valeur à retourner lorsque la condition est true. |
@@ -189,14 +189,14 @@ La sortie de l’exemple précédent est :
 | Nom | type | Valeur |
 | ---- | ---- | ----- |
 | yesOutput | Chaîne | Oui |
-| noOutput | Chaîne | no |
+| noOutput | Chaîne | non |
 | objectOutput | Object | { "test": "value1" } |
 
 Ce qui suit [exemple de modèle](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/conditionWithReference.json) montre comment utiliser cette fonction avec des expressions qui sont uniquement valides de manière conditionnelle.
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "vmName": {
@@ -248,7 +248,7 @@ Convertit la valeur booléenne à sa valeur opposée.
 
 ### <a name="parameters"></a>parameters
 
-| Paramètre | Obligatoire | Type | Description |
+| Paramètre | Obligatoire | Type | Description  |
 |:--- |:--- |:--- |:--- |
 | arg1 |Oui |booléenne |La valeur à convertir. |
 
@@ -320,11 +320,11 @@ Vérifie si l’une des valeurs du paramètre est true.
 
 ### <a name="parameters"></a>parameters
 
-| Paramètre | Obligatoire | Type | Description |
+| Paramètre | Obligatoire | Type | Description  |
 |:--- |:--- |:--- |:--- |
 | arg1 |Oui |booléenne |La première valeur pour vérifier si c’est true. |
 | arg2 |Oui |booléenne |La deuxième valeur pour vérifier si c’est true. |
-| arguments supplémentaires |Non  |booléenne |Arguments supplémentaires pour vérifier si les valeurs sont égales à true. |
+| arguments supplémentaires |Non |booléenne |Arguments supplémentaires pour vérifier si les valeurs sont égales à true. |
 
 ### <a name="return-value"></a>Valeur de retour
 

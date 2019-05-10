@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: crdun
-ms.openlocfilehash: 289d50fc9d71ee5ea8960fd077e91ef6f68027cb
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 959c1ff8b199320105f650a7eb62a04bedb03b3b
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62127979"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65412785"
 ---
 # <a name="create-a-windows-app-with-an-azure-backend"></a>Créer une application Windows avec un back-end Azure
 
@@ -39,7 +39,7 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
 * Un compte Azure actif. Si vous n'avez pas de compte, vous pouvez vous inscrire pour une évaluation d'Azure et obtenir jusqu'à 10 applications mobiles gratuites que vous pourrez conserver après l'expiration de votre période d'évaluation. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/).
 * Windows 10.
-* [Visual Studio Community 2017].
+* [Visual Studio Community].
 * Connaissance du développement d’applications UWP. Consultez la [documentation UWP](https://docs.microsoft.com/windows/uwp/) pour savoir comment vous [préparer](https://docs.microsoft.com/windows/uwp/get-started/get-set-up) à créer des applications UWP.
 
 ## <a name="create-a-new-azure-mobile-app-backend"></a>Créer un serveur principal d'applications mobiles Azure
@@ -70,7 +70,7 @@ Une fois que vous avez configuré le serveur principal de votre application Mobi
     Ceci envoie une demande POST vers le nouveau backend d'application mobile qui est hébergé dans Azure.
 
 > [!TIP]
-> Vous pouvez ajouter le projet d’application UWP à la solution avec le projet de serveur si vous utilisez le serveur principal .NET. Cela simplifie le débogage et les tests de l’application et du serveur principal dans la même solution Visual Studio. Pour ajouter un projet d’application UWP à la solution de serveur principal, vous devez utiliser Visual Studio 2017.
+> Vous pouvez ajouter le projet d’application UWP à la solution avec le projet de serveur si vous utilisez le serveur principal .NET. Cela simplifie le débogage et les tests de l’application et du serveur principal dans la même solution Visual Studio. Pour ajouter un projet d’application UWP à la solution de serveur principal, vous devez utiliser Visual Studio 2017 ou version ultérieure.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -86,4 +86,4 @@ Une fois que vous avez configuré le serveur principal de votre application Mobi
 <!-- URLs. -->
 [Mobile App SDK]: https://go.microsoft.com/fwlink/?LinkId=257545
 [Azure portal]: https://portal.azure.com/
-[Visual Studio Community 2017]: https://go.microsoft.com/fwLink/p/?LinkID=534203
+[Visual Studio Community]: https://go.microsoft.com/fwLink/p/?LinkID=534203

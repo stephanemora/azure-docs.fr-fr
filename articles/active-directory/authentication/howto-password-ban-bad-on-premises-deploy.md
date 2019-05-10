@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f1c24ec49652cfe9105aa66fd1d5e26c81afcd14
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 256215b1976598b961ada7210e5ee92c9f72d440
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60414821"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506873"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Déployer la protection par mot de passe d’Azure AD
 
@@ -39,6 +39,9 @@ Une fois que la fonctionnalité a été exécuté en mode audit pendant un déla
 * Tous les contrôleurs de domaine permettant d’obtenir l’Agent du contrôleur de domaine de service pour la protection de mot de passe Azure AD installée doit exécuter Windows Server 2012 ou version ultérieure. Cette exigence n’implique pas que le domaine Active Directory ou la forêt doit également être au niveau fonctionnel de Windows Server 2012 domaine ou forêt. Comme mentionné dans [principes de conception](concept-password-ban-bad-on-premises.md#design-principles), aucun niveau fonctionnel du domaine ou le FFL requis pour un contrôleur de domaine agent ou proxy exécuter le logiciel minimale.
 * Tous les ordinateurs qui obtiennent le service agent contrôleur de domaine est installé doivent avoir le .NET 4.5 est installé.
 * Tous les ordinateurs qui obtiennent le proxy de service pour la protection de mot de passe Azure AD installée doit exécuter Windows Server 2012 R2 ou version ultérieure.
+   > [!NOTE]
+   > Déploiement du service proxy est une condition obligatoire pour le déploiement de la protection de mot de passe Azure AD même si le contrôleur de domaine peut avoir une connectivité internet directe sortant. 
+   >
 * Tous les ordinateurs où sera installé le service de Proxy de Protection de mot de passe Azure AD doivent avoir .NET 4.7 est installé.
   .NET 4.7 doit déjà être installé sur un serveur Windows entièrement mis à jour. Si ce n’est pas le cas, téléchargez et exécutez le programme d’installation, consultez [le .NET Framework 4.7 un programme d’installation hors connexion pour Windows](https://support.microsoft.com/en-us/help/3186497/the-net-framework-4-7-offline-installer-for-windows).
 * Tous les ordinateurs, y compris les contrôleurs de domaine, qui obtiennent des composants de protection de mot de passe Azure AD installés doit le Universal C Runtime est installé. Vous pouvez obtenir le runtime en vous assurant que toutes les mises à jour à partir de Windows Update. Ou vous pouvez l’obtenir dans un package de mise à jour du système d’exploitation spécifique. Pour plus d’informations, consultez [mise à jour pour le Runtime C universel dans Windows](https://support.microsoft.com/help/2999226/update-for-uniersal-c-runtime-in-windows).
@@ -262,7 +265,7 @@ Il existe deux programmes d’installation requis pour la protection de mot de p
 
    Vous pouvez installer le service Agent du contrôleur de domaine sur un ordinateur qui n’est pas encore un contrôleur de domaine. Dans ce cas, le service de démarrer et exécuter mais reste inactif jusqu'à ce que l’ordinateur est promu un contrôleur de domaine.
 
-   Vous pouvez automatiser l’installation du logiciel à l’aide de procédures standard de MSI. Par exemple : 
+   Vous pouvez automatiser l’installation du logiciel à l’aide de procédures standard de MSI. Exemple :
 
    `msiexec.exe /i AzureADPasswordProtectionDCAgentSetup.msi /quiet /qn`
 

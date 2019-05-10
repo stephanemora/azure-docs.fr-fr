@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: aagup
-ms.openlocfilehash: c80a9ac30e79607d2a255debf73f6542df7c6498
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bed3402de83984cae9134fe44058980ec18861b3
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60310891"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65413935"
 ---
 # <a name="on-demand-backup-in-azure-service-fabric"></a>Sauvegarde à la demande dans Azure Service Fabric
 
@@ -28,6 +28,22 @@ Vous pouvez sauvegarder les données des services fiables avec état et Reliable
 Azure Service Fabric comprend des fonctionnalités pour la [sauvegarde périodique des données](service-fabric-backuprestoreservice-quickstart-azurecluster.md) et la sauvegarde des données selon les besoins. La sauvegarde à la demande est utile car elle protège de la _perte des données_/_l’altération des données_ causées par des changements prévus dans le service sous-jacent ou son environnement.
 
 Les fonctionnalités de sauvegarde à la demande sont utiles pour capturer l’état des services avant que vous ne déclenchiez manuellement un service ou une opération de l’environnement du service. Par exemple, si vous apportez une modification dans les fichiers binaires du service lors du passage à une version antérieure ou ultérieure du service. Dans ce cas, la sauvegarde à la demande peut protéger les données d’une éventuelle altération due aux bogues du code de l’application.
+## <a name="prerequisites"></a>Conditions préalables
+
+- Installer le Module de Microsoft.ServiceFabric.Powershell.Http [Aperçu dans] pour effectuer des appels de configuration.
+
+```powershell
+    Install-Module -Name Microsoft.ServiceFabric.Powershell.Http -AllowPrerelease
+```
+
+- Assurez-vous que le Cluster est connecté à l’aide de la `Connect-SFCluster` commande avant d’apporter toute demande de configuration à l’aide du Module de Microsoft.ServiceFabric.Powershell.Http.
+
+```powershell
+
+    Connect-SFCluster -ConnectionEndpoint 'https://mysfcluster.southcentralus.cloudapp.azure.com:19080'   -X509Credential -FindType FindByThumbprint -FindValue '1b7ebe2174649c45474a4819dafae956712c31d3' -StoreLocation 'CurrentUser' -StoreName 'My' -ServerCertThumbprint '1b7ebe2174649c45474a4819dafae956712c31d3'  
+
+```
+
 
 ## <a name="triggering-on-demand-backup"></a>Déclenchement d’une sauvegarde à la demande
 
@@ -38,6 +54,16 @@ La sauvegarde à la demande nécessite des informations de stockage pour charger
 Vous pouvez configurer la stratégie de sauvegarde périodique de manière à utiliser une partition d’un service fiable avec état ou Reliable Actor, afin d’effectuer une sauvegarde à la demande supplémentaire vers le stockage.
 
 Le cas suivant est la continuation du scénario mentionné dans [Activation de la sauvegarde périodique pour le service avec état fiable et les acteurs fiables (Reliable Actors)](service-fabric-backuprestoreservice-quickstart-azurecluster.md#enabling-periodic-backup-for-reliable-stateful-service-and-reliable-actors). Dans ce cas, vous permettez à une stratégie de sauvegarde d’utiliser une partition et à une sauvegarde d’avoir lieu à une fréquence définie dans le stockage Azure.
+
+#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell à l’aide du Module de Microsoft.ServiceFabric.Powershell.Http
+
+```powershell
+
+Backup-SFPartition -PartitionId '974bd92a-b395-4631-8a7f-53bd4ae9cf22' 
+
+```
+
+#### <a name="rest-call-using-powershell"></a>Appel REST à l’aide de Powershell
 
 Utilisez l’API [BackupPartition](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition) pour configurer le déclenchement de la sauvegarde à la demande pour l’ID de partition `974bd92a-b395-4631-8a7f-53bd4ae9cf22`.
 
@@ -52,6 +78,17 @@ Utilisez l’API [GetBackupProgress](https://docs.microsoft.com/rest/api/service
 ### <a name="on-demand-backup-to-specified-storage"></a>Sauvegarde à la demande dans le stockage spécifié
 
 Vous pouvez demander une sauvegarde à la demande pour une partition d’un service fiable avec état ou d’un Reliable Actor. Fournissez les informations de stockage dans le cadre de la demande de sauvegarde à la demande.
+
+
+#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell à l’aide du Module de Microsoft.ServiceFabric.Powershell.Http
+
+```powershell
+
+Backup-SFPartition -PartitionId '974bd92a-b395-4631-8a7f-53bd4ae9cf22' -AzureBlobStore -ConnectionString  'DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net' -ContainerName 'backup-container'
+
+```
+
+#### <a name="rest-call-using-powershell"></a>Appel REST à l’aide de Powershell
 
 Utilisez l’API [BackupPartition](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition) pour configurer le déclenchement de la sauvegarde à la demande pour l’ID de partition `974bd92a-b395-4631-8a7f-53bd4ae9cf22`. Incluez les informations de stockage Azure suivantes :
 
@@ -79,6 +116,16 @@ Vous pouvez utiliser l’API [GetBackupProgress](https://docs.microsoft.com/rest
 Une partition d’un service fiable avec état ou Reliable Actor accepte une seule demande de sauvegarde à la demande à la fois. Une autre demande ne peut être acceptée que lorsque la demande de sauvegarde à la demande en cours est terminée.
 
 Plusieurs partitions peuvent déclencher simultanément des demandes de sauvegarde à la demande.
+
+
+#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell à l’aide du Module de Microsoft.ServiceFabric.Powershell.Http
+
+```powershell
+
+Get-SFPartitionBackupProgress -PartitionId '974bd92a-b395-4631-8a7f-53bd4ae9cf22'
+
+```
+#### <a name="rest-call-using-powershell"></a>Appel REST à l’aide de Powershell
 
 ```powershell
 $url = "https://mysfcluster-backup.southcentralus.cloudapp.azure.com:19080/Partitions/974bd92a-b395-4631-8a7f-53bd4ae9cf22/$/GetBackupProgress?api-version=6.4"

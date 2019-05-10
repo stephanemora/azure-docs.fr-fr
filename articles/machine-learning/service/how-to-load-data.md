@@ -12,15 +12,15 @@ manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 02/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7dc07ba7f1d62b49232b1cd892070804099fab8c
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: e7c330846cd907f35bb23ae5e453383d7c35222e
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024014"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65471892"
 ---
 # <a name="load-and-read-data-with-the-azure-machine-learning-data-prep-sdk"></a>Charger et lire des données avec le SDK Azure Machine Learning Data Prep
-Dans cet article, vous découvrez les différentes méthodes de chargement des données à l’aide du SDK Azure Machine Learning Data Prep. Pour voir la documentation de référence pour le SDK, consultez le [vue d’ensemble](https://aka.ms/data-prep-sdk). Le SDK prend en charge plusieurs fonctionnalités d’ingestion des données, notamment :
+Dans cet article, vous découvrez les différentes méthodes de chargement des données à l’aide du SDK Azure Machine Learning Data Prep.  Le SDK prend en charge plusieurs fonctionnalités d’ingestion des données, notamment :
 
 * Chargement à partir de nombreux types de fichiers avec déduction des paramètres d’analyse (codage, séparateur, en-têtes)
 * Conversion de type à l’aide de l’inférence pendant le chargement de fichier
@@ -28,6 +28,7 @@ Dans cet article, vous découvrez les différentes méthodes de chargement des d
 
 > [!Important]
 > Si vous générez une nouvelle solution, essayez le [jeux de données Azure Machine Learning](how-to-explore-prepare-data.md) (aperçu) pour l’exploration de données et la préparation. Jeux de données est la prochaine version de la préparation des données SDK, offre des fonctionnalités étendues pour la gestion des jeux de données dans les solutions d’intelligence artificielle.
+> Si vous utilisez le `azureml-dataprep` package pour créer un flux de données avec vos transformations au lieu d’utiliser le `azureml-datasets` package pour créer un jeu de données, vous ne pourrez pas utiliser des instantanés ou des jeux de données avec version ultérieurement.
 
 Le tableau suivant présente une sélection de fonctions utilisées pour le chargement des données à partir de types de fichiers courants.
 
@@ -67,7 +68,7 @@ dflow = dprep.read_lines(path='./data/text_lines.txt')
 dflow.head(5)
 ```
 
-||Lignes|
+||Ligne|
 |----|-----|
 |0|Date \|\| Température minimale \|\| Température maximale|
 |1|01-07-2015 \|\| -4,1 \|\| 10,0|
@@ -161,7 +162,7 @@ dflow.head(5)
 |0|Aucun|Aucun|Aucun|Aucun|Aucun|Aucun|Aucun|Aucun|Aucun| |
 |1|Aucun|Aucun|Aucun|Aucun|Aucun|Aucun|Aucun|Aucun|Aucun| |
 |2|Aucun|Aucun|Aucun|Aucun|Aucun|Aucun|Aucun|Aucun|Aucun| |
-|3|RANK|Intitulé|Studio|Mondial|National / %|Colonne1|À l’étranger / %|Colonne2|Année^| |
+|3|Rang|Intitulé|Studio|Mondial|National / %|Colonne1|À l’étranger / %|Colonne2|Année^| |
 |4|1|Avatar|Fox|2788|760,5|0,273|2027,5|0,727|2009^|5.|
 
 La sortie indique que les données de la deuxième feuille avaient trois lignes vides avant les en-têtes. La fonction `read_excel()` contient des paramètres facultatifs qui permettent d’ignorer des lignes et d’utiliser les en-têtes. Exécutez le code suivant pour ignorer les trois premières lignes et utiliser la quatrième ligne comme en-têtes.
@@ -170,7 +171,7 @@ La sortie indique que les données de la deuxième feuille avaient trois lignes 
 dflow = dprep.read_excel(path='./data/excel.xlsx', sheet_name='Sheet2', use_column_headers=True, skip_rows=3)
 ```
 
-||RANK|Intitulé|Studio|Mondial|National / %|Colonne1|À l’étranger / %|Colonne2|Année^|
+||Rang|Intitulé|Studio|Mondial|National / %|Colonne1|À l’étranger / %|Colonne2|Année^|
 |------|------|------|-----|------|-----|-------|----|-----|-----|
 |0|1|Avatar|Fox|2788|760,5|0,273|2027,5|0,727|2009^|
 |1|2|Titanic|Par.|2186,8|658,7|0,301|1528,1|0,699|1997^|
@@ -305,7 +306,7 @@ dflow = dprep.read_csv(path = DataLakeDataSource(path='adl://dpreptestfiles.azur
 dflow.to_pandas_dataframe().head()
 ```
 
-||FMID|MarketName|Website|street|city|County|
+||FMID|MarketName|Site Web|street|city|Comté|
 |----|------|-----|----|----|----|----|
 |0|1012063|Caledonia Farmers Market Association - Danville|https://sites.google.com/site/caledoniafarmers... ||Danville|Caledonia|
 |1|1011871|Stearns Homestead Farmers' Market|http://Stearnshomestead.com |6975 Ridge Road|Parma|Cuyahoga|
@@ -315,5 +316,4 @@ dflow.to_pandas_dataframe().head()
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Consultez le kit SDK [vue d’ensemble](https://aka.ms/data-prep-sdk) des modèles de conception et des exemples d’utilisation
 * Consultez le SDK Azure Machine Learning Data Prep [didacticiel](tutorial-data-prep.md) pour obtenir un exemple de résolution d’un scénario spécifique

@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory avec le logiciel Cezanne HR | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory avec le logiciel Cezanne HR | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Cezanne HR Software.
 services: active-directory
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 949b5b1aaab60e5b1d160963ac3f024dbbfbe552
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: fc4d96b900090cd217b4b49b1af2f09762c0da84
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57834955"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65407015"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-cezanne-hr-software"></a>Tutoriel : Intégration d’Azure Active Directory avec Cezanne HR Software
+# <a name="tutorial-azure-active-directory-integration-with-cezanne-hr-software"></a>Didacticiel : Intégration d’Azure Active Directory avec Cezanne HR Software
 
 Dans ce didacticiel, vous allez apprendre à intégrer Cezanne HR Software à Azure Active Directory (Azure AD).
 L’intégration de Cezanne HR Software dans Azure AD vous offre les avantages suivants :
@@ -156,7 +156,7 @@ Pour configurer l’authentification unique Azure AD avec Cezanne HR Software, 
 
     d. Dans la zone de texte **Security Token Service Endpoint** (Point de terminaison de service d’émission de jeton de sécurité), collez la valeur de l’**URL de connexion** que vous avez copiée à partir du Portail Azure.
 
-    e. Dans la zone de texte User ID Attribute Name (Nom de l’attribut de l’identificateur d’utilisateur), entrez `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
+    e. Dans la zone de texte User ID Attribute Name (Nom de l’attribut de l’identificateur d’utilisateur), entrez `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
 
     f. Cliquez sur **Télécharger** pour charger le certificat obtenu auprès du portail Azure.
 
@@ -184,7 +184,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.

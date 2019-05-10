@@ -7,18 +7,18 @@ ms.date: 05/02/2019
 ms.topic: article
 ms.service: virtual-machines-linux
 manager: jeconnoc
-ms.openlocfilehash: d10ee8c1af85de5eb79cd4a4af6882c7a8f084f1
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: b0a6c016b2be12ac6686b3748b4b16281899323e
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65159554"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65511061"
 ---
 # <a name="create-an-image-and-use-a-user-assigned-managed-identity-to-access-files-in-azure-storage"></a>Créer une image et d’utiliser une identité gérée affectée à l’utilisateur d’accéder aux fichiers dans le stockage Azure 
 
 Azure Générateur d’images prend en charge à l’aide de scripts ou de copier des fichiers à partir de plusieurs emplacements, tels que GitHub et le stockage Azure etc. Pour utiliser ces modèles, elles doivent avoir été accessibles en externe pour le Générateur d’images Azure, mais vous pouvez protéger les objets BLOB Azure Storage à l’aide des jetons SAS.
 
-Cet article montre comment créer une image personnalisée à l’aide de la machine virtuelle Azure Image Builder, où le service utilisera un [MSI affectée à l’utilisateur](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview) pour accéder aux fichiers dans le stockage Azure pour la personnalisation de l’image, sans avoir à effectuer les fichiers publiquement accessibles, ou la définition des jetons SAS.
+Cet article montre comment créer une image personnalisée à l’aide de la machine virtuelle Azure Image Builder, où le service utilisera un [MSI affectée à l’utilisateur](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) pour accéder aux fichiers dans le stockage Azure pour la personnalisation de l’image, sans avoir à effectuer les fichiers publiquement accessibles, ou la définition des jetons SAS.
 
 Dans l’exemple ci-dessous, vous allez créer deux groupes de ressources, sera utilisé pour l’image personnalisée et l’autre hébergera un compte de stockage Azure, qui contient un fichier de script. Cela simule un scénario réel, où vous pouvez avoir des artefacts de build, ou les fichiers image dans différents comptes de stockage, en dehors du Générateur d’images. Vous allez créer une identité affectée à l’utilisateur, puis accorder que les autorisations de lecture sur le fichier de script, mais vous ne définirez pas l’accès public à ce fichier. Vous allez ensuite utiliser la personnalisation de l’interpréteur de commandes pour télécharger et exécuter ce script à partir du compte de stockage.
 
@@ -130,7 +130,7 @@ az role assignment create \
 
 ## <a name="create-user-assigned-managed-identity"></a>Créer utilisateur affecté une identité gérée
 
-Créer l’identité et affecter des autorisations pour le compte de stockage de script. Pour plus d’informations, consultez [affectée msi](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm#user-assigned-managed-identity).
+Créer l’identité et affecter des autorisations pour le compte de stockage de script. Pour plus d’informations, consultez [affectée msi](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm#user-assigned-managed-identity).
 
 ```azurecli-interactive
 # Create the user assigned identity 

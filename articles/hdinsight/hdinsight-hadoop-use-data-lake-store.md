@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 11/06/2018
-ms.openlocfilehash: 067bdcfc496fc986ae87620b7d57d7cad3a0f734
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 05/09/2019
+ms.openlocfilehash: 22015d1e838e940cbf5a79323f4046c4a7e1719e
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64694180"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506801"
 ---
 # <a name="use-data-lake-storage-gen1-with-azure-hdinsight-clusters"></a>Utiliser Data Lake Storage Gen1 avec des clusters Azure HDInsight
 
@@ -42,7 +42,7 @@ Dorénavant, seules certain(e)s versions/types de cluster HDInsight prennent en 
 
 | Type de cluster HDInsight | Utiliser Data Lake Storage Gen1 comme stockage par défaut | Utiliser Data Lake Storage Gen1 comme stockage supplémentaire| Notes |
 |------------------------|------------------------------------|---------------------------------------|------|
-| HDInsight version 4.0 | Non  | Non  |Génération 1 ADLS n’est pas pris en charge avec HDInsight 4.0 |
+| HDInsight version 4.0 | Non | Non |Génération 1 ADLS n’est pas pris en charge avec HDInsight 4.0 |
 | HDInsight version 3.6 | OUI | OUI | With the exception of HBase|
 | HDInsight version 3.5 | OUI | OUI | With the exception of HBase|
 | HDInsight version 3.4 | Non | OUI | |
@@ -108,13 +108,13 @@ New-AzResourceGroupDeployment `
 
 ## <a name="use-data-lake-storage-gen1-as-additional-storage"></a>Utiliser Data Lake Storage Gen1 comme stockage supplémentaire
 
-Vous pouvez également utiliser Data Lake Storage Gen1 en tant que stockage supplémentaire pour le cluster. Dans ce cas, le stockage de cluster par défaut peut être un compte Azure Storage Blob ou Data Lake Storage. Si vous exécutez des tâches HDInsight sur des données stockées dans Data Lake Storage en tant que stockage supplémentaire, vous devez utiliser le chemin complet des fichiers. Par exemple : 
+Vous pouvez également utiliser Data Lake Storage Gen1 en tant que stockage supplémentaire pour le cluster. Dans ce cas, le stockage de cluster par défaut peut être un compte Azure Storage Blob ou Data Lake Storage. Si vous exécutez des tâches HDInsight sur des données stockées dans Data Lake Storage en tant que stockage supplémentaire, vous devez utiliser le chemin complet des fichiers. Exemple :
 
     adl://mydatalakestore.azuredatalakestore.net/<file_path>
 
 Notez qu’il n’y a encore aucun **cluster_root_path** dans l’URL. En effet, Data Lake Storage n’est pas un stockage par défaut dans ce cas. Il vous suffit donc de fournir le chemin des fichiers.
 
-Pour pouvoir utiliser Data Lake Storage Gen1 comme stockage supplémentaire, il suffit d’accorder au principal de service l’accès aux chemins où sont stockés vos fichiers.  Par exemple : 
+Pour pouvoir utiliser Data Lake Storage Gen1 comme stockage supplémentaire, il suffit d’accorder au principal de service l’accès aux chemins où sont stockés vos fichiers.  Exemple :
 
     adl://mydatalakestore.azuredatalakestore.net/<file_path>
 
@@ -220,8 +220,8 @@ if($addNewCertKeyCredential)
     Write-Host "Creating new KeyCredential for the app"
     $keyValue = [System.Convert]::ToBase64String($cert.GetRawCertData())
     New-AzADAppCredential -ApplicationId $appId -CertValue $keyValue -EndDate $cert.NotAfter -StartDate $cert.NotBefore
-    Write-Host "Waiting for 30 seconds for the permissions to get propagated"
-    Start-Sleep -s 30
+    Write-Host "Waiting for 7 minutes for the permissions to get propagated"
+    Start-Sleep -s 420 #7 minutes
 }
 
 Write-Host "Updating the certificate on HDInsight cluster..."

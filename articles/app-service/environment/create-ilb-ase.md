@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 06/12/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 7e4364a06a3d20edc7aafd54a4dcd86dfd039043
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 8508dbecceb9984f53a133d9634882603549cdd1
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64573574"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65199639"
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Créer et utiliser un équilibreur de charge interne avec un environnement App Service #
 
@@ -133,8 +133,8 @@ Une fois votre ASE créé, le nom de domaine indique le domaine que vous avez sp
 
 Votre ASE ILB a besoin d’un certificat SSL valide. Vous pouvez recourir à des autorités de certification internes, acheter un certificat à un émetteur externe, ou utiliser un certificat auto-signé. Quelle que soit la source du certificat SSL, les attributs de certificat suivants doivent être configurés correctement :
 
-* **Objet** : cet attribut doit être défini sur *.votre-domaine-racine-ici.
-* **Autre nom de l’objet** : cet attribut doit inclure à la fois **.votre-domaine-racine-ici* et **.scm.votre-domaine-racine-ici*. Les connexions SSL au site SCM/Kudu associé à chaque application utilisent une adresse sous la forme *nom-de-votre-application.scm.votre-domaine-racine-ici*.
+* **Objet** : cet attribut doit être défini sur *\..votre-domaine-racine-ici.
+* **Autre nom de l'objet** : cet attribut doit inclure à la fois *.votre-domaine-racine-ici* et *.scm.votre-domaine-racine-ici*. Les connexions SSL au site SCM/Kudu associé à chaque application utilisent une adresse sous la forme *nom-de-votre-application.scm.votre-domaine-racine-ici*.
 
 Convertissez/enregistrez le certificat SSL en tant que fichier de format .pfx. Le fichier .pfx doit inclure tous les certificats racines et intermédiaires. Sécurisez-le avec un mot de passe.
 

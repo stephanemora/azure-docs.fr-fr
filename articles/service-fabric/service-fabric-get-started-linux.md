@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 49d06c05af085624a0d495a65e139d3857a13fc4
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a063461d9da66d57a7bdc3311ae80dec7f2c98f1
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64712623"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65470243"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Préparer votre environnement de développement sur Linux
 > [!div class="op_single_selector"]
@@ -334,7 +334,6 @@ Pour supprimer les Kits de développement logiciel (SDK) Service Fabric, exécut
 * [Préparer un environnement de développement Linux sur Windows](service-fabric-local-linux-cluster-windows.md)
 * [Gérer une application Azure Service Fabric à l’aide d’Azure Service Fabric CLI](service-fabric-application-lifecycle-sfctl.md)
 * [Différences entre Service Fabric sur Linux et Windows](service-fabric-linux-windows-differences.md)
-* [Automatiser la mise à jour corrective du système d’exploitation sur votre cluster Linux](service-fabric-patch-orchestration-application-linux.md)
 * [Prise en main de l’interface de ligne de commande Service Fabric](service-fabric-cli.md)
 
 <!-- Links -->

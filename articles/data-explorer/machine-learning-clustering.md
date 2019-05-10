@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/29/2019
-ms.openlocfilehash: 2358cb2ea411a0077f34798183da30bd32ae067b
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: bc72cc21ab525ec82d9ce4b24e80ce82d92a5d21
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925122"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233501"
 ---
 # <a name="machine-learning-capability-in-azure-data-explorer"></a>Apprentissage de fonctionnalité dans l’Explorateur de données Azure
 
@@ -96,7 +96,7 @@ demo_clustering1
 | 2016-08-23 15:00:58.2222707 | scus   | su5       | 9dbd1b161d5b4779a73cf19a7836ebd6 | 10007007   | 8215dcf6-2de0-42bd-9c90-181c70486c9c |
 | 2016-08-23 15:00:59.9382620 | scus   | su3       | 90d3d2fc7ecc430c9621ece335651a01 | 10007006   | 451e3c4c-0808-4566-a64d-84d85cf30978 |
 
-### <a name="use-autocluster-for-single-record-set-clustering"></a>Utilisez `autocluster()` pour un enregistrement unique, définissez le clustering
+### <a name="use-autocluster-for-single-record-set-clustering"></a>Utilisez autocluster() pour un enregistrement unique, définissez le clustering
 
 Même s’il existe des exceptions de moins d’un millier, il est toujours difficile à repérer les segments courantes, comme il existe plusieurs valeurs dans chaque colonne. Vous pouvez utiliser [ `autocluster()` ](/azure/kusto/query/autoclusterplugin) plug-in pour extraire une petite liste de segments communs et trouver l’intéressant instantanément des clusters dans les deux minutes du Pique-notes comme indiqué dans la requête suivante :
 
@@ -120,7 +120,7 @@ Vous pouvez voir dans les résultats ci-dessus que le segment dominant contient 
 
 Autocluster utilise un algorithme propriétaire pour plusieurs dimensions d’exploration de données et l’extraction des segments intéressantes. « Intéressantes » signifie que chaque segment a un avantage important de l’ensemble d’enregistrements et le jeu de fonctionnalités. Les segments sont également divergent, ce qui signifie que chacun d’eux est considérablement différent des autres. Un ou plusieurs de ces segments peuvent être pertinentes pour le processus RCA. Pour réduire la révision de segment et d’évaluation, autocluster extrait uniquement une liste de petit segment.
 
-### <a name="use-basket-for-single-record-set-clustering"></a>Utilisez `basket()` pour un enregistrement unique, définissez le clustering
+### <a name="use-basket-for-single-record-set-clustering"></a>Utilisez basket() pour un enregistrement unique, définissez le clustering
 
 Vous pouvez également utiliser le [ `basket()` ](/azure/kusto/query/basketplugin) plug-in comme indiqué dans la requête suivante :
 

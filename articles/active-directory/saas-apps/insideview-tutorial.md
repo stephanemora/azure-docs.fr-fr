@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: jeedes
-ms.openlocfilehash: 91e1780462021430913a1354b4add7c5f047ec15
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 76db7381985853a81843df812dffcd8ab2bd8f9a
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59263177"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65407464"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insideview"></a>Didacticiel : Intégration d’Azure Active Directory à InsideView
 
@@ -142,13 +142,13 @@ Pour configurer l’authentification unique Azure AD avec InsideView, effectuez 
 
     c. Ouvrez votre certificat codé en base 64 téléchargé à partir du portail Azure, copiez son contenu dans le Presse-papiers, puis collez-le dans la zone de texte **Certificat STS**.
 
-    d. Dans la zone de texte **Mappage de l’ID d’utilisateur Crm**, saisissez `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
+    d. Dans la zone de texte **Mappage de l’ID d’utilisateur Crm**, saisissez `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
 
-    e. Dans la zone de texte **Mappage d’e-mail Crm**, saisissez `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
+    e. Dans la zone de texte **Mappage d’e-mail Crm**, saisissez `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
 
-    f. Dans la zone de texte **Mappage du prénom Crm**, saisissez `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
+    f. Dans la zone de texte **Mappage du prénom Crm**, saisissez `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
 
-    g. Dans la zone de texte **Mappage du nom Crm**, saisissez `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.  
+    g. Dans la zone de texte **Mappage du nom Crm**, saisissez `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.  
 
     h. Cliquez sur **Enregistrer**.
 

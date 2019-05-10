@@ -8,14 +8,14 @@ ms.service: sql-database
 ms.subservice: service
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/23/2019
+ms.date: 05/07/2019
 ms.author: carlrab
-ms.openlocfilehash: e6d702c7a3194f07f9d04139acbc9b6101b296ea
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 923e475cd690902c61c2f89578c2c62effe4cd86
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64717430"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406579"
 ---
 # <a name="sql-database-release-notes"></a>Notes de publication de base de données SQL
 
@@ -25,7 +25,8 @@ Cet article répertorie les nouvelles fonctionnalités et améliorations dans le
 
 | Fonctionnalité | Détails |
 | ---| --- |
-| Tâches de base de données élastiques | Pour plus d’informations, consultez [créer, configurer et gérer des tâches élastiques](elastic-jobs-overview.md) |
+| Niveau de calcul serverless | Pour plus d’informations, consultez [SQL de base de données sans serveur (version préliminaire)](sql-database-serverless.md).|
+| Travaux de base de données élastiques | Pour plus d’informations, consultez [créer, configurer et gérer des tâches élastiques](elastic-jobs-overview.md) |
 | Transactions élastiques | [Transactions distribuées entre bases de données cloud](sql-database-elastic-transactions-overview.md) |
 | Requêtes élastiques | Pour plus d’informations, consultez [vue d’ensemble de la requête élastique](sql-database-elastic-query-overview.md) |
 | Réplication avec des instances managées |Pour plus d’informations, consultez [configurer la réplication dans une base de données Azure SQL Database instance managée](replication-with-sql-database-managed-instance.md)|
@@ -45,6 +46,16 @@ Cet article répertorie les nouvelles fonctionnalités et améliorations dans le
 |SQL Analytics|Pour plus d’informations, consultez [Analytique de SQL Azure](../azure-monitor/insights/azure-sql.md)|
 | Prise en charge de fuseau horaire pour les instances managées|Pour plus d’informations, consultez [fuseau horaire dans Azure SQL Database Managed Instance](sql-database-managed-instance-timezone.md)|
 |||
+
+## <a name="may-2019"></a>Mai 2019
+
+### <a name="service-improvements"></a>Améliorations du service
+
+| Améliorations du service | Détails |
+| --- | --- |
+|Niveau de service Hyperscale| Pour plus d’informations, consultez [le niveau de service Hyperscale jusqu'à 100 to](sql-database-service-tier-hyperscale.md).|
+|Niveau de calcul serverless| Pour plus d’informations, consultez [SQL de base de données sans serveur (version préliminaire)](sql-database-serverless.md).|
+
 
 ## <a name="april-2019"></a>Avril 2019
 

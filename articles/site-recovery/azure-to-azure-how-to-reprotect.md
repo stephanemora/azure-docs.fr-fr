@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: bd65b1479ace1a51087836eb8032f16fd10dc119
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: eabb7d194a3ef65282befab1ae59e85ba56f2f5b
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60791235"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472161"
 ---
 # <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>Reprotéger les machines virtuelles Azure basculées vers la région principale
 
@@ -68,7 +68,7 @@ Lorsque vous déclenchez un travail de reprotection et que la cible de que machi
 1. La machine virtuelle côté cible est désactivée si elle est en cours d’exécution.
 2. Si la machine virtuelle utilise des disques managés, une copie des disques d’origine est créée avec le suffixe '-ASRReplica'. Les disques d’origine sont supprimés. Les copies '-ASRReplica' sont utilisées pour la réplication.
 3. Si la machine virtuelle utilise des disques non managés, les disques de données de la machine virtuelle cible sont détachés et utilisés pour la réplication. Une copie du disque du système d’exploitation est créée et attachée à la machine virtuelle. Le disque d’origine du système d’exploitation est détaché et utilisé pour la réplication.
-4. Seules les modifications entre le disque source et le disque cible sont synchronisées. Les sauvegardes différentielles sont calculées en comparant deux disques, puis transférées. Cette opération prend quelques heures.
+4. Seules les modifications entre le disque source et le disque cible sont synchronisées. Les sauvegardes différentielles sont calculées en comparant deux disques, puis transférées. Pour rechercher la vérification de la durée estimée ci-dessous.
 5. Une fois la synchronisation terminée, la réplication delta commence à créer un point de récupération conformément à la stratégie de réplication.
 
 Lorsque vous déclenchez un travail de reprotection et que la machine virtuelle cible et les disques n’existent pas, les événements suivants se produisent :
@@ -76,6 +76,21 @@ Lorsque vous déclenchez un travail de reprotection et que la machine virtuelle 
 2. Si la machine virtuelle à l’aide de disques non gérés, des disques de réplica sont créés dans le compte de stockage cible.
 3. Les disques entiers sont copiés à partir de la région ayant échoué vers la nouvelle région cible.
 4. Une fois la synchronisation terminée, la réplication delta commence à créer un point de récupération conformément à la stratégie de réplication.
+
+#### <a name="estimated-time--to-do-the-reprotection"></a>Durée estimée pour effectuer la reprotection 
+
+Dans la plupart des cas, Azure Site Recovery ne réplique la totalité des données vers la région source. Voici les conditions qui détermine la quantité de données est répliquée :
+
+1.  Si la source de données de la machine virtuelle est supprimé, endommagé ou inaccessible pour une raison quelconque comme groupe de ressources modifier/supprimer puis lors du runtime d’intégration complète de la reprotection se produira car il n’existe aucune donnée disponible sur la région source à utiliser.
+2.  Si la source de données de la machine virtuelle est accessible uniquement les sauvegardes différentielles sont calculées en comparant deux disques et puis transférées. Consultez le tableau ci-dessous pour obtenir la durée estimée 
+
+|** Situation de l’exemple ** | ** Temps nécessaire à la Reprotection ** |
+|--- | --- |
+|Région source a 1 machine virtuelle avec 1 To de disque standard<br/>-Seules les données de 127 Go sont utilisées et le reste du disque est vide<br/>-Type de disque est standard avec un débit 60 Mio/S<br/>-Aucune modification de données après le basculement| Durée approximative 45 minutes – 1,5 heures<br/> -Lors de la reprotection, Site Recovery remplira la somme de contrôle de données entière qui prendront 127 Go / 45 Mo environ 45 minutes<br/>-Certains surcharge de temps est nécessaire pour la récupération de Site automatiquement mise à l’échelle qui est de 20 à 30 minutes<br/>-Aucun frais de sortie |
+|Région source a 1 machine virtuelle avec 1 To de disque standard<br/>-Seules les données de 127 Go sont utilisées et le reste du disque est vide<br/>-Type de disque est standard avec un débit 60 Mio/S<br/>-Les modifications de données 45 Go après le basculement| Durée approximative heures 1 – 2 heures<br/>-Lors de la reprotection, Site Recovery remplira la somme de contrôle de données entière qui prendront 127 Go / 45 Mo environ 45 minutes<br/>-Temps de transfert de pour appliquer les modifications de 45 Go est de 45 Go / 45 Mbits/s ~ 17 minutes<br/>-Frais de sortie serait uniquement pour les données de 45 Go pas pour la somme de contrôle|
+ 
+
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

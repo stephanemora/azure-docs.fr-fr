@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e20a298c34a7b2723963396f8ccaafaa9472e19a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7ec8b575157dcf2fe8430f554798af62b966c78d
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57888329"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406702"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-airwatch"></a>Didacticiel : Intégration d’Azure Active Directory dans AirWatch
 
@@ -207,15 +207,15 @@ Pour configurer l’authentification unique Azure AD avec AirWatch, procédez co
 
     a. Dans la zone de texte **Object Identifier** (Identificateur de l’objet), tapez `http://schemas.microsoft.com/identity/claims/objectidentifier`.
 
-    b. Dans la zone de texte **Username** (Nom d’utilisateur), tapez `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
+    b. Dans la zone de texte **Username** (Nom d’utilisateur), tapez `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
 
-    c. Dans la zone de texte **Display Name** (Nom d’affichage), tapez `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
+    c. Dans la zone de texte **Display Name** (Nom d’affichage), tapez `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
 
-    d. Dans la zone de texte **First Name** (Prénom), tapez `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
+    d. Dans la zone de texte **First Name** (Prénom), tapez `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
 
-    e. Dans la zone de texte **Last Name** (Nom), tapez `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
+    e. Dans la zone de texte **Last Name** (Nom), tapez `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
 
-    f. Dans la zone de texte **Email** (E-mail), tapez `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
+    f. Dans la zone de texte **Email** (E-mail), tapez `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
 
     g. Cliquez sur **Enregistrer**.
 
@@ -237,7 +237,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.

@@ -4,7 +4,7 @@ description: Présentation des solutions de récupération d’urgence à l’ai
 services: dns
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/08/2018
 ms.author: kumud
-ms.openlocfilehash: ec252c1f45e5c27f17b725f6ab68cc94f67897c4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a560cc526e73f3ce7e851f2a545f9b16fa53b423
+ms.sourcegitcommit: 1d257ad14ab837dd13145a6908bc0ed7af7f50a2
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60507653"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65501688"
 ---
 # <a name="disaster-recovery-using-azure-dns-and-traffic-manager"></a>Récupération d’urgence à l’aide d’Azure DNS et Traffic Manager
 
@@ -79,14 +79,14 @@ Les hypothèses formulées pour la solution sont :
 - Création d’enregistrements de zone DNS
 - Mise à jour de l’enregistrement CNAME
 
-### <a name="step-1-create-a-dns"></a>Étape 1 : Créer un serveur DNS
+### <a name="step-1-create-a-dns"></a>Étape 1 : Créer un serveur DNS
 Créer une zone DNS (par exemple, www\.contoso.com) comme indiqué ci-dessous :
 
 ![Création d’une zone DNS dans Azure](./media/disaster-recovery-dns-traffic-manager/create-dns-zone.png)
 
 *Figure - Création d’une zone DNS dans Azure*
 
-### <a name="step-2-create-dns-zone-records"></a>Étape 2 : Création d’enregistrements de zone DNS
+### <a name="step-2-create-dns-zone-records"></a>Étape 2 : Création d’enregistrements de zone DNS
 
 Dans cette zone, créez trois enregistrements (par exemple, www\.contoso.com, prod.contoso.com et dr.consoto.com) comme indiqué ci-dessous.
 
@@ -137,13 +137,14 @@ La procédure pour configurer le basculement avec Azure Traffic Manager est la s
 2. Création des points de terminaison dans le profil Traffic Manager
 3. Configuration du contrôle d’intégrité et vérification du basculement
 
-### <a name="step-1-create-a-new-azure-traffic-manager-profile"></a>Étape 1 : Création d’un profil Azure Traffic Manager
+### <a name="step-1-create-a-new-azure-traffic-manager-profile"></a>Étape 1 : Création d’un profil Azure Traffic Manager
 Créez un profil Azure Traffic Manager avec le nom contoso123 et sélectionnez la méthode de routage Priorité. Si vous voulez associer un groupe de ressources préexistant, vous pouvez en sélectionner un ou encore créer un nouveau groupe de ressources.
 
-![Création d’un profil Traffic Manager](./media/disaster-recovery-dns-traffic-manager/create-traffic-manager-profile.png)
-*Figure - Création d’un profil Traffic Manager*
+![Créer un profil Traffic Manager](./media/disaster-recovery-dns-traffic-manager/create-traffic-manager-profile.png)
 
-### <a name="step-2-create-endpoints-within-the-traffic-manager-profile"></a>Étape 2 : Création des points de terminaison dans le profil Traffic Manager
+*Figure - créer un profil Traffic Manager*
+
+### <a name="step-2-create-endpoints-within-the-traffic-manager-profile"></a>Étape 2 : Création des points de terminaison dans le profil Traffic Manager
 
 Au cours de cette étape, vous créez des points de terminaison qui pointent vers les sites de production et de récupération d’urgence. Ici, choisissez **Type** comme point de terminaison externe, mais si la ressource est hébergée dans Azure, vous pouvez également sélectionner **Point de terminaison Azure**. Si vous choisissez **Point de terminaison Azure**, sélectionnez une **Ressource cible** qui soit **Service d’application** ou **Adresse IP publique** allouée par Azure. La priorité est définie sur **1** car il s’agit du service principal pour la Région 1.
 De la même manière, créez le point de terminaison de récupération d’urgence dans Traffic Manager.

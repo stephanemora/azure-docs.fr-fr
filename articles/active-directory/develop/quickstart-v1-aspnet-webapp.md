@@ -16,18 +16,18 @@ ms.workload: identity
 ms.date: 09/24/2018
 ms.author: andret
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a6119baf79b9323a5c1ad06d75e1410f632015f0
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 7aca42aa13ef78647b591eb0be7083f932ce0c35
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59548549"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65191039"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Démarrage rapide : Ajouter la connexion avec Microsoft à une application ASP.NET
 
 [!INCLUDE [active-directory-develop-applies-v1](../../../includes/active-directory-develop-applies-v1.md)]
 
-Dans ce démarrage rapide, vous allez apprendre comment implémenter la connexion avec Microsoft à l’aide d’une solution ASP.NET MVC avec une application basée sur un navigateur web traditionnel avec une norme OpenID Connect. Vous allez apprendre comment activer les connexions à partir de comptes professionnels et scolaires dans votre application ASP.NET.
+Dans ce démarrage rapide, vous allez apprendre comment implémenter la connexion avec Microsoft à l’aide d’une solution ASP.NET MVC (Model View Controller) avec une application basée sur un navigateur web traditionnel avec une norme OpenID Connect. Vous allez apprendre comment activer les connexions à partir de comptes professionnels et scolaires dans votre application ASP.NET.
 
 À la fin de ce démarrage rapide, votre application acceptera les connexions des comptes professionnels et scolaires d’organisations disposant d’une intégration à Azure Active Directory (Azure AD).
 
@@ -38,15 +38,15 @@ Dans ce démarrage rapide, vous allez apprendre comment implémenter la connexio
 
 Pour commencer, assurez-vous de remplir ces conditions préalables :
 
-* Visual Studio 2015 Update 3 ou Visual Studio 2017 installé. Ni l’un, ni l’autre ne sont installés sur votre ordinateur ? [Téléchargez gratuitement Visual Studio 2017](https://www.visualstudio.com/downloads/)
+* Visual Studio 2015 Update 3 ou Visual Studio 2019 installé. Ni l’un, ni l’autre ne sont installés sur votre ordinateur ? [Télécharger Visual Studio 2019 gratuitement](https://www.visualstudio.com/downloads/)
 
-## <a name="scenario-sign-in-users-from-work-and-school-accounts-in-your-aspnet-app"></a>Scénario : Connecter des utilisateurs à partir de comptes professionnels et scolaires dans votre application ASP.NET
+## <a name="scenario-sign-in-users-from-work-and-school-accounts-in-your-aspnet-app"></a>Scénario : Connecter des utilisateurs à partir de comptes professionnels et scolaires dans votre application ASP.NET
 
 ![Fonctionnement de ce guide](./media/quickstart-v1-aspnet-webapp/aspnet-intro.png)
 
-Dans ce scénario, un navigateur accède à un site web ASP.NET et demande à un utilisateur de s’authentifier à l’aide d’un bouton de connexion. Dans ce scénario, la majorité du travail pour afficher la page web se passe côté serveur.
+Un navigateur accède à un site web ASP.NET et demande à un utilisateur de s’authentifier à l’aide d’un bouton de connexion dans ce scénario. Dans ce scénario, la majorité du travail pour afficher la page web se passe côté serveur.
 
-Ce démarrage rapide guide de configuration montre comment connecter des utilisateurs à une application web ASP.NET à partir d’un modèle vide. Il comprend des étapes telles que l’ajout d’un bouton de connexion et de tous les contrôleurs et méthodes, et explique les concepts derrière ces tâches. Vous pouvez également créer un projet pour connecter des utilisateurs Azure AD (comptes professionnels et scolaires) en utilisant le [modèle web Visual Studio](https://docs.microsoft.com/aspnet/visual-studio/overview/2013/creating-web-projects-in-visual-studio#organizational-account-authentication-options) et en sélectionnant **Comptes professionnels** puis l’une des options de cloud. Cette option utilise un modèle plus riche, avec des contrôleurs, des méthodes et des vues supplémentaires.
+Le guide de démarrage rapide montre comment connecter des utilisateurs à une application web ASP.NET à partir d’un modèle vide. Il inclut également des étapes telles que l’ajout d’un bouton de connexion, de chaque contrôleur et de méthodes et explique les concepts qui sous-tendent ces tâches. Vous pouvez créer un projet pour connecter des utilisateurs Azure AD (comptes professionnels et scolaires) en utilisant le [modèle web Visual Studio](https://docs.microsoft.com/aspnet/visual-studio/overview/2013/creating-web-projects-in-visual-studio#organizational-account-authentication-options) et en sélectionnant **Comptes professionnels** puis l’une des options cloud. Cette option utilise un modèle plus riche, avec des contrôleurs, des méthodes et des vues supplémentaires.
 
 ## <a name="libraries"></a>Bibliothèques
 
@@ -158,7 +158,7 @@ Ce contrôleur démontre les utilisations de l’attribut `[Authorize]` pour pro
 1. Sélectionnez **Contrôleur MVC {version} – vide**.
 1. Sélectionnez **Ajouter**.
 1. Nommez-le **ClaimsController**.
-1. Remplacez le code de votre classe de contrôleur par le code suivant afin d’ajouter l’attribut `[Authorize]` à la classe :
+1. Remplacez le code de votre classe de contrôleur par le code suivant ; cet exemple ajoute l’attribut `[Authorize]` à la classe :
 
     [!code-csharp[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet/Controllers/ClaimsController.cs?name=ClaimsController "ClaimsController.cs")]
 
@@ -205,20 +205,20 @@ Dans Visual Studio, créez une vue pour afficher les revendications de l’utili
 5. Sélectionnez **Créer** pour inscrire l’application. Cette action vous ramène à la liste des applications.
 6. À présent, recherchez ou sélectionnez l’application que vous venez de créer pour ouvrir ses propriétés.
 7. Copiez le GUID sous **ID d’application** dans le presse-papiers.
-8. Revenez à Visual Studio et, dans `web.config`, remplacez `Enter_the_Application_Id_here` par l’ID de l’application que vous venez d’inscrire.
+8. Revenez à Visual Studio et, dans `web.config`, remplacez `Enter_the_Application_Id_here` par l’ID de l’application que vous avez inscrite.
 
 > [!TIP]
 > Si votre compte est configuré pour l’accès à plusieurs répertoires, vérifiez que vous avez sélectionné le répertoire correspondant à l’organisation pour laquelle vous souhaitez inscrire l’application en cliquant sur le nom de votre compte en haut à droite du portail Azure, puis en vérifiant le répertoire sélectionné comme indiqué :<br/>![Sélection de l’annuaire](./media/quickstart-v1-aspnet-webapp/tenantselector.png)
 
 ## <a name="step-10-configure-sign-in-options"></a>Étape 10 : Configurer les options de connexion
 
-Vous pouvez configurer votre application pour autoriser uniquement la connexion des utilisateurs qui appartiennent à l’instance Azure AD d’une organisation, ou accepter les connexions des utilisateurs qui appartiennent à n’importe quelle organisation. Suivez les instructions de l’une des options suivantes :
+Vous pouvez configurer votre application pour autoriser uniquement la connexion des utilisateurs qui appartiennent à l’instance Azure AD d’une organisation, ou accepter les connexions des utilisateurs qui appartiennent à n’importe quelle organisation. Suivez les instructions de l’une des options suivantes :
 
 ### <a name="configure-your-application-to-allow-sign-ins-of-work-and-school-accounts-from-any-company-or-organization-multi-tenant"></a>Configurer votre application pour autoriser les connexions des comptes professionnels et scolaires à partir de toute entreprise ou organisation (application mutualisée)
 
-Suivez ces étapes si vous souhaitez accepter les connexions des comptes professionnels et scolaires de toute entreprise ou organisation disposant d’une intégration à Azure AD. Il s’agit d’un scénario courant pour les *applications SaaS* :
+Suivez ces étapes si vous souhaitez accepter les connexions des comptes professionnels et scolaires de toute entreprise ou organisation disposant d’une intégration à Azure AD. Ce scénario est courant pour les *applications SaaS* :
 
-1. Revenez au [portail Microsoft Azure - Inscriptions des applications](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) et recherchez l’application que vous venez d’inscrire.
+1. Revenez au [portail Microsoft Azure - Inscriptions des applications](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) et recherchez l’application que vous avez inscrite.
 2. Sous **Tous les paramètres**, sélectionnez **Propriétés**.
 3. Réglez la propriété **Mutualisé** sur **Oui**, puis sélectionnez **Enregistrer**.
 
@@ -278,7 +278,7 @@ Quand vous êtes prêt à tester, utilisez un compte professionnel (Azure AD) po
 
 #### <a name="expected-results"></a>Résultats attendus
 
-Après la connexion, l’utilisateur est redirigé vers la page d’accueil de votre site web, qui est l’URL HTTPS spécifiée dans les informations d’inscription de votre application sur le portail d’inscription des applications de Microsoft. Cette page affiche désormais *Bonjour {utilisateur}*, ainsi qu’un lien de déconnexion et un lien pour afficher les revendications de l’utilisateur, qui est un lien vers le contrôleur d’autorisation créé précédemment.
+Une fois connecté, l’utilisateur est redirigé vers la page d’accueil de votre site web, qui est l’URL HTTPS spécifiée dans les informations d’inscription de votre application sur le portail d’inscription des applications de Microsoft. Cette page affiche désormais *Bonjour {utilisateur}*, ainsi qu’un lien de déconnexion et un lien pour afficher les revendications de l’utilisateur, qui est un lien vers le contrôleur d’autorisation créé précédemment.
 
 ### <a name="see-users-claims"></a>Afficher les revendications de l’utilisateur
 
@@ -292,7 +292,7 @@ Sélectionnez le lien hypertexte pour afficher les revendications de l’utilisa
 |---|---|---|
 | Nom | {Nom complet de l’utilisateur} | Prénom et nom de l’utilisateur. |
 | Nom d’utilisateur | <span>user@domain.com</span> | Nom d’utilisateur employé pour identifier l’utilisateur connecté. |
-| Objet| {Objet} |Une chaîne pour identifier de façon unique l’ouverture de session utilisateur sur le web. |
+| Objet| {Objet} |Chaîne identifiant de façon unique la connexion de l’utilisateur sur le web |
 | ID client | {Guid} | *GUID* qui représente de manière unique l’organisation Azure AD de l’utilisateur |
 
 En outre, vous verrez une table contenant toutes les revendications de l’utilisateur incluses dans la demande d’authentification. Pour obtenir la liste de toutes les revendications dans un jeton d’ID et des informations complémentaires, consultez cet [Liste des revendications dans un jeton d’ID](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).

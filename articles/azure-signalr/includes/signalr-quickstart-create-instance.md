@@ -7,12 +7,12 @@ ms.topic: include
 ms.date: 09/14/2018
 ms.author: antchu
 ms.custom: include file
-ms.openlocfilehash: 15eded28e38279ea01bf019566d4fda5e7ac6c3e
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 4e8bdc63daa7450a88c2fcf4b7e878e18cea260d
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57588119"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65199012"
 ---
 ## <a name="create-an-azure-signalr-service-instance"></a>Créer une instance de service SignalR Azure
 
@@ -39,6 +39,4 @@ Votre application se connectera à l’instance de service SignalR dans Azure.
 
 1. Sélectionnez **Créer** pour commencer le déploiement de l’instance de service SignalR.
 
-1. Une fois l’instance déployée, ouvrez-la dans le portail, puis recherchez sa page Paramètres. Remplacez le paramètre Mode de service par *Serverless*.
-
-    ![Mode SignalR Service](../media/signalr-concept-azure-functions/signalr-service-mode.png)
+1. Une fois l’instance déployée, ouvrez-la dans le portail, puis recherchez sa page Paramètres. Définissez le paramètre Mode de service sur *Serverless* seulement si vous utilisez Azure SignalR Service par le biais de la liaison Azure Functions ou de l’API REST. Sinon, laissez-le sur *Classique* ou *Par défaut*.

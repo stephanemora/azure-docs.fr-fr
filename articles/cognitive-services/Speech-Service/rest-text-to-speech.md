@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 9cbd924f87ff2f5b38f67a1bf7db34c36e9c264b
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 8ebd871c314d3ecbc0c89e6c9081926558b181fd
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65020420"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65237098"
 ---
 # <a name="text-to-speech-rest-api"></a>API REST de synthèse vocale
 
@@ -44,31 +44,31 @@ Le `voices/list` point de terminaison vous permet d’obtenir une liste complèt
 
 | Région | Point de terminaison |
 |--------|----------|
-| Australie Est | https://australiaeast.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Brésil Sud | https://brazilsouth.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Centre du Canada | https://canadacentral.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| USA Centre | https://centralus.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Asie Est | https://eastasia.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| USA Est | https://eastus.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| USA Est 2 | https://eastus2.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| France Centre | https://francecentral.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Inde Centre | https://centralindia.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Japon Est | https://japaneast.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Centre de la Corée | https://koreacentral.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| USA Centre Nord | https://northcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Europe Nord | https://northeurope.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| USA Centre Sud | https://southcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Asie Sud-Est | https://southeastasia.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Sud du Royaume-Uni | https://uksouth.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| Europe de l'Ouest | https://westeurope.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| USA Ouest | https://westus.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| USA Ouest 2 | https://westus2.tts.speech.microsoft.com/cognitiveservices/voices/list |
+| Australie Est | `https://australiaeast.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Brésil Sud | `https://brazilsouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Centre du Canada | `https://canadacentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| USA Centre | `https://centralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Asie Est | `https://eastasia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| USA Est | `https://eastus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| USA Est 2 | `https://eastus2.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| France Centre | `https://francecentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Inde Centre | `https://centralindia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Japon Est | `https://japaneast.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Centre de la Corée | `https://koreacentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| USA Centre Nord | `https://northcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Europe Nord | `https://northeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| USA Centre Sud | `https://southcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Asie du Sud-Est | `https://southeastasia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Sud du Royaume-Uni | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Europe de l'Ouest | `https://westeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| USA Ouest | `https://westus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| USA Ouest 2 | `https://westus2.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 
 ### <a name="request-headers"></a>En-têtes de requête
 
 Ce tableau répertorie les en-têtes obligatoires et facultatifs pour les demandes de synthèse vocale.
 
-| En-tête | Description | Obligatoire/facultatif |
+| En-tête | Description  | Obligatoire/facultatif |
 |--------|-------------|---------------------|
 | `Authorization` | Un jeton d’autorisation précédé du mot `Bearer`. Pour en savoir plus, consultez [Authentification](#authentication). | Obligatoire |
 
@@ -136,10 +136,10 @@ Cette réponse a été tronquée pour illustrer la structure d’une réponse.
 
 Le code d’état HTTP de chaque réponse indique la réussite ou des erreurs courantes.
 
-| Code d'état HTTP | Description | Raison possible |
+| Code d'état HTTP | Description  | Raison possible |
 |------------------|-------------|-----------------|
 | 200 | OK | La demande a réussi. |
-| 400 | Demande incorrecte | Un paramètre obligatoire est manquant, vide ou présente une valeur Null. Il est également possible que la valeur transmise à un paramètre obligatoire ou facultatif ne soit pas valide. Ce problème est généralement dû à un en-tête trop long. |
+| 400 | Requête incorrecte | Un paramètre obligatoire est manquant, vide ou présente une valeur Null. Il est également possible que la valeur transmise à un paramètre obligatoire ou facultatif ne soit pas valide. Ce problème est généralement dû à un en-tête trop long. |
 | 401 | Non autorisé | La demande n’est pas autorisée. Vérifiez que votre clé d’abonnement ou votre jeton est valide et dans la région appropriée. |
 | 429 | Trop de demandes | Vous avez dépassé le quota ou le taux de requêtes autorisé pour votre abonnement. |
 | 502 | Passerelle incorrecte | Problème de réseau ou côté serveur. Cette erreur peut également signaler des en-têtes non valides. |
@@ -159,7 +159,7 @@ Ces régions sont prises en charge pour la synthèse vocale à l’aide de l’A
 
 Ce tableau répertorie les en-têtes obligatoires et facultatifs pour les demandes de synthèse vocale.
 
-| En-tête | Description | Obligatoire/facultatif |
+| En-tête | Description  | Obligatoire/facultatif |
 |--------|-------------|---------------------|
 | `Authorization` | Un jeton d’autorisation précédé du mot `Bearer`. Pour en savoir plus, consultez [Authentification](#authentication). | Obligatoire |
 | `Content-Type` | Spécifie le type de contenu pour le texte fourni. Valeur acceptée : `application/ssml+xml`. | Obligatoire |
@@ -219,10 +219,10 @@ Consultez nos guides de démarrage rapide pour obtenir des exemples spécifiques
 
 Le code d’état HTTP de chaque réponse indique la réussite ou des erreurs courantes.
 
-| Code d'état HTTP | Description | Raison possible |
+| Code d'état HTTP | Description  | Raison possible |
 |------------------|-------------|-----------------|
 | 200 | OK | La requête a réussi ; le corps de réponse est un fichier audio. |
-| 400 | Demande incorrecte | Un paramètre obligatoire est manquant, vide ou présente une valeur Null. Il est également possible que la valeur transmise à un paramètre obligatoire ou facultatif ne soit pas valide. Ce problème est généralement dû à un en-tête trop long. |
+| 400 | Requête incorrecte | Un paramètre obligatoire est manquant, vide ou présente une valeur Null. Il est également possible que la valeur transmise à un paramètre obligatoire ou facultatif ne soit pas valide. Ce problème est généralement dû à un en-tête trop long. |
 | 401 | Non autorisé | La demande n’est pas autorisée. Vérifiez que votre clé d’abonnement ou votre jeton est valide et dans la région appropriée. |
 | 413 | Entité de requête trop volumineuse | L’entrée SSML comporte plus de 1 024 caractères. |
 | 429 | Trop de demandes | Vous avez dépassé le quota ou le taux de requêtes autorisé pour votre abonnement. |

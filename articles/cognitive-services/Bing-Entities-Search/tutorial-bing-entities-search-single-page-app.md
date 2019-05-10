@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Recherche d’entités Bing dans une application web monopage'
+title: 'Didacticiel : Recherche d’entités Bing dans une application web monopage'
 titlesuffix: Azure Cognitive Services
 description: Montre comment utiliser l’API Recherche d’entités Bing dans une application web à page unique.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.subservice: bing-entity-search
 ms.topic: tutorial
 ms.date: 02/01/2019
 ms.author: aahi
-ms.openlocfilehash: fe1e56d2975c219a56d41102c728b7873f9f4f62
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 1b8cf36c631755458bc0c531773a6b2aba7f1038
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57538168"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406373"
 ---
-# <a name="tutorial-single-page-web-app"></a>Tutoriel : Application web à page unique
+# <a name="tutorial-single-page-web-app"></a>Didacticiel : Application web à page unique
 
 L’API Recherche d’entités Bing vous permet de rechercher sur le web des informations sur les *entités* et les *lieux.* Vous pouvez demander l’un ou l’autre type de résultat, ou les deux, dans une requête donnée. Les définitions des lieux et des entités sont fournies ci-dessous.
 
@@ -535,7 +535,7 @@ Il est facile d’installer un proxy CORS pour autoriser l’application du dida
 
 Ensuite, remplacez le point de terminaison Recherche Web Bing dans le fichier HTML par :
 
-    http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search
+    https://localhost:9090/httpss://api.cognitive.microsoft.com/bing/v7.0/search
 
 Enfin, lancez le proxy CORS avec la commande suivante :
 

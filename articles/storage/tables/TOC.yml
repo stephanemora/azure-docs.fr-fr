@@ -10,10 +10,6 @@
       maintainContext: true
 - name: Démarrages rapides
   items:
-    - name: Créez un compte de stockage.
-      displayName: 'resource manager, resource manager template, template, ARM'
-      href: /azure/storage/common/storage-quickstart-create-account
-      maintainContext: true
     - name: Créez une table dans le portail Azure
       href: table-storage-quickstart-portal.md
 - name: Exemples
@@ -70,6 +66,10 @@
       href: table-storage-design-patterns.md
 - name: Guides pratiques
   items:
+    - name: Créez un compte de stockage.
+      displayName: 'resource manager, resource manager template, template, ARM'
+      href: /azure/storage/common/storage-quickstart-create-account
+      maintainContext: true
     - name: Utilisation de l’émulateur de stockage
       href: /azure/storage/common/storage-use-emulator
       maintainContext: true

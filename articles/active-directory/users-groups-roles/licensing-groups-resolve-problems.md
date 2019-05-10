@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c92969015910cc5bd72e2d9339d5c15c1f7af48b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3dbfbd76d235cedd297a5ad54b51bc4ebb550bb1
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60470217"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466285"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Identification et résolution des problèmes d’affectation de licences pour un groupe dans Azure Active Directory
 
@@ -52,7 +52,7 @@ Lorsque vous utilisez une licence basée sur le groupe, les mêmes erreurs peuve
 
 Les sections suivantes décrivent chaque problème potentiel et la manière de le résoudre.
 
-## <a name="not-enough-licenses"></a>Nombre insuffisant de licences
+## <a name="not-enough-licenses"></a>Licences en nombre insuffisant
 
 **Problème :** Le nombre de licences disponibles est insuffisant pour un des produits spécifiés dans le groupe. Vous devez acheter des licences produit supplémentaires ou libérer des licences inutilisées par d’autres utilisateurs ou d’autres groupes.
 
@@ -107,9 +107,15 @@ Si vous utilisez Exchange Online, certains comptes d’utilisateur de votre loca
 > ```
 > Run Get-Recipient | where {$_.EmailAddresses -match "user@contoso.onmicrosoft.com"} | fL Name, RecipientType,emailaddresses
 > ```
-> Pour en savoir plus sur ce problème, consultez le [message d’erreur indiquant que l’adresse de proxy est déjà utilisée dans Exchange Online](https://support.microsoft.com/help/3042584/-proxy-address-address-is-already-being-used-error-message-in-exchange-online). L’article inclut également des informations sur [la connexion à Exchange Online à l’aide de PowerShell à distance](https://technet.microsoft.com/library/jj984289.aspx). Consultez cet article pour plus d’informations sur la [façon dont l’attribut proxyAddresses est rempli dans Azure AD](https://support.microsoft.com/help/3190357/how-the-proxyaddresses-attribute-is-populated-in-azure-ad).
+> Pour en savoir plus sur ce problème, consultez le [message d’erreur indiquant que l’adresse de proxy est déjà utilisée dans Exchange Online](https://support.microsoft.com/help/3042584/-proxy-address-address-is-already-being-used-error-message-in-exchange-online). L’article inclut également des informations sur [la connexion à Exchange Online à l’aide de PowerShell à distance](https://technet.microsoft.com/library/jj984289.aspx).
 
 Une fois les problèmes d’adresse de proxy résolus pour les utilisateurs concernés, veillez à forcer le traitement des licences sur le groupe, pour vous assurer que les licences peuvent désormais être appliquées.
+
+## <a name="azure-ad-mail-and-proxyaddresses-attribute-change"></a>Modification de l’attribut Azure AD Mail et ProxyAddresses
+
+**Problème :** Lors de la mise à jour d’attribution de licence sur un utilisateur ou un groupe, vous pouvez voir que l’attribut Azure AD Mail et ProxyAddresses de certains utilisateurs sont modifiées.
+
+Mise à jour d’attribution de licence sur un calcul à déclencher d’adresses du proxy les causes utilisateur, ce qui peut modifier les attributs de l’utilisateur. Pour comprendre la raison exacte de la modification et de résoudre le problème, consultez cet article sur [comment l’attribut proxyAddresses est rempli dans Azure AD](https://support.microsoft.com/help/3190357/how-the-proxyaddresses-attribute-is-populated-in-azure-ad).
 
 ## <a name="what-happens-when-theres-more-than-one-product-license-on-a-group"></a>Que se passe-t-il lorsqu’un groupe est concerné par plusieurs licences produit ?
 

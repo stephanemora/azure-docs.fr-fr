@@ -7,15 +7,15 @@ manager: cgronlun
 tags: azure-portal
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 05/08/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 3e813b8a1709675d0d870d64df83428ab82e25b3
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 5b9e0dfb88c979618ce4cc5ed56e372cb0f65608
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024291"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472718"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Choisir un niveau tarifaire pour Recherche Azure
 
@@ -89,7 +89,7 @@ Les frais s’appliquent pour les données sortantes si services se trouvent dan
 
 ### <a name="3-ai-enriched-indexing-using-cognitive-services"></a>3. L’indexation à l’aide de Cognitive Services enrichi en intelligence artificielle
 
-Pour [l’indexation l’intelligence artificielle avec Cognitive Services](cognitive-search-concept-intro.md), vous devez prévoir sur l’attachement d’une ressource Cognitive Services facturable à la S0 tarifaire pour le traitement de paiement à l’utilisation. Il est « fixe gratuite » associé de l’attachement de Cognitive Services. Vous payez uniquement pour le traitement que vous avez besoin.
+Pour [l’indexation l’intelligence artificielle avec Cognitive Services](cognitive-search-concept-intro.md), vous devez prévoir sur l’attachement d’une ressource Cognitive Services facturable, dans la même région que recherche Azure, au niveau de tarification S0 pour le traitement de paiement à l’utilisation. Il est « fixe gratuite » associé de l’attachement de Cognitive Services. Vous payez uniquement pour le traitement que vous avez besoin.
 
 Extraction d’images au cours de la recherche de document est une facturation Azure Search, facturée en fonction du nombre d’images extraites à partir de vos documents. L’extraction de texte est actuellement gratuite. 
 

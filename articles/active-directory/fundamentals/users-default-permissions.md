@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: vincesm
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d1736b120b60ab6583a3c38bb13c985d312c021b
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: fb05ee4d6e05cb8b56756a761a519e5903b78bbd
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190956"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65507092"
 ---
 # <a name="what-are-the-default-user-permissions-in-azure-active-directory"></a>Quelles sont les autorisations d’utilisateur par défaut dans Azure Active Directory ?
 Dans Azure Active Directory (Azure AD), tous les utilisateurs bénéficient d’un jeu d’autorisations par défaut. L’accès d’un utilisateur se compose du type d’utilisateur, de ses [attributions de rôles](active-directory-users-assign-role-azure-portal.md) et de sa possession d’objets individuels. Cet article décrit ces autorisations par défaut et compare celles des utilisateurs membres et celles des utilisateurs invités. Les autorisations d’utilisateur par défaut ne peuvent être modifiées que dans les paramètres utilisateur dans Azure AD.
@@ -37,11 +37,11 @@ Les autorisations par défaut des invités sont restrictives par défaut. Les in
 Utilisateurs et contacts | Lire toutes les propriétés publiques des utilisateurs et des contacts<br>Inviter des invités<br>Changer son propre mot de passe<br>Gérer son propre numéro de téléphone mobile<br>Gérer sa propre photo<br>Invalider ses propres jetons d’actualisation | Lire ses propres propriétés<br>Lire le nom d’affichage, l’e-mail, le nom de connexion, la photo, le nom d’utilisateur principal et les propriétés de type d’utilisateur des autres utilisateurs et contacts<br>Changer son propre mot de passe
 Groupes | Créer des groupes de sécurité<br>Créer des groupes Office 365<br>Lire toutes les propriétés des groupes<br>Lire les appartenances aux groupes non masquées<br>Lire les appartenances aux groupes Office 365 masquées pour un groupe rejoint<br>Gérer les propriétés, l’appartenance et l’adhésion des groupes que possède l’utilisateur<br>Ajouter des invités aux groupes acquis<br>Gérer les paramètres d’appartenance dynamique<br>Supprimer des groupes acquis<br>Restaurer des groupes Office 365 acquis | Lire toutes les propriétés des groupes<br>Lire les appartenances aux groupes non masquées<br>Lire les appartenances aux groupes Office 365 masquées pour des groupes rejoints<br>Gérer des groupes acquis<br>Ajouter des invités aux groupes acquis (si autorisé)<br>Supprimer des groupes acquis<br>Restaurer des groupes Office 365 acquis<br>Lire les propriétés des groupes auxquels ils appartiennent, y compris l'appartenance.
 APPLICATIONS | Inscrire (créer) une application<br>Lire les propriétés des applications inscrites et d’entreprise<br>Gérer les propriétés d’application, les affectations et les informations d’identification des applications acquises<br>Créer ou supprimer le mot de passe d’application pour un utilisateur<br>Supprimer des applications acquises<br>Restaurer des applications acquises | Lire les propriétés des applications inscrites et d’entreprise<br>Gérer les propriétés d’application, les affectations et les informations d’identification des applications acquises<br>Supprimer des applications acquises<br>Restaurer des applications acquises
-Appareils | Lire toutes les propriétés des appareils<br>Gérer toutes les propriétés des appareils acquis<br> | | Aucune autorisation<br>Supprimer des appareils acquis<br>
+Appareils | Lire toutes les propriétés des appareils<br>Gérer toutes les propriétés des appareils acquis<br> | Aucune autorisation<br>Supprimer des appareils acquis<br>
 Répertoire | Lire toutes les informations de l’entreprise<br>Lire tous les domaines<br>Lire tous les contrats de partenaire | Lire le nom d’affichage et les domaines vérifiés
-Rôles et étendues | Lire tous les rôles d’administrateur et toutes les appartenances<br>Lire toutes les propriétés et l’appartenance des unités administratives | | Aucune autorisation 
-Abonnements | Lire tous les abonnements<br>Activer le membre de plan de service | | Aucune autorisation
-Stratégies | Lire toutes les propriétés des stratégies<br>Gérer toutes les propriétés d’une stratégie acquise | | Aucune autorisation
+Rôles et étendues | Lire tous les rôles d’administrateur et toutes les appartenances<br>Lire toutes les propriétés et l’appartenance des unités administratives | Aucune autorisation 
+Abonnements | Lire tous les abonnements<br>Activer le membre de plan de service | Aucune autorisation
+Stratégies | Lire toutes les propriétés des stratégies<br>Gérer toutes les propriétés d’une stratégie acquise | Aucune autorisation
 
 ## <a name="to-restrict-the-default-permissions-for-member-users"></a>Pour restreindre les autorisations par défaut des utilisateurs membres
 
@@ -50,10 +50,10 @@ Vous pouvez restreindre les autorisations par défaut des utilisateurs membres d
 Autorisation | Explication du paramètre
 ---------- | ------------
 Les utilisateurs peuvent inscrire l’application | Définir cette option sur non empêche les utilisateurs de créer des inscriptions d’application. La capacité peut ensuite être accordée à des personnes spécifiques en les ajoutant au rôle de développeur d’applications.
-Autoriser les utilisateurs à connecter leur compte professionnel ou scolaire avec LinkedIn | Définir cette option sur non empêche les utilisateurs de se connecter leur compte professionnel ou scolaire avec leur compte LinkedIn.  Consultez [connexions partage des données et consentement du compte LinkedIn](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/linkedin-user-consent) pour plus d’informations.
+Autoriser les utilisateurs à connecter leur compte professionnel ou scolaire avec LinkedIn | Définir cette option sur non empêche les utilisateurs de se connecter leur compte professionnel ou scolaire avec leur compte LinkedIn.  Consultez [connexions partage des données et consentement du compte LinkedIn](https://docs.microsoft.com/azure/active-directory/users-groups-roles/linkedin-user-consent) pour plus d’informations.
 Possibilité de créer des groupes de sécurité | Définir cette option sur Non empêche les utilisateurs de créer des groupes de sécurité. Les administrateurs généraux et les administrateurs d’utilisateurs peuvent toujours créer des groupes de sécurité. Pour connaître la marche à suivre, consultez [Configuration des paramètres de groupe avec les applets de commande Azure Active Directory](../users-groups-roles/groups-settings-cmdlets.md).
 Possibilité de créer des groupes Office 365 | Définir cette option sur Non empêche les utilisateurs de créer des groupes Office 365. Définir cette option sur Certain(e)s permet à un ensemble d’utilisateurs spécifique de créer des groupes Office 365. Les administrateurs généraux et les administrateurs de l’utilisateur sera en mesure de créer des groupes Office 365. Pour connaître la marche à suivre, consultez [Configuration des paramètres de groupe avec les applets de commande Azure Active Directory](../users-groups-roles/groups-settings-cmdlets.md).
-Limiter l’accès au portail d’administration Azure AD | Définir cette option sur Non empêche les utilisateurs d’accéder à Azure Active Directory.
+Limiter l'accès au portail d'administration Azure AD | Définir cette option sur Non empêche les utilisateurs d’accéder à Azure Active Directory.
 Possibilité de lire d’autres utilisateurs | Ce paramètre est uniquement disponible dans PowerShell. Définir ce paramètre sur $false empêche tous les utilisateurs non administrateurs de lire les informations utilisateur du répertoire. Cela n’empêche pas de lire les informations utilisateur dans d’autres services Microsoft comme Exchange Online. Ce paramètre est destiné à des circonstances particulières et le définir sur $false n’est pas recommandé.
 
 ## <a name="object-ownership"></a>Propriété des objets

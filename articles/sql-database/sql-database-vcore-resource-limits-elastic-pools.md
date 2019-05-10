@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 03/15/2019
-ms.openlocfilehash: c11f52d2bbc55187a16227cf9553cc7ba6013e1e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 04/22/2019
+ms.openlocfilehash: 7f3afec0425033fba174e000195fa26b295aaef1
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60331092"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65507934"
 ---
 # <a name="resource-limits-for-elastic-pools-using-the-vcore-based-purchasing-model-limits"></a>Limites de ressources pour les pools élastiques suivant les limites du modèle d’achat vCore
 
@@ -52,7 +52,7 @@ Vous pouvez définir le niveau de service, la taille de calcul et la quantité d
 |Type de stockage|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|
 |Latence d’E/S (approximative)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|
 |IOPS cible (64 ko)|500|1 000|1 500|2000|2 500|3000|
-|Limites de taux de journal (Mo/s)|2.5|5.|7.5|10|12.5|15|
+|Limites de taux de journal (Mbits/s)|4.6875|9.375|14.0625|18.75|23.4375|28.125|
 |Nombre maximal de workers simultanés par pool (demandes) * |210|420|630|840|1050|1 260|
 |Nombre maximal de connexions simultanées par pool * |210|420|630|840|1050|1 260|
 |Nombre maximal de sessions autorisé|30000|30000|30000|30000|30000|30000|
@@ -80,7 +80,7 @@ Vous pouvez définir le niveau de service, la taille de calcul et la quantité d
 |Type de stockage|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|
 |Latence d’E/S (approximative)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|
 |IOPS cible (64 ko)|3 500|4000|4500|5 000|7000|7000|
-|Limites de taux de journal (Mo/s)|17.5|20|20|20|20|20|
+|Limites de taux de journal (Mbits/s)|32.8125|37.5|37.5|37.5|37.5|37.5|
 |Nombre maximal de workers simultanés par pool (demandes) *|1470|1680|1890|2100|3360|5040|
 |Pool de connexions simultanées max (demandes) *|1470|1680|1890|2100|3360|5040|
 |Nombre maximal de sessions autorisé|30000|30000|30000|30000|30000|30000|
@@ -107,8 +107,8 @@ Vous pouvez définir le niveau de service, la taille de calcul et la quantité d
 |Taille de TEMPDB (Go)|64|128|192|256|320|384|384|
 |Type de stockage|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|
 |Latence d’E/S (approximative)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|
-|IOPS cible (64 ko)|500|1 000|1 500|2000|2 500|3000|3 500|
-|Limites de taux de journal (Mo/s)|2.5|5.6|7.5|10|12.5|15|17.5|
+|IOPS cible (64 ko)|1 000|2000|3000|4000|5 000|6000|7000|
+|Limites de taux de journal (Mbits/s)|4.6875|9.375|14.0625|18.75|23.4375|28.125|32.8125|
 |Nombre maximal de workers simultanés par pool (demandes) *|210|420|630|840|1050|1 260|1470|
 |Nombre maximal de connexions simultanées par pool (demandes) *|210|420|630|840|1050|1 260|1470|
 |Nombre maximal de sessions autorisé|30000|30000|30000|30000|30000|30000|30000|
@@ -135,8 +135,8 @@ Vous pouvez définir le niveau de service, la taille de calcul et la quantité d
 |Taille de TEMPDB (Go)|384|384|384|384|384|384|384|
 |Type de stockage|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|
 |Latence d’E/S (approximative)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|
-|IOPS cible (64 ko)|4000|4500|5 000|6000|7000|7000|7000|
-|Limites de taux de journal (Mo/s)|20|20|20|20|20|20|20|
+|IOPS cible (64 ko)|7000|7000|7000|7000|7000|7000|7000|
+|Limites de taux de journal (Mbits/s)|37.5|37.5|37.5|37.5|37.5|37.5|37.5|
 |Nombre maximal de workers simultanés par pool (demandes) *|1680|1890|2100|2520|33600|4200|8400|
 |Nombre maximal de connexions simultanées par pool (demandes) *|1680|1890|2100|2520|33600|4200|8400|
 |Nombre maximal de bases de données par pool|500|500|500|500|500|500|500|
@@ -165,7 +165,7 @@ Vous pouvez définir le niveau de service, la taille de calcul et la quantité d
 |Taille de TEMPDB (Go)|32|64|96|128|160|192|
 |Latence d’E/S (approximative)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|
 |IOPS cible (64 ko)|5 000|10000|15000|20000|25000|30000|
-|Limites de taux de journal (Mo/s)|7.5|15|22,5|30|37.5|45|
+|Limites de taux de journal (Mbits/s)|10|20|30|40|50|60|
 |Nombre maximal de workers simultanés par pool (demandes) *|210|420|630|840|1050|1 260|
 |Nombre maximal de connexions simultanées par pool (demandes) *|210|420|630|840|1050|1 260|
 |Nombre maximal de sessions autorisé|30000|30000|30000|30000|30000|30000|
@@ -193,7 +193,7 @@ Vous pouvez définir le niveau de service, la taille de calcul et la quantité d
 |Taille de TEMPDB (Go)|224|256|288|320|384|384|
 |Latence d’E/S (approximative)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|
 |IOPS cible (64 ko)|35000|40000|45000|50000|80000|120 000|
-|Limites de taux de journal (Mo/s)|52.5|60|67.5|75|80|80|
+|Limites de taux de journal (Mbits/s)|70|80|80|80|80|80|
 |Nombre maximal de workers simultanés par pool (demandes) *|1470|1680|1890|2100|3360|5040|
 |Nombre maximal de connexions simultanées par pool (demandes) *|1470|1680|1890|2100|3360|5040|
 |Nombre maximal de sessions autorisé|30000|30000|30000|30000|30000|30000|
@@ -221,7 +221,7 @@ Vous pouvez définir le niveau de service, la taille de calcul et la quantité d
 |Type de stockage|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
 |Latence d’E/S (approximative)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|
 |IOPS cible (64 ko)|5 000|10000|15000|20000|25000|30000|35000|
-|Limites de taux de journal (Mo/s)|7.5|15|22,5|30|37.5|45|52.5|
+|Limites de taux de journal (Mbits/s)|15|30|45|60|75|90|105|
 |Nombre maximal de workers simultanés par pool (demandes) *|210|420|630|840|1050|1 260|1470|
 |Nombre maximal de connexions simultanées par pool (demandes) *|210|420|630|840|1050|1 260|1470|
 |Nombre maximal de sessions autorisé|30000|30000|30000|30000|30000|30000|30000|
@@ -249,7 +249,7 @@ Vous pouvez définir le niveau de service, la taille de calcul et la quantité d
 |Type de stockage|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
 |Latence d’E/S (approximative)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|
 |IOPS cible (64 ko)|40000|45000|50000|60000|80000|100000|200000|
-|Limites de taux de journal (Mo/s)|60|67.5|75|90|120|120|120|
+|Limites de taux de journal (Mbits/s)|120|120|120|120|120|120|120|
 |Nombre maximal de workers simultanés par pool (demandes) *|1680|1890|2100|2520|3360|4200|8400|
 |Nombre maximal de connexions simultanées par pool (demandes) *|1680|1890|2100|2520|3360|4200|8400|
 |Nombre maximal de sessions autorisé|30000|30000|30000|30000|30000|30000|30000|

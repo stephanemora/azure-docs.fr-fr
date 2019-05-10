@@ -9,12 +9,12 @@ ms.date: 4/29/2019
 ms.author: mhopkins
 ms.reviewer: yzheng
 ms.subservice: common
-ms.openlocfilehash: 130eb9cc8bec4681f5c0d165735c6c3b2357576c
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.openlocfilehash: 560f7eb8a8809cdd6ef410a610be9806f9709754
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148321"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409986"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Gérer le cycle de vie du stockage Blob Azure
 
@@ -87,7 +87,7 @@ Vous pouvez définir et déployer la gestion du cycle de vie dans le cadre de vo
 
 ```json
 {
-  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {},
   "variables": {
@@ -156,10 +156,10 @@ Chaque règle au sein de la stratégie a plusieurs paramètres :
 
 | Nom du paramètre | Type de paramètre | Notes | Obligatoire |
 |----------------|----------------|-------|----------|
-| Nom           | Chaîne |Un nom de règle peut contenir jusqu'à 256 caractères alphanumériques. Les noms de règle respectent la casse.  Ils doivent être uniques dans la stratégie. | True |
+| name           | Chaîne |Un nom de règle peut contenir jusqu'à 256 caractères alphanumériques. Les noms de règle respectent la casse.  Ils doivent être uniques dans la stratégie. | True |
 | enabled | Boolean | Une valeur booléenne facultative pour permettre une règle pour être temporaire est désactivé. Valeur par défaut est true si elle n’est pas définie. | False | 
-| Type           | Une valeur enum | Le type actuel valid est `Lifecycle`. | True |
-| Définition     | Un objet qui définit la règle du cycle de vie | Chaque définition se compose d’un jeu de filtres et d’un jeu d’actions. | True |
+| type           | Une valeur enum | Le type actuel valid est `Lifecycle`. | True |
+| définition     | Un objet qui définit la règle du cycle de vie | Chaque définition se compose d’un jeu de filtres et d’un jeu d’actions. | True |
 
 ## <a name="rules"></a>Règles
 
@@ -208,10 +208,10 @@ Les filtres limitent les actions des règles à un sous-ensemble d’objets blob
 
 Filtres valides sont les suivantes :
 
-| Nom du filtre | Type de filtre | Notes | Est obligatoire |
+| Nom du filtre | Type de filtre | Notes | Est requis |
 |-------------|-------------|-------|-------------|
 | blobTypes   | Un ensemble de valeurs enum prédéfinies. | La version actuelle prend en charge `blockBlob`. | Oui |
-| prefixMatch | Un ensemble de chaînes servant à faire correspondre les préfixes. Chaque règle peut définir des préfixes jusqu'à 10. Une chaîne de préfixe doit commencer par un nom de conteneur. Par exemple, si vous souhaitez faire correspondre tous les objets blob sous « https://myaccount.blob.core.windows.net/container1/foo/... » pour une règle, le prefixMatch est `container1/foo`. | Si vous ne définissez pas prefixMatch, la règle s’applique à tous les objets BLOB dans le compte de stockage.  | Non  |
+| prefixMatch | Un ensemble de chaînes servant à faire correspondre les préfixes. Chaque règle peut définir des préfixes jusqu'à 10. Une chaîne de préfixe doit commencer par un nom de conteneur. Par exemple, si vous souhaitez faire correspondre tous les objets blob sous « https://myaccount.blob.core.windows.net/container1/foo/... » pour une règle, le prefixMatch est `container1/foo`. | Si vous ne définissez pas prefixMatch, la règle s’applique à tous les objets BLOB dans le compte de stockage.  | Non |
 
 ### <a name="rule-actions"></a>Actions de règle
 
@@ -230,7 +230,7 @@ Gestion du cycle de vie prend en charge la hiérarchisation et suppression d’o
 
 Les conditions d’exécution sont basées sur l’âge. L’objet blob de base utilise l’heure de dernière modification pour suivre l’âge, tandis que les instantanés d’objets blob utilisent l’heure de création des instantanés.
 
-| Action pour lancer la condition | Valeur de la condition | Description |
+| Action pour lancer la condition | Valeur de la condition | Description  |
 |----------------------------|-----------------|-------------|
 | daysAfterModificationGreaterThan | Nombre entier indiquant l’âge en jours | Condition valide pour les actions des objets blob de base |
 | daysAfterCreationGreaterThan     | Nombre entier indiquant l’âge en jours | Condition valide pour les actions des instantanés d’objet blob | 

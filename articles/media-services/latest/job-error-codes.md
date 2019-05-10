@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/28/2019
 ms.author: juliako
-ms.openlocfilehash: f10883ca89c048d384eff9bddaf7642e22941109
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 9443a50d130e6542672eb143bcb56d04d63959a4
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65160589"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65235706"
 ---
 # <a name="media-services-job-error-codes"></a>Codes d’erreur de tâche de Media Services
 
@@ -28,13 +28,13 @@ Cette rubrique établit un lien vers un document de référence REST pour une de
 
 Le document reste suivant donne des explications détaillées sur [codes d’erreur du travail](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
 
-## <a name="ask-questions-give-feedback-get-updates"></a>Posez des questions, commentaires, obtenir des mises à jour
+## <a name="ask-questions-give-feedback-get-updates"></a>Poser des questions, envoyer des commentaires, obtenir des mises à jour
 
 Découvrez l’article [Communauté Azure Media Services](media-services-community.md) pour découvrir les différentes façons dont vous pouvez poser des questions, faire des commentaires et obtenir des mises à jour sur Media Services.
 
 ## <a name="see-also"></a>Voir aussi
 
-- [Codes d’erreur origine](origin-error-codes.md)
+- [Codes d’erreur de point de terminaison de diffusion en continu](streaming-endpoint-error-codes.md)
 - [Concepts Azure Media Services](concepts-overview.md)
 - [Quotas et limitations](limits-quotas-constraints.md)
 

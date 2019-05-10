@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/29/2019
 ms.author: raynew
-ms.openlocfilehash: 9b905d532dfe71fea7c4ec0377eb53b9e3073907
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 1118d1de72ca7cd44844a0b526efd85eb419bc67
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64926587"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65412775"
 ---
 # <a name="support-matrix-for-replicating-azure-vms-from-one-region-to-another"></a>Matrice de prise en charge pour la réplication des machines virtuelles Azure à partir d’une région vers une autre
 
@@ -47,7 +47,7 @@ Vous pouvez répliquer et restaurer des machines virtuelles entre deux régions 
 **Cluster géographique** | **Régions Azure**
 -- | --
 Amérique | Canada de l’Est, Canada du Centre, Sud du Centre des États-Unis, Ouest du Centre des États-Unis, États-Unis de l’Est, États-Unis de l’Est 2, États-Unis de l’Ouest, États-Unis de l’Ouest 2, États-Unis du Centre, Nord du Centre des États-Unis
-Europe | Royaume-Uni Ouest, Royaume-Uni Sud, Europe du Nord, Europe de l’Ouest, France-Centre, France-Sud
+Europe | Royaume-Uni ouest, Royaume-Uni Sud, Europe du Nord, Europe de l’ouest, France-sud des États-Unis, France, Afrique du Sud Ouest, Nord de l’Afrique du Sud
 Asie | Inde du Sud, Centre de l’Inde, Asie du Sud-Est, Asie de l’Est, Japon de l’Est, Japon de l’Ouest, Centre de la Corée, Corée du Sud
 Australie   | Australie Est, Australie Sud-Est, Australie Centre, Australie Centre 2
 Azure Government    | Gouvernement des États-Unis - Virginie, Gouvernement des États-Unis - Iowa, Gouvernement des États-Unis - Arizona, Gouvernement des États-Unis - Texas, US DoD Est, US DoD Centre
@@ -156,6 +156,7 @@ Images de la galerie Azure - Publiées par un tiers | Pris en charge | Prises en
 Images personnalisées - Publiées par un tiers | Pris en charge | Prises en charge si la machine virtuelle s’exécute sur un système d’exploitation pris en charge.
 Machines virtuelles migrées à l’aide de Site Recovery | Pris en charge | Si un ordinateur physique une machine virtuelle VMware a été migré(e) vers Azure à l’aide de Site Recovery, vous devez désinstaller l’ancienne version du service Mobilité sur l’ordinateur et redémarrer celui-ci avant de le répliquer vers une autre région Azure.
 Stratégies RBAC | Non pris en charge | Accès aux stratégies de contrôle (RBAC) sur les machines virtuelles ne sont pas répliquées sur le basculement de machine virtuelle dans la région cible en fonction du rôle.
+Extensions | Non pris en charge | Les extensions ne sont pas répliquées sur la machine virtuelle dans la région cible de basculement. Il doit être installé manuellement après le basculement.
 
 ## <a name="replicated-machines---disk-actions"></a>Machines répliquées - Actions de disque
 

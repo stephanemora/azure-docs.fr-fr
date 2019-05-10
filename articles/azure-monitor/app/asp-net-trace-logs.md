@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 02/19/2019
+ms.date: 05/08/2019
 ms.author: mbullwin
-ms.openlocfilehash: 74cb1b3ec4e0570aa4316e6f45e99719f36815d1
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: d366f363b7bd1d5306d598c9b38258eb78076b7c
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65150715"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472050"
 ---
 # <a name="explore-netnet-core-trace-logs-in-application-insights"></a>Exploration des journaux d’activité .NET/.NET Core dans Application Insights
 
@@ -147,7 +147,7 @@ Par exemple :
 
 l’un des avantages de TrackTrace est que vous pouvez insérer des données relativement longues dans le message. Par exemple, vous pourriez y encoder des données POST.
 
-Vous pouvez également ajouter un niveau de gravité à votre message. Et, comme les autres données de télémétrie, vous pouvez ajouter des valeurs de propriété pour aider à filtrer ou rechercher différents jeux de traces. Par exemple : 
+Vous pouvez également ajouter un niveau de gravité à votre message. Et, comme les autres données de télémétrie, vous pouvez ajouter des valeurs de propriété pour aider à filtrer ou rechercher différents jeux de traces. Exemple :
 
     var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
     telemetry.TrackTrace("Slow database response",
@@ -177,8 +177,8 @@ Vous pouvez par exemple :
 Utilisez les [adaptateurs de journaux Java](../../azure-monitor/app/java-trace-logs.md).
 
 ### <a name="theres-no-application-insights-option-on-the-project-context-menu"></a>Le menu contextuel du projet ne contient aucune option Application Insights
-* Assurez-vous que les outils Application Insights est installé sur l’ordinateur de développement. Visual Studio **outils** > **Extensions et mises à jour**, recherchez **outils Application Insights**. Si ce n’est pas sur le **installé** onglet, ouvrez le **Online** onglet et l’installer.
-* Cela peut être un type de projet outils Application Insights ne prend pas en charge. Utilisez [l’installation manuelle](#manual-installation).
+* Assurez-vous que Developer Analytics Tools est installé sur l’ordinateur de développement. Visual Studio **outils** > **Extensions et mises à jour**, recherchez **Developer Analytics Tools**. Si ce n’est pas sur le **installé** onglet, ouvrez le **Online** onglet et l’installer.
+* Cela peut être un type de projet Devloper Analytique Tools ne prend pas en charge. Utilisez [l’installation manuelle](#manual-installation).
 
 ### <a name="theres-no-log-adapter-option-in-the-configuration-tool"></a>Il n’existe aucune option d’adaptateur dans l’outil de configuration
 * Installez tout d’abord le framework de journalisation.

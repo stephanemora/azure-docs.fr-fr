@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/15/2018
 ms.author: genli
-ms.openlocfilehash: 032bc1b9c4b1b0e3bf8040ed52bf4db65ba7b6c7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1c97b1da094b759ccf85f310ceec4c7abfd91b9b
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60318981"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472288"
 ---
 # <a name="windows-reboot-loop-on-an-azure-vm"></a>Boucle de redémarrage Windows sur une machine virtuelle Azure
 Cet article décrit la boucle de redémarrage que vous pouvez rencontrer sur une machine virtuelle Windows dans Microsoft Azure.
@@ -102,6 +102,8 @@ Pour résoudre ce problème, [sauvegardez le disque du système d’exploitation
 Restaurez la machine virtuelle à la dernière configuration valide connue. Pour cela, consultez [Guide pratique pour démarrer une machine virtuelle Windows Azure avec la dernière configuration valide connue](https://support.microsoft.com/help/4016731/).
 
 ### <a name="solution-for-cause-3"></a>Solution pour la cause 3
+>[!NOTE]
+>La procédure suivante ne doit être utilisée qu’en dernier recours. Bien que la restauration à partir de regback puisse rétablir l’accès à l’ordinateur, le système d’exploitation n’est pas considéré comme stable en raison de la perte de données dans le Registre entre l’horodatage de la ruche et le jour actuel. Vous devez générer une nouvelle machine virtuelle et planifier la migration des données.
 
 1. Une fois le disque attaché à une machine virtuelle de dépannage, vérifiez que le disque est marqué comme étant **en ligne** dans la console Gestion des disques.
 
@@ -113,5 +115,4 @@ Restaurez la machine virtuelle à la dernière configuration valide connue. Pour
 
 5. [Créez une machine virtuelle à partir du disque du système d’exploitation](../windows/create-vm-specialized.md).
 
->[!NOTE]
->La procédure suivante ne doit être utilisée qu’en dernier recours. Bien que la restauration à partir de regback puisse rétablir l’accès à l’ordinateur, le système d’exploitation n’est pas considéré comme stable en raison de la perte de données dans le Registre entre l’horodatage de la ruche et le jour actuel. Vous devez générer une nouvelle machine virtuelle et planifier la migration des données.
+

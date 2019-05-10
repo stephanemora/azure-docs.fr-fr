@@ -11,16 +11,16 @@ ms.author: MayMSFT
 ms.reviewer: trbye
 ms.date: 03/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: a717fa4191c57c21705d24884397ebb485726492
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 6e7aa231cabea9fbd76cd028f9fdc698a4dac5d6
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025117"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65470262"
 ---
 # <a name="tutorial-prepare-data-for-regression-modeling"></a>Didacticiel : Préparer les données pour la modélisation de régression
 
-Dans ce tutoriel, vous apprenez à préparer des données pour la modélisation de régression à l’aide du [SDK de préparation des données Azure Machine Learning pour Python](https://aka.ms/data-prep-sdk). Vous exécutez diverses transformations pour filtrer et combiner deux jeux de données NYC Taxi différents.
+Dans ce tutoriel, vous apprenez à préparer des données à la modélisation de régression, à l’aide du [package de préparation des données pour Azure Machine Learning](https://aka.ms/data-prep-sdk). Vous exécutez diverses transformations pour filtrer et combiner deux jeux de données NYC Taxi différents.
 
 Ce tutoriel est le **premier d’une série de deux**. Une fois que vous aurez terminé la série de tutoriels, vous pourrez prévoir le coût d’une course en taxi en entraînant un modèle sur les caractéristiques des données. Ces caractéristiques incluent le jour et l’heure de départ de la course, le nombre de passagers et le lieu du ramassage.
 

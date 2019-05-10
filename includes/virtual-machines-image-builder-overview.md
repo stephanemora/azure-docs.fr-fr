@@ -5,12 +5,12 @@ ms.date: 04/30/2019
 ms.topic: include
 ms.service: virtual-machines-linux
 manager: jeconnoc
-ms.openlocfilehash: b9b2461d888f37b7ae72a3e097d77856255d7e2e
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: e1b3b5fe603072069cb3a19c7597fcc1872fefd7
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65160004"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65416289"
 ---
 Images de machine virtuelle standardisée (VM) permettent aux organisations de migrer vers le cloud et de garantir la cohérence dans les déploiements. Les images incluent généralement des paramètres de sécurité et de configuration prédéfinis et les logiciels nécessaires. Configurer votre propre pipeline de création d’images nécessite de temps, l’infrastructure et le programme d’installation, mais avec Azure VM Image Builder, simplement fournir une configuration simple décrivant votre image, envoyez-le au service et l’image est créé et distribué.
  
@@ -95,7 +95,7 @@ Pendant le processus de création d’image, les fichiers sont téléchargés et
  
 Générateur d’images crée une machine virtuelle à l’aide d’une taille de machine virtuelle D1v2 et le stockage et la mise en réseau nécessaires pour la machine virtuelle. Ces ressources sont valables pour la durée du processus de génération et seront supprimés une fois l’image de création d’Image Builder terminée. 
  
-Générateur d’images Azure distribue l’image à votre régions choisies, dont peut engendrer des frais de sortie de réseau.
+Générateur d’images Azure répartit l’image à votre régions choisies, ce qui peut entraîner des frais de sortie de réseau.
  
 ## <a name="next-steps"></a>Étapes suivantes 
  

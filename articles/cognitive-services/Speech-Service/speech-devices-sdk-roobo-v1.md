@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 0e5dc73c1f24ccbc2032cecbb857587eb20c6806
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 7c1a13a44d9db8ed029ce798f0bb34944a1a65a7
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026207"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409050"
 ---
 # <a name="device-roobo-smart-audio-dev-kit"></a>Appareil : Kit de développement Audio à puce Roobo
 
@@ -67,9 +67,9 @@ Cet article fournit des informations spécifiques sur l’appareil le Kit de dé
 
 Pour plus d’informations développement, consultez le [guide de développement Roobo](http://dwn.roo.bo/server_upload/ddk/ROOBO%20Dev%20Kit-User%20Guide.pdf).
 
-## <a name="audio"></a>Audio
+## <a name="audio"></a>Fichier audio
 
-Roobo fournit un outil qui capture toutes les données audio en mémoire flash. Cet outil peut vous aider à résoudre les problèmes audio. Une version de cet outil est fournie avec chaque configuration de kit de développement. Sur le [Roobo site](http://ddk.roobo.com/), sélectionnez votre appareil, puis le **Roobo outils** lien en bas de la page.
+Roobo fournit un outil qui capture toutes les données audio en mémoire flash. Cet outil peut vous aider à résoudre les problèmes audio. Une version de cet outil est fournie avec chaque configuration de kit de développement. Sur le [Roobo site](https://ddk.roobo.com/), sélectionnez votre appareil, puis le **Roobo outils** lien en bas de la page.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

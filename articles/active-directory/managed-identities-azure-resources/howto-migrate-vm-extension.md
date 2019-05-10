@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/25/2018
 ms.author: markvi
-ms.openlocfilehash: 5b3c6c99b05320ee53c3ff49f5c299650c32e939
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6ee8891eae108256875660cc3f2256b65703a1aa
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60440819"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406787"
 ---
 # <a name="how-to-stop-using-the-virtual-machine-managed-identities-extension-and-start-using-the-azure-instance-metadata-service"></a>Procédure d’arrêt à l’aide de la machine virtuelle managed extension des identités et commencer à utiliser le Service de métadonnées Instance Azure
 
@@ -35,7 +35,7 @@ Dû à plusieurs limitations décrites dans la section suivante, l’extension d
 
 ### <a name="provision-the-extension"></a>Configurer l’extension 
 
-Lorsque vous configurez un ordinateur virtuel ou les machines virtuelles identiques pour avoir une identité gérée, vous pouvez facultatif choisissez, vous pouvez éventuellement choisir d’approvisionner des identités gérées pour l’extension de machine virtuelle de ressources Azure à l’aide du `-Type` paramètre sur le [ Set-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension) applet de commande. Vous pouvez passer soit `ManagedIdentityExtensionForWindows` ou `ManagedIdentityExtensionForLinux`, selon le type de machine virtuelle et nommez-le en utilisant le `-Name` paramètre. Le paramètre `-Settings` spécifie le port utilisé par le point de terminaison de jeton OAuth pour l’acquisition de jeton :
+Lorsque vous configurez un ordinateur virtuel ou les machines virtuelles identiques pour avoir une identité gérée, vous pouvez éventuellement choisir d’approvisionner des identités gérées pour l’extension de machine virtuelle de ressources Azure à l’aide du `-Type` paramètre sur le [ Set-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension) applet de commande. Vous pouvez passer soit `ManagedIdentityExtensionForWindows` ou `ManagedIdentityExtensionForLinux`, selon le type de machine virtuelle et nommez-le en utilisant le `-Name` paramètre. Le paramètre `-Settings` spécifie le port utilisé par le point de terminaison de jeton OAuth pour l’acquisition de jeton :
 
 ```powershell
    $settings = @{ "port" = 50342 }
@@ -166,7 +166,7 @@ Sur Windows et certaines versions de Linux, si l’extension s’arrête, la cmd
 Set-AzVMExtension -Name <extension name>  -Type <extension Type>  -Location <location> -Publisher Microsoft.ManagedIdentity -VMName <vm name> -ResourceGroupName <resource group name> -ForceRerun <Any string different from any last value used>
 ```
 
-Où : 
+Où : 
 - Nom de l’extension type et pour Windows est : `ManagedIdentityExtensionForWindows`
 - Nom de l’extension et type pour Linux est : `ManagedIdentityExtensionForLinux`
 

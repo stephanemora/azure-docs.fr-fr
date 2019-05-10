@@ -643,8 +643,6 @@
                   href: service-fabric-cluster-config-upgrade-azure.md
                 - name: Corriger des nœuds de cluster (Windows)
                   href: service-fabric-patch-orchestration-application.md
-                - name: Corriger des nœuds de cluster (Linux)
-                  href: service-fabric-patch-orchestration-application-linux.md
                 - name: Activer le chiffrement de disque (Windows)
                   href: service-fabric-enable-azure-disk-encryption-windows.md
                 - name: Activer le chiffrement de disque (Linux)

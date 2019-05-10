@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 1fc4a4024893c29c35b4369d13227830cfbbca84
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 318df03c7c4447d051dfa396098462c0f8bbf423
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64943917"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65410432"
 ---
 # <a name="provision-a-deep-learning-virtual-machine-on-azure"></a>Provisionner une machine virtuelle DLVM dans Azure 
 
@@ -68,7 +68,7 @@ Une fois la machine virtuelle créée, vous pouvez vous y connecter à l’aide 
 
 ### <a name="linux-edition"></a>Édition Linux
 
-Une fois la machine virtuelle créée, vous pouvez vous y connecter avec SSH. Utilisez les informations d’identification de compte que vous avez créé dans le [ **notions de base** ](#basics) section de l’étape 3 de l’interface d’interpréteur de commandes texte. Pour plus d’informations sur les connexions SSH aux machines virtuelles Azure, consultez [installer et configurer le Bureau à distance pour se connecter à une VM Linux dans Azure](/azure/virtual-machines/linux/use-remote-desktop). Sur un client Windows, vous pouvez télécharger un outil de client SSH tel que [Putty](http://www.putty.org). Si vous préférez un bureau graphique (système Windows X), vous pouvez utiliser le transfert X11 sur Putty ou installer le client X2Go. 
+Une fois la machine virtuelle créée, vous pouvez vous y connecter avec SSH. Utilisez les informations d’identification de compte que vous avez créé dans le [ **notions de base** ](#basics) section de l’étape 3 de l’interface d’interpréteur de commandes texte. Pour plus d’informations sur les connexions SSH aux machines virtuelles Azure, consultez [installer et configurer le Bureau à distance pour se connecter à une VM Linux dans Azure](/azure/virtual-machines/linux/use-remote-desktop). Sur un client Windows, vous pouvez télécharger un outil de client SSH tel que [Putty](https://www.putty.org). Si vous préférez un bureau graphique (système Windows X), vous pouvez utiliser le transfert X11 sur Putty ou installer le client X2Go. 
 
 > [!NOTE]
 > Lors de tests, le client X2Go a obtenu de meilleures performances que le transfert X11. Nous recommandons d’utiliser le client X2Go pour une interface de bureau graphique.

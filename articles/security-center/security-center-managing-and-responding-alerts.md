@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/22/2018
 ms.author: rkarlin
-ms.openlocfilehash: 28a9b90e23d0d182197450e6449b8d3296fe99d6
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 582912160c8ed514401be3522e52dcc6eb45d263
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62111387"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65235770"
 ---
 # <a name="managing-and-responding-to-security-alerts-in-azure-security-center"></a>Gestion et résolution des alertes de sécurité dans le Centre de sécurité Azure
 Ce document est conçu pour vous aider à utiliser Azure Security Center afin de gérer et résoudre les alertes de sécurité.
@@ -65,18 +65,18 @@ Les détails de chaque alerte sont affichés au bas de la page. Pour les organis
 >
 
 
-### <a name="alert-severity"></a>Gravité des alertes
-
-> [!NOTE]
-> La gravité des alertes s’affiche différemment dans le portail et dans l’API REST. Les différences sont indiquées dans la liste ci-dessous.
+### <a name="alert-severity"></a>Gravité de l'alerte
 
 -   **Haute** : il est fort probable que votre ressource ait été compromise. Vous devez étudier le problème immédiatement. Security Center est très confiant quant à l’intention malveillante et aux constats à l’origine de l’alerte. Par exemple, une alerte qui détecte l’exécution d’un outil malveillant connu, tel que Mimikatz, un outil couramment utilisé pour dérober des informations d’identification. 
--   **Moyenne (faible dans l’API REST)** : il s’agit probablement d’une activité suspecte pouvant indiquer qu’une ressource est compromise.
+-   **Moyenne** : il s’agit probablement d’une activité suspecte pouvant indiquer qu’une ressource est compromise.
 La confiance de Security Center dans l’analyse et le constat est moyenne, et la confiance quant à l’intention malveillante est moyenne à élevée. Il s’agit généralement de détections basées sur des anomalies ou l’apprentissage automatique. Par exemple, une tentative de connexion depuis un emplacement anormal.
--   **Faible (informations dans l’API REST)** : cela peut être un positif sans gravité ou une attaque bloquée. 
+-   **Faible** : cela peut être un positif sans gravité ou une attaque bloquée. 
     - Security Center n’est pas suffisamment confiant sur le fait que l’intention soit malveillante, et l’activité peut être innocente. Par exemple, l’effacement des journaux est une action qui peut se produire lorsqu’un pirate tente de masquer ses traces mais, dans de nombreux cas, il s’agit d’une opération de routine effectuée par les administrateurs.
     - Security Center ne vous indique généralement pas les blocages d’attaques, sauf s’il s’agit d’un cas intéressant que nous vous suggérons d’examiner. 
--   **Informations (Silencieuse dans l’API REST)** : vous voyez les alertes informatives seulement lorsque vous explorez en profondeur un incident de sécurité, ou si vous utilisez l’API REST avec un ID d’alerte spécifique. Un incident est généralement constitué de plusieurs d’alertes, dont certaines peuvent apparaître séparément comme informatives uniquement mais, dans le contexte des autres alertes, mériter un examen plus approfondi. 
+-   **D’information**: vous voyez les alertes informatives seulement lorsque vous explorez en profondeur un incident de sécurité, ou si vous utilisez l’API REST avec un ID d’alerte spécifique. Un incident est généralement constitué de plusieurs d’alertes, dont certaines peuvent apparaître séparément comme informatives uniquement mais, dans le contexte des autres alertes, mériter un examen plus approfondi.  
+
+> [!NOTE]
+> Si vous utilisez le **2015-06-01-preview** version d’API, puis il existe des différences dans les alarmes les types de gravité sont appliquées pour les scénarios, de ceux répertoriés ci-dessus.  
 
 ### <a name="filtering-alerts"></a>Filtrage des alertes
 Vous pouvez filtrer les alertes en fonction de la date, de l’état et du niveau de gravité. Le filtrage des alertes peut être utile quand vous avez besoin de restreindre le nombre d’alertes de sécurité qui s’affichent. Supposons que vous souhaitiez vérifier les alertes de sécurité qui se sont produites au cours des dernières 24 heures, car vous recherchez une violation de sécurité potentielle du système.

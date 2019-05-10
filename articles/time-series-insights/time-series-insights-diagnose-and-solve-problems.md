@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: troubleshooting
-ms.date: 04/09/2018
+ms.date: 05/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: ad739041ebd20f9940e305efb19807df4c73cb8e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 7be2652355e3b9830d4a5198ba71c0f4a78858dd
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64725801"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65471703"
 ---
 # <a name="diagnose-and-solve-issues-in-your-time-series-insights-environment"></a>Diagnostiquer et résoudre les problèmes dans votre environnement Time Series Insights
 
@@ -24,11 +24,11 @@ Cet article décrit certains problèmes que vous pouvez rencontrer dans votre en
 
 ## <a name="video"></a>Vidéo
 
-### <a name="in-this-video-we-cover-common-time-series-insights-customer-challenges-and-mitigationsbr"></a>Dans cette vidéo, nous abordons des défis mais aussi des cas d’atténuation des risques rencontrés par les clients Time Series Insights :</br>
+### <a name="learn-about-common-time-series-insights-customer-challenges-and-mitigationsbr"></a>Découvrez les atténuations et défis du client Series Insights temps commun.</br>
 
 > [!VIDEO https://www.youtube.com/embed/7U0SwxAVSKw]
 
-## <a name="problem-one-no-data-is-shown"></a>Problème 1 : aucune donnée n’est indiquée.
+## <a name="problem-no-data-is-shown"></a>Problème : aucune donnée n’est indiquée.
 
 Il existe plusieurs raisons pour lesquelles vous ne pouvez pas voir vos données dans l’[explorateur Azure Time Series Insights](https://insights.timeseries.azure.com) :
 
@@ -40,17 +40,17 @@ Azure Time Series Insights prend uniquement en charge les données JSON. Pour ob
 
 * Pour un hub IoT dans Azure IoT Hub, vous devez fournir la clé qui dispose des autorisations **Connexion de service**. Les stratégies **iothubowner** et **service** fonctionnent, car elles disposent toutes deux d’autorisations **Connexion de service**.
 
-   ![Autorisations de connexion de service IoT Hub](media/diagnose-and-solve-problems/iothub-serviceconnect-permissions.png)
+   [![Autorisations de connexion de service IoT Hub](media/diagnose-and-solve-problems/iothub-serviceconnect-permissions.png)](media/diagnose-and-solve-problems/iothub-serviceconnect-permissions.png#lightbox)
 
 * Pour Event Hub dans Azure Event Hub, vous devez fournir la clé disposant des autorisations **Écouter**. Les stratégies **read** et **manage** fonctionnent, car elles disposent toutes deux d’autorisations **Écouter**.
 
-   ![Autorisations d’écoute Event Hub](media/diagnose-and-solve-problems/eventhub-listen-permissions.png)
+   [![Autorisations d’écouter Event hub](media/diagnose-and-solve-problems/eventhub-listen-permissions.png)](media/diagnose-and-solve-problems/eventhub-listen-permissions.png#lightbox)
 
 ### <a name="cause-c-the-consumer-group-provided-isnt-exclusive-to-time-series-insights"></a>Cause C: le groupe de consommateurs fourni n’est pas exclusif à Time Series Insights
 
 Lorsque vous inscrivez un hub IoT ou un Event Hub, il est important de définir le groupe de consommateurs que vous souhaitez utiliser pour lire les données. Ce groupe de consommateurs *ne peut pas être partagé*. Si le groupe de consommateurs est partagé, le hub IoT ou l’Event Hub sous-jacent déconnecte de manière automatique et aléatoire l’un des lecteurs. Fournissez un groupe de consommateurs unique auprès duquel Time Series Insights lira les informations.
 
-## <a name="problem-two-some-data-is-shown-but-data-is-missing"></a>Problème deux : certaines données sont affichées, mais les données sont manquantes
+## <a name="problem-some-data-is-shown-but-data-is-missing"></a>Problème : certaines données sont affichées, mais les données sont manquantes
 
 Lorsque les données n’apparaissent que partiellement et semblent être en décalage, vous devez envisager plusieurs possibilités.
 
@@ -69,13 +69,13 @@ Les limitations sont appliquées en fonction de la capacité et du type de réf�
 
 La figure suivante illustre un environnement Time Series Insights ayant une référence SKU S1 et une capacité de 3 unités. Cet environnement peut recevoir 3 millions d’événements par jour.
 
-![Capacité actuelle et référence de l’environnement](media/diagnose-and-solve-problems/environment-sku-current-capacity.png)
+![Capacité actuelle et référence de l’environnement](media/diagnose-and-solve-problems/environment-sku-current-capacity.png)](media/diagnose-and-solve-problems/environment-sku-current-capacity.png#lightbox)
 
 Par exemple, supposons que cet environnement ingère les messages à partir d’un Event Hub. La figure suivante illustre le taux d’entrée :
 
-![Exemple de taux d’entrée pour un concentrateur d’événements](media/diagnose-and-solve-problems/eventhub-ingress-rate.png)
+[![Taux d’entrée exemple pour un concentrateur d’événements](media/diagnose-and-solve-problems/eventhub-ingress-rate.png)](media/diagnose-and-solve-problems/eventhub-ingress-rate.png#lightbox)
 
-Le taux d’entrée quotidien est d’environ 67 000 messages. Cela représente environ 46 messages par minute. Si chaque message de l’Event Hub est aplati dans un seul événement Time Series Insights, aucune limitation ne se produit. Si chaque message de l’Event Hub est aplati dans 100 événements Time Series Insights, 4 600 événements devraient être ingérés toutes les minutes. Un environnement de référence SKU S1 qui a une capacité de 3 unités peut seulement ingérer 2 100 événements toutes les minutes (1 million d’événements par jour = 700 événements par minute à 3 unités = 2 100 événements par minute). Pour cette configuration, les limitations qui s’appliquent provoquent un décalage. 
+Le taux d’entrée quotidien est d’environ 67 000 messages. Cela représente environ 46 messages par minute. Si chaque message de l’Event Hub est aplati dans un seul événement Time Series Insights, aucune limitation ne se produit. Si chaque message de l’Event Hub est aplati dans 100 événements Time Series Insights, 4 600 événements devraient être ingérés toutes les minutes. Un environnement de référence SKU S1 qui a une capacité de 3 unités peut seulement ingérer 2 100 événements toutes les minutes (1 million d’événements par jour = 700 événements par minute à 3 unités = 2 100 événements par minute). Pour cette configuration, les limitations qui s’appliquent provoquent un décalage.
 
 Pour en savoir plus sur la logique de mise à plat, consultez [Structures JSON prises en charge](./how-to-shape-query-json.md).
 
@@ -85,24 +85,24 @@ Pour éviter tout décalage, augmentez la capacité de votre environnement. Pour
 
 ### <a name="cause-b-initial-ingestion-of-historical-data-slows-ingress"></a>Cause b : initiale ingestion des données d’historique ralentisse en entrée
 
-Si vous vous connectez à une source de l’événement existante, il est probable que votre hub IoT ou votre Event Hub comporte déjà des données. L’environnement démarre l’extraction des données depuis le début de la période de rétention des messages de la source d’événement. Cela correspond au traitement par défaut et ne peut pas être substitué. Vous pouvez appliquer des limitations. La limitation peut prendre un certain temps en ce qui concerne le rattrapage, car elle ingère les données d’historique.
+Si vous vous connectez à une source de l’événement existante, il est probable que votre hub IoT ou votre Event Hub comporte déjà des données. L’environnement démarre l’extraction des données depuis le début de la période de rétention des messages de la source d’événement. Ce traitement par défaut ne peut pas être substitué. Vous pouvez appliquer des limitations. La limitation peut prendre un certain temps en ce qui concerne le rattrapage, car elle ingère les données d’historique.
 
 #### <a name="recommended-resolutions-for-large-initial-ingestion"></a>Résolutions recommandées en cas d’ingestion initiale volumineuse
 
 Pour corriger le décalage :
 
-1. Définissez la capacité de référence SKU sur la valeur maximale autorisée (10 unités dans ce cas). Après augmentation de la capacité, le processus d’entrée commence à rattraper le retard beaucoup plus rapidement. L’augmentation de capacité occasionne des frais supplémentaires. Pour suivre sa progression rapide, consultez le graphique de disponibilité dans l’[explorateur Time Series Insights](https://insights.timeseries.azure.com). 
+1. Définissez la capacité de référence SKU sur la valeur maximale autorisée (10 unités dans ce cas). Après augmentation de la capacité, le processus d’entrée commence à rattraper le retard beaucoup plus rapidement. L’augmentation de capacité occasionne des frais supplémentaires. Pour suivre sa progression rapide, consultez le graphique de disponibilité dans l’[explorateur Time Series Insights](https://insights.timeseries.azure.com).
 
 2. Une fois le retard rattrapé, rétablissez la capacité de référence SKU sur votre taux d’entrée normal.
 
-## <a name="problem-three-my-event-sources-timestamp-property-name-setting-doesnt-work"></a>Problème 3 : paramètre de nom de propriété timestamp ma source d’événement ne fonctionne pas
+## <a name="problem-my-event-sources-timestamp-property-name-setting-doesnt-work"></a>Problème : paramètre de nom de propriété timestamp ma source d’événement ne fonctionne pas
 
 Vérifiez que le nom et la valeur de la propriété timestamp répondent aux critères suivants :
 
 * Le nom de la propriété timestamp est sensible à la casse.
 * La valeur de la propriété timestamp provenant de votre source d’événement, comme une chaîne JSON, doit être au format _aaaa-MM-jjTHH:mm:ss.FFFFFFFK_. Par exemple : **2008-04-12T12:53Z**.
 
-La méthode la plus simple pour vous assurer que votre nom de propriété timestamp est capturé et fonctionne correctement consiste à utiliser l’explorateur Time Series Insights. Dans l’explorateur Time Series Insights, à l’aide du graphique, sélectionnez une période de temps spécifique après avoir indiqué le nom de la propriété timestamp. Cliquez avec le bouton droit sur la sélection, puis sélectionnez l’option **Explorer les événements**. 
+La méthode la plus simple pour vous assurer que votre nom de propriété timestamp est capturé et fonctionne correctement consiste à utiliser l’explorateur Time Series Insights. Dans l’explorateur Time Series Insights, à l’aide du graphique, sélectionnez une période de temps spécifique après avoir indiqué le nom de la propriété timestamp. Cliquez avec le bouton droit sur la sélection, puis sélectionnez l’option **Explorer les événements**.
 
 Le premier en-tête de colonne doit correspondre au nom de votre propriété timestamp. En regard du mot **Timestamp**, vous devez voir **($ts)**.
 

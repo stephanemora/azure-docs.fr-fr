@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 03/19/2019
-ms.openlocfilehash: aa9217251965b35dd90e09c619607c9421a9f6f4
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: HT
+ms.date: 04/22/2019
+ms.openlocfilehash: 7dcbf2733ff23b0454208dbc789599cd372278ec
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64572650"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65507839"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-a-single-database"></a>Limites du modèle d’achat vCore Azure SQL Database pour une base de données unique
 
@@ -50,7 +50,7 @@ Vous pouvez définir le niveau de service, la taille de calcul et la quantité d
 |Type de stockage|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|
 |Latence d’E/S (approximative)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|
 |IOPS cible (64 ko)|500|1 000|1 500|2000|2 500|3000|
-|Limites de taux de journal (Mo/s)|2.5|5.|7.5|10|12.5|15|
+|Limites de taux de journal (Mbits/s)|3,75|7.5|11,25|15|18.75|22,5|
 |Nombre maximal d’ouvriers simultanés (demandes)|200|400|600|800|1 000|1 200|
 |Nombre maximal de sessions autorisé|30000|30000|30000|30000|30000|30000|
 |Nombre de réplicas|1|1|1|1|1|1|
@@ -73,7 +73,7 @@ Vous pouvez définir le niveau de service, la taille de calcul et la quantité d
 |Type de stockage|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|
 |Latence d’E/S (approximative)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)
 |IOPS cible (64 ko)|3 500|4000|4500|5 000|7000|7000|
-|Limites de taux de journal (Mo/s)|17.5|20|20|20|20|20|
+|Limites de taux de journal (Mbits/s)|26.25|30|30|30|30|30|
 |Nombre maximal d’ouvriers simultanés (demandes)|1400|1 600|1 800|2000|3200|4 800|
 |Nombre maximal de sessions autorisé|30000|30000|30000|30000|30000|30000|
 |Nombre de réplicas|1|1|1|1|1|1|
@@ -95,8 +95,8 @@ Vous pouvez définir le niveau de service, la taille de calcul et la quantité d
 |Taille de TEMPDB (Go)|64|128|192|256|320|384|384|
 |Type de stockage|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|
 |Latence d’E/S (approximative)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|
-|IOPS cible (64 ko)|500|1 000|1 500|2000|2 500|3000|3 500|
-|Limites de taux de journal (Mo/s)|2.5|56|7.5|10|12.5|15|17.5|
+|IOPS cible (64 ko)|1 000|2000|3000|4000|5 000|6000|7000|
+|Limites de taux de journal (Mbits/s)|3,75|7.5|11,25|15|18.75|22,5|26.25|
 |Nombre maximal d’ouvriers simultanés (demandes)|200|400|600|800|1 000|1 200|1400|
 |Nombre maximal de sessions autorisé|30000|30000|30000|30000|30000|30000|30000|
 |Nombre de réplicas|1|1|1|1|1|1|1|
@@ -118,8 +118,8 @@ Vous pouvez définir le niveau de service, la taille de calcul et la quantité d
 |Taille de TEMPDB (Go)|384|384|384|384|384|384|384|
 |Type de stockage|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|
 |Latence d’E/S (approximative)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|
-|IOPS cible (64 ko)|4000|4500|5 000|6000|7000|7000|7000|
-|Limites de taux de journal (Mo/s)|20|20|20|20|20|20|20|
+|IOPS cible (64 ko)|7000|7000|7000|7000|7000|7000|7000|
+|Limites de taux de journal (Mbits/s)|30|30|30|30|30|30|30|
 |Nombre maximal d’ouvriers simultanés (demandes)|1 600|1 800|2000|2 400|3200|4000|8000|
 |Nombre maximal de sessions autorisé|30000|30000|30000|30000|30000|30000|30000|
 |Nombre de réplicas|1|1|1|1|1|1|1|
@@ -127,7 +127,35 @@ Vous pouvez définir le niveau de service, la taille de calcul et la quantité d
 |Lecture du Scale-out|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Stockage de sauvegarde inclus|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|
 
-## <a name="business-critical-service-tier-storage-sizes-and-compute-sizes"></a>Niveau de service Critique pour l’entreprise : tailles de stockage et tailles de calcul
+### <a name="serverless-compute-tier"></a>Niveau de calcul serverless
+
+Le [niveau de calcul sans serveur](sql-database-serverless.md) est en version préliminaire publique et est uniquement pour les bases de données uniques à l’aide de l’achat de vCore du modèle.
+
+#### <a name="generation-5-compute-platform"></a>Plateforme de calcul de génération 5
+
+|Taille de calcul|GP_S_Gen5_1|GP_S_Gen5_2|GP_S_Gen5_4|
+|:--- | --: |--: |--: |
+|Génération H/W|5.|5.|5.|
+|Min-max VCORE|0.5-1|0.5-2|0.5-4|
+|Mémoire min-max (Go)|2.02-3|2.05-6|2.10-12|
+|Délai de pause automatique min (heures)|6.|6.|6.|
+|Prise en charge de ColumnStore|OUI|OUI|OUI|
+|Stockage In-Memory OLTP (Go)|N/A|N/A|S.O.|
+|Taille maximale des données (Go)|512|1 024|1 024|
+|Taille maximale du journal (Go)|12|24|48|
+|Taille de TEMPDB (Go)|32|64|128|
+|Type de stockage|Stockage (distant) Premium|Stockage (distant) Premium|Stockage (distant) Premium|
+|Latence d’E/S (approximative)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|5-7 ms (écriture)<br>5-10 ms (lecture)|
+|IOPS cible (64 ko)|250|500|1 000|
+|Limites de taux de journal (Mbits/s)|2.5|5.6|10|
+|Nombre maximal d’ouvriers simultanés (demandes)|75|150|300|
+|Nombre maximal de sessions autorisé|30000|30000|30000|
+|Nombre de réplicas|1|1|1|
+|Plusieurs zones de disponibilités|N/A|N/A|N/A|
+|Lecture du Scale-out|N/A|N/A|N/A|
+|Stockage de sauvegarde inclus|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|
+
+## <a name="business-critical-service-tier-for-provisioned-compute-tier"></a>Niveau de service critique d’entreprise pour le niveau de calcul provisionné
 
 ### <a name="business-critical-service-tier-generation-4-compute-platform-part-1"></a>Niveau de service Critique pour l’entreprise : Plateforme de calcul de génération 4 (partie 1)
 
@@ -144,7 +172,7 @@ Vous pouvez définir le niveau de service, la taille de calcul et la quantité d
 |Taille de TEMPDB (Go)|32|64|96|128|160|192|
 |Latence d’E/S (approximative)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|
 |IOPS cible (64 ko)|5 000|10000|15000|20000|25000|30000|
-|Limites de taux de journal (Mo/s)|6.|12|18|24|30|36|
+|Limites de taux de journal (Mbits/s)|8|16|24|32|40|48|
 |Nombre maximal d’ouvriers simultanés (demandes)|200|400|600|800|1 000|1 200|
 |Nombre maximal de connexions simultanées|200|400|600|800|1 000|1 200|
 |Nombre maximal de sessions autorisé|30000|30000|30000|30000|30000|30000|
@@ -168,7 +196,7 @@ Vous pouvez définir le niveau de service, la taille de calcul et la quantité d
 |Taille de TEMPDB (Go)|224|256|288|320|384|384|
 |Latence d’E/S (approximative)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|
 |IOPS cible (64 ko)|35000|40000|45000|50000|80000|120 000|
-|Limites de taux de journal (Mo/s)|42|48|54|60|64|64|
+|Limites de taux de journal (Mbits/s)|56|64|64|64|64|64|
 |Nombre maximal d’ouvriers simultanés (demandes)|1400|1 600|1 800|2000|3200|4 800|
 |Nombre maximal de connexions simultanées (demandes)|1400|1 600|1 800|2000|3200|4 800|
 |Nombre maximal de sessions autorisé|30000|30000|30000|30000|30000|30000|
@@ -191,8 +219,8 @@ Vous pouvez définir le niveau de service, la taille de calcul et la quantité d
 |Taille de TEMPDB (Go)|64|128|192|256|320|384|384|
 |Type de stockage|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
 |Latence d’E/S (approximative)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|
-|IOPS cible (64 ko)|5 000|10000|15000|20000|25000|30000|35000|
-|Limites de taux de journal (Mo/s)|6.|12|18|24|30|36|42|
+|IOPS cible (64 ko)|8000|16000|24000|32000|40000|48 000|56000|
+|Limites de taux de journal (Mbits/s)|12|24|36|48|60|72|84|
 |Nombre maximal d’ouvriers simultanés (demandes)|200|400|600|800|1 000|1 200|1400|
 |Nombre maximal de connexions simultanées|200|400|600|800|1 000|1 200|1400|
 |Nombre maximal de sessions autorisé|30000|30000|30000|30000|30000|30000|30000|
@@ -215,8 +243,8 @@ Vous pouvez définir le niveau de service, la taille de calcul et la quantité d
 |Taille de TEMPDB (Go)|384|384|384|384|384|384|384|
 |Type de stockage|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
 |Latence d’E/S (approximative)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|1-2 ms (écriture)<br>1-2 ms (lecture)|
-|IOPS cible (64 ko)|40000|45000|50000|60000|80000|100000|200000|
-|Limites de taux de journal (Mo/s)|48|54|60|72|96|96|96|
+|IOPS cible (64 ko)|64 000|72000|80000|96000|128000|160000|320000|
+|Limites de taux de journal (Mbits/s)|96|96|96|96|96|96|96|
 |Nombre maximal d’ouvriers simultanés (demandes)|1 600|1 800|2000|2 400|3200|4000|8000|
 |Nombre maximal de connexions simultanées|1 600|1 800|2000|2 400|3200|4000|8000|
 |Nombre maximal de sessions autorisé|30000|30000|30000|30000|30000|30000|30000|
@@ -225,30 +253,7 @@ Vous pouvez définir le niveau de service, la taille de calcul et la quantité d
 |Lecture du Scale-out|OUI|OUI|OUI|OUI|OUI|OUI|OUI|
 |Stockage de sauvegarde inclus|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|
 
-## <a name="hyperscale-service-tier-preview"></a>Niveau de service Hyperscale (préversion)
-
-### <a name="generation-4-compute-platform-storage-sizes-and-compute-sizes"></a>Plateforme de calcul de génération 4 : tailles de stockage et tailles de calcul
-
-|Niveau de performance|HS_Gen4_1|HS_Gen4_2|HS_Gen4_4|HS_Gen4_8|HS_Gen4_16|HS_Gen4_24|
-|:--- | --: |--: |--: |--: |--: |--: |
-|Génération H/W|4|4|4|4|4|4|
-|vCores|1|2|4|8|16|24|
-|Mémoire (Go)|7|14|28|56|112|168|
-|Prise en charge de ColumnStore|OUI|OUI|OUI|OUI|OUI|OUI|
-|Stockage In-Memory OLTP (Go)|N/A|N/A|N/A|N/A|N/A|S.O.|
-|Taille maximale des données (To)|100 |100 |100 |100 |100 |100 |
-|Taille maximale du journal (To)|1 |1 |1 |1 |1 |1 |
-|Taille de TEMPDB (Go)|32|64|128|256|384|384|
-|Type de stockage|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
-|IOPS cible (64 ko)|À déterminer|À déterminer|À déterminer|À déterminer|À déterminer|À déterminer|
-|Latence d’E/S (approximative)|À déterminer|À déterminer|À déterminer|À déterminer|À déterminer|À déterminer|
-|Nombre maximal d’ouvriers simultanés (demandes)|200|400|800|1 600|3200|4 800|
-|Nombre maximal de sessions autorisé|30000|30000|30000|30000|30000|30000|
-|Nombre de réplicas|2|2|2|2|2|2|
-|Plusieurs zones de disponibilités|N/A|N/A|N/A|N/A|N/A|N/A|
-|Lecture du Scale-out|OUI|OUI|OUI|OUI|OUI|OUI|
-|Stockage de sauvegarde inclus|7|7|7|7|7|7|
-|||
+## <a name="hyperscale-service-tier"></a>Niveau de service Hyperscale
 
 ### <a name="generation-5-compute-platform"></a>Plateforme de calcul de génération 5
 
@@ -269,8 +274,8 @@ Vous pouvez définir le niveau de service, la taille de calcul et la quantité d
 |Nombre maximal de sessions autorisé|30000|30000|30000|30000|30000|30000|30000|30000|
 |Nombre de réplicas|2|2|2|2|2|2|2|2|
 |Plusieurs zones de disponibilités|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
-|Lecture du Scale-out|OUI|OUI|OUI|OUI|OUI|OUI|OUI|Oui|
-|Stockage de sauvegarde inclus (limité pour la préversion)|7|7|7|7|7|7|7|7|
+|Lecture du Scale-out|OUI|OUI|OUI|OUI|OUI|OUI|OUI|OUI|
+|Stockage de sauvegarde inclus |7|7|7|7|7|7|7|7|
 |||
 
 ## <a name="next-steps"></a>Étapes suivantes

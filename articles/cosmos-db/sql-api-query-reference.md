@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: 1d874b9c8f14b1489ab5e5b8bbdddaff0669165e
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 186e0365ae8aee3b7f92fcc06142e4d0496ffd08
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65145196"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65415454"
 ---
 # <a name="sql-language-reference-for-azure-cosmos-db"></a>Référence sur le langage SQL pour Azure Cosmos DB 
 
@@ -507,7 +507,7 @@ OFFSET <offset_amount> LIMIT <limit_amount>
   
 |**Catégorie**|**Détails**|  
 |-|-|  
-|**Opérateurs arithmétiques**|L’opérateur attend des entrées de type nombre. La sortie est également un nombre. Si une des entrées est **Undefined** ou d’un type autre qu’un nombre, le résultat est **Undefined**.|  
+|**arithmetic**|L’opérateur attend des entrées de type nombre. La sortie est également un nombre. Si une des entrées est **Undefined** ou d’un type autre qu’un nombre, le résultat est **Undefined**.|  
 |**Opérateurs au niveau du bit**|L’opérateur attend des entrées de type nombre entier 32 bits signé. La sortie est également un nombre entier signé 32 bits.<br /><br /> Toute valeur non entière est arrondie. Les valeurs positives sont arrondies vers le bas, et les valeurs négatives vers le haut.<br /><br /> Toute valeur qui se trouve en dehors de la plage d’entiers 32 bits sera convertie, en prenant les derniers 32 bits de ses deux notations de complément.<br /><br /> Si une des entrées est **Undefined** ou d’un type autre qu’un nombre, le résultat est **Undefined**.<br /><br /> **Remarque :** le comportement ci-dessus est compatible avec le comportement de l’opérateur de niveau de bit de JavaScript.|  
 |**Opérateurs logiques**|L’opérateur attend des entrées de type booléen. La sortie est également une valeur booléenne.<br />Si une des entrées est **Undefined** ou d’un type autre qu’un booléen, le résultat est **Undefined**.|  
 |**Opérateurs de comparaison**|L’opérateur attend que des entrées du même type et n’étant pas Undefined. La sortie est une valeur booléenne.<br /><br /> Si une des entrées est **Undefined** ou que les entrées ont des types différents, le résultat est **Undefined**.<br /><br /> Consultez le tableau **Classement des valeurs pour comparaison** pour plus de détails sur le classement des valeurs.|  
@@ -525,7 +525,7 @@ OFFSET <offset_amount> LIMIT <limit_amount>
   
 |**Name**|**Opérateur**|**Détails**|  
 |-|-|-|  
-|**Opérateurs arithmétiques**|+<br /><br /> -<br /><br /> *<br /><br /> /<br /><br /> %|Addition.<br /><br /> Soustraction.<br /><br /> Multiplication.<br /><br /> Division.<br /><br /> Modulation.|  
+|**arithmetic**|+<br /><br /> -<br /><br /> *<br /><br /> /<br /><br /> %|Addition.<br /><br /> Soustraction.<br /><br /> Multiplication.<br /><br /> Division.<br /><br /> Modulation.|  
 |**Opérateurs au niveau du bit**|&#124;<br /><br /> &<br /><br /> ^<br /><br /> <<<br /><br /> >><br /><br /> >>>|Opérateur OR au niveau du bit.<br /><br /> Opérateur AND au niveau du bit.<br /><br /> XOR au niveau du bit.<br /><br /> Décalage vers la gauche.<br /><br /> Décalage vers la droite.<br /><br /> Décalage vers la droite avec remplissage de zéros.|  
 |**Opérateurs logiques**|**AND**<br /><br /> **OR**|Conjonction logique. Retourne **true** si les deux arguments sont **true**, retourne **false** dans le cas contraire.<br /><br /> Disjonction logique. Retourne **true** si un des arguments est **true**, retourne **false** dans le cas contraire.|  
 |**Opérateurs de comparaison**|**=**<br /><br /> **!=, &lt;&gt;**<br /><br /> **>**<br /><br /> **>=**<br /><br /> **<**<br /><br /> **<=**<br /><br /> **??**|Égal à. Retourne **true** si les arguments sont égaux, **false** dans le cas contraire.<br /><br /> Non égal à. Retourne **true** si les arguments ne sont pas égaux, **false** dans le cas contraire.<br /><br /> Supérieur à. Retourne **true** si le premier argument est supérieur au second, **false** dans le cas contraire.<br /><br /> Supérieur ou égal à. Retourne **true** si le premier argument est supérieur ou égal au second, **false** dans le cas contraire.<br /><br /> Inférieur à. Retourne **true** si le premier argument est inférieur au second, **false** dans le cas contraire.<br /><br /> Inférieur ou égal à. Retourne **true** si le premier argument est inférieur ou égal au second, **false** dans le cas contraire.<br /><br /> Coalesce. Retourne le deuxième argument si le premier argument est une valeur **Undefined**.|  
@@ -710,7 +710,7 @@ OFFSET <offset_amount> LIMIT <limit_amount>
 ##  <a name="bk_built_in_functions"></a> Fonctions intégrées  
  Cosmos DB fournit de nombreuses fonctions SQL intégrées. Les catégories de fonctions intégrées sont répertoriées ci-dessous.  
   
-|Fonction|Description|  
+|Fonction|Description |  
 |--------------|-----------------|  
 |[Fonctions mathématiques](#bk_mathematical_functions)|Chaque fonction mathématique effectue un calcul, généralement basé sur les valeurs d'entrée fournies comme arguments, et retourne une valeur numérique.|  
 |[Fonctions de vérification du type](#bk_type_checking_functions)|Les fonctions de vérification du type vous permettent de vérifier le type d'une expression donnée dans les requêtes SQL.|  
@@ -760,7 +760,7 @@ ABS (<numeric_expression>)
 SELECT ABS(-1) AS abs1, ABS(0) AS abs2, ABS(1) AS abs3 
 ```  
   
- Voici le jeu de résultats obtenu.  
+ Voici le jeu des résultats.  
   
 ```  
 [{abs1: 1, abs2: 0, abs3: 1}]  
@@ -793,7 +793,7 @@ ACOS(<numeric_expression>)
 SELECT ACOS(-1) AS acos 
 ```  
   
- Voici le jeu de résultats obtenu.  
+ Voici le jeu des résultats.  
   
 ```  
 [{"acos": 3.1415926535897931}]  
@@ -826,7 +826,7 @@ ASIN(<numeric_expression>)
 SELECT ASIN(-1) AS asin  
 ```  
   
- Voici le jeu de résultats obtenu.  
+ Voici le jeu des résultats.  
   
 ```  
 [{"asin": -1.5707963267948966}]  
@@ -859,7 +859,7 @@ ATAN(<numeric_expression>)
 SELECT ATAN(-45.01) AS atan  
 ```  
   
- Voici le jeu de résultats obtenu.  
+ Voici le jeu des résultats.  
   
 ```  
 [{"atan": -1.5485826962062663}]  
@@ -892,7 +892,7 @@ ATN2(<numeric_expression>, <numeric_expression>)
 SELECT ATN2(35.175643, 129.44) AS atn2  
 ```  
   
- Voici le jeu de résultats obtenu.  
+ Voici le jeu des résultats.  
   
 ```  
 [{"atn2": 1.3054517947300646}]  
@@ -925,7 +925,7 @@ CEILING (<numeric_expression>)
 SELECT CEILING(123.45) AS c1, CEILING(-123.45) AS c2, CEILING(0.0) AS c3  
 ```  
   
- Voici le jeu de résultats obtenu.  
+ Voici le jeu des résultats.  
   
 ```  
 [{c1: 124, c2: -123, c3: 0}]  
@@ -958,7 +958,7 @@ COS(<numeric_expression>)
 SELECT COS(14.78) AS cos  
 ```  
   
- Voici le jeu de résultats obtenu.  
+ Voici le jeu des résultats.  
   
 ```  
 [{"cos": -0.59946542619465426}]  
@@ -991,7 +991,7 @@ COT(<numeric_expression>)
 SELECT COT(124.1332) AS cot  
 ```  
   
- Voici le jeu de résultats obtenu.  
+ Voici le jeu des résultats.  
   
 ```  
 [{"cot": -0.040311998371148884}]  
@@ -1024,7 +1024,7 @@ DEGREES (<numeric_expression>)
 SELECT DEGREES(PI()/2) AS degrees  
 ```  
   
- Voici le jeu de résultats obtenu.  
+ Voici le jeu des résultats.  
   
 ```  
 [{"degrees": 90}]  
@@ -1057,7 +1057,7 @@ FLOOR (<numeric_expression>)
 SELECT FLOOR(123.45) AS fl1, FLOOR(-123.45) AS fl2, FLOOR(0.0) AS fl3  
 ```  
   
- Voici le jeu de résultats obtenu.  
+ Voici le jeu des résultats.  
   
 ```  
 [{fl1: 123, fl2: -124, fl3: 0}]  
@@ -1098,7 +1098,7 @@ EXP (<numeric_expression>)
 SELECT EXP(10) AS exp  
 ```  
   
- Voici le jeu de résultats obtenu.  
+ Voici le jeu des résultats.  
   
 ```  
 [{exp: 22026.465794806718}]  
@@ -1110,7 +1110,7 @@ SELECT EXP(10) AS exp
 SELECT EXP(LOG(20)) AS exp1, LOG(EXP(20)) AS exp2  
 ```  
   
- Voici le jeu de résultats obtenu.  
+ Voici le jeu des résultats.  
   
 ```  
 [{exp1: 19.999999999999996, exp2: 20}]  
@@ -1155,7 +1155,7 @@ LOG (<numeric_expression> [, <base>])
 SELECT LOG(10) AS log  
 ```  
   
- Voici le jeu de résultats obtenu.  
+ Voici le jeu des résultats.  
   
 ```  
 [{log: 2.3025850929940459}]  
@@ -1167,7 +1167,7 @@ SELECT LOG(10) AS log
 SELECT EXP(LOG(10)) AS expLog  
 ```  
   
- Voici le jeu de résultats obtenu.  
+ Voici le jeu des résultats.  
   
 ```  
 [{expLog: 10.000000000000002}]  
@@ -1204,7 +1204,7 @@ LOG10 (<numeric_expression>)
 SELECT LOG10(100) AS log10 
 ```  
   
- Voici le jeu de résultats obtenu.  
+ Voici le jeu des résultats.  
   
 ```  
 [{log10: 2}]  
@@ -1237,7 +1237,7 @@ PI ()
 SELECT PI() AS pi 
 ```  
   
- Voici le jeu de résultats obtenu.  
+ Voici le jeu des résultats.  
   
 ```  
 [{"pi": 3.1415926535897931}]  
@@ -1274,7 +1274,7 @@ POWER (<numeric_expression>, <y>)
 SELECT POWER(2, 3) AS pow1, POWER(2.5, 3) AS pow2  
 ```  
   
- Voici le jeu de résultats obtenu.  
+ Voici le jeu des résultats.  
   
 ```  
 [{pow1: 8, pow2: 15.625}]  
@@ -1307,7 +1307,7 @@ RADIANS (<numeric_expression>)
 SELECT RADIANS(-45.01) AS r1, RADIANS(-181.01) AS r2, RADIANS(0) AS r3, RADIANS(0.1472738) AS r4, RADIANS(197.1099392) AS r5  
 ```  
   
- Voici le jeu de résultats obtenu.  
+  Voici le jeu des résultats.  
   
 ```  
 [{  
@@ -1338,6 +1338,17 @@ ROUND(<numeric_expression>)
   
   Renvoie une expression numérique.  
   
+  **Remarques**
+  
+  L’opération d’arrondi effectuée suit milieu arrondissement à zéro. Si l’entrée est une expression numérique qui se situe exactement entre deux entiers, le résultat sera le nombre entier le plus proche loin de zéro.  
+  
+  |<numeric_expression>|Arrondi|
+  |-|-|
+  |-6.5000|-7|
+  |-0.5|-1|
+  |0.5|1|
+  |6.5000|7||
+  
   **Exemples**  
   
   L’exemple suivant arrondit les nombres positifs et négatifs suivants à l’entier le plus proche.  
@@ -1346,7 +1357,7 @@ ROUND(<numeric_expression>)
 SELECT ROUND(2.4) AS r1, ROUND(2.6) AS r2, ROUND(2.5) AS r3, ROUND(-2.4) AS r4, ROUND(-2.6) AS r5  
 ```  
   
- Voici le jeu de résultats obtenu.  
+  Voici le jeu des résultats.  
   
 ```  
 [{r1: 2, r2: 3, r3: 3, r4: -2, r5: -3}]  
@@ -1379,7 +1390,7 @@ SIGN(<numeric_expression>)
 SELECT SIGN(-2) AS s1, SIGN(-1) AS s2, SIGN(0) AS s3, SIGN(1) AS s4, SIGN(2) AS s5  
 ```  
   
- Voici le jeu de résultats obtenu.  
+ Voici le jeu des résultats.  
   
 ```  
 [{s1: -1, s2: -1, s3: 0, s4: 1, s5: 1}]  
@@ -1445,7 +1456,7 @@ SQRT(<numeric_expression>)
 SELECT SQRT(1) AS s1, SQRT(2.0) AS s2, SQRT(3) AS s3  
 ```  
   
- Voici le jeu de résultats obtenu.  
+ Voici le jeu des résultats.  
   
 ```  
 [{s1: 1, s2: 1.4142135623730952, s3: 1.7320508075688772}]  
@@ -1478,7 +1489,7 @@ SQUARE(<numeric_expression>)
 SELECT SQUARE(1) AS s1, SQUARE(2.0) AS s2, SQUARE(3) AS s3  
 ```  
   
- Voici le jeu de résultats obtenu.  
+ Voici le jeu des résultats.  
   
 ```  
 [{s1: 1, s2: 4, s3: 9}]  
@@ -1511,7 +1522,7 @@ TAN (<numeric_expression>)
 SELECT TAN(PI()/2) AS tan 
 ```  
   
- Voici le jeu de résultats obtenu.  
+ Voici le jeu des résultats.  
   
 ```  
 [{"tan": 16331239353195370 }]  
@@ -1544,7 +1555,7 @@ TRUNC(<numeric_expression>)
 SELECT TRUNC(2.4) AS t1, TRUNC(2.6) AS t2, TRUNC(2.5) AS t3, TRUNC(-2.4) AS t4, TRUNC(-2.6) AS t5  
 ```  
   
- Voici le jeu de résultats obtenu.  
+ Voici le jeu des résultats.  
   
 ```  
 [{t1: 2, t2: 2, t3: 2, t4: -2, t5: -2}]  
@@ -1593,7 +1604,7 @@ SELECT
  IS_ARRAY({prop: "value"}.prop2) AS isArray7  
 ```  
   
- Voici le jeu de résultats obtenu.  
+ Voici le jeu des résultats.  
   
 ```  
 [{"isArray1":false,"isArray2":false,"isArray3":false,"isArray4":false,"isArray5":false,"isArray6":true,"isArray7":false}]
@@ -1633,7 +1644,7 @@ SELECT
     IS_BOOL({prop: "value"}.prop2) AS isBool7  
 ```  
   
- Voici le jeu de résultats obtenu.  
+ Voici le jeu des résultats.  
   
 ```  
 [{"isBool1":true,"isBool2":false,"isBool3":false,"isBool4":false,"isBool5":false,"isBool6":false,"isBool7":false}]
@@ -1666,7 +1677,7 @@ IS_DEFINED(<expression>)
 SELECT IS_DEFINED({ "a" : 5 }.a) AS isDefined1, IS_DEFINED({ "a" : 5 }.b) AS isDefined2 
 ```  
   
- Voici le jeu de résultats obtenu.  
+ Voici le jeu des résultats.  
   
 ```  
 [{"isDefined1":true,"isDefined2":false}]  
@@ -1706,7 +1717,7 @@ SELECT
     IS_NULL({prop: "value"}.prop2) AS isNull7  
 ```  
   
- Voici le jeu de résultats obtenu.  
+ Voici le jeu des résultats.  
   
 ```  
 [{"isNull1":false,"isNull2":false,"isNull3":false,"isNull4":true,"isNull5":false,"isNull6":false,"isNull7":false}]
@@ -1746,7 +1757,7 @@ SELECT
     IS_NUMBER({prop: "value"}.prop2) AS isNum7  
 ```  
   
- Voici le jeu de résultats obtenu.  
+ Voici le jeu des résultats.  
   
 ```  
 [{"isNum1":false,"isNum2":true,"isNum3":false,"isNum4":false,"isNum5":false,"isNum6":false,"isNum7":false}]  
@@ -1786,7 +1797,7 @@ SELECT
     IS_OBJECT({prop: "value"}.prop2) AS isObj7  
 ```  
   
- Voici le jeu de résultats obtenu.  
+ Voici le jeu des résultats.  
   
 ```  
 [{"isObj1":false,"isObj2":false,"isObj3":false,"isObj4":false,"isObj5":true,"isObj6":false,"isObj7":false}]
@@ -1826,7 +1837,7 @@ SELECT
            IS_PRIMITIVE({prop: "value"}.prop2) AS isPrim7  
 ```  
   
- Voici le jeu de résultats obtenu.  
+ Voici le jeu des résultats.  
   
 ```  
 [{"isPrim1": true, "isPrim2": true, "isPrim3": true, "isPrim4": true, "isPrim5": false, "isPrim6": false, "isPrim7": false}]  
@@ -1866,7 +1877,7 @@ SELECT
        IS_STRING({prop: "value"}.prop2) AS isStr7  
 ```  
   
- Voici le jeu de résultats obtenu.  
+ Voici le jeu des résultats.  
   
 ```  
 [{"isStr1":false,"isStr2":false,"isStr3":true,"isStr4":false,"isStr5":false,"isStr6":false,"isStr7":false}] 
@@ -1913,7 +1924,7 @@ CONCAT(<str_expr>, <str_expr> [, <str_expr>])
 SELECT CONCAT("abc", "def") AS concat  
 ```  
   
- Voici le jeu de résultats obtenu.  
+ Voici le jeu des résultats.  
   
 ```  
 [{"concat": "abcdef"}  
@@ -1946,7 +1957,7 @@ CONTAINS(<str_expr>, <str_expr>)
 SELECT CONTAINS("abc", "ab") AS c1, CONTAINS("abc", "d") AS c2 
 ```  
   
- Voici le jeu de résultats obtenu.  
+ Voici le jeu des résultats.  
   
 ```  
 [{"c1": true, "c2": false}]  
@@ -1979,7 +1990,7 @@ ENDSWITH(<str_expr>, <str_expr>)
 SELECT ENDSWITH("abc", "b") AS e1, ENDSWITH("abc", "bc") AS e2 
 ```  
   
- Voici le jeu de résultats obtenu.  
+ Voici le jeu des résultats.  
   
 ```  
 [{"e1": false, "e2": true}]  
@@ -2012,7 +2023,7 @@ INDEX_OF(<str_expr>, <str_expr>)
 SELECT INDEX_OF("abc", "ab") AS i1, INDEX_OF("abc", "b") AS i2, INDEX_OF("abc", "c") AS i3 
 ```  
   
- Voici le jeu de résultats obtenu.  
+ Voici le jeu des résultats.  
   
 ```  
 [{"i1": 0, "i2": 1, "i3": -1}]  
@@ -2049,7 +2060,7 @@ LEFT(<str_expr>, <num_expr>)
 SELECT LEFT("abc", 1) AS l1, LEFT("abc", 2) AS l2 
 ```  
   
- Voici le jeu de résultats obtenu.  
+ Voici le jeu des résultats.  
   
 ```  
 [{"l1": "a", "l2": "ab"}]  
@@ -2082,7 +2093,7 @@ LENGTH(<str_expr>)
 SELECT LENGTH("abc") AS len 
 ```  
   
- Voici le jeu de résultats obtenu.  
+ Voici le jeu des résultats.  
   
 ```  
 [{"len": 3}]  
@@ -2115,7 +2126,7 @@ LOWER(<str_expr>)
 SELECT LOWER("Abc") AS lower
 ```  
   
- Voici le jeu de résultats obtenu.  
+ Voici le jeu des résultats.  
   
 ```  
 [{"lower": "abc"}]  
@@ -2149,7 +2160,7 @@ LTRIM(<str_expr>)
 SELECT LTRIM("  abc") AS l1, LTRIM("abc") AS l2, LTRIM("abc   ") AS l3 
 ```  
   
- Voici le jeu de résultats obtenu.  
+ Voici le jeu des résultats.  
   
 ```  
 [{"l1": "abc", "l2": "abc", "l3": "abc   "}]  
@@ -2182,7 +2193,7 @@ REPLACE(<str_expr>, <str_expr>, <str_expr>)
 SELECT REPLACE("This is a Test", "Test", "desk") AS replace 
 ```  
   
- Voici le jeu de résultats obtenu.  
+ Voici le jeu des résultats.  
   
 ```  
 [{"replace": "This is a desk"}]  
@@ -2222,7 +2233,7 @@ REPLICATE(<str_expr>, <num_expr>)
 SELECT REPLICATE("a", 3) AS replicate  
 ```  
   
- Voici le jeu de résultats obtenu.  
+ Voici le jeu des résultats.  
   
 ```  
 [{"replicate": "aaa"}]  
@@ -2255,7 +2266,7 @@ REVERSE(<str_expr>)
 SELECT REVERSE("Abc") AS reverse  
 ```  
   
- Voici le jeu de résultats obtenu.  
+ Voici le jeu des résultats.  
   
 ```  
 [{"reverse": "cbA"}]  
@@ -2292,7 +2303,7 @@ RIGHT(<str_expr>, <num_expr>)
 SELECT RIGHT("abc", 1) AS r1, RIGHT("abc", 2) AS r2 
 ```  
   
- Voici le jeu de résultats obtenu.  
+ Voici le jeu des résultats.  
   
 ```  
 [{"r1": "c", "r2": "bc"}]  
@@ -2325,7 +2336,7 @@ RTRIM(<str_expr>)
 SELECT RTRIM("  abc") AS r1, RTRIM("abc") AS r2, RTRIM("abc   ") AS r3  
 ```  
   
- Voici le jeu de résultats obtenu.  
+ Voici le jeu des résultats.  
   
 ```  
 [{"r1": "   abc", "r2": "abc", "r3": "abc"}]  
@@ -2358,7 +2369,7 @@ STARTSWITH(<str_expr>, <str_expr>)
 SELECT STARTSWITH("abc", "b") AS s1, STARTSWITH("abc", "a") AS s2  
 ```  
   
- Voici le jeu de résultats obtenu.  
+ Voici le jeu des résultats.  
   
 ```  
 [{"s1": false, "s2": true}]  
@@ -2398,7 +2409,7 @@ SELECT
     StringToArray('[1,2,3, "[4,5,6]",[7,8]]') AS a5
 ```
 
-Voici le jeu de résultats obtenu.
+Voici le jeu des résultats.
 
 ```
 [{"a1": [], "a2": [1,2,3], "a3": ["str",2,3], "a4": [["5","6","7"],["8"],["9"]], "a5": [1,2,3,"[4,5,6]",[7,8]]}]
@@ -2414,7 +2425,7 @@ SELECT
     StringToArray("['5','6','7']")
 ```
 
-Voici le jeu de résultats obtenu.
+Voici le jeu des résultats.
 
 ```
 [{}]
@@ -2433,7 +2444,7 @@ SELECT
     StringToArray(undefined)
 ```
 
-Voici le jeu de résultats obtenu.
+Voici le jeu des résultats.
 
 ```
 [{}]
@@ -2473,7 +2484,7 @@ SELECT
     StringToBoolean("false    ") AS b3
 ```  
   
- Voici le jeu de résultats obtenu.  
+ Voici le jeu des résultats.  
   
 ```  
 [{"b1": true, "b2": false, "b3": false}]
@@ -2489,7 +2500,7 @@ SELECT
     StringToBoolean("False")
 ```  
 
-Voici le jeu de résultats obtenu.  
+Voici le jeu des résultats.  
   
 ```  
 [{}]
@@ -2506,7 +2517,7 @@ SELECT
     StringToBoolean(true)
 ```  
 
-Voici le jeu de résultats obtenu.  
+Voici le jeu des résultats.  
   
 ```  
 [{}]
@@ -2546,7 +2557,7 @@ SELECT
     IS_NULL(StringToNull("null   ")) AS n3
 ```  
   
- Voici le jeu de résultats obtenu.  
+ Voici le jeu des résultats.  
   
 ```  
 [{"n1": null, "n2": null, "n3": true}]
@@ -2562,7 +2573,7 @@ SELECT
     StringToNull("Null")
 ```  
   
- Voici le jeu de résultats obtenu.  
+ Voici le jeu des résultats.  
   
 ```  
 [{}]
@@ -2578,7 +2589,7 @@ SELECT
     StringToNull(NaN) 
 ```  
   
- Voici le jeu de résultats obtenu.  
+ Voici le jeu des résultats.  
   
 ```  
 [{}]
@@ -2617,7 +2628,7 @@ SELECT
     StringToNumber("-1.79769e+308") AS num4
 ```  
   
- Voici le jeu de résultats obtenu.  
+ Voici le jeu des résultats.  
   
 ```  
 {{"num1": 1, "num2": 3.14, "num3": 60, "num4": -1.79769e+308}}
@@ -2630,7 +2641,7 @@ SELECT
     StringToNumber("0xF")
 ```  
   
- Voici le jeu de résultats obtenu.  
+ Voici le jeu des résultats.  
   
 ```  
 {{}}
@@ -2648,7 +2659,7 @@ SELECT
     StringToNumber(NaN)
 ```  
   
- Voici le jeu de résultats obtenu.  
+ Voici le jeu des résultats.  
   
 ```  
 {{}}
@@ -2687,7 +2698,7 @@ SELECT
     StringToObject("{\"C\":[{\"c1\":[5,6,7]},{\"c2\":8},{\"c3\":9}]}") AS obj4
 ``` 
 
-Voici le jeu de résultats obtenu.
+Voici le jeu des résultats.
 
 ```
 [{"obj1": {}, 
@@ -2706,7 +2717,7 @@ SELECT
     StringToObject("{'a':[1,2,3]}")
 ```
 
-Voici le jeu de résultats obtenu.
+Voici le jeu des résultats.
 
 ```  
 [{}]
@@ -2719,7 +2730,7 @@ SELECT
     StringToObject("{a:[1,2,3]}")
 ```
 
-Voici le jeu de résultats obtenu.
+Voici le jeu des résultats.
 
 ```  
 [{}]
@@ -2739,7 +2750,7 @@ SELECT
     StringToObject(undefined)
 ``` 
  
- Voici le jeu de résultats obtenu.
+ Voici le jeu des résultats.
 
 ```
 [{}]
@@ -2776,7 +2787,7 @@ SUBSTRING(<str_expr>, <num_expr>, <num_expr>)
 SELECT SUBSTRING("abc", 1, 1) AS substring  
 ```  
   
- Voici le jeu de résultats obtenu.  
+ Voici le jeu des résultats.  
   
 ```  
 [{"substring": "b"}]  
@@ -2816,7 +2827,7 @@ SELECT
     ToString(undefined) AS str8
 ```  
   
- Voici le jeu de résultats obtenu.  
+ Voici le jeu des résultats.  
   
 ```  
 [{"str1": "1", "str2": "Hello World", "str3": "NaN", "str4": "Infinity", "str5": "false", "str6": "0.1234", "str7": "false"}]  
@@ -2833,7 +2844,7 @@ CONCAT(ToString(p.Weight), p.WeightUnits)
 FROM p in c.Products 
 ```  
 
-Voici le jeu de résultats obtenu.  
+Voici le jeu des résultats.  
   
 ```  
 [{"$1":"4lb" },
@@ -2854,7 +2865,7 @@ SELECT
 FROM food 
 JOIN n IN food.nutrients
 ```
-Voici le jeu de résultats obtenu.  
+Voici le jeu des résultats.  
  ```
 [{"nutrientID":"305"},
 {"nutrientID":"306","nutritionVal":"30"},
@@ -2890,7 +2901,7 @@ TRIM(<str_expr>)
 SELECT TRIM("   abc") AS t1, TRIM("   abc   ") AS t2, TRIM("abc   ") AS t3, TRIM("abc") AS t4
 ```  
   
- Voici le jeu de résultats obtenu.  
+ Voici le jeu des résultats.  
   
 ```  
 [{"t1": "abc", "t2": "abc", "t3": "abc", "t4": "abc"}]  
@@ -2922,7 +2933,7 @@ UPPER(<str_expr>)
 SELECT UPPER("Abc") AS upper  
 ```  
   
- Voici le jeu de résultats obtenu.  
+ Voici le jeu des résultats.  
   
 ```  
 [{"upper": "ABC"}]  
@@ -2963,7 +2974,7 @@ ARRAY_CONCAT (<arr_expr>, <arr_expr> [, <arr_expr>])
 SELECT ARRAY_CONCAT(["apples", "strawberries"], ["bananas"]) AS arrayConcat 
 ```  
   
- Voici le jeu de résultats obtenu.  
+ Voici le jeu des résultats.  
   
 ```  
 [{"arrayConcat": ["apples", "strawberries", "bananas"]}]  
@@ -3006,7 +3017,7 @@ SELECT
            ARRAY_CONTAINS(["apples", "strawberries", "bananas"], "mangoes") AS b2  
 ```  
   
- Voici le jeu de résultats obtenu.  
+ Voici le jeu des résultats.  
   
 ```  
 [{"b1": true, "b2": false}]  
@@ -3021,7 +3032,7 @@ SELECT
     ARRAY_CONTAINS([{"name": "apples", "fresh": true}, {"name": "strawberries", "fresh": true}], {"name": "mangoes"}, true) AS b3 
 ```  
   
- Voici le jeu de résultats obtenu.  
+ Voici le jeu des résultats.  
   
 ```  
 [{
@@ -3058,7 +3069,7 @@ ARRAY_LENGTH(<arr_expr>)
 SELECT ARRAY_LENGTH(["apples", "strawberries", "bananas"]) AS len  
 ```  
   
- Voici le jeu de résultats obtenu.  
+ Voici le jeu des résultats.  
   
 ```  
 [{"len": 3}]  
@@ -3107,7 +3118,7 @@ SELECT
   
 ```  
   
- Voici le jeu de résultats obtenu.  
+ Voici le jeu des résultats.  
   
 ```  
 [{  
@@ -3148,7 +3159,7 @@ GetCurrentDateTime ()
   |YYYY|année à quatre chiffres|
   |MM|mois à deux chiffres (01 = janvier, etc..)|
   |DD|jour à deux chiffres du mois (01 à 31)|
-  |T|signifier pour le début des éléments d’heure|
+  |M|signifier pour le début des éléments d’heure|
   |hh|heure à deux chiffres (de 00 à 23)|
   |MM|minutes à deux chiffres (de 00 à 59)|
   |ss|secondes à deux chiffres (de 00 à 59)|
@@ -3251,7 +3262,7 @@ FROM Families f
 WHERE ST_DISTANCE(f.location, {'type': 'Point', 'coordinates':[31.9, -4.8]}) < 30000  
 ```  
   
- Voici le jeu de résultats obtenu.  
+ Voici le jeu des résultats.  
   
 ```  
 [{  
@@ -3295,7 +3306,7 @@ WHERE ST_WITHIN(f.location, {
 })  
 ```  
   
- Voici le jeu de résultats obtenu.  
+ Voici le jeu des résultats.  
   
 ```  
 [{ "id": "WakefieldFamily" }]  
@@ -3337,7 +3348,7 @@ WHERE ST_INTERSECTS(a.location, {
 })  
 ```  
   
- Voici le jeu de résultats obtenu.  
+ Voici le jeu des résultats.  
   
 ```  
 [{ "id": "IntersectingPolygon" }]  
@@ -3374,7 +3385,7 @@ ST_ISVALID(<spatial_expr>)
 SELECT ST_ISVALID({ "type": "Point", "coordinates": [31.9, -132.8] }) AS b 
 ```  
   
- Voici le jeu de résultats obtenu.  
+ Voici le jeu des résultats.  
   
 ```  
 [{ "b": false }]  
@@ -3410,7 +3421,7 @@ SELECT ST_ISVALIDDETAILED({
 }) AS b  
 ```  
   
- Voici le jeu de résultats obtenu.  
+ Voici le jeu des résultats.  
   
 ```  
 [{  

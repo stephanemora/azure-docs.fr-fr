@@ -12,14 +12,14 @@ ms.workload: na
 ms.date: 12/09/2018
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: a615ab26e4ea046ced70ce2c154a0c304b741986
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: dd7e29f8f37572565e505aade97b964254b6d72c
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60550912"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466552"
 ---
-# <a name="enable-safe-deployment-practices-with-azure-deployment-manager-private-preview"></a>Permettre des pratiques sûres de déploiement avec Azure Deployment Manager (préversion privée)
+# <a name="enable-safe-deployment-practices-with-azure-deployment-manager-public-preview"></a>Activer les pratiques de déploiement sécurisé avec le Gestionnaire de déploiement Azure (version préliminaire publique)
 
 Afin de déployer votre service dans de nombreuses régions et vous assurer qu’il s’exécute comme prévu dans chaque région, vous pouvez utiliser Azure Deployment Manager et coordonner un lancement par étapes du service. Tout comme vous le feriez pour n’importe quel déploiement Azure, vous définissez les ressources de votre service dans les [modèles Resource Manager](resource-group-authoring-templates.md). Une fois les modèles créés, vous utilisez Deployment Manager pour décrire la topologie de votre service, et la façon dont il doit être lancé.
 
@@ -200,7 +200,9 @@ Dans le modèle de lancement, vous créez une source d’artefact pour les fichi
 
 ### <a name="steps"></a>Étapes
 
-Vous pouvez définir une étape à effectuer avant ou après votre opération de déploiement. Actuellement, seule l’étape `wait` est disponible. Cette étape d’attente suspend le déploiement avant de poursuivre. Elle vous permet de vérifier que votre service s’exécute comme prévu avant de déployer l’unité de service suivante. L’exemple suivant montre le format général d’une étape d’attente.
+Vous pouvez définir une étape à effectuer avant ou après votre opération de déploiement. Actuellement, seuls les `wait` étape et l’étape « healthCheck » sont disponibles. 
+
+Cette étape d’attente suspend le déploiement avant de poursuivre. Elle vous permet de vérifier que votre service s’exécute comme prévu avant de déployer l’unité de service suivante. L’exemple suivant montre le format général d’une étape d’attente.
 
 ```json
 {
@@ -219,7 +221,7 @@ Vous pouvez définir une étape à effectuer avant ou après votre opération de
 
 La propriété duration utilise la [norme ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations). L’exemple précédent indique une attente d’une minute.
 
-Pour plus d’informations, consultez [Informations de référence sur le modèle des étapes](/azure/templates/Microsoft.DeploymentManager/steps).
+Pour plus d’informations sur l’étape de vérification d’intégrité, consultez [ ]() et [ ]() pour plus d’informations, consultez [étapes référence de modèle](/azure/templates/Microsoft.DeploymentManager/steps).
 
 ### <a name="rollouts"></a>Lancements
 

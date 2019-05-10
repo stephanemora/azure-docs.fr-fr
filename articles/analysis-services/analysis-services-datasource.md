@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: ed18fd985173a4d978edccedc8b6e5cf527f16dd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2505ab5a9445256bd592dfa7f58a6dea79d25043
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60327137"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506816"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Sources de données prises en charge dans Azure Analysis Services
 
@@ -25,12 +25,12 @@ Les sources de données et connecteurs affichés dans Obtenir des données ou l�
 |---------|---------|---------|
 |Azure SQL Database<sup>[2](#azsqlmanaged)</sup>     |   Oui      |    Oui      |
 |Azure SQL Data Warehouse     |   Oui      |   Oui       |
-|Stockage Blob Azure<sup>[1](#tab1400a)</sup>     |   Oui       |    Non       |
-|Stockage Table Azure<sup>[1](#tab1400a)</sup>    |   Oui       |    Non       |
-|Azure Cosmos DB<sup>[1](#tab1400a)</sup>     |  Oui        |  Non         |
-|Azure Data Lake Store (Gen1)<sup>[1](#tab1400a)</sup>, <sup>[4](#gen2)</sup>      |   Oui       |    Non       |
-|Azure HDInsight HDFS<sup>[1](#tab1400a)</sup>     |     Oui     |   Non        |
-|Azure HDInsight Spark<sup>[1](#tab1400a)</sup>, <sup>[3](#databricks)</sup>     |   Oui       |   Non        |
+|Stockage Blob Azure<sup>[1](#tab1400a)</sup>     |   Oui       |    Non      |
+|Stockage Table Azure<sup>[1](#tab1400a)</sup>    |   Oui       |    Non      |
+|Azure Cosmos DB<sup>[1](#tab1400a)</sup>     |  Oui        |  Non        |
+|Azure Data Lake Store (Gen1)<sup>[1](#tab1400a)</sup>, <sup>[4](#gen2)</sup>      |   Oui       |    Non      |
+|Azure HDInsight HDFS<sup>[1](#tab1400a)</sup>     |     Oui     |   Non       |
+|Azure HDInsight Spark<sup>[1](#tab1400a)</sup>, <sup>[3](#databricks)</sup>     |   Oui       |   Non       |
 ||||
 
 <a name="tab1400a">1</a> - Modèles tabulaires 1400 ou supérieurs uniquement.   
@@ -52,7 +52,7 @@ La connexion aux sources de données locales et au serveur Azure AS requiert une
 |  --- | --- | --- |
 | SQL Server |SQL Server Native Client 11.0, Fournisseur Microsoft OLE DB pour SQL Server, Fournisseur de données .NET Framework pour SQL Server | Fournisseur de données .NET Framework pour SQL Server |
 | SQL Server Data Warehouse |SQL Server Native Client 11.0, Fournisseur Microsoft OLE DB pour SQL Server, Fournisseur de données .NET Framework pour SQL Server | Fournisseur de données .NET Framework pour SQL Server |
-| Oracle |Fournisseur Microsoft OLE DB pour Oracle, Fournisseur de données Oracle pour .NET |Fournisseur de données Oracle pour .NET |
+| Oracle | Fournisseur OLE DB pour Oracle, fournisseur de données Oracle pour .NET |Fournisseur de données Oracle pour .NET |
 | Teradata |Fournisseur OLE DB pour Teradata, Fournisseur de données Teradata pour .NET |Fournisseur de données Teradata pour .NET |
 | | | |
 
@@ -72,7 +72,7 @@ La connexion aux sources de données locales et au serveur Azure AS requiert une
 |IBM Informix<sup>[1](#tab1400b)</sup> (Bêta) |
 |Document JSON<sup>[1](#tab1400b)</sup>     |  
 |Lignes issues d’un fichier binaire<sup>[1](#tab1400b)</sup>     | 
-|MySQL Database     | 
+|Base de données MySQL     | 
 |Flux OData<sup>[1](#tab1400b)</sup>     |  
 |Requête ODBC     | 
 |OLE DB     |   

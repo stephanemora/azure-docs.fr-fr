@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 3/26/2019
+ms.date: 5/8/2019
 ms.author: raiye
-ms.openlocfilehash: 955ba0aae41d7e555c1248cf04073b1b6e3f2d4f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 71f66129aeec4f4c8b470a421caade22960d2d64
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60622964"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65473212"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Versions du SE invité et matrice de compatibilité du Kit de développement logiciel (SDK) Azure
 Fournit des informations récentes sur les dernières publications du SE (système d’exploitation) invité de Microsoft Azure pour Cloud Services. Ces informations vous permettent de planifier votre mise à niveau avant la désactivation d’un SE invité. Si vous configurez vos rôles pour utiliser les mises à jour *automatiques* d’un SE invité comme cela est décrit dans [Paramètres de mise à jour du SE invité Azure][Azure Guest OS Update Settings], il n’est pas indispensable que vous lisiez cette page.
@@ -42,6 +42,9 @@ Fournit des informations récentes sur les dernières publications du SE (systè
 Vous ne savez pas comment mettre à jour votre système d’exploitation invité ? Consultez [cet article][cloud updates].
 
 ## <a name="news-updates"></a>Nouvelles mises à jour
+
+###### <a name="may-7-2019"></a>**7 mai 2019**
+Le système d’exploitation invité d’avril a été publié.
 
 ###### <a name="march-26-2019"></a>**26 mars 2019**
 Le système d’exploitation invité de mars a été publié.
@@ -67,7 +70,7 @@ Publication de l’OS invité octobre.
 ###### <a name="october-12-2018"></a>**12 octobre 2018**
 Publication du système d’exploitation invité du mois de septembre.
 
-## <a name="releases"></a>Publications
+## <a name="releases"></a>Versions
 
 ## <a name="family-6-releases"></a>Publications de famille 6
 **Windows Server 2019**
@@ -87,10 +90,11 @@ Publication du système d’exploitation invité du mois de septembre.
 >
 
 
-| Chaîne de configuration | Date de lancement | Date de désactivation |
+| Chaîne de configuration | Date de publication | Date de désactivation |
 | --- | --- | --- |
+| WA-GUEST-OS-6.6_201904-01 |7 mai 2019 |Post 6.8 |
 | WA-GUEST-OS-6.5_201903-01 |26 mars 2019 |Post 6.7 |
-| WA-GUEST-OS-6.4_201902-01 |12 mars 2019 |Post 6.6 |
+|~~WA-GUEST-OS-6.4_201902-01~~ |12 mars 2019 |7 mai 2019 |
 |~~WA-GUEST-OS-6.3_201901-01~~ |5 février 2019 |26 mars 2019 |
 |~~WA-GUEST-OS-6.2_201812-01~~ |24 janvier 2019 |12 mars 2019 |
 |~~WA-GUEST-OS-6.1_201811-01~~ |24 janvier 2019 |5 février 2019 |
@@ -105,14 +109,15 @@ Publication du système d’exploitation invité du mois de septembre.
 >
 
 
-| Chaîne de configuration | Date de lancement | Date de désactivation |
+| Chaîne de configuration | Date de publication | Date de désactivation |
 | --- | --- | --- |
+| WA-GUEST-OS-5.30_201904-01 |7 mai 2019 |Post 5.32 |
 | WA-GUEST-OS-5.29_201903-01 |26 mars 2019 |Post 5.31 |
-| WA-GUEST-OS-5.28_201902-01 |12 mars 2019 |Post 5.30 |
+|~~WA-GUEST-OS-5.28_201902-01~~ |12 mars 2019 |7 mai 2019 |
 |~~WA-GUEST-OS-5.27_201901-01~~ |5 février 2019 |26 mars 2019 |
 |~~WA-GUEST-OS-5.26_201812-01~~ |7 janvier 2019 |12 mars 2019 |
 |~~WA-GUEST-OS-5.25_201811-01~~ |14 décembre 2018 |5 février 2019 |
-|~~WA-GUEST-OS-5.24_201810-01~~ |8 novembre 2018 |7 janvier 2019 |
+|~~WA-GUEST-OS-5.24_201810-01~~ |8 novembre 2018 |7 janvier 2019 |
 |~~WA-GUEST-OS-5.23_201809-01~~ |12 octobre 2018 |14 décembre 2018 |
 
 ## <a name="family-4-releases"></a>Publications de famille 4
@@ -120,14 +125,15 @@ Publication du système d’exploitation invité du mois de septembre.
 
 .NET Framework installé : 3.5, 4.5.1
 
-| Chaîne de configuration | Date de lancement | Date de désactivation |
+| Chaîne de configuration | Date de publication | Date de désactivation |
 | --- | --- | --- |
+| WA-GUEST-OS-4.65_201904-01 |7 mai 2019 |POST 4,67 |
 | WA-GUEST-OS-4.64_201903-01 |26 mars 2019 |POST 4.66 |
-| WA-GUEST-OS-4.63_201902-01 |12 mars 2019 |POST 4,65 |
+|~~WA-GUEST-OS-4.63_201902-01~~ |12 mars 2019 |7 mai 2019 |
 |~~WA-GUEST-OS-4.62_201901-01~~ |5 février 2019 |26 mars 2019 |
 |~~WA-GUEST-OS-4.61_201812-01~~ |7 janvier 2019 |12 mars 2019 |
 |~~WA-GUEST-OS-4.60_201811-01~~ |14 décembre 2018 |5 février 2019 |
-|~~WA-GUEST-OS-4.59_201810-01~~ |8 novembre 2018 |7 janvier 2019 |
+|~~WA-GUEST-OS-4.59_201810-01~~ |8 novembre 2018 |7 janvier 2019 |
 |~~WA-GUEST-OS-4.58_201809-01~~ |12 octobre 2018 |14 décembre 2018 |
 
 ## <a name="family-3-releases"></a>Publications de famille 3
@@ -135,14 +141,15 @@ Publication du système d’exploitation invité du mois de septembre.
 
 .NET Framework installé : 3.5, 4.5
 
-| Chaîne de configuration | Date de lancement | Date de désactivation |
+| Chaîne de configuration | Date de publication | Date de désactivation |
 | --- | --- | --- |
+| WA-GUEST-OS-3.72_201904-01 |7 mai 2019 |Post 3.74 |
 | WA-GUEST-OS-3.71_201903-01 |26 mars 2019 |Post 3.73 |
-| WA-GUEST-OS-3.70_201902-01 |12 mars 2019 |Post 3.72 |
+|~~WA-GUEST-OS-3.70_201902-01~~ |12 mars 2019 |7 mai 2019 |
 |~~WA-GUEST-OS-3.69_201901-01~~ |5 février 2019 |26 mars 2019 |
 |~~WA-GUEST-OS-3.68_201812-01~~ |7 janvier 2019 |12 mars 2019 |
 |~~WA-GUEST-OS-3.67_201811-01~~ |14 décembre 2018 |5 février 2019 |
-|~~WA-GUEST-OS-3.66_201810-01~~ |8 novembre 2018 |7 janvier 2019 |
+|~~WA-GUEST-OS-3.66_201810-01~~ |8 novembre 2018 |7 janvier 2019 |
 |~~WA-GUEST-OS-3.65_201809-01~~ |12 octobre 2018 |14 décembre 2018 |
 
 ## <a name="family-2-releases"></a>Publications de famille 2
@@ -150,14 +157,15 @@ Publication du système d’exploitation invité du mois de septembre.
 
 .NET Framework installé : 3.5 (y compris 2.0 et 3.0)
 
-| Chaîne de configuration | Date de lancement | Date de désactivation |
+| Chaîne de configuration | Date de publication | Date de désactivation |
 | --- | --- | --- |
+| WA-GUEST-OS-2.85_201904-01 |7 mai 2019 |Post 2.87 |
 | WA-GUEST-OS-2.84_201903-01 |26 mars 2019 |Post 2.86 |
-| WA-GUEST-OS-2.83_201902-01 |12 mars 2019 |Billet de 2,85 |
+|~~WA-GUEST-OS-2.83_201902-01~~ |12 mars 2019 |7 mai 2019 |
 |~~WA-GUEST-OS-2.82_201901-01~~ |5 février 2019 |26 mars 2019 |
 |~~WA-GUEST-OS-2.81_201812-01~~ |7 janvier 2019 |12 mars 2019 |
 |~~WA-GUEST-OS-2.80_201811-01~~ |14 décembre 2018 |5 février 2019 |
-|~~WA-GUEST-OS-2.79_201810-01~~ |8 novembre 2018 |7 janvier 2019 |
+|~~WA-GUEST-OS-2.79_201810-01~~ |8 novembre 2018 |7 janvier 2019 |
 |~~WA-GUEST-OS-2.78_201809-01~~ |12 octobre 2018 |14 décembre 2018 |
 
 ## <a name="msrc-patch-updates"></a>Mises à jour correctives MSRC

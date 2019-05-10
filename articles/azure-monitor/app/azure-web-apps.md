@@ -9,12 +9,12 @@ ms.service: application-insights
 ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: mbullwin
-ms.openlocfilehash: c447a14f72c56e3e1e244011aa215a33b3f222a6
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: ec5b3572cbf74bad9b82eb93a45d7a4664023b95
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64922465"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408234"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Analyser les performances d’Azure App Service
 
@@ -274,7 +274,7 @@ Voici un exemple, remplacez toutes les instances de `AppMonitoredSite` avec le n
             "type": "string"
         }
     },
-    "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0"
 }
 ```
@@ -348,7 +348,7 @@ Voici notre guide de dépannage pas à pas pour l’extension/agent en fonction 
 
 Le tableau ci-dessous fournit une explication plus détaillée de la signifient de ces valeurs, leur sous-jacent entraîne et corrections recommandées :
 
-|Valeur de problème|Explication|Correctif
+|Valeur de problème|Explication|Corriger
 |---- |----|---|
 | `AppAlreadyInstrumented:true` | Cette valeur indique que l’extension a détecté que certains aspects du Kit de développement est déjà présent dans l’Application et sera temporisation. Il peut être dû à une référence à `System.Diagnostics.DiagnosticSource`, `Microsoft.AspNet.TelemetryCorrelation`, ou `Microsoft.ApplicationInsights`  | Supprimez les références. Certaines de ces références sont ajoutées par défaut à partir de certains modèles Visual Studio et les versions antérieures de Visual Studio peuvent ajouter des références à `Microsoft.ApplicationInsights`.
 |`AppAlreadyInstrumented:true` | Si l’application cible .NET Core 2.1 ou 2.2 et fait référence à [Microsoft.AspNetCore.All](https://www.nuget.org/packages/Microsoft.AspNetCore.All) méta-package, puis il permet d’utiliser Application Insights, et extension sera temporisation. | Les clients sur .NET Core 2.1,2.2 [recommandé](https://github.com/aspnet/Announcements/issues/287) utiliser Microsoft.AspNetCore.App méta-package à la place.|

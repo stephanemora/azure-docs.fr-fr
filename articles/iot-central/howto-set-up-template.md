@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: db8c8de7a8047f7aa6a81f6a3b372d161408f1be
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: d1704220a13b6d6b5a48b7167d7912a38057127d
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62097137"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466510"
 ---
 # <a name="set-up-a-device-template"></a>Configurer un modèle d’appareil
 
@@ -68,10 +68,9 @@ Pour ajouter une nouvelle mesure de télémétrie, sélectionnez **+ nouvelle me
 
 > [!NOTE]
 > Les noms de champs du modèle d’appareil doivent correspondre aux noms de propriétés du code d’appareil correspondant, pour que les données de télémétrie soient affichées dans l’application quand un appareil physique y est connecté. Vous devrez faire de même lorsque vous configurerez les paramètres, les propriétés de l’appareil et les commandes dans les sections qui suivent.
+.png, par exemple, vous pouvez ajouter une nouvelle mesure de télémétrie de température :
 
-Par exemple, vous pouvez ajouter une nouvelle mesure de télémétrie de température :
-
-| Nom d’affichage        | Nom du champ    |  Units    | Min   |max|
+| Nom complet         | Nom du champ    |  Unités    | Min   |Max|
 | --------------------| ------------- |-----------|-------|---|
 | Température         | temp          |  degC     |  0    |100|
 
@@ -92,7 +91,7 @@ Indiquez les détails de l’événement dans les champs **Nom d’affichage**, 
 
 Par exemple, vous pouvez ajouter un nouvel événement **Erreur du moteur du ventilateur**.
 
-| Nom d’affichage        | Nom du champ    |  Gravité par défaut |
+| Nom complet         | Nom du champ    |  Gravité par défaut |
 | --------------------| ------------- |-----------|
 | Erreur du moteur du ventilateur     | fanmotorerror |  Error    |
 
@@ -115,7 +114,7 @@ Indiquez les détails de l’état dans les champs **Nom d’affichage**, **Nom 
 
 Par exemple, vous pouvez ajouter un nouvel état **Mode du ventilateur**, dont les deux valeurs possibles que peut envoyer l’appareil sont **En fonctionnement** et **Arrêté**.
 
-| Nom d’affichage | Nom du champ    |  Valeur 1   | Nom d’affichage | Valeur 2    |Nom d’affichage  | 
+| Nom complet  | Nom du champ    |  Valeur 1   | Nom complet  | Valeur 2    |Nom complet   | 
 | -------------| ------------- |----------- | -------------| -----------| -------------|
 | Mode du ventilateur     | fanmode       |  1         | En fonctionnement    |     0      | Arrêté      |
 
@@ -142,7 +141,7 @@ Les paramètres peuvent avoir un parmi trois états. L’appareil signale ces é
 
 Par exemple, vous pouvez ajouter un nouveau paramètre de vitesse de ventilateur en sélectionnant **paramètres** et en entrant dans le nouveau **nombre** paramètre :
 
-| Nom d’affichage  | Nom du champ    |  Units  | Décimales |Initial|
+| Nom complet   | Nom du champ    |  Unités  | Décimales |Initial|
 | --------------| ------------- |---------| ---------|---- |
 | Vitesse du ventilateur     | fanSpeed      | TR/MIN     | 2        | 0   |
 
@@ -161,7 +160,7 @@ Il existe deux catégories de propriété :
 
 Par exemple, vous pouvez ajouter la date du dernier entretien de l’appareil en tant que nouvelle propriété **Date** (une propriété d’application) sous l’onglet **Propriétés** :
 
-| Nom d’affichage  | Nom du champ | Valeur initiale   |
+| Nom complet   | Nom du champ | Valeur initiale   |
 | --------------| -----------|-----------------|
 | Dernière utilisation      | lastServiced        | 29/01/2019     |
 
@@ -190,7 +189,7 @@ Vous pouvez créer une propriété d’emplacement sous forme de propriété d�
 
 3. Configurez les champs **Nom d’affichage**, **Nom du champ** et éventuellement **Valeur initiale** pour l’emplacement.
 
-    | Nom d’affichage  | Nom du champ | Valeur initiale |
+    | Nom complet   | Nom du champ | Valeur initiale |
     | --------------| -----------|---------| 
     | Adresse de l’installation | installAddress | Microsoft, 1 Microsoft Way, Redmond, WA 98052   |
 
@@ -212,7 +211,7 @@ Vous pouvez créer une propriété d’emplacement sous forme de propriété d�
 
 3. Configurez le nom d’affichage et le nom du champ, puis sélectionnez **Emplacement** comme type de données :
 
-    | Nom d’affichage  | Nom du champ | Type de données |
+    | Nom complet   | Nom du champ | Type de données |
     | --------------| -----------|-----------|
     | Emplacement de l’appareil | deviceLocation | location  |
 
@@ -235,11 +234,11 @@ En quoi une commande est-elle différente d’un paramètre ?
 
 Par exemple, vous pouvez ajouter un nouveau **Echo** commande en sélectionnant le **commandes** onglet, puis en sélectionnant **+ nouvelle commande**et en entrant les nouveaux détails de commande :
 
-| Nom d’affichage  | Nom du champ | Délai d’expiration par défaut | Type de données |
+| Nom complet   | Nom du champ | Délai par défaut | Type de données |
 | --------------| -----------|---------------- | --------- |
 | Commande echo  | echo       |  30             | text      |
 
-![Formulaire « Configurer la commande » contenant les détails de l’écho](./media/howto-set-up-template/commandsecho.png)
+![Formulaire « Configurer la commande » contenant les détails de l’écho](./media/howto-set-up-template/commandsecho1.png)
 
 Une fois que vous avez sélectionné **Enregistrer**, la commande **Echo** apparaît sous forme de vignette et peut être utilisée à partir de **Device Explorer** quand votre appareil physique se connecte. Pour que les commandes puissent être exécutées correctement, les noms de champs doivent correspondre aux noms de propriétés situés dans le code d’appareil correspondant.
 
@@ -255,7 +254,7 @@ Le tableau de bord est l’endroit où un opérateur peut accéder à des inform
 
 Par exemple, vous pouvez ajouter une vignette **Paramètres et propriétés** pour afficher une sélection des valeurs actuelles de paramètres et de propriétés en sélectionnant l’onglet **Tableau de bord** et la vignette dans la bibliothèque :
 
-![Formulaire « Configurer les détails de l’appareil » contenant les détails des paramètres et des propriétés](./media/howto-set-up-template/dashboardsettingsandpropertiesform.png)
+![Formulaire « Configurer les détails de l’appareil » contenant les détails des paramètres et des propriétés](./media/howto-set-up-template/dashboardsettingsandpropertiesform1.png)
 
 Désormais, quand un opérateur affiche le tableau de bord dans **Device Explorer**, il peut voir la vignette.
 

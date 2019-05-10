@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: kumud
-ms.openlocfilehash: a6635b811dfa9c46facfffee1c57b2871cb4c738
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 4582f7be8e48e493a1adcb8ffc6c3a8bfe43a58e
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64719705"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506375"
 ---
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>Ajouter, modifier ou supprimer des adresses IP pour une interface réseau Azure
 
@@ -56,7 +56,7 @@ Vous pouvez ajouter autant d’adresses [privées](#private) et [publiques](#pub
    |Nom|Oui|Doit être unique pour l’interface réseau|
    |Type|Oui|Étant donné que vous ajoutez une configuration IP à une interface réseau existante et que chaque interface réseau doit disposer d’une configuration IP [principale](#primary), la seule option possible est **Secondaire**.|
    |Méthode d’affectation d’adresses IP privées|Oui|[**Dynamique**](#dynamic) : Azure attribue la prochaine adresse disponible pour la plage d’adresses de sous-réseau dans laquelle l’interface réseau est déployée. [**Statique**](#static) : vous attribuez une adresse inutilisée pour la plage d’adresses de sous-réseau dans laquelle l’interface réseau est déployée.|
-   |Adresse IP publique|Non |**Désactivé :** aucune ressource d’adresse IP publique n’est associée à la configuration IP. **Activée :** sélectionnez une adresse IP publique IPv4 existante, ou créez-en une. Pour savoir comment créer une adresse IP publique, consultez l’article [Adresses IP publiques](virtual-network-public-ip-address.md#create-a-public-ip-address).|
+   |Adresse IP publique|Non|**Désactivé :** aucune ressource d’adresse IP publique n’est associée à la configuration IP. **Activée :** sélectionnez une adresse IP publique IPv4 existante, ou créez-en une. Pour savoir comment créer une adresse IP publique, consultez l’article [Adresses IP publiques](virtual-network-public-ip-address.md#create-a-public-ip-address).|
 6. Ajoutez manuellement des adresses IP privées secondaires au système d’exploitation de la machine virtuelle en suivant les instructions de l’article [Ajouter des adresses IP à un système d’exploitation de machine virtuelle](virtual-network-multiple-ip-addresses-portal.md#os-config). Consultez les adresses IP [privées](#private) pour connaître les considérations spécifiques avant d’ajouter manuellement des adresses IP à un système d’exploitation de machine virtuelle. N’ajoutez pas d’adresse IP publique au système d’exploitation de la machine virtuelle.
 
 **Commandes**
@@ -107,7 +107,7 @@ Vous pouvez supprimer des adresses IP [privées](#private) et [publiques](#publi
 
 Les adresses IP [privées](#private) et (éventuellement) [publiques](#public) sont assignées à une ou plusieurs configurations IP assignées à une interface réseau. Il existe deux types de configuration IP :
 
-### <a name="primary"></a>Primaire
+### <a name="primary"></a>Principale
 
 Une configuration IP principale est assignée à chaque interface réseau. Une configuration IP principale :
 
@@ -175,7 +175,7 @@ Les adresses IPv4 et (éventuellement) IPv6 privées dynamiques sont assignées 
 Vous pouvez (éventuellement) assigner une adresse IPv4 statique publique ou privée à une configuration IP. Vous ne pouvez pas assigner d’adresse IPv6 statique publique ou privée à une configuration IP. Pour en savoir plus sur la façon dont Azure attribue les adresses IPv4 publiques statiques, consultez [Adresses IP publiques](virtual-network-public-ip-address.md).
 
 - **Publique uniquement** : Azure attribue l’adresse à partir d’une plage propre à chaque région Azure. Vous pouvez télécharger la liste des plages (préfixes) pour les clouds Azure [Public](https://www.microsoft.com/download/details.aspx?id=56519), [Gouvernement américain](https://www.microsoft.com/download/details.aspx?id=57063), [Chine](https://www.microsoft.com/download/details.aspx?id=57062), et [Allemagne](https://www.microsoft.com/download/details.aspx?id=57064). L’adresse ne change pas tant que la ressource d’adresse IP publique à laquelle elle est assignée n’est pas supprimée, ou que la méthode d’affectation dynamique n’est pas modifiée. Si la ressource d’adresse IP publique est associée à une configuration IP, elle doit être dissociée de la configuration IP avant de modifier sa méthode d’affectation.
-- **Privée uniquement** : vous sélectionnez et attribuez une adresse à partir de la plage d’adresses du sous-réseau. L’adresse que vous assignez peut correspondre à n’importe quelle adresse qui se trouve au sein de la plage d’adresses de sous-réseau n’étant pas une de ses quatre premières adresses, et qui n’est pas déjà assignée à une autre ressource du sous-réseau. Les adresses statiques ne sont libérées que si l’interface réseau est supprimée. Si vous sélectionnez la méthode d’allocation statique à la place de la méthode dynamique, Azure définit l’adresse dynamique sur l’adresse IP statique précédemment attribuée, même si celle-ci n’est pas la première adresse disponible de la plage d’adresses du sous-réseau. L’adresse change aussi si l’interface réseau est assignée à un autre sous-réseau dans le même réseau virtuel. Pour l’assigner à un autre sous-réseau, vous devez d’abord modifier la méthode d’allocation statique en dynamique. Une fois que l’interface réseau est assignée à un autre sous-réseau, vous pouvez redéfinir la méthode d’allocation en statique, et assigner une adresse IP de la nouvelle plage d’adresses du sous-réseau.
+- **Privée uniquement** : vous sélectionnez et attribuez une adresse à partir de la plage d’adresses du sous-réseau. L’adresse que vous assignez peut correspondre à n’importe quelle adresse qui se trouve au sein de la plage d’adresses de sous-réseau n’étant pas une de ses quatre premières adresses, et qui n’est pas déjà assignée à une autre ressource du sous-réseau. Les adresses statiques ne sont libérées que si l’interface réseau est supprimée. Si vous modifiez la méthode d’allocation statique, Azure attribue dynamiquement l’adresse IP dynamique affectée précédemment en tant que l’adresse statique, même si celle-ci n’est pas l’adresse disponible suivante dans la plage d’adresses du sous-réseau. L’adresse change aussi si l’interface réseau est assignée à un autre sous-réseau dans le même réseau virtuel. Pour l’assigner à un autre sous-réseau, vous devez d’abord modifier la méthode d’allocation statique en dynamique. Une fois que l’interface réseau est assignée à un autre sous-réseau, vous pouvez redéfinir la méthode d’allocation en statique, et assigner une adresse IP de la nouvelle plage d’adresses du sous-réseau.
 
 ## <a name="ip-address-versions"></a>Versions d’adresse IP
 
@@ -194,7 +194,7 @@ Vous pouvez assigner zéro ou une adresse [IPv6](#ipv6) privée à une configura
 
 Vous ne pouvez pas assigner d’adresse IPv6 publique à une configuration IP principale ou secondaire.
 
-## <a name="skus"></a>Références (SKU)
+## <a name="skus"></a>Références
 
 Une adresse IP publique est créée avec la référence SKU de base ou standard. Pour plus d’informations sur les différences entre les références SKU, voir [Gérer les adresses IP publiques](virtual-network-public-ip-address.md).
 
@@ -204,7 +204,7 @@ Une adresse IP publique est créée avec la référence SKU de base ou standard.
 ## <a name="next-steps"></a>Étapes suivantes
 Pour créer une machine virtuelle avec différentes configurations IP, consultez les articles suivants :
 
-|Tâche|Outil|
+|Tâche|Tool|
 |---|---|
 |Créer une machine virtuelle avec plusieurs interfaces réseau|[CLI](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 |Créer une machine virtuelle à carte réseau unique avec plusieurs adresses IPv4|[CLI](virtual-network-multiple-ip-addresses-cli.md), [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)|

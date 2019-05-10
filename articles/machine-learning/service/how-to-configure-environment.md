@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: c8c0291997c1ce301083f7d5c19b5067a85cfd0f
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 4d588374c0195e7da373766f93f6829ac2160269
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024976"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65471606"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Configurer un environnement de développement pour Azure Machine Learning
 
@@ -283,12 +283,12 @@ Créer un [cluster Databricks](https://docs.microsoft.com/azure/azure-databricks
 
 Utilisez ces paramètres :
 
-| Paramètre |S’applique à| Valeur |
+| Paramètre |S'applique à| Valeur |
 |----|---|---|
 | Nom du cluster |toujours| Nom de votre cluster |
 | Runtime Databricks |toujours| N’importe quel runtime non-ML (runtime 4.x, 5.x non-ML) |
-| Version Python |toujours| 3 |
-| Workers |toujours| 2 ou plus |
+| Version de Python |toujours| 3 |
+| Rôles de travail |toujours| 2 ou plus |
 | Types de machines virtuelles pour les nœuds worker <br>(détermine le nombre maximal d’itérations simultanées) |ML automatisé<br>Uniquement| Machine virtuelle à mémoire optimisé, de préférence |
 | Activer la mise à l’échelle automatique |ML automatisé<br>Uniquement| Décochez la case |
 
@@ -344,7 +344,7 @@ Faites un essai :
 * Le Kit de développement logiciel (SDK) Azure Machine Learning est déjà installé.
 * Après avoir créé un espace de travail Azure Machine Learning service dans le portail Azure, vous pouvez cliquer sur un bouton pour configurer automatiquement votre environnement Azure Notebooks en vue de l’utiliser avec l’espace de travail.
 
-Utilisez le [Azure portal](https://portal.azure.com) prise en main Azure Notebooks.  Ouvrez votre espace de travail et à partir de la **vue d’ensemble** section, sélectionnez **prise en main de Azure Notebooks**.
+Utilisez le [portail Azure](https://portal.azure.com) pour bien démarrer avec Azure Notebooks.  Ouvrez votre espace de travail et à partir de la **vue d’ensemble** section, sélectionnez **prise en main de Azure Notebooks**.
 
 Par défaut, Azure Notebooks utilise un niveau de service gratuit limité à 4 Go de mémoire et de 1 Go de données. Cela étant, vous pouvez lever ces limites en attachant une instance Data Science Virtual Machine au projet Azure Notebooks. Pour plus d’informations, consultez [Gérer et configurer des projets Azure Notebooks - Niveau Calcul](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier).
 
@@ -368,7 +368,7 @@ Il existe trois façons de créer le fichier de configuration :
 
 * **Suivez les étapes de [créer un espace de travail du service Azure Machine Learning](setup-create-workspace.md#sdk)**: Un fichier *config.json* est créé dans votre bibliothèque Azure Notebooks. Ce fichier contient les informations de configuration pour votre espace de travail. Vous pouvez télécharger ou copier le fichier *config.json* dans d’autres environnements de développement.
 
-* **Téléchargez le fichier**: Dans le [Azure portal](https://ms.portal.azure.com), sélectionnez **télécharger config.json** à partir de la **vue d’ensemble** section de votre espace de travail.
+* **Téléchargez le fichier**: Dans le portail Azure, sélectionnez [Télécharger config.json](https://ms.portal.azure.com) à partir de la section **Vue d’ensemble** de votre espace de travail.
 
      ![Portail Azure](./media/how-to-configure-environment/configure.png)
 
@@ -396,5 +396,5 @@ Il existe trois façons de créer le fichier de configuration :
 
 - [Entraîner un modèle](tutorial-train-models-with-aml.md) sur Azure Machine Learning avec le jeu de données MNIST
 - Voir les informations de référence sur le [Kit SDK Azure Machine Learning pour Python](https://aka.ms/aml-sdk)
-- Découvrir le [kit SDK Azure Machine Learning Data Prep](https://aka.ms/data-prep-sdk)
+- En savoir plus sur le [package de préparation des données pour Azure Machine Learning](https://aka.ms/data-prep-sdk)
 - 

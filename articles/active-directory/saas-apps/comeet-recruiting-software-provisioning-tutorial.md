@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2019
+ms.date: 05/07/2019
 ms.author: zchia
-ms.openlocfilehash: 0f1b5f424a71aeccd4b1e57129c0f5b22ff158af
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: e8414b9737e0ee7f847827a432dd9887931a2532
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65159389"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65470364"
 ---
 # <a name="tutorial-configure-comeet-recruiting-software-for-automatic-user-provisioning"></a>Didacticiel : Configurer le logiciel de recrutement Comeet pour l’approvisionnement automatique
 
@@ -84,7 +84,7 @@ Guides de cette section vous à travers les étapes pour configurer le service d
 
 ### <a name="to-configure-automatic-user-provisioning-for-comeet-recruiting-software-in-azure-ad"></a>Pour configurer l’approvisionnement automatique pour les logiciels de recrutement Comeet dans Azure AD :
 
-1. Se connecter à la [Azure portal](https://portal.azure.com) et sélectionnez **Applications d’entreprise**, sélectionnez **toutes les applications**, puis sélectionnez **Comeet recrutement logiciel**.
+1. Connectez-vous au [Portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise**, puis sélectionnez **toutes les applications**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
@@ -104,12 +104,11 @@ Guides de cette section vous à travers les étapes pour configurer le service d
 
 6. Dans le [console d’administration de logiciels de recrutement Comeet](https://app.comeet.co/), accédez à **Comeet > Paramètres > authentification > Microsoft Azure**et copiez le **le jeton Secret pour votre entreprise**valeur pour le **jeton Secret** champ dans Azure AD.
 
-    ![Comeet recrutement d’approvisionnement en logiciels](./media/comeetrecruitingsoftware-provisioning-tutorial/secret-token-1.png)
-    
+    ![Comeet recrutement d’approvisionnement en logiciels](./media/comeet-recruiting-software-provisioning-tutorial/secret-token-1.png)
 
 7. Après avoir renseigné les champs indiqués à l’étape 5, cliquez sur **tester la connexion** pour vérifier qu’Azure AD peut se connecter au logiciel de recrutement Comeet. Si la connexion échoue, vérifiez que votre compte de logiciels de recrutement Comeet dispose des autorisations d’administrateur et réessayez.
 
-    ![par jeton](common/provisioning-testconnection-token.png)
+    ![Jeton](common/provisioning-testconnection-token.png)
 
 8. Dans le champ **E-mail de notification**, entrez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur d’approvisionnement, puis cochez la case **Envoyer une notification par e-mail en cas de défaillance**.
 
@@ -119,11 +118,11 @@ Guides de cette section vous à travers les étapes pour configurer le service d
 
 10. Sous le **mappages** section, sélectionnez **synchroniser les utilisateurs Azure Active Directory avec Comeet**.
 
-    ![Comeet recrutement d’approvisionnement en logiciels](./media/comeetrecruitingsoftware-provisioning-tutorial/user-mappings.png)
+    ![Comeet recrutement des mappages d’utilisateur de logiciels](media/comeet-recruiting-software-provisioning-tutorial/user-mappings.png)
 
 11. Passez en revue les attributs utilisateur qui sont synchronisés à partir d’Azure AD aux logiciels de recrutement Comeet dans le **mappage d’attributs** section. Les attributs sélectionnés en tant que **correspondance** propriétés sont utilisées pour faire correspondre les comptes d’utilisateur dans le logiciel de recrutement Comeet pour les opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
 
-    ![Comeet recrutement d’approvisionnement en logiciels](./media/comeetrecruitingsoftware-provisioning-tutorial/user-mapping-attributes.png)
+    ![Comeet recrutement attributs de groupe de logiciels](media/comeet-recruiting-software-provisioning-tutorial/user-mapping-attributes.png)
 
 12. Pour configurer des filtres d’étendue, reportez-vous aux instructions suivantes fournies dans [Approvisionnement d’applications basé sur les attributs avec filtres d’étendue](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -156,7 +155,3 @@ Pour plus d’informations sur la lecture des journaux d’activité d’approvi
 
 * [Découvrez comment consulter les journaux d’activité et obtenir des rapports sur l’activité d’approvisionnement](../manage-apps/check-status-user-account-provisioning.md)
 
-<!--Image references-->
-[1]: ./media/atlassian-cloud-provisioning-tutorial/tutorial-general-01.png
-[2]: ./media/atlassian-cloud-provisioning-tutorial/tutorial-general-02.png
-[3]: ./media/atlassian-cloud-provisioning-tutorial/tutorial-general-03.png

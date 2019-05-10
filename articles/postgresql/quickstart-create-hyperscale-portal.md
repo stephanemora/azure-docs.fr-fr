@@ -8,12 +8,12 @@ ms.subservice: hyperscale-citus
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 05/06/2019
-ms.openlocfilehash: 30de4da43569abf4d7bd668fd0fa481ecac23f4d
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 4271d94f07125a870cc4aa859b01db819d583f40
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65080027"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406444"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql---hyperscale-citus-preview-in-the-azure-portal"></a>Démarrage rapide : Créer une base de données Azure Database pour PostgreSQL - Hyperscale (Citus) dans le portail Azure
 
@@ -32,10 +32,10 @@ Pour créer un serveur de base de données Azure pour PostgreSQL, suivez les ét
 2. Sélectionnez **Bases de données** dans la page **Nouveau**, puis **Base de données Azure pour PostgreSQL** dans la page **Bases de données**.
 3. Pour l’option de déploiement, cliquez sur le bouton **Créer** sous **Groupe de serveurs Hyperscale (Citus) - PRÉVERSION.**
 4. Remplissez le formulaire de détails du nouveau serveur avec les informations suivantes :
-   - Groupe de ressources : cliquez sur le lien **Créer** sous la zone de texte pour ce champ. Entrez un nom comme **myresourcegroup**.
+   - Groupe de ressources : cliquez sur le lien **Créer** sous la zone de texte pour ce champ. Entrez un nom tel que **myresourcegroup**.
    - Nom du groupe de serveurs : entrez un nom unique pour le nouveau groupe de serveurs, qui sera également utilisé pour un sous-domaine de serveur.
-   - Nom d’utilisateur de l’administrateur : entrez un nom d’utilisateur unique, il sera utilisé plus tard pour se connecter à la base de données.
-   - Mot de passe : doit contenir au moins huit caractères appartenant à trois des catégories suivantes : - lettres majuscules non accentuées, lettres minuscules non accentuées, chiffres (de 0 à 9) et caractères non alphanumériques (!, $, #, %, etc.).
+   - Nom d’utilisateur de l’administrateur : entrez un nom d’utilisateur unique ; il sera utilisé plus tard pour la connexion à la base de données.
+   - Mot de passe : doit contenir au moins huit caractères appartenant à trois des catégories suivantes : - lettres majuscules non accentuées, lettres minuscules non accentuées, chiffres (de 0 à 9) et caractères non alphanumériques (!, $, #, %, etc.).
    - Emplacement : utilisez l’emplacement le plus proche de vos utilisateurs pour leur donner l’accès le plus rapide possible aux données.
 
    > [!IMPORTANT]
@@ -56,7 +56,7 @@ Le service Azure Database pour PostgreSQL - Hyperscale (Citus) (préversion) uti
 
 3. Cliquez sur **Pare-feu** sous **Sécurité** dans le menu de gauche.
 
-4. Cliquez sur le lien **+ Ajouter une règle de pare-feu pour l’adresse IP du client**. Enfin, cliquez sur le bouton **Enregistrer**.
+4. Cliquez sur le lien **+ Ajouter une règle de pare-feu pour l’adresse IP du client**. Enfin, cliquez sur le bouton **Enregistrer**.
 
 5. Cliquez sur **Enregistrer**.
 
@@ -80,7 +80,7 @@ Nous allons maintenant utiliser l’utilitaire de ligne de commande [psql](https
    psql --host=<myserver> --username=myadmin --dbname=citus
    ```
 
-   Par exemple, la commande suivante connecte à la base de données par défaut appelée **citus** sur votre serveur PostgreSQL **mydemoserver.postgres.database.azure.com** en utilisant les informations d’identification d’accès. À l’invite, entrez votre mot de passe d’administrateur du serveur.
+   Par exemple, la commande suivante se connecte à la base de données par défaut appelée **citus** sur votre serveur PostgreSQL **mydemoserver.postgres.database.azure.com** en utilisant les informations d’identification d’accès. À l’invite, entrez votre mot de passe d’administrateur du serveur.
 
    ```bash
    psql --host=mydemoserver.postgres.database.azure.com --username=myadmin --dbname=citus
@@ -169,7 +169,7 @@ GROUP BY hour
 ORDER BY hour;
 ```
 
-Jusqu’à présent, les requêtes impliquaient exclusivement github\_events, mais nous pouvons combiner ces informations avec github\_users. Comme nous avons partitionné les utilisateurs et les événements sur le même identificateur (`user_id`), les lignes des deux tables avec des ID d’utilisateur correspondants sont [colocalisées](http://docs.citusdata.com/en/stable/sharding/data_modeling.html#colocation) sur les mêmes nœuds de base de données et peuvent facilement faire l’objet d’une jointure.
+Jusqu’à présent, les requêtes impliquaient exclusivement github\_events, mais nous pouvons combiner ces informations avec github\_users. Comme nous avons partitionné les utilisateurs et les événements sur le même identificateur (`user_id`), les lignes des deux tables avec des ID d’utilisateur correspondants sont [colocalisées](https://docs.citusdata.com/en/stable/sharding/data_modeling.html#colocation) sur les mêmes nœuds de base de données et peuvent facilement faire l’objet d’une jointure.
 
 Si nous faisons une jointure sur `user_id`, Hyperscale peut procéder à l’exécution de la jointure au niveau des partitions pour permettre une exécution en parallèle sur les nœuds worker. Par exemple, recherchons les utilisateurs qui ont créé le plus grand nombre de dépôts :
 
@@ -186,7 +186,7 @@ ORDER BY count(*) DESC;
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Au cours des étapes précédentes, vous avez créé des ressources Azure au sein d’un groupe de serveurs. Si vous pensez ne pas avoir besoin de ces ressources à l’avenir, supprimez le groupe de serveurs. Cliquez sur le bouton **Supprimer** dans la page **Vue d’ensemble** pour votre groupe de serveurs. Quand vous y êtes invité dans une page contextuelle, confirmez le nom du groupe de serveurs, puis cliquez sur le bouton **Supprimer**.
+Au cours des étapes précédentes, vous avez créé des ressources Azure dans un groupe de serveurs. Si vous pensez ne pas avoir besoin de ces ressources à l’avenir, supprimez le groupe de serveurs. Appuyez sur le bouton **Supprimer** dans la page **Vue d’ensemble** de votre groupe de serveurs. Quand vous y êtes invité dans une page contextuelle, confirmez le nom du groupe de serveurs, puis cliquez sur le bouton **Supprimer**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

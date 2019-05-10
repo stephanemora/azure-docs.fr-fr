@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/08/2019
 ms.author: troyhop
-ms.openlocfilehash: 0fcd688c9e5164522a482a4375c524a97a48d400
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 68e0c3c89698bafbab65ca786231e0364900213a
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58175622"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65467878"
 ---
 # <a name="quickstart-deploy-and-run-an-iot-device-simulation-in-azure"></a>Démarrage rapide : Déployer et exécuter une simulation d’appareil IoT dans Azure
 
@@ -36,7 +36,7 @@ Cliquez sur la vignette **Simulation d’appareil** :
 
 Cliquez sur **Essayer maintenant** sur la page de description de la Simulation d’appareil :
 
-![Cliquez sur Essayez maintenant](./media/quickstart-device-simulation-deploy/devicesimulationPDP.png)
+![Cliquez sur Essayez maintenant](./media/quickstart-device-simulation-deploy/devicesimulationpdp1.png)
 
 Sur la page **Créer une solution de simulation d’appareil**, entrez un **nom de solution** unique.
 
@@ -58,7 +58,7 @@ Cliquez sur **Accepter** pour accepter la demande d’autorisation. Le tableau d
 
 À la première ouverture, vous voyez le tableau de bord de la Simulation d’appareil avec un guide de **Prise en main**. Cliquez sur la première vignette pour ouvrir un exemple de simulation. Si vous fermez le guide de **Prise en main**, vous pouvez ouvrir l’**exemple simple de simulation** depuis le tableau de bord en cliquant sur sa vignette :
 
-![Tableau de bord de solution](./media/quickstart-device-simulation-deploy/GettingStarted.png)
+![Tableau de bord de solution](./media/quickstart-device-simulation-deploy/gettingstarted1.png)
 
 ## <a name="sample-simulation"></a>Exemple de simulation
 
@@ -72,7 +72,7 @@ En tant qu’exemple de simulation, il ne peut pas être modifié. La simulation
 | Fréquence de télémétrie | 10 secondes                  |
 | Durée de la simulation | Exécuter indéfiniment            |
 
-![Configuration de la simulation](./media/quickstart-device-simulation-deploy/SampleSimulation.png)
+![Configuration de la simulation](./media/quickstart-device-simulation-deploy/samplesimulation1.png)
 
 ## <a name="run-the-simulation"></a>Exécuter la simulation
 

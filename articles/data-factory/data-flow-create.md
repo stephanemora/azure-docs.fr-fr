@@ -1,19 +1,17 @@
 ---
 title: Créer un mappage de flux de données Azure Data Factory
-description: Créer un mappage de flux de données Azure Data Factory
-author: WenJason
-ms.author: v-jay
-ms.reviewer: douglasl
+description: Comment créer un Azure Data Factory mappage de flux de données
+author: kromerm
+ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
-origin.date: 02/12/2019
-ms.date: 04/22/2019
-ms.openlocfilehash: bb6ae9f97d681625218118b8adca116de1c0fb21
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 02/12/2019
+ms.openlocfilehash: 366ed60534544ebbf889e2f72fe703f9b821f871
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60883708"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65235651"
 ---
 # <a name="create-azure-data-factory-data-flow"></a>Créer un flux de données Azure Data Factory
 
@@ -21,9 +19,9 @@ ms.locfileid: "60883708"
 
 Le mappage de flux de données ADF permet de transformer des données à grande échelle sans aucun codage. Vous pouvez concevoir une tâche de transformation de données dans le concepteur de flux de données en créant une série de transformations. Commencez par un certain nombre de transformations sources, suivies par des étapes de transformation de données. Ensuite, réalisez votre flux de données avec un récepteur qui servira de destination à vos résultats.
 
-Commencez par créer une fabrique de données v2 sur le Portail Azure. Ensuite, cliquez sur la vignette « Créer et surveiller » pour lancer l’interface utilisateur de Data Factory.
+Commencez en créant d’abord une nouvelle fabrique de données V2 à partir du portail Azure. Ensuite, cliquez sur la vignette « Créer et surveiller » pour lancer l’interface utilisateur de Data Factory.
 
-![Options de flux de données](media/data-flow/v2dataflowportal.png "Créer un flux de données")
+![Options de flux de données](media/data-flow/v2portal.png "Créer un flux de données")
 
 Une fois dans l’interface utilisateur de Data Factory, vous pouvez utiliser des exemples de flux de données, disponibles dans la galerie de modèles ADF. Dans ADF, créez un « Pipeline à partir d’un modèle » et sélectionnez la catégorie de flux de données dans la galerie de modèles.
 
@@ -37,7 +35,7 @@ Il vous est demandé d’entrer les informations d’identification de votre com
 
 ## <a name="create-new-data-flow"></a>Créer un flux de données
 
-Utilisez le bouton « signe plus » Créer une ressource de l’interface utilisateur ADF pour créer des flux de données.
+Utilisation de la ressource créer « signe » situé dans l’UI ADF pour créer des flux de données.
 
 ![Options de flux de données](media/data-flow/newresource.png "Nouvelle ressource")
 

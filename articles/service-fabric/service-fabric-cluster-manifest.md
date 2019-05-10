@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/12/2018
 ms.author: dekapur
-ms.openlocfilehash: f94a65e469fdb3cee4f02bc5a8f6f5a4a1ea5a16
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ae7fbef864634e47866de13384871a98b8ce4675
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60386718"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65209720"
 ---
 # <a name="configuration-settings-for-a-standalone-windows-cluster"></a>Paramètres de configuration pour un cluster Windows autonome
 Cet article décrit les paramètres de configuration d’un cluster Azure Service Fabric autonome qui peuvent être définis dans le fichier *ClusterConfig.json*. Utilisez ce fichier pour spécifier les informations sur les nœuds de cluster, les configurations de la sécurité ainsi que la topologie du réseau en termes de domaines d’erreur et de mise à niveau.  Après la modification ou l’ajout de paramètres de configuration, vous pouvez [créer un cluster autonome](service-fabric-cluster-creation-for-windows-server.md) ou [mettre à niveau la configuration d’un cluster autonome](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -122,7 +122,7 @@ La section security est nécessaire pour garantir la sécurité d’un cluster S
 }
 ```
 
-La section metadata est une description de votre cluster sécurisé et peut être définie selon votre installation. Les propriétés ClusterCredentialType et ServerCredentialType déterminent le type de sécurité que le cluster et les nœuds implémenteront. Elles peuvent avoir la valeur *X509* pour une sécurité basée sur un certificat, ou *Windows* pour une sécurité basée sur Azure Active Directory. Le reste de la section security varie selon le type de sécurité. Pour plus d’informations sur la façon de remplir le reste de la section security, consultez les rubriques [Sécuriser un cluster autonome sur Windows à l’aide de certificats X.509](service-fabric-windows-cluster-x509-security.md) ou [Sécuriser un cluster autonome sur Windows à l’aide de la sécurité Windows](service-fabric-windows-cluster-windows-security.md).
+La section metadata est une description de votre cluster sécurisé et peut être définie selon votre installation. Les propriétés ClusterCredentialType et ServerCredentialType déterminent le type de sécurité que le cluster et les nœuds implémenteront. Elles peuvent être définies avec la valeur *X509* pour une sécurité basée sur certificat ou *Windows* pour la sécurité basée sur Active Directory. Le reste de la section security varie selon le type de sécurité. Pour plus d’informations sur la façon de remplir le reste de la section security, consultez les rubriques [Sécuriser un cluster autonome sur Windows à l’aide de certificats X.509](service-fabric-windows-cluster-x509-security.md) ou [Sécuriser un cluster autonome sur Windows à l’aide de la sécurité Windows](service-fabric-windows-cluster-windows-security.md).
 
 ### <a name="node-types"></a>Types de nœuds
 La section nodeTypes décrit le type des nœuds de votre cluster. Au moins un type de nœud doit être spécifié pour un cluster, comme indiqué dans l’extrait de code suivant : 

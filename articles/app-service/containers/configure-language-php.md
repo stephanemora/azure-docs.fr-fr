@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: cephalin
-ms.openlocfilehash: dc6d3fd2239624e6fccecfbd565eb815b372ed3d
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: ed6a50ee68d39e6e0d01b405eb02edd6d4c93613
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920432"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65407584"
 ---
 # <a name="configure-a-linux-php-app-for-azure-app-service"></a>Configurer une application PHP de Linux pour Azure App Service
 
@@ -151,7 +151,7 @@ Si vous avez besoin apporter des modifications à votre installation de PHP, vou
 
 Pour personnaliser les directives PHP_INI_USER, PHP_INI_PERDIR et PHP_INI_ALL (consultez [directives de php.ini](https://www.php.net/manual/ini.list.php)), ajoutez un *.htaccess* fichier dans le répertoire racine de votre application.
 
-Dans le *.htaccess* , ajoutez les directives à l’aide de la `php_value <directive-name> <value>` syntaxe. Par exemple : 
+Dans le *.htaccess* , ajoutez les directives à l’aide de la `php_value <directive-name> <value>` syntaxe. Exemple :
 
 ```
 php_value upload_max_filesize 1000M
@@ -187,7 +187,7 @@ Créez un répertoire dans `/home/site` appelé `ini`, puis créez un *.ini* de 
 > Dans les conteneurs Linux intégrés dans App Service, */home* est utilisé en tant que stockage partagé persistant. 
 >
 
-Par exemple, pour modifier la valeur de [expose_php](http://php.net/manual/ini.core.php#ini.expose-php) exécutez les commandes suivantes :
+Par exemple, pour modifier la valeur de [expose_php](https://php.net/manual/ini.core.php#ini.expose-php) exécutez les commandes suivantes :
 
 ```bash
 cd /home/site
@@ -233,7 +233,7 @@ Pour que les modifications entrent en vigueur, redémarrez l’application.
 Quand une application PHP se comporte différemment dans App Service ou comporte des erreurs, essayez ce qui suit :
 
 - [Accéder au flux de journaux](#access-diagnostic-logs).
-- Tester l’application localement en mode de production. App Service s’exécute vos applications Node.js en mode de production, vous devez vous assurer que votre projet fonctionne comme prévu en mode production localement. Par exemple : 
+- Tester l’application localement en mode de production. App Service s’exécute vos applications Node.js en mode de production, vous devez vous assurer que votre projet fonctionne comme prévu en mode production localement. Exemple :
     - Selon votre *composer.json*, différents packages peuvent être installés pour le mode de production (`require` et `require-dev`).
     - Certaines infrastructures web peuvent déployer des fichiers statiques différemment en mode de production.
     - Certaines infrastructures web peuvent utiliser des scripts de démarrage personnalisés lors de l’exécution en mode de production.

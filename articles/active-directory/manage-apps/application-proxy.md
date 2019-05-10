@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/07/2019
+ms.date: 05/09/2019
 ms.author: celested
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ac94574ac297da7b3555be8d92ba3c5b62a990c5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e490ed9d104fc039a79083a94ddaebdeba766d2a
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60292592"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506655"
 ---
 # <a name="remote-access-to-on-premises-applications-through-azure-active-directorys-application-proxy"></a>Accès à distance aux applications locales via le service Proxy d’application Azure Active Directory 
 
@@ -44,6 +44,8 @@ Proxy d’application fonctionne avec les ressources suivantes :
 
 Proxy d’application prend en charge l’authentification unique. Pour plus d’informations sur les méthodes prises en charge, consultez [Choix d’une méthode d’authentification unique](what-is-single-sign-on.md#choosing-a-single-sign-on-method).
 
+Le Proxy d’application est recommandé pour donner des accès des utilisateurs externes à distance aux ressources internes. Le Proxy d’application remplace la nécessité d’une connexion VPN ou proxy inverse. Elle n’est pas destinée aux utilisateurs internes sur le réseau d’entreprise.  Les utilisateurs internes qui utilisent inutilement le Proxy d’Application peuvent introduire des problèmes de performances inattendus et indésirables.
+
 ## <a name="how-application-proxy-works"></a>Fonctionnement de Proxy d’application
 
 Le diagramme suivant montre comment Azure AD et Application Proxy fonctionnent ensemble pour fournir une authentification unique aux applications locales.
@@ -57,7 +59,7 @@ Le diagramme suivant montre comment Azure AD et Application Proxy fonctionnent e
 5. Le connecteur envoie la requête à l’application locale.  
 6. La réponse est envoyée à l’utilisateur par le biais du connecteur et du service Proxy d’application.
 
-| Composant | Description |
+| Composant | Description  |
 | --------- | ----------- |
 | Point de terminaison  | Le point de terminaison est une URL ou un [portail d’utilisateurs finaux](end-user-experiences.md). Les utilisateurs peuvent accéder à des applications en dehors de votre réseau au moyen d’une URL externe. Les utilisateurs au sein de votre réseau peuvent accéder à l’application par le biais d’une URL ou d’un portail d’utilisateurs finaux. Lorsque les utilisateurs passent par l’un de ces points de terminaison, ils s’authentifient dans Azure AD, puis sont acheminés via le connecteur vers l’application locale.|
 | Azure AD | Azure AD effectue l’authentification en utilisant l’annuaire des locataires stocké dans le cloud. |

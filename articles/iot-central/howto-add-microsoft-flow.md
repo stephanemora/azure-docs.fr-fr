@@ -8,12 +8,12 @@ ms.date: 04/25/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: hegate
-ms.openlocfilehash: 5d1e9941244defbf84b20f95e9f2e0402bbe19f2
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: c0a03b70c6e5e4742e03d4892b2b5f97c908ab9c
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64693592"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65467965"
 ---
 # <a name="build-workflows-with-the-iot-central-connector-in-microsoft-flow"></a>Créer des flux de travail avec le connecteur IoT Central dans Microsoft Flow
 
@@ -43,7 +43,7 @@ Cette section vous montre comment déclencher une notification mobile dans l’a
 
 1. Vous verrez une liste de flux de travail qui vous avez accès à et sont attachés à cette règle IoT Central. Cliquez sur **Explorer des modèles** ou **New > à partir d’un modèle** et vous pouvez choisir parmi tous les modèles disponibles. 
 
-    ![Modèles Microsoft Flow disponibles](media/howto-add-microsoft-flow/flowtemplates.png)
+    ![Modèles Microsoft Flow disponibles](media/howto-add-microsoft-flow/flowtemplates1.png)
 
 1. Vous devrez vous connecter aux connecteurs dans le modèle que vous avez choisi. Une fois les connecteurs sont connectés, vous accédez dans le concepteur pour créer votre flux de travail. Le flux de travail comporte un déclencheur IoT Central où votre application et votre règle sont déjà renseignées.
 
@@ -52,7 +52,7 @@ Cette section vous montre comment déclencher une notification mobile dans l’a
     > [!NOTE]
     > Sélectionnez le **plus** texte dans la fenêtre de contenu dynamique pour obtenir les valeurs de mesure et de la propriété qui a déclenché la règle.
 
-    ![Édition d’une action dans Flow avec le volet dynamique ouvert](./media/howto-add-microsoft-flow/flowdynamicpane.png)
+    ![Édition d’une action dans Flow avec le volet dynamique ouvert](./media/howto-add-microsoft-flow/flowdynamicpane1.png)
 
 1. Lorsque vous avez terminé votre opération d’édition, sélectionnez **enregistrer**. Vous êtes alors dirigé vers la page qui donne une vue d’ensemble de votre flux de travail. Vous pouvez voir ici l’historique des exécutions et le partager avec d’autres collègues.
 
@@ -79,7 +79,7 @@ Cette section vous montre comment créer un appareil dans IoT Central quand l’
 
 1. Sélectionnez le champ Nom de l’appareil. Dans le volet Contenu dynamique, choisissez **Nom de l’appareil**. Cette valeur est transmise à partir de l’entrée de l’utilisateur entre dans l’application mobile et est le nom de votre nouvel appareil dans IoT Central. Dans cet exemple, le seul champ obligatoire est le nom de l’appareil, indiqué par un astérisque rouge. Un autre modèle d’appareil peut avoir plusieurs champs obligatoires qui doivent être renseignés pour pouvoir créer un appareil.
 
-    ![Volet de l’action de création dynamique d’un appareil dans Flow](./media/howto-add-microsoft-flow/flowcreatedevice.png)
+    ![Volet de l’action de création dynamique d’un appareil dans Flow](./media/howto-add-microsoft-flow/flowcreatedevice1.png)
 
 1. (Facultatif) Renseignez les autres champs comme vous le souhaitez pour la création des appareils.
 
@@ -110,7 +110,7 @@ Cette section vous montre comment mettre à jour les paramètres et les proprié
 
 1. Vous pouvez mettre à jour le nom de l’appareil. Pour mettre à jour des propriétés et des paramètres de l’appareil, vous devez sélectionner le modèle d’appareil de l’appareil que vous voulez mettre à jour dans la liste déroulante **Modèle d’appareil**. La vignette de l’action se développe pour montrer tous les paramètres et propriétés que vous pouvez mettre à jour.
 
-    ![Flux de travail de mise à jour d’appareil dans Flow](./media/howto-add-microsoft-flow/flowupdatedevice.png)
+    ![Flux de travail de mise à jour d’appareil dans Flow](./media/howto-add-microsoft-flow/flowupdatedevice1.png)
 
 1. Sélectionnez les propriétés et les paramètres que vous voulez mettre à jour. Dans le volet Contenu dynamique, sélectionnez l’entrée correspondante dans le déclencheur. Dans cet exemple, la valeur de Location (Emplacement) est propagée vers le bas pour mettre à jour la propriété Location de l’appareil.
 
@@ -126,7 +126,7 @@ Vous pouvez obtenir des informations sur l’appareil par son ID à l’aide de 
 
 Vous pouvez obtenir des informations telles que le nom de l’appareil, nom de modèle d’appareil, les valeurs de propriété et les valeurs de paramètres à passer à des actions ultérieures dans votre flux de travail. Voici un exemple de workflow qui transmet la valeur de propriété de nom de client à partir d’un appareil à Microsoft Teams.
 
-   ![Flux de travail de flux get appareil](./media/howto-add-microsoft-flow/flowgetdevice.png)
+   ![Flux de travail de flux get appareil](./media/howto-add-microsoft-flow/flowgetdevice1.png)
 
 
 ## <a name="run-a-command-on-a-device-in-a-workflow"></a>Exécuter une commande sur un appareil dans un flux de travail
@@ -137,7 +137,7 @@ Vous pouvez exécuter une commande sur un périphérique spécifié par son ID �
     
 Vous pouvez choisir la commande pour exécuter et transmettre les paramètres de la commande via cette action. Voici un exemple de workflow qui s’exécute une commande de redémarrage du périphérique à partir d’un bouton dans l’application mobile Microsoft Flow.
 
-   ![Flux de travail de flux get appareil](./media/howto-add-microsoft-flow/flowrunacommand.png)
+   ![Flux de travail de flux get appareil](./media/howto-add-microsoft-flow/flowrunacommand1.png)
 
 ## <a name="delete-a-device-in-a-workflow"></a>Supprimer un appareil dans un flux de travail
 

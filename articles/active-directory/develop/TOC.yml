@@ -342,6 +342,8 @@
               items:
                 - name: Acquérir un jeton à partir du cache
                   href: msal-net-acquire-token-silently.md
+                - name: Effacer le cache de jeton
+                  href: msal-net-clear-token-cache.md
                 - name: Instancier un client public avec des options
                   href: msal-net-instantiate-public-client-config-options.md
                 - name: Instancier un client confidentiel avec des options

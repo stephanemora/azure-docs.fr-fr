@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/24/2019
+ms.date: 05/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: eaff996f5d0ad9c2eac00c9306ef8808b43e25c2
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 017c2fd934f35a64f26687f4a58634dda9a821a3
+ms.sourcegitcommit: 1d257ad14ab837dd13145a6908bc0ed7af7f50a2
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65146037"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65501957"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Solution de démarrage/arrêt des machines virtuelles durant les heures creuses dans Azure Automation
 
@@ -75,7 +75,7 @@ Pour déployer le Start/Stop VMs au cours de désactiver la solution d’heures 
 | Microsoft.Resources/subscriptions/resourceGroups/read | Groupe de ressources |
 | Microsoft.Resources/deployments/* | Groupe de ressources |
 
-### <a name="new-automation-account-and-a-new-log-analytics-workspace"></a>Nouveau compte Automation et un espace de travail Analytique de journal
+#### <a name="new-automation-account-and-a-new-log-analytics-workspace"></a>Nouveau compte Automation et un espace de travail Analytique de journal
 
 Pour déployer le Start/Stop VMs during heures creuses solution à un nouveau compte Automation Analytique de journal d’espace de travail et l’utilisateur de déploiement de la solution doit les autorisations définies dans la section précédente, ainsi que les autorisations suivantes :
 
@@ -91,6 +91,30 @@ Pour déployer le Start/Stop VMs during heures creuses solution à un nouveau co
 | Microsoft.Automation/automationAccounts/write | Groupe de ressources |
 | Microsoft.OperationalInsights/workspaces/write | Groupe de ressources |
 
+### <a name="region-mappings"></a>Mappages de régions
+
+Lors de l’activation de Start/Stop VMs during off-, uniquement dans certaines régions sont prises en charge pour la liaison d’un espace de travail Analytique de journal et un compte Automation.
+
+Le tableau suivant renseigne sur les mappages pris en charge :
+
+|**Région de l’espace de travail Log Analytics**|**Région Azure Automation**|
+|---|---|
+|AustralieSudEst|AustralieSudEst|
+|CanadaCentral|CanadaCentral|
+|CentralIndia|CentralIndia|
+|EastUS<sup>1</sup>|USAEst2|
+|JaponEst|JaponEst|
+|AsieSudEst|AsieSudEst|
+|WestCentralUS<sup>2</sup>|WestCentralUS<sup>2</sup>|
+|WestEurope|WestEurope|
+|RoyaumeUniSud|RoyaumeUniSud|
+|USGovVirginie|USGovVirginie|
+|EastUS2EUAP<sup>1</sup>|USACentreEUAP|
+
+<sup>1</sup> EastUS2EUAP et EastUS des mappages d’espaces de travail Analytique de journal aux comptes Automation ne sont pas un mappage précis de la région à une autre, mais est le mappage correct.
+
+<sup>2</sup> en raison des restrictions de capacité la région n’est pas disponible lors de la création de nouvelles ressources. Cela inclut les espaces de travail comptes Automation et d’Analytique de journal. Toutefois, les ressources liées préexistants dans la région doivent continuer à fonctionner.
+
 ## <a name="deploy-the-solution"></a>Déployer la solution
 
 Procédez comme suit pour ajouter la solution Start/Stop VMs during off-hours (préversion) à votre compte Automation, puis configurer les variables pour personnaliser la solution.
@@ -101,6 +125,7 @@ Procédez comme suit pour ajouter la solution Start/Stop VMs during off-hours (p
 
    > [!NOTE]
    > Vous pouvez également la créer n’importe où sur le Portail Azure en cliquant sur **Créer une ressource**. Dans la page Place de marché, saisissez un mot clé, tel que **Démarrer** ou **Arrêter/Démarrer**. Au fur et à mesure de la saisie, la liste est filtrée. Vous pouvez également saisir un ou plusieurs des mots clés à partir du nom complet de la solution, puis appuyer sur la touche Entrée. Sélectionnez **Start/Stop VMs during off-hours** dans les résultats de la recherche.
+
 2. Sur la page **Start/Stop VMs during off-hours** de la solution sélectionnée, vérifiez les informations résumées, puis cliquez sur **Créer**.
 
    ![Portail Azure](media/automation-solution-vm-management/azure-portal-01.png)

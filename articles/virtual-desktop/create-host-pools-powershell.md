@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 04/05/2019
+ms.date: 05/06/2019
 ms.author: helohr
-ms.openlocfilehash: e550111e04ea77e35a4554bcc6e3bffaf4d543d2
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 165980da2b78e7514ea1938bdbeb6fda82dd123d
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924956"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236662"
 ---
 # <a name="create-a-host-pool-with-powershell"></a>Créer un pool d’hôtes avec PowerShell
 
@@ -100,17 +100,6 @@ Pour inscrire les agents de bureau virtuel de Windows, procédez comme suit sur 
    - Téléchargez le [chargeur de démarrage de l’Agent de bureau virtuel Windows](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrxrH).
    - Cliquez sur le programme d’installation téléchargé, sélectionnez **propriétés**, sélectionnez **Unblock**, puis sélectionnez **OK**. Cela permettra à votre système d’approuver le programme d’installation.
    - Exécutez le programme d’installation.
-4. Installer ou activer la pile de côte à côte de bureau virtuel Windows. Les étapes seront différentes selon la version du système d’exploitation utilise la machine virtuelle.
-   - Si le système d’exploitation de votre machine virtuelle est Windows Server 2016 :
-     - Téléchargez le [pile côte à côte de bureau virtuel Windows](https://go.microsoft.com/fwlink/?linkid=2084270).
-     - Cliquez sur le programme d’installation téléchargé, sélectionnez **propriétés**, sélectionnez **Unblock**, puis sélectionnez **OK**. Cela permettra à votre système d’approuver le programme d’installation.
-     - Exécutez le programme d’installation.
-   - Si le système d’exploitation de votre machine virtuelle est Windows 10 1809 ou version ultérieure ou Windows Server 2019 ou version ultérieure :
-     - Téléchargez le [script](https://go.microsoft.com/fwlink/?linkid=2084268) pour activer la pile côte à côte.
-     - Cliquez sur le script téléchargé, sélectionnez **propriétés**, sélectionnez **Unblock**, puis sélectionnez **OK**. Cela permettra à votre système d’approuver le script.
-     - À partir de la **Démarrer** menu, recherchez Windows PowerShell ISE, faites un clic droit, puis sélectionnez **exécuter en tant qu’administrateur**.
-     - Sélectionnez **fichier**, puis **ouvrir...** , puis recherchez le script PowerShell à partir de fichiers téléchargés et ouvrez-le.
-     - Sélectionnez le bouton de lecture vert pour exécuter le script.
 
 >[!IMPORTANT]
 >Pour contribuer à sécuriser votre environnement Windows Virtual Desktop dans Azure, nous vous recommandons de ne pas ouvrir le port entrant 3389 sur vos machines virtuelles. Windows Virtual Desktop ne nécessite pas l’ouverture du port entrant 3389 pour permettre aux utilisateurs d’accéder aux machines virtuelles du pool hôte. Si vous devez ouvrir le port 3389 pour résoudre des problèmes, nous vous recommandons d’utiliser un [accès à la machine virtuelle juste-à-temps](https://docs.microsoft.com/azure/security-center/security-center-just-in-time).

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: martincoetzer
-ms.openlocfilehash: 92546e6aabdf43c2f9cb0339fb21dd2dfc641d44
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8e9101a1e23d361e66c5c30969069cbd4b971590
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60587825"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236763"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Cinq étapes pour sécuriser votre infrastructure d’identité
 
@@ -59,12 +59,12 @@ La plupart des failles de sécurité en entreprise proviennent d’un compte com
 
 De nombreuses organisations utilisent la complexité traditionnelle (qui requiert des caractères spéciaux, des chiffres, des majuscules et des minuscules) et les règles d’expiration des mots de passe. Les[ recherches de Microsoft](https://aka.ms/passwordguidance) ont montré que ces stratégies amènent les utilisateurs à choisir des mots de passe plus faciles à deviner.
 
-La fonctionnalité [mot de passe interdit dynamiquement](https://docs.microsoft.com/azure/active-directory/active-directory-secure-passwords) d’Azure AD utilise le comportement actuel des attaquants pour empêcher les utilisateurs de définir des mots de passe faciles à deviner. Cette fonctionnalité est toujours activée lorsque des utilisateurs sont créés dans le cloud, mais est désormais également disponible pour les organisations hybrides lorsqu’elles déploient [Azure AD password protection for Windows Server Active Directory](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad-on-premises). La protection de mot de passe Azure AD empêche les utilisateurs de choisir ces mots de passe communs et peut être étendue pour bloquer tout mot de passe contenant des mots clés personnalisés spécifiés par vos soins. Vous pouvez par exemple empêcher vos utilisateurs de choisir des mots de passe contenant les noms de produits de votre entreprise ou d’une équipe de sport locale.
+La fonctionnalité [mot de passe interdit dynamiquement](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad) d’Azure AD utilise le comportement actuel des attaquants pour empêcher les utilisateurs de définir des mots de passe faciles à deviner. Cette fonctionnalité est toujours activée lorsque des utilisateurs sont créés dans le cloud, mais est désormais également disponible pour les organisations hybrides lorsqu’elles déploient [Azure AD password protection for Windows Server Active Directory](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad-on-premises). La protection de mot de passe Azure AD empêche les utilisateurs de choisir ces mots de passe communs et peut être étendue pour bloquer tout mot de passe contenant des mots clés personnalisés spécifiés par vos soins. Vous pouvez par exemple empêcher vos utilisateurs de choisir des mots de passe contenant les noms de produits de votre entreprise ou d’une équipe de sport locale.
 
 Microsoft recommande d’adopter la stratégie de mot de passe moderne suivante conformément à l’[aide NIST](https://pages.nist.gov/800-63-3/sp800-63b.html) :
 
 1. Exiger des mots de passe comptant au moins 8 caractères. Un mot de passe plus long n’est pas forcément mieux adapté, car les utilisateurs choisissent alors des mots de passe prévisibles, enregistrent leurs mots de passe dans des fichiers ou les notent quelque part.
-2. Désactivez les règles d’expiration, qui incitent les utilisateurs à choisir des mots de passe faciles à deviner comme **Summer2018!**
+2. Désactiver les règles d’expiration, qui inciter les utilisateurs à deviner les mots de passe comme **Spring2019 !**
 3. Désactivez les exigences de composition de caractères et empêchez les utilisateurs de choisir des mots de passe fréquemment attaqués, car cela incite les utilisateurs à choisir des substitutions de caractères prévisibles dans les mots de passe.
 
 Vous pouvez utiliser [PowerShell pour empêcher l’expiration des mots de passe](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-policy) des utilisateurs en créant des identités directement dans Azure AD. Les organisations hybrides doivent implémenter ces stratégies à l’aide de [paramètres de stratégie de groupe de domaine](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/hh994572(v%3dws.10)) ou de [Windows PowerShell](https://docs.microsoft.com/powershell/module/addsadministration/set-addefaultdomainpasswordpolicy).
@@ -166,7 +166,7 @@ Azure AD Identity Protection fournit deux rapports importants que vous devez sur
 
 ### <a name="audit-apps-and-consented-permissions"></a>Applications d’audit et autorisations accordées
 
-Les utilisateurs peuvent accéder à leur insu à un site web ou à des applications compromis qui accéderont aux informations de leur profil et à leurs données utilisateur, telles que leur adresse e-mail. Un intervenant malveillant peut utiliser les autorisations accordées pour chiffrer le contenu de leur boîte aux lettres et leur demander une rançon pour récupérer les données de leur boîte aux lettres. [Les administrateurs doivent examiner et auditer](https://blogs.technet.microsoft.com/office365security/defending-against-illicit-consent-grants/) les autorisations données par les utilisateurs.
+Les utilisateurs peuvent accéder à leur insu à un site web ou à des applications compromis qui accéderont aux informations de leur profil et à leurs données utilisateur, telles que leur adresse e-mail. Un intervenant malveillant peut utiliser les autorisations accordées pour chiffrer le contenu de leur boîte aux lettres et leur demander une rançon pour récupérer les données de leur boîte aux lettres. [Les administrateurs doivent examiner et auditer](https://docs.microsoft.com/office365/securitycompliance/detect-and-remediate-illicit-consent-grants) les autorisations données par les utilisateurs.
 
 ## <a name="step-5---enable-end-user-self-help"></a>Étape 5 - Activer l’auto-assistance pour l’utilisateur final
 

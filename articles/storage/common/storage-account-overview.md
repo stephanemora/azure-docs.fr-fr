@@ -5,19 +5,19 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 03/06/2019
+ms.date: 05/06/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 52226d07595120395909dd5f47d5d896f5cdaa75
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2eaf819870e2b70cc6238af6d1e9fa1dcb5caab8
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61483642"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236739"
 ---
 # <a name="azure-storage-account-overview"></a>Vue d’ensemble des comptes de stockage Azure
 
-Un compte de stockage Azure contient tous vos objets de données de stockage Azure : objets blob, fichiers, files d’attente, tables et disques. Les données qui se trouvent dans votre compte de stockage Azure sont durables, hautement disponibles, sécurisées, à scalabilité élevée et accessibles partout dans le monde via une connexion HTTP ou HTTPS.
+Un compte de stockage Azure contient tous vos objets de données de stockage Azure : objets blob, fichiers, files d’attente, tables et disques. Le compte de stockage fournit un espace de noms unique pour vos données de stockage Azure qui sont accessibles à partir de n’importe où dans le monde via HTTP ou HTTPS. Données de votre compte de stockage Azure soient durable et hautement disponible, sécurisé et hautement évolutif.
 
 Pour plus d’informations sur la création d’un compte de stockage Azure, consultez [Créer un compte de stockage](storage-quickstart-create-account.md).
 
@@ -32,7 +32,7 @@ Les comptes de stockage v2 à usage général prennent en charge les dernières 
 - Objets blob (tous les types : Block, Append, Page)
 - Fichiers
 - Disques
-- Files d’attente
+- Files d'attente
 - Tables
 
 > [!NOTE]
@@ -49,7 +49,7 @@ Les comptes de stockage universels v1 offrent un accès à tous les services du 
 - Objets blob (tous les types)
 - Fichiers
 - Disques
-- Files d’attente
+- Files d'attente
 - Tables
 
 Même si les comptes de stockage universels v2 sont recommandés dans la plupart des cas, les comptes v1 sont mieux adaptés aux scénarios suivants :
@@ -165,7 +165,7 @@ Pour plus d’informations sur l’API REST du stockage Azure, consultez [Réfé
 > [!IMPORTANT]
 > Les objets blob chiffrés utilisant le chiffrement côté client stockent les métadonnées relatives au chiffrement avec l’objet blob. Si vous copiez un objet blob chiffré avec le chiffrement côté client, assurez-vous que l’opération de copie conserve les métadonnées de l’objet blob, et en particulier les métadonnées relatives au chiffrement. Si vous copiez un objet blob sans ces métadonnées de chiffrement, le contenu de l’objet blob ne peut plus être récupéré. Pour plus d’informations concernant les métadonnées liées au chiffrement, consultez l’article [Chiffrement côté client et Azure Key Vault pour Microsoft Azure Storage](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-### <a name="azure-importexport-service"></a>Service Azure Import/Export
+### <a name="azure-importexport-service"></a>Service Azure Import/Export
 
 Si vous avez une grande quantité de données à importer dans votre compte de stockage, il vous est conseillé d’utiliser le service Import/Export d’Azure. Le service Import/Export est utilisé pour importer des volumes importants de données de manière sécurisée dans le Stockage Blob Azure et Azure Files, en expédiant des lecteurs de disque vers un centre de données Azure. 
 

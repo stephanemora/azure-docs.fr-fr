@@ -6,14 +6,14 @@ author: rboucher
 ms.service: azure-monitor
 ms.subservice: diagnostic-extension
 ms.topic: conceptual
-ms.date: 04/17/2019
+ms.date: 05/08/2019
 ms.author: robb
-ms.openlocfilehash: 81c93900acf2d75eeb8e4fdc8da7d563f3a59595
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 99ac4ffc288773e52183d371ef2c20f6153bc0f3
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60395048"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65471778"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Résolution des problèmes de diagnostics Azure
 Cet article contient des informations de dépannage pour Diagnostics Azure. Pour plus d’informations sur les diagnostics Microsoft Azure, voir [Vue d’ensemble des diagnostics Azure](diagnostics-extension-overview.md).
@@ -28,7 +28,7 @@ Cet article contient des informations de dépannage pour Diagnostics Azure. Pour
 ## <a name="logartifact-paths"></a>Chemins d’accès des journaux/artefacts
 Voici les chemins d’accès de quelques journaux d’activité et artefacts importants. Nous nous référons à ces informations dans le reste du document.
 
-### <a name="azure-cloud-services"></a>Services cloud Azure
+### <a name="azure-cloud-services"></a>Azure Cloud Services
 | Artefact | path |
 | --- | --- |
 | **Fichier de configuration de Diagnostics Azure** | %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version>\Config.txt |
@@ -48,7 +48,7 @@ Voici les chemins d’accès de quelques journaux d’activité et artefacts imp
 | **Fichier de configuration de l’agent de surveillance** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD0107\Configuration\MaConfig.xml |
 | **Fichier d’état** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<version>\Status |
 | **Package d’extension Diagnostics Azure** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>|
-| **Chemin d’accès à l’utilitaire de collecte des journaux** | C:\WindowsAzure\Packages |
+| **Chemin d’accès à l’utilitaire de collecte des journaux** | C:\WindowsAzure\Logs\WaAppAgent.log |
 | **Fichier journal MonAgentHost** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD0107\Configuration\MonAgentHost.<seq_num>.log |
 
 ## <a name="metric-data-doesnt-appear-in-the-azure-portal"></a>Les données métriques ne s’affichent pas dans le portail Azure
@@ -230,9 +230,9 @@ Pour le rôle de service cloud, si vous sélectionnez la configuration à partir
 ### <a name="azure-diagnostics-plugin-exit-codes"></a>Codes de sortie du plug-in Diagnostics Azure
 Le plug-in renvoie les codes de sortie suivants :
 
-| Code de sortie | Description |
+| Code de sortie | Description  |
 | --- | --- |
-| 0 |Vous avez réussi ! |
+| 0 |Réussite. |
 | -1 |Erreur générique. |
 | -2 |Impossible de charger le fichier rcf.<p>Cette erreur interne ne doit se produire que si le lanceur du plug-in d’agent invité est appelé manuellement et de manière incorrecte sur la machine virtuelle. |
 | -3 |Impossible de charger le fichier de configuration Diagnostics.<p><p>Solution : Cette erreur se produit lorsqu’un fichier de configuration ne passe pas l’étape de la validation du schéma. La solution consiste à fournir un fichier de configuration qui est conforme au schéma. |

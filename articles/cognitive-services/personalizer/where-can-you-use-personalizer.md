@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 05/07/2019
 ms.author: edjez
-ms.openlocfilehash: b24e3d7fd71ef60cf8ebe5ba2c33889ff518580c
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: e51ef9afd0e49b690a4f9cab09fdfbd3e86eee66
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025468"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65441042"
 ---
 # <a name="where-can-you-use-personalizer"></a>Où pouvez-vous utiliser Personalizer ?
 
@@ -58,7 +58,7 @@ Vous pouvez surveiller régulièrement l’efficacité de Personalizer en effect
 
 De nombreuses entreprises utilisent des moteurs de recommandation, des outils de marketing et de gestion des campagnes, la segmentation et le clustering de l’audience, le filtrage collaboratif et d’autres moyens pour recommander aux clients les produits d’un catalogue étendu.
 
-Le [dépôt GitHub des générateurs de recommandations de Microsoft ](https://github.com/Microsoft/Recommenders) fournit des exemples et des bonnes pratiques pour créer des systèmes de recommandation, fournis sous la forme de notebooks Jupyter. Il fournit des exemples fonctionnels pour la préparation des données, la création de modèles, et l’évaluation, l’optimisation et l’exploitation des moteurs de recommandation, pour de nombreuses approches courantes, notamment xDeepFM, SAR, ALS, RBM et DKN.
+Le [dépôt GitHub des générateurs de recommandations de Microsoft](https://github.com/Microsoft/Recommenders) fournit des exemples et des bonnes pratiques pour générer des systèmes de recommandation, fournis sous la forme de notebooks Jupyter. Il fournit des exemples fonctionnels pour la préparation des données, la création de modèles, et l’évaluation, l’optimisation et l’exploitation des moteurs de recommandation, pour de nombreuses approches courantes, notamment xDeepFM, SAR, ALS, RBM et DKN.
 
 Personalizer peut fonctionner avec un moteur de recommandation quand il est présent.
 

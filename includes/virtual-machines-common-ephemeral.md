@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/02/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: d7737f73ee4eb9ae9dc8c4845020b7543a5b3495
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 47407df90a83501b8739a428789e20cddc59e83d
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65159164"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65468361"
 ---
 Les disques du système d’exploitation éphémères sont créés sur le stockage local de la Machine virtuelle (VM) et pas conservés dans le stockage Azure à distance. Disques du système d’exploitation éphémères fonctionnent bien pour les charges de travail de sans état, où les applications tolèrent les défaillances isolées de machine virtuelle, mais sont plus préoccupé par le temps que nécessaire pour les déploiements à grande échelle ou de temps pour réimage les instances de machine virtuelle individuelles. Il est également idéale pour les applications déployées à l’aide du modèle de déploiement classique, à déplacer vers le modèle de déploiement Resource Manager. Avec un disque du système d’exploitation éphémère, vous serez observer une latence plus faible en lecture/écriture pour le disque du système d’exploitation et créer une nouvelle image de machine virtuelle plus rapidement. En outre, disque de système d’exploitation éphémère est gratuit, vous encourez sans coût de stockage pour le disque du système d’exploitation. 
  
@@ -30,12 +30,12 @@ Différences clés entre les disques du système d’exploitation persistants et
 |                             | Disque de système d’exploitation persistant                          | Disque de système d’exploitation éphémère                              |    |
 |-----------------------------|---------------------------------------------|------------------------------------------------|
 | Limite de taille de disque de système d’exploitation      | 2 Tio                                                                                        | Taille de la taille de machine virtuelle ou 2TiB, mettre en cache plus petite étant retenue - [DS](../articles/virtual-machines/linux/sizes-general.md), [ES](../articles/virtual-machines/linux/sizes-memory.md), [M](../articles/virtual-machines/linux/sizes-memory.md), [FS](../articles/virtual-machines/linux/sizes-compute.md), et [GS](../articles/virtual-machines/linux/sizes-memory.md)              |
-| Prise en charge des tailles de machine virtuelle          | Tous                                                                                          | DSv1, DSv2, DSv3, Esv2, Fs, FsV2, GS, M                                               |
+| Prise en charge des tailles de machine virtuelle          | Tous                                                                                          | DSv1, DSv2, DSv3, Esv3, Fs, FsV2, GS, M                                               |
 | Prise en charge du type de disque           | Disque de système d’exploitation managée et non managées                                                                | Disque du système d’exploitation géré uniquement                                                               |
 | Prise en charge de la région              | Toutes les régions                                                                                  | Toutes les régions                              |
 | Persistance des données            | Les données de disque du système d’exploitation écrites sur le disque du système d’exploitation sont stockées dans le stockage Azure                                  | Données écrites sur le disque du système d’exploitation sont stockées sur le stockage local de la machine virtuelle et ne sont pas persistant dans le stockage Azure. |
 | État arrêtée-désallouée      | Machines virtuelles et instances de groupe identique peuvent être arrêtée-désallouée et redémarrés à partir de l’état arrêtée-désallouée | Machines virtuelles et instances de groupe identique ne peut pas être arrêtée-désallouée                                  |
-| Prise en charge des disques de système d’exploitation spécialisé | Oui                                                                                          | Non                                                                                  |
+| Prise en charge des disques de système d’exploitation spécialisé | Oui                                                                                          | Non                                                                                 |
 | Redimensionnement du disque du système d’exploitation              | Prise en charge lors de la création de machine virtuelle et une fois que la machine virtuelle est arrêtée-désallouée                                | Prise en charge lors de la création de machine virtuelle uniquement                                                  |
 | Redimensionnement à une nouvelle taille de machine virtuelle   | Les données de disque du système d’exploitation sont conservées.                                                                    | Données sur le disque du système d’exploitation sont supprimées, le système d’exploitation est redéployé                                      |
 
@@ -48,13 +48,13 @@ S’inscrire automatiquement pour la version préliminaire de disques du systèm
 
 ```azurepowershell-interactive
 Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
-Register-AzRmProviderFeature –FeatureName LocalDiffDiskPreview
+Register-AzProviderFeature –FeatureName LocalDiffDiskPreview -ProviderNamespace Microsoft.Compute
 ```
 
 Pour vérifier si vous êtes inscrit pour la version préliminaire :
 
 ```azurepowershell-interactive
-Get-AzRmProviderFeature –FeatureName LocalDiffDiskPreview
+Get-AzProviderFeature –FeatureName LocalDiffDiskPreview -ProviderNamespace Microsoft.Compute
 ```
 
 ### <a name="cli"></a>Interface de ligne de commande
@@ -67,7 +67,7 @@ az feature register --namespace Microsoft.Compute --name LocalDiffDiskPreview
 Pour vérifier si vous êtes inscrit pour la version préliminaire :
  
 ```azurecli-interactive
-az provider show –namespace ‘Microsoft.Compute’
+az provider show --namespace Microsoft.Compute
 ```
 
 

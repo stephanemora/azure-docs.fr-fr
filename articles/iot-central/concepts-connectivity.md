@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: 9e1e85d1ab1c5e7ce0cbd96c64137309c2e2916a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f11d1c6b727799f2cc67c6f5012dc4d117556d2e
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60887456"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65467799"
 ---
 # <a name="device-connectivity-in-azure-iot-central"></a>Connectivité des appareils dans Azure IoT Central
 
@@ -107,7 +107,7 @@ Est d’un scénario clé IoT Central permet aux fabricants OEM fabriquer en sé
 
 Le diagramme suivant illustre ce flux :
 
-![Paramètres de connexion](media/concepts-connectivity/device-connection-flow.png)
+![Paramètres de connexion](media/concepts-connectivity/device-connection-flow1.png)
 
 Les étapes suivantes décrivent ce processus plus en détail. Les étapes diffèrent légèrement selon si vous utilisez des certificats de signature d’accès partagé ou X.509 pour l’authentification des appareils :
 

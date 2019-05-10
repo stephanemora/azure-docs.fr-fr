@@ -7,14 +7,13 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
-ms.workload: Active
-ms.date: 02/15/2019
-ms.openlocfilehash: e306245da2c76560ad447358fa1a57e491c370ee
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 05/07/2019
+ms.openlocfilehash: e2110378d16ff5826b8ded4620276b784ef1d68e
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57855688"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65203351"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-databricks"></a>Didacticiel : Extraire, transformer et charger des données à l’aide d’Azure Databricks
 
@@ -48,13 +47,13 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 Avant de commencer ce tutoriel, effectuez les tâches suivantes :
 
-* Créez un entrepôt de données SQL Azure, créez une règle de pare-feu au niveau du serveur et connectez-vous au serveur en tant qu’administrateur. Consultez [Démarrage rapide : Créer un entrepôt de données SQL Azure](../sql-data-warehouse/create-data-warehouse-portal.md).
+* Créez un entrepôt de données SQL Azure, créez une règle de pare-feu au niveau du serveur et connectez-vous au serveur en tant qu’administrateur. Consultez [Démarrage rapide : Créer et interroger un entrepôt de données SQL Azure dans le portail Azure](../sql-data-warehouse/create-data-warehouse-portal.md).
 
 * Créez une clé principale de base de données pour l’entrepôt de données SQL Azure. Consultez [Créer une clé principale de base de données](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-a-database-master-key).
 
-* Créez un compte de stockage Blob Azure et un conteneur dans celui-ci. Récupérez également la clé d’accès au compte de stockage. Consultez [Démarrage rapide : Créez un compte de stockage Blob Azure](../storage/blobs/storage-quickstart-blobs-portal.md).
+* Créez un compte de stockage Blob Azure et un conteneur dans celui-ci. Récupérez également la clé d’accès au compte de stockage. Consultez [Démarrage rapide : Charger, télécharger et répertorier des objets blob à l’aide du portail Azure](../storage/blobs/storage-quickstart-blobs-portal.md).
 
-* Créez un compte de stockage Azure Data Lake Storage Gen2. Voir [Créer un compte Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-quickstart-create-account.md).
+* Créez un compte de stockage Azure Data Lake Storage Gen2. Consultez [Démarrage rapide : Créer un compte de stockage Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-quickstart-create-account.md).
 
 *  Créer un principal de service. Consultez [Procédure : Utilisez le portail pour créer une application Azure AD et un principal du service pouvant accéder aux ressources](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
 
@@ -355,6 +354,11 @@ Comme mentionné précédemment, le connecteur SQL Data Warehouse utilise le Sto
        .mode("overwrite")
        .save()
    ```
+
+   > [!NOTE]
+   > Cet exemple utilise l’indicateur `forward_spark_azure_storage_credentials`, qui fait en sorte que l’entrepôt de données SQL accède aux données à partir du stockage d’objets blob à l’aide d’une clé d’accès. Il s’agit de la seule méthode d’authentification prise en charge.
+   >
+   > Si votre Stockage Blob Azure est limité à certains réseaux virtuels, SQL Data Warehouse nécessite [Managed Service Identity au lieu de clés d’accès](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Cela génère l’erreur « Cette requête n’est pas autorisée à effectuer cette opération ».
 
 6. Connectez-vous à la base de données SQL et vérifiez que vous y voyez une base de données nommée **SampleTable**.
 

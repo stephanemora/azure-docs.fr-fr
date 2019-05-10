@@ -3,7 +3,7 @@ title: Utilisation de stratégies de sécurité | Microsoft Docs
 description: Cet article décrit comment utiliser des stratégies de sécurité dans Azure Security Center.
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: barbkess
 editor: ''
 ms.assetid: 2d248817-ae97-4c10-8f5d-5c207a8019ea
@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/28/2019
+ms.date: 5/05/2019
 ms.author: monhaber
-ms.openlocfilehash: 1931026869e930caef2ff2f92fb85dade15a9c8c
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 0465f12e3da6acc2ec8f7259ee9f040ccd3ce88e
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62111508"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236308"
 ---
 # <a name="working-with-security-policies"></a>Utilisation de stratégies de sécurité
 
@@ -39,7 +39,7 @@ Vos stratégies de sécurité sont à la source des suggestions de sécurité qu
 Lorsque vous activez Security Center, la stratégie de sécurité intégrée à Security Center est reflétée dans Azure Policy en tant qu’initiative intégrée sous la catégorie Security Center. L’initiative intégrée est automatiquement affectée à tous les abonnements Security Center inscrits (niveaux Gratuit ou Standard). L’initiative intégrée contient uniquement les stratégies d’audit.
 
 
-### <a name="management-groups"></a>Groupes d’administration
+### <a name="management-groups"></a>Groupes d'administration
 Si votre organisation dispose de plusieurs abonnements, vous pouvez avoir besoin d’un moyen de gérer efficacement l’accès, les stratégies et la conformité de ces abonnements. Les groupes d’administration Azure fournissent un niveau d’étendue au-dessus des abonnements. Vous organisez les abonnements en conteneurs appelés « groupes d’administration » et vous appliquez vos stratégies de gouvernance aux groupes d’administration. Tous les abonnements d’un groupe d’administration héritent automatiquement des stratégies appliquées à ce groupe d’administration. Chaque annuaire reçoit un groupe d’administration de niveau supérieur unique appelé groupe d’administration « racine ». Ce groupe d’administration racine est intégré à la hiérarchie et contient tous les groupes d’administration et abonnements. Il permet d’appliquer des stratégies globales et des affectations RBAC au niveau de l’annuaire. Pour configurer des groupes d’administration à utiliser avec Azure Security Center, suivez les instructions fournies dans [Gagner en visibilité au niveau locataire dans Azure Security Center](security-center-management-groups.md).
 
 > [!NOTE]
@@ -110,6 +110,9 @@ Pour plus d’informations sur les recommandations, consultez [gestion des recom
    ![Gestion des stratégies](./media/tutorial-security-policy/policy-management.png)
 
 2. Cliquez sur le groupe d’abonnement ou de gestion pour lequel vous souhaitez désactiver la recommandation.
+
+   > [!Note]
+   > N’oubliez pas qu’un groupe d’administration s’applique à ses stratégies pour ses abonnements. Par conséquent, si vous désactivez les stratégies d’un abonnement, et l’abonnement appartient à un groupe d’administration qui utilise toujours la même stratégie, puis vous continuerez à recevoir les recommandations de stratégies. La stratégie sera toujours appliquée à partir du niveau de gestion et les recommandations continuera d’être générées.
 
 1. Cliquez sur la stratégie affectée.
 
@@ -230,12 +233,12 @@ Cet exemple vous montre comment supprimer une affectation :
 |Mises à jour système |Superviser les mises à jour système manquantes dans Azure Security Center |systemUpdatesMonitoringEffect|
 |Chiffrement du stockage |Auditer le chiffrement d’objet blob manquant pour les comptes de stockage |storageEncryptionMonitoringEffect|
 |Accès réseau JIT |Superviser l’éventuel accès juste-à-temps (JIT) au réseau dans Azure Security Center |jitNetworkAccessMonitoringEffect |
-|Contrôles d’application adaptative |Superviser la configuration éventuelle d’une liste verte d’applications dans Azure Security Center |adaptiveApplicationControlsMonitoringEffect|
+|Contrôles d’applications adaptatifs |Superviser la configuration éventuelle d’une liste verte d’applications dans Azure Security Center |adaptiveApplicationControlsMonitoringEffect|
 |Groupes de sécurité réseau |Superviser l’accès réseau permissif dans Azure Security Center |networkSecurityGroupsMonitoringEffect| 
 |Configurations de sécurité |Superviser les vulnérabilités du système d’exploitation dans Azure Security Center |systemConfigurationsMonitoringEffect| 
-|Protection du point de terminaison |Superviser les agents Endpoint Protection manquants dans Azure Security Center |endpointProtectionMonitoringEffect |
+|Endpoint protection |Superviser les agents Endpoint Protection manquants dans Azure Security Center |endpointProtectionMonitoringEffect |
 |Chiffrement de disque |Superviser les disques de machine virtuelle non chiffrés dans Azure Security Center |diskEncryptionMonitoringEffect|
-|Évaluation des vulnérabilités |Superviser les vulnérabilités de machine virtuelle dans Azure Security Center |vulnerabilityAssessmentMonitoringEffect|
+|Évaluation des vulnérabilités |Surveiller les vulnérabilités de machine virtuelle dans Azure Security Center |vulnerabilityAssessmentMonitoringEffect|
 |Pare-feu d’application web |Superviser les applications web non protégées dans Azure Security Center |webApplicationFirewallMonitoringEffect |
 |Pare-feu de nouvelle génération |Superviser les points de terminaison réseau non protégés dans Azure Security Center| |
 

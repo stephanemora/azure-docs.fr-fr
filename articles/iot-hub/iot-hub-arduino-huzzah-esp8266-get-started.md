@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/11/2018
 ms.author: wesmc
-ms.openlocfilehash: 293901aca3fa1a94c9c6340d2e04f47914db0e07
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 00d0e3a749c4af8faacfed5f725ce16e0492c399
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60783240"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409077"
 ---
 # <a name="connect-adafruit-feather-huzzah-esp8266-to-azure-iot-hub-in-the-cloud"></a>Connecter l’Adafruit Feather HUZZAH ESP8266 à Azure IoT Hub dans le cloud
 
@@ -169,7 +169,7 @@ L’exemple d’application est hébergé sur GitHub. Clonez l’exemple de réf
 9. Dans la fenêtre **Paramètres utilisateur**, copiez et collez le texte suivant à la fin du fichier
 
    ```json
-   "arduino.additionalUrls": "http://arduino.esp8266.com/stable/package_esp8266com_index.json"
+   "arduino.additionalUrls": "https://arduino.esp8266.com/stable/package_esp8266com_index.json"
    ```
 
    ![Configurez l’URL du package Arduino dans VS Code](media/iot-hub-arduino-huzzah-esp8266-get-started/12_vscode-package-url.png)
@@ -224,7 +224,7 @@ L’exemple d’application permet de simuler des données de température et d�
 
 2. Entrez `F1`, puis tapez **Arduino** et sélectionnez **Arduino : Télécharger** pour générer et déployer l’exemple d’application sur la carte Feather HUZZAH ESP8266.
 
-### <a name="enter-your-credentials"></a>Entrer vos informations d’identification
+### <a name="enter-your-credentials"></a>Entrez vos informations d'identification
 
 Une fois le chargement terminé, suivez cette procédure pour entrer vos informations d’identification :
 

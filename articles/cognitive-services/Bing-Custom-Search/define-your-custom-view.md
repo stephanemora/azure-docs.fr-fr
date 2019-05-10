@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
-ms.openlocfilehash: c4cb93e39a67e13646a339af6ac999a8fd96b383
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 83ae5f923130ecb46b7b94cd8112ee45ae13e3f4
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62129637"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236255"
 ---
 # <a name="configure-your-bing-custom-search-experience"></a>Configurer votre expérience de Recherche personnalisée Bing
 
@@ -25,9 +25,9 @@ Le portail vous permet de créer une instance de recherche qui spécifie les sec
 
 Utilisez les éléments suivants pour définir vos sections du web :
 
-| Nom de la section | Description                                                                                                                                                                                                                                                                                                |
+| Nom de la section | Description                                                                                                                                                                                                                                                                                                 |
 |------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Domaine     | Une section de domaine inclut tout le contenu trouvé dans un domaine internet. Par exemple : `www.microsoft.com`. L’omission de `www.` oblige Bing à rechercher également dans les sous-domaines du domaine. Par exemple, si vous spécifiez  `microsoft.com`, Bing renvoie également les résultats de  `support.microsoft.com` ou `technet.microsoft.com`. |
+| Domaine     | Une section de domaine inclut tout le contenu trouvé dans un domaine internet. Par exemple : `www.microsoft.com`. L’omission de `www.` oblige Bing à rechercher également dans les sous-domaines du domaine. Par exemple, si vous spécifiez `microsoft.com`, Bing renvoie également les résultats à partir de `support.microsoft.com` ou `technet.microsoft.com`. |
 | Sous-page    | Une section de sous-page comprend tout le contenu trouvé dans la sous-page, et les chemins situés en dessous de celle-ci. Vous pouvez indiquer un maximum de deux sous-pages dans le chemin. Par exemple, `www.microsoft.com/en-us/windows/`                                                                                                                       |
 | Page web    | Une section de page Web ne peut inclure que cette page Web dans une recherche personnalisée. Si vous le souhaitez, vous pouvez préciser s’il faut inclure ou non les sous-pages.                                                                                                                                                                                  |
 
@@ -118,9 +118,9 @@ Le portail vous permet également d’épingler des URL en tête des résultats 
 
 Vous pouvez épingler une page web en tête des résultats de deux manières :
 
-* Sous l’onglet  **Pinned**  (Épinglé), entrez l’URL de la page web à épingler en tête des résultats et la requête correspondante.
+* Dans le **épinglés** , entrez l’URL de la page Web pour épingler à la partie supérieure et de la requête correspondante.
 
-* Dans le volet **Preview** (Visualisation), entrez une requête de recherche, puis cliquez sur Search (Rechercher). Recherchez la page web à épingler pour votre requête, puis cliquez sur **Pin to top** (Épingler en haut). La page web et la requête seront ajoutées à la liste **Pinned** (Épinglé).
+* Dans le volet **Preview** (Visualisation), entrez une requête de recherche, puis cliquez sur Search (Rechercher). Rechercher la page Web que vous souhaitez épingler pour votre requête, puis cliquez sur **épingler au haut**. La page web et la requête seront ajoutées à la liste **Pinned** (Épinglé).
 
 ### <a name="specify-the-pins-match-condition"></a>Spécifier la condition de correspondance de l’épingle
 
@@ -129,11 +129,11 @@ Par défaut, des pages web ne sont épinglées en tête des résultats de recher
 > [!NOTE]
 > Les comparaisons entre la requête de recherche de l’utilisateur et la requête de recherche de l’épingle ne respectent pas la casse.
 
-| Valeur | Description                                                                          |
+| Valeur | Description                                                                           |
 |---------------|----------------------------------------------------------------------------------|
 | Starts With (Commence par) | Une correspondance d’épingle est trouvée si la chaîne de requête de l’utilisateur commence par la chaîne de requête de l’épingle. |
 | Ends with (Se termine par)   | Une correspondance d’épingle est trouvée si la chaîne de requête de l’utilisateur se termine par la chaîne de requête de l’épingle.  |
-| Contains    | Une correspondance d’épingle est trouvée si la chaîne de requête de l’utilisateur contient la chaîne de requête de l’épingle.   |
+| Contient    | Une correspondance d’épingle est trouvée si la chaîne de requête de l’utilisateur contient la chaîne de requête de l’épingle.   |
 
 
 Pour modifier la condition de correspondance de l’épingle, cliquez sur l’icône de modification de l’épingle. Dans la colonne **Query match condition** (Condition de correspondance de la requête), cliquez sur la liste déroulante, puis sélectionnez la nouvelle condition à utiliser. Ensuite, cliquez sur l’icône d’enregistrement pour enregistrer les modifications.
@@ -144,7 +144,7 @@ Pour modifier l’ordre de vos épingles, vous pouvez les glisser-déplacer ou m
 
 Si plusieurs épingles remplissent une condition de correspondance, Recherche personnalisée Bing utilise la plus élevée dans la liste.
 
-## <a name="view-statistics"></a>Consulter les statistiques
+## <a name="view-statistics"></a>Afficher les statistiques
 
 Si vous êtes abonné au niveau approprié de la Recherche personnalisée (voir les [Tarifs](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/)), un onglet **Statistics** (Statistiques) est ajouté à vos instances de production. Cet onglet de statistiques affiche des informations détaillées sur l’utilisation de vos points de terminaison de Recherche personnalisée, notamment sur le volume d’appels, les requêtes principales, la répartition géographique, les codes de réponse et la recherche sécurisée. Vous pouvez filtrer ces informations à l’aide des contrôles fournis.
 

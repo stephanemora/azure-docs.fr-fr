@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/12/2018
 ms.author: shlo
-ms.openlocfilehash: 183c6aea5aaf84c9d0ed635cac55074a5256851e
-ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.openlocfilehash: 93a83545699e3536eb0045d538225d01cd1a96a2
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64872540"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65235640"
 ---
 # <a name="system-variables-supported-by-azure-data-factory"></a>Variables système prises en charge par Azure Data Factory
 Cet article décrit les variables système prises en charge par Azure Data Factory. Vous pouvez utiliser ces variables dans des expressions lors de la définition des entités Data Factory.
@@ -25,7 +25,7 @@ Cet article décrit les variables système prises en charge par Azure Data Facto
 ## <a name="pipeline-scope"></a>Étendue du pipeline
 Ces variables système peuvent être référencées n’importe où dans le code JSON de pipeline.
 
-| Nom de la variable | Description |
+| Nom de la variable | Description  |
 | --- | --- |
 | @pipeline().DataFactory |Nom de la fabrique de données dans laquelle le pipeline s’exécute |
 | @pipeline().Pipeline |Nom du pipeline |
@@ -38,15 +38,16 @@ Ces variables système peuvent être référencées n’importe où dans le code
 ## <a name="schedule-trigger-scope"></a>Étendue de déclencheur de planification
 Ces variables système peuvent être référencées n’importe où dans le déclencheur JSON si le déclencheur est de type : « ScheduleTrigger ».
 
-| Nom de la variable | Description |
+| Nom de la variable | Description  |
 | --- | --- |
 | @trigger().scheduledTime |Heure à laquelle le déclencheur a été planifié pour appeler l’exécution du pipeline. Par exemple, pour un déclencheur qui se déclenche toutes les 5 min, cette variable retournerait `2017-06-01T22:20:00Z`, `2017-06-01T22:25:00Z`, `2017-06-01T22:29:00Z`, respectivement.|
 | @trigger().startTime |Heure à laquelle le déclencheur a été **effectivement** déclenché pour appeler l’exécution du pipeline. Par exemple, pour un déclencheur qui se déclenche toutes les 5 min, cette variable pourrait retourner des valeurs similaires à `2017-06-01T22:20:00.4061448Z`, `2017-06-01T22:25:00.7958577Z`, `2017-06-01T22:29:00.9935483Z`, respectivement. (Remarque : L’horodatage est par défaut au format ISO 8601)|
 
 ## <a name="tumbling-window-trigger-scope"></a>Étendue de déclencheur de fenêtre bascule
 Ces variables système peuvent être référencées n’importe où dans le déclencheur JSON si le déclencheur est de type : « TumblingWindowTrigger ».
+(Remarque : L’horodatage est par défaut au format ISO 8601)
 
-| Nom de la variable | Description |
+| Nom de la variable | Description  |
 | --- | --- |
 | @trigger().outputs.windowStartTime |Début de la fenêtre pendant laquelle le déclencheur a été planifié pour appeler l’exécution du pipeline. Si le déclencheur de la fenêtre bascule a une fréquence « horaire », cela correspond au début de l’heure.|
 | @trigger().outputs.windowEndTime |Fin de la fenêtre pendant laquelle le déclencheur a été planifié pour appeler l’exécution du pipeline. Si le déclencheur de la fenêtre bascule a une fréquence « horaire », cela correspond à la fin de l’heure.|

@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 4/15/2019
+ms.date: 5/8/2019
 ms.author: barclayn
-ms.openlocfilehash: d432dc25a1995a2f0348c7626a051f46ffbf418b
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: b73b6bdc0158591565281ca2e86a9a474c4196d9
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62118976"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65467734"
 ---
 # <a name="frequently-asked-questions-faq"></a>Forum Aux Questions (FAQ)
 
@@ -233,7 +233,7 @@ Microsoft n’a pas la possibilité de se connecter aux modules HSM alloués aux
 
 ### <a name="q-what-if-i-need-to-reboot-my-hsm"></a>Q : Que se passe-t-il si j’ai besoin de redémarrer mon HSM ?
 
- Le module HSM dispose d’une option de redémarrage de ligne de commande et il convient de noter que l’option « redémarrer » doit être utilisée. En cas d’échec pour une raison quelconque, déclenche une demande de support avec Microsoft et nous pouvons avoir l’appareil physiquement redémarré. 
+Le module HSM a une option de ligne de commande de redémarrage, toutefois, nous vous rencontrez des problèmes de blocage de redémarrage par intermittence et c’est pourquoi qu'il est recommandé pour la plus sûre, redémarrez que vous déclenchez une demande de support auprès de Microsoft pour que l’appareil physiquement redémarré. 
 
 ## <a name="cryptography-and-standards"></a>Chiffrement et standards
 

@@ -9,12 +9,12 @@ ms.service: logic-apps
 ms.suite: integration
 ms.topic: article
 ms.date: 03/29/2019
-ms.openlocfilehash: 8445b67fa049116d93f3710ff108f904ca7ecd77
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 65fe89bf775a649d5654ce739d8d18e05d3048ca
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60428144"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65416110"
 ---
 # <a name="authenticate-and-access-resources-with-managed-identities-in-azure-logic-apps"></a>S’authentifier et accéder aux ressources avec des identités managées dans Azure Logic Apps
 
@@ -59,7 +59,7 @@ Pour activer une identité managée attribuée par le système pour votre applic
 
    ![GUID de l’ID d’objet](./media/create-managed-service-identity/object-id.png)
 
-   | Propriété | Valeur | Description | 
+   | Propriété | Valeur | Description  | 
    |----------|-------|-------------| 
    | **ID d’objet** | <*identity-resource-ID*> | Identificateur global unique (GUID) qui représente l’identité managée attribuée par le système pour votre application logique dans un locataire Azure AD | 
    ||| 
@@ -76,7 +76,7 @@ Lorsque vous souhaitez automatiser la création et le déploiement des ressource
 }
 ```
 
-Par exemple : 
+Exemple :
 
 ```json
 {
@@ -111,7 +111,7 @@ Quand Azure crée votre application logique, la définition de flux de travail d
 }
 ```
 
-| Propriété | Valeur | Description | 
+| Propriété | Valeur | Description  | 
 |----------|-------|-------------|
 | **principalId** | <*principal-ID*> | Identificateur global unique (GUID) qui représente l’application logique dans le locataire Azure AD et qui s’affiche parfois comme « ID d’objet » ou `objectID` | 
 | **tenantId** | <*Azure-AD-tenant-ID*> | Identificateur global unique (GUID) qui représente le locataire Azure AD où l’application logique est maintenant un membre. À l’intérieur du locataire Azure AD, le principal du service a le même nom que l’instance d’application logique. | 
@@ -132,7 +132,7 @@ Pour que l’accès à une autre ressource Azure soit accordé à l’identité 
 
 1. Dans le Portail Azure, accédez à la ressource Azure pour laquelle vous souhaitez attribuer l’accès à votre identité managée. 
 
-1. Dans le menu de la ressource, sélectionnez **Contrôle d’accès (IAM)**, puis choisissez **Ajouter une attribution de rôle**. 
+1. Dans le menu de la ressource, sélectionnez **contrôle d’accès (IAM)**. Dans la barre d’outils, choisissez **ajouter** > **ajouter une attribution de rôle**.
 
    ![Ajouter une attribution de rôle](./media/create-managed-service-identity/add-permissions-logic-app.png)
 

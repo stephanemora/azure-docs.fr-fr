@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/12/2018
 ms.author: aljo
-ms.openlocfilehash: 3ddda89b19a04bdcd45f392f297ee5e930833538
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8fa461d8c3a70d4b0d2d9973a840ffc7d1ff6470
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60711598"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472761"
 ---
 # <a name="upgrading-and-updating-an-azure-service-fabric-cluster"></a>Mise à niveau et mise à jour d’un cluster Azure Service Fabric
 
@@ -99,7 +99,7 @@ Vous pouvez spécifier des stratégies de contrôle d’intégrité personnalis�
 De nombreux paramètres de configuration différents peuvent être personnalisés sur un cluster, tels que le niveau de fiabilité des propriétés du cluster et des nœuds. Pour plus d’informations, consultez [Paramètres de structure du cluster Service Fabric](service-fabric-cluster-fabric-settings.md).
 
 ## <a name="patch-the-os-in-the-cluster-nodes"></a>Appliquer des correctifs au système d’exploitation dans les nœuds du cluster
-L’application d’orchestration des correctifs est une application Service Fabric qui automatise l’application de correctifs du système d’exploitation sur un cluster Service Fabric sans temps d’arrêt. L’[application d’orchestration des correctifs pour Windows](service-fabric-patch-orchestration-application.md) ou l’[application d’orchestration des correctifs pour Linux](service-fabric-patch-orchestration-application-linux.md) peut être déployée sur votre cluster pour installer des correctifs de manière orchestrée, tout en maintenant les services disponibles en permanence. 
+L’application d’orchestration des correctifs est une application Service Fabric qui automatise l’application de correctifs du système d’exploitation sur un cluster Service Fabric sans temps d’arrêt. L’[application d’orchestration des correctifs pour Windows](service-fabric-patch-orchestration-application.md) peut être déployée sur votre cluster pour installer des correctifs de manière orchestrée, tout en maintenant les services disponibles en permanence.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

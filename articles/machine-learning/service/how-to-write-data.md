@@ -12,12 +12,12 @@ manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: d8644c2c0d4ee5b6ee4dcf16e470e4f2fa478237
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 0275d27a0a27d0279886f6f7fd15b14d312a44ea
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65023708"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472003"
 ---
 # <a name="write-and-configure-data--with-the-azure-machine-learning-data-prep-sdk"></a>Écrire et de configurer les données avec le SDK Azure Machine Learning Data Prep
 
@@ -25,6 +25,7 @@ Dans cet article, vous découvrez différentes méthodes pour écrire des donné
 
 > [!Important]
 > Si vous générez une nouvelle solution, essayez le [jeux de données Azure Machine Learning](how-to-explore-prepare-data.md) (version préliminaire) pour transformer vos données, les données d’instantané et de stocker les définitions de jeu de données avec contrôle de version. Jeux de données est la prochaine version de la préparation des données SDK, offre des fonctionnalités étendues pour la gestion des jeux de données dans les solutions d’intelligence artificielle.
+> Si vous utilisez le `azureml-dataprep` package pour créer un flux de données avec vos transformations au lieu d’utiliser le `azureml-datasets` package pour créer un jeu de données, vous ne pourrez pas utiliser des instantanés ou des jeux de données avec version ultérieurement.
 
 Dans la mesure où il n’existe pas de limitation quant au nombre d’étapes d’écriture qu’un pipeline peu contenir, vous pouvez facilement d’écrire des étapes pour obtenir des résultats intermédiaires utilisables pour la résolution des problèmes ou dans d’autres pipelines.
 
@@ -89,11 +90,11 @@ Exemple de sortie :
 
 | | Colonne1 | Colonne2 | Colonne3 | Colonne4 | Colonne5 | Colonne6 | Colonne7 | Colonne8 | Colonne9 |
 | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- |
-|0| 10000.0 | 99999.0 | ERROR | NON | NON | ENRS | NaN    | NaN | NaN |   
-|1| 10003.0 | 99999.0 | ERROR | NON | NON | ENSO |    NaN | NaN | NaN |   
-|2| 10010.0 | 99999.0 | ERROR | NON | JN | ENJA |    70933.0 | -8667.0 | 90.0 |
-|3| 10013.0 | 99999.0 | ERROR | NON | NON |     | NaN | NaN | NaN |
-|4| 10014.0 | 99999.0 | ERROR | NON | NON | ENSO |    59783.0 | 5350.0 |  500.0|
+|0| 10000.0 | 99999.0 | ERREUR | NON | NON | ENRS | NaN    | NaN | NaN |   
+|1| 10003.0 | 99999.0 | ERREUR | NON | NON | ENSO |    NaN | NaN | NaN |   
+|2| 10010.0 | 99999.0 | ERREUR | NON | JN | ENJA |    70933.0 | -8667.0 | 90.0 |
+|3| 10013.0 | 99999.0 | ERREUR | NON | NON |     | NaN | NaN | NaN |
+|4| 10014.0 | 99999.0 | ERREUR | NON | NON | ENSO |    59783.0 | 5350.0 |  500.0|
 
 Dans la sortie précédente, plusieurs erreurs apparaissent dans les colonnes numériques, car certains nombres n’ont pas été analysés correctement. Lorsqu’elles sont écrites au format CSV, les valeurs Null sont par défaut remplacées par la chaîne « ERROR ».
 

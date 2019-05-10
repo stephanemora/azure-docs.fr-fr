@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: malop;kumud
-ms.openlocfilehash: ad35d440904c7b65e27b4ead75cec00daa20f8ff
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 011ce61f9ac0656db8804c203000f54a7146afe0
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60596315"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408200"
 ---
 # <a name="virtual-network-traffic-routing"></a>Routage du trafic de réseau virtuel
 
@@ -32,7 +32,7 @@ Azure crée des itinéraires système automatiquement et assigne les itinéraire
 Chaque itinéraire comporte un préfixe d’adresse et le type de tronçon suivant. Lorsque le trafic sortant d’un sous-réseau est envoyé à une adresse IP dans le préfixe d’adresse d’un itinéraire, l’itinéraire qui contient le préfixe est l’itinéraire utilisé par Azure. En savoir plus sur [la façon dont Azure choisit un itinéraire](#how-azure-selects-a-route) lorsque plusieurs itinéraires contiennent les mêmes préfixes, ou des préfixes qui se chevauchent. Chaque fois qu’un réseau virtuel est créé, Azure crée automatiquement les itinéraires système par défaut suivants pour chaque sous-réseau au sein du réseau virtuel :
 
 
-|Source |Préfixes d’adresse                                        |Type de tronçon suivant  |
+|Source |Préfixes d'adresse                                        |Type de tronçon suivant  |
 |-------|---------                                               |---------      |
 |Default|Unique pour le réseau virtuel                           |Réseau virtuel|
 |Default|0.0.0.0/0                                               |Internet       |
@@ -57,11 +57,11 @@ Les types de tronçon suivants répertoriés dans le tableau précédent représ
 
 Azure ajoute des itinéraires système par défaut supplémentaires pour les différentes fonctionnalités d’Azure, mais uniquement celles que vous activez. En fonction de la fonctionnalité, Azure ajoute les itinéraires par défaut facultatifs soit à des sous-réseaux spécifiques ou à tous les sous-réseaux au sein d’un réseau virtuel. Les itinéraires système supplémentaires et les types de tronçon suivants qu’Azure peut ajouter lorsque vous activez des fonctionnalités différentes sont :
 
-|Source                 |Préfixes d’adresse                       |Type de tronçon suivant|Sous-réseau au sein d’un réseau virtuel auquel l’itinéraire est ajouté|
+|Source                 |Préfixes d'adresse                       |Type de tronçon suivant|Sous-réseau au sein d’un réseau virtuel auquel l’itinéraire est ajouté|
 |-----                  |----                                   |---------                    |--------|
 |Default                |Unique pour le réseau virtuel, par exemple : 10.1.0.0/16|Homologation de réseaux virtuels                 |Tous|
 |Passerelle de réseau virtuel|Préfixes publiés à partir du site via le protocole BGP, ou configurés dans la passerelle de réseau local     |Passerelle de réseau virtuel      |Tous|
-|Default                |Multiple                               |VirtualNetworkServiceEndpoint|Seul le sous-réseau pour lequel un point de terminaison de service est activé.|
+|Default                |Plusieurs                               |VirtualNetworkServiceEndpoint|Seul le sous-réseau pour lequel un point de terminaison de service est activé.|
 
 - **Homologation de réseau virtuel (VNet)**  : lorsque vous créez une homologation de réseau virtuel entre deux réseaux virtuels, un itinéraire est ajouté pour chaque plage d’adresses dans l’espace d’adressage de chaque réseau virtuel pour laquelle une homologation est créée. En savoir plus sur l’[homologation de réseaux virtuels](virtual-network-peering-overview.md).  
 - **Passerelle de réseau virtuel** : un ou plusieurs itinéraires avec *passerelle de réseau virtuel* répertorié comme le type de tronçon suivant sont ajoutés lorsqu’une passerelle de réseau virtuel est ajoutée à un réseau virtuel. La source est également *passerelle de réseau virtuel*, car la passerelle ajoute les itinéraires au sous-réseau. Si votre passerelle de réseau local échange des itinéraires Border Gateway Protocol ([BGP](#border-gateway-protocol)) avec une passerelle de réseau virtuel Azure, un itinéraire est ajouté pour chaque itinéraire propagé à partir de la passerelle de réseau local. Nous vous recommandons de résumer les itinéraires locaux aux plages d’adresses les plus vastes possible, afin que le plus petit nombre possible d’itinéraires soit propagé vers une passerelle de réseau virtuel Azure. Le nombre d’itinéraires que vous pouvez propager vers une passerelle de réseau virtuel Azure est limité. Pour plus d’informations, consultez [limites Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits).
@@ -112,7 +112,7 @@ Le nom affiché et référencé pour les types de tronçon suivants diffère ent
 |Homologation de réseaux virtuels         |Homologation de réseaux virtuels                                    |Non applicable|
 |Point de terminaison de service de réseau virtuel|VirtualNetworkServiceEndpoint                   |Non applicable|
 
-### <a name="border-gateway-protocol"></a>Protocole de passerelle frontière
+### <a name="border-gateway-protocol"></a>Border Gateway Protocol
 
 Une passerelle de réseau local peut échanger les itinéraires avec une passerelle de réseau virtuel Azure à l’aide du protocole de passerelle frontière (BGP). L’utilisation du protocole BGP avec une passerelle de réseau virtuel Azure dépend du type que vous avez sélectionné lorsque vous avez créé la passerelle. Si le type que vous avez sélectionné était :
 
@@ -139,7 +139,7 @@ Si plusieurs itinéraires contiennent le même préfixe d’adresse, Azure chois
 Par exemple, une table de routage contient les itinéraires suivants :
 
 
-|Source   |Préfixes d’adresse  |Type de tronçon suivant           |
+|Source   |Préfixes d'adresse  |Type de tronçon suivant           |
 |---------|---------         |-------                 |
 |Default  | 0.0.0.0/0        |Internet                |
 |Utilisateur     | 0.0.0.0/0        |Passerelle de réseau virtuel |
@@ -199,33 +199,33 @@ L’illustration suivante montre une mise en œuvre basée sur le modèle de dé
 
 Flèches indiquent le flux du trafic. 
 
-### <a name="route-tables"></a>Tables de routage
+### <a name="route-tables"></a>Tables d'itinéraires
 
 #### <a name="subnet1"></a>Sous-réseau1
 
 La table de routage du *Sous-réseau1* dans l’image contient les itinéraires suivants :
 
-|ID  |Source |État  |Préfixes d’adresse    |Type de tronçon suivant          |Adresse IP de tronçon suivant|Nom d’itinéraire défini par l’utilisateur| 
+|ID  |Source |État  |Préfixes d'adresse    |Type de tronçon suivant          |Adresse IP du nouveau tronçon|Nom d’itinéraire défini par l’utilisateur| 
 |----|-------|-------|------              |-------                |--------           |--------      |
 |1   |Default|Non valide|10.0.0.0/16         |Réseau virtuel        |                   |              |
-|2   |Utilisateur   |Actif |10.0.0.0/16         |Appliance virtuelle      |10.0.100.4         |Au sein de VNet1  |
-|3   |Utilisateur   |Actif |10.0.0.0/24         |Réseau virtuel        |                   |Dans le Sous-réseau1|
+|2   |Utilisateur   |Active |10.0.0.0/16         |Appliance virtuelle      |10.0.100.4         |Au sein de VNet1  |
+|3   |Utilisateur   |Active |10.0.0.0/24         |Réseau virtuel        |                   |Dans le Sous-réseau1|
 |4   |Default|Non valide|10.1.0.0/16         |Homologation de réseaux virtuels           |                   |              |
 |5.   |Default|Non valide|10.2.0.0/16         |Homologation de réseaux virtuels           |                   |              |
-|6.   |Utilisateur   |Actif |10.1.0.0/16         |Aucun                   |                   |ToVNet2-1-Drop|
-|7   |Utilisateur   |Actif |10.2.0.0/16         |Aucun                   |                   |ToVNet2-2-Drop|
+|6.   |Utilisateur   |Active |10.1.0.0/16         |Aucun                   |                   |ToVNet2-1-Drop|
+|7   |Utilisateur   |Active |10.2.0.0/16         |Aucun                   |                   |ToVNet2-2-Drop|
 |8   |Default|Non valide|10.10.0.0/16        |Passerelle de réseau virtuel|[X.X.X.X]          |              |
-|9   |Utilisateur   |Actif |10.10.0.0/16        |Appliance virtuelle      |10.0.100.4         |To-On-Prem    |
-|10  |Default|Actif |[X.X.X.X]           |VirtualNetworkServiceEndpoint    |         |              |
+|9   |Utilisateur   |Active |10.10.0.0/16        |Appliance virtuelle      |10.0.100.4         |To-On-Prem    |
+|10  |Default|Active |[X.X.X.X]           |VirtualNetworkServiceEndpoint    |         |              |
 |11  |Default|Non valide|0.0.0.0/0           |Internet               |                   |              |
-|12  |Utilisateur   |Actif |0.0.0.0/0           |Appliance virtuelle      |10.0.100.4         |Default-NVA   |
+|12  |Utilisateur   |Active |0.0.0.0/0           |Appliance virtuelle      |10.0.100.4         |Default-NVA   |
 
 Les identificateurs d’itinéraire sont décrits ci-dessous :
 
 1. Azure a automatiquement ajouté cet itinéraire pour tous les sous-réseaux de *Virtual-network-1*, car 10.0.0.0/16 est la seule plage d’adresses définie dans l’espace d’adressage du réseau virtuel. Si l’itinéraire défini par l’utilisateur dans l’itinéraire ID2 n’a pas été créé, le trafic envoyé vers n’importe quelle adresse entre 10.0.0.1 et 10.0.255.254 est acheminé dans le réseau virtuel, car le préfixe est plus long que 0.0.0.0/0 et ne fait pas partie des préfixes d’adresse de tous les autres itinéraires. Azure change automatiquement l’état de *Actif* à *Non valide*, lorsque ID2, un itinéraire défini par l’utilisateur, est ajouté, car il a le même préfixe que l’itinéraire par défaut, et les itinéraires définis par l’utilisateur substituent les itinéraires par défaut. L’état de cet itinéraire est toujours *Actif* pour le *Sous-réseau2*, car la table de routage à laquelle appartient l’itinéraire défini par l’utilisateur, ID2, n’est pas associée au *Sous-réseau2*.
 2. Azure a ajouté cet itinéraire lorsqu’un itinéraire défini par l’utilisateur pour le préfixe d’adresse 10.0.0.0/16 a été associé au *Sous-réseau1* dans le réseau virtuel *Virtual-network-1*. L’itinéraire défini par l’utilisateur spécifie 10.0.100.4 comme l’adresse IP de l’appliance virtuelle, car cette adresse est l’adresse IP privée affectée à la machine virtuelle de l’appliance virtuelle. La table de routage à laquelle cet itinéraire appartient n’est pas associée au *Sous-réseau2*, et n’apparaît donc pas dans la table de routage du *Sous-réseau2*. Cet itinéraire remplace l’itinéraire par défaut pour le préfixe 10.0.0.0/16 (ID1), qui a automatiquement acheminé le trafic adressé à 10.0.0.1 et à 10.0.255.254 dans le réseau virtuel via le type de tronçon suivant de réseau virtuel. Cet itinéraire existe pour répondre à l’[exigence](#requirements) 3, afin de forcer tout le trafic sortant à traverser une appliance virtuelle.
 3. Azure a ajouté cet itinéraire lorsqu’un itinéraire défini par l’utilisateur pour le préfixe d’adresse 10.0.0.0/24 a été associé au *Sous-réseau1*. Le trafic destiné aux adresses comprises entre 10.0.0.1 et 10.0.0.254 reste dans le sous-réseau, au lieu d’être acheminé vers l’appliance virtuelle spécifiée dans la règle précédente (ID2), car il a un préfixe plus long que l’itinéraire ID2. Cet itinéraire n’a pas été associé au *Sous-réseau2*, et n’apparaît donc pas dans la table de routage du *Sous-réseau2*. Cet itinéraire substitue efficacement l’itinéraire ID2 pour le trafic au sein du *Sous-réseau1*. Cet itinéraire existe pour répondre à l’[exigence](#requirements) 3.
-4. Azure a ajouté automatiquement les itinéraires dans ID 4 et 5 pour tous les sous-réseaux de *Virtual-network-1*, lorsque le réseau virtuel a été homologué avec *Virtual-network-2.* *Virtual-network-2* contient deux plages d’adresses dans son espace d’adressage : 10.1.0.0/16 et 10.2.0.0/16, Azure a donc ajouté un itinéraire pour chaque plage. Si les itinéraires définis par l’utilisateur dans l’itinéraire ID 6 et 7 n’ont pas été créés, le trafic envoyé vers n’importe quelle adresse entre 10.1.0.1-10.1.255.254 et 10.2.0.1-10.2.255.254 serait acheminé vers le réseau virtuel homologué, car le préfixe est plus long que 0.0.0.0/0 et ne fait pas partie des préfixes d’adresse de tous les autres itinéraires. Azure a automatiquement changé l’état de *Actif* à *Non valide* lorsque les itinéraires dans ID 6 et 7 ont été ajoutés, car ils ont les mêmes préfixes que les itinéraires dans ID 4 et 5 et les itinéraires définis par l’utilisateur substituent les itinéraires par défaut. L’état des itinéraires dans ID 4 et 5 est toujours *Actif* pour le *Sous-réseau2*, car la table de routage à laquelle appartiennent les itinéraires définis par l’utilisateur dans ID 4 et 5 n’est pas associée au *Sous-réseau2*. Une homologation de réseau virtuel a été créée pour répondre à [l’exigence](#requirements) 1.
+4. Azure a ajouté automatiquement les itinéraires dans ID 4 et 5 pour tous les sous-réseaux de *Virtual-network-1*, lorsque le réseau virtuel a été homologué avec *Virtual-network-2.* *Virtual-network-2* contient deux plages d’adresses dans son espace d’adressage : 10.1.0.0/16 et 10.2.0.0/16, Azure a donc ajouté un itinéraire pour chaque plage. Si les itinéraires définis par l’utilisateur dans l’itinéraire ID 6 et 7 n’ont pas été créés, le trafic envoyé vers n’importe quelle adresse entre 10.1.0.1-10.1.255.254 et 10.2.0.1-10.2.255.254 serait acheminé vers le réseau virtuel homologué, car le préfixe est plus long que 0.0.0.0/0 et ne fait pas partie des préfixes d’adresse de tous les autres itinéraires. Azure a automatiquement changé l’état de *Actif* à *Non valide* lorsque les itinéraires dans ID 6 et 7 ont été ajoutés, car ils ont les mêmes préfixes que les itinéraires dans ID 4 et 5 et les itinéraires définis par l’utilisateur substituent les itinéraires par défaut. L’état des itinéraires dans ID 4 et 5 sont toujours *Active* pour *Subnet2*, car la table de routage les itinéraires définis par l’utilisateur dans ID 6 et 7 sont, n’est pas associé à *sous-réseau2*. Une homologation de réseau virtuel a été créée pour répondre à [l’exigence](#requirements) 1.
 5. Même explication que pour ID4.
 6. Azure a ajouté cet itinéraire et l’itinéraire dans ID7 lorsque les itinéraires définis par l’utilisateur pour les préfixes d’adresse 10.1.0.0/16 et 10.2.0.0/16 ont été associés au *Sous-réseau1*. Le trafic destiné aux adresses comprises entre 10.1.0.1 et 10.1.255.254 et entre 10.2.0.1 et 10.2.255.254 est supprimé par Azure au lieu d’être acheminé vers le réseau virtuel homologué, car les itinéraires définis par l’utilisateur remplacent les itinéraires par défaut. Les itinéraires ne sont pas associés au *Sous-réseau2*, et n’apparaissent donc pas dans la table de routage du *Sous-réseau2*. Les itinéraires remplacent les itinéraires ID4 et ID5 pour le trafic sortant du *Sous-réseau1*. Les itinéraires ID6 et ID7 existent pour répondre à [l’exigence](#requirements) 3 afin de supprimer le trafic destiné à l’autre réseau virtuel.
 7. Même explication que pour ID6.
@@ -239,17 +239,17 @@ Les identificateurs d’itinéraire sont décrits ci-dessous :
 
 La table de routage du *Sous-réseau2* dans l’image contient les itinéraires suivants :
 
-|Source  |État  |Préfixes d’adresse    |Type de tronçon suivant             |Adresse IP de tronçon suivant|
+|Source  |État  |Préfixes d'adresse    |Type de tronçon suivant             |Adresse IP du nouveau tronçon|
 |------- |-------|------              |-------                   |--------           
-|Default |Actif |10.0.0.0/16         |Réseau virtuel           |                   |
-|Default |Actif |10.1.0.0/16         |Homologation de réseaux virtuels              |                   |
-|Default |Actif |10.2.0.0/16         |Homologation de réseaux virtuels              |                   |
-|Default |Actif |10.10.0.0/16        |Passerelle de réseau virtuel   |[X.X.X.X]          |
-|Default |Actif |0.0.0.0/0           |Internet                  |                   |
-|Default |Actif |10.0.0.0/8          |Aucun                      |                   |
-|Default |Actif |100.64.0.0/10       |Aucun                      |                   |
-|Default |Actif |172.16.0.0/12       |Aucun                      |                   |
-|Default |Actif |192.168.0.0/16      |Aucun                      |                   |
+|Default |Active |10.0.0.0/16         |Réseau virtuel           |                   |
+|Default |Active |10.1.0.0/16         |Homologation de réseaux virtuels              |                   |
+|Default |Active |10.2.0.0/16         |Homologation de réseaux virtuels              |                   |
+|Default |Active |10.10.0.0/16        |Passerelle de réseau virtuel   |[X.X.X.X]          |
+|Default |Active |0.0.0.0/0           |Internet                  |                   |
+|Default |Active |10.0.0.0/8          |Aucun                      |                   |
+|Default |Active |100.64.0.0/10       |Aucun                      |                   |
+|Default |Active |172.16.0.0/12       |Aucun                      |                   |
+|Default |Active |192.168.0.0/16      |Aucun                      |                   |
 
 La table de routage du *Sous-réseau2* contient tous les itinéraires par défaut créés par Azure et les itinéraires facultatifs d’homologation de réseau virtuel et de passerelle de réseau virtuel. Azure a ajouté les itinéraires facultatifs à tous les sous-réseaux du réseau virtuel lorsque la passerelle et l’homologation ont été ajoutées au réseau virtuel. Azure a supprimé les itinéraires pour les préfixes d’adresse 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16 et 100.64.0.0/10 de la table de routage du *Sous-réseau1* lorsque l’itinéraire défini par l’utilisateur pour le préfixe d’adresse 0.0.0.0/0 a été ajouté au *Sous-réseau1*.  
 

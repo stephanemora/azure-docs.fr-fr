@@ -67,27 +67,29 @@
                 - name: Chiffrement de disque avec séquencement d’extensions VMSS
                   href: azure-security-disk-encryption-extension-sequencing.md
                 - name: Annexe relative au chiffrement de disque
-              href: azure-security-disk-encryption-appendix.md
-            - name: FAQ relative au chiffrement de disque
-              href: azure-security-disk-encryption-faq.md
-            - name: Résolution de problèmes
-              href: azure-security-disk-encryption-tsg.md
-            - name: Azure Disk Encryption avec l’application Azure AD (version précédente)
-              displayName: active directory
-              items:
-                - name: Chiffrement de disque avec les prérequis de l’application Azure AD
+                  href: azure-security-disk-encryption-appendix.md
+                - name: FAQ relative au chiffrement de disque
+                  href: azure-security-disk-encryption-faq.md
+                - name: Résolution de problèmes
+                  href: azure-security-disk-encryption-tsg.md
+                - name: Azure Disk Encryption avec l’application Azure AD (version précédente)
                   displayName: active directory
-                  href: azure-security-disk-encryption-prerequisites-aad.md
-                - name: Chiffrement de disque avec l’application Azure AD pour les machines virtuelles Windows
-                  displayName: active directory
-                  href: azure-security-disk-encryption-windows-aad.md
-                - name: Chiffrement de disque avec l’application Azure AD pour les machines virtuelles Linux
-                  displayName: active directory
-                  href: azure-security-disk-encryption-linux-aad.md
+                  items:
+                    - name: Chiffrement de disque avec les prérequis de l’application Azure AD
+                      displayName: active directory
+                      href: azure-security-disk-encryption-prerequisites-aad.md
+                    - name: Chiffrement de disque avec l’application Azure AD pour les machines virtuelles Windows
+                      displayName: active directory
+                      href: azure-security-disk-encryption-windows-aad.md
+                    - name: Chiffrement de disque avec l’application Azure AD pour les machines virtuelles Linux
+                      displayName: active directory
+                      href: azure-security-disk-encryption-linux-aad.md
     - name: Sécurité du stockage Azure
       href: security-storage-overview.md
     - name: Guide sur la sécurité du stockage
       href: ../storage/common/storage-security-guide.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
+    - name: Customer Lockbox
+      href: azure-customer-lockbox-overview.md
 - name: Plate-forme et infrastructure
   items:
     - name: Infrastructure de sécurité

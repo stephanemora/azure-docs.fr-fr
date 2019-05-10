@@ -14,15 +14,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 02/05/2019
+ms.date: 05/07/2019
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 097b5e8ee69d945e0a9e24ba1c62b0ae82dd896b
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 2ddcf1f38d3d92f9d9bdd12203ebf99f20600478
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64689398"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409784"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Planification et implémentation de machines virtuelles Azure pour SAP NetWeaver
 
@@ -391,17 +391,10 @@ Les limitations générales par défaut et les limitations maximales des abonnem
 ## <a name="possible-scenarios"></a>Scénarios possibles
 SAP est souvent considéré comme une des applications les plus critiques au sein des entreprises. L’architecture et les opérations de ces applications sont généralement complexes, vous devez donc bien respecter les exigences relatives à la disponibilité et aux performances.
 
-Ainsi, les entreprises doivent soigneusement déterminer quelles applications peuvent être exécutées dans un environnement de cloud public, quel que soit le fournisseur de cloud choisi.
+Par conséquent, les entreprises doivent soigneusement sur le fournisseur de cloud à choisir pour l’exécution de tels processus d’entreprise critiques sur. Azure est la plateforme de cloud public idéale pour les applications SAP critiques et des processus d’entreprise. Étant donné la grande variété d’infrastructure Azure, presque tous les systèmes SAP NetWeaver et S/4HANA existants peuvent être hébergés dans Azure dès aujourd'hui. Azure fournit des machines virtuelles avec plusieurs téraoctets de mémoire et plus de 200 unités centrales. Autres fonctionnalités offertes par Azure [grandes Instances HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture), qui permettent des déploiements de HANA de montée en puissance de jusqu'à 24 To et de montée en puissance ANA déploiements de 120 To. 
 
-Les types de systèmes possibles pour le déploiement des applications basées sur SAP NetWeaver dans des environnements de cloud public sont répertoriés ci-dessous :
 
-1. Systèmes de production de taille moyenne
-2. Systèmes de développement
-3. Systèmes de test
-4. Systèmes de prototype
-5. Systèmes de démonstration/formation
-
-Pour déployer correctement les systèmes SAP dans Azure IaaS ou IaaS, il est essentiel de comprendre les différences majeures qui existent entre les offres des hébergeurs ou fournisseurs traditionnels et les offres IaaS. Alors que l’hébergeur ou le fournisseur traditionnel propose d’adapter l’infrastructure (type de serveur, stockage et réseau) à la charge de travail que le client souhaite héberger, c’est le client lui-même qui doit choisir la charge de travail appropriée dans le cadre de déploiements IaaS.
+Pour déployer correctement les systèmes SAP dans Azure IaaS ou IaaS, il est essentiel de comprendre les différences majeures qui existent entre les offres des hébergeurs ou fournisseurs traditionnels et les offres IaaS. Alors que l’hébergeur traditionnel ou sous-traitant infrastructure (type de serveur, stockage et réseau) à un client souhaite héberger la charge de travail, il incombe à la place du client ou du partenaire pour caractériser la charge de travail et choisissez Azure correct composants de machines virtuelles, stockage et réseau pour les déploiements IaaS.
 
 Dans un premier temps, les clients doivent vérifier les éléments suivants :
 
@@ -422,11 +415,13 @@ Vous trouverez la plupart de ces données [ici (Linux)][virtual-machines-sizes-l
 
 N’oubliez pas que les limites répertoriées dans le lien ci-dessus sont des limites maximales. Cela ne signifie pas que les limites pour toutes les ressources, par exemple les E/S par seconde, peuvent être fournies en toutes circonstances. Toutefois, cela ne s’applique pas aux ressources processeur et mémoire d’un type de machine virtuelle donné. Pour les types de machines virtuelles pris en charge par SAP, les ressources processeur et mémoire sont réservées et sont donc disponibles à tout moment pour la consommation dans la machine virtuelle.
 
-La plateforme Microsoft Azure, comme toute plateforme IaaS, est une plateforme multilocataire. Le stockage, le réseau et toutes les autres ressources sont donc partagés entre plusieurs locataires. La logique de quota et de limitation intelligente est utilisée pour empêcher un locataire d’affecter les performances d’un autre locataire (voisin bruyant) de manière radicale. Bien que la logique dans Azure tente de réduire les écarts de bande passante, les plateformes hautement partagées ont tendance à générer des écarts plus importants en termes de disponibilité des ressources/de bande passante que ceux auxquels de nombreux clients sont habitués dans leurs déploiements locaux. Ainsi, vous pouvez rencontrer des différences de niveau de bande passante pour les E/S de stockage ou réseau (volume et latence) d’un instant à l’autre. La probabilité selon laquelle un système SAP sur Azure puisse connaître des écarts plus importants que ceux d’un système local doit être prise en compte.
+La plateforme Microsoft Azure est une plateforme de l’architecture mutualisée. Le stockage, le réseau et toutes les autres ressources sont donc partagés entre plusieurs locataires. La logique de quota et de limitation intelligente est utilisée pour empêcher un locataire d’affecter les performances d’un autre locataire (voisin bruyant) de manière radicale. En particulier pour la certification de la plateforme Azure pour SAP HANA, Microsoft a besoin prouver l’isolation des ressources pour les cas où plusieurs machines virtuelles peuvent exécuter sur le même hôte de manière régulière à SAP. Bien que la logique dans Azure tente de réduire les écarts de bande passante, les plateformes hautement partagées ont tendance à générer des écarts dans la disponibilité des ressources de bande passante que les clients peuvent rencontrer dans leurs déploiements en local. La probabilité selon laquelle un système SAP sur Azure puisse connaître des écarts plus importants que ceux d’un système local doit être prise en compte.
 
-La dernière étape consiste à évaluer les conditions de disponibilité. Il peut arriver que l’infrastructure Azure sous-jacente doive être mise à jour et qu’elle requière le redémarrage des hôtes exécutant les machines virtuelles. Dans ce cas, les machines virtuelles en cours d’exécution sur ces hôtes doivent également être arrêtées et redémarrées. L’exécution de ces opérations de maintenance a lieu en dehors des heures de bureau pour une région donnée, mais la période de quelques heures durant laquelle un redémarrage sera nécessaire est relativement étendue. Il existe diverses technologies au sein de la plateforme Azure qui peuvent être configurées pour limiter tout ou partie de l’impact de ces mises à jour. Les améliorations futures de la plateforme Azure, de SGBD et de l’application SAP sont conçues pour réduire l’impact de ces redémarrages.
+La dernière étape consiste à évaluer les conditions de disponibilité. Il peut arriver que l’infrastructure Azure sous-jacente doive être mise à jour et qu’elle requière le redémarrage des hôtes exécutant les machines virtuelles. Les différents cas dans les documents Microsoft [Maintenance des machines virtuelles dans Azure](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates). Pour atténuer les rares cas où les machines virtuelles sont forcés à redémarrer, mais encore plus important pour les cas que vous avez besoin pour le système d’exploitation invité de correctifs ou les composants du SGBD, vous devez développer un concepts de haute disponibilité valide pour vos systèmes SAP de production. Cette exigence n’est pas différente les exigences que vous êtes confronté en local. Microsoft fait progresser régulièrement la plateforme Azure pour réduire les temps d’arrêt causés par des modifications de la plateforme. 
 
 Pour déployer correctement un système SAP dans Azure, les applications SAP, la base de données et le système d’exploitation des systèmes SAP locaux doivent figurer sur la matrice de prise en charge SAP Azure, tenir dans les ressources que l’infrastructure Azure peut fournir et être compatibles avec le contrat de niveau de service pour la disponibilité que Microsoft Azure propose. Comme ces systèmes sont identifiés, vous devez choisir l’un des deux scénarios de déploiement suivants.
+
+
 
 
 

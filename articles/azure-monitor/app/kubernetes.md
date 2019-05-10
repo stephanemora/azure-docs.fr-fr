@@ -2,18 +2,18 @@
 title: Azure Monitor - zéro application instrumentation de surveillance pour Kubernetes hébergées applications | Microsoft Docs
 description: Zéro application instrumentation de surveillance pour les applications Kubernetes hébergé est une solution de surveillance qui vous permet de collecter les données de télémétrie Application Insights se rapportant à des demandes entrantes et sortantes vers et depuis les pods en cours d’exécution dans votre cluster Kubernetes en utilisation de la technologie de maillage de service appelé Istio.
 services: application-insights
-author: rishabjolly
+author: tokaplan
 manager: carmonm
 ms.service: application-insights
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.author: rijolly
-ms.openlocfilehash: 73f95ab75b49fb8ec5b61f6e30080f8f6d474c16
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.author: alkaplan
+ms.openlocfilehash: 42b81ec0fa01841791a5b2651d1c1189db5e27ff
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149873"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408207"
 ---
 # <a name="zero-instrumentation-application-monitoring-for-kubernetes-hosted-apps"></a>Applications hébergées par zéro analyse des applications instrumentation pour Kubernetes
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: kumud
-ms.openlocfilehash: bf36de1965a8c819af0ef5af98a2393d4cefa1b3
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: b072314bdbec1d5a6184e6f20e98c35a9135a5b7
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205713"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65508423"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>FAQ sur les réseaux virtuels Azure
 
@@ -67,7 +67,9 @@ Oui. Pour plus d’informations sur les plages d’adresses IP publiques, consul
 Oui. Pour plus d’informations, consultez [Limites de mise en réseau](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits). Les espaces d’adressage de sous-réseau ne peuvent pas se chevaucher.
 
 ### <a name="are-there-any-restrictions-on-using-ip-addresses-within-these-subnets"></a>Existe-t-il des restrictions sur l’utilisation des adresses IP au sein de ces sous-réseaux ?
-Oui. Azure réserve 5 adresses IP dans chaque sous-réseau. Les première et dernière adresses IP de chaque sous-réseau sont réservées à la conformité du protocole, et les adresses x.x.x.1-x.x.x.3 de chaque sous-réseau sont utilisées pour les services Azure.
+Oui. Azure réserve 5 adresses IP dans chaque sous-réseau. Il s’agit de x.x.x.0-x.x.x.3 et la dernière adresse du sous-réseau.    
+- x.x.x.0 et la dernière adresse du sous-réseau est réservée à la conformité du protocole.
+- 1-x.x.x.3 est réservée dans chaque sous-réseau pour les services Azure.
 
 ### <a name="how-small-and-how-large-can-vnets-and-subnets-be"></a>Quelle taille peuvent avoir les réseaux virtuels et les sous-réseaux ?
 Le plus petit sous-réseau pris en charge est /29 et le plus grand est /8 (à l’aide de définitions de sous-réseau CIDR).
@@ -281,6 +283,9 @@ Non. L’homologation transitive n’est pas pris en charge. Pour qu’ils le so
 
 ### <a name="are-there-any-bandwidth-limitations-for-peering-connections"></a>Des restrictions de bande passante s’appliquent-elles aux connexions d’homologation ?
 Non. L’homologation de réseau virtuel, qu’elle soit locale ou globale, n’impose aucune restriction de bande passante. La bande passante n’est limitée que par les ressources de la machine virtuelle ou de calcul.
+
+### <a name="how-can-i-troubleshoot-vnet-peering-issues"></a>Comment puis-je résoudre des problèmes de l’homologation de réseau virtuel ?
+Voici un [guide de dépannage] (https://support.microsoft.com/en-us/help/4486956/troubleshooter-for-virtual-network-peering-issues) vous pouvez essayer.
 
 ## <a name="virtual-network-tap"></a>TAP de réseau virtuel
 

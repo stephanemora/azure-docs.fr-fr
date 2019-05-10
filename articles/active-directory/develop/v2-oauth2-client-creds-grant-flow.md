@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3073d34a6ffeadd1c1c0022b5c1636f06cc6210a
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: df75d692bc61d155b35f5ce4e2bf08da6e4cbcc3
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190830"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65507100"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-client-credentials-flow"></a>Plateforme d’identité Microsoft et le flux des informations d’identification client OAuth 2.0
 
@@ -111,7 +111,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&state=12345&redirect_uri=http://localhost/myapp/permissions
 ```
 
-| Paramètre | Condition | Description |
+| Paramètre | Condition | Description  |
 | --- | --- | --- |
 | `tenant` | Obligatoire | Le client d’annuaire auquel vous souhaitez demander l’autorisation. Peut être au format GUID ou sous forme de nom convivial. Si vous ne savez pas à quel client appartient l’utilisateur et si vous souhaitez lui permettre de se connecter avec n’importe quel client, utilisez `common`. |
 | `client_id` | Obligatoire | Le **ID d’Application (client)** qui le [portail Azure-inscriptions](https://go.microsoft.com/fwlink/?linkid=2083908) expérience affecté à votre application. |
@@ -128,7 +128,7 @@ Si l’administrateur approuve les autorisations pour votre application, la rép
 GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b95&state=state=12345&admin_consent=True
 ```
 
-| Paramètre | Description |
+| Paramètre | Description  |
 | --- | --- |
 | `tenant` | Le client d’annuaire ayant accordé à votre application les autorisations demandées, au format GUID. |
 | `state` | Une valeur incluse dans la requête, qui est également renvoyée dans la réponse de jeton. Il peut s’agir d’une chaîne du contenu de votre choix. La valeur d’état est utilisée pour coder les informations sur l’état de l’utilisateur dans l’application avant la requête d’authentification, comme la page ou l’écran sur lequel ou laquelle il était positionné. |
@@ -142,7 +142,7 @@ Si l’administrateur n’approuve pas les autorisations pour votre application,
 GET http://localhost/myapp/permissions?error=permission_denied&error_description=The+admin+canceled+the+request
 ```
 
-| Paramètre | Description |
+| Paramètre | Description  |
 | --- | --- |
 | `error` | Une chaîne de code d’erreur que vous pouvez utiliser pour classer les types d’erreur et pour intervenir face aux erreurs. |
 | `error_description` | Un message d’erreur spécifique qui peut vous aider à identifier la cause principale d’une erreur. |
@@ -173,7 +173,7 @@ client_id=535fb089-9ff3-47b6-9bfb-4f1264799865
 curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=535fb089-9ff3-47b6-9bfb-4f1264799865&scope=https%3A%2F%2Fgraph.microsoft.com%2F.default&client_secret=qWgdYAmab0YSkuL1qKv5bPX&grant_type=client_credentials' 'https://login.microsoftonline.com/common/oauth2/v2.0/token'
 ```
 
-| Paramètre | Condition | Description |
+| Paramètre | Condition | Description  |
 | --- | --- | --- |
 | `tenant` | Obligatoire | Le locataire de l’annuaire sur lequel les plans d’application opèrent, au format GUID ou nom de domaine. |
 | `client_id` | Obligatoire | Copiez l’ID d’application affecté à votre application. Ces informations sont disponibles dans le portail où vous avez inscrit votre application. |
@@ -195,7 +195,7 @@ scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
 &grant_type=client_credentials
 ```
 
-| Paramètre | Condition | Description |
+| Paramètre | Condition | Description  |
 | --- | --- | --- |
 | `tenant` | Obligatoire | Le locataire de l’annuaire sur lequel les plans d’application opèrent, au format GUID ou nom de domaine. |
 | `client_id` | Obligatoire |L'ID d'application (client) affecté à votre application. |
@@ -218,7 +218,7 @@ Une réponse correcte se présente ainsi :
 }
 ```
 
-| Paramètre | Description |
+| Paramètre | Description  |
 | --- | --- |
 | `access_token` | Le jeton d’accès demandé. L’application peut utiliser ce jeton pour procéder à l’authentification sur la ressource sécurisée, par exemple une API Web. |
 | `token_type` | Indique la valeur du type de jeton. Le seul type que Microsoft prend en charge de la plateforme identity est `bearer`. |
@@ -241,7 +241,7 @@ Une réponse d’erreur ressemble à ceci :
 }
 ```
 
-| Paramètre | Description |
+| Paramètre | Description  |
 | --- | --- |
 | `error` | Une chaîne de code d’erreur que vous pouvez utiliser pour classer les types d’erreur se produisant et pour intervenir face aux erreurs. |
 | `error_description` | Un message d’erreur spécifique qui peut vous aider à identifier la cause principale d’une erreur d’authentification. |
@@ -251,7 +251,7 @@ Une réponse d’erreur ressemble à ceci :
 | `correlation_id` | Identifiant unique de la demande pour faciliter les tests de diagnostic sur les différents composants. |
 
 > [!NOTE]
-> Afin que votre application soit en mesure de recevoir le jeton v2, vous pouvez mettre à jour le fichier manifeste de l’application depuis le portail azure. Vous pouvez ajouter l’attribut `accessTokenAcceptedVersion` et la valeur est la valeur 2 comme `"accessTokenAcceptedVersion": 2`. Consultez l’article [manifeste d’Application](https://docs.microsoft.com/en-us/azure/active-directory/develop/reference-app-manifest#manifest-reference) pour en savoir plus sur le même. Par défaut, l’application actuellement reçoit un jeton de v1. Si ce n’est pas défini dans le manifeste d’application/API Web, il a la valeur de cet attribut dans le manifeste par défaut 1, et par conséquent, l’application recevra le jeton de v1.  
+> Afin que votre application soit en mesure de recevoir le jeton v2, vous pouvez mettre à jour le fichier manifeste de l’application depuis le portail azure. Vous pouvez ajouter l’attribut `accessTokenAcceptedVersion` et la valeur est la valeur 2 comme `"accessTokenAcceptedVersion": 2`. Consultez l’article [manifeste d’Application](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest#manifest-reference) pour en savoir plus sur le même. Par défaut, l’application actuellement reçoit un jeton de v1. Si ce n’est pas défini dans le manifeste d’application/API Web, il a la valeur de cet attribut dans le manifeste par défaut 1, et par conséquent, l’application recevra le jeton de v1.  
 
 
 ## <a name="use-a-token"></a>Utilisation d’un jeton
@@ -276,7 +276,7 @@ curl -X GET -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dC
 
 Lisez la [documentation de présentation des informations d’identification du client](https://aka.ms/msal-net-client-credentials) dans la bibliothèque d’authentification Microsoft.
 
-| Exemple | Plateforme |Description |
+| Exemple | Plateforme |Description  |
 |--------|----------|------------|
 |[active-directory-dotnetcore-daemon-v2](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) | Console .NET Core 2.1 | Application.NET Core simple qui affiche les utilisateurs d’un locataire interrogeant Microsoft Graph en utilisant l’identité de l’application plutôt que le compte d’un utilisateur. L’exemple illustre également la variation en utilisant des certificats pour l’authentification. |
 |[active-directory-dotnet-daemon-v2](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2)|ASP.NET MVC | Application web qui synchronise les données Microsoft Graph en utilisant l’identité de l’application plutôt que le compte d’un utilisateur. |

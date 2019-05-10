@@ -1,23 +1,26 @@
 ---
-title: Gérer des réplicas en lecture pour Azure Database pour PostgreSQL à partir de l’interface CLI Azure
-description: Découvrez comment gérer Azure Database pour PostgreSQL lire des réplicas à partir de l’interface CLI.
+title: Gérer des réplicas en lecture pour Azure Database pour PostgreSQL - seul serveur à partir de l’interface CLI Azure
+description: Découvrez comment gérer des réplicas en lecture dans la base de données Azure pour PostgreSQL - seul serveur à partir de l’interface CLI.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 04/05/2019
-ms.openlocfilehash: b5e0336a290090ed6bd7f5af508e691677780a80
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 9730faf3191ef2e2bd0b6c3caddefa0492b33fc5
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60420238"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510248"
 ---
 # <a name="create-and-manage-read-replicas-from-the-azure-cli"></a>Créer et gérer des réplicas en lecture à partir de l’interface CLI Azure
 
 Dans cet article, vous allez apprendre à créer et gérer des réplicas en lecture dans Azure Database pour PostgreSQL à partir de l’interface CLI. Pour en savoir plus sur les réplicas en lecture, consultez [vue d’ensemble](concepts-read-replicas.md).
 
-## <a name="prerequisites"></a>Prérequis
+> [!NOTE]
+> Azure CLI ne prend pas en charge Création de réplicas dans une autre région à partir du serveur maître. Pour créer un réplica entre régions, utilisez le [Azure portal](howto-read-replicas-portal.md).
+
+## <a name="prerequisites"></a>Conditions préalables
 - Un [serveur Azure Database pour PostgreSQL](quickstart-create-server-up-azure-cli.md) qui représente le serveur maître.
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
@@ -46,10 +49,10 @@ Le paramètre `azure.replication_support` doit avoir la valeur **REPLICA** sur l
 
 Le [az postgres server réplica créer](/cli/azure/postgres/server/replica?view=azure-cli-latest#az-postgres-server-replica-create) commande requiert les paramètres suivants :
 
-| Paramètre | Exemple de valeur | Description  |
+| Paramètre | Exemple de valeur | Description   |
 | --- | --- | --- |
 | resource-group | myResourceGroup |  Le groupe de ressources où sera créé le serveur de réplication.  |
-| Nom | mydemoserver-réplica | Nom du nouveau serveur réplica créé. |
+| name | mydemoserver-réplica | Nom du nouveau serveur réplica créé. |
 | source-server | mydemoserver | Le nom ou ID ressource du serveur maître pour répliquer à partir de. |
 
 ```azurecli-interactive

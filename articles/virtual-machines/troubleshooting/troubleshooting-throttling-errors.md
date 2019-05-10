@@ -13,12 +13,12 @@ ms.topic: troubleshooting
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: vashan, rajraj, changov
-ms.openlocfilehash: fa65b108f3aea79d4417e65d706d42f0bd819f54
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: efa10f5beae64105857b00b186683d491edb00f5
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60445381"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233768"
 ---
 # <a name="troubleshooting-api-throttling-errors"></a>Résolution des erreurs de limitation d’API 
 
@@ -32,7 +32,7 @@ Quand un client API Azure reçoit une erreur de limitation, l’état HTTP est 4
 
 ## <a name="call-rate-informational-response-headers"></a>En-têtes de réponse d’information de débit d’appels 
 
-| En-tête                            | Format de valeur                           | Exemples                               | Description                                                                                                                                                                                               |
+| En-tête                            | Format de valeur                           | Exemples                               | Description                                                                                                                                                                                                |
 |-----------------------------------|----------------------------------------|---------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | x-ms-ratelimit-remaining-resource |```<source RP>/<policy or bucket>;<count>```| Microsoft.Compute/HighCostGet3Min;159 | Nombre d’appels d’API restants pour la stratégie de limitation portant sur le groupe d’opérations ou de compartiments de ressources avec la cible de cette requête                                                                   |
 | x-ms-request-charge               | ```<count>```                             | 1                                     | Nombre d’appels « facturés » pour cette requête HTTP dans le calcul de la limite de la stratégie applicable. Il s’agit généralement de 1. Les requêtes de lots, par exemple pour la mise à l’échelle d’un groupe de machines virtuelles identiques, peuvent facturer plusieurs comptes. |
@@ -80,7 +80,7 @@ Comme illustré ci-dessus, chaque erreur de limitation inclut l’en-tête `Retr
 ## <a name="api-call-rate-and-throttling-error-analyzer"></a>Taux d’appel d’API et analyseur d’erreur de limitation
 Une préversion d’une fonctionnalité de résolution des problèmes est disponible pour l’API du fournisseur de ressources de calcul. Ces applets de commande PowerShell fournissent des statistiques sur le taux de requête d’API par intervalle de temps par opération et sur les violations de limitation par groupe d’opération (stratégie) :
 -   [Export-AzLogAnalyticRequestRateByInterval](https://docs.microsoft.com/powershell/module/az.compute/export-azloganalyticrequestratebyinterval)
--   [Export-AzLogAnalyticThrottledRequests](https://docs.microsoft.com/powershell/module/az.compute/export-azloganalyticthrottledrequests)
+-   [Export-AzLogAnalyticThrottledRequest](https://docs.microsoft.com/powershell/module/az.compute/export-azloganalyticthrottledrequest)
 
 Les statistiques d’appels d’API peuvent fournir de précieuses informations sur le comportement des clients d’un abonnement, et faciliter l’identification des modèles d’appels qui provoquent la limitation.
 

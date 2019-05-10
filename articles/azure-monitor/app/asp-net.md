@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 03/14/2019
+ms.date: 05/08/2019
 ms.author: mbullwin
-ms.openlocfilehash: 719cbe1ec8962b320aa2850053d44cdef7f56a8c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 925ae2dd7b564eece4842cf25cc32b68d9e5c0b6
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60691602"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472040"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>Configurer Application Insights pour votre site web ASP.NET
 
@@ -29,7 +29,7 @@ L’installation se fait en seulement quelques clics dans Visual Studio. Vous av
 Pour Application Insights à votre site web ASP.NET, vous devez :
 
 - Installez [Visual Studio 2017 pour Windows](https://www.visualstudio.com/downloads/) avec les charges de travail suivantes :
-    - Développement web et ASP.NET
+    - Développement web et ASP.NET (ne décochez pas les composants facultatifs)
     - Développement Azure
 
 Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
@@ -63,7 +63,7 @@ Si vous souhaitez définir le groupe de ressources ou l’emplacement où vos do
 > [!NOTE]
 > Si vous ne souhaitez pas envoyer de données de télémétrie au portail pendant le débogage, ajoutez simplement le kit de développement logiciel (SDK) Application Insights à votre application, mais ne configurez pas de ressource dans le portail. Vous êtes en mesure de voir les données de télémétrie dans Visual Studio pendant le débogage. Plus tard, vous pouvez revenir à cette page de configuration, ou vous pouvez attendre d’avoir déployé votre application et [activer les données de télémétrie au moment de l’exécution](../../azure-monitor/app/monitor-performance-live-website-now.md).
 
-## <a name="run"></a> Étape 2 : Exécutez l'application.
+## <a name="run"></a> Étape 2 : Exécuter votre application
 Exécutez votre application en appuyant sur F5. Ouvrez différentes pages pour générer des données de télémétrie.
 
 Un décompte des événements consignés s’affiche dans Visual Studio.

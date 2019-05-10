@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 87f86f861ffc036077b25a2514fbd2d0c57da735
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 0783251eaeef188c49c5b3aa61b5ecaec48127b7
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64716772"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506707"
 ---
 # <a name="azure-policy-definition-structure"></a>Structure de définition Azure Policy
 
@@ -24,7 +24,7 @@ Le schéma utilisé par Azure Policy se trouve ici : [https://schema.management
 
 Vous devez utiliser JSON pour créer une définition de stratégie. La définition de stratégie contient des éléments pour :
 
-- le mode
+- mode
 - parameters
 - le nom d’affichage
 - description
@@ -46,7 +46,7 @@ Par exemple, le code JSON suivant illustre une stratégie qui limite les emplace
                     "strongType": "location",
                     "displayName": "Allowed locations"
                 },
-                "defaultValue": "westus2"
+                "defaultValue": [ "westus2" ]
             }
         },
         "displayName": "Allowed locations",
@@ -114,7 +114,7 @@ Par exemple, vous pouvez définir une définition de stratégie qui limite les e
             "displayName": "Allowed locations",
             "strongType": "location"
         },
-        "defaultValue": "westus2",
+        "defaultValue": [ "westus2" ],
         "allowedValues": [
             "eastus2",
             "westus2",
@@ -153,7 +153,7 @@ Dans la propriété `metadata`, vous pouvez utiliser **strongType** pour fournir
 - `Microsoft.RecoveryServices/vaults`
 - `Microsoft.RecoveryServices/vaults/backupPolicies`
 
-## <a name="definition-location"></a>Emplacement de la définition
+## <a name="definition-location"></a>Emplacement de définition
 
 Lors de la création d’une initiative ou d’une stratégie, il est important de spécifier l’emplacement de la définition, qui doit être un groupe d’administration ou un abonnement. L’emplacement détermine l’étendue à laquelle l’initiative ou la stratégie peut être affectée. Les ressources doivent être des membres directs ou des enfants dans la hiérarchie de l’emplacement de la définition à cibler pour l’affectation.
 
@@ -229,6 +229,10 @@ Une condition évalue si un **champ** ou un accesseur de **valeur** répond à c
 - `"notIn": ["value1","value2"]`
 - `"containsKey": "keyName"`
 - `"notContainsKey": "keyName"`
+- `"less": "value"`
+- `"lessOrEquals": "value"`
+- `"greater": "value"`
+- `"greaterOrEquals": "value"`
 - `"exists": "bool"`
 
 Avec les conditions **like** et **notLike**, un caractère générique `*` est indiqué dans la valeur.
@@ -416,15 +420,25 @@ Pour plus d’informations sur chaque effet, l’ordre d’évaluation, des prop
 
 ### <a name="policy-functions"></a>Fonctions de stratégie
 
-Toutes les [fonctions du modèle Resource Manager](../../../azure-resource-manager/resource-group-template-functions.md) peuvent être utilisées dans une règle de stratégie, à l’exception des fonctions suivantes :
+Tous les [les fonctions de modèle Resource Manager](../../../azure-resource-manager/resource-group-template-functions.md) sont disponibles à utiliser au sein d’une règle de stratégie, sauf les fonctions suivantes et les fonctions définies par l’utilisateur :
 
 - copyIndex()
 - deployment()
 - list*
+- newGuid()
+- pickZones()
 - providers()
 - reference()
 - resourceId()
 - variables()
+
+Les fonctions suivantes sont disponibles pour les utiliser dans une règle de stratégie, mais diffèrent à utiliser dans un modèle Azure Resource Manager :
+
+- addDays(dateTime, numberOfDaysToAdd)
+  - **date/heure**: [obligatoire] chaîne - chaîne au format date/heure de Universal ISO 8601 « yyyy-MM-ddTHH:mm:ss.fffffffZ'
+  - **numberOfDaysToAdd**: [obligatoire] entier - nombre de jours à ajouter
+- utcNow() - contrairement à un gestionnaire de ressources du modèle, cela peut être utilisé en dehors de defaultValue.
+  - Retourne une chaîne qui est définie sur la date et heure actuelles au format de date/heure de Universal ISO 8601 « yyyy-MM-ddTHH:mm:ss.fffffffZ'
 
 De plus, la fonction `field` est disponible pour les règles de stratégie. `field` est principalement utilisé avec **AuditIfNotExists** et **DeployIfNotExists** pour faire référence aux champs actuellement évalués de la ressource. Vous pouvez en voir une illustration dans [l’exemple DeployIfNotExists](effects.md#deployifnotexists-example).
 
@@ -484,7 +498,7 @@ La liste des alias augmente toujours. Pour trouver les alias actuellement pris e
 
 ### <a name="understanding-the--alias"></a>Comprendre l’alias [*]
 
-Plusieurs alias disponibles possèdent une version qui apparaîtra avec un nom « normal » et une autre avec **[\*]** ajouté. Par exemple : 
+Plusieurs alias disponibles possèdent une version qui apparaîtra avec un nom « normal » et une autre avec **[\*]** ajouté. Exemple :
 
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules`
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]`

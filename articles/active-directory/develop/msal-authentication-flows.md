@@ -17,29 +17,29 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7db73ff8bef553b36408cfae90e32014f875bd3
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 39f323c2ac86e8d42319b3d99221f6c20beff3e4
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190999"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406684"
 ---
 # <a name="authentication-flows"></a>Flux d’authentification
 
 Cet article décrit les flux d’authentification fournis par Microsoft Authentication Library (MSAL).  Ces flux peut être utilisé dans un large éventail de différents scénarios d’applications.
 
-| Flux | Description | Utilisé dans|  
+| Flux | Description  | Utilisé dans|  
 | ---- | ----------- | ------- | 
 | [Interactive](#interactive) | Obtient le jeton via un processus interactif qui invite l’utilisateur pour les informations d’identification via un navigateur ou une fenêtre indépendante. | [Applications de bureau](scenario-desktop-overview.md), [des applications mobiles](scenario-mobile-overview.md) |
 | [Octroi implicite](#implicit-grant) | Autorise l’application obtenir des jetons sans effectuer un échange d’informations d’identification du serveur principal. L’application peut alors connecter l’utilisateur, maintenir la session et obtenir des jetons pour d’autres API web, le tout dans le code JavaScript client.| [Applications à page unique (SPA)](scenario-spa-overview.md) |
 | [Code d’autorisation](#authorization-code) | Utilisé dans les applications qui sont installées sur un appareil pour accéder aux ressources protégées, telles que les API web. Cela vous permet de vous permet d’ajouter la connexion et d’accès d’API à vos applications mobiles et de bureau. | [Applications de bureau](scenario-desktop-overview.md), [des applications mobiles](scenario-mobile-overview.md), [applications Web](scenario-web-app-call-api-overview.md) | 
-| [On-behalf-of](#on-behalf-of) | Une application appelle une service/API web, qui à son tour doit appeler un autre service/web API. L’idée est de propager l’identité et les autorisations de l’utilisateur délégué via la chaîne de la demande. | [API web](scenario-web-api-call-api-overview.md) |
+| [On-behalf-of](#on-behalf-of) | Une application appelle une service/API web, qui à son tour doit appeler un autre service/web API. L’idée est de propager l’identité et les autorisations de l’utilisateur délégué via la chaîne de la demande. | [Les API web](scenario-web-api-call-api-overview.md) |
 | [Informations d’identification du client](#client-credentials) | Permet d’accéder aux ressources hébergées sur le web à l’aide de l’identité d’une application. Couramment utilisé pour les interactions de serveur à serveur qui doivent s’exécuter en arrière-plan, sans interaction immédiate d’un utilisateur. | [Applications de démon](scenario-daemon-overview.md) |
 | [Code de l’appareil](#device-code) | Permet aux utilisateurs de se connecter à des appareils avec contraintes d’entrée comme une télévision intelligente, appareils IoT ou imprimante. | [Applications de bureau/Mobile](scenario-desktop-acquire-token.md#command-line-tool-without-web-browser) |
 | [Authentification Windows intégrée](scenario-desktop-acquire-token.md#integrated-windows-authentication) | Permet à des applications sur le domaine ou Azure AD joint les ordinateurs pour acquérir un jeton en mode silencieux (sans interaction de l’interface utilisateur à partir de l’utilisateur).| [Applications de bureau/Mobile](scenario-desktop-acquire-token.md#integrated-windows-authentication) |
 | [Nom d’utilisateur/mot de passe](scenario-desktop-acquire-token.md#username--password) | Permet à une application connecter l’utilisateur en gérant directement leur mot de passe. Ce flux n’est pas recommandé. | [Applications de bureau/mobile](scenario-desktop-acquire-token.md#username--password) | 
 
-## <a name="interactive"></a>Interactive
+## <a name="interactive"></a>Interactif
 MSAL prend en charge la possibilité d’inviter l’utilisateur ses informations d’identification pour se connecter et obtenir un jeton à l’aide de ces informations d’identification.
 
 ![Flux interactif](media/msal-authentication-flows/interactive.png)
@@ -51,7 +51,7 @@ Pour plus d’informations sur l’utilisation de MSAL.NET pour acquérir des je
 
 Pour plus d’informations sur les appels interactifs dans MSAL.js lire [comportement dans des requêtes interactives MSAL.js d’invite](msal-js-prompt-behavior.md)
 
-## <a name="implicit-grant"></a>Octroi implicite.
+## <a name="implicit-grant"></a>Octroi implicite
 
 MSAL prend en charge la [flux d’octroi OAuth 2 implicite](v2-oauth2-implicit-grant-flow.md), ce qui permet à l’application obtenir des jetons à partir de la plateforme d’identité Microsoft sans effectuer d’un serveur principal exchange des informations d’identification. L’application peut alors connecter l’utilisateur, maintenir la session et obtenir des jetons pour d’autres API web, le tout dans le code JavaScript client.
 
@@ -61,7 +61,7 @@ De nombreuses applications web modernes sont générées en tant qu’applicatio
 
 Ce flux d’authentification n’inclut pas de scénarios d’application à l’aide des infrastructures de JavaScript inter-plateformes telles que d’électrons et React-Native, puisqu’elles nécessitent davantage fonctionnalités pour l’interaction avec les plateformes natives.
 
-## <a name="authorization-code"></a>Code d’autorisation.
+## <a name="authorization-code"></a>Code d'autorisation
 MSAL prend en charge la [octroi de code d’autorisation OAuth 2](v2-oauth2-auth-code-flow.md), qui peut être utilisé dans les applications qui sont installées sur un appareil pour accéder aux ressources protégées, telles que les API web. Cela vous permet de vous permet d’ajouter la connexion et d’accès d’API à vos applications mobiles et de bureau. 
 
 Lorsque les utilisateurs se connectent aux applications web (sites web), l’application web reçoit un code d’autorisation.  Le code d’autorisation est utilisé pour acquérir un jeton pour appeler l’API web. Dans ASP.NET / ASP.NET cœur des applications web, le seul objectif de `AcquireTokenByAuthorizationCode` consiste à ajouter un jeton au cache du jeton, afin qu’il peut ensuite être utilisé par l’application (généralement dans les contrôleurs) que simplement obtenir un jeton pour une API à l’aide `AcquireTokenSilent`.
@@ -89,7 +89,7 @@ MSAL prend en charge la [OAuth 2 on-behalf-of OAuth](v2-oauth2-on-behalf-of-flow
 3. Lorsque le client appelle l’API Web, l’API Web demande un autre jeton sur la part de l’utilisateur.  
 4. L’API Web protégée utilise ce jeton pour appeler une API Web en aval sur la part de l’utilisateur.  L’API Web peut demander également ultérieurement des jetons pour les autres API en aval (mais toujours au nom de l’utilisateur même).
 
-## <a name="client-credentials"></a>Informations d'identification du client
+## <a name="client-credentials"></a>Informations d'identification client
 
 MSAL prend en charge la [flux des informations d’identification client OAuth 2](v2-oauth2-client-creds-grant-flow.md). Ce flux permet d’accéder aux ressources hébergées sur le web à l’aide de l’identité d’une application. Ce type d’octroi est couramment utilisé pour les interactions de serveur à serveur qui doivent s’exécuter en arrière-plan sans l’interaction immédiate d’un utilisateur. Ces types d’applications sont souvent appelés démons ou comptes de service. 
 
@@ -124,9 +124,9 @@ MSAL prend en charge la [le flux de code d’appareil OAuth 2](v2-oauth2-device-
 
 En utilisant le flux de code d’appareil, l’application obtient des jetons via un processus en deux étapes spécialement conçues pour ces appareils/système d’exploitation. Exemples de ces applications sont des applications qui s’exécutent sur des appareils iOT ou des outils de ligne de commande (CLI). 
 
-![Flux de code d’appareil](media/msal-authentication-flows/device-code.png)
+![Flux de code d'appareil](media/msal-authentication-flows/device-code.png)
 
-1. Chaque fois que l’authentification de l’utilisateur est requise, l’application fournit un code et invite l’utilisateur à utiliser un autre appareil (par exemple, un smartphone connecté à internet) pour accéder à une URL (par exemple, http://microsoft.com/devicelogin), où l’utilisateur est invité à entrer le code. Que fait, la page web entraîne l’utilisateur via une expérience d’authentification normal, y compris les invites de consentement et l’authentification multifacteur si nécessaire.
+1. Chaque fois que l’authentification de l’utilisateur est requise, l’application fournit un code et invite l’utilisateur à utiliser un autre appareil (par exemple, un smartphone connecté à internet) pour accéder à une URL (par exemple, https://microsoft.com/devicelogin), où l’utilisateur est invité à entrer le code. Que fait, la page web entraîne l’utilisateur via une expérience d’authentification normal, y compris les invites de consentement et l’authentification multifacteur si nécessaire.
 
 2. Après une authentification réussie, l’application de ligne de commande reçoit les jetons requis via un canal arrière et utilisera pour effectuer les appels d’API web dont il a besoin.
 
@@ -161,7 +161,7 @@ L’autorité passé lors de la construction de l’application cliente publique
 Étant donné que l’authentification Windows intégrée est un flux en mode silencieux :
 - l’utilisateur de votre application doit avoir précédemment a donné son consentement pour utiliser l’application. 
 - ou bien, l’administrateur client doit avoir précédemment a donné son consentement à tous les utilisateurs dans le client à utiliser l’application.
-- Cela signifie que :
+- Cela signifie que :
     - soit en tant que développeur avoir cliqué sur le **Grant** sur le portail Azure pour vous-même, bouton 
     - ou un administrateur de locataires a appuyé sur le **Grant/revoke consentement de l’administrateur de domaine du locataire {}** situé dans le **autorisations d’API** onglet de l’inscription de l’application (consultez [ajouter des autorisations pour web Access API](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis))
     - ou, vous avez fourni un moyen pour les utilisateurs à donner son consentement à l’application (consultez [solliciter le consentement de l’utilisateur individuel](v2-permissions-and-consent.md#requesting-individual-user-consent))

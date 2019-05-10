@@ -7,12 +7,12 @@ ms.date: 04/16/2019
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 40d9aba4ff8fd78f6369729ddc16238e65bfc169
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e8f0b9c8bf1bfb846f13306f58bcb1721ed6b422
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60404690"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510541"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-trigger-in-azure-functions"></a>Diagnostiquer et résoudre les problèmes lors de l’utilisation de déclencheur Azure Cosmos DB dans Azure Functions
 
@@ -27,17 +27,19 @@ Le déclencheur Azure Cosmos DB et les liaisons dépendent les packages d’exte
 
 Cet article fait toujours référence à Azure Functions V2 chaque fois que le runtime est mentionné, sauf spécification explicite.
 
-## <a name="consuming-the-cosmos-db-sdk-separately-from-the-trigger-and-bindings"></a>Utilisation du SDK Cosmos DB séparément à partir de déclencheur et des liaisons
+## <a name="consume-the-azure-cosmos-db-sdk-independently"></a>Utiliser le SDK Azure Cosmos DB indépendamment
 
 Les fonctionnalités clés de package d’extension consiste à fournir la prise en charge pour le déclencheur Azure Cosmos DB et les liaisons. Il inclut également le [Azure Cosmos DB .NET SDK](sql-api-sdk-dotnet-core.md), ce qui est utile si vous souhaitez interagir avec Azure Cosmos DB par programmation sans utiliser les déclencheurs et les liaisons.
 
-Si souhaitez utiliser le SDK Azure Cosmos DB, assurez-vous que vous n’ajoutez à votre projet une autre référence de package NuGet. Au lieu de cela, **permettre à la référence du Kit de développement logiciel de résoudre via un package d’Extension Azure Functions**.
+Si souhaitez utiliser le SDK Azure Cosmos DB, assurez-vous que vous n’ajoutez à votre projet une autre référence de package NuGet. Au lieu de cela, **permettre à la référence du Kit de développement logiciel de résoudre via un package d’Extension Azure Functions**. Utiliser le SDK Azure Cosmos DB séparément à partir de déclencheur et des liaisons
 
 En outre, si vous créez manuellement votre propre instance de la [client du SDK Azure Cosmos DB](./sql-api-sdk-dotnet-core.md), vous devez suivre le modèle d’avoir qu’une seule instance du client [à l’aide d’une approche de modèle Singleton](../azure-functions/manage-connections.md#documentclient-code-example-c) . Ce processus permet d’éviter les problèmes potentiels de socket dans vos opérations.
 
-## <a name="common-known-scenarios-and-workarounds"></a>Solutions de contournement et des scénarios courants connus
+## <a name="common-scenarios-and-workarounds"></a>Scénarios courants et solutions
 
-### <a name="azure-function-fails-with-error-message-either-the-source-collection-collection-name-in-database-database-name-or-the-lease-collection-collection2-name-in-database-database2-name-does-not-exist-both-collections-must-exist-before-the-listener-starts-to-automatically-create-the-lease-collection-set-createleasecollectionifnotexists-to-true"></a>Fonction Azure échoue avec le message d’erreur « soit la collection source « collection-name » (dans la base de données 'nom de la base de données') ou la collection de baux « collection2-name » (dans la base de données « database2-name ») n’existe pas. Les deux collections doivent exister avant le démarrage de l’écouteur. Pour créer automatiquement la collection de baux, set 'CreateLeaseCollectionIfNotExists' à 'true' »
+### <a name="azure-function-fails-with-error-message-collection-doesnt-exist"></a>Échec de la fonction Azure avec la collection de messages d’erreur n’existe pas.
+
+Fonction Azure échoue avec le message d’erreur « soit la collection source « collection-name » (dans la base de données 'nom de la base de données') ou la collection de baux « collection2-name » (dans la base de données « database2-name ») n’existe pas. Les deux collections doivent exister avant le démarrage de l’écouteur. Pour créer automatiquement la collection de baux, set 'CreateLeaseCollectionIfNotExists' à 'true' »
 
 Cela signifie qu’un ou les deux des conteneurs Azure Cosmos requis pour le déclencheur fonctionne n’existent pas ou ne sont pas accessibles à la fonction Azure. **L’erreur elle-même vous dira quelle base de données Azure Cosmos et conteneurs est le déclencheur que vous recherchez** en fonction de votre configuration.
 
@@ -78,7 +80,8 @@ Si des modifications sont manquantes sur la destination, cela pourrait signifier
 
 Dans ce scénario, le meilleur plan d’action consiste à ajouter `try/catch blocks` dans votre code et à l’intérieur de boucles qui peuvent traiter les modifications, afin de détecter tout échec pour un sous-ensemble particulier d’éléments et de les gérer en conséquence (les envoyer vers un autre stockage pour supplémentaire analyse ou une nouvelle tentative). 
 
-> **Le déclencheur Azure Cosmos DB, par défaut, ne renouvelez un lot de modifications si une exception non gérée s’est produite** pendant l’exécution de votre code. Cela signifie que la raison que les modifications ne sont pas arrivé à la destination est car que vous ne traitent pas les.
+> [!NOTE]
+> Le déclencheur Azure Cosmos DB, par défaut, ne sont pas réessayer un lot de modifications s’il y avait une exception non gérée pendant l’exécution de votre code. Cela signifie que la raison que les modifications ne sont pas arrivé à la destination est car que vous ne traitent pas les.
 
 Si vous trouvez que certaines modifications n’ont pas été reçues du tout par votre déclencheur, le scénario le plus courant est que Voici **en cours d’exécution une autre fonction Azure**. Il peut être une autre fonction Azure déployé dans Azure ou une fonction Azure en cours d’exécution localement sur l’ordinateur d’un développeur qui a **exactement la même configuration** (même surveillé et conteneurs de bail), et le vol de cette fonction Azure un sous-ensemble des modifications, vous vous attendez votre fonction Azure à traiter.
 

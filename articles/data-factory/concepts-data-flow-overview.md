@@ -7,18 +7,18 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.openlocfilehash: 5064f47444b4ca6d9194ed66144938e6e3d51a4e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 051886f98d6d35594336291bbb2defb2a4acdfc5
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61261822"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233050"
 ---
-# <a name="what-are-mapping-data-flows-in-azure-data-factory"></a>Qu'est-ce que la fonctionnalité de mappage de flux de données d'Azure Data Factory ?
+# <a name="what-are-mapping-data-flows"></a>Que sont les flux de données de mappage ?
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-La fonctionnalité de mappage de flux de données permet aux ingénieurs informatiques de développer une logique de transformation graphique des données sans rédiger de code. Les flux de données qui en résultent sont exécutés en tant qu'activités dans les pipelines Azure Data Factory à l'aide de clusters Azure Databricks mis à l'échelle.
+Flux de données de mappage sont transformation conçue visuellement les données dans Azure Data Factory. Flux de données permettent aux ingénieurs de données développer la logique de transformation des données graphiques sans écrire de code. Les flux de données qui en résultent sont exécutés en tant qu'activités dans les pipelines Azure Data Factory à l'aide de clusters Azure Databricks mis à l'échelle.
 
 Les flux de données Azure Data Factory sont destinés à fournir une expérience entièrement visuelle sans codage. Vos flux de données s'exécuteront sur votre cluster d'exécution pour un traitement de données à l'échelle. Azure Data Factory gère intégralement la traduction du code, l'optimisation du chemin et l'exécution de vos travaux de flux de données.
 

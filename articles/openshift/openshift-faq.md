@@ -7,13 +7,13 @@ ms.author: twhitney
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 05/06/2019
-ms.openlocfilehash: 77e0e11582808901b10877d0d9284637145aa6f2
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.date: 05/08/2019
+ms.openlocfilehash: 881734caf855ccfc4f001693fe261b8448b49bc4
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65078669"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466196"
 ---
 # <a name="azure-red-hat-openshift-faq"></a>Azure Red Hat OpenShift Forum aux questions
 
@@ -25,7 +25,7 @@ Consultez [ressources prises en charge](supported-resources.md#azure-regions) po
 
 ## <a name="can-i-deploy-a-cluster-into-an-existing-virtual-network"></a>Puis-je déployer un cluster dans un réseau virtuel existant ?
 
-Oui. Vous pouvez déployer un cluster Azure Red Hat OpenShift dans un réseau virtuel existant lorsque vous créez un cluster. Consultez le [connecter un réseau virtuel d’un cluster à un réseau virtuel existant ](tutorial-create-cluster.md#optional-connect-the-clusters-virtual-network-to-an-existing-virtual-network) pour plus d’informations.
+Non. Mais vous pouvez vous connecter à un cluster Azure Red Hat OpenShift à un réseau virtuel existant via l’appairage. Consultez [connecter un réseau virtuel d’un cluster à un réseau virtuel existant ](tutorial-create-cluster.md#optional-connect-the-clusters-virtual-network-to-an-existing-virtual-network) pour plus d’informations.
 
 ## <a name="what-cluster-operations-are-available"></a>Les opérations de cluster sont disponibles ?
 

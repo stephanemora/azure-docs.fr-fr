@@ -6,9 +6,6 @@
     - name: "Qu'est-ce que le service Azure Machine Learning\_?"
       displayName: AML services overview
       href: overview-what-is-azure-ml.md
-    - name: Qu’est devenu Workbench
-      displayName: desktop ui Workbench upgrade update transfer
-      href: overview-what-happened-to-workbench.md
 - name: Paramétrage
   items:
     - name: Créer un espace de travail
@@ -92,6 +89,8 @@
     - name: Interprétabilité de modèles
       displayName: explainability
       href: machine-learning-interpretability-explainability.md
+    - name: Accélérer avec les GPU
+      href: concept-accelerate-inferencing-with-gpus.md
     - name: Accélérer avec les FPGA
       href: concept-accelerate-with-fpgas.md
     - name: Optimiser avec ONNX et le runtime ONNX
@@ -117,6 +116,7 @@
         - name: Utiliser le portail pour les espaces de travail
           href: how-to-manage-workspace.md
         - name: Utiliser un modèle Resource Manager
+          displayName: arm
           href: how-to-create-workspace-template.md
     - name: "Configurer l’environnement de développement\_"
       items:
@@ -224,6 +224,10 @@
       items:
         - name: Créer un pipeline ML
           href: how-to-create-your-first-pipeline.md
+        - name: CI/CD de workflows ML avec Azure Pipelines
+          displayName: 'continuous, integration, delivery'
+          href: /azure/devops/pipelines/targets/azure-machine-learning?view=azure-devop
+          mainContext: true
     - name: Gérer les quotas de ressources
       displayName: limits
       href: how-to-manage-quotas.md
@@ -235,9 +239,6 @@
     - name: SDK Machine Learning
       displayName: api core package python data prep
       href: 'https://aka.ms/aml-sdk'
-    - name: Kit de développement logiciel (SDK) pour préparation des données
-      displayName: api core package python data prep
-      href: 'https://aka.ms/data-prep-sdk'
     - name: Kit de développement logiciel (SDK) de supervision
       displayName: api package python monitor
       href: 'https://aka.ms/aml-monitoring-sdk'
@@ -352,3 +353,6 @@
     - name: Comparer nos produits ML
       href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning
       maintainContext: true
+    - name: Qu’est devenu Workbench
+      displayName: desktop ui Workbench upgrade update transfer
+      href: overview-what-happened-to-workbench.md

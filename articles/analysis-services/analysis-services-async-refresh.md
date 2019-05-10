@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/08/2019
+ms.date: 05/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 5e9558eae43b351aa198b64bb2a7903c756064c2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 63b64df457af5b7d3d2bd5901f73d89ccd3c913a
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61025255"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506968"
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Actualisation asynchrone avec l’API REST
 
@@ -57,7 +57,7 @@ Par exemple, vous pouvez utiliser le verbe POST sur la collection Refreshes pour
 https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refreshes
 ```
 
-## <a name="authentication"></a>Authentification
+## <a name="authentication"></a>Authentication
 
 Tous les appels doivent être authentifiés avec un jeton d’Azure Active Directory (OAuth 2) valide dans l’en-tête d’autorisation et doivent respecter les conditions suivantes :
 
@@ -98,7 +98,7 @@ Le corps doit ressembler à ceci :
 
 La spécification des paramètres n’est pas nécessaire. La valeur par défaut est appliquée.
 
-| Nom             | type  | Description  |Default  |
+| Nom             | type  | Description   |Default  |
 |------------------|-------|--------------|---------|
 | `Type`           | Enum  | Type de traitement à effectuer. Les types sont alignés sur les types de [commande d’actualisation](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/refresh-command-tmsl) TMSL : full, clearValues, calculate, dataOnly, automatic et defragment. Le type add n’est pas pris en charge.      |   automatique      |
 | `CommitMode`     | Enum  | Détermine si les objets doivent être validés par lot ou uniquement à la fin. Modes inclus : default, transactional, partialBatch.  |  transactional       |
@@ -201,42 +201,9 @@ Voici un exemple de code C# pour vous aider à démarrer, [RestApiSample sur Gi
 1.  Clonez ou téléchargez le référentiel. Ouvrez la solution RestApiSample.
 2.  Recherchez la ligne **client.BaseAddress = ...** et indiquez votre [URL de base](#base-url).
 
-L’exemple de code peut utiliser une connexion interactive, une combinaison nom d’utilisateur/mot de passe ou un [principal du service](#service-principal).
+L’exemple de code utilise [principal du service](#service-principal) l’authentification.
 
-#### <a name="interactive-login-or-usernamepassword"></a>Connexion interactive ou nom d’utilisateur/mot de passe
-
-Cette forme d’authentification nécessite de créer une application Azure disposant des autorisations d’API requises. 
-
-1.  Dans le portail Azure, cliquez sur **Créer une ressource** > **Azure Active Directory** > **Inscriptions des applications** > **Nouvelle inscription d’application**.
-
-    ![Nouvelle inscription d’application](./media/analysis-services-async-refresh/aas-async-app-reg.png)
-
-
-2.  Dans **Créer**, saisissez un nom, puis sélectionnez le type d’application **Natif**. Pour **URI de redirection**, saisissez **urn:ietf:wg:oauth:2.0:oob**, puis cliquez sur **Créer**.
-
-    ![Paramètres](./media/analysis-services-async-refresh/aas-async-app-reg-name.png)
-
-3.  Sélectionnez votre application, puis copiez et enregistrez l’**ID de l’application**.
-
-    ![Copier l'ID de l'application](./media/analysis-services-async-refresh/aas-async-app-id.png)
-
-4.  Dans **Paramètres**, cliquez sur **Autorisations requises** > **Ajouter**.
-
-    ![Ajouter un accès d'API](./media/analysis-services-async-refresh/aas-async-add.png)
-
-5.  Dans **Sélectionner une API**, tapez **Azure Analysis Services** dans la zone de recherche, puis sélectionnez-les.
-
-    ![Sélectionner une API](./media/analysis-services-async-refresh/aas-async-select-api.png)
-
-6.  Sélectionnez **Lecture et écriture pour tous les modèles**, puis cliquez sur **Sélectionner**. Lorsque les deux sont sélectionnés, cliquez sur **Terminé** pour ajouter les autorisations. La propagation peut prendre plusieurs minutes.
-
-    ![Sélectionner Lecture et écriture pour tous les modèles](./media/analysis-services-async-refresh/aas-async-select-read.png)
-
-7.  Dans l’exemple de code, recherchez la méthode **UpdateToken()**. Observez le contenu de cette méthode.
-8.  Recherchez **string clientID = …**, puis saisissez l’**ID d’application** que vous avez copié à l’étape 3.
-9.  Exécutez l’exemple.
-
-#### <a name="service-principal"></a>Principal du service
+### <a name="service-principal"></a>Principal du service
 
 Consultez [Créer un principal du service – Portail Azure](../active-directory/develop/howto-create-service-principal-portal.md) et [Ajouter un principal du service au rôle d’administrateur du serveur](analysis-services-addservprinc-admins.md) pour plus d’informations sur la configuration du principal du service et l’attribution des autorisations nécessaires dans Azure AS. Après cette procédure, suivez les étapes complémentaires suivantes :
 

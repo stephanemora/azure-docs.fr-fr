@@ -10,15 +10,14 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 05/07/2019
 ms.author: edjez
-ms.openlocfilehash: 30f009f76c25d80281d748e1e484175380ca9743
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: b65073c0646db0cd0c27a71005bb4f74b091ae09
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025540"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506888"
 ---
 # <a name="what-is-reinforcement-learning"></a>Qu’est-ce que l’apprentissage par renforcement ?
-
 
 L’apprentissage par renforcement est une approche du machine learning qui apprend des comportements en obtenant un feedback sur son utilisation.
  
@@ -64,7 +63,7 @@ Personalizer utilise actuellement [Vowpal Wabbit](https://github.com/VowpalWabbi
 
 * [Making Contextual Decisions with Low Technical Debt](https://arxiv.org/abs/1606.03966)
 * [A Reductions Approach to Fair Classification](https://arxiv.org/abs/1803.02453)
-* [Efficient Contextual Bandits in Non-stationary Worlds](https://arxiv.org/abs/1708.01799ds)
+* [Efficient Contextual Bandits in Non-stationary Worlds](https://arxiv.org/abs/1708.01799)
 * [Residual Loss Prediction: Reinforcement: learning With No Incremental Feedback](https://openreview.net/pdf?id=HJNMYceCW)
 * [Mapping Instructions and Visual Observations to Actions with Reinforcement Learning](https://arxiv.org/abs/1704.08795)
 * [Learning to Search Better Than Your Teacher](https://arxiv.org/abs/1502.02206)
