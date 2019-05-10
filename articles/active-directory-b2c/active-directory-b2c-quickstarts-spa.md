@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 10/24/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 51e0f6b7162c9bfa6c34f091bdce2b896bd5e284
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 2e5f16fa42e86442f6600e375df343f3b6369986
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64688963"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190390"
 ---
 # <a name="quickstart-set-up-sign-in-for-a-single-page-app-using-azure-active-directory-b2c"></a>Démarrage rapide : Configurer la connexion pour une application monopage à l’aide d’Azure Active Directory B2C
 
@@ -25,7 +25,7 @@ Azure Active Directory (Azure AD) B2C assure la gestion des identités de cloud 
 
 ## <a name="prerequisites"></a>Prérequis
 
-- [Visual Studio 2017](https://www.visualstudio.com/downloads/) avec la charge de travail **Développement ASP.NET et web**.
+- [Visual Studio 2019](https://www.visualstudio.com/downloads/) avec la charge de travail **Développement ASP.NET et web**.
 - Installez [Node.js](https://nodejs.org/en/download/)
 - Un compte de réseau social Facebook, Google, Microsoft ou Twitter.
 - [Téléchargez un fichier zip ](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp/archive/master.zip) ou clonez l’exemple d’application web à partir de GitHub.
@@ -64,7 +64,7 @@ Azure Active Directory (Azure AD) B2C assure la gestion des identités de cloud 
 
     ![Fournisseur pour se connecter ou s’inscrire](media/active-directory-b2c-quickstarts-spa/sign-in-or-sign-up-spa.png)
 
-    Vous vous authentifiez (vous connectez) avec les informations d’identification de votre compte de réseau social et autoriser l’application à lire les informations de votre compte de réseau social. En accordant l’accès, l’application peut extraire des informations de profil du compte de réseau social, telles que votre nom et votre ville. 
+    Vous vous authentifiez (vous connectez) avec les informations d’identification de votre compte de réseau social et autorisez l’application à lire les informations de votre compte de réseau social. En accordant l’accès, l’application peut extraire des informations de profil du compte de réseau social, telles que votre nom et votre ville. 
 
 3. Terminez le processus de connexion pour le fournisseur d’identité.
 
@@ -82,7 +82,12 @@ Vous pouvez utiliser votre locataire Azure AD B2C si vous envisagez d’effectue
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce démarrage rapide, vous avez utilisé un exemple d’application monopage pour vous connecter avec une page de connexion personnalisée, vous connecter avec un fournisseur d’identité sociale, créer un compte Azure AD B2C et appeler une API web protégée par Azure AD B2C. 
+Dans ce guide de démarrage rapide, vous avez utilisé un exemple d’application monopage pour :
+
+* Vous connecter avec une page de connexion personnalisée
+* Vous connecter avec un fournisseur d’identité sociale
+* Créer un compte Azure AD B2C
+* Appeler une API web protégée par Azure AD B2C
 
 Passez maintenant à la création de votre propre locataire Azure AD B2C.
 

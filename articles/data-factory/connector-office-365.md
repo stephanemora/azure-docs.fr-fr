@@ -10,18 +10,18 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 05/07/2019
 ms.author: jingwang
-ms.openlocfilehash: 8b8ffeb505f7d0978a736190b3d38c0246a38ebc
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 9ca3cbb1ef46c7fe53b6b16bda40ebef245613f3
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65145001"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65415655"
 ---
-# <a name="copy-data-from-office-365-into-azure-using-azure-data-factory-preview"></a>Copier des données depuis Office 365 avec Azure Data Factory (préversion) 
+# <a name="copy-data-from-office-365-into-azure-using-azure-data-factory"></a>Copier des données à partir d’Office 365 dans Azure à l’aide d’Azure Data Factory
 
-Azure Data Factory vous permet de transférer de façon progressive les données de votre organisation présentes dans votre locataire Office 365 vers Azure, et de créer des applications d’analytique et d’extraire des insights basés sur ces données. L’intégration avec Privileged Access Management fournit un contrôle d’accès sécurisé pour les données organisées dans Office 365.  Pour plus d’informations sur Microsoft Graph Data Connect, suivez [ce lien](https://github.com/OfficeDev/ManagedAccessMSGraph/wiki).
+Azure Data Factory vous permet de transférer de façon progressive les données de votre organisation présentes dans votre locataire Office 365 vers Azure, et de créer des applications d’analytique et d’extraire des insights basés sur ces données. L’intégration avec Privileged Access Management fournit un contrôle d’accès sécurisé pour les données organisées dans Office 365.  Pour plus d’informations sur Microsoft Graph Data Connect, suivez [ce lien](https://docs.microsoft.com/graph/data-connect-concept-overview).
 
 Cet article explique comment utiliser l’activité de copie dans Azure Data Factory pour copier des données d’Office 365. Il s’appuie sur l’article [Vue d’ensemble de l’activité de copie](copy-activity-overview.md).
 
@@ -31,15 +31,14 @@ Pour l’instant, au sein d’une seule activité de copie vous pouvez uniquemen
 
 >[!IMPORTANT]
 >- L’abonnement Azure contenant la fabrique de données et la banque de données réceptrice doit être sous le même locataire Azure Active Directory (Azure AD) que le locataire Office 365.
->- Vérifiez que la région Azure Integration Runtime utilisée pour l’activité de copie et la destination se trouvent dans la même région que celle où se trouve la boîte aux lettres des utilisateurs du locataire Office 365. Pour comprendre comment l’emplacement d’Azure Integration Runtime est déterminé, suivez [ce lien](concepts-integration-runtime.md#integration-runtime-location). Consultez [ce tableau](https://github.com/OfficeDev/ManagedAccessMSGraph/wiki/Capabilities#data-regions) pour obtenir la liste des régions Office et des régions Azure correspondantes prises en charge.
->-  Si vous chargez des données Office 365 dans **Stockage Blob Azure** comme destination, veillez à utiliser **[l’authentification de principal du service](connector-azure-blob-storage.md#service-principal-authentication)** quand vous définissez le service lié à Stockage Blob Azure, et non pas des authentifications de [clé de compte](connector-azure-blob-storage.md#account-key-authentication), de [signature d’accès partagé](connector-azure-blob-storage.md#shared-access-signature-authentication) ou d’[identités managées pour les ressources Azure](connector-azure-blob-storage.md#managed-identity).
->-  Si vous chargez des données Office 365 dans **Azure Data Lake Storage Gen1**, veillez à utiliser [**l’authentification de principal du service**](connector-azure-data-lake-store.md#use-service-principal-authentication) quand vous définissez le service lié à Azure Data Lake Storage Gen1, et non pas une authentification d’[identités managées pour les ressources Azure](connector-azure-data-lake-store.md#managed-identity).
+>- Vérifiez que la région Azure Integration Runtime utilisée pour l’activité de copie et la destination se trouvent dans la même région que celle où se trouve la boîte aux lettres des utilisateurs du locataire Office 365. Pour comprendre comment l’emplacement d’Azure Integration Runtime est déterminé, suivez [ce lien](concepts-integration-runtime.md#integration-runtime-location). Consultez [ce tableau](https://docs.microsoft.com/graph/data-connect-datasets#regions) pour obtenir la liste des régions Office et des régions Azure correspondantes prises en charge.
+>- Authentification de principal du service est le seul mécanisme d’authentification pris en charge pour le stockage d’objets Blob Azure, Azure Data Lake Storage Gen1 et Gen2 de stockage Azure Data Lake comme banques de destination.
 
 ## <a name="prerequisites"></a>Conditions préalables
 
 Pour copier des données depuis Office 365 dans Azure, vous devez effectuer les étapes prérequises suivantes :
 
-- L’administrateur de votre locataire Office 365 doit effectuer des actions d’intégration comme décrit [ici](https://github.com/OfficeDev/ManagedAccessMSGraph/wiki/On-boarding).
+- L’administrateur de votre locataire Office 365 doit effectuer des actions d’intégration comme décrit [ici](https://docs.microsoft.com/graph/data-connect-get-started).
 - Créez et configurez une application web Azure AD dans Azure Active Directory.  Pour obtenir des instructions, consultez la page [Créer une application Azure AD](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application).
 - Prenez note des valeurs suivantes, que vous utiliserez afin de définir le service lié pour Office 365 :
     - ID de locataire. Pour obtenir des instructions, consultez [Obtenir l’ID de locataire](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-id).
@@ -51,11 +50,11 @@ Pour copier des données depuis Office 365 dans Azure, vous devez effectuer les 
 
 Si c’est la première fois que vous demandez des données pour ce contexte (une combinaison de la table de données consultée, du compte de destination dans lequel les données sont chargées et de l’identité de l’utilisateur à l’origine de la demande d’accès aux données), vous voyez l’activité de copie avec l’état « En cours d’exécution », et l’état ne devient « RequestingConsent » que quand vous cliquez sur le [lien « Détails » sous Actions](copy-activity-overview.md#monitoring).  Un membre du groupe d’approbateurs pour l’accès aux données doit approuver la requête dans Privileged Access Management pour permettre l’extraction de données.
 
-Cliquez [ici](https://github.com/OfficeDev/MS-Graph-Data-Connect/wiki/Approving-data-access-requests) pour obtenir des informations sur la façon dont l’approbateur peut approuver les demandes d’accès aux données et cliquez [ici](https://github.com/OfficeDev/MS-Graph-Data-Connect/wiki/Capabilities#integration-with-privileged-access-management) pour obtenir une explication sur l’intégration globale à Privileged Access Management, notamment comment configurer le groupe d’approbateurs d’accès aux données.
+Cliquez [ici](https://docs.microsoft.com/graph/data-connect-tips#approve-pam-requests-via-office-365-admin-portal) pour obtenir des informations sur la façon dont l’approbateur peut approuver les demandes d’accès aux données et cliquez [ici](https://docs.microsoft.com/graph/data-connect-pam) pour obtenir une explication sur l’intégration globale à Privileged Access Management, notamment comment configurer le groupe d’approbateurs d’accès aux données.
 
 ## <a name="policy-validation"></a>Validation de la stratégie
 
-Si ADF est créé dans le cadre d’une application managée et que les affectations de stratégies Azure sont effectuées sur des ressources au sein du groupe de ressources de gestion, puis pour chaque exécution de l’activité de copie, ADF vérifie que les affectations de stratégie sont appliquées. Cliquez [ici](https://github.com/OfficeDev/ManagedAccessMSGraph/wiki/Capabilities#policies) pour obtenir la liste des stratégies prises en charge.
+Si ADF est créé dans le cadre d’une application managée et que les affectations de stratégies Azure sont effectuées sur des ressources au sein du groupe de ressources de gestion, puis pour chaque exécution de l’activité de copie, ADF vérifie que les affectations de stratégie sont appliquées. Cliquez [ici](https://docs.microsoft.com/graph/data-connect-policies#policies) pour obtenir la liste des stratégies prises en charge.
 
 ## <a name="getting-started"></a>Prise en main
 
@@ -84,7 +83,7 @@ Les propriétés prises en charge pour le service lié Office 365 sont les suiva
 | servicePrincipalTenantId | Spécifiez les informations du locataire où se trouve votre application web Azure AD. | Oui |
 | servicePrincipalId | Spécifiez l’ID client de l’application. | OUI |
 | servicePrincipalKey | Spécifiez la clé de l’application. Marquez ce champ comme SecureString pour le stocker de façon sécurisée dans Data Factory. | Oui |
-| connectVia | Runtime d’intégration à utiliser pour la connexion à la banque de données.  À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. | Non  |
+| connectVia | Runtime d’intégration à utiliser pour la connexion à la banque de données.  À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. | Non |
 
 >[!NOTE]
 > La différence entre **office365TenantId** et **servicePrincipalTenantId**, et la valeur correspondante à fournir :
@@ -120,14 +119,18 @@ Pour copier des données depuis Office 365, les propriétés suivantes sont pris
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | type | La propriété type du jeu de données doit être définie sur : **Office365Table** | Oui |
-| tableName | Nom du jeu de données à extraire d’Office 365. Cliquez [ici](https://github.com/OfficeDev/MS-Graph-Data-Connect/wiki/Capabilities#datasets) pour obtenir la liste des jeux de données Office 365 disponibles pour l’extraction. | Oui |
-| predicate | Expression de prédicat qui peut être utilisée pour filtrer les lignes spécifiques à extraire d’Office 365.  Cliquez [ici](https://github.com/OfficeDev/MS-Graph-Data-Connect/wiki/Capabilities#filters) pour découvrir comment déterminer les colonnes qui peuvent être utilisées pour le filtrage de prédicat de chaque table et le format d’expression du filtre. | Non <br>(Si aucun prédicat n’est fourni, le comportement par défaut est l’extraction des données pour les 30 derniers jours) |
+| tableName | Nom du jeu de données à extraire d’Office 365. Cliquez [ici](https://docs.microsoft.com/graph/data-connect-datasets#datasets) pour obtenir la liste des jeux de données Office 365 disponibles pour l’extraction. | Oui |
+| allowedGroups | Prédicat de sélection de groupe.  Cette propriété permet de sélectionner jusqu'à 10 groupes d’utilisateurs pour lesquels les données seront récupérées.  Si aucun groupe n’est spécifié, les données seront affichera pour toute l’organisation. | Non |
+| userScopeFilterUri | Lorsque `allowedGroups` propriété n’est pas spécifiée, vous pouvez utiliser une expression de prédicat est appliquée sur l’ensemble du locataire pour filtrer les lignes spécifiques à extraire à partir d’Office 365. Le format de prédicat doit correspondre au format de requête de l’API Microsoft Graph, par exemple, `https://graph.microsoft.com/v1.0/users?$filter=Department eq 'Finance'`. | Non |
+| dateFilterColumn | Nom de la colonne de filtre de date/heure. Cette propriété permet de limiter l’intervalle de temps pour les Office 365 sont extraites les données. | Oui, si le jeu de données comporte une ou plusieurs colonnes de date/heure. Consultez [ici](https://docs.microsoft.com/graph/data-connect-filtering#filtering) pour la liste des jeux de données qui nécessitent ce filtre de date/heure. |
+| startTime | Démarrer la valeur DateTime à filtrer. | Oui, si `dateFilterColumn` est spécifié |
+| endTime | Fin de valeur DateTime à filtrer. | Oui, si `dateFilterColumn` est spécifié |
 
 **Exemple**
 
 ```json
 {
-    "name": "Office365Table1",
+    "name": "DS_May2019_O365_Message",
     "properties": {
         "type": "Office365Table",
         "linkedServiceName": {
@@ -136,113 +139,187 @@ Pour copier des données depuis Office 365, les propriétés suivantes sont pris
         },
         "structure": [
             {
-                "name": "ReceivedDateTime",
-                "type": "datetime"
-            },
-            {
-                "name": "SentDateTime",
-                "type": "datetime"
-            },
-            {
-                "name": "HasAttachments",
-                "type": "boolean"
-            },
-            {
-                "name": "InternetMessageId",
-                "type": "string"
-            },
-            {
-                "name": "Subject",
-                "type": "string"
-            },
-            {
-                "name": "Importance",
-                "type": "string"
-            },
-            {
-                "name": "ParentFolderId",
-                "type": "string"
-            },
-            {
-                "name": "Sender",
-                "type": "string"
-            },
-            {
-                "name": "From",
-                "type": "string"
-            },
-            {
-                "name": "ToRecipients",
-                "type": "string"
-            },
-            {
-                "name": "CcRecipients",
-                "type": "string"
-            },
-            {
-                "name": "BccRecipients",
-                "type": "string"
-            },
-            {
-                "name": "ReplyTo",
-                "type": "string"
-            },
-            {
-                "name": "ConversationId",
-                "type": "string"
-            },
-            {
-                "name": "UniqueBody",
-                "type": "string"
-            },
-            {
-                "name": "IsDeliveryReceiptRequested",
-                "type": "boolean"
-            },
-            {
-                "name": "IsReadReceiptRequested",
-                "type": "boolean"
-            },
-            {
-                "name": "IsRead",
-                "type": "boolean"
-            },
-            {
-                "name": "IsDraft",
-                "type": "boolean"
-            },
-            {
-                "name": "WebLink",
-                "type": "string"
+                "name": "Id",
+                "type": "String",
+                "description": "The unique identifier of the event."
             },
             {
                 "name": "CreatedDateTime",
-                "type": "datetime"
+                "type": "DateTime",
+                "description": "The date and time that the event was created."
             },
             {
                 "name": "LastModifiedDateTime",
-                "type": "datetime"
+                "type": "DateTime",
+                "description": "The date and time that the event was last modified."
             },
             {
                 "name": "ChangeKey",
-                "type": "string"
+                "type": "String",
+                "description": "Identifies the version of the event object. Every time the event is changed, ChangeKey changes as well. This allows Exchange to apply changes to the correct version of the object."
             },
             {
                 "name": "Categories",
-                "type": "string"
+                "type": "String",
+                "description": "The categories associated with the event. Format: ARRAY<STRING>"
             },
             {
-                "name": "Id",
-                "type": "string"
+                "name": "OriginalStartTimeZone",
+                "type": "String",
+                "description": "The start time zone that was set when the event was created. See DateTimeTimeZone for a list of valid time zones."
+            },
+            {
+                "name": "OriginalEndTimeZone",
+                "type": "String",
+                "description": "The end time zone that was set when the event was created. See DateTimeTimeZone for a list of valid time zones."
+            },
+            {
+                "name": "ResponseStatus",
+                "type": "String",
+                "description": "Indicates the type of response sent in response to an event message. Format: STRUCT<Response: STRING, Time: STRING>"
+            },
+            {
+                "name": "iCalUId",
+                "type": "String",
+                "description": "A unique identifier that is shared by all instances of an event across different calendars."
+            },
+            {
+                "name": "ReminderMinutesBeforeStart",
+                "type": "Int32",
+                "description": "The number of minutes before the event start time that the reminder alert occurs."
+            },
+            {
+                "name": "IsReminderOn",
+                "type": "Boolean",
+                "description": "Set to true if an alert is set to remind the user of the event."
+            },
+            {
+                "name": "HasAttachments",
+                "type": "Boolean",
+                "description": "Set to true if the event has attachments."
+            },
+            {
+                "name": "Subject",
+                "type": "String",
+                "description": "The text of the event's subject line."
+            },
+            {
+                "name": "Body",
+                "type": "String",
+                "description": "The body of the message associated with the event.Format: STRUCT<ContentType: STRING, Content: STRING>"
+            },
+            {
+                "name": "Importance",
+                "type": "String",
+                "description": "The importance of the event: Low, Normal, High."
+            },
+            {
+                "name": "Sensitivity",
+                "type": "String",
+                "description": "Indicates the level of privacy for the event: Normal, Personal, Private, Confidential."
+            },
+            {
+                "name": "Start",
+                "type": "String",
+                "description": "The start time of the event. Format: STRUCT<DateTime: STRING, TimeZone: STRING>"
+            },
+            {
+                "name": "End",
+                "type": "String",
+                "description": "The date and time that the event ends. Format: STRUCT<DateTime: STRING, TimeZone: STRING>"
+            },
+            {
+                "name": "Location",
+                "type": "String",
+                "description": "Location information of the event. Format: STRUCT<DisplayName: STRING, Address: STRUCT<Street: STRING, City: STRING, State: STRING, CountryOrRegion: STRING, PostalCode: STRING>, Coordinates: STRUCT<Altitude: DOUBLE, Latitude: DOUBLE, Longitude: DOUBLE, Accuracy: DOUBLE, AltitudeAccuracy: DOUBLE>>"
+            },
+            {
+                "name": "IsAllDay",
+                "type": "Boolean",
+                "description": "Set to true if the event lasts all day. Adjusting this property requires adjusting the Start and End properties of the event as well."
+            },
+            {
+                "name": "IsCancelled",
+                "type": "Boolean",
+                "description": "Set to true if the event has been canceled."
+            },
+            {
+                "name": "IsOrganizer",
+                "type": "Boolean",
+                "description": "Set to true if the message sender is also the organizer."
+            },
+            {
+                "name": "Recurrence",
+                "type": "String",
+                "description": "The recurrence pattern for the event. Format: STRUCT<Pattern: STRUCT<Type: STRING, `Interval`: INT, Month: INT, DayOfMonth: INT, DaysOfWeek: ARRAY<STRING>, FirstDayOfWeek: STRING, Index: STRING>, `Range`: STRUCT<Type: STRING, StartDate: STRING, EndDate: STRING, RecurrenceTimeZone: STRING, NumberOfOccurrences: INT>>"
+            },
+            {
+                "name": "ResponseRequested",
+                "type": "Boolean",
+                "description": "Set to true if the sender would like a response when the event is accepted or declined."
+            },
+            {
+                "name": "ShowAs",
+                "type": "String",
+                "description": "The status to show: Free, Tentative, Busy, Oof, WorkingElsewhere, Unknown."
+            },
+            {
+                "name": "Type",
+                "type": "String",
+                "description": "The event type: SingleInstance, Occurrence, Exception, SeriesMaster."
+            },
+            {
+                "name": "Attendees",
+                "type": "String",
+                "description": "The collection of attendees for the event. Format: ARRAY<STRUCT<EmailAddress: STRUCT<Name: STRING, Address: STRING>, Status: STRUCT<Response: STRING, Time: STRING>, Type: STRING>>"
+            },
+            {
+                "name": "Organizer",
+                "type": "String",
+                "description": "The organizer of the event. Format: STRUCT<EmailAddress: STRUCT<Name: STRING, Address: STRING>>"
+            },
+            {
+                "name": "WebLink",
+                "type": "String",
+                "description": "The URL to open the event in Outlook Web App."
             },
             {
                 "name": "Attachments",
-                "type": "string"
+                "type": "String",
+                "description": "The FileAttachment and ItemAttachment attachments for the message. Navigation property. Format: ARRAY<STRUCT<LastModifiedDateTime: STRING, Name: STRING, ContentType: STRING, Size: INT, IsInline: BOOLEAN, Id: STRING>>"
+            },
+            {
+                "name": "BodyPreview",
+                "type": "String",
+                "description": "The preview of the message associated with the event. It is in text format."
+            },
+            {
+                "name": "Locations",
+                "type": "String",
+                "description": "The locations where the event is held or attended from. The location and locations properties always correspond with each other. Format:  ARRAY<STRUCT<DisplayName: STRING, Address: STRUCT<Street: STRING, City: STRING, State: STRING, CountryOrRegion: STRING, PostalCode: STRING>, Coordinates: STRUCT<Altitude: DOUBLE, Latitude: DOUBLE, Longitude: DOUBLE, Accuracy: DOUBLE, AltitudeAccuracy: DOUBLE>, LocationEmailAddress: STRING, LocationUri: STRING, LocationType: STRING, UniqueId: STRING, UniqueIdType: STRING>>"
+            },
+            {
+                "name": "OnlineMeetingUrl",
+                "type": "String",
+                "description": "A URL for an online meeting. The property is set only when an organizer specifies an event as an online meeting such as a Skype meeting"
+            },
+            {
+                "name": "OriginalStart",
+                "type": "DateTime",
+                "description": "The start time that was set when the event was created in UTC time."
+            },
+            {
+                "name": "SeriesMasterId",
+                "type": "String",
+                "description": "The ID for the recurring series master item, if this event is part of a recurring series."
             }
         ],
         "typeProperties": {
-            "tableName": "BasicDataSet_v0.Contact_v0",
-            "predicate": "CreatedDateTime >= 2018-07-11T16:00:00.000Z AND CreatedDateTime <= 2018-07-18T16:00:00.000Z"
+            "tableName": "BasicDataSet_v0.Event_v1",
+            "dateFilterColumn": "CreatedDateTime",
+            "startTime": "2019-04-28T16:00:00.000Z",
+            "endTime": "2019-05-05T16:00:00.000Z",
+            "userScopeFilterUri": "https://graph.microsoft.com/v1.0/users?$filter=Department eq 'Finance'"
         }
     }
 }

@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 3df54c6805c5117e627afe0a2b4caa0ddd94b182
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 7ca7a670e8d660efb43861312b2670efbaac6638
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64723700"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190248"
 ---
 # <a name="tutorial-enable-authentication-in-a-native-client-application-using-azure-active-directory-b2c"></a>Didacticiel : Activer l’authentification dans une application cliente native à l’aide d’Azure Active Directory B2C
 
@@ -33,7 +33,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 ## <a name="prerequisites"></a>Prérequis
 
 - [Créer des flux d’utilisateur](tutorial-create-user-flows.md) pour activer les expériences utilisateur dans votre application 
-- Installez [Visual Studio 2017](https://www.visualstudio.com/downloads/) avec les charges de travail **Développement Bureau .NET** et **Développement web et ASP.NET**.
+- Installez [Visual Studio 2019](https://www.visualstudio.com/downloads/) avec les charges de travail **Développement .NET Desktop** et **Développement web et ASP.NET**.
 
 ## <a name="add-the-native-client-application"></a>Ajouter l’application cliente native
 

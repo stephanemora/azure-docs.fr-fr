@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 6b79a26d63c02dd06b62ea6ad09941f947704dc0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 747e177b0fbbfb9049959c3194ee39c3234bba50
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60870487"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65234033"
 ---
 # <a name="identify-issues-with-the-diagnostics-feature"></a>Identifier les problèmes relatifs à la fonctionnalité de diagnostic
 
@@ -118,7 +118,7 @@ Le **-résultat** paramètre peut également être combiné avec d’autres para
 
 Scénarios d’erreur sont classés comme internes au service et externes au bureau virtuel Windows.
 
-* Problème interne : Spécifie les scénarios qui ne peut pas être atténués par l’administrateur client et doivent être résolus en tant que problème de support. Quand déclencher un ticket de fournir l’ID d’activité, le nom du locataire et le laps de temps approximatif le problème s’est produite.
+* Problème interne : Spécifie les scénarios qui ne peut pas être atténués par l’administrateur client et doivent être résolus en tant qu’un problème de support. Lorsque vous fournissez des commentaires via le [Windows Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop), incluez l’ID d’activité, puis se rapprocher de laps de temps de laquelle le problème s’est produite.
 * Problème externe : se rapportent aux scénarios qui peuvent être atténuées par l’administrateur système. Il s’agit externes au bureau virtuel Windows.
 
 Le tableau suivant répertorie les erreurs liées à que vos administrateurs susceptible de rencontrer.

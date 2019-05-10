@@ -1,0 +1,255 @@
+---
+title: 'Tutoriel : Configurer des files d’attente dans Azure Service Bus à l’aide d’Ansible | Microsoft Docs'
+description: Découvrez comment créer une file d’attente Azure Service Bus à l’aide d’Ansible.
+keywords: ansible, azure, devops, bash, playbook, service bus, file d’attente
+ms.topic: tutorial
+ms.service: ansible
+author: tomarchermsft
+manager: jeconnoc
+ms.author: tarcher
+ms.date: 04/22/2019
+ms.openlocfilehash: 96ac420b3d84792705209055e6665e37ef161620
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65192181"
+---
+# <a name="tutorial-configure-queues-in-azure-service-bus-using-ansible"></a>Didacticiel : Configurer des files d’attente dans Azure Service Bus à l’aide d’Ansible
+
+[!INCLUDE [ansible-28-note.md](../../includes/ansible-28-note.md)]
+
+[!INCLUDE [open-source-devops-intro-servicebus.md](../../includes/open-source-devops-intro-servicebus.md)]
+
+[!INCLUDE [ansible-tutorial-goals.md](../../includes/ansible-tutorial-goals.md)]
+
+> [!div class="checklist"]
+>
+> * Créer une file d’attente
+> * Créer une stratégie SAS
+> * Récupérer des informations d’espace de noms
+> * Récupérer des informations de file d’attente
+> * Révoquer la stratégie SAS de file d’attente
+
+## <a name="prerequisites"></a>Prérequis
+
+- [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
+- [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation1.md)][!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
+
+## <a name="create-the-service-bus-queue"></a>Créer la file d’attente Service Bus
+
+L’exemple de code de playbook crée les ressources suivantes :
+- Groupe de ressources Azure
+- Espace de noms Service Bus dans le groupe de ressources
+- File d’attente Service Bus avec l’espace de noms
+
+Enregistrez le playbook suivant en tant que `servicebus_queue.yml` :
+
+```yml
+---
+- hosts: localhost
+  vars:
+      resource_group: servicebustest
+      location: eastus
+      namespace: servicebustestns
+      queue: servicebustestqueue
+  tasks:
+    - name: Ensure resource group exist
+      azure_rm_resourcegroup:
+          name: "{{ resource_group }}"
+          location: "{{ location }}"
+    - name: Create a namespace
+      azure_rm_servicebus:
+          name: "{{ namespace }}"
+          resource_group: "{{ resource_group }}"
+    - name: Create a queue
+      azure_rm_servicebusqueue:
+          name: "{{ queue }}"
+          namespace: "{{ namespace }}"
+          resource_group: "{{ resource_group }}"
+      register: queue
+    - debug:
+          var: queue
+```
+
+Exécutez le playbook à l’aide de la commande `ansible-playbook` :
+
+```bash
+ansible-playbook servicebus_queue.yml
+```
+
+## <a name="create-the-sas-policy"></a>Créer la stratégie SAS
+
+Une [signature d’accès partagé (SAS)](/azure/storage/common/storage-dotnet-shared-access-signature-part-1) est un mécanisme d’autorisation reposant sur des revendications et utilisant des jetons. 
+
+L’exemple de code de playbook crée deux stratégies SAS pour une file d’attente Service Bus avec des privilèges différents.
+
+Enregistrez le playbook suivant en tant que `servicebus_queue_policy.yml` :
+
+```yml
+---
+- hosts: localhost
+  vars:
+      resource_group: servicebustest
+      namespace: servicebustestns
+      queue: servicebustestqueue
+  tasks:
+    - name: Create a policy with send and listen priviledge
+      azure_rm_servicebussaspolicy:
+          name: "{{ queue }}-policy"
+          queue: "{{ queue }}"
+          namespace: "{{ namespace }}"
+          resource_group: "{{ resource_group }}"
+          rights: listen_send
+      register: policy
+    - debug:
+          var: policy
+```
+
+Avant d’exécuter le playbook, reportez-vous aux notes suivantes :
+- La valeur `rights` représente le privilège dont dispose un utilisateur avec la file d’attente. Spécifiez l’une des valeurs suivantes : `manage`, `listen`, `send` ou `listen_send`.
+
+Exécutez le playbook à l’aide de la commande `ansible-playbook` :
+
+```bash
+ansible-playbook servicebus_queue_policy.yml
+```
+
+## <a name="retrieve-namespace-information"></a>Récupérer des informations d’espace de noms
+
+L’exemple de code de playbook interroge les informations d’espace de noms.
+
+Enregistrez le playbook suivant en tant que `servicebus_namespace_info.yml` :
+
+```yml
+---
+- hosts: localhost
+  vars:
+      resource_group: servicebustest
+      namespace: servicebustestns
+  tasks:
+    - name: Get a namespace's information
+      azure_rm_servicebus_facts:
+          type: namespace
+          name: "{{ namespace }}"
+          resource_group: "{{ resource_group }}"
+          show_sas_policies: yes
+      register: ns
+    - debug:
+          var: ns
+```
+
+Avant d’exécuter le playbook, reportez-vous aux notes suivantes :
+- La valeur `show_sas_policies` indique s’il faut afficher les stratégies de signature d’accès partagé sous l’espace de noms spécifié. Par défaut, la valeur est `False` afin d’éviter toute surcharge réseau supplémentaire.
+
+Exécutez le playbook à l’aide de la commande `ansible-playbook` :
+
+```bash
+ansible-playbook servicebus_namespace_info.yml
+```
+
+## <a name="retrieve-queue-information"></a>Récupérer des informations de file d’attente
+
+L’exemple de code de playbook interroge les informations de file d’attente. 
+
+Enregistrez le playbook suivant en tant que `servicebus_queue_info.yml` :
+
+```yml
+---
+- hosts: localhost
+  vars:
+      resource_group: servicebustest
+      namespace: servicebustestns
+      queue: servicebustestqueue
+  tasks:
+    - name: Get a queue's information
+      azure_rm_servicebus_facts:
+          type: queue
+          name: "{{ queue }}"
+          namespace: "{{ namespace }}"
+          resource_group: "{{ resource_group }}"
+          show_sas_policies: yes
+      register: queue
+    - debug:
+          var: queue
+```
+
+Avant d’exécuter le playbook, reportez-vous aux notes suivantes :
+- La valeur `show_sas_policies` indique s’il faut afficher les stratégies de signature d’accès partagé sous la file d’attente spécifiée. Par défaut, cette valeur est `False` afin d’éviter toute surcharge réseau supplémentaire.
+
+Exécutez le playbook à l’aide de la commande `ansible-playbook` :
+
+```bash
+ansible-playbook servicebus_queue_info.yml
+```
+
+## <a name="revoke-the-queue-sas-policy"></a>Révoquer la stratégie SAS de file d’attente
+
+L’exemple de code de playbook supprime une stratégie SAS de file d’attente.
+
+Enregistrez le playbook suivant en tant que `servicebus_queue_policy_delete.yml` :
+
+```yml
+---
+- hosts: localhost
+  vars:
+      resource_group: servicebustest
+      namespace: servicebustestns
+      queue: servicebustestqueue
+  tasks:
+    - name: Create a policy with send and listen priviledge
+      azure_rm_servicebussaspolicy:
+          name: "{{ queue }}-policy"
+          queue: "{{ queue }}"
+          namespace: "{{ namespace }}"
+          resource_group: "{{ resource_group }}"
+          state: absent
+```
+
+Exécutez le playbook à l’aide de la commande `ansible-playbook` :
+
+```bash
+ansible-playbook servicebus_queue_policy_delete.yml
+```
+
+## <a name="clean-up-resources"></a>Supprimer des ressources
+
+Quand vous n’avez plus besoin des ressources créées dans cet article, supprimez-les. 
+
+Enregistrez le code suivant sous le nom `cleanup.yml` :
+
+```yml
+---
+- hosts: localhost
+  vars:
+      resource_group: servicebustest
+      namespace: servicebustestns
+      queue: servicebustestqueue
+  tasks:
+    - name: Delete queue
+      azure_rm_servicebusqueue:
+          name: "{{ queue }}"
+          resource_group: "{{ resource_group }}"
+          namespace: "{{ namespace }}"
+          state: absent
+    - name: Delete namespace
+      azure_rm_servicebus:
+          name: "{{ namespace }}"
+          resource_group: "{{ resource_group }}"
+          state: absent
+    - name: Delete resource group
+      azure_rm_resourcegroup:
+          name: "{{ resource_group }}"
+          state: absent
+          force_delete_nonempty: yes
+```
+
+Exécutez le playbook à l’aide de la commande `ansible-playbook` :
+
+```bash
+ansible-playbook cleanup.yml
+```
+
+## <a name="next-steps"></a>Étapes suivantes
+> [!div class="nextstepaction"] 
+> [Tutoriel : Configurer une rubrique dans Azure Service Bus à l’aide d’Ansible](ansible-service-bus-topic-configure.md)

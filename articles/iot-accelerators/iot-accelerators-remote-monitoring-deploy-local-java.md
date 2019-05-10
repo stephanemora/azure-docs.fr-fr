@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/24/2019
 ms.topic: conceptual
-ms.openlocfilehash: 209a91453875531e81ddbcead8c1ed2fb309a0a0
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 996111fbe23000182dab774ba3bbad0cc6435824
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65147445"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65412731"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---intellij"></a>Déployer localement l’accélérateur de solution de supervision à distance - IntelliJ
 
@@ -100,9 +100,9 @@ Les étapes suivantes vous montrent comment exécuter les microservices de super
     * WebService (services\iothub-manager)
     * WebService (services\storage-adapter)
 
-À titre d’exemple, l’image suivante illustre l’ajout d’une configuration pour un service :
+Par exemple, l’illustration suivante montre l’ajout de configuration pour un service :
 
-[![Add-Configuration](./media/deploy-locally-intelliJ/run-configurations.png)](./media/deploy-locally-intelliJ/run-configurations.png#lightbox)
+[![Add-Configuration](./media/deploy-locally-intellij/run-configurations.png)](./media/deploy-locally-intellij/run-configurations.png#lightbox)
 
 
 #### <a name="create-compound-configuration"></a>Créer une configuration composée
@@ -111,14 +111,11 @@ Les étapes suivantes vous montrent comment exécuter les microservices de super
 1. Entrez le **nom** et **add sbt tasks (ajouter des tâches sbt)**
 1. Cliquez sur **Appliquer > OK** pour enregistrer vos choix.
 
-À titre d’exemple, l’image suivante illustre l’ajout de toutes les tâches sbt à une configuration unique :
+Par exemple, l’image suivante illustre l’ajout de toutes les tâches sbt à configuration unique :
 
+[![Add-All-Services](./media/deploy-locally-intellij/all-services.png)](./media/deploy-locally-intellij/all-services.png#lightbox)
 
-[![Add-All-Services](./media/deploy-locally-intelliJ/all-services.png)](./media/deploy-locally-intelliJ/all-services.png#lightbox)
-
-
-
-1. Cliquez sur **Exécuter** pour générer et exécuter les services web sur l’ordinateur local.
+Cliquez sur **Exécuter** pour générer et exécuter les services web sur l’ordinateur local.
 
 Chaque service web ouvre une invite de commandes et une fenêtre de navigateur web. Dans l’invite de commandes, vous voyez le résultat de l’exécution du service et la fenêtre du navigateur vous permet d’en surveiller l’état. Ne fermez pas les invites de commandes ni les pages web, car cette action arrête le service web.
 

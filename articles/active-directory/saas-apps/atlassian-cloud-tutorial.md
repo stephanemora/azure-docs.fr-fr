@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory dans Atlassian Cloud | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory dans Atlassian Cloud | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Atlassian Cloud.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,22 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 729b8eb6-efc4-47fb-9f34-8998ca2c9545
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/11/2018
+ms.date: 05/03/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 49d44fa0926afac917ae0ba355d37f13a354f432
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 66b8b9076c0a4b1fddda4ab0bcfe9f104d7dcf8a
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57887932"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65191117"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-atlassian-cloud"></a>Tutoriel : Intégration d’Azure Active Directory dans Atlassian Cloud
+# <a name="tutorial-azure-active-directory-integration-with-atlassian-cloud"></a>Didacticiel : Intégration d’Azure Active Directory dans Atlassian Cloud
 
 Dans ce didacticiel, vous allez apprendre à intégrer Atlassian Cloud à Azure Active Directory (Azure AD).
 L’intégration d’Atlassian Cloud dans Azure AD vous offre les avantages suivants :
@@ -38,7 +39,7 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
 
 Pour configurer l’intégration d’Azure AD à Atlassian Cloud, vous avez besoin des éléments suivants :
 
-* Un abonnement Azure AD Si vous n’avez pas d’environnement Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
+* Un abonnement Azure AD Si vous n’avez pas d’environnement Azure AD, vous pouvez obtenir un [compte gratuit](https://azure.microsoft.com/free/)
 * Un abonnement Atlassian Cloud pour lequel l’authentification unique est activée
 * Si vous souhaitez activer l’authentification unique SAML (Security Assertion Markup Language) pour les produits Atlassian Cloud, vous devez configurer Atlassian Access. En savoir plus sur [Atlassian Access]( https://www.atlassian.com/enterprise/cloud/identity-manager)
 
@@ -102,7 +103,7 @@ Pour configurer l’authentification unique Azure AD avec Atlassian Cloud, proc�
 
     ![Modifier la configuration SAML de base](common/edit-urls.png)
 
-4. À la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode initié par **IDP**, suivez les étapes ci-dessous :
+4. Dans la section **Configuration SAML de base**, si vous souhaitez configurer l’application en mode lancé par le **fournisseur d’identité**, effectuez les étapes suivantes :
 
     ![Informations d’authentification unique dans Domaine et URL [Nom de l’application]](common/idp-relay.png)
 
@@ -115,7 +116,7 @@ Pour configurer l’authentification unique Azure AD avec Atlassian Cloud, proc�
     d. Dans la zone de texte **État de relais**, entrez une URL en utilisant le modèle suivant : `https://<instancename>.atlassian.net`
 
     > [!NOTE]
-    > Les valeurs ci-dessus ne sont pas réelles. Mettez à jour ces valeurs avec l’identificateur et l’URL de réponse réels. Ces valeurs réelles sont accessibles dans l’écran de configuration SAML pour Atlassian Cloud, comme nous le verrons plus loin dans ce tutoriel.
+    > Les valeurs ci-dessus ne sont pas réelles. Mettez à jour ces valeurs avec l’identificateur et l’URL de réponse réels. Ces valeurs réelles sont accessibles dans l’écran de **configuration SAML pour Atlassian Cloud**, comme nous le verrons plus loin dans la section **Configurer l’authentification unique Atlassian Cloud** de ce tutoriel.
 
 5. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services**, cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes :
 
@@ -146,33 +147,41 @@ Pour configurer l’authentification unique Azure AD avec Atlassian Cloud, proc�
 
 ### <a name="configure-atlassian-cloud-single-sign-on"></a>Configurer l’authentification unique Atlassian Cloud
 
-1. Pour configurer l’authentification unique dans votre application, connectez-vous au portail Atlassian avec des informations d’identification d’administrateur.
+1. Pour automatiser la configuration dans Atlassian Cloud, vous devez installer l’**extension de navigateur My Apps Secure Sign-in** en cliquant sur **Install the extension**.
 
-2. Vous devez vérifier votre domaine avant de passer à la configuration de l’authentification unique. Pour plus d’informations, consultez le document [Domain verification(Vérification de domaine) d’Atlassian](https://confluence.atlassian.com/cloud/domain-verification-873871234.html).
+    ![Extension My apps](common/install-myappssecure-extension.png)
 
-3. Dans le volet gauche, sélectionnez **Authentification unique SAML**. Si ce n’est pas déjà fait, abonnez-vous à Atlassian Identity Manager.
+2. Après l’ajout de l’extension au navigateur, cliquez sur **Setup Atlassian Cloud** pour être orienté vers l’application Atlassian Cloud. À partir de là, indiquez les informations d’identification de l’administrateur pour vous connecter à Atlassian Cloud. Cette extension de navigateur configure automatiquement l’application pour vous et automatise les étapes 3 à 7.
+
+    ![Configuration](common/setup-sso.png)
+
+3. Si vous souhaitez configurer manuellement Atlassian Cloud, ouvrez une nouvelle fenêtre de navigateur web, connectez-vous à votre site d’entreprise Atlassian Cloud en tant qu’administrateur et effectuez les étapes suivantes :
+
+4. Vous devez vérifier votre domaine avant de passer à la configuration de l’authentification unique. Pour plus d’informations, consultez le document [Domain verification(Vérification de domaine) d’Atlassian](https://confluence.atlassian.com/cloud/domain-verification-873871234.html).
+
+5. Dans le volet gauche, sélectionnez **Authentification unique SAML**. Si ce n’est pas déjà fait, abonnez-vous à Atlassian Identity Manager.
 
     ![Configurer l’authentification unique](./media/atlassian-cloud-tutorial/tutorial_atlassiancloud_11.png)
 
-4. Dans la fenêtre **Ajouter une configuration SAML**, suivez les étapes ci-dessous :
+6. Dans la fenêtre **Ajouter une configuration SAML**, suivez les étapes ci-dessous :
 
     ![Configurer l’authentification unique](./media/atlassian-cloud-tutorial/tutorial_atlassiancloud_12.png)
 
-    a. Dans la zone **ID d’entité du fournisseur d’identité**, collez l’ID d’entité SAML que vous avez copié sur le Portail Azure.
+    a. Dans la zone **Identity provider Entity ID**, collez l’**Identificateur Azure AD** que vous avez copié à partir du portail Azure.
 
-    b. Dans la zone **URL d’authentification unique du fournisseur d’identité**, collez l’URL du service d’authentification unique SAML que vous avez copiée sur le Portail Azure.
+    b. Dans la zone **Identity provider SSO URL**, collez la valeur de l’**URL de connexion** que vous avez copiée à partir du portail Azure.
 
     c. Ouvrez le certificat téléchargé sur le Portail Azure dans un fichier .txt, copiez la valeur (sans les lignes *Begin Certificate* et *End Certificate*), puis collez-la dans la zone **Certificat X509 public**.
 
     d. Cliquez sur **Enregistrer la configuration**.
 
-5. Pour vérifier que les URL configurées sont correctes, mettez à jour les paramètres d’Azure AD en suivant les étapes ci-dessous :
+7. Pour vérifier que les URL configurées sont correctes, mettez à jour les paramètres d’Azure AD en suivant les étapes ci-dessous :
 
     ![Configurer l’authentification unique](./media/atlassian-cloud-tutorial/tutorial_atlassiancloud_13.png)
 
-    a. Dans la fenêtre SAML, copiez **l’ID d’identité SP**. Ensuite, collez-le dans la zone **Identificateur** du Portail Azure, sous **Domaine et URL Atlassian Cloud**.
+    a. Dans la fenêtre SAML, copiez l’**ID d’identité SP**. Ensuite, collez-le dans la zone **Identificateur** du portail Azure, sous **Configuration SAML de base** d’Atlassian Cloud.
 
-    b. Dans la fenêtre SAML, copiez **l’URL Assertion Consumer Service SP**. Ensuite, collez-le dans la zone **URL de réponse** du Portail Azure, sous **Domaine et URL Atlassian Cloud**. L’URL d’authentification est l’URL locataire de votre Atlassian Cloud.
+    b. Dans la fenêtre SAML, copiez l’**URL Assertion Consumer Service SP**. Ensuite, collez-le dans la zone **URL de réponse** du portail Azure, sous **Configuration SAML de base** d’Atlassian Cloud. L’URL d’authentification est l’URL locataire de votre Atlassian Cloud.
 
     > [!NOTE]
     > Si vous êtes déjà client, après avoir mis à jour les valeurs **ID d’identité SP** et **URL Assertion Consumer Service SP** sur le Portail Azure, sélectionnez **Oui, mettre à jour la configuration**. Si vous êtes un nouveau client, vous pouvez ignorer cette étape.
@@ -195,7 +204,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.

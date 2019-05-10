@@ -9,16 +9,19 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: shlo
-ms.openlocfilehash: 454899cd7cc592b87f96233d73ca8c4ed6ac333f
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: a825982532047f6e311c5508394df243310f02ab
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64935754"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233923"
 ---
 # <a name="understanding-data-factory-pricing-through-examples"></a>Comprendre les tarifs Data Factory à travers des exemples
 
 Cet article explique et décrit le modèle tarifaire Azure Data Factory avec des exemples détaillés.
+
+> [!NOTE]
+> Les prix mentionnés dans ces exemples ci-dessous sont hypothétiques et ne sont pas destinées à impliquent la tarification réelle.
 
 ## <a name="copy-data-from-aws-s3-to-azure-blob-storage-hourly"></a>Copier des données d’AWS S3 vers le Stockage Blob Azure toutes les heures
 
@@ -122,13 +125,13 @@ Pour réaliser ce scénario, créez un pipeline avec les éléments suivants :
   - Activité du pipeline = 0,00003 (au prorata d’1 minute de durée d’exécution, à 0,002 $/h par Azure Integration Runtime)
   - Activité du pipeline externe = 0,000041 $ (au prorata de 10 minutes de durée d’exécution, à 0,00025 $/h par Azure Integration Runtime)
 
-## <a name="using-mapping-data-flow-debug-for-a-normal-workday"></a>À l’aide du débogage de flux de données de mappage pour une journée de travail normale
+## <a name="using-mapping-data-flow-debug-for-a-normal-workday-preview-pricing"></a>À l’aide du débogage de flux de données de mappage pour une journée de travail normale (tarif de la version préliminaire)
 
 En tant qu’ingénieur de données, vous êtes responsable de conception, de création et de test de flux de données de mappage de tous les jours. Vous connectez à l’UI ADF le matin et activez le mode de débogage pour le flux de données. La valeur TTL par défaut pour les sessions de débogage est de 60 minutes. Vous travaillez pendant la journée pour 10 heures, votre session de débogage n’expire jamais. Par conséquent, le montant facturé pour la journée sera :
 
 **10 (heures) x 8 (cœurs) x $0.112 = $8.96**
 
-## <a name="transform-data-in-blob-store-with-mapping-data-flows"></a>Transformer des données dans le magasin d’objets blob avec le mappage de flux de données
+## <a name="transform-data-in-blob-store-with-mapping-data-flows-preview-pricing"></a>Transformer des données dans le magasin d’objets blob avec le mappage de flux de données (tarif de la version préliminaire)
 
 Dans ce scénario, vous souhaitez transformer des données dans le Store Blob visuellement dans ADF flux de données de mappage selon un planning horaire.
 

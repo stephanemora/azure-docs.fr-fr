@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: spelluru
-ms.openlocfilehash: 6985bd0bbae858ad258e723ef4d6d6d687b2c86e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9ad6f82d7b9bd7c4957df1dd37d0f2ddf7462e9e
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60695408"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65410947"
 ---
 # <a name="enable-and-use-remote-desktop-for-linux-virtual-machines-in-a-lab-in-azure-lab-services"></a>Activer et utiliser le Bureau à distance pour les machines virtuelles Linux dans un laboratoire dans Azure Lab Services
 Cet article vous montre comment effectuer les tâches suivantes :
@@ -64,7 +64,7 @@ Un propriétaire de laboratoire (enseignant) peut se connecter à un machine vir
 ## <a name="students-connecting-to-the-student-vm"></a>Étudiants de la connexion à la machine virtuelle de l’étudiant
 Étudiant peut RDP dans pour leurs machines virtuelles Linux après le propriétaire de laboratoire (enseignant) **publie** le modèle de machine virtuelle avec RDP et l’interface graphique utilisateur des packages installés sur l’ordinateur. Voici la procédure à suivre : 
 
-1. Lorsqu’un étudiant se connecte au portail Labs directement (`http://labs.azure.com`) ou à l’aide d’un lien d’inscription (`http://labs.azure.com/register/<registrationCode>`), une vignette pour chaque laboratoire l’étudiant a accès à s’affiche. 
+1. Lorsqu’un étudiant se connecte au portail Labs directement (`https://labs.azure.com`) ou à l’aide d’un lien d’inscription (`https://labs.azure.com/register/<registrationCode>`), une vignette pour chaque laboratoire l’étudiant a accès à s’affiche. 
 2. Sur la vignette, sélectionnez **Démarrer** si la machine virtuelle est arrêtée. 
 3. Sélectionnez **Connecter**. Cette action télécharge le fichier RDP à votre machine. Enregistrer et l’ouvrir pour vous connecter à l’ordinateur Linux via RDP. 
 
