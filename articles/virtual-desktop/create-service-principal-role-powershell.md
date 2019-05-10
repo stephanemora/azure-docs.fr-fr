@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
-ms.date: 03/21/2019
+ms.date: 04/12/2019
 ms.author: helohr
-ms.openlocfilehash: 1bbe89484d72a21c4432d452d4ddae83ea2d2553
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 93725fc9d77552d779378d0c14294a5bbb11c926
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400027"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65146139"
 ---
 # <a name="tutorial-create-service-principals-and-role-assignments-with-powershell"></a>Didacticiel : Créer des principaux de service et des attributions de rôles avec PowerShell
 
@@ -111,5 +111,5 @@ Voici les trois informations d’identification que vous devez noter et les appl
 
 Dans ce tutoriel, vous avez appris à créer un principal de service et à l’utiliser pour vous connecter à Windows Virtual Desktop. Pour en savoir plus sur la façon de se connecter à Windows Virtual Desktop, passez aux guides pratiques concernant la connexion à Windows Virtual Desktop.
 
-- [Se connecter au client Bureau à distance sur Windows 7 et Windows 10](connect-windows-7-and-10.md)
-- [Se connecter au client web Windows Virtual Desktop Preview](connect-web.md)
+- [Se connecter à partir de Windows 10 ou Windows 7](connect-windows-7-and-10.md)
+- [Se connecter à partir d’un navigateur web](connect-web.md)

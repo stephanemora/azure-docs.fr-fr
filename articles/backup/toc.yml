@@ -205,6 +205,8 @@
           href: restore-sql-database-azure-vm.md
         - name: Gérer les bases de données SQL Server sauvegardées
           href: manage-monitor-sql-database-backup.md
+    - name: Sauvegarder des bases de données SAP HANA sur des machines virtuelles Azure
+      href: backup-azure-sap-hana-database.md
     - name: Windows Server
       items:
         - name: Sauvegarder les fichiers et dossiers de Windows Server

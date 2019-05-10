@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 04/02/2019
+ms.date: 05/08/2019
 ms.author: alkohli
-ms.openlocfilehash: cac451634bfa357784f9fd3d3a24e06ef3a4ee19
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e8932097bcdef782b1a551d386c2872e02d8abfd
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60754621"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65442386"
 ---
 # <a name="azure-data-box-gateway-system-requirements"></a>Configuration requise à la passerelle de données Azure
 
@@ -29,7 +29,7 @@ La configuration système requise pour l’appareil virtuel Data Box Gateway inc
 
 Le système hôte sous-jacent pour le Data Box Gateway est en mesure de dédier les ressources suivantes pour approvisionner votre appareil virtuel :
 
-| Spécifications                                          | Description              |
+| Spécifications                                          | Description               |
 |---------------------------------------------------------|--------------------------|
 | Processeurs virtuels (cœurs)   | 4 minimum |
 | Mémoire  | 8 Go minimum|
@@ -50,7 +50,7 @@ Le système hôte sous-jacent pour le Data Box Gateway est en mesure de dédier 
 
 | **Système d’exploitation/plateforme**  |**Versions**   |**Remarques**  |
 |---------|---------|---------|
-|Hyper-V  |  2012 R2 <br> 2016  |         |
+|Hyper-V  |  2012 R2 <br> 2016 <br> 2019 |         |
 |VMware ESXi     | 6.0 <br> 6.5 <br> 6.7       |Les outils VMware ne sont pas pris en charge.         |
 
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: 95a138a6dd499df18789e9b587e770a9b7bf7dab
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: a86e63f17230ed30bd5ae164d2d17d65b5cde745
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59279667"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408052"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-meta-networks-connector"></a>Didacticiel : Intégration d'Azure Active Directory à Meta Networks Connector
 
@@ -131,8 +131,8 @@ Pour configurer l’authentification unique Azure AD auprès de Meta Networks Co
     | ---------------| --------------- | -------- |
     | firstname | user.givenname | |
     | lastname | user.surname | |
-    | emailaddress| user.mail| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
-    | Nom | user.userprincipalname| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
+    | emailaddress| user.mail| `https://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
+    | Nom | user.userprincipalname| `https://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
     | phone | user.telephonenumber | |
 
     a. Cliquez sur le bouton **Ajouter une nouvelle revendication** pour ouvrir la boîte de dialogue **Gérer les revendications des utilisateurs**.

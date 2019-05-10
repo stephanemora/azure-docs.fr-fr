@@ -1,5 +1,5 @@
 ---
-title: Créer une définition OpenAPI pour une fonction | Microsoft Docs
+title: Créer une définition OpenAPI pour une fonction avec Gestion des API Azure
 description: Créez une définition OpenAPI permettant aux autres applications et services d’appeler votre fonction dans Azure.
 services: functions
 keywords: OpenAPI, Swagger, applications cloud, services cloud
@@ -12,87 +12,95 @@ ms.date: 11/26/2018
 ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 6daa29b4e8f09a4f8a40c3b92d2e2e86a5dea6aa
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 3ad304bc8f038d4009352dae72d70079828c26ba
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52993180"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65141555"
 ---
-# <a name="create-an-openapi-definition-for-a-function"></a>Créer une définition OpenAPI pour une fonction
+# <a name="create-an-openapi-definition-for-a-function-with-azure-api-management"></a>Créer une définition OpenAPI pour une fonction avec Gestion des API Azure
 
-Les API REST utilisent souvent une définition OpenAPI (anciennement, fichier [Swagger](https://swagger.io/)). Cette définition contient des informations sur les opérations qui sont disponibles dans une API et sur la façon dont les données de demande et de réponse de l’API doivent être structurées.
+Les API REST sont souvent décrites à l’aide d’une définition OpenAPI. Cette définition contient des informations sur les opérations qui sont disponibles dans une API et sur la façon dont les données de demande et de réponse de l’API doivent être structurées.
 
-Dans ce didacticiel, vous allez créer une fonction qui détermine si la réparation d’urgence d’une éolienne est rentable. Ensuite, vous allez créer une définition OpenAPI pour l’application de la fonction pour que la fonction puisse être appelée à partir d’autres applications et services.
+Dans ce didacticiel, vous allez créer une fonction qui détermine si la réparation d’urgence d’une éolienne est rentable. Ensuite, vous allez créer une définition OpenAPI pour l’application de fonction en utilisant [Gestion des API Azure](../api-management/api-management-key-concepts.md) afin que la fonction puisse être appelée à partir d’autres applications et services.
 
 Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * Créer une fonction dans Azure
-> * Générer une définition OpenAPI à l’aide des outils OpenAPI
-> * Modifier la définition pour fournir des métadonnées supplémentaires
+> * Générer une définition OpenAPI à l’aide de Gestion des API Azure
 > * Tester la définition en appelant la fonction
-
-> [!IMPORTANT]
-> La fonctionnalité OpenAPI est actuellement en préversion, et n’est disponible que pour la version 1.x du runtime Azure Functions.
 
 ## <a name="create-a-function-app"></a>Créer une application de fonction
 
-Vous devez disposer d’une Function App pour héberger l’exécution de vos fonctions. Une application de fonctions vous permet de regrouper des fonctions en une unité logique pour faciliter la gestion, le déploiement et le partage des ressources. 
+Vous devez disposer d’une Function App pour héberger l’exécution de vos fonctions. Une application de fonctions vous permet de regrouper des fonctions en une unité logique pour faciliter la gestion, le déploiement et le partage des ressources.
 
 [!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 
-## <a name="set-the-functions-runtime-version"></a>Définir la version du runtime Functions
-
-Par défaut, l’application de fonction que vous créez utilise la version 2.x du runtime. Avant de créer votre fonction, vous devez définir la version du runtime sur la version 1.x.
-
-[!INCLUDE [Set the runtime version in the portal](../../includes/functions-view-update-version-portal.md)]
-
 ## <a name="create-the-function"></a>Création de la fonction
 
-Ce didacticiel utilise une fonction HTTP déclenchée qui accepte deux paramètres : le temps estimé de la réparation (en heures) et la capacité de l’éolienne (exprimée en kilowatts). La fonction calcule ensuite le coût de la réparation et les revenus engendrés par 24 heures de fonctionnement de l’éolienne.
+Ce didacticiel utilise une fonction déclenchée via HTTP qui accepte deux paramètres :
 
-1. Développez votre Function App, puis sélectionnez le bouton **+** en regard de **Fonctions**. S’il s’agit de la première fonction de votre Function App, sélectionnez **Fonction personnalisée**. Cela affiche l’ensemble complet des modèles de fonction. 
+* Durée estimée pour réparer une éolienne réparer, exprimée en heures.
+* La capacité de l’éolienne, exprimée en kilowatts. 
 
-    ![Page de démarrage rapide des fonctions sur le portail Azure](media/functions-openapi-definition/add-first-function.png)
+La fonction calcule ensuite le coût de la réparation et les revenus engendrés par 24 heures de fonctionnement de l’éolienne. Pour créer une fonction déclenchée via HTTP dans le [portail Azure](https://portal.azure.com).
 
-1. Dans le champ Rechercher, tapez `http`, puis choisissez **C#** pour le modèle de déclencheur HTTP. 
+1. Développez votre Function App, puis sélectionnez le bouton **+** en regard de **Fonctions**. Sélectionnez **Dans le portail** > **Continuer**.
 
-    ![Choisir le déclencheur HTTP](./media/functions-openapi-definition/select-http-trigger-portal.png)
+1. Sélectionnez **Plus de modèles...**, puis **Terminer et afficher les modèles**.
 
-1. Tapez `TurbineRepair` comme **Nom** de fonction, choisissez `Function` comme **[Niveau d’authentification](functions-bindings-http-webhook.md#http-auth)**, puis sélectionnez **Créer**.  
+1. Sélectionnez Déclencheur HTTP, tapez `TurbineRepair` comme **Nom** de fonction, choisissez `Function` comme **[Niveau d’authentification](functions-bindings-http-webhook.md#http-auth)**, puis sélectionnez **Créer**.  
 
-    ![Créer une fonction déclenchée par le biais de HTTP](./media/functions-openapi-definition/select-http-trigger-portal-2.png)
+    ![Créer une fonction HTTP pour OpenAPI](media/functions-openapi-definition/select-http-trigger-openapi.png)
 
-1. Remplacez le contenu du fichier run.csx par le code suivant, puis cliquez sur **Enregistrer** :
+1. Remplacez le contenu du fichier de script C# run.csx par le code suivant, puis choisissez **Enregistrer** :
 
     ```csharp
+    #r "Newtonsoft.Json"
+    
     using System.Net;
-
+    using Microsoft.AspNetCore.Mvc;
+    using Microsoft.Extensions.Primitives;
+    using Newtonsoft.Json;
+    
     const double revenuePerkW = 0.12;
     const double technicianCost = 250;
     const double turbineCost = 100;
-
-    public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log)
+    
+    public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
     {
-        //Get request body
-        dynamic data = await req.Content.ReadAsAsync<object>();
-        int hours = data.hours;
-        int capacity = data.capacity;
-
-        //Formulas to calculate revenue and cost
-        double revenueOpportunity = capacity * revenuePerkW * 24;  
-        double costToFix = (hours * technicianCost) +  turbineCost;
+        // Get query strings if they exist
+        int tempVal;
+        int? hours = Int32.TryParse(req.Query["hours"], out tempVal) ? tempVal : (int?)null;
+        int? capacity = Int32.TryParse(req.Query["capacity"], out tempVal) ? tempVal : (int?)null;
+    
+        // Get request body
+        string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
+        dynamic data = JsonConvert.DeserializeObject(requestBody);
+    
+        // Use request body if a query was not sent
+        capacity = capacity ?? data?.capacity;
+        hours = hours ?? data?.hours;
+    
+        // Return bad request if capacity or hours are not passed in
+        if (capacity == null || hours == null){
+            return new BadRequestObjectResult("Please pass capacity and hours on the query string or in the request body");
+        }
+        // Formulas to calculate revenue and cost
+        double? revenueOpportunity = capacity * revenuePerkW * 24;  
+        double? costToFix = (hours * technicianCost) +  turbineCost;
         string repairTurbine;
-
+    
         if (revenueOpportunity > costToFix){
             repairTurbine = "Yes";
         }
         else {
             repairTurbine = "No";
-        }
-
-        return req.CreateResponse(HttpStatusCode.OK, new{
+        };
+    
+        return (ActionResult)new OkObjectResult(new{
             message = repairTurbine,
             revenueOpportunity = "$"+ revenueOpportunity,
             costToFix = "$"+ costToFix
@@ -100,7 +108,7 @@ Ce didacticiel utilise une fonction HTTP déclenchée qui accepte deux paramètr
     }
     ```
 
-    Le code de cette fonction retourne un message `Yes` ou `No` indiquant si la réparation d’urgence est rentable, en comparant l’opportunité de revenus que représente la réparation de l’éolienne et le coût de la réparation. 
+    Le code de cette fonction retourne un message `Yes` ou `No` indiquant si la réparation d’urgence est rentable, en comparant l’opportunité de revenus que représente la réparation de l’éolienne et le coût de la réparation.
 
 1. Pour tester la fonction, cliquez sur **Test** tout à droite pour développer l’onglet de test. Entrez la valeur suivante pour le **corps de la requête**, puis cliquez sur **Exécuter**.
 
@@ -119,182 +127,67 @@ Ce didacticiel utilise une fonction HTTP déclenchée qui accepte deux paramètr
     {"message":"Yes","revenueOpportunity":"$7200","costToFix":"$1600"}
     ```
 
-Vous disposez maintenant d’une fonction qui détermine la rentabilité des réparations d’urgence. Ensuite, générez et modifiez une définition OpenAPI pour l’application de fonction.
+Vous disposez maintenant d’une fonction qui détermine la rentabilité des réparations d’urgence. Ensuite, vous générez une définition OpenAPI pour l’application de fonction.
 
 ## <a name="generate-the-openapi-definition"></a>Générer la définition OpenAPI
 
-Vous êtes maintenant prêt à générer la définition OpenAPI. Cette définition peut être utilisée par d’autres technologies Microsoft, telles que API Apps, [PowerApps](functions-powerapps-scenario.md) et [Microsoft Flow](../azure-functions/app-service-export-api-to-powerapps-and-flow.md), ainsi que des outils de développement tiers comme [Postman](https://www.getpostman.com/docs/importing_swagger) et [bien d’autres packages](https://swagger.io/tools/).
+Vous êtes maintenant prêt à générer la définition OpenAPI.
 
-1. Sélectionnez uniquement les *verbes* que votre API prend en charge (dans ce cas, POST). Cela rend la définition d’API générée plus claire.
+1. Sélectionnez l’application de fonction, puis **Fonctionnalités de la plateforme**, **Tous les paramètres**.
 
-    1. Sous l’onglet **Intégrer** de votre nouvelle fonction de déclencheur HTTP, remplacez **Méthodes HTTP autorisées**par **Méthodes sélectionnées**
+    ![Tester la fonction dans le portail Azure](media/functions-openapi-definition/select-all-settings-openapi.png)
 
-    1. Dans **Méthodes HTTP sélectionnées**, décochez toutes les options sauf **POST**, puis cliquez sur **Enregistrer**.
+1. Faites défiler la liste, puis choisissez **Gestion des API** > **Créer** pour créer une instance de Gestion des API.
 
-        ![Méthodes HTTP sélectionnées](media/functions-openapi-definition/selected-http-methods.png)
+    ![Lier la fonction](media/functions-openapi-definition/link-apim-openapi.png)
 
-1. Cliquez sur le nom de l’application de fonction (par exemple, **function-demo-energy**) > **Fonctionnalités de la plateforme** > **Définition de l’API**.
+1. Utilisez les paramètres de Gestion des API de la manière spécifiée dans le tableau sous l’image.
 
-    ![Définition de l’API](media/functions-openapi-definition/api-definition.png)
+    ![Créer un service de Gestion des API](media/functions-openapi-definition/new-apim-service-openapi.png)
 
-1. Sous l’onglet **Définition de l’API**, cliquez sur **Fonction**.
+    | Paramètre      | Valeur suggérée  | Description                                        |
+    | ------------ |  ------- | -------------------------------------------------- |
+    | **Nom** | Nom globalement unique | Un nom est généré sur la base du nom de votre application de fonction. |
+    | **Abonnement** | Votre abonnement | Abonnement sous lequel cette nouvelle ressource est créée. |  
+    | **[Groupe de ressources](../azure-resource-manager/resource-group-overview.md)** |  myResourceGroup | Même ressource que votre application de fonction, qui doit être définie pour vous. |
+    | **Lieu** | USA Ouest | Choisissez l’emplacement USA Ouest. |
+    | **Nom de l’organisation** | Contoso | Nom de l’organisation utilisé dans le portail des développeurs et pour les notifications par e-mail. |
+    | **E-mail de l’administrateur** | votre e-mail | E-mail ayant reçu les notifications système de la Gestion des API. |
+    | **Niveau tarifaire** | Consommation (préversion) | Pour des informations tarifaires complètes, voir la [page de tarification de la Gestion des API](https://azure.microsoft.com/pricing/details/api-management/). |
+    | **Application Insights** | Votre instance | Utilisez le service Application Insights qu’utilise votre application de fonction. |
 
-    ![Source de la définition de l’API](media/functions-openapi-definition/api-definition-source.png)
+1. Choisissez **Créer** pour créer l’instance de Gestion des API, ce qui peut prendre plusieurs minutes.
 
-    Cette étape active une suite d’options OpenAPI pour votre application de fonction, notamment un point de terminaison pour héberger un fichier OpenAPI à partir du domaine de votre application de fonction, une copie intégrée de [l’éditeur OpenAPI](https://editor.swagger.io) et un générateur de modèles de définitions d’API.
+1. Sélectionnez **Activer Application Insights** pour envoyer des journaux au même emplacement que l’application de fonction, puis acceptez les valeurs par défaut restantes et sélectionnez **Lier l’API**.
 
-1. Cliquez sur **Générer le modèle de définition d’API** > **Enregistrer**.
+1. La fenêtre **Importer Azure Functions** s’ouvre avec la fonction **TurbineRepair** en surbrillance. Cliquez sur **Sélectionner** pour continuer.
 
-    ![Générer le modèle de définition d’API](media/functions-openapi-definition/generate-template.png)
+    ![Importer Azure Functions dans Gestion des API](media/functions-openapi-definition/import-function-openapi.png)
 
-    Azure analyse votre application de fonction pour trouver des fonctions de déclencheur HTTP, et utilise les informations contenues dans functions.json pour générer une définition OpenAPI. Voici la définition générée :
+1. Dans la page **Créer à partir de Function App**, acceptez les valeurs par défaut, puis sélectionnez **Créer**.
 
-    ```yaml
-    swagger: '2.0'
-    info:
-    title: function-demo-energy.azurewebsites.net
-    version: 1.0.0
-    host: function-demo-energy.azurewebsites.net
-    basePath: /
-    schemes:
-    - https
-    - http
-    paths:
-    /api/TurbineRepair:
-        post:
-        operationId: /api/TurbineRepair/post
-        produces: []
-        consumes: []
-        parameters: []
-        description: >-
-            Replace with Operation Object
-            #https://swagger.io/specification/#operationObject
-        responses:
-            '200':
-            description: Success operation
-        security:
-            - apikeyQuery: []
-    definitions: {}
-    securityDefinitions:
-    apikeyQuery:
-        type: apiKey
-        name: code
-        in: query
-    ```
+    ![Créer à partir de Function App](media/functions-openapi-definition/create-function-openapi.png)
 
-    Cette définition est décrite comme un _modèle_, car elle nécessite davantage de métadonnées pour être une définition OpenAPI complète. Dans l’étape suivante, vous allez modifier la définition.
-
-## <a name="modify-the-openapi-definition"></a>Modifier la définition OpenAPI
-
-Maintenant que vous avez une définition de modèle, vous la modifiez pour fournir des métadonnées supplémentaires concernant les opérations et les structures de données de l’API. Dans **Définition de l’API**, supprimez la définition générée de l’élément `post` jusqu’en bas de la définition, collez le contenu ci-dessous, puis cliquez sur **Enregistrer**.
-
-```yaml
-    post:
-      operationId: CalculateCosts
-      description: Determines if a technician should be sent for repair
-      summary: Calculates costs
-      x-ms-summary: Calculates costs
-      x-ms-visibility: important
-      produces:
-        - application/json
-      consumes:
-        - application/json
-      parameters:
-        - name: body
-          in: body
-          description: Hours and capacity used to calculate costs
-          x-ms-summary: Hours and capacity
-          x-ms-visibility: important
-          required: true
-          schema:
-            type: object
-            properties:
-              hours:
-                description: The amount of effort in hours required to conduct repair
-                type: number
-                x-ms-summary: Hours
-                x-ms-visibility: important
-              capacity:
-                description: The max output of a turbine in kilowatts
-                type: number
-                x-ms-summary: Capacity
-                x-ms-visibility: important
-      responses:
-        200:
-          description: Message with cost and revenue numbers
-          x-ms-summary: Message
-          schema:
-           type: object
-           properties:
-            message:
-              type: string
-              description: Returns Yes or No depending on calculations
-              x-ms-summary: Message 
-            revenueOpportunity:
-              type: string
-              description: The revenue opportunity cost
-              x-ms-summary: RevenueOpportunity 
-            costToFix:
-              type: string
-              description: The cost in $ to fix the turbine
-              x-ms-summary: CostToFix
-      security:
-        - apikeyQuery: []
-definitions: {}
-securityDefinitions:
-  apikeyQuery:
-    type: apiKey
-    name: code
-    in: query
-```
-
-Dans ce cas, il vous suffit de coller les métadonnées mises à jour, mais il est important de comprendre les types de modifications que nous avons apportées au modèle par défaut :
-
-* Nous avons spécifié que l’API génère et consomme des données au format JSON.
-
-* Nous avons spécifié les paramètres obligatoires (nom et type de données).
-
-* Nous avons spécifié les valeurs de retour correspondant à une réponse valide (nom et type de données).
-
-* Nous avons fourni des récapitulatifs et des descriptions claires pour l’API, ses opérations et ses paramètres. Ceci est important pour les personnes qui vont utiliser cette fonction.
-
-* Nous avons ajouté x-ms-summary et x-ms-visibility, qui sont utilisés dans l’interface utilisateur pour Microsoft Flow et Logic Apps. Pour plus d’informations, consultez [Extensions OpenAPI pour les connecteurs personnalisés dans Microsoft Flow](https://preview.flow.microsoft.com/documentation/customapi-how-to-swagger/).
-
-> [!NOTE]
-> Nous avons conservé la méthode d’authentification par défaut de la clé API dans la définition de la sécurité. Nous aurions modifié cette section de la définition si nous avions utilisé un autre type d’authentification.
-
-Pour plus d’informations sur la définition des opérations d’API, consultez les [spécifications d’OpenAPI](https://swagger.io/specification/#operationObject).
+L’API est maintenant créé pour la fonction.
 
 ## <a name="test-the-openapi-definition"></a>Tester la définition OpenAPI
 
-Avant d’utiliser la définition de l’API, il est conseillé de la tester dans l’interface utilisateur Azure Functions.
+Avant d’utiliser la définition de l’API, vous devez vérifier qu’elle fonctionne.
 
-1. Sous l’onglet **Gérer** de votre fonction, sous **Clés de l’hôte**, copiez la clé **Par défaut**.
-
-    ![Copier la clé API](media/functions-openapi-definition/copy-api-key.png)
-
-    > [!NOTE]
-    >Cette clé peut être utilisée à des fins de test, et lorsque vous appelez l’API à partir d’une application ou d’un service.
-
-1. Revenez à la définition de l’API : **function-demo-energy** > **Fonctionnalités de la plateforme** > **Définition de l’API**.
-
-1. Dans le volet droit, cliquez sur **Authentifier**, entrez la clé API que vous avez copiée, puis cliquez sur **Authentifier**.
-
-    ![S’authentifier avec la clé API](media/functions-openapi-definition/authenticate-api-key.png)
-
-1. Faites défiler la page et cliquez sur **Try this operation** (Essayer cette opération).
-
-    ![Option Try this operation (Essayer cette opération)](media/functions-openapi-definition/try-operation.png)
+1. Sous l’onglet **Test** de votre fonction, sélectionnez l’opération **POST**.
 
 1. Entrez des valeurs pour les **heures** et la **capacité**.
 
-    ![Saisie des paramètres](media/functions-openapi-definition/parameters.png)
+```json
+{
+"hours": "6",
+"capacity": "2500"
+}
+```
 
-    Notez que l’interface utilisateur utilise les descriptions de la définition de l’API.
+1. Cliquez sur **Envoyer**, puis affichez la réponse HTTP.
 
-1. Cliquez sur **Send Request** (Envoyer une demande), puis cliquez sur l’onglet **Pretty** (Impression automatique) pour afficher la sortie.
-
-    ![Option Send a request (Envoyer une demande)](media/functions-openapi-definition/send-request.png)
+    ![Tester l’API de fonction](media/functions-openapi-definition/test-function-api-openapi.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -302,11 +195,10 @@ Dans ce tutoriel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Créer une fonction dans Azure
-> * Générer une définition OpenAPI à l’aide des outils OpenAPI
-> * Modifier la définition pour fournir des métadonnées supplémentaires
+> * Générer une définition OpenAPI à l’aide de Gestion des API Azure
 > * Tester la définition en appelant la fonction
 
-Passez à la rubrique suivante pour apprendre à créer une application PowerApps qui utilise la définition OpenAPI que vous avez créée.
+Passez à la rubrique suivante pour découvrir la Gestion des API.
 
 > [!div class="nextstepaction"]
-> [Appeler une fonction dans PowerApps](functions-powerapps-scenario.md)
+> [Gestion des API](../api-management/api-management-key-concepts.md)

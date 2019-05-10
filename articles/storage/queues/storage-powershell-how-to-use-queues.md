@@ -9,19 +9,19 @@ ms.date: 09/14/2017
 ms.author: mhopkins
 ms.reviewer: cbrooks
 ms.subservice: queues
-ms.openlocfilehash: db366fea96967559c65559864ff8e367fa12ad65
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: dbaaade278073613a62eaf350146360651350244
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65142588"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510225"
 ---
 # <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>Effectuer des opérations sur Stockage File d’attente Azure avec Azure PowerShell
 
 Les files d’attente de stockage Azure sont un service permettant de stocker un grand nombre de messages accessibles depuis n’importe où dans le monde via HTTP ou HTTPS. Pour plus d’informations, consultez [Présentation des files d’attente Azure](storage-queues-introduction.md). Cet article sur les procédures décrit les opérations courantes liées au Stockage File d’attente. Vous allez apprendre à effectuer les actions suivantes :
 
 > [!div class="checklist"]
-> * Créer une file d’attente
+> * Créer une file d'attente
 > * Récupérer une file d’attente
 > * Ajouter un message
 > * Lire un message
@@ -76,7 +76,7 @@ $storageAccount = New-AzStorageAccount -ResourceGroupName $resourceGroup `
 $ctx = $storageAccount.Context
 ```
 
-## <a name="create-a-queue"></a>Créer une file d’attente
+## <a name="create-a-queue"></a>Créer une file d'attente
 
 L'exemple suivant établit d'abord une connexion à Azure Storage à l'aide du contexte de compte de stockage, ce qui inclut le nom de compte de stockage et sa clé d'accès. Ensuite, il appelle l’applet de commande [New-AzStorageQueue](/powershell/module/az.storage/New-AzStorageQueue) pour créer une file d’attente appelée « queuename ».
 
@@ -103,7 +103,7 @@ Get-AzStorageQueue -Context $ctx | select Name
 
 ## <a name="add-a-message-to-a-queue"></a>Ajout d'un message à une file d'attente
 
-Les opérations ayant un impact sur les messages réels dans la file d’attente utilisent la bibliothèque cliente de stockage .NET exposée dans PowerShell. Pour ajouter un message à une file d’attente, créez une nouvelle instance de l’objet de message, [Microsoft.Azure.Storage.Queue.CloudQueueMessage](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage.-ctor?redirectedfrom=MSDN&view=azure-dotnet#Microsoft_WindowsAzure_Storage_Queue_CloudQueueMessage__ctor_System_Byte___) classe. Appelez ensuite la méthode [AddMessage](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.addmessage.aspx) . Un CloudQueueMessage peut être créé à partir d'une chaîne (au format UTF-8) ou d'un tableau d'octets.
+Les opérations ayant un impact sur les messages réels dans la file d’attente utilisent la bibliothèque cliente de stockage .NET exposée dans PowerShell. Pour ajouter un message à une file d’attente, créez une instance de l’objet de message, la classe [Microsoft.WindowsAzure.Storage.Queue.CloudQueueMessage](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.queue._cloud_queue_message). Appelez ensuite la méthode [AddMessage](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.queue._cloud_queue.addmessage) . Un CloudQueueMessage peut être créé à partir d'une chaîne (au format UTF-8) ou d'un tableau d'octets.
 
 L’exemple suivant montre comment ajouter un message à votre file d’attente.
 
@@ -131,7 +131,7 @@ Les messages sont lus, dans la mesure du possible, dans l’ordre du premier ent
 
 Cette **période d’invisibilité** définit la durée d’invisibilité du message avant qu’il ne redevienne disponible pour traitement. La valeur par défaut est 30 secondes. 
 
-Votre code lit un message dans la file d’attente en deux étapes. Lorsque vous appelez le [Microsoft.Azure.Storage.Queue.CloudQueue.GetMessage](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessage?redirectedfrom=MSDN&view=azure-dotnet#Microsoft_WindowsAzure_Storage_Queue_CloudQueue_GetMessage_System_Nullable_System_TimeSpan__Microsoft_WindowsAzure_Storage_Queue_QueueRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) (méthode), vous obtenez le message suivant dans la file d’attente. Un message renvoyé par **GetMessage** devient invisible par les autres codes lisant les messages de cette file d'attente. Pour terminer la suppression du message de la file d’attente, vous appelez le [Microsoft.Azure.Storage.Queue.CloudQueue.DeleteMessage](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessage?redirectedfrom=MSDN&view=azure-dotnet#overloads) (méthode). 
+Votre code lit un message dans la file d’attente en deux étapes. Quand vous appelez la méthode [Microsoft.WindowsAzure.Storage.Queue.CloudQueue.GetMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessage), vous obtenez le message suivant dans la file d’attente. Un message renvoyé par **GetMessage** devient invisible par les autres codes lisant les messages de cette file d'attente. Pour finaliser la suppression du message de la file d’attente, vous devez également appeler la méthode [Microsoft.WindowsAzure.Storage.Queue.CloudQueue.DeleteMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessage). 
 
 Dans l’exemple suivant, vous lisez les trois messages de la file d’attente, puis attendez 10 secondes (période d’invisibilité). Ensuite, quand vous relisez les trois messages, vous les supprimez un à un en appelant **DeleteMessage**. Si vous essayez de lire la file d’attente une fois les messages supprimés, $queueMessage retourne NULL.
 
@@ -184,7 +184,7 @@ Remove-AzResourceGroup -Name $resourceGroup
 Cet article sur les procédures vous a présenté les bases de la gestion de Stockage File d’attente avec PowerShell. Vous avez notamment appris à effectuer les tâches suivantes :
 
 > [!div class="checklist"]
-> * Créer une file d’attente
+> * Créer une file d'attente
 > * Récupérer une file d’attente
 > * Ajouter un message
 > * Lire le message suivant

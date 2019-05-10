@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 08/18/2018
 ms.author: apimpm
-ms.openlocfilehash: ac8babf3a00c73b942ae64ac4cca00c7be7cfcfa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ed3c5790dcb51d12a38b85aa95e9c9178b6f44cd
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60859532"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408857"
 ---
 # <a name="upgrade-and-scale-an-azure-api-management-instance"></a>Mettre à niveau une instance du service Gestion des API Azure et la mettre à l’échelle  
 
@@ -54,7 +54,7 @@ Le niveau **Premium** vous permet de distribuer une seule instance du service Ge
 Vous pouvez effectuer la mise à niveau et la rétrogradation vers n’importe quel niveau. Notez que la mise à niveau et le passage à une version antérieure sont susceptibles de supprimer certaines fonctionnalités, par exemple, les réseaux virtuels ou les déploiements sur plusieurs régions lors du passage du niveau Premium au niveau Standard ou au niveau De base.
 
 >[!NOTE]
->Le processus de mise à niveau ou de mise à l’échelle peut durer entre 15 et 45 minutes. Vous recevez une notification lorsqu’il est terminé.
+>Le processus de mise à niveau ou de mise à l’échelle peut durer entre 15 et 45 minutes. Vous soyez averti quand il est terminé.
 
 ## <a name="use-the-azure-portal-to-upgrade-and-scale"></a>Utiliser le portail Azure pour effectuer la mise à niveau et la mise à l’échelle
 

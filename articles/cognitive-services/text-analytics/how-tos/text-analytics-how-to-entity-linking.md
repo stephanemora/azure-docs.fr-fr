@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: aahi
-ms.openlocfilehash: c179620d6858658dface5f706f7994d51f1a199b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c8319dbcb8cebe51dae2a4d7e8d9749c3ab7674f
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60829716"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65231425"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Comment utiliser la reconnaissance d’entité nommée dans Analytique de texte
 
@@ -33,23 +33,23 @@ La reconnaissance d’entité nommée (NER) est la capacité d’identifier diff
 
 Dans l’Analytique de texte [Version 2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634), liaison d’entité et la reconnaissance d’entités nommées (NER) sont disponibles.
 
-### <a name="language-support"></a>Support multilingue
+### <a name="language-support"></a>Prise en charge linguistique
 
 L’utilisation de la liaison d'entités dans différentes langues requiert l’utilisation d’une base de connaissances correspondante dans chaque langue. Pour la liaison d'entités dans Analyse de texte, cela signifie que chaque langue prise en charge par le point de terminaison `entities` établira un lien vers le corpus Wikipédia correspondant dans cette langue. Comme la taille du corpus varie d’une langue à l’autre, il est probable que le rappel des fonctionnalités de liaison d'entités varie également.
 
 ## <a name="supported-types-for-named-entity-recognition"></a>Types pris en charge pour la reconnaissance d’entité nommée
 
-| Type  | Subtype | Exemples |
+| Type  | SubType | Exemples |
 |:-----------   |:------------- |:---------|
 | Personne        | N/A\*         | « Jeff », « Bill Gates »     |
 | Lieu      | N/A\*         | « Redmond, Washington », « Paris »  |
 | Organisation  | N/A\*         | « Microsoft »   |
-| Quantité      | Number        | « 6 », « six »     | 
+| Quantité      | Nombre        | « 6 », « six »     | 
 | Quantité      | Pourcentage    | « 50 % », « cinquante pour cent »| 
 | Quantité      | Ordinal       | « 2nd », « second »     | 
 | Quantité      | NumberRange   | « 4 à 8 »     | 
 | Quantité      | Age           | « 90 jours », « 30 ans »    | 
-| Quantité      | Devise      | « 10,99 $ »     | 
+| Quantité      | Monnaie      | « 10,99 $ »     | 
 | Quantité      | Dimension     | « 10 miles », « 40 cm »     | 
 | Quantité      | Température   | « 32 degrés »    |
 | DateTime      | N/A\*         | « 6 h 30 le 4 février 2012 »      | 
@@ -58,12 +58,12 @@ L’utilisation de la liaison d'entités dans différentes langues requiert l’
 | DateTime      | DateRange     | « Du 2 au 5 mai »    | 
 | DateTime      | TimeRange     | « De 18 à 19 h »     | 
 | DateTime      | Duration      | « 1 minute et 45 secondes »   | 
-| DateTime      | Définir           | « Chaque mardi »     | 
+| DateTime      | Ensemble           | « Chaque mardi »     | 
 | DateTime      | TimeZone      |    | 
 | URL           | N/A\*         | « https :\//www.bing.com »    |
 | Email         | N/A\*         | "support@contoso.com" |
 
-\* Selon les entités entrées et extraites, certaines entités peuvent omettre le `SubType`.
+\* Selon les entités entrées et extraites, certaines entités peuvent omettre le `SubType`.  Tous les types d’entités pris en charge répertoriés sont disponibles uniquement pour les langues anglais, chinois simplifié, Français, allemand et espagnol.
 
 
 

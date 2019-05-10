@@ -5,47 +5,33 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 04/08/2019
+ms.date: 05/06/2019
 ms.author: iainfou
-ms.openlocfilehash: 29180d6c1bb5f0991a4f33c3b7c9418f84d8260c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a0512806ec797f43fc54d8a28a7cbadf86faf1d9
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61027966"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65230011"
 ---
-# <a name="preview---secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Version préliminaire - sécuriser le trafic entre les pods à l’aide de stratégies de réseau dans Azure Kubernetes Service (ACS)
+# <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Sécuriser le trafic entre les pods avec des stratégies réseau dans Azure Kubernetes Service (AKS)
 
 Lorsque vous exécutez des applications modernes, basées sur des microservices dans Kubernetes, vous souhaitez la plupart du temps décider des composants qui peuvent communiquer entre eux. Le principe du moindre privilège doit être appliqué à la façon dont le trafic peut transiter entre les pods dans un cluster Azure Kubernetes Service (AKS). Supposons que vous avez probablement souhaitez bloquer le trafic directement vers les applications back-end. Le *stratégie réseau* fonctionnalité dans Kubernetes vous permet de définir les règles de trafic entrant et sortant entre les pods dans un cluster.
 
-Cet article vous montre comment installer le moteur de stratégie de réseau et de créer des stratégies de réseau Kubernetes pour contrôler le flux du trafic entre les pods dans ACS. Actuellement, cette fonctionnalité est uniquement disponible en tant que version préliminaire.
-
-> [!IMPORTANT]
-> Fonctionnalités de préversion AKS sont libre-service et participer. Les préversions sont fournies pour recueillir des commentaires et des bogues à partir de notre communauté. Toutefois, ils ne sont pas pris en charge par le support technique Azure. Si vous créez un cluster, ou ajoutez ces fonctionnalités à des clusters existants, ce cluster est non pris en charge jusqu'à ce que la fonctionnalité n’est plus disponible en version préliminaire et atteignent à la disposition générale (GA).
->
-> Si vous rencontrez des problèmes avec les fonctionnalités en version préliminaire, [de signaler un problème sur le référentiel GitHub d’AKS][aks-github] par le nom de la fonctionnalité d’aperçu dans le titre du bogue.
+Cet article vous montre comment installer le moteur de stratégie de réseau et de créer des stratégies de réseau Kubernetes pour contrôler le flux du trafic entre les pods dans ACS. Stratégie de réseau doit uniquement être utilisée pour Linux sur les nœuds et pods dans ACS.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
 Vous avez besoin d’Azure CLI version 2.0.61 ou ultérieur installé et configuré. Exécutez  `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez  [Installation d’Azure CLI 2.0][install-azure-cli].
 
-Pour créer un cluster AKS qui peut utiliser la stratégie réseau, d’abord activer un indicateur de fonctionnalité sur votre abonnement. Pour enregistrer l’indicateur de fonctionnalité *EnableNetworkPolicy*, utilisez la commande [az feature register][az-feature-register], comme indiqué dans l’exemple suivant :
-
-```azurecli-interactive
-az feature register --name EnableNetworkPolicy --namespace Microsoft.ContainerService
-```
-
-Quelques minutes sont nécessaires pour que l’état s’affiche *Registered* (Inscrit). Vous pouvez vérifier l’état d’inscription à l’aide de la [liste des fonctionnalités az] [ az-feature-list] commande :
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableNetworkPolicy')].{Name:name,State:properties.state}"
-```
-
-Lorsque vous êtes prêt, actualisez l’inscription de le *Microsoft.ContainerService* fournisseur de ressources à l’aide de la [register de fournisseur az] [ az-provider-register] commande :
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
+> [!TIP]
+> Si vous avez utilisé la fonctionnalité de stratégie de réseau pendant la version préliminaire, nous recommandons que vous [créer un nouveau cluster](#create-an-aks-cluster-and-enable-network-policy).
+> 
+> Si vous souhaitez continuer à utiliser des clusters de test existants qui a utilisé une stratégie de réseau pendant la version préliminaire, mise à niveau de votre cluster vers une nouvelle version de Kubernetes à la dernière version GA, puis déployez le manifeste YAML suivant pour corriger le plantage server de métriques et Kubernetes tableau de bord. Ce correctif est uniquement requis pour les clusters qui utilisaient le moteur de stratégie réseau tricolore.
+>
+> Pour des raisons de sécurité, [examiner le contenu de ce manifeste YAML] [ calico-aks-cleanup] pour comprendre ce qui est déployé dans le cluster AKS.
+>
+> `kubectl delete -f https://raw.githubusercontent.com/Azure/aks-engine/master/docs/topics/calico-3.3.1-cleanup-after-upgrade.yaml`
 
 ## <a name="overview-of-network-policy"></a>Présentation de la stratégie réseau
 
@@ -78,6 +64,7 @@ Stratégie de réseau ne fonctionne qu’avec l’option Azure CNI (Avancé). Im
 | Conformité avec la spécification de Kubernetes | Tous les types de stratégie pris en charge |  Tous les types de stratégie pris en charge |
 | Fonctionnalités supplémentaires                      | Aucun                       | Étendue de modèle de stratégie consistant à la stratégie de réseau globale, définir de réseau Global et point de terminaison hôte. Pour plus d’informations sur l’utilisation de la `calicoctl` CLI pour gérer ces étendues des fonctionnalités, consultez [référence de l’utilisateur calicoctl][calicoctl]. |
 | Support                                  | Prise en charge par le support Azure et l’équipe d’ingénierie | Prise en charge de la Communauté de tricolore. Pour plus d’informations sur un support payant supplémentaire, consultez [les options de support de projet tricolore][calico-support]. |
+| Journalisation                                  | Règles ajoutées / supprimées dans les tables d’adresses IP sont enregistrés sur chaque ordinateur hôte sous */var/log/azure-npm.log* | Pour plus d’informations, consultez [journaux de composant tricolore][calico-logs] |
 
 ## <a name="create-an-aks-cluster-and-enable-network-policy"></a>Créer un cluster AKS et activer la stratégie réseau
 
@@ -140,7 +127,6 @@ az aks create \
     --resource-group $RESOURCE_GROUP_NAME \
     --name $CLUSTER_NAME \
     --node-count 1 \
-    --kubernetes-version 1.12.6 \
     --generate-ssh-keys \
     --network-plugin azure \
     --service-cidr 10.0.0.0/16 \
@@ -478,12 +464,13 @@ Pour en savoir plus sur les stratégies, consultez [stratégies de réseau Kuber
 [kubectl-delete]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#delete
 [kubernetes-network-policies]: https://kubernetes.io/docs/concepts/services-networking/network-policies/
 [azure-cni]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
-[terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 [policy-rules]: https://kubernetes.io/docs/concepts/services-networking/network-policies/#behavior-of-to-and-from-selectors
-[aks-github]: https://github.com/azure/aks/issues]
+[aks-github]: https://github.com/azure/aks/issues
 [tigera]: https://www.tigera.io/
-[calicoctl]: https://docs.projectcalico.org/v3.5/reference/calicoctl/
+[calicoctl]: https://docs.projectcalico.org/v3.6/reference/calicoctl/
 [calico-support]: https://www.projectcalico.org/support
+[calico-logs]: https://docs.projectcalico.org/v3.6/maintenance/component-logs
+[calico-aks-cleanup]: https://github.com/Azure/aks-engine/blob/master/docs/topics/calico-3.3.1-cleanup-after-upgrade.yaml
 
 <!-- LINKS - internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli

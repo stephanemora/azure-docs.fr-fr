@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: c6416e36d7d2723577ca0d2009fb7bbad24f3b6a
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 18c52a47c291181547a9005c273dc1a329b8c207
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65154696"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510963"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Notes de publication de l’Explorateur Stockage Microsoft Azure
 
@@ -82,7 +82,7 @@ Cet article contient les notes de publication de l’Explorateur Stockage Azure 
     ./StorageExplorer.exe --disable-gpu
     ```
 
-* Explorateur de stockage en cours d’exécution sur Linux nécessite certaines dépendances pour être installé en premier. Vérifiez l’Explorateur de stockage [guide de dépannage](https://docs.microsoft.com/en-us/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#linux-dependencies) pour plus d’informations.
+* Explorateur de stockage en cours d’exécution sur Linux nécessite certaines dépendances pour être installé en premier. Vérifiez l’Explorateur de stockage [guide de dépannage](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#linux-dependencies) pour plus d’informations.
 
 ## <a name="previous-releases"></a>Versions précédentes
 
@@ -408,7 +408,7 @@ Pour finir, la prise en charge de l’utilisation d’AzCopy avec Partages de fi
 * La résiliation de bail peut désormais être effectuée sur un seul objet blob à la fois. De plus, vous devez entrer le nom de l’objet blob dont vous résiliez le bail. Ce changement a été effectué pour réduire le risque de résiliation accidentelle de bail, en particulier pour les machines virtuelles. #394
 * Si vous rencontrez toujours des problèmes de connexion, vous pouvez maintenant essayer de réinitialiser l’authentification. Accédez au menu « Aide », puis cliquez sur « Réinitialiser » pour accéder à cette fonctionnalité. #419
 
-### <a name="fix"></a>Correctif
+### <a name="fix"></a>Corriger
 
 * Suite à de nombreux commentaires des utilisateurs, le nœud d’émulateur par défaut a été réactivé. Vous pouvez toujours ajouter des connexions d’émulateur supplémentaires par le biais de la boîte de dialogue Se connecter, mais si votre émulateur est configuré pour utiliser les ports par défaut vous pouvez également utiliser le nœud « Émulateur * Ports par défaut » sous « Local & attaché/Comptes de stockage ». #669
 * Explorateur Stockage ne vous permet plus de définir des valeurs de métadonnées d’objets blob contenant des espaces blancs de début ou de fin. #760

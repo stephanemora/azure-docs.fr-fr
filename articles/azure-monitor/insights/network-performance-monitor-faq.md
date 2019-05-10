@@ -1,6 +1,6 @@
 ---
 title: FAQ - Solution Network Performance Monitor dans Azure | Microsoft Docs
-description: Cet article présente les questions fréquemment posées sur NPM dans Azure. Network Performance Monitor (NPM) vous aide à surveiller les performances de vos réseaux, presque en temps réel, afin de détecter et localiser d’éventuels goulots d’étranglement affectant les performances réseau.
+description: Cet article capture les questions fréquemment posées sur Network Performance Monitor dans Azure. Network Performance Monitor (NPM) vous permet de surveillez les performances de vos réseaux en quasi temps réel et détectez et localisez les goulots d’étranglement du réseau.
 services: log-analytics
 documentationcenter: ''
 author: vinynigam
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/12/2018
 ms.author: vinynigam
-ms.openlocfilehash: d216a26dc01ae3a6946c57138bb124b41f50a151
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d573b7ad9edac6b1502744b61e85cba3402a6f68
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60401446"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65232660"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>FAQ relative à la solution Network Performance Monitor
 
@@ -36,24 +36,24 @@ Plus d’informations sur les différentes fonctionnalités de prise en charge p
 ### <a name="what-are-the-platform-requirements-for-the-nodes-to-be-used-for-monitoring-by-npm"></a>Quelle est la plateforme requise pour les nœuds à utiliser à des fins de surveillance par NPM ?
 Vous trouverez ci-dessous la plateforme requise pour les différentes fonctionnalités NPM :
 
-- Les fonctionnalités Analyseur de performances et Moniteur de connectivité de service de NPM prennent en charge les systèmes d'exploitation du serveur Windows (2008 SP1 ou version ultérieure) et des postes de travail/clients Windows (Windows 10, Windows 8.1, Windows 8 et Windows 7). 
+- Analyseur de performances et les capacités du moniteur de connectivité de Service de NPM prennent en charge le serveur de Windows et de systèmes d’exploitation de postes de travail/client Windows. Les versions de système d’exploitation serveur Windows pris en charge sont 2008 SP1 ou version ultérieure. Les versions de postes de travail/client Windows pris en charge sont Windows 10, Windows 8.1, Windows 8 et Windows 7. 
 - La fonctionnalité Moniteur ExpressRoute de NPM prend uniquement en charge le système d'exploitation du serveur Windows (2008 SP1 ou version ultérieure).
 
 ### <a name="can-i-use-linux-machines-as-monitoring-nodes-in-npm"></a>Puis-je utiliser des machines Linux en tant que nœuds de surveillance dans NPM ?
-La capacité à surveiller les réseaux à l’aide des nœuds basés sur Linux est actuellement en version préliminaire. Pour en savoir plus, adressez-vous au responsable de votre compte. Lorsque vous aurez entré l'ID d'espace de travail, nous activerons la fonctionnalité. Les agents Linux fournissent une fonctionnalité de surveillance réservée à la fonctionnalité Analyseur de performances de NPM et ne sont pas disponibles pour les fonctionnalités Analyseur de connectivité de service et Moniteur ExpressRoute
+La capacité à surveiller les réseaux à l’aide des nœuds basés sur Linux est actuellement en version préliminaire. Pour en savoir plus, adressez-vous au responsable de votre compte. Les agents Linux fournissent une fonctionnalité de surveillance réservée à la fonctionnalité Analyseur de performances de NPM et ne sont pas disponibles pour les fonctionnalités Analyseur de connectivité de service et Moniteur ExpressRoute
 
 ### <a name="what-are-the-size-requirements-of-the-nodes-to-be-used-for-monitoring-by-npm"></a>Quelle est la taille requise pour les nœuds à utiliser à des fins de surveillance par NPM ?
-Pour exécuter la solution NPM sur des machines virtuelles à nœuds, ces derniers doivent présenter au moins 500 Mo de mémoire et un cœur. Vous n'êtes pas tenu d’utiliser des nœuds distincts pour exécuter NPM. La solution peut s’exécuter sur des nœuds présentant d'autres charges de travail. La solution peut arrêter le processus de surveillance si elle utilise plus de 5 % d'UC.
+Pour exécuter la solution NPM sur des machines virtuelles à nœuds, ces derniers doivent présenter au moins 500 Mo de mémoire et un cœur. Vous n’avez pas besoin d’utiliser des nœuds distincts pour l’exécution de NPM. La solution peut s’exécuter sur des nœuds présentant d'autres charges de travail. La solution a la possibilité d’arrêter le processus de surveillance s’il utilise plus de 5 % de l’UC.
 
 ### <a name="to-use-npm-should-i-connect-my-nodes-as-direct-agent-or-through-system-center-operations-manager"></a>Pour utiliser NPM, dois-je connecter mes nœuds en tant qu’agents directs ou via System Center Operations Manager ?
-Les fonctionnalités Analyseur de performances et Moniteur de connectivité de service prennent en charge les nœuds [connectés en tant qu'agents directs](../../azure-monitor/platform/agent-windows.md) et [connectés via Operations Manager](../../azure-monitor/platform/om-agents.md).
+L’Analyseur de performances et les capacités du moniteur de connectivité de Service prennent en charge les nœuds [connecté en tant que les Agents directs](../../azure-monitor/platform/agent-windows.md) et [connectés via Operations Manager](../../azure-monitor/platform/om-agents.md).
 
-Pour la fonctionnalité Moniteur ExpressRoute, les nœuds Azure doivent être connectés en tant qu’agents directs uniquement. Les nœuds Azure connectés via Operations Manager ne sont pas pris en charge. Pour les nœuds locaux, les nœuds connectés en tant qu’agents directs et via Operations Manager sont pris en charge à des fins de surveillance d'un circuit ExpressRoute.
+Pour la fonctionnalité Moniteur ExpressRoute, les nœuds Azure doivent être connectés en tant qu’agents directs uniquement. Les nœuds Azure connectés via Operations Manager ne sont pas pris en charge. Pour les nœuds locaux, les nœuds connectés en tant qu’Agents directs et via Operations Manager sont pris en charge pour la surveillance d’un circuit ExpressRoute.
 
 ### <a name="which-protocol-among-tcp-and-icmp-should-be-chosen-for-monitoring"></a>Quel protocole choisir entre TCP et ICMP à des fins de surveillance ?
-Si vous surveillez votre réseau à l’aide de nœuds basés sur le serveur Windows, nous vous recommandons d'utiliser TCP en tant que protocole de surveillance car il offre une meilleure précision. 
+Si vous analysez votre réseau à l’aide des nœuds de serveur Windows, nous vous recommandons de qu'utiliser TCP comme protocole de surveillance dans la mesure où il fournit une meilleure précision. 
 
-ICMP est recommandé pour les nœuds basés sur le système d’exploitation des postes de travail/clients Windows. Cette plateforme n’autorise pas l’envoi de données TCP sur les sockets bruts, que NPM utilise pour découvrir la topologie réseau.
+ICMP est recommandé pour les nœuds basés sur le système d’exploitation des postes de travail/clients Windows. Cette does'nt de plateforme permettent aux données TCP à envoyer via des sockets bruts, NPM utilise pour découvrir la topologie réseau.
 
 Vous trouverez plus d'informations sur les avantages liés à chaque protocole [ici](../../azure-monitor/insights/network-performance-monitor-performance-monitor.md#choose-the-protocol).
 
@@ -71,8 +71,8 @@ Le script configure uniquement le pare-feu Windows en local. En présence d'un p
 ### <a name="how-many-agents-should-i-use"></a>Combien d'agents dois-je utiliser ?
 Vous devez utiliser au moins un agent pour chaque sous-réseau que vous souhaitez surveiller.
 
-### <a name="what-is-the-maximum-number-of-agents-i-can-use-or-i-see-error--you-have-reached-your-configuration-limit"></a>Quel est le nombre maximum d'agents utilisables avant qu'une erreur de type « ... vous avez atteint votre limite de configuration » s'affiche ?
-NPM limite le nombre d'adresses IP à 5 000 par espace de travail. Si un nœud possède une adresse IPv4 et une adresse IPv6, deux adresses IP seront comptabilisées pour ce nœud. Par conséquent, cette limite de 5 000 adresses IP déterminera la limite supérieure du nombre d'agents. Vous pouvez supprimer les agents inactifs de l'onglet Nœuds sous NPM >> Configurer. NPM conserve aussi l'historique de toutes les adresses IP attribuées à la machine virtuelle qui héberge l'agent. Ces adresses sont également comptabilisées en tant qu'adresses IP distinctes contribuant à la limite supérieure de 5 000 adresses IP. Afin de libérer des adresses IP pour votre espace de travail, vous pouvez utiliser la page Nœuds et supprimer les adresses IP inutilisées.
+### <a name="what-is-the-maximum-number-of-agents-i-can-use-or-i-see-error--youve-reached-your-configuration-limit"></a>Quel est le nombre maximal d’agents, que je peux utiliser ou des erreurs »... vous avez atteint votre limite de Configuration » ?
+NPM limite le nombre d'adresses IP à 5 000 par espace de travail. Si un nœud possède une adresse IPv4 et une adresse IPv6, deux adresses IP seront comptabilisées pour ce nœud. Par conséquent, cette limite de 5 000 adresses IP déterminera la limite supérieure du nombre d'agents. Vous pouvez supprimer les agents inactifs de l'onglet Nœuds sous NPM >> Configurer. NPM gère également l’historique de toutes les adresses IP qui ont été assigné à la machine virtuelle qui héberge l’agent et chacun sont comptée comme IP distincte qui contribuent à cette limite supérieure d’adresses IP 5000. Pour libérer des adresses IP pour votre espace de travail, vous pouvez utiliser la page de nœuds à supprimer les adresses IP qui ne sont pas en cours d’utilisation.
 
 ## <a name="monitoring"></a>Surveillance
 
@@ -139,13 +139,23 @@ NPM peut surveiller vos circuits ExpressRoute situés dans n’importe quelle r�
 ## <a name="troubleshoot"></a>Résolution des problèmes
 
 ### <a name="why-are-some-of-the-hops-marked-as-unidentified-in-the-network-topology-view"></a>Pourquoi certains tronçons sont-ils marqués comme non identifiés dans l'affichage de topologie de réseau ?
-NPM utilise une version modifiée de détermination d’itinéraire pour détecter la topologie à partir de l’agent source vers la destination. Un tronçon non identifié indique que le tronçon réseau n'a pas répondu à la requête de détermination d’itinéraire de l’agent source. Si 3 tronçons réseau consécutifs ne répondent pas à la détermination d’itinéraire de l’agent, la solution marque ces tronçons comme non identifiés et ne tente pas de détecter d'autres tronçons.
+NPM utilise une version modifiée de détermination d’itinéraire pour détecter la topologie à partir de l’agent source vers la destination. Un tronçon non identifié indique que le tronçon réseau n'a pas répondu à la requête de détermination d’itinéraire de l’agent source. Si trois tronçons réseau consécutifs ne répondent pas à la détermination d’itinéraire de l’agent, la solution marque les tronçons ne répond pas en tant que non identifié et n’essaie pas de découvrir plus de sauts.
 
 Un tronçon peut ne pas répondre à une détermination d’itinéraire dans un ou plusieurs des scénarios ci-dessous :
 
 * Les routeurs ont été configurés pour ne pas révéler leur identité.
 * Les périphériques réseau n'autorisent pas le trafic ICMP_TTL_EXCEEDED.
 * Un pare-feu bloque la réponse ICMP_TTL_EXCEEDED à partir du périphérique réseau.
+
+### <a name="why-does-my-link-show-unhealthy-but-the-topology-does-not"></a>Pourquoi ne mon show de lien non intègre la topologie mais pas 
+NPM surveille la perte de bout en bout, latence et la topologie à des intervalles différents. Perte et la latence sont mesurés toutes les 5 secondes et agrégées toutes les trois minutes (pour l’Analyseur de performances et moniteur de routage Express) alors que la topologie est calculée à l’aide de détermination d’itinéraire toutes les 10 minutes. Par exemple, entre : 44 3 et 4:04, topologie peut être mise à jour trois fois (3:44, 54:3, 4:04), mais la perte et la latence sont mis à jour environ sept fois (3:44, 3 h 47, 3:50, 3:53, 3:56, 59:3, 4:02). La topologie générée à 3:54 sera restituée pour la perte et la latence obtient calculée au 3:56:59 3 et 4:02. Supposons que vous recevez une alerte que votre circuit ER était défectueux à 3:59. Vous ouvrez une session NPM et que vous essayez de définir l’heure de la topologie à 3:59. NPM affichera la topologie générée à 3:54. Pour comprendre la topologie dernière connue de votre réseau, comparez les champs TimeProcessed (temps à la perte et la latence a été calculé) et TracerouteCompletedTime (temps à la topologie a été calculée). 
+
+### <a name="what-is-the-difference-between-the-fields-e2emedianlatency-and-avghoplatencylist-in-the-networkmonitoring-table"></a>Quelle est la différence entre les champs E2EMedianLatency et AvgHopLatencyList dans la table NetworkMonitoring
+E2EMedianLatency est la latence de mise à jour de toutes les trois minutes après que agrégeant les résultats des tests de ping tcp, alors que AvgHopLatencyList est de mise à jour toutes les 10 minutes en fonction de détermination d’itinéraire. Pour comprendre l’heure exacte à laquelle E2EMedianLatency a été calculée, utilisez le champ TimeProcessed. Pour comprendre l’heure exacte à quels traceroute terminée et AvgHopLatencyList mis à jour, utilisez le champ TracerouteCompletedTime
+
+### <a name="why-does-hop-by-hop-latency-numbers-differ-from-hoplatencyvalues"></a>Pourquoi les valeurs de latence saut par saut est-elle différente de HopLatencyValues 
+HopLatencyValues sont source au point de terminaison.
+Par exemple : Sauts - A, B, C. AvgHopLatency - 10,15,20. Cela signifie que la source à une latence = 10, la source à la latence de B = 15 et de la source à la latence de C est 20. L’interface utilisateur calculera la latence du tronçon A-B en tant que 5 dans la topologie
 
 ### <a name="the-solution-shows-100-loss-but-there-is-connectivity-between-the-source-and-destination"></a>La solution affiche 100 % de pertes, mais il existe une connectivité entre la source et la destination.
 Cela peut se produire si le pare-feu d’hôte ou le pare-feu intermédiaire (pare-feu réseau ou groupe de sécurité réseau Azure) bloque la communication entre l’agent source et la destination sur le port utilisé à des fins de surveillance par NPM (par défaut et sauf modification du client, ce port correspond à 8084).

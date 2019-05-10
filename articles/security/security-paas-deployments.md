@@ -1,6 +1,6 @@
 ---
-title: Sécurisation des déploiements PaaS | Microsoft Docs
-description: " Comprenez les avantages d’une infrastructure PaaS pour la sécurité par rapport aux autres modèles de service cloud et découvrez les pratiques recommandées pour la sécurisation de votre déploiement PaaS Azure. "
+title: Meilleures pratiques pour les déploiements PaaS sécurisés - Microsoft Azure
+description: Découvrez les pratiques recommandées pour concevoir, créer et la gestion sécurisée aux applications sur Azure du cloud et découvrez les avantages de sécurité de PaaS et autres modèles de service cloud.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/05/2019
+ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: e833317fa16576fa0006a774226d12974fd93ed8
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 9da7a3b91223b8a6fd25814a10a0cbafd645d132
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62107436"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65231122"
 ---
 # <a name="securing-paas-deployments"></a>Sécurisation des déploiements PaaS
 
@@ -29,6 +29,8 @@ Cet article fournit des informations qui vous permettent :
 - d'évaluer les avantages de la plateforme en tant que service (PaaS) et autres modèles de service cloud pour la sécurité ;
 - de passer pour la sécurité d'une approche orientée réseau à une approche de sécurité de périmètre orientée identité ;
 - d'implémenter les bonnes pratiques recommandées de la sécurité de la PaaS.
+
+[Développement d’applications sécurisées sur Azure](abstract-develop-secure-apps.md) est une aide générale pour les questions de sécurité et les contrôles que vous devez envisager à chaque phase du cycle de vie de développement logiciel lors du développement d’applications pour le cloud.
 
 ## <a name="cloud-security-advantages"></a>Avantages du cloud en matière de sécurité
 Le cloud offre certains avantages pour la sécurité. Dans un environnement local, les organisations ont probablement des obligations non respectées et des ressources limitées pour investir dans la sécurité, avec pour résultat un environnement où les pirates informatiques sont en mesure d’exploiter des vulnérabilités à tous les niveaux.
@@ -111,11 +113,11 @@ Le tableau suivant répertorie les menaces STRIDE et donne des exemples d’att�
 
 | Menace | Propriété de sécurité | Atténuation des risques pour la plateforme Azure |
 | --- | --- | --- |
-| Usurpation d’identité | Authentification | Exigez des connexions HTTPS. |
+| Usurpation d’identité | Authentication | Exigez des connexions HTTPS. |
 | Falsification | Intégrité | Validez des certificats SSL. |
 | Répudiation | Non-répudiation | Activez [la surveillance et les diagnostics Azure](https://docs.microsoft.com/azure/architecture/best-practices/monitoring). |
 | Divulgation d’informations | Confidentialité | Chiffrez les données sensibles au repos à l’aide de [certificats de service](https://docs.microsoft.com/rest/api/appservice/certificates). |
-| Denial of service (déni de service) | Disponibilité | Surveillez les mesures de performances pour des conditions potentielles de déni de service. Implémentez des filtres de connexion. |
+| Déni de service | Disponibilité | Surveillez les mesures de performances pour des conditions potentielles de déni de service. Implémentez des filtres de connexion. |
 | Élévation de privilège | Authorization | Utilisez [Privileged Identity Management](../active-directory/privileged-identity-management/subscription-requirements.md). |
 
 ## <a name="develop-on-azure-app-service"></a>Développer sur Azure App Service
@@ -155,6 +157,10 @@ Utilisez [Azure Application Insights](https://azure.microsoft.com/documentation/
 
 Application Insights dispose d’outils complets pour interagir avec les données qu’il collecte. Application Insights stocke ses données dans un référentiel commun. Il peut tirer parti des fonctionnalités partagées telles que des alertes, des tableaux de bord et une analyse approfondie avec le langage de requête Kusto.
 
+## <a name="perform-security-penetration-testing"></a>Effectuer des tests de pénétration
+Validation des défenses de sécurité est aussi importante que d’autres fonctionnalités. Rendre [test de pénétration](azure-security-pen-testing.md) une partie standard de votre processus de génération et de déploiement. Planifier des tests de sécurité normale et analyse des vulnérabilités dans les applications déployées et surveillez les ports ouverts, les points de terminaison et les attaques.
+
+Fuzzing est une méthode de recherche des défaillances de programmes (erreurs de code) en fournissant les données d’entrée mal formées aux interfaces de programme (points d’entrée) qui analysent et utilisent ces données. [Détection des risques de sécurité Microsoft](https://www.microsoft.com/en-us/security-risk-detection/) est un outil basé sur le cloud que vous pouvez utiliser pour rechercher des bogues et d’autres vulnérabilités de sécurité dans votre logiciel avant de le déployer vers Azure. L’outil est conçu pour intercepter les vulnérabilités avant de déployer le logiciel sans que vous ayez à corriger un bogue, gérer les incidents ou répondre à une attaque une fois que le logiciel est publié.
 
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -162,10 +168,12 @@ Dans cet article, nous avons vu les avantages d’un déploiement PaaS Azure et 
 
 - [Azure App Service](security-paas-applications-using-app-services.md)
 - [Azure SQL Database et Azure SQL Data Warehouse](security-paas-applications-using-sql.md)
-- [Stockage Azure](security-paas-applications-using-storage.md)
+- [Azure Storage](security-paas-applications-using-storage.md)
 - Cache Azure pour Redis
 - Azure Service Bus
 - Pare-feu d’applications web
+
+Consultez [développer des applications sécurisées sur Azure](abstract-develop-secure-apps.md) pour des questions de sécurité et les contrôles que vous devez envisager à chaque phase du cycle de vie de développement logiciel lors du développement d’applications pour le cloud.
 
 Consultez l’article [Bonnes pratiques et tendances Azure relatives à la sécurité](security-best-practices-and-patterns.md) pour découvrir d’autres bonnes pratiques en matière de sécurité à appliquer dans le cadre de la conception, du déploiement et de la gestion de vos solutions cloud avec Azure.
 

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 04/29/2019
-ms.openlocfilehash: 96ee3f5e1b3cfe67cb75e50c6247e41f0d901393
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: d83410efd26f8c2078d3abdb01d061db0b83d33d
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64867915"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233718"
 ---
 # <a name="migrate-sql-server-on-premises-to-an-azure-sql-database-managed-instance-using-azure-powershell"></a>Migrer SQL Server local vers une instance gérée Azure SQL Database à l’aide d’Azure PowerShell
 Dans cet article, vous allez migrer la **Adventureworks2016** base de données restaurée vers une instance locale de SQL Server 2005 ou ci-dessus vers Azure SQL Database managed instance à l’aide de Microsoft Azure PowerShell. Vous pouvez migrer des bases de données à partir d’une instance de SQL Server locale vers une instance gérée Azure SQL Database à l’aide de la `Az.DataMigration` module dans Microsoft Azure PowerShell.
@@ -25,7 +25,7 @@ Dans cet article, vous apprendrez comment :
 > [!div class="checklist"]
 >
 > * Créez un groupe de ressources.
-> * Créez une instance d’Azure Database Migration Service.
+> * Créer une instance Azure Database Migration Service.
 > * Créer un projet de migration dans une instance d’Azure Database Migration Service.
 > * Exécuter la migration.
 
@@ -69,7 +69,7 @@ L’exemple suivant crée un groupe de ressources nommé *myResourceGroup* dans 
 New-AzResourceGroup -ResourceGroupName myResourceGroup -Location EastUS
 ```
 
-## <a name="create-an-instance-of-azure-database-migration-service"></a>Créer une instance d’Azure Database Migration Service
+## <a name="create-an-instance-of-azure-database-migration-service"></a>Créer une instance Azure Database Migration Service
 
 Vous pouvez créer une instance Azure Database Migration Service à l’aide de l’applet de commande `New-AzDataMigrationService`.
 Cette cmdlet attend les paramètres requis suivants :
@@ -86,7 +86,7 @@ L’exemple suivant crée un service nommé *MyDMS* dans le groupe de ressources
 > L’extrait de code ci-dessous est pour une migration hors connexion, ce qui ne nécessite pas une instance d’Azure Database Migration Service selon une référence (SKU) Premium. Pour une migration en ligne, la valeur du paramètre - référence (SKU) doit inclure une référence (SKU) Premium.
 
 ```powershell
- $vNet = Get-AzVirtualNetwork -ResourceGroupName MyDMSResourceGroup -Name MyVNET
+$vNet = Get-AzVirtualNetwork -ResourceGroupName MyDMSResourceGroup -Name MyVNET
 
 $vSubNet = Get-AzVirtualNetworkSubnetConfig -VirtualNetwork $vNet -Name MySubnet
 

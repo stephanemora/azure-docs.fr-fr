@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 2a2df8b47b60f29d8ecd3c040e8ef979ee23afa8
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b8caa5cd7476489a92ce97570794a1d397f32630
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64575404"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65230895"
 ---
 # <a name="azure-maps-geocoding-coverage"></a>Couverture de géocodage Azure Maps
 
 Lorsque vous recherchez un emplacement avec Azure Maps, le service de recherche accepte les termes de recherche et retourne les coordonnées de latitude et longitude. Ce processus est appelé « géocodage ». Toutefois, Maps n’a pas le même niveau d’information et de précision pour tous les pays et régions. Utilisez cet article pour déterminer quels types d’emplacements vous pouvez rechercher de manière fiable dans chaque région. 
 
-La possibilité de géocoder dans un pays dépend de la couverture de données de route et de la précision du service de géocodage. Les catégorisations suivantes permettent de spécifier le niveau de prise en charge du géocodage dans chaque pays.
+La possibilité de Géocode dans un pays/région dépend de la couverture de données de route et la précision du géocodage du service de géocodage. Les catégorisations suivantes servent spécifier le niveau de prise en charge du géocodage dans chaque pays/région.
 * **Points d’adresse** : Les données d’adresses peuvent être résolues en coordonnées latitude/longitude dans la parcelle de l’adresse (limite de propriété). Ils sont parfois désignés comme ayant une précision « rooftop » (maximale). Il s’agit du niveau de précision le plus haut disponible pour les adresses. 
 * **Numéros de résidence** : Les adresses sont interpolées en coordonnées latitude/longitude dans la rue.
 * **Niveau de rue** : Les adresses sont résolues en coordonnées latitude/longitude de la rue qui contient l’adresse. Le numéro de résidence ne peut pas être traité.
@@ -27,22 +27,22 @@ La possibilité de géocoder dans un pays dépend de la couverture de données d
 
 ## <a name="americas"></a>Amérique
 
-| Pays/région                                       | Points d’adresse | Numéros de résidence | Niveau de rue | Niveau ville | Points d’intérêt |
+| Pays ou région                                       | Points d’adresse | Numéros de résidence | Niveau de rue | Niveau ville | Points d’intérêt |
 |-----------------------------------------------------|:---------------:|:--------------:|:------------:|:----------:|:------------------:|
 | Anguilla                                            |                 |                |              |      ✓     |          ✓         |
 | Antarctique                                          |                 |                |              |      ✓     |          ✓         |
 | Antigua-et-Barbuda                                 |                 |                |       ✓      |      ✓     |          ✓         |
 | Argentine                                           |       ✓         |        ✓       |       ✓      |      ✓     |          ✓         |
 | Aruba                                               |                 |                |              |      ✓     |          ✓         |
-| Les Bahamas                                             |                 |                |       ✓      |      ✓     |          ✓         |
-| Barbade                                            |                 |                |       ✓      |      ✓     |          ✓         |
+| Bahamas                                             |                 |                |       ✓      |      ✓     |          ✓         |
+| Barbade (La)                                            |                 |                |       ✓      |      ✓     |          ✓         |
 | Belize                                              |                 |                |              |      ✓     |          ✓         |
 | Bermudes                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Bolivie                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Bonaire, Saint-Eustache et Saba                   |                 |                |              |      ✓     |          ✓         |
 | Brésil                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Canada                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| Caïmans (îles)                                      |                 |                |       ✓      |      ✓     |          ✓         |
+| Caïmans (Îles)                                      |                 |                |       ✓      |      ✓     |          ✓         |
 | Chili                                               |       ✓         |        ✓       |       ✓      |      ✓     |          ✓         |
 | Colombie                                            |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Costa Rica                                          |                 |                |       ✓      |      ✓     |          ✓         |
@@ -50,16 +50,16 @@ La possibilité de géocoder dans un pays dépend de la couverture de données d
 | Dominique                                            |                 |                |       ✓      |      ✓     |          ✓         |
 | Dominicana                                          |                 |                |       ✓      |      ✓     |          ✓         |
 | Équateur                                             |                 |                |       ✓      |      ✓     |          ✓         |
-| El Salvador                                         |                 |                |       ✓      |      ✓     |          ✓         |
-| Îles Malouines                                    |                 |                |              |      ✓     |          ✓         |
-| Guyane française                                       |                 |                |       ✓      |      ✓     |          ✓         |
+| Le Salvador                                         |                 |                |       ✓      |      ✓     |          ✓         |
+| Falkland (îles Falkland ou Malouines)                                    |                 |                |              |      ✓     |          ✓         |
+| Guyana                                       |                 |                |       ✓      |      ✓     |          ✓         |
 | Grenade                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Guadeloupe                                          |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Guam                                                |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Guatemala                                           |                 |                |       ✓      |      ✓     |          ✓         |
 | Guyane                                              |                |             |           |      ✓     |                 |
 | Haïti                                               |                 |                |       ✓      |      ✓     |          ✓         |
-| Honduras                                            |                 |                |       ✓      |      ✓     |          ✓         |
+| Honduras (Le)                                            |                 |                |       ✓      |      ✓     |          ✓         |
 | Jamaïque                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Martinique                                          |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Mexique                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
@@ -68,19 +68,19 @@ La possibilité de géocoder dans un pays dépend de la couverture de données d
 | Panama                                              |                 |                |       ✓      |      ✓     |          ✓         |
 | Paraguay                                            |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Pérou                                                |                 |        ✓       |       ✓      |      ✓     |          ✓         |
-| Porto Rico                                         |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| Puerto Rico                                         |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Saint-Barthélemy                                    |                 |                |       ✓      |      ✓     |          ✓         |
-| Saint-Christophe-et-Niévès                               |                 |                |       ✓      |      ✓     |          ✓         |
+| Saint-Kitts-et-Nevis                               |                 |                |       ✓      |      ✓     |          ✓         |
 | Sainte-Lucie                                         |                 |                |              |      ✓     |          ✓         |
-| Saint-Martin                                        |                 |                |       ✓      |      ✓     |          ✓         |
-| Saint Pierre et Miquelon                           |                 |                |       ✓      |      ✓     |          ✓         |
-| Saint-Vincent-et-les-Grenadines                    |                 |                |              |      ✓     |          ✓         |
-| Saint-Martin (partie néerlandaise)                                        |                 |                |       ✓      |      ✓     |          ✓         |
-| Géorgie du Sud et îles Sandwich du Sud        |                 |                |              |      ✓     |          ✓         |
-| Surinam                                            |                 |                |              |      ✓     |          ✓         |
+| Saint-Martin (Royaume des Pays-Bas)                                        |                 |                |       ✓      |      ✓     |          ✓         |
+| Saint-Pierre-et-Miquelon                           |                 |                |       ✓      |      ✓     |          ✓         |
+| Saint-Vincent-et-les Grenadines                    |                 |                |              |      ✓     |          ✓         |
+| Saint-Martin (partie néerlandaise)                                         |                 |                |       ✓      |      ✓     |          ✓         |
+| Géorgie du Sud et les Îles Sandwich du Sud        |                 |                |              |      ✓     |          ✓         |
+| Suriname                                            |                 |                |              |      ✓     |          ✓         |
 | Trinité-et-Tobago                                 |                 |                |       ✓      |      ✓     |          ✓         |
 | Îles mineures éloignées des États-Unis                |                 |                |              |      ✓     |          ✓         |
-| États-Unis d’Amérique                            |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| États-Unis d'Amérique                            |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Uruguay                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Venezuela                                           |                 |                |       ✓      |      ✓     |          ✓         |
 | Îles Vierges - britanniques                            |                 |                |              |      ✓     |          ✓         |
@@ -88,20 +88,20 @@ La possibilité de géocoder dans un pays dépend de la couverture de données d
 
 ## <a name="asia-pacific"></a>Asie-Pacifique
 
-| Pays/région                                      | Points d’adresse |Numéros de résidence | Niveau de rue | Niveau ville | Points d’intérêt |
+| Pays ou région                                      | Points d’adresse |Numéros de résidence | Niveau de rue | Niveau ville | Points d’intérêt |
 |-----------------------------------------------------|:---------------:|:--------------:|:------------:|:----------:|:------------------:|
 | Samoa américaines                                      |                 |                |       ✓      |      ✓     |          ✓         |
 | Australie                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Bangladesh                                          |                 |                |              |      ✓     |          ✓         |
 | Bhoutan                                              |                 |                |              |      ✓     |          ✓         |
-| Territoire britannique de l'océan Indien                      |                 |                |              |      ✓     |          ✓         |
+| Territoires britanniques de l'Océan Indien                      |                 |                |              |      ✓     |          ✓         |
 | Brunei                                              |        ✓        |                |       ✓      |      ✓     |          ✓         |
 | Cambodge                                            |                 |                |              |      ✓     |          ✓         |
 | Chine                                               |                 |                |              |      ✓     |          ✓         |
-| Christmas (île)                                    |        ✓        |                |       ✓      |      ✓     |          ✓         |
-| Îles Cocos (Keeling)                             |                 |                |              |      ✓     |          ✓         |
-| Comores                                             |                 |                |              |      ✓     |          ✓         |
-| Cook (îles)                                        |                 |                |              |      ✓     |          ✓         |
+| Christmas (Île)                                    |        ✓        |                |       ✓      |      ✓     |          ✓         |
+| Cocos-Keeling (îles)                             |                 |                |              |      ✓     |          ✓         |
+| Comores (Les)                                             |                 |                |              |      ✓     |          ✓         |
+| Cook (Îles)                                        |                 |                |              |      ✓     |          ✓         |
 | Fidji                                                |                  |                |              |      ✓     |          ✓        |
 | Polynésie française                                    |                 |                |              |      ✓     |          ✓         |
 | Heard et McDonald (îles)                   |                 |                |              |      ✓     |          ✓         |
@@ -113,59 +113,59 @@ La possibilité de géocoder dans un pays dépend de la couverture de données d
 | Corée du Sud                                         |                 |                |              |      ✓     |          ✓         |
 | Laos                                                |                 |                |              |      ✓     |          ✓         |
 | Macao R.A.S.                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| Malaisie                                            |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| Malaysie                                            |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Micronésie                                          |                 |                |              |      ✓     |          ✓         |
 | Mongolie                                            |                 |                |              |      ✓     |          ✓         |
 | Nauru                                               |                 |                |              |      ✓     |          ✓         |
 | Népal                                               |                 |                |              |      ✓     |          ✓         |
 | Nouvelle-Calédonie                                       |                 |                |              |      ✓     |          ✓         |
 | Nouvelle-Zélande                                         |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| Niue                                                |                 |                |              |      ✓     |          ✓         |
+| Niué                                                |                 |                |              |      ✓     |          ✓         |
 | Norfolk (île)                                      |                 |                |              |      ✓     |          ✓         |
 | Corée du Nord                                         |                 |                |              |      ✓     |          ✓         |
-| Îles Marianne du Nord                            |                 |                |       ✓      |      ✓     |          ✓         |
+| Mariannes du Nord (Îles)                            |                 |                |       ✓      |      ✓     |          ✓         |
 | Pakistan                                            |                 |                |              |      ✓     |          ✓         |
 | Palau                                               |                 |                |              |      ✓     |          ✓         |
-| Papouasie Nouvelle Guinée                                    |                 |                |              |      ✓     |          ✓         |
+| Papouasie-Nouvelle-Guinée                                    |                 |                |              |      ✓     |          ✓         |
 | Îles Paracels                                     |                 |                |              |      ✓     |                    |
 | Philippines                                         |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Île Pitcairn                                            |                 |                |              |      ✓     |          ✓         |
 | Samoa                                               |                 |                |              |      ✓     |          ✓         |
 | Îles Senkaku/Diaoyutai                                     |        ✓        |                |              |      ✓     |          ✓         |
 | Singapour                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| Salomon (îles)                                     |                 |                |              |      ✓     |          ✓         |
+| Salomon (Îles)                                     |                 |                |              |      ✓     |          ✓         |
 | Îles Kouriles                                     |        ✓        |                |              |      ✓     |          ✓         |
 | Îles Spratleys                                     |                 |                |              |      ✓     |                    |
 | Sri Lanka                                           |                 |                |              |      ✓     |          ✓         |
-| Taïwan                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| Taiwan                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Thaïlande                                            |        ✓        |                |       ✓      |      ✓     |          ✓         |
 | Tokelau                                             |                 |                |              |      ✓     |          ✓         |
 | Tonga                                               |                 |                |              |      ✓     |          ✓         |
-| Turques-et-Caïques (îles)                            |                 |                |              |      ✓     |          ✓         |
+| Turks et Caicos (Îles)                            |                 |                |              |      ✓     |          ✓         |
 | Tuvalu                                              |                 |                |              |      ✓     |          ✓         |
 | Vanuatu                                             |                 |                |              |      ✓     |          ✓         |
 | Vietnam                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| Wallis et Futuna                                   |                 |                |              |      ✓     |          ✓         |
+| Wallis-et-Futuna                                   |                 |                |              |      ✓     |          ✓         |
 
 ## <a name="europe"></a>Europe
 
-| Pays/région                                      | Points d’adresse |Numéros de résidence | Niveau de rue | Niveau ville | Points d’intérêt |
+| Pays ou région                                      | Points d’adresse |Numéros de résidence | Niveau de rue | Niveau ville | Points d’intérêt |
 |-----------------------------------------------------|:---------------:|:--------------:|:------------:|:----------:|:------------------:|
 | Albanie                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Andorre                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Arménie                                             |        ✓        |        ✓       |              |      ✓     |          ✓         |
-| Autriche                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| L'Autriche                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Azerbaïdjan                                          |        ✓        |        ✓       |              |      ✓     |          ✓         |
 | Belgique                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Bosnie-Herzégovine                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Bulgarie                                            |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| Bélarus                                             |                 |        ✓       |       ✓      |      ✓     |          ✓         |
+| Biélorussie                                             |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Croatie                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Chypre                                              |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | République tchèque                                      |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Danemark                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Estonie                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| Féroé (îles)                                       |                 |                |              |      ✓     |          ✓         |
+| Féroé (Îles)                                       |                 |                |              |      ✓     |          ✓         |
 | Finlande                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | France                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Géorgie                                             |        ✓        |        ✓       |              |      ✓     |          ✓         |
@@ -190,10 +190,10 @@ La possibilité de géocoder dans un pays dépend de la couverture de données d
 | Luxembourg                                          |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Macédoine du Nord                                     |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Malte                                               |                 |        ✓       |       ✓      |      ✓     |          ✓         |
-| Moldova                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| Moldavie                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Monaco                                              |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Monténégro                                          |                 |        ✓       |       ✓      |      ✓     |          ✓         |
-| Pays-bas                                         |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| Pays-Bas                                         |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Norvège                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Pologne                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Portugal                                            |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
@@ -208,18 +208,18 @@ La possibilité de géocoder dans un pays dépend de la couverture de données d
 | Svalbard                                            |        ✓        |                |       ✓      |      ✓     |          ✓         |
 | Suède                                              |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Suisse                                         |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| Tadjikistan                                          |                 |                |              |      ✓     |          ✓         |
+| Tdjikistan                                          |                 |                |              |      ✓     |          ✓         |
 | Turquie                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Turkménistan                                        |                 |                |              |      ✓     |          ✓         |
 | Ukraine                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Royaume-Uni                                      |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Ouzbékistan                                          |                 |                |              |      ✓     |          ✓         |
-| Cité du Vatican                                        |                 |                |       ✓      |      ✓     |          ✓         |
+| Vatican (État de la Cité du)                                        |                 |                |       ✓      |      ✓     |          ✓         |
 
 
 ## <a name="middle-east-and-africa"></a>Moyen-Orient et Afrique
 
-| Pays/région                                      | Points d’adresse |Numéros de résidence | Niveau de rue | Niveau ville | Points d’intérêt |
+| Pays ou région                                      | Points d’adresse |Numéros de résidence | Niveau de rue | Niveau ville | Points d’intérêt |
 |-----------------------------------------------------|:---------------:|:--------------:|:------------:|:----------:|:------------------:|
 | Afghanistan                                         |                 |                |              |      ✓     |          ✓         |
 | Algérie                                             |                 |                |       ✓      |      ✓     |          ✓         |
@@ -227,22 +227,22 @@ La possibilité de géocoder dans un pays dépend de la couverture de données d
 | Bahreïn                                             |        ✓        |       ✓        |       ✓      |      ✓     |          ✓         |
 | Bénin                                               |                 |                |       ✓      |      ✓     |          ✓         |
 | Botswana                                            |                 |                |       ✓      |      ✓     |          ✓         |
-| Bouvet (île)                                       |                 |                |              |      ✓     |          ✓         |
-| Burkina Faso                                        |                 |                |       ✓      |      ✓     |          ✓         |
+| Bouvet (Île)                                       |                 |                |              |      ✓     |          ✓         |
+| Burkina-Faso                                        |                 |                |       ✓      |      ✓     |          ✓         |
 | Burundi                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Cameroun                                            |                 |                |       ✓      |      ✓     |          ✓         |
 | Cabo Verde                                          |                 |                |       ✓      |      ✓     |          ✓         |
 | République centrafricaine                            |                 |                |       ✓      |      ✓     |          ✓         |
 | Tchad                                                |                 |                |       ✓      |      ✓     |          ✓         |
 | Congo                                               |                 |                |       ✓      |      ✓     |          ✓         |
-| Côte d’Ivoire                                       |                 |                |       ✓      |      ✓     |          ✓         |
+| Côte d'Ivoire                                       |                 |                |       ✓      |      ✓     |          ✓         |
 | République démocratique du Congo                    |                 |                |       ✓      |      ✓     |          ✓         |
 | Djibouti                                            |                 |                |       ✓      |      ✓     |          ✓         |
 | Égypte                                               |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Guinée équatoriale, République de                      |                 |                |       ✓      |      ✓     |          ✓         |
 | Érythrée                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Éthiopie                                            |                 |                |       ✓      |      ✓     |          ✓         |
-| Terres australes françaises|                        |                |              |      ✓     |          ✓         |
+| Terres australes et antarctiques françaises|                        |                |              |      ✓     |          ✓         |
 | Gabon                                               |                 |                |       ✓      |      ✓     |          ✓         |
 | Gambie                                              |                 |                |              |      ✓     |          ✓         |
 | Ghana                                               |                 |                |       ✓      |      ✓     |          ✓         |
@@ -257,27 +257,27 @@ La possibilité de géocoder dans un pays dépend de la couverture de données d
 | Liban                                             |        ✓        |                |       ✓      |      ✓     |          ✓         |
 | Lesotho                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Liberia                                             |                 |                |       ✓      |      ✓     |          ✓         |
-| Libye                                               |                 |                |       ✓      |      ✓     |          ✓         |
+| Lybie                                               |                 |                |       ✓      |      ✓     |          ✓         |
 | Madagascar                                          |                 |                |       ✓      |      ✓     |          ✓         |
 | Malawi                                              |                 |                |       ✓      |      ✓     |          ✓         |
 | Maldives                                            |                 |                |              |      ✓     |          ✓         |
 | Mali                                                |                 |                |       ✓      |      ✓     |          ✓         |
-| Marshall (îles)                                    |                 |                |              |      ✓     |          ✓         |
+| Marshall (Îles)                                    |                 |                |              |      ✓     |          ✓         |
 | Mauritanie                                          |                 |                |       ✓      |      ✓     |          ✓         |
-| Maurice (île)                                           |                 |                |       ✓      |      ✓     |          ✓         |
+| Maurice (Île)                                           |                 |                |       ✓      |      ✓     |          ✓         |
 | Mayotte                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Maroc                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Mozambique                                          |                 |                |       ✓      |      ✓     |          ✓         |
-| Myanmar                                             |                 |                |              |      ✓     |          ✓         |
+| Myanmar (Union de)                                             |                 |                |              |      ✓     |          ✓         |
 | Namibie                                             |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Niger                                               |                 |                |       ✓      |      ✓     |          ✓         |
-| Nigeria                                             |                 |        ✓       |       ✓      |      ✓     |          ✓         |
+| Nigéria                                             |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Oman                                                |                 |                |       ✓      |      ✓     |          ✓         |
 | Qatar                                               |        ✓        |                |       ✓      |      ✓     |          ✓         |
 | La Réunion                                             |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Rwanda                                              |                 |                |       ✓      |      ✓     |          ✓         |
 | Sainte-Hélène                                        |                 |                |              |      ✓     |          ✓         |
-| Arabie Saoudite                                        |                 |        ✓       |       ✓      |      ✓     |          ✓         |
+| Arabie saoudite                                        |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Sénégal                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Seychelles                                          |                 |                |       ✓      |      ✓     |          ✓         |
 | Sierra Leone                                        |                 |                |       ✓      |      ✓     |          ✓         |

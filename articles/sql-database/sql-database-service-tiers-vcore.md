@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 manager: craigg
 ms.date: 05/06/2019
-ms.openlocfilehash: 981198063b8e0951d4a4a4c4627d4b7966f34154
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: c85ee31a54cdbbb09686a2d20200f65fdcd8994a
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148976"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65235919"
 ---
 # <a name="choose-among-the-vcore-service-tiers-and-migrate-from-dtu-service-tiers"></a>Choisissez parmi les niveaux de service de vCore et migrer à partir de niveaux de service DTU
 
@@ -44,7 +44,7 @@ Le tableau suivant montre les différences entre les trois niveaux :
 |Calcul|**Mise en service de calcul**:<br/>Gen4 : de 1 à 24 vCore<br/>Gen5 : 2 à 80 vCore<br/>**Calcul sans serveur**<br/>Gen5 : 0,5 - 4 vCore|**Mise en service de calcul**:<br/>Gen4 : de 1 à 24 vCore<br/>Gen5 : 2 à 80 vCore|**Mise en service de calcul**:<br/>Gen4 : de 1 à 24 vCore<br/>Gen5 : 2 à 80 vCore|
 |Mémoire|**Mise en service de calcul**:<br/>Gen4 : 7 Go par vCore<br/>Gen5 : 5,1 Go par vCore<br/>**Calcul sans serveur**<br/>Gen5 : 3 Go par vCore|**Mise en service de calcul**:<br/>Gen4 : 7 Go par vCore<br/>Gen5 : 5,1 Go par vCore |**Mise en service de calcul**:<br/>Gen4 : 7 Go par vCore<br/>Gen5 : 5,1 Go par vCore|
 |Stockage|Utilise le stockage à distance :<br/>**Base de données unique mis en service de calcul**:<br/>5 Go - 4 To<br/>**Calcul sans serveur de base de données unique**:<br/>5 GO À 1 TO<br/>**Managed Instance**: 32 Go - 8 To |Utilise le stockage SSD local :<br/>**Base de données unique mis en service de calcul**:<br/>5 Go - 4 To<br/>**Managed Instance**:<br/>32 Go - 4 To |Croissance automatique et flexible du stockage en fonction des besoins. Prend en charge jusqu’à 100 To de stockage et au-delà. Stockage SSD local pour le cache du pool de mémoires tampons local et le stockage de données local. Stockage distant Azure comme magasin de données final à long terme. |
-|Mémoire|Gen4 : 7 Go par cœur<br>Gen5 : 5,1 Go par cœur | Gen4 : 7 Go par cœur<br>Gen5 : 5,1 Go par cœur |Gen5 : 5,1 Go par cœur|
+|Mémoire|Gen4 : 7 Go par cœur<br>Gen5 : 5,1 Go par cœur | Gen4 : 7 Go par cœur<br>Gen5 : 5,1 Go par cœur |Gen4 : 7 Go par cœur<br>Gen5 : 5,1 Go par cœur|
 |Stockage|Utilise le stockage à distance :<br/>Base de données unique : 5 Go - 4 To<br/>instance managée : 32 Go - 8 To |Utilise le stockage SSD local :<br/>Base de données unique : 5 Go - 4 To<br/>instance managée : 32 Go - 4 To |Croissance automatique et flexible du stockage en fonction des besoins. Prend en charge jusqu’à 100 To de stockage et au-delà. Stockage SSD local pour le cache du pool de mémoires tampons local et le stockage de données local. Stockage distant Azure comme magasin de données final à long terme. |
 |Débit d’E/S (approximatif)|Base de données unique : 500 IOPS par vCore avec 7000 IOPS au maximum</br>instance managée : dépend de la [taille de fichier](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)|5000 IOPS par cœur avec 200 000 IOPS au maximum|TBD|
 |Disponibilité|1 réplica, sans échelle lecture|3 réplicas, 1 [réplica avec échelle lecture](sql-database-read-scale-out.md),<br/>Haute disponibilité redondante dans une zone|réplica en lecture/1 écriture et 0-4 [les réplicas en lecture à l’échelle](sql-database-read-scale-out.md)|

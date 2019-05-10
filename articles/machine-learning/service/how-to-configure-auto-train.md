@@ -11,16 +11,16 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 72e43ac295fcb007dd58b2b7792a16c639ee9c08
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 64ba7096f181371a378708e024f46bce17449e98
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65023737"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510588"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurer des expériences ML automatisés dans Python
 
-Dans ce guide, découvrez comment définir différents paramètres de configuration de votre expérience avec d’apprentissage automatique le [kit SDK Azure Machine Learning](https://docs.microsoft.com/en-us/python/api/overview/azure/ml/intro?view=azure-ml-py). Le machine learning automatisé choisit pour vous un algorithme et des hyperparamètres, et génère un modèle prêt pour le déploiement. Vous disposez de plusieurs options pour configurer les expériences de machine learning automatisé.
+Dans ce guide, découvrez comment définir différents paramètres de configuration de votre expérience avec d’apprentissage automatique le [kit SDK Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py). Le machine learning automatisé choisit pour vous un algorithme et des hyperparamètres, et génère un modèle prêt pour le déploiement. Vous disposez de plusieurs options pour configurer les expériences de machine learning automatisé.
 
 Pour voir des exemples d’expérience de machine learning automatisé, consultez [Tutoriel : Entraîner un modèle de classification avec le machine learning automatisé](tutorial-auto-train-models.md) ou [Entraîner des modèles avec le machine learning automatisé dans le cloud](how-to-auto-train-remote.md).
 
@@ -115,7 +115,7 @@ automl_config = AutoMLConfig(****, data_script=project_folder + "/get_data.py", 
 
 Le script `get_data` peut retourner :
 
-Clé | Type | Mutuellement exclusif avec    | Description
+Clé | Type | Mutuellement exclusif avec    | Description 
 ---|---|---|---
 X | Tramedonnées Pandas ou tableaux Numpy | data_train, étiquette, colonnes |  Toutes les caractéristiques pour l’entraînement
 y | Tramedonnées Pandas ou tableaux Numpy |   label   | Données des étiquettes pour l’entraînement. Pour la classification, il doit s’agir d’un tableau d’entiers.
@@ -299,7 +299,7 @@ Vous pouvez consulter vos résultats dans un widget ou en ligne si vous êtes da
 ### <a name="classification-metrics"></a>Métriques de classification
 Les métriques suivantes sont enregistrées dans chaque itération pour une tâche de classification.
 
-|Métrique|Description|Calcul|Paramètres supplémentaires
+|Métrique|Description |Calcul|Paramètres supplémentaires
 --|--|--|--|
 AUC_Macro| « AUC » est « Area under the Receiver Operating Characteristic Curve » (la zone sous la courbe caractéristique de fonctionnement du récepteur). « Macro » est la moyenne arithmétique de l’AUC pour chaque classe.  | [Calcul](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | average="macro"|
 AUC_Micro| « AUC » est « Area under the Receiver Operating Characteristic Curve » (la zone sous la courbe caractéristique de fonctionnement du récepteur). « Micro » est calculé globalement en combinant les vrais positifs et les faux positifs de chaque classe| [Calcul](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | average="micro"|
@@ -325,7 +325,7 @@ weighted_accuracy|La précision pondérée est la précision où le poids donné
 ### <a name="regression-and-time-series-forecasting-metrics"></a>Prévision des métriques de séries de régression et d’heure
 Les métriques suivantes sont enregistrées dans chaque itération pour une tâche de régression ou de prévision.
 
-|Métrique|Description|Calcul|Paramètres supplémentaires
+|Métrique|Description |Calcul|Paramètres supplémentaires
 --|--|--|--|
 explained_variance|La variance expliquée est la proportion selon laquelle un modèle mathématique compte pour la variation d’un jeu de données particulier. C’est le pourcentage de diminution de la variance des données d’origine par rapport à la variance des erreurs. Quand la moyenne des erreurs est 0, elle est égale à la variance expliquée.|[Calcul](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.explained_variance_score.html)|Aucun|
 r2_score|R2 est le coefficient de détermination ou le pourcentage de réduction dans les erreurs quadratiques comparé à un modèle de référence qui génère la moyenne. Quand la moyenne des erreurs est 0, elle est égale à la variance expliquée.|[Calcul](https://scikit-learn.org/0.16/modules/generated/sklearn.metrics.r2_score.html)|Aucun|
@@ -416,7 +416,7 @@ Utilisez ces 2 API sur la première étape du modèle ajusté pour en savoir plu
     'Tranformations': ['DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime']}]
   ```
   
-   Où :
+   Où :
    
    |Sortie|Définition|
    |----|--------|

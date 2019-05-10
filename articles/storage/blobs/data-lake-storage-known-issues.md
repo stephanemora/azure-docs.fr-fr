@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: normesta
-ms.openlocfilehash: 61d168a5f501923812db5945fa6df439ae7e70f9
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 27adc0eeeabed2b1f2e86f301a60604a3d358b82
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65145106"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65464716"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Problèmes connus avec Azure Data Lake Storage Gen2
 
@@ -57,6 +57,7 @@ Le tableau suivant répertorie toutes les autres fonctionnalités et outils qui 
 | **AZCopy** | Prise en charge spécifique à la version <br><br>Utiliser uniquement la dernière version d’AzCopy ([AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json)). Les versions antérieures d’AzCopy comme AzCopy v8.1, ne sont pas pris en charge.|
 | **Stratégies de gestion du cycle de vie de stockage Blob Azure** | Pas encore pris en charge |
 | **Azure Content Delivery Network (CDN)** | Pas encore pris en charge|
+| **Azure Event Grid** | Pas encore pris en charge |
 | **Recherche Azure** |Pas encore pris en charge|
 | **Azure Storage Explorer** | Prise en charge spécifique à la version <br><br>Utilisez uniquement la version `1.6.0` ou une version ultérieure. <br>Version `1.6.0` est disponible en tant qu’un [téléchargement gratuit](https://azure.microsoft.com/features/storage-explorer/).|
 | **ACL de conteneur d’objets BLOB** |Pas encore pris en charge|
@@ -65,7 +66,7 @@ Le tableau suivant répertorie toutes les autres fonctionnalités et outils qui 
 | **Journaux de diagnostic** |Pas encore pris en charge|
 | **Explorateur de système de fichiers** | Prise en charge limitée |
 | **Stockage immuable** |Pas encore pris en charge <br><br>Stockage immuable donne la possibilité de stocker des données dans un [WORM (Write Once, Read Many)](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage) état.|
-| **Niveaux de niveau objet** |Pas encore pris en charge <br><br>Par exemple :  Premium, les niveaux chaud, froid et Archive.|
+| **Niveaux de niveau objet** |Pas encore pris en charge <br><br>Exemple : Premium, les niveaux chaud, froid et Archive.|
 | **Prise en charge de PowerShell et CLI** | Fonctionnalités limitées <br><br>Vous pouvez créer un compte à l’aide de Powershell ou l’interface CLI. Impossible d’effectuer des opérations ou de définir des listes de contrôle d’accès sur les systèmes de fichiers, répertoires et fichiers.|
 | **Sites Web statiques** |Pas encore pris en charge <br><br>Plus précisément, la possibilité de délivrer des fichiers à [sites Web statiques](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website).|
 | **Les applications tierces** | Prise en charge limitée <br><br>Les applications tierces qui utilisent l’API REST pour travailler continue de fonctionner si vous les utilisez avec Data Lake Storage Gen2. <br>Si vous avez une application qui utilise les API d’objet Blob, cette application sera très probablement des problèmes si vous utilisez cette application avec Data Lake Storage Gen2. Pour plus d’informations, consultez le [API sont désactivées pour les comptes de stockage Data Lake Storage Gen2 de stockage d’objets Blob](#blob-apis-disabled) section de cet article.|

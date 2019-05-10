@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/08/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: fc02e830953f8612a077fb219c7fef4e86bc3827
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e542ad59f6fd64b52aef9438ed0f646e9e36fc4a
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61479220"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65209619"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Utilisation du service Azure Import/Export pour exporter des données à partir du Stockage Blob Azure
 Cet article fournit des instructions pas à pas sur l’utilisation du service Azure Import/Export pour exporter en toute sécurité de grandes quantités de données à partir du Stockage Blob Azure. Pour pouvoir utiliser ce service, vous devez expédier des lecteurs vides au centre de données Azure. Le service exporte les données de votre compte de stockage vers les lecteurs, puis vous réexpédie ces derniers.
@@ -83,7 +83,7 @@ Effectuez les étapes suivantes pour créer une tâche d’exportation dans le P
 4. Dans **Informations de réexpédition** :
 
     - Sélectionnez le transporteur dans la liste déroulante. Si vous souhaitez utiliser un opérateur autre que FedEx/DHL, choisissez une option existante dans la liste déroulante. Opérations de boîte de données Azure contact de l’équipe à `adbops@microsoft.com` avec les informations concernant le transporteur que vous prévoyez d’utiliser.
-    - Entrez un numéro de compte de transporteur valide que vous avez créé pour ce transporteur. Microsoft utilise ce compte pour renvoyer les lecteurs une fois la tâche d’importation terminée. 
+    - Entrez un numéro de compte de transporteur valide que vous avez créé pour ce transporteur. Microsoft utilise ce compte pour réexpédier les lecteurs vous une fois que votre travail d’exportation est terminée. 
     - Indiquez le nom d’un contact, le numéro de téléphone, l’e-mail, l’adresse, la ville, le code postal, l’état/la province et le pays/la région, puis vérifiez que ces informations sont complètes et valides.
 
         > [!TIP] 
@@ -139,7 +139,7 @@ Cette étape *facultative* vous permet de déterminer le nombre de disques néce
 
     Les paramètres sont décrits dans le tableau suivant :
     
-    |Paramètre de ligne de commande|Description|  
+    |Paramètre de ligne de commande|Description |  
     |--------------------------|-----------------|  
     |**/logdir:**|facultatif. Répertoire contenant les journaux. Les fichiers journaux détaillés sont écrits dans ce répertoire. Si ce paramètre n’est pas spécifié, le répertoire actif est utilisé en tant que répertoire de journaux.|  
     |**/sn:**|Requis. Nom du compte de stockage du travail d’exportation.|  

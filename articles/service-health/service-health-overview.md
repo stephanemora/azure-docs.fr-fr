@@ -9,12 +9,12 @@ ms.service: service-health
 ms.topic: article
 ms.workload: Supportability
 ms.date: 03/27/2018
-ms.openlocfilehash: 465e8751d02692648234a7a90b84b68f41522cb2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d5385777134b911aa08b751978c44597f79acbc7
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60620803"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65442405"
 ---
 # <a name="service-health"></a>Service Health
 Service Health fournit un tableau de bord personnalisable qui suit l’intégrité de vos services Azure dans les régions où vous les utiliser. Dans ce tableau de bord, vous pouvez suivre les événements actifs, notamment les problèmes de service en cours, la maintenance planifiée à venir ou les conseils d’intégrité pertinents. Lorsque des événements deviennent inactifs, ils sont placés dans votre historique d’intégrité pendant 90 jours. Enfin, vous pouvez utiliser le tableau de bord Service Health pour créer et gérer des alertes d’intégrité de service qui vous informent de façon proactive des problèmes de service vous concernant.
@@ -60,5 +60,7 @@ Filtrez Service Health pour afficher vos abonnements, régions et types de resso
 ## <a name="configure-service-health-alerts"></a>Configurer des alertes d’intégrité de service
 Service Health s’intègre à Azure Monitor pour vous avertir au moyen d’e-mails, de SMS et de notifications webhook quand certaines de vos ressources stratégiques sont impactées. Configurez une alerte de journal d’activité pour l’événement d’intégrité de service approprié. Acheminez cette alerte aux personnes appropriées de votre organisation à l’aide de groupes d’actions. Pour plus d’informations sur la configuration d’alertes pour Service Health, consultez [cet article](../azure-monitor/platform/alerts-activity-log-service-notifications.md).
 
-# <a name="next-steps"></a>Étapes suivantes
-Configurez des alertes afin d’être averti des problèmes d’intégrité. Pour plus d’informations sur la configuration d’alertes pour Service Health, consultez [cet article](../azure-monitor/platform/alerts-activity-log-service-notifications.md). 
+>[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2OaXt]
+
+## <a name="next-steps"></a>Étapes suivantes
+Configurez des alertes afin d’être averti des problèmes d’intégrité. Pour plus d’informations, consultez [meilleures pratiques pour la configuration d’alertes d’intégrité de Service Azure](https://www.youtube.com/watch?v=k5d5ca8K6tc&list=PLLasX02E8BPBBSqygdRvlTnHfp1POwE8K&index=6&t=0s). 

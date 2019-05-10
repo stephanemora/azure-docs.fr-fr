@@ -8,14 +8,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 04/15/2019
+ms.date: 05/02/2019
 ms.author: gwallace
-ms.openlocfilehash: e2b36633996f961d100f0a98abb09135fd4393e4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b71ba69bcf4965ea607e097c392573e77aab6865
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60869858"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408286"
 ---
 # <a name="custom-script-extension-for-windows"></a>Extension de script personnalisé pour Windows
 
@@ -106,9 +106,9 @@ Ces éléments doivent être traités comme des données sensibles et spécifié
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.Compute | string |
-| Type | CustomScriptExtension | string |
+| type | CustomScriptExtension | string |
 | typeHandlerVersion | 1.9 | int |
-| fileUris (p. ex.) | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 | array |
+| fileUris (p. ex.) | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 | tableau |
 | timestamp (p. ex.) | 123456789 | Entier 32 bits |
 | commandToExecute (p. ex.) | powershell -ExecutionPolicy Unrestricted -File configure-music-app.ps1 | string |
 | storageAccountName (p. ex.) | examplestorageacct | string |
@@ -207,6 +207,16 @@ Si vous souhaitez exécuter plusieurs fois l’extension de script personnalisé
 * L’extension **nom** paramètre est le même que le déploiement précédent de l’extension.
 * Mettre à jour la configuration dans le cas contraire, que la commande ne sont pas être réexécutée. Vous pouvez ajouter une propriété dynamique dans la commande, comme un horodateur.
 
+Vous pouvez également définir le [ForceUpdateTag](/dotnet/api/microsoft.azure.management.compute.models.virtualmachineextension.forceupdatetag) propriété **true**.
+
+### <a name="using-invoke-webrequest"></a>À l’aide de Invoke-WebRequest
+
+Si vous utilisez [Invoke-WebRequest](/powershell/module/microsoft.powershell.utility/invoke-webrequest) dans votre script, vous devez spécifier le paramètre `-UseBasicParsing` ou sinon vous recevrez l’erreur suivante lors de la vérification de l’état détaillé :
+
+```error
+The response content cannot be parsed because the Internet Explorer engine is not available, or Internet Explorer's first-launch configuration is not complete. Specify the UseBasicParsing parameter and try again.
+```
+
 ## <a name="classic-vms"></a>les machines virtuelles Classic,
 
 Pour déployer l’Extension de Script personnalisé sur les machines virtuelles classiques, vous pouvez utiliser le portail Azure ou les applets de commande PowerShell classiques et Azure.
@@ -263,7 +273,7 @@ où `<n>` est un entier décimal, qui peut changer d’une exécution de l’ext
 
 Lors de l’exécution de la commande `commandToExecute`, l’extension définit ce répertoire (par exemple, `...\Downloads\2`) comme répertoire de travail actif. Ce processus permet d’utiliser des chemins relatifs pour localiser les fichiers téléchargés par le biais de la propriété `fileURIs`. Consultez le tableau ci-dessous pour en voir des exemples.
 
-Étant donné que le chemin de téléchargement absolu peut varier au fil du temps, il est préférable d’opter pour des chemins de script/fichier relatifs dans la chaîne `commandToExecute`, dans la mesure du possible. Par exemple : 
+Étant donné que le chemin de téléchargement absolu peut varier au fil du temps, il est préférable d’opter pour des chemins de script/fichier relatifs dans la chaîne `commandToExecute`, dans la mesure du possible. Exemple :
 
 ```json
 "commandToExecute": "powershell.exe . . . -File \"./scripts/myscript.ps1\""

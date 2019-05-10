@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 67016582149824c8deb83b54102190a57bd19383
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: d372adf75d46fdedb7a6f2b17e47822475d1f155
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65028799"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65442361"
 ---
 # <a name="decision-forest-regression-module"></a>Module de régression de forêt de décision
 
@@ -39,7 +39,7 @@ Arbres de décision présentent les avantages suivants :
 
 Ce modèle de régression se compose d’un ensemble d’arbres de décision. Chaque arborescence dans une forêt de décision de régression génère une distribution gaussienne qu’une prédiction. Une agrégation est effectuée sur l’ensemble d’arbres à trouver une distribution gaussienne le plus proche de la distribution combinée pour tous les arbres dans le modèle.
 
-Pour plus d’informations sur l’infrastructure théorique cet algorithme et son implémentation, consultez cet article : [Forêts de décision : Une infrastructure unifiée pour la Classification, la régression, l’Estimation de la densité, collecteur Learning et apprentissage supervisé semi-structurées ](https://www.microsoft.com/en-us/research/publication/decision-forests-a-unified-framework-for-classification-regression-density-estimation-manifold-learning-and-semi-supervised-learning/?from=http%3A%2F%2Fresearch.microsoft.com%2Fapps%2Fpubs%2Fdefault.aspx%3Fid%3D158806#)
+Pour plus d’informations sur l’infrastructure théorique cet algorithme et son implémentation, consultez cet article : [Forêts de décision : Une infrastructure unifiée pour la Classification, la régression, l’Estimation de la densité, collecteur Learning et apprentissage supervisé semi-structurées](https://www.microsoft.com/en-us/research/publication/decision-forests-a-unified-framework-for-classification-regression-density-estimation-manifold-learning-and-semi-supervised-learning/?from=http%3A%2F%2Fresearch.microsoft.com%2Fapps%2Fpubs%2Fdefault.aspx%3Fid%3D158806#)
 
 ## <a name="how-to-configure-decision-forest-regression-model"></a>Comment configurer le modèle de régression de forêt de décision
 
@@ -53,7 +53,7 @@ Pour plus d’informations sur l’infrastructure théorique cet algorithme et s
 
     - **Répliquer**: Dans la réplication, chaque arborescence est formé sur exactement les mêmes données d’entrée. La détermination du fractionner le prédicat est utilisé pour chaque nœud d’arbre reste aléatoire et les arborescences seront différents.
 
-         Pour plus d’informations sur le processus d’apprentissage avec le **répliquer** , consultez l’option [des forêts décisionnelles de vision par ordinateur et d’analyse d’Image médical. Criminisi et J. Shotton. Springer 2013. ](http://research.microsoft.com/projects/decisionforests/).
+         Pour plus d’informations sur le processus d’apprentissage avec le **répliquer** , consultez l’option [des forêts décisionnelles de vision par ordinateur et d’analyse d’Image médical. Criminisi et J. Shotton. Springer 2013. ](https://research.microsoft.com/projects/decisionforests/).
 
 3. Spécifiez comment vous souhaitez que le modèle formé, en définissant le **créer un mode d’entraînement** option.
 

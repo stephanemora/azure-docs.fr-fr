@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 04/03/2019
-ms.openlocfilehash: c01eccb63639a3838c9f726bc48400a76aba8cf0
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 05/01/2019
+ms.openlocfilehash: 131b86fec5fb51c6ff6f29a8e0beed86145a24b7
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59799034"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65136639"
 ---
 # <a name="tutorial-migrate-sql-server-to-a-single-database-or-pooled-database-in-azure-sql-database-online-using-dms"></a>Didacticiel : Migrer SQL Server vers une base de données unique ou mise en pool dans Azure SQL Database en ligne à l’aide de DMS
 
@@ -48,7 +48,7 @@ Pour suivre ce didacticiel, vous devez effectuer les opérations suivantes :
 
 - Téléchargez et installez [SQL Server 2012 ou version ultérieure](https://www.microsoft.com/sql-server/sql-server-downloads) (toute édition).
 - Activez le protocole TCP/IP, qui est désactivé par défaut pendant l’installation de SQL Server Express, en suivant les instructions de l’article [Activer ou désactiver un protocole réseau de serveur](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol#SSMSProcedure).
-- Créez une base de données unique (ou en pool) dans Azure SQL Database, en suivant les indications de l’article [Créer une base de données unique dans Azure SQL Database à l’aide du Portail Azure](https://docs.microsoft.com/azure/sql-database/sql-database-single-database-get-started).
+- Créez une base de données unique (ou mise en pool) dans Azure SQL Database, en suivant les indications de l’article [Créer une base de données unique dans Azure SQL Database à l’aide du Portail Azure](https://docs.microsoft.com/azure/sql-database/sql-database-single-database-get-started).
 
     > [!NOTE]
     > Si vous utilisez SQL Server Integration Services (SSIS) pour migrer la base de données de catalogue de vos projets ou de vos packages SSIS (SSISDB) entre SQL Server et Azure SQL Database, la base de données SSISDB de destination sera créée et gérée automatiquement lorsque vous provisionnerez SSIS dans Azure Data Factory (ADF). Pour plus d’informations sur la migration des packages SSIS, consultez l’article [Migrer des packages SQL Server Integration Services vers Azure](https://docs.microsoft.com/azure/dms/how-to-migrate-ssis-packages).
@@ -71,7 +71,7 @@ Pour suivre ce didacticiel, vous devez effectuer les opérations suivantes :
 - Lorsque vous utilisez une appliance de pare-feu devant vos bases de données sources, vous devrez peut-être ajouter des règles de pare-feu pour permettre à Azure Database Migration Service d’accéder aux bases de données sources pour la migration.
 - Créez une [règle de pare-feu](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) de niveau serveur pour le serveur Azure SQL Database afin de permettre à Azure Database Migration Service d’accéder aux bases de données cibles. Fournissez la plage de sous-réseau du réseau virtuel utilisé pour Azure Database Migration Service.
 - Assurez-vous que les informations d’identification utilisées pour se connecter à une instance SQL Server source disposent des autorisations [CONTROL SERVER](https://docs.microsoft.com/sql/t-sql/statements/grant-server-permissions-transact-sql).
-- Assurez-vous que les informations d’identification utilisées pour se connecter à l’instance Azure SQL Database cible disposent des autorisations CONTROL DATABASE concernant les bases de données SQL Azure cibles.
+- Assurez-vous que les informations d’identification utilisées pour se connecter à l’instance Azure SQL Database cible disposent des autorisations CONTROL DATABASE concernant les bases de données Azure SQL cibles.
 - Le serveur SQL Server source doit exécuter SQL Server 2005 ou ultérieur. Pour déterminer la version que votre instance SQL Server exécute, consultez l’article [Comment faire pour déterminer la version, l’édition et le niveau de mise à jour de SQL Server et ses composants](https://support.microsoft.com/help/321185/how-to-determine-the-version-edition-and-update-level-of-sql-server-an).
 - Les bases de données doivent être en mode de récupération complète ou en mode de récupération utilisant les journaux de transactions. Pour déterminer le mode de récupération configuré pour votre instance SQL Server, consultez l’article [Afficher ou modifier le mode de récupération d’une base de données (SQL Server)](https://docs.microsoft.com/sql/relational-databases/backup-restore/view-or-change-the-recovery-model-of-a-database-sql-server?view=sql-server-2017).
 - Veillez à effectuer des sauvegardes complètes des bases de données. Pour créer une sauvegarde de base de données complète, consultez l’article [Guide pratique pour créer une sauvegarde de base de données complète (Transact-SQL)](https://docs.microsoft.com/previous-versions/sql/sql-server-2008-r2/ms191304(v=sql.105)).
@@ -159,7 +159,7 @@ Pour évaluer une base de données locale, procédez comme suit :
 Une fois que vous êtes à l’aise avec l’évaluation et que vous pensez que la base de données sélectionnée est un candidat viable pour la migration vers une base de données unique ou mise en pool dans Azure SQL Database, utilisez DMA pour migrer le schéma vers Azure SQL Database.
 
 > [!NOTE]
-> Avant de créer un projet de migration dans DMA, vérifiez que vous avez bien approvisionné une base de données SQL Azure comme indiqué dans les prérequis. Dans ce tutoriel, le nom d’Azure SQL Database est supposé être **AdventureWorksAzure**, mais vous pouvez lui attribuer un autre nom si vous le souhaitez.
+> Avant de créer un projet de migration dans DMA, vérifiez que vous avez déjà provisionné une base de données Azure SQL comme indiqué dans les prérequis. Dans ce tutoriel, le nom de la base de données Azure SQL devrait être **AdventureWorksAzure**, mais vous pouvez lui attribuer un autre nom si vous le souhaitez.
 > [!IMPORTANT]
 > Si vous utilisez SSIS, sachez que l’Assistant Migration de données ne prend pas en charge la migration de la SSISDB source. Toutefois, vous pouvez redéployer vos projets ou packages SSIS vers la SSISDB de destination qui est hébergée par Azure SQL Database. Pour plus d’informations sur la migration des packages SSIS, consultez l’article [Migrer des packages SQL Server Integration Services vers Azure](https://docs.microsoft.com/azure/dms/how-to-migrate-ssis-packages).
 
@@ -182,7 +182,7 @@ Pour migrer le schéma **AdventureWorks2012** vers une base de données unique o
 
     ![Détails de connexion cible de l’Assistant Migration des données](media/tutorial-sql-server-to-azure-sql-online/dma-target-connect.png)
 
-7. Sélectionnez **Suivant** pour accéder à l’écran **Sélectionner des objets** dans lequel vous pouvez spécifiez les objets de schéma dans la base de données **AdventureWorks2012** à déployer sur Azure SQL Database.
+7. Sélectionnez **Suivant** pour accéder à l’écran **Sélectionner des objets** dans lequel vous pouvez spécifier les objets de schéma dans la base de données **AdventureWorks2012** à déployer sur Azure SQL Database.
 
     Par défaut, tous les objets sont sélectionnés.
 
@@ -234,9 +234,7 @@ Pour migrer le schéma **AdventureWorks2012** vers une base de données unique o
 
     Pour plus d’informations sur les coûts et les niveaux de tarification, consultez la [page de tarification](https://aka.ms/dms-pricing).
 
-    Si vous avez besoin d’aide dans le choix du bon niveau pour Azure Database Migration Service, consultez les suggestions dans l’article disponible [ici](https://go.microsoft.com/fwlink/?linkid=861067).  
-
-     ![Configurer des paramètres d’instance Azure Database Migration Service](media/tutorial-sql-server-to-azure-sql-online/dms-settings2.png)
+    ![Configurer des paramètres d’instance Azure Database Migration Service](media/tutorial-sql-server-to-azure-sql-online/dms-settings2.png)
 
 7. Sélectionnez **Créer** pour créer le service.
 
@@ -333,7 +331,7 @@ Une fois le chargement complet initial effectué, les bases de données identifi
 
 2. Veillez à arrêter toutes les transactions entrantes pour la base de données source ; attendez que le compteur **Changements en attente** indique la valeur **0**.
 3. Sélectionnez **Confirmer**, puis **Appliquer**.
-4. Lorsque la migration de base de données présente l’état **Terminé**, connectez vos applications à la nouvelle instance Azure SQL Database cible.
+4. Lorsque la migration de base de données présente l’état **Terminé**, connectez vos applications à la nouvelle base de données Azure SQL cible.
 
     ![État de l’activité - Terminé](media/tutorial-sql-server-to-azure-sql-online/dms-activity-completed.png)
 

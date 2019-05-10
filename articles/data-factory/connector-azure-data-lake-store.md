@@ -12,12 +12,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: 524842c81380079906c4f8e0a523dfd13f83509d
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: HT
+ms.openlocfilehash: 897bcabe36b580a287a85af04bad6458b4282c16
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149724"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65228648"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen1-by-using-azure-data-factory"></a>Copier des données vers ou depuis Azure Data Lake Storage Gen1 à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -275,10 +275,10 @@ Pour copier des données à partir de la génération 1 ADLS dans **Parquet ou f
 | wildcardFileName         | Le nom de fichier avec des caractères génériques sous folderPath/wildcardFolderPath donné pour filtrer les fichiers source. <br>Les caractères génériques autorisés sont : `*` (correspond à zéro ou plusieurs caractères) et `?` (correspond à zéro ou un caractère) ; utilisez `^` en guise d’échappement si votre nom de dossier contient effectivement ce caractère d’échappement ou générique.  Consultez d’autres exemples dans les [exemples de filtre de dossier et de fichier](#folder-and-file-filter-examples). | Oui, si `fileName` n’est pas spécifié dans le jeu de données |
 | modifiedDatetimeStart    | Filtre de fichiers en fonction de l’attribut : Dernière modification. Les fichiers seront sélectionnés si leur heure de dernière modification se trouve dans l’intervalle de temps situé entre `modifiedDatetimeStart` et `modifiedDatetimeEnd`. L’heure est appliquée au fuseau horaire UTC au format « 2018-12-01T05:00:00Z ». <br> Les propriétés peuvent être Null, ce qui signifie qu’aucun filtre d’attribut de fichier n’est appliqué au jeu de données.  Lorsque `modifiedDatetimeStart` a une valeur DateHeure, mais que `modifiedDatetimeEnd` est NULL, cela signifie que les fichiers dont l’attribut de dernière modification est supérieur ou égal à la valeur DateHeure sont sélectionnés.  Lorsque `modifiedDatetimeEnd` a une valeur DateHeure, mais que `modifiedDatetimeStart` est NULL, cela signifie que les fichiers dont l’attribut de dernière modification est inférieur à la valeur DateHeure sont sélectionnés. | Non                                             |
 | modifiedDatetimeEnd      | Identique à ce qui précède.                                               | Non                                             |
-| maxConcurrentConnections | Nombre de connexions pour se connecter au magasin de stockage simultanément. Spécifiez uniquement lorsque vous souhaitez limiter les connexions simultanées au magasin de données. | Non                                             |
+| maxConcurrentConnections | Nombre de connexions pour se connecter au magasin de stockage simultanément. Spécifiez uniquement lorsque vous souhaitez limiter les connexions simultanées au magasin de données. | Non                                            |
 
 > [!NOTE]
-> Pour Parquet/texte délimité par des **AzureDataLakeStoreSource** source d’activité de copie type mentionné dans la section suivante est toujours prise en charge-concerne pour la compatibilité descendante. Il est recommandé d’utiliser ce nouveau modèle à l’avenir et ADF création de l’interface utilisateur est passée à la génération de ces nouveaux types.
+> Pour Parquet/texte délimité par des **AzureDataLakeStoreSource** source d’activité de copie type mentionné dans la section suivante est toujours prise en charge-concerne la compatibilité descendante. Il est recommandé d’utiliser ce nouveau modèle à l’avenir et ADF création de l’interface utilisateur est passée à la génération de ces nouveaux types.
 
 **Exemple :**
 
@@ -376,10 +376,10 @@ Pour copier des données à Gen1 ADLS dans **Parquet ou format de texte délimit
 | ------------------------ | ------------------------------------------------------------ | -------- |
 | type                     | La propriété de type sous `storeSettings` doit être définie sur **AzureDataLakeStoreWriteSetting**. | Oui      |
 | copyBehavior             | Définit le comportement de copie lorsque la source est constituée de fichiers d’une banque de données basée sur un fichier.<br/><br/>Les valeurs autorisées sont les suivantes :<br/><b>- PreserveHierarchy (par défaut)</b> : conserve la hiérarchie des fichiers dans le dossier cible. Le chemin d’accès relatif du fichier source vers le dossier source est identique au chemin d’accès relatif du fichier cible vers le dossier cible.<br/><b>- FlattenHierarchy</b> : tous les fichiers du dossier source figurent dans le premier niveau du dossier cible. Les noms des fichiers cibles sont générés automatiquement. <br/><b>- MergeFiles</b> : fusionne tous les fichiers du dossier source dans un seul fichier. Si le nom de fichier est spécifié, le nom de fichier fusionné est le nom spécifié. Dans le cas contraire, il s’agit d’un nom de fichier généré automatiquement. | Non        |
-| maxConcurrentConnections | Nombre de connexions pour se connecter au magasin de données simultanément. Spécifiez uniquement lorsque vous souhaitez limiter les connexions simultanées au magasin de données. | Non        |
+| maxConcurrentConnections | Nombre de connexions pour se connecter au magasin de données simultanément. Spécifiez uniquement lorsque vous souhaitez limiter les connexions simultanées au magasin de données. | Non       |
 
 > [!NOTE]
-> Pour Parquet/texte délimité par des **AzureDataLakeStoreSink** récepteur d’activité de copie type mentionné dans la section suivante est toujours prise en charge-concerne pour la compatibilité descendante. Il est recommandé d’utiliser ce nouveau modèle à l’avenir et ADF création de l’interface utilisateur est passée à la génération de ces nouveaux types.
+> Pour Parquet/texte délimité par des **AzureDataLakeStoreSink** récepteur d’activité de copie type mentionné dans la section suivante est toujours prise en charge-concerne la compatibilité descendante. Il est recommandé d’utiliser ce nouveau modèle à l’avenir et ADF création de l’interface utilisateur est passée à la génération de ces nouveaux types.
 
 **Exemple :**
 

@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/22/2019
 ms.author: jehollan
-ms.openlocfilehash: 1ef688dff65dc11f875f76e2f9127bf89af2f2b9
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 2044718d2ec7a7acc58e1e7ba9ba04ec5caf16b3
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65074589"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408446"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>Utiliser l’injection de dépendances dans .NET Azure Functions
 
@@ -65,7 +65,7 @@ Dans une application de fonction, une durée de vie du service délimité corres
 
 Services de durée de vie singleton sont recommandés pour les connexions et les clients, par exemple un `SqlConnection`, `CloudBlobClient`, ou `HttpClient`.
 
-Affichez ou téléchargez un [exemple des durées de vie de service différents](http://aka.ms/functions/di-sample).
+Affichez ou téléchargez un [exemple des durées de vie de service différents](https://aka.ms/functions/di-sample).
 
 ## <a name="logging-services"></a>Services de journalisation
 
@@ -78,7 +78,7 @@ Si vous avez besoin de votre propre fournisseur de journalisation, la méthode r
 
 L’hôte de la fonction s’inscrit de nombreux services.  Vous trouverez ci-dessous des services qui prennent une dépendance sur en toute sécurité.  Autres services de l’hôte ne sont pas pris en charge pour inscrire ou dépendent.  Si d’autres services que vous souhaitez prendre une dépendance, veuillez [créer un problème et la discussion sur GitHub](https://github.com/azure/azure-functions-host).
 
-|Type de service|Durée de vie|Description|
+|Type de service|Durée de vie|Description |
 |--|--|--|
 |`Microsoft.Extensions.Configuration.IConfiguration`|singleton|Configuration du runtime|
 |`Microsoft.Azure.WebJobs.Host.Executors.IHostIdProvider`|singleton|Chargé de fournir l’ID de l’instance d’hôte|

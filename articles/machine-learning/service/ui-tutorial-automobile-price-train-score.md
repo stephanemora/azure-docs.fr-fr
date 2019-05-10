@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 04/06/2019
-ms.openlocfilehash: 1dc905b2ac89667dcb5800b0f539cb3e9f3acdcd
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 2fe350e890dc0c5ca1db17b851d336fa792be725
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65027585"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190235"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-visual-interface"></a>Didacticiel : Prédire le prix de véhicules automobiles à l’aide de l’interface visuelle
 
@@ -35,12 +35,12 @@ Dans la [deuxième partie](ui-tutorial-automobile-price-deploy.md) de cette sér
 > Une version complète de ce tutoriel est disponible en tant qu’exemple d’expérience.
 > Dans la page Expériences, accédez à **Ajouter nouveau** > **Exemple 1 - Régression : Prédiction du prix de véhicules automobiles (de base)**
 
-> [!VIDEO https://www.youtube.com/embed/VDKpDNX96aA]
+> [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Build-zero-code-machine-learning-models-with-Azure-Machine-Learning-service/player]
 
 
 ## <a name="create-a-workspace"></a>Créer un espace de travail
 
-Si vous disposez d’un espace de travail pour le service Azure Machine Learning, passez à la [section suivante](#open-the-visual-interface-webpage). Dans le cas contraire, créez-en un maintenant.
+Si vous disposez d’un espace de travail Azure Machine Learning service, passez à la [section suivante](#open-the-visual-interface-webpage). Dans le cas contraire, créez-en un maintenant.
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 

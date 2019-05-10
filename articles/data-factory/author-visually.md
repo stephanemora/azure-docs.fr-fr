@@ -12,12 +12,12 @@ author: sharonlo101
 ms.author: shlo
 ms.reviewer: ''
 manager: craigg
-ms.openlocfilehash: d2e51551643e154714b9d2368e63d7af9ebfa204
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b32e4abebdfb93312c60a25ca8b483f071e5e73c
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60593101"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65507812"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Création visuelle dans Azure Data Factory
 L’expérience utilisateur Azure Data Factory vous permet de créer et de déployer visuellement des ressources dans votre fabrique de données sans avoir à écrire du code. Vous pouvez glisser-déposer des activités sur le canevas d’un pipeline, effectuer des séries de tests, déboguer de manière itérative, mais aussi déployer et surveiller les exécutions de votre pipeline. Vous pouvez utiliser l’expérience utilisateur pour la création visuelle de deux manières :
@@ -58,9 +58,9 @@ Le volet de configuration **Paramètres du référentiel** apparaît :
 
 Le volet affiche les paramètres du dépôt de code Azure Repos suivants :
 
-| Paramètre | Description | Valeur |
+| Paramètre | Description  | Valeur |
 |:--- |:--- |:--- |
-| **Type de référentiel** | Type du dépôt de code Azure Repos.<br/>**Remarque**: GitHub n’est actuellement pas pris en charge. | Azure Repos Git |
+| **Type de référentiel** | Type du dépôt de code Azure Repos.<br/> | Azure Repos Git |
 | **Azure Active Directory** | Le nom de votre abonné Azure AD. | `<your tenant name>` |
 | **Organisation Azure Repos** | Nom de votre organisation Azure Repos. Vous trouverez le nom de votre organisation Azure Repos sur `https://{organization name}.visualstudio.com`. Vous pouvez vous [connecter à votre organisation Azure Repos](https://www.visualstudio.com/team-services/git/) pour accéder à votre profil Visual Studio et visualiser vos dépôts et projets. | `<your organization name>` |
 | **Nom du projet** | Nom de votre projet Azure Repos. Vous trouverez le nom de votre projet Azure Repos sur `https://{organization name}.visualstudio.com/{project name}`. | `<your Azure Repos project name>` |
@@ -115,7 +115,7 @@ Lorsque vous êtes prêt pour le développement des fonctionnalités dans votre 
 
 ### <a name="configure-publishing-settings"></a>Configurer les paramètres de publication
 
-Pour configurer la branche de publication, autrement dit la branche où les modèles Resource Manager sont enregistrés, ajoutez un fichier `publish_config.json` au dossier racine dans la branche de collaboration. Data Factory lit ce fichier, recherche le champ `publishBranch` et crée une branche (si elle n’existe pas déjà) avec la valeur fournie. Il enregistre ensuite tous les modèles Resource Manager à l’emplacement spécifié. Par exemple : 
+Pour configurer la branche de publication, autrement dit la branche où les modèles Resource Manager sont enregistrés, ajoutez un fichier `publish_config.json` au dossier racine dans la branche de collaboration. Data Factory lit ce fichier, recherche le champ `publishBranch` et crée une branche (si elle n’existe pas déjà) avec la valeur fournie. Il enregistre ensuite tous les modèles Resource Manager à l’emplacement spécifié. Exemple :
 
 ```json
 {
@@ -209,7 +209,7 @@ Le volet affiche les paramètres du dépôt de code Azure Repos suivants :
 | **Branche de collaboration**                                 | Votre branche de collaboration GitHub utilisée pour la publication. Maître par défaut. Modifiez ce paramètre au cas où vous souhaitez publier des ressources à partir d’une autre branche.                                                                                                                                                                                                                                                               |                    |
 | **Dossier racine**                                          | Votre dossier racine de votre branche de collaboration GitHub.                                                                                                                                                                                                                                                                                                                                                                             |                    |
 | **Import existing Data Factory resources to repository** (Importer des ressources Data Factory existantes dans le référentiel) | Permet de spécifier s’il faut importer des ressources de fabrique de données existantes à partir de l’expérience utilisateur  **Canevas de création**  dans un référentiel GitHub. Activez la case pour importer vos ressources de fabrique de données dans le référentiel Git associé au format JSON. Cette action exporte chaque ressource individuellement (autrement dit, les services et jeux de données liés sont exportés dans des fichiers JSON distincts). Lorsque cette case n’est pas activée, les ressources existantes ne sont pas importées. | Activée (par défaut) |
-| **Branche sur laquelle importer la ressource**                        | Indique dans quelle branche les ressources de la fabrique de données (pipelines, ensembles de données, services liés, etc.) sont importées. Vous pouvez importer des ressources dans l’une des branches suivantes : a. Collaboration b. Créer c. Utiliser l’existant                                                                                                                                                                                                     |                    |
+| **Branche sur laquelle importer la ressource**                        | Indique dans quelle branche les ressources de la fabrique de données (pipelines, ensembles de données, services liés, etc.) sont importées. Vous pouvez importer des ressources dans l’une des branches suivantes : a. Collaboration b. Créer c. Utiliser l'existant                                                                                                                                                                                                     |                    |
 
 #### <a name="configuration-method-2-public-repo-ux-authoring-canvas"></a>Méthode de configuration 2 (référentiel public) : Canevas de création de l’expérience utilisateur
 
@@ -243,7 +243,7 @@ Le volet affiche les paramètres du dépôt de code Azure Repos suivants :
 | **Branche de collaboration**                                 | Votre branche de collaboration GitHub utilisée pour la publication. Maître par défaut. Modifiez ce paramètre au cas où vous souhaitez publier des ressources à partir d’une autre branche.                                                                                                                                                                                                                                                               |                    |
 | **Dossier racine**                                          | Votre dossier racine de votre branche de collaboration GitHub.                                                                                                                                                                                                                                                                                                                                                                             |                    |
 | **Import existing Data Factory resources to repository** (Importer des ressources Data Factory existantes dans le référentiel) | Permet de spécifier s’il faut importer des ressources de fabrique de données existantes à partir de l’expérience utilisateur  **Canevas de création**  dans un référentiel GitHub. Activez la case pour importer vos ressources de fabrique de données dans le référentiel Git associé au format JSON. Cette action exporte chaque ressource individuellement (autrement dit, les services et jeux de données liés sont exportés dans des fichiers JSON distincts). Lorsque cette case n’est pas activée, les ressources existantes ne sont pas importées. | Activée (par défaut) |
-| **Branche sur laquelle importer la ressource**                        | Indique dans quelle branche les ressources de la fabrique de données (pipelines, ensembles de données, services liés, etc.) sont importées. Vous pouvez importer des ressources dans l’une des branches suivantes : a. Collaboration b. Créer c. Utiliser l’existant                                                                                                                                                                                                     |                    |
+| **Branche sur laquelle importer la ressource**                        | Indique dans quelle branche les ressources de la fabrique de données (pipelines, ensembles de données, services liés, etc.) sont importées. Vous pouvez importer des ressources dans l’une des branches suivantes : a. Collaboration b. Créer c. Utiliser l'existant                                                                                                                                                                                                     |                    |
 
 #### <a name="configuration-method-2-enterprise-repo-ux-authoring-canvas"></a>Méthode de configuration 2 (référentiel Entreprise) : Canevas de création de l’expérience utilisateur
 

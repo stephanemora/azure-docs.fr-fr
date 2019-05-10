@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/22/2019
 ms.author: jeedes
-ms.openlocfilehash: 539a06398675dc7851017ec5d428e0942e54ce1f
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: 480e799e0fe307b39ce8a2f0b026a04f507a6beb
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59564763"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408011"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tableau-server"></a>Didacticiel : Intégration d’Azure Active Directory dans Tableau Server
 
@@ -122,7 +122,7 @@ Pour configurer l’authentification unique Azure AD avec Tableau Server, effect
 
     | Nom | Attribut source | Espace de noms |
     | ---------------| --------------- | ----------- |
-    | username | user.userprincipalname | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
+    | username | user.userprincipalname | `https://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
     | | |
 
     a. Cliquez sur le bouton **Ajouter une nouvelle revendication** pour ouvrir la boîte de dialogue **Gérer les revendications des utilisateurs**.

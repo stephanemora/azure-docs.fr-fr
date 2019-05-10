@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2019
 ms.author: monhaber
-ms.openlocfilehash: e21ed77a80892da22c380787dc64ea07db756fdf
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: a029ad3fc253f35fb34bc2dd0ddbeb9614e5dc33
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64917648"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65231412"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>FAQ du Centre de sécurité Azure
 Cette FAQ répond aux questions concernant Azure Security Center, qui vous aide à prévenir, détecter et résoudre les menaces grâce à une meilleure visibilité et à un meilleur contrôle de la sécurité de vos ressources Microsoft Azure.
@@ -323,6 +323,11 @@ La latence dans les analyses de Security Center à la recherche de vulnérabilit
 - Problèmes de protection du point de terminaison ; les données sont mises à jour dans les 8 heures
 
 Généralement, Security Center analyse les nouvelles données toutes les heures et actualise les suggestions en conséquence. 
+
+> [!NOTE]
+> Depuis début juin 2017, Security Center utilise Microsoft Monitoring Agent pour collecter et stocker des données. Pour en savoir plus, consultez [Migration de plateforme Azure Security Center](security-center-platform-migration.md). Les informations contenues dans cet article représentent les fonctionnalités de Security Center après la transition vers Microsoft Monitoring Agent.
+>
+>
 
 ### <a name="why-do-i-get-the-message-vm-agent-is-missing"></a>Pourquoi reçois-je le message « Agent de machine virtuelle manquant » ?
 L’agent de machine virtuelle doit être installé sur les machines virtuelles pour activer la collecte des données. L’agent de machine virtuelle est installé par défaut sur les machines virtuelles déployées depuis Azure Marketplace. Pour plus d’informations sur l’installation de l’agent de machine virtuelle sur d’autres machines virtuelles, consultez l’article de blog [Agent de machine virtuelle et extensions](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-2/).

@@ -8,12 +8,12 @@ ms.date: 03/20/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: b0a34cd8eebdd816cb780b34de936a6cc56d0994
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 78edeb0c418f5c426771d241464d389f8a632e96
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64730233"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65463982"
 ---
 # <a name="export-your-data-in-azure-iot-central"></a>Exporter vos données dans Azure IoT Central
 
@@ -64,14 +64,14 @@ Maintenant que vous avez une destination de Bus de Service/Hubs d’événements
     > [!Note]
     > Si vous ne voyez pas l’option d’exportation de données continue dans le menu de gauche, vous n’êtes pas administrateur de votre application. Contactez un administrateur pour configurer l’exportation de données.
 
-    ![Créer un Event Hub d’exportation de données continue](media/howto-export-data/export_menu.PNG)
+    ![Créer un Event Hub d’exportation de données continue](media/howto-export-data/export_menu1.png)
 
 3. Sélectionnez le **+ nouveau** bouton dans le coin supérieur droit. Choisissez une des **Azure Event Hubs** ou **Azure Service Bus** comme destination de l’exportation. 
 
     > [!NOTE] 
     > Le nombre maximal d’exportations par application est de cinq. 
 
-    ![Créer une exportation de données continue](media/howto-export-data/export_new.PNG)
+    ![Créer une exportation de données continue](media/howto-export-data/export_new1.png)
 
 4. Dans la zone de liste déroulante, sélectionnez votre **espace de noms Bus de Service/espace de noms Event Hubs**. Vous pouvez également choisir la dernière option de la liste : **Entrer une chaîne de connexion**. 
 
@@ -81,7 +81,7 @@ Maintenant que vous avez une destination de Bus de Service/Hubs d’événements
     > [!NOTE] 
     > Pour les applications d’évaluation de 7 jours, le seul moyen de configurer l’exportation des données est d’utiliser une chaîne de connexion. En effet, ces applications ne sont associées à aucun abonnement Azure.
 
-    ![Créer un Event Hub d’exportation de données continue](media/howto-export-data/export_create.PNG)
+    ![Créer un Event Hub d’exportation de données continue](media/howto-export-data/export_create1.png)
 
 5. (Facultatif) Si vous avez choisi **Entrer une chaîne de connexion**, une nouvelle zone vous permettant de coller votre chaîne de connexion s’affiche. Pour obtenir votre chaîne de connexion :
     - Event Hubs ou Service Bus, accédez à l’espace de noms dans le portail Azure.
@@ -95,7 +95,7 @@ Maintenant que vous avez une destination de Bus de Service/Hubs d’événements
 
 6. Pour activer l’exportation des données continue, assurez-vous que l’option **Exportation de données** est définie sur **Activé**. Sélectionnez **Enregistrer**.
 
-  ![Configurer l’exportation de données continue](media/howto-export-data/export_list.PNG)
+    ![Configurer l’exportation de données continue](media/howto-export-data/export_list1.png)
 
 7. Après quelques minutes, vos données s’affichent à la destination choisie.
 

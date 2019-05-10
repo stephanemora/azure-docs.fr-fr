@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.topic: article
 ms.date: 03/15/2018
-ms.openlocfilehash: 638b29dd2a15d0467c41e20ecfed9f333b34c04d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5dd9d8eac7d65815d7c98a28b0d5af55f19cec47
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60508007"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65464433"
 ---
 # <a name="create-streaming-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>Créer un tableau de bord des insights client en streaming avec Azure Logic Apps et Azure Functions
 
@@ -98,6 +98,9 @@ Pour tester facilement votre application logique, dans le Concepteur d’applica
 Pour afficher des historiques d’exécution précédentes dans Visual Studio ou le portail Azure : 
 
 * Ouvrez Visual Studio Cloud Explorer. Recherchez votre application logique, ouvrez le menu contextuel de l’application. Sélectionnez **Ouvrir l’historique des exécutions**.
+
+  > [!NOTE]
+  > Pour Visual Studio 2019, Cloud Explorer peut ouvrir le Concepteur d’application logique dans le portail Azure, mais ne peut pas encore ouvrir le Concepteur d’application logique intégré ou l’historique des exécutions.
 
 * Dans le Portail Azure, recherchez votre application logique. Dans le menu de votre application logique, sélectionnez **Vue d’ensemble**. 
 

@@ -67,7 +67,7 @@ Les clusters HDInsight Spark ne prennent pas en charge le connecteur Spark-Phoen
 
 **Atténuation :**
 
-Vous devez plutôt utiliser le connecteur Spark-HBase. Pour savoir comment procéder, consultez [How to use Spark-HBase connector](https://web.archive.org/web/20190112153146/ https://blogs.msdn.microsoft.com/azuredatalake/2016/07/25/hdinsight-how-to-use-spark-hbase-connector/).
+Vous devez plutôt utiliser le connecteur Spark-HBase. Pour savoir comment procéder, consultez [How to use Spark-HBase connector](https://web.archive.org/web/20190112153146/https://blogs.msdn.microsoft.com/azuredatalake/2016/07/25/hdinsight-how-to-use-spark-hbase-connector/).
 
 ## <a name="issues-related-to-jupyter-notebooks"></a>Problèmes liés aux notebooks Jupyter
 Voici certains problèmes connus liés aux notebooks Jupyter.

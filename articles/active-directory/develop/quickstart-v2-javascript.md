@@ -16,12 +16,12 @@ ms.date: 04/11/2019
 ms.author: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f242afb717557a35b81515ab718971bdc398b5a
-ms.sourcegitcommit: abeefca6cd5ca01c3e0b281832212aceff08bf3e
+ms.openlocfilehash: 605206682cb70d430773cdbf9ff746eabf594103
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "64992787"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190842"
 ---
 # <a name="quickstart-sign-in-users-and-acquire-an-access-token-from-a-javascript-single-page-application-spa"></a>Démarrage rapide : Connecter des utilisateurs et acquérir un jeton d’accès à partir d’une application monopage JavaScript
 
@@ -37,7 +37,7 @@ Ce guide de démarrage rapide nécessite la configuration suivante :
 * Pour exécuter le projet avec un serveur node.js :
     * Installez [Node.js](https://nodejs.org/en/download/)
     * Installez [Visual Studio Code](https://code.visualstudio.com/download) pour modifier les fichiers du projet
-* Pour exécuter le projet comme une solution Visual Studio, installez [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/).
+* Pour exécuter le projet comme solution Visual Studio, installez [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/).
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-application"></a>Inscrire et télécharger votre application de démarrage rapide
@@ -147,16 +147,16 @@ Une fois que l’application est chargée dans le navigateur, cliquez sur **Se c
 MSAL est la bibliothèque utilisée pour connecter les utilisateurs et demander des jetons permettant d’accéder à une API protégée par la plateforme d’identités Microsoft. Le fichier *index.html* du démarrage rapide contient une référence à la bibliothèque :
 
 ```html
-<script src="https://secure.aadcdn.microsoftonline-p.com/lib/1.0.0-preview.4/js/msal.min.js"></script>
+<script src="https://secure.aadcdn.microsoftonline-p.com/lib/1.0.0/js/msal.min.js"></script>
 ```
 > [!TIP]
 > Vous pouvez remplacer la version ci-dessus par la dernière version publiée sous [Publications MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js/releases).
 
 
-Sinon, si Node est installé, vous pouvez télécharger la dernière préversion via npm :
+Sinon, si Node est installé, vous pouvez télécharger la dernière version via npm :
 
 ```batch
-npm install msal@preview
+npm install msal
 ```
 
 ### <a name="msal-initialization"></a>Initialisation MSAL
@@ -192,11 +192,11 @@ var myMSALObj = new Msal.UserAgentApplication(msalConfig);
 L’extrait de code qui suit montre comment connecter des utilisateurs :
 
 ```javascript
-var request = {
+var requestObj = {
     scopes: ["user.read"]
 };
 
-myMSALObj.loginPopup(request).then(function (loginResponse) {
+myMSALObj.loginPopup(requestObj).then(function (loginResponse) {
     //Login Success callback code here
 }).catch(function (error) {
     console.log(error);
@@ -219,11 +219,11 @@ MSAL utilise trois méthodes pour acquérir des jetons : `acquireTokenRedirect`
 La méthode `acquireTokenSilent` gère les acquisitions et renouvellements de jetons sans aucune interaction de l’utilisateur. Quand la méthode `loginRedirect` ou `loginPopup` est exécutée pour la première fois, c’est en général la méthode `acquireTokenSilent` qui est utilisée pour obtenir les jetons permettant d’accéder aux ressources protégées pour les appels suivants. Les appels pour les demandes ou les renouvellements de jetons sont effectués en mode silencieux.
 
 ```javascript
-var request = {
+var requestObj = {
     scopes: ["user.read"]
 };
 
-myMSALObj.acquireTokenSilent(request).then(function (tokenResponse) {
+myMSALObj.acquireTokenSilent(requestObj).then(function (tokenResponse) {
     // Callback code here
     console.log(tokenResponse.accessToken);
 }).catch(function (error) {
@@ -247,11 +247,11 @@ Le modèle habituellement recommandé pour la plupart des applications est le su
 Le fait d’appeler `acquireTokenPopup` entraîne l’affichage d’une fenêtre contextuelle pour la connexion (ou l’appel de `acquireTokenRedirect` entraîne la redirection des utilisateurs vers le point de terminaison de la plateforme d’identités Microsoft). Les utilisateurs doivent alors intervenir en confirmant leurs informations d’identification, en consentant à ce que l’application accède à la ressource ou en effectuant l’authentification à 2 facteurs.
 
 ```javascript
-var request = {
+var requestObj = {
     scopes: ["user.read"]
 };
 
-myMSALObj.acquireTokenPopup(request).then(function (tokenResponse) {
+myMSALObj.acquireTokenPopup(requestObj).then(function (tokenResponse) {
     // Callback code here
     console.log(tokenResponse.accessToken);
 }).catch(function (error) {

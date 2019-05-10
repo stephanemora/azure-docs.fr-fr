@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fdb4cc26a435ba161532b324ae5a04fed8eb9437
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 9694790ea02bc778bf3b9db212e61fabb90a28a8
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65157307"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65441432"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-displayr"></a>Didacticiel : Intégration d'Azure Active Directory à Displayr
 
@@ -260,7 +260,7 @@ Le fait de cliquer sur la vignette Displayr dans le panneau d’accès doit vous
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

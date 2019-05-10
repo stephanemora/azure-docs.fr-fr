@@ -8,12 +8,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 4/16/2019
 ms.author: yoafr
-ms.openlocfilehash: ac677a7f9586dbe893cbcbc480564aceac0149a0
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 614dabe842c7fe99da3ddb486c27003c79382ea1
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65147929"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65231395"
 ---
 # <a name="retirement-of-security-center-features-july-2019"></a>Retrait des fonctionnalités de Security Center (2019 juillet)
 
@@ -81,6 +81,7 @@ Un clic sur l’espace de travail ouvre le « Identité et accès » journal a
 ![Page identité - tableau de bord][8]
 
 À l’avenir tous les trois écrans ci-dessus va être mis hors service. Vos données restent disponibles dans la solution de sécurité d’analytique de journal et ne seront pas modifiées ou supprimées.
+Les requêtes d’Analytique de journal d’origine utilisées pour remplir le tableau de bord identité et accès sont disponibles dans le centre sécurité [référentiel GitHub](https://github.com/Azure/Azure-Security-Center/tree/master/Legacy%20Log%20Analytics%20dashboards).
 
 ### <a name="classic-identity--access-preview---new-experience"></a>Identité et accès (version préliminaire) - nouvelle expérience classique
 Alors que le tableau de bord Log analytique a fourni des insights sur un espace de travail donné uniquement, les fonctionnalités de centre de sécurité natives fournissent une visibilité sur tous les abonnements et tous les espaces de travail qui s’y rapportent, dans un simple-pour utiliser la vue qui vous permet de vous concentrer sur ce que de important, en fonction de l’indice de sécurisé de votre identité et accès recommandation.
@@ -96,13 +97,14 @@ Le bouton, ainsi que le tableau de bord par espace de travail sera supprimé apr
 
 Aujourd'hui lorsque vous cliquez sur « Accéder au mappage des événements de sécurité » du tableau de bord Threat intelligence est ouvert. Le tableau de bord threat intelligence va être mis hors service.  
 
-![Tableau de bord Informations sur les menaces][11]
+![Tableau de bord Threat intelligence][11]
 
 Lorsque vous choisissez un espace de travail pour afficher son tableau de bord threat intelligence, les alertes de la sécurité map(Preview) écran *dans le journal Analytique* est ouvert. Cet écran va être mis hors service.
 
 ![Mappage d’alertes de sécurité dans le journal Analytique][12]
 
 Vos données existantes restent disponibles dans la solution de sécurité d’analytique de journal et ne seront pas modifiées ni supprimées.
+Les requêtes d’Analytique de journal d’origine utilisées pour remplir le tableau de bord Threat Intelligence sont disponibles dans le centre sécurité [référentiel GitHub](https://github.com/Azure/Azure-Security-Center/tree/master/Legacy%20Log%20Analytics%20dashboards).
 
 ### <a name="security-events-map---new-experience"></a>Carte d’événements de sécurité - nouvelle expérience
 Nous encourageons nos clients d’utiliser la fonctionnalité de mappage d’alertes intégrée à Security Center - « alertes de sécurité mappent (version préliminaire) ». Cela fournit une expérience optimisée et fonctionne sur tous les abonnements et les espaces de travail associés, ce qui permet une macro afficher au sein de votre environnement et pas vous concentrer sur un seul espace de travail.
@@ -165,6 +167,8 @@ Le tableau de bord de sécurité dans l’analytique de journal fournit une vue 
 
 ### <a name="security--audit-dashboard---new-experience"></a>Tableau de bord sécurité et d’audit - nouvelle expérience
 Nos clients sont invités à utiliser Azure Security Center, qui fournit la même vue d’ensemble de sécurité entre plusieurs abonnements et les espaces de travail qui s’y rapportent, ainsi que d’un ensemble de fonctionnalités plus riches.
+
+Les requêtes d’Analytique de journal d’origine utilisées pour remplir la sécurité et d’audit du tableau de bord sont disponibles dans le centre sécurité [référentiel GitHub](https://github.com/Azure/Azure-Security-Center/tree/master/Legacy%20Log%20Analytics%20dashboards).
 
 ## <a name="next-steps"></a>Étapes suivantes
 - En savoir plus sur [Azure Security Center](https://docs.microsoft.com/azure/security-center/)

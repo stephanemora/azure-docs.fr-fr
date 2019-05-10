@@ -1,20 +1,20 @@
 ---
-title: Renvoyer des disques Microsoft Azure Data Box | Microsoft Docs
+title: Tutoriel sur le renvoi d’Azure Data Box Disk | Microsoft Docs
 description: Utilisez ce didacticiel pour savoir comment renvoyer vos disques Azure Data Box à Microsoft
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 04/08/2019
+ms.date: 05/06/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 7c62ec722e5bb909c13b21a7b98d86dd72d9e665
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 023542dbc22234fc57e4ce8b662a9760be4efe04
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59425948"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150766"
 ---
 # <a name="tutorial-return-azure-data-box-disk-and-verify-data-upload-to-azure"></a>Didacticiel : Retourner des disques Azure Data Box et vérifier le chargement des données dans Azure
 
@@ -54,7 +54,12 @@ Effectuez les étapes suivantes si le retour de l’appareil s’effectue aux É
     - Collez l’étiquette sur l’appareil.
 
 2. Scellez la boîte d’envoi et assurez-vous que l’étiquette de retour est visible.
-3. Planifiez un enlèvement avec UPS.
+3. Planifiez un enlèvement avec UPS. Pour planifier l’enlèvement :
+
+    - Appelez l’UPS local (numéro d’appel gratuit propre à chaque pays).
+    - Lors de votre appel, indiquez le numéro de suivi de retour mentionné sur votre étiquette imprimée.
+    - Si le numéro de suivi n’est pas indiqué, UPS vous facturera des frais supplémentaires à l’enlèvement.
+    - Au lieu de planifier l’enlèvement, vous pouvez également déposer le disque Data Box Disk à l’emplacement de dépôt le plus proche.
 
 
 ### <a name="pick-up-in-europe"></a>Enlèvement en Europe

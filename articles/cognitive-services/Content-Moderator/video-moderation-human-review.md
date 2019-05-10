@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
-ms.date: 01/20/2018
+ms.date: 04/30/2019
 ms.author: sajagtap
-ms.openlocfilehash: 43a43ddcbfc656a3eb5a274e1bb63a473b7c89a2
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: a6c467d3153400815e37a5d461766140abd1fa32
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62098199"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65228118"
 ---
 # <a name="video-moderation-with-human-review"></a>Modération de vidéo avec révision manuelle
 
-Utilisez la [modération des vidéos](video-moderation-api.md) assistée par ordinateur et les [outils de révision manuelle](Review-Tool-User-Guide/human-in-the-loop.md) Content Moderator afin de modérer les vidéos et les transcriptions explicites (contenu destiné aux adultes) ou provocantes (contenu suggestif) et améliorer ainsi les performances pour votre entreprise.
+Utilisez Content Moderator assistée par ordinateur [modération de vidéo](video-moderation-api.md) et [outil de révision manuelle](Review-Tool-User-Guide/human-in-the-loop.md) à modérer des vidéos et des transcriptions pour adulte (explicite) et osé contenu (suggéré) pour obtenir les meilleurs résultats pour votre entreprise.
 
 ## <a name="video-trained-classifier-preview"></a>Classifieur entraîné à l’aide de vidéos (préversion)
 
@@ -28,52 +28,53 @@ La classification de vidéos assistée par ordinateur est obtenue grâce à des 
 ## <a name="shot-detection"></a>Détection de plan
 
 Lorsque les résultats détaillés de la classification sont obtenus, l’outil offre une plus grande souplesse dans l’analyse des vidéos grâce à une intelligence vidéo supplémentaire. Plutôt que d’isoler simplement des images, le service de modération des vidéos Microsoft fournit des informations au niveau des plans. Vous pouvez désormais analyser vos vidéos au niveau des plans et des images.
- 
+
 ## <a name="key-frame-detection"></a>Détection de l’image clé
 
 Au lieu d’isoler des images à intervalles réguliers, le service de modération des vidéos identifie et isole des images qui sont potentiellement complètes et de bonne qualité. La fonctionnalité génère efficacement des images afin d’analyser le contenu explicite et suggestif au niveau de l’image.
 
 L’extrait suivant illustre une réponse partielle comportant des plans potentiels, des images clés et des scores de contenu explicite ou suggestif :
 
-    "fragments": [
-    {
-      "start": 0,
-      "duration": 18000
-    },
-    {
-      "start": 18000,
-      "duration": 3600,
-      "interval": 3600,
-      "events": [
-        [
-          {
-            "reviewRecommended": false,
-            "adultScore": 0.00001,
-            "racyScore": 0.03077,
-            "index": 5,
-            "timestamp": 18000,
-            "shotIndex": 0
-          }
-        ]
+```json
+"fragments":[  
+  {  
+    "start":0,
+    "duration":18000
+  },
+  {  
+    "start":18000,
+    "duration":3600,
+    "interval":3600,
+    "events":[  
+      [  
+        {  
+          "reviewRecommended":false,
+          "adultScore":0.00001,
+          "racyScore":0.03077,
+          "index":5,
+          "timestamp":18000,
+          "shotIndex":0
+        }
       ]
-    },
-    {
-      "start": 18386372,
-      "duration": 119149,
-      "interval": 119149,
-      "events": [
-        [
-          {
-            "reviewRecommended": true,
-            "adultScore": 0.00000,
-            "racyScore": 0.91902,
-            "index": 5085,
-            "timestamp": 18386372,
-            "shotIndex": 62
-          }
-        ]
+    ]
+  },
+  {  
+    "start":18386372,
+    "duration":119149,
+    "interval":119149,
+    "events":[  
+      [  
+        {  
+          "reviewRecommended":true,
+          "adultScore":0.00000,
+          "racyScore":0.91902,
+          "index":5085,
+          "timestamp":18386372,
+          "shotIndex":62
+        }
       ]
-
+    ]
+```
 
 ## <a name="visualization-for-human-reviews"></a>Visualisation pour la révision manuelle
 
@@ -101,10 +102,7 @@ Bien souvent, les vidéos sont accompagnées d’une voix off qui doit être ég
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez le [démarrage rapide pour la modération des vidéos](video-moderation-api.md). 
-
-Découvrez comment générer des [revues de vidéos](video-reviews-quickstart-dotnet.md) pour vos réviseurs à partir de résultats modérés.
-
-Ajoutez des [revues de la transcription de la vidéo](video-transcript-reviews-quickstart-dotnet.md) à vos révisions de vidéos.
-
-Consultez le didacticiel détaillé concernant le développement d’une [solution de modération des vidéos complète](video-transcript-moderation-review-tutorial-dotnet.md). 
+- Consultez le [démarrage rapide pour la modération des vidéos](video-moderation-api.md).
+- Découvrez comment générer des [revues de vidéos](video-reviews-quickstart-dotnet.md) pour vos réviseurs à partir de résultats modérés.
+- Ajoutez des [revues de la transcription de la vidéo](video-transcript-reviews-quickstart-dotnet.md) à vos révisions de vidéos.
+- Consultez le didacticiel détaillé concernant le développement d’une [solution de modération des vidéos complète](video-transcript-moderation-review-tutorial-dotnet.md).

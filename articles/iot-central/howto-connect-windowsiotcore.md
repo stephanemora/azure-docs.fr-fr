@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: af6d66d2e3eae80477a151323578b930dcd7727a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e8d4ab46c598580a3a87f4344202f2700926bf5c
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60886609"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510322"
 ---
 # <a name="connect-a-windows-iot-core-device-to-your-azure-iot-central-application"></a>Connecter un appareil Windows IoT Core à votre application Azure IoT Central
 
@@ -74,7 +74,7 @@ Après quelques minutes, vous pouvez afficher les données de télémétrie à p
 Le [Windows Device Portal](https://docs.microsoft.com/windows/iot-core/manage-your-device/deviceportal) inclut des outils que vous pouvez utiliser pour résoudre les problèmes de votre appareil :
 
 - Le **Gestionnaire d’applications** page vous permet de contrôler les applications en cours d’exécution sur votre appareil.
-- Si vous n’avez pas un moniteur connectés à votre appareil, vous pouvez utiliser la **paramètres du périphérique** page pour créer les captures d’écran à partir de votre appareil. Par exemple : 
+- Si vous n’avez pas un moniteur connectés à votre appareil, vous pouvez utiliser la **paramètres du périphérique** page pour créer les captures d’écran à partir de votre appareil. Exemple :
 
     ![Capture d’écran de l’application](media/howto-connect-windowsiotcore/iot-hub-foreground-client.png)
 
@@ -88,7 +88,7 @@ Une application créée à partir du modèle d’application **Exemples de Devki
 
 ### <a name="telemetry-measurements"></a>Mesures de télémétrie
 
-| Nom du champ     | Units  | Minimale | Maximale | Nombre de décimales |
+| Nom du champ     | Unités  | Minimale | Maximale | Nombre de décimales |
 | -------------- | ------ | ------- | ------- | -------------- |
 | humidité       | %      | 0       | 100     | 0              |
 | temp           | °C     | -40     | 120     | 0              |
@@ -98,17 +98,17 @@ Une application créée à partir du modèle d’application **Exemples de Devki
 
 Paramètres numériques
 
-| Nom complet | Nom du champ | Units | Nombre de décimales | Minimale | Maximale | Initial |
+| Display name | Nom du champ | Unités | Nombre de décimales | Minimale | Maximale | Initial |
 | ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
 | Vitesse du ventilateur    | fanSpeed   | TR/MIN   | 0              | 0       | 1 000    | 0       |
 
 ### <a name="properties"></a>properties
 
-| Type            | Nom complet | Nom du champ | Type de données |
+| Type            | Display name | Nom du champ | Type de données |
 | --------------- | ------------ | ---------- | --------- |
 | Propriété d’appareil | Numéro gravé   | dieNumber  | number    |
 | Text            | Lieu     | location   | N/A       |
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Maintenant que vous avez appris à connecter un Raspberry Pi à votre application Azure IoT Central, l’étape suivante suggérée consiste à apprendre comment [définir un modèle d’appareil personnalisé](howto-set-up-template.md) pour votre propre appareil IoT.
+Maintenant que vous avez appris à connecter un appareil Windows IoT Core à votre application Azure IoT Central, l’étape suivante suggérée consiste à apprendre comment [définir un modèle d’appareil personnalisé](howto-set-up-template.md) pour votre propre appareil IoT.

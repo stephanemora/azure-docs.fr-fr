@@ -11,12 +11,12 @@ ms.author: prasantp
 author: prasanthpul
 ms.date: 04/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6bda1af8095e7026c79b7d8ffe45b39f6cbb3508
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: a8bc46011b00a0c63eddd2799ac1309b5754472e
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65028694"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65442423"
 ---
 # <a name="onnx-and-azure-machine-learning-create-and-accelerate-ml-models"></a>ONNX et Azure Machine Learning : Créer et d’accélérer les modèles ML
 
@@ -30,7 +30,7 @@ Microsoft et une Communauté de partenaires créé ONNX comme une norme ouverte 
 
 Le Runtime ONNX est utilisé dans les services à grande échelle tels que Bing, Office et Cognitive Services. Gains de performances sont interdépendants un certain nombre de facteurs, mais ces services Microsoft ont vu une __moyenne de 2 x gain de performances du processeur__. ONNX Runtime est également utilisé comme partie de ML Windows sur des centaines de millions d’appareils. Vous pouvez utiliser le runtime avec les services Azure Machine Learning. À l’aide de ONNX Runtime, vous pouvez tirer parti les optimisations de qualité production complète, améliorations et de tests en cours.
 
-[![Diagramme de flux ONNX montrant la formation, les convertisseurs et le déploiement](media/concept-onnx/onnx.png) ](./media/concept-onnx/onnx.png#lightbox)
+[![Diagramme de flux ONNX montrant la formation, les convertisseurs et le déploiement](media/concept-onnx/onnx.png)](./media/concept-onnx/onnx.png#lightbox)
 
 ## <a name="get-onnx-models"></a>Obtenir des modèles ONNX
 
@@ -83,7 +83,7 @@ Consultez [how-to-utilisation-azureml/déploiement/onnx](https://github.com/Azur
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 
-## <a name="more-info"></a>En savoir plus
+## <a name="more-info"></a>Informations supplémentaires
 
 Apprenez-en davantage sur ONNX ou contribuez au projet :
 + [Site web du projet ONNX](https://onnx.ai)

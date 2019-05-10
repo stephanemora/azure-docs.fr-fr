@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2018
+ms.date: 05/08/2019
 ms.author: cynthn
-ms.openlocfilehash: 8d421adfae335a976485ed463a69484a74be5b44
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0623a7aff15184822ee8abde0b3c751f8a105b5b
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60729526"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65463580"
 ---
 # <a name="frequently-asked-question-about-linux-virtual-machines"></a>Forum aux questions sur les machines virtuelles Linux
 Cet article traite certaines questions courantes concernant les machines virtuelles Linux créées dans Azure avec le modèle de déploiement Resource Manager. Pour la version Windows de cette rubrique, consultez les [Questions fréquences sur les machines virtuelles Windows](../windows/faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -36,7 +36,7 @@ Les disques managés Azure sont les offres de stockage sur disque recommandées 
 Les comptes de stockage Azure peuvent aussi fournir le stockage pour le disque du système d’exploitation et tout disque de données. Chaque disque est un fichier .vhd stocké sous la forme d’un objet blob de pages. Pour plus d’informations sur la tarification, voir [Tarification – Stockage](https://azure.microsoft.com/pricing/details/storage/).
 
 ## <a name="how-can-i-access-my-virtual-machine"></a>Comment puis-je accéder à ma machine virtuelle ?
-Établissez une connexion à distance pour vous connecter à la machine virtuelle à l’aide de SSH (Secure Shell). Consultez les instructions sur la connexion [à partir de Windows](ssh-from-windows.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ou [à partir de Linux et Mac](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Par défaut, SSH autorise un maximum de 10 connexions simultanées. Vous pouvez augmenter ce nombre en modifiant le fichier de configuration.
+Établir une connexion à distance pour se connecter à la machine virtuelle, à l’aide de SSH (Secure Shell). Consultez les instructions sur la connexion [à partir de Windows](ssh-from-windows.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ou [à partir de Linux et Mac](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Par défaut, SSH autorise un maximum de 10 connexions simultanées. Vous pouvez augmenter ce nombre en modifiant le fichier de configuration.
 
 Si vous rencontrez des problèmes, consultez [Dépanner les connexions Secure Shell (SSH)](troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
@@ -64,36 +64,26 @@ Les noms d’utilisateur doivent avoir une longueur de 1 à 32 caractères.
 
 Les noms d’utilisateur suivants ne sont pas autorisés :
 
-<table>
-    <tr>
-        <td style="text-align:center">administrator </td><td style="text-align:center"> admin </td><td style="text-align:center"> user </td><td style="text-align:center"> user1</td>
-    </tr>
-    <tr>
-        <td style="text-align:center">test </td><td style="text-align:center"> user2 </td><td style="text-align:center"> test1 </td><td style="text-align:center"> user3</td>
-    </tr>
-    <tr>
-        <td style="text-align:center">admin1 </td><td style="text-align:center"> 1 </td><td style="text-align:center"> 123 </td><td style="text-align:center"> a</td>
-    </tr>
-    <tr>
-        <td style="text-align:center">actuser  </td><td style="text-align:center"> adm </td><td style="text-align:center"> admin2 </td><td style="text-align:center"> aspnet</td>
-    </tr>
-    <tr>
-        <td style="text-align:center">backup </td><td style="text-align:center"> console </td><td style="text-align:center"> david </td><td style="text-align:center"> guest</td>
-    </tr>
-    <tr>
-        <td style="text-align:center">john </td><td style="text-align:center"> propriétaire </td><td style="text-align:center"> root </td><td style="text-align:center"> serveur</td>
-    </tr>
-    <tr>
-        <td style="text-align:center">sql </td><td style="text-align:center"> support </td><td style="text-align:center"> support_388945a0 </td><td style="text-align:center"> sys</td>
-    </tr>
-    <tr>
-        <td style="text-align:center">test2 </td><td style="text-align:center"> test3 </td><td style="text-align:center"> user4 </td><td style="text-align:center"> user5</td>
-    </tr>
-</table>
-
+| | | | |
+|-----------------|-----------|--------------------|----------|
+| `administrator` | `admin`   | `user`             | `user1`  |
+| `test`          | `user2`   | `test1`            | `user3`  |
+| `admin1`        | `1`       | `123`              | `a`      |
+| `actuser`       | `adm`     | `admin2`           | `aspnet` |
+| `backup`        | `console` | `david`            | `guest`  |
+| `john`          | `owner`   | `root`             | `server` |
+| `sql`           | `support` | `support_388945a0` | `sys`    |
+| `test2`         | `test3`   | `user4`            | `user5`  |
 
 ## <a name="what-are-the-password-requirements-when-creating-a-vm"></a>Quelles sont les exigences en matière de mot de passe lors de la création d’une machine virtuelle ?
-Les mots de passe doivent comporter de 6 à 72 caractères et répondre à 3 des 4 exigences de complexité suivantes :
+
+Il existe de mot de passe différentes exigences de longueur, en fonction de l’outil que vous utilisez :
+ - Portail - entre 12 à 72 caractères
+ - PowerShell - entre 8 à 123 caractères
+ - CLI - entre 12 à 123
+ 
+
+Les mots de passe doivent répondre également à 3 des exigences de 4 complexité suivantes :
 
 * Avoir des minuscules
 * Avoir des majuscules

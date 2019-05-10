@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/17/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 54690386b3654952cc2292963c9bf01dc65e4315
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 31df4cb9163e598bfde0c491d8088398c3204119
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57875206"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65407990"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-qlik-sense-enterprise"></a>Didacticiel : Intégration d’Azure Active Directory à Qlik Sense Enterprise
 
@@ -183,7 +183,7 @@ Pour configurer l’authentification unique Azure AD avec Qlik Sense Enterprise
 
     e. La zone **SAML IdP metadata** (Métadonnées IdP SAML) indique le fichier modifié précédemment dans la section **Modifier les métadonnées de fédération dans la configuration d’Azure AD**.  **Avant de charger les métadonnées IdP, vous devez modifier le fichier** et supprimer des informations pour vous assurer du bon fonctionnement entre Azure AD et le serveur Qlik Sense.  **Reportez-vous aux instructions ci-dessus si le fichier doit encore être modifié.**  Si le fichier a été modifié, cliquez sur le bouton Parcourir et sélectionnez le fichier de métadonnées modifié pour le charger vers la configuration du proxy virtuel.
 
-    f. Entrez le nom d’attribut ou la référence de schéma pour l’attribut SAML représentant **l’ID utilisateur** qu’Azure AD envoie au serveur Qlik Sense.  Les informations de référence de schéma sont disponibles dans les écrans de l’application Azure post-configuration.  Pour utiliser le nom d’attribut, tapez `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
+    f. Entrez le nom d’attribut ou la référence de schéma pour l’attribut SAML représentant **l’ID utilisateur** qu’Azure AD envoie au serveur Qlik Sense.  Les informations de référence de schéma sont disponibles dans les écrans de l’application Azure post-configuration.  Pour utiliser le nom d’attribut, tapez `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
 
     g. Entrez la valeur du **répertoire utilisateur** qui est attaché aux utilisateurs lorsqu’ils s’authentifient sur le serveur Qlik Sense via Azure AD.  Les valeurs codées en dur doivent être entourées de **crochets []**.  Pour utiliser un attribut envoyé dans l’assertion SAML Azure AD, entrez son nom dans cette zone de texte **sans** crochets.
 
@@ -261,7 +261,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.

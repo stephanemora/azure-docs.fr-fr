@@ -6,14 +6,14 @@ author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 05/06/2019
+ms.date: 04/25/2019
 ms.author: iainfou
-ms.openlocfilehash: f365fcd61944fbae131ab79a1c3660aaf02fa8d7
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 17bc1d2b7a08314f19f1bf8f87d0c774afc37500
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65073945"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65508177"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Forum aux questions sur Azure Kubernetes Service (AKS)
 
@@ -25,9 +25,7 @@ Pour obtenir la liste complète des régions disponibles, consultez [AKS Regions
 
 ## <a name="does-aks-support-node-autoscaling"></a>AKS prend-il en charge la mise à l’échelle automatique des nœuds ?
 
-Oui, la mise à l'échelle automatique est disponible via [l’outil de mise à l'échelle automatique de Kubernetes][auto-scaler] dans Kubernetes 1.10 et versions ultérieures. Pour plus d’informations sur la façon de configurer et utiliser le cluster autoscaler manuellement, consultez [mise à l’échelle de Cluster sur AKS][aks-cluster-autoscale].
-
-Vous pouvez également utiliser le cluster intégrés autoscaler (actuellement en version préliminaire dans ACS) pour gérer la mise à l’échelle de nœuds. Pour plus d’informations, consultez [automatiquement à l’échelle un cluster pour répondre aux demandes d’application dans AKS][aks-cluster-autoscaler].
+Oui, la mise à l'échelle automatique est disponible via [l’outil de mise à l'échelle automatique de Kubernetes][auto-scaler] dans Kubernetes 1.10 et versions ultérieures. Pour plus d’informations sur la façon de configurer et d’utiliser l’autoscaler de cluster, consultez [Cluster autoscale on AKS][aks-cluster-autoscale] (Mise à l’échelle automatique de cluster sur AKS).
 
 ## <a name="does-aks-support-kubernetes-role-based-access-control-rbac"></a>AKS prend-il en charge le contrôle d’accès par rôle Kubernetes (RBAC) ?
 
@@ -43,17 +41,13 @@ Pas pour l'instant. Le serveur d’API Kubernetes est exposé en tant que nom de
 
 ## <a name="are-security-updates-applied-to-aks-agent-nodes"></a>Des mises à jour sécurisées sont-elles appliquées aux nœuds de l’agent AKS ?
 
-Azure applique automatiquement les correctifs de sécurité pour les nœuds Linux dans votre cluster selon une planification nocturne. Toutefois, vous êtes chargé de s’assurer que ces nœuds sont redémarrés en tant que de Linux requis. Vous avez plusieurs options pour effectuer des redémarrages de nœud :
+Oui. Azure applique automatiquement les correctifs de sécurité pour les nœuds de votre cluster selon une planification nocturne. Toutefois, vous êtes chargé de vous assurer que les nœuds sont redémarrés selon les besoins. Vous avez plusieurs options pour effectuer des redémarrages de nœud :
 
 - Manuellement, via le portail Azure ou l’interface de ligne de commande Azure.
 - En mettant à niveau votre cluster AKS. Le cluster met automatiquement à niveau des [nœuds drain et cordon][cordon-drain], puis les sauvegarde à nouveau avec la dernière image Ubuntu et une nouvelle version de correctif ou une version mineure de Kubernetes. Pour plus d’informations, consultez [Mettre à niveau un cluster AKS][aks-upgrade].
 - Utilisation de [Kured](https://github.com/weaveworks/kured), un démon de redémarrage Open Source pour Kubernetes. Kured s’exécute comme un [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) et analyse chaque nœud à la recherche d’un fichier indiquant qu’un redémarrage est nécessaire. Les redémarrages du système d’exploitation sont gérés au sein du cluster à l’aide du même [processus drain et cordon][cordon-drain] que celui appliqué pour la mise à niveau de cluster.
 
 Pour plus d’informations sur l’utilisation de kured, consultez [Appliquer les mises à jour de sécurité et de noyau aux nœuds dans AKS][node-updates-kured].
-
-### <a name="windows-server-nodes"></a>Nœuds Windows Server
-
-Pour les nœuds de Windows Server (actuellement en version préliminaire dans ACS), mise à jour de Windows n’exécute pas automatiquement et appliquer les dernières mises à jour. Selon une planification régulière autour de cycle de mise à jour de Windows et votre propre processus de validation, vous devez effectuer une mise à niveau sur l’ou les pools nœud Windows Server dans votre cluster AKS. Ce processus de mise à niveau crée des nœuds qui exécutent la dernière image Windows Server et les correctifs, puis supprime les nœuds plus anciens. Pour plus d’informations sur ce processus, consultez [mise à niveau d’un pool de nœuds dans ACS][nodepool-upgrade].
 
 ## <a name="why-are-two-resource-groups-created-with-aks"></a>Pourquoi deux groupes de ressources sont-ils créés avec AKS ?
 
@@ -108,13 +102,24 @@ Pour l’instant, AKS n’est pas intégré nativement à Azure Key Vault. Toute
 
 ## <a name="can-i-run-windows-server-containers-on-aks"></a>Puis-je exécuter des conteneurs Windows Server sur AKS ?
 
-Oui, les conteneurs Windows Server sont disponibles en version préliminaire. Pour exécuter des conteneurs Windows Server dans ACS, vous créez un pool de nœud qui exécute Windows Server en tant que le système d’exploitation invité. Conteneurs Windows Server permettent uniquement de Windows Server 2019. Prise en main, [créer un cluster AKS avec un pool de nœud Windows Server][aks-windows-cli].
-
-Prise en charge de fenêtre Server nœud pool inclut certaines limitations qui font partie de Windows Server en amont dans le projet de Kubernetes. Pour plus d’informations sur ces limitations, consultez [conteneurs Windows Server dans les limites de AKS][aks-windows-limitations].
+Pour exécuter des conteneurs Windows Server, vous devez exécuter des nœuds Windows Server. Pour l’instant, les nœuds Windows Server ne sont pas disponibles dans AKS. Toutefois, vous pouvez utiliser Virtual Kubelet pour planifier les conteneurs Windows dans Azure Container Instances, et les gérer dans le cadre de votre cluster AKS. Pour plus d’informations, consultez [Utiliser Virtual Kubelet avec AKS][virtual-kubelet].
 
 ## <a name="does-aks-offer-a-service-level-agreement"></a>AKS offre-t-il un contrat de niveau de service ?
 
 Dans un contrat de niveau de service (SLA), le fournisseur accepte de rembourser le client si le niveau du service publié n’est pas rempli. AKS étant gratuit, il n’y a aucuns frais à rembourser et par conséquent aucun contrat SLA formel. Toutefois, AKS cherche à maintenir une disponibilité d’au moins 99,5 % pour le serveur d’API Kubernetes.
+
+## <a name="why-can-i-not-set-maxpods-below-30"></a>Pourquoi ne puis-je pas définir `maxPods` ci-dessous 30 ?
+
+AKS prend en charge le paramètre le `maxPods` valeur au moment de la création de cluster via les modèles Azure CLI et Azure Resource Manager. Toutefois, il existe un *valeur minimale* (validée au moment de la création) de Kubenet et Azure CNI, illustré ci-dessous :
+
+| Mise en réseau | Minimale | Maximale |
+| -- | :--: | :--: |
+| Azure CNI | 30 | 250 |
+| Kubenet | 30 | 110 |
+
+Comme ACS est un service géré, nous fournissons des modules complémentaires et des pods nous déployer et gérer en tant que partie du cluster. Dans le passé, les utilisateurs peuvent définir un `maxPods` valeur inférieure à la valeur requise pour les pods managés exécuter (exemple : 30), AKS calcule maintenant le nombre minimal de pods via : ((maxPods ou (maxPods * vm_count)) > minimum de pods complémentaire.
+
+Les utilisateurs ne peuvent pas remplacer la valeur minimale `maxPods` validation.
 
 <!-- LINKS - internal -->
 
@@ -128,10 +133,6 @@ Dans un contrat de niveau de service (SLA), le fournisseur accepte de rembourser
 [aks-preview-cli]: /cli/azure/ext/aks-preview/aks
 [az-aks-create]: /cli/azure/aks#az-aks-create
 [aks-rm-template]: /rest/api/aks/managedclusters/createorupdate#managedcluster
-[aks-cluster-autoscaler]: cluster-autoscaler.md
-[nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
-[aks-windows-cli]: windows-container-cli.md
-[aks-windows-limitations]: windows-node-limitations.md
 
 <!-- LINKS - external -->
 

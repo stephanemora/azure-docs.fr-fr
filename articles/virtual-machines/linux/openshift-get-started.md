@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/19/2019
+ms.date: 05/7/2019
 ms.author: haroldw
-ms.openlocfilehash: 53bed2131e81ee5ed0f46bde389262ee8349339a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c8ebd10544331d3b7d887124542fe4ee2753c714
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60542422"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233145"
 ---
 # <a name="openshift-in-azure"></a>OpenShift dans Azure
 
@@ -34,15 +34,15 @@ OpenShift inclut Kubernetes pour la gestion et l’orchestration du conteneur. I
 
 Il existe plusieurs versions d’OpenShift disponibles.  De ces versions, seuls deux est aujourd'hui disponibles pour les clients à déployer dans Azure : OpenShift Container Platform et OKD (anciennement OpenShift Origin).
 
+## <a name="azure-red-hat-openshift"></a>Azure Red Hat OpenShift
+
+Microsoft Azure Red Hat OpenShift est une offre entièrement gérée de OpenShift s’exécutant dans Azure. Ce service est managé et pris en charge par Microsoft et Red Hat conjointement. Une documentation complète peut être [ici](https://docs.microsoft.com/azure/openshift/). 
+
 ## <a name="openshift-container-platform"></a>OpenShift Container Platform
 
 Container Platform est une [version commerciale](https://www.openshift.com) adaptée aux entreprises dont Red Hat est l’éditeur et assure le support. Avec cette version, le client achète les droits nécessaires pour OpenShift Container Platform et est responsable de l’installation et de la gestion de l’ensemble de l’infrastructure.
 
 Étant donné que les clients « s’accapare » l’ensemble de la plate-forme, ils peuvent l’installer dans leur centre de données en local ou dans un cloud public (par exemple, Azure).
-
-## <a name="azure-red-hat-openshift"></a>Azure Red Hat OpenShift
-
-Azure Red Hat OpenShift est une offre entièrement gérée de OpenShift s’exécutant dans Azure. Ce service est managé et pris en charge par Microsoft et Red Hat conjointement. Le cluster est déployé dans l’abonnement Azure du client. Le service est planifié pour être GA autour de mai 2019. Documentation distincte pour le service géré sera disponible une fois que le service est la disponibilité générale.
 
 ## <a name="okd"></a>OKD
 

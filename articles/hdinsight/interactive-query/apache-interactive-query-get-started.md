@@ -7,13 +7,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 02/22/2018
-ms.openlocfilehash: c7cee3dfd3b091d75f4dadcaa62513fddf0c0e68
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 05/07/2019
+ms.openlocfilehash: 9636157182e8b40914bde2515c5b295d0480255a
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64692149"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510995"
 ---
 # <a name="use-interactive-query-with-hdinsight"></a>Utiliser Interactive Query avec HDInsight
 Le cluster Interactive Query (également appelé Apache Hive LLAP ou [Low Latency Analytical Processing](https://cwiki.apache.org/confluence/display/Hive/LLAP)) est un [type de cluster](../hdinsight-hadoop-provision-linux-clusters.md#cluster-types) Azure HDInsight. Interactive Query prend en charge la mise en mémoire cache, ce qui accélère les requêtes Apache Hive et les rend beaucoup plus interactives.
@@ -34,10 +34,6 @@ Pour exécuter des requêtes Hive, vous disposez des options suivantes :
 * Utiliser Microsoft Power BI
 
     Consultez [Visualiser des données Interactive Query Apache Hive à l’aide de Power BI dans Azure HDInsight](./apache-hadoop-connect-hive-power-bi-directquery.md). Consultez [Visualiser des données volumineuses (« Big Data ») avec Power BI dans Azure HDInsight](../hadoop/apache-hadoop-connect-hive-power-bi.md).
- 
-* Utiliser Apache Zeppelin
-
-    Consultez [utiliser Apache Zeppelin pour exécuter des requêtes Apache Hive dans Azure HDInsight](../hdinsight-connect-hive-zeppelin.md).
 
 * Utiliser Visual Studio
 
@@ -45,7 +41,7 @@ Pour exécuter des requêtes Hive, vous disposez des options suivantes :
 
 * Utiliser Visual Studio Code
 
-    Consultez [Utiliser Visual Studio Code pour Apache Hive, LLAP ou pySpark](../hdinsight-for-vscode.md).
+    Consultez [utiliser Visual Studio Code pour Apache Hive, LLAP ou pySpark](../hdinsight-for-vscode.md).
 * Exécutez Apache Hive à l’aide de la vue Ambari Apache Hive.
   
     Consultez [Utiliser la vue Apache Hive avec Apache Hadoop dans Azure HDInsight](../hadoop/apache-hadoop-use-hive-ambari-view.md).
@@ -61,7 +57,7 @@ Pour exécuter des requêtes Hive, vous disposez des options suivantes :
 
 Pour rechercher la chaîne de connexion Java Database Connectivity (JDBC) :
 
-1. Connectez-vous à Apache Ambari à l’aide de l’URL suivante : https://\<nom du cluster\>.AzureHDInsight.net.
+1. Se connecter à Apache Ambari à l’aide de l’URL suivante : `https://<cluster name>.AzureHDInsight.net`.
 2. Dans le menu de gauche, sélectionnez **Hive**.
 3. Pour copier l’URL, sélectionnez l’icône du Presse-papiers :
    

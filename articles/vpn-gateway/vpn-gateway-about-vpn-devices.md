@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 02/20/2019
 ms.author: yushwang
-ms.openlocfilehash: 188412130b059cd25952ce9bf570c4e95ebbc43a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 30558300036974a765765fe0eb0181e2a8dc73ca
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60761615"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65508358"
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>À propos des périphériques VPN et des paramètres IPsec/IKE pour les connexions de passerelle VPN site à site
 
@@ -45,7 +45,6 @@ Pour configurer plus facilement votre périphérique VPN, reportez-vous aux lien
 | Allied Telesis     |Routeurs VPN série AR |Série AR 5.4.7+               |Bientôt disponible     |[Guide de configuration](https://www.alliedtelesis.com/documents/how-to/configure/site-to-site-vpn-between-azure-and-ar-series-router)|
 | Barracuda Networks, Inc. |Barracuda NextGen Firewall série F |PolicyBased : 5.4.3<br>RouteBased : 6.2.0 |[Guide de configuration](https://techlib.barracuda.com/NGF/AzurePolicyBasedVPNGW) |[Guide de configuration](https://techlib.barracuda.com/NGF/AzureRouteBasedVPNGW) |
 | Barracuda Networks, Inc. |Barracuda NextGen Firewall série X |Pare-feu Barracuda 6.5 |[Guide de configuration](https://techlib.barracuda.com/BFW/ConfigAzureVPNGateway) |Non compatible |
-| Brocade            |Routeur virtuel Vyatta 5400   |Routeur virtuel 6.6R3 GA|[Guide de configuration](http://www1.brocade.com/downloads/documents/html_product_manuals/vyatta/vyatta_5400_manual/wwhelp/wwhimpl/js/html/wwhelp.htm#href=VPN_Site-to-Site%20IPsec%20VPN/Preface.1.1.html) |Non compatible |
 | Check Point |Passerelle de sécurité |R80.10 |[Guide de configuration](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |[Guide de configuration](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |
 | Cisco              |ASA       |8.3<br>8.4+ (IKEv2*) |Pris en charge |[Guide de configuration*](https://www.cisco.com/c/en/us/support/docs/security/adaptive-security-appliance-asa-software/214109-configure-asa-ipsec-vti-connection-to-az.html) |
 | Cisco |ASR |PolicyBased : IOS 15.1<br>RouteBased : IOS 15.2 |Pris en charge |Pris en charge |
@@ -142,7 +141,7 @@ Dans les tableaux suivants :
 | Chiffrement et algorithmes de hachage |1. AES256, SHA256<br>2. AES256, SHA1<br>3. AES128, SHA1<br>4. 3DES, SHA1 |[Offres d’AS RouteBased en mode rapide](#RouteBasedOffers) |
 | Durée de vie de l’AS (durée)            |3 600 secondes  |27 000 secondes                                |
 | Durée de vie de l’AS (octets)           |102 400 000 Ko | -                                           |
-| PFS (Perfect Forward Secrecy) |Non              |[Offres d’AS RouteBased en mode rapide](#RouteBasedOffers) |
+| PFS (Perfect Forward Secrecy) |Non             |[Offres d’AS RouteBased en mode rapide](#RouteBasedOffers) |
 | Détection d’homologue mort     |Non pris en charge  |Pris en charge                                    |
 
 

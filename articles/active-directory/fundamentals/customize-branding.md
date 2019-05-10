@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: kexia
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9fb657d2c2cd4eeae0eb96dd37505a1c47278725
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 277e7663c978e64ee1440e14583e884b768b3139
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60247865"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65441642"
 ---
 # <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>Personnaliser la page de connexion Azure Active Directory de votre organisation
 Utilisez le logo et la palette de couleurs personnalisée de votre organisation pour offrir une apparence cohérente à vos pages de connexion Azure Active Directory (Azure AD). Vos pages de connexion s’affichent quand les utilisateurs se connectent aux applications web de votre organisation, comme Office 365, qui utilise Azure AD comme fournisseur d’identité.
@@ -70,7 +70,7 @@ Votre marque personnalisée n’apparaisse pas immédiatement quand vos utilisat
 
         - **Couleur d’arrière-plan de la page de connexion.** Spécifiez la couleur hexadécimale (par exemple, #FFFFFF pour blanc) qui s’affiche à la place de votre image d’arrière-plan en cas de faible bande passante. Nous vous recommandons d’utiliser la couleur principale de votre logo de bannière ou la couleur de votre organisation.
 
-        - **Logo carré.** Sélectionnez une image .png (recommandé) ou .jpg du logo de votre organisation pour qu’elle soit présentée aux utilisateurs pendant le processus d’installation de nouveaux appareils Windows 10 Entreprise. Cette image est utilisée uniquement pour l’authentification Windows et s’affiche uniquement sur les locataires qui utilisent [Windows Autopilot]( https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) pour les pages de déploiement ou de saisie de mot de passe dans d’autres expériences Windows 10.
+        - **Logo carré.** Sélectionnez une image .png (recommandé) ou .jpg du logo de votre organisation pour qu’elle soit présentée aux utilisateurs pendant le processus d’installation de nouveaux appareils Windows 10 Entreprise. Cette image est utilisée uniquement pour l’authentification Windows et s’affiche uniquement sur les locataires qui utilisent [Windows Autopilot]( https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) pour les pages de déploiement ou de saisie de mot de passe dans d’autres expériences Windows 10. Dans certains cas, il peut également apparaître dans la boîte de dialogue de consentement.
         
             L’image ne peut pas être supérieure à 240 x 240 pixels et doit faire moins de 10 Ko. Nous vous recommandons d’utiliser une image transparente dans la mesure où l’arrière-plan peut ne pas correspondre à l’arrière-plan de votre logo. Nous vous recommandons également de ne pas ajouter de marge intérieure autour de l’image afin que votre logo ne semble pas trop petit.
     

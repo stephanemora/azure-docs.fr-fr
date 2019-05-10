@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 89aa5006882680205816e7e5d1e7e55b9c4b2ab0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 618453ec9857254fe14608df8091bb79bd3815b7
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60692918"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65509988"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Cartographie d’application : trier des applications distribuées
 
@@ -68,13 +68,13 @@ Pour résoudre les problèmes de performances, sélectionnez **Examiner les perf
 
 ### <a name="go-to-details"></a>Accéder aux détails
 
-Pour explorer l’expérience de transaction de bout en bout pouvant présenter des vues générées au niveau de la pile des appels, sélectionnez **Accéder aux détails**.
+Sélectionnez **accédez aux détails** pour Explorer l’expérience de transaction de bout en bout, qui offre des vues jusqu’au niveau de la pile des appels.
 
 ![Capture d’écran du bouton Accéder aux détails](media/app-map/go-to-details.png)
 
 ![Capture d’écran des détails de transaction de bout en bout](media/app-map/end-to-end-transaction.png)
 
-### <a name="view-in-analytics"></a>Afficher dans Analytics
+### <a name="view-in-analytics"></a>Voir dans Analytics
 
 Pour interroger et analyser vos données d’application de manière plus approfondie, cliquez sur **Afficher dans Analytics**.
 

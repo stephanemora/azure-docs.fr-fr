@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 5/7/2019
 ms.author: victorh
-ms.openlocfilehash: b1cdcfc9e81938f3f562046b971407b31a593525
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: dfb5b8b69b2ca9bea118603406f4747036d2641c
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65202907"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510815"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway"></a>Mise à l’échelle et la passerelle d’Application redondant 
 
@@ -62,7 +62,7 @@ Guide de l’unité de calcul :
 | Standard_v2                                       |    0.20             | 0.0080                          |
 | WAF_v2                                            |    0.36             | 0.0144                          |
 
-Le [page de tarification](https://azure.microsoft.com/en-us/pricing/details/application-gateway/) sera mis à jour pour refléter les prix sur le 14 mai 2019. La facturation est programmée pour démarrer sur le 1 juin 2019.
+Le [page de tarification](https://azure.microsoft.com/pricing/details/application-gateway/) sera mis à jour pour refléter les prix sur le 14 mai 2019. La facturation est programmée pour démarrer sur le 1 juin 2019.
 
 **Exemple 1**
 
@@ -93,7 +93,7 @@ Prix unitaire de capacité = 744(hours) * Max (calcul unité Max(25/50 for conne
 
 Prix total = $267.84 + $85.71 = $353.55
 
-Le [page de tarification](https://azure.microsoft.com/en-us/pricing/details/application-gateway/) sera mis à jour pour refléter les prix sur le 14 mai 2019. La facturation est programmée pour démarrer sur le 1 juin 2019.
+Le [page de tarification](https://azure.microsoft.com/pricing/details/application-gateway/) sera mis à jour pour refléter les prix sur le 14 mai 2019. La facturation est programmée pour démarrer sur le 1 juin 2019.
 
 ## <a name="scaling-application-gateway-and-waf-v2"></a>Mise à l’échelle de passerelle d’Application et WAF v2
 

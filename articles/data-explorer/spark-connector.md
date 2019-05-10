@@ -7,12 +7,12 @@ ms.reviewer: michazag
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 4/29/2019
-ms.openlocfilehash: 8cb1489a0663556f9dd9e6026a036df2468d656d
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 854e29b67b6e24c583a98b5851bf17551cfcbf61
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64928331"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65441351"
 ---
 # <a name="azure-data-explorer-connector-for-apache-spark-preview"></a>Connecteur de l’Explorateur de données Azure pour Apache Spark (version préliminaire)
 
@@ -101,7 +101,7 @@ Pour plus d’informations, consultez [l’utilisation du connecteur](https://gi
 
     ![Vérifier les bibliothèques installées](media/spark-connector/db-libraries-view.png)
 
-## <a name="authentication"></a>Authentification
+## <a name="authentication"></a>Authentication
 
 Connecteur Spark de l’Explorateur de données Azure vous permet de s’authentifier avec Azure Active Directory (Azure AD) à l’aide un [application Azure AD](#azure-ad-application-authentication), [jeton d’accès Azure AD](https://github.com/Azure/azure-kusto-spark/blob/dev/docs/Authentication.md#direct-authentication-with-access-token), [l’authentification des appareils ](https://github.com/Azure/azure-kusto-spark/blob/dev/docs/Authentication.md#device-authentication) (pour les scénarios hors production), ou [Azure Key Vault](https://github.com/Azure/azure-kusto-spark/blob/dev/docs/Authentication.md#key-vault). L’utilisateur doit installer le package de coffre de clés azure et fournir des informations d’identification de l’application pour accéder à la ressource Key Vault.
 
@@ -109,7 +109,7 @@ Connecteur Spark de l’Explorateur de données Azure vous permet de s’authent
 
 La plupart des méthode d’authentification simple et courante. Cette méthode est recommandée pour l’utilisation du connecteur Spark de l’Explorateur de données Azure.
 
-|properties  |Description  |
+|properties  |Description   |
 |---------|---------|
 |**KUSTO_AAD_CLIENT_ID**     |   Identificateur d’application (client) Active Directory Azure.      |
 |**KUSTO_AAD_AUTHORITY_ID**     |  Autorité d’authentification Azure AD. ID de l’annuaire AD (locataire) Azure.        |
@@ -200,7 +200,7 @@ Pour plus d’informations sur les rôles de principal de l’Explorateur de don
     display(df)
     ```
 
-1. Lors de la lecture de grandes quantités de données, le stockage d’objets blob temporaires doit être fourni. Fournir le nom du conteneur de clé de SAP de conteneur de stockage, ou nom de compte de stockage et clé de compte. 
+1. Lors de la lecture de grandes quantités de données, le stockage d’objets blob temporaires doit être fourni. Fournir le nom du conteneur de clé de SAP de conteneur de stockage, ou nom de compte de stockage et clé de compte. Cette étape est uniquement requis pour la version préliminaire actuelle du connecteur Spark.
 
     ```scala
     // Use either container/account-key/account name, or container SaS

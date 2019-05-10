@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: a723ca6d69d45613636c7659e6566cec19b31d65
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e4746620f083996bf64e77617ec472c3d3894d91
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60364112"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65464293"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application"></a>Gérer les appareils dans votre application Azure IoT Central
 
@@ -36,7 +36,7 @@ Pour voir un appareil particulier :
 
     ![Page Détails de l’appareil](./media/howto-manage-devices/devicelist.png)
 
-## <a name="add-a-device"></a>Ajout d’un appareil
+## <a name="add-a-device"></a>Ajouter un appareil
 
 Pour ajouter un appareil à votre application Azure IoT Central :
 
@@ -66,7 +66,7 @@ Pour l’inscription en masse d’appareils :
 
 1. Sélectionnez **Importer**.
 
-    ![Action d’importation](./media/howto-manage-devices/BulkImport1.png)
+    ![Action d’importation](./media/howto-manage-devices/bulkimport1a.png)
 
 1. Sélectionnez le fichier CSV contenant la liste des ID d’appareil à importer.
 
@@ -74,7 +74,7 @@ Pour l’inscription en masse d’appareils :
 
 1. Une fois l’importation terminée, un message de réussite s’affiche sur la grille de l’appareil.
 
-    ![Importation réussie](./media/howto-manage-devices/BulkImport3.png)
+    ![Importation réussie](./media/howto-manage-devices/bulkimport3a.png)
 
 Si l’importation d’appareils échoue, un message d’erreur s’affiche sur la grille de l’appareil. Un fichier journal capturant toutes les erreurs est généré et vous pouvez le télécharger.
 
@@ -86,13 +86,13 @@ Si vous enregistrez des appareils en démarrant l’importation sous **Appareils
 
 1. Dans le volet gauche, choisissez **Appareils non associés** :
 
-    ![Appareils non associés](./media/howto-manage-devices/UnassociatedDevices1.png)
+    ![Appareils non associés](./media/howto-manage-devices/unassociateddevices1a.png)
 
 1. Sélectionnez les appareils que vous souhaitez associer à un modèle :
 
 1. Sélectionnez **associer**:
 
-    ![Associer des appareils](./media/howto-manage-devices/UnassociatedDevices2.png)
+    ![Associer des appareils](./media/howto-manage-devices/unassociateddevices2a.png)
 
 1. Cliquez sur le modèle à partir de la liste des modèles disponibles et sélectionnez **associer**.
 
@@ -113,7 +113,7 @@ Pour exporter en bloc des appareils à partir de votre application :
 
 1. Sélectionnez les appareils que vous souhaitez exporter, puis sélectionnez le **exporter** action.
 
-    ![Exportation](./media/howto-manage-devices/Export1.png)
+    ![Exportation](./media/howto-manage-devices/export1a.png)
 
 1. Le processus d’exportation démarre. Vous pouvez suivre l’état en haut de la grille.
 
@@ -121,7 +121,7 @@ Pour exporter en bloc des appareils à partir de votre application :
 
 1. Sélectionnez le **message de réussite** pour télécharger le fichier vers un dossier local sur le disque.
 
-    ![Exportation réussie](./media/howto-manage-devices/Export2.png)
+    ![Exportation réussie](./media/howto-manage-devices/export2a.png)
 
 1. Le fichier CSV exporté contient les colonnes suivantes : ID de l’appareil, nom de l’appareil, clés d’appareil et empreintes numériques de certificat X509 :
 

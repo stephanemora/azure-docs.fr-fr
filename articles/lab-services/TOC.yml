@@ -166,12 +166,16 @@
               href: connect-environment-lab-virtual-network.md
             - name: Intégrer des environnements dans votre pipeline Azure DevOps CI/CD
               href: integrate-environments-devops-pipeline.md
+            - name: Utiliser des services PaaS (Platform-as-a-Service)
+              href: use-paas-services.md
         - name: Sécuriser l’accès aux laboratoires
           items:
             - name: Ajouter des propriétaires et utilisateurs de laboratoires
               href: devtest-lab-add-devtest-user.md
             - name: Personnaliser les autorisations avec des rôles personnalisés
               href: devtest-lab-grant-user-permissions-to-specific-lab-policies.md
+            - name: Automatiser l’ajout d’un utilisateur de laboratoire
+              href: automate-add-lab-user.md
         - name: Configurer un laboratoire
           items:
             - name: Définir des stratégies et des planifications

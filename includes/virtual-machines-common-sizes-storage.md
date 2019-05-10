@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/17/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 17806abe60236a9c9face1ee16e1d9982975fff6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: fb829cc5f1eef9c151a70a6479e419076e1c3b24
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64734699"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65509840"
 ---
 Les tailles de machines virtuelles à stockage optimisé offrent un débit de disque et d’E/S élevé. Elles sont idéales pour les bases de données Big Data, SQL, NoSQL ainsi que pour l’entreposage de données et les grandes bases de données transactionnelles.  Cassandra, MongoDB, Cloudera et Redis en sont des exemples. Cet article fournit des informations sur le nombre de processeurs virtuels, de disques de données et de cartes réseau ainsi que sur le débit de stockage local et la bande passante réseau pour chaque taille optimisée.
 
@@ -40,8 +40,8 @@ Mise en cache de stockage Premium : Non pris en charge
 | Standard_L8s_v2   |  8 |  64 |  80 |  1 x 1,92 To  | 400,000 / 2,000 | 8,000/160 | 16 | 2 / 3 200  | 
 | Standard_L16s_v2  | 16 | 128 | 160 |  2 x 1,92 To  | 800,000 / 4,000 | 16,000/320 | 32 | 4 / 6 400  | 
 | Standard_L32s_v2  | 32 | 256 | 320 |  4 x 1,92 To  | 1,5 M / 8 000    | 32,000/640 | 32 | 8 / 12 800 | 
-| Standard_L64s_v2  | 64 | 512 | 640 |  8 x 1,92 To  | 2.9 M / 16 000   | 64,000/1,280 | 32 | 8 / 25 600 |
-| Standard_L80s_v2  | 80 | 640 | 800 | 10 x 1,92 To   | 3.8 M / 20 000   | 80,000/1,400 | 32 | 8 / 32 000 |
+| Standard_L64s_v2  | 64 | 512 | 640 |  8 x 1,92 To  | 2.9 M / 16 000   | 64,000/1,280 | 32 | 8 / 16,600+ |
+| Standard_L80s_v2  | 80 | 640 | 800 | 10 x 1,92 To   | 3.8 M / 20 000   | 80,000/1,400 | 32 | 8 / 16,000+ |
 
 <sup>1</sup> Les machines virtuelles de la série Lsv2 disposent d’un disque de ressources temporaire SCSI standard pour l’utilisation du fichier d’échange du système d’exploitation (D: sur Windows, /dev/sdb sur Linux). Ce disque offre un stockage de 80 Gio, 4 000 IOPS et un taux de transfert de 80 MBit/s pour 8 processeurs virtuels (par exemple, Standard_L80s_v2 fournit 800 Gio à 40 000 IOPS et 800 MBit/s). Ainsi, les lecteurs NVMe peuvent être entièrement dédiés à l’utilisation d’applications. Ce disque est éphémère, et toutes les données seront perdues lors de l'arrêt/la libération.
 

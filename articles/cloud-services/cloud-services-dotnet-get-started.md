@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: jeconnoc
-ms.openlocfilehash: a2eff2ca2e72ad263e3e23d0827e7603bca3fdcb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 68801f888df55924791188a3f4ff5b718798c9f3
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60520913"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510568"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Prise en main des services cloud Azure et d'ASP.NET
 
@@ -36,7 +36,7 @@ L'application est un panneau d'affichage publicitaire. Les utilisateurs créent 
 L'application utilise le [modèle de travail centré sur les files d'attente](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) pour décharger le travail de création de vignettes exigeant en ressources vers un processus principal.
 
 ## <a name="alternative-architecture-app-service-and-webjobs"></a>Autre architecture : App Service et WebJobs
-Ce didacticiel indique comment exécuter le composant frontal et le composant principal dans un service cloud Azure. Une alternative consiste à exécuter le front-end dans [Azure App Service](/azure/app-service/) et à utiliser la fonctionnalité [WebJobs](https://go.microsoft.com/fwlink/?LinkId=390226) pour le back-end. Pour un didacticiel qui utilise Tâches web, reportez-vous à la section [Prise en main du Kit de développement logiciel (SDK) Azure Tâches web](https://github.com/Azure/azure-webjobs-sdk/wiki). Pour plus d’informations sur le choix des meilleurs services pour votre scénario, reportez-vous à la rubrique [Comparaison entre Azure App Service, Azure Cloud Services et Machines virtuelles Azure](../app-service/overview-compare.md).
+Ce didacticiel indique comment exécuter le composant frontal et le composant principal dans un service cloud Azure. Une alternative consiste à exécuter le front-end dans [Azure App Service](/azure/app-service/) et à utiliser la fonctionnalité [WebJobs](https://go.microsoft.com/fwlink/?LinkId=390226) pour le back-end. Pour un didacticiel qui utilise Tâches web, reportez-vous à la section [Prise en main du Kit de développement logiciel (SDK) Azure Tâches web](https://github.com/Azure/azure-webjobs-sdk/wiki). Pour plus d’informations sur le choix des meilleurs services pour votre scénario, reportez-vous à la rubrique [Comparaison entre Azure App Service, Azure Cloud Services et Machines virtuelles Azure](/azure/architecture/guide/technology-choices/compute-decision-tree).
 
 ## <a name="what-youll-learn"></a>Ce que vous allez apprendre
 * configurer votre ordinateur pour le développement Azure en installant le Kit de développement logiciel (SDK) Azure ;

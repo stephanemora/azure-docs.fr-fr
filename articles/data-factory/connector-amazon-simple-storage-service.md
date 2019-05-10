@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: ca764c7e78f6ffe221386d1d320582e394d0a78a
-ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.openlocfilehash: fcc867b1c4d1a995cd53233a814a999ae56efae7
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64875875"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65232451"
 ---
 # <a name="copy-data-from-amazon-simple-storage-service-using-azure-data-factory"></a>Copie de données d’Amazon Simple Storage Service à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -242,10 +242,10 @@ Pour copier des données d’Amazon S3 dans **Parquet ou format de texte délimi
 | wildcardFileName         | Le nom de fichier avec des caractères génériques sous le compartiment donné + folderPath/wildcardFolderPath pour filtrer les fichiers source. <br>Les caractères génériques autorisés sont : `*` (correspond à zéro ou plusieurs caractères) et `?` (correspond à zéro ou un caractère) ; utilisez `^` en guise d’échappement si votre nom de dossier contient effectivement ce caractère d’échappement ou générique.  Consultez d’autres exemples dans les [exemples de filtre de dossier et de fichier](#folder-and-file-filter-examples). | Oui, si `fileName` dans le jeu de données et `prefix` ne sont pas spécifiés |
 | modifiedDatetimeStart    | Filtre de fichiers en fonction de l’attribut : Dernière modification. Les fichiers seront sélectionnés si leur heure de dernière modification se trouve dans l’intervalle de temps situé entre `modifiedDatetimeStart` et `modifiedDatetimeEnd`. L’heure est appliquée au fuseau horaire UTC au format « 2018-12-01T05:00:00Z ». <br> Les propriétés peuvent être Null, ce qui signifie qu’aucun filtre d’attribut de fichier n’est appliqué au jeu de données.  Lorsque `modifiedDatetimeStart` a une valeur DateHeure, mais que `modifiedDatetimeEnd` est NULL, cela signifie que les fichiers dont l’attribut de dernière modification est supérieur ou égal à la valeur DateHeure sont sélectionnés.  Lorsque `modifiedDatetimeEnd` a une valeur DateHeure, mais que `modifiedDatetimeStart` est NULL, cela signifie que les fichiers dont l’attribut de dernière modification est inférieur à la valeur DateHeure sont sélectionnés. | Non                                                           |
 | modifiedDatetimeEnd      | Identique à ce qui précède.                                               | Non                                                           |
-| maxConcurrentConnections | Nombre de connexions pour se connecter au magasin de stockage simultanément. Spécifiez uniquement lorsque vous souhaitez limiter les connexions simultanées au magasin de données. | Non                                                           |
+| maxConcurrentConnections | Nombre de connexions pour se connecter au magasin de stockage simultanément. Spécifiez uniquement lorsque vous souhaitez limiter les connexions simultanées au magasin de données. | Non                                                          |
 
 > [!NOTE]
-> Pour Parquet/texte délimité par des **FileSystemSource** source d’activité de copie type mentionné dans la section suivante est toujours prise en charge-concerne pour la compatibilité descendante. Il est recommandé d’utiliser ce nouveau modèle à l’avenir et ADF création de l’interface utilisateur est passée à la génération de ces nouveaux types.
+> Pour Parquet/texte délimité par des **FileSystemSource** source d’activité de copie type mentionné dans la section suivante est toujours prise en charge-concerne la compatibilité descendante. Il est recommandé d’utiliser ce nouveau modèle à l’avenir et ADF création de l’interface utilisateur est passée à la génération de ces nouveaux types.
 
 **Exemple :**
 

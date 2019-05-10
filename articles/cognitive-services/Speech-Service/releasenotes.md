@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: 1310ecd15498c4c319febc87cbc3b18e0a7ca524
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: fa722d749ec27a72a8be3bf8fcfd8097a1404458
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65020336"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65465599"
 ---
 # <a name="release-notes"></a>Notes de publication
 
@@ -24,7 +24,7 @@ ms.locfileid: "65020336"
 
 **Nouvelles fonctionnalités**
 
-* Mot clé de la détection de fonctionnalité (KWS) est disponible pour Windows et Linux. Les fonctionnalités KWS peuvent fonctionnent avec n’importe quel type de microphone, officielle KWS prennent en charge, toutefois, est limité aux tableaux microphone figurant actuellement dans le matériel Azure Kinect DK ou les appareils de Speech SDK.
+* Fonctionnalités de word (mot clé spotting/KWS) de mise en éveil est désormais disponible pour Windows et Linux. Les fonctionnalités KWS peuvent fonctionnent avec n’importe quel type de microphone, officielle KWS prennent en charge, toutefois, est limité aux tableaux microphone figurant actuellement dans le matériel Azure Kinect DK ou les appareils de Speech SDK.
 * Fonctionnalités d’indicateur de phrase sont disponible via le Kit de développement. Vous pourrez trouver plus d’informations [ici](how-to-phrase-lists.md).
 * Fonctionnalités de transcription de conversation sont disponible via le Kit de développement. Voir [ici](conversation-transcription-service.md).
 * Ajouter la prise en charge pour les assistants virtuels de voix en premier en utilisant le canal Direct vocale de ligne.
@@ -58,7 +58,7 @@ Il s’agit d’une version JavaScript uniquement. Aucune fonctionnalité n’a 
 **Nouvelles fonctionnalités** 
 
 * Le Kit de développement logiciel prend désormais en charge le service de synthèse vocale comme une version bêta. Il est pris en charge sur Windows et Linux Desktop à partir de C++ et C#. Pour plus d’informations, consultez le [vue d’ensemble de synthèse vocale](text-to-speech.md#get-started-with-text-to-speech).
-* Le Kit de développement logiciel prend désormais en charge les fichiers audio MP3 et Opus/Ogg en tant que fichiers d’entrée de flux de données. Cette fonctionnalité est uniquement disponible sur Linux à partir de C++ et C# et est actuellement en version bêta (plus de détails [ici](how-to-use-compressed-audio-input-streams.md)).
+* Le Kit de développement logiciel prend désormais en charge les fichiers audio MP3 et Opus/OGG en tant que fichiers d’entrée de flux de données. Cette fonctionnalité est uniquement disponible sur Linux à partir de C++ et C# et est actuellement en version bêta (plus de détails [ici](how-to-use-codec-compressed-audio-input-streams.md)).
 * Le Speech SDK pour Java, .NET core, C++ et Objective-C ont acquis une prise en charge de macOS. La prise en charge de Objective-C pour macOS est actuellement en version bêta.
 * iOS : Le Speech SDK pour iOS (Objective-C) est désormais également publié avec un CocoaPod.
 * JavaScript : Prise en charge de microphone non définis par défaut comme périphérique d’entrée.

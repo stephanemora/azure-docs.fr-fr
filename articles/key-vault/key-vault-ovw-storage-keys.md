@@ -4,21 +4,21 @@ description: Les clés de compte de stockage assurent une intégration transpare
 ms.topic: conceptual
 services: key-vault
 ms.service: key-vault
-author: mbaldwin
+author: msmbaldwin
 ms.author: mbaldwin
 manager: barbkess
 ms.date: 03/01/2019
-ms.openlocfilehash: eefdb4d644c97bb55342e21c9a2fcf0a122a6ec5
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 190375700f65cf2d3ea47335a646562eb46b2d49
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64724776"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65232559"
 ---
 # <a name="azure-key-vault-managed-storage-account---cli"></a>Compte de stockage managé Azure Key Vault – CLI
 
 > [!NOTE]
-> [L’intégration du stockage Azure avec Azure Active Directory (Azure AD) est désormais disponible en préversion](https://docs.microsoft.com/azure/storage/common/storage-auth-aad). Nous recommandons d’utiliser Azure AD pour l’authentification et l’autorisation, offrant un accès au stockage Azure via un jeton OAuth2, à l’instar d’Azure Key Vault. Vous pouvez ainsi :
+> [Intégration du stockage azure avec Azure Active Directory (Azure AD)] est identités et des accès gestion des services de cloud computing de Microsoft. Intégration d’Azure AD est disponible pour les services Blob et file d’attente. (https://docs.microsoft.com/azure/storage/common/storage-auth-aad). Nous recommandons d’utiliser Azure AD pour l’authentification et l’autorisation, offrant un accès au stockage Azure via un jeton OAuth2, à l’instar d’Azure Key Vault. Vous pouvez ainsi :
 > - Authentifier votre application cliente en utilisant une identité d’application ou d’utilisateur plutôt que les informations d’identification du compte de stockage. 
 > - Utiliser une [identité Azure AD managée](/azure/active-directory/managed-identities-azure-resources/) lors de l’exécution sur Azure. Les identités managées suppriment totalement l’authentification du client ainsi que le stockage des informations d’identification dans ou avec votre application.
 > - Utiliser le contrôle d’accès en fonction du rôle (RBAC) pour gérer les autorisations, ce qui est également pris en charge par Key Vault.

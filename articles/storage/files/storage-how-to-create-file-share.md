@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/19/2017
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 6440e5c2cf534ea431387bcdfed8b218919bf627
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: d945d5b79c274aa8e142203c56b27eb673e36741
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64701535"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510514"
 ---
 # <a name="create-a-file-share-in-azure-files"></a>Créer un partage de fichiers dans Azure Files
 Vous pouvez créer des partages de fichiers Azure à l’aide du  [portail Azure](https://portal.azure.com/), des applets de commande PowerShell du Stockage Azure, des bibliothèques clientes du Stockage Azure ou de l’API REST du Stockage Azure. Ce tutoriel vous apprendra à effectuer les opérations suivantes :
@@ -73,7 +73,7 @@ Pour vous préparer à utiliser PowerShell, téléchargez et installez les apple
     Remplacez  ```<storage-account>``` et  ```<resource_group>```  par le nom de votre compte de stockage et le groupe de ressources de l’exemple suivant :
 
    ```azurecli
-    current_env_conn_string = $(az storage account show-connection-string -n <storage-account> -g <resource-group> --query 'connectionString' -o tsv)
+    current_env_conn_string=$(az storage account show-connection-string -n <storage-account> -g <resource-group> --query 'connectionString' -o tsv)
 
     if [[ $current_env_conn_string == "" ]]; then  
         echo "Couldn't retrieve the connection string."

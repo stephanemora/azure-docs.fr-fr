@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bbebbeaad681618e8420ad842ec370ce62bc9eba
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b3517f90d97a19740f5be8c2a755532d305522d7
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64570838"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65228167"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Questions fréquentes relatives à Azure Multi-Factor Authentication
 
@@ -146,11 +146,11 @@ Si votre organisation ne comporte pas de clients hérités, vous ne devez pas au
 
 **Q : Mes utilisateurs disent que parfois ils ne reçoivent pas de SMS, ou qu’ils répondent à des SMS bidirectionnels, mais que la vérification a expiré.**
 
-La remise de SMS et la réception de réponses à des SMS bidirectionnels ne sont pas garanties, en raison de facteurs incontrôlables susceptibles d’affecter la fiabilité du service. Sont notamment en cause le pays de destination, l’opérateur de téléphonie mobile et la puissance du signal.
+La remise de SMS et la réception de réponses à des SMS bidirectionnels ne sont pas garanties, en raison de facteurs incontrôlables susceptibles d’affecter la fiabilité du service. Ces facteurs incluent le pays/région de destination, l’opérateur de téléphonie mobile et la puissance du signal.
 
 Si vos utilisateurs ont souvent des problèmes liés à la fiabilité de la réception des SMS, indiquez leur d’utiliser plutôt l’application mobile ou l’appel téléphonique. L’application mobile peut recevoir des notifications à la fois sur des connexions cellulaires et Wi-Fi. En outre, l’application mobile peut générer des codes de vérification même si l’appareil n’a aucun signal. L’application Microsoft Authenticator est disponible pour [Android](https://go.microsoft.com/fwlink/?Linkid=825072), [IOS](https://go.microsoft.com/fwlink/?Linkid=825073), et [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071).
 
-Si vous devez utiliser des messages texte, nous vous recommandons d’utiliser des SMS unidirectionnels plutôt que bidirectionnels dans la mesure du possible. Le SMS unidirectionnel est plus fiable et évite aux utilisateurs des frais de SMS internationaux en cas de réponse à un message envoyé à partir d’un autre pays.
+Si vous devez utiliser des messages texte, nous vous recommandons d’utiliser des SMS unidirectionnels plutôt que bidirectionnels dans la mesure du possible. SMS unidirectionnel est plus fiable et il empêche les utilisateurs d’encourir des frais de SMS à partir de la réponse à un message texte qui a été envoyé à partir d’un autre pays/région.
 
 **Q : Puis-je changer le délai d’expiration du système quand mes utilisateurs doivent entrer le code de vérification à partir d’un SMS ?**
 

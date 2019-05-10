@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c2701222df2649ea3de7f15fbffc0c8b62ba0efa
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 69dac57118d7876ba08a562f5478b19465b37e07
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65157187"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65441473"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-braze"></a>Didacticiel : Intégration d'Azure Active Directory à Braze
 
@@ -228,7 +228,7 @@ Le fait de cliquer sur la vignette Braze dans le panneau d’accès doit vous co
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
