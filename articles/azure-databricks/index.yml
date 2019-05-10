@@ -8,7 +8,7 @@ metadata:
   author: mamccrea
   ms.service: azure-databricks
   ms.topic: landing-page
-  ms.date: 03/19/2018
+  ms.date: 05/07/2019
   ms.author: mamccrea
 abstract:
   description: 'Découvrez comment utiliser Azure Databricks, plateforme d’analytique basée sur Apache Spark et installée en un seul clic qui offre des workflows rationalisés et un espace de travail interactif permettant aux scientifiques des données, ingénieurs des données et analystes métier de collaborer. Les guides de démarrage rapide et les tutoriels vous montrent comment bien démarrer avec Azure Databricks et l’intégrer à d’autres services Azure.'
@@ -37,6 +37,10 @@ sections:
               src: /azure/azure-databricks/media/index/logo_azure_resource_manager.svg
             text: Modèle Resource Manager
             href: /azure/azure-databricks/quickstart-create-databricks-workspace-resource-manager-template
+          - image:
+              src: /azure/azure-databricks/media/index/virtualnetwork.svg
+            text: Réseau virtuel
+            href: /azure/azure-databricks/quickstart-create-databricks-workspace-vnet-injection
   - title: Didacticiels pas à pas
     items:
       - type: paragraph
@@ -44,6 +48,8 @@ sections:
       - type: list
         style: ordered
         items:
+          - html: <a href="/azure/azure-databricks/vnet-injection-sql-server">Interroger SQL Server exécuté dans un conteneur Docker</a>
+          - html: <a href="/azure/azure-databricks/service-endpoint-cosmosdb">Utiliser un point de terminaison du service Cosmos DB</a>
           - html: '<a href="/azure/azure-databricks/databricks-extract-load-sql-data-warehouse">Extraire, transformer et charger des données</a>'
           - html: <a href="/azure/azure-databricks/databricks-stream-from-eventhubs">Diffuser en continu des données depuis Event Hubs</a>
           - html: <a href="/azure/azure-databricks/databricks-sentiment-analysis-cognitive-services">Analyse des sentiments à l’aide de Cognitive Services</a>
@@ -56,3 +62,5 @@ sections:
         items:
           - title: REST
             html: <p><a href="/rest/api/databricks">API REST</a></p>
+          - title: Gestionnaire de ressources
+            html: <p><a href="/azure/templates/microsoft.databricks/workspaces">Modèle</a></p>

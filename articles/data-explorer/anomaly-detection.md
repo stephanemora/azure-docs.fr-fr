@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/24/2019
-ms.openlocfilehash: 934dfd3334b6f433c7acdf9816a3fb5e24f0430f
-ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.openlocfilehash: f40350129a12c7865051bcae80b74b6f9c069179
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64872004"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233524"
 ---
 # <a name="anomaly-detection-and-forecasting-in-azure-data-explorer"></a>Détection d’anomalies et les prévisions dans l’Explorateur de données Azure
 
@@ -119,7 +119,7 @@ demo_make_series2
 
 ## <a name="summary"></a>Résumé
 
-Ce document décrit en détail des fonctions natives de l’Explorateur de données Azure pour la détection des anomalies de série chronologique et prévision, ce qui améliore considérablement le modèle de décomposition de base sur lequel il est basé. Chaque série chronologique d’origine est décomposé, anomalies détectées, et les prévisions effectuées. Temps série d’anomalie de détection et de la prévision de fonctionnalités servent à près de scénarios d’analyse en temps réel, telles que la détection des erreurs, la maintenance prédictive et à la demande et de prévision de charge.
+Ce document décrit en détail des fonctions natives de l’Explorateur de données Azure pour la détection des anomalies de série chronologique et prévision. Chaque série chronologique d’origine est décomposé en composantes saisonnières, de tendance et résiduel pour détecter des anomalies et/ou de prévision. Ces fonctionnalités peuvent être utilisées pour près des scénarios d’analyse en temps réel, telles que la détection des erreurs, la maintenance prédictive et à la demande et de prévision de charge.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

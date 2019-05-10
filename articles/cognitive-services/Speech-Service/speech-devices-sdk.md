@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: ca3f537ed52da547f64aa1fb98eb82c4ea73d81d
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 5f3b0094834b1ca547ba5ddf9726068c9ea36079
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65021418"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409103"
 ---
 # <a name="about-the-speech-devices-sdk"></a>À propos du kit de développement logiciel (SDK) de dispositifs vocaux
 
@@ -32,7 +32,7 @@ Le SDK Speech Devices consomme le [SDK Speech](speech-sdk.md). Elle utilise le S
 
 Vous pouvez également utiliser le Kit de développement de périphériques vocale pour générer ambiantes appareils sur lesquels votre propre [personnalisé de mise en éveil word](speech-devices-sdk-create-kws.md) afin de la file d’attente lance une interaction utilisateur est unique pour votre marque.
 
-Les appareils de Speech SDK facilite une variété de scénarios vocales, tel que [personnalisé voix en premier les Assistants virtuel](https://aka.ms/sdsdk-assistant), lecteur-par le biais de classement des systèmes, [transcription de conversation](conversation-transcription-service.md)et intelligent intervenants. Vous pouvez répondre aux utilisateurs avec du texte, leur répondre en utilisant la voix par défaut ou une [voix personnalisée](how-to-customize-voice-font.md), fournir des résultats de recherche, [traduire](speech-translation.md) dans d’autres langues, et bien plus encore. Nous avons hâte de découvrir vos créations !
+Les appareils de Speech SDK facilite une variété de scénarios vocales, tel que [personnalisé voix en premier les Assistants virtuel](https://aka.ms/bots/speech/va), lecteur-par le biais de classement des systèmes, [transcription de conversation](conversation-transcription-service.md)et intelligent intervenants. Vous pouvez répondre aux utilisateurs avec du texte, leur répondre en utilisant la voix par défaut ou une [voix personnalisée](how-to-customize-voice-font.md), fournir des résultats de recherche, [traduire](speech-translation.md) dans d’autres langues, et bien plus encore. Nous avons hâte de découvrir vos créations !
 
 ## <a name="next-steps"></a>Étapes suivantes
 

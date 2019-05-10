@@ -10,12 +10,12 @@ ms.author: robreed
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: da746d80e3ae1fa5cc02683a8bb0ff0402722b8e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 926629660c9593c59362bd1bc49c5115ac5e3187
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61071464"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65441054"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Vue d’ensemble d’Azure Automation State Configuration
 
@@ -81,6 +81,16 @@ Si vos nœuds sont situés dans un réseau privé, le port et les URL suivantes 
 * URL globale : *.azure-automation.net
 * URL globale d’US Gov Virginie : *.azure-automation.us
 * Service de l’agent : https://\<ID_espace_de_travail\>.agentsvc.azure-automation.net
+
+#### <a name="proxy-support"></a>Prise en charge du proxy
+
+Prise en charge de proxy pour l’agent DSC est disponible dans Windows version 1809 et versions ultérieure.
+Pour configurer cette option, affectez la valeur de **ProxyURL** et **ProxyCredential** dans le [métaconfiguration script](automation-dsc-onboarding.md#generating-dsc-metaconfigurations) utilisé pour enregistrer des nœuds.
+Proxy n’est pas disponible dans DSC pour les versions précédentes de Windows.
+
+Pour les nœuds Linux, l’agent DSC prend en charge de proxy et utilisera la variable http_proxy pour déterminer l’url.
+
+#### <a name="azure-state-configuration-network-ranges-and-namespace"></a>Espace de noms et les plages de réseau de Configuration état azure
 
 Il est recommandé d’utiliser les adresses répertoriées lors de la définition des exceptions. Pour les adresses IP, vous pouvez télécharger les [Plages d’adresses IP du centre de données Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653). Ce fichier, qui est mis à jour chaque semaine, possède les plages actuellement déployées et tous les changements à venir des plages d’adresses IP.
 

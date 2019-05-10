@@ -14,16 +14,16 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: harijay
-ms.openlocfilehash: c6611c75e61f7e381efd2e437b8281cc70601215
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 31811d3d48f791e11bd6b709f59f5f6aaa18be0e
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65141059"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65442116"
 ---
 # <a name="azure-serial-console-for-windows"></a>Console série Azure pour Windows
 
-La Console série dans le portail Azure fournit l’accès à une console basée sur le texte pour les machines virtuelles Windows (VM) et les instances (machines virtuelles identiques) de machines virtuelles identiques. Cette connexion série se connecte au port série COM1 de la machine virtuelle ou d’une instance de jeu de machines virtuelles identiques, fournissant un accès aux indépendamment de l’état du système d’exploitation ou du réseau. La console série est uniquement accessible à l’aide du portail Azure et est autorisée uniquement pour les utilisateurs qui ont un rôle de contributeur d’accès supérieur ou égal au jeu de mise à l’échelle de machine virtuelle ou une machine virtuelle.
+La Console série dans le portail Azure fournit l’accès à une console basée sur le texte pour les machines virtuelles Windows (VM) et les instances de machines virtuelles identiques. Cette connexion série se connecte au port série COM1 de la machine virtuelle ou d’une instance de jeu de machines virtuelles identiques, fournissant un accès aux indépendamment de l’état du système d’exploitation ou du réseau. La console série est uniquement accessible à l’aide du portail Azure et est autorisée uniquement pour les utilisateurs qui ont un rôle de contributeur d’accès supérieur ou égal au jeu de mise à l’échelle de machine virtuelle ou une machine virtuelle.
 
 Console série fonctionne de la même manière pour les machines virtuelles et instances de machines virtuelles identiques. Dans ce document, toutes les mentions aux machines virtuelles inclura implicitement les instances de machines virtuelles identiques, sauf indication contraire.
 

@@ -1,0 +1,30 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentation Open Datasets Preview
+metadata:
+  title: "Documentation Azure Open Datasets Preview - Tutoriels, informations de référence sur les API | Microsoft\_Docs"
+  description: 'Découvrez comment utiliser Azure Open Datasets, les données organisées et nettoyées à utiliser avec un minimum de préparation. Les jeux de données ouverts rassemblent des données publiques (météo, congés, etc.) permettant d''enrichir les modèles de Machine Learning. Des didacticiels, exemples et documents de référence sur les API vous expliquent comment procéder.'
+  ms.service: open-datasets
+  ms.topic: landing-page
+  author: cjgronlund
+  ms.author: cgronlun
+  ms.date: 05/02/2019
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+abstract:
+  description: 'Découvrez comment utiliser Azure Open Datasets, les données organisées et nettoyées à utiliser avec un minimum de préparation. Les jeux de données ouverts englobent des données publiques (météo, congés, etc.) permettant d''enrichir les modèles de Machine Learning. Des didacticiels, exemples et documents de référence sur les API vous expliquent comment procéder.'
+sections:
+  - title: Tutoriel pas à pas
+    items:
+      - type: paragraph
+        text: <a href="tutorial-opendatasets-automl">Créer un modèle de régression avec Machine Learning automatisé</a>
+  - title: Exemples
+    items:
+      - type: paragraph
+        text: <a href="samples">Notebooks pour enrichir les jeux de données</a>
+  - title: Informations de référence
+    items:
+      - type: list
+        style: unordered
+        items:
+          - html: '<a href="https://aka.ms/open-datasets-api">Informations de référence sur l''API</a>'

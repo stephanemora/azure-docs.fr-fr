@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: raynew
-ms.openlocfilehash: 62ad2e2b294a0589c9d52ddbce1339b8d55062e4
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
-ms.translationtype: HT
+ms.openlocfilehash: 10af40a1f671d5871204ff465395c8c3619671f7
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60149034"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65232492"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Sauvegarder et restaurer des machines virtuelles Azure avec PowerShell
 
@@ -61,7 +61,7 @@ Pour commencer :
 3. Connectez-vous à votre compte Azure à l'aide de **Connect-AzAccount**. Cette applet de commande permet d’afficher une page web qui vous demande les informations d’identification de votre compte :
 
     * Vous pouvez également inclure les informations d'identification de votre compte en tant que paramètre dans la cmdlet **Connect-AzAccount** à l'aide du paramètre **-Credential**.
-    * Si vous êtes partenaire CSP travaillant pour le compte d’un locataire, spécifiez le client en tant que locataire à l’aide de son ID locataire ou de son nom de domaine principal. Par exemple :  **Connect-AzAccount -Tenant "fabrikam.com"**
+    * Si vous êtes partenaire CSP travaillant pour le compte d’un locataire, spécifiez le client en tant que locataire à l’aide de son ID locataire ou de son nom de domaine principal. Exemple : **Connect-AzAccount -Tenant "fabrikam.com"**
 
 4. Associez l’abonnement que vous souhaitez utiliser avec le compte, car un compte peut compter plusieurs abonnements :
 
@@ -102,7 +102,7 @@ Les étapes suivantes vous montrent comment créer un coffre Recovery Services. 
 
     ```powershell
     $vault1 = Get-AzRecoveryServicesVault -Name "testvault"
-    Set-AzRecoveryServicesBackupProperties  -Vault $vault1 -BackupStorageRedundancy GeoRedundant
+    Set-AzRecoveryServicesBackupProperty  -Vault $vault1 -BackupStorageRedundancy GeoRedundant
     ```
 
    > [!TIP]
@@ -145,11 +145,11 @@ Get-AzRecoveryServicesVault -Name "testvault" | Set-AzRecoveryServicesVaultConte
 
 ### <a name="modifying-storage-replication-settings"></a>Modification des paramètres de réplication de stockage
 
-Utilisez [Set-AzRecoveryServicesBackupProperties](https://docs.microsoft.com/powershell/module/az.recoveryservices/Set-AzRecoveryServicesBackupProperties?view=azps-1.6.0) commande pour définir la configuration de réplication de stockage du coffre sur LRS/GRS
+Utilisez [Set-AzRecoveryServicesBackupProperty](https://docs.microsoft.com/powershell/module/az.recoveryservices/Set-AzRecoveryServicesBackupProperty) commande pour définir la configuration de réplication de stockage du coffre sur LRS/GRS
 
 ```powershell
 $vault= Get-AzRecoveryServicesVault -name "testvault"
-Set-AzRecoveryServicesBackupProperties -Vault $vault -BackupStorageRedundancy GeoRedundant/LocallyRedundant
+Set-AzRecoveryServicesBackupProperty -Vault $vault -BackupStorageRedundancy GeoRedundant/LocallyRedundant
 ```
 
 > [!NOTE]

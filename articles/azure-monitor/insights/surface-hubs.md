@@ -1,5 +1,5 @@
 ---
-title: Effectuer le monitoring de hubs Surface Hub avec Azure Monitor | Microsoft Docs
+title: Surveiller les Surface Hubs avec Azure Monitor | Microsoft Docs
 description: La solution Surface Hub permet de suivre l’intégrité de vos Surface Hubs et de comprendre comment ils sont utilisés.
 services: log-analytics
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: magoedte
-ms.openlocfilehash: 902cf62e53581785caf2730f63af3633d8e1e498
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7e0dbb4c3cd8ae4bb552e7b7f0748f1bde2f51de
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60596277"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65232788"
 ---
 # <a name="monitor-surface-hubs-with-azure-monitor-to-track-their-health"></a>Effectuer le monitoring de hubs Surface Hub avec Azure Monitor pour suivre leur intégrité
 
@@ -38,7 +38,7 @@ Vous allez ensuite ajouter un espace de travail Log Analytics existant ou en cr�
 * automatiquement via Intune ;
 * manuellement, via les **Paramètres** de votre appareil Surface Hub.
 
-## <a name="set-up-monitoring"></a>Configurez l’analyse
+## <a name="set-up-monitoring"></a>Paramétrer l'analyse
 Vous pouvez effectuer le monitoring de l’intégrité et de l’activité de Surface Hub avec Azure Monitor. Vous pouvez inscrire le Surface Hub via Intune, ou localement via les **Paramètres** du Surface Hub.
 
 ## <a name="connect-surface-hubs-to-azure-monitor-through-intune"></a>Connecter des hubs Surface Hub à Azure Monitor avec Intune

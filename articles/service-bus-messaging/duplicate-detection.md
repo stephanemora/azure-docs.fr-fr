@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: c419ee1eec9e451cad835d8b4a56818101dc853a
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: d9f814a49924ca95078f3b3decca4f3922c74c2b
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62120855"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65413655"
 ---
 # <a name="duplicate-detection"></a>Détection des doublons
 
@@ -36,7 +36,10 @@ Pour un processus métier dans lequel plusieurs messages sont envoyés durant le
 
 *MessageId* peut aussi être un GUID, mais associer l’identificateur au processus métier offre l’avantage de fournir une répétabilité prévisible, ce qui permet de tirer pleinement parti de la fonctionnalité de détection des doublons.
 
-## <a name="enable-duplicate-detection"></a>Activer la détection des doublons
+> [!NOTE]
+> Si la détection des doublons est activée et la clé de partition ou des ID de session ne sont pas définies, l’ID de message est utilisé comme clé de partition. Si l’ID de message n’est pas également défini, les bibliothèques .NET et AMQP génèrent automatiquement un ID de message pour le message. Pour plus d’informations, consultez [utilisation de clés de partition](service-bus-partitioning.md#use-of-partition-keys).
+
+## <a name="enable-duplicate-detection"></a>Activer la détection dupliquée
 
 Dans le portail, activez la fonctionnalité au moment de la création de l’entité en cochant la case **Activer la détection dupliquée**, qui est désélectionnée par défaut. Utilisez le même paramètre pour les rubriques que vous créez.
 

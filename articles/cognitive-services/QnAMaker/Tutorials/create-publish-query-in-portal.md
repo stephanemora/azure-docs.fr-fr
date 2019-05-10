@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: tutorial
-ms.date: 04/08/2019
+ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 299dd61055503f0b5a11cbe97e137e4760edadda
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 85f8643a0936209c8f280498df92555a7b40c533
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59266937"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65149930"
 ---
 # <a name="tutorial-from-qna-maker-portal-create-a-knowledge-base"></a>Didacticiel : Dans le portail QnA Maker, créer une base de connaissances
 
@@ -68,7 +68,7 @@ Ce tutoriel nécessite un [service QnA Maker](../How-To/set-up-qnamaker-service-
     |--|--|--|
     |URL|`https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs` |Le contenu de la FAQ à cette URL est mis en forme avec une question suivie d’une réponse. QnA Maker peut interpréter ce format pour extraire les questions et les réponses associées.|
     |Fichier |_non utilisé dans ce tutoriel_|Cela télécharge les fichiers des questions et réponses. |
-    |Personnalité d’échanges de conversation|L’ami|Cela donne une personnalité amicale et décontractée aux questions et réponses communes. Vous pouvez modifier ces questions et réponses plus tard. |
+    |Personnalité d’échanges de conversation|Convivial|Cela donne une personnalité amicale et décontractée aux questions et réponses communes. Vous pouvez modifier ces questions et réponses plus tard. |
 
     ![Étape 4 du processus de création de la base de connaissances](../media/qnamaker-tutorial-create-publish-query-in-portal/create-kb-step-4.png)
 
@@ -84,9 +84,9 @@ Ce tutoriel nécessite un [service QnA Maker](../How-To/set-up-qnamaker-service-
 
 1. Sélectionnez la dernière page de questions et réponses à partir du bas de la table. La page affiche les questions et réponses de la personnalité d’échanges de conversation. 
 
-1. Sélectionnez l’icône de métadonnées dans la barre d’outils au-dessus de la liste de questions et réponses. Des balises de métadonnées apparaissent alors pour chaque question et réponse. Les questions d’échanges de conversation ont les métadonnées **editorial: chit-chat** déjà définies. Ces métadonnées sont retournées à l’application cliente avec la réponse sélectionnée. L’application cliente, par exemple un bot conversationnel, peut utiliser ces métadonnées filtrées pour déterminer un traitement ou des interactions supplémentaires avec l’utilisateur.
+1. Dans la barre d’outils au-dessus de la liste des questions et réponses, sélectionnez l’icône **Afficher les options**, puis **Afficher les métadonnées**. Des balises de métadonnées apparaissent alors pour chaque question et réponse. Les questions d’échanges de conversation ont les métadonnées **editorial: chit-chat** déjà définies. Ces métadonnées sont retournées à l’application cliente avec la réponse sélectionnée. L’application cliente, par exemple un bot conversationnel, peut utiliser ces métadonnées filtrées pour déterminer un traitement ou des interactions supplémentaires avec l’utilisateur.
 
-    ![Afficher les balises de métadonnées](../media/qnamaker-tutorial-create-publish-query-in-portal/save-and-train-kb-chit-chat.png)
+    ![![View Metadata tags](../media/qnamaker-tutorial-create-publish-query-in-portal/save-and-train-kb-chit-chat.png)](../media/qnamaker-tutorial-create-publish-query-in-portal/save-and-train-kb-chit-chat.png#lightbox)
 
 1. Sélectionnez **Enregistrer et effectuer l’apprentissage** dans la barre de menus supérieure.
 

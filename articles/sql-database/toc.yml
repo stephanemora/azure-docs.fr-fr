@@ -462,6 +462,8 @@
           href: sql-database-managed-instance-create-vnet-subnet.md
         - name: Configurer un réseau virtuel et un sous-réseau existants pour une instance managée
           href: sql-database-managed-instance-configure-vnet-subnet.md
+        - name: Supprimer le sous-réseau après avoir supprimé l’instance managée
+          href: sql-database-managed-instance-delete-virtual-cluster.md
         - name: Configurer un système DNS personnalisé
           href: sql-database-managed-instance-custom-dns.md
         - name: Synchroniser la configuration du réseau

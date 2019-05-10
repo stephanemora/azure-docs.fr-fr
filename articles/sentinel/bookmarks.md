@@ -4,7 +4,7 @@ description: Cet article décrit comment utiliser les signets de chasse Sentinel
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: barbkess
+manager: rkarlin
 editor: ''
 ms.assetid: 320ccdad-8767-41f3-b083-0bc48f1eeb37
 ms.service: sentinel
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: 9a7ceeab6d2ad761752f778038692256bd87624b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b1a438b9645dbb37d852eb0092355850d816872d
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60596954"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65207472"
 ---
 # <a name="keep-track-of-data-during-hunting"></a>Suivi des données au cours de chasse
 
@@ -74,7 +74,7 @@ Vous pouvez également visualiser vos données marqué d’un signet, en cliquan
 
 Il existe plusieurs options pour afficher vos données avec signet dans le journal Analytique. 
 
-Le moyen le plus simple pour afficher les requêtes de signet, les résultats ou historique est en sélectionnant le signet voulu dans la **signets** table et utilisez les liens fournis dans le volet de détails. Options disponibles : 
+Le moyen le plus simple pour afficher les requêtes de signet, les résultats ou historique est en sélectionnant le signet voulu dans la **signets** table et utilisez les liens fournis dans le volet de détails. Les options sont les suivantes : 
 - Cliquez sur **afficher la requête** pour afficher la requête source dans le journal Analytique.  
 - Cliquez sur **afficher l’historique de signet** pour voir tous vos favoris les métadonnées, notamment : qui a effectué la mise à jour, les valeurs mises à jour et l’heure de la mise à jour. 
 

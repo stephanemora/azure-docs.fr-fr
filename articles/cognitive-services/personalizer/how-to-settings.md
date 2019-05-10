@@ -10,28 +10,34 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 05/07/2019
 ms.author: edjez
-ms.openlocfilehash: 0cd08e1191c68c57975d3e68648134925155e7f2
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: bce260d2a6b897d3e45b231df4eecd7ecb31ba31
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025596"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143258"
 ---
 # <a name="personalizer-settings"></a>Paramètres de Personalizer
 
 La configuration du service porte sur la façon dont le service traite les récompenses, la fréquence à laquelle le service effectue une exploration, la fréquence à laquelle le modèle est réentraîné et la quantité de données stockées.
 
+## <a name="create-personalizer-resource"></a>Créer une ressource Personalizer
+
 Créez une ressource Personalizer pour chaque boucle de rétroaction. 
+
+1. Connectez-vous au [portail Azure](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer). Le lien précédent vous amène vers la page **Créer** du service Personalizer. 
+1. Entrez le nom de votre service, puis sélectionnez un abonnement, un emplacement, un niveau tarifaire et un groupe de ressources.
+1. Sélectionnez la confirmation, puis **Créer**.
 
 ## <a name="configure-service-settings-in-the-azure-portal"></a>Configurer les paramètres du service dans le portail Azure
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [Portail Azure](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer).
 1. Recherchez votre ressource Personalizer. 
 1. Dans la section **Gestion des ressources**, sélectionnez **Paramètres**.
 
-    ![Connectez-vous au portail Azure. Recherchez votre ressource Personalizer. Dans la section Gestion des ressources, sélectionnez Paramètres.](media/settings/how-to-configure.png)
+    Avant de quitter le portail Azure, copiez l’une de vos clés de ressource à partir de la page **Clés**. Vous en aurez besoin pour utiliser le [SDK Personalizer](https://aka.ms/personalizer-dotnet-sdk-docs).
 
-### <a name="reward-settings-for-the-feedback-loop"></a>Paramètres de récompense pour la boucle de rétroaction
+### <a name="configure-reward-settings-for-the-feedback-loop-based-on-use-case"></a>Configurer les paramètres de récompense pour la boucle de rétroaction en fonction du cas d’usage
 
 Configurez les paramètres du service pour l’utilisation des récompenses par votre boucle de rétroaction. Les modifications apportées aux paramètres suivants réinitialisent le modèle actuel de Personalizer et le réentraînent avec les 2 derniers jours de données :
 
@@ -81,4 +87,4 @@ Dans la section Gestion des ressources pour **Modèle et stratégie**, importez 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Apprentissage par renforcement](concepts-reinforcement-learning.md) 
+[Guide pratique pour utiliser le conteneur Personalizer](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409)

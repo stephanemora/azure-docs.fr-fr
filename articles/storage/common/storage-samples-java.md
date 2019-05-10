@@ -6,16 +6,15 @@ author: mhopkins-msft
 ms.service: storage
 ms.devlang: java
 ms.topic: article
-ms.date: 01/12/2017
+ms.date: 05/03/2019
 ms.author: mhopkins
-ms.reviewer: seguler
 ms.subservice: common
-ms.openlocfilehash: ae734215a7a8efe10f33cfbc338d09071d603232
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 3d241f1905244d3a8039372262f84ba0fd25220d
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149998"
+ms.locfileid: "65209797"
 ---
 # <a name="azure-storage-samples-using-java"></a>Exemples de stockage Azure avec Java
 
@@ -23,172 +22,172 @@ ms.locfileid: "65149998"
 
 Le tableau suivant fournit une vue d’ensemble de notre référentiel d’exemples et des scénarios traités dans chaque exemple. Cliquez sur les liens pour afficher l’exemple de code correspondant dans GitHub.
 
-<table style="font-size:90%"><thead><tr><th style="font-size:110%">Point de terminaison</th><th style="font-size:110%">Scénario</th><th style="font-size:110%">Exemple de code</th></tr></thead><tbody> 
-<tr> 
+<table style="font-size:90%"><thead><tr><th style="font-size:110%">Point de terminaison</th><th style="font-size:110%">Scénario</th><th style="font-size:110%">Exemple de code</th></tr></thead><tbody>
+<tr>
 <td rowspan="16"><b>Objet blob</b></td>
-<td>Append Blob</td> 
-<td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java">Getting Started with Azure Blob Service in Java (Prise en main du service Azure Blob en Java)</a></td> 
-</tr> 
-<tr> 
+<td>Ajouter un objet blob</td>
+<td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java">Getting Started with Azure Blob Service in Java (Prise en main du service Azure Blob en Java)</a></td>
+</tr>
+<tr>
 <td>Objet blob de blocs</td>
 <td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java">Getting Started with Azure Blob Service in Java (Prise en main du service Azure Blob en Java)</a></td>
-</tr> 
-<tr> 
+</tr>
+<tr>
 <td>Chiffrement côté client</td>
 <td><a href="https://github.com/Azure-Samples/storage-java-client-side-encryption">Getting Started with Azure Client Side Encryption in Java (Prise en main du chiffrement côté client Azure dans Java)</a></td>
-</tr> 
-<tr> 
+</tr>
+<tr>
 <td>Copie d'un objet blob</td>
 <td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java">Getting Started with Azure Blob Service in Java (Prise en main du service Azure Blob en Java)</a></td>
-</tr> 
-<tr> 
+</tr>
+<tr>
 <td>Create Container</td>
 <td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java">Getting Started with Azure Blob Service in Java (Prise en main du service Azure Blob en Java)</a></td>
-</tr> 
-<tr> 
+</tr>
+<tr>
 <td>Delete Blob</td>
 <td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java">Getting Started with Azure Blob Service in Java (Prise en main du service Azure Blob en Java)</a></td>
-</tr> 
-<tr> 
+</tr>
+<tr>
 <td>Delete Container</td>
 <td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java">Getting Started with Azure Blob Service in Java (Prise en main du service Azure Blob en Java)</a></td>
-</tr> 
-<tr> 
+</tr>
+<tr>
 <td>Métadonnées/propriétés/statistiques des objets blob</td>
 <td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobAdvanced.java">Getting Started with Azure Blob Service in Java (Prise en main du service Azure Blob en Java)</a></td>
-</tr> 
-<tr> 
+</tr>
+<tr>
 <td>ACL/métadonnées/propriétés du conteneur</td>
 <td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobAdvanced.java">Getting Started with Azure Blob Service in Java (Prise en main du service Azure Blob en Java)</a></td>
-</tr> 
-<tr> 
+</tr>
+<tr>
 <td>Get Page Ranges</td>
-<td><a href="https://github.com/Azure/azure-storage-java/blob/master/microsoft-azure-storage-test/src/com/microsoft/azure/storage/blob/CloudPageBlobTests.java">Exemple de tests d’objet blob de pages</a></td>
-</tr> 
-<tr> 
+<td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java#L399">Getting Started with Azure Blob Service in Java (Prise en main du service Azure Blob en Java)</a></td>
+</tr>
+<tr>
 <td>Objet blob/conteneur de bail</td>
 <td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java">Getting Started with Azure Blob Service in Java (Prise en main du service Azure Blob en Java)</a></td>
-</tr> 
-<tr> 
+</tr>
+<tr>
 <td>Objet blob/conteneur de liste</td>
 <td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java">Getting Started with Azure Blob Service in Java (Prise en main du service Azure Blob en Java)</a></td>
-</tr> 
-<tr> 
+</tr>
+<tr>
 <td>Objet blob de pages</td>
 <td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java">Getting Started with Azure Blob Service in Java (Prise en main du service Azure Blob en Java)</a></td>
 </tr>
-<tr> 
+<tr>
 <td>SAS</td>
 <td><a href="https://github.com/Azure/azure-storage-java/blob/89540f018f1160ce55619c6fe7b5f5ff57d0ce10/src/test/java/com/microsoft/azure/storage/Samples.java#L513">Exemple de tests SAS</a></td>
 </tr>   
-<tr> 
+<tr>
 <td>Propriétés du service</td>
 <td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobAdvanced.java">Getting Started with Azure Blob Service in Java (Prise en main du service Azure Blob en Java)</a></td>
-</tr>           
-<tr> 
+</tr>
+<tr>
 <td>Snapshot Blob</td>
 <td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java">Getting Started with Azure Blob Service in Java (Prise en main du service Azure Blob en Java)</a></td>
-</tr> 
-<tr> 
+</tr>
+<tr>
 <td rowspan="9"><b>File</b></td>
-<td>Créer des partages/répertoires/fichiers</td> 
-<td><a href="https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileBasics.java">Getting Started with Azure File Service in Java (Prise en main du service de fichiers Azure en Java)</a></td> 
+<td>Créer des partages/répertoires/fichiers</td>
+<td><a href="https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileBasics.java">Getting Started with Azure File Service in Java (Prise en main du service de fichiers Azure en Java)</a></td>
 </tr>
-<tr> 
-<td>Créer des partages/répertoires/fichiers</td> 
-<td><a href="https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileBasics.java">Getting Started with Azure File Service in Java (Prise en main du service de fichiers Azure en Java)</a></td> 
-</tr> 
-<tr> 
-<td>Propriétés/métadonnées du répertoire</td> 
-<td><a href="https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileAdvanced.java">Getting Started with Azure File Service in Java (Prise en main du service de fichiers Azure en Java)</a></td> 
-</tr> 
-<tr> 
-<td>Télécharger des fichiers</td> 
-<td><a href="https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileBasics.java">Getting Started with Azure File Service in Java (Prise en main du service de fichiers Azure en Java)</a></td> 
-</tr> 
-<tr> 
-<td>Propriétés/métadonnées/mesures de fichier</td> 
-<td><a href="https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileAdvanced.java">Getting Started with Azure File Service in Java (Prise en main du service de fichiers Azure en Java)</a></td> 
-</tr> 
-<tr> 
-<td>Propriétés du service de fichiers</td> 
-<td><a href="https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileAdvanced.java">Getting Started with Azure File Service in Java (Prise en main du service de fichiers Azure en Java)</a></td> 
-</tr> 
-<tr> 
-<td>Liste des répertoires et des fichiers</td> 
-<td><a href="https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileBasics.java">Getting Started with Azure File Service in Java (Prise en main du service de fichiers Azure en Java)</a></td> 
+<tr>
+<td>Créer des partages/répertoires/fichiers</td>
+<td><a href="https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileBasics.java">Getting Started with Azure File Service in Java (Prise en main du service de fichiers Azure en Java)</a></td>
 </tr>
-<tr> 
-<td>Partages de listes</td> 
-<td><a href="https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileBasics.java">Getting Started with Azure File Service in Java (Prise en main du service de fichiers Azure en Java)</a></td> 
+<tr>
+<td>Propriétés/métadonnées du répertoire</td>
+<td><a href="https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileAdvanced.java">Getting Started with Azure File Service in Java (Prise en main du service de fichiers Azure en Java)</a></td>
 </tr>
-<tr> 
-<td>Propriétés/métadonnées/statistiques de partage</td> 
-<td><a href="https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileAdvanced.java">Getting Started with Azure File Service in Java (Prise en main du service de fichiers Azure en Java)</a></td> 
+<tr>
+<td>Télécharger des fichiers</td>
+<td><a href="https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileBasics.java">Getting Started with Azure File Service in Java (Prise en main du service de fichiers Azure en Java)</a></td>
 </tr>
-<tr> 
+<tr>
+<td>Propriétés/métadonnées/mesures de fichier</td>
+<td><a href="https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileAdvanced.java">Getting Started with Azure File Service in Java (Prise en main du service de fichiers Azure en Java)</a></td>
+</tr>
+<tr>
+<td>Propriétés du service de fichiers</td>
+<td><a href="https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileAdvanced.java">Getting Started with Azure File Service in Java (Prise en main du service de fichiers Azure en Java)</a></td>
+</tr>
+<tr>
+<td>Liste des répertoires et des fichiers</td>
+<td><a href="https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileBasics.java">Getting Started with Azure File Service in Java (Prise en main du service de fichiers Azure en Java)</a></td>
+</tr>
+<tr>
+<td>Partages de listes</td>
+<td><a href="https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileBasics.java">Getting Started with Azure File Service in Java (Prise en main du service de fichiers Azure en Java)</a></td>
+</tr>
+<tr>
+<td>Propriétés/métadonnées/statistiques de partage</td>
+<td><a href="https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileAdvanced.java">Getting Started with Azure File Service in Java (Prise en main du service de fichiers Azure en Java)</a></td>
+</tr>
+<tr>
 <td rowspan="8"><b>File d'attente</b></td>
-<td>Ajouter un message</td> 
-<td><a href="https://github.com/Azure/azure-storage-java/blob/master/microsoft-azure-storage-samples/src/com/microsoft/azure/storage/queue/gettingstarted/QueueBasics.java">Storage Java Client Library Samples (Exemples de bibliothèque cliente de stockage en Java)</a></td> 
-</tr> 
-<tr> 
-<td>Chiffrement côté client</td> 
-<td><a href="https://github.com/Azure/azure-storage-java/blob/master/microsoft-azure-storage-samples/src/com/microsoft/azure/storage/encryption/queue/gettingstarted/QueueGettingStarted.java">Storage Java Client Library Samples (Exemples de bibliothèque cliente de stockage en Java)</a></td> 
-</tr> 
-<tr> 
-<td>Créer des files d’attente</td> 
-<td><a href="https://github.com/Azure-Samples/storage-queue-java-getting-started/blob/master/src/QueueBasics.java">Getting Started with Azure Queue Service in Java (Prise en main du service de File d’attente Azure en Java)</a></td> 
-</tr> 
-<tr> 
-<td>Supprimer le message/la file d’attente</td> 
-<td><a href="https://github.com/Azure-Samples/storage-queue-java-getting-started/blob/master/src/QueueBasics.java">Getting Started with Azure Queue Service in Java (Prise en main du service de File d’attente Azure en Java)</a></td> 
-</tr> 
-<tr> 
-<td>Lire furtivement un message</td> 
-<td><a href="https://github.com/Azure-Samples/storage-queue-java-getting-started/blob/master/src/QueueBasics.java">Getting Started with Azure Queue Service in Java (Prise en main du service de File d’attente Azure en Java)</a></td> 
-</tr> 
-<tr> 
-<td>ACL/métadonnées/statistiques de la file d’attente</td> 
-<td><a href="https://github.com/Azure-Samples/storage-queue-java-getting-started/blob/master/src/QueueAdvanced.java">Getting Started with Azure Queue Service in Java (Prise en main du service de File d’attente Azure en Java)</a></td> 
-</tr> 
-<tr> 
-<td>Propriétés du service de File d’attente</td> 
-<td><a href="https://github.com/Azure-Samples/storage-queue-java-getting-started/blob/master/src/QueueAdvanced.java">Getting Started with Azure Queue Service in Java (Prise en main du service de File d’attente Azure en Java)</a></td> 
-</tr> 
-<tr> 
-<td>Mise à jour de message</td> 
-<td><a href="https://github.com/Azure-Samples/storage-queue-java-getting-started/blob/master/src/QueueBasics.java">Getting Started with Azure Queue Service in Java (Prise en main du service de File d’attente Azure en Java)</a></td> 
-</tr> 
-<tr> 
+<td>Ajouter un message</td>
+<td><a href="https://github.com/Azure-Samples/storage-queue-java-getting-started/blob/master/src/QueueBasics.java#L63">Getting Started with Azure Queue Service in Java (Prise en main du service de File d’attente Azure en Java)</a></td>
+</tr>
+<tr>
+<td>Chiffrement côté client</td>
+<td><a href="https://github.com/Azure-Samples/storage-java-client-side-encryption/blob/master/src/gettingstarted/KeyVaultGettingStarted.java">Getting Started with Azure Client Side Encryption in Java (Prise en main du chiffrement côté client Azure dans Java)</a></td>
+</tr>
+<tr>
+<td>Créer des files d’attente</td>
+<td><a href="https://github.com/Azure-Samples/storage-queue-java-getting-started/blob/master/src/QueueBasics.java">Getting Started with Azure Queue Service in Java (Prise en main du service de File d’attente Azure en Java)</a></td>
+</tr>
+<tr>
+<td>Supprimer le message/la file d’attente</td>
+<td><a href="https://github.com/Azure-Samples/storage-queue-java-getting-started/blob/master/src/QueueBasics.java">Getting Started with Azure Queue Service in Java (Prise en main du service de File d’attente Azure en Java)</a></td>
+</tr>
+<tr>
+<td>Lire furtivement un message</td>
+<td><a href="https://github.com/Azure-Samples/storage-queue-java-getting-started/blob/master/src/QueueBasics.java">Getting Started with Azure Queue Service in Java (Prise en main du service de File d’attente Azure en Java)</a></td>
+</tr>
+<tr>
+<td>ACL/métadonnées/statistiques de la file d’attente</td>
+<td><a href="https://github.com/Azure-Samples/storage-queue-java-getting-started/blob/master/src/QueueAdvanced.java">Getting Started with Azure Queue Service in Java (Prise en main du service de File d’attente Azure en Java)</a></td>
+</tr>
+<tr>
+<td>Propriétés du service de File d’attente</td>
+<td><a href="https://github.com/Azure-Samples/storage-queue-java-getting-started/blob/master/src/QueueAdvanced.java">Getting Started with Azure Queue Service in Java (Prise en main du service de File d’attente Azure en Java)</a></td>
+</tr>
+<tr>
+<td>Mise à jour de message</td>
+<td><a href="https://github.com/Azure-Samples/storage-queue-java-getting-started/blob/master/src/QueueBasics.java">Getting Started with Azure Queue Service in Java (Prise en main du service de File d’attente Azure en Java)</a></td>
+</tr>
+<tr>
 <td rowspan="7"><b>Table</b></td>
-<td>Créer une table</td> 
-<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java">Getting Started with Azure Table Service in Java (Prise en main du service de Table Azure en Java)</a></td> 
-</tr> 
-<tr> 
-<td>Supprimer l’entité/la table</td> 
-<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java">Getting Started with Azure Table Service in Java (Prise en main du service de Table Azure en Java)</a></td> 
-</tr> 
-<tr> 
-<td>Insertion/fusion/remplacement d’entité</td> 
-<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java">Getting Started with Azure Table Service in Java (Prise en main du service de Table Azure en Java)</a></td> 
-</tr> 
-<tr> 
-<td>Query Entities</td> 
-<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java">Getting Started with Azure Table Service in Java (Prise en main du service de Table Azure en Java)</a></td> 
-</tr> 
-<tr> 
-<td>Tables de requête</td> 
-<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java">Getting Started with Azure Table Service in Java (Prise en main du service de Table Azure en Java)</a></td> 
-</tr> 
-<tr> 
-<td>ACL/propriétés de la table</td> 
-<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableAdvanced.java">Getting Started with Azure Table Service in Java (Prise en main du service de Table Azure en Java)</a></td> 
-</tr> 
-<tr> 
-<td>Update Entity</td> 
-<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java">Getting Started with Azure Table Service in Java (Prise en main du service de Table Azure en Java)</a></td> 
-</tr> 
-</tbody> 
+<td>Créer une table</td>
+<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java">Getting Started with Azure Table Service in Java (Prise en main du service de Table Azure en Java)</a></td>
+</tr>
+<tr>
+<td>Supprimer l’entité/la table</td>
+<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java">Getting Started with Azure Table Service in Java (Prise en main du service de Table Azure en Java)</a></td>
+</tr>
+<tr>
+<td>Insertion/fusion/remplacement d’entité</td>
+<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java">Getting Started with Azure Table Service in Java (Prise en main du service de Table Azure en Java)</a></td>
+</tr>
+<tr>
+<td>Query Entities</td>
+<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java">Getting Started with Azure Table Service in Java (Prise en main du service de Table Azure en Java)</a></td>
+</tr>
+<tr>
+<td>Tables de requête</td>
+<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java">Getting Started with Azure Table Service in Java (Prise en main du service de Table Azure en Java)</a></td>
+</tr>
+<tr>
+<td>ACL/propriétés de la table</td>
+<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableAdvanced.java">Getting Started with Azure Table Service in Java (Prise en main du service de Table Azure en Java)</a></td>
+</tr>
+<tr>
+<td>Update Entity</td>
+<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java">Getting Started with Azure Table Service in Java (Prise en main du service de Table Azure en Java)</a></td>
+</tr>
+</tbody>
 </table>
 <br/>
 

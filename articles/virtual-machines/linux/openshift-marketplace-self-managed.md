@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/18/2019
+ms.date: 05/7/2019
 ms.author: haroldw
-ms.openlocfilehash: 1228c770799de37c85b8a48b1dc923ac8294eeca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9b981924dcaf715dd1d05d452b756a40b63f8dac
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60773463"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233087"
 ---
 # <a name="configure-prerequisites"></a>Configuration préalable requise
 
@@ -39,8 +39,8 @@ Cette option est la plus simple, mais il a également limité des fonctionnalit�
 - **Type de disque** : La fonctionnalité Disques managés est utilisée.
 - **Réseau** : Prise en charge de réseau nouveau ou existant et la plage CIDR personnalisée.
 - **CNS** : peut être activé.
-- **Métriques** : peuvent être activées.
-- **Journalisation** : peut être activée.
+- **Métriques** : Mesures hawkular peuvent être activées.
+- **Journalisation** : Journalisation EFK peut être activée.
 - **Fournisseur de cloud Azure** : Activé par défaut, peut être désactivée.
 
 Dans le coin supérieur gauche du portail Azure, cliquez sur **créer une ressource**, entrez « openshift container platform » dans la zone de recherche et appuyez sur ENTRÉE.
@@ -81,7 +81,7 @@ Entrez les valeurs des paramètres d’entrée et cliquez sur **OK**.
 
 | Paramètre d’entrée | Description du paramètre |
 |-----------------------|-----------------|
-| Préfixe du nom de Cluster OCP | L’utilisateur administrateur doit être créé sur toutes les instances de machine virtuelle |
+| Préfixe du nom de Cluster OCP | Préfixe utilisé pour configurer les noms d’hôtes pour tous les nœuds du cluster. Entre 1 et 20 caractères |
 | Taille du nœud master | Acceptez la taille de machine virtuelle par défaut ou cliquez sur **modifier la taille** pour sélectionner une autre taille de machine virtuelle.  Sélectionnez la taille de machine virtuelle appropriée pour votre charge de travail |
 | Taille de nœud d’infrastructure | Acceptez la taille de machine virtuelle par défaut ou cliquez sur **modifier la taille** pour sélectionner une autre taille de machine virtuelle.  Sélectionnez la taille de machine virtuelle appropriée pour votre charge de travail |
 | Nombre de nœuds d’Application | Acceptez la taille de machine virtuelle par défaut ou cliquez sur **modifier la taille** pour sélectionner une autre taille de machine virtuelle.  Sélectionnez la taille de machine virtuelle appropriée pour votre charge de travail |

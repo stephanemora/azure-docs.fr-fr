@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 58cd76e93b9d0888211e8339ae17170685e71e74
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e1c6b1d55a4fbc673980908a981a9a96c869bee9
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60637721"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409611"
 ---
 # <a name="prepare-azure-infrastructure-for-sap-high-availability-by-using-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances"></a>Préparation d’infrastructure Azure pour la haute disponibilité SAP à l’aide de cluster de basculement Windows et de partage de fichiers pour une instance SAP ASCS/SCS
 
@@ -36,6 +36,7 @@ ms.locfileid: "60637721"
 [arm-sofs-s2d-managed-disks]:https://github.com/robotechredmond/301-storage-spaces-direct-md
 [arm-sofs-s2d-non-managed-disks]:https://github.com/Azure/azure-quickstart-templates/tree/master/301-storage-spaces-direct
 [deploy-cloud-witness]:https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness
+[tuning-failover-cluster-network-thresholds]:https://techcommunity.microsoft.com/t5/Failover-Clustering/Tuning-Failover-Cluster-Network-Thresholds/ba-p/371834
 
 [sap-installation-guides]:http://service.sap.com/instguides
 
@@ -341,6 +342,16 @@ Le modèle Azure Resource Manager permettant de déployer le serveur de fichiers
 _**Figure 2**: Écran de l’interface utilisateur pour le modèle de Scale-Out File Server Azure Resource Manager sans disques gérés_
 
 Dans la zone **Type de compte de stockage**, sélectionnez **Stockage Premium**. Les autres paramètres sont les identiques aux paramètres des disques managés.
+
+## <a name="adjust-cluster-timeout-settings"></a>Ajuster les paramètres de délai d’expiration de cluster
+
+Après l’installation du cluster de serveur de fichiers avec montée en puissance de Windows, adapter les seuils de délai d’attente pour la détection de basculement aux conditions dans Azure. Les paramètres à changer sont documentés dans : [Tuning Failover Cluster Network Thresholds (Réglage des seuils réseau de cluster de basculement)][tuning-failover-cluster-network-thresholds]. En supposant que vos machines virtuelles en cluster se trouvent dans le même sous-réseau, modifiez les paramètres suivants à ces valeurs :
+
+- SameSubNetDelay = 2000
+- SameSubNetThreshold = 15
+- RoutingHistoryLength = 30
+
+Ces paramètres ont été testés auprès de clients et offrent un bon compromis. Ils sont suffisamment résilients, mais elles fournissent également rapidement un basculement suffisamment dans les conditions d’erreur réelles ou l’échec de la machine virtuelle.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 06b6fdf7a3d21a6b7dc84c4347824d4eaeac046f
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 7f37c501bb53b3b73c30d02d00d49515f907e4ae
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64918412"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65463626"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Associer ou ajouter un abonnement Azure à votre locataire Azure Active Directory
 
@@ -64,8 +64,8 @@ Avant de pouvoir associer ou ajouter votre abonnement, vous devez effectuer les 
 
     Le répertoire est modifié pour l’abonnement et un message de réussite s’affiche.
 
-    ![Message de réussite sur le changement de répertoire](media/active-directory-how-subscriptions-associated-directory/edit-directory-success.png)    
-4. Utilisez le **sélecteur de répertoire** pour accéder à votre nouveau répertoire. 10 minutes peuvent être nécessaire pour tout afficher correctement.
+    ![Message de réussite sur le changement de répertoire](media/active-directory-how-subscriptions-associated-directory/edit-directory-success.png)
+4. Utilisez le **sélecteur de répertoire** pour accéder à votre nouveau répertoire. Il peut prendre plusieurs heures pour tous les éléments s’affichent correctement. Si elle semble trop longtemps, veillez au **filtre d’abonnement Global** pour l’abonnement déplacé, s’assurer qu’il n’est pas simplement masqué.
 
     ![Page de sélecteur de répertoire, avec les informations de l’exemple](media/active-directory-how-subscriptions-associated-directory/directory-switcher.png)
 

@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 05/07/2019
 ms.author: edjez
-ms.openlocfilehash: c969029bcc0412267507efe81549ec6f8b2988ce
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 7eb85aa38815b8fcdfbe68518122563e1b579e17
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025476"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150398"
 ---
 # <a name="what-is-personalizer"></a>Qu’est-ce que Personalizer ?
 
@@ -64,4 +64,5 @@ Le service Personalizer a deux API :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Démarrage rapide : Créer une boucle de rétroaction dans C#](csharp-quickstart-commandline-feedback-loop.md)
+* [Démarrage rapide : Créer une boucle de rétroaction dans C#](csharp-quickstart-commandline-feedback-loop.md)
+* [Utiliser la démonstration interactive](https://personalizationdemo.azurewebsites.net/)

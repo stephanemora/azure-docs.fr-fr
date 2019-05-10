@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/13/2018
 ms.author: kumud
-ms.openlocfilehash: c639bc1edceba9c9da08ee6bcc54c860f857cd33
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 41e9d88df49d153089e6dc7a12c5873ccc167279
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64696015"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65209459"
 ---
 # <a name="azure-ddos-protection-standard-overview"></a>Vue d’ensemble du service Protection DDos Standard Azure
 
@@ -29,7 +29,7 @@ Les attaques par déni de service distribué (DDoS) représentent certains des p
 Combiné aux bonnes pratiques de conception d’application, le service de protection DDoS Azure assure une excellente protection contre les attaques DDoS. Azure DDoS Protection fournit les niveaux de service suivants :
 
 - **De base** : Automatiquement activé dans le cadre de la plateforme Azure. La surveillance permanente du trafic et l’atténuation en temps réel des attaques courantes au niveau du réseau fournissent les mêmes défenses que celles utilisées par les services en ligne de Microsoft. La distribution et l’atténuation du trafic d’attaque peuvent être réalisées entre différentes régions à l’échelle du réseau global d’Azure. La protection est assurée pour les[adresses IP publiques](virtual-network-public-ip-address.md) IPv4 et IPv6 Azure.
-- **Standard** : Fournit des fonctionnalités d’atténuation supplémentaires sur le niveau de service de base destinées spécifiquement aux ressources du réseau virtuel Azure. Le service DDoS Protection Standard est facile à activer et ne nécessite aucune modification de l’application. Les stratégies de protection sont paramétrées par le biais d’algorithmes de surveillance du trafic et d’apprentissage automatique dédiés. Elles sont appliquées aux adresses IP publiques associées aux ressources déployées sur des réseaux virtuels, telles que les instances Azure Service Fabric, Azure Load Balancer et Azure Application Gateway, mais cette protection ne s’applique pas aux environnements App Service. Les données de télémétrie en temps réel sont disponibles par le biais d’affichages Azure Monitor pendant une attaque et à des fins d’historique. Des analyses avancées de la prévention des attaques sont disponibles par le biais de paramètres de diagnostic. Vous pouvez ajouter une protection de la couche Application par le biais du [pare-feu d’applications web Azure Application Gateway](../application-gateway//application-gateway-web-application-firewall-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou en installant un pare-feu tiers à partir de la Place de marché Azure. La protection est assurée pour les[adresses IP publiques](virtual-network-public-ip-address.md) IPv4 Azure.
+- **Standard** : Fournit des fonctionnalités d’atténuation supplémentaires sur le niveau de service de base destinées spécifiquement aux ressources du réseau virtuel Azure. Le service DDoS Protection Standard est facile à activer et ne nécessite aucune modification de l’application. Les stratégies de protection sont paramétrées par le biais d’algorithmes de surveillance du trafic et d’apprentissage automatique dédiés. Elles sont appliquées aux adresses IP publiques associées aux ressources déployées sur des réseaux virtuels, telles que les instances Azure Service Fabric, Azure Load Balancer et Azure Application Gateway, mais cette protection ne s’applique pas aux environnements App Service. Les données de télémétrie en temps réel sont disponibles par le biais d’affichages Azure Monitor pendant une attaque et à des fins d’historique. Des analyses avancées de la prévention des attaques sont disponibles par le biais de paramètres de diagnostic. Vous pouvez ajouter une protection de la couche Application par le biais du [pare-feu d’applications web Azure Application Gateway](../application-gateway//application-gateway-web-application-firewall-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou en installant un pare-feu tiers à partir de la Place de marché Azure. La protection est assurée pour les[adresses IP publiques](virtual-network-public-ip-address.md) IPv4 et IPv6 Azure.
 
 ![Comparaison d’Azure DDoS Protection de base et standard](./media/ddos-protection-overview/ddoscomparison.png)
 

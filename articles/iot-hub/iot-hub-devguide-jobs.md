@@ -7,13 +7,13 @@ ms.author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 10/09/2018
-ms.openlocfilehash: 397fb1d3934aad19b82f957b6994bd3c5ce4054c
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.date: 05/06/2019
+ms.openlocfilehash: 147dd0f454bd85673bcba5cd6148c5da9716c580
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65189960"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409053"
 ---
 # <a name="schedule-jobs-on-multiple-devices"></a>Planifier des travaux sur plusieurs appareils
 
@@ -43,8 +43,6 @@ PUT /jobs/v2/<jobId>?api-version=2018-06-30
 
 Authorization: <config.sharedAccessSignature>
 Content-Type: application/json; charset=utf-8
-Request-Id: <guid>
-User-Agent: <sdk-name>/<sdk-version>
 
 {
     "jobId": "<jobId>",
@@ -70,6 +68,38 @@ La condition de requête peut également être un ID d’appareil unique ou figu
 
 Le [langage de requête IoT Hub](iot-hub-devguide-query-language.md) couvre le langage de requête IoT Hub de façon plus détaillée.
 
+L’extrait suivant montre la demande et la réponse pour une tâche planifiée pour appeler une méthode directe nommée testMethod sur tous les appareils sur contoso-hub-1 :
+
+```
+PUT https://contoso-hub-1.azure-devices.net/jobs/v2/job01?api-version=2018-06-30 HTTP/1.1
+Authorization: SharedAccessSignature sr=contoso-hub-1.azure-devices.net&sig=68iv------------------------------------v8Hxalg%3D&se=1556849884&skn=iothubowner
+Content-Type: application/json; charset=utf-8
+Host: contoso-hub-1.azure-devices.net
+Content-Length: 317
+
+{
+    "jobId": "job01",
+    "type": "scheduleDeviceMethod",
+    "cloudToDeviceMethod": {
+        "methodName": "testMethod",
+        "payload": {},
+        "responseTimeoutInSeconds": 30
+    },
+    "queryCondition": "*", 
+    "startTime": "2019-05-04T15:53:00.077Z",
+    "maxExecutionTimeInSeconds": 20
+}
+
+HTTP/1.1 200 OK
+Content-Length: 65
+Content-Type: application/json; charset=utf-8
+Vary: Origin
+Server: Microsoft-HTTPAPI/2.0
+Date: Fri, 03 May 2019 01:46:18 GMT
+
+{"jobId":"job01","type":"scheduleDeviceMethod","status":"queued"}
+```
+
 ## <a name="jobs-to-update-device-twin-properties"></a>Travaux pour mettre à jour les propriétés d’un jumeau d’appareil
 
 L’extrait suivant montre les détails de la requête HTTPS 1.1 pour mettre à jour les propriétés d’un jumeau d’appareil à l’aide d’un travail :
@@ -79,17 +109,53 @@ PUT /jobs/v2/<jobId>?api-version=2018-06-30
 
 Authorization: <config.sharedAccessSignature>
 Content-Type: application/json; charset=utf-8
-Request-Id: <guid>
-User-Agent: <sdk-name>/<sdk-version>
 
 {
     "jobId": "<jobId>",
-    "type": "scheduleTwinUpdate",
+    "type": "scheduleUpdateTwin",
     "updateTwin": <patch>                 // Valid JSON object
     "queryCondition": "<queryOrDevices>", // query condition
     "startTime": <jobStartTime>,          // as an ISO-8601 date string
     "maxExecutionTimeInSeconds": <maxExecutionTimeInSeconds>
 }
+```
+
+> [!NOTE]
+> Le *updateTwin* propriété nécessite une correspondance valide etag ; par exemple, `etag="*"`.
+
+L’extrait suivant montre la demande et la réponse pour une tâche planifiée pour mettre à jour les propriétés des représentations d’appareil de test sur contoso-hub-1 :
+
+```
+PUT https://contoso-hub-1.azure-devices.net/jobs/v2/job02?api-version=2018-06-30 HTTP/1.1
+Authorization: SharedAccessSignature sr=contoso-hub-1.azure-devices.net&sig=BN0U-------------------------------------RuA%3D&se=1556925787&skn=iothubowner
+Content-Type: application/json; charset=utf-8
+Host: contoso-hub-1.azure-devices.net
+Content-Length: 339
+
+{
+    "jobId": "job02",
+    "type": "scheduleUpdateTwin",
+    "updateTwin": {
+      "properties": {
+        "desired": {
+          "test1": "value1"
+        }
+      },
+     "etag": "*"
+     },
+    "queryCondition": "deviceId = 'test-device'",
+    "startTime": "2019-05-08T12:19:56.868Z",
+    "maxExecutionTimeInSeconds": 20
+}
+
+HTTP/1.1 200 OK
+Content-Length: 63
+Content-Type: application/json; charset=utf-8
+Vary: Origin
+Server: Microsoft-HTTPAPI/2.0
+Date: Fri, 03 May 2019 22:45:13 GMT
+
+{"jobId":"job02","type":"scheduleUpdateTwin","status":"queued"}
 ```
 
 ## <a name="querying-for-progress-on-jobs"></a>Vérification de la progression des travaux
@@ -101,8 +167,6 @@ GET /jobs/v2/query?api-version=2018-06-30[&jobType=<jobType>][&jobStatus=<jobSta
 
 Authorization: <config.sharedAccessSignature>
 Content-Type: application/json; charset=utf-8
-Request-Id: <guid>
-User-Agent: <sdk-name>/<sdk-version>
 ```
 
 Le paramètre continuationToken est fourni dans la réponse.
@@ -113,14 +177,14 @@ Vous pouvez interroger l’état d’exécution du travail sur chaque appareil �
 
 La liste suivante montre les propriétés et les descriptions correspondantes qui peuvent être utilisées lors de la vérification de travaux ou de résultats de travaux.
 
-| Propriété | Description |
+| Propriété | Description  |
 | --- | --- |
 | **jobId** |L’application a fourni un ID pour le travail. |
 | **startTime** |L’application a fourni l’heure de début (ISO-8601) pour le travail. |
 | **endTime** |IoT Hub a fourni la date (ISO-8601) de fin du travail. Valide uniquement lorsque la tâche atteint l’état « terminé ». |
 | **type** |Types de tâches : |
-| | **scheduledUpdateTwin**: Un travail utilisé pour mettre à jour un ensemble de propriétés souhaitées ou tags. |
-| | **scheduledDeviceMethod**: Un travail utilisé pour appeler une méthode d’appareil sur un ensemble de représentations d’appareil. |
+| | **scheduleUpdateTwin**: Un travail utilisé pour mettre à jour un ensemble de propriétés souhaitées ou tags. |
+| | **scheduleDeviceMethod**: Un travail utilisé pour appeler une méthode d’appareil sur un ensemble de représentations d’appareil. |
 | **statut** |État actuel du travail. Valeurs possibles pour l'état : |
 | | **En attente**: Planifié et en attente d’être récupéré par le service de travail. |
 | | **planifiée**: Planifiée pendant une période à l’avenir. |
