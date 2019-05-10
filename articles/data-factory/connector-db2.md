@@ -186,7 +186,7 @@ Lors de la copie de données de DB2, les mappages suivants sont utilisés entre 
 | Double |Double |
 | Float |Double |
 | Graphic |String |
-| Entier  |Int32 |
+| Integer |Int32 |
 | LongVarBinary |Byte[] |
 | LongVarChar |String |
 | LongVarGraphic |String |
