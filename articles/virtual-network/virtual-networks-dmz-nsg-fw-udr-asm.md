@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor;sivae
-ms.openlocfilehash: 668862714b416bd89d3b5f82caf8b0305fccae54
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0a7927868a9a4bebc80ec995baefbae4c45d747f
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60363010"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65410474"
 ---
 # <a name="example-3-build-a-perimeter-network-to-protect-networks-with-a-firewall-udr-and-nsgs"></a>Exemple 3 : Créer un réseau de périmètre pour protéger les réseaux avec un pare-feu, UDR et groupes de sécurité réseau
 
@@ -150,7 +150,7 @@ Cet exemple utilise les commandes suivantes pour créer la table d’itinéraire
        -RouteTableName $BERouteTableName
    ```
 
-## <a name="ip-forwarding"></a>Transfert IP
+## <a name="ip-forwarding"></a>Transfert IP
 
 Le transfert IP est une fonctionnalité associée au UDR. Ce paramètre sur une appliance virtuelle autorise à recevoir le trafic non adressé à l’appliance et puis de transférer ce trafic vers sa destination finale.
 
@@ -989,7 +989,7 @@ Exécutez cette commande PowerShell script localement sur un internet connecté 
 Enregistrez ce fichier XML avec l’emplacement mis à jour. Modifier le `$NetworkConfigFile` variable dans le script complet ci-dessus pour créer un lien vers le fichier de configuration réseau enregistré.
 
 ```xml
-    <NetworkConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
+    <NetworkConfiguration xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
       <VirtualNetworkConfiguration>
         <Dns>
           <DnsServers>

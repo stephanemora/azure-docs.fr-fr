@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 1/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4e40890459315bacf88fa6a12bc5eed7c0708b1c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c7d3e53224b5de32003cef29433a257ddfc99d88
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57835762"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406738"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-appinux"></a>Tutoriel : Intégration d’Azure Active Directory à Appinux
+# <a name="tutorial-azure-active-directory-integration-with-appinux"></a>Didacticiel : Intégration d’Azure Active Directory à Appinux
 
 Dans ce tutoriel, vous allez apprendre à intégrer Appinux dans Azure Active Directory (Azure AD).
 L’intégration d’Appinux dans Azure AD vous offre les avantages suivants :
@@ -121,16 +121,16 @@ Pour configurer l’authentification unique Azure AD avec Appinux, effectuez le
 
     | **Nom** | **Espace de noms** | **Attribut source**|
     | ---------|---------------| --------- |
-    | `givenname` | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` | `user.givenname` |
-    | `surname` | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` | `user.surname` |
-    | `emailaddress` | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` | `user.mail` |
-    | `name` | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` | `user.userprincipalname` |
+    | `givenname` | `https://schemas.xmlsoap.org/ws/2005/05/identity/claims` | `user.givenname` |
+    | `surname` | `https://schemas.xmlsoap.org/ws/2005/05/identity/claims` | `user.surname` |
+    | `emailaddress` | `https://schemas.xmlsoap.org/ws/2005/05/identity/claims` | `user.mail` |
+    | `name` | `https://schemas.xmlsoap.org/ws/2005/05/identity/claims` | `user.userprincipalname` |
     | `UserType` | `http://bcv.appinux.com/claims` | `Provide the value as per your organization` |
     | `Tag` | `http://appinux.com/Tag` | `Provide the value as per your organization` |
     | `Role` | `http://schemas.microsoft.com/ws/2008/06/identity/claims/role` | `user.assignedroles` |
-    | `email` | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/email` | `user.mail` |
+    | `email` | `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/email` | `user.mail` |
     | `wanshort` | `http://appinux.com/windowsaccountname2` | `extractmailprefix([userprincipalname])` |
-    | `nameidentifier` | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` | `user.employeeid` |
+    | `nameidentifier` | `https://schemas.xmlsoap.org/ws/2005/05/identity/claims` | `user.employeeid` |
 
     a. Cliquez sur le bouton **Ajouter une nouvelle revendication** pour ouvrir la boîte de dialogue **Gérer les revendications des utilisateurs**.
 
@@ -186,7 +186,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/05/2019
 ms.author: kumud
-ms.openlocfilehash: 30186d0f8197a35db409684775e2ec78288b8818
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 73b185eabc77d293328b1251a4af1aafffc5f319
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64726653"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236364"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Types d’adresses IP et méthodes d’allocation dans Azure
 
@@ -105,11 +105,14 @@ Des adresses IP publiques statiques sont fréquemment utilisées dans les cas su
 >
 
 ### <a name="dns-hostname-resolution"></a>Résolution de nom d’hôte DNS
-Vous pouvez spécifier une étiquette de nom de domaine DNS pour une ressource IP publique, qui crée un mappage pour l’élément *domainnamelabel*.*location*.cloudapp.azure.com vers l’adresse IP publique dans les serveurs DNS gérés par Azure. Par exemple, si vous créez une ressource IP publique avec **contoso** en tant que *domainnamelabel* dans **l’emplacement** Azure *USA Ouest*, le nom de domaine complet (FQDN) **contoso.westus.cloudapp.azure.com** est associé à l’adresse IP publique de la ressource. Vous pouvez utiliser le nom de domaine complet pour créer un enregistrement CNAME de domaine personnalisé qui pointe vers l’adresse IP publique dans Azure. À la place ou en plus de l’étiquette de nom DNS avec le suffixe par défaut, vous pouvez utiliser le service Azure DNS pour configurer un nom DNS avec un suffixe personnalisé qui se résout en adresse IP publique. Pour plus d’informations, consultez [Utiliser Azure DNS avec une adresse IP publique Azure](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address).
+Vous pouvez spécifier une étiquette de nom de domaine DNS pour une ressource IP publique, qui crée un mappage pour l’élément *domainnamelabel*.*location*.cloudapp.azure.com vers l’adresse IP publique dans les serveurs DNS gérés par Azure. Par exemple, si vous créez une ressource IP publique avec **contoso** en tant que *domainnamelabel* dans **l’emplacement** Azure *USA Ouest*, le nom de domaine complet (FQDN) **contoso.westus.cloudapp.azure.com** est associé à l’adresse IP publique de la ressource.
 
 > [!IMPORTANT]
 > Chaque étiquette de nom de domaine créée doit être unique dans son emplacement Azure.  
 >
+
+### <a name="dns-best-practices"></a>Meilleures pratiques DNS
+Si vous avez besoin migrer vers une autre région, vous ne pouvez pas migrer le nom de domaine complet de votre adresse IP publique. Comme meilleure pratique, vous pouvez utiliser le nom de domaine complet pour créer un enregistrement CNAME de domaine personnalisé qui pointe vers l’adresse IP publique dans Azure. Si vous souhaitez déplacer vers une adresse IP publique différente, il nécessitera une mise à jour l’enregistrement CNAME au lieu de devoir mettre à jour manuellement le nom de domaine complet pour la nouvelle adresse. Vous pouvez utiliser [Azure DNS](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address) ou un fournisseur DNS externe pour votre enregistrement DNS. 
 
 ### <a name="virtual-machines"></a>Machines virtuelles
 
@@ -134,7 +137,7 @@ Le tableau ci-dessous présente la propriété spécifique par le biais de laque
 | --- | --- | --- | --- |
 | Machine virtuelle |interface réseau |Oui |Oui |
 | Équilibreur de charge accessible sur Internet |Configuration frontale |Oui |Oui |
-| passerelle VPN |Configuration IP de la passerelle |Oui |Oui |
+| passerelle VPN |Configuration IP de la passerelle |Oui |Non |
 | passerelle d’application |Configuration frontale |Oui (V1 uniquement) |Oui (V2 uniquement) |
 
 ## <a name="private-ip-addresses"></a>Adresses IP privées

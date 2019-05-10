@@ -187,7 +187,7 @@ Lors de la copie de données de Cassandra, les mappages suivants sont utilisés 
 | TIMEUUID |Guid |
 | UUID |Guid |
 | VARCHAR |String |
-| VARINT |DECIMAL |
+| VARINT |Decimal |
 
 > [!NOTE]
 > Pour les types de collections (mappages, ensembles, listes, etc.), reportez-vous à la section [Work with Cassandra collection types using virtual table (Travailler avec les types de collections Cassandra à l’aide d’une table virtuelle)](#work-with-collections-using-virtual-table) .

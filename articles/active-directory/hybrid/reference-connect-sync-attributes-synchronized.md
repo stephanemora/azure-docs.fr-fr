@@ -16,12 +16,12 @@ ms.date: 04/24/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d32564808151c4895d2b3802fb48d2bd2d8f753
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e6120637bdf52db4b6863fb87feb1d52c78ca088
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64729537"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65508111"
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Synchronisation d’Azure AD Connect : Attributs synchronisés avec Azure Active Directory
 Cette rubrique répertorie les attributs synchronisés par Azure AD Connect Sync.  
@@ -48,7 +48,7 @@ Dans ce cas, commencez par la liste des attributs dans cette rubrique et identif
 | pwdLastSet |X |propriété mécanique. Permet de savoir quand invalider les jetons déjà émis. S’applique à la synchronisation du hachage de mot de passe, l’authentification directe et la fédération. |
 |samAccountName|X| |
 | sourceAnchor |X |propriété mécanique. Identificateur immuable pour maintenir la relation entre ADDS et Azure AD. |
-| usageLocation |X |propriété mécanique. Pays de l’utilisateur. Utilisé pour l’attribution de licence. |
+| usageLocation |X |propriété mécanique. Pays/région de l’utilisateur. Utilisé pour l’attribution de licence. |
 | userPrincipalName |X |Le nom UPN est l’ID de connexion de l’utilisateur. Le plus souvent, identique à la valeur [mail]. |
 
 ## <a name="exchange-online"></a>Exchange Online
@@ -87,7 +87,7 @@ Dans ce cas, commencez par la liste des attributs dans cette rubrique et identif
 | givenName |X |X | | |
 | homePhone |X |X | | |
 | info |X |X |X |Cet attribut n'est actuellement pas utilisé pour les groupes. |
-| Initials |X |X | | |
+| Initiales |X |X | | |
 | l |X |X | | |
 | legacyExchangeDN |X |X |X | |
 | mailNickName |X |X |X | |
@@ -168,7 +168,7 @@ Dans ce cas, commencez par la liste des attributs dans cette rubrique et identif
 | thumbnailPhoto |X |X | | |
 | title |X |X | | |
 | unauthOrig |X |X |X | |
-| usageLocation |X | | |propriété mécanique. Pays de l’utilisateur. Utilisé pour l’attribution de licence. |
+| usageLocation |X | | |propriété mécanique. Pays/région de l’utilisateur. Utilisé pour l’attribution de licence. |
 | userCertificate |X |X | | |
 | userPrincipalName |X | | |Le nom UPN est l’ID de connexion de l’utilisateur. Le plus souvent, identique à la valeur [mail]. |
 | userSMIMECertificates |X |X | | |
@@ -251,7 +251,8 @@ Dans ce cas, commencez par la liste des attributs dans cette rubrique et identif
 | title |X |X | | |
 | unauthOrig |X |X |X | |
 | url |X |X | | |
-| usageLocation |X | | |propriété mécanique. Pays de l’utilisateur. Utilisé pour l’attribution de licence. |
+| usageLocation |X | | |propriété mécanique. Pays/région de l’utilisateur
+. Utilisé pour l’attribution de licence. |
 | userPrincipalName |X | | |Le nom UPN est l’ID de connexion de l’utilisateur. Le plus souvent, identique à la valeur [mail]. |
 | wWWHomePage |X |X | | |
 
@@ -299,7 +300,7 @@ Dans ce cas, commencez par la liste des attributs dans cette rubrique et identif
 | telephoneNumber |X |X | | |
 | thumbnailPhoto |X |X | | |
 | title |X |X | | |
-| usageLocation |X | | |propriété mécanique. Pays de l’utilisateur. Utilisé pour l’attribution de licence. |
+| usageLocation |X | | |propriété mécanique. Pays/région de l’utilisateur. Utilisé pour l’attribution de licence. |
 | userPrincipalName |X | | |Le nom UPN est l’ID de connexion de l’utilisateur. Le plus souvent, identique à la valeur [mail]. |
 | wWWHomePage |X |X | | |
 
@@ -310,12 +311,12 @@ Dans ce cas, commencez par la liste des attributs dans cette rubrique et identif
 | cn |X | |X |Nom commun ou alias. Le plus souvent, il s’agit du préfixe de valeur [mail]. |
 | displayName |X |X |X |Chaîne qui représente le nom affiché souvent comme nom convivial (prénom nom). |
 | mail |X |X |X |Adresse de messagerie complète. |
-| member | | |X | |
+| membre | | |X | |
 | objectSID |X | |X |propriété mécanique. Identificateur d’utilisateur Active Directory utilisé pour maintenir la synchronisation entre Azure AD et Active Directory. |
 | proxyAddresses |X |X |X |propriété mécanique. Utilisé par Azure AD. Contient toutes les adresses de messagerie secondaires pour l’utilisateur. |
 | pwdLastSet |X | | |propriété mécanique. Permet de savoir quand invalider les jetons déjà émis. |
 | sourceAnchor |X |X |X |propriété mécanique. Identificateur immuable pour maintenir la relation entre ADDS et Azure AD. |
-| usageLocation |X | | |propriété mécanique. Pays de l’utilisateur. Utilisé pour l’attribution de licence. |
+| usageLocation |X | | |propriété mécanique. Pays/région de l’utilisateur. Utilisé pour l’attribution de licence. |
 | userPrincipalName |X | | |Ce nom UPN est l’ID de connexion de l’utilisateur. Le plus souvent, identique à la valeur [mail]. |
 
 ## <a name="intune"></a>Intune
@@ -333,7 +334,7 @@ Dans ce cas, commencez par la liste des attributs dans cette rubrique et identif
 | proxyAddresses |X |X |X | |
 | pwdLastSet |X | | |propriété mécanique. Permet de savoir quand invalider les jetons déjà émis. S’applique à la synchronisation du hachage de mot de passe, l’authentification directe et la fédération. |
 | sourceAnchor |X |X |X |propriété mécanique. Identificateur immuable pour maintenir la relation entre ADDS et Azure AD. |
-| usageLocation |X | | |propriété mécanique. Pays de l’utilisateur. Utilisé pour l’attribution de licence. |
+| usageLocation |X | | |propriété mécanique. Pays/région de l’utilisateur. Utilisé pour l’attribution de licence. |
 | userPrincipalName |X | | |Le nom UPN est l’ID de connexion de l’utilisateur. Le plus souvent, identique à la valeur [mail]. |
 
 ## <a name="dynamics-crm"></a>Dynamics CRM
@@ -365,7 +366,7 @@ Dans ce cas, commencez par la liste des attributs dans cette rubrique et identif
 | streetAddress |X |X | | |
 | telephoneNumber |X |X | | |
 | title |X |X | | |
-| usageLocation |X | | |propriété mécanique. Pays de l’utilisateur. Utilisé pour l’attribution de licence. |
+| usageLocation |X | | |propriété mécanique. Pays/région de l’utilisateur. Utilisé pour l’attribution de licence. |
 | userPrincipalName |X | | |Le nom UPN est l’ID de connexion de l’utilisateur. Le plus souvent, identique à la valeur [mail]. |
 
 ## <a name="3rd-party-applications"></a>Applications tierces
@@ -381,6 +382,7 @@ Ce groupe est un ensemble d’attributs qui peut être utilisé si l’annuaire 
 | accountEnabled |X | | |Détermine si un compte est activé. |
 | cn |X | |X | |
 | displayName |X |X |X | |
+| employeeID |X |  |  | |
 | givenName |X |X | | |
 | mail |X | |X | |
 | managedBy | | |X | |
@@ -391,7 +393,7 @@ Ce groupe est un ensemble d’attributs qui peut être utilisé si l’annuaire 
 | pwdLastSet |X | | |propriété mécanique. Permet de savoir quand invalider les jetons déjà émis. S’applique à la synchronisation du hachage de mot de passe, l’authentification directe et la fédération. |
 | sn |X |X | | |
 | sourceAnchor |X |X |X |propriété mécanique. Identificateur immuable pour maintenir la relation entre ADDS et Azure AD. |
-| usageLocation |X | | |propriété mécanique. Pays de l’utilisateur. Utilisé pour l’attribution de licence. |
+| usageLocation |X | | |propriété mécanique. Pays/région de l’utilisateur. Utilisé pour l’attribution de licence. |
 | userPrincipalName |X | | |Le nom UPN est l’ID de connexion de l’utilisateur. Le plus souvent, identique à la valeur [mail]. |
 
 ## <a name="windows-10"></a>Windows 10
@@ -420,7 +422,7 @@ Ces attributs pour **l'utilisateur** s'ajoutent aux autres applications que vous
 ## <a name="exchange-hybrid-writeback"></a>Écriture différée d’Exchange hybride
 Ces attributs sont écrits en différé depuis Azure AD vers Active Directory local quand vous choisissez d’activer **Exchange hybride**. Selon votre version d’Exchange, il est possible que moins d’attributs soient synchronisés.
 
-| Nom d’attribut (interface utilisateur Connect) |Nom d’attribut (instance locale d’AD) | Utilisateur | Contact | Groupe | Commentaire |
+| Nom d’attribut (instance locale d’AD) | Nom d’attribut (interface utilisateur Connect) | Utilisateur | Contact | Groupe | Commentaire |
 | --- |:---:|:---:|:---:| --- |---|
 | msDS-ExternalDirectoryObjectID| ms-DS-External-Directory-Object-Id |X | | |Dérivé de cloudAnchor dans Azure AD. Cet attribut est une nouveauté dans Exchange 2016 et Windows Server 2016 AD. |
 | msExchArchiveStatus| ms-Exch-ArchiveStatus |X | | |Archive en ligne : Permet aux clients d’archiver le courrier. |

@@ -15,19 +15,19 @@ ms.workload: infrastructure
 ms.date: 10/15/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 737c72e6225cdfc9fdeec59810ffd9100c48d1ad
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4113d582647b5bea86980824714936d24dafc870
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61305115"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65511144"
 ---
 # <a name="expand-virtual-hard-disks-on-a-linux-vm-with-the-azure-cli"></a>Étendre des disques durs virtuels sur une machine virtuelle Linux avec Azure CLI
 
 Cet article explique comment étendre des disques managés pour une machine virtuelle Linux avec Azure CLI. Vous pouvez [ajouter des disques de données](add-disk.md) afin d’offrir un espace de stockage supplémentaire, et vous pouvez également étendre un disque de données existant. La taille par défaut de disque dur virtuel pour le système d’exploitation est généralement de 30 Go sur une machine virtuelle Linux dans Azure. 
 
 > [!WARNING]
-> Toujours vous assurer que votre système de fichiers est dans un état sain et vérifiez que vos données sont sauvegardées avant d’effectuer les opérations de redimensionnement de disque. Pour plus d’informations, consultez [Back up Linux VMs in Azure](tutorial-backup-vms.md) (Sauvegarder des machines virtuelles Linux dans Azure).
+> Assurez-vous toujours que votre système de fichiers est dans un état sain, votre type de table de partition de disque prendra en charge la nouvelle taille et vérifiez que vos données sont sauvegardées avant d’effectuer les opérations de redimensionnement de disque. Pour plus d’informations, consultez [Back up Linux VMs in Azure](tutorial-backup-vms.md) (Sauvegarder des machines virtuelles Linux dans Azure). 
 
 ## <a name="expand-an-azure-managed-disk"></a>Étendre un disque managé Azure
 Vérifiez que vous avez installé la dernière version [d’Azure CLI](/cli/azure/install-az-cli2) et que vous êtes connecté à un compte Azure avec la commande [az login](/cli/azure/reference-index#az-login).

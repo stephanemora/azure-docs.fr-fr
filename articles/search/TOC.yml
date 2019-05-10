@@ -29,7 +29,7 @@
       href: search-create-index-rest-api.md
 - name: Tutoriels
   items:
-    - name: Indexer Azure SQL Database
+    - name: Indexer une base de données Azure SQL
       href: search-indexer-tutorial.md
     - name: Indexer des objets blob Azure JSON
       href: search-semi-structured-data.md
@@ -101,6 +101,8 @@
           href: search-get-started-java.md
         - name: Mettre à niveau le kit de développement logiciel (SDK)
           items:
+            - name: .NET SDK 9.0
+              href: search-dotnet-sdk-migration-version-9.md
             - name: Kit de développement logiciel (SDK) .NET 5.0
               href: search-dotnet-sdk-migration-version-5.md
             - name: Kit de développement logiciel (SDK) .NET 3.0
@@ -129,7 +131,7 @@
           items:
             - name: Créer un suggesteur
               href: index-add-suggesters.md
-            - name: 'Exemples (suggestions, saisie semi-automatique)'
+            - name: Ajouter des suggestions ou autoCompleter
               href: search-autocomplete-tutorial.md
         - name: Synonymes
           items:

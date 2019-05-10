@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: c8bc11b8f81fe034ceaa93c7bd8a49771d9407f9
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 63dd64e900cf68e708032569ca75ac2e8b221491
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025778"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65237008"
 ---
 # <a name="speech-devices-sdk-microphone-array-recommendations"></a>Recommandations de tableau vocale Microphone du Kit de développement logiciel des appareils
 
@@ -29,9 +29,11 @@ Les géométries de tableau suivantes sont recommandées pour une utilisation av
 
 |          | Tableau circulaire    |       |  Tableau linéaire              |                |
 |----------|-------------------|-------------------|----------------|----------------|
-|          |![7 tableau circulaire mic](media/speech-devices-sdk/7-mic-c.png)|![4 tableau circulaire mic](media/speech-devices-sdk/4-mic-c.png)|![4 tableau linéaire mic](media/speech-devices-sdk/4-mic-l.png)|![2 tableau linéaire mic](media/speech-devices-sdk/2-mic-l.png)|
+|          |<img src="media/speech-devices-sdk/7-mic-c.png" alt="7 mic circular array" width="150"/>|<img src="media/speech-devices-sdk/4-mic-c.png" alt="4 mic circular array" width="150"/>|<img src="media/speech-devices-sdk/4-mic-l.png" alt="4 mic linear array" width="150"/>|<img src="media/speech-devices-sdk/2-mic-l.png" alt="2 mic linear array" width="150"/>|
 | \# Micros  | 7                 | 4                 | 4              | 2              |
 | Géométrie | 6 1 externe, centre, Radius = mm 42,5, espacées de manière égale| 3 1 externe, centre, Radius = mm 42,5, espacées de manière égale | Longueur = 120 mm, espacement = 40 mm | Espacement = 40 mm |
+
+Les canaux de microphone doivent être classés en fonction de la numérotation mentionnés pour chaque au-dessus de tableau, l’augmentation de 0.  La pile Audio Microsoft nécessiteront un flux de référence supplémentaires de la lecture audio pour effectuer l’annulation de l’écho.
 
 ## <a name="component-selection"></a>Sélection de composant
 
@@ -110,4 +112,4 @@ Haute vitesse 2.0 de classe Audio USB doit être pris en charge dans n’importe
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> En savoir plus sur la [Speech SDK de périphériques](speech-devices-sdk.md)
+> [En savoir plus sur les appareils de Speech SDK](speech-devices-sdk.md)

@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 03/01/2019
+ms.date: 04/30/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: ebe45bf8f562b5be9ae2afda9d5940296396f155
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 914513bc19cc81da29efef12d50a6485233d169f
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60679305"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236576"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Sauvegarde et restauration dans Azure SQL Data Warehouse
 
@@ -42,7 +42,7 @@ order by run_id desc
 ;
 ```
 
-## <a name="user-defined-restore-points"></a>Points de restauration définis par l’utilisateur
+## <a name="user-defined-restore-points"></a>Points de restauration définis par l'utilisateur
 
 Cette fonctionnalité vous permet de manuellement des instantanés de déclencheur pour créer des points de restauration de votre entrepôt de données avant et après des modifications importantes apportées. Cette fonctionnalité garantit que les points de restauration sont logiquement cohérentes, ce qui fournit une protection des données supplémentaires dans le cas des interruptions de la charge de travail ou des erreurs de l’utilisateur pour le temps de récupération rapide. Les points de restauration définis par l’utilisateur sont disponibles pendant sept jours et sont automatiquement supprimés pour votre compte. Vous ne pouvez pas changer la période de conservation des points de restauration définis par l’utilisateur. **42 points de restauration définis par l’utilisateur** sont garantis à un instant donné. Ils doivent donc être [supprimés](https://go.microsoft.com/fwlink/?linkid=875299) avant qu’un autre point de restauration soit créé. Vous pouvez déclencher des captures instantanées pour créer des points de restauration définis par l’utilisateur par le biais de [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaserestorepoint#examples) ou du portail Azure.
 
@@ -83,7 +83,7 @@ Le coût total de votre entrepôt de données principal et de sept jours de chan
 
 Si vous utilisez le stockage géoredondant, vous payez des frais de stockage distincts. Le stockage géoredondant est facturé au prix standard du stockage géoredondant avec accès en lecture (RA-GRS).
 
-Pour plus d’informations sur la tarification de SQL Data Warehouse, consultez [Tarification de SQL Data Warehouse](https://azure.microsoft.com/pricing/details/sql-data-warehouse/) et [Frais de sortie](https://azure.microsoft.com/pricing/details/bandwidth/) lors de la restauration inter-région.
+Pour plus d’informations sur la tarification de SQL Data Warehouse, consultez [SQL Data Warehouse tarification]. Vous n’êtes pas facturé pour l’acheminement des données lors de la restauration dans différentes régions.
 
 ## <a name="restoring-from-restore-points"></a>Restauration à partir de points de restauration
 

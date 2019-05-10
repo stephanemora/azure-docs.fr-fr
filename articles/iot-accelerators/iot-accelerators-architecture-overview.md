@@ -1,6 +1,6 @@
 ---
 title: Architecture de référence des accélérateurs de solution IoT - Azure | Microsoft Docs
-description: Familiarisez-vous avec l'architecture de référence des accélérateurs de solution Azure IoT. Les accélérateurs de solution existants reposent sur cette architecture de référence. Vous pouvez également utiliser l'architecture de référence pour créer vos propres solutions IoT personnalisées.
+description: Découvrez l’architecture de référence d’accélérateurs de solution Azure IoT. Les accélérateurs de solution existants reposent sur cette architecture de référence. Vous pouvez également utiliser l'architecture de référence pour créer vos propres solutions IoT personnalisées.
 author: dominicbetts
 ms.author: dobett
 ms.date: 12/04/2018
@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-accelerators
 services: iot-accelerators
 manager: philmea
-ms.openlocfilehash: ba5eb50dcf800c186124db348ac584ff6f55cebb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1e3ec677f2c3ce2a7f942c47269fe1f70885ac02
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61450299"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466454"
 ---
 # <a name="introduction-to-the-azure-iot-reference-architecture"></a>Introduction à l'architecture de référence Azure IoT
 
@@ -38,7 +38,7 @@ L'[architecture de référence Azure IoT](https://aka.ms/iotrefarchitecture) est
 
 L'architecture de référence identifie les sous-systèmes principaux représentés dans le diagramme suivant :
 
-![Sous-systèmes principaux](media/iot-accelerators-architecture-overview/CoreSubsystems.png)
+![Sous-systèmes principaux](media/iot-accelerators-architecture-overview/coresubsystems1.png)
 
 Les sections suivantes décrivent la façon dont les composants de l’accélérateur de solution de supervision à distance sont mis en correspondance avec les sous-systèmes principaux.
 

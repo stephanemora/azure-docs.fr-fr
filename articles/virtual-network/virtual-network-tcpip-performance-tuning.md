@@ -28,12 +28,12 @@ ms.author:
 - minale
 - btalb
 - prachank
-ms.openlocfilehash: 31ca0ee666ff37afa37fb9636860c557d92a52c7
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: d0124d6656167af3942e0d054b4e1fa7a2b48e8b
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924782"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65410042"
 ---
 # <a name="tcpip-performance-tuning-for-azure-vms"></a>TCP/IP réglage des performances pour les machines virtuelles Azure
 
@@ -240,7 +240,7 @@ Ce sont les paramètres TCP efficaces pour `AutoTuningLevel`:
 |Désactivé|Aucun|Aucun|Taille de la fenêtre|
 |Restreint|4|2^4|Taille de la fenêtre * (2 ^ 4)|
 |Hautement restreint|2|2^2|Taille de la fenêtre * (2 ^ 2)|
-|Normal|8|2^8|Taille de la fenêtre * (2 ^ 8)|
+|Normale|8|2^8|Taille de la fenêtre * (2 ^ 8)|
 |Expérimental|14|2^14|Taille de la fenêtre * (2 ^ 14)|
 
 Ces paramètres sont les plus susceptibles d’affecter les performances de TCP, mais n’oubliez pas que beaucoup d’autres facteurs sur internet, en dehors du contrôle d’Azure, peut également affecter les performances de TCP.
@@ -276,7 +276,7 @@ Pour utiliser la mise en réseau accélérée, vous devez activer explicitement 
 
 Mise à l’échelle (RSS) est une technologie de pilote de réseau qui distribue la réception du trafic réseau plus efficacement en distribuant le traitement de réception entre plusieurs processeurs dans un système multiprocesseur de côté de la réception. En termes simples, RSS permet à un système à traiter plus de trafic reçu, car elle utilise tous les processeurs disponibles au lieu d’un. Pour obtenir une description plus technique de RSS, consultez [Introduction à du trafic entrant](https://docs.microsoft.com/windows-hardware/drivers/network/introduction-to-receive-side-scaling).
 
-Pour obtenir les meilleures performances lors de la mise en réseau accélérée est activée sur une machine virtuelle, vous devez activer RSS. RSS peut également fournir les avantages sur des machines virtuelles qui n’utilisent pas de mise en réseau accélérée. Pour une vue d’ensemble de la façon de déterminer si le partage RSS est activé et comment l’activer, consultez [optimiser un débit réseau des machines virtuelles Azure](http://aka.ms/FastVM).
+Pour obtenir les meilleures performances lors de la mise en réseau accélérée est activée sur une machine virtuelle, vous devez activer RSS. RSS peut également fournir les avantages sur des machines virtuelles qui n’utilisent pas de mise en réseau accélérée. Pour une vue d’ensemble de la façon de déterminer si le partage RSS est activé et comment l’activer, consultez [optimiser un débit réseau des machines virtuelles Azure](https://aka.ms/FastVM).
 
 ### <a name="tcp-timewait-and-timewait-assassination"></a>TCP TIME_WAIT et TIME_WAIT sera
 
@@ -316,13 +316,13 @@ Cette limite de débit s’applique à la machine virtuelle. Débit n’est pas 
 
 - **Protocole** : Tout le trafic sortant sur tous les protocoles est comptabilisée dans la limite.
 
-Pour plus d’informations, consultez [la bande passante du réseau de machine virtuelle](http://aka.ms/AzureBandwidth).
+Pour plus d’informations, consultez [la bande passante du réseau de machine virtuelle](https://aka.ms/AzureBandwidth).
 
 ### <a name="internet-performance-considerations"></a>Considérations sur les performances
 
 Comme indiqué dans cet article, facteurs sur internet et en dehors du contrôle d’Azure peuvent affecter les performances du réseau. Voici quelques-unes de ces facteurs :
 
-- **Latence**: Le temps d’aller-retour entre deux destinations peuvent être affecté par des problèmes sur les réseaux intermédiaires, par le trafic qui ne prend pas le chemin d’accès distance « le plus court » et par les chemins d’homologation non optimales.
+- **Latence** : Le temps d’aller-retour entre deux destinations peuvent être affecté par des problèmes sur les réseaux intermédiaires, par le trafic qui ne prend pas le chemin d’accès distance « le plus court » et par les chemins d’homologation non optimales.
 
 - **Perte de paquets**: Perte de paquets peut être dû de congestion du réseau, des problèmes de chemin d’accès physique et les périphériques réseau peu performantes.
 

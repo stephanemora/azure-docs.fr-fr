@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 05/07/2019
 ms.author: juliako
-ms.openlocfilehash: 61b877c322fcd58472990c328beea2e309502bce
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3a562f98635d581aa320fdbd59d05a0382f09606
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60734573"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65465542"
 ---
 # <a name="define-account-filters-and-asset-filters"></a>Définir des filtres de comptes et des filtres d'éléments multimédias  
 
@@ -26,7 +26,7 @@ Quand vous distribuez votre contenu aux clients (diffusion en continu des évén
 
 Les filtres sont des règles côté serveur qui permettent à vos clients d’effectuer des opérations comme : 
 
-- Lire une seule section d'une vidéo (au lieu de la vidéo entière). Par exemple : 
+- Lire une seule section d'une vidéo (au lieu de la vidéo entière). Exemple :
   - Réduisez le manifeste pour afficher un sous-clip d'un événement en direct (« filtrage de sous-clip »), ou
   - Découpez le début d'une vidéo (« découpage d'une vidéo »).
 - Distribuer uniquement les rendus spécifiés et/ou les pistes de langue spécifiées qui sont prises en charge par l’appareil utilisé pour lire le contenu (« filtrage de rendu »). 
@@ -55,7 +55,7 @@ Selon votre scénario, vous choisissez le type de filtre le plus adapté (filtre
 
 Utilisez les propriétés suivantes pour décrire les filtres. 
 
-|Nom|Description|
+|Nom|Description |
 |---|---|
 |firstQuality|Première qualité de vitesse de transmission du filtre.|
 |presentationTimeRange|Plage horaire de présentation. Cette propriété sert à filtrer les points de début/fin du manifeste, la durée de la fenêtre de présentation, et la position de départ du flux en direct. <br/>Pour plus d’informations, consultez [PresentationTimeRange](#presentationtimerange).|
@@ -65,7 +65,7 @@ Utilisez les propriétés suivantes pour décrire les filtres.
 
 Utilisez cette propriété avec les **filtres d’élément multimédia**. Il n’est pas recommandé de définir la propriété avec des **filtres de compte**.
 
-|Nom|Description|
+|Nom|Description |
 |---|---|
 |**endTimestamp**|Applicable à la vidéo à la demande (VoD).<br/>Pour la présentation de diffusion en continu, il est en mode silencieux ignoré et appliquée lorsque la fin de la présentation et le flux de données devient VoD.<br/>Il s’agit d’une valeur longue qui représente un point de terminaison absolu de la présentation, arrondi au début de GOP suivant le plus proche. L’unité étant l’échelle de temps, un endTimestamp de 1800000000 serait pendant 3 minutes.<br/>Utilisez startTimestamp et endTimestamp à découper les fragments qui figurera dans la liste de lecture (manifeste).<br/>Par exemple, startTimestamp = 40000000 et endTimestamp = 100000000 génère une sélection qui contient des fragments entre 4 secondes et 10 secondes de la présentation de la demande (VOD) à l’aide de l’échelle de temps par défaut. Si un fragment approche la limite, le fragment entier sera inclus dans le manifeste.|
 |**forceEndTimestamp**|S’applique à la diffusion en continu en direct uniquement.<br/>Indique si la propriété endTimestamp doit être présente. Si la valeur est true, endTimestamp doit être spécifié ou un code de demande incorrecte est retourné.<br/>Valeurs autorisées : false, true.|
@@ -80,7 +80,7 @@ Vous spécifiez une liste de conditions de propriété de suivi de filtre (Filte
 
 Les conditions de propriétés de suivi de filtre décrivent les types de suivi, les valeurs (spécifiées dans le tableau suivant) et les opérations (Equal, NotEqual). 
 
-|Nom|Description|
+|Nom|Description |
 |---|---|
 |**Bitrate**|Utilisez la vitesse de transmission de la piste pour le filtrage.<br/><br/>La valeur recommandée est une plage de vitesses de transmission, en bits par seconde. Par exemple, « 0-2427000 ».<br/><br/>Remarque : vous pouvez utiliser une valeur de vitesse de transmission spécifique, comme 250000 (bits par seconde), mais cette approche n'est pas recommandée car les vitesses de transmission exacts peuvent varier d’un élément multimédia à un autre.|
 |**FourCC**|Utilisez la valeur FourCC de la piste pour le filtrage.<br/><br/>La valeur est le premier élément du format de codecs, tel que spécifié dans [RFC 6381](https://tools.ietf.org/html/rfc6381). À l’heure actuelle, les codecs suivants sont pris en charge : <br/>Pour la vidéo : « avc1 », « hev1 », « hvc1 »<br/>Pour l’audio : « mp4a », « ec-3 »<br/><br/>Pour déterminer les valeurs FourCC pour les pistes dans un élément multimédia, obtenir et examinez le fichier manifest.|
@@ -90,7 +90,7 @@ Les conditions de propriétés de suivi de filtre décrivent les types de suivi,
 
 ## <a name="associate-filters-with-streaming-locator"></a>Associer des filtres de localisateur de diffusion en continu
 
-Vous pouvez spécifier une liste de filtres de compte d’actif ou, s’applique également à votre localisateur de diffusion en continu. Le [l’empaquetage dynamique](dynamic-packaging-overview.md) s’applique à cette liste de filtres avec ceux de votre client spécifie l’URL. Cette combinaison génère une [dyanamic manifeste](filters-dynamic-manifest-overview.md), qui est basé sur les filtres dans l’URL + filtres que vous spécifiez dans le localisateur de diffusion en continu. Nous vous recommandons d’utiliser cette fonctionnalité si vous souhaitez appliquer des filtres, mais ne souhaitez pas exposer les noms de filtre dans l’URL.
+Vous pouvez spécifier une liste de filtres de compte d’actif ou, s’applique également à votre localisateur de diffusion en continu. Le [l’empaquetage dynamique](dynamic-packaging-overview.md) s’applique à cette liste de filtres avec ceux de votre client spécifie l’URL. Cette combinaison génère une [manifeste dynamique](filters-dynamic-manifest-overview.md), qui est basé sur les filtres dans l’URL + filtres que vous spécifiez dans le localisateur de diffusion en continu. Nous vous recommandons d’utiliser cette fonctionnalité si vous souhaitez appliquer des filtres, mais ne souhaitez pas exposer les noms de filtre dans l’URL.
 
 ## <a name="definition-example"></a>Exemple de définition
 

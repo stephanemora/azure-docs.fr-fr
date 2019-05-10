@@ -21,11 +21,11 @@ ms.locfileid: "60333949"
 
 Microsoft Azure Machine Learning Studio vous permet de générer et de tester une solution d’analyse prédictive. Vous pouvez ensuite déployer la solution comme un service web.
 
-Les services web Machine Learning Studio fournissent une interface entre une application et un modèle de notation du workflow Machine Learning Studio. Une application externe peut communiquer en temps réel avec un modèle de notation du workflow Machine Learning Studio. Un appel à un service web Machine Learning Studio renvoie les résultats d’une prédiction à une application externe. Pour générer cet appel, vous transmettez une clé API créée au moment du déploiement du service web. Un service web Machine Learning Studio s’appuie sur l’architecture REST, souvent choisie pour les projets de programmation web.
+Les services web Machine Learning Studio fournissent une interface entre une application et un modèle de scoring du workflow Machine Learning Studio. Une application externe peut communiquer en temps réel avec un modèle de scoring du workflow Machine Learning Studio. Un appel à un service web Machine Learning Studio renvoie les résultats d’une prédiction à une application externe. Pour générer cet appel, vous transmettez une clé API créée au moment du déploiement du service web. Un service web Machine Learning Studio s’appuie sur l’architecture REST, souvent choisie pour les projets de programmation web.
 
 Azure Machine Learning Studio propose deux types de services web :
 
-* Service de requête-réponse (RRS, Request-Response Service) : Un service hautement évolutif à faible latence qui effectue la notation d’un seul enregistrement de données.
+* Service de requête-réponse (RRS, Request-Response Service) : Un service hautement scalable à faible latence qui effectue la notation d’un seul enregistrement de données.
 * Service d'exécution de lots (BES, Batch Execution Service) : Un service asynchrone qui effectue la notation d’un lot d’enregistrements de données.
 
 La saisie pour BES ressemble à la saisie de données utilisée par RRS. La principale différence réside dans le fait que BES lit un bloc d’enregistrements à partir de différentes sources, par exemple le stockage Blob Azure, le stockage Table Azure, Azure SQL Database, HDInsight (requêtes Hive) et les sources HTTP.

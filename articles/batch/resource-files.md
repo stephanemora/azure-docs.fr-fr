@@ -8,12 +8,12 @@ ms.service: batch
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: lahugh
-ms.openlocfilehash: 679a1c60e44694bde86cafba21d7f1d2c6fb94d9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 113faffb0ebac50a67c96ce21e0ee2c1564bb4fc
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60616549"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65405653"
 ---
 # <a name="creating-and-using-resource-files"></a>Création et utilisation des fichiers de ressources
 
@@ -38,7 +38,7 @@ Options pour la création d’un fichier de ressources :
 
 ### <a name="storage-container-url"></a>URL du conteneur de stockage
 
-À l’aide d’une URL de conteneur de stockage signifie que vous pouvez accéder aux fichiers dans n’importe quel conteneur de stockage dans Azure. Avec les autorisations appropriées
+À l’aide d’une URL de conteneur de stockage signifie que vous pouvez accéder aux fichiers dans n’importe quel conteneur de stockage dans Azure avec les autorisations appropriées.
 
 Dans ce C# exemple, les fichiers ont déjà été chargés dans un conteneur de stockage Azure en tant que stockage d’objets blob. Pour accéder aux données nécessaires pour créer un fichier de ressources, nous devons d’abord accéder au conteneur de stockage.
 

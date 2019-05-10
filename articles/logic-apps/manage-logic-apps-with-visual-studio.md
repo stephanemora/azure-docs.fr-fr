@@ -9,13 +9,13 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.custom: mvc
-ms.date: 04/25/2019
-ms.openlocfilehash: d47c073eb6bfc3012d42d6add8a15029271120f4
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.date: 05/07/2019
+ms.openlocfilehash: 6a36770ff623e35c56a972a482e24ebb24849051
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65136500"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65467419"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>Gérer des applications logiques avec Visual Studio
 
@@ -36,8 +36,7 @@ Bien que vous pouvez créer, modifier, gérer et déployer des applications logi
   Ce démarrage rapide utilise Visual Studio Community 2017, qui est gratuit.
 
     > [!IMPORTANT]
-    > Quand vous installez Visual Studio 2019 ou 2017, veillez à sélectionner la charge de travail **Développement Azure**.
-    > Pour plus d’informations, consultez [gérer les ressources associées à vos comptes Azure dans Visual Studio Cloud Explorer](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view).
+    > Quand vous installez Visual Studio 2019 ou 2017, veillez à sélectionner la charge de travail **Développement Azure**. Pour Visual Studio 2019, Cloud Explorer peut ouvrir le Concepteur d’application logique dans le portail Azure, mais ne peut pas encore ouvrir le Concepteur d’application logique intégré. Pour plus d’informations, consultez [gérer les ressources associées à vos comptes Azure dans Visual Studio Cloud Explorer](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view).
 
     Pour installer Cloud Explorer pour Visual Studio 2015, [télécharger Cloud Explorer à partir de Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=MicrosoftCloudExplorer.CloudExplorerforVisualStudio2015). 
     Pour plus d’informations, consultez [gérer les ressources associées à vos comptes Azure dans Visual Studio Cloud Explorer (2015)](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view=vs-2015).
@@ -105,6 +104,9 @@ Dans Visual Studio, vous pouvez ouvrir des applications logiques précédemment 
 Vous pouvez télécharger des applications logiques à partir du [portail Azure](https://portal.azure.com) et les enregistrer en tant que modèles [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md). Vous pouvez ensuite modifier localement les modèles avec Visual Studio et personnaliser les applications logiques pour différents environnements de déploiement. Le téléchargement d’applications logiques *paramètre* automatiquement leurs définitions dans des [modèles Resource Manager](../azure-resource-manager/resource-group-overview.md#template-deployment), qui utilisent également JSON (JavaScript Objet Notation).
 
 1. Dans Visual Studio, ouvrez Cloud Explorer, puis recherchez et sélectionnez l’application logique à télécharger à partir d’Azure.
+
+   > [!NOTE]
+   > Pour Visual Studio 2019, Cloud Explorer peut ouvrir le Concepteur d’application logique dans le portail Azure, mais encore Impossible d’ouvrir le Concepteur d’application logique intégré pour le téléchargement de votre application logique.
 
 2. Dans le menu contextuel de l’application, sélectionnez **Ouvrir avec l’éditeur d’application logique**.
 

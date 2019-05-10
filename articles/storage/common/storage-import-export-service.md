@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 02/14/2019
+ms.date: 05/07/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 4850dd82ca52a060c921569433035256f5b74cce
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5bb68f3f0139a98f10e28957209f8530a762b76c
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61478762"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65413904"
 ---
 # <a name="what-is-azure-importexport-service"></a>Qu’est-ce que le service Azure Import/Export ?
 
@@ -112,7 +112,7 @@ Globalement, un travail d’exportation comprend les opérations suivantes :
 
 Pour obtenir des instructions pas à pas sur l’exportation de données, consultez[Exporter des données à partir d’objets blob Azure](storage-import-export-data-from-blobs.md).
 
-## <a name="region-availability"></a>Disponibilité des régions 
+## <a name="region-availability"></a>Disponibilité dans la région 
 
 Le service Azure Import/Export prend en charge la copie des données vers et depuis tous les comptes de stockage Azure. Vous pouvez expédier des lecteurs de disque aux emplacements suivants. Si votre compte de stockage se trouve dans un emplacement Azure qui n’est pas spécifié ici, un emplacement d’expédition de remplacement est proposé lorsque vous créez le travail.
 
@@ -124,7 +124,7 @@ Le service Azure Import/Export prend en charge la copie des données vers et dep
 |USA Est    | Europe Nord        | Inde Centre        |US Gov Iowa         |
 |USA Ouest     |Europe Ouest         | Inde Sud        | Est des États-Unis – US DoD        |
 |USA Est 2    | Asie Est        |  Inde Ouest        | Centre des États-Unis – US DoD        |
-|USA Ouest 2     | Asie Sud-Est        | Centre du Canada        | Chine orientale         |
+|USA Ouest 2     | Asie du Sud-Est        | Centre du Canada        | Chine orientale         |
 |USA Centre     | Australie Est        | Est du Canada        | Chine du Nord        |
 |USA Centre Nord     |  Australie Sud-Est       | Brésil Sud        | Sud du Royaume-Uni        |
 |USA Centre Sud     | Japon Ouest        |Centre de la Corée         | Centre de l’Allemagne        |
@@ -160,7 +160,7 @@ Lorsque vous envoyez des disques à Azure, vous payez le coût d’expédition a
 
 **Frais de transaction**
 
-L’importation de données dans le stockage Azure n’entraîne pas de frais de transaction supplémentaires par rapport aux frais de transaction du stockage standard. Des frais de sortie standard s’appliquent quand les données sont exportées à partir de Stockage Blob. Pour plus d’informations sur les frais de transaction, consultez [Tarification - Transfert de données](https://azure.microsoft.com/pricing/details/data-transfers/).
+[Frais de transaction de stockage standard](https://azure.microsoft.com/pricing/details/storage/) appliquer pendant l’importation ainsi que l’exportation de données. Frais de sortie standard sont également applicables, ainsi que des frais de transaction de stockage lorsque les données sont exportées depuis le stockage Azure. Pour plus d’informations sur les frais de sortie, consultez [tarification de transfert de données.](https://azure.microsoft.com/pricing/details/data-transfers/).
 
 
 

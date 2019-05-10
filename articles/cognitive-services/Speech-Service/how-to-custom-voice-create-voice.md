@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: erhopf
-ms.openlocfilehash: fad69c4108d747c44eccf37b81adf2c7c615cb58
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 6189ea2866d1c16f994179df0179e29353e6c47d
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65156845"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65410711"
 ---
 # <a name="create-a-custom-voice"></a>Créer une voix personnalisée
 
-Dans [préparer des données pour la voix personnalisée](how-to-custom-voice-prepare-data.md), nous avons décrit les différents types de données que vous pouvez utiliser pour former une voix personnalisée et les exigences de format différent. Une fois que vous avez préparé vos données, vous pouvez commencer à les télécharger sur le [portail personnalisé vocale](http://aka.ms/custom-voice-portal), ou via l’API de formation personnalisé voix. Ici, nous décrivons les étapes de l’apprentissage d’une voix personnalisée via le portail.
+Dans [préparer des données pour la voix personnalisée](how-to-custom-voice-prepare-data.md), nous avons décrit les différents types de données que vous pouvez utiliser pour former une voix personnalisée et les exigences de format différent. Une fois que vous avez préparé vos données, vous pouvez commencer à les télécharger sur le [portail personnalisé vocale](https://aka.ms/custom-voice-portal), ou via l’API de formation personnalisé voix. Ici, nous décrivons les étapes de l’apprentissage d’une voix personnalisée via le portail.
 
 > [!NOTE]
 > Cette page suppose que vous avez lu [prise en main personnalisé voix](how-to-custom-voice.md) et [préparer des données pour la fonctionnalité vocale personnalisée](how-to-custom-voice-prepare-data.md)et vous avez créé un projet personnalisé voix.
@@ -28,7 +28,7 @@ Vérifier les langues prises en charge pour la voix personnalisée : [langage p
 
 ## <a name="upload-your-datasets"></a>Charger vos jeux de données
 
-Lorsque vous êtes prêt à charger vos données, accédez à la [portail personnalisé vocale](http://aka.ms/custom-voice-portal). Créez ou sélectionnez un projet personnalisé voix. Le projet doit partager la bonne langue/région et les propriétés de sexe que les données vous comptez utiliser pour l’apprentissage de votre voix. Par exemple, sélectionnez `en-GB` si les enregistrements audio que vous avez est effectuée en anglais avec un accent Royaume-Uni.
+Lorsque vous êtes prêt à charger vos données, accédez à la [portail personnalisé vocale](https://aka.ms/custom-voice-portal). Créez ou sélectionnez un projet personnalisé voix. Le projet doit partager la bonne langue/région et les propriétés de sexe que les données vous comptez utiliser pour l’apprentissage de votre voix. Par exemple, sélectionnez `en-GB` si les enregistrements audio que vous avez est effectuée en anglais avec un accent Royaume-Uni.
 
 Accédez à la **données** onglet et cliquez sur **charger des données**. Dans l’Assistant, sélectionnez le type de données correct qui correspond à ce que vous avez préparé.
 
@@ -47,7 +47,7 @@ Le tableau suivant présente les états de traitement des jeux de données impor
 | État | Signification |
 | ----- | ------- |
 | Traitement en cours | Votre jeu de données a été reçue et est en cours de traitement. |
-| Succeeded | Votre jeu de données a été validé et peut-être désormais être utilisée pour générer un modèle de voix. |
+| Opération réussie | Votre jeu de données a été validé et peut-être désormais être utilisée pour générer un modèle de voix. |
 | Échec | Votre jeu de données a échoué au cours du traitement de nombreuses raisons, par exemple les erreurs de fichier, des problèmes de données ou des problèmes de réseau. |
 
 Une fois la validation terminée, vous pouvez voir le nombre total de mise en correspondance énoncés pour chacun de vos jeux de données dans le **énoncés** colonne. Si le type de données que vous avez sélectionné nécessite une segmentation de l’audio de longue durée, cette colonne reflète uniquement les énoncés que nous avons segmenté pour vous que soit en se basant sur vos relevés de notes ou via le service de transcription vocale. Vous pouvez télécharger plus le jeu de données validée pour afficher les résultats de détail des énoncés importés avec succès et les transcriptions de leur mappage. Conseil : segmentation de l’audio de longue durée peut prendre plus d’une heure pour terminer le traitement des données.
@@ -89,7 +89,7 @@ L’état est indiqué reflète le processus de conversion de votre jeu de donn�
 | État | Signification |
 | ----- | ------- |
 | Traitement en cours | Votre modèle vocal est en cours de création. |
-| Succeeded | Votre modèle de voix a été créé et peut être déployé. |
+| Opération réussie | Votre modèle de voix a été créé et peut être déployé. |
 | Échec | Votre modèle vocale a échoué dans la formation de nombreuses raisons, par exemple des données des problèmes ou des problèmes réseau. |
 
 Le temps d’apprentissage varie selon le volume de données audio traitées. Il varie généralement d’environ 30 minutes pour plusieurs centaines d’énoncés à 40 heures pour 20 000 énoncés. Une fois que votre apprentissage du modèle est réussi, vous pouvez commencer à tester.

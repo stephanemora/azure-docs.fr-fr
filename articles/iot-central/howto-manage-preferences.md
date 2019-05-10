@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 968bb5317e06b5cf9ac1f939eaf56288122a1ae0
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 00d40b9910f9b549443373c84b079c543037ce62
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64724401"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236320"
 ---
 # <a name="manage-your-application-preferences"></a>Gérer les préférences des applications
 
@@ -23,13 +23,16 @@ IoT Central permet de personnaliser les applications en fonction de vos besoins.
 
 ## <a name="changing-language"></a>Changement de langue
 
-IoT Central est pris en charge dans plusieurs langues. Vous pouvez changer votre langue préférée à l’aide de la **sélecteur de langue** sur l’icône des paramètres dans la barre de navigation supérieure. Une fois que vous avez modifié votre langue, IoT Central se souvient de votre sélection et l’applique dans toutes vos applications. Notez cette personnalisation dans l’application de que ces images de tableau de bord ne sont pas localisées.
+IoT Central est pris en charge dans plusieurs langues. Vous pouvez changer votre langue préférée à l’aide de la **sélecteur de langue** sur l’icône des paramètres dans la barre de navigation supérieure. Une fois que vous avez modifié votre langue, IoT Central se souvient de votre sélection et l’applique dans toutes vos applications. Personnalisation de l’application de que ces images de tableau de bord ne sont pas localisées.
 
 ## <a name="changing-theme"></a>Modification du thème
 
-Nous proposons un thème sombre et un thème clair. Alors que le thème clair est la valeur par défaut, vous pouvez modifier cela en sélectionnant l’icône des paramètres dans la barre de navigation supérieure.
+Nous proposons un thème sombre et un thème clair. Alors que le thème clair est la valeur par défaut, vous pouvez modifier le thème en sélectionnant l’icône des paramètres dans la barre de navigation supérieure.
 
 ![Sélecteur de thème IoT Central](media/howto-manage-preferences/settings.png)
+
+> [!NOTE]
+> La possibilité de choisir entre les thèmes clairs et foncés n’est pas disponible si votre administrateur a configuré un thème personnalisé pour l’application.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

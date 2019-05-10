@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 04/01/2019
+ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 9083227dd81dca219666e07b70f487069413855d
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: df37e7aad2420d0bc280121634d49675ae29ee5a
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59521269"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236429"
 ---
 # <a name="tutorial-get-exact-text-matched-data-from-an-utterance"></a>Didacticiel : Obtenir des données exactes correspondant au texte d’un énoncé
 
@@ -108,11 +108,7 @@ Le nom _canonique_ principal pour chaque élément est le nom de service. Voici 
 
 1. Dans la page Department entity, entrez la valeur `Accounting`.
 
-    [![Capture d’écran de saisie de valeur](media/luis-quickstart-intent-and-list-entity/hr-emp1-value.png "Capture d’écran de saisie de valeur")](media/luis-quickstart-intent-and-list-entity/hr-emp1-value.png#lightbox)
-
 1. Pour Synonyms, ajoutez les synonymes à partir du tableau précédent.
-
-    [![Capture d’écran de saisie de synonymes](media/luis-quickstart-intent-and-list-entity/hr-emp1-synonyms.png "Capture d’écran de saisie de synonymes")](media/luis-quickstart-intent-and-list-entity/hr-emp1-synonyms.png#lightbox)
 
 1. Faites de même pour tous les noms canoniques et leurs synonymes. 
 

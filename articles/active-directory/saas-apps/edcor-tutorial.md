@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Edcor | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Edcor | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Edcor.
 services: active-directory
 documentationCenter: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a527b928edacc202301f53dbf7852f8446b3aa7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ff1d9089f3fb2f3ebf3022b54c442e8338ab983b
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57834980"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65508355"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-edcor"></a>Didacticiel : Intégration d’Azure Active Directory à Edcor
 
@@ -124,7 +124,7 @@ Pour configurer l’authentification unique Azure AD avec Edcor, effectuez les �
 
 ### <a name="configure-edcor-single-sign-on"></a>Configurer l’authentification unique Edcor
 
-Pour configurer l’authentification unique côté **Edcor**, vous devez envoyer le **XML des métadonnées de fédération** téléchargé et les URL copiées dans le portail Azure à l’[équipe du support technique Edcor](http://www.edcor.com/contact-us-2/). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+Pour configurer l’authentification unique côté **Edcor**, vous devez envoyer le **XML des métadonnées de fédération** téléchargé et les URL copiées dans le portail Azure à l’[équipe du support technique Edcor](https://www.edcor.com/contact-us/). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD 
 
@@ -144,7 +144,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
@@ -179,7 +179,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 ### <a name="create-edcor-test-user"></a>Créer un utilisateur de test Edcor
 
-Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Edcor. Collaborez avec l’ [équipe du support technique Edcor](http://www.edcor.com/contact-us-2/) pour ajouter des utilisateurs à la plateforme Edcor. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
+Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans Edcor. Collaborez avec l’ [équipe du support technique Edcor](https://www.edcor.com/contact-us/) pour ajouter des utilisateurs à la plateforme Edcor. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
 ### <a name="test-single-sign-on"></a>Tester l’authentification unique 
 

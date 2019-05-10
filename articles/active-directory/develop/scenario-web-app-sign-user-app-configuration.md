@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 516d1c3440548b43bf6df21dbf5757794634fb12
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: b2204fe3e08b3c4b909ddc8b7ade4cec219d34fb
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65074574"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406630"
 ---
 # <a name="web-app-that-signs-in-users---code-configuration"></a>Application Web qui se connecte les utilisateurs - configuration du code
 
@@ -31,7 +31,7 @@ Découvrez comment configurer le code de votre application Web que les utilisate
 <!-- This section can be in an include for Web App and Web APIs -->
 Les bibliothèques utilisées pour protéger une application Web (et une API Web) sont :
 
-| Plateforme | Bibliothèque | Description |
+| Plateforme | Bibliothèque | Description  |
 |----------|---------|-------------|
 | ![.NET](media/sample-v2-code/logo_net.png) | [Extensions de modèle d’identité pour .NET](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki) | Directement utilisé par ASP.NET et ASP.NET Core, Microsoft Identity Extensions à .NET propose un ensemble de DLL en cours d’exécution sur .NET Framework et .NET Core. À partir d’une application Web de Core ASP.NET/ASP.NET, vous pouvez contrôler à l’aide de la validation du jeton la **TokenValidationParameters** classe (en particulier dans certains scénarios d’éditeurs de logiciels indépendants) |
 
@@ -143,7 +143,7 @@ Dans ASP.NET, l’application est configurée via le `Web.Config` fichier
 <?xml version="1.0" encoding="utf-8"?>
 <!--
   For more information on how to configure your ASP.NET application, please visit
-  http://go.microsoft.com/fwlink/?LinkId=301880
+  https://go.microsoft.com/fwlink/?LinkId=301880
   -->
 <configuration>
   <appSettings>

@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 6d602491c66669007ae220c3b8143ce3e805246f
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 2352594b168f5d37ddb6a46064f9ac5801fb035f
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65147990"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65508402"
 ---
-# <a name="fine-tune-text-to-speech-output"></a>Ajuster la sortie de synthèse vocale
+# <a name="fine-tune-text-to-speech-output"></a>Régler la sortie de synthèse vocale
 
 Les Services de reconnaissance vocale Azure permettent de régler la vitesse, la prononciation, le volume, la hauteur et la contour de synthèse vocale à l’aide de la sortie [Markup langage SSML (Speech Synthesis)](speech-synthesis-markup.md). SSML est un langage de balisage basé sur XML qui utilise des balises pour informer la fonctionnalité est nécessaire de régler le service. Le SSML message est ensuite envoyé dans le corps de chaque demande au service de synthèse vocale. Pour simplifier le processus de personnalisation, les Services de reconnaissance vocale offrent désormais une [voix réglage](https://aka.ms/voicetuning) sorties d’outil qui vous permet d’inspecter et ajuster visuellement synthèse vocale en temps réel.
 
@@ -28,9 +28,9 @@ L’outil de réglage de la voix prend en charge de Microsoft [standard](languag
 Avant de commencer le réglage de la sortie avec l’outil de réglage de la voix de synthèse vocale, vous devez effectuer ces étapes :
 
 1. Créer un [Microsoft compte gratuit](https://account.microsoft.com/account) si vous n’en avez pas déjà.
-2. Créer un [compte Azure gratuit](https://azure.microsoft.com/en-us/free/) si vous n’en avez pas déjà. Cliquez sur **démarrer gratuitement**et créez un compte Azure à l’aide de votre compte Microsoft.
+2. Créer un [compte Azure gratuit](https://azure.microsoft.com/free/) si vous n’en avez pas déjà. Cliquez sur **démarrer gratuitement**et créez un compte Azure à l’aide de votre compte Microsoft.
 
-3. Créer un abonnement de Services de reconnaissance vocale dans le portail Azure. Obtenir des instructions détaillées pour [comment créer une ressource de reconnaissance vocale](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure) sont disponibles.
+3. Créer un abonnement de Services de reconnaissance vocale dans le portail Azure. Obtenir des instructions détaillées pour [comment créer une ressource de reconnaissance vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure) sont disponibles.
    >[!NOTE]
    >Lorsque vous créez une ressource de reconnaissance vocale dans le portail Azure, les informations d’emplacement Azure doivent correspondre à la région de voix de synthèse vocale. Voix de synthèse neuronal prend en charge un ensemble de sub des emplacements Azure. Pour obtenir une liste complète de prise en charge, consultez [régions](regions.md#text-to-speech).
 
@@ -70,6 +70,6 @@ Réglage de voix neuronaux est légèrement différente de celle de paramétrage
 > L’outil de réglage de la voix fournit des informations contextuelles sur les fonctionnalités et le paramétrage.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Créer une ressource de reconnaissance vocale dans Azure](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure)
+* [Créer une ressource de reconnaissance vocale dans Azure](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure)
 * [Démarrer l’optimisation de la voix](https://speech.microsoft.com/app.html#/VoiceTuning)
 * [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md)

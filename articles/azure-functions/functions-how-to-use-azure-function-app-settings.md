@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 096f39eeef54f3a4a1e3d8928dd13b7c22847c8d
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 188c17b4e8ef84f3907b63fd62bf110ee94b4d7f
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65143185"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65511209"
 ---
 # <a name="how-to-manage-a-function-app-in-the-azure-portal"></a>Comment gérer une Function App dans le portail Azure 
 
@@ -26,15 +26,23 @@ Commencez par accéder au [portail Azure](https://portal.azure.com) et connectez
 
 ![Vue d’ensemble de Function App dans le portail Azure](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-main.png)
 
-## <a name="manage-app-service-settings"></a>Onglet Paramètres de Function App
+Vous pouvez accéder à tout ce dont vous avez besoin pour gérer votre application de fonction à partir de la page Vue d’ensemble, en particulier le **[paramètres d’Application](#settings)** et **[fonctionnalitésdelaplateforme](#platform-features)**.
 
-![Vue d’ensemble de Function App dans le portail Azure.](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-settings-tab.png)
+## <a name="settings"></a>Paramètres de l’application
 
-Dans l’onglet **Paramètres**, vous pouvez mettre à jour la version du runtime Functions utilisée par votre Function App. C’est également ici que vous gérez les clés de l’hôte utilisées pour restreindre l’accès HTTP à toutes les fonctions hébergées par la Function App.
+Le **paramètres d’Application** onglet conserve les paramètres qui sont utilisés par votre application de fonction.
 
-Functions prend en charge les plans d’hébergement App Service et Consommation. Pour plus d’informations, consultez [Choisir le plan de service approprié pour Azure Functions](functions-scale.md). Pour une meilleure prévisibilité dans le plan Consommation, Functions vous permet de limiter l’utilisation de la plate-forme en définissant un quota d’utilisation quotidienne, en gigaoctets-secondes. Une fois ce quota d’utilisation quotidienne atteint, la Function App s’arrête. Une Function App arrêtée parce qu’elle a atteint le quota d’utilisation peut être réactivée dans le même contexte en établissant un nouveau quota d’utilisation quotidienne. Consultez la [page Tarification de Functions](https://azure.microsoft.com/pricing/details/functions/) pour plus d’informations sur la tarification.   
+![Paramètres Function app dans le portail Azure.](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-settings-tab.png)
 
-## <a name="platform-features-tab"></a>Onglet Fonctionnalités de la plate-forme
+Ces paramètres sont chiffrées et stockées, et vous devez sélectionner **afficher les valeurs** pour afficher les valeurs dans le portail.
+
+Pour ajouter un paramètre, sélectionnez **nouveau paramètre d’application** et ajoutez la nouvelle paire clé-valeur.
+
+[!INCLUDE [functions-environment-variables](../../includes/functions-environment-variables.md)]
+
+Lorsque vous développez une application de fonction localement, ces valeurs sont conservées dans le fichier de projet local.settings.json.
+
+## <a name="platform-features"></a>Fonctionnalités de la plateforme
 
 ![Onglet Fonctionnalités de la plate-forme de Function App.](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-features-tab.png)
 
@@ -46,7 +54,6 @@ Les Function Apps s’exécutent dans la plateforme Azure App Service et y sont 
 Le reste de cette rubrique se concentre sur les fonctionnalités App Service du portail Azure qui sont utiles pour Functions :
 
 + [Éditeur App Service](#editor)
-+ [Paramètres de l’application](#settings) 
 + [Console](#console)
 + [Outils avancés (Kudu)](#kudu)
 + [Options de déploiement](#deployment)
@@ -63,14 +70,6 @@ Pour plus d’informations sur l’utilisation des paramètres App Service, cons
 | ![Éditeur App Service de Function App.](./media/functions-how-to-use-azure-function-app-settings/function-app-appsvc-editor.png)  | L’éditeur App Service est un éditeur avancé intégré au portail. Vous pouvez l’utiliser pour modifier les fichiers de configuration JSON et les fichiers de code. L’activation de cette option entraîne l’ouverture d’un onglet distinct du navigateur avec un éditeur de base. Vous pouvez ainsi l’intégrer au référentiel GitHub, exécuter et déboguer du code et modifier les paramètres de Function App. Cet éditeur fournit un environnement de développement amélioré pour vos fonctions en comparaison avec le panneau Function App par défaut.    |
 
 ![L’éditeur App Service](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-appservice-editor.png)
-
-### <a name="settings"></a>Paramètres de l’application
-
-| | |
-|-|-|
-| ![Paramètres de l’application Function App.](./media/functions-how-to-use-azure-function-app-settings/function-app-application-settings.png) | Dans le panneau **Paramètres de l’application**, vous configurez et gérez les versions de framework, le débogage distant, les paramètres de l’application et les chaînes de connexion. Lorsque vous intégrez votre Function App avec d’autres services tiers et Azure, vous pouvez modifier ces paramètres ici. Pour supprimer un paramètre, faites défiler vers la droite et cliquez sur l’icône **X** à droite de la ligne (non illustrée dans l’image suivante).
-
-![Configurer les paramètres de l’application](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-settings.png)
 
 ### <a name="console"></a>Console
 

@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 379e73c33aa4570c3e56f902b011d75944c94a8d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7687abf5fc4af0eea9fa6aa210cfd6734cec2b36
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60870721"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65410583"
 ---
 # <a name="automatically-scale-session-hosts"></a>Mettre automatiquement à l’échelle vos hôtes de session
 
@@ -26,9 +26,9 @@ L’environnement dans lequel vous exécutez le script doit disposer des éléme
 
 - Un client de bureau virtuel Windows et compte ou un principal de service avec des autorisations pour interroger ce client (par exemple, contributeur de services Bureau à distance).
 - Machines virtuelles du pool session hôte configuré et inscrit auprès du service Bureau virtuel Windows.
-- Un scaler supplémentaire de machine virtuelle qui exécute la tâche planifiée par le biais de planification de la tâche et qui a un accès réseau aux hôtes de session.
-- Le module Microsoft Azure PowerShell Resource Manager est installé sur la machine virtuelle exécutant la tâche planifiée.
-- Le module PowerShell de bureau virtuel Windows est installé sur la machine virtuelle exécutant la tâche planifiée.
+- Une machine virtuelle supplémentaire qui exécute la tâche planifiée par le biais du Planificateur de tâches et dispose d’un accès réseau aux hôtes de session. Ce sera fait référence à plus tard dans le document en tant que machine virtuelle de scaler.
+- Le [module Microsoft Azure Resource Manager PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) installé sur la machine virtuelle exécutant la tâche planifiée.
+- Le [module PowerShell de bureau virtuel Windows](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) installé sur la machine virtuelle exécutant la tâche planifiée.
 
 ## <a name="recommendations-and-limitations"></a>Recommandations et limitations
 
@@ -37,7 +37,7 @@ Lorsque vous exécutez le script de mise à l’échelle, gardez les points suiv
 - Ce script de mise à l’échelle peut uniquement gérer un pool d’hôte par instance de la tâche planifiée qui exécute le script de mise à l’échelle.
 - Les tâches planifiées qui exécutent des scripts de mise à l’échelle doivent être sur une machine virtuelle qui est toujours activé.
 - Créer un dossier distinct pour chaque instance du script de mise à l’échelle et sa configuration.
-- Ce script ne prend pas en charge les comptes avec l’authentification multifacteur. Nous vous recommandons de qu'utiliser des principaux de service pour accéder au service de bureau virtuel Windows et le Azure.
+- Ce script ne prend pas en charge la connexion en tant qu’administrateur à un bureau virtuel Windows avec des comptes d’utilisateur Azure AD qui nécessitent l’authentification multifacteur. Nous vous recommandons de qu'utiliser des principaux de service pour accéder au service de bureau virtuel Windows et le Azure. Suivez [ce didacticiel](create-service-principal-role-powershell.md) pour créer un principal de service et une attribution de rôle avec PowerShell.
 - Garantie de contrat SLA d’Azure s’applique uniquement aux machines virtuelles dans un groupe à haute disponibilité. La version actuelle du document décrit un environnement avec une seule machine virtuelle effectuant la mise à l’échelle, ce qui ne répond pas aux exigences de disponibilité.
 
 ## <a name="deploy-the-scaling-script"></a>Déployer le script de mise à l’échelle
@@ -48,32 +48,40 @@ Les procédures suivantes vous indiquera comment déployer le script de mise à 
 
 Tout d’abord, préparez votre environnement pour le script de mise à l’échelle :
 
-1. Connectez-vous à la machine virtuelle (**mise à l’échelle de machine virtuelle**) qui exécutera la tâche planifiée avec un compte d’administration de domaine.
-2. Créez un dossier sur la machine virtuelle mise à l’échelle pour contenir le script de mise à l’échelle et sa configuration (par exemple, **C:\\HostPool1 mise à l’échelle**).
-3. Téléchargez le **basicScaler.ps1**, **Config.xml**, et **PSStoredCredentials.ps1 de fonctions** fichiers et le **PowershellModules** dossier à partir de la [référentiel de scripts de mise à l’échelle](https://github.com/Azure/RDS-Templates/tree/master/wvd-sh/WVD%20scaling%20script) et copiez-les dans le dossier que vous avez créé à l’étape 2.
+1. Connectez-vous à la machine virtuelle (VM scaler) qui exécutera la tâche planifiée avec un compte d’administration de domaine.
+2. Créez un dossier sur la machine virtuelle pour stocker le script de mise à l’échelle et sa configuration scaler (par exemple, **C:\\HostPool1 mise à l’échelle**).
+3. Téléchargez le **basicScale.ps1**, **Config.xml**, et **PSStoredCredentials.ps1 de fonctions** fichiers et le **PowershellModules** dossier à partir de la [référentiel de scripts de mise à l’échelle](https://github.com/Azure/RDS-Templates/tree/master/wvd-sh/WVD%20scaling%20script) et copiez-les dans le dossier que vous avez créé à l’étape 2. Il existe deux méthodes principales pour obtenir les fichiers avant de les copier dans la machine virtuelle scaler :
+    - Clonez le référentiel git sur votre ordinateur local.
+    - Afficher le **Raw** version de chaque fichier, copiez et collez le contenu de chaque fichier dans un éditeur de texte, puis enregistrez les fichiers avec le type de fichier et le nom de fichier correspondant. 
 
 ### <a name="create-securely-stored-credentials"></a>Créer des informations d’identification stockées en toute sécurité
 
 Ensuite, vous devez créer les informations d’identification stockées en toute sécurité :
 
 1. Ouvrez PowerShell ISE en tant qu’administrateur.
-2. Ouvrir le volet d’édition et charger le **PSStoredCredentials.ps1 de fonction** fichier.
-3. Exécutez l’applet de commande suivante :
+2. Importez le module PowerShell de services Bureau à distance en exécutant l’applet de commande suivante :
+
+    ```powershell
+    Install-Module Microsoft.RdInfra.RdPowershell
+    ```
+    
+3. Ouvrir le volet d’édition et charger le **PSStoredCredentials.ps1 de fonction** fichier.
+4. Exécutez l’applet de commande suivante :
     
     ```powershell
     Set-Variable -Name KeyPath -Scope Global -Value <LocalScalingScriptFolder>
     ```
     
     Par exemple, **Set-Variable - nom KeyPath-étendue globale-valeur « c:\\HostPool1 mise à l’échelle »**
-4. Exécutez le **StoredCredential de New - KeyPath \$KeyPath** applet de commande. Lorsque vous y êtes invité, entrez vos informations d’identification de bureau virtuel Windows avec des autorisations pour interroger le pool de l’hôte (le pool de l’hôte est spécifié dans le **config.xml**).
+5. Exécutez le **StoredCredential de New - KeyPath \$KeyPath** applet de commande. Lorsque vous y êtes invité, entrez vos informations d’identification de bureau virtuel Windows avec des autorisations pour interroger le pool de l’hôte (le pool de l’hôte est spécifié dans le **config.xml**).
     - Si vous utilisez différents principaux de service ou compte d’utilisateur standard, exécutez le **StoredCredential de New - KeyPath \$KeyPath** applet de commande une fois pour chaque compte créer local les informations d’identification stockées.
-5. Exécutez **StoredCredentials de Get-liste** pour confirmer les informations d’identification ont été créées avec succès.
+6. Exécutez **StoredCredentials de Get-liste** pour confirmer les informations d’identification ont été créées avec succès.
 
 ### <a name="configure-the-configxml-file"></a>Configurer le fichier config.xml
 
 Entrez les valeurs appropriées dans les champs suivants pour mettre à jour les paramètres de script de mise à l’échelle dans le fichier config.xml :
 
-| Champ                     | Description                    |
+| Champ                     | Description                     |
 |-------------------------------|------------------------------------|
 | AADTenantId                   | ID du locataire AD Azure qui associe l’abonnement dans lequel exécuter des machines virtuelles de l’hôte de session     |
 | AADApplicationId              | ID d’application du principal du service                                                       |
@@ -87,7 +95,7 @@ Entrez les valeurs appropriées dans les champs suivants pour mettre à jour les
 | BeginPeakTime                 | Lorsque les heures de pointe commence                                                            |
 | EndPeakTime                   | Lorsque les heures de pointe se termine                                                              |
 | TimeDifferenceInHours         | Différence de temps entre l’heure locale et l’heure UTC, en heures                                   |
-| SessionThresholdPerCPU        | Nombre maximal de sessions par seuil processeur utilisée pour déterminer quand un nouveau serveur RDSH doit être démarré pendant les heures de pointe.  |
+| SessionThresholdPerCPU        | Nombre maximal de sessions par seuil processeur utilisée pour déterminer quand un nouvel hôte de session machine virtuelle doit être démarré pendant les heures de pointe.  |
 | MinimumNumberOfRDSH           | Nombre minimal de machines virtuelles à poursuivre son exécution pendant l’heure d’utilisation creuses du pool de hôte             |
 | LimitSecondsToForceLogOffUser | Nombre de secondes à attendre avant de forcer les utilisateurs à se déconnecter. Si la valeur 0, les utilisateurs ne sont pas obligée de se déconnecter.  |
 | LogOffMessageTitle            | Titre du message envoyé à un utilisateur avant qu’ils êtes obligés de se déconnecter                  |
@@ -111,11 +119,11 @@ Après avoir configuré le fichier .xml de configuration, vous devez configurer 
 
 Ce script de mise à l’échelle lit les paramètres à partir d’un fichier config.xml, y compris le début et la fin de la période d’utilisation de pointe pendant la journée.
 
-Pendant les heures de pointe, le script vérifie le nombre actuel de sessions et la capacité RDSH en cours d’exécution actuelle pour chaque collection. Elle calcule si les serveurs RDSH en cours d’exécution possède une capacité suffisante pour prendre en charge les sessions existantes en fonction du paramètre SessionThresholdPerCPU défini dans le fichier config.xml. Si ce n’est pas le cas, le script démarre des serveurs RDSH supplémentaires dans la collection.
+Pendant les heures de pointe, le script vérifie le nombre actuel de sessions et la capacité RDSH en cours d’exécution actuelle pour chaque pool de l’hôte. Elle calcule si l’hôte de session en cours d’exécution des machines virtuelles ait une capacité suffisante pour prendre en charge les sessions existantes en fonction du paramètre SessionThresholdPerCPU défini dans le fichier config.xml. Si ce n’est pas le cas, le script démarre les machines virtuelles hôtes de session supplémentaire dans le pool de l’hôte.
 
-Pendant le délai creuses, le script détermine quels serveurs RDSH doit être fermé en fonction du paramètre de MinimumNumberOfRDSH dans le fichier config.xml. Le script configurera les serveurs RDSH pour vider le mode pour empêcher les nouvelles sessions de connexion aux ordinateurs hôtes. Si vous définissez la **LimitSecondsToForceLogOffUser** paramètre dans le fichier config.xml pour une valeur positive différente de zéro, le script informera les actuellement connecté aux utilisateurs d’enregistrer le travail, attendez le laps de temps configuré et puis forcer la utilisateurs à se déconnecter. Une fois que toutes les sessions utilisateur ont été terminées sur un serveur RDSH, le script s’arrête le serveur.
+Pendant le délai creuses, le script détermine quel hôte de session des machines virtuelles doit être fermé en fonction du paramètre MinimumNumberOfRDSH dans le fichier config.xml. Le script configurera la session à héberger des machines virtuelles pour vider le mode pour empêcher les nouvelles sessions de connexion aux ordinateurs hôtes. Si vous définissez la **LimitSecondsToForceLogOffUser** paramètre dans le fichier config.xml pour une valeur positive différente de zéro, le script informera les actuellement connecté aux utilisateurs d’enregistrer le travail, attendez le laps de temps configuré et puis forcer la utilisateurs à se déconnecter. Une fois que toutes les sessions utilisateur ont été terminées sur une machine virtuelle d’hôte de session, le script s’arrête le serveur.
 
-Si vous définissez la **LimitSecondsToForceLogOffUser** paramètre dans le fichier config.xml à zéro, le script autorisera le paramètre de configuration de session dans les propriétés de collection pour gérer la déconnexion des sessions utilisateur. S’il existe des sessions sur un serveur RDSH, il laissera le serveur RDSH en cours d’exécution. S’il ne sont pas toutes les sessions, le script s’arrête le serveur RDSH.
+Si vous définissez la **LimitSecondsToForceLogOffUser** paramètre dans le fichier config.xml à zéro, le script permettra le paramètre de configuration de session dans l’hôte de propriétés du pool gérer la déconnexion des sessions utilisateur. S’il existe des sessions sur une machine virtuelle d’hôte de session, il laissera la machine virtuelle d’hôte de session en cours d’exécution. S’il ne sont pas toutes les sessions, le script s’arrête à la machine virtuelle d’hôte de session.
 
 Le script est conçu pour s’exécuter périodiquement sur le serveur de machine virtuelle scaler à l’aide du Planificateur de tâches. Sélectionnez l’intervalle de temps appropriée en fonction de la taille de votre environnement de Services Bureau à distance et n’oubliez pas que démarrage et arrêt des machines virtuelles peuvent prendre un certain temps. Nous vous recommandons d’exécuter le script de mise à l’échelle toutes les 15 minutes.
 
@@ -125,6 +133,6 @@ Le script de mise à l’échelle crée deux fichiers journaux, **WVDTenantScale
 
 Le **WVDTenantUsage.log** fichier enregistre le nombre réel de cœurs et actif nombre de machines virtuelles chaque fois que vous exécutez le script de mise à l’échelle. Vous pouvez utiliser ces informations pour estimer l’utilisation réelle des machines virtuelles Microsoft Azure et le coût. Le fichier est mis en forme en tant que valeurs séparées par des virgules, avec chaque élément contenant les informations suivantes :
 
->temps, collection, cœurs, machines virtuelles
+>temps, pool de l’hôte, cœurs, machines virtuelles
 
 Le nom de fichier peut également être modifié pour avoir une extension .csv, chargé dans Microsoft Excel et analysées.

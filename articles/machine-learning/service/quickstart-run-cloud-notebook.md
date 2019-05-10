@@ -10,32 +10,34 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: ecb97860e70141a744833aa9b9a4fcea3f3688f0
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 1a48f8620fb99f1cf8787dabc738d328a796d093
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149826"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510612"
 ---
 # <a name="quickstart-use-a-cloud-based-notebook-server-to-get-started-with-azure-machine-learning"></a>Démarrage rapide : Utiliser un serveur de notebooks cloud pour démarrer avec Azure Machine Learning
 
 Créez un serveur de notebooks basé sur le cloud, puis utilisez-le.  Dans ce guide de démarrage rapide, vous allez exécuter du code Python qui journalise les valeurs dans l’[espace de travail Azure Machine Learning service](concept-azure-machine-learning-architecture.md). Dans le cloud, l’espace de travail est le socle que vous utilisez pour expérimenter, effectuer l’apprentissage et déployer des modèles Machine Learning avec Machine Learning. 
 
 Ce guide de démarrage rapide montre comment créer une ressource cloud dans votre espace de travail Azure Machine Learning, configuré avec l’environnement Python nécessaire à l’exécution d’Azure Machine Learning. Pour utiliser à la place votre propre environnement, consultez [Démarrage rapide : Utiliser votre propre serveur de notebooks pour démarrer avec Azure Machine Learning](quickstart-run-local-notebook.md).  
- 
+
 Ce démarrage rapide décrit les actions suivantes :
 
 * Création d’un serveur de notebook basé sur le cloud dans votre espace de travail
 * Lancement de l’interface web Jupyter
 * Ouverture d’un notebook qui contient du code pour estimer pi et qui journalise les erreurs à chaque itération
 * Exécution du notebook
-* Affichez les valeurs d’erreur journalisées dans votre espace de travail. Cet exemple montre comment l’espace de travail peut vous aider à suivre les informations générées dans un script. 
+* Affichez les valeurs d’erreur journalisées dans votre espace de travail. Cet exemple montre comment l’espace de travail peut vous aider à suivre les informations générées dans un script.
 
-Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez dès aujourd'hui la [version gratuite ou payante d’Azure Machine Learning service](https://aka.ms/AMLFree).
+Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez la [version gratuite ou payante d’Azure Machine Learning service](https://aka.ms/AMLFree) dès aujourd’hui.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="create-a-workspace"></a>Créer un espace de travail
 
-- Un espace de travail Azure Machine Learning.  [Créez votre espace de travail](setup-create-workspace.md#portal) maintenant si vous n’en avez pas déjà un.
+Si vous disposez d’un espace de travail Azure Machine Learning service, passez à la [section suivante](#create-a-cloud-based-notebook-server). Dans le cas contraire, créez-en un maintenant.
+
+[!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
 ## <a name="create-a-cloud-based-notebook-server"></a>Créer un serveur de notebooks basé sur le cloud
 
@@ -57,7 +59,6 @@ Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de com
     ![Créer une machine virtuelle](media/quickstart-run-cloud-notebook/create-new-workstation.png)
 
 1. Attendez environ 4 à 5 minutes, le temps que l’état passe à **En cours d’exécution**.
-
 
 ## <a name="launch-jupyter-web-interface"></a>Lancer l’interface web Jupyter
 
@@ -102,10 +103,9 @@ Exécutez un notebook qui estime pi et journalise l’erreur dans votre espace d
 
     Dans la cellule de code la plus grande, vous pouvez constater que `run.log` apparaît à plusieurs endroits. Chaque occurrence de `run.log` ajoute sa valeur à votre espace de travail.
 
-
 ## <a name="view-logged-values"></a>Afficher les valeurs journalisées
 
-1. La sortie de la cellule `run` contient un lien qui ramène au portail Azure pour voir les résultats de l’expérience dans votre espace de travail. 
+1. La sortie de la cellule `run` contient un lien qui ramène au portail Azure pour voir les résultats de l’expérience dans votre espace de travail.
 
     ![Afficher les expériences](./media/quickstart-run-cloud-notebook/view-exp.png)
 
@@ -117,7 +117,7 @@ Exécutez un notebook qui estime pi et journalise l’erreur dans votre espace d
 
 Étant donné que le code pour se rapprocher de pi utilise des valeurs aléatoires, vos tracés affichent des valeurs différentes.  
 
-## <a name="clean-up-resources"></a>Supprimer des ressources 
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 ### <a name="stop-the-notebook-vm"></a>Arrêter la machine virtuelle Notebook
 

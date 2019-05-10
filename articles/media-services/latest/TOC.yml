@@ -24,18 +24,13 @@
     - name: Diffuser en direct - .NET
       href: stream-live-tutorial-with-api.md
     - name: Analyser votre vidéo - .NET
-      displayName: 'job, transform'
+      displayName: 'job, transform, VideoAnalyzerPreset, AudioAnalyzerPreset'
       href: analyze-videos-tutorial-with-api.md
     - name: Chiffrer dynamiquement avec AES-128 - .NET
       href: protect-with-aes128.md
     - name: Chiffrer dynamiquement avec DRM - .NET
+      displayName: 'PlayReady, Widevine'
       href: protect-with-drm.md
-- name: Exemples
-  items:
-    - name: "Exemples de code\_Azure"
-      href: 'https://azure.microsoft.com/resources/samples/?sort=0&service=media-services&term=v3'
-    - name: Azure CLI
-      href: cli-samples.md
 - name: Concepts
   href: concepts-overview.md
   items:
@@ -52,6 +47,7 @@
           displayName: 'encoding, presets, jobs, adaptive, bitrate'
         - name: Transformations et travaux
           href: transforms-jobs-concept.md
+          displayName: 'preset, schema'
         - name: Formats Media Encoder Standard
           displayName: 'containers, codecs'
           href: media-encoder-standard-formats.md
@@ -75,7 +71,7 @@
         - name: Packaging
           items:
             - name: l’empaquetage dynamique
-              displayName: packager
+              displayName: 'origin, packager'
               href: dynamic-packaging-overview.md
             - name: Manifestes dynamiques
               href: filters-dynamic-manifest-overview.md
@@ -84,7 +80,7 @@
         - name: Protection du contenu
           items:
             - name: Types de protocoles de diffusion en continu et de chiffrement
-              displayName: Dynamic encryption
+              displayName: 'dynamic, encryption'
               href: content-protection-overview.md
             - name: Système multi-DRM avec contrôle d’accès
               href: design-multi-drm-system-with-access-control.md
@@ -97,7 +93,7 @@
                 - name: Conditions de licence FairPlay
                   href: fairplay-license-overview.md
         - name: Points de terminaison de streaming/origine
-          displayName: 'origins, cdn'
+          displayName: 'origin, packager, cdn'
           href: streaming-endpoint-concept.md
         - name: Localisateurs de diffusion en continu
           displayName: URLs
@@ -106,8 +102,8 @@
           href: streaming-policy-concept.md
         - name: Stratégies de clé de contenu
           href: content-key-policy-concept.md
-        - name: Codes d’erreur initiaux
-          href: origin-error-codes.md
+        - name: Codes d’erreur du point de terminaison de streaming
+          href: streaming-endpoint-error-codes.md
     - name: Vidéo en flux continu
       items:
         - name: Vue d’ensemble
@@ -141,6 +137,7 @@
           href: use-azure-media-player.md
     - name: Développement avec les API v3
       href: media-services-apis-overview.md
+      displayName: 'access, naming, long-running'
       items:
         - name: 'Paginer, filtrer et classer des entités'
           href: entities-overview.md
@@ -148,8 +145,8 @@
           href: rbac-overview.md
         - name: Codes d’erreur
           items:
-            - name: Codes d’erreur initiaux
-              href: origin-error-codes.md
+            - name: Codes d’erreur du point de terminaison de streaming
+              href: streaming-endpoint-error-codes.md
             - name: Codes d’erreur des tâches
               href: job-error-codes.md
     - name: Conseils de migration de v2 vers v3
@@ -160,10 +157,14 @@
       items:
         - name: Créer un compte - CLI
           href: create-account-cli-how-to.md
+        - name: Réinitialiser les informations d’identification du compte - CLI
+          href: cli-reset-account-credentials.md
         - name: Accéder aux API - CLI
           href: access-api-cli-how-to.md
         - name: Mettre à l’échelle les unités réservées Multimédia - CLI
           href: media-reserved-units-cli-how-to.md
+        - name: Créer un actif multimédia - CLI
+          href: cli-create-asset.md
         - name: Développer avec REST
           items:
             - name: Se connecter à Postman
@@ -190,6 +191,14 @@
         - name: À partir d’un fichier local - REST
           displayName: upload
           href: upload-files-rest-how-to.md
+        - name: À partir d’un fichier local - CLI
+          href: cli-upload-file-asset.md
+    - name: Créer des transformations et des travaux
+      items:
+        - name: Créer des transformations - CLI
+          href: cli-create-transform.md
+        - name: Créer des travaux - CLI
+          href: cli-create-jobs.md
     - name: Encodage de contenu
       items:
         - name: HTTPS en tant qu’entrée de travail - .NET
@@ -230,10 +239,15 @@
           href: filters-dynamic-manifest-rest-howto.md
         - name: Avec l’interface CLI
           href: filters-dynamic-manifest-cli-howto.md
+    - name: Distribuer le contenu
+      items:
+        - name: Publier un actif multimédia - CLI
+          href: cli-publish-asset.md
 - name: Informations de référence
   items:
     - name: Spécification OpenAPI (Swagger)
       href: 'https://aka.ms/ams-v3-rest-sdk'
+      displayName: schema
     - name: REST
       href: 'https://aka.ms/ams-v3-rest-ref'
     - name: Azure CLI
@@ -254,8 +268,8 @@
       href: /azure/templates/microsoft.media/allversions
     - name: Codes d’erreur
       items:
-        - name: Codes d’erreur initiaux
-          href: origin-error-codes.md
+        - name: Codes d’erreur du point de terminaison de streaming
+          href: streaming-endpoint-error-codes.md
         - name: Codes d’erreur des tâches
           href: job-error-codes.md
 - name: Ressources
@@ -285,7 +299,7 @@
           href: 'https://aka.ms/ams-v3-nodejs-sdk'
         - name: Ruby
           href: 'https://aka.ms/ams-v3-ruby-sdk'
-    - name: AMSE
+    - name: Azure Media Services Explorer
       href: 'https://github.com/Azure/Azure-Media-Services-Explorer'
     - name: Notes de publication
       href: release-notes.md

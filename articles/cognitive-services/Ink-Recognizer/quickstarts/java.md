@@ -9,12 +9,12 @@ ms.subservice: ink-recognizer
 ms.topic: article
 ms.date: 05/02/2019
 ms.author: aahi
-ms.openlocfilehash: 43dc388c9f24e3975d6efddbeec6e096bf062548
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 6237253922544dc47bb11aec4dd58139f99eb0da
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026272"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65518628"
 ---
 # <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-java"></a>Démarrage rapide : Reconnaître l’encre numérique avec l’API REST de module de reconnaissance d’encre et Java
 
@@ -30,13 +30,13 @@ Le code source de ce guide de démarrage rapide est disponible sur [GitHub](http
 
 ## <a name="prerequisites"></a>Conditions préalables
 
-- Le [Java&trade; développement Kit(JDK) 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) ou version ultérieure.
+- Le [Java&trade; développement Kit(JDK) 7](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) ou version ultérieure.
 
 - Ces bibliothèques d’importation à partir du référentiel Maven
     - [JSON dans Java](https://mvnrepository.com/artifact/org.json/json) package
     - [Apache HttpClient](https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient) package
 
-- Vous trouverez l’exemple de données de trait d’encre pour ce démarrage rapide sur [GitHub](https://go.microsoft.com/fwlink/?linkid=2089904).
+- Vous trouverez l’exemple de données de trait d’encre pour ce démarrage rapide sur [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/InkRecognition/quickstart/example-ink-strokes.json).
 
 [!INCLUDE [cognitive-services-ink-recognizer-signup-requirements](../../../../includes/cognitive-services-ink-recognizer-signup-requirements.md)]
 
@@ -134,7 +134,7 @@ static void recognizeInk(String requestData) {
 
 ## <a name="run-the-application-and-view-the-response"></a>Exécutez l’application et afficher la réponse
 
-Exécutez l'application. Une réponse correcte est retournée au format JSON. Vous pouvez également trouver la réponse JSON sur [GitHub](https://go.microsoft.com/fwlink/?linkid=2089904).
+Exécutez l'application. Une réponse correcte est retournée au format JSON. Vous pouvez également trouver la réponse JSON sur [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/InkRecognition/quickstart/example-response.json).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -142,9 +142,9 @@ Exécutez l'application. Une réponse correcte est retournée au format JSON. Vo
 > [Référence d’API REST](https://go.microsoft.com/fwlink/?linkid=2089907)
 
 
-Pour observer le fonctionnement de l’API de reconnaissance de l’encre dans une application pour l’écriture manuscrite numérique, examinez les exemples d’applications suivants sur GitHub :
-* [C#et Windows Universal Platform(UWP)](https://go.microsoft.com/fwlink/?linkid=2089803)  
-* [C#et Foundation (WPF) de Windows Presentation](https://go.microsoft.com/fwlink/?linkid=2089804)
+Pour observer le fonctionnement de l’API Ink Recognizer dans une application d’écriture manuscrite numérique, examinez les exemples d’applications suivants sur GitHub :
+* [C# et UWP (plateforme Windows universelle)](https://go.microsoft.com/fwlink/?linkid=2089803)  
+* [C# et WPF (Windows Presentation Foundation)](https://go.microsoft.com/fwlink/?linkid=2089804)
 * [Application de navigateur web JavaScript](https://go.microsoft.com/fwlink/?linkid=2089908)       
-* [Application mobile Java et Android](https://go.microsoft.com/fwlink/?linkid=2089906)
-* [Application mobile SWIFT et iOS](https://go.microsoft.com/fwlink/?linkid=2089805)
+* [Application mobile Android et Java](https://go.microsoft.com/fwlink/?linkid=2089906)
+* [Application mobile Swift et iOS](https://go.microsoft.com/fwlink/?linkid=2089805)

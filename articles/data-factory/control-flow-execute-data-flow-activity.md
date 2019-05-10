@@ -1,23 +1,21 @@
 ---
 title: Exécution d’activité de flux de données dans Azure Data Factory | Microsoft Docs
-description: L’activité de flux de données execute exécute des flux de données.
+description: Comment exécuter les données passe à l’intérieur d’un pipeline data factory.
 services: data-factory
 documentationcenter: ''
 author: kromerm
-manager: craigg
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: makromer
-ms.openlocfilehash: 856f4bd9c2b04ff10ed598c5e641955e1de99398
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e1d4ce355f34014d5099c4b46f4420d032363fce
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60557576"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236677"
 ---
 # <a name="execute-data-flow-activity-in-azure-data-factory"></a>Exécution d’activité de flux de données dans Azure Data Factory
 Utiliser l’activité de flux de données execute pour exécuter votre flux de données ADF dans les exécutions de pipeline debug (sandbox) et dans les exécutions de pipeline déclenchée.
@@ -59,15 +57,13 @@ Choisissez l’environnement de calcul pour cette exécution de votre flux de do
 
 ![Bouton de débogage](media/data-flow/debugbutton.png "le bouton de débogage")
 
-Utilisez les données flux de débogage d’utiliser un cluster chauffé pour tester votre flux de données de façon interactive dans une exécution de débogage de pipeline. Utilisez l’option de débogage de pipeline pour tester votre flux de données à l’intérieur d’un pipeline.
+Utilisez les données flux de débogage d’utiliser un cluster chauffé pour tester votre flux de données de façon interactive dans une exécution de débogage de pipeline. Utilisez l’option de débogage de Pipeline pour tester votre flux de données à l’intérieur d’un pipeline.
 
-### <a name="compute-type"></a>Type de calcul
+### <a name="run-on"></a>Exécuter sur
 
-Vous pouvez choisir à usage général, de calcul optimisé ou à mémoire optimisée, selon les besoins de votre flux de données.
+Il s’agit d’un champ obligatoire qui définit le Runtime d’intégration à utiliser pour votre exécution de l’activité de flux de données. Par défaut, Data Factory utilise le runtime d’intégration d’Azure de résoudre automatiquement par défaut. Toutefois, vous pouvez créer vos propres Runtimes d’intégration Azure qui définissent des régions spécifiques, type, de cœurs et de durée de vie de calcul pour l’exécution de l’activité de votre flux données.
 
-### <a name="core-count"></a>Nombre de cœurs
-
-Choisissez le nombre de cœurs à affecter au travail. Pour les petits travaux, moins de cœurs fonctionne mieux.
+Le paramètre par défaut pour les exécutions de flux de données est de 8 cœurs de calcul général avec une durée de vie de 60 minutes.
 
 ### <a name="staging-area"></a>Zone de transit
 
@@ -82,6 +78,8 @@ Si vous utilisez des jeux de données paramétrables, veillez à définir les va
 ### <a name="debugging-parameterized-data-flows"></a>Débogage des flux de données paramétrables
 
 Vous pouvez uniquement déboguer les flux de données avec des jeux de données paramétrables à partir de la déboguer de Pipeline exécuté à l’aide de l’activité de flux de données execute. Actuellement, les sessions de débogage interactif dans le flux de données ADF ne fonctionnent pas avec les jeux de données paramétrables. Exécutions de pipeline et les exécutions de débogage fonctionnent avec des paramètres.
+
+Une bonne pratique consiste à créer votre flux de données avec un jeu de données statique afin que vous ayez disponible de la propagation de la colonne de métadonnées complètes au moment du design. Remplacez ensuite le jeu de données statique avec un jeu de données paramétrable dynamique lorsque vous rendre opérationnel votre pipeline de flux de données.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Consultez les autres activités de flux de contrôle prises en charge par Data Factory : 

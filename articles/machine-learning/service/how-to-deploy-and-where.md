@@ -11,18 +11,18 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 05/02/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 113c894122fe2b0673dfb47f8a9c0cbecf4c6290
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 45421a249642abf37c89aa33e2e8a1b4a9e5e497
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205079"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65507002"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Déployer des modèles avec le service Azure Machine Learning
 
 Découvrez comment déployer votre modèle d’apprentissage comme un service web dans le cloud Azure ou sur des appareils IoT Edge. Les informations contenues dans ce document vous apprend à déployer sur les cibles de calcul suivantes :
 
-| Cible de calcul | Type de déploiement | Description |
+| Cible de calcul | Type de déploiement | Description  |
 | ----- | ----- | ----- |
 | [Service web local](#local) | Test et de débogage | Convient pour les tests et la résolution des problèmes limitée.
 | [Azure Kubernetes Service (AKS)](#aks) | Inférence en temps réel | Convient aux déploiements de production à grande échelle. Fournit la mise à l’échelle automatique et des temps de réponse rapides. |
@@ -42,7 +42,7 @@ Pour plus d’informations sur les concepts impliqués dans le workflow de dépl
 
 ## <a name="prerequisites-for-deployment"></a>Conditions préalables pour le déploiement
 
-- Un modèle Si vous n’avez pas d’un modèle formé, vous pouvez utiliser le modèle de & fichiers de dépendance fournie dans [ce didacticiel](http://aka.ms/azml-deploy-cloud).
+- Un modèle Si vous n’avez pas d’un modèle formé, vous pouvez utiliser le modèle de & fichiers de dépendance fournie dans [ce didacticiel](https://aka.ms/azml-deploy-cloud).
 
 - Le [extension Azure CLI pour le service Machine Learning](reference-azure-machine-learning-cli.md), ou le [Azure Machine Learning Python SDK](https://aka.ms/aml-sdk).
 
@@ -211,7 +211,7 @@ Le tableau suivant fournit un exemple de création d’une configuration de dép
 | Cible de calcul | Exemple de configuration de déploiement |
 | ----- | ----- |
 | Local | `deployment_config = LocalWebservice.deploy_configuration(port=8890)` |
-| Azure Container Instance | `deployment_config = AciWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
+| Azure Container Instances | `deployment_config = AciWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
 | Azure Kubernetes Service | `deployment_config = AksWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
 
 Les sections suivantes expliquent comment créer la configuration de déploiement et puis l’utiliser pour déployer le service web.
@@ -458,7 +458,7 @@ Objectifs d’Azure Machine Learning Compute sont créés et gérés par le serv
 Pour obtenir une description de l’inférence de traitement par lots avec Azure Machine Learning Compute, lisez le [comment exécuter des prédictions par lot](how-to-run-batch-predictions.md) article.
 
 ## <a id="iotedge"></a> Inférence sur IoT Edge
-Prise en charge pour le déploiement sur le bord est en version préliminaire. Pour plus d’informations, consultez le [déployer Azure Machine Learning en tant que IoT Edge module](https://docs.microsoft.com/en-us/azure/iot-edge/tutorial-deploy-machine-learning) article.
+Prise en charge pour le déploiement sur le bord est en version préliminaire. Pour plus d’informations, consultez le [déployer Azure Machine Learning en tant que IoT Edge module](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-machine-learning) article.
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Résolution des problèmes de déploiement](how-to-troubleshoot-deployment.md)

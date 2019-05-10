@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0cfc31705909710e6a60e0d2fd3963e74e9397ee
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f7aee10780512e284faccadface0dc928ef8270e
+ms.sourcegitcommit: 1d257ad14ab837dd13145a6908bc0ed7af7f50a2
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60472251"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65501894"
 ---
 # <a name="what-is-self-service-signup-for-azure-active-directory"></a>Présentation de l’inscription en libre-service pour Azure Active Directory
 
@@ -52,7 +52,7 @@ Un administrateur peut configurer ces fonctionnalités à l’aide des paramètr
 AllowEmailVerifiedUsers et AllowAdHocSubscriptions sont des paramètres de niveau annuaire qui peuvent être appliqués à un annuaire géré ou non géré. Voici un exemple où :
 
 * Vous administrez un annuaire avec un domaine vérifié, par exemple, contoso.com
-* Vous utilisez la collaboration B2B à partir d’un autre annuaire pour inviter un utilisateur qui n’existe pas encore (userdoesnotexist@contoso.com) dans l’annuaire local de constoso.com
+* Collaboration B2B à partir d’un autre répertoire vous permet d’inviter un utilisateur qui n’existe pas déjà (userdoesnotexist@contoso.com) dans le répertoire de base de contoso.com
 * AllowEmailVerifiedUsers est activé pour l’annuaire local
 
 Si les conditions précédentes sont remplies, un utilisateur membre est créé dans l’annuaire local, tandis qu’un utilisateur invité B2B est créé dans l’annuaire à l’origine de l’invitation.

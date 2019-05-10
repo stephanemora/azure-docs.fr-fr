@@ -2,18 +2,18 @@
 title: Résoudre les problèmes d’Azure File Sync | Microsoft Docs
 description: Découvrez comment résoudre les problèmes courants avec Azure File Sync.
 services: storage
-author: roygara
+author: jeffpatt24
 ms.service: storage
 ms.topic: article
 ms.date: 01/31/2019
-ms.author: rogarana
+ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: e399566a67161219e1d778ba1c6f874f7cede251
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 2893960c3351b1f8a5caf0c69ca961851528007d
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190079"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510832"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Résoudre les problèmes de synchronisation de fichiers Azure
 Utilisez Azure File Sync pour centraliser les partages de fichiers de votre organisation dans Azure Files tout en conservant la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Azure File Sync transforme Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement, notamment SMB, NFS et FTPS. Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -275,7 +275,7 @@ Le tableau ci-dessous contient tous les caractères unicode qu’Azure File Sync
 | **HRESULT** | 0x800704c7 |
 | **HRESULT (décimal)** | -2147023673 | 
 | **Chaîne d’erreur** | ERROR_CANCELLED |
-| **Correction requise** | Non  |
+| **Correction requise** | Non |
 
 Les sessions de synchronisation peuvent échouer pour diverses raisons, comme la mise à jour ou le redémarrage en cours du serveur, des captures instantanées VSS, etc. Bien que cette erreur semble nécessiter un suivi, il est possible d’ignorer cette erreur, sauf si elle persiste pendant une période de plusieurs heures.
 
@@ -297,7 +297,7 @@ Les sessions de synchronisation peuvent échouer pour diverses raisons, comme la
 | **HRESULT** | 0x80c8004c |
 | **HRESULT (décimal)** | -2134376372 |
 | **Chaîne d’erreur** | ECS_E_USER_REQUEST_THROTTLED |
-| **Correction requise** | Non  |
+| **Correction requise** | Non |
 
 Aucune action n’est requise; le serveur essayera à nouveau. Si cette erreur persiste pendant plus de quelques heures, créez une demande de support.
 
@@ -432,7 +432,7 @@ Supprimez ces règles pour résoudre ce problème.
 | **HRESULT** | 0x80c80219 |
 | **HRESULT (décimal)** | -2134375911 |
 | **Chaîne d’erreur** | ECS_E_SYNC_METADATA_WRITE_LOCK_TIMEOUT |
-| **Correction requise** | Non  |
+| **Correction requise** | Non |
 
 Cette erreur se résout généralement d’elle-même et peut se produire s’il existe :
 
@@ -527,7 +527,7 @@ Cette erreur se produit parce que le volume est saturé. Cette erreur se produit
 | **HRESULT** | 0x80c8300f |
 | **HRESULT (décimal)** | -2134364145 |
 | **Chaîne d’erreur** | ECS_E_REPLICA_NOT_READY |
-| **Correction requise** | Non  |
+| **Correction requise** | Non |
 
 Cette erreur se produit parce qu’il y a des changements sur le partage de fichier Azure directement et que la détection des changements est en cours. La synchronisation commence une fois la détection de modification terminée.
 
@@ -586,7 +586,7 @@ Cette erreur se produit parce que la version du pilote de filtre de hiérarchisa
 | **HRESULT** | 0x80c8004b |
 | **HRESULT (décimal)** | -2134376373 |
 | **Chaîne d’erreur** | ECS_E_SERVICE_UNAVAILABLE |
-| **Correction requise** | Non  |
+| **Correction requise** | Non |
 
 Cette erreur se produit parce que le service Azure File Sync n’est pas disponible. Cette erreur se résoudra automatiquement lorsque le service Azure File Sync sera à nouveau disponible.
 
@@ -597,7 +597,7 @@ Cette erreur se produit parce que le service Azure File Sync n’est pas disponi
 | **HRESULT** | 0x80c8020e |
 | **HRESULT (décimal)** | -2134375922 |
 | **Chaîne d’erreur** | ECS_E_SYNC_METADATA_WRITE_LEASE_LOST |
-| **Correction requise** | Non  |
+| **Correction requise** | Non |
 
 Cette erreur se produit en raison d’un problème interne avec la base de données de synchronisation. Cette erreur se résoudra automatiquement lors de la prochaine tentative de synchronisation d’Azure File Sync. Si cette erreur persiste pendant une période prolongée, créez une demande de support et nous vous contacterons pour vous aider à résoudre ce problème.
 

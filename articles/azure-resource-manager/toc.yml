@@ -40,6 +40,9 @@
     - name: Utiliser des pratiques de déploiement sécurisé
       displayName: adm
       href: deployment-manager-tutorial.md
+    - name: Utiliser le contrôle d’intégrité dans le Gestionnaire de déploiement
+      displayName: adm
+      href: deployment-manager-tutorial-health-check.md
     - name: Résoudre les problèmes de déploiement de modèles
       href: resource-manager-tutorial-troubleshoot.md
 - name: Exemples
@@ -62,6 +65,9 @@
     - name: Gestionnaire de déploiement
       displayName: adm
       href: deployment-manager-overview.md
+    - name: Contrôle d’intégrité du Gestionnaire de déploiement
+      displayName: adm
+      href: deployment-manager-health-check.md
     - name: Modes de déploiement
       href: deployment-modes.md
     - name: Suppression de ressources

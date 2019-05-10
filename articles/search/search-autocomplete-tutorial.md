@@ -10,14 +10,14 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: mcarter
 ms.custom: seodec2018
-ms.openlocfilehash: f5cb8d2fee706600251039d80232d9fc7f60d5fb
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: f3e7cc2ed71dda0eb34328432b26a4016b62be1c
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025153"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466413"
 ---
-# <a name="example-add-suggestions-or-autocomplete-to-your-azure-search-application"></a>Exemple : Ajouter des Suggestions ou avec saisie semi-automatique à votre application de recherche Azure
+# <a name="add-suggestions-or-autocomplete-to-your-azure-search-application"></a>Ajouter des suggestions ou avec saisie semi-automatique à votre application de recherche Azure
 
 Dans cet article, découvrez comment utiliser [suggestions](https://docs.microsoft.com/rest/api/searchservice/suggestions) et [la saisie semi-automatique](https://docs.microsoft.com/rest/api/searchservice/autocomplete) pour créer une zone de recherche puissant qui prend en charge les comportements de recherche en tant que-vous-type.
 
@@ -123,7 +123,7 @@ Jusqu’ici, la code de l’expérience utilisateur de recherche a été centré
 
 ```javascript
 $(function () {
-    // using modified jQuery Autocomplete plugin v1.2.6 http://xdsoft.net/jqplugins/autocomplete/
+    // using modified jQuery Autocomplete plugin v1.2.6 https://xdsoft.net/jqplugins/autocomplete/
     // $.autocomplete -> $.autocompleteInline
     $("#example2").autocompleteInline({
         appendMethod: "replace",

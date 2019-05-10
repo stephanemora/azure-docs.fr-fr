@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 8fd73b1e0fcde6bcd69c7ce76b888d1adda37de4
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 0b8139f11f937ddae30e25f4153e35287289a4d1
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64939544"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233958"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Contrôle d’accès dans Azure Data Lake Storage Gen2
 
@@ -37,7 +37,7 @@ Pour savoir comment affecter des rôles aux entités de sécurité dans l’éte
 Lorsqu’un principal de sécurité est autorisations RBAC données via un [rôle intégré](https://docs.microsoft.com/azure/storage/common/storage-auth-aad?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#built-in-rbac-roles-for-blobs-and-queues), ou via un rôle personnalisé, ces autorisations sont évaluées en premier lors de l’autorisation d’une demande. Si l’opération demandée n’est autorisée par les attributions de RBAC de l’entité de sécurité, l’autorisation est immédiatement résolu et aucune supplémentaire ACL vérifications sont effectuées. Vous pouvez également, si l’entité de sécurité n’a pas d’une affectation RBAC ou opération de la demande ne correspond pas à l’autorisation, vérifier des listes ACL est effectuées pour déterminer si l’entité de sécurité est autorisée à effectuer l’opération demandée.
 
 > [!NOTE]
-> Si l’entité de sécurité a été attribuée le [données d’objets Blob de stockage]() l’affectation de rôle intégré propriétaire, puis le principal de sécurité est considéré comme un *super utilisateur* et est accordé un accès complet à tous les de mutation opérations, y compris la définition du propriétaire d’un répertoire ou fichier ainsi que les ACL pour les répertoires et fichiers pour lesquels ils ne sont pas le propriétaire. L’accès de super utilisateur constitue la seule manière autorisée de modifier le propriétaire d’une ressource.
+> Si l’entité de sécurité a reçu l’attribution de rôle intégré propriétaire des données de stockage Blob, le principal de sécurité est considéré comme un *super utilisateur* et disposent d’un accès complet à toutes les opérations de mutation, y compris le paramètre est le propriétaire d’un répertoire ou fichier ainsi que les ACL pour les répertoires et fichiers pour lesquels ils ne sont pas le propriétaire. L’accès de super utilisateur constitue la seule manière autorisée de modifier le propriétaire d’une ressource.
 
 ## <a name="shared-key-and-shared-access-signature-sas-authentication"></a>Authentification de clé partagée et de la Signature d’accès partagé (SAP)
 
@@ -61,7 +61,7 @@ Pour définir des autorisations au niveau des fichiers et de répertoires, consu
 
 |Si vous souhaitez utiliser cet outil :    |Consultez cet article :    |
 |--------|-----------|
-|Explorateur de stockage Azure    |[Définir des autorisations au niveau de fichiers et de répertoires à l'aide de l'Explorateur Stockage Azure avec Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-how-to-set-permissions-storage-explorer)|
+|Azure Storage Explorer    |[Définir des autorisations au niveau de fichiers et de répertoires à l'aide de l'Explorateur Stockage Azure avec Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-how-to-set-permissions-storage-explorer)|
 |API REST    |[Chemin d’accès - mise à jour](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/update)|
 
 > [!IMPORTANT]
@@ -101,7 +101,7 @@ Les autorisations sur un objet de système de fichiers sont **Lecture**, **Écri
 | 7            | `RWX`        | Lecture + Écriture + Exécution |
 | 5.            | `R-X`        | Lecture + Exécution         |
 | 4            | `R--`        | Lire                   |
-| 0            | `---`        | | Aucune autorisation         |
+| 0            | `---`        | Aucune autorisation         |
 
 #### <a name="permissions-inheritance"></a>Héritage des autorisations
 

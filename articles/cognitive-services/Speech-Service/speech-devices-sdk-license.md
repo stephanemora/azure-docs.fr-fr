@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 43f783617c36d30aa1fd65cce580bb5e666afed1
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 5973cfc955cfce0ec1b073ac96bd68f07f093087
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65021478"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409107"
 ---
 # <a name="speech-devices-sdk-license-agreement"></a>Contrat de licence du Kit de développement logiciel (SDK) Speech Devices
 
@@ -32,7 +32,7 @@ Les présents termes du contrat de licence ont valeur de contrat entre vous et M
 
     a) Généralités. Vous pouvez installer et utiliser un nombre quelconque de copies du logiciel pour développer et tester vos applications, uniquement à titre mentionné ci-dessus et sinon pour vos besoins métier internes.
 
-    b) Logiciels tiers. Le logiciel est susceptible d’inclure des applications tierces qui vous sont concédées sous licence dans le cadre de ce contrat ou selon leurs propres conditions. Les éventuels termes du contrat de licence, mentions et avis de reconnaissance des applications tierces sont accessibles en ligne à l’adresse http://aka.ms/thirdpartynotices ou dans un fichier de notifications d’accompagnement. Même si ces applications sont régies par d’autres contrats, la clause de non-responsabilité, les limitations et les exclusions des dommages-intérêts ci-dessous s’appliquent également dans la mesure autorisée par la loi en vigueur.
+    b) Logiciels tiers. Le logiciel est susceptible d’inclure des applications tierces qui vous sont concédées sous licence dans le cadre de ce contrat ou selon leurs propres conditions. Les éventuels termes du contrat de licence, mentions et avis de reconnaissance des applications tierces sont accessibles en ligne à l’adresse https://aka.ms/thirdpartynotices ou dans un fichier de notifications d’accompagnement. Même si ces applications sont régies par d’autres contrats, la clause de non-responsabilité, les limitations et les exclusions des dommages-intérêts ci-dessous s’appliquent également dans la mesure autorisée par la loi en vigueur.
 
     c) comparaison avec la concurrence. Si vous êtes un concurrent direct, et accédez ou utilisez le logiciel à des fins d’évaluation comparative, d’analyse ou de collecte de renseignements, vous renoncez à l’égard de Microsoft, ainsi que de ses filiales et sociétés affiliées (y compris potentielles) aux restrictions relatives à l’utilisation concurrentielle, à l’accès et à l’évaluation comparative énoncées dans les conditions régissant l’utilisation de votre logiciel dans la mesure où vos conditions d’utilisation sont, ou prétendent être plus restrictives que celles de Microsoft. Si vous ne renoncez pas à de telles restrictions dans les termes régissant votre logiciel, vous n’êtes pas autorisé à accéder à celui-ci ou à l’utiliser, et ne le ferez pas.
 
@@ -74,13 +74,13 @@ Les présents termes du contrat de licence ont valeur de contrat entre vous et M
 
     e) partager, publier, distribuer ou prêter le logiciel (à l’exception de tout code distribuable, régi par les conditions en vigueur ci-dessus), proposer le logiciel comme solution autonome hébergée à l’usage de tiers, ou transférer le logiciel ou le présent contrat à des tiers.
 
-1. RESTRICTIONS À L’EXPORTATION. Vous devez respecter toutes les lois et réglementations nationales et internationales sur l’exportation applicables au logiciel, qui comprennent des restrictions concernant les destinations, les utilisateurs finals et les utilisations finales. Pour plus d’informations sur les restrictions à l’exportation, voir http://aka.ms/exporting.
+1. RESTRICTIONS À L’EXPORTATION. Vous devez respecter toutes les lois et réglementations nationales et internationales sur l’exportation applicables au logiciel, qui comprennent des restrictions concernant les destinations, les utilisateurs finals et les utilisations finales. Pour plus d’informations sur les restrictions à l’exportation, voir https://aka.ms/exporting.
 
 1. SERVICES DE SUPPORT. Microsoft n’est nullement tenu aux termes de ce contrat de fournir des services de support pour le logiciel. Tout support fourni l’est « tel quel », « avec toutes ses imperfections », et sans garantie d’aucune sorte.
 
 1. MISES À JOUR. Le logiciel peut vérifier périodiquement l’existence de mises à jour, puis les télécharger et les installer pour vous. Vous pouvez obtenir des mises à jour exclusivement de Microsoft ou de sources autorisées. Il se peut que Microsoft doive mettre à jour votre système pour vous fournir les mises à jour. Vous acceptez de recevoir ces mises à jour automatiques sans autre préavis. Il se peut que des mises à jour n’incluent pas ou ne prennent pas en charge l’ensemble des fonctionnalités, services ou périphériques existants.
 
-1. DISPENSE D’ARBITRAGE EXÉCUTOIRE ET D’ACTION COLLECTIVE. Cette section s’applique si vous résidez (ou si, en qualité d’entreprise, votre lieu principal d’activité est situé) aux États-Unis.  En cas de litige entre vous et Microsoft, vous et Microsoft vous engagez à tenter pendant 60 jours de résoudre ce litige de façon informelle. Si vous et Microsoft ne le pouvez pas, vous et Microsoft vous engagez à vous soumettre à l’arbitrage obligatoire de l’American Arbitration Association conformément au Federal Arbitration Act (« FAA ») et à ne pas intenter d’action en justice devant un juge ou un jury. Au lieu de cela, un arbitre neutre décidera. Les recours collectifs, recours collectifs en arbitrage, actions privées devant un procureur général et autres actions où une personne agit à titre de représentant ne sont pas autorisés, pas plus que la combinaison d’actions individuelles, sans le consentement de toutes les parties. La convention d’arbitrage complète comporte d’autres conditions. Vous pouvez la consulter sur la page http://aka.ms/arb-agreement-1. Vous et Microsoft acceptez ces clauses.
+1. DISPENSE D’ARBITRAGE EXÉCUTOIRE ET D’ACTION COLLECTIVE. Cette section s’applique si vous résidez (ou si, en qualité d’entreprise, votre lieu principal d’activité est situé) aux États-Unis.  En cas de litige entre vous et Microsoft, vous et Microsoft vous engagez à tenter pendant 60 jours de résoudre ce litige de façon informelle. Si vous et Microsoft ne le pouvez pas, vous et Microsoft vous engagez à vous soumettre à l’arbitrage obligatoire de l’American Arbitration Association conformément au Federal Arbitration Act (« FAA ») et à ne pas intenter d’action en justice devant un juge ou un jury. Au lieu de cela, un arbitre neutre décidera. Les recours collectifs, recours collectifs en arbitrage, actions privées devant un procureur général et autres actions où une personne agit à titre de représentant ne sont pas autorisés, pas plus que la combinaison d’actions individuelles, sans le consentement de toutes les parties. La convention d’arbitrage complète comporte d’autres conditions. Vous pouvez la consulter sur la page https://aka.ms/arb-agreement-1. Vous et Microsoft acceptez ces clauses.
 
 1. RÉSILIATION. Sans préjudice des autres droits, Microsoft peut mettre fin à ce contrat si vous ne respectez pas ses conditions. Dans ce cas, vous devrez détruire toutes les installations du logiciel et toutes ses composantes.
 

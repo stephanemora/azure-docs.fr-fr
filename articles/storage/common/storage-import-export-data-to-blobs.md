@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/08/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: e60a58a8d2f1c69728a2d049fe1414ca1997893e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 82672136d6f9af50a3d91da2044f6e0ced4b44a6
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61479301"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409362"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Utiliser le service Azure Import/Export pour transférer des données dans le Stockage Blob Azure
 
@@ -64,7 +64,7 @@ Effectuez les étapes suivantes pour préparer les lecteurs.
     
     Les paramètres utilisés sont décrits dans le tableau suivant :
 
-    |Option  |Description  |
+    |Option  |Description   |
     |---------|---------|
     |/j:     |Nom du fichier journal, avec l’extension .jrn. Un fichier journal est généré par lecteur. Nous vous recommandons d’utiliser le numéro de série du disque comme nom de fichier journal.         |
     |/id:     |ID de la session. Utilisez un numéro de session unique pour chaque instance de la commande.      |
@@ -79,7 +79,7 @@ Effectuez les étapes suivantes pour préparer les lecteurs.
     > [!IMPORTANT]
     > - En plus du fichier journal, un fichier `<Journal file name>_DriveInfo_<Drive serial ID>.xml` est également créé dans le même dossier où se trouve l’outil. Le fichier .xml est utilisé à la place du fichier journal quand vous créez une tâche si le fichier journal est trop volumineux. 
 
-## <a name="step-2-create-an-import-job"></a>Étape 2 : Créer une tâche d’importation
+## <a name="step-2-create-an-import-job"></a>Étape 2 : Créer une tâche d'importation
 
 Effectuez les étapes suivantes pour créer une tâche d’importation dans le portail Azure.
 
@@ -114,7 +114,7 @@ Effectuez les étapes suivantes pour créer une tâche d’importation dans le p
 4. Dans **Informations de réexpédition** :
 
    - Sélectionnez le transporteur dans la liste déroulante. Si vous souhaitez utiliser un opérateur autre que FedEx/DHL, choisissez une option existante dans la liste déroulante. Opérations de boîte de données Azure contact de l’équipe à `adbops@microsoft.com` avec les informations concernant le transporteur que vous prévoyez d’utiliser.
-   - Entrez un numéro de compte de transporteur valide que vous avez créé pour ce transporteur. Microsoft utilise ce compte pour renvoyer les lecteurs une fois la tâche d’importation terminée. Si vous n’avez pas de numéro de compte, créez un compte de transporteur [FedEx](https://www.fedex.com/us/oadr/) ou [DHL](http://www.dhl.com/).
+   - Entrez un numéro de compte de transporteur valide que vous avez créé pour ce transporteur. Microsoft utilise ce compte pour renvoyer les lecteurs une fois la tâche d’importation terminée. Si vous n’avez pas de numéro de compte, créez un compte de transporteur [FedEx](https://www.fedex.com/us/oadr/) ou [DHL](https://www.dhl.com/).
    - Indiquez le nom d’un contact, le numéro de téléphone, l’e-mail, l’adresse, la ville, le code postal, l’état/la province et le pays/la région, puis vérifiez que ces informations sont complètes et valides. 
         
        > [!TIP] 

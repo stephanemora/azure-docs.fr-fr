@@ -11,14 +11,14 @@ ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: a6fe5b0452771cd2e618d1a08cb2f4af52e3cc0d
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: c55839f7ec4e4c28086912c476a193e31561c3f4
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57538683"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65234132"
 ---
-# <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-net-api"></a>Tutoriel : Exécuter une charge de travail parallèle avec Azure Batch à l’aide de l’API .NET
+# <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-net-api"></a>Didacticiel : Exécuter une charge de travail parallèle avec Azure Batch à l’aide de l’API .NET
 
 Utilisez Azure Batch pour exécuter des programmes de traitement par lots de calcul haute performance (HPC) en parallèle, efficacement et à grande échelle dans Azure. Ce didacticiel vous permet de découvrir un exemple d’exécution C# d’une charge de travail parallèle utilisant Batch. Vous découvrez un workflow d’application Batch courant et comment interagir par programme avec les ressources de stockage et Batch. Vous allez apprendre à effectuer les actions suivantes :
 
@@ -140,7 +140,7 @@ Dans les sections suivantes, nous examinons l’exemple d’application en nous 
 
 ### <a name="authenticate-blob-and-batch-clients"></a>Authentifier les clients Blob et Batch
 
-Pour interagir avec le compte de stockage lié, l’application utilise la bibliothèque cliente de stockage Azure pour .NET. Elle crée une référence au compte avec [CloudStorageAccount](/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount) avec authentification de la clé partagée. Ensuite, elle crée un [CloudBlobClient](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobclient).
+Pour interagir avec le compte de stockage lié, l’application utilise la bibliothèque cliente de stockage Azure pour .NET. Elle crée une référence au compte avec [CloudStorageAccount](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount) avec authentification de la clé partagée. Ensuite, elle crée un [CloudBlobClient](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient).
 
 ```csharp
 // Construct the Storage account connection string

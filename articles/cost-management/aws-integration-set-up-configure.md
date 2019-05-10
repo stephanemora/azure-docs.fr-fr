@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: ormaoz
 ms.custom: ''
-ms.openlocfilehash: a7a020284f44eda0da62f307866c74b0a8df493d
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: e87e95ec9e4e20ee4785c2b1f448a7ca5f442b8a
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205697"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409195"
 ---
 # <a name="set-up-and-configure-aws-cost-and-usage-report-integration"></a>Installer et configurer l’intégration de rapport de coût de AWS et d’utilisation
 
@@ -38,7 +38,7 @@ Utilisez le **rapports** page de la console de facturation et gestion des coûts
 7. Pour **activer la prise en charge de**, aucune sélection n’est requise.
 8. Pour **paramètres d’actualisation des données**, sélectionnez **actualiser automatiquement votre coût &amp; rapport d’utilisation lorsque les frais sont détectés pour les mois précédents offrent clôturés**.
 9. Cliquez sur **Suivant**.
-10. Pour **compartiment Amazon S3**, tapez le nom du compartiment Amazon S3 dans lequel vous souhaitez remis à des rapports, cliquez sur **Vérifiez**. Le compartiment doit avoir les autorisations appropriées pour être valide. Pour plus d’informations sur l’ajout des autorisations dans le compartiment, consultez [compartiment de paramètre et les autorisations d’accès objet](http://docs.aws.amazon.com/AmazonS3/latest/user-guide/set-permissions.html).
+10. Pour **compartiment Amazon S3**, tapez le nom du compartiment Amazon S3 dans lequel vous souhaitez remis à des rapports, cliquez sur **Vérifiez**. Le compartiment doit avoir les autorisations appropriées pour être valide. Pour plus d’informations sur l’ajout des autorisations dans le compartiment, consultez [compartiment de paramètre et les autorisations d’accès objet](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/set-permissions.html).
 11. Pour **préfixe du chemin d’accès au rapport**, tapez le préfixe de chemin d’accès au rapport que vous souhaitez être ajouté au nom de votre rapport.
 12. Pour **Compression**, sélectionnez **GZIP**.
 13. Cliquez sur **Suivant**.

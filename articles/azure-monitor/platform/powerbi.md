@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/19/2018
+ms.date: 05/01/219
 ms.author: bwren
-ms.openlocfilehash: 53e24a6874a1e43b0de07893a6ace3a44b81d373
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2db6ddf57802f6fcf38cfc3ad7094ed94eaca3d8
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60454068"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65234203"
 ---
 # <a name="import-azure-monitor-log-data-into-power-bi"></a>Importer des données de journal Azure Monitor dans Power BI
 
@@ -27,7 +27,7 @@ ms.locfileid: "60454068"
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Présentation
 Pour importer des données à partir d’un [espace de travail Analytique de journal](manage-access.md) dans Azure Monitor dans Power BI, vous créez un jeu de données dans Power BI et basés sur un [requête de journal](../log-query/log-query-overview.md) dans Azure Monitor.  La requête est exécutée chaque fois que le jeu de données est actualisé.  Vous pouvez ensuite créer des rapports Power BI qui utilisent les informations du jeu de données.  Pour créer le jeu de données dans Power BI, vous exportez votre requête depuis Log Analytics vers le [langage Power Query (M)](https://msdn.microsoft.com/library/mt807488.aspx).  Vous l'utilisez ensuite pour créer une requête dans Power BI Desktop, avant de la publier dans Power BI en tant que jeu de données.  Les détails de ce processus sont décrits ci-dessous.
 
 ![Log Analytics vers Power BI](media/powerbi/overview.png)
@@ -60,7 +60,9 @@ Power BI Desktop est une application de bureau qui vous permet de créer des jeu
 ## <a name="publish-to-power-bi"></a>Publier vers Power BI
 Lorsque vous publiez sur Power BI, un jeu de données et un rapport sont créés.  Si vous créez un rapport dans Power BI Desktop, celui-ci sera publié avec vos données.  Sinon, un rapport vide sera créé.  Vous pouvez modifier le rapport dans Power BI, ou en créer un basé sur le jeu de données.
 
-1. Créez un rapport basé sur vos données.  Consultez la [documentation Power BI Desktop](https://docs.microsoft.com/power-bi/desktop-report-view) si vous avez besoin d'aide.  Lorsque vous être prêt à envoyer le rapport à Power BI, cliquez sur **Publier**.  À l'invite, sélectionnez une destination dans votre compte Power BI.  À moins de vouloir choisir une destination spécifique, utilisez **Mon espace de travail**.
+1. Créez un rapport basé sur vos données.  Consultez la [documentation Power BI Desktop](https://docs.microsoft.com/power-bi/desktop-report-view) si vous avez besoin d'aide.  
+1. Lorsque vous être prêt à envoyer le rapport à Power BI, cliquez sur **Publier**.  
+1. À l'invite, sélectionnez une destination dans votre compte Power BI.  À moins de vouloir choisir une destination spécifique, utilisez **Mon espace de travail**.
 
     ![Publication Power BI Desktop](media/powerbi/desktop-publish.png)
 
@@ -70,7 +72,10 @@ Lorsque vous publiez sur Power BI, un jeu de données et un rapport sont créés
 ### <a name="configure-scheduled-refresh"></a>Configuration d'une actualisation planifiée
 Le jeu de données créé dans Power BI contiendra les mêmes informations que celles que vous avez déjà consultées dans Power BI Desktop.  Vous devez actualiser le jeu de données régulièrement pour réexécuter la requête et le remplir avec les données les plus récentes à partir d’Azure Monitor.  
 
-1. Cliquez sur l'espace de travail dans lequel vous avez chargé votre rapport puis sélectionnez le menu **Jeux de données**. Sélectionnez le menu contextuel en regard de votre nouveau jeu de données puis choisissez **Paramètres**. Sous **Informations d'identification de la source de données**, vous devriez voir un message indiquant que les informations d'identification ne sont pas valides.  Cela est dû au fait que vous n'avez pas encore fourni d'informations d'identification pour le jeu de données à utiliser lors de l'actualisation de ses informations.  Cliquez sur **modifier les informations d’identification** et spécifiez les informations d’identification avec accès à l’espace de travail Analytique de journal dans Azure Monitor.
+1. Cliquez sur l'espace de travail dans lequel vous avez chargé votre rapport puis sélectionnez le menu **Jeux de données**. 
+1. Sélectionnez le menu contextuel en regard de votre nouveau jeu de données puis choisissez **Paramètres**. 
+1. Sous **Informations d'identification de la source de données**, vous devriez voir un message indiquant que les informations d'identification ne sont pas valides.  Cela est dû au fait que vous n'avez pas encore fourni d'informations d'identification pour le jeu de données à utiliser lors de l'actualisation de ses informations.  
+1. Cliquez sur **modifier les informations d’identification** et spécifiez les informations d’identification avec accès à l’espace de travail Analytique de journal dans Azure Monitor. Si vous avez besoin d’authentification à deux facteurs, sélectionnez **OAuth2** pour le **méthode d’authentification** pour être invité à vous connecter avec vos informations d’identification.
 
     ![Planification Power BI](media/powerbi/powerbi-schedule.png)
 

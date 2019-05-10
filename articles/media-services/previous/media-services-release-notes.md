@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 25da9fd787c467bdddb7c8dcd68b9df518d018b7
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 427ba2b386810749810397afed8ef3f62dcf9217
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64728040"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506628"
 ---
 # <a name="azure-media-services-release-notes"></a>Notes de publication d'Azure Media Services
 
@@ -32,11 +32,11 @@ Nous souhaitons connaître vos impressions afin de pouvoir nous consacrer à la 
 ## <a name="a-idissuescurrently-known-issues"></a><a id="issues"/>Problèmes actuellement connus
 ### <a name="a-idgeneralissuesmedia-services-general-issues"></a><a id="general_issues"/>Problèmes généraux concernant Media Services
 
-| Problème | Description |
+| Problème | Description  |
 | --- | --- |
 | Plusieurs en-têtes HTTP courants ne sont pas fournis dans l’API REST. |Si vous développez des applications Media Services à l’aide de l’API REST, vous constaterez que certains champs d’en-tête HTTP courants (notamment CLIENT-REQUEST-ID, REQUEST-ID et RETURN-CLIENT-REQUEST-ID) ne sont pas pris en charge. Les en-têtes seront ajoutés dans une prochaine mise à jour. |
 | L’encodage par pourcentage n’est pas autorisé. |Media Services utilise la valeur de la propriété IAssetFile.Name pour générer des liens URL pour la diffusion de contenu en continu (par exemple, `http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters`). Pour cette raison, l’encodage par pourcentage n’est pas autorisé. La valeur de la propriété Name ne peut pas comporter les [caractères réservés à l’encodage en pourcentage suivants](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters) : !* ’();:@&=+$,/?%#[]". En outre, il ne peut exister qu’un « . » pour l’extension de nom de fichier. |
-| La méthode ListBlobs intégrée à la version 3.x du Kit de développement logiciel (SDK) d'Azure Storage échoue. |Media Services génère des URL SAS basées sur la version du [02/12/2012](https://docs.microsoft.com/rest/api/storageservices/Version-2012-02-12) . Si vous voulez utiliser le SDK d’Azure Storage pour répertorier les objets blob dans un conteneur d’objets blob, utilisez la méthode [CloudBlobContainer.ListBlobs](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobs.aspx) intégrée à la version 2.x de ce SDK. |
+| La méthode ListBlobs intégrée à la version 3.x du Kit de développement logiciel (SDK) d'Azure Storage échoue. |Media Services génère des URL SAS basées sur la version du [02/12/2012](https://docs.microsoft.com/rest/api/storageservices/Version-2012-02-12) . Si vous voulez utiliser le SDK d’Azure Storage pour répertorier les objets blob dans un conteneur d’objets blob, utilisez la méthode [CloudBlobContainer.ListBlobs](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.listblobs) intégrée à la version 2.x de ce SDK. |
 | Le mécanisme de limitation de Media Services restreint l’utilisation des ressources pour les applications qui recourent de manière excessive au service. Le service peut renvoyer le code d’état HTTP 503 « Service indisponible ». |Pour plus d’informations, consultez la description du code d’état HTTP 503 dans [Codes d’erreur d’Azure Media Services](media-services-encoding-error-codes.md). |
 | Quand vous interrogez des entités, il existe une limite de 1000 entités retournées simultanément, car l’API REST version 2 publique limite les résultats des requêtes à 1000 résultats. |Utilisez Skip et Take (.NET)/ top (REST) comme décrit dans [cet exemple .NET](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) et [cet exemple d’API REST](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). |
 | Certains clients peuvent rencontrer un problème de répétition de balise dans le manifeste de diffusion en continu lisse. |Pour plus d’informations, consultez [cette section](media-services-deliver-content-overview.md#known-issues). |
@@ -500,7 +500,7 @@ Correctifs pour les problèmes détectés dans le Kit de développement logiciel
 ## <a id="november_changes_12"></a>Version de novembre 2012
 Les changements mentionnés dans cette section étaient des mises à jour incluses dans le Kit de développement logiciel (SDK) de novembre 2012 (version 2.0.0.0). Ces changements peuvent nécessiter une modification ou une réécriture du code écrit pour la préversion du SDK de juin 2012.
 
-* Éléments multimédias
+* Ressources
   
     * IAsset.Create(assetName) est la *seule* fonction de création d’actifs multimédias. IAsset.Create ne télécharge plus les fichiers dans le cadre de l'appel de la méthode. Utilisez IAssetFile pour le téléchargement.
     * La méthode IAsset.Publish et la valeur d’énumération AssetState.Publish ont été supprimées du SDK Services. Tous les codes qui dépendent de cette valeur doivent être réécrits.

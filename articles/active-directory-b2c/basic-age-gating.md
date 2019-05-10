@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 083ed7209efd88d3d221b55cfb53fe3998dd2987
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b594dc6eadce5093c58d693492f8e86eb92ae4e3
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64703282"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65228007"
 ---
 # <a name="enable-age-gating-in-azure-active-directory-b2c"></a>Activer la vérification de l'âge dans Azure Active Directory B2C
 
@@ -25,17 +25,17 @@ ms.locfileid: "64703282"
 
 La vérification de l’âge dans Azure Active Directory (Azure AD) B2C vous permet d’identifier les mineurs qui souhaitent utiliser votre application. Vous pouvez choisir d’empêcher un mineur de se connecter à l’application. Les utilisateurs peuvent également revenir à l’application et indiquer leur tranche âge et l’état de leur consentement parental. Azure AD B2C peut bloquer les mineurs n’ayant pas de consentement parental. Vous pouvez également configurer Azure AD B2C pour que l’application gère elle-même les mineurs.
 
-Après avoir activé la vérification de l’âge dans votre [flux utilisateur](active-directory-b2c-reference-policies.md), les utilisateurs sont invités à entrer leur date de naissance et leur pays de résidence. Si un utilisateur qui se connecte n’a pas précédemment entré ces informations, il devra le faire à sa prochaine connexion. Les règles sont appliquées chaque fois qu’un utilisateur se connecte.
+Après avoir activé l’âge de régulation dans votre [flux utilisateur](active-directory-b2c-reference-policies.md), les utilisateurs sont invités quand ils sont nés et quel pays/région ceux-ci se trouvent dans. Si un utilisateur qui se connecte n’a pas précédemment entré ces informations, il devra le faire à sa prochaine connexion. Les règles sont appliquées chaque fois qu’un utilisateur se connecte.
 
 Azure AD B2C utilise les informations indiquées par l’utilisateur pour déterminer s’il est mineur. Le champ **ageGroup** est ensuite mis à jour dans son compte. La valeur peut être `null`, `Undefined`, `Minor`, `Adult` ou `NotAdult`.  Les champs **ageGroup** et **consentProvidedForMinor** sont ensuite utilisés pour calculer la valeur de **legalAgeGroupClassification**.
 
 La vérification de l’âge implique deux valeurs d’âge : l’âge auquel un utilisateur n’est plus considéré comme mineur et l’âge auquel un mineur doit obtenir un accord parental. Le tableau suivant liste les règles d’âge utilisées pour déterminer si un utilisateur est mineur et s’il a besoin d’un accord parental.
 
-| Pays | Nom du pays | Accord parental | Majorité |
-| ------- | ------------ | ----------------- | --------- |
+| Pays ou région | Nom de pays/région | Accord parental | Majorité |
+| -------------- | ------------------- | ----------------- | --------- |
 | Default | Aucun | Aucun | 18 |
 | AE | Émirats Arabes Unis | Aucun | 21 |
-| AT | Autriche | 14 | 18 |
+| AT | L'Autriche | 14 | 18 |
 | BE | Belgique | 14 | 18 |
 | BG | Bulgarie | 16 | 18 |
 | BH | Bahreïn | Aucun | 21 |
@@ -48,19 +48,19 @@ La vérification de l’âge implique deux valeurs d’âge : l’âge auquel u
 | EG | Égypte | Aucun | 21 |
 | ES | Espagne | 13 | 18 |
 | FR | France | 16 | 18 |
-| GB | Royaume-Uni | 13 | 18 |
+|  Go | Royaume-Uni | 13 | 18 |
 | GR | Grèce | 16 | 18 |
 | HR | Croatie | 16 | 18 |
 | HU | Hongrie | 16 | 18 |
 | IE | Irlande | 13 | 18 |
-| IT | Italie | 16 | 18 |
+| it | Italie | 16 | 18 |
 | KR | Corée, République de | 14 | 18 |
 | LT | Lituanie | 16 | 18 |
 | LU | Luxembourg | 16 | 18 |
 | LV | Lettonie | 16 | 18 |
 | MT | Malte | 16 | 18 |
 | N/D | Namibie | Aucun | 21 |
-| NL | Pays-bas | 16 | 18 |
+| NL | Pays-Bas | 16 | 18 |
 | PL | Pologne | 13 | 18 |
 | PT | Portugal | 16 | 18 |
 | RO | Roumanie | 16 | 18 |
@@ -70,7 +70,7 @@ La vérification de l’âge implique deux valeurs d’âge : l’âge auquel u
 | SK | Slovaquie | 16 | 18 |
 | TD | Tchad | Aucun | 21 |
 | MJ | Thaïlande | Aucun | 20 |
-| TW | Taïwan | Aucun | 20 | 
+| TW | Taiwan | Aucun | 20 | 
 | FR | États-Unis | 13 | 18 |
 
 ## <a name="age-gating-options"></a>Options de vérification de l’âge

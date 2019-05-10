@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/06/2018
 ms.author: bwren
-ms.openlocfilehash: 8c3ef3f115d37400eb72fdaca5df4f326382df5c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: a8da60850dae600129e0bc60fb574bfa4d3972db
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60520049"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65415895"
 ---
 # <a name="get-started-with-azure-monitor-log-queries"></a>Bien démarrer avec les requêtes de journal Azure Monitor
 
@@ -108,7 +108,7 @@ SecurityEvent
 
 Quand vous écrivez des conditions de filtre, vous pouvez utiliser les expressions suivantes :
 
-| Expression | Description | Exemples |
+| Expression | Description  | Exemples |
 |:---|:---|:---|
 | == | Vérifier l’égalité<br>(avec respect de la casse) | `Level == 8` |
 | =~ | Vérifier l’égalité<br>(sans respect de la casse) | `EventSourceName =~ "microsoft-windows-security-auditing"` |
@@ -138,7 +138,7 @@ SecurityEvent
 ### <a name="time-picker"></a>Sélecteur d’heure
 Le sélecteur d’heure se trouve près du bouton Exécuter et indique que notre recherche ne porte que sur les enregistrements générés au cours des dernières 24 heures. Il s’agit de l’intervalle de temps par défaut appliqué à toutes les requêtes. Pour obtenir uniquement les enregistrements générés au cours de la dernière heure, sélectionnez _Dernière heure_ et réexécutez la requête.
 
-![Sélecteur d’heure](media/get-started-queries/timepicker.png)
+![Sélecteur d'heure](media/get-started-queries/timepicker.png)
 
 
 ### <a name="time-filter-in-query"></a>Filtre de temps dans la requête
@@ -184,7 +184,7 @@ SecurityEvent
 ```Kusto
 SecurityEvent
 | top 10 by TimeGenerated
-| extend localtime = TimeGenerated-8h
+| extend localtime = TimeGenerated -8h
 ```
 
 ## <a name="summarize-aggregate-groups-of-rows"></a>Summarize : agréger des groupes de lignes
@@ -224,7 +224,7 @@ Perf
 ### <a name="summarize-by-a-time-column"></a>Résumer en fonction d’une colonne d’heure
 Le regroupement des résultats peut également reposer sur une colonne de temps ou une autre valeur continue. Cependant, une simple agrégation `by TimeGenerated` créerait des groupes pour chaque milliseconde de la plage de temps, car ce sont des valeurs uniques. 
 
-Pour créer des groupes basés sur des valeurs continues, il convient de diviser la plage en unités gérables à l’aide de **bin**. La requête suivante analyse les enregistrements *Perf* qui mesurent la mémoire disponible (*Available MBytes*) sur un ordinateur spécifique. Elle calcule la valeur moyenne pour chaque période de 1 heure, au cours des 7 derniers jours :
+Pour créer des groupes basés sur des valeurs continues, il convient de diviser la plage en unités gérables à l’aide de **bin**. La requête suivante analyse les enregistrements *Perf* qui mesurent la mémoire disponible (*Available MBytes*) sur un ordinateur spécifique. Il calcule la valeur moyenne de chaque période de 1 heure sur les 7 derniers jours :
 
 ```Kusto
 Perf 
