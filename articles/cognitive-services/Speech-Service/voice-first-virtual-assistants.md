@@ -11,20 +11,20 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: travisw
 ms.custom: ''
-ms.openlocfilehash: c9ed6f898f4bcf8a5d4b2548cc1f3cf51f71bb2a
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 1344de526564ab623a51eb903951b6a2e866048d
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65138163"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523487"
 ---
 # <a name="about-custom-voice-first-virtual-assistants-preview"></a>Sur les assistants virtuel personnalisé voix en premier aperçu
 
-Les assistants virtuels personnalisés à l’aide des Services de reconnaissance vocale Azure encouragent les développeurs à créer des interfaces conversationnelles naturelles, de type humain pour leurs applications et les expériences. Canal de reconnaissance vocale de ligne directe de l’infrastructure Bot améliore ces fonctionnalités en fournissant un point d’entrée coordonné et orchestrée pour un robot compatible qui permet la voix dans voix interaction avec une faible latence et une haute fiabilité. Ces robots peuvent utiliser la reconnaissance vocale (LUIS de Microsoft) pour l’interaction en langage naturel. Reconnaissance vocale de ligne directe est accessible par les appareils à l’aide du Kit de développement logiciel (SDK) de reconnaissance vocale.
+Les assistants virtuels personnalisés qui utilisent Azure Speech Services permettent aux développeurs de créer des interfaces conversationnelles naturelles pour leurs applications et leurs expériences. Le canal Direct Line Speech de Bot Framework améliore ces fonctionnalités en fournissant un point d’entrée orchestré et coordonné à un bot compatible qui permet des interactions vocales entrantes et sortantes avec une faible latence et une grande fiabilité. Ces robots peuvent utiliser la reconnaissance vocale (LUIS de Microsoft) pour l’interaction en langage naturel. Reconnaissance vocale de ligne directe est accessible par les appareils à l’aide du Kit de développement logiciel (SDK) de reconnaissance vocale.
 
    ![Diagramme conceptuel d’un flux de service par ligne directe vocale d’orchestration](media/voice-first-virtual-assistants/overview.png "flux de la chaîne de reconnaissance vocale")
 
-Vocale de ligne directe et ses fonctionnalités pour les assistants de virtuels orienté voix personnalisées sont un supplément idéale pour le [Solution Compagnon virtuelle](https://docs.microsoft.com/azure/bot-service/bot-builder-virtual-assistant-introduction) et [modèle d’entreprise](https://docs.microsoft.com/azure/bot-service/bot-builder-enterprise-template-overview). Bien que vocale de ligne directe peut fonctionner avec un robot quelconques compatible, ces ressources fournissent une ligne de base réutilisable pour des expériences de haute qualité conversationnelles, ainsi que des compétences de prise en charge courantes et modèles pour la mise en route rapide.
+Vocale de ligne directe et ses fonctionnalités pour les assistants de virtuels orienté voix personnalisées sont un supplément idéale pour le [Solution Compagnon virtuelle](https://docs.microsoft.com/azure/bot-service/bot-builder-virtual-assistant-introduction) et [modèle d’entreprise](https://docs.microsoft.com/azure/bot-service/bot-builder-virtual-assistant-introduction). Bien que vocale de ligne directe peut fonctionner avec un robot quelconques compatible, ces ressources fournissent une ligne de base réutilisable pour des expériences de haute qualité conversationnelles, ainsi que des compétences de prise en charge courantes et modèles pour la mise en route rapide.
 
 ## <a name="core-features"></a>Fonctionnalités de base
 

@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: diberry
-ms.openlocfilehash: c9f1cf80cd3a781e878daca2048f7c5dc9095a7c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 02c079e9cda88c969e5382b2c70c551cf9a88e14
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60710616"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522496"
 ---
 # <a name="testing-example-utterances-in-luis"></a>Test d’exemples d’énoncés dans LUIS
 
@@ -46,7 +46,7 @@ Tous les tests sur votre point de terminaison sont inclus dans votre quota d’u
 Si vous testez sur un point de terminaison et que vous ne souhaitez pas que l’énoncé soit enregistré, pensez à utiliser la configuration de la chaîne de requête `logging=false`.
 
 ## <a name="where-to-find-utterances"></a>Où trouver les énoncés
-LUIS stocke tous les énoncés enregistrés dans le journal des requêtes, disponible au téléchargement sur le site web [LUIS](luis-reference-regions.md) à la page répertoriant les **Applications**, ainsi que les [API de création](https://aka.ms/luis-authoring-apis) LUIS. 
+LUIS stocke tous les énoncés enregistrés dans le journal des requêtes, disponible au téléchargement sur le site web [LUIS](luis-reference-regions.md) à la page répertoriant les **Applications**, ainsi que les [API de création](https://go.microsoft.com/fwlink/?linkid=2092087) LUIS. 
 
 Les énoncés dont LUIS n’est pas sûr sont répertoriés dans la page **[Réviser les énoncés de point de terminaison](luis-how-to-review-endpoint-utterances.md)** du site web [LUIS](luis-reference-regions.md). 
 

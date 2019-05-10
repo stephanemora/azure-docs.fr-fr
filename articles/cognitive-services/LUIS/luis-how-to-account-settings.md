@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: diberry
-ms.openlocfilehash: d7d63ad642ab2d3b336e15dcca606077762ceb9d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d5a1d7ee3b8b16631f7b919f3aece0848d662e62
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60195818"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523516"
 ---
 # <a name="manage-account-and-authoring-key"></a>Gérer le compte et la clé de création
 
@@ -24,7 +24,7 @@ Les deux informations clés d’un compte LUIS sont le compte d’utilisateur et
 
 ## <a name="authoring-key"></a>Clé de création
 
-Cette création unique, spécifiques à une région clés, sur le **paramètres** vous permet de créer toutes vos applications à partir de la page le [LUIS](luis-reference-regions.md) portail ainsi que les [API de création](https://aka.ms/luis-authoring-api). Chaque mois, pour des raisons pratiques, la clé de création est autorisée à effectuer un nombre [limité](luis-boundaries.md) de requêtes de point de terminaison.
+Cette création unique, spécifiques à une région clés, sur le **paramètres** vous permet de créer toutes vos applications à partir de la page le [LUIS](luis-reference-regions.md) portail ainsi que les [API de création](https://go.microsoft.com/fwlink/?linkid=2092087). Chaque mois, pour des raisons pratiques, la clé de création est autorisée à effectuer un nombre [limité](luis-boundaries.md) de requêtes de point de terminaison.
 
 [Page Paramètres LUIS![](./media/luis-how-to-account-settings/account-settings.png)](./media/luis-how-to-account-settings/account-settings.png#lightbox)
 

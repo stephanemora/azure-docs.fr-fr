@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: ced83b83c2d64ba5c4816f378c66dae9f4210391
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3fc14b821064719f39eb877aa2253f8084496a66
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60193626"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523492"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>Glossaire Language Understanding des termes et concepts courants
 Le glossaire Language Understanding (LUIS) explique les termes que vous pourriez rencontrer lors de l’utilisation du service API LUIS.
@@ -26,7 +26,7 @@ La version active de LUIS est la version qui reçoit les modifications apportée
 
 ## <a name="authoring"></a>Création
 
-La création correspond à la possibilité de créer, de gérer et de déployer une [application LUIS](#luis-app), soit avec le site web [LUIS](luis-reference-regions.md), soit avec les [API de création](https://aka.ms/luis-authoring-api).
+La création correspond à la possibilité de créer, de gérer et de déployer une [application LUIS](#luis-app), soit avec le site web [LUIS](luis-reference-regions.md), soit avec les [API de création](https://go.microsoft.com/fwlink/?linkid=2092087).
 
 ## <a name="authoring-key"></a>Clé de création
 
@@ -74,7 +74,7 @@ Dans le contexte de LUIS, un **domaine** est un champ de connaissances propre à
 
 ## <a name="endpoint"></a>Point de terminaison
 
-L’URL du [point de terminaison LUIS](https://aka.ms/luis-endpoint-apis) est celle à laquelle les requêtes LUIS sont envoyées après création et publication de [l’application LUIS](#luis-app). Elle contient la région de l’application publiée, ainsi que l’ID de l’application. Vous trouverez le point de terminaison dans la page **[Keys and endpoints (Clés et points de terminaison)](luis-how-to-azure-subscription.md)** de votre application, ou vous pouvez obtenir l’URL de point de terminaison à partir de l’API [Obtenir des informations sur l’application](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37).
+L’URL du [point de terminaison LUIS](https://go.microsoft.com/fwlink/?linkid=2092356) est celle à laquelle les requêtes LUIS sont envoyées après création et publication de [l’application LUIS](#luis-app). Elle contient la région de l’application publiée, ainsi que l’ID de l’application. Vous trouverez le point de terminaison dans la page **[Keys and endpoints (Clés et points de terminaison)](luis-how-to-azure-subscription.md)** de votre application, ou vous pouvez obtenir l’URL de point de terminaison à partir de l’API [Obtenir des informations sur l’application](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37).
 
 Voici un exemple de point de terminaison :
 
@@ -82,7 +82,7 @@ Voici un exemple de point de terminaison :
 
 |Paramètre de chaîne de requête|description|
 |--|--|
-|region| [Région publiée](luis-reference-regions.md#publishing-regions) |
+|Région| [Région publiée](luis-reference-regions.md#publishing-regions) |
 |appID | ID d’application LUIS |
 |subscriptionID | Clé de point de terminaison (d’abonnement) LUIS créée sur le portail Azure |
 |q | Énoncé |

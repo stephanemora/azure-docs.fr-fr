@@ -11,19 +11,19 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 03/04/2019
 ms.author: diberry
-ms.openlocfilehash: 18ec59200d3cf820794ac353e38106ad26aca697
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f6742bf64ce26e6cce93dfcdfd06756f3c340d9e
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60598025"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522968"
 ---
 # <a name="common-api-response-codes-and-their-meaning"></a>Codes de réponse d’API courants et leur signification
 
-Les API de [création](https://aka.ms/luis-authoring-apis) et de [point de terminaison](https://aka.ms/luis-endpoint-apis) retournent des codes de réponse HTTP. Bien que les messages de réponse contiennent des informations propres à une requête, le code d’état de réponse HTTP est général. 
+Les API de [création](https://go.microsoft.com/fwlink/?linkid=2092087) et de [point de terminaison](https://go.microsoft.com/fwlink/?linkid=2092356) retournent des codes de réponse HTTP. Bien que les messages de réponse contiennent des informations propres à une requête, le code d’état de réponse HTTP est général. 
 
 ## <a name="common-status-codes"></a>Codes d’état courants
-Le tableau suivant liste certains des codes d’état de réponse HTTP les plus courants pour les API de [création](https://aka.ms/luis-authoring-apis) et de [point de terminaison](https://aka.ms/luis-endpoint-apis) :
+Le tableau suivant liste certains des codes d’état de réponse HTTP les plus courants pour les API de [création](https://go.microsoft.com/fwlink/?linkid=2092087) et de [point de terminaison](https://go.microsoft.com/fwlink/?linkid=2092356) :
 
 |Code|API|Explication|
 |:--|--|--|
