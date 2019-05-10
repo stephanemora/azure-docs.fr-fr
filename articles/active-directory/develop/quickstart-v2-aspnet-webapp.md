@@ -16,12 +16,12 @@ ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 786ace2ef88fc4b94372041cbdd5bc16586b5193
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: d63ff648f89a231f0077363c88709a17d157ae8c
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59682557"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190898"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Démarrage rapide : Ajouter la connexion avec Microsoft à une application ASP.NET
 
@@ -68,13 +68,14 @@ Sélectionnez le menu **Authentification**, définissez les **Jetons d’ID** so
 
 #### <a name="step-2-download-your-project"></a>Étape 2 : Télécharger votre projet
 
-[Télécharger la solution Visual Studio 2017](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip)
+[Télécharger la solution Visual Studio 2019](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip)
 
-#### <a name="step-3-configure-your-visual-studio-project"></a>Étape 3 : Configurer votre projet Visual Studio
+#### <a name="step-3-configure-your-visual-studio-project"></a>Étape 3 : Configurer votre projet Visual Studio
 
 1. Extrayez le fichier zip dans un dossier local proche du dossier racine (par exemple, **C:\Azure-Samples**)
 1. Ouvrez la solution dans Visual Studio (AppModelv2-WebApp-OpenIDConnect-DotNet.sln)
-1. En fonction de la version de Visual Studio, vous devrez peut-être cliquer avec le bouton droit sur le projet `AppModelv2-WebApp-OpenIDConnect-DotNet` et sur **Restaurer les packages NuGet**
+1. Selon la version de Visual Studio, vous devrez peut-être cliquer avec le bouton droit sur le projet `AppModelv2-WebApp-OpenIDConnect-DotNet` et **Restaurer les packages NuGet**
+1. Ouvrez la console du Gestionnaire de package (Affichage -> Autres fenêtres -> Console du Gestionnaire de package) et exécutez `Update-Package Microsoft.CodeDom.Providers.DotNetCompilerPlatform -r`
 1. Modifiez **Web.config** et remplacez les paramètres `ClientId` et `Tenant` par :
 
     ```xml
@@ -95,7 +96,7 @@ Sélectionnez le menu **Authentification**, définissez les **Jetons d’ID** so
 
 ## <a name="more-information"></a>Plus d’informations
 
-Cette section offre une vue d’ensemble du code requis pour connecter les utilisateurs. Cela peut être utile de comprendre comment le code fonctionne, les principaux d’arguments mais également si vous souhaitez ajouter une connexion à une application ASP.NET existante.
+Cette section offre une vue d’ensemble du code requis pour connecter les utilisateurs. Cette vue d’ensemble peut être utile pour comprendre comment le code fonctionne, les principaux arguments et également si vous souhaitez ajouter une connexion à une application ASP.NET existante.
 
 ### <a name="owin-middleware-nuget-packages"></a>Packages NuGet de l’intergiciel (middleware) OWIN
 
@@ -109,7 +110,7 @@ Install-Package Microsoft.Owin.Host.SystemWeb
 
 ### <a name="owin-startup-class"></a>Classe de démarrage OWIN
 
-Le middleware OWIN utilise une *classe de démarrage* qui est exécutée lorsque le processus d’hébergement initialise (dans le cas de ce démarrage rapide, le fichier *startup.cs* situé dans le dossier racine). Le code suivant montre le paramètre utilisé par ce démarrage rapide :
+L’intergiciel (middleware) OWIN utilise une *classe de démarrage* qui s’exécute lors de l’initialisation du processus d’hébergement. Dans ce guide de démarrage rapide, le fichier *startup.cs* se trouve dans le dossier racine. Le code suivant montre le paramètre utilisé par ce démarrage rapide :
 
 ```csharp
 public void Configuration(IAppBuilder app)

@@ -1,7 +1,7 @@
 ---
 title: Configurer le conteneur - Form Recognizer
 titleSuffix: Azure Cognitive Services
-description: Découvrez comment utiliser le conteneur Form Recognizer pour analyser des données de formulaire et de table.
+description: Découvrez comment configurer le conteneur Form Recognizer pour analyser des données de formulaire et de table.
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
@@ -9,12 +9,12 @@ ms.subservice: form-recognizer
 ms.topic: overview
 ms.date: 05/07/2019
 ms.author: pafarley
-ms.openlocfilehash: 6066e7856ddf8ef757afc2072218c87420a37c10
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 3f6cc32f6fb2a9fb11220ac1a3134fb3ae4d2f84
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025548"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65147466"
 ---
 # <a name="configure-form-recognizer-containers"></a>Configurer des conteneurs Form Recognizer
 
@@ -70,7 +70,7 @@ Vous trouverez ce paramètre à l’emplacement suivant :
 
 Utilisez des montages de liaisons pour lire et écrire des données vers et à partir du conteneur. Vous pouvez spécifier un montage d’entrée ou de sortie en spécifiant l’option `--mount` dans la commande [docker run](https://docs.docker.com/engine/reference/commandline/run/).
 
-Les conteneurs Form Recognizer nécessitent un montage d’entrée et de sortie. Le montage d’entrée peut être en lecture seule. Il est indispensable pour accéder aux données qui sont utilisées dans l’entraînement et le scoring. Le montage de sortie doit être accessible en écriture. Il sert à stocker les modèles et les données temporaires.
+Le conteneur Form Recognizer nécessite un montage d’entrée et de sortie. Le montage d’entrée peut être en lecture seule. Il est indispensable pour accéder aux données qui sont utilisées dans l’entraînement et le scoring. Le montage de sortie doit être accessible en écriture. Il sert à stocker les modèles et les données temporaires.
 
 La syntaxe exacte de l’emplacement de montage d’hôte varie en fonction du système d’exploitation hôte. De plus, l’emplacement de montage de l’[ordinateur hôte](form-recognizer-container-howto.md#the-host-computer) peut ne pas être accessible en raison d’un conflit entre les autorisations utilisées par le compte de service Docker et les autorisations de l’emplacement de montage de l’hôte.
 

@@ -7,15 +7,15 @@ tags: azure-portal
 services: search
 ms.service: search
 ms.topic: tutorial
-ms.date: 04/08/2019
+ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: a1cf72d9e3f5c2c6e919304d4d886a607c54f359
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: b30fa61cd46acd4fa9da9d97c100e3b3a0aaf067
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59282659"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024761"
 ---
 # <a name="quickstart-use-built-in-portal-tools-for-azure-search-import-indexing-and-queries"></a>Démarrage rapide : Utiliser les outils du portail intégrés pour l’importation, l’indexation et la création de requêtes dans Recherche Azure
 > [!div class="op_single_selector"]
@@ -79,7 +79,7 @@ Nous allons pour le moment ignorer cette étape et passer directement à l’ét
    ![Ignorer l’étape des compétences cognitives](media/search-get-started-portal/skip-cog-skill-step.png)
 
 > [!TIP]
-> Si vous êtes intéressé par la nouvelle fonctionnalité d’aperçu de recherche cognitive dans Recherche Azure, essayez le [démarrage rapide](cognitive-search-quickstart-blob.md) ou le [didacticiel](cognitive-search-tutorial-blob.md) de recherche cognitive.
+> Vous pouvez consulter un exemple d'indexation IA dans un [guide de démarrage rapide](cognitive-search-quickstart-blob.md) ou [didacticiel](cognitive-search-tutorial-blob.md).
 
 ### <a name="step-3---configure-index"></a>Étape 3 : configurer l’index
 
@@ -154,7 +154,7 @@ L’**Explorateur de recherche** est uniquement équipé pour gérer des [demand
 
    ![Commande Explorateur de recherche](media/search-get-started-portal/search-explorer-cmd2.png)
 
-2. Dans la barre de commandes, cliquez sur **Modifier l’index** pour basculer vers la source de données *realestate-us-sample*. Dans la barre de commandes, cliquez sur **Définir l’API de version** pour découvrir les API REST disponibles. Pour les requêtes ci-après, utilisez la version mise à la disposition générale (2017-11-11).
+2. Dans la barre de commandes, cliquez sur **Modifier l’index** pour basculer vers la source de données *realestate-us-sample*. Dans la barre de commandes, cliquez sur **Définir l’API de version** pour découvrir les API REST disponibles. Pour les requêtes ci-après, utilisez la version mise à la disposition générale (2019-05-06).
 
    ![Commandes d’index et d’API](media/search-get-started-portal/search-explorer-changeindex-se2.png)
 

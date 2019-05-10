@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0749e1acba9f13f9e0e95dfc66f9cf818c752cff
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2df72d03bae8987de4998276a0be0f3ce1ec0333
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60334714"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65230046"
 ---
 # <a name="set-up-my-account-for-two-step-verification"></a>Configurer mon compte pour la vérification en deux étapes
 La vérification en deux étapes est une mesure de sécurité supplémentaire qui renforce la protection de votre compte contre les tentatives d’intrusion. Si vous lisez cet article, c’est que vous avez probablement reçu un e-mail de la part de l’administrateur de votre entreprise ou établissement scolaire concernant Multi-Factor Authentication. Ou peut-être avez-vous reçu un message vous invitant à configurer la vérification de sécurité supplémentaire à la suite d’une tentative de connexion. Si tel est le cas, **vous devez compléter le processus d’inscription automatique avant de pouvoir vous connecter**.
@@ -69,7 +69,7 @@ Cette méthode nécessite l’installation d’une application d’authentificat
    ![Zone permettant d’entrer un code confidentiel](./media/multi-factor-authentication-end-user-first-time/scan3.png)
 
 8. Une fois le code confidentiel entré, sélectionnez **Fermer**. À ce stade, la vérification doit réussir.
-9. Nous vous recommandons d’entrer votre numéro de téléphone mobile en cas de perte d’accès à votre application mobile. Spécifiez votre pays dans la liste déroulante et entrez votre numéro de téléphone portable dans la zone située en regard du nom de pays. Sélectionnez **Suivant**.
+9. Nous vous recommandons d’entrer votre numéro de téléphone mobile en cas de perte d’accès à votre application mobile. Spécifiez votre pays/région dans la liste déroulante et entrez votre numéro de téléphone mobile dans la zone en regard du nom de pays/région. Sélectionnez **Suivant**.
 10. À ce stade, vous êtes invité à configurer les mots de passe d’application pour les applications sans navigateur, comme Outlook 2010 ou version antérieure, ou l’application de messagerie native sur les appareils Apple. Ceci s’explique par le fait que certaines applications ne prennent pas en charge la vérification en deux étapes. Si vous n’utilisez pas ces applications, cliquez sur **Terminé** et ignorez les étapes restantes.
 11. Si vous utilisez ces applications, copiez le mot de passe d’application fourni et collez-le dans votre application à la place de votre mot de passe habituel. Vous pouvez utiliser le même mot de passe d’application pour plusieurs applications. Pour plus d’informations, [aide sur les mots de passe d’application].
 12. Cliquez sur **Done**.
@@ -87,7 +87,7 @@ Si vous souhaitez ajouter manuellement un compte à l’application mobile sans 
 1. Sélectionnez **Téléphone d’authentification** dans la liste déroulante.  
 
     ![Paramétrage](./media/multi-factor-authentication-end-user-first-time/phone.png)  
-2. Choisissez votre pays dans la liste déroulante et entrez votre numéro de téléphone mobile.
+2. Choisissez votre pays/région dans la liste déroulante, puis entrez votre numéro de téléphone mobile.
 3. Sélectionnez la méthode que vous préférez utiliser avec votre téléphone mobile : SMS ou appel.
 4. Sélectionnez **Me contacter** pour vérifier votre numéro de téléphone. Selon la méthode sélectionnée, nous vous envoyons un SMS ou nous vous appelons. Suivez les instructions affichées à l’écran, puis sélectionnez **Vérifier**.
 5. À ce stade, vous êtes invité à configurer les mots de passe d’application pour les applications sans navigateur, comme Outlook 2010 ou version antérieure, ou l’application de messagerie native sur les appareils Apple. Ceci s’explique par le fait que certaines applications ne prennent pas en charge la vérification en deux étapes. Si vous n’utilisez pas ces applications, cliquez sur **Terminé** et ignorez les étapes restantes.

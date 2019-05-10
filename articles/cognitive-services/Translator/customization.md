@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: v-jansko
-ms.openlocfilehash: 71856865eb7a0445cdcf39def9c0fc89c1f8dcec
-ms.sourcegitcommit: 807c318f5c034f8256f91c241e9d6f8f4d7de90a
+ms.openlocfilehash: a04f6fab26a47b87bf55f1714522cad648dc5fad
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64951432"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205924"
 ---
 # <a name="customize-your-text-translations"></a>Personnaliser vos traductions de texte
 
@@ -27,7 +27,7 @@ Cette fonctionnalité peut également être utilisée pour personnaliser la trad
 
 Avec Custom Translator, vous pouvez générer des systèmes de traduction neuronaux qui comprennent la terminologie utilisée dans votre entreprise et secteur. Le système de traduction personnalisé s’intègre aux applications, sites web et flux de travail existants.
 
-### <a name="how-does-it-work"></a>Comment cela fonctionne-t-il ?
+### <a name="how-does-it-work"></a>Comment cela fonctionne-t-il ?
 
 Utilisez vos documents traduits précédemment (dépliants, pages web, documentation, etc.) pour générer un système de traduction qui reflète la terminologie et le style propres à un domaine, plutôt qu’un système de traduction générique. Les utilisateurs peuvent charger des documents TMX, XLIFF, TXT, DOCX et XLSX.  
 
@@ -51,9 +51,9 @@ Vous trouverez plus de détails sur les différents niveaux de personnalisation 
 |:-----|:----:|:----:|
 |État de la fonctionnalité de personnalisation   | Disponibilité générale  | Disponibilité générale |
 | Version de l'API de texte  | V2 uniquement   | V3 uniquement |
-| Personnalisation TA statistique | Oui   | Non  |
-| Personnalisation TA neuronale | Non     | Oui |
-| Nouvelle personnalisation unifiée des services vocaux | Non     | Oui |
+| Personnalisation TA statistique | Oui   | Non |
+| Personnalisation TA neuronale | Non    | Oui |
+| Nouvelle personnalisation unifiée des services vocaux | Non    | Oui |
 | [Sans trace](https://www.aka.ms/notrace) | Oui  | Oui |
 
 ## <a name="collaborative-translations-framework"></a>Infrastructure de traductions collaboratives

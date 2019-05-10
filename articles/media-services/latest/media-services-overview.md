@@ -16,12 +16,12 @@ ms.workload: media
 ms.date: 04/18/2019
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: 6876ffd76c5a7ba5745e8014bca2abdc5e5264a2
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 91297a02966000899ab79dfb86446890e9c4439a
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59999822"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148710"
 ---
 # <a name="azure-media-services-v3-overview"></a>Vue d’ensemble d’Azure Media Services v3
 
@@ -80,7 +80,7 @@ Les articles contiennent des exemples de code qui montrent comment effectuer une
 * [Chiffrer dynamiquement avec multi-DRM - .NET](protect-with-drm.md) 
 * [Comment encoder avec une transformation personnalisée - CLI](custom-preset-cli-howto.md)
 
-## <a name="provide-feedback"></a>Fournir des commentaires
+## <a name="ask-questions-give-feedback-get-updates"></a>Poser des questions, envoyer des commentaires, obtenir des mises à jour
 
 Découvrez l’article [Communauté Azure Media Services](media-services-community.md) pour découvrir les différentes façons dont vous pouvez poser des questions, faire des commentaires et obtenir des mises à jour sur Media Services.
 

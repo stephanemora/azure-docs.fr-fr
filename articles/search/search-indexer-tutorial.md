@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/09/2019
+ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 8550e220a2c87823fc337154ea33dd3c4ec81ed0
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: c9413fb78bbb92618818ac4311ab1af8ad65576d
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59528048"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65025087"
 ---
 # <a name="c-tutorial-crawl-an-azure-sql-database-using-azure-search-indexers"></a>Tutoriel C# : Analyser une base de données SQL Azure à l’aide d’indexeurs Recherche Azure
 
@@ -267,7 +267,7 @@ Le moyen le plus rapide de procéder à un nettoyage après un tutoriel consiste
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Vous pouvez attacher des algorithmes intégrant l’intelligence artificielle à un pipeline d’indexeur. Comme prochaine étape, passez au tutoriel suivant.
+Vous pouvez attacher un enrichissement intégrant l’intelligence artificielle à un pipeline d’indexeur. Comme prochaine étape, passez au tutoriel suivant.
 
 > [!div class="nextstepaction"]
 > [Indexation de documents dans Stockage Blob Azure](search-howto-indexing-azure-blob-storage.md)

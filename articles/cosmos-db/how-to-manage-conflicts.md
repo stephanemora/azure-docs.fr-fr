@@ -4,14 +4,14 @@ description: Découvrez comment gérer les conflits dans Azure Cosmos DB
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 04/16/2019
+ms.date: 05/06/2019
 ms.author: mjbrown
-ms.openlocfilehash: fb9850548f0bfb71b797830eb0d5fdfddbc32306
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: a6e57dc5b4bcfa3f02e323253e24d68381c3535d
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59997017"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65068731"
 ---
 # <a name="manage-conflict-resolution-policies-in-azure-cosmos-db"></a>Gérer les stratégies de résolution des conflits dans Azure Cosmos DB
 
@@ -19,7 +19,7 @@ Avec les écritures multirégions, quand plusieurs clients écrivent dans le mê
 
 ## <a name="create-a-last-writer-wins-conflict-resolution-policy"></a>Créer une stratégie de résolution de conflit de type last-writer-wins (dernière version valide)
 
-Ces exemples montrent comment configurer un conteneur avec une stratégie de résolution de conflit de type last-writer-wins (dernière version valide). Le chemin par défaut de la stratégie last-writer-wins est le champ d’horodatage ou la propriété `_ts`. Il peut aussi être défini comme étant un chemin défini par l’utilisateur pour un type numérique. Dans un conflit, la valeur la plus élevée l’emporte. Si le chemin n’est pas défini ou n’est pas valide, il suit par défaut la propriété `_ts`. Les conflits résolus avec cette stratégie ne s’affichent pas dans le flux de conflit. Cette stratégie peut être utilisée par toutes les API.
+Ces exemples montrent comment configurer un conteneur avec une stratégie de résolution de conflit de type last-writer-wins (dernière version valide). Le chemin par défaut de la stratégie last-writer-wins est le champ d’horodatage ou la propriété `_ts`. Il peut aussi être défini comme étant un chemin défini par l’utilisateur pour un type numérique. En cas de conflit, la valeur la plus élevée l’emporte. Si le chemin n’est pas défini ou n’est pas valide, il suit par défaut la propriété `_ts`. Les conflits résolus avec cette stratégie ne s’affichent pas dans le flux de conflit. Cette stratégie peut être utilisée par toutes les API.
 
 ### <a id="create-custom-conflict-resolution-policy-lww-dotnet"></a>Kit SDK .NET
 
@@ -86,16 +86,16 @@ udp_collection = self.try_create_document_collection(create_client, database, ud
 
 ## <a name="create-a-custom-conflict-resolution-policy-using-a-stored-procedure"></a>Créer une stratégie de résolution de conflit personnalisée à l’aide d’une procédure stockée
 
-Ces exemples montrent comment configurer un conteneur avec une stratégie de résolution de conflits personnalisée et une procédure stockée pour résoudre le conflit. Ces conflits n’apparaissent pas dans le flux de conflit, sauf s’il existe une erreur dans votre procédure stockée. Dès lors que la stratégie est créée avec le conteneur, vous devez créer la procédure stockée. L’exemple de kit SDK .NET ci-dessous en montre un exemple. Cette stratégie est prise en charge uniquement par l’API Core (SQL).
+Ces exemples montrent comment configurer un conteneur avec une stratégie de résolution de conflits personnalisée et une procédure stockée pour résoudre le conflit. Ces conflits n’apparaissent pas dans le flux de conflit, sauf s’il existe une erreur dans votre procédure stockée. Une fois la stratégie créée avec le conteneur, vous devez créer la procédure stockée. L’exemple de kit de développement logiciel (SDK) .NET ci-dessous montre un exemple. Cette stratégie est prise en charge uniquement par l’API Core (SQL).
 
 ### <a name="sample-custom-conflict-resolution-stored-procedure"></a>Exemple de procédure stockée de résolution de conflit personnalisée
 
 Les procédures stockées de résolution de conflit personnalisées doivent être implémentées en utilisant la signature de fonction présentée ci-dessous. Le nom de fonction ne doit pas nécessairement correspondre au nom utilisé pendant l’inscription de la procédure stockée auprès du conteneur, mais l’affectation de noms est simplifiée. Voici une description des paramètres qui doivent être implémentés pour cette procédure stockée.
 
 - **incomingItem** : élément inséré ou mis à jour dans la validation qui génère les conflits. A la valeur null pour les opérations de suppression.
-- **existingItem** : élément en cours de validation. Cette valeur est non null dans une mise à jour et null pour une insertion ou une suppression.
+- **existingItem** : élément en cours de validation. Cette valeur est non Null dans une mise à jour et Null pour une insertion ou des suppressions.
 - **isTombstone** : valeur booléenne indiquant si l’élément incomingItem est en conflit avec un élément supprimé précédemment. Quand sa valeur est true, existingItem a aussi la valeur null.
-- **conflictingItems** : tableau de la version validée de tous les éléments du conteneur qui sont en conflit avec incomingItem au niveau de l’ID ou de toute autre propriété d’index unique.
+- **conflictingItems** : Tableau de la version validée de tous les éléments du conteneur qui sont en conflit avec incomingItem concernant l’ID ou d’autres propriétés de l’index unique.
 
 > [!IMPORTANT]
 > Comme n’importe quelle procédure stockée, une procédure de résolution de conflit personnalisée peut accéder à des données avec la même clé de partition et peut effectuer une opération d’insertion, de mise à jour ou de suppression pour résoudre des conflits.
@@ -361,7 +361,7 @@ Découvrez les concepts Azure Cosmos DB suivants :
 
 * [Article relatif au principe de la distribution mondiale d’Azure Cosmos DB](global-dist-under-the-hood.md)
 * [Configurer la fonction multimaître dans vos applications](how-to-multi-master.md)
-* [Configurer les clients pour la multirésidence](how-to-manage-database-account.md#configure-clients-for-multi-homing)
+* [Configurer les clients pour la multirésidence](how-to-manage-database-account.md#configure-multiple-write-regions)
 * [Ajouter ou supprimer des régions de votre compte Azure Cosmos DB](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
 * [Guide pratique pour configurer les fonctionnalités multimaîtres dans vos applications](how-to-multi-master.md).
 * [Partitionnement et distribution des données](partition-data.md)

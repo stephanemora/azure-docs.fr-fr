@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: efeadd2e1600e5ee572c4a69dde0ff4c53a13cd7
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e1fc7809ad94d589483b87c638d027a39098164e
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64577659"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65209534"
 ---
 # <a name="quickstart---configure-a-private-cloud-environment"></a>Guide de démarrage rapide - configurer un environnement de cloud privé
 
@@ -104,7 +104,7 @@ Client VPN est nécessaire pour la connexion à CloudSimple à partir de votre o
 4. Sélectionnez **Utilisateurs**.
 5. Cliquez sur **télécharger ma configuration de VPN**
 
-    ![Télécharger une configuration VPN](media/download-p2s-vpn-configuration.png)
+    ![Télécharger la configuration VPN](media/download-p2s-vpn-configuration.png)
 
 6. Importer la configuration sur votre client VPN
 
@@ -135,7 +135,7 @@ Le réseau local virtuel/sous-réseau sera créé.  Vous pouvez désormais utili
 
 ## <a name="connect-your-environment-to-an-azure-virtual-network"></a>Connecter votre environnement à un réseau virtuel Azure
 
-CloudSimple vous offre un circuit ExpressRoute pour votre cloud privé. Vous pouvez vous connecter à votre réseau virtuel sur Azure au circuit ExpressRoute. Pour plus d’informations sur la configuration de la connexion, suivez les étapes de [connexion réseau virtuel Azure à l’aide d’ExpressRoute](https://docs.azure.cloudsimple.com/azure-er-connection)
+CloudSimple vous offre un circuit ExpressRoute pour votre cloud privé. Vous pouvez vous connecter à votre réseau virtuel sur Azure au circuit ExpressRoute. Pour plus d’informations sur la configuration de la connexion, suivez les étapes de [connexion réseau virtuel Azure à l’aide d’ExpressRoute](https://docs.azure.cloudsimple.com/cloudsimple-azure-network-connection/)
 
 ## <a name="sign-in-to-vcenter"></a>Se connecter à vCenter
 
@@ -147,7 +147,7 @@ Vous pouvez maintenant signer à vCenter configurer des stratégies et des machi
 
 2. Sélectionnez votre client vSphere préféré pour accéder à vCenter et connectez-vous avec votre nom d’utilisateur et le mot de passe.  Les valeurs par défaut sont :
     * Nom d’utilisateur : **CloudOwner@cloudsimple.local**
-    * Mot de passe : **CloudSimple123!**  
+    * Mot de passe : **CloudSimple123!**  
 
 Les écrans de vCenter dans les procédures suivantes sont à partir du client vSphere (HTML5).
 
@@ -176,7 +176,7 @@ Si vous définissez un mot de passe ne répond pas à la configuration requise 
 Le gestionnaire NSX est déployé avec un mot de passe par défaut.  Nous vous recommandons de que modifier le mot de passe après avoir créé votre Cloud privé.
 
    * Nom d’utilisateur : **admin**
-   * Mot de passe : **CloudSimple123!**
+   * Mot de passe : **CloudSimple123!**
 
 Vous pouvez trouver le nom de domaine complet (FQDN) et l’adresse IP du Gestionnaire de NSX sur CloudSimple portail.
 

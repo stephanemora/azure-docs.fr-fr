@@ -1,6 +1,6 @@
 ---
 title: Erreurs d’empaquetage et l’origine Azure Media Services | Microsoft Docs
-description: Cette rubrique décrit les erreurs que vous pouvez recevoir à partir du service d’empaquetage Azure Media Services.
+description: Cette rubrique décrit les erreurs que vous pouvez recevoir à partir du service de terminaison de Streaming Azure Media Services (Orgin).
 author: Juliako
 manager: femila
 editor: ''
@@ -11,18 +11,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/28/2019
+ms.date: 05/07/2019
 ms.author: juliako
-ms.openlocfilehash: e30c51ff3526bb5ed193b65b3f36a64c552024ff
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: ebcda6026f79bc88df91471d8be88316ba57bfc6
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65204146"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65411369"
 ---
-# <a name="media-services-packaging-errors"></a>Erreurs d’empaquetage de Media Services 
+# <a name="streaming-endpoint-origin-errors"></a>Diffusion en continu des erreurs de point de terminaison (origine) 
 
-Cette rubrique décrit les erreurs que vous pouvez recevoir à partir d’Azure Media Services [service d’empaquetage](streaming-endpoint-concept.md).
+Cette rubrique décrit les erreurs que vous pouvez recevoir à partir d’Azure Media Services [service de point de terminaison de diffusion en continu](streaming-endpoint-concept.md).
 
 ## <a name="400-bad-request"></a>400 Demande incorrecte
 
@@ -48,7 +48,7 @@ La demande n’est pas autorisée pour l’une des raisons suivantes :
 |MPE_ENC_ENCRYPTION_REQUIRED |0x8088021E |Le chiffrement est requis pour le contenu, la stratégie de remise est requise pour le format de sortie. |
 |MPE_ENC_ENCRYPTION_NOT_SET_IN_DELIVERY_POLICY |0x8088024D |Le chiffrement n’est pas défini dans les paramètres de stratégie de remise. |
 
-## <a name="404-not-found"></a>404 Introuvable
+## <a name="404-not-found"></a>404 Non trouvé
 
 L’opération tente d’agir sur une ressource qui n’existe plus. Par exemple, la ressource peut déjà avoir été supprimée.
 
@@ -194,7 +194,7 @@ Le serveur est actuellement incapable de recevoir des demandes. Cette erreur peu
 |---|---|---|
 |MPE_STORAGE_SERVER_BUSY|0x808900E8|Erreur d’opération de stockage, a reçu l’erreur « occupé » serveur HTTP 503.|
 
-## <a name="ask-questions-give-feedback-get-updates"></a>Posez des questions, commentaires, obtenir des mises à jour
+## <a name="ask-questions-give-feedback-get-updates"></a>Poser des questions, envoyer des commentaires, obtenir des mises à jour
 
 Découvrez l’article [Communauté Azure Media Services](media-services-community.md) pour découvrir les différentes façons dont vous pouvez poser des questions, faire des commentaires et obtenir des mises à jour sur Media Services.
 

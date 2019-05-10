@@ -7,19 +7,19 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: tutorial
-ms.date: 04/08/2019
+ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: b6e3335ba78d29896c8a253ac710e6ec0da1829a
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 55d4f4bdf204453ccfe353e0d79abedb118bd9d8
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59528371"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65021606"
 ---
-# <a name="rest-tutorial-call-cognitive-services-apis-in-an-azure-search-indexing-pipeline-preview"></a>Tutoriel REST : Appeler des API Cognitive Services dans un pipeline d’indexation Recherche Azure (préversion)
+# <a name="rest-tutorial-call-cognitive-services-apis-in-an-azure-search-indexing-pipeline"></a>Tutoriel REST : Appeler des API Cognitive Services dans un pipeline d’indexation Recherche Azure
 
-Dans ce tutoriel, vous apprendrez les mécanismes d’enrichissement des données de programmation dans Recherche Azure à l’aide de *compétences cognitives*. Les compétences sont secondées par des fonctions d’analyse des images et de traitement en langage naturel (NLP) dans Cognitive Services. Par le biais de la configuration et de la composition de compétences, vous pouvez extraire du texte et des représentations sous forme de texte d’un fichier image ou document analysé. Vous pouvez également détecter la langue, les entités, les expressions clés et bien plus encore. Le résultat final est un contenu supplémentaire riche dans un index Recherche Azure, créé par un pipeline d’indexation basé sur l’intelligence artificielle. 
+Dans ce tutoriel, vous apprendrez les mécanismes d’enrichissement des données de programmation dans Recherche Azure à l’aide de *compétences cognitives*. Les compétences sont secondées par des fonctions d’analyse des images et de traitement en langage naturel (NLP) dans Cognitive Services. Par le biais de la configuration et de la composition de compétences, vous pouvez extraire du texte et des représentations sous forme de texte d’un fichier image ou document analysé. Vous pouvez également détecter la langue, les entités, les expressions clés et bien plus encore. Le résultat final est un contenu supplémentaire riche dans un index Recherche Azure, créé avec des enrichissements IA dans un pipeline d’indexation. 
 
 Dans ce tutoriel, vous effectuez des appels d’API REST pour effectuer les tâches suivantes :
 
@@ -35,9 +35,9 @@ La sortie obtenue est un index de recherche en texte intégral sur Recherche Azu
 Ce tutoriel s’exécute sur le service gratuit. Toutefois, le nombre de transactions gratuites est limité à 20 documents par jour. Si vous souhaitez exécuter ce tutoriel plusieurs fois par jour, utilisez un ensemble de fichiers plus petit pour pouvoir intégrer davantage d’exécutions.
 
 > [!NOTE]
-> Au fur et à mesure que vous développez l’étendue en augmentant la fréquence de traitement, en ajoutant des documents supplémentaires ou en ajoutant davantage d’algorithmes d’IA, vous devez attacher une ressource Cognitive Services facturable. Des frais sont applicables durant l’appel des API dans Cognitive Services ainsi que pour l’extraction d’images durant la phase d’extraction du contenu des documents du service Recherche Azure. L’extraction de texte à partir des documents est gratuite.
+> Si vous élargissez le champ en augmentant la fréquence des traitements, en ajoutant des documents supplémentaires ou en ajoutant plusieurs algorithmes d’IA, vous devez [attacher une ressource Cognitive Services facturable](cognitive-search-attach-cognitive-services.md). Des frais sont applicables durant l’appel des API dans Cognitive Services ainsi que pour l’extraction d’images durant la phase d’extraction du contenu des documents du service Recherche Azure. L’extraction de texte à partir des documents est gratuite.
 >
-> L’exécution de qualifications intégrées est facturée selon le [paiement à l’utilisation existant de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/). Les prix appliqués pour l’extraction d’images sont basés sur le niveau tarifaire de la préversion, comme indiqué dans la [page de tarification du service Recherche Azure](https://go.microsoft.com/fwlink/?linkid=2042400). En savoir [plus](cognitive-search-attach-cognitive-services.md).
+> L'exécution des compétences intégrées est facturée au prix actuel du [paiement à l'utilisation de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/). Les prix appliqués pour l'extraction d'images sont présentés sur la [page de tarification du service Recherche Azure](https://go.microsoft.com/fwlink/?linkid=2042400).
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
@@ -106,7 +106,7 @@ Dans l’en-tête de requête, fournissez le nom du service que vous avez utilis
 
 ### <a name="sample-request"></a>Exemple de demande
 ```http
-POST https://[service name].search.windows.net/datasources?api-version=2017-11-11-Preview
+POST https://[service name].search.windows.net/datasources?api-version=2019-05-06
 Content-Type: application/json
 api-key: [admin key]
 ```
@@ -129,7 +129,7 @@ Dans la mesure où il s’agit de votre première demande, vérifiez le portail 
 
   ![Vignette de sources de données dans le portail](./media/cognitive-search-tutorial-blob/data-source-tile.png "Vignette de sources de données dans le portail")
 
-Si vous avez obtenu une erreur 403 ou 404, vérifiez la construction de la demande : `api-version=2017-11-11-Preview` doit être sur le point de terminaison, `api-key` doit être dans l’en-tête après `Content-Type` et sa valeur doit être valide pour un service de recherche. Vous pouvez réutiliser l’en-tête pour les étapes restantes de ce tutoriel.
+Si vous avez obtenu une erreur 403 ou 404, vérifiez la construction de la demande : `api-version=2019-05-06` doit être sur le point de terminaison, `api-key` doit être dans l’en-tête après `Content-Type` et sa valeur doit être valide pour un service de recherche. Vous pouvez réutiliser l’en-tête pour les étapes restantes de ce tutoriel.
 
 ## <a name="create-a-skillset"></a>Créer un ensemble de compétences
 
@@ -149,7 +149,7 @@ Avant d’effectuer cet appel REST, n’oubliez pas de remplacer le nom du servi
 Cette demande crée un ensemble de compétences. Référencez le nom d’ensemble de compétences ```demoskillset``` pour le reste de ce tutoriel.
 
 ```http
-PUT https://[servicename].search.windows.net/skillsets/demoskillset?api-version=2017-11-11-Preview
+PUT https://[servicename].search.windows.net/skillsets/demoskillset?api-version=2019-05-06
 api-key: [admin key]
 Content-Type: application/json
 ```
@@ -265,7 +265,7 @@ Avant d’effectuer cet appel REST, n’oubliez pas de remplacer le nom du servi
 Cette demande crée un index. Utilisez le nom d’index ```demoindex``` pour le reste de ce tutoriel.
 
 ```http
-PUT https://[servicename].search.windows.net/indexes/demoindex?api-version=2017-11-11-Preview
+PUT https://[servicename].search.windows.net/indexes/demoindex?api-version=2019-05-06
 api-key: [api-key]
 Content-Type: application/json
 ```
@@ -338,7 +338,7 @@ Avant d’effectuer cet appel REST, n’oubliez pas de remplacer le nom du servi
 De plus, fournissez le nom de votre indexeur. Vous pouvez le référencer en tant que ```demoindexer``` pour le reste de ce tutoriel.
 
 ```http
-PUT https://[servicename].search.windows.net/indexers/demoindexer?api-version=2017-11-11-Preview
+PUT https://[servicename].search.windows.net/indexers/demoindexer?api-version=2019-05-06
 api-key: [api-key]
 Content-Type: application/json
 ```
@@ -410,7 +410,7 @@ Lorsque le contenu est extrait, vous pouvez définir ```imageAction``` pour extr
 Une fois l’indexeur défini, il s’exécute automatiquement lorsque vous envoyez la demande. Selon les compétences cognitives que vous avez définies, l’indexation peut prendre plus de temps que prévu. Pour déterminer si l’indexeur est toujours en cours d’exécution, envoyez la demande suivante pour vérifier l’état de l’indexeur.
 
 ```http
-GET https://[servicename].search.windows.net/indexers/demoindexer/status?api-version=2017-11-11-Preview
+GET https://[servicename].search.windows.net/indexers/demoindexer/status?api-version=2019-05-06
 api-key: [api-key]
 Content-Type: application/json
 ```
@@ -426,7 +426,7 @@ Une fois l’indexation terminée, exécutez des requêtes qui retournent le con
 Comme étape de vérification, interrogez l’index au sujet de tous les champs.
 
 ```http
-GET https://[servicename].search.windows.net/indexes/demoindex?api-version=2017-11-11-Preview
+GET https://[servicename].search.windows.net/indexes/demoindex?api-version=2019-05-06
 api-key: [api-key]
 Content-Type: application/json
 ```
@@ -436,7 +436,7 @@ La sortie est le schéma d’index, avec le nom, le type et les attributs de cha
 Envoyez une deuxième requête pour `"*"` afin de retourner tout le contenu d’un champ individuel, tel que `organizations`.
 
 ```http
-GET https://[servicename].search.windows.net/indexes/demoindex/docs?search=*&$select=organizations&api-version=2017-11-11-Preview
+GET https://[servicename].search.windows.net/indexes/demoindex/docs?search=*&$select=organizations&api-version=2019-05-06
 api-key: [api-key]
 Content-Type: application/json
 ```
@@ -528,7 +528,7 @@ Pour réindexer vos documents avec les nouvelles définitions :
 Vous pouvez utiliser le portail pour supprimer des index, des indexeurs et des ensembles de compétences.
 
 ```http
-DELETE https://[servicename].search.windows.net/skillsets/demoskillset?api-version=2017-11-11-Preview
+DELETE https://[servicename].search.windows.net/skillsets/demoskillset?api-version=2019-05-06
 api-key: [api-key]
 Content-Type: application/json
 ```

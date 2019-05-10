@@ -16,12 +16,12 @@ ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7bd57b3d41ad7c670b5423f10a9c93b55e87d757
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 448858efeaae4c3e2a41d41181e9ec74b03223f6
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59522790"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65138252"
 ---
 # <a name="call-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>Appeler l’API Microsoft Graph à partir d’une application de plateforme Windows universelle (XAML)
 
@@ -333,8 +333,10 @@ Maintenant, vous devez inscrire votre application dans le portail d’inscriptio
    - Dans la section **Types de comptes pris en charge**, sélectionnez **Comptes dans un annuaire organisationnel et comptes personnels Microsoft (par exemple, Skype, Xbox, Outlook.com)**.
    - Sélectionnez **Inscrire** pour créer l’application.
 1. Dans la page **Vue d’ensemble** de l’application, recherchez la valeur **ID d’application (client)** et notez-la. Revenez dans Visual Studio, ouvrez le fichier **MainPage.xaml.cs** et remplacez la valeur de ClientId par l’ID d’application que vous venez de noter :
-1. Dans la liste des pages de l’application, sélectionnez **Authentification** :
-   - Dans la section **URI de redirection** | **URI de redirection suggérés pour les clients publics (mobile, bureau)**, cochez **urn:ietf:wg:oauth:2.0:oob**
+1. Dans la liste des pages de l’application, sélectionnez **Authentification**.
+   1. Dans la section **URI de redirection**, dans la liste des URI de redirection :
+   1. Dans la colonne **TYPE**, sélectionnez **Client public (mobile et bureau)**.
+   1. Entrez `urn:ietf:wg:oauth:2.0:oob` dans la colonne **URI de redirection**.
 1. Sélectionnez **Enregistrer**.
 1. Dans la liste des pages de l’application, sélectionnez **Autorisations de l’API**
    - Cliquez sur le bouton **Ajouter une autorisation**.
@@ -384,7 +386,7 @@ Des informations de base sur le jeton obtenu via `AcquireTokenInteractive` ou `A
 |Propriété  |Format  |Description |
 |---------|---------|---------|
 |**Nom d’utilisateur** |<span>user@domain.com</span> |Nom qui identifie l’utilisateur.|
-|**Token Expires** |DateTime |L’heure d’expiration du jeton. MSAL repousse la date d’expiration en renouvelant le jeton si nécessaire.|
+|**Token Expires** |Datetime |L’heure d’expiration du jeton. MSAL repousse la date d’expiration en renouvelant le jeton si nécessaire.|
 
 ### <a name="more-information-about-scopes-and-delegated-permissions"></a>Informations supplémentaires sur les étendues et les autorisations déléguées
 

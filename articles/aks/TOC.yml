@@ -113,7 +113,7 @@
         - name: Supprimer un cluster AKS
           href: '/cli/azure/aks#az-aks-delete'
           maintainContext: true
-        - name: Créer des nœuds virtuels (préversion)
+        - name: Créer des nœuds virtuels
           items:
             - name: Azure CLI
               href: virtual-nodes-cli.md
@@ -123,9 +123,13 @@
           href: virtual-kubelet.md
         - name: Utiliser le programme de mise à l’échelle automatique de cluster (préversion)
           href: cluster-autoscaler.md
+        - name: Utiliser plusieurs pools de nœuds (préversion)
+          href: use-multiple-node-pools.md
         - name: Déployer AKS avec Terraform
           href: ../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md
           maintainContext: true
+        - name: Utiliser le tableau de bord Kubernetes
+          href: kubernetes-dashboard.md
     - name: Configurer des volumes de données
       items:
         - name: Azure Disk - Dynamic
@@ -173,12 +177,16 @@
           href: kubernetes-service-principal.md
         - name: Limiter l’accès au fichier de configuration de cluster
           href: control-kubeconfig-access.md
-        - name: Sécuriser le trafic de pod avec des stratégies réseau (préversion)
+        - name: Sécuriser le trafic de pods avec des stratégies réseau
           href: use-network-policies.md
         - name: Utiliser des stratégies de sécurité des pods (préversion)
           href: use-pod-security-policies.md
+        - name: Définir les plages IP autorisées du serveur d’API (préversion)
+          href: api-server-authorized-ip-ranges.md
         - name: Mettre à jour les informations d’identification du principal de service de cluster
           href: update-credentials.md
+        - name: Limiter et contrôler le trafic sortant du cluster
+          href: limit-egress-traffic.md
         - name: Activer l’intégration d’Azure Active Directory
           items:
             - name: "Utilisation de l’interface de ligne de commande Microsoft\_Azure"
@@ -285,10 +293,6 @@
         - name: Azure DevOps Project
           href: ../devops-project/azure-devops-project-aks.md
           maintainContext: true
-    - name: Concepts de base Kubernetes
-      items:
-        - name: Utiliser le tableau de bord Kubernetes
-          href: kubernetes-dashboard.md
     - name: Résolution des problèmes
       items:
         - name: Problèmes courants

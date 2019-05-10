@@ -1,21 +1,21 @@
 ---
-title: Exemples Azure CLI pour base de données pour PostgreSQL
-description: Cet article répertorie plusieurs exemples de code de commande de la CLI Azure disponibles pour l’interaction avec des serveurs Azure Database pour PostgreSQL.
+title: Exemples Azure CLI pour Azure Database pour PostgreSQL (serveur unique)
+description: Cet article répertorie plusieurs exemples de code Azure CLI disponibles pour l’interaction avec Azure Database pour PostgreSQL (serveur unique).
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: sample
 ms.custom: sample, mvc
-ms.date: 02/28/2018
-ms.openlocfilehash: b2364448f7994146bf79cdb23d5573003b87076a
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 5/6/2019
+ms.openlocfilehash: 9b8ff3334c8e31397f68e890c15bec3e2515a1a2
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53539862"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073125"
 ---
-# <a name="azure-cli-samples-for-azure-database-for-postgresql"></a>Exemples Azure CLI pour base de données pour PostgreSQL 
+# <a name="azure-cli-samples-for-azure-database-for-postgresql---single-server"></a>Exemples Azure CLI pour Azure Database pour PostgreSQL (serveur unique)
 Le tableau suivant comprend des liens vers des exemples de scripts de CLI Azure pour Azure Database pour PostgreSQL.
 
 | |  |
@@ -28,7 +28,7 @@ Le tableau suivant comprend des liens vers des exemples de scripts de CLI Azure�
 | [Modifier les configurations de serveur](./scripts/sample-change-server-configuration.md?toc=%2fcli%2fazure%2ftoc.json) | Script Azure CLI qui modifie les options de configurations d’un seul Azure Database pour PostgreSQL. |
 |**Restaurer un serveur**||
 | [Restaurer un serveur](./scripts/sample-point-in-time-restore.md?toc=%2fcli%2fazure%2ftoc.json) | Script Azure CLI qui restaure un seul serveur Azure Database pour PostgreSQL à un point antérieur dans le temps. |
-|**Télécharger les journaux du serveur**||
-| [Activer et télécharger les journaux du serveur](./scripts/sample-server-logs.md?toc=%2fcli%2fazure%2ftoc.json) | Script Azure CLI qui active et télécharge les journaux d’activité d’un serveur Azure Database pour PostgreSQL. |
+|**Télécharger les journaux d’activité du serveur**||
+| [Activer et télécharger les journaux d’activité du serveur](./scripts/sample-server-logs.md?toc=%2fcli%2fazure%2ftoc.json) | Script Azure CLI qui active et télécharge les journaux d’activité d’un serveur Azure Database pour PostgreSQL. |
 |||
 

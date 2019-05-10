@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3d4127226037bf28ba677a49f6444ca987118cb9
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: ecb97860e70141a744833aa9b9a4fcea3f3688f0
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65023932"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65149826"
 ---
 # <a name="quickstart-use-a-cloud-based-notebook-server-to-get-started-with-azure-machine-learning"></a>Démarrage rapide : Utiliser un serveur de notebooks cloud pour démarrer avec Azure Machine Learning
 
@@ -25,11 +25,11 @@ Ce guide de démarrage rapide montre comment créer une ressource cloud dans vot
  
 Ce démarrage rapide décrit les actions suivantes :
 
-* Créer un serveur de notebooks basé sur le cloud dans votre espace de travail
-* Lancer l’interface web Jupyter
-* Ouvrez un notebook qui contient du code pour estimer pi et qui journalise les erreurs à chaque itération.
-* Exécutez le notebook.
-* Affichez les valeurs d’erreur journalisées dans votre espace de travail.  Cet exemple montre comment l’espace de travail peut vous aider à suivre les informations générées dans un script. 
+* Création d’un serveur de notebook basé sur le cloud dans votre espace de travail
+* Lancement de l’interface web Jupyter
+* Ouverture d’un notebook qui contient du code pour estimer pi et qui journalise les erreurs à chaque itération
+* Exécution du notebook
+* Affichez les valeurs d’erreur journalisées dans votre espace de travail. Cet exemple montre comment l’espace de travail peut vous aider à suivre les informations générées dans un script. 
 
 Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez dès aujourd'hui la [version gratuite ou payante d’Azure Machine Learning service](https://aka.ms/AMLFree).
 
@@ -49,13 +49,15 @@ Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de com
 
      ![Sélectionner Nouvelle machine virtuelle](./media/quickstart-run-cloud-notebook/add-workstation.png)
 
-1. Attribuez un nom à votre machine virtuelle. Sélectionnez ensuite **Créer**. 
+1. Attribuez un nom à votre machine virtuelle. Sélectionnez ensuite **Créer**.
+
+    > [!NOTE]
+    > Le nom de votre machine virtuelle Notebook doit comprendre entre 2 et 16 caractères. Les caractères valides sont les lettres, les chiffres et le caractère « - ».  Le nom doit aussi être unique dans votre abonnement Azure.
 
     ![Créer une machine virtuelle](media/quickstart-run-cloud-notebook/create-new-workstation.png)
 
-1. Attendez environ 4 à 5 minutes, puis sélectionnez **Actualiser**.  Essayez d’actualiser toutes les 30 secondes environ jusqu’à ce que l’état soit **En cours d’exécution**.
+1. Attendez environ 4 à 5 minutes, le temps que l’état passe à **En cours d’exécution**.
 
-    ![Actualiser](media/quickstart-run-cloud-notebook/refresh.png)
 
 ## <a name="launch-jupyter-web-interface"></a>Lancer l’interface web Jupyter
 
@@ -67,7 +69,11 @@ Dès lors que votre machine virtuelle s’exécute, lancez l’interface web Jup
 
     Le lien démarre votre serveur de notebooks et ouvre la page web de notebook Jupyter dans un nouvel onglet du navigateur.  Ce lien fonctionne uniquement pour la personne qui crée la machine virtuelle.
 
-1. Dans la page web de notebook Jupyter, sélectionnez le dossier **samples/quickstart** pour afficher le notebook quickstart.
+1. Dans la page web du notebook Jupyter, le nom de dossier en haut est votre nom d’utilisateur.  Sélectionnez ce dossier.
+
+1. Le nom de dossier samples inclut un numéro de version, par exemple **samples-1.0.33.1**.  Sélectionnez le dossier samples.
+
+1. Sélectionnez le notebook **quickstart**.
 
 ## <a name="run-the-notebook"></a>Exécuter le bloc-notes
 
@@ -75,15 +81,7 @@ Exécutez un notebook qui estime pi et journalise l’erreur dans votre espace d
 
 1. Sélectionnez **01.run-experiment.ipynb** pour ouvrir le notebook.
 
-1. Il se peut qu’un message s’affiche pour indiquer que le noyau n’a pas été défini.  Sélectionnez **Python 3.6 - AzureML**, puis **Set Kernel** (Définir le noyau).
-
-   ![Définir le noyau](./media/quickstart-run-cloud-notebook/set-kernel.png)
-
-1. La zone d’état vous indique d’attendre le démarrage du noyau. Le message disparaît une fois que le noyau est prêt.
-
-    ![Attendre que le noyau démarre](./media/quickstart-run-cloud-notebook/wait-for-kernel.png)
-
-1.  Cliquez dans la première cellule de code, puis sélectionnez **Run** (Exécuter).
+1. Cliquez dans la première cellule de code, puis sélectionnez **Run** (Exécuter).
 
     > [!NOTE]
     > Les cellules de code sont précédées de crochets. Si les crochets sont vides (__[  ]__), cela signifie que le code n’a pas été exécuté. Pendant l’exécution du code, un astérisque (__[*]__) est visible. Un nombre **[1]** s’affiche à la fin de l’exécution du code.  Ce nombre indique l’ordre d’exécution des cellules.
@@ -94,16 +92,15 @@ Exécutez un notebook qui estime pi et journalise l’erreur dans votre espace d
 
 1. Exécutez la deuxième cellule de code. Si des instructions d’authentification s’affichent, copiez le code et suivez le lien pour vous connecter. Une fois que vous êtes connecté, votre navigateur mémorise cette configuration.  
 
-    > [!TIP]
-    > Veillez à ne pas copier l’espace situé après le code.  
-
     ![Authentifier](media/quickstart-run-cloud-notebook/authenticate.png)
 
 1. Quand vous avez terminé, le numéro de cellule __[2]__ s’affiche.  Si vous deviez vous connecter, un message d’état d’authentification réussie s’affiche.   Si vous n’aviez pas à vous connecter, aucune sortie n’est émise pour cette cellule ; seul le numéro s’affiche pour indiquer que la cellule s’est exécutée correctement.
 
     ![Message de réussite](media/quickstart-run-cloud-notebook/success.png)
 
-1. Exécutez les cellules de code restantes.  Le numéro de chaque cellule s’affiche à mesure que son exécution se termine. Seule la dernière cellule peut afficher une autre sortie.  Dans la cellule de code la plus grande, vous pouvez constater que `run.log` apparaît à plusieurs endroits. Chaque occurrence de `run.log` ajoute sa valeur à votre espace de travail.
+1. Exécutez les cellules de code restantes.  Le numéro de chaque cellule s’affiche à mesure que son exécution se termine. Seule la dernière cellule peut afficher une autre sortie.  
+
+    Dans la cellule de code la plus grande, vous pouvez constater que `run.log` apparaît à plusieurs endroits. Chaque occurrence de `run.log` ajoute sa valeur à votre espace de travail.
 
 
 ## <a name="view-logged-values"></a>Afficher les valeurs journalisées
@@ -147,10 +144,12 @@ Vous pouvez également conserver le groupe de ressources mais supprimer un espac
 Dans ce guide de démarrage rapide, vous avez effectué les tâches suivantes :
 
 * Création d’une machine virtuelle Notebook
-* Démarrage d’un serveur Jupyter Notebook sur votre machine virtuelle Notebook
+* Lancement de l’interface web Jupyter
 * Ouverture d’un notebook qui contient du code pour estimer pi et qui journalise les erreurs à chaque itération
 * Exécution du notebook
 * Affichez les valeurs d’erreur journalisées dans votre espace de travail.  Cet exemple montre comment l’espace de travail peut vous aider à suivre les informations générées dans un script. 
+
+Dans la page web Jupyter Notebook, parcourez les autres notebooks dans le dossier samples pour en savoir plus sur le service Azure Machine Learning.
 
 Pour une expérience approfondie du flux de travail, suivez les didacticiels Machine Learning relatifs à l’apprentissage et au déploiement d’un modèle :  
 

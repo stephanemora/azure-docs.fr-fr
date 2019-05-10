@@ -7,12 +7,12 @@ ms.date: 04/15/2019
 ms.topic: reference
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 0de3e0add804290cdfe27e2e97d8b1a0f240e0a6
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.openlocfilehash: dc72113a8f5ed978d64d35c43e94dc9e19e4cdb1
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63769300"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65209398"
 ---
 # <a name="functions-for-use-with-azure-blueprints"></a>Fonctions à utiliser avec des plans d’Azure
 
@@ -35,17 +35,17 @@ Retourne qu'un objet de propriétés rempli avec les artefacts de ce plan sortie
 
 ### <a name="parameters"></a>parameters
 
-| Paramètre | Obligatoire | Type | Description |
+| Paramètre | Obligatoire | Type | Description  |
 |:--- |:--- |:--- |:--- |
 | artifactName |Oui |string |Le nom d’un artefact de plan. |
 
 ### <a name="return-value"></a>Valeur de retour
 
-Un objet de propriétés de sortie. Les propriétés de sortie dépendent du type d’artefact de plan référencé. Tous les types de suivent le format :
+Un objet de propriétés de sortie. Le **génère** propriétés dépendent du type d’artefact de plan référencé. Tous les types de suivent le format :
 
 ```json
 {
-  "output": {collectionOfOutputProperties}
+  "outputs": {collectionOfOutputProperties}
 }
 ```
 
@@ -53,7 +53,7 @@ Un objet de propriétés de sortie. Les propriétés de sortie dépendent du typ
 
 ```json
 {
-    "output": {
+    "outputs": {
         "policyAssignmentId": "{resourceId-of-policy-assignment}",
         "policyAssignmentName": "{name-of-policy-assignment}",
         "policyDefinitionId": "{resourceId-of-policy-definition}",
@@ -63,13 +63,13 @@ Un objet de propriétés de sortie. Les propriétés de sortie dépendent du typ
 
 #### <a name="resource-manager-template-artifact"></a>Artefact de modèle Resource Manager
 
-Le **sortie** propriétés de l’objet retourné sont définies dans le modèle Resource Manager et retournées par le déploiement.
+Le **génère** propriétés de l’objet retourné sont définies dans le modèle Resource Manager et retournées par le déploiement.
 
 #### <a name="role-assignment-artifact"></a>Artefact d’attribution de rôle
 
 ```json
 {
-    "output": {
+    "outputs": {
         "roleAssignmentId": "{resourceId-of-role-assignment}",
         "roleDefinitionId": "{resourceId-of-role-definition}",
         "principalId": "{principalId-role-is-being-assigned-to}",
@@ -109,12 +109,12 @@ Quelques exemples de récupération de données à partir de la _myTemplateArtif
 
 | Expression | Type | Valeur |
 |:---|:---|:---|
-|`[artifacts("myTemplateArtifact").output.myArray]` | Tableau | \["first", "second"\] |
-|`[artifacts("myTemplateArtifact").output.myArray[0]]` | Chaîne | « première » |
-|`[artifacts("myTemplateArtifact").output.myString]` | Chaîne | « Mon valeur chaîne » |
-|`[artifacts("myTemplateArtifact").output.myObject]` | Object | { "myproperty": "my value", "anotherProperty": true } |
-|`[artifacts("myTemplateArtifact").output.myObject.myProperty]` | Chaîne | « Mon valeur » |
-|`[artifacts("myTemplateArtifact").output.myObject.anotherProperty]` | Bool | True |
+|`[artifacts("myTemplateArtifact").outputs.myArray]` | Tableau | \["first", "second"\] |
+|`[artifacts("myTemplateArtifact").outputs.myArray[0]]` | Chaîne | « première » |
+|`[artifacts("myTemplateArtifact").outputs.myString]` | Chaîne | « Mon valeur chaîne » |
+|`[artifacts("myTemplateArtifact").outputs.myObject]` | Object | { "myproperty": "my value", "anotherProperty": true } |
+|`[artifacts("myTemplateArtifact").outputs.myObject.myProperty]` | Chaîne | « Mon valeur » |
+|`[artifacts("myTemplateArtifact").outputs.myObject.anotherProperty]` | Bool | True |
 
 ## <a name="concat"></a>concat
 
@@ -124,10 +124,10 @@ Combine plusieurs valeurs de chaîne et renvoie la chaîne concaténée.
 
 ### <a name="parameters"></a>parameters
 
-| Paramètre | Obligatoire | Type | Description |
+| Paramètre | Obligatoire | Type | Description  |
 |:--- |:--- |:--- |:--- |
 | string1 |Oui |string |La première valeur pour la concaténation. |
-| arguments supplémentaires |Non  |string |Valeurs supplémentaires dans un ordre séquentiel pour la concaténation |
+| arguments supplémentaires |Non |string |Valeurs supplémentaires dans un ordre séquentiel pour la concaténation |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -149,7 +149,7 @@ Retourne une valeur de paramètre de plan. Le nom de paramètre spécifié doit 
 
 ### <a name="parameters"></a>parameters
 
-| Paramètre | Obligatoire | Type | Description |
+| Paramètre | Obligatoire | Type | Description  |
 |:--- |:--- |:--- |:--- |
 | nom_paramètre |Oui |string |Nom du paramètre à retourner. |
 
@@ -270,7 +270,7 @@ Retourne un objet qui représente l’objet de groupe de ressources spécifié. 
 
 ### <a name="parameters"></a>parameters
 
-| Paramètre | Obligatoire | Type | Description |
+| Paramètre | Obligatoire | Type | Description  |
 |:--- |:--- |:--- |:--- |
 | placeholderName |Oui |string |Le nom de l’espace réservé de l’artefact de groupe de ressources à retourner. |
 
@@ -324,7 +324,7 @@ Utilisez ensuite le `resourceGroups()` (fonction) à partir du contexte d’un a
 }
 ```
 
-## <a name="subscription"></a>subscription
+## <a name="subscription"></a>abonnement
 
 `subscription()`
 

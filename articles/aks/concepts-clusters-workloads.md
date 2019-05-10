@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: iainfou
-ms.openlocfilehash: bababa723e70cdc5268fb04f1104cca9e254984d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: faac0f02d1a1b8927fa0c651f44f8b120a583d9a
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60467429"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65230153"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Concepts de base de Kubernetes pour AKS (Azure Kubernetes Service)
 
@@ -99,9 +99,11 @@ Pour les recommandations associées, consultez [meilleures pratiques pour les fo
 
 ### <a name="node-pools"></a>Pools de nœuds
 
-Les nœuds d’une même configuration sont regroupés dans des *pools de nœuds*. Un cluster Kubernetes contient un ou plusieurs pools de nœuds. Le nombre et la taille initiaux des nœuds sont définis quand vous créez un cluster AKS, opération qui engendre la création d’un *nœud de pools par défaut*. Ce pool de nœuds par défaut dans AKS contient les machines virtuelles sous-jacentes qui exécutent vos nœuds d’agent.
+Les nœuds d’une même configuration sont regroupés dans des *pools de nœuds*. Un cluster Kubernetes contient un ou plusieurs pools de nœuds. Le nombre et la taille initiaux des nœuds sont définis quand vous créez un cluster AKS, opération qui engendre la création d’un *nœud de pools par défaut*. Ce pool de nœuds par défaut dans AKS contient les machines virtuelles sous-jacentes qui exécutent vos nœuds d’agent. Prise en charge de plusieurs nœuds pool est actuellement en version préliminaire dans ACS.
 
-Quand vous mettez à l’échelle ou à niveau un cluster AKS, l’action est effectuée sur le pool de nœuds par défaut. Pour les opérations de mise à niveau, les conteneurs en cours d’exécution sont planifiés sur d’autres nœuds du pool de nœuds jusqu’à ce que tous les nœuds soient mis à niveau.
+Quand vous mettez à l’échelle ou à niveau un cluster AKS, l’action est effectuée sur le pool de nœuds par défaut. Vous pouvez également choisir de mettre à l’échelle ou de mettre à niveau d’un pool de nœud spécifique. Pour les opérations de mise à niveau, les conteneurs en cours d’exécution sont planifiés sur d’autres nœuds du pool de nœuds jusqu’à ce que tous les nœuds soient mis à niveau.
+
+Pour plus d’informations sur l’utilisation de plusieurs pools de nœuds dans ACS, consultez [créer et gérer plusieurs pools de nœuds pour un cluster dans AKS][use-multiple-node-pools].
 
 ## <a name="pods"></a>Pods
 
@@ -245,3 +247,4 @@ Cet article décrit certains des principaux composants Kubernetes et leur applic
 [aks-helm]: kubernetes-helm.md
 [operator-best-practices-cluster-security]: operator-best-practices-cluster-security.md
 [operator-best-practices-scheduler]: operator-best-practices-scheduler.md
+[use-multiple-node-pools]: use-multiple-node-pools.md

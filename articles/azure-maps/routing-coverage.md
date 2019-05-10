@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 028f16b480ceb57598c6499739ab0e5745b4a132
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: f9f5b24a52ebfb8b87f1abaa3b60091d7f4690ab
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64870006"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65230658"
 ---
 # <a name="azure-maps-routing-coverage"></a>Couverture de routage Azure Maps
 
@@ -27,9 +27,9 @@ Consultez la couverture du [**rendu**](render-coverage.md).
 
 | Symbole             | Signification                                |
 |--------------------|----------------------------------------|
-| ✓                  | Pays avec données détaillées.   |
-| Ø                  | Pays avec données simplifiées. |
-| Pays manquant | Données du pays non fournies.          |
+| ✓                  | Pays/région avec données détaillées.   |
+| Ø                  | Pays/région avec données simplifiées. |
+| Pays manquant | Les données de pays/région ne sont pas fournies.          |
 
 <br>  
 
@@ -39,13 +39,13 @@ Le tableau suivant fournit des informations sur la couverture de routage Azure M
 
 ## <a name="africa"></a>Afrique
 
-| Pays/région                 | Routage         | Routage du trafic | Camions |
+| Pays ou région                 | Routage         | Routage du trafic | Camions |
 |--------------------------------|:---------------:|:--------------------:|:------------:|
 | Algérie                        |        ✓       |                       |             |
 | Angola                         |        ✓       |                       |             |
 | Bénin                          |        ✓       |                       |             |
 | Botswana                       |        ✓       |                       |             |
-| Burkina Faso                   |        ✓       |                       |             |
+| Burkina-Faso                   |        ✓       |                       |             |
 | Burundi                        |        ✓       |                       |             |
 | Cameroun                       |        ✓       |                       |             |
 | Cabo Verde                     |        ✓       |                       |             |
@@ -66,7 +66,7 @@ Le tableau suivant fournit des informations sur la couverture de routage Azure M
 | Mozambique                     |        ✓       |         ✓            |             |
 | Namibie                        |        ✓       |                       |             |
 | Niger                          |        ✓       |                       |             |
-| Nigeria                        |        ✓       |         ✓            |             |
+| Nigéria                        |        ✓       |         ✓            |             |
 | Rwanda                         |        ✓       |                       |             |
 | Sénégal                        |        ✓       |                       |             |
 | Seychelles                     |        ✓       |                       |             |
@@ -83,12 +83,12 @@ Le tableau suivant fournit des informations sur la couverture de routage Azure M
 
 ## <a name="americas"></a>Amérique
 
-| Pays/région                 | Routage         | Routage du trafic | Camions |
+| Pays ou région                 | Routage         | Routage du trafic | Camions |
 |--------------------------------|:---------------:|:--------------------:|:------------:|
 | Argentine                      |        ✓       |         ✓            |     ✓       |
 | Antigua-et-Barbuda            |        ✓       |                      |             |
-| Les Bahamas                        |        ✓       |                      |             |
-| Barbade                       |        ✓       |                      |             |
+| Bahamas                        |        ✓       |                      |             |
+| Barbade (La)                       |        ✓       |                      |             |
 | Belize                         |        ✓       |                      |             |
 | Brésil                         |        ✓       |         ✓            |     ✓       | 
 | Canada                         |        ✓       |         ✓            |     ✓      |
@@ -99,13 +99,13 @@ Le tableau suivant fournit des informations sur la couverture de routage Azure M
 | Dominique                       |        ✓       |                      |             |
 | République dominicaine             |        ✓       |                      |             |
 | Équateur                        |        ✓       |                      |             |
-| El Salvador                    |        ✓       |                      |             |
-| Guyane française                  |        ✓       |                      |             |
+| Le Salvador                    |        ✓       |                      |             |
+| Guyana                  |        ✓       |                      |             |
 | Grenade                        |        ✓       |                      |             |
 | Guatemala                      |        ✓       |                      |             |
 | Guyane                         |        ✓       |                      |             |
 | Haïti                          |        ✓       |                      |             |
-| Honduras                       |        ✓       |                      |             |
+| Honduras (Le)                       |        ✓       |                      |             |
 | Jamaïque                        |        ✓       |                      |             |
 | Mexique                         |        ✓       |         ✓            |     ✓      | 
 | Nicaragua                      |        ✓       |                      |             |
@@ -115,7 +115,7 @@ Le tableau suivant fournit des informations sur la couverture de routage Azure M
 | Saint-Kitts-et-Nevis            |        ✓       |                      |             |
 | Sainte-Lucie                      |        ✓       |                      |             |
 | Saint-Vincent et -les Grenadines       |        ✓       |                      |             |
-| Surinam                       |        ✓       |                      |             |
+| Suriname                       |        ✓       |                      |             |
 | Trinité-et-Tobago              |        ✓       |                      |             |
 | États-Unis                  |        ✓       |         ✓            |     ✓      | 
 | + Samoa américaines                |        ✓       |                      |             |
@@ -128,7 +128,7 @@ Le tableau suivant fournit des informations sur la couverture de routage Azure M
 
 ## <a name="asia-pacific"></a>Asie-Pacifique
 
-| Pays/région                 | Routage         | Routage du trafic | Camions |
+| Pays ou région                 | Routage         | Routage du trafic | Camions |
 |--------------------------------|:---------------:|:--------------------:|:------------:|
 | Australie                      |        ✓       |         ✓            |     ✓       |
 | + Christmas (île)              |        ✓       |                      |             |
@@ -142,24 +142,24 @@ Le tableau suivant fournit des informations sur la couverture de routage Azure M
 | Corée du Sud                          |        Ø       |                      |             |
 | Laos                           |        ✓       |                      |             |
 | Macao R.A.S.                      |        ✓       |         ✓            |             |
-| Malaisie                       |        ✓       |         ✓            |             |
-| Myanmar                        |        ✓       |                      |             |
+| Malaysie                       |        ✓       |         ✓            |             |
+| Myanmar (Union de)                        |        ✓       |                      |             |
 | Nouvelle-Zélande                    |        ✓       |         ✓            |     ✓       | 
 | Philippines                    |        ✓       |         ✓            |             |
 | Singapour                      |        ✓       |         ✓            |             |
-| Taïwan                         |        ✓       |         ✓            |             |
+| Taiwan                         |        ✓       |         ✓            |             |
 | Thaïlande                       |        ✓       |         ✓            |             |
 | Vietnam                        |        ✓       |         ✓            |             |
 
 
 ## <a name="europe"></a>Europe
 
-| Pays/région                 | Routage         | Routage du trafic | Camions |
+| Pays ou région                 | Routage         | Routage du trafic | Camions |
 |--------------------------------|:---------------:|:--------------------:|:------------:|
 | Albanie                        |        ✓       |                      |             |
 | Andorre                        |        ✓       |         ✓            |             |
-| Autriche                        |        ✓       |         ✓            |     ✓       | 
-| Bélarus                        |        ✓       |                      |             |
+| L'Autriche                        |        ✓       |         ✓            |     ✓       | 
+| Biélorussie                        |        ✓       |                      |             |
 | Belgique                        |        ✓       |         ✓            |     ✓      | 
 | Bolivie                        |        ✓       |                      |             |
 | Bosnia-Herzégovine             |        ✓       |                      |             |
@@ -192,21 +192,21 @@ Le tableau suivant fournit des informations sur la couverture de routage Azure M
 | Luxembourg                     |        ✓       |         ✓            |     ✓      | 
 | Macédoine du Nord                |        ✓       |                      |             |
 | Malte                          |        ✓       |         ✓            |             |
-| Moldova                        |        ✓       |                      |             |
+| Moldavie                        |        ✓       |                      |             |
 | Monaco                         |        ✓       |         ✓            |             |
 | Monténégro                     |        ✓       |                      |     ✓      | 
-| Pays-bas                    |        ✓       |         ✓            |     ✓      | 
+| Pays-Bas                    |        ✓       |         ✓            |     ✓      | 
 | +Aruba                         |        ✓       |                      |             | 
 | + Caraïbes (pays-bas)         |        ✓       |                      |             |
 | +Curaçao                       |        ✓       |                      |             |
-| + Saint Maarten                  |        ✓       |                      |             |
+| + Saint-Martin                  |        ✓       |                      |             |
 | Norvège                         |        ✓       |         ✓            |     ✓      | 
 | Pologne                         |        ✓       |         ✓            |     ✓      | 
 | Portugal                       |        ✓       |         ✓            |     ✓      |  
 | Roumanie                        |        ✓       |         ✓            |     ✓      | 
 | Fédération de Russie             |        ✓       |         ✓            |     ✓      | 
 | Saint-Marin                     |        ✓       |         ✓            |             |
-| + Saint Maarten                  |        ✓       |                      |             |
+| + Saint-Martin                  |        ✓       |                      |             |
 | Serbie                         |        ✓       |                      |     ✓      | 
 | Slovaquie                       |        ✓       |         ✓            |     ✓      | 
 | Slovénie                       |        ✓       |         ✓            |     ✓      |
@@ -220,16 +220,16 @@ Le tableau suivant fournit des informations sur la couverture de routage Azure M
 | + Bermudes                       |        ✓       |                      |             |
 | + Des îles Vierges britanniques        |        ✓       |                      |             |
 | + Îles Caïmans                |        ✓       |                      |             |
-| +Gibraltar                      |        ✓       |         ✓            |             | 
+| +Gibraltar                     |        ✓       |         ✓            |             | 
 | +Montserrat                    |        ✓       |                      |             |
-| + Turks et Caicos (îles)        |        ✓       |                      |             |
-| Cité du Vatican                   |        ✓       |         ✓            |             |
+| + Îles Turks et Caicos (îles)      |        ✓       |                      |             |
+| Vatican (État de la Cité du)                   |        ✓       |         ✓            |             |
 | Île de Man                    |        ✓       |                      |             |
 
 
 ## <a name="middle-east"></a>Moyen-Orient
 
-| Pays/région                 | Routage         | Routage du trafic | Camions |
+| Pays ou région                 | Routage         | Routage du trafic | Camions |
 |--------------------------------|:---------------:|:--------------------:|:------------:|
 | Bahreïn                        |        ✓       |         ✓            |             |
 | Irak                           |        ✓       |                      |             |
@@ -239,7 +239,7 @@ Le tableau suivant fournit des informations sur la couverture de routage Azure M
 | Liban                        |        ✓       |                      |             |
 | Oman                           |        ✓       |         ✓            |             |
 | Qatar                          |        ✓       |         ✓            |             |
-| Arabie Saoudite                   |        ✓       |         ✓            |             |
+| Arabie saoudite                   |        ✓       |         ✓            |             |
 | Émirats Arabes Unis           |        ✓       |         ✓            |             |
 | Yémen                          |        ✓       |                      |             |
 

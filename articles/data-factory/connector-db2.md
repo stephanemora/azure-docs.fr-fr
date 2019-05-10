@@ -186,7 +186,7 @@ Lors de la copie de données de DB2, les mappages suivants sont utilisés entre 
 | Double |Double |
 | Float |Double |
 | Graphic |String |
-| Integer |Int32 |
+| Entier  |Int32 |
 | LongVarBinary |Byte[] |
 | LongVarChar |String |
 | LongVarGraphic |String |
@@ -194,7 +194,7 @@ Lors de la copie de données de DB2, les mappages suivants sont utilisés entre 
 | Real |Single |
 | SmallInt |Int16 |
 | Time |TimeSpan |
-| Timestamp |DateTime |
+| Timestamp |Datetime |
 | VarBinary |Byte[] |
 | VarChar |String |
 | VarGraphic |String |

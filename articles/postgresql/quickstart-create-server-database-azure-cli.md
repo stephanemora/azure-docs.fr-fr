@@ -1,21 +1,21 @@
 ---
-title: 'Démarrage rapide : Créer une instance d’Azure Database pour PostgreSQL à l’aide d’Azure CLI'
-description: Guide de démarrage rapide pour créer et gérer un serveur Azure Database pour PostgreSQL à l’aide de la CLI (interface de ligne de commande) Azure.
+title: 'Guide de démarrage rapide : créer une base de données Azure pour PostgreSQL (serveur unique) à l’aide d’Azure CLI'
+description: Guide de démarrage rapide pour créer et gérer Azure Database pour PostgreSQL (serveur unique) à l’aide d’Azure CLI (interface de ligne de commande).
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 3/12/2019
+ms.date: 05/06/2019
 ms.custom: mvc
-ms.openlocfilehash: 07e3f1f2dd672fcfd0b7a3a4d102c429ac123c08
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5b16d87a69ecdac578da2a90be22013744c32bd7
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57902016"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65069066"
 ---
-# <a name="quickstart-create-an-azure-database-for-postgresql-using-the-azure-cli"></a>Démarrage rapide : Création d’une instance d’Azure Database pour PostgreSQL à l’aide de la CLI Azure
+# <a name="quickstart-create-an-azure-database-for-postgresql---single-server-using-the-azure-cli"></a>Démarrage rapide : Créer une base de données Azure pour PostgreSQL (serveur unique) à l’aide d’Azure CLI
 
 > [!TIP]
 > Envisagez d’utiliser la commande Azure CLI plus simple [az postgres up](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up) (actuellement en préversion). Essayez le guide de [démarrage rapide](./quickstart-create-server-up-azure-cli.md).
@@ -28,12 +28,12 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
 
 Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, vous devez exécuter Azure CLI version 2.0 ou une version ultérieure pour poursuivre la procédure décrite dans cet article. Pour afficher la version installée, exécutez la commande `az --version`. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI]( /cli/azure/install-azure-cli). 
 
-Si vous exécutez l’interface CLI localement, vous devrez vous connecter à votre compte à l’aide de la commande [az login](/cli/azure/authenticate-azure-cli?view=interactive-log-in). Notez la propriété **id** depuis la sortie de commande pour le nom d’abonnement correspondant.
+Si vous exécutez l’interface CLI localement, vous devez vous connecter à votre compte à l’aide de la commande [az login](/cli/azure/authenticate-azure-cli?view=interactive-log-in). Notez la propriété **ID** de la sortie de commande pour le nom d’abonnement correspondant.
 ```azurecli-interactive
 az login
 ```
 
-Si vous avez plusieurs abonnements, sélectionnez l’abonnement approprié dans lequel la ressource doit être facturée. Sélectionnez l’ID d’abonnement spécifique sous votre compte à l’aide de la commande [az account set](/cli/azure/account). Remplacez la propriété **id** provenant de la sortie **az login** de votre abonnement dans l’espace réservé d’id d’abonnement.
+Si vous avez plusieurs abonnements, sélectionnez l’abonnement approprié dans lequel la ressource doit être facturée. Sélectionnez l’ID d’abonnement spécifique sous votre compte à l’aide de la commande [az account set](/cli/azure/account). Remplacez la propriété **ID** à partir de la sortie **az login** pour votre abonnement dans l’espace réservé de l’ID abonnement.
 ```azurecli-interactive
 az account set --subscription <subscription id>
 ```

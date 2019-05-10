@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/01/2018
+ms.date: 04/26/2019
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1cbd40f2ab91f854f46dc3e62bccbc8a3264f97f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bdf19d2001f84fab6978bfc34ef14a361b89edea
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60291277"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65441421"
 ---
 # <a name="assign-users-and-groups-to-an-application-in-azure-active-directory"></a>Assigner des utilisateurs et des groupes à une application dans Azure Active Directory
 Cet article vous montre comment assigner des utilisateurs ou des groupes à une application dans Azure Active Directory (Azure AD). Les utilisateurs doivent tout d’abord être assignés à une application avant qu’un administrateur puisse leur accorder un accès afin d’effectuer les opérations suivantes :
@@ -32,7 +32,9 @@ Cet article vous montre comment assigner des utilisateurs ou des groupes à une 
 
 -   Afficher une application qui apparaît sur leur [Lanceur d’applications Office 365](https://support.office.com/article/Meet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a).
 
-## <a name="prerequisites"></a>Prérequis
+La disponibilité de l’affectation basée sur le groupe est déterminée par votre contrat de licence. Affectation basée sur le groupe est pris en charge uniquement les groupes de sécurité et les appartenances aux groupes imbriqués ne sont pas actuellement pris en charge.
+
+## <a name="prerequisites"></a>Conditions préalables
 Avant d'affecter des utilisateurs et des groupes à une application, vous devez demander l'affectation de l'utilisateur. Pour exiger l’affectation des utilisateurs :
 
 1. Connectez-vous au portail Azure avec un compte administrateur.

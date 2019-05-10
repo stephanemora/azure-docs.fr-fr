@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c6fe74852824c10d24729f785e5e33a17b793161
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b137b8cd4e3a2b7a308170904e9b3d09b11137f9
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60411328"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65231350"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Activation Personnaliser des revendications émises dans le jeton SAML pour les applications d’entreprise
 
@@ -59,7 +59,7 @@ Si la demande SAML ne contient aucun élément pour NameIDPolicy, Azure AD émet
 
 À partir de la **format d’identificateur de nom de choisir** liste déroulante, vous pouvez sélectionner une des options suivantes.
 
-| Format NameID | Description |
+| Format NameID | Description  |
 |---------------|-------------|
 | **Par défaut** | Azure AD utilise le format de la source par défaut. |
 | **Persistant** | Azure AD utilisera persistant en tant que le format NameID. |
@@ -73,14 +73,14 @@ Pour en savoir plus sur l’attribut NameIDPolicy, consultez [protocole SAML d�
 
 Sélectionnez la source souhaitée pour la revendication `NameIdentifier` (ou NameID). Vous pouvez sélectionner les options suivantes.
 
-| Name | Description |
+| Nom | Description  |
 |------|-------------|
 | Email | Adresse e-mail de l’utilisateur |
 | userprincipalName | Nom d’utilisateur principal (UPN) de l’utilisateur |
 | onpremisessamaccount | Nom de compte SAM qui a été synchronisé à partir d’Azure AD en local |
 | objectid | ObjectID de l’utilisateur dans Azure AD |
 | employeeid | EmployeeID de l’utilisateur |
-| Extensions d’annuaire | Extensions d’annuaire [ synchronisées à partir d’Active Directory local à l’aide d’Azure AD Connect Sync](../hybrid/how-to-connect-sync-feature-directory-extensions.md) |
+| Extensions d’annuaires | Extensions d’annuaire [ synchronisées à partir d’Active Directory local à l’aide d’Azure AD Connect Sync](../hybrid/how-to-connect-sync-feature-directory-extensions.md) |
 | Attributs d’extension 1-15 | Attributs d’extension local utilisés pour étendre le schéma Azure AD |
 
 Pour plus d’informations, consultez [Table 3 : Les valeurs ID valides par source](active-directory-claims-mapping.md#table-3-valid-id-values-per-source).
@@ -89,7 +89,7 @@ Pour plus d’informations, consultez [Table 3 : Les valeurs ID valides par sou
 
 Vous pouvez également utiliser les fonctions de transformations de revendications.
 
-| Fonction | Description |
+| Fonction | Description  |
 |----------|-------------|
 | **ExtractMailPrefix()** | Supprime le suffixe de domaine de l’adresse de messagerie ou le nom d’utilisateur principal. Ainsi, seule la première partie du nom d’utilisateur transmis est extraite (par exemple, « joe_smith » au lieu de joe_smith@contoso.com). |
 | **Join()** | Joint un attribut avec un domaine vérifié. Si la valeur d’identificateur utilisateur sélectionné possède un domaine, extrait le nom d’utilisateur pour ajouter le domaine vérifié sélectionné. Par exemple, si vous sélectionnez l’adresse e-mail (joe_smith@contoso.com) comme valeur d’identificateur utilisateur et que vous sélectionnez contoso.onmicrosoft.com comme domaine vérifié, le résultat est joe_smith@contoso.onmicrosoft.com. |
@@ -108,7 +108,7 @@ Pour ajouter des revendications spécifiques à l’application :
 
 Vous pouvez également utiliser les fonctions de transformations de revendications.
 
-| Fonction | Description |
+| Fonction | Description  |
 |----------|-------------|
 | **ExtractMailPrefix()** | Supprime le suffixe de domaine de l’adresse de messagerie ou le nom d’utilisateur principal. Ainsi, seule la première partie du nom d’utilisateur transmis est extraite (par exemple, « joe_smith » au lieu de joe_smith@contoso.com). |
 | **Join()** | Crée une nouvelle valeur en joignant les deux attributs. Si vous le souhaitez, vous pouvez utiliser un séparateur entre les deux attributs. |
@@ -116,7 +116,7 @@ Vous pouvez également utiliser les fonctions de transformations de revendicatio
 | **ToUpper()** | Convertit les caractères de l’attribut sélectionné en majuscules. |
 | **Contains()** | Génère un attribut ou une constante si l’entrée correspond à la valeur spécifiée. Sinon, vous pouvez spécifier une autre sortie s’il n’existe aucune correspondance.<br/>Par exemple, si vous souhaitez émettre une revendication où la valeur est l’adresse e-mail utilisateur si elle contient le domaine «@contoso.com», sinon vous souhaitez générer le nom d’utilisateur principal. Pour ce faire, vous configurez les valeurs suivantes :<br/>*Paramètre 1(input)*: user.email<br/>*Valeur*: «@contoso.com»<br/>Le paramètre 2 (sortie) : user.email<br/>Paramètre 3 (sortie s’il n’existe aucune correspondance) : user.userprincipalname |
 | **EndWith()** | Génère un attribut ou une constante si l’entrée se termine par la valeur spécifiée. Sinon, vous pouvez spécifier une autre sortie s’il n’existe aucune correspondance.<br/>Par exemple, si vous souhaitez émettre une revendication dont la valeur est employeeid de l’utilisateur si la valeur employeeid se termine par « 000 », sinon vous souhaitez un attribut d’extension de sortie. Pour ce faire, vous configurez les valeurs suivantes :<br/>*Paramètre 1(input)*: user.employeeid<br/>*Valeur* : "000"<br/>Le paramètre 2 (sortie) : user.employeeid<br/>Paramètre 3 (sortie s’il n’existe aucune correspondance) : user.extensionattribute1 |
-| **StartWith()** | Génère un attribut ou une constante si l’entrée commence par la valeur spécifiée. Sinon, vous pouvez spécifier une autre sortie s’il n’existe aucune correspondance.<br/>Par exemple, si vous souhaitez émettre une revendication dont la valeur est employeeid de l’utilisateur si le pays commence par « US », sinon vous souhaitez un attribut d’extension de sortie. Pour ce faire, vous configurez les valeurs suivantes :<br/>*Paramètre 1(input)*: user.country<br/>*Valeur* : « US »<br/>Le paramètre 2 (sortie) : user.employeeid<br/>Paramètre 3 (sortie s’il n’existe aucune correspondance) : user.extensionattribute1 |
+| **StartWith()** | Génère un attribut ou une constante si l’entrée commence par la valeur spécifiée. Sinon, vous pouvez spécifier une autre sortie s’il n’existe aucune correspondance.<br/>Par exemple, si vous souhaitez émettre une revendication dont la valeur est employeeid de l’utilisateur si le pays/région commence par « US », sinon vous souhaitez un attribut d’extension de sortie. Pour ce faire, vous configurez les valeurs suivantes :<br/>*Paramètre 1(input)*: user.country<br/>*Valeur* : « US »<br/>Le paramètre 2 (sortie) : user.employeeid<br/>Paramètre 3 (sortie s’il n’existe aucune correspondance) : user.extensionattribute1 |
 | **Extract() - après la mise en correspondance** | Retourne la sous-chaîne après elle correspond à la valeur spécifiée.<br/>Par exemple, si la valeur de l’entrée est « Finance_BSimon », la valeur correspondante est « Finance_ », puis les sortie de la revendication sont « BSimon ». |
 | **Extract() - avant la mise en correspondance** | Retourne la sous-chaîne jusqu'à ce qu’il correspond à la valeur spécifiée.<br/>Par exemple, si la valeur de l’entrée est « BSimon_US », la valeur correspondante est « _US », puis les sortie de la revendication sont « BSimon ». |
 | **Extract() - entre le correspondantes** | Retourne la sous-chaîne jusqu'à ce qu’il correspond à la valeur spécifiée.<br/>Par exemple, si la valeur de l’entrée est « Finance_BSimon_US », la première valeur correspondante est « Finance_ », la deuxième valeur de correspondance est « _US », puis les sortie de la revendication sont « BSimon ». |

@@ -11,10 +11,10 @@ metadata:
   ms.service: search
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 01/18/2019
+  ms.date: 05/02/2019
   ms.author: heidist
 abstract:
-  description: 'Découvrez comment créer une solution de recherche de contenu d’entreprise sur le contenu privé et hétérogène à l’aide de Recherche Azure. Les tutoriels, les informations de référence d’API ainsi que les autres documents vous montrent comment consolider le contenu pouvant faire l’objet d’une recherche dans un index unique et rapide. Ce dernier peut être interrogé à l’aide de syntaxes simples à avancées pour un large éventail de scénarios. <p/><a href="/azure/search/cognitive-search-concept-intro"><b>Nouvelle préversion de la recherche cognitive.</b></a> Utilisez une API REST de préversion pour lier les AI alimentées par les algorithmes au pipeline d’indexation. Extrayez des données et utilisez le traitement en langage naturel et d’images pour transformer le contenu non structuré brut en contenu pouvant faire l’objet d’une recherche dans un index de Recherche Azure. <p/>Explorez la recherche cognitive à l’aide des <a href="/azure/search/cognitive-search-quickstart-blob">ressources et exemples de données</a> ou apprenez en plus en consultant <a href="/azure/search/cognitive-search-concept-intro">Concepts</a>.'
+  description: 'Découvrez comment créer une solution de recherche de contenu d’entreprise sur le contenu privé et hétérogène à l’aide de Recherche Azure. Les tutoriels, les informations de référence d’API ainsi que les autres documents vous montrent comment consolider le contenu pouvant faire l’objet d’une recherche dans un index unique et rapide. Ce dernier peut être interrogé à l’aide de syntaxes simples à avancées pour un large éventail de scénarios. <p/>La <a href="/azure/search/cognitive-search-concept-intro"><b>Recherche cognitive</b></a> est désormais mise à la disposition générale, avec enrichissements IA pris en charge pour les scénarios de production.<p/>La <a href="/azure/search/knowledge-store-concept-intro"><b>Base de connaissances (préversion)</b> </a> étend la Recherche cognitive. Enregistrez les enrichissements IA à des fins de stockage pour les afficher, les remodeler et les utiliser dans d''autres applications, en plus de Recherche Azure. <a href="/azure/search/knowledge-store-howto"><b>Commencez dès</b></a> aujourd''hui.'
   aside:
     image:
       alt: null
@@ -51,11 +51,11 @@ sections:
       - type: list
         style: ordered
         items:
-          - html: <a href="/azure/search/cognitive-search-tutorial-blob">Index avec IA (Cognitive Services)</a>
-          - html: "<a href=\"/azure/search/search-howto-dotnet-sdk\">Utilisation de Recherche\_Azure avec .NET</a>"
+          - html: <a href="/azure/search/search-get-started-portal">Utiliser le portail pour l’indexation et le test de requêtes</a>
+          - html: <a href="/azure/search/search-howto-dotnet-sdk">Utiliser .NET pour écrire votre première solution de recherche</a>
+          - html: <a href="/azure/search/cognitive-search-tutorial-blob">Enrichir avec IA (Cognitive Services)</a>
           - html: "<a href=\"/azure/search/search-indexer-tutorial\">Indexer du contenu Azure\_SQL\_Database avec .NET</a>"
           - html: <a href="/azure/search/search-semi-structured-data">Indexer des données semi-structurées dans le stockage Blob Azure avec REST</a>
-          - html: <a href="/azure/search/search-get-started-portal">Utiliser le portail pour l’indexation et le test de requêtes</a>
   - title: Informations de référence
     items:
       - type: list

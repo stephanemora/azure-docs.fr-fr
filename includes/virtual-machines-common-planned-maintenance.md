@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 4/30/2019
 ms.author: shants
 ms.custom: include file
-ms.openlocfilehash: 747fb9a38cc0c27d162192f4f3ed928e8a968f27
-ms.sourcegitcommit: abeefca6cd5ca01c3e0b281832212aceff08bf3e
+ms.openlocfilehash: adf99b941a775f105d8c65da3ac6c11dc7257120
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "64993110"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65416290"
 ---
 Azure met régulièrement à jour la plateforme pour améliorer la fiabilité, le niveau de performance et la sécurité de l’infrastructure hôte des machines virtuelles. Ces mises à jour vont de l’application d’une mise à jour corrective aux composants logiciels de l’environnement d’hébergement, en passant par la mise à niveau des composants réseau, à la désactivation du matériel. La majorité de ces mises à jour n’a aucun impact sur les machines virtuelles hébergées. Toutefois, dans certains cas, les mises à jour ont un impact. Azure choisit alors la méthode ayant le moins d’impact pour l’exécution des mises à jour :
 
 - Si une mise à jour sans redémarrage est possible, la machine virtuelle est en pause pendant la mise à jour de l’hôte ou fait l’objet d’une migration dynamique vers un hôte déjà mis à jour.
 
-- Si la maintenance nécessite un redémarrage, une notification vous dira pour quand est prévue la maintenance. Azure vous permet également de disposer d’une fenêtre de temps où vous pouvez démarrer la maintenance vous-même, au moment qui vous convient. Fenêtre de temps de maintenance automatique est généralement des quatre dernières semaines, sauf si elle est urgente pour effectuer la maintenance. Azure investit également dans les technologies afin de réduire les cas lorsque les machines virtuelles doivent être redémarrés pour une maintenance planifiée de plateforme. 
+- Si la maintenance nécessite un redémarrage, une notification vous dira pour quand est prévue la maintenance. Azure vous permet également de disposer d’une fenêtre de temps où vous pouvez démarrer la maintenance vous-même, au moment qui vous convient. Fenêtre de temps de maintenance automatique est généralement de 30 jours, sauf si elle est urgente pour effectuer la maintenance. Azure investit également dans les technologies afin de réduire les cas lorsque les machines virtuelles doivent être redémarrés pour une maintenance planifiée de plateforme. 
 
 Cette page décrit la façon dont Azure effectue les deux types de maintenance. Pour plus d’informations sur les événements non planifiés (interruptions), consultez Gérer la disponibilité des machines virtuelles pour [Windows](../articles/virtual-machines/windows/manage-availability.md) ou [Linux](../articles/virtual-machines/linux/manage-availability.md).
 
@@ -29,13 +29,13 @@ Pour obtenir des guides pratiques sur la gestion de la maintenance planifiée, c
 
 ## <a name="maintenance-not-requiring-a-reboot"></a>Maintenance ne pas nécessitant un redémarrage
 
-L’objectif pour la maintenance d’impact plus différente de zéro qui ne nécessite pas un redémarrage est inférieure à 10 secondes Suspendre pour la machine virtuelle. Azure choisit le mécanisme de mise à jour qui est moins d’influence sur les ordinateurs virtuels des clients. Dans certains cas, mécanismes de maintenance de préservation de mémoire sont utilisés, qui s’arrête la machine virtuelle jusqu'à 30 secondes et conserve la mémoire RAM. La machine virtuelle est redémarrée et son horloge est automatiquement synchronisée. Azure utilise de plus en plus les technologies de migration dynamique et améliore le mécanisme de maintenance lié à la conservation de la mémoire pour réduire la durée de la mise en pause.  
+Comme indiqué ci-dessus, la plupart des mises à jour de plateforme sont effectuées sans impact sur les machines virtuelles du client. Lorsqu’aucune mise à jour de l’impact n’est pas possible Azure choisit le mécanisme de mise à jour qui est moins qui risquent d’affecter aux machines virtuelles du client. La majorité de ces maintenance zéro impact entraîne moins de 10 secondes Suspendre pour la machine virtuelle. Dans certains cas, mécanismes de maintenance de préservation de mémoire sont utilisés, qui s’arrête la machine virtuelle jusqu'à 30 secondes et conserve la mémoire RAM. La machine virtuelle est redémarrée et son horloge est automatiquement synchronisée. Maintenance avec préservation de mémoire fonctionne dans plus de 90 % des machines virtuelles Azure à l’exception de série G, M, N et H. Azure utilise de plus en plus les technologies de migration dynamique et améliore le mécanisme de maintenance lié à la conservation de la mémoire pour réduire la durée de la mise en pause.  
 
 Ces opérations de maintenance sans redémarrage sont appliquées domaine d’erreur par domaine d’erreur et sont arrêtées si des signaux d’avertissement sont reçus. 
 
 Certaines applications peuvent être affectées par ces types de mises à jour. Si la machine virtuelle fait l’objet d’une migration dynamique vers un autre hôte, certaines charges de travail sensibles peuvent subir une légère détérioration des performances au cours des quelques minutes qui précèdent la mise en pause de la machine virtuelle. De telles applications peuvent tirer parti de l’utilisation de Scheduled Events pour [Windows](../articles/virtual-machines/windows/scheduled-events.md) ou [Linux](../articles/virtual-machines/linux/scheduled-events.md) afin de préparer la maintenance de la machine virtuelle, et n’ont aucun impact sur la maintenance d’Azure. Azure travaille également sur les fonctionnalités de contrôle de maintenance pour ces applications ultra-sensibles. 
 
-## <a name="live-migration"></a>Migration dynamique
+### <a name="live-migration"></a>Migration dynamique
 
 La Migration dynamique est une opération non rebootful qui conserve la mémoire pour la machine virtuelle et les résultats dans une limitée suspendent ou figer, dure généralement pas plus de 5 secondes. Aujourd'hui, toute l’Infrastructure comme Machines virtuelles Service (IaaS), en dehors de la série G, M, N et H, sont éligibles pour la Migration en direct. Cela équivaut à plus de 90 % des machines virtuelles IaaS déployées sur le parc de Azure. 
 

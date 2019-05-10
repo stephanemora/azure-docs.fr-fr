@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 01/19/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d34bd9d7f80f72b3c6c0821ad48e6be1fd260be9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 267b6afd7cd3131dcd138dfb631335f58cec833a
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60385673"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65407924"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Didacticiel : Configurer Workday pour l'approvisionnement automatique d'utilisateurs
 
@@ -368,7 +368,7 @@ Pour tout approvisionnement vers une instance locale d'Active Directory, un agen
 
 Après avoir déployé .NET 4.7.1+, vous pouvez télécharger l'**[agent d'approvisionnement local ici](https://go.microsoft.com/fwlink/?linkid=847801)** et suivre les étapes ci-dessous pour finaliser la configuration de l'agent.
 
-1. Connectez-vous au serveur Windows Server sur lequel vous souhaitez installer le nouvel agent.
+1. Connectez-vous au serveur Windows où vous souhaitez installer le nouvel agent.
 2. Lancez le programme d’installation de l’agent de provisionnement, acceptez les conditions d’utilisation, puis cliquez sur le bouton **Install** (Installer).
 
    ![Écran d’installation](./media/workday-inbound-tutorial/pa_install_screen_1.png "Écran d’installation")
@@ -816,7 +816,7 @@ Avant de suggérer une idée, vérifiez que personne ne vous a devancé. Si tel 
 
 #### <a name="how-do-i-know-the-version-of-my-provisioning-agent"></a>Comment connaître la version de mon agent d'approvisionnement ?
 
-* Connectez-vous au serveur Windows sur lequel l'agent d'approvisionnement est installé.
+* Connectez-vous au serveur Windows où est installé l’Agent d’approvisionnement.
 * Accédez à **Panneau de configuration** -> **Désinstaller ou modifier un programme**.
 * Recherchez la version correspondant à l'entrée **Agent d'approvisionnement Microsoft Azure AD Connect**.
 
@@ -867,8 +867,8 @@ Oui, un agent d'approvisionnement peut être configuré pour gérer plusieurs do
 #### <a name="how-do-i-de-register-the-domain-associated-with-my-provisioning-agent"></a>Comment désinscrire le domaine associé à mon agent d'approvisionnement ?
 
 * Sur le portail Azure, procurez-vous l'*ID de locataire* de votre locataire Azure AD.
-* Connectez-vous au serveur Windows qui exécute l'agent d'approvisionnement.
-* Ouvrez PowerShell en tant qu'administrateur Windows.
+* Connectez-vous au serveur Windows exécutant l’Agent d’approvisionnement.
+* Ouvrez PowerShell en tant qu’administrateur de Windows.
 * Accédez au répertoire contenant les scripts d'inscription et exécutez les commandes suivantes en remplaçant le paramètre \[tenant ID\] par l'ID de votre locataire.
 
   ```powershell
@@ -878,7 +878,7 @@ Oui, un agent d'approvisionnement peut être configuré pour gérer plusieurs do
   ```
 
 * Dans la liste des agents qui apparaît, copiez la valeur du champ « id » de la ressource dont l'attribut *resourceName* correspond au nom de votre domaine AD.
-* Collez l'identifiant dans cette commande et exécutez-la dans Powershell.
+* Collez la valeur d’ID dans cette commande et exécutez la commande dans PowerShell.
 
   ```powershell
   Remove-PublishedResource -ResourceId "[resource ID]" -TenantId "[tenant ID]"
@@ -889,7 +889,7 @@ Oui, un agent d'approvisionnement peut être configuré pour gérer plusieurs do
 
 #### <a name="how-do-i-uninstall-the-provisioning-agent"></a>Comment désinstaller l'agent d'approvisionnement ?
 
-* Connectez-vous au serveur Windows sur lequel l'agent d'approvisionnement est installé.
+* Connectez-vous au serveur Windows où est installé l’Agent d’approvisionnement.
 * Accédez à **Panneau de configuration** -> **Désinstaller ou modifier un programme**.
 * Désinstallez les programmes suivants :
   * Agent d'approvisionnement Microsoft Azure AD Connect
@@ -946,9 +946,9 @@ La solution ne prend actuellement pas en charge la définition des attributs bin
 
 #### <a name="how-do-i-format-display-names-in-ad-based-on-the-users-departmentcountrycity-attributes-and-handle-regional-variances"></a>Comment procéder à la mise en forme des noms d'affichage AD en fonction des attributs service/pays/ville de l'utilisateur et gérer les écarts régionaux ?
 
-Il est souvent nécessaire de configurer l'attribut *displayName* d'AD afin qu'il fournisse également des informations sur le service et le pays de l'utilisateur. Par exemple, si John Smith travaille au service Marketing aux États-Unis, vous souhaiterez peut-être que son nom d'affichage (*displayName*) se présente sous la forme *Smith, John (Marketing-US)*.
+Il est courant de devoir configurer la *displayName* attribut dans Active Directory afin qu’il fournit également des informations sur l’utilisateur département et pays/région. Par exemple, si John Smith travaille au service Marketing aux États-Unis, vous souhaiterez peut-être que son nom d'affichage (*displayName*) se présente sous la forme *Smith, John (Marketing-US)*.
 
-Voici comment gérer ces exigences pour que la valeur *CN* ou *displayName* inclue des attributs tels que la société, l'unité commerciale, la ville ou le pays.
+Voici comment vous pouvez gérer ces exigences pour la construction *CN* ou *displayName* pour inclure des attributs tels que la société, division, ville ou pays/région.
 
 * Chaque attribut Workday est extrait à l'aide d'une expression sous-jacente de l'API XPATH, configurable sous **Mappage d'attributs -> Section avancée -> Modifier la liste des attributs de Workday** . Voici l'expression par défaut de l'API XPATH pour les attributs Workday *PreferredFirstName*, *PreferredLastName*, *Company* et *SupervisoryOrganization*.
 
@@ -976,7 +976,7 @@ Voici comment gérer ces exigences pour que la valeur *CN* ou *displayName* incl
 
   Vérifiez auprès de votre équipe Workday que les expressions d'API ci-dessus sont valides pour la configuration de votre locataire Workday. Si nécessaire, vous pouvez y apporter des modifications comme décrit dans la section [Personnaliser la liste des attributs d'utilisateurs Workday](#customizing-the-list-of-workday-user-attributes).
 
-* Pour générer l'expression de mappage d'attributs appropriée, identifiez l'attribut Workday qui « fait autorité » pour représenter le prénom, le nom, le pays et le service de l'utilisateur. Supposons que les attributs soient respectivement : *PreferredFirstName*, *PreferredLastName*, *CountryReferenceTwoLetter* et *SupervisoryOrganization*. Vous pouvez utiliser ce qui suit afin de générer une expression pour l'attribut AD *displayName* ; vous obtiendrez ainsi un nom d'affichage tel que *Smith, John (Marketing-US)*.
+* Pour générer l’expression de mappage d’attribut droite, identifier quel attribut Workday « faisant autorité » représente l’utilisateur prénom, nom, pays/région et département. Supposons que les attributs soient respectivement : *PreferredFirstName*, *PreferredLastName*, *CountryReferenceTwoLetter* et *SupervisoryOrganization*. Vous pouvez utiliser ce qui suit afin de générer une expression pour l'attribut AD *displayName* ; vous obtiendrez ainsi un nom d'affichage tel que *Smith, John (Marketing-US)*.
 
     ```
      Append(Join(", ",[PreferredLastName],[PreferredFirstName]), Join(""," (",[SupervisoryOrganization],"-",[CountryReferenceTwoLetter],")"))
@@ -1038,7 +1038,7 @@ Cette section couvre les aspects suivants de la résolution de problèmes :
 
 ### <a name="setting-up-windows-event-viewer-for-agent-troubleshooting"></a>Configuration de l'observateur d'événements Windows pour résoudre les problèmes liés à l'agent
 
-* Connectez-vous à l'ordinateur Windows Server sur lequel l'agent d'approvisionnement est déployé.
+* Connectez-vous à l’ordinateur Windows Server où est déployé l’Agent d’approvisionnement
 * Ouvrez l'application de bureau **Observateur d'événements Windows Server**.
 * Sélectionnez **Journaux Windows > Application**.
 * Utilisez l'option **Filtrer le journal actuel...** pour afficher tous les événements enregistrés sous la source **AAD.Connect.ProvisioningAgent** et exclure les événements dotés de l'ID d'événement « 5 », en spécifiant le filtre « -5 » comme illustré ci-dessous.
@@ -1236,7 +1236,7 @@ Il vous faut pour cela utiliser [Workday Studio](https://community.workday.com/s
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
-    <env:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="https://www.w3.org/2001/XMLSchema">
+    <env:Envelope xmlns:env="https://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="https://www.w3.org/2001/XMLSchema">
       <env:Body>
         <wd:Get_Workers_Request xmlns:wd="urn:com.workday/bsvc" wd:version="v21.1">
           <wd:Request_References wd:Skip_Non_Existing_Instances="true">
@@ -1349,7 +1349,7 @@ Dans l'Afficheur Microsoft Graph, exécutez la requête GET suivante en remplaç
 
 Vous obtiendrez une réponse semblable à l'exemple ci-dessous. Copier l'attribut « id » présent dans la réponse. Il s'agit de la valeur **ProvisioningJobId** qui sera utilisée pour extraire les métadonnées du schéma sous-jacent.
 
-   [![Id du travail d'approvisionnement](./media/workday-inbound-tutorial/wd_export_03.png)](./media/workday-inbound-tutorial/wd_export_03.png#lightbox)
+   [![ID de tâche d’approvisionnement](./media/workday-inbound-tutorial/wd_export_03.png)](./media/workday-inbound-tutorial/wd_export_03.png#lightbox)
 
 #### <a name="step-4-download-the-provisioning-schema"></a>Étape 4 : Télécharger le schéma d'approvisionnement
 

@@ -176,9 +176,9 @@ Lors de la copie de données de Cassandra, les mappages suivants sont utilisés 
 | ASCII |String |
 | BIGINT |Int64 |
 | BLOB |Byte[] |
-| BOOLEAN |Boolean |
+| Boolean |Boolean |
 | DECIMAL |Decimal |
-| DOUBLE |Double |
+| Double |Double |
 | FLOAT |Single |
 | INET |String |
 | INT |Int32 |
@@ -187,7 +187,7 @@ Lors de la copie de données de Cassandra, les mappages suivants sont utilisés 
 | TIMEUUID |Guid |
 | UUID |Guid |
 | VARCHAR |String |
-| VARINT |Decimal |
+| VARINT |DECIMAL |
 
 > [!NOTE]
 > Pour les types de collections (mappages, ensembles, listes, etc.), reportez-vous à la section [Work with Cassandra collection types using virtual table (Travailler avec les types de collections Cassandra à l’aide d’une table virtuelle)](#work-with-collections-using-virtual-table) .

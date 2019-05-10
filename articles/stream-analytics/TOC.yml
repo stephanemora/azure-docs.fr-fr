@@ -4,6 +4,8 @@
   items:
     - name: Qu’est-ce que Stream Analytics ?
       href: stream-analytics-introduction.md
+    - name: Modèles de solution de bout en bout
+      href: stream-analytics-solution-patterns.md
 - name: Démarrages rapides
   items:
     - name: Créer un travail - Portail Azure
@@ -12,6 +14,8 @@
       href: stream-analytics-quick-create-powershell.md
     - name: Créer un travail - Visual Studio
       href: stream-analytics-quick-create-vs.md
+    - name: Créer un travail - Visual Studio Code
+      href: quick-create-vs-code.md
 - name: Tutoriels
   items:
     - name: 1 - Créer/gérer un travail
@@ -143,7 +147,7 @@
           href: 'https://github.com/Azure/azure-stream-analytics/tree/master/Samples/ASAOneClick'
         - name: Utilisation d’une API pour les travaux IoT Edge
           href: stream-analytics-cicd-api.md
-    - name: Outils Visual Studio
+    - name: Visual Studio et VS Code
       items:
         - name: Installer des outils
           href: stream-analytics-tools-for-visual-studio-install.md
@@ -159,6 +163,8 @@
           href: stream-analytics-tools-for-visual-studio-cicd.md
         - name: Écrire une fonction définie par l’utilisateur .NET pour la périphérie
           href: stream-analytics-edge-csharp-udf-methods.md
+        - name: Explorer Stream Analytics dans VS Code
+          href: vs-code-how-to.md
     - name: Résolution des problèmes
       items:
         - name: Entrée
@@ -435,6 +441,9 @@
               maintainContext: true
             - name: Fenêtre bascule
               href: /stream-analytics-query/tumbling-window-azure-stream-analytics
+              maintainContext: true
+            - name: Agréger des fonctions de fenêtrage
+              href: /stream-analytics-query/windows-azure-stream-analytics
               maintainContext: true
     - name: Types de données
       items:

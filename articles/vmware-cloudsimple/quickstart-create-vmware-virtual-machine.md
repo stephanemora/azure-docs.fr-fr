@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 3940adfaa42de8ac9c3f32a9eadc8f6d643ce3ce
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: c0bb8d7a5a1ea30b704b44c9337cd28043597ff7
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149528"
+ms.locfileid: "65209521"
 ---
 # <a name="quickstart---consume-vmware-vms-on-azure"></a>Guide de démarrage rapide - utiliser des machines virtuelles VMware sur Azure
 
@@ -37,7 +37,7 @@ Créer une machine virtuelle sur votre cloud privé à partir de l’interface u
 
     ![Créer la machine virtuelle de CloudSimple - principes de base](media/create-cloudsimple-virtual-machine-basic-info.png)
 
-    | Champ | Description |
+    | Champ | Description  |
     | ------------ | ------------- |
     | Abonnement | Abonnement Azure associé à votre Cloud privé.  |
     | Groupe de ressources | Groupe de ressources auquel la machine virtuelle sera être affectée. Vous pouvez sélectionner un groupe existant ou créez-en un. |
@@ -60,7 +60,7 @@ Créer une machine virtuelle sur votre cloud privé à partir de l’interface u
 
     Pour les interfaces réseau, cliquez sur **interface de réseau Add** et configurez les paramètres suivants.
     
-    | Contrôle | Description |
+    | Contrôle | Description  |
     | ------------ | ------------- |
     | Nom | Entrez un nom pour identifier l’interface.  |
     | Réseau | Sélectionnez dans la liste du groupe de ports distribué configurée dans votre Cloud privé de vSphere.  |
@@ -69,7 +69,7 @@ Créer une machine virtuelle sur votre cloud privé à partir de l’interface u
 
     Pour les disques, cliquez sur **ajouter un disque de** et configurez les paramètres suivants.
 
-    | Item | Description | 
+    | Item | Description  | 
     | ------------ | ------------- | 
     | Nom | Entrez un nom pour identifier le disque.  | 
     | Taille | Sélectionnez une des tailles disponibles.  | 
@@ -82,5 +82,5 @@ Créer une machine virtuelle sur votre cloud privé à partir de l’interface u
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Afficher la liste des machines virtuelles de CloudSimple](https://docs.azure.cloudsimple.com/azure-manage-vm/)
-* [Gérer la machine virtuelle de CloudSimple à partir d’Azure](https://docs.azure.cloudsimple.com/azure-create-vm/#view-list-of-cloudsimple-virtual-machines)
+* [Afficher la liste des machines virtuelles de CloudSimple](https://docs.azure.cloudsimple.com/azure-create-vm/#view-list-of-cloudsimple-virtual-machines)
+* [Gérer la machine virtuelle de CloudSimple à partir d’Azure](https://docs.azure.cloudsimple.com/azure-manage-vm/)

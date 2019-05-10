@@ -11,12 +11,12 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 05/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: c8865c851f394d73b5446ac159b5a7799c0c9ed2
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 0d5751ab96dc6b44229e2b18b832a570930058ca
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65192346"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65442348"
 ---
 # <a name="train-tensorflow-and-keras-models-with-azure-machine-learning-service"></a>Former des modèles TensorFlow et Keras avec le service Azure Machine Learning
 
@@ -24,11 +24,11 @@ Vous pouvez facilement exécuter des travaux de formation TensorFlow sur Azure c
 
 Le `TensorFlow` estimateur fournit également une couche d’abstraction sur l’exécution, ce qui signifie que vous pouvez facilement configurer paramétrable s’exécute sur différentes cibles de calcul sans modifier vos scripts de formation.
 
-## <a name="getting-started"></a>Prise en main
+## <a name="get-started"></a>Prise en main
 
-Envoi de travaux avec le `TensorFlow` estimateur est similaire à l’aide de la base de [ `Estimator` ](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py). Par conséquent, nous recommandons de commencer par lire le [base article de procédure estimateur](how-to-train-ml-models.md) pour d’abord comprendre les concepts principale.
+Dans la mesure où le `TensorFlow` classe d’estimateur est similaire à la base de [ `Estimator` ](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py), nous vous recommandons la première lecture par le [base article de procédure estimateur](how-to-train-ml-models.md) de comprendre les concepts principale.
 
-Si vous voulez vous familiariser avec le service Azure Machine Learning, [terminer le démarrage rapide](quickstart-run-cloud-notebook.md). Vous avez un environnement de travail chargé avec tous nos [exemples de blocs-notes](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml).
+Prise en main avec le service Azure Machine Learning, [terminer le démarrage rapide](quickstart-run-cloud-notebook.md). Une fois que vous avez terminé, vous aurez un [espace de travail Azure Machine Learning](concept-azure-machine-learning-architecture.md#workspace) et l’ensemble de notre [exemples de blocs-notes](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml) y compris ceux pour Dnn de formation avec TensorFlow et Keras.
 
 ## <a name="single-node-training"></a>Entraînement à nœud unique
 

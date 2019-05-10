@@ -58,6 +58,8 @@
       items:
         - name: Collecte des données
           href: security-center-enable-data-collection.md
+        - name: Advanced Data Security pour IaaS
+          href: security-center-iaas-advanced-data.md
         - name: Stratégies de sécurité intégrées
           href: security-center-policy-definitions.md
         - name: Notifications par e-mail
@@ -168,6 +170,8 @@
       href: 'https://docs.microsoft.com/rest/api/securitycenter/'
     - name: Mises à jour de service
       href: 'https://azure.microsoft.com/updates/?product=security-center'
+    - name: "Retrait de fonctionnalités et d’API (juillet\_2019)"
+      href: security-center-features-retirement-july2019.md
 - name: Ressources
   items:
     - name: Développer vos compétences avec Microsoft Learn

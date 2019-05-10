@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d4389af86e27ddb04f5a3e5f53c5509eeede005
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: e1fe9594471c6e8f723afff2def940bb675e04fb
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65075339"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65407007"
 ---
 # <a name="desktop-app-that-calls-web-apis---acquire-a-token"></a>Application de bureau qui appelle des API - web acquérir un jeton
 
@@ -502,7 +502,7 @@ static async Task GetATokenForGraph()
   catch (MsalClientException ex) when (ex.ErrorCode == "unknown_user")
   {
    // the username was probably empty
-   // ex.Message = "Could not identify the user logged into the OS. See http://aka.ms/msal-net-iwa for details."
+   // ex.Message = "Could not identify the user logged into the OS. See https://aka.ms/msal-net-iwa for details."
    throw new ArgumentException("U/P: Wrong username", ex);
   }
   catch (MsalClientException ex) when (ex.ErrorCode == "parsing_wstrust_response_failed")
@@ -529,7 +529,7 @@ Si vous écrivez un outil de ligne de commande (n’ayant pas les contrôles Web
 
 Authentification interactive avec Azure AD nécessite un navigateur web (pour plus d’informations, consultez [l’utilisation des navigateurs web](https://aka.ms/msal-net-uses-web-browser)). Toutefois, pour authentifier les utilisateurs sur des appareils ou des systèmes d’exploitation qui ne fournissent pas un navigateur Web, flux de code d’appareil permet à l’utilisateur utiliser un autre appareil (par exemple un autre ordinateur ou un téléphone mobile) pour vous connecter manière interactive. En utilisant le flux de code d’appareil, l’application obtient des jetons via un processus en deux étapes spécialement conçues pour ces appareils/système d’exploitation. Exemples de ces applications sont des applications s’exécutant sur iOT ou des outils de ligne de commande (CLI). L’idée est que :
 
-1. Chaque fois que l’authentification de l’utilisateur est requise, l’application fournit un code et invite l’utilisateur à utiliser un autre appareil (par exemple, un smartphone connecté à internet) pour accéder à une URL (par exemple, `http://microsoft.com/devicelogin`), où l’utilisateur est invité à entrer le code. Que fait, la page web entraîne l’utilisateur via une expérience d’authentification normal, y compris les invites de consentement et l’authentification multifacteur si nécessaire.
+1. Chaque fois que l’authentification de l’utilisateur est requise, l’application fournit un code et invite l’utilisateur à utiliser un autre appareil (par exemple, un smartphone connecté à internet) pour accéder à une URL (par exemple, `https://microsoft.com/devicelogin`), où l’utilisateur est invité à entrer le code. Que fait, la page web entraîne l’utilisateur via une expérience d’authentification normal, y compris les invites de consentement et l’authentification multifacteur si nécessaire.
 
 2. Après une authentification réussie, l’application de ligne de commande reçoit les jetons requis via un canal arrière et utilisera pour effectuer les appels d’API web dont il a besoin.
 

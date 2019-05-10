@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: c8504c6bf25b186a4bc87c4e7565444dd3e57209
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 2c1497589153f1dc5a79cc1d3414966deaf11f21
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64570483"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65228105"
 ---
 # <a name="use-apache-spark-rest-api-to-submit-remote-jobs-to-an-hdinsight-spark-cluster"></a>Utiliser l’API REST Spark Apache pour envoyer des travaux à distance à un cluster Spark HDInsight
 
@@ -153,13 +153,7 @@ Procédez comme suit :
 
 ## <a name="updates-to-livy-configuration-starting-with-hdinsight-35-version"></a>Mises à jour de la configuration de Livy depuis la version 3.5 de HDInsight
 
-Par défaut, un cluster HDInsight 3.5 ou version supérieure, désactive l’utilisation de chemins locaux pour accéder à des fichiers de données ou des fichiers JAR. Nous vous conseillons plutôt d'utiliser le chemin `wasb://` pour accéder aux fichiers JAR ou aux exemples de fichiers de données à partir du cluster. Si vous ne souhaitez pas utiliser le chemin d’accès local, vous devez mettre à jour la configuration Ambari en conséquence. Pour ce faire :
-
-1. Accédez au portail Ambari pour le cluster. L’interface utilisateur Web d’Ambari est disponible sur votre cluster HDInsight à l’adresse https://**CLUSTERNAME**.azurehdidnsight.net, où CLUSTERNAME correspond au nom de votre cluster.
-
-2. Dans le volet de navigation gauche, cliquez sur **Livy**, puis sur **Configurations**.
-
-3. Sous **livy-default**, ajoutez le nom de la propriété `livy.file.local-dir-whitelist` et définissez sa valeur sur **"/"** si vous souhaitez autoriser un accès complet au système de fichiers. Si vous souhaitez autoriser uniquement l’accès à un répertoire spécifique, indiquez comme valeur le chemin d’accès à ce répertoire.
+Par défaut, un cluster HDInsight 3.5 ou version supérieure, désactive l’utilisation de chemins locaux pour accéder à des fichiers de données ou des fichiers JAR. Nous vous conseillons plutôt d'utiliser le chemin `wasb://` pour accéder aux fichiers JAR ou aux exemples de fichiers de données à partir du cluster. 
 
 ## <a name="submitting-livy-jobs-for-a-cluster-within-an-azure-virtual-network"></a>Envoi de travaux Livy pour un cluster dans un réseau virtuel Azure
 

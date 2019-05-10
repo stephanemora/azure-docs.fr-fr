@@ -12,12 +12,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d7b12f5c7736307f0b62b6f6c2b526eb0108569c
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 27309c08fe4419197faa17dcceb3645b00387e93
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190179"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65227923"
 ---
 # <a name="what-is-the-location-condition-in-azure-active-directory-conditional-access"></a>Qu’est-ce que la condition d’emplacement dans l’accès conditionnel Azure Active Directory ? 
 
@@ -32,7 +32,7 @@ Azure AD permet l’authentification unique pour les appareils, applications et 
 - Exiger l’authentification multifacteur pour les utilisateurs accédant à un service lorsqu’ils sont en dehors du réseau d’entreprise.
 - Bloquer l’accès pour les utilisateurs accédant à un service à partir de pays ou régions spécifiques.
 
-Un emplacement correspond à une étiquette pour un emplacement réseau qu’un représente un emplacement nommé ou des adresses IP approuvées par une authentification multifacteur.
+Un emplacement est une étiquette pour un emplacement réseau qu’un représente un emplacement nommé ou une authentification multifacteur approuvé des adresses IP.
 
 ## <a name="named-locations"></a>Emplacements nommés
 
@@ -54,7 +54,7 @@ Un emplacement nommé se compose des éléments suivants :
 
 - **Marquer comme emplacement approuvé** : indicateur que vous pouvez définir pour un emplacement nommé afin d’indiquer un emplacement approuvé. Les emplacements approuvés sont généralement des zones de réseau qui sont contrôlées par votre service informatique. En plus de l’accès conditionnel, les emplacements nommés approuvés sont également utilisés par les rapports de sécurité Azure Identity Protection et Azure AD afin de réduire les [faux positifs](../reports-monitoring/concept-risk-events.md#impossible-travel-to-atypical-locations-1).
 - **Pays/régions** : cette option vous permet de sélectionner un ou plusieurs pays ou régions pour définir un emplacement nommé.
-- **Inclure les zones inconnues** : certaines adresses IP ne sont pas mappées à un pays spécifique. Cette option vous permet de choisir si ces adresses IP doivent être incluses dans l’emplacement nommé. Utilisez ce paramètre lorsque la stratégie utilisant l’emplacement nommé doit s’appliquer à des emplacements inconnus.
+- **Inclure les zones inconnues** -certaines adresses IP ne sont pas mappées à une région ou un pays spécifique. Cette option vous permet de choisir si ces adresses IP doivent être incluses dans l’emplacement nommé. Utilisez ce paramètre lorsque la stratégie utilisant l’emplacement nommé doit s’appliquer à des emplacements inconnus.
 
 Le nombre d’emplacements nommés que vous pouvez configurer est limité par la taille de l’objet associé dans Azure AD. Les organisations peuvent configurer jusqu'à 90 emplacements nommés, chacun configuré avec des plages d’adresses IP jusqu'à 12000.
 
@@ -67,9 +67,9 @@ Si une stratégie est configurée pour appliquer à n’importe quel « emplace
 
 ## <a name="trusted-ips"></a>Adresses IP approuvées
 
-Vous pouvez également configurer des plages d’adresses IP représentant l’intranet local de votre organisation dans les [paramètres du service d’authentification multifacteur](https://account.activedirectory.windowsazure.com/usermanagement/mfasettings.aspx). Cette fonctionnalité vous permet de configurer jusqu’à 50 plages d’adresses IP. Les plages d’adresses IP sont au format CIDR. Pour plus d’informations, consultez [Adresses IP approuvées](../authentication/howto-mfa-mfasettings.md#trusted-ips).  
+Vous pouvez également configurer des plages d’adresses IP représentant l’intranet local de votre organisation dans les [paramètres du service d’authentification multifacteur](https://account.activedirectory.windowsazure.com/usermanagement/mfasettings.aspx). Cette fonctionnalité vous permet de configurer jusqu’à 50 plages d’adresses IP. Les plages d’adresses IP sont au format CIDR. Pour plus d’informations, consultez [adresses IP approuvées](../authentication/howto-mfa-mfasettings.md#trusted-ips).  
 
-Si vous avez approuvé des adresses IP configurées, elles apparaissent en tant qu’**adresses IP approuvées MFA** dans la liste des emplacements de la condition d’emplacement.
+Si vous avez configuré des adresses IP approuvées, ils apparaissent en tant que **adresses IP approuvées MFA** dans la liste des emplacements de la condition d’emplacement.
 
 ### <a name="skipping-multi-factor-authentication"></a>Ignorer l’authentification multifacteur
 
@@ -88,13 +88,13 @@ Si les deux étapes échouent, un utilisateur est considéré comme n’étant p
 
 Lorsque vous configurez la condition d’emplacement, vous avez la possibilité de faire la distinction entre :
 
-- N’importe quel emplacement
+- Tous les emplacements
 - Tous les emplacements approuvés
-- Des emplacements sélectionnés
+- Emplacements sélectionnés
 
 ![Configuration de la condition d’emplacement](./media/location-condition/01.png)
 
-### <a name="any-location"></a>N’importe quel emplacement
+### <a name="any-location"></a>Tous les emplacements
 
 Par défaut, la sélection de **N’importe quel emplacement** entraîne l’application d’une stratégie à toutes les adresses IP, à savoir n’importe quelle adresse sur Internet. Ce paramètre ne se limite pas aux adresses IP que vous avez configurées en tant qu’emplacement nommé. Lorsque vous sélectionnez **N’importe quel emplacement**, vous pouvez toujours exclure des emplacements spécifiques d’une stratégie. Par exemple, vous pouvez appliquer une stratégie à tous les emplacements, sauf des emplacements approuvés, afin de définir l’étendue à tous les emplacements, à l’exception du réseau d’entreprise.
 
@@ -105,7 +105,7 @@ Cette option s’applique à :
 - Tous les emplacements qui ont été marqués comme emplacement approuvé
 - **Adresses IP approuvées MFA** (si configurées)
 
-### <a name="selected-locations"></a>Des emplacements sélectionnés
+### <a name="selected-locations"></a>Emplacements sélectionnés
 
 Avec cette option, vous pouvez sélectionner un ou plusieurs emplacements nommés. Pour une stratégie avec ce paramètre à appliquer, un utilisateur doit se connecter à partir de l’un des emplacements sélectionnés. Lorsque vous cliquez sur **Sélectionner**, le contrôle de sélection du réseau nommé qui affiche la liste des réseaux nommés s’ouvre. La liste indique également si l’emplacement réseau a été marqué comme approuvé. L’emplacement nommé appelé **Adresses IP approuvées MFA** est utilisé pour inclure les paramètres IP pouvant être configurés dans la page des paramètres du service d’authentification multifacteur.
 

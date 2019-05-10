@@ -9,16 +9,16 @@ ms.subservice: form-recognizer
 ms.topic: quickstart
 ms.date: 04/15/2019
 ms.author: pafarley
-ms.openlocfilehash: cc6e8cdb7cd1719a8cd14cbfe6e576e07c34b32c
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 1afe9239dcc3f5a24d2e950ec7b563bf53d1f04c
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025644"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143233"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-using-rest-api-with-curl"></a>Démarrage rapide : Entraîner un modèle Form Recognizer et extraire des données à partir de formulaires au moyen d’une API REST avec cURL
 
-Dans ce guide de démarrage rapide, vous utilisez l’API REST de Form Recognizer avec cURL pour entraîner et noter des formulaires afin d’extraire des paires clé-valeur et des tables.
+Dans ce guide de démarrage rapide, vous utilisez l’API REST de Form Recognizer avec cURL pour entraîner et scorer des formulaires afin d’extraire des paires clé-valeur et des tables.
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
@@ -40,7 +40,7 @@ Pour entraîner un modèle Form Recognizer à l’aide des documents de votre co
 * Remplacez `<subscription key>` par votre clé d’abonnement.
 
 ```bash
-curl -X POST "https://<Endpoint>/formrecognizer/v1.0-preview/custom/train" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription key>" --data-ascii "{ \"source\": \"<SAS URL>\"}"
+curl -X POST "https://<Endpoint>/formrecognizer/v1.0-preview/custom/train" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription key>" --data-ascii "{ \"source\": \""<SAS URL>"\"}"
 ```
 
 Vous recevez une réponse `200 (Success)` avec la sortie JSON suivante :
@@ -90,14 +90,14 @@ Notez la valeur `"modelId"`, vous en aurez besoin pour les étapes suivantes.
 
 À présent, vous allez analyser un document et en extraire des tables et des paires clé-valeur. Appelez l’API **Modèle - Analyser** en exécutant la commande cURL ci-dessous. Avant d’exécuter la commande, apportez les modifications suivantes :
 
-* Remplacez `<Endpoint>` par le point de terminaison que vous avez obtenu avec votre clé d’abonnement Form Recognizer. Vous la trouverez sous l’onglet de la vue d’ensemble de la ressource Form Recognizer.
+* Remplacez `<Endpoint>` par le point de terminaison que vous avez obtenu avec votre clé d’abonnement Form Recognizer. Vous la trouverez sous l’onglet **Vue d’ensemble** de la ressource Form Recognizer.
 * Remplacez `<modelID>` par l’ID de modèle que vous avez reçu à l’étape précédente de l’entraînement du modèle.
 * Remplacez `<path to your form>` par le chemin de fichier de votre formulaire.
 * Remplacez `<subscription key>` par votre clé d’abonnement.
 * Remplacez `<file type>` par le type de fichier ; les types pris en charge sont pdf, image/jpeg, image/png.
 
 ```bash
-cURL cmd: curl -X POST "https://<Endpoint>/formrecognizer/v1.0-preview/custom/models/<modelID>/analyze" -H "Content-Type: multipart/form-data" -F "form=@<path to your form>;type=application/<file type>" -H "Ocp-Apim-Subscription-Key: <subscription key>"
+curl -X POST "https://<Endpoint>/formrecognizer/v1.0-preview/custom/models/<modelID>/analyze" -H "Content-Type: multipart/form-data" -F "form=@\"<path to your form>\";type=application/<file type>" -H "Ocp-Apim-Subscription-Key: <subscription key>"
 ```
 
 ### <a name="examine-the-response"></a>Examiner la réponse

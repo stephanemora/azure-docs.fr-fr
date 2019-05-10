@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 3/25/2019
 ms.author: rohink
-ms.openlocfilehash: 763fc2952d7a1e2eac209cc9df53713c58ad83c9
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: e0f3de95cfd4a18294e5e8e2adcf3b52a7487dbb
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925249"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65411355"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Résolution de noms des ressources dans les réseaux virtuels Azure
 
@@ -169,11 +169,11 @@ Si la redirection des requêtes vers Azure ne suffit pas, vous devez fournir vot
 * Être protégée contre tout accès à partir d’Internet, pour atténuer les menaces posées par les agents externes.
 
 > [!NOTE]
-> Pour de meilleures performances, lorsque vous utilisez des machines virtuelles Azure en tant que serveurs DNS, le protocole IPv6 doit être désactivé. Une [adresse IP publique](virtual-network-public-ip-address.md) doit être attribuée à chaque machine virtuelle de serveur DNS. Pour connaître les autres optimisations et analyses de performances disponibles lorsque vous utilisez Windows Server en tant que serveur DNS, consultez [Name resolution performance of a recursive Windows DNS Server 2012 R2](http://blogs.technet.com/b/networking/archive/2015/08/19/name-resolution-performance-of-a-recursive-windows-dns-server-2012-r2.aspx).
+> Pour de meilleures performances, lorsque vous utilisez des machines virtuelles Azure en tant que serveurs DNS, le protocole IPv6 doit être désactivé. Une [adresse IP publique](virtual-network-public-ip-address.md) doit être attribuée à chaque machine virtuelle de serveur DNS. Pour connaître les autres optimisations et analyses de performances disponibles lorsque vous utilisez Windows Server en tant que serveur DNS, consultez [Name resolution performance of a recursive Windows DNS Server 2012 R2](https://blogs.technet.com/b/networking/archive/2015/08/19/name-resolution-performance-of-a-recursive-windows-dns-server-2012-r2.aspx).
 > 
 > 
 
-### <a name="web-apps"></a>les applications web
+### <a name="web-apps"></a>Applications web
 Supposons que vous ayez besoin d’effectuer la résolution des noms entre votre application web créée à l’aide d’App Service, et liée à un réseau virtuel, et les machines virtuelles du même réseau virtuel. Après avoir configuré un serveur DNS personnalisé comprenant un redirecteur DNS qui transfère les requêtes vers Azure (adresse IP virtuelle : 168.63.129.16), procédez aux étapes suivantes :
 1. Activez l’intégration de réseau virtuel pour votre application web, si ce n’est pas déjà fait, comme décrit dans [Intégrer une application à un réseau virtuel Azure](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 2. Dans le portail Azure, pour le plan App Service qui héberge l’application web, sélectionnez **Synchroniser le réseau** sous **Mise en réseau**, **Intégration du réseau virtuel**.

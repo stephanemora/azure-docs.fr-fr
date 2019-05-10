@@ -9,12 +9,12 @@ ms.author: robreed
 ms.topic: conceptual
 ms.date: 08/08/2018
 manager: carmonm
-ms.openlocfilehash: f9f15c558e507742a641239ed25ba136dca0671a
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 8a505e88ff92c5227d3b42da2adaf1dce58e6fbb
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64919984"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65441507"
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-state-configuration"></a>Intégration des machines pour la gestion avec Azure Automation State Configuration
 
@@ -75,95 +75,13 @@ La meilleure façon d’inscrire des machines virtuelles à partir d’autres ab
 Des exemples sont fournis dans [extension de Desired State Configuration des modèles Azure Resource Manager](https://docs.microsoft.com/azure/virtual-machines/extensions/dsc-template).
 Pour trouver la clé d’inscription et l’URL d’inscription à utiliser en tant que paramètres dans le modèle, consultez la rubrique suivante [ **enregistrement sécurisé** ](#secure-registration) section.
 
-## <a name="azure-virtual-machines-classic"></a>Machines virtuelles Azure (classiques)
-
-Avec Azure Automation State Configuration., vous pouvez facilement intégrer des machines virtuelles Azure (classiques) pour une gestion de configuration par le biais du portail Azure ou de PowerShell. En arrière-plan, et sans qu’aucun administrateur n’ait à contrôler la machine virtuelle à distance, l’extension Azure VM Desired State Configuration inscrit la machine virtuelle auprès d’Azure Automation State Configuration.
-Étapes à suivre la progression ou résoudre sont fournies dans l’exemple suivant [ **l’intégration de machine virtuelle Azure de dépannage** ](#troubleshooting-azure-virtual-machine-onboarding) section.
-
-### <a name="azure-portal-classic-virtual-machines"></a>Portail Azure (machines virtuelles classiques)
-
-Dans le [portail Azure](https://portal.azure.com/), cliquez sur **Parcourir** -> **Machines virtuelles (classiques)**. Sélectionnez la machine virtuelle Windows que vous souhaitez intégrer. Dans le panneau du tableau de bord de la machine virtuelle, cliquez sur **Tous les paramètres** -> **Extensions** -> **Ajouter** -> **Azure Automation DSC** -> **Créer**.
-Entrez le [les valeurs de gestionnaire de Configuration Local PowerShell DSC](/powershell/dsc/metaconfig4) pour la clé d’inscription de votre compte Automation et l’URL d’inscription et éventuellement une configuration de nœud à attribuer à la machine virtuelle.
-
-![Extensions de machine virtuelle Azure pour DSC](./media/automation-dsc-onboarding/DSC_Onboarding_1.png)
-
-Pour trouver l’URL d’inscription et la clé du compte Automation à intégrer à la machine, consultez la section [**Inscription sécurisée**](#secure-registration) suivante :
-
-### <a name="powershell-classic-virtual-machines"></a>PowerShell (machines virtuelles classiques)
-
-```powershell
-# log in to both Azure Service Management and Azure Resource Manager
-Add-AzureAccount
-Connect-AzureRmAccount
-
-# fill in correct values for your VM/Automation account here
-$VMName = ''
-$ServiceName = ''
-$AutomationAccountName = ''
-$AutomationAccountResourceGroup = ''
-
-# fill in the name of a Node Configuration in Azure Automation State Configuration, for this VM to conform to
-# NOTE: DSC Node Configuration names are case sensitive in the portal.
-$NodeConfigName = ''
-
-# get Azure Automation State Configuration registration info
-$Account = Get-AzureRmAutomationAccount -ResourceGroupName $AutomationAccountResourceGroup -Name $AutomationAccountName
-$RegistrationInfo = $Account | Get-AzureRmAutomationRegistrationInfo
-
-# use the DSC extension to onboard the VM for management with Azure Automation State Configuration
-$VM = Get-AzureVM -Name $VMName -ServiceName $ServiceName
-
-$PublicConfiguration = ConvertTo-Json -Depth 8 @{
-    SasToken = ''
-    ModulesUrl = 'https://eus2oaasibizamarketprod1.blob.core.windows.net/automationdscpreview/RegistrationMetaConfigV2.zip'
-    ConfigurationFunction = 'RegistrationMetaConfigV2.ps1\RegistrationMetaConfigV2'
-
-# update these PowerShell DSC Local Configuration Manager defaults if they do not match your use case.
-# See https://docs.microsoft.com/powershell/dsc/metaConfig for more details
-    Properties = @{
-        RegistrationKey = @{
-            UserName = 'notused'
-            Password = 'PrivateSettingsRef:RegistrationKey'
-        }
-        RegistrationUrl = $RegistrationInfo.Endpoint
-        NodeConfigurationName = $NodeConfigName
-        ConfigurationMode = 'ApplyAndMonitor'
-        ConfigurationModeFrequencyMins = 15
-        RefreshFrequencyMins = 30
-        RebootNodeIfNeeded = $False
-        ActionAfterReboot = 'ContinueConfiguration'
-        AllowModuleOverwrite = $False
-    }
-}
-
-$PrivateConfiguration = ConvertTo-Json -Depth 8 @{
-    Items = @{
-        RegistrationKey = $RegistrationInfo.PrimaryKey
-    }
-}
-
-$VM = Set-AzureVMExtension `
-    -VM $vm `
-    -Publisher Microsoft.Powershell `
-    -ExtensionName DSC `
-    -Version 2.76 `
-    -PublicConfiguration $PublicConfiguration `
-    -PrivateConfiguration $PrivateConfiguration `
-    -ForceUpdate
-
-$VM | Update-AzureVM
-```
-
-> [!NOTE]
-> Les noms de configuration de nœud State Configuration respectent la casse dans le portail. S’ils ne correspondent pas, le nœud ne s’affiche pas sous l’onglet **Nœuds**.
-
 ## <a name="amazon-web-services-aws-virtual-machines"></a>Machines virtuelles Amazon Web Services (AWS)
 
 Vous pouvez facilement intégrer des machines virtuelles Amazon Web Services pour la gestion de configuration par Azure Automation State Configuration à l’aide de la boîte à outils AWS DSC. Pour obtenir plus d’informations sur cette boîte à outils, cliquez [ici](https://blogs.msdn.microsoft.com/powershell/2016/04/20/aws-dsc-toolkit/).
 
 ## <a name="physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azureaws"></a>Machines physiques/virtuelles Windows locales ou dans un cloud autre qu’Azure/AWS
 
-Les serveurs Windows en cours d’exécution en local ou dans d’autres environnements de cloud peut également être intégrée à la Configuration d’état Azure Automation, tant qu’ils disposent d’un accès sortant vers Azure :
+Les serveurs Windows en cours d’exécution en local ou dans d’autres environnements de cloud peut également être intégrée à la Configuration d’état Azure Automation, tant qu’ils ont [un accès sortant vers Azure](automation-dsc-overview.md#network-planning):
 
 1. Vérifiez que la dernière version de [WMF 5](https://aka.ms/wmf5latest) est installée sur les machines que vous souhaitez intégrer à Azure Automation State Configuration.
 1. Suivez les instructions de la section [**Génération de métaconfigurations DSC**](#generating-dsc-metaconfigurations) suivante pour générer un dossier contenant les métaconfigurations DSC nécessaires.
@@ -178,7 +96,7 @@ Les serveurs Windows en cours d’exécution en local ou dans d’autres environ
 
 ## <a name="physicalvirtual-linux-machines-on-premises-or-in-a-cloud-other-than-azure"></a>En local, les machines physiques/virtuelles Linux ou dans un cloud autre qu’Azure
 
-Les serveurs Linux exécutés sur site ou dans d’autres environnements de cloud peut également être intégrée à la Configuration d’état Azure Automation, tant qu’ils disposent d’un accès sortant vers Azure :
+Les serveurs Linux exécutés sur site ou dans d’autres environnements de cloud peut également être intégrée à la Configuration d’état Azure Automation, tant qu’ils ont [un accès sortant vers Azure](automation-dsc-overview.md#network-planning):
 
 1. Vérifiez que la dernière version du service [Desired State Configuration de PowerShel pour Linux](https://github.com/Microsoft/PowerShell-DSC-for-Linux) est installée sur les machines que vous souhaitez intégrer à Azure Automation State Configuration.
 1. Si les [valeurs par défaut du gestionnaire de configuration locale DSC PowerShell](/powershell/dsc/metaconfig4) correspondent à votre cas d’utilisation et que vous voulez intégrer des machines de sorte qu’elles procèdent **à la fois** à une extraction auprès d’Azure Automation State Configuration et qu’elles lui adressent des rapports :

@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 09/19/2018
 ms.author: rogarana
-ms.openlocfilehash: 7010425ba8acff4ed223e2a402d7a927a91c06b6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: af903ce3ce7cfa165c278e415827dda36630e7b4
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64687137"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65209722"
 ---
 # <a name="overview-of-azure-active-directory-authentication-over-smb-for-azure-files-preview"></a>Vue d’ensemble de l’authentification Azure Active Directory sur SMB pour Azure Files (préversion)
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -51,7 +51,7 @@ Azure AD sur SMB pour Azure Files offre plusieurs avantages comparé à l’util
     Vous pouvez utiliser Azure Files pour sauvegarder vos partages de fichiers locaux existants. Azure Files conserve vos ACL avec vos données quand vous sauvegardez un partage de fichiers dans Azure Files sur SMB.
 
 ## <a name="how-it-works"></a>Fonctionnement
-Azure Files utilise Azure AD Domain Services pour prendre en charge l’authentification Kerberos avec les informations d’identification Azure AD à partir de machines virtuelles jointes à un domaine. Pour pouvoir utiliser Azure AD avec Azure Files, vous devez d’abord activer Azure AD Domain Services et joindre le domaine des machines virtuelles à partir desquelles vous envisagez d’accéder aux données de fichier. Votre machine virtuelle jointe à un domaine doit résider dans le même réseau virtuel qu’Azure AD Domain Services. 
+Azure Files utilise Azure AD Domain Services pour prendre en charge l’authentification Kerberos avec les informations d’identification Azure AD à partir de machines virtuelles jointes à un domaine. Pour pouvoir utiliser Azure AD avec Azure Files, vous devez d’abord activer Azure AD Domain Services et joindre le domaine des machines virtuelles à partir desquelles vous envisagez d’accéder aux données de fichier. Votre machine virtuelle joints au domaine doit résider dans le même réseau virtuel (VNET) en tant que Services de domaine Azure AD. 
 
 Quand une identité associée à une application s’exécutant sur une machine virtuelle tente d’accéder aux données dans Azure Files, la demande est envoyée à Azure AD Domain Services pour authentifier l’identité. Si l’authentification réussit, Azure AD Domain Services renvoie un jeton Kerberos. L’application envoie une demande qui inclut le jeton Kerberos, et Azure Files utilise ce jeton pour autoriser la demande. Azure Files reçoit seulement le jeton et ne conserve pas les informations d’identification Azure AD.
 

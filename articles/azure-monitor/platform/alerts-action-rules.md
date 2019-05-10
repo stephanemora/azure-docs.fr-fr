@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: anantr
 ms.component: alerts
-ms.openlocfilehash: e5d04fd136848684e866fae9768b252e3b6ca77f
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: d27adadc9720dd2ad6a0dd133524bfaf32e63045
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65137976"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65227972"
 ---
 # <a name="action-rules-preview"></a>Règles d’action (version préliminaire)
 
@@ -83,7 +83,7 @@ Si vous sélectionnez **suppression**, configurer la durée de la suppression de
 
 ![Suppression de règle d’action](media/alerts-action-rules/action-rules-new-rule-creation-flow-suppression.png)
 
-#### <a name="action-group"></a>Groupe d’actions
+#### <a name="action-group"></a>Groupe d'actions
 
 Si vous sélectionnez **groupe d’actions** dans le bouton bascule, ajoutez un groupe d’actions existant ou créez-en un. 
 
@@ -97,7 +97,7 @@ Si vous sélectionnez **groupe d’actions** dans le bouton bascule, ajoutez un 
 Enfin, configurez les détails suivants pour la règle d’action
 * Nom
 * Groupe de ressources dans lequel il sera enregistré
-* Description 
+* Description  
 
 ## <a name="example-scenarios"></a>Exemples de scénarios
 
@@ -142,11 +142,11 @@ Vous pouvez afficher et gérer vos règles d’action à partir de l’affichage
 
 ## <a name="best-practices"></a>Bonnes pratiques
 
-Créé avec des alertes de journal le ['nombre de résultats'](https://docs.microsoft.com/azure-monitor/platform/alerts-unified-log) option Générer **une seule instance d’alerte** utilisant le résultat de recherche entière (qui peut être par exemple sur plusieurs ordinateurs). Dans ce scénario, si une règle d’action utilise le filtre « Contexte de l’alerte (charge utile) », il s’agira sur l’instance d’alerte tant qu’il existe une correspondance. Dans le scénario 2 comme décrit précédemment, si les résultats de recherche pour l’alerte de journal générés contiennent 'Ordinateur-01' et 'Ordinateur-02', la notification entière est supprimée (autrement dit, aucune notification n’est générée pour 'Ordinateur-02').
+Créé avec des alertes de journal le ['nombre de résultats'](alerts-unified-log.md) option Générer **une seule instance d’alerte** utilisant le résultat de recherche entière (qui peut être par exemple sur plusieurs ordinateurs). Dans ce scénario, si une règle d’action utilise le filtre « Contexte de l’alerte (charge utile) », il s’agira sur l’instance d’alerte tant qu’il existe une correspondance. Dans le scénario 2 comme décrit précédemment, si les résultats de recherche pour l’alerte de journal générés contiennent 'Ordinateur-01' et 'Ordinateur-02', la notification entière est supprimée (autrement dit, aucune notification n’est générée pour 'Ordinateur-02').
 
 ![Règles d’action et des alertes de journal (nombre de résultats)](media/alerts-action-rules/action-rules-log-alert-number-of-results.png)
 
-Meilleures exploiter les alertes de journal avec des règles d’action, nous vous conseillons de créer des alertes de journal avec le [mesure de métrique](https://docs.microsoft.com/azure-monitor/platform/alerts-unified-log) option. À l’aide de cette option, instances distinctes d’alerte sont générées en fonction du champ de groupe défini. Puis dans le scénario 2, instances d’alerte distincts sont générés pour 'Ordinateur-01' et 'Ordinateur-02'. Avec la règle d’action décrite dans le scénario, que la notification pour 'Ordinateur-01' serait supprimée alors que la notification pour 'Ordinateur-02' continue à se déclenchent comme d’habitude.
+Meilleures exploiter les alertes de journal avec des règles d’action, nous vous conseillons de créer des alertes de journal avec le [mesure de métrique](alerts-unified-log.md) option. À l’aide de cette option, instances distinctes d’alerte sont générées en fonction du champ de groupe défini. Puis dans le scénario 2, instances d’alerte distincts sont générés pour 'Ordinateur-01' et 'Ordinateur-02'. Avec la règle d’action décrite dans le scénario, que la notification pour 'Ordinateur-01' serait supprimée alors que la notification pour 'Ordinateur-02' continue à se déclenchent comme d’habitude.
 
 ![Règles d’action et des alertes de journal (nombre de résultats)](media/alerts-action-rules/action-rules-log-alert-metric-measurement.png)
 

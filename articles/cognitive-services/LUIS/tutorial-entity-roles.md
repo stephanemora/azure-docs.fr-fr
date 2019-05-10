@@ -9,20 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 03/08/2019
+ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 98c2ad15d836162608affbfbc89908a15e274cee
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: a0ab928ef3b8551e3e20ff3c4b16533c80ee4b7d
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59528759"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65149307"
 ---
 # <a name="tutorial-extract-contextually-related-data-from-an-utterance"></a>Didacticiel : Extraire des données connexes en fonction du contexte d’un énoncé
 
 Dans ce tutoriel, vous allez rechercher des ensembles de données connexes en fonction du contexte. Par exemple, les emplacements d’origine et de destination pour un transfert entre une ville à une autre. Les deux ensembles de données peuvent être nécessaires et ils sont liés entre eux.  
 
-Ce tutoriel a été précédemment écrit à l’aide d’entités hiérarchiques. Les rôles d’entité remplacent le besoin de type d’entité hiérarchique. Un rôle peut être utilisé avec un type d’entité prédéfini ou personnalisé, à la fois dans les exemple d’énoncés et de modèles. 
+Un rôle peut être utilisé avec un type d’entité prédéfini ou personnalisé, à la fois dans les exemple d’énoncés et de modèles. 
 
 **Dans ce tutoriel, vous allez découvrir comment :**
 
@@ -93,12 +93,8 @@ L’entité prédéfinie, geographyV2, extrait des informations de localisation,
     ![Ajouter des rôles à des entités prédéfinies](media/tutorial-entity-roles/add-roles-to-prebuilt-entity.png)
 1. Sélectionnez **Intentions** dans le panneau de navigation côté gauche, puis sélectionnez l’intention **MoveEmployeeToCity**. Notez que les noms de ville sont étiquetés avec l’entité prédéfinie **geogrpahyV2**.
 1. Dans le premier énoncé de la liste, sélectionnez la localisation d’origine. Un menu déroulant s’affiche. Sélectionnez **geographyV2** dans la liste, puis parcourez le menu pour sélectionner **Origine**.
-
-    [![Capture d’écran du marquage de la ville en tant que localisation d’origine](media/tutorial-entity-roles/tag-origin-city-with-role.png "Capture d’écran du marquage de la ville en tant que localisation d’origine")](media/tutorial-entity-roles/tag-origin-city-with-role.png#lightbox)
-
 1. Utilisez la méthode de l’étape précédente pour marquer tous les rôles des localisations dans tous les énoncés. 
 
-    [![Capture d'écran de l'entité Emplacements étiquetée dans les énoncés](media/tutorial-entity-roles/all-locations-marked-with-roles.png "Capture d'écran de l'entité Emplacements étiquetée dans les énoncés")](media/tutorial-entity-roles/all-locations-marked-with-roles.png#lightbox)
 
 ## <a name="add-example-utterances-to-the-none-intent"></a>Ajouter des exemples d’énoncés à l’intention « None » 
 
@@ -117,7 +113,7 @@ L’entité prédéfinie, geographyV2, extrait des informations de localisation,
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
 
-1. Allez à la fin de l’URL dans la barre d’adresses, puis entrez `Please move Carl Chamerlin from Tampa to Portland`. Le dernier paramètre de la chaîne de requête est `q`, l’énoncé est **query**. Comme cet énoncé est différent des énoncés étiquetés, c’est un bon test qui doit retourner l’intention `MoveEmployee` avec l’entité hiérarchique extraite.
+1. Allez à la fin de l’URL dans la barre d’adresses, puis entrez `Please move Carl Chamerlin from Tampa to Portland`. Le dernier paramètre de la chaîne de requête est `q`, l’énoncé est **query**. Comme cet énoncé est différent des énoncés étiquetés, c’est un bon test qui doit retourner l’intention `MoveEmployee` avec l’entité extraite.
 
     ```json
     {

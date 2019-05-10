@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2019
 ms.author: spelluru
-ms.openlocfilehash: a653a785e99619c3e256613d6a4d2c7592f54c8c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7baa5e4c113e6c21c6123ac7c8399533a7dfb358
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60848498"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65410296"
 ---
 # <a name="troubleshoot-virtual-machine-vm-and-environment-creation-failures-in-azure-devtest-labs"></a>Résoudre les problèmes de machine virtuelle (VM) et les échecs de création d’environnement dans Azure DevTest Labs
 DevTest Labs vous donne les avertissements si un nom d’ordinateur n’est pas valide ou si vous êtes sur le point qui viole une stratégie de laboratoire. Parfois, vous voyez red `X` en regard de votre laboratoire état de machine virtuelle ou un environnement qui vous informe que quelque chose s’est produite.  Cet article fournit quelques astuces que vous pouvez utiliser pour rechercher le problème sous-jacent et, je l’espère, éviter le problème à l’avenir.
@@ -44,7 +44,7 @@ Examinez les journaux d’activité si vous recherchez des informations sur une 
     ```json
     "properties": {
         "statusCode": "Conflict",
-        "statusMessage": "{\"status\":\"Failed\",\"error\":{\"code\":\"ResourceDeploymentFailure\",\"message\":\"The resource operation completed with terminal provisioning state 'Failed'.\",\"details\":[{\"code\":\"OperationNotAllowed\",\"message\":\"Operation results in exceeding quota limits of Core. Maximum allowed: 100, Current in use: 100, Additional requested: 8. Please read more about quota increase at http://aka.ms/corequotaincrease.\"}]}}",
+        "statusMessage": "{\"status\":\"Failed\",\"error\":{\"code\":\"ResourceDeploymentFailure\",\"message\":\"The resource operation completed with terminal provisioning state 'Failed'.\",\"details\":[{\"code\":\"OperationNotAllowed\",\"message\":\"Operation results in exceeding quota limits of Core. Maximum allowed: 100, Current in use: 100, Additional requested: 8. Please read more about quota increase at https://aka.ms/corequotaincrease.\"}]}}",
     },
     ```
 

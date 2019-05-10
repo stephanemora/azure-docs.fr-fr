@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 3/18/2019
+ms.date: 5/3/2019
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: 7beb3d986b016688c4ee0a512b9406dbf3dfbb40
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 608674d6e049c71d22c7bf91f37fcb16ffccc581
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59051697"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65144919"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>Didacticiel : Déployer et configurer un pare-feu Azure dans un réseau hybride à l’aide d’Azure PowerShell
 
@@ -61,9 +61,9 @@ Il existe trois conditions clés pour que ce scénario fonctionne correctement :
 Consultez la section [Créer des itinéraires](#create-the-routes) de ce didacticiel pour voir comment ces itinéraires sont créés.
 
 >[!NOTE]
->Le Pare-feu Azure doit avoir une connectivité Internet directe. Par défaut, AzureFirewallSubnet doit autoriser uniquement un UDR 0.0.0.0/0 avec la valeur **NextHopType** définie sur **Internet**.
+>Le Pare-feu Azure doit avoir une connectivité Internet directe. Si votre AzureFirewallSubnet prend connaissance d’un itinéraire par défaut pour votre réseau local via le protocole BGP, vous devez le remplacer par un UDR 0.0.0.0/0 avec la valeur **NextHopType** définie sur **Internet** pour garantir une connectivité Internet directe. Par défaut, Pare-feu Azure ne prend en charge le tunneling forcé vers un réseau local.
 >
->Si vous avez activé le tunneling forcé localement via ExpressRoute ou Application Gateway, vous devez configurer explicitement UDR 0.0.0.0/0 avec la valeur NextHopType définie sur **Internet**, puis l’associer à votre AzureFirewallSubnet. Si votre organisation a besoin d’un tunneling forcé pour le trafic du pare-feu Azure, contactez le support technique pour qu’il ajoute votre abonnement à la liste verte afin de garantir le maintien de la connectivité Internet du pare-feu.
+>Toutefois, si votre configuration nécessite un tunneling forcé vers un réseau local, Microsoft le prendra en charge au cas par cas. Contactez le support technique afin qu’il puisse étudier votre cas. Si votre dossier est accepté, nous ajouterons votre abonnement à la liste verte afin de garantir le maintien de la connectivité Internet du pare-feu.
 
 >[!NOTE]
 >Le trafic entre les réseaux virtuels directement appairés est acheminé directement même si l’UDR pointe vers le Pare-feu Azure en tant que passerelle par défaut. Pour envoyer un trafic de sous-réseau à sous-réseau au pare-feu dans ce scénario, un UDR doit contenir explicitement le préfixe du réseau cible dans les deux sous-réseaux.
@@ -138,7 +138,7 @@ $VNetHub = New-AzVirtualNetwork -Name $VNetnameHub -ResourceGroupName $RG1 `
 -Location $Location1 -AddressPrefix $VNetHubPrefix -Subnet $FWsub,$GWsub
 ```
 
-Demandez l’allocation d’une adresse IP publique destinée à la passerelle VPN que vous allez créer pour votre réseau virtuel. Notez que la valeur *AllocationMethod* est **dynamique**. Vous ne pouvez pas spécifier l’adresse IP que vous souhaitez utiliser. Elle est allouée à votre passerelle VPN de façon dynamique. 
+Demandez l’allocation d’une adresse IP publique destinée à la passerelle VPN que vous allez créer pour votre réseau virtuel. Notez que la valeur *AllocationMethod* est **dynamique**. Vous ne pouvez pas spécifier l’adresse IP que vous souhaitez utiliser. Elle est allouée à votre passerelle VPN de façon dynamique.
 
   ```azurepowershell
   $gwpip1 = New-AzPublicIpAddress -Name $GWHubpipName -ResourceGroupName $RG1 `
@@ -177,7 +177,7 @@ $VNetOnprem = New-AzVirtualNetwork -Name $VNetnameOnprem -ResourceGroupName $RG1
 -Location $Location1 -AddressPrefix $VNetOnpremPrefix -Subnet $Onpremsub,$GWOnpremsub
 ```
 
-Demandez l’allocation d’une adresse IP publique destinée à la passerelle que vous allez créer pour le réseau virtuel. Notez que la valeur *AllocationMethod* est **dynamique**. Vous ne pouvez pas spécifier l’adresse IP que vous souhaitez utiliser. Elle est allouée à votre passerelle de façon dynamique. 
+Demandez l’allocation d’une adresse IP publique destinée à la passerelle que vous allez créer pour le réseau virtuel. Notez que la valeur *AllocationMethod* est **dynamique**. Vous ne pouvez pas spécifier l’adresse IP que vous souhaitez utiliser. Elle est allouée à votre passerelle de façon dynamique.
 
   ```azurepowershell
   $gwOnprempip = New-AzPublicIpAddress -Name $GWOnprempipName -ResourceGroupName $RG1 `
@@ -471,7 +471,7 @@ Vous devez voir la page Internet Information Services par défaut.
 
 Votre connexion doit réussir et vous devriez pouvoir vous connecter à l’aide de votre nom d’utilisateur et de votre mot de passe.
 
-Maintenant que vous avez vérifié que les règles de pare-feu fonctionnent :
+Maintenant que vous avez vérifié que les règles de pare-feu fonctionnent :
 
 <!---- You can ping the server on the spoke VNet.--->
 - Vous pouvez parcourir le serveur web sur le réseau virtuel spoke.
