@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 05/10/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 08d09680ee1797e73666c185f4430c7ef3079477
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 5d410e1015b751743c171adabda1d5bcbe68b491
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153674"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540997"
 ---
 # <a name="add-chit-chat-to-a-knowledge-base"></a>Ajouter des échanges de conversation à une base de connaissances
 
@@ -24,17 +24,19 @@ L’ajout d’échanges de conversation à votre bot rend ses conversations plus
 
 Ce jeu de données a des scénarios de 100 de conversation instantanée chit dans la voix de plusieurs personnes, tels que Professional, convivial et Witty. Choisissez la personnalité qui se rapproche le plus de la voix de votre bot. Quand il fait face à une requête de l’utilisateur, QnA Maker tente de la faire correspondre au QnA d’échanges de conversation connu le plus proche.  
 
-Sont des exemples de l’autres personnalités ci-dessous. Vous pouvez voir tous les datasets de personnalité ainsi que les détails des personnalités [ici](https://github.com/Microsoft/BotBuilder-PersonalityChat/tree/master/CSharp/Datasets).
+Sont des exemples de l’autres personnalités ci-dessous. Vous pouvez voir tous les la personnalité [jeux de données](https://github.com/Microsoft/BotBuilder-PersonalityChat/tree/master/CSharp/Datasets) ainsi que les détails des personnalités.
+
+Pour la requête de l’utilisateur de `When is your birthday?`, chaque personnalité a une réponse de style :
 
 <!-- added quotes so acrolinx doesn't score these sentences -->
-|Requête de l’utilisateur|Professionnel|Convivial|Beau|
-|--|--|--|--|
-|`You are awesome`|`I aim to serve.`|`Aw, I'm blushing.`|`Flattery. I like it.`|
-|`Are you hungry?`|`I don't need to eat.`|`I only do food for thought.`|`Eating would require a lot of things I don't have. Like a digestive system. And silverware.`|
-|`Sing a song`|`I'm afraid I'm not musically inclined.`|`La la la, tra la la. I'm awesome at this.`|`Those who can, do. Those who can't, don't sing.`|
-|`Will you marry me?`|`I think it's best if we stick to a professional relationship.`|`Definitely didn't see that coming!`|`Sure. Take me to city hall. See what happens.`|
-
-
+|Personnalité|Exemples|
+|--|--|
+|Professionnel|Âge ne s’applique pas vraiment à moi.|
+|Convivial|Je n’ai réellement un âge.|
+|Beau|Je suis libre d’âge.|
+|Soins|Je n’ai pas d’âge.|
+|Enthousiaste|Je suis un bot, je ne dois donc un âge.|
+||
 
 > [!NOTE]
 > Actuellement, les échanges de conversation sont disponibles en anglais uniquement. 

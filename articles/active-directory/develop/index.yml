@@ -6,7 +6,7 @@ metadata:
   description: 'Découvrez comment vous pouvez utiliser la plateforme d’identités Microsoft pour générer des applications qui connectent les utilisateurs de manière sécurisée dans toutes les identités Microsoft et obtiennent des jetons afin d’appeler Microsoft Graph, d’autres API Microsoft ou des API que des développeurs ont créées.'
   services: active-directory
   author: CelesteDG
-  manager: mtillman
+  manager: CelesteDG
   ms.service: active-directory
   ms.subservice: develop
   ms.tgt_pltfrm: na

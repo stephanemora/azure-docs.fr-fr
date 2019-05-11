@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 03/26/2019
+ms.date: 05/10/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 22d408204b69e0a564103efd29468c6f0d68d93a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c9add80b7494ae2a8e671967a96dc5d3c7307f51
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61374414"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65541617"
 ---
 # <a name="edit-a-knowledge-base-in-qna-maker"></a>Modifier une base de connaissances dans QnA Maker
 
@@ -72,8 +72,7 @@ Ajoutez des questions alternatives à une paire QnA existante pour améliorer la
 
 ## <a name="add-metadata"></a>Ajouter des métadonnées
 
-
-Ajoutez les paires de métadonnées en sélectionnant l’icône de métadonnées. Une paire de métadonnées se compose d’une clé et une valeur.
+Ajouter des paires de métadonnées en sélectionnant d’abord **afficher les options**, puis en sélectionnant **affichent les métadonnées**. Cette opération affiche la colonne de métadonnées. Ensuite, sélectionnez le **+** pour ajouter une paire de métadonnées. Cette paire se compose d’une clé et une valeur.
 
 ![Ajouter des métadonnées](../media/qnamaker-how-to-edit-kb/add-metadata.png)
 

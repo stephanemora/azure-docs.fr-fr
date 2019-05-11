@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 03/28/2019
+ms.date: 05/10/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 0f94a1fdc01825b5bf78644f84c72e6b031109c0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 78c445e70fcf972be81ef6dfd5d675f8e4843621
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61379202"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65541507"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>Bonnes pratiques pour une base de connaissances QnA Maker
 Le [cycle de vie du développement d’une base de connaissances](../Concepts/development-lifecycle-knowledge-base.md) vous guide de bout en bout sur la façon de gérer votre base de connaissances. Suivez ces bonnes pratiques pour améliorer votre base de connaissances et fournir des résultats plus pertinents aux utilisateurs finaux de votre application/bot conversationnel.
@@ -39,29 +39,31 @@ Ajoutez autant de questions alternatives que vous le souhaitez, en restant toute
 Les meilleures réponses sont simples, mais pas trop (par exemple, oui et non). Si votre réponse doit comporter des liens vers d’autres sources ou offrir une expérience enrichie avec des contenus multimédias et des liens, utilisez le [balisage](../how-to/metadata-generateanswer-usage.md) pour distinguer le type de réponse attendu, puis envoyez cette balise avec la requête pour obtenir la bonne version de la réponse.
 
 ## <a name="chit-chat"></a>Échanges de conversation (chit-chat)
-Ajoutez facilement des échanges à votre bot afin de rendre ses conversations plus naturelles et engageantes. Vous pouvez aisément ajouter des jeux de données d’échanges de conversation pour trois personnalités prédéfinies lors de la création de votre base de connaissances, et les modifier à tout moment. Découvrez comment [ajouter des échanges de conversation à votre base de connaissances](../How-To/chit-chat-knowledge-base.md). 
+Ajoutez facilement des échanges à votre bot afin de rendre ses conversations plus naturelles et engageantes. Vous pouvez facilement ajouter des jeux de données de conversation instantanée chit à partir de personnalités prédéfinies lors de la création de votre base de connaissances et les modifier à tout moment. Découvrez comment [ajouter des échanges de conversation à votre base de connaissances](../How-To/chit-chat-knowledge-base.md). 
 
 ### <a name="choosing-a-personality"></a>Choix d’une personnalité
-Les échanges de conversation sont pris en charge pour trois personnalités prédéfinies : 
+Conversation en Chit est pris en charge pour plusieurs personnalités prédéfinies : 
 
-|Personnalités|
-|--|
-|Le professionnel|
-|L’ami|
-|Le comique|
+|Personnalité |Fichier de jeu de données QnA Maker |
+|---------|-----|
+|Professionnel |[qna_chitchat_professional.tsv](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_professional.tsv) |
+|Convivial |[qna_chitchat_friendly.tsv](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_friendly.tsv) |
+|Beau |[qna_chitchat_witty.tsv](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_witty.tsv) |
+|Soins |[qna_chitchat_caring.tsv](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_caring.tsv) |
+|Enthousiaste |[qna_chitchat_enthusiastic.tsv](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_enthusiastic.tsv) |
 
-Les réponses vont du formel à l’informel, en passant par l’irrévérencieux. Vous devez sélectionner la personnalité qui correspond le plus au ton souhaité pour votre bot. Vous pouvez afficher les jeux de données, en choisir un qui sert de base pour votre bot, puis personnaliser les réponses. 
+Les réponses vont du formel à l’informel, en passant par l’irrévérencieux. Vous devez sélectionner la personnalité qui correspond le plus au ton souhaité pour votre bot. Vous pouvez afficher le [jeux de données](https://github.com/Microsoft/BotBuilder-PersonalityChat/tree/master/CSharp/Datasets)et choisissez une qui sert de base pour votre bot, puis personnaliser les réponses. 
 
 ### <a name="edit-bot-specific-questions"></a>Modifier les questions propres au bot
 Il existe certaines questions propres au bot qui font partie du jeu de données d’échanges de conversation et qui ont été remplies avec des réponses génériques. Modifiez ces réponses pour qu’elles reflètent mieux les caractéristiques de votre bot. 
 
 Nous vous recommandons de rendre les questions-réponses d’échanges de conversation suivantes plus spécifiques :
 
-* Qui êtes-vous ?
+* Qui êtes-vous ?
 * Que pouvez-vous faire ?
 * Quel âge avez-vous ?
 * Qui vous a créé ?
-* Hello
+* Bonjour
    
 
 ## <a name="rankingscoring"></a>Classement/scoring
@@ -73,7 +75,7 @@ Le score de confiance par défaut utilisé comme seuil est de 50, mais vous pouv
 ### <a name="add-alternate-questions"></a>Ajouter des questions alternatives
 Les [questions alternatives](../How-To/edit-knowledge-base.md) augmentent la probabilité de trouver une correspondance avec une requête utilisateur. Les questions alternatives sont utiles quand il existe plusieurs manières de poser une question. C’est notamment le cas pour les variantes syntaxiques et lexicales.
 
-|Requête d’origine|Autres requêtes|Modifier| 
+|Requête d’origine|Autres requêtes|Changer| 
 |--|--|--|
 |Un stationnement est-il disponible ?|Vous avez un parking ?|Variante syntaxique|
  |Salut|Bonjour<br>Ça va ?|Variante lexicale ou argot|

@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 03/25/2019
+ms.date: 05/10/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: ae278ac3e0fd9f93e080da8f52b9728e9c22a436
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6b64315d8639cf8a7204ee809598567ec76fd188
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61373511"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65541799"
 ---
 # <a name="quickstart-create-a-knowledge-base-using-the-qna-maker-api-service-portal"></a>Démarrage rapide : Créer une base de connaissances à l’aide du portail de service API QnA Maker
 
@@ -50,7 +50,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
     - Chargez des fichiers pour les données à extraire. Consultez les [prix](https://aka.ms/qnamaker-pricing) pour savoir combien de documents vous pouvez ajouter.
     - Si vous souhaitez ajouter manuellement des QnA, vous pouvez ignorer l’**étape 4** illustré dans l’image précédente.
 
-1. Ajoutez des **échanges de conversation** à votre base de connaissances. Choisissez d’ajouter la prise en charge des échanges de conversation pour votre bot en effectuant un choix parmi les 3 personnalités. 
+1. Ajoutez des **échanges de conversation** à votre base de connaissances. Choisir d’ajouter la prise en charge de la conversation de chit pour votre bot, en choisissant parmi les personnalités. 
 
     ![Ajouter des échanges de conversation à la base de connaissances](../media/qnamaker-how-to-create-kb/create-kb-chit-chat.png)
 
