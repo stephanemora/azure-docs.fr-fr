@@ -44,7 +44,7 @@ Les propriétés suivantes sont prises en charge pour le service lié Impala.
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété de type doit être définie sur **Impala**. | Oui |
+| type | La propriété de type doit être définie sur **Impala**. | Oui |
 | host | Adresse IP ou nom d’hôte du serveur Impala (c’est-à-dire, 192.168.222.160).  | Oui |
 | port | Port TCP utilisé par le serveur Impala pour écouter les connexions clientes. Valeur par défaut : 21050.  | Non  |
 | authenticationType | Type d’authentification à utiliser. <br/>Les valeurs autorisées sont **Anonymous**, **SASLUsername** et **UsernameAndPassword**. | Oui |
@@ -119,7 +119,7 @@ Pour copier des données d’Impala, affectez la valeur **ImpalaSource** au type
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type de la source de l’activité de copie doit être définie sur **ImpalaSource**. | Oui |
+| type | La propriété type de la source de l’activité de copie doit être définie sur **ImpalaSource**. | Oui |
 | query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple `"SELECT * FROM MyTable"`. | Non (si « tableName » est spécifié dans dataset) |
 
 **Exemple :**
