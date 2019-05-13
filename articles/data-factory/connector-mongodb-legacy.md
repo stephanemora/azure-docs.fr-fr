@@ -183,7 +183,7 @@ Lors de la copie de données de MongoDB, les mappages suivants sont utilisés en
 | NumberInt |Int32 |
 | NumberLong |Int64 |
 | ObjectID |String |
-| Chaîne |String |
+| String |String |
 | UUID |Guid |
 | Object |Renormalisé en colonnes aplaties avec « _ » comme séparateur imbriqué |
 
