@@ -48,7 +48,7 @@ Les propriétés prises en charge pour le service lié OData sont les suivantes 
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété **type** doit être définie sur **OData**. |Oui |
+| type | La propriété **type** doit être définie sur **OData**. |Oui |
 | url | URL racine du service OData. |Oui |
 | authenticationType | Type d’authentification utilisé pour se connecter à la source OData. Les valeurs autorisées sont **Anonyme**, **De base**, **Windows**, **AadServicePrincipal** et **Managed Service Identity**. L’authentification OAuth par utilisateur n’est pas prise en charge. | Oui |
 | userName | Si vous utilisez l’authentification De base ou Windows, spécifiez un **nom d’utilisateur**. | Non  |
@@ -197,8 +197,8 @@ Pour copier des données à partir d’OData, définissez la propriété **type*
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété **type** du jeu de données doit être définie sur **ODataResource**. | Oui |
-| chemin d’accès | Chemin de la ressource OData. | Oui |
+| type | La propriété **type** du jeu de données doit être définie sur **ODataResource**. | Oui |
+| path | Chemin de la ressource OData. | Oui |
 
 **Exemple**
 
@@ -232,7 +232,7 @@ Pour copier des données à partir d’OData, définissez le type **source** de 
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété **type** de la source d’activité de copie doit être définie sur **RelationalSource**. | Oui |
+| type | La propriété **type** de la source d’activité de copie doit être définie sur **RelationalSource**. | Oui |
 | query | Options de requête OData pour filtrer les données. Exemple : `"?$select=Name,Description&$top=5"`.<br/><br/>**Remarque**: Le connecteur OData copie des données à partir de l’URL combinée `[URL specified in linked service]/[path specified in dataset][query specified in copy activity source]`. Pour plus d’informations, consultez [OData URL components](https://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Non  |
 
 **Exemple**
