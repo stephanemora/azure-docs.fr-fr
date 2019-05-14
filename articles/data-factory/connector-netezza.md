@@ -42,7 +42,7 @@ Les propriétés prises en charge pour le service lié Netezza sont les suivante
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété **type** doit être définie sur **Netezza**. | Oui |
+| type | La propriété **type** doit être définie sur **Netezza**. | Oui |
 | connectionString | Chaîne de connexion ODBC permettant de se connecter à Netezza. <br/>Marquez ce champ comme SecureString pour le stocker de façon sécurisée dans Data Factory. Vous pouvez également définir un mot de passe dans Azure Key Vault et extraire la configuration `pwd` de la chaîne de connexion. Pour plus d’informations, reportez-vous aux exemples suivants et à l’article [Stocker des informations d’identification dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui |
 | connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion au magasin de données. Vous pouvez choisir un runtime d’intégration auto-hébergé ou un runtime d’intégration Azure (si votre magasin de données est accessible publiquement). À défaut de spécification, l’Azure Integration Runtime par défaut est utilisé. |Non  |
 
@@ -144,7 +144,7 @@ Pour copier des données à partir de Netezza, définissez le type **source** de
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété **type** de la source d’activité de copie doit être définie sur **NetezzaSource**. | Oui |
+| type | La propriété **type** de la source d’activité de copie doit être définie sur **NetezzaSource**. | Oui |
 | query | Utiliser la requête SQL personnalisée pour lire les données. Exemple : `"SELECT * FROM MyTable"` | Non (si « tableName » est spécifié dans dataset) |
 
 **Exemple :**
