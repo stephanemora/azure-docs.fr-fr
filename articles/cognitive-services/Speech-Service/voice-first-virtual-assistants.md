@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: travisw
 ms.custom: ''
-ms.openlocfilehash: 1344de526564ab623a51eb903951b6a2e866048d
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: 1c5712fa8bbdb158992127f8f48d810a0a9b6f79
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65523487"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65603483"
 ---
 # <a name="about-custom-voice-first-virtual-assistants-preview"></a>Sur les assistants virtuel personnalisé voix en premier aperçu
 
@@ -24,7 +24,9 @@ Les assistants virtuels personnalisés qui utilisent Azure Speech Services perme
 
    ![Diagramme conceptuel d’un flux de service par ligne directe vocale d’orchestration](media/voice-first-virtual-assistants/overview.png "flux de la chaîne de reconnaissance vocale")
 
-Vocale de ligne directe et ses fonctionnalités pour les assistants de virtuels orienté voix personnalisées sont un supplément idéale pour le [Solution Compagnon virtuelle](https://docs.microsoft.com/azure/bot-service/bot-builder-virtual-assistant-introduction) et [modèle d’entreprise](https://docs.microsoft.com/azure/bot-service/bot-builder-virtual-assistant-introduction). Bien que vocale de ligne directe peut fonctionner avec un robot quelconques compatible, ces ressources fournissent une ligne de base réutilisable pour des expériences de haute qualité conversationnelles, ainsi que des compétences de prise en charge courantes et modèles pour la mise en route rapide.
+
+Vocale de ligne directe et ses fonctionnalités pour les assistants de virtuels orienté voix personnalisées sont un supplément idéale pour le [Solution Assistant virtuel et le modèle d’entreprise](https://docs.microsoft.com/azure/bot-service/bot-builder-enterprise-template-overview). Bien que vocale de ligne directe peut fonctionner avec un robot quelconques compatible, ces ressources fournissent une ligne de base réutilisable pour des expériences de haute qualité conversationnelles, ainsi que des compétences de prise en charge courantes et modèles pour la mise en route rapide.
+
 
 ## <a name="core-features"></a>Fonctionnalités de base
 

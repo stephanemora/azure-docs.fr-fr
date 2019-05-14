@@ -118,8 +118,8 @@
       href: functions-networking-options.md
     - name: "Adresses\_IP"
       href: ip-addresses.md
-    - name: Fonctions locales
-      href: functions-runtime-overview.md
+    - name: Fonctions dans Kubernetes
+      href: functions-kubernetes-keda.md
 - name: Guides pratiques
   items:
     - name: Développement
@@ -142,6 +142,8 @@
           href: create-function-app-linux-app-service-plan.md
         - name: Déboguer des fonctions PowerShell locales
           href: functions-debug-powershell-local.md
+        - name: Injection de dépendances
+          href: functions-dotnet-dependency-injection.md
         - name: Gérer des connexions
           href: manage-connections.md
         - name: Gestion des erreurs
@@ -173,6 +175,7 @@
       items:
         - name: Gérer une application de fonction
           href: functions-how-to-use-azure-function-app-settings.md
+          displayName: 'app setting, application setting'
         - name: Définir la version du runtime
           href: set-runtime-version.md
         - name: Inscrire manuellement une extension

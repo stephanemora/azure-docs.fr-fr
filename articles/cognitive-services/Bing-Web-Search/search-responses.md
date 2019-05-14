@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 07fb655af25fe590effcb885e7b366346724b50a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 85087ce5a4fa3dd733f47a35bc18d76f1f4bc652
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60642802"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606692"
 ---
 # <a name="bing-web-search-api-response-structure-and-answer-types"></a>Types et structure de la réponse de l’API Recherche Web Bing  
 
@@ -288,9 +288,9 @@ Encoded query: 8^2%2B11^2-2*8*11*cos%2837%29
 
 Une expression mathématique peut contenir les symboles suivants :
 
-|Symbole|Description|
+|Symbole|Description |
 |------------|-----------------|
-|+|Addition|
+|+|Ajout|
 |-|Soustraction|
 |/|Division|
 |*|Multiplication|
@@ -302,7 +302,7 @@ Une expression mathématique peut contenir les symboles suivants :
 
 Une expression mathématique peut contenir les constantes suivantes :
 
-|Symbole|Description|
+|Symbole|Description |
 |------------|-----------------|
 |Pi|3,14159...|
 |Degré|Degré|
@@ -312,7 +312,7 @@ Une expression mathématique peut contenir les constantes suivantes :
 
 Une expression mathématique peut contenir les fonctions suivantes :
 
-|Symbole|Description|
+|Symbole|Description |
 |------------|-----------------|
 |Trier|Racine carrée|
 |Sin[x], Cos[x], Tan[x]<br />Csc[x], Sec[x], Cot[x]|Fonctions trigonométriques (avec arguments en radians)|
@@ -330,7 +330,7 @@ Si l’utilisateur entre une requête portant sur une heure ou une date, la rép
 
 La réponse `timeZone` fournit le nom de l’emplacement, la date et l’heure UTC actuelles à l’emplacement spécifié et le décalage UTC. Si l’emplacement couvre plusieurs fuseaux horaires, la réponse contient la date et l’heure UTC actuelles pour tous les fuseaux horaires concernés. Par exemple, l’État de Floride couvre deux fuseaux horaires. Par conséquent, la réponse contient la date et heure locales pour ces deux fuseaux horaires.  
 
-Si la requête porte sur l’heure actuelle dans un État ou un pays, Bing détermine la principale ville incluse dans les limites géographiques correspondantes et la retourne dans le champ `primaryCityTime`. Si ces limites couvrent plusieurs fuseaux horaires, les fuseaux horaires restants sont retournés dans le champ `otherCityTimes`.
+Si la requête demande à la fois d’état ou pays/région, Bing détermine la ville principale au sein des limites géographiques de l’emplacement et le retourne dans le `primaryCityTime` champ. Si ces limites couvrent plusieurs fuseaux horaires, les fuseaux horaires restants sont retournés dans le champ `otherCityTimes`.
 
 L’exemple suivant illustre des requêtes retournant la réponse `timeZone`.
 

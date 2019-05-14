@@ -8,7 +8,7 @@ metadata:
   manager: carmonm
   ms.service: governance
   ms.topic: landing-page
-  ms.date: 09/18/2018
+  ms.date: 05/07/2019
   ms.author: dacoulte
 abstract:
   description: 'Azure Governance est une collection de concepts et de services qui sont conçus pour activer la gestion de vos diverses ressources Azure à l’échelle. Ces services offrent la possibilité d’organiser et de structurer vos abonnements de façon logique, de créer et de déployer des packages Azure de ressources natifs et réutilisables, de définir, d’effectuer des audits et de corriger vos ressources, et bien plus encore. Utilisez cette page pour en savoir plus sur ces concepts et les services, et comment activer et utiliser chacun d’eux dans votre environnement aujourd''hui.'
@@ -53,16 +53,16 @@ sections:
               alt: Blueprints
               src: ./media/blueprints-illustration.svg
             title: Blueprints
-  - title: Implémentations
+  - title: Framework d’adoption du cloud
   - items:
       - type: list
         style: cards
         className: cardsZ
         columns: 3
         items:
-          - href: /azure/architecture/cloud-adoption/getting-started/what-is-governance?toc=/azure/governance/toc.json
-            html: '<p>Par le passé, elles étaient propriétaires et responsables de tous les niveaux technologiques, des infrastructures aux logiciels. À présent, le cloud offre la possibilité de changer de façon d’utiliser les technologies en approvisionnant et en consommant les ressources nécessaires.</p>'
-            title: Adoption du cloud d’entreprise
-          - href: /azure/architecture/cloud-adoption/appendix/azure-scaffold?toc=/azure/governance/toc.json
-            html: <p>Il permet aux administrateurs de s’assurer que les charges de travail correspondent à la configuration minimale requise en matière de gouvernance d’une organisation sans empêcher les groupes professionnels et les développeurs d’atteindre rapidement leurs objectifs.<br /><br /></p>
-            title: Entreprise Scaffold
+          - href: /azure/architecture/cloud-adoption/index?toc=/azure/governance/toc.json
+            html: '<p>Le framework d’adoption du cloud fournit des conseils techniques pour Microsoft Azure. Parce que les clients peuvent encore être dans la phase de sélection d’un fournisseur cloud, ce framework donne des conseils d’ordre général sur le cloud pour des décisions de plus haut niveau, quand cela est possible.</p>'
+            title: Vue d’ensemble
+          - href: /azure/architecture/cloud-adoption/governance/index?toc=/azure/governance/toc.json
+            html: '<p>Pour les organisations qui disposent déjà de stratégies régissant les environnements informatiques locaux, la gouvernance cloud vient en complément de ces stratégies métier.<br /><br /></p>'
+            title: Vue d’ensemble de la gouvernance

@@ -34,6 +34,8 @@
       href: diagnostics-role-service.md
     - name: Préparer et personnaliser une image de disque dur virtuel principale
       href: set-up-customize-master-image.md
+    - name: Installer Office sur une image VHD principale
+      href: install-office-on-wvd-master-image.md
     - name: Configurer le GPU pour Windows Virtual Desktop
       href: configure-vm-gpu.md
     - name: Mettre automatiquement à l’échelle vos hôtes de session

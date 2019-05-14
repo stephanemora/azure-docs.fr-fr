@@ -175,6 +175,8 @@
           href: stream-analytics-troubleshoot-query.md
         - name: Journaux d’activités et de diagnostic
           href: stream-analytics-job-diagnostic-logs.md
+        - name: Erreurs de données
+          href: data-errors.md
     - name: Intégration à Machine Learning
       items:
         - name: Analyse d’opinions avec les modèles ML

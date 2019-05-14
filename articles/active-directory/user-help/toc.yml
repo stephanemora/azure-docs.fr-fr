@@ -28,9 +28,10 @@
       href: user-help-auth-app-overview.md
     - name: Télécharger et installer l’application
       href: user-help-auth-app-download-install.md
-    - name: Vue d’ensemble de l’ajout de comptes
-      href: user-help-auth-app-add-account-overview.md
+    - name: Ajouter des comptes
       items:
+        - name: Vue d’ensemble
+          href: user-help-auth-app-add-account-overview.md
         - name: Ajouter un compte professionnel ou scolaire
           href: user-help-auth-app-add-work-school-account.md
         - name: Ajouter un compte Microsoft personnel
@@ -63,9 +64,10 @@
       href: user-help-security-info-overview.md
     - name: Ajouter des informations de sécurité pendant la connexion
       href: security-info-setup-signin.md
-    - name: Vue d’ensemble des méthodes d’ajout ou de mise à jour des informations de sécurité
-      href: security-info-add-update-methods-overview.md
+    - name: Ajouter ou mettre à jour les méthodes d’informations de sécurité
       items:
+        - name: Vue d’ensemble
+          href: security-info-add-update-methods-overview.md
         - name: Configurer une application d’authentification
           href: security-info-setup-auth-app.md
         - name: Configurer la messagerie texte

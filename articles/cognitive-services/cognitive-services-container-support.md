@@ -8,14 +8,14 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 05/13/2019
 ms.author: diberry
-ms.openlocfilehash: 241bda5c684197a43cc5564e950e924fed668b89
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 87599817ba7b50b941612c13c07842644f979fb7
+ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65147561"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65619714"
 ---
 # <a name="container-support-in-azure-cognitive-services"></a>Prise en charge des conteneurs dans Azure Cognitive Services
 
@@ -50,14 +50,14 @@ Ressources COGNITIVE Services sont disponibles sur [Microsoft Azure](https://azu
 
 Les conteneurs Azure Cognitive Services fournissent l’ensemble suivant de conteneurs Docker, chacun contenant un sous-ensemble de fonctionnalités à partir de services dans Azure Cognitive Services :
 
-| de diffusion en continu | Niveau de tarification pris en charge | Conteneur | Description |
+| de diffusion en continu | Niveau de tarification pris en charge | Conteneur | Description  |
 |---------|----------|----------|-------------|
 |[Détecteur d’anomalies](https://go.microsoft.com/fwlink/?linkid=2083925&clcid=0x409) |F0, S0|**Anomaly-Detector** |L’API de détecteur d’anomalie vous permet de surveiller et de détecter les anomalies dans vos données de série chronologique avec machine learning.<br>[Demander l’accès](https://aka.ms/adcontainer)|
 |[Vision par ordinateur](Computer-vision/computer-vision-how-to-install-containers.md) |F0, S1|**Reconnaître le texte** |Extraire un texte imprimé à partir d’images d’objets divers avec différents arrière-plans et surfaces, tels que des reçus, des affiches et des cartes de visite.<br/><br/>**Important :** Le conteneur Reconnaître le texte ne fonctionne qu’en anglais pour le moment.<br>[Demander l’accès](Computer-vision/computer-vision-how-to-install-containers.md#request-access-to-the-private-container-registry)|
 |[Visage](Face/face-how-to-install-containers.md) |F0, S0|**Visage** |Détecter les visages humains sur des images et identifier les attributs, y compris les caractéristiques (par exemple, le nez et les yeux), le sexe, l’âge et d’autres caractéristiques du visage prévues par la machine. En plus de la détection, le conteneur Visage peut vérifier si deux visages sur la même image ou sur des images différentes sont identiques à l’aide d’un score de confiance, ou de comparer des visages par rapport à une base de données pour voir si un visage similaire ou identique existe déjà. Il peut également regrouper des visages similaires à l’aide de caractéristiques visuelles partagées.<br>[Demander l’accès](Face/face-how-to-install-containers.md#request-access-to-the-private-container-registry) |
 |[Module de reconnaissance de forme](https://go.microsoft.com/fwlink/?linkid=2083826&clcid=0x409) |F0, S0|**Module de reconnaissance de forme** |Présentation du formulaire s’applique la technologie machine learning pour identifier et extraire des tables et des paires clé-valeur à partir de formulaires.<br>[Demander l’accès](https://aka.ms/FormRecognizerContainerRequestAccess)|
 |[LUIS](LUIS/luis-container-howto.md) |F0, S0|**LUIS** ([image](https://go.microsoft.com/fwlink/?linkid=2043204&clcid=0x409))|Charge un modèle Language Understanding entraîné ou publié, également connu sous le nom d’application LUIS, dans un conteneur docker et fournit l’accès aux prédictions de requête à partir des points de terminaison d’API du conteneur. Vous pouvez collecter les journaux d’activité de requêtes du conteneur et les charger sur le [portail LUIS](https://www.luis.ai) pour améliorer la précision de prédiction de l’application.|
-|[Personalizer](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409) |F0, S0|**Personalizer** ([image](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409))|Personalizer Azure est un service API basée sur le cloud qui vous permet de choisir la meilleure expérience pour montrer à vos utilisateurs, de formation à partir de leur comportement en temps réel.|
+|[Personalizer](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409) |F0, S0|**Personalizer** ([image](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409))|Azure Personalizer est un service d’API cloud qui vous permet de choisir la meilleure expérience à montrer à vos utilisateurs, en apprenant de leur comportement en temps réel.|
 |[API Speech Service](https://go.microsoft.com/fwlink/?linkid=2083926&clcid=0x409) |F0, S0|**Reconnaissance vocale** |Retranscrit une voix en un texte de façon continue et en temps réel.<br>[Demander l’accès](https://aka.ms/speechcontainerspreview/)|
 |[API Speech Service](https://go.microsoft.com/fwlink/?linkid=2083926&clcid=0x409) |F0, S0|**Synthèse vocale** |Convertit le texte en paroles naturelles.<br>[Demander l’accès](https://aka.ms/speechcontainerspreview/)|
 |[Analyse de texte](text-analytics/how-tos/text-analytics-how-to-install-containers.md) |F0, S|**Extraction de phrases clés** ([image](https://go.microsoft.com/fwlink/?linkid=2018757&clcid=0x409)) |Extraire des expressions clés pour identifier les points principaux. Par exemple, pour le texte d’entrée « Le repas était délicieux et le personnel adorable », l’API renvoie les principaux points de discussion : « repas » et « personnel adorable ». |
@@ -76,7 +76,12 @@ En outre, certains conteneurs sont prises en charge dans les Services Cognitive 
 Les conteneurs Azure Cognitive Services sont accessibles publiquement via votre abonnement Azure, et les images conteneur Docker peuvent être extraites à partir de Microsoft Container Registry ou de Docker Hub. Vous pouvez utiliser la commande [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) pour télécharger une image conteneur à partir du référentiel approprié.
 
 > [!IMPORTANT]
-> Actuellement, vous devez effectuer un processus d’inscription pour accéder aux conteneurs [Visage](Face/face-how-to-install-containers.md) et [Reconnaître le texte](Computer-vision/computer-vision-how-to-install-containers.md), dans laquelle vous remplissez et soumettez un questionnaire comportant des questions sur vous, votre entreprise et le cas d’utilisation pour lequel vous souhaitez implémenter les conteneurs. Une fois que l’accès et des informations d’identification vous sont fournis, vous pouvez alors extraire les images conteneur pour les conteneurs Visage et Reconnaître le texte à partir d’un Registre de conteneurs privé hébergé par Azure Container Registry.
+> Actuellement, vous devez effectuer un processus d’inscription pour accéder à des conteneurs suivants, dans lequel vous remplissez et soumettez un questionnaire avec des questions sur vous, votre entreprise et le cas d’usage pour lequel vous souhaitez implémenter les conteneurs. Une fois que l’accès et des informations d’identification vous sont fournis, vous pouvez alors extraire les images conteneur pour les conteneurs Visage et Reconnaître le texte à partir d’un Registre de conteneurs privé hébergé par Azure Container Registry.
+> * [Détecteur d’anomalies](Anomaly-Detector/anomaly-detector-container-howto.md#request-access-to-the-container-registry)
+> * [Visage](Face/face-how-to-install-containers.md)
+> * [Module de reconnaissance de forme](form-recognizer/form-recognizer-container-howto.md#request-access-to-the-container-registry)
+> * [Reconnaître le texte](Computer-vision/computer-vision-how-to-install-containers.md)
+> * [Reconnaissance vocale et synthèse vocale](Speech-Service/speech-container-howto.md#request-access-to-the-container-registry)
 
 ## <a name="prerequisites"></a>Conditions préalables
 

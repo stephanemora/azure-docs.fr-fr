@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 04/16/2019
+ms.date: 05/10/2019
 ms.author: tulasim
-ms.openlocfilehash: b634467381dc97e4a733e862e86632a089bf5f67
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 278040cb487df6731df1ad3e18435f6e12ca9d50
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64727311"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65594059"
 ---
 # <a name="get-a-knowledge-answer-with-the-generateanswer-api-and-metadata"></a>Obtenir une réponse de la base de connaissances avec les API de GenerateAnswer et les métadonnées
 
@@ -148,7 +148,7 @@ Une réponse réussie retourne un état de 200 et une réponse JSON.
 
 ## <a name="using-metadata-allows-you-to-filter-answers-by-custom-metadata-tags"></a>À l’aide de métadonnées vous permet de filtrer des réponses par balises de métadonnées personnalisées
 
-Ajout de métadonnées vous permet de filtrer les réponses par ces balises de métadonnées. Tenez compte des informations fournies dans le forum aux questions ci-dessous. Ajoutez des métadonnées à votre base de connaissances en cliquant sur l’icône des métadonnées.
+Ajout de métadonnées vous permet de filtrer les réponses par ces balises de métadonnées. Ajouter la colonne de métadonnées à partir de la **Options d’affichage** menu. Ajouter des métadonnées à votre base de connaissances en cliquant sur les métadonnées **+** icône pour ajouter une paire de métadonnées. Cette paire se compose d’une clé et une valeur.
 
 ![ajouter des métadonnées](../media/qnamaker-how-to-metadata-usage/add-metadata.png)
 

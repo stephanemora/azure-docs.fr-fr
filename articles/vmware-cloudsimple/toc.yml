@@ -148,10 +148,6 @@
               href: 'https://docs.azure.cloudsimple.com/ha-ensuring/'
         - name: Écosystème VMware
           items:
-            - name: Solutions de reprise d’activité après sinistre
-              href: 'https://docs.azure.cloudsimple.com/zerto-solutionguide/'
-            - name: Reprise d’activité à l’aide de VMware SRM
-              href: 'https://docs.azure.cloudsimple.com/disaster-recovery-srm/'
             - name: Sauvegarder des machines virtuelles de charge de travail
               href: 'https://docs.azure.cloudsimple.com/veeam/'
             - name: Guide de la solution VMware Horizon

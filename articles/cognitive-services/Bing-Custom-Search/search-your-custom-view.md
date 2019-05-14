@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 05/09/2019
 ms.author: maheshb
-ms.openlocfilehash: ed34b20073a150e38b5d5992ab4e4b8c80453fb2
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 7a60ea934c6bb9008889992726ddca5dad21a640
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510282"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595612"
 ---
 # <a name="call-your-bing-custom-search-instance-from-the-portal"></a>Appeler votre instance de Recherche personnalisée Bing à partir du portail
 
@@ -26,7 +26,7 @@ Une fois votre expérience de recherche personnalisée configurée, vous pouvez 
 
 Une fois connecté au [portail](https://customsearch.ai) Recherche personnalisée Bing, sélectionnez votre instance de recherche et cliquez sur l'onglet **Production**. Sous **Points de terminaison**, sélectionnez le point de terminaison d'une API (par exemple, de l'API Web). Les points de terminaison affichés dépendent de votre abonnement.
 
-Pour créer une requête de recherche, entrez les valeurs des paramètres de votre point de terminaison. Notez que les paramètres affichés sur le portail peuvent varier en fonction du point de terminaison choisi. Pour plus d'informations, consultez [Référence sur l'API Recherche personnalisée](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#query-parameters). Pour modifier l’abonnement qu'utilise votre instance de recherche, ajoutez la clé de l’abonnement approprié et mettre à jour les paramètres de mise sur le marché et/ou de langage appropriés.
+Pour créer une requête de recherche, entrez les valeurs des paramètres de votre point de terminaison. Notez que les paramètres affichés sur le portail peuvent varier en fonction du point de terminaison choisi. Consultez le [référence de l’API recherche personnalisée](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#query-parameters) pour plus d’informations. Pour modifier l’abonnement qu'utilise votre instance de recherche, ajoutez la clé de l’abonnement approprié et mettre à jour les paramètres de mise sur le marché et/ou de langage appropriés.
 
 Les paramètres suivants sont importants :
 
@@ -48,6 +48,10 @@ Si vous cliquez sur **Paramètres supplémentaires**, les paramètres suivants s
 |Offset    | Nombre de résultats de recherche à ignorer avant de renvoyer les résultats. Disponible uniquement pour les points de terminaison Web, Image et vidéo.        |
     
 Après avoir spécifié toutes les options nécessaires, cliquez sur **Appeler** pour voir la réponse JSON dans le volet droit. Si vous sélectionnez le point de terminaison Interface utilisateur hébergée, vous pouvez tester l’expérience de recherche dans le volet inférieur.
+
+## <a name="change-your-bing-custom-search-subscription"></a>Modifier votre abonnement recherche personnalisée Bing
+
+Vous pouvez modifier l’abonnement associé à votre instance de recherche personnalisée Bing sans créer une nouvelle instance. Pour que les appels d’API envoyé et facturés à un nouvel abonnement, créez une nouvelle ressource de recherche personnalisée Bing dans le portail Azure. Utiliser la nouvelle clé d’abonnement dans les demandes d’API, ainsi que votre ID de configuration personnalisée. d’instance
 
 ## <a name="next-steps"></a>Étapes suivantes
 

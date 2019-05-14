@@ -22,25 +22,12 @@
       href: policy/overview.md
     - name: Blueprints
       href: blueprints/overview.md
-- name: Implémentations
-  expanded: true
+- name: Framework d’adoption du cloud
   items:
-    - name: Adoption du cloud d’entreprise
-      items:
-        - name: Qu’est-ce que la gouvernance des ressources cloud ?
-          href: /azure/architecture/cloud-adoption/getting-started/what-is-governance?toc=/azure/governance/toc.json
-        - name: Gouvernance des accès aux ressources dans Azure
-          href: /azure/architecture/cloud-adoption/getting-started/azure-resource-access?toc=/azure/governance/toc.json
-        - name: Conception de gouvernance pour une équipe unique
-          href: /azure/architecture/cloud-adoption/governance/governance-single-team?toc=/azure/governance/toc.json
-        - name: Conception de gouvernance pour plusieurs équipes
-          href: /azure/architecture/cloud-adoption/governance/governance-multiple-teams?toc=/azure/governance/toc.json
-    - name: Structure d’entreprise Azure
-      items:
-        - name: Gouvernance normative de l’abonnement
-          href: /azure/architecture/cloud-adoption/appendix/azure-scaffold?toc=/azure/governance/toc.json
-        - name: Implémenter une structure d’entreprise Azure
-          href: /azure/architecture/cloud-adoption/appendix/azure-scaffold-examples?toc=/azure/governance/toc.json
+    - name: Vue d’ensemble
+      href: /azure/architecture/cloud-adoption/index?toc=/azure/governance/toc.json
+    - name: Vue d’ensemble de la gouvernance
+      href: /azure/architecture/cloud-adoption/governance/index?toc=/azure/governance/toc.json
 - name: Ressources
   items:
     - name: Feuille de route Azure

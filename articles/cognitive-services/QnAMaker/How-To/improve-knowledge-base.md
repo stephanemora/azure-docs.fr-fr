@@ -8,14 +8,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 05/13/2019
 ms.author: diberry
-ms.openlocfilehash: 3e54e8dcb6efa9251262c651730376a0d04edcf9
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: f80e6a765cc165033a548ba6a5ee7bead0de872e
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65144961"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65594085"
 ---
 # <a name="use-active-learning-to-improve-your-knowledge-base"></a>Utilisez la formation active pour améliorer votre base de connaissances
 
@@ -60,9 +60,9 @@ L’algorithme permettant de déterminer la proximité n’est pas un calcul sim
 
 L’apprentissage actif est désactivé par défaut. Activez-le pour afficher les suggestions de questions. 
 
-1. Sélectionnez **publier** pour publier la base de connaissances. Requêtes d’apprentissage actif sont collectés à partir de l’API de GenerateAnswer prédiction point de terminaison uniquement. Les requêtes vers le volet de Test dans le portail Qna Maker n’affectent pas l’apprentissage actif.
+1. Sélectionnez **publier** pour publier la base de connaissances. Requêtes d’apprentissage actif sont collectés à partir de l’API de GenerateAnswer prédiction point de terminaison uniquement. Les requêtes vers le volet de Test dans le portail QnA Maker n’affectent pas l’apprentissage actif.
 
-1. Pour activer l’apprentissage actif, cliquez sur votre **Nom**, puis accédez à [**Paramètres du service**](https://www.qnamaker.ai/UserSettings) dans le portail QnA Maker, dans l’angle supérieur droit.  
+1. Pour activer active learning sur, cliquez sur votre **nom**, accédez à [ **les paramètres de Service** ](https://www.qnamaker.ai/UserSettings) dans le portail QnA Maker, dans le coin supérieur droit.  
 
     ![Allumez alternatives de question suggéré d’apprentissage actif à partir de la page des paramètres. Sélectionnez votre nom d’utilisateur dans le menu supérieur droit, puis sélectionnez les paramètres du Service.](../media/improve-knowledge-base/Endpoint-Keys.png)
 
@@ -181,7 +181,7 @@ Le corps JSON a plusieurs paramètres :
 
 |Propriété de corps JSON|Type|Objectif|
 |--|--|--|--|
-|`feedbackRecords`|array|Liste des commentaires.|
+|`feedbackRecords`|tableau|Liste des commentaires.|
 |`userId`|string|L’ID utilisateur de la personne acceptant les suggestions de questions. Le format d’ID utilisateur est à vous. Par exemple, une adresse de messagerie peut être un ID d’utilisateur valide dans votre architecture. facultatif.|
 |`userQuestion`|string|Texte exact de la question. Requis.|
 |`qnaID`|number|ID de la question, trouvée dans le [GenerateAnswer réponse](metadata-generateanswer-usage.md#generateanswer-response-properties). |
@@ -208,7 +208,7 @@ Une réponse réussie retourne un état 204 et aucun JSON du corps de réponse.
 
 Lorsque votre application dispose d’apprentissage actif est activé et que vous exportez l’application, le `SuggestedQuestions` colonne dans le fichier tsv conserve les données d’apprentissage actif. 
 
-Le `SuggestedQuestions` colonne est un objet JSON d’informations d’implicite (`autosuggested`) et explicites (`usersuggested`) des commentaires. Un exemple de cet objet JSON pour une seule question soumises par l’utilisateur de `help` est :
+Le `SuggestedQuestions` colonne est un objet JSON d’informations d’implicite, `autosuggested`et explicites, `usersuggested` des commentaires. Un exemple de cet objet JSON pour une seule question soumises par l’utilisateur de `help` est :
 
 ```JSON
 [

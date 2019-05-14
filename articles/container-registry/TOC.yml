@@ -23,8 +23,10 @@
       items:
         - name: 1 - Générer des images dans Azure
           href: container-registry-tutorial-quick-task.md
-        - name: 2 - Automatiser des générations d’images
+        - name: 2a - Générer automatiquement lors de la validation du code
           href: container-registry-tutorial-build-task.md
+        - name: 2b - Tâche multiétape lors de la validation du code
+          href: container-registry-tutorial-multistep-task.md
         - name: 3 - Mettre à jour les générations d’images de base
           href: container-registry-tutorial-base-image-update.md
     - name: Géorépliquer un registre
@@ -84,7 +86,7 @@
               href: container-registry-auth-aci.md
             - name: S’authentifier à partir d’Azure Kubernetes Service (AKS)
               href: container-registry-auth-aks.md
-        - name: Approbation du contenu (préversion)
+        - name: Approbation du contenu
           href: container-registry-content-trust.md
     - name: Création et correctif
       items:

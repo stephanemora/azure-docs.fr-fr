@@ -315,8 +315,9 @@
                 - name: Status Monitor
                   href: app/monitor-performance-live-website-now.md
                 - name: "Status Monitor version\_2"
-                  href: app/status-monitor-v2-overview.md
                   items:
+                    - name: Vue d’ensemble
+                      href: app/status-monitor-v2-overview.md
                     - name: Prise en main
                       href: app/status-monitor-v2-get-started.md
                     - name: Instructions détaillées
@@ -558,7 +559,7 @@
                   href: app/usage-workbooks.md
             - name: Solution Analytics d’application web
               href: insights/azure-web-apps-analytics.md
-            - name: Applications hébergées Kubernetes
+            - name: Superviser les applications Kubernetes
               href: app/kubernetes.md
         - name: Analyser les conteneurs
           items:
@@ -632,8 +633,18 @@
                   href: insights/vminsights-known-issues.md
                 - name: Forum Aux Questions
                   href: insights/vminsights-faq.md
-                - name: Intégrer
-                  href: insights/vminsights-onboard.md
+                - name: Activer la supervision
+                  items:
+                    - name: Vue d’ensemble de l’activation de la supervision
+                      href: insights/vminsights-enable-overview.md
+                    - name: Activer pour une seule machine virtuelle Azure
+                      href: insights/vminsights-enable-single-vm.md
+                    - name: Activer à l’aide d’Azure Policy
+                      href: insights/vminsights-enable-at-scale-policy.md
+                    - name: Activer à l’aide d’Azure PowerShell
+                      href: insights/vminsights-enable-at-scale-powershell.md
+                    - name: Activer pour un environnement hybride
+                      href: insights/vminsights-enable-hybrid-cloud.md
                 - name: Surveiller l’intégrité
                   href: insights/vminsights-health.md
                 - name: Mapper des dépendances

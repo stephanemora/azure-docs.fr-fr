@@ -20,7 +20,7 @@ Pour déployer l’exemple de blueprint Services partagés ISO 27001 pour Azure
 
 > [!div class="checklist"]
 > - Créer un blueprint à partir de l’exemple
-> - Marquez la copie de l’exemple en tant que **Publié**
+> - Marquer la copie de l’exemple en tant que **Publié**
 > - Affecter votre copie du blueprint à un abonnement existant
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free) avant de commencer.
