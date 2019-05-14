@@ -32,7 +32,6 @@ La protection de mot de passe Azure AD est conçue avec ces principes à l’esp
 * Aucun niveau fonctionnel Active Directory minimum n'est requis ni pour le domaine ou ni pour la forêt (DFL/FFL).
 * Le logiciel ne crée pas et n'exige pas de comptes dans les domaines Active Directory qu’il protège.
 * Les mots de passe utilisateur en texte clair ne quittent jamais le contrôleur de domaine, que ce soit pendant les opérations de validation de mot de passe ou à tout autre moment.
-
 * Le logiciel ne dépend d'aucune autre fonctionnalité Azure AD ; par exemple la synchronisation du hachage de mot de passe Azure AD n’est pas liée et n’est pas requise pour que fonctionne la protection de mot de passe Azure AD.
 * Le déploiement incrémentiel est pris en charge, mais la stratégie de mot de passe est appliquée uniquement où est installé l’Agent de contrôleur de domaine (DC Agent). Consultez la rubrique suivante pour plus d’informations.
 
