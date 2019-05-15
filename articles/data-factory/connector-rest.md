@@ -55,7 +55,7 @@ Les propriétés prises en charge pour le service lié REST sont les suivantes 
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | Le **type** propriété doit être définie sur **RestService**. | Oui |
+| type | Le **type** propriété doit être définie sur **RestService**. | Oui |
 | url | URL de base du service REST. | Oui |
 | enableServerCertificateValidation | Indique s’il faut ou non valider le certificat SSL côté serveur lors de la connexion au point de terminaison. | Non <br /> (la valeur par défaut est **true**) |
 | authenticationType | Type d’authentification utilisé pour se connecter au service REST. Les valeurs autorisées sont **Anonyme**, **De base**, **AadServicePrincipal** et **ManagedServiceIdentity**. Pour d’autres propriétés et exemples, voir les sections correspondantes ci-dessous. | Oui |
@@ -102,7 +102,7 @@ Définissez la propriété **authenticationType** sur **AadServicePrincipal**. O
 |:--- |:--- |:--- |
 | servicePrincipalId | Spécifiez l’ID de l’application Azure Active Directory. | Oui |
 | servicePrincipalKey | Spécifiez la clé de l’application Azure Active Directory. Marquez ce champ en tant que **SecureString** afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui |
-| locataire | Spécifiez les informations de locataire (nom de domaine ou ID de locataire) dans lesquels se trouve votre application. Récupérez-le en pointant la souris dans le coin supérieur droit du Portail Azure. | Oui |
+| tenant | Spécifiez les informations de locataire (nom de domaine ou ID de locataire) dans lesquels se trouve votre application. Récupérez-le en pointant la souris dans le coin supérieur droit du Portail Azure. | Oui |
 | aadResourceId | Spécifiez la ressource AAD pour laquelle vous demandez une autorisation, par exemple, `https://management.core.windows.net`.| Oui |
 
 **Exemple**
@@ -169,11 +169,11 @@ Pour copier des données à partir de REST, les propriétés suivantes sont pris
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété **type** du jeu de données doit être définie sur **RestResource**. | Oui |
+| type | La propriété **type** du jeu de données doit être définie sur **RestResource**. | Oui |
 | relativeUrl | URL relative de la ressource qui contient les données. Quand cette propriété n’est pas spécifiée, seule l’URL indiquée dans la définition du service lié est utilisée. | Non  |
 | requestMethod | Méthode HTTP. Les valeurs autorisées sont **Get** (par défaut) et **Post**. | Non  |
 | additionalHeaders | En-têtes de requête HTTP supplémentaires. | Non  |
-| RequestBody | Corps de la requête HTTP. | Non  |
+| requestBody | Corps de la requête HTTP. | Non  |
 | paginationRules | Règles de pagination pour composer des requêtes de page suivantes. Pour plus de détails, voir la section [Prise en charge la pagination](#pagination-support). | Non  |
 
 **Exemple 1 : Utilisation de la méthode Get avec la pagination**
@@ -232,7 +232,7 @@ Les propriétés prises en charge dans la section **source** de l’activité de
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété **type** de la source d’activité de copie doit être définie sur **RestSource**. | Oui |
+| type | La propriété **type** de la source d’activité de copie doit être définie sur **RestSource**. | Oui |
 | httpRequestTimeout | Délai d’expiration (valeur **TimeSpan**) pour l’obtention d’une réponse par la requête HTTP. Cette valeur correspond au délai d’expiration pour l’obtention d’une réponse, et non au délai d’expiration pour la lecture des données de la réponse. La valeur par défaut est **00:01:40**.  | Non  |
 | requestInterval | Durée d’attente avant d’envoyer la requête de page suivante. La valeur par défaut est **00:00:01** |  Non  |
 
