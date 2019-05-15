@@ -165,7 +165,7 @@
           href: grant-access-to-create-subscription.md
         - name: S’authentifier auprès des locataires
           href: authenticate-multi-tenant.md
-    - name: Auditer les déploiements
+    - name: Auditer les changements
       items:
         - name: Afficher les journaux d’activité
           href: resource-group-audit.md

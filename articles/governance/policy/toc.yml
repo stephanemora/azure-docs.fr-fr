@@ -280,6 +280,9 @@
     - name: Remédier aux ressources non conformes
       displayName: 'managed identity, task, definition, roleDefinitionIds'
       href: ./how-to/remediate-resources.md
+    - name: Activer Azure Monitor pour machines virtuelles (préversion)
+      displayName: 'insights, log analytics, builtin'
+      href: ../../azure-monitor/insights/vminsights-enable-at-scale-policy.md?toc=/azure/governance/policy/toc.json
 - name: Informations de référence
   items:
     - name: Azure CLI

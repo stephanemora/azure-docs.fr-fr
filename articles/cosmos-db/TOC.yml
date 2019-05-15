@@ -512,6 +512,8 @@
           href: data-explorer.md
         - name: Gérer les stratégies d’indexation
           href: how-to-manage-indexing-policy.md
+        - name: Définir des clés uniques
+          href: how-to-define-unique-keys.md
         - name: Exemples de sous-requêtes SQL
           displayName: 'subquery, exists'
           href: how-to-sql-subquery.md
