@@ -6,15 +6,15 @@ author: mhopkins-msft
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 11/14/2018
+ms.date: 05/09/2019
 ms.author: mhopkins
 ms.reviewer: seguler
-ms.openlocfilehash: 0b7a7ac7b8a71f33871247a1117c16609bbbcd88
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 2728ac93abd18f929dc6e82cfb471ce33fe8866f
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65191051"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65508020"
 ---
 # <a name="quickstart-use-net-to-create-a-blob-in-object-storage"></a>Démarrage rapide : Utiliser .NET pour créer un objet blob dans le stockage d’objets
 
@@ -24,7 +24,7 @@ Dans ce guide de démarrage rapide, vous apprenez à utiliser la bibliothèque c
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
-Ensuite, téléchargez et installez .NET Core 2.0 pour votre système d’exploitation. Si vous exécutez Windows, vous pouvez installer Visual Studio et utiliser .NET Framework. Vous pouvez aussi, si vous voulez, installer un éditeur à utiliser avec votre système d’exploitation.
+Ensuite, téléchargez et installez .NET Core 2.1 pour votre système d’exploitation. Si vous exécutez Windows, vous pouvez installer Visual Studio et utiliser .NET Framework. Vous pouvez aussi, si vous voulez, installer un éditeur à utiliser avec votre système d’exploitation.
 
 # <a name="windowstabwindows"></a>[Windows](#tab/windows)
 
@@ -288,8 +288,8 @@ Consultez ces ressources supplémentaires sur le développement .NET avec le sto
 
 ### <a name="binaries-and-source-code"></a>Fichiers binaires et code source
 
-- Téléchargez le package NuGet pour obtenir la dernière version de la [bibliothèque de client .NET](https://www.nuget.org/packages/WindowsAzure.Storage/) pour le stockage Azure.
-- Consultez le [code source de la bibliothèque de client .NET](https://github.com/Azure/azure-storage-net) sur GitHub.
+- Téléchargez le package NuGet afin d’obtenir la dernière version de la [bibliothèque de client .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/) pour le stockage Blob Azure.
+- Accédez au [kit Microsoft Azure Storage Blob SDK contenant le code source .NET](https://github.com/Azure/azure-storage-net/tree/master/Blob) sur GitHub.
 
 ### <a name="client-library-reference-and-samples"></a>Référence et exemples de la bibliothèque de client
 
@@ -300,10 +300,10 @@ Consultez ces ressources supplémentaires sur le développement .NET avec le sto
 
 Dans ce démarrage rapide, vous avez appris à charger, télécharger et répertorier des objets blob avec .NET.
 
-Pour apprendre à créer une application web qui peut charger une image dans le Stockage Blob, poursuivez vers [Charger des données d’image dans le cloud avec le Stockage Azure](storage-upload-process-images.md).
+Pour savoir comment créer une application web qui charge une image dans le stockage Blob, consultez :
 
 > [!div class="nextstepaction"]
-> [Guide pratique des opérations Stockage Blob](storage-dotnet-how-to-use-blobs.md)
+> [Charger et traiter une image](storage-upload-process-images.md)
 
 - Pour en savoir plus sur .NET Core, consultez [Prise en main de .NET en 10 minutes](https://www.microsoft.com/net/learn/get-started/).
 - Pour explorer un exemple d’application que vous pouvez déployer depuis Visual Studio pour Windows, consultez l’[exemple d’application web de la galerie de photos .NET avec le Stockage Blob Azure](https://azure.microsoft.com/resources/samples/storage-blobs-dotnet-webapp/).
