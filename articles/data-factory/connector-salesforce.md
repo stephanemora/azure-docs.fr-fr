@@ -62,7 +62,7 @@ Les propriétés suivantes sont prises en charge pour le service lié Salesforce
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type |La propriété de type doit être définie sur **Salesforce**. |Oui |
+| type |La propriété de type doit être définie sur **Salesforce**. |Oui |
 | environmentUrl | Spécifiez l’URL de l’instance Salesforce. <br> - La valeur par défaut est `"https://login.salesforce.com"`. <br> - Pour copier des données du bac à sable, spécifiez `"https://test.salesforce.com"`. <br> - Pour copier les données du domaine personnalisé, spécifiez, par exemple, `"https://[domain].my.salesforce.com"`. |Non  |
 | username |Spécifiez un nom d’utilisateur pour le compte d’utilisateur. |Oui |
 | password |Spécifiez le mot de passe du compte d’utilisateur.<br/><br/>Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). |Oui |
@@ -140,7 +140,7 @@ Pour copier des données depuis et vers Salesforce, définissez la propriété d
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété de type doit être définie sur **SalesforceObject**.  | Oui |
+| type | La propriété de type doit être définie sur **SalesforceObject**.  | Oui |
 | objectApiName | Nom d’objet Salesforce duquel extraire des données. | Non pour Source, Oui pour Récepteur |
 
 > [!IMPORTANT]
@@ -171,7 +171,7 @@ Pour copier des données depuis et vers Salesforce, définissez la propriété d
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type du jeu de données doit être définie sur **RelationalTable**. | Oui |
+| type | La propriété type du jeu de données doit être définie sur **RelationalTable**. | Oui |
 | tableName | Nom de la table dans Salesforce. | Non (si « query » est spécifié dans la source de l’activité) |
 
 ## <a name="copy-activity-properties"></a>Propriétés de l’activité de copie
@@ -184,7 +184,7 @@ Pour copier des données à partir de Salesforce, définissez le type de source 
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété de type de la source d’activité de copie doit être définie sur **SalesforceSource**. | Oui |
+| type | La propriété de type de la source d’activité de copie doit être définie sur **SalesforceSource**. | Oui |
 | query |Utilise la requête personnalisée pour lire des données. Vous pouvez utiliser une requête SQL-92 ou [SOQL (Salesforce Object Query Language)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm). Retrouvez d’autres conseils dans la section [Conseils de requête](#query-tips). Si la requête n’est pas spécifiée, toutes les données de l’objet Salesforce spécifié au niveau de la propriété « objectApiName » du jeu de données seront récupérées. | Non (si « objectApiName » est spécifié dans le jeu de données) |
 | readBehavior | Indique si seuls les enregistrements existants doivent être interrogés ou si tous les enregistrements, y compris ceux qui ont été supprimés, doivent être interrogés. Si rien n’est spécifié, le comportement par défaut appliqué est le premier. <br>Valeurs autorisées : **query** (valeur par défaut), **queryAll**.  | Non  |
 
@@ -234,7 +234,7 @@ Pour copier des données vers Salesforce, définissez le type de récepteur sur 
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété de type du récepteur d’activité de copie doit être définie sur **SalesforceSink**. | Oui |
+| type | La propriété de type du récepteur d’activité de copie doit être définie sur **SalesforceSink**. | Oui |
 | writeBehavior | Comportement d’écriture de l’opération.<br/>Les valeurs autorisées sont **Insert** et **Upsert**. | Non (la valeur par défaut est un point Insert) |
 | externalIdFieldName | Nom du champ ID externe pour l’opération upsert. Le champ spécifié doit être défini en tant que « Champ Id externe » dans l’objet Salesforce. Il ne peut pas avoir de valeurs NULL dans les données d’entrée correspondantes. | Oui, pour « Upsert » |
 | writeBatchSize | Nombre de lignes de données écrites dans Salesforce pour chaque lot. | Non (valeur par défaut : 5,000) |
@@ -315,24 +315,24 @@ Lorsque vous copiez des données de Salesforce, les mappages suivants sont utili
 
 | Type de données Salesforce | Type de données intermédiaires d’Azure Data Factory |
 |:--- |:--- |
-| Numérotation automatique |String |
-| Case à cocher |Boolean |
-| Devise |Decimal |
+| Auto Number |String |
+| Checkbox |Boolean |
+| Currency |Decimal |
 | Date |DateTime |
-| Date/Heure |DateTime |
+| Date/Time |DateTime |
 | Email |String |
-| ID |String |
-| Relation de recherche |String |
-| Liste déroulante à sélection multiple |String |
+| Id |String |
+| Lookup Relationship |String |
+| Multi-Select Picklist |String |
 | Number |Decimal |
-| Pourcentage |Decimal |
-| Téléphone |String |
-| Liste déroulante |String |
+| Percent |Decimal |
+| Phone |String |
+| Picklist |String |
 | Text |String |
-| Zone de texte |String |
-| Zone de texte (long) |String |
-| Zone de texte (enrichi) |String |
-| Texte (chiffré) |String |
+| Text Area |String |
+| Text Area (Long) |String |
+| Text Area (Rich) |String |
+| Text (Encrypted) |String |
 | URL |String |
 
 ## <a name="next-steps"></a>Étapes suivantes
