@@ -5,15 +5,15 @@ metadata:
   title: 'Documentation de l’API Recherche de vidéos Bing - Tutoriels, guides de démarrage rapide, informations de référence sur l’API | Microsoft Docs'
   description: Découvrez comment utiliser l’API Recherche de vidéos Bing et trouver des vidéos sur le web.
   services: cognitive-services
-  author: mikedodaro
-  manager: rosh
+  author: aahill
+  manager: nitinme
   ms.service: cognitive-services
   ms.subservice: bing-video-search
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 01/31/2019
-  ms.author: v-gedod
+  ms.author: aahi
 abstract:
   description: 'L’API Recherche de vidéos Bing vous permet d’intégrer les fonctionnalités Bing de recherche de vidéos à vos applications. En envoyant des requêtes de recherche à l’API, vous pouvez obtenir et afficher des vidéos pertinentes et de qualité comparables à celles de bing.com/videos.'
 sections:

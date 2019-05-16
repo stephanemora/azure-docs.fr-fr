@@ -6,8 +6,8 @@ metadata:
   title: Documentation de l’API Recherche d’entreprises locales Bing
   description: L’API Recherche d’entreprises locales Bing est un service RESTful permettant à vos applications de rechercher des entreprises à proximité à l’aide de requêtes.
   services: cognitive-services
-  author: mikedodaro
-  manager: rosh
+  author: aahill
+  manager: nitinme
   ms.subservice: bing-local-business
   ms.tgt_pltfrm: na
   ms.devlang: na

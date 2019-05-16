@@ -558,6 +558,7 @@
             - name: Solution Analytics d’application web
               href: insights/azure-web-apps-analytics.md
             - name: Superviser les applications Kubernetes
+              displayname: 'aks, microservice, istio, service mesh, application monitoring'
               href: app/kubernetes.md
         - name: Analyser les conteneurs
           items:

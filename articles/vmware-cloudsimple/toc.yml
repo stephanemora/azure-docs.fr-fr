@@ -138,18 +138,16 @@
               href: 'https://docs.azure.cloudsimple.com/set-vcenter-identity/'
             - name: Azure Application Gateway avec des machines virtuelles VMware
               href: 'https://docs.azure.cloudsimple.com/azure-application-gateway/'
-            - name: Équilibreur de charge public Azure avec des machines virtuelles VMware
-              href: 'https://docs.azure.cloudsimple.com/load-balancers/'
             - name: Configurer le serveur vCenter de cloud privé comme point de terminaison Automation vRealize
               href: 'https://docs.azure.cloudsimple.com/configure-server-vra-endpoint/'
             - name: Migrer des machines virtuelles de charge de travail vers un cloud privé
               href: 'https://docs.azure.cloudsimple.com/migrate-workloads/'
             - name: Garantir la haute disponibilité des applications dans VMware sur Azure
-              href: 'https://docs.azure.cloudsimple.com/ha-ensuring/'
+              href: 'https://docs.azure.cloudsimple.com/ensuring-high-availability/'
         - name: Écosystème VMware
           items:
             - name: Sauvegarder des machines virtuelles de charge de travail
-              href: 'https://docs.azure.cloudsimple.com/veeam/'
+              href: 'https://docs.azure.cloudsimple.com/backup-workloads-veeam/'
             - name: Guide de la solution VMware Horizon
               href: 'https://docs.azure.cloudsimple.com/horizon-guide/'
             - name: Configurer le chiffrement vSAN pour votre cloud privé
@@ -161,6 +159,6 @@
             - name: Source d’identité Azure AD sur le serveur vCenter de cloud privé
               href: 'https://docs.azure.cloudsimple.com/azure-ad/'
             - name: Connexion au réseau local avec ExpressRoute
-              href: 'https://docs.azure.cloudsimple.com/er-connection/'
+              href: 'https://docs.azure.cloudsimple.com/on-premises-connection/'
             - name: Connexion au réseau virtuel Azure avec ExpressRoute
-              href: 'https://docs.azure.cloudsimple.com/azure-er-connection/'
+              href: 'https://docs.azure.cloudsimple.com/azure-expressroute-connection/'

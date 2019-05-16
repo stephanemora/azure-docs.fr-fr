@@ -6,15 +6,15 @@ metadata:
   title: "Documentation de l’API Recherche d’actualités Bing\_- Tutoriels, guides de démarrage rapide, informations de référence de l’API\_| Microsoft Docs"
   description: Découvrez comment utiliser l’API Recherche d’actualités Bing pour rechercher des actualités sur le web.
   services: cognitive-services
-  author: mikedodaro
-  manager: rosh
+  author: aahill
+  manager: nitinme
   ms.service: cognitive-services
   ms.subservice: bing-video-search
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 01/16/2019
-  ms.author: v-gedod
+  ms.author: aahi
 abstract:
   description: 'L’API Recherche d’actualités Bing vous permet d’intégrer les fonctionnalités Bing de recherche d’actualités à vos applications. En envoyant des requêtes de recherche avec l’API, vous pouvez obtenir des articles d’actualité pertinents provenant de différentes catégories et sources, comme sur bing.com/news.'
 sections:

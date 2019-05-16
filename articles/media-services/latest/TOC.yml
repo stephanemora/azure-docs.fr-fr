@@ -182,7 +182,6 @@
             - name: Se connecter à Postman
               href: media-rest-apis-with-postman.md
         - name: Développer avec des kits SDK
-          href: developers-guide.md
           items:
             - name: Se connecter à Java
               href: configure-connect-java-howto.md
@@ -222,10 +221,13 @@
         - name: Encoder avec une transformation personnalisée
           items:
             - name: Avec .NET
+              displayName: 'encode, encoding, custom, transform'
               href: customize-encoder-presets-how-to.md
             - name: Avec l’interface CLI
+              displayName: 'encode, encoding, custom, transform'
               href: custom-preset-cli-howto.md
             - name: Avec REST
+              displayName: 'encode, encoding, custom, transform'
               href: custom-preset-rest-howto.md
     - name: Utiliser Event Grid
       items:

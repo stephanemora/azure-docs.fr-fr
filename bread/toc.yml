@@ -671,14 +671,14 @@
           items:
             - name: Déploiements classiques Linux
               tocHref: /azure/virtual-machines/linux/classic/
-              topicHref: /azure/virtual-machines/linux/classic/
+              topicHref: /previous-versions/azure/virtual-machines/linux/classic/
         - name: Windows
           tocHref: /azure/virtual-machines/windows/
           topicHref: /azure/virtual-machines/windows/
           items:
             - name: Déploiements classiques Windows
               tocHref: /azure/virtual-machines/windows/classic/
-              topicHref: /azure/virtual-machines/windows/classic/
+              topicHref: /previous-versions/azure/virtual-machines/windows/classic/
             - name: Machine virtuelle SQL
               tocHref: /azure/virtual-machines/windows/sql
               topicHref: /azure/virtual-machines/windows/sql
