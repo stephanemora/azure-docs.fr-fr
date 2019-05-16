@@ -347,7 +347,7 @@ L’interface utilisateur est définie en XAML, par conséquent, vous n’avez p
    // In the following sections, we'll add code below this.
    ```
 
-Cette méthode effectue une itération sur le dictionnaire `languageCodesAndTitles` et ajoute chaque clé aux deux menus. Une fois les menus remplis, les langues source et cible par défaut sont définies sur **Détecter** et **Anglais** respectivement.
+Cette méthode effectue une itération sur le dictionnaire `languageCodesAndTitles` et ajoute chaque clé aux deux menus. Une fois les menus remplis, les langues source et cible par défaut sont définies sur **Detect** et **English** respectivement.
 
 > [!TIP]
 > Si nous ne définissons pas de sélection par défaut pour nos menus, l’utilisateur peut cliquer sur **Traduire** sans choisir de langue source ou cible. Les valeurs par défaut évitent d’avoir à résoudre ce problème.
