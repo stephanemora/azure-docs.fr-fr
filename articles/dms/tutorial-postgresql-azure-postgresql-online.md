@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 05/01/2019
-ms.openlocfilehash: 67212986e0478a03ac2ef1b5f30488cc1c7f869d
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.date: 05/08/2019
+ms.openlocfilehash: d7bd2555753df4c12404844c86be8f0339d88e23
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65137417"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65415701"
 ---
 # <a name="tutorial-migrate-postgresql-to-azure-database-for-postgresql-online-using-dms"></a>Didacticiel : Migrer PostgreSQL vers Azure Database pour PostgreSQL en ligne à l’aide de DMS
 
@@ -24,7 +24,6 @@ Vous pouvez utiliser Azure Database Migration Service pour migrer les bases de d
 
 Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > [!div class="checklist"]
-
 > * Migrez l’exemple de schéma à l’aide de l’utilitaire pg_dump.
 > * Créer une instance Azure Database Migration Service.
 > * Créer un projet de migration en utilisant Azure Database Migration Service.
@@ -46,10 +45,10 @@ Pour suivre ce didacticiel, vous devez effectuer les opérations suivantes :
     En outre, la version PostgreSQL locale doit correspondre à la version Azure Database pour PostgreSQL. Par exemple, PostgreSQL 9.5.11.5 ne peut migrer que vers Azure Database pour PostgreSQL 9.5.11 et pas vers la version 9.6.7.
 
     > [!NOTE]
-    > Pour PostgreSQL version 10, DMS prend uniquement en charge la migration de la version 10.3 vers Azure Database pour PostgreSQL. Nous prévoyons très prochainement de prendre en charge des versions plus récentes de PostgreSQL.
+    > Pour PostgreSQL version 10, DMS prend uniquement en charge la migration de la version 10.3 vers Azure Database pour PostgreSQL.
 
 * [Créer une instance dans Azure Database pour PostgreSQL](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal).  
-* Créez un réseau virtuel Azure (VNet) pour le service Azure Database Migration Service à l’aide du modèle de déploiement Azure Resource Manager, qui fournit une connectivité de site à site à vos serveurs sources locaux via [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) ou une passerelle [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
+* Créez un réseau virtuel Azure (VNet) pour le service Azure Database Migration Service à l’aide du modèle de déploiement Azure Resource Manager, qui fournit une connectivité de site à site à vos serveurs sources locaux via [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) ou une passerelle [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). Pour plus d’informations sur la création d’un réseau virtuel, consultez la [documentation sur le réseau virtuel](https://docs.microsoft.com/azure/virtual-network/), en particulier les articles sur le démarrage rapide, qui fournissent des informations pas à pas.
 
     > [!NOTE]
     > Pendant la configuration du réseau virtuel, si vous utilisez ExpressRoute avec le peering réseau à Microsoft, ajoutez ces [points de terminaison](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) au sous-réseau où doit être provisionné le service :
@@ -65,6 +64,7 @@ Pour suivre ce didacticiel, vous devez effectuer les opérations suivantes :
 * Lorsque vous utilisez une appliance de pare-feu devant vos bases de données sources, vous devrez peut-être ajouter des règles de pare-feu pour permettre à Azure Database Migration Service d’accéder aux bases de données sources pour la migration.
 * Créez une [règle de pare-feu](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) de niveau serveur pour Azure Database pour PostgreSQL afin de permettre à Azure Database Migration Service d’accéder aux bases de données cibles. Fournissez la plage de sous-réseau du réseau virtuel utilisé pour Azure Database Migration Service.
 * Il existe deux méthodes pour appeler l’interface CLI :
+
     * Dans l’angle supérieur droit du portail Azure, sélectionnez le bouton Cloud Shell :
 
        ![Bouton Cloud Shell du portail Azure](media/tutorial-postgresql-to-azure-postgresql-online/cloud-shell-button.png)
@@ -210,6 +210,7 @@ Pour compléter tous les objets de base de données tels que les schémas de tab
    ```
 
    Par exemple, la commande suivante crée un service dans :
+
    * Emplacement : Est des États-Unis 2
    * Abonnement : 97181df2-909d-420b-ab93-1bff15acb6b7
    * Nom du groupe de ressources : PostgresDemo

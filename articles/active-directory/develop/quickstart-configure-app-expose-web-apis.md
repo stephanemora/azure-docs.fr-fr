@@ -1,10 +1,10 @@
 ---
-title: Configurer une application pour exposer les API web (préversion) | Azure
+title: Configurer une application pour exposer des API web - Plateforme d’identités Microsoft
 description: Découvrez comment configurer une application pour exposer une nouvelle autorisation/étendue ainsi qu’un rôle pour rendre l’application disponible sur les applications clientes.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/25/2018
-ms.author: celested
+ms.date: 05/08/2019
+ms.author: ryanwi
 ms.custom: aaddev
-ms.reviewer: lenalepa, sureshja
+ms.reviewer: aragra, lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a8ff17656978e6e4e8741c19cda79743560481a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1148fb221e82963ea39ece3e18598e38d633238d
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58080843"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65413951"
 ---
-# <a name="quickstart-configure-an-application-to-expose-web-apis-preview"></a>Démarrage rapide : Configurer une application pour exposer les API web (préversion)
+# <a name="quickstart-configure-an-application-to-expose-web-apis"></a>Démarrage rapide : Configurer une application pour exposer des API web
 
 Vous pouvez développer une API web et la mettre à disposition des applications clientes en exposant l’[autorisation/étendue](developer-glossary.md#scopes) et les [rôles](developer-glossary.md#roles). Une API web correctement configurée peut être mise à disposition tout comme les autres API web Microsoft, notamment l'API Graph et les API Office 365.
 
@@ -37,15 +37,14 @@ Pour commencer, assurez-vous de remplir ces conditions préalables :
 * Découvrez les [autorisations et consentement](v2-permissions-and-consent.md) pris en charge qu’il est important de comprendre lors de la création d’applications devant être utilisées par d’autres utilisateurs ou applications.
 * Disposez d’un locataire auprès duquel des applications sont inscrites.
   * Si vous n’avez pas d’applications inscrites, [découvrez comment inscrire des applications à l’aide de la plateforme d’identité Microsoft](quickstart-register-app.md).
-* Intégrez l’expérience de préversion pour les inscriptions d’applications dans le portail Azure. Les étapes figurant dans ce démarrage rapide correspondent à la nouvelle interface utilisateur et ne fonctionnent que si vous participez à l’expérience de préversion.
 
 ## <a name="sign-in-to-the-azure-portal-and-select-the-app"></a>Connectez-vous au portail Azure puis sélectionnez l’application
 
 Avant de pouvoir configurer l’application, procédez comme suit :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
-1. Si votre compte vous propose un accès à plusieurs locataires, sélectionnez votre compte en haut à droite et définissez votre session de portail sur le locataire Azure AD souhaité.
-1. Dans le volet de navigation gauche, sélectionnez le service **Azure Active Directory**, sélectionnez ensuite **Inscriptions d’applications (préversion)**.
+1. Si votre compte vous propose un accès à plusieurs locataires, sélectionnez votre compte en haut à droite et définissez votre session de portail sur le locataire Azure AD souhaité.
+1. Dans le volet de navigation de gauche, sélectionnez le service **Azure Active Directory**, puis **Inscriptions d’applications**.
 1. Recherchez et sélectionnez l’application que vous souhaitez configurer. Une fois l’application sélectionnée, vous pourrez voir sa **présentation** ou sa page d’inscription principale.
 1. Pour exposer une nouvelle étendue,choisissez la méthode que vous souhaitez utiliser, l’interface utilisateur ou le manifeste de l'application :
     * [Exposer une nouvelle étendue via l’interface utilisateur](#expose-a-new-scope-through-the-ui)

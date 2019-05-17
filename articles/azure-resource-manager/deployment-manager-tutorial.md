@@ -13,19 +13,22 @@ ms.devlang: na
 ms.date: 04/02/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: a0730073a8d17e063ee3f1364d5914200259c10f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: a4f14a1e68042704ca8e8c49f1bd76b722c90d4d
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58880047"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466296"
 ---
-# <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-private-preview"></a>Didacticiel : Utiliser Azure Deployment Manager avec des modèles Resource Manager (préversion privée)
+# <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-public-preview"></a>Didacticiel : Utiliser Azure Deployment Manager avec des modèles Resource Manager (préversion publique)
 
 Découvrez comment utiliser [Azure Deployment Manager](./deployment-manager-overview.md) pour déployer vos applications dans plusieurs régions. Pour utiliser Deployment Manager, vous devez créer deux modèles :
 
 * **Un modèle de topologie** : décrit les ressources Azure constituant vos applications et l’emplacement où les déployer.
 * **Un modèle de déploiement** : décrit les étapes à suivre lors du déploiement de vos applications.
+
+> [!IMPORTANT]
+> Si votre abonnement est marqué pour les Canaries pour les tests de nouvelles fonctionnalités Azure, vous pouvez utiliser Azure Deployment Manager uniquement en vue du déploiement dans la région des Canaries. 
 
 Ce tutoriel décrit les tâches suivantes :
 
@@ -432,4 +435,4 @@ Lorsque vous n’en avez plus besoin, nettoyez les ressources Azure que vous ave
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez appris à utiliser Azure Deployment Manager. Pour en savoir plus, consultez la [Documentation Azure Resource Manager](/azure/azure-resource-manager/).
+Dans ce didacticiel, vous avez appris à utiliser Azure Deployment Manager. Pour intégrer la supervision de l’intégrité à Azure Deployment Manager, consultez [Tutoriel : Utiliser le contrôle d’intégrité dans Azure Deployment Manager](./deployment-manager-tutorial-health-check.md).

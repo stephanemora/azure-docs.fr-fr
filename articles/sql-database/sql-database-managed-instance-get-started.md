@@ -1,6 +1,6 @@
 ---
-title: 'Portail Azure : Créer une instance managée SQL | Microsoft Docs'
-description: Créez une instance managée SQL, un environnement réseau et une machine virtuelle cliente pour l’accès.
+title: 'Portail Azure : Créer une instance managée SQL Database | Microsoft Docs'
+description: Créez une instance managée SQL Database, un environnement réseau et une machine virtuelle cliente pour l’accès.
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 manager: craigg
-ms.date: 04/10/2019
-ms.openlocfilehash: d94e00c8a475e29ddd671004b8137ba4e6efd107
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.date: 05/07/2019
+ms.openlocfilehash: 09ab4cd44515d90df0e36e2775f50ac33955fe75
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59495035"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466275"
 ---
 # <a name="quickstart-create-an-azure-sql-database-managed-instance"></a>Démarrage rapide : Créer une instance managée Azure SQL Database
 
@@ -28,45 +28,47 @@ Ce guide de démarrage rapide vous montre comment créer une [instance managée]
 
 ## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
 
-Connectez-vous au [Portail Azure](https://portal.azure.com/).
+Connectez-vous au [Portail Azure](https://portal.azure.com/). 
 
 ## <a name="create-a-managed-instance"></a>Créer une instance gérée
 
 Les étapes suivantes détaillent la création d’une instance managée.
 
-1. Sélectionnez **Créer une ressource** dans le coin supérieur gauche du Portail Azure.
+1. Sélectionnez **Créer une ressource** en haut à gauche du portail Azure.
 2. Recherchez **managed instance**, puis sélectionnez **Azure SQL Managed Instance**.
 3. Sélectionnez **Créer**.
 
    ![Créer une instance gérée](./media/sql-database-managed-instance-get-started/managed-instance-create.png)
 
-4. Renseignez le formulaire de l’option **Instance managée SQL** avec les informations demandées, en utilisant les données du tableau suivant :
+4. Renseignez le formulaire de l’option **Instance managée SQL** avec les informations demandées, en utilisant les données du tableau suivant.
 
    | Paramètre| Valeur suggérée | Description |
    | ------ | --------------- | ----------- |
-   | **Abonnement** | Votre abonnement | Abonnement dans lequel vous êtes autorisé à créer des ressources. |
-   |**Nom de l’instance managée**|Nom valide|Pour connaître les noms valides, consultez les [conventions de nommage](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
-   |**Connexion administrateur de l’instance managée**|Nom d’utilisateur non valide|Pour connaître les noms valides, consultez les [conventions de nommage](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). N’utilisez pas « serveradmin », car il s’agit d’un rôle réservé au niveau du serveur.|
-   |**Mot de passe**|Mot de passe valide|Le mot de passe doit contenir au moins 16 caractères et satisfaire aux [exigences de complexité définies](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).|
-   |**Fuseau horaire**|Fuseau horaire devant être respecté par votre instance managée|Pour plus d’informations, consultez [Fuseaux horaires](sql-database-managed-instance-timezone.md).|
-   |**Collation**|Classement à utiliser pour votre instance managée|Si vous migrez des bases de données depuis SQL Server, vérifiez le classement de la source avec `SELECT SERVERPROPERTY(N'Collation')` et utilisez cette valeur. Pour plus d’informations sur les classements, consultez les [classements au niveau du serveur](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-server-collation).|
-   |**Lieu**|Emplacement dans lequel vous souhaitez créer l’instance managée|Pour plus d’informations sur les régions, consultez [Régions Azure](https://azure.microsoft.com/regions/).|
-   |**Réseau virtuel**|Sélectionnez **Créer un réseau virtuel** ou un réseau virtuel et un sous-réseau valides.| Si un réseau/sous-réseau n’est pas disponible, il doit être [modifié pour respecter les exigences réseau](sql-database-managed-instance-configure-vnet-subnet.md) et pour pouvoir être sélectionné comme cible de la nouvelle instance managée. Pour obtenir des informations sur les exigences liées à la configuration de l’environnement réseau d’une instance managée, voir la [configuration d’un réseau virtuel pour une instance managée](sql-database-managed-instance-connectivity-architecture.md). |
-   |**Type de connexion**|Choisissez entre le type de connexion Proxy et Redirection.|Pour plus d’informations sur les types de connexion, consultez [Stratégie de connexion SQL Azure](sql-database-connectivity-architecture.md#connection-policy).|
-   |**Groupe de ressources**|Nouveau groupe de ressources ou groupe de ressources existant.|Pour les noms de groupe de ressources valides, consultez [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Conventions d’affectation de nom).|
+   | **Abonnement** | Votre abonnement. | Abonnement vous autorisant à créer des ressources. |
+   |**Nom de l’instance managée**|Nom valide.|Pour connaître les noms valides, consultez [Conventions d’affectation de noms](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
+   |**Connexion administrateur de l’instance managée**|N’importe quel nom d’utilisateur valide.|Pour connaître les noms valides, consultez [Conventions d’affectation de noms](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). N’utilisez pas « serveradmin », car il s’agit d’un rôle réservé au niveau du serveur.|
+   |**Mot de passe**|Mot de passe valide.|Le mot de passe doit contenir au moins 16 caractères et satisfaire aux [exigences de complexité définies](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).|
+   |**Fuseau horaire**|Fuseau horaire devant être respecté par votre instance managée.|Pour plus d’informations, consultez [Fuseaux horaires](sql-database-managed-instance-timezone.md).|
+   |**Classement**|Classement à utiliser pour votre instance managée.|Si vous migrez des bases de données à partir de SQL Server, vérifiez le classement de la source avec `SELECT SERVERPROPERTY(N'Collation')` et utilisez cette valeur. Pour plus d’informations sur les classements, consultez [Définir ou changer le classement du serveur](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-server-collation).|
+   |**Lieu**|Emplacement dans lequel vous souhaitez créer l’instance managée.|Pour plus d’informations sur les régions, consultez [Régions Azure](https://azure.microsoft.com/regions/).|
+   |**Réseau virtuel**|Sélectionnez **Créer un réseau virtuel** ou un réseau virtuel et un sous-réseau valides.| Si un réseau ou un sous-réseau n’est pas disponible, il doit être [modifié pour respecter les exigences réseau](sql-database-managed-instance-configure-vnet-subnet.md) afin de pouvoir être sélectionné comme cible de la nouvelle instance managée. Pour obtenir des informations sur les exigences liées à la configuration de l’environnement réseau d’une instance managée, consultez [Configurer un réseau virtuel pour une instance managée](sql-database-managed-instance-connectivity-architecture.md). |
+   |**Activer le point de terminaison public**   |Cochez cette option pour activer le point de terminaison public.   |Pour que l’instance managée soit accessible par le biais du point de terminaison de données publiques, vous devez cocher la case **Activer le point de terminaison public**.| 
+   |**Autoriser l’accès depuis**   |Sélectionnez l’une des options suivantes : <ul> <li>**Services Azure**</li> <li>**Internet**</li> <li>**Aucun accès**</li></ul>   |Le portail vous permet de configurer un groupe de sécurité avec un point de terminaison public. </br> </br> Selon votre scénario, sélectionnez l’une des options suivantes : </br> <ul> <li>Services Azure : option recommandée quand vous vous connectez à partir de Power BI ou d’un autre service multilocataire. </li> <li> Internet : utilisez cette option à des fins de test quand vous souhaitez lancer rapidement une instance managée. Son utilisation n’est pas recommandée dans les environnements de production. </li> <li> Aucun accès : cette option crée une règle de sécurité de refus. Vous devez modifier cette règle pour rendre l’instance managée accessible par le biais d’un point de terminaison public. </li> </ul> </br> Pour plus d’informations sur la sécurité du point de terminaison public, consultez [Utilisation d’Azure SQL Database Managed Instance de manière sécurisée avec un point de terminaison public](sql-database-managed-instance-public-endpoint-securely.md).|
+   |**Type de connexion**|Choisissez entre le type de connexion Proxy et Redirection.|Pour plus d’informations sur les types de connexion, consultez [Stratégie de connexion Azure SQL Database](sql-database-connectivity-architecture.md#connection-policy).|
+   |**Groupe de ressources**|nouveau groupe de ressources ou groupe de ressources existant.|Pour les noms de groupe de ressources valides, consultez [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Conventions d’affectation de nom).|
 
-   ![formulaire de l’instance Managed Instance](./media/sql-database-managed-instance-get-started/managed-instance-create-form.png)
+   ![Formulaire d’instance managée](./media/sql-database-managed-instance-get-started/managed-instance-create-form.png)
 
-5. Pour utiliser l’instance managée en tant que groupe de basculement d’instances secondaire, activez la case à cocher de l’option et spécifiez l’instance managée DnsAzurePartner. Cette fonctionnalité est en préversion et ne figure pas dans la capture d’écran qui accompagne cet article.
+5. Pour utiliser l’instance managée en tant que groupe de basculement d’instances secondaire, activez la case à cocher de l’option et spécifiez l’instance managée DnsAzurePartner. Cette fonctionnalité est en préversion et ne figure pas dans la capture d’écran suivante.
 6. Sélectionnez **Niveau tarifaire** pour dimensionner les ressources de calcul et de stockage, ainsi que pour examiner les options de niveau tarifaire. Le niveau tarifaire Usage général avec 32 Go de mémoire et 16 vCores est la valeur par défaut.
 7. Utilisez les curseurs ou zones de texte pour spécifier la quantité de stockage et le nombre de v-cores.
-8. Lorsque vous avez terminé, choisissez **Appliquer** pour enregistrer votre sélection.  
+8. Quand vous avez terminé, sélectionnez **Appliquer** pour enregistrer votre sélection. 
 9. Sélectionnez **Créer** pour déployer l’instance managée.
 10. Sélectionnez l’icône **Notifications** pour afficher l’état du déploiement.
 
-    ![progression du déploiement de Managed Instance](./media/sql-database-managed-instance-get-started/deployment-progress.png)
+    ![Progression du déploiement de l’instance managée](./media/sql-database-managed-instance-get-started/deployment-progress.png)
 
-11. Sélectionnez **Déploiement en cours** pour ouvrir la fenêtre de l’instance managée et superviser de façon plus approfondie la progression du déploiement.
+11. Sélectionnez **Déploiement en cours** pour ouvrir la fenêtre de l’instance managée et superviser de façon plus approfondie la progression du déploiement. 
 
 > [!IMPORTANT]
 > Pour la première instance dans un sous-réseau, la durée de déploiement est généralement plus importante que pour les instances ultérieures. N’annulez pas l’opération de déploiement car elle dure plus longtemps que prévu. La création de la deuxième instance managée dans le sous-réseau ne prend que quelques minutes.
@@ -75,7 +77,7 @@ Les étapes suivantes détaillent la création d’une instance managée.
 
 Une fois le déploiement terminé, passez en revue les ressources créées et récupérez le nom complet du serveur en vue d’une utilisation dans les guides de démarrage rapide ultérieurs.
 
-1. Ouvrez le groupe de ressources de votre instance managée et examinez les ressources créées pour vous dans le démarrage rapide, à la [création d’une instance managée](#create-a-managed-instance).
+1. Ouvrez le groupe de ressources de votre instance managée. Examinez les ressources créées pour vous dans le guide de démarrage rapide, à la [création d’une instance managée](#create-a-managed-instance).
 
    ![Ressources de l’instance managée](./media/sql-database-managed-instance-get-started/resources.png)
 
@@ -85,13 +87,13 @@ Une fois le déploiement terminé, passez en revue les ressources créées et r�
 
 3. Dans la table de routage, passez en revue les entrées pour acheminer le trafic à partir du réseau virtuel de l’instance managée et au sein de celui-ci. Si vous créez ou configurez votre table de routage manuellement, vous devez veiller à créer ces entrées dans la table de routage.
 
-   ![Entrée pour le sous-réseau de l’instance managée sur le trafic local](./media/sql-database-managed-instance-get-started/udr.png)
+   ![Entrée pour un sous-réseau local d’une instance managée](./media/sql-database-managed-instance-get-started/udr.png)
 
 4. Revenez au groupe de ressources et sélectionnez le groupe de sécurité réseau pour examiner les règles de sécurité.
 
    ![Groupe de sécurité réseau](./media/sql-database-managed-instance-get-started/network-security-group.png)
 
-5. Passez en revue les règles de sécurité entrantes et sortantes.
+5. Passez en revue les règles de sécurité entrantes et sortantes. Si vous avez configuré les points de terminaison publics pour votre instance managée, consultez l’article [Configurer un point de terminaison public](sql-database-managed-instance-public-endpoint-configure.md#allow-public-endpoint-traffic-on-the-network-security-group) pour plus d’informations.
 
    ![Règles de sécurité](./media/sql-database-managed-instance-get-started/security-rules.png)
 
@@ -99,7 +101,7 @@ Une fois le déploiement terminé, passez en revue les ressources créées et r�
 
    ![Instance gérée](./media/sql-database-managed-instance-get-started/managed-instance.png)
 
-7. Sous l’onglet **Vue d’ensemble**, recherchez la propriété **Hôte** et copiez l’adresse complète de l’hôte pour l’instance managée, car elle va vous être utile dans le prochain guide de démarrage rapide.
+7. Sous l’onglet **Vue d’ensemble**, recherchez la propriété **Hôte**. Copiez l’adresse complète de l’hôte pour l’instance managée, car vous en aurez besoin dans le prochain guide de démarrage rapide.
 
    ![Nom de l’hôte](./media/sql-database-managed-instance-get-started/host-name.png)
 
@@ -107,9 +109,11 @@ Une fois le déploiement terminé, passez en revue les ressources créées et r�
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour savoir comment se connecter à une instance managée, consultez les références suivantes :
-  - Pour obtenir une vue d’ensemble des options de connexion pour les applications, voir [Connecter vos applications à une instance managée](sql-database-managed-instance-connect-app.md).
-  - Pour obtenir un guide de démarrage rapide montrant comment se connecter à une instance managée à partir d’une machine virtuelle Azure, voir [Configurer une connexion de machine virtuelle Azure](sql-database-managed-instance-configure-vm.md).
-  - Pour obtenir un guide de démarrage rapide montrant comment se connecter à une instance managée à partir d’un ordinateur client local avec une connexion point à site, voir [Configurer une connexion point à site](sql-database-managed-instance-configure-p2s.md).
-- Pour restaurer une base de données SQL Server locale existante vers une instance Managed Instance, vous pouvez utiliser [Azure Database Migration Service (DMS) pour la migration](../dms/tutorial-sql-server-to-managed-instance.md) ou la [commande T-SQL RESTORE](sql-database-managed-instance-get-started-restore.md) afin d’effectuer la restauration à partir d’un fichier de sauvegarde de base de données.
-- Pour une supervision avancée des performances de base de données d’instance managée avec des informations de dépannage intégrées, consultez [Superviser Azure SQL Database avec Azure SQL Analytics](../azure-monitor/insights/azure-sql.md)
+- Pour savoir comment se connecter à une instance managée :
+  - Pour obtenir une vue d’ensemble des options de connexion pour les applications, consultez [Connecter vos applications à une instance managée](sql-database-managed-instance-connect-app.md).
+  - Pour obtenir un guide de démarrage rapide montrant comment se connecter à une instance managée à partir d’une machine virtuelle Azure, consultez [Configurer une connexion de machine virtuelle Azure](sql-database-managed-instance-configure-vm.md).
+  - Pour obtenir un guide de démarrage rapide montrant comment se connecter à une instance managée à partir d’un ordinateur client local avec une connexion point à site, consultez [Configurer une connexion point à site](sql-database-managed-instance-configure-p2s.md).
+- Pour restaurer une base de données SQL Server locale existante dans une instance managée : 
+    - Utilisez [Azure Database Migration Service (DMS) pour la migration](../dms/tutorial-sql-server-to-managed-instance.md) pour effectuer la restauration à partir d’un fichier de sauvegarde de base de données. 
+    - Utilisez la [commande T-SQL RESTORE](sql-database-managed-instance-get-started-restore.md) pour effectuer la restauration à partir d’un fichier de sauvegarde de base de données.
+- Pour une supervision avancée des performances de base de données des instances managées avec des informations de dépannage intégrées, consultez [Superviser Azure SQL Database avec Azure SQL Analytics](../azure-monitor/insights/azure-sql.md).

@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 04/03/2019
-ms.openlocfilehash: d9d57df3ec8e859a1f3257cb54e423d0006286b1
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 05/08/2019
+ms.openlocfilehash: 12a0ebeebbc3bdc205816c5534f59b1385cecb12
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58880183"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65413752"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-database-managed-instance-online-using-dms"></a>Didacticiel : Effectuer la migration en ligne de SQL Server vers une instance managée d’Azure SQL Database à l’aide de DMS
 
@@ -44,17 +44,17 @@ Cet article explique comment effectuer la migration en ligne de SQL Server vers 
 
 Pour suivre ce didacticiel, vous devez effectuer les opérations suivantes :
 
-- Créez un réseau virtuel Azure (VNET) pour le service Azure Database Migration Service à l’aide du modèle de déploiement Azure Resource Manager, qui fournit une connectivité de site à site à vos serveurs sources locaux via [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) ou une passerelle [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). [Découvrez les topologies de réseau pour les migrations d’instances managées d’Azure SQL Database à l’aide du service Azure Database Migration Service](https://aka.ms/dmsnetworkformi).
+- Créez un réseau virtuel Azure (VNet) pour le service Azure Database Migration Service à l’aide du modèle de déploiement Azure Resource Manager, qui fournit une connectivité de site à site à vos serveurs sources locaux via [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) ou une passerelle [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). [Découvrez les topologies de réseau pour les migrations d’instances managées d’Azure SQL Database à l’aide du service Azure Database Migration Service](https://aka.ms/dmsnetworkformi). Pour plus d’informations sur la création d’un réseau virtuel, consultez la [documentation sur le réseau virtuel](https://docs.microsoft.com/azure/virtual-network/), en particulier les articles sur le démarrage rapide, qui fournissent des informations pas à pas.
 
     > [!NOTE]
-    > Pendant la configuration du réseau virtuel, si vous utilisez ExpressRoute avec l’appairage réseau à Microsoft, ajoutez ces [points de terminaison](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) au sous-réseau où doit être provisionné le service :
+    > Pendant la configuration du réseau virtuel, si vous utilisez ExpressRoute avec le peering réseau à Microsoft, ajoutez ces [points de terminaison](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) au sous-réseau où doit être provisionné le service :
     > - Point de terminaison de base de données cible (un point de terminaison SQL ou Cosmos DB, par exemple)
     > - Point de terminaison de stockage
     > - Point de terminaison Service Bus
     >
     > Cette configuration est nécessaire, car Azure Database Migration Service ne dispose pas d’une connectivité Internet.
 
-- Vérifiez que les règles de groupe de sécurité réseau de votre réseau virtuel ne bloquent pas les ports de communication entrants suivants à Azure Database Migration Service : 443, 53, 9354, 445, 12000. Pour plus d’informations sur le filtrage de groupe de sécurité Réseau virtuel Microsoft Azure, consultez l’article [Filtrer le trafic réseau avec les groupes de sécurité réseau](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
+- Vérifiez que les règles du groupe de sécurité réseau de votre réseau virtuel ne bloquent pas les ports de communication entrants suivants d’Azure Database Migration Service : 443, 53, 9354, 445, 12000. Pour plus d’informations sur le filtrage de groupe de sécurité Réseau virtuel Microsoft Azure, consultez l’article [Filtrer le trafic réseau avec les groupes de sécurité réseau](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
 - Configurez [l’accès au moteur de base de données source dans votre Pare-feu Windows](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 - Ouvrez votre Pare-feu Windows pour permettre à Azure Database Migration Service d’accéder au serveur SQL Server source, par défaut le port TCP 1433.
 - Si vous exécutez plusieurs instances nommées de SQL Server avec des ports dynamiques, vous pouvez activer le service SQL Browser et autoriser l’accès au port UDP 1434 à travers vos pare-feu, de sorte qu’Azure Database Migration Service puisse se connecter à une instance nommée sur votre serveur source.
@@ -71,7 +71,8 @@ Pour suivre ce didacticiel, vous devez effectuer les opérations suivantes :
 
 1. Connectez-vous au portail Azure, sélectionnez **Tous les services**, puis **Abonnements**.
 
-    ![Afficher les abonnements au portail](media/tutorial-sql-server-to-managed-instance-online/portal-select-subscriptions.png)        
+    ![Afficher les abonnements au portail](media/tutorial-sql-server-to-managed-instance-online/portal-select-subscriptions.png)
+
 2. Sélectionnez l’abonnement dans lequel vous souhaitez créer l’instance Azure Database Migration Service, puis sélectionnez **Fournisseurs de ressources**.
 
     ![Afficher les fournisseurs de ressources](media/tutorial-sql-server-to-managed-instance-online/portal-select-resource-provider.png)
@@ -96,16 +97,16 @@ Pour suivre ce didacticiel, vous devez effectuer les opérations suivantes :
 
 5. Sélectionnez un réseau virtuel existant ou créez-en un.
 
-    Le réseau virtuel fournit au service Azure Database Migration Service un accès au serveur SQL Server source et à l’instance managée d’Azure SQL Database cible.
+    Le réseau virtuel fournit au service Azure Database Migration Service un accès au serveur SQL Server source et à l’instance managée Azure SQL Database cible.
 
-    Pour plus d’informations sur la création d’un réseau virtuel dans le portail Azure, voir l’article [Créer un réseau virtuel à l’aide du portail Azure](https://aka.ms/DMSVnet).
+    Pour plus d’informations sur la création d’un réseau virtuel dans le portail Azure, consultez l’article [Créer un réseau virtuel à l’aide du portail Azure](https://aka.ms/DMSVnet).
 
     Pour plus d’informations, consultez l’article [Topologies de réseau pour les migrations d’instances managées d’Azure SQL Database à l’aide du service Azure Database Migration Service](https://aka.ms/dmsnetworkformi).
 
 6. Sélectionnez une référence (SKU) dans le niveau tarifaire Premium.
 
     > [!NOTE]
-    > Les migrations en ligne sont uniquement prises en charge lorsque vous utilisez le niveau Premium. 
+    > Les migrations en ligne sont uniquement prises en charge lorsque vous utilisez le niveau Premium.
 
     Pour plus d’informations sur les coûts et les niveaux de tarification, consultez la [page de tarification](https://aka.ms/dms-pricing).
 

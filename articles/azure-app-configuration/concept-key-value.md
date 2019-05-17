@@ -4,22 +4,22 @@ description: Vue d’ensemble de la façon dont les données de configuration so
 services: azure-app-configuration
 documentationcenter: ''
 author: yegu-ms
-manager: balans
+manager: maiye
 editor: ''
 ms.service: azure-app-configuration
 ms.devlang: na
 ms.topic: overview
 ms.workload: tbd
-ms.date: 02/24/2019
+ms.date: 04/19/2019
 ms.author: yegu
-ms.openlocfilehash: 24216d1bf82789d2d0fc312d9af4c06fa3c8cf4e
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 4c741bb86242abfb03d01c902dbaa84d83491dd9
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60011280"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408741"
 ---
-# <a name="key-value-store"></a>stockage clé-valeur
+# <a name="keys-and-values"></a>Clés et valeurs
 
 Azure App Configuration stocke les données de configuration sous la forme de paires clé-valeur. Les paires clé-valeur constituent un moyen simple mais souple de représenter divers types de paramètres d’application que les développeurs connaissent bien.
 
@@ -45,29 +45,27 @@ Vous pouvez organiser hiérarchiquement les clés dans App Configuration de nomb
 
 Voici plusieurs exemples de la façon dont vous pouvez structurer vos noms de clé dans une hiérarchie :
 
-* Selon les environnements
-
-        AppName:Test:DB:Endpoint
-        AppName:Staging:DB:Endpoint
-        AppName:Production:DB:Endpoint
-
 * Selon les services de composants
 
-        AppName:Service1:Test:DB:Endpoint
-        AppName:Service1:Staging:DB:Endpoint
-        AppName:Service1:Production:DB:Endpoint
-        AppName:Service2:Test:DB:Endpoint
-        AppName:Service2:Staging:DB:Endpoint
-        AppName:Service2:Production:DB:Endpoint
+        AppName:Service1:ApiEndpoint
+        AppName:Service2:ApiEndpoint
 
 * Selon les régions de déploiement
 
-        AppName:Production:Region1:DB:Endpoint
-        AppName:Production:Region2:DB:Endpoint
+        AppName:Region1:DbEndpoint
+        AppName:Region2:DbEndpoint
+
+### <a name="label-keys"></a>Clés d’étiquette
+
+Les valeurs de clé peuvent accessoirement porter un attribut d’étiquette dans App Configuration. Les étiquettes sont utilisées pour différencier des valeurs de clé pour une même clé. Une clé *app1* avec des étiquettes *A* et *B* forme deux clés distinctes dans un magasin de configuration d’application. Par défaut, l’étiquette d’une valeur de clé est vide ou `null`.
+
+Label offre un moyen pratique de créer des variantes d’une clé. Les étiquettes sont souvent utilisées pour spécifier plusieurs environnements pour la même clé :
+
+    Key = AppName:DbEndpoint & Label = Test
+    Key = AppName:DbEndpoint & Label = Staging
+    Key = AppName:DbEndpoint & Label = Production
 
 ### <a name="version-key-values"></a>Gestion des versions des valeurs de clé
-
-Les valeurs de clé peuvent accessoirement porter un attribut d’étiquette dans App Configuration. Les étiquettes sont utilisées pour différencier des valeurs de clé pour une même clé. Une clé *app1* avec des étiquettes *v1* et *v2* forment deux valeurs de clé distinctes dans un magasin de configuration d’application. Par défaut, l’étiquette d’une valeur de clé est vide ou `null`.
 
 App Configuration ne gère pas automatiquement les versions des valeurs de clé quand vous les modifiez. Utilisez les étiquettes comme un moyen de créer plusieurs versions d’une valeur de clé. Par exemple, vous pouvez entrer un numéro de version d’application ou un ID de validation Git dans des étiquettes pour identifier les valeurs de clé associées à une build logicielle particulière.
 
@@ -106,5 +104,5 @@ Les données de configuration stockées dans un magasin de configuration d’app
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-> [!div class="nextstepaction"]
-> [Capture instantanée à un point dans le temps](./concept-point-time-snapshot.md)  
+* [Capture instantanée à un point dans le temps](./concept-point-time-snapshot.md)  
+* [Gestion des fonctionnalités](./concept-feature-management.md)  

@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 04/03/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 27102cd6b8e98b0f8b2b4940b92d4e4c4580a9cd
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 15a1e388b17a66bf22fc0fd51744cb0aaa1b36d4
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58904064"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65415526"
 ---
 # <a name="migrate-an-aspnet-app-to-azure-app-service-using-a-windows-container-preview"></a>Migrer une application ASP.NET vers Azure App Service à l’aide d’un conteneur Windows (préversion)
 
@@ -34,7 +34,7 @@ Pour suivre ce tutoriel :
 - <a href="https://hub.docker.com/" target="_blank">Créez un compte Docker Hub</a>
 - <a href="https://docs.docker.com/docker-for-windows/install/" target="_blank">Installez Docker pour Windows</a>.
 - <a href="https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-10" target="_blank">Basculez Docker pour exécuter des conteneurs Windows</a>.
-- <a href="https://www.visualstudio.com/downloads/" target="_blank">Installez Visual Studio 2017</a> avec les charges de travail **Développement web et ASP.NET** et **Développement Azure**. Si vous avez déjà installé Visual Studio 2017 :
+- <a href="https://www.visualstudio.com/downloads/" target="_blank">Installez Visual Studio 2019</a> avec les charges de travail **Développement web et ASP.NET** et **Développement Azure**. Si vous avez déjà installé Visual Studio 2019 :
     - Installez les dernières mises à jour dans Visual Studio en cliquant sur **Aide** > **Rechercher les mises à jour**.
     - Ajoutez les charges de travail dans Visual Studio en cliquant sur **Outils** > **Obtenir des outils et des fonctionnalités**.
 

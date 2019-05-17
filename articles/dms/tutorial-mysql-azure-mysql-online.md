@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 05/01/2019
-ms.openlocfilehash: e92c0b5e02daf08100151e15314399722ffc8763
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.date: 05/08/2019
+ms.openlocfilehash: 409fa3a501b80e225fff299980f374f73f0dbf13
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148789"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65415726"
 ---
 # <a name="tutorial-migrate-mysql-to-azure-database-for-mysql-online-using-dms"></a>Tutoriel : Migration de MySQL vers Azure Database pour MySQL en ligne à l’aide de DMS
 
@@ -37,11 +37,12 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > Pour une expérience de migration optimale, Microsoft vous recommande de créer une instance Azure Database Migration Service dans la même région Azure que la base de données cible. Le déplacement des données entre les régions ou les zones géographiques peut ralentir le processus de migration et introduire des erreurs.
 
 ## <a name="prerequisites"></a>Prérequis
+
 Pour suivre ce didacticiel, vous devez effectuer les opérations suivantes :
 
 * Téléchargez et installez [MySQL Community Edition](https://dev.mysql.com/downloads/mysql/) 5.6 ou 5.7. La version de MySQL locale doit correspondre à la version d’Azure Database pour MySQL. Par exemple, MySQL 5.6 ne peut migrer que vers Azure Database pour MySQL 5.6, et ne peut pas être migré vers 5.7.
 * [Créez une instance dans Azure Database pour MySQL](https://docs.microsoft.com/azure/mysql/quickstart-create-mysql-server-database-using-azure-portal). Consultez l’article [Utilisation de MySQL Workbench pour vous connecter et interroger des données](https://docs.microsoft.com/azure/mysql/connect-workbench) pour plus d’informations sur la connexion et la création d’une base de données à l’aide du portail Azure.  
-* Créez un réseau virtuel Azure (VNET) pour le service Azure Database Migration Service à l’aide du modèle de déploiement Azure Resource Manager, qui fournit une connectivité de site à site à vos serveurs sources locaux via [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) ou une passerelle [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
+* Créez un réseau virtuel Azure (VNet) pour le service Azure Database Migration Service à l’aide du modèle de déploiement Azure Resource Manager, qui fournit une connectivité de site à site à vos serveurs sources locaux via [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) ou une passerelle [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). Pour plus d’informations sur la création d’un réseau virtuel, consultez la [documentation sur le réseau virtuel](https://docs.microsoft.com/azure/virtual-network/), en particulier les articles sur le démarrage rapide, qui fournissent des informations pas à pas.
 
     > [!NOTE]
     > Pendant la configuration du réseau virtuel, si vous utilisez ExpressRoute avec le peering réseau à Microsoft, ajoutez ces [points de terminaison](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) au sous-réseau où doit être provisionné le service :
@@ -51,7 +52,7 @@ Pour suivre ce didacticiel, vous devez effectuer les opérations suivantes :
     >
     > Cette configuration est nécessaire, car Azure Database Migration Service ne dispose pas d’une connectivité Internet.
 
-* Vérifiez que les règles de groupe de sécurité réseau de votre réseau virtuel ne bloquent pas les ports de communication entrants suivants à Azure Database Migration Service : 443, 53, 9354, 445, 12000. Pour plus d’informations sur le filtrage de groupe de sécurité Réseau virtuel Microsoft Azure, consultez l’article [Filtrer le trafic réseau avec les groupes de sécurité réseau](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm).
+* Vérifiez que les règles du groupe de sécurité réseau de votre réseau virtuel ne bloquent pas les ports de communication entrants suivants d’Azure Database Migration Service : 443, 53, 9354, 445, 12000. Pour plus d’informations sur le filtrage de groupe de sécurité Réseau virtuel Microsoft Azure, consultez l’article [Filtrer le trafic réseau avec les groupes de sécurité réseau](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm).
 * Configurez votre [pare-feu Windows pour accéder au moteur de base de données](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 * Ouvrez votre pare-feu Windows pour permettre à Azure Database Migration Service d’accéder au serveur MySQL source, par défaut le port TCP 3306.
 * Lorsque vous utilisez une appliance de pare-feu devant vos bases de données sources, vous devrez peut-être ajouter des règles de pare-feu pour permettre à Azure Database Migration Service d’accéder aux bases de données sources pour la migration.
@@ -74,8 +75,9 @@ Pour suivre ce didacticiel, vous devez effectuer les opérations suivantes :
     * **Expire_logs_days** = 5 (il est recommandé de ne pas utiliser la valeur zéro ; uniquement pour MySQL 5.6)
     * **binlog_row_image** = full (uniquement pour MySQL 5.6)
     * **log_slave_updates** = 1
- 
+
 * L'utilisateur doit avoir le rôle ReplicationAdmin avec les privilèges suivants :
+
     * **CLIENT DE RÉPLICATION** : obligatoire pour les tâches Traitement des changements uniquement. En d’autres termes, les tâches Chargement complet uniquement n’ont pas besoin de ce privilège.
     * **RÉPLICA DE RÉPLICATION** : obligatoire pour les tâches Traitement des changements uniquement. En d’autres termes, les tâches Chargement complet uniquement n’ont pas besoin de ce privilège.
     * **SUPER** : obligatoire uniquement dans les versions antérieures à MySQL 5.6.6.
@@ -169,9 +171,9 @@ SELECT Concat('DROP TRIGGER ', Trigger_Name, ';') FROM  information_schema.TRIGG
 
 4. Sélectionnez un réseau virtuel existant ou créez-en un.
 
-    Le réseau virtuel fournit à Azure Database Migration Service un accès au serveur SQL Server source et à l’instance Azure SQL Database Managed Instance cible.
+    Le réseau virtuel fournit à Azure Database Migration Service un accès au serveur SQL Server source et à l’instance Azure SQL Database cible.
 
-    Pour plus d’informations sur la création d’un réseau virtuel dans le portail Azure, consultez l’article [Créer un réseau virtuel à l’aide du portail Azure](https://aka.ms/DMSVnet).
+    Pour plus d’informations sur la création d’un réseau virtuel dans le portail Azure, consultez l’article [Créer un réseau virtuel au moyen du portail Azure](https://aka.ms/DMSVnet).
 
 5. Sélectionnez un niveau tarifaire.
 

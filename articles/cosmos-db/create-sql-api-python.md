@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: sngun
-ms.openlocfilehash: b257c1dbbed225bee9adfdb427bd036f0230ea47
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: 91a5bf71983511f58fc13a0edf4a1109c3829602
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565059"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65410674"
 ---
 # <a name="azure-cosmos-db-build-a-python-application-using-azure-cosmos-db-sql-api-account"></a>Azure Cosmos DB : Générer une application Python à l’aide du compte d’API SQL Azure Cosmos DB
 
@@ -28,7 +28,7 @@ ms.locfileid: "59565059"
 
 Azure Cosmos DB est le service de base de données multi-modèle de Microsoft distribué à l’échelle mondiale. Vous pouvez rapidement créer et interroger des documents ainsi que des bases de données de clés/valeurs et de graphiques. Toutes ces opérations bénéficient de la distribution et la mise à l’échelle d’Azure Cosmos DB.
 
-Ce démarrage rapide explique comment créer, à l’aide du portail Azure, un compte [API SQL](sql-api-introduction.md) d’Azure Cosmos DB, une base de données de documents, ainsi qu’un conteneur. Ensuite, vous créez et exécutez une application console à l’aide du kit SDK Python pour [l’API SQL](sql-api-sdk-python.md). Ce guide de démarrage rapide utilise la version 3.0 du [kit SDK Python].(https://pypi.org/project/azure-cosmos)
+Ce démarrage rapide explique comment créer, à l’aide du portail Azure, un compte [API SQL](sql-api-introduction.md) d’Azure Cosmos DB, une base de données de documents, ainsi qu’un conteneur. Ensuite, vous créez et exécutez une application console à l’aide du kit SDK Python pour [l’API SQL](sql-api-sdk-python.md). Ce guide de démarrage rapide utilise la version 3.0 du [SDK Python](https://pypi.org/project/azure-cosmos).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)][!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ASP.NET Core
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 29cea7e72d6bd7f64f6cf2a68b7620090ea4eef3
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: e53f0bd1af3940b4d2f653b5ef43170212c09a43
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59995930"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408685"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>Démarrage rapide : Créer une application ASP.NET Core avec Azure App Configuration
 
@@ -28,6 +28,8 @@ Azure App Configuration est un service de configuration managée dans Azure. Vou
 ASP.NET Core génère un objet de configuration basé sur une paire clé-valeur unique, à l’aide des paramètres d’une ou de plusieurs sources de données qui sont spécifiées par une application. Ces sources de données sont appelées *fournisseurs de configuration*. Étant donné que le client .NET Core d’App Configuration est implémenté en tant que fournisseur, le service ressemble à une autre source de données.
 
 Vous pouvez utiliser l’éditeur de code de votre choix pour exécuter les étapes de ce guide de démarrage rapide. [Visual Studio Code](https://code.visualstudio.com/) est une excellente option disponible sur les plateformes Windows, macOS et Linux.
+
+![Démarrage rapide du lancement d’application local](./media/quickstarts/aspnet-core-app-launch-local.png)
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -39,7 +41,7 @@ Pour suivre ce guide de démarrage rapide, installez le [kit SDK .NET Core](http
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Sélectionnez **Explorateur de paires clé-valeur** > **+ Créer** pour ajouter les paires clé-valeur suivantes :
+6. Sélectionnez **Explorateur de configurations** > **+ Créer** pour ajouter les paires clé-valeur suivantes :
 
     | Clé | Valeur |
     |---|---|
@@ -64,7 +66,7 @@ Vous utilisez l’[interface de ligne de commande (CLI) .NET Core](https://docs.
 
 Ajoutez l’outil [Secret Manager](https://docs.microsoft.com/aspnet/core/security/app-secrets) à votre projet. L’outil Secret Manager stocke les données sensibles pour les travaux de développement à l’extérieur de l’arborescence de votre projet. Cette approche empêche le partage accidentel des secrets d’une application au sein du code source.
 
-- Ouvrez votre fichier *.csproj*. Ajoutez un élément `UserSecretsId` comme indiqué ici, et remplacez sa valeur par la vôtre, qui est généralement un GUID. Enregistrez le fichier .
+- Ouvrez le fichier  *.csproj*. Ajoutez un élément `UserSecretsId` comme indiqué ici, et remplacez sa valeur par la vôtre, qui est généralement un GUID. Enregistrez le fichier .
 
     ```xml
     <Project Sdk="Microsoft.NET.Sdk.Web">
@@ -86,7 +88,7 @@ Ajoutez l’outil [Secret Manager](https://docs.microsoft.com/aspnet/core/securi
 
 1. Ajoutez une référence au package NuGet `Microsoft.Extensions.Configuration.AzureAppConfiguration` en exécutant la commande suivante :
 
-        dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration --version 1.0.0-preview-007830001
+        dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration --version 1.0.0-preview-008520001
 
 2. Exécutez la commande suivante pour restaurer les packages de votre projet :
 
@@ -100,11 +102,11 @@ Ajoutez l’outil [Secret Manager](https://docs.microsoft.com/aspnet/core/securi
 
         dotnet user-secrets set ConnectionStrings:AppConfig <your_connection_string>
 
-    Secret Manager est utilisé uniquement pour tester l’application web localement. Une fois que l’application est déployée, par exemple sur [Azure App Service](https://azure.microsoft.com/services/app-service/web), vous utilisez un paramètre d’application, par exemple **Chaînes de connexion** dans App Service. Vous utilisez ce paramètre au lieu de stocker la chaîne de connexion avec Secret Manager.
+    Secret Manager est utilisé uniquement pour tester l’application web localement. Une fois l’application déployée sur [Azure App Service](https://azure.microsoft.com/services/app-service/web), par exemple, vous utilisez un paramètre d’application **Chaînes de connexion** dans App Service au lieu de Secret Manager pour stocker la chaîne de connexion.
 
     L’API de configuration permet d’accéder à ce secret. Un signe deux-points (:) fonctionne dans le nom de configuration avec l’API de configuration sur toutes les plateformes prises en charge. Consultez [Configuration par environnement](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/index?tabs=basicconfiguration&view=aspnetcore-2.0).
 
-4. Ouvrez *Program.cs* et ajoutez une référence à un fournisseur de configuration .NET Core App Configuration.
+4. Ouvrez *Program.cs*, puis ajoutez une référence au fournisseur App Configuration .NET Core.
 
     ```csharp
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
@@ -118,15 +120,12 @@ Ajoutez l’outil [Secret Manager](https://docs.microsoft.com/aspnet/core/securi
             .ConfigureAppConfiguration((hostingContext, config) =>
             {
                 var settings = config.Build();
-                config.AddAzureAppConfiguration(options => {
-                    options.Connect(settings["ConnectionStrings:AppConfig"])
-                           .SetOfflineCache(new OfflineFileCache());
-                });
+                config.AddAzureAppConfiguration(settings["ConnectionStrings:AppConfig"]);
             })
             .UseStartup<Startup>();
     ```
 
-6. Ouvrez Index.cshtml dans le répertoire Views > Home, puis remplacez son contenu par le code suivant :
+6. Ouvrez *Index.cshtml* dans le répertoire Views > Home, puis remplacez son contenu par le code suivant :
 
     ```html
     @using Microsoft.Extensions.Configuration
@@ -152,7 +151,7 @@ Ajoutez l’outil [Secret Manager](https://docs.microsoft.com/aspnet/core/securi
     </html>
     ```
 
-7. Ouvrez _Layout.cshtml dans le répertoire Views > Shared, puis remplacez son contenu par le code suivant :
+7. Ouvrez *_Layout.cshtml* dans le répertoire Views > Shared, puis remplacez son contenu par le code suivant :
 
     ```html
     <!DOCTYPE html>
@@ -190,8 +189,6 @@ Ajoutez l’outil [Secret Manager](https://docs.microsoft.com/aspnet/core/securi
         dotnet run
 
 3. Ouvrez une fenêtre de navigateur, puis accédez à `http://localhost:5000`, qui est l’URL par défaut de l’application web hébergée localement.
-
-    ![Démarrage rapide du lancement d’application local](./media/quickstarts/aspnet-core-app-launch-local.png)
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 

@@ -1,73 +1,68 @@
 ---
-title: Gérer une machine virtuelle Linux dans Azure à l’aide d’Ansible
-description: Découvrez comment utiliser Ansible pour gérer une machine virtuelle Linux dans Azure.
-ms.service: virtual-machines-linux
+title: 'Démarrage rapide : Gérer des machines virtuelles Linux dans Azure à l’aide d’Ansible | Microsoft Docs'
+description: Guide de démarrage rapide expliquant comment gérer une machine virtuelle Linux dans Azure à l’aide d’Ansible
 keywords: ansible, azure, devops, bash, cloudshell, playbook, bash
+ms.topic: quickstart
+ms.service: ansible
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
-ms.topic: quickstart
-ms.date: 09/27/2018
-ms.openlocfilehash: 8f97cf8a4231e9a2144f27c0540de96574e13795
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.date: 04/30/2019
+ms.openlocfilehash: a7862e95966d7b0e0ab31f242dff0244735fe7a1
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57789875"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409227"
 ---
-# <a name="use-ansible-to-manage-a-linux-virtual-machine-in-azure"></a>Gérer une machine virtuelle Linux dans Azure à l’aide d’Ansible
-Ansible vous permet d’automatiser le déploiement et la configuration de ressources dans votre environnement. Vous pouvez utiliser Ansible pour gérer vos machines virtuelles Azure comme vous le feriez pour toute autre ressource. Cet article vous explique comment utiliser un playbook Ansible pour démarrer et arrêter une machine virtuelle Linux. 
+# <a name="quickstart-manage-linux-virtual-machines-in-azure-using-ansible"></a>Démarrage rapide : Gérer des machines virtuelles Linux dans Azure à l’aide d’Ansible
+
+Ansible vous permet d’automatiser le déploiement et la configuration de ressources dans votre environnement. Dans cet article, vous utilisez un playbook Ansible pour démarrer et arrêter une machine virtuelle Linux. 
 
 ## <a name="prerequisites"></a>Prérequis
 
-- **Abonnement Azure** : si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+[!INCLUDE [open-source-devops-prereqs-azure-sub.md](../../../includes/open-source-devops-prereqs-azure-subscription.md)]
+[!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
 
-- [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)][!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
+## <a name="stop-a-virtual-machine"></a>Arrêt d’une machine virtuelle
 
-## <a name="use-ansible-to-deallocate-stop-an-azure-virtual-machine"></a>Utiliser Ansible pour libérer (arrêter) une machine virtuelle Azure
-Cette section vous explique comment utiliser Ansible pour libérer (arrêter) une machine virtuelle Azure.
+Dans cette section, vous utilisez Ansible pour libérer (arrêter) une machine virtuelle Azure.
 
-1.  Connectez-vous au [Portail Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Connectez-vous au [Portail Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1.  Ouvrez [Cloud Shell](/azure/cloud-shell/overview).
+1. Ouvrez [Cloud Shell](/azure/cloud-shell/overview).
 
-1.  Créez un fichier (pour héberger votre playbook) nommé `azure-vm-stop.yml`, puis ouvrez-le dans l’éditeur VI, comme suit :
+1. Créez un fichier nommé `azure-vm-stop.yml` et ouvrez-le dans l’éditeur :
 
     ```azurecli-interactive
-    vi azure-vm-stop.yml
+    code azure-vm-stop.yml
     ```
 
-1.  Passez en mode insertion en sélectionnant la touche **I**.
-
-1.  Collez l’exemple de code ci-après dans l’éditeur :
+1. Collez l’exemple de code ci-après dans l’éditeur :
 
     ```yaml
     - name: Stop Azure VM
       hosts: localhost
       connection: local
       tasks:
-      - name: Deallocate the virtual machine
-        azure_rm_virtualmachine:
-          resource_group: myResourceGroup
-          name: myVM
-          allocated: no
+        - name: Stop virtual machine
+          azure_rm_virtualmachine:
+            resource_group: {{ resource_group_name }}
+            name: {{ vm_name }}
+            allocated: no
     ```
 
-1.  Quittez le mode insertion en sélectionnant la touche **Échap**.
+1. Remplacez les espaces réservés `{{ resource_group_name }}` et `{{ vm_name }}` par vos valeurs.
 
-1.  Enregistrez le fichier et quittez l’éditeur vi en entrant la commande suivante :
+1. Enregistrez le fichier et quittez l’éditeur.
 
-    ```bash
-    :wq
-    ```
-
-1.  Exécutez l’exemple de playbook Ansible.
+1. Exécutez le playbook à l’aide de la commande `ansible-playbook` :
 
     ```bash
     ansible-playbook azure-vm-stop.yml
     ```
 
-1.  Vous devriez obtenir une sortie semblable à celle qui suit, indiquant que la machine virtuelle a été libérée (arrêtée) :
+1. Une fois que vous avez exécuté le playbook, vous constatez des résultats similaires à ceux de la sortie suivante :
 
     ```bash
     PLAY [Stop Azure VM] ********************************************************
@@ -82,49 +77,44 @@ Cette section vous explique comment utiliser Ansible pour libérer (arrêter) un
     localhost                  : ok=2    changed=1    unreachable=0    failed=0
     ```
 
-## <a name="use-ansible-to-start-a-deallocated-stopped-azure-virtual-machine"></a>Utiliser Ansible pour démarrer une machine virtuelle Azure libérée (arrêtée)
-Cette section vous explique comment utiliser Ansible pour démarrer une machine virtuelle Azure libérée (arrêtée).
+## <a name="start-a-virtual-machine"></a>Démarrage d'une machine virtuelle
 
-1.  Connectez-vous au [Portail Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+Dans cette section, vous utilisez Ansible pour démarrer une machine virtuelle Azure libérée (arrêtée).
 
-1.  Ouvrez [Cloud Shell](/azure/cloud-shell/overview).
+1. Connectez-vous au [Portail Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1.  Créez un fichier (pour héberger votre playbook) nommé `azure-vm-start.yml`, puis ouvrez-le dans l’éditeur VI, comme suit :
+1. Ouvrez [Cloud Shell](/azure/cloud-shell/overview).
+
+1. Créez un fichier nommé `azure-vm-start.yml` et ouvrez-le dans l’éditeur :
 
     ```azurecli-interactive
-    vi azure-vm-start.yml
+    code azure-vm-start.yml
     ```
 
-1.  Passez en mode insertion en sélectionnant la touche **I**.
-
-1.  Collez l’exemple de code ci-après dans l’éditeur :
+1. Collez l’exemple de code ci-après dans l’éditeur :
 
     ```yaml
     - name: Start Azure VM
       hosts: localhost
       connection: local
       tasks:
-      - name: Start the virtual machine
-        azure_rm_virtualmachine:
-          resource_group: myResourceGroup
-          name: myVM
+        - name: Start virtual machine
+          azure_rm_virtualmachine:
+            resource_group: {{ resource_group_name }}
+            name: {{ vm_name }}
     ```
 
-1.  Quittez le mode insertion en sélectionnant la touche **Échap**.
+1. Remplacez les espaces réservés `{{ resource_group_name }}` et `{{ vm_name }}` par vos valeurs.
 
-1.  Enregistrez le fichier et quittez l’éditeur vi en entrant la commande suivante :
+1. Enregistrez le fichier et quittez l’éditeur.
 
-    ```bash
-    :wq
-    ```
-
-1.  Exécutez l’exemple de playbook Ansible.
+1. Exécutez le playbook à l’aide de la commande `ansible-playbook` :
 
     ```bash
     ansible-playbook azure-vm-start.yml
     ```
 
-1.  Vous devriez obtenir une sortie semblable à celle qui suit, indiquant que la machine virtuelle a été démarrée :
+1. Une fois que vous avez exécuté le playbook, vous constatez des résultats similaires à ceux de la sortie suivante :
 
     ```bash
     PLAY [Start Azure VM] ********************************************************
@@ -140,5 +130,6 @@ Cette section vous explique comment utiliser Ansible pour démarrer une machine 
     ```
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 > [!div class="nextstepaction"] 
-> [Utiliser Ansible pour gérer vos inventaires dynamiques Azure](~/articles/ansible/ansible-manage-azure-dynamic-inventories.md)
+> [Tutoriel : Gérer des inventaires dynamiques Azure à l’aide d’Ansible](~/articles/ansible/ansible-manage-azure-dynamic-inventories.md)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Azure Functions
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 8167f10391f426c50120a224eea44e6db846fbb1
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: a0c677e25be86e0f82b821a7931bda0af2b35127
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60003239"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408652"
 ---
 # <a name="quickstart-create-an-azure-function-with-app-configuration"></a>Démarrage rapide : Créer une fonction Azure avec App Configuration
 
@@ -39,7 +39,7 @@ Pour suivre ce guide de démarrage rapide, installez [Visual Studio 2017](https
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Sélectionnez **Explorateur de paires clé-valeur** > **+ Créer** pour ajouter les paires clé-valeur suivantes :
+6. Sélectionnez **Explorateur de configurations** > **+ Créer** pour ajouter les paires clé-valeur suivantes :
 
     | Clé | Valeur |
     |---|---|
@@ -59,7 +59,7 @@ Pour suivre ce guide de démarrage rapide, installez [Visual Studio 2017](https
     Microsoft.Extensions.Configuration.AzureAppConfiguration 1.0.0 preview or later
     ```
 
-2. Ouvrez *Function1.cs* et ajoutez une référence à un fournisseur de configuration .NET Core App Configuration.
+2. Ouvrez *Function1.cs*, puis ajoutez une référence au fournisseur App Configuration .NET Core.
 
     ```csharp
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;

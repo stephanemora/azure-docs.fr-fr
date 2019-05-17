@@ -1,10 +1,10 @@
 ---
-title: Inscrire une application à l’aide de la plateforme d’identités Microsoft (préversion) | Azure
+title: Inscrire une application avec la plateforme d’identités Microsoft | Plateforme d’identités Microsoft
 description: Découvrez comment ajouter et inscrire une application à l’aide de la plateforme d’identités Microsoft.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -12,33 +12,29 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/02/2018
-ms.author: celested
+ms.date: 05/09/2019
+ms.author: ryanwi
 ms.custom: aaddev
-ms.reviewer: lenalepa, sureshja
+ms.reviewer: aragra, lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 366d6fe8921a5330f48da2879444e0b80cbc9bd2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6943ad460bb5d852220e704492f892961992a59f
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58090710"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65413601"
 ---
-# <a name="quickstart-register-an-application-with-the-microsoft-identity-platform-preview"></a>Démarrage rapide : Inscrire une application à l’aide de la plateforme d’identités Microsoft (préversion)
+# <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>Démarrage rapide : Inscrire une application avec la plateforme d’identités Microsoft
 
 Les développeurs et les fournisseurs de logiciels en tant que service (SaaS) peuvent développer des services cloud commerciaux ou des applications métier qui peuvent être intégrés à la plateforme d’identités Microsoft pour fournir un processus de connexion et d’autorisation sécurisé à leurs services.
 
-Ce guide de démarrage rapide vous explique comment ajouter et inscrire une application à l’aide de l’expérience **Inscriptions d’applications (préversion)** dans le portail Azure, afin de l’intégrer à la plateforme d’identités Microsoft. Pour en savoir plus sur les nouvelles fonctionnalités et les améliorations de la nouvelle expérience permettant d’inscrire des applications, consultez [ce billet de blog](https://developer.microsoft.com/graph/blogs/new-app-registration/). 
-
-## <a name="prerequisite"></a>Configuration requise
-
-Pour démarrer, vous devez intégrer l’expérience de préversion pour les inscriptions d’applications dans le portail Azure. Les étapes figurant dans ce démarrage rapide correspondent à la nouvelle interface utilisateur et ne fonctionnent que si vous participez à l’expérience de préversion.
+Ce guide de démarrage rapide vous explique comment ajouter et inscrire une application à l’aide de l’expérience **Inscriptions d’applications** dans le portail Azure afin de l’intégrer à la plateforme d’identités Microsoft. Pour en savoir plus sur les nouvelles fonctionnalités et les améliorations de la nouvelle expérience permettant d’inscrire des applications, consultez [ce billet de blog](https://developer.microsoft.com/graph/blogs/new-app-registration/).
 
 ## <a name="register-a-new-application-using-the-azure-portal"></a>Inscrire une nouvelle application à l’aide du Portail Azure
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
 1. Si votre compte vous propose un accès à plusieurs locataires, sélectionnez votre compte en haut à droite et définissez votre session de portail sur le locataire Azure AD souhaité.
-1. Dans le volet de navigation gauche, sélectionnez le service **Azure Active Directory**, puis sélectionnez **Inscriptions d’applications (préversion) > Nouvelle inscription**.
+1. Dans le volet de navigation de gauche, sélectionnez le service **Azure Active Directory**, puis sélectionnez **Inscriptions d’applications > Nouvelle inscription**.
 1. Lorsque la page **Inscrire une application** s’affiche, saisissez les informations d’inscription de votre application :
 
    - **Nom** : saisissez un nom d’application cohérent qui s’affichera pour les utilisateurs de l’application.

@@ -13,15 +13,15 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 04/18/2019
+ms.date: 05/07/2019
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: 91297a02966000899ab79dfb86446890e9c4439a
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 4fb42014e2c5389cf2a849ddf5114ab1f59c9e28
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148710"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65414027"
 ---
 # <a name="azure-media-services-v3-overview"></a>Vue d’ensemble d’Azure Media Services v3
 
@@ -48,7 +48,8 @@ Media Services vous permet de créer une variété de workflows multimédias dan
 
 Découvrez comment encoder et empaqueter du contenu, diffuser des vidéos en streaming à la demande, diffuser en direct et analyser vos vidéos avec Media Services v3. Des didacticiels, références d’API et autres documents vous montrent comment diffuser en toute sécurité du contenu vidéo ou audio à la demande et en direct pour des millions d’utilisateurs.
 
-Avant de commencer à développer, passez en revue les [concepts fondamentaux](concepts-overview.md).<br/>
+> [!TIP]
+> Avant de commencer à développer, passez en revue ce qui suit :<br/>* [Concepts fondamentaux](concepts-overview.md) (concepts importants : empaquetage, encodage, protection, etc.)<br/>* [Développement avec les API Media Services v3](media-services-apis-overview.md) (informations sur l’accès aux API, les conventions de nommage, etc.)
 
 ### <a name="quickstarts"></a>Démarrages rapides  
 
@@ -86,9 +87,5 @@ Découvrez l’article [Communauté Azure Media Services](media-services-communi
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Comment bien démarrer avec v3 ? 
-
-> [!div class="nextstepaction"]
-> [En savoir plus sur les concepts fondamentaux](concepts-overview.md)<br/>
-> [Développer avec l’API Media Services v3 à l’aide de kits SDK](developers-guide.md) 
+[En savoir plus sur les concepts fondamentaux](concepts-overview.md)
 

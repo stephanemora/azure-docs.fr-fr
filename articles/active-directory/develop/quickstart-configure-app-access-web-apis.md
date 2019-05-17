@@ -1,10 +1,10 @@
 ---
-title: Configurer une application pour accéder à des API web (préversion) | Azure
+title: Configurer une application pour accéder à des API web - Plateforme d’identités Microsoft
 description: Apprenez à configurer une application inscrite auprès de la plateforme d’identité Microsoft pour inclure des URI de redirection, des informations d’identification ou des autorisations d’accès à des API web.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/25/2018
-ms.author: celested
+ms.date: 05/08/2019
+ms.author: ryanwi
 ms.custom: aaddev
-ms.reviewer: lenalepa, sureshja
+ms.reviewer: aragra, lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 93e88cedfd098f450e8faeea894f7fdfc796cf17
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 7b2f5331b22f6292b00c367c6abb8cd4f439a70c
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59999584"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65413978"
 ---
-# <a name="quickstart-configure-a-client-application-to-access-web-apis-preview"></a>Démarrage rapide : Configurer une application cliente pour accéder aux API web (préversion)
+# <a name="quickstart-configure-a-client-application-to-access-web-apis"></a>Démarrage rapide : Configurer une application cliente pour accéder aux API web
 
 Une application cliente web/confidentielle doit établir des informations d’identification sécurisées afin de pouvoir participer à un flux d’octroi d’autorisations qui requiert une authentification. La méthode d’authentification par défaut prise en charge par le portail Azure est l’ID Client + la clé secrète.
 
@@ -49,15 +49,14 @@ Pour commencer, assurez-vous de remplir ces conditions préalables :
 * Découvrez les [autorisations et consentement](v2-permissions-and-consent.md) pris en charge qu’il est important de comprendre lors de la création d’applications devant être utilisées par d’autres utilisateurs ou applications.
 * Disposez d’un locataire auprès duquel des applications sont inscrites.
   * Si vous n’avez pas d’applications inscrites, [découvrez comment inscrire des applications à l’aide de la plateforme d’identité Microsoft](quickstart-register-app.md).
-* Intégrez l’expérience de préversion pour les inscriptions d’applications dans le portail Azure. Les étapes figurant dans ce démarrage rapide correspondent à la nouvelle interface utilisateur et ne fonctionnent que si vous participez à l’expérience de préversion.
 
 ## <a name="sign-in-to-the-azure-portal-and-select-the-app"></a>Connectez-vous au portail Azure puis sélectionnez l’application
 
 Avant de pouvoir configurer l’application, procédez comme suit :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
-1. Si votre compte vous propose un accès à plusieurs locataires, sélectionnez votre compte en haut à droite et définissez votre session de portail sur le locataire Azure AD souhaité.
-1. Dans le volet de navigation gauche, sélectionnez le service **Azure Active Directory**, sélectionnez ensuite **Inscriptions d’applications (préversion)**.
+1. Si votre compte vous propose un accès à plusieurs locataires, sélectionnez votre compte en haut à droite et définissez votre session de portail sur le locataire Azure AD souhaité.
+1. Dans le volet de navigation de gauche, sélectionnez le service **Azure Active Directory**, puis **Inscriptions d’applications**.
 1. Recherchez et sélectionnez l’application que vous souhaitez configurer. Une fois l’application sélectionnée, vous pourrez voir sa **présentation** ou sa page d’inscription principale.
 1. Suivez les étapes pour configurer votre application pour accéder aux API web : 
     * [Ajouter des URI de redirection à votre application](#add-redirect-uris-to-your-application)

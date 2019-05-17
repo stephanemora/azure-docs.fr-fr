@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 03/04/2019
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: 4fe859b1343e2aea71bd41a3b7742a29bbff389f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: aea6f58c74d6e50e7936b949620912f3f587f004
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60464156"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205862"
 ---
 # <a name="quickstart-create-and-deploy-azure-resource-manager-templates-by-using-the-azure-portal"></a>Démarrage rapide : Créer et déployer des modèles Azure Resource Manager à l’aide du portail Azure
 
@@ -32,7 +32,7 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
 
 ## <a name="generate-a-template-using-the-portal"></a>Générer un modèle à l’aide du portail Azure
 
-La création d’un modèle Resource Manager à partir de zéro n’est pas une tâche facile, surtout si vous débutez avec le déploiement Azure et que vous n’êtes pas familiarisé avec le format JSON. Vous pouvez utiliser le portail Azure pour configurer une ressource, par exemple un compte de Stockage Azure. Avant de déployer la ressource, vous pouvez exporter votre configuration dans un modèle Resource Manager. Vous pouvez enregistrer le modèle et le réutiliser ultérieurement.
+La création d’un modèle Resource Manager à partir de zéro n’est pas une tâche facile, surtout si vous débutez avec le déploiement Azure et que vous ne connaissez pas le format JSON. Vous pouvez utiliser le portail Azure pour configurer une ressource, par exemple un compte de Stockage Azure. Avant de déployer la ressource, vous pouvez exporter votre configuration dans un modèle Resource Manager. Vous pouvez enregistrer le modèle et le réutiliser ultérieurement.
 
 De nombreux développeurs de modèles expérimentés utilisent cette méthode pour générer des modèles quand ils tentent de déployer des ressources Azure qu’ils ne maîtrisent pas bien. Pour plus d’informations sur l’exportation de modèles par le biais du portail, consultez [Exporter des groupes de ressources dans des modèles](./manage-resource-groups-portal.md#export-resource-groups-to-templates). L’autre moyen de trouver un modèle opérationnel consiste à le rechercher à partir des [modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/).
 

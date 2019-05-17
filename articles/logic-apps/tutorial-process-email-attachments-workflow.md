@@ -1,25 +1,25 @@
 ---
-title: Didacticiel - Automatiser le traitement des e-mails et des pièces jointes - Azure Logic Apps | Microsoft Docs
+title: Tutoriel - Automatiser le traitement des e-mails et des pièces jointes - Azure Logic Apps
 description: Didacticiel - Créer des flux de travail automatisés qui traitent les e-mails et les pièces jointes avec Azure Logic Apps, Stockage Azure et Azure Functions
 services: logic-apps
 ms.service: logic-apps
 author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
-manager: jeconnoc
+manager: carmonm
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 07/20/2018
-ms.openlocfilehash: 57d7fecfa9bf2b27a54387072b080ed95f4e87e5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 05/07/2019
+ms.openlocfilehash: 4287efedfc35da762825c5562cf88e64987192f1
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58881209"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65414559"
 ---
 # <a name="tutorial-automate-handling-emails-and-attachments-with-azure-logic-apps"></a>Didacticiel : Automatiser la gestion des e-mails et des pièces jointes avec Azure Logic Apps
 
-Azure Logic Apps vous aide à automatiser les flux de travail et à intégrer des données dans les services Azure et Microsoft, d’autres applications SaaS (software-as-a-service) et des systèmes locaux. Ce didacticiel montre comment créer une [application logique](../logic-apps/logic-apps-overview.md) qui gère les e-mails entrants et les éventuelles pièces jointes. Cette application logique analyse le contenu de l’e-mail, enregistre le contenu dans Stockage Azure et envoie des notifications de révision de ce contenu. 
+Azure Logic Apps vous aide à automatiser les flux de travail et à intégrer des données dans les services Azure et Microsoft, d’autres applications SaaS (software-as-a-service) et des systèmes locaux. Ce didacticiel montre comment créer une [application logique](../logic-apps/logic-apps-overview.md) qui gère les e-mails entrants et les éventuelles pièces jointes. Cette application logique analyse le contenu de l’e-mail, enregistre le contenu dans Stockage Azure et envoie des notifications de révision de ce contenu.
 
 Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
@@ -37,61 +37,67 @@ Lorsque vous avez terminé, votre application logique ressemble à ce flux de tr
 
 ![Application logique terminée de niveau élevé](./media/tutorial-process-email-attachments-workflow/overview.png)
 
-Si vous n’avez pas d’abonnement Azure, <a href="https://azure.microsoft.com/free/" target="_blank">créez un compte Azure gratuit</a> avant de commencer. 
-
 ## <a name="prerequisites"></a>Prérequis
+
+* Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, [inscrivez-vous pour bénéficier d’un compte Azure gratuit](https://azure.microsoft.com/free/).
 
 * Un compte de messagerie d’un fournisseur de messagerie pris en charge par Azure Logic Apps, par exemple Office 365 Outlook, Outlook.com ou Gmail. Pour les autres fournisseurs, [passez en revue la liste des connecteurs ici](https://docs.microsoft.com/connectors/).
 
   Cette application logique utilise un compte Office 365 Outlook. 
   Si vous utilisez un autre compte de messagerie, les étapes générales sont identiques, mais l’affichage de l’interface utilisateur peut être légèrement différent.
 
-* Téléchargez et installez <a href="https://storageexplorer.com/" target="_blank">l’Explorateur Stockage Microsoft Azure gratuit</a>. Cet outil vous permet de vérifier que votre conteneur de stockage est correctement configuré.
+* Téléchargez et installez [l’Explorateur Stockage Microsoft Azure gratuit](https://storageexplorer.com/). Cet outil vous permet de vérifier que votre conteneur de stockage est correctement configuré.
 
 ## <a name="sign-in-to-azure-portal"></a>Se connecter au portail Azure
 
-Connectez-vous au <a href="https://portal.azure.com" target="_blank">portail Azure</a> avec les informations d’identification de votre compte Azure.
+Connectez-vous au [portail Azure](https://portal.azure.com) avec les informations d’identification de votre compte Azure.
 
 ## <a name="set-up-storage-to-save-attachments"></a>Configurer le stockage pour y enregistrer les pièces jointes
 
 Vous pouvez enregistrer les e-mails entrants et les pièces jointes en tant qu’objets blob dans un [conteneur de stockage Azure](../storage/common/storage-introduction.md). 
 
-1. Avant de créer un conteneur de stockage, [créez un compte de stockage](../storage/common/storage-quickstart-create-account.md) avec les paramètres suivants :
+1. Avant de créer un conteneur de stockage, [créez un compte de stockage](../storage/common/storage-quickstart-create-account.md) avec ces paramètres sous l’onglet **De base** dans le portail Azure :
 
-   | Paramètre | Valeur | Description | 
-   |---------|-------|-------------| 
-   | **Nom** | attachmentstorageacct | Nom de votre compte de stockage | 
-   | **Modèle de déploiement** | Resource manager | [Modèle de déploiement](../azure-resource-manager/resource-manager-deployment-model.md) pour la gestion du déploiement des ressources. | 
-   | **Type de compte** | Usage général | [Type de compte de stockage](../storage/common/storage-introduction.md#types-of-storage-accounts). | 
-   | **Lieu** | USA Ouest | Région dans laquelle stocker les informations sur votre compte de stockage. | 
-   | **Réplication** | Stockage localement redondant (LRS) | Ce paramètre spécifie comment vos données sont copiées, stockées, gérées et synchronisées. Consultez [Stockage localement redondant (LRS) : redondance des données à faible coût pour le stockage Azure](../storage/common/storage-redundancy-lrs.md). | 
-   | **Performances** | standard | Ce paramètre spécifie les types de données pris en charge et les médias de stockage des données. Voir [Types de compte de stockage](../storage/common/storage-introduction.md#types-of-storage-accounts). | 
-   | **Transfert sécurisé requis** | Désactivé | Ce paramètre spécifie la sécurité requise pour les demandes de connexions. Voir [Exiger un transfert sécurisé dans Stockage Azure](../storage/common/storage-require-secure-transfer.md). | 
-   | **Abonnement** | <*your-Azure-subscription-name*> | Nom de votre abonnement Azure. | 
-   | **Groupe de ressources** | LA-Tutorial-RG | Nom du [groupe de ressources Azure](../azure-resource-manager/resource-group-overview.md) utilisé pour organiser et gérer les ressources connexes. <p>**Remarque :** Un groupe de ressources existe dans une région spécifique. Même si les éléments de ce didacticiel ne sont pas forcément disponibles dans toutes les régions, essayez d’utiliser la même région dans la mesure du possible. | 
-   | **Configurer des réseaux virtuels** | Désactivé | Pour ce didacticiel, maintenez le paramètre **Désactivé**. | 
-   |||| 
+   | Paramètre | Valeur | Description |
+   |---------|-------|-------------|
+   | **Abonnement** | <*Azure-subscription-name*> | Nom de votre abonnement Azure. |  
+   | **Groupe de ressources** | LA-Tutorial-RG | Nom du [groupe de ressources Azure](../azure-resource-manager/resource-group-overview.md) utilisé pour organiser et gérer les ressources connexes. <p>**Remarque :** Un groupe de ressources existe dans une région spécifique. Même si les éléments de ce didacticiel ne sont pas forcément disponibles dans toutes les régions, essayez d’utiliser la même région dans la mesure du possible. |
+   | **Nom du compte de stockage** | attachmentstorageacct | Nom de votre compte de stockage |
+   | **Lieu** | USA Ouest | Région dans laquelle stocker les informations sur votre compte de stockage. |
+   | **Performances** | standard | Ce paramètre spécifie les types de données pris en charge et les médias de stockage des données. Voir [Types de compte de stockage](../storage/common/storage-introduction.md#types-of-storage-accounts). |
+   | **Type de compte** | Usage général | [Type de compte de stockage](../storage/common/storage-introduction.md#types-of-storage-accounts). |
+   | **Réplication** | Stockage localement redondant (LRS) | Ce paramètre spécifie comment vos données sont copiées, stockées, gérées et synchronisées. Consultez [Stockage localement redondant (LRS) : redondance des données à faible coût pour le stockage Azure](../storage/common/storage-redundancy-lrs.md). |
+   ||||
+
+   Sous l’onglet **Avancé**, sélectionnez ce paramètre :
+
+   | Paramètre | Valeur | Description |
+   |---------|-------|-------------|
+   | **Transfert sécurisé requis** | Désactivé | Ce paramètre spécifie la sécurité requise pour les demandes de connexions. Voir [Exiger un transfert sécurisé dans Stockage Azure](../storage/common/storage-require-secure-transfer.md). |
+   ||||
 
    Pour créer votre compte de stockage, vous pouvez également utiliser [Azure PowerShell](../storage/common/storage-quickstart-create-storage-account-powershell.md) ou [Azure CLI](../storage/common/storage-quickstart-create-storage-account-cli.md).
 
-2. Une fois qu’Azure a déployé votre compte de stockage, obtenez la clé d’accès de votre compte de stockage :
+1. Quand vous avez terminé, choisissez **Vérifier + créer**.
 
-   1. Dans le menu de votre compte de stockage, sous **Paramètres**, sélectionnez **Clés d’accès**. 
+1. Une fois qu’Azure a déployé votre compte de stockage, obtenez la clé d’accès de votre compte de stockage :
+
+   1. Dans le menu de votre compte de stockage, sous **Paramètres**, sélectionnez **Clés d’accès**.
 
    2. Copiez le nom de votre compte de stockage et **key1**, puis enregistrez ces valeurs dans un endroit sûr.
 
       ![Copier et enregistrer un nom de compte de stockage et une clé](./media/tutorial-process-email-attachments-workflow/copy-save-storage-name-key.png)
 
-   Pour obtenir la clé d’accès de votre compte de stockage, vous pouvez également utiliser [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.storage/get-azstorageaccountkey) ou [Azure CLI](https://docs.microsoft.com/cli/azure/storage/account/keys?view=azure-cli-latest.md#az-storage-account-keys-list). 
+   Pour obtenir la clé d’accès de votre compte de stockage, vous pouvez également utiliser [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.storage/get-azstorageaccountkey) ou [Azure CLI](https://docs.microsoft.com/cli/azure/storage/account/keys?view=azure-cli-latest.md#az-storage-account-keys-list).
 
-3. Créez un conteneur de stockage d’objets blob pour vos pièces jointes.
-   
+1. Créez un conteneur de stockage d’objets blob pour vos pièces jointes.
+
    1. Dans le menu de votre compte de stockage, sélectionnez **Vue d’ensemble**. 
-   Sous **Services**, sélectionnez **Blobs**.
+   Sous **Services**, choisissez **Objets blob**.
 
       ![Ajouter un conteneur de stockage d’objets blob](./media/tutorial-process-email-attachments-workflow/create-storage-container.png)
 
-   2. Lorsque la page **Conteneurs** s’ouvre, dans la barre d’outils, sélectionnez **Conteneur**. 
+   2. Lorsque la page **Conteneurs** s’ouvre, dans la barre d’outils, sélectionnez **Conteneur**.
 
    3. Sous **Nouveau conteneur**, entrez « pièces jointes » comme nom de votre conteneur. 
    Sous **Niveau d’accès public**, sélectionnez **Conteneur (accès en lecture anonyme pour les conteneurs et les objets blob)**, puis choisissez **OK**.
@@ -100,7 +106,7 @@ Vous pouvez enregistrer les e-mails entrants et les pièces jointes en tant qu�
 
       ![Conteneur de stockage terminé](./media/tutorial-process-email-attachments-workflow/created-storage-container.png)
 
-   Pour créer un conteneur de stockage, vous pouvez également utiliser [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.storage/new-azstoragecontainer) ou [Azure CLI](https://docs.microsoft.com/cli/azure/storage/container?view=azure-cli-latest#az-storage-container-create). 
+   Pour créer un conteneur de stockage, vous pouvez également utiliser [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.storage/new-azstoragecontainer) ou [Azure CLI](https://docs.microsoft.com/cli/azure/storage/container?view=azure-cli-latest#az-storage-container-create).
 
 À présent, connectez l’Explorateur Stockage à votre compte de stockage.
 
@@ -108,11 +114,11 @@ Vous pouvez enregistrer les e-mails entrants et les pièces jointes en tant qu�
 
 Ensuite, connectez l’Explorateur Stockage à votre compte de stockage afin de vérifier que votre application logique peut enregistrer correctement les pièces jointes en tant qu’objets blob dans votre conteneur de stockage.
 
-1. Ouvrez l’Explorateur Stockage Microsoft Azure. 
+1. Ouvrez l’Explorateur Stockage Microsoft Azure.
 
    L’Explorateur Stockage vous invite à vous connecter à votre compte de stockage. 
 
-2. Dans le volet **Se connecter au Stockage Azure**, sélectionnez **Utiliser un nom et une clé de compte de stockage**, puis choisissez **Suivant**. 
+2. Dans le volet **Se connecter au Stockage Azure**, sélectionnez **Utiliser un nom et une clé de compte de stockage**, puis choisissez **Suivant**.
 
    ![Explorateur Stockage - Connexion au compte de stockage](./media/tutorial-process-email-attachments-workflow/storage-explorer-choose-storage-account.png)
 
@@ -121,11 +127,11 @@ Ensuite, connectez l’Explorateur Stockage à votre compte de stockage afin de 
 
 3. Sous **Nom du compte**, fournissez le nom de votre compte de stockage. Sous **Clé de compte**, fournissez la clé d’accès que vous avez enregistrée précédemment. Sélectionnez **Suivant**.
 
-4. Confirmez vos informations de connexion, puis choisissez **Connexion**. 
+4. Confirmez vos informations de connexion, puis choisissez **Connexion**.
 
-   L’Explorateur Stockage crée la connexion et affiche votre compte de stockage dans la fenêtre de l’Explorateur sous **(Local and Attached) (Local et attaché)** > **Comptes de stockage**. 
+   L’Explorateur Stockage crée la connexion et affiche votre compte de stockage dans la fenêtre de l’Explorateur sous **(Local and Attached) (Local et attaché)** > **Comptes de stockage**.
 
-5. Pour rechercher votre conteneur de stockage d’objets blob sous **Comptes de stockage**, développez votre compte de stockage, qui est **attachmentstorageacct** ici, puis développez **Conteneurs d’objets Blob** où se trouve le conteneur **pièces jointes**, par exemple : 
+5. Pour rechercher votre conteneur de stockage d’objets blob sous **Comptes de stockage**, développez votre compte de stockage, qui est **attachmentstorageacct** ici, puis développez **Conteneurs d’objets Blob** où se trouve le conteneur **pièces jointes**, par exemple :
 
    ![Explorateur Stockage - rechercher le conteneur de stockage](./media/tutorial-process-email-attachments-workflow/storage-explorer-check-contianer.png)
 
@@ -137,19 +143,20 @@ Utilisez l’extrait de code fourni par ces étapes pour créer une fonction Azu
 
 1. Avant de pouvoir créer une fonction, [créez une application de fonction](../azure-functions/functions-create-function-app-portal.md) avec les paramètres suivants :
 
-   | Paramètre | Valeur | Description | 
-   | ------- | ----- | ----------- | 
-   | **Nom de l’application** | CleanTextFunctionApp | Nom global unique et descriptif de votre application de fonction. | 
+   | Paramètre | Valeur | Description |
+   | ------- | ----- | ----------- |
+   | **Nom de l’application** | CleanTextFunctionApp | Nom global unique et descriptif de votre application de fonction. |
    | **Abonnement** | <*your-Azure-subscription-name*> | Abonnement Azure que vous avez utilisé précédemment. | 
-   | **Groupe de ressources** | LA-Tutorial-RG | Groupe de ressources Azure que vous avez utilisé précédemment. | 
+   | **Groupe de ressources** | LA-Tutorial-RG | Groupe de ressources Azure que vous avez utilisé précédemment. |
    | **Plan d’hébergement** | Plan de consommation | Ce paramètre détermine l’affectation et la mise à l’échelle des ressources, telles que la puissance de calcul, pour l’exécution de votre application de fonction. Voir [Comparaison des plans d’hébergement](../azure-functions/functions-scale.md). | 
-   | **Lieu** | USA Ouest | Région que vous avez utilisée précédemment. | 
-   | **Pile d’exécution** | Langage préféré | Choisissez un runtime qui prend en charge votre langage de programmation de fonction favori. Choisissez .NET pour les fonctions C# et F#. |
-   | **Stockage** | cleantextfunctionstorageacct | Créez un compte de stockage pour votre application de fonction. Utilisez uniquement des lettres minuscules et des chiffres. <p>**Remarque :** Ce compte de stockage contient vos applications de fonction et diffère du compte de stockage créé précédemment pour les pièces jointes. | 
-   | **Application Insights** | Off | Active la surveillance des applications avec [Application Insights](../azure-monitor/app/app-insights-overview.md), mais pour ce didacticiel, choisissez le paramètre **Désactivé**. | 
-   |||| 
+   | **Lieu** | USA Ouest | Région que vous avez utilisée précédemment. |
+   | **Pile d’exécution** | Langage préféré | Sélectionnez un runtime qui prend en charge votre langage de programmation de fonction favori. Sélectionnez **.NET** pour les fonctions C# et F#. |
+   | **Stockage** | cleantextfunctionstorageacct | Créez un compte de stockage pour votre application de fonction. Utilisez uniquement des lettres minuscules et des chiffres. <p>**Remarque :** Ce compte de stockage contient vos applications de fonction et diffère du compte de stockage créé précédemment pour les pièces jointes. |
+   | **Application Insights** | Off | Active la surveillance des applications avec [Application Insights](../azure-monitor/app/app-insights-overview.md), mais pour ce didacticiel, choisissez le paramètre **Désactivé**. |
+   ||||
 
-   Si votre application de fonction ne s’ouvre pas automatiquement après le déploiement, recherchez-la dans le <a href="https://portal.azure.com" target="_blank">portail Azure</a>. Dans le menu principal Azure, sélectionnez **Applications de fonctions**, puis sélectionnez votre application de fonction. 
+   Si votre application de fonction ne s’ouvre pas automatiquement après le déploiement, recherchez-la dans le [portail Azure](https://portal.azure.com). 
+   Dans le menu principal Azure, sélectionnez **Applications de fonctions**, puis sélectionnez votre application de fonction.
 
    ![Sélectionner l’application de fonction](./media/tutorial-process-email-attachments-workflow/select-function-app.png)
 
@@ -165,46 +172,45 @@ Utilisez l’extrait de code fourni par ces étapes pour créer une fonction Azu
 
    ![Créer une fonction](./media/tutorial-process-email-attachments-workflow/function-app-new-function.png)
 
-3. Sous **Choisir un modèle ci-dessous ou accéder au démarrage rapide**, ouvrez la liste **Scénario**, puis sélectionnez **Principal**. Dans le modèle **Déclencheur HTTP**, sélectionnez **C#**.
+3. Sous **Choisir un modèle ci-dessous ou accéder au démarrage rapide**, sélectionnez le modèle **Déclencheur HTTP**.
 
-   ![Sélectionner un modèle de fonction](./media/tutorial-process-email-attachments-workflow/function-select-httptrigger-csharp-function-template.png)
+   ![Sélectionnez le modèle de déclencheur HTTP](./media/tutorial-process-email-attachments-workflow/function-select-httptrigger-csharp-function-template.png)
 
-   > [!NOTE]
-   > Cet exemple fournit l’exemple de code C# afin que vous puissiez suivre l’exemple sans avoir à connaître C#.
+   Azure crée une fonction à l’aide d’un modèle propre à un langage pour une fonction déclenchée via HTTP.
 
-4. Dans le volet **Nouvelle fonction**, sous **Nom**, entrez ```RemoveHTMLFunction```. Conservez **Niveau d’autorisation** défini sur **Fonction**, puis choisissez **Créer**.
+4. Dans le volet **Nouvelle fonction**, sous **Nom**, entrez `RemoveHTMLFunction`. Conservez **Niveau d’autorisation** défini sur **Fonction**, puis choisissez **Créer**.
 
    ![Nommer votre fonction](./media/tutorial-process-email-attachments-workflow/function-provide-name.png)
 
 5. Dans l’éditeur ouvert, remplacez le code du modèle par cet exemple de code, ce qui supprime le code HTML et retourne les résultats à l’appelant :
 
    ``` CSharp
-    #r "Newtonsoft.Json"
+   #r "Newtonsoft.Json"
 
-    using System.Net;
-    using Microsoft.AspNetCore.Mvc;
-    using Microsoft.Extensions.Primitives;
-    using Newtonsoft.Json;
-    using System.Text.RegularExpressions;
+   using System.Net;
+   using Microsoft.AspNetCore.Mvc;
+   using Microsoft.Extensions.Primitives;
+   using Newtonsoft.Json;
+   using System.Text.RegularExpressions;
 
-    public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
-    {
-        log.LogInformation("HttpWebhook triggered");
+   public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
+   {
+      log.LogInformation("HttpWebhook triggered");
 
-        // Parse query parameter
-        string emailBodyContent = await new StreamReader(req.Body).ReadToEndAsync();
+      // Parse query parameter
+      string emailBodyContent = await new StreamReader(req.Body).ReadToEndAsync();
 
-         // Replace HTML with other characters
-        string updatedBody = Regex.Replace(emailBodyContent, "<.*?>", string.Empty);
-        updatedBody = updatedBody.Replace("\\r\\n", " ");
-        updatedBody = updatedBody.Replace(@"&nbsp;", " ");
+      // Replace HTML with other characters
+      string updatedBody = Regex.Replace(emailBodyContent, "<.*?>", string.Empty);
+      updatedBody = updatedBody.Replace("\\r\\n", " ");
+      updatedBody = updatedBody.Replace(@"&nbsp;", " ");
 
-        // Return cleaned text
-        return (ActionResult) new OkObjectResult(new { updatedBody });
-    }
+      // Return cleaned text
+      return (ActionResult)new OkObjectResult(new { updatedBody });
+   }
    ```
 
-6. Une fois ces opérations effectuées, sélectionnez **Enregistrer**. Pour tester votre fonction, sur le côté droit de l’éditeur, sous l’icône de flèche (**<**), choisissez **Test**. 
+6. Une fois ces opérations effectuées, sélectionnez **Enregistrer**. Pour tester votre fonction, sur le côté droit de l’éditeur, sous l’icône de flèche (**<**), choisissez **Test**.
 
    ![Ouvrir le volet Test](./media/tutorial-process-email-attachments-workflow/function-choose-test.png)
 
@@ -235,14 +241,14 @@ Après avoir vérifié le bon fonctionnement de votre fonction, créez votre app
 
    ![Spécifier les informations de l’application logique](./media/tutorial-process-email-attachments-workflow/create-logic-app-settings.png)
 
-   | Paramètre | Valeur | Description | 
-   | ------- | ----- | ----------- | 
-   | **Nom** | LA-ProcessAttachment | Nom de l’application logique. | 
-   | **Abonnement** | <*your-Azure-subscription-name*> | Abonnement Azure que vous avez utilisé précédemment. | 
+   | Paramètre | Valeur | Description |
+   | ------- | ----- | ----------- |
+   | **Nom** | LA-ProcessAttachment | Nom de l’application logique. |
+   | **Abonnement** | <*your-Azure-subscription-name*> | Abonnement Azure que vous avez utilisé précédemment. |
    | **Groupe de ressources** | LA-Tutorial-RG | Groupe de ressources Azure que vous avez utilisé précédemment. |
-   | **Lieu** | USA Ouest | Région que vous avez utilisée précédemment. | 
-   | **Log Analytics** | Off | Pour ce didacticiel, choisissez le paramètre **Désactivé**. | 
-   |||| 
+   | **Lieu** | USA Ouest | Région que vous avez utilisée précédemment. |
+   | **Log Analytics** | Off | Pour ce didacticiel, choisissez le paramètre **Désactivé**. |
+   ||||
 
 3. Une fois qu’Azure a déployé votre application, le Concepteur d’applications logiques s’ouvre et affiche une page contenant une vidéo de présentation et des modèles d’applications logiques courantes. Sous **Modèles**, choisissez **Application logique vide**.
 
@@ -258,32 +264,35 @@ Ajoutez maintenant un [déclencheur](../logic-apps/logic-apps-overview.md#logic-
 
    ![Sélectionnez ce déclencheur pour votre fournisseur de messagerie : « When a new email arrives » (Quand un nouvel e-mail arrive)](./media/tutorial-process-email-attachments-workflow/add-trigger-when-email-arrives.png)
 
-   * Pour les comptes Azure professionnels ou scolaires, sélectionnez Office 365 Outlook. 
-   * Pour les comptes Microsoft personnels, sélectionnez Outlook.com. 
+   * Pour les comptes Azure professionnels ou scolaires, sélectionnez Office 365 Outlook.
+
+   * Pour les comptes Microsoft personnels, sélectionnez Outlook.com.
 
 2. Si vous êtes invité à entrer vos informations d’identification, connectez-vous à votre compte de messagerie afin que Logic Apps puisse se connecter à ce compte.
 
 3. Indiquez maintenant les critères que le déclencheur doit utiliser pour filtrer les nouveaux e-mails.
 
-   1. Spécifiez le dossier, l’intervalle et la fréquence de vérification des e-mails.
+   1. Spécifiez ces paramètres de vérification des e-mails.
 
       ![Spécifier le dossier, l’intervalle et la fréquence de vérification des e-mails](./media/tutorial-process-email-attachments-workflow/set-up-email-trigger.png)
 
-      | Paramètre | Valeur | Description | 
-      | ------- | ----- | ----------- | 
-      | **Folder** | Inbox | Dossier d’e-mail à vérifier | 
-      | **Intervalle** | 1 | Nombre d’intervalles d’attente entre les vérifications. | 
-      | **Fréquence** | Minute | Unité de temps de chaque intervalle entre les vérifications. | 
-      |  |  |  | 
+      | Paramètre | Valeur | Description |
+      | ------- | ----- | ----------- |
+      | **Folder** | Inbox | Dossier d’e-mail à vérifier |
+      | **Contient une pièce jointe** | OUI | Récupère uniquement les e-mails comportant des pièces jointes. <p>**Remarque :** Le déclencheur ne supprime pas les e-mails de votre compte. Il vérifie uniquement les nouveaux messages et ne traite que les e-mails qui correspondent au filtre Objet. |
+      | **Inclure des pièces jointes** | OUI | Récupérez les pièces jointes en tant qu’entrée de votre flux de travail au lieu de les rechercher simplement. |
+      | **Intervalle** | 1 | Nombre d’intervalles d’attente entre les vérifications. |
+      | **Fréquence** | Minute | Unité de temps de chaque intervalle entre les vérifications. |
+      ||||
   
-   2. Choisissez **Afficher les options avancées** et spécifiez les paramètres suivants :
+   1. Dans la liste **Ajouter un nouveau paramètre**, sélectionnez **Filtre Objet**.
 
-      | Paramètre | Valeur | Description | 
-      | ------- | ----- | ----------- | 
-      | **Contient une pièce jointe** | OUI | Récupère uniquement les e-mails comportant des pièces jointes. <p>**Remarque :** Le déclencheur ne supprime pas les e-mails de votre compte. Il vérifie uniquement les nouveaux messages et ne traite que les e-mails qui correspondent au filtre Objet. | 
-      | **Inclure des pièces jointes** | OUI | Récupérez les pièces jointes en tant qu’entrée de votre flux de travail au lieu de les rechercher simplement. | 
-      | **Filtre Objet** | ```Business Analyst 2 #423501``` | Texte à rechercher dans l’objet de l’e-mail. | 
-      |  |  |  | 
+   1. Une fois que la zone **Filtre Objet** s’affiche dans l’action, spécifiez l’objet comme indiqué ici :
+
+      | Paramètre | Valeur | Description |
+      | ------- | ----- | ----------- |
+      | **Filtre Objet** | ```Business Analyst 2 #423501``` | Texte à rechercher dans l’objet de l’e-mail. |
+      ||||
 
 4. Pour masquer les informations du déclencheur pour le moment, cliquez dans sa barre de titre.
 
@@ -298,17 +307,20 @@ Ajoutez maintenant un [déclencheur](../logic-apps/logic-apps-overview.md#logic-
 
 Ajoutez maintenant une condition qui sélectionne uniquement les e-mails contenant des pièces jointes.
 
-1. Sous le déclencheur, choisissez **Nouvelle étape** > **Ajouter une condition**.
+1. Sous le déclencheur, choisissez **Nouvelle étape**.
 
-   ![« Nouvelle étape », « Ajouter une condition »](./media/tutorial-process-email-attachments-workflow/add-condition-under-trigger.png)
+   ![« Nouvelle étape »](./media/tutorial-process-email-attachments-workflow/add-condition-under-trigger.png)
 
-2. Renommez la condition en utilisant une meilleure description.
+2. Sous **Choisir une action**, dans la zone de recherche, entrez « condition ». Sélectionnez cette action : **Condition - Contrôle**
 
-   1. Dans la barre de titre de la condition, choisissez le bouton représentant des **points de suspension** (**...**) > **Renommer**.
+   ![Sélectionnez « Condition »](./media/tutorial-process-email-attachments-workflow/select-condition.png)
+
+   1. Renommez la condition en utilisant une meilleure description. 
+   Dans la barre de titre de la condition, choisissez le bouton représentant des **points de suspension** (**...**) > **Renommer**.
 
       ![Renommer la condition](./media/tutorial-process-email-attachments-workflow/condition-rename.png)
 
-   2. Renommez votre condition à l’aide de cette description : ```If email has attachments and key subject phrase```
+   1. Renommez votre condition à l’aide de cette description : ```If email has attachments and key subject phrase```
 
 3. Créez une condition qui recherche les e-mails contenant des pièces jointes. 
 
@@ -362,7 +374,7 @@ Vérifiez si la condition fonctionne correctement :
    Pour le moment, créez simplement un fichier texte vide et joignez-le à votre e-mail.
 
    Lorsque l’e-mail arrive, votre application logique recherche des pièces jointes et le texte de l’objet spécifié.
-   Si la condition est transmise, le déclencheur est activé et provoque la création d’une instance d’application logique et le démarrage du flux de travail par le moteur Logic Apps. 
+   Si la condition est transmise, le déclencheur est activé et provoque la création d’une instance d’application logique et le démarrage du flux de travail par le moteur Logic Apps.
 
 3. Pour vérifier que le déclencheur est activé et que l’application logique est exécutée avec succès, choisissez **Vue d’ensemble** dans le menu de l’application logique.
 
@@ -397,18 +409,18 @@ Cette étape ajoute votre fonction Azure créée précédemment à votre applica
 
 5. Renommez la forme de votre fonction avec cette description : ```Call RemoveHTMLFunction to clean email body```.
 
-6. Maintenant, spécifiez l’entrée pour votre fonction à traiter. 
+6. Maintenant, spécifiez l’entrée pour votre fonction à traiter.
 
    1. Pour le champ **Corps de la demande**, entrez ce texte avec un espace de fin : 
-   
-      ```{ "emailBody":``` 
+
+      ```{ "emailBody":```
 
       Pendant que vous travaillez sur cette entrée dans les étapes suivantes, une erreur de JSON non valide s’affiche jusqu’à ce que votre entrée soit correctement formatée en JSON.
       Lorsque vous avez testé précédemment cette fonction, l’entrée spécifiée pour cette fonction utilisait JavaScript Objet Notation (JSON). 
       Par conséquent, le corps de la requête doit également utiliser le même format.
 
-      De plus, lorsque le curseur se trouve à l’intérieur de la zone **Corps de la demande**, la liste de contenu dynamique s’affiche afin que vous puissiez sélectionner les valeurs de propriété disponibles à partir des actions précédentes. 
-      
+      De plus, lorsque le curseur se trouve à l’intérieur de la zone **Corps de la demande**, la liste de contenu dynamique s’affiche afin que vous puissiez sélectionner les valeurs de propriété disponibles à partir des actions précédentes.
+
    2. Dans la liste de contenu dynamique, sous **À la réception d’un e-mail**, sélectionnez la propriété **Corps**. Après cette propriété, pensez à ajouter l’accolade fermante : ```}```
 
       ![Spécifier le corps de la requête à transmettre à la fonction](./media/tutorial-process-email-attachments-workflow/add-email-body-for-function-processing.png)
@@ -423,7 +435,7 @@ Ensuite, ajoutez une action qui crée un objet blob dans votre conteneur de stoc
 
 ## <a name="create-blob-for-email-body"></a>Créer un objet blob pour le corps de l’e-mail
 
-1. Dans le bloc **Si true** et sous votre fonction Azure, choisissez **Ajouter une action**. 
+1. Dans le bloc **Si true** et sous votre fonction Azure, choisissez **Ajouter une action**.
 
 2. Dans la zone de recherche, entrez « créer un objet blob » comme filtre, puis sélectionnez cette action : **Créer un objet blob - Stockage Blob Azure**
 
@@ -433,11 +445,11 @@ Ensuite, ajoutez une action qui crée un objet blob dans votre conteneur de stoc
 
    ![Créer une connexion au compte de stockage](./media/tutorial-process-email-attachments-workflow/create-storage-account-connection-first.png)
 
-   | Paramètre | Valeur | Description | 
-   | ------- | ----- | ----------- | 
-   | **Nom de connexion** | AttachmentStorageConnection | Nom descriptif de la connexion. | 
-   | **Compte de stockage** | attachmentstorageacct | Nom du compte de stockage que vous avez créé précédemment pour enregistrer des pièces jointes. | 
-   |||| 
+   | Paramètre | Valeur | Description |
+   | ------- | ----- | ----------- |
+   | **Nom de connexion** | AttachmentStorageConnection | Nom descriptif de la connexion. |
+   | **Compte de stockage** | attachmentstorageacct | Nom du compte de stockage que vous avez créé précédemment pour enregistrer des pièces jointes. |
+   ||||
 
 4. Renommez l’action **Créer un objet blob** avec cette description : ```Create blob for email body```.
 
@@ -445,18 +457,18 @@ Ensuite, ajoutez une action qui crée un objet blob dans votre conteneur de stoc
 
    ![Fournir des informations d’objet blob pour le corps de l’e-mail](./media/tutorial-process-email-attachments-workflow/create-blob-for-email-body.png)
 
-   | Paramètre | Valeur | Description | 
-   | ------- | ----- | ----------- | 
-   | **Chemin d’accès du dossier** | /pièces jointes | Chemin d’accès et nom du conteneur que vous avez créé précédemment. Pour cet exemple, cliquez sur l’icône de dossier, puis sélectionnez le conteneur « /pièces jointes ». | 
-   | **Nom de l’objet blob** | Champ **De** | Pour cet exemple, utilisez le nom de l’expéditeur comme nom de l’objet blob. Cliquez dans cette zone pour que la liste de contenu dynamique s’affiche, puis sélectionnez le champ **De** sous l’action **À l’arrivée d’un e-mail**. | 
+   | Paramètre | Valeur | Description |
+   | ------- | ----- | ----------- |
+   | **Chemin d’accès du dossier** | /pièces jointes | Chemin d’accès et nom du conteneur que vous avez créé précédemment. Pour cet exemple, cliquez sur l’icône de dossier, puis sélectionnez le conteneur « /pièces jointes ». |
+   | **Nom de l’objet blob** | Champ **De** | Pour cet exemple, utilisez le nom de l’expéditeur comme nom de l’objet blob. Cliquez dans cette zone pour que la liste de contenu dynamique s’affiche, puis sélectionnez le champ **De** sous l’action **À l’arrivée d’un e-mail**. |
    | **Contenu de l’objet blob** | Champ **Contenu** | Pour cet exemple, utilisez le corps de l’e-mail sans code HTML comme contenu d’objet blob. Cliquez dans cette zone pour que la liste de contenu dynamique s’affiche, puis sélectionnez **Corps** sous l’action **Call RemoveHTMLFunction to clean email body** (Appeler RemoveHTMLFunction pour nettoyer le corps de l’e-mail). |
-   |||| 
+   ||||
 
    Une fois que vous avez terminé, l’action ressemble à cet exemple :
 
    ![Fin de l’action « Créer un objet blob »](./media/tutorial-process-email-attachments-workflow/create-blob-for-email-body-done.png)
 
-6. Enregistrez votre application logique. 
+6. Enregistrez votre application logique.
 
 ### <a name="check-attachment-handling"></a>Vérifier le traitement des pièces jointes
 
@@ -473,19 +485,19 @@ Vérifiez à présent si votre application logique gère les e-mails comme vous 
 
    * Le corps de votre e-mail comporte des éléments de test, par exemple : 
 
-     ```
+     ```text
      Testing my logic app
      ```
 
    Si votre application logique n’a pas été activée ni exécutée en dépit d’un déclencheur réussi, voir [Résoudre les problèmes et diagnostiquer les échecs d’applications logiques](../logic-apps/logic-apps-diagnosing-failures.md).
 
-3. Vérifiez que votre application logique a enregistré l’e-mail dans le conteneur de stockage approprié. 
+3. Vérifiez que votre application logique a enregistré l’e-mail dans le conteneur de stockage approprié.
 
    1. Dans l’Explorateur Stockage, développez **(Local and Attached) (local et attaché)** > 
    **Comptes de stockage** > **attachmentstorageacct (Externe)** > 
    **Conteneurs d’objets blob** > **pièces jointes**.
 
-   2. Vérifiez le conteneur **pièces jointes** de l’e-mail. 
+   2. Vérifiez le conteneur **pièces jointes** de l’e-mail.
 
       À ce stade, seul l’e-mail s’affiche dans le conteneur, car l’application logique ne traite pas encore les pièces jointes.
 
@@ -501,20 +513,24 @@ Ajoutez une boucle pour traiter toutes les pièces jointes.
 
 Pour traiter chaque pièce jointe de l’e-mail, ajoutez une boucle **For Each** au flux de votre application logique.
 
-1. Sous la forme **Créer un objet blob pour le corps de l’e-mail**, sélectionnez **Plus** > **Ajouter un pour chaque**.
+1. Sous la forme **Créer un objet blob pour le corps de l’e-mail**, sélectionnez **Ajouter une action**.
 
    ![Ajouter une boucle « For Each »](./media/tutorial-process-email-attachments-workflow/add-for-each-loop.png)
 
-2. Renommez votre boucle à l’aide de cette description : ```For each email attachment```.
+1. Sous **Choisir une action**, dans la zone de recherche, entrez « for each » comme filtre. Sélectionnez cette action : **For each - Contrôle**
 
-3. Indiquez les données de la boucle à traiter. Cliquez dans la zone **Sélectionnez un résultat à partir des étapes précédentes** afin que la liste de contenu dynamique s’ouvre, puis sélectionnez **Pièces jointes**. 
+   ![Sélectionnez « For each »](./media/tutorial-process-email-attachments-workflow/select-for-each.png)
+
+1. Renommez votre boucle à l’aide de cette description : ```For each email attachment```.
+
+1. Indiquez les données de la boucle à traiter. Cliquez dans la zone **Sélectionnez un résultat à partir des étapes précédentes** afin que la liste de contenu dynamique s’ouvre, puis sélectionnez **Pièces jointes**.
 
    ![Sélectionner « Pièces jointes »](./media/tutorial-process-email-attachments-workflow/select-attachments.png)
 
    Le champ **Pièces jointes** transmet un tableau qui contient toutes les pièces jointes incluses dans un e-mail. 
    La boucle **For Each** répète des actions sur chaque élément transmis avec le tableau.
 
-4. Enregistrez votre application logique.
+1. Enregistrez votre application logique.
 
 Ajoutez l’action qui enregistre chaque pièce jointe sous la forme d’un objet blob dans votre conteneur de stockage **pièces jointes**.
 
@@ -534,12 +550,12 @@ Ajoutez l’action qui enregistre chaque pièce jointe sous la forme d’un obje
 
    ![Fournir des informations sur l’objet blob](./media/tutorial-process-email-attachments-workflow/create-blob-per-attachment.png)
 
-   | Paramètre | Valeur | Description | 
-   | ------- | ----- | ----------- | 
-   | **Chemin d’accès du dossier** | /pièces jointes | Chemin d’accès et nom du conteneur que vous avez créé précédemment. Pour cet exemple, cliquez sur l’icône de dossier, puis sélectionnez le conteneur « /pièces jointes ». | 
-   | **Nom de l’objet blob** | Champ **Nom** | Pour cet exemple, utilisez le nom de la pièce jointe comme nom de l’objet blob. Cliquez dans cette zone pour que la liste de contenu dynamique s’affiche, puis sélectionnez le champ **Nom** sous l’action **À l’arrivée d’un e-mail**. | 
+   | Paramètre | Valeur | Description |
+   | ------- | ----- | ----------- |
+   | **Chemin d’accès du dossier** | /pièces jointes | Chemin d’accès et nom du conteneur que vous avez créé précédemment. Pour cet exemple, cliquez sur l’icône de dossier, puis sélectionnez le conteneur « /pièces jointes ». |
+   | **Nom de l’objet blob** | Champ **Nom** | Pour cet exemple, utilisez le nom de la pièce jointe comme nom de l’objet blob. Cliquez dans cette zone pour que la liste de contenu dynamique s’affiche, puis sélectionnez le champ **Nom** sous l’action **À l’arrivée d’un e-mail**. |
    | **Contenu de l’objet blob** | Champ **Contenu** | Pour cet exemple, utilisez le champ **Contenu** comme contenu d’objet blob. Cliquez dans cette zone pour que la liste de contenu dynamique s’affiche, puis sélectionnez le champ **Contenu** sous l’action **À l’arrivée d’un e-mail**. |
-   |||| 
+   ||||
 
    Une fois que vous avez terminé, l’action ressemble à cet exemple :
 
@@ -578,18 +594,19 @@ Ajoutez une action afin que votre application logique envoie un e-mail pour pass
 
 ## <a name="send-email-notifications"></a>Envoyer des notifications par e-mail
 
-1. Dans la branche **Si true**, sous la boucle **Pour chaque pièce jointe d’e-mail**, choisissez **Ajouter une action**. 
+1. Dans la branche **Si true**, sous la boucle **Pour chaque pièce jointe d’e-mail**, choisissez **Ajouter une action**.
 
    ![Ajouter une action sous la boucle « For Each »](./media/tutorial-process-email-attachments-workflow/add-action-send-email.png)
 
-2. Dans la zone de recherche, entrez « Envoi d’e-mail » comme filtre, puis sélectionnez l’action « Envoi d’e-mail » pour votre fournisseur de messagerie. 
+2. Dans la zone de recherche, entrez « Envoi d’e-mail » comme filtre, puis sélectionnez l’action « Envoi d’e-mail » pour votre fournisseur de messagerie.
 
    Pour filtrer la liste d’actions pour un service spécifique, vous pouvez sélectionner tout d’abord le connecteur.
 
    ![Sélectionner l’action « Envoyer un e-mail » pour votre fournisseur de messagerie](./media/tutorial-process-email-attachments-workflow/add-action-select-send-email.png)
 
-   * Pour les comptes Azure professionnels ou scolaires, sélectionnez Office 365 Outlook. 
-   * Pour les comptes Microsoft personnels, sélectionnez Outlook.com. 
+   * Pour les comptes Azure professionnels ou scolaires, sélectionnez Office 365 Outlook.
+
+   * Pour les comptes Microsoft personnels, sélectionnez Outlook.com.
 
 3. Si vous êtes invité à entrer vos informations d’identification, connectez-vous à votre compte de messagerie afin que Logic Apps puisse établir une connexion avec votre compte de messagerie.
 
@@ -599,19 +616,19 @@ Ajoutez une action afin que votre application logique envoie un e-mail pour pass
 
    ![Envoyer une notification par e-mail](./media/tutorial-process-email-attachments-workflow/send-email-notification.png)
 
-   Si vous ne trouvez pas un champ attendu dans la liste de contenu dynamique, choisissez **Afficher plus** à côté de **À la réception d’un e-mail**. 
+   Si vous ne trouvez pas un champ attendu dans la liste de contenu dynamique, choisissez **Afficher plus** à côté de **À la réception d’un e-mail**.
 
    | Paramètre | Valeur | Notes | 
    | ------- | ----- | ----- | 
-   | **Corps** | ```Please review new applicant:``` <p>```Applicant name:``` **De** <p>```Application file location:``` **Chemin d’accès** <p>```Application email content:``` **Corps** | Contenu du corps de l’e-mail. Cliquez dans cette zone, entrez l’exemple de texte et dans la liste de contenu dynamique, sélectionnez ces champs : <p>- Champ **De** situé sous **À la réception d’un e-mail** </br>- Champ **Chemin d’accès** situé sous **Créer un objet blob pour le corps de l’e-mail** </br>- Champ **Corps** situé sous **Call RemoveHTMLFunction to clean email body (Appeler RemoveHTMLFunction pour nettoyer le corps de l’e-mail)** | 
-   | **Objet**  | ```ASAP - Review applicant for position:``` **Subject** | Objet de l’e-mail que vous souhaitez inclure. Cliquez dans cette zone, entrez l’exemple de texte et dans la liste de contenu dynamique, sélectionnez le champ **Objet** sous **À l’arrivée d’un e-mail**. | 
-   | **To** | <*recipient-email-address*> | À des fins de test, vous pouvez utiliser votre propre adresse e-mail. | 
-   |||| 
+   | **Corps** | ```Please review new applicant:``` <p>```Applicant name:``` **De** <p>```Application file location:``` **Chemin d’accès** <p>```Application email content:``` **Corps** | Contenu du corps de l’e-mail. Cliquez dans cette zone, entrez l’exemple de texte et dans la liste de contenu dynamique, sélectionnez ces champs : <p>- Champ **De** situé sous **À la réception d’un e-mail** </br>- Champ **Chemin d’accès** situé sous **Créer un objet blob pour le corps de l’e-mail** </br>- Champ **Corps** situé sous **Call RemoveHTMLFunction to clean email body (Appeler RemoveHTMLFunction pour nettoyer le corps de l’e-mail)** |
+   | **Objet**  | ```ASAP - Review applicant for position:``` **Subject** | Objet de l’e-mail que vous souhaitez inclure. Cliquez dans cette zone, entrez l’exemple de texte et dans la liste de contenu dynamique, sélectionnez le champ **Objet** sous **À l’arrivée d’un e-mail**. |
+   | **To** | <*recipient-email-address*> | À des fins de test, vous pouvez utiliser votre propre adresse e-mail. |
+   ||||
 
-   > [!NOTE] 
+   > [!NOTE]
    > Si vous sélectionnez un champ qui contient un tableau, tel que le champ **Contenu**, qui est un tableau contenant des pièces jointes, le concepteur ajoute automatiquement une boucle For Each autour de l’action qui référence ce champ. De cette façon, votre application logique peut effectuer cette action sur chaque élément du tableau. Pour supprimer la boucle, supprimez le champ du tableau, déplacez l’action de référencement en dehors de la boucle, choisissez les points de suspension (**...** ) dans la barre de titre de la boucle, puis **Supprimer**.
-     
-6. Enregistrez votre application logique. 
+
+6. Enregistrez votre application logique.
 
 À présent, testez votre application logique, qui ressemble à cet exemple :
 
@@ -629,32 +646,33 @@ Ajoutez une action afin que votre application logique envoie un e-mail pour pass
 
    * Le corps de l’e-mail contient le texte suivant que vous pouvez copier et coller :
 
-     ```
-     Name: Jamal Hartnett   
-     
-     Street address: 12345 Anywhere Road   
-     
-     City: Any Town   
-     
-     State or Country: Any State   
-     
-     Postal code: 00000   
-     
-     Email address: jamhartnett@outlook.com   
-     
-     Phone number: 000-000-0000   
-     
-     Position: Business Analyst 2 #423501   
+     ```text
 
-     Technical skills: Dynamics CRM, MySQL, Microsoft SQL Server, JavaScript, Perl, Power BI, Tableau, Microsoft Office: Excel, Visio, Word, PowerPoint, SharePoint, and Outlook   
+     Name: Jamal Hartnett
+
+     Street address: 12345 Anywhere Road
+
+     City: Any Town
+
+     State or Country: Any State
+
+     Postal code: 00000
+
+     Email address: jamhartnett@outlook.com
+
+     Phone number: 000-000-0000
+
+     Position: Business Analyst 2 #423501
+
+     Technical skills: Dynamics CRM, MySQL, Microsoft SQL Server, JavaScript, Perl, Power BI, Tableau, Microsoft Office: Excel, Visio, Word, PowerPoint, SharePoint, and Outlook
 
      Professional skills: Data, process, workflow, statistics, risk analysis, modeling; technical writing, expert communicator and presenter, logical and analytical thinker, team builder, mediator, negotiator, self-starter, self-managing  
-     
-     Certifications: Six Sigma Green Belt, Lean Project Management   
-     
-     Language skills: English, Mandarin, Spanish   
-     
-     Education: Master of Business Administration   
+
+     Certifications: Six Sigma Green Belt, Lean Project Management
+
+     Language skills: English, Mandarin, Spanish
+
+     Education: Master of Business Administration
      ```
 
 2. Exécutez votre application logique. En cas de réussite, votre application logique vous envoie un e-mail qui ressemble à l’exemple suivant :
@@ -672,11 +690,6 @@ Félicitations ! Vous avez maintenant créé et exécuté une application logiqu
 Quand vous n’en avez plus besoin, supprimez le groupe de ressources qui contient votre application logique et les ressources associées. Dans le menu principal Azure, accédez à **Groupes de ressources**, puis sélectionnez le groupe de ressources de votre application logique. Choisissez **Supprimer un groupe de ressources**. Confirmez le nom du groupe de ressources, puis choisissez **Supprimer**.
 
 ![Supprimer le groupe de ressources de l’application logique](./media/tutorial-process-email-attachments-workflow/delete-resource-group.png)
-
-## <a name="get-support"></a>Obtenir de l’aide
-
-* Si vous avez des questions, consultez le [forum Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Pour voter pour des idées de fonctionnalités ou pour en soumettre, visitez le [site de commentaires des utilisateurs Logic Apps](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
