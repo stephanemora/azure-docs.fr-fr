@@ -4,7 +4,7 @@ description: Découvrez comment ajouter la connexion Microsoft dans une solution
 services: active-directory
 documentationcenter: dev-center-name
 author: andretms
-manager: mtillman
+manager: CelesteDG
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 09/24/2018
 ms.author: andret
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7aca42aa13ef78647b591eb0be7083f932ce0c35
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: f88643000b85965b2f275cc6e7494f427d0fe43e
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65191039"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65231153"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Démarrage rapide : Ajouter la connexion avec Microsoft à une application ASP.NET
 
@@ -38,7 +38,7 @@ Dans ce démarrage rapide, vous allez apprendre comment implémenter la connexio
 
 Pour commencer, assurez-vous de remplir ces conditions préalables :
 
-* Visual Studio 2015 Update 3 ou Visual Studio 2019 installé. Ni l’un, ni l’autre ne sont installés sur votre ordinateur ? [Télécharger Visual Studio 2019 gratuitement](https://www.visualstudio.com/downloads/)
+* Visual Studio 2015 Update 3 ou version ultérieure est installé. Ni l’un, ni l’autre ne sont installés sur votre ordinateur ? [Télécharger Visual Studio 2019 gratuitement](https://www.visualstudio.com/downloads/)
 
 ## <a name="scenario-sign-in-users-from-work-and-school-accounts-in-your-aspnet-app"></a>Scénario : Connecter des utilisateurs à partir de comptes professionnels et scolaires dans votre application ASP.NET
 
@@ -70,11 +70,12 @@ Pour télécharger le projet Visual Studio de cet exemple à la place, suivez ce
 ## <a name="step-2-create-your-aspnet-project"></a>Étape 2 : Créer votre projet ASP.NET
 
 1. Dans Visual Studio, accédez à **Fichier -> Nouveau > Projet**.
-2. Sous **Visual C#\Web**, sélectionnez **Application web ASP.NET (.NET Framework)**.
-3. Donnez un nom à votre application et sélectionnez **OK**.
-4. Sélectionnez **Vide** et cochez la case pour ajouter des références **MVC**.
+2. Pour **Type de projet**, sélectionnez **Web**, puis **Application Web ASP.NET (.NET Framework)**.
+3. Nommez votre application, puis sélectionnez **Créer**.
+4. Sélectionnez **Vide** , puis **MVC** sous **Ajouter des dossiers et des références de base** pour ajouter des références MVC.
+5. Sélectionnez **Créer**.
 
-## <a name="step-3-add-authentication-components"></a>Étape 3 : Ajouter les composants d’authentification
+## <a name="step-3-add-authentication-components"></a>Étape 3 : Ajouter les composants d’authentification
 
 1. Dans Visual Studio, accédez à **Outils > Gestionnaire de package NuGet > Console du gestionnaire de package**.
 2. Ajoutez **les packages NuGet de l’intergiciel OWIN** en saisissant la commande suivante dans la fenêtre Console du gestionnaire de package :
@@ -125,7 +126,7 @@ Pour créer une *classe de démarrage* d’intergiciel OWIN :
 Créez un contrôleur pour exposer les méthodes de connexion et de déconnexion.
 
 1.  Cliquez avec le bouton droit sur le dossier **Contrôleurs** et sélectionnez **Ajouter > Contrôleur**
-2.  Sélectionnez **Contrôleur MVC (version .NET) – vide**.
+2.  Sélectionnez **Contrôleur MVC {version} – vide**.
 3.  Sélectionnez **Ajouter**.
 4.  Nommez-le `HomeController` et sélectionnez **Ajouter**.
 5.  Ajoutez les espaces de noms **OWIN** à la classe :

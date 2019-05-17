@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: 7665050dfc9a561f42fec00c40d0a40dfa5cc183
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 92c55c7f15b3f350ad802157bf401f3e75983789
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64941570"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606437"
 ---
 # <a name="azure-resource-manager-test-drive"></a>Version d’évaluation d’Azure Resource Manager
 
@@ -82,7 +82,7 @@ Il est également important de noter que **tous les paramètres sont facultatifs
 
 ### <a name="accepted-parameter-metadata-types"></a>Types de métadonnées de paramètres acceptés
 
-| Type de métadonnées   | Type de paramètre  | Description     | Exemple de valeur    |
+| Type de métadonnées   | Type de paramètre  | Description      | Exemple de valeur    |
 |---|---|---|---|
 | **baseuri**     | string          | URI de base de votre package de déploiement| https :\//\<\..\>.blob.core.windows.net/\<\..\> |
 | **nom d’utilisateur**    | string          | Nouveau nom d’utilisateur aléatoire.| admin68876      |
@@ -382,7 +382,7 @@ Autrement, créez un nouveau locataire dans Azure Active Directory.
 
 ![Liste des locataires Azure Active Directory](./media/azure-resource-manager-test-drive/subdetails4.png)
 
-![Définissez l’organisation, le domaine et le pays du locataire Azure AD](./media/azure-resource-manager-test-drive/subdetails5.png)
+![Définir l’organisation, le domaine et le pays/région pour le locataire Azure AD](./media/azure-resource-manager-test-drive/subdetails5.png)
 
 ![Confirmez la sélection](./media/azure-resource-manager-test-drive/subdetails6.png)
 

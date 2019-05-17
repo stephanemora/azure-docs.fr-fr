@@ -1,9 +1,9 @@
 ---
 title: Améliorer la conformité aux réglementations à l’aide d’Azure Security Center | Microsoft Docs
-description: 'Tutoriel : Découvrez comment améliorer la conformité aux réglementations à l’aide d’Azure Security Center.'
+description: 'Didacticiel : Découvrez comment améliorer la conformité aux réglementations à l’aide d’Azure Security Center.'
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: barbkess
 editor: ''
 ms.assetid: 5f50c4dc-ea42-418d-9ea8-158ffeb93706
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/15/2019
-ms.author: rkarlin
-ms.openlocfilehash: 2e73cbd1de4336a08e26a609dfe704da0a068860
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.date: 4/30/2019
+ms.author: monhaber
+ms.openlocfilehash: 111a32983472d18c1435feaf2456e5b9416b5112
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106001"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65442318"
 ---
 # <a name="tutorial-improve-your-regulatory-compliance"></a>Didacticiel : Améliorer votre conformité aux normes
 ---
@@ -47,8 +47,7 @@ La vue du tableau de bord Conformité avec la réglementation peut vous aider à
 
 >[!NOTE]
 > Les normes de conformité actuellement prises en charge sont les suivantes : Azure CIS, PCI DSS 3.2, ISO 27001 et SOC TSP. Des normes supplémentaires seront reflétées dans le tableau de bord au fur et à mesure de son développement.
-
-1.  Dans le menu principal de Security Center, sous **STRATÉGIE ET CONFORMITÉ**, sélectionnez le tableau de bord **Conformité avec la réglementation**. <br>
+1.  Dans le menu principal de Security Center, sous **STRATÉGIE ET CONFORMITÉ**, sélectionnez **Conformité avec la réglementation**. <br>
 Un tableau de bord apparaît en haut de l’écran avec une vue d’ensemble de votre état de conformité et l’ensemble des réglementations de conformité prises en charge. Vous pouvez voir votre score de conformité global et le nombre d’évaluations ayant réussi ou échoué pour chaque norme.
 
     ![description ordinateur grande confiance](./media/security-center-compliance-dashboard/compliance-dashboard.png)
@@ -58,12 +57,17 @@ Un tableau de bord apparaît en haut de l’écran avec une vue d’ensemble de 
 
     ![onglet conformité](./media/security-center-compliance-dashboard/compliance-pci.png)
 
-3.  Sélectionnez l’onglet **Tout** pour voir toutes les recommandations pertinentes de Security Center et leurs normes associées. Cette vue peut être utile pour identifier les différentes normes impactées par une recommandation spécifique. <br> Vous pouvez utiliser cette vue pour classer par priorité les recommandations que vous devez suivre. Par exemple, si vous constatez que la recommandation **Activer MFA pour les comptes disposant d’autorisations de type propriétaire sur votre abonnement** échoue sur plusieurs ressources et qu’elle est associée à plusieurs normes, le fait de suivre cette recommandation a un impact élevé sur votre score de conformité global.
+3. Sélectionnez l’onglet **Tout** pour voir toutes les recommandations pertinentes de Security Center et leurs normes associées. Cette vue peut être utile pour identifier les différentes normes impactées par une recommandation spécifique. <br> Vous pouvez utiliser cette vue pour classer par priorité les recommandations que vous devez suivre. Par exemple, si vous constatez que la recommandation **Activer MFA pour les comptes disposant d’autorisations de type propriétaire sur votre abonnement** échoue sur plusieurs ressources et qu’elle est associée à plusieurs normes, le fait de suivre cette recommandation a un impact élevé sur votre score de conformité global.
 
     ![impact sur le score de conformité](./media/security-center-compliance-dashboard/compliance-all-tabs.png)
 
-## <a name="improve-your-compliance-posture"></a>Améliorer votre niveau de conformité
+1. Pour générer et télécharger un rapport PDF résumant votre état de compatibilité actuel pour une norme particulière, cliquez sur **Télécharger un rapport**.
 
+    Le rapport fournit un résumé détaillé de votre état de conformité pour la norme sélectionnée en fonction des données des évaluations de Security Center, et il est organisé selon les contrôles de cette norme particulière. Le rapport peut être partagé avec les parties prenantes concernées et servir de preuve aux auditeurs internes et externes.
+
+    ![télécharger](./media/security-center-compliance-dashboard/download-report.png)
+
+## <a name="improve-your-compliance-posture"></a>Améliorer votre niveau de conformité
 
 Compte tenu des informations figurant dans le tableau de bord Conformité avec la réglementation, vous pouvez améliorer votre niveau de conformité en suivant les recommandations directement dans le tableau de bord.
 

@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: bd9df12cbe941b868c769daccd02c1d81b39f7bd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 22494984ca45cde7255fb5e1a30548c859bfad68
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60776488"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65826525"
 ---
 # <a name="security-model-of-azure-notification-hubs"></a>Modèle de sécurité d’Azure Notification Hubs
 
@@ -43,10 +43,13 @@ Il est important de comprendre que la clé avec un accès en écoute permet à u
 
 Comme pour les autres entités, les opérations Notification Hubs sont autorisées pour trois revendications de sécurité : Écoute, Envoyer et Gérer.
 
-| Revendication   | Description                                          | Opérations autorisées |
+| Revendication   | Description                                           | Opérations autorisées |
 | ------- | ---------------------------------------------------- | ------------------ |
 | Écouter  | Créer/mettre à jour, lire et supprimer des inscriptions uniques | Créer/mettre à jour une inscription<br><br>Lire une inscription<br><br>Lire toutes les inscriptions pour un handle<br><br>Supprimer une inscription |
-| Envoyer    | Envoyer de messages au concentrateur de notification                | Envoyer un message |
+| Envoyer    | Envoyer de messages au concentrateur de notification                | Envoyer message |
 | gérer  | Opérations CRUD sur Notification Hubs (y compris la mise à jour des informations d'identification PNS et les clés de sécurité) et lecture des inscriptions en fonction des balises |Créer/Mettre à jour/Lire/Supprimer des hubs de notification<br><br>Lire des inscriptions par balise |
 
 Notification Hubs accepte les revendications accordées par les jetons de contrôle d'accès Microsoft Azure et les jetons de signature générés avec des clés partagées configurées directement sur le concentrateur de notification.
+
+Il n’est pas possible d’envoyer une notification à plus d’un espace de noms. Espaces de noms sont un conteneur logique pour les concentrateurs de notification et ne sont pas impliqués avec envoi de notifications.
+Les stratégies d’accès au niveau de l’espace de noms (informations d’identification) peuvent être utilisées pour les opérations au niveau de l’espace de noms, par exemple : répertorier les concentrateurs de notification, la création ou suppression de hubs de notification, etc. Uniquement les stratégies d’accès au niveau du hub vous permet de vous envoyer des notifications.

@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 04/12/2019
 ms.author: helohr
-ms.openlocfilehash: 93725fc9d77552d779378d0c14294a5bbb11c926
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: d3357cec426585ba8550301dfa703f583a930ad0
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65146139"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236926"
 ---
 # <a name="tutorial-create-service-principals-and-role-assignments-with-powershell"></a>Didacticiel : Créer des principaux de service et des attributions de rôles avec PowerShell
 
@@ -38,7 +38,7 @@ Avant de pouvoir créer des principaux de service et des attributions de rôles,
     Install-Module AzureAD
     ```
 
-2. Exécutez les applets de commande suivantes en remplaçant les valeurs entre guillemets par les valeurs appropriées pour votre session.
+2. Exécutez les applets de commande suivantes en remplaçant les valeurs entre guillemets par les valeurs appropriées pour votre session. Si vous venez de créer votre client Windows Virtual Desktop à l’aide du [tutoriel Créer un locataire dans Windows Virtual Desktop](./tenant-setup-azure-active-directory.md), utilisez « Groupe de locataires par défaut » comme nom de votre groupe de locataires.
 
     ```powershell
     $myTenantGroupName = "<my-tenant-group-name>"
@@ -109,7 +109,7 @@ Voici les trois informations d’identification que vous devez noter et les appl
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez appris à créer un principal de service et à l’utiliser pour vous connecter à Windows Virtual Desktop. Pour en savoir plus sur la façon de se connecter à Windows Virtual Desktop, passez aux guides pratiques concernant la connexion à Windows Virtual Desktop.
+Après avoir créé le principal du service et l’avoir affecté à un rôle dans votre locataire Windows Virtual Desktop, vous pouvez l’utiliser pour créer un pool d’hôtes. Pour en savoir plus sur les pools d’hôtes, passez au tutoriel concernant la création d’un pool d’hôtes dans Windows Virtual Desktop.
 
-- [Se connecter à partir de Windows 10 ou Windows 7](connect-windows-7-and-10.md)
-- [Se connecter à partir d’un navigateur web](connect-web.md)
+ > [!div class="nextstepaction"]
+ > [Tutoriel sur le pool d’hôtes Windows Virtual Desktop](./create-host-pools-azure-marketplace.md)
