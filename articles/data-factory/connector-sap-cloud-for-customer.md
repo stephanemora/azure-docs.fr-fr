@@ -83,7 +83,7 @@ Pour copier des données de SAP Cloud for Customer, affectez la valeur **SapClou
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | type | La propriété type du jeu de données doit être définie sur : **SapCloudForCustomerResource** |Oui |
-| chemin d’accès | Indiquez le chemin d’accès de l’entité SAP C4C OData. |Oui |
+| path | Indiquez le chemin d’accès de l’entité SAP C4C OData. |Oui |
 
 **Exemple :**
 
