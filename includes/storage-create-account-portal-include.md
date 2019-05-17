@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 842201ee20ef2e13c5179ccb5992a1ed98d36a3e
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 56545b02c35d68455497c93582073c73d6c75da5
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65237866"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65815644"
 ---
 Pour créer un compte de stockage à usage général v2 dans le portail Azure, procédez comme suit :
 
@@ -33,7 +33,7 @@ Pour créer un compte de stockage à usage général v2 dans le portail Azure, p
    |Modèle de déploiement     |Gestionnaire de ressources         |
    |Performances     |standard         |
    |Type de compte     |StorageV2 (usage général v2)         |
-   |Réplication     |Stockage géo-redondant (LRS) avec accès en lecture         |
+   |Réplication     |Stockage géo-redondant avec accès en lecture (RA-GRS)         |
    |Niveau d’accès     |À chaud         |
 
 1. Cliquez sur **Vérifier + créer** pour passer en revue vos paramètres de compte de stockage et créer le compte.

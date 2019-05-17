@@ -32,8 +32,6 @@
       href: create-host-pools-user-profile.md
     - name: Configurer la méthode d’équilibrage de charge de Windows Virtual Desktop
       href: configure-host-pool-load-balancing.md
-    - name: Identifier les problèmes relatifs à la fonctionnalité de diagnostic
-      href: diagnostics-role-service.md
     - name: Préparer et personnaliser une image de disque dur virtuel principale
       href: set-up-customize-master-image.md
     - name: Installer Office sur une image VHD principale
@@ -54,6 +52,8 @@
   items:
     - name: 'Vue d’ensemble du dépannage, commentaires et support'
       href: troubleshoot-set-up-overview.md
+    - name: Identifier les problèmes relatifs à la fonctionnalité de diagnostic
+      href: diagnostics-role-service.md
     - name: Création d’un pool de locataires et d’hôtes
       href: troubleshoot-set-up-issues.md
     - name: Configuration d’une machine virtuelle hôte de session
