@@ -91,7 +91,7 @@ Pour copier des données de SAP ECC, définissez **SapEccResource** comme propri
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| chemin d’accès | Chemin de l’entité OData SAP ECC. | Oui |
+| path | Chemin de l’entité OData SAP ECC. | Oui |
 
 **Exemple**
 
