@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/22/2019
 ms.author: absha
-ms.openlocfilehash: 90a57483fc7a530f214d34bf619a718b4c196e79
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 07165a497e75934a65719e48a9af7d8d6906ee7b
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59683146"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65538334"
 ---
 # <a name="troubleshoot-azure-application-gateway-session-affinity-issues"></a>Résoudre les problèmes d’affinité Azure Application Gateway Session
 
@@ -53,7 +53,7 @@ Les problèmes d’affinité de session peuvent parfois se produire si vous oubl
 
 Vous pouvez également vérifier la valeur de la «**CookieBasedAffinity**» est définie sur *activé*sous «**backendHttpSettingsCollection**» en utilisant l’une des méthodes suivantes :
 
-- Exécutez [Get-AzApplicationGatewayBackendHttpSettings](https://docs.microsoft.com/powershell/module/az.network/get-azapplicationgatewaybackendhttpsettings) dans PowerShell
+- Exécutez [Get-AzApplicationGatewayBackendHttpSetting](https://docs.microsoft.com/powershell/module/az.network/get-azapplicationgatewaybackendhttpsetting) dans PowerShell
 - Examinez le fichier JSON en utilisant le modèle Azure Resource Manager
 
 ```

@@ -1,5 +1,5 @@
 ---
-title: Chiffrement au repos à l’aide de clés gérées par le client dans Azure Key Vault - recherche Azure
+title: Chiffrement au repos à l’aide de clés gérées par le client dans Azure Key Vault (version préliminaire) - recherche Azure
 description: Chiffrement côté serveur de supplément sur les index et les cartes de synonymes dans Azure Search via les clés que vous créez et gérez dans Azure Key Vault.
 author: NatiNimni
 manager: jlembicz
@@ -9,14 +9,19 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.custom: ''
-ms.openlocfilehash: 987b56a9571fd50f605dbe6fb4112ef857021530
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 9d2cd2a2f4b3143d58d0ef03d67de094ea03303e
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65029174"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523090"
 ---
 # <a name="azure-search-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Chiffrement de recherche Azure à l’aide de clés gérées par le client dans Azure Key Vault
+
+> [!Note]
+> Le chiffrement avec des clés gérées par le client est en version préliminaire et les a pas été conçu pour la production. Le [API REST version 2019-05-06-Preview](search-api-preview.md) fournit cette fonctionnalité. Vous pouvez également utiliser la SDK .NET version 8.0 préliminaire.
+>
+> Cette fonctionnalité n’est pas disponible pour les services gratuits. Vous devez utiliser un service de recherche facturables créé l’ou après 2019-01-01. Il n’existe aucune prise en charge de portail pour l’instant.
 
 Par défaut, recherche Azure chiffre le contenu de l’utilisateur au repos avec [clés gérées par le service](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest#data-encryption-models). Vous pouvez compléter le chiffrement par défaut avec une couche supplémentaire de chiffrement à l’aide de clés que vous créez et gérez dans Azure Key Vault. Cet article vous guide à travers les étapes.
 
@@ -26,20 +31,17 @@ Chiffrement avec des clés gérées par le client est configuré du niveau index
 
 Vous pouvez utiliser différentes clés provenant de différents coffres de clé. Cela signifie que d’un service de recherche unique peut héberger plusieurs mappages indexes\synonym chiffré, chacune chiffrée potentiellement à l’aide d’une autre clé gérée par le client, en même temps que les mappages d’indexes\synonym qui ne sont pas chiffrés à l’aide de clés gérées par le client. 
 
->[!Note]
-> **Disponibilité des fonctionnalités**: Le chiffrement avec des clés gérées par le client est une fonctionnalité d’aperçu qui n’est pas disponible pour les services gratuits. Pour les services payants, elle est uniquement disponible pour les services de recherche créés l’ou après 2019-01-01, à l’aide de la dernière api-version d’évaluation (api-version = 2019-05-06-Preview). Il n’existe actuellement aucune prise en charge de portail pour cette fonctionnalité.
-
 ## <a name="prerequisites"></a>Conditions préalables
 
 Les services suivants sont utilisés dans cet exemple. 
 
-[Créez un service Recherche Azure](search-create-service-portal.md) ou [recherchez un service existant](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) dans votre abonnement actuel. Vous pouvez utiliser un service gratuit pour ce tutoriel.
++ [Créez un service Recherche Azure](search-create-service-portal.md) ou [recherchez un service existant](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) dans votre abonnement actuel. Vous pouvez utiliser un service gratuit pour ce tutoriel.
 
-[Créer une ressource Azure Key Vault](https://docs.microsoft.com/azure/key-vault/quick-create-portal#create-a-vault) ou trouver un coffre existant sous votre abonnement.
++ [Créer une ressource Azure Key Vault](https://docs.microsoft.com/azure/key-vault/quick-create-portal#create-a-vault) ou trouver un coffre existant sous votre abonnement.
 
-[Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) ou [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) est utilisé pour les tâches de configuration.
++ [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) ou [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) est utilisé pour les tâches de configuration.
 
-[Postman](search-fiddler.md), [Azure PowerShell](search-create-index-rest-api.md) et [SDK Azure Search](https://aka.ms/search-sdk-preview) peut être utilisé pour appeler l’API REST d’évaluation. Il n’existe aucun portail ou la prise en charge du SDK .NET pour le chiffrement de gérée par le client pour l’instant.
++ [Postman](search-fiddler.md), [Azure PowerShell](search-create-index-rest-api.md) et [SDK Azure Search](https://aka.ms/search-sdk-preview) peut être utilisé pour appeler l’API REST d’évaluation. Il n’existe aucun portail ou la prise en charge du SDK .NET pour le chiffrement de gérée par le client pour l’instant.
 
 ## <a name="1---enable-key-recovery"></a>1 - activer la récupération de clé
 

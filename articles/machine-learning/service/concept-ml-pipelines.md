@@ -1,7 +1,7 @@
 ---
 title: 'Pipelines : optimiser les workflows Machine Learning'
 titleSuffix: Azure Machine Learning service
-description: Dans cet article, découvrez des informations sur les pipelines de machine learning que vous pouvez créer avec le SDK Azure Machine Learning pour Python et les avantages de l’utilisation des pipelines. Les pipelines Machine Learning sont utilisés par les scientifiques des données pour créer, optimiser et gérer leurs flux de travail de machine learning.
+description: Dans cet article, découvrez des informations sur les pipelines de machine learning que vous pouvez créer avec le SDK Azure Machine Learning pour Python et les avantages de l’utilisation des pipelines. Les pipelines Machine Learning (ML) sont utilisés par les scientifiques des données pour générer, optimiser et gérer leurs workflows de machine learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: sanpil
 author: sanpil
-ms.date: 12/04/2018
+ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: f9049e22d15dacb91e86fd0ba623d69c9d17c789
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: ff693ac34382ea5673989ecb6cbb38e19e176ad3
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024821"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65801062"
 ---
 # <a name="build-machine-learning-pipelines-with-the-azure-machine-learning-service"></a>Créer des pipelines de Machine Learning avec Azure Machine Learning service
 
@@ -62,9 +62,9 @@ Vous pouvez [suivre les mesures de vos expérimentations de pipeline](https://do
 
 Voici les principaux avantages qu’il y a à créer des pipelines pour des workflows de Machine Learning :
 
-|Avantage principal|Description|
+|Avantage principal|Description |
 |:-------:|-----------|
-|**Exécutions sans&nbsp; assistance**|Planifiez quelques étapes à exécuter en parallèle ou en séquence de façon fiable et sans assistance. La préparation et la modélisation des données peuvent prendre des jours ou des semaines. Vous pouvez donc vous concentrer à présent sur d’autres tâches pendant l’exécution de votre pipeline. |
+|**Exécutions sans&nbsp; assistance**|Planifiez quelques étapes à exécuter en parallèle ou en séquence de façon fiable et automatisée. La préparation et la modélisation des données peuvent prendre des jours ou des semaines. Vous pouvez donc vous concentrer à présent sur d’autres tâches pendant l’exécution de votre pipeline. |
 |**Capacités de calcul mixtes et variées**|Utilisez plusieurs pipelines qui sont coordonnés de façon fiable entre des capacités de calcul et des stockages hétérogènes et évolutifs. Vous pouvez exécuter les étapes d’un pipeline une par une sur les différentes cibles de calcul, comme HDInsight, les machines virtuelles Data Science VM sur GPU et Databricks, de façon à utiliser efficacement les options de calcul disponibles.|
 |**Réutilisabilité**|Vous pouvez transformer des pipelines en modèles pour des scénarios précis, comme le réentraînement et le scoring par lots. Déclenchez-les à partir de systèmes externes par de simples appels REST.|
 |**Suivi et gestion de version**|Au lieu de suivre manuellement les données et les chemins d’accès aux résultats au fil des itérations, utilisez le kit SDK Pipelines pour nommer vos sources de données, vos entrées et vos sorties et en contrôler les versions. Vous pouvez aussi gérer séparément les scripts et les données pour augmenter la productivité.|

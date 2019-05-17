@@ -9,21 +9,21 @@ ms.topic: conceptual
 ms.date: 05/21/2018
 ms.author: mimart
 author: msmimart
-manager: daveba
+manager: celestedg
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1dca03f84b821d20ee6fecbaec24a1aa840836b5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5db5eb9c0e0493d906345892fcc5f2872a3e0e14
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60357135"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65812461"
 ---
 # <a name="add-b2b-collaboration-guest-users-without-an-invitation-link-or-email"></a>Ajouter les utilisateurs invités B2B collaboration sans un lien d’invitation ou l’e-mail
 
 Vous pouvez désormais inviter des utilisateurs en leur envoyant un lien direct vers une application partagée. Grâce à cette méthode, les utilisateurs invités n’ont plus besoin d’utiliser l’e-mail d’invitation, sauf dans certains cas spéciaux. Un utilisateur invité clique sur le lien de l’application, passe en revue et accepte les termes du contrat de confidentialité et accède ensuite en toute transparence à l’application. Pour plus d’informations, consultez [Utilisation d'invitations B2B Collaboration](redemption-experience.md).   
 
-Avant la mise à disposition de cette nouvelle méthode, vous pouviez inviter des utilisateurs sans avoir recours à l’e-mail d’invitation en ajoutant un inviteur (à partir de votre organisation ou d’une organisation partenaire) au rôle du répertoire **Inviteur d’invités**, puis en faisant en sorte que l’inviteur ajoute des utilisateurs invités au répertoire, aux groupes ou aux applications par le biais de l’interface utilisateur ou de PowerShell. Si vous utilisez PowerShell, vous pouvez supprimer en même temps l’e-mail d’invitation. Par exemple : 
+Avant la mise à disposition de cette nouvelle méthode, vous pouviez inviter des utilisateurs sans avoir recours à l’e-mail d’invitation en ajoutant un inviteur (à partir de votre organisation ou d’une organisation partenaire) au rôle du répertoire **Inviteur d’invités**, puis en faisant en sorte que l’inviteur ajoute des utilisateurs invités au répertoire, aux groupes ou aux applications par le biais de l’interface utilisateur ou de PowerShell. Si vous utilisez PowerShell, vous pouvez supprimer en même temps l’e-mail d’invitation. Exemple :
 
 1. Un utilisateur de l’organisation hôte (par exemple, WoodGrove) invite un utilisateur d’une organisation partenaire (par exemple, Sam@litware.com) en tant qu’invité.
 2. L’administrateur de l’organisation hôte [définit les stratégies](delegate-invitations.md) qui permettent à Sam d’identifier et d’ajouter d’autres utilisateurs de l’organisation partenaire (Litware). Sam doit être ajouté au rôle **Inviteur d’invités**.

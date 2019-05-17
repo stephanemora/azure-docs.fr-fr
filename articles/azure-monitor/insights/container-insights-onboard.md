@@ -1,6 +1,6 @@
 ---
-title: Procédure d’intégration d’Azure Monitor pour les conteneurs | Microsoft Docs
-description: Cet article décrit la façon dont vous intégrez et configurez Azure Monitor pour les conteneurs afin que vous puissiez comprendre les performances de votre conteneur et les problèmes liés aux performances identifiés.
+title: Comment activer Azure Monitor pour conteneurs | Microsoft Docs
+description: Cet article décrit comment activer et configurer Azure Monitor pour les conteneurs pour vous pouvez de comprendre comment votre conteneur s’exécute et les problèmes liés aux performances ont été identifiés.
 services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/25/2019
 ms.author: magoedte
-ms.openlocfilehash: 10b80a9749c5698195ac5d3493ac3b07fd6e24e1
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 5e149fa96e0a62656804906b52adf10273321d17
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65073307"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65521896"
 ---
-# <a name="how-to-onboard-azure-monitor-for-containers"></a>Procédure d’intégration d’Azure Monitor pour les conteneurs  
+# <a name="how-to-enable-azure-monitor-for-containers"></a>Comment activer Azure Monitor pour les conteneurs  
 
 Cet article fournit une vue d’ensemble des options disponibles pour le programme d’installation d’Azure Monitor pour les conteneurs pour analyser les performances des charges de travail qui sont déployés sur des environnements Kubernetes et hébergé sur [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/).
 
@@ -55,7 +55,7 @@ Lorsqu’une nouvelle version de l’agent est disponible, celui-ci est automati
 
 Vous activez Azure Monitor pour les conteneurs en utilisant l’une des méthodes suivantes décrites dans le tableau suivant.
 
-| État du déploiement | Méthode | Description | 
+| État du déploiement | Méthode | Description  | 
 |------------------|--------|-------------| 
 | Nouveau cluster AKS | [Créer le cluster à l’aide d’Azure CLI](../../aks/kubernetes-walkthrough.md#create-aks-cluster)| Vous pouvez activer la surveillance d’un nouveau cluster ACS que vous créez avec Azure CLI. | 
 | | [Créer le cluster à l’aide de Terraform](container-insights-enable-new-cluster.md#enable-using-terraform)| Vous pouvez activer la surveillance d’un nouveau cluster AKS, que vous créez à l’aide de l’outil open source Terraform. | 

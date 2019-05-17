@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 05/06/2019
-ms.openlocfilehash: 595d1b84aab55a77f21a9840c5bae9ee996424be
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: e999e4d96dcb5a1042806c0905ce331dc0a4dc0b
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65415932"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522854"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Utiliser les groupes de basculement automatique pour permettre le basculement transparent et coordonné de plusieurs bases de données
 
@@ -42,7 +42,7 @@ Pour assurer vraiment la continuité des activités, l’ajout d’une redondanc
 
 - **Groupe de basculement (brouillard)**
 
-  Un groupe de basculement est un groupe de bases de données gérées par un même serveur SQL Database ou dans une même instance gérée, et qui peut basculer entièrement vers une autre région lorsqu’une partie ou la totalité des bases de données primaires devient indisponible en raison d’une panne dans la région primaire. Lorsque vous avez créé pour les instances gérées, un groupe de basculement contient toutes les bases de données utilisateur dans l’instance et par conséquent, les groupes de basculement qu’un seul peuvent être configurés sur une instance.
+  Un groupe de basculement est un groupe de bases de données gérées par un même serveur SQL Database ou dans une même instance gérée, et qui peut basculer entièrement vers une autre région lorsqu’une partie ou la totalité des bases de données primaires devient indisponible en raison d’une panne dans la région primaire. Lors de la création des instances gérées, un groupe de basculement contient toutes les bases de données utilisateur dans l’instance et par conséquent qu’un seul groupe de basculement peut être configuré sur une instance.
 
 - **Serveurs SQL Database**
 

@@ -10,14 +10,20 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: d10a1df402fc4931c4d6cc513aa5e22cfe7ec2ba
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 07989b06b756e1e360ac3c37927a8267c84d9162
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024713"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522837"
 ---
 # <a name="how-to-index-cosmos-db-using-an-azure-search-indexer"></a>Comment indexer Cosmos DB à l’aide d’un indexeur recherche Azure
+
+
+> [!Note]
+> Prise en charge de l’API MongoDB est en version préliminaire et les a pas été conçu pour la production. Le [API REST version 2019-05-06-Preview](search-api-preview.md) fournit cette fonctionnalité. Il n’existe aucun portail ou la prise en charge du SDK .NET pour l’instant.
+>
+> API SQL est généralement disponible.
 
 Cet article vous montre comment configurer Azure Cosmos DB [indexeur](search-indexer-overview.md) pour extraire le contenu et les rendre détectables dans Azure Search. Ce flux de travail crée un index Azure Search et la charge de texte existant extrait à partir d’Azure Cosmos DB. 
 
@@ -26,7 +32,7 @@ Cet article vous montre comment configurer Azure Cosmos DB [indexeur](search-ind
 Vous pouvez utiliser la [portal](#cosmos-indexer-portal), API REST ou .NET SDK pour indexer le contenu Cosmos. L’indexeur Cosmos DB dans Azure Search peut analyser [éléments d’Azure Cosmos](https://docs.microsoft.com/azure/cosmos-db/databases-containers-items#azure-cosmos-items) accessibles via ces protocoles :
 
 * [API SQL](https://docs.microsoft.com/azure/cosmos-db/sql-api-query-reference) 
-* [API MongoDB](https://docs.microsoft.com/azure/cosmos-db/mongodb-introduction) (prise en charge de la recherche Azure pour cette API est en version préliminaire publique)  
+* [API de MongoDB (version préliminaire)](https://docs.microsoft.com/azure/cosmos-db/mongodb-introduction)
 
 > [!Note]
 > User Voice a des éléments existants pour la prise en charge des API supplémentaire. Vous pouvez effectuer un cast d’un vote pour les API Cosmos vous aimeriez voir prises en charge dans Azure Search : [API table](https://feedback.azure.com/forums/263029-azure-search/suggestions/32759746-azure-search-should-be-able-to-index-cosmos-db-tab), [API Graph](https://feedback.azure.com/forums/263029-azure-search/suggestions/13285011-add-graph-databases-to-your-data-sources-eg-neo4), [Apache Cassandra API](https://feedback.azure.com/forums/263029-azure-search/suggestions/32857525-indexer-crawler-for-apache-cassandra-api-in-azu).
@@ -118,7 +124,7 @@ Quand l’indexation est terminée, vous pouvez utiliser l’[Explorateur de rec
 
 Vous pouvez utiliser l’API REST pour indexer les données Azure Cosmos DB, suivant un flux de travail en trois parties commun à tous les indexeurs dans recherche Azure : créer une source de données, de créer un index, de créer un indexeur. Extraction de données à partir du stockage de Cosmos se produit lorsque vous envoyez la demande de créer un indexeur. Une fois cette demande est terminée, vous aurez un index peut être interrogé. 
 
-Si vous évaluez MongoDB, vous devez utiliser l’API REST pour créer la source de données.
+Si vous évaluez MongoDB, vous devez utiliser le reste `api-version=2019-05-06-Preview` pour créer la source de données.
 
 Dans votre compte Cosmos DB, vous pouvez choisir si vous souhaitez que la collection indexe automatiquement tous les documents. Par défaut, tous les documents sont indexés automatiquement, mais vous pouvez désactiver l’indexation automatique. Quand l’indexation est désactivée, les documents sont accessibles uniquement par le biais de leurs liens réflexifs ou de requêtes avec l’ID de document. Azure Search nécessite l’activation de l’indexation automatique Cosmos DB dans la collection qui sera indexée par Azure Search. 
 
@@ -168,7 +174,7 @@ Pour créer une source de données, formuler une demande POST :
 
 Le corps de la requête contient la définition de la source de données, qui doit inclure les champs suivants :
 
-| Champ   | Description |
+| Champ   | Description  |
 |---------|-------------|
 | **name** | Requis. Choisissez un nom pour représenter votre objet de source de données. |
 |**type**| Requis. Doit être `cosmosdb`. |
@@ -279,7 +285,7 @@ Pour plus d’informations sur l’API Créer un indexeur, consultez [Créer un 
 
 ## <a name="use-net"></a>Utiliser .NET
 
-Le SDK .NET est entièrement pareil que l’API REST. Nous vous recommandons de consulter la section précédente de l’API REST pour découvrir les concepts, les workflows et les exigences. Vous pouvez alors vous référer à la documentation de référence des API .NET suivante pour implémenter un indexeur JSON dans du code managé.
+Le kit SDK .NET à la disposition générale offre une parité complète avec l’API REST à la disposition générale. Nous vous recommandons de consulter la section précédente de l’API REST pour découvrir les concepts, les workflows et les exigences. Vous pouvez alors vous référer à la documentation de référence des API .NET suivante pour implémenter un indexeur JSON dans du code managé.
 
 + [microsoft.azure.search.models.datasource](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet)
 + [microsoft.azure.search.models.datasourcetype](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasourcetype?view=azure-dotnet) 
@@ -354,12 +360,6 @@ L'exemple suivant crée une source de données avec des conseils pour une strat�
             "softDeleteMarkerValue": "true"
         }
     }
-
-## <a name="watch-this-video"></a>Regardez cette vidéo
-
-Dans cette vidéo de 7 minutes légèrement plus ancienne, Azure Cosmos DB Program Manager Andrew Liu montre comment ajouter un index recherche Azure à un conteneur Azure Cosmos DB. Les pages du portail indiqués dans la vidéo sont obsolètes, mais les informations sont toujours applicables.
-
->[!VIDEO https://www.youtube.com/embed/OyoYu1Wzk4w]
 
 ## <a name="NextSteps"></a>Étapes suivantes
 

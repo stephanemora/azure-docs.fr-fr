@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/02/2019
 ms.author: spelluru
-ms.openlocfilehash: 0eed874d405fcf99241a702292f8ceadae6c5a07
-ms.sourcegitcommit: 1d257ad14ab837dd13145a6908bc0ed7af7f50a2
+ms.openlocfilehash: 2ad81ae97414abbf3266cc5728febf9abe836151
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65502031"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522957"
 ---
 # <a name="automate-adding-a-lab-user-to-a-lab-in-azure-devtest-labs"></a>Automatiser l’ajout d’un utilisateur de laboratoire à un laboratoire dans Azure DevTest Labs
 Azure DevTest Labs vous permet de créer rapidement des environnements de développement-test libre-service à l’aide du portail Azure. Toutefois, si vous avez plusieurs équipes et plusieurs instances de DevTest Labs, automatisant le processus de création peut gagner du temps. [Modèles Azure Resource Manager](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates) vous permettent de créer des laboratoires, les machines virtuelles de laboratoire, les images personnalisées, les formules, et ajouter des utilisateurs de manière automatique. Cet article se concentre spécifiquement sur l’ajout d’utilisateurs à une instance de dev/test.
@@ -85,7 +85,7 @@ L’exemple de modèle Resource Manager suivant spécifie un utilisateur à ajou
 
 ```
 
-Si vous attribuez le rôle dans le même modèle que celui qui est créé le laboratoire, pensez à ajouter une dépendance entre la ressource d’attribution de rôle et le laboratoire. Pour plus d’informations, consultez [définition de dépendances dans les modèles Azure Resource Manager](/azure-resource-manager/resource-group-define-dependencies.md) article.
+Si vous attribuez le rôle dans le même modèle que celui qui est créé le laboratoire, pensez à ajouter une dépendance entre la ressource d’attribution de rôle et le laboratoire. Pour plus d’informations, consultez [définition de dépendances dans les modèles Azure Resource Manager](../azure-resource-manager/resource-group-define-dependencies.md) article.
 
 ### <a name="role-assignment-resource-information"></a>Informations de ressource d’attribution de rôle
 La ressource d’attribution de rôle doit spécifier le nom et le type.

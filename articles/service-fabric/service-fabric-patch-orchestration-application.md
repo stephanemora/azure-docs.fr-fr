@@ -14,22 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/01/2019
 ms.author: brkhande
-ms.openlocfilehash: ef2b1bd9cfe9aed1e82335d62bb09b5ffcbe1016
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: aca34ee40bfe10c55c478d9aaeb01a65d139e1e2
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65471761"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522373"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Corriger le système d’exploitation Windows dans votre cluster Service Fabric
 
 > 
 > [!IMPORTANT]
 > Version 1.2 de l’application. * va la prise en charge sur 30 avril 2019. Mettez à niveau vers la dernière version.
-
-> 
-> [!IMPORTANT]
-> Application d’Orchestration des correctifs sur linux a été déconseillée. Visitez [ensemble d’échelle de machine virtuelle Azure de mises à niveau automatiques du image du système d’exploitation](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) permettant d’orchestrer les mises à jour sur linux.
 
 
 [Les mises à niveau automatiques de l’image du système d’exploitation du groupe de machines virtuelles identiques Azure ](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) correspondent aux meilleures pratiques pour conserver vos systèmes d’exploitation corrigés dans Azure, et l’Application d’Orchestration des correctifs (POA) est un wrapper autour du service Service Fabrics RepairManager Systems qui permet la planification des correctifs de système d’exploitation en fonction de la configuration pour les clusters hébergés ailleurs que sur Azure. POA n’est pas obligatoire pour les clusters hébergés ailleurs que sur Azure, mais la planification de l’installation de correctifs par les Domaines de mise à niveau est nécessaire pour corriger les hôtes de clusters Service Fabric sans temps d’arrêt.
@@ -241,7 +237,7 @@ RebootRequired | true : le redémarrage était requis<br> false : le redémarr
 
 Si aucune mise à jour n’est planifiée, le JSON de résultat est vide.
 
-Connectez-vous au cluster pour interroger les résultats des mises à jour Windows Update. Déterminez ensuite l’adresse de réplica pour le serveur principal du service Coordinateur, puis accédez à l’URL à partir du navigateur : http://&lt;REPLICA-IP&gt;:&lt;ApplicationPort&gt;/PatchOrchestrationApplication/v1/GetWindowsUpdateResults.
+Connectez-vous au cluster pour la requête de mise à jour Windows résultats. Déterminez ensuite l’adresse de réplica pour le serveur principal du service Coordinateur, puis accédez à l’URL à partir du navigateur : http://&lt;REPLICA-IP&gt;:&lt;ApplicationPort&gt;/PatchOrchestrationApplication/v1/GetWindowsUpdateResults.
 
 Le point de terminaison REST pour le service Coordinateur a un port dynamique. Pour vérifier l’URL exacte, reportez-vous à Service Fabric Explorer. Par exemple, les résultats sont disponibles à l’adresse `http://10.0.0.7:20000/PatchOrchestrationApplication/v1/GetWindowsUpdateResults`.
 
@@ -263,7 +259,7 @@ Pour activer le proxy inverse sur le cluster, procédez de la manière décrite 
 
 Les journaux d’activité de l’application d’orchestration des correctifs sont collectés en même temps que les journaux d’activité du runtime Service Fabric.
 
-Si vous le souhaitez, vous pouvez capturer les journaux d’activité au moyen du pipeline ou de l’outil de diagnostic de votre choix. L’application d’orchestration des correctifs utilise les ID de fournisseur fixes ci-dessous pour journaliser les événements par le biais [d’eventsource](https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource?view=netframework-4.5.1)
+Si vous le souhaitez, vous pouvez capturer les journaux d’activité au moyen du pipeline ou de l’outil de diagnostic de votre choix. Application d’orchestration des correctifs utilise les ID de fournisseur fixe ci-dessous pour consigner des événements via [source d’événement](https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource?view=netframework-4.5.1)
 
 - e39b723c-590c-4090-abb0-11e3e6616346
 - fc0028ff-bfdc-499f-80dc-ed922c52c5e9
@@ -312,7 +308,7 @@ Q. **Que faire si mon cluster est défectueux et que je dois effectuer une mise 
 
 R. L’application d’orchestration des correctifs n’installe pas de mises à jour lorsque le cluster est défectueux. Essayez de ramener votre cluster à un état sain pour débloquer le flux de travail de l’application d’orchestration des correctifs.
 
-Q. **Dois-je définir TaskApprovalPolicy en tant que « NodeWise » ou « UpgradeDomainWise » pour mon cluster ?**
+Q. **Dois-je définir TaskApprovalPolicy comme 'NodeWise' ou 'UpgradeDomainWise' pour mon cluster ?**
 
 R. « UpgradeDomainWise » accélère la mise à jour corrective du cluster global en corrigeant tous les nœuds appartenant à un domaine de mise à niveau en parallèle. Cela signifie que les nœuds appartenant à un domaine de mise à niveau entier sont indisponibles (en état [Désactivé](https://docs.microsoft.com/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabled)) pendant le processus de mise à jour corrective.
 
@@ -346,6 +342,10 @@ R. Certaines mises à jour de produits apparaissent uniquement dans leur histori
 Q. **Puis-je utiliser l’application d’orchestration des correctifs pour appliquer un correctif à mon cluster de développement (cluster à un nœud) ?**
 
 R. Non, l’application d’orchestration des correctifs ne peut pas être utilisée pour corriger un cluster à un nœud. Cette limitation est liée à la conception, car [services système de Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-technical-overview#system-services) ou toute application cliente connaît des interruptions de service et, par conséquent, toute opération de réparation pour la correction ne sera jamais approuvée par le service de gestion des réparations.
+
+Q. **Comment corriger des nœuds de cluster sur Linux ?**
+
+R. Consultez [ensemble d’échelle de machine virtuelle Azure de mises à niveau automatiques du image du système d’exploitation](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) permettant d’orchestrer les mises à jour sur linux.
 
 ## <a name="disclaimers"></a>Clauses d’exclusion de responsabilité
 
@@ -413,7 +413,7 @@ Un administrateur doit intervenir et déterminer la raison pour laquelle l’app
 
 - L’affectation de la valeur False à InstallWindowsOSOnlyUpdates installe maintenant toutes les mises à jour disponibles.
 - Changement de la logique de désactivation des mises à jour automatiques. Cela résout un bogue à cause duquel les mises à jour automatiques n’étaient pas désactivées sur Server 2016 et ultérieur.
-- Contrainte de placement paramétrable pour les deux microservices de l’application d’orchestration des correctifs pour les cas d’utilisation avancés.
+- Contrainte de placement paramétrable pour les deux les microservices de POA pour les cas d’usage avancés.
 
 ### <a name="version-131"></a>Version 1.3.1
 - Correction d’une régression où POA 1.3.0 ne fonctionnait pas sur Windows Server 2012 R2 ou antérieur en raison d’une impossibilité de désactiver les mises à jour automatiques. 
@@ -421,4 +421,4 @@ Un administrateur doit intervenir et déterminer la raison pour laquelle l’app
 - Remplacement de la valeur par défaut de InstallWindowsOSOnlyUpdates par la valeur False.
 
 ### <a name="version-132"></a>Version 1.3.2
-- Correction d’un problème qui a effectué la mise à jour corrective vie-importantes sur un nœud dans le cas où il existe des nœuds de nom qui est le sous-ensemble du nom du nœud actuel. Pour de tels nœuds, il est possible qu’un correctif soit omis ou qu’un redémarrage soit en cours. 
+- Correction d’un problème qui a effectué la mise à jour corrective du cycle de vie sur un nœud dans le cas où il existe des nœuds de nom qui est le sous-ensemble du nom du nœud actuel. Pour de tels nœuds, il est possible qu’un correctif soit omis ou qu’un redémarrage soit en cours. 

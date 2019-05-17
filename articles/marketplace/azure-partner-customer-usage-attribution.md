@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: yijenj
-ms.openlocfilehash: cfe9b469cfac848c9e57f1fc10193208722be109
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: dcab4d24ca948980f28483fd09f29588e0329b63
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64935707"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65800970"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Attribution de l’utilisation de client partenaire Azure
 
@@ -247,7 +247,7 @@ foreach ($deployment in $deployments){
 
 ## <a name="report"></a>Rapport
 
-Vous trouverez le rapport pour l’attribution de l’utilisation de clients dans votre tableau de bord Partner Center analyser. ([https://partner.microsoft.com/en-us/dashboard/mpn/analytics/CPP/MicrosoftAzure](https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure)).
+Vous trouverez le rapport pour l’attribution de l’utilisation de clients dans votre tableau de bord Partner Center analyser. ([https://partner.microsoft.com/en-us/dashboard/mpn/analytics/CPP/MicrosoftAzure](https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure)). Pour afficher le rapport, vous devez utiliser vos informations d’identification de partenaires pour vous connecter. Si vous rencontrez des problèmes avec le rapport ou vous connecter, créer une demande de support suit l’instruction dans la section de prise en charge de Get.
 
 Choisir le modèle objet d’un suivi dans la liste déroulante du Type d’Association de partenaire pour afficher le rapport.
 
@@ -266,6 +266,10 @@ Lorsque vous déployez ce modèle, Microsoft peut identifier l’installation du
 Lorsque vous déployez le logiciel \<PARTNER>, Microsoft peut identifier l’installation du logiciel \<PARTNER> avec les ressources Azure déployées. Microsoft peut mettre en corrélation les ressources Azure utilisées pour prendre en charge le logiciel. Microsoft collecte ces informations pour fournir les meilleures expériences possibles avec leurs produits et pour gérer leur activité. Les données sont collectées et régies par les stratégies de confidentialité de Microsoft, qui se trouvent à l’adresse https://www.microsoft.com/trustcenter.
 
 ## <a name="get-support"></a>Obtenir de l’aide
+
+Si vous rencontrez des problèmes avec le rapport ou vous connecter au centre de partenaires, créez une demande de support avec l’équipe de support partenaires ici : [https://partner.microsoft.com/en-US/support](https://partner.microsoft.com/support)
+
+![](./media/marketplace-publishers-guide/partner-center-log-in-support.png)
 
 Si vous avez besoin d’aide pour l’intégration de la place de marché et/ou d’attribution de l’utilisation de client, procédez comme suit.
 

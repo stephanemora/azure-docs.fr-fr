@@ -6,15 +6,16 @@ services: media-services
 author: Juliako
 manager: femila
 ms.service: media-services
+ms.subservice: video-indexer
 ms.topic: article
-ms.date: 04/01/2019
+ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: dfa41dc695cf6ab357a9cd4cdbd32454b6dd107d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d312a93f83ef38fa1ae855a1e313280fc608948d
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60560082"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65799397"
 ---
 # <a name="scenes-shots-and-keyframes"></a>Scènes, captures et images clés
 
@@ -29,7 +30,7 @@ Video Indexer détermine si une scène des modifications de vidéo selon des sig
 > [!NOTE]
 > S’applique aux vidéos qui contiennent au moins 3 scènes.
 
-## <a name="shot-detection"></a>Détection de plan
+## <a name="shot-detection"></a>Détection de plans
 
 Video Indexer détermine quand un plan change dans la vidéo selon des signaux visuels, en effectuant le suivi des transitions brusques et progressive du jeu de couleurs d’images adjacentes. Les métadonnées de la capture incluent un début et heure de fin, ainsi que la liste d’images clés inclus dans cette capture. Les captures sont des images consécutives effectuées à partir de la caméra même en même temps.
 
