@@ -3,18 +3,18 @@ title: Démarrage rapide – Envoyer une requête à l’API Recherche d’entre
 titleSuffix: Azure Cognitive Services
 description: Suivez cet article pour commencer à utiliser l’API Recherche d’entreprises locales Bing en Java.
 services: cognitive-services
-author: mikedodaro
-manager: rosh
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: ed98d40987645fdadff8cc628cfd08feca41d01f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b87fea5120ae09848eef9fcb29ef0912bf17fa0f
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60336029"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65796920"
 ---
 # <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-using-java"></a>Démarrage rapide : Envoyer une requête à l’API Recherche d’entreprises locales Bing avec Java
 

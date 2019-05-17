@@ -6,14 +6,14 @@ manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 07/03/2017
+ms.date: 05/11/2019
 ms.author: robinsh
-ms.openlocfilehash: 274b77644326cbf73696aae77b48afcbc63aa4c2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5dd93af7deec2b0c8c90f6a8586de905207ad0a6
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61322677"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65796361"
 ---
 # <a name="import-and-export-iot-hub-device-identities-in-bulk"></a>Importer et exporter les identités des appareils IoT Hub en bloc
 
@@ -84,6 +84,10 @@ while(true)
   await Task.Delay(TimeSpan.FromSeconds(5));
 }
 ```
+
+## <a name="device-importexport-job-limits"></a>Limite de tâches d’importation/exportation appareil
+
+Importer uniquement 1 appareil active ou tâche d’exportation est autorisée à la fois pour tous les niveaux de IoT Hub. IoT Hub a également des limites pour des taux d’opérations de travaux. Pour plus d’informations, consultez [référence - quotas et limitation IoT Hub](iot-hub-devguide-quotas-throttling.md).
 
 ## <a name="export-devices"></a>Exporter des appareils
 
@@ -253,7 +257,7 @@ Si le fichier d’importation inclut les métadonnées de représentation, ces m
 
 Vous pouvez contrôler le processus d’importation par appareil en utilisant la propriété facultative **importMode** dans les données d’importation sérialisées pour chaque appareil. La propriété **importMode** propose les options suivantes :
 
-| importMode | Description |
+| importMode | Description  |
 | --- | --- |
 | **createOrUpdate** |Si un appareil n’existe pas avec la valeur **ID**, il a été inscrit récemment. <br/>Si l’appareil existe déjà, les informations existantes sont remplacées par les données d’entrée fournies, sans tenir compte de la valeur **ETag** . <br> L’utilisateur peut éventuellement spécifier des données de représentation avec les données de l’appareil. L’etag de la représentation, si elle est spécifiée, est traitée indépendamment de l’etag de l’appareil. S’il existe une incompatibilité avec l’etag existant de la représentation, une erreur est consignée dans le fichier journal. |
 | **create** |Si un appareil n’existe pas avec la valeur **ID**, il a été inscrit récemment. <br/>Si l’appareil existe déjà, une erreur est consignée dans le fichier journal. <br> L’utilisateur peut éventuellement spécifier des données de représentation avec les données de l’appareil. L’etag de la représentation, si elle est spécifiée, est traitée indépendamment de l’etag de l’appareil. S’il existe une incompatibilité avec l’etag existant de la représentation, une erreur est consignée dans le fichier journal. |
@@ -390,7 +394,7 @@ while(true)
 
 ## <a name="get-the-container-sas-uri"></a>Obtenir l’URI SAS du conteneur
 
-L’exemple de code suivant montre comment générer un [URI de SAP](../storage/blobs/storage-dotnet-shared-access-signature-part-2.md) avec des autorisations de lecture, d’écriture et de suppression pour un conteneur d’objets blob :
+L’exemple de code suivant montre comment générer un [URI de SAP](../storage/common/storage-dotnet-shared-access-signature-part-1.md) avec des autorisations de lecture, d’écriture et de suppression pour un conteneur d’objets blob :
 
 ```csharp
 static string GetContainerSasUri(CloudBlobContainer container)
@@ -420,7 +424,7 @@ static string GetContainerSasUri(CloudBlobContainer container)
 Dans cet article, vous avez appris comment effectuer des opérations en bloc dans le registre des identités dans un IoT Hub. Suivez ces liens pour en savoir plus sur la gestion de Azure IoT Hub :
 
 * [Métriques d’IoT Hub](iot-hub-metrics.md)
-* [Surveillance des opérations](iot-hub-operations-monitoring.md)
+* [Journaux de IoT Hub](iot-hub-monitor-resource-health.md)
 
 Pour explorer davantage les capacités de IoT Hub, consultez :
 

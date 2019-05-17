@@ -3,8 +3,8 @@ title: Guide pratique pour créer une application capable de connecter n’impor
 description: Montre comment créer une application mutualisée qui peut connecter un utilisateur à partir de n’importe quel client Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 35af95cb-ced3-46ad-b01d-5d2f6fd064a3
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/12/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: jmprieur, lenalepa, sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c2054a873d73bce7048ef9e48adabf3fb5279df9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 68973d3a88791bcfffc8183f5e3a16975fe15742
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60410486"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540453"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Activation Connecter un utilisateur Azure Active Directory à l’aide du modèle d’application multilocataire
 
@@ -138,7 +138,7 @@ Votre application peut comporter plusieurs niveaux, chacun représenté par sa p
 
 #### <a name="multiple-tiers-in-a-single-tenant"></a>Plusieurs niveaux dans un seul locataire
 
-Cela peut poser problème si votre application logique implique deux ou plusieurs inscriptions d’application, par exemple un client et une ressource distincts. Comment ajouter d’abord la ressource au client ? Azure AD traite ce cas en permettant au client et aux ressources d’être consentis en une seule étape. L’utilisateur voit l’ensemble des autorisations demandées par le client et les ressources sur la page de consentement. Pour activer ce comportement, l’inscription d’application de la ressource doit inclure l’ID d’application du client en tant que `knownClientApplications` dans son [manifeste d’application][AAD-App-Manifest]. Par exemple : 
+Cela peut poser problème si votre application logique implique deux ou plusieurs inscriptions d’application, par exemple un client et une ressource distincts. Comment ajouter d’abord la ressource au client ? Azure AD traite ce cas en permettant au client et aux ressources d’être consentis en une seule étape. L’utilisateur voit l’ensemble des autorisations demandées par le client et les ressources sur la page de consentement. Pour activer ce comportement, l’inscription d’application de la ressource doit inclure l’ID d’application du client en tant que `knownClientApplications` dans son [manifeste d’application][AAD-App-Manifest]. Exemple :
 
     knownClientApplications": ["94da0930-763f-45c7-8d26-04d5938baab2"]
 

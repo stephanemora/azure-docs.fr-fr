@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/29/2019
 ms.author: roiyz
-ms.openlocfilehash: 2287a0c39a82509e21ff35d8c3786cf1c85b1b24
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 270b3ae49a815c9e12fce9377c8298192237f28a
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65142872"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65790367"
 ---
 # <a name="azure-monitor-virtual-machine-extension-for-windows"></a>Extension de machine virtuelle Azure Monitor pour Windows
 
@@ -36,6 +36,19 @@ L’extension de l’agent d’Analytique de journal pour Windows prend en charg
 
 - Windows Server 2019
 - Windows Server 2008 R2, 2012, 2012 R2, 2016, version 1709 et 1803
+
+### <a name="agent-and-vm-extension-version"></a>Version de l’agent et de l’extension de machine virtuelle
+Le tableau suivant fournit un mappage de la version de l’extension de machine virtuelle de Azure Monitor et le bundle de l’agent Analytique de journal pour chaque version. 
+
+| Version d’extension de machine virtuelle Linux de moniteur Azure | Version du bundle de l’Agent Log Analytics | Date de mise en production | Notes de publication |
+|--------------------------------|--------------------------|--------------------------|--------------------------|
+| 8.0.11049.0 | 1.0.11049.1 | Février 2017 | |
+| 8.0.11072.0 | 1.0.11072.1 | Septembre 2017 | |
+| 8.0.11081.0 | 1.0.11081.5 | Novembre 2017 | | 
+| 8.0.11103.0 | n/a |  Avril 2018 | |
+| 8.0.11136.0 | n/a | Septembre 2018 |  <ul><li> Prise en charge pour la détection de changement d’ID de ressource sur le déplacement de la machine virtuelle </li><li> Prise en charge ajoutée pour installer ID lors de l’utilisation sans extension de ressource des rapports </li></ul>| 
+| 10.19.10006.0 | n/a | Décembre 2018 | <ul><li> Correctifs de stabilisation mineurs </li></ul> | 
+| 10.19.13515.0 | 1.0.13515.1 | Mars 2019 | <ul><li>Correctifs de stabilisation mineurs </li></ul> |
 
 ### <a name="azure-security-center"></a>Azure Security Center
 
@@ -77,7 +90,7 @@ Le JSON suivant illustre le schéma de l’extension d’agent Log Analytics. L�
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
 | publisher | Microsoft.EnterpriseCloud.Monitoring |
-| Type | MicrosoftMonitoringAgent |
+| type | MicrosoftMonitoringAgent |
 | typeHandlerVersion | 1.0 |
 | workspaceId (par exemple)* | 6f680a37-00c6-41c7-a93f-1437e3462574 |
 | workspaceKey (par exemple) | z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI+rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ== |

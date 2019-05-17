@@ -12,12 +12,12 @@ ms.author: josack
 ms.reviewer: sstein
 manager: craigg
 ms.date: 02/13/2019
-ms.openlocfilehash: a83bc6518409add8a0732e5a0b17ab46c36564af
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4424e53689714625ebc791df250956463452c3cb
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60703312"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65791493"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-single-and-pooled-databases-in-azure-sql-database"></a>Nouvel administrateur de base de données dans le cloud - Gérer vos bases de données uniques et mises en pool dans Azure SQL Database
 
@@ -127,7 +127,7 @@ Vous pouvez également provisionner des [adresses IP réservées](../virtual-ne
 
 ### <a name="what-port-do-i-connect-to-sql-database-on"></a>Sur quel port dois-je me connecter à SQL Database
 
-Port 1433. SQL Database communique par le biais de ce port. Pour vous connecter à partir d’un réseau d’entreprise, vous devez ajouter une règle de trafic sortant dans les paramètres du pare-feu de votre organisation. En règle générale, évitez d’exposer le port 1433 hors de la limite Azure. Vous pouvez exécuter SSMS dans Azure via [Azure RemoteApp](https://www.microsoft.com/cloud-platform/azure-remoteapp-client-apps). Cela vous dispense d’ouvrir des connexions sortantes pour le port 1433. Comme l’adresse IP est statique, la base de données peut être ouverte uniquement pour RemoteApp. MFA (Multi-Factor Authentication) est pris en charge.
+Port 1433. SQL Database communique par le biais de ce port. Pour vous connecter à partir d’un réseau d’entreprise, vous devez ajouter une règle de trafic sortant dans les paramètres du pare-feu de votre organisation. En règle générale, évitez d’exposer le port 1433 hors de la limite Azure.
 
 ### <a name="how-can-i-monitor-and-regulate-activity-on-my-server-and-database-in-sql-database"></a>Comment superviser et réguler l’activité sur mon serveur et ma base de données dans SQL Database
 
@@ -152,7 +152,7 @@ Pour protéger vos données sensibles en transit et au repos, SQL Database propo
 |**Caractéristiques**|**Always Encrypted**|**Chiffrement transparent des données**|
 |---|---|---|
 |**Étendue de chiffrement**|Bout en bout|Données au repos|
-|**Le serveur de base de données peut accéder aux données sensibles**|Non |Oui, étant donné que le chiffrement concerne les données au repos|
+|**Le serveur de base de données peut accéder aux données sensibles**|Non|Oui, étant donné que le chiffrement concerne les données au repos|
 |**Opérations T-SQL autorisées**|Comparaison d’égalité|Toute la surface d’exposition T-SQL est disponible|
 |**Modifications de l’application exigées pour utiliser la fonctionnalité**|Minimales|Très minimes|
 |**Granularité de chiffrement**|Au niveau des colonnes|Au niveau de la base de données|

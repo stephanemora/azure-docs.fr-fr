@@ -3,9 +3,9 @@ title: Guide du développeur pour l’accès conditionnel à Azure Active Direct
 description: Guide du développeur et scénarios pour l’accès conditionnel à Azure AD
 services: active-directory
 keywords: ''
-author: CelesteDG
-manager: mtillman
-ms.author: celested
+author: rwike77
+manager: CelesteDG
+ms.author: ryanwi
 ms.reviewer: dadobali
 ms.date: 02/28/2019
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3346f7a5af2a22cb7b7ece312fc367a874095668
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 071acb5ae24cff3e07fe9d4a6d35cdc93348d60f
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60410722"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544524"
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Guide du développeur pour l’accès conditionnel à Azure Active Directory
 
@@ -60,7 +60,7 @@ Certains scénarios requièrent des modifications de code pour gérer l’accès
 * Vous générez une application iOS de client unique et appliquez une stratégie d’accès conditionnel. L’application connecte un utilisateur et ne demande pas l’accès à une API. Lorsque l’utilisateur se connecte, la stratégie est appelée automatiquement et l’utilisateur doit effectuer l’authentification multifacteur (MFA). 
 * Vous générez une application native qui utilise un service de niveau intermédiaire pour accéder à une API en aval. Un client d’entreprise de la société utilisant cette application applique une stratégie à l’API en aval. Quand un utilisateur final se connecte, l’application native demande l’accès au niveau intermédiaire et envoie le jeton. Le niveau intermédiaire effectue le flux Pour le compte pour demander l’accès à l’API en aval. À ce stade, un défi de « revendications » est présenté au niveau intermédiaire. Le niveau intermédiaire renvoie la demande à l’application native, qui doit se conformer à la stratégie d’accès conditionnel.
 
-#### <a name="microsoft-graph"></a>Microsoft Graph
+#### <a name="microsoft-graph"></a>Microsoft Graph
 
 Microsoft Graph présente des considérations spéciales lors de la création d’applications dans les environnements d’accès conditionnel. En règle générale, les mécanismes d’accès conditionnel ont le même comportement, mais les stratégies de que vos utilisateurs voient doit reposer sur les données sous-jacentes, que votre application demande à partir du graphique. 
 

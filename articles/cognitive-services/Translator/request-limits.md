@@ -10,36 +10,47 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: 97b0b6256b7aaf7b42565fe9453fb87a0c414569
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 91cc002f373318e5124fc21f76edbfd000d17238
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60605197"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65796905"
 ---
 # <a name="request-limits-for-translator-text"></a>Limites de requête pour la traduction de texte Translator Text
 
 Cet article fournit des seuils de limitation de requêtes pour l’API de traduction de texte Translator Text. Les services incluent la traduction, la translittération, la détection de longueur de phrase, la détection de la langue et les traductions alternatives.
 
-## <a name="character-limits-per-request"></a>Limites de caractères par requête
+## <a name="character-and-array-limits-per-request"></a>Limites de caractère et de tableau par demande
 
-Chaque requête est limitée à 5 000 caractères. Vous êtes facturé au caractère, et non pas au nombre de requêtes. Il est recommandé d’envoyer des requêtes plus courtes et d’avoir des requêtes en attente à tout moment.
+Chaque requête Translate est limitée à 5 000 caractères. Vous êtes facturé au caractère, et non pas au nombre de requêtes. Il est recommandé d’envoyer des requêtes plus courts.
 
-Il n’existe aucune limite sur le nombre de requêtes en attente pour l’API de traduction de texte Translator Text.
+Les table listes tableau élément et caractère limites suivantes pour chaque opération de l’API Translator Text.
+
+| Opération | Taille maximale de l’élément de tableau |   Nombre maximal d’éléments de tableau |  Taille de demande maximale (caractères) |
+|:----|:----|:----|:----|
+| Déplacer | 5 000 | 100   | 5 000 |
+| Transliterate | 5 000 | 10    | 5 000 |
+| Détecter | 10 000 | 100 |   50 000 |
+| BreakSentence | 10 000    | 100 | 5,0000 |
+| Recherche dans le dictionnaire| 100 |  10  | 1 000 |
+| Exemples de dictionnaire | 100 pour le texte et 100 pour la traduction (total de 200)| 10|   2 000 |
 
 ## <a name="character-limits-per-hour"></a>Limites de caractères par heure
 
-Votre limite de caractère par heure est basée sur votre niveau d’abonnement Translator Text. Si vous atteindrez ou dépassez cette limite, vous recevrez probablement une réponse de dépassement de quota :
+Votre limite de caractère par heure est basée sur votre niveau d’abonnement Translator Text. Le quota de toutes les heures doit être utilisé uniformément tout au long de l’heure. Si vous atteindrez ou dépasser ces limites ou envoyez trop volumineux d’une partie du quota sur une courte période de temps, vous recevrez probablement une réponse de quota à l’emploi. 
 
 | Niveau | Limite de caractères |
 |------|-----------------|
 | F0 | 2 millions de caractères par heure |
 | S1 | 40 millions de caractères par heure |
-| S2 | 40 millions de caractères par heure |
-| S3 | 120 millions de caractères par heure |
-| S4 | 200 millions de caractères par heure |
+| S2 / C2 | 40 millions de caractères par heure |
+| S3 / C3 | 120 millions de caractères par heure |
+| S4 / C4 | 200 millions de caractères par heure |
 
-Ces limites s’appliquent uniquement aux systèmes génériques de Microsoft. Les systèmes de traduction personnalisés qui utilisent Translator Hub de Microsoft sont limités à 1 800 caractères par seconde.
+Limite pour [abonnements multiservice](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication) sont les mêmes que le niveau S1.
+
+Ces limites sont limités aux modèles de traduction standard de Microsoft. Les modèles de traduction personnalisée qui utilisent personnalisé Translator sont limités à 1 800 caractères par seconde.
 
 ## <a name="latency"></a>Latence
 
@@ -49,7 +60,7 @@ L’API Translator Text a une latence maximale de 15 secondes à l’aide de mod
 
 Quand vous utilisez la fonction [BreakSentence](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-break-sentence), la longueur des phrases est limitée à 275 caractères. Il existe des exceptions pour les langues suivantes :
 
-| Langage | Code | Limite de caractères |
+| Langue | Code | Limite de caractères |
 |----------|------|-----------------|
 | Chinois | zh | 132 |
 | Allemand | de | 290 |
@@ -58,7 +69,7 @@ Quand vous utilisez la fonction [BreakSentence](https://docs.microsoft.com/azure
 | Portugais | pt | 290 |
 | Espagnol | es | 280 |
 | Italien | it | 280 |
-| Thaï | th | 258 |
+| Thaï | e | 258 |
 
 > [!NOTE]
 > Cette limite ne s’applique pas aux traductions.

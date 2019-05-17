@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 04/03/2019
+ms.date: 05/11/2019
 ms.author: juliako
-ms.openlocfilehash: 3cd22b89852706ed129373fd24ca9a9d9a27d25b
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: fa09185e68c8d3a70562fe50c583ff872bf91e48
+ms.sourcegitcommit: 9e8dfa1169a55c3c8af93a6c5f4e0dace4de48b2
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153380"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65556220"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Streaming en direct avec Azure Media Services v3
 
@@ -33,7 +33,7 @@ Azure Media Services vous permet de transmettre des événements en direct aupr�
 Cet article donne une vue d’ensemble et les conseils de diffusion en continu avec Media Services et des liens vers d’autres articles pertinents.
 
 > [!NOTE]
-> Actuellement, vous ne pouvez pas utiliser le portail Azure pour gérer des ressources v3. Utilisez l’[API REST](https://aka.ms/ams-v3-rest-ref), l’interface [CLI](https://aka.ms/ams-v3-cli-ref) ou l’un des kits [SDK](developers-guide.md) pris en charge.
+> Actuellement, vous ne pouvez pas utiliser le portail Azure pour gérer des ressources v3. Utilisez l’[API REST](https://aka.ms/ams-v3-rest-ref), l’interface [CLI](https://aka.ms/ams-v3-cli-ref) ou l’un des kits [SDK](media-services-apis-overview.md#sdks) pris en charge.
 
 ## <a name="dynamic-packaging"></a>Empaquetage dynamique
 
@@ -67,9 +67,9 @@ Quand vous utilisez Live Encoding avec Media Services, vous configurez votre enc
 
 Pour comprendre le flux de travail de diffusion en continu en direct dans Media Services v3, vous avez au premier examen et comprenez les concepts suivants : 
 
-- [Points de terminaison de streaming](streaming-endpoint-concept.md)
-- [Événements en direct et sorties en direct](live-events-outputs-concept.md)
-- [Localisateurs de diffusion en continu](streaming-locators-concept.md)
+- [Points de terminaison API de diffusion en continu](streaming-endpoint-concept.md)
+- [Événements et les sorties en direct API Live](live-events-outputs-concept.md)
+- [API de localisateurs de streaming](streaming-locators-concept.md)
 
 ### <a name="general-steps"></a>Étapes générales
 
@@ -93,7 +93,7 @@ Pour comprendre le flux de travail de diffusion en continu en direct dans Media 
 - [États et facturation](live-event-states-billing.md)
 - [Latence](live-event-latency.md)
 
-## <a name="ask-questions-give-feedback-get-updates"></a>Posez des questions, commentaires, obtenir des mises à jour
+## <a name="ask-questions-give-feedback-get-updates"></a>Poser des questions, envoyer des commentaires, obtenir des mises à jour
 
 Découvrez l’article [Communauté Azure Media Services](media-services-community.md) pour découvrir les différentes façons dont vous pouvez poser des questions, faire des commentaires et obtenir des mises à jour sur Media Services.
 

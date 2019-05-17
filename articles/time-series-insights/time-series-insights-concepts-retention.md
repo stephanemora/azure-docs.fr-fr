@@ -11,16 +11,16 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 04/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: ec62639988dca4b216087e8235be6053140644ee
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 443599e1b2876012bcbdf720bef7762a24e1ff90
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65406354"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65790425"
 ---
-# <a name="understand-data-retention-in-time-series-insights"></a>Comprendre la conservation des données dans Time Series Insights
+# <a name="understand-data-retention-in-azure-time-series-insights"></a>Comprendre la conservation des données dans Azure Time Series Insights
 
-Cet article décrit deux paramètres ayant un impact sur la conservation des données dans votre environnement Time Series Insights (TSI).
+Cet article décrit deux paramètres qui affectent la conservation des données dans votre environnement Azure Time Series Insights.
 
 ## <a name="video"></a>Vidéo
 
@@ -36,16 +36,16 @@ En outre, votre environnement Azure Time Series a un **comportement de limite de
 - **Suspendre l’entrée**
 
 > [!NOTE]
-> Par défaut, lorsque vous créez un nouvel environnement, la conservation est configurée sur **Vidage des données anciennes**. Ce paramètre peut être activé ou désactivé après la création à l’aide du portail Azure, sur la page **Configurer** de l’environnement TSI.
+> Par défaut, lorsque vous créez un nouvel environnement, la conservation est configurée sur **Vidage des données anciennes**. Ce paramètre peut être activé ou désactivé en fonction des besoins après l’heure de création à l’aide du portail Azure, sur le **configurer** page de l’environnement Time Series Insights.
 
 Pour plus d’informations sur la commutation des comportements de conservation, consultez [Configuration de la conservation dans Time Series Insights](time-series-insights-how-to-configure-retention.md).
 
 Comparez le comportement de conservation des données :
 
-## <a name="purge-old-data"></a>Vidage des données anciennes
+## <a name="purge-old-data"></a>Vider les anciennes données
 
-- Ce comportement est le comportement par défaut pour les environnements TSI et est le même depuis son lancement en préversion publique.  
-- Ce comportement est préférable lorsque les utilisateurs souhaitent toujours voir leur *données les plus récentes* dans leur environnement TSI. 
+- Ce comportement est le comportement par défaut pour les environnements Time Series Insights.  
+- Ce comportement est préférable lorsque les utilisateurs souhaitent toujours voir leur *données les plus récentes* dans leur environnement Time Series Insights.
 - Ce comportement *vide* les données une fois que les limites de l’environnement (durée de conservation, taille ou nombre, selon ce qui se présente en premier) sont atteintes. Par défaut, la conservation est définie sur 30 jours.
 - Les données ingérées les plus anciennes sont vidées en premier (approche FIFO).
 
@@ -75,7 +75,7 @@ Lorsque le taux d’entrée quotidien de cet environnement dépasse 0,166 Go par
 
 ### <a name="example-three"></a>Exemple trois
 
-Prenons l’exemple d’un environnement avec le comportement de conservation configuré sur **Suspendre l’entrée**. Dans cet exemple, la **Durée de conservation des données** est configurée sur 60 jours. La **Capacité** est définie sur 3 unités S1. Supposons que cet environnement connaît une entrée de données de 2 Go par jour. Dans cet environnement, l’entrée est suspendue une fois la capacité maximale atteinte.
+Prenons l’exemple d’un environnement avec le comportement de conservation configuré sur **Suspendre l’entrée**. Dans cet exemple, la **Durée de conservation des données** est configurée sur 60 jours. **Capacité** est défini sur trois (3) les unités de S1. Supposons que cet environnement connaît une entrée de données de 2 Go par jour. Dans cet environnement, l’entrée est suspendue une fois la capacité maximale atteinte.
 
 À ce stade, l’environnement affiche le même jeu de données jusqu'à ce que l’entrée reprenne ou jusqu'à ce que **poursuivre l’entrée** est activé (ce qui serait purger les données plus anciennes pour faire place aux nouvelles données).
 
@@ -91,7 +91,7 @@ Dans les Event Hubs concernés, envisagez d’ajuster la propriété **Conservat
 
 [![Rétention des messages Event hub.](media/time-series-insights-contepts-retention/event-hub-retention.png)](media/time-series-insights-contepts-retention/event-hub-retention.png#lightbox)
 
-Si aucune propriété n’est configurées sur la source d’événement (`timeStampPropertyName`), TSI utilise par défaut l’horodatage d’arrivée dans le concentrateur d’événements en tant que l’axe des abscisses. Si `timeStampPropertyName` est configuré pour être autre chose, le recherche environnement configuré `timeStampPropertyName` dans le paquet de données lorsque les événements sont analysés.
+Si aucune propriété n’est configurées sur la source d’événement (`timeStampPropertyName`), Time Series Insights par défaut est l’horodatage d’arrivée dans le concentrateur d’événements en tant que l’axe des abscisses. Si `timeStampPropertyName` est configuré pour être autre chose, le recherche environnement configuré `timeStampPropertyName` dans le paquet de données lorsque les événements sont analysés.
 
 Si vous devez mettre votre environnement à l’échelle pour prendre en charge une capacité supplémentaire ou pour augmenter la durée de conservation, consultez [Mise à l’échelle de votre environnement Time Series Insights](time-series-insights-how-to-scale-your-environment.md) pour plus d’informations.  
 

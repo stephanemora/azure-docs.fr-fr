@@ -3,8 +3,8 @@ title: Plateforme d’identité Microsoft et le flux du Code d’autorisation OA
 description: Création d’applications web à l’aide de l’implémentation de plateforme d’identité Microsoft du protocole d’authentification OAuth 2.0.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: ae1d7d86-7098-468c-aa32-20df0a10ee3d
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/12/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79e0ebce5704e7b61956568f5ebbce6ea6cbc3af
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0d3ab6f53fdb11b0b8d643868d0692667c8672f9
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60299238"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65545177"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-authorization-code-flow"></a>Plateforme d’identité Microsoft et des flux de code d’autorisation OAuth 2.0
 
@@ -62,7 +62,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 > Cliquez sur le lien ci-dessous pour exécuter cette requête ! Une fois que vous êtes connecté, votre navigateur doit être redirigé vers `https://localhost/myapp/` avec une valeur `code` dans la barre d’adresse.
 > <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&response_mode=query&scope=openid%20offline_access%20https%3A%2F%2Fgraph.microsoft.com%2Fuser.read&state=12345" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
 
-| Paramètre    | Obligatoire ou facultatif | Description |
+| Paramètre    | Obligatoire ou facultatif | Description  |
 |--------------|-------------|--------------|
 | `tenant`    | required    | La valeur `{tenant}` dans le chemin d’accès de la requête peut être utilisée pour contrôler les utilisateurs qui peuvent se connecter à l’application. Les valeurs autorisées sont `common`, `organizations`, `consumers` et les identificateurs du client. Pour plus d’informations, consultez les [principes de base du protocole](active-directory-v2-protocols.md#endpoints).  |
 | `client_id`   | required    | Le **ID d’Application (client)** qui le [portail Azure-inscriptions](https://go.microsoft.com/fwlink/?linkid=2083908) expérience affecté à votre application.  |
@@ -74,14 +74,14 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `prompt`  | facultatif    | Indique le type d’interaction utilisateur requis. Les seules valeurs valides pour l’instant sont `login`, `none` et `consent`.<br/><br/>- `prompt=login` oblige l'utilisateur à saisir ses informations d'identification lors de cette requête, annulant de fait l'authentification unique.<br/>- `prompt=none` est le contraire - Cela permet de garantir que l’utilisateur n’est pas présenté avec aucune invite interactive que ce soit. Si la demande ne peut pas être terminée par le biais de l’authentification unique, le point de terminaison Microsoft identity plateforme retournera un `interaction_required` erreur.<br/>- `prompt=consent` déclenche l'affichage de la boîte de dialogue de consentement OAuth après la connexion de l'utilisateur, afin de lui demander d'octroyer des autorisations d'accès à l'application. |
 | `login_hint`  | facultatif    | Peut être utilisé pour remplir au préalable le champ réservé au nom d’utilisateur/à l’adresse électronique de la page de connexion de l’utilisateur si vous connaissez déjà son nom d’utilisateur. Les applications utilisent souvent ce paramètre au cours de la réauthentification, après avoir extrait le nom d’utilisateur à partir d’une connexion précédente à l’aide de la revendication `preferred_username`.   |
 | `domain_hint`  | facultatif    | Peut être `consumers` ou `organizations`.<br/><br/>Si inclus, il ignore le processus de découverte par courrier électronique que l’utilisateur doit se soumettre sur la page de connexion, ce qui conduit à une peu plus l’expérience utilisateur. Les applications utilisent souvent ce paramètre au cours de la réauthentification, en extrayant la revendication `tid` à partir d’une connexion précédente. Si la revendication `tid` est définie sur la valeur `9188040d-6c67-4c5b-b112-36a304b66dad`, vous devez utiliser `domain_hint=consumers`. Sinon, utilisez `domain_hint=organizations`.  |
-| `code_challenge_method` | facultatif    | La méthode utilisée pour encoder le `code_verifier` pour le paramètre `code_challenge`. Peut être l’une des valeurs suivantes :<br/><br/>- `plain` <br/>- `S256`<br/><br/>S’il est exclu, `code_challenge` est censé être dans un texte en clair si `code_challenge` est inclus. Plateforme d’identité Microsoft prend en charge les deux `plain` et `S256`. Pour plus d'informations, consultez le [RFC PKCE](https://tools.ietf.org/html/rfc7636). |
+| `code_challenge_method` | facultatif    | La méthode utilisée pour encoder le `code_verifier` pour le paramètre `code_challenge`. Peut avoir l'une des valeurs suivantes :<br/><br/>- `plain` <br/>- `S256`<br/><br/>S’il est exclu, `code_challenge` est censé être dans un texte en clair si `code_challenge` est inclus. Plateforme d’identité Microsoft prend en charge les deux `plain` et `S256`. Pour plus d'informations, consultez le [RFC PKCE](https://tools.ietf.org/html/rfc7636). |
 | `code_challenge`  | facultatif | Utilisé pour sécuriser l’octroi du code d’autorisation via la clé de preuve pour le Code Exchange (PKCE) à partir d’un client natif. Obligatoire si `code_challenge_method` est inclus. Pour plus d'informations, consultez le [RFC PKCE](https://tools.ietf.org/html/rfc7636). |
 
 À ce stade, l’utilisateur est invité à saisir ses informations d’identification et à exécuter l’authentification. Le point de terminaison Microsoft identity plateforme garantit également que l’utilisateur a accepté les autorisations indiquées dans le `scope` paramètre de requête. Si l’utilisateur n’a pas accepté l’une ou plusieurs de ces autorisations, le point de terminaison lui demande de corriger ce manquement. Les détails sur les [autorisations, les consentements et les applications mutualisées sont disponibles ici](v2-permissions-and-consent.md).
 
 Une fois que l’utilisateur s’authentifie et donne son consentement, le point de terminaison Microsoft identity plateforme renvoie une réponse à votre application à l’indiquée `redirect_uri`, à l’aide de la méthode spécifiée dans le `response_mode` paramètre.
 
-#### <a name="successful-response"></a>Réponse correcte
+#### <a name="successful-response"></a>Réponse réussie
 
 Une réponse correcte utilisant `response_mode=query` se présente ainsi :
 
@@ -91,7 +91,7 @@ code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...
 &state=12345
 ```
 
-| Paramètre | Description  |
+| Paramètre | Description   |
 |-----------|--------------|
 | `code` | Le code d’autorisation demandé par l’application. L’application peut utiliser ce code d’autorisation pour demander un jeton d’accès pour la ressource cible. Codes sont de courte durée, en général, ils expirent au bout de 10 minutes environ. |
 | `state` | Si un paramètre d’état est inclus dans la demande, la même valeur doit apparaître dans la réponse. L’application doit vérifier que les valeurs d’état de la demande et de la réponse sont identiques. |
@@ -106,7 +106,7 @@ error=access_denied
 &error_description=the+user+canceled+the+authentication
 ```
 
-| Paramètre | Description  |
+| Paramètre | Description   |
 |----------|------------------|
 | `error`  | Une chaîne de code d’erreur pouvant être utilisée pour classer les types d’erreur se produisant, et pouvant être utilisée pour intervenir face aux erreurs. |
 | `error_description` | Un message d’erreur spécifique qui peut aider un développeur à identifier la cause principale d’une erreur d’authentification. |
@@ -149,7 +149,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 > [!TIP]
 > Essayez d'exécuter cette requête dans Postman ! (N’oubliez pas de remplacer la valeur `code`) [![Exécuter dans Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 
-| Paramètre  | Obligatoire ou facultatif | Description     |
+| Paramètre  | Obligatoire ou facultatif | Description      |
 |------------|-------------------|----------------|
 | `tenant`   | required   | La valeur `{tenant}` dans le chemin d’accès de la requête peut être utilisée pour contrôler les utilisateurs qui peuvent se connecter à l’application. Les valeurs autorisées sont `common`, `organizations`, `consumers` et les identificateurs du client. Pour plus d’informations, consultez les [principes de base du protocole](active-directory-v2-protocols.md#endpoints).  |
 | `client_id` | required  | ID d’Application (client) que le [portail Azure-inscriptions](https://go.microsoft.com/fwlink/?linkid=2083908) page affecté à votre application. |
@@ -160,7 +160,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `client_secret` | requis pour les applications Web | Le secret d’application que vous avez créé dans le portail d’inscription des applications pour votre application. Vous ne devez pas utiliser le secret d’application dans une application native, car les clés secrètes client ne peut pas être stockées de manière sûre sur les appareils. Il est obligatoire pour les applications web et API web, qui ont la possibilité de stocker le client_secret en toute sécurité sur le côté serveur.  Le secret du client doit être codé en URL avant d’être envoyé.  |
 | `code_verifier` | facultatif  | Le même code_verifier utilisé pour obtenir le authorization_code. Obligatoire si PKCE est utilisé dans la requête d’octroi du code d’autorisation. Pour plus d'informations, consultez le [RFC PKCE](https://tools.ietf.org/html/rfc7636). |
 
-### <a name="successful-response"></a>Réponse correcte
+### <a name="successful-response"></a>Réponse réussie
 
 Une réponse de jeton réussie se présente ainsi :
 
@@ -175,7 +175,7 @@ Une réponse de jeton réussie se présente ainsi :
 }
 ```
 
-| Paramètre     | Description   |
+| Paramètre     | Description    |
 |---------------|------------------------------|
 | `access_token`  | Le jeton d’accès demandé. L’application peut utiliser ce jeton pour procéder à l’authentification sur la ressource sécurisée, par exemple une API Web.  |
 | `token_type`    | Indique la valeur du type de jeton. Le seul type de jeton pris en charge par Azure AD est le jeton porteur. |
@@ -201,7 +201,7 @@ Les réponses d’erreur se présentent comme suit :
 }
 ```
 
-| Paramètre         | Description    |
+| Paramètre         | Description     |
 |-------------------|----------------|
 | `error`       | Une chaîne de code d’erreur pouvant être utilisée pour classer les types d’erreur se produisant, et pouvant être utilisée pour intervenir face aux erreurs. |
 | `error_description` | Un message d’erreur spécifique qui peut aider un développeur à identifier la cause principale d’une erreur d’authentification. |
@@ -262,7 +262,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 > Essayez d'exécuter cette requête dans Postman ! (N’oubliez pas de remplacer la valeur `refresh_token`) [![Exécuter dans Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 > 
 
-| Paramètre     |                | Description        |
+| Paramètre     |                | Description         |
 |---------------|----------------|--------------------|
 | `tenant`        | required     | La valeur `{tenant}` dans le chemin d’accès de la requête peut être utilisée pour contrôler les utilisateurs qui peuvent se connecter à l’application. Les valeurs autorisées sont `common`, `organizations`, `consumers` et les identificateurs du client. Pour plus d’informations, consultez les [principes de base du protocole](active-directory-v2-protocols.md#endpoints).   |
 | `client_id`     | required    | Le **ID d’Application (client)** qui le [portail Azure-inscriptions](https://go.microsoft.com/fwlink/?linkid=2083908) expérience affecté à votre application. |
@@ -271,7 +271,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `refresh_token` | required    | Le jeton d’actualisation que vous avez acquis dans le second tronçon du flux. |
 | `client_secret` | requis pour les applications Web | Le secret d’application que vous avez créé dans le portail d’inscription des applications pour votre application. Il ne doit pas être utilisé dans une application native, car les clés secrètes client ne peut pas être stockées de manière sûre sur les appareils. Il est obligatoire pour les applications web et API web, qui ont la possibilité de stocker le client_secret en toute sécurité sur le côté serveur. |
 
-#### <a name="successful-response"></a>Réponse correcte
+#### <a name="successful-response"></a>Réponse réussie
 
 Une réponse de jeton réussie se présente ainsi :
 
@@ -285,7 +285,7 @@ Une réponse de jeton réussie se présente ainsi :
     "id_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctOD...",
 }
 ```
-| Paramètre     | Description         |
+| Paramètre     | Description          |
 |---------------|-------------------------------------------------------------|
 | `access_token`  | Le jeton d’accès demandé. L’application peut utiliser ce jeton pour procéder à l’authentification sur la ressource sécurisée, par exemple une API Web. |
 | `token_type`    | Indique la valeur du type de jeton. Le seul type de jeton pris en charge par Azure AD est le jeton porteur. |
@@ -309,7 +309,7 @@ Une réponse de jeton réussie se présente ainsi :
 }
 ```
 
-| Paramètre         | Description                                                                                        |
+| Paramètre         | Description                                                                                         |
 |-------------------|----------------------------------------------------------------------------------------------------|
 | `error`           | Une chaîne de code d’erreur pouvant être utilisée pour classer les types d’erreur se produisant, et pouvant être utilisée pour intervenir face aux erreurs. |
 | `error_description` | Un message d’erreur spécifique qui peut aider un développeur à identifier la cause principale d’une erreur d’authentification.           |

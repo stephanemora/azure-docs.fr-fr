@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: apimpm
-ms.openlocfilehash: eae36aa6e60e3da03c59952a1d9e035e6a773d2d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d881c8de7ecc32be0ca0cc2c5a82e0d2d51a7054
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60531071"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65780314"
 ---
 # <a name="feature-based-comparison-of-the-azure-api-management-tiers"></a>Comparaison des fonctionnalités des niveaux de la Gestion des API Azure
 
@@ -26,23 +26,22 @@ Chacun des [niveaux tarifaires](https://aka.ms/apimpricing) de la Gestion des AP
 
 | Fonctionnalité                                                                                      | Consommation<sup>PRÉVERSION</sup> | Développeur      | De base          | standard       | Premium        |
 | -------------------------------------------------------------------------------------------- | ----------------------------- | -------------- | -------------- | -------------- | -------------- |
-| Intégration à Azure AD<sup>1</sup>                                                             | Non                             | Oui            | Non              | OUI            | Oui            |
-| Prise en charge du réseau virtuel                                                               | Non                             | Oui            | Non              | Non              | Oui            |
-| Déploiement multi-régions                                                                      | Non                             | Non              | Non              | Non              | Oui            |
-| Noms de domaine personnalisés multiples                                                                 | Non                             | Non              | Non              | Non              | Oui            |
-| Portail des développeurs<sup>2</sup>                                                                 | Non                             | OUI            | OUI            | OUI            | Oui            |
-| Cache intégré                                                                               | Non                             | OUI            | OUI            | OUI            | Oui            |
-| Analytique intégrée                                                                           | Non                             | OUI            | OUI            | OUI            | Oui            |
-| [Paramètres SSL](api-management-howto-manage-protocols-ciphers.md)                             | Non                             | OUI            | OUI            | OUI            | Oui            |
-| [Cache externe](https://aka.ms/apimbyoc)                                                    | Oui                           | Non<sup>3</sup> | Non<sup>3</sup> | Non<sup>3</sup> | Non<sup>3</sup> |
-| [Authentification par certificat client](api-management-howto-mutual-certificates-for-clients.md) | Non<sup>4</sup>                | Oui            | OUI            | OUI            | Oui            |
-| [Sauvegarde et restauration](api-management-howto-disaster-recovery-backup-restore.md)               | Non                             | OUI            | OUI            | OUI            | Oui            |
-| [Gestion sur Git](api-management-configuration-repository-git.md)                        | Non                             | OUI            | OUI            | OUI            | Oui            |
-| API de gestion directe                                                                        | Non                             | OUI            | OUI            | OUI            | Oui            |
-| Journaux d’activité et métriques Azure Monitor                                                               | Non<sup>5</sup>                | Oui            | OUI            | OUI            | Oui            |
+| Intégration à Azure AD<sup>1</sup>                                                             | Non                            | Oui            | Non              | OUI            | Oui            |
+| Prise en charge du réseau virtuel                                                               | Non                            | Oui            | Non              | Non              | Oui            |
+| Déploiement multi-régions                                                                      | Non                            | Non              | Non              | Non              | Oui            |
+| Noms de domaine personnalisés multiples                                                                 | Non                            | Non              | Non              | Non              | Oui            |
+| Portail des développeurs<sup>2</sup>                                                                 | Non                            | OUI            | OUI            | OUI            | Oui            |
+| Cache intégré                                                                               | Non                            | OUI            | OUI            | OUI            | Oui            |
+| Analytique intégrée                                                                           | Non                            | OUI            | OUI            | OUI            | Oui            |
+| [Paramètres SSL](api-management-howto-manage-protocols-ciphers.md)                             | Non                            | OUI            | OUI            | OUI            | Oui            |
+| [Cache externe](https://aka.ms/apimbyoc)                                                    | Oui                           | OUI            | OUI            | OUI            | Oui            |
+| [Authentification par certificat client](api-management-howto-mutual-certificates-for-clients.md) | Non<sup>3</sup>                | Oui            | OUI            | OUI            | Oui            |
+| [Sauvegarde et restauration](api-management-howto-disaster-recovery-backup-restore.md)               | Non                            | OUI            | OUI            | OUI            | Oui            |
+| [Gestion sur Git](api-management-configuration-repository-git.md)                        | Non                            | OUI            | OUI            | OUI            | Oui            |
+| API de gestion directe                                                                        | Non                            | OUI            | OUI            | OUI            | Oui            |
+| Journaux d’activité et métriques Azure Monitor                                                               | Non<sup>4</sup>                | Oui            | OUI            | OUI            | Oui            |
 
-<sup>1</sup> Permet l’utilisation d’Azure AD (et d’Azure AD B2C) comme fournisseur d’identité pour la connexion utilisateur sur le portail des développeurs.<br/>
+<sup>1</sup> permet l’utilisation d’Azure AD (et Azure AD B2C) comme une identité fournisseur pour l’utilisateur se connecter sur le portail des développeurs.<br/>
 <sup>2</sup> Y compris les fonctionnalités liées, par exemple, les utilisateurs, les groupes, les problèmes, les modèles d’application et de courrier électronique et les notifications.<br/>
-<sup>3</sup> La prise en charge du cache externe sera bientôt disponible pour ce niveau.<br/>
-<sup>4</sup> L’authentification par certificat client sera ajoutée au niveau de consommation avant sa disponibilité générale.<br/>
-<sup>5</sup> La prise en charge complète Azure Monitor sera ajoutée au niveau de consommation.
+<sup>3</sup> authentification par certificat client sera ajoutée au niveau de la consommation avant sa disponibilité générale.<br/>
+<sup>4</sup> prise en charge complète Azure Monitor sera ajouté au niveau de la consommation.

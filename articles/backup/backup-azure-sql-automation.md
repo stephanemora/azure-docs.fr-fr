@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: pullabhk
 ms.assetid: 57854626-91f9-4677-b6a2-5d12b6a866e1
-ms.openlocfilehash: 3a424335a1e7d7775f6be0980e7009669e354ea7
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 6d17d5c2c0eaebc694abe820318f6ac0c70b0be8
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64717903"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544607"
 ---
 # <a name="back-up-and-restore-sql-databases-in-azure--vms-with-powershell"></a>Sauvegarder et restaurer des bases de données SQL dans des machines virtuelles Azure avec PowerShell
 
@@ -110,7 +110,7 @@ Le coffre Recovery Services étant une ressource Resource Manager, vous devez le
 3. Spécifiez le type de redondance à utiliser pour le stockage du coffre.
 
     * Vous pouvez utiliser le [stockage localement redondant](../storage/common/storage-redundancy-lrs.md) ou le [stockage géoredondant](../storage/common/storage-redundancy-grs.md).
-    * L’exemple suivant définit la **- BackupStorageRedundancy** option pour le[Set-AzRecoveryServicesBackupProperties](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperties?view=azps-1.4.0) cmd pour **testvault** défini sur  **GeoRedundant**.
+    * L’exemple suivant définit la **- BackupStorageRedundancy** option pour le[Set-AzRecoveryServicesBackupProperty](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty) cmd pour **testvault** défini sur  **GeoRedundant**.
 
     ```powershell
     $vault1 = Get-AzRecoveryServicesVault -Name "testvault"
@@ -530,7 +530,7 @@ $SQLContainer = Get-AzRecoveryServicesBackupContainer -ContainerType AzureVMAppC
 
 Il est important de noter que sauvegarde Azure uniquement effectue le suivi des travaux de l’utilisateur déclenchée dans la sauvegarde SQL. Les sauvegardes planifiées (y compris les sauvegardes du journal) ne sont pas visibles dans le portail ou de powershell. Toutefois, éventuelle planifiée tâches échouent, un [sauvegarde alerte](backup-azure-monitoring-built-in-monitor.md#backup-alerts-in-recovery-services-vault) est généré et affiché dans le portail. [Utiliser Azure Monitor](backup-azure-monitoring-use-azuremonitor.md) pour effectuer le suivi de toutes les tâches planifiées et autres informations pertinentes.
 
-Les utilisateurs peuvent suivre des opérations de l’utilisateur ou ad hoc est déclenché avec le JobID est retourné dans le [sortie](#on-demand-backup) de tâches asynchrones telles que la sauvegarde. Utilisez [Get-AzRecoveryServicesBackupJobDetails](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupJobDetails?view=azps-1.5.0) applet de commande PS pour effectuer le suivi du travail et ses détails.
+Les utilisateurs peuvent suivre des opérations de l’utilisateur ou ad hoc est déclenché avec le JobID est retourné dans le [sortie](#on-demand-backup) de tâches asynchrones telles que la sauvegarde. Utilisez [Get-AzRecoveryServicesBackupJobDetail](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupJobDetail) applet de commande PS pour effectuer le suivi du travail et ses détails.
 
 ````powershell
  Get-AzRecoveryServicesBackupJobDetails -JobId 2516bb1a-d3ef-4841-97a3-9ba455fb0637 -VaultId $targetVault.ID

@@ -3,8 +3,8 @@ title: Applications web dans Azure Active Directory
 description: Décrit les applications web et les principes de base sur le flux de protocole, l’inscription et l’expiration des jetons pour ce type d’application.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea3e1b951a683d7ee1def09024e531e94dd905b4
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: d15d76f4c16fa89b41ebfc10c9617c4709203d38
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64918524"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544720"
 ---
-# <a name="web-apps"></a>les applications web
+# <a name="web-apps"></a>Applications web
 
 Les applications web sont des applications qui authentifient l’utilisateur d’un navigateur web auprès d’une application web. Dans ce scénario, l’application web dirige le navigateur de l’utilisateur pour connecter ce dernier à Azure AD. Azure AD renvoie une réponse de connexion via le navigateur de l’utilisateur, celle-ci contenant des revendications relatives à l’utilisateur dans un jeton de sécurité. Ce scénario prend en charge la connexion à l’aide des protocoles OpenID Connect, SAML 2.0 et WS-Federation.
 

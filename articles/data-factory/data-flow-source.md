@@ -1,103 +1,115 @@
 ---
-title: Azure Data Factory - Transformation source des flux de données de mappage
-description: Azure Data Factory - Transformation source des flux de données de mappage
+title: Configurer une transformation source dans la fonctionnalité de mappage de flux de données d’Azure Data Factory
+description: Découvrez comment configurer une transformation source dans le mappage de flux de données.
 author: kromerm
 ms.author: makromer
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: 54302f97913fd01dc8f8e4a8d987a407c8bdf9a7
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: dc0a6e008c7a1f4fb414f6d8adad3a94abc7a6b2
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369165"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65792331"
 ---
-# <a name="mapping-data-flow-source-transformation"></a>Transformation source des flux de données de mappage
+# <a name="source-transformation-for-mapping-data-flow"></a>Transformation source pour le mappage de flux de données 
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-La transformation source configure la source de données que vous souhaitez utiliser pour importer des données dans votre flux de données. Vous pouvez avoir plusieurs transformations source au sein d’un même flux de données. Toujours commencer à concevoir votre flux de données avec une transformation Source.
+Une transformation source configure votre source de données pour le flux de données. Un flux de données peut inclure plusieurs transformations de code source. Lors de la conception des données de flux, commencent toujours par une transformation source.
+
+Chaque flux de données nécessite une transformation d’au moins une source. Ajouter des sources autant que nécessaire pour effectuer vos transformations de données. Vous pouvez joindre ces sources avec une transformation de jointure ou d’une transformation d’union.
 
 > [!NOTE]
-> Chaque flux de données nécessite au moins une transformation source. Ajoutez autant de sources que nécessaire pour effectuer vos transformations de données. Vous pouvez joindre ces sources ensemble à l’aide d’une transformation de jointure ou d’union. Lorsque vous déboguez votre flux de données dans les sessions de débogage, les données doivent être lues à partir de la source de l’aide du paramètre d’échantillonnage ou les limites de source de débogage. Toutefois, aucune donnée n’écraseront vers un récepteur jusqu'à ce que vous exécutez votre flux de données à partir d’une activité de flux de données de pipeline. 
+> Lorsque vous déboguez votre flux de données, les données sont lues à partir de la source à l’aide du paramètre d’échantillonnage ou les limites de source de débogage. Pour écrire des données vers un récepteur, vous devez exécuter votre flux de données à partir d’un pipeline d’activité de flux de données. 
 
-![Options de transformation source](media/data-flow/source.png "source")
+![Options de transformation sur l’onglet Paramètres de la Source de source de](media/data-flow/source.png "source")
 
-Chaque transformation source de flux de données doit être associée à un seul jeu de données de Data Factory. Le jeu de données définit la forme et l’emplacement de vos données à écrire ou de lire à partir de. Vous pouvez utiliser des caractères génériques et le fichier de listes dans votre source pour travailler avec plusieurs fichiers à la fois lors de l’utilisation de sources de fichiers.
+Associer votre transformation source de flux de données à un seul jeu de données de Data Factory. Le jeu de données définit la forme et l’emplacement des données que vous souhaitez écrire ou de lire à partir de. Vous pouvez utiliser des caractères génériques et le fichier de listes dans votre source pour travailler avec plusieurs fichiers à la fois.
 
-## <a name="data-flow-staging-areas"></a>Zones intermédiaires des flux de données
+## <a name="data-flow-staging-areas"></a>Zones de transit de flux de données
 
-Les flux de données fonctionnent avec des jeux de données « intermédiaires » qui se trouvent tous dans Azure. Ces jeux de données sont utilisés pour mettre en lots les données en vue d’effectuer des transformations. Data Factory a accès à près de 80 connecteurs natifs. Pour inclure les données dans votre flux de données à partir de ces autres sources, commencez par mettre en lot ces données dans l’une des zones intermédiaires de jeux de données Data Flow à l’aide de l’activité de copie.
+Flux de données fonctionne avec *intermédiaire* jeux de données qui se trouvent toutes dans Azure. Utilisez ces jeux de données pour la mise en lots lorsque vous êtes transformer vos données. 
+
+Fabrique de données a accès à des connecteurs natifs presque 80. Pour inclure les données de ces autres sources dans votre flux de données, utilisez l’outil de l’activité de copie à utiliser pour stocker ces données dans les zones d’intermédiaire de jeu de données de flux de données.
 
 ## <a name="options"></a>Options
 
+Choisissez les options de schéma et d’échantillonnage pour vos données.
+
 ### <a name="allow-schema-drift"></a>Autoriser la dérive de schéma
-Sélectionnez Autoriser la dérive de schéma si les colonnes sources seront amenées à changer souvent. Ce paramètre autorise tous les champs entrants provenant de votre source à circuler jusqu’au récepteur, via les transformations.
+Sélectionnez **autoriser une dérive du schéma** si les colonnes source va changer souvent. Ce paramètre permet à tous les champs sources entrantes à circuler via les transformations au récepteur.
 
 ### <a name="validate-schema"></a>Valider le schéma
 
-![Source publique](media/data-flow/source1.png "Source publique 1")
+Si la version entrante de la source de données ne correspond pas au schéma défini, le flux de données échouera à exécuter.
 
-Si la version entrante de la source de données ne correspond pas au schéma défini, l’exécution du flux de données échoue.
+![Paramètres de la source publique, montrant les options pour le schéma de validation et autoriser une dérive du schéma d’échantillonnage](media/data-flow/source1.png "source publique 1")
 
-### <a name="sampling"></a>échantillonnage
-Utilisez l’échantillonnage pour limiter le nombre de lignes provenant de la source.  Cela est utile lorsque vous testez ou l’échantillonnage des données à partir de votre source à des fins de débogage.
+### <a name="sample-the-data"></a>Échantillon des données
+Activer **échantillonnage** pour limiter le nombre de lignes à partir de votre source. Utilisez ce paramètre lorsque vous testez ou échantillonner des données à partir de votre source à des fins de débogage.
 
-## <a name="define-schema"></a>Définir le schéma
+## <a name="define-schema"></a>Définir un schéma
 
-![Transformation source](media/data-flow/source2.png "Source 2")
+Lorsque vos fichiers sources ne sont pas fortement typées (par exemple, fichiers plats plutôt que les fichiers Parquet), définissez les types de données pour chaque champ ici dans la transformation source.  
 
-Pour les fichiers sources qui ne sont pas fortement typés (par exemple, les fichiers plats par opposition aux fichiers Parquet), vous devez définir les types de données pour chaque champ de la transformation source. Vous pouvez ensuite modifier les noms de colonnes dans une transformation de sélection ainsi que les types de données dans une transformation de colonne dérivée. 
+![Paramètres de transformation sur l’onglet Schéma de définition de la source](media/data-flow/source2.png "source 2")
 
-![Transformation source](media/data-flow/source003.png "Types de données")
+Vous pouvez modifier ultérieurement les noms de colonne dans une transformation select. Utilisez une transformation de colonne dérivée pour modifier les types de données. Pour les sources fortement typées, vous pouvez modifier les types de données dans une transformation sélectionnez plus tard. 
 
-Pour les sources fortement typée, vous pouvez modifier les types de données dans une transformation Select suivante. 
+![Types de données dans une transformation sélectionnez](media/data-flow/source003.png "types de données")
 
-### <a name="optimize"></a>Optimisation
+### <a name="optimize-the-source-transformation"></a>Optimiser la transformation source
 
-![Partitions sources](media/data-flow/sourcepart.png "Partitionnement")
+Sur le **optimiser** onglet pour la transformation de la source, vous pouvez voir un **Source** type de partition. Cette option est disponible uniquement lorsque votre source est la base de données SQL Azure. Il s’agit, car la fabrique de données tente d’établir des connexions parallèlement à exécuter des requêtes volumineuses sur votre source de base de données SQL.
 
-Sous l’onglet Optimiser de la transformation source, vous verrez un autre type de partitionnement appelé « Source ». Ce type n’est disponible que si vous avez sélectionné la base de données SQL Azure comme votre source. Cela est dû au fait que le fichier ADF va vouloir paralléliser les connexions pour envoyer des requêtes volumineuses à votre source de base de données SQL Azure.
+![Paramètres de partition de la source](media/data-flow/sourcepart2.png "partitionnement")
 
-Le partitionnement des données de votre source de base de données SQL est facultatif. Toutefois, il se révèle utile pour les requêtes volumineuses. Deux options s'offrent à vous :
+Vous n’êtes pas obligé de partitionner les données de votre source de base de données SQL, mais les partitions sont utiles pour les requêtes volumineuses. Vous pouvez baser votre partition sur une colonne ou une requête.
 
-### <a name="column"></a>Colonne
+### <a name="use-a-column-to-partition-data"></a>Utiliser une colonne de partitionnement des données
 
-Sélectionnez une colonne de votre table source pour effectuer la partition. Vous devez également définir le nombre maximal de connexions.
+À partir de votre table source, sélectionnez une colonne de partition sur. Définissez également le nombre maximal de connexions.
 
-### <a name="query-condition"></a>Condition de requête
+### <a name="use-a-query-to-partition-data"></a>Utiliser une requête pour partitionner des données
 
-Si vous le souhaitez, vous pouvez choisir de partitionner les connexions en fonction d’une requête. Pour cette option, il vous suffit d’ajouter le contenu d’un prédicat WHERE (par exemple, année > 1980).
+Vous pouvez choisir de partitionner les connexions basées sur une requête. Entrez simplement le contenu d’un prédicat WHERE. Par exemple, entrez année 1980 >.
 
 ## <a name="source-file-management"></a>Gestion des fichiers sources
-![Nouveaux paramètres sources](media/data-flow/source2.png "Nouveaux paramètres")
 
-* Chemin d’accès générique pour choisir une série de fichiers qui correspondent à un modèle à partir de votre dossier source. Cela remplacera tout fichier que vous avez défini dans votre définition de jeu de données.
-* Liste de fichiers. Identique à un ensemble de fichiers. Pointe vers un fichier texte que vous créez avec la liste des fichiers avec chemin relatif à traiter.
-* Colonne où stocker le nom du fichier. Stocke le nom du fichier de la source dans une colonne de vos données. Entrez un nouveau nom pour stocker la chaîne de nom de fichier.
-* Une fois terminé (vous pouvez choisir de ne rien faire avec le fichier source après l’exécution du flux de données, de supprimer un ou plusieurs fichiers sources ou de déplacer les fichiers sources). Pour le déplacement, les chemins sont des chemins relatifs.
+Choisissez les paramètres pour gérer les fichiers dans votre source. 
+
+![Nouveaux paramètres de source](media/data-flow/source2.png "nouveaux paramètres")
+
+* **Chemin d’accès générique**: À partir de votre dossier source, choisissez une série de fichiers qui correspondent à un modèle. Ce paramètre remplace n’importe quel fichier dans votre définition de jeu de données.
+* **Liste des fichiers**: Il s’agit d’un jeu de fichiers. Créez un fichier texte qui inclut une liste de fichiers du chemin d’accès relatif à traiter. Pointer vers ce fichier texte.
+* **La colonne nom de fichier**: Store le nom du fichier source dans une colonne dans vos données. Entrez un nouveau nom pour stocker la chaîne de nom de fichier.
+* **Après l’achèvement**: Choisissez cette option pour ne rien faire avec le fichier source une fois que les données d’exécutions de flux, de supprimer le fichier source ou de déplacement le fichier source. Les chemins d’accès pour le déplacement sont relatives.
 
 ### <a name="sql-datasets"></a>Jeux de données SQL
 
-Lorsque vous utilisez la base de données SQL Azure ou Azure SQL Data Warehouse comme votre source, vous disposez d’options supplémentaires.
+Si votre source est dans la base de données SQL ou SQL Data Warehouse, vous disposez des options supplémentaires pour la gestion des fichiers sources.
 
-* Requête : entrez une requête SQL pour votre source. Si vous définissez une requête, les tables que vous avez choisies dans le jeu de données seront remplacées. Notez que les clauses OrderBy ne sont pas prises en charge. Toutefois, vous pouvez définir une instruction SELECT FROM complet ici.
-
-* Taille du lot : entrez la taille que doivent avoir les lots créés à partir d’un large volume de données.
+* **Requête** : entrez une requête SQL pour votre source. Ce paramètre remplace n’importe quelle table que vous avez choisi dans le jeu de données. Notez que **Order By** clauses ne sont pas pris en charge ici. Mais vous pouvez définir une instruction SELECT FROM complet ici.
+* **Taille de lot** : Entrez une taille de lot pour découper les données volumineuses en lectures.
 
 > [!NOTE]
-> Les paramètres d’opération de fichier ne sont appliqués que lorsque le flux de données est exécuté à partir d’une exécution de pipeline (débogage ou exécution) à l’aide de l’activité Exécuter le flux de données dans un pipeline. Les opérations de fichiers ne peuvent pas s’exécuter dans le mode de débogage de Data Flow.
+> Opérations de fichier s’exécutent uniquement lorsque vous démarrez le flux de données à partir de l’exécution d’un pipeline (un débogage du pipeline ou une série de tests) qui utilise l’activité d’exécution de flux de données dans un pipeline. Opérations de fichier *ne le faites pas* exécuter en mode de débogage de flux de données.
 
 ### <a name="projection"></a>Projection
 
-![Projection](media/data-flow/source3.png "Projection")
+Comme les schémas dans les jeux de données, la projection dans une source définit les colonnes de données, les types et les formats à partir de la source de données. 
 
-Comme pour les schémas des jeux de données, la projection de la source définit les colonnes, les types et les formats des données sources. Si vous avez un fichier texte sans schéma défini, cliquez sur « Détecter le type de données » pour demander à ADF d’échantillonner et de déduire les types de données. Vous pouvez configurer les formats de données par défaut de façon à être détectés automatiquement l’aide du bouton « Définir le format par défaut ». Vous pouvez modifier les types des données de colonne lors d’une prochaine transformation de colonne dérivée. Les noms de colonnes peuvent être modifiés à l’aide d’une transformation de sélection.
+![Paramètres de l’onglet de Projection](media/data-flow/source3.png "Projection")
 
-![Formats par défaut](media/data-flow/source2.png "Formats par défaut")
+Si votre fichier texte ne comporte aucun schéma défini, sélectionnez **détecter le type de données** afin que Data Factory s’exemple et déduire les types de données. Sélectionnez **format par défaut de définir** pour la détection automatique des formats de données par défaut. 
+
+Vous pouvez modifier les types de données de colonne dans une transformation de colonne dérivée ultérieurement. Utilisez une transformation select pour modifier les noms de colonne.
+
+![Paramètres pour les formats de données par défaut](media/data-flow/source2.png "formats par défaut")
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Créez votre transformation des données avec les options [Colonne dérivée](data-flow-derived-column.md) et [Sélection](data-flow-select.md).
+Commencer à créer un [transformation de colonne dérivée](data-flow-derived-column.md) et un [sélectionnez transformation](data-flow-select.md).

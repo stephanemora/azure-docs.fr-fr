@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 262ccc311b2b7ec634183eb4f914902048ba2c3b
-ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.openlocfilehash: 74c24e05d974c4b3bb15a242185b645231f74580
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64872039"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65792778"
 ---
 # <a name="azure-storage-security-overview"></a>Présentation de la sécurité du Stockage Azure
 
@@ -34,7 +34,7 @@ Cet article fournit une vue d’ensemble des fonctionnalités de sécurité Azur
 
 Pour une étude plus détaillée de la sécurité dans le Stockage Azure, consultez le [Guide de sécurité du Stockage Azure](../storage/common/storage-security-guide.md). Ce guide fournit une présentation approfondie des fonctionnalités de sécurité du Stockage Azure. Ces fonctionnalités comprennent les clés de compte de stockage, le chiffrement des données en transit et au repos et l’analyse du stockage.
 
-## <a name="role-based-access-control"></a>Contrôle d’accès en fonction du rôle
+## <a name="role-based-access-control"></a>Contrôle d'accès en fonction du rôle
 
 Vous pouvez sécuriser un compte de stockage en utilisant le contrôle d’accès en fonction du rôle. Restreindre l’accès en fonction des principes du [besoin de connaître](https://en.wikipedia.org/wiki/Need_to_know) et du [privilège minimum](https://en.wikipedia.org/wiki/Principle_of_least_privilege) est impératif pour les organisations désireuses d’appliquer des stratégies de sécurité pour l’accès aux données. Ces droits d’accès sont octroyés en affectant le rôle RBAC approprié aux groupes et aux applications, dans une étendue donnée. Vous pouvez utiliser les [rôles RBAC intégrés](../role-based-access-control/built-in-roles.md), comme Collaborateur de compte de stockage, pour affecter des privilèges aux utilisateurs.
 
@@ -51,7 +51,7 @@ La SAP est un URI qui englobe dans ses paramètres de requête toutes les inform
 En savoir plus :
 
 * [Présentation du modèle SAP](../storage/common/storage-dotnet-shared-access-signature-part-1.md)
-* [Créer et utiliser une signature d’accès partagé avec le Stockage Blob](../storage/blobs/storage-dotnet-shared-access-signature-part-2.md)
+* [Créer et utiliser une signature d’accès partagé avec le Stockage Blob](../storage/common/storage-dotnet-shared-access-signature-part-1.md)
 
 ## <a name="encryption-in-transit"></a>Chiffrement en transit
 

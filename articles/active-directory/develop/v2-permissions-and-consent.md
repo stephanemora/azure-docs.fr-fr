@@ -3,8 +3,8 @@ title: Étendues de plateforme Microsoft identity, autorisations et consentement
 description: Une description de l’autorisation dans le Microsoft identity plateforme point de terminaison, notamment les étendues, autorisations et consentement.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 8f98cbf0-a71d-4e34-babf-e644ad9ff423
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/12/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87103b1052b5d9168928193eacc78a935e68067f
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 717607de6d9d193a7373637d0d0fcd879b54fed0
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62112075"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544881"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Autorisations et consentement dans le point de terminaison Microsoft identity platform
 
@@ -49,7 +49,7 @@ Cela s’applique également aux ressources tierces intégrées à la plateforme
 
 * Lire le calendrier d’un utilisateur
 * Écrire dans le calendrier d’un utilisateur
-* Envoi de messages en tant qu’utilisateur
+* Envoyer un e-mail en tant qu'utilisateur
 
 En définissant ces types d’autorisations, la ressource dispose d’un contrôle précis sur ses données et sur l’exposition de la fonctionnalité d’API. Une application tierce peut demander ces autorisations à des utilisateurs et des administrateurs. Ces derniers doivent approuver la requête avant que l’application puisse accéder aux données ou agir pour le compte d’un utilisateur. En fragmentant les fonctionnalités de la ressource en ensembles plus réduits d’autorisations, il est possible de créer des applications tierces pour qu’elles demandent uniquement les autorisations nécessaires à leur fonctionnement. Les utilisateurs et les administrateurs peuvent savoir exactement quelles données l’application a accès à, et ils peuvent être plus confiants qu’elle n’est pas comporte ayant des intentions malveillantes. Les développeurs doivent toujours respecter le concept de moindre privilège et demander uniquement les autorisations dont ils ont besoin pour faire fonctionner leurs applications.
 
@@ -89,7 +89,7 @@ Si une application exécute la connexion à l’aide [d’OpenID Connect](activ
 
 L’étendue `email` peut être utilisée avec l’étendue `openid` ainsi que d’autres. Elle permet à l’application d’accéder à l’adresse de messagerie principale de l’utilisateur sous la forme de la revendication `email`. Le `email` revendication est incluse dans un jeton uniquement si une adresse de messagerie est associée au compte d’utilisateur, ce qui n’est pas toujours le cas. Si elle utilise l’étendue `email`, votre application doit être préparée à faire face à l’éventualité où la revendication `email` n’existerait pas dans le jeton.
 
-### <a name="profile"></a>Profil
+### <a name="profile"></a>profil
 
 L’étendue `profile` peut être utilisée avec l’étendue `openid` ainsi que d’autres. Elle permet à l’application d’accéder à une quantité d’informations importante sur l’utilisateur, Il peut accéder aux informations inclut, mais n’est pas limitées à l’utilisateur prénom, nom de famille, nom d’utilisateur privilégié et ID d’objet. Pour obtenir la liste complète des revendications de profil disponibles dans le paramètre id_token pour un utilisateur donné, consultez la page [de référence `id_tokens`](id-tokens.md).
 
@@ -197,7 +197,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&state=12345&redirect_uri=http://localhost/myapp/permissions
 ```
 
-| Paramètre | Condition | Description |
+| Paramètre | Condition | Description  |
 | --- | --- | --- |
 | `tenant` | Obligatoire | Le client d’annuaire auquel vous souhaitez demander l’autorisation. Peut être fourni au format GUID ou sous forme de nom convivial OU référencé de manière générique avec `common` comme indiqué dans l’exemple. |
 | `client_id` | Obligatoire | Le **ID d’Application (client)** qui le [portail Azure-inscriptions](https://go.microsoft.com/fwlink/?linkid=2083908) expérience affecté à votre application. |
@@ -206,7 +206,7 @@ https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49
 
 À ce stade, Azure AD nécessite qu’un administrateur client se connecte pour terminer la demande. L’administrateur est invité à approuver toutes les autorisations que vous avez demandées pour votre application dans le portail d’inscription.
 
-#### <a name="successful-response"></a>Réponse correcte
+#### <a name="successful-response"></a>Réponse réussie
 
 Si l’administrateur approuve les autorisations pour votre application, la réponse correcte ressemble à ce qui suit :
 
@@ -214,7 +214,7 @@ Si l’administrateur approuve les autorisations pour votre application, la rép
 GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b95&state=state=12345&admin_consent=True
 ```
 
-| Paramètre | Description |
+| Paramètre | Description  |
 | --- | --- |
 | `tenant` | Client d’annuaire ayant accordé à votre application les autorisations demandées au format GUID. |
 | `state` | Une valeur incluse dans la requête qui sera également renvoyée dans la réponse de jeton. Il peut s’agir d’une chaîne du contenu de votre choix. La valeur d’état est utilisée pour coder les informations sur l’état de l’utilisateur dans l’application avant la requête d’authentification, comme la page ou l’écran sur lequel ou laquelle il était positionné. |
@@ -228,7 +228,7 @@ Si l’administrateur n’approuve pas les autorisations pour votre application,
 GET http://localhost/myapp/permissions?error=permission_denied&error_description=The+admin+canceled+the+request
 ```
 
-| Paramètre | Description |
+| Paramètre | Description  |
 | --- | --- |
 | `error` | Une chaîne de code d’erreur pouvant être utilisée pour classer les types d’erreur se produisant, et pouvant être utilisée pour intervenir face aux erreurs. |
 | `error_description` | Un message d’erreur spécifique qui peut aider un développeur à identifier la cause principale d’une erreur. |

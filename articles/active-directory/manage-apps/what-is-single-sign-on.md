@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/12/2019
+ms.date: 05/15/2019
 ms.author: celested
 ms.reviewer: arvindh, japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 75aa0f4755fe3d124094ace3c3e6b8e6ea3b65e0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 12c68a268b901f3525c2af9cd381dc277d6d8167
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60441488"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65770906"
 ---
 # <a name="single-sign-on-to-applications-in-azure-active-directory"></a>S’authentifier avec l’authentification unique auprès des applications dans Azure Active Directory
 
@@ -45,7 +45,7 @@ Le tableau suivant récapitule les méthodes d’authentification unique et cont
 | [OpenID Connect et OAuth](#openid-connect-and-oauth) | Cloud uniquement | Utilisez OpenID Connect et OAuth lors du développement d’une nouvelle application. Ce protocole simplifie la configuration de l’application, propose des kits SDK faciles à utiliser et permet à votre application d’utiliser MS Graph.
 | [SAML](#saml-sso) | Cloud et locales | Choisissez SAML autant que possible pour les applications existantes qui n’utilisent pas OpenID Connect ou OAuth. SAML fonctionne pour les applications qui s’authentifient par le biais d’un protocole SAML.|
 | [Par mot de passe](#password-based-sso) | Cloud et locales | Choisissez la méthode par mot de passe quand l’application authentifie avec un nom d’utilisateur et un mot de passe. L’authentification unique par mot de passe permet de sécuriser le stockage et la lecture des mots de passe des applications avec une extension de navigateur web ou une application mobile. Cette méthode utilise le processus de connexion existant fourni par l’application, mais permet aux administrateurs de gérer les mots de passe. |
-| [Liée](#linked-sso) | Cloud et locales | Choisissez l’authentification unique liée quand l’application est configurée pour l’authentification unique dans un autre service de fournisseur d’identité. Cette option n’ajoute pas l’authentification unique à l’application. Cependant, il se peut que l’authentification unique soit déjà implémentée dans l’application avec un autre service, comme les services de fédération Active Directory (AD FS).|
+| [Liée](#linked-sign-on) | Cloud et locales | Choisissez authentification liée lorsque l’application est configurée pour l’authentification unique dans un autre service de fournisseur d’identité. Cette option n’ajoute pas l’authentification unique à l’application. Cependant, il se peut que l’authentification unique soit déjà implémentée dans l’application avec un autre service, comme les services de fédération Active Directory (AD FS).|
 | [Désactivé](#disabled-sso) | Cloud et locales | Choisissez l’authentification unique désactivée quand l’application n’est pas prête à être configurée pour l’authentification unique. Les utilisateurs doivent entrer leur nom d’utilisateur et leur mot de passe chaque fois qu’ils lancent cette application.|
 | [Authentification Windows intégrée (IWA)](#integrated-windows-authentication-iwa-sso) | Locales uniquement | Choisissez l’authentification unique IWA pour les applications qui utilisent l’[authentification Windows intégrée (IWA)](/aspnet/web-api/overview/security/integrated-windows-authentication), ou pour les applications prenant en charge les revendications. Pour IWA, les connecteurs de proxy d’application utilisent la délégation Kerberos contrainte (KCD) pour authentifier les utilisateurs auprès de l’application. | 
 | [Basée sur l’en-tête](#header-based-sso) | Locales uniquement | Utilisez l’authentification unique basée sur l’en-tête quand l’application utilise des en-têtes pour l’authentification. L’authentification unique basée sur l’en-tête nécessite PingAccess pour Azure AD. Le proxy d’application utilise Azure AD pour authentifier l’utilisateur, puis transmet le trafic via le service du connecteur.  | 
@@ -67,8 +67,8 @@ Choisissez l’authentification unique basée sur SAML lorsque l’application l
 
 L’authentification unique SAML est prise en charge pour les applications qui utilisent un de ces protocoles :
 
-- SAML 2.0
-- Un certificat de fournisseur d'identité WS-Federation
+- SAML 2.0
+- WS-Federation
 
 Pour configurer une application SaaS pour basée sur SAML SSO, consultez [basée sur SAML configurer SSO](configure-single-sign-on-portal.md). De plus, de nombreuses applications SaaS (Software as a service) offrent un [tutoriel spécifique à l’application](../saas-apps/tutorial-list.md) qui vous guide dans la configuration de l’authentification unique basée sur SAML.
 
@@ -122,12 +122,12 @@ Quand l’utilisateur final gère les informations d’identification :
 - Les administrateurs sont toujours en mesure de définir de nouvelles informations d’identification pour l’application.
 
 
-## <a name="linked-sso"></a>Authentification unique liée
+## <a name="linked-sign-on"></a>Authentification liée
 L’authentification unique liée permet à Azure AD de fournir l’authentification unique à une application qui est déjà configurée pour l’authentification unique dans un autre service. L’application liée peut apparaître aux utilisateurs finaux dans le portail Office 365 ou dans le portail Azure AD MyApps. Par exemple, un utilisateur peut lancer une application qui est configurée pour l’authentification unique dans les services de fédération Active Directory (AD FS) 2.0 à partir du portail Office 365. Des rapports supplémentaires sont également disponibles pour les applications liées qui sont lancées à partir du portail Office 365 ou du portail Azure AD MyApps. 
 
-### <a name="linked-sso-for-application-migration"></a>Authentification unique liée pour la migration de l’application
+### <a name="linked-sign-on-for-application-migration"></a>Authentification liée pour la migration de l’application
 
-L’authentification unique liée peut fournir une expérience utilisateur homogène lorsque que vous migrez des applications sur un certain laps de temps. Si vous migrez des applications vers Azure Active Directory, vous pouvez utiliser l’authentification unique liée pour publier rapidement des liens vers toutes les applications que vous voulez migrer.  Les utilisateurs peuvent trouver tous les liens dans le [portail MyApps](../user-help/active-directory-saas-access-panel-introduction.md) ou dans le [Lanceur d’applications Office 365](https://support.office.com/article/meet-the-office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a). Les utilisateurs ne savent pas qu’ils accèdent à une application liée ou à une application migrée.  
+Authentification liée peut fournir une expérience utilisateur cohérente pendant que vous migrez des applications sur une période de temps. Si vous migrez des applications à Azure Active Directory, vous pouvez utiliser authentification liée à publier rapidement des liens vers toutes les applications que vous voulez migrer.  Les utilisateurs peuvent trouver tous les liens dans le [portail MyApps](../user-help/active-directory-saas-access-panel-introduction.md) ou dans le [Lanceur d’applications Office 365](https://support.office.com/article/meet-the-office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a). Les utilisateurs ne savent pas qu’ils accèdent à une application liée ou à une application migrée.  
 
 Une fois qu’un utilisateur s’est authentifié avec une application liée, un enregistrement de compte doit être créé avant que l’utilisateur final obtienne l’accès par authentification unique. Le provisionnement de cet enregistrement de compte peut se produire automatiquement ou il peut être effectué manuellement par un administrateur.
 
@@ -175,7 +175,7 @@ Choisissez l’authentification unique basée sur l’en-tête quand :
 
 Pour configurer l’authentification basée sur l’en-tête, consultez [Authentification basée sur l’en-tête pour l’authentification unique avec le proxy d’application](application-proxy-configure-single-sign-on-with-ping-access.md). 
 
-### <a name="what-is-pingaccess-for-azure-ad"></a>Présentation de PingAccess pour Azure AD
+### <a name="what-is-pingaccess-for-azure-ad"></a>Qu'est-ce que PingAccess pour Azure AD ?
 
 Avec PingAccess pour Azure AD, les utilisateurs peuvent accéder aux applications qui utilisent des en-têtes pour l’authentification et s’y connecter avec l’authentification unique. Le proxy d’application traite ces applications comme n’importe quelle autre application, en utilisant Azure AD pour authentifier l’accès, puis pour faire transiter le trafic via le service de connecteur. Une fois l’authentification effectuée, le service PingAccess traduit le jeton d’accès Azure AD en un format d’en-tête qui est envoyé à l’application.
 

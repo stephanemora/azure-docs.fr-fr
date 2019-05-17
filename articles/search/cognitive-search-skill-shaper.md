@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 5267f81c9886e2d1d8d62c134156aedb3b2b8763
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 058b6c979346d9dcce36940432d0e222e919dba9
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65023711"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540826"
 ---
 #   <a name="shaper-cognitive-skill"></a>Compétence cognitive Modélisation
 
@@ -29,7 +29,7 @@ La version d’API détermine la profondeur de mise en forme vous pouvez obtenir
 | Version 2019-05-06-preview de l’API REST (Kit de développement logiciel .NET n’est pas pris en charge) | Objets complexes, plusieurs niveaux, dans un **modélisateur** définition de compétences. |
 | 2019-05-06 ** 2017-11-11-Preview (la disposition générale)| Objets complexes, un niveau de profondeur. Une forme à plusieurs niveaux requiert le chaînage de plusieurs étapes de mise en forme.|
 
-La version préliminaire **modélisateur** compétence, illustré dans [scénario 3](#nested-complex-types), ajoute un nouveau facultatif *sourceContext* propriété à l’entrée. Le *source* et *sourceContext* propriétés s’excluent mutuellement. Si l’entrée est dans le contexte de la compétence, utilisez simplement *source*. Si l’entrée est à un *différents* contexte que le contexte de la compétence, utilisez le *sourceContext*. Le *sourceContext* , vous devez définir une entrée imbriquée avec l’élément spécifique qui est traité comme source. 
+Tel que fourni par `api-version=2019-05-06-Preview`, le **modélisateur** compétence illustré dans [scénario 3](#nested-complex-types) ajoute un nouveau facultatif *sourceContext* propriété à l’entrée. Le *source* et *sourceContext* propriétés s’excluent mutuellement. Si l’entrée est dans le contexte de la compétence, utilisez simplement *source*. Si l’entrée est à un *différents* contexte que le contexte de la compétence, utilisez le *sourceContext*. Le *sourceContext* , vous devez définir une entrée imbriquée avec l’élément spécifique qui est traité comme source. 
 
 Dans la réponse, pour toutes les versions d’API, le nom de sortie est toujours « output ». En interne, le pipeline peut mapper un nom différent, tel que « analyzedText » comme indiqué dans les exemples ci-dessous, mais la **modélisateur** compétence lui-même retourne « output » dans la réponse. Cet aspect peut être important si vous effectuez un débogage de documents enrichis et notez la différence de nommage, ou si vous générez une compétence personnalisée et que vous structurez la réponse vous-même.
 
@@ -196,7 +196,7 @@ Dans ce cas, le **modélisateur** aplatit tous les titres de chapitres pour cré
 ## <a name="scenario-3-input-consolidation-from-nested-contexts"></a>Scénario 3 : de consolidation d’entrée à partir de contextes imbriquées
 
 > [!NOTE]
-> Imbriqué des structures de prise en charge dans la version d’api = 2019-05-06-Preview peut être utilisé dans un [store de la base de connaissances](knowledge-store-concept-intro.md) ou dans un index Azure Search.
+> Imbriqué des structures de prise en charge dans les [API REST version 2019-05-06-Preview](search-api-preview.md) peut être utilisé dans un [store de la base de connaissances](knowledge-store-concept-intro.md) ou dans un index Azure Search.
 
 Imaginons que vous avez le titre, des chapitres et contenu d’un livre et avez été exécutées entité phrases de reconnaissance et la clé sur le contenu et devez maintenant pour agréger les résultats des compétences différentes dans une seule forme avec le nom de chapitre, les entités et les expressions clés.
 
@@ -265,4 +265,4 @@ Dans ce cas, le **modélisateur** crée un type complexe. Cette structure existe
 + [Guide pratique pour définir un ensemble de compétences](cognitive-search-defining-skillset.md)
 + [Comment utiliser des types complexes](search-howto-complex-data-types.md)
 + [Vue d’ensemble du magasin de base de connaissances](knowledge-store-concept-intro.md)
-+ [La prise en main avec Store de la base de connaissances](knowledge-store-howto.md)
++ [La prise en main avec le magasin de la base de connaissances](knowledge-store-howto.md)

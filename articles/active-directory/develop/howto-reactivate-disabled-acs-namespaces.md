@@ -3,8 +3,8 @@ title: Réactiver des espaces de noms Azure Access Control Service (ACS) désact
 description: Découvrez comment trouver et activer vos espaces de noms Azure Access Control Service (ACS) et demander une extension de leur activation jusqu'au 4 février 2019.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/21/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: jlu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 534c0463cd8aee9fccfa183586b946032dada722
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6fe1517cce8a1f9b1024085340ffb927b282f0fb
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60299697"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540284"
 ---
 # <a name="how-to-reactivate-disabled-access-control-service-namespaces"></a>Activation Réactiver des espaces de noms Access Control Service désactivés
 

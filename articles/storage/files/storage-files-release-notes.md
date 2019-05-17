@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: article
-ms.date: 4/22/2019
+ms.date: 5/7/2019
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 9a8fe1c083ab4e241cf236fd6f731fba1aa67f87
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 421f255353a3cf0b6cc000677c91d0f8c84cbc73
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64724240"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540612"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Notes de publication de l’agent Azure File Sync
 Azure File Sync vous permet de centraliser les partages de fichiers de votre organisation dans Azure Files sans perdre la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Il transforme vos installations Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement (notamment SMB, NFS et FTPS). Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -23,9 +23,10 @@ Cet article fournit les notes de publication concernant les versions prises en c
 ## <a name="supported-versions"></a>Versions prises en charge
 Les versions suivantes de l’agent Azure File Sync sont prises en charge :
 
-| Jalon | Numéro de version de l’agent | Date de lancement | Statut |
+| Jalon | Numéro de version de l’agent | Date de publication | Statut |
 |----|----------------------|--------------|------------------|
-| V6 Release - [KB4489736](https://support.microsoft.com/help/4489736)| 6.0.0.0 | 21 avril 2019 | Prise en charge (version recommandée) |
+| Mai 2019 correctif cumulatif - [KB4489737](https://support.microsoft.com/help/4489737)| 6.1.0.0 | 7 mai 2019 | Prise en charge (version recommandée) |
+| V6 Release - [KB4489736](https://support.microsoft.com/help/4489736)| 6.0.0.0 | 21 avril 2019 | Pris en charge |
 | Avril 2019 correctif cumulatif - [KB4481061](https://support.microsoft.com/help/4481061)| 5.2.0.0 | 4 avril 2019 | Pris en charge |
 | Mars 2019 correctif cumulatif - [KB4481060](https://support.microsoft.com/help/4481060)| 5.1.0.0 | 7 mars 2019 | Pris en charge |
 | Version V5 – [KB4459989](https://support.microsoft.com/help/4459989)| 5.0.2.0 | 12 février 2019 | Pris en charge |
@@ -40,6 +41,12 @@ Les versions suivantes de l’agent Azure File Sync sont prises en charge :
 
 ### <a name="azure-file-sync-agent-update-policy"></a>Stratégie de mise à jour de l’agent Azure File Sync
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
+
+## <a name="agent-version-6100"></a>Version de l’agent 6.1.0.0
+Les notes de publication suivantes concernent la version 6.1.0.0 de l’agent Azure File Sync publiée le 6 mai 2019. Ces notes s’ajoutent les notes de publication répertoriées pour la version 6.0.0.0.
+
+Liste des problèmes résolus dans cette version :  
+- Windows Admin Center ne parvient pas à afficher la configuration de point de terminaison de version et le serveur de l’agent sur les serveurs qui ont la version de l’agent Azure File Sync 6.0 est installé.
 
 ## <a name="agent-version-6000"></a>Version de l’agent 6.0.0.0
 Les notes de publication suivantes concernent la version 6.0.0.0 de l’agent Azure File Sync (publiée le 22 avril 2019).

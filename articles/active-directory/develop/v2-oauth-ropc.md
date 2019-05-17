@@ -3,8 +3,8 @@ title: Plateforme d’identité Microsoft utilisé pour connecter les utilisateu
 description: Prise en charge des flux d’authentification sans navigateur avec l’octroi des informations d’identification de mot de passe du propriétaire des ressources (ROPC, Resource Owner Password Credential).
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/20/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9cfa28cae87c8a9a97e1c64b96f75ae4c6eab08d
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 04d2be76072866da2b21718f60fd0c9a5923b15b
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62112287"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65545109"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-resource-owner-password-credential"></a>Plateforme d’identité Microsoft et les informations d’identification de la mot de passe propriétaire des ressources OAuth 2.0
 
@@ -41,7 +41,7 @@ Le diagramme qui suit montre le flux ROPC.
 
 ![Flux ROPC](./media/v2-oauth2-ropc/v2-oauth-ropc.svg)
 
-## <a name="authorization-request"></a>Demande d’autorisation.
+## <a name="authorization-request"></a>Demande d'autorisation
 
 Le flux ROPC est une demande unique : il envoie l’identification du client et les informations d’identification de l’utilisateur au fournisseur d’identité, puis il reçoit en retour des jetons. Le client doit demander l’adresse e-mail (UPN) et le mot de passe de l’utilisateur avant de continuer. Immédiatement après une demande réussie, le client doit supprimer de la mémoire les informations d’identification de l’utilisateur de façon sécurisée. Il ne doit jamais les enregistrer.
 
@@ -64,7 +64,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &grant_type=password
 ```
 
-| Paramètre | Condition | Description |
+| Paramètre | Condition | Description  |
 | --- | --- | --- |
 | `tenant` | Obligatoire | Locataire de l’annuaire auquel vous voulez connecter l’utilisateur. Peut être au format GUID ou sous forme de nom convivial. Ce paramètre ne peut pas être défini sur `common` ou `consumers`, mais peut être défini sur `organizations`. |
 | `grant_type` | Obligatoire | Cette propriété doit être définie sur `password`. |
@@ -87,9 +87,9 @@ L’exemple suivant montre une réponse de jeton réussie :
 }
 ```
 
-| Paramètre | Format | Description |
+| Paramètre | Format | Description  |
 | --------- | ------ | ----------- |
-| `token_type` | String | Toujours défini sur `Bearer`. |
+| `token_type` | Chaîne | Toujours défini sur `Bearer`. |
 | `scope` | Chaînes séparées par un espace | Si un jeton d’accès est retourné, ce paramètre liste les étendues pour lesquelles le jeton d’accès est valide. |
 | `expires_in`| int | Nombre de secondes pendant lesquelles le jeton d’accès inclus est valide. |
 | `access_token`| Chaîne opaque | Émise pour les [étendues](v2-permissions-and-consent.md) qui ont été demandées. |
@@ -102,7 +102,7 @@ Vous pouvez utiliser le jeton d’actualisation pour acquérir de nouveaux jeton
 
 Si l’utilisateur n’a pas fourni le nom d’utilisateur ou le mot de passe correct, ou si le client n’a pas reçu le consentement demandé, l’authentification échoue.
 
-| Error | Description | Action du client |
+| Error | Description  | Action du client |
 |------ | ----------- | -------------|
 | `invalid_grant` | Échec de l’authentification | Les informations d’identification étaient incorrectes ou le client n’a pas le consentement pour les étendues demandées. Si les étendues ne sont pas accordées, un `consent_required` erreur est renvoyée. Si cela se produit, le client doit envoyer l’utilisateur sur une invite interactive avec une vue web ou un navigateur. |
 | `invalid_request` | La demande a été incorrectement construite | Le type d’autorisation n’est pas pris en charge sur le `/common` ou `/consumers` contextes d’authentification.  Utilisez `/organizations` à la place. |

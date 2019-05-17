@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 39fbe30ccf4429003dc0c9f11165c5dd057a89cd
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: deea16b8670623acd2ae92ba62f579f5474d12ec
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62121790"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65790895"
 ---
 # <a name="add-language-analyzers-to-an-azure-search-index"></a>Ajouter des analyseurs linguistiques à un index de Recherche Azure
 
@@ -46,9 +46,6 @@ L’analyseur par défaut est Lucene Standard, qui fonctionne bien pour l’angl
 
 + L’analyseur d’anglais de Microsoft procède par lemmatisation plutôt que par recherche de radical. Il gère donc beaucoup mieux les formes fléchies et irrégulières, ce qui donne des résultats de recherche plus pertinents. 
 
-  > [!Tip]
-  > La [démonstration de l’analyseur Recherche](https://alice.unearth.ai/) présente une comparaison point par point des résultats produits par l’analyseur Lucene standard, l’analyseur linguistique anglais de Lucene et de l’outil de traitement du langage naturel anglais de Microsoft. Pour chaque recherche, les résultats de chaque analyseur sont affichés dans des volets adjacents.
-
 ## <a name="configuring-analyzers"></a>Configuration des analyseurs
 
 Les analyseurs linguistiques sont utilisés en l’état. Pour chaque champ de la définition d’index, vous pouvez attribuer à la propriété **analyzer** un nom d’analyseur qui spécifie la langue et la pile linguistique (Microsoft ou Lucene). Le même analyseur sera appliqué lors de l’indexation et de la recherche pour ce champ. Il peut par exemple y avoir des champs distincts pour des descriptions d'hôtels en anglais, en français et en espagnol côte à côte dans le même index. Au lieu de **analyzer**, vous pouvez aussi utiliser **indexAnalyzer** et **searchAnalyzer** pour appliquer des règles d’analyse différentes au moment de l’indexation et de l’interrogation. 
@@ -62,11 +59,11 @@ Pour plus d’informations sur les propriétés d’index, voir [Créer un index
 ## <a name="language-analyzer-list"></a>Liste d’analyseurs linguistiques 
  Voici la liste des langues prises en charge avec les noms d’analyseur Lucene et Microsoft.  
 
-|Langage|Nom de l’analyseur Microsoft|Nom de l’analyseur Lucene|  
+|Langue|Nom de l’analyseur Microsoft|Nom de l’analyseur Lucene|  
 |--------------|-----------------------------|--------------------------|  
 |Arabe|ar.microsoft|ar.lucene|  
 |Arménien||hy.lucene|  
-|Bangla|bn.microsoft||  
+|Bengali|bn.microsoft||  
 |Basque||eu.lucene|  
 |Bulgare|bg.microsoft|bg.lucene|  
 |Catalan|ca.microsoft|ca.lucene|  

@@ -3,8 +3,8 @@ title: Glossaire du développeur Microsoft identity plateforme | Azure
 description: Une liste de termes concernant les concepts de développement de plateforme Microsoft identity et fonctionnalités couramment utilisées.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 551512df-46fb-4219-a14b-9c9fc23998ba
 ms.service: active-directory
@@ -14,22 +14,22 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/13/2019
-ms.author: celested
+ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jmprieur, saeeda, jesakowi, nacanuma, dadobali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 968da9212b52c1e7ea09d1472b312671c7a73449
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 89ea1dba09173b20d11a5022e6666e6c865ead62
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60410382"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540092"
 ---
 # <a name="microsoft-identity-platform-developer-glossary"></a>Glossaire du développeur Microsoft identity platform
 
 Cet article contient des définitions pour certains des principaux concepts de développement et la terminologie, qui sont utiles lors de l’apprentissage sur le développement d’applications à l’aide de la plateforme d’identité Microsoft.
 
-## <a name="access-token"></a>access token
+## <a name="access-token"></a>jeton d'accès
 
 Un type de [jeton de sécurité](#security-token) émis par un [serveur d’autorisation](#authorization-server) et utilisé par une [application cliente](#client-application) pour accéder à un [serveur de ressources protégé](#resource-server). Apparaissant généralement sous la forme d’un jeton [JSON Web Token (JWT)][JWT], le jeton représente l’autorisation accordée au client par le [propriétaire de la ressource](#resource-owner) pour un niveau d’accès demandé. Le jeton contient toutes les [revendications](#claim) applicables sur le sujet, permettant à l’application cliente de l’utiliser en guise d’informations d’identification lors de l’accès à une ressource donnée. Le propriétaire de la ressource n’a ainsi pas non plus besoin d’exposer ses informations d’identification au client.
 
@@ -101,7 +101,7 @@ Un [jeton de sécurité](#security-token) contient des revendications qui fourni
 
 Consultez [référence de jeton de plate-forme Microsoft identity] [ AAD-Tokens-Claims] pour plus d’informations.
 
-## <a name="client-application"></a>d’application cliente
+## <a name="client-application"></a>application cliente
 
 Comme le définit [l’infrastructure d’autorisation OAuth2][OAuth2-Role-Def], application qui effectue des demandes de ressources protégées au nom du [propriétaire des ressources](#resource-owner). Le terme « cliente » n’implique pas de caractéristiques d’implémentation matérielle particulières (par exemple, si l’application s’exécute sur un serveur, un ordinateur de bureau ou d’autres appareils).
 
@@ -119,7 +119,7 @@ Consultez l’[infrastructure de consentement](consent-framework.md) pour plus d
 
 Consultez [référence de jeton de plate-forme Microsoft identity] [ AAD-Tokens-Claims] pour plus d’informations.
 
-## <a name="microsoft-identity-platform"></a>Plateforme d’identité Microsoft
+## <a name="microsoft-identity-platform"></a>Plateforme d'identité Microsoft
 
 La plateforme d’identité Microsoft est une évolution de la plateforme de développeur et de service d’identité Azure Active Directory (Azure AD). Elle permet aux développeurs de générer des applications qui connectent toutes les identités Microsoft et obtiennent des jetons pour appeler Microsoft Graph, d’autres APIs Microsoft ou des API que des développeurs ont créées. C’est une plateforme complète qui se compose d’un service d’authentification, de bibliothèques, de fonctionnalités d’inscription et de configuration d’application, d’une documentation de développement exhaustive et d’exemples de code et autres contenus destinés aux développeurs. La plateforme d’identité Microsoft prend en charge les protocoles standard tels qu’OAuth 2.0 et OpenID Connect. Consultez [À propos de la plateforme d’identité Microsoft](about-microsoft-identity-platform.md) pour en savoir plus.
 
@@ -182,7 +182,7 @@ Lorsque vous inscrivez/mettez à jour une application dans le [portail Azure][AZ
 
 Pour plus d’informations, consultez [Application and Service Principal Objects (Objets application et principaux du service)][AAD-App-SP-Objects].
 
-## <a name="sign-in"></a>connexion
+## <a name="sign-in"></a>se connecter
 
 Processus par lequel une [application cliente](#client-application) initialise l’authentification de l’utilisateur final et enregistre l’état associé à des fins d’acquisition d’un [jeton de sécurité](#security-token) et d’adaptation de l’étendue de la session de l’application à cet état. L’état peut inclure des artefacts tels que les informations de profil utilisateur et des informations dérivées des revendications de jeton.
 

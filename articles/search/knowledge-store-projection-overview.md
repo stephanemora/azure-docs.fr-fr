@@ -1,5 +1,5 @@
 ---
-title: Utilisation de projections dans un magasin de la base de connaissances - recherche Azure
+title: Utilisation de projections dans un magasin de base de connaissances (version préliminaire) - recherche Azure
 description: Enregistrer et mettre en forme vos données enrichies du pipeline d’indexation intelligence artificielle pour une utilisation dans les scénarios de recherche
 manager: eladz
 author: vkurpad
@@ -10,18 +10,22 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: vikurpad
 ms.custom: seomay2019
-ms.openlocfilehash: 3ab5ffafd1b20eb0e3e453d3e730840baf9233e1
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: f1c7278909557dc92f86c5dfc1f190fddf33f607
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65028364"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540804"
 ---
 # <a name="working-with-projections-in-a-knowledge-store-in-azure-search"></a>Utilisation de projections dans un magasin de base de connaissances dans recherche Azure
 
+> [!Note]
+> Magasin de base de connaissances est en version préliminaire et les a pas été conçu pour la production. Le [API REST version 2019-05-06-Preview](search-api-preview.md) fournit cette fonctionnalité. Il n’existe aucune prise en charge du SDK .NET pour l’instant.
+>
+
 Recherche Azure permet l’enrichissement de contenu via des compétences cognitives d’intelligence artificielle et de compétences personnalisées en tant que partie de l’indexation. Enrichissements de structurer vos documents et facilitent la recherche plus efficace. Dans de nombreux cas, les documents enrichis sont utiles pour les scénarios de recherche, par exemple pour l’exploration de données de base de connaissances.
 
-Les projections, un composant de [magasin (version préliminaire) de la base de connaissances](knowledge-store-concept-intro.md), sont des vues de documents enrichis qui peuvent être enregistrés dans le stockage physique pour à des fins d’exploration de données de base de connaissances. Une projection vous permet de « projet » vos données dans une forme qui s’aligne avec vos besoins, en conservant les relations afin que les outils tels que Power BI peuvent lire les données sans aucun effort supplémentaire. 
+Les projections, un composant de [store de la base de connaissances](knowledge-store-concept-intro.md), sont des vues de documents enrichis qui peuvent être enregistrés dans le stockage physique pour à des fins d’exploration de données de base de connaissances. Une projection vous permet de « projet » vos données dans une forme qui s’aligne avec vos besoins, en conservant les relations afin que les outils tels que Power BI peuvent lire les données sans aucun effort supplémentaire. 
 
 Projections peuvent être sous forme de tableau avec les données stockées dans des lignes et colonnes dans le stockage Table Azure, ou les objets JSON stockés dans le stockage Blob Azure. Vous pouvez définir plusieurs projections de vos données comme il est en cours enrichie. Cela est utile lorsque vous souhaitez que les mêmes données mises en forme différemment pour les cas d’une utilisation individuelle. 
 

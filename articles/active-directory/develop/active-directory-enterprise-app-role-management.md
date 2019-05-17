@@ -4,7 +4,7 @@ description: Découvrez comment configurer les revendications de rôle émises d
 services: active-directory
 documentationcenter: ''
 author: jeevansd
-manager: mtillman
+manager: CelesteDG
 editor: ''
 ms.assetid: eb2b3741-3cde-45c8-b639-a636f3df3b74
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.date: 04/22/2019
 ms.author: jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cb426eb15d20a4bbd628897ed1c3b29c37f32afd
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 15165bce70a9bc2fbf3eb840ca8bce4fd5073280
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64723305"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544640"
 ---
 # <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>Activation Configurer les revendications de rôle émises dans le jeton SAML pour les applications d'entreprise
 
@@ -154,7 +154,7 @@ Si votre application s’attend à voir passer dans une réponse SAML des rôles
 
 9. Dans la section **Revendications des utilisateurs** de la boîte de dialogue **Attributs utilisateur**, effectuez les étapes suivantes pour ajouter le jeton SAML comme indiqué dans le tableau ci-dessous :
 
-    | Nom de l’attribut | Valeur de l’attribut |
+    | Nom d'attribut | Valeur de l’attribut |
     | -------------- | ----------------|
     | Nom de rôle  | user.assignedroles |
 

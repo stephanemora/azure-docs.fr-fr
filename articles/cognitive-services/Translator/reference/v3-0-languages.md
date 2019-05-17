@@ -10,14 +10,14 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: 1713a05590f389a6de70d72e8d62237c7521d808
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6e0342d876db424454526637322d67d55c0432a8
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60605113"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65797294"
 ---
-# <a name="translator-text-api-30-languages"></a>API de traduction de texte Translator Text 3.0 : Languages
+# <a name="translator-text-api-30-languages"></a>API de traduction de texte Translator Text 3.0 : Langues
 
 Permet d’obtenir l’ensemble des langues actuellement prises en charge par d’autres opérations de l’API de traduction de texte Translator Text. 
 
@@ -28,19 +28,19 @@ Envoyez une demande `GET` à :
 https://api.cognitive.microsofttranslator.com/languages?api-version=3.0
 ```
 
-## <a name="request-parameters"></a>Paramètres de la demande
+## <a name="request-parameters"></a>Paramètres de requête
 
 Les paramètres de demande transmis à la chaîne de requête sont les suivants :
 
 <table width="100%">
   <th width="20%">Paramètre de requête.</th>
-  <th>Description</th>
+  <th>Description </th>
   <tr>
     <td>api-version</td>
     <td><em>Paramètre obligatoire</em>.<br/>Version de l’API demandée par le client. La valeur doit être `3.0`.</td>
   </tr>
   <tr>
-    <td>scope</td>
+    <td>portée</td>
     <td>*Paramètre facultatif*.<br/>Liste de noms séparée par des virgules définissant le groupe de langues à renvoyer. Les noms de groupe autorisés sont les suivants : `translation`, `transliteration` et `dictionary`. Si aucune étendue n’est fournie, tous les groupes sont renvoyés, ce qui équivaut à transmettre `scope=translation,transliteration,dictionary`. Pour déterminer si l’ensemble des langues prises en charge est approprié dans le cadre de votre scénario, consultez la description de [l’objet de réponse](#response-body).</td>
   </tr>
 </table> 
@@ -48,8 +48,8 @@ Les paramètres de demande transmis à la chaîne de requête sont les suivants�
 Les en-têtes de requête sont les suivants :
 
 <table width="100%">
-  <th width="20%">headers</th>
-  <th>Description</th>
+  <th width="20%">En-têtes</th>
+  <th>Description </th>
   <tr>
     <td>Accept-Language</td>
     <td>*En-tête de requête facultatif*.<br/>Langue à utiliser pour les chaînes d’interface utilisateur. Certains des champs dans cette réponse sont les noms de langue ou de région. Utilisez ce paramètre pour définir la langue dans laquelle ces noms sont renvoyés. La langue est spécifiée en fournissant une balise de langue BCP 47 bien formée. Par exemple, utilisez la valeur `fr` pour demander des noms en français ou utilisez la valeur `zh-Hant` pour demander des noms en chinois traditionnel.<br/>Les noms sont fournis en anglais lorsqu’aucune langue cible n’est spécifiée ou lorsqu’aucune traduction n’est pas disponible.
@@ -229,8 +229,8 @@ La liste des langues prises en charge ne changera pas souvent. Pour économiser 
 ## <a name="response-headers"></a>En-têtes de réponse
 
 <table width="100%">
-  <th width="20%">headers</th>
-  <th>Description</th>
+  <th width="20%">En-têtes</th>
+  <th>Description </th>
   <tr>
     <td>ETag</td>
     <td>Valeur actuelle de la balise d’entité pour les groupes de langues prises en charge demandés. Pour effectuer d’autres demandes plus efficaces, le client peut envoyer la valeur `ETag` dans un champ d’en-tête `If-None-Match`.
@@ -248,10 +248,10 @@ Voici les codes d’état HTTP qu’une demande peut retourner.
 
 <table width="100%">
   <th width="20%">Code d’état</th>
-  <th>Description</th>
+  <th>Description </th>
   <tr>
     <td>200</td>
-    <td>Vous avez réussi !</td>
+    <td>Réussite.</td>
   </tr>
   <tr>
     <td>304</td>
@@ -263,11 +263,11 @@ Voici les codes d’état HTTP qu’une demande peut retourner.
   </tr>
   <tr>
     <td>429</td>
-    <td>L’appelant envoie trop de demandes.</td>
+    <td>Le serveur a rejeté la demande, car le client a dépassé les limites de la demande.</td>
   </tr>
   <tr>
     <td>500</td>
-    <td>Une erreur inattendue s’est produite. Si l’erreur persiste, signalez-la en fournissant les informations suivantes : date et heure de la défaillance, identificateur de la demande dans l’en-tête de réponse,`X-RequestId` et identificateur du client dans l’en-tête de demande `X-ClientTraceId`.</td>
+    <td>Une erreur inattendue est survenue. Si l’erreur persiste, signalez-la en fournissant les informations suivantes : date et heure de la défaillance, identificateur de la demande dans l’en-tête de réponse,`X-RequestId` et identificateur du client dans l’en-tête de demande `X-ClientTraceId`.</td>
   </tr>
   <tr>
     <td>503</td>

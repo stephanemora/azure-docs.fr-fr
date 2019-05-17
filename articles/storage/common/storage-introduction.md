@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 094c8d45f7f6099b169e25c89dbfc4a7d6522dfc
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 1c82dbd0af8509910b13d17ff5a2e8512cef6fdd
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510934"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65794189"
 ---
 # <a name="introduction-to-azure-storage"></a>Présentation de Stockage Azure
 
@@ -158,7 +158,7 @@ Les ressources Azure Storage sont accessibles par n’importe quel langage capab
 
 ### <a name="azure-storage-data-movement-api-and-library-references"></a>Références d’API et de bibliothèque de déplacement de données de stockage Azure
 * [API REST du service Import/Export Storage](https://docs.microsoft.com/rest/api/storageimportexport/)
-* [Bibliothèque cliente de déplacement de données de stockage pour .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.datamovement)
+* [Bibliothèque cliente de déplacement de données de stockage pour .NET](/dotnet/api/microsoft.azure.storage.datamovement)
 
 ### <a name="tools-and-utilities"></a>Outils et utilitaires
 * [Applets de commande Azure PowerShell pour le stockage](https://docs.microsoft.com/powershell/module/az.storage)

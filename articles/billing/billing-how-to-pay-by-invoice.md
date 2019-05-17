@@ -12,65 +12,80 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 05/16/2019
 ms.author: banders
-ms.openlocfilehash: 0a17821cc69900c7f24375cbf06a61811bbd52d1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8dc5918ac539abde2586e29a1608e9dc496a5e37
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60918790"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65794787"
 ---
-# <a name="submit-a-request-to-pay-azure-subscription-by-invoice"></a>Soumettre une demande de paiement d’abonnement Azure par facture
+# <a name="pay-azure-subscription-by-invoice"></a>Paiement par facture d’abonnement Azure
 
-Vous pouvez obtenir un mode de paiement par facture pour votre abonnement Azure en envoyant une demande au support Azure. Une fois votre demande approuvée, des instructions vous seront fournies pour paramétrer votre abonnement pour la méthode de paiement par facture.
+Si vous adoptez pour payer par facture, cela signifie que vous payez votre facture dans les 30 jours de la date de facture. Pour devenir la possibilité de payer votre abonnement Azure par facture, envoyez une demande au support Azure. Une fois votre demande est approuvée, vous pouvez basculer un abonnement paiement par facture dans le [Azure portal](https://portal.azure.com).
 
 > [!IMPORTANT]
-> * Le paiement par facture est uniquement disponible pour les comptes professionnels.
-> * Les [services tiers et externes](billing-understand-your-azure-marketplace-charges.md) ne peuvent pas être achetés ou payés par facture. Si votre abonnement contient des ressources provenant de services externes tels que SendGrid, vous devez les supprimer avant de choisir un paiement par facture. Pour acheter des services externes une fois que vous êtes passé au paiement par facture, vous avez besoin d’un abonnement distinct avec une carte bancaire.
-> * Une fois que vous passez au paiement par facture, vous ne pouvez pas repasser au paiement par carte bancaire.
+> * Le paiement de facture est uniquement disponible pour les comptes professionnels.
+> * Vous devez payer tous les frais en suspens avant de changer de paiement par facture.
+> * Une fois que vous passez au paiement de facture, vous ne pouvez pas revenir au paiement par carte de crédit ou de débit.
 
-## <a name="request-pay-by-invoice"></a>Demander un paiement par facture
+## <a name="request-to-pay-by-invoice"></a>Demande de paiement par facture
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/). Sélectionnez **Aide + support** > **Nouvelle demande de support**.
 
-    ![bouton Aide et support](./media/billing-how-to-pay-by-invoice/helpandsupport.png)
+    ![bouton Aide et support](./media/billing-how-to-pay-by-invoice/help-and-support.png)
 
 2. Sélectionnez **Facturation** comme type de problème, sélectionnez l’abonnement que vous souhaitez payer par facture, choisissez un plan de support, puis cliquez sur **Suivant**.
 
 3. Sélectionnez **Payer par facture** dans la zone **Type de problème**.
 
- 4. Entrez les informations suivantes dans la zone **Détails** puis sélectionnez **Suivant**.
+4. Entrez les informations suivantes dans la zone **Détails** puis sélectionnez **Suivant**.
 
          New or existing customer:
          If existing, current payment method:
-         Order ID (requesting for invoice option): 
+         Order ID (requesting for invoice option):
          Account Admins Live ID (or Org ID) (should be company domain):
-         Commerce Account ID: 
-         Company Name (as registered under VAT or Government Website): 
-         Company Address (as registered under VAT or Government Website): 
+         Commerce Account ID:
+         Company Name (as registered under VAT or Government Website):
+         Company Address (as registered under VAT or Government Website):
          Company Website:
-         Country: 
+         Country:
          TAX ID/ VAT ID:
          Company Established on (Year):
-         Any prior business with Microsoft: 
+         Any prior business with Microsoft:
          Contact Name:
          Contact Phone:
          Contact Email:
-         Justification on why you prefer Invoice option over credit card: 
-    
+         Justification on why you prefer Invoice option over credit card:
+
         For cores increase, provide the following additional information:
-    
+
          (Old quota) Existing Cores:
          (New quota) Requested cores:
-         Specific region & series of Subscription: 
- 
-    - Le **nom de la société** et **adresse de la société** doit correspondre avec les informations que vous avez fourni pour le compte Azure.  Pour afficher ou mettre à jour les informations, consultez [modifier les informations de profil de votre compte Azure](billing-how-to-change-azure-account-profile.md).
-    - Vous devez ajouter votre contact de facturation dans le portail Azure avant que la limite de crédit peut être approuvée. Détails du contact doivent être liés au service de comptes fournisseurs ou Finance de la société. Pour mettre à jour le contact de facturation, accédez à [centre des comptes Azure](https://account.azure.com/Profile).
+         Specific region & series of Subscription:
+
+- Le **nom de la société** et **adresse de la société** doit correspondre avec les informations que vous avez fourni pour le compte Azure.  Pour afficher ou mettre à jour les informations, consultez [modifier les informations de profil de votre compte Azure](billing-how-to-change-azure-account-profile.md).
+- Vous devez ajouter votre contact de facturation dans le portail Azure avant que la limite de crédit peut être approuvée. Détails du contact doivent être liés au service de comptes fournisseurs ou Finance de la société. Pour mettre à jour le contact de facturation, accédez à [centre des comptes Azure](https://account.azure.com/Profile).
 
 5. Vérifiez vos coordonnées et votre méthode de contact préférée, puis cliquez sur **Créer**.
 
-Si nous avons besoin de vérifier votre solvabilité en raison du montant du crédit dont vous avez besoin, nous vous enverrons une demande de contrôle de solvabilité. Une fois la demande soumise, son traitement peut prendre de 5 à 7 jours.
+Si nous avons besoin exécuter une vérification de solvabilité en raison du montant de crédit dont vous avez besoin, nous vous enverrons que vous un crédit de Vérifiez l’application.
+
+## <a name="switch-your-azure-subscription-to-invoice-payment"></a>Changer votre abonnement Azure paiement par facture
+
+Une fois que vous sont approuvées pour payer par facture, vous pouvez basculer votre abonnement Azure à la méthode de paiement de facture dans le [Azure portal](https://portal.azure.com).
+
+1. Connectez-vous au [portail Azure](https://portal.azure.com) en tant qu’administrateur de compte.
+1. Effectuez une recherche sur **Gestion des coûts + facturation**.
+
+    ![Capture d’écran montrant la recherche](./media/billing-how-to-pay-by-invoice/search.png)
+
+1. Sélectionnez l’abonnement que vous souhaitez basculer paiement par facture.
+1. Sélectionnez **Modes de paiement**.
+1. Dans la barre de commandes, cliquez sur le **payer par facture** bouton.
+
+    ![Capture d’écran montrant payer par le bouton de la facture](./media/billing-how-to-pay-by-invoice/pay-by-invoice.png)
 
 ## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Contactez-nous.
 

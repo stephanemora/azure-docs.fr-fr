@@ -8,15 +8,15 @@ services: search
 ms.service: search
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 05/16/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: bf78cd9b70aa4a82ef96fdd529d3ee5b1641038c
-ms.sourcegitcommit: eea74d11a6d6ea6d187e90e368e70e46b76cd2aa
+ms.openlocfilehash: 3fa463cb7178fa5cc2108383047a7ca94ffb48a3
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/03/2019
-ms.locfileid: "65035352"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65797380"
 ---
 # <a name="monitor-resource-consumption-and-query-activity-in-azure-search"></a>Superviser la consommation des ressources et l’activité des requêtes dans la Recherche Azure
 
@@ -77,13 +77,15 @@ Dans cette section, vous allez apprendre à utiliser le Stockage Blob pour stock
 
 1. [Créez un compte de stockage](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) si vous n’en avez pas déjà un. Vous pouvez le placer dans le même groupe de ressources que la Recherche Azure pour simplifier le nettoyage ultérieur si vous voulez supprimer toutes les ressources utilisées dans cet exercice.
 
+   Votre compte de stockage doit exister dans la même région que la recherche Azure.
+
 2. Ouvrez la page Vue d’ensemble de votre service de recherche. Dans le volet de navigation de gauche, faites défiler l’écran vers le bas jusqu’à **Supervision**, puis cliquez sur **Activer la supervision**.
 
    ![Activer la supervision](./media/search-monitor-usage/enable-monitoring.png "Activer la supervision")
 
 3. Choisissez les données à exporter : Journaux d’activité, Métriques ou les deux. Vous pouvez copier dans un compte de stockage, envoyer à un concentrateur d’événements ou exportez-le vers les journaux Azure Monitor.
 
-   Pour l’archivage dans le Stockage Blob, seul le compte de stockage doit exister. Les conteneurs et les objets blob sont créés lors de l’exportation des données de journal.
+   Pour l’archivage dans le Stockage Blob, seul le compte de stockage doit exister. Conteneurs et objets BLOB est créé en fonction des besoins lors de l’exportation de données de journal.
 
    ![Configurer une archive de stockage d’objets blob](./media/search-monitor-usage/configure-blob-storage-archive.png "Configurer une archive de stockage d’objets blob")
 

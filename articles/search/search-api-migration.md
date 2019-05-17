@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: brjohnst
-ms.openlocfilehash: 286d8bbc01b5916e842c196aed5a49ef1c76bc3c
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 85a8ddf4ce87d7ac8ce460c0aff56311a2ea4578
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025195"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540689"
 ---
 # <a name="upgrade-to-the-latest-azure-search-service-rest-api-version"></a>Mettre à niveau vers la version la plus récente de l’API REST du service Recherche Azure
 Si vous utilisez une version précédente de la [API REST de Service Azure Search](https://docs.microsoft.com/rest/api/searchservice/), cet article vous aidera à mettre à niveau votre application pour utiliser la dernière version d’API à la disposition générale, 2019-05-06.
@@ -39,7 +39,7 @@ Version 2019-05-06 est la dernière version de la disposition générale de l’
 
 Plusieurs fonctionnalités de préversions coïncident avec cette mise à jour à la disposition générale. Pour passer en revue la liste des nouvelles fonctionnalités en version préliminaire, consultez [version d’api REST de recherche 2019-05-06-Preview](search-api-preview.md).
 
-## <a name="breaking-changes"></a>Dernières modifications
+## <a name="breaking-changes"></a>Changements cassants
 
 Le code existant qui contient les fonctionnalités suivantes s’arrête sur l’api-version = 2019-05-06.
 
@@ -72,7 +72,9 @@ Si vous êtes concerné par l’une de ces situations, vous aurez peut-être à 
 
 Si vous mettez à niveau à partir d’une version d’API en version préliminaire, la méthode ci-dessus s’applique également, mais vous devez également être conscient que certaines fonctionnalités ne sont pas disponibles dans la version 2019-05-06 :
 
-* [Requêtes « Plus ainsi »](search-more-like-this.md) continuent à être une fonctionnalité d’évaluation uniquement.
+* [Requêtes « More like this »](search-more-like-this.md)
+* [Indexation des objets blob CSV](search-howto-index-csv-blobs.md)
+* [Prise en charge de l’API MongoDB pour les indexeurs de Cosmos DB](search-howto-index-cosmosdb.md)
 
 Si votre code utilise ces fonctionnalités, vous ne serez pas en mesure de mettre à niveau vers la version 2019-05-06 API sans le supprimer de votre utilisation de ces.
 

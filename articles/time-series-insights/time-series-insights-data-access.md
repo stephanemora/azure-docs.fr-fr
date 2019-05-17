@@ -11,18 +11,18 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 05/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: adb30cc3af50b71cdc03e41d847bd4d824cffea6
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 6853637ba23e17f3a7ca5420bdd84425c81a67be
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236392"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65791025"
 ---
 # <a name="grant-data-access-to-an-environment"></a>Accorder l’accès aux données dans un environnement
 
 Cet article décrit les deux types de stratégies d’accès d’Azure Time Series Insights en préversion.
 
-## <a name="sign-in-to-tsi"></a>Connectez-vous à TSI
+## <a name="sign-in-to-time-series-insights"></a>Connectez-vous à Time Series Insights
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
 1. Recherchez votre environnement Time Series Insights. Entrez `Time Series` dans la zone **Recherche**. Sélectionnez **Environnement Time Series** dans les résultats de recherche.

@@ -3,15 +3,15 @@ title: Activer la réplication des machines virtuelles VMware pour la récupéra
 description: Cet article décrit comment activer des machines virtuelles VMware pour la réplication vers Azure pour la récupération d’urgence à l’aide d’Azure Site Recovery.
 author: Rajeswari-Mamilla
 ms.service: site-recovery
-ms.date: 4/18/2019
+ms.date: 05/10/2019
 ms.topic: conceptual
 ms.author: ramamill
-ms.openlocfilehash: ba55afbd62bbbc2290d1daaebf77becc249c1d8b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: add0f8252bdae6857b28deeb7de4c1d09973e452
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60922747"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540758"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Activer la réplication des machines virtuelles VMware dans Azure
 
@@ -43,16 +43,17 @@ Avant de suivre les étapes décrites dans cette section, notez les informations
 * Réplication sur les comptes de stockage pour un nouvel ordinateur virtuel est uniquement disponible via un Representational State Transfer (REST) API et Powershell. Utilisez la version 2016-08-10 ou 2018-01-10-API REST Azure pour la réplication vers les comptes de stockage.
 
 1. Accédez à **étape 2 : Répliquer l’application** > **Source**. Une fois que vous activez la réplication pour la première fois, sélectionnez **+ répliquer** dans le coffre pour activer la réplication des machines virtuelles supplémentaires.
-1. Dans la page **Source** > **Source**, sélectionnez le serveur de configuration.
-1. Pour **type de Machine**, sélectionnez **Machines virtuelles** ou **Machines physiques**.
-1. Dans la zone **Hyperviseur vCenter/vSphere**, sélectionnez le serveur vCenter qui gère l’hôte vSphere, ou sélectionnez l’hôte. Ce paramètre n’est pas utile si vous répliquez des ordinateurs physiques.
-1. Sélectionnez le serveur de processus, qui sera le serveur de configuration si vous n’avez pas créé de serveur de processus supplémentaires. Sélectionnez ensuite **OK**.
+2. Dans la page **Source** > **Source**, sélectionnez le serveur de configuration.
+3. Pour **type de Machine**, sélectionnez **Machines virtuelles** ou **Machines physiques**.
+4. Dans la zone **Hyperviseur vCenter/vSphere**, sélectionnez le serveur vCenter qui gère l’hôte vSphere, ou sélectionnez l’hôte. Ce paramètre n’est pas utile si vous répliquez des ordinateurs physiques.
+5. Sélectionnez le serveur de processus. S’il n’y a aucun serveur de processus supplémentaire créé, serveur de traitement intégré du serveur de configuration sera disponible dans la liste déroulante. État d’intégrité de chaque serveur de processus est indiqué en fonction des limites recommandées et d’autres paramètres. Choisissez un serveur de processus sain. Un [critique](vmware-physical-azure-monitor-process-server.md#process-server-alerts) serveur de processus ne peut pas être choisi. Vous pouvez soit [dépanner et résoudre](vmware-physical-azure-troubleshoot-process-server.md) les erreurs **ou** configurer un [serveur de traitement de montée en puissance](vmware-azure-set-up-process-server-scale.md).
+    ![Activer la fenêtre de source de réplication](media/vmware-azure-enable-replication/ps-selection.png)
 
-    ![Activer la fenêtre de source de réplication](./media/vmware-azure-enable-replication/enable-replication2.png)
+> [!NOTE]
+> À partir de [9.24 versions](service-updates-how-to.md#links-to-currently-supported-update-rollups), des alertes supplémentaires sont introduites pour améliorer les alertes d’intégrité du serveur de processus. Mettre à niveau les composants de Site Recovery aux 9.24 versions ou version ultérieure pour toutes les alertes être généré.
 
-1. Pour **cible**, sélectionnez l’abonnement et groupe de ressources dans lequel vous souhaitez créer des machines virtuelles ayant basculé. Choisissez le modèle de déploiement que vous souhaitez utiliser dans Azure pour les machines virtuelles ayant basculé.
-
-1. Sélectionnez le réseau Azure et le sous-réseau auquel les machines virtuelles Azure se connectera après le basculement. Le réseau doit se trouver dans la même région que le coffre du service Site Recovery.
+6. Pour **cible**, sélectionnez l’abonnement et groupe de ressources dans lequel vous souhaitez créer des machines virtuelles ayant basculé. Choisissez le modèle de déploiement que vous souhaitez utiliser dans Azure pour les machines virtuelles ayant basculé.
+2. Sélectionnez le réseau Azure et le sous-réseau auquel les machines virtuelles Azure se connectera après le basculement. Le réseau doit se trouver dans la même région que le coffre du service Site Recovery.
 
    Sélectionnez **configurer maintenant pour les machines sélectionnées** pour appliquer le paramètre de réseau pour toutes les machines virtuelles que vous sélectionnez pour la protection. Sélectionnez **configurer ultérieurement** pour sélectionner le réseau par machine virtuelle Azure. Si vous n'avez pas de réseau, vous devez en créer un. Pour créer un réseau à l’aide d’Azure Resource Manager, sélectionnez **créer un nouveau**. Sélectionnez un sous-réseau, le cas échéant, puis **OK**.
    

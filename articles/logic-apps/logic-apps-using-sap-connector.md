@@ -1,6 +1,6 @@
 ---
-title: Se connecter aux systèmes SAP - Azure Logic Apps | Microsoft Docs
-description: Comment accéder aux ressources SAP et les gérer en automatisant les flux de travail avec Azure Logic Apps
+title: Se connecter aux systèmes SAP - Azure Logic Apps
+description: Accéder et gérer des ressources SAP en automatisant les flux de travail avec Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -8,30 +8,29 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: divswa, LADocs
 ms.topic: article
-ms.date: 04/19/2019
+ms.date: 05/09/2019
 tags: connectors
-ms.openlocfilehash: 0ee8b164aa46c4fe2f66f27d9a41d0282c676907
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 3fb39103fc9cb0f38bca56dcaeea4837ff4dfabe
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65136793"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65541126"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Se connecter aux systèmes SAP à partir d’Azure Logic Apps
 
-Cet article explique comment vous pouvez accéder à vos ressources SAP en local à partir à l’intérieur d’une application logique à l’aide du connecteur SAP. Le connecteur fonctionne avec de SAP classique libère ce r/3, ECC systèmes locaux. Le connecteur permet également l’intégration avec SAP du plus récent HANA à partir de systèmes SAP comme s/4 HANA, où qu’ils sont hébergés - sur site ou dans le cloud.
-Le connecteur SAP prend en charge l’intégration de message ou des données vers et à partir de systèmes SAP Netweaver via IDoc (Intermediate Document) ou de Business Application Programming Interface (BAPI) ou de fonction RFC (Remote Call).
+Cet article explique comment vous pouvez accéder à vos ressources SAP en local à partir à l’intérieur d’une application logique à l’aide du connecteur SAP. Le connecteur fonctionne avec les versions classiques de SAP, telles que les systèmes R/3 et ECC locaux. Le connecteur permet également l’intégration avec les systèmes SAP basés sur HANA plus récents de SAP comme s/4 HANA, où qu’ils sont hébergés - sur site ou dans le cloud. Le connecteur SAP prend en charge l’intégration de message ou des données vers et à partir de systèmes SAP NetWeaver via IDoc (Intermediate Document) ou de Business Application Programming Interface (BAPI) ou de fonction RFC (Remote Call).
 
-Le connecteur SAP utilise le <a href="https://support.sap.com/en/product/connectors/msnet.html">bibliothèque du connecteur SAP .NET (NCo)</a> et fournit ces opérations ou les actions :
+Le connecteur SAP utilise le [bibliothèque du connecteur SAP .NET (NCo)](https://support.sap.com/en/product/connectors/msnet.html) et fournit ces opérations ou les actions :
 
-- **Envoyer à SAP** : envoyer un IDoc ou appeler des fonctions BAPI sur tRFC dans des systèmes SAP.
-- **Recevoir de SAP** : recevoir des IDoc ou des appels de fonction BAPI sur tRFC à partir de systèmes SAP.
-- **Générer des schémas** : générer des schémas pour les artefacts SAP pour IDoc, BAPI ou RFC.
+* **Envoyer à SAP** : Envoyer des IDoc sur tRFC, appeler des fonctions BAPI sur RFC ou appeler des RFC/tRFC dans les systèmes SAP.
+* **Recevoir de SAP** : Recevoir des IDoc via tRFC, appeler des fonctions BAPI via tRFC ou appeler des RFC/tRFC dans les systèmes SAP.
+* **Générer des schémas** : Créer des schémas pour les artefacts SAP IDoc, BAPI et RFC.
 
-Pour toutes les opérations ci-dessus, le connecteur SAP prend en charge l’authentification de base via le nom d’utilisateur et mot de passe. Le connecteur prend également en charge <a href="https://help.sap.com/doc/saphelp_nw70/7.0.31/en-US/e6/56f466e99a11d1a5b00000e835363f/content.htm?no_cache=true"> réseau CRS (Communications sécurisées)</a>, qui peut être utilisée pour SAP Netweaver Single Sign-On, ou pour les fonctionnalités de sécurité supplémentaires fournies par un produit de sécurité externes. 
+Pour toutes les opérations ci-dessus, le connecteur SAP prend en charge l’authentification de base via un nom d’utilisateur et un mot de passe. Le connecteur prend également en charge [réseau CRS (Communications sécurisées)](https://help.sap.com/doc/saphelp_nw70/7.0.31/e6/56f466e99a11d1a5b00000e835363f/content.htm?no_cache=true), qui peut être utilisée pour SAP NetWeaver Single Sign-On, ou pour les fonctionnalités de sécurité supplémentaires fournies par un produit de sécurité externes.
 
-Le connecteur SAP s’intègre aux systèmes SAP locaux via la [passerelle de données locale](https://www.microsoft.com/download/details.aspx?id=53127). Dans les scénarios d’envoi, par exemple lors de l’envoi d’un message depuis Logic Apps à un système SAP, la passerelle de données agit comme un client RFC et transfère les demandes reçues de Logic Apps à SAP.
-De même, dans les scénarios de réception, la passerelle de données agit en tant que serveur RFC qui reçoit des demandes de SAP et les transfère à l’application logique. 
+Le connecteur SAP s’intègre aux systèmes SAP locaux via la [passerelle de données locale](../logic-apps/logic-apps-gateway-connection.md). Dans les scénarios d’envoi, par exemple, lors de l’envoi d’un message à partir d’applications logiques à un système SAP, la passerelle de données agit comme un client RFC et transfère les demandes provenant d’applications logiques à SAP.
+De même, dans les scénarios de réception, la passerelle de données agit en tant que RFC serveur qui reçoit des demandes de SAP et la transfère à l’application logique.
 
 Cet article explique comment créer des exemples d’applications logiques qui s’intègrent à SAP en couvrant les scénarios d’intégration décrits précédemment.
 
@@ -41,30 +40,27 @@ Cet article explique comment créer des exemples d’applications logiques qui s
 
 Pour suivre cet article, vous avez besoin de ces éléments :
 
-* Un abonnement Azure. Si vous n’avez pas encore d’abonnement Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscrivez-vous pour bénéficier d’un compte Azure gratuit</a>.
+* Un abonnement Azure. Si vous n’avez pas encore d’abonnement Azure, [inscrivez-vous pour bénéficier d’un compte Azure gratuit](https://azure.microsoft.com/free/).
 
 * L’application logique à partir de laquelle vous souhaitez accéder à votre système SAP et un déclencheur qui démarre le flux de travail de votre application logique. Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azure Logic Apps ?](../logic-apps/logic-apps-overview.md) et [Démarrage rapide : Créer votre première application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-* Votre <a href="https://wiki.scn.sap.com/wiki/display/ABAP/ABAP+Application+Server" target="_blank">serveur d’applications SAP</a> ou <a href="https://help.sap.com/saphelp_nw70/helpdata/en/40/c235c15ab7468bb31599cc759179ef/frameset.htm" target="_blank">serveur de messagerie SAP</a>
+* Votre [serveur d’applications SAP](https://wiki.scn.sap.com/wiki/display/ABAP/ABAP+Application+Server) ou [serveur de messagerie SAP](https://help.sap.com/saphelp_nw70/helpdata/en/40/c235c15ab7468bb31599cc759179ef/frameset.htm)
 
-* Téléchargez et installez la dernière [passerelle de données locale](https://www.microsoft.com/download/details.aspx?id=53127) sur n’importe quel ordinateur local. Assurez-vous de configurer votre passerelle dans le portail Azure avant de continuer. La passerelle vous permet d’accéder en toute sécurité aux données et ressources locales. Pour plus d’informations, consultez [Installer la passerelle de données locale pour Azure Logic Apps](../logic-apps/logic-apps-gateway-install.md).
+* Téléchargez et installez la dernière [passerelle de données locale](https://www.microsoft.com/download/details.aspx?id=53127) sur n’importe quel ordinateur local. Assurez-vous de configurer votre passerelle dans le portail Azure avant de continuer. La passerelle vous permet en toute sécurité l’accès des données localement et ressources. Pour plus d’informations, consultez [Installer la passerelle de données locale pour Azure Logic Apps](../logic-apps/logic-apps-gateway-install.md).
 
-* Si vous utilisez SNC avec unique Sign-On (SSO), puis assurez-vous que la passerelle s’exécute en tant qu’utilisateur qui est mappé vers l’utilisateur SAP. Pour modifier le compte par défaut, sélectionnez **modifier compte** et entrez les informations d’identification de l’utilisateur.
+* Si vous utilisez SNC avec unique Sign-On (SSO), assurez-vous que la passerelle s’exécute en tant qu’utilisateur qui est mappé vers l’utilisateur SAP. Pour modifier le compte par défaut, sélectionnez **modifier compte**, puis entrez les informations d’identification de l’utilisateur.
 
-   ![Modifier le compte de passerelle](./media/logic-apps-using-sap-connector/gateway-account.png)
+  ![Modifier le compte de passerelle](./media/logic-apps-using-sap-connector/gateway-account.png)
 
-* Si vous activez SNC avec un produit de sécurité externes, copiez la bibliothèque SNC ou les fichiers sur le même ordinateur sur lequel la passerelle est installée. Voici quelques exemples de produits SNC <a href="https://help.sap.com/saphelp_nw74/helpdata/en/7a/0755dc6ef84f76890a77ad6eb13b13/frameset.htm">sapseculib</a>, Kerberos, NTLM, et ainsi de suite.
+* Si vous activez SNC avec un produit de sécurité externes, copiez la bibliothèque SNC ou les fichiers sur le même ordinateur sur lequel la passerelle est installée. Voici quelques exemples de produits SNC [sapseculib](https://help.sap.com/saphelp_nw74/helpdata/en/7a/0755dc6ef84f76890a77ad6eb13b13/frameset.htm), Kerberos, NTLM, et ainsi de suite.
 
-* Téléchargez et installez la bibliothèque cliente SAP la plus récente, actuellement <a href="https://softwaredownloads.sap.com/file/0020000001865512018" target="_blank">Connecteur SAP (NCo) 3.0.21.0 pour Microsoft .NET Framework 4.0 et Windows 64 bits (x64)</a>, sur le même ordinateur que la passerelle de données locale. Installez cette version ou une version ultérieure pour ces raisons :
+* Téléchargez et installez la dernière bibliothèque cliente SAP, qui est actuellement [le connecteur SAP (NCo) 3.0.21.0 pour Microsoft .NET Framework 4.0 et Windows 64 bits (x64)](https://softwaredownloads.sap.com/file/0020000001865512018), sur le même ordinateur que la passerelle de données sur site. Installez cette version ou une version ultérieure pour ces raisons :
 
-  * Les versions antérieures du NCo SAP peuvent subir un interblocage quand plusieurs messages IDoc sont envoyés en même temps. 
-  Cette situation bloque tous les messages envoyés ultérieurement à la destination SAP, ce qui engendre une expiration des messages.
+  * Les versions antérieures du NCo SAP peuvent subir un interblocage quand plusieurs messages IDoc sont envoyés en même temps. Cette situation bloque tous les messages envoyés ultérieurement à la destination SAP, ce qui engendre une expiration des messages.
 
-  * La passerelle de données locale s’exécute uniquement sur les systèmes 64 bits. 
-  Dans le cas contraire, vous obtenez une erreur « image incorrecte », car le service hôte de la passerelle de données ne prend pas en charge les assemblys 32 bits.
+  * La passerelle de données locale s’exécute uniquement sur les systèmes 64 bits. Dans le cas contraire, vous obtenez une erreur « image incorrecte », car le service hôte de la passerelle de données ne prend pas en charge les assemblys 32 bits.
 
-  * Le service hôte de la passerelle de données et l’adaptateur SAP Microsoft utilisent tous deux .NET Framework 4.5. Le NCo SAP pour .NET Framework 4.0 fonctionne avec les processus qui utilisent un runtime .NET 4.0 à 4.7.1. 
-  Le NCo SAP pour .NET Framework 2.0 fonctionne avec les processus qui utilisent un runtime .NET 2.0 à 3.5 et ne fonctionne plus avec la passerelle de données locale la plus récente.
+  * Le service hôte de la passerelle de données et l’adaptateur SAP Microsoft utilisent tous deux .NET Framework 4.5. Le NCo SAP pour .NET Framework 4.0 fonctionne avec les processus qui utilisent un runtime .NET 4.0 à 4.7.1. Le NCo SAP pour .NET Framework 2.0 fonctionne avec les processus qui utilisent un runtime .NET 2.0 à 3.5 et ne fonctionne plus avec la passerelle de données locale la plus récente.
 
 * Contenu du message que vous pouvez envoyer à votre serveur SAP, comme un exemple de fichier IDoc. Ce contenu doit être au format XML et inclure l’espace de noms pour l’action SAP que vous souhaitez utiliser.
 
@@ -80,14 +76,13 @@ Dans Azure Logic Apps, chaque application logique doit démarrer avec un [décle
 
 Dans cet exemple, vous allez créer une application logique avec un point de terminaison dans Azure afin de pouvoir envoyer des *requêtes HTTP POST* à votre application logique. Lorsque votre application logique reçoit ces requêtes HTTP, le déclencheur est activé et passe à l’étape suivante de votre flux de travail.
 
-1. Dans le [portail Azure](https://portal.azure.com), créez une application logique vide, ce qui ouvre le Concepteur d’application logique. 
+1. Dans le [portail Azure](https://portal.azure.com), créez une application logique vide, ce qui ouvre le Concepteur d’application logique.
 
-2. Dans la zone de recherche, saisissez le filtre « http request ». Dans la liste des déclencheurs, sélectionnez ce déclencheur : **Requête - Lors de la réception d’une requête HTTP**
+1. Dans la zone de recherche, saisissez le filtre « http request ». Dans la liste des déclencheurs, sélectionnez ce déclencheur : **Lors de la réception d’une requête HTTP**
 
    ![Ajouter un déclencheur de requête HTTP](./media/logic-apps-using-sap-connector/add-trigger.png)
 
-3. Enregistrez maintenant votre application logique pour pouvoir générer une URL de point de terminaison pour votre application logique.
-Dans la barre d’outils du concepteur, choisissez **Enregistrer**. 
+1. Enregistrez maintenant votre application logique pour pouvoir générer une URL de point de terminaison pour votre application logique. Dans la barre d’outils du concepteur, choisissez **Enregistrer**.
 
    L’URL du point de terminaison s’affiche désormais dans votre déclencheur, par exemple :
 
@@ -99,11 +94,11 @@ Dans la barre d’outils du concepteur, choisissez **Enregistrer**.
 
 Dans Azure Logic Apps, une [action](../logic-apps/logic-apps-overview.md#logic-app-concepts) est une étape de votre flux de travail qui suit un déclencheur ou une autre action. Si vous n’avez pas encore ajouté de déclencheur à votre application logique et que vous souhaitez suivre cet exemple, [ajoutez le déclencheur décrit dans cette section](#add-trigger).
 
-1. Dans le Concepteur d’application logique, sous le déclencheur, sélectionnez **Nouvelle étape** > **Ajouter une action**.
+1. Dans le Concepteur d’application logique, sous le déclencheur, choisissez **nouvelle étape**.
 
-   ![Ajouter une action](./media/logic-apps-using-sap-connector/add-action.png) 
+   ![Cliquez sur « Nouvelle étape »](./media/logic-apps-using-sap-connector/add-action.png)
 
-2. Dans la zone de recherche, entrez « sap » comme filtre. Dans la liste des actions, sélectionnez cette action : **Envoyer un message à SAP**
+1. Dans la zone de recherche, entrez « sap » comme filtre. Dans la liste des actions, sélectionnez cette action : **Envoyer un message à SAP**
   
    ![Sélectionner une action d’envoi à SAP](media/logic-apps-using-sap-connector/select-sap-send-action.png)
 
@@ -111,32 +106,29 @@ Dans Azure Logic Apps, une [action](../logic-apps/logic-apps-overview.md#logic-a
 
    ![Sélectionner l’action d’envoi à SAP à partir de l’onglet Entreprise](media/logic-apps-using-sap-connector/select-sap-send-action-ent-tab.png)
 
-3. Si vous êtes invité à entrer les informations de connexion, créez votre connexion SAP maintenant. Sinon, si votre connexion existe déjà, passez à l’étape suivante afin de configurer votre action SAP. 
+1. Si vous êtes invité à entrer les informations de connexion, créez votre connexion SAP maintenant. Sinon, si votre connexion existe déjà, passez à l’étape suivante afin de configurer votre action SAP.
 
    **Créer une connexion SAP locale**
 
-   1. Fournissez les informations de connexion pour votre serveur SAP. 
-   Pour la propriété **Passerelle de données**, sélectionnez la passerelle de données que vous avez créée dans le portail Azure lors de l’installation de la passerelle.
+   1. Fournissez les informations de connexion pour votre serveur SAP. Pour la propriété **Passerelle de données**, sélectionnez la passerelle de données que vous avez créée dans le portail Azure lors de l’installation de la passerelle.
 
       Si la propriété **Type de connexion** est définie sur **Serveur d’applications**, ces propriétés, qui apparaissent habituellement facultatives, sont obligatoires :
 
-      ![Créer une connexion au serveur d’applications SAP](media/logic-apps-using-sap-connector/create-SAP-application-server-connection.png) 
+      ![Créer une connexion au serveur d’applications SAP](media/logic-apps-using-sap-connector/create-SAP-application-server-connection.png)
 
-      Si la propriété **Type de connexion** est définie sur **Groupe**, ces propriétés, qui apparaissent habituellement facultatives, sont obligatoires : 
+      Si la propriété **Type de connexion** est définie sur **Groupe**, ces propriétés, qui apparaissent habituellement facultatives, sont obligatoires :
 
-      ![Créer une connexion au serveur de messagerie SAP](media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png) 
-      
-   2. Lorsque vous êtes prêt, choisissez **Créer**. 
-   
+      ![Créer une connexion au serveur de messagerie SAP](media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png)
+
+   1. Lorsque vous êtes prêt, choisissez **Créer**.
+
       Logic Apps configure et teste votre connexion pour vérifier son bon fonctionnement.
 
-4. Maintenant, recherchez et sélectionnez une action à partir de votre serveur SAP. 
+1. Maintenant, recherchez et sélectionnez une action à partir de votre serveur SAP.
 
-   1. Dans la zone **Action SAP**, choisissez l’icône de dossier. 
-   Dans la liste des fichiers, recherchez et sélectionnez l’action que vous voulez utiliser. 
-   Pour naviguer dans la liste, utilisez les flèches.
+   1. Dans le **Action SAP** , sélectionnez l’icône de dossier. Dans la liste des fichiers, recherchez et sélectionnez l’action que vous voulez utiliser. Pour naviguer dans la liste, utilisez les flèches.
 
-      Cet exemple sélectionne un IDoc avec le type **Commande**. 
+      Cet exemple sélectionne un IDoc avec **commandes** type.
 
       ![Rechercher et sélectionner l’action IDoc](./media/logic-apps-using-sap-connector/SAP-app-server-find-action.png)
 
@@ -149,8 +141,7 @@ Dans Azure Logic Apps, une [action](../logic-apps/logic-apps-overview.md#logic-a
 
       Pour plus d’informations sur les opérations IDoc, consultez [Schémas de message pour les opérations IDOC](https://docs.microsoft.com/biztalk/adapters-and-accelerators/adapter-sap/message-schemas-for-idoc-operations).
 
-   2. Cliquez dans la zone **Message d’entrée** pour afficher la liste du contenu dynamique. 
-   Dans cette liste, sous **Lors de la réception d’une demande HTTP**, sélectionnez le champ **Corps**. 
+   1. Cliquez dans la zone **Message d’entrée** pour afficher la liste du contenu dynamique. Dans cette liste, sous **Lors de la réception d’une demande HTTP**, sélectionnez le champ **Corps**.
 
       Cette étape inclut le contenu du corps de votre déclencheur de requête HTTP et envoie ce résultat à votre serveur SAP.
 
@@ -160,33 +151,33 @@ Dans Azure Logic Apps, une [action](../logic-apps/logic-apps-overview.md#logic-a
 
       ![Terminer l’action SAP](./media/logic-apps-using-sap-connector/SAP-app-server-complete-action.png)
 
-5. Enregistrez votre application logique. Dans la barre d’outils du concepteur, choisissez **Enregistrer**.
+1. Enregistrez votre application logique. Dans la barre d’outils du concepteur, choisissez **Enregistrer**.
 
 <a name="add-response"></a>
 
 ### <a name="add-http-response-action"></a>Ajouter une action de réponse HTTP
 
-Ajoutez maintenant une action de réponse au flux de travail de votre application logique et incluez le résultat de l’action SAP. De cette façon, votre application logique renvoie les résultats à partir de votre serveur SAP au demandeur d’origine. 
+Ajoutez maintenant une action de réponse au flux de travail de votre application logique et incluez le résultat de l’action SAP. De cette façon, votre application logique renvoie les résultats à partir de votre serveur SAP au demandeur d’origine.
 
-1. Dans le Concepteur d’application logique, sous l’action SAP, sélectionnez **Nouvelle étape** > **Ajouter une action**.
+1. Dans le Concepteur d’application logique, sous l’action de SAP, choisissez **nouvelle étape**.
 
-2. Dans la zone de recherche, saisissez le filtre « response ». Dans la liste des actions, sélectionnez cette action : **Requête - réponse**
+1. Dans la zone de recherche, saisissez le filtre « response ». Dans la liste des actions, sélectionnez cette action : **Réponse**
 
-3. Cliquez dans la zone **Corps** pour afficher la liste du contenu dynamique. Dans cette liste, sous **Envoyer à SAP**, sélectionnez le champ **Corps**. 
+1. Cliquez dans la zone **Corps** pour afficher la liste du contenu dynamique. Dans cette liste, sous **envoyer un message à SAP**, sélectionnez le **corps** champ.
 
    ![Terminer l’action SAP](./media/logic-apps-using-sap-connector/select-sap-body-for-response-action.png)
 
-4. Enregistrez votre application logique. 
+1. Enregistrez votre application logique.
 
 ### <a name="test-your-logic-app"></a>Tester votre application logique
 
-1. Si votre application logique n’est pas déjà activée, dans le menu de votre application logique, choisissez **Vue d’ensemble**. Dans la barre d’outils, choisissez **Activer**. 
+1. Si votre application logique n’est pas déjà activée, dans le menu de votre application logique, choisissez **Vue d’ensemble**. Dans la barre d’outils, choisissez **Activer**.
 
-2. Dans la barre d’outils du Concepteur d’application logique, choisissez **Exécuter**. Cette étape démarre manuellement votre application logique.
+1. Dans la barre d’outils du Concepteur d’application logique, choisissez **Exécuter**. Cette étape démarre manuellement votre application logique.
 
-3. Déclenchez votre application logique en envoyant une requête HTTP POST à l’URL de votre déclencheur de requête HTTP et incluez le contenu du message avec votre requête. Pour envoyer la requête, vous pouvez utiliser un outil tel que [Postman](https://www.getpostman.com/apps). 
+1. Déclenchez votre application logique en envoyant une requête HTTP POST à l’URL de votre déclencheur de requête HTTP et incluez le contenu du message avec votre requête. Pour envoyer la requête, vous pouvez utiliser un outil tel que [Postman](https://www.getpostman.com/apps).
 
-   Pour cet article, la requête envoie un fichier IDoc, qui doit être au format XML et inclure l’espace de noms de l’action SAP que vous utilisez, par exemple : 
+   Pour cet article, la requête envoie un fichier IDoc, qui doit être au format XML et inclure l’espace de noms de l’action SAP que vous utilisez, par exemple :
 
    ``` xml
    <?xml version="1.0" encoding="UTF-8" ?>
@@ -197,7 +188,7 @@ Ajoutez maintenant une action de réponse au flux de travail de votre applicatio
    </Send>
    ```
 
-4. Une fois votre requête HTTP envoyée, attendez la réponse de votre application logique.
+1. Une fois votre requête HTTP envoyée, attendez la réponse de votre application logique.
 
    > [!NOTE]
    > Votre application logique peut expirer si toutes les étapes nécessaires pour la réponse ne se terminent pas dans la [limite de délai d’attente des requêtes](./logic-apps-limits-and-config.md). Si cette situation se produit, les requêtes peuvent être bloquées. Pour vous aider à diagnostiquer les problèmes, découvrez comment vous pouvez [vérifier et surveiller vos applications logiques](../logic-apps/logic-apps-monitor-your-logic-apps.md).
@@ -206,41 +197,37 @@ Félicitations, vous venez de créer une application logique qui peut communique
 
 ## <a name="receive-from-sap"></a>Recevoir de SAP
 
-Cet exemple utilise une application logique qui se déclenche lors de la réception d’un message provenant d’un système SAP. 
+Cet exemple utilise une application logique qui se déclenche lors de la réception d’un message provenant d’un système SAP.
 
 ### <a name="add-sap-trigger"></a>Ajouter un déclencheur SAP
 
-1. Dans le portail Azure, créez une application logique vide, qui ouvre le Concepteur d’application logique. 
+1. Dans le portail Azure, créez une application logique vide, qui ouvre le Concepteur d’application logique.
 
-2. Dans la zone de recherche, entrez « sap » comme filtre. Dans la liste des déclencheurs, sélectionnez ce déclencheur : **Quand un message est reçu de SAP**
+1. Dans la zone de recherche, entrez « sap » comme filtre. Dans la liste des déclencheurs, sélectionnez ce déclencheur : **Quand un message est reçu de SAP**
 
    ![Ajouter un déclencheur SAP](./media/logic-apps-using-sap-connector/add-sap-trigger.png)
 
-   Vous pouvez aussi accéder à l’onglet Entreprise et sélectionner le déclencheur.
+   Alternativement, vous pouvez accéder à la **Enterprise** et sélectionnez le déclencheur :
 
-   ![Ajouter un déclencheur SAP à partir de l’onglet Entreprise](./media/logic-apps-using-sap-connector/add-sap-trigger-ent-tab.png)
+   ![Ajouter un déclencheur SAP à partir de l’onglet de l’entreprise](./media/logic-apps-using-sap-connector/add-sap-trigger-ent-tab.png)
 
-3. Si vous êtes invité à entrer les informations de connexion, créez votre connexion SAP maintenant. Sinon, si votre connexion existe déjà, passez à l’étape suivante afin de configurer votre action SAP. 
+1. Si vous êtes invité à entrer les informations de connexion, créez votre connexion SAP maintenant. Sinon, si votre connexion existe déjà, passez à l’étape suivante afin de configurer votre action SAP.
 
    **Créer une connexion SAP locale**
 
-   1. Fournissez les informations de connexion pour votre serveur SAP. 
-   Pour la propriété **Passerelle de données**, sélectionnez la passerelle de données que vous avez créée dans le portail Azure lors de l’installation de la passerelle.
+   1. Fournissez les informations de connexion pour votre serveur SAP. Pour la propriété **Passerelle de données**, sélectionnez la passerelle de données que vous avez créée dans le portail Azure lors de l’installation de la passerelle.
 
       Si la propriété **Type de connexion** est définie sur **Serveur d’applications**, ces propriétés, qui apparaissent habituellement facultatives, sont obligatoires :
 
-      ![Créer une connexion au serveur d’applications SAP](media/logic-apps-using-sap-connector/create-SAP-application-server-connection.png) 
+      ![Créer une connexion au serveur d’applications SAP](media/logic-apps-using-sap-connector/create-SAP-application-server-connection.png)
 
       Si la propriété **Type de connexion** est définie sur **Groupe**, ces propriétés, qui apparaissent habituellement facultatives, sont obligatoires :
 
       ![Créer une connexion au serveur de messagerie SAP](media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png)  
 
-4. Spécifiez les paramètres nécessaires en fonction de la configuration de votre système SAP. 
+1. Spécifiez les paramètres nécessaires en fonction de la configuration de votre système SAP.
 
-   Vous pouvez si vous le souhaitez fournir une ou plusieurs actions SAP. 
-   Cette liste d’actions spécifie les messages que le déclencheur reçoit de votre serveur SAP via la passerelle de données. 
-   Une liste vide spécifie que le déclencheur reçoit tous les messages. 
-   Si la liste comporte plus d’un message, le déclencheur reçoit seulement les messages spécifiés dans la liste. Tous les autres messages envoyés depuis votre serveur SAP sont rejetés par la passerelle.
+   Vous pouvez si vous le souhaitez fournir une ou plusieurs actions SAP. Cette liste d’actions spécifie les messages que le déclencheur reçoit de votre serveur SAP via la passerelle de données. Une liste vide spécifie que le déclencheur reçoit tous les messages. Si la liste comporte plus d’un message, le déclencheur reçoit seulement les messages spécifiés dans la liste. Tous les autres messages envoyés depuis votre serveur SAP sont rejetés par la passerelle.
 
    Vous pouvez sélectionner une action SAP dans le sélecteur de fichiers :
 
@@ -256,21 +243,21 @@ Cet exemple utilise une application logique qui se déclenche lors de la récept
 
    Pour plus d’informations sur l’action SAP, consultez [Schémas de message pour les opérations IDOC](https://docs.microsoft.com/biztalk/adapters-and-accelerators/adapter-sap/message-schemas-for-idoc-operations).
 
-5. Enregistrez maintenant votre application logique pour commencer à recevoir des messages de votre système SAP.
-Dans la barre d’outils du concepteur, choisissez **Enregistrer**. 
+1. Enregistrez maintenant votre application logique pour commencer à recevoir des messages de votre système SAP.
+Dans la barre d’outils du concepteur, choisissez **Enregistrer**.
 
-Votre application logique est maintenant prête à recevoir des messages de votre système SAP. 
+Votre application logique est maintenant prête à recevoir des messages de votre système SAP.
 
 > [!NOTE]
-> Le déclencheur SAP n’est pas un déclencheur d’interrogation : il s’agit d’un déclencheur basé sur un webhook. Le déclencheur est appelé depuis la passerelle seulement s’il existe un message : aucune interrogation n’est donc nécessaire. 
+> Le déclencheur SAP n’est pas un déclencheur d’interrogation : il s’agit d’un déclencheur basé sur un webhook. Le déclencheur est appelé depuis la passerelle seulement s’il existe un message : aucune interrogation n’est donc nécessaire.
 
 ### <a name="test-your-logic-app"></a>Tester votre application logique
 
 1. Pour déclencher votre application logique, envoyez un message depuis votre système SAP.
 
-2. Dans le menu de l’application logique, choisissez **Vue d’ensemble**, et consultez **Historique des exécutions** pour les nouvelles exécutions de votre application logique. 
+1. Dans le menu de l’application logique, choisissez **Vue d’ensemble**, et consultez **Historique des exécutions** pour les nouvelles exécutions de votre application logique.
 
-3. Ouvrez la dernière exécution, qui montre le message envoyé depuis votre système SAP dans la section des sorties du déclencheur.
+1. Ouvrez la dernière exécution, qui montre le message envoyé depuis votre système SAP dans la section des sorties du déclencheur.
 
 ## <a name="generate-schemas-for-artifacts-in-sap"></a>Générer des schémas pour les artefacts dans SAP
 
@@ -278,14 +265,14 @@ Cet exemple utilise une application logique que vous pouvez déclencher à l’a
 
 ### <a name="add-http-request-trigger"></a>Ajouter un déclencheur de requête HTTP
 
-1. Dans le portail Azure, créez une application logique vide, qui ouvre le Concepteur d’application logique. 
+1. Dans le portail Azure, créez une application logique vide, qui ouvre le Concepteur d’application logique.
 
-2. Dans la zone de recherche, saisissez le filtre « http request ». Dans la liste des déclencheurs, sélectionnez ce déclencheur : **Requête - Lors de la réception d’une requête HTTP**
+1. Dans la zone de recherche, saisissez le filtre « http request ». Dans la liste des déclencheurs, sélectionnez ce déclencheur : **Lors de la réception d’une requête HTTP**
 
    ![Ajouter un déclencheur de requête HTTP](./media/logic-apps-using-sap-connector/add-trigger.png)
 
-3. Enregistrez maintenant votre application logique pour pouvoir générer une URL de point de terminaison pour votre application logique.
-Dans la barre d’outils du concepteur, choisissez **Enregistrer**. 
+1. Enregistrez maintenant votre application logique pour pouvoir générer une URL de point de terminaison pour votre application logique.
+Dans la barre d’outils du concepteur, choisissez **Enregistrer**.
 
    L’URL du point de terminaison s’affiche désormais dans votre déclencheur, par exemple :
 
@@ -293,11 +280,11 @@ Dans la barre d’outils du concepteur, choisissez **Enregistrer**.
 
 ### <a name="add-sap-action-to-generate-schemas"></a>Ajouter une action SAP pour générer des schémas
 
-1. Dans le Concepteur d’application logique, sous le déclencheur, sélectionnez **Nouvelle étape** > **Ajouter une action**.
+1. Dans le Concepteur d’application logique, sous le déclencheur, choisissez **nouvelle étape**.
 
-   ![Ajouter une action](./media/logic-apps-using-sap-connector/add-action.png) 
+   ![Cliquez sur « Nouvelle étape »](./media/logic-apps-using-sap-connector/add-action.png)
 
-2. Dans la zone de recherche, entrez « sap » comme filtre. Dans la liste des actions, sélectionnez cette action : **Générer les schémas**
+1. Dans la zone de recherche, entrez « sap » comme filtre. Dans la liste des actions, sélectionnez cette action : **Générer les schémas**
   
    ![Sélectionner une action d’envoi à SAP](media/logic-apps-using-sap-connector/select-sap-schema-generator-action.png)
 
@@ -305,24 +292,23 @@ Dans la barre d’outils du concepteur, choisissez **Enregistrer**.
 
    ![Sélectionner l’action d’envoi à SAP à partir de l’onglet Entreprise](media/logic-apps-using-sap-connector/select-sap-schema-generator-ent-tab.png)
 
-3. Si vous êtes invité à entrer les informations de connexion, créez votre connexion SAP maintenant. Sinon, si votre connexion existe déjà, passez à l’étape suivante afin de configurer votre action SAP. 
+1. Si vous êtes invité à entrer les informations de connexion, créez votre connexion SAP maintenant. Sinon, si votre connexion existe déjà, passez à l’étape suivante afin de configurer votre action SAP.
 
    **Créer une connexion SAP locale**
 
-   1. Fournissez les informations de connexion pour votre serveur SAP. 
-   Pour la propriété **Passerelle de données**, sélectionnez la passerelle de données que vous avez créée dans le portail Azure lors de l’installation de la passerelle.
+   1. Fournissez les informations de connexion pour votre serveur SAP. Pour la propriété **Passerelle de données**, sélectionnez la passerelle de données que vous avez créée dans le portail Azure lors de l’installation de la passerelle.
 
       Si la propriété **Type de connexion** est définie sur **Serveur d’applications**, ces propriétés, qui apparaissent habituellement facultatives, sont obligatoires :
 
-      ![Créer une connexion au serveur d’applications SAP](media/logic-apps-using-sap-connector/create-SAP-application-server-connection.png) 
+      ![Créer une connexion au serveur d’applications SAP](media/logic-apps-using-sap-connector/create-SAP-application-server-connection.png)
 
       Si la propriété **Type de connexion** est définie sur **Groupe**, ces propriétés, qui apparaissent habituellement facultatives, sont obligatoires :
-   
-      ![Créer une connexion au serveur de messagerie SAP](media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png) 
 
-   2. Lorsque vous êtes prêt, choisissez **Créer**. Logic Apps configure et teste votre connexion pour vérifier son bon fonctionnement.
+      ![Créer une connexion au serveur de messagerie SAP](media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png)
 
-4. Indiquez le chemin de l’artefact pour lequel vous voulez générer le schéma.
+   1. Lorsque vous êtes prêt, choisissez **Créer**. Logic Apps configure et teste votre connexion pour vérifier son bon fonctionnement.
+
+1. Indiquez le chemin de l’artefact pour lequel vous voulez générer le schéma.
 
    Vous pouvez sélectionner l’action SAP dans le sélecteur de fichiers :
 
@@ -330,23 +316,23 @@ Dans la barre d’outils du concepteur, choisissez **Enregistrer**.
 
    Vous pouvez aussi entrer l’action manuellement :
 
-   ![Entrer manuellement une action SAP](media/logic-apps-using-sap-connector/manual-enter-SAP-action-schema-generator.png) 
+   ![Entrer manuellement une action SAP](media/logic-apps-using-sap-connector/manual-enter-SAP-action-schema-generator.png)
 
    Pour générer des schémas pour plusieurs artefacts, spécifiez les détails de l’action SAP pour chaque artefact, par exemple :
 
-   ![Sélectionner Ajouter un nouvel élément](media/logic-apps-using-sap-connector/schema-generator-array-pick.png) 
+   ![Sélectionner Ajouter un nouvel élément](media/logic-apps-using-sap-connector/schema-generator-array-pick.png)
 
-   ![Afficher deux éléments](media/logic-apps-using-sap-connector/schema-generator-example.png) 
+   ![Afficher deux éléments](media/logic-apps-using-sap-connector/schema-generator-example.png)
 
    Pour plus d’informations sur l’action SAP, consultez [Schémas de message pour les opérations IDOC](https://docs.microsoft.com/biztalk/adapters-and-accelerators/adapter-sap/message-schemas-for-idoc-operations).
 
-5. Enregistrez votre application logique. Dans la barre d’outils du concepteur, choisissez **Enregistrer**.
+1. Enregistrez votre application logique. Dans la barre d’outils du concepteur, choisissez **Enregistrer**.
 
 ### <a name="test-your-logic-app"></a>Tester votre application logique
 
 1. Dans la barre d’outils du concepteur, choisissez **Exécuter** pour déclencher une exécution de votre application logique.
 
-2. Ouvrez l’exécution et vérifiez les résultats pour l’action **Générer le schéma**. 
+1. Ouvrez l’exécution et vérifier les résultats pour le **générer des schémas** action.
 
    Les sorties montrent les schémas générés pour la liste de messages spécifiée.
 
@@ -354,18 +340,23 @@ Dans la barre d’outils du concepteur, choisissez **Enregistrer**.
 
 Vous pouvez aussi télécharger ou stocker les schémas générés dans des référentiels, comme un objet blob, un stockage ou un compte d’intégration. Les comptes d’intégration offrent une expérience privilégiée avec d’autres actions XML : cet exemple montre donc comment charger des schémas dans un compte d’intégration pour la même application logique avec le connecteur Azure Resource Manager.
 
-1. Dans le Concepteur d’application logique, sous le déclencheur, choisissez **Nouvelle étape** > **Ajouter une action**. Dans la zone de recherche, entrez « resource manager » comme filtre. Sélectionnez cette action : **Créer ou mettre à jour une ressource**
+1. Dans le Concepteur d’application logique, sous le déclencheur, sélectionnez **Nouvelle étape**.
 
-   ![Sélectionner une action Azure Resource Manager](media/logic-apps-using-sap-connector/select-arm-action.png) 
+1. Dans la zone de recherche, entrez « Resource Manager » comme filtre. Sélectionnez cette action : **Créer ou mettre à jour une ressource**
 
-2. Entrez les détails, notamment votre abonnement Azure, le groupe de ressources Azure et le compte d’intégration. Pour les autres champs, suivez l’exemple ci-dessous.
+   ![Sélectionner une action Azure Resource Manager](media/logic-apps-using-sap-connector/select-azure-resource-manager-action.png)
 
-   ![Entrer les détails pour l’action Azure Resource Manager](media/logic-apps-using-sap-connector/arm-action.png)
+1. Entrez les détails de l’action, y compris votre abonnement Azure, le groupe de ressources Azure et le compte d’intégration. Pour ajouter des jetons SAP pour les champs, cliquez dans les cases pour ces champs, puis sélectionnez dans la liste de contenu dynamique qui s’affiche.
 
-   L’action SAP **Générer les schémas** génère des schémas sous forme de collection : le concepteur ajoute donc automatiquement une boucle **For each** à l’action. 
-   Voici un exemple qui montre comment cette action apparaît :
+   1. Ouvrez le **ajouter un nouveau paramètre** liste, puis sélectionnez le **emplacement** et **propriétés** champs.
 
-   ![Action Azure Resource Manager avec une boucle « for each »](media/logic-apps-using-sap-connector/arm-action-foreach.png)  
+   1. Fournissent des détails pour ces nouveaux champs comme indiqué dans cet exemple.
+
+      ![Entrer les détails pour l’action Azure Resource Manager](media/logic-apps-using-sap-connector/azure-resource-manager-action.png)
+
+   L’action SAP **Générer les schémas** génère des schémas sous forme de collection : le concepteur ajoute donc automatiquement une boucle **For each** à l’action. Voici un exemple qui montre comment cette action apparaît :
+
+   ![Action Azure Resource Manager avec une boucle « for each »](media/logic-apps-using-sap-connector/azure-resource-manager-action-foreach.png)  
 
    > [!NOTE]
    > Les schémas utilisent un format codé en base64. Pour télécharger les schémas dans un compte d’intégration, ils doivent être décodés avec la fonction `base64ToString()`. Voici un exemple qui montre le code pour l’élément `"properties"` :
@@ -378,13 +369,13 @@ Vous pouvez aussi télécharger ou stocker les schémas générés dans des réf
    > }
    > ```
 
-3. Enregistrez votre application logique. Dans la barre d’outils du concepteur, choisissez **Enregistrer**.
+1. Enregistrez votre application logique. Dans la barre d’outils du concepteur, choisissez **Enregistrer**.
 
 ### <a name="test-your-logic-app"></a>Tester votre application logique
 
 1. Dans la barre d’outils du concepteur, choisissez **Exécuter** pour déclencher manuellement votre application logique.
 
-2. Après une exécution réussie, accédez au compte d’intégration et vérifiez l’existence des schémas générés.
+1. Après une réussite exécuter, accédez au compte d’intégration et vérifier que les schémas générés sont présents.
 
 ## <a name="enable-secure-network-communications-snc"></a>Activer les Communications réseau sécurisées (CRS)
 
@@ -394,24 +385,23 @@ Avant de commencer, assurez-vous que vous avez rempli précédemment répertori�
 
 * Pour l’authentification unique, la passerelle s’exécute en tant qu’utilisateur qui est mappé à l’utilisateur SAP.
 
-* Bibliothèque SNC qui fournit les fonctions de sécurité supplémentaire a été installé sur le même ordinateur en tant que passerelle de données. Certains de ces exemples incluent <a href="https://help.sap.com/saphelp_nw74/helpdata/en/7a/0755dc6ef84f76890a77ad6eb13b13/frameset.htm">sapseculib</a>, Kerberos, NTLM, et ainsi de suite.
+* Bibliothèque SNC qui fournit les fonctions de sécurité supplémentaire a été installé sur le même ordinateur en tant que passerelle de données. Certains de ces exemples incluent [sapseculib](https://help.sap.com/saphelp_nw74/helpdata/en/7a/0755dc6ef84f76890a77ad6eb13b13/frameset.htm), Kerberos, NTLM, et ainsi de suite.
 
 Pour activer les SNC pour vos demandes vers ou à partir du système SAP, sélectionnez le **utiliser SNC** case à cocher dans la connexion SAP et fournissez ces propriétés :
 
-   ![Configurer des SNC SAP dans la connexion](media/logic-apps-using-sap-connector/configure-sapsnc.png) 
+   ![Configurer des SNC SAP dans la connexion](media/logic-apps-using-sap-connector/configure-sapsnc.png)
 
-   | Propriété   | Description |
-   |------------| ------------|
-   | **Bibliothèque SNC** | Nom de la bibliothèque SNC ou chemin d’accès relatif à l’emplacement d’installation NCo ou chemin d’accès absolu. En tant qu’exemple sapsnc.dll ou.\security\sapsnc.dll ou c:\security\sapsnc.dll  | 
-   | **SNC SSO** | Lors de la connexion via SNC, l’identité SNC est généralement utilisée pour authentifier l’appelant. Une autre option consiste à substituer afin que les informations de l’utilisateur/mot de passe peuvent être utilisées pour authentifier l’appelant, mais la ligne est toujours chiffrée.|
-   | **SNC mon nom** | Dans la plupart des cas, cela peut être omis. La solution CRS installée sait généralement son propre nom CRS. Uniquement pour les solutions prenant en charge de « plusieurs identités », vous devrez peut-être spécifier l’identité à utiliser pour ce serveur/de destination particulier |
-   | **Nom du partenaire SNC** | Nom de CRS du serveur principal |
-   | **Qualité SNC de Protection** | Qualité de Service à utiliser pour la communication SNC ce particulier/du serveur de destination. Valeur par défaut est définie par le système back-end. Valeur maximale est définie par le produit de sécurité utilisé pour SNC |
+   | Propriété | Description  |
+   |----------| ------------|
+   | **Bibliothèque SNC** | Nom de la bibliothèque SNC ou chemin d’accès relatif à l’emplacement d’installation NCo ou chemin d’accès absolu. Par exemple, `sapsnc.dll` ou `.\security\sapsnc.dll` ou `c:\security\sapsnc.dll` |
+   | **SNC SSO** | Lors de la connexion via SNC, l’identité SNC est généralement utilisée pour authentifier l’appelant. Une autre option consiste à substituer afin que les informations d’utilisateur et mot de passe peuvent être utilisées pour authentifier l’appelant, mais la ligne est toujours chiffrée. |
+   | **SNC mon nom** | Dans la plupart des cas, cette propriété peut être omise. La solution CRS installée sait généralement son propre nom CRS. Uniquement pour les solutions prenant en charge de « plusieurs identités », vous devrez peut-être spécifier l’identité à utiliser pour ce serveur ou de destination particulier. |
+   | **Nom du partenaire SNC** | Le nom du serveur principal SNC |
+   | **Qualité SNC de Protection** | Qualité de Service à utiliser pour la communication SNC ce particulier/du serveur de destination. Valeur par défaut est définie par le système back-end. La valeur maximale est définie par le produit de sécurité utilisé pour les SNC. |
    |||
 
    > [!NOTE]
    > Variables d’environnement SNC_LIB et SNC_LIB_64 ne doivent pas être définies sur l’ordinateur où vous avez passerelle de données et de la bibliothèque SNC. Si la valeur, ils seraient prioritaire sur la valeur de la bibliothèque SNC passée via le connecteur.
-   >
 
 ## <a name="known-issues-and-limitations"></a>Problèmes connus et limitations
 
@@ -425,11 +415,9 @@ Voici les problèmes et limitations connus pour le connecteur SAP :
 
 * Le connecteur SAP ne prend actuellement pas en charge les chaînes de routeur SAP. La passerelle de données locale doit exister sur le même réseau local que le système SAP que vous voulez connecter.
 
+## <a name="connector-reference"></a>Référence de connecteur
 
-## <a name="get-support"></a>Obtenir de l’aide
-
-* Si vous avez des questions, consultez le [forum Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Pour voter pour des idées de fonctionnalités ou pour en soumettre, visitez le [site de commentaires des utilisateurs Logic Apps](https://aka.ms/logicapps-wish).
+Pour obtenir des détails techniques sur les déclencheurs, actions et limites, qui sont décrits par OpenAPI du connecteur (anciennement Swagger) description, consultez le [page de référence du connecteur](/connectors/sap/).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

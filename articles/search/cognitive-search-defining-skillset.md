@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 9eedf0be6089764c8111ae81d558f7e65af0a66d
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 010880304c5011bd5a767650aa0ae6b6103bdde2
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65021782"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540855"
 ---
 # <a name="how-to-create-a-skillset-in-an-enrichment-pipeline"></a>Création d’un jeu de compétences dans un pipeline d’enrichissement
 
@@ -173,7 +173,7 @@ Jetons un œil à la compétence première, qui est intégrée [compétence de r
 
 * La compétence possède une sortie appelée ```"organizations"```. Les sorties existent uniquement pendant le traitement. Pour chaîner cette sortie à l’entrée d’une compétence en aval, référencez la sortie en tant que ```"/document/organizations"```.
 
-* Pour un document particulier, la valeur de ```"/document/organizations"``` est un tableau des organisations extraites du texte. Par exemple : 
+* Pour un document particulier, la valeur de ```"/document/organizations"``` est un tableau des organisations extraites du texte. Exemple :
 
   ```json
   ["Microsoft", "LinkedIn"]
@@ -237,7 +237,7 @@ La sortie, dans ce cas une description de société, est générée pour chaque 
 
 ## <a name="add-structure"></a>Ajouter une structure
 
-Le jeu de compétences génère des informations structurées à partir de données non structurées. Considérez l'exemple suivant :
+Le jeu de compétences génère des informations structurées à partir de données non structurées. Prenons l'exemple suivant :
 
 *« In its fourth quarter, Microsoft logged $1.1 billion in revenue from LinkedIn, the social networking company it bought last year. The acquisition enables Microsoft to combine LinkedIn capabilities with its CRM and Office capabilities. Stockholders are excited with the progress so far. »*
 
@@ -249,7 +249,7 @@ Jusqu'à présent, cette structure a été interne uniquement, uniquement en mé
 
 ## <a name="add-a-knowledge-store"></a>Ajouter un magasin de la base de connaissances
 
-[Connaissances Store](knowledge-store-concept-intro.md) est une fonctionnalité préliminaire dans Azure Search pour l’enregistrement de votre document enrichie. Un magasin de base de connaissances que vous créez, soutenu par un compte de stockage Azure est le référentiel où vos données enrichies accède. 
+[Magasin de la base de connaissances](knowledge-store-concept-intro.md) est une fonctionnalité préliminaire dans Azure Search pour l’enregistrement de votre document enrichie. Un magasin de base de connaissances que vous créez, soutenu par un compte de stockage Azure est le référentiel où vos données enrichies accède. 
 
 Une définition de la banque de connaissances est ajoutée à un compétences. Pour obtenir une description de l’ensemble du processus, consultez [la prise en main avec le magasin de la base de connaissances](knowledge-store-howto.md).
 

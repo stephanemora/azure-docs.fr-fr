@@ -6,14 +6,14 @@ manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 04/29/2019
+ms.date: 05/10/2019
 ms.author: raynew
-ms.openlocfilehash: 8be028d11d0778c2b67788029aa400ffd3b98cb4
-ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.openlocfilehash: 2d1999077f6315658dbfd69473ddf5561bd76e0b
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64872918"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540586"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matrice de prise en charge de la reprise d’activité des machines virtuelles VMware et serveurs physiques sur Azure
 
@@ -64,7 +64,7 @@ Site Recovery assure la réplication de toutes les charges de travail exécutée
 --- | ---
 Paramètres de la machine | Les ordinateurs qui répliquent vers Azure doivent répondre aux [conditions requises par Azure](#azure-vm-requirements).
 Charge de travail de machine | Site Recovery assure la réplication de toutes les charges de travail exécutées (par exemple, Active Directory, SQL Server, etc.) sur une machine prise en charge. [Plus d’informations](https://aka.ms/asr_workload)
-Système d’exploitation Windows | Windows Server 2016 64 bits (Server Core, Server avec Expérience utilisateur), Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 avec au moins SP1. </br></br>  [Windows Server 2008 avec au moins SP2 - 32 bits et 64 bits](migrate-tutorial-windows-server-2008.md) (migration uniquement). </br></br> Windows 2016 Nano Server n’est pas pris en charge.
+Système d’exploitation Windows | Windows Server 2019 (à partir de [9.22 versions](service-updates-how-to.md#links-to-currently-supported-update-rollups)), 64 bits, Windows Server 2016 (Server Core, Server avec expérience utilisateur), Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 avec au moins SP1. </br> À partir, [9.24 versions](https://support.microsoft.com/en-in/help/4503156), 64 bits, Windows 10, Windows 8.1 de 64 bits, 64 bits Windows 8, 64 bits Windows 7 (Windows 7 RTM n'est pas pris en charge)</br>  [Windows Server 2008 avec au moins SP2 - 32 bits et 64 bits](migrate-tutorial-windows-server-2008.md) (migration uniquement). </br></br> Windows 2016 Nano Server n’est pas pris en charge.
 Architecture de système d’exploitation Linux | Seul système 64 bits est pris en charge. système 32 bits n’est pas pris en charge.
 Système d’exploitation Linux | Red Hat Enterprise Linux : 5.2 à 5.11<b>\*\*</b>, 6.1 à 6.10<b>\*\*</b>, 7.0 à 7.6 <br/><br/>CentOS : 5.2 à 5.11<b>\*\*</b>, 6.1 à 6.10<b>\*\*</b>, 7.0 à 7.6 <br/><br/>Serveur Ubuntu 14.04 LTS [(prise en charge des versions du noyau)](#ubuntu-kernel-versions)<br/><br/>Serveur Ubuntu 16.04 LTS [(prise en charge des versions du noyau)](#ubuntu-kernel-versions)<br/><br/>Debian 7/Debian 8 [(prise en charge des versions du noyau)](#debian-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 12 SP1, SP2, SP3, SP4 [(prise en charge des versions du noyau)](#suse-linux-enterprise-server-12-supported-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 11 SP3<b>\*\*</b>, SUSE Linux Enterprise Server 11 SP4 * </br></br>Oracle Linux 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6 exécutant le noyau compatible Red Hat ou Unbreakable Enterprise Kernel Release 3, 4 et 5 (UEK3, UEK4, UEK5) <br/><br/></br>-La mise à niveau de machines répliquées de SUSE Linux Enterprise Server 11 SP3 vers SP4 n’est pas pris en charge. Pour effectuer la mise à niveau, désactivez la réplication et réactiver-la après la mise à niveau.</br></br> - [En savoir plus](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure) sur la prise en charge de Linux et des technologies open source dans Azure. Site Recovery orchestre le basculement pour exécuter des serveurs Linux dans Azure. Toutefois, les fournisseurs Linux peuvent limiter la prise en charge aux versions de distribution qui n’ont pas atteint leur fin de vie.<br/><br/> -Sur les distributions Linux, seuls les noyaux de stockage qui font partie de la version/mise à jour mineure de distribution sont pris en charge.<br/><br/> -La mise à niveau des machines protégées sur des versions de distribution majeures Linux n’est pas prise en charge. Pour effectuer la mettre à niveau, désactivez la réplication, mettez à niveau le système d’exploitation, puis réactivez la réplication.<br/><br/> Les serveurs exécutant Red Hat Enterprise Linux 5.2 à 5.11 ou CentOS 5.2 à 5.11 doivent avoir les [composants Linux Integration Services(LIS)](https://www.microsoft.com/download/details.aspx?id=55106) installés pour que les machines démarrent dans Azure.
 
@@ -163,7 +163,7 @@ Mise en réseau accélérée | Non
 **Composant** | **Pris en charge**
 --- | ---
 Disque dynamique | Le disque du système d’exploitation doit être un disque de base. <br/><br/>Les disques de données peuvent être des disques dynamiques
-Configuration des disques Docker | Non 
+Configuration des disques Docker | Non
 Hôte NFS | Oui pour VMware<br/><br/> Non pour les serveurs physiques
 Hôte SAN (iSCSI/FC) | OUI
 vSAN hôte | Oui pour VMware<br/><br/> N/A pour les serveurs physiques
@@ -172,7 +172,8 @@ Volumes virtuels hôtes (VVols) | Oui pour VMware<br/><br/> N/A pour les serveur
 VMDK invité/serveur | Oui
 Disque de cluster partagé invité/serveur | Non 
 Disque chiffré invité/serveur | Non 
-NFS invité/serveur | Non 
+NFS invité/serveur | Non
+Invité/serveur iSCSI | Non
 SMB 3.0 invité/serveur | Non 
 RDM invité/serveur | OUI<br/><br/> N/A pour les serveurs physiques
 Disque invité/serveur > 1 To | OUI<br/><br/>Jusqu’à 4 095 Go<br/><br/> Le disque doit être d’une taille supérieure à 1 024 Mo.
@@ -182,16 +183,16 @@ Volume invité/serveur avec disque à bandes > 4 To <br/><br/>Gestion des volume
 Invité/serveur - Espaces de stockage | Non 
 Ajout/retrait à chaud de disque d’Invité/de serveur | Non 
 Invité/serveur - Exclure le disque | OUI
-Multipath invité/serveur (MPIO) | Non 
+Multipath invité/serveur (MPIO) | Non
 Démarrage EFI/UEFI invité/serveur | Prise en charge lors de la migration des machines virtuelles VMware ou serveurs physiques exécutant Windows Server 2012 ou version ultérieure vers Azure.<br/><br/> Vous pouvez uniquement répliquer des machines virtuelles pour la migration. La restauration automatique en local n’est pas pris en charge.<br/><br/> Le disque de système d’exploitation du serveur ne doit pas comprendre plus de 4 partitions.<br/><br/> Nécessite la version 9.13 du service Mobilité d’Azure Site Recovery, ou une version ultérieure.<br/><br/> Seul le système NTFS est pris en charge.
 
 ## <a name="replication-channels"></a>Canaux de réplication
 
 |**Type de réplication**   |**Pris en charge**  |
 |---------|---------|
-|Transferts de données déchargées (ODX)    |       Non   |
-|Amorçage hors connexion        |   Non       |
-| Azure Data Box | Non 
+|Transferts de données déchargées (ODX)    |       Non  |
+|Amorçage hors connexion        |   Non      |
+| Azure Data Box | Non
 
 
 ## <a name="azure-storage"></a>Stockage Azure
@@ -215,7 +216,7 @@ Comptes de stockage v2 à usage général (niveaux chaud et froid) | Non
 **Fonctionnalité** | **Pris en charge**
 --- | ---
 Groupes à haute disponibilité | Oui
-Zones de disponibilité | Non 
+Zones de disponibilité | Non
 CONCENTRATEUR | OUI
 Disques managés | OUI
 
@@ -263,7 +264,7 @@ Il s’agit de moyennes en partant sur un chevauchement d’E/S de 30 pour cen
 **Action** | **Pris en charge**
 --- | ---
 Déplacer le coffre entre plusieurs groupes de ressources<br/><br/> Au sein et entre des abonnements | Non 
-Déplacer le stockage, les réseaux, les machines virtuelles Azure entre des groupes de ressources<br/><br/> Au sein et entre des abonnements | Non 
+Déplacer le stockage, les réseaux, les machines virtuelles Azure entre des groupes de ressources<br/><br/> Au sein et entre des abonnements | Non
 
 
 ## <a name="download-latest-azure-site-recovery-components"></a>Téléchargez les derniers composants Azure Site Recovery

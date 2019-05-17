@@ -14,20 +14,23 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/16/2018
+ms.date: 02/22/2019
 ms.author: gokuma
-ms.openlocfilehash: f1a791e7a063c2bf2ae75cb3ca8d4fbdd35ddd90
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1defaea3743ebb8ddb688cef28efb7eee8ecb07c
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60598545"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65597103"
 ---
 # <a name="get-to-know-your-data-science-virtual-machine"></a>Découvrir votre machine virtuelle DSVM
 
 La machine virtuelle DSVM (Data Science Virtual Machine) contient la liste complète des plateformes courantes pour la science des données, les outils d’apprentissage automatique/d’intelligence artificielle (IA) et les données. Les configurations d’outils sont rigoureusement testées par des scientifiques des données et des développeurs de Microsoft, ainsi que par la communauté de la science des données, pour garantir leur stabilité et leur viabilité générale.
 
-De plus, la machine virtuelle DSVM comprend plusieurs exemples de code et procédures pas à pas sous la forme de bloc-notes Jupyter qui peuvent être exécutés localement. Il existe également une documentation pour ces exemples, qui en facilite la compréhension. 
+La machine virtuelle DSVM inclut également plusieurs exemples de code et procédures pas à pas sous la forme de bloc-notes Jupyter qui peuvent être exécutés localement. Il existe également une documentation pour ces exemples afin de faciliter la compréhension. 
+
+> [!NOTE]
+> Vous pouvez utiliser [Azure Notebooks](/azure/notebooks/azure-notebooks-overview.md) à créer, exécuter et partager des blocs-notes Jupyter dans le cloud. Vous pouvez [attacher une machine virtuelle de science des données à Azure Notebooks](/azure/notebooks/configure-manage-azure-notebooks-projects.md#compute-tier) pour développer la puissance de calcul disponibles.
 
 Les outils, plateformes, utilitaires et exemples compris dans la machine virtuelle DSVM sont organisés selon les sections suivantes :
 

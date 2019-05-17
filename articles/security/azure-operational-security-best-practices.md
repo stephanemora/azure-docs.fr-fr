@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: 4a4677b5db730001df75d201d8e6d3149cb928e6
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 0418d325f3b3719549181a48fc0432a677f695d5
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65409842"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65795903"
 ---
 # <a name="azure-operational-security-best-practices"></a>Bonnes pratiques pour Azure Operational Security
 Cet article fournit un ensemble de meilleures pratiques pour protéger vos données, applications et autres ressources dans Azure.
@@ -153,7 +153,7 @@ Vous pouvez utiliser [Azure Resource Manager](https://azure.microsoft.com/docume
 **Détail** : [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/index?azure-devops) est une solution pour automatiser le déploiement en plusieurs étapes et pour gérer le processus de mise en production. Créez des pipelines de déploiement gérés et continus pour des publications rapides, faciles et fréquentes. Avec Azure Pipelines, vous pouvez automatiser votre processus de mise en production et avoir des workflows d’approbation prédéfinis. Déployez localement et dans le cloud, étendez et personnalisez en fonction de vos besoins.
 
 **Bonne pratique** : Vérifiez les performances de votre application avant de la lancer ou de déployer des mises à jour en production.  
-**Détail** : Exécutez nuage [les tests de charge](https://docs.microsoft.com/azure/devops/test/load-test/overview.md?view=azure-devops#alternatives) à :
+**Détail** : Exécutez nuage [les tests de charge](/azure/devops/test/load-test/overview#alternatives) à :
 
 - Rechercher des problèmes de performances dans votre application.
 - Améliorer la qualité du déploiement.

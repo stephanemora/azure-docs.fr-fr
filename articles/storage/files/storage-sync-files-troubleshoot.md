@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/31/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 2893960c3351b1f8a5caf0c69ca961851528007d
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 26055727e308f8c05aece31746434d7e9a0a5abd
+ms.sourcegitcommit: 9e8dfa1169a55c3c8af93a6c5f4e0dace4de48b2
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510832"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65555947"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Résoudre les problèmes de synchronisation de fichiers Azure
 Utilisez Azure File Sync pour centraliser les partages de fichiers de votre organisation dans Azure Files tout en conservant la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Azure File Sync transforme Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement, notamment SMB, NFS et FTPS. Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -300,6 +300,17 @@ Les sessions de synchronisation peuvent échouer pour diverses raisons, comme la
 | **Correction requise** | Non |
 
 Aucune action n’est requise; le serveur essayera à nouveau. Si cette erreur persiste pendant plus de quelques heures, créez une demande de support.
+
+<a id="-2134364043"></a>**La synchronisation est bloquée jusqu'à ce que la détection de modification terminée après la restauration**  
+
+| | |
+|-|-|
+| **HRESULT** | 0x80c83075 |
+| **HRESULT (décimal)** | -2134364043 |
+| **Chaîne d’erreur** | ECS_E_SYNC_BLOCKED_ON_CHANGE_DETECTION_POST_RESTORE |
+| **Correction requise** | Non |
+
+Aucune action n’est requise. Quand un fichier ou partagez (point de terminaison cloud) est restaurée à l’aide de la sauvegarde Azure, la synchronisation est bloquée jusqu'à ce que la détection de modification terminée sur le partage de fichiers Azure. Détection des modifications s’exécute immédiatement une fois la restauration est terminée et la durée est basée sur le nombre de fichiers dans le partage de fichiers.
 
 <a id="-2134364065"></a>**La synchronisation ne peut pas accéder au partage de fichiers Azure spécifié dans le point de terminaison de cloud.**  
 

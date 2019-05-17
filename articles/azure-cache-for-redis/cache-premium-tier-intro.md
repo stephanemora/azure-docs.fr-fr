@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: yegu
-ms.openlocfilehash: 6757a038a945bf153cb62662bee8c715c87baf19
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6960c21091e0bc01c198e713c0c276984566ac41
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60829818"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65786077"
 ---
 # <a name="introduction-to-the-azure-cache-for-redis-premium-tier"></a>Introduction au niveau Premium du Cache Azure pour Redis
 Le Cache Azure pour Redis est un cache distribué et géré qui vous permet de développer des applications hautement évolutives et réactives en fournissant un accès ultra-rapide aux données. 
@@ -50,7 +50,7 @@ Les caches créés avec les niveau De base ou Standard sont accessibles sur Inte
 
 Pour plus d’informations, consultez [Comment configurer la prise en charge des réseaux virtuels pour un Cache Azure pour Redis Premium](cache-how-to-premium-vnet.md).
 
-## <a name="importexport"></a>Importation/Exportation
+## <a name="importexport"></a>Importer/Exporter
 L’Importation/Exportation est une opération de gestion de données de Cache Azure pour Redis qui vous permet d’importer ou d’exporter des données depuis ou vers le Cache Azure pour Redis, en important ou en exportant une capture instantanée de base de données du Cache Azure pour Redis (RDB) depuis un cache Premium vers un objet blob de page dans un compte Azure Storage. Cela vous permet de migrer entre différentes instances de cache Azure pour Redis ou de remplir le cache de données avant utilisation.
 
 L’importation peut servir à récupérer les fichiers RDB compatibles Redis depuis n’importe quel serveur Redis en cours d’exécution sur n’importe quel environnement ou cloud, y compris si Redis est exécuté sur Linux, Windows ou n’importe quel fournisseur de cloud tel qu’Amazon Web Services. Importer des données est un moyen simple de créer un cache pré-rempli de données. Pendant le processus d’importation, le Cache Azure pour Redis charge les fichiers RDB d’Azure Storage dans la mémoire, puis insère les clés dans le cache.
@@ -59,13 +59,13 @@ L’exportation vous permet d’exporter les données stockées dans le Cache Az
 
 Pour plus d’informations, consultez [How to import data into and export data from Azure Cache for Redis](cache-how-to-import-export-data.md)(Comment importer et exporter des données vers ou depuis le Cache Azure pour Redis).
 
-## <a name="reboot"></a>Reboot
+## <a name="reboot"></a>Redémarrer
 Le niveau premium vous permet de redémarrer un ou plusieurs nœuds de votre cache à la demande. Cela vous permet de tester la résilience de votre application en cas d’échec. Vous pouvez redémarrer les nœuds suivants.
 
 * Nœud master de votre cache
-* Nœud subordonné de votre cache
-* Nœuds master et subordonné de votre cache
-* Lorsque vous utilisez un cache premium avec clustering, vous pouvez redémarrer le nœud master, le nœud subordonné ou les deux pour les différentes partitions dans le cache
+* Nœud secondaire de votre cache
+* Les nœuds principaux et secondaires de votre cache
+* Lorsque vous utilisez un cache premium avec clustering, vous pouvez redémarrer le serveur principal, secondaire ou les deux nœuds pour les différentes partitions dans le cache
 
 Pour plus d’informations, consultez [Redémarrage](cache-administration.md#reboot) et le [Forum aux questions sur le redémarrage](cache-administration.md#reboot-faq).
 
