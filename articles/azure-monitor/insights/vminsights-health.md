@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/12/2019
 ms.author: magoedte
-ms.openlocfilehash: f2a0d64da5a88e82c0ae1fd893af52f2070268f8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 45c9a8da8344aa6aaaa19b534451a7276e96911a
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60402144"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522189"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines"></a>Comprendre l’intégrité de vos machines virtuelles Azure
 
@@ -28,7 +28,7 @@ L’affichage de l’état d’intégrité global de la machine virtuelle Azure 
 
 Cet article vous aide à évaluer, examiner et résoudre rapidement les problèmes d’intégrité détectés.
 
-Pour plus d’informations sur la configuration d’Azure Monitor pour les machines virtuelles, consultez [Enable Azure Monitor for VMs ](vminsights-onboard.md)(Activer Azure Monitor pour les machines virtuelles).
+Pour plus d’informations sur la configuration d’Azure Monitor pour les machines virtuelles, consultez [Enable Azure Monitor for VMs ](vminsights-enable-overview.md)(Activer Azure Monitor pour les machines virtuelles).
 
 ## <a name="monitoring-configuration-details"></a>Supervision des détails de configuration
 
@@ -95,7 +95,7 @@ Dans l’onglet **Intégrité**, sous la section **Intégrité de la machine vir
 
 Les états d’intégrité définis pour une machine virtuelle sont décrits dans le tableau suivant : 
 
-|Icône |État d’intégrité |Signification |
+|Icône |État d'intégrité |Signification |
 |-----|-------------|------------|
 | |Healthy |L’état d’intégrité est Sain si les conditions d’intégrité définies sont remplies. Il indique qu’aucun problème n’a été détecté pour la machine virtuelle et fonctionne donc comme prévu. Avec une analyse de cumul parent, restaure l’intégrité à distance et il reflète l’état d’optimiste ou pessimiste de l’enfant.|
 | |Critique |L’état d’intégrité est Critique si les conditions d’intégrité définies ne sont pas remplies. Il indique qu’un ou plusieurs problèmes critiques ont été détectés qui devront être corrigés afin de rétablir le fonctionnement normal. Avec une analyse de cumul parent, restaure l’intégrité à distance et il reflète l’état d’optimiste ou pessimiste de l’enfant.|
@@ -249,16 +249,16 @@ Alertes à partir d’autres types de ressources ou les services ne sont pas des
 
 Vous pouvez filtrer cet affichage en sélectionnant des valeurs dans les menus déroulants en haut de la page.
 
-|Colonne |Description | 
+|Colonne |Description  | 
 |-------|------------| 
 |Abonnement |Sélectionnez un abonnement Azure. Seules les alertes dans l’abonnement sélectionné sont incluses dans la vue. | 
 |Groupe de ressources |Sélectionnez un seul groupe de ressources. Seules les alertes avec des cibles dans le groupe de ressources sélectionné sont incluses dans la vue. | 
 |Type de ressource |Sélectionnez un ou plusieurs types de ressources. Par défaut, seules les alertes des **machines virtuelles** cibles sont sélectionnées et incluses dans cette vue. Cette colonne n’est disponible qu’après qu’un groupe de ressources a été spécifié. | 
 |Ressource |Sélectionnez une ressource. Seules les alertes ayant ces ressources pour cible sont incluses dans l’affichage. Cette colonne n’est disponible qu’après qu’un type de ressource a été spécifié. | 
 |Severity |Sélectionnez un niveau de gravité d’alerte, ou sélectionnez *Tous* pour inclure les alertes quel que soit le niveau de gravité. | 
-|Condition d’analyse |Sélectionnez une condition de surveillance pour filtrer les alertes selon qu’elles soient *déclenchées* par le système ou *résolues* par le système (si la condition n’est plus active). Ou bien sélectionnez *Tous* pour inclure les alertes de toutes les conditions. | 
-|État d’alerte |Sélectionnez un état d’alerte *Nouveau*, *Reconnu*, *Fermé*, ou sélectionnez *Tous* pour inclure les alertes de tous les états. | 
-|Service de surveillance |Sélectionnez un service ou *Tous* pour inclure tous les services. Seules les alertes de *VM Insights* sont prises en charge pour cette fonctionnalité.| 
+|Condition de l'analyse |Sélectionnez une condition de surveillance pour filtrer les alertes selon qu’elles soient *déclenchées* par le système ou *résolues* par le système (si la condition n’est plus active). Ou bien sélectionnez *Tous* pour inclure les alertes de toutes les conditions. | 
+|État de l’alerte |Sélectionnez un état d’alerte *Nouveau*, *Reconnu*, *Fermé*, ou sélectionnez *Tous* pour inclure les alertes de tous les états. | 
+|Assurer le monitoring du service |Sélectionnez un service ou *Tous* pour inclure tous les services. Seules les alertes de *VM Insights* sont prises en charge pour cette fonctionnalité.| 
 |Période| Seules les alertes déclenchées dans la fenêtre de temps sélectionnée seront incluses dans l’affichage. Les valeurs prises en charge sont : dernière heure, dernières 24 heures, 7 derniers jours et 30 derniers jours. | 
 
 La page **Détails de l’alerte** s’affiche lorsque vous sélectionnez une alerte, vous fournissant des détails sur l’alerte et vous permettant de modifier son état. Pour plus d’informations sur la gestion des alertes, consultez [Créer, afficher et gérer des alertes à l’aide d’Azure Monitor](../../azure-monitor/platform/alerts-metric.md).  

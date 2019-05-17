@@ -3,8 +3,8 @@ title: Plateforme d’identité Microsoft utilisé pour connecter les utilisateu
 description: Générez des flux d’authentification intégrés et sans navigateur à l’aide de l’octroi de code d’appareil.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/20/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 703416788d123798774802613d71b30e8fbdaa9b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 86e875108e0349c0ab08a7217074e2afe23bcacc
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60299408"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544918"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-device-code-flow"></a>Plateforme d’identité Microsoft et le flux de code d’appareil OAuth 2.0
 
@@ -42,7 +42,7 @@ L’identité plateforme pour prendre en charge la [octroi de code d’appareil]
 
 Le flux de code d’appareil complet est similaire à l’illustration suivante. Nous décrirons en détail chacune des étapes plus loin dans cet article.
 
-![Flux de code d’appareil](./media/v2-oauth2-device-code/v2-oauth-device-flow.svg)
+![Flux de code d'appareil](./media/v2-oauth2-device-code/v2-oauth-device-flow.svg)
 
 ## <a name="device-authorization-request"></a>Requête d’autorisation d’appareil
 
@@ -63,7 +63,7 @@ scope=user.read%20openid%20profile
 
 ```
 
-| Paramètre | Condition | Description |
+| Paramètre | Condition | Description  |
 | --- | --- | --- |
 | `tenant` | Obligatoire |Le client d’annuaire auquel vous souhaitez demander l’autorisation. Peut être au format GUID ou sous forme de nom convivial.  |
 | `client_id` | Obligatoire | Le **ID d’Application (client)** qui le [portail Azure-inscriptions](https://go.microsoft.com/fwlink/?linkid=2083908) expérience affecté à votre application. |
@@ -73,15 +73,15 @@ scope=user.read%20openid%20profile
 
 Une réponse réussie est un objet JSON contenant les informations requises pour autoriser l’utilisateur à se connecter.  
 
-| Paramètre | Format | Description |
+| Paramètre | Format | Description  |
 | ---              | --- | --- |
-|`device_code`     | String | Chaîne longue utilisée pour vérifier la session entre le client et le serveur d’autorisation. Le client utilise ce paramètre pour demander le jeton d’accès à partir du serveur d’autorisation. |
-|`user_code`       | String | Une chaîne courte indiquée à l’utilisateur qui est utilisé pour identifier la session sur un appareil secondaire.|
+|`device_code`     | Chaîne | Chaîne longue utilisée pour vérifier la session entre le client et le serveur d’autorisation. Le client utilise ce paramètre pour demander le jeton d’accès à partir du serveur d’autorisation. |
+|`user_code`       | Chaîne | Une chaîne courte indiquée à l’utilisateur qui est utilisé pour identifier la session sur un appareil secondaire.|
 |`verification_uri`| URI | URI auquel l’utilisateur doit accéder avec le `user_code` pour pouvoir se connecter. |
 |`verification_uri_complete`| URI | Un URI qui combine le `user_code` et `verification_uri`, utilisé pour la transmission non textuelles à l’utilisateur (par exemple, via Bluetooth sur un appareil, ou via un code QR).  |
 |`expires_in`      | int | Nombre de secondes avant l’expiration de `device_code` et `user_code`. |
 |`interval`        | int | Nombre de secondes d’attente du client entre chaque requête d’interrogation. |
-| `message`        | String | Chaîne lisible par l’homme contenant des instructions pour l’utilisateur. Elle peut être localisée en incluant un **paramètre de requête** dans la requête sous la forme `?mkt=xx-XX`, en remplissant le code de langue approprié. |
+| `message`        | Chaîne | Chaîne lisible par l’homme contenant des instructions pour l’utilisateur. Elle peut être localisée en incluant un **paramètre de requête** dans la requête sous la forme `?mkt=xx-XX`, en remplissant le code de langue approprié. |
 
 ## <a name="authenticating-the-user"></a>Authentification de l’utilisateur
 
@@ -98,7 +98,7 @@ client_id: 6731de76-14a6-49ae-97bc-6eba6914391e
 device_code: GMMhmHCXhWEzkobqIHGG_EnNYYsAkukHspeYUk9E8
 ```
 
-| Paramètre | Obligatoire | Description|
+| Paramètre | Obligatoire | Description |
 | -------- | -------- | ---------- |
 | `grant_type` | Obligatoire | Doit être `urn:ietf:params:oauth:grant-type:device_code`|
 | `client_id`  | Obligatoire | Doit correspondre au `client_id` utilisé dans la requête initiale. |
@@ -108,7 +108,7 @@ device_code: GMMhmHCXhWEzkobqIHGG_EnNYYsAkukHspeYUk9E8
 
 Le flux de code d’appareil étant un protocole d’interrogation de votre client doit s’attendre à recevoir des erreurs avant que l’utilisateur ait terminé l’authentification.  
 
-| Error | Description | Action du client |
+| Error | Description  | Action du client |
 | ------ | ----------- | -------------|
 | `authorization_pending` | L’utilisateur n’a pas terminé l’authentification, mais n’a pas annulé le flux. | Répétez la requête après `interval` secondes minimum. |
 | `authorization_declined` | L’utilisateur final a refusé la requête d’autorisation.| Arrêtez l’interrogation et revenez à un état non authentifié.  |
@@ -130,9 +130,9 @@ Une réponse de jeton réussie se présente ainsi :
 }
 ```
 
-| Paramètre | Format | Description |
+| Paramètre | Format | Description  |
 | --------- | ------ | ----------- |
-| `token_type` | String| Toujours Porteur. |
+| `token_type` | Chaîne| Toujours Porteur. |
 | `scope` | Chaînes séparées par un espace | Si un jeton d’accès est retourné, répertorie les étendues pour lesquelles le jeton d’accès est valide. |
 | `expires_in`| int | Nombre de secondes avant lequel le jeton d’accès fourni est valide. |
 | `access_token`| Chaîne opaque | Émise pour les [étendues](v2-permissions-and-consent.md) qui ont été demandées.  |

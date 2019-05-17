@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 03/15/2019
+ms.date: 05/16/2019
 ms.author: cherylmc
-ms.openlocfilehash: ea3ee00e60ae5eaff5c7220e9502da11358c8793
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 1d45e1a5e4053ead4330967c5e250c0797c19fe7
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65786741"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65827466"
 ---
 # <a name="transition-to-a-public-ca-gateway-certificate-for-p2s"></a>Passer à un certificat de passerelle d’autorité de certification public pour P2S
 
@@ -29,19 +29,7 @@ Auparavant, un certificat auto-signé destiné à la passerelle (émis en arriè
 Seules les passerelles les plus anciennes sont concernées par ce changement. Si votre certificat de passerelle doit être remplacé, vous recevrez un message ou une notification toast sur le portail Azure. Pour savoir si votre passerelle est concernée, suivez les étapes décrites dans cet article.
 
 > [!IMPORTANT]
-> **Cette transition a été effectuée sur le 12 mai 2019.**
->
-> La mise à jour est prévue pour le 12 mars 2019 à partir de 18:00 UTC. Vous pouvez créer un cas de support si vous préférez choisir un autre créneau horaire. Formulez et finalisez votre demande au moins 24 heures à l'avance.  Vous pouvez demander l'un des créneaux horaire suivants :
->
-> * 06:00 UTC le 25 février
-> * 18:00 UTC le 25 février
-> * 06:00 UTC le 1er mars
-> * 18:00 UTC le 1er mars
->
-> Toutes les autres passerelles passera sur 12 mars 2019 à partir de 18:00 UTC.
->
-> Les clients recevront un e-mail au terme du processus de remplacement de leur passerelle.
-> 
+> La transition vers les certificats d’autorité de certification publique a été effectuée sur le 12 mai 2019. **Ce document sera supprimé sur le 31 mai 2019.**
 
 ## <a name="1-verify-your-certificate"></a>1. Vérifiez votre certificat
 

@@ -8,25 +8,28 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: anantr
 ms.component: alerts
-ms.openlocfilehash: d27adadc9720dd2ad6a0dd133524bfaf32e63045
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: f8d7b00de24c566cab204c66371dac9b569c42c9
+ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65227972"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65619997"
 ---
 # <a name="action-rules-preview"></a>Règles d’action (version préliminaire)
 
-Cet article décrit quelles sont les règles d’action et comment configurer et de les gérer.
-
-## <a name="what-are-action-rules"></a>Quelles sont les règles d’action ?
-
 Règles d’action permettent de définir des actions (ou la suppression des actions) dans toutes les portées de Resource Manager (abonnement, groupe de ressources ou ressource). Ils ont une variété de filtres qui vous permettent de limiter au sous-ensemble spécifique d’instances d’alerte que vous souhaitez agir sur. 
 
-Avec les règles d’action, vous pouvez :
+## <a name="why-and-when-should-you-use-action-rules"></a>Quand et pourquoi les doit utiliser des règles d’action ?
 
-* Supprimer les actions et notifications si vous avez prévu des fenêtres de maintenance ou pour les fêtes/week-end, au lieu de désactiver chaque règle d’alerte individuellement.
-* Définir des actions et des notifications à l’échelle : Au lieu de devoir définir un groupe d’actions individuellement pour chaque règle d’alerte, vous pouvez maintenant définir un groupe d’actions à déclencher pour les alertes générées à n’importe quelle étendue. Par exemple, je peux choisir de déclencheur de 'ContosoActionGroup' action groupe pour chaque alerte générée au sein de mon abonnement.
+### <a name="suppression-of-alerts"></a>Suppression d’alertes
+
+Il existe souvent des nombreux scénarios où il serait utile de supprimer les notifications générées par des alertes, qui peut aller de suppression pendant une fenêtre de maintenance planifiée à suppression pendant les heures non ouvrées. Par exemple, l’équipe responsable de la « ContosoVM » souhaite supprimer les notifications d’alerte pour le week-end à venir dans la mesure où 'ContosoVM' est en cours d’une maintenance planifiée. Pendant qu’ils peuvent désactiver chaque alerte règle configuré manuellement sur « ContosoVM » (et réactiver il valider la maintenance), il n’est pas une expérience simple. Règles d’action permettent de définir la suppression d’alerte à l’échelle avec la possibilité de configurer la période de suppression de manière flexible. En revenant à l’exemple précédent, l’équipe peut maintenant définir une règle d’action sur « ContosoVM », ce qui supprimera toutes les notifications d’alerte pour le week-end.
+
+
+### <a name="actions-at-scale"></a>Actions à l’échelle
+
+Bien que les règles d’alerte vous permettent de définir le groupe d’actions qui se déclenche lorsque l’alerte est générée, les clients ont tendance souvent à avoir un groupe d’actions courantes dans leur étendue des opérations. Par exemple, une équipe chargée du groupe de ressources 'ContosoRG' définiront probablement le même groupe d’actions pour toutes les règles d’alerte définies dans « ContosoRG ». Règles d’action permettent de simplifier ce processus en vous permettant de définir les actions à l’échelle, afin qu’un groupe d’actions peut être déclenché pour toute alerte générée sur l’étendue configurée. En revenant à l’exemple précédent, l’équipe peut maintenant définir une règle d’action sur « ContosoRG » qui déclenchera le même groupe d’actions pour toutes les alertes générées dans celui-ci.
+
 
 ## <a name="configuring-an-action-rule"></a>Configuration d’une règle d’action
 

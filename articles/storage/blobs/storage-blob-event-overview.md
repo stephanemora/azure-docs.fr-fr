@@ -9,18 +9,18 @@ ms.date: 01/30/2018
 ms.topic: article
 ms.service: storage
 ms.subservice: blobs
-ms.openlocfilehash: b03d7d98fe43eacab63f45ccacd7d8dea9598c8e
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 146b33c1a52838279f000a7f793902e2f35dbfaa
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65142162"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65826496"
 ---
 # <a name="reacting-to-blob-storage-events"></a>Réaction aux événements de Stockage Blob
 
 Les événements de Stockage Azure permettent aux applications de réagir à la création et à la suppression d’objets blob à l’aide d’architectures modernes sans serveur, et sans qu’il soit nécessaire de faire appel à du code complexe ou à des services d’interrogation coûteux et inefficaces.  Au lieu de cela, les événements sont envoyés via [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) aux abonnés, comme [Azure Functions](https://azure.microsoft.com/services/functions/), [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/), ou même à votre propre écouteur http personnalisé, et vous payez seulement pour ce que vous utilisez.
 
-Les événements du stockage d’objets blob sont envoyés de manière fiable au service Event Grid qui fournit des services de livraison fiables à vos applications via des stratégies enrichies de nouvelle tentative et de livraison de lettres mortes.
+Les événements du stockage d’objets blob sont envoyés de manière fiable au service Event Grid qui fournit des services de livraison fiables à vos applications via des stratégies enrichies de nouvelle tentative et de livraison de lettres mortes. Pour plus d’informations, consultez [remise des messages Event Grid et nouvelle tentative](https://docs.microsoft.com/azure/event-grid/delivery-and-retry).
 
 Les scénarios d’événements de stockage d’objets Blob courants incluent le traitement d’images ou de vidéos, l’indexation pour la recherche ou n’importe quel flux de travail orienté fichier.  Les téléchargements de fichier asynchrones sont parfaitement adaptés aux événements.  Lorsque les modifications sont peu fréquentes, mais que votre scénario requiert une réactivité immédiate, une architecture basée sur des événements peut être particulièrement efficace.
 
@@ -34,7 +34,7 @@ Les événements de stockage d’objets blob sont disponibles dans les comptes d
 ## <a name="available-blob-storage-events"></a>Événements de stockage Blob disponibles
 Event Grid utilise les [abonnements aux événements](../../event-grid/concepts.md#event-subscriptions) pour acheminer les messages d’événements vers les abonnés.  Les abonnements aux événements de stockage Blob peuvent inclure deux types d’événements :  
 
-> |Nom de l'événement|Description|
+> |Nom d'événement|Description |
 > |----------|-----------|
 > |`Microsoft.Storage.BlobCreated`|Déclenché lorsqu’un objet Blob est créé ou remplacé par le biais des opérations `PutBlob`, `PutBlockList` ou `CopyBlob`|
 > |`Microsoft.Storage.BlobDeleted`|Déclenché lorsqu’un objet Blob est supprimé via une opération `DeleteBlob`|
@@ -42,14 +42,14 @@ Event Grid utilise les [abonnements aux événements](../../event-grid/concepts.
 ## <a name="event-schema"></a>Schéma d’événement
 Les événements de stockage d’objets Blob contiennent toutes les informations dont vous avez besoin pour répondre aux modifications de vos données.  Vous pouvez identifier un événement de stockage d’objets Blob, car la propriété eventType commence par « Microsoft.Storage ». Plus d’informations sur l’utilisation des propriétés d’événement Event Grid sont documentées dans [schéma d’événement Event Grid](../../event-grid/event-schema.md).  
 
-> |Propriété|Type|Description|
+> |Propriété|Type|Description |
 > |-------------------|------------------------|-----------------------------------------------------------------------|
 > |rubrique|string|ID Azure Resource Manager complet du compte de stockage qui émet l’événement.|
-> |subject|string|Le chemin d’accès de la ressource relative à l’objet qui est le sujet de l’événement, avec le même format Azure Resource Manager étendu que nous utilisons pour décrire les comptes de stockage, les services et mes conteneurs pour Azure RBAC.  Ce format comprend un nom d’objet blob en conservant la casse.|
+> |objet|string|Le chemin d’accès de la ressource relative à l’objet qui est le sujet de l’événement, avec le même format Azure Resource Manager étendu que nous utilisons pour décrire les comptes de stockage, les services et mes conteneurs pour Azure RBAC.  Ce format comprend un nom d’objet blob en conservant la casse.|
 > |eventTime|string|La date et l’heure de l’événement sont générées au format ISO 8601|
 > |eventType|string|« Microsoft.Storage.BlobCreated » ou « Microsoft.Storage.BlobDeleted »|
 > |ID|string|Identificateur unique si cet événement|
-> |dataVersion|string|Version du schéma de l’objet de données.|
+> |dataVersion|string|Version de schéma de l'objet données.|
 > |metadataVersion|string|Version du schéma des propriétés de niveau supérieur.|
 > |données|objet|Collection de données d’événement spécifiques au stockage d’objets Blob|
 > |data.contentType|string|Le type de contenu de l’objet Blob, comme renvoyé dans l’en-tête Content-Type, serait retourné à partir de l’objet Blob|

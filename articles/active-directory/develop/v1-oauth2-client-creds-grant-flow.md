@@ -3,8 +3,8 @@ title: Authentification de service à service Azure AD à l’aide d’OAuth2.0 
 description: Cet article explique comment utiliser des messages HTTP pour mettre en œuvre l’authentification de service à service à l’aide du flux d’octroi des informations d’identification du client OAuth2.0.
 services: active-directory
 documentationcenter: .net
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: a7f939d9-532d-4b6d-b6d3-95520207965d
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2017
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74c79dbfb397a8e6d87de75b5468414f2b7adf2b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9d734db7fbedaf3e3f3cd71c31f9391a2237f5b4
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60251718"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65545249"
 ---
 # <a name="service-to-service-calls-using-client-credentials-shared-secret-or-certificate"></a>Appels de service à service à l’aide des informations d’identification du client (secret partagé ou certificat)
 
@@ -62,7 +62,7 @@ Lorsque l’application utilise un secret partagé, la demande de jeton d’acc�
 | grant_type |required |Spécifie le type d’autorisation demandée. Dans un flux d’octroi des informations d’identification du client, la valeur doit être **client_credentials**. |
 | client_id |required |Spécifie l’ID de client Azure AD du service web appelant. Pour rechercher l’ID de client de l’application appelante, dans le [portail Azure](https://portal.azure.com), cliquez successivement sur **Azure Active Directory**, **Inscriptions des applications** et sur l’application. Le paramètre client_id est l’*ID de l’application* |
 | client_secret |required |Entrez une clé enregistrée pour le service web appelant ou l’application démon dans Azure AD. Pour créer une clé, dans le portail Azure, cliquez successivement sur **Azure Active Directory**, **Inscriptions des applications**, l’application, **Paramètres**, **Clés** et ajoutez une clé.  Encodez en URL ce secret lorsque vous le fournissez. |
-| resource |required |Entrez l’URI ID d’application du service web de destination. Pour rechercher l’URI de l’ID d’application, dans le portail Azure, cliquez successivement sur **Azure Active Directory**, **Inscriptions des applications**, l’application du service, puis sur **Paramètres** et **Propriétés**. |
+| Ressource |required |Entrez l’URI ID d’application du service web de destination. Pour rechercher l’URI de l’ID d’application, dans le portail Azure, cliquez successivement sur **Azure Active Directory**, **Inscriptions des applications**, l’application du service, puis sur **Paramètres** et **Propriétés**. |
 
 #### <a name="example"></a>Exemples
 La requête HTTP POST suivante demande un [jeton d’accès](access-tokens.md) pour le service web https://service.contoso.com/. `client_id` identifie le service web qui demande le jeton d’accès.
@@ -110,7 +110,7 @@ Une réponse affirmative contient une réponse JSON OAuth 2.0 avec les paramètr
 | expires_in |La durée de validité (en secondes) du jeton d’accès. |
 | expires_on |L’heure d’expiration du jeton d’accès. La date est représentée en nombre de secondes à partir du 1er janvier 1970 (1970-01-01T0:0:0Z) UTC jusqu’au moment de l’expiration. Cette valeur est utilisée pour déterminer la durée de vie des jetons en cache. |
 | not_before |Heure à partir de laquelle le jeton d’accès devient utilisable. La date est exprimée en nombre de secondes entre 1970-01-01T0:0:0Z UTC et le début de la validité du jeton.|
-| resource |L’URI ID d’application du service web de destination. |
+| Ressource |L’URI ID d’application du service web de destination. |
 
 #### <a name="example-of-response"></a>Exemple de réponse
 L’exemple suivant illustre une réponse affirmative à une demande de jeton d’accès à un service web.

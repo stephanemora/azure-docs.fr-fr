@@ -8,16 +8,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 3/11/2019
+ms.date: 5/14/2019
 author: swinarko
 ms.author: sawinark
 manager: craigg
-ms.openlocfilehash: 58bdc0e698fc28929c2080b1737770275b1164ad
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a67436f09d6e28db8d19679e446ac4cf98383709
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57848726"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65593798"
 ---
 # <a name="enable-azure-active-directory-authentication-for-azure-ssis-integration-runtime"></a>Activer l’authentification Azure Active Directory pour Azure-SSIS Integration Runtime
 
@@ -60,7 +60,7 @@ Vous pouvez utiliser un groupe Azure AD existant ou en créer un à l’aide d�
     6de75f3c-8b2f-4bf4-b9f8-78cc60a18050 SSISIrGroup
     ```
 
-3.  Ajoutez au groupe l’identité managée pour votre service Azure Data Factory. Vous pouvez suivre l’article [identiy géré de fabrique de données](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) pour obtenir l’ID d’identité de SERVICE principal (par exemple, 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc, mais n’utilisez pas d’ID d’APPLICATION DE SERVICE identité à cet effet).
+3.  Ajoutez au groupe l’identité managée pour votre service Azure Data Factory. Vous pouvez suivre l’article [identiy géré de fabrique de données](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) pour obtenir l’ID d’objet identité principal géré (par exemple, 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc, mais n’utilisez pas d’ID d’Application identité gérés à cet effet).
 
     ```powershell
     Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc
@@ -170,12 +170,12 @@ Pour cette nouvelle étape, vous avez besoin de  [Microsoft SQL Server Manageme
 
 4.  Cliquez avec le bouton droit sur la base de données **master** et sélectionnez **Nouvelle requête**.
 
-5.  Obtenez l’identité managée pour votre ADF. Vous pouvez suivre l’article [identiy géré de fabrique de données](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) pour obtenir l’ID d’APPLICATION du principal du SERVICE IDENTITY (mais n’utilisez pas d’ID d’identité de SERVICE à cet effet).
+5.  Obtenez l’identité managée pour votre ADF. Vous pouvez suivre l’article [identiy géré de fabrique de données](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) pour obtenir l’ID d’Application identité principal géré (mais n’utilisez pas d’ID d’objet identité gérés à cet effet).
 
 6.  Dans la fenêtre de requête, exécutez le script T-SQL suivant pour convertir l’identité managée pour votre ADF en type binaire :
 
     ```sql
-    DECLARE @applicationId uniqueidentifier = '{your SERVICE IDENTITY APPLICATION ID}'
+    DECLARE @applicationId uniqueidentifier = '{your Managed Identity Application ID}'
     select CAST(@applicationId AS varbinary)
     ```
     
@@ -184,7 +184,7 @@ Pour cette nouvelle étape, vous avez besoin de  [Microsoft SQL Server Manageme
 7.  Effacez la fenêtre de requête et exécutez le script T-SQL suivant pour ajouter l’identité managée pour votre ADF comme utilisateur
 
     ```sql
-    CREATE LOGIN [{a name for the managed identity}] FROM EXTERNAL PROVIDER with SID = {your SERVICE IDENTITY APPLICATION ID as binary}, TYPE = E
+    CREATE LOGIN [{a name for the managed identity}] FROM EXTERNAL PROVIDER with SID = {your Managed Identity Application ID as binary}, TYPE = E
     ALTER SERVER ROLE [dbcreator] ADD MEMBER [{the managed identity name}]
     ALTER SERVER ROLE [securityadmin] ADD MEMBER [{the managed identity name}]
     ```
@@ -216,7 +216,7 @@ Pour provisionner votre runtime d’intégration Azure-SSIS avec PowerShell, pro
 
 1.  Installez le module [Azure PowerShell](https://github.com/Azure/azure-powershell/releases/tag/v5.5.0-March2018) .
 
-2.  Dans votre script, ne définissez pas le paramètre `CatalogAdminCredential`. Par exemple : 
+2.  Dans votre script, ne définissez pas le paramètre `CatalogAdminCredential`. Exemple :
 
     ```powershell
     Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `

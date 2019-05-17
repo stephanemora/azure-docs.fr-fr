@@ -3,8 +3,8 @@ title: Authentification basée sur un en-tête avec PingAccess pour le proxy d�
 description: Publiez des applications avec PingAccess et Application Proxy pour prendre en charge l’authentification basée sur un en-tête.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,22 +12,22 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/11/2017
-ms.author: celested
+ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8eef15098eed8959655ae2904bf41a8c3dffc9f4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ecba35a54c530e97a3f96bd8cfb5fa217d300f83
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60293927"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65783576"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Authentification basée sur l’en-tête pour une authentification unique avec le proxy d’application et PingAccess
 
 Azure Active Directory Application Proxy et PingAccess se sont associés pour permettre aux clients Azure Active Directory d’accéder à davantage d’applications. PingAccess développe les [offres de proxy d’application existantes](application-proxy.md) en intégrant l’accès par authentification unique aux applications qui utilisent des en-têtes d’authentification.
 
-## <a name="what-is-pingaccess-for-azure-ad"></a>Présentation de PingAccess pour Azure AD
+## <a name="what-is-pingaccess-for-azure-ad"></a>Qu'est-ce que PingAccess pour Azure AD ?
 
 PingAccess pour Azure Active Directory est une offre de PingAccess qui vous permet d’octroyer aux utilisateurs un accès et une authentification unique aux applications qui utilisent des en-têtes pour l’authentification. Application Proxy traite ces applications comme n’importe quelle autre, en utilisant Azure AD pour authentifier l’accès et faire transiter le trafic via le service de connecteur. PingAccess se trouve devant les applications et convertit le jeton d’accès Azure AD en en-tête afin que l’application reçoive l’authentification dans un format qu’elle puisse lire.
 
@@ -80,7 +80,7 @@ Suivez ces étapes pour publier votre application. Pour obtenir plus de détails
      > Pour ce type d’authentification unique, l’URL interne doit utiliser le protocole https et ne peut pas utiliser le protocole http.
 
    - **Méthode de pré-authentification** : Azure Active Directory
-   - **Traduire l’URL dans les en-têtes** : Non 
+   - **Traduire l’URL dans les en-têtes** : Non
 
    >[!NOTE]
    >S’il s’agit de votre première application, utilisez le port 3000 pour démarrer et revenir afin de mettre à jour ce paramètre si vous modifiez votre configuration PingAccess. S’il s’agit de votre deuxième application ou d’une application ultérieure, le paramètre doit correspondre à l’écouteur que vous avez configuré dans PingAccess. Découvrez plus en détail les [écouteurs dans PingAccess](https://documentation.pingidentity.com/pingaccess/pa31/index.shtml#Listeners.html).
@@ -112,7 +112,7 @@ Suivez ces étapes pour publier votre application. Pour obtenir plus de détails
 
 16. Sélectionnez **Ajouter**. Pour l’API, choisissez **Windows Azure Active Directory**, puis **Sélectionner**. Pour les autorisations, choisissez **Lire et écrire toutes les applications** et **Se connecter et lire le profil utilisateur**, puis **Sélectionner** et **Terminé**.  
 
-    ![Sélectionner les autorisations](./media/application-proxy-configure-single-sign-on-with-ping-access/select-permissions.png)
+    ![Sélectionner des autorisations](./media/application-proxy-configure-single-sign-on-with-ping-access/select-permissions.png)
 
 17. Attribuez les autorisations avant de fermer la fenêtre des autorisations. 
     ![Accorder des autorisations](./media/application-proxy-configure-single-sign-on-with-ping-access/grantperms.png)

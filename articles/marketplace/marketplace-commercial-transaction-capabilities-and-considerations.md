@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: yijenj
-ms.openlocfilehash: bf0c6a5234846499d7b8a49f427dba7af36edc15
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 5dc311538055d9ecb7aba21f95d819a914cd1db7
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64937972"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65826567"
 ---
 # <a name="azure-marketplace-commercial-transaction-capabilities-and-considerations"></a>Considérations et fonctionnalités relatives aux transactions commerciales ‎dans la Place de marché Azure
 
@@ -137,11 +137,14 @@ Cette option doit être configurée pour la vente via Microsoft et peut être fa
 |*Microsoft facture au client le montant suivant :*    |  *100 $/mois (remarque : l’éditeur doit inclure les coûts d’infrastructure encourus ou transmis dans les frais de licence)*  |
 
 * Dans ce scénario, Microsoft facture 100 $ pour votre licence logicielle et verse 80 $ à l’éditeur.
+* Les partenaires qui ont qualifié pour les frais de place de marché réduit seront affiche à qu'un tarif réduit de transaction sur le SaaS offre à partir de 2019 mai jusqu'à juin 2020. Dans ce scénario, Microsoft facture 100,00 $ à votre licence du logiciel et paie out $90,00 au serveur de publication.
 
 |Microsoft facture  | 100 $/mois  |
 |---------|---------|
-|Microsoft vous verse 80 % des revenus générés par les licences    |   80 $/mois     |
-|Microsoft conserve 20 % des revenus générés par les licences   |  20 $/mois       |
+|Microsoft vous verse 80 % des revenus générés par les licences <br> \* Microsoft vous paie 90 % du coût de votre licence de toutes les applications SaaS qualifiées   |   80 $/mois <br> \* 90,00 $ par mois    |
+|Microsoft conserve 20 % des revenus générés par les licences <br> \* Microsoft conserve les 10 % sur les coûts de licence pour les applications SaaS qualifiées.  |  20 $/mois <br> \* $10.00     |
+
+* **Place de marché réduit les frais de Service :** Pour certains produits SaaS que vous publiez sur notre place de marché Commercial, Microsoft réduit ses frais liés au Service place de marché à partir de 20 % (comme décrit dans le contrat d’éditeur Microsoft) à 10 %.  Dans l’ordre de votre produit qualifier, au moins un de vos produits doit être désigné par Microsoft sous la forme IP pour la vente conjointe prêt ou la vente conjointe IP par ordre de priorité. Pour recevoir ces frais de Service place de marché réduit pour le mois, éligibilité à respecter au moins cinq (5) jours ouvrés avant la fin de ce mois du calendrier. Réduit le Service place de marché frais s’appliquent pas aux machines virtuelles, les applications gérées ou d’autres produits mis à disposition via notre place de marché Commercial.  Ces frais de Service place de marché réduit sera disponible à des offres qualifiés, avec les frais de licence collectées par Microsoft entre le 31 mai 2019 et le 30 juin 2020.  Passé ce délai, les frais de place de marché renvoie à son nombre normal.
 
 ### <a name="customer-invoicing-payment-billing-and-collections"></a>Tarification, paiement, facturation et collecte côté client
 
@@ -159,7 +162,7 @@ Les clients peuvent également payer à l’aide d’une carte de crédit et d�
 
 Exemple d’un client qui fait un achat avec une carte de crédit :
 
-|Description    |    Date  |
+|Description     |    Date  |
 |----------|----------|
 |Période de commande   | 15 août 2018 au 30 août 2018 |
 |Échéance (mois)   | 30 août 2018 |
@@ -173,7 +176,7 @@ Exemple d’un client qui fait un achat avec une carte de crédit :
 
 Exemple d’un client qui fait un achat avec un Contrat Entreprise :
 
-| Description |    Date  |
+| Description  |    Date  |
 |----------|----------|
 |Période de commande | 15 août 2018 au 30 août 2018 |
 |Échéance (trimestre) | 30 septembre 2018 |

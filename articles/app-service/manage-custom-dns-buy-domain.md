@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 11/24/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 0c59e892c8fd5a8bcc74d23e16eaabf1dc1a08f0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 06337fef1a9d9b41fd41ff7c67611581639adc0a
+ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61272515"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65619723"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Acheter un nom de domaine personnalisé pour Azure App Service
 
-Les domaines App Service (version préliminaire) sont des domaines de niveau supérieur gérés directement dans Azure. Ils facilitent la gestion des domaines personnalisés pour [Azure App Service](overview.md). Ce tutoriel explique comment acheter un domaine App Service et attribuer des noms DNS dans Azure App Service.
+Domaines App Service sont des domaines de niveau supérieur qui sont gérés directement dans Azure. Ils facilitent la gestion des domaines personnalisés pour [Azure App Service](overview.md). Ce tutoriel explique comment acheter un domaine App Service et attribuer des noms DNS dans Azure App Service.
 
 Pour la machine virtuelle Azure ou le stockage Azure, consultez [Assign App Service domain to Azure VM or Azure Storage](https://blogs.msdn.microsoft.com/appserviceteam/2017/07/31/assign-app-service-domain-to-azure-vm-or-azure-storage/) (Attribuer un domaine App Service à une machine virtuelle Azure ou un stockage Azure). Pour Services cloud, consultez [Configuration d’un nom de domaine personnalisé pour un service cloud Azure](../cloud-services/cloud-services-custom-domain-name-portal.md).
 
@@ -80,7 +80,7 @@ Lorsque la notification suivante s’affiche, cela signifie que l’opération e
 ## <a name="buy-the-domain"></a>Acheter le domaine
 
 ### <a name="pricing-information"></a>Informations sur la tarification
-Pour obtenir des informations de tarification sur les domaines Azure App Service, visitez la [page Tarification d’App Service](https://azure.microsoft.com/pricing/details/app-service/windows/) et faites défiler jusqu’au domaine App Service.
+Pour plus d’informations sur les domaines Azure App Service la tarification, visitez le [page Tarification d’App Service](https://azure.microsoft.com/pricing/details/app-service/windows/) et faites défiler jusqu'à domaine App Service.
 
 ### <a name="sign-in-to-azure"></a>Connexion à Azure
 Ouvrez le [portail Azure](https://portal.azure.com/) et connectez-vous avec votre compte Azure.
@@ -116,10 +116,10 @@ Il est très important de remplir tous les champs obligatoires aussi préciséme
 
 Sélectionnez ensuite les options souhaitées pour votre domaine. Pour plus de précisions, consultez le tableau suivant :
 
-| Paramètre | Valeur suggérée | Description |
+| Paramètre | Valeur suggérée | Description  |
 |-|-|-|
 |Protection des données personnelles | Activer | Choisissez l'option « Protection des données personnelles », incluse _gratuitement_ dans le prix d'achat. Certains domaines de niveau supérieur sont gérés par des bureaux d'enregistrement qui ne prennent pas en charge la protection des données personnelles. Ils sont répertoriés dans la page **Protection des données personnelles**. |
-| Attribuer des noms d’hôte par défaut | **www** et **\@** | Si vous le souhaitez, vous pouvez sélectionner les liaisons de nom d’hôte souhaitées. Lorsque l’opération d’achat de domaine est terminée, votre application est accessible aux noms d’hôtes choisis. Si l’application se trouve derrière [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/), vous ne voyez pas l’option pour attribuer le domaine racine (@), car Traffic Manager ne prend pas en charge les enregistrements A. Vous pouvez apporter des modifications aux attributions de nom d’hôte après l’achat de domaine. |
+| Affecter des noms d'hôte par défaut | **www** et **\@** | Si vous le souhaitez, vous pouvez sélectionner les liaisons de nom d’hôte souhaitées. Lorsque l’opération d’achat de domaine est terminée, votre application est accessible aux noms d’hôtes choisis. Si l’application se trouve derrière [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/), vous ne voyez pas l’option pour attribuer le domaine racine (@), car Traffic Manager ne prend pas en charge les enregistrements A. Vous pouvez apporter des modifications aux attributions de nom d’hôte après l’achat de domaine. |
 
 ### <a name="accept-terms-and-purchase"></a>Accepter les mentions et acheter
 
@@ -150,7 +150,7 @@ Pour tester des noms d’hôte, accédez à ceux qui sont répertoriés dans le 
 
 ## <a name="assign-hostnames-to-app"></a>Attribuer des noms d’hôte à une application
 
-Si vous choisissez de ne pas attribuer un ou plusieurs noms d’hôte par défaut à votre application lors de l’achat, ou si vous devez attribuer un nom d’hôte non répertorié, sachez que vous pouvez attribuer ce nom à tout moment.
+Si vous choisissez de ne pas affecter un ou plusieurs noms d’hôte de valeur par défaut à votre application pendant le processus d’achat, ou si vous devez attribuer un nom d’hôte non répertorié, vous pouvez attribuer un nom d’hôte à tout moment.
 
 Vous pouvez également attribuer des noms d’hôte dans le domaine App Service à n’importe quelle autre application. La procédure varie selon que le domaine App Service et l’application appartiennent ou non au même abonnement.
 
@@ -174,7 +174,7 @@ Vérifiez que votre domaine acheté est répertorié dans la section **Domaines 
 Sélectionnez **Ajouter un nom d’hôte**.
 
 ### <a name="configure-hostname"></a>Configurer le nom d’hôte
-Dans la boîte de dialogue **Ajouter un nom d’hôte**, entrez le nom de domaine complet du domaine App Service ou de n’importe quel sous-domaine. Par exemple : 
+Dans la boîte de dialogue **Ajouter un nom d’hôte**, entrez le nom de domaine complet du domaine App Service ou de n’importe quel sous-domaine. Exemple :
 
 - kontoso.net
 - www\.kontoso.net
@@ -251,7 +251,7 @@ Dans le portail Azure, dans le menu de gauche, sélectionnez **Tous les services
 
 Sélectionnez le domaine que vous souhaitez annuler ou supprimer. 
 
-### <a name="delete-hostname-bindings"></a>Supprimer des liaisons de noms d’hôte
+### <a name="delete-hostname-bindings"></a>Supprimer les liaisons de nom d’hôte
 
 Dans le menu de gauche du domaine, sélectionnez **Liaisons de noms d’hôte**. Les liaisons de nom d’hôte de tous les services Azure sont répertoriées ici.
 
@@ -278,7 +278,3 @@ Une fois l’opération terminée, le domaine n’est plus lié à votre abonnem
 ## <a name="direct-default-url-to-a-custom-directory"></a>Diriger l'URL par défaut vers un répertoire personnalisé
 
 Par défaut, App Service dirige les demandes web au répertoire racine du code de votre application. Pour les diriger vers un sous-répertoire, par exemple `public`, voir [Diriger l'URL par défaut vers un répertoire personnalisé](app-service-web-tutorial-custom-domain.md#virtualdir).
-
-## <a name="more-resources"></a>Autres ressources
-
-[FORUM AUX QUESTIONS : domaine App Service (préversion) et domaines personnalisés](https://blogs.msdn.microsoft.com/appserviceteam/2017/08/08/faq-app-service-domain-preview-and-custom-domains/)

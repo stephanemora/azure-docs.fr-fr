@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: hrasheed
-ms.openlocfilehash: 8172da3f573f78365cbe76f435a4817e64bc136c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 3286ca3b9c85236ff322eb19324bc5ac7a904e22
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64700349"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65605457"
 ---
 # <a name="use-the-azure-data-lake-tools-for-visual-studio-with-the-hortonworks-sandbox"></a>Utiliser Azure Data Lake Tools pour Visual Studio avec le Bac à sable (sandbox) Hortonworks
 
@@ -25,7 +25,7 @@ Hortonworks Sandbox permet de travailler avec Hadoop localement sur votre enviro
 
 * Le Bac à sable (sandbox) Hortonworks s’exécutant sur une machine virtuelle dans votre environnement de développement. Ce document a été écrit et testé avec le bac à sable s’exécutant sur Oracle VirtualBox. Pour plus d’informations sur le paramétrage du bac à sable, consultez [Get started with the Hortonworks sandbox](hadoop/apache-hadoop-emulator-get-started.md) (Prise en main du bac à sable Hortonworks) document.
 
-* Visual Studio 2013, Visual Studio 2015 ou Visual Studio 2017 (toute édition).
+* Visual Studio.
 
 * Le [Kit de développement logiciel (SDK) Azure pour .NET](https://azure.microsoft.com/downloads/) 2.7.1 ou version ultérieure.
 

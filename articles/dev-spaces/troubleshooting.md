@@ -9,12 +9,12 @@ ms.date: 09/11/2018
 ms.topic: conceptual
 description: Développement Kubernetes rapide avec des conteneurs et des microservices sur Azure
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, Helm, service Mesh, routage du service Mesh, kubectl, k8s '
-ms.openlocfilehash: 508fe597a494ed89b4c2f406337c6b565943387a
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: d5b08a22aa3896fb7158ef3535b115e3e0189142
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64728816"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65596983"
 ---
 # <a name="troubleshooting-guide"></a>Guide de résolution des problèmes
 
@@ -295,7 +295,7 @@ Le fait de redémarrer les nœuds d’agent de votre cluster permet généraleme
 
 ## <a name="error-release-azds-identifier-spacename-servicename-failed-services-servicename-already-exists-or-pull-access-denied-for-servicename-repository-does-not-exist-or-may-require-docker-login"></a>« Erreur : publication azds -\<identificateur\>-\<spacename\>-\<servicename\> a échoué : services'\<servicename\>' existe déjà » ou « extraire accès refusé pour \<servicename\>, référentiel n’existe pas ou peut nécessiter des « docker login » »
 
-### <a name="reason"></a>Motif
+### <a name="reason"></a>Reason
 Ces erreurs peuvent se produire si vous combinez des commandes Helm directs en cours d’exécution (tel que `helm install`, `helm upgrade`, ou `helm delete`) avec les commandes de développement espaces (tel que `azds up` et `azds down`) à l’intérieur du même espace de développement. Elles se produisent, car les espaces de développement a sa propre instance Tiller, qui est en conflit avec votre propre instance de Tiller s’exécutant dans le même espace de développement.
 
 ### <a name="try"></a>Essayez de procéder comme suit :
@@ -370,7 +370,7 @@ Une fois que votre contrôleur est réinstallé, redéployez vos PODS sera suppr
 
 ## <a name="incorrect-rbac-permissions-for-calling-dev-spaces-controller-and-apis"></a>Autorisations RBAC incorrectes pour l’appel d’API et contrôleur d’espaces de développement
 
-### <a name="reason"></a>Motif
+### <a name="reason"></a>Reason
 L’utilisateur l’accès au contrôleur d’espaces de développement Azure doit avoir accès en lecture de l’administrateur *kubeconfig* sur le cluster AKS. Par exemple, cette autorisation est disponible dans le [rôle d’administrateur intégré Azure Kubernetes Service Cluster](../aks/control-kubeconfig-access.md#available-cluster-roles-permissions). L’utilisateur l’accès au contrôleur d’espaces de développement Azure doit également avoir le *contributeur* ou *propriétaire* rôle RBAC pour le contrôleur.
 
 ### <a name="try"></a>Essai
@@ -389,3 +389,18 @@ Mettre à jour le rôle RBAC de l’utilisateur pour le contrôleur :
     * Pour *attribuer l’accès à* sélectionnez *utilisateur, groupe ou principal du service Azure AD*.
     * Pour *sélectionnez* recherche pour l’utilisateur que vous souhaitez accorder des autorisations.
 1. Cliquez sur *Enregistrer*.
+
+## <a name="controller-create-failing-due-to-controller-name-length"></a>Contrôleur créer échouent en raison de la longueur du nom de contrôleur
+
+### <a name="reason"></a>Reason
+Nom du contrôleur d’un Azure Dev espaces ne peut pas comporter plu de 31 caractères. Si le nom de votre contrôleur dépasse 31 caractères lorsque vous activez les espaces de développement sur un cluster AKS ou créez un contrôleur, vous recevrez une erreur telle que :
+
+*Impossible de créer un contrôleur d’espaces de développement pour le cluster 'a-controller-name-that-is-way-too-long-aks-east-us' : Nom de contrôleur d’espaces de développement Azure 'a-controller-name-that-is-way-too-long-aks-east-us' n’est pas valide. Violé de contraintes : Les noms de contrôleur d’espaces de développement Azure ne peut au maximum 31 caractères*
+
+### <a name="try"></a>Essai
+
+Créer un contrôleur avec un autre nom :
+
+```cmd
+azds controller create --name my-controller --target-name MyAKS --resource-group MyResourceGroup
+```

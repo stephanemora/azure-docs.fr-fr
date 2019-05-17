@@ -4,7 +4,7 @@ description: En savoir plus sur client public et de client confidentiel applicat
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
-manager: celested
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f21aa62bae7599cf586ccf6f885ad9f58c148d1f
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 9e0300ec0ef4ee67b06acb85514ae898bbd0a830
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65077139"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544289"
 ---
 # <a name="public-client-and-confidential-client-applications"></a>Client public et les applications de client confidentiel
 Bibliothèque d’authentification Microsoft (MSAL) définit deux types de clients : les clients publics et les clients confidentiels. Les deux types de client sont distinguent par leur capacité à s’authentifier en toute sécurité avec le serveur d’autorisation et de préserver la confidentialité de leurs informations d’identification du client.  En revanche, Azure AD Authentication Library (ADAL) propose le concept de contexte d’authentification (qui est une connexion à Azure AD).

@@ -16,12 +16,12 @@ ms.date: 05/07/2019
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, jesakowi
 ms.custom: aaddev
-ms.openlocfilehash: e9070127780659142ab8f956a8016622ecfea144
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 0d44e5d9f0d1ed893a16c318e3cfa0ee1bfc123b
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65540155"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65823344"
 ---
 # <a name="microsoft-identity-platform-integration-checklist"></a>Liste de vérification de l’intégration à plateforme Microsoft identity
 
@@ -31,13 +31,13 @@ Si vous n’êtes pas familiarisé, consultez le [documentation](index.yml) pour
 
 ## <a name="testing-your-integration"></a>Test de votre intégration
 
-Utilisez la liste de vérification suivante pour vous assurer que votre application est intégrée efficacement avec le [plateforme d’identité Microsoft](https://docs.microsoft.com/legal/mdsa).
+Utilisez la liste de vérification suivante pour vous assurer que votre application est intégrée efficacement avec le [plateforme d’identité Microsoft](https://docs.microsoft.com/azure/active-directory/develop/).
 
 ### <a name="basics"></a>Concepts de base
 
 |   |   |
 |---|---|
-| ![case à cocher](./media/active-directory-integration-checklist/checkbox-two.svg) | Lire et comprendre le [politiques de la plateforme Microsoft](https://docs.microsoft.com/legal/mdsa). Assurez-vous que votre application respecte les conditions décrites comme elles sont conçues pour protéger les utilisateurs et la plateforme. |
+| ![case à cocher](./media/active-directory-integration-checklist/checkbox-two.svg) | Lire et comprendre le [politiques de la plateforme Microsoft](https://go.microsoft.com/fwlink/?linkid=2090497&clcid=0x409). Assurez-vous que votre application respecte les conditions décrites comme elles sont conçues pour protéger les utilisateurs et la plateforme. |
 
 ### <a name="ownership"></a>Propriété
 

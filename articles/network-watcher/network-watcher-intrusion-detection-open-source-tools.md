@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: e1b0e49dcc69a7458c22b859df1a4721342f0728
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b5dc885611c6654c1dc1d236e41ed75ef2717cc1
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64730148"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65605704"
 ---
 # <a name="perform-network-intrusion-detection-with-network-watcher-and-open-source-tools"></a>Détecter les intrusions dans un réseau avec Azure Network Watcher et des outils open source
 
@@ -255,7 +255,7 @@ Vous avez également la possibilité de créer vos propres visualisations et tab
 
 L’exemple de tableau de bord fournit plusieurs visualisations des journaux d’activité d’alertes Suricata :
 
-1. Alerts by GeoIP (Alertes par GeoIP) : une carte affichant la répartition des alertes par pays d’origine en fonction de l’emplacement géographique (déterminé par l’adresse IP).
+1. Alertes par GeoIP – une carte affichant la répartition des alertes par leur pays/région d’origine en fonction de l’emplacement géographique (déterminé par l’adresse IP)
 
     ![geo ip][3]
 

@@ -8,12 +8,12 @@ ms.subservice: ''
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: alkohli
-ms.openlocfilehash: d62ad37e6bbe9c89ef803cefc43f373e287a7af7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5b392fecd75f5c18793a6122b8d5d967a2e54afa
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60462325"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604441"
 ---
 # <a name="open-a-support-ticket-for-azure-data-box"></a>Ouvrir un ticket de support pour Azure Data Box 
 
@@ -22,7 +22,7 @@ Cet article s’applique aux services Azure Data Box et Azure Data Box Disk, qui
 * Création d’une demande de support
 * Gestion du cycle de vie d’une demande de support à partir du portail
 
-## <a name="create-a-support-request"></a>Création d’une demande de support
+## <a name="create-a-support-request"></a>Créer une demande de support
 
 Procédez comme suit pour créer une demande de support.
 
@@ -56,7 +56,7 @@ Procédez comme suit pour créer une demande de support.
 4. Dans le panneau **Nouvelle demande de support**, cliquez sur **3 Informations de contact**. Dans le panneau **Informations de contact**, procédez comme suit :
 
    1. Dans la section **Options de contact**, fournissez votre méthode de contact préférée (téléphone ou e-mail) et votre langue. Le temps de réponse est automatiquement sélectionné en fonction de votre plan d’abonnement.
-   2. Dans la section **Informations de contact**, fournissez votre nom, votre adresse e-mail, un contact secondaire (facultatif) et votre pays. Sélectionnez **Enregistrer les modifications de contact pour les futures demandes de support**.
+   2. Dans le **informations de Contact**, fournir votre nom, le courrier électronique, le contact facultatif, le pays/région. Sélectionnez **Enregistrer les modifications de contact pour les futures demandes de support**.
    3. Cliquez sur **Créer**.
    
        ![Informations de contact](./media/data-box-disk-contact-microsoft-support/data-box-disk-support3.png)   

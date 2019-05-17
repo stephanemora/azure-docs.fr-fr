@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/25/2019
+ms.date: 05/13/2019
 ms.author: kraigb
-ms.openlocfilehash: d1f94c5fd774b51f57da2885d1ccd8eb909cd3c0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0440e498451ee141fa03851b78418caf911d0e32
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60234779"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65596745"
 ---
 # <a name="manage-and-configure-projects"></a>Gérer et configurer des projets
 
@@ -37,38 +37,7 @@ Azure Notebooks démarre la machine virtuelle sous-jacente dès que vous exécut
 
 ## <a name="compute-tier"></a>Niveau de calcul
 
-La liste déroulante **Exécuter** qui se trouve sur le tableau de bord du projet permet de sélectionner le niveau de calcul du projet. Par défaut, les projets se trouvent au niveau de **calcul Gratuit**, limité à 4 Go de mémoire et à 1 Go de données pour éviter les abus :
-
-![Liste déroulante du niveau de calcul sur le tableau de bord du projet](media/project-compute-tier-list.png)
-
-Vous pouvez contourner ces limitations en utilisant une autre machine virtuelle configurée dans un abonnement Azure. Vous devez installer et exécuter JupyterHub sur cette machine virtuelle. Les images Data Science Virtual Machine (quel que soit le système d’exploitation) conviennent, car elles incluent JupyterHub par défaut.
-
-Une fois que vous avez une machine virtuelle Azure correctement configurée, sélectionnez l’option **Calcul direct** dans la liste déroulante. Vous êtes alors invité à entrer un nom (à afficher dans la liste), l’adresse IP et le port (généralement le port 8000, qui est le port par défaut sur lequel JupyterHub écoute) de la machine virtuelle, ainsi que les informations d’identification de cette dernière :
-
-![Invite à collecter des informations sur le serveur pour l’option Calcul direct](media/project-compute-tier-direct.png)
-
-Si les conditions suivantes sont remplies, la liste déroulante affiche également les instances [Data Science Virtual Machine (DSVM)](/azure/machine-learning/data-science-virtual-machine). (Sinon, vous pouvez toujours vous connecter à la machine virtuelle DSVM avec l’option Calcul direct, en entrant les valeurs obtenues sur le Portail Azure.)
-
-- Vous avez ouvert une session Azure Notebooks avec un compte qui utilise Azure Active Directory (AAD), par exemple un compte professionnel.
-- Votre compte est connecté à un abonnement Azure.
-- Vous disposez d’au moins une machine virtuelle dans cet abonnement, avec au minimum un accès en lecture, qui utilise l’image Data Science Virtual Machine pour Linux (Ubuntu).
-
-![Instances Data Science Virtual Machine dans la liste déroulante sur le tableau de bord du projet](media/project-compute-tier-dsvm.png)
-
-Lorsque vous sélectionnez une instance DSVM, Azure Notebooks peut vous demander les informations d’identification de l’ordinateur utilisé lors de la création de la machine virtuelle.
-
-Pour créer une instance DSVM, suivez les instructions de la section [Créer une machine virtuelle Data Science Ubuntu](/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro). Utilisez l’image **Data Science Virtual Machine pour Linux (Ubuntu)** si vous voulez que la machine DSVM apparaissent dans la liste déroulante dans Azure Notebooks.  Si, pour d’autres raisons, vous devez utiliser l’image Windows ou CentOS, vous pouvez faire appel à l’option **Calcul direct** pour vous connecter manuellement à la machine DSVM.
-
-> [!IMPORTANT]
-> Lorsque vous utilisez des machines virtuelles de calcul Direct ou de la science des données, les ordinateurs portables que vous exécutez dessus doivent être entièrement autonomes. À l’heure actuelle, Azure Notebooks copie uniquement la *.ipynb* fichier à la machine virtuelle, mais ne copie pas les autres fichiers dans le projet. Par conséquent, blocs-notes s’exécuter sur d’autres machines virtuelles échouent rechercher d’autres fichiers de projet.
->
-> Vous pouvez contourner ce problème de deux manières :
->
-> 1. Copier manuellement les fichiers projet à la machine virtuelle.
->
-> 2. Incorporer les fichiers au sein d’un bloc-notes le programme d’installation que vous exécutez avant de l’ordinateur portable principal. Dans le bloc-notes le programme d’installation, créez une cellule de code pour chaque fichier dans lequel la cellule contient le contenu du fichier. Puis, en haut de chaque cellule, insérez la commande `%%writefile <filename>`, où `<filename>` est le nom du fichier à recevoir le contenu. Lorsque vous exécutez le bloc-notes, il crée tous les fichiers sur la machine virtuelle. Pour obtenir un exemple, consultez le [fichier setup.ipynb dans la démonstration de Microsoft Pet détecteur](https://github.com/Microsoft/connect-petdetector/blob/master/setup.ipynb) (GitHub).
->
->     ![À l’aide un %% commande writefile au début d’une cellule de code](media/setup-notebook-writefile-command.png)
+Par défaut, les projets s’exécutent le **calcul gratuit** niveau, qui est limité à 4 Go de mémoire et 1 Go de données pour éviter les abus. Vous pouvez contourner ces limitations et augmenter la puissance de calcul à l’aide d’une autre machine virtuelle que vous avez configuré dans un abonnement Azure. Pour plus d’informations, consultez [comment utiliser des Machines virtuelles de science des données](use-data-science-virtual-machine.md).
 
 ## <a name="edit-project-metadata"></a>Modifier les métadonnées de projet
 

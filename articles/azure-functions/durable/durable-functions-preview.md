@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/23/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 6b3b49049ea1ed36a08fad9619183017b0f07d99
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 8ceb84ab9e9c41ff6a9cbde62571fb12ae67d790
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65077739"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65596086"
 ---
 # <a name="durable-functions-20-preview-azure-functions"></a>Durable Functions 2.0 preview (Azure Functions)
 
@@ -26,7 +26,7 @@ Fonctions durables est une fonctionnalité générale (à la disposition génér
 > [!NOTE]
 > Ces fonctionnalités en version préliminaire font partie d’une version Durable Functions 2.0, qui est actuellement un **qualité alpha de la version** avec plusieurs modifications avec rupture. Azure Functions Durable génère de package d’extension sont accessibles sur nuget.org avec les versions sous la forme de **2.0.0-alpha**. Ces builds ne conviennent pas pour des charges de travail de production, et les versions ultérieures peuvent contenir des modifications avec rupture supplémentaires.
 
-## <a name="breaking-changes"></a>Dernières modifications
+## <a name="breaking-changes"></a>Changements cassants
 
 Plusieurs modifications avec rupture sont introduites dans Durable Functions 2.0. Applications existantes ne sont pas prévues pour être compatible avec Durable Functions 2.0 sans modification du code. Cette section répertorie certaines des modifications :
 
@@ -36,7 +36,7 @@ Prise en charge de .NET Framework (et par conséquent Functions 1.0) a été sup
 
 ### <a name="hostjson-schema"></a>Schéma de Host.JSON
 
-L’extrait suivant montre le nouveau schéma de host.json. Le principal changement à nous connaître la nouvelle `"storageProvider"` section et le `"azureStorage"` section situé en dessous. Cette modification a été effectuée pour prendre en charge [autres fournisseurs de stockage](durable-functions-preview.md#alternate-storage-providers).
+L’extrait suivant montre le nouveau schéma de host.json. Le principal changement à connaître est le nouveau `"storageProvider"` section et le `"azureStorage"` section situé en dessous. Cette modification a été effectuée pour prendre en charge [autres fournisseurs de stockage](durable-functions-preview.md#alternate-storage-providers).
 
 ```json
 {
@@ -93,11 +93,12 @@ Dans le cas où une classe de base abstraite contenus méthodes virtuelles, ces 
 
 Fonctions de l’entité définissent des opérations pour la lecture et de petites parties d’état, connu sous le nom de la mise à jour *entités durables*. Comme les fonctions d’orchestrateur, fonctions de l’entité sont des fonctions ayant un type spécial de déclencheur, *déclencheur de l’entité*. Contrairement aux fonctions d’orchestrator, les fonctions de l’entité n’ont pas de toutes les contraintes spécifiques de code. Fonctions de l’entité également gérer l’état explicitement plutôt qu’implicitement représentant l’état via le flux de contrôle.
 
-Le code suivant est un exemple d’une fonction d’entité simple qui définit un *compteur* entité. La fonction définit trois opérations, `add`, `remove`, et `reset`, chacun de laquelle mettre à jour une valeur entière, `currentValue`.
+Le code suivant est un exemple d’une fonction d’entité simple qui définit un *compteur* entité. La fonction définit trois opérations, `add`, `subtract`, et `reset`, chacun de laquelle mettre à jour une valeur entière, `currentValue`.
 
 ```csharp
+[FunctionName("Counter")]
 public static async Task Counter(
-    [EntityTrigger(EntityName = "Counter")] IDurableEntityContext ctx)
+    [EntityTrigger] IDurableEntityContext ctx)
 {
     int currentValue = ctx.GetState<int>();
     int operand = ctx.GetInput<int>();
@@ -200,21 +201,25 @@ La section critique se termine et tous les verrous sont libérés lorsque l’or
 Par exemple, envisagez une orchestration qui a besoin pour tester si deux joueurs sont disponibles et attribuez-les à la fois à un jeu. Cette tâche peut être implémentée à l’aide d’une section critique comme suit :
 
 ```csharp
-
-EntityId player1 = /* ... */;
-EntityId player2 = /* ... */;
-
-using (await ctx.LockAsync(player1, player2))
+[FunctionName("Orchestrator")]
+public static async Task RunOrchestrator(
+    [OrchestrationTrigger] IDurableOrchestrationContext ctx)
 {
-    bool available1 = await ctx.CallEntityAsync<bool>(player1, "is-available");
-    bool available2 = await ctx.CallEntityAsync<bool>(player2, "is-available");
+    EntityId player1 = /* ... */;
+    EntityId player2 = /* ... */;
 
-    if (available1 && available2)
+    using (await ctx.LockAsync(player1, player2))
     {
-        Guid gameId = ctx.NewGuid();
+        bool available1 = await ctx.CallEntityAsync<bool>(player1, "is-available");
+        bool available2 = await ctx.CallEntityAsync<bool>(player2, "is-available");
 
-        await ctx.CallEntityAsync(player1, "assign-game", gameId);
-        await ctx.CallEntityAsync(player2, "assign-game", gameId);
+        if (available1 && available2)
+        {
+            Guid gameId = ctx.NewGuid();
+
+            await ctx.CallEntityAsync(player1, "assign-game", gameId);
+            await ctx.CallEntityAsync(player2, "assign-game", gameId);
+        }
     }
 }
 ```

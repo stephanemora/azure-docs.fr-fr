@@ -3,8 +3,8 @@ title: Personnaliser des revendications émises dans le jeton SAML pour les appl
 description: Découvrez comment personnaliser les revendications émises dans le jeton SAML pour les applications d’entreprise dans Azure AD.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: f1daad62-ac8a-44cd-ac76-e97455e47803
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/03/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b137b8cd4e3a2b7a308170904e9b3d09b11137f9
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 4c1f8640918d433956935e9428e23aac59e36334
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65231350"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65764661"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Activation Personnaliser des revendications émises dans le jeton SAML pour les applications d’entreprise
 
@@ -121,7 +121,7 @@ Vous pouvez également utiliser les fonctions de transformations de revendicatio
 | **Extract() - avant la mise en correspondance** | Retourne la sous-chaîne jusqu'à ce qu’il correspond à la valeur spécifiée.<br/>Par exemple, si la valeur de l’entrée est « BSimon_US », la valeur correspondante est « _US », puis les sortie de la revendication sont « BSimon ». |
 | **Extract() - entre le correspondantes** | Retourne la sous-chaîne jusqu'à ce qu’il correspond à la valeur spécifiée.<br/>Par exemple, si la valeur de l’entrée est « Finance_BSimon_US », la première valeur correspondante est « Finance_ », la deuxième valeur de correspondance est « _US », puis les sortie de la revendication sont « BSimon ». |
 | **ExtractAlpha() - préfixe** | Retourne la partie alphabétique de préfixe de la chaîne.<br/>Par exemple, si la valeur de l’entrée est « BSimon_123 », elle retourne « BSimon ». |
-| **ExtractAlpha() - suffixe** | Retourne la partie alphabétique suffixe de la chaîne.<br/>Par exemple, si la valeur de l’entrée est « 123_Simon », elle retourne « BSimon ». |
+| **ExtractAlpha() - suffixe** | Retourne la partie alphabétique suffixe de la chaîne.<br/>Par exemple, si la valeur de l’entrée est « 123_Simon », elle retourne « Simon ». |
 | **ExtractNumeric() - Prefix** | Retourne la partie numérique de préfixe de la chaîne.<br/>Par exemple, si la valeur de l’entrée est « 123_BSimon », elle retourne « 123 ». |
 | **ExtractNumeric() - suffixe** | Retourne la partie numérique de suffixe de la chaîne.<br/>Par exemple, si la valeur de l’entrée est « BSimon_123 », elle retourne « 123 ». |
 | **IfEmpty()** | Si l’entrée est null ou vide, génère un attribut ou une constante.<br/>Par exemple, si vous souhaitez générer un attribut stocké dans un extensionattribute si la valeur employeeid pour un utilisateur donné est vide. Pour ce faire, vous configurez les valeurs suivantes :<br/>Paramètre 1(input) : user.employeeid<br/>Le paramètre 2 (sortie) : user.extensionattribute1<br/>Paramètre 3 (sortie s’il n’existe aucune correspondance) : user.employeeid |

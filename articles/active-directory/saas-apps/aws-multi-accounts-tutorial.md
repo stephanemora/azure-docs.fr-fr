@@ -17,13 +17,13 @@ ms.date: 01/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 322615203d188581dd04aadeff2a08307b733d06
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57450564"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65738263"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-multiple-amazon-web-services-aws-accounts"></a>Tutoriel : Intégration d’Azure Active Directory à plusieurs comptes Amazon Web Services (AWS)
+# <a name="tutorial-azure-active-directory-integration-with-multiple-amazon-web-services-aws-accounts"></a>Didacticiel : Intégration d’Azure Active Directory à plusieurs comptes Amazon Web Services (AWS)
 
 Dans ce tutoriel, vous allez apprendre à intégrer Azure Active Directory (Azure AD) à plusieurs comptes Amazon Web Services (AWS).
 
@@ -139,7 +139,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
 6. Dans la section **Revendications des utilisateurs** de la boîte de dialogue **Attributs utilisateur**, configurez le jeton SAML comme sur l’image ci-dessus et procédez comme suit :
 
-    | Nom  | Attribut source  | Espace de noms |
+    | Nom  | Attribut de la source  | Espace de noms |
     | --------------- | --------------- | --------------- |
     | RoleSessionName | user.userprincipalname | https://aws.amazon.com/SAML/Attributes |
     | Rôle            | user.assignedroles |  https://aws.amazon.com/SAML/Attributes |
@@ -347,7 +347,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     > [!Note]
     > Notez que vous devez actualiser votre session dans le portail Azure pour afficher les nouveaux rôles.
 
-### <a name="test-single-sign-on"></a>Tester l’authentification unique
+### <a name="test-single-sign-on"></a>Tester l'authentification unique
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 

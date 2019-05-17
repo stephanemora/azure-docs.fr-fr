@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e87a4c7ebafd8ddcfa54c87b189316b0ce98b0f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 3b10a91499dbe7e627025be8487efa15890861b9
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60301270"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65764721"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Référence des paramètres d’accès conditionnel Azure Active Directory
 
@@ -33,7 +33,7 @@ Si ce n’est pas les informations que vous recherchez, laissez un commentaire �
 
 ## <a name="cloud-apps-assignments"></a>Affectations des applications cloud
 
-Les stratégies d’accès conditionnel vous permettent de contrôler la façon dont les utilisateurs accèdent à vos [applications cloud](conditions.md#cloud-apps). Quand vous configurez une stratégie d’accès conditionnel, vous devez sélectionner au moins une application cloud. 
+Les stratégies d’accès conditionnel vous permettent de contrôler la façon dont les utilisateurs accèdent à vos [applications cloud](conditions.md#cloud-apps-and-actions). Quand vous configurez une stratégie d’accès conditionnel, vous devez sélectionner au moins une application cloud. 
 
 ![Sélectionner les applications cloud pour votre stratégie](./media/technical-reference/09.png)
 
@@ -74,7 +74,7 @@ Vous pouvez affecter une stratégie d’accès conditionnel aux applications clo
 - Skype Entreprise Online
 - Réseau privé virtuel (VPN)
 - Visual Studio App Center
-- Windows Defender ATP
+- Windows Defender ATP
 
 ### <a name="other-applications"></a>Autres applications
 
@@ -151,7 +151,7 @@ Pour la prise en charge de Chrome dans **Windows 8.1 et 7**, créez la clé de R
 |    |    |
 | --- | --- |
 | path | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
-| Name | 1 |
+| Nom | 1 |
 | Type | REG_SZ (String) |
 | Données | {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}} |
 
@@ -203,6 +203,7 @@ Dans votre stratégie d’accès conditionnel, vous pouvez exiger que toute tent
 Ce paramètre s’applique aux applications clientes suivantes :
 
 - Microsoft Azure Information Protection
+- Microsoft Bookings
 - Microsoft Edge
 - Microsoft Excel
 - Microsoft Flow

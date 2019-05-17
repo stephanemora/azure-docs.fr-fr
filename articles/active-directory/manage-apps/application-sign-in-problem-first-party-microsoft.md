@@ -3,8 +3,8 @@ title: Problèmes de connexion à une application Microsoft | Microsoft Docs
 description: Résoudre les problèmes courants liés à la connexion aux applications internes Microsoft (comme Office 365) à l’aide d’Azure AD
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/10/2018
-ms.author: celested
+ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 256ca5c2f26a6bac6bdfd09e4dd6294ec5a569ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 26acb32828ae4829b3da5c3a1181dbde19b23d05
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60292195"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65825210"
 ---
 # <a name="problems-signing-in-to-a-microsoft-application"></a>Problèmes de connexion à une application Microsoft
 
@@ -435,7 +435,7 @@ Pour vérifier ou valider une stratégie d’accès conditionnel :
 
 6. Cliquez sur la stratégie que vous souhaitez examiner.
 
-7. Vérifiez la présence de conditions, d’affectations ou d’autres paramètres pouvant bloquer l’accès de l’utilisateur.
+7. Vérifier qu’il n’y a aucune des conditions spécifiques, d’affectations ou d’autres paramètres qui peuvent bloquer l’accès de l’utilisateur.
 
    >[!NOTE]
    >Vous pouvez temporairement désactiver cette stratégie pour vérifier qu’elle n’affecte pas les connexions. Pour ce faire, sélectionnez la valeur **Non** de l’option **Activer une stratégie**, puis cliquez sur le bouton **Enregistrer**.
@@ -456,7 +456,7 @@ Pour vérifier ou valider une stratégie d’accès conditionnel configurée dan
 
 5.  Cliquez sur **Toutes les applications**.
 
-6.  Recherchez l’application qui vous intéresse ou à laquelle l’utilisateur tente de se connecter en fournissant son nom d’affichage ou son ID.
+6.  Recherchez l’application que vous êtes intéressé, ou l’utilisateur tente de se connecter pour afficher les ID de nom ou de l’application par application
 
      >[!NOTE]
      >Si vous ne voyez pas l’application que vous recherchez, cliquez sur le bouton **Filtrer**, puis développez l’étendue de la liste sur **Toutes les applications**. Si vous souhaitez afficher plus de colonnes, cliquez sur le bouton **Colonnes** pour ajouter des détails à vos applications.

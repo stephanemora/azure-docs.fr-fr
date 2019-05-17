@@ -8,14 +8,14 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 56a11a17de3c66a3d45edb71c72be20ce1a1c89e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 8ed9d84cba7cb9eeca94a1376fc03f1d256afa85
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64683748"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65779216"
 ---
-# <a name="introduction-to-ml-services-and-open-source-r-capabilities-on-hdinsight"></a>Présentation de ML Services et des fonctionnalités R open source sur HDInsight
+# <a name="what-is-ml-services-in-azure-hdinsight"></a>Nouveautés des Services de ML dans Azure HDInsight
 
 > [!NOTE]  
 > En septembre 2017, Microsoft R Server a été lancé sous le nouveau nom **Microsoft Machine Learning Server** ou ML Server. Par conséquent, le cluster R Server sur HDInsight s’appelle désormais cluster **Machine Learning Services** ou **ML Services** sur HDInsight. Pour plus d’informations sur le changement de nom de R Server, consultez [Microsoft R Server est désormais Microsoft Machine Learning Server](https://docs.microsoft.com/machine-learning-server/rebranding-microsoft-r-server#get-support-for-r-server).
@@ -60,7 +60,7 @@ ML Services dans HDInsight offre les avantages suivants :
 
 ML Services sur HDInsight inclut les fonctionnalités suivantes.
 
-| Catégorie de fonctionnalité | Description |
+| Catégorie de fonctionnalité | Description  |
 |------------------|-------------|
 | Pour R | [Packages R](https://docs.microsoft.com/machine-learning-server/r-reference/introducing-r-server-r-package-reference) pour les solutions écrites en R, avec une distribution open source de R et une infrastructure d’exécution pour l’exécution de script. |
 | Pour Python | [Modules Python](https://docs.microsoft.com/machine-learning-server/python-reference/introducing-python-package-reference) pour les solutions écrites en Python, avec une distribution open source de Python et une infrastructure d’exécution pour l’exécution de script.

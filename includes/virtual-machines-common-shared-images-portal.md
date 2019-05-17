@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/29/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 9b9b6d08fd14a850838590ce003e889e8e652c7c
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 66ec923f12c59d606056d48c09f1ba346e9a4d32
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148072"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65827073"
 ---
 ## <a name="sign-in-to-azure"></a>Connexion à Azure 
 
@@ -51,7 +51,7 @@ Créez la définition d’image de galerie à l’intérieur de votre galerie. D
 1. Pour **Publisher**, type *myPublisher*. 
 1. Pour **offrent**, type *myOffer*.
 1. Pour **référence (SKU)**, type *mySKU*.
-1. Assurez-vous que **Oui** nous sélectionné pour **activer** , puis sélectionnez **révision + créer**.
+1. Lorsque vous avez terminé, sélectionnez **révision + créer**.
 1. Une fois la définition de l’image est validé, sélectionnez **créer**.
 1. Lorsque le déploiement est terminé, sélectionnez **accéder à la ressource**.
 
@@ -61,7 +61,7 @@ Créez la définition d’image de galerie à l’intérieur de votre galerie. D
 
 Créer une version de l’image à partir d’une image managée. Dans cet exemple, la version d'image, *1.0.0*, elle est répliquée dans les deux centres de données *USA Centre-Ouest* et *USA Centre Sud*. Lors du choix des régions cibles pour la réplication, n’oubliez pas que vous devez également inclure le *source* région en tant que cible pour la réplication.
 
-Les caractères autorisés pour la version d’image sont les nombres et les points. Les nombres doivent être un entier 32 bits. Format : *MajorVersion*.*MinorVersion*.*Patch*.
+Les caractères autorisés pour la version d’image sont les nombres et les points. Les nombres doivent être un entier 32 bits. Format: *MajorVersion*.*MinorVersion*.*Patch*.
 
 1. Dans la page de votre définition de l’image, sélectionnez **ajouter version** à partir du haut de la page.
 1. Dans **région**, sélectionnez la région où se trouve votre image managée. Versions de l’image doivent être créés dans la même région que l’image managée qu’ils sont créés à partir de.

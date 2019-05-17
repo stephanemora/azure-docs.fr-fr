@@ -3,8 +3,8 @@ title: Utilisez les restrictions du client pour gérer l’accès à SaaS cloud 
 description: Comment utiliser les restrictions du client pour gérer les utilisateurs peuvent accéder à des applications en fonction de leur locataire Azure AD.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/28/2019
-ms.author: celested
+ms.author: mimart
 ms.reviewer: richagi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fa4eeb0a21525d636c7c1193c125d525774fa3fe
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 4a340663a1ec4ddf748c6dc2bc3a4e2ce0c4228e
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64707178"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65824377"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Utiliser les restrictions du client pour gérer l’accès aux applications cloud SaaS
 
@@ -166,7 +166,7 @@ Fiddler est un proxy de débogage web gratuit qui peut être utilisé pour captu
       }
       ```
 
-      Si vous avez besoin d’autoriser plusieurs clients, utilisez une virgule pour séparer les noms des clients. Par exemple : 
+      Si vous avez besoin d’autoriser plusieurs clients, utilisez une virgule pour séparer les noms des clients. Exemple :
 
       `oSession.oRequest["Restrict-Access-To-Tenants"] = "contoso.onmicrosoft.com,fabrikam.onmicrosoft.com";`
 

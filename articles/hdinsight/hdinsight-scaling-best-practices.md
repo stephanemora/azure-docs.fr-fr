@@ -1,26 +1,26 @@
 ---
 title: Mettre à l’échelle les tailles de cluster - Azure HDInsight
-description: Mettez à l’échelle un cluster HDInsight dans votre charge de travail.
+description: Mettre à l’échelle un cluster Azure HDInsight en toute flexibilité pour correspondre à votre charge de travail.
 author: ashishthaps
+ms.author: ashish
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 02/26/2019
-ms.author: ashish
-ms.openlocfilehash: a172024e4662e647b39fe999f1be3cfcef04b5ce
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 05/13/2019
+ms.openlocfilehash: 59b9c2bf6e17dadc0d084d3e3f257f8ad91073ca
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64698249"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595853"
 ---
 # <a name="scale-hdinsight-clusters"></a>Mettre à l’échelle les clusters HDInsight
 
 HDInsight fournit l’élasticité en vous offrant la possibilité de monter ou de descendre en puissance le nombre de nœuds de travail dans vos clusters. Cela vous permet de réduire un cluster après certaines heures ou les week-ends, et de le développer pendant les pics d’activité.
 
-Par exemple, si vous effectuez un traitement par lots une fois par jour ou une fois par mois, le cluster HDInsight peut être monté en puissance quelques minutes avant cet événement planifié, et il y aura donc suffisamment de mémoire et de puissance de calcul.  Plus tard, une fois que le traitement a été effectué et que l’utilisation baisse à nouveau, vous pouvez descendre en puissance le cluster HDInsight afin de réduire le nombre de nœuds de travail.
+Par exemple, si vous avez un traitement par lots qui produit une fois par jour ou une fois par mois, le cluster HDInsight peut être montée en puissance quelques minutes avant cet événement planifié donc il y aura suffisamment de mémoire et la puissance de calcul.  Plus tard, une fois que le traitement a été effectué et que l’utilisation baisse à nouveau, vous pouvez descendre en puissance le cluster HDInsight afin de réduire le nombre de nœuds de travail.
 
+Vous pouvez mettre à l’échelle un cluster manuellement à l’aide d’une des méthodes décrites ci-dessous, ou utiliser [mise à l’échelle](hdinsight-autoscale-clusters.md) options pour que le système mette automatiquement à l’échelle en réponse à l’UC, mémoire et d’autres mesures.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -28,12 +28,12 @@ Par exemple, si vous effectuez un traitement par lots une fois par jour ou une f
 
 Microsoft fournit les utilitaires suivants pour mettre à l’échelle des clusters :
 
-|Utilitaire | Description|
+|Utilitaire | Description |
 |---|---|
 |[PowerShell Az](https://docs.microsoft.com/powershell/azure)|[Set-AzHDInsightClusterSize](https://docs.microsoft.com/powershell/module/az.hdinsight/set-azhdinsightclustersize) - ClusterName \<nom du Cluster > - TargetInstanceCount \<NewSize >|
 |[PowerShell AzureRM](https://docs.microsoft.com/powershell/azure/azurerm) |[Set-AzureRmHDInsightClusterSize](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/set-azurermhdinsightclustersize) - ClusterName \<nom du Cluster > - TargetInstanceCount \<NewSize >|
-|[Interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)|[redimensionner AZ hdinsight](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-resize) --groupe de ressources \<groupe de ressources >--nom \<nom du Cluster >--nombre d’instances cibles \<NewSize >|
-|[Azure Classic CLI](hdinsight-administer-use-command-line.md)|redimensionnement du cluster Azure hdinsight \<clusterName > \<nombre d’instances cibles >|
+|[Interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)| [redimensionner AZ hdinsight](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-resize) --groupe de ressources \<groupe de ressources >--nom \<nom du Cluster >--nombre d’instances cibles \<NewSize >|
+|[Azure Classic CLI](hdinsight-administer-use-command-line.md)|redimensionnement du cluster Azure hdinsight \<clusterName > \<nombre d’instances cibles > |
 |[Portail Azure](https://portal.azure.com)|Ouvrez le volet de votre cluster HDInsight, sélectionnez **taille du Cluster** dans le menu de gauche, puis dans le volet de taille de Cluster, tapez le nombre de nœuds de travail, puis sélectionnez Enregistrer.|  
 
 ![Mettre à l’échelle le cluster](./media/hdinsight-scaling-best-practices/scale-cluster-blade.png)
@@ -326,6 +326,6 @@ La dernière option consiste à rechercher les rares cas où HDFS passe en mode 
     
 ## <a name="next-steps"></a>Étapes suivantes
 
+* [Automatiquement à l’échelle des clusters Azure HDInsight](hdinsight-autoscale-clusters.md)
 * [Présentation d'Azure HDInsight](hadoop/apache-hadoop-introduction.md)
 * [Mise à l’échelle des clusters](hdinsight-administer-use-portal-linux.md#scale-clusters)
-* [Gérer des clusters HDInsight à l’aide de l’interface utilisateur web d’Apache Ambari](hdinsight-hadoop-manage-ambari.md)

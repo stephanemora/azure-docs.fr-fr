@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: e23297d8cd6cab5abeedc1a12fa1a37c93e94283
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 8b3447b8094eb95bd2f61baed7371bf718fdf730
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64943613"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606909"
 ---
 <a name="seller-insights-definitions"></a>Définitions des insights vendeur
 =======================
@@ -37,7 +37,7 @@ Le tableau suivant contient les définitions de la plupart des termes que vous r
 | **Ville du client**  | Le nom de ville fourni par le client. Cela peut être différent de celui de la ville dans l’abonnement du client Azure.  |
 | **Langue de Communication client**        | Langue dans laquelle le client préfère communiquer.                                  |
 | **Nom de la société du client**                  | Le nom de société fourni par le client. Cela peut être différent de celui de la ville dans l’abonnement du client Azure.                                  |
-| **Pays du client**                       | Le nom du pays fourni par le client.  Cela peut être différente de celle du pays dans l’abonnement du client Azure.                               |
+| **Pays du client**                       | Le nom de pays/région fourni par le client.  Cela peut être différente de pays/région dans l’abonnement du client Azure.                               |
 | **Devise (CC) du client**                 | Devise privilégiée par le client pour la tarification et la facturation.                            |
 | **E-mail client**                         | L’adresse de messagerie fournie par le client final.  Cela peut être différente de celle de l’adresse de messagerie dans l’abonnement du client Azure.                   |
 | **Prénom du client**                              | Le prénom fourni par le client.  Cela peut être différent du nom fourni dans l’abonnement du client Azure.                    |

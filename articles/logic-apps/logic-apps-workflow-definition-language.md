@@ -8,17 +8,17 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: reference
-ms.date: 04/30/2018
-ms.openlocfilehash: d80ffa862546f56e93a338a7a1db031e2cb55990
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/13/2019
+ms.openlocfilehash: 3b0ad33ea6348f24079b3c88f972437244c0bc93
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60845736"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65596766"
 ---
 # <a name="schema-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Référence de schéma du langage de définition de workflow dans Azure Logic Apps
 
-Lorsque vous créez une application logique dans [Azure Logic Apps](../logic-apps/logic-apps-overview.md), votre application logique a une définition de flux de travail sous-jacent qui décrit la logique réelle qui s’exécute dans votre application logique. Cette définition de flux de travail utilise [JSON](https://www.json.org/) et suit une structure qui est validée par le schéma de langage de définition de flux de travail. Cette référence fournit une vue d’ensemble sur cette structure et la façon dont le schéma définit les éléments dans votre définition de flux de travail.
+Lorsque vous créez une application logique dans [Azure Logic Apps](../logic-apps/logic-apps-overview.md), votre application logique a une définition de flux de travail sous-jacent qui décrit la logique réelle qui s’exécute dans votre application logique. Cette définition de flux de travail utilise [JSON](https://www.json.org/) et suit une structure qui est validée par le schéma de langage de définition de flux de travail. Cette référence fournit une vue d’ensemble sur cette structure et la façon dont le schéma définit les attributs dans votre définition de flux de travail.
 
 ## <a name="workflow-definition-structure"></a>Structure d’une définition de flux de travail
 
@@ -29,24 +29,63 @@ Voici la structure de haut niveau d’une définition de flux de travail :
 ```json
 "definition": {
   "$schema": "<workflow-definition-language-schema-version>",
-  "contentVersion": "<workflow-definition-version-number>",
-  "parameters": { "<workflow-parameter-definitions>" },
-  "triggers": { "<workflow-trigger-definitions>" },
   "actions": { "<workflow-action-definitions>" },
-  "outputs": { "<workflow-output-definitions>" }
+  "contentVersion": "<workflow-definition-version-number>",
+  "outputs": { "<workflow-output-definitions>" },
+  "parameters": { "<workflow-parameter-definitions>" },
+  "staticResults": { "<static-results-definitions>" },
+  "triggers": { "<workflow-trigger-definitions>" }
 }
 ```
 
-| Élément | Obligatoire | Description |
-|---------|----------|-------------|
-| Définition | Oui | Élément de départ de votre définition de flux de travail |
-| $schema | Uniquement en cas de référence externe à une définition de flux de travail | Emplacement du fichier de schéma JSON qui décrit la version du langage de définition de flux de travail, que vous pouvez trouver ici : <p>`https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json`</p> |
-| contentVersion | Non  | Numéro de version de votre définition de flux de travail (1.0.0.0 par défaut). Pour identifier et vérifier plus facilement la définition correcte lors du déploiement d’un flux de travail, spécifiez une valeur à utiliser. |
-| parameters | Non  | Définitions d’un ou plusieurs paramètres qui transmettent des données à votre flux de travail <p><p>Nombre maximal de paramètres : 50 |
-| Déclencheurs | Non  | Définitions d’un ou plusieurs déclencheurs qui instancient votre flux de travail. Vous pouvez définir plus d’un déclencheur, mais uniquement avec le langage de définition de flux de travail (vous ne pouvez pas le faire visuellement via le Concepteur Logic Apps). <p><p>Nombre maximal de déclencheurs : 10 |
-| actions | Non  | Définitions d’une ou plusieurs actions à exécuter lors de l’exécution du flux de travail <p><p>Nombre maximal d'actions : 250 |
-| outputs | Non  | Définitions des sorties renvoyées lors de l’exécution d’un flux de travail <p><p>Nombre maximal de sorties : 10 |
+| Attribut | Obligatoire | Description  |
+|-----------|----------|-------------|
+| `definition` | Oui | Élément de départ de votre définition de flux de travail |
+| `$schema` | Uniquement en cas de référence externe à une définition de flux de travail | Emplacement du fichier de schéma JSON qui décrit la version du langage de définition de flux de travail, que vous pouvez trouver ici : <p>`https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json`</p> |
+| `actions` | Non | Les définitions pour un ou plusieurs des actions à exécuter lors de l’exécution de flux de travail. Pour plus d’informations, consultez [déclencheurs et actions](#triggers-actions). <p><p>Nombre maximal d'actions : 250 |
+| `contentVersion` | Non | Numéro de version de votre définition de flux de travail (1.0.0.0 par défaut). Pour identifier et vérifier plus facilement la définition correcte lors du déploiement d’un flux de travail, spécifiez une valeur à utiliser. |
+| `outputs` | Non | Les définitions pour les sorties qui retournent à partir d’un exécution de workflow. Pour plus d’informations, consultez [sorties](#outputs). <p><p>Nombre maximal de sorties : 10 |
+| `parameters` | Non | Les définitions pour un ou plusieurs paramètres qui passent des données dans votre flux de travail. Pour plus d’informations, consultez [paramètres](#parameters). <p><p>Nombre maximal de paramètres : 50 |
+| `staticResults` | Non | Les définitions pour un ou plusieurs résultats statiques retournées par des actions en tant que sorties fictifs lorsque les résultats statiques sont activés sur ces actions. Dans chaque définition de l’action, le `runtimeConfiguration.staticResult.name` attribut fait référence à la définition correspondante à l’intérieur de `staticResults`. Pour plus d’informations, consultez [résultats statiques](#static-results). |
+| `triggers` | Non | Définitions d’un ou plusieurs déclencheurs qui instancient votre flux de travail. Vous pouvez définir plus d’un déclencheur, mais uniquement avec le langage de définition de flux de travail (vous ne pouvez pas le faire visuellement via le Concepteur Logic Apps). Pour plus d’informations, consultez [déclencheurs et actions](#triggers-actions). <p><p>Nombre maximal de déclencheurs : 10 |
 ||||
+
+<a name="triggers-actions"></a>
+
+## <a name="triggers-and-actions"></a>Déclencheurs et actions
+
+Dans une définition de flux de travail, les sections `triggers` et `actions` définissent les appels qui se produisent pendant l’exécution de votre flux de travail. Pour obtenir des informations supplémentaires sur ces sections et connaître la syntaxe à utiliser, consultez [Déclencheurs et actions du flux de travail](../logic-apps/logic-apps-workflow-actions-triggers.md).
+
+<a name="outputs"></a>
+
+## <a name="outputs"></a>Outputs
+
+Dans la section `outputs`, définissez les données que votre flux de travail peut renvoyer une fois son exécution terminée. Par exemple, pour suivre un état ou une valeur spécifique à chaque exécution, spécifiez le renvoi de cette donnée par la sortie du flux de travail.
+
+> [!NOTE]
+> Pour la réponse à des requêtes entrantes à partir de l’API REST d’un service, n’utilisez pas `outputs`. Utilisez le type d’action `Response` à la place. Pour plus d’informations, consultez [Déclencheurs et actions du flux de travail](../logic-apps/logic-apps-workflow-actions-triggers.md).
+
+Voici la structure générale d’une définition de sortie :
+
+```json
+"outputs": {
+  "<key-name>": {
+    "type": "<key-type>",
+    "value": "<key-value>"
+  }
+}
+```
+
+| Attribut | Obligatoire | Type | Description  |
+|-----------|----------|------|-------------|
+| <*key-name*> | Oui | Chaîne | Nom de la clé de la valeur renvoyée pour la sortie |
+| <*key-type*> | Oui | int, float, string, securestring, bool, array, objet JSON | Type de la valeur renvoyée pour la sortie |
+| <*key-value*> | Oui | Identique à <*type de clé*> | Valeur renvoyée pour la sortie |
+|||||
+
+Pour obtenir la sortie à partir d’un exécution de workflow, passez en revue l’historique des exécutions de votre application logique et les détails dans le portail Azure ou utilisez le [API REST de Workflow](https://docs.microsoft.com/rest/api/logic/workflows). Vous pouvez également transmettre la sortie à des systèmes externes, par exemple Power BI, afin de créer des tableaux de bord.
+
+<a name="parameters"></a>
 
 ## <a name="parameters"></a>parameters
 
@@ -69,44 +108,94 @@ Voici la structure générale d’une définition de paramètre :
 },
 ```
 
-| Élément | Obligatoire | Type | Description |
-|---------|----------|------|-------------|
-| Type | Oui | int, float, string, securestring, bool, array, objet JSON, secureobject <p><p>**Remarque**: pour tous les mots de passe, les clés et les secrets, utilisez les types `securestring` et `secureobject` car l'opération `GET` ne renvoie pas ces types. Pour plus d’informations sur la sécurisation des paramètres, consultez [sécuriser votre application logique](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters) | Type du paramètre |
-| defaultValue | Oui | Identique à `type` | Valeur par défaut du paramètre quand aucune valeur n’est spécifiée lors de l’instanciation du flux de travail |
-| allowedValues | Non  | Identique à `type` | Tableau regroupant les valeurs que le paramètre peut accepter |
-| metadata | Non  | Objet JSON | Les autres détails de paramètre, par exemple, le nom ou une description lisible pour votre application logique ou flux ou les données au moment du design utilisées par Visual Studio ou d’autres outils |
+| Attribut | Obligatoire | Type | Description  |
+|-----------|----------|------|-------------|
+| <*parameter-type*> | Oui | int, float, string, securestring, bool, array, objet JSON, secureobject <p><p>**Remarque**: pour tous les mots de passe, les clés et les secrets, utilisez les types `securestring` et `secureobject` car l'opération `GET` ne renvoie pas ces types. Pour plus d’informations sur la sécurisation des paramètres, consultez [sécuriser votre application logique](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters) | Type du paramètre |
+| <*default-parameter-values*> | Oui | Identique à `type` | Valeur par défaut du paramètre quand aucune valeur n’est spécifiée lors de l’instanciation du flux de travail |
+| <*array-with-permitted-parameter-values*> | Non | Tableau | Tableau regroupant les valeurs que le paramètre peut accepter |
+| `metadata` | Non | Objet JSON | Les autres détails de paramètre, par exemple, le nom ou une description lisible pour votre application logique ou flux ou les données au moment du design utilisées par Visual Studio ou d’autres outils |
 ||||
 
-## <a name="triggers-and-actions"></a>Déclencheurs et actions
+<a name="static-results"></a>
 
-Dans une définition de flux de travail, les sections `triggers` et `actions` définissent les appels qui se produisent pendant l’exécution de votre flux de travail. Pour obtenir des informations supplémentaires sur ces sections et connaître la syntaxe à utiliser, consultez [Déclencheurs et actions du flux de travail](../logic-apps/logic-apps-workflow-actions-triggers.md).
+## <a name="static-results"></a>Résultats statiques
 
-## <a name="outputs"></a>Outputs
-
-Dans la section `outputs`, définissez les données que votre flux de travail peut renvoyer une fois son exécution terminée. Par exemple, pour suivre un état ou une valeur spécifique à chaque exécution, spécifiez le renvoi de cette donnée par la sortie du flux de travail.
-
-> [!NOTE]
-> Pour la réponse à des requêtes entrantes à partir de l’API REST d’un service, n’utilisez pas `outputs`. Utilisez le type d’action `Response` à la place. Pour plus d’informations, consultez [Déclencheurs et actions du flux de travail](../logic-apps/logic-apps-workflow-actions-triggers.md).
-
-Voici la structure générale d’une définition de sortie :
+Dans le `staticResults` d’attribut, de définir les simulacre d’une action `outputs` et `status` renvoyant l’action lorsque le paramètre de résultat statique de l’action est activé. Dans la définition de l’action, le `runtimeConfiguration.staticResult.name` attribut fait référence au nom de la définition de résultat statique à l’intérieur de `staticResults`. Découvrez comment vous pouvez [tester des applications logiques avec des données fictives en configurant des résultats statiques](../logic-apps/test-logic-apps-mock-data-static-results.md).
 
 ```json
-"outputs": {
-  "<key-name>": {
-    "type": "<key-type>",
-    "value": "<key-value>"
-  }
+"definition": {
+   "$schema": "<...>",
+   "actions": { "<...>" },
+   "contentVersion": "<...>",
+   "outputs": { "<...>" },
+   "parameters": { "<...>" },
+   "staticResults": {
+      "<static-result-definition-name>": {
+         "outputs": {
+            <output-attributes-and-values-returned>,
+            "headers": { <header-values> },
+            "statusCode": "<status-code-returned>"
+         },
+         "status": "<action-status>"
+      }
+   },
+   "triggers": { "<...>" }
 }
 ```
 
-| Élément | Obligatoire | Type | Description |
-|---------|----------|------|-------------|
-| <*key-name*> | Oui | Chaîne | Nom de la clé de la valeur renvoyée pour la sortie |
-| Type | Oui | int, float, string, securestring, bool, array, objet JSON | Type de la valeur renvoyée pour la sortie |
-| value | Oui | Identique à `type` | Valeur renvoyée pour la sortie |
+| Attribut | Obligatoire | Type | Description  |
+|-----------|----------|------|-------------|
+| <*static-result-definition-name*> | Oui | Chaîne | Le nom d’une définition statique résultat une définition de l’action peut faire référence à un `runtimeConfiguration.staticResult` objet. Pour plus d’informations, consultez [Paramètres de configuration d’exécution](../logic-apps/logic-apps-workflow-actions-triggers.md#runtime-config-options). <p>Vous pouvez utiliser n’importe quel nom unique que vous souhaitez. Par défaut, ce nom unique est ajouté avec un nombre, qui est incrémenté si nécessaire. |
+| <*output-attributes-and-values-returned*> | Oui | Varie | La configuration requise pour ces attributs varie en fonction des conditions différentes. Par exemple, lorsque le `status` est `Succeeded`, le `outputs` attribut inclut des attributs et des sorties comme fictifs les valeurs retournées par l’action. Si le `status` est `Failed`, le `outputs` attribut inclut le `errors` attribut, qui est un tableau avec une ou plusieurs erreurs `message` objets ayant des informations sur l’erreur. |
+| <*header-values*> | Non | JSON | Des valeurs d’en-tête retournées par l’action |
+| <*status-code-returned*> | Oui | Chaîne | Le code d’état retourné par l’action |
+| <*action-status*> | Oui | Chaîne | État de l’action, par exemple, `Succeeded` ou `Failed` |
 |||||
 
-Pour obtenir la sortie à partir d’un exécution de workflow, passez en revue l’historique des exécutions de votre application logique et les détails dans le portail Azure ou utilisez le [API REST de Workflow](https://docs.microsoft.com/rest/api/logic/workflows). Vous pouvez également transmettre la sortie à des systèmes externes, par exemple Power BI, afin de créer des tableaux de bord.
+Par exemple, dans cette définition de l’action HTTP, le `runtimeConfiguration.staticResult.name` les références d’attribut `HTTP0` à l’intérieur de la `staticResults` attribut où sont définies les sorties factices pour l’action. Le `runtimeConfiguration.staticResult.staticResultOptions` attribut spécifie que le paramètre de résultat statique est `Enabled` sur l’action HTTP.
+
+```json
+"actions": {
+   "HTTP": {
+      "inputs": {
+         "method": "GET",
+         "uri": "https://www.microsoft.com"
+      },
+      "runAfter": {},
+      "runtimeConfiguration": {
+         "staticResult": {
+            "name": "HTTP0",
+            "staticResultOptions": "Enabled"
+         }
+      },
+      "type": "Http"
+   }
+},
+```
+
+L’action HTTP retourne les sorties dans le `HTTP0` définition à l’intérieur `staticResults`. Dans cet exemple, pour le code d’état, la sortie factice est `OK`. Pour les valeurs d’en-tête, la sortie factice est `"Content-Type": "application/JSON"`. Pour l’état de l’action, la sortie factice est `Succeeded`.
+
+```json
+"definition": {
+   "$schema": "<...>",
+   "actions": { "<...>" },
+   "contentVersion": "<...>",
+   "outputs": { "<...>" },
+   "parameters": { "<...>" },
+   "staticResults": {
+      "HTTP0": {
+         "outputs": {
+            "headers": {
+               "Content-Type": "application/JSON"
+            },
+            "statusCode": "OK"
+         },
+         "status": "Succeeded"
+      }
+   },
+   "triggers": { "<...>" }
+},
+```
 
 <a name="expressions"></a>
 
@@ -203,9 +292,9 @@ Quand vous avez terminé, l’expression apparaît pour la propriété correspon
 
 Dans les [expressions](#expressions) et les [fonctions](#functions), les opérateurs effectuent des tâches spécifiques, telles que référencer une propriété ou une valeur dans un tableau.
 
-| Operator | Tâche |
+| Opérateur | Tâche |
 |----------|------|
-| ' | Pour utiliser une chaîne littérale en tant qu’entrée ou dans des expressions et des fonctions, vous devez placer la chaîne uniquement entre des guillemets simples, par exemple, `'<myString>'`. N’utilisez pas de guillemets doubles (""), qui entrent en conflit avec le formatage JSON autour d’une expression entière. Par exemple :  <p>**Oui** : length('Hello') </br>**Non** : length("Hello") <p>Quand vous transmettez des tableaux ou des nombres, vous n’avez pas besoin de les placer entre des signes de ponctuation. Par exemple :  <p>**Oui** : length([1, 2, 3]) </br>**Non** : length("[1, 2, 3]") |
+| ' | Pour utiliser une chaîne littérale en tant qu’entrée ou dans des expressions et des fonctions, vous devez placer la chaîne uniquement entre des guillemets simples, par exemple, `'<myString>'`. N’utilisez pas de guillemets doubles (""), qui entrent en conflit avec le formatage JSON autour d’une expression entière. Exemple : <p>**Oui** : length('Hello') </br>**Non** : length("Hello") <p>Quand vous transmettez des tableaux ou des nombres, vous n’avez pas besoin de les placer entre des signes de ponctuation. Exemple : <p>**Oui** : length([1, 2, 3]) </br>**Non** : length("[1, 2, 3]") |
 | [] | Pour référencer une valeur à une position spécifique (index) dans un tableau, utilisez des crochets. Par exemple, pour obtenir le deuxième élément d’un tableau : <p>`myArray[1]` |
 | . | Pour référencer une propriété d’un objet, utilisez l’opérateur point. Par exemple, pour obtenir la propriété `name` d’un objet JSON `customer` : <p>`"@parameters('customer').name"` |
 | ? | Pour référencer les propriétés Null d’un objet sans erreur d’exécution, utilisez l’opérateur point d’interrogation. Par exemple, pour gérer les sorties Null d’un déclencheur, vous pouvez utiliser cette expression : <p>`@coalesce(trigger().outputs?.body?.<someProperty>, '<property-default-value>')` |

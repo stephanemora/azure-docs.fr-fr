@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: apurvajo;cephalin
 ms.custom: seodec18
-ms.openlocfilehash: b561091eedb43e1c77f3c97951beeb92bfcf4751
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 15441f70052950748f07b96ff234557462f268cd
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65202925"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65786323"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-azure-app-service"></a>Acheter et configurer un certificat SSL pour Azure App Service
 
@@ -50,10 +50,10 @@ Aidez-vous du tableau suivant pour configurer le certificat. Lorsque vous avez t
 | Paramètre | Description |
 |-|-|
 | Nom | Nom convivial de votre certificat App Service. |
-| Nom d’hôte de domaine nu | Si vous spécifiez ici le domaine racine, vous obtenez un certificat qui sécurise *à la fois* le domaine racine et le sous-domaine `www`. Pour sécuriser un sous-domaine uniquement, indiquez ici son nom de domaine complet (par exemple, `mysubdomain.contoso.com`). |
+| Nom d'hôte de domaine nu | Si vous spécifiez ici le domaine racine, vous obtenez un certificat qui sécurise *à la fois* le domaine racine et le sous-domaine `www`. Pour sécuriser un sous-domaine uniquement, indiquez ici son nom de domaine complet (par exemple, `mysubdomain.contoso.com`). |
 | Abonnement | Centre de données dans lequel l’application web est hébergée. |
 | Groupe de ressources | Groupe de ressources qui contient le certificat. Vous pouvez utiliser un nouveau groupe de ressources, ou sélectionner le même groupe de ressources que votre application App Service, par exemple. |
-| Référence (SKU) de certificat | Détermine le type de certificat à créer (certificat standard ou [certificat générique](https://wikipedia.org/wiki/Wildcard_certificate)). |
+| Référence (SKU) du certificat | Détermine le type de certificat à créer (certificat standard ou [certificat générique](https://wikipedia.org/wiki/Wildcard_certificate)). |
 | Termes et conditions | Cliquez pour confirmer que vous acceptez les termes et conditions. Les certificats sont obtenues à partir de GoDaddy. |
 
 ## <a name="store-in-azure-key-vault"></a>Stocker dans Azure Key Vault
@@ -74,7 +74,7 @@ Dans la page **État de Key Vault**, cliquez sur **Référentiel Key Vault** pou
 | Groupe de ressources | Nous vous conseillons de choisir le même groupe de ressources que votre certificat App Service. |
 | Lieu | Choisissez le même emplacement que votre application App Service. |
 | Niveau tarifaire | Pour obtenir des informations sur les tarifs, consultez [Tarification d’Azure Key Vault](https://azure.microsoft.com/pricing/details/key-vault/). |
-| Stratégies d’accès| Définit les applications et l’accès autorisé aux ressources du coffre. Vous pouvez configurer ce paramètre ultérieurement, en suivant les étapes décrites dans [Accorder à plusieurs applications l’autorisation d’accéder à un coffre de clés](../key-vault/key-vault-group-permissions-for-apps.md). |
+| Stratégies d'accès| Définit les applications et l’accès autorisé aux ressources du coffre. Vous pouvez configurer ce paramètre ultérieurement, en suivant les étapes décrites dans [Accorder à plusieurs applications l’autorisation d’accéder à un coffre de clés](../key-vault/key-vault-group-permissions-for-apps.md). |
 | Accès au réseau virtuel | Limitez l’accès au coffre à certains réseaux virtuels Azure. Vous pouvez configurer ce paramètre ultérieurement, en suivant les étapes décrites dans [Configurer les pare-feux et réseaux virtuels d’Azure Key Vault](../key-vault/key-vault-network-security.md) |
 
 Une fois que vous avez sélectionné le coffre, fermez la page **Référentiel Key Vault**. L’option **Stocker** affiche normalement une coche verte de réussite. Gardez cette page ouverte pour l’étape suivante.
@@ -111,9 +111,9 @@ Maintenant que le certificat est importé, vous devez le lier à un nom de domai
 
 Dans la boîte de dialogue **Liaisons SSL**, configurez la liaison en vous aidant du tableau suivant, puis cliquez sur **Ajouter une liaison**.
 
-| Paramètre | Description |
+| Paramètre | Description  |
 |-|-|
-| Nom d’hôte | Nom du domaine pour lequel ajouter une liaison SSL. |
+| Nom d'hôte | Nom du domaine pour lequel ajouter une liaison SSL. |
 | Empreinte numérique du certificat privé | Certificat à lier. |
 | Type SSL | <ul><li>**SNI SSL** : plusieurs liaisons SNI SSL peuvent être ajoutées. Cette option permet de sécuriser plusieurs domaines sur la même adresse IP avec plusieurs certificats SSL. La plupart des navigateurs actuels (y compris Internet Explorer, Chrome, Firefox et Opera) prennent en charge SNI (plus d’informations sur la prise en charge des navigateurs dans [Indication du nom du serveur](https://wikipedia.org/wiki/Server_Name_Indication)).</li><li>**SSL basé sur IP** : une seule liaison SSL basée sur IP peut être ajoutée. Cette option permet de sécuriser une adresse IP publique dédiée avec un seul certificat SSL. Après avoir configuré la liaison, effectuez les étapes décrites dans [Remapper un enregistrement pour IP SSL](app-service-web-tutorial-custom-ssl.md#remap-a-record-for-ip-ssl). </li></ul> |
 
@@ -136,7 +136,7 @@ Une fois l’opération de renouvellement est terminée, cliquez sur **synchroni
 > [!NOTE]
 > Si vous ne cliquez pas sur **synchronisation**, App Service se synchronise automatiquement votre certificat dans les 48 heures.
 
-## <a name="renew-certificate"></a>Renouvellement de certificat
+## <a name="renew-certificate"></a>Renouveler le certificat
 
 Pour activer le renouvellement automatique de votre certificat à tout moment, sélectionnez le certificat dans la page [App Service Certificates](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders), puis cliquez sur **Paramètres de renouvellement automatique** dans le volet de navigation de gauche.
 
@@ -166,4 +166,4 @@ Une fois l’opération de renouvellement est terminée, cliquez sur **synchroni
 * [Appliquer le protocole HTTPS](app-service-web-tutorial-custom-ssl.md#enforce-https)
 * [Appliquer le protocole TLS 1.1/1.2](app-service-web-tutorial-custom-ssl.md#enforce-tls-versions)
 * [Utiliser un certificat SSL dans votre code d’application dans Azure App Service](app-service-web-ssl-cert-load.md)
-* [FORUM AUX QUESTIONS : App Service Certificates](https://blogs.msdn.microsoft.com/appserviceteam/2017/07/24/faq-app-service-certificates/)
+* [FORUM AUX QUESTIONS : App Service Certificates](https://docs.microsoft.com/en-us/azure/app-service/faq-configuration-and-management/)

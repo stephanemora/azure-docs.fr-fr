@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 5/7/2019
+ms.date: 5/16/2019
 ms.author: victorh
-ms.openlocfilehash: dfb5b8b69b2ca9bea118603406f4747036d2641c
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 0da5d8a3eec0faa4001ccf229c6748c253f1b6e5
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510815"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65827424"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway"></a>Mise à l’échelle et la passerelle d’Application redondant 
 
@@ -62,7 +62,7 @@ Guide de l’unité de calcul :
 | Standard_v2                                       |    0.20             | 0.0080                          |
 | WAF_v2                                            |    0.36             | 0.0144                          |
 
-Le [page de tarification](https://azure.microsoft.com/pricing/details/application-gateway/) sera mis à jour pour refléter les prix sur le 14 mai 2019. La facturation est programmée pour démarrer sur le 1 juin 2019.
+Pour plus d’informations tarifaires, consultez le [page de tarification](https://azure.microsoft.com/pricing/details/application-gateway/). La facturation est programmée pour démarrer sur le 1 juillet 2019.
 
 **Exemple 1**
 
@@ -100,7 +100,7 @@ Le [page de tarification](https://azure.microsoft.com/pricing/details/applicatio
 Passerelle d’application et de pare-feu d’applications Web peuvent être configurés à l’échelle dans deux modes :
 
 - **Mise à l’échelle** : la mise à l’échelle est activée, la passerelle d’Application et le WAF v2 références (SKU) mettre à l’échelle vers le haut ou vers le bas en fonction des besoins de trafic d’application. Ce mode offre une meilleure élasticité à votre application et vous évite de devoir deviner le nombre de taille ou d’instances de passerelle application. Ce mode permet également à réduire les coûts en vous évitant pour exécuter des passerelles à sa capacité maximale configurée pour la charge du trafic maximal prévu. Les clients doivent spécifier un nombre d’instances minimum et maximum si vous le souhaitez. Capacité minimale garantit que les Application Gateway et WAF v2 ne prennent pas inférieur au nombre minimal d’instances spécifié, même en l’absence de trafic. Vous serez facturé pour cette capacité minimale même en l’absence de tout le trafic. Vous pouvez également spécifier un nombre maximal d’instances, ce qui garantit que la passerelle d’Application n’évolue pas au-delà du nombre spécifié d’instances. Vous continuerez à être facturé pour la quantité de trafic traité par la passerelle. Le nombre d’instances peut varier de 0 à 125. La valeur par défaut pour le nombre maximal d’instances est de 20 si elle n’est pas spécifié.
-- **Manuel** -vous pouvez aussi choisir le mode manuel, où la passerelle ne sont pas mise à l’échelle. Dans ce mode, s’il existe davantage de trafic que les Application Gateway ou le WAF est capable de gérer, cela peut entraîner une perte de trafic. Avec le mode manuel, en spécifiant le nombre d’instances est obligatoire. Nombre d’instances peut varier de 1 à 125 instances.
+- **Manuel** -vous pouvez aussi choisir le mode manuel, où la passerelle ne sont pas mise à l’échelle. Dans ce mode, s’il existe davantage de trafic que ce que Application Gateway ou WAF peut gérer, cela peut entraîner une perte de trafic. Avec le mode manuel, en spécifiant le nombre d’instances est obligatoire. Nombre d’instances peut varier de 1 à 125 instances.
 
 ## <a name="feature-comparison-between-v1-sku-and-v2-sku"></a>Comparaison des fonctionnalités de la référence (SKU) v1 et v2 référence (SKU)
 

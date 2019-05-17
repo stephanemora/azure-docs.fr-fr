@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/03/2019
+ms.date: 05/15/2019
 ms.author: rolyon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a1f03cd518a15d08971968e04fa69954951c77e0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8659ecab649216650403f3a992cc6e356e5de5d0
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60356978"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65823580"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Fonctionnalité Conditions d’utilisation d’Azure Active Directory
 La fonctionnalité Conditions d’utilisation d’Azure AD offre aux organisations une méthode simple pour présenter des informations aux utilisateurs finaux. Cette présentation permet de garantir que les utilisateurs voient les clauses d’exclusion de responsabilité nécessaires au respect des conditions légales ou de conformité. Cet article vous indique comment prendre en main les conditions d’utilisation.
@@ -383,6 +383,9 @@ R : Vous pouvez [consulter les conditions d’utilisation précédemment accept
 
 **Q : Que se passe-t-il si j’utilise également les conditions générales d’Intune ?**<br />
 R : Si vous avez configuré les conditions d’utilisation d’Azure AD et les [conditions d’utilisation d’Intune](/intune/terms-and-conditions-create), l’utilisateur doit accepter les deux. Pour plus d’informations, voir le [billet de blog sur le choix des conditions appropriées pour votre organisation](https://go.microsoft.com/fwlink/?linkid=2010506&clcid=0x409).
+
+**Q : Quels points de terminaison utilise les termes du contrat de service d’utilisation pour l’authentification ?**<br />
+R : Conditions d’utilisation utilise des points de terminaison suivants pour l’authentification : https://tokenprovider.termsofuse.identitygovernance.azure.com et https://account.activedirectory.windowsazure.com. Si votre organisation dispose d’une liste verte d’URL pour l’inscription, vous devez ajouter ces points de terminaison à votre liste verte, ainsi que les points de terminaison Azure AD pour se connecter.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -9,31 +9,34 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 05/08/2019
+ms.date: 05/10/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 937a032bffbad4e8a7d737360aa140e59760f8e2
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: 25b3209bed98ea217db9e414caa6f08cee6d8c89
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65472450"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65761885"
 ---
 # <a name="encoding-with-media-services"></a>Encodage avec Media Services
 
-Azure Media Services vous permet d’encoder vos fichiers multimédias numériques de haute qualité dans des fichiers MP4 à débit adaptatif donc votre contenu peut être lu sur un large éventail de navigateurs et appareils. Un travail d’encodage Media Services réussi crée une sortie d’élément multimédia avec un ensemble de débit adaptatif MP4s et diffusion en continu de fichiers de configuration. Les fichiers de configuration incluent .ism, .ismc, .mpi et autres fichiers que vous ne devez pas modifier. Une fois que le travail d’encodage est terminé, vous pouvez tirer parti de [empaquetage dynamique](dynamic-packaging-overview.md) et démarrer la diffusion en continu.
+L’encodage du terme dans Media Services s’applique au processus de conversion des fichiers contenant numérique vidéo et/ou audio d’un format standard vers un autre, dans le but de (a) en réduisant la taille des fichiers et/ou (b) produisant un format qui est compatible avec un large éventail de périphériques et applications. Ce processus est également appelé compression vidéo ou de transcodage. Consultez le [la compression des données](https://en.wikipedia.org/wiki/Data_compression) et [nouveautés, encodage et transcodage ?](https://www.streamingmedia.com/Articles/Editorial/What-Is-/What-Is-Encoding-and-Transcoding-75025.aspx) pour plus d’informations sur les concepts.
 
-Pour rendre les vidéos dans la sortie disponible pour les clients pour la lecture de la ressource, vous devez créer un **localisateur de diffusion en continu** et générer l’URL de diffusion. Ensuite, selon le format spécifié dans le manifeste, vos clients reçoivent le flux conforme au protocole choisi.
+Vidéos sont généralement fournies aux appareils et aux applications par [le téléchargement progressif](https://en.wikipedia.org/wiki/Progressive_download) ou via [streaming à débit adaptatif](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming). 
 
-Le diagramme suivant illustre la diffusion en continu à la demande avec les flux d’empaquetage dynamique.
+* Pour distribuer par téléchargement progressif, vous pouvez utiliser Azure Media Services pour convertir un votre fichier multimédia numérique (mezzanine) dans un [MP4](https://en.wikipedia.org/wiki/MPEG-4_Part_14) fichier qui contient la vidéo qui a été encodée avec le [H.264](https://en.wikipedia.org/wiki/H.264/MPEG-4_AVC) codec, et audio qui a été encodée avec le [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding) codec. Ce fichier MP4 est écrit dans une ressource dans votre compte de stockage. Vous pouvez utiliser l’API de stockage Azure ou les kits de développement logiciel (par exemple, [API REST de stockage](../../storage/common/storage-rest-api-auth.md), [JAVA SDK](../../storage/blobs/storage-quickstart-blobs-java-v10.md), ou [.NET SDK](../../storage/blobs/storage-quickstart-blobs-dotnet.md)) pour télécharger le fichier directement. Si vous avez créé la sortie actif avec un nom de conteneur spécifique dans le stockage, utilisez cet emplacement. Sinon, vous pouvez utiliser Media Services à [répertorie les URL de conteneur actif](https://docs.microsoft.com/rest/api/media/assets/listcontainersas). 
+* Pour préparer le contenu pour la remise par streaming à débit adaptatif, le fichier mezzanine doit être encodé à plusieurs débits binaires (score élevé à bas). Pour garantir une transition sans perte de données de la qualité, comme la vitesse de transmission est réduite, est donc la résolution de la vidéo. Il en résulte une échelle encodage ce que l'on appelle – une table de résolutions et vitesses de transmission (consultez [généré automatiquement à débit adaptatif échelle](autogen-bitrate-ladder.md)). Vous pouvez utiliser Media Services pour encoder vos fichiers mezzanine à plusieurs débits binaires – ce faisant, vous obtenez un ensemble de fichiers MP4 et diffusion en continu configuration fichiers associés, écrites dans un élément multimédia dans votre compte de stockage. Vous pouvez ensuite utiliser le [empaquetage dynamique](dynamic-packaging-overview.md) fonctionnalité dans Media Services pour fournir la vidéo via la diffusion en continu de protocoles tels que [MPEG-DASH](https://en.wikipedia.org/wiki/Dynamic_Adaptive_Streaming_over_HTTP) et [HLS](https://en.wikipedia.org/wiki/HTTP_Live_Streaming). Cela vous oblige à créer un [localisateur de diffusion en continu](streaming-locators-concept.md) et générer l’URL correspondant aux protocoles pris en charge, ce qui peuvent ensuite être remis aux appareils/applications basées sur leurs fonctionnalités de diffusion.
 
-![Empaquetage dynamique](./media/dynamic-packaging-overview/media-services-dynamic-packaging.svg)
+Le diagramme suivant illustre le flux de travail pour l’encodage de la demande avec l’empaquetage dynamique.
+
+![Empaquetage dynamique](./media/dynamic-packaging-overview/media-services-dynamic-packaging.png)
 
 Cette rubrique vous explique comment encoder votre contenu avec Media Services v3.
 
 ## <a name="transforms-and-jobs"></a>Transformations et travaux
 
-Pour encoder avec Media Services v3, vous devez créer une [transformation](https://docs.microsoft.com/rest/api/media/transforms) et un [travail](https://docs.microsoft.com/rest/api/media/jobs). Une transformation définit la recette à appliquer pour vos paramètres et sorties d’encodage, et la tâche est une instance de la recette. Pour plus d’informations, consultez [Transformations et travaux](transforms-jobs-concept.md).
+Pour encoder avec Media Services v3, vous devez créer une [transformation](https://docs.microsoft.com/rest/api/media/transforms) et un [travail](https://docs.microsoft.com/rest/api/media/jobs). La transformation définit une Recipe (Recette) pour les paramètres de codage et les sorties ; le travail est une instance de la recette. Pour plus d’informations, consultez [Transformations et travaux](transforms-jobs-concept.md).
 
 Lors de l’encodage avec Media Services, vous utilisez des préréglages pour indiquer comment traiter les fichiers multimédias en entrée. Par exemple, vous pouvez spécifier la résolution vidéo et/ou le nombre de canaux audio souhaité dans le contenu encodé. 
 

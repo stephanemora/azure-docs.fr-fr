@@ -3,25 +3,25 @@ title: Créer une identité pour une application Azure dans le portail | Micros
 description: Décrit comment créer une application et un principal du service Azure Active Directory qui peuvent être utilisés avec le contrôle d'accès basé sur les rôles dans Azure Resource Manager pour gérer l'accès aux ressources.
 services: active-directory
 documentationcenter: na
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/08/2019
-ms.author: celested
+ms.date: 05/14/2019
+ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9affec9ccc1b87f36d6f30aff4795d85532be8c1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d0208d25e4583672ad2110d959f8e255affbf3e0
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60300853"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65764875"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Activation Utiliser le portail pour créer une application et un principal du service Azure AD pouvant accéder aux ressources
 
@@ -100,24 +100,24 @@ Vous avez également besoin de l’ID de votre application et d’une clé d’a
 
 1. Dans **Inscriptions d’applications** dans Azure AD, sélectionnez votre application.
 
-   ![Sélectionner une application](./media/howto-create-service-principal-portal/select-app.png)
+   ![Sélectionner l'application](./media/howto-create-service-principal-portal/select-app.png)
 
 1. Copiez l’**ID d’application** et stockez-le dans votre code d’application.
 
    ![ID client](./media/howto-create-service-principal-portal/copy-app-id.png)
 
-1. Sélectionnez **Paramètres**.
+1. Sélectionnez **certificats et clés secrètes**.
 
-   ![Sélectionner les paramètres](./media/howto-create-service-principal-portal/select-settings.png)
+   ![Sélectionner les paramètres](./media/howto-create-service-principal-portal/select-certs-secrets.png)
 
-1. Sélectionnez **Clés**.
-1. Fournissez une description de la clé et la durée de la clé. Lorsque vous avez terminé, sélectionnez **Enregistrer**.
+1. Sélectionnez **clés secrètes de Client -> nouvelle clé secrète client**.
+1. Fournissez une description de la clé secrète et une durée. Lorsque vous avez terminé, sélectionnez **ajouter**.
 
-   ![Enregistrer une clé](./media/howto-create-service-principal-portal/save-key.png)
+   ![Enregistrer le secret](./media/howto-create-service-principal-portal/save-secret.png)
 
-   Après avoir enregistré la clé, la valeur de la clé s’affiche. Copiez cette valeur car vous ne pourrez pas récupérer la clé ultérieurement. Vous fournissez la valeur de la clé avec l’ID d’application pour vous connecter en tant qu’application. Stockez la valeur de la clé à un emplacement où votre application peut la récupérer.
+   Après avoir enregistré la clé secrète client, la valeur de la clé secrète client s’affiche. Copiez cette valeur car vous ne pourrez pas récupérer la clé ultérieurement. Vous fournissez la valeur de la clé avec l’ID d’application pour vous connecter en tant qu’application. Stockez la valeur de la clé à un emplacement où votre application peut la récupérer.
 
-   ![Clé enregistrée](./media/howto-create-service-principal-portal/copy-key.png)
+   ![Copier la clé secrète](./media/howto-create-service-principal-portal/copy-secret.png)
 
 ## <a name="required-permissions"></a>Autorisations requises
 
@@ -146,7 +146,7 @@ Dans votre abonnement Azure, votre compte doit disposer d’un accès `Microsoft
 
 Pour vérifier vos autorisations d’abonnement :
 
-1. Sélectionnez votre compte dans le coin supérieur droit, puis **Mes autorisations**.
+1. Sélectionnez votre compte dans le coin supérieur droit, puis **... -> mes autorisations**.
 
    ![Sélectionner les autorisations utilisateur](./media/howto-create-service-principal-portal/select-my-permissions.png)
 
@@ -154,7 +154,7 @@ Pour vérifier vos autorisations d’abonnement :
 
    ![Rechercher un utilisateur](./media/howto-create-service-principal-portal/view-details.png)
 
-1. Affichez les rôles qui vous sont affectés et déterminez si vous disposez des autorisations appropriées pour affecter un rôle à une application AD. Si ce n’est pas le cas, demandez à votre administrateur d’abonnement de vous ajouter un rôle Administrateur de l’accès utilisateur. Dans l’image suivante, le rôle Propriétaire est assigné à l’utilisateur, ce qui signifie que l’utilisateur dispose des autorisations appropriées.
+1. Sélectionnez **attributions de rôles** pour afficher vos rôles attribués et déterminer si vous disposez des autorisations adéquates pour affecter une application AD à un rôle. Si ce n’est pas le cas, demandez à votre administrateur d’abonnement de vous ajouter un rôle Administrateur de l’accès utilisateur. Dans l’image suivante, le rôle Propriétaire est assigné à l’utilisateur, ce qui signifie que l’utilisateur dispose des autorisations appropriées.
 
    ![Afficher les autorisations](./media/howto-create-service-principal-portal/view-user-role.png)
 

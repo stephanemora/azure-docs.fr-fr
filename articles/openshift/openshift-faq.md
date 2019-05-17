@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 05/08/2019
-ms.openlocfilehash: 881734caf855ccfc4f001693fe261b8448b49bc4
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 06051eff73a83ff97a733d1863580885c5d0e174
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65466196"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65551734"
 ---
 # <a name="azure-red-hat-openshift-faq"></a>Azure Red Hat OpenShift Forum aux questions
 
@@ -66,3 +66,7 @@ Non. Tous les nœuds dans un cluster Azure Red Hat OpenShift doivent provenir de
 ## <a name="are-master-and-infrastructure-nodes-abstracted-away-as-they-are-with-azure-kubernetes-service-aks"></a>Sont des nœuds master et infrastructure disparaît tels qu’ils sont avec Azure Kubernetes Service (AKS) ?
 
 Non. Toutes les ressources, y compris le maître du cluster, exécutent dans votre abonnement client. Ces types de ressources sont placées dans un groupe de ressources en lecture seule.
+
+## <a name="is-open-service-broker-for-azure-osba-supported"></a>Est Open Service Broker pour Azure (OSBA) pris en charge ?
+
+Oui. Vous pouvez utiliser OSBA avec Azure Red Hat OpenShift. Consultez [Open Service Broker pour Azure](https://github.com/Azure/open-service-broker-azure#openshift-project-template) pour plus d’informations.

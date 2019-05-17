@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
-ms.openlocfilehash: b36d721896bd7b4f95d831eded500a96969937c5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 33becd46747f957cce67fb7b2ace170a9aa402ff
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60631887"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606925"
 ---
 # <a name="technical-specifications-and-compliance-for-the-storsimple-device"></a>Caractéristiques techniques et conformité de l’appareil StorSimple
 
@@ -173,7 +173,7 @@ L’appareil est conforme à la norme EN55024.
 
 ## <a name="ac-power-cord-compliance"></a>Conformité du cordon d’alimentation secteur
 
-L’ensemble fiche-cordon d’alimentation doit être conforme aux normes applicables dans le pays où l’appareil est utilisé et bénéficier de certifications de sécurité acceptables dans ce pays. Les tableaux suivants répertorient les normes applicables aux États-Unis et en Europe.
+Le plug- and -le cordon d’alimentation doivent respecter les normes appropriées pour le pays/la région dans laquelle l’appareil est utilisé, et ils doivent avoir les autorisations de sécurité qui sont acceptables dans ce pays/région. Les tableaux suivants répertorient les normes applicables aux États-Unis et en Europe.
 
 ### <a name="ac-power-cords---usa-must-be-nrtl-listed"></a>Cordons d’alimentation secteur - États-Unis (doivent être répertoriés par un laboratoire d’essai reconnu nationalement)
 
@@ -188,7 +188,7 @@ L’ensemble fiche-cordon d’alimentation doit être conforme aux normes applic
 | Composant | Caractéristique |
 | --- | --- |
 | Type de cordon |Harmonisé, H05-VVF-3G1.0 |
-| Prise |CEI 320 C-13, 250 V, 10 A |
+| Socket |CEI 320 C-13, 250 V, 10 A |
 
 ## <a name="supported-network-cables"></a>Câbles réseau pris en charge
 

@@ -12,12 +12,12 @@ ms.author: moslake
 ms.reviewer: sstein, carlrab
 manager: craigg
 ms.date: 05/11/2019
-ms.openlocfilehash: ba79e2b9552f0c27ac11501b2b125a126e40eb1d
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
-ms.translationtype: MT
+ms.openlocfilehash: 7ab22a1d1b44327b28264ec5bd6ba0c44b1d65a7
+ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65551637"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65620158"
 ---
 # <a name="sql-database-serverless-preview"></a>SQL Database serverless (préversion)
 
@@ -105,7 +105,7 @@ La reprise automatique est déclenchée si l’une des conditions suivantes est 
 |Découverte et classification des données|Ajout, modification, suppression ou affichage des étiquettes de sensibilité|
 |Audit|Affichage des enregistrements d’audit.<br>Mise à jour ou affichage de la stratégie d’audit|
 |Masquage de données|Ajout, modification, suppression ou affichage des règles de masquage des données|
-|Chiffrement transparent des données|État ou statut d’affichage du chiffrement transparent des données|
+|Transparent Data Encryption|État ou statut d’affichage du chiffrement transparent des données|
 |Magasin de données des requêtes (performances)|Modification ou affichage des paramètres du Magasin des requêtes ; réglage automatique|
 |Réglage automatique|Application et vérification des recommandations de réglage automatique telles que l’indexation automatique|
 |Copie de base de données|Création d’une base de données comme copie<br>Exportation vers un fichier BACPAC|
@@ -147,7 +147,7 @@ La création d’une base de données ou le déplacement d’une base de donnée
    |Paramètre|Choix des valeurs|Valeur par défaut|
    |---|---|---|---|
    |Nombre minimal de vCores|Au choix, {0,5, 1, 2, 4} ne dépassant pas le nombre maximal de vCores|0,5 vCore|
-   |Délai de la mise en pause automatique|Min : 360 minutes (6 heures)<br>Max : 10 080 minutes (7 jours)<br>Incréments : 60 minutes<br>Désactiver la mise en pause automatique  -1|360 minutes|
+   |Délai de la mise en pause automatique|Min : 360 minutes (6 heures)<br>Max : 10 080 minutes (7 jours)<br>Incréments : 60 minutes<br>Désactiver la mise en pause automatique  -1|360 minutes|
 
 > [!NOTE]
 > Actuellement, l’utilisation de T-SQL pour déplacer une base de données existante dans le niveau serverless ou changer sa taille de calcul n’est pas prise en charge, mais vous pouvez effectuer ces opérations via le portail Azure ou PowerShell.
@@ -204,11 +204,11 @@ Pour modifier le nombre maximal de vCores, utilisez la commande [Set-AzSqlDataba
 
 ### <a name="minimum-vcores"></a>Nombre minimal de vCores
 
-Pour modifier le nombre minimal de vCores, utilisez la commande [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) dans PowerShell à l’aide de l’argument `MinVcore`.
+Modification du nombre de VCORE minimale est effectuée à l’aide de la [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) commande dans PowerShell à l’aide la `MinVcore` argument.
 
 ### <a name="autopause-delay"></a>Délai de la mise en pause automatique
 
-Pour modifier le délai de mise en pause automatique, utilisez la commande [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) dans PowerShell à l’aide de l’argument `AutoPauseDelay`.
+Modifier le délai de pause automatique est effectuée à l’aide de la [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) commande dans PowerShell à l’aide la `AutoPauseDelay` argument.
 
 ## <a name="monitor-serverless-database"></a>Superviser une base de données serverless
 
@@ -226,7 +226,7 @@ Le pool de ressources utilisateur représente le minimum en termes de gestion de
 
 ### <a name="metrics"></a>Mesures
 
-|Entité|Métrique|Description|Units|
+|Entité|Métrique|Description |Unités|
 |---|---|---|---|
 |Package d’application|app_cpu_percent|Pourcentage de vCores utilisés par l’application par rapport au nombre maximal de vCores autorisé pour l’application.|Pourcentage|
 |Package d’application|app_cpu_billed|Volume de calcul facturé pour l’application pendant la période de rapport. Le montant payé pendant cette période est le produit de cette métrique et du prix unitaire d’un vCore. <br><br>Les valeurs de cette métrique sont déterminées par l’agrégation de la quantité maximale du processeur utilisé et de la mémoire utilisée par seconde. Si la quantité utilisée est inférieure à la quantité minimale provisionnée tel que définie par le nombre minimal de vCores et la mémoire minimum, la quantité minimale provisionnée est facturée. Pour comparer le processeur à la mémoire à des fins de facturation, la mémoire est normalisée en unités de vCores en remettant à l’échelle la quantité de mémoire en Go à 3 Go par vCore.|Secondes de vCore|
@@ -263,7 +263,7 @@ Pour les limites de ressources, consultez [Niveau de calcul serverless](sql-data
 
 Le volume de calcul facturé correspond à la quantité maximale de processeur et de mémoire utilisée par seconde. Si la quantité de processeur et de mémoire utilisée est inférieure à la quantité minimale provisionnée pour chaque, la quantité provisionnée est facturée. Pour comparer le processeur à la mémoire à des fins de facturation, la mémoire est normalisée en unités de vCores en remettant à l’échelle la quantité de mémoire en Go à 3 Go par vCore.
 
-- **Ressource facturée** : Processeur et mémoire
+- **Ressource facturée** : UC et mémoire
 - **Montant facturé ($)**  : prix unitaire d’un vCore * max (vCores min, vCores utilisés, mémoire min Go * 1/3, mémoire Go utilisée * 1/3) 
 - **Fréquence de facturation** : À la seconde
 
@@ -286,7 +286,7 @@ Cette quantité est calculée chaque seconde et agrégée sur 1 minute.
 |0:03|95|
 |0:04|54|
 |0:05|41|
-|0:06 - 1:00|1 255|
+|0:06 - 1:00|1255|
 ||Total : 1 631|
 
 Supposons que le prix unitaire du calcul est $0.000073/vCore/seconde. Le calcul facturé pour cette période d’une heure est déterminé en utilisant la formule suivante : **$0.000073/vCore/seconde * 1631 secondes de vCore = $0.1191**

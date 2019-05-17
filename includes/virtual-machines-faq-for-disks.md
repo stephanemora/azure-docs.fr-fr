@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 03/28/2018
+ms.date: 05/13/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 6cd0c72f94c020f9243a1a95faa799f1f798f36c
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 0ad006ca966cfcc2c817ae4e8bfd3dc2d477259e
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65199009"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65607061"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Forum aux questions sur les disques de machines virtuelles et les disques Premium gérés et non gérés Azure IaaS
 
@@ -365,7 +365,7 @@ Vous pouvez arrêter et démarrer la machine virtuelle que le disque est attach�
 
 **Quelles régions sont de 8 To, TIO 16 et 32 TIO pris en charge dans les tailles de disque géré ?**
 
-Du 8 TiB TIO 16, 32 TIO disque références SKU et est prises en charge dans toutes les régions sous Azure global. Prise en charge de Microsoft Azure Government et Azure China 21Vianet n’est pas encore disponible.
+Du 8 TiB TIO 16, 32 TIO disque références SKU et est prises en charge dans toutes les régions sous 21Vianet globale de Azure, Microsoft Azure Government et Azure en Chine.
 
 **Nous prennent en charge l’activation de la mise en cache de l’hôte sur toutes les tailles de disque ?**
 

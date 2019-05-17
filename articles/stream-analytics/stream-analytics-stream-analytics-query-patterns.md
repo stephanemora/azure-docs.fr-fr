@@ -7,35 +7,35 @@ ms.author: jeanb
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 08/08/2017
-ms.openlocfilehash: ef302ecaa6defc6ac0dc1dd58d4f8acc0f2fd263
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 05/16/2019
+ms.openlocfilehash: f6971038be7404850d958de67eb4755ae7d21a29
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64711452"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65761968"
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>Exemples de requête pour les modes d’utilisation courants dans Stream Analytics
 
-## <a name="introduction"></a>Présentation
-Les requêtes dans Azure Stream Analytics sont exprimées dans un langage de requête de type SQL. Les constructions de langage sont documentées dans le guide [Stream Analytics query language reference](https://msdn.microsoft.com/library/azure/dn834998.aspx) (Informations de référence sur le langage de requête Stream Analytics). 
+Les requêtes dans Azure Stream Analytics sont exprimées dans un langage de requête de type SQL. Les constructions de langage sont documentées dans le guide [Stream Analytics query language reference](/stream-analytics-query/stream-analytics-query-language-reference) (Informations de référence sur le langage de requête Stream Analytics). 
 
-La conception des requêtes peut exprimer une logique directe simple pour déplacer les données d’événement d’un flux d’entrée vers une autre banque de données de sortie. Elle peut également effectuer une analyse enrichie temporelle et des critères spéciaux afin de calculer les agrégats sur différentes fenêtres de temps comme dans l’exemple TollApp. Vous pouvez joindre des données provenant de plusieurs entrées pour combiner des événements de diffusion en continu et effectuer des recherches sur les données de référence statiques pour enrichir les valeurs des événements. Vous pouvez également écrire des données vers plusieurs sorties.
+La conception de requête peut exprimer la logique de pass-through simple pour déplacer des données d’événement à partir d’un flux d’entrée dans un magasin de données de sortie, ou il peut effectuer des analyse de correspondance et temporelles du modèle riche afin de calculer des agrégats sur différentes fenêtres de temps en tant que dans le [créer un IoT solution à l’aide de Stream Analytique](stream-analytics-build-an-iot-solution-using-stream-analytics.md) guide. Vous pouvez joindre des données provenant de plusieurs entrées pour combiner des événements de diffusion en continu, et vous pouvez faire des recherches sur les données de référence statiques pour enrichir les valeurs d’événement. Vous pouvez également écrire des données vers plusieurs sorties.
 
-Cet article décrit les solutions à plusieurs modèles de requête habituels, inspirés de scénarios réels. Il est en cours et mis à jour avec de nouveaux modèles de manière continue.
+Cet article décrit les solutions à plusieurs modèles de requête courants basés sur des scénarios réels.
 
-## <a name="work-with-complex-data-types-in-json-and-avro"></a>Utiliser des types de données complexes dans JavaScript Object Notation et AVRO 
+## <a name="work-with-complex-data-types-in-json-and-avro"></a>Utiliser des types de données complexes dans JavaScript Object Notation et AVRO
+
 Azure Stream Analytics prend en charge le traitement des événements dans les formats de données CSV, JSON et Avro.
-JSON et Avro peuvent contenir des types complexes, comme des objets imbriqués (enregistrements) ou des tableaux. Pour utiliser ces types de données complexes, reportez-vous à l’article [Analyse des données JSON et AVRO](stream-analytics-parsing-json.md).
 
+JSON et Avro peuvent contenir des types complexes, comme des objets imbriqués (enregistrements) ou des tableaux. Pour plus d’informations sur l’utilisation de ces types de données complexes, reportez-vous à la [les données de l’analyse de JSON et AVRO](stream-analytics-parsing-json.md) article.
 
 ## <a name="query-example-convert-data-types"></a>Exemple de requête : Convertir les types de données
-**Description** : Définissez les types de propriétés sur le flux d’entrée.
-Par exemple, le poids de la voiture arrive sur le flux d’entrée sous forme de chaîne, et doit être converti en **INT** pour exécuter la fonction **SUM**.
+
+**Description** : Définissez les types de propriétés sur le flux d’entrée. Par exemple, le poids de la voiture arrive sur le flux d’entrée sous forme de chaînes et doit être converti en **INT** effectuer **somme**.
 
 **Entrée**:
 
-| Marque | Temps | Poids |
+| Marque | Time | Poids |
 | --- | --- | --- |
 | Honda |2015-01-01T00:00:01.0000000Z |"1000" |
 | Honda |2015-01-01T00:00:02.0000000Z |"2000" |
@@ -59,15 +59,16 @@ Par exemple, le poids de la voiture arrive sur le flux d’entrée sous forme de
         TumblingWindow(second, 10)
 ```
 
-**Explication** : Utilisez une instruction **CAST** dans le champ **Poids** pour spécifier son type de données. Voir la liste des types de données pris en charge dans [Data types (Azure Stream Analytics)](https://msdn.microsoft.com/library/azure/dn835065.aspx) (Types de données (Azure Stream Analytics)).
+**Explication** : Utilisez une instruction **CAST** dans le champ **Poids** pour spécifier son type de données. Voir la liste des types de données pris en charge dans [Data types (Azure Stream Analytics)](/stream-analytics-query/data-types-azure-stream-analytics) (Types de données (Azure Stream Analytics)).
 
-## <a name="query-example-use-likenot-like-to-do-pattern-matching"></a>Exemple de requête : Utiliser Like/Not like pour la correspondance de modèle
+## <a name="query-example-use-likenot-like-to-do-pattern-matching"></a>Exemple de requête : Utilisez LIKE/NOT, comme pour les critères spéciaux
+
 **Description** : Vérifiez qu’une valeur de champ sur l’événement correspond à un certain modèle.
 Par exemple, vérifier que le résultat retourne des plaques d’immatriculation qui commencent par A et se terminent par 9.
 
 **Entrée**:
 
-| Marque | LicensePlate | Temps |
+| Marque | LicensePlate | Time |
 | --- | --- | --- |
 | Honda |ABC-123 |2015-01-01T00:00:01.0000000Z |
 | Toyota |AAA-999 |2015-01-01T00:00:02.0000000Z |
@@ -75,7 +76,7 @@ Par exemple, vérifier que le résultat retourne des plaques d’immatriculation
 
 **Sortie**:
 
-| Marque | LicensePlate | Temps |
+| Marque | LicensePlate | Time |
 | --- | --- | --- |
 | Toyota |AAA-999 |2015-01-01T00:00:02.0000000Z |
 | Nissan |ABC-369 |2015-01-01T00:00:03.0000000Z |
@@ -91,15 +92,15 @@ Par exemple, vérifier que le résultat retourne des plaques d’immatriculation
         LicensePlate LIKE 'A%9'
 ```
 
-**Explication** : Utilisez l’instruction **LIKE** pour vérifier la valeur du champ **LicensePlate**. Il doit commencer par un A, puis avoir une chaîne de zéro, un ou plusieurs caractères, puis se terminer par un 9. 
+**Explication** : Utilisez l’instruction **LIKE** pour vérifier la valeur du champ **LicensePlate**. Il doit commencer par la lettre A, puis avoir une chaîne de zéro ou plusieurs caractères et puis se terminer par le nombre 9. 
 
 ## <a name="query-example-specify-logic-for-different-casesvalues-case-statements"></a>Exemple de requête : Spécifier la logique de différentes casses/valeurs (instructions CASE)
-**Description** : Fournissez un calcul différent pour un champ en fonction d’un critère particulier.
-Par exemple, fournir une description de chaîne pour le nombre de voitures de la même marque avec une casse spéciale pour 1.
+
+**Description** : Fournissez un calcul différent pour un champ en fonction d’un critère particulier. Par exemple, fournir une description de chaîne pour le nombre de voitures de la même marque avec une casse spéciale pour 1.
 
 **Entrée**:
 
-| Marque | Temps |
+| Marque | Time |
 | --- | --- |
 | Honda |2015-01-01T00:00:01.0000000Z |
 | Toyota |2015-01-01T00:00:02.0000000Z |
@@ -107,7 +108,7 @@ Par exemple, fournir une description de chaîne pour le nombre de voitures de la
 
 **Sortie**:
 
-| CarsPassed | Temps |
+| CarsPassed | Time |
 | --- | --- |
 | 1 Honda |2015-01-01T00:00:10.0000000Z |
 | 2 Toyota |2015-01-01T00:00:10.0000000Z |
@@ -120,7 +121,7 @@ Par exemple, fournir une description de chaîne pour le nombre de voitures de la
             WHEN COUNT(*) = 1 THEN CONCAT('1 ', Make)
             ELSE CONCAT(CAST(COUNT(*) AS NVARCHAR(MAX)), ' ', Make, 's')
         END AS CarsPassed,
-        System.TimeStamp AS Time
+        System.TimeStamp() AS Time
     FROM
         Input TIMESTAMP BY Time
     GROUP BY
@@ -128,15 +129,15 @@ Par exemple, fournir une description de chaîne pour le nombre de voitures de la
         TumblingWindow(second, 10)
 ```
 
-**Explication** : L’expression **CASE** compare une expression à un ensemble d’expressions simples pour déterminer le résultat. Dans cet exemple, les fabricants de véhicules avec un total de 1 ont retourné une description de chaîne différente de celle des fabricants avec un total différent de 1. 
+**Explication** : L’expression **CASE** compare une expression à un ensemble d’expressions simples pour déterminer le résultat. Dans cet exemple, les fabricants de véhicules avec un total de 1 ont retourné une description de chaîne différente de celle des fabricants avec un total différent de 1.
 
 ## <a name="query-example-send-data-to-multiple-outputs"></a>Exemple de requête : Envoyer des données à plusieurs sorties
-**Description** : Envoyez des données à plusieurs cibles de sortie à partir d’un seul travail.
-Par exemple, analyser des données relatives à une alerte basée sur un seuil et archiver tous les événements dans le Stockage Blob.
+
+**Description** : Envoyez des données à plusieurs cibles de sortie à partir d’un seul travail. Par exemple, analyser des données relatives à une alerte basée sur un seuil et archiver tous les événements dans le Stockage Blob.
 
 **Entrée**:
 
-| Marque | Temps |
+| Marque | Time |
 | --- | --- |
 | Honda |2015-01-01T00:00:01.0000000Z |
 | Honda |2015-01-01T00:00:02.0000000Z |
@@ -146,7 +147,7 @@ Par exemple, analyser des données relatives à une alerte basée sur un seuil e
 
 **Output1**:
 
-| Marque | Temps |
+| Marque | Time |
 | --- | --- |
 | Honda |2015-01-01T00:00:01.0000000Z |
 | Honda |2015-01-01T00:00:02.0000000Z |
@@ -156,7 +157,7 @@ Par exemple, analyser des données relatives à une alerte basée sur un seuil e
 
 **Output2**:
 
-| Marque | Temps | Nombre |
+| Marque | Time | Nombre |
 | --- | --- | --- |
 | Toyota |2015-01-01T00:00:10.0000000Z |3 |
 
@@ -172,7 +173,7 @@ Par exemple, analyser des données relatives à une alerte basée sur un seuil e
 
     SELECT
         Make,
-        System.TimeStamp AS Time,
+        System.TimeStamp() AS Time,
         COUNT(*) AS [Count]
     INTO
         AlertOutput
@@ -185,12 +186,11 @@ Par exemple, analyser des données relatives à une alerte basée sur un seuil e
         [Count] >= 3
 ```
 
-**Explication** : La clause **INTO** indique à Stream Analytics la sortie sur laquelle écrire les données à partir de cette instruction.
-La première requête est un transfert des données reçues vers une sortie nommée **ArchiveOutput**.
-La deuxième requête effectue une agrégation et un filtrage simples, et envoie les résultats vers un système d’alerte en aval.
+**Explication** : La clause **INTO** indique à Stream Analytics la sortie sur laquelle écrire les données à partir de cette instruction. La première requête est un transfert des données reçues vers une sortie nommée **ArchiveOutput**. La deuxième requête effectue une agrégation simple et filtrage et envoie les résultats vers un système d’alerte en aval, **AlertOutput**.
 
 Notez que vous pouvez également réutiliser les résultats d’expressions de table communes (par exemple avec des instructions **WITH**) dans plusieurs instructions de sortie. Cette option a l’avantage d’ouvrir moins de lecteurs vers la source d’entrée.
-Par exemple :  
+
+Exemple : 
 
 ```SQL
     WITH AllRedCars AS (
@@ -206,12 +206,12 @@ Par exemple :
 ```
 
 ## <a name="query-example-count-unique-values"></a>Exemple de requête : Compter des valeurs uniques
-**Description** : Comptez le nombre de valeurs de champ uniques qui apparaissent dans le flux au cours d’une fenêtre de temps.
-Par exemple, combien de voitures d’une même marque ont franchi le péage dans une fenêtre de temps de deux secondes ?
+
+**Description** : Comptez le nombre de valeurs de champ uniques qui apparaissent dans le flux au cours d’une fenêtre de temps. Par exemple, combien de voitures d’une même marque ont franchi le péage dans une fenêtre de temps de deux secondes ?
 
 **Entrée**:
 
-| Marque | Temps |
+| Marque | Time |
 | --- | --- |
 | Honda |2015-01-01T00:00:01.0000000Z |
 | Honda |2015-01-01T00:00:02.0000000Z |
@@ -221,7 +221,7 @@ Par exemple, combien de voitures d’une même marque ont franchi le péage dans
 
 **Output:**
 
-| CountMake | Temps |
+| CountMake | Time |
 | --- | --- |
 | 2 |2015-01-01T00:00:02.000Z |
 | 1 |2015-01-01T00:00:04.000Z |
@@ -231,7 +231,7 @@ Par exemple, combien de voitures d’une même marque ont franchi le péage dans
 ```SQL
 SELECT
      COUNT(DISTINCT Make) AS CountMake,
-     System.TIMESTAMP AS TIME
+     System.TIMESTAMP() AS TIME
 FROM Input TIMESTAMP BY TIME
 GROUP BY 
      TumblingWindow(second, 2)
@@ -242,19 +242,19 @@ GROUP BY
 **COUNT(DISTINCT Make)** retourne le nombre de valeurs distinctes de la colonne **Marque** dans une fenêtre de temps.
 
 ## <a name="query-example-determine-if-a-value-has-changed"></a>Exemple de requête : Déterminer si une valeur a changé
-**Description** : Examinez une valeur précédente pour déterminer si elle est différente de la valeur actuelle.
-Par exemple, la voiture précédente sur la route à péage est-elle de la même marque que la voiture actuelle ?
+
+**Description** : Examinez une valeur précédente pour déterminer si elle est différente de la valeur actuelle. Par exemple, la voiture précédente sur la route à péage est-elle de la même marque que la voiture actuelle ?
 
 **Entrée**:
 
-| Marque | Temps |
+| Marque | Time |
 | --- | --- |
 | Honda |2015-01-01T00:00:01.0000000Z |
 | Toyota |2015-01-01T00:00:02.0000000Z |
 
 **Sortie**:
 
-| Marque | Temps |
+| Marque | Time |
 | --- | --- |
 | Toyota |2015-01-01T00:00:02.0000000Z |
 
@@ -273,11 +273,12 @@ Par exemple, la voiture précédente sur la route à péage est-elle de la même
 **Explication** : Utilisez **LAG** pour lire le flux d’entrée de l’événement précédent et obtenir la valeur **Make**. Ensuite, la comparer à la valeur **Marque** de l’événement en cours, puis générer l’événement si elles sont différentes.
 
 ## <a name="query-example-find-the-first-event-in-a-window"></a>Exemple de requête : Rechercher le premier événement dans une fenêtre
+
 **Description** : Recherchez la première voiture dans chaque intervalle de 10 minutes.
 
 **Entrée**:
 
-| LicensePlate | Marque | Temps |
+| LicensePlate | Marque | Time |
 | --- | --- | --- |
 | DXE 5291 |Honda |2015-07-27T00:00:05.0000000Z |
 | YZK 5704 |Ford |2015-07-27T00:02:17.0000000Z |
@@ -289,7 +290,7 @@ Par exemple, la voiture précédente sur la route à péage est-elle de la même
 
 **Sortie**:
 
-| LicensePlate | Marque | Temps |
+| LicensePlate | Marque | Time |
 | --- | --- | --- |
 | DXE 5291 |Honda |2015-07-27T00:00:05.0000000Z |
 | QYF 9358 |Honda |2015-07-27T00:12:02.0000000Z |
@@ -307,9 +308,9 @@ Par exemple, la voiture précédente sur la route à péage est-elle de la même
         IsFirst(minute, 10) = 1
 ```
 
-À présent, nous allons changer le problème et rechercher la première voiture d’une marque donnée dans chaque intervalle de 10 minutes.
+Maintenant nous allons changer le problème et rechercher la première voiture d’une marque donnée dans chaque intervalle de 10 minutes.
 
-| LicensePlate | Marque | Temps |
+| LicensePlate | Marque | Time |
 | --- | --- | --- |
 | DXE 5291 |Honda |2015-07-27T00:00:05.0000000Z |
 | YZK 5704 |Ford |2015-07-27T00:02:17.0000000Z |
@@ -331,11 +332,12 @@ Par exemple, la voiture précédente sur la route à péage est-elle de la même
 ```
 
 ## <a name="query-example-find-the-last-event-in-a-window"></a>Exemple de requête : Rechercher le dernier événement dans une fenêtre
+
 **Description** : Recherchez la dernière voiture dans chaque intervalle de 10 minutes.
 
 **Entrée**:
 
-| LicensePlate | Marque | Temps |
+| LicensePlate | Marque | Time |
 | --- | --- | --- |
 | DXE 5291 |Honda |2015-07-27T00:00:05.0000000Z |
 | YZK 5704 |Ford |2015-07-27T00:02:17.0000000Z |
@@ -347,7 +349,7 @@ Par exemple, la voiture précédente sur la route à péage est-elle de la même
 
 **Sortie**:
 
-| LicensePlate | Marque | Temps |
+| LicensePlate | Marque | Time |
 | --- | --- | --- |
 | VFE 1616 |Toyota |2015-07-27T00:09:31.0000000Z |
 | MDR 6128 |BMW |2015-07-27T00:13:45.0000000Z |
@@ -378,12 +380,13 @@ Par exemple, la voiture précédente sur la route à péage est-elle de la même
 **Explication** : La requête contient deux étapes. La première recherche l’horodatage le plus récent dans les fenêtres de 10 minutes. La deuxième joint les résultats de la première requête avec le flux d’origine pour rechercher les événements qui correspondent aux derniers horodatages dans chaque fenêtre. 
 
 ## <a name="query-example-detect-the-absence-of-events"></a>Exemple de requête : Détecter l’absence d’événements
+
 **Description** : Vérifiez qu’un flux n’a pas de valeur correspondant à un critère particulier.
 Par exemple, deux voitures consécutives de la même marque se sont-elles engagées dans la route à péage durant les 90 dernières secondes ?
 
 **Entrée**:
 
-| Marque | LicensePlate | Temps |
+| Marque | LicensePlate | Time |
 | --- | --- | --- |
 | Honda |ABC-123 |2015-01-01T00:00:01.0000000Z |
 | Honda |AAA-999 |2015-01-01T00:00:02.0000000Z |
@@ -392,7 +395,7 @@ Par exemple, deux voitures consécutives de la même marque se sont-elles engag
 
 **Sortie**:
 
-| Marque | Temps | CurrentCarLicensePlate | FirstCarLicensePlate | FirstCarTime |
+| Marque | Time | CurrentCarLicensePlate | FirstCarLicensePlate | FirstCarTime |
 | --- | --- | --- | --- | --- |
 | Honda |2015-01-01T00:00:02.0000000Z |AAA-999 |ABC-123 |2015-01-01T00:00:01.0000000Z |
 
@@ -414,11 +417,12 @@ Par exemple, deux voitures consécutives de la même marque se sont-elles engag
 **Explication** : Utilisez **LAG** pour lire le flux d’entrée de l’événement précédent et obtenir la valeur **Make**. La comparer à la valeur **Marque** de l’événement en cours, puis générer l’événement si elles sont identiques. Vous pouvez également utiliser **LAG** pour obtenir des données relatives à la voiture précédente.
 
 ## <a name="query-example-detect-the-duration-between-events"></a>Exemple de requête : Détecter la durée entre événements
+
 **Description** : Recherchez la durée d’un événement donné. Par exemple, sur la base d’un parcours web, déterminer le temps passé sur une fonctionnalité.
 
 **Entrée**:  
 
-| Utilisateur | Fonctionnalité | Événement | Temps |
+| Utilisateur | Fonctionnalité | Événement | Time |
 | --- | --- | --- | --- |
 | user@location.com |RightMenu |Démarrer |2015-01-01T00:00:01.0000000Z |
 | user@location.com |RightMenu |Terminer |2015-01-01T00:00:08.0000000Z |
@@ -447,7 +451,7 @@ Par exemple, supposons qu’à la suite d’un bogue, le poids de toutes les voi
 
 **Entrée**:
 
-| Marque | Temps | Poids |
+| Marque | Time | Poids |
 | --- | --- | --- |
 | Honda |2015-01-01T00:00:01.0000000Z |2000 |
 | Toyota |2015-01-01T00:00:02.0000000Z |25000 |
@@ -488,8 +492,8 @@ Par exemple, supposons qu’à la suite d’un bogue, le poids de toutes les voi
 **Explication** : Utilisez **LAG** pour voir le flux d’entrée sur 24 heures et recherchez les instances où **StartFault** et **StopFault** sont couverts par la condition de poids < 20000.
 
 ## <a name="query-example-fill-missing-values"></a>Exemple de requête : Indiquer les valeurs manquantes
-**Description** : Pour le flux des événements qui ont des valeurs manquantes, produisez un flux d’événements à intervalles réguliers.
-Par exemple, générer toutes les cinq secondes un événement qui indique le point de données le plus récemment observé.
+
+**Description** : Pour le flux des événements qui ont des valeurs manquantes, produisez un flux d’événements à intervalles réguliers. Par exemple, générer toutes les cinq secondes un événement qui indique le point de données le plus récemment observé.
 
 **Entrée**:
 
@@ -521,19 +525,19 @@ Par exemple, générer toutes les cinq secondes un événement qui indique le p
 
 ```SQL
     SELECT
-        System.Timestamp AS windowEnd,
+        System.Timestamp() AS windowEnd,
         TopOne() OVER (ORDER BY t DESC) AS lastEvent
     FROM
         input TIMESTAMP BY t
     GROUP BY HOPPINGWINDOW(second, 300, 5)
 ```
 
-**Explication** : Cette requête génère des événements toutes les 5 secondes et produit le dernier événement précédemment reçu. La [Fenêtre récurrente](https://msdn.microsoft.com/library/dn835041.aspx "Fenêtre récurrente - Azure Stream Analytics") détermine la période que la requête remonte pour rechercher le dernier événement (300 secondes, dans cet exemple).
+**Explication** : Cette requête génère des événements toutes les 5 secondes et produit le dernier événement précédemment reçu. Le [fenêtre récurrente](/stream-analytics-query/hopping-window-azure-stream-analytics) durée détermine jusqu’où la requête remonte pour rechercher le dernier événement (300 secondes dans cet exemple).
 
 
 ## <a name="query-example-correlate-two-event-types-within-the-same-stream"></a>Exemple de requête : Mettre en corrélation deux types d’événement dans le même flux
-**Description** : Les alertes doivent parfois être générées en fonction de plusieurs types d’événements qui se sont produits au cours d’un intervalle de temps donné.
-Par exemple, dans un scénario IoT concernant des fours domestiques, une alerte doit être générée quand la température du ventilateur est inférieure à 40 et que la puissance maximale au cours des 3 dernières minutes est inférieure à 10.
+
+**Description** : Les alertes doivent parfois être générées en fonction de plusieurs types d’événements qui se sont produits au cours d’un intervalle de temps donné. Par exemple, dans un scénario IoT concernant des fours domestiques, une alerte doit être générée quand la température du ventilateur est inférieure à 40 et que la puissance maximale au cours des 3 dernières minutes est inférieure à 10.
 
 **Entrée**:
 
@@ -569,7 +573,7 @@ Par exemple, dans un scénario IoT concernant des fours domestiques, une alerte 
 ```SQL
 WITH max_power_during_last_3_mins AS (
     SELECT 
-        System.TimeStamp AS windowTime,
+        System.TimeStamp() AS windowTime,
         deviceId,
         max(value) as maxPower
     FROM
@@ -602,15 +606,15 @@ WHERE
     AND t2.maxPower > 10
 ```
 
-**Explication** : La première requête `max_power_during_last_3_mins` utilise la [fenêtre glissante](https://msdn.microsoft.com/azure/stream-analytics/reference/sliding-window-azure-stream-analytics) pour rechercher la valeur maximale du capteur de puissance pour chaque appareil, au cours des 3 dernières minutes. La seconde requête est jointe à la première pour rechercher la valeur de la puissance dans la fenêtre la plus récente, pertinente pour l’événement actuel. Une alerte est alors générée pour l’appareil sous réserve que les conditions soient remplies.
+**Explication** : La première requête `max_power_during_last_3_mins` utilise la [fenêtre glissante](/stream-analytics-query/sliding-window-azure-stream-analytics) pour rechercher la valeur maximale du capteur de puissance pour chaque appareil, au cours des 3 dernières minutes. La seconde requête est jointe à la première pour rechercher la valeur de la puissance dans la fenêtre la plus récente, pertinente pour l’événement actuel. Une alerte est alors générée pour l’appareil sous réserve que les conditions soient remplies.
 
 ## <a name="query-example-process-events-independent-of-device-clock-skew-substreams"></a>Exemple de requête : Traiter les événements indépendamment des décalages entre horloges d’appareil (sous-flux)
-**Description** : Les événements peuvent arriver en retard ou dans le désordre en raison des décalages des horloges entre les producteurs d’événements, des décalages des horloges entre les partitions ou de la latence du réseau. Dans l’exemple suivant, l’horloge de l’appareil pour TollID 2 est de cinq secondes derrière TollID 1, et l’horloge de l’appareil pour TollID 3 est dix secondes derrière TollID 1. 
 
+**Description** : Les événements peuvent arriver en retard ou dans le désordre en raison des décalages des horloges entre les producteurs d’événements, des décalages des horloges entre les partitions ou de la latence du réseau. Dans l’exemple suivant, l’horloge de l’appareil pour TollID 2 est de cinq secondes derrière TollID 1, et l’horloge de l’appareil pour TollID 3 est dix secondes derrière TollID 1. 
 
 **Entrée**:
 
-| LicensePlate | Marque | Temps | TollID |
+| LicensePlate | Marque | Time | TollID |
 | --- | --- | --- | --- |
 | DXE 5291 |Honda |2015-07-27T00:00:01.0000000Z | 1 |
 | YHN 6970 |Toyota |2015-07-27T00:00:05.0000000Z | 1 |
@@ -643,14 +647,15 @@ FROM input
 GROUP BY TUMBLINGWINDOW(second, 5), TollId
 ```
 
-**Explication** : La clause [TIMESTAMP BY OVER](https://msdn.microsoft.com/azure/stream-analytics/reference/timestamp-by-azure-stream-analytics#over-clause-interacts-with-event-ordering) examine séparément la chronologie de chaque appareil en utilisant des sous-flux. Les événements de sortie pour chaque TollID sont générés tels qu’ils sont calculés, ce qui signifie que les événements sont dans l’ordre relativement à chaque TollID, au lieu d’être réorganisés comme si tous les appareils avaient la même horloge.
+**Explication** : La clause [TIMESTAMP BY OVER](/stream-analytics-query/timestamp-by-azure-stream-analytics#over-clause-interacts-with-event-ordering) examine séparément la chronologie de chaque appareil en utilisant des sous-flux. Les événements de sortie pour chaque TollID sont générés tels qu’ils sont calculés, ce qui signifie que les événements sont dans l’ordre relativement à chaque TollID, au lieu d’être réorganisés comme si tous les appareils avaient la même horloge.
 
 ## <a name="query-example-remove-duplicate-events-in-a-window"></a>Exemple de requête : Supprimer des événements en double dans une fenêtre
-**Description** : Quand vous effectuez une opération comme calculer des moyennes de plusieurs événements dans une fenêtre de temps donnée, les événements en double doivent être filtrés.
+
+**Description** : Quand vous effectuez une opération comme calculer des moyennes de plusieurs événements dans une fenêtre de temps donnée, les événements en double doivent être filtrés. Dans l’exemple suivant, le deuxième événement est un doublon du premier.
 
 **Entrée**:  
 
-| deviceId | Temps | Attribut | Valeur |
+| DeviceID | Time | Attribut | Valeur |
 | --- | --- | --- | --- |
 | 1 |2018-07-27T00:00:01.0000000Z |Température |50 |
 | 1 |2018-07-27T00:00:01.0000000Z |Température |50 |
@@ -661,7 +666,7 @@ GROUP BY TUMBLINGWINDOW(second, 5), TollId
 
 **Sortie**:  
 
-| AverageValue | deviceId |
+| AverageValue | DeviceID |
 | --- | --- |
 | 70 | 1 |
 |45 | 2 |
@@ -679,7 +684,7 @@ With Temp AS (
     GROUP BY
         Value,
         DeviceId,
-        SYSTEM.TIMESTAMP
+        SYSTEM.TIMESTAMP()
 )
 
 SELECT
@@ -689,9 +694,10 @@ FROM Temp
 GROUP BY DeviceId,TumblingWindow(minute, 5)
 ```
 
-**Explication** : [COUNT(DISTINCT Time)](https://docs.microsoft.com/stream-analytics-query/count-azure-stream-analytics) retourne le nombre de valeurs distinctes de la colonne Time dans une fenêtre de temps. Vous pouvez ensuite utiliser la sortie de cette étape pour calculer la moyenne par appareil en ignorant les doublons.
+**Explication** : [COUNT(DISTINCT Time)](/stream-analytics-query/count-azure-stream-analytics) retourne le nombre de valeurs distinctes de la colonne Time dans une fenêtre de temps. Vous pouvez ensuite utiliser la sortie de cette étape pour calculer la moyenne par appareil en ignorant les doublons.
 
 ## <a name="get-help"></a>Obtenir de l’aide
+
 Pour obtenir une assistance, consultez le [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Étapes suivantes

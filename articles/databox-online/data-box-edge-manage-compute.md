@@ -6,22 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/26/2019
+ms.date: 05/15/2019
 ms.author: alkohli
-ms.openlocfilehash: 58c4f42859f735a81a3e3edc801daff5d26194a0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a90475cfd1d166b8fae1c2b872cbbb9d48b50392
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60757884"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65785813"
 ---
 # <a name="manage-compute-on-your-azure-data-box-edge"></a>Gérer le calcul sur votre Azure Data Box Edge
 
 Cet article explique comment gérer le calcul sur votre Azure Data Box Edge. Vous pouvez gérer le calcul via le portail Azure ou l’interface utilisateur web locale. Le portail Azure vous permet de gérer les modules, les déclencheurs, la configuration du calcul et l’interface utilisateur pour la définition des paramètres de calcul.
-
-> [!IMPORTANT]
-> Data Box Edge est en préversion. Veuillez lire les [conditions d’utilisation de la préversion Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) avant de commander et déployer cette solution.
-
 
 Dans cet article, vous apprendrez comment :
 
@@ -80,7 +76,7 @@ Pour supprimer un déclencheur, procédez comme suit sur le portail Azure.
 
 3. Cliquez sur **Oui**lorsque vous êtes invité à confirmer l’opération.
 
-    ![Confirmation de suppression](media/data-box-edge-manage-compute/add-trigger-1.png)
+    ![Confirmez la suppression](media/data-box-edge-manage-compute/add-trigger-1.png)
 
 La liste des déclencheurs est actualisée afin de refléter la suppression.
 

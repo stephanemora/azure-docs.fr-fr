@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/25/2019
 ms.author: kumud;tyao
-ms.openlocfilehash: 514c034c23eed3a87111331724f3a33104651a43
-ms.sourcegitcommit: e729629331ae10097a081a03029398525f4147a4
+ms.openlocfilehash: b129579916330a34a2a78d98f2c7653f129d3319
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64514903"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523706"
 ---
 # <a name="configure-an-ip-restriction-rule-with-web-application-firewall-for-azure-front-door-preview"></a>Configurer une règle de restriction IP avec des pare-feu d’applications web pour Azure porte d’entrée (version préliminaire)
  Cet article vous montre comment configurer des règles de restriction IP dans le pare-feu d’applications Azure web (WAF) pour la porte d’entrée à l’aide d’Azure CLI, Azure PowerShell ou Azure Resource Manager d’un modèle.
@@ -137,24 +137,24 @@ Install-Module -Name Az.FrontDoor
 Créez un profil Front Door en suivant les instructions décrites dans [Démarrage rapide : Créer un profil de la porte d’entrée](quickstart-create-front-door.md)
 
 ### <a name="define-ip-match-condition"></a>Définir la condition de correspondance IP
-Utilisez le [New-AzFrontDoorMatchConditionObject](/powershell/module/az.frontdoor/new-azfrontdoormatchconditionobject) commande pour définir une condition de correspondance IP. Dans l’exemple ci-dessous, remplacez *ip-adresse-plage de-1*, *ip-adresse-range-2* avec votre propre plage.
+Utilisez le [New-AzFrontDoorWafMatchConditionObject](/powershell/module/az.frontdoor/new-azfrontdoorwafmatchconditionobject) commande pour définir une condition de correspondance IP. Dans l’exemple ci-dessous, remplacez *ip-adresse-plage de-1*, *ip-adresse-range-2* avec votre propre plage.
 
 ```powershell
-  $IPMatchCondition = New-AzFrontDoorMatchConditionObject `
+  $IPMatchCondition = New-AzFrontDoorWafMatchConditionObject `
     -MatchVariable  RemoteAddr `
     -OperatorProperty IPMatch `
     -MatchValue ["ip-address-range-1", "ip-address-range-2"]
 ```
 Créer une correspondance IP toutes les règles de condition
 ```powershell
-  $IPMatchALlCondition = New-AzFrontDoorMatchConditionObject `
+  $IPMatchALlCondition = New-AzFrontDoorWafMatchConditionObject `
     -MatchVariable  RemoteAddr `
     -OperatorProperty Any
     
 ```
 
 ### <a name="create-a-custom-ip-allow-rule"></a>Créez une règle d’autorisation IP
-   Utilisez le [New-AzFrontDoorCustomRuleObject](/powershell/module/Az.FrontDoor/New-AzFrontDoorCustomRuleObject) commande pour définir une action et définissez une priorité. Dans l’exemple suivant, à partir d’adresses IP des clients, les requêtes qui correspondent à la liste seront autorisés. 
+   Utilisez le [New-AzFrontDoorCustomRuleObject](/powershell/module/Az.FrontDoor/New-azfrontdoorwafcustomruleobject) commande pour définir une action et définissez une priorité. Dans l’exemple suivant, à partir d’adresses IP des clients, les requêtes qui correspondent à la liste seront autorisés. 
 
 ```powershell
   $IPAllowRule = New-AzFrontDoorCustomRuleObject `
@@ -175,10 +175,10 @@ Créez un bloc de toutes les règles IP avec une priorité plus faible que la r�
    ```
 
 ### <a name="configure-waf-policy"></a>Configurer la stratégie de pare-feu d’applications Web
-Recherchez le nom du groupe de ressources qui contient le profil Front Door à l’aide de `Get-AzResourceGroup`. Ensuite, configurez une stratégie de pare-feu d’applications Web avec la règle de bloc IP à l’aide [New-AzFrontDoorFireWallPolicy](/powershell/module/Az.FrontDoor/New-AzFrontDoorFireWallPolicy).
+Recherchez le nom du groupe de ressources qui contient le profil Front Door à l’aide de `Get-AzResourceGroup`. Ensuite, configurez une stratégie de pare-feu d’applications Web avec la règle de bloc IP à l’aide [New-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy).
 
 ```powershell
-  $IPAllowPolicyExamplePS = New-AzFrontDoorFireWallPolicy `
+  $IPAllowPolicyExamplePS = New-AzFrontDoorWafPolicy `
     -Name "IPRestrictionExamplePS" `
     -resourceGroupName <resource-group-name> `
     -Customrule $IPAllowRule $IPBlockAll `

@@ -2,22 +2,22 @@
 title: Paramètres de cookies du proxy d'application - Azure Active Directory  | Microsoft Docs
 description: Azure Active Directory (Azure AD) contient des cookies d'accès et de session pour accéder aux applications locales via le proxy d'application. Dans cet article, vous allez apprendre à utiliser et configurer les paramètres de cookies.
 services: active-directory
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/16/2019
-ms.author: celested
+ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 06fd83ee815e9e207c1fa5a1c6767280122c4d0c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d2e7f1bb54ce316a10eca0d020519779b0536c9e
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60440528"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65825747"
 ---
 # <a name="cookie-settings-for-accessing-on-premises-applications-in-azure-active-directory"></a>Paramètres de cookies pour l'accès aux applications locales dans Azure Active Directory
 
@@ -27,7 +27,7 @@ Azure Active Directory (Azure AD) contient des cookies d'accès et de session po
 
 Le [proxy d'application](application-proxy.md) utilise les paramètres de cookies d'accès et de session suivants.
 
-| Paramètre de cookie | Default | Description | Recommandations |
+| Paramètre de cookie | Default | Description  | Recommandations |
 | -------------- | ------- | ----------- | --------------- |
 | Utiliser un cookie HTTPOnly | **Non** | **Oui** permet au proxy d'application d'inclure l'indicateur HTTPOnly dans les en-têtes de réponse HTTP. Cet indicateur offre des avantages supplémentaires en matière de sécurité. Par exemple, il empêche les scripts côté client (CSS) de copier ou de modifier les cookies.<br></br><br></br>Auparavant, lorsque le paramètre HTTPOnly n'était pas pris en charge, le proxy d'application chiffrait et transmettait les cookies sur un canal SSL sécurisé pour les protéger des modifications. | Utilisez **Oui** pour bénéficier d'avantages supplémentaires en matière de sécurité.<br></br><br></br>Utilisez **Non** pour les clients ou agents utilisateurs nécessitant un accès au cookie de session. Par exemple, utilisez **Non** pour un client RDP ou MTSC qui se connecte à un serveur de passerelle Bureau à distance via le proxy d'application.|
 | Utiliser un cookie sécurisé | **Non** | **Oui** permet au proxy d'application d'inclure l'indicateur Secure dans les en-têtes de réponse HTTP. Les cookies sécurisés renforcent la sécurité en transmettant les cookies sur un canal TLS sécurisé tel que HTTPS. Cela empêche l'observation des cookies par des tiers non autorisés en raison de la transmission du cookie en texte clair. | Utilisez **Oui** pour bénéficier d'avantages supplémentaires en matière de sécurité.|

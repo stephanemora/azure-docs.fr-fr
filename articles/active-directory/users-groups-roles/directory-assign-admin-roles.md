@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c0811ce1509b7886bf0061cba955ca5e18990cd1
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 3593324523340300279232e0e63392c9c127991d
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920496"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65823568"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Autorisations des rôles d’administrateur dans Azure Active Directory
 
@@ -163,10 +163,15 @@ Les rôles d’administrateur disponibles sont les suivants :
   * Administrateurs d’autres services en dehors d’Azure AD, tels qu’Exchange Online, le Centre de sécurité et de conformité Office et les systèmes de ressources humaines.
   * Les non-administrateurs comme les cadres supérieurs, les conseillers juridiques et les employés des ressources humaines qui peuvent avoir accès à des informations sensibles ou privées.
 
+
+  > [!NOTE]
+  > Déléguer des autorisations administratives à des sous-ensembles d’utilisateurs et d’appliquer des stratégies à un sous-ensemble d’utilisateurs sont possible avec [unités administratives (version préliminaire)](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-administrative-units).
+
+
   > [!NOTE]
   > Ce rôle a été précédemment appelé « administrateur de mot de passe » [Azure portal](https://portal.azure.com/). Nous allons modifier son nom à « Administrateur Helpdesk » pour correspondre à son nom dans Azure AD PowerShell, API Azure AD Graph et API Microsoft Graph. Pendant une courte période, nous allons modifier le nom de « Administrateur Helpdesk (mot de passe) » dans le portail Azure avant la modification de « Administrateur Helpdesk ».
-  >
-  
+
+
 * **[Administrateur Power BI](#power-bi-service-administrator)**  : Les utilisateurs avec ce rôle ont des autorisations générales dans Microsoft Power BI, quand le service est présent, et peuvent gérer les tickets de support et superviser l’intégrité du service. Pour plus d’informations, consultez la page [Présentation du rôle d’administrateur Power BI](https://docs.microsoft.com/power-bi/service-admin-role).
   > [!NOTE]
   > Dans l’API Microsoft Graph, l’API Azure AD Graph et Azure AD PowerShell, ce rôle est identifié comme « Administrateur de service Power BI ». Il est appelé « Administrateur Power BI » dans le [portail Azure](https://portal.azure.com).

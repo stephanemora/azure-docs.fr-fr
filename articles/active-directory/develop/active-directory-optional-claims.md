@@ -2,9 +2,9 @@
 title: Découvrez comment fournir des revendications facultatives à votre application Azure AD | Microsoft Docs
 description: Guide pour l’ajout de revendications personnalisées ou supplémentaires aux jetons web JSON (JWT) et SAML 2.0 émis par Azure Active Directory.
 documentationcenter: na
-author: CelesteDG
+author: rwike77
 services: active-directory
-manager: mtillman
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -13,16 +13,16 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/27/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2fd7b05a5411c03e1324871fbff3c29061ce7b3d
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 593289e64c0f9cd13251a0f7b47b860158100b36
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65139239"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544565"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>Activation Fournir des revendications facultatives à votre application Azure AD
 
@@ -88,10 +88,10 @@ Ces revendications sont toujours incluses dans les jetons d’Azure AD v1.0, mai
 | `pwd_exp`     | Heure d’expiration du mot de passe        | Date et heure d’expiration du mot de passe. |       |
 | `pwd_url`     | Modifier l’URL de mot de passe             | URL à laquelle l’utilisateur peut accéder pour modifier son mot de passe.   |   |
 | `in_corp`     | Dans le périmètre du réseau d’entreprise        | Indique si le client se connecte à partir du réseau d’entreprise. Dans le cas contraire, la revendication n’est pas incluse.   |  Basé sur les [adresses IP approuvées](../authentication/howto-mfa-mfasettings.md#trusted-ips) définies dans MFA.    |
-| `nickname`    | Surnom                        | Autre nom de l’utilisateur, distinct du nom de famille et du prénom. | 
-| `family_name` | Nom                       | Fournit le dernier nom, nom de famille ou nom de famille de l’utilisateur, tel que défini dans l’objet utilisateur. <br>"family_name":"Miller" | Prise en charge dans le compte de service administré et AAD   |
-| `given_name`  | Prénom                      | Fournit le premier ou « prénom » de l’utilisateur, tel que défini dans l’objet utilisateur.<br>"given_name": "Frank"                   | Prise en charge dans le compte de service administré et AAD  |
-| `upn`         | Nom d’utilisateur principal | Identificateur de l'utilisateur qui peut être utilisé avec le paramètre username_hint.  Il ne s'agit pas d'un identificateur durable pour l'utilisateur et il ne doit pas être utilisé pour saisir des données. | Consultez les [propriétés supplémentaires](#additional-properties-of-optional-claims) ci-dessous pour en savoir plus sur la configuration de la revendication. |
+| `nickname`    | Pseudonyme                        | Autre nom de l’utilisateur, distinct du nom de famille et du prénom. | 
+| `family_name` | Nom de famille                       | Fournit le dernier nom, nom de famille ou nom de famille de l’utilisateur, tel que défini dans l’objet utilisateur. <br>"family_name":"Miller" | Prise en charge dans le compte de service administré et AAD   |
+| `given_name`  | Prénom                       | Fournit le premier ou « prénom » de l’utilisateur, tel que défini dans l’objet utilisateur.<br>"given_name": "Frank"                   | Prise en charge dans le compte de service administré et AAD  |
+| `upn`         | Nom principal de l'utilisateur | Identificateur de l'utilisateur qui peut être utilisé avec le paramètre username_hint.  Il ne s'agit pas d'un identificateur durable pour l'utilisateur et il ne doit pas être utilisé pour saisir des données. | Consultez les [propriétés supplémentaires](#additional-properties-of-optional-claims) ci-dessous pour en savoir plus sur la configuration de la revendication. |
 
 ### <a name="additional-properties-of-optional-claims"></a>Propriétés supplémentaires des revendications facultatives
 
@@ -99,7 +99,7 @@ Certaines revendications facultatives peuvent être configurées pour modifier l
 
 **Tableau 4 : Valeurs de configuration des revendications facultatives**
 
-| Nom de la propriété  | Nom de la propriété supplémentaire | Description |
+| Nom de la propriété  | Nom de la propriété supplémentaire | Description  |
 |----------------|--------------------------|-------------|
 | `upn`          |                          | Peut être utilisée pour les réponses SAML et JWT, ainsi que pour les jetons v1.0 et v2.0. |
 |                | `include_externally_authenticated_upn`  | Inclut l’UPN de l’invité tel que stocké dans le locataire de ressource. Par exemple, `foo_hometenant.com#EXT#@resourcetenant.com` |             
@@ -217,7 +217,7 @@ Cette section décrit les options de configuration sous les revendications facul
    - « DistributionList »
    - « DirectoryRole »
 
-   Par exemple : 
+   Exemple :
 
    ```json
    "groupMembershipClaims": "SecurityGroup"

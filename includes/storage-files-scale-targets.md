@@ -2,26 +2,26 @@
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 10/26/2018
+ms.date: 05/06/2019
 ms.author: tamram
-ms.openlocfilehash: 99314538f90404d7c2b72da0dd2da2d8ac60a08a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 213ecee34df46c0a408e7034a07ab864c96b340b
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59803937"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65751552"
 ---
 | Ressource | Partages de fichiers Standard | Partages de fichiers Premium (préversion) |
 |----------|---------------|------------------------------------------|
 | Taille minimale d'un partage de fichiers | Aucun minimum ; paiement | 100 Go ; mise en service |
-| Taille maximale d’un partage de fichiers | 5 Tio | 5 To (version préliminaire publique), 100 TIO (version préliminaire publique limitée) |
+| Taille maximale d’un partage de fichiers | 5 Tio | 100 TiB |
 | Taille maximale d’un fichier dans un partage de fichiers | 1 Tio | 1 Tio |
-| Nombre maximal de fichiers dans un partage de fichiers | Aucune limite | Aucune limite |
-| Nombre maximal d’IOPS par partage | 1 000 E/S | 5 120 base e/s avec la limite de croissance 15 360 (préversion publique), 100 000 e/s (version préliminaire publique limitée)|
+| Nombre maximal de fichiers dans un partage de fichiers | Illimité | Illimité |
+| Nombre maximal d’IOPS par partage | 1 000 E/S | 100 000 E/S par seconde |
 | Nombre maximal de stratégies d’accès stockées par fichier partager | 5. | 5. |
 | Débit cible pour un partage de fichier unique | Jusqu’à 60 Mio/s | Consultez premium partage entrant et sortant valeurs du fichier|
-| Sortie maximale pour un partage de fichier unique | Consultez le débit de cible de partage de fichiers standard | Jusqu'à 368 Mio/s (préversion publique), jusqu'à 6,204 Mio/s (version préliminaire publique limitée) |
-| Entrée maximale pour un partage de fichier unique | Consultez le débit de cible de partage de fichiers standard | Jusqu'à 245 Mio/s (préversion publique), jusqu'à 4 136 Mio/s (version préliminaire publique limitée) |
+| Sortie maximale pour un partage de fichier unique | Consultez le débit de cible de partage de fichiers standard | Jusqu'à 6,204 Mio/s |
+| Entrée maximale pour un partage de fichier unique | Consultez le débit de cible de partage de fichiers standard | Jusqu'à 4 136 Mio/s |
 | Nombre maximal de descripteurs ouverts par fichier | 2 000 descripteurs ouverts | 2 000 descripteurs ouverts |
 | Nombre maximal d’instantanés de partage | 200 instantanés de partage | 200 instantanés de partage |
 | Longueur maximale du nom de l’objet (répertoires et fichiers) | 2 048 caractères | 2 048 caractères |

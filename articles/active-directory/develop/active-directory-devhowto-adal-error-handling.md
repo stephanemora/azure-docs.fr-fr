@@ -3,9 +3,9 @@ title: Meilleures pratiques de gestion des erreurs pour les clients Azure Active
 description: Fournit des conseils et les meilleures pratiques de gestion des erreurs pour les applications clientes ADAL.
 services: active-directory
 documentationcenter: ''
-author: danieldobalian
-manager: mtillman
-ms.author: celested
+author: rwike77
+manager: CelesteDG
+ms.author: ryanwi
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 02/27/2017
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e92c3b302ab18aaaf20d187d61a488603ce81a7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 652175e99c800b8e4aa69c639f0bdb9aba838987
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60411440"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544639"
 ---
 # <a name="error-handling-best-practices-for-azure-active-directory-authentication-library-adal-clients"></a>Meilleures pratiques de gestion des erreurs pour les clients Azure Active Directory Authentication Library (ADAL)
 
@@ -52,7 +52,7 @@ Le système d’exploitation génère un ensemble d’erreurs pouvant nécessite
 
 Il existe essentiellement deux cas d’erreurs AcquireTokenSilent :
 
-| Cas | Description |
+| Casse | Description  |
 |------|-------------|
 | **Cas n° 1** : L’erreur peut être résolue via une connexion interactive | Pour les erreurs dues à un manque de jetons valides, une requête interactive est nécessaire. Plus spécifiquement, une recherche de cache et un jeton d’actualisation non valide/expiré nécessitent un appel AcquireToken pour résoudre l’erreur.<br><br>Dans ce cas, l’utilisateur final doit être invité à se connecter. L’application peut choisir d’effectuer une requête interactive immédiatement, après l’interaction de l’utilisateur final (par exemple, un clic sur un bouton de connexion) ou ultérieurement. Le choix dépend du comportement souhaité de l’application.<br><br>Consultez le code dans la section suivante pour ce cas particulier, ainsi que les erreurs qui le caractérisent.|
 | **Cas n° 2** : L’erreur ne peut pas être résolue via une connexion interactive | Pour les erreurs passagères/temporaires, les problèmes réseau et autres défaillances, une requête interactive AcquireToken ne permet pas de résoudre le problème. Les invites de connexion interactive inutiles peuvent également frustrer les utilisateurs finaux. ADAL effectue automatiquement une seule nouvelle tentative pour la plupart des erreurs relatives à des échecs AcquireTokenSilent.<br><br>L’application cliente peut également effectuer une nouvelle tentative ultérieurement, mais le moment et la façon de le faire dépend du comportement de l’application et de l’expérience utilisateur souhaitée. Par exemple, l’application peut effectuer une nouvelle tentative AcquireTokenSilent après quelques minutes ou en réponse à une action de l’utilisateur final. Une nouvelle tentative immédiate limite l’application et n’est pas recommandée.<br><br>Une nouvelle tentative ultérieure qui échoue avec la même erreur ne signifie pas que le client doive effectuer une requête interactive avec AcquireToken, étant donné qu’elle ne résout pas l’erreur.<br><br>Consultez le code dans la section suivante pour ce cas particulier, ainsi que les erreurs qui le caractérisent. |

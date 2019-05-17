@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 05/02/2019
+ms.date: 05/16/2019
 ms.author: juliako
-ms.openlocfilehash: 42b8c4caa53ffa6b3bc1148544c75602597ac452
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 1aa15a42893d867ae18c267e163e8df94af50723
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153841"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65824454"
 ---
 # <a name="quotas-and-limitations-in-azure-media-services-v3"></a>Quotas et limitations dans Azure Media Services v3
 
@@ -30,7 +30,7 @@ Cet article décrit les quotas et les limitations dans Azure Media Services v3.
 | JobOutputs par travail | 20 (fixe) |
 | TransformOutputs dans une forme Transformer | 20 (fixe) |
 | Fichiers par JobInput|10 (fixe)|
-| Taille du fichier| Dans certains scénarios, la taille maximale des fichiers pris en charge pour le traitement dans Media Services est soumise à une limite. <sup>(1)</sup> |
+| Taille de fichier| Dans certains scénarios, la taille maximale des fichiers pris en charge pour le traitement dans Media Services est soumise à une limite. <sup>(1)</sup> |
 | Travaux par compte Media Services | 500 000 <sup>(2)</sup> (fixe)|
 | Énumération des transformations|Pagination de la réponse avec 1 000 transformations par page|
 | Énumération des travaux|Pagination de la réponse avec 500 travaux par page|
@@ -43,7 +43,7 @@ Cet article décrit les quotas et les limitations dans Azure Media Services v3.
 | Stratégies de diffusion en continu | 100 <sup>(5)</sup> |
 | Transformations par compte Media Services | 100 (fixe)|
 | Localisateurs de streaming uniques associés à une ressource à un moment donné | 100<sup>(6)</sup> (fixe) |
-| Stratégie de clé de contenu |30 | 
+| Options de stratégie de clé de contenu |30 | 
 
 <sup>1</sup> La taille maximale prise en charge pour un objet blob est actuellement de 5 To dans Stockage Blob Azure. Limites supplémentaires s’appliquent dans Media Services basée sur les tailles de machines virtuelles qui sont utilisés par le service. La limite de taille s’applique aux fichiers que vous téléchargez et également les fichiers qui sont générés à la suite de traitement (encodage ou l’analyse) de Media Services. Si votre fichier source est supérieur à 260 Go, votre travail échouera probablement. 
 
@@ -73,4 +73,4 @@ Pour les ressources qui ne sont pas fixes, vous pouvez demander d’augmenter le
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Vue d'ensemble](media-services-overview.md)
+[Vue d’ensemble](media-services-overview.md)

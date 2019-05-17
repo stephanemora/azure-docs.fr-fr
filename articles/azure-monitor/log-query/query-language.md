@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: bwren
-ms.openlocfilehash: ecbea91cef69c80975dd105c35f526b357033a6b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6fae245e4d72f7f6f7809d85da17023deb1518e5
+ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61425960"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65560848"
 ---
 # <a name="azure-monitor-log-queries"></a>Requêtes de journal Azure Monitor
 Les journaux d’activité Azure Monitor reposent sur Azure Data Explorer ; les requêtes de journal Azure Monitor utilisent une version du même langage de requête Kusto. La [documentation du langage de requête Kusto](/azure/kusto/query), qui rassemble toutes les informations sur ce langage, doit constituer votre principale référence lorsque vous écrivez des requêtes de journal Azure Monitor. Cette page comporte des liens vers d’autres ressources permettant d’apprendre à écrire des requêtes et de découvrir les différences avec l’implémentation Azure Monitor du langage.
@@ -61,7 +61,7 @@ Les journaux d’activité Azure Monitor reposent sur Azure Data Explorer ; les
 ## <a name="cheatsheets"></a>Aide-mémoires
 
 -  [De SQL à la requête de journal Azure Monitor](sql-cheatsheet.md) accompagne les utilisateurs qui connaissent déjà SQL.
--  [De Splunk à la requête de journal Azure Monitor](sql-cheatsheet.md) accompagne les utilisateurs qui connaissent déjà Splunk.
+-  [De Splunk à la requête de journal Azure Monitor](splunk-cheatsheet.md) accompagne les utilisateurs qui connaissent déjà Splunk.
  
 ## <a name="next-steps"></a>Étapes suivantes
 

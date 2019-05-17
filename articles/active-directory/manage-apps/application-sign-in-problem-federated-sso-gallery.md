@@ -3,8 +3,8 @@ title: Problèmes de connexion à une application de la galerie configurée pour
 description: Instructions sur la manière de résoudre les problèmes rencontrés lors de la connexion à une application configurée pour l’authentification unique SAML fédérée avec Azure AD
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/18/2019
-ms.author: celested
+ms.author: mimart
 ms.reviewer: luleon, asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 623d684f701df8b1a7c4b84a2bd3840f039ad174
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1985b7bbcfdaab2aa303f67a9b1d090c85eedd5d
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60292212"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65825206"
 ---
 # <a name="problems-signing-in-to-a-gallery-application-configured-for-federated-single-sign-on"></a>Problèmes de connexion à une application de la galerie configurée pour l’authentification unique fédérée
 
@@ -57,7 +57,7 @@ Vérifiez que le `Issuer` attribut dans la demande SAML correspond à la valeur 
 
 1.  Sélectionnez l’application pour laquelle vous souhaitez configurer l’authentification unique.
 
-1.  Une fois l’application chargée, ouvrez **configuration SAML base**. Vérifiez que la valeur dans la zone de texte identificateur correspond à la valeur de la valeur d’identificateur mentionnée dans l’erreur.
+1.  Une fois l’application chargée, ouvrez **Configuration SAML de base**. Vérifiez que la valeur dans la zone de texte identificateur correspond à la valeur de la valeur d’identificateur mentionnée dans l’erreur.
 
 
 
@@ -87,7 +87,7 @@ Vérifiez que le `AssertionConsumerServiceURL` valeur dans la demande SAML corre
 
 1.  Sélectionnez l’application pour laquelle vous souhaitez configurer l’authentification unique.
 
-1.  Une fois l’application chargée, ouvrez **configuration SAML base**. Vérifier ou mettre à jour la valeur dans la zone de texte URL de réponse pour faire correspondre la `AssertionConsumerServiceURL` valeur dans la demande SAML.    
+1.  Une fois l’application chargée, ouvrez **Configuration SAML de base**. Vérifier ou mettre à jour la valeur dans la zone de texte URL de réponse pour faire correspondre la `AssertionConsumerServiceURL` valeur dans la demande SAML.    
     
 Une fois que vous avez mis à jour la valeur de l’URL de réponse dans Azure AD, et il correspond à la valeur envoyée par l’application dans la demande SAML, il se peut que vous devez être en mesure de se connecter à l’application.
 
@@ -123,7 +123,7 @@ Pour affecter un ou plusieurs utilisateurs à une application directement, suive
 
 1.  Sélectionnez le sélecteur **Utilisateurs et groupes** à partir du volet **Ajouter une attribution**.
 
-1. Dans le **recherche par nom ou adresse e-mail** zone de recherche, tapez le nom complet ou adresse e-mail de l’utilisateur que vous souhaitez ajouter.
+1. Dans la zone de recherche **Rechercher par nom ou adresse de messagerie** , tapez le nom complet ou l’adresse e-mail de l’utilisateur que vous voulez ajouter.
 
 1. Pointez sur **l’utilisateur** dans la liste pour afficher une **case à cocher**. Cliquez sur la case à cocher en regard de la photo de profil ou le logo pour ajouter l’utilisateur à l’utilisateur le **sélectionnés** liste.
 
@@ -152,7 +152,7 @@ Azure AD ne prend pas en charge la demande SAML envoyée par l’application pou
 
 1. Capturer la demande SAML. Suivez le didacticiel [comment déboguer basée sur SAML SSO aux applications dans Azure AD](../develop/howto-v1-debug-saml-sso-issues.md) pour savoir comment capturer la demande SAML.
 
-1. Contactez le fournisseur de l’application et de partager les informations suivantes :
+1. Contactez le fournisseur de l’application et communiquez-lui les informations suivantes :
 
    -   Demande SAML
 
@@ -186,7 +186,7 @@ Vérifiez que le `Issuer` attribut dans la demande SAML correspond à la valeur 
 
 1.  Sélectionnez l’application pour laquelle vous souhaitez configurer l’authentification unique.
 
-1.  Une fois l’application chargée, ouvrez **configuration SAML base**. Vérifiez que la valeur dans la zone de texte identificateur correspond à la valeur de la valeur d’identificateur mentionnée dans l’erreur.
+1.  Une fois l’application chargée, ouvrez **Configuration SAML de base**. Vérifiez que la valeur dans la zone de texte identificateur correspond à la valeur de la valeur d’identificateur mentionnée dans l’erreur.
 
 
 ## <a name="certificate-or-key-not-configured"></a>Certificat ou clé non configuré(e)
@@ -263,7 +263,7 @@ Supprimer les URL de réponse inutilisé configurés pour l’application.
 
 6.  Sélectionnez l’application pour laquelle vous souhaitez configurer l’authentification unique.
 
-7.  Une fois l’application chargée, ouvrez **configuration SAML base**. Dans le **URL de réponse (URL Assertion Consumer Service)**, delete inutilisée ou URL de réponse par défaut créé par le système. Par exemple : `https://127.0.0.1:444/applications/default.aspx`.
+7.  Une fois l’application chargée, ouvrez **Configuration SAML de base**. Dans le **URL de réponse (URL Assertion Consumer Service)**, delete inutilisée ou URL de réponse par défaut créé par le système. Par exemple : `https://127.0.0.1:444/applications/default.aspx`.
 
 ## <a name="problem-when-customizing-the-saml-claims-sent-to-an-application"></a>Problème lors de la personnalisation des revendications SAML envoyées à une application
 

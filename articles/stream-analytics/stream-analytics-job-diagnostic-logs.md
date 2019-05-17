@@ -7,14 +7,13 @@ ms.author: jeanb
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/19/2019
-ms.custom: seodec18
-ms.openlocfilehash: cc62a6b9f03bdd6dc8671a6cf96113a2234fc092
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/15/2019
+ms.openlocfilehash: e784cfd2956479327cff9c97a09dd0ada6a154c2
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61480156"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65826578"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-diagnostics-logs"></a>Résoudre les problèmes liés à Azure Stream Analytics à l’aide des journaux de diagnostic
 
@@ -83,7 +82,7 @@ Journaux de diagnostic sous tension et en les envoyant aux journaux d’Azure Mo
 
 ## <a name="diagnostics-log-categories"></a>Catégories de journaux de diagnostic
 
-Deux catégories de journaux de diagnostic sont actuellement disponibles :
+Azure Stream Analytique capture deux catégories de journaux de diagnostic :
 
 * **Création** : capture les événements de journal liés aux opérations de création de travaux (création du travail, ajout et suppression d’entrées et de sorties, ajout et mise à jour de la requête, démarrage et arrêt du travail).
 
@@ -110,7 +109,7 @@ properties | Détail spécifique de l’entrée du journal, sérialisé comme ch
 
 ### <a name="execution-log-properties-schema"></a>Schéma de propriétés des journaux d’exécution
 
-Les journaux d’activité d’exécution contiennent des informations sur les événements qui se sont produits pendant l’exécution du travail Stream Analytics. Le schéma de propriétés varie selon le type d’événement. Les types de journaux d’activité d’exécution suivants sont actuellement disponibles :
+Les journaux d’activité d’exécution contiennent des informations sur les événements qui se sont produits pendant l’exécution du travail Stream Analytics. Le schéma de propriétés varie selon que l’événement est une erreur de données ou un événement générique.
 
 ### <a name="data-errors"></a>Erreurs de données
 
@@ -124,10 +123,14 @@ Type | Le type d’erreur. Par exemple, **DataConversionError**, **CsvParserErro
 Données | Contient des données utiles pour localiser avec précision la source de l’erreur. Troncation possible en fonction de la taille.
 
 En fonction de la valeur **operationName**, les erreurs de données ont le schéma suivant :
-* **Événements de sérialisation** : les événements de sérialisation se produisent pendant les opérations de lecture d’événements, lorsque les données en entrée ne répondent pas aux conditions du schéma de requête pour l’une des raisons suivantes :
-    * *Incompatibilité de type pendant la (dé)sérialisation de l’événement :* identifie le champ à l’origine de l’erreur.
-    * *Impossible de lire un événement, sérialisation non valide* : fournit des informations sur l’emplacement où l’erreur s’est produite dans les données d’entrée. (nom d’objet blob pour une entrée d’objet blob, décalage et exemple de données).
-* **Événements d’envoi** : les événements d’envoi se produisent pendant les opérations d’écriture. Ils identifient l’événement de streaming à l’origine de l’erreur.
+
+* **Événements de sérialisation** se produisent pendant les opérations de lecture d’événements. lorsque les données en entrée ne répondent pas aux conditions du schéma de requête pour l’une des raisons suivantes :
+
+   * *Incompatibilité de type pendant la (dé)sérialisation de l’événement :* identifie le champ à l’origine de l’erreur.
+
+   * *Impossible de lire un événement, sérialisation non valide* : fournit des informations sur l’emplacement où l’erreur s’est produite dans les données d’entrée. (nom d’objet blob pour une entrée d’objet blob, décalage et exemple de données).
+
+* **Envoyer des événements** se produisent pendant les opérations d’écriture. Ils identifient l’événement de streaming à l’origine de l’erreur.
 
 ### <a name="generic-events"></a>Événements génériques
 

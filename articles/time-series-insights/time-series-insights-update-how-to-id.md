@@ -8,14 +8,14 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 12/03/2018
+ms.date: 05/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 81877ad23728ad76cb5d4dc5084990511257c6df
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 4b2f538831ee9410eaf1a2d272f01fd30a9236e6
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64695070"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65519432"
 ---
 # <a name="best-practices-for-choosing-a-time-series-id"></a>Meilleures pratiques pour choisir un ID de série chronologique
 
@@ -29,6 +29,7 @@ Le choix d’un ID de série chronologie est identique au choix d’une clé de 
 > L’ID de série chronologique respecte la casse et il est immuable (il ne peut pas être modifié après sa définition).
 
 Dans cette optique, il est essentiel de sélectionner l’ID de série chronologique approprié. Lorsque vous sélectionnez un ID de série chronologique, tenez compte des meilleures pratiques suivantes :
+
 * Choisissez un nom de propriété qui a une large plage de valeurs et des modèles d’accès uniformes. Il est recommandé de disposer d’une clé de partition comportant de nombreuses valeurs distinctes (plusieurs centaines ou plusieurs milliers). Pour de nombreux clients, cela revient à utiliser un DeviceID ou SensorID dans votre code JSON.
 * L’ID de série chronologique doit être unique au niveau du nœud de feuille de votre [modèle de série chronologique](./time-series-insights-update-tsm.md).
 * Une chaîne de caractères de nom de propriété d’ID de série chronologique peut avoir jusqu’à 128 caractères, et les valeurs de propriété de l’ID de série chronologique peuvent avoir jusqu’à 1 024 caractères.
@@ -41,13 +42,13 @@ En outre, vous pouvez sélectionner jusqu’à *trois* (3) propriétés de clé 
 
 Les scénarios suivants décrivent la sélection de plusieurs propriétés de clé en tant qu’ID de série chronologique :  
 
-### <a name="scenario-1"></a>Scénario 1
+### <a name="scenario-one"></a>Scénario n° 1
 
-* Vous avez des parcs hérités d’actifs, chacun avec une clé unique. 
-* Par exemple, un parc est identifié de façon unique par la propriété *deviceId* et un autre par la propriété unique *objectId*. Aucun des parcs ne contient la propriété unique de l’autre parc. Dans cet exemple, vous sélectionnez deux clés, deviceId et objectID, comme clés uniques. 
+* Vous avez des parcs hérités d’actifs, chacun avec une clé unique.
+* Par exemple, un parc est identifié de façon unique par la propriété *deviceId* et un autre par la propriété unique *objectId*. Aucun des parcs ne contient la propriété unique de l’autre parc. Dans cet exemple, vous sélectionnez deux clés, deviceId et objectID, comme clés uniques.
 * Nous acceptons les valeurs null, et l’absence d’une propriété dans la charge utile d’événement est comptabilisée comme une valeur `null`. Il s’agit également de la méthode appropriée pour gérer l’envoi de données à deux différentes sources d’événements, où les données de chaque source d’événement ont un ID unique de série chronologique.
 
-### <a name="scenario-2"></a>Scénario 2
+### <a name="scenario-two"></a>Scénario n ° 2
 
 * Plusieurs propriétés doivent être uniques au sein du même parc d’actifs. 
 * Par exemple, supposons que vous êtes un constructeur de bâtiments intelligents et que vous déployez des capteurs dans chaque pièce. Dans chaque pièce, vous avez généralement les mêmes valeurs pour *sensorId*, telles que *sensor1*, *sensor2* et *sensor3*.
