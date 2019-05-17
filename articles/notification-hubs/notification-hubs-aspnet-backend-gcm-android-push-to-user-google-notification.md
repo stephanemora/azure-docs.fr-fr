@@ -15,14 +15,17 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: fc248292e2323d44a353473be87c2b0f1be8ea12
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: d125e0c0818efbc6ec8f317122859411a37a0d20
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55091665"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65232751"
 ---
-# <a name="tutorial-push-notification-to-specific-android-application-users-by-using-azure-notification-hubs"></a>Didacticiel : Notifications Push vers des utilisateurs spécifiques d’une application Android à l’aide d’Azure Notification Hubs
+# <a name="tutorial-push-notification-to-specific-android-application-users-by-using-azure-notification-hubs-and-google-cloud-messaging-deprecated"></a>Didacticiel : Notification push aux utilisateurs de l’application Android spécifique à l’aide d’Azure Notification Hubs et de Google Cloud Messaging (déconseillée)
+
+> [!WARNING]
+> À compter du 10 avril 2018, Google a déconseillé Google Cloud Messaging (GCM). Le serveur GCM et les API clientes sont déconseillés et seront supprimés dès le 29 mai 2019. Pour plus d’informations, consultez [GCM et FCM dans la foire aux questions](https://developers.google.com/cloud-messaging/faq).
 
 [!INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
 
@@ -141,7 +144,7 @@ L’étape suivante consiste à mettre à jour l’application Android créée d
     ```xml
     <string name="usernameHint">Username</string>
     <string name="passwordHint">Password</string>
-    <string name="loginButton">1. Log in</string>
+    <string name="loginButton">1. Sign in</string>
     <string name="send_button">2. Send Notification</string>
     <string name="notification_message_hint">Notification message</string>
     <string name="notification_message_tag_hint">Recipient username</string>
@@ -257,7 +260,7 @@ L’étape suivante consiste à mettre à jour l’application Android créée d
     }
     ```
 
-    Ce composant met en œuvre les appels REST nécessaires pour contacter le service principal de l'application et inscrire cette dernière pour les notifications Push. Il enregistre également en local les informations *registrationIds* créées par le hub de notification, comme expliqué dans la rubrique [Inscription auprès du serveur principal de votre application](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend). Il utilise un jeton d'autorisation qui se trouve dans le stockage local quand vous cliquez sur le bouton **Log in**.
+    Ce composant met en œuvre les appels REST nécessaires pour contacter le service principal de l'application et inscrire cette dernière pour les notifications Push. Il enregistre également en local les informations *registrationIds* créées par le hub de notification, comme expliqué dans la rubrique [Inscription auprès du serveur principal de votre application](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend). Elle utilise un jeton d’autorisation stocké dans le stockage local lorsque vous cliquez sur le bouton **Se connecter**.
 4. Dans votre classe, supprimez ou commentez votre champ privé pour `NotificationHub`, puis ajoutez un champ pour la classe `RegisterClient` et une chaîne pour le point de terminaison de votre serveur principal ASP.NET. Remplacez bien `<Enter Your Backend Endpoint>` par le point de terminaison réel de votre serveur principal, obtenu précédemment. Par exemple : `http://mybackend.azurewebsites.net`.
 
     ```java
@@ -319,7 +322,7 @@ L’étape suivante consiste à mettre à jour l’application Android créée d
     Button sendPush = (Button) findViewById(R.id.sendbutton);
     sendPush.setEnabled(false);
     ```
-9. Ensuite, ajoutez les méthodes suivantes pour gérer l'événement de clic sur le bouton **Log in** et l'envoi de notifications Push.
+9. Ensuite, ajoutez les méthodes suivantes pour gérer l’événement de clic sur le bouton **Se connecter** et l’envoi de notifications Push.
 
     ```java
     public void login(View view) throws UnsupportedEncodingException {
@@ -401,7 +404,7 @@ L’étape suivante consiste à mettre à jour l’application Android créée d
     }
     ```
 
-    Le gestionnaire `login` pour le bouton **Log in** génère un jeton d’authentification de base, à partir du nom d’utilisateur et du mot de passe entrés (cela représente n’importe quel jeton utilisé par votre système d’authentification), puis utilise `RegisterClient` pour appeler le serveur principal en vue de l’inscription.
+    Le gestionnaire `login` pour le bouton **Se connecter** génère une utilisation du jeton d'authentification de base sur l’entrée de nom d’utilisateur et de mot de passe (qui représente n’importe quel jeton utilisé par votre schéma d’authentification), puis il utilise `RegisterClient` pour appeler le principal et s’inscrire.
 
     La méthode `sendPush` appelle le serveur principal pour déclencher une notification sécurisée pour l'utilisateur basée sur la balise d'utilisateur. Le service de notification de la plateforme ciblé par `sendPush` varie selon la chaîne `pns` passée.
 
@@ -467,7 +470,7 @@ L’étape suivante consiste à mettre à jour l’application Android créée d
 
 1. Exécutez l'application sur un appareil ou un émulateur à l'aide d'Android Studio.
 2. Dans l'application Android, entrez un nom d'utilisateur et un mot de passe. Ils doivent représenter la même valeur de chaîne et ne pas contenir d'espaces ou de caractères spéciaux.
-3. Dans l'application Android, cliquez sur **Log in**. Attendez que s'affiche un message indiquant **Logged in and registered**. Le bouton **Send Notification** est alors activé.
+3. Dans l’application Android, cliquez sur **Se connecter**. Attendez que s'affiche un message indiquant **Logged in and registered**. Le bouton **Send Notification** est alors activé.
 
     ![][A2]
 4. Cliquez sur les boutons bascule pour activer toutes les plateformes où vous avez exécuté l'application et inscrit un utilisateur.

@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: edc75711d8f727d8b1c9359835c6d5ebd575ff71
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 8a0621d0261bfbc7ab396abf837ee7b1123352d1
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59678647"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233446"
 ---
 # <a name="take-a-tour-of-the-azure-iot-central-ui"></a>Visite guidée de l’interface utilisateur de Azure IoT Central
 
@@ -33,7 +33,6 @@ En tant qu’_opérateur_, vous utilisez l’interface utilisateur Azure IoT Cen
 - Dépanner et corrige les problèmes avec vos appareils.
 - Approvisionner de nouveaux appareils.
 
-
 ## <a name="use-the-left-navigation-menu"></a>Utiliser le menu de navigation gauche
 
 Utilisez le menu de navigation gauche pour accéder aux différentes zones de l’application. Vous pouvez développer ou réduire la barre de navigation en sélectionnant **<** ou **>**  :
@@ -51,11 +50,14 @@ Le menu supérieur s’affiche sur chaque page :
 - Pour rechercher des modèles d’appareils et des appareils, entrez une valeur de **recherche**.
 - Pour modifier la langue de l’interface utilisateur ou le thème, choisissez l’icône des **paramètres**.
 - Pour vous déconnecter de l’application, choisissez l’icône **Compte**.
-- Pour obtenir de l’aide et un support, choisissez la liste déroulante **Aide** pour obtenir une liste des ressources.
+- Pour obtenir de l’aide et un support, choisissez la liste déroulante **Aide** pour obtenir une liste des ressources. Dans une application d’essai, les ressources de support incluent l’accès à une [messagerie instantanée](howto-show-hide-chat.md).
 
 Vous pouvez choisir entre un thème clair ou un thème foncé pour l’interface utilisateur :
 
 ![Choisir un thème pour l’interface utilisateur](media/overview-iot-central-tour/themes.png)
+
+> [!NOTE]
+> La possibilité de choisir entre des thèmes clairs et foncés n’est pas disponible si votre administrateur a configuré un thème personnalisé pour l’application.
 
 ## <a name="dashboard"></a>tableau de bord
 

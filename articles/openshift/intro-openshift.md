@@ -7,14 +7,14 @@ ms.author: twhitney
 ms.service: container-service
 manager: jeconnoc
 ms.topic: overview
-ms.date: 05/06/2019
+ms.date: 05/08/2019
 ms.custom: mvc
-ms.openlocfilehash: 6121c0f654a61a147e84f0697f3ddb06b7c5db92
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: bfa3e63a433a6948f05ece7ec3c3a6180933510b
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65079947"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466167"
 ---
 # <a name="azure-red-hat-openshift"></a>Azure Red Hat OpenShift
 
@@ -38,9 +38,9 @@ Les nœuds Azure Red Hat OpenShift s’exécutent sur des machines virtuelles Az
 
 ## <a name="virtual-networks-and-ingress"></a>Réseaux virtuels et entrée
 
-Vous pouvez déployer un cluster Azure Red Hat OpenShift dans un réseau virtuel existant. Dans cette configuration, chaque pod du cluster se voit attribuer une adresse IP dans le réseau virtuel et peut communiquer directement avec d’autres pods du cluster et d’autres nœuds du réseau virtuel. Les pods peuvent également se connecter à d’autres services dans un réseau virtuel associé et à des réseaux locaux via [ExpressRoute](https://docs.microsoft.com/azure/expressroute/) ou des connexions VPN (S2S) site à site.
+Vous pouvez connecter un cluster Azure Red Hat OpenShift à un réseau virtuel existant via le peering. Dans cette configuration, les pods peuvent se connecter à d’autres services dans un réseau virtuel appairé et à des réseaux locaux via [ExpressRoute](https://docs.microsoft.com/azure/expressroute/) ou des connexions VPN site à site (S2S).
 
-Pour plus d’informations, consultez [Créer un cluster Microsoft Red Hat OpenShift sur Azure](tutorial-create-cluster.md).
+Consultez [Connecter le réseau virtuel d’un cluster à un réseau virtuel existant](tutorial-create-cluster.md#optional-connect-the-clusters-virtual-network-to-an-existing-virtual-network) pour plus d’informations.
 
 ## <a name="kubernetes-certification"></a>Certification Kubernetes
 
