@@ -11,13 +11,13 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
-ms.date: 04/26/2019
-ms.openlocfilehash: 584f30cc12aee722aed1079d5cefaee06d403cba
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.date: 05/14/2019
+ms.openlocfilehash: 7916e9493a5d572f844bca23a1dd7806e5fbe572
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64867662"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65790157"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Une vue d’ensemble des fonctionnalités de sécurité d’Azure SQL Database
 
@@ -125,17 +125,11 @@ Dans Azure, toutes les bases de données SQL créées sont chiffrées par défau
 
 [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) est une fonctionnalité conçue pour protéger les données sensibles stockées dans des colonnes de base de données spécifiques (numéros de cartes de crédit, de carte d'identité ou autres données _sensibles_). Les administrateurs de base de données ou autres utilisateurs disposant de privilèges autorisés peuvent accéder à la base de données afin d'y effectuer des tâches de gestion, sans devoir accéder aux données contenues dans les colonnes chiffrées. Les données sont systématiquement chiffrées, ce qui signifie qu'elles sont uniquement déchiffrées à des fins de traitement par les applications clientes ayant accès à la clé de chiffrement.  La clé de chiffrement n’est jamais exposée dans SQL et peut être stockée dans le [magasin de certificats Windows](sql-database-always-encrypted.md) ou dans [Azure Key Vault](sql-database-always-encrypted-azure-key-vault.md).
 
-### <a name="masking"></a>Masquage
+### <a name="dynamic-data-masking"></a>Masquage des données dynamiques
 
 ![azure-database-ddm.png](media/sql-database-security-overview/azure-database-ddm.png)
 
-#### <a name="dynamic-data-masking"></a>Masquage des données dynamiques
-
 Le masquage des données dynamiques de base de données SQL limite l’exposition des données sensibles en les masquant aux utilisateurs sans privilège. Le masquage de données dynamiques détecte automatiquement les données potentiellement sensibles dans Azure SQL Database et fournit des recommandations pouvant donner lieu à une action permettant de masquer ces champs, avec un impact minimal sur la couche d’application. Il dissimule les données sensibles dans le jeu de résultats d’une requête dans les champs de la base de données désignés. Les données de la base de données ne sont pas modifiées. Pour en savoir plus, consultez [Masquage de données dynamiques dans une base de données SQL](sql-database-dynamic-data-masking-get-started.md).
-
-#### <a name="static-data-masking"></a>Masquage des données statiques
-
-Le [Masquage des données statiques](/sql/relational-databases/security/static-data-masking) est un outil côté client disponible dans [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) 18.0 préversion 5 et ou ultérieure.  Le Masquage des données statiques permet aux utilisateurs de créer une copie d’une base de données dans laquelle les données de colonnes sélectionnées ont été définitivement masquées. Les fonctions de masquage disponibles sont notamment : masquage NULL, masquage de valeur unique, masquage aléatoire et aléatoire de groupe et masquage de composite de chaîne. La copie masquée de la base de données permet aux organisations de séparer les environnements de test et de production en partageant la copie masquée. Les données sensibles sont suffisamment protégées et toutes les autres caractéristiques de base de données sont préservées. Le masquage des bases de données est recommandé lorsqu'un accès de tiers aux bases de données est requis.
 
 ## <a name="security-management"></a>Gestion de la sécurité
 

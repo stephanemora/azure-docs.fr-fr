@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: iainfou
-ms.openlocfilehash: a1fe8929b5ae39c82850aa08899c7b3e6bb98c7e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: eeb9f5fa91252bbc3c3038ab88bd2d7e802f263f
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64725308"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65786390"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>Principaux de service avec Azure Kubernetes Service (AKS)
 
@@ -23,6 +23,8 @@ Cet article montre comment créer et utiliser un principal de service pour vos c
 ## <a name="before-you-begin"></a>Avant de commencer
 
 Pour créer un principal de service Azure AD, vous devez disposer des autorisations suffisantes pour inscrire une application auprès de votre client Azure AD et l’affecter à un rôle dans votre abonnement. Si vous n’avez pas les privilèges nécessaires, vous devriez demander à votre administrateur Azure AD ou administrateur d’abonnement de vous attribuer les privilèges nécessaires, de ou créer au préalable un principal de service que vous pourrez utiliser avec le cluster AKS.
+
+Si vous utilisez un principal de service à partir d’un autre annuaire Azure AD locataire, des remarques supplémentaires sur les autorisations sont disponibles lorsque vous déployez le cluster. Vous n’êtes peut-être pas les autorisations appropriées pour lire et écrire les informations d’annuaire. Pour plus d’informations, consultez [quelles sont les autorisations d’utilisateur par défaut dans Azure Active Directory ?][azure-ad-permissions]
 
 Vous également besoin d’Azure CLI version 2.0.59 ou ultérieur installé et configuré. Exécutez  `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez  [Installation d’Azure CLI 2.0][install-azure-cli].
 
@@ -89,7 +91,7 @@ L’élément `--scope` d’une ressource doit être un ID de ressource complet,
 
 Les sections suivantes détaillent les délégations courantes que vous serez peut-être amené à effectuer.
 
-### <a name="azure-container-registry"></a>Azure Container Registry
+### <a name="azure-container-registry"></a>Registre de conteneurs Azure
 
 Si vous utilisez Azure Container Registry (ACR) comme magasin d’images conteneur, vous devez accorder des autorisations pour que votre cluster AKS puisse lire et extraire des images. Le rôle *Lecteur* doit être délégué au principal du service du cluster AKS dans le registre. Pour des instructions détaillées, consultez [Accorder à AKS un accès à ACR][aks-to-acr].
 
@@ -158,3 +160,4 @@ Pour plus d’informations sur la façon de mettre à jour les informations d’
 [az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
 [aks-to-acr]: ../container-registry/container-registry-auth-aks.md?toc=%2fazure%2faks%2ftoc.json#grant-aks-access-to-acr
 [update-credentials]: update-credentials.md
+[azure-ad-permissions]: ../active-directory/fundamentals/users-default-permissions.md

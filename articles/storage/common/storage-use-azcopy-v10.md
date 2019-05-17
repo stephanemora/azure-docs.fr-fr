@@ -9,12 +9,12 @@ ms.date: 04/23/2019
 ms.author: normesta
 ms.reviewer: seguler
 ms.subservice: common
-ms.openlocfilehash: d05cbd30565ced73352736508fc4bcc376985554
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: b5a13dfd760f0c94343b151c9b4c1148c949e854
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149039"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65790007"
 ---
 # <a name="transfer-data-with-azcopy-v10"></a>Transférer des données avec AzCopy v10
 
@@ -53,7 +53,7 @@ AzCopy ne nécessite pas une installation. Ouvrez l’application de ligne de co
 
 AzCopy prend en charge les options suivantes lors de l’authentification avec le stockage Azure :
 - **Azure Active Directory** (prise en charge pour **services Blob et Data Lake Storage Gen2**). Utilisez ```.\azcopy login``` pour vous connecter avec Azure Active Directory.  L’utilisateur doit avoir [rôle « Contributeur aux données stockage Blob » affecté](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac) à écrire dans le stockage Blob avec l’authentification Azure Active Directory. Pour l’authentification via des identités gérées pour les ressources Azure, utilisez `azcopy login --identity`.
-- **Partagé des jetons de signature d’accès [pris en charge pour les services Blob et fichier]**. Ajouter le jeton de signature (SAS) d’accès partagé pour le chemin d’accès de l’objet blob sur la ligne de commande pour l’utiliser. Vous pouvez générer des jetons SAS avec le portail Azure, [Explorateur de stockage](https://blogs.msdn.microsoft.com/jpsanders/2017/10/12/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer/), [PowerShell](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageblobsastoken), ou d’autres outils de votre choix. Pour plus d’informations, consultez les [exemples](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2).
+- **Partagé des jetons de signature d’accès [pris en charge pour les services Blob et fichier]**. Ajouter le jeton de signature (SAS) d’accès partagé pour le chemin d’accès de l’objet blob sur la ligne de commande pour l’utiliser. Vous pouvez générer des jetons SAS avec le portail Azure, [Explorateur de stockage](https://blogs.msdn.microsoft.com/jpsanders/2017/10/12/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer/), [PowerShell](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageblobsastoken), ou d’autres outils de votre choix. Pour plus d’informations, consultez les [exemples](https://docs.microsoft.com/azure/storage/blobs/common/storage-dotnet-shared-access-signature-part-1).
 
 ## <a name="getting-started"></a>Prise en main
 

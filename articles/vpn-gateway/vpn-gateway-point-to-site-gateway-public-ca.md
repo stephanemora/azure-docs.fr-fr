@@ -2,18 +2,17 @@
 title: Remplacement des certificats des passerelles P2S par des certificats publics | Passerelle VPN Azure | Microsoft Docs
 description: Cet article explique comment installer les nouveaux certificats d'autorité de certification publics des passerelles P2S.
 services: vpn-gateway
-author: WenJason
+author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-origin.date: 03/12/2019
-ms.date: 04/29/2019
-ms.author: v-jay
-ms.openlocfilehash: 29f2aeee53e07adfeafb8017c489c0b830f24b36
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 03/15/2019
+ms.author: cherylmc
+ms.openlocfilehash: ea3ee00e60ae5eaff5c7220e9502da11358c8793
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60859645"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65786741"
 ---
 # <a name="transition-to-a-public-ca-gateway-certificate-for-p2s"></a>Passer à un certificat de passerelle d’autorité de certification public pour P2S
 
@@ -30,6 +29,8 @@ Auparavant, un certificat auto-signé destiné à la passerelle (émis en arriè
 Seules les passerelles les plus anciennes sont concernées par ce changement. Si votre certificat de passerelle doit être remplacé, vous recevrez un message ou une notification toast sur le portail Azure. Pour savoir si votre passerelle est concernée, suivez les étapes décrites dans cet article.
 
 > [!IMPORTANT]
+> **Cette transition a été effectuée sur le 12 mai 2019.**
+>
 > La mise à jour est prévue pour le 12 mars 2019 à partir de 18:00 UTC. Vous pouvez créer un cas de support si vous préférez choisir un autre créneau horaire. Formulez et finalisez votre demande au moins 24 heures à l'avance.  Vous pouvez demander l'un des créneaux horaire suivants :
 >
 > * 06:00 UTC le 25 février
@@ -37,7 +38,7 @@ Seules les passerelles les plus anciennes sont concernées par ce changement. Si
 > * 06:00 UTC le 1er mars
 > * 18:00 UTC le 1er mars
 >
-> **Pour toutes les autres passerelles, la mise à jour aura lieu le 12 mars 2019 à partir de 18:00 UTC**.
+> Toutes les autres passerelles passera sur 12 mars 2019 à partir de 18:00 UTC.
 >
 > Les clients recevront un e-mail au terme du processus de remplacement de leur passerelle.
 > 

@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/08/2019
+ms.date: 05/14/2019
 ms.author: tomfitz
-ms.openlocfilehash: d2de802b2170feb6130cdce8007e16cc37561f5e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b4d3a9c5e985949d813b638806f60bc86f5a163a
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60550578"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65789269"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Modes de déploiement Azure Resource Manager
 
@@ -46,7 +46,9 @@ Si le groupe de ressources est [verrouillé](resource-group-lock-resources.md), 
 
 ## <a name="incremental-mode"></a>Mode incrémentiel
 
-En mode incrémentiel, le Gestionnaire des ressources **conserve telles quelles** les ressources qui existent dans le groupe de ressources, mais qui ne sont pas spécifiées dans le modèle. Lors du redéploiement d’une ressource en mode incrémentiel, spécifiez toutes les valeurs de propriété de la ressource, et pas seulement celles que vous mettez à jour. Si vous omettez de spécifier certaines propriétés, Resource Manager interprète la mise à jour comme un remplacement de ces valeurs.
+En mode incrémentiel, le Gestionnaire des ressources **conserve telles quelles** les ressources qui existent dans le groupe de ressources, mais qui ne sont pas spécifiées dans le modèle.
+
+Toutefois, lors du redéploiement d’une ressource existante en mode incrémentiel, le résultat est une autre. Spécifiez toutes les propriétés pour la ressource, et pas seulement ceux que vous mettez à jour. Un malentendu courant est de considérer les propriétés qui ne sont pas spécifiées sont reste inchangé. Si vous omettez de spécifier certaines propriétés, Resource Manager interprète la mise à jour comme un remplacement de ces valeurs.
 
 ## <a name="example-result"></a>Résultat de l’exemple
 

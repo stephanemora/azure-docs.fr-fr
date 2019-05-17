@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 1e689d7ce65fda43e5657383ed44890c90c095cd
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: af801600eebed7c0d4ff01dd1edf01fa595840eb
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025882"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65785770"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Préparer des données pour la reconnaissance vocale personnalisé
 
@@ -27,9 +27,9 @@ Ce tableau répertorie les types de données acceptées, lors de chaque type de 
 
 | Type de données | Utiliser des tests | Quantité | Utilisé pour l’apprentissage | Quantité |
 |-----------|-----------------|----------|-------------------|----------|
-| [Audio](#audio-data-for-testing) | Oui<br>Utilisé pour l’inspection visual | fichiers audio 5 + | Non  | N/a |
+| [Audio](#audio-data-for-testing) | Oui<br>Utilisé pour l’inspection visual | fichiers audio 5 + | Non | N/a |
 | [Transcriptions audio + étiquetés humaines](#audio--human-labeled-transcript-data-for-testingtraining) | Oui<br>Utilisé pour évaluer la précision | 0,5 - 5 heures d’audio | Oui | 1 - 1 000 heures de l’audio |
-| [Texte associé](##related-text-data-for-training) | Non  | N/a | Oui | 1-200 Mo de texte correspondante |
+| [Texte associé](##related-text-data-for-training) | Non | N/a | Oui | 1-200 Mo de texte correspondante |
 
 Les fichiers doivent être regroupées par type dans un dataset ou téléchargés dans un fichier zip. Chaque jeu de données ne peut contenir qu’un seul type de données.
 
@@ -55,7 +55,7 @@ Utilisez ce tableau pour vous assurer que vos fichiers audio sont correctement m
 | Propriété | Valeur |
 |----------|-------|
 | Format de fichier | RIFF (WAV) |
-| Échantillonnage | 8 000 ou 16 000 Hz |
+| Taux d'échantillonnage | 8 000 ou 16 000 Hz |
 | Canaux | 1 (mono) |
 | Longueur maximale par audio | 2 heures |
 | Format d’échantillonnage | PCM, 16 bits |
@@ -64,7 +64,7 @@ Utilisez ce tableau pour vous assurer que vos fichiers audio sont correctement m
 
 Si votre audio ne satisfait pas ces propriétés, ou vous souhaitez vérifier s’il existe, nous vous suggérons de téléchargement [sox](http://sox.sourceforge.net) pour vérifier ou de convertir l’audio. Voici quelques exemples de la façon dont chacune de ces activités peut être effectuée dans la ligne de commande :
 
-| Activité | Description | Commande de SOX |
+| Activité | Description  | Commande de SOX |
 |----------|-------------|-------------|
 | Vérifiez le format audio | Cette commande permet de vérifier le format de fichier audio. | `soxi <filename>.wav` |
 | Convertir le format audio | Cette commande permet de convertir le fichier audio monocanal, 16 bits, 48 KHz. | `sox <filename>.wav -b 16 -3 signed-integer -c l -r 48k -t wav <filename>.wav` |
@@ -76,7 +76,7 @@ Pour mesurer la précision de la précision de reconnaissance vocale de Microsof
 | Propriété | Valeur |
 |----------|-------|
 | Format de fichier | RIFF (WAV) |
-| Échantillonnage | 8 000 ou 16 000 Hz |
+| Taux d'échantillonnage | 8 000 ou 16 000 Hz |
 | Canaux | 1 (mono) |
 | Longueur maximale par audio | 60 s |
 | Format d’échantillonnage | PCM, 16 bits |
@@ -85,7 +85,7 @@ Pour mesurer la précision de la précision de reconnaissance vocale de Microsof
 
 Pour résoudre les problèmes tels que la suppression de word ou de substitution, une quantité importante de données est requis pour améliorer la reconnaissance. En règle générale, il est recommandé de fournir des transcriptions de mot par mot pour environ 10 à 1 000 heures de contenu audio. Les transcriptions de tous les fichiers WAV doivent se trouver dans un seul fichier en texte brut. Chaque ligne du fichier de transcription doit contenir le nom d’un des fichiers audio, suivi de la transcription correspondante. Le nom de fichier et la transcription doivent être séparés par une tabulation (\t).
 
-  Par exemple : 
+  Exemple :
 ```
   speech01.wav  speech recognition is awesome
   speech02.wav  the quick brown fox jumped all over the place
@@ -141,16 +141,16 @@ Cela inclut des exemples d’un énoncé prononcé et une prononciation personna
 | Forme orale (en anglais) | Reconnu/affiche un formulaire |
 |--------------|--------------------------|
 | trois c p o | 3CPO |  
-| t n c k | CNTK (Computational Network Toolkit de Microsoft Research) |
-| i triple e | IEE |
+| t n c k | CNTK |
+| i triple e | IEEE |
 
 La forme parlée est la séquence phonétique explicitée. Peut être composé de lettres, des mots, syllabes ou une combinaison des trois.
 
 Prononciation personnalisée est disponible en anglais (en-US) et en français (fr-fr). Ce tableau présente les caractères pris en charge par le langage :
 
-| Langage | Paramètres régionaux | Caractères |
+| Langue | Paramètres régionaux | Personnages |
 |----------|--------|------------|
-| Anglais | en-US | a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z |
+| Anglais | fr-FR | a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z |
 | Allemand | de-DE | ä, ö, ü, a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z |
 
 Cette table permet de vous assurer que votre fichier de données associées pour prononciations est mise en forme correctement. Fichiers de prononciation sont petits et ne doivent pas dépasser quelques bases de connaissances.

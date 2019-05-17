@@ -10,14 +10,14 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: fa618c5c623a631e7a88f8235a0b7b16fcb2bc88
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ea8fe989dd0ef7026957153fb5c9836742d008dd
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60605214"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65797493"
 ---
-# <a name="translator-text-api-30-detect"></a>API de traduction de texte Translator Text 3.0 : Detect
+# <a name="translator-text-api-30-detect"></a>API de traduction de texte Translator Text 3.0 : Détecter
 
 Identifie la langue d’un texte.
 
@@ -29,13 +29,13 @@ Envoyez une demande `POST` à :
 https://api.cognitive.microsofttranslator.com/detect?api-version=3.0
 ```
 
-## <a name="request-parameters"></a>Paramètres de la demande
+## <a name="request-parameters"></a>Paramètres de requête
 
 Les paramètres de demande transmis à la chaîne de requête sont les suivants :
 
 <table width="100%">
   <th width="20%">Paramètre de requête.</th>
-  <th>Description</th>
+  <th>Description </th>
   <tr>
     <td>api-version</td>
     <td>*Paramètre obligatoire*.<br/>Version de l’API demandée par le client. La valeur doit être `3.0`.</td>
@@ -45,8 +45,8 @@ Les paramètres de demande transmis à la chaîne de requête sont les suivants�
 Les en-têtes de demande sont les suivants :
 
 <table width="100%">
-  <th width="20%">headers</th>
-  <th>Description</th>
+  <th width="20%">En-têtes</th>
+  <th>Description </th>
   <tr>
     <td>En-têtes d’authentification</td>
     <td><em>En-tête de demande obligatoire</em>.<br/>Voir les <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">options disponibles pour l’authentification</a>.</td>
@@ -125,8 +125,8 @@ Exemple de réponse JSON :
 ## <a name="response-headers"></a>En-têtes de réponse
 
 <table width="100%">
-  <th width="20%">headers</th>
-  <th>Description</th>
+  <th width="20%">En-têtes</th>
+  <th>Description </th>
   <tr>
     <td>X-RequestId</td>
     <td>Valeur générée par le service pour identifier la demande. Elle sert à des fins de dépannage.</td>
@@ -139,10 +139,10 @@ Voici les codes d’état HTTP qu’une demande peut retourner.
 
 <table width="100%">
   <th width="20%">Code d’état</th>
-  <th>Description</th>
+  <th>Description </th>
   <tr>
     <td>200</td>
-    <td>Vous avez réussi !</td>
+    <td>Réussite.</td>
   </tr>
   <tr>
     <td>400</td>
@@ -150,7 +150,7 @@ Voici les codes d’état HTTP qu’une demande peut retourner.
   </tr>
   <tr>
     <td>401</td>
-    <td>Il n’a pas été possible d’authentifier la demande. Vérifiez que les informations d’identification sont spécifiées et valides.</td>
+    <td>Impossible d'authentifier la demande. Vérifiez que les informations d’identification sont spécifiées et valides.</td>
   </tr>
   <tr>
     <td>403</td>
@@ -158,11 +158,11 @@ Voici les codes d’état HTTP qu’une demande peut retourner.
   </tr>
   <tr>
     <td>429</td>
-    <td>L’appelant envoie trop de demandes.</td>
+    <td>Le serveur a rejeté la demande, car le client a dépassé les limites de la demande.</td>
   </tr>
   <tr>
     <td>500</td>
-    <td>Une erreur inattendue s’est produite. Si l’erreur persiste, signalez-la en fournissant les informations suivantes : date et heure de la défaillance, identificateur de la demande dans l’en-tête de réponse,`X-RequestId` et identificateur du client dans l’en-tête de demande `X-ClientTraceId`.</td>
+    <td>Une erreur inattendue est survenue. Si l’erreur persiste, signalez-la en fournissant les informations suivantes : date et heure de la défaillance, identificateur de la demande dans l’en-tête de réponse,`X-RequestId` et identificateur du client dans l’en-tête de demande `X-ClientTraceId`.</td>
   </tr>
   <tr>
     <td>503</td>

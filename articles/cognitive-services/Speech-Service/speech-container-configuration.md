@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 05/15/2019
 ms.author: diberry
-ms.openlocfilehash: 424396c7b92fb58993c74e672c4c3ea9c8f814c7
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: e2ed29bb61f553f68b9f9802884169361d5d983f
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026220"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65797923"
 ---
 # <a name="configure-speech-service-containers"></a>Configurer des conteneurs de Service de reconnaissance vocale
 
@@ -62,6 +62,10 @@ Vous trouverez ce paramètre à l’emplacement suivant :
 
 [!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-fluentd.md)]
 
+## <a name="http-proxy-credentials-settings"></a>Paramètres des informations d'identification du proxy HTTP
+
+[!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-http-proxy.md)]
+
 ## <a name="logging-settings"></a>Paramètres de journalisation
  
 [!INCLUDE [Container shared configuration logging settings](../../../includes/cognitive-services-containers-configuration-shared-settings-logging.md)]
@@ -76,7 +80,7 @@ La syntaxe exacte de l’emplacement de montage d’hôte varie en fonction du s
 
 |Facultatif| Nom | Type de données | Description |
 |-------|------|-----------|-------------|
-|Non autorisé| `Input` | String | Conteneurs de reconnaissance vocale ne l’utilisez pas.|
+|Non autorisé| `Input` | Chaîne | Conteneurs de reconnaissance vocale ne l’utilisez pas.|
 |Facultatif| `Output` | Chaîne | Cible du montage de sortie. La valeur par défaut est `/output`. Il s’agit de l’emplacement des journaux d’activité. Les journaux d’activité de conteneur sont inclus. <br><br>Exemple :<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>Exemples de commandes docker run 

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: mayg
-ms.openlocfilehash: 98718709038d7fd753e5eb3d45c130085c5accd9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: bcfeca34eb11caaddac06971fe7f825a142586a2
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60600191"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65602071"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>Installer un serveur cible maître Linux pour la restauration automatique
 Après avoir basculé une machine virtuelle sur Azure, vous pouvez la restaurer automatiquement sur le site local. L’opération de restauration vous oblige à reprotéger la machine virtuelle à partir d’Azure sur le site local. Pour ce faire, vous avez besoin d’un serveur cible maître, capable de recevoir le trafic. 
@@ -83,7 +83,7 @@ Conservez le fichier ISO Ubuntu 16.04.2 Minimal 64 bits dans le lecteur DVD et 
 1. Sélectionnez **No** (Non) (option par défaut), puis appuyez sur **Entrée**.
 
      ![Configurer le clavier](./media/vmware-azure-install-linux-master-target/image5.png)
-1. Sélectionnez **French** (France) (Français (France)) comme pays d’origine pour le clavier, puis appuyez sur **Entrée**.
+1. Sélectionnez **anglais (États-Unis)** en tant que le pays/région d’origine pour le clavier, puis sélectionnez **entrée**.
 
 1. Sélectionnez **French (France)** (Français (France)) comme disposition du clavier, puis appuyez sur **Entrée**.
 
@@ -262,7 +262,7 @@ Pour créer un disque de rétention, procédez comme suit :
     
     Appuyez sur **Inser** pour commencer à modifier le fichier. Créez une ligne, puis insérez-y le texte suivant. Modifiez l’ID multichemin du disque en fonction de l’ID multichemin de la commande précédente.
 
-    **/dev/mapper/<Retention disks multipath id> /mnt/retention ext4 rw 0 0**
+    **dev/mapper/\<id multichemin de rétention des disques >/mnt/retention ext4 rw 0 0**
 
     Appuyez sur la touche **Echap** et saisissez **:wq** (écrire et quitter) pour fermer la fenêtre de l’éditeur.
 

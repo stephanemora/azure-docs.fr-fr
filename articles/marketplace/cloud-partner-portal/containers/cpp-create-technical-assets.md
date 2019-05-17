@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: pabutler
-ms.openlocfilehash: 32002f8b88a2fbeba29f15b3b9289ecf3d7560d0
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: c639389fdd0d4624152fcdfa4432be09a18a97bc
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64942729"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65794337"
 ---
 # <a name="prepare-your-container-technical-assets"></a>Préparer vos ressources techniques de conteneur
 
@@ -45,7 +45,7 @@ En outre, nous vous recommandons d’ajouter les outils suivants à votre enviro
 
 -   [Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)
 -   [Visual Studio Code](https://code.visualstudio.com/)
-    *   Extension : [Outils Azure Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
+    *   Poste : [Outils Azure Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
     *   Extension : [Beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
     *   Extension : [Prettify JSON](https://marketplace.visualstudio.com/items?itemName=mohsen1.prettify-json)
 
@@ -53,9 +53,10 @@ Nous vous suggérons également d’examiner les outils disponibles sur la page 
 
 ## <a name="create-the-container-image"></a>Créer l’image conteneur
 
-- Créez et configurez le disque dur virtuel (VHD) pour votre machine virtuelle de conteneur. Ce disque dur virtuel contient le système d’exploitation (Windows, Linux ou Ubuntu) du conteneur. Des disques de données supplémentaires peuvent être nécessaires.
-- Configurez le système d’exploitation de la machine virtuelle, la taille de la machine virtuelle, les ports à ouvrir et les disques de données attachés.
-- Installez l’application et les autres logiciels requis pour votre offre. Par exemple : le logiciel de base de données, les logiciels tiers ou une application personnalisée.
+Consultez les liens suivants pour plus d’informations :
+
+* [Tutoriel : Créer une image de conteneur pour le déploiement sur Azure Container Instances](https://docs.microsoft.com/azure/container-instances/container-instances-tutorial-prepare-app)
+* [Tutoriel : Générer et déployer des images de conteneur dans le cloud avec les tâches de Registre de conteneur Azure](https://docs.microsoft.com/azure/container-registry/container-registry-tutorial-quick-task)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

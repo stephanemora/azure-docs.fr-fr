@@ -13,12 +13,12 @@ ms.date: 01/08/2019
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: 8efab173f464b67c0c88c87ee28ea7fa19980501
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a1ff700bece2d64451294e72ebdf3c771ee644f8
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60373214"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604199"
 ---
 # <a name="impact-analysis-with-application-insights"></a>Analyse de l’impact avec Application Insights
 
@@ -63,7 +63,7 @@ Impact prend en charge les propriétés et les mesures standard et personnalisé
 2. Choisissez « Pays ou région » dans la liste déroulante d’**analyse**.
 3. Dans la liste déroulante indiquant l’**élément sur l’utilisation duquel il existe un impact**, sélectionnez un événement personnalisé qui correspond à un élément d’interface utilisateur du mode Page que vous avez choisi à l’étape 1.
 
-Dans ce cas, les résultats ne sont plus adaptés à un modèle d’axe x continu comme c’était le cas dans le premier exemple. Au lieu de cela, une visualisation ressemblant à une synthèse segmentée est présentée. Triez par **utilisation** pour afficher la variation de la conversion pour votre événement personnalisé en fonction du pays.
+Dans ce cas, les résultats ne sont plus adaptés à un modèle d’axe x continu comme c’était le cas dans le premier exemple. Au lieu de cela, une visualisation ressemblant à une synthèse segmentée est présentée. Trier par **utilisation** pour afficher la variation de la conversion à votre événement personnalisé selon le pays/région.
 
 
 ## <a name="how-does-the-impact-tool-calculate-these-conversion-rates"></a>Comment l’outil Impact calcule-t-il ces taux de conversion ?

@@ -6,15 +6,16 @@ services: media-services
 author: Juliako
 manager: femila
 ms.service: media-services
+ms.subservice: video-indexer
 ms.topic: article
-ms.date: 03/25/2019
+ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: d915058e13f3c5287bdb037a1600e7f0a09da436
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ce04e19022a9902c228079e866c192985694134c
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60560558"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65799243"
 ---
 # <a name="tutorial-use-the-video-indexer-api"></a>Didacticiel : Utiliser l’API Video Indexer
 
@@ -39,14 +40,14 @@ Cet article explique comment les développeurs peuvent tirer parti de l’[API V
 
     Sélectionnez l’onglet [Produits](https://api-portal.videoindexer.ai/products). Ensuite, sélectionnez Autorisation et abonnez-vous. 
     
-    ![Inscription](./media/video-indexer-use-apis/video-indexer-api02.png)
+    ![Connexion](./media/video-indexer-use-apis/video-indexer-api02.png)
 
     > [!NOTE]
     > Les nouveaux utilisateurs sont automatiquement abonnés à l’API Autorisation.
     
     Une fois abonné, vous êtes en mesure de voir votre abonnement et vos clés primaires et secondaires. Les clés doivent être protégées. Les clés doivent uniquement être utilisées par votre code serveur. Elles ne doivent pas être disponibles côté client (.js, .html, etc.).
 
-    ![Inscription](./media/video-indexer-use-apis/video-indexer-api03.png)
+    ![Connexion](./media/video-indexer-use-apis/video-indexer-api03.png)
 
 > [!TIP]
 > L’utilisateur de Video Indexer peut utiliser une clé d’abonnement unique pour se connecter à plusieurs comptes Video Indexer. Vous pouvez ensuite lier ces comptes Video Indexer à différents comptes Media Services.

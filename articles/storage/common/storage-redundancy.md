@@ -9,12 +9,12 @@ ms.date: 01/18/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 515081ca14d1c477f20d86e84ce302b5358bfaae
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 7006e19616be51d79dc3e1319064d19024400bcc
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65150054"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65789993"
 ---
 # <a name="azure-storage-redundancy"></a>Redondance de Stockage Azure
 
@@ -52,7 +52,7 @@ Pour obtenir des informations sur les garanties de Stockage Azure en matière de
 > Stockage Premium prend en charge uniquement un stockage localement redondant (LRS).
 
 ## <a name="changing-replication-strategy"></a>Modification de la stratégie de réplication
-Vous pouvez modifier la stratégie de réplication de votre compte de stockage à l’aide de la [portail Azure](https://portal.azure.com/), [Azure Powershell](storage-powershell-guide-full.md), [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), ou l’un de le [client Azure bibliothèques](https://docs.microsoft.com/azure/index?view=azure-dotnet#pivot=sdkstools). La modification du type de réplication de votre compte de stockage n’entraîne pas de temps d’arrêt.
+Vous pouvez modifier la stratégie de réplication de votre compte de stockage à l’aide de la [portail Azure](https://portal.azure.com/), [Azure Powershell](storage-powershell-guide-full.md), [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), ou l’un de le [client Azure bibliothèques](https://docs.microsoft.com/azure/index#pivot=sdkstools). La modification du type de réplication de votre compte de stockage n’entraîne pas de temps d’arrêt.
 
    > [!NOTE]
    > Actuellement, vous ne pouvez utiliser ni le portail ni une API pour convertir votre compte en stockage ZRS. Si vous souhaitez convertir la réplication de votre compte en stockage redondant interzone (ZRS), consultez [Stockage redondant interzone (ZRS)](storage-redundancy-zrs.md) pour plus d’informations.

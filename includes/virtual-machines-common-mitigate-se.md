@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/14/2019
 ms.author: cynthn;kareni
 ms.custom: include file
-ms.openlocfilehash: be8c3d3be4410d15ba132a24a417e7a7b0418352
-ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
+ms.openlocfilehash: ba41f6cce5233491020a0b42f4fd40dac060be57
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65620269"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65815516"
 ---
 **Dernière mise à jour du document**: 14 mai 2019 10:00 AM PST.
 
@@ -29,7 +29,7 @@ Plus d’informations sur l’intégration de la sécurité dans chaque aspect d
 > Depuis la première publication de ce document, plusieurs variantes de cette classe de vulnérabilités ont été divulguées. Microsoft poursuit ses efforts d’investissement dans la protection de nos clients et de conseils. Cette page sera mise à jour à mesure que nous publierons d’autres correctifs. 
 > 
 > Sur le 14 mai 2019, [Intel divulguée](https://www.intel.com/content/www/us/en/security-center/advisory/intel-sa-00233.html) un nouvel ensemble de vulnérabilité de canal côté l’exécution spéculative appelé échantillonnage des données micro architecturale (MDS consultez les conseils de sécurité Microsoft [ADV190013](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV190013)), qui ont été affectés plusieurs Exposures : 
-> - CVE-2018-11091 - micro architecturale les données d’échantillonnage de mémoire Uncacheable (MDSUM)
+> - CVE-2019-11091 - micro architecturale les données d’échantillonnage de mémoire Uncacheable (MDSUM)
 > - CVE-2018-12126 - micro architecturale Store tampon des données d’échantillonnage (MSBDS) 
 > - CVE-2018-12127 - données de charge utilise le Port micro architecturale d’échantillonnage (MLPDS)
 > - CVE-2018-12130 - données de mémoire tampon de remplissage de micro architecturale d’échantillonnage (MFBDS)
@@ -123,7 +123,7 @@ Si la sortie indique `MDS mitigation is enabled: False`, veuillez [contactez le 
 <a name="linux"></a>L’activation de l’ensemble de fonctionnalités de sécurité supplémentaires nécessite que le système d’exploitation cible soit entièrement à jour. Certaines atténuations des risques sont activées par défaut. La section suivante décrit les fonctionnalités qui sont désactivées par défaut et/ou qui dépendent de la prise en charge matérielle (microcode). L’activation de ces fonctionnalités peut affecter les performances. Consultez la documentation du fournisseur de votre système d’exploitation pour obtenir des instructions
 
 
-**Étape 1 : Désactiver l’hyperthreading sur la machine virtuelle** : les clients qui exécutent du code non fiable sur une machine virtuelle devra désactiver l’hyperthreading ou le déplacer vers une machine virtuelle non hyperthreaded de hyperthreaded.  Pour vérifier si vous exécutez une machine virtuelle hyperthreaded, exécutez le `lspcu` commande dans la VM Linux. 
+**Étape 1 : Désactiver l’hyperthreading sur la machine virtuelle** : les clients qui exécutent du code non fiable sur une machine virtuelle devra désactiver l’hyperthreading ou le déplacer vers une machine virtuelle non hyperthreaded de hyperthreaded.  Pour vérifier si vous exécutez une machine virtuelle hyperthreaded, exécutez le `lscpu` commande dans la VM Linux. 
 
 Si `Thread(s) per core = 2`, puis l’hyperthreading est activé. 
 
@@ -146,7 +146,7 @@ NUMA node(s):          1
 
 ```
 
-Si vous exécutez une machine virtuelle hyperthreaded, veuillez [contactez le Support Azure](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) pour obtenir l’hyperthreading désactivé.  Remarque : Une fois que l’hyperthreading est désactivé, **prise en charge nécessite un redémarrage complet de la machine virtuelle**.
+Si vous exécutez une machine virtuelle hyperthreaded, veuillez [contactez le Support Azure](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) pour obtenir l’hyperthreading désactivé.  Une fois que l’hyperthreading est désactivé, **prise en charge nécessite un redémarrage complet de la machine virtuelle**.
 
 
 **Étape 2** : Pour limiter la possibilité des ci-dessous les vulnérabilités par canal latéral l’exécution spéculative, reportez-vous à la documentation de votre fournisseur de système d’exploitation :   
@@ -159,18 +159,18 @@ Si vous exécutez une machine virtuelle hyperthreaded, veuillez [contactez le Su
 
 Cet article fournit des conseils pour le ci-dessous attaques côté canal de l’exécution spéculative qui affectent le nombre de processeurs moderne :
 
-[Spectre Meltdown](https://portal.msrc.microsoft.com/security-guidance/advisory/ADV180002):
+[Spectre Meltdown](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV180002):
 - CVE-2017-5715 - Injection de cible de branche (RTC)  
 - CVE-2017-5754 - Kernel Page Table Isolation (KPTI)
 - CVE-2018-3639 – Store spéculative contournement (KPTI) 
  
-[L1 Erreur de Terminal (L1TF)](https://portal.msrc.microsoft.com/security-guidance/advisory/ADV180018):
+[L1 Erreur de Terminal (L1TF)](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV180018):
 - CVE-2018-3615 - Intel Software Guard Extensions (SGX Intel)
 - CVE-2018-3620 - systèmes d’exploitation (OS) et Mode de gestion de système (SMM)
 - CVE-2018-3646 – a un impact sur Virtual Machine Manager (VMM)
 
-[Échantillonnage des données de micro architecturale](https://portal.msrc.microsoft.com/security-guidance/advisory/ADV190013): 
-- CVE-2018-11091 - micro architecturale les données d’échantillonnage de mémoire Uncacheable (MDSUM)
+[Échantillonnage des données de micro architecturale](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV190013): 
+- CVE-2019-11091 - micro architecturale les données d’échantillonnage de mémoire Uncacheable (MDSUM)
 - CVE-2018-12126 - micro architecturale Store tampon des données d’échantillonnage (MSBDS)
 - CVE-2018-12127 - données de charge utilise le Port micro architecturale d’échantillonnage (MLPDS)
 - CVE-2018-12130 - données de mémoire tampon de remplissage de micro architecturale d’échantillonnage (MFBDS)

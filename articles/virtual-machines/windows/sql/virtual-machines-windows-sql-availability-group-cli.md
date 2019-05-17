@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 02/12/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 1c5c5f4c8125f801edc89d47851871d8eb06a2f9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5efbe874bbf3c1c4081eb7a2c76c1be5a3358ec8
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60591286"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65518981"
 ---
 # <a name="use-azure-sql-vm-cli-to-configure-always-on-availability-group-for-sql-server-on-an-azure-vm"></a>Utilisation d’une machine virtuelle SQL Azure CLI pour configurer le groupe de disponibilité Always On pour SQL Server sur une machine virtuelle Azure
 Cet article décrit comment utiliser [CLI de machine virtuelle SQL Azure](/cli/azure/sql/vm?view=azure-cli-latest/) déployer un Cluster de basculement Windows (WSFC) et ajouter des machines virtuelles SQL Server au cluster, ainsi que pour créer l’équilibreur de charge interne et un écouteur pour un groupe de disponibilité Always On.  Le déploiement réel du groupe de disponibilité Always On est quand même effectué manuellement par le biais de SQL Server Management Studio (SSMS). 
@@ -42,7 +42,7 @@ Les autorisations de compte suivantes sont nécessaires pour configurer le group
 Le cluster a besoin d’un compte de stockage en tant que le témoin de cloud. Vous pouvez utiliser n’importe quel compte de stockage existant, ou vous pouvez créer un compte de stockage. Si vous souhaitez utiliser un compte de stockage existant, passez directement à la section suivante. 
 
 L’extrait de code suivant crée le compte de stockage : 
-```azurecli
+```azurecli-interactive
 # Create the storage account
 # example: az storage account create -n 'cloudwitness' -g SQLVM-RG -l 'West US' `
 #  --sku Standard_LRS --kind StorageV2 --access-tier Hot --https-only true
@@ -58,7 +58,7 @@ az storage account create -n <name> -g <resource group name> -l <region ex:eastu
 La CLI de machine virtuelle SQL Azure [groupe de machines virtuelles sql az](https://docs.microsoft.com/cli/azure/sql/vm/group?view=azure-cli-latest) commande groupe gère les métadonnées du service de Cluster de basculement Windows (WSFC) qui héberge le groupe de disponibilité. Métadonnées de cluster incluent le domaine Active Directory, les comptes de cluster, les comptes de stockage à utiliser en tant que le témoin de cloud et la version de SQL Server. Utilisez [créer de groupe de machines virtuelles sql az](https://docs.microsoft.com/cli/azure/sql/vm/group?view=azure-cli-latest#az-sql-vm-group-create) pour définir les métadonnées pour le cluster WSFC afin que lorsque le premier ordinateur virtuel de SQL Server est ajouté, le cluster est créé comme défini. 
 
 L’extrait de code suivant définit les métadonnées pour le cluster :
-```azurecli
+```azurecli-interactive
 # Define the cluster metadata
 # example: az sql vm group create -n Cluster -l 'West US' -g SQLVM-RG `
 #  --image-offer SQL2017-WS2016 --image-sku Enterprise --domain-fqdn domain.com `
@@ -79,7 +79,7 @@ Ajout de la première machine virtuelle de SQL Server au cluster crée le cluste
 
 L’extrait de code suivant crée le cluster et lui ajoute le premier ordinateur virtuel de SQL Server : 
 
-```azurecli
+```azurecli-interactive
 # Add SQL Server VMs to cluster
 # example: az sql vm add-to-group -n SQLVM1 -g SQLVM-RG --sqlvm-group Cluster `
 #  -b Str0ngAzur3P@ssword! -p Str0ngAzur3P@ssword! -s Str0ngAzur3P@ssword!
@@ -105,7 +105,7 @@ L’écouteur de groupe (AG) de disponibilité Always On nécessite un équilibr
 
 L’extrait de code suivant crée l’équilibreur de charge interne :
 
-```azurecli
+```azurecli-interactive
 # Create the Internal Load Balancer
 # example: az network lb create --name sqlILB -g SQLVM-RG --sku Standard `
 # --vnet-name SQLVMvNet --subnet default
@@ -125,7 +125,7 @@ Une fois que le groupe de disponibilité a été créé manuellement, vous pouve
    1. Accédez à votre groupe de ressources dans le [Azure portal](https://portal.azure.com). 
    1. Sélectionnez la ressource de réseau virtuel. 
    1. Sélectionnez **propriétés** dans le **paramètres** volet. 
-   1. Identifier l’ID de ressource pour le réseau virtuel et ajoutez `/subnets/<subnetname>`à la fin de celle-ci pour créer l’ID de ressource de sous-réseau. Par exemple : 
+   1. Identifier l’ID de ressource pour le réseau virtuel et ajoutez `/subnets/<subnetname>`à la fin de celle-ci pour créer l’ID de ressource de sous-réseau. Exemple :
         - Mon ID de ressource de réseau virtuel est : `/subscriptions/a1a1-1a11a/resourceGroups/SQLVM-RG/providers/Microsoft.Network/virtualNetworks/SQLVMvNet`
         - Mon nom du sous-réseau est `default`.
         - Par conséquent, mon ID de ressource de sous-réseau est : `/subscriptions/a1a1-1a11a/resourceGroups/SQLVM-RG/providers/Microsoft.Network/virtualNetworks/SQLVMvNet/subnets/default`
@@ -133,7 +133,7 @@ Une fois que le groupe de disponibilité a été créé manuellement, vous pouve
 
 L’extrait de code suivant crée l’écouteur de groupe de disponibilité :
 
-```azurecli
+```azurecli-interactive
 # Create the AG listener
 # example: az sql vm group ag-listener create -n AGListener -g SQLVM-RG `
 #  --ag-name SQLAG --group-name Cluster --ip-address 10.0.0.27 `
@@ -157,7 +157,7 @@ Il existe une couche supplémentaire de complexité lors du déploiement d’un 
 Pour ajouter un nouveau réplica au groupe de disponibilité, procédez comme suit :
 
 1. Ajouter la machine virtuelle SQL Server au cluster :
-   ```azurecli
+   ```azurecli-interactive
    # Add SQL Server VM to the Cluster
    # example: az sql vm add-to-group -n SQLVM3 -g SQLVM-RG --sqlvm-group Cluster `
    # -b Str0ngAzur3P@ssword! -p Str0ngAzur3P@ssword! -s Str0ngAzur3P@ssword!
@@ -167,7 +167,7 @@ Pour ajouter un nouveau réplica au groupe de disponibilité, procédez comme su
    ```
 1. Utilisez SQL Server Management Studio (SSMS) pour ajouter l’instance de SQL Server en tant que réplica dans le groupe de disponibilité.
 1. Ajouter les métadonnées de la machine virtuelle SQL Server à l’écouteur :
-   ```azurecli
+   ```azurecli-interactive
    # Update the listener metadata with the new VM
    # example: az sql vm group ag-listener update -n AGListener `
    # -g sqlvm-rg --group-name Cluster --sqlvms sqlvm1 sqlvm2 sqlvm3
@@ -182,7 +182,7 @@ Pour supprimer un réplica du groupe de disponibilité, procédez comme suit :
 
 1. Supprimer le réplica du groupe de disponibilité à l’aide de SQL Server Management Studio (SSMS). 
 1. Supprimer les métadonnées de la machine virtuelle SQL Server à partir de l’écouteur :
-   ```azurecli
+   ```azurecli-interactive
    # Update the listener metadata by removing the VM from the SQLVMs list
    # example: az sql vm group ag-listener update -n AGListener `
    # -g sqlvm-rg --group-name Cluster --sqlvms sqlvm1 sqlvm2
@@ -191,7 +191,7 @@ Pour supprimer un réplica du groupe de disponibilité, procédez comme suit :
    -g <RG name> --group-name <cluster name> --sqlvms <SQL VMs that remain>
    ```
 1. Supprimer la machine virtuelle SQL Server du cluster :
-   ```azurecli
+   ```azurecli-interactive
    # Remove SQL VM from cluster
    # example: az sql vm remove-from-group --name SQLVM3 --resource-group SQLVM-RG
 
@@ -203,7 +203,7 @@ Si vous avez besoin plus tard supprimer l’écouteur du groupe de disponibilit�
 
 L’extrait de code suivant supprime l’écouteur de groupe de disponibilité SQL à la fois du fournisseur de ressources SQL et de votre groupe de disponibilité : 
 
-```azurecli
+```azurecli-interactive
 # Remove the AG listener
 # example: az sql vm group ag-listener delete --group-name Cluster --name AGListener --resource-group SQLVM-RG
 

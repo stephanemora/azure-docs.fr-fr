@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 711f6395959b3718ca0a094a03c07c4381892104
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: ad57f86e221a98461fcd1dc11b92f5665d6128d0
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64698993"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65786447"
 ---
 # <a name="api-management-policies"></a>Stratégies API Management
 Cette section est une ressource de référence au sujet des stratégies Gestion des API suivantes. Pour plus d'informations sur l'ajout et la configuration des stratégies, consultez la page [Stratégies dans Gestion des API](api-management-howto-policies.md).  
@@ -83,5 +83,4 @@ Pour plus d’informations sur l’utilisation de stratégies, consultez les pag
 
 + [Stratégies dans Gestion des API](api-management-howto-policies.md)
 + [Transform and protect your API](transform-api.md) (Transformer et protéger votre API)
-+ [Référence de stratégie](api-management-policy-reference.md) pour obtenir la liste complète des instructions et des paramètres de stratégie
-+ [API Management policy samples](policy-samples.md) (Exemples de stratégie de gestion d’API)   
++ [Exemples de stratégie](policy-samples.md)   

@@ -1,23 +1,17 @@
 ---
 title: Déplacer des ressources Azure vers un nouveau groupe de ressources ou abonnement | Microsoft Docs
 description: Utilisez Azure Resource Manager ou une API REST pour déplacer des ressources vers un nouveau groupe de ressources ou abonnement.
-services: azure-resource-manager
-documentationcenter: ''
 author: tfitzmac
-ms.assetid: ab7d42bd-8434-4026-a892-df4a97b60a9b
 ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/25/2019
+ms.date: 05/16/2019
 ms.author: tomfitz
-ms.openlocfilehash: 4e94bc7686203bfbcd93200e5a1fb65b43ceeb91
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 076d120d9c02b15837e92b71bc2a015377f54594
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64698489"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65792696"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Déplacer des ressources vers un nouveau groupe de ressource ou un nouvel abonnement
 
@@ -113,6 +107,7 @@ La liste suivante fournit une synthèse générale des services Azure qui peuven
 * Service SignalR
 * Stockage : les comptes de stockage dans des régions différentes ne peuvent pas être déplacés dans la même opération. Utilisez à la place des opérations distinctes pour chaque région.
 * Storage (classique) : consultez [Limitations relatives au déploiement classique](#classic-deployment-limitations)
+* Service de synchronisation de stockage
 * Stream Analytics - Les tâches Stream Analytics ne peuvent pas être déplacées lorsqu’elles sont en cours d’exécution.
 * Serveur SQL Database : la base de données et le serveur doivent résider dans le même groupe de ressources. Lorsque vous déplacez un serveur SQL, toutes ses bases de données sont également déplacées. Ce comportement s’applique aux bases de données Azure SQL Database et Azure SQL Data Warehouse.
 * Time Series Insights

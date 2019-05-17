@@ -9,12 +9,12 @@ ms.author: heidist
 manager: cgronlun
 author: HeidiSteen
 ms.custom: seodec2018
-ms.openlocfilehash: e3738980206277587ca367339d75da4f3faa643a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f76d944f614f07a4428d4e4100f6a08a375d96dc
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61316827"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65795797"
 ---
 # <a name="analyzers-for-text-processing-in-azure-search"></a>Analyseurs pour le traitement de texte dans Recherche Azure
 
@@ -40,7 +40,7 @@ Il est utilisé automatiquement sur chaque champ pouvant faire l’objet d’une
 
 La liste suivante décrit les analyseurs disponibles dans Recherche Azure.
 
-| Catégorie | Description |
+| Catégorie | Description  |
 |----------|-------------|
 | [Analyseur Lucene standard](https://lucene.apache.org/core/4_0_0/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html) | Par défaut. Aucune spécification ou configuration n’est nécessaire. Cet analyseur à usage général est efficace pour la plupart des scénarios et des langues.|
 | Analyseurs prédéfinis | Proposés comme produits finis destinés à être utilisés tels quels. <br/>Il en existe deux types : spécialisé et linguistique. Ils sont dits « prédéfinis », car vous les référencez par leur nom, sans aucune configuration ni personnalisation. <br/><br/>Les [analyseurs spécialisés (non dépendants de la langue)](index-add-custom-analyzers.md#AnalyzerTable) sont employés quand les entrées de texte nécessitent un traitement spécialisé ou minimal. Les analyseurs prédéfinis qui ne dépendent pas de la langue sont les suivants : **Asciifolding**, **Keyword**, **Pattern**, **Simple**, **Stop**, **Whitespace**.<br/><br/>Utilisez les [analyseurs linguistiques](index-add-language-analyzers.md) quand vous avez besoin d’une prise en charge linguistique avancée pour différentes langues. La Recherche Azure prend en charge 35 analyseurs linguistiques Lucene et 50 analyseurs de traitement en langage naturel Microsoft. |
@@ -92,10 +92,6 @@ La substitution de l’analyseur standard nécessite une regénération de l’i
 ### <a name="inspect-tokenized-terms"></a>Examiner les termes sous forme de jetons
 
 Si une recherche ne renvoie pas les résultats attendus, cela est très probablement dû aux différences de jetons entre les termes entrés dans la requête et les termes sous forme de jetons présents dans l’index. Si les jetons ne sont pas identiques, les correspondances ne sont pas détectées. Pour examiner les résultats du générateur de jetons, nous vous recommandons d’utiliser [l’API d’analyse](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) comme outil d’investigation. La réponse se compose de jetons qui sont générés par un analyseur spécifique.
-
-### <a name="compare-english-analyzers"></a>Comparer les analyseurs en anglais
-
-La [démonstration de l’analyseur Recherche](https://alice.unearth.ai/) est une application de démonstration tierce qui présente une comparaison côte à côte de l’analyseur Lucene standard, de l’analyseur linguistique anglais de Lucene et de l’outil de traitement en langage naturel anglais de Microsoft. L’index est fixe et contient du texte issu d’un article populaire. Pour chaque recherche que vous effectuez, les résultats de chaque analyseur sont affichés dans des volets adjacents, ce qui vous donne une idée de la façon dont chaque analyseur traite la même chaîne. 
 
 <a name="examples"></a>
 
@@ -348,8 +344,6 @@ Créer un [CustomAnalyzer](https://docs.microsoft.com/dotnet/api/microsoft.azure
 + Découvrez comment appliquer des [analyseurs lexicaux propres au langage](index-add-language-analyzers.md).
 
 + [Configurez des analyseurs personnalisés](index-add-custom-analyzers.md) pour un traitement minimal ou pour un traitement spécialisé sur certains champs.
-
-+ [Comparez les analyseurs standard et les analyseurs anglais](https://alice.unearth.ai/) dans des volets adjacents sur ce site web de démonstration. 
 
 ## <a name="see-also"></a>Voir aussi
 

@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 05/02/2019
-ms.openlocfilehash: 4386420a56b3543ac6c5f5934f963e56bc674873
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: c7f4b6d8aa614a460772fb7af11f9b83dc3fc979
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024991"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65800809"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Automatique-former un modèle de prévision de séries chronologiques
 
@@ -25,7 +25,7 @@ Dans cet article, vous allez apprendre à former un modèle de régression prév
 * Configurer les paramètres de série chronologique spécifiques dans un [ `AutoMLConfig` ](/python/api/azureml-train-automl/azureml.train.automl.automlconfig) objet
 * Exécutez des prédictions avec les données de séries chronologiques
 
-> [!VIDEO https://www.youtube.com/embed/mGr_c2UnOUI]
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2X1GW]
 
 ## <a name="prerequisites"></a>Conditions préalables
 
@@ -81,7 +81,7 @@ Pour la prévision des tâches, apprentissage automatisé utilise des étapes de
 
 Le `AutoMLConfig` objet définit les paramètres et les données nécessaires pour une tâche d’apprentissage machine automatisée. Comme pour un problème de régression, vous définissez les paramètres de formation standard comme type de tâche, nombre d’itérations, les données d’apprentissage et nombre de validations de croisée. Tâches de prévision, il existe de paramètres supplémentaires qui doivent être définies et qui affectent l’expérience. Le tableau suivant décrit chaque paramètre et son utilisation.
 
-| Paramètre | Description | Obligatoire |
+| Paramètre | Description  | Obligatoire |
 |-------|-------|-------|
 |`time_column_name`|Permet de spécifier la colonne datetime dans les données d’entrée utilisées pour la création de la série chronologique et de déduction sa fréquence.|✓|
 |`grain_column_names`|Noms de définition de groupes de séries individuelles dans les données d’entrée. Si le fragment n’est pas défini, le jeu de données est supposé être une série chronologique.||

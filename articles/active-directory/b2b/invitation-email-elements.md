@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: mimart
 author: msmimart
-manager: daveba
+manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7015abcfe3c53e2180d617bd2c78ecd44c42af7a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3f93586d46aa01116990f8f02f344c6952d3c1b1
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60412757"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65768367"
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>Éléments de l’e-mail d’invitation de collaboration B2B - Azure Active Directory
 
@@ -31,10 +31,10 @@ Examinons quelques-uns des éléments de l’e-mail pour savoir comment utiliser
 ### <a name="subject"></a>Subject
 L’objet de l’e-mail suit le modèle suivant : vous êtes invité à l’organisation &lt;nom_tenant&gt;.
 
-### <a name="from-address"></a>Adresse de l’expéditeur
+### <a name="from-address"></a>Adresse de l'expéditeur
 Nous utilisons un modèle similaire à LinkedIn pour l’adresse De.  Vous devez faire apparaître clairement qui est l’inviteur et à quelle entreprise il appartient, mais aussi indiquer que l’e-mail provient d’une adresse e-mail Microsoft. Le format est le suivant : Les Invitations Microsoft <invites@microsoft.com> ou &lt;nom d’affichage de l’inviteur&gt; de &lt;tenantname&gt; (via Microsoft) <invites@microsoft.com>.
 
-### <a name="reply-to"></a>Adresse de réponse
+### <a name="reply-to"></a>Répondre à
 L’adresse e-mail de réponse est définie sur l’adresse e-mail de l’inviteur quand elle est disponible : ainsi, répondre à l’e-mail envoie un e-mail en retour à l’inviteur.
 
 ### <a name="branding"></a>Personnalisation

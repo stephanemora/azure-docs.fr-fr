@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 6eb0fe592196466f7f49c21ce38afdf13b254d86
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 88cbd942413757388278d69d728d407271e4c4a3
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61061478"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606373"
 ---
 # <a name="core-reports-from-verizon"></a>Rapports principaux de Verizon
 
@@ -29,7 +29,7 @@ En utilisant les rapports principaux de Verizon via le portail de gestion des pr
 
 * Bande passante
 * Données transférées
-* Correspondances
+* Accès
 * États du cache
 * Taux d'accès au cache
 * Données IPV4/IPV6 transférées
@@ -96,7 +96,7 @@ Pour réduire les correspondances de mise en cache expirées, définissez la val
   
   * Cache-Control: s-maxage
   * Cache-Control: max-age
-  * Expires
+  * Expire
 * TCP_MISS : Cet état indique qu’une version mise en cache de la ressource demandée est introuvable sur le serveur POP le plus proche du client. La ressource est demandée à partir d’un serveur d’origine ou d’un serveur de protection d’origine. Si le serveur d’origine ou le serveur de protection d’origine renvoie une ressource, elle est envoyée au client et mise en cache sur le client et le serveur Edge. Sinon, un code d’état autre que 200 (par exemple, 403 Interdit ou 404 Introuvable) est renvoyé.
 * TCP_EXPIRED _HIT : Cet état est signalé lorsqu’une demande ciblant une ressource avec une durée de vie expirée a été envoyée directement du POP au client. Par exemple, lorsque la propriété max-age de la ressource a expiré. 
   
@@ -119,7 +119,7 @@ Le rapport fournit les informations suivantes :
 
 Le rapport n'inclut pas :
 
-* Les requêtes refusées en raison des options de filtrage par pays.
+* Demandes refusées en raison des options de filtrage de pays/région.
 * Les demandes de ressources dont les en-têtes indiquent qu'elles ne doivent pas être mises en cache. Par exemple, les en-têtes `Cache-Control: private`, `Cache-Control: no-cache` ou `Pragma: no-cache` préviennent la mise en cache d’une ressource.
 * Les demandes de plage d'octets pour le contenu partiellement mis en cache.
 

@@ -13,20 +13,20 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: bwren
-ms.openlocfilehash: a0233774deaffe25a8e59f79511a0031b1535ba4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b756b9484273c098dbeb6685430f70626b3af787
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61425024"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65789231"
 ---
 # <a name="sql-to-azure-monitor-log-query-cheat-sheet"></a>Aide-mémoire sur les requêtes de journal SQL vers Azure Monitor 
 
-Le tableau ci-dessous permet aux utilisateurs qui connaissent le langage SQL d’apprendre le langage de requête Kusto pour écrire des requêtes de journal dans Azure Monitor. Examinez la commande T-SQL pour réaliser un scénario courant et l’équivalent dans une requête de journal Azure Monitor.
+Le tableau ci-dessous permet aux utilisateurs qui connaissent le langage SQL d’apprendre le langage de requête Kusto pour écrire des requêtes de journal dans Azure Monitor. Jetez un œil à la commande T-SQL pour résoudre des scénarios courants et leur équivalent dans une requête de journal Azure Monitor.
 
 ## <a name="sql-to-azure-monitor"></a>SQL vers Azure Monitor
 
-Description                             |Requête SQL                                                                                          |Requête de journal Azure Monitor
+Description                              |Requête SQL                                                                                          |Requête de journal Azure Monitor
 ----------------------------------------|---------------------------------------------------------------------------------------------------|----------------------------------------
 Sélectionner toutes les données d’une table            |`SELECT * FROM dependencies`                                                                       |<code>dependencies</code>
 Sélectionner des colonnes spécifiques d’une table    |`SELECT name, resultCode FROM dependencies`                                                        |<code>dependencies <br>&#124; project name, resultCode</code>
@@ -50,4 +50,4 @@ Join                                    |`SELECT * FROM dependencies JOIN except
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Suivez une leçon [d’écriture de requêtes de journal dans Azure Monitor](get-started-queries.md).
+- Parcourez les leçons [écriture de requêtes de journal dans Azure Monitor](get-started-queries.md).

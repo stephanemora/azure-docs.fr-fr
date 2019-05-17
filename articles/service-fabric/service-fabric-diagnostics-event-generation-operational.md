@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/25/2019
 ms.author: srrengar
-ms.openlocfilehash: 7a4cccf774d89229810c1668f38e4e2ef99fa79d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cde0464985f756132c60453c4e79ffefd4a1dd2c
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60393037"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65788593"
 ---
 # <a name="list-of-service-fabric-events"></a>Liste des événements Service Fabric 
 
@@ -103,6 +103,40 @@ Vous trouverez plus de détails sur les mises à niveau d’application [ici](se
 | EventId | Nom | Catégorie | Description |Source (tâche) | Niveau | 
 | --- | --- | ---| --- | --- | --- |
 | 18940 | PartitionReconfigured | LifeCycle | La reconfiguration d’une partition s’est terminée | RA | Informations | 
+
+## <a name="replica-events"></a>Événements de réplica
+
+**Événements de cycle de vie de réplica**
+
+| EventId | Nom | Catégorie | Description |Source (tâche) | Niveau |
+| --- | --- | ---| --- | --- | --- |
+| 61701 | ReliableDictionaryOpened | LifeCycle | Dictionnaire fiable a ouvert | DistributedDictionary | Informations |
+| 61702 | ReliableDictionaryClosed | LifeCycle | Dictionnaire fiable a fermé | DistributedDictionary | Informations |
+| 61703 | ReliableDictionaryCheckpointRecovered | LifeCycle | Dictionnaire fiable a récupéré son point de contrôle | DistributedDictionary | Informations |
+| 61704 | ReliableDictionaryCheckpointFilesSent | LifeCycle | Réplica a envoyé les fichiers de point de contrôle du dictionnaire fiable | DistributedDictionary | Informations |
+| 61705 | ReliableDictionaryCheckpointFilesReceived | LifeCycle | Réplica a reçu des fichiers de point de contrôle du dictionnaire fiable | DistributedDictionary | Informations |
+| 61963 | ReliableQueueOpened | LifeCycle | File d’attente fiable a ouvert | DistributedQueue | Informations |
+| 61964 | ReliableQueueClosed | LifeCycle | File d’attente fiable a fermé | DistributedQueue | Informations |
+| 61965 | ReliableQueueCheckpointRecovered | LifeCycle | File d’attente fiable a récupéré son point de contrôle | DistributedQueue | Informations |
+| 61966 | ReliableQueueCheckpointFilesSent | LifeCycle | Réplica a envoyé les fichiers de point de contrôle de la file d’attente fiable | DistributedQueue | Informations |
+| 63647 | ReliableQueueCheckpointFilesReceived | LifeCycle | Réplica a reçu des fichiers de point de contrôle de la file d’attente fiable | DistributedQueue | Informations |
+| 63648 | ReliableConcurrentQueueOpened | LifeCycle | File d’attente simultanée fiable a ouvert | ReliableConcurrentQueue | Informations |
+| 63649 | ReliableConcurrentQueueClosed | LifeCycle | File d’attente simultanée fiable a fermé | ReliableConcurrentQueue | Informations |
+| 63650 | ReliableConcurrentQueueCheckpointRecovered | LifeCycle | File d’attente simultanée fiable a récupéré son point de contrôle | ReliableConcurrentQueue | Informations |
+| 61687 | TStoreError | Échec | Collection fiable a reçu une erreur inattendue | TStore | Error |
+| 63831 | PrimaryFullCopyInitiated | LifeCycle | Réplica principal a lancé une copie complète | TReplicator | Informations |
+| 63832 | PrimaryPartialCopyInitiated | LifeCycle | Réplica principal a lancé une copie partielle | TReplicator | Informations |
+| 16831 | BuildIdleReplicaStarted | LifeCycle | Réplica principal a démarré la création de réplica inactif | Réplication | Informations |
+| 16832 | BuildIdleReplicaCompleted | LifeCycle | Réplica principal a terminé la création de réplica inactif | Réplication | Informations |
+| 16833 | BuildIdleReplicaFailed | LifeCycle | Réplica principal a échoué de création de réplica inactif | Réplication | Avertissement |
+| 16834 | PrimaryReplicationQueueFull | Intégrité | File d’attente de réplication du réplica principal est plein | Réplication | Avertissement |
+| 16835 | PrimaryReplicationQueueWarning | Intégrité | File d’attente de réplication du réplica principal est presque plein | Réplication | Avertissement |
+| 16836 | PrimaryReplicationQueueWarningMitigated | Intégrité | File d’attente de réplication du réplica principal est OK | Réplication | Informations |
+| 16837 | SecondaryReplicationQueueFull | Intégrité | File d’attente de réplication du réplica secondaire est plein | Réplication | Avertissement |
+| 16838 | SecondaryReplicationQueueWarning | Intégrité | File d’attente de réplication du réplica secondaire est presque plein | Réplication | Avertissement |
+| 16839 | SecondaryReplicationQueueWarningMitigated | Intégrité | File d’attente de réplication du réplica secondaire est OK | Réplication | Informations |
+| 16840 | PrimaryFaultedSlowSecondary | Intégrité | Réplica principal connaît un réplica secondaire lent | Réplication | Avertissement |
+| 16841 | ReplicatorFaulted | Intégrité | Réplica a généré une erreur. | Réplication | Avertissement |
 
 ## <a name="container-events"></a>Événements de conteneur
 

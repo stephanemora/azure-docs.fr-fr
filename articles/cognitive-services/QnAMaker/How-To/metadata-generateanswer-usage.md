@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: article
 ms.date: 05/10/2019
 ms.author: tulasim
-ms.openlocfilehash: 278040cb487df6731df1ad3e18435f6e12ca9d50
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 2454e07e4fc4600f846acc7afbcc19cc0b677450
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65594059"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65792232"
 ---
 # <a name="get-a-knowledge-answer-with-the-generateanswer-api-and-metadata"></a>Obtenir une réponse de la base de connaissances avec les API de GenerateAnswer et les métadonnées
 
@@ -43,7 +43,7 @@ Utilisez l’API GenerateAnswer dans votre Bot ou application pour rechercher da
 
 ## <a name="publish-to-get-generateanswer-endpoint"></a>Publication afin d’obtenir le point de terminaison GenerateAnswer 
 
-Quand vous publiez votre base de connaissances à partir du [portail QnA Maker](https://www.qnamaker.ai), ou à l’aide de [l’API](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff), vous pouvez obtenir les détails de votre point de terminaison GenerateAnswer.
+Quand vous publiez votre base de connaissances à partir du [portail QnA Maker](https://www.qnamaker.ai), ou à l’aide de [l’API](https://go.microsoft.com/fwlink/?linkid=2092179), vous pouvez obtenir les détails de votre point de terminaison GenerateAnswer.
 
 Pour obtenir les détails de votre point de terminaison :
 1. Connectez-vous à [https://www.qnamaker.ai](https://www.qnamaker.ai).

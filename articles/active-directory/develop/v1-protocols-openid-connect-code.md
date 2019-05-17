@@ -3,8 +3,8 @@ title: Comprendre le flux de code d’authentification OpenID Connect dans Azure
 description: Cet article explique comment utiliser des messages HTTP pour autoriser l’accès aux applications web et API web dans votre client à l’aide d’Azure Active Directory et d’OpenID Connect.
 services: active-directory
 documentationcenter: .net
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 29142f7e-d862-4076-9a1a-ecae5bcd9d9b
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/4/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 06639f943542e322e79e137e31be7b8954566a0f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 051d3faf5cea24e33f1e6560abc2d039c1059c91
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60251665"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65784978"
 ---
 # <a name="authorize-access-to-web-applications-using-openid-connect-and-azure-active-directory"></a>Autoriser l’accès aux applications web à l’aide d’OpenID Connect et d’Azure Active Directory
 
@@ -95,7 +95,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | locataire |required |La valeur `{tenant}` dans le chemin d’accès de la requête peut être utilisée pour contrôler les utilisateurs qui peuvent se connecter à l’application. Les valeurs autorisées sont les identificateurs du client, par exemple `8eaef023-2b34-4da1-9baa-8bc8c9d6a490`, `contoso.onmicrosoft.com` ou `common` pour les jetons indépendants du client |
 | client_id |required |L’ID de l’application assignée à votre application lorsque vous l’avez inscrite auprès d’Azure AD. Vous le trouverez sur le portail Azure. Cliquez sur **Azure Active Directory**, cliquez sur **inscriptions**, choisissez l’application et recherchez l’ID d’Application sur la page d’application. |
 | response_type |required |Doit inclure `id_token` pour la connexion à OpenID Connect. Il peut inclure d’autres response_type, comme `code` ou `token`. |
-| scope | recommandé | La spécification OpenID Connect nécessite l’étendue `openid`, ce qui correspond à l’autorisation « Connexion vous » dans l’interface utilisateur de consentement. Cela et autres étendues OIDC sont ignorés sur le point de terminaison v1.0, mais sont toujours une bonne pratique pour les clients conformes aux normes. |
+| portée | recommandé | La spécification OpenID Connect nécessite l’étendue `openid`, ce qui correspond à l’autorisation « Connexion vous » dans l’interface utilisateur de consentement. Cela et autres étendues OIDC sont ignorés sur le point de terminaison v1.0, mais sont toujours une bonne pratique pour les clients conformes aux normes. |
 | nonce |required |Valeur incluse dans la demande (générée par l’application) qui est intégrée au jeton `id_token` obtenu sous la forme d’une revendication. L’application peut ensuite vérifier cette valeur afin de contrer les attaques par relecture de jetons. La valeur est généralement une valeur unique et aléatoire ou un GUID pouvant être utilisé pour identifier l’origine de la requête. |
 | redirect_uri | recommandé |L’URI de redirection de votre application, vers lequel votre application peut envoyer et recevoir des réponses d’authentification. Il doit correspondre exactement à l’un des URI de redirection enregistrés dans le portail, auquel s’ajoute le codage dans une URL. S’il est manquant, l’agent utilisateur sera envoyé à un de l’URI est enregistré pour l’application, de manière aléatoire de redirection. La longueur maximale est de 255 octets |
 | response_mode |facultatif |Spécifie la méthode à utiliser pour envoyer le code d’autorisation résultant à votre application. Les valeurs prises en charge sont `form_post` pour une *requête HTTP POST de type formulaire* et `fragment` pour un *fragment d’URL*. Pour les applications web, nous vous recommandons d’utiliser `response_mode=form_post` pour garantir le transfert le plus sécurisé des jetons à votre application. La valeur par défaut pour n’importe quel flux, y compris id_token, est `fragment`.|
@@ -107,7 +107,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 ### <a name="sample-response"></a>Exemple de réponse
 
-Exemple de réponse obtenue après l’authentification de l’utilisateur :
+Un exemple de réponse envoyé à la `redirect_uri` spécifié dans la demande de connexion une fois que l’utilisateur est authentifié, pourrait ressembler à ceci :
 
 ```
 POST / HTTP/1.1
@@ -214,9 +214,9 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e        // Your registered Applica
 
 En incluant des étendues d’autorisation dans la demande et en utilisant `response_type=code+id_token`, le point de terminaison `authorize` garantit que l’utilisateur a accepté les autorisations indiquées dans le paramètre de requête `scope` et renvoie un code d’autorisation à votre application afin de l’échanger contre un jeton d’accès.
 
-### <a name="successful-response"></a>Réponse correcte
+### <a name="successful-response"></a>Réponse réussie
 
-Une réponse correcte utilisant `response_mode=form_post` se présente ainsi :
+Une réponse correcte, envoyée à la `redirect_uri` à l’aide de `response_mode=form_post`, ressemble à :
 
 ```
 POST /myapp/ HTTP/1.1

@@ -6,15 +6,16 @@ services: media-services
 author: Juliako
 manager: femila
 ms.service: media-services
+ms.subservice: video-indexer
 ms.topic: article
-ms.date: 03/05/2019
+ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: 89903d3f65c74da6903e53284f168d2d6a12168a
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e92086ca18887b9b2c2362e97d855c33834b83bb
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64719662"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65799216"
 ---
 # <a name="upload-and-index-your-videos"></a>Charger et indexer vos vidéos  
 
@@ -57,9 +58,9 @@ Ce paramètre vous permet de spécifier un ID qui sera associé à la vidéo. L�
 URL qui est utilisée pour notifier le client (à l’aide d’une requête POST) sur les événements suivants :
 
 - Changement de l’état d’indexation : 
-    - Propriétés :    
+    - Propriétés :    
     
-        |Nom|Description|
+        |Nom|Description |
         |---|---|
         |id|ID de la vidéo|
         |state|État de la vidéo|  
@@ -67,7 +68,7 @@ URL qui est utilisée pour notifier le client (à l’aide d’une requête POST
 - Personne identifiée dans la vidéo :
   - properties
     
-      |Nom|Description|
+      |Nom|Description |
       |---|---|
       |id| ID de la vidéo|
       |faceId|ID de visage qui apparaît dans l’index de la vidéo|
@@ -283,7 +284,7 @@ public class AccountContractSlim
 
 Les codes d’état répertoriés dans le tableau suivant peuvent être renvoyés par l’opération de chargement (Upload).
 
-|Code d’état|ErrorType (dans le corps de la réponse)|Description|
+|Code d’état|ErrorType (dans le corps de la réponse)|Description |
 |---|---|---|
 |400|VIDEO_ALREADY_IN_PROGRESS|La même vidéo est déjà en cours de traitement dans le compte en question.|
 |400|VIDEO_ALREADY_FAILED|La même vidéo n’a pas pu être traitée dans le compte en question moins de 2 heures auparavant. Les clients API doivent attendre au moins 2 heures avant de recharger une vidéo.|

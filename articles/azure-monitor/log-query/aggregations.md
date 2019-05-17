@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: 864e9586082ed95bf17135414ec4b879e3034ace
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fd8e886a78d0689ca60d8ea7c4d16639c81d5733
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60589636"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65602732"
 ---
 # <a name="aggregations-in-azure-monitor-log-queries"></a>Agrégations dans des requêtes Azure Monitor | Microsoft Docs
 
@@ -79,7 +79,7 @@ Heartbeat
 ```
 
 ### <a name="evaluating-subgroups"></a>Évaluation des sous-groupes
-Pour effectuer un compte ou d’autres agrégations de sous-groupes dans vos données, utilisez le mot clé `by`. Par exemple, pour compter le nombre d’ordinateurs Linux distincts qui ont envoyé des pulsations dans chaque pays :
+Pour effectuer un compte ou d’autres agrégations de sous-groupes dans vos données, utilisez le mot clé `by`. Par exemple, pour compter le nombre d’ordinateurs Linux distincts qui ont envoyé des pulsations dans chaque pays/région :
 
 ```Kusto
 Heartbeat 
@@ -93,10 +93,10 @@ Heartbeat
 |Canada           | 3                   |
 |Irlande          | 0                   |
 |Royaume-Uni   | 0                   |
-|Pays-bas      | 2                   |
+|Pays-Bas      | 2                   |
 
 
-Pour analyser des sous-groupes encore plus petits de vos données, ajoutez des noms de colonnes supplémentaires à la section `by`. Par exemple, vous pouvez peut-être compter le nombre d’ordinateurs distincts de chaque pays par OSType :
+Pour analyser des sous-groupes encore plus petits de vos données, ajoutez des noms de colonnes supplémentaires à la section `by`. Par exemple, vous souhaiterez peut-être compter les ordinateurs distincts à partir de chaque pays/région par OSType :
 
 ```Kusto
 Heartbeat 
@@ -107,7 +107,7 @@ Heartbeat
 ## <a name="percentiles-and-variance"></a>Centiles et variance
 Lors de l’évaluation de valeurs numériques, il est courant d’en calculer la moyenne à l’aide de `summarize avg(expression)`. Les moyennes sont affectées par les valeurs extrêmes qui ne caractérisent que quelques cas. Pour résoudre ce problème, vous pouvez utiliser des fonctions moins sensibles telles que `median` ou `variance`.
 
-### <a name="percentile"></a>Percentile
+### <a name="percentile"></a>Centile
 Pour rechercher la valeur médiane, utilisez la fonction `percentile` avec une valeur pour spécifier le centile :
 
 ```Kusto

@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 4a5bed67252c3b87233c8d2e677e3c620adb8a17
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b59e4d574264f82a5875edad65e99bfb57150197
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60605228"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65796875"
 ---
 # <a name="translator-text-api-v30"></a>API de traduction de texte Translator Text v3.0
 
@@ -41,21 +41,21 @@ Les requêtes adressées à l’API de traduction de texte Translator Text de Mi
 
 Pour forcer la gestion de la requête par un centre de données spécifique, remplacez le point de terminaison Global dans la requête d’API par le point de terminaison régional souhaité :
 
-|Description|Région|URL de base|
+|Description |Région|URL de base|
 |:--|:--|:--|
-|Azure|Globale|  api.cognitive.microsofttranslator.com|
+|Azure|Global|  api.cognitive.microsofttranslator.com|
 |Azure|Amérique du Nord|   api-nam.cognitive.microsofttranslator.com|
 |Azure|Europe|  api-eur.cognitive.microsofttranslator.com|
 |Azure|Asie-Pacifique|    api-apc.cognitive.microsofttranslator.com|
 
 
-## <a name="authentication"></a>Authentification
+## <a name="authentication"></a>Authentication
 
 S’abonner à l’API Translator Text ou [multi-service Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/) dans Microsoft Cognitive Services et utiliser votre abonnement de clé (disponible dans le portail Azure) pour s’authentifier. 
 
 Trois en-têtes sont à votre disposition pour authentifier votre abonnement. Ce tableau décrit la façon dont chaque en-tête est utilisé :
 
-|headers|Description|
+|En-têtes|Description |
 |:----|:----|
 |Ocp-Apim-Subscription-Key|*À utiliser avec un abonnement à Cognitive Services si vous transmettez votre clé secrète*.<br/>La valeur est la clé secrète Azure pour votre abonnement à l’API de traduction de texte Translator Text.|
 |Authorization|*À utiliser avec un abonnement à Cognitive Services si vous transmettez un jeton d'authentification.*<br/>La valeur est le jeton du porteur : `Bearer <token>`.|
@@ -126,7 +126,7 @@ Par exemple, un client avec un abonnement d’essai gratuit recevrait l’erreur
 ```
 Le code d’erreur est un nombre à 6 chiffres qui combine le code d’état HTTP à 3 chiffres et un nombre à 3 chiffres qui sert à catégoriser plus précisément l’erreur. Voici les codes d’erreur courants :
 
-| Code | Description |
+| Code | Description  |
 |:----|:-----|
 | 400000| Une des requêtes d’entrées n’est pas valide.|
 | 400001| Le paramètre « scope » n’est pas valide.|
@@ -161,7 +161,7 @@ Le code d’erreur est un nombre à 6 chiffres qui combine le code d’état HTT
 | 405000| La méthode de requête n’est pas prise en charge pour la ressource demandée.|
 | 408001| Le système de traduction personnalisée demandé n’est pas encore disponible. Réessayez dans quelques minutes.|
 | 415000| L’en-tête Content-Type est manquante ou invalide.|
-| 429000, 429001, 429002| Le serveur a rejeté la requête, car le client envoie trop de requête. Réduisez la fréquence des requêtes pour pallier la limitation.|
-| 500000| Une erreur inattendue s’est produite. Si l’erreur persiste, signalez-la en fournissant les informations suivantes : date et heure de l’erreur, identificateur de la demande dans l’en-tête de réponse X-RequestId, et identificateur du client dans l’en-tête de demande X-ClientTraceId.|
+| 429000, 429001, 429002| Le serveur a rejeté la demande, car le client a dépassé les limites de la demande.|
+| 500000| Une erreur inattendue est survenue. Si l’erreur persiste, signalez-la en fournissant les informations suivantes : date et heure de l’erreur, identificateur de la demande dans l’en-tête de réponse X-RequestId, et identificateur du client dans l’en-tête de demande X-ClientTraceId.|
 | 503000| Le service est temporairement indisponible. Veuillez réessayer. Si l’erreur persiste, signalez-la en fournissant les informations suivantes : date et heure de l’erreur, identificateur de la demande dans l’en-tête de réponse X-RequestId, et identificateur du client dans l’en-tête de demande X-ClientTraceId.|
 

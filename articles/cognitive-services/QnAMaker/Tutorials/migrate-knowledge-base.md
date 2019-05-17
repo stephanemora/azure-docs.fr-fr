@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 04/08/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: eac5e43c69cc09c5945316827a35f729c158d47a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8ff3c497372a761bd8a02ae81bc897c8ee297bd0
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61431218"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65794882"
 ---
 # <a name="migrate-a-knowledge-base-using-export-import"></a>Migrer une base de connaissances à l’aide des fonctions d’exportation-importation
 
@@ -56,7 +56,7 @@ La migration d’une base de connaissances nécessite l’exportation d’une ba
     À ce stade, tout le contenu de la base de connaissances (questions, réponses et métadonnées, ainsi que le nom des fichiers sources et les URL) est importé dans la nouvelle base de connaissances. 
 
 ## <a name="chat-logs-and-alterations"></a>Conversations et modifications
-Les modifications qui ne respectent pas la casse (synonymes) ne sont pas importées automatiquement. Utilisez les [API V2](https://aka.ms/qnamaker-v2-apis) pour exporter les modifications des anciennes connaissances et les [API V4](https://aka.ms/qnamaker-v4-apis) pour les déplacer dans la nouvelle base de connaissances.
+Les modifications qui ne respectent pas la casse (synonymes) ne sont pas importées automatiquement. Utilisez le [V4 API](https://go.microsoft.com/fwlink/?linkid=2092179) pour déplacer les modifications dans la base de connaissances.
 
 Il n’existe aucun moyen de migrer les conversations, étant donné que la nouvelle base de connaissances utilise Application Insights pour le stockage des conversations. 
 

@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: asgang
-ms.openlocfilehash: 68efc039c5de5d7f61b7ce34e74c6c2cf4bad027
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0848738b71a605d8baf049847daa3ae2428a7abe
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61471599"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65793671"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sap-netweaver-app-deployment"></a>Configurer la reprise d’activité pour un déploiement d’application SAP NetWeaver multiniveau
 
@@ -166,5 +166,5 @@ Pour plus d’informations, consultez [Tester le basculement vers Azure dans Sit
 Pour plus d’informations, consultez [Basculement dans Site Recovery](site-recovery-failover.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Pour en savoir plus sur la création d’une solution de reprise d’activité après sinistre pour les déploiements SAP NetWeaver à l’aide de Site Recovery, consultez le livre blanc téléchargeable [SAP NetWeaver: Création d’une solution de reprise d’activité après sinistre avec Azure Site Recovery](https://aka.ms/asr-sap). Ce livre blanc, qui présente les recommandations émises pour les diverses architectures SAP, répertorie les applications et les types de machines virtuelles pris en charge pour SAP sur Azure, et décrit les options de plan de test pour votre solution de reprise d’activité après sinistre.
+* Pour en savoir plus sur la création d’une solution de reprise d’activité après sinistre pour les déploiements SAP NetWeaver à l’aide de Site Recovery, consultez le livre blanc téléchargeable [SAP NetWeaver: Création d’une solution de reprise d’activité après sinistre avec Azure Site Recovery](https://aka.ms/asr_sap). Ce livre blanc, qui présente les recommandations émises pour les diverses architectures SAP, répertorie les applications et les types de machines virtuelles pris en charge pour SAP sur Azure, et décrit les options de plan de test pour votre solution de reprise d’activité après sinistre.
 * Approfondissez vos connaissances sur la [réplication d’autres charges de travail](site-recovery-workload.md) à l’aide de Site Recovery.

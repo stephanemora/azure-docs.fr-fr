@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/08/2019
 ms.author: tyao;kumud
-ms.openlocfilehash: 2d16893420f27caf4f8b00dc32069e3296d7c236
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7a167deb511347798fa609e2aca2a19f8bf12d21
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61459774"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523714"
 ---
 # <a name="configure-a-custom-response-for-azure-web-application-firewall"></a>Configurer une réponse personnalisée pour le pare-feu d’application web Azure
 
@@ -52,11 +52,11 @@ New-AzResourceGroup -Name myResourceGroupWAF
 
 ## <a name="create-a-new-waf-policy-with-custom-response"></a>Créer une nouvelle stratégie de pare-feu d’applications Web avec une réponse personnalisée 
 
-Voici un exemple de création d’une nouvelle stratégie de pare-feu d’applications Web avec code d’état de réponse personnalisée 405 et le message pour la valeur **vous êtes bloqué.** à l’aide de [New-AzFrontDoorFireWallPolicy](/powershell/module/az.frontdoor/new-azfrontdoorfirewallPolicy).
+Voici un exemple de création d’une nouvelle stratégie de pare-feu d’applications Web avec code d’état de réponse personnalisée 405 et le message pour la valeur **vous êtes bloqué.** à l’aide de [New-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy).
 
 ```azurepowershell
 # WAF policy setting
-New-AzFrontDoorFireWallPolicy `
+New-AzFrontDoorWafPolicy `
 -Name myWAFPolicy `
 -ResourceGroupName myResourceGroupWAF `
 -EnabledState enabled `

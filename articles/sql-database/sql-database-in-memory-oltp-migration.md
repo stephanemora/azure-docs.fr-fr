@@ -7,17 +7,17 @@ ms.subservice: development
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer: MightyPen
 manager: craigg
 ms.date: 11/07/2018
-ms.openlocfilehash: ad66253d33b2e99f0be79bfaddc86b3274f5cab0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 03e5540e34cd99d2b201bc763f13b42c7fa20bf7
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60337786"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65785317"
 ---
 # <a name="use-in-memory-oltp-to-improve-your-application-performance-in-sql-database"></a>Utilisation de l’OLTP en mémoire pour améliorer les performances de votre SQL Database
 
@@ -29,7 +29,7 @@ ms.locfileid: "60337786"
 
 Suivez ces étapes pour adopter OLTP en mémoire dans votre base de données existante.
 
-## <a name="step-1-ensure-you-are-using-a-premium-and-business-critical-tier-database"></a>Étape 1 : vérifiez que vous utilisez une base de données de niveau Premium ou Critique pour l'entreprise
+## <a name="step-1-ensure-you-are-using-a-premium-and-business-critical-tier-database"></a>Étape 1 : vérifiez que vous utilisez une base de données de niveau Premium ou Critique pour l'entreprise
 
 OLTP en mémoire est pris en charge uniquement dans les bases de données du niveau Premium et Critique pour l’entreprise. In-Memory est pris en charge si le résultat retourné est 1 (et nom 0) :
 
@@ -41,7 +41,7 @@ L’acronyme *XTP* signifie *Extreme Transaction Processing (Traitement de trans
 
 
 
-## <a name="step-2-identify-objects-to-migrate-to-in-memory-oltp"></a>Étape 2 : identifiez les objets à migrer vers In-Memory OLTP
+## <a name="step-2-identify-objects-to-migrate-to-in-memory-oltp"></a>Étape 2 : identifiez les objets à migrer vers In-Memory OLTP
 SSMS inclut un rapport de **présentation d’analyse des performances des transactions** que vous pouvez exécuter sur une base de données avec une charge de travail active. Le rapport identifie les tables et procédures stockées candidates pour la migration vers In-Memory OLTP.
 
 Dans SSMS, pour générer le rapport :
@@ -67,7 +67,7 @@ Pour faciliter le test, modifiez votre base de données comme suit :
         MEMORY_OPTIMIZED_ELEVATE_TO_SNAPSHOT = ON;
    ```
 
-## <a name="step-4-migrate-tables"></a>Étape 4 : migrez les tables
+## <a name="step-4-migrate-tables"></a>Étape 4 : migrez les tables
 Vous devez créer et remplir une copie de mémoire optimisée de la table que vous souhaitez tester. Vous pouvez le créer en utilisant soit :
 
 * L’Assistant Optimisation de mémoire pratique en SSMS.
@@ -167,7 +167,7 @@ Pour réduire la latence du réseau, exécutez le test dans la région géograph
 Veillez à surveiller les effets des performances de vos implémentations In-Memory en production :
 
 * [Surveiller le stockage en mémoire](sql-database-in-memory-oltp-monitoring.md).
-* [Analyse d’une base de données SQL Azure à l’aide de vues de gestion dynamique](sql-database-monitoring-with-dmvs.md)
+* [Supervision d’une base de données Azure SQL à l’aide de vues de gestion dynamique](sql-database-monitoring-with-dmvs.md)
 
 ## <a name="related-links"></a>Liens connexes
 * [In-Memory OLTP (optimisation en mémoire)](https://msdn.microsoft.com/library/dn133186.aspx)

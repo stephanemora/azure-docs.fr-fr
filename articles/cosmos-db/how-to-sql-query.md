@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: mjbrown
-ms.openlocfilehash: a5cc6bfca67f3d90467fa2339bc991c1f0bbeadf
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 4d1ef650a3f12d8b97cbad3e9aecf31c8b81a038
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148947"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65796158"
 ---
 # <a name="sql-query-examples-for-azure-cosmos-db"></a>Exemples de requêtes SQL pour Azure Cosmos DB
 
@@ -139,7 +139,7 @@ Les résultats de requête sont :
     }]
 ```
 
-La requête suivante renvoie tous les noms donnés des enfants de la famille dont `id` correspond à `WakefieldFamily`, classée par la ville de résidence.
+La requête suivante renvoie tous les noms donnés des enfants de la famille dont `id` correspond à `WakefieldFamily`, classée par ville.
 
 ```sql
     SELECT c.givenName
@@ -511,7 +511,7 @@ Vous pouvez utiliser les opérateurs binaires pris en charge suivants :
 |Opérateurs arithmétiques | +,-,*,/,% |
 |Opérateurs au niveau du bit    | \|, &, ^, <<, >>, >>> (décalage vers la droite avec remplissage de zéros) |
 |Opérateurs logiques    | AND, OR, NOT      |
-|Opérateurs de comparaison | =, !=, &lt;, &gt;, &lt;=, &gt;=, <> |
+|Comparaison | =, !=, &lt;, &gt;, &lt;=, &gt;=, <> |
 |Chaîne     |  \|\| (concaténer) |
 
 Les requêtes suivantes utilisent les opérateurs binaires :
@@ -550,13 +550,13 @@ Le tableau suivant répertorie les résultats des comparaisons d'égalité dans 
 
 | **Opérateur** | **Undefined** | **Null** | **Booléen** | **Nombre** | **Chaîne** | **Object** | **Tableau** |
 |---|---|---|---|---|---|---|---|
-| **Undefined** | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined |
-| **Null** | Undefined | **OK** | Undefined | Undefined | Undefined | Undefined | Undefined |
-| **Booléen** | Undefined | Undefined | **OK** | Undefined | Undefined | Undefined | Undefined |
-| **Nombre** | Undefined | Undefined | Undefined | **OK** | Undefined | Undefined | Undefined |
-| **Chaîne** | Undefined | Undefined | Undefined | Undefined | **OK** | Undefined | Undefined |
-| **Object** | Undefined | Undefined | Undefined | Undefined | Undefined | **OK** | Undefined |
-| **Tableau** | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined | **OK** |
+| **Undefined** | Non défini | Non défini | Non défini | Non défini | Non défini | Non défini | Non défini |
+| **Null** | Non défini | **OK** | Non défini | Non défini | Non défini | Non défini | Non défini |
+| **Booléen** | Non défini | Non défini | **OK** | Non défini | Non défini | Non défini | Non défini |
+| **Nombre** | Non défini | Non défini | Non défini | **OK** | Non défini | Non défini | Non défini |
+| **Chaîne** | Non défini | Non défini | Non défini | Non défini | **OK** | Non défini | Non défini |
+| **Object** | Non défini | Non défini | Non défini | Non défini | Non défini | **OK** | Non défini |
+| **Tableau** | Non défini | Non défini | Non défini | Non défini | Non défini | Non défini | **OK** |
 
 Pour les opérateurs de comparaison tels que `>`, `>=`, `!=`, `<`, et `<=`, comparaison entre les types ou entre deux objets ou tableaux produit `Undefined`.  
 
@@ -568,19 +568,19 @@ Les opérateurs logiques interviennent sur des valeurs booléennes. Les tableaux
 
 **Opérateur OR**
 
-| Ou | True | False | Undefined |
+| Ou | True | False | Non défini |
 | --- | --- | --- | --- |
 | True |True |True |True |
-| False |True |False |Undefined |
-| Undefined |True |Undefined |Undefined |
+| False |True |False |Non défini |
+| Non défini |True |Non défini |Non défini |
 
 **Opérateur OR**
 
-| AND | True | False | Undefined |
+| AND | True | False | Non défini |
 | --- | --- | --- | --- |
-| True |True |False |Undefined |
+| True |True |False |Non défini |
 | False |False |False |False |
-| Undefined |Undefined |False |Undefined |
+| Non défini |Non défini |False |Non défini |
 
 **Opérateur NOT**
 
@@ -588,7 +588,7 @@ Les opérateurs logiques interviennent sur des valeurs booléennes. Les tableaux
 | --- | --- |
 | True |False |
 | False |True |
-| Undefined |Undefined |
+| Non défini |Non défini |
 
 ## <a name="between-keyword"></a>Mot clé BETWEEN
 
@@ -867,6 +867,13 @@ Les résultats sont :
         ]
       }
     ]
+```
+
+La requête SQL suivante est un autre exemple de l’utilisation de tableau dans les sous-requêtes. Cette requête obtient tous les noms donnés distinctes d’enfants dans un tableau.
+
+```sql
+SELECT f.id, ARRAY(SELECT DISTINCT VALUE c.givenName FROM c IN f.children) as ChildNames
+FROM f
 ```
 
 
@@ -1285,13 +1292,13 @@ Les résultats sont :
 
 L’API SQL prend en charge les fonctions d’agrégation suivantes. SUM et AVG opèrent sur des valeurs numériques, et COUNT, MIN et MAX travailler sur des nombres, des chaînes, des valeurs booléennes et les valeurs NULL.
 
-| Fonction | Description |
+| Fonction | Description  |
 |-------|-------------|
-| COUNT | Renvoie le nombre d’éléments que contient l’expression. |
+| NOMBRE | Renvoie le nombre d’éléments que contient l’expression. |
 | SUM   | Renvoie la somme de toutes les valeurs de l’expression. |
 | MIN   | Renvoie la valeur minimale de l’expression. |
 | MAX   | Renvoie la valeur maximale de l’expression. |
-| MOY   | Renvoie la moyenne des valeurs de l’expression. |
+| AVG   | Renvoie la moyenne des valeurs de l’expression. |
 
 Vous pouvez également agréger les résultats d’une itération de tableau. Pour plus d’informations, consultez le [itération](#Iteration) section.
 
@@ -1319,7 +1326,7 @@ La principale différence entre les fonctions de Cosmos DB et SQL ANSI est que l
 
 Chaque fonction mathématique effectue un calcul, basé sur les valeurs d’entrée fournies comme arguments, et renvoie une valeur numérique. Ce tableau répertorie les fonctions mathématiques intégrées qui sont prises en charge.
 
-| Usage | Description |
+| Usage | Description  |
 |----------|--------|
 | ABS (num_expr) | Retourne la valeur (positive) absolue de l'expression numérique spécifiée. |
 | CEILING (num_expr) | Retourne le plus petit nombre entier qui est supérieur ou égal à l'expression numérique spécifiée. |
@@ -1388,7 +1395,7 @@ Le résultat est le suivant :
 
 Les fonctions scalaires suivantes effectuent une opération sur une valeur de chaîne d’entrée et retournent une valeur de chaîne, numérique ou booléenne. Voici un tableau des fonctions de chaîne intégrées :
 
-| Usage | Description |
+| Usage | Description  |
 | --- | --- |
 | [LENGTH (str_expr)](sql-api-query-reference.md#bk_length) | Retourne le nombre de caractères de l’expression de chaîne spécifiée. |
 | [CONCAT (str_expr, str_expr [, str_expr])](sql-api-query-reference.md#bk_concat) | Retourne une chaîne qui est le résultat de la concaténation d’au moins deux valeurs de chaîne. |
@@ -1464,7 +1471,7 @@ Les résultats sont :
 
 Les fonctions scalaires suivantes effectuent une opération sur une valeur d’entrée de tableau et retournent une valeur numérique, booléen ou valeur de tableau. Voici un tableau des fonctions de tableau intégrées :
 
-| Usage | Description |
+| Usage | Description  |
 | --- | --- |
 | [ARRAY_LENGTH (arr_expr)](sql-api-query-reference.md#bk_array_length) |Retourne le nombre d’éléments de l’expression de tableau spécifiée. |
 | [ARRAY_CONCAT (arr_expr, arr_expr [, arr_expr])](sql-api-query-reference.md#bk_array_concat) |Retourne un tableau qui est le résultat de la concaténation d’au moins deux valeurs de tableau. |
@@ -1527,7 +1534,7 @@ Les résultats sont :
 
 COSMOS DB prend en charge les fonctions intégrées Open Geospatial Consortium (OGC) suivantes pour les requêtes géospatiales : 
 
-| Usage | Description |
+| Usage | Description  |
 | --- | --- |
 | ST_DISTANCE (point_expr, point_expr) | Retourne la distance entre les deux GeoJSON `Point`, `Polygon`, ou `LineString` expressions. |
 | T_WITHIN (point_expr, polygon_expr) | Retourne une expression booléenne indiquant si le premier objet GeoJSON (`Point`, `Polygon`, ou `LineString`) se trouve dans le second objet GeoJSON (`Point`, `Polygon`, ou `LineString`). |
@@ -1979,7 +1986,7 @@ Le fournisseur de requête prend en charge les expressions scalaires suivantes 
 
 - Valeurs constantes, y compris des valeurs constantes des types de données primitifs au moment de l’évaluation de requête.
   
-- Propriété/tableau indexer des expressions qui font référence à la propriété d’un objet ou un élément de tableau. Par exemple : 
+- Propriété/tableau indexer des expressions qui font référence à la propriété d’un objet ou un élément de tableau. Exemple :
   
   ```
     family.Id;

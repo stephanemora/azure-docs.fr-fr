@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 02/25/2018
 ms.author: glenga
-ms.openlocfilehash: 4e9bd4e9ea467446c2814cdb8956a40b1503b027
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e15d6ad445c3fdde0632c3ad468eee7da836a394
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61020483"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65785959"
 ---
 # <a name="manage-connections-in-azure-functions"></a>Gérer les connexions dans Azure Functions
 
@@ -21,7 +21,7 @@ Fonctions dans une application de fonction partagent des ressources. Parmi ces r
 
 ## <a name="connection-limit"></a>Limite de connexion
 
-Le nombre de connexions disponibles est limité en partie parce qu’une application de fonction s’exécute dans un [environnement de bac à sable](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox). Une des restrictions qui le bac à sable impose sur votre code est un [limite concernant le nombre de connexions (actuellement à 600 connexions actives et le nombre total de 1 200 connexions)](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#numerical-sandbox-limits) par instance. Quand vous atteignez cette limite, le runtime des fonctions crée un journal avec le message suivant : `Host thresholds exceeded: Connections`.
+Le nombre de connexions disponibles est limité en partie parce qu’une application de fonction s’exécute dans un [environnement de bac à sable](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox). Une des restrictions qui le bac à sable impose sur votre code est une limite concernant le nombre de connexions (actuellement à 600 connexions actives et le nombre total de 1 200 connexions) par instance. Quand vous atteignez cette limite, le runtime des fonctions crée un journal avec le message suivant : `Host thresholds exceeded: Connections`.
 
 Cette limite s’effectue par instance.  Lorsque le [contrôleur de mise à l’échelle ajoute des instances d’application de fonction](functions-scale.md#how-the-consumption-and-premium-plans-work) pour traiter les demandes de plus, chaque instance a une limite de connexion indépendante. Cela signifie qu’il n’existe aucune limite de connexion global, et vous pouvez avoir beaucoup plus de 600 connexions actives entre toutes les instances actives.
 

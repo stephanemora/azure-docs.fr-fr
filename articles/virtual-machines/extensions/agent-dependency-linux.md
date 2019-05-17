@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/29/2019
 ms.author: magoedte
-ms.openlocfilehash: 16491ccc8a9cdc24b82c4c4e27705fa30da61088
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 750393e6dba17ab8ba024f9f1fbb2f9127dd81ab
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60800234"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65521699"
 ---
 # <a name="azure-monitor-dependency-virtual-machine-extension-for-linux"></a>Extension de machine virtuelle de dépendance d’analyse Azure pour Linux
 
@@ -30,7 +30,7 @@ La fonctionnalité Azure Monitor pour machines virtuelles Map obtient ses donné
 
 ### <a name="operating-system"></a>Système d’exploitation
 
-L’extension de l’agent de dépendances de machine virtuelle Azure pour Linux peut être exécutée sur les systèmes d’exploitation pris en charge répertoriés dans le [les systèmes d’exploitation pris en charge](../../azure-monitor/insights/vminsights-onboard.md#supported-operating-systems) section de l’analyse Azure pour l’article de déploiement de machines virtuelles.
+L’extension de l’agent de dépendances de machine virtuelle Azure pour Linux peut être exécutée sur les systèmes d’exploitation pris en charge répertoriés dans le [les systèmes d’exploitation pris en charge](../../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) section de l’analyse Azure pour l’article de déploiement de machines virtuelles.
 
 ## <a name="extension-schema"></a>Schéma d’extensions
 
@@ -78,7 +78,7 @@ Le code JSON suivant montre le schéma pour l’extension de l’agent de dépen
 | ---- | ---- |
 | apiVersion | 2015-01-01 |
 | publisher | Microsoft.Azure.Monitoring.DependencyAgent |
-| Type | DependencyAgentLinux |
+| type | DependencyAgentLinux |
 | typeHandlerVersion | 9,5 |
 
 ## <a name="template-deployment"></a>Déploiement de modèle

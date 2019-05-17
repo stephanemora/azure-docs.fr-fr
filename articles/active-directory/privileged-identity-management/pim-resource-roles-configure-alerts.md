@@ -15,22 +15,22 @@ ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 09e04e6b61d3387cb8c50c2af4eef2cfb4bec196
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c15e4080308c3e7e2ff54312cd91fa1f3d68668a
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60437784"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65602446"
 ---
 # <a name="configure-security-alerts-for-azure-resource-roles-in-pim"></a>Configurer des alertes de sécurité pour les rôles de ressources Azure dans PIM
 Azure Active Directory (Azure AD) Privileged Identity Management (PIM) génère des alertes en cas d’une activité suspecte ou non fiable dans votre environnement. Lorsqu’une alerte est déclenchée, elle s’affiche sur la page Alertes. 
 
-![Page des alertes](media/azure-pim-resource-rbac/RBAC-alerts-home.png)
+![Page des alertes](media/pim-resource-roles-configure-alerts/rbac-alerts-page.png)
 
 ## <a name="review-alerts"></a>Consulter les alertes
 Sélectionnez une alerte pour obtenir un rapport qui répertorie les utilisateurs ou les rôles à l’origine de son déclenchement et fournit des conseils pour sa correction.
 
-![Rapport d’alerte](media/azure-pim-resource-rbac/rbac-alert-info.png)
+![Rapport d’alerte](media/pim-resource-roles-configure-alerts/rbac-alert-info.png)
 
 ## <a name="alerts"></a>Alertes
 | Alerte | Severity | Déclencheur | Recommandation |
@@ -47,10 +47,10 @@ Sélectionnez une alerte pour obtenir un rapport qui répertorie les utilisateur
 
 ## <a name="configure-security-alert-settings"></a>Configurez les paramètres d'alerte de sécurité
 Dans la page Alertes, accédez aux **paramètres**.
-![Paramètres](media/azure-pim-resource-rbac/rbac-navigate-settings.png)
+![Paramètres](media/pim-resource-roles-configure-alerts/rbac-navigate-settings.png)
 
 Personnalisez les paramètres des différentes alertes pour travailler avec votre environnement et les objectifs de sécurité.
-![Personnaliser les paramètres](media/azure-pim-resource-rbac/rbac-alert-settings.png)
+![Personnaliser les paramètres](media/pim-resource-roles-configure-alerts/rbac-alert-settings.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

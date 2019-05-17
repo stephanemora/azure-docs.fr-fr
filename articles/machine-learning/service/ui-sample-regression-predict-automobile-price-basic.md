@@ -1,7 +1,7 @@
 ---
 title: 'Régression : Prédire le prix'
 titleSuffix: Azure Machine Learning service
-description: Cet exemple d’expérience interface visuelle montre comment créer un modèle de régression pour prédire les prix d’un véhicule automobile. Le processus comprend la formation, de tester et d’évaluer le modèle sur le jeu de données Automobile price data (Raw).
+description: Découvrez comment générer un modèle machine learning pour prédire les prix d’un véhicule automobile sans écrire une seule ligne de code.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,17 +9,30 @@ ms.topic: article
 author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
-ms.date: 05/02/2019
-ms.openlocfilehash: fa9b9179cda767d69d08dcd357a03123bde901cb
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.date: 05/10/2019
+ms.openlocfilehash: 9dfa4b62f5cb79a5716f6f29651e85d0f8a3a409
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65028889"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787857"
 ---
 # <a name="sample-1---regression-predict-price"></a>Exemple 1 : régression : Prédire le prix
 
-Cet exemple d’expérience interface visuelle montre comment créer un modèle de régression pour prédire les prix d’un véhicule automobile. Le processus comprend la formation, de test et d’évaluer le modèle à l’aide de la **données de prix des véhicules automobiles (brutes)** jeu de données.
+Découvrez comment créer un modèle de régression d’apprentissage sans écrire une seule ligne de code à l’aide de l’interface visuelle.
+
+Expérience trains un **régresseur de forêt de décision** pour prédire une voiture de prix basé sur des fonctionnalités techniques, telles que la marque, de modèle, de puissance et de taille. Étant donné que nous essayons de répondre à la question « Combien ? » Il s’agit d’un problème de régression. Toutefois, vous pouvez appliquer les mêmes étapes fondamentales dans cette expérience pour s’attaquer à n’importe quel type de problème d’apprentissage automatique qu’il s’agisse de régression, la classification, clustering et ainsi de suite.
+
+Les étapes fondamentales d’un modèle d’apprentissage formation sont :
+
+1. Obtenir les données
+1. Prétraiter les données
+1. Formation du modèle
+1. Évaluer le modèle
+
+Voici le graphique terminé, final de l’expérience que nous allons travailler. Nous vous fournirons le raisonnement pour tous les modules afin de prendre des décisions similaires sur votre propre.
+
+![Graphique de l’expérience](media/ui-sample-regression-predict-automobile-price-basic/overall-graph.png)
 
 ## <a name="prerequisites"></a>Conditions préalables
 
@@ -28,23 +41,6 @@ Cet exemple d’expérience interface visuelle montre comment créer un modèle 
 4. Sélectionnez le **Open** bouton de l’expérience de l’exemple 1 :
 
     ![Ouvrez l’expérience](media/ui-sample-regression-predict-automobile-price-basic/open-sample1.png)
-
-## <a name="related-sample"></a>Exemple
-
-[Exemple 2 - régression : Prédiction de prix automobile (comparer les algorithmes)](ui-sample-regression-predict-automobile-price-compare-algorithms.md) fournit un exemple d’expérience plus complexe qui résout le problème même en tant que cette expérience à l’aide de deux modèles de régression différents. Il montre comment comparer rapidement différents algorithmes. Récupérer si vous avez besoin pour obtenir un exemple plus avancé.
-
-## <a name="experiment-summary"></a>Résumé de l’expérience
-
-Nous utilisons ces étapes pour créer l’expérience :
-
-1. Obtenir les données.
-1. Prétraiter les données.
-1. Apprentissage du modèle.
-1. Tester, évaluer et comparer les modèles.
-
-Voici le graphique complet de l’expérience :
-
-![Graphique de l’expérience](media/ui-sample-regression-predict-automobile-price-basic/overall-graph.png)
 
 ## <a name="get-the-data"></a>Obtenir les données
 
@@ -59,6 +55,7 @@ Nous utilisons le **Select Columns in Dataset** module pour exclure les pertes n
 ![Prétraitement des données](./media/ui-sample-regression-predict-automobile-price-basic/data-processing.png)
 
 ## <a name="train-the-model"></a>Formation du modèle
+
 Problèmes machine learning varient. Tâches d’apprentissage automatique courants incluent la classification, le clustering, la régression et les systèmes de recommandation, chacun d’eux peut nécessiter un algorithme différent. Votre choix de l’algorithme dépend souvent de la configuration requise du cas d’usage. Une fois que vous sélectionnez un algorithme, vous devez ajuster ses paramètres pour former un modèle plus précis. Vous devez ensuite évaluer tous les modèles en fonction des métriques telles que la précision, intelligibilité et d’efficacité.
 
 Étant donné que l’objectif de cette expérience est de prédire le prix des voitures, et étant donné que la colonne d’étiquette (prix) contient des nombres réels, un modèle de régression est un bon choix. Considérant que le nombre de fonctionnalités est relativement faible (inférieure à 100), et ces fonctionnalités ne sont pas éparses, la limite de décision est susceptible d’être non linéaire. Nous utilisons **Decision Forest Regression** pour cette expérience.

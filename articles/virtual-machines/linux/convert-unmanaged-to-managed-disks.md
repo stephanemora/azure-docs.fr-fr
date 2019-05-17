@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 12/15/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: d1783890ba1b304ab658e827bfd24091e208fda4
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 7c1167a6170cdc0b897c57a51c417a9312b6f41a
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64699253"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65794149"
 ---
 # <a name="convert-a-linux-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Convertir les disques non managés d’une machine virtuelle Linux en disques managés
 
@@ -98,5 +98,18 @@ Toutes les machines virtuelles dans le groupe à haute disponibilité doivent ê
     az vm start --resource-group myResourceGroup --name myVM
     ```
 
+## <a name="convert-using-the-azure-portal"></a>Convertir à l’aide du portail Azure
+
+Vous pouvez également convertir des disques non managés en disques managés à l’aide du portail Azure.
+
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+2. Sélectionnez la machine virtuelle dans la liste des machines virtuelles sur le portail.
+3. Dans le panneau de la machine virtuelle, sélectionnez **Disques** dans le menu.
+4. En haut du panneau **Disques**, sélectionnez **Migrer vers des disques managés**.
+5. Si votre machine virtuelle se trouve dans un groupe à haute disponibilité, un avertissement apparaît sur le panneau **Migrer vers des disques managés**, indiquant que vous devez commencer par convertir le groupe à haute disponibilité. L’avertissement doit avoir un lien sur lequel vous pouvez cliquer pour convertir le groupe à haute disponibilité. Une fois le groupe à haute disponibilité converti, ou si votre machine virtuelle ne se trouve pas dans un groupe à haute disponibilité, cliquez sur **Migrate** pour démarrer le processus de migration de vos disques vers des disques managés.
+
+Lorsque la migration est terminée, la machine virtuelle est arrêtée, puis redémarrée.
+
 ## <a name="next-steps"></a>Étapes suivantes
+
 Pour plus d’informations sur les options de stockage, voir la page [Vue d’ensemble d’Azure Disques managés](../windows/managed-disks-overview.md).

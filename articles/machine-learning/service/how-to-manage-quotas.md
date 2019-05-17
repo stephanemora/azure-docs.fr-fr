@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: nishankgu
 ms.author: nigup
-ms.date: 12/04/2018
+ms.date: 05/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: aa425b6dfeb076448d14fc35cbea964516d603b0
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.openlocfilehash: f9734a5d8f34536558fbf0c861889f3c7d6719da
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63765854"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523998"
 ---
 # <a name="manage-and-request-quotas-for-azure-resources"></a>Gérer et demander des quotas pour les ressources Azure
 
@@ -52,9 +52,9 @@ Pour obtenir une liste plus détaillée et à jour des limites de quota, consult
 La Capacité de calcul Azure Machine Learning fixe une limite de quota par défaut sur le nombre de cœurs et le nombre de ressources de calcul autorisées par région dans un abonnement. Ce quota est distinct du quota de cœurs de machine virtuelle ci-dessus ; par ailleurs, les limites des cœurs ne sont pour l’instant pas partagées entre les deux types de ressources.
 
 Ressources disponibles :
-+ Les cœurs dédiés par région ont une limite par défaut de 10 à 24.  Vous pouvez augmenter le nombre de cœurs dédiés par abonnement. Contactez l'assistance clientèle Azure pour discuter des possibilités d'augmentation.
++ Cœurs dédiés par région ont une limite par défaut de 24-300 en fonction du type de votre offre d’abonnement.  Vous pouvez augmenter le nombre de cœurs dédiés par abonnement. Contactez l'assistance clientèle Azure pour discuter des possibilités d'augmentation.
 
-+ Les cœurs à priorité basse par région ont une limite par défaut de 10 à 24.  Vous pouvez augmenter le nombre de cœurs basse priorité par abonnement. Contactez l'assistance clientèle Azure pour discuter des possibilités d'augmentation.
++ Cœurs de faible priorité par région ont une limite par défaut de 24-300 selon le type de votre offre d’abonnement.  Vous pouvez augmenter le nombre de cœurs basse priorité par abonnement. Contactez l'assistance clientèle Azure pour discuter des possibilités d'augmentation.
 
 + Les clusters ont une limite par défaut de 100 et une limite maximale de 200 par région. Contactez le support Azure si vous voulez dépasser cette limite.
 
@@ -66,12 +66,14 @@ Ressources disponibles :
 | Nombre maximal de nœuds dans une seule ressource Capacité de calcul Azure Machine Learning (AmlCompute) | 100 nœuds |
 | Nombre maximum de processus MPI GPU par nœud | 1-4 |
 | Nombre maximum de travailleurs GPU par nœud | 1-4 |
-| Durée de vie maximale des travaux | 7 jours<sup>1</sup> |
+| Durée de vie maximale des travaux | 90 jours<sup>1</sup> |
+| Durée de vie maximale des tâches sur un nœud de priorité basse | 1 jour<sup>2</sup> |
 | Nombre maximum de serveurs de paramètre par nœud | 1 |
 
 <sup>1</sup> La durée de vie maximale fait référence au temps du début à la fin d’une exécution. Les exécutions terminées sont conservées indéfiniment ; les données des exécutions non terminées pendant la durée de vie maximale ne sont pas accessibles.
+<sup>2</sup> tâches sur un nœud de faible priorité peuvent être anticipés à tout moment, il existe une contrainte de capacité. Il est recommandé d’implémenter des points de contrôle dans votre travail.
 
-### <a name="container-instances"></a>Container Instances
+### <a name="container-instances"></a>Instances de conteneur
 
 Il existe également une limite sur le nombre d’instances de conteneur que vous pouvez lancer dans un laps de temps donné (limite horaire) ou sur l’ensemble de votre abonnement.
 
@@ -80,20 +82,20 @@ Il existe également une limite sur le nombre d’instances de conteneur que vou
 Pour obtenir une liste plus détaillée et à jour des limites de quota, consultez l’article sur les quotas à l’échelle d’Azure [ici](https://docs.microsoft.com/azure/azure-subscription-service-limits#container-instances-limits).
 
 ### <a name="storage"></a>Stockage
-Il existe une limite sur le nombre de comptes de stockage par région ainsi que dans un abonnement donné. La limite par défaut est de 200 et comprend les comptes de stockage Standard et Premium. Si vous avez besoin de plus de 200 comptes de stockage dans une région donnée, formulez une demande auprès du  [Support Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/). L’équipe Stockage Azure examinera le cas de votre entreprise et pourra approuver jusqu’à 250 comptes de stockage pour une région donnée.
+Il existe une limite sur le nombre de comptes de stockage par région ainsi que dans un abonnement donné. La limite par défaut est de 200 et comprend les comptes de stockage Standard et Premium. Si vous avez besoin de plus de 200 comptes de stockage dans une région donnée, sollicitez le [Support Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/) pour obtenir une assistance. L’équipe Stockage Azure examinera le cas de votre entreprise et pourra approuver jusqu’à 250 comptes de stockage pour une région donnée.
 
 
 ## <a name="find-your-quotas"></a>Rechercher vos quotas
 
 L’affichage de votre quota pour différentes ressources, telles que les machines virtuelles, le stockage ou le réseau, est facile via le portail Azure.
 
-1. Dans le volet gauche, sélectionnez  **Tous les services**, puis **Abonnements** sous la catégorie Général.
+1. Dans le volet gauche, sélectionnez **Tous les services**, puis **Abonnements** sous la catégorie Général.
 
 1. Dans la liste des abonnements, sélectionnez celui dont vous recherchez le quota.
 
    **Il existe une réserve**, en particulier pour ce qui est de voir le quota Capacité de calcul Azure Machine Learning. Comme mentionné ci-dessus, ce quota est distinct du quota de calcul de votre abonnement.
 
-1. Dans le volet gauche, sélectionnez  **Machine Learning service**, puis sélectionnez un espace de travail dans la liste qui s’affiche.
+1. Dans le volet gauche, sélectionnez **service Machine Learning** , puis sélectionnez n’importe quel espace de travail dans la liste affichée
 
 1. Dans le panneau suivant, sous la section **Support + résolution des problèmes**, sélectionnez **Utilisation + quotas** pour afficher vos limites de quota et votre utilisation actuelles.
 
@@ -102,9 +104,9 @@ L’affichage de votre quota pour différentes ressources, telles que les machin
 
 ## <a name="request-quota-increases"></a>Demander des augmentations de quota
 
-Si vous souhaitez élever la limite ou le quota au-dessus de la limite par défaut,  [ouvrez une demande de service clientèle en ligne](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/) gratuitement.
+Si vous souhaitez élever la limite ou le quota au-dessus de la limite par défaut, [ouvrez une demande de service clientèle en ligne](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/) gratuitement.
 
-Les limites ne peuvent pas être supérieures à la valeur de limite maximale indiquée dans les tableaux. En l’absence de limite maximale, la ressource ne possède pas de limites ajustables. [Cet](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quota-errors) article aborde le processus d’augmentation de quota plus en détail.
+Les limites ne peuvent pas être supérieures à la valeur de limite maximale indiquée dans les tableaux. En l’absence de limite maximale, la ressource spécifiée ne possède pas de limites ajustables. [Cet](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quota-errors) article aborde le processus d’augmentation de quota plus en détail.
 
 Quand vous demandez une augmentation de quota, vous devez sélectionner le service pour lequel vous la demandez, par exemple, le quota Machine Learning service, Container Instances ou le quota de stockage. En ce qui concerne la Capacité de calcul Azure Machine Learning, vous pouvez également cliquer sur le bouton **Demander le quota** au lieu de suivre les étapes ci-dessus.
 

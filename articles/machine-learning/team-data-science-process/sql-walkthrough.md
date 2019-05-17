@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: c9d707d1a76b3b5913d66745767df8e84362a192
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 578f7a01c22bd5aafd4e4ac08c9f5ab78e340a34
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61045658"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606513"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>Processus TDSP (Team Data Science Process) en action : utilisation de SQL Server
 Dans ce didacticiel, vous allez explorer le processus de création et de déploiement d’un modèle d’apprentissage automatique à l’aide de SQL Server et d’un jeu de données disponible publiquement, le jeu de données [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/). La procédure suit un flux de travail de science des données standard : ingérer et explorer les données, concevoir des fonctionnalités pour faciliter l’apprentissage, puis générer et déployer un modèle.
@@ -515,7 +515,7 @@ Cet exemple transforme un champ numérique continu en plages de catégories pré
     cursor.commit()
 
 #### <a name="feature-engineering-extract-location-features-from-decimal-latitudelongitude"></a>Conception de fonctionnalités : Extraire des fonctionnalités d’emplacement des valeurs décimales de latitude/longitude
-Cet exemple décompose la représentation décimale d’un champ de latitude et/ou de longitude en plusieurs champs d’emplacement de différentes granularités, tels que pays, région, ville, bloc, etc. Notez que les nouveaux champs géographiques ne sont pas mappés sur des emplacements réels. Pour plus d’informations sur le mappage des emplacements associés à un géocode, consultez l’article consacré aux [Services REST de Bing Cartes](https://msdn.microsoft.com/library/ff701710.aspx).
+Cet exemple décompose la représentation décimale d’un champ de latitude et/ou de longitude en plusieurs champs de la région de granularité différente, par exemple, pays/région, ville, ville, bloc, etc. Notez que les nouveaux champs géographiques ne sont pas mappés sur des emplacements réels. Pour plus d’informations sur le mappage des emplacements associés à un géocode, consultez l’article consacré aux [Services REST de Bing Cartes](https://msdn.microsoft.com/library/ff701710.aspx).
 
     nyctaxi_one_percent_insert_col = '''
         ALTER TABLE nyctaxi_one_percent

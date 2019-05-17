@@ -4,14 +4,14 @@ ms.service: billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: 0e55c372c6f5dc3484bd64cf4f328479d2d0b245
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0b9d87fd7929607da8407ae5bbfb2f6dd6d69dab
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60461317"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65211965"
 ---
-## <a name="key-transactions-maximum-transactions-allowed-in-10-seconds-per-vault-per-regionsup1sup"></a>Transactions de clé (transactions maximales autorisées dans les 10 secondes, par coffre par région<sup>1</sup>) :
+#### <a name="key-transactions-maximum-transactions-allowed-in-10-seconds-per-vault-per-regionsup1sup"></a>Transactions de clé (transactions maximales autorisées dans les 10 secondes, par coffre par région<sup>1</sup>) :
 
 |Type de clé|Clé HSM<br>CRÉER la clé|Clé HSM<br>Toutes les autres transactions|Clé logicielle<br>CRÉER la clé|Clé logicielle<br>Toutes les autres transactions|
 |:---|---:|---:|---:|---:|
@@ -34,7 +34,7 @@ ms.locfileid: "60461317"
 > - Transactions de 4 096 RSA bits clé HSM GET 125
 > - Les transactions de 4 096 RSA bits de la clé HSM GET 124 et GET de clé HSM RSA 2 048 bits 8
 
-## <a name="secrets-managed-storage-account-keys-and-vault-transactions"></a>Secrets, les clés de compte de stockage géré et les transactions de coffre :
+#### <a name="secrets-managed-storage-account-keys-and-vault-transactions"></a>Secrets, les clés de compte de stockage géré et les transactions de coffre :
 | Type de transaction | Nombre maximal de transactions autorisé dans les 10 secondes, par coffre par région<sup>1</sup> |
 | --- | --- |
 | Toutes les transactions |2 000 |

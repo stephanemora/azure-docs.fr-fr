@@ -11,19 +11,19 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/02/19
-ms.openlocfilehash: f4e7fcbe403017a6d957a60a8e5664f2e6c5ba26
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 70712605cc97670b625d32052bb79b4a666e4281
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65409820"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65603159"
 ---
 # <a name="explore-and-prepare-data-with-the-dataset-class-preview"></a>Explorer et préparer des données avec la classe de jeu de données (version préliminaire)
 
 Découvrez comment Explorer et préparer des données avec le [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py). Le [Dataset](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py) classe (version préliminaire) vous permet d’Explorer et de préparer vos données en fournissant des fonctions telles que : échantillonnage, les statistiques de synthèse et les transformations intelligentes. Étapes de transformation sont enregistrés dans [des définitions de Dataset](how-to-manage-dataset-definitions.md) avec la capacité de gérer plusieurs fichiers volumineux de différents schémas de manière hautement évolutive.
 
 > [!Important]
-> Certaines classes de jeu de données (version préliminaire) ont des dépendances sur le Kit de développement logiciel de la préparation des données (GA). Bien que les fonctions de transformation peuvent être faites directement avec le GA'ed [fonctions du SDK de la préparation des données](how-to-transform-data.md), nous vous recommandons des wrappers de package de jeu de données décrites dans cet article si vous générez une nouvelle solution. Azure Machine Learning jeux de données (version préliminaire) vous permettent non seulement de convertir vos données, mais également [instantané des données](how-to-create-dataset-snapshots.md) et stocker [définitions de jeu de données avec version](how-to-manage-dataset-definitions.md). Jeux de données est la prochaine version du SDK de la préparation des données, offre des fonctionnalités étendues pour la gestion des jeux de données dans les solutions d’intelligence artificielle.
+> Certaines classes de jeu de données (version préliminaire) ont des dépendances sur le [azureml-dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py) package (GA). Tandis que les fonctions de transformation peuvent être faites directement avec le GA'ed [des fonctions de la préparation des données](how-to-transform-data.md), nous vous recommandons des wrappers de package de jeu de données décrites dans cet article si vous générez une nouvelle solution. Azure Machine Learning jeux de données (version préliminaire) vous permettent non seulement de convertir vos données, mais également [instantané des données](how-to-create-dataset-snapshots.md) et stocker [définitions de jeu de données avec version](how-to-manage-dataset-definitions.md). Jeux de données est la prochaine version du SDK de la préparation des données, offre des fonctionnalités étendues pour la gestion des jeux de données dans les solutions d’intelligence artificielle.
 
 ## <a name="prerequisites"></a>Conditions préalables
 

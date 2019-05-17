@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/18/2019
+ms.date: 05/1/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
-ms.reviewer: sahenry
+ms.reviewer: sahenry, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3baf2690ae07b87bb4d5dba30fcd20f62a1a4506
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: abe9cba604100a42a4cd29ccd5af47e8898ea409
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60358065"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65812922"
 ---
 # <a name="enable-combined-security-information-registration-preview"></a>Activer combinée sécurité informations inscription (version préliminaire)
 
@@ -51,6 +51,37 @@ Si vous avez configuré la liste sites aux zones attribution dans Internet Explo
 * [https://mysignins.microsoft.com](https://mysignins.microsoft.com)
 * [https://account.activedirectory.windowsazure.com](https://account.activedirectory.windowsazure.com)
 
+## <a name="conditional-access-policies-for-combined-registration"></a>Stratégies d’accès conditionnel pour l’inscription combinée
+
+Sécurisation de quand et comment inscrire des utilisateurs pour Azure multi-Factor Authentication et de réinitialisation de mot de passe libre-service est désormais possible avec les actions de l’utilisateur dans la stratégie d’accès conditionnel. Cette fonctionnalité en version préliminaire est disponible pour les organisations qui ont activé la [combinée d’aperçu de l’inscription](../authentication/concept-registration-mfa-sspr-combined.md). Cette fonctionnalité peut être activée dans les organisations où ils veulent les utilisateurs s’inscrivent pour Azure multi-Factor Authentication et SSPR depuis un emplacement central tel qu’un emplacement réseau approuvé pendant l’intégration de ressources humaines. Pour plus d’informations sur la création des emplacements approuvés dans l’accès conditionnel, consultez l’article [qu’est la condition d’emplacement dans l’accès conditionnel Azure Active Directory ?](../conditional-access/location-condition.md#named-locations)
+
+### <a name="create-a-policy-to-require-registration-from-a-trusted-location"></a>Créer une stratégie pour exiger l’inscription à partir d’un emplacement approuvé
+
+La stratégie suivante s’applique à tous les utilisateurs sélectionnés, qui tentent de s’inscrire à l’aide de l’expérience combinée d’inscription et bloque l’accès, sauf si elles sont connectent à partir d’un emplacement réseau approuvé la mention.
+
+![Créer une stratégie d’accès conditionnel pour contrôler l’enregistrement d’informations de sécurité](media/howto-registration-mfa-sspr-combined/conditional-access-register-security-info.png)
+
+1. Dans le **Azure portal**, accédez à **Azure Active Directory** > **accès conditionnel**
+1. Sélectionnez **Nouvelle stratégie**.
+1. Dans nom, entrez un nom pour cette stratégie. Par exemple, **combinées de l’inscription d’informations de sécurité sur les réseaux approuvés**
+1. Sous **affectations**, cliquez sur **utilisateurs et groupes**, puis sélectionnez les utilisateurs et les groupes auxquels vous souhaitez appliquer cette stratégie
+
+   > [!WARNING]
+   > Les utilisateurs doivent être activés pour le [combinée d’aperçu de l’inscription](../authentication/howto-registration-mfa-sspr-combined.md).
+
+1. Sous **Cloud des applications ou des actions**, sélectionnez **actions utilisateur**, vérifiez **enregistrer les informations de sécurité (version préliminaire)**
+1. Sous **Conditions** > **emplacements**
+   1. Configurer **Oui**
+   1. Inclure **n’importe quel emplacement**
+   1. Exclure **tous les emplacements approuvés**
+   1. Cliquez sur **fait** dans le panneau des emplacements
+   1. Cliquez sur **fait** dans le panneau de Conditions
+1. Sous **contrôles d’accès** > **Grant**
+   1. Cliquez sur **bloquer l’accès**
+   1. Puis cliquez sur **sélectionnez**
+1. Définissez **activer la stratégie** à **sur**
+1. Puis cliquez sur **créer**
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 [Méthodes disponibles pour l’authentification multifacteur et SSPR](concept-authentication-methods.md)
@@ -60,3 +91,5 @@ Si vous avez configuré la liste sites aux zones attribution dans Internet Explo
 [Configurer l’authentification multifacteur Azure](howto-mfa-getstarted.md)
 
 [Résolution des problèmes combinée d’enregistrement d’informations de sécurité](howto-registration-mfa-sspr-combined-troubleshoot.md)
+
+[Qu’est la condition d’emplacement dans l’accès conditionnel Azure Active Directory ?](../conditional-access/location-condition.md)

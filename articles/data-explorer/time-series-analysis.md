@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/07/2019
-ms.openlocfilehash: cb5e41feb9be978592a1c1708ade0188ba20d504
-ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.openlocfilehash: 7415e13a445a73af197362c6cfbd3a865a2fea02
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64873144"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604054"
 ---
 # <a name="time-series-analysis-in-azure-data-explorer"></a>Analyse des séries chronologiques dans Azure Data Explorer
 
@@ -34,7 +34,7 @@ La table ainsi obtenue contient une colonne de type timestamp, trois colonnes de
 
 |   |   |   |   |   |
 | --- | --- | --- | --- | --- |
-|   | TimeStamp | BrowserVer | OsVer | Pays |
+|   | Horodateur | BrowserVer | OsVer | Pays ou région |
 |   | 2016-08-25 09:12:35.4020000 | Chrome 51.0 | Windows 7 | Royaume-Uni |
 |   | 2016-08-25 09:12:41.1120000 | Chrome 52.0 | Windows 10 |   |
 |   | 2016-08-25 09:12:46.2300000 | Chrome 52.0 | Windows 7 | Royaume-Uni |
@@ -42,7 +42,7 @@ La table ainsi obtenue contient une colonne de type timestamp, trois colonnes de
 |   | 2016-08-25 09:12:46.5570000 | Chrome 52.0 | Windows 10 | République de Lituanie |
 |   | 2016-08-25 09:12:47.0470000 | Chrome 52.0 | Windows 8.1 | Inde |
 |   | 2016-08-25 09:12:51.3600000 | Chrome 52.0 | Windows 10 | Royaume-Uni |
-|   | 2016-08-25 09:12:51.6930000 | Chrome 52.0 | Windows 7 | Pays-bas |
+|   | 2016-08-25 09:12:51.6930000 | Chrome 52.0 | Windows 7 | Pays-Bas |
 |   | 2016-08-25 09:12:56.4240000 | Chrome 52.0 | Windows 10 | Royaume-Uni |
 |   | 2016-08-25 09:13:08.7230000 | Chrome 52.0 | Windows 10 | Inde |
 
@@ -180,7 +180,7 @@ demo_many_series1
 
 |   |   |   |   |   |   |
 | --- | --- | --- | --- | --- | --- |
-|   | TIMESTAMP | Loc | anonOp | DB | DataRead |
+|   | TIMESTAMP | Loc | anonOp | BdD | DataRead |
 |   | 2016-09-11 21:00:00.0000000 | Loc 9 | 5117853934049630089 | 262 | 0 |
 |   | 2016-09-11 21:00:00.0000000 | Loc 9 | 5117853934049630089 | 241 | 0 |
 |   | 2016-09-11 21:00:00.0000000 | Loc 9 | -865998331941149874 | 262 | 279862 |
@@ -253,7 +253,7 @@ demo_many_series1
 
 |   |   |   |   |   |
 | --- | --- | --- | --- | --- |
-|   | Loc | Op | DB | slope |
+|   | Loc | Op | BdD | slope |
 |   | Loc 15 | 37 | 1151 | -102743.910227889 |
 |   | Loc 13 | 37 | 1249 | -86303.2334644601 |
 

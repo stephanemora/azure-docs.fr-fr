@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 4/8/2019
 ms.author: victorh
-ms.openlocfilehash: a4ce1ad347742886e7d89a32bbeb60c2e0281409
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 8c715cb84dff6e2e739de59aba33041ec1b8db52
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65198557"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65786280"
 ---
 # <a name="configure-end-to-end-ssl-by-using-application-gateway-with-powershell"></a>Configurer le protocole SSL de bout en bout avec Application Gateway en utilisant PowerShell
 
@@ -231,6 +231,69 @@ Tous les éléments de configuration sont définis avant la création de la pass
 $appgw = New-AzApplicationGateway -Name appgateway -SSLCertificates $cert -ResourceGroupName "appgw-rg" -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -SSLPolicy $SSLPolicy -AuthenticationCertificates $authcert -Verbose
 ```
 
+## <a name="apply-a-new-certificate-if-the-back-end-certificate-is-expired"></a>Appliquer un nouveau certificat si le certificat de serveur principal a expiré
+
+Utilisez cette procédure pour appliquer un nouveau certificat si le certificat de serveur principal a expiré.
+
+1. Récupérez la passerelle d’application à mettre à jour.
+
+   ```powershell
+   $gw = Get-AzApplicationGateway -Name AdatumAppGateway -ResourceGroupName AdatumAppGatewayRG
+   ```
+   
+2. Ajouter la nouvelle ressource de certificat à partir du fichier .cer, qui contient la clé publique du certificat et peut également être le même certificat ajouté à l’écouteur pour la terminaison SSL au niveau de la passerelle d’application.
+
+   ```powershell
+   Add-AzApplicationGatewayAuthenticationCertificate -ApplicationGateway $gw -Name 'NewCert' -CertificateFile "appgw_NewCert.cer" 
+   ```
+    
+3. Obtenez le nouvel objet de certificat de l’authentification dans une variable (TypeName : Microsoft.Azure.Commands.Network.Models.PSApplicationGatewayAuthenticationCertificate).
+
+   ```powershell
+   $AuthCert = Get-AzApplicationGatewayAuthenticationCertificate -ApplicationGateway $gw -Name NewCert
+   ```
+ 
+ 4. Affecter le nouveau certificat dans le **BackendHttp** paramètre et faire référence à la variable $AuthCert. (Spécifiez le nom du paramètre HTTP que vous souhaitez modifier.)
+ 
+   ```powershell
+   $out= Set-AzApplicationGatewayBackendHttpSetting -ApplicationGateway $gw -Name "HTTP1" -Port 443 -Protocol "Https" -CookieBasedAffinity Disabled -AuthenticationCertificates $Authcert
+   ```
+    
+ 5. Valider la modification dans la passerelle d’application et transmettre la nouvelle configuration contenue dans la variable $out.
+ 
+   ```powershell
+   Set-AzApplicationGateway -ApplicationGateway $gw  
+   ```
+
+## <a name="remove-an-unused-expired-certificate-from-http-settings"></a>Supprimer un certificat expiré inutilisé à partir des paramètres HTTP
+
+Utilisez cette procédure pour supprimer un certificat expiré inutilisé à partir des paramètres HTTP.
+
+1. Récupérez la passerelle d’application à mettre à jour.
+
+   ```powershell
+   $gw = Get-AzApplicationGateway -Name AdatumAppGateway -ResourceGroupName AdatumAppGatewayRG
+   ```
+   
+2. Liste le nom du certificat d’authentification que vous souhaitez supprimer.
+
+   ```powershell
+   Get-AzApplicationGatewayAuthenticationCertificate -ApplicationGateway $gw | select name
+   ```
+    
+3. Supprimer le certificat d’authentification à partir d’une passerelle d’application.
+
+   ```powershell
+   $gw=Remove-AzApplicationGatewayAuthenticationCertificate -ApplicationGateway $gw -Name ExpiredCert
+   ```
+ 
+ 4. Valider la modification.
+ 
+   ```powershell
+   Set-AzApplicationGateway -ApplicationGateway $gw
+   ```
+
+   
 ## <a name="limit-ssl-protocol-versions-on-an-existing-application-gateway"></a>Limiter les versions du protocole SSL sur une passerelle d’application existante
 
 Les étapes précédentes vous ont guidé dans la création d’une application en utilisant un chiffrement SSL de bout en bout et en désactivant certaines versions du protocole SSL. L’exemple suivant désactive certaines stratégies SSL sur une passerelle d’application existante.

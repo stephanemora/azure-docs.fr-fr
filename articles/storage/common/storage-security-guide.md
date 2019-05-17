@@ -9,18 +9,18 @@ ms.date: 03/21/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 48ebbabca8d38db3a7c1344981f79991de29df80
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 3d5bfa2426d58fa5a09d2203272536eec7fa9c55
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65154394"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65789961"
 ---
 # <a name="azure-storage-security-guide"></a>Guide de sécurité Azure Storage
 
 Stockage Azure propose un ensemble complet de fonctionnalités de sécurité qui, une fois réunies, permettent aux développeurs de créer des applications sécurisées :
 
-- Toutes les données écrites dans le stockage Azure sont automatiquement chiffrées à l’aide du [Storage Service Encryption (SSE)](storage-service-encryption.md). Pour plus d’informations, consultez [Annonce du chiffrement par défaut des objets blob, fichiers, tables et stockages de file d’attente Azure](https://azure.microsoft.com/blog/announcing-default-encryption-for-azure-blobs-files-table-and-queue-storage/).
+- Toutes les données (y compris les métadonnées) écrites dans stockage Azure sont automatiquement chiffrées à l’aide de [Storage Service Encryption (SSE)](storage-service-encryption.md). Pour plus d’informations, consultez [Annonce du chiffrement par défaut des objets blob, fichiers, tables et stockages de file d’attente Azure](https://azure.microsoft.com/blog/announcing-default-encryption-for-azure-blobs-files-table-and-queue-storage/).
 - Azure Active Directory (Azure AD) et le contrôle d’accès en fonction du rôle (RBAC) sont pris en charge pour le stockage Azure pour les opérations de gestion des ressources et les opérations de données comme suit :   
     - Vous pouvez attribuer des rôles RBAC limités au compte de stockage à des principaux de sécurité et utiliser Azure AD pour autoriser les opérations de gestion des ressources telles que la gestion des clés.
     - Intégration d’Azure AD est pris en charge pour les opérations de données blob et file d’attente. Vous pouvez attribuer des rôles RBAC limités à un abonnement, groupe de ressources, compte de stockage, ou un conteneur ou une file d’attente à un principal de sécurité ou une identité managée pour des ressources Azure. Pour plus d’informations, consultez [Authentifier l’accès au Stockage Azure à l’aide d’Azure Active Directory](storage-auth-aad.md).   
@@ -238,10 +238,9 @@ Pour plus d’informations sur l’utilisation des signatures d’accès partag�
     Cet article fournit des exemples d’utilisation d’une signature d’accès partagé de niveau service avec des objets blob, des messages de file d’attente, des plages de tables et des fichiers.
   * [Construction d’un service SAP](https://msdn.microsoft.com/library/dn140255.aspx)
   * [Construction d’un compte SAP](https://msdn.microsoft.com/library/mt584140.aspx)
-* Il s’agit de didacticiels pour l’utilisation de la bibliothèque cliente .NET pour créer des signatures d’accès partagé et des stratégies d’accès stockées.
 
+* Il s’agit d’un didacticiel pour l’utilisation de la bibliothèque cliente .NET pour créer des Signatures d’accès partagé et stratégies d’accès stockées.
   * [Utilisation des signatures d’accès partagé (SAP)](../storage-dotnet-shared-access-signature-part-1.md)
-  * [Signatures d’accès partagé, partie 2 : créer et utiliser une signature d’accès partagé avec Stockage Blob](../blobs/storage-dotnet-shared-access-signature-part-2.md)
 
     Cet article contient une description du modèle SAP, des exemples de signatures d’accès partagé et des recommandations pour une utilisation optimale de ces signatures. La révocation de l’autorisation accordée est également abordée.
 

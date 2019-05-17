@@ -8,12 +8,12 @@ ms.service: time-series-insights
 author: kingdomofends
 ms.author: adgera
 ms.date: 04/29/2019
-ms.openlocfilehash: cf07d19966c08a63b9aa50475622aa0a1e5e1600
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: e87a82e985ed1d1794f9da00546f167ef01e1779
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236522"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65815510"
 ---
 ## <a name="business-disaster-recovery"></a>Récupération d'urgence
 
@@ -48,10 +48,10 @@ L’intégration de Time Series Insights avec ces autres services fournit d’ur
 
 Il existe plusieurs façons de conserver vos données Time Series Insights, les applications et les services qui s’exécutent même si celles-ci sont interrompues. Vous pouvez également déterminer qu’une copie complète, en double, sauvegarde de votre environnement Azure Time Series est nécessaire :
 
-1. En tant que TSI focalisés **instance basculement** pour rediriger les données et le trafic vers.
+1. Comme un Time Series Insights-spécifique **instance basculement** pour rediriger les données et le trafic vers.
 1. À des fins d’audit et de données préservation.
 
-En règle générale, la meilleure façon de dupliquer un environnement TSI consiste à créer un deuxième environnement TSI dans une région Azure de la sauvegarde. Les événements sont également envoyées à cet environnement secondaire à partir de votre source d’événement principal. Assurez-vous d’utiliser un groupe de consommateurs dédié, deuxième et suivre les instructions de récupération d’urgence métier de cette source (fournies ci-dessus).
+En règle générale, la meilleure façon de dupliquer un environnement Time Series Insights consiste à créer un deuxième environnement Time Series Insights dans une région Azure de la sauvegarde. Les événements sont également envoyées à cet environnement secondaire à partir de votre source d’événement principal. Assurez-vous d’utiliser un groupe de consommateurs dédié, deuxième et suivre les instructions de récupération d’urgence métier de cette source (fournies ci-dessus).
 
 Plus précisément, pour créer un environnement en doublon :
 
@@ -63,7 +63,7 @@ Plus précisément, pour créer un environnement en doublon :
 Enfin :
 
 * Si votre région principale est affectée par un sinistre, basculez les opérations sur l’environnement Time Series Insights de sauvegarde.
-* Utiliser votre deuxième région pour sauvegarder et récupérer toutes les données de télémétrie et de requête TSI.
+* Utilisez votre deuxième région pour sauvegarder et récupérer toutes les données de télémétrie et de requête Time Series Insights.
 
 > [!IMPORTANT]
 > * Notez qu’un délai peut se produire lors du basculement.

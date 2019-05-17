@@ -12,18 +12,18 @@ ms.author: danil
 ms.reviewer: douglas, carlrab, sstein
 manager: craigg
 ms.date: 05/07/2019
-ms.openlocfilehash: 95d1681c9ff9981990d873a58a2d01833d690e0f
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 61f6c25031c4906e65c2f75a7679600741e8311a
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65411985"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65791371"
 ---
 # <a name="delete-subnet-after-deleting-azure-sql-database-managed-instance"></a>Supprimer le sous-réseau après que la suppression d’Azure SQL Database managed instance
 
 Cet article fournit des instructions sur la façon de supprimer manuellement le sous-réseau après que la suppression de la dernière base de données SQL Azure managed instance qui y résident.
 
-Le [cluster virtuel](sql-database-managed-instance-connectivity-architecture.md#virtual-cluster-connectivity-architecture) qui a contenu supprimés instance managée est conservée pendant 12 heures à partir de la suppression de l’instance. Le cluster virtuel est maintenu actif par défaut pour permettre la création plus rapide d’instances gérées dans le même sous-réseau. Pendant cette période, le sous-réseau associé au cluster virtuel ne peut pas être supprimé.
+Le [cluster virtuel](sql-database-managed-instance-connectivity-architecture.md#virtual-cluster-connectivity-architecture) qui a contenu supprimés instance managée est conservée pendant 12 heures à partir de la suppression de l’instance. Le cluster virtuel est maintenu actif par défaut pour permettre la création plus rapide d’instances gérées dans le même sous-réseau. En conservant un cluster virtuel vide est gratuit. Pendant cette période, le sous-réseau associé au cluster virtuel ne peut pas être supprimé.
 
 Libération immédiate du sous-réseau utilisé par un cluster virtuel vide est possible grâce à la suppression manuelle du cluster virtuel. Suppression du cluster virtuel peut être obtenue via le portail Azure ou de clusters virtuels API.
 
