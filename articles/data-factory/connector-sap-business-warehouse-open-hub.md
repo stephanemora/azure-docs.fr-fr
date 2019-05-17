@@ -103,7 +103,7 @@ Les propriétés prises en charge pour le service lié SAP Business Warehouse Op
 | serveur | Nom du serveur sur lequel réside l’instance SAP BW. | Oui |
 | systemNumber | Numéro de système du système SAP BW.<br/>Valeur autorisée : nombre décimal à deux chiffres représenté sous forme de chaîne. | Oui |
 | clientId | ID client du client dans le système SAP W.<br/>Valeur autorisée : nombre décimal à trois chiffres représenté sous forme de chaîne. | Oui |
-| Langage | Langue utilisée par le système SAP. | Non (la valeur par défaut est **EN**)|
+| langage | Langue utilisée par le système SAP. | Non (la valeur par défaut est **EN**)|
 | userName | Nom de l’utilisateur ayant accès au serveur SAP. | Oui |
 | password | Mot de passe pour l’utilisateur. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | OUI |
 | connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Un Runtime d’intégration autohébergé est nécessaire comme indiqué dans [Prérequis](#prerequisites). |Oui |
@@ -141,7 +141,7 @@ Pour copier des données depuis et vers SAP BW Open Hub, définissez la proprié
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type doit être définie sur **SapOpenHubTable**.  | Oui |
+| type | La propriété type doit être définie sur **SapOpenHubTable**.  | Oui |
 | openHubDestinationName | Nom de la destination Open Hub à partir de laquelle les données doivent être copiées. | Oui |
 | excludeLastRequest | Indique s'il faut exclure les enregistrements de la dernière requête. | Non (la valeur par défaut est **true**) |
 | baseRequestId | ID de requête pour le chargement delta. Une fois ceci défini, seules les données dont le requestId est **supérieur à** la valeur de cette propriété sont récupérées.  | Non  |
