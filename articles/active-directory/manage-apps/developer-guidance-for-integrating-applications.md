@@ -3,27 +3,27 @@ title: Inscrire votre application pour utiliser Azure Active Directory | Microso
 description: Destiné aux professionnels de l’informatique, cet article fournit des instructions pour l’intégration d’applications Azure à Active Directory.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: article
 ms.date: 10/30/2018
-ms.author: celested
+ms.author: mimart
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 341d7667f039a7272a7ad3fec80a445aa95b619d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fd51bfd377aed2a7edd8c64d2f3dc99c3388e45a
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60440230"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65824667"
 ---
 # <a name="develop-line-of-business-apps-for-azure-active-directory"></a>Développer des applications métier pour Azure Active Directory
 Ce guide fournit une vue d’ensemble du développement d’applications métier pour Azure Active Directory. Il s’adresse aux administrateurs généraux de systèmes Active Directory/Office 365.
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Présentation
 La création d’applications intégrées à Azure AD permet aux utilisateurs de votre organisation de bénéficier de l’authentification unique avec Office 365. En disposant de l’application dans Azure AD, vous pouvez contrôler la stratégie d’authentification pour celle-ci. Pour en savoir plus sur l’accès conditionnel et la façon de protéger les applications avec l’authentification multifacteur, consultez [Configuration des règles d’accès](../conditional-access/app-based-mfa.md).
 
 Inscrivez votre application pour utiliser Azure Active Directory. Inscrire l’application signifie que vos développeurs peuvent utiliser Azure AD pour authentifier les utilisateurs et demander l’accès aux ressources de l’utilisateur, telles que le courrier électronique, le calendrier et des documents.
@@ -41,8 +41,8 @@ En inscrivant une application, tout utilisateur peut effectuer les opérations s
   * Azure Active Directory en tant que serveur d’autorisation oAuth (sécuriser une API exposée par l’application)
 * Déclarer les autorisations requises nécessaires au bon fonctionnement de l’application, notamment :
 
-     - Autorisations de l’application (administrateurs généraux uniquement). Par exemple :  Appartenance à un rôle dans une autre application Azure AD ou appartenance à un rôle par rapport à une ressource, un groupe de ressources ou un abonnement Azure
-     - Autorisations déléguées (tout utilisateur). Par exemple :  Azure AD, connexion et lecture de profil
+     - Autorisations de l’application (administrateurs généraux uniquement). Exemple : Appartenance à un rôle dans une autre application Azure AD ou appartenance à un rôle par rapport à une ressource, un groupe de ressources ou un abonnement Azure
+     - Autorisations déléguées (tout utilisateur). Exemple : Azure AD, connexion et lecture de profil
 
 > [!NOTE]
 > Par défaut, tout membre peut inscrire une application. Pour savoir comment limiter les autorisations d’inscription d’applications à des membres spécifiques, reportez-vous au document [Comment les applications sont ajoutées à Azure AD](../develop/active-directory-how-applications-are-added.md#who-has-permission-to-add-applications-to-my-azure-ad-instance).

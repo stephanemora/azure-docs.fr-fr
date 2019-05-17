@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: caeef04a27cec7bbeda5dd96335d9b7bd1a8eca0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d5cfe91cfcc124ef3073cfb6bbeda683505ff8e1
+ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60716266"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65561379"
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>Utiliser les rapports d’intégrité du système pour la résolution des problèmes
 Les composants Azure Service Fabric fournissent des rapports d’intégrité du système prêts à l’emploi pour toutes les entités du cluster. Le [magasin d’intégrité](service-fabric-health-introduction.md#health-store) crée et supprime des entités en fonction des rapports du système. Il les organise au sein d’une hiérarchie qui tient compte des interactions entre les entités.
@@ -632,7 +632,7 @@ La propriété et le texte indiquent l’API qui est bloquée. Les étapes ulté
 
 - **IStatefulServiceReplica.Close** et **IStatefulServiceReplica.Abort**: Le cas le plus courant est un service qui ne respecte ne pas le jeton d’annulation passé à `RunAsync`. Cela peut également indiquer que `ICommunicationListener.CloseAsync`, ou si remplacé, `OnCloseAsync` est bloqué.
 
-- **IStatefulServiceReplica.ChangeRole (S)** et **istatefulservicereplica.changerole (n)**: Le cas le plus courant est un service qui ne respecte ne pas le jeton d’annulation passé à `RunAsync`.
+- **IStatefulServiceReplica.ChangeRole (S)** et **istatefulservicereplica.changerole (n)**: Le cas le plus courant est un service qui ne respecte ne pas le jeton d’annulation passé à `RunAsync`. Dans ce scénario, la meilleure solution consiste à redémarrer le réplica.
 
 - **IStatefulServiceReplica.ChangeRole(P)**: Le cas le plus courant est que le service n’a pas retourné une tâche à partir de `RunAsync`.
 

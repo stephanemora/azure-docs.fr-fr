@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: f8f528f5-51c5-4006-b571-54ef74532f32
 ms.topic: article
 ms.date: 03/25/2019
-ms.openlocfilehash: 7e1868dd5ce62c28c9a8aac724862c58a5e0e1da
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c3d06d3c0f9c86b4fe6495632b48051fd69dc663
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60598493"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544537"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Modèle de tarif pour Azure Logic Apps
 
@@ -25,7 +25,7 @@ ms.locfileid: "60598493"
 
 ## <a name="consumption-pricing-model"></a>Modèle de tarification de la consommation
 
-Pour les nouvelles applications logique qui s’exécutent dans le service Azure Logic Apps public ou « global », vous payez uniquement ce que vous utilisez. Ces applications logiques utilisent un modèle tarifaire et un plan basés sur la consommation. Dans la définition de votre application logique, chaque étape est une action. Par exemple, actions : 
+Pour les nouvelles applications logique qui s’exécutent dans le service Azure Logic Apps public ou « global », vous payez uniquement ce que vous utilisez. Ces applications logiques utilisent un modèle tarifaire et un plan basés sur la consommation. Dans la définition de votre application logique, chaque étape est une action. Par exemple, actions :
 
 * Déclencheurs, qui sont des actions particulières. Toutes les applications logiques nécessitent un déclencheur en tant que la première étape.
 * Actions « Intégrées » ou natives tels que HTTP, les appels à Azure Functions et de gestion des API, etc.
@@ -38,12 +38,16 @@ Azure Logic Apps mesure toutes les actions qui s’exécutent dans votre applica
 
 ## <a name="fixed-pricing-model"></a>Modèle de tarif fixe
 
-Un [ *environnement de service d’intégration* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) offre un moyen privé, isolé et dédié pour pouvoir créer et exécuter des applications logiques qui peuvent accéder aux ressources dans un réseau virtuel Azure. Pour les nouvelles applications logique qui s’exécutent dans une fenêtre ISE, vous payez un tarif mensuel fixe pour les actions intégrées et des connecteurs Standard. Votre ISE inclut également un connecteur gratuit Enterprise, qui inclut toutes les connexions que vous le souhaitez. Utilisation de connecteurs d’entreprise supplémentaires est facturée selon le tarif de la consommation d’entreprise. 
+Un [ *environnement de service d’intégration* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) offre un moyen privé, isolé et dédié pour pouvoir créer et exécuter des applications logiques qui peuvent accéder aux ressources dans un réseau virtuel Azure. Pour les nouvelles applications logique qui s’exécutent dans une fenêtre ISE, vous payez un tarif mensuel fixe pour les déclencheurs et actions intégrées et également pour les connecteurs Standard.
 
-Votre unité de base ISE a résolu la capacité, donc si vous avez besoin de davantage de débit, vous pouvez [ajouter des unités d’échelle](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#add-capacity), soit lors de la création ou ultérieurement.
+Votre ISE inclut également un connecteur gratuit Enterprise, qui inclut toutes les connexions que vous le souhaitez. Utilisation de connecteurs d’entreprise supplémentaires est facturée selon le tarif de la consommation d’entreprise.
 
 > [!NOTE]
-> L’environnement ISE est dans [ *version préliminaire publique*](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Pour plus d’informations concernant la tarification, consultez [tarification de Azure Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps).
+> Dans une fenêtre ISE, les déclencheurs intégrés et les actions afficher le **Core** étiqueter et de s’exécuter dans l’environnement ISE même en tant que vos applications logiques. Standard et des connecteurs d’entreprise qui affichent la **ISE** étiquette s’exécutent dans l’environnement ISE même en tant que vos applications logiques. Les connecteurs qui ne s’affichent pas l’étiquette ISE s’exécuter dans le service Logic Apps global.
+
+Votre unité de base ISE a résolu la capacité, donc si vous avez besoin de davantage de débit, vous pouvez [ajouter des unités d’échelle](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#add-capacity), soit lors de la création ou ultérieurement. 
+
+Pour plus d’informations concernant la tarification, consultez [tarification de Azure Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps).
 
 <a name="connectors"></a>
 
@@ -83,7 +87,7 @@ Pour les actions qui s’exécutent dans des boucles, Azure Logic Apps est compt
 Désactivé logic apps ne sont pas facturées, car ils ne peuvent pas créer de nouvelles instances tandis que s’ils sont désactivés.
 Une fois que vous avez désactivé une application logique, l’arrêt complet des instances en cours d’exécution peut prendre un certain de temps.
 
-## <a name="integration-accounts"></a>Comptes d’intégration
+## <a name="integration-accounts"></a>Comptes d'intégration
 
 Tarification de la consommation s’applique aux [comptes d’intégration](logic-apps-enterprise-integration-create-integration-account.md) où vous pouvez Explorer, développer et tester le [B2B et EDI](logic-apps-enterprise-integration-b2b.md) et [traitement XML](logic-apps-enterprise-integration-xml.md) fonctionnalités dans Azure Logic Apps gratuitement coût supplémentaire.
 Vous pouvez avoir un compte d’intégration dans chaque région Azure. Chaque compte d’intégration peut stocker jusqu’à un [nombre spécifique d’artefacts](../logic-apps/logic-apps-limits-and-config.md), qui incluent les contrats, partenaires commerciaux, cartes, schémas, assemblys, certificats, configurations de lot, etc.

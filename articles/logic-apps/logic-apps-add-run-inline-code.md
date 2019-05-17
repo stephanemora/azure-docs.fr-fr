@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: derek1ee, LADocs
 ms.topic: article
-ms.date: 05/06/2019
-ms.openlocfilehash: 9ef11eb2099ff617fb4da4b9a924dc3f0550f226
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.date: 05/14/2019
+ms.openlocfilehash: 0bfa98396ee3afb80b486a5a17959664dfbe603c
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65160544"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65602123"
 ---
 # <a name="add-and-run-code-snippets-by-using-inline-code-in-azure-logic-apps"></a>Ajouter et exécuter des extraits de code à l’aide de code inline dans Azure Logic Apps
 
@@ -23,7 +23,10 @@ Lorsque vous souhaitez exécuter un morceau de code à l’intérieur de votre a
 * S’exécute dans JavaScript. Davantage de langues sera bientôt disponible.
 * Fin de son exécution dans les cinq secondes ou moins.
 * Gère les données jusqu'à 50 Mo.
-* Utilise Node.js version 8.11.1. Pour plus d’informations, consultez [les objets prédéfinis Standard](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects).
+* Utilise Node.js version 8.11.1. Pour plus d’informations, consultez [les objets prédéfinis Standard](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects). 
+
+  > [!NOTE]
+  > La fonction require() n’est pas pris en charge par le **Inline Code** action pour l’exécution de JavaScript.
 
 Cette action s’exécute l’extrait de code et retourne la sortie à partir de cet extrait de code sous la forme d’un jeton nommé **résultat**, que vous pouvez utiliser dans les actions suivantes dans votre application logique. Pour d’autres scénarios où vous souhaitez créer une fonction de votre code, essayez [créant et en appelant une fonction Azure](../logic-apps/logic-apps-azure-functions.md) dans votre application logique.
 
@@ -124,7 +127,7 @@ Le `workflowContext` objet présente la structure suivante, qui inclut le `actio
 
 Cette table contient plus d’informations sur ces sous-propriétés :
 
-| Propriété | Type | Description |
+| Propriété | Type | Description  |
 |----------|------|-------|
 | `actions` | Collection d’objets | Objets de résultats à partir d’actions qui s’exécutent avant l’exécution de votre extrait de code. Chaque objet possède un *clé-valeur* paire où la clé est le nom d’une action, et la valeur équivaut à appeler le [actions() fonction](../logic-apps/workflow-definition-language-functions-reference.md#actions) avec `@actions('<action-name>')`. Nom de l’action utilise le même nom d’action qui est utilisé dans la définition de flux de travail sous-jacent, qui remplace les espaces (« ») dans le nom d’action avec des traits de soulignement (_). Cet objet permet d’accéder aux valeurs de propriété d’action de l’instance de workflow en cours exécution. |
 | `trigger` | Object | Objet de résultat à partir du déclencheur et l’équivalent à l’appel le [trigger() fonction](../logic-apps/workflow-definition-language-functions-reference.md#trigger). Cet objet permet d’accéder aux valeurs de propriété de déclencheur de l’instance de workflow en cours exécution. |
@@ -201,7 +204,7 @@ Dans l’exemple de cette rubrique, le `workflowContext` objet a les propriété
 
 <a name="add-parameters"></a>
 
-## <a name="add-parameters"></a>Ajout de paramètres
+## <a name="add-parameters"></a>Ajouter des paramètres
 
 Dans certains cas, vous devrez peut-être explicitement exigent que le **Inline Code** action comprend les résultats à partir du déclencheur ou des actions spécifiques qui fait référence à votre code en tant que dépendances en ajoutant le **déclencheur** ou **Actions** paramètres. Cette option est utile pour les scénarios où les résultats référencés ne sont pas trouvés au moment de l’exécution.
 
@@ -212,9 +215,9 @@ Par exemple, supposons que vous avez le code qui référence le **SelectedOption
 
 Pour ajouter ces paramètres, ouvrez le **ajouter un nouveau paramètre** liste, puis sélectionnez les paramètres que vous souhaitez :
 
-   ![Ajout de paramètres](./media/logic-apps-add-run-inline-code/inline-code-action-add-parameters.png)
+   ![Ajouter des paramètres](./media/logic-apps-add-run-inline-code/inline-code-action-add-parameters.png)
 
-   | Paramètre | Description |
+   | Paramètre | Description  |
    |-----------|-------------|
    | **Actions** | Inclure les résultats des actions précédentes. Consultez [incluent les résultats d’action](#action-results). |
    | **Déclencheur** | Inclure les résultats à partir du déclencheur. Consultez [inclure les résultats de déclencheur](#trigger-results). |

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/19/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 551b1d4924c354eb6fd501c1b82ed306a7ea4822
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 317a480c13c5c6e00653fd61878a379df3f65ac4
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58305370"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "65753935"
 ---
 ### <a name="what-is-expressroute-global-reach"></a>Présentation d’ExpressRoute Global Reach
 
@@ -29,19 +29,19 @@ Si vos circuits ExpressRoute se trouvent dans la même région géopolitique, vo
 
 ### <a name="how-will-i-be-charged-for-expressroute-global-reach"></a>Comment est facturée la fonctionnalité ExpressRoute Global Reach ?
 
-ExpressRoute permet d’établir une connectivité entre votre réseau local et des services de cloud computing Microsoft. ExpressRoute Global Reach permet d’établir une connectivité entre vos réseaux locaux via vos circuits ExpressRoute existants, en utilisant le réseau global de Microsoft. La fonctionnalité ExpressRoute Global Reach est facturée séparément du service ExpressRoute existant. Des frais de module complémentaire sont associés à l’activation de cette fonctionnalité sur chaque circuit ExpressRoute. Le trafic entre vos réseaux locaux activés par ExpressRoute Global Reach est facturé selon un tarif de sortie au niveau de la source et selon un tarif d’entrée au niveau de la destination. Les tarifs sont basés sur la zone dans laquelle se trouvent les circuits. Consultez <pricing page>
+ExpressRoute permet d’établir une connectivité entre votre réseau local et des services de cloud computing Microsoft. ExpressRoute Global Reach permet d’établir une connectivité entre vos réseaux locaux via vos circuits ExpressRoute existants, en utilisant le réseau global de Microsoft. La fonctionnalité ExpressRoute Global Reach est facturée séparément du service ExpressRoute existant. Des frais de module complémentaire sont associés à l’activation de cette fonctionnalité sur chaque circuit ExpressRoute. Le trafic entre vos réseaux locaux activés par ExpressRoute Global Reach est facturé selon un tarif de sortie au niveau de la source et selon un tarif d’entrée au niveau de la destination. Les tarifs sont basés sur la zone dans laquelle se trouvent les circuits.
 
 ### <a name="where-is-expressroute-global-reach-supported"></a>Dans quelles régions la fonctionnalité ExpressRoute Global Reach est-elle prise en charge ?
 
-ExpressRoute Global Reach est pris en charge dans [des pays ou lieux sélectionnés](../articles/expressroute/expressroute-global-reach.md). Les circuits ExpressRoute doivent être créés sur les emplacements de Peering dans ces pays ou lieux.
+Portée mondiale ExpressRoute est pris en charge dans [sélectionner le pays/régions ou emplacements](../articles/expressroute/expressroute-global-reach.md). Les circuits ExpressRoute doivent être créés sur les emplacements d’homologation dans ces pays/régions ou d’emplacements.
 
 ### <a name="i-have-more-than-two-on-premises-networks-each-connected-to-an-expressroute-circuit-can-i-enable-expressroute-global-reach-to-connect-all-of-my-on-premises-networks-together"></a>J’ai plus de deux réseaux locaux, chacun connecté à un circuit ExpressRoute. Puis-je activer ExpressRoute Global Reach pour connecter tous mes réseaux locaux ensemble ?
 
-Oui, sous réserve que les circuits se trouvent dans les pays pris en charge. Vous devez connecter deux circuits ExpressRoute à la fois. Pour créer un réseau entièrement maillé, vous devez énumérer toutes les paires de circuit et répéter la configuration. 
+Oui, vous pouvez aussi les circuits sont dans les pays/régions pris en charge. Vous devez connecter deux circuits ExpressRoute à la fois. Pour créer un réseau entièrement maillé, vous devez énumérer toutes les paires de circuit et répéter la configuration. 
 
 ### <a name="can-i-enable-expressroute-global-reach-between-two-expressroute-circuits-at-the-same-peering-location"></a>Puis-je activer la fonctionnalité ExpressRoute Global Reach entre deux circuits ExpressRoute se trouvant au même emplacement de peering ?
 
-Non. Les deux circuits doivent provenir d’emplacements de peering différents. Si un métro dans un pays pris en charge a plusieurs emplacements de peering ExpressRoute, vous pouvez connecter ensemble les circuits ExpressRoute créés à différents emplacements de peering dans ce métro. 
+Non. Les deux circuits doivent provenir d’emplacements de peering différents. Si un metro dans un pays/région pris en charge a plus d’un emplacement d’homologation ExpressRoute, vous pouvez vous connecter ensemble les circuits ExpressRoute créés à différents emplacements d’homologation dans ce metro. 
 
 ### <a name="if-expressroute-global-reach-is-enabled-between-circuit-x-and-circuit-y-and-between-circuit-y-and-circuit-z-will-my-on-premises-networks-connected-to-circuit-x-and-circuit-z-talk-to-each-other-via-microsofts-network"></a>Si la fonctionnalité ExpressRoute Global Reach est activée entre le circuit X et le circuit Y, mes réseaux locaux connectés au circuit X et au circuit Z communiquent-ils entre eux via le réseau de Microsoft ?
 

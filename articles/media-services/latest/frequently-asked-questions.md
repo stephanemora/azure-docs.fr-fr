@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 04/24/2019
 ms.author: juliako
-ms.openlocfilehash: d99e3661fd51b481a20404cfeb55157ac803c220
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 98e8c0ccd150776341e644f7565696e8fbd63e99
+ms.sourcegitcommit: 9e8dfa1169a55c3c8af93a6c5f4e0dace4de48b2
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64706154"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65556269"
 ---
 # <a name="azure-media-services-v3-frequently-asked-questions"></a>Forum Aux Questions (FAQ) Azure Media Services v3
 
@@ -46,7 +46,7 @@ Lors de l’utilisation de la pagination, vous devez toujours utiliser le lien s
 
 Pour plus d’informations, consultez [fonctionnalité lacunes en ce qui concerne les API v2](migrate-from-v2-to-v3.md#feature-gaps-with-respect-to-v2-apis).
 
-## <a name="live-streaming"></a>Vidéo en flux continu 
+## <a name="live-streaming"></a>Streaming en direct 
 
 ###  <a name="how-to-insert-breaksvideos-and-image-slates-during-live-stream"></a>Comment insérer des pauses/séquences d’images et de vidéos pendant le flux de données en direct ?
 
@@ -81,7 +81,7 @@ Pour plus d'informations, consultez les pages suivantes :
 
 ### <a name="can-i-use-the-azure-portal-to-manage-v3-resources"></a>Puis-je utiliser le portail Azure pour gérer des ressources v3 ?
 
-Actuellement, vous ne pouvez pas utiliser le portail Azure pour gérer des ressources v3. Utilisez l’[API REST](https://aka.ms/ams-v3-rest-ref), l’interface [CLI](https://aka.ms/ams-v3-cli-ref) ou l’un des kits [SDK](developers-guide.md) pris en charge.
+Actuellement, vous ne pouvez pas utiliser le portail Azure pour gérer des ressources v3. Utilisez l’[API REST](https://aka.ms/ams-v3-rest-ref), l’interface [CLI](https://aka.ms/ams-v3-cli-ref) ou l’un des kits [SDK](media-services-apis-overview.md#sdks) pris en charge.
 
 ### <a name="is-there-an-assetfile-concept-in-v3"></a>Existe-t-il un concept de fichier d’élément multimédia dans v3 ?
 

@@ -12,14 +12,16 @@ ms.topic: article
 ms.date: 05/02/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 4c5b30ab075bbca22b6a58ccf65e55d332820937
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 3ce20b56fc2cbebbed4b525eeccc2c12d14cccc3
+ms.sourcegitcommit: 9e8dfa1169a55c3c8af93a6c5f4e0dace4de48b2
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65406544"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65556244"
 ---
 # <a name="developing-with-media-services-v3-apis"></a>Développement avec Media Services v3 API
+
+En tant que développeur, vous pouvez utiliser [l’API REST](https://aka.ms/ams-v3-rest-ref) ou les bibliothèques clientes de Media Services qui vous permettent d’interagir avec l’API REST afin de créer, gérer et mettre à jour facilement les workflows multimédias personnalisés. L’API [Media Services v3](https://aka.ms/ams-v3-rest-sdk) s’appuie sur la spécification OpenAPI (anciennement appelée Swagger).
 
 Cet article décrit les règles qui s’appliquent aux entités et API lors du développement avec Media Services v3.
 
@@ -98,6 +100,32 @@ Media Services a les opérations de longue suivantes :
 * Arrêter StreamingEndpoint
 * Mise à l’échelle StreamingEndpoint
 
+
+## <a name="sdks"></a>Kits SDK
+
+> [!NOTE]
+> Les kits SDK Azure Media Services v3 ne sont pas garantis thread-safe. Lorsque vous développez une application multithread, vous devez ajouter votre propre logique de synchronisation de thread pour protéger le client, ou utiliser un objet AzureMediaServicesClient différent pour chaque thread. Vous devez également faire attention aux problèmes liés au multithreading provoqués par les objets facultatifs qui sont fournis au client par votre code (comme une instance HttpClient dans .NET, par exemple).
+
+|Kit SDK |Référence|
+|---|---|
+|[Kit de développement logiciel (SDK) .NET](https://aka.ms/ams-v3-dotnet-sdk)|[Ref de .NET](https://aka.ms/ams-v3-dotnet-ref)|
+|[Kit SDK Java](https://aka.ms/ams-v3-java-sdk)|[Ref de Java](https://aka.ms/ams-v3-java-ref)|
+|[Kit de développement logiciel (SDK) Python](https://aka.ms/ams-v3-python-sdk)|[Ref de Python](https://aka.ms/ams-v3-python-ref)|
+|[Kit de développement logiciel (SDK) Node.js](https://aka.ms/ams-v3-nodejs-sdk) |[Ref de Node.js ](https://aka.ms/ams-v3-nodejs-ref)| 
+|[Kit de développement logiciel (SDK) Go](https://aka.ms/ams-v3-go-sdk) |[Ref de Go](https://aka.ms/ams-v3-go-ref)|
+|[Kit de développement logiciel (SDK) Ruby](https://aka.ms/ams-v3-ruby-sdk)||
+
+### <a name="see-also"></a>Voir aussi
+
+- [Kit de développement logiciel (SDK) .NET EventGrid qui inclut les événements Media Services](https://www.nuget.org/packages/Microsoft.Azure.EventGrid/)
+- [Définitions d’événements Media Services](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/eventgrid/data-plane/Microsoft.Media/stable/2018-01-01/MediaServices.json)
+
+## <a name="azure-media-services-explorer"></a>Azure Media Services Explorer
+
+[Azure Media Services Explorer](https://github.com/Azure/Azure-Media-Services-Explorer) (AMSE) est un outil disponible pour les clients Windows qui souhaitent en savoir plus sur Media Services. AMSE est une application Winforms/C# qui charge, télécharge, encode, diffuse en continu du contenu VOD et en direct avec Media Services. L’outil AMSE est destiné aux clients qui souhaitent tester Media Services sans écrire de code. Le code AMSE est fourni en tant que ressource pour les clients qui souhaitent développer avec Media Services.
+
+AMSE est un projet Open Source, son support est assuré par la Communauté (les problèmes peuvent être signalés sur https://github.com/Azure/Azure-Media-Services-Explorer/issues). Ce projet a adopté le [Code de conduite open source de Microsoft](https://opensource.microsoft.com/codeofconduct/). Pour plus d’informations, consultez les [Questions fréquentes (FAQ) sur le code de conduite](https://opensource.microsoft.com/codeofconduct/faq/) ou envoyez vos questions ou vos commentaires à opencode@microsoft.com.
+
 ## <a name="filtering-ordering-paging-of-media-services-entities"></a>Filtrage, classement et pagination d’entités Media Services
 
 Consultez [filtrage, classement, la pagination des entités Azure Media Services](entities-overview.md)
@@ -108,4 +136,7 @@ Découvrez l’article [Communauté Azure Media Services](media-services-communi
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Commencer à développer avec l’API Media Services v3 à l’aide de kits de développement logiciel/tools](developers-guide.md)
+* [Se connecter à Media Services avec Java](configure-connect-java-howto.md)
+* [Se connecter à Media Services avec .NET](configure-connect-dotnet-howto.md)
+* [Se connecter à Media Services avec Node.js](configure-connect-nodejs-howto.md)
+* [Se connecter à Media Services avec Python](configure-connect-python-howto.md)

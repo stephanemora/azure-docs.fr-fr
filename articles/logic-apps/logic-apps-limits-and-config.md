@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 05/06/2019
-ms.openlocfilehash: 634f3948f9a5e28454e9b2b29f950c3fb00f6c19
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.date: 05/10/2019
+ms.openlocfilehash: a320f584ff82f2b8a2b3d784e1995aa043004587
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65147740"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65597493"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limites et informations de configuration pour Azure Logic Apps
 
@@ -52,7 +52,7 @@ Les limites pour l’exécution d’une application logique sont les suivantes :
 |------|--------------------|---------------------------------------|-------|
 | Durée d’exécution | 90 jours | 365 jours | Pour modifier la limite par défaut, consultez [durée d’exécution de modification](#change-duration). |
 | Rétention de stockage | 90 jours à compter de l’heure de début de l’exécution | 365 jours | Pour modifier la limite par défaut, consultez [modifier la rétention du stockage](#change-retention). |
-| Intervalle de périodicité minimal | 1 seconde | 1 seconde ||
+| Intervalle de périodicité minimal | 1 seconde | 1 seconde ||
 | Intervalle de périodicité maximal | 500 jours | 500 jours ||
 |||||
 
@@ -120,7 +120,7 @@ Pour dépasser ces limites dans le cadre d’un traitement normal ou exécuter d
 
 Les limites pour un appel de connecteur synchrone ou de requête HTTP unique sont les suivantes :
 
-#### <a name="timeout"></a>Délai d'expiration
+#### <a name="timeout"></a>Délai d'attente
 
 Comme certaines opérations de connecteur effectuent des appels asynchrones ou écoutent les demandes de webhook, le délai d’expiration pour ces opérations peut dépasser ces limites. Pour plus d’informations, consultez les détails techniques pour le connecteur spécifique et aussi [Actions et déclencheurs de workflow](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action).
 
@@ -139,12 +139,12 @@ Comme certaines opérations de connecteur effectuent des appels asynchrones ou �
 | Limite d’évaluation des expressions | 131 072 caractères | 131 072 caractères | Les expressions `@concat()`, `@base64()`, `@string()` ne peuvent pas contenir plus de caractères. |
 |||||
 
-#### <a name="retry-policy"></a>Stratégie de nouvelle tentative
+#### <a name="retry-policy"></a>Stratégie de nouvelles tentatives
 
 | Nom | Limite | Notes |
 | ---- | ----- | ----- |
 | Nouvelles tentatives | 90 | Valeur par défaut : 4. Pour modifier la valeur par défaut, utilisez le [paramètre de stratégie de nouvelles tentatives](../logic-apps/logic-apps-workflow-actions-triggers.md). |
-| Délai maximal avant nouvelle tentative | 1 jour | Pour modifier la valeur par défaut, utilisez le [paramètre de stratégie de nouvelles tentatives](../logic-apps/logic-apps-workflow-actions-triggers.md). |
+| Délai maximal avant nouvelle tentative | 1 jour | Pour modifier la valeur par défaut, utilisez le [paramètre de stratégie de nouvelles tentatives](../logic-apps/logic-apps-workflow-actions-triggers.md). |
 | Délai minimal avant nouvelle tentative | 5 secondes | Pour modifier la valeur par défaut, utilisez le [paramètre de stratégie de nouvelles tentatives](../logic-apps/logic-apps-workflow-actions-triggers.md). |
 ||||
 
@@ -188,7 +188,7 @@ Les limites du nombre d’artefacts pour chaque compte d’intégration sont les
 | Partenaires commerciaux EDI | 25 | 2 | 500 |
 | Cartes | 25 | 500 | 1 000 |
 | Schémas | 25 | 500 | 1 000 |
-| Assemblys | 10 | 25 | 50 |
+| Assemblies | 10 | 25 | 50 |
 | Certificats | 25 | 2 | 500 |
 | Configurations par lots | 5. | 1 | 50 |
 ||||
@@ -221,7 +221,7 @@ Voici les limites de taille de message qui s’appliquent à des protocoles B2B�
 | Nom | Limite de l’architecture mutualisée | Limite d’environnement Integration Services | Notes |
 |------|--------------------|---------------------------------------|-------|
 | AS2 | v2 - 100 Mo<br>v1 - 50 Mo | v2 - 200 Mo <br>v1 - 50 Mo | S’applique au décodage et à l’encodage. |
-| X 12 | 50 Mo | 50 Mo | S’applique au décodage et à l’encodage. |
+| X12 | 50 Mo | 50 Mo | S’applique au décodage et à l’encodage. |
 | EDIFACT | 50 Mo | 50 Mo | S’applique au décodage et à l’encodage. |
 ||||
 

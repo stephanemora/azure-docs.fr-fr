@@ -5,15 +5,15 @@ author: anirudhcavale
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: reference
-ms.date: 04/26/2019
+ms.date: 05/13/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 8bacc77cc5814dc15473375a891096dba9d567be
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: dae280f86abce47bfcc029f4d81e4ca3a7b696f4
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64867652"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595435"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métriques prises en charge avec Azure Monitor
 
@@ -682,6 +682,8 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 |d2c.endpoints.latency.storage|Routage : latence des messages du stockage|Millisecondes|Moyenne|Latence moyenne (en millisecondes) entre les entrées de messages vers IoT Hub et de télémétrie dans un point de terminaison de stockage.|Aucune dimension|
 |d2c.endpoints.egress.storage.bytes|Routage : données remises au stockage|Octets|Total|Quantité de données (octets) que le routage IoT Hub a remis aux points de terminaison de stockage.|Aucune dimension|
 |d2c.endpoints.egress.storage.blobs|Routage : objets blob remis au stockage|Nombre|Total|Nombre de fois où le routage IoT Hub a remis des objets blob à des points de terminaison de stockage.|Aucune dimension|
+|EventGridDeliveries|Livraisons de grille d’événements (version préliminaire)|Nombre|Total|Le nombre de demandes pour IoT Hub émettre des événements d’Event Grid. Ce nombre inclut les demandes ayant réussies ou échoués. Utiliser la dimension de résultat pour le nombre de différents types de réponses. Pour afficher l’emplacement où les demandes proviennent, utiliser la dimension de type d’événement.|Résultat, le type d’événement|
+|EventGridLatency|Latence de grille d’événements (version préliminaire)|Millisecondes|Moyenne|Latence moyenne (en millisecondes) entre l’entrée des événements à IoT Hub et entrée d’événement dans Event Grid. Ce nombre est une moyenne entre tous les types d’événements. Utiliser la dimension de type d’événement pour afficher la latence d’un type spécifique d’événement.|EventType|
 |d2c.twin.read.success|Lectures de représentations réussies d’appareils|Nombre|Total|Total des lectures de représentations réussies initiées par un appareil.|Aucune dimension|
 |d2c.twin.read.failure|Lectures de représentations d’appareils en échec|Nombre|Total|Total des lectures de représentations en échec initiées par un appareil.|Aucune dimension|
 |d2c.twin.read.size|Taille de la réponse des lectures de représentations des appareils|Octets|Moyenne|Moyenne, minimum et maximum de toutes les lectures de représentations réussies initiées par un appareil.|Aucune dimension|
@@ -715,8 +717,7 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 |jobs.failed|Travaux en échec|Nombre|Total|Total des travaux en échec.|Aucune dimension|
 |d2c.telemetry.ingress.sendThrottle|Nombre d’erreurs de limitation|Nombre|Total|Nombre d’erreurs de limitation causées par des limitations de débit d’appareil|Aucune dimension|
 |dailyMessageQuotaUsed|Nombre total de messages utilisés|Nombre|Moyenne|Nombre total de messages utilisés aujourd’hui. Il s’agit d’une valeur cumulative qui est réinitialisée sur zéro à 00h00 UTC chaque jour.|Aucune dimension|
-|deviceDataUsage|Utilisation totale des données d’appareil (déprécié)|Octets|Total|Nombre d’octets transférés vers et depuis tous les appareils connectés à IotHub|Aucune dimension|
-|deviceDataUsageV2|Utilisation totale des données d’appareil (préversion)|Octets|Total|Nombre d’octets transférés vers et depuis tous les appareils connectés à IotHub|Aucune dimension|
+|deviceDataUsage|Utilisation totale du périphérique des données|Octets|Total|Nombre d’octets transférés vers et depuis tous les appareils connectés à IotHub|Aucune dimension|
 |totalDeviceCount|Nombre total d’appareils (préversion)|Nombre|Moyenne|Nombre d’appareils enregistrés sur votre hub IoT|Aucune dimension|
 |connectedDeviceCount|Appareils connectés (préversion)|Nombre|Moyenne|Nombre d’appareils connectés à votre hub IoT|Aucune dimension|
 |configurations|Métriques de configuration|Nombre|Total|Métriques pour les opérations de configuration|Aucune dimension|
@@ -1039,16 +1040,16 @@ Azure Monitor offre plusieurs moyens d’interagir avec les métriques, y compri
 |IoBytesPerTotalOps|Octets d’E/S par opération pour toutes les opérations|octets/op|Moyenne|Somme de tous les octets d’E/S d’opération|Aucune dimension|
 |IoBytesPerWriteOps|Octets d’E/S par opérations d’écriture|octets/op|Moyenne|Nombre d’octets d’E/S par opération d’écriture|Aucune dimension|
 |OtherIops|Autres E/S par seconde|opérations/seconde|Moyenne|Autre opération d’E/S par seconde|Aucune dimension|
-|OtherThroughput|Autre débit|Mo/s|Moyenne|Autre débit (qui n’est pas en lecture ou écriture) en mégaoctets par seconde|Aucune dimension|
+|OtherThroughput|Autre débit|Mo/s/s|Moyenne|Autre débit (qui n’est pas en lecture ou écriture) en mégaoctets par seconde|Aucune dimension|
 |ReadIops|E/S par seconde en lecture|opérations/seconde|Moyenne|Opérations d’E/S en lecture par seconde|Aucune dimension|
-|ReadThroughput|Débit de lecture|Mo/s|Moyenne|Débit de lecture en mégaoctets par seconde|Aucune dimension|
+|ReadThroughput|Débit de lecture|Mo/s/s|Moyenne|Débit de lecture en mégaoctets par seconde|Aucune dimension|
 |TotalIops|Nombre total d’E/S par seconde|opérations/seconde|Moyenne|Somme de toutes opérations d’E/S en lecture par seconde|Aucune dimension|
-|TotalThroughput|Débit total|Mo/s|Moyenne|Somme de tout le débit en mégaoctets par seconde|Aucune dimension|
+|TotalThroughput|Débit total|Mo/s/s|Moyenne|Somme de tout le débit en mégaoctets par seconde|Aucune dimension|
 |VolumeAllocatedSize|Taille allouée de volume|octets|Moyenne|Taille allouée du volume (pas les octets utilisés réels)|Aucune dimension|
 |VolumeLogicalSize|Taille logique du volume|octets|Moyenne|Taille logique du volume (octets utilisés)|Aucune dimension|
 |VolumeSnapshotSize|Taille d’instantané du volume|octets|Moyenne|Taille de tous les instantanés dans le volume|Aucune dimension|
 |WriteIops|E/S par seconde en écriture|opérations/seconde|Moyenne|Opérations d’E/S en écriture par seconde|Aucune dimension|
-|WriteThroughput|Débit d’écriture|Mo/s|Moyenne|Débit d’écriture en mégaoctets par seconde|Aucune dimension|
+|WriteThroughput|Débit d’écriture|Mo/s/s|Moyenne|Débit d’écriture en mégaoctets par seconde|Aucune dimension|
 
 ## <a name="microsoftnetappnetappaccountscapacitypools"></a>Microsoft.NetApp/netAppAccounts/capacityPools
 

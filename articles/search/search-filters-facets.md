@@ -6,15 +6,15 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 10/13/2017
+ms.date: 5/13/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: ec87bdadc0e7f77cdeebb16403758026fd956c30
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 8dffc5b87aefe23953d3a74f1d96b5ee03e0315d
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64939856"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65597391"
 ---
 # <a name="how-to-build-a-facet-filter-in-azure-search"></a>Comment créer un filtre de facette dans la Recherche Azure 
 
@@ -37,50 +37,48 @@ Vous découvrez ce type de navigation et souhaitez en savoir plus ? Consultez la
 
 Vous pouvez calculer des facettes sur la base de champs à une seule valeur, ou de collections. Les champs qui fonctionnent le mieux la navigation à facettes présentent une cardinalité faible : un petit nombre de valeurs distinctes qui se répètent tout au long de documents dans votre corpus de recherche (par exemple, une liste de couleurs, des pays/régions ou des noms de marques). 
 
-La création de facettes est activée champ par champ lorsque vous générez l’index, si vous définissez les attributs `filterable` et `facetable` sur TRUE. Seuls les champs filtrables peuvent être désignés comme étant à facettes.
+Facettes sont activées sur le champ par champ lorsque vous créez l’index en définissant le `facetable` attribut `true`. Vous devez généralement définir également la `filterable` attribut `true` pour ces champs, afin que votre application de recherche peut filtrer sur ces champs en fonction de l’utilisateur final sélectionne des facettes. 
 
-Tous les [types de champs](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) pouvant être utilisés dans la navigation par facettes sont indiqués comme ayant la valeur « facetable » :
+Lors de la création d’un index à l’aide de l’API REST, toute [type de champ](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) qui peut éventuellement être utilisé dans la navigation à facettes est marquée comme `facetable` par défaut :
 
-+ Edm.String
-+ Edm.DateTimeOffset
-+ Edm.Boolean
-+ Edm.Collections
-+ Types de champs numériques : Edm.Int32, Edm.Int64, Edm.Double
++ `Edm.String`
++ `Edm.DateTimeOffset`
++ `Edm.Boolean`
++ Types de champs numériques : `Edm.Int32`, `Edm.Int64`, `Edm.Double`
++ Collections des types ci-dessus (par exemple, `Collection(Edm.String)` ou `Collection(Edm.Double)`)
 
-Vous ne pouvez pas utiliser le type Edm.GeographyPoint dans une navigation par facettes. Les facettes sont construites à partir de texte ou de chiffres lisibles pour l’être humain. Par conséquent, elles ne sont pas prises en charge pour les coordonnées géographiques. Vous aurez besoin d’un champ de ville ou de région pour les facettes créées par lieu.
+Vous ne pouvez pas utiliser `Edm.GeographyPoint` ou `Collection(Edm.GeographyPoint)` champs dans la navigation à facettes. Facettes fonctionnent mieux sur les champs présentant une faible cardinalité. En raison de la résolution de coordonnées géographiques, il est rare que les deux jeux de coordonnées est égales dans un jeu de données. Par conséquent, elles ne sont pas prises en charge pour les coordonnées géographiques. Vous aurez besoin d’un champ de ville ou de région pour les facettes créées par lieu.
 
 ## <a name="set-attributes"></a>Définir des attributs
 
-Les attributs d’index qui contrôlent l’utilisation d’un champ sont ajoutés aux définitions de champs individuels dans l’index. Dans l’exemple suivant, les champs présentant une faible cardinalité, utiles pour les facettes, incluent une catégorie (hôtel, motel, auberge de jeunesse...), des équipements et des évaluations. 
-
-Dans l’API .NET, les attributs de filtrage doivent être définis explicitement. Dans l’API REST, les facettes et le filtrage sont activés par défaut, ce qui signifie que vous devez définir explicitement les attributs uniquement lorsque vous souhaitez les désactiver. Bien que cela ne soit pas nécessaire d’un point de vue technique, nous affichons les attributions dans l’exemple REST suivant, à des fins d’enseignement. 
+Les attributs d’index qui contrôlent l’utilisation d’un champ sont ajoutés aux définitions de champs individuels dans l’index. Dans l’exemple suivant, les champs présentant une faible cardinalité, utile pour les facettes, se composent de : `category` (hôtel, motel, auberge), `tags`, et `rating`. Ces champs ont la `filterable` et `facetable` des attributs définis explicitement dans l’exemple suivant à titre d’illustration. 
 
 > [!Tip]
-> Pour optimiser le stockage et les performances, une meilleure pratique consiste à désactiver la création de facettes pour les champs qui ne doivent pas être utilisés en tant que facettes. En particulier, les champs de chaîne pour les valeurs singleton, comme un ID ou un nom de produit, doivent être définis sur « Facetable » pour empêcher leur utilisation accidentelle (et inefficace) dans la navigation par facettes.
+> Pour optimiser le stockage et les performances, une meilleure pratique consiste à désactiver la création de facettes pour les champs qui ne doivent pas être utilisés en tant que facettes. En particulier, les champs de chaîne pour les valeurs uniques, comme un nom de produit ou d’ID, doivent être définis `"facetable": false` pour empêcher leur utilisation accidentelle (et inefficace) dans la navigation à facettes.
 
 
-```http
+```json
 {
-    "name": "hotels",  
-    "fields": [
-        {"name": "hotelId", "type": "Edm.String", "key": true, "searchable": false, "sortable": false, "facetable": false},
-        {"name": "baseRate", "type": "Edm.Double"},
-        {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false},
-        {"name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, "analyzer": "fr.lucene"},
-        {"name": "hotelName", "type": "Edm.String", "facetable": false},
-        {"name": "category", "type": "Edm.String", "filterable": true, "facetable": true},
-        {"name": "tags", "type": "Collection(Edm.String)", "filterable": true, "facetable": true},
-        {"name": "parkingIncluded", "type": "Edm.Boolean",  "filterable": true, "facetable": true, "sortable": false},
-        {"name": "smokingAllowed", "type": "Edm.Boolean", "filterable": true, "facetable": true, "sortable": false},
-        {"name": "lastRenovationDate", "type": "Edm.DateTimeOffset"},
-        {"name": "rating", "type": "Edm.Int32", "filterable": true, "facetable": true},
-        {"name": "location", "type": "Edm.GeographyPoint"}
-    ]
+  "name": "hotels",  
+  "fields": [
+    { "name": "hotelId", "type": "Edm.String", "key": true, "searchable": false, "sortable": false, "facetable": false },
+    { "name": "baseRate", "type": "Edm.Double" },
+    { "name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false },
+    { "name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, "analyzer": "fr.lucene" },
+    { "name": "hotelName", "type": "Edm.String", "facetable": false },
+    { "name": "category", "type": "Edm.String", "filterable": true, "facetable": true },
+    { "name": "tags", "type": "Collection(Edm.String)", "filterable": true, "facetable": true },
+    { "name": "parkingIncluded", "type": "Edm.Boolean",  "filterable": true, "facetable": true, "sortable": false },
+    { "name": "smokingAllowed", "type": "Edm.Boolean", "filterable": true, "facetable": true, "sortable": false },
+    { "name": "lastRenovationDate", "type": "Edm.DateTimeOffset" },
+    { "name": "rating", "type": "Edm.Int32", "filterable": true, "facetable": true },
+    { "name": "location", "type": "Edm.GeographyPoint" }
+  ]
 }
 ```
 
 > [!Note]
-> Cette définition d’index est copiée à partir de la section relative à la [création d’un index de Recherche Azure à l’aide de l’API REST](https://docs.microsoft.com/azure/search/search-create-index-rest-api). Il est identique, à l’exception de légères différences dans les définitions de champ. Les attributs « filterable » et « facetable » sont ajoutés de manière explicite dans les champs « category », « tags », « parkingIncluded », « smokingAllowed » et « rating ». Dans la pratique, vous obtenez gratuitement les attributs « filterable » et « facetable » sur les types de champ Edm.String, Edm.Boolean et Edm.Int32. 
+> Cette définition d’index est copiée à partir de la section relative à la [création d’un index de Recherche Azure à l’aide de l’API REST](https://docs.microsoft.com/azure/search/search-create-index-rest-api). Il est identique, à l’exception de légères différences dans les définitions de champ. Le `filterable` et `facetable` attributs sont ajoutés de manière explicite `category`, `tags`, `parkingIncluded`, `smokingAllowed`, et `rating` champs. Dans la pratique, `filterable` et `facetable` serait activé par défaut sur ces champs lorsque vous utilisez l’API REST. Lorsque vous utilisez le kit SDK .NET, ces attributs doivent être activés explicitement.
 
 ## <a name="build-and-load-an-index"></a>Créer et charger un index
 
@@ -91,25 +89,26 @@ La [création et le remplissage de l’index](https://docs.microsoft.com/azure/s
 Dans le code d’application, construisez une requête spécifiant toutes les parties d’une requête valide, y compris les expressions de recherche, les facettes, les filtres, les profils de score, à savoir tout ce qui sert à formuler une requête. L’exemple suivant génère une requête qui crée une navigation par facettes selon le type d’hébergement, d’évaluation et d’autres équipements.
 
 ```csharp
-SearchParameters sp = new SearchParameters()
+var sp = new SearchParameters()
 {
-  ...
-  // Add facets
-  Facets = new List<String>() { "category", "rating", "parkingIncluded", "smokingAllowed" },
+    ...
+    // Add facets
+    Facets = new[] { "category", "rating", "parkingIncluded", "smokingAllowed" }.ToList()
 };
 ```
 
 ### <a name="return-filtered-results-on-click-events"></a>Renvoyer des résultats filtrés sur les événements clic
 
-L’expression de filtre gère l’événement clic sur la valeur de facette. Si vous disposez d’une facette « Category », un clic sur la catégorie « motel » est implémenté via une expression `$filter` qui sélectionne les hébergements de ce type. Lorsqu’un utilisateur clique sur « motels » pour indiquer que seul ce type d’hébergement doit être affiché, la requête suivante que l’application envoie inclut la chaîne : $filter=category eq ‘motels’.
+Lorsque l’utilisateur final clique sur une valeur de facette, le gestionnaire pour l’événement click doit utiliser une expression de filtre de comprendre l’intention de l’utilisateur. Étant donné un `category` facette, en cliquant sur la catégorie « motel » est implémentée avec un `$filter` expression qui sélectionne les hébergements de ce type. Lorsqu’un utilisateur clique sur « motel » pour indiquer que seuls motels doivent être affichés, la requête suivante, l’application envoie inclut `$filter=category eq 'motel'`.
 
 L’extrait de code suivant ajoute la catégorie au filtre si l’utilisateur sélectionne une valeur à partir de la facette « Category ».
 
 ```csharp
-if (categoryFacet != "")
-  filter = "category eq '" + categoryFacet + "'";
+if (!String.IsNullOrEmpty(categoryFacet))
+    filter = $"category eq '{categoryFacet}'";
 ```
-À l’aide de l’API REST, la requête est articulée sous une forme similaire à `$filter=category eq 'c1'`. Pour faire d’une catégorie un champ à valeurs multiples, utilisez la syntaxe suivante : `$filter=category/any(c: c eq 'c1')`
+
+Si l’utilisateur clique sur une valeur de facette pour un champ de la collection comme `tags`, par exemple le regroupement « valeur », votre application doit utiliser la syntaxe de filtre suivante : `$filter=tags/any(t: t eq 'pool')`
 
 ## <a name="tips-and-workarounds"></a>Conseils et solutions de contournement
 

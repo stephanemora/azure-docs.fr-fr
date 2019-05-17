@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 05/06/2019
-ms.openlocfilehash: 8809a2fed5a44910e3a353d9dc5bc41ea964a1ce
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: b452485ccf235d1f245989e40840f2f0b3b2ae45
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65150481"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544543"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Connexion à des réseaux virtuels Azure à partir d’Azure Logic Apps à l'aide d'un environnement de service d’intégration (ISE)
 
@@ -39,7 +39,7 @@ Pour plus d’informations sur les environnements de service d’intégration, c
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscrivez-vous pour bénéficier d’un compte Azure gratuit</a>.
 
   > [!IMPORTANT]
-  > Les applications logiques, les actions intégrées et les connecteurs qui s’exécutent dans votre ISE utilisent un autre plan tarifaire que le tarif de facturation à l’utilisation. Pour plus d’informations, consultez [Tarifs Logic Apps](../logic-apps/logic-apps-pricing.md).
+  > Logic apps, les déclencheurs intégrés, les actions intégrées et les connecteurs qui s’exécutent dans votre utilisation ISE un plan de tarification différents à partir du plan de tarification basé sur la consommation. Pour plus d’informations, consultez [Tarifs Logic Apps](../logic-apps/logic-apps-pricing.md).
 
 * Un [réseau virtuel Azure](../virtual-network/virtual-networks-overview.md). Si vous n’avez pas de réseau virtuel, découvrez comment [créer un réseau virtuel Azure](../virtual-network/quick-create-portal.md). 
 
@@ -69,7 +69,7 @@ Pour contrôler le trafic entre les sous-réseaux du réseau virtuel dans lequel
 > [!IMPORTANT]
 > Pour la communication interne à l’intérieur de vos sous-réseaux, ISE nécessite que vous ouvrez tous les ports au sein de ces sous-réseaux.
 
-| Objectif | Direction | Ports | Balise du service source | Identification de destination | Notes |
+| Objectif | Direction | Ports | Étiquette du service source | Étiquette du service de destination | Notes |
 |---------|-----------|-------|--------------------|-------------------------|-------|
 | Communication depuis Azure Logic Apps | Règle de trafic sortant | 80 & 443 | VirtualNetwork | Internet | Le port dépend du service externe avec lequel communique le service Logic Apps |
 | Azure Active Directory | Règle de trafic sortant | 80 & 443 | VirtualNetwork | AzureActiveDirectory | |
@@ -86,7 +86,7 @@ Pour contrôler le trafic entre les sous-réseaux du réseau virtuel dans lequel
 | Dépendance SQL Azure | Règle de trafic sortant | 1433 | VirtualNetwork | SQL |
 | Azure Resource Health | Règle de trafic sortant | 1886 | VirtualNetwork | Internet | Pour la publication de l’état d’intégrité dans Resource Health |
 | Gestion des API - Point de terminaison de gestion | Trafic entrant | 3443 | APIManagement  | VirtualNetwork | |
-| Dépendance du journal pour la stratégie Event Hub et l’agent de surveillance | Règle de trafic sortant | 5672 | VirtualNetwork  | Event Hub | |
+| Dépendance du journal pour la stratégie Event Hub et l’agent de surveillance | Règle de trafic sortant | 5672 | VirtualNetwork  | EventHub | |
 | Accès aux instances du Cache Azure pour Redis entre instances de rôle | Trafic entrant <br>Règle de trafic sortant | 6379-6383 | VirtualNetwork  | VirtualNetwork | En outre, pour ISE travailler avec le Cache Azure pour Redis, vous devez ouvrir ces [décrites dans le Cache de Azure pour Redis Forum aux questions sur les ports entrants et sortants](../azure-cache-for-redis/cache-how-to-premium-vnet.md#outbound-port-requirements). |
 | Azure Load Balancer | Trafic entrant | * | AzureLoadBalancer | VirtualNetwork |  |
 ||||||
@@ -110,7 +110,7 @@ Dans la zone de recherche, entrez « environnement de service d’intégration �
 
    ![Spécifier les informations pour l’environnement](./media/connect-virtual-network-vnet-isolated-environment/integration-service-environment-details.png)
 
-   | Propriété | Obligatoire | Value | Description |
+   | Propriété | Obligatoire | Value | Description  |
    |----------|----------|-------|-------------|
    | **Abonnement** | Oui | <*Azure-subscription-name*> | Abonnement Azure à utiliser pour votre environnement |
    | **Groupe de ressources** | Oui | <*nom-groupe-de-ressources-Azure*> | Groupe de ressources Azure où vous voulez créer votre environnement |
@@ -132,7 +132,7 @@ Dans la zone de recherche, entrez « environnement de service d’intégration �
 
    * Utilise le [Interdomain routage format CIDR (Classless)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) et un espace d’adressage de classe B.
 
-   * Utilise au moins un `/27` dans l’adresse de l’espace, car chaque sous-réseau doit avoir 32 adresses comme la *minimale*. Par exemple : 
+   * Utilise au moins un `/27` dans l’adresse de l’espace, car chaque sous-réseau doit avoir 32 adresses comme la *minimale*. Exemple :
 
      * `10.0.0.0/27` a 32 adresses car 2<sup>(32-27)</sup> est 2<sup>5</sup> ou 32.
 
@@ -199,33 +199,19 @@ Pour plus d’informations sur la création de sous-réseaux, consultez [ajouter
 
 ## <a name="create-logic-app---ise"></a>Créer une application logique - Environnement de service d’intégration
 
-Pour créer des applications logiques qui utilisent votre environnement de service d’intégration, effectuez les étapes de [Guide pratique pour créer une application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md), mais avec ces différences : 
-
-* Quand vous créez votre application logique, sous la propriété **Emplacement**, sélectionnez votre ISE dans la section **Environnements de service d’intégration**, par exemple :
+Pour créer des applications logiques qui s’exécutent dans votre environnement de service d’intégration (ISE), [créer vos applications logiques à l’accoutumée](../logic-apps/quickstart-create-first-logic-app-workflow.md) , sauf lorsque vous définissez la **emplacement** propriété, sélectionnez votre ISE à partir de la  **Environnements de service d’intégration** section, par exemple :
 
   ![Sélection d’un environnement de service d’intégration](./media/connect-virtual-network-vnet-isolated-environment/create-logic-app-with-integration-service-environment.png)
 
-* Vous pouvez utiliser les mêmes déclencheurs intégrés et les actions tels que HTTP, qui s’exécutent dans l’environnement ISE même que votre application logique. Les connecteurs avec l’étiquette **ISE** peuvent également s’exécuter dans le même environnement de service d’intégration votre application logique. Les connecteurs ne présentant pas le libellé **ISE** s’exécutent dans le service Logic Apps global.
-
-  ![Sélection de connecteurs ISE](./media/connect-virtual-network-vnet-isolated-environment/select-ise-connectors.png)
-
-* Après avoir injecté votre ISE dans un réseau virtuel Azure, les applications logiques de votre environnement de service d’intégration peuvent accéder directement aux ressources de ce réseau virtuel. Pour les systèmes locaux qui sont connectés à un réseau virtuel, injectez un environnement de service d’intégration dans ce réseau, pour que vos applications logiques puissent accéder directement à ces systèmes en utilisant un de ces éléments : 
-
-  * Connecteur ISE pour ce système, par exemple, SQL Server
-  
-  * Action HTTP 
-  
-  * Connecteur personnalisé
-
-  Pour les systèmes locaux qui ne se trouvent pas dans un réseau virtuel ou qui n’ont pas de connecteurs ISE, [configurez d’abord la passerelle de données locale](../logic-apps/logic-apps-gateway-install.md).
+Pour connaître les différences dans comment les déclencheurs et actions travail et comment ils sont étiquetés lorsque vous utilisez une ISE par rapport au service global Logic Apps, consultez [isolé par rapport à global dans la vue d’ensemble de l’ISE](connect-virtual-network-vnet-isolated-environment-overview.md#difference).
 
 <a name="create-integration-account-environment"></a>
 
 ## <a name="create-integration-account---ise"></a>Créer un compte d’intégration - Environnement de service d’intégration
 
-Pour utiliser un compte d’intégration avec des applications logiques dans un environnement de service d’intégration, ce compte d’intégration doit utiliser le *même environnement* que les applications logiques. Les applications logiques dans un environnement de service d’intégration peuvent référencer seulement des comptes d’intégration de ce même environnement. 
+Si vous souhaitez utiliser un compte d’intégration avec logic apps dans un environnement de service d’intégration (ISE), ce compte d’intégration doit utiliser le *même environnement* en tant que les applications logiques. Les applications logiques dans un environnement de service d’intégration peuvent référencer seulement des comptes d’intégration de ce même environnement.
 
-Pour créer un compte d’intégration qui utilise un environnement de service d’intégration, effectuez les étapes de [Guide pratique pour créer des comptes d’intégration](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md), sauf pour la propriété **Emplacement**, où la section  **Environnements de service d’intégration** apparaît maintenant. À la place, sélectionnez votre environnement de service d’intégration au lieu d’une région, par exemple :
+Pour créer un compte d’intégration qui utilise une fenêtre ISE, [créer votre compte d’intégration de la façon habituelle](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) , sauf lorsque vous définissez la **emplacement** propriété, sélectionnez votre ISE à partir de la **intégration environnements de service** section, par exemple :
 
 ![Sélection d’un environnement de service d’intégration](./media/connect-virtual-network-vnet-isolated-environment/create-integration-account-with-integration-service-environment.png)
 

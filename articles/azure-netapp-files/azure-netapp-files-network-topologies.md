@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: b-juche
-ms.openlocfilehash: 2afd5f0a574fd15c4327b141901d2651dbe2b9e5
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: fa2de14ada5d24531dfecc7f2f709a87f39ea6cb
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65524234"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65826447"
 ---
 # <a name="guidelines-for-azure-netapp-files-network-planning"></a>Consignes pour planifier un réseau Azure NetApp Files
 
@@ -42,7 +42,7 @@ Les fonctionnalités ci-dessous sont actuellement pas pris en charge pour les fi
 
 Les restrictions suivantes s’appliquent aux fichiers de NetApp Azure :
 
-* Le nombre d’adresses IP à partir d’un réseau virtuel (inclut des réseaux virtuels homologués) connexion à un volume dans un réseau virtuel ne doit pas dépasser 1000.
+* Le nombre de machines virtuelles qui peuvent se connecter à un volume (avec un réseau virtuel ou entre des réseaux virtuels homologués) ne peut pas dépasser 1000.
 * Dans chaque réseau virtuel Azure, un seul sous-réseau peut être délégué à Azure NetApp Files.
 
 

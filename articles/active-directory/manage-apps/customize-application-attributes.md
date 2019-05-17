@@ -3,8 +3,8 @@ title: Personnalisation des mappages d’attributs Azure AD | Microsoft Docs
 description: Découvrez ce que sont les mappages d’attributs pour les applications SaaS dans Azure Active Directory et comment les modifier pour répondre aux besoins de votre entreprise.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.author: celested
+ms.author: mimart
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9db6babff3ae0c91f730e6ec2e6e2a41d55b0bf
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: bc3aea059b6ac4244ea440d26717562e83fdbd09
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65191514"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65824907"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Personnalisation des mappages d’attributs d’attribution d’utilisateurs pour les applications SaaS dans Azure Active Directory
 Microsoft Azure AD prend en charge pour l’approvisionnement pour les applications SaaS de fournisseurs tiers tels que Salesforce, G Suite et d’autres utilisateurs. Si vous activez l’approvisionnement des utilisateurs pour une application SaaS, le portail Azure contrôle ses valeurs d’attribut via des mappages d’attributs.

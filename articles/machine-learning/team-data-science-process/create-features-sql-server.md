@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/21/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 2d01b74e7db275f4b2e3933415bbae40911b114b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7bc44d8e755af3d212d616425c6a1fd925172298
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60399287"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65602938"
 ---
 # <a name="create-features-for-data-in-sql-server-using-sql-and-python"></a>Créer des fonctionnalités pour les données dans SQL Server à l’aide de SQL et Python
 Ce document montre comment générer des fonctionnalités pour des données stockées dans une machine virtuelle SQL Server sur Azure qui aident les algorithmes à apprendre efficacement à partir des données. Vous pouvez utiliser SQL ou un langage de programmation comme Python pour accomplir cette tâche. Les deux approches sont décrites ici.
@@ -68,7 +68,7 @@ Voici une brève introduction relative aux données de latitude/longitude (repos
 * Le signe indique si nous nous trouvons au nord, au sud, à l’est ou à l’ouest.
 * Un chiffre non nul de centaines indique la longitude, pas la latitude.
 * Le chiffre des dizaines équivaut à environ 1 000 kilomètres. Il fournit des informations utiles sur le continent ou l’océan dans lequel nous nous trouvons.
-* Le chiffre des unités (un degré décimal) équivaut à 111 kilomètres maximum (60 milles marins, soit environ 69 milles terrestres). Il indique approximativement le département de grande superficie ou le pays dans lequel nous sommes.
+* Le chiffre des unités (un degré décimal) équivaut à 111 kilomètres maximum (60 milles marins, soit environ 69 milles terrestres). Il indique approximativement le département, grande superficie ou le pays/région, il s’agit.
 * La première décimale équivaut à 11,1 km maximum : elle permet de distinguer la position d’une grande ville de celle d’une autre grande localité voisine.
 * La deuxième décimale équivaut à 1,1 km maximum : elle permet de différencier un village du suivant.
 * La troisième décimale équivaut à 110 m maximum : elle permet d’identifier un domaine agricole ou un campus universitaire de grande taille.

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: b873d90dbc33aff27cd2fc3b5099b08eacf929b6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d8717b8f365e692b5f27bf8a04d65c5147b8f31b
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60195576"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65603212"
 ---
 # <a name="analyze-data-in-azure-data-lake-storage-gen1-by-using-power-bi"></a>Analyser des données dans Azure Data Lake Storage Gen1 à l’aide de Power BI
 Dans cet article, vous allez apprendre à utiliser Power BI Desktop pour analyser et visualiser les données stockées dans Azure Data Lake Storage Gen1.
@@ -74,23 +74,23 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 14. Une fois que la requête est mise à jour, l’onglet **Champs** affiche les nouveaux champs disponibles pour la visualisation.
     
     ![Champs mis à jour](./media/data-lake-store-power-bi/updated-query-fields.png "Champs mis à jour")
-15. Créons un graphique à secteurs pour représenter les pilotes dans chaque ville d’un pays donné. Pour ce faire, effectuez les sélections suivantes.
+15. Créons un graphique à secteurs pour représenter les pilotes dans chaque ville d’un pays/une région donnée. Pour ce faire, effectuez les sélections suivantes.
     
     1. Dans l’onglet Visualisations, cliquez sur le symbole du graphique à secteurs.
        
         ![Créer un graphique à secteurs](./media/data-lake-store-power-bi/create-pie-chart.png "Créer un graphique à secteurs")
-    2. Les colonnes que nous allons utiliser sont la **Colonne 4** (nom de la ville) et la **Colonne 7** (nom du pays). Faites glisser ces colonnes de l’onglet **Champs** vers l’onglet **Visualisations** comme indiqué ci-dessous.
+    2. Les colonnes que nous allons utiliser sont **colonne 4** (nom de la ville) et **colonne 7** (nom de pays/région). Faites glisser ces colonnes de l’onglet **Champs** vers l’onglet **Visualisations** comme indiqué ci-dessous.
        
         ![Créer des visualisations](./media/data-lake-store-power-bi/create-visualizations.png "Créer des visualisations")
     3. Le graphique à secteurs doit maintenant ressembler à celui illustré ci-dessous.
        
         ![Graphique à secteurs](./media/data-lake-store-power-bi/pie-chart.png "Créer des visualisations")
-16. En sélectionnant un pays spécifique dans les filtres au niveau de la page, vous pouvez maintenant voir le nombre de pilotes dans chaque ville du pays sélectionné. Par exemple, sous l’onglet **Visualisations**, sous **Filtres au niveau de la page**, sélectionnez **Brésil**.
+16. En sélectionnant un pays/une région spécifique dans les filtres de niveau page, vous pouvez maintenant voir le nombre de pilotes dans chaque ville du pays/région sélectionnée. Par exemple, sous l’onglet **Visualisations**, sous **Filtres au niveau de la page**, sélectionnez **Brésil**.
     
-    ![Sélectionner un pays](./media/data-lake-store-power-bi/select-country.png "Sélectionner un pays")
+    ![Sélectionnez un pays](./media/data-lake-store-power-bi/select-country.png "sélectionnez une pays/région")
 17. Le graphique à secteurs est automatiquement mis à jour pour afficher les pilotes dans les villes du Brésil.
     
-    ![Pilotes dans un pays](./media/data-lake-store-power-bi/driver-per-country.png "Pilotes par pays")
+    ![Pilotes dans un pays](./media/data-lake-store-power-bi/driver-per-country.png "pilotes par pays/région")
 18. Dans le menu **Fichier**, cliquez sur **Enregistrer** pour enregistrer la visualisation sous forme de fichier Power BI Desktop.
 
 ## <a name="publish-report-to-power-bi-service"></a>Publication d’un rapport dans le service Power BI

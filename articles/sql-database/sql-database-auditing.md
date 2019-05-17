@@ -12,12 +12,12 @@ ms.author: arib
 ms.reviewer: vanto
 manager: craigg
 ms.date: 04/16/2019
-ms.openlocfilehash: 15d195361b9fe8523ae6e46ba035ca5927c4d242
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 3efdf5c256a22529c9d19e9ae1dce5d2db9516a5
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924758"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65827768"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Bien démarrer avec l’audit de bases de données SQL
 
@@ -110,10 +110,11 @@ La section suivante décrit la configuration de l’audit à l’aide du portail
 10. Si vous souhaitez personnaliser les événements audités, vous pouvez le faire avec des [applets de commande PowerShell](#subheading-7) ou [l’API REST](#subheading-9).
 11. Une fois que vous avez configuré vos paramètres d’audit, vous pouvez activer la nouvelle fonctionnalité de détection des menaces et configurer les adresses e-mail de réception des alertes de sécurité. La détection des menaces vous permet de recevoir des alertes proactives sur des activités anormales de la base de données qui peuvent indiquer des menaces de sécurité potentielles. Pour plus d’informations, consultez [Bien démarrer avec la détection des menaces](sql-database-threat-detection-get-started.md).
 
-
 > [!IMPORTANT]
->L’activation de l’audit sur un entrepôt Azure SQL Data Warehouse ou sur un serveur avec un entrepôt Azure SQL Data Warehouse, **entraîne la reprise de l’entrepôt Data Warehouse**, même s’il avait précédemment été interrompu. **Veillez à suspendre l’entrepôt Data Warehouse à nouveau après l’activation de l’audit**.
+> Activation de l’audit sur un serveur Azure SQL Data Warehouse en pause n’est pas possible. Pour l’activer, annuler la pause de l’entrepôt de données.
 
+> [!WARNING]
+> Activation de l’audit sur un serveur qui a un Azure SQL Data Warehouse dessus **entraîne l’entrepôt de données qui est repris et ré-suspendues à nouveau** qui peuvent entraîner une baisse dans les frais de facturation.
 
 ## <a id="subheading-3"></a>Analyse des journaux et des rapports d’audit
 

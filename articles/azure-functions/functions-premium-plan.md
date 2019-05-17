@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: jehollan
-ms.openlocfilehash: d327146c4a1fa61e55bb904308038c1ce717123d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 75987e7cba9f373af5a434de9f273948c3c9ae75
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61031190"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544762"
 ---
 # <a name="azure-functions-premium-plan-preview"></a>Offre des fonctions Premium Azure (version préliminaire)
 
@@ -44,7 +44,7 @@ Si aucun événements et les exécutions se produisent dès aujourd'hui dans le 
 
 Dans le plan Premium, vous pouvez avoir votre application préalable initialisée sur un nombre spécifié d’instances, jusqu'à la taille de votre plan minimale.  Instances préalablement chauffés vous permettent également de préalable mettre à l’échelle une application avant une charge élevée. Comme l’application monte en charge, il s’adapte tout d’abord dans les instances chauffés préalable. Des instances supplémentaires continuent à mettre en mémoire tampon à chaud immédiatement en préparation pour la prochaine opération de mise à l’échelle des instances. En ayant une mémoire tampon d’instances chauffés préalable, vous pouvez efficacement éviter les latences de démarrage à froid.  Instances préalablement chauffés est une fonctionnalité du plan Premium et vous devez conserver au moins une instance en cours d’exécution et disponible à tout moment le plan est actif.
 
-Vous pouvez configurer le nombre d’instances préalablement chauffés dans le portail Azure en sélectionnant **Scale Out** dans le **fonctionnalités de la plateforme** onglet.
+Vous pouvez configurer le nombre d’instances préalablement chauffés dans Azure portail en sélectionnant votre **Function App**, permettra le **fonctionnalités de la plateforme** onglet, puis en sélectionnant le **Scale Out**options. Dans la fenêtre d’édition application (fonction), préalablement chauffés instances est spécifique à cette application, mais les instances minimales et maximales s’appliquent à la totalité du plan.
 
 ![Paramètres de mise à l’échelle élastique](./media/functions-premium-plan/scale-out.png)
 
@@ -114,10 +114,11 @@ Voici les régions actuellement prises en charge pour la version préliminaire p
 |France Centre|
 |Japon Ouest|
 |Centre de la Corée|
+|USA Centre Nord|
 |Europe Nord|
 |USA Centre Sud|
 |Inde Sud|
-|Asie Sud-Est|
+|Asie du Sud-Est|
 |Ouest du Royaume-Uni|
 |Europe Ouest|
 |Inde de l’Ouest|

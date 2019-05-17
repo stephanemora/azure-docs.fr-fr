@@ -8,26 +8,33 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: article
-ms.date: 08/23/2018
-ms.openlocfilehash: e008d9fd2734af6a355771c321ecaea9150bcc33
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 05/08/2019
+ms.openlocfilehash: c02361cf69b98da61a0f551ac037e6d35ea42efc
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64722995"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65551863"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Connecteurs pour Azure Logic Apps
 
 Connecteurs de fournissent un accès rapide à partir d’Azure Logic Apps aux événements, les données et les actions sur les autres applications, les services, les systèmes, les protocoles et les plateformes. À l’aide de connecteurs dans vos applications logiques, vous développez les fonctionnalités pour vos applications cloud et locaux effectuer des tâches avec les données que vous créez et que vous avez déjà.
 
-Logic Apps offre [plus de 200 connecteurs](https://docs.microsoft.com/connectors). Cet article décrit les connecteurs les plus courants et les plus utilisés par des milliers d’applications et des millions d’exécutions pour le traitement des données et des informations. Pour connaître la liste complète des connecteurs et des informations de référence de chaque connecteur, telles que des déclencheurs, actions et limites, passez en revue les pages de référence de connecteur sous [vue d’ensemble des connecteurs](https://docs.microsoft.com/connectors). En outre, en savoir plus sur [déclencheurs et actions](#triggers-actions).
+Logic Apps offre [plus de 200 connecteurs](https://docs.microsoft.com/connectors). Cet article décrit les connecteurs les plus courants et les plus utilisés par des milliers d’applications et des millions d’exécutions pour le traitement des données et des informations. Pour connaître la liste complète des connecteurs et des informations de référence de chaque connecteur, telles que des déclencheurs, actions et limites, passez en revue les pages de référence de connecteur sous [vue d’ensemble des connecteurs](https://docs.microsoft.com/connectors). En outre, en savoir plus sur [déclencheurs et actions](#triggers-actions), [modèle de tarification de Logic Apps](../logic-apps/logic-apps-pricing.md), et [détails de tarification de Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/). 
 
 > [!NOTE]
 > Pour intégrer un service ou l’API n’ayant pas de connecteur, vous pouvez directement appeler le service via un protocole tel que HTTP, ou créer un [connecteur personnalisé](#custom).
 
 Les connecteurs sont disponibles en tant que déclencheurs intégrés et les actions ou en tant que connecteurs gérés :
 
-* [**Intégrés**](#built-ins): Ces actions intégrées et les déclencheurs sont « natives » pour Azure Logic Apps et vous aident à que créer des applications logiques qui s’exécutent sur des planifications personnalisées, communiquent avec d’autres points de terminaison, recevant et répondent aux demandes et appellent des fonctions Azure, Azure API Apps (applications Web), vos propres API géré et publié avec gestion des API Azure et les applications logiques imbriquées qui peuvent recevoir des requêtes. Vous pouvez également utiliser des actions intégrées pour organiser et contrôler le flux de travail de votre application logique et exploiter vos données.
+* [**Intégrés**](#built-ins): Ces déclencheurs intégrés et les actions sont « natives » pour Azure Logic Apps et vous aident à que créer des applications logiques qui s’exécutent sur des planifications personnalisées, communiquent avec d’autres points de terminaison, recevant et répondent aux demandes et appellent des fonctions Azure, Azure API Apps (applications Web), vos propres API géré et publié avec gestion des API Azure et les applications logiques imbriquées qui peuvent recevoir des requêtes. Vous pouvez également utiliser des actions intégrées pour organiser et contrôler le flux de travail de votre application logique et exploiter vos données.
+
+  > [!NOTE]
+  > Les applications logiques dans un [environnement de service d’intégration (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) peuvent accéder directement aux ressources dans un réseau virtuel Azure.
+  > Lorsque vous utilisez une fenêtre ISE, actions et déclencheurs intégrés qui affichent la **Core** étiquette s’exécutent dans l’environnement ISE même en tant que vos applications logiques. Logic apps, les déclencheurs intégrés et les actions intégrées qui s’exécutent dans votre utilisation ISE un plan de tarification différents à partir du plan de tarification basé sur la consommation.
+  >
+  > Pour plus d’informations sur la création ISEs, consultez [se connecter à des réseaux virtuels Azure à partir d’Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#create-logic-apps-environment). 
+  > Pour plus d’informations sur la tarification, consultez [modèle de tarification de Logic Apps](../logic-apps/logic-apps-pricing.md).
 
 * **Connecteurs managés** : Déployés et gérés par Microsoft, ces connecteurs fournissent des déclencheurs et actions pour l’accès aux services cloud, les systèmes locaux ou les deux, y compris Office 365, le stockage Blob Azure, SQL Server, Dynamics, Salesforce, SharePoint et bien plus encore. Plus précisément, certains connecteurs prennent en charge les scénarios de communication business-to-business (B2B) et nécessitent un [compte d’intégration](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) qui est lié à votre application logique. Avant d’utiliser certains connecteurs, vous devrez tout d’abord créer les connexions qui sont gérées par Azure Logic Apps. 
 
@@ -36,7 +43,7 @@ Les connecteurs sont disponibles en tant que déclencheurs intégrés et les act
 
   Les connecteurs sont classés comme Standard ou Enterprise. 
   [Connecteurs d’entreprise](#enterprise-connectors) fournir un accès aux systèmes d’entreprise telles que SAP, IBM MQ et IBM 3270 pour un coût supplémentaire. Pour déterminer si un connecteur est Standard ou Enterprise, consultez les détails techniques dans la page de référence de chaque connecteur sous [vue d’ensemble des connecteurs](https://docs.microsoft.com/connectors). 
-  
+
   Vous pouvez également identifier les connecteurs à l’aide de ces catégories, bien que certains connecteurs peuvent traverser plusieurs catégories. 
   Par exemple, SAP est un connecteur de l’entreprise et un connecteur local :
 
@@ -47,8 +54,15 @@ Les connecteurs sont disponibles en tant que déclencheurs intégrés et les act
   | [**Connecteurs de compte d’intégration**](#integration-account-connectors) | Disponibles lorsque vous créez et payez un compte d’intégration, ces connecteurs transforment et valident le code XML, encodent et décodent les fichiers plats et traitent les messages entreprise-entreprise (B2B) avec les protocoles AS2, EDIFACT et X12. |
   |||
 
-> [!NOTE]
-> Pour obtenir la liste complète des connecteurs et des informations de référence de chaque connecteur, telles que les actions et tous les déclencheurs, qui sont définis par un fichier OpenAPI (anciennement Swagger) description, ainsi que les limites, vous trouverez la liste complète sous le [vue d’ensemble des connecteurs ](/connectors/). Pour des informations sur les tarifs, consultez [Tarification Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/) et le [Modèle de tarification de Logic Apps](../logic-apps/logic-apps-pricing.md). 
+  > [!NOTE]
+  > Les applications logiques dans un [environnement de service d’intégration (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) peuvent accéder directement aux ressources dans un réseau virtuel Azure. Lorsque vous utilisez une fenêtre ISE, Standard et Enterprise de connecteurs qui affichent la **ISE** étiquette s’exécutent dans l’environnement ISE même en tant que vos applications logiques. Les connecteurs qui ne s’affichent pas l’étiquette ISE s’exécuter dans le service Logic Apps global.
+  >
+  > Pour les systèmes locaux qui sont connectés à un réseau virtuel Azure, injecter votre ISE dans ce réseau pour que vos applications logiques puissent accéder directement ces systèmes en utilisant soit un connecteur qui a un **ISE** étiquette, une action HTTP ou un [connecteur personnalisé](#custom). Logic apps et les connecteurs qui s’exécutent dans votre utilisation ISE une tarification planifier différents à partir du plan de tarification basé sur la consommation. 
+  >
+  > Pour plus d’informations sur la création ISEs, consultez [se connecter à des réseaux virtuels Azure à partir d’Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#create-logic-apps-environment).
+  > Pour plus d’informations sur la tarification, consultez [modèle de tarification de Logic Apps](../logic-apps/logic-apps-pricing.md).
+
+  Pour obtenir la liste complète des connecteurs et des informations de référence de chaque connecteur, telles que les actions et tous les déclencheurs, qui sont définis par un fichier OpenAPI (anciennement Swagger) description, ainsi que les limites, vous trouverez la liste complète sous le [vue d’ensemble des connecteurs ](/connectors/). Pour plus d’informations sur la tarification, consultez [modèle de tarification de Logic Apps](../logic-apps/logic-apps-pricing.md), et [détails de tarification de Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps/). 
 
 <a name="built-ins"></a>
 
@@ -66,7 +80,7 @@ Logic Apps fournit des déclencheurs et des actions intégrés qui vous permette
 
 ### <a name="control-workflow"></a>Contrôler le flux de travail
 
-Les actions intégrées suivantes permettent de structurer et de contrôler les actions du flux de travail de votre application logique :
+Logic Apps fournit des actions intégrées pour structurer et de contrôler les actions de flux de travail de votre application logique :
 
 |   |   |   |   | 
 |---|---|---|---| 
@@ -77,7 +91,7 @@ Les actions intégrées suivantes permettent de structurer et de contrôler les 
 
 ### <a name="manage-or-manipulate-data"></a>Gérer ou manipuler des données
 
-Voici les actions intégrées pour travailler avec les sorties de données et leurs formats :  
+Logic Apps fournit des actions intégrées pour travailler avec des sorties de données et leurs formats :  
 
 |   |   | 
 |---|---| 
@@ -90,7 +104,7 @@ Voici les actions intégrées pour travailler avec les sorties de données et le
 
 ## <a name="managed-api-connectors"></a>Connecteurs API gérés
 
-Les connecteurs suivants sont les plus couramment utilisés pour automatiser les tâches, les processus et les flux de travail avec ces services ou systèmes :
+Logic Apps fournit ces connecteurs Standard les plus courants pour l’automatisation des tâches, des processus et des flux de travail avec ces services ou les systèmes.
 
 |   |   |   |   | 
 |---|---|---|---| 
@@ -100,25 +114,25 @@ Les connecteurs suivants sont les plus couramment utilisés pour automatiser les
 | [![Icône d’API][dynamics-365-icon]<br/>**Dynamics 365<br/>CRM Online**][dynamics-365-doc] | Connectez-vous à votre compte Dynamics 365 pour pouvoir créer et gérer des enregistrements, des éléments et bien plus encore. | [![Icône d’API][ftp-icon]<br/>**FTP**][ftp-doc] | Connectez-vous aux serveurs FTP auxquels vous avez accès depuis Internet pour pouvoir travailler avec vos fichiers et dossiers. | 
 | [![Icône d’API][salesforce-icon]<br/>**Salesforce**][salesforce-doc] | Connectez-vous à votre compte Salesforce pour pouvoir créer et gérer des éléments comme des enregistrements, des travaux, des objets et bien plus encore. | [![Icône d’API][twitter-icon]<br/>**Twitter**][twitter-doc] | Connectez-vous à votre compte Twitter pour pouvoir gérer vos tweets, vos abonnés, votre chronologie et bien plus encore. Enregistrez vos tweets dans SQL, Excel ou SharePoint. | 
 | [![Icône d’API][azure-event-hubs-icon]<br/>**Event Hubs**][azure-event-hubs-doc] | Consommez et publiez des événements via un Event Hub. Par exemple, obtenez une sortie à partir de votre application logique à l’aide des Event Hubs, puis envoyez-la à un fournisseur d’analyses en temps réel. | [![Icône d’API][azure-event-grid-icon]<br/>**Azure Event**</br>**Grid**][azure-event-grid-doc] | Surveillez les événements publiés par une grille d’événements, par exemple, lorsque les ressources Azure ou les ressources tierces changent. | 
-||||| 
+|||||
 
 <a name="on-premises-connectors"></a>
 
 ## <a name="on-premises-connectors"></a>Connecteurs locaux 
 
-Les connecteurs suivants sont couramment utilisés pour fournir un accès aux données et aux ressources sur les systèmes locaux. Avant de créer une connexion à un système local, vous devez d’abord [télécharger, installer et configurer une passerelle de données locale][gateway-doc]. Cette passerelle fournit un canal de communication sécurisé sans avoir à configurer l’infrastructure réseau nécessaire. 
+Voici certains connecteurs Standard couramment utilisés qui fournit des applications logiques pour l’accès aux données et des ressources dans les systèmes locaux. Avant de créer une connexion à un système local, vous devez d’abord [télécharger, installer et configurer une passerelle de données locale][gateway-doc]. Cette passerelle fournit un canal de communication sécurisé sans avoir à configurer l’infrastructure réseau nécessaire. 
 
 |   |   |   |   |   | 
 |---|---|---|---|---| 
 | ![Icône API][biztalk-server-icon]<br/>**BizTalk**</br> **Serveur** | [![Icône d’API][file-system-icon]<br/>**Système de</br> fichiers**][file-system-doc] | [![Icône d’API][ibm-db2-icon]<br/>**IBM DB2**][ibm-db2-doc] | [![Icône d’API][ibm-informix-icon]<br/>**IBM**</br>**Informix**][ibm-informix-doc] | ![Icône d’API][mysql-icon]<br/>**MySQL** | 
 | [![Icône d’API][oracle-db-icon]<br/>**Oracle DB**][oracle-db-doc] | ![Icône d’API][postgre-sql-icon]<br/>**PostgreSQL** | [![Icône d’API][sharepoint-server-icon]<br/>**SharePoint</br> Server**][sharepoint-server-doc] | [![Icône d’API][sql-server-icon]<br/>**SQL</br> Server**][sql-server-doc] | ![Icône d’API][teradata-icon]<br/>**Teradata** | 
-||||| 
+|||||
 
 <a name="integration-account-connectors"></a>
 
-## <a name="integration-account-connectors"></a>Connecteurs de compte d’intégration 
+## <a name="integration-account-connectors"></a>Connecteurs de compte d’intégration
 
-Les connecteurs suivants permettent de créer des solutions entreprise-entreprise (B2B) avec vos applications logiques lorsque vous créez et payez un [compte d’intégration](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md), qui est disponible via Enterprise Integration Pack (EIP) dans Azure. Avec ce compte, vous pouvez créer et stocker des artefacts B2B tels que les partenaires commerciaux, les contrats, les mappages, les schémas, les certificats et ainsi de suite. Pour utiliser ces artefacts, associez vos applications logiques avec votre compte d’intégration. Si vous utilisez déjà BizTalk Server, ces connecteurs vous sont peut-être familiers.
+Logic Apps fournit des connecteurs Standard pour créer des solutions business-to-business (B2B) avec vos applications logiques lorsque vous créez et que vous payez un [compte d’intégration](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md), qui est disponible par le biais de Enterprise Integration Pack (EIP) dans Azure. Avec ce compte, vous pouvez créer et stocker des artefacts B2B tels que les partenaires commerciaux, les contrats, les mappages, les schémas, les certificats et ainsi de suite. Pour utiliser ces artefacts, associez vos applications logiques avec votre compte d’intégration. Si vous utilisez déjà BizTalk Server, ces connecteurs vous sont peut-être familiers.
 
 |   |   |   |   | 
 |---|---|---|---| 
@@ -131,7 +145,7 @@ Les connecteurs suivants permettent de créer des solutions entreprise-entrepris
 
 ## <a name="enterprise-connectors"></a>Connecteurs d’entreprise
 
-Vos applications logiques peuvent accéder aux systèmes d’entreprise, tels que SAP et IBM MQ :
+Logic Apps fournit ces connecteurs d’entreprise pour accéder à des systèmes d’entreprise, tels que SAP et IBM MQ :
 
 |   |   |   | 
 |---|---|---| 
@@ -172,11 +186,13 @@ Connexions peuvent accéder au service cible ou un système pour tant que ce ser
 Pour appeler des API qui exécutent du code personnalisé ou qui ne sont pas disponibles en tant que connecteurs, vous pouvez étendre la plateforme Logic Apps [en créant des applications API personnalisées](../logic-apps/logic-apps-create-api-app.md). Vous pouvez également [créer des connecteurs personnalisés](../logic-apps/custom-connector-overview.md) pour *n’importe quelle* API REST ou SOAP, ce qui rend ces API disponibles pour n’importe quelle application logique dans votre abonnement Azure.
 Pour rendre les applications API ou les connecteurs personnalisés publics afin que tout le monde puisse les utiliser dans Azure, vous pouvez [soumettre des connecteurs à la certification Microsoft](../logic-apps/custom-connector-submit-certification.md).
 
-## <a name="get-support"></a>Obtenir de l’aide
-
-* Si vous avez des questions, consultez le [forum Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-
-* Pour voter pour des idées ou en soumettre pour Azure Logic Apps et les connecteurs, rendez-vous sur le [site de commentaires des utilisateurs de Logic Apps](https://aka.ms/logicapps-wish).
+> [!NOTE]
+> Les applications logiques dans un [environnement de service d’intégration (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) peuvent accéder directement aux ressources dans un réseau virtuel Azure.
+> Si vous avez des connecteurs personnalisés qui nécessitent la passerelle de données en local, et que vous avez créé ces connecteurs en dehors d’une fenêtre ISE, applications logiques dans une fenêtre ISE peuvent également utiliser ces connecteurs.
+>
+> Connecteurs personnalisés créés au sein d’une fenêtre ISE ne fonctionnent pas avec la passerelle de données sur site. Toutefois, ces connecteurs peuvent accéder directement à des sources de données locales qui sont connectés à un réseau virtuel Azure qui héberge l’environnement ISE. Par conséquent, les applications logiques dans une fenêtre ISE très probablement inutile la passerelle de données lors de la communication avec ces ressources.
+>
+> Pour plus d’informations sur la création ISEs, consultez [se connecter à des réseaux virtuels Azure à partir d’Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#create-logic-apps-environment).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: ff291bda87ca4b2b4055e36989b035cf410b3b0f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 082abd89cd84fc34180f333b54664d7dddfa0ccf
+ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60744316"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65561206"
 ---
 # <a name="describing-a-service-fabric-cluster"></a>Description d’un cluster Service Fabric
 Le Gestionnaire de ressources de cluster Service Fabric fournit plusieurs mécanismes permettant de décrire un cluster. Pendant l’exécution, Cluster Resource Manager utilise ces informations pour garantir une haute disponibilité des services en cours d’exécution dans le cluster. Tout en appliquant ces règles importantes, il essaie aussi d’optimiser la consommation de ressources au sein du cluster.
@@ -32,8 +32,8 @@ Le Gestionnaire de ressources de cluster prend en charge plusieurs fonctionnalit
 * Propriétés du nœud
 * Capacités du nœud
 
-## <a name="fault-domains"></a>Domaines d’erreur
-Un domaine d’erreur est une zone d’échec coordonné. Une machine unique constitue un domaine d’erreur (puisqu’elle peut cesser de fonctionner de manière indépendante pour de nombreuses raisons : coupure électrique, défaillance de disque ou erreur de microprogramme de carte d’interface réseau). Les machines connectées à un même commutateur Ethernet se trouvent dans le même domaine d’erreur, tout comme les machines qui partagent une même source d’alimentation ou qui se trouvent à un même emplacement. Dans la mesure où le chevauchement des défaillances matérielles est naturel, les domaines d’erreur sont hiérarchiques par nature et sont représentés en tant qu’URI dans Service Fabric.
+## <a name="fault-domains"></a>Domaines d'erreur
+Un domaine d’erreur est une zone d’échec coordonné. Une machine unique constitue un domaine d’erreur (puisqu’elle peut cesser de fonctionner de manière indépendante pour de nombreuses raisons : coupure électrique, défaillance de disque ou erreur de microprogramme de carte d’interface réseau). Les machines connectées à un même commutateur Ethernet se trouvent dans le même domaine d’erreur, tout comme les machines qui partagent une même source d’alimentation ou qui se trouvent à un même emplacement. Dans la mesure où il est naturel des défaillances matérielles se chevauchent, domaines d’erreur sont hiérarchiques par nature et sont représentées en tant qu’URI dans Service Fabric.
 
 Il est important que les domaines d’erreur soient configurés correctement, car Service Fabric utilise ces informations pour placer des services en toute sécurité. Service Fabric ne souhaite pas placer des services si la perte d’un domaine d’erreur (provoquée par la défaillance d’un composant) doit entraîner l’arrêt d’un service. Dans l’environnement Azure, Service Fabric utilise les informations de domaine d’erreur fournies par l’environnement pour configurer correctement les nœuds du cluster en votre nom. Pour Service Fabric autonome, les domaines d’erreur sont définis au moment où le cluster est configuré. 
 
@@ -95,13 +95,17 @@ Il n’existe aucune limite réelle au nombre total de domaines d’erreur ou de
 ![Dispositions d’erreur et domaine de mise à niveau][Image4]
 </center>
 
-Il n’existe pas de disposition idéale, chacune ayant des avantages et des inconvénients. Par exemple, le modèle à un domaine d’erreur pour un domaine de mise à niveau est simple à mettre en place. Le modèle à un domaine de mise à niveau par nœud ressemble davantage au modèle généralement adopté. Lors des mises à niveau, chaque nœud est mis à jour indépendamment. Il s’agit d’un processus analogue à celui qui consistait par le passé à mettre à jour manuellement des petits groupes d’ordinateurs. 
+Il n’existe pas de disposition idéale, chacune ayant des avantages et des inconvénients. Par exemple, le modèle à un domaine d’erreur pour un domaine de mise à niveau est simple à mettre en place. Le modèle à un domaine de mise à niveau par nœud ressemble davantage au modèle généralement adopté. Lors des mises à niveau, chaque nœud est mis à jour indépendamment. Il s’agit d’un processus analogue à celui qui consistait par le passé à mettre à jour manuellement des petits groupes d’ordinateurs.
 
 Le modèle le plus courant est la matrice Domaine d’erreur/Domaine de mise à niveau, où les domaines d’erreur et les domaines de mise à niveau forment une table et où les nœuds sont placés le long de la diagonale. Il s’agit du modèle utilisé par défaut dans les clusters Service Fabric dans Azure. Les clusters constitués d’un grand nombre de nœuds finissent par ressembler au modèle de matrice dense présenté ci-dessus.
 
+> [!NOTE]
+> Clusters service Fabric hébergés dans Azure ne gèrent pas la modification de la stratégie par défaut. Seuls les clusters autonomes offrent cette personnalisation.
+>
+
 ## <a name="fault-and-upgrade-domain-constraints-and-resulting-behavior"></a>Contraintes des domaines d’erreur et de mise à niveau, et comportement résultant
 ### <a name="default-approach"></a>*Approche par défaut*
-Par défaut, Cluster Resource Manager assure la répartition des services entre les domaines d’erreur et de mise à niveau. Cette opération est modélisée comme une [contrainte](service-fabric-cluster-resource-manager-management-integration.md). La contrainte de domaine d’erreur et de mise à niveau indique : « Pour une partition de service donnée, il ne doit jamais y avoir une différence supérieure à un dans le nombre d’objets de service (instances de service sans état ou réplicas de service avec état) entre deux domaines à un même niveau de hiérarchie. » Disons que cette contrainte représente une garantie de « différence maximale ». La contrainte des domaines d’erreur et de mise à niveau empêche certains déplacements ou organisations qui enfreignent la règle mentionnée ci-dessus. 
+Par défaut, Cluster Resource Manager assure la répartition des services entre les domaines d’erreur et de mise à niveau. Cette opération est modélisée comme une [contrainte](service-fabric-cluster-resource-manager-management-integration.md). La contrainte de domaine d’erreur et de mise à niveau indique : « Pour une partition de service donnée, il ne doit jamais y avoir une différence supérieure à un dans le nombre d’objets de service (instances de service sans état ou réplicas de service avec état) entre deux domaines à un même niveau de hiérarchie. » Disons que cette contrainte représente une garantie de « différence maximale ». La contrainte des domaines d’erreur et de mise à niveau empêche certains déplacements ou organisations qui enfreignent la règle mentionnée ci-dessus.
 
 Examinons un exemple. Supposons que nous avons un cluster avec six nœuds, configuré avec cinq domaines d’erreur et cinq de mise à niveau.
 
@@ -339,7 +343,7 @@ via ClusterConfig.json pour les déploiements autonomes
 >
 
 ## <a name="node-properties-and-placement-constraints"></a>Propriétés de nœud et contraintes de placement
-Parfois (en réalité, la plupart du temps), vous voudrez faire en sorte que certaines charges de travail s’exécutent uniquement sur certains types de nœud du cluster. Par exemple, certaines charges de travail peuvent nécessiter des GPU ou des SSD, tandis que d’autres n’en ont pas besoin. Presque toutes les architectures multiniveau sont un bon exemple de ciblage du matériel sur des charges de travail spécifiques. Certaines machines font office de système frontal ou remplissent le rôle de service d’API de l’application et sont exposées aux clients ou à Internet. D’autres machines, souvent dotées d’autres ressources matérielles, gèrent le travail des couches de calcul ou de stockage. Celles-ci ne sont généralement _pas_ directement exposées aux clients ou à Internet. Service Fabric s’attend dans certains cas à ce que des charges de travail particulières aient besoin de s’exécuter sur des configurations matérielles particulières. Par exemple : 
+Parfois (en réalité, la plupart du temps), vous voudrez faire en sorte que certaines charges de travail s’exécutent uniquement sur certains types de nœud du cluster. Par exemple, certaines charges de travail peuvent nécessiter des GPU ou des SSD, tandis que d’autres n’en ont pas besoin. Presque toutes les architectures multiniveau sont un bon exemple de ciblage du matériel sur des charges de travail spécifiques. Certaines machines font office de système frontal ou remplissent le rôle de service d’API de l’application et sont exposées aux clients ou à Internet. D’autres machines, souvent dotées d’autres ressources matérielles, gèrent le travail des couches de calcul ou de stockage. Celles-ci ne sont généralement _pas_ directement exposées aux clients ou à Internet. Service Fabric s’attend dans certains cas à ce que des charges de travail particulières aient besoin de s’exécuter sur des configurations matérielles particulières. Exemple :
 
 * une application multiniveau existante a été « augmentée et déplacée » dans un environnement Service Fabric
 * une charge de travail veut s’exécuter sur un matériel spécifique pour des raisons d’isolation de sécurité, de performance ou de mise à l’échelle
@@ -365,7 +369,7 @@ La valeur spécifiée dans la propriété de nœud peut être une chaîne, une v
 
 1) des vérifications conditionnelles pour la création d’instructions particulières
 
-| Instruction | Syntaxe |
+| Déclaration | Syntaxe |
 | --- |:---:|
 | "égal à" | "==" |
 | "non égal à" | "!=" |

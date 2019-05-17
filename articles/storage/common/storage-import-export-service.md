@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/07/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 5bb68f3f0139a98f10e28957209f8530a762b76c
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: 97a3ac275613b644dfd90144039e4f3127186997
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65413904"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65603108"
 ---
 # <a name="what-is-azure-importexport-service"></a>Qu’est-ce que le service Azure Import/Export ?
 
@@ -74,9 +74,9 @@ Globalement, un travail d’importation comprend les opérations suivantes :
 8. Les disques sont expédiés à l’aide de votre compte de transporteur à l’adresse de retour indiquée dans le travail d’importation.
 
 > [!NOTE]
-> Pour les expéditions à l’échelle nationale (dans le pays du centre de données), veuillez partager un compte de transporteur domestique 
+> Pour les envois sur locales (dans le centre de données pays/région), veuillez partager un compte de transporteur domestiques 
 >
-> Des livraisons à l’étranger (à l’extérieur de pays du centre de données), veuillez partager un compte de transporteur international
+> Des livraisons à l’étranger (à l’extérieur du centre de données pays/région), veuillez partager un compte de transporteur international
 
  ![Figure 1 : flux d’importation de travail](./media/storage-import-export-service/importjob.png)
 
@@ -104,9 +104,9 @@ Globalement, un travail d’exportation comprend les opérations suivantes :
 10. Les disques sont expédiés à l’aide de votre compte de transporteur à l’adresse de retour indiquée dans le travail d’importation.
 
 > [!NOTE]
-> Pour les expéditions à l’échelle nationale (dans le pays du centre de données), veuillez partager un compte de transporteur domestique 
+> Pour les envois sur locales (dans le centre de données pays/région), veuillez partager un compte de transporteur domestiques 
 >
-> Des livraisons à l’étranger (à l’extérieur de pays du centre de données), veuillez partager un compte de transporteur international
+> Des livraisons à l’étranger (à l’extérieur du centre de données pays/région), veuillez partager un compte de transporteur international
   
  ![Figure 2 : flux d’exportation de travail](./media/storage-import-export-service/exportjob.png)
 
@@ -119,7 +119,7 @@ Le service Azure Import/Export prend en charge la copie des données vers et dep
 ### <a name="supported-shipping-locations"></a>Emplacements d’expédition pris en charge :
 
 
-|Pays  |Pays  |Pays  |Pays  |
+|Pays ou région  |Pays ou région  |Pays ou région  |Pays ou région  |
 |---------|---------|---------|---------|
 |USA Est    | Europe Nord        | Inde Centre        |US Gov Iowa         |
 |USA Ouest     |Europe Ouest         | Inde Sud        | Est des États-Unis – US DoD        |

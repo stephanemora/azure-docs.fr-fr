@@ -3,8 +3,8 @@ title: Comprendre le manifeste d’application Azure Active Directory | Microsof
 description: Présentation détaillée de l’utilisation du manifeste d’application Azure Active Directory, qui représente la configuration d’identité d’une application dans un locataire Azure AD et permet de faciliter l’autorisation OAuth, le consentement et bien plus encore.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 4804f3d4-0ff1-4280-b663-f8f10d54d184
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/13/2019
-ms.author: celested
+ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 18ff5c4c54cdfe03eca572e2aa42f2330597c94d
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 1d02642b0c069124ddcfbef1ea655438c906739a
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64918770"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65545652"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Manifeste d’application Azure Active Directory
 
@@ -48,7 +48,7 @@ Pour configurer le manifeste de l’application :
 > [!NOTE]
 > Si vous ne voyez pas la colonne **Exemple de valeur** après la **Description**, agrandissez la fenêtre de votre navigateur et faites défiler/balayez jusqu’à ce que vous voyiez la colonne **Exemple de valeur**.
 
-| Clé  | Type de valeur | Description  | Exemple de valeur |
+| Clé  | Type de valeur | Description   | Exemple de valeur |
 |---------|---------|---------|---------|
 | `accessTokenAcceptedVersion` | Int32 nullable | Spécifie la version de jeton d’accès acceptée par la ressource. Cela modifie la version et le format du JWT produit indépendant du point de terminaison ou du client utilisé pour demander le jeton d’accès.<br/><br/>Le point de terminaison utilisé, v1.0 ou v2.0, est choisi par le client et affecte uniquement la version d’id_tokens. Les ressources doivent explicitement configurer `accesstokenAcceptedVersion` pour indiquer le format de jeton d’accès pris en charge.<br/><br/>Les valeurs possibles pour `accesstokenAcceptedVersion` sont 1, 2 ou null. Si la valeur est null, le paramètre est défini par défaut sur 1, ce qui correspond au point de terminaison v1.0. | `2` |
 | `addIns` | Collection | Définit le comportement personnalisé qu’un service consommateur peut utiliser pour appeler une application dans des contextes spécifiques. Par exemple, les applications qui peuvent restituer les flux de fichier peuvent définir la propriété addIns pour sa fonctionnalité « filehandler ». Cela permet aux services tels qu’Office 365 en appeler l’application dans le contexte d’un document de sur que l’utilisateur travaille. | <code>{<br>&nbsp;&nbsp;&nbsp;"id":"968A844F-7A47-430C-9163-07AE7C31D407"<br>&nbsp;&nbsp;&nbsp;"type": "FileHandler",<br>&nbsp;&nbsp;&nbsp;"properties": [<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"key": "version", "value": "2" }<br>&nbsp;&nbsp;&nbsp;]<br>}</code>|

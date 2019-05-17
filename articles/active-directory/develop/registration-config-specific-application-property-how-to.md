@@ -3,8 +3,8 @@ title: Guide pratique pour remplir les champs spécifiques d’une application p
 description: Conseils sur la manière de remplir des champs spécifiques lorsque vous inscrivez une application personnalisée auprès d’Azure AD
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
-ms.author: celested
+ms.author: ryanwi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1e4362e45ff8eee13b9203b9103266c60b4833a9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a8b93f26080229e980b680c157f59db4edf33e7a
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60299054"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65545484"
 ---
 # <a name="how-to-fill-out-specific-fields-for-a-custom-developed-application"></a>Guide pratique pour remplir les champs spécifiques d’une application personnalisée
 
@@ -42,7 +42,7 @@ Cet article décrit brièvement tous les champs disponibles dans le formulaire d
 | Champ            | Description                                                                              |
 |------------------|------------------------------------------------------------------------------------------|
 | Nom             | Le nom de l’application. Il doit être composé de quatre caractères minimum.                |
-| Type d’application | **Application web/API web** : une application qui représente une application web, une API web, ou les deux 
+| Type d'application | **Application web/API web** : une application qui représente une application web, une API web, ou les deux 
 | |**Native** : une application qui peut être installée sur l’appareil ou l’ordinateur d’un utilisateur           |
 | URL de connexion      | L’URL à laquelle les utilisateurs peuvent se connecter pour utiliser votre application.                                  |
 

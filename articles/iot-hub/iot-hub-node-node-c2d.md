@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: javascript
 ms.topic: conceptual
 ms.date: 06/16/2017
-ms.openlocfilehash: baefd05b562d688b662bf988c7b36a0e9cd154b3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e2c3c3988193242cd0afe0135b019c7e6f73b59c
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61441824"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65596726"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-node"></a>Envoi de messages cloud à appareil avec IoT Hub (Node)
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
@@ -44,7 +44,7 @@ Vous trouverez plus d’informations sur les messages cloud-à-appareil dans le 
 
 Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
-* Node.js version 4.0.x ou version ultérieure.
+* Version de Node.js 10.0.x ou version ultérieure.
 * Un compte Azure actif. (Si vous ne possédez pas de compte, vous pouvez créer un [compte gratuit](https://azure.microsoft.com/pricing/free-trial) en quelques minutes seulement.)
 
 ## <a name="receive-messages-in-the-simulated-device-app"></a>Recevoir des messages dans l’application d’appareil simulé

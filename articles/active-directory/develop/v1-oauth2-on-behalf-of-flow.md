@@ -4,7 +4,7 @@ description: Cet article explique comment utiliser des messages HTTP pour implé
 services: active-directory
 documentationcenter: .net
 author: navyasric
-manager: mtillman
+manager: CelesteDG
 editor: ''
 ms.assetid: 09f6f318-e88b-4024-9ee1-e7f09fb19a82
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2017
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 53f8ec8a6833446663d7f142deefd595eed13136
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a2983980786fc706d103c0147a0776f2ff8c2d4f
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60250870"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65545468"
 ---
 # <a name="service-to-service-calls-that-use-delegated-user-identity-in-the-on-behalf-of-flow"></a>Appels de service à service utilisant l’identité utilisateur déléguée dans le flux On-Behalf-Of
 
@@ -149,7 +149,7 @@ Une demande de jeton d’accès de service à service avec un certificat contien
 | client_id |required | ID d’application affecté au service appelant lors de l’inscription auprès d’Azure AD. Pour rechercher l’ID d’application dans le portail Azure, sélectionnez **Active Directory**, choisissez l’annuaire, puis sélectionnez le nom de l’application. |
 | client_assertion_type |required |La valeur doit être `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. |
 | client_assertion |required | Jeton web JSON que vous créez et que vous signez avec le certificat inscrit comme informations d’identification pour votre application. Pour plus d’informations sur le format de l’assertion et sur la façon d’inscrire votre certificat, consultez [Informations d’identification des certificats](active-directory-certificate-credentials.md).|
-| resource |required | URI de l’ID d’application du service de destination (ressource sécurisée). Pour rechercher l’ID d’application dans le portail Azure, sélectionnez **Active Directory**, puis choisissez l’annuaire. Sélectionnez le nom de l’application, choisissez **Tous les paramètres**, puis sélectionnez **Propriétés**. |
+| Ressource |required | URI de l’ID d’application du service de destination (ressource sécurisée). Pour rechercher l’ID d’application dans le portail Azure, sélectionnez **Active Directory**, puis choisissez l’annuaire. Sélectionnez le nom de l’application, choisissez **Tous les paramètres**, puis sélectionnez **Propriétés**. |
 | requested_token_use |required | Spécifie comment la demande doit être traitée. Dans le flux Pour le compte de, la valeur doit être **on_behalf_of**. |
 | scope |required | Liste des étendues (séparées par des espaces) pour la demande de jeton. Pour OpenID Connect, l’étendue **openid** doit être spécifiée.|
 
@@ -183,10 +183,10 @@ Une réponse correspondant à une réussite est une réponse JSON OAuth 2.0 avec
 | Paramètre | Description |
 | --- | --- |
 | token_type |Indique la valeur du type de jeton. Le seul type de jeton pris en charge par Azure AD est le **jeton porteur**. Pour plus d’informations sur les jetons du porteur, consultez le [Framework d’autorisation OAuth 2.0 : Bearer Token Usage (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
-| scope |Étendue de l’accès accordé dans le jeton. |
+| portée |Étendue de l’accès accordé dans le jeton. |
 | expires_in |Durée de validité du jeton d’accès (en secondes). |
 | expires_on |L’heure d’expiration du jeton d’accès. La date est représentée en nombre de secondes à partir du 1er janvier 1970 (1970-01-01T0:0:0Z) UTC jusqu’au moment de l’expiration. Cette valeur est utilisée pour déterminer la durée de vie des jetons en cache. |
-| resource |URI de l’ID d’application du service de destination (ressource sécurisée). |
+| Ressource |URI de l’ID d’application du service de destination (ressource sécurisée). |
 | access_token |Le jeton d’accès demandé. Le service web appelant peut utiliser ce jeton pour s’authentifier auprès du service destinataire. |
 | id_token |Jeton d’ID demandé. Le service appelant peut utiliser ce jeton pour vérifier l’identité de l’utilisateur et démarrer une session avec lui. |
 | refresh_token |Jeton d’actualisation pour le jeton d’accès demandé. Le service appelant peut utiliser ce jeton pour demander un autre jeton d’accès après l’expiration du jeton d’accès actuel. |
@@ -274,10 +274,10 @@ La réponse contient un jeton SAML encodé en UTF8 et Base64url.
 | Paramètre | Description |
 | --- | --- |
 | token_type |Indique la valeur du type de jeton. Le seul type de jeton pris en charge par Azure AD est le **jeton porteur**. Pour plus d’informations sur les jetons du porteur, consultez le [Framework d’autorisation OAuth 2.0 : Bearer Token Usage (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
-| scope |Étendue de l’accès accordé dans le jeton. |
+| portée |Étendue de l’accès accordé dans le jeton. |
 | expires_in |Durée de validité du jeton d’accès (en secondes). |
 | expires_on |L’heure d’expiration du jeton d’accès. La date est représentée en nombre de secondes à partir du 1er janvier 1970 (1970-01-01T0:0:0Z) UTC jusqu’au moment de l’expiration. Cette valeur est utilisée pour déterminer la durée de vie des jetons en cache. |
-| resource |URI de l’ID d’application du service de destination (ressource sécurisée). |
+| Ressource |URI de l’ID d’application du service de destination (ressource sécurisée). |
 | access_token |Paramètre qui retourne l’assertion SAML. |
 | refresh_token |Le jeton d’actualisation. Le service appelant peut utiliser ce jeton pour demander un autre jeton d’accès après l’expiration de l’instruction d’assertion SAML actuelle. |
 

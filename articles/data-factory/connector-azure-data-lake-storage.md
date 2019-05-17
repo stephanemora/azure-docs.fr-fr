@@ -8,14 +8,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 04/29/2019
+ms.date: 05/13/2019
 ms.author: jingwang
-ms.openlocfilehash: 3fcedc74cde9e26ea53d2475f0e9805788787f2d
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 355f61d6282c822e18cf4752044c1e1a5cbbc6a0
+ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65228614"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65560779"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen2-using-azure-data-factory"></a>Copier des données vers ou depuis Azure Data Lake Storage Gen2 à l’aide d’Azure Data Factory
 
@@ -249,7 +249,7 @@ Pour copier des données vers et depuis Gen2 ADLS dans **format ORC/Avro/JSON/bi
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | type | La propriété type du jeu de données doit être définie sur **AzureBlobFSFile**. |Oui |
-| folderPath | Chemin vers le dossier dans Data Lake Storage Gen2. Si non spécifié, il pointe vers la racine. <br/><br/>Le filtre de caractères génériques est pris en charge, et les caractères génériques autorisés sont : `*` (correspond à zéro ou plusieurs caractères) et `?` (correspond à zéro ou un caractère) ; utilisez `^` en guise d’échappement si votre nom de dossier contient effectivement ce caractère d’échappement ou générique. <br/><br/>Exemples : système de fichiers/dossiers /, voir d’autres exemples dans [exemples de filtre de dossier et le fichier](#folder-and-file-filter-examples). |Non |
+| folderPath | Chemin vers le dossier dans Data Lake Storage Gen2. Si non spécifié, il pointe vers la racine. <br/><br/>Le filtre de caractères génériques est pris en charge, et les caractères génériques autorisés sont : `*` (correspond à zéro ou plusieurs caractères) et `?` (correspond à zéro ou un caractère) ; utilisez `^` comme caractère d'échappement si le nom réel de votre dossier contient des caractères génériques ou ce caractère d'échappement. <br/><br/>Exemples : système de fichiers/dossiers /, voir d’autres exemples dans [exemples de filtre de dossier et le fichier](#folder-and-file-filter-examples). |Non |
 | fileName | **Filtre de nom ou de caractère générique** pour les fichiers sous le « folderPath » spécifié. Si vous ne spécifiez pas de valeur pour cette propriété, le jeu de données pointe vers tous les fichiers du dossier. <br/><br/>Dans le filtre, les caractères génériques autorisés sont les suivants : `*` (correspond à zéro caractère ou plus) et `?` (correspond à zéro ou un caractère).<br/>- Exemple 1 : `"fileName": "*.csv"`<br/>- Exemple 2 : `"fileName": "???20180427.txt"`<br/>Utilisez `^` comme caractère d’échappement si votre nom de fichier réel contient des caractères génériques ou ce caractère d’échappement.<br/><br/>Lorsque fileName n’est pas spécifié pour un jeu de données de sortie et que **preserveHierarchy** n’est pas spécifié dans le récepteur d’activité, l’activité de copie génère automatiquement le nom de fichier suivant ce modèle : «*Données. [activité exécutée ID GUID]. [GUID si FlattenHierarchy]. [format si configuré]. [la compression si configuré]* «, par exemple « Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.gz ». Si c’est le nom de la table et non la requête qui est utilisé pour la copie à partir d’une source tabulaire, le modèle de nom est le suivant : « *[nom de la table].[format].[compression si configurée]* », par exemple « MyTable.csv ». |Non  |
 | modifiedDatetimeStart | Filtre de fichiers en fonction de l’attribut : Dernière modification. Les fichiers seront sélectionnés si leur heure de dernière modification se trouve dans l’intervalle de temps situé entre `modifiedDatetimeStart` et `modifiedDatetimeEnd`. L’heure est appliquée au fuseau horaire UTC au format « 2018-12-01T05:00:00Z ». <br/><br/> N’oubliez pas que les performances globales du déplacement des données seront affectés par l’activation de ce paramètre lorsque vous souhaitez des filtres de fichiers à partir de grandes quantités de fichiers. <br/><br/> Les propriétés peuvent être NULL qui signifie qu'aucun filtre d’attribut de fichier ne sera appliqué au jeu de données.  Lorsque `modifiedDatetimeStart` a une valeur DateHeure, mais que `modifiedDatetimeEnd` est NULL, cela signifie que les fichiers dont l’attribut de dernière modification est supérieur ou égal à la valeur DateHeure sont sélectionnés.  Lorsque `modifiedDatetimeEnd` a une valeur DateHeure, mais que `modifiedDatetimeStart` est NULL, cela signifie que les fichiers dont l’attribut de dernière modification est inférieur à la valeur DateHeure sont sélectionnés.| Non  |
 | modifiedDatetimeEnd | Filtre de fichiers en fonction de l’attribut : Dernière modification. Les fichiers seront sélectionnés si leur heure de dernière modification se trouve dans l’intervalle de temps situé entre `modifiedDatetimeStart` et `modifiedDatetimeEnd`. L’heure est appliquée au fuseau horaire UTC au format « 2018-12-01T05:00:00Z ». <br/><br/> N’oubliez pas que les performances globales du déplacement des données seront affectés par l’activation de ce paramètre lorsque vous souhaitez des filtres de fichiers à partir de grandes quantités de fichiers. <br/><br/> Les propriétés peuvent être NULL qui signifie qu'aucun filtre d’attribut de fichier ne sera appliqué au jeu de données.  Lorsque `modifiedDatetimeStart` a une valeur DateHeure, mais que `modifiedDatetimeEnd` est NULL, cela signifie que les fichiers dont l’attribut de dernière modification est supérieur ou égal à la valeur DateHeure sont sélectionnés.  Lorsque `modifiedDatetimeEnd` a une valeur DateHeure, mais que `modifiedDatetimeStart` est NULL, cela signifie que les fichiers dont l’attribut de dernière modification est inférieur à la valeur DateHeure sont sélectionnés.| Non  |
@@ -516,6 +516,66 @@ Cette section décrit le comportement résultant de l’opération de copie pour
 | false |preserveHierarchy | Dossier1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fichier1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fichier2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Sousdossier1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;Fichier3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;Fichier4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;Fichier5 | Le dossier cible Dossier1 est créé et structuré comme suit : <br/><br/>Dossier1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fichier1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fichier2<br/><br/>Sous-dossier1, où Fichier3, Fichier4 et Fichier5 ne sont pas sélectionnés. |
 | false |flattenHierarchy | Dossier1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fichier1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fichier2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Sousdossier1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;Fichier3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;Fichier4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;Fichier5 | Le dossier cible Dossier1 est créé et structuré comme suit : <br/><br/>Dossier1<br/>&nbsp;&nbsp;&nbsp;&nbsp;nom généré automatiquement pour Fichier1<br/>&nbsp;&nbsp;&nbsp;&nbsp;nom généré automatiquement pour Fichier2<br/><br/>Sous-dossier1, où Fichier3, Fichier4 et Fichier5 ne sont pas sélectionnés. |
 | false |mergeFiles | Dossier1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fichier1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Fichier2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Sousdossier1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;Fichier3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;Fichier4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;Fichier5 | Le dossier cible Dossier1 est créé et structuré comme suit<br/><br/>Dossier1<br/>&nbsp;&nbsp;&nbsp;&nbsp;Le contenu de Fichier1 + Fichier2 est fusionné dans un fichier avec un nom de fichier généré automatiquement. nom généré automatiquement pour Fichier1<br/><br/>Sous-dossier1, où Fichier3, Fichier4 et Fichier5 ne sont pas sélectionnés. |
+
+## <a name="preserve-acls-from-data-lake-storage-gen1"></a>Conserver les ACL à partir de la génération 1 de Data Lake Storage
+
+>[!TIP]
+>Pour copier les données à partir d’Azure Data Lake Storage Gen1 dans Gen2 en général, consultez [copier des données à partir d’Azure Data Lake Storage Gen1 vers Gen2 avec Azure Data Factory](load-azure-data-lake-storage-gen2-from-gen1.md) avec la procédure pas à pas et les meilleures pratiques.
+
+Lors de la copie des fichiers à partir d’Azure Data Lake Storage (ADLS) Gen1 vers Gen2, vous pouvez choisir de conserver les listes de contrôle d’accès (ACL) POSIX, ainsi que des données. Pour le contrôle d’accès dans les détails, reportez-vous à [contrôle d’accès dans Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-access-control.md) et [contrôle d’accès dans Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-access-control.md).
+
+Les types suivants de listes ACL peuvent être conservées à l’aide d’activité de copie de fabrique de données Azure, vous pouvez sélectionner un ou plusieurs types :
+
+- **ACL**: Copiez et conserver **listes de contrôle d’accès POSIX** sur les fichiers et répertoires. Il copie les ACL existants complètes à partir de la source au récepteur. 
+- **Propriétaire** : Copiez et conserver **l’utilisateur propriétaire** de fichiers et répertoires. Accès de super utilisateur au récepteur ADLS Gen2 est requis.
+- **Groupe**: Copiez et conserver **le groupe propriétaire** de fichiers et répertoires. Accès de super utilisateur au récepteur ADLS Gen2, ou l’utilisateur propriétaire (si l’utilisateur propriétaire est également membre du groupe cible) est requis.
+
+Si vous spécifiez pour copier à partir d’un dossier, Data Factory réplique les ACL pour ce dossier donné, ainsi que les fichiers et répertoires sous ce dernier (si `recursive` est défini sur true). Si vous spécifiez pour copier à partir d’un seul fichier, les ACL sur ce fichier est copié.
+
+>[!IMPORTANT]
+>Lorsque vous choisissez de conserver les ACL, veillez à qu'accorder haut les autorisations suffisantes pour ADF fonctionner par rapport à votre récepteur ADLS Gen2 compte. Par exemple, utiliser l’authentification par clé de compte, ou affecter le rôle de propriétaire de données de stockage Blob à l’identité gérée/principal du service.
+
+Lorsque vous configurez source comme ADLS Gen1 avec copie binaire option/binaire et le format récepteur comme ADLS Gen2 avec le format d’option/binaire copie binaire, vous pouvez trouver **conserver** option **page de paramètres de l’outil copie données** ou dans **activité de copie -> paramètres** onglet pour la création de l’activité.
+
+![Conserver les ACL Gen1 ADLS vers Gen2](./media/connector-azure-data-lake-storage/adls-gen2-preserve-acl.png)
+
+Voici un exemple de configuration JSON (consultez `preserve`) : 
+
+```json
+"activities":[
+    {
+        "name": "CopyFromGen1ToGen2",
+        "type": "Copy",
+        "typeProperties": {
+            "source": {
+                "type": "AzureDataLakeStoreSource",
+                "recursive": true
+            },
+            "sink": {
+                "type": "AzureBlobFSSink",
+                "copyBehavior": "PreserveHierarchy"
+            },
+            "preserve": [
+                "ACL",
+                "Owner",
+                "Group"
+            ]
+        },
+        "inputs": [
+            {
+                "referenceName": "<Azure Data Lake Storage Gen1 input dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "outputs": [
+            {
+                "referenceName": "<Azure Data Lake Storage Gen2 output dataset name>",
+                "type": "DatasetReference"
+            }
+        ]
+    }
+]
+```
 
 ## <a name="mapping-data-flow-properties"></a>Mappage de propriétés de flux de données
 

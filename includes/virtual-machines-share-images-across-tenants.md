@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/25/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: cb7cf932433927d4ead853952ff74d55c55b9cf7
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 499aeccdf00980eeb66ac6ee06e45267fd515143
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65160019"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65546725"
 ---
 Galeries d’images partagé vous permettent d’images de partage à l’aide de RBAC. Vous pouvez utiliser RBAC pour partager des images au sein de votre client et même aux personnes en dehors de votre client. Toutefois, si vous souhaitez partager des images en dehors de votre client Azure, à grande échelle, vous devez créer une inscription d’application pour faciliter le partage.  À l’aide d’une inscription d’application peut activer des scénarios de partage plus complexes, telles que : 
 
@@ -44,7 +44,9 @@ Donner l’autorisation de l’inscription d’application à utiliser la galeri
 1. Sous **sélectionnez**, type *myGalleryApp* et sélectionnez-le lorsqu’il s’affiche dans la liste. Lorsque vous avez terminé, sélectionnez **enregistrer**.
 
 
-Créer un principal de service pour 2 client à utiliser pour accéder à l’application en demandant une connexion à l’aide d’un navigateur. Remplacez *<Tenant2 ID>* avec l’ID de client pour le locataire que vous aimeriez partager avec votre galerie d’images. Remplacez *< ID d’Application (client) >* avec l’ID d’application de l’inscription d’application que vous avez créé. Lorsque vous avez terminé effectue les remplacements, collez l’URL dans un navigateur et suivez les invites de connexion pour se connecter à un locataire 2.
+## <a name="give-tenant-2-access"></a>Accorder l’accès du locataire 2
+
+Donnez l’accès client 2 à l’application en demandant une connexion à l’aide d’un navigateur. Remplacez *<Tenant2 ID>* avec l’ID de client pour le locataire que vous aimeriez partager avec votre galerie d’images. Remplacez *< ID d’Application (client) >* avec l’ID d’application de l’inscription d’application que vous avez créé. Lorsque vous avez terminé effectue les remplacements, collez l’URL dans un navigateur et suivez les invites de connexion pour se connecter à un locataire 2.
 
 ```
 https://login.microsoftonline.com/<Tenant 2 ID>/oauth2/authorize?client_id=<Application (client) ID>&response_type=code&redirect_uri=https%3A%2F%2Fwww.microsoft.com%2F 

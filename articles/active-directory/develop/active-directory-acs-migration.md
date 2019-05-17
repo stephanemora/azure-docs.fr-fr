@@ -3,8 +3,8 @@ title: Effectuer une migration à partir d’Azure Access Control Service | Micr
 description: Découvrez les options permettant de déplacer des applications et des services à partir d’Azure Access Control Service (ACS).
 services: active-directory
 documentationcenter: dev-center-name
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
@@ -14,21 +14,21 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/03/2018
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: jlu, annaba, hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5f9fd062d445fb738842667cab0c24332c0e4cc8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 84a8c2954473401a9e57cba045907c60862ed61f
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60301051"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65546235"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>Activation Effectuer une migration à partir d’Azure Access Control Service
 
 Microsoft Azure Access Control Service (ACS), un service d’Azure Active Directory (Azure AD), sera mis hors-service le 7 novembre 2018. Les applications et services qui utilisent actuellement Access Control Service doivent être entièrement migrés vers un autre mécanisme d’authentification d’ici-là. Cet article fournit des recommandations aux clients actuels qui prévoient de ne plus utiliser Access Control Service. Si vous n’utilisez pas Access Control Service, aucune action n’est requise de votre part.
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Présentation
 
 Access Control Service est un service d’authentification de cloud qui permet d’authentifier les utilisateurs et de les autoriser à accéder à vos applications et services web. Il permet également de sortir de votre code, de nombreuses fonctionnalités d’authentification et d’autorisation. Access Control Service est principalement utilisé par les développeurs et architectes de clients Microsoft .NET, d’applications web ASP.NET et des services web WCF (Windows Communication Foundation).
 
@@ -199,13 +199,13 @@ De manière générale, *Azure Active Directory est probablement le meilleur cho
 | Comptes Facebook, Google, Yahoo | Pris en charge | Aucune prise en charge |
 | **Protocoles et compatibilité des SDK** | | |
 | WIF | Pris en charge | Pris en charge, mais les instructions disponibles sont limitées |
-| Un certificat de fournisseur d'identité WS-Federation | Pris en charge | Pris en charge |
+| WS-Federation | Pris en charge | Pris en charge |
 | OAuth 2.0 | Pris en charge pour Draft 13 | Pris en charge pour RFC 6749, la spécification la plus récente |
 | WS-Trust | Pris en charge | Non pris en charge |
 | **Formats de jeton** | | |
 | JWT | Pris en charge dans la version bêta | Pris en charge |
 | SAML 1.1 | Pris en charge | VERSION PRÉLIMINAIRE |
-| SAML 2.0 | Pris en charge | Pris en charge |
+| SAML 2.0 | Pris en charge | Pris en charge |
 | SWT | Pris en charge | Non pris en charge |
 | **Personnalisations** | | |
 | Interface utilisateur de sélection de compte/découverte de domaine d’accueil personnalisable | Code téléchargeable pouvant être incorporé dans des applications | Non pris en charge |
@@ -250,13 +250,13 @@ Le tableau suivant compare les fonctionnalités d’Access Control Service qui s
 | Comptes Facebook, Google, Yahoo | Pris en charge | Facebook et Google pris en charge en mode natif, Yahoo pris en charge par le biais de la fédération OpenID Connect à l’aide de stratégies personnalisées |
 | **Protocoles et compatibilité des SDK** | | |
 | Windows Identity Foundation (WIF) | Pris en charge | Non pris en charge |
-| Un certificat de fournisseur d'identité WS-Federation | Pris en charge | Non pris en charge |
+| WS-Federation | Pris en charge | Non pris en charge |
 | OAuth 2.0 | Pris en charge pour Draft 13 | Pris en charge pour RFC 6749, la spécification la plus récente |
 | WS-Trust | Pris en charge | Non pris en charge |
 | **Formats de jeton** | | |
 | JWT | Pris en charge dans la version bêta | Pris en charge |
 | SAML 1.1 | Pris en charge | Non pris en charge |
-| SAML 2.0 | Pris en charge | Non pris en charge |
+| SAML 2.0 | Pris en charge | Non pris en charge |
 | SWT | Pris en charge | Non pris en charge |
 | **Personnalisations** | | |
 | Interface utilisateur de sélection de compte/découverte de domaine d’accueil personnalisable | Code téléchargeable pouvant être incorporé dans des applications | Interface utilisateur entièrement personnalisable par le biais de feuilles de style CSS personnalisées |
@@ -324,7 +324,7 @@ Mais vous pouvez aussi l’utiliser pour l’authentification de serveur à serv
 | Inscription de service web | Créer une partie de confiance dans le portail de gestion Access Control Service | Créer une application Web Azure Active Directory dans le portail Azure |
 | Inscription de client | Créer une identité de service dans le portail de gestion d’Access Control Service | Créer une autre application Azure Active Directory dans le portail Azure |
 | Protocole utilisé |- Protocole OAuth WRAP<br />- Octroi des informations d’identification de client OAuth 2.0 Draft 13 | Octroi des informations d’identification du client OAuth 2.0 |
-| Méthodes d’authentification du client |- Mot de passe simple<br />- Jeton SWT signé<br />- Jeton SAML émis par un fournisseur d’identité fédéré |- Mot de passe simple<br />- Jeton JWT signé |
+| Méthodes d'authentification client |- Mot de passe simple<br />- Jeton SWT signé<br />- Jeton SAML émis par un fournisseur d’identité fédéré |- Mot de passe simple<br />- Jeton JWT signé |
 | Formats de jetons |- JWT<br />- SAML 1.1<br />- SAML 2.0<br />- SWT<br /> | JWT uniquement |
 | Transformation de jeton |- Ajout de revendications personnalisées<br />- Logique if-then simple d’émission de revendications | Ajouter des revendications personnalisées | 
 | Automatisation des tâches de gestion et de configuration | Prise en charge par le service de gestion Access Control Service | Prise en charge par le biais de l’API Graph d’Azure Active Directory et Microsoft Graph |

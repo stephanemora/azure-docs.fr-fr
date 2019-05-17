@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/19/2019
+ms.date: 05/16/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 267b6afd7cd3131dcd138dfb631335f58cec833a
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 31cf1f6da515aa9b453987383e78f466c5ba4fb9
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65407924"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65827292"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Didacticiel : Configurer Workday pour l'approvisionnement automatique d'utilisateurs
 
-L'objectif de ce tutoriel est de présenter les étapes à suivre pour importer des profils d'employé dans Active Directory et Azure Active Directory à partir de Workday, avec réécriture facultative de l'adresse e-mail dans Workday.
+L’objectif de ce didacticiel est de montrer les étapes que vous devez effectuer pour importer des profils de travail à partir de Workday dans Active Directory et Azure Active Directory, avec l’écriture différée facultative de l’adresse de messagerie et le nom d’utilisateur à Workday.
 
 ## <a name="overview"></a>Présentation
 
@@ -34,7 +34,7 @@ Le [service d’approvisionnement utilisateur Azure Active Directory](../manage-
 
 * **Attribution d’utilisateurs cloud uniquement dans Azure Active Directory** : dans les scénarios où Active Directory local n’est pas utilisé, les utilisateurs peuvent être attribués directement à partir de Workday dans Azure Active Directory à l’aide du service d’attribution d’utilisateurs Azure AD.
 
-* **Réécriture des adresses e-mail dans Workday** : le service d'approvisionnement d'utilisateurs Azure AD peut réécrire les adresses e-mail des utilisateurs Azure AD dans Workday.
+* **Écriture différée des adresses de messagerie et le nom d’utilisateur Workday** -l’utilisateur Azure AD service d’approvisionnement peut réécrire les adresses de messagerie et le nom d’utilisateur à partir d’Azure AD à Workday.
 
 ### <a name="what-human-resources-scenarios-does-it-cover"></a>Quels sont les scénarios de ressources humaines couverts ?
 
@@ -67,7 +67,7 @@ Cette solution d’attribution d’utilisateurs Workday est idéal pour :
 Cette section décrit l’architecture de la solution de provisionnement des utilisateurs de bout en bout pour les environnements hybrides courants. Il existe deux flux connexes :
 
 * **Flux de données RH faisant autorité – de Workday vers Active Directory en local :** Dans ce flux, les événements concernant les employés (comme les nouveaux recrutements, les transferts, les fins de contrat) se produisent d’abord dans le locataire Workday HR cloud, puis les données des événements transitent dans Active Directory local par le biais d’Azure AD et l’agent de provisionnement. Selon l’événement, cela peut provoquer des opérations de création/mise à jour/activation/désactivation dans AD.
-* **Flux de réécriture des e-mails – d’Active Directory en local vers Workday :** Une fois la création du compte terminée dans Active Directory, il est synchronisé avec Azure AD par le biais d’Azure AD Connect et l’attribut d’e-mail provenant d’Active Directory peut être réécrit dans Workday.
+* **E-mail et l’écriture différée du nom d’utilisateur flux – d’on-premises Active Directory à Workday :** Une fois la création du compte terminée dans Active Directory, il est synchronisé avec Azure AD via Azure AD Connect et attribut de messagerie et le nom d’utilisateur permettre être différée dans Workday.
 
 ![Présentation](./media/workday-inbound-tutorial/wd_overview.png)
 
@@ -79,7 +79,7 @@ Cette section décrit l’architecture de la solution de provisionnement des uti
 4. L’agent de provisionnement Azure AD Connect utilise un compte de service pour ajouter/mettre à jour des données de compte AD.
 5. Le moteur Azure AD Connect / AD Sync effectue exécute la synchronisation différentielle pour extraire les mises à jour dans AD.
 6. Les mises à jour d’Active Directory sont synchronisées avec Azure Active Directory local.
-7. Si le connecteur de réécriture Workday est configuré, il réécrit l’attribut d’e-mail dans Workday, en fonction de l’attribut de correspondance utilisé.
+7. Si le connecteur de l’écriture différée Workday est configuré, il réécrit dans attribut de messagerie et le nom d’utilisateur Workday, selon l’attribut correspondant est utilisé.
 
 ## <a name="planning-your-deployment"></a>Planification de votre déploiement
 
@@ -285,7 +285,8 @@ Dans cette étape, vous accordez au groupe de sécurité des autorisations de st
    * *Worker Data: All Positions*
    * *Worker Data: Current Staffing Information*
    * *Worker Data: Business Title on Worker Profile*
-
+   * *Comptes WORKDAY*
+   
      ![Stratégies de sécurité de domaine](./media/workday-inbound-tutorial/wd_isu_07.png "Stratégies de sécurité de domaine")  
 
      ![Stratégies de sécurité de domaine](./media/workday-inbound-tutorial/wd_isu_08.png "Stratégies de sécurité de domaine") 
@@ -313,6 +314,7 @@ Dans cette étape, vous accordez au groupe de sécurité des autorisations de st
    | Obtenir | Worker Data: All Positions |
    | Obtenir | Worker Data: Current Staffing Information |
    | Obtenir | Worker Data: Business Title on Worker Profile |
+   | Get et Put | Comptes WORKDAY |
 
 ### <a name="configuring-business-process-security-policy-permissions"></a>Configuration des autorisations relatives à la stratégie de sécurité des processus métier
 
@@ -369,18 +371,21 @@ Pour tout approvisionnement vers une instance locale d'Active Directory, un agen
 Après avoir déployé .NET 4.7.1+, vous pouvez télécharger l'**[agent d'approvisionnement local ici](https://go.microsoft.com/fwlink/?linkid=847801)** et suivre les étapes ci-dessous pour finaliser la configuration de l'agent.
 
 1. Connectez-vous au serveur Windows où vous souhaitez installer le nouvel agent.
-2. Lancez le programme d’installation de l’agent de provisionnement, acceptez les conditions d’utilisation, puis cliquez sur le bouton **Install** (Installer).
+
+1. Lancez le programme d’installation de l’Agent d’approvisionnement, acceptez les termes du contrat, puis cliquez sur le **installer** bouton.
 
    ![Écran d’installation](./media/workday-inbound-tutorial/pa_install_screen_1.png "Écran d’installation")
-3. Une fois l’installation terminée, l’Assistant démarrer et vous voyez l’écran **Connect Azure AD** (Connecter Azure AD). Cliquez sur le bouton **Authenticate** (S’authentifier) pour vous connecter à votre instance Azure AD.
+   
+1. Une fois l’installation terminée, l’Assistant démarrer et vous voyez l’écran **Connect Azure AD** (Connecter Azure AD). Cliquez sur le bouton **Authenticate** (S’authentifier) pour vous connecter à votre instance Azure AD.
 
    ![Connecter Azure AD](./media/workday-inbound-tutorial/pa_install_screen_2.png "Connecter Azure AD")
+   
 1. Authentifiez-vous auprès de votre instance Azure AD avec les informations d’identification de l’administrateur général.
 
    ![Authentification de l’administrateur](./media/workday-inbound-tutorial/pa_install_screen_3.png "Authentification de l’administrateur")
 
-> [!NOTE]
-> Les informations d'identification de l'administrateur Azure AD sont uniquement utilisées pour la connexion à votre locataire Azure AD. L'agent ne stocke pas les informations d'identification sur le serveur local.
+   > [!NOTE]
+   > Les informations d'identification de l'administrateur Azure AD sont uniquement utilisées pour la connexion à votre locataire Azure AD. L'agent ne stocke pas les informations d'identification sur le serveur local.
 
 1. Après une authentification réussie auprès d’Azure AD, vous voyez l’écran **Connect Active Directory** (Connecter Active Directory). Entrez alors votre nom de domaine AD, puis cliquez sur le bouton **Ajouter un annuaire**.
 
@@ -389,21 +394,27 @@ Après avoir déployé .NET 4.7.1+, vous pouvez télécharger l'**[agent d'appr
 1. Vous êtes maintenant invité à entrer les informations d’identification nécessaires pour vous connecter au domaine AD. Sur le même écran, vous pouvez utiliser **Select domain controller priority** (Sélectionner la priorité de contrôleur de domaine) pour spécifier les contrôleurs de domaine que l’agent doit utiliser pour l’envoi des demandes de provisionnement.
 
    ![Informations d'identification du domaine](./media/workday-inbound-tutorial/pa_install_screen_5.png)
+   
 1. Après avoir configuré le domaine, le programme d’installation affiche une liste des domaines configurés. Dans cet écran, vous pouvez répéter les étapes 5 et 6 pour ajouter d’autres domaines ou cliquer sur **Suivant** pour passer à l’inscription de l’agent.
 
    ![Domaines configurés](./media/workday-inbound-tutorial/pa_install_screen_6.png "Domaines configurés")
 
    > [!NOTE]
-   > Si vous avez plusieurs domaines AD (par exemple na.contoso.com, emea.contoso.com), ajoutez individuellement chaque domaine à la liste. L'ajout du domaine parent (par exemple, contoso.com) ne suffit pas. Vous devez inscrire chaque domaine enfant auprès de l'agent.
+   > Si vous avez plusieurs domaines AD (par exemple na.contoso.com, emea.contoso.com), ajoutez individuellement chaque domaine à la liste.
+   > L'ajout du domaine parent (par exemple, contoso.com) ne suffit pas. Vous devez inscrire chaque domaine enfant auprès de l'agent.
+   
 1. Passez en revue les détails de la configuration, puis cliquez sur **Confirm** (Confirmer) pour inscrire l’agent.
   
    ![Écran de confirmation](./media/workday-inbound-tutorial/pa_install_screen_7.png "Écran de confirmation")
+   
 1. L’Assistant Configuration affiche la progression de l’inscription de l’agent.
   
    ![Inscription de l’agent](./media/workday-inbound-tutorial/pa_install_screen_8.png "Inscription de l’agent")
+   
 1. Une fois l’inscription de l’agent réussie, vous pouvez cliquer sur **Exit** (Quitter) pour quitter l’Assistant.
   
    ![Écran Quitter](./media/workday-inbound-tutorial/pa_install_screen_9.png "Écran Quitter")
+   
 1. Vérifiez l'installation de l'agent et assurez-vous qu'il fonctionne en ouvrant le composant logiciel enfichable « Services » et en recherchant le service « Microsoft Azure AD Connect Provisioning Agent ».
   
    ![Services](./media/workday-inbound-tutorial/services.png)
@@ -438,13 +449,14 @@ Après avoir déployé .NET 4.7.1+, vous pouvez télécharger l'**[agent d'appr
 
    * **Conteneur Active Directory :** entrez le nom unique du conteneur où l’agent doit créer des comptes d’utilisateur par défaut.
         Exemple : *OU=Standard Users,OU=Users,DC=contoso,DC=test*
+        
      > [!NOTE]
      > Ce paramètre concerne seulement les créations de comptes d’utilisateur si l’attribut *parentDistinguishedName* attribut n’est pas configuré dans les mappages d’attributs. Ce paramètre n’est pas utilisé pour la recherche d’utilisateurs ni pour les opérations de mise à jour. Toute la sous-arborescence du domaine se trouve dans l’étendue de l’opération de recherche.
 
    * **E-mail de notification :** entrez votre adresse e-mail et cochez la case « Envoyer un e-mail en cas de défaillance ».
 
-> [!NOTE]
-> Le service Azure AD Provisioning envoie la notification par e-mail si le travail de provisionnement passe à l’état [Mise en quarantaine](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning#quarantine).
+     > [!NOTE]
+     > Le service Azure AD Provisioning envoie la notification par e-mail si le travail de provisionnement passe à l’état [Mise en quarantaine](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning#quarantine).
 
    * Cliquez sur le bouton **Tester la connexion**. Si le test de connexion aboutit, cliquez sur le bouton **Enregistrer**, en haut de l'écran. En cas d’échec, vérifiez que les informations d’identification de Workday et celles d’Active Directory configurées sur le programme d’installation de l’agent sont valides.
 
@@ -458,7 +470,7 @@ Dans cette section, vous allez configurer le flux des données de l’utilisateu
 
 1. Dans l'onglet Approvisionnement, sous **Mappages**, cliquez sur **Synchroniser les employés Workday avec l'instance locale d'Active Directory**.
 
-2. Dans le champ **Portée de l'objet source**, vous pouvez sélectionner les ensembles d'utilisateurs de Workday concernés par l'approvisionnement vers AD, en définissant des filtres basés sur des attributs. La portée par défaut est « tous les utilisateurs dans Workday ». Exemples de filtres :
+1. Dans le champ **Portée de l'objet source**, vous pouvez sélectionner les ensembles d'utilisateurs de Workday concernés par l'approvisionnement vers AD, en définissant des filtres basés sur des attributs. La portée par défaut est « tous les utilisateurs dans Workday ». Exemples de filtres :
 
    * Exemple : Étendue pour les utilisateurs avec des ID d’employés entre 1000000 et 2000000 (à l’exclusion de 2000000)
 
@@ -474,8 +486,8 @@ Dans cette section, vous allez configurer le flux des données de l’utilisateu
 
       * Opérateur : IS NOT NULL
 
-> [!TIP]
-> Lors de la configuration initiale de l'application d'approvisionnement, vous devez tester et vérifier vos mappages d'attributs et expressions pour être sûr d'obtenir le résultat souhaité. Microsoft vous recommande d'utiliser les filtres d'étendue disponibles sous **Portée de l'objet source** pour tester vos mappages dans Workday avec quelques utilisateurs test. Après avoir vérifié que les mappages fonctionnent, vous pouvez supprimer le filtre ou l'étendre progressivement pour inclure d'autres utilisateurs.
+   > [!TIP]
+   > Lors de la configuration initiale de l'application d'approvisionnement, vous devez tester et vérifier vos mappages d'attributs et expressions pour être sûr d'obtenir le résultat souhaité. Microsoft vous recommande d'utiliser les filtres d'étendue disponibles sous **Portée de l'objet source** pour tester vos mappages dans Workday avec quelques utilisateurs test. Après avoir vérifié que les mappages fonctionnent, vous pouvez supprimer le filtre ou l'étendre progressivement pour inclure d'autres utilisateurs.
 
 1. Dans le champ **Actions de l'objet cible**, vous pouvez filtrer globalement les actions exécutées sur Active Directory. Les actions **Créer** et **Mettre à jour** sont les plus courantes.
 
@@ -649,9 +661,9 @@ Dans cette section, vous allez configurer le flux des données de Workday vers A
 
 Une fois vos mappages d'attributs configurés, vous pouvez [activer et lancer le service d'approvisionnement d'utilisateurs](#enable-and-launch-user-provisioning).
 
-## <a name="configuring-writeback-of-email-addresses-to-workday"></a>Configuration de l’écriture différée des adresses de messagerie à Workday
+## <a name="configuring-azure-ad-attribute-writeback-to-workday"></a>Configuration de l’écriture différée des attributs Azure AD à Workday
 
-Suivez ces instructions pour configurer l’écriture différée des adresses e-mail des utilisateurs d’Azure Active Directory vers Workday.
+Suivez ces instructions pour configurer la réécriture d’adresses de messagerie d’utilisateur et le nom d’utilisateur à partir d’Azure Active Directory à Workday.
 
 * [Ajouter l'application de connecteur de réécriture et établir la connexion avec Workday](#part-1-adding-the-writeback-connector-app-and-creating-the-connection-to-workday)
 * [Configurer les mappages d'attributs de réécriture](#part-2-configure-writeback-attribute-mappings)
@@ -689,7 +701,7 @@ Suivez ces instructions pour configurer l’écriture différée des adresses e-
 
 ### <a name="part-2-configure-writeback-attribute-mappings"></a>Partie 2 : Configurer les mappages d'attributs de réécriture
 
-Dans cette section, vous allez configurer le transfert des attributs de réécriture d'Azure AD vers Workday.
+Dans cette section, vous allez configurer le transfert des attributs de réécriture d'Azure AD vers Workday. À l’heure actuelle, le connecteur prend uniquement en charge l’écriture différée de l’adresse de messagerie et le nom d’utilisateur à Workday.
 
 1. Dans l'onglet Approvisionnement, sous **Mappages**, cliquez sur **Synchroniser les utilisateurs d'Azure Active Directory avec Workday**.
 
@@ -697,9 +709,9 @@ Dans cette section, vous allez configurer le transfert des attributs de réécri
 
 3. Dans la section **Mappages d’attributs**, mettez à jour l’ID correspondant pour indiquer l’attribut dans Azure Active Directory dans lequel est stocké l’ID d’employé Workday. Une méthode populaire de correspondance consiste à synchroniser l’ID de l’employé Workday avec extensionAttribute1-15 dans Azure AD puis, à utiliser cet attribut dans Azure AD pour faire à nouveau correspondre les utilisateurs dans Workday.
 
-4. Pour enregistrer vos mappages, cliquez sur **Enregistrer** en haut de la section Mappage d’attributs.
+4. En général, vous mappez l’Azure AD *userPrincipalName* attribut Workday *UserID* d’attribut et mapper l’Azure AD *mail* d’attribut pour la journée de travail  *EmailAddress* attribut. Pour enregistrer vos mappages, cliquez sur **Enregistrer** en haut de la section Mappage d’attributs.
 
-Une fois vos mappages d'attributs configurés, vous pouvez [activer et lancer le service d'approvisionnement d'utilisateurs](#enable-and-launch-user-provisioning). 
+Une fois vos mappages d'attributs configurés, vous pouvez [activer et lancer le service d'approvisionnement d'utilisateurs](#enable-and-launch-user-provisioning).
 
 ## <a name="enable-and-launch-user-provisioning"></a>Activer et lancer l'approvisionnement des utilisateurs
 
@@ -782,6 +794,7 @@ La solution utilise actuellement les API Workday suivantes :
 
 * Get_Workers (v21.1) pour récupérer les informations relatives aux employés
 * Maintain_Contact_Information (v26.1) pour la fonctionnalité de réécriture des adresses e-mail professionnelles
+* Update_Workday_Account (v31.2) pour la fonctionnalité de Username Writeback
 
 #### <a name="can-i-configure-my-workday-hcm-tenant-with-two-azure-ad-tenants"></a>Puis-je configurer mon locataire Workday HCM avec deux locataires Azure AD ?
 
@@ -952,7 +965,6 @@ Voici comment vous pouvez gérer ces exigences pour la construction *CN* ou *dis
 
 * Chaque attribut Workday est extrait à l'aide d'une expression sous-jacente de l'API XPATH, configurable sous **Mappage d'attributs -> Section avancée -> Modifier la liste des attributs de Workday** . Voici l'expression par défaut de l'API XPATH pour les attributs Workday *PreferredFirstName*, *PreferredLastName*, *Company* et *SupervisoryOrganization*.
 
-     [!div class="mx-tdCol2BreakAll"]
      | Attribut Workday | Expression de l'API XPATH |
      | ----------------- | -------------------- |
      | PreferredFirstName | wd:Worker/wd:Worker_Data/wd:Personal_Data/wd:Name_Data/wd:Preferred_Name_Data/wd:Name_Detail_Data/wd:First_Name/text() |
@@ -1008,7 +1020,7 @@ Supposons que vous souhaitiez générer des valeurs uniques pour l'attribut *sam
 SelectUniqueValue(
     Replace(Mid(Replace(NormalizeDiacritics(StripSpaces(Join("",  Mid([FirstName],1,1), [LastName]))), , "([\\/\\\\\\[\\]\\:\\;\\|\\=\\,\\+\\*\\?\\<\\>])", , "", , ), 1, 20), , "(\\.)*$", , "", , ),
     Replace(Mid(Replace(NormalizeDiacritics(StripSpaces(Join("",  Mid([FirstName],1,2), [LastName]))), , "([\\/\\\\\\[\\]\\:\\;\\|\\=\\,\\+\\*\\?\\<\\>])", , "", , ), 1, 20), , "(\\.)*$", , "", , ),
-    Replace(Mid(Replace(NormalizeDiacritics(StripSpaces(Join("",  Mid([FirstName],1,3), [LastName]))), , "([\\/\\\\\\[\\]\\:\\;\\|\\=\\,\\+\\*\\?\\<\\>])", , "", , ), 1, 20), , "(\\.)*$", , "", , ),
+    Replace(Mid(Replace(NormalizeDiacritics(StripSpaces(Join("",  Mid([FirstName],1,3), [LastName]))), , "([\\/\\\\\\[\\]\\:\\;\\|\\=\\,\\+\\*\\?\\<\\>])", , "", , ), 1, 20), , "(\\.)*$", , "", , )
 )
 ```
 
@@ -1236,7 +1248,7 @@ Il vous faut pour cela utiliser [Workday Studio](https://community.workday.com/s
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
-    <env:Envelope xmlns:env="https://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="https://www.w3.org/2001/XMLSchema">
+    <env:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="https://www.w3.org/2001/XMLSchema">
       <env:Body>
         <wd:Get_Workers_Request xmlns:wd="urn:com.workday/bsvc" wd:version="v21.1">
           <wd:Request_References wd:Skip_Non_Existing_Instances="true">

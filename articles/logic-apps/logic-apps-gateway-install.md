@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 10/01/2018
-ms.openlocfilehash: 67a918b227ad3b33a2f63b17f86b94f36fbc9fa3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 10a6e5c33f6a3c23d98e6eb3380de0d6dc6ac216
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60405063"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544483"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Installer une passerelle de données locale pour Azure Logic Apps
 
@@ -26,13 +26,13 @@ Vous pouvez utiliser la même installation de passerelle pour d’autres service
 
 La passerelle prend en charge [des connecteurs locaux](../connectors/apis-list.md#on-premises-connectors) dans Azure Logic Apps pour les sources de données suivantes :
 
-*   BizTalk Server 2016
+*   BizTalk Server 2016
 *   Système de fichiers
 *   IBM DB2  
 *   IBM Informix
 *   IBM MQ
 *   MySQL
-*   Oracle Database
+*   Base de données Oracle
 *   PostgreSQL
 *   Serveur d’applications SAP 
 *   Serveur de messagerie SAP
@@ -51,7 +51,7 @@ Pour plus d’informations sur l’utilisation de la passerelle avec d’autres 
 
 ## <a name="prerequisites"></a>Conditions préalables
 
-* Un [compte professionnel ou scolaire](../active-directory/fundamentals/sign-up-organization.md) avec un [abonnement Azure](https://docs.microsoft.com/azure/architecture/cloud-adoption-guide/adoption-intro/subscription-explainer) 
+* Un [compte professionnel ou scolaire](../active-directory/fundamentals/sign-up-organization.md) avec un [abonnement Azure](https://docs.microsoft.com/azure/architecture/cloud-adoption/governance/resource-consistency/azure-resource-access) 
 
   Pendant l’installation de la passerelle, identifiez-vous avec ce compte afin d’associer l’installation de passerelle à votre abonnement Azure. 
   Vous utiliserez par la suite le même compte lors de la création d’une ressource Azure pour installer votre passerelle dans le portail Azure. 
@@ -238,7 +238,7 @@ La passerelle crée une connexion sortante vers [Azure Service Bus](https://azur
 
 La passerelle utilise ces noms de domaine complets :
 
-| Noms de domaine | Ports sortants | Description | 
+| Noms de domaine | Ports sortants | Description  | 
 | ------------ | -------------- | ----------- | 
 | *.analysis.windows.net | 443 | HTTPS | 
 | *.core.windows.net | 443 | HTTPS | 
@@ -485,7 +485,7 @@ Pour déterminer la durée d’une requête, procédez comme suit :
 
    2. Pour rechercher une requête, recherchez un type d’activité, par exemple : 
 
-      | Type d’activité | Description | 
+      | Type d’activité | Description  | 
       |---------------|-------------| 
       | MGEQ | Requêtes qui s’exécutent sur ADO.NET. | 
       | MGEO | Requêtes qui s’exécutent sur OLEDB. | 

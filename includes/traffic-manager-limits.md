@@ -5,20 +5,17 @@ services: ''
 author: KumudD
 ms.service: ''
 ms.topic: include
-ms.date: 03/28/2018
+ms.date: 05/09/2019
 ms.author: ''
 ms.custom: include file
-ms.openlocfilehash: 301ea649f127be1650b0d2236421d9110f19b50e
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 37748258b1e9b7f922934edd715202cacbb793e0
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57553761"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65754080"
 ---
-| Ressource | Limite par défaut |
+| Ressource | Limite par défaut/maximale |
 | --- | --- |
-| Profils par abonnement |200<sup>1</sup> |
+| Profils par abonnement |200 |
 | Points de terminaison par profil |200 |
-
-<sup>1</sup>si vous avez besoin d’augmenter ces limites, contactez le Support Azure.
-

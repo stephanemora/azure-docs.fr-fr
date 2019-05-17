@@ -12,12 +12,12 @@ ms.author: moslake
 ms.reviewer: sstein, carlrab
 manager: craigg
 ms.date: 05/11/2019
-ms.openlocfilehash: 7ab22a1d1b44327b28264ec5bd6ba0c44b1d65a7
-ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
-ms.translationtype: HT
+ms.openlocfilehash: 72552f6335f3ad6742679708a639634362c49c0b
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65620158"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65823316"
 ---
 # <a name="sql-database-serverless-preview"></a>SQL Database serverless (préversion)
 
@@ -277,19 +277,21 @@ Le volume de calcul facturé est exposé par les métriques suivantes :
 
 Cette quantité est calculée chaque seconde et agrégée sur 1 minute.
 
-**Exemple**: Prenez une base de données utilisant GP_S_Gen5_4 avec l’utilisation suivante sur une période d’une heure :
+Considérons une base de données sans serveur configuré avec 1 min vcore et le nombre maximal de 4 VCORE.  Cela correspond à environ 3 Go de mémoire min et max 12 Go de mémoire.  Supposons que le délai de pause automatique est défini sur 6 heures et la charge de travail de base de données est active pendant les 2 premières heures d’une période de 24 heures et inactives dans le cas contraire.    
 
-|Durée (heures:minutes)|app_cpu_billed (secondes de vCore)|
-|---|---|
-|0:01|63|
-|0:02|123|
-|0:03|95|
-|0:04|54|
-|0:05|41|
-|0:06 - 1:00|1255|
-||Total : 1 631|
+Dans ce cas, la base de données est facturé pour le calcul et de stockage pendant 8 heures des première.  Même si la base de données est inactive commençant après l’heure de 2e, il est toujours facturé pour le calcul dans les 6 heures suivantes, selon le calcul minimal approvisionné lorsque la base de données est en ligne.  Uniquement le stockage est facturé pendant le reste de la période de 24 heures pendant que la base de données est suspendu.
 
-Supposons que le prix unitaire du calcul est $0.000073/vCore/seconde. Le calcul facturé pour cette période d’une heure est déterminé en utilisant la formule suivante : **$0.000073/vCore/seconde * 1631 secondes de vCore = $0.1191**
+Plus précisément, la facture de calcul dans cet exemple est calculée comme suit :
+
+|Intervalle|nombre de VCORE utilisés par seconde|Go utilisés par seconde|Dimension facturée de calcul|secondes de vCore facturées sur l’intervalle de temps|
+|---|---|---|---|---|
+|0:00-1:00|4|9|nombre de VCORE utilisés|4 vCores * 3600 seconds = 14400 vCore seconds|
+|1:00-2:00|1|12|Mémoire utilisée|12 Go * 1/3 * 3 600 secondes = 14400 vCore secondes|
+|2:00-8:00|0|0|Provisionnement en mémoire min|3Gb * 1/3 * 21600 seconds = 21600 vCore seconds|
+|8:00-24:00|0|0|Aucun calcul facturé pendant la suspension|vCore 0 secondes|
+|Secondes de vCore total facturés plus de 24 heures||||vCore 50400 secondes|
+
+Supposons que le prix unitaire du calcul est $0.000073/vCore/seconde.  Le calcul facturé pour cette période de 24 heures est le produit des calcul unit price et vcore secondes facturé : $0.000073/vCore/second * 50400 vCore secondes = $3.68
 
 ## <a name="available-regions"></a>Régions disponibles
 

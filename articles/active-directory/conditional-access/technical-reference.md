@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b10a91499dbe7e627025be8487efa15890861b9
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: HT
+ms.openlocfilehash: fae09b5aeed05dfb09f2b998de805ef0607e7f39
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65764721"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65823545"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Référence des paramètres d’accès conditionnel Azure Active Directory
 
@@ -48,7 +48,6 @@ Vous pouvez affecter une stratégie d’accès conditionnel aux applications clo
 - Microsoft Application Insights Analytique
 - Microsoft Azure Information Protection - [en savoir plus](https://docs.microsoft.com/azure/information-protection/faqs#i-see-azure-information-protection-is-listed-as-an-available-cloud-app-for-conditional-accesshow-does-this-work)
 - Microsoft Azure Management - [en savoir plus](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management)
-- Microsoft Azure RemoteApp
 - Gestion des abonnements Microsoft Azure
 - Microsoft Cloud App Security
 - Portail de contrôle d’accès des outils de Microsoft Commerce
@@ -167,7 +166,6 @@ Ce paramètre a un impact sur les tentatives d’accès provenant des applicatio
 
 | Applications clientes | Service cible | Plateforme |
 | --- | --- | --- |
-| Application distante Azure | Service Application distante Azure | Windows 10, Windows 8.1, Windows 7, iOS, Android et macOS |
 | Application Dynamics CRM | Dynamics CRM | Windows 10, Windows 8.1, iOS et Android |
 | Application de messagerie/calendrier/contacts, Outlook 2016, Outlook 2013 (avec l’authentification moderne)| Office 365 Exchange Online | Windows 10 |
 | Stratégie MFA et d’emplacement pour les applications. Les stratégies basées sur les appareils ne sont pas prises en charge.| Tout service d’application Mes applications| Android et iOS |

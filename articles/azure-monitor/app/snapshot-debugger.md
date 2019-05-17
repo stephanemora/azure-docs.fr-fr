@@ -12,17 +12,17 @@ ms.topic: conceptual
 ms.reviewer: brahmnes
 ms.date: 03/07/2019
 ms.author: mbullwin
-ms.openlocfilehash: 074b701422f32f4cd18fd2eb05e3453e139e17ae
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 4157285e8af67acd1dc3627bebc12076d7fe072c
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205598"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595539"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Captures instantanées de débogage sur exceptions levées dans des applications .NET
 Quand une exception se produit, vous pouvez collecter automatiquement une capture instantanée de débogage à partir de votre application web dynamique. La capture instantanée indique l’état du code source et des variables au moment où l’exception a été levée. Le Débogueur de capture instantanée (préversion) dans [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) analyse la télémétrie des exceptions à partir de votre application web. Il collecte des captures instantanées sur les principales exceptions levées afin que vous disposiez des informations dont vous avez besoin pour diagnostiquer des problèmes de production. Incluez le [package NuGet de collecte des captures instantanées](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) dans votre application, et configurez éventuellement les paramètres de collecte dans [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md). Les captures instantanées apparaissent sur les [exceptions](../../azure-monitor/app/asp-net-exceptions.md) dans le portail Application Insights.
 
-Vous pouvez afficher les captures instantanées de débogage dans le portail pour consulter la pile des appels et inspecter les variables à chaque frame de pile des appels. Pour améliorer la puissance de débogage du code source, ouvrez les instantanés avec Visual Studio 2017 Entreprise. Dans Visual Studio, vous pouvez également [définir des points de capture instantanée pour prendre des captures instantanées de manière interactive](https://aka.ms/snappoint) sans attendre la levée d’une exception.
+Vous pouvez afficher les captures instantanées de débogage dans le portail pour consulter la pile des appels et inspecter les variables à chaque frame de pile des appels. Pour obtenir une expérience de débogage plus puissante avec le code source, ouvrez les captures instantanées avec Visual Studio 2019 Enterprise. Dans Visual Studio, vous pouvez également [définir des points de capture instantanée pour prendre des captures instantanées de manière interactive](https://aka.ms/snappoint) sans attendre la levée d’une exception.
 
 Les captures instantanées de débogage sont stockées pendant sept jours. Cette stratégie de rétention est définie application par application. Si vous devez augmenter cette valeur, faites-en la demande en ouvrant une demande de support dans le portail Azure.
 
@@ -81,9 +81,9 @@ Une pile d’appel et un volet de variables s’affichent dans la vue Capture in
 Les captures instantanées peuvent contenir des informations sensibles. Par défaut, elles ne sont pas visibles. Pour afficher les captures instantanées, le rôle `Application Insights Snapshot Debugger` doit vous être attribué.
 
 ## <a name="view-snapshots-in-visual-studio-2017-enterprise-or-above"></a>Afficher les instantanés dans Visual Studio 2017 Enterprise ou une version ultérieure
-1. Cliquez sur le bouton **Télécharger la capture instantanée** pour télécharger un fichier `.diagsession`, qui peut être ouvert par Visual Studio 2017 Enterprise.
+1. Cliquez sur le **télécharger la capture instantanée** bouton pour télécharger un `.diagsession` fichier, ce qui peut être ouvert par Visual Studio Enterprise.
 
-2. Pour ouvrir le fichier `.diagsession`, vous devez avoir installé le composant Débogueur de capture instantanée VS. Le composant Débogueur de capture instantanée est un composant obligatoire de la charge de travail ASP.NET dans Visual Studio qui peut être sélectionné dans la liste des composants individuels de Visual Studio Installer. Si vous utilisez une version de Visual Studio 2017 antérieures à 15.5, vous devrez installer l’extension à partir de la [place de marché Visual Studio](https://aka.ms/snapshotdebugger).
+2. Pour ouvrir le `.diagsession` fichier, vous devez disposer du composant instantané débogueur Visual Studio. Le composant de débogueur de capture instantanée est un composant obligatoire de la charge de travail ASP.net dans Visual Studio et peut être sélectionné dans la liste des composants individuels dans le programme d’installation de Visual Studio. Si vous utilisez une version de Visual Studio antérieures à Visual Studio 2017 version 15.5, vous devez installer l’extension à partir de la [Visual Studio Marketplace](https://aka.ms/snapshotdebugger).
 
 3. Une fois le fichier de capture instantanée ouvert, la page de débogage de minidump s’affiche dans Visual Studio. Cliquez sur **Debug Managed Code** (Déboguer le code managé) pour démarrer le débogage de la capture instantanée. La capture instantanée s’ouvre sur la ligne de code où l’exception a été levée et vous permet de déboguer l’état actuel du processus.
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 0fe1de9bb674c66d1b665de25ee579bc86e42c75
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 4063e79a9415ac35b09cc77d0110c04e191b49c7
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65192391"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65546697"
 ---
 La galerie d’images partagées est un service qui vous permet de structurer et d’organiser vos images de machine virtuelle managées personnalisées. Fournissent des galeries d’images partagé :
 
@@ -30,7 +30,7 @@ Si vous avez un grand nombre d’images gérées que vous avez besoin maintenir 
 
 La fonctionnalité Galerie d’images partagées a plusieurs types de ressources :
 
-| Ressource | Description|
+| Ressource | Description |
 |----------|------------|
 | **Image managée** | Une image de base qui peut être utilisée seul ou utilisée pour créer un **version de l’image** dans une galerie d’images. Les images managées sont créées à partir de machines virtuelles généralisées. Une image managée est un type spécial de disque dur virtuel qui peut être utilisé pour définir plusieurs machines virtuelles et qui peut maintenant être utilisé pour créer des versions d’image partagée. |
 | **Galerie d’images** | Tout comme la Place de marché Azure, une **galerie d’images** est un dépôt permettant de gérer et partager des images, mais vous contrôlez les utilisateurs qui y ont accès. |
@@ -51,9 +51,9 @@ Il existe trois paramètres pour chaque définition de l’image qui sont utilis
 
 |Définition de l’image|Publisher|Offre|Sku|
 |---|---|---|---|
-|myImage1|Contoso|Finances|Backend|
-|myImage2|Contoso|Finances|Serveur frontal|
-|myImage3|Test|Finances|Serveur frontal|
+|myImage1|Contoso|Finance|Backend|
+|myImage2|Contoso|Finance|Serveur frontal|
+|myImage3|Test|Finance|Serveur frontal|
 
 Ces trois définitions présentent des ensembles de valeurs uniques. Le format est semblable à la façon dont vous pouvez spécifier actuellement de serveur de publication, l’offre et référence (SKU) pour [images Azure Marketplace](../articles/virtual-machines/windows/cli-ps-findimage.md) dans Azure PowerShell pour obtenir la dernière version d’une image de place de marché. Chaque définition de l’image doit posséder un ensemble unique de ces valeurs.
 
@@ -77,7 +77,7 @@ Régions de la source sont répertoriées dans le tableau ci-dessous. Toutes les
 
 | Régions de code source |
 |---------------------|-----------------|------------------|-----------------|
-| Centre de l’Australie   | EUAP USA Centre | Centre de la Corée    | Sud du Royaume-Uni 2      |
+| Centre de l’Australie   | USA Centre - EUAP | Centre de la Corée    | Sud du Royaume-Uni 2      |
 | Centre de l’Australie 2 | Asie Est       | Corée du Sud      | Ouest du Royaume-Uni         |
 | Australie Est      | USA Est         | USA Centre Nord | USA Centre-Ouest |
 | Australie Sud-Est | USA Est 2       | Europe Nord     | Europe Ouest     |
@@ -117,11 +117,11 @@ Les régions sur lesquelles est répliquée une version d’image partagée peuv
 
 Tout comme la Galerie d’images partagées, l’Image partagée et la version d’Image partagée sont des ressources qui peuvent être partagées à l’aide des contrôles RBAC d’Azure natifs intégrés. À l’aide de RBAC, vous pouvez partager ces ressources pour les autres utilisateurs principaux de service et les groupes. Vous pouvez même partager l’accès aux personnes en dehors du locataire, dans qu'ils ont été créés. Une fois qu’un utilisateur a accès à la version d’Image partagées, ils peuvent déployer une machine virtuelle ou un jeu de mise à l’échelle de Machine virtuelle.  La matrice de partage suivante vous aide à comprendre les éléments auxquels l’utilisateur a accès :
 
-| Partagé avec l’utilisateur     | Galerie d’images partagées | Image partagée | Version d’image partagée |
+| Partagé avec l’utilisateur     | Galerie d'images partagées | Image partagée | Version d’image partagée |
 |----------------------|----------------------|--------------|----------------------|
-| Galerie d’images partagées | Oui                  | OUI          | Oui                  |
-| Image partagée         | Non                    | OUI          | Oui                  |
-| Version d’image partagée | Non                    | Non            | Oui                  |
+| Galerie d'images partagées | Oui                  | OUI          | Oui                  |
+| Image partagée         | Non                   | OUI          | Oui                  |
+| Version d’image partagée | Non                   | Non            | Oui                  |
 
 Nous vous recommandons de partage au niveau de la galerie pour une expérience optimale. Pour plus d’informations sur RBAC, consultez [gérer l’accès aux ressources Azure à l’aide de RBAC](../articles/role-based-access-control/role-assignments-portal.md).
 
@@ -137,12 +137,12 @@ L’utilisation du service Galerie d’images partagées n’engendre aucuns fra
 Une fois créé, vous pouvez modifier certains les ressources de galerie d’image. Ceux-ci sont limités à :
  
 Galerie d’images partagées :
-- Description
+- Description 
 
 Définition d’image :
 - Processeurs virtuels recommandés
 - Mémoire recommandée
-- Description
+- Description 
 - Date de fin de vie
 
 Version d’image :
@@ -266,4 +266,4 @@ Pour spécifier le nombre de réplicas communs dans l’interface CLI, utilisez 
 
 **Q.** Quelle version d’API utiliser pour créer une galerie d’images partagées, une définition d’image, une version d’image et une machine virtuelle/un groupe de machines virtuelles identiques à partir de la version d’image ?
 
- R. Pour déployer une machine virtuelle ou un groupe de machines virtuelles identiques à partir d’une version d’image, nous vous recommandons d’utiliser la version d’API 2018-04-01 ou une version ultérieure. Pour utiliser des galeries d’images partagées, des définitions d’image et des versions d’image, nous vous recommandons d’utiliser la version d’API 2018-06-01. 
+ R. Pour déployer une machine virtuelle ou un groupe de machines virtuelles identiques à partir d’une version d’image, nous vous recommandons d’utiliser la version d’API 2018-04-01 ou une version ultérieure. Pour utiliser des galeries d’images partagées, des définitions d’image et des versions d’image, nous vous recommandons d’utiliser la version d’API 2018-06-01. Stockage redondant de zone (ZRS) requiert la version 2019-03-01 ou une version ultérieure.
