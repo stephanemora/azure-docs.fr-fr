@@ -7,7 +7,7 @@ metadata:
   description: 'Découvrez comment générer des algorithmes intelligents dans vos applications, sites web et bots pour voir, écouter, énoncer, et comprendre les besoins de vos utilisateurs au moyen de méthodes naturelles de communication. Ces tutoriels, démarrages rapides, références d’API et exemples vous montrent comment.'
   ms.author: jmartens
   ms.subservice: core
-  ms.date: 12/04/2018
+  ms.date: 5/14/2019
   ms.devlang: na
   ms.service: machine-learning
   ms.tgt_pltfrm: na
@@ -34,20 +34,28 @@ sections:
       - items:
           - html: <a href="service/quickstart-run-cloud-notebook">Exécuter une expérience dans le cloud</a> (aucune installation requise)
           - html: <a href="service/quickstart-run-local-notebook">Exécuter une expérience en utilisant un serveur de notebook local</a> (installation locale du SDK)
+          - html: <a href="service/ui-quickstart-run-experiment">Exécuter une expérience dans l’interface visuelle</a> (sans code)
         style: unordered
         type: list
-      - text: "<b>Tutoriel sur la classification des images avec des données MNIST\_:</b>"
+      - text: "<b>Tutoriel : Classification d’images de données MNIST avec le SDK\_:</b>"
         type: paragraph
       - items:
           - html: "Partie\_1\_: <a href=\"service/tutorial-train-models-with-aml\">Entraîner votre propre modèle</a>"
           - html: "Partie\_2\_: <a href=\"service/tutorial-deploy-models-with-aml\">Déployer ce modèle</a>"
         style: unordered
         type: list
-      - text: "<b>Tutoriel de modélisation de régression avec des données NYC\_Taxi\_:</b>"
+      - text: "<b>Tutoriel : Prédire le prix de courses de taxi en utilisant le SDK\_:</b>"
         type: paragraph
       - items:
           - html: "Partie\_1\_: <a href=\"service/tutorial-data-prep\">Préparer les données pour la modélisation</a>"
           - html: "Partie\_2\_: <a href=\"service/tutorial-auto-train-models\">Laisser le machine learning automatisé entraîner des modèles pour vous </a>"
+        style: unordered
+        type: list
+      - text: "<b>Tutoriel : Prédire le prix de voitures en utilisant l’interface visuelle\_:</b>"
+        type: paragraph
+      - items:
+          - html: "Partie\_1\_: <a href=\"service/ui-tutorial-automobile-price-train-score\">Prédire le prix de voitures</a>"
+          - html: "Partie\_2\_: <a href=\"service/ui-tutorial-automobile-price-deploy\">Déployer le modèle de régression</a>"
         style: unordered
         type: list
       - text: "<b>Consommer vos modèles\_:</b>"

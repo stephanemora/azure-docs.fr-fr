@@ -1,34 +1,48 @@
 ---
-title: Créer, changer ou supprimer une table de routage Azure à l’aide d’Ansible
-description: Découvrir comment utiliser Ansible pour créer, modifier ou supprimer une table de routage
-ms.service: azure
+title: 'Tutoriel : Configurer des tables de routage Azure avec Ansible | Microsoft Docs'
+description: Découvrez comment créer, modifier et supprimer des tables de routage Azure avec Ansible.
 keywords: ansible, azure, devops, bash, playbook, réseaux, routes, table de routage
+ms.topic: tutorial
+ms.service: ansible
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
-ms.topic: tutorial
-ms.date: 12/17/2018
-ms.openlocfilehash: 025a8182d32a7d0d00a48795c848d356eb1c3d4e
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.date: 04/30/2019
+ms.openlocfilehash: 846ff510603c0ed0888ec92ece8b86fad0354c19
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57792444"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65230891"
 ---
-# <a name="create-change-or-delete-an-azure-route-table-using-ansible"></a>Créer, changer ou supprimer une table de routage Azure à l’aide d’Ansible
-Azure achemine automatiquement le trafic entre les sous-réseaux, les réseaux virtuels et les réseaux locaux Azure. Si vous voulez changer un routage par défaut sur Azure, vous devez créer une [table de routage](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview).
+# <a name="tutorial-configure-azure-route-tables-using-ansible"></a>Didacticiel : Configurer des tables de routage Azure avec Ansible
 
-Ansible vous permet d’automatiser le déploiement et la configuration de ressources dans votre environnement. Cet article vous montre comment créer, changer ou supprimer une table de routage Azure, ainsi qu’attacher la table de routage à un sous-réseau. 
+[!INCLUDE [ansible-27-note.md](../../includes/ansible-28-note.md)]
+
+Azure achemine automatiquement le trafic entre les sous-réseaux, les réseaux virtuels et les réseaux locaux Azure. Si vous avez besoin d’une maîtrise plus stricte du routage de votre environnement, vous pouvez créer une [table de routage](/azure/virtual-network/virtual-networks-udr-overview). 
+
+[!INCLUDE [ansible-tutorial-goals.md](../../includes/ansible-tutorial-goals.md)]
+
+> [!div class="checklist"]
+>
+> Créer une table de routage
+> Créer un réseau virtuel et un sous-réseau
+> Associer une table de routage à un sous-réseau
+> Dissocier une table de routage d’un sous-réseau
+> Créer et supprimer des itinéraires
+> Interroger une table de routage
+> Supprimer une table de routage
 
 ## <a name="prerequisites"></a>Prérequis
-- **Abonnement Azure** : si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) avant de commencer.
-- [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)][!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
 
-> [!Note]
-> Ansible 2.7 est nécessaire pour exécuter les exemples de playbooks suivants dans ce tutoriel.
+[!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
+[!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
 
 ## <a name="create-a-route-table"></a>Créer une table de routage
-Cette section présente un exemple de playbook Ansible qui crée une table de routage. Le nombre de tables de routage que vous pouvez créer par abonnement et par emplacement Azure est limité. Pour plus d’informations, consultez [limites Azure](https://docs.microsoft.com/azure/azure-subscription-service-limits?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). 
+
+Le code du playbook de cette section crée une table de routage. Pour plus d’informations sur les limites des tables de routage, voir [Limites Azure](/azure/azure-subscription-service-limits#azure-resource-manager-virtual-networking-limits). 
+
+Enregistrez le playbook suivant en tant que `route_table_create.yml` :
 
 ```yml
 - hosts: localhost
@@ -42,16 +56,35 @@ Cette section présente un exemple de playbook Ansible qui crée une table de ro
         resource_group: "{{ resource_group }}"
 ```
 
-Enregistrez ce playbook en tant que `route_table_create.yml`. Pour exécuter le playbook, utilisez la commande **ansible-playbook** comme suit :
+Exécutez le playbook avec la commande `ansible-playbook` :
 
 ```bash
 ansible-playbook route_table_create.yml
 ```
 
 ## <a name="associate-a-route-table-to-a-subnet"></a>Associer une table de routage à un sous-réseau
-Un sous-réseau peut avoir zéro ou une table de routage associée. Une table de routage peut être associée à plusieurs ou aucun sous-réseau. Étant donné que les tables de routage ne sont pas associées à des réseaux virtuels, vous devez associer une table de routage à chaque sous-réseau auquel vous souhaitez associer la table. Tout le trafic sortant du sous-réseau est basé sur les itinéraires que vous avez créés dans les tables de routage, les [itinéraires par défaut](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#default) et les itinéraires propagés à partir d’un réseau local, si le réseau virtuel est connecté à une passerelle de réseau virtuel Azure (ExpressRoute, ou VPN si vous utilisez le protocole BGP avec une passerelle VPN). Vous pouvez uniquement associer une table de routage à des sous-réseaux de réseaux virtuels qui se trouvent au même emplacement et dans le même abonnement Azure que la table de routage.
 
-Cette section présente un exemple de playbook Ansible qui crée un réseau virtuel et un sous-réseau, puis associe une table de routage au sous-réseau.
+Le code du playbook de cette section :
+
+* Crée un réseau virtuel
+* Crée un sous-réseau au sein du réseau virtuel
+* Associe une table de routage au sous-réseau
+
+Les tables de routage ne sont pas associées à des réseaux virtuels, mais au sous-réseau d’un réseau virtuel.
+
+Le réseau virtuel et la table de routage doivent se trouver dans le même abonnement et au même emplacement Azure.
+
+Les sous-réseaux et les tables de routage entretiennent une relation un-à-plusieurs. Il est possible de définir un sous-réseau en y associant zéro ou une seule table de routage. Les tables de routage peuvent être associés à zéro, un ou plusieurs sous-réseaux. 
+
+Le trafic provenant du sous-réseau est acheminé selon :
+
+- les itinéraires définis dans les tables de routage ;
+- les [itinéraires](/azure/virtual-network/virtual-networks-udr-overview#default) par défaut ;
+- les itinéraires propagés à partir d’un réseau local.
+
+Le réseau virtuel doit être connecté à une passerelle de réseau virtuel Azure, qui peut être ExpressRoute ou un VPN si vous utilisez BGP avec une passerelle VPN.
+
+Enregistrez le playbook suivant en tant que `route_table_associate.yml` :
 
 ```yml
 - hosts: localhost
@@ -80,14 +113,19 @@ Cette section présente un exemple de playbook Ansible qui crée un réseau virt
         route_table: "{ route_table_name }"
 ```
 
-Enregistrez ce playbook en tant que `route_table_associate.yml`. Pour exécuter le playbook Ansible, utilisez la commande **ansible-playbook** comme suit :
+Exécutez le playbook avec la commande `ansible-playbook` :
 
 ```bash
 ansible-playbook route_table_associate.yml
 ```
 
 ## <a name="dissociate-a-route-table-from-a-subnet"></a>Dissocier une table de routage d’un sous-réseau
-Quand vous dissociez une table de routage d’un sous-réseau, il vous suffit de définir `route_table` sur `None` dans un sous-réseau. Voici un exemple de playbook Ansible. 
+
+Le code du playbook de cette section dissocie une table de routage d’un sous-réseau.
+
+Pour dissocier une table de routage d’un sous-réseau, définissez `route_table` sur `None`. 
+
+Enregistrez le playbook suivant en tant que `route_table_dissociate.yml` :
 
 ```yml
 - hosts: localhost
@@ -104,14 +142,17 @@ Quand vous dissociez une table de routage d’un sous-réseau, il vous suffit de
         address_prefix_cidr: "10.1.0.0/24"
 ```
 
-Enregistrez ce playbook en tant que `route_table_dissociate.yml`. Pour exécuter le playbook Ansible, utilisez la commande **ansible-playbook** comme suit :
+Exécutez le playbook avec la commande `ansible-playbook` :
 
 ```bash
 ansible-playbook route_table_dissociate.yml
 ```
 
 ## <a name="create-a-route"></a>Créer un itinéraire
-Cette section présente un exemple de playbook Ansible qui crée une route sous la table de routage. Elle définit `virtual_network_gateway` comme `next_hop_type` et `10.1.0.0/16` comme `address_prefix`. Le préfixe ne peut pas être dupliqué dans plusieurs itinéraires de la table de routage, bien qu’il puisse se trouver dans un autre préfixe. Pour en savoir plus sur la façon dont Azure sélectionne les routes et obtenir une description détaillée de tous les types de tronçons suivants, consultez [Vue d’ensemble du routage](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview).
+
+Le code du playbook de cette section crée un itinéraire dans une table de routage. 
+
+Enregistrez le playbook suivant en tant que `route_create.yml` :
 
 ```yml
 - hosts: localhost
@@ -128,14 +169,23 @@ Cette section présente un exemple de playbook Ansible qui crée une route sous 
         address_prefix: "10.1.0.0/16"
         route_table_name: "{{ route_table_name }}"
 ```
-Enregistrez ce playbook en tant que `route_create.yml`. Pour exécuter le playbook Ansible, utilisez la commande **ansible-playbook** comme suit :
+
+Avant d’exécuter le playbook, consultez les notes suivantes :
+
+* `virtual_network_gateway` est défini comme `next_hop_type`. Pour plus d’informations sur la façon dont Azure sélectionne les itinéraires, voir [Vue d’ensemble du routage](/azure/virtual-network/virtual-networks-udr-overview).
+* `address_prefix` est défini comme `10.1.0.0/16`. Le préfixe ne peut pas être dupliqué dans la table de routage.
+
+Exécutez le playbook avec la commande `ansible-playbook` :
 
 ```bash
 ansible-playbook route_create.yml
 ```
 
 ## <a name="delete-a-route"></a>Supprimer un itinéraire
-Cette section présente un exemple de playbook Ansible qui supprime une route d’une table de routage.
+
+Le code du playbook de cette section supprime un itinéraire d’une table de routage.
+
+Enregistrez le playbook suivant en tant que `route_delete.yml` :
 
 ```yml
 - hosts: localhost
@@ -152,15 +202,17 @@ Cette section présente un exemple de playbook Ansible qui supprime une route d�
         state: absent
 ```
 
-Enregistrez ce playbook en tant que `route_delete.yml`. Pour exécuter le playbook Ansible, utilisez la commande **ansible-playbook** comme suit :
+Exécutez le playbook avec la commande `ansible-playbook` :
 
 ```bash
 ansible-playbook route_delete.yml
 ```
 
-## <a name="get-information-of-a-route-table"></a>Obtenir des informations sur une table de routage
-Vous pouvez afficher les détails d’une table de routage (route_table) par le biais du module Ansible nommé `azure_rm_routetable_facts`. Le module de faits retourne les informations de la table de routage avec toutes les routes qui lui sont attachées.
-Voici un exemple de playbook Ansible. 
+## <a name="get-route-table-information"></a>Récupérer les informations de la table de routage
+
+Le code du playbook de cette section utilise le module Ansible `azure_rm_routetable_facts` pour récupérer les informations de la table de routage.
+
+Enregistrez le playbook suivant en tant que `route_table_facts.yml` :
 
 ```yml
 - hosts: localhost
@@ -178,16 +230,21 @@ Voici un exemple de playbook Ansible.
          var: query.route_tables[0]
 ```
 
-Enregistrez ce playbook en tant que `route_table_facts.yml`. Pour exécuter le playbook Ansible, utilisez la commande **ansible-playbook** comme suit :
+Exécutez le playbook avec la commande `ansible-playbook` :
 
 ```bash
 ansible-playbook route_table_facts.yml
 ```
 
 ## <a name="delete-a-route-table"></a>Supprimer une table de routage
-Une table de routage associée à un sous-réseau ne peut pas être supprimée. [Dissociez](#dissociate-a-route-table-from-a-subnet) la table de routage de tous les sous-réseaux avant de tenter de la supprimer.
 
-Vous pouvez supprimer la table de routage ainsi que toutes les routes. Voici un exemple de playbook Ansible. 
+Le code du playbook de cette section supprime une table de routage.
+
+Lorsqu’une table de routage est supprimée, tous ses itinéraires le sont également.
+
+Il n’est pas possible de supprimer une table de routage associée à un sous-réseau. [Dissociez la table de routage de tous les sous-réseaux](#dissociate-a-route-table-from-a-subnet) avant de tenter de la supprimer. 
+
+Enregistrez le playbook suivant en tant que `route_table_delete.yml` :
 
 ```yml
 - hosts: localhost
@@ -202,7 +259,7 @@ Vous pouvez supprimer la table de routage ainsi que toutes les routes. Voici un 
         state: absent
 ```
 
-Enregistrez ce playbook en tant que `route_table_delete.yml`. Pour exécuter le playbook Ansible, utilisez la commande **ansible-playbook** comme suit :
+Exécutez le playbook avec la commande `ansible-playbook` :
 
 ```bash
 ansible-playbook route_table_delete.yml
@@ -210,4 +267,4 @@ ansible-playbook route_table_delete.yml
 
 ## <a name="next-steps"></a>Étapes suivantes
 > [!div class="nextstepaction"] 
-> [Ansible sur Azure](https://docs.microsoft.com/azure/ansible/)
+> [Ansible sur Azure](/azure/ansible/)

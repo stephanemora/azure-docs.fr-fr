@@ -413,7 +413,7 @@
             - name: 'Objets blob, files d’attente, tables et fichiers'
               href: 'https://docs.microsoft.com/dotnet/api/overview/azure/storage/client'
             - name: Déplacement des données
-              href: 'https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.datamovement'
+              href: /dotnet/api/microsoft.azure.storage.datamovement
             - name: Gestionnaire de ressources
               href: 'https://docs.microsoft.com/dotnet/api/overview/azure/storage/management'
         - name: Java
@@ -475,21 +475,23 @@
               href: ../../vs-azure-tools-storage-explorer-accessibility.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Packages NuGet
           items:
-            - name: Bibliothèque cliente Azure Storage pour .NET
-              href: 'https://www.nuget.org/packages/WindowsAzure.Storage/'
+            - name: Bibliothèque cliente Stockage Azure commune
+              href: 'https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/'
+            - name: Bibliothèque cliente Stockage Blob Azure
+              href: 'https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/'
             - name: Bibliothèque de déplacement des données dans le stockage Azure
               href: 'https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/'
             - name: Gestionnaire de configuration Azure
-              href: 'https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/'
+              href: 'https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/'
         - name: Code source
           items:
             - name: .NET
               items:
-                - name: 'Objets blob, files d’attente, tables et fichiers'
-                  href: 'https://docs.microsoft.com/dotnet/api/overview/azure/storage/client'
+                - name: 'Objets blob, files d’attente et fichiers'
+                  href: 'https://github.com/Azure/azure-storage-net'
                 - name: Déplacement des données
-                  href: 'https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.datamovement'
-                - name: Gestionnaire de ressources
+                  href: /dotnet/api/microsoft.azure.storage.datamovement
+                - name: Fournisseur de ressources de stockage
                   href: 'https://docs.microsoft.com/dotnet/api/overview/azure/storage/management'
             - name: Java
               items:

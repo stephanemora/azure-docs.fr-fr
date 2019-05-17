@@ -167,6 +167,8 @@
           href: application-provisioning-config-problem.md
         - name: Problème d’enregistrement des informations d’identification d’administrateur lors de la configuration du provisionnement d’utilisateurs pour une application de galerie
           href: application-provisioning-config-problem-storage-limit.md
+        - name: Synchroniser un attribut pour le mappage - application de galerie
+          href: user-provisioning-sync-attributes-for-mapping.md
         - name: Aucun utilisateur provisionné - application de galerie
           href: application-provisioning-config-problem-no-users-provisioned.md
         - name: Utilisateurs incorrects provisionnés - application de galerie

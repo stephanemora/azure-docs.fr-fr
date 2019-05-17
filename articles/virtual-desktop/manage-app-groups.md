@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: da653842b09c15a5fd42bae0ed45e7b31452b972
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: f0cdd28be8c6e7390aa26fdc2dfbf32ec5542c2d
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578745"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233906"
 ---
 # <a name="tutorial-manage-app-groups-for-windows-virtual-desktop-preview"></a>Didacticiel : Gérer des groupes d’applications pour Windows Virtual Desktop Preview
 
@@ -73,7 +73,7 @@ Avant de commencer, si vous ne l’avez pas déjà fait, [téléchargez et impor
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Une fois que vous avez créé vos groupes d’applications, vous créez les principaux de service et vous attribuez des rôles à vos utilisateurs. Pour savoir comment procéder, consultez le tutoriel afin de découvrir comment créer des principaux de service et des attributions de rôles avec PowerShell.
+Dans ce tutoriel, vous avez appris à créer des groupes d’applications, à les remplir avec RemoteApps et à y affecter des utilisateurs. Pour en savoir plus sur la façon de se connecter à Windows Virtual Desktop, passez aux guides pratiques concernant la connexion à Windows Virtual Desktop.
 
-> [!div class="nextstepaction"]
-> [Créer des principaux de service et des attributions de rôles avec PowerShell](create-service-principal-role-powershell.md)
+- [Se connecter au client Bureau à distance sur Windows 7 et Windows 10](connect-windows-7-and-10.md)
+- [Se connecter au client web Windows Virtual Desktop Preview](connect-web.md)

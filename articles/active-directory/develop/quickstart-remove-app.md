@@ -3,8 +3,8 @@ title: Supprimer une application inscrite à l’aide de la plateforme d’ident
 description: Découvrez comment supprimer une application inscrite à l’aide de la plateforme d’identités Microsoft.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/25/2018
-ms.author: celested
+ms.date: 05/08/2019
+ms.author: ryanwi
 ms.custom: aaddev
-ms.reviewer: lenalepa, sureshja
+ms.reviewer: aragra, lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 20d7218b9b1d53b3cfb72a12ee34a77956327ce2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 271fe45082749afc310e8f217e8119d3931c3cac
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58093192"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65413738"
 ---
-# <a name="quickstart-remove-an-application-registered-with-the-microsoft-identity-platform-preview"></a>Démarrage rapide : Supprimer une application inscrite auprès de la plateforme d’identités Microsoft (préversion)
+# <a name="quickstart-remove-an-application-registered-with-the-microsoft-identity-platform"></a>Démarrage rapide : Supprimer une application inscrite à l’aide de la plateforme d’identités Microsoft
 
 Les développeurs d’entreprise et les fournisseurs SaaS qui ont inscrit des applications avec la plateforme d’identités Microsoft peuvent avoir besoin de supprimer l’inscription d’une application.
 
@@ -35,10 +35,7 @@ Dans ce guide de démarrage rapide, vous apprenez à :
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour commencer, assurez-vous de remplir ces conditions préalables :
-
-* Disposez d’un locataire auprès duquel des applications sont inscrites. Pour savoir comment ajouter et inscrire des applications, consultez [Inscrire une application avec la plateforme d’identités Microsoft](quickstart-register-app.md).
-* Intégrez l’expérience de préversion pour les inscriptions d’applications dans le portail Azure. Les étapes figurant dans ce démarrage rapide correspondent à la nouvelle interface utilisateur et ne fonctionnent que si vous participez à l’expérience de préversion.
+Vous devez disposer d’un locataire auprès duquel des applications sont inscrites. Pour savoir comment ajouter et inscrire des applications, consultez [Inscrire une application avec la plateforme d’identités Microsoft](quickstart-register-app.md).
 
 ## <a name="remove-an-application-authored-by-you-or-your-organization"></a>Supprimer une application créée par vous ou votre organisation
 
@@ -47,8 +44,8 @@ Les applications que vous ou votre organisation avez enregistrées sont représe
 ### <a name="to-remove-an-application"></a>Supprimer une application
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
-2. Si votre compte vous propose un accès à plusieurs locataires, sélectionnez votre compte en haut à droite et définissez votre session de portail sur le locataire Azure AD souhaité.
-3. Dans le volet de navigation gauche, sélectionnez le service **Azure Active Directory**,puis **Inscriptions d’applications (préversion)**. Recherchez et sélectionnez l’application que vous souhaitez configurer. Une fois l’application sélectionnée, vous pourrez voir sa page **Vue d’ensemble**.
+2. Si votre compte vous propose un accès à plusieurs locataires, sélectionnez votre compte en haut à droite et définissez votre session de portail sur le locataire Azure AD souhaité.
+3. Dans le volet de navigation de gauche, sélectionnez le service **Azure Active Directory**, puis **Inscriptions d’applications**. Recherchez et sélectionnez l’application que vous souhaitez configurer. Une fois l’application sélectionnée, vous pourrez voir sa page **Vue d’ensemble**.
 4. À partir de la page **Vue d’ensemble**, sélectionnez **Supprimer**.
 5. Sélectionnez **Oui** pour confirmer que vous souhaitez supprimer l’application.
 

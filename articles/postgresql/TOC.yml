@@ -7,115 +7,147 @@
 - name: Démarrages rapides
   expanded: true
   items:
-    - name: Créer une base de données - Portail
-      href: quickstart-create-server-database-portal.md
-    - name: Créer une base de données - Interface de ligne de commande Azure
-      href: quickstart-create-server-database-azure-cli.md
-    - name: Créer une base de données - Commande up Azure CLI
-      href: quickstart-create-server-up-azure-cli.md
-    - name: Connexion et requête
+    - name: Serveur unique
       items:
-        - name: Python
-          href: connect-python.md
-        - name: Node.js
-          href: connect-nodejs.md
-        - name: Java
-          href: connect-java.md
-        - name: Ruby
-          href: connect-ruby.md
-        - name: PHP
-          href: connect-php.md
-        - name: .NET
-          href: connect-csharp.md
-        - name: Go
-          href: connect-go.md
+        - name: Créer une base de données - Portail
+          href: quickstart-create-server-database-portal.md
+        - name: Créer une base de données - Interface de ligne de commande Azure
+          href: quickstart-create-server-database-azure-cli.md
+        - name: Créer une base de données - Commande up Azure CLI
+          href: quickstart-create-server-up-azure-cli.md
+        - name: Connexion et requête
+          items:
+            - name: Python
+              href: connect-python.md
+            - name: Node.js
+              href: connect-nodejs.md
+            - name: Java
+              href: connect-java.md
+            - name: Ruby
+              href: connect-ruby.md
+            - name: PHP
+              href: connect-php.md
+            - name: .NET
+              href: connect-csharp.md
+            - name: Go
+              href: connect-go.md
+    - name: Hyperscale (Citus)
+      items:
+        - name: Créer une base de données - Portail
+          href: quickstart-create-hyperscale-portal.md
 - name: Tutoriels
   items:
-    - name: 1 - Concevoir une base de données
+    - name: Serveur unique
       items:
-        - name: Portail Azure
-          href: tutorial-design-database-using-azure-portal.md
-        - name: Azure CLI
-          href: tutorial-design-database-using-azure-cli.md
-    - name: 2 - Concevoir une application web - Python
-      href: ../app-service/containers/tutorial-python-postgresql-app.md
-      maintainContext: true
-    - name: 3 - Surveiller et régler
-      href: tutorial-monitor-and-tune.md
+        - name: 1 - Concevoir une base de données
+          items:
+            - name: Portail Azure
+              href: tutorial-design-database-using-azure-portal.md
+            - name: Azure CLI
+              href: tutorial-design-database-using-azure-cli.md
+        - name: 2 - Concevoir une application web - Python
+          href: ../app-service/containers/tutorial-python-postgresql-app.md
+          maintainContext: true
+        - name: 3 - Surveiller et régler
+          href: tutorial-monitor-and-tune.md
+    - name: Hyperscale (Citus)
+      items:
+        - name: Concevoir une base de données multilocataire
+          href: tutorial-design-database-hyperscale-multi-tenant.md
+        - name: Concevoir un tableau de bord en temps réel
+          href: tutorial-design-database-hyperscale-realtime.md
 - name: Exemples
   items:
     - name: Azure CLI
       href: sample-scripts-azure-cli.md
 - name: Concepts
   items:
-    - name: Base de données et serveurs
+    - name: Serveur unique
       items:
-        - name: Serveurs
-          href: concepts-servers.md
-        - name: Versions prises en charge
-          href: concepts-supported-versions.md
-        - name: Extensions PostgreSQL
-          href: concepts-extensions.md
-        - name: Haute disponibilité
-          href: concepts-high-availability.md
-    - name: Ressources
-      items:
-        - name: Niveaux de tarification
-          href: concepts-pricing-tiers.md
-        - name: limites
-          href: concepts-limits.md
-    - name: Accès aux données et sécurité
-      items:
-        - name: Règles de pare-feu
-          href: concepts-firewall-rules.md
-        - name: Configuration du chiffrement SSL
-          href: concepts-ssl-connection-security.md
-        - name: Protection avancée contre les menaces
-          href: concepts-data-access-and-security-threat-protection.md
-        - name: Réseau virtuel
-          href: concepts-data-access-and-security-vnet.md
-    - name: Continuité de l’activité
-      items:
-        - name: Vue d’ensemble
-          href: concepts-business-continuity.md
-        - name: Sauvegarde et restauration
-          href: concepts-backup.md
-    - name: Surveiller et régler
-      items:
+        - name: Bases de données et serveurs
+          items:
+            - name: Serveurs
+              href: concepts-servers.md
+            - name: Versions prises en charge
+              href: concepts-supported-versions.md
+            - name: Extensions PostgreSQL
+              href: concepts-extensions.md
+            - name: Haute disponibilité
+              href: concepts-high-availability.md
+        - name: Ressources
+          items:
+            - name: Niveaux de tarification
+              href: concepts-pricing-tiers.md
+            - name: limites
+              href: concepts-limits.md
+        - name: Accès aux données et sécurité
+          items:
+            - name: Règles de pare-feu
+              href: concepts-firewall-rules.md
+            - name: Configuration du chiffrement SSL
+              href: concepts-ssl-connection-security.md
+            - name: Protection avancée contre les menaces
+              href: concepts-data-access-and-security-threat-protection.md
+            - name: Réseau virtuel
+              href: concepts-data-access-and-security-vnet.md
+        - name: Continuité de l’activité
+          items:
+            - name: Vue d’ensemble
+              href: concepts-business-continuity.md
+            - name: Sauvegarde et restauration
+              href: concepts-backup.md
         - name: Surveiller et régler
-          href: concepts-monitoring.md
-        - name: Journaux d’activité du serveur
-          href: concepts-server-logs.md
-        - name: Magasin de requêtes
           items:
+            - name: Surveiller et régler
+              href: concepts-monitoring.md
+            - name: Journaux d’activité du serveur
+              href: concepts-server-logs.md
             - name: Magasin de requêtes
-              href: concepts-query-store.md
-            - name: Scénarios d’utilisation du magasin de requêtes
-              href: concepts-query-store-scenarios.md
-            - name: Meilleures pratiques relatives au magasin de requêtes
-              href: concepts-query-store-best-practices.md
-        - name: Query Performance Insight
-          href: concepts-query-performance-insight.md
-        - name: Recommandations sur les performances
-          href: concepts-performance-recommendations.md
-    - name: Développement
-      items:
-        - name: Bibliothèques de connexions
-          href: concepts-connection-libraries.md
-        - name: Résilience de connexion
-          href: concepts-connectivity.md
-        - name: Développer avec Azure Kubernetes Service (AKS)
-          href: concepts-aks.md
-        - name: Java
+              items:
+                - name: Magasin de requêtes
+                  href: concepts-query-store.md
+                - name: Scénarios d’utilisation du magasin de requêtes
+                  href: concepts-query-store-scenarios.md
+                - name: Meilleures pratiques relatives au magasin de requêtes
+                  href: concepts-query-store-best-practices.md
+            - name: Query Performance Insight
+              href: concepts-query-performance-insight.md
+            - name: Recommandations en matière de performances
+              href: concepts-performance-recommendations.md
+        - name: Développement
           items:
-            - name: Configurer Spring Data JDBC
-              href: /java/azure/spring-framework/configure-spring-data-jdbc-with-azure-postgresql
-            - name: Configurer Spring Data JPA
-              href: /java/azure/spring-framework/configure-spring-data-jpa-with-azure-postgresql
-    - name: Réplication
+            - name: Bibliothèques de connexions
+              href: concepts-connection-libraries.md
+            - name: Résilience de connexion
+              href: concepts-connectivity.md
+            - name: Développer avec Azure Kubernetes Service (AKS)
+              href: concepts-aks.md
+            - name: Java
+              items:
+                - name: Configurer Spring Data JDBC
+                  href: /java/azure/spring-framework/configure-spring-data-jdbc-with-azure-postgresql
+                - name: Configurer Spring Data JPA
+                  href: /java/azure/spring-framework/configure-spring-data-jpa-with-azure-postgresql
+        - name: Réplication
+          items:
+            - name: Réplicas en lecture
+              href: concepts-read-replicas.md
+    - name: Hyperscale (Citus)
       items:
-        - name: Réplicas en lecture
-          href: concepts-read-replicas.md
+        - name: Nœuds
+          href: concepts-hyperscale-nodes.md
+        - name: Données distribuées
+          href: concepts-hyperscale-distributed-data.md
+        - name: Choisir une colonne de distribution
+          href: concepts-hyperscale-choose-distribution-column.md
+        - name: Colocalisation de table
+          href: concepts-hyperscale-colocation.md
+        - name: Extensions PostgreSQL
+          href: concepts-hyperscale-extensions.md
+        - name: Ressources
+          items:
+            - name: Options de configuration
+              href: concepts-hyperscale-configuration-options.md
 - name: Guides pratiques
   items:
     - name: Créer des utilisateurs

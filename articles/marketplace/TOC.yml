@@ -463,3 +463,25 @@
           href: ./cloud-partner-portal-orig/cloud-partner-portal-api-troubleshooting-authentication-errors.md
     - name: Obtention d’une assistance
       href: ./cloud-partner-portal-orig/cloud-partner-portal-support-for-cloud-partner-portal.md
+- name: Portail de la Place de marché commerciale dans l’Espace partenaires
+  items:
+    - name: Vue d’ensemble
+      items:
+        - name: "Qu’est-ce que la Place de marché commerciale\_?"
+          href: ./partner-center-portal/commercial-marketplace-overview.md
+    - name: Gestion de compte
+      items:
+        - name: Créer un compte Espace partenaires
+          href: ./partner-center-portal/create-account.md
+        - name: Gérer votre compte Espace partenaires
+          href: ./partner-center-portal/manage-account.md
+        - name: Rechercher ou créer un compte professionnel d’entreprise
+          href: ./partner-center-portal/company-work-accounts.md
+    - name: Créer une offre
+      items:
+        - name: Créer une offre SaaS
+          href: ./partner-center-portal/create-new-saas-offer.md
+    - name: État de publication
+      href: ./partner-center-portal/publishing-status.md
+    - name: Mettre à jour les offres existantes
+      href: ./partner-center-portal/update-existing-offer.md

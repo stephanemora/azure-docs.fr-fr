@@ -18,12 +18,12 @@ ms.date: 12/07/2017
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 482b69752cc889ff99c3d9082d3bc20a7caa6d76
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0065ec03695ee977133ae2ec43aafba7d5bfff78
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60294474"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65784342"
 ---
 # <a name="azure-active-directory-identity-protection-notifications"></a>Notifications d’Azure Active Directory Identity Protection
 
@@ -39,6 +39,8 @@ Cet article vous offre une vue d’ensemble des deux e-mails de notification.
 
 En cas de détection d’un compte à risque, Azure AD Identity Protection génère une alerte par e-mail dont l’objet est **Utilisateurs à risque détecté**. Cet e-mail inclut un lien vers le rapport **[Utilisateurs associés à un indicateur de risque](../reports-monitoring/concept-user-at-risk.md)**. En guise de bonne pratique, vous devez examiner immédiatement les utilisateurs à risque.
 
+La configuration de cette alerte vous permet de spécifier à quel niveau de risque utilisateur vous souhaitez que l’alerte doit être généré. L’e-mail est généré lorsque le niveau de risque de l’utilisateur atteint ce que vous avez spécifié ; Toutefois, vous ne recevrez pas de nouveaux utilisateurs à des alertes par courrier électronique de risque détecté pour cet utilisateur après avoir été déplacées à ce niveau de risque d’utilisateur. Par exemple, si vous définissez la stratégie pour alerter sur moyen risque des utilisateurs et votre utilisateur que John se déplace à risque moyen, vous recevrez les utilisateurs de courrier électronique risque détecté pour John. Toutefois, vous ne recevrez pas un deuxième utilisateurs à l’alerte de risque détecté si John puis passe à un risque élevé ou a des événements à risque supplémentaire.
+
 ![E-mail Utilisateurs à risque détectés](./media/notifications/01.png)
 
 
@@ -46,7 +48,7 @@ En cas de détection d’un compte à risque, Azure AD Identity Protection gén�
 
 En tant qu’administrateur, vous pouvez définir les éléments suivants :
 
-- **Le niveau de risque qui déclenche la génération de cet e-mail** : par défaut, le niveau de risque est défini sur le risque « Élevé ».
+- **Le niveau de risque d’utilisateur qui a déclenché la génération de cet e-mail** -par défaut, le niveau de risque est défini à risque « Élevé ».
 - **Les destinataires de cet e-mail** : par défaut, les destinataires incluent tous les administrateurs généraux. Les administrateurs généraux peuvent également ajouter d’autres administrateurs généraux, des administrateurs de la sécurité et des lecteurs Sécurité comme destinataires.  
 
 

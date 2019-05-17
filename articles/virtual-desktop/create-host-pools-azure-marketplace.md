@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 04/05/2019
 ms.author: helohr
-ms.openlocfilehash: c4ab209d63a01d9e1089eec351eff64fc116f403
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 21979f1dee50fa846fb7888cfc95908b9d833392
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924971"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236787"
 ---
 # <a name="tutorial-create-a-host-pool-with-azure-marketplace"></a>Didacticiel : Créer un pool d’hôtes avec la Place de marché Azure
 
@@ -70,7 +70,7 @@ Pour le panneau Informations sur le locataire Windows Virtual Desktop :
 
 1. Entrez le **Nom du groupe de locataires Windows Virtual Desktop** pour le groupe de locataires qui contient votre locataire. Si vous n’avez pas de nom de groupe de locataires spécifique planifié, conservez la valeur par défaut.
 2. Entrez le **Nom du locataire Windows Virtual Desktop** pour le locataire que vous allez créer dans ce pool d’hôtes.
-3. Spécifiez le type d’informations d’identification que vous voulez utiliser pour vous authentifier comme propriétaire des services Bureau à distance (RDS) du locataire Windows Virtual Desktop. Si vous sélectionnez **Principal du service**, vous devez également fournir l’**ID de locataire Azure AD** associé au principal de service.
+3. Spécifiez le type d’informations d’identification que vous voulez utiliser pour vous authentifier comme propriétaire des services Bureau à distance (RDS) du locataire Windows Virtual Desktop. Si vous avez suivi le tutoriel [Créer des principaux de service et des attributions de rôles avec PowerShell](./create-service-principal-role-powershell.md), sélectionnez **Principal de service**. Entrez maintenant **l’ID de locataire Azure AD** de l’instance Azure Active Directory contenant le principal de service.
 4. Entrez les informations d’identification du compte administrateur de locataire. Seuls les principaux de service avec des informations d’identification de mot de passe sont pris en charge.
 5. Sélectionnez **OK**.
 

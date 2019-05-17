@@ -187,7 +187,7 @@
           href: api-server-authorized-ip-ranges.md
         - name: Mettre à jour les informations d’identification du principal de service de cluster
           href: update-credentials.md
-        - name: Limiter et contrôler le trafic sortant du cluster
+        - name: Limiter et contrôler le trafic sortant du cluster (préversion)
           href: limit-egress-traffic.md
         - name: Activer l’intégration d’Azure Active Directory
           items:

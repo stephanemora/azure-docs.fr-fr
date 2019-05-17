@@ -17,6 +17,9 @@
       href: quickstart-assign-role-user-portal.md
     - name: Accorder un accès utilisateur - PowerShell
       href: tutorial-role-assignments-user-powershell.md
+    - name: Accorder un accès utilisateur - Modèle Resource Manager
+      displayName: 'ARM, resource manager template'
+      href: tutorial-role-assignments-user-template.md
     - name: Accorder un accès à un groupe - PowerShell
       href: tutorial-role-assignments-group-powershell.md
     - name: Créer un rôle personnalisé - PowerShell
@@ -88,6 +91,7 @@
     - name: API REST
       href: /rest/api/authorization/
     - name: Modèles Resource Manager
+      displayName: ARM
       items:
         - name: Affectations de rôles
           href: /azure/templates/microsoft.authorization/roleassignments

@@ -34,6 +34,8 @@
           href: virtual-machines-windows-sql-automated-backup-v2.md
     - name: gestion
       items:
+        - name: "Étendre la prise en charge pour SQL\_2008 et R2"
+          href: virtual-machines-windows-sql-server-2008-eos-extend-support.md
         - name: Se connecter à une machine virtuelle
           href: virtual-machines-windows-sql-connect.md
         - name: Configurer le stockage

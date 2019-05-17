@@ -368,7 +368,7 @@
   items:
     - name: Vue d’ensemble
       href: sql-database-howto.md
-    - name: Base de données unique
+    - name: Bases de données uniques et pools élastiques
       items:
         - name: Vue d’ensemble
           href: sql-database-howto-single-database.md
@@ -448,7 +448,7 @@
               href: elastic-jobs-tsql.md
             - name: Migrer (à partir d’anciens travaux élastiques)
               href: elastic-jobs-migrate.md
-    - name: Instance gérée
+    - name: Instances managées
       items:
         - name: Vue d’ensemble
           href: sql-database-howto-managed-instance.md
@@ -720,6 +720,10 @@
       href: sql-database-glossary-terms.md
     - name: Développer vos compétences avec Microsoft Learn
       href: /learn/browse/?products=azure-sql-database
+    - name: "Blog SQL\_Server"
+      href: 'https://cloudblogs.microsoft.com/sqlserver/?product=azure-sql-database'
+    - name: Blog Microsoft Azure
+      href: 'https://azure.microsoft.com/blog/'
     - name: Feuille de route Azure
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Jeux de données publics

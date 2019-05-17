@@ -21,7 +21,7 @@ sections:
   - title: Didacticiels pas à pas
     items:
       - type: paragraph
-        text: Découvrez comment intégrer vos appareils joints à AD sur site avec Azure AD.
+        text: Découvrez comment intégrer vos appareils joints à AD locaux avec Azure AD.
       - type: list
         style: icon48
         items:

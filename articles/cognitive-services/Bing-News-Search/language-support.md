@@ -3,19 +3,19 @@ title: Prise en charge linguistique - API Recherche d’actualités Bing
 titleSuffix: Azure Cognitive Services
 description: Liste des langages naturels, des pays et des régions pris en charge par l’API Recherche d’actualités Bing.
 services: cognitive-services
-author: MikeDodaro
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: conceptual
 ms.date: 1/10/2019
-ms.author: v-gedod
-ms.openlocfilehash: f94ebb9b46ade0c03f65fdeb78bc7be96794a3d2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: aahi
+ms.openlocfilehash: e8a7f6d20ed36c4b3e900602fb52e31dceefae88
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60201412"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65799328"
 ---
 # <a name="language-and-region-support-for-the-bing-news-search-api"></a>Langages et régions pris en charge par l’API Recherche d’actualités Bing
 
@@ -31,10 +31,10 @@ Pour le point de terminaison `/news/search`, le tableau suivant répertorie les 
 
 Pour obtenir la liste des codes pays/régions que vous pouvez spécifier dans le paramètre de requête `cc`, consultez [Codes pays](#countrycodes).  
 
-|Pays/région|Langage|Code du marché|  
+|Pays/région|Langue|Code du marché|  
 |---------------------|--------------|-----------------|
 |Danemark|Danois|da-DK|
-|Autriche|Allemand|de-AT|
+|L'Autriche|Allemand|de-AT|
 |Suisse|Allemand|de-CH|
 |Allemagne|Allemand|de-DE|
 |Australie|Anglais|en-AU|
@@ -43,11 +43,11 @@ Pour obtenir la liste des codes pays/régions que vous pouvez spécifier dans le
 |Indonésie|Anglais|en-ID|
 |Irlande|Anglais|en-IE|
 |Inde|Anglais|en-IN|
-|Malaisie|Anglais|en-MY|
+|Malaysie|Anglais|en-MY|
 |Nouvelle-Zélande|Anglais|en-NZ|
 |République des Philippines|Anglais|en-PH|
 |Singapour|Anglais|en-SG|
-|États-Unis|Anglais|en-US|
+|États-Unis|Anglais|fr-FR|
 |Anglais|général|en-WW|
 |Anglais|général|en-XA|
 |Afrique du Sud|Anglais|en-ZA|
@@ -58,17 +58,17 @@ Pour obtenir la liste des codes pays/régions que vous pouvez spécifier dans le
 |États-Unis|Espagnol|es-US|
 |Espagnol|général|es-XL|
 |Finlande|Finnois|fi-FI|  
-|France|Anglais|fr-BE|
-|Canada|Anglais|fr-CA|
+|France|Français|fr-BE|
+|Canada|Français|fr-CA|
 |Belgique|Néerlandais|nl-BE|
-|Suisse|Anglais|fr-CH|
-|France|Anglais|fr-FR|  
+|Suisse|Français|fr-CH|
+|France|Français|fr-FR|  
 |Italie|Italien|it-IT|
 |Hong Kong (R.A.S.)|Chinois traditionnel|zh-HK|  
-|Taïwan|Chinois traditionnel|zh-TW|
+|Taiwan|Chinois traditionnel|zh-TW|
 |Japon|Japonais|ja-JP|  
 |Corée du Sud|Coréen|ko-KR|  
-|Pays-bas|Néerlandais|nl-NL|  
+|Pays-Bas|Néerlandais|nl-NL|  
 |République populaire de Chine|Chinois|zh-CN|  
 |Brésil|Portugais|pt-br|
 |Russie|Russe|ru-RU|  
@@ -80,20 +80,20 @@ Pour le point de terminaison `/news`, le tableau suivant répertorie les valeurs
 
 Pour obtenir la liste des codes pays/régions que vous pouvez spécifier dans le paramètre de requête `cc`, consultez [Codes pays](#countrycodes).  
 
-|Pays/région|Langage|Code du marché|  
+|Pays/région|Langue|Code du marché|  
 |---------------------|--------------|-----------------|
 |Danemark|Danois|da-DK|
 |Allemagne|Allemand|de-DE|
 |Australie|Anglais|en-AU|
 |Royaume-Uni|Anglais|en-GB|
-|États-Unis|Anglais|en-US|
+|États-Unis|Anglais|fr-FR|
 |Anglais|général|en-WW|
 |Chili|Espagnol|es-CL|
 |Mexique|Espagnol|es-MX|
 |États-Unis|Espagnol|es-US|
 |Finlande|Finnois|fi-FI|  
-|Canada|Anglais|fr-CA|
-|France|Anglais|fr-FR|  
+|Canada|Français|fr-CA|
+|France|Français|fr-FR|  
 |Italie|Italien|it-IT|
 |Brésil|Portugais|pt-br|
 |République populaire de Chine|Chinois|zh-CN|
@@ -103,30 +103,30 @@ Pour le point de terminaison `/news/trendingtopics`, le tableau suivant réperto
 
 Pour obtenir la liste des codes pays/régions que vous pouvez spécifier dans le paramètre de requête `cc`, consultez [Codes pays](#countrycodes).  
 
-|Pays/région|Langage|Code du marché|  
+|Pays/région|Langue|Code du marché|  
 |---------------------|--------------|-----------------|
 |Allemagne|Allemand|de-DE|
 |Australie|Anglais|en-AU|
 |Royaume-Uni|Anglais|en-GB|
-|États-Unis|Anglais|en-US|
+|États-Unis|Anglais|fr-FR|
 |Canada|Anglais|en-CA|
 |Inde|Anglais|en-IN|
-|France|Anglais|fr-FR|
-|Canada|Anglais|fr-CA|
+|France|Français|fr-FR|
+|Canada|Français|fr-CA|
 |Brésil|Portugais|pt-br|
 |République populaire de Chine|Chinois|zh-CN|
 
 
 <a name="countrycodes"></a>   
-### <a name="country-codes"></a>Codes de pays  
+### <a name="country-codes"></a>Codes pays  
 
 Vous trouverez ci-dessous les codes pays/régions que vous pouvez spécifier dans le paramètre de requête `cc`. La liste est susceptible d’être modifiée.  
 
-|Pays/région|Code pays|  
+|Pays/région|Code pays/région|  
 |---------------------|------------------|  
 |Argentine|AR|  
 |Australie|AU|  
-|Autriche|AT|  
+|L'Autriche|AT|  
 |Belgique|BE|  
 |Brésil|BR|  
 |Canada|CA|  
@@ -138,12 +138,12 @@ Vous trouverez ci-dessous les codes pays/régions que vous pouvez spécifier dan
 |Hong Kong (R.A.S.)|HK|  
 |Inde|IN|  
 |Indonésie|ID|  
-|Italie|IT|  
+|Italie|it|  
 |Japon|JP|  
 |Corée du Sud|KR|  
-|Malaisie|MY|  
+|Malaysie|MY|  
 |Mexique|MX|  
-|Pays-bas|NL|  
+|Pays-Bas|NL|  
 |Nouvelle-Zélande|NZ|  
 |Norvège|NON|  
 |République populaire de Chine|CN|  
@@ -151,14 +151,14 @@ Vous trouverez ci-dessous les codes pays/régions que vous pouvez spécifier dan
 |Portugal|PT|  
 |République des Philippines|PH|  
 |Russie|RU|  
-|Arabie Saoudite|SA|  
+|Arabie saoudite|SA|  
 |Afrique du Sud|ZA|  
 |Espagne|ES|  
 |Suède|SE|  
 |Suisse|CH|  
-|Taïwan|TW|  
+|Taiwan|TW|  
 |Turquie|TR|  
-|Royaume-Uni|GB|  
+|Royaume-Uni| Go|  
 |États-Unis|FR|
 
 ## <a name="next-steps"></a>Étapes suivantes

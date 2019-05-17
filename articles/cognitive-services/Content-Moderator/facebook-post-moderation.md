@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: tutorial
 ms.date: 01/18/2019
 ms.author: pafarley
-ms.openlocfilehash: 662eca2a727f3112f169ab8d669bf18c81700275
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5d31285ca305ba7fefdf31b4a97e3183f58b3e3b
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57871026"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233816"
 ---
 # <a name="tutorial-moderate-facebook-posts-and-commands-with-azure-content-moderator"></a>Didacticiel : Modérer les publications et commandes Facebook avec Azure Content Moderator
 
@@ -33,6 +33,9 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 Ce diagramme illustre chaque composant du scénario :
 
 ![Diagramme de Content Moderator recevant des informations de Facebook via « FBListener » et envoyant des informations via « CMListener ».](images/tutorial-facebook-moderation.png)
+
+> [!IMPORTANT]
+> En 2018, Facebook mis en place un contrôle plus strict des applications Facebook. Vous ne pourrez suivre ce tutoriel que si votre application a été examinée et approuvée par l’équipe de révision de Facebook.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -59,68 +62,71 @@ Testez votre flux de travail à l’aide du bouton **Exécuter le flux de travai
 
 ## <a name="create-azure-functions"></a>Créer des fonctions Azure
 
-Connectez-vous au [portail Azure](https://portal.azure.com/) et procédez comme suit :
+Connectez-vous au [Portail Azure](https://portal.azure.com/) et suivez les étapes ci-dessous :
 
 1. Créez une application de fonction Azure, comme indiqué dans la page [Fonctions Azure](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal).
-2. Accédez l’application Function App nouvellement créée.
-3. Dans l’application, accédez à l’onglet **Fonctionnalités de la plateforme** et sélectionnez **Paramètres d’application**. Dans la section **Paramètres d’application** de la page suivante, faites défiler vers le bas de la liste et cliquez sur **Ajouter un nouveau paramètre**. Ajoutez les paires clé/valeurs suivantes
+1. Accédez l’application Function App nouvellement créée.
+1. Dans l’application, accédez à l’onglet **Fonctionnalités de la plateforme** et sélectionnez **Configuration**. Dans la section **Paramètres d’application** de la page suivante, sélectionnez **Nouveau paramètre d’application** pour ajouter les paires clé/valeur suivantes :
     
     | Nom du paramètre d’application | value   | 
     | -------------------- |-------------|
     | cm:TeamId   | Votre ID d’équipe Content Moderator  | 
-    | cm:SubscriptionKey | Votre clé d’abonnement Content Moderator - voir [Informations d’identification](review-tool-user-guide/credentials.md) | 
-    | cm:Region | Nom de votre région Content Moderator, sans espaces. Voir la remarque précédente. |
+    | cm:SubscriptionKey | Votre clé d’abonnement Content Moderator - voir [Informations d’identification](review-tool-user-guide/credentials.md) |
+    | cm:Region | Nom de votre région Content Moderator, sans espaces. |
     | cm:ImageWorkflow | Nom du flux de travail à exécuter sur les images |
     | cm:TextWorkflow | Nom du flux de travail à exécuter sur le texte |
-    | cm:CallbackEndpoint | URL de l’application de fonction CMListener que vous créez plus loin dans ce guide |
-    | fb:VerificationToken | Jeton secret, également utilisé pour vous abonner aux événements de flux Facebook |
-    | fb:PageAccessToken | Le jeton d’accès à l’API Graph Facebook n’expire pas et permet à la fonction de masquer/supprimer des posts pour votre compte. |
+    | cm:CallbackEndpoint | URL de l’application de fonction CMListener qui sera créée plus loin dans ce guide |
+    | fb:VerificationToken | Jeton secret permettant de s’abonner aux événements de flux Facebook |
+    | fb:PageAccessToken | Le jeton d’accès à l’API Graph Facebook n’expire pas et permet à la fonction de masquer/supprimer des posts pour votre compte. Vous l’obtiendrez plus tard. |
 
     Cliquez sur le bouton **Enregistrer** en haut de la page.
 
-1. Utilisez le bouton **+** dans le volet gauche pour afficher le volet Nouvelle fonction.
+1. Revenez sur l’onglet **Fonctionnalités de la plateforme**. Utilisez le bouton **+** du volet gauche pour afficher le volet **Nouvelle fonction**. La fonction que vous allez créer recevra des événements de Facebook.
 
     ![Bouton Ajouter une fonction mis en surbrillance dans le volet Azure Functions.](images/new-function.png)
-
-    Cliquez ensuite sur **+ Nouvelle fonction** en haut de la page. Cette fonction reçoit des événements de Facebook. Créez cette fonction en effectuant les étapes suivantes :
 
     1. Cliquez sur la vignette indiquant **Déclencheur HTTP**.
     1. Entrez le nom **FBListener**. Le champ **Niveau d’autorisation** doit être défini sur **Fonction**.
     1. Cliquez sur **Créer**.
     1. Remplacez le contenu du fichier **run.csx** par le contenu de **FbListener/run.csx**
 
-    [!code-csharp[FBListener: csx file](~/samples-fbPageModeration/FbListener/run.csx?range=1-160)]
+    [!code-csharp[FBListener: csx file](~/samples-fbPageModeration/FbListener/run.csx?range=1-154)]
 
 1. Créez une fonction **Http trigger** nommée **CMListener**. Cette fonction reçoit des événements de Content Moderator. Remplacez le contenu du fichier **run.csx** par le contenu de **CMListener/run.csx**
 
-    [!code-csharp[FBListener: csx file](~/samples-fbPageModeration/CmListener/run.csx?range=1-106)]
+    [!code-csharp[FBListener: csx file](~/samples-fbPageModeration/CmListener/run.csx?range=1-110)]
 
 ---
 
 ## <a name="configure-the-facebook-page-and-app"></a>Configurer la page et l’application Facebook
+
 1. Créez une application Facebook.
 
     ![page facebook for developers](images/facebook-developer-app.png)
 
     1. Accédez au [site de développement Facebook](https://developers.facebook.com/).
-    2. Cliquer sur **Mes applications**.
-    3. Ajoutez une nouvelle application.
+    1. Cliquer sur **Mes applications**.
+    1. Ajoutez une nouvelle application.
     1. donnez-lui un nom
     1. Sélectionnez **Webhooks -> Configurer**
     1. Sélectionnez **Page** dans le menu déroulant, puis sélectionnez **S’abonner à cet objet**
     1. Fournissez l’**URL FBListener** comme URL de rappel et le **jeton de vérification** que vous avez configuré sous les **Paramètres de l’application de fonction**.
     1. Une fois abonné, faites défiler l’écran jusqu’au flux, puis sélectionnez **S’abonner**.
+    1. Cliquez sur le bouton **Tester** de la ligne **flux** pour envoyer un message de test à votre fonction Azure FBListener, puis appuyez sur le bouton **Envoyer à mon serveur**. FBListener devrait recevoir la demande.
 
-2. Créez une page Facebook.
+1. Créez une page Facebook.
+
+    > [!IMPORTANT]
+    > En 2018, Facebook mis en place un contrôle plus strict des applications Facebook. Vous ne pourrez suivre les sections 2, 3 et 4 que si votre application a été examinée et approuvée par l’équipe de révision de Facebook.
 
     1. Accédez à [Facebook](https://www.facebook.com/bookmarks/pages), puis créez une **page Facebook**.
-    2. Autorisez l’application Facebook à accéder à cette page en suivant les étapes suivantes :
+    1. Autorisez l’application Facebook à accéder à cette page en suivant les étapes suivantes :
         1. Accédez à l’[Explorateur API Graph](https://developers.facebook.com/tools/explorer/).
-        2. Sélectionnez **Application**.
-        3. Sélectionnez **Jeton d’accès à la page**, puis envoyez une requête **GET**.
-        4. Cliquez sur l’**ID de la page** dans la réponse.
-        5. Ajoutez maintenant **/subscribed_apps** à l’URL, puis envoyez une requête **GET** (réponse vide).
-        6. Soumettez une requête **POST**. Vous obtenez la réponse sous la forme **success: true**.
+        1. Sélectionnez **Application**.
+        1. Sélectionnez **Jeton d’accès à la page**, puis envoyez une requête **GET**.
+        1. Cliquez sur l’**ID de la page** dans la réponse.
+        1. Ajoutez maintenant **/subscribed_apps** à l’URL, puis envoyez une requête **GET** (réponse vide).
+        1. Soumettez une requête **POST**. Vous obtenez la réponse sous la forme **success: true**.
 
 3. Créez un jeton d’accès API Graph sans date d’expiration.
 

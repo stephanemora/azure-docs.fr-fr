@@ -187,6 +187,8 @@
               href: delete-vault.md
     - name: Récupération d’urgence VMware vers Azure
       items:
+        - name: Configurer la reprise d’activité à grande échelle
+          href: vmware-physical-large-deployment.md
         - name: Configurer la mise en réseau
           items:
             - name: Gérer les interfaces réseau en local dans le cadre de la réplication Azure
@@ -269,6 +271,8 @@
               href: delete-vault.md
     - name: Récupération d’urgence physique vers Azure
       items:
+        - name: Configurer la reprise d’activité à grande échelle
+          href: vmware-physical-large-deployment.md
         - name: Configurer la mise en réseau
           items:
             - name: Gérer les interfaces réseau en local dans le cadre de la réplication Azure
