@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/28/2019
+ms.date: 05/11/2019
 ms.author: juliako
-ms.openlocfilehash: 96c3a3eb5e4c07ad9cad8ea5060a27c0c33eec5f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9cbb995eb3310a2263185d6fd6dba20efce37f38
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61466814"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65550144"
 ---
 # <a name="cloud-upload-and-storage"></a>Chargement et stockage sur le cloud
 
@@ -44,13 +44,24 @@ Dans Media Services v3, les API de stockage sont utilisés pour charger des fich
 
 Pour protéger vos éléments au repos, les ressources doivent être chiffrées par le chiffrement côté stockage. Le tableau suivant montre comment fonctionne le chiffrement côté stockage dans Media Services v3 :
 
-|Option de chiffrement|Description|Media Services v3|
+|Option de chiffrement|Description |Media Services v3|
 |---|---|---|
 |Chiffrement du stockage de Media Services| Chiffrement AES-256, clé gérée par Media Services|Non pris en charge<sup>(1)</sup>|
 |[Storage Service Encryption pour les données au repos](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)|Chiffrement côté serveur proposé par le stockage Azure, clé gérée par Azure ou par un client|Pris en charge|
 |[Chiffrement de stockage côté client](https://docs.microsoft.com/azure/storage/common/storage-client-side-encryption)|Chiffrement côté client proposé par le stockage Azure, clé gérée par un client dans un coffre de clés|Non pris en charge|
 
 <sup>1</sup> Dans Media Services v3, le chiffrement de stockage (chiffrement AES-256) est uniquement pris en charge pour la compatibilité descendante lorsque vos ressources ont été créées avec Media Services v2. Cela signifie que la version v3 fonctionne avec les ressources chiffrées du stockage existant mais qu’elle n’autorisera pas de nouvelles créations.
+
+## <a name="storage-account-errors"></a>Erreurs de compte de stockage
+
+L’état « Déconnecté » pour un compte Media Services indique que le compte n’a plus accès à un ou plusieurs des comptes de stockage attaché en raison d’une modification dans les clés d’accès de stockage. Clés d’accès de stockage à jour sont requis par Media Services pour effectuer de nombreuses tâches dans le compte.
+
+Voici les principaux scénarios qui entraîneraient un compte Media Services n’a ne pas accès aux comptes de stockage attaché. 
+
+|Problème|Solution|
+|---|---|
+|Le compte Media Services ou l’ou les comptes de stockage attaché ont été migrés pour séparer les abonnements. |Migrer les comptes de stockage ou un compte Media Services afin qu’ils soient tous dans le même abonnement. |
+|Le compte Media Services utilise un compte de stockage attaché à un autre abonnement telle qu’elle était un compte Media Services anticipé où il a été pris en charge. Tous les comptes Media Services anticipées ont été convertis en comptes de base Azure ressources Manager (ARM) moderne et auront un état déconnecté. |Migrer le compte de stockage ou un compte Media Services afin qu’ils soient tous dans le même abonnement.|
 
 ## <a name="next-steps"></a>Étapes suivantes
 

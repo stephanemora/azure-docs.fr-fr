@@ -3,8 +3,8 @@ title: Plateforme d’identité Microsoft et le protocole OpenID Connect | Azure
 description: Générer des applications web à l’aide de l’implémentation de plateforme d’identité Microsoft du protocole d’authentification OpenID Connect.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: a4875997-3aac-4e4c-b7fe-2b4b829151ce
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/12/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bfac577d7582caa5b538f05273a02e4c3baf71ff
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 23a8eaaf095be1d59944791bd793047886dda40c
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64918455"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544812"
 ---
 # <a name="microsoft-identity-platform-and-openid-connect-protocol"></a>Plateforme d’identité Microsoft et le protocole OpenID Connect
 
@@ -48,11 +48,11 @@ OpenID Connect décrit un document de métadonnées qui contient la plupart des 
 https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration
 ```
 > [!TIP]
-> Essayez ! Cliquez sur [https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration](https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration) pour voir la configuration des clients `common`.
+> Essayez-le ! Cliquez sur [https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration](https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration) pour voir la configuration des clients `common`.
 
 `{tenant}` peut prendre une des quatre valeurs :
 
-| Valeur | Description |
+| Valeur | Description  |
 | --- | --- |
 | `common` |Utilisateurs avec un compte Microsoft personnel et un compte professionnel ou scolaire à partir d’Azure AD peuvent se connecter à l’application. |
 | `organizations` |Seuls les utilisateurs avec des comptes professionnels ou scolaires Azure AD peuvent se connecter à l’application. |
@@ -110,7 +110,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 > Cliquez sur le lien suivant pour exécuter cette requête. Une fois que vous êtes connecté, votre navigateur sera redirigé vers `https://localhost/myapp/`, avec un jeton d’ID dans la barre d’adresse. Notez que cette requête utilise `response_mode=fragment` (pour les besoins du didacticiel uniquement). Nous vous recommandons d'utiliser `response_mode=form_post`.
 > <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=openid&response_mode=fragment&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
 
-| Paramètre | Condition | Description |
+| Paramètre | Condition | Description  |
 | --- | --- | --- |
 | `tenant` | Obligatoire | Vous pouvez utiliser la valeur `{tenant}` dans le chemin d’accès de la requête pour contrôler les utilisateurs qui peuvent se connecter à l’application. Les valeurs autorisées sont `common`, `organizations`, `consumers` et les identificateurs du client. Pour plus d’informations, consultez les [principes de base du protocole](active-directory-v2-protocols.md#endpoints). |
 | `client_id` | Obligatoire | Le **ID d’Application (client)** qui le [portail Azure-inscriptions](https://go.microsoft.com/fwlink/?linkid=2083908) expérience affecté à votre application. |
@@ -128,7 +128,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 Une fois que l’utilisateur s’authentifie et donné son consentement, le point de terminaison Microsoft identity plateforme renvoie une réponse à votre application à indiqué l’URI de redirection à l’aide de la méthode spécifiée dans le `response_mode` paramètre.
 
-### <a name="successful-response"></a>Réponse correcte
+### <a name="successful-response"></a>Réponse réussie
 
 Une réponse correcte lorsque vous utilisez `response_mode=form_post` ressemble à ceci :
 
@@ -140,7 +140,7 @@ Content-Type: application/x-www-form-urlencoded
 id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&state=12345
 ```
 
-| Paramètre | Description |
+| Paramètre | Description  |
 | --- | --- |
 | `id_token` | Le jeton d'ID que l’application a demandé. Vous pouvez utiliser le paramètre `id_token` pour vérifier l’identité de l’utilisateur et démarrer une session avec lui. Pour plus d’informations sur les jetons d’ID et leur contenu, consultez les [références `id_tokens`](id-tokens.md). |
 | `state` | Si un paramètre `state` est inclus dans la demande, la même valeur doit apparaître dans la réponse. L’application doit vérifier que les valeurs d’état de la demande et de la réponse sont identiques. |
@@ -157,7 +157,7 @@ Content-Type: application/x-www-form-urlencoded
 error=access_denied&error_description=the+user+canceled+the+authentication
 ```
 
-| Paramètre | Description |
+| Paramètre | Description  |
 | --- | --- |
 | `error` | Une chaîne de code d’erreur que vous pouvez utiliser pour classer les types d’erreur se produisant et pour intervenir face aux erreurs. |
 | `error_description` | Un message d’erreur spécifique qui peut vous aider à identifier la cause principale d’une erreur d’authentification. |
@@ -201,7 +201,7 @@ GET https://login.microsoftonline.com/common/oauth2/v2.0/logout?
 post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 ```
 
-| Paramètre | Condition | Description |
+| Paramètre | Condition | Description  |
 | ----------------------- | ------------------------------- | ------------ |
 | `post_logout_redirect_uri` | Recommandé | URL vers laquelle l’utilisateur est redirigé après sa déconnexion. Si le paramètre n’est pas inclus, l’utilisateur voit un message générique qui est généré par le point de terminaison Microsoft identity platform. Cette URL doit correspondre exactement à l’un des URI de redirection inscrits pour votre application dans le portail d’inscription des applications. |
 
@@ -253,7 +253,7 @@ Content-Type: application/x-www-form-urlencoded
 id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&state=12345
 ```
 
-| Paramètre | Description |
+| Paramètre | Description  |
 | --- | --- |
 | `id_token` | Le jeton d'ID que l’application a demandé. Vous pouvez utiliser le jeton d'ID pour vérifier l’identité de l’utilisateur et démarrer une session avec lui. Pour plus de détails sur les jetons d'ID et leur contenu, consultez la page de [référence `id_tokens`](id-tokens.md). |
 | `code` | Le code d’autorisation demandé par l’application. L’application peut utiliser ce code d’autorisation pour demander un jeton d’accès pour la ressource cible. Un code d’autorisation est de courte durée. En règle générale, un code d’autorisation expire au bout de 10 minutes environ. |
@@ -271,7 +271,7 @@ Content-Type: application/x-www-form-urlencoded
 error=access_denied&error_description=the+user+canceled+the+authentication
 ```
 
-| Paramètre | Description |
+| Paramètre | Description  |
 | --- | --- |
 | `error` | Une chaîne de code d’erreur que vous pouvez utiliser pour classer les types d’erreur se produisant et pour intervenir face aux erreurs. |
 | `error_description` | Un message d’erreur spécifique qui peut vous aider à identifier la cause principale d’une erreur d’authentification. |

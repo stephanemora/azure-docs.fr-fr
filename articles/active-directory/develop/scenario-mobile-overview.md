@@ -15,16 +15,16 @@ ms.date: 05/07/2019
 ms.author: dadobali
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eb0acd1534bab11eb57a7aa0e695f192b5999ed2
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: d9978905f8ae0719f6a77ca2351f2c43bbf94ee0
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65076494"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65550367"
 ---
 # <a name="scenario-mobile-application-that-calls-web-apis"></a>Scénario : Application mobile appelle des API web
 
-En savoir plus il que vous suffit de créer une application mobile qui appelle l’API web.
+Apprendre tout ce que vous devez savoir pour créer une application mobile qui appelle l’API web.
 
 ## <a name="prerequisites"></a>Conditions préalables
 
@@ -43,23 +43,23 @@ Créer votre première application mobile et essayez un démarrage rapide !
 
 ## <a name="overview"></a>Présentation
 
-Lorsque vous générez une application mobile, une expérience utilisateur personnalisée et transparente est essentielle.  Plateforme d’identité Microsoft permet aux développeurs mobiles faire exactement pour les utilisateurs iOS et Android. Votre application peut se connecter dans Azure AD, compte Microsoft personnel et les utilisateurs Azure AD B2C et acquérir des jetons pour appeler une API web en leur nom. Pour implémenter ces flux, nous allons utiliser Microsoft Authentication Library (MSAL) qui implémente la norme industrielle [flux de code d’autorisation OAuth2.0](v2-oauth2-auth-code-flow.md).
+Une expérience utilisateur transparente personnalisé est essentielle pour les applications mobiles.  Plateforme d’identité Microsoft permet aux développeurs mobiles créer cette expérience pour iOS et Android. Votre application peut se connecter à des utilisateurs Azure Active Directory (Azure AD), les utilisateurs de compte Microsoft personnels et les utilisateurs Azure AD B2C et acquérir des jetons pour appeler une API web en leur nom. Pour implémenter ces flux, nous allons utiliser Microsoft Authentication Library (MSAL), qui implémente la norme industrielle [flux de code d’autorisation OAuth2.0](v2-oauth2-auth-code-flow.md).
 
 ![Applications démon](./media/scenarios/mobile-app.svg)
 
-Considérations sur les applications mobiles :
+Considérations pour les applications mobiles :
 
-- ***L’expérience utilisateur est la clé***: Permettre aux utilisateurs d’afficher la valeur de votre application avant de demander pour la connexion et demander uniquement les autorisations nécessaires.
-- ***Prise en charge toutes les configurations utilisateur***: Nombre d’utilisateurs métier mobiles situés sous l’accès conditionnel et les stratégies de conformité. Veillez à prendre en charge ces scénarios clés.
-- ***Implémenter l’authentification unique (SSO)***: MSAL et la plateforme d’identité Microsoft simplifient l’activation de l’authentification unique via le navigateur du périphérique ou le Microsoft Authenticator (et le portail d’entreprise Intune sur Android).
+- **L’expérience utilisateur est la clé**: Permettre aux utilisateurs d’afficher la valeur de votre application avant de demander pour la connexion et demander uniquement les autorisations requises.
+- **Prise en charge toutes les configurations utilisateur**: Nombre d’utilisateurs métier mobiles situés sous l’accès conditionnel et les stratégies de conformité. Veillez à prendre en charge ces scénarios clés.
+- **Implémenter l’authentification unique (SSO)**: MSAL et la plateforme d’identité Microsoft simplifient l’activation de l’authentification unique via le navigateur du périphérique ou le Microsoft Authenticator (et le portail d’entreprise Intune sur Android).
 
 ## <a name="specifics"></a>Spécificités
 
-Lorsque vous générez une application mobile sur la plateforme d’identité Microsoft, l’expérience de bout en bout présente quelques considérations :
+N’oubliez pas ces considérations lorsque vous générez une application mobile sur la plateforme d’identité Microsoft :
 
-- Selon la plateforme, sans aucune interaction de signature peut-être pas possible sur la première connexion. iOS, par exemple, exige que les applications pour afficher l’intervention de l’utilisateur lors de l’obtention des temps de l’authentification unique de la première via Microsoft Authenticator (et portail d’entreprise Intune sur Android).
-- Sur iOS et Android, MSAL peut utiliser un navigateurs externes (qui peuvent être présentes sur votre application) pour connecter les utilisateurs. Cela peut être personnalisé pour utiliser des vues Web dans l’application à la place.
-- N’utilisez jamais une clé secrète dans une application mobile, elle est accessible à tous les utilisateurs.
+- Selon la plateforme, une intervention de l’utilisateur peut être nécessaire la première fois que les utilisateurs se connectent. Par exemple, iOS exige que les applications pour afficher l’intervention de l’utilisateur lorsque vous utilisez l’authentification unique de la première fois à Microsoft Authenticator (et portail d’entreprise Intune sur Android).
+- Sur iOS et Android, MSAL peut utiliser un navigateur externe (qui peut apparaître en haut de votre application) pour connecter les utilisateurs. Vous pouvez personnaliser la configuration pour utiliser les vues Web dans l’application à la place.
+- N’utilisez jamais une clé secrète dans une application mobile. Il sera accessible à tous les utilisateurs.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

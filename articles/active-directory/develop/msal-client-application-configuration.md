@@ -4,7 +4,7 @@ description: En savoir plus sur les options de configuration de client public et
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
-manager: celested
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a48eea9fedd2d82f44693d58b31ee0d5c8c288d
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 4d731a8153dc6a70382c0d87cc20d8c961d9fe24
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65138550"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65546009"
 ---
 # <a name="application-configuration-options"></a>Options de configuration d’application
 
@@ -35,7 +35,7 @@ Dans votre code, vous initialisez un nouveau client public ou confidentiel (ou l
     - [clé secrète client](#client-secret) (pour les applications de client confidentiel).
 - [Options de journalisation](#logging), y compris le niveau de journalisation, de données personnelles et le nom du composant à l’aide de la bibliothèque.
 
-## <a name="authority"></a>Authority
+## <a name="authority"></a>Autorité
 L’autorité est une URL qui indique un répertoire MSAL peut demander des jetons à partir de. Les autorités habituelles sont :
 
 - https://login.microsoftonline.com/&lt; locataire&gt;/, où &lt;locataire&gt; est l’ID de client du locataire Azure AD ou un domaine associé à ce client Azure AD.  Utilisé uniquement pour connecter les utilisateurs d’une organisation spécifique.
@@ -58,7 +58,7 @@ Autorités de cloud Azure AD ont deux parties :
 
 L’instance et l’audience peuvent être concaténées et fournis en tant que l’URL de l’autorité. Dans les versions de MSAL.NET avant MSAL 3.x, que vous deviez composer l’autorité vous-même selon le cloud que vous vouliez cible et l’audience de connexion.  Le diagramme suivant montre comment l’URL de l’autorité est composé.
 
-![Authority](media/msal-client-application-configuration/authority.png)
+![Autorité](media/msal-client-application-configuration/authority.png)
 
 ## <a name="cloud-instance"></a>Instance de cloud
 Le **instance** est utilisée pour spécifier si votre application se connecte les utilisateurs dans le cloud public Microsoft Azure ou dans des clouds nationaux. À l’aide de MSAL dans votre code, l’instance de cloud Azure peut être définie à l’aide d’une énumération ou en passant l’URL pour le [instance cloud nationale](authentication-national-cloud.md#azure-ad-authentication-endpoints) comme le `Instance` membre (si vous le connaissez).

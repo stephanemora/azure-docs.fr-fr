@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2018
 ms.author: terrylan
-ms.openlocfilehash: 22db43413b5c752decf6785a75dff22ff4a68039
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 057ec69db300c3ec95cbc63bd5056a78c24d5660
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60596673"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65601665"
 ---
 # <a name="best-practices-for-securing-paas-databases-in-azure"></a>Bonnes pratiques pour la sécurisation des bases de données PaaS dans Azure
 
@@ -78,7 +78,7 @@ Azure SQL gère les problèmes clés liés à TDE. Comme avec TDE, une attention
 
 Azure SQL fournit un chiffrement pour les colonnes par le biais d’[Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine). Cela permet de restreindre l’accès des colonnes sensibles aux applications autorisées. Ce chiffrement limite les requêtes SQL pour les colonnes chiffrées aux valeurs basées sur l’égalité.
 
-Le chiffrement au niveau de l’application doit également être utilisé pour des données sélectionnées. Les problèmes de souveraineté de données peuvent être atténués par le chiffrement des données avec une clé conservée dans le pays qui convient. Cela empêche même tout problème dû à un transfert de données accidentel, car il est impossible de déchiffrer les données sans la clé, en supposant qu’un algorithme fort soit utilisé (par exemple, AES 256).
+Le chiffrement au niveau de l’application doit également être utilisé pour des données sélectionnées. Problèmes de souveraineté de données peuvent être atténués en chiffrant les données avec une clé qui est conservée dans le pays/la région correcte. Cela empêche même tout problème dû à un transfert de données accidentel, car il est impossible de déchiffrer les données sans la clé, en supposant qu’un algorithme fort soit utilisé (par exemple, AES 256).
 
 Vous pouvez prendre des précautions supplémentaires pour sécuriser la base de données, comme la conception d’un système sécurisé, le chiffrement de ressources confidentielles et la création d’un pare-feu autour des serveurs de base de données.
 

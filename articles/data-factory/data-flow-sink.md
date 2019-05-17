@@ -1,87 +1,92 @@
 ---
-title: Azure Data Factory - Transformation de réception des flux de données de mappage
-description: Azure Data Factory - Transformation de réception des flux de données de mappage
+title: Configurer une transformation de récepteur dans la fonctionnalité de mappage de flux de données d’Azure Data Factory
+description: Découvrez comment configurer une transformation de récepteur dans le mappage de flux de données.
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
-ms.openlocfilehash: a39fa0949276b7e86c7fdd0d0861492a9a0b723e
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 4341cbb0e24330d535f5211c088f0068eab33af7
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58438630"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65596266"
 ---
-# <a name="mapping-data-flow-sink-transformation"></a>Transformation de réception des flux de données de mappage
+# <a name="sink-transformation-for-a-data-flow"></a>Transformation d’un flux de données du récepteur
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-![Options de réception](media/data-flow/sink1.png "Récepteur 1")
+Une fois que vous transformez votre flux de données, vous pouvez recevoir les données dans un jeu de données de destination. Dans la transformation de récepteur, choisissez une définition de dataset pour les données de sortie de destination. Vous pouvez avoir plusieurs transformations du récepteur que requiert votre flux de données.
 
-À l’issue de la transformation de votre flux de données, vous pouvez réceptionner vos données transformées dans un jeu de données de destination. Lors d’une transformation de réception, vous pouvez choisir la définition de jeu de données que vous souhaitez utiliser pour les données de sortie de destination. Vous pouvez utiliser autant de transformations de réception que nécessaire pour votre flux de données.
+Au compte pour une dérive du schéma et les modifications apportées aux données entrantes, les données de sortie de récepteur dans un dossier sans un schéma défini dans le jeu de données de sortie. Vous pouvez également tenir compte de colonne est modifiée dans vos sources en sélectionnant **autoriser une dérive du schéma** dans la source. Puis mapper tous les champs dans le récepteur.
 
-Pour prendre en compte la modification des données entrantes et la dérive du schéma, il est courant de réceptionner les données de sortie dans un dossier sans schéma défini appartenant au jeu de données de sortie. Vous pouvez également prendre en compte toutes les modifications des colonnes de vos sources en sélectionnant « Autoriser la dérive de schéma » dans la source, puis en mappant automatiquement tous les champs du récepteur.
+![Options de l’onglet récepteur, y compris la possibilité de mappage automatique](media/data-flow/sink1.png "récepteur 1")
 
-Vous pouvez choisir de remplacer, d’ajouter ou de faire échouer le flux de données lors de sa réception par un jeu de données.
+Pour recevoir tous les champs entrants, allumez **mappage automatique**. Pour choisir les champs sur le récepteur à la destination, ou pour modifier les noms des champs à la destination, désactiver **mappage automatique**. Ouvrez ensuite le **mappage** onglet pour mapper les champs de sortie.
 
-Vous pouvez également choisir l’option de mappage automatique pour réceptionner tous les champs entrants. Si vous souhaitez choisir les champs à réceptionner dans la destination, ou si vous souhaitez modifier les noms des champs dans la destination, désactivez le mappage automatique, puis cliquez sur l’onglet Mappage pour mapper les champs de sortie :
+![Options de l’onglet mappage](media/data-flow/sink2.png "récepteur 2")
 
-![Options de réception](media/data-flow/sink2.png "Récepteur 2")
+## <a name="output"></a>Sortie 
+Pour le stockage Blob Azure ou les types de récepteur de Data Lake Storage, les données transformées de sortie dans un dossier. Spark génère des fichiers de données de sortie partitionnée selon le schéma de partitionnement qui utilise la transformation de récepteur. 
 
-## <a name="output-to-one-file"></a>Envoyer les résultats vers un seul fichier
-Pour les récepteurs Azure Storage Blob et Data Lake, vous allez envoyer les données transformées vers un dossier. Spark génère des fichiers de données de sortie partitionnés, selon le schéma de partition utilisé par la transformation de réception. Vous pouvez configurer le schéma de partition en cliquant sur l’onglet « Optimiser ». Si vous souhaitez qu’ADF fusionne vos résultats dans un seul fichier, cliquez sur la case d’option « Partition unique ».
+Vous pouvez définir le schéma de partitionnement à partir de la **optimiser** onglet. Si vous souhaitez que Data Factory pour fusionner vos résultats dans un seul fichier, sélectionnez **partition unique**.
 
-![Options de réception](media/data-flow/opt001.png "Options de réception")
+![Options de l’onglet optimiser](media/data-flow/opt001.png "options du récepteur")
 
 ## <a name="field-mapping"></a>Mappage de champs
 
-Sous l’onglet Mappage de la transformation de réception, vous pouvez mapper les colonnes entrantes (côté gauche) vers la destination (à droite). Lorsque des fichiers réceptionnent des flux de données, ADF écrit toujours les nouveaux fichiers dans un dossier. Lorsque vous effectuez un mappage vers un jeu de données de base de données, vous pouvez choisir soit de générer une nouvelle table avec ce schéma (pour cela, définissez Enregistrer la stratégie sur « Remplacer »), soit d’insérer de nouvelles lignes dans une table et de mapper les champs vers le schéma existant.
+Sur le **mappage** onglet de transformation de votre récepteur, vous pouvez mapper les colonnes entrants sur la gauche vers les destinations sur la droite. Lorsque le récepteur de flux de données dans des fichiers, Data Factory écrira toujours les nouveaux fichiers dans un dossier. Lorsque vous mappez à un jeu de données de base de données, vous pouvez générer une nouvelle table qui utilise ce schéma en définissant **enregistrer la stratégie** à **remplacer**. Ou insérer de nouvelles lignes dans une table existante et ensuite mapper les champs au schéma existant. 
 
-Vous pouvez utiliser la sélection multiple dans la table de mappage pour lier plusieurs colonnes avec un seul clic, détachent plusieurs colonnes ou mapper plusieurs lignes pour le même nom de colonne.
+![L’onglet mappage](media/data-flow/sink2.png "récepteurs")
 
-Lorsque vous souhaitez toujours prendre l’ensemble entrant de champs et les mapper à une cible en tant que-, définissez le paramètre « Autoriser les dérives de schéma ».
+Dans la table de mappage, vous pouvez la sélection multiple pour lier plusieurs colonnes, détachent plusieurs colonnes ou mapper plusieurs lignes pour le même nom de colonne.
 
-![Mappages de champs](media/data-flow/multi1.png "Plusieurs options")
+Pour toujours mapper l’ensemble entrant de champs à une cible tels qu’ils sont entièrement accepter les définitions de schéma flexible, sélectionnez **autoriser une dérive du schéma**.
 
-Si vous souhaitez réinitialiser vos mappages de colonnes, appuyez sur le bouton « Remapper ».
+![L’onglet mappage, montrant les champs mappés aux colonnes du jeu de données](media/data-flow/multi1.png "plusieurs options")
 
-![Options de réception](media/data-flow/sink1.png "Récepteur 1")
+Pour réinitialiser vos mappages de colonne, sélectionnez **remapper**.
 
-![Options de réception](media/data-flow/sink2.png "Récepteurs")
+![L’onglet récepteur](media/data-flow/sink1.png "récepteur un")
 
-* Les options Autoriser la dérive de schéma et Valider le schéma sont désormais disponibles dans le récepteur. Ces options vous permettent d’indiquer à ADF de soit accepter entièrement les définitions de schémas flexibles (Autoriser la dérive de schéma), soit de mettre en échec le récepteur si le schéma est modifié (Valider le schéma).
+Sélectionnez **Validate schéma** échec le récepteur si le schéma est modifié.
 
-* Effacer le contenu du dossier. ADF va tronquer le contenu du dossier récepteur avant d’écrire les fichiers de destination dans le dossier cible.
+Sélectionnez **effacer le dossier** pour tronquer le contenu du dossier récepteur avant d’écrire les fichiers de destination dans le dossier cible.
 
 ## <a name="file-name-options"></a>Options de nom de fichier
 
-   * Valeur par défaut : autoriser Spark à nommer les fichiers en fonction des valeurs par défaut de la partition
-   * Modèle : Entrer un modèle pour vos fichiers de sortie. Par exemple, « prêts [n] » créera loans1.csv, loans2.csv,...
-   * Par partition : entrez un nom de fichier pour chaque partition.
-   * Comme les données de la colonne : définissez le fichier de sortie sur la valeur d’une colonne.
+Vous pouvez configurer la dénomination des fichiers : 
+
+   * **Par défaut** : Spark permettent de nommer les fichiers en fonction des valeurs par défaut de la partie.
+   * **Modèle**: Entrer un modèle pour vos fichiers de sortie. Par exemple, **prêts [n]** créera loans1.csv, loans2.csv et ainsi de suite.
+   * **Par partition**: Entrez un nom de fichier par partition.
+   * **En tant que données de colonne**: Définissez le fichier de sortie à la valeur d’une colonne.
+   * **Un seul fichier de sortie**: Avec cette option, ADF combine les fichiers de sortie partitionnée en un seul fichier nommé. Pour utiliser cette option, votre jeu de données doit se résoudre à un nom de dossier. En outre, sachez que cette opération de fusion peut échouer en fonction de la taille de nœud.
 
 > [!NOTE]
-> Les opérations de fichier ne seront exécutées que lorsque vous exécuterez l’activité Exécuter le flux de données. Elles ne le seront pas lorsque vous serez en mode de débogage Data Flow.
+> Début des opérations de fichier uniquement lorsque vous exécutez l’activité exécuter le flux de données. Ils ne démarrent pas en mode de données de flux de débogage.
 
 ## <a name="database-options"></a>Options de la base de données
 
-* Autoriser insert, update, delete, upserts. La valeur par défaut est de permettre les insertions. Si vous souhaitez effectuer la mise à jour, d’upsert ou de supprimer des lignes, vous devez d’abord ajouter une transformation de ligne alter aux lignes de balise pour les actions spécifiques. Désactivation de « Autoriser l’insertion » s’arrête ADF à partir de l’insertion de nouvelles lignes à partir de votre source.
-* TRUNCATE table (supprime toutes les lignes à partir de la table cible avant la fin du flux de données)
-* Recréez la table (effectue suppriment/créent de la table cible avant la fin du flux de données)
-* Taille du lot (pour faciliter le chargement de données volumineuses). Entrez le nombre des écritures de compartiment en segments
-* Activer la mise en lots : Cela indiquera ADF pour utiliser Polybase lors du chargement de l’entrepôt de données Azure en tant que votre jeu de données récepteur
+Choisissez les paramètres de base de données :
+
+* **Mettre à jour de la méthode**: La valeur par défaut est de permettre les insertions. Effacer **autoriser insert** si vous souhaitez arrêter l’insertion de nouvelles lignes à partir de votre source. Pour mettre à jour, upsert, ou supprimer des lignes, tout d’abord ajouter une transformation de ligne de modification aux lignes de balise pour ces actions. 
+* **Recréer la table**: Supprimez ou créez la table cible avant que le flux de données se termine.
+* **TRUNCATE table**: Supprimer toutes les lignes à partir de la table cible avant que le flux de données se termine.
+* **Taille de lot** : Entrez le nombre de lots à créer pour diviser les données en plusieurs blocs de données. Utilisez cette option pour les chargements de données volumineux. 
+* **Activer la mise en lots**: Utiliser PolyBase lors du chargement Azure Data Warehouse en tant que votre jeu de données récepteur.
+
+![L’onglet Paramètres, montrant les options du récepteur SQL](media/data-flow/alter-row2.png "Options SQL")
 
 > [!NOTE]
-> Dans le flux de données, vous pouvez demander l’ADF pour créer une nouvelle définition de table dans votre base de données cible en définissant un jeu de données dans la transformation de récepteur qui a un nouveau nom de table. Dans le jeu de données SQL, cliquez sur « Modifier » sous le nom de table et entrez un nouveau nom de table. Puis, dans la Transformation du récepteur, activez « Autoriser les dérives de schéma ». Seth le paramètre « Importer le schéma » None.
+> Dans le flux de données, vous pouvez diriger Data Factory pour créer une nouvelle définition de table dans votre base de données cible. Pour créer la définition de table, définissez un jeu de données dans la transformation de récepteur qui a un nouveau nom de table. Dans le jeu de données SQL, sous le nom de table, sélectionnez **modifier** et entrez un nouveau nom de table. Puis, dans la transformation de récepteur, allumez **autoriser une dérive du schéma**. Définissez **importer un schéma** à **aucun**.
 
-![Schéma de Transformation source](media/data-flow/dataset2.png "schéma SQL")
-
-![Options du récepteur SQL](media/data-flow/alter-row2.png "Options SQL")
+![Paramètres de jeu de données SQL, montrant où modifier le nom de table](media/data-flow/dataset2.png "schéma SQL")
 
 > [!NOTE]
-> Lorsque la mise à jour ou suppression de lignes dans votre récepteur de base de données, vous devez définir la colonne clé. De cette façon, Alter ligne est en mesure de déterminer la ligne unique dans l’instruction DML.
+> Lorsque vous mettez à jour ou supprimez des lignes dans votre récepteur de base de données, vous devez définir la colonne clé. Ce paramètre permet la transformation de ligne alter déterminer la ligne unique dans la bibliothèque de déplacement des données (DML).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Maintenant que vous avez créé votre flux de données, ajoutez une [activité Exécuter un flux de données à votre pipeline](concepts-data-flow-overview.md).
+Maintenant que vous avez créé votre flux de données, ajoutez un [activité de flux de données à votre pipeline](concepts-data-flow-overview.md).

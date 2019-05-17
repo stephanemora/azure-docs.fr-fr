@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/24/2019
 ms.author: bwren
-ms.openlocfilehash: ba9a0ab775e062f21a058b537e289fe3ea2b40bb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d508ce217e3a97b3399435cb63295eb28965359a
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61093962"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65605600"
 ---
 # <a name="log-data-ingestion-time-in-azure-monitor"></a>Durée d’ingestion de données de journal dans Azure Monitor
 Azure Monitor est un service de données à grande échelle servant des milliers de clients envoyant des téraoctets de données chaque mois à un rythme croissant. Les utilisateurs se demandent souvent quel est le délai nécessaire pour que les données de journal soient disponibles une fois qu’elles ont été collectées. Cet article explique les différents facteurs qui affectent cette latence.
@@ -104,7 +104,7 @@ Heartbeat
 | render timechart  
 ```
  
-Utilisez la requête suivante pour afficher la durée d’ingestion des ordinateurs en fonction du pays où ils se trouvent, d’après leur adresse IP : 
+Utilisez la requête suivante pour afficher l’heure ingestion ordinateur par la pays/région qu’ils se trouvent dans lequel est basé sur leur adresse IP : 
 
 ``` Kusto
 Heartbeat 

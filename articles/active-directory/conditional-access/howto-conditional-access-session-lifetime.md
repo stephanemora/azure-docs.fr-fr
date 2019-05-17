@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ff9ad850b111cf080447b699d35b4ef8205e006
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 45ea34a673b46dda2ec9606952c707a13d1b72d9
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190216"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65766869"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>Configurer la gestion de session d’authentification avec l’accès conditionnel
 
@@ -80,7 +80,7 @@ Si vous avez configuré la fréquence de connexion différente pour les applicat
 1. Choisissez toutes les conditions requises.
 
    > [!NOTE]
-   > Veuillez noter que ce contrôle nécessite de choisir « Toutes les applications Cloud » comme une condition
+   > Veuillez noter que ce contrôle nécessite de choisir « Toutes les applications Cloud » en tant que condition. Persistance de session de navigateur est contrôlé par le jeton de session d’authentification. Tous les onglets dans une session de navigateur partagent un jeton de session unique et par conséquent, tous doivent partager l’état de persistance.
 
 1. Accédez à **contrôles d’accès** > **Session** et cliquez sur **session de navigateur persistant**
 1. Sélectionnez une valeur dans la liste déroulante

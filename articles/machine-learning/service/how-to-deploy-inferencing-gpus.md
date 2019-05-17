@@ -1,5 +1,5 @@
 ---
-title: Comment déployer un modèle d’apprentissage profond pour l’inférence avec GPU
+title: Déployer le modèle pour l’inférence avec GPU
 titleSuffix: Azure Machine Learning service
 description: Découvrez comment déployer un modèle d’apprentissage profond comme un service web qui utilise un GPU pour l’inférence. Dans cet article, un modèle Tensorflow est déployé sur un cluster Azure Kubernetes Service. Le cluster utilise une machine virtuelle de compatibles GPU pour héberger le service web et demandes de l’inférence de score.
 services: machine-learning
@@ -10,33 +10,30 @@ ms.author: vaidyas
 author: csteegz
 ms.reviewer: larryfr
 ms.date: 05/02/2019
-ms.openlocfilehash: 5cc0fe0526937245d3ca913afc477f0259e2afd4
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 7796e8dc07889c9816e4227f3b38904d91a24da3
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65515173"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595686"
 ---
-# <a name="how-to-do-gpu-inferencing"></a>Procédure à suivre l’inférence GPU
+# <a name="deploy-a-deep-learning-model-for-inferencing-with-gpu"></a>Déployer un modèle d’apprentissage profond pour l’inférence avec GPU
 
 Découvrez comment utiliser l’inférence GPU pour un modèle déployé comme un service web machine learning. Dans cet article, vous allez apprendre à utiliser le service Azure Machine Learning pour déployer un exemple de modèle d’apprentissage profond de Tensorflow. Le modèle est déployé sur un cluster Azure Kubernetes Service (AKS) qui utilise une machine virtuelle prenant en charge GPU pour héberger le service. Lorsque les demandes sont envoyées au service, le modèle utilise le GPU pour effectuer l’inférence.
 
 GPU offrent des avantages de performances sur les unités centrales de calcul hautement parallélisable. Formation et inférence des modèles (en particulier pour les lots volumineux de demandes) deep learning sont des cas d’utilisation excellent pour GPU.  
 
-Cet exemple affiche comment déployer un modèle TensorFlow enregistré dans Azure Machine Learning. 
+Cet exemple affiche comment déployer un modèle TensorFlow enregistré dans Azure Machine Learning par :
+* Création d’un cluster AKS compatibles GPU
+* Déploiement d’un modèle avec Tensorflow GPU
 
-## <a name="goals-and-prerequisites"></a>Objectifs et les conditions préalables
+## <a name="prerequisites"></a>Conditions préalables
 
-Suivez les instructions pour :
-* Créer un GPU activé cluster AKS
-* Déployer un modèle avec Tensorflow GPU
-
-Configuration requise :
 * Espace de travail Azure Machine Learning services
 * Python
 * Tensorflow SavedModel inscrit. Pour savoir comment inscrire les modèles consultez [déployer des modèles](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where#registermodel)
 
-Cet article est basé sur [déploiement de modèles Tensorflow sur AKS](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/production-deploy-to-aks-gpu/production-deploy-to-aks-gpu.ipynb), qui utilise TensorFlow enregistré modélise et déploie sur un cluster AKS. Toutefois, avec petites modifications au fichier de notation et au fichier d’environnement, il est applicable à toute infrastructure d’apprentissage automatique qui prennent en charge les GPU.  
+Cet article est basé sur le serveur Jupyter notebook, [déploiement de modèles Tensorflow sur AKS](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/production-deploy-to-aks-gpu/production-deploy-to-aks-gpu.ipynb), qui utilise TensorFlow enregistré modélise et déploie sur un cluster AKS. Toutefois, avec petites modifications au fichier de notation et au fichier d’environnement, il est applicable à toute infrastructure d’apprentissage automatique qui prennent en charge les GPU.  
 
 ## <a name="provision-aks-cluster-with-gpus"></a>Cluster AKS de disposition avec des GPU
 Azure propose différentes options GPU, qui peut être utilisé pour l’inférence. Consultez [la liste de série N](https://azure.microsoft.com/pricing/details/virtual-machines/linux/#n-series) pour une description complète des fonctionnalités et les coûts. 

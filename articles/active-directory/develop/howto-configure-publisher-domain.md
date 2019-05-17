@@ -3,8 +3,8 @@ title: Configurer un domaine d’application serveur de publication | Azure
 description: Découvrez comment configurer un domaine d’application serveur de publication pour permettre aux utilisateurs de savoir où leurs informations sont envoyées.
 services: active-directory
 documentationcenter: dev-center-name
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -13,16 +13,16 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/05/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, zachowd
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: efbf448770bfcf797d6bf01cd3c28dc98023adff
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d47075f9e18b299341a98983ffb8a47389fd7063
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60299765"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540239"
 ---
 # <a name="how-to-configure-an-applications-publisher-domain-preview"></a>Activation Configurer un domaine d’application serveur de publication (version préliminaire)
 
@@ -38,7 +38,7 @@ Le tableau suivant récapitule le comportement par défaut de la valeur de domai
 
 | Domaines vérifiés de locataire | Valeur par défaut du domaine du serveur de publication |
 |-------------------------|----------------------------|
-| null | null |
+| Null | Null |
 | *.onmicrosoft.com | *.onmicrosoft.com |
 | -*. onmicrosoft.com<br/>- domain1.com<br/>-domain2.com (principal) | domain2.com |
 

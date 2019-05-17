@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/06/2018
 ms.author: bwren
-ms.openlocfilehash: 2df4cf994e118fef9048504daf40fabc1625c375
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b5860243b6b605288aaf8d6dffe2260bc031a592
+ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61425909"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65560842"
 ---
 # <a name="search-queries-in-azure-monitor-logs"></a>Requêtes de recherche dans les journaux d’activité Azure Monitor
 
@@ -64,7 +64,7 @@ search in (Event) Source:"error"
 ```
 
 > [!TIP]
-> Si vous utilisez `==` au lieu de `:`, les résultats incluent les enregistrements dans lesquels la colonne *Source* a la valeur exacte « error » et, dans ce cas précis, l’utilisation de « : » inclut les enregistrements où *Source* a des valeurs telles que « error code 404 » ou « Error ».
+> Si vous utilisez `==` au lieu de `:`, les résultats incluent les enregistrements dans lesquels la colonne *Source* a la valeur exacte « error » et, dans ce cas précis, À l’aide de ' :' inclure des enregistrements où *Source* a des valeurs telles que « code d’erreur 404 » ou « Erreur ».
 
 ## <a name="case-sensitivity"></a>Sensibilité à la casse
 Par défaut, la recherche de termes n’est pas sensible à la casse, donc si vous recherchez « dns », vous obtenez des résultats comme « DNS », « dns » ou « Dns ». Pour que la recherche soit sensible à la casse, utilisez l’option `kind` :

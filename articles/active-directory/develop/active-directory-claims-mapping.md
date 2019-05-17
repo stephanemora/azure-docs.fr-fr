@@ -2,23 +2,23 @@
 title: Personnaliser des revendications émises dans des jetons pour une application spécifique dans un locataire Azure AD (préversion publique)
 description: Cette page décrit le mappage de revendications Azure Active Directory.
 services: active-directory
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2076aec1585ff8b60ee2b593621b75abfaeaa1ac
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8b770ee476fc5c1c334f53904539cc34cf962c62
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60300476"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65546200"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Activation Personnaliser des revendications émises dans des jetons pour une application spécifique dans un locataire (préversion)
 
@@ -44,7 +44,7 @@ Une stratégie de mappage de revendications est un type d’objet de **stratégi
 
 Il existe des ensembles de revendications qui définissent comment et quand ils sont utilisés dans des jetons.
 
-| Ensemble de revendications | Description |
+| Ensemble de revendications | Description  |
 |---|---|
 | Ensemble de revendications principal | Sont présents dans chaque jeton, quelle que soit la stratégie. Ces revendications sont également considérées comme restreintes, et ne peuvent pas être modifiées. |
 | Ensemble de revendications de base | Inclut les revendications émises par défaut pour les jetons (en plus de l’ensemble de revendications principal). Vous pouvez omettre ou modifier des revendications de base à l’aide de stratégies de mappage de revendications. |
@@ -105,7 +105,7 @@ Il existe des ensembles de revendications qui définissent comment et quand ils 
 | grant_type |
 | graph |
 | group_sids |
-| groups |
+| Groupes |
 | hasgroups |
 | hash_alg |
 | home_oid |
@@ -156,10 +156,10 @@ Il existe des ensembles de revendications qui définissent comment et quand ils 
 | refresh_token |
 | refreshtoken |
 | request_nonce |
-| resource |
-| role |
-| roles |
-| scope |
+| Ressource |
+| rôle |
+| rôles |
+| portée |
 | scp |
 | sid |
 | signature |
@@ -284,14 +284,14 @@ L’élément ID identifie la propriété définie sur la source qui fournit la 
 
 #### <a name="table-3-valid-id-values-per-source"></a>Tableau 3 : Valeurs d’ID valides par source
 
-| Source | ID | Description |
+| Source | ID | Description  |
 |-----|-----|-----|
 | Utilisateur | surname | Nom de famille |
 | Utilisateur | givenname | Prénom |
-| Utilisateur | displayname | Nom d’affichage |
+| Utilisateur | displayname | Nom complet  |
 | Utilisateur | objectid | ObjectID |
 | Utilisateur | mail | Adresse de messagerie |
-| Utilisateur | userPrincipalName | Nom d’utilisateur principal |
+| Utilisateur | userPrincipalName | Nom principal de l'utilisateur |
 | Utilisateur | department|department|
 | Utilisateur | onpremisessamaccountname | Nom du compte SAM local |
 | Utilisateur | netbiosname| Nom NetBios |
@@ -327,7 +327,7 @@ L’élément ID identifie la propriété définie sur la source qui fournit la 
 | Utilisateur | facsimiletelephonenumber | Numéro de télécopie |
 | application, ressource, audience | displayname | Nom d’affichage |
 | application, ressource, audience | objected | ObjectID |
-| application, ressource, audience | tags | Balise de principal du service |
+| application, ressource, audience | balises | Balise de principal du service |
 | Company | tenantcountry | Pays du locataire |
 
 **TransformationID :** L’élément TransformationID doit être fourni uniquement si l’élément Source est défini sur « transformation ».
@@ -358,7 +358,7 @@ Selon la méthode choisie, un ensemble d’entrées et sorties est attendu. Déf
 
 #### <a name="table-4-transformation-methods-and-expected-inputs-and-outputs"></a>Tableau 4 : Méthodes de transformation et entrées et sorties attendues
 
-|Méthode de transformation|Entrée attendue|Sortie attendue|Description|
+|Méthode de transformation|Entrée attendue|Sortie attendue|Description |
 |-----|-----|-----|-----|
 |Join|string1, string2, séparateur|outputClaim|Joint les chaînes d’entrée à l’aide d’un séparateur. Par exemple : string1:"foo@bar.com", string2:"sandbox", separator:"." produit outputClaim:"foo@bar.com.sandbox"|
 |ExtractMailPrefix|mail|outputClaim|Extrait la partie locale d’une adresse de courrier. Par exemple : mail:"foo@bar.com" produit outputClaim:"foo". Si aucun symbole \@ n’est présent, la chaîne d’entrée d’origine est retournée telle quelle.|
@@ -384,10 +384,10 @@ Selon la méthode choisie, un ensemble d’entrées et sorties est attendu. Déf
 
 #### <a name="table-5-attributes-allowed-as-a-data-source-for-saml-nameid"></a>Tableau 5 : Attributs autorisés en tant que sources de données pour NameID SAML
 
-|Source|ID|Description|
+|Source|ID|Description |
 |-----|-----|-----|
 | Utilisateur | mail|Adresse de messagerie|
-| Utilisateur | userPrincipalName|Nom d’utilisateur principal|
+| Utilisateur | userPrincipalName|Nom principal de l'utilisateur|
 | Utilisateur | onpremisessamaccountname|Nom de compte Sam local|
 | Utilisateur | employeeid|ID d’employé|
 | Utilisateur | extensionattribute1 | Attribut d’extension 1 |
@@ -429,7 +429,7 @@ Des stratégies de mappage de revendications peuvent être attribuées uniquemen
 
 Dans Azure AD, de nombreux scénarios sont possibles où vous pouvez personnaliser des revendications émises dans des jetons pour des principaux du service spécifiques. Cette section décrit quelques scénarios courants qui peuvent vous aider à comprendre comment utiliser le type de stratégie de mappage de revendications.
 
-#### <a name="prerequisites"></a>Prérequis
+#### <a name="prerequisites"></a>Conditions préalables
 
 Dans les exemples suivants, vous créez, mettez à jour, liez et supprimez des stratégies pour les principaux du service. Si vous débutez avec Azure AD, nous vous recommandons de vous [documenter sur l’obtention d’un locataire Azure Active Directory](quickstart-create-new-tenant.md) avant de continuer avec ces exemples.
 

@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: 4f4f22628d2c2a6beb7974aa9b776a2148a3fee0
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 80843abe130f1388a5d4081adab7b9128446763b
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65238061"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65761989"
 ---
 # <a name="azure-stream-analytics-solution-patterns"></a>Modèles de solution Stream Analytique Azure
 
@@ -58,7 +58,7 @@ Vous pouvez créer des visualisations personnalisées en temps réel, tels que t
 
 La plupart des services web et applications web utilisent aujourd'hui un modèle demande/réponse pour servir de la couche de présentation. Le modèle demande/réponse est simple à créer et peut être facilement mis à l’échelle avec des temps de réponse faible à l’aide d’un serveur frontal sans état et évolutives magasins, comme Cosmos DB.
 
-Volume de données haute crée souvent les goulots d’étranglement dans un système CRUD. Le [approvisionnement en modèle de solution événements](/azure/architecture/patterns/event-sourcing.md) est utilisé pour résoudre les goulots d’étranglement de performances. Insights et modèles temporels sont également difficile et inefficace à extraire d’une banque de données traditionnel. Piloté par les applications souvent à des données de haut volume modernes adoptent une architecture basée sur les flux de données. Azure Stream Analytique en tant que le moteur de calcul pour les données en mouvement est un "cheville ouvrière" de cette architecture.
+Volume de données haute crée souvent les goulots d’étranglement dans un système CRUD. Le [approvisionnement en modèle de solution événements](/azure/architecture/patterns/event-sourcing) est utilisé pour résoudre les goulots d’étranglement de performances. Insights et modèles temporels sont également difficile et inefficace à extraire d’une banque de données traditionnel. Piloté par les applications souvent à des données de haut volume modernes adoptent une architecture basée sur les flux de données. Azure Stream Analytique en tant que le moteur de calcul pour les données en mouvement est un "cheville ouvrière" de cette architecture.
 
 ![Application d’événements d’approvisionnement ASA](media/stream-analytics-solution-patterns/eventsourcingapp.png)
 

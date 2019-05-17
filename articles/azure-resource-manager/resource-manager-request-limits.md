@@ -1,25 +1,18 @@
 ---
 title: Limitation des requêtes - Azure Resource Manager
 description: Décrit comment utiliser la limitation avec des requêtes Azure Resource Manager lorsque les limites d’abonnement ont été atteintes.
-services: azure-resource-manager
-documentationcenter: na
-author: rockboyfor
-ms.assetid: e1047233-b8e4-4232-8919-3268d93a3824
+author: tfitzmac
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-origin.date: 03/05/2019
-ms.date: 03/18/2019
-ms.author: v-yeche
+ms.date: 05/14/2019
+ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: 91a776ba13ffaeeb4f8184371ae45a80d829ae46
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fc731b1abec9c101356a0fa57eef498b58612ab9
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60389727"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65791357"
 ---
 # <a name="throttling-resource-manager-requests"></a>Limitation des requêtes de Resource Manager
 
@@ -33,12 +26,12 @@ Si votre application ou script atteint ces limites, vous devez limiter vos requ�
 
 Lorsque vous atteignez la limite, vous recevez le code d’état HTTP **429 Trop de requêtes**.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+Graphique des ressources Azure limite le nombre de demandes à ses opérations. Les étapes décrites dans cet article pour déterminer les requêtes restantes et comment réagir si la limite est atteinte s’appliquent également au graphique de la ressource. Toutefois, graphique des ressources définit son propre taux limite et de réinitialisation. Pour plus d’informations, consultez [d’accélération en graphique des ressources Azure](../governance/resource-graph/overview.md#throttling).
 
 ## <a name="remaining-requests"></a>Requêtes restantes
 Vous pouvez déterminer le nombre de requêtes restantes en examinant les en-têtes de réponse. Demandes de lecture retournent une valeur dans l’en-tête pour le nombre de demandes de lecture restants. Écrire des demandes incluent une valeur pour le nombre de requêtes d’écriture restantes. Le tableau suivant décrit les en-têtes de réponse que vous pouvez examiner pour ces valeurs :
 
-| En-tête de réponse | Description |
+| En-tête de réponse | Description  |
 | --- | --- |
 | x-ms-ratelimit-remaining-subscription-reads |Requêtes de lecture restantes étendues à l’abonnement. Cette valeur est renvoyée pour les opérations de lecture. |
 | x-ms-ratelimit-remaining-subscription-writes |Requêtes d’écriture restantes étendues à l’abonnement. Cette valeur est renvoyée pour les opérations d’écriture. |
@@ -61,7 +54,7 @@ response.Headers.GetValues("x-ms-ratelimit-remaining-subscription-reads").GetVal
 Dans **PowerShell**, vous récupérez la valeur de l’en-tête d’une opération Invoke-WebRequest.
 
 ```powershell
-$r = Invoke-WebRequest -Uri https://management.chinacloudapi.cn/subscriptions/{guid}/resourcegroups?api-version=2016-09-01 -Method GET -Headers $authHeaders
+$r = Invoke-WebRequest -Uri https://management.azure.com/subscriptions/{guid}/resourcegroups?api-version=2016-09-01 -Method GET -Headers $authHeaders
 $r.Headers["x-ms-ratelimit-remaining-subscription-reads"]
 ```
 
@@ -89,7 +82,7 @@ x-ms-ratelimit-remaining-subscription-reads: 11999
 Pour obtenir des limites d’écriture, utilisez une opération d’écriture : 
 
 ```powershell
-New-AzResourceGroup -Name myresourcegroup -Location chinanorth -Debug
+New-AzResourceGroup -Name myresourcegroup -Location westus -Debug
 ```
 
 Renvoie un grand nombre de valeurs, notamment celles-ci :
@@ -128,7 +121,7 @@ msrest.http_logger :     'x-ms-ratelimit-remaining-subscription-reads': '11998'
 Pour obtenir des limites d’écriture, utilisez une opération d’écriture : 
 
 ```azurecli
-az group create -n myresourcegroup --location chinanorth --verbose --debug
+az group create -n myresourcegroup --location westus --verbose --debug
 ```
 
 Renvoie un grand nombre de valeurs, notamment celles-ci :
@@ -152,5 +145,3 @@ Lorsque vous atteignez la limite de requêtes, Resource Manager renvoie le code 
 * Pour obtenir un exemple PowerShell complet, consultez [Vérifier les limites de Resource Manager pour un abonnement](https://github.com/Microsoft/csa-misc-utils/tree/master/psh-GetArmLimitsViaAPI).
 * Pour plus d’informations sur les limites et les quotas, consultez [Abonnement Azure et limites, quotas et contraintes du service](../azure-subscription-service-limits.md).
 * Pour en savoir plus sur la gestion des demandes REST asynchrones, consultez [Suivi des opérations asynchrones Azure](resource-manager-async-operations.md).
-
-<!--Update_Description: update meta properties, update cmdlet -->

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: e611f1564896cfdecb3ce34ab7c5361e5200b48a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3306e888970d99132d17d4ccf967f074302412ca
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60254129"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595456"
 ---
 # <a name="getting-started-with-azure-metrics-explorer"></a>Prise en main Azure Metrics Explorer
 
@@ -24,7 +24,7 @@ Azure Monitor Metrics Explorer est un composant du portail Microsoft Azure qui p
 
 1. Essayez [appliquant des filtres de dimension et de fractionnement](#apply-dimension-filters-and-splitting). Les filtres et fractionnement vous permettent d’analyser les segments de la métrique contribuent à la valeur métrique globale et identifier les aberrations possible.
 
-1. Utilisez [paramètres avancés](#advanced-chart-settings-and-next-steps) pour personnaliser le graphique avant d’épingler aux tableaux de bord. [Configurer des alertes](alerts-metric-overview.md) pour recevoir des notifications lorsque la valeur de métrique dépasse ou descend sous un seuil.
+1. Utilisez [paramètres avancés](#advanced-chart-settings) pour personnaliser le graphique avant d’épingler aux tableaux de bord. [Configurer des alertes](alerts-metric-overview.md) pour recevoir des notifications lorsque la valeur de métrique dépasse ou descend sous un seuil.
 
 ## <a name="create-your-first-metric-chart"></a>Créer votre premier graphique de métrique
 
@@ -61,12 +61,13 @@ Par défaut, le graphique affiche les dernières 24 heures de données de métri
 
 Consultez [exemples de graphiques](metric-chart-samples.md) qu’ont filtrant et en segmentant appliqué. L’article explique les étapes ont été utilisées pour configurer les graphiques.
 
-## <a name="advanced-chart-settings-and-next-steps"></a>Paramètres du graphique avancé et étapes suivantes
+## <a name="advanced-chart-settings"></a>Paramètres du graphique avancé
 
 Vous pouvez personnaliser le style de graphique, titre et modifier les paramètres du graphique avancé. Lorsque vous avez terminé avec la personnalisation, l’épingler au tableau de bord pour enregistrer votre travail. Vous pouvez également configurer des alertes de métriques. Suivez [documentation du produit](metrics-charts.md) pour en savoir plus sur celles-ci et d’autres fonctionnalités avancées d’explorer des métriques Azure Monitor.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Afficher la liste des métriques disponibles pour les services Azure](metrics-supported.md)
 * [En savoir plus sur les fonctionnalités avancées de Metrics Explorer](metrics-charts.md)
+* [Résolution des problèmes de Metrics Explorer](metrics-troubleshoot.md)
+* [Afficher la liste des métriques disponibles pour les services Azure](metrics-supported.md)
 * [Consultez les exemples de graphiques configurés](metric-chart-samples.md)

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: jlembicz
 ms.custom: seodec2018
-ms.openlocfilehash: cb8e42400847ba9fb13568d05dffac86d9cec85f
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: bc183cb8ac2155b8dd31dc603d70506ad3d5e20a
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024616"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65797477"
 ---
 # <a name="how-full-text-search-works-in-azure-search"></a>Fonctionnement de la recherche en texte intégral dans la recherche Azure
 
@@ -281,7 +281,7 @@ Pour le champ **Description**, l’index est le suivant :
 | Nord | 2
 | mer | 1, 2, 3
 | sur | 2
-| sur |2
+| le |2
 | calme | 4
 | chambres  | 1, 3
 | isolé | 4
@@ -291,7 +291,7 @@ Pour le champ **Description**, l’index est le suivant :
 | to | 1
 | view | 1, 2, 3
 | marche | 1
-| par | 3
+| avec | 3
 
 
 **Termes de requête correspondant aux termes indexés**
@@ -392,8 +392,6 @@ Cet article a présenté la recherche en texte intégral dans le contexte de la 
 + Découvrez comment appliquer des [analyseurs lexicaux propres au langage](https://docs.microsoft.com/rest/api/searchservice/language-support).
 
 + [Configurez des analyseurs personnalisés](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search) pour un traitement minimal ou pour un traitement spécialisé sur des champs spécifiques.
-
-+ [Comparez les analyseurs standard et les analyseurs anglais](https://alice.unearth.ai/) côte à côte sur ce site web de démonstration. 
 
 ## <a name="see-also"></a>Voir aussi
 

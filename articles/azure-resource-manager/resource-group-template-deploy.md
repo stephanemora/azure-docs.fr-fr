@@ -1,23 +1,17 @@
 ---
 title: Déployer des ressources avec le modèle et PowerShell | Microsoft Docs
 description: Utilisez Azure Resource Manager et Azure PowerShell pour déployer des ressources dans Azure. Les ressources sont définies dans un modèle Resource Manager.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-ms.assetid: 55903f35-6c16-4c6d-bf52-dbf365605c3f
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 03/28/2019
+ms.date: 05/14/2019
 ms.author: tomfitz
-ms.openlocfilehash: 2ef5cc702bd5035c958a8feb9b6f5051781cd3cc
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 5203519b1553de54d4e3cd1fafe6fb3d1c18ebd6
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58649792"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65779954"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-powershell"></a>Déployer des ressources à l’aide de modèles Resource Manager et d’Azure PowerShell
 
@@ -103,7 +97,7 @@ Pour coller le code, cliquez sur celui-ci avec le bouton droit et sélectionnez 
 
 ## <a name="redeploy-when-deployment-fails"></a>Redéploiement en cas d’échec du déploiement
 
-Cette fonctionnalité est également appelé *restauration en cas d’erreur*. En cas d'échec du déploiement, vous pouvez automatiquement relancer un déploiement antérieur réussi à partir de votre historique de déploiement. Pour spécifier le redéploiement, utilisez le paramètre `-RollbackToLastDeployment` ou `-RollBackDeploymentName` dans la commande de déploiement. Cette fonctionnalité est utile si vous avez donc un état correct connu pour votre déploiement de l’infrastructure et il doit être restauré vers. Il existe un certain nombre de restrictions mises en garde :
+Cette fonctionnalité est également appelé *restauration en cas d’erreur*. En cas d'échec du déploiement, vous pouvez automatiquement relancer un déploiement antérieur réussi à partir de votre historique de déploiement. Pour spécifier le redéploiement, utilisez le paramètre `-RollbackToLastDeployment` ou `-RollBackDeploymentName` dans la commande de déploiement. Cette fonctionnalité est utile si vous avez un état correct connu pour votre déploiement de l’infrastructure et que vous souhaitez revenir à cet état. Il existe un certain nombre de restrictions mises en garde :
 
 - Le redéploiement est exécuté exactement tel qu’il a été exécuté précédemment avec les mêmes paramètres. Vous ne pouvez pas modifier les paramètres.
 - Le déploiement précédent est exécuté à l’aide de la [mode complet](./deployment-modes.md#complete-mode). Toutes les ressources non inclus dans le déploiement précédent sont supprimés, et les configurations de ressources sont définies sur leur état précédent. Assurez-vous que vous comprenez le [modes de déploiement](./deployment-modes.md).
@@ -159,6 +153,18 @@ New-AzResourceGroupDeployment -ResourceGroupName testgroup `
 ```
 
 Obtenir une valeur de paramètre à partir d’un fichier est utile lorsque vous devez fournir des valeurs de configuration. Par exemple, vous pouvez fournir des [valeurs cloud-init pour une machine virtuelle Linux](../virtual-machines/linux/using-cloud-init.md).
+
+Si vous avez besoin de transmettre un tableau d’objets, créer des tables de hachage dans PowerShell et les ajouter à un tableau. Passez ce tableau en tant que paramètre au cours du déploiement.
+
+```powershell
+$hash1 = @{ Name = "firstSubnet"; AddressPrefix = "10.0.0.0/24"}
+$hash2 = @{ Name = "secondSubnet"; AddressPrefix = "10.0.1.0/24"}
+$subnetArray = $hash1, $hash2
+New-AzResourceGroupDeployment -ResourceGroupName testgroup `
+  -TemplateFile c:\MyTemplates\demotemplate.json `
+  -exampleArray $subnetArray
+```
+
 
 ### <a name="parameter-files"></a>Fichiers de paramètres
 

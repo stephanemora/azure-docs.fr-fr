@@ -11,18 +11,22 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 04/21/2019
+ms.date: 05/11/2019
 ms.author: juliako
-ms.openlocfilehash: 87620cb0c7aafb78b2c8fe610f42ad092313d305
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: c025a4c6e2a5a06e12e25ce226a327b099b95306
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153481"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65550960"
 ---
 # <a name="live-events-and-live-outputs"></a>Événements en direct et Sorties en direct
 
-Azure Media Services vous permet de transmettre des événements en direct auprès de vos clients dans le cloud Azure. Pour configurer vos événements de diffusion en continu en direct dans Media Services v3, vous devez comprendre les concepts abordés dans cet article. <br/>La liste des sections est répertoriée sur la droite de la page.
+Azure Media Services vous permet de transmettre des événements en direct auprès de vos clients dans le cloud Azure. Pour configurer vos événements de diffusion en continu en direct dans Media Services v3, vous devez comprendre les concepts abordés dans cet article.
+
+> [!TIP]
+> Pour les clients de la migration à partir de Media Services v2 API, le **événement réel** entité remplace **canal** dans v2 et **sortie Live** remplace **programme**.
+
 
 ## <a name="live-events"></a>Événements en direct
 
@@ -144,7 +148,7 @@ Si vous avez publié l’**actif multimédia** de la **sortie en direct** à l�
 
 Pour plus d’informations, consultez [Utilisation d’un magnétoscope numérique cloud](live-event-cloud-dvr.md).
 
-## <a name="ask-questions-give-feedback-get-updates"></a>Posez des questions, commentaires, obtenir des mises à jour
+## <a name="ask-questions-give-feedback-get-updates"></a>Poser des questions, envoyer des commentaires, obtenir des mises à jour
 
 Découvrez l’article [Communauté Azure Media Services](media-services-community.md) pour découvrir les différentes façons dont vous pouvez poser des questions, faire des commentaires et obtenir des mises à jour sur Media Services.
 

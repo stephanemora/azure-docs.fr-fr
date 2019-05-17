@@ -4,7 +4,7 @@ description: En savoir plus sur la création d’une expérience de connexion un
 services: active-directory
 documentationcenter: dev-center-name
 author: navyasric
-manager: celested
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -17,12 +17,12 @@ ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a0fb0731b7ac46210294e3766b33bd6a239dcc2
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 9f1f102307256852ac92616c7fb707e0e2739e5d
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65075849"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544156"
 ---
 # <a name="single-sign-on-with-msaljs"></a>L’authentification unique avec MSAL.js
 
@@ -91,7 +91,7 @@ Vous trouverez les étapes de configuration des revendications facultatives dans
 
 **À l’aide d’indicateur de connexion**
 
-Si vous n’avez pas de SID de revendication configuré ou avez besoin ignorer l’invite de sélection de compte dans les appels de l’authentification interactive, vous pouvez le faire en fournissant un `login_hint` dans les paramètres de demande et éventuellement un `domain_hint` comme `extraQueryParameters` dans le MSAL.js des méthodes interactives (`loginPopup`, `loginRedirect`, `acquireTokenPopup` et `acquireTokenRedirect`). Par exemple : 
+Si vous n’avez pas de SID de revendication configuré ou avez besoin ignorer l’invite de sélection de compte dans les appels de l’authentification interactive, vous pouvez le faire en fournissant un `login_hint` dans les paramètres de demande et éventuellement un `domain_hint` comme `extraQueryParameters` dans le MSAL.js des méthodes interactives (`loginPopup`, `loginRedirect`, `acquireTokenPopup` et `acquireTokenRedirect`). Exemple :
 
 ```javascript
 var request = {

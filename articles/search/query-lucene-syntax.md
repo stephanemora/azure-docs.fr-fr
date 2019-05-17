@@ -4,7 +4,7 @@ description: Informations de référence sur la syntaxe Lucene complète, telle 
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 04/25/2019
+ms.date: 05/13/2019
 author: brjohnstmsft
 ms.author: brjohnst
 ms.manager: cgronlun
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: b37961f96aca95c0aeaec511411a309d40e990f5
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: b051f844b8c221e2e53c5fcf204878f80447cfe8
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024216"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65596547"
 ---
 # <a name="lucene-query-syntax-in-azure-search"></a>Syntaxe des requêtes Lucene dans Recherche Azure
 Vous pouvez écrire des requêtes sur Recherche Azure en utilisant la syntaxe riche en fonctionnalités de l’[analyseur de requêtes Lucene](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) pour des formes de requêtes spécialisées : caractère générique, recherche approximative, recherche de proximité et expressions régulières en sont quelques exemples. La plus grande partie de la syntaxe de l’analyseur de requêtes Lucene est [implémentée telle quelle dans Recherche Azure](search-lucene-query-architecture.md), à l’exception des *recherches de plage*, qui sont construites dans Recherche Azure via des expressions `$filter`. 
@@ -121,16 +121,19 @@ L’utilisation de `searchMode=all` augmente la précision des requêtes en incl
 ##  <a name="bkmk_searchscoreforwildcardandregexqueries"></a> Scoring des requêtes avec des caractères génériques et des expressions régulières
  Recherche Azure utilise sur un scoring basé sur la fréquence ([TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf)) pour les requêtes de texte. Cependant, pour les requêtes avec des caractères génériques et des expressions régulières où l’étendue des termes est potentiellement vaste, le facteur de fréquence est ignoré pour empêcher que le classement soit faussé par les correspondances avec des termes plus rares. Toutes les correspondances sont traitées de façon égale pour les recherches avec des caractères génériques et avec des expressions régulières.
 
-##  <a name="bkmk_fields"></a> Requêtes sur des champs  
- Vous pouvez spécifier une construction `fieldname:searchterm` pour définir une opération de requête portant sur un champ, où le champ est un mot unique, et où le terme de recherche est également un mot ou une expression unique, éventuellement avec des opérateurs booléens. Voici quelques exemples :  
+##  <a name="bkmk_fields"></a> Recherche portant sur un champ  
+Vous pouvez définir une opération de recherche portant sur un champ avec le `fieldName:searchExpression` syntaxe, où l’expression de recherche peut être un mot ou une expression ou une expression plus complexe entre parenthèses, éventuellement avec des opérateurs booléens. Voici quelques exemples :  
 
 - genre:jazz NOT history  
 
 - artists:("Miles Davis" "John Coltrane")
 
-  Veillez à placer les chaînes multiples entre guillemets si vous voulez que les deux chaînes soient évaluées comme une seule entité, comme ici où deux artistes distincts sont recherchés dans le champ `artists`.  
+Veillez à placer les chaînes multiples entre guillemets si vous voulez que les deux chaînes soient évaluées comme une seule entité, comme ici où deux artistes distincts sont recherchés dans le champ `artists`.  
 
-  Le champ spécifié dans `fieldname:searchterm` doit être un champ `searchable`.  Pour plus d’informations sur l’utilisation des attributs d’index dans les définitions de champs, consultez [Créer un index ](https://docs.microsoft.com/rest/api/searchservice/create-index).  
+Le champ spécifié dans `fieldName:searchExpression` doit être un champ `searchable`.  Pour plus d’informations sur l’utilisation des attributs d’index dans les définitions de champs, consultez [Créer un index ](https://docs.microsoft.com/rest/api/searchservice/create-index).  
+
+> [!NOTE]
+> Lors de l’aide aucune question pourra traitée expressions de recherche, il est inutile d’utiliser le `searchFields` paramètre, car chacun aucune question pourra traitée d’expression de recherche a un nom de champ spécifié explicitement. Toutefois, vous pouvez toujours utiliser le `searchFields` paramètre si vous souhaitez exécuter une requête dans laquelle certaines parties sont limités à un champ spécifique, le reste peut s’appliquer à plusieurs champs. Par exemple, la requête `search=genre:jazz NOT history&searchFields=description` correspondrait à `jazz` uniquement à la `genre` champ, alors qu’elle correspondrait `NOT history` avec le `description` champ. Le nom de champ fourni dans `fieldName:searchExpression` a toujours priorité sur les `searchFields` paramètre, qui est la raison pour laquelle il est dans cet exemple, nous n’avez pas besoin d’inclure `genre` dans le `searchFields` paramètre.
 
 ##  <a name="bkmk_fuzzy"></a> Recherche approximative  
  Une recherche partielle recherche des correspondances dans les termes qui ont une construction similaire. D’après la [documentation Lucene](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html), les recherches partielles sont basées sur la [Distance Levenshtein-Damerau](https://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance). Les recherches approximatives peuvent développer un terme jusqu’à un maximum de 50 termes qui répondent aux critères de distance. 

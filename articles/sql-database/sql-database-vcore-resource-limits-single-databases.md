@@ -7,19 +7,19 @@ ms.subservice: single-database
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/22/2019
-ms.openlocfilehash: 7dcbf2733ff23b0454208dbc789599cd372278ec
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 15aedaa7eedad4940945e9b1e7eff0e1780da796
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65507839"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65790397"
 ---
-# <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-a-single-database"></a>Limites du modèle d’achat vCore Azure SQL Database pour une base de données unique
+# <a name="resource-limits-for-single-databases-using-the-vcore-based-purchasing-model"></a>Limites de ressources pour les bases de données uniques à l’aide du modèle d’achat vCore
 
 Cet article détaille les limites de ressources des bases de données uniques Azure SQL Database suivant le modèle d’achat vCore.
 
@@ -129,7 +129,7 @@ Vous pouvez définir le niveau de service, la taille de calcul et la quantité d
 
 ### <a name="serverless-compute-tier"></a>Niveau de calcul serverless
 
-Le [niveau de calcul sans serveur](sql-database-serverless.md) est en version préliminaire publique et est uniquement pour les bases de données uniques à l’aide de l’achat de vCore du modèle.
+Le [niveau de calcul sans serveur](sql-database-serverless.md) est disponible en version préliminaire et est uniquement pour les bases de données uniques à l’aide de l’achat de vCore du modèle.
 
 #### <a name="generation-5-compute-platform"></a>Plateforme de calcul de génération 5
 

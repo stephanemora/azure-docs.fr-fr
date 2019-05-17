@@ -14,12 +14,12 @@ ms.subservice: pim
 ms.date: 03/30/2018
 ms.author: rolyon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 13aef9b180a671a9b42bbc6319c487be36652093
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4e814cde49374b52266f725b4d57657a507874ab
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60437358"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65602030"
 ---
 # <a name="use-custom-roles-for-azure-resources-in-pim"></a>Utiliser des rôles personnalisés pour les ressources Azure dans PIM
 
@@ -42,7 +42,7 @@ Quand vous créez un rôle personnalisé, indiquez un nom descriptif afin de vou
 
 Une fois le rôle créé dans votre locataire, dans le portail Azure, accédez au volet **Privileged Identity Management - Ressources Azure**. Sélectionnez la ressource à laquelle le rôle s’applique.
 
-![Volet « Privileged Identity Management - Ressources Azure »](media/azure-pim-resource-rbac/aadpim_manage_azure_resource_some_there.png)
+![Volet « Privileged Identity Management - Ressources Azure »](media/pim-resource-roles-custom-role-policy/aadpim-manage-azure-resource-some-there.png)
 
 [Configurez les paramètres du rôle PIM](pim-resource-roles-configure-role-settings.md) qui doivent s’appliquer à ces membres du rôle.
 

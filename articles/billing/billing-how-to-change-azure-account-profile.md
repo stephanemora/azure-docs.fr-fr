@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 74afb98387172f6c58398673862274c7b1880d86
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 6280068303e66ca9a930f94d9a754afe1f88f4f2
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64922953"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604252"
 ---
 # <a name="change-your-azure-account-profile-information"></a>Modifier les informations de profil de votre compte Azure
 
@@ -51,9 +51,9 @@ La mise à jour de l’adresse de messagerie du profil ne met à jour votre adre
 
 Pour découvrir comment mettre à jour vos informations de facturation, consultez [Modification de la carte de crédit utilisée pour payer un abonnement Azure](billing-how-to-change-credit-card.md).
 
-### <a name="you-cant-update-your-country"></a>Vous ne pouvez pas mettre à jour votre pays
+### <a name="you-cant-update-your-countryregion"></a>Vous ne pouvez pas mettre à jour de votre pays/région
 
-En raison de contraintes techniques, nous ne pouvons pas modifier le pays pour un compte existant. Toutefois, vous pouvez créer un compte dans le pays de votre choix, puis contacter le support Azure afin de migrer vos services vers ce compte.
+En raison de contraintes techniques, nous ne pouvons pas modifier le pays/région pour un compte existant. Toutefois, vous pouvez créer un compte dans le pays/la région souhaitée et contactez le support Azure pour migrer vos services à ce compte.
 
 ## <a name="service-and-marketing-emails"></a>Service et des messages électroniques de marketing
 

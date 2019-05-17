@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 services: site-recovery
-ms.date: 04/26/2019
+ms.date: 05/10/2019
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 22d3bdf8c60e6682c360395b44fe6f1dcc1207b0
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 767f087910136ce558d71602a1c4c632090168cd
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925513"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540623"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Questions courantes sur la réplication de VMware vers Azure
 
@@ -251,13 +251,13 @@ Dans le coffre Recovery Services, cliquez sur **serveurs de Configuration** dans
 
 ## <a name="process-server"></a>Serveur de traitement
 
-### <a name="unable-to-select-process-server-during-enable-replication"></a>Impossible de sélectionner le serveur de traitement au cours d’activer la réplication
+### <a name="why-am-i-unable-to-select-process-server-during-enable-replication"></a>Pourquoi m’Impossible de sélectionner le serveur de traitement au cours d’activer la réplication ?
 
-À partir de la version 9.24, les améliorations sont effectuées pour fournir [traiter les alertes du serveur](vmware-physical-azure-monitor-process-server.md#process-server-alerts) quand vous devez configurer un serveur de processus de scale-out. Il s’agit d’éviter la limitation du processus serveur et éviter l’utilisation du serveur de processus défectueux.
+À partir de la version 9.24, les améliorations sont apportées à afficher [l’intégrité du serveur de processus au cours d’activer la réplication](vmware-azure-enable-replication.md#enable-replication). Il s’agit d’éviter la limitation du processus serveur et réduire l’utilisation de serveurs de traitement défectueux.
 
-### <a name="what-should-i-do-to-obtain-accurate-health-status-of-process-server"></a>Que dois-je faire pour obtenir l’état d’intégrité précis du serveur de processus ?
+### <a name="what-is-meant-by-upgrading-process-server-to-924-or-higher-versions-for-accurate-health"></a>Qu’entend-on par la mise à niveau de serveur de processus vers les versions 9.24 ou une version ultérieure pour précis d’intégrité ?
 
-Mettre à niveau les composants de Site Recovery pour le [dernières versions](service-updates-how-to.md#links-to-currently-supported-update-rollups) (au moins 9.24 ou version ultérieure).
+À partir de [9.24 versions](service-updates-how-to.md#links-to-currently-supported-update-rollups), des alertes supplémentaires sont introduites pour améliorer les alertes d’intégrité du serveur de processus. Mettre à niveau les composants de Site Recovery aux 9.24 versions ou version ultérieure pour toutes les alertes être généré.
 
 ## <a name="failover-and-failback"></a>Basculement et restauration automatique
 ### <a name="can-i-use-the-process-server-at-on-premises-for-failback"></a>Puis-je utiliser le serveur de processus en local pour la restauration automatique ?

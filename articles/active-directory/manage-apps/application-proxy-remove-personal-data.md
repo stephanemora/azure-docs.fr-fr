@@ -2,8 +2,8 @@
 title: Supprimer des données personnelles - Proxy d’application Azure Active Directory | Microsoft Docs
 description: Supprimez des données personnelles des connecteurs installés sur des appareils pour des proxy d'application Azure Active Directory.
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/21/2018
-ms.author: celested
+ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d5f3c1883f156562cfab59cb102fb0cf18b03803
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 039f8c9f114dfd3542fefa7b1a1eea8656cbb9c4
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60292842"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65782965"
 ---
 # <a name="remove-personal-data-for-azure-active-directory-application-proxy"></a>Supprimer des données personnelles pour des proxy d’application Azure Active Directory  
 
@@ -60,9 +60,9 @@ Pour rechercher des données personnelles, recherchez UserID (ID utilisateur) da
 
 Pour rechercher des données personnelles consignées par une application qui utilise la délégation Kerberos contrainte, recherchez ces composants du type de nom d'utilisateur :
 
-- Nom d’utilisateur principal local
+- Nom d'utilisateur principal local
 - Partie correspondant au nom d’utilisateur dans le nom d’utilisateur principal
-- Partie correspondant au nom d’utilisateur dans le nom d’utilisateur principal local
+- Partie correspondant au nom d'utilisateur dans le nom d'utilisateur principal local
 - Nom de compte du gestionnaire des comptes de sécurité (SAM) local 
 
 

@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.openlocfilehash: 6dcec5b72be8868a83a5760ef95117d3e751bcc3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e9100a764ba3922e0254b7fa5cd03b18e204925f
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60399433"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65596004"
 ---
 # <a name="get-started-with-device-management-java"></a>Prise en main de la gestion d’appareils (Java)
 
@@ -57,7 +57,7 @@ Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 * Maven 3.  <br/> [Préparer votre environnement de développement](https://github.com/Azure/azure-iot-sdk-java/blob/master/doc/java-devbox-setup.md) décrit l’installation de [Maven](https://maven.apache.org/what-is-maven.html) pour ce tutoriel sur Windows ou Linux.
 
-* [Node.js version 0.10.0 ou supérieure](https://nodejs.org).
+* Un compte Azure actif. (Si vous ne possédez pas de compte, vous pouvez créer un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/) en quelques minutes seulement.)
 
 ## <a name="create-an-iot-hub"></a>Créer un hub IoT
 

@@ -15,12 +15,12 @@ ms.date: 05/o7/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c52f6fc66187d961dc93089a9f81f6de4d67fe41
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: eadcae393128d9721f2c988f713af07913c5fd1d
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65075939"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65545505"
 ---
 # <a name="desktop-app-that-calls-web-apis---code-configuration"></a>Application de bureau que les appels de web API - configuration du code
 
@@ -98,8 +98,8 @@ app = PublicClientApplicationBuilder.Create(clientId)
 
 Pour en savoir plus sur la façon de configurer une application de bureau MSAL.NET :
 
-- Pour obtenir la liste de tous les modificateurs disponibles sur `PublicClientApplicationBuilder`, consultez la documentation de référence [PublicClientApplicationBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.appconfig.publicclientapplicationbuilder?view=azure-dotnet-preview#methods)
-- Pour la description de toutes les options exposées dans `PublicClientApplicationOptions` consultez [PublicClientApplicationOptions](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.appconfig.publicclientapplicationoptions?view=azure-dotnet-preview), dans la documentation de référence
+- Pour obtenir la liste de tous les modificateurs disponibles sur `PublicClientApplicationBuilder`, consultez la documentation de référence [PublicClientApplicationBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationbuilder#methods)
+- Pour la description de toutes les options exposées dans `PublicClientApplicationOptions` consultez [PublicClientApplicationOptions](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationoptions), dans la documentation de référence
 
 ## <a name="complete-example-with-configuration-options"></a>Exemple complet avec les Options de configuration
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/27/2019
 ms.author: juliako
-ms.openlocfilehash: 02c3fb309755964f1a4b196189b7742fa3f91a9a
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 78e3897ec653326bcd88a538a6ea7d33938659b9
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148209"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65761946"
 ---
 # <a name="dynamic-packaging"></a>Empaquetage dynamique
 
@@ -43,7 +43,7 @@ Voici un flux de travail de streaming où l’empaquetage dynamique est utilisé
 
 Le diagramme suivant illustre la diffusion en continu à la demande avec les flux d’empaquetage dynamique.
 
-![Empaquetage dynamique](./media/dynamic-packaging-overview/media-services-dynamic-packaging.svg)
+![Empaquetage dynamique](./media/dynamic-packaging-overview/media-services-dynamic-packaging.png)
 
 ### <a name="encode-to-adaptive-bitrate-mp4s"></a>Encodage à débit adaptatif MP4s
 
@@ -196,9 +196,9 @@ Voici un exemple de manifeste Smooth Streaming :
 Le filtrage dynamique est utilisé pour contrôler le nombre de pistes, des formats, des débits binaires et des fenêtres de temps de présentation qui sont envoyés aux joueurs. Pour plus d’informations, consultez [filtres et manifestes dynamiques](filters-dynamic-manifest-overview.md).
 
 > [!NOTE]
-> Actuellement, vous ne pouvez pas utiliser le portail Azure pour gérer des ressources v3. Utilisez l’[API REST](https://aka.ms/ams-v3-rest-ref), l’interface [CLI](https://aka.ms/ams-v3-cli-ref) ou l’un des kits [SDK](developers-guide.md) pris en charge.
+> Actuellement, vous ne pouvez pas utiliser le portail Azure pour gérer des ressources v3. Utilisez l’[API REST](https://aka.ms/ams-v3-rest-ref), l’interface [CLI](https://aka.ms/ams-v3-cli-ref) ou l’un des kits [SDK](media-services-apis-overview.md#sdks) pris en charge.
 
-## <a name="ask-questions-give-feedback-get-updates"></a>Posez des questions, commentaires, obtenir des mises à jour
+## <a name="ask-questions-give-feedback-get-updates"></a>Poser des questions, envoyer des commentaires, obtenir des mises à jour
 
 Découvrez l’article [Communauté Azure Media Services](media-services-community.md) pour découvrir les différentes façons dont vous pouvez poser des questions, faire des commentaires et obtenir des mises à jour sur Media Services.
 

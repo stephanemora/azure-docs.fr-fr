@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: 0981f4d5d9d5fcb243fc7ead6f4b529c096935d0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 479edc11604670189b0accba67aa8f345f6260cd
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60646732"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65551380"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Sauvegarde Azure - Forum Aux Questions
 Cet article répond aux questions courantes sur le service Sauvegarde Azure.
@@ -93,7 +93,7 @@ Oui.
 ### <a name="what-operating-systems-are-supported-for-backup"></a>Quels sont les systèmes d’exploitation pris en charge par la sauvegarde ?
 Sauvegarde Azure prend en charge les systèmes d’exploitation suivants pour la sauvegarde des dossiers et des fichiers, ainsi que des applications protégées par Azure Backup Server et DPM.
 
-**SE** | **Référence (SKU)** | **Détails**
+**OS** | **Référence (SKU)** | **Détails**
 --- | --- | ---
 Station de travail | |
 Windows 10 64 bits | Entreprise, Professionnel, Familiale | Les machines virtuelles doivent utiliser les derniers service packs et les dernières mises à jour.
@@ -174,8 +174,8 @@ Non. Le délai de récupération reste identique pour les points de données ré
 ### <a name="if-each-recovery-point-is-like-a-full-point-does-it-impact-the-total-billable-backup-storage"></a>Si chaque point de récupération est un point complet, cela a-t-il un impact sur la quantité totale de stockage de sauvegarde facturable ?
 Les produits avec points de rétention à long terme stockent les données de sauvegarde en tant que points complets.
 
-    - Toutefois, même si ces points *occupent* de l’espace de stockage, ils sont plus faciles et plus rapides à récupérer.
-    - Les copies incrémentielles *occupent moins d’espace de stockage* , mais vous devez restaurer une chaîne de données, ce qui rallonge le temps de récupération.
+- Toutefois, même si ces points *occupent* de l’espace de stockage, ils sont plus faciles et plus rapides à récupérer.
+- Les copies incrémentielles *occupent moins d’espace de stockage* , mais vous devez restaurer une chaîne de données, ce qui rallonge le temps de récupération.
 
 L’architecture de stockage d’Azure Backup vous offre le meilleur des deux en stockant les données de manière optimale pour des restaurations rapides et des coûts de stockage faibles. Cette approche garantit que votre bande passante entrante et sortante est utilisée de façon efficace. La quantité de stockage de données et le temps nécessaire pour récupérer les données sont tous les deux réduits au minimum. En savoir plus sur [les sauvegardes incrémentielles](https://azure.microsoft.com/blog/microsoft-azure-backup-save-on-long-term-storage/).
 

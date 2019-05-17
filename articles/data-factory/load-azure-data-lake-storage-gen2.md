@@ -9,24 +9,24 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 02/15/2019
+ms.date: 05/13/2019
 ms.author: jingwang
-ms.openlocfilehash: 8e3a23b38dc95f05ed9a6d99d303f3d86eac60ad
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f8af34207eddb613f7a59bd3e3d300555e10f985
+ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60547532"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65560728"
 ---
 # <a name="load-data-into-azure-data-lake-storage-gen2-with-azure-data-factory"></a>Charger des données dans Azure Data Lake Storage Gen2 avec Azure Data Factory
 
 Azure Data Lake Storage Gen2 est un ensemble de fonctionnalités dédiées à l'analytique du Big Data et intégrées au service [Stockage Blob Azure](../storage/blobs/storage-blobs-introduction.md). Il vous permet d’interagir avec vos données selon les deux paradigmes que sont le système de fichiers et le stockage d’objets.
 
-Azure Data Factory est un service informatique d’intégration de données informatique intégralement managé. Vous pouvez utiliser le service pour remplir le lac avec des données provenant d’un ensemble étendu de banques de données locales et cloud lors de la création de vos solutions d’analytique. Pour une liste détaillée des connecteurs pris en charge, consultez le tableau de [Banques de données prises en charge](copy-activity-overview.md#supported-data-stores-and-formats).
+Azure Data Factory (ADF) est un service d’intégration de données cloud entièrement géré. Vous pouvez utiliser le service pour remplir le lac avec des données provenant d’un ensemble étendu de banques de données locales et cloud lors de la création de vos solutions d’analytique. Pour une liste détaillée des connecteurs pris en charge, consultez le tableau de [Banques de données prises en charge](copy-activity-overview.md#supported-data-stores-and-formats).
 
-Azure Data Factory offre une solution de déplacement des données managées qui est évolutive. En raison de l’architecture évolutive d’Azure Data Factory elle peut ingérer des données à un débit élevé. Pour en savoir plus, voir [Performances de l’activité de copie](copy-activity-performance.md).
+Azure Data Factory offre une solution de déplacement des données managées qui est évolutive. En raison de l’architecture évolutive d’Azure Data Factory elle peut ingérer des données à un débit élevé. Pour plus d’informations, consultez [Performances de l’activité de copie](copy-activity-performance.md).
 
-Cet article vous explique comment utiliser l’outil de copie de données de Data Factory pour charger des données depuis le _service ’Amazon Web Services S3_ dans _Azure Data Lake Store Gen2_. Vous pouvez procéder de même pour copier des données à partir d’autres types de banques de données.
+Cet article vous explique comment utiliser l’outil de copie de données de Data Factory pour charger des données depuis le _service ’Amazon Web Services S3_ dans _Azure Data Lake Store Gen2_. Vous pouvez procéder de même pour copier des données à partir d’autres types de magasins de données.
 
 >[!TIP]
 >Pour copier des données à partir d’Azure Data Lake Storage Gen1 dans Gen2, reportez-vous à [cette procédure pas à pas spécifique](load-azure-data-lake-storage-gen2-from-gen1.md).
@@ -130,13 +130,6 @@ Cet article vous explique comment utiliser l’outil de copie de données de Dat
     ![Détails du suivi de l'exécution des activités](./media/load-azure-data-lake-storage-gen2/monitor-activity-run-details.png)
 
 16. Vérifiez que les données sont copiées dans votre compte Azure Data Lake Store Gen2 :
-
-## <a name="best-practices"></a>Bonnes pratiques
-
-Quand vous copiez un grand volume de données à partir de la banque de données de type fichiers, nous vous recommandons de :
-
-- Partitionner les fichiers en ensembles de fichiers de 10 à 30 To chacun.
-- Ne pas déclencher trop d’exécutions de copie simultanées, de façon à éviter les limitations des banques de données sources ou réceptrices. Vous pouvez commencer avec l’exécution d’une seule copie et en surveiller le débit, puis ajouter progressivement d’autres exécutions en fonction des besoins.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

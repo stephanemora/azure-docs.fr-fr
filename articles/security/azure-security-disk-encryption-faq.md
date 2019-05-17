@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 04/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3de444d509684f0b4227abe91ec3c967f2bf8f03
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 6fd9ce1947b8207aced44204fc2989622a1998f2
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64926279"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65761918"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>FAQ Azure Disk Encryption pour machines virtuelles IaaS
 
@@ -52,19 +52,14 @@ Les distributions de serveur Linux qui ne sont pas approuvées par Azure ne pren
 | RHEL | 7.5 | Disque de système d’exploitation et de données* |
 | RHEL | 7.4 | Disque de système d’exploitation et de données* |
 | RHEL | 7.3 | Disque de système d’exploitation et de données* |
-| RHEL | 7,2 | Disque de système d’exploitation et de données* |
+| RHEL | 7.2 | Disque de système d’exploitation et de données* |
 | RHEL | 6.8 | Disque de données* |
 | RHEL | 6.7 | Disque de données* |
 | CentOS | 7.5 | Disque de système d’exploitation et de données |
 | CentOS | 7.4 | Disque de système d’exploitation et de données |
 | CentOS | 7.3 | Disque de système d’exploitation et de données |
 | CentOS | 7.2n | Disque de système d’exploitation et de données |
-| CentOS | 6.8 | Disque de système d’exploitation et de données |
-| CentOS | 7.1 | Disque de données |
-| CentOS | 7.0 | Disque de données |
-| CentOS | 6.7 | Disque de données |
-| CentOS | 6.6 | Disque de données |
-| CentOS | 6.5 | Disque de données |
+| CentOS | 6.8 | Disque de données |
 | openSUSE | 42.3 | Disque de données |
 | SLES | 12-SP4 | Disque de données |
 | SLES | 12-SP3 | Disque de données |
@@ -158,7 +153,7 @@ Sous Windows, ADE utilise la méthode de chiffrement BitLocker AES256 (AES256Wit
 Non, les données ne sont pas effacées des lecteurs de données déjà chiffrés à l’aide d’Azure Disk Encryption. De même qu’EncryptFormatAll n’a pas chiffré à nouveau le lecteur du système d’exploitation, il ne chiffre pas à nouveau le lecteur de données déjà chiffré. Pour plus d’informations, consultez les [critères pour EncryptFormatAll](azure-security-disk-encryption-linux.md#bkmk_EFACriteria).        
 
 ## <a name="is-xfs-filesystem-supported"></a>Système de fichiers XFS est prise en charge ?
-Volumes XFS sont pris en charge pour le chiffrement de disque de données uniquement avec le EncryptFormalAll. Cela remet en forme le volume, l’effacement de toutes les données précédemment il. Pour plus d’informations, consultez les [critères pour EncryptFormatAll](azure-security-disk-encryption-linux.md#bkmk_EFACriteria).
+Volumes XFS sont pris en charge pour le chiffrement de disque de données uniquement avec le EncryptFormatAll. Cela remet en forme le volume, l’effacement de toutes les données précédemment il. Pour plus d’informations, consultez les [critères pour EncryptFormatAll](azure-security-disk-encryption-linux.md#bkmk_EFACriteria).
 
 ## <a name="can-i-backup-and-restore-an-encrypted-vm"></a>Puis-je sauvegarder et restaurer une machine virtuelle chiffrée ? 
 

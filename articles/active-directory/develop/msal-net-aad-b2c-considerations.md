@@ -4,7 +4,7 @@ description: En savoir plus sur les considérations spécifiques lors de l’uti
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
-manager: celested
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c608518a9eb80d807297f010778ae452c0f61f5
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 6c26a5007c2dcaa5d41be46f685f0f259866ca2c
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65075774"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544070"
 ---
 # <a name="use-msalnet-to-sign-in-users-with-social-identities"></a>MSAL.NET permet de connecter des utilisateurs avec des identités sociales
 
@@ -78,7 +78,7 @@ AuthenticationResult ar = await application .AcquireToken(scopes, parentWindow)
 par :
 
 - `policy` en cours de l’une des chaînes précédentes (par exemple `PolicySignUpSignIn`).
-- `GetAccountByPolicy(IEnumerable<IAccount>, string)` est une méthode qui trouve un compte pour une stratégie donnée. Par exemple : 
+- `GetAccountByPolicy(IEnumerable<IAccount>, string)` est une méthode qui trouve un compte pour une stratégie donnée. Exemple :
 
   ```csharp
   private IAccount GetAccountByPolicy(IEnumerable<IAccount> accounts, string policy)
@@ -183,6 +183,6 @@ Une option consiste à utiliser la revendication « name » comme nom d’util
 
 Plus de détails sur l’acquisition de jetons de manière interactive avec MSAL.NET pour les applications Azure AD B2C sont fournies dans l’exemple suivant.
 
-| Exemple | Plateforme | Description|
+| Exemple | Plateforme | Description |
 |------ | -------- | -----------|
 |[active-directory-b2c-xamarin-native](https://github.com/Azure-Samples/active-directory-b2c-xamarin-native) | Xamarin iOS, Xamarin Android, UWP | Une application Xamarin Forms simple expliquant comment utiliser MSAL.NET pour authentifier les utilisateurs via Azure AD B2C et accéder à une API Web avec les jetons générés.|

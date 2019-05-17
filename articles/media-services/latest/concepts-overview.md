@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/21/2019
+ms.date: 05/13/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 8a4ffdc09cb12f7a16173c86bd3d0e3aee78d46d
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 1e76569c7f5157dce681d15ec8d499b90e080102
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65152645"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65762306"
 ---
 # <a name="media-services-concepts"></a>Concepts Media Services
 
@@ -26,7 +26,7 @@ Cette rubrique donne une vue d’ensemble des concepts et terminologie d’Azure
 Il est recommandé d’examiner les concepts fondamentaux décrits dans ces rubriques avant de commencer le développement.
 
 > [!NOTE]
-> Actuellement, vous ne pouvez pas utiliser le portail Azure pour gérer des ressources v3. Utilisez l’[API REST](https://aka.ms/ams-v3-rest-ref), l’interface [CLI](https://aka.ms/ams-v3-cli-ref) ou l’un des kits [SDK](developers-guide.md) pris en charge.
+> Actuellement, vous ne pouvez pas utiliser le portail Azure pour gérer des ressources v3. Utilisez l’[API REST](https://aka.ms/ams-v3-rest-ref), l’interface [CLI](https://aka.ms/ams-v3-cli-ref) ou l’un des kits [SDK](media-services-apis-overview.md#sdks) pris en charge.
 
 ## <a name="terminology"></a>Terminologie
 
@@ -62,7 +62,7 @@ Pour encoder avec Media Services v3, vous devez créer **transforme** et **trava
 - [Transformations et travaux](transforms-jobs-concept.md)
 - [Encodage avec Media Services](encoding-concept.md)
 
-## <a name="media-analytics"></a>Analytique multimédia
+## <a name="media-analytics"></a>Media Analytics
 
 Pour analyser vos fichiers vidéos et audio, vous devez également créer **transforme** et **travaux**.
 
@@ -76,7 +76,7 @@ Lorsque vous créez le **localisateur de diffusion en continu**, en plus du nom 
 
 Empaquetage dynamique est utilisé si vous diffusez votre contenu en direct ou à la demande. Le diagramme suivant illustre la diffusion en continu à la demande avec les flux d’empaquetage dynamique.
 
-![Empaquetage dynamique](./media/dynamic-packaging-overview/media-services-dynamic-packaging.svg)
+![Empaquetage dynamique](./media/dynamic-packaging-overview/media-services-dynamic-packaging.png)
 
 Avec Media Services, vous pouvez distribuer votre contenu en direct et à la demande chiffré dynamiquement avec Advanced Encryption Standard (AES-128) ou / et tous les trois principales droits numériques (DRM) de systèmes de gestion : Microsoft PlayReady, Google Widevine et Apple FairPlay. Media Services fournit également un service de distribution de clés AES et licences (PlayReady, Widevine et FairPlay) DRM aux clients autorisés.
 
@@ -99,9 +99,9 @@ Vous pouvez utiliser Media Services **manifestes dynamiques** pour diffuser un r
 - [Stratégies de clé de contenu](content-key-policy-concept.md)
 - [Protection du contenu](content-protection-overview.md)
 - [Manifestes dynamiques](filters-dynamic-manifest-overview.md)
-- [Filtres](filters-concept.md)
+- [Les filtres](filters-concept.md)
 
-## <a name="live-streaming"></a>Vidéo en flux continu
+## <a name="live-streaming"></a>Streaming en direct
 
 Azure Media Services vous permet de transmettre des événements en direct auprès de vos clients dans le cloud Azure. Les **événements en direct** sont chargés de la réception et du traitement des flux vidéo en direct. Lorsque vous créez un **événement réel**, un point de terminaison d’entrée est créé que vous pouvez utiliser pour envoyer un signal en direct à partir d’un codeur. Une fois que vous avez le flux transite dans le **événement réel**, vous pouvez commencer l’événement de diffusion en continu en créant un **Asset**, **sortie Live**, et **localisateur de diffusion en continu** . **Live sortie** archive le flux dans le **Asset** et le rendre disponible aux observateurs via le **le point de terminaison de diffusion en continu**. Un **événement réel** peut prendre l’une des deux types : **directe** et **encodage live**.
 
@@ -134,7 +134,7 @@ Vous pouvez utiliser Azure Media Player pour lire du contenu multimédia diffus�
 
 - [Présentation du Lecteur multimédia Azure](use-azure-media-player.md)
 
-## <a name="ask-questions-give-feedback-get-updates"></a>Posez des questions, commentaires, obtenir des mises à jour
+## <a name="ask-questions-give-feedback-get-updates"></a>Poser des questions, envoyer des commentaires, obtenir des mises à jour
 
 Découvrez l’article [Communauté Azure Media Services](media-services-community.md) pour découvrir les différentes façons dont vous pouvez poser des questions, faire des commentaires et obtenir des mises à jour sur Media Services.
 

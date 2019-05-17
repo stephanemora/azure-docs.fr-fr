@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 05/10/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 78c445e70fcf972be81ef6dfd5d675f8e4843621
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 2677c993b759988b0a9906b357bcd352b243b5a7
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65541507"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65792674"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>Bonnes pratiques pour une base de connaissances QnA Maker
 Le [cycle de vie du développement d’une base de connaissances](../Concepts/development-lifecycle-knowledge-base.md) vous guide de bout en bout sur la façon de gérer votre base de connaissances. Suivez ces bonnes pratiques pour améliorer votre base de connaissances et fournir des résultats plus pertinents aux utilisateurs finaux de votre application/bot conversationnel.
@@ -87,7 +87,7 @@ Les [questions alternatives](../How-To/edit-knowledge-base.md) augmentent la pro
 Les [métadonnées](../How-To/edit-knowledge-base.md) vous permettent aussi de réduire le nombre des résultats d’une requête utilisateur grâce aux balises de métadonnées. La réponse de la base de connaissances peut varier en fonction du mot clé de métadonnées, même si la requête est la même. Par exemple, dans le cas d’une chaîne de restaurants, la question *« Où se trouve le parking ? »* peut donner une réponse diffère en fonction du lieu du restaurant (ici, les métadonnées sont *Location: Seattle* versus *Location: Redmond*).
 
 ### <a name="use-synonyms"></a>Utiliser des synonymes
-Les synonymes en langue anglaise sont pris en charge. Utilisez des [variantes de mots](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fd) (sans respect de la casse) afin d'ajouter des synonymes à des mots clés qui prennent différentes formes. Les synonymes doivent être ajoutés au niveau du service QnA Maker et être partagés par toutes les bases de connaissances du service.
+Les synonymes en langue anglaise sont pris en charge. Utilisez des [variantes de mots](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/replace) (sans respect de la casse) afin d'ajouter des synonymes à des mots clés qui prennent différentes formes. Les synonymes doivent être ajoutés au niveau du service QnA Maker et être partagés par toutes les bases de connaissances du service.
 
 |Mot d’origine|Synonymes|
 |--|--|

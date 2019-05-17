@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/04/2018
 ms.author: atsenthi
-ms.openlocfilehash: ca473b9947a9b0df610a9c3dac66914b06cc9217
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ad7cf3a1dfcef8795ceb378a59a1cf0b2010293e
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60881451"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595498"
 ---
 # <a name="unit-testing-stateful-services-in-service-fabric"></a>Test unitaire des services avec état dans Service Fabric
 
@@ -36,7 +36,7 @@ Les tests unitaires sur les services avec état peuvent aider à identifier cert
 
 ## <a name="common-practices"></a>Pratiques courantes
 
-La section suivante fournit des conseils sur les pratiques les plus courantes de test unitaire d’un service avec état. Elle fournit aussi des conseils sur ce que doit avoir une couche de simulation afin de s’aligner précisément avec l’orchestration et la gestion de l’état Service Fabric. Ils existent des bibliothèques de simulation qui fournissent cette fonctionnalité. À compter de la version 3.3.0 ou ultérieure, la bibliothèque [ServiceFabric.Mocks](https://www.nuget.org/packages/ServiceFabric.Mocks/) fournit la fonctionnalité de simulation recommandée et respecte les pratiques décrites ci-dessous.
+La section suivante fournit des conseils sur les pratiques les plus courantes de test unitaire d’un service avec état. Elle fournit aussi des conseils sur ce que doit avoir une couche de simulation afin de s’aligner précisément avec l’orchestration et la gestion de l’état Service Fabric. À compter de la version 3.3.0 ou ultérieure, la bibliothèque [ServiceFabric.Mocks](https://www.nuget.org/packages/ServiceFabric.Mocks/) fournit la fonctionnalité de simulation recommandée et respecte les pratiques décrites ci-dessous.
 
 ### <a name="arrangement"></a>Disposition
 

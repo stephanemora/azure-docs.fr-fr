@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 10/10/2017
-ms.openlocfilehash: 5795cde35d53a64620c4fdb6c3af99a7f56b12d9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0bfb66f54ec09e86b46a41499211e93a0083e8d1
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61440689"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65779927"
 ---
 # <a name="set-up-x509-security-in-your-azure-iot-hub"></a>Configurer la sécurité X.509 dans votre Azure IoT Hub
 
@@ -36,6 +36,9 @@ Pour obtenir vos certificats, vous pouvez choisir l’une des méthodes suivante
 * Achetez des certificats X.509 auprès d’une *autorité de certification racine*. Cette approche est recommandée pour les environnements de production.
 
 * Créez vos propres certificats X.509 à l’aide d’un outil tiers, par exemple [OpenSSL](https://www.openssl.org/). Cette méthode se révèle parfaitement adaptée aux scénarios de test et de développement. Consultez [Gestion de certificats d’autorité de certification de test pour des exemples et tutoriels](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) pour obtenir des informations sur la génération de certificats d’autorité de certification de test à l’aide de PowerShell ou Bash. Le reste de ce tutoriel utilise des certificats d’autorité de certification de test générés en suivant les instructions fournies dans [Gestion de certificats d’autorité de certification de test pour des exemples et tutoriels](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md).
+
+* Générer un [certificat d’autorité de certification intermédiaire X.509](iot-hub-x509ca-overview.md#sign-devices-into-the-certificate-chain-of-trust) signé par un certificat d’autorité de certification racine existant et chargez-le dans le IoT Hub. Une fois le certificat intermédiaire est chargé et vérifié, comme indiqué ci-dessous, il peut être utilisé à la place d’un certificat d’autorité de certification racine mentionné ci-dessous. Outils tels que OpenSSL ([openssl req](https://www.openssl.org/docs/manmaster/man1/openssl-req.html) et [autorité de certification openssl](https://www.openssl.org/docs/manmaster/man1/openssl-ca.html)) peut être utilisé pour générer et signer un certificat d’autorité de certification intermédiaire.
+
 
 ## <a name="register-x509-ca-certificates-to-your-iot-hub"></a>Inscrire des certificats d’autorité de certification X.509 auprès de votre IoT Hub
 

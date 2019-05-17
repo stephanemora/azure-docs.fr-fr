@@ -13,14 +13,14 @@ ms.subservice: data-science-vm
 ms.workload: data-services
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 02/22/2019
 ms.author: gokuma
-ms.openlocfilehash: 1f9ee5cf28de8fdb824bebf222e5e8d80e22c34f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 03bf0833bdc1bda24b9d435dafe329e9a3c8e4b2
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64712436"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65596507"
 ---
 # <a name="provision-a-windows-data-science-virtual-machine-on-azure"></a>Provisionner une machine virtuelle DSVM Windows sur Azure
 
@@ -105,6 +105,8 @@ Pour créer une instance de DSVM
 ## <a name="how-to-access-the-dsvm"></a>Comment accéder à la DSVM ?
 
 Une fois la machine virtuelle créée et approvisionnée, vous pouvez vous y connecter à l’aide du bureau distant en utilisant les informations d’identification du compte administrateur que vous avez configurées dans la section **Paramètres de base** précédente. Vous êtes maintenant prêt à utiliser les outils qui sont installés et configurés sur la machine virtuelle. La plupart des outils sont accessibles par le biais des icônes du Bureau et des vignettes du menu Démarrer.
+
+Vous pouvez également attacher une machine virtuelle de science des données à Azure Notebooks pour exécuter les blocs-notes Jupyter sur la machine virtuelle et de contourner les limitations de la couche de service gratuit. Pour plus d’informations, consultez [gérer et configurer des projets de blocs-notes - niveau de calcul](/azure/notebooks/configure-manage-azure-notebooks-projects.md#compute-tier).
 
 ## <a name="tools-installed-on-the-microsoft-data-science-virtual-machine"></a>Outils installés sur la machine virtuelle de science des données
 

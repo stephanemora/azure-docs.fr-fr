@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/28/2018
 ms.author: magoedte
-ms.openlocfilehash: 0c654070e2bbeb8ee5dbc64fe9b4f58ee97f2e47
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 09755922da78a3e856c491c01ce9f34f50063d71
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60404427"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606506"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Utilisation de la solution Service Map dans Azure
 La solution Service Map détecte automatiquement les composants d’application sur les systèmes Windows et Linux, et mappe la communication entre les services. Elle vous permet d’afficher vos serveurs comme vous les imaginez, en tant que systèmes interconnectés fournissant des services critiques. Elle affiche les connexions entre serveurs, les processus, la latence des connexions entrantes et sortantes, ainsi que les ports au sein de toute architecture TCP connectée, sans nécessiter de configuration autre que l’installation d’un agent.
@@ -142,9 +142,9 @@ Cliquez sur le menu représenté par des points de suspension en regard du nom d
 ## <a name="role-icons"></a>Icônes de rôle
 Certains processus jouent des rôles particuliers sur les machines : serveurs web, serveurs d’applications, base de données, etc. Service Map annote les zones de processus et de machine avec des icônes de rôle pour identifier en un coup d’œil le rôle que joue un processus ou un serveur.
 
-| Icône de rôle | Description |
+| Icône de rôle | Description  |
 |:--|:--|
-| ![Serveur web](media/service-map/role-web-server.png) | Serveur web |
+| ![Serveur web](media/service-map/role-web-server.png) | Serveur Web |
 | ![App Server](media/service-map/role-application-server.png) | Serveur d’applications |
 | ![Serveur de base de données](media/service-map/role-database.png) | Serveur de base de données |
 | ![Serveur LDAP](media/service-map/role-ldap.png) | Serveur LDAP |
@@ -297,7 +297,7 @@ Les enregistrements inclus dans ces tables sont générés à partir des donnée
 
 À des fins de gestion des coûts et de la complexité, les enregistrements de connexion ne représentent pas des connexions réseau physiques individuelles. Plusieurs connexions réseau physiques sont groupées dans une connexion logique, qui est ensuite reflétée dans la table concernée.  Ainsi, les enregistrements de la table *VMConnection* représentent un regroupement logique et non les connexions physiques individuelles observées. Les connexions réseau physiques dont les attributs suivants présentent la même valeur au cours d’un intervalle d’une minute donné sont agrégées au sein d’un unique enregistrement logique dans *VMConnection*. 
 
-| Propriété | Description |
+| Propriété | Description  |
 |:--|:--|
 | `Direction` |Direction de la connexion (valeur *inbound* ou *outbound*) |
 | `Machine` |Nom de domaine complet (FQDN) de l’ordinateur |
@@ -309,7 +309,7 @@ Les enregistrements inclus dans ces tables sont générés à partir des donnée
 
 Pour prendre en compte l’impact du regroupement, les informations sur le nombre de connexions physiques groupées sont fournies dans les propriétés suivantes de l’enregistrement :
 
-| Propriété | Description |
+| Propriété | Description  |
 |:--|:--|
 | `LinksEstablished` |Nombre de connexions réseau physiques qui ont été établies dans la fenêtre de temps de rapport |
 | `LinksTerminated` |Nombre de connexions réseau physiques qui ont pris fin dans la fenêtre de temps de rapport |
@@ -320,7 +320,7 @@ Pour prendre en compte l’impact du regroupement, les informations sur le nombr
 
 En plus des métriques concernant le nombre de connexions, des informations sur le volume de données envoyées et reçues sur une connexion logique ou un port réseau donné sont également incluses dans les propriétés suivantes de l’enregistrement :
 
-| Propriété | Description |
+| Propriété | Description  |
 |:--|:--|
 | `BytesSent` |Nombre total d’octets qui ont été envoyés dans la fenêtre de temps de rapport |
 | `BytesReceived` |Nombre total d’octets qui ont été reçus dans la fenêtre de temps de rapport |
@@ -346,16 +346,16 @@ Pour plus de commodité, l’adresse IP de l’extrémité distante d’une conn
 #### <a name="geolocation"></a>Géolocalisation
 *VMConnection* inclut également des informations de géolocalisation pour l’extrémité distante de chaque enregistrement de connexion dans les propriétés suivantes de l’enregistrement : 
 
-| Propriété | Description |
+| Propriété | Description  |
 |:--|:--|
-| `RemoteCountry` |Nom du pays hébergeant RemoteIp.  Par exemple, *États-Unis* |
+| `RemoteCountry` |Le nom de pays/région RemoteIp d’hébergement.  Par exemple, *États-Unis* |
 | `RemoteLatitude` |Latitude de géolocalisation.  Par exemple, *47,68*. |
 | `RemoteLongitude` |Longitude de géolocalisation.  Par exemple, *-122,12*. |
 
 #### <a name="malicious-ip"></a>Adresses IP malveillantes
 Chaque propriété RemoteIp de la table *VMConnection* est comparée à un ensemble d’adresses IP associées à une activité malveillante connue. Si la propriété RemoteIp est identifiée comme malveillante, les propriétés suivantes de l’enregistrement sont renseignées (elles sont vides lorsque l’adresse IP n’est pas considérée comme malveillante) :
 
-| Propriété | Description |
+| Propriété | Description  |
 |:--|:--|
 | `MaliciousIp` |Adresse RemoteIp |
 | `IndicatorThreadType` |L’indicateur de menace détecté est l’une des valeurs suivantes :  *Botnet*, *C2*, *CryptoMining*, *Darknet*, *DDos*, *MaliciousUrl*, *Malware*, *Phishing*, *Proxy*, *PUA* ou *Watchlist*.   |
@@ -372,7 +372,7 @@ Chaque propriété RemoteIp de la table *VMConnection* est comparée à un ensem
 ### <a name="servicemapcomputercl-records"></a>Enregistrements ServiceMapComputer_CL
 Les enregistrements de type *ServiceMapComputer_CL* ont des données d’inventaire pour les serveurs incluant des agents Service Map. Les propriétés de ces enregistrements sont décrites dans le tableau suivant :
 
-| Propriété | Description |
+| Propriété | Description  |
 |:--|:--|
 | `Type` | *ServiceMapComputer_CL* |
 | `SourceSystem` | *OpsManager* |
@@ -397,7 +397,7 @@ Les enregistrements de type *ServiceMapComputer_CL* ont des données d’inventa
 ### <a name="servicemapprocesscl-type-records"></a>Enregistrements de type ServiceMapProcess_CL
 Les enregistrements de type *ServiceMapProcess_CL* ont des données d’inventaire pour les processus connectés à TCP sur des serveurs ayant des agents Service Map. Les propriétés de ces enregistrements sont décrites dans le tableau suivant :
 
-| Propriété | Description |
+| Propriété | Description  |
 |:--|:--|
 | `Type` | *ServiceMapProcess_CL* |
 | `SourceSystem` | *OpsManager* |

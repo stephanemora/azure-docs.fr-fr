@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: shared-capabilities
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/26/2019
+ms.date: 05/03/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: af67109fb7f55f365cd71714a3eefab2336b636a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2a104c9e41ef1843c377b0406b499ffae504db97
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61301086"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595677"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Gérer les comptes d’identification Azure Automation
 
@@ -37,6 +37,9 @@ Il existe deux types de comptes d’identification :
   
   > [!NOTE]
   > Les abonnements Azure Cloud Solution Provider (Azure CSP) prennent uniquement en charge le modèle Azure Resource Manager ; les services hors Azure Resource Manager ne sont pas disponibles dans le programme. Lorsque vous utilisez un abonnement CSP, le Compte d’identification Azure Classic n’est pas créé. Le compte d’identification Azure est, lui, toujours créé. Pour en savoir plus sur les abonnements CSP, consultez [Services disponibles dans les abonnements CSP](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services#comments).
+
+  > [!NOTE]
+  > Le principal du service pour un compte d’identification n’a pas d’autorisations de lecture d’Azure Active Directory par défaut. Si vous souhaitez ajouter des autorisations de lecture ou de gérer Azure Active directory, vous devrez accorder cette autorisation sur le service principal sous **autorisations d’API**. Pour plus d’informations, consultez [ajouter des autorisations pour accéder aux API web](../active-directory/develop/quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis).
 
 ## <a name="permissions"></a> Autorisations pour configurer des comptes d’identification
 

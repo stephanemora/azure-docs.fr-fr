@@ -6,12 +6,12 @@ ms.author: stbaron
 ms.topic: conceptual
 ms.service: service-health
 ms.date: 9/4/2018
-ms.openlocfilehash: 71856f9de3d67590d524fa8bb1119a384d156d2e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 3d9a5ebb2e25cfbabf8cfdbd94c2d1d04ae1bbee
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64700157"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65788468"
 ---
 # <a name="configure-resource-health-alerts-using-resource-manager-templates"></a>Configurer les alertes Resource Health à l’aide de modèles Resource Manager
 
@@ -43,7 +43,7 @@ Pour suivre les instructions de cette page, vous devez effectuer ces étapes pr�
 
         (Get-AzActionGroup -ResourceGroupName <resourceGroup> -Name <actionGroup>).Id
 
-3. Créez et enregistrez un modèle Resource Manager pour les alertes Resource Health au format `resourcehealthalert.json` ([voir les détails un peu plus loin](#resource-manager-template-for-resource-health-alerts))
+3. Créez et enregistrez un modèle Resource Manager pour les alertes Resource Health au format `resourcehealthalert.json` ([voir les détails un peu plus loin](#resource-manager-template-options-for-resource-health-alerts))
 
 4. Créez un déploiement Azure Resource Manager à l’aide de ce modèle
 
@@ -76,7 +76,7 @@ Pour suivre les instructions de cette page, vous devez effectuer ces étapes pr�
 
 Notez que si vous voulez automatiser entièrement ce processus, modifiez simplement le modèle Resource Manager afin qu’il ne demande pas d’entrer les valeurs à l’étape 5.
 
-## <a name="resource-manager-template-for-resource-health-alerts"></a>Modèle Resource Manager pour les alertes Resource Health
+## <a name="resource-manager-template-options-for-resource-health-alerts"></a>Options de modèle Resource Manager pour les alertes d’intégrité des ressources
 
 Vous pouvez utiliser ce modèle simple comme base pour créer vos alertes Resource Health. Ce modèle fonctionne comme écrit dans cet extrait de code, à savoir qu’il génère des alertes pour tous les nouveaux événements d’intégrité de ressource qui se déclenchent sur l’ensemble des ressources dans un abonnement.
 
@@ -284,7 +284,9 @@ Quand une ressource signale l’état « Unknown », la raison probable est que 
 },
 ```
 
-Dans cet exemple, nous recevons une notification uniquement pour les événements dont l’état d’intégrité actuel et précédent n’est pas « Unknown ». Ce changement peut s’avérer utile si vos alertes sont envoyées directement vers votre téléphone mobile ou votre e-mail.
+Dans cet exemple, nous recevons une notification uniquement pour les événements dont l’état d’intégrité actuel et précédent n’est pas « Unknown ». Ce changement peut s’avérer utile si vos alertes sont envoyées directement vers votre téléphone mobile ou votre e-mail. 
+
+Notez qu’il est possible pour les propriétés currentHealthStatus et previousHealthStatus à avoir la valeur null dans certains événements. Par exemple, lorsqu’un événement de mise à jour se produit il est probable que l’état d’intégrité de la ressource n’a pas changé depuis le dernier rapport, ces informations d’événement supplémentaire est disponibles (par exemple, provoquer). Par conséquent, à l’aide de la clause ci-dessus peut en résulter dans certaines alertes ne pas déclenchés, car les valeurs properties.currentHealthStatus et properties.previousHealthStatus seront définies avec la valeur null.
 
 ### <a name="adjusting-the-alert-to-avoid-user-initiated-events"></a>Paramétrage de l’alerte pour exclure les événements lancés par l’utilisateur
 
@@ -304,12 +306,12 @@ La configuration de votre alerte pour filtrer ces types d’événements est sim
     ]
 }
 ```
+Notez qu’il est possible pour le champ de cause à avoir la valeur null dans certains événements. Autrement dit, une transition d’intégrité a lieu (par exemple, disponible à indisponible) et l’événement est consigné immédiatement pour empêcher la notification retarde. Par conséquent, à l’aide de la clause ci-dessus peut en résulter dans une alerte ne pas déclenchée, car la valeur de propriété properties.clause est définie sur null.
 
-## <a name="recommended-resource-health-alert-template"></a>Modèle d’alerte Resource Health recommandé
+## <a name="complete-resource-health-alert-template"></a>Modèle d’alerte d’intégrité de ressource complet
 
-En reprenant les différents paramétrages décrits dans la section précédente, nous pouvons créer un modèle d’alerte complet qui est configuré pour maximiser le rapport signal/bruit.
+À l’aide de différents ajustements décrits dans la section précédente, Voici un exemple de modèle qui est configuré afin d’optimiser le signal / bruit. N’oubliez pas les mises en garde indiqués ci-dessus où currentHealthStatus, previousHealthStatus, les valeurs de propriété cause peuvent être null dans certains événements.
 
-Voici le modèle que nous vous suggérons d’utiliser :
 ```json
 {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",

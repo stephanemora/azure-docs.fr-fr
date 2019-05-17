@@ -9,15 +9,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/09/2018
+ms.date: 05/13/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: dd7e29f8f37572565e505aade97b964254b6d72c
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: d93d9999c407e64658b88025feda48d33e1a5ad1
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65466552"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595788"
 ---
 # <a name="enable-safe-deployment-practices-with-azure-deployment-manager-public-preview"></a>Activer les pratiques de déploiement sécurisé avec le Gestionnaire de déploiement Azure (version préliminaire publique)
 
@@ -38,15 +38,11 @@ Vous déployez le modèle de topologie avant de déployer le modèle de lancemen
 
 Les informations de référence de l’API REST Azure Deployment Manager sont disponibles [ici](https://docs.microsoft.com/rest/api/deploymentmanager/).
 
-## <a name="supported-locations"></a>Emplacements pris en charge
-
-Pour la préversion, les ressources de Deployment Manager sont prises en charge dans USA Centre et USA Est 2. Lorsque vous définissez des ressources dans vos modèles de lancement et de topologie, telles que les unités de service, les sources d’artefact et les lancements décrits dans cet article, vous devez spécifier une de ces régions pour l’emplacement. Toutefois, les ressources que vous déployez pour créer votre service, comme les machines virtuelles, les comptes de stockage et les applications web, sont prises en charge dans tous leurs [emplacements standards](https://azure.microsoft.com/global-infrastructure/services/?products=all).  
-
 ## <a name="identity-and-access"></a>Identité et accès
 
 Avec Deployment Manager, une [identité managée affectée à l’utilisateur](../active-directory/managed-identities-azure-resources/overview.md) effectue les actions de déploiement. Vous créez cette identité avant de commencer votre déploiement. Elle doit avoir accès à l’abonnement Azure sur lequel vous déployez le service, et disposer des autorisations suffisantes pour procéder au déploiement complet. Pour plus d’informations sur les actions accordées par le biais des rôles, consultez [Rôles intégrés pour les ressources Azure](../role-based-access-control/built-in-roles.md).
 
-L’identité doit résider sur un des emplacements pris en charge pour Deployment Manager, et elle doit se trouver dans le même emplacement que le lancement.
+L’identité doit résider dans le même emplacement que le déploiement.
 
 ## <a name="topology-template"></a>Modèle de topologie
 
@@ -221,7 +217,9 @@ Cette étape d’attente suspend le déploiement avant de poursuivre. Elle vous 
 
 La propriété duration utilise la [norme ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations). L’exemple précédent indique une attente d’une minute.
 
-Pour plus d’informations sur l’étape de vérification d’intégrité, consultez [ ]() et [ ]() pour plus d’informations, consultez [étapes référence de modèle](/azure/templates/Microsoft.DeploymentManager/steps).
+Pour plus d’informations sur l’étape de vérification d’intégrité, consultez [introduire de lancement de l’intégration d’intégrité pour le Gestionnaire de déploiement Azure](./deployment-manager-health-check.md) et [didacticiel : Utilisation de contrôle d’intégrité dans le Gestionnaire de déploiement Azure](./deployment-manager-tutorial-health-check.md).
+
+Pour plus d’informations, consultez [Informations de référence sur le modèle des étapes](/azure/templates/Microsoft.DeploymentManager/steps).
 
 ### <a name="rollouts"></a>Lancements
 

@@ -3,8 +3,8 @@ title: Comment choisir le type d’application à utiliser lors de l’ajout d�
 description: Connaître les types d’applications pris en charge que vous pouvez intégrer à Azure AD et leurs options de configuration connexes
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/08/2018
-ms.author: celested
+ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 13b0c03f03012058616dba21536cfc3f292fff4b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f6e1a1c614bfa126d58cf9343f945d16fd1c2733
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60441261"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65781010"
 ---
 # <a name="choosing-the-application-type-when-adding-an-application-in-azure-active-directory"></a>Choix du type d’application lors de l’ajout d’une application dans Azure Active Directory
 Découvrez les quatre types d’applications que vous pouvez ajouter dans Azure Active Directory (Azure AD). Lorsque vous ajoutez une application dans Azure Active Directory, vous êtes invité à choisir l’un des quatre types d’application. 

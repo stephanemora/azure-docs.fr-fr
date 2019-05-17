@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 02/15/2019
+ms.date: 05/13/2019
 ms.author: jingwang
-ms.openlocfilehash: e3a27ab15c72289dd28e31d832b81407a66dc754
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d6e09ec1f070f9ee0f4162524e4bd80d1f81adc3
+ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60546137"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65560653"
 ---
 # <a name="copy-data-from-azure-data-lake-storage-gen1-to-gen2-with-azure-data-factory"></a>Copier les données depuis Azure Data Lake Storage Gen1 vers Gen2 avec Azure Data Factory
 
@@ -24,11 +24,11 @@ Azure Data Lake Storage Gen2 est un ensemble de fonctionnalités dédiées à l'
 
 Si vous utilisez actuellement Azure Data Lake Storage Gen1, vous pouvez évaluer les nouvelles capacités de Gen2 en copiant les données à partir de Data Lake Storage Gen1 vers Gen2 avec Azure Data Factory.
 
-Azure Data Factory est un service informatique d’intégration de données informatique intégralement managé. Vous pouvez utiliser le service pour remplir le lac avec des données provenant d’un ensemble étendu de banques de données locales et cloud lors de la création de vos solutions d’analytique. Pour une liste détaillée des connecteurs pris en charge, consultez le tableau de [Banques de données prises en charge](copy-activity-overview.md#supported-data-stores-and-formats).
+Azure Data Factory est un service informatique d’intégration de données intégralement géré. Vous pouvez utiliser le service pour remplir le lac avec des données provenant d’un ensemble étendu de banques de données locales et cloud lors de la création de vos solutions d’analytique. Pour une liste détaillée des connecteurs pris en charge, consultez le tableau de [Banques de données prises en charge](copy-activity-overview.md#supported-data-stores-and-formats).
 
-Azure Data Factory offre une solution de déplacement des données managées qui est évolutive. En raison de l’architecture évolutive d’Azure Data Factory elle peut ingérer des données à un débit élevé. Pour en savoir plus, voir [Performances de l’activité de copie](copy-activity-performance.md).
+Azure Data Factory offre une solution de déplacement des données managées qui est évolutive. En raison de l’architecture évolutive d’Azure Data Factory elle peut ingérer des données à un débit élevé. Pour plus d’informations, consultez [Performances de l’activité de copie](copy-activity-performance.md).
 
-Cet article vous explique comment utiliser l’outil de copie de données de Data Factory pour copier des données depuis _Azure Data Lake Storage Gen1_ vers _Azure Data Lake Store Gen2_. Vous pouvez procéder de même pour copier des données à partir d’autres types de banques de données.
+Cet article vous explique comment utiliser l’outil de copie de données de Data Factory pour copier des données depuis _Azure Data Lake Storage Gen1_ vers _Azure Data Lake Store Gen2_. Vous pouvez procéder de même pour copier des données à partir d’autres types de magasins de données.
 
 ## <a name="prerequisites"></a>Conditions préalables
 
@@ -132,12 +132,47 @@ Cet article vous explique comment utiliser l’outil de copie de données de Dat
 
 ## <a name="best-practices"></a>Bonnes pratiques
 
-Quand vous copiez un grand volume de données à partir de la banque de données de type fichiers, nous vous recommandons de :
+Pour évaluer la mise à niveau à partir d’Azure Data Lake Storage (ADLS) Gen1 vers Gen2 en général, reportez-vous à [mise à niveau de vos solutions d’analytique de big data à partir d’Azure Data Lake Storage Gen1 vers Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-upgrade.md). Les sections suivantes présentent les meilleures pratiques de l’utilisation d’ADF pour la mise à niveau des données à partir de la génération 1 vers Gen2.
 
-- Partitionner les fichiers en ensembles de fichiers de 10 à 30 To chacun.
-- Ne pas déclencher trop d’exécutions de copie simultanées, de façon à éviter les limitations des banques de données sources ou réceptrices. Vous pouvez commencer avec l’exécution d’une seule copie et en surveiller le débit, puis ajouter progressivement d’autres exécutions en fonction des besoins.
+### <a name="data-partition-for-historical-data-copy"></a>Partition de données pour la copie des données historiques
+
+- Si la taille totale des données dans ADLS Gen1 est inférieure à **30 to** et le nombre de fichiers est inférieure à **1 million**, vous pouvez copier toutes les données dans l’exécution d’activité copie unique.
+- Si vous disposez de plus grande taille de données à copier, ou vous souhaitez que la possibilité de gérer la migration de données par lots et vérifiez chacun d’eux effectuée dans une fenêtre de temps spécifiques, il est recommandé de partitionner les données, auquel cas elle peut également réduire le risque de n’importe quel iss inattendue UE.
+
+Nous vous recommandons d’utiliser une preuve de concept (preuve de Concept) afin de vérifier si la solution de bout en bout et de tester le débit de copie dans votre environnement. Étapes majeures de faire preuve de concept : 
+
+1. Créer un pipeline ADF avec une seule activité de copie pour copier plusieurs téraoctets de données à partir de la génération 1 ADLS vers Gen2 ADLS pour obtenir un référentiel de performances de copie, en commençant par [unités d’intégration de données (DIUs)](copy-activity-performance.md#data-integration-units) 128. 
+2. En fonction du débit de copie que vous obtenez à l’étape #1, calculer le temps estimé nécessaire pour la migration de données entier. 
+3. (Facultatif) Créer une table de contrôle et définir le filtre de fichier pour partitionner les fichiers à migrer. La façon de partitionner les fichiers comme suit : 
+
+    - Partitionnée par nom de dossier ou nom de dossier avec le filtre de caractères génériques (recommandé) 
+    - Partitionnée par heure de la dernière modification du fichier 
+
+### <a name="network-bandwidth-and-storage-io"></a>E/s du stockage et de la bande passante réseau 
+
+Vous pouvez contrôler l’accès concurrentiel des travaux de copie ADF lire les données d’ADLS Gen1 et écrire des données dans ADLS Gen2, afin que vous puissiez gérer l’utilisation sur le stockage d’e/s pour ne pas d’impact sur le travail de l’activité normale sur ADLS Gen1 pendant la migration.
+
+### <a name="permissions"></a>Autorisations 
+
+Dans Data Factory, [ADLS Gen1 connecteur](connector-azure-data-lake-store.md) prend en charge de principal du Service et l’identité gérée pour les authentifications de ressources Azure ; [ADLS Gen2 connecteur](connector-azure-data-lake-storage.md) prend en charge la clé, de compte principal du Service et MSI pour les authentifications de ressources Azure. Pour rendre en mesure d’accéder à Data Factory et copie tous les fichiers/ACL que vous avez besoin, veillez à qu'accorder haut assez d’autorisations pour le compte vous fournissez en accès/lecture/écriture à tous les fichiers et définissez des ACL si vous le souhaitez. Suggérer pour lui accorder en tant que rôle de super utilisateur/propriétaire pendant la période de migration. 
+
+### <a name="preserve-acls-from-data-lake-storage-gen1"></a>Conserver les ACL à partir de la génération 1 de Data Lake Storage
+
+Si vous souhaitez répliquer les ACL, ainsi que les fichiers de données lors de la mise à niveau à partir de Data Lake Storage Gen1 vers Gen2, reportez-vous à [conserver les ACL à partir de Data Lake Storage Gen1](connector-azure-data-lake-storage.md#preserve-acls-from-data-lake-storage-gen1). 
+
+### <a name="incremental-copy"></a>Copie incrémentielle 
+
+Plusieurs approches peuvent être utilisées pour charger uniquement les fichiers nouveaux ou mis à jour à partir de la génération 1 ADLS :
+
+- Charger des fichiers nouveaux ou mis à jour en temps partitionné dossier ou nom de fichier, par exemple, / 2019/05/13 / * ;
+- Charger les fichiers nouveaux ou mis à jour par LastModifiedDate & gt ;
+- Identifier les fichiers nouveaux ou mis à jour par n’importe quel outil/solution tierce 3e, puis passez le nom de fichier ou dossier au pipeline ADF via un paramètre ou un table/le fichier.  
+
+La fréquence appropriée pour effectuer le chargement incrémentiel varie selon le nombre total de fichiers dans ADLS Gen1 et le volume du fichier nouveau ou mis à jour pour être chargé chaque fois.  
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Vue d’ensemble des activités de copie](copy-activity-overview.md)
-* [Connecteur Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md)
+> [!div class="nextstepaction"]
+> [Vue d’ensemble de l’activité copie](copy-activity-overview.md)
+> [Gen1 de stockage Azure Data Lake connecteur](connector-azure-data-lake-store.md)
+> [connecteur d’Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md)

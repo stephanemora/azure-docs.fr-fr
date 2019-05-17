@@ -13,36 +13,41 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 2/13/2019
-ms.openlocfilehash: 23e072369aa8ac6ca6ada5ec185df1a8d7e03c5b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f929369030b6f0a634eb2c84e33eee24af8cb6a2
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61477176"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787511"
 ---
 # <a name="sql-server-on-azure-virtual-machine-release-notes"></a>Notes de publication de SQL Server sur les machines virtuelles Azure
 
 Azure permet de déployer une machine virtuelle avec une image de SQL Server intégrée. Cet article résume les nouvelles fonctionnalités et les améliorations présentes dans les versions récentes de [SQL Server sur des machines virtuelles Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/). Il répertorie également les mises à jour de contenu importantes qui ne sont pas directement associées à la version, mais qui ont été publiées en même temps. Pour connaître les améliorations apportées aux autres services Azure, consultez [Mises à jour des services](https://azure.microsoft.com/updates)
 
-## <a name="march-2019"></a>Mars 2019
+## <a name="april-2019"></a>Avril 2019
 
 ### <a name="service-improvements"></a>Améliorations du service
 
 | Améliorations du service | Détails |
 | --- | --- |
-| **Prise en charge de l’image personnalisée** | Vous pouvez maintenant installer le [extension SQL IaaS](virtual-machines-windows-sql-server-agent-extension.md#installation) pour les images du système d’exploitation et SQL personnalisées, qui offre des fonctionnalités limitées de [licences flexibles](virtual-machines-windows-sql-ahb.md). Lorsque l’inscription de votre image personnalisée avec le fournisseur de ressources SQL, spécifiez le type de licence en tant que « AHUB » comme sinon l’inscription échoue.  | 
-| **Prise en charge de l’instance nommée** | Vous pouvez maintenant utiliser le [extension SQL IaaS](virtual-machines-windows-sql-server-agent-extension.md#installation) avec une instance nommée, si l’instance par défaut a été correctement désinstallé. | 
-| **Amélioration de portail** | L’utilisation du portail Azure pour le déploiement d’une machine virtuelle SQL Server a été repensée pour améliorer la facilité d’utilisation. Pour plus d’informations, consultez la brève [Quickstart](quickstart-sql-vm-create-portal.md) et plus poussée [procédures](virtual-machines-windows-portal-sql-server-provision.md) guide de déploiement d’une machine virtuelle SQL Server. |
+| **Étendre la prise en charge de SQL Server 2008/2008 R2** | [Étendre la prise en charge](virtual-machines-windows-sql-server-2008-eos-extend-support.md) pour SQL Server 2008 et SQL Server 2008 R2 en migrant *en tant que-est* à une machine virtuelle Azure. | 
 | &nbsp; | &nbsp; |
 
 ### <a name="documentation-improvements"></a>Améliorations de la documentation
 
 Aucun
 
+## <a name="march-2019"></a>Mars 2019
+
+| Améliorations du service | Détails |
+| --- | --- |
+| **Prise en charge de l’image personnalisée** | Vous pouvez maintenant installer le [extension SQL IaaS](virtual-machines-windows-sql-server-agent-extension.md#installation) pour les images du système d’exploitation et SQL personnalisées, qui offre des fonctionnalités limitées de [licences flexibles](virtual-machines-windows-sql-ahb.md). Lorsque l’inscription de votre image personnalisée avec le fournisseur de ressources SQL, spécifiez le type de licence en tant que « AHUB » comme sinon l’inscription échoue.  | 
+| **Prise en charge de l’instance nommée** | Vous pouvez maintenant utiliser le [extension SQL IaaS](virtual-machines-windows-sql-server-agent-extension.md#installation) avec une instance nommée, si l’instance par défaut a été correctement désinstallé. | 
+| **Amélioration de portail** | L’utilisation du portail Azure pour le déploiement d’une machine virtuelle SQL Server a été repensée pour améliorer la facilité d’utilisation. Pour plus d’informations, consultez la brève [Quickstart](quickstart-sql-vm-create-portal.md) et plus poussée [procédures](virtual-machines-windows-portal-sql-server-provision.md) guide de déploiement d’une machine virtuelle SQL Server.|
+| &nbsp; | &nbsp; |
+
 
 ## <a name="february-2019"></a>Février 2019
-
-### <a name="service-improvements"></a>Améliorations du service
 
 | Améliorations du service | Détails |
 | --- | --- |

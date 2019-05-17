@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 02/01/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: e12b3cbcb8f7a433b37c450c84bd34745f68a22d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 9c08b5b5278045341ed86d987557d03cb46754e6
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64711510"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65601584"
 ---
 # <a name="tutorial-create-user-flows-in-azure-active-directory-b2c"></a>Didacticiel : Créer des flux d’utilisateur dans Azure Active Directory B2C
 
@@ -76,7 +76,7 @@ Le flux d’utilisateur Inscription et connexion gère les expériences d’insc
 4. Entrez une adresse e-mail valide, cliquez sur **Envoyer un code de vérification**, puis entrez le code de vérification que vous recevez.
 5. Entrez un nouveau mot de passe et confirmez-le.
 6. Entrez le nom que vous voulez afficher, sélectionnez votre pays et votre région, entrez un code postal, puis cliquez sur **Créer**. Le jeton est envoyé à `https://jwt.ms` et vous devez le voir.
-7. Vous pouvez maintenant réexécuter le flux d’utilisateur et vous connecter avec le compte que vous avez créé. Le jeton retourné comprend les revendications que vous avez sélectionnées pour le nom, le pays et le code postal.
+7. Vous pouvez maintenant réexécuter le flux d’utilisateur et vous connecter avec le compte que vous avez créé. Le jeton renvoyé inclut les revendications que vous avez sélectionné du nom, pays/région et code postal.
 
 ## <a name="create-a-profile-editing-user-flow"></a>Créer un flux d’utilisateur de modification de profil
 

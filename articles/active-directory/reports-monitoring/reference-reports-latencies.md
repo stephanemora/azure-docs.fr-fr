@@ -13,16 +13,16 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 05/13/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 64bd2247a3437a2cc960da1820d9be417eedff8e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8d4d02f9e99acb68db126ccde465f73cc2294e06
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60285176"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65594022"
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Latences de création de rapports Azure Active Directory
 
@@ -41,10 +41,10 @@ Le tableau suivant répertorie les informations de latence pour les rapports d�
 > **Latence (95e centile)** fait référence au délai auquel 95 % des journaux seront déclarés et **Latence (99e centile)** fait référence au délai auquel 99 % des journaux seront déclarés. 
 >
 
-| Rapport | Latence (95e centile) |Latence (99e centile)|Intervalle au cours duquel les journaux d’activité seront rapportés|
-| :-- | --- | --- | --- |
-| Journaux d’audit | 2 minutes  | 5 minutes  | 2 à 60 minutes |
-| Connexions | 2 minutes  | 5 minutes | 2 à 120 minutes |
+| Rapport | Latence (95e centile) |Latence (99e centile)|
+| :-- | --- | --- |
+| Journaux d’audit | 2 minutes  | 5 minutes  |
+| Connexions | 2 minutes  | 5 minutes |
 
 ### <a name="how-soon-can-i-see-activities-data-after-getting-a-premium-license"></a>Au bout de combien de temps puis-je consulter les données d'activité après avoir obtenu une licence Premium ?
 

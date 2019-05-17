@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 04/24/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 6e7b3b316a8a6dcde95bdf872dbda4cd1372f072
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b1a79f2798fc98fd7361c47788c79e329e2cb827
+ms.sourcegitcommit: 9e8dfa1169a55c3c8af93a6c5f4e0dace4de48b2
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64721811"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65556187"
 ---
 # <a name="scaling-media-processing"></a>Mise à l’échelle du traitement multimédia
 
@@ -47,7 +47,7 @@ Le reste de cet article montre comment utiliser [Media Services v3 CLI](https://
 > [!NOTE]
 > Pour les travaux d’analyse audio et vidéo déclenchés par Media Services v3 ou Video Indexer, nous vous recommandons de provisionner votre compte avec des MRU 10 S3. Si vous avez besoin de plus de 10 MRU S3, ouvrez un ticket de support à l’aide du [Portail Azure](https://portal.azure.com/).
 >
-> Actuellement, vous ne pouvez pas utiliser le portail Azure pour gérer les autres ressources v3. Utilisez l’[API REST](https://aka.ms/ams-v3-rest-ref), l’interface [CLI](https://aka.ms/ams-v3-cli-ref) ou l’un des kits [SDK](developers-guide.md) pris en charge.
+> Actuellement, vous ne pouvez pas utiliser le portail Azure pour gérer les autres ressources v3. Utilisez l’[API REST](https://aka.ms/ams-v3-rest-ref), l’interface [CLI](https://aka.ms/ams-v3-cli-ref) ou l’un des kits [SDK](media-services-apis-overview.md#sdks) pris en charge.
 
 ## <a name="prerequisites"></a>Conditions préalables 
 

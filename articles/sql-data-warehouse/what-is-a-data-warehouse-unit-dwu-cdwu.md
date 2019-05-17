@@ -2,20 +2,20 @@
 title: Data Warehouse Units (DWU, cDWU) dans Azure SQL Data Warehouse | Microsoft Docs
 description: Recommandations concernant le choix du nombre idéal de Data Warehouse Units (DWU, cDWU) pour optimiser le prix et la performance ainsi que la manière de modifier leur nombre.
 services: sql-data-warehouse
-author: ronortloff
+author: happynicolle
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
+ms.subservice: design
 ms.date: 04/17/2018
-ms.author: rortloff
+ms.author: nicw
 ms.reviewer: igorstan
-ms.openlocfilehash: 5f6e24dfa1b5c4ea4f0748af81104edfe88ceeae
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: d71594e745fdd57ba383b98b547cceb0be1b61bc
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58099101"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65797838"
 ---
 # <a name="data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>Data Warehouse Units (DWU) et Data Warehouse Units de calcul (cDWU)
 Recommandations concernant le choix du nombre idéal de Data Warehouse Units (DWU, cDWU) pour optimiser le prix et la performance ainsi que la manière de modifier leur nombre. 

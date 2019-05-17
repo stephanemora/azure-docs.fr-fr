@@ -10,12 +10,12 @@ ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.topic: article
 ms.date: 04/03/2019
-ms.openlocfilehash: a5d93a77652f540fde44b33963b13df04b45ecee
-ms.sourcegitcommit: 60606c5e9a20b2906f6b6e3a3ddbcb6c826962d6
+ms.openlocfilehash: 999c75d07ef7e24d4d75587b6b42a4ab1b2192cf
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64987938"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65596117"
 ---
 # <a name="upgrade-your-data-warehouse-to-gen2"></a>Mettre à niveau votre entrepôt de données vers Gen2
 
@@ -39,9 +39,9 @@ Le tableau suivant récapitule par région le moment où le niveau de capacité 
 | Est du Canada |\* |\* |
 | USA Centre |Disponible |1 juin 2019 |
 | Chine orientale |\* |\* |
-| Chine Est 2 |\* |\* |
+| Chine Est 2 |\* |Gen2 uniquement |
 | Chine du Nord |\* |\* |
-| Chine Nord 2 |\* |\* |
+| Chine Nord 2 |Disponible |Gen2 uniquement |
 | Asie Est |Disponible |1 juin 2019 |
 | USA Est |Disponible |1 juin 2019 |
 | USA Est 2 |Disponible |1 juin 2019 |

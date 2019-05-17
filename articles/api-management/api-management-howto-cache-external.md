@@ -12,14 +12,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 05/15/2019
 ms.author: apimpm
-ms.openlocfilehash: 8e3f34210627fbb455a1eca0b415cdd6de9b3681
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e2362d06fa0ef795122a2d47a7a621b66fdd9470
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60527776"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65780356"
 ---
 # <a name="use-an-external-azure-cache-for-redis-in-azure-api-management"></a>Utiliser un Cache Azure pour Redis externe dans Gestion des API Azure
 
@@ -41,12 +41,7 @@ Ce que vous allez apprendre :
 > [!div class="checklist"]
 > * Ajouter un cache externe dans Gestion des API
 
-## <a name="availability"></a>Disponibilité
-
-> [!NOTE]
-> Actuellement, cette fonctionnalité est disponible dans le niveau **Consommation** de Gestion des API Azure uniquement.
-
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 Pour suivre ce didacticiel, vous devez effectuer les opérations suivantes :
 
@@ -94,6 +89,7 @@ Suivez les étapes ci-dessous pour ajouter un Cache Azure pour Redis externe dan
 Une fois le cache externe configuré dans Gestion des API Azure, il peut être utilisé par le biais des stratégies de mise en cache. Pour les instructions détaillées, consultez [Ajouter une mise en cache pour améliorer les performances de Gestion des API Azure](api-management-howto-cache.md).
 
 ## <a name="next-steps"> </a>Étapes suivantes
+
 * Pour plus d’informations sur les stratégies de mise en cache, voir la section [Stratégies de mise en cache][Caching policies] dans [Référence de stratégie de Gestion des API][API Management policy reference].
 * Pour plus d’informations sur la mise en cache des éléments par clé à l’aide d’expressions de stratégie, consultez [Mise en cache personnalisée dans la gestion des API Azure](api-management-sample-cache-by-key.md).
 

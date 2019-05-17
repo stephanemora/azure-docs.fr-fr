@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: jlian
-ms.openlocfilehash: 743e4c5bebefbf6727c49257551b8c958eb6f031
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 8eac70db0c563f102dfa0e3fcece9d4604582cce
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64692535"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595652"
 ---
 # <a name="understand-iot-hub-metrics"></a>Comprendre les métriques IoT Hub
 
@@ -47,8 +47,8 @@ IoT Hub fournit plusieurs métriques afin de vous donner une vue d’ensemble de
 |c2d<br>.commands<br>.egress<br>.complete<br>.success|Commandes terminées|Nombre|Total|Nombre de commandes cloud vers appareil terminées avec succès par l’appareil|Aucune dimension|
 |c2d<br>.commands<br>.egress<br>.abandon<br>.success|Commandes abandonnées|Nombre|Total|Nombre de commandes cloud vers appareil abandonnées par l’appareil|Aucune dimension|
 |c2d<br>.commands<br>.egress<br>.reject<br>.success|Commandes rejetées|Nombre|Total|Nombre de commandes cloud vers appareil rejetées par l’appareil|Aucune dimension|
-|périphériques<br>.totalDevices|Nombre total d’appareils (déconseillé)|Nombre|Total|Nombre d’appareils enregistrés sur votre hub IoT|Aucune dimension|
-|périphériques<br>.connectedDevices<br>.allProtocol|Appareils connectés (déconseillé) |Nombre|Total|Nombre d’appareils connectés à votre hub IoT|Aucune dimension|
+|appareils<br>.totalDevices|Nombre total d’appareils (déconseillé)|Nombre|Total|Nombre d’appareils enregistrés sur votre hub IoT|Aucune dimension|
+|appareils<br>.connectedDevices<br>.allProtocol|Appareils connectés (déconseillé) |Nombre|Total|Nombre d’appareils connectés à votre hub IoT|Aucune dimension|
 |d2c<br>.telemetry<br>.egress<br>.success|Routage : messages de télémétrie remis|Nombre|Total|Nombre de fois où des messages ont été correctement remis à tous les points de terminaison à l’aide du routage IoT Hub. Si un message est routé vers plusieurs points de terminaison, cette valeur augmente d’une unité pour chaque remise réussie. Si un message est routé plusieurs fois vers le même point de terminaison, cette valeur augmente d’une unité pour chaque remise réussie.|Aucune dimension|
 |d2c<br>.telemetry<br>.egress<br>.dropped|Routage : messages de télémétrie annulés |Nombre|Total|Nombre de fois où des messages ont été annulés par le routage IoT Hub en raison de points de terminaison morts. Cette valeur ne compte pas les messages remis à un itinéraire de secours, car les messages annulés n’y sont pas remis.|Aucune dimension|
 |d2c<br>.telemetry<br>.egress<br>.orphaned|Routage : messages de télémétrie orphelins |Nombre|Total|Nombre de fois où des messages ont été définis comme orphelins par le routage IoT Hub car ils ne correspondaient à aucune règle de routage (y compris la règle de secours). |Aucune dimension|
@@ -66,6 +66,8 @@ IoT Hub fournit plusieurs métriques afin de vous donner une vue d’ensemble de
 |d2c<br>.endpoints<br>.latency<br>.storage|Routage : latence des messages du stockage|Millisecondes|Moyenne|Latence moyenne (en millisecondes) entre les entrées de messages vers IoT Hub et de télémétrie dans un point de terminaison de stockage.|Aucune dimension|
 |d2c<br>.endpoints<br>.egress<br>.storage<br>.bytes|Routage : données remises au stockage|Octets|Total|Quantité de données (octets) que le routage IoT Hub a remis aux points de terminaison de stockage.|Aucune dimension|
 |d2c<br>.endpoints<br>.egress<br>.storage<br>.blobs|Routage : objets blob remis au stockage|Nombre|Total|Nombre de fois où le routage IoT Hub a remis des objets blob à des points de terminaison de stockage.|Aucune dimension|
+|EventGridDeliveries|Livraisons de grille d’événements (version préliminaire)|Nombre|Total|Le nombre de demandes pour IoT Hub émettre des événements d’Event Grid. Ce nombre inclut les demandes ayant réussies ou échoués. Utiliser la dimension de résultat pour le nombre de différents types de réponses. Pour afficher l’emplacement où les demandes proviennent, utiliser la dimension de type d’événement.|Résultat, le type d’événement|
+|EventGridLatency|Latence de grille d’événements (version préliminaire)|Millisecondes|Moyenne|Latence moyenne (en millisecondes) entre l’entrée des événements à IoT Hub et entrée d’événement dans Event Grid. Ce nombre est une moyenne entre tous les types d’événements. Utiliser la dimension de type d’événement pour afficher la latence d’un type spécifique d’événement.|EventType|
 |d2c<br>.twin<br>.read<br>.success|Lectures de représentations réussies d’appareils|Nombre|Total|Total des lectures de représentations réussies initiées par un appareil.|Aucune dimension|
 |d2c<br>.twin<br>.read<br>.failure|Lectures de représentations d’appareils en échec|Nombre|Total|Total des lectures de représentations en échec initiées par un appareil.|Aucune dimension|
 |d2c<br>.twin<br>.read<br>.size|Taille de la réponse des lectures de représentations des appareils|Octets|Moyenne|Moyenne, minimum et maximum de toutes les lectures de représentations réussies initiées par un appareil.|Aucune dimension|
@@ -85,22 +87,21 @@ IoT Hub fournit plusieurs métriques afin de vous donner une vue d’ensemble de
 |twinQueries<br>.success|Requêtes de représentations réussies|Nombre|Total|Total des requêtes de représentations réussies.|Aucune dimension|
 |twinQueries<br>.failure|Requêtes de représentations en échec|Nombre|Total|Total des requêtes de représentations en échec.|Aucune dimension|
 |twinQueries<br>.resultSize|Taille du résultat des requêtes de représentations|Octets|Moyenne|Moyenne, minimum et maximum de la taille du résultat de toutes les requêtes de représentations réussies.|Aucune dimension|
-|jobs<br>.createTwinUpdateJob<br>.success|Créations réussies des travaux de mises à jour de représentations|Nombre|Total|Total des créations réussies de travaux de mises à jour de représentations.|Aucune dimension|
-|jobs<br>.createTwinUpdateJob<br>.failure|Créations des travaux de mises à jour de représentations en échec|Nombre|Total|Total des créations en échec des travaux de mises à jour de représentations.|Aucune dimension|
-|jobs<br>.createDirectMethodJob<br>.success|Créations réussies des travaux d’appel de méthode|Nombre|Total|Total des créations réussies des travaux d’appel de méthode directe.|Aucune dimension|
-|jobs<br>.createDirectMethodJob<br>.failure|Créations des travaux d’appel de méthode en échec|Nombre|Total|Total des créations en échec des travaux d’appel de méthode directe.|Aucune dimension|
-|jobs<br>.listJobs<br>.success|Appels réussis pour répertorier les travaux|Nombre|Total|Total des appels réussis pour répertorier les travaux.|Aucune dimension|
-|jobs<br>.listJobs<br>.failure|Appels en échec pour répertorier les travaux|Nombre|Total|Total des appels en échec pour répertorier les travaux.|Aucune dimension|
-|jobs<br>.cancelJob<br>.success|Annulations de travaux réussies|Nombre|Total|Total des appels réussis pour annuler un travail.|Aucune dimension|
-|jobs<br>.cancelJob<br>.failure|Annulations de travaux en échec|Nombre|Total|Total des appels en échec pour annuler un travail.|Aucune dimension|
-|jobs<br>.queryJobs<br>.success|Requêtes de travaux réussies|Nombre|Total|Total des appels réussis pour interroger les travaux.|Aucune dimension|
-|jobs<br>.queryJobs<br>.failure|Requêtes de travaux en échec|Nombre|Total|Total des appels en échec pour interroger les travaux.|Aucune dimension|
-|jobs<br>.completed|Travaux terminés|Nombre|Total|Total des travaux terminés.|Aucune dimension|
-|jobs<br>.failed|Travaux en échec|Nombre|Total|Total des travaux en échec.|Aucune dimension|
+|tâches<br>.createTwinUpdateJob<br>.success|Créations réussies des travaux de mises à jour de représentations|Nombre|Total|Total des créations réussies de travaux de mises à jour de représentations.|Aucune dimension|
+|tâches<br>.createTwinUpdateJob<br>.failure|Créations des travaux de mises à jour de représentations en échec|Nombre|Total|Total des créations en échec des travaux de mises à jour de représentations.|Aucune dimension|
+|tâches<br>.createDirectMethodJob<br>.success|Créations réussies des travaux d’appel de méthode|Nombre|Total|Total des créations réussies des travaux d’appel de méthode directe.|Aucune dimension|
+|tâches<br>.createDirectMethodJob<br>.failure|Créations des travaux d’appel de méthode en échec|Nombre|Total|Total des créations en échec des travaux d’appel de méthode directe.|Aucune dimension|
+|tâches<br>.listJobs<br>.success|Appels réussis pour répertorier les travaux|Nombre|Total|Total des appels réussis pour répertorier les travaux.|Aucune dimension|
+|tâches<br>.listJobs<br>.failure|Appels en échec pour répertorier les travaux|Nombre|Total|Total des appels en échec pour répertorier les travaux.|Aucune dimension|
+|tâches<br>.cancelJob<br>.success|Annulations de travaux réussies|Nombre|Total|Total des appels réussis pour annuler un travail.|Aucune dimension|
+|tâches<br>.cancelJob<br>.failure|Annulations de travaux en échec|Nombre|Total|Total des appels en échec pour annuler un travail.|Aucune dimension|
+|tâches<br>.queryJobs<br>.success|Requêtes de travaux réussies|Nombre|Total|Total des appels réussis pour interroger les travaux.|Aucune dimension|
+|tâches<br>.queryJobs<br>.failure|Requêtes de travaux en échec|Nombre|Total|Total des appels en échec pour interroger les travaux.|Aucune dimension|
+|tâches<br>.completed|Travaux terminés|Nombre|Total|Total des travaux terminés.|Aucune dimension|
+|tâches<br>.failed|Travaux en échec|Nombre|Total|Total des travaux en échec.|Aucune dimension|
 |d2c<br>.telemetry<br>.ingress<br>.sendThrottle|Nombre d’erreurs de limitation|Nombre|Total|Nombre d’erreurs de limitation causées par des limitations de débit d’appareil|Aucune dimension|
 |dailyMessage<br>QuotaUsed|Nombre total de messages utilisés|Nombre|Moyenne|Nombre total de messages utilisés aujourd’hui. Il s’agit d’une valeur cumulative qui est réinitialisée sur zéro à 00h00 UTC chaque jour.|Aucune dimension|
-|deviceDataUsage|Utilisation totale des données d’appareil (déprécié)|Octets|Total|Nombre d’octets transférés vers et depuis tous les appareils connectés à IotHub|Aucune dimension|
-|deviceDataUsageV2|Utilisation totale des données d’appareil (préversion)|Octets|Total|Nombre d’octets transférés vers et depuis tous les appareils connectés à IotHub|Aucune dimension|
+|deviceDataUsage|Utilisation totale du périphérique des données|Octets|Total|Nombre d’octets transférés vers et depuis tous les appareils connectés à IotHub|Aucune dimension|
 |totalDeviceCount|Nombre total d’appareils (préversion)|Nombre|Moyenne|Nombre d’appareils enregistrés sur votre hub IoT|Aucune dimension|
 |connected<br>DeviceCount|Appareils connectés (préversion)|Nombre|Moyenne|Nombre d’appareils connectés à votre hub IoT|Aucune dimension|
 |configurations|Métriques de configuration|Nombre|Total|Métriques pour les opérations de configuration|Aucune dimension|

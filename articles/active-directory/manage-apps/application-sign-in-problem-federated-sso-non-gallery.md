@@ -3,8 +3,8 @@ title: Problèmes de connexion à une application non issue de la galerie config
 description: Instructions pour résoudre les problèmes rencontrés lors de la connexion à une application configurée pour l’authentification unique SAML fédérée avec Azure AD
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
-ms.author: celested
+ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7cb0139227012be610977df3240f74a03f53be7e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 38decf98707231c21427f7a22dd4d12adb41852b
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60440196"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65825437"
 ---
 # <a name="problems-signing-in-to-a-non-gallery-application-configured-for-federated-single-sign-on"></a>Problèmes de connexion à une application non issue de la galerie configurée pour l’authentification unique fédérée
 
@@ -58,7 +58,7 @@ Vérifiez que le `Issuer` attribut dans la demande SAML correspond à la valeur 
 
 7. Une fois l’application chargée, cliquez sur **Authentification unique** dans le menu de navigation de gauche de l’application.
 
-8. Une fois l’application chargée, ouvrez **configuration SAML base**. Vérifiez que la valeur dans la zone de texte identificateur correspond à la valeur de la valeur d’identificateur mentionnée dans l’erreur.
+8. Une fois l’application chargée, ouvrez **Configuration SAML de base**. Vérifiez que la valeur dans la zone de texte identificateur correspond à la valeur de la valeur d’identificateur mentionnée dans l’erreur.
 
 ## <a name="the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application"></a>L’adresse de réponse ne correspond pas aux adresses de réponse configurées pour l’application. 
 
@@ -88,7 +88,7 @@ Vérifiez que le `Issuer` attribut dans la demande SAML correspond à la valeur 
 
 7. Une fois l’application chargée, cliquez sur **Authentification unique** dans le menu de navigation de gauche de l’application.
 
-8. Une fois l’application chargée, ouvrez **configuration SAML base**. Vérifier ou mettre à jour la valeur dans la zone de texte URL de réponse pour faire correspondre la `AssertionConsumerServiceURL` valeur dans la demande SAML.    
+8. Une fois l’application chargée, ouvrez **Configuration SAML de base**. Vérifier ou mettre à jour la valeur dans la zone de texte URL de réponse pour faire correspondre la `AssertionConsumerServiceURL` valeur dans la demande SAML.    
     
 Une fois que vous avez mis à jour la valeur de l’URL de réponse dans Azure AD, et il correspond à la valeur envoyée par l’application dans la demande SAML, il se peut que vous devez être en mesure de se connecter à l’application.
 
@@ -188,7 +188,7 @@ Vérifiez que le `Issuer` attribut dans la demande SAML correspond à la valeur 
 
 1.  Sélectionnez l’application pour laquelle vous souhaitez configurer l’authentification unique.
 
-1.  Une fois l’application chargée, ouvrez **configuration SAML base**. Vérifiez que la valeur dans la zone de texte identificateur correspond à la valeur de la valeur d’identificateur mentionnée dans l’erreur.
+1.  Une fois l’application chargée, ouvrez **Configuration SAML de base**. Vérifiez que la valeur dans la zone de texte identificateur correspond à la valeur de la valeur d’identificateur mentionnée dans l’erreur.
 
 ## <a name="certificate-or-key-not-configured"></a>Certificat ou clé non configuré(e)
 
@@ -264,7 +264,7 @@ Supprimer les URL de réponse inutilisé configurés pour l’application.
 
 6.  Sélectionnez l’application pour laquelle vous souhaitez configurer l’authentification unique.
 
-7.  Une fois l’application chargée, ouvrez **configuration SAML base**. Dans le **URL de réponse (URL Assertion Consumer Service)**, delete inutilisée ou URL de réponse par défaut créé par le système. Par exemple : `https://127.0.0.1:444/applications/default.aspx`.
+7.  Une fois l’application chargée, ouvrez **Configuration SAML de base**. Dans le **URL de réponse (URL Assertion Consumer Service)**, delete inutilisée ou URL de réponse par défaut créé par le système. Par exemple : `https://127.0.0.1:444/applications/default.aspx`.
 
 
 

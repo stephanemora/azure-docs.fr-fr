@@ -10,14 +10,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
+ms.date: 05/13/2019
 ms.author: anavin
-ms.openlocfilehash: ece6a6efa2f4424fb1c9d7f5a7e12a4e707faf45
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 82ee9d04785fc0f6ac534428bf411ca0fe3204ad
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56649303"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65601511"
 ---
 # <a name="create-change-or-delete-a-public-ip-address-prefix"></a>Créer, changer ou supprimer un préfixe d’adresse IP publique
 
@@ -25,16 +25,13 @@ Découvrez les préfixes d’adresse IP publique et comment en créer, changer e
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-> [!IMPORTANT]
-> Le préfixe d’adresse IP publique est en préversion publique dans un nombre limité de régions. Vous pouvez [découvrir ce que signifie l’état de préversion](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Le préfixe d'adresse IP publique est actuellement disponible dans les régions suivantes : USA Centre-Ouest, USA Ouest, USA Ouest 2, USA Centre, Europe Nord, Europe Ouest et Asie Sud-Est. Pour obtenir une liste actualisée des régions, consultez [mises à jour Azure](https://azure.microsoft.com/updates/?product=virtual-network).
-
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Avant de suivre les étapes décrites dans les sections de cet article, accomplissez les tâches suivantes :
 
 - Si vous n’avez pas encore de compte, inscrivez-vous pour bénéficier d’un [essai gratuit](https://azure.microsoft.com/free).
 - Si vous utilisez le portail, ouvrez https://portal.azure.com, puis connectez-vous avec votre compte Azure.
-- Si vous utilisez des commandes PowerShell pour accomplir les tâches décrites dans cet article, exécutez-les dans l’[Azure Cloud Shell](https://shell.azure.com/powershell), ou en exécutant PowerShell à partir de votre ordinateur. Azure Cloud Shell est un interpréteur de commandes interactif et gratuit que vous pouvez utiliser pour exécuter les étapes de cet article. Il contient des outils Azure courants préinstallés et configurés pour être utilisés avec votre compte. Ce didacticiel requiert le module Azure PowerShell version 1.0.0 ou une version ultérieure. Exécutez `Get-Module -ListAvailable Az` pour rechercher la version installée. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-az-ps). Si vous exécutez PowerShell en local, vous devez également lancer `Connect-AzAccount` pour créer une connexion avec Azure.
+- Si vous utilisez des commandes PowerShell pour accomplir les tâches décrites dans cet article, exécutez-les dans l’[Azure Cloud Shell](https://shell.azure.com/powershell), ou en exécutant PowerShell à partir de votre ordinateur. Azure Cloud Shell est un interpréteur de commandes interactif et gratuit que vous pouvez utiliser pour exécuter les étapes de cet article. Il contient des outils Azure courants préinstallés et configurés pour être utilisés avec votre compte. Ce didacticiel requiert le module Azure PowerShell version 1.0.0 ou version ultérieure. Exécutez `Get-Module -ListAvailable Az` pour rechercher la version installée. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-az-ps). Si vous exécutez PowerShell en local, vous devez également lancer `Connect-AzAccount` pour créer une connexion avec Azure.
 - Si vous utilisez des commandes de l’interface de ligne de commande (CLI) Azure pour accomplir les tâches décrites dans cet article, exécutez les commandes dans [Azure Cloud Shell](https://shell.azure.com/bash) ou en exécutant Azure CLI sur votre ordinateur. Ce tutoriel nécessite Azure CLI 2.0.41 ou version ultérieure. Exécutez `az --version` pour rechercher la version installée. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0](/cli/azure/install-azure-cli). Si vous exécutez Azure CLI localement, vous devez également exécuter `az login` pour créer une connexion avec Azure.
 
 Le compte auquel vous vous connectez, ou avec lequel vous vous connectez à Azure, doit avoir le rôle [contributeur réseau](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) ou un [rôle personnalisé](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) disposant des autorisations appropriées, listées dans [Autorisations](#permissions).
@@ -68,14 +65,14 @@ Une fois que vous avez créé un préfixe, vous devez créer des adresses IP sta
 
 1. Dans la zone qui contient le texte *Rechercher des ressources* en haut du portail Azure, tapez *préfixe d’adresse ip publique*. Quand **Préfixes d’adresse IP publique** s’affiche dans les résultats de recherche, sélectionnez-le.
 2. Sélectionnez le préfixe à partir duquel créer les adresses IP publiques.
-3. Quand il apparaît dans les résultats de recherche, sélectionnez-le et cliquez sur **+Ajouter une adresse IP** dans la section Vue d’ensemble. Si vous ne voyez pas cette option, vérifiez que vous utilisez le bon lien pour la préversion : https://aka.ms/publicipprefixportal
+3. Quand il apparaît dans les résultats de recherche, sélectionnez-le et cliquez sur **+Ajouter une adresse IP** dans la section Vue d’ensemble.
 4. Entrez ou sélectionnez les valeurs des paramètres suivants sous **Créer une adresse IP publique**. Comme le préfixe est pour des adresses IP de type Standard, IPv4 et statiques, vous devez uniquement fournir les informations suivantes :
 
    |Paramètre|Requis ?|Détails|
    |---|---|---|
    |Nom|Oui|Le nom de l’adresse IP publique doit être unique au sein du groupe de ressources sélectionné.|
-   |Délai d’inactivité (minutes)|Non |Durée (en minutes) de maintien d’une connexion TCP ou HTTP ouverte sans utiliser les clients pour envoyer des messages keep-alive. |
-   |Étiquette du nom DNS|Non |Elle doit être unique dans la région Azure où vous créez le nom (pour tous les abonnements et tous les clients). Azure inscrit automatiquement le nom et l’adresse IP dans son DNS pour que vous puissiez vous connecter à une ressource avec le nom. Azure ajoute un sous-réseau par défaut de type *emplacement.cloudapp.azure.com* (où emplacement est l’emplacement que vous fournissez) pour créer le nom DNS complet. Pour plus d’informations, consultez [Utiliser Azure DNS avec une adresse IP publique Azure](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address).|
+   |Délai d'inactivité (minutes)|Non|Durée (en minutes) de maintien d’une connexion TCP ou HTTP ouverte sans utiliser les clients pour envoyer des messages keep-alive. |
+   |Étiquette du nom DNS|Non|Elle doit être unique dans la région Azure où vous créez le nom (pour tous les abonnements et tous les clients). Azure inscrit automatiquement le nom et l’adresse IP dans son DNS pour que vous puissiez vous connecter à une ressource avec le nom. Azure ajoute un sous-réseau par défaut de type *emplacement.cloudapp.azure.com* (où emplacement est l’emplacement que vous fournissez) pour créer le nom DNS complet. Pour plus d’informations, consultez [Utiliser Azure DNS avec une adresse IP publique Azure](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address).|
 
 ## <a name="view-or-delete-a-prefix"></a>Voir ou supprimer un préfixe
 

@@ -10,21 +10,21 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 04/24/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1be88f0938a16302be4cf2308ba463900c067104
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 1de17429dfe89506445b2d47999b102f3becb15b
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920149"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604404"
 ---
 # <a name="configure-the-expiration-policy-for-office-365-groups"></a>Configurer la stratégie d’expiration pour les groupes Office 365
 
-Vous pouvez désormais gérer le cycle de vie des groupes Office 365 en définissant une stratégie d’expiration pour ces derniers. Vous pouvez définir la stratégie d’expiration uniquement pour les groupes Office 365 d’Azure Active Directory (Azure AD). 
+Vous pouvez désormais gérer le cycle de vie des groupes Office 365 en définissant une stratégie d’expiration pour ces derniers. Vous pouvez définir la stratégie d’expiration uniquement pour les groupes Office 365 d’Azure Active Directory (Azure AD).
 
 Une fois que vous avez défini l’expiration d’un groupe :
 
@@ -54,7 +54,7 @@ Pour plus d’informations sur les autorisations nécessaires pour restaurer un 
 
 1. Ouvrez le [centre d’administration Azure AD](https://aad.portal.azure.com) avec un compte qui est un administrateur général dans votre locataire Azure AD.
 
-2. Sélectionnez **Groupes**, puis **Expiration**, pour ouvrir les paramètres d’expiration.
+2. Sélectionnez **groupes**, puis sélectionnez **Expiration** pour ouvrir les paramètres d’expiration.
   
    ![Paramètres d’expiration pour les groupes](./media/groups-lifecycle/expiration-settings.png)
 
@@ -66,8 +66,8 @@ Pour plus d’informations sur les autorisations nécessaires pour restaurer un 
   * Enregistrer vos paramètres lorsque vous avez terminé en sélectionnant **Enregistrer**.
 
 > [!NOTE]
-> * Quand vous définissez l’expiration pour la première fois, les groupes qui sont plus anciens que l’intervalle d’expiration bénéficient d’un délai de 30 jours avant expiration. La première notification par e-mail est envoyée dans la journée qui suit. Par exemple, le groupe A a été créé il y a 400 jours et l’intervalle d’expiration est défini sur 180 jours. Lorsque vous appliquez les paramètres d’expiration, il reste 30 jours au groupe A avant qu’il ne soit supprimé, sauf si le propriétaire le renouvelle.
-> * Lorsqu’un groupe dynamique est supprimé et restauré, il est considéré comme un groupe nouveau, complété conformément à la règle. Ce processus peut prendre jusqu’à 24 heures.
+> Quand vous définissez l’expiration pour la première fois, les groupes qui sont plus anciens que l’intervalle d’expiration bénéficient d’un délai de 30 jours avant expiration. La première notification par e-mail est envoyée dans la journée qui suit. Par exemple, le groupe A a été créé il y a 400 jours et l’intervalle d’expiration est défini sur 180 jours. Lorsque vous appliquez la stratégie d’expiration, au groupe a 30 jours avant d’être supprimé, sauf si le propriétaire renouvelle celui-ci.
+> Lorsqu’un groupe dynamique est supprimé et restauré, il a considéré comme un nouveau groupe et complété conformément à la règle. Ce processus peut prendre jusqu'à 24 heures.
 
 ## <a name="email-notifications"></a>Notifications par e-mail
 

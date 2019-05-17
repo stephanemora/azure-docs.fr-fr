@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/21/2017
 ms.author: rli
-ms.openlocfilehash: 75fe965a04bd02a1086551053c28d2072eae6468
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: f87667516d6c76bc1c21ba5e175b3b2a7ebc3f39
+ms.sourcegitcommit: 9e8dfa1169a55c3c8af93a6c5f4e0dace4de48b2
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64869508"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65556325"
 ---
 # <a name="azure-cdn-rules-engine-match-conditions"></a>Conditions de correspondance du moteur de règles Azure CDN 
 Cet article fournit les descriptions détaillées des conditions de correspondance disponibles pour le [moteur de règles](cdn-rules-engine.md) Azure Content Delivery Network (CDN).
@@ -101,8 +101,11 @@ Nom | Objectif
 
 
 ## <a name="reference-for-rules-engine-match-conditions"></a>Informations de référence des conditions de correspondance du moteur de règles
+
 <a name="main"></a>
+
 ---
+
 ### <a name="always"></a>Toujours
 
 La condition de correspondance Toujours applique un ensemble de fonctionnalités par défaut à toutes les requêtes.
@@ -158,10 +161,10 @@ L’option **Correspond**/**Ne correspond pas** détermine les conditions sous l
 
 Informations essentielles :
 - Utilisez la notation CIDR.
-- Spécifiez plusieurs adresses IP et/ou blocs d’adresses IP en les séparant par un espace. Par exemple : 
+- Spécifiez plusieurs adresses IP et/ou blocs d’adresses IP en les séparant par un espace. Exemple :
   - **Exemple IPv4** : 1.2.3.4 10.20.30.40 correspond aux requêtes qui proviennent de l’adresse 1.2.3.4 ou 10.20.30.40.
   - **Exemple IPv6** : 1:2:3:4:5:6:7:8 10:20:30:40:50:60:70:80 correspond aux requêtes qui proviennent de l’adresse 1:2:3:4:5:6:7:8 ou 10:20:30:40:50:60:70:80.
-- La syntaxe d’un bloc d’adresses IP est l’adresse IP de base suivie d’une barre oblique et de la taille de préfixe. Par exemple : 
+- La syntaxe d’un bloc d’adresses IP est l’adresse IP de base suivie d’une barre oblique et de la taille de préfixe. Exemple :
   - **Exemple IPv4** : 5.5.5.64/26 correspond aux requêtes qui proviennent des adresses 5.5.5.64 à 5.5.5.127.
   - **Exemple IPv6** : 1:2:3:/48 correspond aux requêtes qui proviennent des adresses 1:2:3:0:0:0:0:0 à 1:2:3:ffff:ffff:ffff:ffff:ffff.
 - En raison du type de suivi des paramètres de cache, cette condition de correspondance est incompatible avec les fonctionnalités suivantes :
@@ -306,7 +309,7 @@ Informations essentielles :
 #### <a name="string-type"></a>Type de chaîne
 En général, une fonctionnalité WURFL accepte n’importe quelle combinaison de chiffres, de lettres et de symboles. En raison de la nature flexible de cette fonctionnalité, vous devez choisir la façon dont la valeur associée à cette condition de correspondance est interprétée. Le tableau suivant décrit l’ensemble d’options disponibles :
 
-Type     | Description
+Type     | Description 
 ---------|------------
 Littéral  | Sélectionnez cette option pour empêcher la plupart des caractères de prendre une signification particulière à l’aide de leur [valeur littérale](cdn-rules-engine-reference.md#literal-values).
 Caractère générique | Sélectionnez cette option pour utiliser tous les [caractères génériques] ([valeurs de caractère générique](cdn-rules-engine-reference.md#wildcard-values)).
@@ -320,7 +323,7 @@ Le tableau suivant répertorie les fonctionnalités WURFL et leurs variables pou
 > [!NOTE] 
 > Les variables suivantes sont prises en charge dans les fonctionnalités **Modifier l’en-tête de requête client** et **Modifier l’en-tête de réponse client**.
 
-Fonctionnalité | Variable | Description | Exemples de valeurs
+Fonctionnalité | Variable | Description  | Exemples de valeurs
 -----------|----------|-------------|----------------
 Nom de la marque | %{wurfl_cap_brand_name} | Chaîne qui indique le nom de la marque de l’appareil. | Samsung
 Système d’exploitation de l’appareil | %{wurfl_cap_device_os} | Chaîne qui indique le système d’exploitation installé sur l’appareil. | IOS
@@ -339,7 +342,7 @@ Navigateur mobile | %{wurfl_cap_mobile_browser} | Chaîne qui indique le navigat
 Version du navigateur mobile | %{wurfl_cap_mobile_browser_version} | Chaîne qui indique la version du navigateur utilisé pour demander du contenu à partir de l’appareil. | 31
 Nom du modèle | %{wurfl_cap_model_name} | Chaîne qui indique le nom du modèle de l’appareil. | s3
 Téléchargement progressif | %{wurfl_cap_progressive_download} | Valeur booléenne qui indique si l’appareil prend en charge la lecture d’un fichier audio/vidéo pendant son téléchargement. | true
-Date de lancement | %{wurfl_cap_release_date} | Chaîne qui indique l’année et le mois de l’ajout de l’appareil à la base de données WURFL.<br/><br/>Format : `yyyy_mm` | 2013_december
+Date de mise en production | %{wurfl_cap_release_date} | Chaîne qui indique l’année et le mois de l’ajout de l’appareil à la base de données WURFL.<br/><br/>Format : `yyyy_mm` | 2013_december
 Hauteur de résolution | %{wurfl_cap_resolution_height} | Entier qui indique la hauteur de l’appareil en pixels. | 768
 Largeur de résolution | %{wurfl_cap_resolution_width} | Entier qui indique la largeur de l’appareil en pixels. | 1 024
 
@@ -472,7 +475,7 @@ La condition de correspondance Méthode de requête est respectée uniquement qu
 - POST 
 - OPTIONS 
 - PUT 
-- SUPPRIMER 
+- DELETE 
 - TRACE 
 - CONNECT 
 
@@ -904,7 +907,7 @@ Informations essentielles :
 
 - Placez les caractères d’expression régulière spéciaux dans une double séquence d’échappement (par exemple, \^$. +) pour inclure une barre oblique inverse dans l’expression régulière.
 
-   Par exemple : 
+   Exemple :
 
    Valeur | Interprété comme 
    ------|---------------
@@ -944,7 +947,7 @@ Informations essentielles :
 
 - Spécifiez plusieurs valeurs en les séparant par un espace.
 
-   Par exemple :  *Parameter1=ValueA* *ValueB* *Parameter1=ValueC&Parameter2=ValueD*
+   Exemple : *Parameter1=ValueA* *ValueB* *Parameter1=ValueC&Parameter2=ValueD*
 
 - Seules les correspondances exactes à au moins un des modèles de chaîne de requête spécifiés satisfont cette condition de correspondance.
     
@@ -960,7 +963,7 @@ Informations essentielles :
 #### <a name="sample-scenarios"></a>Exemples de scénarios
 L’exemple suivant montre comment cette option fonctionne dans des situations spécifiques :
 
- Nom                 | Description
+ Nom                 | Description 
  ---------------------|------------
 user=joe              | Ce modèle correspond lorsque la chaîne de requête d’une URL demandée est « ?user=joe ».
 \*user=\* \*optout=\* | Ce modèle correspond lorsque la requête d’URL CDN contient l’utilisateur ou le paramètre de désabonnement.

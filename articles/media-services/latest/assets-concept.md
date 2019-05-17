@@ -9,30 +9,27 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 05/02/2019
+ms.date: 05/11/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 0fc44bfdb98b81bf218cb2f1824f0f1bb14de4fa
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 2afcf2066238414cd08e32901ffccf2a44718b6d
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65235682"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65551760"
 ---
 # <a name="assets"></a>Ressources
 
-Dans Azure Media Services, un [actif multimédia](https://docs.microsoft.com/rest/api/media/assets) contient des fichiers numériques (notamment des données vidéo, des données audio, des images, des collections de miniatures, des pistes de texte et des fichiers de sous-titres) et les métadonnées associées à ces fichiers. Une fois les fichiers numériques chargés dans un actif multimédia, ils peuvent être utilisés dans des workflows Media Services d’encodage, de diffusion et d’analyse de contenu. Pour plus d’informations, consultez la section [Charger des fichiers numériques dans des actifs multimédias](#upload-digital-files-into-assets), ci-dessous.
+Dans Azure Media Services, un [Asset](https://docs.microsoft.com/rest/api/media/assets) contient des informations sur les fichiers numériques stockées dans stockage Azure (y compris vidéo, audio, images, collections de miniatures, pistes textuelles et fichiers de sous-titres). 
 
 Un actif multimédia est mappé à un conteneur d’objets blob dans le [compte Stockage Azure](storage-account-concept.md) et les fichiers contenus dans l’actif multimédia sont stockés sous forme d’objets blob de blocs dans ce conteneur. Media Services prend en charge les niveaux d’objets blob quand le compte utilise le stockage v2 universel (GPv2). Avec GPv2, vous pouvez déplacer les fichiers vers un [stockage Froid ou Archive](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers). Le stockage **Archive** est approprié pour archiver les fichiers sources quand ils ne sont plus nécessaires (par exemple une fois qu’ils ont été encodés).
 
 Le niveau de stockage **Archive** est recommandé uniquement pour les fichiers sources très volumineux qui ont déjà été encodés et dont la sortie de travail d’encodage a été placée dans un conteneur d’objets blob de sortie. Les objets blob présents dans le conteneur de sortie que vous voulez associer à un actif multimédia et utiliser pour diffuser en continu ou analyser votre contenu doivent exister dans un niveau de stockage **Chaud** ou **Froid**.
 
-> [!NOTE]
-> Les propriétés d’élément multimédia de type DateHeure sont toujours au format UTC.
-
 ## <a name="upload-digital-files-into-assets"></a>Charger des fichiers numériques dans des actifs multimédias
 
-L’un des workflows Media Services courants consiste à charger, à encoder et à diffuser en continu un fichier. Cette section décrit les étapes générales.
+Une fois les fichiers numériques sont téléchargés dans le stockage et associés à une ressource, elles peuvent servir dans les Services de support de codage, diffusion en continu, l’analyse des flux de travail contenu. L’un des workflows Media Services courants consiste à charger, à encoder et à diffuser en continu un fichier. Cette section décrit les étapes générales.
 
 > [!TIP]
 > Passez en revue avant de commencer à développer, [développement avec Media Services v3 API](media-services-apis-overview.md) (inclut des informations sur l’accès aux API, les conventions d’affectation de noms, etc.).
@@ -54,6 +51,9 @@ L’un des workflows Media Services courants consiste à charger, à encoder et 
 Pour obtenir un exemple .NET complet qui montre comment créer l’actif multimédia, obtenir une URL SAS accessible en écriture vers le conteneur de l’actif multimédia dans le stockage et charger le fichier dans le conteneur de stockage à l’aide de l’URL SAS, consultez [Créer une entrée de travail à partir d’un fichier local](job-input-from-local-file-how-to.md).
 
 ### <a name="create-a-new-asset"></a>Créer un actif multimédia
+
+> [!NOTE]
+> Les propriétés d’élément multimédia de type DateHeure sont toujours au format UTC.
 
 #### <a name="rest"></a>REST
 

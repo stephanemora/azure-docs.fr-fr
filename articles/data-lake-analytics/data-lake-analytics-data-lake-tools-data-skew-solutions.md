@@ -8,12 +8,12 @@ ms.reviewer: jasonwhowell
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 12/16/2016
-ms.openlocfilehash: af55c161944447f2e6e2245fbb920803779984ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 611439802c200b30586b73b82d0a4bbbc857e114
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61399875"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606714"
 ---
 # <a name="resolve-data-skew-problems-by-using-azure-data-lake-tools-for-visual-studio"></a>Résolution de problèmes d'asymétrie des données à l’aide d'Azure Data Lake Tools pour Visual Studio
 
@@ -30,13 +30,13 @@ Azure Data Lake Tools pour Visual Studio peut aider à détecter un éventuel pr
 
 ## <a name="solution-1-improve-table-partitioning"></a>Solution 1 : Améliorer le partitionnement de table
 
-### <a name="option-1-filter-the-skewed-key-value-in-advance"></a>Option 1 : Filtrer la valeur de clé asymétrique à l’avance
+### <a name="option-1-filter-the-skewed-key-value-in-advance"></a>Option 1 : Filtrer la valeur de clé asymétrique à l’avance
 
 Si cela n’affecte pas votre logique métier, vous pouvez filtrer les valeurs plus fréquentes à l’avance. Par exemple, si la colonne GUID comprend un grand nombre de 000-000-000, vous n'agrégerez pas cette valeur. Avant l’agrégation, vous pouvez écrire “WHERE GUID != “000-000-000”” pour filtrer la valeur la plus fréquente.
 
 ### <a name="option-2-pick-a-different-partition-or-distribution-key"></a>Option 2 : Choisir une autre clé de partition ou de distribution
 
-Dans l’exemple précédent, si vous souhaitez uniquement vérifier la charge de travail des contrôles fiscaux partout dans le pays, vous pouvez améliorer la distribution des données en sélectionnant le numéro d’ID comme clé. La sélection d'une clé de distribution ou partition différente permet parfois de distribuer les données de façon plus uniforme, mais vous devez vous assurer que cela n’affecte pas votre logique métier. Par exemple, pour calculer la somme des taxes pour chaque état, vous pouvez désigner _l'état_ comme clé de partition. Si vous continuez à rencontrer ce problème, essayez d’utiliser l’option 3.
+Dans l’exemple précédent, si vous souhaitez uniquement vérifier la charge de travail fiscaux partout dans le pays/région, vous pouvez améliorer la distribution des données en sélectionnant le numéro d’ID comme clé. La sélection d'une clé de distribution ou partition différente permet parfois de distribuer les données de façon plus uniforme, mais vous devez vous assurer que cela n’affecte pas votre logique métier. Par exemple, pour calculer la somme des taxes pour chaque état, vous pouvez désigner _l'état_ comme clé de partition. Si vous continuez à rencontrer ce problème, essayez d’utiliser l’option 3.
 
 ### <a name="option-3-add-more-partition-or-distribution-keys"></a>Option 3 : Ajouter plus de clés de partition ou de distribution
 
@@ -48,7 +48,7 @@ Si vous ne trouvez pas de clé appropriée pour la partition et la distribution,
 
 ## <a name="solution-2-improve-the-query-plan"></a>Solution 2 : Améliorer le plan de requête
 
-### <a name="option-1-use-the-create-statistics-statement"></a>Option 1 : Utilisez l’instruction CREATE STATISTICS
+### <a name="option-1-use-the-create-statistics-statement"></a>Option 1 : Utilisez l’instruction CREATE STATISTICS
 
 U-SQL fournit l’instruction CREATE STATISTICS dans des tables. Cette instruction donne plus d’informations à l’optimiseur de requête sur les caractéristiques des données, notamment la distribution de la valeur, qui sont stockées dans une table. Pour la plupart des requêtes, l’optimiseur de requête génère déjà les statistiques nécessaires pour un plan de requête de haute qualité. Parfois, vous devrez peut-être améliorer les performances des requêtes en créant des statistiques supplémentaires avec CREATE STATISTICS ou en modifiant la conception des requêtes. Pour plus d’informations, consultez la page [CREATE STATISTICS (SQL-U)](/u-sql/ddl/statistics/create-statistics).
 
@@ -126,7 +126,7 @@ Exemple de code :
 
 Parfois, vous écrivez l’opérateur défini par l’utilisateur pour gérer une logique de processus complexe, et un combinateur et un réducteur bien écrits peuvent, dans certains cas, réduire les problèmes d'asymétrie des données.
 
-### <a name="option-1-use-a-recursive-reducer-if-possible"></a>Option 1 : Utiliser un réducteur récursif si possible
+### <a name="option-1-use-a-recursive-reducer-if-possible"></a>Option 1 : Utiliser un réducteur récursif si possible
 
 Par défaut, le réducteur défini par l’utilisateur s’exécute en mode non récursif, ce qui signifie que le travail de réduction pour une clé est distribué dans un seul vertex. Mais, si vos données sont asymétriques, les ensembles de données volumineux peuvent être traités dans un seul vertex et cette exécution peut prendre un certain temps.
 

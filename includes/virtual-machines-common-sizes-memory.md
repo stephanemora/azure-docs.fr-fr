@@ -5,19 +5,21 @@ services: virtual-machines
 author: jonbeck7
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 07/06/2018
+ms.date: 05/13/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 39c64b9fe4e03bb0b7216a8d1ba607bec10b4708
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 8cc13e9aec679a79d31d2724ba412efd2d58dfd1
+ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64744111"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65561274"
 ---
 Les tailles de machine virtuelle à mémoire optimisée offrent un ration mémoire/processeur supérieur pour les serveurs de base de données relationnelle, les caches moyens à grands et l’analytique en mémoire. Cet article fournit des informations sur le nombre de processeurs virtuels, de disques de données et de cartes réseau ainsi que sur la bande passante réseau et le débit de stockage pour chaque taille de ce regroupement. 
 
-* La série M offre le nombre de processeurs virtuels le plus élevé (jusqu'à 128 processeurs virtuels) et la plus grande mémoire (jusqu'à 3,8 Tio) parmi toutes les machines virtuelles dans le cloud.  Elle est idéale pour les très grandes bases de données ou d’autres applications qui bénéficient d’un nombre élevé de processeurs virtuels et de grandes quantités de mémoire.
+* La série Mv2 offre le nombre de processeurs virtuels le plus élevé (jusqu'à 208 processeurs virtuels) et une plus grande mémoire (jusqu'à 5.7 TIO) parmi toutes les machines virtuelles dans le cloud. Elle est idéale pour les très grandes bases de données ou d’autres applications qui bénéficient d’un nombre élevé de processeurs virtuels et de grandes quantités de mémoire.
+ 
+* La série M offre un nombre élevé de processeurs virtuels (jusqu'à 128 processeurs virtuels) et une grande quantité de mémoire (jusqu'à 3,8 TIO). Il est également idéale pour les bases de données très volumineuses ou d’autres applications qui bénéficient d’un nombre élevé de processeurs virtuels et de grandes quantités de mémoire.
 
 * Série Dv2, série G et DSv2/GS sont idéales pour les applications qui exigent des processeurs virtuels plus rapides, de meilleures performances de stockage temporaire, ou qui ont des exigences de mémoire plus élevées. Elles offrent une combinaison puissante pour de nombreuses applications professionnelles.
 
@@ -86,6 +88,24 @@ Le stockage sur disque de données est facturé séparément des machines virtue
 <sup>2</sup> Tailles avec nombre de cœurs limité disponibles.
 
 <sup>3</sup> L’instance est isolée sur un matériel dédié à un client unique.
+
+
+## <a name="mv2-series"></a>Série Mv2
+
+Premium Storage : Pris en charge
+
+Mise en cache de stockage Premium : Pris en charge
+
+Accélérateur d’écriture : [Pris en charge](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator)
+
+|Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire et mis en cache max. : IOPS / Mbit/s (taille du cache en Gio) | Débit du disque non mis en cache max. : IOPS / Mbit/s | Nombre max de cartes réseau / Bande passante réseau attendue (Mbit/s) |
+|-----------------|------|-------------|----------------|----------------|-----------------------------------------------------------------------|-------------------------------------------|------------------------------|
+| Standard_M208ms_v22<sup>1</sup> | 208 | 5700 | 4096 | 64 | 80,000 / 800 (7,040) | 40 000 / 1000 | 8 / 16 000 |
+| Standard_M208s_v22<sup>1</sup> | 208 | 2 850 | 4096 | 64 | 80,000 / 800 (7,040) | 40 000 / 1000 | 8 / 16 000 |
+
+Série Mv2 dotées de la technologie Intel® Hyper-Threading  
+
+<sup>1</sup> ces processeurs virtuels volumineux nécessitent l’une de ces systèmes d’exploitation invités pris en charge : Windows Server 2016, Windows Server 2019, SLES 12 SP4, SLES 15 et RHEL 7.6
 
 
 ## <a name="m-series"></a>Série M 
@@ -160,11 +180,11 @@ Mise en cache de stockage Premium :  Non pris en charge
 
 | Taille         | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Débit de stockage temporaire max. : IOPS / Mbit/s en lecture / Mbit/s en écriture | Disques de données max. / débit : E/S par seconde | Nombre max de cartes réseau / Bande passante réseau attendue (Mbit/s) |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
-| Standard_G1  | 2         | 28          | 384            | 6000 / 93 / 46                                           | 8 / 8 x 500                       | 2 / 2 000                     |
-| Standard_G2  | 4         | 56          | 768            | 12000 / 187 / 93                                         | 16 / 16 x 500                       | 2 / 4 000                     |
+| G1_standard  | 2         | 28          | 384            | 6000 / 93 / 46                                           | 8 / 8 x 500                       | 2 / 2 000                     |
+| G2_standard  | 4         | 56          | 768            | 12000 / 187 / 93                                         | 16 / 16 x 500                       | 2 / 4 000                     |
 | Standard_G3  | 8         | 112         | 1 536          | 24000 / 375 / 187                                        | 32 / 32 x 500                     | 4 / 8 000                |
-| Standard_G4  | 16        | 224         | 3 072          | 48000 / 750 / 375                                        | 64 / 64 x 500                     | 8 / 16 000          |
-| Standard_G5&nbsp;<sup>1</sup> | 32        | 448         | 6 144          | 96000 / 1500 / 750                                       | 64 / 64 x 500                     | 8 / 20 000           |
+| G4_standard  | 16        | 224         | 3 072          | 48000 / 750 / 375                                        | 64 / 64 x 500                     | 8 / 16 000          |
+| Standard_G5&nbsp;<sup>1</sup> | 32        | 448         | 6,144          | 96000 / 1500 / 750                                       | 64 / 64 x 500                     | 8 / 20 000           |
 
 <sup>1</sup> L’instance est isolée sur un matériel dédié à un client unique.
 <br>

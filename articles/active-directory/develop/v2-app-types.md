@@ -3,8 +3,8 @@ title: Types d’applications pour la plateforme d’identité Microsoft | Azure
 description: Les types d’applications et les scénarios pris en charge par le point de terminaison Microsoft identity platform (v2.0).
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 494a06b8-0f9b-44e1-a7a2-d728cf2077ae
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/06/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 562b45f30bf057feba38a716e040ab2efc15da90
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3ec10359c6f684b1d7fb008946b7ceca2ed626ba
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60297099"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65545372"
 ---
 # <a name="application-types-for-microsoft-identity-platform"></a>Types d’applications pour la plateforme d’identité Microsoft
 
@@ -59,7 +59,7 @@ Dans ce flux, l’application reçoit des jetons directement à partir de la pla
 
 Pour voir ce scénario en action, essayez l’un des exemples de code d’application à page unique dans le [plateforme d’identité Microsoft mise en route](v2-overview.md#getting-started) section.
 
-## <a name="web-apps"></a>les applications web
+## <a name="web-apps"></a>Applications web
 
 Pour les applications web (.NET, PHP, Java, Ruby, Python, Node, etc.) auxquelles l’utilisateur accède par le biais d’un navigateur, vous pouvez utiliser [OpenID Connect](active-directory-v2-protocols.md) pour la connexion de l’utilisateur. Dans OpenID Connect, l’application web reçoit un jeton d’ID. Un jeton d’ID est un jeton de sécurité qui vérifie l’identité de l’utilisateur et fournit des informations le concernant sous la forme de revendications :
 

@@ -4,17 +4,17 @@ description: Résumé des fonctionnalités de demande de données client dans Az
 author: ashannon7
 ms.author: anshan
 manager: cshankar
-ms.date: 05/17/2018
+ms.date: 05/08/2019
 ms.topic: conceptual
 ms.service: time-series-insights
 services: time-series-insights
 ms.custom: seodec18
-ms.openlocfilehash: 30f6b1fd953f89170a18d56bf0353c643853074e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 67aea6b3d535eeb0838da4ac6990c50e607617bf
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60880706"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65546390"
 ---
 # <a name="summary-of-customer-data-request-features"></a>Résumé des fonctionnalités de demande de données client
 
@@ -65,3 +65,11 @@ Pour plus d’informations, consultez [Explorateur Azure Time Series Insights](t
 Time Series Insights ne prend actuellement pas en charge la suppression granulaire de données. Toutefois, Time Series Insights offre la possibilité de supprimer des données client stockées dans Time Series Insights en configurant des stratégies de rétention. Vous pouvez définir la période de rétention de l’ensemble de l’environnement Time Series Insights sur un nombre quelconque de jours pour prendre en charge vos besoins de suppression.
 
 Pour plus d’informations, consultez [Configuration de la conservation des données dans Time Series Insights](time-series-insights-how-to-configure-retention.md).
+
+## <a name="next-steps"></a>Étapes suivantes
+
+* En savoir plus sur [lui accordant l’accès aux données à votre environnement TSI](./time-series-insights-data-access.md).
+
+* Afficher le [Explorateur Azure Time Series Insights](time-series-insights-explorer.md).
+
+* En savoir plus sur [configuration de la conservation dans Time Series Insights](time-series-insights-how-to-configure-retention.md).

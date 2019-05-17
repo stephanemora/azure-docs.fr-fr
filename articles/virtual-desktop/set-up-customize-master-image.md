@@ -7,16 +7,16 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 04/03/2019
 ms.author: helohr
-ms.openlocfilehash: 58471dc539f72c49b041638e928dda751f4bf5a2
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
-ms.translationtype: HT
+ms.openlocfilehash: 9df4be5534a1cbe6aa4ffb9c60bb180fd4587d32
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65410592"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65551040"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Préparer et personnaliser une image de disque dur virtuel principale
 
-Cet article vous indique comment préparer une image de disque dur virtuel (VHD) maître pour les télécharger dans Azure, y compris comment créer des machines virtuelles (VM) et installer et configurer les logiciels sur les. Ces instructions concernent une configuration de bureau virtuel Windows Preview spécifique qui peut être utilisée avec des processus existants de votre organisation.
+Cet article vous indique comment préparer une image de disque dur virtuel (VHD) maître pour les télécharger dans Azure, y compris comment créer des machines virtuelles (VM) et installer des logiciels sur ces derniers. Ces instructions concernent une configuration de bureau virtuel Windows Preview spécifique qui peut être utilisée avec des processus existants de votre organisation.
 
 ## <a name="create-a-vm"></a>Créer une machine virtuelle
 
@@ -24,11 +24,11 @@ Sessions multiples de Windows 10 entreprise sont disponible dans la galerie d’
 
 La première option consiste à configurer une machine virtuelle (VM) dans Azure en suivant les instructions dans [créer une machine virtuelle à partir d’une image managée](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-generalized-managed), puis passez à l’avance à [préparation de logiciels et d’installation](set-up-customize-master-image.md#software-preparation-and-installation).
 
-La deuxième option consiste à créer l’image localement par le téléchargement de l’image, l’approvisionnement d’une machine virtuelle Hyper-V et la personnalisation pour l’adapter à vos besoins, nous aborderons dans la section suivante.
+La deuxième option consiste à créer l’image localement par le téléchargement de l’image, l’approvisionnement d’une machine virtuelle Hyper-V et la personnalisation pour l’adapter à vos besoins, nous abordons dans la section suivante.
 
 ### <a name="local-image-creation"></a>Création d’une image locale
 
-Une fois que vous avez téléchargé l’image vers un emplacement local, ouvrez **Gestionnaire Hyper-V** pour créer une machine virtuelle avec le disque dur virtuel que vous venez de copier. Voici la version simple, mais vous trouverez des instructions plus détaillées dans [créer une machine virtuelle dans Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/create-a-virtual-machine-in-hyper-v).
+Une fois que vous avez téléchargé l’image vers un emplacement local, ouvrez **Gestionnaire Hyper-V** pour créer une machine virtuelle avec le disque dur virtuel que vous avez copié. Les instructions suivantes sont une version simple, mais vous trouverez des instructions plus détaillées dans [créer une machine virtuelle dans Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/create-a-virtual-machine-in-hyper-v).
 
 Pour créer une machine virtuelle avec le disque dur virtuel copié :
 
@@ -62,101 +62,11 @@ Convert-VHD –Path c:\\test\\MY-VM.vhdx –DestinationPath c:\\test\\MY-NEW-VM.
 
 ## <a name="software-preparation-and-installation"></a>Installation et préparation de logiciel
 
-Cette section explique comment préparer et d’installer Office 365 ProPlus, OneDrive, FSLogix, Windows Defender et autres applications. Si vos utilisateurs ont besoin d’accéder à certaines applications métier, nous vous recommandons de que les installer à la fin des instructions de cette section.
+Cette section explique comment préparer et installer FSLogix, Windows Defender et autres applications. 
 
-Cette section part du principe que vous avez un accès élevé sur la machine virtuelle, si elle est approvisionnée dans Azure ou le Gestionnaire Hyper-V.
+Si vous installez Office 365 ProPlus et OneDrive sur votre machine virtuelle, consultez [installer Office sur une image de disque dur virtuel principale](install-office-on-wvd-master-image.md). Suivez le lien dans les étapes suivantes de cet article pour revenir à cet article et terminer le processus de disque dur virtuel principal.
 
-### <a name="install-office-in-shared-computer-activation-mode"></a>Installer Office en mode de l’activation d’ordinateur partagé
-
-Utilisez le [outil déploiement d’Office](https://www.microsoft.com/download/details.aspx?id=49117) pour installer Office. Sessions multiples de Windows 10 entreprise prend uniquement en charge Office 365 ProPlus, pas les perpétuel Office 2019.
-
-L’outil de déploiement Office nécessite un fichier XML de configuration. Pour personnaliser l’exemple suivant, consultez le [les Options de Configuration pour l’outil de déploiement Office](https://docs.microsoft.com/deployoffice/configuration-options-for-the-office-2016-deployment-tool).
-
-Cet exemple de configuration XML, nous vous proposons effectuera les opérations suivantes :
-
-- Installer Office à partir du canal d’initiés et fournir des mises à jour à partir du canal initiés lorsqu’elles sont exécutées.
-- Utilisez le x64 architecture.
-- Désactiver les mises à jour automatiques.
-- Installez Visio et le projet.
-- Supprimer toutes les installations existantes de Microsoft Office et migrer leurs paramètres.
-- Activer les ordinateurs partagés des licences pour l’opération dans un environnement de serveur terminal server.
-
-Voici ce que cet exemple de configuration XML ne se passe :
-
-- Installer Skype for Business
-- Installez OneDrive en mode par utilisateur. Pour plus d’informations, consultez [OneDrive d’installer dans le mode par ordinateur](#install-onedrive-in-per-machine-mode).
-
->[!NOTE]
->Licence d’ordinateur partagé peut être configuré via les objets de stratégie de groupe (GPO) ou les paramètres du Registre. L’objet de stratégie de groupe se trouve dans **Configuration ordinateur\\stratégies\\modèles d’administration\\(ordinateur) de Microsoft Office 2016\\paramètres de gestion des licences**
-
-L’outil de déploiement Office contient setup.exe. Pour installer Office, exécutez la commande suivante dans une ligne de commande :
-
-```batch
-Setup.exe /configure configuration.xml
-```
-
-#### <a name="sample-configurationxml"></a>Exemple de fichier configuration.xml
-
-L’exemple XML suivant installe la version Insiders, également appelée initiés rapide ou initiés principal.
-
-```xml
-<Configuration>
-    <Add OfficeClientEdition="64" SourcePath="https://officecdn.microsoft.com/pr/5440fd1f-7ecb-4221-8110-145efaa6372f">
-        <Product ID="O365ProPlusRetail">
-            <Language ID="en-US" />
-            <Language ID="MatchOS" Fallback = "en-US"/>
-            <Language ID="MatchPreviousMSI" />
-            <ExcludeApp ID="Groove" />
-            <ExcludeApp ID="Lync" />
-            <ExcludeApp ID="OneDrive" />
-            <ExcludeApp ID="Teams" />
-        </Product>
-        <Product ID="VisioProRetail">
-            <Language ID="en-US" />
-            <Language ID="MatchOS" Fallback = "en-US"/>
-            <Language ID="MatchPreviousMSI" />
-            <ExcludeApp ID="Teams" /> 
-        </Product>
-        <Product ID="ProjectProRetail">
-            <Language ID="en-US" />
-            <Language ID="MatchOS" Fallback = "en-US"/>
-            <Language ID="MatchPreviousMSI" />
-            <ExcludeApp ID="Teams" />
-        </Product>
-    </Add>
-    <RemoveMSI All="True" />
-    <Updates Enabled="FALSE" UpdatePath="https://officecdn.microsoft.com/pr/5440fd1f-7ecb-4221-8110-145efaa6372f" />
-    <Display Level="None" AcceptEULA="TRUE" />
-    <Logging Level="Verbose" Path="%temp%\WVDOfficeInstall" />
-    <Property Value="TRUE" Name="FORCEAPPSHUTDOWN"/>
-    <Property Value="1" Name="SharedComputerLicensing"/>
-    <Property Value="TRUE" Name="PinIconsToTaskbar"/>
-</Configuration>
-```
-
->[!NOTE]
->L’équipe Office recommande d’utiliser installer 64 bits pour le **OfficeClientEdition** paramètre.
-
-Après avoir installé Office, vous pouvez mettre à jour le comportement de Office par défaut. Exécutez les commandes suivantes individuellement ou dans un fichier de commandes pour mettre à jour le comportement.
-
-```batch
-rem Mount the default user registry hive
-reg load HKU\TempDefault C:\Users\Default\NTUSER.DAT
-rem Must be executed with default registry hive mounted.
-reg add HKU\TempDefault\SOFTWARE\Policies\Microsoft\office\16.0\common /v InsiderSlabBehavior /t REG_DWORD /d 2 /f
-rem Set Outlook's Cached Exchange Mode behavior
-rem Must be executed with default registry hive mounted.
-reg add "HKU\TempDefault\software\policies\microsoft\office\16.0\outlook\cached mode" /v enable /t REG_DWORD /d 1 /f
-reg add "HKU\TempDefault\software\policies\microsoft\office\16.0\outlook\cached mode" /v syncwindowsetting /t REG_DWORD /d 1 /f
-reg add "HKU\TempDefault\software\policies\microsoft\office\16.0\outlook\cached mode" /v CalendarSyncWindowSetting /t REG_DWORD /d 1 /f
-reg add "HKU\TempDefault\software\policies\microsoft\office\16.0\outlook\cached mode" /v CalendarSyncWindowSettingMonths  /t REG_DWORD /d 1 /f
-rem Unmount the default user registry hive
-reg unload HKU\TempDefault
-
-rem Set the Office Update UI behavior.
-reg add HKLM\SOFTWARE\Policies\Microsoft\office\16.0\common\officeupdate /v hideupdatenotifications /t REG_DWORD /d 1 /f
-reg add HKLM\SOFTWARE\Policies\Microsoft\office\16.0\common\officeupdate /v hideenabledisableupdates /t REG_DWORD /d 1 /f
-```
+Si vos utilisateurs ont besoin d’accéder à certaines applications métier, nous vous recommandons de que les installer à la fin des instructions de cette section.
 
 ### <a name="disable-automatic-updates"></a>Désactiver les mises à jour automatiques
 
@@ -179,63 +89,13 @@ Exécutez cette commande pour spécifier une mise en page de démarrage pour les
 reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" /v SpecialRoamingOverrideAllowed /t REG_DWORD /d 1 /f
 ```
 
-### <a name="install-onedrive-in-per-machine-mode"></a>Installer OneDrive dans le mode par ordinateur
-
-OneDrive est normalement installée par utilisateur. Dans cet environnement, il doit être installé par ordinateur.
-
-Voici comment installer OneDrive dans le mode par ordinateur :
-
-1. Commencez par créer un emplacement pour le programme d’installation de OneDrive à l’étape. Un dossier de disque local ou [\\\\unc] (file://unc) se trouve bien.
-
-2. Téléchargez OneDriveSetup.exe vers votre emplacement intermédiaire avec ce lien : <https://aka.ms/OneDriveWVD-Installer>
-
-3. Si vous avez installé office avec OneDrive en omettant  **\<ExcludeApp ID = « OneDrive » /\>**, désinstaller les installations par utilisateur de OneDrive existantes à partir d’une invite de commandes avec élévation de privilèges en exécutant la commande suivante commande :
-    
-    ```batch
-    "[staged location]\OneDriveSetup.exe" /uninstall
-    ```
-
-4. Exécutez cette commande à partir d’une invite de commandes avec élévation de privilèges pour définir le **AllUsersInstall** valeur de Registre :
-
-    ```batch
-    REG ADD "HKLM\Software\Microsoft\OneDrive" /v "AllUsersInstall" /t REG_DWORD /d 1 /reg:64
-    ```
-
-5. Exécutez cette commande pour installer OneDrive dans le mode par ordinateur :
-
-    ```batch
-    Run "[staged location]\OneDriveSetup.exe" /allusers
-    ```
-
-6. Exécutez cette commande pour configurer OneDrive pour démarrer lors de la connexion pour tous les utilisateurs :
-
-    ```batch
-    REG ADD "HKLM\Software\Microsoft\Windows\CurrentVersion\Run" /v OneDrive /t REG_SZ /d "C:\Program Files (x86)\Microsoft OneDrive\OneDrive.exe /background" /f
-    ```
-
-7. Activer **configurer en mode silencieux de compte d’utilisateur** en exécutant la commande suivante.
-
-    ```batch
-    REG ADD "HKLM\SOFTWARE\Policies\Microsoft\OneDrive" /v "SilentAccountConfig" /t REG_DWORD /d 1 /f
-    ```
-
-8. Rediriger, puis déplacer Windows connu les dossiers dans OneDrive en exécutant la commande suivante.
-
-    ```batch
-    REG ADD "HKLM\SOFTWARE\Policies\Microsoft\OneDrive" /v "KFMSilentOptIn" /t REG_SZ /d "<your-AzureAdTenantId>" /f
-    ```
-
-### <a name="teams-and-skype"></a>Équipes et Skype
-
-Bureau virtuel Windows ne prend pas en charge le Skype pour entreprises et équipes officiellement.
-
 ### <a name="set-up-user-profile-container-fslogix"></a>Configurer le conteneur de profil utilisateur (FSLogix)
 
 Pour inclure le conteneur FSLogix en tant que partie de l’image, suivez les instructions de [configurez un partage de profil utilisateur pour un pool de l’hôte](create-host-pools-user-profile.md#configure-the-fslogix-profile-container). Vous pouvez tester la fonctionnalité du conteneur FSLogix avec [ce démarrage rapide](https://docs.fslogix.com/display/20170529/Profile+Containers+-+Quick+Start).
 
 ### <a name="configure-windows-defender"></a>Configurer Windows Defender
 
-Si Windows Defender est configuré dans la machine virtuelle, assurez-vous qu’il a configuré pour pas d’analyse tout le contenu des fichiers VHD et VHDX lors de l’attachement de la même.
+Si Windows Defender est configuré dans la machine virtuelle, assurez-vous qu’il a configuré pour pas d’analyse tout le contenu des fichiers VHD et VHDX au cours de la pièce jointe.
 
 Cette configuration supprime l’analyse des fichiers VHD et VHDX au cours de la pièce jointe uniquement, mais n’affecte pas l’analyse en temps réel.
 
@@ -308,7 +168,7 @@ Cet article n’aborde pas la configuration de langue et support régional. Pour
 Cette section décrit l’application et la configuration du système d’exploitation. Toute la configuration dans cette section est effectuée par le biais des entrées de Registre qui peuvent être exécutées par la ligne de commande et les outils de regedit.
 
 >[!NOTE]
->Vous pouvez implémenter les meilleures pratiques de configuration avec les objets de stratégie général (GPO) ou des importations de Registre. L’administrateur peut choisir une option selon les besoins de leur organisation.
+>Vous pouvez implémenter les meilleures pratiques de configuration avec les objets de stratégie de groupe (GPO) ou des importations de Registre. L’administrateur peut choisir une option selon les besoins de leur organisation.
 
 Pour des commentaires hub collection de données de télémétrie de sessions multiples de Windows 10 entreprise, exécutez cette commande :
 

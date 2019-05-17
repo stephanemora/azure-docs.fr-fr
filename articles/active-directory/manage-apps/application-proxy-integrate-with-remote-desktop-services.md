@@ -3,8 +3,8 @@ title: Publier le Bureau à distance avec le proxy d’application Azure AD | M
 description: Couvre les bases sur les connecteurs de proxy d’application Azure AD.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.author: celested
+ms.author: mimart
 ms.custom: it-pro
 ms.reviewer: harshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 295422e0f456c4dfd4166911ef8150e8a896ba1a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2ecd55cbb3a8eefc150db731901458561d90f033
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60440689"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65783404"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Publier le Bureau à distance avec le proxy d’application Azure AD
 
@@ -68,7 +68,7 @@ Après avoir configuré RDS et le proxy d’application Azure AD pour votre env
    - URL interne : `https://\<rdhost\>.com/`, où `\<rdhost\>` est la racine commune partagée par Site Web Bureau à distance et Passerelle Bureau à distance.
    - URL externe : Ce champ est automatiquement renseigné en fonction du nom de l’application, mais vous pouvez le modifier. Vos utilisateurs accéderont à cet URL en accédant à RDS.
    - Méthode de préauthentification : Azure Active Directory
-   - Traduire l’URL dans les en-têtes : Non 
+   - Traduire l’URL dans les en-têtes : Non
 2. Affectez des utilisateurs à l’application Bureau à distance publiée. Assurez-vous également qu’ils ont tous accès à RDS.
 3. Conservez la méthode d’authentification unique de l’application **Authentification unique Azure AD désactivée**. Les utilisateurs sont invités à s’authentifier une fois sur Azure AD et une fois sur Site Web Bureau à distance, mais profitent de l’authentification unique pour Passerelle Bureau à distance.
 4. Accédez à **Azure Active Directory** > **Inscriptions des applications** > *Votre application* > **Paramètres**.

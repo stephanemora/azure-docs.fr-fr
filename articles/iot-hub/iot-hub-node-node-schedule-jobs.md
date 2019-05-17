@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 10/06/2017
-ms.openlocfilehash: 1f357ed60e9d9f020d5a80ac9349eb65577521e7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 1a42b590fc83b89cd9f90998f835fc58f84ea960
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61442745"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65597408"
 ---
 # <a name="schedule-and-broadcast-jobs-node"></a>Planifier et diffuser des travaux (Node)
 
@@ -50,7 +50,7 @@ Ce didacticiel vous explique les procédures suivantes :
 
 Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
-* Node.js version 4.0.x ou version ultérieure [préparer votre environnement de développement](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md) explique comment installer Node.js pour ce didacticiel sur Windows ou Linux.
+* Version de Node.js 10.0.x ou version ultérieure [préparer votre environnement de développement](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md) explique comment installer Node.js pour ce didacticiel sur Windows ou Linux.
 
 * Un compte Azure actif. (Si vous ne possédez pas de compte, vous pouvez créer un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/) en quelques minutes seulement.)
 

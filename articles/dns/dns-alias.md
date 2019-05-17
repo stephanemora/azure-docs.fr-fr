@@ -5,14 +5,14 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 3/21/2019
+ms.date: 5/13/2019
 ms.author: victorh
-ms.openlocfilehash: 87ca7cae8e9170c8c437d0961cb1acb2e0dd0eb1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 847ad271dac4afc8c8baa2faa8702b3a3ab6cefa
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60790536"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65596699"
 ---
 # <a name="azure-dns-alias-records-overview"></a>Vue d’ensemble des enregistrements d’alias Azure DNS
 
@@ -25,7 +25,7 @@ Un jeu d’enregistrements d’alias est pris en charge pour les types d’enreg
 - CNAME
 
 > [!NOTE]
-> Si vous envisagez d'utiliser un enregistrement d'alias pour les types d'enregistrements A ou AAAA afin de pointer vers un profil [​Azure Traffic Manager](../traffic-manager/quickstart-create-traffic-manager-profile.md), vous devez vous assurer que le profil Traffic Manager ne comporte que des [points de terminaison externes](../traffic-manager/traffic-manager-endpoint-types.md#external-endpoints). Vous devez fournir l'adresse IPv4 ou IPv6 des points de terminaison externes dans Traffic Manager. Idéalement, utilisez des adresses IP statiques.
+> Si vous envisagez d'utiliser un enregistrement d'alias pour les types d'enregistrements A ou AAAA afin de pointer vers un profil [​Azure Traffic Manager](../traffic-manager/quickstart-create-traffic-manager-profile.md), vous devez vous assurer que le profil Traffic Manager ne comporte que des [points de terminaison externes](../traffic-manager/traffic-manager-endpoint-types.md#external-endpoints). Vous devez fournir l'adresse IPv4 ou IPv6 des points de terminaison externes dans Traffic Manager. Vous ne pouvez pas utiliser des noms de domaine complet (FQDN) dans les points de terminaison. Idéalement, utilisez des adresses IP statiques.
 
 ## <a name="capabilities"></a>Fonctionnalités
 

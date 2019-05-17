@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 04/26/2019
+ms.date: 05/13/2019
 ms.author: alkohli
-ms.openlocfilehash: 329ea6ac52e972c42e0e2aab247a7ad8e04c76e7
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 1126002a93419371be3216c55114385c9c600419
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64927356"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65594003"
 ---
 # <a name="troubleshoot-issues-related-to-azure-data-box"></a>Résoudre les problèmes liés à Azure Data Box
 
@@ -36,7 +36,7 @@ Toutes les erreurs sont observés pendant la copie des données sont résumées 
     - Les noms ne peuvent avoir que des lettres, des chiffres et des traits d’union.
     - Les noms ne peut pas commencer ou finir par des traits d’union.
     - Les noms ne peuvent pas avoir des traits d’union consécutifs.
-    - Exemples de noms valides : `my-folder-1`, `my-really-extra-long-folder-111`</li><li>
+    - Exemples de noms valides : `my-folder-1`, `my-really-extra-long-folder-111`.
     - Exemples de noms qui ne sont pas valides : `my-folder_1`, `my`, `--myfolder`, `myfolder--`, `myfolder!`
 
     Pour plus d’informations, consultez les conventions d’affectation de noms Azure pour [les noms de conteneur](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names) et [partagent noms](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#share-names).

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/08/19
 ms.author: jgao
-ms.openlocfilehash: 1006cc902cf4b6f763d86165a039a1fec5dc97a1
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 41b16498fb79166b2c77c77a517ee5c443ebec75
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65467084"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65796250"
 ---
 # <a name="introduce-health-integration-rollout-to-azure-deployment-manager-public-preview"></a>Introduire de lancement de l’intégration d’intégrité Azure Deployment Manager (version préliminaire publique)
 
@@ -32,7 +32,7 @@ Afin de faciliter l’intégration de l’intégrité que possible, Microsoft a 
 
 ## <a name="how-service-health-is-determined"></a>Détermination de l’intégrité du service
 
-[Fournisseurs de contrôle d’intégrité](#health-monitoring-providers) offrent plusieurs mécanismes pour la surveillance des services et vous alerter de tout problème d’intégrité de service. [Azure Monitor](/services/monitor/) est un exemple d’une telle offre. Azure Monitor peut être utilisé pour créer des alertes lorsque certains seuils sont dépassés. Par exemple, votre mémoire et l’utilisation du processeur grimper au-delà des niveaux attendus lorsque vous déployez une nouvelle mise à jour à votre service. Lors de la notification, vous pouvez effectuer les actions correctives.
+[Fournisseurs de contrôle d’intégrité](#health-monitoring-providers) offrent plusieurs mécanismes pour la surveillance des services et vous alerter de tout problème d’intégrité de service. [Azure Monitor](../azure-monitor/overview.md) est un exemple d’une telle offre. Azure Monitor peut être utilisé pour créer des alertes lorsque certains seuils sont dépassés. Par exemple, votre mémoire et l’utilisation du processeur grimper au-delà des niveaux attendus lorsque vous déployez une nouvelle mise à jour à votre service. Lors de la notification, vous pouvez effectuer les actions correctives.
 
 Ces fournisseurs de contrôle d’intégrité offrent généralement les API REST afin que l’état des analyses de votre service peut être examiné par programmation. Les API REST peut revenir soit avec un signal intègres/défectueux simple (déterminé par le code de réponse HTTP), et/ou avec des informations détaillées sur les signaux qu’il reçoit.
 

@@ -1,7 +1,7 @@
 ---
 title: 'Régression : Prédire le prix et comparer des algorithmes'
 titleSuffix: Azure Machine Learning service
-description: Cet exemple d’expérience interface visuelle montre comment comparer les performances des deux modèles de régression pour prédire les prix d’un véhicule automobile. Le processus comprend la formation, de tester et d’évaluer le modèle sur le jeu de données Automobile price data (Raw).
+description: Cet article vous montre comment créer une expérience d’apprentissage automatique complexes sans avoir à écrire une seule ligne de code à l’aide de l’interface visuelle. Découvrez comment former et comparer plusieurs modèles de régression pour prédire le prix d’une voiture en fonction des fonctionnalités techniques
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,17 +9,23 @@ ms.topic: article
 author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
-ms.date: 05/02/2019
-ms.openlocfilehash: 2a4a9e74fa7f56b67f0f4a64f6619db1c5c69a2c
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.date: 05/10/2019
+ms.openlocfilehash: c8c813a2304797e71499a916e29c18f8bec2b389
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65442134"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787794"
 ---
 # <a name="sample-2---regression-predict-price-and-compare-algorithms"></a>Exemple 2 - régression : Prédire le prix et comparer des algorithmes
 
-Cet exemple d’expérience interface visuelle montre comment comparer les performances des deux modèles de régression pour prédire les prix d’un véhicule automobile. Le processus comprend la formation, de test et d’évaluer le modèle à l’aide de la **données de prix des véhicules automobiles (brutes)** jeu de données.
+Découvrez comment créer une expérience d’apprentissage automatique complexes sans avoir à écrire une seule ligne de code à l’aide de l’interface visuelle. Cet exemple effectue l’apprentissage et compare plusieurs modèles de régression pour prédire le prix d’une voiture en fonction de ses fonctionnalités techniques. Nous allons fournir la logique pour les choix effectués dans cette expérience, donc vous pouvez traiter vos propres problèmes machine learning.
+
+Si vous n’êtes pas familiarisé avec l’apprentissage, vous pouvez examiner un le [version de base](ui-sample-regression-predict-automobile-price-basic.md) de cette expérience pour voir une régression de base à faire des essais.
+
+Voici le graphique terminé pour cette expérience :
+
+[![Graphique de l’expérience](media/ui-sample-regression-predict-automobile-price-compare-algorithms/graph.png)](media/ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
 
 ## <a name="prerequisites"></a>Conditions préalables
 
@@ -29,10 +35,6 @@ Cet exemple d’expérience interface visuelle montre comment comparer les perfo
 
     ![Ouvrez l’expérience](media/ui-sample-regression-predict-automobile-price-compare-algorithms/open-sample2.png)
 
-## <a name="related-sample"></a>Exemple
-
-[Exemple 1 : régression : Prédiction de prix automobile (Basic)](ui-sample-regression-predict-automobile-price-basic.md) fournit une expérience plus simple qui résout le problème même en tant que cette expérience, mais qui utilise un seul modèle de régression. Vous y reporter si vous avez besoin d’un exemple de base de la régression.
-
 ## <a name="experiment-summary"></a>Résumé de l’expérience
 
 Nous utilisons ces étapes pour créer l’expérience :
@@ -41,11 +43,6 @@ Nous utilisons ces étapes pour créer l’expérience :
 1. Prétraiter les données.
 1. Apprentissage du modèle.
 1. Tester, évaluer et comparer les modèles.
-
-Voici le graphique complet de l’expérience :
-
-[![Graphique de l’expérience](media/ui-sample-regression-predict-automobile-price-compare-algorithms/graph.png)](media/ui-sample-regression-predict-automobile-price-compare-algorithms/graph.png#lightbox)
-
 
 ## <a name="get-the-data"></a>Obtenir les données
 

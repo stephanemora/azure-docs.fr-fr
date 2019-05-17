@@ -3,8 +3,8 @@ title: Termes du contrat de Service et déclaration de confidentialité pour les
 description: Découvrez comment vous pouvez configurer les conditions d’utilisation et la déclaration de confidentialité des applications inscrites pour utiliser Azure AD.
 services: active-directory
 documentationcenter: dev-center-name
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/24/2018
-ms.author: celested
+ms.author: ryanwi
 ms.reviwer: lenalepa, sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97728fa70f0c5f58510e0e68d27a379b20887703
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b2242c6fc46f5556de0b0dd63659670e9c3f998d
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60410554"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540174"
 ---
 # <a name="how-to-configure-terms-of-service-and-privacy-statement-for-an-app"></a>Activation Configurer les termes du contrat de service et déclaration de confidentialité pour une application
 
@@ -44,7 +44,7 @@ Les exemples suivants montrent l’expérience de consentement de l’utilisateu
 
 Avant d’ajouter des liens vers les documents des conditions d’utilisation et de la déclaration de confidentialité de votre application, vérifiez que les URL respectent les instructions suivantes.
 
-| Instruction     | Description                           |
+| Instruction     | Description                            |
 |---------------|---------------------------------------|
 | Format        | URL valide                             |
 | Schémas valides | HTTP et HTTPS<br/>Nous recommandons HTTPS |

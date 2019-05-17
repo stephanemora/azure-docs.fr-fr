@@ -4,7 +4,7 @@ description: Découvrez comment ajouter des rôles d’application dans une appl
 services: active-directory
 documentationcenter: ''
 author: kkrishna
-manager: mtillman
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -17,12 +17,12 @@ ms.author: kkrishna
 ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df0d0b02efe7e99253b64ba02a5d9e77bb968993
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: fd78e98c37bea0fed1787e1e07a026fa35597f47
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65138353"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65593911"
 ---
 # <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>Activation Ajouter des rôles d’application dans votre application et les recevoir dans le jeton
 
@@ -62,7 +62,7 @@ Ces rôles d’application sont définis dans le [portail Azure](https://portal.
 L’exemple suivant montre le `appRoles` que vous pouvez assigner à `users`.
 
 > [!NOTE]
->  Le `id` doit être un GUID unique.
+>Le `id` doit être un GUID unique.
 
 ```Json
 "appId": "8763f1c4-f988-489c-a51e-158e9ef97d6a",
@@ -80,6 +80,9 @@ L’exemple suivant montre le `appRoles` que vous pouvez assigner à `users`.
   ],
 "availableToOtherTenants": false,
 ```
+
+> [!NOTE]
+>Le `displayName` ne peut pas contenir d’espaces.
 
 Vous pouvez définir des rôles d’application pour cibler `users`, `applications`, ou les deux. Lorsqu’ils sont disponibles pour `applications`, les rôles d’application apparaissent sous la forme d’autorisations d’application dans le panneau **Autorisations requises**. L’exemple suivant montre un rôle d’application ciblé sur un `Application`.
 
@@ -99,6 +102,8 @@ Vous pouvez définir des rôles d’application pour cibler `users`, `applicatio
   ],
 "availableToOtherTenants": false,
 ```
+
+Le nombre de rôles définis affecte les limites qui comporte le manifeste d’application. Ils ont été abordés en détail sur le [manifeste limites](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest#manifest-limits) page.
 
 ### <a name="assign-users-and-groups-to-roles"></a>Affecter des utilisateurs et des groupes à des rôles
 

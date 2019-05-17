@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 04/22/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 558b67b5b0e1ce4f452ce2ca2e97dd7e785c80b6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: de898a7ebb9611f469f42bb23774b3b0a0c2410d
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64728701"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65541686"
 ---
 # <a name="azure-app-service-access-restrictions"></a>Restrictions d’accès Azure App Service #
 
@@ -32,7 +32,7 @@ Lorsqu’une demande est faite à votre application, l’adresse est recherchée
 
 La fonctionnalité de restrictions d’accès est implémentée dans les rôles frontaux App Service, qui sont en amont des hôtes de travail dans lequel votre code s’exécute. Par conséquent, les restrictions d’accès sont effectivement ACL réseau.
 
-La possibilité de restreindre l’accès à votre application web à partir d’un réseau virtuel de Azure (VNet) est appelée [points de terminaison de service][serviceendpoints]. Points de terminaison de service permettent de restreindre l’accès à un service mutualisé à partir de sous-réseaux sélectionnés. Il doit être activé sur le côté de mise en réseau ainsi que le service activé avec. 
+La possibilité de restreindre l’accès à votre application web à partir d’un réseau virtuel de Azure (VNet) est appelée [points de terminaison de service][serviceendpoints]. Points de terminaison de service permettent de restreindre l’accès à un service mutualisé à partir de sous-réseaux sélectionnés. Il doit être activé sur le côté de mise en réseau ainsi que le service activé avec. Il ne fonctionne pas pour limiter le trafic vers les applications qui sont hébergées dans un environnement App Service.  Si vous êtes dans un environnement App Service, vous pouvez contrôler l’accès à votre application avec des règles d’adresses IP.
 
 ![flux de restrictions d’accès](media/app-service-ip-restrictions/access-restrictions-flow.png)
 
@@ -59,6 +59,8 @@ Règle basée sur pour définir une adresse IP, sélectionnez un type de IPv4 ou
 ![Ajouter une règle de restriction d’accès réseau virtuel](media/app-service-ip-restrictions/access-restrictions-vnet-add.png)
 
 Pour restreindre l’accès à des sous-réseaux sélectionnées, sélectionnez un type de réseau virtuel. Ci-dessous, vous serez en mesure de sélectionner l’abonnement, le réseau virtuel et le sous-réseau que vous souhaitez autoriser ou refuser l’accès avec. Si les points de terminaison de service ne sont pas encore activés avec Microsoft.Web pour le sous-réseau que vous avez sélectionné, il est automatiquement activé pour vous, sauf si vous cochez la case demandant ne pas à le faire. La situation où vous souhaiteriez activer sur l’application, mais pas le sous-réseau en grande partie concerne si vous disposez des autorisations pour activer les points de terminaison de service sur le sous-réseau ou non. Si vous avez besoin obtenir de quelqu'un d’autre pour activer les points de terminaison de service sur le sous-réseau, vous pouvez la case à cocher et que votre application configurée pour les points de terminaison de service en prévision de celle-ci en cours d’activation ultérieurement sur le sous-réseau. 
+
+Points de terminaison de service ne peut pas être utilisés pour restreindre l’accès aux applications qui s’exécutent dans un environnement App Service. Lorsque votre application se trouve dans un environnement App Service, vous pouvez contrôler l’accès à votre application avec des règles d’accès IP. 
 
 Vous pouvez cliquer sur n’importe quelle ligne pour modifier une règle de restriction d’accès existante. Les modifications sont appliquées immédiatement, y compris les changements de priorité.
 

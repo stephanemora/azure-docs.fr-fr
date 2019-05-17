@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 10/01/2018
-ms.openlocfilehash: 2b9e1c153c3fa9b17145eb6c3c8f3ed02e3bf40f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0580fe09c2cb6569724a9b4365233a3142645a47
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60304067"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65546274"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Se connecter à des sources de données locales à partir d’Azure Logic Apps
 
@@ -36,7 +36,7 @@ Pour plus d’informations sur l’utilisation de la passerelle avec d’autres 
 
 * L’installation de votre passerelle n’est pas encore associée à la ressource de la passerelle Azure. Vous pouvez lier votre installation de passerelle uniquement à une ressource de passerelle, ce qui se produit lorsque vous créez la ressource de passerelle et que vous sélectionnez votre installation de passerelle. Cette liaison rend l’installation de la passerelle indisponible pour d’autres ressources.
 
-* Lorsque vous vous connectez au portail Azure et que vous créez votre ressource de passerelle, vous devez utiliser le compte de connexion qui a été utilisé pour [installer la passerelle de données locale](../logic-apps/logic-apps-gateway-install.md#requirements), ainsi que le même [abonnement Azure](https://docs.microsoft.com/azure/architecture/cloud-adoption-guide/adoption-intro/subscription-explainer) qui a été utilisé pour installer la passerelle. Si vous n’avez pas encore d’abonnement Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscrivez-vous pour bénéficier d’un compte Azure gratuit</a>.
+* Lorsque vous vous connectez au portail Azure et que vous créez votre ressource de passerelle, vous devez utiliser le compte de connexion qui a été utilisé pour [installer la passerelle de données locale](../logic-apps/logic-apps-gateway-install.md#requirements), ainsi que le même [abonnement Azure](https://docs.microsoft.com/azure/architecture/cloud-adoption/governance/resource-consistency/azure-resource-access) qui a été utilisé pour installer la passerelle. Si vous n’avez pas encore d’abonnement Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscrivez-vous pour bénéficier d’un compte Azure gratuit</a>.
 
 * Pour créer et gérer les ressources de la passerelle dans le portail Azure, votre [compte de service Windows](../logic-apps/logic-apps-gateway-install.md#windows-service-account) doit disposer au moins des autorisations de **Contributeur**. La passerelle de données locale fonctionne comme un service Windows et elle est configurée pour utiliser `NT SERVICE\PBIEgwService` comme informations d’identification pour la connexion au service Windows. 
 

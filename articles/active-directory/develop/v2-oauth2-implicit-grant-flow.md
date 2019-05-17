@@ -3,8 +3,8 @@ title: Sécuriser des applications à page unique utilisant le flux implicite de
 description: Création d’applications web à l’aide de la mise en œuvre de la plateforme Microsoft identity du flux implicite pour les applications à page unique.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 3605931f-dc24-4910-bb50-5375defec6a8
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/12/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d517828b30629cd9dfba5459b1d90913d8bc4f77
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 512c3245407fd33aa1d67025df25ba9b667f84b4
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62112146"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65545345"
 ---
 # <a name="microsoft-identity-platform-and-implicit-grant-flow"></a>Flux d’octroi implicite et la plateforme d’identité Microsoft
 
@@ -74,7 +74,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 > Pour tester la connexion à l’aide du flux implicite, cliquez sur <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=openid&response_mode=fragment&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a> Une fois que vous êtes connecté, votre navigateur doit être redirigé vers `https://localhost/myapp/` avec une valeur `id_token` dans la barre d’adresse.
 >
 
-| Paramètre |  | Description |
+| Paramètre |  | Description  |
 | --- | --- | --- |
 | `tenant` | required |La valeur `{tenant}` dans le chemin d’accès de la requête peut être utilisée pour contrôler les utilisateurs qui peuvent se connecter à l’application. Les valeurs autorisées sont `common`, `organizations`, `consumers` et les identificateurs du client. Pour plus d’informations, consultez les [principes de base du protocole](active-directory-v2-protocols.md#endpoints). |
 | `client_id` | required | ID d’Application (client) que le [portail Azure - inscriptions](https://go.microsoft.com/fwlink/?linkid=2083908) page affecté à votre application. |
@@ -92,7 +92,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 Une fois que l’utilisateur s’authentifie et donne son consentement, le point de terminaison Microsoft identity plateforme renvoie une réponse à votre application à l’indiquée `redirect_uri`, à l’aide de la méthode spécifiée dans le `response_mode` paramètre.
 
-#### <a name="successful-response"></a>Réponse correcte
+#### <a name="successful-response"></a>Réponse réussie
 
 Une réponse correcte utilisant `response_mode=fragment` et `response_type=id_token+token` ressemble à ceci (des sauts de ligne sont ici insérés pour une meilleure lisibilité) :
 
@@ -106,7 +106,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 &state=12345
 ```
 
-| Paramètre | Description |
+| Paramètre | Description  |
 | --- | --- |
 | `access_token` |Inclus si `response_type` inclut `token`. Jeton d’accès demandé par l’application, dans ce cas Microsoft Graph. Le jeton d’accès ne doit pas être décodé ou inspecté, elle doit être traitée comme une chaîne opaque. |
 | `token_type` |Inclus si `response_type` inclut `token`. Sera toujours `Bearer`. |
@@ -125,7 +125,7 @@ error=access_denied
 &error_description=the+user+canceled+the+authentication
 ```
 
-| Paramètre | Description |
+| Paramètre | Description  |
 | --- | --- |
 | `error` |Une chaîne de code d’erreur pouvant être utilisée pour classer les types d’erreur se produisant, et pouvant être utilisée pour intervenir face aux erreurs. |
 | `error_description` |Un message d’erreur spécifique qui peut aider un développeur à identifier la cause principale d’une erreur d’authentification. |
@@ -188,7 +188,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 &scope=https%3A%2F%2Fgraph.windows.net%2Fdirectory.read
 ```
 
-| Paramètre | Description |
+| Paramètre | Description  |
 | --- | --- |
 | `access_token` |Inclus si `response_type` inclut `token`. Jeton d’accès demandé par l’application, dans ce cas Microsoft Graph. Le jeton d’accès ne doit pas être décodé ou inspecté, elle doit être traitée comme une chaîne opaque. |
 | `token_type` | Sera toujours `Bearer`. |
@@ -207,7 +207,7 @@ error=user_authentication_required
 &error_description=the+request+could+not+be+completed+silently
 ```
 
-| Paramètre | Description |
+| Paramètre | Description  |
 | --- | --- |
 | `error` |Une chaîne de code d’erreur pouvant être utilisée pour classer les types d’erreur se produisant, et pouvant être utilisée pour intervenir face aux erreurs. |
 | `error_description` |Un message d’erreur spécifique qui peut aider un développeur à identifier la cause principale d’une erreur d’authentification. |
@@ -236,7 +236,7 @@ OpenID Connect `end_session_endpoint` permet à votre application envoyer une de
 https://login.microsoftonline.com/{tenant}/oauth2/v2.0/logout?post_logout_redirect_uri=https://localhost/myapp/
 ```
 
-| Paramètre |  | Description |
+| Paramètre |  | Description  |
 | --- | --- | --- |
 | `tenant` |required |La valeur `{tenant}` dans le chemin d’accès de la requête peut être utilisée pour contrôler les utilisateurs qui peuvent se connecter à l’application. Les valeurs autorisées sont `common`, `organizations`, `consumers` et les identificateurs du client. Pour plus d’informations, consultez les [principes de base du protocole](active-directory-v2-protocols.md#endpoints). |
 | `post_logout_redirect_uri` | recommandé | URL vers laquelle l’utilisateur doit être redirigé après la déconnexion. Cette valeur doit correspondre à l’un des URI de redirection inscrits pour l’application. Si ne pas inclus, l’utilisateur s’affichera un message générique par le point de terminaison Microsoft identity platform. |

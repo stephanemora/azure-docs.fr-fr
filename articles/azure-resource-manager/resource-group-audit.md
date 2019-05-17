@@ -1,25 +1,19 @@
 ---
 title: Afficher les journaux d’activité Azure pour surveiller les ressources | Microsoft Docs
-description: Utilisez les journaux d’activité pour passer en revue les actions et les erreurs des utilisateurs. Affiche le portail Azure, PowerShell, l’interface CLI Azure et REST.
-services: azure-resource-manager
-documentationcenter: ''
+description: Utilisez les journaux d’activité pour passer en revue les actions et les erreurs des utilisateurs. Montre le portail Azure PowerShell, Azure CLI et REST.
 author: tfitzmac
-ms.assetid: fcdb3125-13ce-4c3b-9087-f514c5e41e73
 ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/23/2019
+ms.date: 05/13/2019
 ms.author: tomfitz
-ms.openlocfilehash: 8348099d778a9ec65e907bb3d21ae995041b9fb6
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 7ff45be4eea5c6e8ab83093847164ede0e94579a
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59786097"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606571"
 ---
-# <a name="view-activity-logs-to-audit-actions-on-resources"></a>Afficher les journaux d’activité pour auditer les actions sur les ressources
+# <a name="view-activity-logs-to-monitor-actions-on-resources"></a>Afficher les journaux d’activité pour surveiller les actions sur les ressources
 
 Les journaux d’activité vous permettent de déterminer :
 
@@ -29,13 +23,13 @@ Les journaux d’activité vous permettent de déterminer :
 * L’état de l’opération
 * Les valeurs d’autres propriétés qui peuvent vous aider à effectuer des recherches sur l’opération
 
-Le journal d’audit contient toutes les opérations d’écriture (PUT, POST, DELETE) effectuées sur vos ressources. Il n'inclut pas les opérations de lecture (GET). Pour obtenir la liste des actions de ressource, consultez [Opérations du fournisseur de ressources Azure Resource Manager](../role-based-access-control/resource-provider-operations.md). Vous pouvez utiliser les journaux d’audit pour rechercher une erreur lors de la résolution de problèmes ou pour surveiller la manière dont un utilisateur de votre organisation modifie une ressource.
+Le journal d’activité contient toutes les opérations d’écriture (PUT, POST, DELETE) pour vos ressources. Il n'inclut pas les opérations de lecture (GET). Pour obtenir la liste des actions de ressource, consultez [Opérations du fournisseur de ressources Azure Resource Manager](../role-based-access-control/resource-provider-operations.md). Vous pouvez utiliser les journaux d’activité pour rechercher une erreur lors de la résolution de problèmes ou pour surveiller la manière dont un utilisateur de votre organisation modifie une ressource.
 
 Les journaux d’activité sont conservés pendant 90 jours. Vous pouvez interroger n'importe quelle plage de dates, à condition que la date de début ne remonte pas à plus de 90 jours.
 
 Vous pouvez récupérer des informations dans les journaux d’activité par le biais du portail, de PowerShell, de l’interface de ligne de commande Azure, de l’API REST Insights ou de [Insights .NET Library](https://www.nuget.org/packages/Microsoft.Azure.Insights/).
 
-## <a name="the-azure-portal"></a>Le portail Azure
+## <a name="azure-portal"></a>Portail Azure
 
 1. Pour afficher les journaux d’activité via le portail, sélectionnez **Surveiller**.
 
@@ -45,13 +39,21 @@ Vous pouvez récupérer des informations dans les journaux d’activité par le 
 
     ![Sélectionner un journal d’activité](./media/resource-group-audit/select-activity-log.png)
 
-1. Un résumé des opérations récentes s'affiche. Un ensemble de filtres par défaut est appliqué aux opérations.
+1. Un résumé des opérations récentes s'affiche. Un ensemble de filtres par défaut est appliqué aux opérations. Notez que les informations sur le résumé incluent la personne qui a démarré l’action et l’heure d’exécution.
 
     ![Afficher le résumé des opérations récentes](./media/resource-group-audit/audit-summary.png)
 
-1. Pour exécuter rapidement un ensemble de filtres prédéfini, sélectionnez **Quick Insights** et choisissez l'une des options disponibles.
+1. Pour exécuter rapidement un ensemble prédéfini de filtres, sélectionnez **informations rapides**.
 
-    ![sélectionner la requête](./media/resource-group-audit/quick-insights.png)
+    ![Sélectionnez informations rapides](./media/resource-group-audit/select-quick-insights.png)
+
+1. Sélectionnez l'une des options. Par exemple, sélectionnez **déploiement ayant échoué** pour afficher les erreurs à partir des déploiements.
+
+    ![Sélectionnez déploiements ayant échoué](./media/resource-group-audit/select-failed-deployments.png)
+
+1. Notez que les filtres ont été modifiés pour se concentrer sur les erreurs de déploiement dans les dernières 24 heures. Seules les opérations qui correspondent aux filtres sont affichées.
+
+    ![Filtres de vue](./media/resource-group-audit/view-filters.png)
 
 1. Pour vous concentrer sur des opérations spécifiques, changez les filtres ou appliquez-en de nouveaux. Par exemple, l'image suivante présente une nouvelle valeur pour l'**Intervalle de temps**, et le **Type de ressource** est défini sur des comptes de stockage. 
 
@@ -69,101 +71,119 @@ Vous pouvez récupérer des informations dans les journaux d’activité par le 
 
     ![Afficher le filtre sur le tableau de bord](./media/resource-group-audit/show-dashboard.png)
 
+1. À partir du portail, vous pouvez afficher les modifications apportées à une ressource. Accédez à la valeur par défaut à afficher dans le moniteur, sélectionnez une opération qui impliquait la modification d’une ressource.
+
+    ![Sélectionner une opération](./media/resource-group-audit/select-operation.png)
+
+1. Sélectionnez **historique (version préliminaire) des modifications** et choisissez une des opérations disponibles.
+
+    ![Sélectionnez l’historique des modifications](./media/resource-group-audit/select-change-history.png)
+
+1. Les modifications apportées à la ressource sont affichées.
+
+    ![Afficher les modifications](./media/resource-group-audit/show-changes.png)
+
+Pour en savoir plus sur l’historique des modifications, consultez [obtenir les modifications des ressources](../governance/resource-graph/how-to/get-resource-changes.md).
+
 ## <a name="powershell"></a>PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-* Pour récupérer les entrées de journal, exécutez la commande **Get-AzLog** . Vous spécifiez des paramètres supplémentaires pour filtrer la liste des entrées. Si vous ne spécifiez pas les heures de début et de fin, les entrées des sept derniers jours sont renvoyées.
+Pour récupérer les entrées de journal, exécutez la commande **Get-AzLog** . Vous spécifiez des paramètres supplémentaires pour filtrer la liste des entrées. Si vous ne spécifiez pas les heures de début et de fin, les entrées des sept derniers jours sont renvoyées.
 
-  ```azurepowershell-interactive
-  Get-AzLog -ResourceGroup ExampleGroup
-  ```
+```azurepowershell-interactive
+Get-AzLog -ResourceGroup ExampleGroup
+```
 
-    L’exemple suivant montre comment utiliser le journal d’activité pour rechercher les opérations effectuées pendant une période spécifique. Les dates de début et de fin sont indiquées dans un format de date.
+L’exemple suivant montre comment utiliser le journal d’activité pour rechercher les opérations effectuées pendant une période spécifique. Les dates de début et de fin sont indiquées dans un format de date.
 
-  ```azurepowershell-interactive
-  Get-AzLog -ResourceGroup ExampleGroup -StartTime 2019-01-09T06:00 -EndTime 2019-01-15T06:00
-  ```
+```azurepowershell-interactive
+Get-AzLog -ResourceGroup ExampleGroup -StartTime 2019-05-05T06:00 -EndTime 2019-05-09T06:00
+```
 
-    Vous pouvez également utiliser les fonctions de date pour spécifier la plage de dates, par exemple, les 14 derniers jours.
+Vous pouvez également utiliser les fonctions de date pour spécifier la plage de dates, par exemple, les 14 derniers jours.
 
-  ```azurepowershell-interactive
-  Get-AzLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-14)
-  ```
+```azurepowershell-interactive
+Get-AzLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-14)
+```
 
-* Vous pouvez rechercher les actions effectuées par un utilisateur particulier, même pour un groupe de ressources qui n’existe plus.
+Vous pouvez rechercher les actions effectuées par un utilisateur particulier.
 
-  ```azurepowershell-interactive
-  Get-AzLog -ResourceGroup deletedgroup -StartTime (Get-Date).AddDays(-14) -Caller someone@contoso.com
-  ```
+```azurepowershell-interactive
+Get-AzLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-14) -Caller someone@contoso.com
+```
 
-* Vous pouvez filtrer les résultats sur les opérations ayant échoué.
+Vous pouvez filtrer les résultats sur les opérations ayant échoué.
 
-  ```azurepowershell-interactive
-  Get-AzLog -ResourceGroup ExampleGroup -Status Failed
-  ```
+```azurepowershell-interactive
+Get-AzLog -ResourceGroup ExampleGroup -Status Failed
+```
 
-* Vous pouvez vous focaliser sur une erreur en examinant le message d’état pour cette entrée.
+Vous pouvez vous focaliser sur une erreur en examinant le message d’état pour cette entrée.
 
-  ```azurepowershell-interactive
-  ((Get-AzLog -ResourceGroup ExampleGroup -Status Failed).Properties[0].Content.statusMessage | ConvertFrom-Json).error
-  ```
+```azurepowershell-interactive
+(Get-AzLog -ResourceGroup ExampleGroup -Status Failed).Properties.Content.statusMessage | ConvertFrom-Json
+```
 
-* Vous pouvez sélectionner des valeurs spécifiques pour limiter les données renvoyées.
+Vous pouvez sélectionner des valeurs spécifiques pour limiter les données renvoyées.
 
-  ```azurepowershell-interactive
-  Get-AzLog -ResourceGroupName ExampleGroup | Format-table EventTimeStamp, Caller, @{n='Operation'; e={$_.OperationName.value}}, @{n='Status'; e={$_.Status.value}}, @{n='SubStatus'; e={$_.SubStatus.LocalizedValue}}
-  ```
+```azurepowershell-interactive
+Get-AzLog -ResourceGroupName ExampleGroup | Format-table EventTimeStamp, Caller, @{n='Operation'; e={$_.OperationName.value}}, @{n='Status'; e={$_.Status.value}}, @{n='SubStatus'; e={$_.SubStatus.LocalizedValue}}
+```
 
-* En fonction de l’heure de début que vous spécifiez, les commandes précédentes peuvent retourner une longue liste d’opérations pour le groupe de ressources. Vous pouvez filtrer les résultats de votre recherche en fournissant des critères de recherche. Par exemple, vous pouvez filtrer par type d'opération.
+En fonction de l’heure de début que vous spécifiez, les commandes précédentes peuvent retourner une longue liste d’opérations pour le groupe de ressources. Vous pouvez filtrer les résultats de votre recherche en fournissant des critères de recherche. Par exemple, vous pouvez filtrer par type d'opération.
 
-  ```azurepowershell-interactive
-  Get-AzLog -ResourceGroup ExampleGroup | Where-Object {$_.OperationName.value -eq "Microsoft.Resources/deployments/write"}
-  ```
+```azurepowershell-interactive
+Get-AzLog -ResourceGroup ExampleGroup | Where-Object {$_.OperationName.value -eq "Microsoft.Resources/deployments/write"}
+```
+
+Vous pouvez utiliser le graphique des ressources pour afficher l’historique des modifications pour une ressource. Pour plus d’informations, consultez [obtenir les modifications des ressources](../governance/resource-graph/how-to/get-resource-changes.md).
 
 ## <a name="azure-cli"></a>Azure CLI
 
-* Pour récupérer des entrées de journal, exécutez la commande [az monitor activity-log list](/cli/azure/monitor/activity-log#az-monitor-activity-log-list) avec un décalage pour indiquer la période.
+Pour récupérer des entrées de journal, exécutez la commande [az monitor activity-log list](/cli/azure/monitor/activity-log#az-monitor-activity-log-list) avec un décalage pour indiquer la période.
 
-  ```azurecli-interactive
-  az monitor activity-log list --resource-group ExampleGroup --offset 7d
-  ```
+```azurecli-interactive
+az monitor activity-log list --resource-group ExampleGroup --offset 7d
+```
 
-  L’exemple suivant montre comment utiliser le journal d’activité pour rechercher les opérations effectuées pendant une période spécifique. Les dates de début et de fin sont indiquées dans un format de date.
+L’exemple suivant montre comment utiliser le journal d’activité pour rechercher les opérations effectuées pendant une période spécifique. Les dates de début et de fin sont indiquées dans un format de date.
 
-  ```azurecli-interactive
-  az monitor activity-log list -g ExampleGroup --start-time 2019-01-01 --end-time 2019-01-15
-  ```
+```azurecli-interactive
+az monitor activity-log list -g ExampleGroup --start-time 2019-05-01 --end-time 2019-05-15
+```
 
-* Vous pouvez rechercher les actions effectuées par un utilisateur particulier, même pour un groupe de ressources qui n’existe plus.
+Vous pouvez rechercher les actions effectuées par un utilisateur particulier, même pour un groupe de ressources qui n’existe plus.
 
-  ```azurecli-interactive
-  az monitor activity-log list -g ExampleGroup --caller someone@contoso.com --offset 5d
-  ```
+```azurecli-interactive
+az monitor activity-log list -g ExampleGroup --caller someone@contoso.com --offset 5d
+```
 
-* Vous pouvez filtrer les résultats sur les opérations ayant échoué.
+Vous pouvez filtrer les résultats sur les opérations ayant échoué.
 
-  ```azurecli-interactive
-  az monitor activity-log list -g demoRG --status Failed --offset 1d
-  ```
+```azurecli-interactive
+az monitor activity-log list -g ExampleGroup --status Failed --offset 1d
+```
 
-* Vous pouvez vous focaliser sur une erreur en examinant le message d’état pour cette entrée.
+Vous pouvez vous focaliser sur une erreur en examinant le message d’état pour cette entrée.
 
-  ```azurecli-interactive
-  az monitor activity-log list -g ExampleGroup --status Failed --offset 1d --query [].properties.statusMessage
-  ```
+```azurecli-interactive
+az monitor activity-log list -g ExampleGroup --status Failed --offset 1d --query [].properties.statusMessage
+```
 
-* Vous pouvez sélectionner des valeurs spécifiques pour limiter les données renvoyées.
+Vous pouvez sélectionner des valeurs spécifiques pour limiter les données renvoyées.
 
-  ```azurecli-interactive
-  az monitor activity-log list -g ExampleGroup --offset 1d --query '[].{Operation: operationName.value, Status: status.value, SubStatus: subStatus.localizedValue}'
-  ```
+```azurecli-interactive
+az monitor activity-log list -g ExampleGroup --offset 1d --query '[].{Operation: operationName.value, Status: status.value, SubStatus: subStatus.localizedValue}'
+```
 
-* En fonction de l’heure de début que vous spécifiez, les commandes précédentes peuvent retourner une longue liste d’opérations pour le groupe de ressources. Vous pouvez filtrer les résultats de votre recherche en fournissant des critères de recherche. Par exemple, vous pouvez filtrer par type d'opération.
+En fonction de l’heure de début que vous spécifiez, les commandes précédentes peuvent retourner une longue liste d’opérations pour le groupe de ressources. Vous pouvez filtrer les résultats de votre recherche en fournissant des critères de recherche. Par exemple, vous pouvez filtrer par type d'opération.
 
-  ```azurecli-interactive
-  az monitor activity-log list -g ExampleGroup --offset 1d --query "[?operationName.value=='Microsoft.Storage/storageAccounts/write']"
-  ```
+```azurecli-interactive
+az monitor activity-log list -g ExampleGroup --offset 1d --query "[?operationName.value=='Microsoft.Storage/storageAccounts/write']"
+```
+
+Vous pouvez utiliser le graphique des ressources pour afficher l’historique des modifications pour une ressource. Pour plus d’informations, consultez [obtenir les modifications des ressources](../governance/resource-graph/how-to/get-resource-changes.md).
 
 ## <a name="rest-api"></a>API REST
 

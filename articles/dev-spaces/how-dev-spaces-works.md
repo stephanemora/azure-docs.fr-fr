@@ -10,12 +10,12 @@ ms.date: 03/04/2019
 ms.topic: conceptual
 description: Décrit les processus qu’espaces de développement Azure power et comment ils sont configurés dans le fichier de configuration azds.yaml
 keywords: azds.yaml, espaces de développement Azure, les espaces de développement, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs
-ms.openlocfilehash: 494dd3774ec47598a95c6e20de6283abc2e4ff94
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: f7cf5ae875fa0fb87322052df036d35e8e5e89a4
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60687145"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65605413"
 ---
 # <a name="how-azure-dev-spaces-works-and-is-configured"></a>Comment les espaces de développement Azure fonctionne et est configuré
 
@@ -29,7 +29,7 @@ Cet article décrit les processus qu’espaces de développement power Azure et 
 
 * [Java avec l’interface CLI et Visual Studio Code](quickstart-java.md)
 * [.NET core avec Visual Studio Code et CLI](quickstart-netcore.md)
-* [.NET core avec Visual Studio 2017](quickstart-netcore-visualstudio.md)
+* [.NET core avec Visual Studio](quickstart-netcore-visualstudio.md)
 * [Node.js avec CLI et Visual Studio Code](quickstart-nodejs.md)
 
 ## <a name="how-azure-dev-spaces-works"></a>Fonctionnement des espaces de développement Azure
@@ -66,7 +66,7 @@ Pendant que votre application est en cours d’exécution, la côté client des 
 Vous pouvez utiliser la côté client des outils à partir de la ligne de commande dans le cadre de la `azds` commande. Vous pouvez également utiliser du côté client avec des outils :
 
 * Visual Studio Code en utilisant le [extension d’Azure Dev espaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds).
-* Visual Studio 2017 avec [Visual Studio Tools pour Kubernetes](https://aka.ms/get-vsk8stools).
+* Visual Studio avec [Visual Studio Tools pour Kubernetes](https://aka.ms/get-vsk8stools).
 
 Voici le flux de base pour la configuration et l’utilisation des espaces de développement Azure :
 1. Préparer votre cluster AKS pour les espaces de développement Azure
@@ -337,7 +337,7 @@ Le *install.set* propriété vous permet de configurer une ou plusieurs valeurs 
 
 Dans l’exemple ci-dessus, le *install.set.replicaCount* propriété indique le contrôleur de combien d’instances de votre application s’exécute dans votre espace de développement. Selon votre scénario, vous pouvez augmenter cette valeur, mais il aura un impact sur l’attachement d’un débogueur sur les pod de votre application. Pour plus d’informations, consultez le [article sur le dépannage](troubleshooting.md).
 
-Dans le graphique Helm généré, l’image de conteneur est définie sur *{{. Values.image.Repository}}  :{{. Values.image.Tag}}*. Le `azds.yaml` fichier définit *install.set.image.tag* propriété en tant que *$(tag)* par défaut, qui est utilisé comme valeur pour *{{. Values.image.Tag}}*. En définissant le *install.set.image.tag* propriété de cette façon, il permet l’image de conteneur pour votre application doit être référencé de manière distincte lors de l’exécution des espaces de développement Azure. Dans ce cas précis, l’image est marqué comme  *<value from image.repository>: $(tag)*. Vous devez utiliser le *$(tag)* variable comme valeur de *install.set.image.tag* dans l’ordre pour les espaces de développement reconnaître et de trouver le conteneur dans le cluster AKS.
+Dans le graphique Helm généré, l’image de conteneur est définie sur *{{. Values.image.Repository}}  :{{. Values.image.Tag}}*. Le `azds.yaml` fichier définit *install.set.image.tag* propriété en tant que *$(tag)* par défaut, qui est utilisé comme valeur pour *{{. Values.image.Tag}}*. En définissant le *install.set.image.tag* propriété de cette façon, il permet l’image de conteneur pour votre application doit être référencé de manière distincte lors de l’exécution des espaces de développement Azure. Dans ce cas précis, l’image est marqué comme  *\<valeur à partir de image.repository > : $(tag)*. Vous devez utiliser le *$(tag)* variable comme valeur de *install.set.image.tag* dans l’ordre pour les espaces de développement reconnaître et de trouver le conteneur dans le cluster AKS.
 
 Dans l’exemple ci-dessus, `azds.yaml` définit *install.set.ingress.hosts*. Le *install.set.ingress.hosts* propriété définit un format de nom d’hôte pour les points de terminaison publics. Cette propriété utilise également *$(spacePrefix)*, *$(rootSpacePrefix)*, et *$(hostSuffix)*, qui sont des valeurs fournies par le contrôleur. 
 
@@ -404,11 +404,11 @@ ingress:
 
 ## <a name="debug-your-code"></a>Déboguer votre code
 
-Pour les applications Java, .NET et Node.js, vous pouvez déboguer votre application s’exécutant directement dans votre espace de développement à l’aide de Visual Studio Code ou Visual Studio 2017. Visual Studio Code et Visual Studio 2017 fournissent des outils pour vous connecter à votre espace de développement, lancez votre application et attacher un débogueur. Après l’exécution `azds prep`, vous pouvez ouvrir votre projet dans Visual Studio Code ou Visual Studio 2017. Visual Studio Code ou Visual Studio 2017 génère leurs propres fichiers de configuration pour la connexion en cours d’exécution indépendant `azds prep`. À partir de dans Visual Studio Code ou Visual Studio 2017, vous pouvez définir des points d’arrêt et lancer votre application dans votre espace de développement.
+Pour les applications Java, .NET et Node.js, vous pouvez déboguer votre application s’exécutant directement dans votre espace de développement à l’aide de Visual Studio Code ou Visual Studio. Visual Studio Code et Visual Studio fournissent des outils pour vous connecter à votre espace de développement, lancez votre application et attacher un débogueur. Après l’exécution `azds prep`, vous pouvez ouvrir votre projet dans Visual Studio Code ou Visual Studio. Visual Studio Code ou Visual Studio génère leurs propres fichiers de configuration pour la connexion en cours d’exécution indépendant `azds prep`. À partir de dans Visual Studio Code ou Visual Studio, vous pouvez définir des points d’arrêt et lancer votre application dans votre espace de développement.
 
 ![Débogage de votre code](media/get-started-node/debug-configuration-nodejs2.png)
 
-Lorsque vous lancez votre application à l’aide de Visual Studio Code ou Visual Studio 2017 pour le débogage, ils gèrent de lancement et la connexion à votre espace de développement de la même façon que l’exécution `azds up`. Les outils côté client dans le Code de Visual Studio et Visual Studio 2017 fournissent également un paramètre supplémentaire avec des informations spécifiques pour le débogage. Le paramètre contient le nom de l’image de débogueur, l’emplacement du débogueur dans l’image du débogueur et l’emplacement de destination au sein du conteneur de l’application pour monter le dossier de débogueur. 
+Lorsque vous lancez votre application à l’aide de Visual Studio Code ou Visual Studio pour le débogage, ils gèrent de lancement et la connexion à votre espace de développement de la même façon que l’exécution `azds up`. Les outils côté client dans Visual Studio Code et de Visual Studio fournissent également un paramètre supplémentaire avec des informations spécifiques pour le débogage. Le paramètre contient le nom de l’image de débogueur, l’emplacement du débogueur dans l’image du débogueur et l’emplacement de destination au sein du conteneur de l’application pour monter le dossier de débogueur. 
 
 L’image de débogueur est automatiquement déterminée par les outils côté client. Il utilise une méthode similaire à celui utilisé pendant le fichier Dockerfile et générer un graphique Helm lors de l’exécution `azds prep`. Une fois le débogueur est monté dans l’image de l’application, il est exécuté à l’aide de `azds exec`.
 
@@ -420,7 +420,7 @@ Vous pouvez également créer un nouvel espace de développement qui est dériv�
 
 L’espace de développement dérivée sera également intelligemment acheminer les demandes entre ses propres applications et les applications partagées à partir de son parent. Le fonctionnement du routage par une tentative de demande d’itinéraire à une application dans le domaine du développement dérivée et revenir à l’application partagée à partir de l’espace de développement parent. Le routage se tourne vers l’application partagée dans l’espace grand-parent si l’application n’est pas dans l’espace de parent.
 
-Par exemple : 
+Exemple :
 * L’espace de développement *par défaut* possède des applications *serviceA* et *serviceB* .
 * L’espace de développement *azureuser* est dérivée de *par défaut*.
 * Une version mise à jour de *serviceA* est déployée sur *azureuser*.
@@ -433,12 +433,12 @@ Pour commencer à l’aide d’espaces de développement Azure, consultez les D�
 
 * [Java avec l’interface CLI et Visual Studio Code](quickstart-java.md)
 * [.NET core avec Visual Studio Code et CLI](quickstart-netcore.md)
-* [.NET core avec Visual Studio 2017](quickstart-netcore-visualstudio.md)
+* [.NET core avec Visual Studio](quickstart-netcore-visualstudio.md)
 * [Node.js avec CLI et Visual Studio Code](quickstart-nodejs.md)
 
 Pour vous familiariser avec le développement en équipe, consultez les articles de procédures suivants :
 
 * [Développement en équipe - Java avec l’interface CLI et Visual Studio Code](team-development-java.md)
 * [Développement en équipe - .NET Core avec Visual Studio Code et CLI](team-development-netcore.md)
-* [Développement en équipe - .NET Core avec Visual Studio 2017](team-development-netcore-visualstudio.md)
+* [Développement en équipe - .NET Core avec Visual Studio](team-development-netcore-visualstudio.md)
 * [Développement en équipe - Node.js avec CLI et Visual Studio Code](team-development-nodejs.md)

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/10/2019
 ms.author: magoedte
-ms.openlocfilehash: bca1b96e7dc5673cabef26fe6b2cfb8daa41fbf5
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 38979aa5cbb7eff0a949dfb77d6a29b2cdb5c67b
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64702515"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65602076"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms-preview"></a>Comment interroger des journaux d’activité des requête à partir d’Azure Monitor pour machines virtuelles (préversion)
 Azure Monitor pour les machines virtuelles collecte des performances et métriques de connexion, ordinateur et traiter les données de l’inventaire et informations d’état d’intégrité et la transfère à l’espace de travail Analytique de journal dans Azure Monitor.  Ces données sont disponibles pour [requête](../../azure-monitor/log-query/log-query-overview.md) dans Azure Monitor. Vous pouvez appliquer ces données à divers scénarios tels que la planification de la migration, l’analyse de la capacité, la détection et la résolution de problèmes de performances à la demande.
@@ -101,7 +101,7 @@ Pour plus de commodité, l’adresse IP de l’extrémité distante d’une conn
 
 | Propriété | Description |
 |:--|:--|
-|RemoteCountry |Nom du pays hébergeant RemoteIp.  Par exemple, *États-Unis* |
+|RemoteCountry |Le nom de pays/région RemoteIp d’hébergement.  Par exemple, *États-Unis* |
 |RemoteLatitude |Latitude de géolocalisation. Par exemple, *47,68*. |
 |RemoteLongitude |Longitude de géolocalisation. Par exemple, *-122,12*. |
 
@@ -130,7 +130,7 @@ Ports sur un ordinateur qui activement accepteront le trafic entrant ou pourraie
 >- USA Est  
 >- Europe Ouest
 >
-> Collecte des données est activée dans l’autre [régions prises en charge](vminsights-onboard.md#log-analytics) pour Azure Monitor pour les machines virtuelles. 
+> Collecte des données est activée dans l’autre [régions prises en charge](vminsights-enable-overview.md#log-analytics) pour Azure Monitor pour les machines virtuelles. 
 
 Chaque enregistrement dans VMBoundPort est identifiée par les champs suivants : 
 

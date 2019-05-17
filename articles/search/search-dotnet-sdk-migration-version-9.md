@@ -7,17 +7,17 @@ services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 05/10/2019
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: f540bc304920073bcd823adcf6c9dd47cb2cf93b
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: a59deed4ac0cec669ddc5e0335f7274586c702e8
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65159749"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65541764"
 ---
-# <a name="upgrading-to-the-azure-search-net-sdk-version-9"></a>Mise à niveau vers le SDK .NET Azure Search version 9
+# <a name="upgrade-to-the-azure-search-net-sdk-version-9"></a>Mise à niveau vers le SDK .NET Azure Search version 9
 
 Si vous utilisez la version 7.0-preview ou une version antérieure de la [SDK .NET Azure Search](https://aka.ms/search-sdk), cet article vous aidera à mettre à niveau votre application pour utiliser la version 9.
 
@@ -70,7 +70,7 @@ Il existe plusieurs modifications avec rupture dans la version 9 qui peut-être 
 > [!NOTE]
 > La liste des modifications ci-dessous n’est pas exhaustive. Certaines modifications ne provoquera probablement pas des erreurs de build, mais sont techniquement importantes dans la mesure où elles rompent la compatibilité binaire avec des assemblys qui dépendent de versions antérieures des assemblys de SDK .NET Azure Search. Ces modifications ne sont pas répertoriées ci-dessous. Régénérez votre application lors de la mise à niveau vers la version 9 pour éviter tout problème de compatibilité binaire.
 
-### <a name="making-properties-immutable"></a>Rendre les propriétés immuables
+### <a name="immutable-properties"></a>Propriétés immuables
 
 Les propriétés publiques de plusieurs classes de modèle sont désormais immuables. Si vous avez besoin créer des instances de ces classes de test personnalisées, vous pouvez utiliser les nouveaux constructeurs paramétrés :
 
@@ -103,7 +103,7 @@ Il s’agit, car ces propriétés doivent maintenant être `null` dans le cas de
 
 Le constructeur sans paramètre de `Field` a été effectuée `internal`. Dès lors, chaque `Field` requiert un type de données et le nom explicite au moment de la construction.
 
-### <a name="simplification-of-batch-and-results-types"></a>Simplification des types de traitement par lots et résultats
+### <a name="simplified-batch-and-results-types"></a>Types de lot et les résultats simplifiées
 
 Dans la version 7.0-preview et versions antérieure, les différentes classes qui encapsulent des groupes de documents ont été structurées dans des hiérarchies de classes parallèles :
 
@@ -118,7 +118,7 @@ Les types dérivés sans paramètre de type générique ont été destinés à �
 
 À compter de version 8.0-preview, les classes de base et les classes dérivées non générique ont tous été supprimés. Pour les scénarios de type dynamique, vous pouvez utiliser `IndexBatch<Document>`, `DocumentSearchResult<Document>`, et ainsi de suite.
  
-### <a name="removal-of-extensibleenum"></a>Suppression de ExtensibleEnum
+### <a name="removed-extensibleenum"></a>ExtensibleEnum supprimé
 
 Le `ExtensibleEnum` classe de base a été supprimée. Toutes les classes dérivées à partir de celui-ci sont désormais structs, tel que `AnalyzerName`, `DataType`, et `DataSourceType` par exemple. Leur `Create` méthodes ont également été supprimés. Vous pouvez simplement supprimer les appels à `Create` étant donné que ces types sont convertis implicitement à partir de chaînes. Si cela entraîne des erreurs du compilateur, vous pouvez appeler explicitement l’opérateur de conversion par le biais de cast pour lever l’ambiguïté de types. Par exemple, vous pouvez modifier le code comme suit :
 
@@ -150,9 +150,9 @@ var index = new Index()
 
 Propriétés qui détenait valeurs facultatives de ces types sont maintenant explicitement de type nullable afin de continuer à être facultatif.
 
-### <a name="removal-of-facetresults-and-hithighlights"></a>Suppression de FacetResults et HitHighlights
+### <a name="removed-facetresults-and-hithighlights"></a>Supprimé FacetResults et HitHighlights
 
-Le `FacetResults` et `HitHighlights` classes ont été supprimées. Résultats de la facette sont désormais typées en tant que `IDictionary<string, IList<FacetResult>>` et positionnement met en surbrillance en tant que `IDictionary<string, IList<string>>`. Un moyen rapide pour résoudre les erreurs de build introduits par cette modification consiste à ajouter `using` alias en haut de chaque fichier qui utilise les types supprimés. Par exemple : 
+Le `FacetResults` et `HitHighlights` classes ont été supprimées. Résultats de la facette sont désormais typées en tant que `IDictionary<string, IList<FacetResult>>` et positionnement met en surbrillance en tant que `IDictionary<string, IList<string>>`. Un moyen rapide pour résoudre les erreurs de build introduits par cette modification consiste à ajouter `using` alias en haut de chaque fichier qui utilise les types supprimés. Exemple :
 
 ```csharp
 using FacetResults = System.Collections.Generic.IDictionary<string, System.Collections.Generic.IList<Models.FacetResult>>;

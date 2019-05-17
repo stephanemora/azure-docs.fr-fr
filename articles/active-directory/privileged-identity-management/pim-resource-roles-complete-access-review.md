@@ -15,12 +15,12 @@ ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a310770f26a1c40682791582a05a9bb4c47a42d
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: aee8ac3c2638ede559f8a1f9c51f2d6e62604998
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65141024"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65602230"
 ---
 # <a name="complete-an-access-review-of-azure-resource-roles-in-pim"></a>Effectuer une révision d’accès des rôles de ressources Azure dans PIM
 Les administrateurs de rôle privilégié peuvent examiner l’accès privilégié après le [démarrage d’une révision d’accès](pim-resource-roles-start-access-review.md). Azure Active Directory (Azure AD) Privileged Identity Management (PIM) envoie automatiquement un e-mail invitant les utilisateurs de revoir leur accès. Si un utilisateur ne reçoit pas d’e-mail, vous pouvez lui envoyer les instructions relatives à l’[exécution d’une révision d’accès](pim-resource-roles-perform-access-review.md).
@@ -33,13 +33,13 @@ Les administrateurs de rôle privilégié peuvent examiner l’accès privilégi
 2. Sélectionnez votre ressource.
 
 3. Sélectionnez la section **Révisions de l’accès** du tableau de bord.
-![Révisions d’accès](media/azure-pim-resource-rbac/rbac-access-review-home-list.png)
+![Révisions d’accès](media/pim-resource-roles-complete-access-review/rbac-access-review-home-list.png)
 
 4. Sélectionnez la révision d’accès que vous souhaitez gérer.
 
 Le panneau de détails de la révision d’accès comporte plusieurs options pour la gestion de cette révision. Les options disponibles sont les suivantes :
 
-![Options pour la gestion d’une révision](media/azure-pim-resource-rbac/rbac-access-review-menu.png)
+![Options pour la gestion d’une révision](media/pim-resource-roles-complete-access-review/rbac-access-review-menu.png)
 
 ### <a name="stop"></a>Arrêter
 Toutes les révisions d’accès ont une date de fin, mais vous pouvez utiliser le bouton **Arrêter** pour les terminer plus tôt. Tous les utilisateurs qui n’ont pas terminé leur révision à ce stade ne pourront pas la terminer si vous l’arrêtez. Vous ne pouvez pas redémarrer une révision une fois qu’elle a été arrêtée.
@@ -55,11 +55,11 @@ Si la révision ne vous intéresse plus, supprimez-la. Le bouton **Supprimer** p
 
 ## <a name="results"></a>Résultats
 Dans l’onglet **Résultats**, affichez et téléchargez la liste des résultats de votre révision. 
-![Onglet Résultats](media/azure-pim-resource-rbac/rbac-access-review-results.png)
+![Onglet Résultats](media/pim-resource-roles-complete-access-review/rbac-access-review-results.png)
 
 ## <a name="reviewers"></a>Réviseurs
 Consultez et ajoutez des réviseurs à votre révision d’accès existant. Rappelez aux réviseurs d’effectuer leur révision.
-![Ajouter des réviseurs](media/azure-pim-resource-rbac/rbac-access-review-reviewers.png)
+![Ajouter des réviseurs](media/pim-resource-roles-complete-access-review/rbac-access-review-reviewers.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

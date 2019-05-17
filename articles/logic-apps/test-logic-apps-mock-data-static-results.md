@@ -8,13 +8,13 @@ author: kevinlam1
 ms.author: klam
 ms.reviewer: estfan, LADocs
 ms.topic: article
-ms.date: 03/18/2019
-ms.openlocfilehash: 0fbe56ceeeba71bcbb5ef358cd66de15e36508fc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/13/2019
+ms.openlocfilehash: 45eeb20e5c572ddd98244b2e751322fcce1d4b76
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60511933"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65597198"
 ---
 # <a name="test-logic-apps-with-mock-data-by-setting-up-static-results"></a>Tester des applications logiques avec des données fictives en configurant des résultats statiques
 
@@ -22,7 +22,7 @@ Lorsque vous testez vos applications logiques, vous n’êtes peut-être pas pr�
 
 Par exemple, si vous avez configuré des résultats statiques pour le Outlook 365 envoyer l’action de messagerie, le moteur Logic Apps retourne uniquement les données fictifs que vous avez spécifié en tant que résultats statiques, plutôt qu’appeler Outlook et envoyer un courrier électronique.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscrivez-vous pour bénéficier d’un compte Azure gratuit</a>.
 
@@ -46,7 +46,7 @@ Par exemple, si vous avez configuré des résultats statiques pour le Outlook 36
 
       Par exemple, voici les propriétés requises pour l’action HTTP :
 
-      | Propriété | Description |
+      | Propriété | Description  |
       |----------|-------------|
       | **État** | État de l’action à retourner |
       | **Code d’état** | Le code d’état spécifique pour retourner |
@@ -137,11 +137,9 @@ La désactivation de résultats statiques ne jeter les valeurs à partir de votr
 
    ![Désactiver les résultats statiques](./media/test-logic-apps-mock-data-static-results/disable-static-results-button.png)
 
-## <a name="get-support"></a>Obtenir de l’aide
+## <a name="reference"></a>Référence
 
-* Si vous avez des questions, consultez le [forum Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-
-* Pour voter pour des idées de fonctionnalités ou pour en soumettre, visitez le [site de commentaires des utilisateurs Logic Apps](https://aka.ms/logicapps-wish).
+Pour plus d’informations sur ce paramètre dans vos définitions de workflow sous-jacent, consultez [résultats statiques - référence de schéma pour le langage de définition de flux de travail](../logic-apps/logic-apps-workflow-definition-language.md#static-results) et [runtimeConfiguration.staticResult - Runtime paramètres de configuration](../logic-apps/logic-apps-workflow-actions-triggers.md#runtime-configuration-settings)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

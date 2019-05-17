@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f9a33b6bce8cef5bf790efeb43259dfb8013487
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b32ef37c6d61c88a18acd5ddc80cc6154369ca29
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60472451"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65780534"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Prendre le contrôle d’un annuaire non géré en tant qu’administrateur dans Azure Active Directory
 
@@ -37,7 +37,7 @@ Lors du processus de prise de contrôle par l’administrateur, vous pouvez prou
 
 Certains produits qui incluent SharePoint et OneDrive, comme Office 365, ne permettent pas la prise de contrôle externe. Si c’est votre scénario, ou si vous êtes administrateur et que vous voulez prendre le contrôle d’un locataire non géré ou « fantôme » créé par des utilisateurs ayant utilisé l’inscription en libre-service, vous pouvez le faire avec une prise de contrôle par administrateur interne.
 
-1. Créez un contexte utilisateur dans le locataire non géré, par exemple via une inscription auprès de Power BI. Par commodité pour l’exemple, cette procédure suppose que cette voie est choisie.
+1. Créer un contexte utilisateur dans le client non géré via une inscription pour Power BI. Par commodité pour l’exemple, cette procédure suppose que cette voie est choisie.
 
 2. Ouvrez le [site Power BI](https://powerbi.com) et sélectionnez **Démarrer gratuitement**. Entrez un compte d’utilisateur qui utilise le nom de domaine pour l’organisation ; par exemple, `admin@fourthcoffee.xyz`. Une fois que vous avez entré le code de vérification, vous recevez le code de confirmation dans votre messagerie.
 
@@ -153,7 +153,7 @@ Applet de commande | Usage
     Get-MsolDomainVerificationDns –DomainName contoso.com –Mode DnsTxtRecord
    ```
 
-4. Copiez la valeur (le test) qui est renvoyée depuis cette commande. Par exemple : 
+4. Copiez la valeur (le test) qui est renvoyée depuis cette commande. Exemple :
    ```powershell
     MS=32DD01B82C05D27151EA9AE93C5890787F0E65D9
    ```
@@ -164,7 +164,7 @@ Applet de commande | Usage
     Confirm-MsolEmailVerifiedDomain -DomainName *your_domain_name*
    ```
   
-   Par exemple : 
+   Exemple :
   
    ```powershell
     Confirm-MsolEmailVerifiedDomain -DomainName contoso.com

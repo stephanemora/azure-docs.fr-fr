@@ -3,8 +3,8 @@ title: Problème lors de l’ajout d’une application de la galerie Azure AD | 
 description: Découvrez les problèmes courants auxquels les utilisateurs sont confrontés lors de l’ajout d’applications de la galerie Azure AD et ce que vous pouvez faire pour les résoudre
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
-ms.author: celested
+ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a898b5b235099109fcfeaaa4d647493e54caf57e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b2b42880f99f3e87d75854166047896860f9eb14
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60438793"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65784423"
 ---
 # <a name="problem-adding-an-azure-ad-gallery-application"></a>Problème lors de l’ajout d’une application de la galerie Azure AD
 
@@ -40,7 +40,7 @@ Si vous rencontrez une erreur lorsque vous cliquez sur le bouton **Ajouter**, un
 
 ## <a name="i-dont-know-how-to-set-up-my-application-once-ive-added-it"></a>Je ne sais pas comment configurer mon application une fois que je l’ai ajoutée
 
-Si vous avez besoin d’aide pour en savoir plus sur les applications, la [liste des tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) est un bon point de départ.
+Si vous avez besoin d’aide avec l’apprentissage sur les applications, le [liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) article est un bon point de départ.
 
 En outre, la [bibliothèque de documents Applications Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-apps-index) vous fournit plus d’informations sur l’authentification unique avec Azure AD et son fonctionnement.
 
@@ -48,7 +48,7 @@ En outre, la [bibliothèque de documents Applications Azure AD](https://docs.mic
 
 Vous pouvez afficher les détails d’une notification provenant du portail en suivant les étapes ci-dessous :
 
-1.  Sélectionnez l’icône **Notifications** (cloche) dans le coin supérieur droit du portail Azure.
+1.  Sélectionnez le **Notifications** icône (cloche) dans le coin supérieur droit du portail Azure
 
 2.  Sélectionnez n’importe quelle notification avec l’état **Erreur**, signalée par un (!) rouge.
 
@@ -93,7 +93,7 @@ Consultez les descriptions suivantes pour plus d’informations sur les notifica
 
   -   Exemple : **2017-03-23T19:50:43.7583681Z**
 
-- **ID de transaction interne** : ID interne nous permettant de rechercher l’erreur dans nos systèmes
+- **ID de Transaction interne** : l’ID interne, nous pouvons utiliser pour rechercher l’erreur dans nos systèmes
 
   -   Exemple : **71a2f329-ca29-402f-aa72-bc00a7aca603**
 

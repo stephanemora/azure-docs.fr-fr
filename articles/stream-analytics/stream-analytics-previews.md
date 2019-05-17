@@ -7,13 +7,13 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 02/05/2019
-ms.openlocfilehash: 08430f3eee858cdb6c9a7fbdfe11bd4c00ef148d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/07/2019
+ms.openlocfilehash: f3838bf6b9f7daa24c0cdb5b0c5a08d41d164530
+ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61485673"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65561133"
 ---
 # <a name="azure-stream-analytics-preview-features"></a>Fonctionnalités d’évaluation Azure Stream Analytics
 
@@ -22,6 +22,10 @@ Cet article résume toutes les fonctionnalités actuellement en préversion pour
 ## <a name="public-previews"></a>Préversions publiques
 
 Les fonctionnalités suivantes sont disponibles en préversion publique. Vous pouvez tirer parti de ces fonctionnalités aujourd’hui, mais ne les utilisez pas dans votre environnement de production.
+
+### <a name="visual-studio-code-for-azure-stream-analytics-released-may-2019"></a>Visual Studio Code pour l’Analytique Azure Stream (publiées en mai 2019)
+
+Les travaux Azure Stream Analytics peuvent être créés dans Visual Studio Code. Consultez notre [didacticiel de prise en main de VS Code](https://docs.microsoft.com/azure/stream-analytics/quick-create-vs-code).
 
 ### <a name="anomaly-detection"></a>Détection des anomalies
 
@@ -47,20 +51,21 @@ Visual Studio Tools pour Azure Stream Analytics améliore la fonctionnalité de 
 
 Avec les fonctions .NET standard définies par l’utilisateur, vous pouvez exécuter le code .NET Standard au sein même de votre pipeline de streaming. Vous pouvez créer des classes C# simples, ou importer des bibliothèques et un projet complet. Une expérience de création et de débogage complète est prise en charge dans Visual Studio. Pour plus d’informations, consultez [Développer des fonctions .NET Standard définies par l’utilisateur pour des tâches Azure Stream Analytics Edge](stream-analytics-edge-csharp-udf-methods.md).
 
-## <a name="private-previews"></a>Préversions privées
+## <a name="other-previews"></a>Autres versions préliminaires
 
-Les fonctionnalités suivantes sont disponibles en préversion privée.
+Les fonctionnalités suivantes sont également disponibles en version préliminaire.
 
-### <a name="c-custom-deserializer-for-azure-stream-analytics-on-iot-edge"></a>Désérialiseur personnalisé C# pour Azure Stream Analytics sur IoT Edge
+### <a name="c-custom-deserializer-for-azure-stream-analytics-on-iot-edge-and-cloud-announced-may-2019"></a>C#désérialiseur personnalisé pour Azure Stream Analytique sur IoT Edge et le Cloud (Announced mai 2019)
 
-Les développeurs peuvent désormais implémenter des désérialiseurs personnalisés en C# pour désérialiser les événements reçus par Azure Stream Analytics. Parquet, Protobuf, XML ou tout format binaire sont autant d’exemples de formats pouvant être désérialisés.
+Les développeurs peuvent implémenter un désérialiseur personnalisé dans C# pour désérialiser les événements reçus par Azure Stream Analytique. Parquet, Protobuf, XML ou tout format binaire sont autant d’exemples de formats pouvant être désérialisés. Inscrivez-vous pour cette version préliminaire [ici](https://aka.ms/asapreview1).
 
-### <a name="visual-studio-code-for-azure-stream-analytics"></a>Visual Studio Code pour Azure Stream Analytics
+### <a name="parquet-output-announced-may-2019"></a>Sortie parquet (annoncée dans mai 2019)
+Parquet est un format de colonne l’activation du traitement du big data efficace. En affichant les données au format Parquet dans un lac de données, vous pouvez tirer parti d’Azure Stream Analytique à grande échelle power ETL de diffusion en continu et exécuter le traitement par lots, former des algorithmes d’apprentissage automatique ou exécuter des requêtes interactives sur vos données d’historique. Inscrivez-vous pour cette version préliminaire [ici](https://aka.ms/asapreview1).
 
-Les travaux Azure Stream Analytics peuvent être créés dans Visual Studio Code. Pour accéder à outils des fonctionnalités en version préliminaire privée, contactez à *ASAToolsfeedback\@microsoft.com*.
+### <a name="one-click-integration-with-event-hubs-announced-may-2019"></a>Intégration d’un seul clic à Event Hubs (Announced mai 2019) 
+Avec cette intégration, vous serez maintenant en mesure de visualiser les données entrantes et commencer à écrire une requête Analytique de Stream en un seul clic à partir du portail du Hub d’événements. Une fois que votre requête est prête, vous ne pourrez pas il mettons en production en quelques clics et commencer à obtenir des informations en temps réel. Cela réduit considérablement le temps et les coûts pour développer des solutions d’analytique en temps réel. Inscrivez-vous pour cette version préliminaire [ici](https://aka.ms/asapreview1).
 
-## <a name="next-steps"></a>Étapes suivantes
+### <a name="support-for-azure-stack-announced-may-2019"></a>Prise en charge pour Azure Stack (annoncée dans mai 2019)
+Cette fonctionnalité est activée sur le runtime Azure IoT Edge, tire parti des fonctionnalités d’Azure Stack personnalisées, telles que la prise en charge native pour les entrées locales et génère en cours d’exécution sur Azure Stack (par exemple Event Hubs, IoT Hub, stockage d’objets Blob). Cette nouvelle intégration permet de générer des architectures hybrides qui peuvent analyser vos données à proximité où elle est générée, en réduisant la latence et optimiser des insights.
+Inscrivez-vous pour cette version préliminaire [ici](https://aka.ms/asapreview1).
 
-* [Huit nouvelles fonctionnalités dans Azure Stream Analytics](https://azure.microsoft.com/blog/eight-new-features-in-azure-stream-analytics/)
-
-* [Quatre nouvelles fonctionnalités sont désormais disponibles dans Azure Stream Analytics](https://azure.microsoft.com/blog/4-new-features-now-available-in-azure-stream-analytics/)

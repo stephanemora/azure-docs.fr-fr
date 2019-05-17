@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/08/2019
 ms.author: sujayt
-ms.openlocfilehash: fafa791039397e93e9bf8ab6be04a2190e8ed784
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 3c87e159022b6dcf13daf2a2659c88c0529a8f48
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64699074"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65796424"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Résoudre les problèmes de réplication de machine virtuelle Azure vers Azure
 
@@ -232,10 +232,10 @@ Vous pouvez choisir protéger les disques ou ignorer l’avertissement pour que 
  ![add_disks](./media/azure-to-azure-troubleshoot-errors/add-disk.png)
 2. Pour ignorer l’avertissement. Accédez à éléments répliqués > machine virtuelle > cliquez sur l’alerte dismiss sous la section vue d’ensemble.
 ![dismiss_warning](./media/azure-to-azure-troubleshoot-errors/dismiss-warning.png)
-## <a name="unable-to-see-the-azure-vm-for-selection-in-enable-replication"></a>Impossible de sélectionner la machine virtuelle Azure dans « Activer la réplication »
+## <a name="unable-to-see-the-azure-vm-or-resource-group--for-selection-in-enable-replication"></a>Impossible de voir la machine virtuelle Azure ou groupe de ressources pour la sélection dans « activer la réplication »
 
  **Cause 1 :  le groupe de ressources et la machine virtuelle source se trouvent à un emplacement différent** <br>
-Azure Site Recovery exige actuellement que le groupe de ressources et les machines virtuelles de la région source se trouvent dans le même emplacement. Si tel n’est pas le cas, vous ne pouvez pas trouver la machine virtuelle pendant la durée de la protection.
+Azure Site Recovery actuellement des obligations qui émettent des groupe de ressources de la région et les machines virtuelles doivent être dans le même emplacement. Si tel n’est pas le cas, vous ne pouvez pas trouver la machine virtuelle pendant la durée de la protection. Pour résoudre ce problème, vous pouvez activer la réplication à partir de la machine virtuelle au lieu du coffre Recovery services. Accédez à Sourece VM > Propriétés > activer la réplication et récupération d’urgence.
 
 **Cause 2 : le groupe de ressources ne fait pas partie de l’abonnement sélectionné** <br>
 Il se peut que vous ne puissiez pas trouver le groupe de ressources au moment de la protection s’il ne fait pas partie de l’abonnement donné. Assurez-vous que le groupe de ressources appartient à l’abonnement en cours d’utilisation.
@@ -252,7 +252,7 @@ Si vous ne voyez pas la machine virtuelle que vous souhaitez activer pour la ré
 >
 >Veillez à mettre à jour le module AzureRM.Resources avant d’utiliser le script ci-dessous.
 
-Vous pouvez utiliser ce [script de suppression de configuration ASR obsolète](https://gallery.technet.microsoft.com/Azure-Recovery-ASR-script-3a93f412) pour supprimer la configuration Site Recovery obsolète sur la machine virtuelle Azure. Vous devriez être en mesure de voir la machine virtuelle après la suppression de la configuration obsolète.
+Vous pouvez utiliser ce [script de suppression de configuration ASR obsolète](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1) pour supprimer la configuration Site Recovery obsolète sur la machine virtuelle Azure. Vous devriez être en mesure de voir la machine virtuelle après la suppression de la configuration obsolète.
 
 ## <a name="unable-to-select-virtual-machine-for-protection"></a>Impossible de sélectionner la machine virtuelle pour la protection
  **Cause 1 :  la machine virtuelle comporte une extension en échec ou qui ne répond pas** <br>
@@ -311,7 +311,7 @@ Vous pouvez ouvrir la console « Services » et vérifier que « Application sys
 ## <a name="enable-protection-failed-as-device-name-mentioned-in-the-grub-configuration-instead-of-uuid-error-code-151126"></a>L'activation de la protection a échoué car le nom de l'appareil mentionné dans la configuration GRUB n'est pas l'UUID (code d'erreur 151126)
 
 **Cause possible :** </br>
-Les fichiers de configuration GRUB (« /boot/grub/menu.lst », « /boot/grub/grub.cfg », « /boot/grub2/grub.cfg » ou « /etc/default/grub ») peuvent contenir la valeur des paramètres **root** et **resume** en tant que noms d'appareils en lieu et place de l'UUID. Site Recovery impose l'approche UUID car le nom de l'appareil peut changer lors du redémarrage de la machine virtuelle. Et si la machine virtuelle n'apparaît pas sous le même nom lors du basculement, des problèmes peuvent survenir. Par exemple :  </br>
+Les fichiers de configuration GRUB (« /boot/grub/menu.lst », « /boot/grub/grub.cfg », « /boot/grub2/grub.cfg » ou « /etc/default/grub ») peuvent contenir la valeur des paramètres **root** et **resume** en tant que noms d'appareils en lieu et place de l'UUID. Site Recovery impose l'approche UUID car le nom de l'appareil peut changer lors du redémarrage de la machine virtuelle. Et si la machine virtuelle n'apparaît pas sous le même nom lors du basculement, des problèmes peuvent survenir. Exemple : </br>
 
 
 - La ligne suivante provient du fichier GRUB **/boot/grub2/grub.cfg**. <br>
@@ -327,7 +327,7 @@ Si vous observez la chaîne en gras ci-dessus, cela signifie que GRUB contient l
 Le nom de chaque appareil doit être remplacé par l'UUID correspondante.<br>
 
 
-1. Rechercher l’UUID de l’appareil en exécutant la commande « blkid \<nom de l’appareil > ». Par exemple : <br>
+1. Rechercher l’UUID de l’appareil en exécutant la commande « blkid \<nom de l’appareil > ». Exemple :<br>
    ```
    blkid /dev/sda1
    ```<br>

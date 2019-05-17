@@ -6,15 +6,16 @@ services: media-services
 author: anikaz
 manager: johndeu
 ms.service: media-services
+ms.subservice: video-indexer
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 05/15/2019
 ms.author: anzaman
-ms.openlocfilehash: e5a34a75c73401c567a0e898a1ce9f85cde96586
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6c4980536eddd0226fac422ae17ddb717e34630d
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60553706"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65799470"
 ---
 # <a name="customize-a-person-model-with-the-video-indexer-api"></a>Personnaliser un modèle de personne avec l’API Video Indexer
 
@@ -52,13 +53,13 @@ curl -v -X POST "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cus
 
 [Consultez les paramètres requis et effectuez des tests à partir du portail des développeurs Video Indexer](https://api-portal.videoindexer.ai/docs/services/operations/operations/Create-Person-Model?).
 
-### <a name="request-parameters"></a>Paramètres de la demande 
+### <a name="request-parameters"></a>Paramètres de requête 
 
 |**Name**|**Type**|**Obligatoire**|**Description**|
 |---|---|---|---|
 |location|string|Oui|La région Azure vers laquelle l’appel doit être routé. Pour plus d’informations, consultez [Régions Azure et Video Indexer](regions.md).|
 |accountId|string|Oui|GUID pour ce compte|
-|Nom|string|Oui|Le nom du modèle de personne|
+|name|string|Oui|Le nom du modèle de personne|
 |accessToken|string|Oui|Jeton d’accès (doit être du type [Jeton d’accès de compte](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) pour s’authentifier auprès de l’appel. Les jetons d’accès expirent au bout d’une heure.|
 
 ### <a name="request-body"></a>Corps de la demande
@@ -97,7 +98,7 @@ curl -v -X DELETE "https://api.videoindexer.ai/{location}/Accounts/{accountId}/C
 
 [Consultez les paramètres requis et effectuez des tests à partir du portail des développeurs Video Indexer](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-Person-Model?).
 
-### <a name="request-parameters"></a>Paramètres de la demande
+### <a name="request-parameters"></a>Paramètres de requête
 
 |**Name**|**Type**|**Obligatoire**|**Description**|
 |---|---|---|---|
@@ -134,7 +135,7 @@ curl -v -X GET "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cust
 
 [Consultez les paramètres requis et effectuez des tests à partir du portail des développeurs Video Indexer](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Person-Models?).
 
-### <a name="request-parameters"></a>Paramètres de la demande
+### <a name="request-parameters"></a>Paramètres de requête
 
 |**Name**|**Type**|**Obligatoire**|**Description**|
 |---|---|---|---|
@@ -189,7 +190,7 @@ curl -v -X PUT "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Vide
 
 [Consultez les paramètres requis et effectuez des tests à partir du portail des développeurs Video Indexer](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Video-Face?).
 
-### <a name="request-parameters"></a>Paramètres de la demande
+### <a name="request-parameters"></a>Paramètres de requête
 
 |**Name**|**Type**|**Obligatoire**|**Description**|
 |---|---|---|---|
@@ -198,7 +199,7 @@ curl -v -X PUT "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Vide
 |videoId|string|Oui|ID de la vidéo dans laquelle le visage que vous souhaitez mettre à jour apparaît. Il est créé lorsque la vidéo est téléchargée et indexée.|
 |faceId|integer|Oui|ID du visage qui sera mise à jour. Vous pouvez obtenir le faceId à partir de l’index vidéo|
 |accessToken|string|Oui|Jeton d’accès (doit être du type [Jeton d’accès de compte](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) pour s’authentifier auprès de l’appel. Les jetons d’accès expirent au bout d’une heure.|
-|Nom|string|Oui|Nouveau nom du visage à mettre à jour.|
+|name|string|Oui|Nouveau nom du visage à mettre à jour.|
 
 Les noms étant uniques pour les modèles de personne, si vous affectez la même valeur au paramètre **nom** à deux visages du même modèle de personne, Video Indexer identifie les visages comme appartenant à la même personne et les rapproche quand vous réindexez votre vidéo. 
 
