@@ -18,12 +18,12 @@ ms.date: 12/14/2018
 ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f95fd85b5a0fd9e905b93b9b90f18f963dbf1690
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9da23b0c0b0b0c0bfc238b1504811a9c1c55a9ef
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60355730"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65785375"
 ---
 # <a name="what-are-conditions-in-azure-active-directory-conditional-access"></a>Que sont les conditions dans l’accès conditionnel Azure Active Directory ? 
 
@@ -57,29 +57,23 @@ Lorsque vous **sélectionnez des utilisateurs et des groupes**, vous pouvez déf
 
 * L’option **Utilisateurs et groupes** cible des ensembles spécifiques d’utilisateurs. Par exemple, vous pouvez sélectionner un groupe qui contient tous les membres du service RH lorsqu’une application RH est sélectionnée en tant qu’application cloud. Un groupe peut être n’importe quel type de groupe dans Azure AD, y compris les groupes de sécurité et de distribution dynamiques ou affectés.
 
-Vous pouvez également exclure des utilisateurs ou groupes spécifiques d’une stratégie. Les comptes de service sont un cas d’utilisation courant si votre stratégie met en œuvre l’authentification multifacteur (MFA). 
+Vous pouvez également exclure des utilisateurs ou groupes spécifiques d’une stratégie. Les comptes de service sont un cas d’utilisation courant si votre stratégie met en œuvre l’authentification multifacteur (MFA).
 
-Le ciblage d’ensembles spécifiques d’utilisateurs est utile pour le déploiement d’une nouvelle stratégie. Dans une nouvelle stratégie, vous devez cibler uniquement un ensemble initial d’utilisateurs pour valider le comportement de stratégie. 
+Le ciblage d’ensembles spécifiques d’utilisateurs est utile pour le déploiement d’une nouvelle stratégie. Dans une nouvelle stratégie, vous devez cibler uniquement un ensemble initial d’utilisateurs pour valider le comportement de stratégie.
 
+## <a name="cloud-apps-and-actions"></a>Applications cloud et les actions
 
+Une application cloud est un site Web, un service ou un point de terminaison protégés par le Proxy d’Application Azure AD. Pour une description détaillée des applications cloud prises en charge, consultez [Affectations des applications cloud](technical-reference.md#cloud-apps-assignments). Le **Cloud des applications ou des actions** condition est obligatoire dans une stratégie d’accès conditionnel. Dans votre stratégie, vous pouvez soit sélectionner **toutes les applications cloud** ou spécifier les applications avec **sélectionner les applications**.
 
-## <a name="cloud-apps"></a>Applications cloud 
+Les organisations peuvent choisir parmi les options suivantes :
 
-Une application cloud est un site web ou un service. Les sites web protégés par le proxy d’application Azure AD sont également des applications cloud. Pour une description détaillée des applications cloud prises en charge, consultez [Affectations des applications cloud](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#cloud-apps-assignments). 
+* **Toutes les applications cloud** lors de l’application des stratégies de base à appliquer à toute l’organisation. Utilisez cette sélection pour les stratégies qui requièrent l’authentification multifacteur lors de la détection de risque de connexion pour n’importe quelle application cloud. Une stratégie appliquée à toutes les applications cloud s’applique à l’accès à tous les sites Web et services. Ce paramètre n’est pas limité aux applications cloud qui apparaissent dans la liste des applications Select.
+* **Sélectionnez des applications** pour cibler des services spécifiques avec votre stratégie. Par exemple, vous pouvez demander aux utilisateurs d’avoir un appareil conforme pour accéder à SharePoint Online. Cette stratégie s’applique aussi à d’autres services lorsqu’ils accèdent à des contenus SharePoint. Microsoft Teams en est un exemple.
 
-La condition **Applications de cloud** est obligatoire dans une stratégie d’accès conditionnel. Dans votre stratégie, vous pouvez soit sélectionner **Toutes les applications cloud** soit sélectionner des applications spécifiques.
+> [!NOTE]
+> Vous pouvez exclure des applications spécifiques d’une stratégie. Toutefois, ces applications sont toujours soumises aux stratégies appliquées aux services auxquels elles accèdent.
 
-![Inclure les applications cloud](./media/conditions/03.png)
-
-Sélectionnez :
-
-- **Toutes les applications cloud** pour que les stratégies de base s’appliquent à toute l’organisation. Procédez ainsi pour les stratégies qui requièrent l’authentification multifacteur lorsqu’un risque à la connexion est détecté sur une application cloud. Une stratégie appliquée à **toutes les applications cloud** concerne l’accès à tous les services et sites web. Ce paramètre n’est pas limité aux applications cloud de la liste **Sélection des applications**. 
-
-- **Sélectionnez des applications** pour cibler des services spécifiques avec votre stratégie. Par exemple, vous pouvez demander aux utilisateurs d’avoir un [Appareil conforme](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online) pour accéder à SharePoint Online. Cette stratégie s’applique aussi à d’autres services lorsqu’ils accèdent à des contenus SharePoint. Microsoft Teams en est un exemple. 
-
-Vous pouvez exclure des applications spécifiques d’une stratégie. Toutefois, ces applications sont toujours soumises aux stratégies appliquées aux services auxquels elles accèdent. 
-
-
+**Actions de l’utilisateur** sont des tâches qui peuvent être effectuées par un utilisateur. La seule action actuellement pris en charge est **enregistrer les informations de sécurité (version préliminaire)**, ce qui permet la stratégie d’accès conditionnel qui s’appliquent lorsqu’un utilisateur s’inscrit à leurs informations de sécurité.
 
 ## <a name="sign-in-risk"></a>Risque à la connexion
 
@@ -110,7 +104,7 @@ Un cas d’usage commun pour cette condition est une stratégie qui limite l’a
 
 
 
-## <a name="device-state"></a>État de l’appareil
+## <a name="device-state"></a>État de l'appareil
 
 La condition d’état de l’appareil exclut les appareils hybrides joints à Azure AD et les appareils marqués comme conformes d’une stratégie d’accès conditionnel. 
 

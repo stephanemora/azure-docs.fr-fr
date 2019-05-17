@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 5b04cabe734b97436421595dbb0ab7584efd4911
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 4f3fb624f5e6137c9edb0be97adc16d8c808ebd9
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024946"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523067"
 ---
 # <a name="how-to-index-json-blobs-using-azure-search-blob-indexer"></a>Comment indexer des objets BLOB JSON à l’aide d’indexeur d’objets Blob Azure Search
 Cet article vous montre comment configurer un objet blob Azure Search [indexeur](search-indexer-overview.md) pour extraire le contenu structuré à partir de documents JSON dans stockage Blob Azure et les rendre détectables dans Azure Search. Ce flux de travail crée un index Azure Search et la charge de texte existant extrait des objets BLOB JSON. 
@@ -128,7 +128,7 @@ Ordre des opérations nécessite que vous créez et que vous appelez des objets 
 
 Objets BLOB JSON dans stockage Blob Azure sont généralement un seul document JSON ou JSON « tableau ». L’indexeur d’objets blob dans Recherche Azure peut analyser l’une ou l’autre de ces constructions selon la définition du paramètre **parsingMode** sur la requête.
 
-| Document JSON | parsingMode | Description | Disponibilité |
+| Document JSON | parsingMode | Description  | Disponibilité |
 |--------------|-------------|--------------|--------------|
 | Un seul par objet blob | `json` | Analyse les objets blob JSON comme un bloc de texte unique. Chaque objet blob JSON devient un document Recherche Azure unique. | La disposition générale dans les deux [REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) API et [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) SDK. |
 | Plusieurs par objet blob | `jsonArray` | Analyse un tableau JSON dans l’objet blob, où chaque élément du tableau devient un document Recherche Azure distinct.  | La disposition générale dans les deux [REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) API et [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) SDK. |
@@ -279,7 +279,7 @@ Création de l’indexeur recherche Azure déclenche l’importation des donnée
 
 ## <a name="use-net-sdk"></a>Utilisation du Kit de développement logiciel (SDK) .NET
 
-Le SDK .NET est entièrement pareil que l’API REST. Nous vous recommandons de consulter la section précédente de l’API REST pour découvrir les concepts, les workflows et les exigences. Vous pouvez alors vous référer à la documentation de référence des API .NET suivante pour implémenter un indexeur JSON dans du code managé.
+Le kit SDK .NET offre une parité complète avec l’API REST. Nous vous recommandons de consulter la section précédente de l’API REST pour découvrir les concepts, les workflows et les exigences. Vous pouvez alors vous référer à la documentation de référence des API .NET suivante pour implémenter un indexeur JSON dans du code managé.
 
 + [microsoft.azure.search.models.datasource](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet)
 + [microsoft.azure.search.models.datasourcetype](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasourcetype?view=azure-dotnet) 
@@ -292,7 +292,7 @@ Le SDK .NET est entièrement pareil que l’API REST. Nous vous recommandons de 
 
 Objets BLOB JSON peuvent supposer que plusieurs formulaires. Le **parsingMode** paramètre sur l’indexeur JSON détermine l’analyse de contenu d’objet blob JSON et structuré dans un index Azure Search :
 
-| parsingMode | Description |
+| parsingMode | Description  |
 |-------------|-------------|
 | `json`  | Indexer chaque objet blob en tant qu’un seul document. Il s’agit de la valeur par défaut. |
 | `jsonArray` | Choisissez ce mode si vos objets BLOB sont constitués de tableaux JSON, et que vous avez besoin de chaque élément du tableau pour devenir un document distinct dans Azure Search. |

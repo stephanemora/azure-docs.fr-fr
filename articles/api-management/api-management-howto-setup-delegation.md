@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 796bea3c64ef7fc03367707461d13e0ea2514b8b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4db99f23019b34e7361e3ead4096939b9499320d
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60657738"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65518086"
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>Délégation de l'inscription des utilisateurs et des abonnements aux produits
 
@@ -130,7 +130,7 @@ Ensuite, assurez-vous que le point de terminaison de délégation effectue les a
      > 
    * Comparez le code de hachage calculé plus haut avec la valeur du paramètre de requête **sig**. Si les deux codes de hachage correspondent, passez à l'étape suivante. Sinon, rejetez la demande.
 3. Traiter l’abonnement au produit en fonction du type d’opération demandé dans **opération** , par exemple, facturation, autres questions, etc.
-4. Après avoir correctement abonné l'utilisateur au produit de votre côté, abonnez l'utilisateur au produit Gestion des API en [appelant l'API REST pour l'abonnement au produit].
+4. Après avoir correctement abonné l’utilisateur au produit de votre côté, abonnez l’utilisateur pour le produit de gestion des API par [appeler l’API REST pour les abonnements].
 
 ## <a name="delegate-example-code"></a> Exemple de Code
 
@@ -186,7 +186,7 @@ Pour plus d’informations sur la délégation, regardez la vidéo suivante :
 [Delegating product subscription]: #delegate-product-subscription
 [Demandez un jeton d'authentification unique (SSO)]: https://docs.microsoft.com/rest/api/apimanagement/User/GenerateSsoUrl
 [Créez un utilisateur]: https://docs.microsoft.com/rest/api/apimanagement/user/createorupdate
-[appelant l'API REST pour l'abonnement au produit]: https://docs.microsoft.com/rest/api/apimanagement/productsubscriptions
+[appeler l’API REST pour les abonnements]: https://docs.microsoft.com/rest/api/apimanagement/subscription/createorupdate
 [Next steps]: #next-steps
 [exemple de code ci-dessous]: #delegate-example-code
 

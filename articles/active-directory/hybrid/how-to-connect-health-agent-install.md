@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a2be8455a3fb0a60cea056e9bda1f41b076dfec9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c3d1a8afdbad1878f4ce134edeeb95dad79e98a1
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60350834"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65784818"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Installation de l'agent Azure AD Connect Health
 
@@ -45,7 +45,7 @@ Le tableau qui suit est une liste d’exigences d’utilisation d’Azure AD Con
 
 ### <a name="outbound-connectivity-to-the-azure-service-endpoints"></a>Connectivité sortante vers les points de terminaison de service Azure
 
- Pendant l’installation et l’exécution, l’agent nécessite une connectivité vers les points de terminaison de service Azure AD Connect Health. Si la connectivité sortante est bloquée à l'aide de pare-feu, assurez-vous que les URL suivantes ne sont pas bloquées par défaut. Ne désactivez pas la surveillance ou l'inspection de la sécurité de ces URL, mais autorisez-les comme vous le feriez pour tout autre trafic Internet. Celles-ci permettent la communication avec les points de terminaison de service Azure AD Connect Health. En savoir plus sur la [vérification de la connectivité sortante](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections)
+ Pendant l’installation et l’exécution, l’agent nécessite une connectivité vers les points de terminaison de service Azure AD Connect Health. Si la connectivité sortante est bloquée à l'aide de pare-feu, assurez-vous que les URL suivantes ne sont pas bloquées par défaut. Ne désactivez pas la surveillance ou l'inspection de la sécurité de ces URL, mais autorisez-les comme vous le feriez pour tout autre trafic Internet. Celles-ci permettent la communication avec les points de terminaison de service Azure AD Connect Health. Découvrez comment [vérifier la connectivité sortante avec Test-AzureADConnectHealthConnectivity](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-agent-install#test-connectivity-to-azure-ad-connect-health-service).
 
 | Environnement de domaine | Points de terminaison de service Azure nécessaires |
 | --- | --- |

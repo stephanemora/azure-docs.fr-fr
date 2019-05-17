@@ -11,19 +11,19 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/25/2018
+ms.date: 05/09/2019
 ms.author: magoedte
-ms.openlocfilehash: 34e6ce7f3b38dfd583aa557d2f1d7340ea444da9
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 792c2bd02b666cd656f1df368a7a60db44ccf8c4
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62115772"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522171"
 ---
 # <a name="using-azure-monitor-for-vms-preview-map-to-understand-application-components"></a>Utilisation de la fonctionnalité Map d’Azure Monitor pour machines virtuelles (préversion) dans le but de comprendre les composants d’application
-Lorsque vous visualisez les composants d’application détectés sur des machines virtuelles Windows et Linux s’exécutant dans Azure, vous pouvez observer votre environnement de deux manières avec Azure Monitor pour machines virtuelles : directement à partir d’une machine virtuelle ou à l’échelle des groupes de machines virtuelles à partir d’Azure Monitor. 
+Affichage de composants application détectée sur Windows et Linux des machines virtuelles s’exécutant dans Azure, votre environnement peut être observé de deux manières avec Azure Monitor pour les machines virtuelles, à partir d’une machine virtuelle directement, ou entre des groupes de machines virtuelles à partir d’Azure Monitor. 
 
-Cet article vous aide à comprendre l’expérience selon les deux perspectives et à utiliser la fonctionnalité Map. Pour plus d’informations sur la configuration d’Azure Monitor pour les machines virtuelles, consultez [Enable Azure Monitor for VMs ](vminsights-onboard.md)(Activer Azure Monitor pour les machines virtuelles).
+Cet article vous aide à comprendre l’expérience selon les deux perspectives et à utiliser la fonctionnalité Map. Pour plus d’informations sur la configuration d’Azure Monitor pour les machines virtuelles, consultez [Enable Azure Monitor for VMs ](vminsights-enable-overview.md)(Activer Azure Monitor pour les machines virtuelles).
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.azure.com).
@@ -97,6 +97,21 @@ Map affiche les dépendances de machines virtuelles, c’est-à-dire les process
 
 ![Vue d’ensemble de la carte de machine virtuelle directe](./media/vminsights-maps/map-direct-vm-01.png)
 
+## <a name="view-map-directly-from-a-virtual-machine-scale-set"></a>Afficher la carte directement à partir d’une échelle de machine virtuelle définie
+
+Pour accéder à Azure Monitor pour les machines virtuelles directement à partir d’un jeu de mise à l’échelle de machine virtuelle, procédez comme suit.
+
+1. Dans le portail Azure, sélectionnez **machines virtuelles identiques**.
+2. Choisissez une machine virtuelle dans la liste, puis, dans la section **Surveillance**, sélectionnez **Insights (préversion)**.  
+3. Sélectionnez l’onglet **Carte**.
+
+Map permet de visualiser toutes les instances dans le groupe identique comme un nœud de groupe, ainsi que les dépendances du groupe. Le nœud développé répertorie les instances dans l’ensemble d’échelle, vous pouvez faire défiler les dix à la fois. Pour charger une carte pour une instance spécifique, sélectionnez l’instance sur la carte, puis cliquez sur le bouton de sélection pour qu’il convient et choisissez **charger la carte du serveur**. Cela chargera le mappage pour cette instance, ce qui vous permet de voir les groupes de processus et des processus avec des connexions réseau actives sur une plage de temps spécifié. Par défaut, la carte affiche les 30 dernières minutes. À l’aide de la **TimeRange** sélecteur que vous pouvez rechercher des plages horaires historiques de jusqu'à une heure pour afficher l’aspect des dépendances dans le passé (par exemple, pendant un incident ou avant une modification).  
+
+![Vue d’ensemble de la carte de machine virtuelle directe](./media/vminsights-maps/map-direct-vmss-01.png)
+
+>[!NOTE]
+>Vous pouvez également accéder un mappage pour une instance spécifique à partir de la vue Instances pour vos machines virtuelles identiques. Accédez à **Instances** sous le **paramètres** section, puis choisissez **Insights (version préliminaire)**.
+
 ## <a name="view-map-from-azure-monitor"></a>Afficher Map à partir d’Azure Monitor
 À partir d’Azure Monitor, la fonctionnalité Map offre une vue globale de vos machines virtuelles et de leurs dépendances.  Pour accéder à la fonctionnalité Map à partir d’Azure Monitor, procédez comme suit. 
 
@@ -106,7 +121,7 @@ Map affiche les dépendances de machines virtuelles, c’est-à-dire les process
 
 ![Vue d’ensemble de la carte de machines virtuelles multiples dans Azure Monitor](./media/vminsights-maps/map-multivm-azure-monitor-01.png)
 
-Dans le sélecteur **Espace de travail** en haut de la page, si vous avez plusieurs espaces de travail Log Analytics, choisissez celui qui est activé avec la solution et auquel des machines virtuelles envoient des rapports. Le sélecteur **Groupe** retourne les abonnements, les groupes de ressources, les [groupes d’ordinateurs](../../azure-monitor/platform/computer-groups.md) et les groupes de machines virtuelles identiques associés à l’espace de travail sélectionné. Votre sélection s’applique seulement à la fonctionnalité Carte, et n’est pas reportée sur Performances ou Carte.
+Dans le sélecteur **Espace de travail** en haut de la page, si vous avez plusieurs espaces de travail Log Analytics, choisissez celui qui est activé avec la solution et auquel des machines virtuelles envoient des rapports. Le **groupe** sélecteur retournera des abonnements, groupes de ressources, [groupes d’ordinateurs](../../azure-monitor/platform/computer-groups.md)et les machines virtuelles identiques d’ordinateurs liés à l’espace de travail sélectionné. Votre sélection s’applique seulement à la fonctionnalité Carte, et n’est pas reportée sur Performances ou Carte.
 
 Par défaut, la carte affiche les 30 dernières minutes. Le sélecteur **TimeRange** permet d’effectuer des requêtes sur des intervalles de temps historiques jusqu’à une heure afin de voir l’aspect passé des dépendances (par exemple, pendant un incident ou avant une modification).   
 

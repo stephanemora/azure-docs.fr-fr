@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/16/2019
 ms.author: kumud;tyao
-ms.openlocfilehash: e0ad1e85a4cd47de823bc4f224b5a8834b1068b9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3701a69ab72abf20a4f1608a1cee56c9cea38aca
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61459315"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523637"
 ---
 # <a name="configure-a-web-application-firewall-rate-limit-rule-using-azure-powershell"></a>Configurer une règle de limite de taux de pare-feu web application à l’aide d’Azure PowerShell
 La règle de limite de la vitesse (pare-feu) d’application web Azure pour Azure porte d’entrée contrôle le nombre de demandes autorisées à partir d’une adresse IP unique client pendant une durée d’une minute.
@@ -55,17 +55,17 @@ Install-Module -Name Az.FrontDoor
 Créez un profil Front Door en suivant les instructions décrites dans [Démarrage rapide : Créer un profil de la porte d’entrée](quickstart-create-front-door.md)
 
 ## <a name="define-url-match-conditions"></a>Définir des conditions de correspondance url
-Définir une condition de correspondance d’URL (URL contient /promo) à l’aide de [New-AzFrontDoorMatchConditionObject](/powershell/module/az.frontdoor/new-azfrontdoormatchconditionobject).
+Définir une condition de correspondance d’URL (URL contient /promo) à l’aide de [New-AzFrontDoorWafMatchConditionObject](/powershell/module/az.frontdoor/new-azfrontdoorwafmatchconditionobject).
 L’exemple suivant correspond à */promo* comme valeur de la *RequestUri* variable :
 
 ```powershell-interactive
-   $promoMatchCondition = New-AzFrontDoorMatchConditionObject `
+   $promoMatchCondition = New-AzFrontDoorWafMatchConditionObject `
      -MatchVariable RequestUri `
      -OperatorProperty Contains `
      -MatchValue "/promo"
 ```
 ## <a name="create-a-custom-rate-limit-rule"></a>Créer une règle de limite de taux personnalisé
-Définir une limite de taux à l’aide [New-AzFrontDoorCustomRuleObject](/powershell/module/Az.FrontDoor/New-AzFrontDoorCustomRuleObject). Dans l’exemple suivant, la limite est définie sur 1000. Demandes à partir de n’importe quel client à la page de promotion supérieure à 1000 pendant une minute sont bloquées jusqu'à ce que la prochaine minute commence.
+Définir une limite de taux à l’aide [New-AzFrontDoorCustomRuleObject](/powershell/module/az.frontdoor/new-azfrontdoorwafcustomruleobject). Dans l’exemple suivant, la limite est définie sur 1000. Demandes à partir de n’importe quel client à la page de promotion supérieure à 1000 pendant une minute sont bloquées jusqu'à ce que la prochaine minute commence.
 
 ```powershell-interactive
    $promoRateLimitRule = New-AzFrontDoorCustomRuleObject `
@@ -79,14 +79,14 @@ Définir une limite de taux à l’aide [New-AzFrontDoorCustomRuleObject](/power
 
 ## <a name="configure-a-security-policy"></a>Configurer une stratégie de sécurité
 
-Recherchez le nom du groupe de ressources qui contient le profil Front Door à l’aide de `Get-AzureRmResourceGroup`. Ensuite, configurez une stratégie de sécurité avec une règle de limite de taux personnalisé à l’aide [New-AzFrontDoorFireWallPolicy](/powershell/module/az.frontdoor/new-azfrontdoorfirewallPolicy) dans le groupe de ressources spécifié qui contient le profil de la porte d’entrée.
+Recherchez le nom du groupe de ressources qui contient le profil Front Door à l’aide de `Get-AzureRmResourceGroup`. Ensuite, configurez une stratégie de sécurité avec une règle de limite de taux personnalisé à l’aide [New-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy) dans le groupe de ressources spécifié qui contient le profil de la porte d’entrée.
 
 L’exemple ci-dessous utilise le nom de groupe de ressources *myResourceGroupFD1* en partant du principe que vous avez créé le profil Front Door à l’aide des instructions fournies dans l’article [Démarrage rapide : Créer un profil Front Door](quickstart-create-front-door.md).
 
- à l’aide de [New-AzFrontDoorFireWallPolicy](/powershell/module/Az.FrontDoor/New-AzFrontDoorFireWallPolicy).
+ à l’aide de [New-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy).
 
 ```powershell-interactive
-   $ratePolicy = New-AzFrontDoorFireWallPolicy `
+   $ratePolicy = New-AzFrontDoorWafPolicy `
      -Name "RateLimitPolicyExamplePS" `
      -resourceGroupName myResourceGroupFD1 `
      -Customrule $promoRateLimitRule `

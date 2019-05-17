@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 04/30/2019
+ms.date: 05/15/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 6eb7de7810ce23aed4031cca9f038da7149a6f9c
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 1e95adbd1a564fb34d3f0506ac1cc25bc5a63c62
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153083"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65790049"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>Chiffrement du stockage Azure pour les données au repos
 
@@ -51,6 +51,9 @@ Pour savoir comment utiliser des clés gérées par le client avec le stockage A
 - [Configurer les clés de gérée par le client pour le chiffrement de stockage Azure à partir du portail Azure](storage-encryption-keys-portal.md)
 - [Configurer les clés de gérée par le client pour le chiffrement de stockage Azure à partir de PowerShell](storage-encryption-keys-powershell.md)
 - [Utiliser des clés de gérée par le client avec chiffrement de stockage Azure à partir d’Azure CLI](storage-encryption-keys-cli.md)
+
+> [!IMPORTANT]
+> Clés gérées par le client s’appuient sur des identités gérées pour les ressources Azure, une fonctionnalité d’Azure Active Directory (Azure AD). Lors du transfert d’un abonnement à partir d’un répertoire Azure AD aux identités d’un autre, gérées ne sont pas mis à jour et les clés de gérée par le client peuvent ne plus fonctionner. Pour plus d’informations, consultez **transfert d’un abonnement entre annuaires Azure AD** dans [FAQ et problèmes connus avec gérés des identités pour les ressources Azure](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories).  
 
 > [!NOTE]  
 > Clés gérées par le client ne sont pas pris en charge pour [disques gérés Azure](../../virtual-machines/windows/managed-disks-overview.md).

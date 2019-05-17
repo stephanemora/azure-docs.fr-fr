@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 01/22/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 42ab8be45d4086589f0793531003700e7552a440
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 268467796e67caf2d20fedb44d83fd455a09b83e
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64744114"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65538382"
 ---
 **Transferts de données sortants** : [transferts de données sortants](https://azure.microsoft.com/pricing/details/bandwidth/) (données sortant des centres de données Azure) sont facturés en fonction de la bande passante utilisée.
 
-**Transactions** : vous êtes facturé pour le nombre de transactions effectuées sur un disque managé standard. Pour les disques SSD standard, la taille d’unité d’e/s de 256 Kio est utilisée pour le nombre de transactions de comptabilité. Les tailles d’E/S supérieures sont divisées en plusieurs unités d’E/S de 256 Kio. Pour les disques durs Standard, chaque opération d’e/s est considérée comme une transaction unique, indépendamment de la taille d’e/s.
+**Transactions** : vous êtes facturé pour le nombre de transactions effectuées sur un disque managé standard. Pour les disques SSD standard, chaque opération d’e/s inférieure ou égale à 256 Kio du débit est considéré comme une seule opération d’e/s. Plus de 256 Kio des opérations d’e/s de débit sont considérés comme plusieurs e/s de taille 256 Kio. Pour les disques durs Standard, chaque opération d’e/s est considérée comme une transaction unique, indépendamment de la taille d’e/s.
 
 Pour plus d’informations sur la tarification des disques gérés, notamment les coûts de transaction, consultez [Managed Disks tarification](https://azure.microsoft.com/pricing/details/managed-disks).
 

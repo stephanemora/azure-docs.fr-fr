@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/22/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 6eae536bd19a2c0e5707d8e0b379774b6eb2707a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d2daafa6bf5f9a28ad2b61a97e7a8bd2246ae18d
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60618028"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65538418"
 ---
 # <a name="what-disk-types-are-available-in-azure"></a>Quels sont les types de disque disponibles dans Azure ?
 
@@ -44,6 +44,7 @@ Voici certaines fonctionnalités clés des disques Ultra SSD :
 - Capacité du disque : La capacité des disques SSD Ultra s'échelonne de 4 Gio 64 Tio.
 - IOPS du disque : Les disques SSD Ultra prennent en charge des limites d’IOPS de 300 IOPS/Gio, avec un maximum de 160 000 IOPS par disque. Pour atteindre le nombre d’IOPS provisionné, vérifiez que le nombre d’IOPS du disque sélectionné est inférieur au nombre d’IOPS de la machine virtuelle. Le nombre minimal d’IOPS du disque est 100.
 - Débit du disque : Avec les disques SSD Ultra, la limite de débit d’un seul disque est de 256 Kio/s pour chaque IOPS approvisionnée, avec un maximum de 2000 Mo/s par disque (où 1 Mbit/s = 10^6 octets par seconde). Le débit minimal du disque est 1 Mio.
+- SSDs ultra prend en charge ajuster les attributs de performances de disque (IOPS et débit) lors de l’exécution sans détacher le disque à partir de la machine virtuelle. Une fois qu’une opération de redimensionnement de performances de disque est émise sur un disque, elle peut mettre jusqu’à une heure à être appliquée.
 
 ### <a name="disk-size"></a>Taille du disque
 
@@ -58,6 +59,10 @@ Voici certaines fonctionnalités clés des disques Ultra SSD :
 |256     |76 800         |2 000         |
 |512     |80 000         |2 000         |
 |1 024 à 65 536 (dans cette plage, les tailles augmentent par incréments de 1 Tio)     |160 000         |2 000         |
+
+### <a name="transactions"></a>Transactions
+
+Pour les disques SSD ultra, chaque opération d’e/s inférieure ou égale à 256 Kio du débit est considéré comme une seule opération d’e/s. Plus de 256 Kio des opérations d’e/s de débit sont considérés comme plusieurs e/s de taille 256 Kio.
 
 ### <a name="preview-scope-and-limitations"></a>Limitations et étendue de la préversion
 

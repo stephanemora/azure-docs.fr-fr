@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 6b144f126e097a8db9fbbf29e47162fd6a1c2fbe
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 7596670e794c090b04f81cf6b235a4bc54c1f3c4
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64916832"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65800098"
 ---
 # <a name="what-is-speech-to-text"></a>Quelle est la parole-texte ?
 
@@ -24,7 +24,7 @@ Parole-texte à partir des Services Azure de reconnaissance vocale, également a
 
 Par défaut, le service de reconnaissance vocale utilise le modèle de langage universelles. Ce modèle a été formé à l’aide de données appartenant à Microsoft et est déployé le cloud. Il est optimale pour conversationnel et scénarios de dictée. Si vous utilisez la reconnaissance vocale pour la reconnaissance et la transcription dans un environnement unique, vous pouvez créer et former des modèles de prononciation, de langue et acoustiques personnalisés pour prendre en compte un bruit ambiant ou le vocabulaire spécifique d’un secteur. 
 
-Vous pouvez facilement capturer des données audio à partir d’un microphone, lire à partir d’un flux de données ou accéder à des fichiers audio à partir du stockage avec le Speech SDK et des API REST. Le Speech SDK prend en charge les WAV/PCM 16 bits, 16 kHz, monocanal audio pour la reconnaissance vocale. Formats audio supplémentaires sont pris en charge à l’aide de la [point de terminaison REST parole-texte](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) ou [transcription service batch](https://docs.microsoft.com/azure/cognitive-services/speech-service/batch-transcription#supported-formats).
+Vous pouvez facilement capturer des données audio à partir d’un microphone, lire à partir d’un flux de données ou accéder à des fichiers audio à partir du stockage avec le Speech SDK et des API REST. Le Speech SDK prend en charge WAV/PCM 16 bits, 8 kHz à 16 kHz, audio de canal unique pour la reconnaissance vocale. Formats audio supplémentaires sont pris en charge à l’aide de la [point de terminaison REST parole-texte](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) ou [transcription service batch](https://docs.microsoft.com/azure/cognitive-services/speech-service/batch-transcription#supported-formats).
 
 ## <a name="core-features"></a>Fonctionnalités de base
 
@@ -33,13 +33,13 @@ Voici les fonctionnalités disponibles via le Speech SDK et des API REST :
 | Cas d’utilisation | Kit SDK  | REST |
 |----------|-----|------|
 | Transcrire énoncés courts (< 15 secondes). Prend uniquement en charge les résultats de la transcription finale. | Oui | Oui |
-| La transcription continue d’énoncés long et de diffusion en continu de l’audio (> 15 secondes). Prend en charge les résultats intermédiaires et finaux transcription. | Oui | Non  |
+| La transcription continue d’énoncés long et de diffusion en continu de l’audio (> 15 secondes). Prend en charge les résultats intermédiaires et finaux transcription. | Oui | Non |
 | Dérivent avec des résultats de reconnaissance des intentions [LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/what-is-luis). | Oui | Non\* |
-| Traitement par lots de transcription des fichiers audio en mode asynchrone. | Non  | Oui\** |
-| Créer et gérer des modèles vocaux. | Non  | Oui\** |
-| Créer et gérer les déploiements de modèle personnalisé. | Non  | Oui\** |
-| Créer des tests de précision pour mesurer la précision du modèle de ligne de base par rapport à des modèles personnalisés. | Non  | Oui\** |
-| Gérer les abonnements. | Non  | Oui\** |
+| Traitement par lots de transcription des fichiers audio en mode asynchrone. | Non | Oui\** |
+| Créer et gérer des modèles vocaux. | Non | Oui\** |
+| Créer et gérer les déploiements de modèle personnalisé. | Non | Oui\** |
+| Créer des tests de précision pour mesurer la précision du modèle de ligne de base par rapport à des modèles personnalisés. | Non | Oui\** |
+| Gérer les abonnements. | Non | Oui\** |
 
 \* *Les intentions et entités de LUIS peuvent être dérivées à l’aide d’un abonnement LUIS distinct. Avec cet abonnement, le Kit de développement peut appeler LUIS pour vous et fournir entité et les résultats intentionnels. L’API REST vous permet d’appeler LUIS vous-même pour dériver des intentions et des entités avec votre abonnement LUIS.*
 
@@ -80,10 +80,10 @@ Exemple de code pour le Speech SDK est disponible sur GitHub. Ces exemples couvr
 
 Outre le modèle universel utilisé par les Services de reconnaissance vocale, vous pouvez créer des modèles de prononciation, la langue et acoustiques personnalisés spécifiques à votre expérience. Voici une liste des options de personnalisation :
 
-| Modèle | Description |
+| Modèle | Description  |
 |-------|-------------|
 | [Modèle acoustique](how-to-customize-acoustic-models.md) | Création d’un modèle acoustique personnalisé est utile si votre application, des outils ou les appareils sont utilisés dans un environnement spécifique, comme dans une voiture ou une fabrique avec les conditions d’enregistrement spécifique. Par exemple, vous pouvez avoir à traiter des façons de parler avec un accent, des bruits de fond spécifiques ou l’utilisation d’un microphone spécifique pour l’enregistrement. |
-| [Modèle de langage](how-to-customize-language-model.md) | Créer un modèle de langue personnalisée afin d’améliorer la transcription de vocabulaire de spécifiques du secteur et de grammaire, telles que la terminologie médicale ou jargon de l’informatique. |
+| [Modèle de langage](how-to-customize-language-model.md) | Créez un modèle de langage personnalisé afin d’améliorer la transcription du vocabulaire ou de la grammaire spécifiques d’un secteur, par exemple, la terminologie médicale ou le jargon informatique. |
 | [Modèle de prononciation](how-to-customize-pronunciation.md) | Avec un modèle de prononciation personnalisé, vous pouvez définir la forme phonétique et écrite d’un mot. Cela peut être utile pour traiter les termes personnalisés que sont notamment les noms et les acronymes. Pour commencer, vous n’avez besoin que d’un fichier de prononciation (un simple fichier .txt). |
 
 > [!NOTE]

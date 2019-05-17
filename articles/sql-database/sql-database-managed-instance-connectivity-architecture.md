@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 manager: craigg
 ms.date: 04/16/2019
-ms.openlocfilehash: 399e2585f541f28b3880e69b508cfd643b2f2263
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: dbb5ee122e715aeaa66d786f02966beedd2447c3
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64686286"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522334"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Architecture de connectivité pour une instance gérée dans la base de données SQL Azure
 
@@ -86,7 +86,7 @@ Lorsque connexions commencent à l’intérieur de l’instance gérée (comme a
 
 Déployer une instance gérée dans un sous-réseau dédié à l’intérieur du réseau virtuel. Le sous-réseau doit avoir les caractéristiques suivantes :
 
-- **Sous-réseau dédié :** Sous-réseau de l’instance managée ne peut pas contenir n’importe quel autre service cloud qui est associé, et il ne peut pas être un sous-réseau de passerelle. Le sous-réseau ne peut pas contenir n’importe quelle ressource, mais l’instance gérée, et vous ne pouvez pas ajouter ultérieurement de ressources dans le sous-réseau.
+- **Sous-réseau dédié :** Sous-réseau de l’instance managée ne peut pas contenir n’importe quel autre service cloud qui est associé, et il ne peut pas être un sous-réseau de passerelle. Le sous-réseau ne peut pas contenir n’importe quelle ressource, mais l’instance gérée, et vous ne pouvez pas ajouter ultérieurement d’autres types de ressources dans le sous-réseau.
 - **Groupe de sécurité réseau :** Un groupe de sécurité réseau associé avec le réseau virtuel doit définir [règles de sécurité entrantes](#mandatory-inbound-security-rules) et [règles de sécurité sortantes](#mandatory-outbound-security-rules) avant toute autre règle. Vous pouvez utiliser un groupe de sécurité réseau pour contrôler l’accès au point de terminaison de données de l’instance gérée en filtrant le trafic sur le port 1433 et ports 11000-11999 lors de l’instance managée est configuré pour rediriger les connexions.
 - **Table d’itinéraire défini (UDR) utilisateur :** Une table d’UDR associé avec le réseau virtuel doit inclure spécifique [entrées](#user-defined-routes).
 - **Aucun point de terminaison de service :** Aucun point de terminaison de service ne doit être associé à sous-réseau de l’instance gérée. Assurez-vous que l’option de points de terminaison de service est désactivée lorsque vous créez le réseau virtuel.
@@ -122,7 +122,7 @@ Déployer une instance gérée dans un sous-réseau dédié à l’intérieur du
 
 ### <a name="user-defined-routes"></a>itinéraires définis par l’utilisateur
 
-|Nom|Préfixe de l’adresse|Tronçon suivant|
+|Nom|Préfixe d'adresse|Tronçon suivant|
 |----|--------------|-------|
 |subnet_to_vnetlocal|SOUS-RÉSEAU MI|Réseau virtuel|
 |mi-13-64-11-nexthop-internet|13.64.0.0/11|Internet|

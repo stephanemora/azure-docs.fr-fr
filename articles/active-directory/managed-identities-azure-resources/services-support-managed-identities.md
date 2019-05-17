@@ -4,18 +4,18 @@ description: Liste des services qui prennent en charge les identités managées 
 services: active-directory
 author: MarkusVi
 ms.author: priyamo
-ms.date: 04/15/2019
+ms.date: 05/09/2019
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: msi
 manager: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79c3f8ae183c78b19f7f520f8154bf9484a1f795
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0809423472bde0240145d43f4c28d9594b517928
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60289784"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65518685"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Services Azure qui prennent en charge les identités managées pour ressources Azure
 
@@ -63,7 +63,7 @@ Reportez-vous à la liste suivante pour configurer l'identité managée des grou
 | Type d'identité managée | Toutes mises à la disposition générale<br>Régions Azure à l'échelle internationale | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | --- | --- | --- | --- |
 | Attribuée par le système | Disponible | Disponible | Disponible | Disponible |
-| Attribuée par l'utilisateur | VERSION PRÉLIMINAIRE | Non disponible | Non disponible | Non disponible |
+| Attribuée par l'utilisateur | VERSION PRÉLIMINAIRE | Indisponible | Indisponible | Indisponible |
 
 Reportez-vous à la liste suivante pour configurer l'identité managée d'Azure App Service (dans les régions où il est disponible) :
 
@@ -76,8 +76,8 @@ Reportez-vous à la liste suivante pour configurer l'identité managée d'Azure 
 
 |Type d'identité managée | Toutes mises à la disposition générale<br>Régions Azure à l'échelle internationale | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | --- | --- | --- | --- |
-| Attribuée par le système | VERSION PRÉLIMINAIRE | Non disponible | Non disponible | Non disponible |
-| Attribuée par l'utilisateur | VERSION PRÉLIMINAIRE | Non disponible | Non disponible | Non disponible |
+| Affecté(e) par le système | VERSION PRÉLIMINAIRE | Indisponible | Indisponible | Indisponible |
+| Affecté(e) par l'utilisateur | VERSION PRÉLIMINAIRE | Indisponible | Indisponible | Indisponible |
 
 Reportez-vous à la liste suivante pour utiliser une identité gérée avec [Azure plans](../../governance/blueprints/overview.md):
 
@@ -89,7 +89,7 @@ Reportez-vous à la liste suivante pour utiliser une identité gérée avec [Azu
 Type d'identité managée |Toutes mises à la disposition générale<br>Régions Azure à l'échelle internationale | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | --- | --- | --- | --- |
 | Attribuée par le système | Disponible | Disponible | Disponible | Disponible |
-| Attribuée par l'utilisateur | VERSION PRÉLIMINAIRE | Non disponible | Non disponible | Non disponible |
+| Attribuée par l'utilisateur | VERSION PRÉLIMINAIRE | Indisponible | Indisponible | Indisponible |
 
 Reportez-vous à la liste suivante pour configurer l'identité managée du service Azure Functions (dans les régions où il est disponible) :
 
@@ -102,8 +102,8 @@ Reportez-vous à la liste suivante pour configurer l'identité managée du servi
 
 Type d'identité managée | Toutes mises à la disposition générale<br>Régions Azure à l'échelle internationale | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | --- | --- | --- | --- |
-| Attribuée par le système | VERSION PRÉLIMINAIRE | VERSION PRÉLIMINAIRE | Non disponible | VERSION PRÉLIMINAIRE |
-| Attribuée par l'utilisateur | Non disponible | Non disponible | Non disponible | Non disponible |
+| Affecté(e) par le système | VERSION PRÉLIMINAIRE | VERSION PRÉLIMINAIRE | Indisponible | VERSION PRÉLIMINAIRE |
+| Affecté(e) par l'utilisateur | Indisponible | Indisponible | Indisponible | Indisponible |
 
 Reportez-vous à la liste suivante pour configurer l'identité managée du service Azure Logic Apps (dans les régions où il est disponible) :
 
@@ -114,8 +114,8 @@ Reportez-vous à la liste suivante pour configurer l'identité managée du servi
 
 Type d'identité managée | Toutes mises à la disposition générale<br>Régions Azure à l'échelle internationale | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | --- | --- | --- | --- |
-| Attribuée par le système | Disponible | Non disponible | Non disponible | Non disponible |
-| Attribuée par l'utilisateur | Non disponible | Non disponible | Non disponible | Non disponible |
+| Attribuée par le système | Disponible | Indisponible | Indisponible | Indisponible |
+| Attribuée par l'utilisateur | Indisponible | Indisponible | Indisponible | Indisponible |
 
 Reportez-vous à la liste suivante pour configurer l'identité managée du service Azure Data Factory V2 (dans les régions où il est disponible) :
 
@@ -128,8 +128,8 @@ Reportez-vous à la liste suivante pour configurer l'identité managée du servi
 
 Type d'identité managée | Toutes mises à la disposition générale<br>Régions Azure à l'échelle internationale | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | --- | --- | --- | --- |
-| Attribuée par le système | Disponible | Disponible | Non disponible | Non disponible |
-| Attribuée par l'utilisateur | Non disponible | Non disponible | Non disponible | Non disponible |
+| Attribuée par le système | Disponible | Disponible | Indisponible | Indisponible |
+| Attribuée par l'utilisateur | Indisponible | Indisponible | Indisponible | Indisponible |
 
 Reportez-vous à la liste suivante pour configurer l'identité managée du service de gestion des API Azure (dans les régions où il est disponible) :
 
@@ -139,8 +139,8 @@ Reportez-vous à la liste suivante pour configurer l'identité managée du servi
 
 Type d'identité managée | Toutes mises à la disposition générale<br>Régions Azure à l'échelle internationale | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | --- | --- | --- | --- |
-| Attribuée par le système | Linux : VERSION PRÉLIMINAIRE<br>Windows : Non disponible | Non disponible | Non disponible | Non disponible |
-| Attribuée par l'utilisateur | Linux : VERSION PRÉLIMINAIRE<br>Windows : Non disponible | Non disponible | Non disponible | Non disponible |
+| Attribuée par le système | Linux : VERSION PRÉLIMINAIRE<br>Windows : Indisponible | Indisponible | Indisponible | Indisponible |
+| Attribuée par l'utilisateur | Linux : VERSION PRÉLIMINAIRE<br>Windows : Indisponible | Indisponible | Indisponible | Indisponible |
 
 Reportez-vous à la liste suivante pour configurer l'identité managée du service Azure Container Instances (dans les régions où il est disponible) :
 
@@ -182,9 +182,9 @@ Reportez-vous à la liste suivante pour configurer l’accès à Azure Resource 
 | Cloud | ID de ressource | Statut |
 |--------|------------|--------|
 | Azure Global | `https://datalake.azure.net/` | Disponible |
-| Azure Government |  | Non disponible |
-| Azure Germany |   | Non disponible |
-| Azure China 21Vianet |  | Non disponible |
+| Azure Government |  | Indisponible |
+| Azure Germany |   | Indisponible |
+| Azure China 21Vianet |  | Indisponible |
 
 ### <a name="azure-sql"></a>Azure SQL 
 
@@ -200,18 +200,18 @@ Reportez-vous à la liste suivante pour configurer l’accès à Azure Resource 
 | Cloud | ID de ressource | Statut |
 |--------|------------|--------|
 | Azure Global | `https://eventhubs.azure.net` | VERSION PRÉLIMINAIRE |
-| Azure Government |  | Non disponible |
-| Azure Germany |   | Non disponible |
-| Azure China 21Vianet |  | Non disponible |
+| Azure Government |  | Indisponible |
+| Azure Germany |   | Indisponible |
+| Azure China 21Vianet |  | Indisponible |
 
 ### <a name="azure-service-bus"></a>Azure Service Bus
 
 | Cloud | ID de ressource | Statut |
 |--------|------------|--------|
 | Azure Global | `https://servicebus.azure.net`  | VERSION PRÉLIMINAIRE |
-| Azure Government |  | Non disponible |
-| Azure Germany |   | Non disponible |
-| Azure China 21Vianet |  | Non disponible |
+| Azure Government |  | Indisponible |
+| Azure Germany |   | Indisponible |
+| Azure China 21Vianet |  | Indisponible |
 
 ### <a name="azure-storage-blobs-and-queues"></a>Files d’attente et objets BLOB azure Storage
 
@@ -221,3 +221,12 @@ Reportez-vous à la liste suivante pour configurer l’accès à Azure Resource 
 | Azure Government | `https://storage.azure.com/` | Disponible |
 | Azure Germany | `https://storage.azure.com/` | Disponible |
 | Azure China 21Vianet | `https://storage.azure.com/` | Disponible |
+
+### <a name="azure-analysis-services"></a>Azure Analysis Services
+
+| Cloud | ID de ressource | Statut |
+|--------|------------|--------|
+| Azure Global | `https://*.asazure.windows.net` | Disponible |
+| Azure Government | `https://*.asazure.usgovcloudapi.net` | Disponible |
+| Azure Germany | `https://*.asazure.cloudapi.de` | Disponible |
+| Azure China 21Vianet | `https://*.asazure.chinacloudapi.cn` | Disponible |

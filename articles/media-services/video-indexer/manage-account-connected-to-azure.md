@@ -6,15 +6,16 @@ services: media-services
 author: Juliako
 manager: femila
 ms.service: media-services
+ms.subservice: video-indexer
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: 1515a026ae297a960f220a97449d2258c0b75e58
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 37aef7c0ae06aefc69b8a72a80c8ade3951e8b0d
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60553615"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65799516"
 ---
 # <a name="manage-a-video-indexer-account-connected-to-azure"></a>Gérer un compte Video Indexer connecté à Azure
 
@@ -55,7 +56,7 @@ La page **Paramètres** vous permet de définir la mise à l’échelle automati
 
 La mise à l’échelle automatique ne se met pas en œuvre en dessous de 1 UR ni au-dessus de la limite par défaut du compte Media Services. Pour accroître la limite, créez une demande de service. Pour plus d’informations sur les quotas et les limitations et pour savoir comment ouvrir un ticket de support, consultez la rubrique [Quotas et limitations](../../media-services/previous/media-services-quotas-and-limitations.md).
 
-![Inscription](./media/manage-account-connected-to-azure/autoscale-reserved-units.png)
+![Connexion](./media/manage-account-connected-to-azure/autoscale-reserved-units.png)
 
 ## <a name="errors-and-warnings"></a>Erreurs et avertissements
 

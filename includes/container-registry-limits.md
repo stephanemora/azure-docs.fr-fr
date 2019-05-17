@@ -5,15 +5,15 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: include
-ms.date: 04/29/2019
+ms.date: 05/14/2019
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: d20e266d1331fc15e65b2d119468483ff53a4c06
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: ee8ff3529524a63ca2e54a64327570197f363538
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64951523"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787573"
 ---
 | Ressource | De base | standard | Premium |
 |---|---|---|---|
@@ -25,7 +25,7 @@ ms.locfileid: "64951523"
 | Bande passante de chargement en Mo/s<sup>2</sup> | 10 | 20 | 50 |
 | Webhooks | 2 | 10 | 100 |
 | Géoréplication | N/A | N/A | [Pris en charge][geo-replication] |
-| Approbation du contenu (préversion) | N/A | N/A | [Pris en charge][content-trust] |
+| Approbation du contenu | N/A | N/A | [Pris en charge][content-trust] |
 
 <sup>1</sup>les limites de stockage spécifié sont la quantité de *inclus* stockage pour chaque niveau. Vous êtes facturé un tarif journalier supplémentaire pour chaque Gio de stockage d’images utilisé au-dessus de ces limites. Pour plus d’informations taux, consultez [tarification Azure Container Registry][pricing].
 

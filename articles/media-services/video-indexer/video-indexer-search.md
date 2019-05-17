@@ -6,15 +6,16 @@ services: media-services
 author: Juliako
 manager: femila
 ms.service: media-services
+ms.subservice: video-indexer
 ms.topic: article
-ms.date: 02/25/2019
+ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: 07b3c806dc5df5f93bee3206cbca53485675e7dd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 93376059dac2a8336e581269d8289d893779b291
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60560359"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65799092"
 ---
 # <a name="find-exact-moments-within-videos"></a>Rechercher des instants précis dans les vidéos
 
@@ -49,7 +50,7 @@ Cette rubrique vous montre les options de recherche vous permettant de recherche
 
 Une fois que vous trouvez la vidéo que vous souhaitez utiliser, vous pouvez continuer de la traiter, comme décrit dans l’une des rubriques suivantes : 
 
-- [Créer de nouveaux insights vidéo basés sur une vidéo existante](video-indexer-create-new.md)
+- [Utilisez les informations détaillées de vos vidéos](use-editor-create-project.md)
 - [Traiter du contenu avec l’API REST de Video Indexer](video-indexer-use-apis.md)
 - [Incorporer des widgets visuels dans votre application](video-indexer-embed-widgets.md)
 

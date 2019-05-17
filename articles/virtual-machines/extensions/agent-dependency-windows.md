@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/29/2019
 ms.author: magoedte
-ms.openlocfilehash: cd10c503c6e65f68d063deb5f8a537fc9f3c9f0f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 2cdde2f9dbba9676ba8a4d35ed6b79940668d684
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59794149"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65521791"
 ---
 # <a name="azure-monitor-dependency-virtual-machine-extension-for-windows"></a>Extension de machine virtuelle de dépendance d’analyse Azure pour Windows
 
@@ -32,7 +32,7 @@ La fonctionnalité Azure Monitor pour machines virtuelles Map obtient ses donné
 
 ### <a name="operating-system"></a>Système d’exploitation
 
-L’extension de l’agent de dépendances de machine virtuelle Azure pour Windows peut être exécutée sur les systèmes d’exploitation pris en charge répertoriés dans le [les systèmes d’exploitation pris en charge](../../azure-monitor/insights/vminsights-onboard.md#supported-operating-systems) section de l’analyse Azure pour l’article de déploiement de machines virtuelles.
+L’extension de l’agent de dépendances de machine virtuelle Azure pour Windows peut être exécutée sur les systèmes d’exploitation pris en charge répertoriés dans le [les systèmes d’exploitation pris en charge](../../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) section de l’analyse Azure pour l’article de déploiement de machines virtuelles.
 
 ## <a name="extension-schema"></a>Schéma d’extensions
 
@@ -80,7 +80,7 @@ Le code JSON suivant montre le schéma pour l’extension de l’agent de dépen
 | ---- | ---- |
 | apiVersion | 2015-01-01 |
 | publisher | Microsoft.Azure.Monitoring.DependencyAgent |
-| Type | DependencyAgentWindows |
+| type | DependencyAgentWindows |
 | typeHandlerVersion | 9,5 |
 
 ## <a name="template-deployment"></a>Déploiement de modèle

@@ -6,15 +6,16 @@ services: media-services
 author: Juliako
 manager: femila
 ms.service: media-services
+ms.subservice: video-indexer
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: e85beea4250b5ac5f4defd0b918786079d3dbe3e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f20d718d0b1d3bbdf117e502a380897c79a7905f
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60553689"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65799496"
 ---
 # <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
 
@@ -168,4 +169,4 @@ Oui. Video Indexer propose un essai gratuit qui offre des fonctionnalités compl
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Vue d'ensemble](video-indexer-overview.md)
+[Vue d’ensemble](video-indexer-overview.md)

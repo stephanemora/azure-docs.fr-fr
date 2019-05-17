@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 04/25/2019
 ms.author: pabutler
-ms.openlocfilehash: e8148e3a26a236039736dede5a7fbc79075731ce
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: e1a110abf8e057034043da34455bf678277c6cb4
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64938142"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65799946"
 ---
 # <a name="virtual-machine-skus-tab"></a>Onglet Références de machine virtuelle
 
@@ -55,7 +55,7 @@ Le tableau suivant décrit l’objectif, le contenu et le format de ces champs. 
 | **Famille de système d’exploitation\*** | Indique si la machine virtuelle de la solution est Windows ou Linux. |
 | **Select Operating System Type (Sélectionner le type de système d’exploitation)** | Fournisseur ou version du système d’exploitation spécifié. |
 | **Nom convivial du système d’exploitation\*** | Nom du système d’exploitation à afficher aux clients.  |
-| **Tailles de machine virtuelle recommandées\*** | Permet de sélectionner jusqu’à six tailles de machine virtuelle recommandées dans une liste normalisée.  Bien que ces recommandations leur soient transmises clairement, les clients potentiels peuvent spécifier n’importe quelle taille de machine virtuelle compatible avec l’image de la solution. | 
+| **Tailles de machine virtuelle recommandées\*** | Permet de sélectionner jusqu’à six tailles de machine virtuelle recommandées dans une liste normalisée.  Cette liste n’est transmise au portail Azure et des places de marché Microsoft.  La première taille de machine virtuelle dans cette liste n’est valide (pour cet abonnement client, région, zone, etc.) est définie comme la valeur par défaut pour ce client potentiel.  L’utilisateur peut modifier cette taille à n’importe quel compatible avec l’image de la solution. | 
 | **Ports ouverts**| Ports à ouvrir et protocole pour prendre en charge pour la référence SKU.  Ces configurations doivent correspondre au réseau virtuel que vous avez configuré pour le réseau de la machine virtuelle de la solution. Ces paramètres entrent en vigueur lors du déploiement de la machine virtuelle. Toutefois, vous pouvez modifier les paramètres de port après avoir publié une référence SKU. Pour plus d’informations, consultez [Guide d’ouverture de ports vers une machine virtuelle avec le portail Azure](https://docs.microsoft.com/azure/virtual-machines/windows/nsg-quickstart-portal). <br/>Les mappages de réseau par défaut suivants sont ajoutés à toutes les machines virtuelles. &emsp; Windows : 3389-3389 TCP, 5986 -> 5986 TCP ; &emsp; Linux : 22 -> 22, TCP (SSH). |
 | **Disk Version (Version du disque)**  | Machine virtuelle de solution associée, spécifiée par le numéro de version de disque et l’URL de disque. La version de disque doit être au format de [version sémantique](https://semver.org/) : `<major>.<minor>.<patch>`.  L’URL est l’URI de signature d’accès partagé créé pour le disque dur virtuel du système d’exploitation.  Vous pouvez ajouter jusqu’à 8 versions disque par référence SKU, mais seul le numéro de version de disque le plus élevé pour une référence SKU s’affichera dans la Place de marché Microsoft Azure. Les autres versions ne seront visibles que dans les API.  <!--TD: Add more specific link to API --> <br/> La section **New data disk (Nouveau disque de données)** vous permet d’associer jusqu’à 15 disques de données à votre machine virtuelle.  Lorsque vous publiez une référence SKU avec une version de machine virtuelle spécifique et des disques de données associés, cette configuration n’est plus modifiable.  Si des versions de machine virtuelle supplémentaires sont ajoutées à la référence SKU, elles doivent également prendre en charge le même nombre de disques de données. <br/> Si vous n’avez créé votre ou vos images de machine virtuelle Azure, vous pouvez mettre à jour ce champ ultérieurement.  Pour plus d’informations sur la création de la ressource de machine virtuelle associée, consultez la section [Create VM technical assets (Créer des ressources techniques pour une offre de machine virtuelle)](./cpp-create-technical-assets.md).  
 |  |  |

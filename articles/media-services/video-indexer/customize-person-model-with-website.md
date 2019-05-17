@@ -6,15 +6,16 @@ services: media-services
 author: anikaz
 manager: johndeu
 ms.service: media-services
+ms.subservice: video-indexer
 ms.topic: article
-ms.date: 03/19/2019
+ms.date: 05/15/2019
 ms.author: anzaman
-ms.openlocfilehash: 8dd535d97e40fe1dd4358d782db60940af1dd95d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 37e556ca458a5b0a171664e089d39cfb448d5f96
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60555830"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65800115"
 ---
 # <a name="customize-a-person-model-with-the-video-indexer-website"></a>Personnaliser un modèle de personne avec le site web Video Indexer
 
@@ -90,7 +91,7 @@ Vous pouvez supprimer n’importe quel modèle de la personne que vous avez cré
 
     ![Supprimer une personne](./media/customize-face-model/delete-person.png)
     
-    Une fenêtre contextuelle s’affichent et vous informer que cette action va supprimer le modèle de personne et toutes les personnes et les fichiers qu’il contient. Il est impossible d’annuler cette opération. 
+    Une fenêtre contextuelle s’affichent et vous informer que cette action va supprimer le modèle de personne et toutes les personnes et les fichiers qu’il contient. Cette action ne peut pas être annulée. 
 
     ![Supprimer une personne](./media/customize-face-model/delete-person2.png)
 1. Si vous êtes sûr, cliquez à nouveau sur Supprimer.

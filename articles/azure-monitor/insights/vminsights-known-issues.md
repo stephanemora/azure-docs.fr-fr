@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/02/2019
 ms.author: magoedte
-ms.openlocfilehash: ab5cbf6e24d6e7b5530addcee655e1cc4621d042
-ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.openlocfilehash: 86a56e71b89e7408d1bc8ca0ee1dc8112bea368f
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64875984"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522147"
 ---
 # <a name="known-issues-with-azure-monitor-for-vms-preview"></a>Problèmes connus avec Azure Monitor pour machines virtuelles (version préliminaire)
 
@@ -35,4 +35,4 @@ Voici les problèmes connus de la version actuelle de la fonctionnalité Health 
 - Après avoir supprimé les composants de la solution de votre espace de travail, vous pouvez continuer à voir l’état d’intégrité de vos machines virtuelles Azure, plus précisément les données de performances et de mappage lorsque vous accédez à une de ces vues dans le portail. Les données cesseront d’apparaître dans les vues de performances et de mappage après quelques temps. Toutefois la vue de contrôle d’intégrité continue d’afficher l’état de vos machines virtuelles. L’option **Essayer maintenant** est disponible pour effectuer une réintégration à partir des vues de performances et de mappage uniquement.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour découvrir les exigences et les méthodes relatives à l’activation de la supervision de vos machines virtuelles, consultez [Déployer Azure Monitor pour machines virtuelles](vminsights-onboard.md).
+Pour comprendre les exigences et les méthodes pour activer l’analyse de vos machines virtuelles, consultez [activer Azure Monitor pour les machines virtuelles](vminsights-enable-overview.md).

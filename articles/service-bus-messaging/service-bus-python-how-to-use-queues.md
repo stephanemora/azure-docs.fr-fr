@@ -14,12 +14,12 @@ ms.devlang: python
 ms.topic: article
 ms.date: 04/10/2019
 ms.author: aschhab
-ms.openlocfilehash: 622b1f6f6a852251c07c5576ed10cd76adbf5231
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.openlocfilehash: f2605ee5688a86de0a8e7d036aa63edd604c6538
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59795013"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787199"
 ---
 # <a name="how-to-use-service-bus-queues-with-python"></a>Utilisation des files d’attente Service Bus avec Python
 
@@ -38,7 +38,7 @@ Dans ce didacticiel, vous allez apprendre à créer des applications Python pour
         > Vous allez créer un **file d’attente** dans l’espace de noms Service Bus à l’aide de Python dans ce didacticiel. 
 1. Installer Python ou le [package Python Azure Service Bus][Python Azure Service Bus package], consultez le [Guide d’Installation de Python](../python-how-to-install.md). Consultez la documentation complète du kit SDK de Service Bus Python [ici](/python/api/overview/azure/servicebus?view=azure-python).
 
-## <a name="create-a-queue"></a>Créer une file d’attente
+## <a name="create-a-queue"></a>Créer une file d'attente
 Le **ServiceBusClient** objet vous permet d’utiliser des files d’attente. Ajoutez le code suivant au début de chaque fichier Python dans lequel vous souhaitez accéder à Service Bus par programme :
 
 ```python
@@ -60,11 +60,7 @@ sb_client.create_queue("taskqueue")
 La méthode `create_queue` prend également en charge des options supplémentaires, qui vous permettent de remplacer les paramètres de file d’attente par défaut comme la durée de vie (TTL) du message ou la taille maximale de la file d’attente. L’exemple suivant définit la taille maximale de la file d’attente sur 5 Go et la durée de vie de message sur 1 minute :
 
 ```python
-queue_options = Queue()
-queue_options.max_size_in_megabytes = '5120'
-queue_options.default_message_time_to_live = 'PT1M'
-
-sb_client.create_queue("taskqueue", queue_options)
+sb_client.create_queue("taskqueue", max_size_in_megabytes=5120, default_message_time_to_live=datetime.timedelta(minutes=1))
 ```
 
 Pour plus d’informations, consultez [documentation Azure Service Bus Python](/python/api/overview/azure/servicebus?view=azure-python).
@@ -82,7 +78,7 @@ queue_client = QueueClient.from_connection_string("<CONNECTION STRING>", "<QUEUE
 
 # Send a test message to the queue
 msg = Message(b'Test Message')
-queue_client.send(Message("Message"))
+queue_client.send(msg)
 ```
 
 Les files d’attente Service Bus prennent en charge une taille de message maximale de 256 Ko dans le [niveau Standard](service-bus-premium-messaging.md) et de 1 Mo dans le [niveau Premium](service-bus-premium-messaging.md). L’en-tête, qui comprend les propriétés d’application standard et personnalisées, peut avoir une taille maximale de 64 Ko. Si une file d'attente n'est pas limitée par le nombre de messages qu'elle peut contenir, elle l'est en revanche par la taille totale des messages qu'elle contient. Cette taille de file d'attente est définie au moment de la création. La limite maximale est de 5 Go. Pour plus d’informations sur les quotas, consultez [Quotas Service Bus][Service Bus quotas].

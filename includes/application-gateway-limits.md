@@ -4,14 +4,14 @@ ms.service: application-gateway
 ms.topic: include
 ms.date: 3/26/2019
 ms.author: victorh
-ms.openlocfilehash: 5ad1339c04444bcb4cc550be26e239e65227d2ce
-ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
+ms.openlocfilehash: e35f01cc5479a5d27d92c9ed74a12bc44db673cd
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58494791"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65754026"
 ---
-| Ressource | Limite par défaut | Remarque |
+| Ressource | Limite par défaut/maximale | Remarque |
 | --- | --- | --- |
 | Azure Application Gateway |1 000 par abonnement | |
 | Configurations IP frontales |2 |1 publique et 1 privée |
@@ -25,8 +25,8 @@ ms.locfileid: "58494791"
 | Certificats SSL |100<sup>1</sup> |1 par écouteur HTTP |
 | Certificats d’authentification |100 | |
 | Certificats racines approuvés |100 | |
-| Délai d’expiration de requête minimale |1 seconde | |
-| Délai d’expiration de la demande maximale |24 heures | |
+| Délai d’expiration de requête minimale |1 seconde | |
+| Délai d’expiration de la demande maximale |24 heures | |
 | Nombre de sites |100<sup>1</sup> |1 par écouteur HTTP |
 | Mappages d’URL par écouteur |1 | |
 | Nombre maximal de règles basées sur le chemin par mappage d’URL|100||

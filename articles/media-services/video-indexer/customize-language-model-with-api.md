@@ -6,15 +6,16 @@ services: media-services
 author: anikaz
 manager: johndeu
 ms.service: media-services
+ms.subservice: video-indexer
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 05/15/2019
 ms.author: anzaman
-ms.openlocfilehash: ca1e66d20b19c1a5b85a4f4ff1c433331116bee7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4ef5354a94ae707df8dd1f2767efe04dfbacd7ad
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60553740"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65799592"
 ---
 # <a name="customize-a-language-model-with-the-video-indexer-apis"></a>Personnaliser un modèle linguistique avec les API Video Indexer
 
@@ -49,7 +50,7 @@ curl -v -X POST "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cus
 
 [Consultez les paramètres requis et effectuez des tests à partir du portail des développeurs Video Indexer](https://api-portal.videoindexer.ai/docs/services/operations/operations/Create-Person-Model?).
 
-### <a name="request-parameters"></a>Paramètres de la demande
+### <a name="request-parameters"></a>Paramètres de requête
 
 |**Name**|**Type**|**Obligatoire**|**Description**|
 |---|---|---|---|
@@ -120,7 +121,7 @@ curl -v -X PUT "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cust
  
 [Consultez les paramètres requis et effectuez des tests à partir du portail des développeurs Video Indexer](https://api-portal.videoindexer.ai/docs/services/operations/operations/Train-Language-Model?&pattern=train).
 
-### <a name="request-parameters"></a>Paramètres de la demande
+### <a name="request-parameters"></a>Paramètres de requête
 
 |**Name**|**Type**|**Obligatoire**|**Description**|
 |---|---|---|---|
@@ -185,7 +186,7 @@ curl -v -X DELETE "https://api.videoindexer.ai/{location}/Accounts/{accountId}/C
  
 [Consultez les paramètres requis et effectuez des tests à partir du portail des développeurs Video Indexer](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-Language-Model?&pattern=delete).
 
-### <a name="request-parameters"></a>Paramètres de la demande 
+### <a name="request-parameters"></a>Paramètres de requête 
 
 |**Name**|**Type**|**Obligatoire**|**Description**|
 |---|---|---|---|
@@ -227,7 +228,7 @@ curl -v -X PUT "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cust
  
 [Consultez les paramètres requis et effectuez des tests à partir du portail des développeurs Video Indexer](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Language-Model?&pattern=update).
 
-### <a name="request-parameters"></a>Paramètres de la demande 
+### <a name="request-parameters"></a>Paramètres de requête 
 
 |**Name**|**Type**|**Obligatoire**|**Description**|
 |---|---|---|---|
@@ -235,8 +236,8 @@ curl -v -X PUT "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cust
 |accountID|string|Oui|GUID pour ce compte.|
 |modelId|string|Oui|ID du modèle linguistique (généré lorsque le modèle linguistique est créé)|
 |accessToken|string|Oui|Jeton d’accès (doit être du type [Jeton d’accès de compte](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) pour s’authentifier auprès de l’appel. Les jetons d’accès expirent au bout d’une heure.|
-|modelName|string|Non |Nouveau nom que vous pouvez donner au modèle|
-|enable|booléenne|Non |Choisissez si tous les fichiers de ce modèle sont activés (true) ou désactivés (false)|
+|modelName|string|Non|Nouveau nom que vous pouvez donner au modèle|
+|enable|booléenne|Non|Choisissez si tous les fichiers de ce modèle sont activés (true) ou désactivés (false)|
 
 ### <a name="request-body"></a>Corps de la demande
 
@@ -296,7 +297,7 @@ curl -v -X PUT "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cust
  
 [Consultez les paramètres requis et effectuez des tests à partir du portail des développeurs Video Indexer](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Language-Model-file?&pattern=update).
 
-### <a name="request-parameters"></a>Paramètres de la demande 
+### <a name="request-parameters"></a>Paramètres de requête 
 
 |**Name**|**Type**|**Obligatoire**|**Description**|
 |---|---|---|---|
@@ -305,8 +306,8 @@ curl -v -X PUT "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cust
 |modelId|string|Oui|ID du modèle linguistique contenant le fichier (généré lorsque le modèle linguistique est créé)|
 |fileId|string|Oui|ID du fichier en cours de mise à jour (généré quand le fichier est chargé lors de la création ou de la mise à jour du modèle linguistique)|
 |accessToken|string|Oui|Jeton d’accès (doit être du type [Jeton d’accès de compte](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) pour s’authentifier auprès de l’appel. Les jetons d’accès expirent au bout d’une heure.|
-|fileName|string|Non |Nom du fichier à mettre à jour|
-|enable|booléenne|Non |Mettre à jour si ce fichier est activé (true) ou désactivé (false) dans le modèle linguistique|
+|fileName|string|Non|Nom du fichier à mettre à jour|
+|enable|booléenne|Non|Mettre à jour si ce fichier est activé (true) ou désactivé (false) dans le modèle linguistique|
 
 ### <a name="request-body"></a>Corps de la demande
 
@@ -411,7 +412,7 @@ curl -v -X GET "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cust
  
 [Consultez les paramètres requis et effectuez des tests à partir du portail des développeurs Video Indexer](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Language-Models?&pattern=get).
 
-### <a name="request-parameters"></a>Paramètres de la demande
+### <a name="request-parameters"></a>Paramètres de requête
 
 |**Name**|**Type**|**Obligatoire**|**Description**|
 |---|---|---|---|
@@ -482,7 +483,7 @@ curl -v -X DELETE "https://api.videoindexer.ai/{location}/Accounts/{accountId}/C
  
 [Consultez les paramètres requis et effectuez des tests à partir du portail des développeurs Video Indexer](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-Language-Model-File?&pattern=delete).
 
-### <a name="request-parameters"></a>Paramètres de la demande 
+### <a name="request-parameters"></a>Paramètres de requête 
 
 |**Name**|**Type**|**Obligatoire**|**Description**|
 |---|---|---|---|
@@ -519,7 +520,7 @@ curl -v -X GET "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cust
  
 [Consultez les paramètres requis et effectuez des tests à partir du portail des développeurs Video Indexer](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Language-Model-File-Data?&pattern=get%20language%20model).
 
-### <a name="request-parameters"></a>Paramètres de la demande 
+### <a name="request-parameters"></a>Paramètres de requête 
 
 |**Name**|**Type**|**Obligatoire**|**Description**|
 |---|---|---|---|
@@ -568,7 +569,7 @@ curl -v -X GET "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cust
  
 [Consultez les paramètres requis et effectuez des tests à partir du portail des développeurs Video Indexer](https://api-portal.videoindexer.ai/docs/services/operations/operations/Download-Language-Model-File-Content?).
 
-### <a name="request-parameters"></a>Paramètres de la demande 
+### <a name="request-parameters"></a>Paramètres de requête 
 
 |**Name**|**Type**|**Obligatoire**|**Description**|
 |---|---|---|---|

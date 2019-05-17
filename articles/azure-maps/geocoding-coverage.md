@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: b8caa5cd7476489a92ce97570794a1d397f32630
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: a5e5f4ab286289e223a2fe10ff8cf45f43309f04
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65230895"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65785936"
 ---
 # <a name="azure-maps-geocoding-coverage"></a>Couverture de géocodage Azure Maps
 
@@ -83,8 +83,8 @@ La possibilité de Géocode dans un pays/région dépend de la couverture de don
 | États-Unis d'Amérique                            |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Uruguay                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Venezuela                                           |                 |                |       ✓      |      ✓     |          ✓         |
-| Îles Vierges - britanniques                            |                 |                |              |      ✓     |          ✓         |
-| Îles Vierges - États-Unis                      |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| Vierges britanniques (îles)                              |                 |                |              |      ✓     |          ✓         |
+| Données Îles vierges                                 |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 
 ## <a name="asia-pacific"></a>Asie-Pacifique
 
@@ -293,7 +293,6 @@ La possibilité de Géocode dans un pays/région dépend de la couverture de don
 | Tunisie                                             |        ✓        |                |       ✓      |      ✓     |          ✓         |
 | Ouganda                                              |                 |                |       ✓      |      ✓     |          ✓         |
 | Émirats Arabes Unis                                |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| Cisjordanie                                           |                 |                |              |      ✓     |          ✓         |
 | Yémen                                               |                 |                |              |      ✓     |          ✓         |
 | Zambie                                              |                 |                |       ✓      |      ✓     |          ✓         |
 | Zimbabwe                                            |                 |                |       ✓      |      ✓     |          ✓         |

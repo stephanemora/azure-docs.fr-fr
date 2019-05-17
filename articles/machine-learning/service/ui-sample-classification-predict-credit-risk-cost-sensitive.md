@@ -1,7 +1,7 @@
 ---
 title: 'Classification : Prédire le risque de crédit (coût sensible)'
 titleSuffix: Azure Machine Learning service
-description: Cet exemple d’expérience interface visuelle montre comment utiliser un script Python personnalisé pour effectuer la classification binaire sensible de coût. Il prévoit de risque de crédit en fonction des informations fournies dans une application de crédit.
+description: Cet article vous montre comment créer une expérience à l’aide de l’interface visuelle d’apprentissage complexe. Vous allez apprendre à implémenter des scripts personnalisés Python et comparer plusieurs modèles pour choisir la meilleure option.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,26 +9,25 @@ ms.topic: article
 author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
-ms.date: 05/02/2019
-ms.openlocfilehash: 433c258f86705f66e0163100407be7996d68bc6b
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.date: 05/10/2019
+ms.openlocfilehash: d714756c19b94eafc40cc0dbeffbc07704e8f94e
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65440960"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787817"
 ---
 # <a name="sample-4---classification-predict-credit-risk-cost-sensitive"></a>Exemple 4 : Classification : Prédire le risque de crédit (coût sensible)
 
-Cet exemple d’expérience interface visuelle montre comment utiliser un script Python personnalisé pour effectuer la classification binaire sensible de coût. Le coût de classer les échantillons positifs est cinq fois le coût de la classification des échantillons négatifs.
+Cet article vous montre comment créer une expérience à l’aide de l’interface visuelle d’apprentissage complexe. Vous allez apprendre à implémenter une logique personnalisée à l’aide de scripts Python et comparer plusieurs modèles pour choisir la meilleure option.
 
-Cet exemple prédit risque de crédit basée sur les informations fournies dans une application de crédit, en prenant en compte les coûts de classification incorrecte.
+Cet exemple effectue l’apprentissage d’un classifieur pour prédire le risque de crédit à l’aide des informations sur l’application crédit telles que l’historique de crédit, âge et nombre de cartes de crédit. Toutefois, vous pouvez appliquer les concepts de cet article s’attaquer à vos propres problèmes machine learning.
 
-Dans cette expérience, nous comparons les deux approches différentes pour générer des modèles pour résoudre ce problème :
+Si vous n’êtes pas familiarisé avec l’apprentissage, vous pouvez examiner un le [exemple de base de classifieur](ui-sample-classification-predict-credit-risk-basic.md) première.
 
-- Formation avec le jeu de données d’origine.
-- Formation avec un jeu de données répliquée.
+Voici le graphique terminé pour cette expérience :
 
-Avec les deux approches, nous évaluons les modèles à l’aide du jeu de données de test avec la réplication pour vous assurer que les résultats sont alignées avec la fonction de coût. Nous testons deux classifieurs avec les deux approches : **Two-Class Support Vector Machine** et **Two-Class arbre de décision**.
+[![Graphique de l’expérience](media/ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png)](media/ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
 
 ## <a name="prerequisites"></a>Conditions préalables
 
@@ -38,15 +37,18 @@ Avec les deux approches, nous évaluons les modèles à l’aide du jeu de donn�
 
     ![Ouvrez l’expérience](media/ui-sample-classification-predict-credit-risk-cost-sensitive/open-sample4.png)
 
-## <a name="related-sample"></a>Exemple
-
-Consultez [exemple 3 - Classification : Prédiction du risque (Basic) de crédit](ui-sample-classification-predict-churn.md) pour une expérience simple qui résout le problème même en tant que cette expérience, sans ajustement des coûts de classification incorrecte.
-
 ## <a name="data"></a>Données
 
 Nous utilisons le jeu de données de carte de crédit allemande à partir du référentiel de UC Irvine. Ce jeu de données contient des exemples de 1 000 avec 20 caractéristiques et 1 étiquette. Chaque exemple représente une personne. Les fonctionnalités de 20 incluent des caractéristiques numériques et catégorielles. Consultez le [site Web UCI](https://archive.ics.uci.edu/ml/datasets/Statlog+%28German+Credit+Data%29) pour plus d’informations sur le jeu de données. La dernière colonne est l’étiquette, qui désigne le risque de crédit et a uniquement deux valeurs possibles : risque de crédit élevé = 2 et risque de crédit faible = 1.
 
 ## <a name="experiment-summary"></a>Résumé de l’expérience
+
+Dans cette expérience, nous comparons les deux approches différentes pour générer des modèles pour résoudre ce problème :
+
+- Formation avec le jeu de données d’origine.
+- Formation avec un jeu de données répliquée.
+
+Avec les deux approches, nous évaluons les modèles à l’aide du jeu de données de test avec la réplication pour vous assurer que les résultats sont alignées avec la fonction de coût. Nous testons deux classifieurs avec les deux approches : **Two-Class Support Vector Machine** et **Two-Class arbre de décision**.
 
 Le coût de la classification d’un exemple à faible risque aussi élevé est 1, et le coût de la classification d’un exemple à haut risque faibles est 5. Nous utilisons un **exécuter le Script Python** module pour prendre en compte cette classification incorrecte des coûts.
 
@@ -71,7 +73,7 @@ Pour refléter cette fonction de coût, nous générons un nouveau jeu de donné
 
 Pour répliquer les données à haut risque, nous avons placé ce code Python dans un **exécuter le Script Python** module :
 
-```
+```Python
 import pandas as pd
 
 def azureml_main(dataframe1 = None, dataframe2 = None):
@@ -104,12 +106,11 @@ Nous utilisons le workflow expérimental standard pour créer, former et tester 
 
 1. Initialiser les algorithmes d’apprentissage automatique, à l’aide de **Two-Class Support Vector Machine** et **Two-Class Boosted Decision Tree**.
 1. Utilisez **former le modèle** pour appliquer l’algorithme aux données et créer le modèle réel.
-3. Utilisez **noter le modèle** pour produire des scores en utilisant les exemples de test.
+1. Utilisez **noter le modèle** pour produire des scores en utilisant les exemples de test.
 
 Le diagramme suivant montre une partie de cette expérience, dans lequel les jeux d’apprentissage d’origine et répliquées sont utilisés pour l’apprentissage de deux modèles SVM. **Former modèle** est connecté au jeu d’apprentissage, et **noter le modèle** est connecté à l’ensemble de test.
 
 ![Graphique d’expérience](media/ui-sample-classification-predict-credit-risk-cost-sensitive/score-part.png)
-
 
 Dans l’étape d’évaluation de l’expérience, nous calculons la précision de chacun des quatre modèles. Pour cette expérience, nous utilisons **évaluer le modèle** pour comparer des exemples associés à la classification incorrecte de même coût.
 
@@ -121,7 +122,7 @@ Notez que le jeu de données répliquées de test est utilisé comme entrée pou
 
 Le **évaluer le modèle** module génère une table avec une seule ligne qui contient les différentes mesures. Pour créer un seul ensemble de résultats de précision, nous utilisons tout d’abord **Add Rows** pour combiner les résultats dans une table unique. Nous utilisons ensuite le script Python suivant dans le **exécuter le Script Python** module pour ajouter le nom du modèle et l’approche de formation pour chaque ligne dans la table de résultats :
 
-```
+```Python
 import pandas as pd
 
 def azureml_main(dataframe1 = None, dataframe2 = None):
@@ -138,7 +139,6 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
     result = pd.concat([new_cols, dataframe1], axis=1)
     return result,
 ```
-
 
 ## <a name="results"></a>Résultats
 

@@ -3,19 +3,19 @@ title: Prise en charge linguistique - API Recherche personnalisée Bing
 titleSuffix: Azure Cognitive Services
 description: Liste des langues et régions prises en charge par l’API Recherche personnalisée Bing.
 services: cognitive-services
-author: mikedodaro
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/25/2018
-ms.author: v-gedod
-ms.openlocfilehash: 1f53dc60a74f0b558525897bef97bf2500442b54
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.author: aahi
+ms.openlocfilehash: 56870a63f42c10b48cc2d8f0ae2995862be46d8f
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64867827"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65790240"
 ---
 # <a name="language-and-region-support-for-the-bing-custom-search-api"></a>Langues et régions prises en charge par l’API Recherche personnalisée Bing
 
@@ -33,7 +33,7 @@ Vous pouvez spécifier un pays/une région à l’aide du paramètre de requête
 |-------|----|
 |Argentine|AR|
 |Australie|AU|
-|Autriche|AT|
+|L'Autriche|AT|
 |Belgique|BE|
 |Brésil|BR|
 |Canada|CA|
@@ -45,12 +45,12 @@ Vous pouvez spécifier un pays/une région à l’aide du paramètre de requête
 |Hong Kong (R.A.S.)|HK|
 |Inde|IN|
 |Indonésie|ID|
-|Italie|IT|
+|Italie|it|
 |Japon|JP|
 |Corée du Sud|KR|
-|Malaisie|MY|
+|Malaysie|MY|
 |Mexique|MX|
-|Pays-bas|NL|
+|Pays-Bas|NL|
 |Nouvelle-Zélande|NZ|
 |Norvège|NON|
 |Chine|CN|
@@ -58,33 +58,33 @@ Vous pouvez spécifier un pays/une région à l’aide du paramètre de requête
 |Portugal|PT|
 |Philippines|PH|
 |Russie|RU|
-|Arabie Saoudite|SA|
+|Arabie saoudite|SA|
 |Afrique du Sud|ZA|
 |Espagne|ES|
 |Suède|SE|
 |Suisse|CH|
-|Taïwan|TW|
+|Taiwan|TW|
 |Turquie|TR|
-|Royaume-Uni|GB|
+|Royaume-Uni| Go|
 |États-Unis|FR|
 
 
 ## <a name="markets"></a>Marchés
 
-|Pays/région|Langage|Code du marché|
+|Pays/région|Langue|Code du marché|
 |-------|--------|-----------|
 |Argentine|Espagnol|es-AR|
 |Australie|Anglais|en-AU|
-|Autriche|Allemand|de-AT|
+|L'Autriche|Allemand|de-AT|
 |Belgique|Néerlandais|nl-BE|
-|Belgique|Anglais|fr-BE|
+|Belgique|Français|fr-BE|
 |Brésil|Portugais|pt-br|
 |Canada|Anglais|en-CA|
-|Canada|Anglais|fr-CA|
+|Canada|Français|fr-CA|
 |Chili|Espagnol|es-CL|
 |Danemark|Danois|da-DK|
 |Finlande|Finnois|fi-FI|
-|France|Anglais|fr-FR|
+|France|Français|fr-FR|
 |Allemagne|Allemand|de-DE|
 |Hong Kong, SAR|Chinois traditionnel|zh-HK|
 |Inde|Anglais|en-IN|
@@ -92,9 +92,9 @@ Vous pouvez spécifier un pays/une région à l’aide du paramètre de requête
 |Italie|Italien|it-IT|
 |Japon|Japonais|ja-JP|
 |Corée du Sud|Coréen|ko-KR|
-|Malaisie|Anglais|en-MY|
+|Malaysie|Anglais|en-MY|
 |Mexique|Espagnol|es-MX|
-|Pays-bas|Néerlandais|nl-NL|
+|Pays-Bas|Néerlandais|nl-NL|
 |Nouvelle-Zélande|Anglais|en-NZ|
 |Norvège|Norvégien|no-NO|
 |Chine|Chinois|zh-CN|
@@ -102,14 +102,14 @@ Vous pouvez spécifier un pays/une région à l’aide du paramètre de requête
 |Portugal|Portugais|pt-PT|
 |Philippines|Anglais|en-PH|
 |Russie|Russe|ru-RU|
-|Arabie Saoudite|Arabe|ar-SA|
+|Arabie saoudite|Arabe|ar-SA|
 |Afrique du Sud|Anglais|en-ZA|
 |Espagne|Espagnol|es-ES|
 |Suède|Suédois|sv-SE|
-|Suisse|Anglais|fr-CH|
+|Suisse|Français|fr-CH|
 |Suisse|Allemand|de-CH|
-|Taïwan|Chinois traditionnel|zh-TW|
+|Taiwan|Chinois traditionnel|zh-TW|
 |Turquie|Turc|tr-TR|
 |Royaume-Uni|Anglais|en-GB|
-|États-Unis|Anglais|en-US|
+|États-Unis|Anglais|fr-FR|
 |États-Unis|Espagnol|es-US|

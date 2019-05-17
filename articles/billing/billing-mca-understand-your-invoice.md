@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/19/2019
 ms.author: banders
-ms.openlocfilehash: ee6317f61f95b19effd64308b88f53c027582b63
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: aee51793c66ae57f740300797b8fdc1799e685cd
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60371424"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604041"
 ---
 # <a name="understand-terms-on-your-microsoft-customer-agreement-invoice"></a>Comprendre les termes du contrat sur votre facture de contrat de client de Microsoft
 
@@ -41,7 +41,7 @@ Le **résumé de la facture** se trouve en haut de la première page et affiche 
 
 ![Section Récapitulatif de la facture](./media/billing-understand-your-invoice-mca/invoicesummary.png)
 
-| Terme | Description |
+| Terme | Description  |
 | --- | --- |
 | Vendu à |Adresse de votre entité juridique, a été trouvée dans les propriétés du compte de facturation|
 | Facturer à |Votre adresse de réception de la facture le profil de facturation de facturation, trouvé dans les propriétés de profil de facturation|
@@ -57,13 +57,13 @@ Le **résumé facturation** montre les frais par rapport au profil de facturatio
 
 ![Section de résumé de facturation](./media/billing-understand-your-invoice-mca/billingsummary.png)
 
-| Terme | Description |
+| Terme | Description  |
 | --- | --- |
-| Charges|Nombre total des frais de Microsoft pour ce profil de facturation depuis la dernière période de facturation |
+| Frais|Nombre total des frais de Microsoft pour ce profil de facturation depuis la dernière période de facturation |
 | Crédits |Vous avez reçu de retours de crédits |
 | Crédits Azure appliqués | Crédits Azure qui sont appliqués automatiquement aux frais Azure chaque période de facturation |
 | Sous-total |Le montant hors taxes dû |
-| Taxe |Le type et le montant des taxes à payer, selon le pays de votre profil de facturation. Si vous n’êtes pas obligé de taxe, puis vous les verrez taxes sur votre facture. |
+| Taxe |Le type et le montant des taxes à payer, selon le pays/la région de votre profil de facturation. Si vous n’êtes pas obligé de taxe, puis vous les verrez taxes sur votre facture. |
 | Économies totales estimés |Le montant total estimé que vous avez enregistré à partir de remises efficaces. Le cas échéant, taux de remise efficaces sont répertoriés sous les éléments de ligne d’achat dans les détails par Section de la facture. |
 
 ### <a name="invoice-sections"></a>Sections de facture
@@ -82,13 +82,13 @@ Le montant total dû pour chaque famille de service est calculé en soustrayant 
 
 ![Détails par section de la facture](./media/billing-understand-your-invoice-mca/invoicesectiondetails.png)
 
-| Terme |Description |
+| Terme |Description  |
 | --- | --- |
 | Prix unitaire | Le prix unitaires efficaces du service (dans la devise de tarification) qui est utilisé pour le taux de l’utilisation. Il est unique pour un produit, service famille, jauge et offre. |
 | Qty | Quantité achetée ou consommées pendant la période de facturation |
 | Frais et crédits | Montant net des frais après application des crédits/remboursements |
 | Crédit Azure | Le montant des crédits Azure appliqué aux frais/crédits|
-| Taux d’imposition | Taux de t.v.a. selon les pays |
+| Taux d’imposition | Taux de t.v.a. selon le pays/région |
 | Montant des taxes | Montant de taxe appliquée pour l’achat basé sur les taux d’imposition |
 | Total | Le montant total dû pour l’achat |
 

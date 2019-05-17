@@ -9,12 +9,12 @@ ms.date: 03/21/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 0fa252fa2cdab7bb3790153f2d118fea13739852
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 56a25c95d9bc01078b3eff3729a8a693ee3cf510
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153515"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65520253"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurer des pare-feux et des réseaux virtuels dans Stockage Azure
 
@@ -350,14 +350,14 @@ Si vous activez l’exception **Services Microsoft approuvés**, les services su
 
 |de diffusion en continu|Nom du fournisseur de ressources|Objectif|
 |:------|:---------------------|:------|
-|Sauvegarde Azure|Microsoft.Backup|Effectuez des sauvegardes et des restaurations de disques non managés dans des machines virtuelles IAAS. (non requis pour les disques managés). [Plus d’informations](/azure/backup/backup-introduction-to-azure-backup)|
+|Sauvegarde Azure|Microsoft.RecoveryServices|Effectuez des sauvegardes et des restaurations de disques non managés dans des machines virtuelles IAAS. (non requis pour les disques managés). [Plus d’informations](/azure/backup/backup-introduction-to-azure-backup)|
 |Azure Data Box|Microsoft.DataBox|Permet l’importation des données vers Azure à l’aide de la zone de données. [Plus d’informations](/azure/databox/data-box-overview)|
 |Azure DevTest Labs|Microsoft.DevTestLab|Création d’une image personnalisée et installation de l’artefact. [Plus d’informations](/azure/devtest-lab/devtest-lab-overview)|
 |Azure Event Grid|Microsoft.EventGrid|Permettez la publication d’événements Stockage Blob et autorisez Event Grid à effectuer des publications dans les files d’attente de stockage. En savoir plus sur les [événements Stockage Blob](/azure/event-grid/event-sources) et la [publication dans les files d’attente](/azure/event-grid/event-handlers).|
 |Hubs d'événements Azure|Microsoft.EventHub|Archivage des données avec Event Hubs Capture. [En savoir plus](/azure/event-hubs/event-hubs-capture-overview)|
 |Azure HDInsight|Microsoft.HDInsight|Configurer le contenu initial du système de fichiers par défaut pour un nouveau cluster HDInsight. [Plus d’informations](https://azure.microsoft.com/blog/enhance-hdinsight-security-with-service-endpoints/)|
 |Azure Monitor|Microsoft.Insights|Autorisation de l’écriture de données de supervision dans un compte de stockage sécurisé. [En savoir plus](/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security).|
-|Mise en réseau Azure|Microsoft.Networking|Stockage et analyse des journaux d’activité du trafic réseau. [Plus d’informations](/azure/network-watcher/network-watcher-packet-capture-overview)|
+|Mise en réseau Azure|Microsoft.Network|Stockage et analyse des journaux d’activité du trafic réseau. [Plus d’informations](/azure/network-watcher/network-watcher-packet-capture-overview)|
 |Azure Site Recovery|Microsoft.SiteRecovery |Configurez la récupération d’urgence en activant la réplication pour les machines virtuelles Azure IaaS. Cela est nécessaire si vous utilisez un compte de stockage de cache avec pare-feu activé, un compte de stockage source ou un compte de stockage cible.  [Plus d’informations](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication)|
 |Azure SQL Data Warehouse|Microsoft.Sql|Permet d’importer et exporter des scénarios à partir d’instances de bases de données SQL spécifiques à l’aide de PolyBase. [Plus d’informations](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview)|
 

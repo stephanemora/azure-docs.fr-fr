@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/01/2019
 ms.author: anavin
-ms.openlocfilehash: 18d913339556c0d4b0a06bd62f4495da6a4d4223
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: ee7ffba182cdbc2a77df5edf112e29c49cd610ad
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925916"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65519650"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Créer, modifier ou supprimer une homologation de réseau virtuel
 
@@ -46,7 +46,7 @@ Avant de créer une homologation, familiarisez-vous avec les exigences et contra
 1. Dans la zone de recherche située en haut du Portail Azure, entrez *réseaux virtuels*. Quand la mention **Réseaux virtuels** apparaît dans les résultats de recherche, sélectionnez-la. Ne sélectionnez pas **Réseaux virtuels (classiques)** si cette option apparaît dans la liste, car vous ne pouvez pas créer une homologation à partir d’un réseau virtuel déployé via le modèle de déploiement classique.
 2. Sélectionnez dans la liste le réseau virtuel pour lequel vous souhaitez créer une homologation.
 3. Sous **PARAMÈTRES**, sélectionnez **Homologations**.
-4. Sélectionnez **Ajouter**. 
+4. Sélectionnez **+ ajouter**. 
 5. <a name="add-peering"></a> :
     - **Nom :** Le nom du peering doit être unique dans le réseau virtuel.
     - **Modèle de déploiement de réseau virtuel :** Sélectionnez le modèle de déploiement utilisé pour déployer le réseau virtuel avec lequel vous souhaitez effectuer le peering.
@@ -146,7 +146,7 @@ Si votre compte n’a pas l’un des rôles ci-dessus, il doit avoir un [rôle p
 |---                                                              |---   |
 | Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write  | Action requise pour créer un appairage entre un réseau virtuel A et un réseau virtuel B. Le réseau virtuel A doit être un réseau virtuel (Resource Manager)          |
 | Microsoft.Network/virtualNetworks/peer/action                   | Action requise pour créer un appairage entre un réseau virtuel B (Resource Manager) et un réseau virtuel A                                                       |
-| Microsoft.ClassicNetwork/virtualNetworks/peer                   | Action requise pour créer un appairage entre un réseau virtuel B (classique) et un réseau virtuel A                                                                |
+| Microsoft.ClassicNetwork/virtualNetworks/peer/action                   | Action requise pour créer un appairage entre un réseau virtuel B (classique) et un réseau virtuel A                                                                |
 | Microsoft.Network/virtualNetworks/virtualNetworkPeerings/read   | Action requise pour lire un appairage de réseaux virtuels   |
 | Microsoft.Network/virtualNetworks/virtualNetworkPeerings/delete | Action requise pour supprimer un appairage de réseaux virtuels |
 

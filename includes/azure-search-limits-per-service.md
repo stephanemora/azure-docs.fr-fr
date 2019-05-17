@@ -5,24 +5,24 @@ services: search
 author: HeidiSteen
 ms.service: search
 ms.topic: include
-ms.date: 04/04/2018
+ms.date: 05/06/2019
 ms.author: heidist
 ms.custom: include file
-ms.openlocfilehash: 30c6fc189ebcd497a214828f65213a55cefdf03f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b298c87d802314bd865bd6f38c35e4361eb69f3f
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61464474"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65211962"
 ---
 Le stockage est limité par l’espace disque ou par le *nombre maximum* inconditionnel d’index, de documents ou d’autres ressources de haut niveau, suivant la limite atteinte en premier. Le tableau suivant décrit les limites de stockage. Pour connaître les limites maximales sur les index, les documents et les autres objets, consultez [limites par ressource](../articles/search/search-limits-quotas-capacity.md#index-limits).
 
 | Ressource | Gratuit | Base<sup>1</sup> | S1 | S2 | S3 | S3&nbsp;HD<sup>2</sup> | L1 | L2 |
 | -------- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Niveau contrat de service (SLA)<sup>3</sup>  |Non  |OUI |OUI |OUI |OUI |OUI |OUI |Oui |
+| Niveau contrat de service (SLA)<sup>3</sup>  |Non |OUI |OUI |OUI |OUI |OUI |OUI |Oui |
 | Stockage par partition |50 Mo |2 Go |25 Go |100 Go |200 Go |200 Go |1 To |2 To |
 | Partitions par service |N/A |1 |12 |12 |12 |3 |12 |12 |
-| Taille de partition |N/A |2 Go |25 Go |100 Go |200 Go |200 Go |1 To |2 To |
+| Taille de la partition |N/A |2 Go |25 Go |100 Go |200 Go |200 Go |1 To |2 To |
 | Réplicas |N/A |3 |12 |12 |12 |12 |12 |12 |
 
 <sup>1</sup> Le niveau « De base » comporte une partition fixe. À ce niveau, les unités de recherche supplémentaires sont utilisées pour allouer davantage de réplicas pour les charges de travail accrue des requêtes.

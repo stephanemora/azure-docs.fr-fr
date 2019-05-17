@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: fe53dd4419c06d376a1cc46db0d2621ccbc06f23
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: HT
+ms.openlocfilehash: 089f5335a65151c9c576346995f0bee34b5d10b4
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59548631"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65791889"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Journalisation des métriques et diagnostics d’Azure SQL Database
 
@@ -64,7 +64,7 @@ Vous pouvez configurer les bases de données SQL Azure et instance pour collecte
 
 | Analyse des données de télémétrie pour les bases de données | Prise en charge d’une base de données unique et d’une base de données mise en pool | Support de base de données d’instance |
 | :------------------- | ----- | ----- |
-| [Toutes les métriques](#all-metrics) : Pourcentage DTU/CPU, Limite DTU/CPU, Pourcentage de lecture de données physiques, Pourcentage d’écriture du journal, Connexions réussies/en échec/bloquées par pare-feu, Pourcentage de sessions, Pourcentage de workers, Stockage, Pourcentage de stockage, Pourcentage de stockage XTP. | Oui | Non  |
+| [Métriques de base](#basic-metrics): Pourcentage DTU/CPU, Limite DTU/CPU, Pourcentage de lecture de données physiques, Pourcentage d’écriture du journal, Connexions réussies/en échec/bloquées par pare-feu, Pourcentage de sessions, Pourcentage de workers, Stockage, Pourcentage de stockage, Pourcentage de stockage XTP. | Oui | Non  |
 | [QueryStoreRuntimeStatistics](#query-store-runtime-statistics) : contient des informations sur les statistiques d’exécution de requête comme les statistiques concernant l’utilisation du processeur et la durée des requêtes. | Oui | Oui |
 | [QueryStoreWaitStatistics](#query-store-wait-statistics) : Contient des informations sur les statistiques d’attente de requête (ce que vos requêtes attendue) par exemple sont des UC, de journal et de verrouillage. | Oui | Oui |
 | [Erreurs](#errors-dataset) : Contient des informations sur les erreurs SQL sur une base de données. | Oui | Oui |
@@ -93,7 +93,7 @@ Vous pouvez configurer une ressource de pool élastique de sorte qu’elle colle
 
 | Ressource | Supervision des données de télémétrie |
 | :------------------- | ------------------- |
-| **Pool élastique** | [Toutes les métriques](sql-database-metrics-diag-logging.md#all-metrics) : pourcentage eDTU/UC, limite eDTU/UC, pourcentage de lecture de données physiques, pourcentage d’écriture du journal, pourcentage de sessions, pourcentage de Workers, stockage, pourcentage de stockage, limite de stockage, pourcentage de stockage XTP. |
+| **Pool élastique** | [Métriques de base](sql-database-metrics-diag-logging.md#basic-metrics) contient pourcentage eDTU/UC, limite eDTU/UC, physique pourcentage de lecture de données, l’écriture de journal en pourcentage, pourcentage de sessions, pourcentage de workers, stockage, pourcentage de stockage, limite de stockage et pourcentage de stockage XTP. |
 
 Pour configurer la diffusion en continu de données de télémétrie de diagnostics pour les pools et bases de données dans des pools élastiques, vous devrez configurer séparément **à la fois** des opérations suivantes :
 
@@ -113,7 +113,7 @@ Pour activer le streaming des données de télémétrie de diagnostic pour une r
 1. Entrez un nom de paramètre pour référence personnelle.
 1. Sélectionnez la ressource de destination pour les données de diagnostic de streaming : **Archiver dans un compte de stockage**, **Diffuser vers un hub d’événements** ou **Envoyer à Log Analytics**.
 1. Pour l’analytique de journal, sélectionnez **configurer** et créer un espace de travail en sélectionnant **+ créer le nouvel espace de travail**, ou sélectionnez un espace de travail existant.
-1. Cochez la case correspondant aux données de télémétrie de diagnostic de pool élastique **AllMetrics**.
+1. Cochez la case correspondant aux données de télémétrie de diagnostic de pool élastique **Base** métriques.
    ![Configurer les diagnostics pour les pools élastiques](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-elasticpool-selection.png)
 1. Sélectionnez **Enregistrer**.
 1. En outre, configurer la diffusion en continu de données de télémétrie de diagnostic pour chaque base de données au sein du pool élastique à analyser en suivant les étapes décrites dans la section suivante.
@@ -137,7 +137,7 @@ Pour activer la diffusion en continu de données de télémétrie de diagnostics
 1. Entrez un nom de paramètre pour référence personnelle.
 1. Sélectionnez la ressource de destination pour les données de diagnostic de streaming : **Archiver dans un compte de stockage**, **Diffuser vers un hub d’événements** ou **Envoyer à Log Analytics**.
 1. Pour une expérience de supervision standard basée sur les événements, cochez les cases suivantes pour les données de télémétrie de journal de diagnostic de base de données : **SQLInsights**, **AutomaticTuning**, **QueryStoreRuntimeStatistics**, **QueryStoreWaitStatistics**, **Errors**, **DatabaseWaitStatistics**, **Timeouts**, **Blocks** et **Deadlocks**.
-1. Pour une expérience de supervision avancée à la minute, cochez la case **AllMetrics**.
+1. Pour une expérience d’analyse avancée, basée sur une minute, sélectionnez la case à cocher **base** métriques.
    ![Configurer les diagnostics pour unique, regroupée ou l’instance des bases de données](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-selection.png)
 1. Sélectionnez **Enregistrer**.
 1. Répétez ces étapes pour chaque base de données que vous souhaitez analyser.
@@ -385,7 +385,7 @@ Ou, plus simplement :
 insights-{metrics|logs}-{category name}/resourceId=/{resource Id}/y={four-digit numeric year}/m={two-digit numeric month}/d={two-digit numeric day}/h={two-digit 24-hour clock hour}/m=00/PT1H.json
 ```
 
-Par exemple, un nom d’objet blob pour toutes les métriques pourrait être :
+Par exemple, un nom d’objet blob pour les métriques de base peut être :
 
 ```powershell
 insights-metrics-minute/resourceId=/SUBSCRIPTIONS/s1id1234-5679-0123-4567-890123456789/RESOURCEGROUPS/TESTRESOURCEGROUP/PROVIDERS/MICROSOFT.SQL/ servers/Server1/databases/database1/y=2016/m=08/d=22/h=18/m=00/PT1H.json
@@ -411,23 +411,26 @@ Si vous utilisez Azure SQL Analytics, vous pouvez superviser votre ingestion de 
 
 Surveillance des données de télémétrie disponibles pour la base de données SQL Azure, les pools élastiques et l’instance managée est documentée ci-dessous. Données de télémétrie de surveillance collectées à l’intérieur de SQL Analytique peuvent être utilisée pour votre propre analyse personnalisée et le développement de l’application à l’aide [des requêtes de journal Azure Monitor](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries) langage.
 
-## <a name="all-metrics"></a>Toutes les métriques
+## <a name="basic-metrics"></a>Métriques de base
 
-Pour plus d’informations sur toutes les métriques par ressource, consultez les tableaux suivants.
+Consultez les tableaux suivants pour plus d’informations sur les mesures de base par ressource.
 
-### <a name="all-metrics-for-elastic-pools"></a>Toutes les métriques des pools élastiques
+> [!NOTE]
+> Option des mesures de base s’appelait auparavant en tant que toutes les mesures. A été de la modification apportée à la dénomination uniquement et il n’existait aucune modification aux métriques surveillées. Cette modification a été démarrée pour permettre la présentation des catégories de métriques supplémentaires à l’avenir.
+
+### <a name="basic-metrics-for-elastic-pools"></a>Métriques de base pour les pools élastiques
 
 |**Ressource**|**Métriques**|
 |---|---|
 |Pool élastique|Pourcentage DTU, eDTU utilisé, Limite eDTU, Pourcentage UC, Pourcentage de lecture de données physiques, Pourcentage d’écriture du journal, Pourcentage de sessions, Pourcentage de workers, Stockage, Pourcentage de stockage, Limite de stockage, Pourcentage de stockage XTP |
 
-### <a name="all-metrics-for-azure-sql-databases"></a>Toutes les métriques des bases de données Azure SQL
+### <a name="basic-metrics-for-azure-sql-databases"></a>Métriques de base pour les bases de données SQL Azure
 
 |**Ressource**|**Métriques**|
 |---|---|
 |Base de données Azure SQL|Pourcentage DTU, Limite DTU, Pourcentage UC, Pourcentage de lecture de données physiques, Pourcentage d’écriture du journal, Connexions réussies/en échec/bloquées par pare-feu, Pourcentage de sessions, Pourcentage de workers, Stockage, Pourcentage de stockage, Pourcentage de stockage XTP et blocages |
 
-## <a name="all-logs"></a>Tous les journaux
+## <a name="basic-logs"></a>Journaux de base
 
 Détails de la télémétrie disponible pour tous les journaux sont documentés dans les tableaux ci-dessous. Consultez [pris en charge de la journalisation des diagnostics](#supported-diagnostic-logging-for-azure-sql-databases-and-instance-databases) pour comprendre les journaux dans lesquels sont pris en charge pour une version particulière de la base de données - SQL Azure unique, regroupée, ou l’instance de base de données.
 

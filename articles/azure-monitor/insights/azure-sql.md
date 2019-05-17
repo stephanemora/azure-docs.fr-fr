@@ -10,12 +10,12 @@ ms.author: danil
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/17/2018
-ms.openlocfilehash: 03f330f429be583d3a400eb1ee00875f7c305e74
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 0617dc617309d49cdc7c8cddd4e91619b873b914
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64923012"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65785687"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Superviser Azure SQL Database avec Azure SQL Analytics (préversion)
 
@@ -193,7 +193,7 @@ AzureMetrics
 ```
 
 > [!NOTE]
-> - La condition préalable à la configuration de cette alerte est que les bases de données surveillées transmettent en continu les mesures de diagnostic (option « Toutes les mesures ») à la solution.
+> - Exigence avant de configurer cette alerte est ce flux de données de bases de données analysées des métriques de base à la solution.
 > - Remplacez la valeur MetricName cpu_percent par dtu_consumption_percent pour obtenir des résultats de DTU élevés à la place.
 
 #### <a name="high-cpu-on-azure-sql-database-elastic-pools"></a>Processeur élevé sur des pools élastiques Azure SQL Database
@@ -208,7 +208,7 @@ AzureMetrics
 ```
 
 > [!NOTE]
-> - La condition préalable à la configuration de cette alerte est que les bases de données surveillées transmettent en continu les mesures de diagnostic (option « Toutes les mesures ») à la solution.
+> - Exigence avant de configurer cette alerte est ce flux de données de bases de données analysées des métriques de base à la solution.
 > - Remplacez la valeur MetricName cpu_percent par dtu_consumption_percent pour obtenir des résultats de DTU élevés à la place.
 
 #### <a name="azure-sql-database-storage-in-average-above-95-in-the-last-1-hr"></a>Stockage Azure SQL Database supérieur à 95 % en moyenne au cours de la dernière heure
@@ -225,7 +225,7 @@ AzureMetrics
 ```
 
 > [!NOTE]
-> - La condition préalable à la configuration de cette alerte est que les bases de données surveillées transmettent en continu les mesures de diagnostic (option « Toutes les mesures ») à la solution.
+> - Exigence avant de configurer cette alerte est ce flux de données de bases de données analysées des métriques de base à la solution.
 > - Cette requête nécessite une règle d’alerte pour être configurée de manière à déclencher une alerte lorsqu’il y a des résultats (résultats > 0) à la requête, indiquant que la condition existe sur certaines bases de données. La sortie est une liste de ressources de base de données qui se situent au-dessus de storage_threshold dans le time_range défini.
 > - La sortie est une liste de ressources de base de données qui se situent au-dessus de storage_threshold dans le time_range défini.
 

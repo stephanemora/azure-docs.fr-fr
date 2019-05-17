@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 400b1613a87d4de65879a512642e16884c7d03b4
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: eb6667a1429382ed566826de64ad7ffbe83183cf
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65021891"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65521881"
 ---
 # <a name="add-suggesters-to-an-index-for-typeahead-in-azure-search"></a>Ajouter des générateurs de suggestions à un index pour prédictives dans Azure Search
 
@@ -95,13 +95,13 @@ private static void CreateHotelsIndex(SearchServiceClient serviceClient)
 }
 ```
 
-## <a name="property-reference"></a>Informations de référence sur les propriétés
+## <a name="property-reference"></a>Référence de propriété
 
 Points importants à noter concernant les générateurs de suggestions est qu’il existe un nom (générateurs de suggestions sont référencées par nom sur une demande), un searchMode (actuellement qu’une seule, « analyzingInfixMatching ») et la liste des champs pour lesquels prédictives est activé. 
 
 Les propriétés suivantes définissent un générateur de suggestions :
 
-|Propriété      |Description      |
+|Propriété      |Description       |
 |--------------|-----------------|
 |`name`        |Le nom du Générateur de suggestions. Vous utilisez le nom du Générateur de suggestions lors de l’appel le [API REST de Suggestions](https://docs.microsoft.com/rest/api/searchservice/suggestions) ou [API REST de la saisie semi-automatique](https://docs.microsoft.com/rest/api/searchservice/autocomplete).|
 |`searchMode`  |Stratégie utilisée pour rechercher des expressions candidates. Le seul mode actuellement pris en charge est `analyzingInfixMatching`, qui effectue une correspondance flexible des expressions en début ou au milieu des phrases.|
@@ -119,7 +119,7 @@ Comme indiqué précédemment, vous pouvez utiliser un générateur de suggestio
 
 Un générateur de suggestions est référencé dans la demande, ainsi que l’opération. Par exemple, sur un appel GET REST, spécifiez `suggest` ou `autocomplete` sur la collection de documents. Pour REST, après la création d’un générateur de suggestions, utilisez le [API Suggestions](https://docs.microsoft.com/rest/api/searchservice/suggestions) ou [la saisie semi-automatique API](https://docs.microsoft.com/rest/api/searchservice/autocomplete) dans votre logique de requête.
 
-Pour .NET, utilisez [SuggestWithHttpMessagesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.suggestwithhttpmessagesasync?view=azure-dotnet-preview) ou [AutocompleteWithHttpMessagesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.autocompletewithhttpmessagesasync?view=azure-dotnet-preview&viewFallbackFrom=azure-dotnet).
+Pour .NET, utilisez [SuggestWithHttpMessagesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.suggestwithhttpmessagesasync?view=azure-dotnet) ou [AutocompleteWithHttpMessagesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.autocompletewithhttpmessagesasync?view=azure-dotnet&viewFallbackFrom=azure-dotnet).
 
 Pour obtenir un exemple illustrant les deux requêtes, consultez [exemple d’ajout de la saisie semi-automatique et des suggestions dans Azure Search](search-autocomplete-tutorial.md).
 

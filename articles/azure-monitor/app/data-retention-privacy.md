@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 03/04/2019
+ms.date: 05/09/2019
 ms.author: mbullwin
-ms.openlocfilehash: c6a5ec8685de53d7a611328025d5da8e5ce698a3
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 38723a5dd306c2a4b594d95e5cc660d117966bc4
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65204886"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65518843"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Collecte, rétention et stockage des données dans Application Insights
 
@@ -86,6 +86,9 @@ Cela est possible en écrivant un [plug-in de processeur de télémétrie](../..
 Les points de données brutes (autrement dit, les éléments que vous pouvez interroger dans Analytics et inspecter dans Recherche) sont conservés pendant 90 jours maximum. Si vous voulez conserver les données plus longtemps, vous pouvez utiliser l’ [exportation continue](../../azure-monitor/app/export-telemetry.md) pour les copier dans un compte de stockage.
 
 Les données agrégées (autrement dit, les nombres, moyennes et autres données statistiques que vous voyez dans Metrics Explorer) sont conservées avec une granularité de 1 minute pendant 90 jours.
+
+> [!NOTE]
+> Rétention de variable pour Application Insights est désormais disponible en version préliminaire. En savoir plus [ici](https://feedback.azure.com/forums/357324-application-insights/suggestions/17454031). 
 
 [Déboguer des captures instantanées](../../azure-monitor/app/snapshot-debugger.md) sont stockés pendant 15 jours. Cette stratégie de rétention est définie application par application. Si vous devez augmenter cette valeur, faites-en la demande en ouvrant une demande de support dans le portail Azure.
 
@@ -237,15 +240,15 @@ Les kits de développement logiciel (SDK) varient en fonction des plateformes et
 
 | Votre action | Classes de données collectées (voir tableau suivant) |
 | --- | --- |
-| [Ajouter le kit de développement logiciel (SDK) Application Insights à un projet web .NET][greenbrown] |ServerContext<br/>Inferred<br/>Perf counters<br/>Requests<br/>**Exceptions**<br/>session<br/>users |
+| [Ajouter le kit de développement logiciel (SDK) Application Insights à un projet web .NET][greenbrown] |ServerContext<br/>Inferred<br/>Perf counters<br/>Requests<br/>**Exceptions**<br/>session<br/>utilisateurs  |
 | [Installer Status Monitor sur IIS][redfield] |Dépendances<br/>ServerContext<br/>Inferred<br/>Perf counters |
-| [Ajouter le kit de développement logiciel (SDK) Application Insights à une application web Java][java] |ServerContext<br/>Inferred<br/>Requête<br/>session<br/>users |
+| [Ajouter le kit de développement logiciel (SDK) Application Insights à une application web Java][java] |ServerContext<br/>Inferred<br/>Requête<br/>session<br/>utilisateurs  |
 | [Ajouter le kit de développement logiciel (SDK) JavaScript à une page web][client] |ClientContext  <br/>Inferred<br/>Page<br/>ClientPerf<br/>Ajax |
 | [Définir les propriétés par défaut][apiproperties] |**Propriétés** sur tous les événements standard et personnalisés |
 | [Appeler TrackMetric][api] |Valeurs numériques<br/>**Propriétés** |
 | [Appeler Track*][api] |Nom de l'événement<br/>**Propriétés** |
 | [Appeler TrackException][api] |**Exceptions**<br/>Vidage de pile<br/>**Propriétés** |
-| Le Kit SDK ne peut pas collecter les données. Par exemple :  <br/> - impossible d’accéder aux compteurs de performances<br/> - exception dans l’initialiseur de télémétrie |SDK diagnostics |
+| Le Kit SDK ne peut pas collecter les données. Exemple : <br/> - impossible d’accéder aux compteurs de performances<br/> - exception dans l’initialiseur de télémétrie |SDK diagnostics |
 
 Pour les [Kits de développement logiciel (SDK) des autres plateformes][platforms], consultez les documents correspondants.
 

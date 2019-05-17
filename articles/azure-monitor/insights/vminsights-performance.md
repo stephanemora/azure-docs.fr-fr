@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/22/2019
+ms.date: 05/07/2019
 ms.author: magoedte
-ms.openlocfilehash: 4fa2553622d5ef2d08ec148b6a70aab6de257407
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c83a862a37dbf28c6933877bf4a0aecc4364e6c5
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61385922"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522086"
 ---
 # <a name="how-to-chart-performance-with-azure-monitor-for-vms-preview"></a>Comment créer des graphiques de performances avec Azure Monitor pour machines virtuelles (préversion)
 Azure Monitor pour les machines virtuelles comprend un ensemble de graphiques de performances qui ciblent divers indicateurs de performance clés (KPI) pour vous aider à déterminer l’intégrité du fonctionnement d’une machine virtuelle. Les graphiques illustrent l’utilisation des ressources sur une période de temps pour que vous puissiez identifier les goulots d’étranglement ou les anomalies. Vous pouvez également basculer sur une perspective répertoriant toutes les machines virtuelles pour afficher l’utilisation des ressources en fonction de la métrique sélectionnée. Il y a beaucoup d’autres éléments à prendre en compte dans la gestion des performances, mais la solution Azure Monitor pour machines virtuelles supervise des indicateurs de performances clés du système d’exploitation liés à l’utilisation du processeur, de la mémoire, de la carte réseau et du disque. La fonctionnalité Performances vient compléter celle de supervision de l’intégrité et permet d’exposer les problèmes indiquant une panne éventuelle d’un composant système, de prendre en charge les réglages et l’optimisation pour améliorer l’efficacité ou de prendre en charge la planification de la capacité.  
@@ -105,6 +105,21 @@ Les graphiques d’utilisation de la capacité suivants sont fournis :
 En cliquant sur l’icône d’épingle dans le coin supérieur droit de l’un des broches de graphiques du graphique sélectionné au dernier tableau de bord Azure que vous avez affiché. Le tableau de bord, vous pouvez redimensionner et repositionner le graphique. En sélectionnant le graphique du tableau de bord vous redirige vers Azure Monitor pour les machines virtuelles et charge l’affichage Détails des performances pour la machine virtuelle.  
 
 ![Performances - Insights de machine virtuelle directement depuis l’affichage de la machine virtuelle](./media/vminsights-performance/vminsights-performance-directvm-01.png)
+
+## <a name="view-performance-directly-from-an-azure-virtual-machine-scale-set"></a>Afficher les performances directement à partir d’un jeu de mise à l’échelle de machine virtuelle Azure
+Pour accéder directement à partir d’un jeu de mise à l’échelle de machine virtuelle Azure, procédez comme suit.
+
+1. Dans le portail Azure, sélectionnez **machines virtuelles identiques**.
+2. Dans la liste, choisissez une machine virtuelle et, dans le **surveillance** section Choisissez **Insights (version préliminaire)** pour afficher le **performances** onglet.
+
+Cette page charge de l’affichage des performances Azure Monitor, limitée à l’ensemble d’échelle sélectionné. Cela vous permet de voir les Instances de N haut dans l’ensemble d’échelle sur l’ensemble des métriques surveillées, afficher les performances des agrégats sur l’ensemble de la mise à l’échelle et voir les tendances pour les métriques sélectionnées entre les n instances individuelles l’échelle définie. Sélection d’une instance de la vue de liste vous permet de charger son mappage ou de naviguer dans une vue détaillée des performances pour cette instance.
+
+En cliquant sur l’icône d’épingle dans le coin supérieur droit de l’un des broches de graphiques du graphique sélectionné au dernier tableau de bord Azure que vous avez affiché. Le tableau de bord, vous pouvez redimensionner et repositionner le graphique. En sélectionnant le graphique du tableau de bord vous redirige vers Azure Monitor pour les machines virtuelles et charge l’affichage Détails des performances pour la machine virtuelle.  
+
+![Informations de machine virtuelle performances directement à partir de la mise à l’échelle de machine virtuelle définir la vue](./media/vminsights-performance/vminsights-performance-directvmss-01.png)
+
+>[!NOTE]
+>Vous pouvez également accéder un affichage des performances détaillées pour une instance spécifique à partir de la vue Instances pour votre groupe identique. Accédez à **Instances** sous le **paramètres** section, puis choisissez **Insights (version préliminaire)**.
 
 ## <a name="alerts"></a>Alertes  
 Les métriques de performances activées dans le cadre d’Azure Monitor pour les machines virtuelles n’incluent pas les règles d’alerte préconfigurées. Il existe [alertes d’intégrité](vminsights-health.md#alerts) correspondant à des problèmes de performances détectés sur votre machine virtuelle Azure, par exemple d’utilisation élevée du processeur, d’espace disque disponible et à faible mémoire insuffisante, etc.  Toutefois, ces alertes d’intégrité s’appliquent uniquement à toutes les machines virtuelles activées pour Azure Monitor pour les machines virtuelles. 

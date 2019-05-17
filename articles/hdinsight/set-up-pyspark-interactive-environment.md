@@ -8,12 +8,12 @@ ms.author: jejiang
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 1/17/2019
-ms.openlocfilehash: 882a071731837b0f7d03ac374a7c831a20a3927e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: d7d6bf45a8cdf22fbff0d3fda8175e8007a612d9
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64714496"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65789277"
 ---
 # <a name="set-up-the-pyspark-interactive-environment-for-visual-studio-code"></a>Définir l’environnement interactif de PySpark pour Visual Studio Code
 
@@ -25,7 +25,7 @@ Nous utilisons la commande **python/pip** pour créer un environnement virtuel a
    
    + Installez Python à partir de [https://www.python.org/downloads/](https://www.python.org/downloads/).
    + Installez pip à partir de [https://pip.pypa.io/en/stable/installing](https://pip.pypa.io/en/stable/installing/). (Si non installé à partir de l'installation de Python)
-   + Utilisez les commandes suivantes pour vérifier que Python et pip sont bien installés. (facultatif)
+   + Utilisez les commandes suivantes pour vérifier que Python et pip sont bien installés. (Facultatif)
  
         ![Version de Python et de pip](./media/set-up-pyspark-interactive-environment/check-python-pip-version.png)
 
@@ -70,4 +70,4 @@ Nous utilisons la commande **python/pip** pour créer un environnement virtuel a
 * [Utiliser des packages externes avec les blocs-notes Jupyter](spark/apache-spark-jupyter-notebook-use-external-packages.md)
 * [Install Jupyter on your computer and connect to an HDInsight Spark cluster (Installer Jupyter sur un ordinateur et se connecter au cluster Spark sur HDInsight)](spark/apache-spark-jupyter-notebook-install-locally.md)
 * [Visualiser des données Apache Hive à l’aide de Microsoft Power BI dans Azure HDInsight](hadoop/apache-hadoop-connect-hive-power-bi.md)
-* [Utilisez Apache Zeppelin pour exécuter des requêtes Apache Hive dans Azure HDInsight](hdinsight-connect-hive-zeppelin.md)
+* [Utilisez Apache Zeppelin pour exécuter des requêtes Apache Hive dans Azure HDInsight](./interactive-query/hdinsight-connect-hive-zeppelin.md)

@@ -5,23 +5,27 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/14/2019
+ms.date: 05/14/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: vitavor
 ms.custom: secdec18
-ms.openlocfilehash: 24a77561d08cc3db5356dd0e931f62bf2d16406d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 89ba5b9641d156dfb098d51272b8bf8d3fd53f5b
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60577041"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65785853"
 ---
 # <a name="assign-access-to-cost-management-data"></a>Affecter une autorisation d’accès aux données Cost Management
 
 Pour la plupart des utilisateurs disposant d’un Contrat Entreprise Azure, une combinaison d’autorisations accordées dans le portail Azure et dans le portail Entreprise permet de définir le niveau d’accès d’un utilisateur aux données d’Azure Cost Management. Pour les utilisateurs titulaires d’autres types de comptes Azure, le niveau d’accès aux données d’Azure Cost Management est plus simple. Cet article vous explique comment affecter un accès aux données Cost Management. Une fois la combinaison d’autorisations affectée, l’utilisateur voit les données dans Cost Management en fonction de l’étendue à laquelle il a accès et de l’étendue qu’il a sélectionnée dans le portail Azure.
 
 L’étendue sélectionnée par l’utilisateur est utilisée dans Cost Management pour regrouper les données et contrôler l’accès aux informations sur les coûts. Quand les utilisateurs emploient des étendues, ils n’effectuent pas plusieurs sélections. À la place, ils sélectionnent une étendue plus grande qui englobe les étendues enfants, puis appliquent un filtre pour voir ce qui les intéresse. Il est important de bien comprendre le fonctionnement du regroupement des données, car certaines personnes ne doivent pas avoir accès à l’étendue parente qui englobe les étendues enfants.
+
+Regardez la [comment attribuer l’accès avec Azure Cost Management](https://www.youtube.com/watch?v=J997ckmwTa8) vidéo pour en savoir plus sur l’attribution d’accès pour afficher les frais et avec le contrôle d’accès en fonction du rôle Azure.
+
+>[!VIDEO https://www.youtube.com/embed/J997ckmwTa8]
 
 ## <a name="cost-management-scopes"></a>Étendues de Cost Management
 
@@ -36,7 +40,7 @@ Pour afficher les données de coût relatives aux abonnements Azure EA, un utili
 | <sup>Premier</sup> compte de facturation | [https://ea.azure.com](https://ea.azure.com/) | Administrateur d'entreprise | Aucun | Abonnements du contrat entreprise |
 | department | [https://ea.azure.com](https://ea.azure.com/) | Administrateur de service | Activation de l’option d’**affichage des frais pour l’administrateur de service** | Abonnements appartenant à un compte d’inscription lié au service |
 | <sup>Deuxième</sup> compte d’inscription | [https://ea.azure.com](https://ea.azure.com/) | Propriétaire du compte | Activation de l’option d’**affichage des frais pour le propriétaire du compte** | Abonnements à partir du compte d’inscription |
-| Groupe d’administration | [https://portal.azure.com](https://portal.azure.com/) | Lecteur Cost Management (ou Lecteur) | Activation de l’option d’**affichage des frais pour le propriétaire du compte** | Abonnements en dessous du groupe d’administration |
+| Groupe d'administration | [https://portal.azure.com](https://portal.azure.com/) | Lecteur Cost Management (ou Lecteur) | Activation de l’option d’**affichage des frais pour le propriétaire du compte** | Abonnements en dessous du groupe d’administration |
 | Abonnement | [https://portal.azure.com](https://portal.azure.com/) | Lecteur Cost Management (ou Lecteur) | Activation de l’option d’**affichage des frais pour le propriétaire du compte** | Ressources/groupes de ressources compris dans l’abonnement |
 | Groupe de ressources | [https://portal.azure.com](https://portal.azure.com/) | Lecteur Cost Management (ou Lecteur) | Activation de l’option d’**affichage des frais pour le propriétaire du compte** | Ressources comprises dans le groupe de ressources |
 
@@ -57,7 +61,7 @@ De mêmes, lorsque **les coûts d’affichage DA** sont désactivés dans le por
 Pour afficher les données de coûts d’autres abonnements Azure, un utilisateur doit disposer au moins d’un accès en lecture à une ou plusieurs des étendues suivantes :
 
 - Compte Azure
-- Groupe d’administration
+- Groupe d'administration
 - Groupe de ressources
 
 ## <a name="enable-access-to-costs-in-the-ea-portal"></a>Activer l’accès aux coûts dans le portail EA

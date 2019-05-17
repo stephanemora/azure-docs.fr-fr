@@ -11,24 +11,24 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 7c462971f7ac02e35ab8df5b651da7d0a3f39e1f
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: e6a7d4bb7452ff8f6b3c2536a5aa100a15a6ec78
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65022256"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65539254"
 ---
 #    <a name="named-entity-recognition-cognitive-skill"></a>Compétence cognitive Reconnaissance d’entités nommées
 
 La compétence **Reconnaissance d’entités nommées** extrait les entités nommées du texte. Sont notamment disponibles les types d’entités suivants : `person`, `location` et `organization`.
 
 > [!IMPORTANT]
-> Reconnaissance d’entité nommée compétence est plus disponible est remplacé par [Microsoft.Skills.Text.EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md). Prise en charge s’est arrêté sur le 15 février 2019 et l’API a été supprimé du produit sur le 2 mai 2019. Suivez les recommandations de la page [Compétences de recherche cognitive dépréciées](cognitive-search-skill-deprecated.md) pour migrer vers une compétence prise en charge.
+> Reconnaissance d’entité nommée compétence est plus disponible est remplacé par [Microsoft.Skills.Text.EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md). Prise en charge s’est arrêté sur le 15 février 2019 et l’API a été supprimé du produit sur le 2 mai 2019. Suivez les recommandations de [déconseillé de compétences de recherche cognitive](cognitive-search-skill-deprecated.md) pour migrer vers une compétence pris en charge.
 
 > [!NOTE]
-> Comme vous développez étendue en augmentant la fréquence de traitement, l’ajout de plusieurs documents, ou ajoutez plusieurs algorithmes d’intelligence artificielle, vous devrez [attacher une ressource Cognitive Services facturable](cognitive-search-attach-cognitive-services.md). Des frais sont applicables durant l’appel des API dans Cognitive Services ainsi que pour l’extraction d’images durant la phase d’extraction du contenu des documents du service Recherche Azure. L’extraction de texte à partir des documents est gratuite.
+> Si vous élargissez le champ en augmentant la fréquence des traitements, en ajoutant des documents supplémentaires ou en ajoutant plusieurs algorithmes d’IA, vous devez [attacher une ressource Cognitive Services facturable](cognitive-search-attach-cognitive-services.md). Des frais sont applicables durant l’appel des API dans Cognitive Services ainsi que pour l’extraction d’images durant la phase d’extraction du contenu des documents du service Recherche Azure. L’extraction de texte à partir des documents est gratuite.
 >
-> L’exécution de compétences intégrées est facturée existant [Cognitive Services paie-sous-vous accédez prix](https://azure.microsoft.com/pricing/details/cognitive-services/). Image de tarification d’extraction est décrit sur le [page de tarification de Azure Search](https://go.microsoft.com/fwlink/?linkid=2042400).
+> L'exécution des compétences intégrées est facturée au prix actuel du [paiement à l'utilisation de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/). Les prix appliqués pour l'extraction d'images sont présentés sur la [page de tarification du service Recherche Azure](https://go.microsoft.com/fwlink/?linkid=2042400).
 
 
 ## <a name="odatatype"></a>@odata.type  
@@ -41,7 +41,7 @@ La taille maximale d’un enregistrement est de 50 000 caractères selon `String
 
 Les paramètres respectent la casse.
 
-| Nom du paramètre     | Description |
+| Nom du paramètre     | Description  |
 |--------------------|-------------|
 | Catégories    | Tableau des catégories à extraire.  Types de catégories possibles : `"Person"`, `"Location"`, `"Organization"`. Si aucune catégorie n’est précisée, tous les types sont retournés.|
 |defaultLanguageCode |  Code de langue du texte d’entrée. Langues prises en charge : `de, en, es, fr, it`.|
@@ -49,14 +49,14 @@ Les paramètres respectent la casse.
 
 ## <a name="skill-inputs"></a>Entrées de la compétence
 
-| Nom d’entrée      | Description                   |
+| Entrez un nom      | Description                    |
 |---------------|-------------------------------|
 | languageCode  | facultatif. La valeur par défaut est `"en"`.  |
 | text          | Texte à analyser.          |
 
 ## <a name="skill-outputs"></a>Sorties de la compétence
 
-| Nom de sortie     | Description                   |
+| Nom de sortie     | Description                    |
 |---------------|-------------------------------|
 | persons      | Tableau de chaînes représentant chacune le nom d’une personne. |
 | Emplacements  | Tableau de chaînes représentant chacune un lieu. |

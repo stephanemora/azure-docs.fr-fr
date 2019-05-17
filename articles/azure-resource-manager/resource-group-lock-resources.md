@@ -1,23 +1,17 @@
 ---
 title: Verrouiller les ressources Azure pour empêcher les modifications | Microsoft Docs
 description: Empêchez les utilisateurs de mettre à jour ou de supprimer des ressources Azure critiques en appliquant un verrou à tous les utilisateurs et rôles.
-services: azure-resource-manager
-documentationcenter: ''
 author: tfitzmac
-ms.assetid: 53c57e8f-741c-4026-80e0-f4c02638c98b
 ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 05/14/2019
 ms.author: tomfitz
-ms.openlocfilehash: 8942ae9a24613f7b7896cf7124b344d9d9315954
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: a6c7983d22eed4a4232fbb2db490c1743684a04c
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59360441"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65813399"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Verrouiller les ressources pour empêcher les modifications inattendues 
 
@@ -36,7 +30,13 @@ Contrairement au contrôle d'accès basé sur les rôles, vous utilisez des verr
 
 Les verrous Resource Manager s'appliquent uniquement aux opérations qui se produisent dans le plan de gestion, c'est-à-dire les opérations envoyées à `https://management.azure.com`. Les verrous ne limitent pas la manière dont les ressources exécutent leurs propres fonctions. Les modifications des ressources sont limitées, mais pas les opérations sur les ressources. Par exemple, un verrou ReadOnly une base de données SQL empêche la suppression ou la modification de la base de données. Il ne vous empêche pas de créer, de mettre à jour ou de supprimer des données dans la base de données. Transactions de données sont autorisées, car ces opérations ne sont pas envoyées à `https://management.azure.com`.
 
-L’application de **ReadOnly** peut produire des résultats inattendus, car certaines opérations qui ressemblent à des opérations de lecture nécessitent en fait des actions supplémentaires. Par exemple, le placement d’un verrou **ReadOnly** sur un compte de stockage empêche tous les utilisateurs de répertorier les clés. L’opération de listage de clés est gérée via une demande POST, car les clés retournées sont disponibles pour les opérations d’écriture. Autre exemple : le placement d’un verrou **ReadOnly** sur une ressource App Service empêche l’Explorateur de serveurs Visual Studio d’afficher les fichiers de la ressource, car cette interaction requiert un accès en écriture.
+Application **ReadOnly** peut produire des résultats inattendus, car certaines opérations qui semblent ne pas modifier la ressource nécessitent en fait des actions qui sont bloquées par le verrou. Le **ReadOnly** verrou peut être appliqué à la ressource ou au groupe de ressources contenant la ressource. Voici quelques exemples courants des opérations qui sont bloquées par un **ReadOnly** verrou sont :
+
+* Un **ReadOnly** verrou sur un compte de stockage empêche tous les utilisateurs de répertorier les clés. L’opération de listage de clés est gérée via une demande POST, car les clés retournées sont disponibles pour les opérations d’écriture.
+
+* Un verrou **ReadOnly** sur une ressource App Service empêche l’Explorateur de serveurs Visual Studio d’afficher les fichiers de la ressource, car cette interaction requiert un accès en écriture.
+
+* Un **ReadOnly** verrou sur un groupe de ressources qui contient une machine virtuelle empêche tous les utilisateurs de démarrer ou redémarrer l’ordinateur virtuel. Ces opérations nécessitent une demande POST.
 
 ## <a name="who-can-create-or-delete-locks"></a>Qui peut créer ou supprimer des verrous
 Pour créer ou supprimer des verrous de gestion, vous devez avoir accès à des actions `Microsoft.Authorization/*` ou `Microsoft.Authorization/locks/*`. Parmi les rôles prédéfinis, seuls les rôles **Propriétaire** et **Administrateur de l'accès utilisateur** peuvent effectuer ces actions.
@@ -59,7 +59,7 @@ Notez que le service inclut un lien pour un **géré de groupe de ressources**. 
 
 Pour supprimer tous les éléments pour le service, y compris le groupe de ressources d’infrastructure verrouillé, sélectionnez **supprimer** pour le service.
 
-![Suppression du service](./media/resource-group-lock-resources/delete-service.png)
+![Supprimer le service](./media/resource-group-lock-resources/delete-service.png)
 
 ## <a name="portal"></a>Portail
 [!INCLUDE [resource-manager-lock-resources](../../includes/resource-manager-lock-resources.md)]

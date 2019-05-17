@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 5bd977826f489ca8452432babe6126b8553450fb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2f0b01601dfb28b2b6b8ee8ca53398ec3dccb803
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60730705"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787283"
 ---
 # <a name="http-apis-in-durable-functions-azure-functions"></a>API HTTP dans Fonctions durables (Azure Functions)
 
@@ -44,7 +44,7 @@ La classe [DurableOrchestrationClient](https://azure.github.io/azure-functions-d
 
 Ces exemples de fonctions produisent les données de réponse JSON suivantes. Le type de données de tous les champs est `string`.
 
-| Champ                   |Description                           |
+| Champ                   |Description                            |
 |-------------------------|--------------------------------------|
 | **`id`**                |L’ID de l’instance d’orchestration. |
 | **`statusQueryGetUri`** |L’URL de l’état de l’instance d’orchestration. |
@@ -90,7 +90,7 @@ Ce protocole permet de coordonner les processus à long terme avec des clients o
 
 Toutes les API HTTP implémentées par l’extension utilisent les paramètres suivants. Le type de données de tous les paramètres est `string`.
 
-| Paramètre        | Type de paramètre  | Description |
+| Paramètre        | Type de paramètre  | Description  |
 |------------------|-----------------|-------------|
 | **`taskHub`**    | Chaîne de requête    | Le nom du [hub de tâches](durable-functions-task-hubs.md). S’il n’est pas spécifié, le nom de hub de tâches de l’application de fonction en cours est supposé. |
 | **`connection`** | Chaîne de requête    | Le **nom** de la chaîne de connexion du compte de stockage. Si elle n’est pas spécifiée, la chaîne de connexion par défaut pour l’application de la fonction est supposée. |
@@ -132,7 +132,7 @@ GET /runtime/webhooks/durabletask/instances/{instanceId}
 
 Les paramètres de requête pour cette API incluent l’ensemble par défaut mentionné précédemment, ainsi que les paramètres uniques suivants :
 
-| Champ                   | Type de paramètre  | Description |
+| Champ                   | Type de paramètre  | Description  |
 |-------------------------|-----------------|-------------|
 | **`instanceId`**        | URL             | L’ID de l’instance d’orchestration. |
 | **`showInput`**         | Chaîne de requête    | Paramètre facultatif. Si la valeur `false`, la fonction d’entrée ne figurera pas dans la charge utile de réponse.|
@@ -154,7 +154,7 @@ Plusieurs valeurs de code d’état possibles peuvent être retournées.
 
 La charge utile de réponse pour les cas **HTTP 200** et **HTTP 202** est un objet JSON avec les champs suivants :
 
-| Champ                 | Type de données | Description |
+| Champ                 | Type de données | Description  |
 |-----------------------|-----------|-------------|
 | **`runtimeStatus`**   | string    | L’état d’exécution de l’instance. Les valeurs sont *Running*, *Pending*, *Failed*, *Canceled*, *Terminated*, *Completed*. |
 | **`input`**           | JSON      | Les données JSON utilisées pour initialiser l’instance. Ce champ est `null` si le paramètre de chaîne de requête `showInput` est défini sur `false`.|
@@ -260,7 +260,7 @@ GET /runtime/webhooks/durableTask/instances?
 
 Les paramètres de requête pour cette API incluent l’ensemble par défaut mentionné précédemment, ainsi que les paramètres uniques suivants :
 
-| Champ                   | Type de paramètre  | Description |
+| Champ                   | Type de paramètre  | Description  |
 |-------------------------|-----------------|-------------|
 | **`instanceId`**        | URL             | L’ID de l’instance d’orchestration. |
 | **`showInput`**         | Chaîne de requête    | Paramètre facultatif. Si la valeur `false`, la fonction d’entrée ne figurera pas dans la charge utile de réponse.|
@@ -358,7 +358,7 @@ DELETE /runtime/webhooks/durabletask/instances/{instanceId}
 
 Les paramètres de requête pour cette API incluent l’ensemble par défaut mentionné précédemment, ainsi que les paramètres uniques suivants :
 
-| Champ             | Type de paramètre  | Description |
+| Champ             | Type de paramètre  | Description  |
 |-------------------|-----------------|-------------|
 | **`instanceId`**  | URL             | L’ID de l’instance d’orchestration. |
 
@@ -371,7 +371,7 @@ Les valeurs de code d’état HTTP suivants peuvent être retournées.
 
 La charge utile de réponse pour le **HTTP 200** cas est un objet JSON avec le champ suivant :
 
-| Champ                  | Type de données | Description |
+| Champ                  | Type de données | Description  |
 |------------------------|-----------|-------------|
 | **`instancesDeleted`** | integer   | Le nombre d’instances supprimées. Dans le cas d’une instance unique, cette valeur doit toujours être `1`. |
 
@@ -415,13 +415,11 @@ DELETE /runtime/webhooks/durabletask/instances
 
 Les paramètres de requête pour cette API incluent l’ensemble par défaut mentionné précédemment, ainsi que les paramètres uniques suivants :
 
-| Champ                 | Type de paramètre  | Description |
+| Champ                 | Type de paramètre  | Description  |
 |-----------------------|-----------------|-------------|
-| **`createdTimeFrom`** | Chaîne de requête    | Paramètre facultatif. Si spécifié, filtre la liste des instances purgés qui ont été créés pendant ou après l’horodatage ISO8601 donné.|
+| **`createdTimeFrom`** | Chaîne de requête    | Filtre la liste des instances purgés qui ont été créés pendant ou après l’horodatage ISO8601 donné.|
 | **`createdTimeTo`**   | Chaîne de requête    | Paramètre facultatif. Si spécifié, filtre la liste des instances purgés qui ont été créés ou avant l’horodatage ISO8601 donné.|
 | **`runtimeStatus`**   | Chaîne de requête    | Paramètre facultatif. Si spécifié, filtres de la liste des instances purgés selon leur état de runtime. Pour obtenir la liste des valeurs d’état d’exécution possibles, consultez la rubrique [Interrogation des instances](durable-functions-instance-management.md). |
-
-Si aucun paramètre est spécifié, toutes les instances dans le hub de tâches sont purgés.
 
 > [!NOTE]
 > Cette opération peut être très coûteuse en termes d’e/s de stockage Azure s’il existe beaucoup de lignes dans les Instances et/ou l’historique des tables. Vous trouverez plus d’informations sur ces tables dans le [performances et mise à l’échelle dans fonctions durables (Azure Functions)](durable-functions-perf-and-scale.md#instances-table) documentation.
@@ -435,7 +433,7 @@ Les valeurs de code d’état HTTP suivants peuvent être retournées.
 
 La charge utile de réponse pour le **HTTP 200** cas est un objet JSON avec le champ suivant :
 
-| Champ                   | Type de données | Description |
+| Champ                   | Type de données | Description  |
 |-------------------------|-----------|-------------|
 | **`instancesDeleted`**  | integer   | Le nombre d’instances supprimées. |
 
@@ -473,7 +471,7 @@ POST /runtime/webhooks/durabletask/instances/{instanceId}/raiseEvent/{eventName}
 
 Les paramètres de requête pour cette API incluent l’ensemble par défaut mentionné précédemment, ainsi que les paramètres uniques suivants :
 
-| Champ             | Type de paramètre  | Description |
+| Champ             | Type de paramètre  | Description  |
 |-------------------|-----------------|-------------|
 | **`instanceId`**  | URL             | L’ID de l’instance d’orchestration. |
 | **`eventName`**   | URL             | Le nom de l’événement que l’instance d’orchestration cible attend. |
@@ -528,7 +526,7 @@ POST /runtime/webhooks/durabletask/instances/{instanceId}/terminate
 
 Les paramètres de la demande pour cette API incluent l’ensemble par défaut mentionné précédemment, ainsi que le paramètre unique suivant.
 
-| Champ             | Type de paramètre  | Description |
+| Champ             | Type de paramètre  | Description  |
 |-------------------|-----------------|-------------|
 | **`instanceId`**  | URL             | L’ID de l’instance d’orchestration. |
 | **`reason`**      | Chaîne de requête    | facultatif. Motif d’arrêt de l’instance d’orchestration. |
@@ -577,7 +575,7 @@ POST /runtime/webhooks/durabletask/instances/{instanceId}/rewind
 
 Les paramètres de la demande pour cette API incluent l’ensemble par défaut mentionné précédemment, ainsi que le paramètre unique suivant.
 
-| Champ             | Type de paramètre  | Description |
+| Champ             | Type de paramètre  | Description  |
 |-------------------|-----------------|-------------|
 | **`instanceId`**  | URL             | L’ID de l’instance d’orchestration. |
 | **`reason`**      | Chaîne de requête    | facultatif. Motif de rembobinage de l’instance d’orchestration. |

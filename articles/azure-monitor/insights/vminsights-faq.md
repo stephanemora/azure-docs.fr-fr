@@ -10,39 +10,39 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/09/2018
 ms.author: magoedte
-ms.openlocfilehash: ade12225a470b64278b9d27676ceab768f64d904
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 420ba9d74532095c2d028fef8f549d532e5dfa05
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60596601"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522205"
 ---
 # <a name="azure-monitor-for-vms-preview-frequently-asked-questions"></a>Questions fréquentes (FAQ) sur Azure Monitor pour machines virtuelles (préversion)
 Cette FAQ Microsoft est une liste de questions fréquemment posées au sujet d’Azure Monitor pour machines virtuelles (préversion). Si vous avez d’autres questions sur la solution, rendez-vous sur le [forum de discussion](https://feedback.azure.com/forums/34192--general-feedback) et publiez vos questions. Lorsqu’une question est fréquemment posée, nous l’ajoutons à cet article pour qu’elle soit facile et rapide à trouver.
 
 ## <a name="can-i-onboard-to-an-existing-workspace"></a>Puis-je intégrer un espace de travail existant ?
-Si vos machines virtuelles sont déjà connectées à un espace de travail Log Analytics, vous pouvez continuer à l’utiliser lors de l’intégration à Azure Monitor pour machines virtuelles, à condition qu’il se trouve dans l’une des régions prises en charge énumérées [ici](vminsights-onboard.md#prerequisites).
+Si vos machines virtuelles sont déjà connectées à un espace de travail Log Analytics, vous pouvez continuer à l’utiliser lors de l’intégration à Azure Monitor pour machines virtuelles, à condition qu’il se trouve dans l’une des régions prises en charge énumérées [ici](vminsights-enable-overview.md#prerequisites).
 
 Lors de l’intégration, nous configurons des compteurs de performance de l’espace de travail pour que toutes les machines virtuelles puissent commencer à collecter ces données afin de les afficher et de les analyser dans Azure Monitor pour machines virtuelles.  En conséquence, les données de performance de toutes les machines virtuelles connectées à l’espace de travail sélectionné s’affichent.  Les fonctionnalités Intégrité (Health) et Mappage (Map) ne sont activées que pour les machines virtuelles que vous avez choisi d’intégrer.
 
-Pour en savoir plus sur les compteurs de performances activés, consultez notre article sur l’[intégration](vminsights-onboard.md).
+Pour plus d’informations sur les performances, les compteurs sont activés, reportez-vous à notre [activer la vue d’ensemble](vminsights-enable-overview.md#performance-counters-enabled) article.
 
 ## <a name="can-i-onboard-to-a-new-workspace"></a>Puis-je intégrer un nouvel espace de travail ? 
-Si vos machines virtuelles ne sont pas actuellement connectées à un espace de travail Log Analytics existant, vous devez créer un nouvel espace de travail pour stocker vos données.  La création d’un nouvel espace de travail par défaut se fait automatiquement lorsque vous configurez une seule machine virtuelle Azure pour Azure Monitor pour machines virtuelles via le portail Azure.
+Si vos machines virtuelles ne sont pas actuellement connectées à un espace de travail Log Analytics existant, vous devez créer un nouvel espace de travail pour stocker vos données. La création d’un nouvel espace de travail par défaut se fait automatiquement lorsque vous configurez une seule machine virtuelle Azure pour Azure Monitor pour machines virtuelles via le portail Azure.
 
-Si vous choisissez d’utiliser la méthode par script, ces étapes sont expliquées dans l’article sur l’[intégration](vminsights-onboard.md). 
+Si vous choisissez d’utiliser la méthode basée sur un script, ces étapes sont décrites dans le [activer Azure Monitor pour les machines virtuelles (version préliminaire) à l’aide d’Azure PowerShell ou Resource Manager modèle](vminsights-enable-at-scale-powershell.md) article. 
 
 ## <a name="what-do-i-do-if-my-vm-is-already-reporting-to-an-existing-workspace"></a>Que dois-je faire si ma machine virtuelle envoie déjà des rapports à un espace de travail existant ?
 Si vous collectez déjà des données à partir de vos machines virtuelles, il se peut que vous l’ayez déjà configuré de façon à ce que les rapports des données soient transmis à un espace de travail Log Analytics existant.  Si cet espace de travail se trouve dans l’une des régions que nous prenons en charge, vous pouvez y activer Azure Monitor pour machines virtuelles.  Si l’espace de travail que vous utilisez déjà ne se trouve pas dans l’une des régions que nous prenons en charge, vous ne pouvez effectuer l’intégration à Azure Monitor pour machines virtuelles pour l’instant.  Nous mettons tout en œuvre pour prendre en charge de nouvelles régions.
 
 >[!NOTE]
->Nous configurons les compteurs de performance de l’espace de travail qui concerne toutes les machines virtuelles liées à l’espace de travail, que vous ayez choisi ou non de les intégrer à Azure Monitor pour machines virtuelles. Pour en savoir plus sur la configuration des compteurs de performance de l’espace de travail, consultez notre [documentation](../../azure-monitor/platform/data-sources-performance-counters.md). Pour en savoir plus sur les compteurs configurés d’Azure Monitor pour machines virtuelles, consultez notre [documentation sur l’intégration](vminsights-onboard.md#performance-counters-enabled).  
+>Nous configurons les compteurs de performance de l’espace de travail qui concerne toutes les machines virtuelles liées à l’espace de travail, que vous ayez choisi ou non de les intégrer à Azure Monitor pour machines virtuelles. Pour en savoir plus sur la configuration des compteurs de performance de l’espace de travail, consultez notre [documentation](../../azure-monitor/platform/data-sources-performance-counters.md). Pour plus d’informations sur les compteurs configuré pour Azure Monitor pour les machines virtuelles, reportez-vous à notre [activer Azure Monitor pour les machines virtuelles](vminsights-enable-overview.md#performance-counters-enabled) article.  
 
 ## <a name="why-did-my-vm-fail-to-onboard"></a>Pourquoi l’intégration de ma machine virtuelle a-t-elle échoué ?
 Voici les étapes effectuées lors de l’intégration d’une machine virtuelle Azure depuis le portail Azure :
 
 * Un espace de travail Log Analytics par défaut est créé, si cette option a été sélectionnée.
-* Les compteurs de performance sont configurés pour l’espace de travail sélectionné. Si cette étape échoue, certains graphiques et tableaux de performances n’affichent pas les données de la machine virtuelle que vous avez intégrée. Vous pouvez résoudre ce problème en exécutant le script PowerShell présenté [ici](vminsights-onboard.md#enable-with-powershell).
+* Les compteurs de performance sont configurés pour l’espace de travail sélectionné. Si cette étape échoue, certains graphiques et tableaux de performances n’affichent pas les données de la machine virtuelle que vous avez intégrée. Vous pouvez résoudre ce problème en exécutant le script PowerShell présenté [ici](vminsights-enable-at-scale-powershell.md#enable-performance-counters).
 * L’agent Log Analytics est installé sur les machines virtuelles Azure à l’aide d’une extension machine virtuelle, au besoin.  
 * L’agent Map Dependency d’Azure Monitor pour machines virtuelles est installé sur les machines virtuelles Azure à l’aide d’une extension, au besoin.  
 * Les composants d’Azure Monitor prenant en charge la fonctionnalité Intégrité (Health) sont configurés, le cas échéant, et la machine virtuelle est configurée de façon à transmettre les rapports sur les données d’intégrité.
@@ -89,7 +89,7 @@ Les seuils des critères d’intégrité Linux suivants ne peuvent pas être mod
 Les règles d’alerte définies pour chaque critère d’intégrité ne sont pas affichées dans le portail Azure. Elles ne peuvent être activées ou désactivées qu’à partir de l’[API de supervision de charge de travail](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/components). En outre, il est impossible d'affecter un [groupe d'actions Azure Monitor](../../azure-monitor/platform/action-groups.md) pour des alertes d'intégrité sur le portail Azure. Vous pouvez utiliser l’API de paramètre de notification uniquement pour configurer le déclenchement d’un groupe d’actions chaque fois qu’une alerte d’intégrité est déclenchée. Actuellement, il est possible d’affecter des groupes d’action pour une machine virtuelle, si bien que toutes les *alertes d’intégrité* déclenchées sur la machine virtuelle déclenchent les mêmes groupes d’actions. Contrairement aux alertes Azure classiques, il ne peut pas exister un groupe d’action distinct pour chaque règle d’alerte d’intégrité. De plus, seuls les groupes d’actions configurés pour adresser des notifications par e-mail ou SMS sont pris en charge quand des alertes d’intégrité sont déclenchées. 
 
 ## <a name="i-dont-see-some-or-any-data-in-the-performance-charts-for-my-vm"></a>Aucune donnée ne figure dans les tableaux de performances de ma machine virtuelle, ou certaines ne s’affichent pas
-Si les données de performance ne s’affichent pas dans le tableau du disque ou dans certains graphiques de performance, vos compteurs de performance ne sont peut-être pas configurés dans l’espace de travail. Pour résoudre ce problème, exécutez le [script PowerShell](vminsights-onboard.md#enable-with-powershell) suivant.
+Si les données de performance ne s’affichent pas dans le tableau du disque ou dans certains graphiques de performance, vos compteurs de performance ne sont peut-être pas configurés dans l’espace de travail. Pour résoudre ce problème, exécutez le [script PowerShell](vminsights-enable-at-scale-powershell.md#enable-with-powershell) suivant.
 
 ## <a name="how-is-azure-monitor-for-vms-map-feature-different-from-service-map"></a>Quelle est la différence entre la fonctionnalité de mappage d’Azure Monitor pour machines virtuelles et celle de Service Map ?
 La fonctionnalité de mappage d’Azure Monitor pour machines virtuelles est basée sur celle de Service Map, mais présente les différences suivantes :
@@ -138,4 +138,4 @@ Si vous avez configuré Azure Monitor avec un espace de travail Log Analytics en
 Dans ce cas, l'option **Essayer maintenant** apparaîtra lorsque vous ouvrirez la machine virtuelle et sélectionnerez **Insights (préversion)** dans le volet de gauche, même après son installation sur la machine virtuelle.  Mais aucune option ne vous est proposée, contrairement à ce qui aurait eu lieu si cette machine virtuelle n'avait pas été intégrée à Azure Monitor pour machines virtuelles. 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour découvrir les exigences et les méthodes relatives à l’activation de la supervision de vos machines virtuelles, consultez l’article [Intégrer Azure Monitor pour machines virtuelles](vminsights-onboard.md).
+Révision [activer Azure Monitor pour les machines virtuelles](vminsights-enable-overview.md) pour comprendre les exigences et des méthodes pour activer la surveillance de vos machines virtuelles.

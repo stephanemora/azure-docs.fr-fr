@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: glenga
-ms.openlocfilehash: e24c5b2be1df41d84fa4461250f51cb009f77529
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: ddd3b0889eedd55f809dbb57b2ef41a2ae3f9c94
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60737186"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65521393"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x"></a>Informations de référence sur le fichier host.json pour Azure Functions 2.x  
 
@@ -35,7 +35,6 @@ Certains paramètres host.json sont uniquement utilisés lors de l’exécution 
 ## <a name="sample-hostjson-file"></a>Exemple de fichier host.json
 
 L’exemple de fichier *host.json* suivant contient toutes les options possibles spécifiées.
-
 
 ```json
 {
@@ -82,7 +81,10 @@ L’exemple de fichier *host.json* suivant contient toutes les options possibles
       "lockAcquisitionTimeout": "00:01:00",
       "lockAcquisitionPollingInterval": "00:00:03"
     },
-    "watchDirectories": [ "Shared", "Test" ]
+    "watchDirectories": [ "Shared", "Test" ],
+    "managedDependency": {
+        "enabled": true
+    }
 }
 ```
 
@@ -112,7 +114,7 @@ Contrôle la [fonctionnalité d’échantillonnage dans Application Insights](.
 > [!NOTE]
 > L’échantillonnage de journal peut faire que certaines exécutions n’apparaissent pas dans le panneau de surveillance Application Insights.
 
-|Propriété  |Default | Description |
+|Propriété  |Default | Description  |
 |---------|---------|---------| 
 |isEnabled|true|Active ou désactive l’échantillonnage.| 
 |maxTelemetryItemsPerSecond|5.|Seuil à partir duquel l’échantillonnage débute.| 
@@ -194,13 +196,16 @@ Contrôle les comportements de journalisation de l’application de fonction, y 
       "Function.MyFunction": "Information",
       "default": "None"
     },
+    "console": {
+        ...
+    },
     "applicationInsights": {
         ...
     }
 }
 ```
 
-|Propriété  |Default | Description |
+|Propriété  |Default | Description  |
 |---------|---------|---------|
 |fileLoggingMode|debugOnly|Définit le niveau de journalisation de fichiers activé.  Options : `never`, `always`, `debugOnly`. |
 |logLevel|n/a|Objet qui définit le filtrage par catégorie du journal pour les fonctions de l’application. La version 2.x suit la disposition d’ASP.NET Core pour le filtrage de catégorie de journal. Cela vous permet de filtrer la journalisation pour des fonctions spécifiques. Pour plus d’informations, consultez [Filtrage de journal](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) dans la documentation ASP.NET Core. |
@@ -223,7 +228,7 @@ Ce paramètre est un enfant de la [journalisation](#logging). Il contrôle la jo
 }
 ```
 
-|Propriété  |Default | Description |
+|Propriété  |Default | Description  |
 |---------|---------|---------| 
 |isEnabled|false|Active ou désactive la journalisation de la console.| 
 
@@ -274,6 +279,18 @@ Ensemble de [répertoires de code partagé](functions-reference-csharp.md#watche
 ```json
 {
     "watchDirectories": [ "Shared" ]
+}
+```
+
+## <a name="manageddependency"></a>managedDependency
+
+Dépendance managé est une fonctionnalité d’aperçu qui est actuellement uniquement pris en charge avec PowerShell en fonction des fonctions. Il active des dépendances à être gérées automatiquement par le service. Lorsque la propriété enabled est définie sur true, le [requirements.psd1](functions-reference-powershell.md#dependency-management) fichier sera traité. Dépendances seront mises à jour lorsque toutes les versions mineures sont libérées.
+
+```json
+{
+    "managedDependency": {
+        "enabled": true
+    }
 }
 ```
 

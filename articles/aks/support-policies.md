@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: jenoller
-ms.openlocfilehash: 9b779021eca11638e8ee52ec11d082e5b0e89cd4
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 0d2c080be727d2ae13d6d9e5274f17cadffbe640
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65506685"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65786456"
 ---
 # <a name="support-policies-for-azure-kubernetes-service"></a>Stratégies de prise en charge pour Azure Kubernetes Service
 
@@ -146,7 +146,7 @@ Fonctionnalités en version préliminaire ou fonctionnalités de l’indicateur 
 
 Fonctionnalités en version préliminaire publique sont chute sous « meilleur effort » la prise en charge ces fonctionnalités sont en version préliminaire et pas conçu pour la production, et sont pris en charge par les équipes de support technique ACS pendant les heures ouvrables uniquement. Pour plus d’informations, consultez :
 
-* [FAQ du support Azure](https://azure.microsoft.com/en-us/support/faq/)
+* [FAQ du support Azure](https://azure.microsoft.com/support/faq/)
 
 > [!NOTE]
 > Fonctionnalités en version préliminaire en vigueur au Azure *abonnement* niveau. N’installez pas les fonctionnalités en version préliminaire sur un abonnement de production. Sur un abonnement de production, les fonctionnalités en version préliminaire peuvent modifier le comportement par défaut de l’API et affectent les opérations normales.

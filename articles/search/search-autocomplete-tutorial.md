@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: mcarter
 ms.custom: seodec2018
-ms.openlocfilehash: f3e7cc2ed71dda0eb34328432b26a4016b62be1c
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 9385ed5127b8cc1aaf84c887b652fd8970883ba6
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65466413"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65524023"
 ---
 # <a name="add-suggestions-or-autocomplete-to-your-azure-search-application"></a>Ajouter des suggestions ou avec saisie semi-automatique à votre application de recherche Azure
 
@@ -164,7 +164,7 @@ Ouvrez le **HomeController.cs** fichier sous le répertoire de contrôleurs.
 
 La première chose que vous remarquerez est une méthode en haut de la classe appelée `InitSearch`. Cette méthode crée un client d’index HTTP authentifié dans le service de Recherche Azure. Pour plus d’informations, consultez [comment utiliser Azure Search à partir d’une Application .NET](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk).
 
-Sur la ligne 41, notez que la fonction Suggérer. Il est basé sur le [DocumentsOperationsExtensions.Suggest méthode](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.suggest?view=azure-dotnet-preview).
+Sur la ligne 41, notez que la fonction Suggérer. Il est basé sur le [DocumentsOperationsExtensions.Suggest méthode](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.suggest?view=azure-dotnet).
 
 ```csharp
 public ActionResult Suggest(bool highlights, bool fuzzy, string term)
@@ -198,7 +198,7 @@ public ActionResult Suggest(bool highlights, bool fuzzy, string term)
 
 La fonction Suggest prend deux paramètres qui déterminent si les meilleurs résultats sont renvoyés ou si la correspondance approximative est utilisée en plus de la recherche de terme. La méthode crée un [SuggestParameters objet](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggestparameters?view=azure-dotnet), qui est ensuite transmis à l’API de suggestion. Le résultat est ensuite converti en JSON pour être visible par le client.
 
-Sur la ligne 69, notez que la fonction de saisie semi-automatique. Il est basé sur le [DocumentsOperationsExtensions.Autocomplete méthode](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.autocomplete?view=azure-dotnet-preview).
+Sur la ligne 69, notez que la fonction de saisie semi-automatique. Il est basé sur le [DocumentsOperationsExtensions.Autocomplete méthode](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.autocomplete?view=azure-dotnet).
 
 ```csharp
 public ActionResult AutoComplete(string term)

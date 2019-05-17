@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: glenga
-ms.openlocfilehash: 57126c87879da9f99d224457433bbbd5f95ef021
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 88e5f1ac7834caa32302a3817e1779d0d733a7b3
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60325607"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787544"
 ---
 # <a name="run-your-azure-functions-from-a-package-file"></a>Exécuter des fonctions Azure à partir d’un fichier de package
 
@@ -42,7 +42,7 @@ Pour plus d’informations, lisez [cette annonce](https://github.com/Azure/app-s
 
 Pour permettre à votre application de fonction de s’exécuter à partir d’un package, il suffit d’ajouter un paramètre `WEBSITE_RUN_FROM_PACKAGE` à vos paramètres d’application de fonction. Le paramètre `WEBSITE_RUN_FROM_PACKAGE` doit avoir l’une des valeurs suivantes :
 
-| Valeur  | Description  |
+| Valeur  | Description   |
 |---------|---------|
 | **`1`**  | Recommandé pour les applications de fonction qui s’exécutent sur Windows. Lancez l’exécution à partir d’un fichier de package dans le dossier `d:\home\data\SitePackages` de votre application de fonction. Si ce n’est pas [déploiement avec zip déployer](#integration-with-zip-deployment), cette option nécessite que le dossier ait également un fichier nommé `packagename.txt`. Ce fichier contient uniquement le nom du fichier de package du dossier, sans espace. |
 |**`<url>`**  | Emplacement d’un fichier de package que vous souhaitez exécuter. Lorsque vous utilisez le stockage Blob, vous devez utiliser un conteneur privé avec une [signature d’accès partagé (SAP)](../vs-azure-tools-storage-manage-with-storage-explorer.md#attach-a-storage-account-by-using-a-shared-access-signature-sas) pour permettre au runtime Functions d’accéder au package. Vous pouvez utiliser [l’Explorateur Stockage Azure](https://azure.microsoft.com/features/storage-explorer/) pour charger des fichiers de package sur votre compte Stockage Blob.         |
@@ -64,6 +64,13 @@ L’exemple suivant montre une application de fonction configurée pour s’exé
 ## <a name="adding-the-websiterunfrompackage-setting"></a>Ajout du paramètre WEBSITE_RUN_FROM_PACKAGE
 
 [!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
+
+## <a name="troubleshooting"></a>Résolution de problèmes
+
+- Exécuter à partir d’un Package rend `wwwroot` en lecture seule, vous recevez une erreur lors de l’écriture des fichiers dans ce répertoire.
+- Formats TAR et gzip ne sont pas pris en charge.
+- Cette fonctionnalité ne compose pas avec le cache local.
+- Pour améliorer les performances de démarrage à froid, utilisez l’option de Zip locale (`WEBSITE_RUN_FROM_PACKAGE`= 1).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

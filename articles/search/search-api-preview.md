@@ -12,12 +12,12 @@ ms.workload: search
 ms.date: 05/02/2019
 ms.author: HeidiSteen
 ms.custom: seodec2018
-ms.openlocfilehash: 91c58507d8758a65772110afba71354deecd3b12
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 5374ff896613dd8f8563a2054be8a92103e63fbb
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024280"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523900"
 ---
 # <a name="azure-search-service-rest-api-version-2019-05-06-preview"></a>Version de l’api REST de Service de recherche Azure 2019-05-06-Preview
 Cet article décrit la version `api-version=2019-05-06-Preview` de l’API REST du service Recherche Azure, qui offre des fonctionnalités expérimentales pas encore mises à la disposition générale.
@@ -37,6 +37,8 @@ Cet article décrit la version `api-version=2019-05-06-Preview` de l’API REST 
 Les fonctionnalités annoncées dans les préversions antérieures sont toujours en préversion publique. Si vous appelez une API avec une api-version d’une préversion antérieure, vous pouvez continuer à utiliser cette version ou basculer sur `2019-05-06-Preview` sans aucun effet sur le comportement attendu.
 
 + Le [paramètre de requête moreLike This](search-more-like-this.md) permet de rechercher des documents correspondant à un document spécifique. Cette fonctionnalité existait dans les préversions antérieures. 
+* [Indexation des objets blob CSV](search-howto-index-csv-blobs.md) crée un document par ligne, par opposition à un document par l’objet blob de texte.
+* [Prise en charge de l’API MongoDB pour les indexeurs de Cosmos DB](search-howto-index-cosmosdb.md) est en version préliminaire.
 
 
 ## <a name="how-to-call-a-preview-api"></a>Comment appeler une API en préversion

@@ -11,12 +11,12 @@ author: chris-lauren
 ms.author: clauren
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 18a80af8422e30ce3e87395449fca7b5f6a73762
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: d02318db4deae6f0a6acdae9382ce47116c95110
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025040"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65800867"
 ---
 # <a name="mlops-manage-deploy-and-monitor-models-with-azure-machine-learning-service"></a>MLOps : Déployer, gérer et surveiller des modèles avec le service Azure Machine Learning
 
@@ -34,11 +34,14 @@ Chaque étape peut être effectuée indépendamment ou en tant que partie d’un
 
 [![« Cycle de déploiement (CI/CD) une intégration continus azure Machine Learning »](media/concept-model-management-and-deployment/model-ci-cd.png)](media/concept-model-management-and-deployment/model-ci-cd.png#lightbox)
 
-> [!VIDEO https://www.youtube.com/embed/0MaHb070H_8]
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2X1GX]
 
 ## <a name="step-1-register-model"></a>Étape 1 : Inscrire le modèle
 
 L’inscription de modèle vous permet de stocker vos modèles dans le cloud Azure, au sein de votre espace de travail, et d’en gérer les versions. Le registre de modèle facilite l’organisation et le suivi de vos modèles entraînés.
+
+> [!TIP]
+> Vous pouvez également enregistrer des modèles formés en dehors du service Azure Machine Learning.
  
 Les modèles inscrits sont identifiés par leur nom et par leur version. Chaque fois que vous inscrivez un modèle portant le même nom qu’un modèle existant, le registre incrémente la version. Vous pouvez également fournir des étiquettes de métadonnées supplémentaires lors de l’inscription, qui peuvent être utilisées lors de la recherche de modèles. Le service Azure Machine Learning prend en charge n’importe quel modèle qui peut être chargé à l’aide de Python 3.5.2 ou une version ultérieure.
 
@@ -56,7 +59,7 @@ Modèles d’apprentissage automatique peuvent être utilisés comme un service 
 
 Vous pouvez utiliser vos modèles dans **services web** cibles de calcul avec les éléments suivants :
 
-* Azure Container Instance
+* Azure Container Instances
 * Azure Kubernetes Service
 
 Pour déployer le modèle comme un service web, vous devez fournir les éléments suivants :
@@ -73,7 +76,7 @@ Vous pouvez utiliser des modèles avec les appareils IoT via **modules Azure IoT
 
 Pour plus d’informations, consultez [déployer des modèles](how-to-deploy-and-where.md).
 
-### <a name="analytics"></a>Analytics
+### <a name="analytics"></a>Analyse
 
 Microsoft Power BI prend en charge à l’aide de modèles d’apprentissage automatique pour l’analytique des données. Pour plus d’informations, consultez [intégration d’Azure Machine Learning dans Power BI (version préliminaire)](https://docs.microsoft.com/power-bi/service-machine-learning-integration).
 
@@ -92,5 +95,7 @@ Déploiements doivent être mis à jour explicitement. Pour plus d’information
 ## <a name="next-steps"></a>Étapes suivantes
 
 Découvrez plus d’informations sur [comment et où vous pouvez déployer des modèles](how-to-deploy-and-where.md) avec le service Azure Machine Learning. Pour obtenir un exemple de déploiement, consultez [didacticiel : Déployer un modèle de classification d’image dans Azure Container Instances](tutorial-deploy-models-with-aml.md).
+
+Découvrez comment créer [intégration continue et déploiement de modèles ML avec les Pipelines Azure](/azure/devops/pipelines/targets/azure-machine-learning). 
 
 Découvrez comment créer des applications et services clients qui [utilisent un modèle déployé en tant que service web](how-to-consume-web-service.md).

@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2016
 ms.author: narayan;aglick
-ms.openlocfilehash: f8068524a33c6d29056af456a26b8bd87fc3e3d6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 68a9523dcc9c4dd84399c68fc7e31a692c011487
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60742702"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523256"
 ---
 # <a name="virtual-network--business-continuity"></a>Réseau virtuel – Continuité des activités
 
 ## <a name="overview"></a>Présentation
 Un réseau virtuel (VNet) est une représentation de votre réseau dans le cloud. Il vous permet de définir votre propre espace d’adressage IP privé et de segmenter le réseau en sous-réseaux. Les réseaux virtuels servent de limite d’approbation pour héberger vos ressources de calcul telles que les machines virtuelles et les services cloud Azure (rôles web/de travail). Un réseau virtuel permet la communication IP privée directe entre les ressources qu’il contient. Vous pouvez lier un réseau virtuel à un réseau local via une passerelle VPN ou ExpressRoute.
 
-Un réseau virtuel est créé dans l’étendue d’une région. Vous pouvez créer des réseaux virtuels avec le même espace d’adressage dans deux régions différentes (par exemple,USA Est et USA Ouest), mais il est impossible de les connecter les uns aux autres. 
+Un réseau virtuel est créé dans l’étendue d’une région. Vous pouvez *créer* réseaux virtuels avec même espace d’adressage dans deux régions différentes (par exemple, est des États-Unis et ouest des États-Unis), mais, car ils ont le même espace d’adressage, vous ne pouvez pas les connecter entre eux. 
 
 ## <a name="business-continuity"></a>Continuité des activités
 

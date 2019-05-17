@@ -4,16 +4,16 @@ description: Découvrez comment résoudre les problèmes rencontrés avec Update
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/05/2019
+ms.date: 05/07/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 22e3ea1c90946902fc2a16d947ff2884e5e0a44b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f286877c6a9e787c06a8a846efaf94668c04fc4e
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60597617"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787695"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Résolution des problèmes rencontrés avec Update Management
 
@@ -160,6 +160,38 @@ Le Runbook Worker hybride n’a pas pu générer de certificat auto-signé.
 
 Vérifiez que le compte système a accès en lecture au dossier **C:\ProgramData\Microsoft\Crypto\RSA**, puis réessayez.
 
+### <a name="failed-to-start"></a>Scénario : Un ordinateur indique l’échec du démarrage dans un déploiement de mises à jour
+
+#### <a name="issue"></a>Problème
+
+Un ordinateur a le statut **Échec du démarrage** pour un ordinateur. Lorsque vous affichez les détails spécifiques de la machine affiche l’erreur suivante :
+
+```error
+Failed to start the runbook. Check the parameters passed. RunbookName Patch-MicrosoftOMSComputer. Exception You have requested to create a runbook job on a hybrid worker group that does not exist.
+```
+
+#### <a name="cause"></a>Cause :
+
+Cette erreur peut se produire en raison d’une des raisons suivantes :
+
+* L’ordinateur n’existe plus.
+* L’ordinateur est désactivé hors tension et inaccessible.
+* L’ordinateur a un problème de connectivité réseau et le worker hybride sur l’ordinateur est inaccessible.
+* Il a été mise à jour l’Agent de surveillance de Microsoft qui a modifié le SourceComputerId
+* Exécution de votre mise à jour peut avoir été limitée si vous atteignez la limite de 2 000 tâches simultanées dans un compte Automation. Chaque déploiement est considéré comme une tâche et chaque ordinateur dans un nombre de déploiements de mise à jour en tant que tâche. N’importe quel autre travail ou mise à jour déploiement automation en cours d’exécution dans votre nombre de compte Automation dans le nombre maximal de tâches simultanées.
+
+#### <a name="resolution"></a>Résolution :
+
+Lorsque applicables à l’utilisation [groupes dynamiques](../automation-update-management.md#using-dynamic-groups) pour vos déploiements de mise à jour.
+
+* Vérifiez que l’ordinateur existe toujours et est accessible. Si elle n’existe pas, modifiez votre déploiement et supprimez l’ordinateur.
+* Consultez la section sur [planification réseau](../automation-update-management.md#ports) pour obtenir la liste des ports et des adresses qui sont nécessaires pour la gestion de la mise à jour et vérifiez que votre ordinateur répond à ces exigences.
+* Exécutez la requête suivante dans le journal Analytique pour rechercher les ordinateurs dans votre environnement dont `SourceComputerId` modifié. Recherchez les ordinateurs qui ont le même `Computer` valeur, mais différentes `SourceComputerId` valeur. Une fois que vous trouvez les ordinateurs affectés, vous devez modifier les déploiements de mises à jour qui ciblent ces machines et supprimer et rajouter les machines afin que la `SourceComputerId` reflète la valeur correcte.
+
+   ```loganalytics
+   Heartbeat | where TimeGenerated > ago(30d) | distinct SourceComputerId, Computer, ComputerIP
+   ```
+
 ### <a name="hresult"></a>Scénario : La machine s’affiche comme non évaluée et présente une exception HResult
 
 #### <a name="issue"></a>Problème
@@ -177,7 +209,9 @@ Double-cliquez sur l’exception affichée en rouge pour voir le message d’exc
 |Exception  |Résolution ou action  |
 |---------|---------|
 |`Exception from HRESULT: 0x……C`     | Recherchez le code d’erreur pertinent dans la [liste des codes d’erreur de Windows Update](https://support.microsoft.com/help/938205/windows-update-error-code-list) pour obtenir des détails supplémentaires sur la cause de l’exception.        |
-|`0x8024402C` ou `0x8024401C`     | Ces erreurs sont des problèmes de connectivité réseau. Assurez-vous que votre machine dispose de la connectivité réseau appropriée pour Update Management. Consultez la section sur la [planification réseau](../automation-update-management.md#ports) pour obtenir la liste des ports et des adresses nécessaires.        |
+|`0x8024402C`</br>`0x8024401C`</br>`0x8024402F`      | Ces erreurs sont des problèmes de connectivité réseau. Assurez-vous que votre machine dispose de la connectivité réseau appropriée pour Update Management. Consultez la section sur la [planification réseau](../automation-update-management.md#ports) pour obtenir la liste des ports et des adresses nécessaires.        |
+|`0x8024001E`| L’opération de mise à jour a échoué, car le service ou le système était en cours d’arrêt.|
+|`0x8024002E`| Service de mise à jour de Windows est désactivé.|
 |`0x8024402C`     | Si vous utilisez un serveur WSUS, assurez-vous que les valeurs de Registre de `WUServer` et `WUStatusServer` sous la clé de Registre `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate` utilisent le bon serveur WSUS.        |
 |`The service cannot be started, either because it is disabled or because it has no enabled devices associated with it. (Exception from HRESULT: 0x80070422)`     | Assurez-vous que le service Windows Update (wuauserv) est en cours d’exécution et qu’il n’est pas désactivé.        |
 |Toute autre exception générique     | Faites une recherche sur Internet pour découvrir les solutions possibles et contactez votre support technique local.         |
@@ -221,7 +255,7 @@ Les causes possibles sont :
 
 * Le Gestionnaire de package n’est pas sain
 * Des packages spécifiques peuvent interférer avec la mise à jour corrective cloud
-* Autres raisons
+* Autres motifs
 
 #### <a name="resolution"></a>Résolution :
 

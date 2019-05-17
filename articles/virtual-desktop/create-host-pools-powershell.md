@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 05/06/2019
 ms.author: helohr
-ms.openlocfilehash: 165980da2b78e7514ea1938bdbeb6fda82dd123d
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 8e6783bb56f55949824e4ce94c85145f53dd9f4b
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236662"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523955"
 ---
 # <a name="create-a-host-pool-with-powershell"></a>Créer un pool d’hôtes avec PowerShell
 
@@ -26,12 +26,6 @@ Exécutez l’applet de commande suivante pour vous connecter à l’environneme
 
 ```powershell
 Add-RdsAccount -DeploymentUrl https://rdbroker.wvd.microsoft.com
-```
-
-Après cela, exécutez l’applet de commande suivante pour définir le contexte à votre groupe de client. Si vous n’avez pas le nom du groupe de client, votre client étant probablement dans la valeur par défaut locataire « groupe », vous pouvez ignorer cette applet de commande.
-
-```powershell
-Set-RdsContext -TenantGroupName <tenantgroupname>
 ```
 
 Ensuite, exécutez cette applet de commande pour créer un nouveau pool d’hôte dans votre client de bureau virtuel Windows :

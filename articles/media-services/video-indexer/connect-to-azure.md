@@ -6,15 +6,16 @@ services: media-services
 author: Juliako
 manager: femila
 ms.service: media-services
+ms.subservice: video-indexer
 ms.topic: article
-ms.date: 01/12/2019
+ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: 08f2dac6317f294c3c7360cc00cf9aaa60c9a7ca
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 33493f1bdff6071737aad4bfb8c7d0e5e22896db
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64715105"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65799841"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Créer un compte Video Indexer connecté à Azure
 
@@ -136,7 +137,7 @@ Dans la boîte de dialogue **Connecter Video Indexer à un abonnement Azure** de
 
 Dans la boîte de dialogue, indiquez les informations suivantes :
 
-|Paramètre|Description|
+|Paramètre|Description |
 |---|---|
 |Région du compte Video Indexer|Nom de la région du compte Video Indexer. Pour améliorer les performances et réduire les coûts, il est fortement recommandé de spécifier le nom de la région où se trouvent la ressource Azure Media Services et le compte de stockage Azure. |
 |Locataire Azure Active Directory (AAD)|Nom du locataire Azure AD, par exemple contoso.onmicrosoft.com. Les informations relatives au locataire peuvent être récupérées à partir du portail Azure. Placez votre curseur sur le nom de l’utilisateur connecté, en haut à droite. Le nom est indiqué à droite du **domaine**.|
@@ -144,7 +145,7 @@ Dans la boîte de dialogue, indiquez les informations suivantes :
 |Nom du groupe de ressources Azure Media Services|Nom du groupe de ressources dans lequel vous avez créé le compte Media Services.|
 |Nom de la ressource de service multimédia|Nom du compte Azure Media Services que vous avez créé dans la section précédente.|
 |ID de l'application|ID d’application Azure AD (avec des autorisations pour le compte Media Services spécifié) que vous avez créé dans la section précédente.|
-|Clé de l’application|Clé de l’application Azure AD que vous avez créée dans la section précédente. |
+|Clé de l'application|Clé de l’application Azure AD que vous avez créée dans la section précédente. |
 
 ## <a name="considerations"></a>Considérations
 

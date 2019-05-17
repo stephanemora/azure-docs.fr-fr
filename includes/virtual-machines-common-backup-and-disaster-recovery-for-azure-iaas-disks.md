@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 570330f47d2c610032c9c6646231c2320b2257be
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: d242b2815d59676432beb878bbc955a9f39de0f1
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64732666"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65535867"
 ---
 # <a name="backup-and-disaster-recovery-for-azure-iaas-disks"></a>Sauvegarde et récupération d’urgence pour les disques IaaS Azure
 
@@ -148,7 +148,7 @@ Utilisez les étapes suivantes pour activer les sauvegardes de vos machines virt
 
     b. Dans le menu **Coffres Recovery Services**, cliquez sur **Ajouter** et suivez les étapes pour créer un coffre dans la même région que la machine virtuelle. Par exemple, si votre machine virtuelle est située dans la région USA Ouest, vous pouvez choisir USA Ouest pour le coffre.
 
-1.  Vérifiez la réplication du stockage pour le nouveau coffre. Accédez au coffre sous **Coffres Recovery Services** puis sélectionnez **Paramètres** > **Configuration de la sauvegarde**. Vérifiez que l’option de **stockage géoredondant** est sélectionnée par défaut. Cette option garantit que votre coffre est automatiquement répliqué vers un centre de données secondaire. Par exemple, votre coffre de la région USA Ouest est automatiquement répliqué vers la région USA Est.
+1.  Vérifiez la réplication du stockage pour le nouveau coffre. Accéder au coffre sous **coffres Recovery Services** et accédez à **propriétés** > **Configuration de la sauvegarde** > **mise à jour** . Vérifiez que l’option de **stockage géoredondant** est sélectionnée par défaut. Cette option garantit que votre coffre est automatiquement répliqué vers un centre de données secondaire. Par exemple, votre coffre de la région USA Ouest est automatiquement répliqué vers la région USA Est.
 
 1.  Configurez la stratégie de sauvegarde et sélectionnez la machine virtuelle à partir de la même interface utilisateur.
 
