@@ -61,7 +61,7 @@ Les propriétés prises en charge pour le service lié SAP Business Warehouse so
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | type | La propriété type doit être définie sur : **SapBw** | Oui |
-| serveur | Nom du serveur sur lequel réside l’instance SAP BW. | Oui |
+| server | Nom du serveur sur lequel réside l’instance SAP BW. | Oui |
 | systemNumber | Numéro de système du système SAP BW.<br/>Valeur autorisée : nombre décimal à deux chiffres représenté sous forme de chaîne. | Oui |
 | clientId | ID client du client dans le système SAP W.<br/>Valeur autorisée : nombre décimal à trois chiffres représenté sous forme de chaîne. | Oui |
 | userName | Nom de l’utilisateur ayant accès au serveur SAP. | Oui |
@@ -184,7 +184,7 @@ Lors de la copie de données de SAP BW, les mappages suivants sont utilisés ent
 | RAW | Byte[] |
 | RAWSTRING | Byte[] |
 | STRING | String |
-| UNITÉ | String |
+| UNIT | String |
 | DATS | String |
 | NUMC | String |
 | TIMS | String |
