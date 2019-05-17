@@ -167,16 +167,16 @@ Lors de la copie de données de SAP HANA, les mappages suivants sont utilisés e
 | BLOB | Byte[] |
 | BOOLEAN | Byte |
 | CLOB | Byte[] |
-| DATE | Datetime |
-| DÉCIMAL | Decimal |
+| DATE | DateTime |
+| DECIMAL | Decimal |
 | DOUBLE | Single |
 | INT | Int32 |
 | NVARCHAR | String |
 | REAL | Single |
-| SECONDDATE | Datetime |
+| SECONDDATE | DateTime |
 | SMALLINT | Int16 |
-| TEMPS | TimeSpan |
-| TIMESTAMP | Datetime |
+| TIME | TimeSpan |
+| TIMESTAMP | DateTime |
 | TINYINT | Byte |
 | VARCHAR | String |
 
