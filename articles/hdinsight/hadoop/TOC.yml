@@ -289,7 +289,7 @@
             - name: Utilisation d'Azure PowerShell
               href: ../hdinsight-administer-use-powershell.md
               maintainContext: true
-            - name: Utiliser Azure Classic CLI
+            - name: "Utilisation de l’interface de ligne de commande Microsoft\_Azure"
               href: ../hdinsight-administer-use-command-line.md
               maintainContext: true
         - name: Gérer des clusters à l’aide de l’interface utilisateur web Apache Ambari
