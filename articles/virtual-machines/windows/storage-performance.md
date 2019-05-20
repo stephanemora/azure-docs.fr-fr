@@ -22,7 +22,7 @@ ms.locfileid: "61487339"
 
 Machines virtuelles de série Lsv2 prend en charge une variété de charges de travail nécessitant des e/s élevé et le débit sur le stockage local sur un large éventail d’applications et de secteurs.  La série Lsv2 est idéale pour les Big Data, SQL, NoSQL bases de données, l’entreposage de données et grandes bases de données transactionnelles, y compris Cassandra, MongoDB, Cloudera et Redis.
 
-La conception de la série Lsv2 Machines () optimise le processeur AMD EPYC™ 7551 afin d’améliorer les performances entre le processeur, mémoire, les périphériques NVMe et les machines virtuelles. Outre optimiser les performances de matériel, les machines virtuelles de série Lsv2 sont conçus pour fonctionner avec les besoins des systèmes d’exploitation Windows et Linux pour de meilleures performances avec le matériel et le logiciel.
+La conception de la série Lsv2 Machines () optimise le processeur AMD EPYC™ 7551 afin d’améliorer les performances entre le processeur, la mémoire, les périphériques NVMe et les machines virtuelles. Outre l’optimisation des performances de matériel, les machines virtuelles de série Lsv2 sont conçues pour fonctionner avec les besoins des systèmes d’exploitation Windows et Linux pour de meilleures performances avec le matériel et le logiciel.
 
 Les logiciels et matériels de paramétrage a entraîné la version optimisée de [Windows Server Datacenter 2019](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WindowsServer?tab=Overview)publiée en début décembre 2018 à la place de marché Azure, qui prend en charge des performances maximales sur les périphériques NVMe dans Lsv2-series Machines virtuelles.
 
