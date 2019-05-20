@@ -63,8 +63,9 @@
     - name: Scale
       href: concepts-scale.md
     - name: Bonnes pratiques
-      href: best-practices.md
       items:
+        - name: Vue d’ensemble
+          href: best-practices.md
         - name: Pour les opérateurs du cluster
           items:
             - name: Multilocation et isolation de cluster
@@ -115,9 +116,9 @@
           maintainContext: true
         - name: Créer des nœuds virtuels
           items:
-            - name: Azure CLI
+            - name: "Utilisation de l’interface de ligne de commande Microsoft\_Azure"
               href: virtual-nodes-cli.md
-            - name: Portail Azure
+            - name: Utilisation du portail Azure
               href: virtual-nodes-portal.md
         - name: Utiliser Virtual Kubelet
           href: virtual-kubelet.md
@@ -152,7 +153,7 @@
               href: configure-azure-cni.md
         - name: Créer un équilibrage de charge interne
           href: internal-lb.md
-        - name: "Utiliser des adresses\_IP statiques"
+        - name: Utiliser une adresse IP statique
           href: static-ip.md
         - name: Entrée
           items:
@@ -165,8 +166,9 @@
             - name: Utiliser TLS avec vos certificats
               href: ingress-own-tls.md
             - name: Utiliser TLS avec Let’s Encrypt
-              href: ingress-tls.md
               items:
+                - name: Utiliser une adresse IP publique dynamique
+                  href: ingress-tls.md
                 - name: Utiliser une adresse IP publique statique
                   href: ingress-static-ip.md
         - name: Trafic de sortie
@@ -212,6 +214,20 @@
         - name: Afficher les journaux d’activité de conteneur en temps réel (préversion)
           href: ../azure-monitor/insights/container-insights-live-logs.md
           maintainContext: true
+    - name: Utiliser des conteneurs Windows Server (préversion)
+      items:
+        - name: "Créer un cluster\_AKS"
+          href: windows-container-cli.md
+        - name: Se connecter à distance
+          href: rdp.md
+        - name: Limites connues
+          href: windows-node-limitations.md
+        - name: Utiliser le tableau de bord Kubernetes
+          href: kubernetes-dashboard.md
+        - name: Créer des fichiers Dockerfile pour les conteneurs Windows Server
+          href: 'https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/manage-windows-dockerfile?context=/azure/aks/context/aks-context'
+        - name: Optimiser les fichiers Dockerfile pour les conteneurs Windows Server
+          href: 'https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/optimize-windows-dockerfile?context=/azure/aks/context/aks-context'
     - name: Développer et exécuter des applications
       items:
         - name: Développer avec Dev Spaces

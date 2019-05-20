@@ -15,7 +15,7 @@ metadata:
   ms.date: 05/07/2019
   ms.author: celested
 abstract:
-  description: "La plateforme d’identités Microsoft est une évolution de la plateforme de développeur et de service d’identité Azure Active Directory (Azure AD). Elle permet aux développeurs de générer des applications qui connectent toutes les identités Microsoft et obtiennent des jetons pour appeler des API Microsoft comme Microsoft Graph ou des API que des développeurs ont créées. C’est une plateforme complète qui se compose des éléments suivants\_: OAuth\_2.0 et service d’authentification conforme aux normes OpenID Connect, bibliothèques open source, inscription et configuration d’applications, solide documentation conceptuelle de référence, exemples de démarrage rapide, exemples de code, tutoriels et guides pratiques."
+  description: "La plateforme d’identités Microsoft est une évolution de la plateforme de développement Azure Active Directory (Azure AD). Elle permet aux développeurs de générer des applications qui connectent toutes les identités Microsoft et obtiennent des jetons pour appeler des API Microsoft comme Microsoft Graph ou des API que des développeurs ont créées. C’est une plateforme complète qui se compose des éléments suivants\_: OAuth\_2.0 et service d’authentification conforme aux normes OpenID Connect, bibliothèques open source, inscription et configuration d’applications, solide documentation conceptuelle de référence, exemples de démarrage rapide, exemples de code, tutoriels et guides pratiques."
   aside:
     image:
       alt: null

@@ -177,7 +177,7 @@
       items:
         - name: Classes de ressources et gestion des charges de travail
           href: resource-classes-for-workload-management.md
-        - name: Classification de charge de travail
+        - name: Classification de charges de travail
           href: sql-data-warehouse-workload-classification.md
         - name: Importance des charges de travail
           href: sql-data-warehouse-workload-importance.md
@@ -253,7 +253,7 @@
           href: sql-data-warehouse-query-visual-studio.md
         - name: Installer Visual Studio
           href: sql-data-warehouse-install-visual-studio.md
-    - name: Gérer la charge de travail
+    - name: Gestion des charges de travail
       items:
         - name: Analyser votre charge de travail
           href: analyze-your-workload.md

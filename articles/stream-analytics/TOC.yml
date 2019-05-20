@@ -149,7 +149,7 @@
           href: 'https://github.com/Azure/azure-stream-analytics/tree/master/Samples/ASAOneClick'
         - name: Utilisation d’une API pour les travaux IoT Edge
           href: stream-analytics-cicd-api.md
-    - name: Visual Studio et VS Code
+    - name: Visual Studio
       items:
         - name: Installer des outils
           href: stream-analytics-tools-for-visual-studio-install.md
@@ -165,8 +165,14 @@
           href: stream-analytics-tools-for-visual-studio-cicd.md
         - name: Écrire une fonction définie par l’utilisateur .NET pour la périphérie
           href: stream-analytics-edge-csharp-udf-methods.md
-        - name: Explorer Stream Analytics dans VS Code
-          href: vs-code-how-to.md
+    - name: Visual Studio Code
+      items:
+        - name: Tester avec des exemples de données
+          href: vscode-local-run.md
+        - name: Configurer un pipeline d'intégration continue (CI)/de livraison continue (CD)
+          href: setup-cicd-vs-code.md
+        - name: Explorer les travaux
+          href: vscode-explore-jobs.md
     - name: Résolution des problèmes
       items:
         - name: Entrée

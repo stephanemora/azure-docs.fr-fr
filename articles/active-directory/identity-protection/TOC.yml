@@ -46,6 +46,8 @@
           href: security-overview.md
         - name: Examiner les utilisateurs et les connexions à risque
           href: howto-investigate-risky-users-signins.md
+        - name: Fournir des commentaires sur les événements à risque
+          href: howto-provide-risk-event-feedback.md
         - name: Configurer des stratégies en matière de risque
           href: howto-configure-risk-policies.md
         - name: Améliorer la précision de la détection

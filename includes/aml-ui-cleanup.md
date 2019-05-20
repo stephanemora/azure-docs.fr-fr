@@ -9,46 +9,46 @@ author: sgilley
 ms.author: sgilley
 ms.date: 05/06/2019
 ms.openlocfilehash: 623e993dfbe6bbb3297fa6470865ab1a04f55b37
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: MT
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65028589"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65745545"
 ---
 >[!IMPORTANT]
->Vous pouvez utiliser les ressources que vous avez créé comme composants requis pour les autres didacticiels de service Azure Machine Learning et les articles de savoir-faire.
+>Vous pouvez utiliser les ressources que vous avez créées comme prérequis pour d’autres tutoriels et articles de procédure relatifs au service Azure Machine Learning.
 
 
-### <a name="delete-everything"></a>Supprimer tout
+### <a name="delete-everything"></a>Tout supprimer
 
-Si vous ne souhaitez pas utiliser autre chose que vous avez créé, supprimez le groupe de ressources ensemble afin d’éviter les frais liés à :
+Si vous n’avez pas l’intention d’utiliser les éléments que vous avez créés, supprimez l’intégralité du groupe de ressources pour éviter des frais :
 
-1. Dans le portail Azure, sélectionnez **groupes de ressources** sur le côté gauche de la fenêtre.
+1. Dans le portail Azure, sélectionnez **Groupes de ressources** sur le côté gauche de la fenêtre.
  
    ![Supprimer un groupe de ressources dans le portail Azure](./media/aml-ui-cleanup/delete-resources.png)
 
-1. Dans la liste, sélectionnez le groupe de ressources que vous avez créé.
+1. Dans la liste, sélectionnez le groupe de ressources créé.
 
-1. Sur le côté droit de la fenêtre, sélectionnez le bouton de sélection (**...** ).
+1. Sur le côté droit de la fenêtre, sélectionnez le bouton de sélection (**...**).
 
 1. Sélectionnez **Supprimer le groupe de ressources**.
 
-Suppression du groupe de ressources supprime également toutes les ressources que vous avez créé dans l’interface visuelle.  
+La suppression du groupe de ressources supprime également toutes les ressources créées dans l’interface visuelle.  
 
-### <a name="delete-only-the-compute-target"></a>Supprimez uniquement la cible de calcul
+### <a name="delete-only-the-compute-target"></a>Supprimer uniquement la cible de calcul
 
-La cible de calcul que vous avez créé ici *automatiquement opère* aux nœuds de zéro quand il n’est pas utilisé. Cela consiste à réduire les frais. Si vous souhaitez supprimer la cible de calcul, procédez comme suit :
+La cible de calcul que vous avez créée ici *est automatiquement mise à l’échelle* sur zéro nœud quand elle n’est pas utilisée. Cela permet de réduire les frais. Si vous souhaitez supprimer la cible de calcul, procédez comme suit :
 
 1. Dans le [portail Azure](https://portal.azure.com), ouvrez votre espace de travail.
 
     ![Supprimer la cible de calcul](./media/aml-ui-cleanup/delete-compute-target.png)
 
-1. Dans le **calcul** section de votre espace de travail, sélectionnez la ressource.
+1. Dans la section **Calcul** de votre espace de travail, sélectionnez la ressource.
 
 1. Sélectionnez **Supprimer**.
 
 ### <a name="delete-individual-assets"></a>Supprimer des ressources individuelles
 
-Dans l’interface visuelle où vous avez créé votre expérience, supprimer des ressources individuelles en les sélectionnant puis en sélectionnant le **supprimer** bouton.
+Dans l’interface visuelle où vous avez créé votre expérience, supprimez des ressources individuelles en les sélectionnant, puis en sélectionnant le bouton **Supprimer**.
 
 ![Supprimer les expériences](./media/aml-ui-cleanup/delete-experiment.png)
