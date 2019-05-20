@@ -284,7 +284,7 @@ Pour copier des données vers SQL Server, définissez **SqlSink** comme type de 
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type du récepteur d’activité de copie doit être définie sur : **SqlSink** | Oui |
+| type | La propriété type du récepteur d’activité de copie doit être définie sur : **SqlSink** | Oui |
 | writeBatchSize |Nombre de lignes pour les insertions dans la table SQL **par lot**.<br/>Valeurs autorisées : integer (nombre de lignes). Par défaut, Data Factory déterminer dynamiquement la taille de lot approprié selon la taille de ligne. |Non  |
 | writeBatchTimeout |Temps d’attente pour que l’opération d’insertion de lot soit terminée avant d’expirer.<br/>Valeurs autorisées : timespan. Exemple : “00:30:00” (30 minutes). |Non  |
 | preCopyScript |Spécifiez une requête SQL que l’activité de copie doit exécuter avant l’écriture des données dans SQL Server. Elle ne sera appelée qu’une seule fois par copie. Vous pouvez utiliser cette propriété pour nettoyer des données préchargées. |Non  |
@@ -516,9 +516,9 @@ Lors de la copie des données vers/à partir de SQL Server, les mappages suivant
 | binary |Byte[] |
 | bit |Boolean |
 | char |String, Char[] |
-| date |Datetime |
-| Datetime |Datetime |
-| datetime2 |Datetime |
+| date |DateTime |
+| Datetime |DateTime |
+| datetime2 |DateTime |
 | Datetimeoffset |DateTimeOffset |
 | Decimal |Decimal |
 | FILESTREAM attribute (varbinary(max)) |Byte[] |
@@ -532,7 +532,7 @@ Lors de la copie des données vers/à partir de SQL Server, les mappages suivant
 | nvarchar |String, Char[] |
 | real |Single |
 | rowversion |Byte[] |
-| smalldatetime |Datetime |
+| smalldatetime |DateTime |
 | smallint |Int16 |
 | smallmoney |Decimal |
 | sql_variant |Object |
@@ -543,7 +543,7 @@ Lors de la copie des données vers/à partir de SQL Server, les mappages suivant
 | uniqueidentifier |Guid |
 | varbinary |Byte[] |
 | varchar |String, Char[] |
-| Xml |Xml |
+| xml |Xml |
 
 >[!NOTE]
 > Pour les mappages de types de données au type intermédiaire décimal, ADF prend en charge une précision allant jusqu’à 28. Si les données ont une précision supérieure à 28, envisagez d’effectuer une conversion en chaîne dans la requête SQL.
