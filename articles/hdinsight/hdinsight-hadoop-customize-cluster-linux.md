@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/02/2019
-ms.openlocfilehash: e67e41d5e423e07371fbce06066076ab809f60df
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 63f81c331db619323f74b77e48627fd8b432565f
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59545329"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65518887"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>Personnaliser des clusters Azure HDInsight à l’aide des actions de script
 
@@ -45,23 +45,21 @@ Obtenez plus d’informations sur le fonctionnement de la gestion des accès :
 Une action de script est un script bash qui s’exécute sur les nœuds dans un cluster HDInsight. Les actions de script présentent les caractéristiques et fonctionnalités suivantes :
 
 * Elles doivent être stockées sur un URI accessible à partir du cluster HDInsight. Voici les emplacements de stockage possibles :
+    
+    * Pour les clusters standards :
+    
+      * Génération 1 ADLS : Le principal de service utilisé par HDInsight pour accéder à Data Lake Storage doit avoir accès en lecture au script. Le format d’URI pour les scripts stockés dans Data Lake Storage Gen1 est `adl://DATALAKESTOREACCOUNTNAME.azuredatalakestore.net/path_to_file`.
+      
+      * Un blob est un compte de stockage Azure utilisé comme compte de stockage principal ou supplémentaire pour le cluster HDInsight. HDInsight peut accéder à ces deux types de comptes de stockage lors de la création du cluster.
 
-    * Un compte Azure Data Lake Storage accessible par le biais du cluster HDInsight. Pour plus d’informations sur l’utilisation d’Azure Data Lake Storage avec HDInsight, consultez [Démarrage rapide : Configurer des clusters dans HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
-
-        Le format d’URI pour les scripts stockés dans Data Lake Storage Gen1 est `adl://DATALAKESTOREACCOUNTNAME.azuredatalakestore.net/path_to_file`.
-
-        > [!NOTE]  
-        > Le principal de service utilisé par HDInsight pour accéder à Data Lake Storage doit avoir accès en lecture au script.
-
-    * Un blob est un compte de stockage Azure utilisé comme compte de stockage principal ou supplémentaire pour le cluster HDInsight. HDInsight peut accéder à ces deux types de comptes de stockage lors de la création du cluster.
-
-    * Un service de partage de fichiers public, comme Blob Azure, GitHub, OneDrive et Dropbox.
+      * Un partage de fichiers service public accessible via les chemins d’accès http://. Les exemples sont des objets Blob Azure, GitHub, OneDrive.
 
         Pour obtenir des exemples d’URI, consultez [Exemples de scripts d’action de script](#example-script-action-scripts).
 
-        > [!WARNING]  
-        > HDInsight prend uniquement en charge le service Blob dans les comptes de stockage Azure avec un niveau de performances standard. 
-
+     * Pour les clusters avec ESP :
+         
+         * Le wasb [s]  :// ou http [s]  :// URI sont pris en charge.
+            
 * Elles peuvent être limitées de manière à s’exécuter uniquement sur certains types de nœuds, par exemple des nœuds principaux ou des nœuds worker.
 
 * Elles peuvent avoir un état persistant ou ad hoc.
@@ -159,7 +157,7 @@ Cette section explique les différentes façons d’utiliser des actions de scri
 
 ### <a name="use-a-script-action-during-cluster-creation-from-the-azure-portal"></a>Utiliser une action de script lors de la création d’un cluster à partir du portail Azure
 
-1. Démarrez la création d’un cluster comme décrit dans [Configurer des clusters dans HDInsight avec Apache Hadoop, Apache Spark, Apache Kafka, etc.](hdinsight-hadoop-provision-linux-clusters.md). Durant la phase de création du cluster, vous arrivez à la page __Résumé du cluster__. Dans la page __Résumé du cluster__, sélectionnez le lien __modifier__ des __Paramètres avancés__.
+1. Démarrez la création d’un cluster comme décrit dans [Configurer des clusters dans HDInsight avec Apache Hadoop, Apache Spark, Apache Kafka, etc.](hdinsight-hadoop-provision-linux-clusters.md) Durant la phase de création du cluster, vous arrivez à la page __Résumé du cluster__. Dans la page __Résumé du cluster__, sélectionnez le lien __modifier__ des __Paramètres avancés__.
 
     ![Lien des Paramètres avancés](./media/hdinsight-hadoop-customize-cluster-linux/advanced-settings-link.png)
 
@@ -428,7 +426,7 @@ Le service HDInsight fournit plusieurs méthodes d’utilisation de ces composan
 
 ## <a name="troubleshooting"></a>Résolution de problèmes
 
-Vous pouvez utiliser l’interface utilisateur web d’Ambari pour afficher les informations journalisées par des actions de script. Si le script échoue pendant la création du cluster, les journaux sont également disponibles dans le compte de stockage par défaut associé au cluster. Cette section fournit des informations sur la façon de récupérer les journaux à l’aide de ces deux options.
+Vous pouvez utiliser l’interface utilisateur web d’Ambari pour afficher les informations journalisées par des actions de script. Si le script échoue pendant la création du cluster, les journaux d’activité sont également disponibles dans le compte de stockage par défaut associé au cluster. Cette section fournit des informations sur la façon de récupérer les journaux d’activité à l’aide de ces deux options.
 
 ### <a name="the-apache-ambari-web-ui"></a>Interface utilisateur web d’Apache Ambari
 
@@ -446,15 +444,15 @@ Vous pouvez utiliser l’interface utilisateur web d’Ambari pour afficher les 
 
     Pour voir les sorties **STDOUT** et **STDERR**, sélectionnez l’entrée **run\customscriptaction** et suivez les différents liens. Une sortie est générée à chaque exécution du script. Elle contient des informations potentiellement utiles.
 
-### <a name="access-logs-from-the-default-storage-account"></a>Accès aux journaux à partir du compte de stockage par défaut
+### <a name="access-logs-from-the-default-storage-account"></a>Accès aux journaux d’activité à partir du compte de stockage par défaut
 
-Si la création du cluster échoue en raison d’une erreur de script, les journaux sont conservés dans le compte de stockage du cluster.
+Si la création du cluster échoue en raison d’une erreur de script, les journaux d’activité sont conservés dans le compte de stockage du cluster.
 
-* Les journaux de stockage sont disponibles dans `\STORAGE_ACCOUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\CLUSTER_NAME\DATE`.
+* Les journaux d’activité de stockage sont disponibles dans `\STORAGE_ACCOUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\CLUSTER_NAME\DATE`.
 
     ![Capture d’écran des opérations](./media/hdinsight-hadoop-customize-cluster-linux/script_action_logs_in_storage.png)
 
-    Sous ce répertoire, les journaux sont organisés séparément pour le **nœud principal**, le **nœud worker** et le **nœud zookeeper**. Regardez les exemples suivants :
+    Sous ce répertoire, les journaux d’activité sont organisés séparément pour le **nœud principal**, le **nœud worker** et le **nœud zookeeper**. Regardez les exemples suivants :
 
     * **Nœud principal** : `<uniqueidentifier>AmbariDb-hn0-<generated_value>.cloudapp.net`
 
@@ -466,7 +464,7 @@ Si la création du cluster échoue en raison d’une erreur de script, les journ
 
         'Start downloading script locally: ', u'https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh'
 
-* Vous pouvez créer plusieurs fois un cluster d’action de script portant le même nom. Dans ce cas, vous pouvez différencier les journaux correspondants par le nom de dossier **DATE**. Par exemple, la structure de dossiers d’un cluster, **mycluster**, créé à différentes dates ressemble aux entrées de journaux suivantes :
+* Vous pouvez créer plusieurs fois un cluster d’action de script portant le même nom. Dans ce cas, vous pouvez différencier les journaux d’activité correspondants par le nom de dossier **DATE**. Par exemple, la structure de dossiers d’un cluster, **mycluster**, créé à différentes dates ressemble aux entrées de journaux suivantes :
 
     `\STORAGE_ACCOUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\mycluster\2015-10-04``\STORAGE_ACCOUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\mycluster\2015-10-05`
 
@@ -474,7 +472,7 @@ Si la création du cluster échoue en raison d’une erreur de script, les journ
 
 * Si vous créez un cluster vers minuit (0 h 00), il est possible que les fichiers journaux s’étendent sur deux jours. Dans ce cas, vous voyez deux dossiers de date différente pour le même cluster.
 
-* Le chargement des fichiers journaux vers le conteneur par défaut peut prendre jusqu’à cinq minutes, en particulier si les clusters sont de grande taille. Par conséquent, si vous souhaitez accéder aux journaux, vous ne devez pas immédiatement supprimer le cluster en cas d’échec d’une action de script.
+* Le chargement des fichiers journaux vers le conteneur par défaut peut prendre jusqu’à cinq minutes, en particulier si les clusters sont de grande taille. Par conséquent, si vous souhaitez accéder aux journaux d’activité, vous ne devez pas immédiatement supprimer le cluster en cas d’échec d’une action de script.
 
 ### <a name="ambari-watchdog"></a>Agent de surveillance Ambari
 
