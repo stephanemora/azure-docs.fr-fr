@@ -100,7 +100,7 @@ Les services liés se chargent de lier des magasins de données ou des services 
 2. Dans la boîte de dialogue **Ajouter un nouvel élément**, sélectionnez **Service lié Azure Storage** dans la liste, puis cliquez sur **Ajouter**. 
    
     ![Nouveau service lié](./media/data-factory-copy-activity-tutorial-using-visual-studio/new-linked-service-dialog.png)
-3. Remplacez `<accountname>` et `<accountkey>` par le nom de votre compte de stockage Azure et par sa clé. 
+3. Remplacez `<accountname>` et `<accountkey>`* par le nom de votre compte de stockage Azure et par sa clé. 
    
     ![Service lié Azure Storage](./media/data-factory-copy-activity-tutorial-using-visual-studio/azure-storage-linked-service.png)
 4. Enregistrez le fichier **AzureStorageLinkedService1.json** .
