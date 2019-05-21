@@ -1,6 +1,6 @@
 - name: Documentation Azure Cosmos DB
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: Bienvenue dans Azure Cosmos DB
       href: introduction.md
@@ -80,7 +80,7 @@
   items:
     - name: Diffusion mondiale
       items:
-        - name: Vue d’ensemble
+        - name: Vue d'ensemble
           displayName: 'replication, replicate, geo distribution'
           href: distribute-data-globally.md
         - name: Niveaux de cohérence
@@ -107,7 +107,7 @@
           href: regional-presence.md
     - name: Partitionnement
       items:
-        - name: Vue d’ensemble
+        - name: Vue d'ensemble
           href: partitioning-overview.md
         - name: Partitionnement et mise à l’échelle horizontale
           href: partition-data.md
@@ -139,7 +139,7 @@
           href: modeling-data.md
         - name: Indexation
           items:
-            - name: Vue d’ensemble
+            - name: Vue d'ensemble
               displayName: 'range, spatial'
               href: index-overview.md
             - name: Stratégies d’indexation
@@ -154,7 +154,7 @@
           href: database-transactions-optimistic-concurrency.md
     - name: Modifier le flux
       items:
-        - name: Vue d’ensemble
+        - name: Vue d'ensemble
           href: change-feed.md
         - name: Lecture du flux de modification
           href: read-change-feed.md
@@ -196,7 +196,7 @@
           href: cosmos-db-reserved-capacity.md
     - name: Sécurité
       items:
-        - name: Vue d’ensemble
+        - name: Vue d'ensemble
           href: database-security.md
         - name: Chiffrement des données
           href: database-encryption-at-rest.md
@@ -216,6 +216,8 @@
           href: online-backup-and-restore.md
         - name: Conformité
           href: compliance.md
+    - name: limites
+      href: concepts-limits.md
 - name: 'API Cassandra, MongoDB et autres'
   expanded: true
   items:

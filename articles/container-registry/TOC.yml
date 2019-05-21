@@ -1,6 +1,6 @@
 - name: Azure Container Registry
   href: ./index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: Azure Container Registry
       href: container-registry-intro.md
@@ -75,9 +75,10 @@
       items:
         - name: Limiter l’accès à un réseau virtuel (préversion)
           href: container-registry-vnet.md
-        - name: Vue d’ensemble de l’authentification
-          href: container-registry-authentication.md
+        - name: Authentication
           items:
+            - name: Vue d’ensemble de l’authentification
+              href: container-registry-authentication.md
             - name: Authentification d’un principal du service
               href: container-registry-auth-service-principal.md
             - name: Authentification d’une identité managée
@@ -143,3 +144,5 @@
       href: 'https://stackoverflow.com/questions/tagged/azure-container-registry'
     - name: Videos
       href: 'https://azure.microsoft.com/resources/videos/index/?services=container-registry&sort=newest'
+    - name: Forum Aux Questions
+      href: container-registry-faq.md
