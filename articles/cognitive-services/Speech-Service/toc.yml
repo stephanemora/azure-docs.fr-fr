@@ -1,7 +1,7 @@
 # displayName: additional text for filtering down the ToC in meaningful way.
 - name: Documentation Speech Services
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   expanded: true
   items:
     - name: "Qu’est-ce que Speech Services\_?"
@@ -217,7 +217,7 @@
   items:
     - name: Kit de développement logiciel (SDK) de reconnaissance vocale
       items:
-        - name: Vue d’ensemble
+        - name: Vue d'ensemble
           href: speech-sdk.md
           displayName: 'C#, C++, Java, .NET, .NET Core, UWP, Android, Linux, Windows'
         - name: Disponibilité de scénario
@@ -303,9 +303,9 @@
         - name: À propos
           href: speech-devices-sdk.md
         - name: Licence
-          href: speech-devices-sdk-license.md
+          href: 'https://aka.ms/sdsdk-license'
         - name: Mentions tierces
-          href: devices-sdk-third-party-notices.md
+          href: 'https://aka.ms/sdsdk-toctpn'
     - name: Résoudre les problèmes avec le Kit de développement logiciel (SDK) Speech
       href: troubleshooting.md
     - name: Résoudre les problèmes liés au SDK des dispositifs vocaux
