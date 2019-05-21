@@ -163,7 +163,7 @@ La première étape de la définition d’un modèle standard à des fins de con
 
 ## <a name="edit-a-blueprint"></a>Modifier un blueprint
 
-Dans [Créer un blueprint](#create-a-blueprint), vous n’avez pas fourni de description ni attribué de rôle au nouveau groupe de ressources. Pour le faire, effectuez les étapes suivantes :
+Dans [Créer un blueprint](#create-a-blueprint), vous n’avez pas fourni de description ni attribué de rôle au nouveau groupe de ressources. Pour y remédier, effectuez les étapes suivantes :
 
 1. Sélectionnez **Définitions de blueprint** dans la page de gauche.
 

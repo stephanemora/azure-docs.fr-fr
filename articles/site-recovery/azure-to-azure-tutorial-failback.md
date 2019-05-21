@@ -29,7 +29,7 @@ Ce didacticiel explique comment restaurer une machine virtuelle Azure. Après av
 > 
 > [!NOTE]
 > 
-> Ce tutoriel vous aide à faire basculer plusieurs machines virtuelles vers une région cible et à les restaurer vers la région source avec des personnalisations minimales. Pour plus d’instructions détaillées, consultez les articles procéduraux concernant les machines virtuelles Azure.
+> Ce tutoriel vous aide à faire basculer plusieurs machines virtuelles vers une région cible et à les restaurer vers la région source avec des personnalisations minimales. Pour plus d’instructions détaillées, consultez les articles pratiques (procédures) concernant les machines virtuelles Azure.
 
 ## <a name="before-you-start"></a>Avant de commencer
 
