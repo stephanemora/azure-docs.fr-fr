@@ -65,7 +65,7 @@
       href: continuous-monitoring.md
     - name: Plateforme de données
       items:
-        - name: Vue d’ensemble
+        - name: Vue d'ensemble
           href: platform/data-platform.md
         - name: Mesures
           href: platform/data-platform-metrics.md
@@ -294,7 +294,7 @@
                       href: app/profiler-troubleshooting.md
                 - name: Débogueur de capture instantanée
                   items:
-                    - name: Vue d’ensemble
+                    - name: Vue d'ensemble
                       href: app/snapshot-debugger.md
                     - name: Activer le débogueur de capture instantanée pour App Service
                       href: app/snapshot-debugger-appservice.md
@@ -314,7 +314,7 @@
                   href: app/monitor-performance-live-website-now.md
                 - name: "Status Monitor version\_2"
                   items:
-                    - name: Vue d’ensemble
+                    - name: Vue d'ensemble
                       href: app/status-monitor-v2-overview.md
                     - name: Prise en main
                       href: app/status-monitor-v2-get-started.md
@@ -564,7 +564,7 @@
           items:
             - name: Azure Monitor pour des conteneurs
               items:
-                - name: Vue d’ensemble
+                - name: Vue d'ensemble
                   href: insights/container-insights-overview.md
                 - name: Forum Aux Questions
                   href: insights/container-insights-faq.md
@@ -820,53 +820,47 @@
       items:
         - name: Alertes
           items:
-            - name: Utiliser des alertes de métrique
-              items:
-                - name: 'Créer, afficher et gérer des alertes de métrique dans Azure Monitor'
-                  href: platform/alerts-metric.md
-                - name: 'Créer, afficher et gérer des alertes de métrique classiques dans Azure Monitor'
-                  href: platform/alerts-classic-portal.md
-                - name: Alertes de métrique avec des seuils dynamiques
-                  href: platform/alerts-dynamic-thresholds.md
-                - name: Configurer des alertes de métrique sur les journaux d’activité
-                  href: platform/alerts-metric-logs.md
-                - name: Créer une alerte de mesure plus récente avec un modèle Resource Manager
-                  href: platform/alerts-metric-create-templates.md
-                - name: Créer une alerte de mesure classique avec un modèle Resource Manager
-                  href: platform/alerts-enable-template.md
-                - name: Définir une alerte métrique classique pour appeler un Webhook
-                  href: platform/alerts-webhooks.md
-            - name: Utiliser des alertes de journal
-              items:
-                - name: Configurer des alertes sur une requête d’analytique
-                  href: platform/alerts-log.md
-                - name: Requêtes d’alerte de journal
-                  href: platform/alerts-log-query.md
-                - name: Actions Webhook pour les alertes de journal
-                  href: platform/alerts-log-webhook.md
-                - name: Résolution des alertes de journal
-                  href: platform/alert-log-troubleshoot.md
-            - name: Utiliser des alertes de journal d’activité
-              items:
-                - name: Configurer des alertes dans un événement de journal d’activité
-                  href: platform/alerts-activity-log.md
-                - name: Migrer vers les alertes de journal d’activité
-                  href: platform/migrate-management-alerts.md
-                - name: Configurer des alertes sur les notifications de service
-                  href: platform/alerts-activity-log-service-notifications.md
-            - name: Utiliser des alertes d’application
+            - name: Règles d’alerte d’application
               items:
                 - name: Disponibilité
                   href: app/monitor-web-app-availability.md
                 - name: Alertes de métrique
                   href: app/alerts.md
-            - name: Utiliser des groupes d’action avec des alertes
+            - name: Règles d’alerte de métrique de plateforme
               items:
-                - name: Créer des groupes d’actions
+                - name: Gérer les alertes de métrique
+                  href: platform/alerts-metric.md
+                - name: Utiliser des seuils dynamiques
+                  href: platform/alerts-dynamic-thresholds.md
+                - name: Alertes de métrique sur les journaux
+                  href: platform/alerts-metric-logs.md
+                - name: Utilisation du modèle Resource Manager
+                  href: platform/alerts-metric-create-templates.md
+            - name: Règles d’alerte de journal
+              items:
+                - name: Configurer des alertes sur une requête d’analytique
+                  href: platform/alerts-log.md
+                - name: Requêtes
+                  href: platform/alerts-log-query.md
+                - name: Actions de webhook
+                  href: platform/alerts-log-webhook.md
+                - name: Résolution de problèmes
+                  href: platform/alert-log-troubleshoot.md
+            - name: Règles d’alerte de journal d’activité
+              items:
+                - name: Alerte sur un événement de journal d’activité
+                  href: platform/alerts-activity-log.md
+                - name: Migrer les événements de gestion vers les alertes de journal d’activité
+                  href: platform/migrate-management-alerts.md
+                - name: Alerte sur les notifications d'intégrité de service
+                  href: platform/alerts-activity-log-service-notifications.md
+            - name: Utiliser les groupes d’actions
+              items:
+                - name: Créer un groupe d’actions
                   href: platform/action-groups.md
-                - name: En savoir plus sur le schéma des webhooks
+                - name: Schéma du Webhook
                   href: platform/activity-log-alerts-webhook.md
-                - name: Définitions de schéma d’alerte courant
+                - name: Définition du schéma d’alerte commun
                   href: platform/alerts-common-schema-definitions.md
                 - name: Comportement des alertes SMS
                   href: platform/alerts-sms-behavior.md
@@ -876,9 +870,9 @@
                   href: platform/action-groups-create-resource-manager-template.md
                 - name: Implémenter une action d’application logique
                   href: platform/action-groups-logic-app.md
-            - name: Alertes d’Operations Manager
+            - name: Solution Alert Management
               href: platform/alert-management-solution.md
-            - name: Gérer les alertes
+            - name: Interface utilisateur des alertes
               items:
                 - name: Gérer les instances d’alerte
                   href: platform/alerts-managing-alert-instances.md
@@ -888,19 +882,31 @@
                   href: platform/alerts-managing-alert-states.md
                 - name: Gérer les alertes émanant d’autres services de supervision
                   href: platform/alerts-managing-nagios-zabbix-scom.md
-            - name: Migrer les alertes classiques
+            - name: Migrer les règles d’alerte classiques
               items:
-                - name: Utiliser l’outil de migration
-                  href: platform/alerts-using-migration-tool.md
-                - name: Préparer la migration
+                - name: Préparation de la migration
                   href: platform/alerts-prepare-migration.md
                 - name: Comprendre l’outil de migration
                   href: platform/alerts-understand-migration.md
+                - name: Utiliser l’outil de migration
+                  href: platform/alerts-using-migration-tool.md
+                - name: Gérer les alertes de métrique classiques
+                  href: platform/alerts-classic-portal.md
+                - name: Alerte de métrique classique avec un modèle Resource Manager
+                  href: platform/alerts-enable-template.md
+                - name: Alerte métrique classique appelant un webhook
+                  href: platform/alerts-webhooks.md
+        - name: Notifications d'intégrité de service dans le journal d’activité
+          items:
+            - name: Voir les notifications
+              href: platform/service-notifications.md
+            - name: Configurer des alertes sur les événements de notification
+              href: platform/alerts-activity-log-service-notifications.md
         - name: Autoscale
           items:
-            - name: Procédure pas à pas de mise à l’échelle
+            - name: Procédure pas à pas
               href: platform/autoscale-get-started.md
-            - name: Comprendre les paramètres de mise à l’échelle automatique
+            - name: Paramètres
               href: platform/autoscale-understanding-settings.md
             - name: Bonnes pratiques
               href: platform/autoscale-best-practices.md
@@ -908,20 +914,14 @@
               href: platform/autoscale-common-metrics.md
             - name: Modèles courants
               href: platform/autoscale-common-scale-patterns.md
-            - name: Mise à l’échelle automatique à l’aide d’une métrique personnalisée
+            - name: Mettre à l’échelle avec des métriques personnalisées
               href: platform/autoscale-custom-metric.md
-            - name: Mettre à l’échelle automatiquement les groupes de machines virtuelles identiques à l’aide de modèles Resource Manager
-              href: platform/autoscale-virtual-machine-scale-sets.md
-            - name: Mettre automatiquement à l’échelle des machines dans un jeu de mise à l’échelle de machines virtuelles
+            - name: Mettre à l’échelle des groupes de machines virtuelles identiques
               href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md?toc=/azure/azure-monitor/toc.json
-            - name: Configurer les webhooks et les notifications électroniques sur la mise à l’échelle automatique
+            - name: Mettre à l’échelle des groupes de machines virtuelles identiques à l’aide de modèles Resource Manager
+              href: platform/autoscale-virtual-machine-scale-sets.md
+            - name: Utiliser des webhooks et des notifications par e-mail
               href: platform/autoscale-webhook-email.md
-        - name: Notifications de service
-          items:
-            - name: Afficher les notifications de service
-              href: platform/service-notifications.md
-            - name: Configurer des alertes sur les notifications de service
-              href: platform/alerts-activity-log-service-notifications.md
         - name: Gestion des services informatiques
           items:
             - name: Connecteur de gestion des services informatiques

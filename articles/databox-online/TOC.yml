@@ -3,7 +3,7 @@
   expanded: true
 - name: Data Box Gateway
   items:
-    - name: Vue d’ensemble
+    - name: Vue d'ensemble
       items:
         - name: Qu’est-ce que Data Box Gateway ?
           href: data-box-gateway-overview.md
@@ -53,7 +53,7 @@
           href: data-box-gateway-release-notes.md
 - name: Data Box Edge
   items:
-    - name: Vue d’ensemble
+    - name: Vue d'ensemble
       items:
         - name: Qu’est-ce qu’Azure Data Box Edge ?
           href: data-box-edge-overview.md
@@ -89,6 +89,8 @@
           items:
             - name: Computing en périphérie
               href: data-box-edge-manage-compute.md
+            - name: Réseau du computing en périphérie
+              href: data-box-edge-extend-compute-access-modules.md
             - name: Partages
               href: data-box-edge-manage-shares.md
             - name: Utilisateurs

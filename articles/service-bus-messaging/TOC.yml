@@ -1,6 +1,6 @@
 - name: Documentation sur la messagerie Service Bus
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: "Qu’est-ce que la messagerie Service Bus\_?"
       href: service-bus-messaging-overview.md
@@ -174,7 +174,7 @@
       items:
         - name: Utiliser Azure PowerShell pour approvisionner des entités
           href: service-bus-manage-with-ps.md
-        - name: Analyser Service Bus avec la surveillance Azure
+        - name: Superviser Service Bus avec Azure Monitor
           href: service-bus-metrics-azure-monitor.md
         - name: Bibliothèques de gestion Service Bus
           href: service-bus-management-libraries.md
