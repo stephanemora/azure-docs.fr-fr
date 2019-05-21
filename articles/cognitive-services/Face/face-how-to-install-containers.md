@@ -1,7 +1,7 @@
 ---
 title: Installer et exécuter des conteneurs
 titlesuffix: Face - Azure Cognitive Services
-description: Ce tutoriel pas à pas décrit comment télécharger, installer et exécuter des conteneurs pour Visage.
+description: Télécharger, installer et exécuter des conteneurs pour Face dans ce didacticiel de la procédure pas à pas.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,28 +11,28 @@ ms.subservice: face-api
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: diberry
-ms.openlocfilehash: a3087718a3eece1e19f05757ace64ba00aa0dc58
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 9bc18157a6f60555ea18901796199a3fe9dc4c22
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64682683"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65891223"
 ---
 # <a name="install-and-run-face-containers"></a>Installer et exécuter des conteneurs de visage
 
-Visage fournit un conteneur Linux standardisé pour Docker, nommé Visage, qui détecte les visages humains sur des images et identifie les attributs, y compris les caractéristiques (par exemple, le nez et les yeux), le sexe, l’âge et d’autres caractéristiques du visage prévues par la machine. En plus de la détection, Visage peut vérifier si deux visages sur la même image ou sur des images différentes sont identiques à l’aide d’un score de confiance, ou de comparer des visages par rapport à une base de données pour voir si un visage similaire ou identique existe déjà. Il peut également regrouper des visages similaires à l’aide de caractéristiques visuelles partagées.
+Visage de Services cognitifs Azure fournit un conteneur de Linux standardisé pour Docker qui détecte les visages humains dans des images. Il identifie également les attributs, qui incluent des points de repère visage telles que noses et yeux, sexe, l’âge et autres fonctionnalités du visage prédite à la machine. En plus de détection, Face peut vérifier si deux visages dans la même image ou des images différentes sont identiques à l’aide d’un score de confiance. Face peut également comparer les visages par rapport à une base de données pour voir si un visage similaires ou identique existe déjà. Il peut également organiser les visages similaires dans des groupes à l’aide de traits visual partagés.
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
 ## <a name="prerequisites"></a>Conditions préalables
 
-Vous devez respecter les prérequis suivants avant d’utiliser les conteneurs de l’API Visage :
+Vous devez respecter les conditions préalables suivantes avant d’utiliser les conteneurs de l’API visage.
 
 |Obligatoire|Objectif|
 |--|--|
-|Moteur Docker| Vous avez besoin d’un moteur Docker installé sur un [ordinateur hôte](#the-host-computer). Docker fournit des packages qui configurent l’environnement Docker sur [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) et [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Pour apprendre les principes de base de Docker et des conteneurs, consultez la [vue d’ensemble de Docker](https://docs.docker.com/engine/docker-overview/).<br><br> Vous devez configurer Docker pour permettre aux conteneurs de se connecter à Azure et de lui envoyer des données de facturation. <br><br> **Sur Windows**, vous devez également configurer Docker pour prendre en charge les conteneurs Linux.<br><br>|
-|Bonne connaissance de Docker | Vous devez avoir une compréhension élémentaire des concepts Docker, notamment les registres, référentiels, conteneurs et images conteneurs, ainsi qu’une maîtrise des commandes `docker` de base.| 
-|Azure `Cognitive Services` ressource |Pour pouvoir utiliser le conteneur, vous devez disposer des éléments suivants :<br><br>Un _Cognitive Services_ le point de terminaison facturation URI de clé de ressource Azure et la facturation associée. Les deux valeurs sont disponibles sur les pages de vue d’ensemble et des clés pour la ressource et sont nécessaires pour démarrer le conteneur. Vous devez ajouter le `face/v1.0` routage vers l’URI de point de terminaison, comme indiqué dans l’exemple BILLING_ENDPOINT_URI suivant. <br><br>**{BILLING_KEY}**  : clé de ressource<br><br>**{BILLING_ENDPOINT_URI}**  : exemple d’UURI de point de terminaison : `https://westus.api.cognitive.microsoft.com/face/v1.0`|
+|Moteur Docker| Le moteur Docker doit être installé sur un [ordinateur hôte](#the-host-computer). Docker fournit des packages qui configurent l’environnement Docker sur [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) et [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Pour apprendre les principes de base de Docker et des conteneurs, consultez la [vue d’ensemble de Docker](https://docs.docker.com/engine/docker-overview/).<br><br> Vous devez configurer Docker pour permettre aux conteneurs de se connecter à Azure et de lui envoyer des données de facturation. <br><br> Sur Windows, Docker doit également être configuré pour prendre en charge des conteneurs Linux.<br><br>|
+|Bonne connaissance de Docker | Vous avez besoin d’une compréhension élémentaire des concepts Docker, telles que les registres, les dépôts, les conteneurs et les images de conteneur. Vous devez également les connaissances de base `docker` commandes.| 
+|Azure `Cognitive Services` ressource |Pour utiliser le conteneur, vous devez disposer de :<br><br>Une ressource Azure Cognitive Services et la clé de facturation associée et l’URI de point de terminaison facturation. Les deux valeurs sont disponibles sur le **vue d’ensemble** et **clés** pages pour la ressource. Elles sont requises pour démarrer le conteneur. Ajouter le `face/v1.0` routage vers le point de terminaison URI, comme indiqué dans l’exemple BILLING_ENDPOINT_URI suivant : <br><br>**{BILLING_KEY}**  : clé de ressource<br><br>**{BILLING_ENDPOINT_URI}** : exemple d’URI de point de terminaison est `https://westus.api.cognitive.microsoft.com/face/v1.0`|
 
 ## <a name="request-access-to-the-private-container-registry"></a>Demander l’accès au registre de conteneurs privé
 
@@ -47,20 +47,20 @@ Vous devez respecter les prérequis suivants avant d’utiliser les conteneurs d
 
 Le tableau suivant décrit la quantité minimale et recommandée de cœurs de processeur et de mémoire à allouer pour chaque conteneur de l’API Visage.
 
-| Conteneur | Minimale | Recommandé | TPS<br>(Au minimum, Maximum)|
+| Conteneur | Minimale | Recommandé | Transactions par seconde<br>(Minimum, maximum)|
 |-----------|---------|-------------|--|
-|Face | 1 cœur, 2 Go de mémoire | 1 cœur, 4 Go de mémoire |10, 20|
+|Face | 1 cœur, 2 Go de mémoire | 1 cœur, 4 Go de mémoire |10, 20|
 
-* Chaque cœur doit être cadencé à au moins 2,6 gigahertz (GHz).
-* Programmes transactionnels - transactions par seconde
+* Chaque cœur doit être au moins 2,6 GHz ou plus rapide.
+* Transactions par seconde (TPS).
 
 Le nombre de cœurs et la quantité de mémoire correspondent aux paramètres `--cpus` et `--memory` qui sont utilisés dans le cadre de la commande `docker run`.
 
-## <a name="get-the-container-image-with-docker-pull"></a>Obtenir l’image conteneur avec `docker pull`
+## <a name="get-the-container-image-with-docker-pull"></a>Obtenir l’image de conteneur avec extraction de docker
 
-Des images conteneur sont disponibles pour l’API Visage. 
+Images de conteneur pour l’API visage sont disponibles. 
 
-| Conteneur | Référentiel |
+| Conteneur | Dépôt |
 |-----------|------------|
 | Face | `containerpreview.azurecr.io/microsoft/cognitive-services-face:latest` |
 
@@ -72,25 +72,25 @@ Des images conteneur sont disponibles pour l’API Visage.
 docker pull containerpreview.azurecr.io/microsoft/cognitive-services-face:latest
 ```
 
-## <a name="how-to-use-the-container"></a>Comment utiliser le conteneur
+## <a name="use-the-container"></a>Utilisez le conteneur
 
-Une fois que le conteneur est sur l’[ordinateur hôte](#the-host-computer), appliquez la procédure suivante pour travailler avec le conteneur.
+Une fois le conteneur se trouve sur le [ordinateur hôte](#the-host-computer), utilisez le processus suivant pour travailler avec le conteneur.
 
-1. [Exécutez le conteneur](#run-the-container-with-docker-run) avec les paramètres de facturation requis. D’autres [exemples](./face-resource-container-config.md#example-docker-run-commands) de commande `docker run` sont disponibles. 
+1. [Exécuter le conteneur](#run-the-container-with-docker-run) avec les paramètres de facturation. D’autres [exemples](./face-resource-container-config.md#example-docker-run-commands) de commande `docker run` sont disponibles. 
 1. [Interrogez le point de terminaison de prédiction du conteneur](#query-the-containers-prediction-endpoint). 
 
-## <a name="run-the-container-with-docker-run"></a>Exécuter le conteneur avec `docker run`
+## <a name="run-the-container-with-docker-run"></a>Exécuter le conteneur avec docker run
 
-Utilisez la commande [docker run](https://docs.docker.com/engine/reference/commandline/run/) pour exécuter l’un des trois conteneurs. La commande utilise les paramètres suivants :
+Utilisez la commande [docker run](https://docs.docker.com/engine/reference/commandline/run/) pour exécuter l’un des trois conteneurs. La commande utilise les paramètres suivants.
 
 | Placeholder | Valeur |
 |-------------|-------|
-|{BILLING_KEY} | Cette clé est utilisée pour démarrer le conteneur et est disponible sur Azure `Cognitive Services` page clés.  |
-|{BILLING_ENDPOINT_URI} | La valeur de l’URI de point de terminaison facturation est disponible sur Azure `Cognitive Services` page Vue d’ensemble. Exemple est : `https://westus.api.cognitive.microsoft.com/face/v1.0`|
+|{BILLING_KEY} | Cette clé est utilisée pour démarrer le conteneur et est disponible sur Azure `Cognitive Services` **clés** page. |
+|{BILLING_ENDPOINT_URI} | La valeur de l’URI de point de terminaison facturation est disponible sur Azure `Cognitive Services` **vue d’ensemble** page. Par exemple `https://westus.api.cognitive.microsoft.com/face/v1.0`.|
 
-Vous devez ajouter le `face/v1.0` routage vers l’URI de point de terminaison, comme indiqué dans l’exemple BILLING_ENDPOINT_URI précédent. 
+Ajouter le `face/v1.0` routage vers le point de terminaison URI, comme indiqué dans l’exemple BILLING_ENDPOINT_URI précédent. 
 
-Remplacez ces paramètres par vos propres valeurs dans l’exemple de commande `docker run` suivant.
+Remplacez ces paramètres par vos propres valeurs dans l’exemple suivant `docker run` exemple de commande :
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
@@ -102,15 +102,15 @@ ApiKey={BILLING_KEY}
 
 Cette commande :
 
-* Exécute un conteneur Visage à partir de l’image conteneur.
-* Alloue un cœur de processeur et 4 gigaoctets (Go) de mémoire.
-* Expose le port TCP 5000 et alloue un pseudo-TTY pour le conteneur
+* Exécute un conteneur de visage à partir de l’image de conteneur.
+* Alloue un cœur de processeur et 4 Go de mémoire.
+* Expose le port TCP 5000 et alloue une pseudo TTY pour le conteneur.
 * Supprime automatiquement le conteneur après sa fermeture. L’image conteneur est toujours disponible sur l’ordinateur hôte. 
 
 D’autres [exemples](./face-resource-container-config.md#example-docker-run-commands) de commande `docker run` sont disponibles. 
 
 > [!IMPORTANT]
-> Vous devez spécifier les options `Eula`, `Billing` et `ApiKey` pour exécuter le conteneur, sinon il ne démarrera pas.  Pour plus d'informations, consultez [Facturation](#billing).
+> Le `Eula`, `Billing`, et `ApiKey` options doivent être spécifiées pour exécuter le conteneur ou le conteneur ne démarre pas. Pour plus d'informations, consultez [Facturation](#billing).
 
 [!INCLUDE [Running multiple containers on the same host](../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
 
@@ -132,12 +132,12 @@ Utilisez l’hôte, `https://localhost:5000`, pour les API de conteneur.
 
 ## <a name="troubleshooting"></a>Résolution de problèmes
 
-Si vous exécutez le conteneur avec un [montage](./face-resource-container-config.md#mount-settings) de sortie et la journalisation activée, il génère des fichiers journaux qui sont utiles pour résoudre les problèmes qui se produisent lors du démarrage ou de l’exécution du conteneur. 
+Si vous exécutez le conteneur avec une sortie [monter](./face-resource-container-config.md#mount-settings) et la journalisation est activée, le conteneur génère les fichiers journaux qui sont utiles résoudre les problèmes qui se produisent lors du démarrage ou d’exécuter le conteneur. 
 
 
 ## <a name="billing"></a>Facturation
 
-Les conteneurs de l’API Visage envoient des informations de facturation à Azure à l’aide d’une ressource _API Visage_ sur votre compte Azure. 
+Les conteneurs de l’API visage envoient les informations de facturation sur Azure à l’aide d’une ressource de l’API visage sur votre compte Azure. 
 
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
@@ -145,20 +145,20 @@ Pour plus d’informations sur ces options, consultez [Configurer des conteneurs
 
 ## <a name="summary"></a>Résumé
 
-Dans cet article, vous avez découvert des concepts et le flux de travail pour le téléchargement, l’installation et l’exécution des conteneurs de l’API Visage. En résumé :
+Dans cet article, vous avez appris des concepts et des flux de travail pour savoir comment télécharger, installer et exécuter des conteneurs de l’API visage. En résumé :
 
-* L’API Visage fournit trois conteneurs Linux pour Docker encapsulant l’extraction de phrases clés, la détection de la langue et l’analyse des sentiments.
-* Les images conteneur sont téléchargées à partir de Microsoft Container Registry (MCR) dans Azure.
+* L’API visage fournit trois conteneurs Linux pour Docker qui fournissent l’extraction de phrases clés, détection de la langue et l’analyse des sentiments.
+* Images de conteneur sont téléchargées à partir du Registre de conteneur Azure.
 * Les images conteneurs s’exécutent dans Docker.
-* Vous pouvez utiliser l’API REST ou le Kit de développement logiciel (SDK) pour appeler des opérations dans les conteneurs de l’API Visage en spécifiant l’URI hôte du conteneur.
-* Vous devez spécifier les informations de facturation lors de l’instanciation d’un conteneur.
+* Vous pouvez utiliser l’API REST ou le Kit de développement pour appeler des opérations dans des conteneurs de l’API visage en spécifiant l’URI du conteneur hôte.
+* Vous devez spécifier les informations de facturation lorsque vous instanciez un conteneur.
 
 > [!IMPORTANT]
-> Les conteneurs Cognitives Services ne sont pas concédés sous licence pour s’exécuter sans être connectés à Azure pour le contrôle. Les clients doivent configurer les conteneurs de manière à ce qu’ils communiquent les informations de facturation au service de contrôle à tout moment. Les conteneurs Cognitive Services n’envoient pas les données des clients (p. ex., l’image ou le texte analysés) à Microsoft.
+> Les conteneurs de Services cognitifs ne sont pas concédés sous licence pour s’exécuter sans être connecté à Azure pour le contrôle. Les clients doivent activer les conteneurs de communiquer des informations de facturation avec le service de contrôle à tout moment. Les conteneurs de Services cognitifs n’envoient des données client, telles que l’image ou le texte qui est en cours d’analyse, à Microsoft.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour obtenir les paramètres de configuration, passez en revue [Configurer des conteneurs](face-resource-container-config.md).
-* Consulter [Vue d’ensemble de Visage](Overview.md) pour en savoir plus sur la détection et l’identification de visages  
-* Reportez-vous à l’ [API Visage](//westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) pour plus d’informations sur les méthodes prises en charge par le conteneur.
-* Utiliser davantage de [conteneurs Cognitive Services](../cognitive-services-container-support.md)
+* Pour les paramètres de configuration, consultez [configurer des conteneurs](face-resource-container-config.md).
+* Pour en savoir plus sur comment détecter et identifier des visages, consultez [vue d’ensemble de la Face](Overview.md).
+* Pour plus d’informations sur les méthodes prises en charge par le conteneur, consultez le [API visage](//westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
+* Pour utiliser plus de conteneurs de Cognitive Services, consultez [conteneurs de Cognitive Services](../cognitive-services-container-support.md).

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/23/2016
 ms.author: lesun
 ROBOTS: NOINDEX
-ms.openlocfilehash: b2e956b099022751712f96ab0b15aa57c752b458
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c989f1115bc5a85bf09270c553ac1cb51bb4f170
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60405254"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65954705"
 ---
 # <a name="analyzer-names"></a>Noms d’analyseur
 
@@ -43,10 +43,10 @@ Actuellement, trois types distincts existent :
 Toutefois, au sein d’un type donné, différents experts peuvent être en désaccord sur la façon dont un phénomène particulier doit être analysé.
 Contrairement aux langages de programmation, il n’existe aucune définition claire et exacte à ce sujet.
 
-Par exemple, imaginez que nous essayons de rechercher les jetons dans la phrase en anglais « He didn’t go ».
+Par exemple, supposons que nous avons essayé de trouver les jetons de la phrase en anglais « Ils n’ont pas aller. »
 Examinez plus précisément la chaîne « didn’t ».
 Fractionner la phrase en deux jetons (« did » et « not ») est l’une des interprétations possibles.
-L’autre phrase « He did not go » aurait donc le même ensemble de jetons.
+Puis l’autre phrase « ils ne sont pas passé » aurait le même ensemble de jetons.
 Une autre possibilité pourrait être de la fractionner en deux jetons « did » et « n’t ».
 Ce dernier jeton ne serait pas considéré comme un mot, mais cette approche conserve plus d’informations sur la chaîne en surface, ce qui peut souvent être utile.
 Ou alors, cette contraction pourrait être considérée comme un seul mot.

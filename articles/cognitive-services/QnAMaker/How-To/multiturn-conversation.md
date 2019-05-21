@@ -8,14 +8,14 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 05/14/2019
 ms.author: diberry
-ms.openlocfilehash: 24158d5949c0a31e5444c609cbfced970bdeca07
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: f12b55e9b00e933e13f84832b8cc36267a1da05f
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65471974"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65954866"
 ---
 # <a name="use-follow-up-prompts-to-create-multiple-turns-of-a-conversation"></a>Suivi de l’utilisation vous invite à créer plusieurs tours d’une conversation
 
@@ -52,7 +52,7 @@ Lorsque vous importez le document PDF, QnA Maker détermine les invites de suivi
 
 ![! [Lorsque vous importez le document PDF, QnA Maker détermine des invites de suivi à partir de la structure pour créer des flux de conversation. ](../media/conversational-context/surface-manual-pdf-follow-up-prompt.png)](../media/conversational-context/surface-manual-pdf-follow-up-prompt.png#lightbox)
 
-## <a name="filter-questions-and-answers-by-context"></a>Filtrer les questions et réponses en contexte
+## <a name="show-questions-and-answers-with-context"></a>Afficher les questions et réponses avec contexte
 
 1. Réduire les paires questions et réponses affichées pour seulement ceux dotés de conversations contextuelles. Sélectionnez **afficher les options**, puis sélectionnez **Show contexte (version préliminaire)**. La liste sera vide jusqu'à ce que vous ajoutiez la première paire de questions / réponses avec une invite de suivi. 
 
@@ -64,22 +64,36 @@ Lorsque vous importez le document PDF, QnA Maker détermine les invites de suivi
 1. Entrez le nouveau texte de question, `Give feedback.` avec une réponse de `What kind of feedback do you have?`.
 
 1. Dans le **réponse** colonne pour cette question, sélectionnez **invite suivi ajouter**. 
-1. Le **invite de suivi** boîte de dialogue contextuelle vous permet de rechercher une question existante ou entrez une nouvelle question. Dans cette procédure, entrez le texte `Feedback on an QnA Maker service`, pour le **afficher du texte**. 
-1. Vérifiez **contexte uniquement**. Le **contexte seule** option indique que le texte de l’utilisateur sera compris _uniquement_ si donné en réponse à la question précédente. Pour ce scénario, le texte d’invite n’est pas judicieux tout comme une question autonome, il convient uniquement à partir du contexte de la question précédente.
-1. Dans le **lien pour répondre à** texte, entrez la réponse, `How would you rate QnA Maker?`.
-1. Sélectionnez **créer** puis sélectionnez **enregistrer**. 
+1. Le **invite un suivi (version préliminaire)** fenêtre contextuelle vous permet de rechercher une question existante ou entrez une nouvelle question. Créer une nouvelle invite en entrant les valeurs suivantes : 
+
+    |Champ de texte|Valeur|
+    |--|--|
+    |**Texte affiché**|`Feedback on an QnA Maker service`|
+    |**Lien pour répondre à**|`How would you rate QnA Maker??`|
+    |||
 
     ![Créer nouveau QnA invite](../media/conversational-context/create-child-prompt-from-parent.png)
 
-    Cela créé une nouvelle paire de questions-réponses et lié la question sélectionnée en tant qu’une invite de suivi. Le **contexte** colonne, pour ces deux questions, indiquer une relation de message suivie. 
+1. Vérifiez **contexte uniquement**. Le **contexte seule** option indique que le texte de l’utilisateur sera compris _uniquement_ si donné en réponse à la question précédente. Pour ce scénario, le texte d’invite n’est pas judicieux tout comme une question autonome, il convient uniquement à partir du contexte de la question précédente.
+1. Sélectionnez **créer** puis sélectionnez **enregistrer**. 
+
+    Cela créé une nouvelle paire de questions-réponses et lié la question sélectionnée en tant qu’une invite de suivi. Le **contexte** colonne, pour ces deux questions, indique une relation de message suivie. 
 
     ![! [La colonne de contexte, pour ces deux questions, indique une relation de message suivie.] (.. / media/conversational-context/child-prompt-created.png)](../media/conversational-context/child-prompt-created.png#lightbox)
 
-1. Sélectionnez **invite suivi ajouter** pour le `Give feedback` question pour ajouter une autre invite de suivi. 
-1. Créez une nouvelle question en entrant `Feedback on an existing feature`, avec la réponse `Which feature would you like to give feedback on?`.  
+1. Sélectionnez **invite suivi ajouter** pour le `Give feedback` question pour ajouter une autre invite de suivi. Cette opération ouvre le **invite un suivi (version préliminaire)** fenêtre contextuelle.
 
-1.  Vérifiez **contexte uniquement**. Le **contexte seule** option indique que le texte de l’utilisateur sera compris _uniquement_ si donné en réponse à la question précédente. Pour ce scénario, le texte d’invite n’est pas judicieux tout comme une question autonome, il convient uniquement à partir du contexte de la question précédente.
-1.  Sélectionnez **Enregistrer**. 
+1. Créer une nouvelle invite en entrant les valeurs suivantes :
+
+    |Champ de texte|Valeur|
+    |--|--|
+    |**Texte affiché**|`Feedback on an existing feature`|
+    |**Lien pour répondre à**|`Which feature would you like to give feedback on?`|
+    |||
+
+1. Vérifiez **contexte uniquement**. Le **contexte seule** option indique que le texte de l’utilisateur sera compris _uniquement_ si donné en réponse à la question précédente. Pour ce scénario, le texte d’invite n’est pas judicieux tout comme une question autonome, il convient uniquement à partir du contexte de la question précédente.
+
+1. Sélectionnez **Enregistrer**. 
 
     Cela créé une nouvelle question et lié la question comme une question subsidiaire invite au `Give feedback` question.
     
@@ -93,26 +107,34 @@ Lorsque vous importez le document PDF, QnA Maker détermine les invites de suivi
 
 1. Si vous souhaitez lier une paire de QnA existante comme une invite de suivi, sélectionnez la ligne de la paire questions et réponses.
 1. Sélectionnez **invite suivi ajouter** dans cette ligne.
-1. Dans la boîte de dialogue contextuelle, entrez le texte de la question dans la zone de recherche. Toutes les correspondances sont retournés. Sélectionnez la question que vous souhaitez utiliser comme le suivi et vérifiez **contexte seule**, puis sélectionnez **enregistrer**. 
+1. Dans le **invite un suivi (version préliminaire)** fenêtre contextuelle, entrez le texte de réponse dans la zone de recherche. Toutes les correspondances sont retournés. Sélectionnez la réponse que vous souhaitez utiliser comme le suivi et vérifiez **contexte seule**, puis sélectionnez **enregistrer**. 
 
-    Une fois que l’unité d’organisation avez ajouté à l’invite de suivi, pensez à sélectionner **enregistrer et effectuer l’apprentissage**.
+    ![Rechercher le lien de l’invite de suivi à la boîte de dialogue de réponse pour une réponse existante, en utilisant le texte de la réponse.](../media/conversational-context/search-follow-up-prompt-for-existing-answer.png)
+
+    Une fois que vous avez ajouté l’invite de suivi, pensez à sélectionner **enregistrer et effectuer l’apprentissage**.
   
-## <a name="add-metadata-to-follow-up-prompts"></a>Ajouter des métadonnées aux invites du suivi 
+<!--
 
-Dans la base de connaissances, lorsqu’une paire de questions et réponses est liée à vous invite à entrer un suivi, les filtres de métadonnées sont appliqués en premier, puis les suivis sont retournés.
+## To find best prompt answer, add metadata to follow-up prompts 
 
-1. Pour les deux paires QnA suivis, ajouter des métadonnées à chacun d’eux :
+If you have several follow-up prompts for a given QnA pair, but you know as the knowledge base manager, that not all prompts should be returned, use metadata to categorize the prompts in the knowledge base, then send the metadata from the client application as part of the GenerateAnswer request.
 
-    |Question|Ajouter des métadonnées|
+In the knowledge base, when a question-and-answer pair is linked to follow-up prompts, the metadata filters are applied first, then the follow-ups are returned.
+
+1. For the two follow-up QnA pairs, add metadata to each one:
+
+    |Question|Add metadata|
     |--|--|
-    |`Feedback on an QnA Maker service`|« Fonctionnalité » : « all »|
-    |`Feedback on an existing feature`|« Fonctionnalité » : « un »|
+    |`Feedback on an QnA Maker service`|"Feature":"all"|
+    |`Feedback on an existing feature`|"Feature":"one"|
     
-    ![Ajouter des métadonnées à l’invite de suivi afin qu’il peut être filtrée de réponse de conversation de service](../media/conversational-context/add-metadata-feature-to-follow-up-prompt.png) 
+    ![Add metadata to follow-up prompt so it can be filtered in conversation response from service](../media/conversational-context/add-metadata-feature-to-follow-up-prompt.png) 
 
-1. Enregistrer et effectuer l’apprentissage. 
+1. Save and train. 
 
-    Lorsque vous envoyez la question `Give feedback` avec le filtre de métadonnées `Feature` avec la valeur `all`, la paire de QnA avec ces métadonnées s’affichera. Les deux paires de QnA ne sont pas retournées, car ils sont tous deux ne correspondent pas au filtre. 
+    When you send the question `Give feedback` with the metadata filter `Feature` with a value of `all`, only the QnA pair with that metadata will be returned. Both QnA pairs are not returned because they both do not match the filter. 
+
+-->
 
 ## <a name="test-the-qna-set-to-get-all-the-follow-up-prompts"></a>Vous invite à entrer le QnA jeu pour obtenir toutes les suites de test
 
@@ -145,7 +167,7 @@ La section précédente a demandé une réponse et les invites de suivi pour `Ac
             "questions": [
                 "Accounts and signing in"
             ],
-            "answer": "**Accounts and signing in**\n\nWhen you set up your Surface, an account is set up for you. You can create additional accounts later for family and friends, so each person using your Surface can set it up just the way he or she likes. For more info, see All about accounts on Surface.com. \n\nThere are several ways to sign in to your Surface Pro 4: ",
+            "answer": "**Accounts and signing in**\n\nWhen you set up your Surface, an account is set up for you. You can create additional accounts later for family and friends, so each person using your Surface can set it up just the way they like. For more info, see All about accounts on Surface.com. \n\nThere are several ways to sign in to your Surface Pro 4: ",
             "score": 86.96,
             "id": 37,
             "source": "surface-pro-4-user-guide-EN .pdf",
@@ -269,15 +291,11 @@ QnA Maker _GenerateAnswer_ réponse JSON inclut les invites de suivi dans le `co
 
 ## <a name="displaying-prompts-and-sending-context-in-the-client-application"></a>Affichage des invites et l’envoi de contexte dans l’application cliente 
 
-L’application cliente affiche toutes les questions avec une option pour l’utilisateur d’afficher les invites comme les actions suggérées ou des boutons.
-L’application cliente stocke la requête de paire et utilisateur QnA actuelle comme contexte pour être transmis avec la requête utilisateur suivante. 
+Si vous avez ajouté des invites dans votre base de connaissances et que vous avez testé le flux dans le volet de test, les invites ne démarre pas automatiquement s’affiche dans les applications clientes. Vous pouvez afficher les invites comme les actions suggérées ou des boutons dans le cadre de la réponse à la requête d’un utilisateur dans le client applications en incluant ce [exemple Bot Framework](https://aka.ms/qnamakermultiturnsample) dans votre code. L’application cliente doit stocker l’ID de QnA actuel et la requête de l’utilisateur et les transmettre dans le [objet de contexte de l’API GenerateAnswer](#json-request-to-return-non-initial-answer-and-follow-up-prompts) pour la prochaine requête utilisateur.
 
-Utilisez cette [exemple Bot Framework](https://aka.ms/qnamakermultiturnsample) pour afficher la boîte de dialogue multi-activer travail de bout en bout dans un robot de QnA Maker.
+## <a name="display-order-supported-in-api"></a>Ordre d’affichage pris en charge dans l’API
 
-
-## <a name="prompt-order-supported-in-api"></a>Ordre des invites pris en charge dans l’API
-
-L’ordre des invites, retourné dans la réponse JSON, est pris en charge pour la modification par l’API uniquement. 
+L’ordre d’affichage, retourné dans la réponse JSON est pris en charge pour la modification par l’API uniquement. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

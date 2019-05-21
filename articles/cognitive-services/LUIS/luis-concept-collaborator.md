@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 34ae47723762215fdea99362419c3875dc2e5942
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8c2ed8932e67a2e0c83fe4e3fdf6783c24e56a6e
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60812876"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956985"
 ---
 # <a name="collaborating-with-other-authors"></a>Collaboration avec d’autres auteurs
 
@@ -52,7 +52,7 @@ Le site web [LUIS](luis-reference-regions.md#luis-website) n’offre actuellemen
 ## <a name="manage-multiple-versions-inside-the-same-app"></a>Gérer plusieurs versions dans la même application
 Commencez par le [clonage](luis-how-to-manage-versions.md#clone-a-version), à partir d’une version de base, pour chaque auteur. 
 
-Chaque auteur apporte des modifications à sa propre version de l’application. Une fois que chaque auteur est satisfait du modèle, exportez les nouvelles versions sous forme de fichiers JSON.  
+Chaque auteur apporte des modifications à leur propre version de l’application. Une fois que chaque auteur est satisfait du modèle, exportez les nouvelles versions sous forme de fichiers JSON.  
 
 Les applications exportées sont des fichiers au format JSON, qui peuvent être utilisés pour comparer les modifications. Combinez les fichiers pour créer un seul fichier JSON de la nouvelle version. Modifiez la propriété **versionId** dans le fichier JSON pour indiquer la nouvelle version fusionnée. Importez cette version dans l’application d’origine. 
 
