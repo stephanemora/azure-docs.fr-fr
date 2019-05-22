@@ -1,6 +1,6 @@
 - name: Documentation sur les API Analyse de texte
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   expanded: true
   items:
     - name: "Qu’est-ce que l’API Analyse de texte\_?"
@@ -29,6 +29,8 @@
           href: quickstarts/csharp.md
         - name: Python
           href: quickstarts/python-sdk.md
+        - name: Ruby
+          href: quickstarts/ruby-sdk.md
 - name: Tutoriels
   items:
     - name: Intégrer Power BI pour analyser les commentaires des clients

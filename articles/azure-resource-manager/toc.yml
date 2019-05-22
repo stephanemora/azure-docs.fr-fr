@@ -1,6 +1,6 @@
 - name: Documentation Azure Resource Manager
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: Présentation de Resource Manager
       href: resource-group-overview.md
@@ -54,7 +54,7 @@
 - name: Concepts
   items:
     - name: Structure de fichiers de modèle
-      displayName: 'parameters,variables,resources,outputs'
+      displayName: 'parameters,variables,resources,outputs,condition'
       href: resource-group-authoring-templates.md
     - name: Bonnes pratiques pour les modèles
       href: template-best-practices.md

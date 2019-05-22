@@ -138,6 +138,18 @@
         - name: Ajouter et inscrire des jeux de données
           displayName: 'data, dataset'
           href: how-to-create-register-datasets.md
+        - name: Explorer les données
+          displayName: 'data, eda, exploratory, analysis, etl, dataset, summary statistics, profile, explore, data preparation, dataprep'
+          href: how-to-explore-prepare-data.md
+        - name: Versionner et gérer les définitions de données
+          displayName: 'data, etl, dataset, data preparation, dataprep, version'
+          href: how-to-manage-dataset-definitions.md
+        - name: Effectuer une capture instantanée de vos données
+          displayName: 'snapshots, profile, summary statistics, data copy'
+          href: how-to-create-dataset-snapshots.md
+        - name: Obtenir des données à partir d’une banque de données
+          displayName: blob get fileshare access storage
+          href: how-to-access-data.md
         - name: Se préparer avec azureml.dataprep
           items:
             - name: Charger des données
@@ -149,18 +161,6 @@
             - name: Écrire des données
               displayName: 'data, etl, data prep, dataprep'
               href: how-to-write-data.md
-        - name: Se préparer avec des jeux de données (préversion)
-          displayName: 'data, etl, dataset, summary statistics, profile, explore, data preparation, dataprep'
-          href: how-to-explore-prepare-data.md
-        - name: Versionner et gérer les définitions de données
-          displayName: 'data, etl, dataset, data preparation, dataprep, version'
-          href: how-to-manage-dataset-definitions.md
-        - name: Effectuer une capture instantanée de vos données
-          displayName: 'snapshots, profile, summary statistics, data copy'
-          href: how-to-create-dataset-snapshots.md
-        - name: Obtenir des données à partir d’une banque de données
-          displayName: blob get fileshare access storage
-          href: how-to-access-data.md
     - name: Entraîner des modèles
       items:
         - name: Configurer des environnements d’entraînement
