@@ -130,7 +130,7 @@ Le modèle suivant d’activité de copie contient une liste exhaustive des prop
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type d’une activité de copie doit être définie sur : **Copy** | Oui |
+| type | La propriété type d’une activité de copie doit être définie sur : **Copy** | Oui |
 | inputs | Spécifiez le jeu de données que vous avez créé qui pointe vers les données sources. L’activité de copie ne prend en charge qu’une seule entrée. | Oui |
 | outputs | Spécifiez le jeu de données que vous avez créé qui pointe vers les données du récepteur. L’activité de copie ne prend en charge qu’une seule sortie. | Oui |
 | typeProperties | Groupe de propriétés pour configurer l’activité de copie. | Oui |
