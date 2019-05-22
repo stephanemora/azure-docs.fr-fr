@@ -90,10 +90,10 @@ Les propriétés suivantes sont prises en charge sous `translator`  ->  `mapping
 
 | Propriété | Description                                                  | Obligatoire |
 | -------- | ------------------------------------------------------------ | -------- |
-| Nom     | Nom de la colonne source ou récepteur.                           | Oui      |
+| name     | Nom de la colonne source ou récepteur.                           | Oui      |
 | ordinal  | Index de colonne. Commencent à 1. <br>Appliquer et requis lors de l’utilisation de texte sans ligne d’en-tête délimité. | Non        |
-| chemin d’accès     | Expression de chemin JSON pour chaque champ à extraire ou à mapper. Appliquer des données hiérarchiques, par exemple MongoDB/REST.<br>Pour les champs sous l’objet racine, chemin d’accès JSON commence par $ racine ; pour les champs dans le tableau sélectionné par `collectionReference` propriété, chemin d’accès JSON commence à partir de l’élément de tableau. | Non        |
-| Type     | Type de données intermédiaires Data Factory de la colonne source ou récepteur. | Non        |
+| path     | Expression de chemin JSON pour chaque champ à extraire ou à mapper. Appliquer des données hiérarchiques, par exemple MongoDB/REST.<br>Pour les champs sous l’objet racine, chemin d’accès JSON commence par $ racine ; pour les champs dans le tableau sélectionné par `collectionReference` propriété, chemin d’accès JSON commence à partir de l’élément de tableau. | Non        |
+| type     | Type de données intermédiaires Data Factory de la colonne source ou récepteur. | Non        |
 | culture  | Culture de la colonne source ou récepteur. <br>Appliquer lorsque le type est `Datetime` ou `Datetimeoffset`. Par défaut, il s’agit de `en-us`. | Non        |
 | format   | Chaîne de format à utiliser lorsque le type est `Datetime` ou `Datetimeoffset`. Reportez-vous à [Chaînes de format Date et Heure personnalisées](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) sur la mise en forme des date/heure. | Non        |
 
@@ -203,7 +203,7 @@ Vous pouvez spécifier la copie -> activité `translator`  ->  `schemaMapping` p
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type du traducteur d’activité de copie doit être définie sur : **TabularTranslator** | Oui |
+| type | La propriété type du traducteur d’activité de copie doit être définie sur : **TabularTranslator** | Oui |
 | schemaMapping | Une collection de paires clé-valeur, qui représente la relation de mappage **du côté source au récepteur côté**.<br/>- **Clé :** représente source. Pour **sources tabulaires**, spécifiez le nom de colonne tel que défini dans la structure du jeu de données ; pour **source hiérarchique**, spécifiez l’expression de chemin JSON pour chaque champ à extraire et mapper.<br>- **Valeur :** représente récepteur. Pour **récepteur tabulaire**, spécifiez le nom de colonne tel que défini dans la structure du jeu de données ; pour **récepteur hiérarchique**, spécifiez l’expression de chemin JSON pour chaque champ à extraire et à mapper. <br>Dans le cas des données hiérarchiques, pour les champs sous l’objet racine, chemin d’accès JSON commence par $ racine ; pour les champs dans le tableau sélectionné par `collectionReference` propriété, chemin d’accès JSON commence à partir de l’élément de tableau.  | Oui |
 | collectionReference | Si vous souhaitez effectuer une itération et extraire des données à partir des objets situés **à l’intérieur d’un champ de tableau** présentant le même modèle et effectuer une conversion par ligne et par objet, spécifiez le chemin JSON de ce tableau afin d’effectuer une application croisée. Cette propriété est prise en charge uniquement quand des données hiérarchiques sont la source. | Non  |
 
@@ -287,7 +287,7 @@ Data Factory prend en charge les types de données intermédiaires suivants : V
 
 * Byte[]
 * Boolean
-* DateTime
+* Datetime
 * Datetimeoffset
 * Decimal
 * Double
@@ -296,7 +296,7 @@ Data Factory prend en charge les types de données intermédiaires suivants : V
 * Int32
 * Int64
 * Single
-* Chaîne
+* String
 * Timespan
 
 ## <a name="next-steps"></a>Étapes suivantes
