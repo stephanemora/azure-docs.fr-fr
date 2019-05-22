@@ -1,6 +1,6 @@
 - name: Documentation Azure NetApp Files
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: Présentation d’Azure NetApp Files
       href: azure-netapp-files-introduction.md
@@ -53,6 +53,8 @@
       items:
         - name: REST
           href: azure-netapp-files-develop-with-rest-api.md
+        - name: Kits SDK Azure NetApp Files
+          href: azure-netapp-files-sdk-cli.md
         - name: Corriger les erreurs du fournisseur de ressources Azure NetApp Files
           href: azure-netapp-files-troubleshoot-resource-provider-errors.md
 - name: Informations de référence

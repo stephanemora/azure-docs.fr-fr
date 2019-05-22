@@ -1,6 +1,6 @@
 - name: Documentation Spatial Anchors
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: À propos de Spatial Anchors
       href: overview.md
@@ -28,6 +28,8 @@
       href: tutorials/tutorial-share-anchors-across-devices.md
     - name: Partage dans Unity avec Azure Cosmos DB
       href: tutorials/tutorial-use-cosmos-db-to-store-anchors.md
+    - name: Démarrage d’une nouvelle application Unity HoloLens
+      href: tutorials/tutorial-new-unity-hololens-app.md
     - name: Démarrage d’une nouvelle application Android
       href: tutorials/tutorial-new-android-app.md
 - name: Procédure

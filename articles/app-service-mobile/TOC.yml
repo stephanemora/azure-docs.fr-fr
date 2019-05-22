@@ -1,6 +1,6 @@
 - name: "Documentation Mobile\_Apps"
   href: index.md
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: Présentation de Mobile Apps
       href: app-service-mobile-value-prop.md
@@ -157,8 +157,8 @@
               href: ../app-service/environment/app-service-environment-auto-scale.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json
     - name: gérer
       items:
-        - name: Configuration
-          href: ../app-service/web-sites-configure.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json
+        - name: Configurer les paramètres courants
+          href: ../app-service/configure-common.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json
         - name: Domaines personnalisés
           items:
             - name: Acheter et configurer des domaines personnalisés

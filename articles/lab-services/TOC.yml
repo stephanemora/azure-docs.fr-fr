@@ -1,6 +1,6 @@
 - name: Documentation Lab Services
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: À propos de Lab Services
       href: lab-services-overview.md
@@ -116,8 +116,9 @@
             - name: Définir la stratégie de conservation et exécuter des scripts de nettoyage
               href: image-factory-set-retention-policy-cleanup.md
         - name: DevTest Labs dans l’entreprise
-          href: devtest-lab-guidance-prescriptive-adoption.md
           items:
+            - name: DevTest Labs à l’échelle de l’entreprise
+              href: devtest-lab-guidance-prescriptive-adoption.md
             - name: Architecture de référence
               href: devtest-lab-reference-architecture.md
             - name: Monter votre déploiement DevTest Labs

@@ -1,6 +1,6 @@
 - name: Documentation App Service
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: À propos de Web Apps
       href: overview.md
@@ -92,11 +92,11 @@
   items:
     - name: Configurer l’application
       items:
-        - name: Utiliser les paramètres de l’application
-          href: web-sites-configure.md
+        - name: Configurer les paramètres courants
+          href: configure-common.md
         - name: Configurer PHP
           href: web-sites-php-configure.md
-        - name: Guide du développeur Java
+        - name: Configurer Java
           href: configure-language-java.md
         - name: Se connecter à des ressources locales
           href: web-sites-integrate-with-vnet.md

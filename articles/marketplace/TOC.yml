@@ -433,7 +433,7 @@
               href: ./cloud-partner-portal/virtual-machine/cpp-update-existing-offer.md
     - name: Référence API
       items:
-        - name: Vue d’ensemble
+        - name: Vue d'ensemble
           href: ./cloud-partner-portal-orig/cloud-partner-portal-api-overview.md
         - name: Prérequis
           href: ./cloud-partner-portal-orig/cloud-partner-portal-api-prerequisites.md
@@ -465,7 +465,7 @@
       href: ./cloud-partner-portal-orig/cloud-partner-portal-support-for-cloud-partner-portal.md
 - name: Portail de la Place de marché commerciale dans l’Espace partenaires
   items:
-    - name: Vue d’ensemble
+    - name: Vue d'ensemble
       items:
         - name: "Qu’est-ce que la Place de marché commerciale\_?"
           href: ./partner-center-portal/commercial-marketplace-overview.md
@@ -485,3 +485,5 @@
       href: ./partner-center-portal/publishing-status.md
     - name: Mettre à jour les offres existantes
       href: ./partner-center-portal/update-existing-offer.md
+    - name: Options de support
+      href: ./partner-center-portal/support.md

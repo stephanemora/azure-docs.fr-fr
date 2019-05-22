@@ -18,7 +18,7 @@ metadata:
   ms.author: erhopf
   ms.custom: seodec18
 abstract:
-  description: "Découvrez comment utiliser Speech Services avec les API REST ou avec notre SDK Speech pour ajouter des fonctionnalités de reconnaissance vocale à vos applications. Vous pouvez utiliser le SDK Speech pour ajouter les fonctionnalités suivantes (et d’autres) à vos applications&colon; \n<div class=\"row\" style=\"font-size:16px\"><div class=\"column\"><ul>\n<li><b><a href=\"speech-to-text.md\">Reconnaissance vocale</a></b> (speech-recognition/SR)</li>\n<li><b><a href=\"speech-devices-sdk-create-kws.md\">Mot de mise en éveil personnalisé</a></b> (keyword-spotter/KWS)</li>\n<li><b><a href=\"how-to-recognize-intents-from-speech-csharp.md\">Intention</a></b></li>\n<li><b><a href=\"speech-translation.md\">Traduction</a></b></li>\n<li><b><a href=\"speech-container-howto.md\">Conteneur en local</a></b></li></ul></div><div class=\"column\"><ul>\n<li><b><a href=\"text-to-speech.md\">Synthèse vocale</a></b> (TTS)</li>\n<li><b><a href=\"conversation-transcription-service.md\">Transcription de conversation</a></b> (CTS)</li>\n<li><b><a href=\"how-to-phrase-lists.md\">Personnalisation de la liste d’expressions</a>/<a href=\"how-to-custom-speech.md\">Adaptation vocale personnalisée</a></b></li>\n<li><b><a href=\"voice-first-virtual-assistants.md\">Assistant virtuel «\_voice-first\_»</a></b></li>\n<li><b><a href=\"call-center-transcription.md\">Transcription de centre d’appel</a></b></li></ul></div></div>\n"
+  description: À utiliser avec notre kit SDK Speech ou l’API REST.
 sections:
   - items:
       - type: list
@@ -41,10 +41,14 @@ sections:
             image:
               src: ../media/index/i_guidelines.svg
             title: Kit de développement logiciel (SDK) Speech Devices
+  - title: Introduction
+    items:
+      - type: paragraph
+        text: "Vous pouvez utiliser le SDK Speech pour ajouter les fonctionnalités suivantes (et d’autres) à vos applications&colon; \n<div class=\"row\"><div class=\"column\"><ul>\n<li><b><a href=\"speech-to-text.md\">Reconnaissance vocale</a></b> (speech-recognition/SR)</li>\n<li><b><a href=\"speech-devices-sdk-create-kws.md\">Mot de mise en éveil personnalisé</a></b> (keyword-spotter/KWS)</li>\n<li><b><a href=\"how-to-recognize-intents-from-speech-csharp.md\">Intention</a></b></li>\n<li><b><a href=\"speech-translation.md\">Traduction</a></b></li>\n<li><b><a href=\"speech-container-howto.md\">Conteneur en local</a></b></li></ul></div><div class=\"column\"><ul>\n<li><b><a href=\"text-to-speech.md\">Synthèse vocale</a></b> (TTS)</li>\n<li><b><a href=\"conversation-transcription-service.md\">Transcription de conversation</a></b> (CTS)</li>\n<li><b><a href=\"how-to-phrase-lists.md\">Personnalisation de la liste d’expressions</a>/<a href=\"how-to-custom-speech.md\">Adaptation vocale personnalisée</a></b></li>\n<li><b><a href=\"voice-first-virtual-assistants.md\">Assistant virtuel «\_voice-first\_»</a></b></li>\n<li><b><a href=\"call-center-transcription.md\">Transcription de centre d’appel</a></b></li></ul></div></div>\n"
   - title: "Démarrages en 5\_minutes"
     items:
       - type: paragraph
-        text: "Découvrez comment télécharger, installer et utiliser le Kit de développement logiciel (SDK) en sélectionnant la flèche <img src=\"media/index/link.jpg\" height=\"15\" width=\"15\"></img>.<br/><br/>Tous les liens fléchés dirigent <img src=\"media/index/link.jpg\" height=\"15\" width=\"15\"></img> par défaut vers un guide de démarrage rapide sur la reconnaissance vocale. À partir de là, vous pouvez sélectionner d’autres guides de démarrage rapide (<a href=\"scenario-availability.md\">lorsqu’ils sont disponibles</a>) sur la synthèse vocale ou l’assistant virtuel «\_voice-first\_», par exemple."
+        text: "Découvrez comment télécharger, installer et utiliser le Kit de développement logiciel (SDK) en sélectionnant la flèche <img src=\"media/index/link.jpg\" height=\"15\" width=\"15\"></img>.<br/>Tous les liens fléchés dirigent <img src=\"media/index/link.jpg\" height=\"15\" width=\"15\"></img> par défaut vers un guide de démarrage rapide sur la reconnaissance vocale. À partir de là, vous pouvez sélectionner d’autres guides de démarrage rapide (<a href=\"scenario-availability.md\">lorsqu’ils sont disponibles</a>) sur la synthèse vocale ou l’assistant virtuel «\_voice-first\_», par exemple."
       - type: table
         style: dataMatrix
         columns:

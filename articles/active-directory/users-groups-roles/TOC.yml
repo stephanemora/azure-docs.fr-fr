@@ -1,6 +1,6 @@
 - name: Documentation Gestion des utilisateurs
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: 'Utilisateurs, groupes, licences et rôles'
       href: directory-overview-user-model.md
@@ -44,6 +44,8 @@
           href: /azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
         - name: Restaurer un utilisateur supprimé.
           href: /azure/active-directory/fundamentals/active-directory-users-restore?context=azure/active-directory/users-groups-roles/context/ugr-context
+        - name: Fermer votre compte dans un annuaire non managé
+          href: users-close-account.md
         - name: Ajouter des utilisateurs B2B
           href: /azure/active-directory/b2b/what-is-b2b?context=azure/active-directory/users-groups-roles/context/ugr-context
         - name: Attribuer un rôle à un utilisateur B2B

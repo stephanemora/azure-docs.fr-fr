@@ -5,12 +5,11 @@ metadata:
   title: 'Documentation Azure Application Gateway - Didacticiels, informations de référence sur les API'
   meta.description: 'Learn how to create application gateways. Documentation helps you plan, deploy, and manage web traffic to your Azure resources.'
   services: application-gateway
-  author: davidmu1
-  manager: jeconnocfte
+  author: vhorne
   ms.service: application-gateway
   ms.topic: landing-page
-  ms.date: 02/01/2018
-  ms.author: davidmu
+  ms.date: 5/20/2019
+  ms.author: victorh
 abstract:
   description: 'Apprenez à déployer Application Gateway, un contrôleur de remise d’applications sous forme de service. Des didacticiels, des références d’API et d’autres documents vous montrent comment configurer des services d’équilibrage de charge et de routage au niveau de l’application qui vous permettent de créer un serveur frontal web évolutif et hautement disponible.'
 sections:
@@ -40,12 +39,12 @@ sections:
       - type: list
         style: ordered
         items:
-          - html: <a href="/azure/application-gateway/tutorial-manage-web-traffic-cli">Gérer le trafic web avec une passerelle Application Gateway.</a>
-          - html: <a href="/azure/application-gateway/tutorial-restrict-web-traffic-cli">Limiter le trafic web avec un pare-feu d’application web sur une passerelle Application Gateway.</a>
-          - html: <a href="/azure/application-gateway/tutorial-ssl-cli">Activer l’arrêt SSL sur une passerelle Application Gateway.</a>
-          - html: <a href="/azure/application-gateway/tutorial-multiple-sites-cli">Héberger plusieurs sites web à l’aide d’une passerelle Application Gateway.</a>
-          - html: <a href="/azure/application-gateway/tutorial-url-route-cli">Acheminer le trafic en fonction de l’URL dans une passerelle Application Gateway.</a>
-          - html: <a href="/azure/application-gateway/tutorial-url-redirect-cli">Rediriger le trafic vers des serveurs spécifiques dans un pool de passerelles Application Gateway.</a>
+          - html: <a href="/azure/application-gateway/application-gateway-web-application-firewall-portal">Créer une passerelle d’application avec un pare-feu d’applications web</a>
+          - html: <a href="/azure/application-gateway/create-ssl-portal">Configurer une passerelle d’application avec arrêt SSL</a>
+          - html: <a href="/azure/application-gateway/create-multiple-sites-portal">Créer et configurer une passerelle d’application pour héberger plusieurs sites web</a>
+          - html: <a href="/azure/application-gateway/create-url-route-portal">Créer une passerelle d’application avec des règles de routage basées sur les chemins</a>
+          - html: <a href="/azure/application-gateway/tutorial-url-redirect-cli">Créer une passerelle d’application avec réacheminement par chemin d’URL</a>
+          - html: <a href="/azure/application-gateway/tutorial-autoscale-ps">Créer une passerelle d’application qui améliore l’accès aux applications web</a>
   - title: Exemples
     items:
       - type: paragraph

@@ -4,14 +4,14 @@ title: Documentation Azure Cosmos DB
 metadata:
   document_id: e77bd640-1036-8b31-955c-a2cc990c69a1
   title: 'Documentation Azure Cosmos DB - Didacticiels, Référence des API'
-  description: 'Apprenez à utiliser Azure Cosmos DB pour créer des bases de données multi-modèles distribuées mondialement. Le composant Didacticiels vous montre comment créer et interroger des documents, des bases de données de graphique et de clé/valeur.'
+  description: 'Apprenez à utiliser Azure Cosmos DB, service de base de données multimodèle distribué à l’échelle mondiale. Le composant Didacticiels vous montre comment créer et interroger des documents, des bases de données de graphique et de clé/valeur.'
   author: SnehaGunda
   ms.author: sngun
   ms.service: cosmos-db
   ms.topic: landing-page
-  ms.date: 04/26/2018
+  ms.date: 05/20/2019
 abstract:
-  description: 'Azure Cosmos DB est un service de base de données multimodèle globalement distribué qui prend en charge les bases de données de documents, de valeurs clés, à colonne large et de graphiques. Découvrez comment utiliser Azure Cosmos DB avec nos mises en route rapides, tutoriels et exemples.'
+  description: 'Azure Cosmos DB est un service de base de données complètement managé avec une distribution mondiale et une réplication multimaître transparente clé en main. Vous pouvez exécuter l’intelligence artificielle et des charges de travail analytiques et fonctionnelles à faible latence distribuées à l’échelle mondiale sur les données transactionnelles de votre base de données. Découvrez comment utiliser Azure Cosmos DB avec nos mises en route rapides, tutoriels et exemples.'
   aside:
     image:
       alt: null
