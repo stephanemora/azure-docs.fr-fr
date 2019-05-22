@@ -55,7 +55,7 @@ Les propriétés suivantes sont prises en charge pour le service lié Teradata 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | type | La propriété type doit être définie sur : **Teradata** | Oui |
-| serveur | Nom du serveur Teradata. | Oui |
+| server | Nom du serveur Teradata. | Oui |
 | authenticationType | Type d'authentification utilisé pour se connecter à la base de données Teradata.<br/>Les valeurs autorisées sont les suivantes : **Basic** et **Windows**. | Oui |
 | username | Spécifiez le nom d’utilisateur associé à la connexion à la base de données Teradata. | Oui |
 | password | Spécifiez le mot de passe du compte d’utilisateur que vous avez spécifié pour le nom d’utilisateur. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | OUI |
@@ -173,7 +173,7 @@ Lors de la copie des données à partir de Teradata, les mappages suivants sont 
 | Decimal |Decimal |
 | Double |Double |
 | Graphic |String |
-| Entier  |Int32 |
+| Integer |Int32 |
 | Interval Day |TimeSpan |
 | Interval Day To Hour |TimeSpan |
 | Interval Day To Minute |TimeSpan |
@@ -194,7 +194,7 @@ Lors de la copie des données à partir de Teradata, les mappages suivants sont 
 | Period(Timestamp) |String |
 | Period(Timestamp With Time Zone) |String |
 | SmallInt |Int16 |
-| Temps |TimeSpan |
+| Time |TimeSpan |
 | Time With Time Zone |String |
 | Timestamp |DateTime |
 | Timestamp With Time Zone |DateTimeOffset |
