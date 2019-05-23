@@ -16,13 +16,13 @@ ms.date: 01/24/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e5330d398a75105b78cb2caa0373b78fa2e32a99
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57878055"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65863159"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-compliance-elf"></a>Tutoriel : Intégration d’Azure Active Directory à Compliance ELF
+# <a name="tutorial-azure-active-directory-integration-with-compliance-elf"></a>Didacticiel : Intégration d’Azure Active Directory à Compliance ELF
 
 Dans ce didacticiel, vous allez apprendre à intégrer Compliance ELF à Azure Active Directory (Azure AD).
 L’intégration de Compliance ELF dans Azure AD vous offre les avantages suivants :
@@ -142,7 +142,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@votredomaineentreprise.extension**.  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.

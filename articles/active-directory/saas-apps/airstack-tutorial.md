@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à AirStack | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à AirStack | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et AirStack.
 services: active-directory
 documentationCenter: na
@@ -16,11 +16,11 @@ ms.date: 01/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 675ca1025c4317945f0d588f425d875bf83f249c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57855450"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65813207"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-airstack"></a>Didacticiel : Intégration d’Azure Active Directory à AirStack
 
@@ -137,7 +137,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.

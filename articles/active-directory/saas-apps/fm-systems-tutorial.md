@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/05/2019
 ms.author: jeedes
-ms.openlocfilehash: 77e58ea830de1e8ab7e3643ee5694a5e3f609c53
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: dda1447a049071a0871079f2cabd046ed7c479d6
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59564915"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65770151"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fmsystems"></a>Didacticiel : Intégration d'Azure Active Directory à FM:Systems
 
@@ -107,7 +107,7 @@ Pour configurer l’authentification unique Azure AD avec FM:Systems, effectuez
     Dans la zone de texte **URL de réponse**, tapez une URL au format suivant : `https://<companyname>.fmshosted.com/fminteract/ConsumerService2.aspx`
     
     > [!NOTE]
-    > Cette valeur n’est pas la valeur réelle. Mettez à jour la valeur avec l’URL de réponse réelle. Contactez l’[équipe du support FM:Systems](https://fmsystems.com/ask-us/) pour obtenir la valeur. Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
+    > Cette valeur n’est pas la valeur réelle. Mettez à jour la valeur avec l’URL de réponse réelle. Contactez l’[équipe du support FM:Systems](https://fmsystems.com/support-services/) pour obtenir la valeur. Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
 5. Sur la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le fichier **XML de métadonnées de fédération** en fonction des options définies en fonction de vos besoins, puis enregistrez-le sur votre ordinateur.
 
@@ -125,7 +125,7 @@ Pour configurer l’authentification unique Azure AD avec FM:Systems, effectuez
 
 ### <a name="configure-fmsystems-single-sign-on"></a>Configurer l’authentification unique FM :Systems
 
-Pour configurer l’authentification unique côté **FM:Systems**, vous devez envoyer le **XML des métadonnées de fédération** téléchargé et les URL copiées appropriées à partir du portail Azure à l’[équipe du support FM:Systems](https://fmsystems.com/ask-us/). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+Pour configurer l’authentification unique côté **FM:Systems**, vous devez envoyer le **XML des métadonnées de fédération** téléchargé et les URL copiées appropriées à partir du portail Azure à l’[équipe du support FM:Systems](https://fmsystems.com/support-services/). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD 
 

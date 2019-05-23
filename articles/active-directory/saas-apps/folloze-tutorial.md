@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Folloze | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Folloze | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Folloze.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 41f867e2700c7b3f5d70d76c78a32e0fa3361d56
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57892623"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65813234"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-folloze"></a>Tutoriel : Intégration d’Azure Active Directory à Folloze
+# <a name="tutorial-azure-active-directory-integration-with-folloze"></a>Didacticiel : Intégration d’Azure Active Directory à Folloze
 
 Dans ce tutoriel, vous allez apprendre à intégrer Folloze dans Azure Active Directory (Azure AD).
 L’intégration de Folloze dans Azure AD vous offre les avantages suivants :
@@ -171,7 +171,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@votredomaineentreprise.extension**.  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.

@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Pexip | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Pexip | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Pexip.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.date: 02/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b9dcc353d634d66d4bb972ed5ac7607a5cc823b8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57894340"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65869322"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-pexip"></a>Tutoriel : Intégration d’Azure Active Directory à Pexip
+# <a name="tutorial-azure-active-directory-integration-with-pexip"></a>Didacticiel : Intégration d’Azure Active Directory à Pexip
 
 Dans ce tutoriel, vous allez découvrir comment intégrer Pexip à Azure Active Directory (Azure AD).
 L’intégration de Pexip dans Azure AD vous offre les avantages suivants :
@@ -143,7 +143,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.

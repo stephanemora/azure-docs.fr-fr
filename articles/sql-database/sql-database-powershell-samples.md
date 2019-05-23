@@ -7,17 +7,17 @@ ms.subservice: development
 ms.custom: ''
 ms.devlang: PowerShell
 ms.topic: sample
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/25/2019
-ms.openlocfilehash: 6be6021ef828202ad37a8af4eba942e6898963ca
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 518ac4aba64cdda4ddb3f40ee30620d6f156cc8c
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59259981"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65832547"
 ---
 # <a name="azure-powershell-samples-for-azure-sql-database"></a>Exemples Azure PowerShell pour Azure SQL Database
 
@@ -39,7 +39,7 @@ Le tableau suivant comprend des liens vers des exemples de scripts Azure PowerS
 | [Créer des pools élastiques et déplacer les bases de données mises en pool](scripts/sql-database-move-database-between-pools-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Ce script PowerShell crée des pools élastiques Azure SQL Database, déplace des bases de données mises en pool et modifie les tailles de calcul.|
 |**Configurer la géoréplication et le basculement**||
 | [Configurer et basculer une base de données unique à l’aide de la géoréplication active](scripts/sql-database-setup-geodr-and-failover-database-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Ce script PowerShell configure la géoréplication active pour une base de données Azure SQL unique et la fait basculer vers le réplica secondaire. |
-| [Configurer et basculer une base de données regroupée à l’aide de la géoréplication active](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Ce script PowerShell configure la géoréplication active pour une base de données Azure SQL dans un pool élastique SQL et la fait basculer vers le réplica secondaire. |
+| [Configurer et basculer une base de données mise en pool à l’aide de la géoréplication active](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Ce script PowerShell configure la géoréplication active pour une base de données Azure SQL dans un pool élastique SQL et la fait basculer vers le réplica secondaire. |
 | [Configurer et basculer un groupe de basculement pour une base de données unique](scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Ce script PowerShell configure un groupe de basculement pour une instance de serveur Azure SQL Database, ajoute une base de données au groupe de basculement et le bascule vers le serveur secondaire |
 |**Mettre à l’échelle une base de données unique et un pool élastique**||
 | [Mettre à l’échelle une base de données unique](scripts/sql-database-monitor-and-scale-database-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Ce script PowerShell surveille les mesures de performances d’une base de données Azure SQL, l’adapte à une taille de calcul supérieure et crée une règle d’alerte sur l’une des mesures de performances. |

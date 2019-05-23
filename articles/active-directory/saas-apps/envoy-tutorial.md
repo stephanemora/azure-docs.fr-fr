@@ -1,5 +1,5 @@
 ---
-title: "Tutoriel : Intégration d'Azure Active Directory à Envoy | Microsoft Docs"
+title: "Didacticiel : Intégration d'Azure Active Directory à Envoy | Microsoft Docs"
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Envoy.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.date: 02/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 590e7e301b33fdab4122c4b776ebc52f6ed92b08
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57881178"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65862783"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-envoy"></a>Tutoriel : Intégration d'Azure Active Directory à Envoy
+# <a name="tutorial-azure-active-directory-integration-with-envoy"></a>Didacticiel : Intégration d'Azure Active Directory à Envoy
 
 Dans ce didacticiel, vous allez apprendre à intégrer Envoy à Azure Active Directory (Azure AD).
 L’intégration d’Envoy à Azure AD vous offre les avantages suivants :

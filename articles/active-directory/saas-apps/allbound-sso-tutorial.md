@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Allbound SSO | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Allbound SSO | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Allbound SSO.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c8f06fa6d387cfb8ec01437e6a6aa9925907a45b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57904522"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65864243"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-allbound-sso"></a>Tutoriel : Intégration d’Azure Active Directory à Allbound SSO
+# <a name="tutorial-azure-active-directory-integration-with-allbound-sso"></a>Didacticiel : Intégration d’Azure Active Directory à Allbound SSO
 
 Dans ce tutoriel, vous allez apprendre à intégrer Allbound SSO à Azure Active Directory (Azure AD).
 L’intégration d’Allbound SSO à Azure AD offre les avantages suivants :

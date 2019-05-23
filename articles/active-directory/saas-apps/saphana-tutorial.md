@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : intégration d’Azure Active Directory à SAP HANA | Microsoft Docs'
+title: 'Didacticiel : intégration d’Azure Active Directory à SAP HANA | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et SAP HANA.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.date: 12/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f8def13360bba2f82d5adf315503dc7d655f490d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57899824"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65867906"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-sap-hana"></a>Tutoriel : intégration d’Azure Active Directory à SAP HANA
+# <a name="tutorial-azure-active-directory-integration-with-sap-hana"></a>Didacticiel : intégration d’Azure Active Directory à SAP HANA
 
 Dans ce didacticiel, vous allez apprendre à intégrer SAP HANA à Azure Active Directory (Azure AD).
 L’intégration de SAP HANA à Azure AD vous offre les avantages suivants :
@@ -195,7 +195,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@votredomaineentreprise.extension**.  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.

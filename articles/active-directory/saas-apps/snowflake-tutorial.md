@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Snowflake | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Snowflake | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Snowflake.
 services: active-directory
 documentationCenter: na
@@ -16,11 +16,11 @@ ms.date: 12/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 617a01fdce71e76cf4783ee6a274ee428b0b3b57
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57903557"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65889413"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-snowflake"></a>Didacticiel : Intégration d’Azure Active Directory à Snowflake
 

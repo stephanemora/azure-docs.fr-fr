@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Concur | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Concur | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Concur.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.date: 12/11/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f66b00d60a93db20ac2092db385e9794e150ce89
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57840509"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65900381"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-concur"></a>Tutoriel : Intégration d’Azure Active Directory à Concur
+# <a name="tutorial-azure-active-directory-integration-with-concur"></a>Didacticiel : Intégration d’Azure Active Directory à Concur
 
 Dans ce didacticiel, vous allez apprendre à intégrer Concur à Azure Active Directory (Azure AD).
 L’intégration de Concur à Azure AD vous offre les avantages suivants :
@@ -152,7 +152,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.

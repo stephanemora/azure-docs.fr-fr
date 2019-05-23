@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Adobe Experience Manager | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Adobe Experience Manager | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Adobe Experience Manager.
 services: active-directory
 documentationCenter: na
@@ -16,11 +16,11 @@ ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cb066ce346d56b9b879a5e3cdcf30e7da77d94fe
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57846716"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65859375"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-experience-manager"></a>Didacticiel : Intégration d’Azure Active Directory à Adobe Experience Manager
 

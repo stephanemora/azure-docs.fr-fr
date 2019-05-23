@@ -11,12 +11,12 @@ ms.subservice: qna-maker
 ms.topic: tutorial
 ms.date: 01/24/2019
 ms.author: diberry
-ms.openlocfilehash: 355c11d4f8ae0089527a9f0d21af7c4d6070f73a
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: a14bc14e6115c1bc25582c3de71382ae17d7debd
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64922371"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65792278"
 ---
 # <a name="tutorial-using-c-create-knowledge-base-then-answer-question"></a>Didacticiel : Créer une base de connaissances puis répondre à une question à l’aide de C#
 
@@ -32,11 +32,11 @@ Ce didacticiel vous aide à créer et publier par programmation une base de conn
 
 Ce démarrage rapide fait appel aux API QnA Maker :
 
-* [Créer une base de connaissances (kb)](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
-* [Obtenir les détails de l’opération](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails)
-* [Obtenir des détails sur la base de connaissances](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_getknowledgebasedetails) 
-* [Obtenir des points de terminaison sur la base de connaissances](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/endpointkeys_getendpointkeys)
-* [Publier](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe) 
+* [Créer une base de connaissances (kb)](https://go.microsoft.com/fwlink/?linkid=2092179)
+* [Obtenir les détails de l’opération](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/operations/getdetails)
+* [Obtenir des détails sur la base de connaissances](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/getdetails) 
+* [Obtenir des points de terminaison sur la base de connaissances](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/endpointkeys/getkeys)
+* [Publier](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/publish) 
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -248,4 +248,4 @@ Une fois votre base de connaissances créée, vous pouvez l’afficher dans votr
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Documentation de référence pour l’API REST QnA Maker (V4)](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
+> [Documentation de référence pour l’API REST QnA Maker (V4)](https://go.microsoft.com/fwlink/?linkid=2092179)

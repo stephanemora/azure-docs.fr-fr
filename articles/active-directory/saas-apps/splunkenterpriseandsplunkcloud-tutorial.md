@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Splunk Enterprise and Splunk Cloud | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Splunk Enterprise and Splunk Cloud | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Splunk Enterprise et Splunk Cloud.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.date: 12/24/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 28b98a5001d5b02c61fab1bc6ce06a8f08eaf0e4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57875598"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65866887"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-splunk-enterprise-and-splunk-cloud"></a>Tutoriel : Intégration d’Azure Active Directory à Splunk Enterprise and Splunk Cloud
+# <a name="tutorial-azure-active-directory-integration-with-splunk-enterprise-and-splunk-cloud"></a>Didacticiel : Intégration d’Azure Active Directory à Splunk Enterprise and Splunk Cloud
 
 Dans ce didacticiel, vous allez apprendre à intégrer Splunk Enterprise et Splunk Cloud à Azure Active Directory (Azure AD).
 L’intégration de Splunk Enterprise et Splunk Cloud à Azure AD vous offre les avantages suivants :

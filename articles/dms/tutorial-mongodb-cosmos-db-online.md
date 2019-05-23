@@ -10,19 +10,21 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 05/08/2019
-ms.openlocfilehash: 57b92400f81a3fac8d22c6522cde7eb3406a2e70
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.date: 05/16/2019
+ms.openlocfilehash: d50794557de00a50790cd4cc661cb9859b231214
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65415504"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65794201"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-online-using-dms"></a>Didacticiel : Migrer MongoDB vers l’API Azure Cosmos DB pour MongoDB en ligne à l’aide de DMS
+
 Vous pouvez utiliser le service Azure Database Migration Service pour effectuer une migration en ligne (temps d’arrêt minimal) de bases de données à partir d’une instance locale ou cloud de MongoDB vers l’API Azure Cosmos DB pour MongoDB.
 
 Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > [!div class="checklist"]
+>
 > * Créer une instance Azure Database Migration Service.
 > * Créer un projet de migration en utilisant Azure Database Migration Service.
 > * Exécuter la migration.
@@ -42,54 +44,59 @@ Dans ce tutoriel, vous migrez un jeu de données dans MongoDB hébergé dans une
 Cet article décrit une migration en ligne de MongoDB vers l’API Azure Cosmos DB pour MongoDB. Pour une migration hors connexion, consultez [Migrer MongoDB vers l’API Azure Cosmos DB pour MongoDB hors connexion à l’aide de DMS](tutorial-mongodb-cosmos-db.md).
 
 ## <a name="prerequisites"></a>Prérequis
+
 Pour suivre ce didacticiel, vous devez effectuer les opérations suivantes :
-- Les étapes[Exécuter la prémigration](../cosmos-db/mongodb-pre-migration.md), comme l’estimation du débit, le choix d’une clé de partition et la stratégie d’indexation.
-- [Créez un compte d’API Azure Cosmos DB pour MongoDB](https://ms.portal.azure.com/#create/Microsoft.DocumentDB).
-- Créez un réseau virtuel Azure (VNET) pour le service Azure Database Migration Service à l’aide du modèle de déploiement Azure Resource Manager, qui fournit une connectivité de site à site à vos serveurs sources locaux via [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) ou une passerelle [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
+
+* Les étapes[Exécuter la prémigration](../cosmos-db/mongodb-pre-migration.md), comme l’estimation du débit, le choix d’une clé de partition et la stratégie d’indexation.
+* [Créez un compte d’API Azure Cosmos DB pour MongoDB](https://ms.portal.azure.com/#create/Microsoft.DocumentDB).
+* Créez un réseau virtuel Azure (VNet) pour le service Azure Database Migration Service à l’aide du modèle de déploiement Azure Resource Manager, qui fournit une connectivité de site à site à vos serveurs sources locaux via [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) ou une passerelle [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
 
     > [!NOTE]
-    > Pendant la configuration du réseau virtuel, si vous utilisez ExpressRoute avec le peering réseau à Microsoft, ajoutez ces [points de terminaison](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) au sous-réseau où doit être provisionné le service :
-    > - Point de terminaison de base de données cible (un point de terminaison SQL ou Cosmos DB, par exemple)
-    > - Point de terminaison de stockage
-    > - Point de terminaison Service Bus
+    > Pendant la configuration du réseau virtuel, si vous utilisez ExpressRoute avec le peering réseau à Microsoft, ajoutez ces [points de terminaison](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) de service au sous-réseau où doit être provisionné le service :
+    >
+    > * Point de terminaison de base de données cible (un point de terminaison SQL ou Cosmos DB, par exemple)
+    > * Point de terminaison de stockage
+    > * Point de terminaison Service Bus
     >
     > Cette configuration est nécessaire, car Azure Database Migration Service ne dispose pas d’une connectivité Internet.
 
-- Vérifiez que les règles de groupe de sécurité réseau de votre réseau virtuel ne bloquent pas les ports de communication entrants suivants à Azure Database Migration Service : 443, 53, 9354, 445 et 12000. Pour plus d’informations sur le filtrage de groupe de sécurité Réseau virtuel Microsoft Azure, consultez l’article [Filtrer le trafic réseau avec les groupes de sécurité réseau](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
-- Changez le pare-feu du serveur source pour permettre au service Azure Database Migration Service d’accéder au serveur MongoDB source, lequel est accessible par défaut sur le port TCP 27 017.
-- Lorsque vous utilisez une appliance de pare-feu devant vos bases de données sources, vous devrez peut-être ajouter des règles de pare-feu pour permettre à Azure Database Migration Service d’accéder aux bases de données sources pour la migration.
+* Vérifiez que les règles de groupe de sécurité réseau de votre réseau virtuel ne bloquent pas les ports de communication entrants suivants à Azure Database Migration Service : 443, 53, 9354, 445 et 12000. Pour plus d’informations sur le filtrage de groupe de sécurité Réseau virtuel Microsoft Azure, consultez l’article [Filtrer le trafic réseau avec les groupes de sécurité réseau](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
+* Changez le pare-feu du serveur source pour permettre au service Azure Database Migration Service d’accéder au serveur MongoDB source, lequel est accessible par défaut sur le port TCP 27 017.
+* Lorsque vous utilisez une appliance de pare-feu devant vos bases de données sources, vous devrez peut-être ajouter des règles de pare-feu pour permettre à Azure Database Migration Service d’accéder aux bases de données sources pour la migration.
 
 ## <a name="register-the-microsoftdatamigration-resource-provider"></a>Inscrire le fournisseur de ressources Microsoft.DataMigration
+
 1. Connectez-vous au portail Azure, sélectionnez **Tous les services**, puis **Abonnements**.
 
    ![Afficher les abonnements au portail](media/tutorial-mongodb-to-cosmosdb-online/portal-select-subscription1.png)
-       
+
 2. Sélectionnez l’abonnement dans lequel vous souhaitez créer l’instance Azure Database Migration Service, puis sélectionnez **Fournisseurs de ressources**.
  
     ![Afficher les fournisseurs de ressources](media/tutorial-mongodb-to-cosmosdb-online/portal-select-resource-provider.png)
-    
-3.  Recherchez migration, puis à droite de **Microsoft.DataMigration**, sélectionnez **Inscrire**.
+
+3. Recherchez migration, puis à droite de **Microsoft.DataMigration**, sélectionnez **Inscrire**.
  
     ![S’inscrire auprès du fournisseur de ressources](media/tutorial-mongodb-to-cosmosdb-online/portal-register-resource-provider.png)    
 
 ## <a name="create-an-instance"></a>Créer une instance
-1.  Dans le portail Azure, sélectionnez **+ Créer une ressource**, recherchez Azure Database Migration Service, puis sélectionnez **Azure Database Migration Service** dans la liste déroulante.
+
+1. Dans le portail Azure, sélectionnez **+ Créer une ressource**, recherchez Azure Database Migration Service, puis sélectionnez **Azure Database Migration Service** dans la liste déroulante.
 
     ![Place de marché Azure](media/tutorial-mongodb-to-cosmosdb-online/portal-marketplace.png)
 
-2.  Dans l’écran **Azure Database Migration Service**, sélectionnez **Créer**.
+2. Dans l’écran **Azure Database Migration Service**, sélectionnez **Créer**.
  
     ![Créer une instance Azure Database Migration Service](media/tutorial-mongodb-to-cosmosdb-online/dms-create1.png)
   
-3.  Dans l’écran **Créer un service de migration**, spécifiez un nom pour le service, l’abonnement, et un réseau virtuel nouveau ou existant.
+3. Dans l’écran **Créer un service de migration**, spécifiez un nom pour le service, l’abonnement, et un réseau virtuel nouveau ou existant.
 
 4. Sélectionnez l’emplacement dans lequel vous souhaitez créer l’instance Azure Database Migration Service. 
 
 5. Sélectionnez un réseau virtuel existant ou créez-en un.
 
-    Le réseau virtuel fournit à Azure Database Migration Service un accès à l’instance MongoDB source et au compte Azure Cosmos DB cible.
+   Le réseau virtuel fournit à Azure Database Migration Service un accès à l’instance MongoDB source et au compte Azure Cosmos DB cible.
 
-    Pour plus d’informations sur la création d’un réseau virtuel dans le portail Azure, consultez l’article [Créer un réseau virtuel à l’aide du portail Azure](https://aka.ms/DMSVnet).
+   Pour plus d’informations sur la création d’un réseau virtuel dans le portail Azure, consultez l’article [Créer un réseau virtuel à l’aide du portail Azure](https://aka.ms/DMSVnet).
 
 6. Sélectionnez une référence (SKU) dans le niveau tarifaire Premium.
 
@@ -98,9 +105,10 @@ Pour suivre ce didacticiel, vous devez effectuer les opérations suivantes :
 
     ![Configurer des paramètres d’instance Azure Database Migration Service](media/tutorial-mongodb-to-cosmosdb-online/dms-settings3.png)
 
-7.  Sélectionnez **Créer** pour créer le service.
+7. Sélectionnez **Créer** pour créer le service.
 
 ## <a name="create-a-migration-project"></a>Créer un projet de migration
+
 Une fois le service créé, recherchez-le dans le portail Azure, ouvrez-le, puis créez un projet de migration.
 
 1. Dans le portail Azure, sélectionnez **Tous les services**, recherchez Azure Database Migration Service, puis sélectionnez **Azure Database Migration Services**.
@@ -119,9 +127,10 @@ Une fois le service créé, recherchez-le dans le portail Azure, ouvrez-le, puis
 
     ![Créer un projet Azure Database Migration Service](media/tutorial-mongodb-to-cosmosdb-online/dms-create-project1.png)
 
-5.  Sélectionnez **Enregistrer**, puis **Créer et exécuter une activité** pour créer le projet et exécuter l’activité de migration.
+5. Sélectionnez **Enregistrer**, puis **Créer et exécuter une activité** pour créer le projet et exécuter l’activité de migration.
 
 ## <a name="specify-source-details"></a>Spécifier les détails de la source
+
 1. Sur l'écran **Détails de la source**, spécifiez les détails de connexion du serveur MongoDB source.
 
     Il existe trois modes de connexion à une source :
@@ -134,6 +143,7 @@ Une fois le service créé, recherchez-le dans le portail Azure, ouvrez-le, puis
      ```
      https://blobnameurl/container?SASKEY
      ```
+
      De plus, en fonction des informations d’images mémoire de type dans le stockage Azure, gardez à l’esprit les informations suivantes.
 
      * Pour les images mémoire BSON, les données dans le conteneur d’objets blob doivent être au format bsondump, de sorte que les fichiers de données sont placés dans des dossiers nommés d’après les bases de données conteneur au format collection.bson. Les fichiers de métadonnées (le cas échéant) doivent être nommés en utilisant le format *collection*.metadata.json.
@@ -150,6 +160,7 @@ Une fois le service créé, recherchez-le dans le portail Azure, ouvrez-le, puis
    > L’adresse du serveur source doit être l’adresse du serveur principal si la source est un jeu de réplicas, et le routeur si la source est un cluster MongoDB shardé. Pour un cluster MongoDB shardé, Azure Database Migration Service doit pouvoir se connecter aux shards individuels du cluster, ce qui peut nécessiter l’ouverture du pare-feu sur des machines supplémentaires.          
 
 ## <a name="specify-target-details"></a>Spécifier les détails de la cible
+
 1. Sur l’écran **Détails de la cible de migration**, spécifiez les détails de connexion du compte Azure Cosmos DB cible, à savoir le compte d’API Azure Cosmos DB pour MongoDB préprovisionné vers lequel vous migrez vos données MongoDB.
 
     ![Spécifier les détails de la cible](media/tutorial-mongodb-to-cosmosdb-online/dms-specify-target1.png)
@@ -157,27 +168,28 @@ Une fois le service créé, recherchez-le dans le portail Azure, ouvrez-le, puis
 2. Sélectionnez **Enregistrer**.
 
 ## <a name="map-to-target-databases"></a>Mapper aux bases de données cibles
+
 1. Dans l’écran **Mapper aux bases de données cibles**, mappez les bases de données source et cible pour la migration.
 
-    Si la base de données cible porte le même nom que la base de données source, Azure Database Migration Service sélectionne la base de données cible par défaut.
+   Si la base de données cible porte le même nom que la base de données source, Azure Database Migration Service sélectionne la base de données cible par défaut.
 
-    Si la chaîne **Create** apparaît en regard du nom de la base de données, cela indique qu'Azure Database Migration Service n'a pas trouvé la base de données cible et qu'il va créer la base de données pour vous.
+   Si la chaîne **Create** apparaît en regard du nom de la base de données, cela indique qu'Azure Database Migration Service n'a pas trouvé la base de données cible et qu'il va créer la base de données pour vous.
 
-    À ce stade de la migration, si vous souhaitez un débit de partage pour la base de données, spécifiez un RU de débit. Dans Cosmos DB, vous pouvez configurer le débit au niveau de la base de données ou individuellement pour chaque collection. Le débit est mesuré en [unités de requête](https://docs.microsoft.com/azure/cosmos-db/request-units) (RU). Apprenez-en davantage sur les [tarifs d'Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/).
+   À ce stade de la migration, si vous souhaitez un débit de partage pour la base de données, spécifiez un RU de débit. Dans Cosmos DB, vous pouvez configurer le débit au niveau de la base de données ou individuellement pour chaque collection. Le débit est mesuré en [unités de requête](https://docs.microsoft.com/azure/cosmos-db/request-units) (RU). Apprenez-en davantage sur les [tarifs d'Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/).
 
-    ![Mapper aux bases de données cibles](media/tutorial-mongodb-to-cosmosdb-online/dms-map-target-databases1.png)
+   ![Mapper aux bases de données cibles](media/tutorial-mongodb-to-cosmosdb-online/dms-map-target-databases1.png)
 
 2. Sélectionnez **Enregistrer**.
 
 3. Sur l'écran **Paramètre de collection**, développez la liste des collections, puis consultez la liste des collections à migrer.
 
-    Notez qu'Azure Database Migration Service sélectionne automatiquement toutes les collections qui existent sur l'instance source de MongoDB et qui n'existent pas sur le compte Azure Cosmos DB cible. Si vous souhaitez migrer à nouveau des collections contenant déjà des données, vous devez les sélectionner explicitement dans cet écran.
+   Notez qu'Azure Database Migration Service sélectionne automatiquement toutes les collections qui existent sur l'instance source de MongoDB et qui n'existent pas sur le compte Azure Cosmos DB cible. Si vous souhaitez migrer à nouveau des collections contenant déjà des données, vous devez les sélectionner explicitement dans cet écran.
 
-    Vous pouvez spécifier le nombre de RU à utiliser par les collections. Dans la plupart des cas, une valeur comprise entre 500 (1 000 au minimum pour les collections shardées) et 4 000 doit suffire. Azure Database Migration Service suggère des paramètres par défaut intelligents en fonction de la taille de la collection.
+   Vous pouvez spécifier le nombre de RU à utiliser par les collections. Dans la plupart des cas, une valeur comprise entre 500 (1 000 au minimum pour les collections shardées) et 4 000 doit suffire. Azure Database Migration Service suggère des paramètres par défaut intelligents en fonction de la taille de la collection.
 
-    Vous pouvez également spécifier une clé de partition afin de tirer parti du [partitionnement dans Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/partitioning-overview) pour une extensibilité optimale. Veillez à consulter les [meilleures pratiques de sélection d'une clé de partition](https://docs.microsoft.com/azure/cosmos-db/partitioning-overview#choose-partitionkey). Si vous n’avez pas de clé de partition, vous pouvez toujours utiliser **_id** comme clé de sharding pour un meilleur débit.
+   Vous pouvez également spécifier une clé de partition afin de tirer parti du [partitionnement dans Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/partitioning-overview) pour une extensibilité optimale. Veillez à consulter les [meilleures pratiques de sélection d'une clé de partition](https://docs.microsoft.com/azure/cosmos-db/partitioning-overview#choose-partitionkey). Si vous n’avez pas de clé de partition, vous pouvez toujours utiliser **_id** comme clé de sharding pour un meilleur débit.
 
-    ![Sélectionner des tables de collections](media/tutorial-mongodb-to-cosmosdb-online/dms-collection-setting1.png)
+   ![Sélectionner des tables de collections](media/tutorial-mongodb-to-cosmosdb-online/dms-collection-setting1.png)
 
 4. Sélectionnez **Enregistrer**.
 
@@ -186,14 +198,16 @@ Une fois le service créé, recherchez-le dans le portail Azure, ouvrez-le, puis
     ![Résumé de la migration](media/tutorial-mongodb-to-cosmosdb-online/dms-migration-summary1.png)
 
 ## <a name="run-the-migration"></a>Exécuter la migration
-- Sélectionnez **Exécuter la migration**.
+
+* Sélectionnez **Exécuter la migration**.
 
    La fenêtre d’activité de migration s’affiche, et l’**état** de l’activité est indiqué.
 
    ![État de l'activité](media/tutorial-mongodb-to-cosmosdb-online/dms-activity-status1.png)
 
 ## <a name="monitor-the-migration"></a>Surveiller la migration
-- Dans l’écran d’activité de migration, sélectionnez **Actualiser** pour mettre à jour l’affichage jusqu’à ce que l’**état** de la migration indique **Relecture**.
+
+* Dans l’écran d’activité de migration, sélectionnez **Actualiser** pour mettre à jour l’affichage jusqu’à ce que l’**état** de la migration indique **Relecture**.
 
    > [!NOTE]
    > Vous pouvez sélectionner l'activité pour obtenir des détails sur les métriques de migration au niveau des bases de données et des collections.
@@ -221,7 +235,8 @@ Après avoir migré les données stockées dans la base de données MongoDB vers
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
- * [Informations sur le service Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)
+* [Informations sur le service Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)
 
 ## <a name="next-steps"></a>Étapes suivantes
-- Pour accéder à d'autres scénarios, lisez les instructions de migration du [Guide de migration de bases de données](https://datamigration.microsoft.com/) de Microsoft.
+
+* Pour accéder à d'autres scénarios, lisez les instructions de migration du [Guide de migration de bases de données](https://datamigration.microsoft.com/) de Microsoft.

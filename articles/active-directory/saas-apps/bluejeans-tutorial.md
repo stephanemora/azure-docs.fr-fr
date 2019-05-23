@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39e9f52948d035c72a6a019558915d8c92ceebeb
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 2830e95f042d5c83d91d6c026d2fa2e70eb3e3b2
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65463514"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65901085"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bluejeans"></a>Didacticiel : Intégration d’Azure Active Directory à BlueJeans
 
@@ -108,7 +108,7 @@ Pour configurer l’authentification unique Azure AD avec BlueJeans, procédez c
 
     ![Informations d’authentification unique dans Domaine et URL BlueJeans](media/bluejeans-tutorial/tutorial_bluejeans-basic-configuration.png)
 
-   - Dans la zone de texte **Identificateur**, tapez : `https://samlsp.bluejeans.com`
+   - Dans la zone de texte **Identificateur**, tapez : `http://samlsp.bluejeans.com`
     
    - Dans la zone de texte **URL de connexion**, tapez l’URL de page d’accueil fournie par BlueJeans (pour obtenir cette valeur, vous pouvez contacter [l’équipe de support client de BlueJeans](https://support.bluejeans.com/contact)) : `https://<companyname>.bluejeans.com`.
     
@@ -160,9 +160,9 @@ Pour configurer l’authentification unique Azure AD avec BlueJeans, procédez c
 
     ![Enregistrer les modifications](./media/bluejeans-tutorial/ic785874.png "Enregistrer les modifications")
 
-    a. Dans la zone de texte **User ID** (ID utilisateur), tapez `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
+    a. Dans la zone de texte **User ID** (ID utilisateur), tapez `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
 
-    b. Dans la zone de texte **Email**, tapez `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
+    b. Dans la zone de texte **Email**, tapez `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
 
     c. Cliquez sur **ENREGISTRER LES MODIFICATIONS**.
 

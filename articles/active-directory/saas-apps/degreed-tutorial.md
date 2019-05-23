@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Degreed | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Degreed | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Degreed.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.date: 01/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6741cf58208e972c85d41f2fa657e7dd82cc4f2b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57877681"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65900214"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-degreed"></a>Tutoriel : Intégration d’Azure AD à Degreed
+# <a name="tutorial-azure-active-directory-integration-with-degreed"></a>Didacticiel : Intégration d’Azure AD à Degreed
 
 Dans ce didacticiel, vous allez apprendre à intégrer Degreed à Azure Active Directory (Azure AD).
 L’intégration de Degreed à Azure AD vous offre les avantages suivants :
@@ -150,7 +150,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.

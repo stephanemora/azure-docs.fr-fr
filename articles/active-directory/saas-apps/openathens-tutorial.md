@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 1/4/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2cbb1bc64d923add0b1fd38749299714a9093633
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 3eca6fc3ab788ee7085c0df5f6c9770858af29ba
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65408033"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65891712"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-openathens"></a>Didacticiel : Intégration d’Azure Active Directory à OpenAthens
 
@@ -143,11 +143,11 @@ Pour configurer l’authentification unique Azure AD avec OpenAthens, effectuez 
 
     a. Dans **Display name mapping** (Mappage de nom d’affichage), sélectionnez **Use Attribute** (Utiliser l’attribut).
 
-    b. Dans la zone de texte **Display name attribute** (Attribut de nom d’affichage), entrez la valeur `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
+    b. Dans la zone de texte **Display name attribute** (Attribut de nom d’affichage), entrez la valeur `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
     
     c. Dans **Unique user mapping** (Mappage d’utilisateur unique), sélectionnez **Use Attribute** (Utiliser l’attribut).
 
-    d. Dans la zone de texte **Unique user attribute** (Attribut d’utilisateur unique), entrez la valeur `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
+    d. Dans la zone de texte **Unique user attribute** (Attribut d’utilisateur unique), entrez la valeur `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
 
     e. Dans **État**, cochez les trois cases.
 

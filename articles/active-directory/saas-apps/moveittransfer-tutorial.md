@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 2a491cd303cccd94cbb489654890d55c03912a63
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: d7020299bbd52f5e7ba22809847815cb04048cb6
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65408041"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65905060"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-moveit-transfer---azure-ad-integration"></a>Didacticiel : Intégration d’Azure Active Directory à MOVEit Transfer - Intégration d’Azure AD
 
@@ -174,7 +174,7 @@ Pour configurer l’authentification unique Azure AD avec MOVEit Transfer - Azur
     
     b. Sélectionnez **Autre** comme **Nom complet** et dans la zone de texte **Nom de l’attribut**, insérez la valeur : `http://schemas.microsoft.com/identity/claims/displayname`.
     
-    c. Sélectionnez **Autre** comme **E-mail** et dans la zone de texte **Nom de l’attribut**, insérez la valeur : `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
+    c. Sélectionnez **Autre** comme **E-mail** et dans la zone de texte **Nom de l’attribut**, insérez la valeur : `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
     
     d. Sélectionnez **Oui** sous **Auto-create account on signon** (Créer automatiquement un compte lors de l’authentification).
     

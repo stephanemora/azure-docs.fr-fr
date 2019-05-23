@@ -16,13 +16,13 @@ ms.date: 12/26/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: dfd3afea4a5f09f1e572030b28d3511b31d81b69
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57904272"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65865151"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-zoho"></a>Tutoriel : Intégration d’Azure Active Directory à Zoho
+# <a name="tutorial-azure-active-directory-integration-with-zoho"></a>Didacticiel : Intégration d’Azure Active Directory à Zoho
 
 Dans ce didacticiel, vous allez apprendre à intégrer Zoho dans Azure Active Directory (Azure AD).
 L’intégration de Zoho dans Azure AD vous offre les avantages suivants :
@@ -170,7 +170,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.

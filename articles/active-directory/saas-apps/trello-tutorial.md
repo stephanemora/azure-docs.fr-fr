@@ -16,11 +16,11 @@ ms.date: 01/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 453827b42d12333fd4f27761e7f73484fb749532
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59578422"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65865791"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-trello"></a>Didacticiel : Intégration d’Azure Active Directory à Trello
 
@@ -186,7 +186,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     ![Bouton Nouvel utilisateur](common/new-user.png)
 
-3. Dans la boîte de dialogue **Utilisateur**, effectuez les étapes suivantes.
+3. Dans la boîte de dialogue **Utilisateur**, procédez comme suit.
 
     ![Boîte de dialogue Utilisateur](common/user-properties.png)
 

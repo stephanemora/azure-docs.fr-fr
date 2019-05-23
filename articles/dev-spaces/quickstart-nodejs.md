@@ -11,12 +11,12 @@ ms.topic: quickstart
 description: Développement Kubernetes rapide avec des conteneurs, des microservices et Node.js sur Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, Helm, service Mesh, routage du service Mesh, kubectl, k8s
 manager: jeconnoc
-ms.openlocfilehash: bc18a06405c0fe620136642a409df576c8e8d8b3
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 7507b6741a373f28e0e780af08d076235e377839
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59361715"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65873151"
 ---
 # <a name="quickstart-develop-with-nodejs-on-kubernetes-using-azure-dev-spaces"></a>Démarrage rapide : Développer avec Node.js sur Kubernetes en utilisant Azure Dev Spaces
 
@@ -39,7 +39,7 @@ Vous devez créer un cluster AKS dans une [région prise en charge](https://docs
 
 ```cmd
 az group create --name MyResourceGroup --location eastus
-az aks create -g MyResourceGroup -n MyAKS --location eastus --node-count 1 --generate-ssh-keys
+az aks create -g MyResourceGroup -n MyAKS --location eastus --node-vm-size Standard_DS2_v2 --node-count 1 --disable-rbac --generate-ssh-keys
 ```
 
 ## <a name="enable-azure-dev-spaces-on-your-aks-cluster"></a>Activer Azure Dev Spaces sur votre cluster AKS

@@ -16,13 +16,13 @@ ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e48e353df6c14ec24a01fe3b1852de2c6a0a3155
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57843689"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65901048"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-appneta-performance-monitor"></a>Tutoriel : Intégration d’Azure Active Directory à AppNeta Performance Monitor
+# <a name="tutorial-azure-active-directory-integration-with-appneta-performance-monitor"></a>Didacticiel : Intégration d’Azure Active Directory à AppNeta Performance Monitor
 
 Dans ce didacticiel, vous allez apprendre à intégrer AppNeta Performance Monitor à Azure Active Directory (Azure AD).
 L’intégration d’AppNeta Performance Monitor à Azure AD vous offre les avantages suivants :
@@ -187,7 +187,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
