@@ -76,7 +76,7 @@ Les propriétés suivantes sont prises en charge lorsque vous configurez un cham
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type du champ doit être définie sur : **AzureKeyVaultSecret**. | Oui |
+| type | La propriété type du champ doit être définie sur : **AzureKeyVaultSecret**. | Oui |
 | secretName | Nom du secret dans le coffre de clés Azure. | Oui |
 | secretVersion | Version du secret dans le coffre de clés Azure.<br/>Si elle n’est pas spécifiée, la version la plus récente du secret est utilisée.<br/>Si elle est spécifiée, elle utilise la version spécifiée.| Non  |
 | store | Fait référence au service lié Azure Key Vault que vous utilisez pour stocker les informations d’identification. | Oui |
