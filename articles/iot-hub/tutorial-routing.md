@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/12/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 2f382c31c6bfb6ab71afd495c4c3f702715633c0
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: d81b01992bd3bdd49a48a873281d1be1e795497a
+ms.sourcegitcommit: 9e8dfa1169a55c3c8af93a6c5f4e0dace4de48b2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58661886"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65556014"
 ---
 # <a name="tutorial-use-the-azure-cli-and-azure-portal-to-configure-iot-hub-message-routing"></a>Didacticiel : Utiliser Azure CLI et le portail Azure pour configurer le routage des messages IoT Hub
 
@@ -26,7 +26,7 @@ ms.locfileid: "58661886"
 
 Ce tutoriel utilise Azure CLI pour créer les ressources de base, puis utilise le [portail Azure](https://portal.azure.com) pour montrer comment configurer le routage des messages et l’appareil virtuel pour les tests.
 
-Plusieurs noms de ressources doivent être globalement uniques, comme le nom du hub IoT et le nom du compte de stockage. Pour faciliter cela, ces noms de ressources sont ajoutés avec une valeur alphanumérique aléatoire appelée *randomValue*. La valeur randomValue est générée une fois au début du script, puis elle est ajoutée aux noms de ressources tout au long du script en fonction des besoins. Si vous ne souhaitez pas que cette valeur soit aléatoire, vous pouvez la définir sur une chaîne vide ou sur une valeur spécifique.
+Plusieurs noms de ressources doivent être globalement uniques, comme le nom du hub IoT et le nom du compte de stockage. Pour faciliter le nommage, une valeur alphanumérique aléatoire appelée *randomValue* est ajoutée à ces noms de ressources. La valeur randomValue est générée une fois au début du script, puis ajoutée aux noms de ressources tout au long du script en fonction des besoins. Si vous ne souhaitez pas que cette valeur soit aléatoire, vous pouvez la définir sur une chaîne vide ou sur une valeur spécifique.
 
 Copiez et collez le script ci-dessous dans Cloud Shell, puis appuyez sur Entrée. Le script est alors exécuté ligne par ligne. Ceci crée les ressources de base utilisées dans ce tutoriel, dont le compte de stockage, le hub IoT, l’espace de noms Service Bus et la file d’attente Service Bus.
 
@@ -220,7 +220,7 @@ Configurez maintenant le routage pour la file d’attente Service Bus. Vous acc�
 
 ## <a name="create-a-simulated-device"></a>Créez un appareil simulé.
 
-[!INCLUDE [iot-hub-include-create- imulated-device-portal](../../includes/iot-hub-include-create-simulated-device-portal.md)]
+[!INCLUDE [iot-hub-include-create-simulated-device-portal](../../includes/iot-hub-include-create-simulated-device-portal.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 

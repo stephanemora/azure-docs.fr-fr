@@ -3,8 +3,8 @@ title: Sécuriser une API web avec Azure AD | Microsoft Docs
 description: Découvrez comment créer une API web REST Node.js qui s’intègre dans Azure AD pour l’authentification.
 services: active-directory
 documentationcenter: nodejs
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 ms.assetid: 7654ab4c-4489-4ea5-aba9-d7cdc256e42a
 ms.service: active-directory
 ms.subservice: develop
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.author: celested
+ms.author: ryanwi
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f72cbd719cea585144be3757f0791a74bde452ab
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 7dcbe10c08d581e2ec01e1616da49b7a1b31018d
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56416766"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65545985"
 ---
 # <a name="quickstart-secure-a-web-api-with-azure-active-directory"></a>Démarrage rapide : Sécuriser une API web avec Azure Active Directory
 

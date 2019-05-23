@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 7619b8831d75ce639c6f6c773c7c7d491abc93e7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0d446be664d695af946d46abc48389d4f7be92cd
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58122027"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65791037"
 ---
 # <a name="move-azure-vms-to-another-region"></a>Déplacer des machines virtuelles Azure vers une autre région
 
@@ -56,7 +56,7 @@ Ce didacticiel présente les procédures suivantes :
     - Pour les machines virtuelles Windows, installez-y toutes les mises à jour de Windows les plus récentes afin que tous les certificats racines approuvés s’y trouvent. Dans un environnement déconnecté, suivez les processus Windows Update et de mise à jour de certificat standard en vigueur pour votre organisation.
     - Pour les machines virtuelles Linux, suivez les instructions fournies par votre distributeur Linux pour obtenir les certificats racines approuvés les plus récents et la dernière liste de révocation de certificats sur la machine virtuelle.
 1. N’utilisez pas de proxy d’authentification dans le but de contrôler la connectivité réseau pour les machines virtuelles que vous voulez déplacer.
-1. Si la machine virtuelle que vous voulez déplacer n’a pas d’accès à Internet, ou si elle utilise un proxy de pare-feu pour contrôler l’accès sortant, [vérifiez la configuration requise](azure-to-azure-tutorial-enable-replication.md#configure-outbound-network-connectivity).
+1. Si la machine virtuelle que vous voulez déplacer n’a pas d’accès à Internet, ou si elle utilise un proxy de pare-feu pour contrôler l’accès sortant, [vérifiez la configuration requise](azure-to-azure-tutorial-enable-replication.md#set-up-outbound-network-connectivity-for-vms).
 1. Identifiez la topologie du réseau source et toutes les ressources que vous utilisez actuellement. Cela comprend notamment les équilibreurs de charge, les groupes de sécurité réseau et les adresses IP publiques.
 
 ## <a name="prepare-the-target-region"></a>Préparer la région cible
@@ -74,7 +74,7 @@ Ce didacticiel présente les procédures suivantes :
 
    - [Groupes de sécurité réseau](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)
    - [Équilibreurs de charge](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
-   - [Adresse IP publique](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
+   - [Adresse IP publique](../virtual-network/virtual-network-public-ip-address.md)
     
      Pour tous les autres composants réseau, consultez la [documentation sur les réseaux](https://docs.microsoft.com/azure/#pivot=products&panel=network).
 

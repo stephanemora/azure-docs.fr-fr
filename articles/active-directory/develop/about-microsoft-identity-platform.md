@@ -3,8 +3,8 @@ title: Évolution de la plateforme d’identités Microsoft - Azure
 description: En savoir plus sur la plateforme d’identités Microsoft, une évolution de la plateforme de développeur et de service d’identité Azure Active Directory (Azure AD).
 services: active-directory
 documentationcenter: dev-center-name
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -13,20 +13,20 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/07/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a0b912b6f3fe42c724468347f9b3a7f0b4efa054
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 807045089f70e117d46754412d974be7fba5a77a
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65067979"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65832495"
 ---
 # <a name="evolution-of-microsoft-identity-platform"></a>Évolution de la plateforme d’identités Microsoft
 
-La plateforme d’identités Microsoft est une évolution de la plateforme de développeur et de service d’identité Azure Active Directory (Azure AD). Elle permet aux développeurs de générer des applications qui connectent les utilisateurs et obtiennent des jetons pour appeler des API comme Microsoft Graph ou des API que des développeurs ont créées. Elle se compose d’un service d’authentification, de bibliothèques open source, de fonctionnalités d’inscription et de configuration d’application (via un portail des développeurs et une API d’application), d’une documentation de développement exhaustive, d’exemples de démarrage rapide, d’exemples de code, de didacticiels, de guides pratiques et autres contenus destinés aux développeurs. La plateforme d’identités Microsoft prend en charge les protocoles standard tels qu’OAuth 2.0 et OpenID Connect.
+La plateforme d’identités Microsoft est une évolution de la plateforme de développement Azure Active Directory (Azure AD). Elle permet aux développeurs de générer des applications qui connectent les utilisateurs et obtiennent des jetons pour appeler des API comme Microsoft Graph ou des API que des développeurs ont créées. Elle se compose d’un service d’authentification, de bibliothèques open source, de fonctionnalités d’inscription et de configuration d’application (via un portail des développeurs et une API d’application), d’une documentation de développement exhaustive, d’exemples de démarrage rapide, d’exemples de code, de didacticiels, de guides pratiques et autres contenus destinés aux développeurs. La plateforme d’identités Microsoft prend en charge les protocoles standard tels qu’OAuth 2.0 et OpenID Connect.
 
 Jusqu’à présent, la plupart des développeurs utilisaient la plateforme Azure AD v1.0 pour authentifier les comptes professionnels et scolaires (approvisionnés par Azure AD) en demandant des jetons du point de terminaison Azure AD v1.0, à l’aide de la bibliothèque d’authentification Azure AD (ADAL), du portail Azure pour l’inscription et la configuration de l’application, et de l’API Graph Azure AD pour la configuration de l’application par programme.
 

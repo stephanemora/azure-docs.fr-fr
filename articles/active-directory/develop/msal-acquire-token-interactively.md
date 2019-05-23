@@ -4,7 +4,7 @@ description: Découvrez l’acquisition et la mise en cache des jetons à l’ai
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
-manager: celested
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d32b56b28d9ce7425e782fc10fa9ffb67047ce0
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 7ca011ec7185b084de6d1d346556c1c270c7aee3
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65139518"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65546062"
 ---
 # <a name="acquiring-and-caching-tokens-using-msal"></a>Acquisition et mise en cache des jetons avec MSAL
 Les [jetons d’accès](access-tokens.md) permettent aux clients d’appeler de manière sécurisée des API web protégées par Azure. Il existe de nombreuses façons d’acquérir un jeton à l’aide de Microsoft Authentication Library (MSAL). Certaines d’entre elles exigent des interactions utilisateur par le biais d’un navigateur web. D’autres non. En règle générale, la façon d’acquérir un jeton dépend de la nature de l’application : s’agit-il d’une application cliente publique (application de bureau ou mobile) ou d’une application cliente confidentielle (application web, API web ou application de démon comme un service Windows) ?
@@ -92,7 +92,7 @@ Pour les applications clientes confidentielles (application web, API web ou appl
 
 
 ## <a name="authentication-results"></a>Résultats d’authentification 
-Quand votre client demande un jeton d’accès, Azure AD retourne également un résultat d’authentification qui inclut des métadonnées sur le jeton d’accès. Ces informations comprennent l’heure d’expiration du jeton d’accès et les étendues pour lesquelles il est valide. Ces données permettent à votre application d’effectuer une mise en cache intelligente des jetons d’accès sans avoir à les analyser eux-mêmes.  Le résultat d’authentification expose :
+Quand votre client demande un jeton d’accès, Azure AD retourne également un résultat d’authentification qui inclut des métadonnées sur le jeton d’accès. Ces informations incluent le délai d’expiration du jeton d’accès et les étendues dans lesquelles il est valide. Ces données permettent à votre application d’effectuer une mise en cache intelligente des jetons d’accès sans avoir à les analyser eux-mêmes.  Le résultat d’authentification expose :
 
 - Le [jeton d’accès](access-tokens.md) pour que l’API web accède aux ressources. Il s’agit d’une chaîne, généralement une méthode JWT encodée en base64, mais le client ne doit jamais regarder à l’intérieur du jeton d’accès. La stabilité du format n’est pas garantie et ce dernier peut être chiffré pour la ressource. L’écriture humaine de code qui dépend du contenu des jetons d’accès sur le client constitue l’une des sources d’erreurs et des ruptures de logique client les plus importantes.
 - Le [jeton d’ID](id-tokens.md) pour l’utilisateur (il s’agit d’un jeton JWT).

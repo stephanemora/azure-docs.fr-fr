@@ -7,12 +7,12 @@ ms.date: 03/14/2019
 ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 9290609136d1314762d9f716531464ad2496fb63
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: c40efca9abd418c8b48f931d327b1f81805b38fb
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60005296"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65520401"
 ---
 # <a name="control-mapping-of-the-iso-27001-shared-services-blueprint-sample"></a>Mappage des contrôles de l’exemple de blueprint Services partagés ISO 27001
 
@@ -24,7 +24,7 @@ Les correspondances suivantes concernent les contrôles **ISO 27001:2013**. Uti
 
 Le fait d’avoir un seul propriétaire d’abonnement Azure ne permet pas d’assurer la redondance administrative. À l’inverse, un nombre trop élevé de propriétaires d’abonnement Azure peut augmenter le risque d’une violation par le biais d’un compte de propriétaire compromis. Ce blueprint vous permet de maintenir un nombre approprié de propriétaires d’abonnement Azure en affectant deux définitions [Azure Policy](../../../policy/overview.md) qui auditent le nombre de propriétaires pour les abonnements Azure. La gestion des autorisations des propriétaires d’abonnement peut vous aider à implémenter une séparation appropriée des tâches.
 
-- [Préversion]: Audit minimum number of owners for subscription
+- [Préversion]: Audit minimum number of owners for a subscription
 - [Préversion]: Audit maximum number of owners for a subscription
 
 ## <a name="a821-classification-of-information"></a>A.8.2.1 Classification des informations
@@ -45,7 +45,7 @@ Le fait de savoir quelles ressources enfreignent ces stratégies peut vous aider
 - [Préversion]: Audit Linux VM allowing remote connections from accounts with no passwords
 - Auditer l'utilisation des comptes de stockage classiques
 - Auditer l'utilisation des machines virtuelles classiques
-- Auditer les machines virtuelles qui n’utilisent pas de disques managés
+- Faire l’audit des machines virtuelles n’utilisant aucun disque managé
 
 ## <a name="a923-management-of-privileged-access-rights"></a>A.9.2.3 Gestion des droits d’accès à privilèges
 

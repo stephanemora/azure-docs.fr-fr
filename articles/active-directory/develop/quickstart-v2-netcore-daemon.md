@@ -17,16 +17,14 @@ ms.date: 04/10/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 44161e689645c3feb2efbd80b825b9285c1bdfc9
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 3851e53bb648811b46ec69d9c4fc91b920ce80fb
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64918596"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65784955"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-console-app-using-apps-identity"></a>Démarrage rapide : acquérir un jeton et appeler l’API Microsoft Graph à partir d’une application console à l’aide de l’identité de l’application
-
-[!INCLUDE [active-directory-develop-applies-v2-msal](../../../includes/active-directory-develop-applies-v2-msal.md)]
 
 Dans ce guide de démarrage rapide, vous allez découvrir comment écrire une application .NET Core qui obtient un jeton d’accès à l’aide de l’identité de l’application, puis qui appelle l’API Microsoft Graph pour afficher une [liste des utilisateurs](https://docs.microsoft.com/graph/api/user-list) dans l’annuaire. Ce scénario est utile dans les situations où un travail sans périphérique de contrôle et sans assistance ou un service Windows doit s’exécuter avec une identité d’application au lieu d’une identité d’utilisateur.
 

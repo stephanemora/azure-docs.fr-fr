@@ -8,14 +8,14 @@ ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 28fef394ee400949f9911983bdbca41d6bfcb458
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: acee2aabe94f5d015562bd697d08f657895d3b02
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59790118"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65789468"
 ---
-# <a name="define-and-assign-a-blueprint-in-the-portal"></a>Définir et affecter un blueprint dans le portail
+# <a name="quickstart-define-and-assign-a-blueprint-in-the-portal"></a>Démarrage rapide : Définir et affecter un blueprint dans le portail
 
 Lorsque vous apprenez à créer et à affecter des blueprints, vous pouvez définir des modèles courants et développer des configurations réutilisables et rapides à déployer basées sur des modèles Azure Resource Manager, des stratégies, des exigences de sécurité, etc. Dans ce tutoriel, vous allez découvrir comment utiliser Azure Blueprints pour effectuer des tâches courantes liées à la création, à la publication et à l’affectation d’un blueprint dans votre organisation. Voici certaines de ces tâches :
 
@@ -163,7 +163,7 @@ La première étape de la définition d’un modèle standard à des fins de con
 
 ## <a name="edit-a-blueprint"></a>Modifier un blueprint
 
-Dans [Créer un blueprint](#create-a-blueprint), vous n’avez pas fourni de description ni attribué de rôle au nouveau groupe de ressources. Pour y remédier, effectuez les étapes suivantes :
+Dans [Créer un blueprint](#create-a-blueprint), vous n’avez pas fourni de description ni attribué de rôle au nouveau groupe de ressources. Pour le faire, effectuez les étapes suivantes :
 
 1. Sélectionnez **Définitions de blueprint** dans la page de gauche.
 

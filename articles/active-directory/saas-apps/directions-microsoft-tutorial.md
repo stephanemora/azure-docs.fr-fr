@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Directions on Microsoft | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Directions on Microsoft | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Directions on Microsoft.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.date: 01/30/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5ca35e1c6966365fab1a53fe9674a8f361422eea
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57861857"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65899728"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-directions-on-microsoft"></a>Tutoriel : Intégration d’Azure Active Directory à Directions on Microsoft
+# <a name="tutorial-azure-active-directory-integration-with-directions-on-microsoft"></a>Didacticiel : Intégration d’Azure Active Directory à Directions on Microsoft
 
 Dans ce didacticiel, vous allez apprendre à intégrer Directions on Microsoft à Azure Active Directory (Azure AD).
 L’intégration de Directions on Microsoft à Azure AD vous offre les avantages suivants :
@@ -161,7 +161,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.

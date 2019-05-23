@@ -8,14 +8,14 @@ ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 043b67d4b4c708f2d243f9be04fb2a706591947b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 83133629d92abb50d9fd7509cf182282503fc041
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59273156"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65799204"
 ---
-# <a name="define-and-assign-an-azure-blueprint-with-rest-api"></a>Définir et affecter un blueprint Azure avec l’API REST
+# <a name="quickstart-define-and-assign-an-azure-blueprint-with-rest-api"></a>Démarrage rapide : Définir et affecter un blueprint Azure avec l’API REST
 
 Un utilisateur qui sait comment créer et affecter des blueprints peut définir des modèles courants et développer des configurations réutilisables et rapides à déployer en fonction de modèles Resource Manager, de stratégies, d’exigences en matière de sécurité, etc. Dans ce tutoriel, vous allez découvrir comment utiliser Azure Blueprint pour effectuer des tâches courantes liées à la création, à la publication et à l’affectation d’un blueprint dans votre organisation, notamment :
 
@@ -28,7 +28,6 @@ Un utilisateur qui sait comment créer et affecter des blueprints peut définir 
 > - Supprimer un blueprint affecté à un abonnement
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free) avant de commencer.
-
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 

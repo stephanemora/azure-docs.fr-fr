@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à SmartFile | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à SmartFile | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et SmartFile.
 services: active-directory
 documentationCenter: na
@@ -16,11 +16,11 @@ ms.date: 02/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 507a5d7209c2ae873bbfc2d9f5f5fa1c8fa17758
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57846869"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65889575"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-smartfile"></a>Didacticiel : Intégration d’Azure Active Directory à SmartFile
 
@@ -148,7 +148,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.

@@ -16,13 +16,13 @@ ms.date: 02/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 46fa85581829f82da9a137315e1f890aa481408d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57850783"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65898901"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-etouches"></a>Tutoriel : Intégration d’Azure Active Directory à etouches
+# <a name="tutorial-azure-active-directory-integration-with-etouches"></a>Didacticiel : Intégration d’Azure Active Directory à etouches
 
 Dans ce didacticiel, vous allez apprendre à intégrer etouches à Azure Active Directory (Azure AD).
 L’intégration d’etouches à Azure AD vous offre les avantages suivants :
@@ -197,7 +197,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotresociété.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.

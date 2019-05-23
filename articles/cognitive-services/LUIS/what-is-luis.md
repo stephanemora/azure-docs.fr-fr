@@ -9,12 +9,12 @@ ms.subservice: language-understanding
 ms.topic: overview
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: c26f3d6c3b34ed90a5455bb94ea71d7556b47751
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 2bb50f985b99a3fb62e7b8a61bb0f9ce2dd402e1
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57441965"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522001"
 ---
 # <a name="what-is-language-understanding-luis"></a>Qu’est-ce que le service Language Understanding (LUIS) ?
 
@@ -53,7 +53,7 @@ Une application LUIS contient un modèle de langage naturel propre à un domaine
 * **Entités personnalisées** LUIS vous offre plusieurs moyens d’identifier vos propres intentions et entités personnalisées, y compris les entités issues du Machine Learning, les entités spécifiques ou littérales, ainsi qu’une combinaison de tous ces types d’entités.
 
 ## <a name="build-the-luis-model"></a>Générer le modèle LUIS
-Générez le modèle avec les API de [création](https://aka.ms/luis-authoring-apis) ou à l’aide du portail LUIS.
+Générez le modèle avec les API de [création](https://go.microsoft.com/fwlink/?linkid=2092087) ou à l’aide du portail LUIS.
 
 Le modèle LUIS commence par les catégories d’intentions utilisateur appelées **[intentions](luis-concept-intent.md)**. Chaque intention nécessite des exemples **[d’énoncés](luis-concept-utterance.md)** utilisateur. Chaque énoncé peut fournir diverses données qui doivent être extraites avec des **[entités](luis-concept-entity-types.md)**. 
 
@@ -65,7 +65,7 @@ Le modèle LUIS commence par les catégories d’intentions utilisateur appelée
 
 ## <a name="query-prediction-endpoint"></a>Interroger le point de terminaison de prédiction
 
-Une fois que le modèle a été généré et publié sur le point de terminaison, l’application cliente envoie les énoncés à l’API du [point de terminaison](https://aka.ms/luis-endpoint-apis) de prédiction publiée. L’API applique le modèle au texte à des fins d’analyse. L’API répond par les résultats de prédiction au format JSON.  
+Une fois que le modèle a été généré et publié sur le point de terminaison, l’application cliente envoie les énoncés à l’API du [point de terminaison](https://go.microsoft.com/fwlink/?linkid=2092356) de prédiction publiée. L’API applique le modèle au texte à des fins d’analyse. L’API répond par les résultats de prédiction au format JSON.  
 
 La réponse minimale du point de terminaison JSON contient l’énoncé de la requête, ainsi que l’intention présentant le score le plus élevé. Elle peut également extraire des données telles que l’entité **Contact Type** ci-après. 
 
@@ -126,6 +126,6 @@ Créez une application LUIS avec un domaine [prédéfini](luis-get-started-creat
 
 [bot-framework]: https://docs.microsoft.com/bot-framework/
 [flow]: https://docs.microsoft.com/connectors/luis/
-[authoring-apis]: https://aka.ms/luis-authoring-api
-[endpoint-apis]: https://aka.ms/luis-endpoint-apis
+[authoring-apis]: https://go.microsoft.com/fwlink/?linkid=2092087
+[endpoint-apis]: https://go.microsoft.com/fwlink/?linkid=2092356
 [qnamaker]: https://qnamaker.ai/

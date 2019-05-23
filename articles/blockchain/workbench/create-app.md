@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 04/15/2019
+ms.date: 05/14/2019
 ms.topic: tutorial
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: d9f736b0b976ac6ec0da45a672d2e992405625cd
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.openlocfilehash: 92a37133d84833c43fff5b1a6c31e003ef53f7de
+ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59578796"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65619755"
 ---
 # <a name="tutorial-create-a-blockchain-application-in-azure-blockchain-workbench"></a>Didacticiel : Créer une application blockchain dans Azure Blockchain Workbench
 
@@ -271,7 +271,7 @@ Ajoutez les variables d’état à votre contrat dans votre fichier de code de c
 
 ### <a name="constructor"></a>Constructeur
 
-Le constructeur définit des paramètres d’entrée pour une nouvelle instance de contrat intelligent d’un flux de travail. Le constructeur est déclaré en tant que fonction portant le même nom que le contrat. Les paramètres requis pour le constructeur sont définis en tant que paramètres du constructeur dans le fichier de configuration. Le nombre, l’ordre et le type des paramètres doivent correspondre dans les deux fichiers.
+Le constructeur définit des paramètres d’entrée pour une nouvelle instance de contrat intelligent d’un flux de travail. Les paramètres requis pour le constructeur sont définis en tant que paramètres du constructeur dans le fichier de configuration. Le nombre, l’ordre et le type des paramètres doivent correspondre dans les deux fichiers.
 
 Dans la fonction de constructeur, écrivez une logique métier à exécuter avant la création du contrat. Par exemple, initialisez les variables d’état avec des valeurs de départ.
 

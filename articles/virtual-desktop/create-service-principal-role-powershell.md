@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 04/12/2019
 ms.author: helohr
-ms.openlocfilehash: d3357cec426585ba8550301dfa703f583a930ad0
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 1e53f76f564c0970ac1f291d2125807441500de6
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236926"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523310"
 ---
 # <a name="tutorial-create-service-principals-and-role-assignments-with-powershell"></a>Didacticiel : Créer des principaux de service et des attributions de rôles avec PowerShell
 
@@ -38,10 +38,9 @@ Avant de pouvoir créer des principaux de service et des attributions de rôles,
     Install-Module AzureAD
     ```
 
-2. Exécutez les applets de commande suivantes en remplaçant les valeurs entre guillemets par les valeurs appropriées pour votre session. Si vous venez de créer votre client Windows Virtual Desktop à l’aide du [tutoriel Créer un locataire dans Windows Virtual Desktop](./tenant-setup-azure-active-directory.md), utilisez « Groupe de locataires par défaut » comme nom de votre groupe de locataires.
+2. Exécutez les applets de commande suivantes en remplaçant les valeurs entre guillemets par les valeurs appropriées pour votre session.
 
     ```powershell
-    $myTenantGroupName = "<my-tenant-group-name>"
     $myTenantName = "<my-tenant-name>"
     ```
 
@@ -68,8 +67,7 @@ Exécutez les applets de commande PowerShell suivantes pour vous connecter à Wi
 
 ```powershell
 Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
-Set-RdsContext -TenantGroupName $myTenantGroupName
-New-RdsRoleAssignment -RoleDefinitionName "RDS Owner" -ApplicationId $svcPrincipal.AppId -TenantGroupName $myTenantGroupName -TenantName $myTenantName
+New-RdsRoleAssignment -RoleDefinitionName "RDS Owner" -ApplicationId $svcPrincipal.AppId -TenantName $myTenantName
 ```
 
 ## <a name="sign-in-with-the-service-principal"></a>Se connecter avec le principal de service

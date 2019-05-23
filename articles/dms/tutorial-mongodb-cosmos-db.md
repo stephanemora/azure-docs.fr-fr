@@ -10,19 +10,21 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 05/08/2019
-ms.openlocfilehash: ad0d990554d9ff49bed3e9da7097c87c06c7152f
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.date: 05/16/2019
+ms.openlocfilehash: 3260ffaba2ab91ee561a0430310883bda8f65269
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65415529"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65794090"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-offline-using-dms"></a>Didacticiel : migrer MongoDB vers l’API Azure Cosmos DB pour MongoDB hors connexion à l’aide de DMS
+
 Vous pouvez utiliser Azure Database Migration Service pour effectuer une migration hors connexion (ponctuelle) de bases de données à partir d’une instance locale ou cloud de MongoDB vers l’API Azure Cosmos DB pour MongoDB.
 
 Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > [!div class="checklist"]
+>
 > * Créer une instance Azure Database Migration Service.
 > * Créer un projet de migration en utilisant Azure Database Migration Service.
 > * Exécuter la migration.
@@ -39,15 +41,15 @@ Pour suivre ce didacticiel, vous devez effectuer les opérations suivantes :
 * Créez un réseau virtuel Azure (VNet) pour le service Azure Database Migration Service à l’aide du modèle de déploiement Azure Resource Manager, qui fournit une connectivité de site à site à vos serveurs sources locaux via [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) ou une passerelle [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). Pour plus d’informations sur la création d’un réseau virtuel, consultez la [documentation sur le réseau virtuel](https://docs.microsoft.com/azure/virtual-network/), en particulier les articles sur le démarrage rapide, qui fournissent des informations pas à pas.
 
     > [!NOTE]
-    > Pendant la configuration du réseau virtuel, si vous utilisez ExpressRoute avec le peering réseau à Microsoft, ajoutez ces [points de terminaison](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) au sous-réseau où doit être provisionné le service :
-
+    > Pendant la configuration du réseau virtuel, si vous utilisez ExpressRoute avec le peering réseau à Microsoft, ajoutez ces [points de terminaison](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) de service au sous-réseau où doit être provisionné le service :
+    >
     > * Point de terminaison de base de données cible (un point de terminaison SQL ou Cosmos DB, par exemple)
     > * Point de terminaison de stockage
     > * Point de terminaison Service Bus
     >
     > Cette configuration est nécessaire, car Azure Database Migration Service ne dispose pas d’une connectivité Internet.
 
-* Vérifiez que les règles du groupe de sécurité réseau de votre réseau virtuel ne bloquent pas les ports de communication entrants suivants d’Azure Database Migration Service : 443, 53, 9354, 445 et 12000. Pour plus d’informations sur le filtrage de groupe de sécurité Réseau virtuel Microsoft Azure, consultez l’article [Filtrer le trafic réseau avec les groupes de sécurité réseau](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
+* Vérifiez que les règles du groupe de sécurité réseau de votre réseau virtuel ne bloquent pas les ports de communication entrants suivants d’Azure Database Migration Service : 443, 53, 9354, 445 et 12000. Pour plus d’informations sur le filtrage du trafic de groupe de sécurité réseau de réseau virtuel Azure, consultez l’article [Filtrer le trafic réseau avec les groupes de sécurité réseau](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
 * Ouvrez votre pare-feu Windows pour permettre à Azure Database Migration Service d'accéder au serveur MongoDB source, par défaut le port TCP 27017.
 * Lorsque vous utilisez une appliance de pare-feu devant vos bases de données sources, vous devrez peut-être ajouter des règles de pare-feu pour permettre à Azure Database Migration Service d’accéder aux bases de données sources pour la migration.
 
@@ -115,10 +117,22 @@ Une fois le service créé, recherchez-le dans le portail Azure, ouvrez-le, puis
 
 1. Sur l'écran **Détails de la source**, spécifiez les détails de connexion du serveur MongoDB source.
 
-   Vous pouvez également utiliser le mode chaîne de connexion et fournir un emplacement pour un conteneur de fichiers de magasin d’objets blob dans lequel vous avez vidé les données de collection que vous souhaitez migrer.
+    Il existe trois modes de connexion à une source :
+   * **Mode standard**, qui accepte un nom de domaine complet ou une adresse IP, un numéro de port et des informations d’identification de connexion.
+   * **Mode de chaîne de connexion**, qui accepte une chaîne de connexion MongoDB comme décrit dans l’article sur le [format d’URI de la chaîne de connexion](https://docs.mongodb.com/manual/reference/connection-string/).
+   * **Mode de données du stockage Azure**, qui accepte une URL SAP du conteneur d’objets blob. Sélectionnez **L’objet blob contient des images mémoire BSON** si le conteneur d’objets blob contient des images mémoire BSON produites par l’[outil bsondump](https://docs.mongodb.com/manual/reference/program/bsondump/) MongoDB, et désélectionnez-le si le conteneur contient des fichiers JSON.
 
-   > [!NOTE]
-   > Azure Database Migration Service peut également migrer des documents bson ou json vers des collections d’API Azure Cosmos DB pour MongoDB.
+    Si vous sélectionnez cette option, vérifiez que la chaîne de connexion de compte de stockage s’affiche au format suivant :
+
+     ```
+     https://blobnameurl/container?SASKEY
+     ```
+
+     De plus, en fonction des informations d’images mémoire de type dans le stockage Azure, gardez à l’esprit les informations suivantes.
+
+     * Pour les images mémoire BSON, les données dans le conteneur d’objets blob doivent être au format bsondump, de sorte que les fichiers de données sont placés dans des dossiers nommés d’après les bases de données conteneur au format collection.bson. Les fichiers de métadonnées (le cas échéant) doivent être nommés en utilisant le format *collection*.metadata.json.
+
+     * Pour les images mémoire JSON, les fichiers présents dans le conteneur d’objets blob doivent être placés dans des dossiers nommés d’après les bases de données conteneur. Dans chaque dossier de base de données, les fichiers de données doivent être placés dans un sous-dossier appelé « data » et nommé en utilisant le format *collection*.json. Les fichiers de métadonnées (le cas échéant) doivent être placés dans un sous-dossier appelé « metadata » et nommé en utilisant le même format, *collection*.json. Les fichiers de métadonnées doivent être au même format que celui produit par l’outil de bsondump MongoDB.
 
    Vous pouvez également utiliser l’adresse IP quand la résolution de noms DNS est impossible.
 

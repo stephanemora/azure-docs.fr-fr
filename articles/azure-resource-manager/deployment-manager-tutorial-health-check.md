@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 05/06/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 4f3f43ba063ed25389860183576c4dbd94e2bfcd
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 8ffc64359faab539ab74e354caad4081f31fcd43
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65466311"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65790123"
 ---
 # <a name="tutorial-use-health-check-in-azure-deployment-manager-public-preview"></a>Didacticiel : Utiliser le contrôle d’intégrité dans Azure Deployment Manager (préversion publique)
 
@@ -59,7 +59,7 @@ En production, vous utilisez généralement un ou plusieurs fournisseurs de supe
 Les deux fichiers suivants sont utilisés pour le déploiement de la fonction Azure. Vous n’avez pas besoin de télécharger ces fichiers pour suivre le tutoriel.
 
 * Un modèle Resource Manager situé sur [https://armtutorials.blob.core.windows.net/admtutorial/deploy_hc_azure_function.json](https://armtutorials.blob.core.windows.net/admtutorial/deploy_hc_azure_function.json). Vous déployez ce modèle pour créer une fonction Azure.  
-* Un fichier zip contenant le code source de la fonction Azure, [https://armtutorials.blob.core.windows.net/admtutorial/ADMHCFunction0417.zip](https://armtutorials.blob.core.windows.net/admtutorial/RestHealthTest.zip). Ce fichier zip est appelé par le modèle Resource Manager.
+* Un fichier zip contenant le code source de la fonction Azure, [http://armtutorials.blob.core.windows.net/admtutorial/ADMHCFunction0417.zip](http://armtutorials.blob.core.windows.net/admtutorial/RestHealthTest.zip). Ce fichier zip est appelé par le modèle Resource Manager.
 
 Pour déployer la fonction Azure, sélectionnez **Try it** afin d’ouvrir Azure Cloud shell, puis collez le script suivant dans la fenêtre de l’interpréteur de commandes.  Pour coller le code, cliquez avec le bouton droit sur la fenêtre de l’interpréteur de commandes, puis sélectionnez **Coller**. 
 

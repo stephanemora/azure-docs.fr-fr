@@ -16,13 +16,13 @@ ms.date: 01/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b9e6a271f4e2c2190abf0074eb11c2a5e0e60755
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57861517"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65869721"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-pavaso-digital-close"></a>Tutoriel : Intégration d’Azure Active Directory à Pavaso Digital Close
+# <a name="tutorial-azure-active-directory-integration-with-pavaso-digital-close"></a>Didacticiel : Intégration d’Azure Active Directory à Pavaso Digital Close
 
 Dans ce tutoriel, vous allez apprendre à intégrer Pavaso Digital Close à Azure Active Directory (Azure AD).
 L’intégration de Pavaso Digital Close à Azure AD vous offre les avantages suivants :

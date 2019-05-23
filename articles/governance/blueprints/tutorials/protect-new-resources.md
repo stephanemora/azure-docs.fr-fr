@@ -7,14 +7,14 @@ ms.date: 03/28/2019
 ms.topic: tutorial
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: d315fb5fe3ce7844946e6a9405a9a5f6a0be8b9d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: b885a90728df8cb15c75141b7bce81aec3968359
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59791607"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65779570"
 ---
-# <a name="protect-new-resources-with-azure-blueprints-resource-locks"></a>Protéger les nouvelles ressources avec des verrous de ressource Azure Blueprints
+# <a name="tutorial-protect-new-resources-with-azure-blueprints-resource-locks"></a>Didacticiel : Protéger les nouvelles ressources avec des verrous de ressource Azure Blueprints
 
 Les [verrous de ressource](../concepts/resource-locking.md) Azure Blueprints permettent de protéger les ressources nouvellement déployées contre toute manipulation, même par un compte disposant du rôle _Propriétaire_. Cette protection peut être ajoutée aux ressources créées par un artefact de modèle Resource Manager dans la définition de blueprint.
 
@@ -132,7 +132,7 @@ Une fois que la définition de blueprint a été **publiée**, elle peut être a
    - Concepts de base
 
      - **Abonnements** : Sélectionnez un ou plusieurs des abonnements qui font partie du groupe d’administration où vous avez enregistré votre définition de blueprint. Si vous sélectionnez plusieurs abonnements, une affectation est créée pour chacun d’eux à l’aide des paramètres saisis.
-     - **Nom de l’affectation** : Le nom est prérempli automatiquement en fonction du nom de la définition du blueprint. Cette affectation représente le verrouillage du nouveau groupe de ressources. Renommez celle-ci en _assignment-locked-storageaccount-TestingBPLocks_.
+     - **Nom de l’affectation** : Le nom est pré-rempli automatiquement en fonction du nom de la définition du blueprint. Cette affectation représente le verrouillage du nouveau groupe de ressources. Renommez celle-ci en _assignment-locked-storageaccount-TestingBPLocks_.
      - **Emplacement** : Sélectionnez une région dans laquelle créer l’identité managée. Azure Blueprint utilise cette identité managée pour déployer tous les artefacts dans le blueprint affecté. Pour en savoir plus, consultez [Identités managées pour les ressources Azure](../../../active-directory/managed-identities-azure-resources/overview.md).
        Pour ce didacticiel, sélectionnez _USA Est 2_.
      - **Version de définition du blueprint** : Choisissez la version **Published** _1.0_ de la définition de blueprint.

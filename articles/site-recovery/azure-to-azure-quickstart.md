@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 03/12/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: f7adcb7d4516e9013bf87306fff77b566885e018
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 23aeeb8cd14ec2d0654525af42b48f59a6f7564f
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57855280"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65520320"
 ---
 # <a name="set-up-disaster-recovery-to-a-secondary-azure-region-for-an-azure-vm"></a>Configurer la récupération d’urgence vers une région Azure secondaire pour une machine virtuelle Azure        
 
@@ -45,7 +45,7 @@ Connectez-vous au portail Azure sur https://portal.azure.com.
 
 Une fois le travail de réplication terminé, vous pouvez vérifier l’état de la réplication, modifier les paramètres de réplication et tester le déploiement.
 
-1. Dans le menu Machine virtuelle, cliquez sur **Récupération d’urgence**.
+1. Dans **Opérations**, cliquez sur **Récupération d’urgence**.
 2. Vous pouvez vérifier l’intégrité de la réplication, les points de récupération qui ont été créés ainsi que les régions sources et cibles sur la carte.
 
    ![État de la réplication](media/azure-to-azure-quickstart/replication-status.png)

@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à M-Files | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à M-Files | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et M-Files.
 services: active-directory
 documentationCenter: na
@@ -15,13 +15,13 @@ ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: jeedes
 ms.openlocfilehash: 3dab784d706228793c6acc0f930f39ba1962caeb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57848981"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65897406"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-m-files"></a>Tutoriel : Intégration d’Azure Active Directory à M-Files
+# <a name="tutorial-azure-active-directory-integration-with-m-files"></a>Didacticiel : Intégration d’Azure Active Directory à M-Files
 
 Dans ce didacticiel, vous allez apprendre à intégrer M-Files à Azure Active Directory (Azure AD).
 L’intégration de M-Files dans Azure AD vous offre les avantages suivants :
@@ -174,7 +174,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.

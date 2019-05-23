@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 0f73e68fd0c01d4323e8675d3fa12f7ca1051cdb
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 10966a7e658e02f04137b594fc12ec09cb676cf8
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57192920"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65793724"
 ---
 # <a name="move-azure-vms-to-another-region"></a>Déplacer des machines virtuelles Azure vers une autre région
 
@@ -53,7 +53,7 @@ Vous souhaitez peut-être déplacer les machines virtuelles de l’infrastructur
     - Pour les machines virtuelles Windows, installez-y les mises à jour de Windows les plus récentes afin que tous les certificats racines approuvés s’y trouvent. Dans un environnement déconnecté, suivez les processus Windows Update et de mise à jour de certificat standard en vigueur pour votre organisation.
     - Pour les machines virtuelles Linux, suivez les instructions fournies par votre distributeur Linux pour obtenir les derniers certificats racines approuvés et la dernière liste de révocation de certificats.
 2. N’utilisez pas de proxy d’authentification dans le but de contrôler la connectivité réseau pour les machines virtuelles que vous voulez déplacer.
-3. Si une des machines virtuelles que vous voulez déplacer n’a pas d’accès à Internet et si elle utilise un proxy de pare-feu pour contrôler l’accès sortant, [vérifiez la configuration requise](azure-to-azure-tutorial-enable-replication.md#configure-outbound-network-connectivity).
+3. Si une des machines virtuelles que vous voulez déplacer n’a pas d’accès à Internet et si elle utilise un proxy de pare-feu pour contrôler l’accès sortant, [vérifiez la configuration requise](azure-to-azure-tutorial-enable-replication.md#set-up-outbound-network-connectivity-for-vms).
 4. Documentez la topologie du réseau source et toutes les ressources que vous utilisez actuellement pour votre vérification, notamment mais sans s’y limiter, les équilibreurs de charge, les groupes de sécurité réseau et l’adresse IP publique.
 
 ## <a name="prepare-the-target-region"></a>Préparer la région cible

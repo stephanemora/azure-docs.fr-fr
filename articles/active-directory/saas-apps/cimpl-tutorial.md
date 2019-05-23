@@ -1,5 +1,5 @@
 ---
-title: "Tutoriel : Intégration d'Azure Active Directory à Cimpl | Microsoft Docs"
+title: "Didacticiel : Intégration d'Azure Active Directory à Cimpl | Microsoft Docs"
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Cimpl.
 services: active-directory
 documentationCenter: na
@@ -16,11 +16,11 @@ ms.date: 02/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8896922cf3f95439b76e12faf9577ca6570fbdf7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57880719"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65900673"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cimpl"></a>Didacticiel : Intégration d'Azure Active Directory à Cimpl
 
@@ -148,7 +148,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@votredomaineentreprise.extension**.  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.

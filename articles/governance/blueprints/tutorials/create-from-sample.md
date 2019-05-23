@@ -7,14 +7,14 @@ ms.date: 03/05/2019
 ms.topic: tutorial
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 4f400e45d8defc304cf58c4bd05fa19f16d0501b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: b0d5d96ff897ac1710206eb49bca785e8809cb7d
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59785956"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65798314"
 ---
-# <a name="create-an-environment-from-a-blueprint-sample"></a>Créer un nouvel environnement à partir d’un exemple de blueprint
+# <a name="tutorial-create-an-environment-from-a-blueprint-sample"></a>Didacticiel : Créer un nouvel environnement à partir d’un exemple de blueprint
 
 Les exemples de blueprint illustrent ce qui est réalisable à l’aide d’Azure Blueprints. Chaque exemple a été conçu avec une intention ou un but spécifique, mais ne permet pas de créer un environnement complet à lui seul. Chacun d’eux est conçu comme base d’exploration d’Azure Blueprints avec diverses combinaisons d’artefacts, de conceptions et de paramètres.
 
@@ -22,7 +22,7 @@ Le didacticiel suivant utilise l’exemple de blueprint **Groupes de ressources 
 
 > [!div class="checklist"]
 > - Créer une définition de blueprint à partir de l’exemple
-> - Marquer la copie de l’exemple en tant que **Publié**
+> - Marquez la copie de l’exemple en tant que **Publié**
 > - Affecter votre copie du blueprint à un abonnement existant
 > - Examiner les ressources déployées pour l’affectation
 > - Annuler l’affectation du blueprint afin de retirer les verrous
@@ -52,7 +52,7 @@ Tout d’abord, implémentez l’exemple de blueprint. L’importation crée un 
 
 1. Sélectionnez **Enregistrer comme brouillon** lorsque vous avez terminé de passer en revue l’exemple de blueprint.
 
-Cette étape crée une copie de l’exemple de définition de blueprint dans le groupe d’administration ou l’abonnement sélectionné. La définition de blueprint enregistrée est gérée comme n’importe quel blueprint créé à partir de zéro. Vous pouvez enregistrer l’exemple dans votre groupe d’administration ou votre abonnement autant de fois que nécessaire. Toutefois, chaque copie doit porter un nom unique.
+Cette étape crée une copie de l’exemple de définition de blueprint dans le groupe d’administration ou l’abonnement sélectionné. La définition de blueprint sauvegardée est gérée comme n’importe quel blueprint créé à partir de zéro. Vous pouvez sauvegarder l’exemple dans votre groupe d’administration ou votre abonnement autant de fois que nécessaire. Toutefois, chaque copie doit porter un nom unique.
 
 Dès que la notification **Définition de blueprint enregistrée** apparaît dans le portail, passez à l’étape suivante.
 
@@ -85,7 +85,7 @@ Une fois que la copie de l’exemple de blueprint a été **publiée**, elle peu
    - Concepts de base
 
      - **Abonnements** : Sélectionnez un ou plusieurs des abonnements qui font partie du groupe d’administration où vous avez enregistré votre copie de l’exemple de blueprint. Si vous sélectionnez plusieurs abonnements, une affectation est créée pour chacun d’eux à l’aide des paramètres saisis.
-     - **Nom de l’affectation** : Le nom est prérempli automatiquement en fonction du nom de la définition du blueprint.
+     - **Nom de l’affectation** : Le nom est pré-rempli automatiquement en fonction du nom de la définition du blueprint.
      - **Emplacement** : Sélectionnez une région dans laquelle créer l’identité managée. Azure Blueprint utilise cette identité managée pour déployer tous les artefacts dans le blueprint affecté. Pour en savoir plus, consultez [Identités managées pour les ressources Azure](../../../active-directory/managed-identities-azure-resources/overview.md).
        Pour ce didacticiel, sélectionnez _USA Est 2_.
      - **Version de définition du blueprint** : Choisissez la version **Published** _1.0_ de votre copie de l’exemple de blueprint.

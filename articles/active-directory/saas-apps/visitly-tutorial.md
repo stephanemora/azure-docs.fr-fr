@@ -16,13 +16,13 @@ ms.date: 01/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9842c681c655bb2a69126806400d1de8e9779c88
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57860939"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65813704"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-visitly"></a>Tutoriel : Intégration d’Azure Active Directory à Visitly
+# <a name="tutorial-azure-active-directory-integration-with-visitly"></a>Didacticiel : Intégration d’Azure Active Directory à Visitly
 
 Dans ce tutoriel, vous allez apprendre à intégrer Visitly à Azure Active Directory (Azure AD).
 L’intégration de Visitly à Azure AD offre les avantages suivants :
@@ -169,7 +169,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@yourcompanydomain.extension**  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotresociété.extension**.  
     Par exemple, BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
