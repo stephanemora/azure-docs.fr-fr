@@ -59,7 +59,7 @@ Le tableau suivant fournit une description des éléments JSON propres au servic
 
 | **Propriété** | **Description** | **Obligatoire** |
 | --- | --- | --- |
-| Type |La propriété type doit être définie sur : **DocumentDb** |Oui |
+| type |La propriété type doit être définie sur : **DocumentDb** |Oui |
 | connectionString |Spécifiez les informations requises pour se connecter à la base de données Azure Cosmos DB. |Oui |
 
 Exemple :
