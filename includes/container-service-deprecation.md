@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/27/2018
 ms.author: iainfou
 ms.openlocfilehash: c7a34256bff46247ed6c97bc2931942f631bbf09
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60430418"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66148847"
 ---
 > [!WARNING]
 >  **Le service Azure Container Service (ACS) est déprécié. Aucune nouvelle fonctionnalité ni fonction n’est ajoutée à ACS. L’ensemble des API, de l’utilisation du portail, des commandes CLI et de la documentation sont marquées comme dépréciées.**

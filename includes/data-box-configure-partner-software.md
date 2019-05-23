@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/20/2018
 ms.author: alkohli
 ms.openlocfilehash: cbf6d01925e1924bc5f3c7f1e99840d479fef296
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53550281"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66150754"
 ---
 Configurez le logiciel partenaire pour vous connecter au client. En règle générale, pour vous connecter au logiciel partenaire, vous avez besoin des informations suivantes (pouvant varier) que vous avez recueillies dans la page **Connexion et copie** de l’interface utilisateur web locale à l’étape précédente :
 

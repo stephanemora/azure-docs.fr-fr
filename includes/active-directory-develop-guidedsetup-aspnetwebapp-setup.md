@@ -15,11 +15,11 @@ ms.date: 09/17/2018
 ms.author: jmprieur
 ms.custom: include file
 ms.openlocfilehash: dcfc341b89a3cfebcb5538f88481fd2fbb2936a7
-ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59505799"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66121817"
 ---
 ## <a name="set-up-your-project"></a>Configuration de votre projet
 
@@ -57,7 +57,7 @@ Les étapes suivantes permettent de créer une classe de démarrage d’intergic
 > [!TIP]
 > Si votre projet n’a pas de fichier `Startup.cs` dans le dossier racine :
 > 1. Cliquez avec le bouton droit sur le dossier racine du projet : > `Add` > `New Item...` > `OWIN Startup class`<br/>
-> 2. Nommez-le `Startup.cs`
+> 2. Nommez-le `Startup.cs`.
 >
 >> Assurez-vous que la classe sélectionnée est une classe de démarrage OWIN et non une classe C# standard. Pour le savoir, vérifiez que `[assembly: OwinStartup(typeof({NameSpace}.Startup))]` s’affiche au-dessus de l’espace de noms.
 

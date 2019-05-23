@@ -9,11 +9,11 @@ ms.date: 02/04/2018
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: 6a12ef422211a77299ece00c5333a6c9f10c9427
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56246859"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66151117"
 ---
 Pour accéder à Stockage Azure, vous avez besoin d’un abonnement Azure. Si vous n’avez pas d’abonnement, vous pouvez [créer un compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 

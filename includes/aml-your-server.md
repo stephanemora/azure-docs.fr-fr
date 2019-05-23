@@ -10,11 +10,11 @@ ms.custom: include file
 ms.topic: include
 ms.date: 01/25/2019
 ms.openlocfilehash: 8d21e41ad487ad17598f2320fab5eebae02309e8
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65021745"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66123236"
 ---
 1. Suivez les instructions fournies dans [Créer un espace de travail pour le service Azure Machine Learning](../articles/machine-learning/service/setup-create-workspace.md#portal) pour :
     * Créer un environnement Miniconda
