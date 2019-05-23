@@ -211,11 +211,11 @@ Dans cette étape, vous créez des jeux de données afin de représenter les don
 
    | Propriété | Description |
    |:--- |:--- |
-   | Type |La propriété type est définie sur **AzureBlob**, car les données se trouvent dans le stockage d’objets blob. |
+   | type |La propriété type est définie sur **AzureBlob**, car les données se trouvent dans le stockage d’objets blob. |
    | linkedServiceName |Fait référence au service AzureStorageLinkedService que vous avez créé précédemment. |
    | folderPath | Spécifie le conteneur d’objets blob et le dossier contenant les objets blob d’entrée. | 
    | fileName |Cette propriété est facultative. Si vous omettez cette propriété, tous les fichiers spécifiés dans le paramètre folderPath sont récupérés. Dans ce didacticiel, seul le fichier input.log est traité. |
-   | Type |Les fichiers journaux étant au format texte, sélectionnez **TextFormat**. |
+   | type |Les fichiers journaux étant au format texte, sélectionnez **TextFormat**. |
    | columnDelimiter |Les colonnes des fichiers journaux sont délimitées par une virgule (`,`). |
    | frequency/interval |La fréquence est définie sur **Mois** et l’intervalle est **1**, ce qui signifie que les tranches d’entrée sont disponibles mensuellement. |
    | external | Cette propriété a la valeur **true** si les données d’entrée ne sont pas générées par ce pipeline. Dans ce didacticiel, le fichier input.log n’est pas généré par ce pipeline. La propriété est donc définie sur **true**. |
