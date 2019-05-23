@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eeb1289ba615fea6e6c43b256da6978534d9edc7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 32ad8c12834ee538e231b38f9098c741fdc17954
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59799375"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65997242"
 ---
 # <a name="what-is-conditional-access-in-azure-active-directory"></a>Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?
 
@@ -64,7 +64,7 @@ Une stratégie d’accès conditionnel est une définition d’un scénario d’
 
 - **[Utilisateurs](conditions.md#users-and-groups)**  : les utilisateurs effectuent une tentative d’accès (**Qui**).
 
-- **[Applications cloud](conditions.md#cloud-apps)**  : les cibles d’une tentative d’accès (**Quoi**).
+- **[Applications cloud](conditions.md#cloud-apps-and-actions)**  : les cibles d’une tentative d’accès (**Quoi**).
 
 Ces deux conditions sont obligatoires dans une stratégie d’accès conditionnel. Outre les deux conditions obligatoires, vous pouvez également inclure des conditions supplémentaires qui décrivent le mode d’exécution de la tentative d’accès. Par exemple, il est courant que des appareils mobiles ou des emplacements situés en dehors du réseau d’entreprise soient utilisés. Pour plus d’informations, consultez [Conditions dans l’accès conditionnel Azure Active Directory](conditions.md).
 
@@ -86,9 +86,9 @@ Lorsque la stratégie d’accès conditionnel configurée requiert l’authentif
 
 Une fois que l’utilisateur s’est connecté au service d’authentification fédérée, Azure AD gère les autres exigences de la stratégie, notamment la conformité des appareils ou une application approuvée.
 
-## <a name="license-requirements-for-using-conditional-access"></a>Conditions requises de licences pour utiliser l’accès conditionnel
+## <a name="license-requirements"></a>Conditions de licence :
 
-L’utilisation de l’accès conditionnel requiert une licence Azure AD Premium. Pour trouver la licence appropriée à vos besoins, consultez [Comparaison des fonctionnalités mises à la disposition générale des éditions gratuite, de base et Premium](https://azure.microsoft.com/pricing/details/active-directory/).
+[!INCLUDE [Active Directory P1 license](../../../includes/active-directory-p1-license.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 

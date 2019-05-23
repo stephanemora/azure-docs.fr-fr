@@ -17,11 +17,11 @@ ms.date: 04/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 27a61205426cbf43fd3b3b549909ffa13ff07dc7
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59500360"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65903831"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-salesforce"></a>Didacticiel : Intégration d’Azure Active Directory à Salesforce
 
@@ -56,7 +56,7 @@ Dans ce didacticiel, vous configurez et testez l’authentification unique Azure
 
 Pour configurer l’intégration de Salesforce avec Azure AD, vous devez ajouter Salesforce à partir de la galerie à votre liste d’applications SaaS gérées.
 
-**Pour ajouter Salesforce à partir de la galerie, effectuez les étapes suivantes :**
+**Pour ajouter Salesforce à partir de la galerie, procédez comme suit :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**.
 
@@ -257,4 +257,4 @@ Le fait de cliquer sur la vignette Salesforce dans le panneau d’accès doit vo
 
 - [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Configurer l’approvisionnement des utilisateurs](salesforce-provisioning-tutorial.md)
+- [Configurer l’approvisionnement de l’utilisateur](salesforce-provisioning-tutorial.md)

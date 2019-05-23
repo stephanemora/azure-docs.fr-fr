@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Intégration d’Azure Active Directory à Dealpath | Microsoft Docs'
+title: 'Didacticiel : Intégration d’Azure Active Directory à Dealpath | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Dealpath.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.date: 01/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f5474af0fbc6b510d3667445bfdbe00fb45daebf
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57894697"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65899828"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-dealpath"></a>Tutoriel : Intégration d’Azure AD à Dealpath
+# <a name="tutorial-azure-active-directory-integration-with-dealpath"></a>Didacticiel : Intégration d’Azure AD à Dealpath
 
 Dans ce didacticiel, vous allez apprendre à intégrer Dealpath à Azure Active Directory (Azure AD).
 L’intégration de Dealpath à Azure AD vous offre les avantages suivants :

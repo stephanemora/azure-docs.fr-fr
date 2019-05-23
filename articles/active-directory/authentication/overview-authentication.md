@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 38bc2f138a8e56fc56b48ccdaf0636a93138f95d
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: e2f53243e49cc961f50ef09cf43a7ed174a82a9c
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58314652"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65997266"
 ---
 # <a name="what-methods-are-available-for-authentication"></a>Quelles méthodes sont disponibles pour l'authentification ?
 
@@ -50,6 +50,10 @@ Options de réinitialisation de mot de passe en libre-service :
 ## <a name="multi-factor-authentication"></a>Azure Multi-Factor Authentication
 
 Azure Multi-Factor Authentication (MFA) est la solution de vérification en deux étapes de Microsoft. À l’aide des méthodes d’authentification approuvées par l’administrateur, Azure MFA contribue à sécuriser l’accès aux données et aux applications, tout en répondant à la demande de processus d’authentification simple.
+
+## <a name="license-requirements"></a>Conditions de licence :
+
+[!INCLUDE [Active Directory P1 license](../../../includes/active-directory-p1-license.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 08/22/2017
 ms.author: ramkris
-ms.openlocfilehash: a915792ad5cd1352c666f8224345c54e278ab899
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: e276980235494f7f808510889bda91761cb76544
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59526875"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65794600"
 ---
 # <a name="build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>Créer une application web Java à l’aide d’Azure Cosmos DB et de l’API SQL
 
@@ -50,7 +50,7 @@ Avant de commencer ce didacticiel de développement d’applications, vous devez
 * [Environnement de développement intégré (IDE) Eclipse pour développeurs Java EE.](https://www.eclipse.org/downloads/packages/release/luna/sr1/eclipse-ide-java-ee-developers)
 * [Un site web Azure avec un environnement d’exécution Java (Tomcat ou Jetty, par exemple) activé.](../app-service/app-service-web-get-started-java.md)
 
-Si vous installez ces outils pour la première fois, coreservlets.com fournit un guide pas à pas du processus d’installation dans la section Démarrage rapide de son article [Didacticiel : Installation de TomCat7 et son utilisation avec Eclipse](https://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html).
+Si vous installez ces outils pour la première fois, coreservlets.com fournit un guide pas à pas du processus d’installation dans la section Démarrage rapide de son article [Didacticiel : Installation de TomCat7 et son utilisation avec Eclipse](http://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html).
 
 ## <a id="CreateDB"></a>Étape 1 : Création d’un compte Azure Cosmos DB
 Commençons par créer un compte Azure Cosmos DB. Si vous possédez déjà un compte ou si vous utilisez l’émulateur Azure Cosmos DB pour ce didacticiel, vous pouvez passer à l’[étape 2 : Créer l’application JSP Java](#CreateJSP).

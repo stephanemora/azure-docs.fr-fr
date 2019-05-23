@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 manager: craigg
 ms.date: 05/07/2019
-ms.openlocfilehash: 09ab4cd44515d90df0e36e2775f50ac33955fe75
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: f54cea75e6f7866f1be41d3b0f82393af2235a0a
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65466275"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65949871"
 ---
 # <a name="quickstart-create-an-azure-sql-database-managed-instance"></a>Démarrage rapide : Créer une instance managée Azure SQL Database
 
@@ -28,7 +28,9 @@ Ce guide de démarrage rapide vous montre comment créer une [instance managée]
 
 ## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
 
-Connectez-vous au [Portail Azure](https://portal.azure.com/). 
+Si vous n’avez pas d’abonnement Azure, [créez un compte gratuit](https://azure.microsoft.com/free/).
+
+Connectez-vous au [Portail Azure](https://portal.azure.com/).
 
 ## <a name="create-a-managed-instance"></a>Créer une instance gérée
 
