@@ -125,8 +125,8 @@ Le tableau suivant décrit les propriétés JSON utilisées dans l'extrait de co
 
 | Propriété | Description |
 |:--- |:--- |
-| ClusterSize |Taille du cluster HDInsight. |
-| TimeToLive |Spécifie la durée d’inactivité du cluster HDInsight avant sa suppression. |
+| clusterSize |Taille du cluster HDInsight. |
+| timeToLive |Spécifie la durée d’inactivité du cluster HDInsight avant sa suppression. |
 | linkedServiceName |Spécifie le compte de stockage utilisé pour stocker les journaux d’activité générés par HDInsight |
 
 Notez les points suivants :
@@ -171,10 +171,10 @@ Le tableau suivant décrit les propriétés JSON utilisées dans l'extrait de co
 
 | Propriété | Description |
 |:--- |:--- |
-| Type |La propriété type est définie sur AzureBlob, car les données se trouvent dans le stockage d’objets blob Azure. |
+| type |La propriété type est définie sur AzureBlob, car les données se trouvent dans le stockage d’objets blob Azure. |
 | linkedServiceName |fait référence au service StorageLinkedService que vous avez créé précédemment. |
 | fileName |Cette propriété est facultative. Si vous omettez cette propriété, tous les fichiers spécifiés dans le paramètre folderPath sont récupérés. Dans le cas présent, seul le fichier input.log est traité. |
-| Type |Les fichiers journaux sont au format texte : nous utilisons donc TextFormat. |
+| type |Les fichiers journaux sont au format texte : nous utilisons donc TextFormat. |
 | columnDelimiter |Les colonnes des fichiers journaux sont délimitées par une virgule (,) |
 | frequency/interval |La fréquence est définie sur Mois et l’intervalle est 1, ce qui signifie que les segments d’entrée sont disponibles mensuellement. |
 | external |Cette propriété a la valeur true si les données d’entrée ne sont pas générées par le service Data Factory. |
