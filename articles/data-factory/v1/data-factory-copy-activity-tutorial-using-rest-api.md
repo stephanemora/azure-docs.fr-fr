@@ -181,7 +181,7 @@ Le tableau suivant décrit les propriétés JSON utilisées dans l'extrait de co
 
 | Propriété | Description |
 |:--- |:--- |
-| Type | La propriété du type est définie sur **AzureBlob**, car les données se trouvent dans le stockage blob Azure. |
+| type | La propriété du type est définie sur **AzureBlob**, car les données se trouvent dans le stockage blob Azure. |
 | linkedServiceName | Fait référence au service **AzureStorageLinkedService** que vous avez créé précédemment. |
 | folderPath | Spécifie le **conteneur** d’objets blob et le **dossier** qui contient les objets blob d’entrée. Dans ce didacticiel, adftutorial est le conteneur d’objets blob et folder est le dossier racine. | 
 | fileName | Cette propriété est facultative. Si vous omettez cette propriété, tous les fichiers spécifiés dans le paramètre folderPath sont récupérés. Dans ce didacticiel, **emp.txt** est spécifié pour le paramètre fileName, si bien que seul ce fichier est récupéré pour le traitement. |
@@ -224,9 +224,9 @@ Le tableau suivant décrit les propriétés JSON utilisées dans l'extrait de co
 
 | Propriété | Description |
 |:--- |:--- |
-| Type | La propriété du type est définie sur **AzureSqlTable** car les données sont copiées dans une table de la base de données Azure SQL. |
+| type | La propriété du type est définie sur **AzureSqlTable** car les données sont copiées dans une table de la base de données Azure SQL. |
 | linkedServiceName | Fait référence au service **AzureSqlLinkedService** que vous avez créé précédemment. |
-| TableName | Spécifie la **table** dans laquelle les données sont copiées. | 
+| tableName | Spécifie la **table** dans laquelle les données sont copiées. | 
 | frequency/interval | La fréquence est définie sur **Heure** et l’intervalle sur **1**, ce qui signifie que les tranches de sortie sont produites **toutes les heures** entre les heures de début et de fin du pipeline, pas avant ni après.  |
 
 La table emp de la base de données contient trois colonnes : **ID**, **FirstName** et **LastName**. ID étant une colonne d’identité, il vous suffit de spécifier **FirstName** et **LastName**.
