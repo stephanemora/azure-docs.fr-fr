@@ -1,16 +1,15 @@
 ---
-author: rockboyfor
+author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-origin.date: 10/26/2018
-ms.date: 11/26/2018
-ms.author: v-yeche
+ms.date: 10/26/2018
+ms.author: cynthn
 ms.openlocfilehash: d579e7a4fd83c1a0ce335e0b2357dcbafb217398
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62097671"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66165372"
 ---
 Au cours de cette étape, vous allez tester l’écouteur de groupe de disponibilité à l’aide d’une application cliente s’exécutant sur le même réseau.
 
@@ -30,4 +29,3 @@ Par exemple, vous pouvez vous connecter à l’écouteur à partir de l’une de
 
 Lorsque vous testez l’écouteur, procédez au basculement du groupe de disponibilité pour vérifier que les clients peuvent se connecter à l’écouteur d’un basculement à un autre.
 
-<!-- Update_Description: update meta properties -->

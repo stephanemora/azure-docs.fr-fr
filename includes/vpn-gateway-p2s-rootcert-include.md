@@ -2,19 +2,18 @@
 title: Fichier Include
 description: Fichier Include
 services: vpn-gateway
-author: WenJason
+author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-origin.date: 12/11/2018
-ms.date: 12/24/2018
-ms.author: v-jay
+ms.date: 12/11/2018
+ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 4c8e7e5272f180c482ca7fdd44302f49eb888b25
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60320129"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66157230"
 ---
 Utilisez un certificat racine qui a été généré à l’aide d’une solution d’entreprise (recommandé), ou générez un certificat auto-signé. Après avoir créé le certificat racine, exportez les données de certificat public (et non la clé privée) en tant que fichier .cer X.509 encodé en Base64. Ensuite, chargez les données de certificat public sur le serveur Azure.
 

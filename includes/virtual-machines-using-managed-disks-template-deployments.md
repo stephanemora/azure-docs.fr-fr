@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: jaboes
 ms.custom: include file
-ms.openlocfilehash: 6085eb2b520217c4e678a75032e8a1cb4b9343ec
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 904bd884bc09c1e2016f55ffc8e1e9f635974ac7
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60581075"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66157695"
 ---
 # <a name="using-managed-disks-in-azure-resource-manager-templates"></a>Utilisation de la fonctionnalité Disques managés dans les modèles Azure Resource Manager
 
@@ -202,7 +202,7 @@ Dans l’objet de machine virtuelle, faites référence à l’objet de disque d
 
 ### <a name="create-managed-availability-sets-with-vms-using-managed-disks"></a>Créer des groupes à haute disponibilité managés avec des machines virtuelles à l’aide de disques managés
 
-Pour créer des groupes à haute disponibilité managés avec des machines virtuelles à l’aide de disques managés, ajoutez l’objet `sku` à la ressource de groupe à haute disponibilité et définissez la propriété `name` sur `Aligned`. Cette propriété garantit que les disques de chaque machine virtuelle sont suffisamment isolés les uns des autres pour éviter les points uniques de défaillance. Vous pouvez aussi remarquer que la propriété `apiVersion` de la ressource de groupe à haute disponibilité est définie sur `2017-03-30`.
+Pour créer des groupes à haute disponibilité managés avec des machines virtuelles à l’aide de disques managés, ajoutez l’objet `sku` à la ressource de groupe à haute disponibilité et définissez la propriété `name` sur `Aligned`. Cette propriété garantit que les disques de chaque machine virtuelle sont suffisamment isolés les uns des autres pour éviter les points uniques de défaillance. Vous pouvez aussi remarquer que la propriété `apiVersion` de la ressource de groupe à haute disponibilité est définie sur `2018-10-01`.
 
 ```json
 {

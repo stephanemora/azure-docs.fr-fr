@@ -2,19 +2,18 @@
 title: Fichier Include
 description: Fichier Include
 services: virtual-network
-author: rockboyfor
+author: genlin
 ms.service: virtual-network
 ms.topic: include
-origin.date: 04/13/2018
-ms.date: 06/11/2018
-ms.author: v-yeche
+ms.date: 04/13/2018
+ms.author: genli
 ms.custom: include file
 ms.openlocfilehash: 40b81904daabfdad7e45571d8ab86cf32cac8964
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60743357"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66170867"
 ---
 ## <a name="scenario"></a>Scénario
 Pour mieux illustrer la création d’itinéraires définis par l’utilisateur, ce document utilise le scénario suivant :
@@ -29,3 +28,4 @@ Dans ce scénario, vous créez un itinéraire défini par l’utilisateur pour l
   * **RouteToFrontend**. Cet itinéraire envoie tout le trafic sur le sous-réseau frontal à la machine virtuelle **FW1**.
 
 La combinaison de ces itinéraires garantit que tout le trafic qui transite d’un sous-réseau à un autre est routé vers la machine virtuelle **FW1**, qui fait office d’équipement virtuel. Vous devez également activer le transfert IP pour la machine virtuelle **FW1**, afin qu’elle puisse recevoir le trafic destiné aux autres machines virtuelles.
+

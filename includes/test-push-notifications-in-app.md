@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/25/2018
 ms.author: crdun
 ms.openlocfilehash: e81d11c01ef1cd8cb1ca6b63e48554cc46d146ee
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
-ms.translationtype: HT
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52440132"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66140705"
 ---
 * Dans Xcode, appuyez sur **Exécuter** et démarrez l’application sur un appareil iOS (notez que le push ne fonctionnera pas sur les simulateurs). Cliquez sur **OK** pour accepter explicitement les notifications push ; cette requête se produit à la première exécution de l’application.
 * Dans l’application, ajoutez un nouvel élément et cliquez sur **+**.

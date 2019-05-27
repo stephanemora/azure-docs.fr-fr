@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 01/30/2019
 ms.author: alkohli
 ms.openlocfilehash: 94fe099984fae77c65658d7085a8540ff4f2448b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60755200"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66161224"
 ---
 Cette section décrit les limites du service Stockage Azure et les conventions d’affectation de noms requises pour les fichiers Azure, les objets blob de blocs Azure et les objets blob de pages Azure, telles qu’applicables au service Data Box Gateway/Data Box Edge. Examinez soigneusement les limites de stockage et suivez toutes les recommandations.
 

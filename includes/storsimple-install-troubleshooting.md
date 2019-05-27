@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 74a9764187b15bddf1dc48fa2b7988217d31abce
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60860373"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66149643"
 ---
 ## <a name="troubleshooting-update-failures"></a>Résolution des échecs de mise à jour
 **Que faire en cas d’affichage d’une notification d’échec des vérifications préalables à la mise à niveau ?**

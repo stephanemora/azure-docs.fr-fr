@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
 ms.openlocfilehash: 89d5483347f93cd3b57a02ced19b1e8b099a5ab0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60486864"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66151602"
 ---
 ## <a name="specifying-formats"></a>Spécification des formats
 Azure Data Factory prend en charge les types de format suivants :
@@ -25,7 +25,7 @@ Si vous souhaitez analyser des fichiers texte ou écrire des données au format 
 
 | Propriété | Description | Valeurs autorisées | Obligatoire |
 | --- | --- | --- | --- |
-| columnDelimiter |Caractère utilisé pour séparer les colonnes dans un fichier. Vous pouvez envisager d’utiliser un caractère non imprimable rare qui n’existe probablement pas dans vos données ; par exemple, spécifiez « \u0001 », qui représente le début d’en-tête. |Un seul caractère est autorisé. La valeur **par défaut** est la **virgule (,)**. <br/><br/>Pour utiliser un caractère Unicode, reportez-vous à [Unicode Characters](https://en.wikipedia.org/wiki/List_of_Unicode_characters) (Caractères Unicode) pour obtenir le code correspondant. |Non  |
+| columnDelimiter |Caractère utilisé pour séparer les colonnes dans un fichier. Vous pouvez envisager d’utiliser un caractère non imprimable rare qui n’existe probablement pas dans vos données ; par exemple, spécifiez « \u0001 », qui représente le début d’en-tête. |Un seul caractère est autorisé. La valeur **par défaut** est la **virgule (,)**. <br/><br/>Pour utiliser un caractère Unicode, reportez-vous à [Unicode Characters](https://en.wikipedia.org/wiki/List_of_Unicode_characters) (Caractères Unicode) pour obtenir le code correspondant. |Non |
 | rowDelimiter |Caractère utilisé pour séparer les lignes dans un fichier. |Un seul caractère est autorisé. La valeur **par défaut** est l’une des suivantes : **[« \r\n », « \r », « \n »]** en lecture et **« \r\n »** en écriture. |Non  |
 | escapeChar |Caractère spécial utilisé pour échapper au délimiteur de colonnes dans le contenu du fichier d’entrée. <br/><br/>Vous ne pouvez pas spécifier à la fois escapeChar et quoteChar pour une table. |Un seul caractère est autorisé. Aucune valeur par défaut. <br/><br/>Exemple : si vous avez une virgule (« , ») comme séparateur de colonnes, mais que vous souhaitez avoir le caractère virgule dans le texte (exemple : « Hello, world »), vous pouvez définir « $ » comme caractère d’échappement et utiliser la chaîne « Hello$, world » dans la source. |Non  |
 | quoteChar |Le caractère utilisé pour entourer de guillemets une valeur de chaîne. Les séparateurs de colonnes et de lignes à l'intérieur des caractères de guillemets sont considérés comme faisant partie de la valeur de la chaîne. Cette propriété s’applique aux jeux de données d’entrée et de sortie.<br/><br/>Vous ne pouvez pas spécifier à la fois escapeChar et quoteChar pour une table. |Un seul caractère est autorisé. Aucune valeur par défaut. <br/><br/>Par exemple, si vous avez une virgule (,) comme séparateur de colonnes mais que vous voulez avoir le caractère virgule dans le texte (par exemple : « Hello, world »), vous pouvez définir " (guillemet droit) comme caractère de guillemet et utiliser la chaîne "Hello, world" dans la source. |Non  |

@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 11/03/2016
 ms.author: estfan
 ms.openlocfilehash: fe726986b3f93ab3bb447b8973727a658ac1c706
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
-ms.translationtype: HT
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50134217"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66149305"
 ---
-### <a name="prerequisites"></a>Prérequis
+### <a name="prerequisites"></a>Conditions préalables
 * Un compte [GoogleDrive](https://www.google.com/drive/)  
 
 Avant de pouvoir utiliser votre compte GoogleDrive dans une application logique, vous devez autoriser l’application logique à se connecter à votre compte GoogleDrive. Heureusement, vous pouvez faire cela facilement à partir de votre application logique sur le portail Azure.  

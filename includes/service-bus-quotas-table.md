@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 12/13/2018
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 7add8c10fd3224b9c287ea4cc672191157f56a09
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f48ad6ca74e6ce10148d66549fea16bc74015b2a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60861891"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66171213"
 ---
 Le tableau suivant répertorie les informations de quota propres à la messagerie Azure Service Bus. Pour plus d’informations sur la tarification et les autres quotas pour Service Bus, consultez [tarification Service Bus](https://azure.microsoft.com/pricing/details/service-bus/).
 
-| Nom du quota | Étendue | Notes | Valeur |
+| Nom du quota | `Scope` | Notes | Valeur |
 | --- | --- | --- | --- |
 | Nombre maximal d’espaces de noms de base ou Standard par abonnement Azure |Espace de noms |Les demandes suivantes des espaces de noms de base ou Standard supplémentaires sont rejetées par le portail Azure. |100|
 | Nombre maximal d’espaces de noms Premium par abonnement Azure |Espace de noms |Les demandes suivantes des espaces de noms Premium supplémentaires sont rejetées par le portail. |25 |
@@ -32,7 +32,7 @@ Le tableau suivant répertorie les informations de quota propres à la messageri
 | Taille maximale d’un message [ID de session](/dotnet/api/microsoft.azure.servicebus.message.sessionid) | Entité |- | 128 |
 | Taille de message pour une entité de file d’attente, rubrique ou abonnement |Entité |Les messages entrants qui dépassent ces quotas sont rejetés et une exception est reçue par le code appelant. |Taille de message maximale : 256 Ko pour [niveau Standard](../articles/service-bus-messaging/service-bus-premium-messaging.md), 1 Mo pour [niveau Premium](../articles/service-bus-messaging/service-bus-premium-messaging.md). <br /><br />En raison d’une surcharge du système, cette limite est inférieure à ces valeurs.<br /><br />Taille d’en-tête maximale : 64 KO.<br /><br />Nombre maximal de propriétés d’en-tête dans le sac de propriétés : **octets/int. MaxValue**.<br /><br />Taille maximale d’une propriété dans le conteneur de propriétés : pas de limite explicite. Cette valeur est limitée par la taille d’en-tête maximale. |
 | Taille de propriété de message pour une entité de file d’attente, rubrique ou abonnement |Entité | L’exception **SerializationException** est généré. |Taille de propriété de message maximale pour chaque propriété est 32 000. Taille cumulée de toutes les propriétés ne peut pas dépasser 64 000. Cette limite s’applique à l’intégralité de l’en-tête de la [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage), qui a les propriétés de l’utilisateur et les propriétés système, telles que [SequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sequencenumber), [étiquette](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.label)et [ MessageId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.messageid). |
-| Nombre d’abonnements par rubrique |Entité |Les requêtes suivantes de création d’abonnements supplémentaires à la rubrique sont rejetées. Par conséquent, en cas de configuration via le portail, un message d’erreur est affiché. Si elle est appelée à partir de l’API de gestion, une exception est reçue par le code appelant. |Niveau standard : Chaque abonnement compte par rapport au quota de 1 000 entités, autrement dit, files d’attente, rubriques et abonnements, par espace de noms. <br/> <br/> Niveau Premium : 2,000. |
+| Nombre d’abonnements par rubrique |Entité |Les requêtes suivantes de création d’abonnements supplémentaires à la rubrique sont rejetées. Par conséquent, en cas de configuration via le portail, un message d’erreur est affiché. Si elle est appelée à partir de l’API de gestion, une exception est reçue par le code appelant. |Niveau Premium et standard : Chaque abonnement compte par rapport au quota de 1 000 entités, autrement dit, files d’attente, rubriques et abonnements, par espace de noms. |
 | Nombre de filtres SQL par rubrique |Entité |Les requêtes suivantes pour la création de filtres supplémentaires sur la rubrique sont rejetées et une exception est reçue par le code appelant. |2 000 |
 | Nombre de filtres de corrélation par rubrique |Entité |Les requêtes suivantes pour la création de filtres supplémentaires sur la rubrique sont rejetées et une exception est reçue par le code appelant. |100 000 |
 | Taille de filtres SQL ou des actions |Espace de noms |Les requêtes suivantes pour la création de filtres supplémentaires sont rejetées et une exception est reçue par le code appelant. |Longueur maximale de la chaîne de condition de filtre : 1 024 (1 KO).<br /><br />Longueur maximale de la chaîne d’action de règle : 1 024 (1 KO).<br /><br />Nombre maximal d’expressions par action de règle : 32. |

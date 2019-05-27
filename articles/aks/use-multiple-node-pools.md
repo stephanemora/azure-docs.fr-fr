@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 03/29/2019
+ms.date: 05/17/2019
 ms.author: iainfou
-ms.openlocfilehash: 1c24bbb9433e4164d4b2f6ce1ac7bd726cc36356
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
-ms.translationtype: MT
+ms.openlocfilehash: 4086b73313d563afaecad9b6a9289905d7085004
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65506902"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66142638"
 ---
 # <a name="preview---create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Afficher un aperçu : créer et gérer plusieurs pools de nœuds pour un cluster dans Azure Kubernetes Service (ACS)
 
@@ -332,7 +332,7 @@ Uniquement les blocs qui ont ce goût appliqué peuvent être planifiées sur le
 
 Dans cet article, vous avez créé un cluster AKS qui inclut des nœuds basés sur le GPU. Pour réduire les coûts inutiles, vous voudrez peut-être supprimer le *gpunodepool*, ou l’ensemble du cluster AKS.
 
-Pour supprimer le pool de nœud basées sur GPU, utilisez le [de suppression de pool de nœud az aks] [ az-aks-nodepool-delete] commande comme indiqué dans l’exemple suivant :
+Pour supprimer le pool de nœud basées sur GPU, utilisez le [supprimer az aks nodepool] [ az-aks-nodepool-delete] commande comme indiqué dans l’exemple suivant :
 
 ```azurecli-interactive
 az aks nodepool delete -g myResourceGroup --cluster-name myAKSCluster --name gpunodepool
@@ -348,8 +348,10 @@ az group delete --name myResourceGroup --yes --no-wait
 
 Dans cet article, vous avez appris comment créer et gérer plusieurs pools de nœuds dans un cluster AKS. Pour plus d’informations sur la façon de contrôler les pods entre les pools de nœuds, consultez [meilleures pratiques pour les fonctionnalités avancées du planificateur dans ACS][operator-best-practices-advanced-scheduler].
 
+Pour créer et utiliser des pools de nœuds de conteneur Windows Server, consultez [créer un conteneur Windows Server dans ACS][aks-windows].
+
 <!-- EXTERNAL LINKS -->
-[aks-github]: https://github.com/azure/aks/issues]
+[aks-github]: https://github.com/azure/aks/issues
 [kubernetes-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubectl-taint]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#taint
@@ -376,3 +378,4 @@ Dans cet article, vous avez appris comment créer et gérer plusieurs pools de n
 [install-azure-cli]: /cli/azure/install-azure-cli
 [supported-versions]: supported-kubernetes-versions.md
 [operator-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md
+[aks-windows]: windows-container-cli.md

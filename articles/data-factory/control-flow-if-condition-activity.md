@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 ms.openlocfilehash: 52f96b8fc2a1288c652169817a3a73d7b26caac9
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57431493"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66153467"
 ---
 # <a name="if-condition-activity-in-azure-data-factory"></a>Activité IfCondition dans Azure Data Factory | Microsoft Docs
 L’activité IfCondition fournit les mêmes fonctionnalités qu’une instruction «if » dans les langages de programmation. La condition évalue un ensemble d’activités si l’expression retourne `true` et un autre ensemble d’activités si elle retourne `false`. 
@@ -64,10 +64,10 @@ L’activité IfCondition fournit les mêmes fonctionnalités qu’une instructi
 
 ## <a name="type-properties"></a>Propriétés type
 
-Propriété | Description | Valeurs autorisées | Obligatoire
+Propriété | Description | Valeurs autorisées | Requis
 -------- | ----------- | -------------- | --------
-Nom | Nom de l’activité de condition « if ». | Chaîne | Oui
-Type | Doit avoir la valeur **IfCondition** | Chaîne | Oui
+name | Nom de l’activité de condition « if ». | String | Oui
+type | Doit avoir la valeur **IfCondition** | String | Oui
 expression | Expression qui doit retourner true ou false | Expression avec un résultat de type booléen | Oui
 ifTrueActivities | Ensemble d’activités qui sont exécutées quand l’expression retourne `true`. | Tableau | Oui
 ifFalseActivities | Ensemble d’activités qui sont exécutées quand l’expression retourne `false`. | Tableau | Oui

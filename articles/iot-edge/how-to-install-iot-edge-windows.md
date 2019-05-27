@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: e48ab075264423479e792848af522a890736a403
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 8907ae61fb03b417a74eb32e1fd09aece75d5e2c
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65152688"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66151718"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-windows"></a>Installer le runtime Azure IoT Edge sur Windows
 
@@ -76,6 +76,13 @@ Cet exemple illustre une installation manuelle avec les conteneurs Windows :
 
 2. Exécutez PowerShell ISE en tant qu’administrateur.
 
+   >[!NOTE]
+   >Utilisez une session AMD64 de PowerShell pour installer IoT Edge, pas PowerShell (x86). Si vous n’êtes pas sûr du type de session que vous utilisez, exécutez la commande suivante :
+   >
+   >```powershell
+   >(Get-Process -Id $PID).StartInfo.EnvironmentVariables["PROCESSOR_ARCHITECTURE"]
+   >```
+
 3. Le **IoTEdge de déployer** commande vérifie que votre machine Windows se trouve sur une version prise en charge et Active la fonctionnalité de conteneurs et télécharge ensuite le runtime moby et le runtime IoT Edge. Par défaut, la commande à l’aide de conteneurs de Windows. 
 
    ```powershell
@@ -85,7 +92,7 @@ Cet exemple illustre une installation manuelle avec les conteneurs Windows :
 
 4. À ce stade, les appareils IoT Core peuvent redémarrer automatiquement. Autres appareils Windows 10 ou Windows Server peuvent vous inviter à redémarrer. Dans ce cas, redémarrez votre appareil maintenant. Une fois que votre appareil est prêt, exécutez PowerShell en tant qu’administrateur à nouveau.
 
-5. Le **Initialize-IoTEdge** commande configure le runtime IoT Edge sur votre ordinateur. Par défaut, la commande provisionnement manuel avec les conteneurs Windows. 
+5. La commande **Initialize-IoTEdge** configure le runtime IoT Edge sur votre ordinateur. Par défaut, la commande est une commande d’approvisionnement manuel avec des conteneurs Windows. 
 
    ```powershell
    . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
@@ -111,12 +118,19 @@ Dans cette deuxième option, vous provisionnez l’appareil en utilisant le Serv
 
 L’exemple suivant illustre une installation automatique avec les conteneurs Windows :
 
-1. Suivez les étapes de la rubrique [Créer et provisionner un appareil Edge avec TPM simulé sur Windows](how-to-auto-provision-simulated-device-windows.md) pour configurer le service Device Provisioning et récupérer son **ID d’étendue**, simuler un appareil TPM et récupérer son **ID d’inscription**, puis créez une inscription individuelle. Une fois que votre appareil est inscrit dans votre IoT hub, suivez ces étapes d’installation.  
+1. Suivez les étapes de [créer et approvisionner un appareil TPM IoT Edge simulé sur Windows](how-to-auto-provision-simulated-device-windows.md) pour configurer le Service Device Provisioning et récupérer ses **ID de portée**, simuler un appareil TPM et de récupérer son **ID d’inscription**, puis créer une inscription individuelle. Une fois que votre appareil est inscrit dans votre IoT hub, suivez ces étapes d’installation.  
 
    >[!TIP]
    >Gardez ouverte la fenêtre dans laquelle s’exécute le simulateur TPM durant l’installation et les tests. 
 
 2. Exécutez PowerShell ISE en tant qu’administrateur.
+
+   >[!NOTE]
+   >Utilisez une session AMD64 de PowerShell pour installer IoT Edge, pas PowerShell (x86). Si vous n’êtes pas sûr du type de session que vous utilisez, exécutez la commande suivante :
+   >
+   >```powershell
+   >(Get-Process -Id $PID).StartInfo.EnvironmentVariables["PROCESSOR_ARCHITECTURE"]
+   >```
 
 3. Le **IoTEdge de déployer** commande vérifie que votre machine Windows se trouve sur une version prise en charge et Active la fonctionnalité de conteneurs et télécharge ensuite le runtime moby et le runtime IoT Edge. Par défaut, la commande à l’aide de conteneurs de Windows. 
 
@@ -127,7 +141,7 @@ L’exemple suivant illustre une installation automatique avec les conteneurs Wi
 
 4. À ce stade, les appareils IoT Core peuvent redémarrer automatiquement. Autres appareils Windows 10 ou Windows Server peuvent vous inviter à redémarrer. Dans ce cas, redémarrez votre appareil maintenant. Une fois que votre appareil est prêt, exécutez PowerShell en tant qu’administrateur à nouveau.
 
-6. Le **Initialize-IoTEdge** commande configure le runtime IoT Edge sur votre ordinateur. Par défaut, la commande provisionnement manuel avec les conteneurs Windows. Utiliser le `-Dps` indicateur à utiliser le Service Device Provisioning au lieu de provisionnement manuel.
+6. La commande **Initialize-IoTEdge** configure le runtime IoT Edge sur votre ordinateur. Par défaut, la commande est une commande d’approvisionnement manuel avec des conteneurs Windows. Utiliser le `-Dps` indicateur à utiliser le Service Device Provisioning au lieu de provisionnement manuel.
 
    ```powershell
    . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
@@ -212,7 +226,7 @@ Pour plus d’informations sur les commandes que vous pouvez utiliser pour inter
 
 ## <a name="update-an-existing-installation"></a>Mettre à jour une installation existante
 
-Si vous avez déjà installé le runtime IoT Edge sur un appareil avant et approvisionné avec une identité à partir d’IoT Hub, puis vous pouvez mettre à jour le runtime sans avoir à entrer à nouveau vos informations de périphérique. 
+Si vous avez déjà installé le runtime IoT Edge sur un appareil avant et approvisionné avec une identité à partir d’IoT Hub, puis vous pouvez mettre à jour le runtime sans avoir à retaper vos informations de périphérique. 
 
 Pour plus d’informations, voir [Mettre à jour le runtime et le démon de sécurité IoT Edge](how-to-update-iot-edge.md).
 

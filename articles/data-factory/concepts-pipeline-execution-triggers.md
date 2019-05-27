@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 07/05/2018
 ms.author: shlo
 ms.openlocfilehash: 21e66f962d1cc0bbbe8d780a702216d40abe2836
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57453471"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66155218"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Exécution et déclencheurs du pipeline dans Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
@@ -231,7 +231,7 @@ Pour que votre déclencheur de planification lance une exécution de pipeline, 
 ### <a name="schema-overview"></a>Vue d’ensemble du schéma
 Le tableau suivant présente une vue d’ensemble globale des principaux éléments du schéma liés à la périodicité et à la planification d’un déclencheur :
 
-| Propriété JSON | Description |
+| Propriété JSON | Description  |
 |:--- |:--- |
 | **startTime** | Valeur de date-heure. Pour les planifications de base, la valeur de la propriété **startTime** s’applique à la première occurrence. Pour les planifications complexes, le déclencheur ne démarre pas avant la valeur **startTime** spécifiée. |
 | **endTime** | La date et l’heure de fin du déclencheur. Le déclencheur ne s’exécute pas après la date et l’heure de fin spécifiées. La valeur de la propriété ne peut pas être dans le passé. <!-- This property is optional. --> |
@@ -277,13 +277,13 @@ Le tableau suivant présente une vue d’ensemble globale des principaux éléme
 
 ### <a name="schema-defaults-limits-and-examples"></a>Valeurs par défaut, limites et exemples du schéma
 
-| Propriété JSON | Type | Obligatoire | Valeur par défaut | Valeurs valides | Exemples |
+| Propriété JSON | Type | Requis | Valeur par défaut | Valeurs valides | Exemples |
 |:--- |:--- |:--- |:--- |:--- |:--- |
 | **startTime** | string | Oui | Aucun | Dates-Heures ISO 8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
 | **recurrence** | objet | Oui | Aucun | Un objet de périodicité | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
-| **interval** | number | Non  | 1 | 1 à 1000 | `"interval":10` |
+| **interval** | number | Non | 1 | 1 à 1000 | `"interval":10` |
 | **endTime** | string | Oui | Aucun | Une valeur date-heure représentant une heure dans le futur | `"endTime" : "2013-02-09T09:30:00-08:00"` |
-| **schedule** | objet | Non  | Aucun | Un objet de planification | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
+| **schedule** | objet | Non | Aucun | Un objet de planification | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
 
 ### <a name="starttime-property"></a>propriété startTime
 Le tableau suivant vous montre comment la propriété **startTime** contrôle une exécution du déclencheur :
@@ -310,7 +310,7 @@ Si plusieurs éléments **schedule** sont spécifiés, l’ordre d’évaluation
 
 Le tableau suivant décrit les éléments **schedule** en détail :
 
-| Élément JSON | Description | Valeurs valides |
+| Élément JSON | Description  | Valeurs valides |
 |:--- |:--- |:--- |
 | **minutes** | Minutes d’exécution du déclencheur dans l’heure. |- Entier<br />- Tableau d’entiers|
 | **hours** | Heures d’exécution du déclencheur dans la journée. |- Entier<br />- Tableau d’entiers|
@@ -334,7 +334,7 @@ Cette section fournit des exemples de planifications de périodicité. Elle se c
 
 Les exemples supposent que la valeur **interval** est 1 et que la valeur **frequency** est correcte selon la définition de planification. Par exemple, vous ne pouvez pas avoir une valeur **frequency** définie sur « jour » et une modification **monthDays** dans l’objet **schedule**. Ces types de restrictions sont décrits dans le tableau dans la section précédente.
 
-| Exemples | Description |
+| Exemples | Description  |
 |:--- |:--- |
 | `{"hours":[5]}` | Exécution à 5h00 tous les jours. |
 | `{"minutes":[15], "hours":[5]}` | Exécution à 5h15 tous les jours. |

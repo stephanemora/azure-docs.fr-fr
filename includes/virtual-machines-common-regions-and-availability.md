@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/27/2018
 ms.author: zarhoads
 ms.custom: include file
-ms.openlocfilehash: fb296236fb73823690175b12f4e07c05b60cdbcf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7f33312d0a5fbe383d438408d471dd9ae09d0332
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60542598"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66156245"
 ---
 # <a name="regions-and-availability-for-virtual-machines-in-azure"></a>Régions et disponibilité des machines virtuelles dans Azure
 Azure fonctionne dans plusieurs centres de données à travers le monde. Ces centres de données sont regroupés en régions géographiques, ce qui vous donne une certaine flexibilité dans le choix de l’emplacement où vous créez vos applications. Il est important de comprendre le fonctionnement des machines virtuelles et de connaître leur emplacement dans Azure, ainsi que les différentes options disponibles pour optimiser les performances, la disponibilité et la redondance. Cet article fournit une vue d’ensemble des fonctionnalités d’optimisation de la disponibilité et de redondance d’Azure.
@@ -40,11 +40,11 @@ Chaque région Azure est associée à une autre région au sein de la même rég
 
 Voici quelques exemples de paires de régions :
 
-| Primaire | Secondaire |
+| Principale | Secondaire |
 |:--- |:--- |
 | USA Ouest |USA Est |
 | Europe Nord |Europe Ouest |
-| Asie Sud-Est |Asie Est |
+| Asie du Sud-Est |Asie Est |
 
 Vous pouvez afficher la [liste des paires de régions ici](../articles/best-practices-availability-paired-regions.md#what-are-paired-regions).
 
@@ -72,8 +72,8 @@ Le tableau suivant fournit une rapide vue d’ensemble des différences entre le
 
 | Stratégie de réplication | LRS | ZRS | GRS | RA-GRS |
 |:--- |:--- |:--- |:--- |:--- |
-| Les données sont répliquées entre plusieurs installations. |Non  |OUI |OUI |Oui |
-| Les données peuvent être lues à partir de l’emplacement secondaire comme de l’emplacement principal. |Non  |Non  |Non  |Oui |
+| Les données sont répliquées entre plusieurs installations. |Non |OUI |OUI |Oui |
+| Les données peuvent être lues à partir de l’emplacement secondaire comme de l’emplacement principal. |Non |Non  |Non  |Oui |
 | Nombre de copies de données conservées sur des nœuds distincts. |3 |3 |6. |6. |
 
 Vous pouvez en savoir plus sur les [options de réplication de stockage Azure ici](../articles/storage/common/storage-redundancy.md). Pour plus d’informations sur les disques managés, consultez [Vue d’ensemble d’Azure Disques managés](../articles/virtual-machines/windows/managed-disks-overview.md).
@@ -96,7 +96,9 @@ Un groupe à haute disponibilité est un regroupement logique de machines virtue
 
 Un groupe à haute disponibilité est composé de deux regroupements supplémentaires qui vous protègent contre les défaillances matérielles et autorisent l’application des mises à jour en toute sécurité dans des domaines d’erreur (FD) et des domaines de mise à jour (UD). Vous pouvez en savoir plus sur la gestion de la disponibilité des [machines virtuelles Linux](../articles/virtual-machines/linux/manage-availability.md) ou des [machines virtuelles Windows](../articles/virtual-machines/windows/manage-availability.md).
 
-### <a name="fault-domains"></a>Domaines d’erreur
+Lors de l’allocation des ressources de calcul plusieurs qui n’utilisent pas les constructions de haute disponibilité de domaines d’erreur une probabilité élevée d’anti-affinité, toutefois ce anti-affinité n’est pas garantie.
+
+### <a name="fault-domains"></a>Domaines d'erreur
 Un domaine d’erreur est un groupe logique de matériels sous-jacents qui partagent la même source d’alimentation et le même commutateur réseau, par exemple un rack dans un centre de données local. Lorsque vous créez des machines virtuelles au sein d’un groupe à haute disponibilité, la plateforme Azure distribue automatiquement vos machines virtuelles dans ces domaines d’erreur. Cette approche limite l’impact des défaillances du matériel physique, des pannes de réseau ou des coupures de courant susceptibles de survenir.
 
 ### <a name="update-domains"></a>Domaines de mise à jour

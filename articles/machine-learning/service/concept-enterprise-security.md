@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 03/10/2019
-ms.openlocfilehash: b950e7d38235d089c6236c76136d8ec2fc7a1f74
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9762b8cadde86a2e64f8fa74a4e794bdf1109ec4
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60821339"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66151187"
 ---
 # <a name="enterprise-security-for-azure-machine-learning-service"></a>Sécurité d’entreprise pour le service Azure Machine Learning
 
@@ -23,7 +23,7 @@ Dans cet article, vous allez découvrir les fonctionnalités de sécurité dispo
 
 Lorsque vous utilisez un service cloud, il est recommandé de restreindre l’accès uniquement aux utilisateurs qui en ont besoin. Cela commence par décrire le modèle d’authentification et d’autorisation utilisé par le service. Vous pouvez également restreindre l’accès réseau, ou joindre en toute sécurité des ressources dans votre réseau local avec ceux présents dans le cloud. Chiffrement des données est également essentiel, au repos et pendant que les données sont déplacées entre les services. Enfin, vous devez être en mesure de surveiller le service et de produire un journal d’audit de toutes les activités.
 
-## <a name="authentication"></a>Authentification
+## <a name="authentication"></a>Authentication
 Multi-Factor authentication est pris en charge si Azure Active Directory (Azure AD) est configuré pour le même.
 * Client se connecte à Azure AD et obtient la jeton de Azure Resource Manager.  Les utilisateurs et principaux de Service sont entièrement pris en charge.
 * Client présente le jeton à Azure Resource Manager et tous les services Azure Machine Learning
@@ -70,7 +70,7 @@ Le tableau suivant répertorie certaines des principales opérations de service 
 | Exécutez une expérience | ✓ | ✓ | |
 | Afficher les exécutions/mesures | ✓ | ✓ | ✓ |
 | Inscrire le modèle | ✓ | ✓ | |
-| Création d’image | ✓ | ✓ | |
+| Créer une image | ✓ | ✓ | |
 | Déployer un service web | ✓ | ✓ | |
 | Vue modèles/images | ✓ | ✓ | ✓ |
 | Appeler le service web | ✓ | ✓ | ✓ |
@@ -88,7 +88,7 @@ Pour plus d’informations sur les identités gérées, consultez [gérés d’i
 | Espace de travail | Contributeur | 
 | Compte de stockage | Contributeur aux données Blob du stockage | 
 | Key Vault | Accès à tous les certificats de clés, Secrets, | 
-| Azure Container Registry | Contributeur | 
+| Registre de conteneurs Azure | Contributeur | 
 | Groupe de ressources qui contient l’espace de travail | Contributeur | 
 | Groupe de ressources qui contient le coffre de clés (s’il diffère de celui qui contient l’espace de travail) | Contributeur | 
 
@@ -101,7 +101,7 @@ Service Azure Machine Learning crée une application supplémentaire (le nom com
 
 Le service Azure Machine Learning s’appuie sur d’autres services Azure pour les ressources de calcul. Les ressources de calcul (cibles de calcul) sont utilisées pour entraîner et déployer des modèles. Ces cibles de calcul peuvent être créées à l’intérieur d’un réseau virtuel. Par exemple, vous pouvez utiliser la machine virtuelle Microsoft Data Science Virtual Machine pour entraîner un modèle, puis déployer le modèle sur Azure Kubernetes Service (AKS).  
 
-Pour plus d’informations, consultez [comment exécuter des expériences d’inférence dans un réseau virtuel](how-to-enable-virtual-network.md).
+Pour plus d’informations, consultez [comment exécuter des expériences et l’inférence dans un réseau virtuel](how-to-enable-virtual-network.md).
 
 ## <a name="data-encryption"></a>Chiffrement des données
 
@@ -154,7 +154,7 @@ Le diagramme suivant illustre le flux de travail créer espace de travail.
 Utilisateur se connecte à Azure AD à partir de tous les clients de service Azure Machine Learning pris en charge (portail Azure CLI, Python, Kit de développement,) et demande le jeton d’Azure Resource Manager approprié.  Utilisateur appelle ensuite le Gestionnaire de ressources Azure pour créer l’espace de travail.  Fournisseur de ressources pour configurer l’espace de travail de service Azure Resource Manager contacts le Azure Machine Learning.  Ressources supplémentaires sont créés dans l’abonnement du client lors de la création d’espace de travail :
 * Coffre de clés (pour stocker des secrets)
 * Un compte de stockage Azure (y compris les objets Blob & partage de fichiers)
-* Azure Container Registry (pour stocker les images docker pour inférence et l’expérimentation)
+* Azure Container Registry (pour stocker les images docker pour/notation d’inférence et l’expérimentation)
 * Application Insights (pour stocker les données de télémétrie)
 
 Autres services de calcul attachés à un espace de travail (Azure Kubernetes Service, etc. de la machine virtuelle) peuvent également être configurés par les clients en fonction des besoins. 
@@ -172,7 +172,7 @@ Le diagramme suivant illustre le flux de travail de formation.
 * Service Azure Machine Learning est appelé avec l’ID d’instantané pour la capture instantanée de code enregistrée plus tôt
 * Azure Machine Learning crée service exécuter ID (facultatif) et le jeton de service Azure Machine Learning, qui est utilisé ultérieurement par les cibles de calcul tels que Machine Learning calcul/la machine virtuelle pour répondre à un service Azure Machine Learning
 * Vous pouvez choisir un calcul gérée (par ex. Machine Learning Compute) ou de calcul non managé (par ex. Machine virtuelle) pour exécuter vos travaux de formation. Flux de données est indiqué pour les deux les scénarios ci-dessous :
-* (Machine virtuelle/HDInsight/Local – accédé à l’aide des informations d’identification SSH dans Key Vault dans un abonnement à Microsoft) Service Azure Machine Learning s’exécute le code de gestion sur la cible de calcul qui :
+* (Machine virtuelle/HDInsight – accédé à l’aide des informations d’identification SSH dans Key Vault dans un abonnement à Microsoft) Service Azure Machine Learning s’exécute le code de gestion sur la cible de calcul qui :
     1.  Prépare l’environnement (Remarque : Docker est une option pour la machine virtuelle/locale. Consultez les étapes pour Machine Learning Compute ci-dessous comprendre comment en cours d’exécution d’expérience sur le fonctionnement du conteneur docker)
     2.  Télécharge le code
     3.  Configure les variables d’environnement/configurations
@@ -189,7 +189,7 @@ Cette étape est indiquée dans le flux où formation calcul écritures le *exé
 ![Capture d’écran de créer des flux de travail espace de travail](./media/enterprise-readiness/training-and-metrics.png)
 
 ### <a name="creating-web-services"></a>Création de services web
-Le diagramme suivant illustre le flux de travail inférence dans lequel le modèle est déployé comme un service web.
+Le diagramme suivant illustre le flux de travail de l’inférence. Inférence, ou un modèle de score, est la phase où le modèle déployé est utilisé pour la prédiction, généralement sur les données de production.
 Voir les détails ci-dessous :
 * Utilisateur inscrit un modèle à l’aide d’un client comme le Kit de développement logiciel Azure ML
 * Utilisateur crée l’image à l’aide du modèle, fichier de score et autres dépendances de modèle

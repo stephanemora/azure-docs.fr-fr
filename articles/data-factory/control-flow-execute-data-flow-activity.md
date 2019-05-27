@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: makromer
-ms.openlocfilehash: e1d4ce355f34014d5099c4b46f4420d032363fce
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
-ms.translationtype: MT
+ms.openlocfilehash: b0a6c6feae11f8daeed54c5e763dbff3aa711652
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236677"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66153480"
 ---
 # <a name="execute-data-flow-activity-in-azure-data-factory"></a>Exécution d’activité de flux de données dans Azure Data Factory
 Utiliser l’activité de flux de données execute pour exécuter votre flux de données ADF dans les exécutions de pipeline debug (sandbox) et dans les exécutions de pipeline déclenchée.
@@ -64,6 +64,10 @@ Utilisez les données flux de débogage d’utiliser un cluster chauffé pour te
 Il s’agit d’un champ obligatoire qui définit le Runtime d’intégration à utiliser pour votre exécution de l’activité de flux de données. Par défaut, Data Factory utilise le runtime d’intégration d’Azure de résoudre automatiquement par défaut. Toutefois, vous pouvez créer vos propres Runtimes d’intégration Azure qui définissent des régions spécifiques, type, de cœurs et de durée de vie de calcul pour l’exécution de l’activité de votre flux données.
 
 Le paramètre par défaut pour les exécutions de flux de données est de 8 cœurs de calcul général avec une durée de vie de 60 minutes.
+
+Vous contrôlez l’environnement d’exécution de Spark pour vos activités de flux de données. Dans le [runtime d’intégration Azure](concepts-integration-runtime.md) sont des paramètres pour définir le type de calcul (usage général, mémoire optimisée et optimisé pour le calcul), nombre de cœurs de travail et time-to-live pour faire correspondre le moteur d’exécution avec votre calcul de flux de données configuration requise. En outre, définissant la durée de vie vous permettra de maintenir un cluster à chaud est immédiatement disponible pour les exécutions de tâches.
+
+![Runtime d’intégration Azure](media/data-flow/ir-new.png "Runtime d’intégration Azure")
 
 ### <a name="staging-area"></a>Zone de transit
 

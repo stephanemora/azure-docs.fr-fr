@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 03/27/2019
 ms.author: tamram
 ms.openlocfilehash: 9a60c624b181a1efd2f6deebd349daa82214a8a4
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541381"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66159771"
 ---
 <!--created by Robin Shahan to go in the articles for table storage w/powershell.
     There is one for Azure Table Storage and one for Azure Cosmos DB Table API -->
@@ -70,7 +70,7 @@ Get-AzTableRow -table $cloudTable | ft
 
 Cette commande génère des résultats similaires à la table suivante :
 
-| userId | username | partition | rowkey |
+| userid | username | partition | rowkey |
 |----|---------|---------------|----|
 | 1 | Chris | partition1 | CA |
 | 3 | Christine | partition1 | WA |
@@ -85,7 +85,7 @@ Get-AzTableRow -table $cloudTable -partitionKey $partitionKey1 | ft
 
 Les résultats ressemblent à la table suivante :
 
-| userId | username | partition | rowkey |
+| userid | username | partition | rowkey |
 |----|---------|---------------|----|
 | 1 | Chris | partition1 | CA |
 | 3 | Christine | partition1 | WA |
@@ -103,7 +103,7 @@ Cette requête récupère un seul enregistrement.
 
 |field|value|
 |----|----|
-| userId | 1 |
+| userid | 1 |
 | username | Chris |
 | PartitionKey | partition1 |
 | RowKey      | CA |
@@ -120,7 +120,7 @@ Cette requête récupère un seul enregistrement.
 
 |field|value|
 |----|----|
-| userId | 1 |
+| userid | 1 |
 | username | Chris |
 | PartitionKey | partition1 |
 | RowKey      | CA |
@@ -155,7 +155,7 @@ Les résultats montrent l’enregistrement Jessie2.
 
 |field|value|
 |----|----|
-| userId | 2 |
+| userid | 2 |
 | username | Jessie2 |
 | PartitionKey | partition2 |
 | RowKey      | NM |

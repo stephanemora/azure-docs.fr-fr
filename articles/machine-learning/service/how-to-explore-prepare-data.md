@@ -1,5 +1,5 @@
 ---
-title: Explorer et de préparer des données (classe de jeu de données)
+title: Explorer et transformer des données (classe de jeu de données)
 titleSuffix: Azure Machine Learning service
 description: Explorer les données à l’aide de statistiques de synthèse et préparer des données via le nettoyage des données, de transformation et de l’ingénierie
 services: machine-learning
@@ -10,17 +10,17 @@ ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 05/02/19
-ms.openlocfilehash: 70712605cc97670b625d32052bb79b4a666e4281
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.date: 05/23/2019
+ms.openlocfilehash: e692b0dc1089804b1d68b79c1a6f438f30554602
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65603159"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66146291"
 ---
 # <a name="explore-and-prepare-data-with-the-dataset-class-preview"></a>Explorer et préparer des données avec la classe de jeu de données (version préliminaire)
 
-Découvrez comment Explorer et préparer des données avec le [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py). Le [Dataset](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py) classe (version préliminaire) vous permet d’Explorer et de préparer vos données en fournissant des fonctions telles que : échantillonnage, les statistiques de synthèse et les transformations intelligentes. Étapes de transformation sont enregistrés dans [des définitions de Dataset](how-to-manage-dataset-definitions.md) avec la capacité de gérer plusieurs fichiers volumineux de différents schémas de manière hautement évolutive.
+Découvrez comment Explorer et de préparer des données avec le package azureml-jeux de données dans le [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py). Le [Dataset](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py) classe (version préliminaire) vous permet d’Explorer et de préparer vos données en fournissant des fonctions telles que : échantillonnage, les statistiques de synthèse et les transformations intelligentes. Étapes de transformation sont enregistrés dans [des définitions de Dataset](how-to-manage-dataset-definitions.md) avec la capacité de gérer plusieurs fichiers volumineux de différents schémas de manière hautement évolutive.
 
 > [!Important]
 > Certaines classes de jeu de données (version préliminaire) ont des dépendances sur le [azureml-dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py) package (GA). Tandis que les fonctions de transformation peuvent être faites directement avec le GA'ed [des fonctions de la préparation des données](how-to-transform-data.md), nous vous recommandons des wrappers de package de jeu de données décrites dans cet article si vous générez une nouvelle solution. Azure Machine Learning jeux de données (version préliminaire) vous permettent non seulement de convertir vos données, mais également [instantané des données](how-to-create-dataset-snapshots.md) et stocker [définitions de jeu de données avec version](how-to-manage-dataset-definitions.md). Jeux de données est la prochaine version du SDK de la préparation des données, offre des fonctionnalités étendues pour la gestion des jeux de données dans les solutions d’intelligence artificielle.
@@ -33,7 +33,7 @@ Pour Explorer et préparer vos données, vous devez :
 
 * Un espace de travail de service Microsoft Azure Machine Learning. Consultez [créer un espace de travail du service Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/setup-create-workspace).
 
-* Le Kit de développement Azure Machine Learning pour Python (version 1.0.21 ou une version ultérieure). Pour installer ou mettre à jour vers la dernière version du SDK, consultez [installer ou mettre à jour le SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
+* Le Kit de développement Azure Machine Learning pour Python (version 1.0.21 ou une version ultérieure), qui inclut le package azureml-jeux de données. Pour installer ou mettre à jour vers la dernière version du SDK, consultez [installer ou mettre à jour le SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
 
 * Azure Machine Learning Data Prep SDK. Pour installer ou mettre à jour vers la dernière version, consultez [installer ou mettre à jour le SDK de la préparation des données](https://docs.microsoft.com/python/api/overview/azure/dataprep/intro?view=azure-dataprep-py#install).
 

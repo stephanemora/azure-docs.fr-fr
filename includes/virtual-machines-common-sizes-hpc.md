@@ -9,11 +9,11 @@ ms.date: 04/26/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
 ms.openlocfilehash: f3c1a946afb7f51a1c7543dabae7f2f42ff466be
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65199039"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66145822"
 ---
 Azure série H virtual machines virtuelles sont conçus pour fournir des performances de votre implication dans la classe, l’évolutivité MPI et de rentabilité pour diverses charges de travail réelles HPC.
 
@@ -25,7 +25,7 @@ Chaud et machines virtuelles HC fonctionnalité 100 Go/s Mellanox EDR InfiniBand
 
 Machines virtuelles de série H sont optimisés pour les applications pilotées par haute fréquence du processeur ou mémoire volumineux par les exigences fondamentales. Intel Xeon E5 2667 v3 processeur de série H machines virtuelles fonctionnalité 8 ou 16 cœurs, 7 ou 14 Go de RAM par cœur de processeur et aucune l’hyperthreading. Fonctionnalités de la série H 56 Go/s Mellanox FDR InfiniBand dans un fat non bloquant arborescence configuration pour des performances cohérentes RDMA. Machines virtuelles de série H prennent en charge Intel MPI 5.x et MS-MPI.
 
-## <a name="hb-series"></a>Série chaud
+## <a name="hb-series"></a>Série HB
 
 Premium Storage : Prise en charge le stockage Premium la mise en cache : Pris en charge
 
@@ -35,7 +35,7 @@ Premium Storage : Prise en charge le stockage Premium la mise en cache : Pris e
 
 <br>
 
-## <a name="hc-series"></a>Série de connexion hybride
+## <a name="hc-series"></a>Série HC
 
 Premium Storage : Prise en charge le stockage Premium la mise en cache : Pris en charge
 

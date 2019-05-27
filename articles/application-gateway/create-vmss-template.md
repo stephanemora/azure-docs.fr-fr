@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: victorh
-ms.openlocfilehash: 4cfe8b02697fe8234c29995a611cb99a89e2e54b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7ff6db5acb150207f975931155386a308c48888b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58080979"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66134097"
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-resource-manager-template"></a>Création d’une passerelle d’application à l’aide du modèle Azure Resource Manager
 
@@ -55,7 +55,7 @@ Vous pouvez télécharger le modèle Azure Resource Manager existant pour créer
 1. Ouvrez le fichier que vous avez enregistré et consultez le contenu sous **parameters** à la ligne
 1. Les paramètres du modèle Azure Resource Manager fournissent un espace réservé pour les valeurs à remplir lors du déploiement.
 
-   | Paramètre | Description |
+   | Paramètre | Description  |
    | --- | --- |
    | **subnetPrefix** |Bloc CIDR du sous-réseau de la passerelle Application Gateway. |
    | **applicationGatewaySize** | Taille de la passerelle Application Gateway.  Le pare-feu d’applications web autorise uniquement les tailles moyenne et grande. |
@@ -205,7 +205,7 @@ cert=$( base64 <certificate path and name>.pfx )
 echo $cert
 ```
 
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 ```powershell
 [System.Convert]::ToBase64String([System.IO.File]::ReadAllBytes("<certificate path and name>.pfx"))
 ```

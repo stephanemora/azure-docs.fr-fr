@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 03/19/2019
 ms.author: alkohli
 ms.openlocfilehash: f84655ecb31eed4cca1e3960e7e426a4eb653032
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60754592"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66161014"
 ---
 Les protocoles pris en charge pour l’accès des clients à votre appareil sont les suivants.
 

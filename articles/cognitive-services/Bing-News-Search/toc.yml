@@ -1,6 +1,6 @@
 - name: Documentation Recherche d’actualités Bing
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   expanded: true
   items:
     - name: Qu’est-ce que l’API Recherche d’actualités Bing ?
@@ -109,3 +109,5 @@
       href: language-support.md
     - name: Analytique pour l’API Recherche d’actualités Bing
       href: bing-news-stats.md
+    - name: Conformité
+      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'

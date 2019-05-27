@@ -10,11 +10,11 @@ ms.date: 03/25/2019
 ms.author: robinsh
 ms.custom: mvc
 ms.openlocfilehash: 51e9bc85c2ee843aa096674a25a1f634bd08b838
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58660925"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66162641"
 ---
 # <a name="tutorial-use-azure-powershell-to-configure-iot-hub-message-routing"></a>Didacticiel : Utiliser Azure PowerShell pour configurer le routage des messages IoT Hub
 
@@ -24,7 +24,7 @@ ms.locfileid: "58660925"
 
 ## <a name="download-the-script-optional"></a>Télécharger le script (facultatif)
 
-Dans la deuxième partie de ce tutoriel, vous téléchargez et exécutez une application Visual Studio qui envoie des messages au hub IoT. Le téléchargement contient un dossier où se trouvent le modèle et le fichier de paramètres Azure Resource Manager ainsi que les scripts Azure CLI et PowerShell. 
+Dans la deuxième partie de ce tutoriel, vous téléchargez et vous exécutez une application Visual Studio qui envoie des messages au hub IoT. Le téléchargement contient un dossier où se trouvent le modèle et le fichier de paramètres Azure Resource Manager ainsi que les scripts Azure CLI et PowerShell. 
 
 Si vous souhaitez voir le script terminé, téléchargez les [exemples Azure IoT pour C#](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). Décompressez le fichier master.zip. Le script Azure CLI est dans le fichier **iothub_routing_psh.ps1**, sous /iot-hub/Tutorials/Routing/SimulatedDevice/resources/.
 
@@ -34,7 +34,7 @@ Commencez par créer les ressources avec PowerShell.
 
 ### <a name="use-powershell-to-create-your-base-resources"></a>Utiliser PowerShell pour créer vos ressources de base
 
-Certains noms de ressources doivent être globalement uniques, tels que le nom du hub IoT et le nom du compte de stockage. Pour faciliter le nommage, une valeur alphanumérique aléatoire appelée *randomValue* est ajoutée à ces noms de ressources. La valeur randomValue est générée une fois au début du script, puis ajoutée aux noms de ressources tout au long du script en fonction des besoins. Si vous ne souhaitez pas que cette valeur soit aléatoire, vous pouvez la définir sur une chaîne vide ou sur une valeur précise. 
+Certains noms de ressources doivent être globalement uniques, tels que le nom du hub IoT et le nom du compte de stockage. Pour faciliter le nommage, une valeur alphanumérique aléatoire appelée *randomValue* est ajoutée à ces noms de ressources. La valeur randomValue est générée une fois au début du script, puis ajoutée aux noms de ressources tout au long du script en fonction des besoins. Si vous ne souhaitez pas que cette valeur soit aléatoire, vous pouvez la définir sur une chaîne vide ou sur une valeur spécifique. 
 
 > [!IMPORTANT]
 > Les variables définies dans le script initial étant également utilisées par le script de routage, vous devez exécuter le script entier dans la même session Cloud Shell. Si vous ouvrez une nouvelle session pour exécuter le script de configuration du routage, plusieurs variables n’auront pas de valeurs définies. 
@@ -148,7 +148,7 @@ Les variables suivantes sont définies :
 
 **endpointName** : ce champ indique le nom qui identifie le point de terminaison. 
 
-**endpointType** : ce champ indique le type du point de terminaison. Il peut avoir la valeur `azurestoragecontainer`, `eventhub`, `servicebusqueue` ou `servicebustopic`. Ici, définissez-le sur la valeur `azurestoragecontainer`.
+**endpointType** : ce champ indique le type de point de terminaison. Il peut avoir la valeur `azurestoragecontainer`, `eventhub`, `servicebusqueue` ou `servicebustopic`. Ici, définissez-le sur la valeur `azurestoragecontainer`.
 
 **subscriptionID** : ce champ a pour valeur l’ID d’abonnement associé à votre compte Azure.
 
@@ -206,9 +206,9 @@ Add-AzIotHubRoute `
    -Enabled 
 ```
 
-### <a name="route-to-a-service-bus-queue"></a>Routage vers une file d’attente Service Bus
+### <a name="route-to-a-service-bus-queue"></a>Router vers une file d’attente Service Bus
 
-Configurez maintenant le routage pour la file d’attente Service Bus. Pour récupérer la chaîne de connexion de la file d’attente Service Bus, vous devez créer une règle d’autorisation ayant les droits appropriés. Le script suivant crée une règle d’autorisation pour la file d’attente Service Bus appelée `sbauthrule`, puis il définit les droits sur `Listen Manage Send`. Une fois que vous avez configuré cette règle d’autorisation, vous pouvez l’utiliser pour récupérer la chaîne de connexion de la file d’attente.
+Configurez maintenant le routage pour la file d’attente Service Bus. Pour récupérer la chaîne de connexion pour la file d’attente Service Bus, vous devez créer une règle d’autorisation ayant les droits appropriés. Le script suivant crée une règle d’autorisation pour la file d’attente Service Bus appelée `sbauthrule`, puis il définit les droits sur `Listen Manage Send`. Une fois que vous avez configuré cette règle d’autorisation, vous pouvez l’utiliser pour récupérer la chaîne de connexion de la file d’attente.
 
 ```powershell
 ##### ROUTING FOR SERVICE BUS QUEUE #####
@@ -236,7 +236,7 @@ Configurez maintenant le point de terminaison de routage et la route des message
 
 **endpointName** : ce champ indique le nom qui identifie le point de terminaison. 
 
-**endpointType** : ce champ indique le type du point de terminaison. Il peut avoir la valeur `azurestoragecontainer`, `eventhub`, `servicebusqueue` ou `servicebustopic`. Ici, définissez-le sur la valeur `servicebusqueue`.
+**endpointType** : ce champ indique le type de point de terminaison. Il peut avoir la valeur `azurestoragecontainer`, `eventhub`, `servicebusqueue` ou `servicebustopic`. Ici, définissez-le sur `servicebusqueue`.
 
 **routeName** : ce champ indique le nom de la route que vous configurez. 
 
@@ -277,7 +277,7 @@ Add-AzIotHubRoute `
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Maintenant que vous avez terminé la configuration des ressources et des routes des messages, passez au tutoriel suivant pour découvrir comment envoyer des messages au hub IoT et visualiser les routes qu’ils empruntent jusqu’aux différentes destinations. 
+Maintenant que vous avez terminé la configuration des ressources et des routes des messages, passez au tutoriel suivant pour découvrir comment envoyer des messages au hub IoT et visualiser les routes qu’ils empruntent vers les différentes destinations. 
 
 > [!div class="nextstepaction"]
-> [Partie 2 - Voir les résultats de routage des messages](tutorial-routing-view-message-routing-results.md)
+> [Partie 2 - Voir les résultats du routage des messages](tutorial-routing-view-message-routing-results.md)

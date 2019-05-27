@@ -2,19 +2,18 @@
 title: Fichier Include
 description: Fichier Include
 services: vpn-gateway
-author: WenJason
+author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-origin.date: 07/27/2018
-ms.date: 01/21/2019
-ms.author: v-jay
+ms.date: 07/27/2018
+ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 0d5c3b55d20be19d4aeb92b82d6e44d417259a7b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60320024"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66147063"
 ---
 1. Ouvrez une invite de commandes avec des privilèges élevés en cliquant avec le bouton droit sur **Invite de commandes** et en sélectionnant **Exécuter en tant qu’administrateur**.
 2. Exécutez les commandes suivantes à partir de l’invite de commandes :

@@ -9,11 +9,11 @@ ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 853bd32cf3ea97571929d54fb7d3ba04bde16b81
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60405842"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66157447"
 ---
 Avant de commencer cette configuration, vous devez vous connecter à votre compte Azure. Les cmdlets vous invitent à entrer les informations d’identification de connexion pour votre compte Azure. Une fois que vous êtes connecté, la cmdlet télécharge vos paramètres de compte pour qu’ils soient reconnus par Azure PowerShell. Pour plus d’informations, consultez la page [Utilisation de Windows PowerShell avec Resource Manager](../articles/powershell-azure-resource-manager.md).
 

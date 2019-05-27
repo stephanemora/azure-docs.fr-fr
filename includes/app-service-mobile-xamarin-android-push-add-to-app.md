@@ -4,12 +4,12 @@ ms.author: crdun
 ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
-ms.openlocfilehash: 3ced8c9fdadf547ec234c6d1bd5f3ddb8af7bc05
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
-ms.translationtype: HT
+ms.openlocfilehash: baf0f07002a21a8e4e60bc17186107b471243202
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42816228"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66140228"
 ---
 1. Créez une classe dans le projet appelée `ToDoBroadcastReceiver`.
 2. Ajoutez les instructions using suivantes à la classe **MyBroadcastReceiver.cs** :
@@ -109,7 +109,7 @@ ms.locfileid: "42816228"
     }
     ```
 
-    Cette méthode utilise l’ID d’inscription GCM retourné pour s’inscrire auprès d’Azure pour les notifications push. Les balises peuvent uniquement être ajoutées à l'inscription après sa création. Pour plus d’informations, consultez [Ajouter des balises à l’installation d’un périphérique pour l’envoi de données aux balises](../articles/app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#tags).
+    Cette méthode utilise l’ID d’inscription GCM retourné pour s’inscrire auprès d’Azure pour les notifications push. Les balises peuvent uniquement être ajoutées à l'inscription après sa création. Pour plus d’informations, consultez [Procédure : Ajouter des balises à l’installation d’un appareil pour activer push aux balises](../articles/app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#tags).
 
 7. Remplacez la méthode **OnMessage** dans **PushHandlerService** par le code suivant :
 

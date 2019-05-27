@@ -10,11 +10,11 @@ ms.date: 09/03/2018
 ms.author: raynew
 ms.custom: include file
 ms.openlocfilehash: afeae4af9b41bf434b26833a3bd927118a4697ae
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58887013"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66160365"
 ---
 **Configuration requise des serveurs de configuration/traitement pour la réplication de serveurs physiques**
 
@@ -33,11 +33,11 @@ Paramètres régionaux du système d’exploitation | Anglais (en-us)
 Rôles Windows Server | N’activez pas ces rôles : <br> - Active Directory Domain Services <br>- Internet Information Services <br> - Hyper-V 
 Stratégies de groupe | N’activez pas ces stratégies de groupe : <br> - Empêcher l’accès à l’invite de commandes <br> - Empêcher l’accès aux outils de modification du Registre <br> - Logique de confiance pour les pièces jointes <br> - Activer l’exécution des scripts <br> [En savoir plus](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)
 IIS | - Aucun site web par défaut préexistant <br> - Aucune application/aucun site web préexistants ne doivent écouter le port 443 <br>- Activer [l’authentification anonyme](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> - Activer le paramètre [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx)
-Type d’adresse IP | statique 
+Type d'adresse IP | statique 
 | 
 **PARAMÈTRES D’ACCÈS** | 
 MYSQL | MySQL doit être installé sur le serveur de configuration. Vous pouvez l’installer manuellement ou laisser Site Recovery le faire au moment du déploiement. Pour permettre l’installation de Site Recovery, vérifiez que la machine a accès à http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi.
-URLs | Le serveur de configuration doit également accéder à ces URL (directement ou par le biais d’un proxy) :<br/><br/> Azure AD : `login.microsoftonline.com` ; `login.microsoftonline.us` ; `*.accesscontrol.windows.net`<br/><br/> Transfert des données de réplication : `*.backup.windowsazure.com` ; `*.backup.windowsazure.us`<br/><br/> Gestion de la réplication : `*.hypervrecoverymanager.windowsazure.com` ; `*.hypervrecoverymanager.windowsazure.us` ; `https://management.azure.com` ; `*.services.visualstudio.com`<br/><br/> Accès au stockage : `*.blob.core.windows.net` ; `*.blob.core.usgovcloudapi.net`<br/><br/> Synchronisation date/heure : `time.nist.gov`; `time.windows.com`<br/><br/> Données de télémétrie (facultative) : `dc.services.visualstudio.com`
+URL | Le serveur de configuration doit également accéder à ces URL (directement ou par le biais d’un proxy) :<br/><br/> Azure AD : `login.microsoftonline.com` ; `login.microsoftonline.us` ; `*.accesscontrol.windows.net`<br/><br/> Transfert des données de réplication : `*.backup.windowsazure.com` ; `*.backup.windowsazure.us`<br/><br/> Gestion de la réplication : `*.hypervrecoverymanager.windowsazure.com` ; `*.hypervrecoverymanager.windowsazure.us` ; `https://management.azure.com` ; `*.services.visualstudio.com`<br/><br/> Accès au stockage : `*.blob.core.windows.net` ; `*.blob.core.usgovcloudapi.net`<br/><br/> Synchronisation date/heure : `time.nist.gov`; `time.windows.com`<br/><br/> Données de télémétrie (facultative) : `dc.services.visualstudio.com`
 Pare-feu | Les règles de pare-feu basées sur une adresse IP doivent autoriser les communications vers les URL Azure. Pour simplifier et limiter les plages d’adresses IP, nous vous recommandons d’utiliser le filtrage des URL.<br/><br/>**Pour les adresses IP commerciales :**<br/><br/>- Autorisez les [plages d’adresses IP de centres de données Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653) et le port HTTPS (443).<br/><br/> - Autorisez les plages d’adresses IP de la région USA Ouest (utilisées pour la gestion du contrôle d’accès et des identités).<br/><br/> - Autorisez les plages d’adresses IP de la région Azure de votre abonnement afin de garantir la prise en charge des URL requises pour Azure Active Directory, la sauvegarde, la réplication et le stockage.<br/><br/> **Pour les adresses IP du secteur public :**<br/><br/> - Autorisez les plages d’adresses IP de centres de données Azure Government, ainsi que le port HTTPS (443).<br/><br/> - Autorisez les plages d’adresses IP de toutes les régions Gov US (Virginie, Texas, Arizona et Iowa) afin de garantir la prise en charge des URL requises pour Azure Active Directory, la sauvegarde, la réplication et le stockage.
 Ports | Autorisez le port 443 (orchestration du canal de contrôle)<br/><br/> Autorisez le port 9443 (transport de données) 
 
