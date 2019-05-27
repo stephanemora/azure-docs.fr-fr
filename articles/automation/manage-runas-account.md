@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: shared-capabilities
 author: georgewallace
 ms.author: gwallace
-ms.date: 05/03/2019
+ms.date: 05/21/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2a104c9e41ef1843c377b0406b499ffae504db97
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 3afe27bf71d112b53c31ab696f71d4e1a0cf6b79
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65595677"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002506"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Gérer les comptes d’identification Azure Automation
 
@@ -24,12 +24,12 @@ Quand vous créez un compte d’identification, il crée un nouvel utilisateur d
 
 Il existe deux types de comptes d’identification :
 
-* **Compte d’identification Azure** : ce compte est utilisé pour gérer les ressources des modèles de déploiement Resource Manager.
+* **Exécuter en tant que compte Azure** -ce compte est utilisé pour gérer les [modèle de déploiement Resource Manager](../azure-resource-manager/resource-manager-deployment-model.md) ressources.
   * Crée une application Azure AD avec un certificat auto-signé, crée un compte de principal de service pour cette application dans Azure AD et affecte le rôle Collaborateur pour le compte dans votre abonnement actuel. Vous pouvez remplacer ce paramètre par un rôle de propriétaire ou par tout autre rôle. Pour plus d’informations, voir [Contrôle d’accès en fonction du rôle dans Azure Automation](automation-role-based-access-control.md).
   * Crée une ressource de certificat Automation nommée *AzureRunAsCertificate* dans le compte Automation spécifié. La ressource de certificat conserve la clé privée du certificat utilisée par l’application Azure AD.
   * Crée une ressource de connexion Automation nommée *AzureRunAsConnection* dans le compte Automation spécifié. La ressource de connexion conserve les ID applicationId, tenantId et subscriptionId, et l’empreinte de certificat.
 
-* **Compte d’identification classique Azure** : ce compte est utilisé pour gérer les ressources des modèles de déploiement classiques.
+* **Azure compte d’identification Classic** -ce compte est utilisé pour gérer les [modèle de déploiement Classic](../azure-resource-manager/resource-manager-deployment-model.md) ressources.
   * Crée un certificat de gestion dans l’abonnement
   * Crée une ressource de certificat Automation nommée *AzureClassicRunAsCertificate*dans le compte Automation spécifié. La ressource de certificat conserve la clé privée du certificat utilisée par le certificat de gestion.
   * Crée une ressource de connexion Automation nommée *AzureClassicRunAsConnection* dans le compte Automation spécifié. La ressource de connexion conserve le nom de l’abonnement, l’ID subscriptionId et le nom de ressource de certificat.
@@ -43,20 +43,20 @@ Il existe deux types de comptes d’identification :
 
 ## <a name="permissions"></a> Autorisations pour configurer des comptes d’identification
 
-Pour créer ou mettre à jour un compte d’identification, vous devez disposer d’autorisations et de privilèges spécifiques. Un administrateur général/coadministrateur peut effectuer toutes les tâches. Dans une situation où les responsabilités sont partagées, le tableau suivant montre une liste des tâches, le cmdlet équivalent et les autorisations nécessaires :
+Pour créer ou mettre à jour un compte d’identification, vous devez disposer d’autorisations et de privilèges spécifiques. Un administrateur général dans Azure Active Directory et un propriétaire d’un abonnement peuvent exécuter toutes les tâches. Dans une situation où les responsabilités sont partagées, le tableau suivant montre une liste des tâches, le cmdlet équivalent et les autorisations nécessaires :
 
 |Tâche|Applet de commande  |Autorisations minimales  |Où vous définissez les autorisations|
 |---|---------|---------|---|
 |Créer une application Azure AD|[New-AzureRmADApplication](/powershell/module/azurerm.resources/new-azurermadapplication)     | Rôle de développeur d’applications<sup>1</sup>        |[Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)</br>Accueil > Azure Active Directory > Inscriptions des applications |
 |Ajoutez les informations d’identification à l’application.|[New-AzureRmADAppCredential](/powershell/module/AzureRM.Resources/New-AzureRmADAppCredential)     | Administrateur d’application ou administrateur général<sup>1</sup>         |[Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)</br>Accueil > Azure Active Directory > Inscriptions des applications|
-|Créer et obtenir un principal du service Azure AD|[New-AzureRMADServicePrincipal](/powershell/module/AzureRM.Resources/New-AzureRmADServicePrincipal)</br>[Get-AzureRmADServicePrincipal](/powershell/module/AzureRM.Resources/Get-AzureRmADServicePrincipal)     | Administrateur d’application ou administrateur général        |[Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)</br>Accueil > Azure Active Directory > Inscriptions des applications|
-|Attribuer ou obtenir le rôle RBAC pour le principal spécifié|[New-AzureRMRoleAssignment](/powershell/module/AzureRM.Resources/New-AzureRmRoleAssignment)</br>[Get-AzureRMRoleAssignment](/powershell/module/AzureRM.Resources/Get-AzureRmRoleAssignment)      | Administrateur ou propriétaire de l’accès utilisateur        | [Abonnement](../role-based-access-control/role-assignments-portal.md)</br>Accueil > Abonnements > \<nom_abonnement\> - Contrôle d’accès (IAM)|
+|Créer et obtenir un principal du service Azure AD|[New-AzureRMADServicePrincipal](/powershell/module/AzureRM.Resources/New-AzureRmADServicePrincipal)</br>[Get-AzureRmADServicePrincipal](/powershell/module/AzureRM.Resources/Get-AzureRmADServicePrincipal)     | Administrateur d’application ou administrateur général<sup>1</sup>        |[Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)</br>Accueil > Azure Active Directory > Inscriptions des applications|
+|Attribuer ou obtenir le rôle RBAC pour le principal spécifié|[New-AzureRMRoleAssignment](/powershell/module/AzureRM.Resources/New-AzureRmRoleAssignment)</br>[Get-AzureRMRoleAssignment](/powershell/module/AzureRM.Resources/Get-AzureRmRoleAssignment)      | Vous devez disposer des autorisations suivantes :</br></br><code>Microsoft.Authorization/Operations/read</br>Microsoft.Authorization/permissions/read</br>Microsoft.Authorization/roleDefinitions/read</br>Microsoft.Authorization/roleAssignments/write</br>Microsoft.Authorization/roleAssignments/read</br>Microsoft.Authorization/roleAssignments/delete</code></br></br>Ou être r :</br></br>Administrateur ou propriétaire de l’accès utilisateur        | [Abonnement](../role-based-access-control/role-assignments-portal.md)</br>Accueil > Abonnements > \<nom_abonnement\> - Contrôle d’accès (IAM)|
 |Créer ou supprimer un certificat Automation|[New-AzureRmAutomationCertificate](/powershell/module/AzureRM.Automation/New-AzureRmAutomationCertificate)</br>[Remove-AzureRmAutomationCertificate](/powershell/module/AzureRM.Automation/Remove-AzureRmAutomationCertificate)     | Contributeur sur le groupe de ressources         |Groupe de ressources du compte Automation|
 |Créer ou supprimer une connexion Automation|[New-AzureRmAutomationConnection](/powershell/module/AzureRM.Automation/New-AzureRmAutomationConnection)</br>[Remove-AzureRmAutomationConnection](/powershell/module/AzureRM.Automation/Remove-AzureRmAutomationConnection)|Contributeur sur le groupe de ressources |Groupe de ressources du compte Automation|
 
-<sup>1</sup> Les utilisateurs non-administrateurs dans votre locataire Azure AD peuvent [inscrire des applications AD](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions) si l’option **Les utilisateurs peuvent inscrire des applications** du locataire Azure AD dans la page **Paramètres utilisateur** a la valeur **Oui**. Si le paramètre Inscriptions d’applications est défini sur **Non**, l’utilisateur qui effectue cette action doit être un administrateur général dans Azure AD.
+<sup>1</sup> Les utilisateurs non-administrateurs dans votre locataire Azure AD peuvent [inscrire des applications AD](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions) si l’option **Les utilisateurs peuvent inscrire des applications** du locataire Azure AD dans la page **Paramètres utilisateur** a la valeur **Oui**. Si le paramètre inscriptions est définie sur **non**, l’utilisateur qui effectue cette action doit être un **administrateur général** dans Azure AD.
 
-Si vous n’êtes pas membre de l’instance Active Directory de l’abonnement avant d’être ajouté au rôle Administrateur général/Coadministrateur de l’abonnement, vous êtes ajouté en tant qu’invité. Dans ce cas, vous recevez un avertissement `You do not have permissions to create…` sur la page **Ajouter un compte Automation**. Les utilisateurs ayant préalablement reçu le rôle administrateur général/coadministrateur peuvent être supprimés de l’instance Active Directory de l’abonnement, puis rajoutés pour devenir des utilisateurs complets dans Active Directory. Pour vérifier si tel est le cas, dans le volet **Azure Active Directory** du portail Azure, sélectionnez **Utilisateurs et groupes** et **Tous les utilisateurs**, choisissez l’utilisateur concerné, puis sélectionnez **Profil**. La valeur de l’attribut **Type d’utilisateur** sous le profil de l’utilisateur ne doit pas être **Invité**.
+Si vous n’êtes pas un membre de l’instance d’abonnement Active Directory avant que vous êtes ajouté à la **administrateur général** rôle de l’abonnement, vous êtes ajouté en tant qu’invité. Dans ce cas, vous recevez un avertissement `You do not have permissions to create…` sur la page **Ajouter un compte Automation**. Les utilisateurs qui ont été ajoutés à la **administrateur général** rôle tout d’abord peut être supprimé de l’instance d’abonnement Active Directory et ajouter à nouveau pour les rendre des utilisateurs complets dans Active Directory. Pour vérifier si tel est le cas, dans le volet **Azure Active Directory** du portail Azure, sélectionnez **Utilisateurs et groupes** et **Tous les utilisateurs**, choisissez l’utilisateur concerné, puis sélectionnez **Profil**. La valeur de l’attribut **Type d’utilisateur** sous le profil de l’utilisateur ne doit pas être **Invité**.
 
 ## <a name="permissions-classic"></a>Autorisations pour configurer les comptes d’identification Classic
 

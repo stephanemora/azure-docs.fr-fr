@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: b051f844b8c221e2e53c5fcf204878f80447cfe8
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 26935b53d8f852289513a5a7b5d31e3befe3e3b2
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65596547"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002250"
 ---
 # <a name="lucene-query-syntax-in-azure-search"></a>Syntaxe des requêtes Lucene dans Recherche Azure
 Vous pouvez écrire des requêtes sur Recherche Azure en utilisant la syntaxe riche en fonctionnalités de l’[analyseur de requêtes Lucene](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) pour des formes de requêtes spécialisées : caractère générique, recherche approximative, recherche de proximité et expressions régulières en sont quelques exemples. La plus grande partie de la syntaxe de l’analyseur de requêtes Lucene est [implémentée telle quelle dans Recherche Azure](search-lucene-query-architecture.md), à l’exception des *recherches de plage*, qui sont construites dans Recherche Azure via des expressions `$filter`. 
@@ -79,7 +79,7 @@ L’exemple ci-dessus concerne le tilde (~), mais le même principe s’applique
  Les caractères spéciaux doivent être placés en échappement pour être utilisé comme partie du texte de recherche. Vous pouvez les placer en échappement en les préfixant d’une barre oblique inverse (\\). Les caractères spéciaux qui doivent être placés en échappement sont les suivants :  
 `+ - && || ! ( ) { } [ ] ^ " ~ * ? : \ /`  
 
- Par exemple, pour placer en échappement un caractère générique, utilisez \\*.
+ Par exemple, pour la séquence d’échappement de caractère générique, utilisez \\ \*.
 
 ### <a name="encoding-unsafe-and-reserved-characters-in-urls"></a>Encodage de caractères dangereux et réservés dans les URL
 

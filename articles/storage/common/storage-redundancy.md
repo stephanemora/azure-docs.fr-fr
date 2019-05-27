@@ -9,18 +9,20 @@ ms.date: 01/18/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 7006e19616be51d79dc3e1319064d19024400bcc
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 078c62913b903eafe9e0fcfcef4189f5ca735d0f
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65789993"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002819"
 ---
 # <a name="azure-storage-redundancy"></a>Redondance de Stockage Azure
 
 Les données de votre compte de stockage Microsoft Azure sont toujours répliquées pour en garantir la durabilité et la haute disponibilité. Stockage Azure copie vos données afin qu’elles soient protégées contre les événements planifiés ou non, notamment les défaillances matérielles temporaires, les pannes de réseau ou de courant et les catastrophes naturelles massives. Vous pouvez choisir de répliquer vos données dans le même centre de données, dans des centres de données zonaux d’une même région ou entre des régions géographiques différentes.
 
 La réplication garantit que votre compte de stockage répond aux exigences du [contrat de niveau de service (SLA) pour le stockage](https://azure.microsoft.com/support/legal/sla/storage/) même en cas de panne. Pour plus d’informations sur les garanties de durabilité et de disponibilité du stockage Azure, consultez le contrat de niveau de service.
+
+Stockage Azure vérifie régulièrement l’intégrité des données stockées à l’aide de contrôles de redondance cyclique (CRC). Si une altération des données est détectée, il est de réparation à l’aide des données redondantes. Stockage Azure calcule également les sommes de contrôle sur tout le trafic réseau pour détecter une altération de paquets de données lors du stockage ou de récupération de données.
 
 ## <a name="choosing-a-redundancy-option"></a>Choix d’une option de redondance
 

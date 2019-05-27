@@ -10,18 +10,18 @@ ms.subservice: workload management
 ms.date: 05/01/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9c26bca66b0f82ea58d01d0eb8358f521168a799
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 92990b68969e754ee126b6cd5a22ecfa700c0494
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65154133"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002887"
 ---
 # <a name="sql-data-warehouse-workload-importance"></a>Importance de la charge de travail de SQL Data Warehouse
 
 Cet article explique comment importance de la charge de travail peut influencer l’ordre d’exécution pour les requêtes SQL Data Warehouse.
 
-## <a name="importance"></a>importance
+## <a name="importance"></a>Importance 
 
 > [!Video https://www.youtube.com/embed/_2rLMljOjw8]
 
@@ -39,7 +39,7 @@ Au-delà du scénario de base d’importance décrit ci-dessus avec les ventes e
 
 Accès aux verrous de lecture et d’écriture activité est une zone de contention naturelle.  Activités telles que [basculement de partition](/azure/sql-data-warehouse/sql-data-warehouse-tables-partition) ou [RENAME OBJECT](/sql/t-sql/statements/rename-transact-sql) requièrent des verrous avec élévation de privilèges.  Sans importance de la charge de travail, SQL Data Warehouse optimise pour le débit.  Optimisation de débit signifie que lors de l’exécution et de demandes en file d’attente ont les mêmes besoins de verrouillage et de ressources sont disponibles, les demandes en file d’attente peuvent contourner les demandes avec des besoins de verrouillage plus élevé qui est arrivé dans la file d’attente de demande précédemment.  Une fois l’importance de la charge de travail est appliqué aux demandes avec verrouillage plus élevée doit. Demande une importance plus élevée est exécuté avant la demande avec une importance inférieure.
 
-Considérez l'exemple suivant :
+Prenons l'exemple suivant :
 
 Q1 est en cours d’exécution et sélection des données à partir de SalesFact activement.
 2e trimestre est en file d’attente en attente pour Q1 terminer.  Il a été envoyé à 9 h 00 et tente de nouvelles données de partition commutateur dans SalesFact.
@@ -61,4 +61,8 @@ Q5 étant mediumrc, elle nécessite deux emplacements de concurrence.  Q5 doit a
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour commencer à la création d’un classifieur, consultez le [créer le classifieur de charge de travail (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-workload-classifier-transact-sql).  Pour plus d’informations sur la classification de la charge de travail de SQL Data Warehouse, consultez [SQL Data Warehouse charge de travail Classification](sql-data-warehouse-workload-classification.md).  Consultez le Guide de démarrage rapide sur la création d’un classifieur de charge de travail [créer un classifieur de charge de travail](quickstart-create-a-workload-classifier-tsql.md). Consultez [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) pour voir les requêtes et l’importance attribuée.
+- Pour plus d’informations sur la création d’un classifieur, consultez le [créer le classifieur de charge de travail (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-workload-classifier-transact-sql).  
+- Pour plus d’informations sur la classification de la charge de travail de SQL Data Warehouse, consultez [Classification de la charge de travail](sql-data-warehouse-workload-classification.md).  
+- Consultez le Guide de démarrage rapide [créer classifieur de charge de travail](quickstart-create-a-workload-classifier-tsql.md) pour savoir comment créer un classifieur de charge de travail.
+- Consultez les articles de savoir-faire pour [Importance de la charge de travail configurer](sql-data-warehouse-how-to-configure-workload-importance.md) et comment [gérer et surveiller la charge de travail](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md).
+- Consultez [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) pour voir les requêtes et l’importance attribuée.

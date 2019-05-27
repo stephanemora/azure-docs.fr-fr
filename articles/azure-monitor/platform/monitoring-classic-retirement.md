@@ -8,22 +8,25 @@ ms.topic: conceptual
 ms.date: 2/7/2019
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: e7cb9f4750fc26d4e03d255c8614e42a42944fd0
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 82e6f28e00de725042a3d764a898b3c6486e1110
+ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59678103"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66023200"
 ---
 # <a name="unified-alerting--monitoring-in-azure-monitor-replaces-classic-alerting--monitoring"></a>La gestion des alertes et la supervision unifiées dans Azure Monitor remplace la gestion des alertes et la supervision classiques
 
 Azure Monitor est désormais devenu un service unifié de supervision de la pile complète qui prend maintenant en charge les fonctionnalités « Métriques unifiées » et « Alertes unifiées » pour l’ensemble des ressources. Pour plus d’informations, consultez notre [billet de blog sur la nouvelle instance Azure Monitor](https://azure.microsoft.com/blog/new-full-stack-monitoring-capabilities-in-azure-monitor/). La nouvelle plateforme de supervision et de gestion des alertes Azure a été conçue pour être plus rapide, plus intelligente et extensible, permettant ainsi de suivre le rythme de l’expansion croissante du cloud computing et conformément à la philosophie du cloud intelligent Microsoft. 
 
-La nouvelle plateforme de supervision et de gestion des alertes Azure étant en place, nous allons mettre hors service la plateforme de supervision et de gestion des alertes « classique » hébergée dans la section *Afficher les alertes classiques* des alertes Azure, et qui **sera déconseillée d’ici juin 2019 dans les clouds publics Azure**. Le [cloud Azure Government](../../azure-government/documentation-government-welcome.md) ne sera pas affecté.
+Avec la nouvelle analyse Azure et d’alerte plateforme en place, nous sera être mise hors service de surveillance et d’alerte plateforme - hébergée dans « classique » *afficher les alertes classiques* section d’alertes Azure, **sera obsolète à 2019 août dans public Azure clouds**. Le [cloud Azure Government](../../azure-government/documentation-government-welcome.md) ne sera pas affecté.
+
+> [!NOTE]
+> En raison de retards dans le déploiement de l’outil de migration, la date de suppression pour la migration des alertes classiques a été [étendue pour le 31 août 2019](https://azure.microsoft.com/updates/azure-monitor-classic-alerts-retirement-date-extended-to-august-31st-2019/) à partir de la date annoncée à l’origine du 30 juin 2019.
 
  ![Alerte classique dans le portail Azure](media/monitoring-classic-retirement/monitor-alert-screen2.png) 
 
-Nous vous encourageons à l’utiliser et à recréer vos alertes sur la nouvelle plateforme. Pour les clients disposant d’un grand nombre d’alertes, nous sommes [propagée dans phases](alerts-understand-migration.md#roll-out-phases), un [outil de migration volontaire](alerts-using-migration-tool.md) pour déplacer les alertes classiques existantes vers le nouveau système d’alertes sans interruption ni coûts supplémentaires.
+Nous vous encourageons à l’utiliser et à recréer vos alertes sur la nouvelle plateforme. Pour les clients disposant d’un grand nombre d’alertes, nous sommes [propagée dans phases](alerts-understand-migration.md#rollout-phases), un [outil de migration volontaire](alerts-using-migration-tool.md) pour déplacer les alertes classiques existantes vers le nouveau système d’alertes sans interruption ni coûts supplémentaires.
 
 > [!IMPORTANT]
 > Les règles d'alerte classiques de journal d'activité ne seront ni déconseillées ni migrées. Toutes les règles d’alerte classiques créées sur le journal d’activité sont accessibles et utilisées en l'état dans le nouveau Azure Monitor - Alertes. Pour plus d'informations, consultez [Créer, afficher et gérer des alertes de journal d'activité avec Azure Monitor](../../azure-monitor/platform/alerts-activity-log.md). De même, les alertes Service Health sont accessibles et peuvent être utilisées en l'état dans la nouvelle section Service Health. Pour plus d’informations, consultez [Alertes sur les notifications Service Health](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).
@@ -50,7 +53,7 @@ Les métriques plus récentes pour les ressources Azure sont disponibles sous le
 ## <a name="retirement-of-classic-monitoring-and-alerting-platform"></a>Mise hors service de la plateforme de supervision et de gestion des alertes classiques
 
 Comme indiqué précédemment, la plateforme de supervision et de gestion des alertes classiques actuellement accessible à partir de la [section Alertes (classiques)](../../azure-monitor/platform/alerts-classic.overview.md) du portail va être mise hors service dans les prochains mois, car elle a été remplacée par un nouveau système.
-Les anciennes supervision et gestion des alertes classiques seront mises hors service le 30 juin 2019. Les API, l’interface du portail Azure et les services associés qu’elles contiennent seront également supprimés. Plus précisément, les fonctionnalités suivantes seront dépréciées :
+Classique plus anciens, surveillance et les alertes est supprimée le 31 août 2019 ; y compris la fermeture de l’API associées, interface du portail Azure et Services dans celui-ci. Plus précisément, les fonctionnalités suivantes seront dépréciées :
 
 - Les anciennes métriques et alertes (classiques) pour les ressources Azure telles que disponibles par le biais de la [section Alertes (classiques)](../../azure-monitor/platform/alerts-classic.overview.md) du portail Azure et accessibles en tant que ressource [microsoft.insights/alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules)
 - Les anciennes métriques personnalisées et de plateforme (classiques) pour Application Insights ainsi que la gestion des alertes définies dessus, telles que disponibles par le biais de la [section Alertes (classiques)](../../azure-monitor/platform/alerts-classic.overview.md) du portail Azure et accessibles en tant que ressource [microsoft.insights/alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules)
@@ -58,18 +61,18 @@ Les anciennes supervision et gestion des alertes classiques seront mises hors se
 
 Tous les systèmes de supervision et de gestion des alertes classiques, dont l’[API](https://msdn.microsoft.com/library/azure/dn931945.aspx), [PowerShell](../../azure-monitor/platform/alerts-classic-portal.md), [CLI](../../azure-monitor/platform/alerts-classic-portal.md), la [page du portail Azure](../../azure-monitor/platform/alerts-classic-portal.md) et le [modèle de ressource](../../azure-monitor/platform/alerts-enable-template.md) correspondants resteront utilisables jusqu’à fin juin 2019. 
 
-Fin 2019 juin, dans Azure Monitor :
+À la fin de 2019 août, dans Azure Monitor :
 
 - Service de surveillance et les alertes classique seront supprimées et ne sont plus disponibles pour la création de nouvelles règles d’alerte.
 - Les règles d’alerte qui existeront toujours dans les alertes (classiques) au-delà de juin 2019 continueront de s’exécuter et de déclencher des notifications, mais ne pourront plus être modifiées.
-- À partir de juillet 2019, règles d’alerte dans classique de surveillance et d’alertes qui peuvent être migré, est automatiquement déplacé par Microsoft en leur équivalent dans la nouvelle plateforme Azure monitor. Le processus sera transparent et sans interruption de service, et les clients ne subiront aucune perte de couverture de la supervision.
+- À partir de septembre 2019, règles d’alerte dans classique de surveillance et d’alertes qui peuvent être migré, est automatiquement déplacé par Microsoft en leur équivalent dans la nouvelle plateforme Azure monitor. Le processus sera transparent et sans interruption de service, et les clients ne subiront aucune perte de couverture de la supervision.
 - Les règles d'alerte migrées vers la nouvelle plateforme d'alertes fourniront la même supervision qu'auparavant, mais déclencheront une notification avec de nouvelles charges utiles. Toute adresse e-mail, un point de terminaison webhook ou un lien d’application logique associé à une règle d’alerte classique seront reporté lors de la migration, mais peut ne pas fonctionner correctement comme charge utile et alerte sera différente dans la nouvelle plate-forme.
 - Certains [les règles d’alerte classiques qui ne peuvent pas être migrés automatiquement](alerts-understand-migration.md#which-classic-alert-rules-can-be-migrated) et nécessitent une action manuelle à partir d’utilisateurs continueront à s’exécuter jusqu'à juin 2020.
 
 > [!IMPORTANT]
-> Microsoft Azure Monitor a été transférée en plusieurs phases [outil de migration volontairement](alerts-using-migration-tool.md) leurs règles d’alerte classiques à la nouvelle plate-forme bientôt. Et exécutez-le en vigueur pour toutes les règles d’alerte classiques qui existent encore et peuvent être migrés à partir de juillet 2019. Les clients devront veiller à ce que la charge utile des règles d'alerte classiques qui ont recours à l'automatisation soit adaptée à la gestion de la nouvelle charge utile à partir de [Métriques et alertes unifiées dans Application Insights](#unified-metrics-and-alerts-in-application-insights) ou [Métriques et alertes unifiées pour d'autres ressources Azure](#unified-metrics-and-alerts-for-other-azure-resources), après la migration des règles d'alerte classiques. Pour plus d’informations, consultez [préparer pour la migration de la règle d’alerte classique](alerts-prepare-migration.md)
+> Microsoft Azure Monitor a été transférée en plusieurs phases [outil de migration volontairement](alerts-using-migration-tool.md) leurs règles d’alerte classiques à la nouvelle plate-forme bientôt. Et exécutez-le en vigueur pour toutes les règles d’alerte classiques qui existent encore et peuvent être migrés à partir de septembre 2019. Les clients devront veiller à ce que la charge utile des règles d'alerte classiques qui ont recours à l'automatisation soit adaptée à la gestion de la nouvelle charge utile à partir de [Métriques et alertes unifiées dans Application Insights](#unified-metrics-and-alerts-in-application-insights) ou [Métriques et alertes unifiées pour d'autres ressources Azure](#unified-metrics-and-alerts-for-other-azure-resources), après la migration des règles d'alerte classiques. Pour plus d’informations, consultez [préparer pour la migration de la règle d’alerte classique](alerts-prepare-migration.md)
 
-Nous vous fournirons bientôt les outils vous permettant de migrer délibérément vos alertes de la [section Alertes (classiques)](../../azure-monitor/platform/alerts-classic.overview.md) du portail Azure vers les nouvelles alertes Azure. Toutes les règles configurées dans Alertes (classiques) qui sont migrées vers la nouvelle instance Azure Monitor resteront gratuites et ne seront pas facturées. Les règles d’alerte classique migrées ne seront soumises à aucun frais pour l’envoi (push) des notifications par e-mail, webhook ou LogicApp. Toutefois, l’utilisation de nouveaux types de notification ou d’action (par exemple, les SMS, les appels vocaux, l’intégration ITSM, etc.) sera soumise à facturation, qu’ils soient ajoutés à une alerte migrée ou nouvelle. Pour plus d’informations, consultez [Tarification Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).
+Nous déployons un outil de migration pour permettre d’effectuer une migration volontairement vos alertes à partir de [alertes (classique) section](../../azure-monitor/platform/alerts-classic.overview.md) du portail Azure pour les nouvelles alertes Azure. Toutes les règles configurées dans Alertes (classiques) qui sont migrées vers la nouvelle instance Azure Monitor resteront gratuites et ne seront pas facturées. Les règles d’alerte classique migrées ne seront soumises à aucun frais pour l’envoi (push) des notifications par e-mail, webhook ou LogicApp. Toutefois, l’utilisation de nouveaux types de notification ou d’action (par exemple, les SMS, les appels vocaux, l’intégration ITSM, etc.) sera soumise à facturation, qu’ils soient ajoutés à une alerte migrée ou nouvelle. Pour plus d’informations, consultez [Tarification Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).
 
 De plus, les éléments suivants seront facturables conformément aux [tarifs Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/) :
 

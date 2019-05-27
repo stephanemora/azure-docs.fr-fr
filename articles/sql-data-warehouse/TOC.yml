@@ -1,6 +1,6 @@
 - name: Documentation SQL Data Warehouse
   href: index.md
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: "En quoi consiste la solution\_SQL\_Data\_Warehouse\_?"
       href: sql-data-warehouse-overview-what-is.md
@@ -69,11 +69,11 @@
   items:
     - name: Sécurité
       items:
-        - name: Vue d’ensemble
+        - name: Vue d'ensemble
           href: sql-data-warehouse-overview-manage-security.md
         - name: Advanced Data Security
           items:
-            - name: Vue d’ensemble
+            - name: Vue d'ensemble
               href: ../sql-database/sql-database-advanced-data-security.md?toc=/azure/sql-data-warehouse/toc.json
             - name: Découverte et classification des données
               href: ../sql-database/sql-database-data-discovery-and-classification.md?toc=/azure/sql-data-warehouse/toc.json
@@ -91,7 +91,7 @@
               href: ../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=/azure/sql-data-warehouse/toc.json
         - name: Authentication
           items:
-            - name: Vue d’ensemble
+            - name: Vue d'ensemble
               href: sql-data-warehouse-authentication.md?toc=/azure/sql-data-warehouse/toc.json
             - name: Azure Active Directory
               href: ../sql-database/sql-database-aad-authentication.md?toc=/azure/sql-data-warehouse/toc.json
@@ -101,7 +101,7 @@
               href: ../sql-database/sql-database-ssms-mfa-authentication.md?toc=/azure/sql-data-warehouse/toc.json
         - name: Contrôle d’accès
           items:
-            - name: Vue d’ensemble
+            - name: Vue d'ensemble
               href: ../sql-database/sql-database-control-access.md?toc=/azure/sql-data-warehouse/toc.json
             - name: Sécurité au niveau des colonnes
               href: column-level-security.md
@@ -115,7 +115,7 @@
               href: ../sql-database/transparent-data-encryption-byok-azure-sql.md?toc=/azure/sql-data-warehouse/toc.json
     - name: Chargement de données
       items:
-        - name: Vue d’ensemble
+        - name: Vue d'ensemble
           href: design-elt-data-loading.md
         - name: Bonnes pratiques
           href: guidance-for-loading-data.md
@@ -123,13 +123,13 @@
           href: sql-data-warehouse-memory-optimizations-for-columnstore-compression.md
     - name: Développement
       items:
-        - name: Vue d’ensemble
+        - name: Vue d'ensemble
           href: sql-data-warehouse-overview-develop.md
         - name: Bonnes pratiques
           href: sql-data-warehouse-best-practices-development.md
         - name: Tables
           items:
-            - name: Vue d’ensemble
+            - name: Vue d'ensemble
               href: sql-data-warehouse-tables-overview.md
             - name: CTAS
               href: sql-data-warehouse-develop-ctas.md
@@ -185,7 +185,7 @@
           href: memory-and-concurrency-limits.md
     - name: Facilité de gestion et supervision
       items:
-        - name: Vue d’ensemble
+        - name: Vue d'ensemble
           href: sql-data-warehouse-overview-manageability-monitoring.md
         - name: 'Mise à l’échelle, pause et reprise'
           href: sql-data-warehouse-manage-compute-overview.md
@@ -199,7 +199,7 @@
           href: sql-data-warehouse-troubleshoot.md
     - name: Calendriers de maintenance
       items:
-        - name: Vue d’ensemble
+        - name: Vue d'ensemble
           href: maintenance-scheduling.md
         - name: Afficher le calendrier de maintenance
           href: viewing-maintenance-schedule.md
@@ -207,7 +207,7 @@
           href: changing-maintenance-schedule.md
     - name: Intégration
       items:
-        - name: Vue d’ensemble
+        - name: Vue d'ensemble
           href: sql-data-warehouse-overview-integrate.md
 - name: Guides pratiques
   items:
@@ -241,7 +241,7 @@
           href: load-data-wideworldimportersdw.md
     - name: Développement
       items:
-        - name: Vue d’ensemble
+        - name: Vue d'ensemble
           href: sql-data-warehouse-connect-overview.md
         - name: Chaînes de connexion
           href: sql-data-warehouse-connection-strings.md
@@ -257,6 +257,10 @@
       items:
         - name: Analyser votre charge de travail
           href: analyze-your-workload.md
+        - name: Gérer et superviser l’importance de la charge de travail
+          href: sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md
+        - name: Configurer l’importance des charges de travail
+          href: sql-data-warehouse-how-to-configure-workload-importance.md
     - name: Gestion et surveillance
       items:
         - name: Mettre à niveau vers la 2e génération

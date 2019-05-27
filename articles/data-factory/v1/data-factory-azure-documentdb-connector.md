@@ -143,7 +143,7 @@ Dans le cas d’une activité de copie, quand la source est de type **DocumentDb
 * Migrer des données entre deux collections Cosmos DB en l’état.
 
 Pour obtenir une copie de ce type, indépendante du schéma :
-* Si vous utilisez l’Assistant Copie, cochez l’option **« Exporter en l’état dans des fichiers JSON ou une collection Cosmos DB »**.
+* Si vous utilisez l’Assistant Copie, cochez l’option **« Exporter en l’état dans des fichiers JSON ou une collection Cosmos DB »** .
 * Si vous utilisez l’édition JSON, ne spécifiez pas la section « structure » dans le ou les jeux de données Cosmos DB, ni la propriété « nestingSeparator » dans la source / le récepteur Cosmos DB de l’activité de copie. Pour importer à partir de/exporter dans des fichiers JSON, dans le jeu de données du magasin de fichiers, spécifiez le type de format « JsonFormat », configurez « filePattern » et ignorez les paramètres de format rest. Consultez la section [Format JSON](data-factory-supported-file-and-compression-formats.md#json-format) pour plus de détails.
 
 ## <a name="json-examples"></a>Exemples JSON

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 05/21/2018
 ms.author: spelluru
 ms.openlocfilehash: 2433f4b3563cc8b301d1815cccf5ab24406e8662
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59045575"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66111475"
 ---
 # <a name="azure-relay-faqs"></a>FAQ sur Azure Relay
 
@@ -80,7 +80,7 @@ L’envoi d’un message à un Service Bus Relay est traité comme un envoi « 
 Les relais ouverts à l’aide de la liaison WCF **netTCPRelay** traitent les messages non pas en tant que messages individuels, mais en tant que flux de données transitant par le système. Lorsque vous utilisez cette liaison, seuls l’expéditeur et l’écouteur peuvent voir la trame des messages envoyés et reçus. Pour les relais qui utilisent la liaison **netTCPRelay**, toutes les données sont traitées comme un flux pour le calcul des messages facturables. Dans ce cas, Service Bus calcule la quantité totale de données envoyées ou reçues via chaque relais sur une base de 5 minutes. Ensuite, il divise cette quantité totale de données par 64 Ko pour déterminer le nombre de messages facturables pour ce relais pendant cette période.
 
 ## <a name="quotas"></a>Quotas
-| Nom du quota | Étendue |  Notes | Valeur |
+| Nom du quota | `Scope` |  Notes | Valeur |
 | --- | --- | --- | --- |
 | Écouteurs simultanés sur un relais |Entité |Les demandes suivantes de connexions supplémentaires sont rejetées et le code appelant reçoit une exception. |25 |
 | Connexions Relay simultanées pour tous les points de terminaison Relay dans un espace de noms de service |Espace de noms |- |5 000 |

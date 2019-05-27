@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 04/29/2019
 ms.author: absha
-ms.openlocfilehash: 89df3a981ba3710e848f834c303772e94e10b139
-ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
+ms.openlocfilehash: ebb14d97273851585e491e3bcd36f776ec9b61b4
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64947175"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66000970"
 ---
 # <a name="rewrite-http-headers-with-application-gateway"></a>Réécrire les en-têtes HTTP avec Application Gateway
 
@@ -60,7 +60,7 @@ Application Gateway utilise les variables de serveur pour stocker des informatio
 
 Passerelle d’application prend en charge ces variables de serveur :
 
-| Nom de la variable | Description                                                  |
+| Nom de la variable | Description                                                   |
 | -------------------------- | :----------------------------------------------------------- |
 | add_x_forwarded_for_proxy  | Le champ d’en-tête de requête X-Forwarded-For client avec le `client_ip` variable (voir l’explication plus loin dans ce tableau) est ajoutée dans le format IP1, IP2, IP3 et ainsi de suite. Si le champ X-Forwarded-For n’est pas dans l’en-tête de demande client, le `add_x_forwarded_for_proxy` variable est égale à la `$client_ip` variable. Cette variable est particulièrement utile lorsque vous souhaitez réécrire l’en-tête X-Forwarded-For définie par la passerelle d’Application afin que l’en-tête contient uniquement l’adresse IP sans les informations de port. |
 | ciphers_supported          | Une liste des chiffrements pris en charge par le client.          |
@@ -157,9 +157,7 @@ Vous pouvez évaluer un en-tête de demande ou réponse HTTP pour la présence d
 
 - Les noms d’en-tête peuvent contenir des caractères alphanumériques et des symboles spécifiques tel que défini dans [RFC 7230](https://tools.ietf.org/html/rfc7230#page-27). Nous ne prennent actuellement en charge le caractère de soulignement (\_) caractère spécial dans les noms d’en-tête.
 
-## <a name="need-help"></a>Vous avez besoin d’aide ?
-
-Contactez-nous à l’adresse [ AGHeaderRewriteHelp@microsoft.com ](mailto:AGHeaderRewriteHelp@microsoft.com) si vous avez besoin d’aide avec cette fonctionnalité.
+- Si une réponse a plusieurs en-têtes avec le même nom, puis réécrire la valeur d’un de ces en-têtes entraîne la suppression d’autres en-têtes dans la réponse.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

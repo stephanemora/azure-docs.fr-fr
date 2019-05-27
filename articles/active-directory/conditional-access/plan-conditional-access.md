@@ -13,12 +13,12 @@ ms.date: 01/25/2019
 ms.author: joflore
 ms.reviewer: martincoetzer
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e4832055bffa72732991cb766ce88cc48c07530e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2e277f31dcf2627959b88d58f325fb4dad024a00
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60301366"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66001190"
 ---
 # <a name="how-to-plan-your-conditional-access-deployment-in-azure-active-directory"></a>Procédure : Planifier votre déploiement d’accès conditionnel Azure Active Directory
 
@@ -81,7 +81,7 @@ Pour plus d’informations, consultez [Que faut-il pour faire fonctionner une st
  
 ![Convention de nommage](./media/plan-conditional-access/11.png)
 
-Si un nom descriptif vous aide à maintenir une vue d’ensemble de votre implémentation de l’accès conditionnel, le numéro de séquence vous est aussi utile lorsque vous devez référencer une stratégie dans une conversation. Par exemple, si vous parlez à un collègue administrateur au téléphone, vous pouvez lui demander d’ouvrir une stratégie EM063 pour résoudre un problème.
+Si un nom descriptif vous aide à maintenir une vue d’ensemble de votre implémentation de l’accès conditionnel, le numéro de séquence vous est aussi utile lorsque vous devez référencer une stratégie dans une conversation. Par exemple, si vous parlez à un collègue administrateur l’a sur le téléphone, vous pouvez leur demander d’ouvrir une stratégie EM063 pour résoudre un problème.
 
 
 
@@ -114,7 +114,7 @@ Par exemple, le nom suivant indique que cette stratégie est la première de qua
 Quand vous planifiez votre solution de stratégie d’accès conditionnel, déterminez si vous devez créer des stratégies pour obtenir les résultats suivants. 
 
 
-### <a name="block-access"></a>Bloquer l’accès
+### <a name="block-access"></a>Bloquer l'accès
 
 L’option permettant de bloquer l’accès est puissante, car elle :
 
@@ -131,7 +131,7 @@ Pour simplifier l’expérience de connexion de vos utilisateurs, vous pouvez au
 
 Les cas d’utilisation courants pour lesquels exiger l’authentification multifacteur sont les accès :
 
-- [Par les administrateurs](baseline-protection.md#require-mfa-for-admins)
+- [Par les administrateurs](howto-baseline-protect-administrators.md)
 - [À des applications spécifiques](app-based-mfa.md) 
 - [À partir d’emplacements réseau non fiables](untrusted-networks.md).
 

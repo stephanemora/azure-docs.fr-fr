@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 05/14/2019
-ms.openlocfilehash: dc8ba315d08f3a130ff0adf91afc90f545baf4e4
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.date: 05/22/2019
+ms.openlocfilehash: 5a7c6c4553f46e8a7308995e05d6c06c0eb10f27
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65604425"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002209"
 ---
 # <a name="troubleshoot-common-azure-database-migration-service-issues-and-errors"></a>Résoudre les erreurs et problèmes d’Azure Database Migration Service courants
 
@@ -28,7 +28,7 @@ Lorsque vous créez de nouvelles activités dans un projet de Service de Migrati
 
 | Cause :         | Résolution : |
 | ------------- | ------------- |
-| Ce problème se produit lorsque l’instance Azure Database Migration Service a atteint la capacité maximale pour les tâches en cours qui exécutent simultanément. Toute nouvelle activité est en file d’attente jusqu'à ce que la capacité est disponible. | Valider le Data Migration Service instance possède des activités en cours d’exécution sur plusieurs projets. Vous pouvez continuer à créer des activités qui sont automatiquement ajoutées à la file d’attente pour l’exécution. Dès que les activités en cours d’exécution existantes est terminé, l’activité en file d’attente suivante commence à s’exécuter et l’état passe à l’état d’exécution automatiquement. Vous n’avez pas besoin de démarrer la migration de l’activité en file d’attente aucune action supplémentaire.<br> |
+| Ce problème se produit lorsque l’instance Azure Database Migration Service a atteint la capacité maximale pour les tâches en cours qui exécutent simultanément. Toute nouvelle activité est en file d’attente jusqu'à ce que la capacité est disponible. | Valider le Data Migration Service instance possède des activités en cours d’exécution sur plusieurs projets. Vous pouvez continuer à créer des activités qui sont automatiquement ajoutées à la file d’attente pour l’exécution. Dès que les activités en cours d’exécution existantes est terminé, l’activité en file d’attente suivante commence à s’exécuter et l’état passe à l’état d’exécution automatiquement. Vous n’avez pas besoin de démarrer la migration de l’activité en file d’attente aucune action supplémentaire.<br><br> |
 
 ## <a name="max-number-of-databases-selected-for-migration"></a>Nombre maximal de bases de données sélectionnées pour la migration
 
@@ -48,7 +48,7 @@ Lorsque vous migrez à partir de MySQL vers Azure Database pour MySQL à l’aid
 
 | Cause :         | Résolution : |
 | ------------- | ------------- |
-| Cette erreur peut se produire lorsque l’utilisateur qui effectue la migration n’a pas le rôle ReplicationAdmin et/ou des privilèges de CLIENT de la réplication, RÉPLICA de la réplication et SUPER (versions antérieures à MySQL 5.6.6).<br> <br><br><br> <br> <br> <br> <br> <br> <br> | Assurez-vous que le [des privilèges requis](https://docs.microsoft.com/azure/dms/tutorial-mysql-azure-mysql-online#prerequisites) pour l’utilisateur compte sont correctement configurés sur la base de données Azure pour l’instance MySQL. Par exemple, les étapes suivantes peuvent être suivis pour créer un utilisateur nommé 'migrateuser' avec des privilèges requis :<br>1. CRÉER un utilisateur migrateuser@'%' identifié par 'secret' ; <br>2. Accorder tous les privilèges sur db_name.* à 'migrateuser'@'%' identifié par 'secret' ; Répétez cette étape pour accorder l’accès sur plusieurs bases de données <br>3. Subordonné de réplication GRANT sur *.* à « migrateuser'@'%' identifié par 'secret' ;<br>4. Client de réplication GRANT sur *.* à « migrateuser'@'%' identifié par 'secret' ;<br>5. Vider les privilèges ; |
+| Cette erreur peut se produire lorsque l’utilisateur qui effectue la migration n’a pas le rôle ReplicationAdmin et/ou des privilèges de CLIENT de la réplication, RÉPLICA de la réplication et SUPER (versions antérieures à MySQL 5.6.6).<br><br><br><br><br><br><br><br><br><br><br><br><br> | Assurez-vous que le [des privilèges requis](https://docs.microsoft.com/azure/dms/tutorial-mysql-azure-mysql-online#prerequisites) pour l’utilisateur compte sont correctement configurés sur la base de données Azure pour l’instance MySQL. Par exemple, les étapes suivantes peuvent être suivis pour créer un utilisateur nommé 'migrateuser' avec des privilèges requis :<br>1. CRÉER un utilisateur migrateuser@'%' identifié par 'secret' ; <br>2. Accorder tous les privilèges sur db_name.* à 'migrateuser'@'%' identifié par 'secret' ; Répétez cette étape pour accorder l’accès sur plusieurs bases de données <br>3. Subordonné de réplication GRANT sur *.* à « migrateuser'@'%' identifié par 'secret' ;<br>4. Client de réplication GRANT sur *.* à « migrateuser'@'%' identifié par 'secret' ;<br>5. Vider les privilèges ; |
 
 ## <a name="error-when-attempting-to-stop-azure-database-migration-service"></a>Erreur lors de la tentative d’arrêt du Service de Migration de base de données Azure
 
@@ -68,7 +68,7 @@ Lorsque vous effectuez une migration en ligne de SQL Server vers une Azure SQL D
 
 | Cause :         | Résolution :    |
 | ------------- | ------------- |
-| Cette erreur indique que le principal d’application utilisé pour la migration en ligne de SQL Server vers une Azure SQL Database managed instance ont ne contribue pas l’autorisation sur l’abonnement. Certains appels d’API avec Managed Instance à l’heure actuelle nécessitent cette autorisation sur l’abonnement pour l’opération de restauration. <br><br><br><br><br><br><br><br><br><br> | Utilisez le `Get-AzureADServicePrincipal` applet de commande PowerShell avec `-ObjectId` disponible à partir du message d’erreur pour répertorier le nom complet de l’ID d’application utilisé.<br><br> Valider les autorisations pour cette application et vérifiez qu’il dispose du [rôle Collaborateur](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) au niveau de l’abonnement. <br><br> L’utilisation de l’équipe Azure Database Migration Service ingénierie pour restreindre les accès à partir de l’actuel contribuer rôle sur l’abonnement. Si vous avez un besoin de l’entreprise qui n’autorise pas l’utilisation de contribuer de rôle, contactez le support Azure pour obtenir une aide supplémentaire. |
+| Cette erreur indique que le principal d’application utilisé pour la migration en ligne de SQL Server vers une Azure SQL Database managed instance ont ne contribue pas l’autorisation sur l’abonnement. Certains appels d’API avec Managed Instance à l’heure actuelle nécessitent cette autorisation sur l’abonnement pour l’opération de restauration. <br><br><br><br><br><br><br><br><br><br><br><br><br><br> | Utilisez le `Get-AzureADServicePrincipal` applet de commande PowerShell avec `-ObjectId` disponible à partir du message d’erreur pour répertorier le nom complet de l’ID d’application utilisé.<br><br> Valider les autorisations pour cette application et vérifiez qu’il dispose du [rôle Collaborateur](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) au niveau de l’abonnement. <br><br> L’utilisation de l’équipe Azure Database Migration Service ingénierie pour restreindre les accès à partir de l’actuel contribuer rôle sur l’abonnement. Si vous avez un besoin de l’entreprise qui n’autorise pas l’utilisation de contribuer de rôle, contactez le support Azure pour obtenir une aide supplémentaire. |
 
 ## <a name="error-when-deleting-nic-associated-with-azure-database-migration-service"></a>Erreur lors de la suppression de carte réseau associée avec le Service de Migration de base de données Azure
 
@@ -78,7 +78,7 @@ Lorsque vous essayez de supprimer une carte d’Interface réseau associée au S
 
 | Cause :         | Résolution :    |
 | ------------- | ------------- |
-| Ce problème se produit lorsque l’instance Azure Database Migration Service peut toujours être présent et l’utilisation de la carte réseau. <br><br><br><br><br><br> | Pour supprimer cette carte réseau, supprimez l’instance de service DMS qui supprime automatiquement la carte réseau utilisée par le service.<br><br> **Important !** Vérifiez que l’instance Azure Database Migration Service en cours de suppression n’a aucune activité en cours d’exécution.<br><br> Une fois que tous les projets et les activités associées à l’instance de Service de Migration de base de données Azure sont supprimées, vous pouvez supprimer l’instance de service. La carte réseau utilisée par l’instance de service est automatiquement nettoyée en tant que partie de la suppression du service. |
+| Ce problème se produit lorsque l’instance Azure Database Migration Service peut toujours être présent et l’utilisation de la carte réseau. <br><br><br><br><br><br><br><br> | Pour supprimer cette carte réseau, supprimez l’instance de service DMS qui supprime automatiquement la carte réseau utilisée par le service.<br><br> **Important !** Vérifiez que l’instance Azure Database Migration Service en cours de suppression n’a aucune activité en cours d’exécution.<br><br> Une fois que tous les projets et les activités associées à l’instance de Service de Migration de base de données Azure sont supprimées, vous pouvez supprimer l’instance de service. La carte réseau utilisée par l’instance de service est automatiquement nettoyée en tant que partie de la suppression du service. |
 
 ## <a name="connection-error-when-using-expressroute"></a>Erreur de connexion lors de l’utilisation d’ExpressRoute
 
@@ -86,7 +86,7 @@ Lorsque vous essayez de vous connecter à la source dans l’Assistant de projet
 
 | Cause :         | Résolution :    |
 | ------------- | ------------- |
-| Lorsque vous utilisez [ExpressRoute](https://azure.microsoft.com/services/expressroute/), Azure Database Migration Service [requiert](https://docs.microsoft.com/azure/dms/tutorial-sql-server-azure-sql-online) trois points de terminaison de service sur le sous-réseau de réseau virtuel associé au service d’approvisionnement :<br> --Point de terminaison Service Bus<br> : Point de terminaison de stockage<br> --Cible de point de terminaison de base de données (par exemple, le point de terminaison SQL, le point de terminaison Cosmos DB)<br><br><br><br> | [Activer](https://docs.microsoft.com/azure/dms/tutorial-sql-server-azure-sql-online) les points de terminaison de service requis pour la connectivité ExpressRoute entre la source et Azure Database Migration Service. <br><br><br><br><br><br><br><br> |
+| Lorsque vous utilisez [ExpressRoute](https://azure.microsoft.com/services/expressroute/), Azure Database Migration Service [requiert](https://docs.microsoft.com/azure/dms/tutorial-sql-server-azure-sql-online) trois points de terminaison de service sur le sous-réseau de réseau virtuel associé au service d’approvisionnement :<br> --Point de terminaison Service Bus<br> : Point de terminaison de stockage<br> --Cible de point de terminaison de base de données (par exemple, le point de terminaison SQL, le point de terminaison Cosmos DB)<br><br><br><br><br> | [Activer](https://docs.microsoft.com/azure/dms/tutorial-sql-server-azure-sql-online) les points de terminaison de service requis pour la connectivité ExpressRoute entre la source et Azure Database Migration Service. <br><br><br><br><br><br><br><br> |
 
 ## <a name="timeout-error-when-migrating-a-mysql-database-to-azure-mysql"></a>Erreur de délai d’attente lorsque vous migrez une base de données MySQL vers Azure MySQL
 
@@ -96,7 +96,17 @@ Lorsque vous migrez une base de données MySQL vers une base de données Azure p
 
 | Cause :         | Résolution :    |
 | ------------- | ------------- |
-| Cette erreur se produit lors de la migration échoue en raison du délai d’attente de verrou pendant la migration.<br><br> | Envisagez d’augmenter la valeur du paramètre de serveur **'innodb_lock_wait_timeout'**. La valeur autorisée la plus élevée est 1073741824. |
+| Cette erreur se produit lors de la migration échoue en raison du délai d’attente de verrou pendant la migration. | Envisagez d’augmenter la valeur du paramètre de serveur **'innodb_lock_wait_timeout'**. La valeur autorisée la plus élevée est 1073741824. |
+
+## <a name="error-connecting-to-source-sql-server-when-using-dynamic-port-or-named-instance"></a>Erreur lors de la connexion à SQL Server source à l’aide du port dynamique ou instance nommée
+
+Lorsque vous essayez de vous connecter Azure Database Migration Service à une source de SQL Server qui s’exécute sur l’instance nommée ou un port dynamique, la connexion échoue avec l’erreur :
+
+* **Erreur**: -1 - échouée de la connexion SQL. Une erreur liée au réseau ou propre à une instance s’est produite lors de l’établissement d’une connexion à SQL Server. Le serveur est introuvable ou inaccessible. Vérifiez que le nom d’instance est correct et que SQL Server est configuré pour autoriser les connexions à distance. (fournisseur : Interfaces réseau SQL, erreur : 26 - erreur de localisation de Server/Instance spécifié)
+
+| Cause :         | Résolution :    |
+| ------------- | ------------- |
+| Ce problème se produit lorsque l’instance de SQL Server source Azure Database Migration Service essaie de se connecter à soit un port dynamique ou à utiliser une instance nommée. Le service SQL Server Browser écoute le port UDP 1434 pour les connexions entrantes à une instance nommée, ou lorsque vous utilisez un port dynamique. Le port dynamique peut changer à chaque redémarrage du service SQL Server. Vous pouvez vérifier le port dynamique assigné à une instance à l’aide de la configuration réseau dans le Gestionnaire de Configuration SQL Server.<br><br><br> |Vérifiez que le Service de Migration de base de données Azure peut se connecter à la source de service SQL Server Browser sur le port UDP 1434 et l’instance de SQL Server via le port TCP attribué dynamiquement selon le cas. |
 
 ## <a name="additional-known-issues"></a>Autres problèmes connus
 
