@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f7d24a1e14cfbb1163ab78b94dd36ec288dce50
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: e8bd9a86d5ec0d39a7f1c26adac52f41e6420283
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65544046"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66121987"
 ---
 # <a name="user-gets-consent-for-several-resources-using-msalnet"></a>Utilisateur obtienne son consentement à plusieurs ressources à l’aide de MSAL.NET
 Le point de terminaison Microsoft identity plateforme ne vous permet pas d’obtenir un jeton pour plusieurs ressources à la fois. Lorsque vous utilisez la bibliothèque d’authentification Microsoft pour .NET (MSAL.NET), le paramètre étendues dans la méthode de jeton acquire doit contenir uniquement les étendues pour une seule ressource. Toutefois, vous pouvez consentir préalable à l’avance de plusieurs ressources en spécifiant les étendues supplémentaires à l’aide de la `.WithExtraScopeToConsent` méthode du générateur.
@@ -32,8 +32,8 @@ Le point de terminaison Microsoft identity plateforme ne vous permet pas d’obt
 
 Par exemple, si vous disposez de deux ressources ayant 2 étendues de chacun :
 
-- https://mytenant.onmicrosoft.com/customerapi (avec des 2 étendues `customer.read` et `customer.write`)
-- https://mytenant.onmicrosoft.com/vendorapi (avec des 2 étendues `vendor.read` et `vendor.write`)
+- https :\//mytenant.onmicrosoft.com/customerapi (avec des 2 étendues `customer.read` et `customer.write`)
+- https :\//mytenant.onmicrosoft.com/vendorapi (avec des 2 étendues `vendor.read` et `vendor.write`)
 
 Vous devez utiliser le `.WithExtraScopeToConsent` modificateur qui a le *extraScopesToConsent* paramètre comme indiqué dans l’exemple suivant :
 

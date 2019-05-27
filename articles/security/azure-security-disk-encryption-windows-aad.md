@@ -8,11 +8,11 @@ ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
 ms.openlocfilehash: fa9b970ee9319af061ceab99844b0497253881ad
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286616"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66117930"
 ---
 # <a name="enable-azure-disk-encryption-for-windows-iaas-vms-previous-release"></a>Activation d’Azure Disk Encryption pour les machines virtuelles IaaS Windows (version précédente)
 
@@ -52,7 +52,7 @@ Vous pouvez activer le chiffrement de disque sur de nouvelles machines virtuelle
      -  Sélectionnez la machine virtuelle, puis cliquez sur **Disques** sous le titre **Paramètres** pour vérifier l’état du chiffrement dans le portail. Dans le graphique sous **Chiffrement**, vous voyez s’il est activé. 
            ![Portail Azure – Chiffrement de disque activé](./media/azure-security-disk-encryption/disk-encryption-fig2.png) Le tableau suivant répertorie les paramètres du modèle Resource Manager pour les nouvelles machines virtuelles dans un scénario Place de marché utilisant l’ID de client Azure AD :
 
-| Paramètre | Description | 
+| Paramètre | Description  | 
 | --- | --- |
 | adminUsername | Nom de l’utilisateur administrateur de la machine virtuelle. |
 | adminPassword | Mot de passe de l’utilisateur administrateur de la machine virtuelle. |
@@ -170,7 +170,7 @@ Vous pouvez activer le chiffrement de disque sur des machines virtuelles Windows
 
 Le tableau suivant répertorie les paramètres du modèle Resource Manager pour les machines virtuelles existantes ou en cours d’exécution qui utilisent un ID de client Azure AD :
 
-| Paramètre | Description |
+| Paramètre | Description  |
 | --- | --- |
 | AADClientID | ID de client de l’application Azure AD qui dispose des autorisations pour écrire des clés secrètes dans le coffre de clés. |
 | AADClientSecret | Clé secrète de client de l’application Azure AD qui dispose des autorisations pour écrire des clés secrètes dans le coffre de clés. |

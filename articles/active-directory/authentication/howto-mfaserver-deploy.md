@@ -5,18 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 05/20/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ae1db992984e8bb1dca71afed9fadd6b411b3dd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: aa3d7d22ed032379f452eb4648c9a1cf87293df9
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60415218"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956580"
 ---
 # <a name="getting-started-with-the-azure-multi-factor-authentication-server"></a>Prise en main du serveur Azure Multi-Factor Authentication
 
@@ -27,6 +27,9 @@ ms.locfileid: "60415218"
 Maintenant que nous avons déterminé s’il fallait utiliser le serveur Multi-Factor Authentication local, nous pouvons commencer. Cette page vous indique comment installer le serveur et le configurer avec votre Active Directory local. Si le serveur MFA est déjà installé et que vous souhaitez effectuer une mise à niveau, voir [Mise à niveau vers le serveur Azure Multi-Factor Authentication le plus récent](howto-mfaserver-deploy-upgrade.md). Pour plus d’informations sur l’installation du service web, voir [Déploiement du service web de l’application mobile pour le serveur Azure Multi-Factor Authentication](howto-mfaserver-deploy-mobileapp.md).
 
 ## <a name="plan-your-deployment"></a>Planifier votre déploiement
+
+> [!WARNING]
+> À compter de mars de 2019 MFA Server téléchargements sera uniquement disponibles pour les clients payants. Les locataires gratuit/essai sera n’est plus en mesure de télécharger ou générer des informations d’identification d’activation.
 
 Avant de télécharger le serveur Microsoft Azure Multi-Factor Authentication, pensez à vos exigences en termes de charge et de haute disponibilité. Prenez en compte ces informations pour décider de quelle manière et à quel endroit effectuer le déploiement.
 
@@ -90,6 +93,9 @@ Si vous n’utilisez pas la fonctionnalité de confirmation d’événement et q
 
 ## <a name="download-the-mfa-server"></a>Télécharger le serveur MFA
 
+> [!WARNING]
+> À compter de mars de 2019 MFA Server téléchargements sera uniquement disponibles pour les clients payants. Les locataires gratuit/essai sera n’est plus en mesure de télécharger ou générer des informations d’identification d’activation.
+
 Procédez comme suit pour télécharger le serveur Azure Multi-Factor Authentication (MFA) à partir du portail Azure :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) en tant qu’administrateur.
@@ -102,9 +108,6 @@ Procédez comme suit pour télécharger le serveur Azure Multi-Factor Authentica
 5. Ne fermez pas cette page, car nous y faisons mention après avoir exécuté le programme d’installation.
 
 ## <a name="install-and-configure-the-mfa-server"></a>Installer et configurer le serveur MFA
-
-> [!WARNING]
-> À compter de mars de 2019 MFA Server téléchargements sera uniquement disponibles pour les clients payants. Les locataires gratuit/essai sera n’est plus en mesure de télécharger ou générer des informations d’identification d’activation.
 
 Maintenant que vous avez téléchargé le serveur, vous pouvez l’installer et le configurer. Assurez-vous que le serveur que vous installez répond aux exigences regroupées sur la liste dans la section de planification.
 

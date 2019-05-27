@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 3/19/2019
 ms.author: victorh
-ms.openlocfilehash: 92799019d13de71d911767d8e400598513587667
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1259e755642563a7baad5496bc84ed736d5499f8
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60715218"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65849822"
 ---
 # <a name="overview-of-ssl-termination-and-end-to-end-ssl-with-application-gateway"></a>Vue d’ensemble de la terminaison SSL et SSL de bout en bout avec Application Gateway
 
@@ -36,7 +36,7 @@ Pour configurer une terminaison SSL, un certificat SSL doit être ajouté à l�
 Pour la connexion SSL fonctionne, vous devez vous assurer que le certificat SSL remplit les conditions suivantes :
 
 - Que la date et heure actuelles est dans la plage de date de « Valid à » sur le certificat et le « Valide à partir de ».
-- Que le « nom commun du certificat » (CN) correspond à l’en-tête d’hôte dans la demande. Par exemple, si le client effectue une demande à `https://www.contoso.com/`, le nom commun doit être `www.contoso.com`.
+- Le « nom commun » (CN) du certificat correspond à l’en-tête de l’hôte dans la requête. Par exemple, si le client adresse une requête à `https://www.contoso.com/`, le nom commun doit être `www.contoso.com`.
 
 ### <a name="certificates-supported-for-ssl-termination"></a>Certificats pris en charge pour un arrêt SSL
 
@@ -48,6 +48,9 @@ Passerelle d’application prend en charge les types de certificats suivants :
 - Les certificats auto-signés : Les navigateurs clients ne faites pas confiance à ces certificats et avertissement l’utilisateur que le certificat du service virtuel n’est pas partie d’une chaîne d’approbation. Les certificats auto-signés conviennent pour le test ou les environnements où les administrateurs de contrôlent les clients et peuvent ignorer en toute sécurité les alertes de sécurité du navigateur. Charges de travail de production ne doivent jamais utiliser des certificats auto-signés.
 
 Pour plus d’informations, consultez [configurer une terminaison SSL avec application gateway](https://docs.microsoft.com/azure/application-gateway/create-ssl-portal).
+
+### <a name="size-of-the-certificate"></a>Taille du certificat
+Le fichier PFX Personal Information Exchange () avec les informations de certificat SSL ne doit pas être plus de 10 Ko.
 
 ## <a name="end-to-end-ssl-encryption"></a>Le chiffrement SSL de bout en bout
 

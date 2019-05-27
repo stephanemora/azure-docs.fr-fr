@@ -16,12 +16,12 @@ ms.date: 09/10/2018
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26acb32828ae4829b3da5c3a1181dbde19b23d05
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 504c1bdeb05ecb6372be0edf023c480acac8a8a7
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65825210"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956850"
 ---
 # <a name="problems-signing-in-to-a-microsoft-application"></a>Problèmes de connexion à une application Microsoft
 
@@ -87,7 +87,7 @@ La liste ci-après répertorie les problèmes couramment rencontrés lorsque les
 
 - Pour les **applications** Microsoft **qui ne nécessitent pas une licence**, voici quelques autres points à vérifier :
 
-  * Si l’application demande des **autorisations de niveau utilisateur** (par exemple « Accéder à la boîte aux lettres de cet utilisateur »), vérifiez que l’utilisateur s’est connecté à l’application et qu’il a effectué une **opération de consentement de niveau utilisateur** pour permettre à l’application d’accéder à ses données.
+  * Si l’application demande **autorisations au niveau de l’utilisateur** (par exemple « accéder à cette boîte aux lettres »), assurez-vous que l’utilisateur est connecté à l’application et qu’il a effectué une **opération de consentement de niveau utilisateur** pour permettre à l’application d’accéder à leurs données.
 
   * Si l’application demande des **autorisations de niveau administrateur** (par exemple « Accéder à la boîte aux lettres de tous les utilisateurs »), vérifiez qu’un administrateur général a effectué une **opération de consentement de niveau administrateur pour le compte de tous les utilisateurs** au sein de l’organisation.
 

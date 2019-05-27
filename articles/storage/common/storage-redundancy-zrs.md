@@ -9,12 +9,12 @@ ms.date: 10/24/2018
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 9fd594fb264ff0467cc315f59927cd157068d522
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 3d4c40e172352fc2d92ea5523cad2aebe5468e1e
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65146167"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65961426"
 ---
 # <a name="zone-redundant-storage-zrs-highly-available-azure-storage-applications"></a>Stockage redondant interzone (ZRS) : applications Stockage Azure hautement disponibles
 [!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-zrs.md)]
@@ -32,10 +32,10 @@ Le stockage ZRS est généralement disponible dans les régions suivantes :
 - France Centre
 - Japon Est
 - Sud du Royaume-Uni
-- USA Est
+- USA Centre
+- Est des États-Unis
 - USA Est 2
 - USA Ouest 2
-- USA Centre
 
 Microsoft continue d’activer le stockage ZRS dans d’autres régions Azure. Consultez la page [Mises à jour de service Azure](https://azure.microsoft.com/updates/) régulièrement pour plus d’informations sur les nouvelles régions.
 
@@ -75,6 +75,7 @@ Dans le cadre d’une migration dynamique, gardez à l’esprit les restrictions
 - Vous ne pouvez migrer des données qu’au sein de la même région. Si vous souhaitez migrer vos données vers un compte de stockage ZRS situé dans une région différente de celle du compte source, vous devez effectuer une migration manuelle.
 - Seuls les types de comptes de stockage standard prennent en charge la migration dynamique. Les comptes de stockage Premium doivent être migrés manuellement.
 - Migration dynamique à partir de ZRS à LRS, GRS ou RA-GRS n’est pas pris en charge. Vous devez déplacer manuellement les données à un nouveau ou un compte de stockage existant.
+- Disques gérés sont uniquement disponibles pour un stockage LRS et ne peuvent pas être migrés vers ZRS. Pour une intégration avec la disponibilité de jeux de voir [Introduction à Azure des disques gérés](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#integration-with-availability-sets). Vous pouvez stocker des images et des instantanés pour les disques gérés Standard SSD sur le stockage de disque dur Standard et [le choix entre les options LRS et ZRS](https://azure.microsoft.com/pricing/details/managed-disks/). 
 
 Vous pouvez demander une migration dynamique via le [portail du Support Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). À partir du portail, sélectionnez le compte de stockage que vous souhaitez convertir en ZRS.
 1. Sélectionnez **Nouvelle demande de support**.
@@ -96,7 +97,7 @@ Une personne du support technique vous contactera pour vous apporter l’aide do
 
 **Me faut-il prévoir d’interruptions de service lors de la migration ?**
 
-Il n’existe aucun temps d’arrêt causés par la migration. Vous pouvez continuer votre compte de stockage pendant une migration dynamique, tandis que vos données sont transférées entre les tampons de stockage source et de destination. Pendant le processus de migration, vous avez le même niveau de durabilité et de contrat SLA de disponibilité en tant que vous feriez d’habitude.
+Il n’existe aucun temps d’arrêt causés par la migration. Lors d’une migration en direct, vous pouvez continuer à l’aide de votre compte de stockage tandis que vos données sont transférées entre les tampons de stockage source et de destination. Pendant le processus de migration, vous avez le même niveau de durabilité et de contrat SLA de disponibilité en tant que vous feriez d’habitude.
 
 **Existe-t-il une perte de données associé à la migration ?**
 

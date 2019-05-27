@@ -9,11 +9,11 @@ ms.date: 04/13/2018
 ms.author: genli
 ms.custom: include file
 ms.openlocfilehash: bda289e73b9a782cd56c0c94b8f53e8002b1ccf4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60869969"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66116842"
 ---
 ## <a name="how-to-create-a-virtual-network-using-a-network-config-file-from-powershell"></a>Création d’un réseau virtuel à l’aide d’un fichier de configuration réseau à partir de PowerShell
 Azure utilise un fichier XML pour définir tous les réseaux virtuels disponibles pour un abonnement. Vous pouvez télécharger ce fichier, y apporter des changements pour modifier ou supprimer des réseaux virtuels existants, et en créer de nouveaux. Dans ce didacticiel, vous découvrez comment télécharger ce fichier, appelé fichier de configuration réseau (ou netcfg), et le modifier pour créer un réseau virtuel. Pour plus d’informations sur le fichier de configuration réseau, consultez la rubrique [Schéma de configuration du réseau virtuel Azure](https://msdn.microsoft.com/library/azure/jj157100.aspx).

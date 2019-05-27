@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/23/2019
+ms.date: 05/21/2019
 ms.author: aschhab
-ms.openlocfilehash: 0364304a203e03faf69868174a45cb41850ce112
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: af67b27dacf3bb86c2dd5c878a2751e027a53acb
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60713960"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66003136"
 ---
 # <a name="overview-of-service-bus-dead-letter-queues"></a>Vue d’ensemble des files d’attente de lettres mortes Service Bus
 
@@ -102,6 +102,17 @@ while(true)
     }
 }
 ```
+
+## <a name="path-to-the-dead-letter-queue"></a>Chemin d’accès à la file d’attente de lettres mortes
+Vous pouvez accéder à la file d’attente de lettres mortes à l’aide de la syntaxe suivante :
+
+```
+<queue path>/$deadletterqueue
+<topic path>/Subscription/<subscription path>/$deadletterqueue
+```
+
+Si vous utilisez le kit SDK .NET, vous pouvez obtenir le chemin d’accès à la file d’attente de lettres mortes à l’aide de la méthode SubscriptionClient.FormatDeadLetterPath(). Cette méthode prend le nom de nom / d’abonnement de rubrique et suffixes avec **/$DeadLetterQueue**.
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

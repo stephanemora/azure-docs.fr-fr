@@ -8,12 +8,12 @@ ms.assetid: 623f5ed4-8da7-48f5-943a-448d0b7cba69
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 0b155a5cdfa1c540e1cfb92147f6ebc7f88dd929
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 407e25b7bb1a2220448c9701bbef208195c50b63
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61003696"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65953116"
 ---
 # <a name="manage-data-assets-in-azure-data-catalog"></a>Gérer les ressources de données dans Azure Data Catalog
 ## <a name="introduction"></a>Présentation
@@ -52,7 +52,7 @@ Si une ressource de données est déjà la propriété d’un utilisateur, les a
 ### <a name="remove-owners"></a>Supprimer des propriétaires
 De la même manière que n’importe quel propriétaire de ressources peut ajouter des copropriétaires, n’importe quel propriétaire de ressource a la possibilité de supprimer des copropriétaires.
 
-Si le propriétaire d’une ressource se supprime lui-même en tant que propriétaire, il n’aura plus aucun contrôle sur la ressource. Si le propriétaire d’une ressource se supprime lui-même en tant que propriétaire alors qu’il n’a désigné aucun copropriétaire, la ressource de données redevient sans propriétaire.
+Propriétaire d’une ressource se supprime eux-mêmes en tant que propriétaire ne peut plus gérer l’élément multimédia. Si le propriétaire de la ressource se supprime en tant que propriétaire et qu’aucun copropriétaire, la ressource revient à un état sans propriétaire.
 
 ## <a name="control-visibility"></a>Contrôler la visibilité
 Les propriétaires de ressources de données peuvent contrôler la visibilité des ressources qu’ils détiennent. Pour définir une visibilité plus restreinte que celle du paramètre par défaut (où tous les utilisateurs de Data Catalog ont la possibilité de détecter et d’afficher la ressource de données), le propriétaire de la ressource peut modifier le paramètre de visibilité dans les propriétés de la ressource en remplaçant l’option **Tout le monde** par l’option **Propriétaires et ces utilisateurs**. Les propriétaires peuvent ensuite ajouter des utilisateurs et groupes de sécurité spécifiques.

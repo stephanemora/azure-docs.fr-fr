@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/27/2019
+ms.date: 05/22/2019
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 593289e64c0f9cd13251a0f7b47b860158100b36
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 8c0e5035331cbe4f54926f0ae60ae0c5c31f6a9a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65544565"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66119721"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>Activation Fournir des revendications facultatives à votre application Azure AD
 
@@ -52,7 +52,7 @@ L’ensemble de revendications facultatives disponible par défaut pour les appl
 
 **Tableau 2 : Ensemble de revendications v1.0 et V2.0 facultatif**
 
-| Nom                       |  Description   | Type de jeton | Type d’utilisateur | Notes  |
+| Name                       |  Description   | Type de jeton | Type d’utilisateur | Notes  |
 |----------------------------|----------------|------------|-----------|--------|
 | `auth_time`                | Heure de dernière authentification de l’utilisateur. Voir les spécifications OpenID Connect.| JWT        |           |  |
 | `tenant_region_scope`      | Région du locataire de ressource. | JWT        |           | |
@@ -125,6 +125,9 @@ Cet objet OptionalClaims renvoie au client le jeton d’ID pour y inclure un aut
 ## <a name="configuring-optional-claims"></a>Configuration des revendications facultatives
 
 Vous pouvez configurer des revendications facultatives pour votre application en modifiant le manifeste de l’application (voir l’exemple ci-dessous). Pour plus d’informations, consultez le [présentation de l’article manifeste des applications Azure AD](reference-app-manifest.md).
+
+> [!IMPORTANT]
+> Jetons d’accès sont **toujours** généré à l’aide du manifeste de la ressource, pas le client.  C’est le cas dans la demande `...scope=https://graph.microsoft.com/user.read...` la ressource est le graphique.  Par conséquent, le jeton d’accès est créé en utilisant le manifeste de graphique, pas les manifeste du client.  Modifier le manifeste de votre application ne provoque jamais de jetons pour le graphique à un aspect différent.  Afin de vérifier que votre `accessToken` modifications prennent effet, demander un jeton pour votre application, pas d’une autre application.  
 
 **Exemple de schéma :**
 

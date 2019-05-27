@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: gsilva
 ms.custom: ''
-ms.openlocfilehash: 8ea17e5615c0256c084b0745a392fb49f8873f99
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1e5513b28c1ae64fc8c87bb7a949596feab4623e
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60713728"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65873414"
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking"></a>Créer une machine virtuelle Linux avec mise en réseau accélérée
 
@@ -225,7 +225,11 @@ vf_tx_dropped: 0
 ```
 La mise en réseau accélérée est maintenant activée pour votre machine virtuelle.
 
-## <a name="enable-accelerated-networking-on-existing-vms"></a>Activer l’accélération réseau sur des machines virtuelles existantes
+## <a name="handle-dynamic-binding-and-revocation-of-virtual-function"></a>Gérer la liaison dynamique et la révocation de fonction virtuelle 
+Applications doivent s’exécuter sur la carte réseau synthétique qui est exposée dans la machine virtuelle. Si l’application s’exécute directement sur la carte réseau VF, il ne reçoit pas **tous les** les paquets destinés à la machine virtuelle, dans la mesure où certains paquets apparaissent sur l’interface synthétique.
+Si vous exécutez une application sur la carte réseau synthétique, elle garantit que l’application reçoit **tous les** les paquets destinés à ce dernier. Il s’assure également que l’application continue à s’exécuter, même si la fonction virtuelle est révoqué lorsque l’hôte est en cours de maintenance. Applications de liaison à la carte réseau synthétique sont une **obligatoire** exigence pour toutes les applications en tirant parti de **mise en réseau accélérée**.
+
+## <a name="enable-accelerated-networking-on-existing-vms"></a>Activer la mise en réseau accélérée sur des machines virtuelles existantes
 Si vous avez créé une machine virtuelle sans mise en réseau accélérée, vous pouvez activer cette fonctionnalité sur une machine virtuelle existante.  La machine virtuelle doit prendre en charge la mise en réseau accélérée et remplir les prérequis suivants (ces prérequis ont déjà été décrits plus haut) :
 
 * La machine virtuelle doit avoir une taille prise en charge pour la mise en réseau accélérée

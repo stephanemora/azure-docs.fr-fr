@@ -8,11 +8,11 @@ ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
 ms.openlocfilehash: 1e535ed92305d124499fd0ce9933b7edd19df32e
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286157"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66118093"
 ---
 # <a name="enable-azure-disk-encryption-for-linux-iaas-vms-previous-release"></a>Activer Azure Disk Encryption pour les machines virtuelles IaaS Linux (version précédente)
 
@@ -138,7 +138,7 @@ Vous pouvez activer le chiffrement de disque sur une machine virtuelle IaaS Linu
 
 Le tableau suivant répertorie les paramètres du modèle Resource Manager pour les machines virtuelles existantes ou en cours d’exécution qui utilisent un ID de client Azure AD :
 
-| Paramètre | Description |
+| Paramètre | Description  |
 | --- | --- |
 | AADClientID | ID de client de l’application Azure AD qui dispose des autorisations pour écrire des clés secrètes dans le coffre de clés. |
 | AADClientSecret | Clé secrète de client de l’application Azure AD qui dispose des autorisations pour écrire des clés secrètes dans le coffre de clés. |

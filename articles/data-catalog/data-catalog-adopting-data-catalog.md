@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 04/05/2019
-ms.openlocfilehash: 62eb51e48ab688abcf39ba3c8d57aaccf6f47cb6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3943332179a6d283a8ed3ca66ea559d5cea53a10
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61002396"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65953199"
 ---
 # <a name="approach-and-process-for-adopting-azure-data-catalog"></a>Approche et processus d’adoption d’Azure Data Catalog
 
@@ -54,7 +54,7 @@ Voici quelques conseils pour vous aider à définir votre vision du projet :
 
 Voici un exemple d’énoncé de vision pour un plan d’adoption de Data Catalog pour la société fictive Adventure Works :
 
-**Azure Data Catalog** encourage l’équipe Finances d’Adventure Works à collaborer sur les principales sources de données, pour chaque membre de l’équipe puisse facilement trouver et utiliser les données ils ont besoin et partagent ses connaissances avec l’équipe dans sa globalité.
+**Azure Data Catalog** encourage l’équipe Finances d’Adventure Works à collaborer sur les principales sources de données, pour chaque membre de l’équipe puisse facilement trouver et utiliser les données nécessaires et peuvent partager leurs connaissances avec l’équipe dans sa globalité.
 
 Une fois que vous avez indiqué un énoncé de vision clair, vous devez identifier un projet pilote approprié pour Data Catalog. En règle générale, il existe plusieurs scénarios pour Data Catalog. La section suivante présente donc quelques conseils afin d’identifier les cas d’utilisation appropriés.
 

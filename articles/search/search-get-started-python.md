@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 1ab6bb069f60f4d2dbb4cfaecda54c3c2ef20adc
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: a79a5fe1632eeabee670274ebbb19c4c34bd84d2
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65806430"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66117336"
 ---
 # <a name="quickstart-create-an-azure-search-index-using-jupyter-python-notebooks"></a>Démarrage rapide : Créer un index Azure Search à l’aide du bloc-notes Jupyter Python
 > [!div class="op_single_selector"]
@@ -26,17 +26,17 @@ ms.locfileid: "65806430"
 > * [Portal](search-create-index-portal.md)
 > 
 
-Créer un bloc-notes Jupyter qui crée, charge et interroge une recherche Azure [index](search-what-is-an-index.md) à l’aide de Python et le [API REST de Service de recherche Azure](https://docs.microsoft.com/rest/api/searchservice/). Cet article explique comment créer votre propre portable étape par étape. Si vous le souhaitez, vous pouvez exécuter un bloc-notes terminé. Pour télécharger une copie, accédez à [référentiel Azure-Search-python-samples](https://github.com/Azure-Samples/azure-search-python-samples).
+Créer un bloc-notes Jupyter qui crée, charge et interroge un index Azure Search à l’aide de Python et le [API REST Azure Search](https://docs.microsoft.com/rest/api/searchservice/). Cet article explique comment créer un bloc-notes étape par étape, en partant de zéro. Vous pouvez également exécuter un bloc-notes terminé. Pour télécharger une copie, accédez à [référentiel Azure-Search-python-samples](https://github.com/Azure-Samples/azure-search-python-samples).
 
-Si vous ne disposez d’aucun abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer, puis [inscrivez-vous auprès de la fonction Recherche Azure](search-create-service-portal.md).
+Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
 ## <a name="prerequisites"></a>Conditions préalables
 
 Les services et les outils qui suivent sont utilisés dans ce guide de démarrage rapide. 
 
-+ [Créez un service Recherche Azure](search-create-service-portal.md) ou [recherchez un service existant](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) dans votre abonnement actuel. Vous pouvez utiliser un service gratuit pour ce guide de démarrage rapide. 
-
 + [Anaconda 3.x](https://www.anaconda.com/distribution/#download-section), fournissant les Python 3.x et Notebooks Jupyter.
+
++ [Créez un service Recherche Azure](search-create-service-portal.md) ou [recherchez un service existant](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) dans votre abonnement actuel. Vous pouvez utiliser un service gratuit pour ce guide de démarrage rapide. 
 
 ## <a name="get-a-key-and-url"></a>Obtenir une clé et une URL
 
@@ -67,9 +67,9 @@ Ouvrez un bloc-notes Jupyter et vérifier la connexion à partir de votre statio
 1. Dans la deuxième cellule, entrez les éléments de la demande qui seront des constantes à chaque demande. Remplacez le nom de service de recherche (YOUR-SEARCH-SERVICE-NAME) et la clé d’API d’administration (YOUR-ADMIN-API-KEY) avec des valeurs valides. 
 
    ```python
-    endpoint = 'https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/'
-    api_version = '?api-version=2019-05-06'
-    headers = {'Content-Type': 'application/json',
+   endpoint = 'https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/'
+   api_version = '?api-version=2019-05-06'
+   headers = {'Content-Type': 'application/json',
            'api-key': '<YOUR-ADMIN-API-KEY>' }
    ```
 
@@ -98,7 +98,6 @@ Sauf si vous utilisez le portail, un index doit exister sur le service avant de 
 La collection fields définit la structure d’un *document*. Les éléments requis d’un index incluent un nom et une collection de champs. Chaque champ a un nom, type et les attributs qui déterminent la façon dont il est utilisé (par exemple, si elle est en texte intégral consultable, filtrable ou récupérables dans les résultats de la recherche). Dans un index, l’un des champs de type `Edm.String` doit être désigné comme le *clé* pour l’identité du document.
 
 Cet index est nommé « hotels-py » et a les définitions de champ que vous voyez ci-dessous. C’est un sous-ensemble d’une plus grande [index des hôtels](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/Hotels_IndexDefinition.JSON) utilisé dans les autres procédures pas à pas. Nous avons le tronqué dans ce démarrage rapide par souci de concision.
-
 
 1. Dans la cellule suivante, collez l’exemple suivant dans une cellule pour fournir le schéma. 
 
@@ -152,7 +151,7 @@ Cet index est nommé « hotels-py » et a les définitions de champ que vous v
 
 Pour transmettre des documents, utilisez une requête HTTP POST au point de terminaison URL de votre index. L’API REST est [Ajout, mise à jour ou supprimer des Documents](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents). Documents proviennent de [HotelsData](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/HotelsData_toAzureSearch.JSON) sur GitHub.
 
-1. Dans une nouvelle cellule, fournissent trois documents conformes au schéma d’index. Spécifiez une action de téléchargement pour chaque document.
+1. Dans une nouvelle cellule, fournir quatre documents conformes au schéma d’index. Spécifiez une action de téléchargement pour chaque document.
 
     ```python
     documents = {
@@ -212,7 +211,25 @@ Pour transmettre des documents, utilisez une requête HTTP POST au point de term
             "StateProvince": "GA",
             "PostalCode": "30326",
             "Country": "USA"
-        }
+        },
+        {
+        "@search.action": "upload",
+        "HotelId": "4",
+        "HotelName": "Sublime Cliff Hotel",
+        "Description": "Sublime Cliff Hotel is located in the heart of the historic center of Sublime in an extremely vibrant and lively area within short walking distance to the sites and landmarks of the city and is surrounded by the extraordinary beauty of churches, buildings, shops and monuments. Sublime Cliff is part of a lovingly restored 1800 palace.",
+        "Description_fr": "Le sublime Cliff Hotel est situé au coeur du centre historique de sublime dans un quartier extrêmement animé et vivant, à courte distance de marche des sites et monuments de la ville et est entouré par l'extraordinaire beauté des églises, des bâtiments, des commerces et Monuments. Sublime Cliff fait partie d'un Palace 1800 restauré avec amour.",
+        "Category": "Boutique",
+        "Tags": [ "concierge", "view", "24-hour front desk service" ],
+        "ParkingIncluded": "true",
+        "LastRenovationDate": "1960-02-06T00:00:00Z",
+        "Rating": 4.60,
+        "Address": {
+            "StreetAddress": "7400 San Pedro Ave",
+            "City": "San Antonio",
+            "StateProvince": "TX",
+            "PostalCode": "78216",
+            "Country": "USA"
+       }
       }
      ]
     }
@@ -242,6 +259,10 @@ Pour transmettre des documents, utilisez une requête HTTP POST au point de term
            {'errorMessage': None,
             'key': '3',
             'status': True,
+            'statusCode': 201}]},
+           {'errorMessage': None,
+            'key': '4',
+            'status': True,
             'statusCode': 201}]}
      ```
 
@@ -266,7 +287,7 @@ Cette étape vous montre comment interroger un index à l’aide de la [API REST
    pprint(query)
    ```
 
-   Résultats doivent ressembler à la sortie suivante.
+   Résultats doivent ressembler à la sortie suivante. Les résultats sont unranked (search.score = 1.0), car nous n’avez pas fourni tous les critères à mettre en correspondance.
 
    ```
    {'@odata.context': "https://mydemo.search.windows.net/indexes('hotels-py')/$metadata#docs(*)",
@@ -279,14 +300,17 @@ Cette étape vous montre comment interroger un index à l’aide de la [API REST
                'HotelName': 'Twin Dome Motel'},
               {'@search.score': 1.0,
                'HotelId': '3',
-               'HotelName': 'Triple Landscape Hotel'}]}
+               'HotelName': 'Triple Landscape Hotel'},
+              {'@search.score': 1.0,
+               'HotelId': '4',
+               'HotelName': 'Sublime Cliff Hotel'}]}
    ```
 
-3. Essayez quelques autres exemples de requête pour obtenir un aperçu de la syntaxe. Vous pouvez appliquer un filtre, prendre les deux premiers résultats, classer par un champ spécifique, ou 
+3. Essayez quelques autres exemples de requête pour obtenir un aperçu de la syntaxe. Vous pouvez appliquer un filtre, qui utilisent les deux premiers résultats ou classer par un champ spécifique.
 
    + `searchstring = '&search=*&$filter=Rating gt 4&$select=HotelId,HotelName,Description'`
 
-   + `searchstring = '&search=hotel&$top=2&$select=HotelId,HotelName,Description'`
+   + `searchstring = '&search=boutique&$top=2&$select=HotelId,HotelName,Description'`
 
    + `searchstring = '&search=pool&$orderby=Address/City&$select=HotelId, HotelName, Address/City, Address/StateProvince'`
 
@@ -311,7 +335,7 @@ pprint(index_list)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-En savoir plus sur les scénarios et syntaxe de requête.
+En guise de simplification, ce démarrage rapide utilise une version abrégée de l’index des hôtels. Vous pouvez créer la version complète à exécuter des requêtes plus intéressants. Pour obtenir la version complète et tous les documents de 50, exécutez le **importer des données** Assistant, en sélectionnant *hôtels-sample* à partir des sources de données exemple intégrés.
 
 > [!div class="nextstepaction"]
-> [Créer une requête de base](search-query-overview.md)
+> [Démarrage rapide : Créer un index dans le portail Azure](search-get-started-portal.md)

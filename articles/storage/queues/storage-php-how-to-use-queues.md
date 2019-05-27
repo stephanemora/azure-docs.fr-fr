@@ -10,12 +10,12 @@ ms.date: 01/11/2018
 ms.author: mhopkins
 ms.reviewer: cbrooks
 ms.subservice: queues
-ms.openlocfilehash: b827894c633c425220bf94be1f51c52d464bd79b
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 4ff54f9ca20c101de55bec2c7acf914c17bd7709
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65410463"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65951197"
 ---
 # <a name="how-to-use-queue-storage-from-php"></a>Utilisation du stockage de files d'attente à partir de PHP
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -87,7 +87,7 @@ UseDevelopmentStorage=true
 Pour créer un client de service de file d’attente Azure, vous devez utiliser la classe **QueueRestProxy**. Vous pouvez utiliser une des techniques suivantes :
 
 * Lui passer directement la chaîne de connexion.
-* utiliser des variables d’environnement dans votre application web pour stocker la chaîne de connexion. Pour configurer des chaînes de connexion, consultez le document [Paramètres de configuration des applications web Azure](../../app-service/web-sites-configure.md).
+* utiliser des variables d’environnement dans votre application web pour stocker la chaîne de connexion. Pour configurer des chaînes de connexion, consultez le document [Paramètres de configuration des applications web Azure](../../app-service/configure-common.md).
 Dans les exemples ci-dessous, la chaîne de connexion est passée directement.
 
 ```php

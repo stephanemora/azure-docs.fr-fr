@@ -2,26 +2,26 @@
 title: Partenaires de SQL Data Warehouse en matière d’intégration de données | Microsoft Docs
 description: Répertorie les partenaires tiers proposant des solutions d’intégration de données prenant en charge SQL Data Warehouse.
 services: sql-data-warehouse
-author: jrowlandjones
+author: mabasile-MSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: consume
 ms.date: 03/27/2019
-ms.author: jrj
+ms.author: mabasile
 ms.reviewer: igorstan
-ms.openlocfilehash: 74449f7319f800e8008c5d457351fa49ae1af59a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5593d6e392915448845adcac95da869e72a11310
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61476736"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65873796"
 ---
 # <a name="sql-data-warehouse-data-integration-partners"></a>Partenaires de SQL Data Warehouse en matière d’intégration de données
 Pour créer votre solution d’entrepôt de données, vous pouvez choisir parmi un large éventail d’outils performants. Cet article met en évidence les sociétés partenaires de Microsoft avec les solutions d’intégration de données officielles prenant en charge d’Azure SQL Data Warehouse.
 
 ## <a name="data-integration-partners"></a>Partenaires d’intégration de données
-| Partenaire | Description | Lien de site Web/produit |
+| Partenaire | Description  | Lien de site Web/produit |
 | ------- | ----------- | -------------------- |
 | ![Alooma][7] |**Alooma**<br> Alooma est une solution ETL qui permet aux équipes de données à intégrer, enrichir et diffuser les données à partir de différents silos de données vers SQL Data Warehouse tout en temps réel. |[Page du produit][alooma_website] |
 | ![Alteryx][1] |**Alteryx**<br>  Alteryx Designer fournit un flux de travail répétitif pour l’analyse de données en libre-service qui offre de nouvelles perspectives en quelques heures, contrairement à quelques semaines pour les approches traditionnelles ! Alteryx Designer aide les analystes de données en combinant la préparation des données, le mélange des données et l’analyse (prédictive, statistique et spatiale) à l’aide de la même interface utilisateur intuitive. |[Page du produit][alteryx_designer_website]<br>[Place de marché Azure][alteryx_marketplace]<br>|

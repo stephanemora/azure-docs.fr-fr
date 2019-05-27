@@ -12,11 +12,11 @@ author: gauravmalhot
 ms.author: gamal
 manager: craigg
 ms.openlocfilehash: b62cbe75730da8c5764839d41887deb7e6cd0e90
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57576327"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66122649"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Surveiller un runtime d’intégration dans Azure Data Factory  
 Le **runtime d’intégration** est l’infrastructure de calcul utilisée par Azure Data Factory pour fournir des capacités d’intégration de données entre différents environnements réseau. Azure Data Factory propose trois types de runtimes d’intégration :

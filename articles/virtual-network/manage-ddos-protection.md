@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/06/2018
+ms.date: 05/17/2019
 ms.author: kumud
-ms.openlocfilehash: a053beb121e1b3c0db020094c29a9a1e0117da87
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 53185caa6a0492702035041a893f20a78cf1ea4d
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65203523"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65911249"
 ---
 # <a name="manage-azure-ddos-protection-standard-using-the-azure-portal"></a>Gérer le service Protection DDos Standard Azure à l’aide du portail Azure
 
@@ -203,6 +203,19 @@ Microsoft travaille en collaboration avec [BreakingPoint Cloud](https://www.ixia
 - Optimiser votre processus de réponse aux incidents en cas d’attaque DDoS
 - Documenter la conformité DDoS
 - Former des équipes de sécurité réseau
+
+## <a name="view-ddos-protection-alerts-in-azure-security-center"></a>Afficher les alertes de protection DDoS dans Azure Security Center
+
+Azure Security Center fournit une liste de [alertes de sécurité](/azure/security-center/security-center-managing-and-responding-alerts), des informations pour aider à étudier et corriger les problèmes. Avec cette fonctionnalité, vous obtenez une vue unifiée des alertes, y compris les alertes en rapport avec l’attaque DDoS et les actions effectuées pour atténuer l’attaque dans quasiment en temps.
+Il existe deux alertes spécifiques que vous ne verrez pour n’importe quel DDoS détection et atténuation d’attaque :
+
+- **Attaque DDoS détectée pour l’adresse IP publique**: Cette alerte est générée lorsque le service de protection DDoS détecte que l’une de vos adresses IP publiques est la cible d’une attaque DDoS.
+- **Attaque DDoS atténuées pour l’adresse IP publique**: Cette alerte est générée lorsqu’une attaque sur l’adresse IP publique a été atténuée.
+Pour afficher les alertes, ouvrez **Security Center** dans le portail Azure. Sous **Protection contre les menaces**, sélectionnez **alertes de sécurité**. La capture d’écran suivante montre un exemple des alertes attaque DDoS.
+
+![Alerte d’attaque DDoS dans Azure Security Center](./media/manage-ddos-protection/ddos-alert-asc.png)
+
+Les alertes incluent des informations générales sur l’adresse IP publique qui se trouve sous attaque, les géographique et les informations sur les menaces et les étapes de corrections.
 
 ## <a name="permissions"></a>Autorisations
 

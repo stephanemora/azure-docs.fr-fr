@@ -12,12 +12,12 @@ ms.date: 11/15/2018
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f337ea9d55a119c3aec6e94649cdbf049f99e9d6
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 51ad6ea2abcc18b985e9c45fbfb1ffba98fb2c1f
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65783685"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66113080"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Présentation des connecteurs de proxy d’application Azure AD
 
@@ -87,7 +87,9 @@ Pour en savoir plus sur les groupes de connecteurs, consultez [Publier des appli
 
 ## <a name="capacity-planning"></a>Planification de la capacité 
 
-Il est important de planifier une capacité suffisante entre les connecteurs pour gérer le volume de trafic attendu. En général, plus il y a d’utilisateurs, plus l’ordinateur doit avoir des capacités importantes. Voici un tableau donnant un plan du volume pouvant être gérer par différentes machines. Veuillez noter qu’il s’appuie entièrement sur le nombre attendu de transactions par seconde (TPS) plutôt que par utilisateur, étant donné que les modèles d’utilisation varient et ne peuvent servir à prévoir une charge. Il y aura par ailleurs des différences en fonction de la taille des réponses et du temps de réponse de l’application principale : plus la réponse est volumineuse et le temps de réponse lent, plus le TPS maximal est faible. Nous vous recommandons d’avoir des ordinateurs supplémentaires pour maintenir une charge distribuée aux alentours de 50 %. Cette capacité additionnelle garantit résilience et haute disponibilité.
+Il est important de planifier une capacité suffisante entre les connecteurs pour gérer le volume de trafic attendu. Nous recommandons que chaque groupe de connecteurs ait au moins deux connecteurs pour permettre la mise à l’échelle et haute disponibilité. Avoir trois connecteurs est optimal au cas où vous devrez peut-être un ordinateur à n’importe quel point de service. 
+
+En général, plus il y a d’utilisateurs, plus l’ordinateur doit avoir des capacités importantes. Voici un tableau donnant un plan du volume et latence attendue différentes machines peuvent gérer. Veuillez noter qu’il s’appuie entièrement sur le nombre attendu de transactions par seconde (TPS) plutôt que par utilisateur, étant donné que les modèles d’utilisation varient et ne peuvent servir à prévoir une charge. Il y aura par ailleurs des différences en fonction de la taille des réponses et du temps de réponse de l’application principale : plus la réponse est volumineuse et le temps de réponse lent, plus le TPS maximal est faible. Nous recommandons également d’avoir des ordinateurs supplémentaires afin que la charge distribuée entre les machines fournit toujours suffisamment mémoire tampon. Cette capacité additionnelle garantit résilience et haute disponibilité.
 
 |Cœurs|RAM|Latence attendue (MS)-P99|TPS max.|
 | ----- | ----- | ----- | ----- |

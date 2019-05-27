@@ -9,11 +9,11 @@ ms.date: 01/11/2018
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: ee9b70827c19236287f81f66f4b9c6e1004a54fd
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59532394"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66114491"
 ---
 Le tableau suivant décrit les limites par défaut pour les comptes de stockage Blob Azure à usage général v1 et v2. Le *entrée* limite s’applique à toutes les données à partir des demandes qui sont envoyées à un compte de stockage. Le *sortie* limite s’applique à toutes les données à partir des réponses sont reçues d’un compte de stockage.
 
@@ -21,7 +21,7 @@ Le tableau suivant décrit les limites par défaut pour les comptes de stockage 
 | --- | --- |
 | Nombre de comptes de stockage par région et par abonnement, y compris les comptes standard et premium | 250 |
 | Capacité de compte de stockage maximale | 2 Go pour les États-Unis et Europe, 500 To pour toutes les autres régions, ce qui inclut le Royaume-Uni |
-| Nombre maximal de conteneurs d’objets blob, objets BLOB, partages de fichiers, tables, files d’attente, entités ou des messages par compte de stockage | Aucune limite |
+| Nombre maximal de conteneurs d’objets blob, objets BLOB, partages de fichiers, tables, files d’attente, entités ou des messages par compte de stockage | Illimité |
 | Taux de demande maximal<sup>1</sup> par compte de stockage | 20 000 demandes par seconde |
 | Entrée maximale<sup>1</sup> par compte de stockage (régions des États-Unis) | 10 Gbit/s si RA-GRS/GRS est activé, 20 Gbit/s pour LRS/ZRS<sup>2</sup> |
 | Entrée maximale<sup>1</sup> par compte de stockage (régions hors États-Unis) | 5 Gbit/s si RA-GRS/GRS est activé, 10 Gbits/s pour LRS/ZRS<sup>2</sup> |

@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 577f370c3be0f232be4e6628dd6754c4164ab93f
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 13808871d67bb47dce82c5a3493fd89b0dfe1dcd
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65785261"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65952846"
 ---
 # <a name="email-one-time-passcode-authentication-preview"></a>Authentification par code secret à usage unique d’e-mail (préversion)
 
@@ -64,7 +64,7 @@ Vous pouvez afficher les utilisateurs invités qui s’authentifient à l’aide
 > Lorsqu’un utilisateur accepte un code secret à usage unique, puis obtient un compte Azure AD, MSA, ou un autre compte fédéré, il continue d’être authentifié à l’aide d’un code secret à usage unique. Si vous souhaitez mettre à jour leur méthode d’authentification, vous pouvez supprimer le compte d’utilisateur invité et les inviter à nouveau.
 
 ### <a name="example"></a>Exemples
-L’utilisateur invité alexdoe@gmail.com est invité sur Fabrikam, qui n’a pas de fédération Google configurée. Alex n’a pas de compte Microsoft. Il va recevoir un code secret à usage unique pour s’authentifier.
+L’utilisateur invité alexdoe@gmail.com est invité sur Fabrikam, qui n’a pas de fédération Google configurée. Alex n’a pas de compte Microsoft. Ils recevront un code secret à usage unique pour l’authentification.
 
 ## <a name="opting-in-to-the-preview"></a>Choix de la préversion 
 Quelques minutes peuvent être nécessaires à la validation du choix. Après cela, seuls les utilisateurs nouvellement invités qui respectent les conditions mentionnées ci-dessus utiliseront l’authentification par code secret à usage unique. Les utilisateurs invités qui ont accepté une invitation par le passé continueront d’utiliser la même méthode d’authentification.

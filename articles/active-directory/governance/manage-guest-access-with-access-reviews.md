@@ -16,12 +16,12 @@ ms.date: 12/13/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 967fbf460175dee303d26074426a1f90e4353407
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6fc5bcdbbe821008f74e85a91889044c8975ce93
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60350964"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66113257"
 ---
 # <a name="manage-guest-access-with-azure-ad-access-reviews"></a>Gérer l’accès invité avec les révisions d’accès Azure AD
 
@@ -31,16 +31,13 @@ Avec Azure Active Directory (Azure AD), vous pouvez facilement mettre en place u
 Vous pouvez également facilement vous assurer que les utilisateurs invités disposent de droits d’accès appropriés. Vous pouvez demander directement aux invités ou bien à un décisionnaire de prendre part à une révision d’accès et de renouveler la certification (ou d’effectuer une « attestation ») pour l’accès invité. Les réviseurs peuvent donner leur avis sur les besoins de chaque utilisateur en matière d’accès continu, en fonction des suggestions d’Azure AD. Lorsqu’une révision d’accès est terminée, vous pouvez effectuer des modifications et supprimer l’accès des invités qui n’en ont plus besoin.
 
 > [!NOTE]
-> Ce document se concentre sur la revue de l’accès des utilisateurs invités. Si vous souhaitez réviser l’accès de tous les utilisateurs, et pas uniquement celui des invités, consultez l’article [Manage user access with access reviews](manage-user-access-with-access-reviews.md) (Gérer l’accès utilisateur à l’aide des révisions d’accès). Si vous voulez examiner l’appartenance d’un utilisateur à un rôle d’administrateur tel que le rôle Administrateur général, consultez [Démarrer une révision d’accès dans Azure AD Privileged Identity Management](../privileged-identity-management/pim-how-to-start-security-review.md). 
->
->
+> Ce document se concentre sur la revue de l’accès des utilisateurs invités. Si vous souhaitez réviser l’accès de tous les utilisateurs, et pas uniquement celui des invités, consultez l’article [Manage user access with access reviews](manage-user-access-with-access-reviews.md) (Gérer l’accès utilisateur à l’aide des révisions d’accès). Si vous voulez examiner l’appartenance d’un utilisateur à un rôle d’administrateur tel que le rôle Administrateur général, consultez [Démarrer une révision d’accès dans Azure AD Privileged Identity Management](../privileged-identity-management/pim-how-to-start-security-review.md).
 
-## <a name="prerequisites"></a>Conditions préalables 
+## <a name="prerequisites"></a>Conditions préalables
 
+- Azure AD Premium P2
 
-Les révisions d’accès sont disponibles dans l’édition Premium P2 de Azure AD, incluse dans Microsoft Enterprise Mobility + Security, E5. Pour plus d’informations, consultez la page [Éditions d’Azure Active Directory](../fundamentals/active-directory-whatis.md). Chaque utilisateur interagissant avec cette fonctionnalité, notamment pour créer une révision, la remplir ou vérifier son accès, doit disposer d’une licence. 
-
-Vous pouvez également demander aux utilisateurs invités de vérifier leur propre accès. Pour chaque licence Azure AD Premium P2 que vous attribuez à un utilisateur de votre organisation, vous pouvez utiliser B2B pour inviter jusqu’à cinq utilisateurs dans le cadre d’une allocation d’utilisateur externe. Ces utilisateurs invités peuvent également utiliser les fonctionnalités d’Azure AD Premium P2. Pour plus d’informations, consultez l’article [Affectation de licences Azure Active Directory B2B Collaboration](../b2b/licensing-guidance.md).
+Pour plus d’informations, consultez [les utilisateurs doivent disposer de licences ?](access-reviews-overview.md#which-users-must-have-licenses).
 
 ## <a name="create-and-perform-an-access-review-for-guests"></a>Créer et exécuter une révision d’accès pour des invités
 

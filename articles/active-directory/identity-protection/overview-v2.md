@@ -17,12 +17,12 @@ ms.date: 10/03/2018
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d533e6aac9ae1a486d018414a86a9dc3fe742c2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 37c63e32f1ee9c404e8b84a6eb17bc6eec30a761
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60294280"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956933"
 ---
 # <a name="what-is-azure-active-directory-identity-protection-refreshed"></a>Présentation d'Azure Active Directory Identity Protection (mise à jour)
 
@@ -147,44 +147,44 @@ Le parcours de détection d'un risque et de réponse d'Identity Protection pour 
 
 ## <a name="common-scenarios"></a>Scénarios courants 
 
-Prenons l'exemple de Sarah, une employée de Contoso. 
+Examinons l’exemple d’un employé de Contoso. 
 
-1. Sarah tente de se connecter à Exchange Online à partir du navigateur Tor. Au moment de la connexion, Azure AD détecte des événements à risque en temps réel. 
+1. Un employé tente de se connecter à Exchange Online à partir du navigateur Tor. Au moment de la connexion, Azure AD détecte des événements à risque en temps réel. 
 
-2. Azure AD détecte que Sarah se connecte à partir d'une adresse IP anonyme, ce qui déclenche un niveau de risque de connexion moyen. 
+2. Azure AD détecte que l’employé se connecte à partir d’une adresse IP anonyme, déclenchement d’un niveau de risque de connexion moyen. 
 
-3. Sarah reçoit une demande d'authentification multifacteur (MFA) car l'administrateur informatique de Contoso a configuré la stratégie d'accès conditionnel en fonction du risque de connexion d'Identity Protection. Pour un risque de connexion moyen ou supérieur, la stratégie exige une authentification multifacteur (MFA). 
+3. L’employé est mise au défi par une invite d’authentification Multifacteur, car l’administrateur informatique de Contoso configuré la stratégie d’accès conditionnel de Protection d’identité risque de connexion. Pour un risque de connexion moyen ou supérieur, la stratégie exige une authentification multifacteur (MFA). 
 
-4. Une fois le défi MFA relevé, Sarah accède à Exchange Online. Son niveau de risque utilisateur ne change pas. 
+4. L’employé passe de l’invite d’authentification Multifacteur et accède à Exchange Online, et leur niveau de risque d’utilisateur n’est pas modifié. 
 
-Que s'est-il passé en arrière-plan ? La tentative de connexion à partir du navigateur Tor a déclenché dans Azure AD un risque de connexion en temps réel en raison de l'adresse IP anonyme utilisée. Lors du traitement de la demande, Azure AD a appliqué la stratégie de risque de connexion configurée dans Identity Protection car le niveau de risque de connexion de Sarah avait atteint le seuil (Moyen). Comme Sarah s'était déjà inscrite à pour l'authentification multifacteur, elle a pu relever le défi MFA. Sa capacité à relever ce défi a indiqué à Azure AD qu'elle était probablement la propriétaire légitime de l'identité et son niveau de risque utilisateur n'a pas augmenté. 
+Que s'est-il passé en arrière-plan ? La tentative de connexion à partir du navigateur Tor a déclenché dans Azure AD un risque de connexion en temps réel en raison de l'adresse IP anonyme utilisée. Comme Azure AD a traité la demande, il appliqué la stratégie de risque de connexion configurée dans Identity Protection, car le niveau de risque de connexion de l’employé atteint le seuil (moyenne). Étant donné que l’employé avait précédemment enregistré pour l’authentification Multifacteur, ils ont été en mesure de répondre aux et transmettre la demande MFA. Leur capacité à passer avec succès la demande MFA signalé à Azure AD qu’ils étaient sans doute le propriétaire légitime d’identité, et leur niveau de risque utilisateur n’augmente pas. 
 
 
-Mais que se passerait-il si une personne autre que Sarah essayait de se connecter ? 
+Mais que se passe-t-il si l’employé n’a pas été l’une tentative de connexion ? 
 
-1. Une personne malveillante dotée des informations d'identification de Sarah essaie de se connecter à son compte Exchange Online à partir du navigateur Tor, car cette personne tente de masquer son adresse IP. 
+1. Un acteur malveillant avec informations d’identification de l’employé tente de se connecter à son compte Exchange Online à partir du navigateur Tor, dans la mesure où ils essaient de masquer son adresse IP. 
 
 2. Azure AD détecte que la tentative de connexion provient d'une adresse IP anonyme, ce qui déclenche un risque de connexion en temps réel. 
 
 3. La personne malveillante reçoit une demande de MFA car l'administrateur informatique de Contoso a configuré la stratégie d'accès conditionnel en fonction du risque de connexion d'Identity Protection de manière à exiger une authentification multifacteur lorsque le risque de connexion est moyen ou supérieur. 
 
-4. La personne malveillante ne parvient pas à relever le défi MFA et ne peut donc pas accéder au compte Exchange Online de Sarah. 
+4. L’acteur malveillant échoue l’authentification MFA et ne peut pas accéder aux compte Exchange Online de l’employé. 
 
-5. L'échec de la demande MFA a déclenché l'enregistrement d'un événement à risque, ce qui augmente le risque utilisateur de Sarah pour les futures connexions. 
+5. L’échec MFA invite a déclenché un événement à risque doit être enregistré, déclenchement risque d’utilisateur pour les connexions futures. 
 
-Maintenant qu'une personne malveillante a essayé d'accéder au compte de Sarah, voyons ce qui se passera la prochaine fois que Sarah tentera de se connecter. 
+Maintenant qu’un acteur malveillant a tenté d’accéder à compte de Sarah, nous allons voir ce qui se passe la prochaine fois que l’employé tente de se connecter. 
 
-1. Sarah tente de se connecter à Exchange Online à partir d'Outlook. Au moment de la connexion, Azure AD détecte les événements à risque en temps réel ainsi que les risques utilisateur antérieurs. 
+1. L’employé tente de se connecter à Exchange Online à partir d’Outlook. Au moment de la connexion, Azure AD détecte les événements à risque en temps réel ainsi que les risques utilisateur antérieurs. 
 
 2. Azure AD ne détecte aucun risque de connexion en temps réel, mais détecte un risque utilisateur élevé en raison de l'activité à risque des scénarios précédents.  
 
-3. Sarah est invitée à réinitialiser son mot de passe car l’administrateur informatique de Contoso a configuré la stratégie de risque utilisateur d’Identity Protection de manière à exiger un changement de mot de passe lorsqu’un utilisateur présentant un risque élevé se connecte. 
+3. L’employé est mise au défi par une invite de réinitialisation de mot de passe, étant donné que Contoso de l’administrateur informatique configuré la stratégie des risques utilisateur Identity Protection pour exiger des modifications de mot de passe lorsqu’un utilisateur avec un risque élevé se connecte. 
 
-4. Comme Sarah est inscrite à SSPR (réinitialisation de mot de passe en libre-service) et MFA (authentification multifacteur), elle réinitialise son mot de passe avec succès. 
+4. Étant donné que l’employé est inscrit à SSPR et MFA, ils réinitialise correctement son mot de passe. 
 
-5. Une fois le mot de passe réinitialisé, les informations d'identification de Sarah ne sont plus compromises et son identité est de nouveau sécurisée. 
+5. En réinitialisant son mot de passe, informations d’identification de l’employé sont compromises n’est plus et leur identité retourne à un état sécurisé. 
 
-6. Les précédents événements à risque liés à Sarah sont résolus et son niveau de risque utilisateur est automatiquement réinitialisé en réponse à l'atténuation de la compromission des informations d'identification. 
+6. Événements à risque de l’employé précédent sont résolues et son niveau de risque d’utilisateur est réinitialisé automatiquement en réponse à atténuer la compromission des informations d’identification. 
 
 ## <a name="how-do-i-configure-identity-protection"></a>Comment configurer Identity Protection ? 
 

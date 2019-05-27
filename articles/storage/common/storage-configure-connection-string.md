@@ -9,12 +9,12 @@ ms.date: 04/12/2017
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 7029f07b494630cc1ebe4a2dbfb297e73d85ec5e
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: ef01cf194ea7a0afea033d2888df946208073e41
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153185"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65874115"
 ---
 # <a name="configure-azure-storage-connection-strings"></a>Configuration des chaînes de connexion Stockage Azure
 
@@ -35,7 +35,7 @@ Votre application doit accéder à la chaîne de connexion pendant l’exécutio
 
 Le stockage de votre chaîne de connexion dans un fichier de configuration facilite la mise à jour de la chaîne de connexion qui vous permet de basculer entre l’émulateur de stockage et un compte de stockage Azure dans le cloud. Il vous suffit de modifier la chaîne de connexion pour la faire pointer vers votre environnement cible.
 
-Vous pouvez utiliser [Microsoft Azure Configuration Manager](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/) pour accéder à votre chaîne de connexion lors de l’exécution, quel que soit l’environnement d’exécution de votre application.
+Vous pouvez utiliser [Microsoft Azure Configuration Manager](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/) pour accéder à votre chaîne de connexion lors de l’exécution, quel que soit l’environnement d’exécution de votre application.
 
 ## <a name="create-a-connection-string-for-the-storage-emulator"></a>Création d’une chaîne de connexion pour l’émulateur de stockage
 [!INCLUDE [storage-emulator-connection-string-include](../../../includes/storage-emulator-connection-string-include.md)]
@@ -107,7 +107,7 @@ Si vous avez mappé un point de terminaison de stockage à un domaine personnali
 >
 
 ### <a name="create-a-connection-string-with-an-endpoint-suffix"></a>Création d’une chaîne de connexion avec un suffixe de point de terminaison
-Pour créer une chaîne de connexion pour un service de stockage dans les régions ou les instances avec des suffixes de point de terminaison différents, comme pour Azure China ou Azure Government, utilisez le format de chaîne de connexion suivant. Indiquez si vous souhaitez vous connecter au compte de stockage via HTTPS (recommandé) ou HTTP, remplacez `myAccountName` par le nom de votre compte de stockage, remplacez `myAccountKey` par votre clé d’accès au compte et remplacez `mySuffix` par le suffixe d’URI :
+Pour créer une chaîne de connexion pour un service de stockage dans les régions ou les instances avec des suffixes de point de terminaison différent, comme pour Azure China 21Vianet ou Azure Government, utilisez le format de chaîne de connexion suivant. Indiquez si vous souhaitez vous connecter au compte de stockage via HTTPS (recommandé) ou HTTP, remplacez `myAccountName` par le nom de votre compte de stockage, remplacez `myAccountKey` par votre clé d’accès au compte et remplacez `mySuffix` par le suffixe d’URI :
 
 ```
 DefaultEndpointsProtocol=[http|https];
@@ -116,7 +116,7 @@ AccountKey=myAccountKey;
 EndpointSuffix=mySuffix;
 ```
 
-Voici un exemple de chaîne de connexion pour des services de stockage dans Azure China :
+Voici un exemple de chaîne de connexion pour les services de stockage dans Azure China 21Vianet :
 
 ```
 DefaultEndpointsProtocol=https;

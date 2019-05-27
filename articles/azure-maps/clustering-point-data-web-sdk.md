@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen
-ms.openlocfilehash: d4dc6f0c8fd2dff74a1997c9dca5a31abc70c03a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6dbd4461e7b8382ec3c4075b9688de59678f98f5
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60795935"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65957321"
 ---
 # <a name="clustering-point-data"></a>Clustering de point de données
 
@@ -33,7 +33,7 @@ var datasource = new atlas.source.DataSource(null, {
     //The radius in pixels to cluster points together.
     clusterRadius: 45,
 
-    //The maximium zoom level in which clustering occurs.
+    //The maximum zoom level in which clustering occurs.
     //If you zoom in more than this, all points are rendered as symbols.
     clusterMaxZoom: 15 
 });
@@ -44,11 +44,11 @@ var datasource = new atlas.source.DataSource(null, {
 
 Le `DataSource` classe a également les méthodes suivantes de clustering :
 
-| Méthode | Type de retour | Description |
+| Méthode | Type de retour | Description  |
 |--------|-------------|-------------|
-| getClusterChildren(clusterId: number) | Promesse&lt;fonctionnalité&lt;géométrie, n’importe quel&gt; \| forme&gt; | Récupère les enfants du cluster donné sur le niveau de zoom suivant. Ces enfants peuvent être une combinaison de formes et subclusters. Les subclusters seront les fonctionnalités dont les propriétés correspondent ClusteredProperties. |
+| getClusterChildren(clusterId: number) | Promesse&lt;tableau&lt;fonctionnalité&lt;géométrie, n’importe quel&gt; \| forme&gt;&gt; | Récupère les enfants du cluster donné sur le niveau de zoom suivant. Ces enfants peuvent être une combinaison de formes et subclusters. Les subclusters seront les fonctionnalités dont les propriétés correspondent ClusteredProperties. |
 | getClusterExpansionZoom(clusterId: number) | Promesse&lt;nombre&gt; | Calcule un niveau de zoom à partir duquel le cluster ne démarrera développant ou décomposer. |
-| getClusterLeaves(clusterId: number, limit: number, offset: number) | Promesse&lt;fonctionnalité&lt;géométrie, n’importe quel&gt; \| forme&gt; | Récupère tous les points dans un cluster. Définir le `limit` pour renvoyer un sous-ensemble des points et le `offset` pour passer en revue les points. |
+| getClusterLeaves(clusterId: number, limit: number, offset: number) | Promesse&lt;tableau&lt;fonctionnalité&lt;géométrie, n’importe quel&gt; \| forme&gt;&gt; | Récupère tous les points dans un cluster. Définir le `limit` pour renvoyer un sous-ensemble des points et le `offset` pour passer en revue les points. |
 
 ## <a name="display-clusters-using-a-bubble-layer"></a>Afficher les clusters à l’aide d’une couche à bulles
 
@@ -84,12 +84,12 @@ Consultez le stylet <a href='https://codepen.io/azuremaps/pen/VRJrgO/'>Cluster p
 
 Lorsque des événements de souris se produisent sur une couche qui contiennent des points de données en cluster, le point de données en cluster sera retourné à l’événement comme un objet de fonction de point de GeoJSON. Cette fonctionnalité point a les propriétés suivantes :
 
-| Nom de la propriété | type | Description |
+| Nom de la propriété | type | Description  |
 |---------------|------|-------------|
 | cluster | booléenne | Indique si les fonctionnalité représente un cluster. |
 | cluster_id | string | Un ID unique pour le cluster peut être utilisé avec la source de données `getClusterExpansionZoom`, `getClusterChildren`, et `getClusterLeaves` méthodes. |
 | point_count | number | Le nombre de points que contient le cluster. |
-| point_count_abbreviated | string | Chaîne qui abrège la valeur point_count si elle est long. (par exemple, 4 000 devient 4K) |
+| point_count_abbreviated | string | Une chaîne abrège les `point_count` valeur si elle est long. (par exemple, 4 000 devient 4K) |
 
 Cet exemple accepte une couche à bulles qui restitue des points de cluster et ajoute un événement click qui déclenchement, calculer, et effectuer un zoom de la carte au niveau de zoom suivant à partir duquel le cluster s’arrête les unes des autres à l’aide de la `getClusterExpansionZoom` méthode de la `DataSource` classe et le `cluster_id` propriété de l’utilisateur a cliqué dessus en cluster le point de données. 
 

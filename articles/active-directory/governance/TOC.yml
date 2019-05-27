@@ -1,6 +1,6 @@
 - name: Documentation sur Azure AD Identity Governance
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   expanded: true
   items:
     - name: Présentation de la gouvernance des identités
@@ -27,8 +27,6 @@
           href: manage-guest-access-with-access-reviews.md
         - name: Gérer l’accès utilisateur avec les révisions
           href: manage-user-access-with-access-reviews.md
-        - name: Gérer des programmes et leurs contrôles
-          href: manage-programs-controls.md
         - name: Gérer les utilisateurs exclus de l’accès conditionnel
           href: conditional-access-exclusion.md
 - name: Guides pratiques
@@ -64,8 +62,6 @@
               href: review-your-access.md
             - name: Effectuer une révision d’accès
               href: complete-access-review.md
-            - name: Récupérer les résultats d’une révision d’accès
-              href: retrieve-access-review.md
         - name: Rôles Azure AD
           items:
             - name: Créer une révision d’accès

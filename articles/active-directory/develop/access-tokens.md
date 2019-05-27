@@ -5,7 +5,6 @@ services: active-directory
 documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
@@ -17,12 +16,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24b2281e09da0bdcff0abec8be0091dcbb32cc51
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: ea1e47939913435b5b7040c0e6d01b1208d709d3
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65544783"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65962886"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Jetons d’accès plateforme Microsoft identity
 
@@ -78,10 +77,10 @@ Les revendications ne sont présentes que lorsqu’elles sont renseignées par u
 |Revendication | Format | Description  |
 |--------|--------|-------------|
 | `typ` | Chaîne : toujours « JWT » | Indique que le jeton est un JWT.|
-| `nonce` | Chaîne | Identificateur unique utilisé pour se protéger contre les attaques par relecture de jetons. Votre ressource peut enregistrer cette valeur pour se protéger contre les relectures. |
-| `alg` | Chaîne | Indique l’algorithme utilisé pour signer le jeton, par exemple « RS256 » |
-| `kid` | Chaîne | Indique l’empreinte de la clé publique utilisée pour signer le jeton. Émis dans les jetons d’accès v1.0 et v2.0. |
-| `x5t` | Chaîne | Fonctions identiques (en utilisation et en valeur) à `kid`. `x5t` est une revendication héritée émise uniquement dans les jetons d’accès v1.0 à des fins de compatibilité. |
+| `nonce` | String | Identificateur unique utilisé pour se protéger contre les attaques par relecture de jetons. Votre ressource peut enregistrer cette valeur pour se protéger contre les relectures. |
+| `alg` | String | Indique l’algorithme utilisé pour signer le jeton, par exemple « RS256 » |
+| `kid` | String | Indique l’empreinte de la clé publique utilisée pour signer le jeton. Émis dans les jetons d’accès v1.0 et v2.0. |
+| `x5t` | String | Fonctions identiques (en utilisation et en valeur) à `kid`. `x5t` est une revendication héritée émise uniquement dans les jetons d’accès v1.0 à des fins de compatibilité. |
 
 ### <a name="payload-claims"></a>Revendications de la charge utile
 
@@ -100,8 +99,8 @@ Les revendications ne sont présentes que lorsqu’elles sont renseignées par u
 | `appidacr` | « 0 », « 1 » ou « 2 » | Uniquement dans les jetons v1.0. Indique comment le client a été authentifié. Pour un client public, la valeur est « 0 ». Si l’ID client et la clé secrète client sont utilisés, la valeur est « 1 ». Si un certificat client a été utilisé pour l’authentification, la valeur est « 2 ». |
 | `azp` | Chaîne, GUID | Les jetons présents uniquement dans la version 2.0, un remplacement pour `appid`. ID de l’application du client utilisant le jeton. L'application peut agir pour elle-même ou pour le compte d'un utilisateur. L'ID d'application représente généralement un objet d’application, mais elle peut également représenter un objet du principal du service dans Azure AD. |
 | `azpacr` | « 0 », « 1 » ou « 2 » | Les jetons présents uniquement dans la version 2.0, un remplacement pour `appidacr`. Indique comment le client a été authentifié. Pour un client public, la valeur est « 0 ». Si l’ID client et la clé secrète client sont utilisés, la valeur est « 1 ». Si un certificat client a été utilisé pour l’authentification, la valeur est « 2 ». |
-| `preferred_username` | Chaîne | Nom d’utilisateur principal qui représente l’utilisateur. Il peut s’agir d’une adresse e-mail, d’un numéro de téléphone ou d’un nom d’utilisateur générique sans format spécifié. Sa valeur est mutable et peut changer au fil du temps. Dans la mesure où elle est mutable, cette valeur ne doit pas utilisée pour prendre des décisions d’autorisation.  Elle peut cependant être utilisée pour les conseils relatifs au nom d’utilisateur. L’étendue `profile` est requise afin de recevoir cette revendication. |
-| `name` | Chaîne | Fournit une valeur contrôlable de visu qui identifie le sujet du jeton. Il n’est pas certain que cette valeur soit unique. Elle est mutable et conçue pour être utilisée uniquement à des fins d’affichage. L’étendue `profile` est requise afin de recevoir cette revendication. |
+| `preferred_username` | String | Nom d’utilisateur principal qui représente l’utilisateur. Il peut s’agir d’une adresse e-mail, d’un numéro de téléphone ou d’un nom d’utilisateur générique sans format spécifié. Sa valeur est mutable et peut changer au fil du temps. Dans la mesure où elle est mutable, cette valeur ne doit pas utilisée pour prendre des décisions d’autorisation.  Elle peut cependant être utilisée pour les conseils relatifs au nom d’utilisateur. L’étendue `profile` est requise afin de recevoir cette revendication. |
+| `name` | String | Fournit une valeur contrôlable de visu qui identifie le sujet du jeton. Il n’est pas certain que cette valeur soit unique. Elle est mutable et conçue pour être utilisée uniquement à des fins d’affichage. L’étendue `profile` est requise afin de recevoir cette revendication. |
 | `scp` | Chaîne, liste d’étendues séparées par des espaces | Ensemble des étendues exposées par votre application pour lesquelles l’application client a requis (et reçu) un consentement. Votre application doit vérifier la validité de ces étendues et prendre des décisions d’autorisation en fonction de leur valeur. Uniquement inclus pour les [jetons utilisateur](#user-and-application-tokens). |
 | `roles` | Tableau de chaînes, une liste d’autorisations | Le jeu d’autorisations exposées par votre application que l’application ou l’utilisateur demandeur a reçu l’autorisation d’appeler. Pour [jetons d’application](#user-and-application-tokens), elle est utilisée pendant la [informations d’identification client](v1-oauth2-client-creds-grant-flow.md) flux à la place des étendues de l’utilisateur.  Pour [jetons utilisateur](#user-and-application-tokens) ce champ est renseigné avec les rôles de l’utilisateur a été affecté sur l’application cible. |
 | `wids` | Tableau de [RoleTemplateID](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#role-template-ids) GUID | Indique les rôles au niveau du locataire attribués à cet utilisateur, à partir de la section des rôles présents dans [la page de rôles d’administrateur](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#role-template-ids).  Cette revendication est configurée sur une base par application, via le `groupMembershipClaims` propriété de la [manifeste d’application](reference-app-manifest.md).  La valeur « All » ou « DirectoryRole » est requis.  Ne peut pas être présents dans les jetons obtenus via le flux implicite en raison des problèmes de longueur de jeton. |
@@ -111,7 +110,7 @@ Les revendications ne sont présentes que lorsqu’elles sont renseignées par u
 | `sub` | Chaîne, GUID | Principal sur lequel portent les assertions d’informations du jeton, comme l’utilisateur d’une application. Cette valeur est immuable et ne peut pas être réattribuée ou réutilisée. Vous pouvez l’utiliser pour effectuer des vérifications d’autorisation en toute sécurité, comme lorsque le jeton est utilisé pour accéder à une ressource et qu’il peut servir de clé dans les tables de base de données. Étant donné que le sujet est toujours présent dans les jetons émis par Azure AD, nous vous recommandons d’utiliser cette valeur dans un système d’autorisation général. Toutefois, l’objet est un identificateur par paire ; il est unique à un ID d’application donné. Par conséquent, si un utilisateur se connecte à deux applications différentes à l’aide de deux ID clients différents, ces applications reçoivent deux valeurs différentes pour la revendication de l’objet. Ceci peut être souhaitable ou non en fonction de vos besoins d’architecture et de confidentialité. Voir aussi le `oid` revendication (qui reste le même sur des applications au sein d’un locataire). |
 | `oid` | Chaîne, GUID | Identificateur immuable pour un objet dans la plateforme d’identité Microsoft, dans cet exemple, un compte d’utilisateur. Il peut également être utilisé pour effectuer des vérifications d’autorisation en toute sécurité et en tant que clé dans les tables de base de données. Cet ID identifie de manière unique l’utilisateur entre les applications ; deux applications différentes se connectant au même utilisateur auront la même valeur dans la revendication `oid`. Ainsi, `oid` peut être utilisé lors de la formulation de requêtes auprès de services Microsoft en ligne, tels que Microsoft Graph. Microsoft Graph renverra cet ID en tant que propriété `id` pour un compte d’utilisateur donné. `oid` permettant à plusieurs applications de faire correspondre des utilisateurs, l’étendue `profile` est requise afin de recevoir cette revendication. Notez que si un utilisateur existe dans plusieurs locataires, l’utilisateur contient un ID d’objet différent dans chaque locataire. Ils sont considérés comme des comptes différents, même si l’utilisateur se connecte à chaque compte avec les mêmes informations d’identification. |
 | `tid` | Chaîne, GUID | Représente le client Azure AD d’où provient l’utilisateur. Pour les comptes professionnels et scolaires, le GUID correspond à l’ID de client immuable de l’organisation à laquelle appartient l’utilisateur. Pour les comptes personnels, la valeur est `9188040d-6c67-4c5b-b112-36a304b66dad`. L’étendue `profile` est requise afin de recevoir cette revendication. |
-| `unique_name` | Chaîne | Uniquement dans les jetons v1.0. Fournit une valeur contrôlable de visu qui identifie le sujet du jeton. Il n’est pas certain que cette valeur soit unique au sein d’un client. Elle doit être utilisée uniquement à des fins d’affichage. |
+| `unique_name` | String | Uniquement dans les jetons v1.0. Fournit une valeur contrôlable de visu qui identifie le sujet du jeton. Il n’est pas certain que cette valeur soit unique au sein d’un client. Elle doit être utilisée uniquement à des fins d’affichage. |
 | `uti` | Chaîne opaque | Revendication interne utilisée par Azure pour revalider des jetons. Ressources ne doivent pas utiliser cette revendication. |
 | `rh` | Chaîne opaque | Revendication interne utilisée par Azure pour revalider des jetons. Les ressources ne doivent pas utiliser cette revendication. |
 | `ver` | Chaîne, soit `1.0` ou `2.0` | Indique la version du jeton d’accès. |
@@ -122,15 +121,15 @@ Les revendications suivantes figureront dans les jetons v1.0 le cas échéant, m
 
 | Revendication | Format | Description  |
 |-----|--------|-------------|
-| `ipaddr`| Chaîne | Adresse IP à partir de laquelle l’utilisateur s’est authentifié. |
+| `ipaddr`| String | Adresse IP à partir de laquelle l’utilisateur s’est authentifié. |
 | `onprem_sid`| Chaîne, au format [SID](https://docs.microsoft.com/windows/desktop/SecAuthZ/sid-components) | Lorsque l’utilisateur dispose d’une authentification locale, cette revendication fournit son SID. Vous pouvez utiliser `onprem_sid` pour l’autorisation dans des applications héritées.|
 | `pwd_exp`| int, horodatage UNIX | Indique la date d’expiration du mot de passe de l’utilisateur. |
-| `pwd_url`| Chaîne | URL vers laquelle les utilisateurs peuvent être redirigés pour réinitialiser leur mot de passe. |
+| `pwd_url`| String | URL vers laquelle les utilisateurs peuvent être redirigés pour réinitialiser leur mot de passe. |
 | `in_corp`| booléenne | Indique si le client se connecte à partir du réseau d’entreprise. Si elles ne sont pas, la revendication n’est pas incluse. |
-| `nickname`| Chaîne | Autre nom de l’utilisateur, distinct du nom de famille et du prénom.|
-| `family_name` | Chaîne | Fournit le nom de famille de l’utilisateur tel que défini sur l’objet utilisateur. |
-| `given_name` | Chaîne | Fournit le prénom de l’utilisateur tel que défini sur l’objet utilisateur. |
-| `upn` | Chaîne | Nom d’utilisateur. Il peut s’agir d’un numéro de téléphone, d’une adresse électronique ou d’une chaîne non formatée. Ne doit être utilisé qu’à des fins d’affichage et pour fournir des indications sur le nom d’utilisateur dans les scénarios de réauthentification. |
+| `nickname`| String | Autre nom de l’utilisateur, distinct du nom de famille et du prénom.|
+| `family_name` | String | Fournit le nom de famille de l’utilisateur tel que défini sur l’objet utilisateur. |
+| `given_name` | String | Fournit le prénom de l’utilisateur tel que défini sur l’objet utilisateur. |
+| `upn` | String | Nom d’utilisateur. Il peut s’agir d’un numéro de téléphone, d’une adresse électronique ou d’une chaîne non formatée. Ne doit être utilisé qu’à des fins d’affichage et pour fournir des indications sur le nom d’utilisateur dans les scénarios de réauthentification. |
 
 #### <a name="the-amr-claim"></a>Revendication `amr`
 

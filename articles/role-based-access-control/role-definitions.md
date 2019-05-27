@@ -15,12 +15,12 @@ ms.date: 02/09/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 7855c2bd45ba35ecb0ede5c60268e6446f37ed5a
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 5a08c2ae0b82841fd15aac4af06a8874cf64ba53
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62121822"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65949994"
 ---
 # <a name="understand-role-definitions-for-azure-resources"></a>Comprendre les définitions de rôle relatives aux ressources Azure
 
@@ -48,7 +48,7 @@ Les opérations sont spécifiées à l’aide de chaînes dont le format est le 
 
 La portion `{action}` d’une chaîne d’opération spécifie le type des opérations que vous pouvez effectuer sur un type de ressource. Par exemple, vous verrez les sous-chaînes suivantes dans `{action}` :
 
-| Sous-chaîne d’action    | Description         |
+| Sous-chaîne d’action    | Description          |
 | ------------------- | ------------------- |
 | `*` | Le caractère générique donne accès à toutes les opérations qui correspondent à la chaîne. |
 | `read` | Permet les opérations de lecture (GET). |
@@ -147,9 +147,9 @@ Contributeur aux données Blob du stockage
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write`
 
-Comme Alice dispose d’une action avec caractère générique (`*`) à une étendue de l’abonnement, elle hérite d’autorisations lui permettant d’effectuer toutes les actions de gestion. Alice peut lire, écrire et supprimer des conteneurs. En revanche, elle ne peut pas effectuer d’opérations sur des données sans passer par des étapes supplémentaires. Par exemple, par défaut, Alice ne peut pas lire les objets blob à l’intérieur d’un conteneur. Pour cela, elle doit récupérer les clés d’accès de stockage et les utiliser pour accéder aux objets blob.
+Dans la mesure où Alice a un caractère générique (`*`) action dans une étendue de l’abonnement, héritent de leurs autorisations vers le bas pour leur permettre d’effectuer toutes les actions de gestion. Alice peut lire, écrire et supprimer des conteneurs. En revanche, elle ne peut pas effectuer d’opérations sur des données sans passer par des étapes supplémentaires. Par exemple, par défaut, Alice ne peut pas lire les objets blob à l’intérieur d’un conteneur. Pour cela, elle doit récupérer les clés d’accès de stockage et les utiliser pour accéder aux objets blob.
 
-Les autorisations de Bob sont limitées à simplement le `Actions` et `DataActions` spécifié dans le [contributeur aux données stockage Blob](built-in-roles.md#storage-blob-data-contributor) rôle. En fonction du rôle, Bob peut effectuer à la fois des opérations de gestion et des opérations sur les données. Par exemple, Bob peut lire, écrire et supprimer des conteneurs du compte de stockage spécifié, mais aussi lire, écrire et supprimer les objets blob.
+Les autorisations de Bob sont limitées à simplement le `Actions` et `DataActions` spécifié dans le [contributeur aux données stockage Blob](built-in-roles.md#storage-blob-data-contributor) rôle. En fonction du rôle, Bob peut effectuer à la fois des opérations de gestion et des opérations sur les données. Par exemple, Bob peut lire, écrire, supprimer des conteneurs dans le compte de stockage spécifié et peut également lire, écrire et supprimer les objets BLOB.
 
 Pour plus d’informations sur la gestion et la sécurité du plan de données pour le stockage, consultez le [guide de sécurité Stockage Microsoft Azure](../storage/common/storage-security-guide.md).
 
@@ -157,7 +157,7 @@ Pour plus d’informations sur la gestion et la sécurité du plan de données p
 
 Pour afficher et utiliser des opérations sur les données, vous devez disposer des versions appropriées des outils ou des kits de développement logiciel (SDK) :
 
-| Outil  | Version  |
+| Tool  | Version  |
 |---------|---------|
 | [Azure PowerShell](/powershell/azure/install-az-ps) | 1.1.0 ou ultérieure |
 | [Interface de ligne de commande Azure](/cli/azure/install-azure-cli) | 2.0.30 ou version ultérieure |
@@ -179,7 +179,7 @@ Le portail Azure permet également aux utilisateurs de parcourir et de gérer le
 
 L’autorisation `Actions` spécifie les opérations d’administration que le rôle autorise. Il s’agit d’un ensemble de chaînes d’opération qui identifient les opérations sécurisables des fournisseurs de ressources Azure. Voici quelques exemples d’opérations de gestion qui peuvent être utilisées dans `Actions`.
 
-| Chaîne d’opération    | Description         |
+| Chaîne d’opération    | Description          |
 | ------------------- | ------------------- |
 | `*/read` | Accorde l’accès aux opérations de lecture pour tous les types de ressources de l’ensemble des fournisseurs de ressources Azure.|
 | `Microsoft.Compute/*` | Accorde l’accès à l’ensemble des opérations pour tous les types de ressources dans le fournisseur de ressources Microsoft.Compute.|
@@ -199,7 +199,7 @@ L’autorisation `NotActions` spécifie les opérations de gestion qui sont excl
 
 L’autorisation `DataActions` spécifie les opérations de données que le rôle autorise sur vos données au sein de cet objet. Par exemple, si un utilisateur dispose d’un accès en lecture aux données blob d’un compte de stockage, il peut lire les objets blob de ce compte de stockage. Voici quelques exemples d’opérations sur les données qui peuvent être utilisées dans `DataActions`.
 
-| Chaîne d’opération    | Description         |
+| Chaîne d’opération    | Description          |
 | ------------------- | ------------------- |
 | `Microsoft.Storage/storageAccounts/ blobServices/containers/blobs/read` | Retourne un objet blob ou une liste d'objets blob. |
 | `Microsoft.Storage/storageAccounts/ blobServices/containers/blobs/write` | Retourne le résultat de l'écriture d'un objet blob. |

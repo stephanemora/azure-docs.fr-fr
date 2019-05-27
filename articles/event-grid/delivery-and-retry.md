@@ -5,14 +5,14 @@ services: event-grid
 author: spelluru
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 01/01/2019
+ms.date: 05/15/2019
 ms.author: spelluru
-ms.openlocfilehash: 6dfa84eff8dcc104ae6f9c16262f3b1c697df6c1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b4bfdd3e9cdf99314dc55907ba163adc6cd39423
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60561996"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65952889"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Distribution et nouvelle tentative de distribution de messages avec Azure Grid
 
@@ -24,16 +24,18 @@ Actuellement, Event Grid envoie chaque événement individuellement aux abonnés
 
 ## <a name="retry-schedule-and-duration"></a>Planification d’un nouvel essai et durée
 
-Event Grid utilise une stratégie de nouvelle tentative d’interruption exponentielle pour la distribution des événements. Si un point de terminaison ne répond pas ou retourne un code d’échec, Event Grid tente à nouveau remise selon la planification suivante sur la mesure du possible :
+Event Grid attend 30 secondes pour une réponse après la distribution d’un message. Après 30 secondes, si le point de terminaison n’a pas répondu, le message est en attente de nouvelle tentative. Event Grid utilise une stratégie de nouvelle tentative d’interruption exponentielle pour la distribution des événements. Event Grid tente à nouveau remise selon la planification suivante sur la mesure du possible :
 
-1. 10 secondes
-1. 30 secondes
-1. 1 minute
-1. 5 minutes
-1. 10 minutes
-1. 30 minutes
-1. 1 heure
-1. Toutes les heures pour jusqu'à 24 heures
+- 10 secondes
+- 30 secondes
+- 1 minute
+- 5 minutes
+- 10 minutes
+- 30 minutes
+- 1 heure
+- Toutes les heures pour jusqu'à 24 heures
+
+Si le point de terminaison répond dans les 3 minutes, Event Grid tente de supprimer l’événement de la file d’attente de nouvelle tentative sur une mesure du possible, mais les doublons peuvent toujours être reçus.
 
 Event Grid ajoute une petite randomisation à toutes les étapes de nouvelle tentative et peut ignorer façon opportuniste certaines nouvelles tentatives si un point de terminaison est systématiquement défectueux, vers le bas pour une longue période, ou être submergée.
 
@@ -72,7 +74,7 @@ Les codes de réponse HTTP suivants indiquent un échec de la tentative de distr
 
 - 400 Demande incorrecte
 - 401 Non autorisé
-- 404 Introuvable
+- 404 Non trouvé
 - 408 Délai d’expiration de la demande
 - 413 Entité de demande trop grande
 - 414 URI trop long

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: a5c62c67cd401c043352b06e6e6070a7fc0f1296
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60631030"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66118309"
 ---
 #### <a name="to-connect-through-the-serial-console"></a>Pour établir une connexion via la console série
 1. Connectez votre câble série à l’appareil (directement ou via un adaptateur USB série).

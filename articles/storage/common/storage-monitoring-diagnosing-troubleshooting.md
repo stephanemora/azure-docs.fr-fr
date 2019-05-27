@@ -9,12 +9,12 @@ ms.date: 05/11/2017
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: b929d9d1acc217c291c5aa645ee2d8952f401cd1
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: ccafa3431e12b036346c4fd654b2978dc9021471
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65192164"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65912396"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Surveiller, diagnostiquer et résoudre les problèmes liés à Microsoft Azure Storage
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -426,7 +426,7 @@ Si la métrique **PercentThrottlingError** indique une augmentation du pourcenta
 Une augmentation de la valeur **PercentThrottlingError** se produit souvent en même temps qu'une augmentation du nombre de demandes de stockage, ou lors des tests initiaux de la charge de votre application. Elle peut également se manifester dans le client sous forme de messages d’état HTTP « 503 Server Busy » ou « 500 Operation Timeout » à partir des opérations de stockage.
 
 #### <a name="transient-increase-in-PercentThrottlingError"></a>Augmentation provisoire de la valeur PercentThrottlingError
-Si vous constatez des pics de la valeur **PercentThrottlingError** qui coïncident avec des périodes de forte activité de l’application, implémentez une stratégie d’interruption des nouvelles tentatives exponentielle (non linéaire) dans votre client. Les tentatives d’interruption réduisent la charge immédiate sur la partition et aident votre application à aplanir les pics de trafic. Pour plus d’informations sur la façon d’implémenter des stratégies de nouvelle tentative à l’aide de la bibliothèque cliente de stockage, voir [Espace de noms Microsoft.WindowsAzure.Storage.RetryPolicies](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.cloudblobclient.retrypolicy).
+Si vous constatez des pics de la valeur **PercentThrottlingError** qui coïncident avec des périodes de forte activité de l’application, implémentez une stratégie d’interruption des nouvelles tentatives exponentielle (non linéaire) dans votre client. Les tentatives d’interruption réduisent la charge immédiate sur la partition et aident votre application à aplanir les pics de trafic. Pour plus d’informations sur la façon d’implémenter des stratégies de nouvelle tentative à l’aide de la bibliothèque cliente de stockage, consultez le [espace de noms Microsoft.Azure.Storage.RetryPolicies](/dotnet/api/microsoft.azure.storage.retrypolicies).
 
 > [!NOTE]
 > Vous pouvez également constater des pics de la valeur **PercentThrottlingError** qui ne coïncident pas avec des périodes de forte activité de l’application. La cause la plus probable est le déplacement de partitions, par le service de stockage, pour améliorer l’équilibrage de la charge.
@@ -469,15 +469,15 @@ Si votre application client génère des erreurs HTTP403 (Forbidden), l'une des 
 
 | Source | Commentaires | Commentaires | ID de la demande client | Operation Text |
 | --- | --- | --- | --- | --- |
-| Microsoft.WindowsAzure.Storage |Information |3 |85d077ab-… |Démarrage de l'opération avec l'emplacement Primary par mode d'emplacement PrimaryOnly. |
-| Microsoft.WindowsAzure.Storage |Information |3 |85d077ab-… |Démarrage de la requête synchrone vers <https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&sr=c&si=mypolicy&sig=OFnd4Rd7z01fIvh%2BmcR6zbudIH2F5Ikm%2FyhNYZEmJNQ%3D&api-version=2014-02-14> |
-| Microsoft.WindowsAzure.Storage |Information |3 |85d077ab-… |Attente de la réponse. |
-| Microsoft.WindowsAzure.Storage |Avertissement |2 |85d077ab-… |Exception levée pendant l’attente de la réponse : Le serveur distant a retourné une erreur : (403) Interdit. |
-| Microsoft.WindowsAzure.Storage |Information |3 |85d077ab-… |Réponse reçue. Code d'état = 403, ID de la demande = 9d67c64a-64ed-4b0d-9515-3b14bbcdc63d, Content-MD5 = , ETag = . |
-| Microsoft.WindowsAzure.Storage |Avertissement |2 |85d077ab-… |Exception levée durant l’opération : Le serveur distant a retourné une erreur : (403) Interdit. |
-| Microsoft.WindowsAzure.Storage |Information |3 |85d077ab-… |Vérification si l’opération doit être tentée à nouveau. Nombre de nouvelles tentatives = 0, Code d’état HTTP = 403, Exception = Le serveur distant a retourné une erreur : (403) Interdit. |
-| Microsoft.WindowsAzure.Storage |Information |3 |85d077ab-… |L'emplacement suivant a été défini sur Primary, sur base du mode d'emplacement. |
-| Microsoft.WindowsAzure.Storage |Error |1 |85d077ab-… |La stratégie de nouvelle tentative n’a pas autorisé de nouvelle tentative. Échec avec Le serveur distant a retourné une erreur : (403) Interdit. |
+| Microsoft.Azure.Storage |Information |3 |85d077ab-… |Démarrage de l'opération avec l'emplacement Primary par mode d'emplacement PrimaryOnly. |
+| Microsoft.Azure.Storage |Information |3 |85d077ab-… |Démarrage de la requête synchrone vers <https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&sr=c&si=mypolicy&sig=OFnd4Rd7z01fIvh%2BmcR6zbudIH2F5Ikm%2FyhNYZEmJNQ%3D&api-version=2014-02-14> |
+| Microsoft.Azure.Storage |Information |3 |85d077ab-… |Attente de la réponse. |
+| Microsoft.Azure.Storage |Avertissement |2 |85d077ab-… |Exception levée pendant l’attente de la réponse : Le serveur distant a retourné une erreur : (403) Interdit. |
+| Microsoft.Azure.Storage |Information |3 |85d077ab-… |Réponse reçue. Code d'état = 403, ID de la demande = 9d67c64a-64ed-4b0d-9515-3b14bbcdc63d, Content-MD5 = , ETag = . |
+| Microsoft.Azure.Storage |Avertissement |2 |85d077ab-… |Exception levée durant l’opération : Le serveur distant a retourné une erreur : (403) Interdit. |
+| Microsoft.Azure.Storage |Information |3 |85d077ab-… |Vérification si l’opération doit être tentée à nouveau. Nombre de nouvelles tentatives = 0, Code d’état HTTP = 403, Exception = Le serveur distant a retourné une erreur : (403) Interdit. |
+| Microsoft.Azure.Storage |Information |3 |85d077ab-… |L'emplacement suivant a été défini sur Primary, sur base du mode d'emplacement. |
+| Microsoft.Azure.Storage |Error |1 |85d077ab-… |La stratégie de nouvelle tentative n’a pas autorisé de nouvelle tentative. Échec avec Le serveur distant a retourné une erreur : (403) Interdit. |
 
 Dans ce scénario, vous devez rechercher pourquoi le jeton SAS expire avant que le client n'envoie le jeton au serveur :
 

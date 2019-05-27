@@ -14,11 +14,11 @@ ms.workload: NA
 ms.date: 03/22/2019
 ms.author: aljo
 ms.openlocfilehash: 2e9c41409c1f528947e3bef281e9a3c34da39e9b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59050440"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66119158"
 ---
 # <a name="enable-disk-encryption-for-service-fabric-windows-cluster-nodes"></a>Activer le chiffrement de disque pour les nœuds de cluster Windows Service Fabric 
 > [!div class="op_single_selector"]

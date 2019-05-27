@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: danlep
-ms.openlocfilehash: d50d5bc91fbb86e5c0c3d2acc3b55c7d02c71723
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: bdf88657c11bdb5ab5bcde97c155780328065c7e
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65192263"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65954477"
 ---
 # <a name="acr-tasks-reference-yaml"></a>Référence ACR Tasks : YAML
 
@@ -95,7 +95,7 @@ L’objet secret a les propriétés suivantes.
 | Propriété | Type | Facultatif | Description | Valeur par défaut |
 | -------- | ---- | -------- | ----------- | ------- |
 | `id` | string | Non  | L’identificateur de la clé secrète. | Aucun |
-| `akv` | string | Oui | L’URL de Secret Azure Key Vault (AKV). | Aucun |
+| `keyvault` | string | Oui | L’URL de Secret de coffre de clés Azure. | Aucun |
 | `clientID` | string | Oui | L’ID client de l’utilisateur affecté identité managée pour ressources Azure. | Aucun |
 
 ### <a name="network"></a>réseau

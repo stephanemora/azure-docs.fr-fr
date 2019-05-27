@@ -16,12 +16,12 @@ ms.date: 04/27/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3abe2f7deef2a1dbe82f4702fd3477303891ab2e
-ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.openlocfilehash: 0b9baa48c13e317ba3fb54d998ee8f125d2093c7
+ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64873554"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65921057"
 ---
 # <a name="what-is-azure-ad-entitlement-management-preview"></a>Qu’est la gestion des droits Azure AD ? (Préversion)
 
@@ -42,7 +42,7 @@ Les entreprises doivent souvent faire face les défis lors de la gestion des acc
 - Les utilisateurs peuvent avoir des difficultés à localiser les personnes appropriées ou les ressources droite
 - Une fois que les utilisateurs de trouver et obtenez l’accès à une ressource, ils peuvent conserver pour accéder plus que nécessaire à des fins professionnelles
 
-Ces problèmes sont compliquent pour les utilisateurs qui ont besoin d’accéder à partir d’un autre annuaire, telles que les utilisateurs externes qui proviennent d’organisations de chaîne d’approvisionnement ou d’autres partenaires commerciaux. Par exemple : 
+Ces problèmes sont compliquent pour les utilisateurs qui ont besoin d’accéder à partir d’un autre annuaire, telles que les utilisateurs externes qui proviennent d’organisations de chaîne d’approvisionnement ou d’autres partenaires commerciaux. Exemple :
 
 - Les organisations peuvent ne pas savoir toutes les personnes dans d’autres répertoires pour être en mesure de les inviter
 - Même si les organisations ont été en mesure d’inviter ces utilisateurs, les organisations peuvent vous souvenez pas gérer l’ensemble de l’accès utilisateur cohérente
@@ -114,7 +114,7 @@ Le diagramme suivant illustre les différents éléments dans Gestion des habili
 
 Lorsque vous utilisez le [Azure AD business-to-business (B2B)](../b2b/what-is-b2b.md) inviter expérience, vous devez déjà connaître les adresses de messagerie des utilisateurs invités externes vous souhaitez importer dans votre répertoire de ressources et de travailler avec. Cela fonctionne parfaitement lorsque vous travaillez sur un projet à court terme ou plus petit et que vous connaissez déjà tous les participants, mais il est plus difficile à gérer si vous avez un grand nombre d’utilisateurs que vous souhaitez utiliser, ou si les participants changent au fil du temps.  Par exemple, vous pouvez travailler avec une autre organisation et atteigne un point de contact avec cette organisation, mais au fil du temps des utilisateurs supplémentaires à partir de cette organisation seront également besoin d’accéder.
 
-Avec la gestion des droits, vous pouvez définir une stratégie qui autorise les utilisateurs d’organisations que vous spécifiez, et qui utilisent également Azure AD, pour être en mesure de demander un package d’accès. Vous pouvez spécifier si l’approbation est requise et la date d’expiration de l’accès. Si l’approbation est requise, vous pouvez également désigner en tant qu’approbateur un ou plusieurs utilisateurs à partir de l’organisation externe que vous avez précédemment invité - dans la mesure où ils sont susceptibles de connaître les utilisateurs externes à partir de leur organisation ont besoin d’accéder. Une fois que vous avez configuré le package de l’accès, vous pouvez envoyer un lien vers le package de l’accès à la personne à contacter à l’organisation externe. Ce contact peut partager avec d’autres utilisateurs de l’organisation externe, et ils peuvent utiliser ce lien pour demander le package de l’accès.  Utilisateurs à partir de ce d’organisation qui ont déjà été invités dans votre annuaire peuvent également utiliser ce lien.
+Avec la gestion des droits, vous pouvez définir une stratégie qui autorise les utilisateurs d’organisations que vous spécifiez, et qui utilisent également Azure AD, pour être en mesure de demander un package d’accès. Vous pouvez spécifier si l’approbation est requise et la date d’expiration de l’accès. Si l’approbation est requise, vous pouvez également désigner en tant qu’approbateur un ou plusieurs utilisateurs à partir de l’organisation externe que vous avez précédemment invité - dans la mesure où ils sont susceptibles de connaître les utilisateurs externes à partir de leur organisation ont besoin d’accéder. Une fois que vous avez configuré le package de l’accès, vous pouvez envoyer un lien vers le package de l’accès à la personne à contacter à l’organisation externe. Ce contact peut partager avec d’autres utilisateurs dans l’organisation externe, et ils peuvent utiliser ce lien pour demander le package de l’accès.  Utilisateurs de cette organisation qui ont déjà été invités dans votre annuaire peuvent également utiliser ce lien.
 
 Lorsqu’une demande est approuvée, gestion des habilitations configurera l’utilisateur avec l’accès nécessaire, ce qui peut inclure l’invitation de l’utilisateur si elles ne sont pas déjà dans votre répertoire. Azure AD crée automatiquement un compte B2B pour eux.  Notez qu’un administrateur peut avoir limité précédemment quelles organisations qui est autorisés pour la collaboration, en définissant un [B2B autoriser ou refuser les liste](../b2b/allow-deny-list.md) pour autoriser ou bloquer des invitations à d’autres organisations.  Si l’utilisateur n’est pas autorisée par la liste verte ou rouge, puis ils ne seront pas invités.
 
@@ -124,15 +124,15 @@ Lorsqu’une demande est approuvée, gestion des habilitations configurera l’u
 
 Pour mieux comprendre le gestion des habilitations et sa documentation, vous devez examiner les termes suivants.
 
-| Terme ou concept | Description |
+| Terme ou concept | Description  |
 | --- | --- |
 | gestion des habilitations | Un service qui est attribué, révoque et administre les packages de l’accès. |
 | package de l’accès | Une collection d’autorisations et les stratégies de ressources que les utilisateurs peuvent demander. Un package d’accès est toujours contenu dans un catalogue. |
 | demande d’accès | Une demande à accéder à un package d’accès. Une demande passe généralement par un flux de travail. |
 | policy | Un ensemble de règles qui définit le cycle de vie de l’accès, telles que la façon dont les utilisateurs ont accès, qui peuvent approuver, et la durée pendant laquelle les utilisateurs ont accès. Les exemples de stratégie comprennent l’accès des employés et l’accès externe. |
-| catalog | Un conteneur de ressources associées et leur accès aux packages. |
+| catalogue | Un conteneur de ressources associées et leur accès aux packages. |
 | Catalogue général | Catalogue intégré qui est toujours disponible. Pour ajouter des ressources dans le catalogue général, requiert certaines autorisations. |
-| resource | Une ressource ou un service (par exemple, un groupe, une application ou un site) qui peut disposer des autorisations pour un utilisateur. |
+| Ressource | Une ressource ou un service (par exemple, un groupe, une application ou un site) qui peut disposer des autorisations pour un utilisateur. |
 | type de ressource | Le type de ressource, qui inclut les groupes, les applications et sites SharePoint Online. |
 | rôle de ressource | Une collection d’autorisations associées à une ressource. |
 | répertoire de ressources | Un répertoire qui a une ou plusieurs ressources à partager. |
@@ -143,7 +143,7 @@ Pour mieux comprendre le gestion des habilitations et sa documentation, vous dev
 
 Gestion des habilitations a différents rôles basés sur la fonction.
 
-| Rôle | Description |
+| Rôle | Description  |
 | --- | --- |
 | [Administrateur de l’utilisateur](../users-groups-roles/directory-assign-admin-roles.md#user-administrator) | Gérer tous les aspects de la gestion des habilitations.<br/>Créer des utilisateurs et groupes. |
 | Créateur de catalogue | Créer et gérer des catalogues. En général, un administrateur ou propriétaire de la ressource. La personne qui crée un catalogue automatiquement devient propriétaire du catalogue premier du catalogue. |

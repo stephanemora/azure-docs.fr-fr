@@ -8,12 +8,12 @@ ms.assetid: 5a7e6bb2-863c-4eca-b614-1c814920d9ed
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 3a66c8c5963972828723dd74ffe560a0e2240165
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 18dfd9eb66c1dc71ecb14bb748d9cdd6afeb00a7
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61001934"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65953169"
 ---
 # <a name="how-to-annotate-data-sources"></a>Annotation de sources de données
 ## <a name="introduction"></a>Présentation
@@ -27,9 +27,9 @@ Avec Data Catalog, les perspectives de chaque utilisateur à l’égard des sour
 * L’administrateur de base de données connaît la planification de sauvegarde pour chaque base de données et les fenêtres de traitement ETL autorisées.
 * Le propriétaire du système connaît le processus permettant aux utilisateurs de demander l'accès à la source de données.
 * Le gestionnaire de données sait de quelle façon les ressources et attributs de la source de données sont mappés au modèle de données d’entreprise.
-* L’analyste sait comment les données sont utilisées dans le cadre des processus d’entreprise qu’il prend en charge.
+* L’analyste sait comment les données sont utilisées dans le contexte des processus d’entreprise qu’ils prennent en charge.
 
-Chacune de ces perspectives est précieuse, et Data Catalog utilise une approche de crowdsourcing à l’égard des métadonnées, qui permet de capturer et d’utiliser chacune d’elles en vue d’établir une image complète des sources de données inscrites. À l’aide du portail Data Catalog, chaque utilisateur peut ajouter et modifier ses propres annotations, tout en ayant la possibilité de consulter les annotations apportées par les autres utilisateurs.
+Chacune de ces perspectives est précieuse, et Data Catalog utilise une approche de crowdsourcing à l’égard des métadonnées, qui permet de capturer et d’utiliser chacune d’elles en vue d’établir une image complète des sources de données inscrites. À l’aide du portail Data Catalog, chaque utilisateur peut ajouter et modifier leurs propres annotations, tout en étant en mesure d’afficher les annotations fournies par d’autres utilisateurs.
 
 ## <a name="different-types-of-annotations"></a>Différents types d’annotations
 Data Catalog prend en charge les types d’annotations suivants :
@@ -37,7 +37,7 @@ Data Catalog prend en charge les types d’annotations suivants :
 | Annotation | Notes |
 | --- | --- |
 | Nom convivial |Les noms conviviaux peuvent être fournis au niveau des ressources de données pour en favoriser la compréhension. Les noms conviviaux sont particulièrement utiles lorsque le nom d’objet sous-jacent est peu clair, abrégé ou peu explicite auprès des utilisateurs. |
-| Description |Des descriptions peuvent être fournies aux niveaux des sources de données et attributs / colonnes. Les descriptions sont de courtes annotations de texte libre décrivant la perspective de l’utilisateur sur la ressource de données ou son utilisation. |
+| Description  |Des descriptions peuvent être fournies aux niveaux des sources de données et attributs / colonnes. Les descriptions sont de courtes annotations de texte libre décrivant la perspective de l’utilisateur sur la ressource de données ou son utilisation. |
 | Balises (balises utilisateur) |Des balises peuvent être fournies aux niveaux des sources de données et attributs / colonnes. Les balises utilisateur sont des étiquettes définies par l’utilisateur qui permettent de classer les ressources de données ou les attributs. |
 | Balises (balises glossaire) |Des balises peuvent être fournies aux niveaux des sources de données et attributs / colonnes. Les balises de glossaire sont des termes de glossaire définis de façon centralisée qui permettent de classer les ressources de données ou les attributs à l’aide d’une taxonomie métier commune. Pour plus d’informations, consultez l’article [Comment configurer le glossaire métier pour un balisage géré](data-catalog-how-to-business-glossary.md) |
 | Experts |Des experts peuvent être fournis au niveau des ressources de données. Les experts identifient les utilisateurs ou groupes avec des perspectives d’expert sur les données et peuvent servir de points de contact pour les utilisateurs qui détectent les sources de données inscrites et se posent des questions auxquelles les annotations existantes n’apportent pas de réponse. |

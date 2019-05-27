@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/13/2019
 ms.author: anavin
-ms.openlocfilehash: 82ee9d04785fc0f6ac534428bf411ca0fe3204ad
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 26d8ee34c735cab8f1033a9aad897ec0b1bed524
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65601511"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65952679"
 ---
 # <a name="create-change-or-delete-a-public-ip-address-prefix"></a>Créer, changer ou supprimer un préfixe d’adresse IP publique
 
@@ -50,7 +50,7 @@ Les préfixes d’adresse IP publique ont un coût. Pour en savoir plus, consult
    |Abonnement|Oui|Doit exister dans le même [abonnement](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) que la ressource à laquelle vous voulez associer l’adresse IP publique.|
    |Groupe de ressources|Oui|Peut exister dans un [groupe de ressources](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) identique ou différent de celui de la ressource à laquelle vous voulez associer l’adresse IP publique.|
    |Nom|OUI|Le nom doit être unique au sein du groupe de ressources que vous avez sélectionné.|
-   |Région|Oui|Il doit exister dans la même [région](https://azure.microsoft.com/regions) que les adresses IP publiques auxquelles vous attribuez des adresses de la plage. Le préfixe est actuellement en préversion dans les régions USA Centre-Ouest, USA Ouest, USA Ouest 2, USA Centre, Europe Nord, Europe Ouest et Asie Sud-Est.|
+   |Région|Oui|Il doit exister dans la même [région](https://azure.microsoft.com/regions) que les adresses IP publiques auxquelles vous attribuez des adresses de la plage.|
    |Taille de préfixe|Oui| Taille du préfixe dont vous avez besoin. La valeur par défaut est une adresse IP A/28 ou 16.
 
 **Commandes**
@@ -73,6 +73,13 @@ Une fois que vous avez créé un préfixe, vous devez créer des adresses IP sta
    |Nom|Oui|Le nom de l’adresse IP publique doit être unique au sein du groupe de ressources sélectionné.|
    |Délai d'inactivité (minutes)|Non|Durée (en minutes) de maintien d’une connexion TCP ou HTTP ouverte sans utiliser les clients pour envoyer des messages keep-alive. |
    |Étiquette du nom DNS|Non|Elle doit être unique dans la région Azure où vous créez le nom (pour tous les abonnements et tous les clients). Azure inscrit automatiquement le nom et l’adresse IP dans son DNS pour que vous puissiez vous connecter à une ressource avec le nom. Azure ajoute un sous-réseau par défaut de type *emplacement.cloudapp.azure.com* (où emplacement est l’emplacement que vous fournissez) pour créer le nom DNS complet. Pour plus d’informations, consultez [Utiliser Azure DNS avec une adresse IP publique Azure](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address).|
+
+Vous pouvez également utiliser l’interface CLI et PS commandes ci-dessous avec--public-ip-prefix (CLI) et de ressource d’adresse - PublicIpPrefix (PS) paramètres, pour créer une adresse IP publique. 
+
+|Tool|Commande|
+|---|---|
+|Interface de ligne de commande|[az network public-ip create](/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create)|
+|PowerShell|[New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress?view=azps-2.0.0)|
 
 ## <a name="view-or-delete-a-prefix"></a>Voir ou supprimer un préfixe
 

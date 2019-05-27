@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e0c9af1a9ad8b816809f661d368133997f55329d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f0bcaf356108984baf473cdef8c18c5561343cd9
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60359255"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66119361"
 ---
 # <a name="what-are-authentication-methods"></a>Que sont les méthodes d’authentification ?
 
@@ -33,9 +33,9 @@ Microsoft recommande vivement aux administrateurs de permettre aux utilisateurs 
 | Adresse de messagerie | Réinitialisation de mot de passe en libre-service uniquement |
 | Application Microsoft Authenticator | Authentification multifacteur et préversion publique pour la réinitialisation de mot de passe en libre-service |
 | Jetons matériels OATH | Préversion publique pour l’authentification multifacteur et la réinitialisation de mot de passe en libre-service |
-| sms | Authentification multifacteur et réinitialisation de mot de passe en libre-service |
+| SMS | Authentification multifacteur et réinitialisation de mot de passe en libre-service |
 | Appel vocal | Authentification multifacteur et réinitialisation de mot de passe en libre-service |
-| Mots de passe d'application | Authentification aultifacteur uniquement dans certains cas |
+| Mots de passe d'applications | Authentification aultifacteur uniquement dans certains cas |
 
 ![Méthodes d’authentification en cours d’utilisation sur l’écran de connexion](media/concept-authentication-methods/overview-login.png)
 
@@ -66,9 +66,9 @@ Si vous utilisez des questions de sécurité, nous vous recommandons de les util
 * Dans quelle ville votre père est-il né ?
 * Dans quelle ville était votre premier travail ?
 * Dans quelle ville votre mère est-elle née ?
-* Dans quelle ville étiez-vous pour le Nouvel an de l’année 2000 ?
-* Quel était le nom de votre professeur préféré au lycée ?
-* Quel est le nom d’un établissement d’enseignement supérieur auquel vous avez postulé mais auquel vous n’êtes finalement pas allé ?
+* Dans quelle ville étiez-vous pour le Nouvel an de l'année 2000 ?
+* Quel était le nom de votre professeur préféré au lycée ?
+* Quel est le nom d'un établissement d'enseignement supérieur auquel vous avez postulé mais auquel vous n'êtes finalement pas allé ?
 * Quel est le nom de l’endroit où vous avez organisé la réception de votre premier mariage ?
 * Quel est le deuxième prénom de votre père ?
 * Quel est votre aliment préféré ?
@@ -129,7 +129,7 @@ L’application Microsoft Authenticator est disponible pour [Android](https://go
 > Les utilisateurs n’auront pas la possibilité d’inscrire leur application mobile lors de l’inscription pour la réinitialisation de mot de passe en libre-service. En revanche, les utilisateurs peuvent inscrire leur application mobile sur [https://aka.ms/mfasetup](https://aka.ms/mfasetup) ou dans la préversion de l’inscription des informations de sécurité sur [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo).
 >
 
-### <a name="notification-through-mobile-app"></a>Notification via une application mobile
+### <a name="notification-through-mobile-app"></a>Notification via application mobile
 
 L’application Microsoft Authenticator peut aider à empêcher tout accès non autorisé aux comptes et à arrêter les transactions frauduleuses en envoyant une notification à votre smartphone ou tablette. Les utilisateurs voient la notification et, si elle est légitime, sélectionnent Vérifier. Sinon, ils peuvent sélectionner Refuser.
 
@@ -144,7 +144,7 @@ Si vous activez l’utilisation de la notification par le biais de l’applicati
 > [!NOTE]
 > Si votre organisation a personnel travaillant dans ou en déplacement à la Chine, le **Notification via application mobile** méthode sur **les appareils Android** ne fonctionne pas dans ce pays. Autres méthodes doivent être accessibles aux utilisateurs.
 
-### <a name="verification-code-from-mobile-app"></a>Code de vérification de l’application mobile
+### <a name="verification-code-from-mobile-app"></a>Code de vérification de l'application mobile
 
 L'application Microsoft Authenticator ou une autre application tierce peut être utilisée comme jeton logiciel pour générer un code de vérification OATH. Après avoir saisi votre nom d’utilisateur et votre mot de passe, vous entrez le code fourni par l’application dans l’écran de connexion. Le code de vérification fournit un deuxième formulaire d’authentification.
 
@@ -165,7 +165,7 @@ Les jetons matériels OATH seront pris en charge dans le cadre d’une préversi
 Après avoir obtenu les jetons, vous devez les charger dans un fichier de valeurs séparées par des virgules (CSV), contenant l’UPN, le numéro de série, le secret, l’intervalle de temps, le fabricant et le modèle, comme dans l’exemple suivant.
 
 ```csv
-upn,serial number,secret key,timeinterval,manufacturer,model
+upn,serial number,secret key,time interval,manufacturer,model
 Helga@contoso.com,1234567,1234567890abcdef1234567890abcdef,60,Contoso,HardwareKey
 ```
 
@@ -204,7 +204,7 @@ Un appel vocal automatisé est passé au numéro de téléphone indiqué. Répon
 > [!IMPORTANT]
 > À compter de mars de 2019 les options d’appel téléphonique ne sera pas disponible aux utilisateurs MFA et SSPR dans les locataires gratuit/essai Azure AD. Les messages SMS ne sont pas affectées par cette modification. Appel téléphonique continueront à être disponibles pour les utilisateurs dans payé des locataires Azure AD. Cette modification affecte uniquement les locataires gratuit/essai Azure AD.
 
-## <a name="office-phone"></a>Téléphone de bureau
+## <a name="office-phone"></a>Téléphone (bureau)
 
 Un appel vocal automatisé est passé au numéro de téléphone indiqué. Répondez à l’appel et appuyez sur la touche # du clavier du téléphone pour vous authentifier.
 

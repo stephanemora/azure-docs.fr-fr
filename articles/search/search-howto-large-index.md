@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 12/19/2018
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 2f3d08a32384cea815f096f51b24eea596d0d118
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8923c94409dcf079179ed0464046e39ef7654c4c
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60871163"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65949832"
 ---
 # <a name="how-to-index-large-data-sets-in-azure-search"></a>Comment indexer des grands volumes de données dans Recherche Azure
 
@@ -67,7 +67,7 @@ Pour des besoins ponctuels d’indexation gourmande en ressources, comme la reco
 Un traitement parallèle se déroule comme suit :
 
 + Répartissez vos données sources entre plusieurs conteneurs ou plusieurs dossiers virtuels au sein du même conteneur. 
-+ Mappez chaque petit jeu de données à sa propre [source de données](https://docs.microsoft.com/rest/api/searchservice/create-data-source), appairée à son propre [indexeur](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
++ Mappez chaque jeu de données mini à sa propre [source de données](https://docs.microsoft.com/rest/api/searchservice/create-data-source)couplé à sa propre [indexeur](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
 + Pour la recherche cognitive, référencez le même [ensemble de compétences](https://docs.microsoft.com/rest/api/searchservice/create-skillset) dans chaque définition d’indexeur.
 + Écrivez dans le même index de recherche cible. 
 + Planifiez une exécution simultanée de tous les indexeurs.

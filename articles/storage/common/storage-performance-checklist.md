@@ -8,18 +8,18 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: b8451a1195ab64d3cd7afda074d786a3209ce785
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 904b9b8ba98be5e14b1d769a0e1d8c2d6084e24d
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61477288"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65951176"
 ---
 # <a name="microsoft-azure-storage-performance-and-scalability-checklist"></a>Liste de contrôle des performances et de l’extensibilité de Microsoft Azure Storage
 ## <a name="overview"></a>Présentation
 Depuis la publication des services Microsoft Azure Storage, Microsoft a élaboré une série de pratiques éprouvées pour les utiliser de manière performante. Cet article se propose d’énumérer les méthodes les plus importantes sous la forme d’une liste de contrôle. L’objectif de cet article est double : aider les développeurs d’applications à s’assurer qu’ils utilisent des pratiques éprouvées avec Azure Storage et les aider à en identifier d’autres en vue de les adopter. Cet article n’a pas pour but d’aborder toutes les questions relatives à l’optimisation de l’extensibilité et des performances. Sont exclues les pratiques dont l’impact est minime ou celles qui ne sont pas applicables à grande échelle. Dans la mesure où le comportement de l’application peut être prévu au cours de la conception, il convient de tenir compte de ces pratiques suffisamment tôt afin d’éviter les problèmes de performances ultérieurs.  
 
-Chaque développeur d’applications qui utilise Azure Storage doit prendre le temps de lire cet article et s’assurer que son application respecte chacune des pratiques éprouvées répertoriées ci-dessous.  
+Chaque développeur d’applications à l’aide d’Azure Storage doit prendre le temps de lire cet article et vérifiez que son application respecte chacune des pratiques éprouvées répertoriées ci-dessous.  
 
 ## <a name="checklist"></a>Liste de contrôle
 Dans cet article, les pratiques éprouvées sont classées dans les groupes suivants. Pratiques éprouvées applicables aux éléments suivants :  
@@ -45,7 +45,7 @@ Dans cet article, les pratiques éprouvées sont classées dans les groupes suiv
 | &nbsp; | Tous les services |Configuration .NET |[Utilisez-vous .NET 4.5 ou version ultérieure, qui présente une méthode de nettoyage de mémoire optimisée ?](#subheading11) |
 | &nbsp; | Tous les services |Parallélisme |[Vous êtes-vous assuré que le parallélisme était limité de manière appropriée, de manière à ne pas surcharger les capacités du client, ni dépasser les objectifs d'évolutivité ?](#subheading12) |
 | &nbsp; | Tous les services |Outils |[Utilisez-vous la version la plus récente des outils et bibliothèques clientes fournis par Microsoft ?](#subheading13) |
-| &nbsp; | Tous les services |Nouvelle tentatives |[Utilisez-vous une stratégie de nouvelles tentatives d'interruption exponentielle pour les erreurs de limitation et les délais d'expiration ?](#subheading14) |
+| &nbsp; | Tous les services |Tentatives |[Utilisez-vous une stratégie de nouvelles tentatives d'interruption exponentielle pour les erreurs de limitation et les délais d'expiration ?](#subheading14) |
 | &nbsp; | Tous les services |Nouvelle tentatives |[Votre application empêche-t-elle les nouvelles tentatives pour les erreurs non renouvelables ?](#subheading15) |
 | &nbsp; | Objets blob |Objectifs d'évolutivité |[Disposez-vous d’un grand nombre de clients qui accèdent simultanément à un seul objet ?](#subheading46) |
 | &nbsp; | Objets blob |Objectifs d'évolutivité |[Votre application respecte-t-elle l'objectif d'évolutivité relatif aux opérations ou à la bande passante pour un objet blob unique ?](#subheading16) |
@@ -71,13 +71,13 @@ Dans cet article, les pratiques éprouvées sont classées dans les groupes suiv
 | &nbsp; | Tables |Insertion/Mise à jour/Suppression |[Évitez-vous de récupérer une entité pour déterminer simplement s'il faut appeler l'opération insert ou update ?](#subheading36) |
 | &nbsp; | Tables |Insertion/Mise à jour/Suppression |[Avez-vous envisagé de stocker des séries de données qui seront fréquemment récupérées ensemble dans une seule entité sous la forme de propriétés plutôt que d'entités multiples ?](#subheading37) |
 | &nbsp; | Tables |Insertion/Mise à jour/Suppression |[Dans le cas des tables qui sont toujours récupérées ensemble et qui peuvent être écrites par lots (des données de séries temporelles, par exemple), avez-vous envisagé d’utiliser des objets blob à la place de tables ?](#subheading38) |
-| &nbsp; | Files d’attente |Objectifs d'évolutivité |[Vous approchez-vous des objectifs d'évolutivité en termes de messages par seconde ?](#subheading39) |
-| &nbsp; | Files d’attente |Configuration |[Avez-vous désactivé Nagle pour améliorer les performances des petites demandes ?](#subheading40) |
-| &nbsp; | Files d’attente |Taille des messages |[Vos messages sont-ils compacts pour améliorer les performances de la file d'attente ?](#subheading41) |
-| &nbsp; | Files d’attente |Récupération en bloc |[Récupérez-vous plusieurs messages dans une seule opération « Get » ?](#subheading42) |
-| &nbsp; | Files d’attente |Fréquence d'interrogation |[Effectuez-vous des interrogations suffisamment fréquentes pour réduire la latence perçue de votre application ?](#subheading43) |
-| &nbsp; | Files d’attente |Mise à jour de message |[Utilisez-vous la méthode UpdateMessage pour stocker la progression du traitement des messages et éviter de devoir retraiter l'intégralité du message en cas d'erreur ?](#subheading44) |
-| &nbsp; | Files d’attente |Architecture |[Utilisez-vous des files d'attente pour rendre toute votre application plus extensible en excluant les charges de travail de longue durée du chemin critique et pour les faire ensuite évoluer séparément ?](#subheading45) |
+| &nbsp; | Files d'attente |Objectifs d'évolutivité |[Vous approchez-vous des objectifs d'évolutivité en termes de messages par seconde ?](#subheading39) |
+| &nbsp; | Files d'attente |Configuration |[Avez-vous désactivé Nagle pour améliorer les performances des petites demandes ?](#subheading40) |
+| &nbsp; | Files d'attente |Taille des messages |[Vos messages sont-ils compacts pour améliorer les performances de la file d'attente ?](#subheading41) |
+| &nbsp; | Files d'attente |Récupération en bloc |[Récupérez-vous plusieurs messages dans une seule opération « Get » ?](#subheading42) |
+| &nbsp; | Files d'attente |Fréquence d'interrogation |[Effectuez-vous des interrogations suffisamment fréquentes pour réduire la latence perçue de votre application ?](#subheading43) |
+| &nbsp; | Files d'attente |Mise à jour de message |[Utilisez-vous la méthode UpdateMessage pour stocker la progression du traitement des messages et éviter de devoir retraiter l'intégralité du message en cas d'erreur ?](#subheading44) |
+| &nbsp; | Files d'attente |Architecture |[Utilisez-vous des files d'attente pour rendre toute votre application plus extensible en excluant les charges de travail de longue durée du chemin critique et pour les faire ensuite évoluer séparément ?](#subheading45) |
 
 ## <a name="allservices"></a>Tous les Services
 Cette section répertorie les pratiques éprouvées qui s’appliquent à l’utilisation de tout service Azure Storage (objets blob, tables, files d’attente ou fichiers).  
@@ -208,7 +208,7 @@ Le parallélisme peut améliorer sensiblement les performances. Soyez toutefois 
 ### <a name="subheading13"></a>Outils et bibliothèques clientes de stockage
 Utilisez toujours la version la plus récente des outils et bibliothèques clientes fournis par Microsoft. Au moment de la rédaction du présent document, des bibliothèques clientes étaient disponibles pour .NET, Windows Phone, Windows Runtime, Java et C++, et des bibliothèques en version préliminaire sont également disponibles pour d’autres langages. Microsoft a, en outre, publié des cmdlets PowerShell et des commandes de l’interface de ligne de commande, utilisables avec Azure Storage. Microsoft s’attelle au développement de ces outils dans une optique de performances, veille à leur mise à jour continue avec les versions de service les plus récentes et s’assure qu’ils répondent, en interne, à la plupart des pratiques éprouvées en termes de performances.  
 
-### <a name="retries"></a>Nouvelle tentatives
+### <a name="retries"></a>Tentatives
 #### <a name="subheading14"></a>Limitation/Serveur occupé
 Dans certains cas, il se peut que le service de stockage limite votre application ou qu’il soit simplement incapable de répondre à la demande en raison d’une situation temporaire, et renvoie alors un message « 503 Serveur occupé » ou « 500 Délai d’expiration de l’opération ».  Cela peut se produire si votre application s’approche de l’un des objectifs d’extensibilité ou si le système rééquilibre vos données partitionnées pour permettre un débit plus élevé.  L’application cliente doit généralement réessayer l’opération qui provoque cette erreur : retenter la même demande ultérieurement peut réussir. Cependant, si le service de stockage limite votre application en raison d’un dépassement des objectifs d’extensibilité, ou si le service n’a pas été en mesure de répondre à la demande pour une autre raison, effectuer des nouvelles tentatives agressives ne fait généralement qu’aggraver le problème. C’est pourquoi il est conseillé d’opter pour une interruption exponentielle (il s’agit du comportement par défaut des bibliothèques clientes). Votre application peut, par exemple, effectuer une nouvelle tentative après 2 secondes, puis 4 secondes, 10 secondes, 30 secondes avant d’abandonner complètement. Cela se traduit par un allégement sensible de la charge de l’application sur le service, au lieu d’aggraver le problème.  
 
@@ -376,7 +376,7 @@ Sinon, votre application peut stocker l'utilisation du processeur pour chaque he
 ##### <a name="subheading38"></a>Stockage de données structurées dans des objets blob
 Les données structurées donnent parfois l’impression qu’elles devraient être placées dans les tables. Cependant, les plages d’entités sont toujours récupérées ensemble et peuvent être insérées par lots.  À cet égard, un fichier journal constitue un parfait exemple.  Dans ce cas, vous pouvez regrouper plusieurs minutes de journalisation et les insérer. Vous récupérez alors plusieurs minutes de journalisation à la fois.  Dans une optique de performances, il est préférable d’utiliser des objets blob plutôt que des tables, dans la mesure où vous pouvez réduire de manière significative le nombre d’objets écrits/renvoyés, ainsi que, généralement, le nombre de demandes qui doivent être effectuées.  
 
-## <a name="queues"></a>Files d’attente
+## <a name="queues"></a>Files d'attente
 Outre les pratiques éprouvées pour [Tous les services](#allservices) décrites précédemment, les pratiques ci-dessous s'appliquent spécifiquement au service de file d’attente.  
 
 ### <a name="subheading39"></a>Limites d’extensibilité

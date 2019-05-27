@@ -2,20 +2,20 @@
 title: Notes de publication Azure SQL Data Warehouse août 2018 | Microsoft Docs
 description: Notes de publication pour Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: twounder
+author: anumjs
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: manage
+ms.subservice: ''
 ms.date: 08/13/2018
-ms.author: twounder
-ms.reviewer: twounder
-ms.openlocfilehash: 9547380d4636c1a72add9dab7a9eed850abd0307
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: anjangsh
+ms.reviewer: jrasnick
+ms.openlocfilehash: f0840e9b91c81b8a99e8c736c3c5db082c92fe76
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61474995"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65912212"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-august-2018"></a>Nouveautés dans Azure SQL Data Warehouse Août 2018
 Azure SQL Data Warehouse reçoit continuellement des améliorations. Cet article décrit les nouvelles fonctionnalités et les modifications qui ont été introduites en août 2018.
@@ -30,7 +30,7 @@ Vous pouvez explorer chaque catégorie pour afficher les suggestions pour l’al
 
 ## <a name="bug-fixes"></a>Résolution des bogues
 
-| Intitulé | Description |
+| Intitulé | Description  |
 |:---|:---|
 | **Échecs de requêtes potentiels lorsque le nombre de fragments dépasse la limite maximale autorisée** |Lorsque la limite maximale d’1 million de fragments de fichier a été dépassée, une exception non prise en charge a contraint le moteur SQL à vider la base de données et toutes les requêtes ont échoué. Ce correctif a permis de résoudre le problème en gérant de manière appropriée l’exception et en retournant une erreur sans provoquer l’échec des requêtes. |
 | **Augmentation de la valeur ExternalMoveReadersPerNode par défaut pour améliorer les performances de chargement** |Ce problème est survenu suite à une erreur de synchronisation de la propriété ExternalMoveReadersPerNode avec le paramètre de structure de service. Cette régression a entraîné une dégradation des performances de chargement de deuxième génération. Le correctif rétablit les performances de chargement de deuxième génération avec des paramètres de conception optimisés.|

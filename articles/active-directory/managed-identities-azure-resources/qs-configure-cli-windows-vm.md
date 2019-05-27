@@ -16,11 +16,11 @@ ms.date: 11/10/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9c61313190615c2f30a7d37202bc0f9bcf14d800
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58449523"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66112881"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-azure-cli"></a>Configurer des identités managées pour ressources Azure sur une machine virtuelle Azure en utilisant Azure CLI
 
@@ -110,7 +110,7 @@ az vm update -n myVM -g myResourceGroup --set identity.type="none"
 > [!NOTE]
 > Si vous avez configuré l’identité gérée pour les ressources Azure VM extension (déconseillé), vous devez supprimer à l’aide de [delete de az vm extension](https://docs.microsoft.com/cli/azure/vm/). Pour plus d’informations, consultez [migrer vers IMDS Azure pour l’authentification à partir de l’extension de machine virtuelle](howto-migrate-vm-extension.md).
 
-## <a name="user-assigned-managed-identity"></a>Identité managée affectée par l’utilisateur
+## <a name="user-assigned-managed-identity"></a>Identité managée affectée par l'utilisateur
 
 Dans cette section, vous allez découvrir comment ajouter et supprimer une identité managée affectée par l’utilisateur sur une machine virtuelle Azure en utilisant Azure CLI.
 

@@ -379,7 +379,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 |start| Chaîne | Début d’activation du déclencheur dans l’intervalle de temps, au format UTC | `2017-06-26T20:55:29.5007959Z`|
 |status| Chaîne | État final indiquant si le déclencheur a été activé avec succès (Succeeded ou Failed) | `Succeeded`|
 
-## <a name="metrics"></a>Mesures
+## <a name="metrics"></a>metrics
 
 Azure Monitor vous permet d’utiliser la télémétrie pour surveiller les performances et l’intégrité de vos charges de travail sur Azure. Les mesures (aussi appelées compteurs de performances) émises par la plupart des ressources Azure sont le type de données de télémétrie Azure plus important. Azure Monitor propose plusieurs façons de configurer et d’utiliser ces mesures pour l’analyse et le dépannage.
 
