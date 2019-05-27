@@ -2,7 +2,7 @@
   href: index.yml
 - name: Basculer vers la documentation de la version 1
   href: v1/data-factory-introduction.md
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: Présentation de Data Factory
       href: introduction.md
@@ -180,7 +180,7 @@
           href: connector-azure-blob-storage.md
         - name: API SQL Azure Cosmos DB
           href: connector-azure-cosmos-db.md
-        - name: API Azure Cosmos DB MongoDB
+        - name: API d’Azure Cosmos DB pour MongoDB
           href: connector-azure-cosmos-db-mongodb-api.md
         - name: Explorateur de données Azure
           href: connector-azure-data-explorer.md

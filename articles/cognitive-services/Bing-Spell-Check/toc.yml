@@ -1,6 +1,6 @@
 - name: Documentation de l’API Vérification orthographique Bing
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: "Qu’est-ce que l’API Vérification orthographique Bing\_?"
       href: overview.md
@@ -85,3 +85,5 @@
       href: 'https://azure.microsoft.com/services/cognitive-services/spell-check/'
     - name: UserVoice
       href: 'https://cognitive.uservoice.com/forums/598195-bing-spell-check'
+    - name: Conformité
+      href: 'https://azure.microsoft.com/en-us/support/legal/cognitive-services-compliance-and-privacy/'

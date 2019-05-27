@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 10/11/2018
 ms.author: iainfou
-ms.openlocfilehash: 9006590583f0ef52bbce716529534f8bce6f47c5
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 6516b11bf5d4d4c4e5406a3e6e0cce3189796d33
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65780368"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956400"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>Configurer un réseau Azure CNI dans AKS (Azure Kubernetes Service)
 
@@ -41,6 +41,7 @@ Les adresses IP des pods et des nœuds de cluster sont affectées à partir du s
 > Le nombre d’adresses IP requises doit prendre en compte des considérations relatives aux opérations de mise à niveau et à l’échelle. Si vous définissez la plage d’adresses IP pour prendre en charge uniquement un nombre fixe de nœuds, vous ne pouvez pas mettre à niveau ou à l’échelle votre cluster.
 >
 > - Lorsque vous **mettez à niveau** votre cluster AKS, un nouveau nœud est déployé dans le cluster. Les services et charges de travail commencent à s’exécuter sur le nouveau nœud, et le nœud plus ancien est supprimé du cluster. Ce processus de mise à niveau propagée nécessite la disponibilité d’un minimum d’adresses IP ou de bloc supplémentaires. Le nombre de nœuds est alors `n + 1`.
+>   - Cette considération est particulièrement importante lorsque vous utilisez des pools de nœuds Windows Server (actuellement en version préliminaire dans ACS). Les nœuds de Windows Server dans ACS n’automatiquement s’appliquent pas mises à jour de Windows, au lieu de cela, vous effectuer une mise à niveau sur le pool de nœud. Cette mise à niveau déploie les nouveaux nœuds avec les dernière fenêtre Server 2019 nœud base image et correctifs de sécurité. Pour plus d’informations sur la mise à niveau d’un pool de nœud Windows Server, consultez [mise à niveau d’un pool de nœuds dans ACS][nodepool-upgrade].
 >
 > - Lorsque vous **mettez à l’échelle** un cluster AKS, un nouveau nœud est déployé dans le cluster. Les services et charges de travail commencent à s’exécuter sur le nouveau nœud. Votre plage d’adresses IP doit prendre en compte la manière dont vous voulez augmenter le nombre de nœuds et de pods que votre cluster prend en charge. Un nœud supplémentaire pour les opérations de mise à niveau doit également être inclus. Le nombre de nœuds est alors `n + number-of-additional-scaled-nodes-you-anticipate + 1`.
 
@@ -68,7 +69,7 @@ Le nombre maximal de pods par nœud dans un cluster AKS est 250. Le nombre maxim
 
 ### <a name="configure-maximum---new-clusters"></a>Configurer un maximum : nouveaux clusters
 
-Vous pouvez configurer le nombre maximal de pods par nœud *uniquement au moment du déploiement cluster*. Si vous déployez avec Azure CLI ou avec un modèle Resource Manager, vous pouvez définir les pods maximum par la valeur du nœud en fonction des besoins au sein de ce qui suit `maxPods` instructions :
+Vous pouvez configurer le nombre maximal de pods par nœud *uniquement au moment du déploiement cluster*. Si vous déployez avec Azure CLI ou avec un modèle Resource Manager, vous pouvez définir les pods maximum par la valeur du nœud avec un maximum de 250.
 
 | Mise en réseau | Minimale | Maximale |
 | -- | :--: | :--: |
@@ -76,8 +77,7 @@ Vous pouvez configurer le nombre maximal de pods par nœud *uniquement au moment
 | Kubenet | 30 | 110 |
 
 > [!NOTE]
-> La valeur minimale dans le tableau ci-dessus est strictement appliquée par le service ACS.
-Vous ne pouvez pas définir une valeur de maxPods inférieure à la valeur minimale indiquée comme cela peut empêcher le cluster de démarrer.
+> La valeur minimale dans le tableau ci-dessus est strictement appliquée par le service ACS. Vous ne pouvez pas définir une valeur de maxPods inférieure à la valeur minimale indiquée comme cela peut empêcher le cluster de démarrer.
 
 * **Azure CLI** : spécifiez l’argument `--max-pods` lorsque vous déployez un cluster avec la commande [az aks create][az-aks-create]. La valeur maximale est de 250.
 * **Modèle Resource Manager** : spécifiez la propriété `maxPods` dans l’objet [ManagedClusterAgentPoolProfile] lorsque vous déployez un cluster avec un modèle Resource Manager. La valeur maximale est de 250.
@@ -114,7 +114,7 @@ Lors de la création d’un cluster AKS avec Azure CLI, il est également possib
 
 Tout d’abord, récupérez l’ID de la ressource du sous-réseau auquel le cluster AKS sera joint :
 
-```console
+```azurecli-interactive
 $ az network vnet subnet list \
     --resource-group myVnet \
     --vnet-name myVnet \
@@ -125,7 +125,7 @@ $ az network vnet subnet list \
 
 Utilisez la commande [az aks create][az-aks-create] avec l’argument `--network-plugin azure` pour créer un cluster avec mise en réseau avancée. Remplacez la valeur `--vnet-subnet-id` par l’ID du sous-réseau recueilli à l’étape précédente :
 
-```azurecli
+```azurecli-interactive
 az aks create \
     --resource-group myResourceGroup \
     --name myAKSCluster \
@@ -133,7 +133,8 @@ az aks create \
     --vnet-subnet-id <subnet-id> \
     --docker-bridge-address 172.17.0.1/16 \
     --dns-service-ip 10.2.0.10 \
-    --service-cidr 10.2.0.0/24
+    --service-cidr 10.2.0.0/24 \
+    --generate-ssh-keys
 ```
 
 ## <a name="configure-networking---portal"></a>Configurer la mise en réseau – Portail
@@ -211,3 +212,4 @@ Les clusters Kubernetes créés avec le moteur AKS prennent en charge les plug-i
 [aks-http-app-routing]: http-application-routing.md
 [aks-ingress-internal]: ingress-internal-ip.md
 [network-policy]: use-network-policies.md
+[nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool

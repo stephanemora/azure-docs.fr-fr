@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: zhshang
 ms.openlocfilehash: 7660e1405598676599cab30467d22ac979438deb
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58003685"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66128297"
 ---
 # <a name="azure-signalr-service-authentication"></a>Authentification par Azure SignalR Service
 
@@ -61,7 +61,7 @@ Pour suivre ce didacticiel, vous devez disposer des éléments suivants :
     | Nom de paramètre | Valeur suggérée | Description |
     | ------------ | --------------- | ----------- |
     | Nom de l’application | *Conversation Azure SignalR* | L’utilisateur GitHub devrait être en mesure de reconnaître l’application avec laquelle il s’authentifie et de lui faire confiance.   |
-    | URL de la page d’accueil | `http://localhost:5000/home` | |
+    | URL de la page d'accueil | `http://localhost:5000/home` | |
     | Description de l’application | *Un exemple de salle de conversation utilisant le service Azure SignalR avec l’authentification GitHub* | Une description utile de l’application qui aidera les utilisateurs de votre application à comprendre le contexte de l’authentification utilisée. |
     | URL de rappel d’autorisation | `http://localhost:5000/signin-github` | Ce paramètre est le paramètre essentiel de votre application OAuth. Il s’agit de l’URL de rappel renvoyée par GitHub à l’utilisateur une fois l’authentification créée. Dans ce didacticiel, vous devez utiliser l’URL de rappel par défaut associée au package *AspNet.Security.OAuth.GitHub*, */signin-github*.  |
 

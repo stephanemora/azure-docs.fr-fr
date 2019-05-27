@@ -4,14 +4,14 @@ description: Découvrez comment configurer et modifier la valeur par défaut pou
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 05/20/2019
 ms.author: thweiss
-ms.openlocfilehash: c7f2ccd2c074f2488c86b45a09859b308655df8d
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: c45beb3ed6f87e95d171e2299c533b4be2827f27
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65068600"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65954038"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Stratégies d’indexation dans Azure Cosmos DB
 
@@ -58,7 +58,7 @@ Lorsqu’un chemin d’accès est explicitement inclus dans la stratégie d’in
 | Type d’index | Types de données cible autorisés |
 | --- | --- |
 | Plage | Chaîne ou nombre |
-| spatial | Point, LineString ou polygones |
+| Spatial | Point, LineString ou polygones |
 
 Par exemple, nous pourrions inclure la `/headquarters/employees/?` chemin d’accès et spécifier un `Range` index doit être appliqué sur ce chemin d’accès pour les deux `String` et `Number` valeurs.
 
@@ -114,7 +114,7 @@ Si le mode de l’indexation de la nouvelle stratégie est défini sur cohérent
 
 ## <a name="indexing-policies-and-ttl"></a>Stratégies d’indexation et de durée de vie
 
-Le [Time-to-Live (TTL) de fonctionnalité](time-to-live.md) nécessite l’indexation afin d’être actives sur le conteneur, il est allumé. Cela signifie que :
+Le [Time-to-Live (TTL) de fonctionnalité](time-to-live.md) nécessite l’indexation afin d’être actives sur le conteneur, il est allumé. Cela signifie que :
 
 - Il n’est pas possible d’activer la TTL sur un conteneur dans lequel le mode d’indexation est défini sur None,
 - Il n’est pas possible de définir le mode d’indexation sur None sur un conteneur dans lequel la durée de vie est activée.

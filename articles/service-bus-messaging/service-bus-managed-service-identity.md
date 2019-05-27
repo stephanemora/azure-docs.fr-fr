@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/01/2018
 ms.author: aschhab
-ms.openlocfilehash: abba0e15314387aed09e39f05d9127f346f9c799
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 8477ff8c8ff0bc1629ff4cdc61f7c28c6eed778c
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65228398"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65978796"
 ---
 # <a name="managed-identities-for-azure-resources-with-service-bus"></a>Identités managées pour les ressources Azure avec Service Bus 
 
@@ -29,7 +29,23 @@ Avec les identités managées, la plateforme Azure gère cette identité d’ex�
 
 ## <a name="service-bus-roles-and-permissions"></a>Rôles et autorisations Service Bus
 
-Vous pouvez uniquement ajouter une identité managée aux rôles « Propriétaire » ou « Collaborateur » d’un espace de noms Service Bus. Cette opération accorde le contrôle total d’identité sur toutes les entités de l’espace de noms. Toutefois, les opérations de gestion qui modifient la topologie de l’espace de noms ne sont initialement prises en charge que par Azure Resource Manager. Mais pas par l’interface de gestion REST Service Bus native. Cette prise en charge signifie également que vous ne pouvez pas utiliser le client .NET Framework [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) ou le client .NET Standard [ManagementClient](/dotnet/api/microsoft.azure.servicebus.management.managementclient) objets au sein d’une identité gérée.
+Vous pouvez ajouter une identité gérée pour le rôle « Propriétaire de données Service Bus » d’un espace de noms Service Bus. Elle accorde à l’identité, un contrôle total sur toutes les entités dans l’espace de noms (pour la gestion et opérations de données).
+
+>[!IMPORTANT]
+> Nous avons pris en charge précédemment l’Ajout d’une identité gérée pour le **« Propriétaire »** ou **« Collaborateur »** rôle.
+>
+> Toutefois, des privilèges d’accès aux données **« Propriétaire »** et **« Collaborateur »** rôle n’est plus sera honorée. Si vous utilisiez le **« Propriétaire »** ou **« Collaborateur »** rôle, puis ceux devra être adaptés pour utiliser le **« Service Bus de données propriétaire »** rôle.
+
+Pour utiliser le nouveau rôle intégré, veuillez remplir le ci-dessous comme suit :
+
+1. Passez à la [portail Azure](https://portal.azure.com)
+2. Accédez à l’espace de noms Service Bus dans lequel vous avez actuellement le programme d’installation du rôle « Propriétaire » ou « Contributeur ».
+3. Cliquez sur « (IAM) accès » dans le menu du volet gauche.
+4. Ajouter une nouvelle attribution de rôle comme indiqué ci-dessous
+
+    ![](./media/service-bus-role-based-access-control/ServiceBus_RBAC_SBDataOwner.png)
+
+5. Appuyez sur « Enregistrer » pour enregistrer la nouvelle attribution de rôle.
 
 ## <a name="use-service-bus-with-managed-identities-for-azure-resources"></a>Utiliser Service Bus avec des identités managées pour les ressources Azure
 
@@ -51,7 +67,7 @@ Une fois la fonctionnalité activée, une identité de service est créée dans 
 
 ### <a name="create-a-new-service-bus-messaging-namespace"></a>Créer un espace de noms Service Bus Messaging
 
-Ensuite, [créez un espace de noms de messagerie Service Bus](service-bus-create-namespace-portal.md) dans l’une des régions Azure prenant en charge la préversion du contrôle d’accès en fonction du rôle : **USA Est**, **USA Est 2** ou **Europe Ouest**. 
+Ensuite, [créer un espace de noms Service Bus Messaging](service-bus-create-namespace-portal.md). 
 
 Accédez à la page **Contrôle d’accès (IAM)** de l’espace de noms sur le portail, puis cliquez sur **Ajouter une attribution de rôle** pour ajouter l’identité managée au rôle **Propriétaire**. Pour ce faire, recherchez le nom de l’application web dans le champ **Sélectionner** du panneau **Ajouter des autorisations**, puis cliquez sur l’entrée. Cliquez ensuite sur **Enregistrer**.
 

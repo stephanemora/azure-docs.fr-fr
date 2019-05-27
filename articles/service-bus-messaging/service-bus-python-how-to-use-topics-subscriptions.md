@@ -14,12 +14,12 @@ ms.devlang: python
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: aschhab
-ms.openlocfilehash: 102fe85916194648501be3d2cb39d8bcda9e9f5c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 47cd0621a601e3f1ef53572bc7bb8bc1c7ea76ab
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60811082"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991996"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-python"></a>Utilisation des rubriques et abonnements Service Bus avec Python
 
@@ -41,7 +41,7 @@ Cet article explique comment utiliser les rubriques et les abonnements Service B
     > Vous allez créer un **rubrique** et un **abonnement** à la rubrique à l’aide de **Python** dans ce démarrage rapide. 
 3. Installer [package Azure Python][Azure Python package]. Consultez le [Guide d’Installation de Python](../python-how-to-install.md).
 
-## <a name="create-a-topic"></a>Création d'une rubrique
+## <a name="create-a-topic"></a>Créer une rubrique
 
 L’objet **ServiceBusService** permet d’utiliser des rubriques. Ajoutez le code suivant au début de chaque fichier Python dans lequel vous souhaitez accéder à Service Bus par programme :
 
@@ -189,6 +189,9 @@ La suppression d’une rubrique a également pour effet de supprimer les abonnem
 ```python
 bus_service.delete_subscription('mytopic', 'HighMessages')
 ```
+
+> [!NOTE]
+> Vous pouvez gérer les ressources de Service Bus avec [Explorateur Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer/). L’Explorateur Service Bus permet aux utilisateurs de se connecter à un espace de noms Service Bus et administrer les entités de messagerie de manière simple. L’outil fournit des fonctionnalités avancées telles que la fonctionnalité d’importation/exportation ou de la possibilité de tester une rubrique, files d’attente, abonnements, services de relais, hubs de notification et hubs d’événements. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

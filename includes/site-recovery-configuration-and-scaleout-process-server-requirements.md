@@ -10,11 +10,11 @@ ms.date: 06/10/2018
 ms.author: raynew
 ms.custom: include file
 ms.openlocfilehash: 371cbcc50b574f95e8d9ba4efe79058b2b25a8ba
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58016671"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66127725"
 ---
 **Exigences des serveur de configuration/de traitement**
 
@@ -35,7 +35,7 @@ Stratégies de groupe | N’activez pas ces stratégies de groupe : <br> - Empê
 IIS | - Aucun site web par défaut préexistant <br> - Aucune application/aucun site web préexistants ne doivent écouter le port 443 <br>- Activer [l’authentification anonyme](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> - Activer le paramètre [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) 
 | 
 **PARAMÈTRES RÉSEAU** | 
-Type d’adresse IP | statique 
+Type d'adresse IP | statique 
 Ports | 443 (Orchestration du canal de contrôle)<br>9443 (Transport de données) 
 Type de carte réseau | VMXNET3 (si le serveur de configuration est une machine virtuelle VMware)
  |

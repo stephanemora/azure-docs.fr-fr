@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc2c125df2e3455b0e90919dbca92fe497a4b1b7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 50452dc5a0c2074c452878c890643f7b21591689
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60415705"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65977308"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>Éliminer les mots de passe incorrects de votre organisation
 
@@ -44,7 +44,7 @@ Chaque fois qu'un utilisateur modifie ou réinitialise son mot de passe, la forc
 
 Même si le mot de passe d'un utilisateur contient un mot interdit, il peut être accepté s'il est globalement suffisamment fort. Un mot de passe nouvellement configuré passe par les étapes suivantes pour évaluer sa force globale et déterminer s'il doit être accepté ou rejeté.
 
-### <a name="step-1-normalization"></a>Étape 1 : Normalisation
+### <a name="step-1-normalization"></a>Étape 1 : Normalisation
 
 Un nouveau mot de passe est d'abord soumis à un processus de normalisation. Cela permet de mapper un petit ensemble de mots de passe interdits avec un ensemble beaucoup plus large de mots de passe potentiellement faibles.
 
@@ -59,7 +59,7 @@ La normalisation se décompose en deux parties.  Premièrement, toutes les majus
 
 Exemple : supposons que le mot de passe « blank » soit interdit et qu'un utilisateur tente de remplacer son mot de passe par « Bl@nK ». Bien que « Bl@nk » ne soit pas spécifiquement interdit, le processus de normalisation le remplace par « blank », qui est un mot de passe interdit.
 
-### <a name="step-2-check-if-password-is-considered-banned"></a>Étape 2 : Déterminer si le mot de passe est interdit
+### <a name="step-2-check-if-password-is-considered-banned"></a>Étape 2 : Déterminer si le mot de passe est interdit
 
 #### <a name="fuzzy-matching-behavior"></a>Correspondance approximative
 
@@ -75,7 +75,7 @@ Aucun des mots de passe ci-dessus ne correspond précisément au mot de passe in
 
 La correspondance de sous-chaîne est utilisée sur le mot de passe normalisé pour rechercher le prénom et le nom de l'utilisateur, ainsi que le nom du locataire (notez que la correspondance du nom du locataire n'est pas utilisée lors de la validation des mots de passe sur un contrôleur de domaine Active Directory).
 
-Exemple : supposons qu'un utilisateur, John Doe, souhaite réinitialiser son mot de passe en le remplaçant par « J0hn123fb ». Après la normalisation, ce mot de passe devient « john123fb ». La correspondance de sous-chaîne détecte que le mot de passe contient le prénom de l'utilisateur « John ». Même si « J0hn123fb » ne figure pas spécifiquement dans la liste des mots de passe interdits, la correspondance de sous-chaîne a trouvé « John » dans le mot de passe. Par conséquent, ce mot de passe est rejeté.
+Exemple : supposons que nous disposons d’un utilisateur, Pol, qui souhaite réinitialiser son mot de passe à « P0l123fb ». Après la normalisation, ce mot de passe deviendrait « pol123fb ». Correspondance de sous-chaîne détecte que le mot de passe contient le prénom de l’utilisateur « Pol ». Même si « P0l123fb » n’était pas spécifiquement sur une liste de mots de passe interdits, correspondance de sous-chaîne trouvée « Pol » dans le mot de passe. Par conséquent, ce mot de passe est rejeté.
 
 #### <a name="score-calculation"></a>Calcul du score
 

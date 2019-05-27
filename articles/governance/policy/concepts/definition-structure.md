@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: b9fe723ca13cbee0e31b14e60a6bd740d2a282df
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 91dd1ebc457bfeed5c9e8d0d62ecc23740ca5d8d
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65779286"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979546"
 ---
 # <a name="azure-policy-definition-structure"></a>Structure de définition Azure Policy
 
@@ -100,7 +100,8 @@ Un paramètre possède les propriétés suivantes qui sont utilisées dans la d�
   - `displayName`: Nom convivial du paramètre visible dans le portail.
   - `strongType`: (Facultatif) Utilisé lors de l’affectation de la définition de stratégie via le portail. Fournit une liste prenant en compte le contexte. Pour plus d’informations, voir [strongType](#strongtype).
   - `assignPermissions`: (Facultatif) Définir en tant que _true_ avoir portail Azure à créer des attributions de rôles lors de l’attribution de stratégie. Cette propriété est utile au cas où vous souhaitez affecter des autorisations en dehors de l’étendue d’attribution. Il existe une attribution de rôle par la définition de rôle dans la stratégie (ou par la définition de rôle dans toutes les stratégies dans l’initiative). La valeur du paramètre doit être une ressource valide ou une étendue.
-- `defaultValue`: (Facultatif) Définit la valeur du paramètre dans une affectation si aucune valeur n’est fournie. Obligatoire lors de la mise à jour d’une définition de stratégie existante qui est affectée.
+- `defaultValue`: (Facultatif) Définit la valeur du paramètre dans une affectation si aucune valeur n’est fournie.
+  Obligatoire lors de la mise à jour d’une définition de stratégie existante qui est affectée.
 - `allowedValues`: (Facultatif) Fournit un tableau de valeurs que le paramètre accepte pendant leur affectation.
 
 Par exemple, vous pouvez définir une définition de stratégie qui limite les emplacements sur lesquels les ressources peuvent être déployées. Le paramètre **allowedLocations** pourrait s’appliquer à cette définition de stratégie. Ce paramètre serait utilisé par chaque affectation de la définition de la stratégie pour limiter les valeurs acceptées. L’utilisation de **strongType** permet d’améliorer l’expérience lors de l’affectation via le portail :
@@ -268,8 +269,7 @@ Les champs suivants sont pris en charge :
 - alias de propriété : pour en obtenir la liste, consultez [Alias](#aliases).
 
 > [!NOTE]
-> `tags.<tagName>`, `tags[tagName]` et `tags[tag.with.dots]` sont toujours des manières acceptables de déclarer un champ de balises.
-> Toutefois, les expressions préférées sont celles répertoriées ci-dessus.
+> `tags.<tagName>`, `tags[tagName]` et `tags[tag.with.dots]` sont toujours des manières acceptables de déclarer un champ de balises. Toutefois, les expressions préférées sont celles répertoriées ci-dessus.
 
 #### <a name="use-tags-with-parameters"></a>Utiliser des balises avec des paramètres
 

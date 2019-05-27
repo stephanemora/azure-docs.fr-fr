@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/24/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 1e4feaed9f4e8f6dd3275da25e33e57197731572
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 374fd700f3ac99c00b922f4fca330fee9acfd704
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60838958"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65955745"
 ---
 # <a name="security-in-azure-app-service"></a>Sécurité dans Azure App Service
 
@@ -105,7 +105,7 @@ Vous pouvez accéder de manière sécurisée à des ressources locales, telles q
 
 ## <a name="application-secrets"></a>Secrets de l’application
 
-Ne stockez pas les secrets de l’application, tels que les informations d’identification de la base de données, les jetons d’API et les clés privées, dans vos fichiers de code ou de configuration. L’approche couramment acceptée consiste à y accéder sous forme de [variables d’environnement](https://wikipedia.org/wiki/Environment_variable) à l’aide du modèle standard dans la langue de votre choix. Dans App Service, la définition des variables d’environnement passe par l’utilisation de [paramètres d’application](web-sites-configure.md#app-settings) (et, en particulier pour les applications .NET, de [chaînes de connexion](web-sites-configure.md#connection-strings)). Les paramètres d’application et les chaînes de connexion sont stockés dans Azure, et ils sont déchiffrés uniquement avant d’être injectés dans la mémoire de processus de votre application au démarrage de celle-ci. Les clés de chiffrement sont régulièrement permutées.
+Ne stockez pas les secrets de l’application, tels que les informations d’identification de la base de données, les jetons d’API et les clés privées, dans vos fichiers de code ou de configuration. L’approche couramment acceptée consiste à y accéder sous forme de [variables d’environnement](https://wikipedia.org/wiki/Environment_variable) à l’aide du modèle standard dans la langue de votre choix. Dans App Service, la définition des variables d’environnement passe par l’utilisation de [paramètres d’application](configure-common.md#configure-app-settings) (et, en particulier pour les applications .NET, de [chaînes de connexion](configure-common.md#configure-connection-strings)). Les paramètres d’application et les chaînes de connexion sont stockés dans Azure, et ils sont déchiffrés uniquement avant d’être injectés dans la mémoire de processus de votre application au démarrage de celle-ci. Les clés de chiffrement sont régulièrement permutées.
 
 Une autre approche consiste à intégrer votre application App Service à [Azure Key Vault](/azure/key-vault/) pour bénéficier d’une gestion avancée des secrets. En [accédant à Key Vault avec une identité managée](../key-vault/tutorial-web-application-keyvault.md), votre application App Service peut accéder de manière sécurisée aux secrets dont vous avez besoin.
 

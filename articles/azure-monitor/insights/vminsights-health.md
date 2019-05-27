@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/12/2019
+ms.date: 05/22/2019
 ms.author: magoedte
-ms.openlocfilehash: 45c9a8da8344aa6aaaa19b534451a7276e96911a
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: 9fa76c9637a6dcdca48bf45e8ee2aa9305a4f64f
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65522189"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66130453"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines"></a>Comprendre l’intégrité de vos machines virtuelles Azure
 
@@ -85,7 +85,7 @@ Connectez-vous au [Portail Azure](https://portal.azure.com).
 
 Avant de passer au cas pratique d’utilisation de la fonctionnalité de contrôle d’intégrité pour une machine virtuelle unique ou un groupe de machines virtuelles, il nous paraît important de procéder à une brève présentation pour que vous compreniez comment les informations sont présentées et ce que représentent les visualisations.  
 
-## <a name="view-health-directly-from-a-virtual-machine"></a>Afficher l’intégrité directement à partir d’une machine virtuelle 
+### <a name="view-health-directly-from-a-virtual-machine"></a>Afficher l’intégrité directement à partir d’une machine virtuelle 
 
 Pour afficher l’intégrité d’une machine virtuelle Azure, sélectionnez **Insights (préversion)** dans le volet gauche de la machine virtuelle. Sur la page d’informations de machine virtuelle, **Intégrité** est ouvert par défaut et affiche la vue d’intégrité de la machine virtuelle.  
 
@@ -96,11 +96,21 @@ Dans l’onglet **Intégrité**, sous la section **Intégrité de la machine vir
 Les états d’intégrité définis pour une machine virtuelle sont décrits dans le tableau suivant : 
 
 |Icône |État d'intégrité |Signification |
-|-----|-------------|------------|
+|-----|-------------|---------------|
 | |Healthy |L’état d’intégrité est Sain si les conditions d’intégrité définies sont remplies. Il indique qu’aucun problème n’a été détecté pour la machine virtuelle et fonctionne donc comme prévu. Avec une analyse de cumul parent, restaure l’intégrité à distance et il reflète l’état d’optimiste ou pessimiste de l’enfant.|
 | |Critique |L’état d’intégrité est Critique si les conditions d’intégrité définies ne sont pas remplies. Il indique qu’un ou plusieurs problèmes critiques ont été détectés qui devront être corrigés afin de rétablir le fonctionnement normal. Avec une analyse de cumul parent, restaure l’intégrité à distance et il reflète l’état d’optimiste ou pessimiste de l’enfant.|
 | |Avertissement |L’état d’intégrité est défini sur Avertissement s’il est compris entre deux seuils pour les conditions d’intégrité définies, où l’un indique l’état *Avertissement* et l’autre un état *Critique* (trois seuils d’état d’intégrité sont possibles), ou quand un problème non critique est détecté, qui pourrait occasionner des problèmes importants s’il n’est pas résolu. Avec un cumul parent moniteur, si un ou plusieurs des enfants sont dans un état d’avertissement, puis le parent reflète *avertissement* état. Si un enfant se trouve dans un état *Critique* et un autre enfant dans un état d’*Avertissement*, le rollup parent affiche un état d’intégrité *Critique*.|
-| |Unknown |L’état d’intégrité est *Inconnu* lorsqu’il ne peut pas être calculé pour plusieurs raisons, par exemple en cas d’impossibilité de collecter des données, de service non initialisé, etc. Cet état d’intégrité n’est pas configurable.| 
+| |Unknown |État d’intégrité est *inconnu* quand elle ne peut pas être calculée pour plusieurs raisons. Consultez la note suivante <sup>1</sup> pour des détails supplémentaires et les solutions possibles pour les résoudre. |
+
+<sup>1</sup> inconnu de l’état d’intégrité est provoqué par les problèmes suivants :
+
+- L’agent a été reconfiguré et n’est plus les rapports à l’espace de travail spécifié quand Azure Monitor pour les machines virtuelles a été activée. Pour configurer l’agent pour signaler à l’espace de travail, consultez [Ajout ou la suppression d’un espace de travail](../platform/agent-manage.md#adding-or-removing-a-workspace).
+- Machine virtuelle a été supprimée.
+- Espace de travail associé à Azure Monitor pour les machines virtuelles est supprimé. Pour récupérer l’espace de travail, si vous avez Premier prennent en charge les avantages que vous pouvez ouvrir une demande de support avec [Premier](https://premier.microsoft.com/).
+- Dépendances de solution ont été supprimés. Pour réactiver les solutions ServiceMap et InfrastructureInsights dans votre espace de travail Analytique de journal, vous pouvez réinstaller à l’aide un [modèle Azure Resource Manager](vminsights-enable-at-scale-powershell.md#install-the-servicemap-and-infrastructureinsights-solutions) qui a fourni ou en utilisant l’option de configurer un espace de travail, consultez le Prise en main onglet.
+- Machine virtuelle a été arrêté.
+- Service de machine virtuelle Azure n’est pas disponible ou la maintenance est en cours d’exécution.
+- Espace de travail [quotidien des données ou la limite de rétention](../platform/manage-cost-storage.md) est remplie.
 
 La sélection du lien **Afficher les diagnostics d’intégrité** ouvre une page qui présente tous les composants de la machine virtuelle, les critères d’intégrité associés, les changements d’état et les autres problèmes importants rencontrés par les composants de supervision liés à la machine virtuelle. Pour plus d’informations, consultez la section [Diagnostics d’intégrité](#health-diagnostics). 
 
@@ -108,7 +118,7 @@ Dans la section **Intégrité des composants**, le tableau présente un état cu
 
 Lors de l’accès d’intégrité à partir d’une machine virtuelle Azure exécutant le système d’exploitation Windows, l’état d’intégrité du haut cinq principaux Windows services sont affichés sous la section **Core services d’intégrité**.  Sélectionner l’un de ces services ouvre une page répertoriant les critères d’intégrité de supervision de ce composant ainsi que son état d’intégrité.  Cliquez sur le nom des critères d’intégrité pour ouvrir le volet des propriétés. À partir de là, vous pouvez consulter les détails de configuration, y compris si une alerte Azure Monitor est définie pour chaque critère d’intégrité. Pour plus d’informations, consultez les sections concernant [les diagnostics d’intégrité et l’utilisation des critères d’intégrité](#health-diagnostics).  
 
-## <a name="aggregate-virtual-machine-perspective"></a>Agréger la perspective de la machine virtuelle
+### <a name="aggregate-virtual-machine-perspective"></a>Agréger la perspective de la machine virtuelle
 
 Pour afficher la collection d’intégrité pour l’ensemble de vos machines virtuelles dans un groupe de ressources, à partir de la liste de navigation dans le portail, sélectionnez **Azure Monitor**, puis sélectionnez **Machines virtuelles (préversion)**.  
 
@@ -154,7 +164,7 @@ Vous pouvez descendre encore plus dans la hiérarchie pour afficher les instance
 
 ## <a name="health-diagnostics"></a>Diagnostics d'intégrité
 
-La page **Diagnostics d’intégrité** vous permet de visualiser le modèle d’intégrité d’une machine virtuelle en répertoriant tous les composants de celle-ci, les critères d’intégrité associés, les changements d’état et les autres problèmes importants identifiés par la supervision des composants liés à la machine virtuelle.
+Le **Diagnostics d’intégrité** page permet de vous permettent de visualiser le modèle d’intégrité d’une machine virtuelle, liste de tous les composants de la machine virtuelle, associé des critères d’intégrité, les modifications d’état, et d’autres problèmes importants identifiés par surveillé composants liés à la machine virtuelle.
 
 ![Exemple de page de Diagnostics d’intégrité pour une machine virtuelle](./media/vminsights-health/health-diagnostics-page-01.png)
 
@@ -343,7 +353,7 @@ Pour activer ou désactiver une alerte pour un critère d’intégrité spécifi
 Azure Monitor pour l’intégrité des machines virtuelles prend en charge les SMS et les notifications électroniques lorsque des alertes sont générées lorsque les critères d’intégrité devient non intègre. Pour configurer les notifications, vous devez noter le nom du groupe d’Action qui est configuré pour envoyer des notifications de SMS ou e-mail. 
 
 >[!NOTE]
->Cette action doit être effectuée sur chaque machine virtuelle surveillée que vous souhaitez recevoir une notification.
+>Cette action doit être effectuée sur chaque machine virtuelle surveillée que vous souhaitez recevoir une notification, il ne s’applique pas à toutes les machines virtuelles dans le groupe de ressources.  
 
 1. Dans une fenêtre de terminal, saisissez **armclient.exe login**. Cela vous invite à vous connecter à Azure.
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: magattus
 ms.custom: ''
-ms.openlocfilehash: afadef8b29927f909af5be1e1204180724258b74
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 956df17c821b86d95b1d87c3c8d8197bab7a95be
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60323989"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65955271"
 ---
 # <a name="set-up-failover-across-multiple-azure-cdn-endpoints-with-azure-traffic-manager"></a>Configurer le basculement entre plusieurs points de terminaison Azure CDN avec Azure Traffic Manager
 
@@ -62,13 +62,13 @@ Après avoir configuré vos profils CDN et Traffic Manager, suivez ces étapes p
 
     a. Pour la première entrée CNAME, mappez votre domaine personnalisé, avec le sous-domaine cdnverify, au point de terminaison CDN. Cette entrée est une étape obligatoire pour inscrire le domaine personnalisé auprès du point de terminaison CDN que vous avez ajouté à Traffic Manager à l’étape 2.
 
-      Par exemple :  
+      Exemple : 
 
       `cdnverify.cdndemo101.dustydogpetcare.online  CNAME  cdnverify.cdndemo101akamai.azureedge.net`  
 
     b. Pour la seconde entrée CNAME, mappez votre domaine personnalisé, sans le sous-domaine cdnverify, au point de terminaison CDN. Cette entrée mappe le domaine personnalisé à Traffic Manager. 
 
-      Par exemple :  
+      Exemple : 
       
       `cdndemo101.dustydogpetcare.online  CNAME  cdndemo101.trafficmanager.net`   
 
@@ -80,10 +80,14 @@ Après avoir configuré vos profils CDN et Traffic Manager, suivez ces étapes p
 2.  À partir de votre profil Azure CDN, sélectionnez le premier point de terminaison CDN (Akamai). Sélectionnez **ajouter un domaine personnalisé** et d’entrée *cdndemo101.dustydogpetcare.online*. Vérifiez que la coche validant le domaine personnalisé est verte. 
 
     Azure CDN utilise le sous-domaine *cdnverify* pour valider le mappage DNS et terminer ce processus d’inscription. Pour plus d’informations, voir [Créer un enregistrement CNAME DNS](cdn-map-content-to-custom-domain.md#create-a-cname-dns-record). Cette étape permet à Azure CDN de reconnaître le domaine personnalisé afin de répondre à ses requêtes.
+    
+ > [!NOTE]
+    > Pour activer SSL sur un **Azure CDN d’Akamai** profils, vous devez directement cname du domaine personnalisé à votre point de terminaison. cdnverify pour l’activation de SSL n’est pas encore pris en charge. 
+    >
 
 3.  Retournez sur le site web du fournisseur de votre domaine personnalisé et mettez à jour le premier mappage DNS, que vous avez créé afin que le domaine personnalisé soit mappé à votre deuxième point de terminaison CDN.
                              
-    Par exemple :  
+    Exemple : 
 
     `cdnverify.cdndemo101.dustydogpetcare.online  CNAME  cdnverify.cdndemo101verizon.azureedge.net`  
 

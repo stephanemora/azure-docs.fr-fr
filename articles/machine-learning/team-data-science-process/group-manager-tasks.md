@@ -10,16 +10,16 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: fb0482be1670a96befdd69a5356c9e21476d9f9f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 85a4aca0c4b80eaab1f43bcbec33dc9cf37aa655
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60305190"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65950102"
 ---
 # <a name="tasks-for-a-group-manager-on-a-data-science-team-project"></a>Tâches d’un responsable de groupe sur un projet d’équipe de science des données.
 
-Cette rubrique dresse la liste des tâches qui incombent à un responsable de groupe chargé d’une organisation de science des données. L’objectif est d’établir un environnement de collaboration en groupe standard conforme au processus [TDSP](overview.md) (Team Data Science Process). Pour obtenir une description des rôles des membres de l’équipe de science des données et des tâches qui leur incombent dans le cadre de ce processus, consultez [Rôles et tâches du processus TDSP](roles-tasks.md).
+Cette rubrique explique les tâches un responsable de groupe est prévu pour leur organisation de science des données. L’objectif est d’établir un environnement de collaboration en groupe standard conforme au processus [TDSP](overview.md) (Team Data Science Process). Pour obtenir une description des rôles des membres de l’équipe de science des données et des tâches qui leur incombent dans le cadre de ce processus, consultez [Rôles et tâches du processus TDSP](roles-tasks.md).
 
 Le **responsable de groupe** est le responsable de l’ensemble de l’unité de science des données dans une entreprise. Une unité de science des données peut avoir plusieurs équipes, chacune travaillant sur plusieurs projets de science des données dans différents secteurs d’activité. Un responsable de groupe peut déléguer ses tâches à un remplaçant, mais les tâches associées au rôle sont les mêmes. Il existe six tâches principales comme indiqué dans le diagramme suivant :
 

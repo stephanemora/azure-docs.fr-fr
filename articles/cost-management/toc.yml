@@ -1,7 +1,7 @@
 - name: Documentation Gestion des coûts Azure
   href: index.yml
   items:
-    - name: Vue d’ensemble
+    - name: Vue d'ensemble
       items:
         - name: "Qu’est-ce que la gestion des coûts\_?"
           href: overview-cost-mgt.md
@@ -46,6 +46,8 @@
           href: 'https://docs.microsoft.com/rest/api/consumption'
         - name: Modèle Resource Manager
           href: /azure/templates/microsoft.consumption/budgets
+        - name: Exemples d’API REST Cost Management
+          href: 'https://github.com/Azure-Samples/Cost-Management-Samples'
     - name: Ressources
       items:
         - name: Développer vos compétences avec Microsoft Learn
@@ -60,7 +62,7 @@
           href: 'https://azure.microsoft.com/regions/services/'
     - name: Cloudyn
       items:
-        - name: Vue d’ensemble
+        - name: Vue d'ensemble
           items:
             - name: Qu’est-ce que Cloudyn ?
               href: overview.md

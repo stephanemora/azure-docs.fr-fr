@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/20/2018
-ms.author: abshamsft
-ms.openlocfilehash: de9e6d5c8c6b4dc9652ae64c9a4fd0e38d7a7b87
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.author: absha
+ms.openlocfilehash: bb99689409ddff311e556250083b99842bc59927
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62109536"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65963511"
 ---
-# <a name="network-performance-monitor-solution-performance-monitoring"></a>Solution Network Performance Monitor : Analyse des performances
+# <a name="network-performance-monitor-solution-performance-monitoring"></a>Solution Network Performance Monitor : Surveillance des performances
 
 La fonctionnalité Analyseur de performances de [Network Performance Monitor](network-performance-monitor.md) vous permet de surveiller la connectivité réseau entre les différents points de votre réseau. Vous pouvez surveiller les déploiements cloud et les emplacements locaux, plusieurs centres de données ainsi que les filiales et les applications/microservices multiniveaux stratégiques. Avec l’Analyseur de performances, vous pouvez détecter les problèmes réseau avant que vos utilisateurs ne se plaignent. Ses principaux avantages vous permettent de : 
 
@@ -31,7 +31,7 @@ La fonctionnalité Analyseur de performances de [Network Performance Monitor](ne
 - Surveiller l’intégrité du réseau sans SNMP.
 
 
-![Network Performance Monitor](media/network-performance-monitor-performance-monitor/npm-performance-monitor.png)
+![Analyseur de performances réseau](media/network-performance-monitor-performance-monitor/npm-performance-monitor.png)
 
 ## <a name="configuration"></a>Configuration
 Pour ouvrir la configuration de Network Performance Monitor, ouvrez la [solution Network Performance Monitor](network-performance-monitor.md) et sélectionnez **Configurer**.

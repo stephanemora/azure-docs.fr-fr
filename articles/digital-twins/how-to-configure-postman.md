@@ -7,13 +7,13 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 01/10/2019
-ms.author: adgera
-ms.openlocfilehash: 49b073952b0923b940204b19680dcc9a1ffa44b5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: v-adgera
+ms.openlocfilehash: 797dfc44b9897920f9fd74346ee01e4b157a4ce8
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60926148"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65967786"
 ---
 # <a name="how-to-configure-postman-for-azure-digital-twins"></a>Guide pratique pour configurer Postman pour Azure Digital Twins
 
@@ -62,7 +62,7 @@ Ensuite, configurez Postman pour obtenir un jeton Azure Active Directory. Après
     https://login.microsoftonline.com/YOUR_AZURE_TENANT.onmicrosoft.com/oauth2/authorize?resource=0b07f429-9f4b-4714-9392-cc5e8e80c8b0
     ```
 
-    | Nom  | Remplacer par | Exemples |
+    | Name  | Remplacer par | Exemples |
     |---------|---------|---------|
     | YOUR_AZURE_TENANT | Nom de votre locataire ou organisation | `microsoft` |
 
@@ -70,11 +70,11 @@ Ensuite, configurez Postman pour obtenir un jeton Azure Active Directory. Après
 
     | Champ  | Valeur |
     |---------|---------|
-    | Type d’autorisation | `Implicit` |
+    | Type d'autorisation | `Implicit` |
     | URL de rappel | `https://www.getpostman.com/oauth2/callback` |
     | URL d’authentification | Utilisez l’**URL d’autorisation** de l’étape 2 |
     | ID client | Utilisez l’**ID d’application** de l’application Azure Active Directory qui a été créée ou réaffectée dans la section précédente |
-    | Étendue | Laisser vide |
+    | `Scope` | Laisser vide |
     | État | Laisser vide |
     | Authentification du client | `Send as Basic Auth header` |
 

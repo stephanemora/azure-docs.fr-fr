@@ -1,6 +1,6 @@
 - name: Documentation de l’API Recherche d’images Bing
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   expanded: true
   items:
     - name: "Qu’est-ce que la Recherche d’images Bing\_?"
@@ -115,3 +115,5 @@
       href: language-support.md
     - name: Analytique pour l’API Recherche d’images Bing
       href: bing-image-stats.md
+    - name: Conformité
+      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'

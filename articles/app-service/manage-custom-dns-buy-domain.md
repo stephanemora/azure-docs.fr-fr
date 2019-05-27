@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/24/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 06337fef1a9d9b41fd41ff7c67611581639adc0a
-ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
+ms.openlocfilehash: b3177c5dfc5602dd2b6530b0934c17400ab5d528
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65619723"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65978892"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Acheter un nom de domaine personnalisé pour Azure App Service
 
@@ -201,7 +201,9 @@ Accédez aux noms d’hôte répertoriés dans le navigateur. Dans l’exemple s
 
 ## <a name="renew-the-domain"></a>Renouveler le domaine
 
-Le domaine App Service que vous avez acheté est valable un an à compter de la date d'achat. Par défaut, le domaine est configuré pour se renouveler automatiquement, avec une facturation selon votre mode de paiement, pour l'année suivante. Si vous souhaitez désactiver le renouvellement automatique ou renouveler manuellement votre domaine, suivez les étapes décrites ici.
+Le domaine App Service que vous avez acheté est valable un an à compter de la date d'achat. Par défaut, le domaine est configuré pour se renouveler automatiquement, avec une facturation selon votre mode de paiement, pour l'année suivante. Vous pouvez renouveler manuellement votre nom de domaine.
+
+Si vous souhaitez désactiver le renouvellement automatique ou renouveler manuellement votre domaine, suivez les étapes décrites ici.
 
 Sous l’onglet **App Services**, cliquez sur le nom de votre application, puis sélectionnez **Paramètres** et **Domaines personnalisés**.
 
@@ -211,11 +213,25 @@ Dans la section **Domaines App Service**, sélectionnez le domaine que vous souh
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-select-domain.png)
 
-Dans la barre de navigation à gauche du domaine, sélectionnez **Renouvellement de domaine**. Pour arrêter automatiquement le renouvellement de votre domaine, sélectionnez **Désactivé**, puis **Enregistrer**. 
+Dans la barre de navigation à gauche du domaine, sélectionnez **Renouvellement de domaine**. Pour arrêter automatiquement le renouvellement de votre domaine, sélectionnez **Désactivé**, puis **Enregistrer**.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-autorenew.png)
 
-Pour renouveler manuellement votre domaine, sélectionnez **Renouveler le domaine**. Cependant, ce bouton n'est actif que 90 jours avant l'expiration du domaine.
+Pour renouveler manuellement votre domaine, sélectionnez **Renouveler le domaine**. Toutefois, ce bouton n’est pas actif jusqu'à ce que [90 jours avant l’expiration du domaine](#when-domain-expires).
+
+Si le renouvellement de votre domaine est réussi, vous recevez une notification par e-mail dans les 24 heures.
+
+## <a name="when-domain-expires"></a>Lorsque le domaine expire
+
+Azure porte sur la date d’expiration ou a expiré domaines App Service comme suit :
+
+* Si le renouvellement automatique est désactivé : 90 jours avant l’expiration de domaine, une notification par e-mail est envoyée et la **renouveler le domaine** bouton est activé dans le portail.
+* Si le renouvellement automatique est activé : Le jour après la date d’expiration de votre domaine, Azure tente de vous facturer pour le renouvellement de nom de domaine.
+* Si une erreur se produit pendant le renouvellement automatique (par exemple, votre carte de fichier est arrivé à expiration), ou si le renouvellement automatique est désactivé et que vous autorisez l’expiration du domaine, Azure vous avertit de l’expiration du domaine ou les parcs votre nom de domaine. Vous pouvez [renouveler manuellement](#renew-the-domain) votre domaine.
+* Le jour 4 et 12 jours après l’expiration, Azure vous envoie des e-mails de notification supplémentaires. Vous pouvez [renouveler manuellement](#renew-the-domain) votre domaine.
+* Le 19 jour après l’expiration, votre domaine reste en attente, mais soit assujettie à un tarif d’échange. Vous pouvez appeler le support technique pour renouveler votre nom de domaine, soumis à un renouvellement applicable et les frais d’échange.
+* Le jour 25 après l’expiration, Azure place votre domaine enchères avec un service de vente aux enchères domaine nom du secteur. Vous pouvez appeler le support technique pour renouveler votre nom de domaine, soumis à un renouvellement applicable et les frais d’échange.
+* Sur le 30 jours après l’expiration, vous n’êtes plus en mesure d’échanger votre domaine.
 
 <a name="custom"></a>
 

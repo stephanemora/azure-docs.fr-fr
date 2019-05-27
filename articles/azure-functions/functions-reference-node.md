@@ -12,12 +12,12 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 02/24/2019
 ms.author: glenga
-ms.openlocfilehash: 2eea1a1d30558765a2f8320b0b23efdbe3368807
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 635e72a8e8a70b8885afea282511fbfaf24d2f94
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65140958"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65957335"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guide des développeurs JavaScript sur Azure Functions
 
@@ -273,7 +273,7 @@ context.log(message)
 Vous permet d’écrire dans les journaux d’activité de fonction de streaming au niveau de trace par défaut. Des méthodes de journalisation supplémentaires sont disponibles sur `context.log` pour vous permettre d’écrire des journaux d’activité de fonction à d’autres niveaux de trace :
 
 
-| Méthode                 | Description                                |
+| Méthode                 | Description                                 |
 | ---------------------- | ------------------------------------------ |
 | **error(_message_)**   | Écrit dans la journalisation du niveau d’erreur, ou à un niveau inférieur.   |
 | **warn(_message_)**    | Écrit dans la journalisation du niveau d’avertissement, ou à un niveau inférieur. |
@@ -350,7 +350,7 @@ Les déclencheurs HTTP et webhook ainsi que les liaisons de sortie HTTP utilisen
 
 L’objet (de demande) `context.req` comporte les propriétés suivantes :
 
-| Propriété      | Description                                                    |
+| Propriété      | Description                                                     |
 | ------------- | -------------------------------------------------------------- |
 | _body_        | Objet qui contient le corps de la demande.               |
 | _headers_     | Objet qui contient les en-têtes de la demande.                   |
@@ -365,7 +365,7 @@ L’objet (de demande) `context.req` comporte les propriétés suivantes :
 
 L’objet (de réponse) `context.res` comporte les propriétés suivantes :
 
-| Propriété  | Description                                               |
+| Propriété  | Description                                                |
 | --------- | --------------------------------------------------------- |
 | _body_    | Objet qui contient le corps de la réponse.         |
 | _headers_ | Objet qui contient les en-têtes de la réponse.             |
@@ -504,7 +504,7 @@ FunctionApp
  | - myNodeFunction
  | | - function.json
  | - lib
- | | - nodeFunction.js
+ | | - sayHello.js
  | - node_modules
  | | - ... packages ...
  | - package.json
@@ -514,7 +514,7 @@ Le `function.json` pour `myNodeFunction` doit inclure une propriété `scriptFil
 
 ```json
 {
-  "scriptFile": "../lib/nodeFunction.js",
+  "scriptFile": "../lib/sayHello.js",
   "bindings": [
     ...
   ]
@@ -544,7 +544,7 @@ class MyObj {
         this.foo = 1;
     };
 
-    function logFoo(context) { 
+    logFoo(context) { 
         context.log("Foo is " + this.foo); 
         context.done(); 
     }

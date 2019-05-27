@@ -15,11 +15,11 @@ ms.date: 06/05/2018
 ms.author: dariagrigoriu;cephalin
 ms.custom: seodec18
 ms.openlocfilehash: b879036dcd79901cb634fa197932e833cb22d12a
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57405024"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65956066"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Déploiement Git local vers Azure App Service
 
@@ -172,7 +172,7 @@ Voici les erreurs ou les problèmes couramment rencontrés lors de l’utilisati
 
 **Cause** : Cette erreur peut se produire si vous ne spécifiez pas de branche pendant l’opération `git push`, ou si vous n’avez pas défini la valeur `push.default` dans `.gitconfig`.
 
-**Résolution** : Réexécutez `git push`, en spécifiant la branche maîtresse. Par exemple : 
+**Résolution** : Réexécutez `git push`, en spécifiant la branche maîtresse. Exemple :
 
 ```bash
 git push azure master
@@ -183,7 +183,7 @@ git push azure master
 
 **Cause** : Cette erreur peut se produire si vous tentez d’effectuer une opération Push sur une autre branche que la branche maîtresse sur le dépôt distant « azure ».
 
-**Résolution** : Réexécutez `git push`, en spécifiant la branche maîtresse. Par exemple : 
+**Résolution** : Réexécutez `git push`, en spécifiant la branche maîtresse. Exemple :
 
 ```bash
 git push azure master

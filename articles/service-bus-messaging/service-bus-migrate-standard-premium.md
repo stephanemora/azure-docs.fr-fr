@@ -11,19 +11,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/18/2019
+ms.date: 05/18/2019
 ms.author: aschhab
-ms.openlocfilehash: 65f89e234317c5a17e4443e767528fb9be9a8b72
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 65c207b4d03e7d156c8c871a3642601fd0489ead
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64687078"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991415"
 ---
 # <a name="migrate-existing-azure-service-bus-standard-namespaces-to-the-premium-tier"></a>Migrer les espaces de noms standards existants Azure Service Bus vers le niveau premium
 Précédemment, Azure Service Bus proposé des espaces de noms uniquement sur le niveau standard. Espaces de noms sont des configurations d’architecture mutualisées qui sont optimisées pour les environnements de développement et de faible débit. Le niveau premium offre des ressources dédiées par espace de noms pour la latence prévisible et un débit plus élevé à prix fixe. Le niveau premium est optimisé pour un débit élevé et les environnements de production qui nécessitent les fonctionnalités d’entreprise supplémentaires.
 
-Cet article décrit comment migrer les espaces de noms de niveau standard existants vers le niveau premium.
+Cet article décrit comment migrer les espaces de noms de niveau standard existants vers le niveau premium.  
 
 >[!WARNING]
 > Migration est destinée aux espaces de noms standard Service Bus être mis à niveau vers le niveau premium. L’outil de migration ne prend pas en charge la rétrogradation.
@@ -33,6 +33,7 @@ Certains des points à noter :
 - Le **premium** espace de noms doit avoir **aucune entité** qu’il contient pour la migration réussisse. 
 - Tous les **entités** dans l’espace de noms standard sont **copié** à l’espace de noms premium pendant le processus de migration. 
 - Prend en charge de la migration **1 000 entités par unité de messagerie** sur le niveau premium. Pour identifier le nombre d’unités de messagerie vous avez besoin, commencer par le nombre d’entités que vous disposez sur votre espace de noms standard actuel. 
+- Vous ne pouvez pas migrer directement à partir de **niveau de base** à **premier niveau**, mais vous pouvez le faire indirectement en effectuant une migration de base d’abord standard, puis de la norme vers premium à l’étape suivante.
 
 ## <a name="migration-steps"></a>Étapes de la migration
 Certaines conditions sont associées au processus de migration. Familiarisez-vous avec les étapes suivantes pour réduire le risque d’erreurs. Ces étapes décrivent le processus de migration, et les informations détaillées sont répertoriées dans les sections qui suivent.

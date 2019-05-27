@@ -9,20 +9,20 @@ ms.date: 04/11/2019
 ms.topic: article
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: df59342bebae3ac0f6e80e5b58f429fedf3c3336
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e6359d57a1f4cce6ec89fd76ef343b515cafae6e
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60739048"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66133141"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>Activer les solutions Update Management, Change Tracking et Inventory sur plusieurs machines virtuelles
 
 Azure Automation fournit des solutions pour gérer les mises à jour de sécurité du système d’exploitation, le suivi des modifications et l’inventaire de ce qui est installé sur vos ordinateurs. Vous pouvez intégrer des machines de plusieurs façons : vous pouvez intégrer la solution [à partir d’une machine virtuelle](automation-onboard-solutions-from-vm.md), à partir de votre [compte Automation](automation-onboard-solutions-from-automation-account.md), par la navigation sur des machines virtuelles, ou par [runbook](automation-onboard-solutions.md). Cet article présente l’intégration de ces solutions par la navigation sur des machines virtuelles dans Azure.
 
-## <a name="log-in-to-azure"></a>Connexion à Azure
+## <a name="sign-in-to-azure"></a>Connexion à Azure
 
-Connectez-vous à Azure à l’adresse https://portal.azure.com.
+Se connecter à Azure à https://portal.azure.com
 
 ## <a name="enable-solutions"></a>Activer des solutions
 
@@ -59,27 +59,10 @@ Si l’espace de travail sélectionné n’est pas lié à un compte Automation,
 
 ![Aucun espace de travail](media/automation-onboard-solutions-from-browse/no-workspace.png)
 
-Lors de l’activation de solutions, seules certaines régions sont prises en charge pour la liaison d’un espace de travail Log Analytics et d’un compte Automation.
-
-Le tableau suivant renseigne sur les mappages pris en charge :
-
-|**Région de l’espace de travail Log Analytics**|**Région Azure Automation**|
-|---|---|
-|AustralieSudEst|AustralieSudEst|
-|CanadaCentral|CanadaCentral|
-|CentralIndia|CentralIndia|
-|EastUS<sup>1</sup>|USAEst2|
-|JaponEst|JaponEst|
-|AsieSudEst|AsieSudEst|
-|WestCentralUS<sup>2</sup>|WestCentralUS<sup>2</sup>|
-|WestEurope|WestEurope|
-|RoyaumeUniSud|RoyaumeUniSud|
-|USGovVirginie|USGovVirginie|
-|EastUS2EUAP<sup>1</sup>|USACentreEUAP|
-
-<sup>1</sup> EastUS2EUAP et EastUS des mappages d’espaces de travail Analytique de journal aux comptes Automation ne sont pas un mappage précis de la région à une autre, mais est le mappage correct.
-
-<sup>2</sup> en raison des restrictions de capacité la région n’est pas disponible lors de la création de nouvelles ressources. Cela inclut les espaces de travail comptes Automation et d’Analytique de journal. Toutefois, les ressources liées préexistants dans la région doivent continuer à fonctionner.
+> [!NOTE]
+> Lors de l’activation de solutions, seules certaines régions sont prises en charge pour la liaison d’un espace de travail Log Analytics et d’un compte Automation.
+>
+> Pour obtenir la liste des paires de mappage pris en charge, consultez [mappage de région pour l’espace de travail compte Automation et Log Analytique](how-to/region-mappings.md).
 
 Désactivez la case à cocher en regard des machines virtuelles que vous ne souhaitez pas activer. Les machines virtuelles qui ne peuvent pas être activées sont déjà désélectionnées.
 
@@ -122,6 +105,8 @@ Si vous avez utilisé la solution Démarrer/arrêter des machines virtuelles pen
 * Start and stop VM runbooks (Démarrer et arrêter les Runbooks de machine virtuelle)
 * variables
 
+Vous pouvez également vous pouvez également dissocier votre espace de travail à partir de votre compte Automation à partir de votre espace de travail Analytique de journal. Dans votre espace de travail, sélectionnez **compte Automation** sous **les ressources associées**. Dans la page compte Automation, sélectionnez **dissocier le compte**.
+
 ## <a name="troubleshooting"></a>Résolution de problèmes
 
 Lors de l’intégration de plusieurs machines, certaines machines peuvent afficher le message **Cannot enable** (Impossible d’activer). Il existe différentes raisons pour lesquelles certaines machines ne peuvent pas être activées. Les sections suivantes expliquent les raisons possibles pour lesquelles le message **Cannot enable** (Impossible d’activer) s’affiche sur une machine virtuelle lors de la tentative d’intégration.
@@ -152,7 +137,7 @@ Lors de l’intégration de plusieurs machines, certaines machines peuvent affic
 
 **Cause** : les machines virtuelles qui utilisent le modèle de déploiement classique ne sont pas prises en charge.
 
-**Solution**: migrez la machine virtuelle vers le modèle de déploiement de Resource Manager. Pour savoir comment procéder, consultez [Migrer des ressources d’un modèle de déploiement classique](../virtual-machines/windows/migration-classic-resource-manager-overview.md).
+**Solution**: Migrer la machine virtuelle vers le modèle de déploiement Resource Manager. Pour savoir comment procéder, consultez [Migrer des ressources d’un modèle de déploiement classique](../virtual-machines/windows/migration-classic-resource-manager-overview.md).
 
 ### <a name="vm-is-stopped-deallocated"></a>La machine virtuelle est arrêtée. (désallouée)
 

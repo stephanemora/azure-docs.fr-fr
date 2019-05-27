@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: d1c1ed7388ff55e4f17559742054cea973f65ba7
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: f0b0ff3ff4ac742a7e850798c736eb31098f66e8
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65192290"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65966381"
 ---
 # <a name="aks-troubleshooting"></a>Résolution des problèmes liés à AKS
 
@@ -118,3 +118,15 @@ Restrictions d’affectation de noms sont implémentées par la plateforme Azure
 
 * Le AKS *MC_* nom_groupe_ressources combine le nom de groupe de ressources et le nom de la ressource. La syntaxe générée automatiquement de `MC_resourceGroupName_resourceName_AzureRegion` doit pas être supérieure à 80 caractères. Si nécessaire, réduisez la longueur de votre nom de groupe de ressources ou le nom du cluster AKS.
 * Le *dnsPrefix* doit commencer et se terminer par des valeurs alphanumériques. Les caractères valides incluent des valeurs alphanumériques et des traits d’union (-). Le *dnsPrefix* ne peut pas inclure des caractères spéciaux tels que d’un point (.).
+
+## <a name="im-receiving-errors-when-trying-to-create-update-scale-delete-or-upgrade-cluster-that-operation-is-not-allowed-as-another-operation-is-in-progress"></a>Je reçois des erreurs lorsque vous tentez de créer, mettre à jour, mettre à l’échelle, supprimer ou mettre à niveau de cluster, cette opération n’est pas autorisée car une autre opération est en cours.
+
+*Cette assistance de dépannage est redirigée via aka.ms/aks-en attente-opération*
+
+Opérations de cluster sont limitées lorsqu’une opération précédente est toujours en cours. Pour récupérer un état détaillé de votre cluster, utilisez le `az aks show -g myResourceGroup -n myAKSCluster -o table` commande. Utilisez votre propre groupe de ressources et le nom du cluster AKS, en fonction des besoins.
+
+En fonction de la sortie de l’état du cluster :
+
+* Si le cluster est autre que n’importe quel état d’approvisionnement *Succeeded* ou *échec*, attendez que l’opération (*la mise à niveau / mise à jour / création / mise à l’échelle / suppression / migration*) se termine. Lorsque l’opération précédente est terminée, réessayez votre dernière opération de cluster.
+
+* Si le cluster a un échec de la mise à niveau, suivez les étapes décrites [je suis reçoit des erreurs de mon cluster est en état d’échec et la mise à niveau ou mise à l’échelle ne fonctionnera pas jusqu'à la résolution](#im-receiving-errors-that-my-cluster-is-in-failed-state-and-upgrading-or-scaling-will-not-work-until-it-is-fixed).

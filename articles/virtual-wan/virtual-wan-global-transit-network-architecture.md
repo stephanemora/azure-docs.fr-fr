@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: article
-ms.date: 05/06/2019
+ms.date: 05/20/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand global transit network architecture as it relates to Virtual WAN.
-ms.openlocfilehash: 8cda617ca60a17fceaaa818480ff9bbaef46c3fd
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: 114d11f98c6181a03f5ce52527b5e2efea468c42
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65414066"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65965970"
 ---
 # <a name="global-transit-network-architecture-and-virtual-wan"></a>Architecture de réseau global de transit et WAN virtuel
 
@@ -48,7 +48,7 @@ Figure 2 montre la vue logique du réseau global dans lequel les utilisateurs g�
 
 ## <a name="crossregion"></a>Connectivité dans plusieurs régions
 
-Pour une entreprise, un encombrement du cloud suit généralement l’encombrement physique. La plupart des entreprises accéder au cloud à partir d’une région proche de leur site physique et les utilisateurs. Un des principaux de clé de l’architecture de réseau global consiste à activer la connectivité entre les régions entre des entités réseau et des points de terminaison. Un encombrement du cloud peut s’étendre sur plusieurs régions. Cela signifie que le trafic à partir d’une branche qui est connecté au cloud dans une région peut atteindre une autre branche ou un réseau virtuel dans une autre région.
+Pour une entreprise, un encombrement du cloud suit généralement l’encombrement physique. La plupart des entreprises accéder au cloud à partir d’une région proche de leur site physique et les utilisateurs. Un des principaux de clé de l’architecture de réseau global consiste à activer la connectivité entre les régions entre des entités réseau et des points de terminaison. Un encombrement du cloud peut s’étendre sur plusieurs régions. Cela signifie que le trafic à partir d’une branche qui est connecté au cloud dans une région peut atteindre une autre branche ou un réseau virtuel dans une autre région à l’aide de la connectivité de hub-hub qui est actuellement en version préliminaire.
 
 ## <a name="any"></a>Connectivité à tout
 
@@ -89,7 +89,7 @@ Le chemin d’accès utilisateur à branche distante permet des utilisateurs dis
 
 ### <a name="vnetvnet"></a>Transit de réseau virtuel à réseau virtuel à l’aide de l’homologation
 
-Pour connecter des réseaux virtuels entre eux pour prendre en charge des applications à plusieurs niveaux qui sont implémentées sur plusieurs réseaux virtuels, utilisez l’homologation de réseau virtuel. Un scénario de transit réseau virtuel à réseau virtuel via un WAN virtuel Azure n’est actuellement pas pris en charge, mais se trouve sur la feuille de route Azure. Connexion de réseaux virtuels via l’homologation de réseau virtuel est la solution recommandée pour les réseaux virtuels qui doivent être connectés entre eux. Pour plus d’informations sur l’homologation, consultez [vue d’ensemble de l’homologation de réseau virtuel](../virtual-network/virtual-network-peering-overview.md).
+Pour connecter des réseaux virtuels entre eux pour prendre en charge des applications à plusieurs niveaux qui sont implémentées sur plusieurs réseaux virtuels, utilisez l’homologation de réseau virtuel. Un scénario de transit réseau virtuel à réseau virtuel via un WAN virtuel Azure n’est actuellement pas pris en charge, mais se trouve sur la feuille de route Azure. Connexion de réseaux virtuels via l’homologation de réseau virtuel est la solution recommandée pour les réseaux virtuels qui doivent être connectés entre eux. [Le transit par passerelle](../virtual-network/virtual-network-peering-overview.md#gateways-and-on-premises-connectivity) (dans le contexte d’homologation) n’est pas requis pour le WAN virtuel, car le WAN virtuel active automatiquement le transit par passerelle.
 
 ### <a name="globalreach"></a>Portée mondiale ExpressRoute
 

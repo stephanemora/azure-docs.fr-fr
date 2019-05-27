@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 03/11/2019
 ms.author: tomfitz
 ms.openlocfilehash: 104bd13a0cf97a8605670adde479c2a2eeb29c15
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57786326"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66128875"
 ---
 Pour marquer une ressource au cours du déploiement, ajoutez le `tags` élément à la ressource que vous déployez. Indiquez le nom et la valeur de la balise.
 

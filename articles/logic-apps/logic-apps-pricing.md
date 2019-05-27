@@ -9,13 +9,13 @@ ms.author: klam
 ms.reviewer: estfan, LADocs
 ms.assetid: f8f528f5-51c5-4006-b571-54ef74532f32
 ms.topic: article
-ms.date: 03/25/2019
-ms.openlocfilehash: c3d06d3c0f9c86b4fe6495632b48051fd69dc663
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.date: 05/22/2019
+ms.openlocfilehash: b37a6b6995df6f784b5f1b4a7a3f54d91faafc13
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65544537"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65990187"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Modèle de tarif pour Azure Logic Apps
 
@@ -92,11 +92,15 @@ Une fois que vous avez désactivé une application logique, l’arrêt complet d
 Tarification de la consommation s’applique aux [comptes d’intégration](logic-apps-enterprise-integration-create-integration-account.md) où vous pouvez Explorer, développer et tester le [B2B et EDI](logic-apps-enterprise-integration-b2b.md) et [traitement XML](logic-apps-enterprise-integration-xml.md) fonctionnalités dans Azure Logic Apps gratuitement coût supplémentaire.
 Vous pouvez avoir un compte d’intégration dans chaque région Azure. Chaque compte d’intégration peut stocker jusqu’à un [nombre spécifique d’artefacts](../logic-apps/logic-apps-limits-and-config.md), qui incluent les contrats, partenaires commerciaux, cartes, schémas, assemblys, certificats, configurations de lot, etc.
 
-Azure Logic Apps offre également des comptes d’intégration de base et Standard avec un contrat SLA Logic Apps de prise en charge. Voici quelques conseils que vous pouvez choisir s’il faut utiliser un compte d’intégration de base ou Standard :
+Azure Logic Apps offre des comptes d’intégration gratuit, Basic et Standard. Les niveaux de base et Standard sont pris en charge par le contrat de niveau de service Logic Apps (SLA), bien que le niveau gratuit n’est pas pris en charge par un contrat SLA et présente des limites sur le débit et l’utilisation.
 
-* Utiliser des comptes d’intégration de base lorsque vous venez de choix de la gestion des messages ou agir en tant que petite entreprise partenaire ayant une relation de partenaire commercial avec une entité professionnelle plus importante.
+Pour choisir entre un compte d’intégration Free, Basic ou Standard :
 
-* Utiliser des comptes d’intégration Standard lorsque vous avez des relations B2B plus complexes et que vous souhaitez augmenter le nombre d’entités que vous pouvez gérer.
+* **Gratuit** : Lorsque vous voulez essayer des scénarios exploratoires, pas les scénarios de production.
+
+* **De base** : Lorsque vous souhaitez uniquement la gestion des messages ou d’agir en tant que petite entreprise partenaire qui a une relation de partenaire commercial avec une entité professionnelle plus importante.
+
+* **Standard** : Quand vous avez des relations B2B plus complexes et une augmentation du nombre d’entités que vous devez gérer.
 
 Pour plus d’informations concernant la tarification, consultez [tarification d’Azure Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps).
 

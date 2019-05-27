@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: 892b9bc63f9f2d9abc7108587a7bf929473e4648
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 3acaf86123f2cab871bc2f99cc873a73015875e2
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65779428"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65989849"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Notes de publication du service Azure Machine Learning
 
@@ -30,6 +30,24 @@ Consultez la [liste des problèmes connus](resource-known-issues.md) pour en sav
 ### <a name="azure-machine-learning-sdk-for-python-v1039"></a>Azure Machine Learning SDK pour Python v1.0.39
 + **Modifications**
   + Configuration d’exécution auto_prepare_environment option est déconseillée, avec auto préparer devient la valeur par défaut.
+
+## <a name="2019-05-08"></a>2019-05-08
+
+### <a name="azure-machine-learning-data-prep-sdk-v113"></a>Kit de développement logiciel v1.1.3 de préparation des données d’Azure Machine Learning
+
++ **Nouvelles fonctionnalités**
+  + Prise en charge ajoutée pour lire à partir d’une base de données PostgresSQL, en appelant read_postgresql ou à l’aide d’une banque de données.
+    + Consultez les exemples dans les guides de procédures :
+      + [Notebook Ingestion des données](https://aka.ms/aml-data-prep-ingestion-nb)
+      + [Banque de données portable](https://aka.ms/aml-data-prep-datastore-nb)
+
++ **Correctifs de bogues et améliorations**
+  + Résolution des problèmes avec la conversion de type de colonne :
+  + Désormais correctement convertit une colonne booléenne ou numérique à une colonne de valeurs booléennes.
+  + Maintenant n’échoue pas lorsque vous tentez de définir une colonne de date pour être de type date.
+  + Améliorée JoinType types et documentation de référence qui l’accompagne. Lorsque vous joignez deux flux de données, vous pouvez maintenant spécifier un de ces types de jointure :
+    + NONE, CORRESPONDANCE, INTERNE, UNMATCHLEFT, LEFTANTI, LEFTOUTER, UNMATCHRIGHT, RIGHTANTI, RIGHTOUTER, FULLANTI, COMPLET.
+  + L’inférence pour reconnaître les autres formats de date de type de données améliorées.
 
 ## <a name="2019-05-06"></a>2019-05-06
 
@@ -367,7 +385,7 @@ Azure Machine Learning service est maintenant en disponibilité générale.
 Avec cette version, nous annonçons une nouvelle expérience de calcul gérée via [la capacité de calcul Azure Machine Learning](how-to-set-up-training-targets.md#amlcompute). La cible de calcul remplace le calcul Azure Batch AI pour Azure Machine Learning. 
 
 Cette cible de calcul :
-+ Est utilisée pour la formation du modèle et l’inférence par lots
++ Est utilisé pour le modèle formation et traitement par lots inférence/notation
 + Est une cible de calcul de nœud unique vers des nœuds multiples
 + Effectue la gestion des clusters et la planification des travaux pour l’utilisateur
 + Effectue la mise à l’échelle automatique par défaut

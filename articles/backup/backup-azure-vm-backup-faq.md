@@ -6,14 +6,14 @@ author: sogup
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/22/2019
+ms.date: 05/21/2019
 ms.author: sogup
-ms.openlocfilehash: 9f233af316bd6022b93a7208bf3fae37e913e6af
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9d4d1db808446cb010e6551bdcec514fc550d802
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60848178"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65966323"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Forum aux questions : sauvegarder des machines virtuelles Azure
 
@@ -24,25 +24,25 @@ Cet article répond aux questions courantes sur la sauvegarde des machines virtu
 
 ### <a name="which-vm-images-can-be-enabled-for-backup-when-i-create-them"></a>Les images de machine virtuelle peuvent être activées pour la sauvegarde lorsque je crée les ?
 Lorsque vous créez une machine virtuelle, vous pouvez activer la sauvegarde pour les machines virtuelles en cours d’exécution [les systèmes d’exploitation pris en charge](backup-support-matrix-iaas.md#supported-backup-actions)
- 
-### <a name="is-the-backup-cost-included-in-the-vm-cost"></a>Est le coût de sauvegarde inclus dans le coût de la machine virtuelle ? 
+
+### <a name="is-the-backup-cost-included-in-the-vm-cost"></a>Est le coût de sauvegarde inclus dans le coût de la machine virtuelle ?
 
 Non. Les coûts de sauvegarde sont distincts des coûts d’une machine virtuelle. En savoir plus sur [tarification d’Azure Backup](https://azure.microsoft.com/pricing/details/backup/).
- 
-### <a name="which-permissions-are-required-to-enable-backup-for-a-vm"></a>Les autorisations sont nécessaires pour activer la sauvegarde d’une machine virtuelle ? 
 
-Si vous êtes un contributeur de machine virtuelle, vous pouvez activer la sauvegarde sur la machine virtuelle. Si vous utilisez un rôle personnalisé, vous devez disposer des autorisations suivantes pour activer la sauvegarde sur la machine virtuelle : 
+### <a name="which-permissions-are-required-to-enable-backup-for-a-vm"></a>Les autorisations sont nécessaires pour activer la sauvegarde d’une machine virtuelle ?
 
-- Microsoft.RecoveryServices/Vaults/write 
-- Microsoft.RecoveryServices/Vaults/read 
-- Microsoft.RecoveryServices/locations/* 
-- Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/*/read 
-- Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/read 
-- Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/write 
-- Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/write 
-- Microsoft.RecoveryServices/Vaults/backupPolicies/read 
-- Microsoft.RecoveryServices/Vaults/backupPolicies/write 
- 
+Si vous êtes un contributeur de machine virtuelle, vous pouvez activer la sauvegarde sur la machine virtuelle. Si vous utilisez un rôle personnalisé, vous devez disposer des autorisations suivantes pour activer la sauvegarde sur la machine virtuelle :
+
+- Microsoft.RecoveryServices/Vaults/write
+- Microsoft.RecoveryServices/Vaults/read
+- Microsoft.RecoveryServices/locations/*
+- Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/*/read
+- Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/read
+- Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/write
+- Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/write
+- Microsoft.RecoveryServices/Vaults/backupPolicies/read
+- Microsoft.RecoveryServices/Vaults/backupPolicies/write
+
 Si votre coffre Recovery Services et la machine virtuelle ont différents groupes de ressources, assurez-vous que vous disposez des autorisations d’écriture dans le groupe de ressources pour le coffre Recovery Services.  
 
 
@@ -140,3 +140,6 @@ La machine virtuelle est sauvegardée selon la planification et les paramètres 
 3. Sauvegarde réactivée dans le coffre même ou nouveau.
 
 Vous pouvez restaurer la machine virtuelle à partir des points de restauration disponibles créés avant l’opération de déplacement.
+
+### <a name="is-there-a-limit-on-number-of-vms-that-can-beassociated-with-a-same-backup-policy"></a>Y a-t-il une limite sur le nombre de machines virtuelles qui peuvent être associés à une même stratégie de sauvegarde ?
+Oui, il existe une limite de 100 machines virtuelles qui peuvent être associées à la même stratégie de sauvegarde à partir du portail. Nous recommandons, pour plus de 100 machines virtuelles, créez plusieurs stratégies de sauvegarde avec la même planification ou planification différente.

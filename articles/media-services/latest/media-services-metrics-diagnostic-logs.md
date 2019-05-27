@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/05/2019
 ms.author: juliako
-ms.openlocfilehash: 7ce57e1f8b2732ea909625c89f3e8148cb70635c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: bbf43ecb07947fad8cc1ee064d2038e4a21d4444
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64728839"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65964772"
 ---
 # <a name="monitor-media-services-metrics-and-diagnostic-logs"></a>Surveiller les métriques de Media Services et des journaux de diagnostic
 
-[Azure Monitor](../../azure-monitor/overview.md) permet aux mesures de surveillance et de journaux de diagnostic qui vous aident à comprendre le fonctionnement de vos applications. Toutes les données collectées par Azure Monitor s’adapte à un des deux types fondamentaux, journaux et métriques. Vous pouvez surveiller les journaux de diagnostic de Media Services et créer des alertes et notifications pour les métriques collectées et les journaux. Vous pouvez visualiser et analyser les données de mesures à l’aide [Metrics explorer](../../azure-monitor/platform/metrics-getting-started.md). Vous pouvez envoyer des journaux au [stockage Azure](https://azure.microsoft.com/services/storage/), les transmettre à [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)et les exporter vers [Analytique de journal](https://azure.microsoft.com/services/log-analytics/), ou utiliser les services tiers 3e.
+[Azure Monitor](../../azure-monitor/overview.md) permet aux mesures de surveillance et de journaux de diagnostic qui vous aident à comprendre le fonctionnement de vos applications. Toutes les données collectées par Azure Monitor s’adapte à un des deux types fondamentaux, mesures et journaux. Vous pouvez surveiller les journaux de diagnostic de Media Services et créer des alertes et notifications pour les métriques collectées et les journaux. Vous pouvez visualiser et analyser les données de mesures à l’aide [Metrics explorer](../../azure-monitor/platform/metrics-getting-started.md). Vous pouvez envoyer des journaux au [stockage Azure](https://azure.microsoft.com/services/storage/), les transmettre à [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)et les exporter vers [Analytique de journal](https://azure.microsoft.com/services/log-analytics/), ou utiliser les services tiers 3e.
 
 Pour une présentation détaillée, consultez [mesures Azure Monitor](../../azure-monitor/platform/data-platform.md) et [journaux de Diagnostic du moniteur Azure](../../azure-monitor/platform/diagnostic-logs-overview.md).
 
@@ -34,11 +34,11 @@ Les métriques sont collectées à intervalles réguliers, que la valeur change 
 
 Actuellement, les Services de média suivants [les points de terminaison de diffusion en continu](https://docs.microsoft.com/rest/api/media/streamingendpoints) métriques sont émis par Azure :
 
-|Nom|Description|
-|---|---|
-|Demandes|Donne des détails concernant le nombre total de demandes traitées par le point de terminaison de diffusion en continu.|
-|Sortie|Nombre total d’octets de sortie. Par exemple, les octets envoyés par le point de terminaison de diffusion en continu.|
-|Latence de bout en bout de réussite| Fournit des informations sur la latence de bout en bout de demandes réussies.|
+|Métrique|Display name|Description |
+|---|---|---|
+|Requests|Requests|Donne des détails concernant le nombre total de demandes traitées par le point de terminaison de diffusion en continu.|
+|Sortie|Sortie|Nombre total d’octets de sortie. Par exemple, les octets envoyés par le point de terminaison de diffusion en continu.|
+|SuccessE2ELatency|Latence de bout en bout de réussite| Fournit des informations sur la latence de bout en bout de demandes réussies.|
 
 Par exemple, pour obtenir des mesures de « Sortie » avec l’interface CLI, exécutez la commande suivante `az monitor metrics` commande CLI :
 
@@ -54,7 +54,7 @@ Pour plus d’informations sur la création d’alertes de métriques, consultez
 
 Actuellement, vous pouvez obtenir les journaux de diagnostics suivants :
 
-|Nom|Description|
+|Nom|Description |
 |---|---|
 |Demande de service de remise de clé|Journaux qui indiquent les informations de demande de service de remise de clé. Pour plus d’informations, consultez [schémas](media-services-diagnostic-logs-schema.md).|
 
@@ -76,7 +76,7 @@ az monitor diagnostic-settings create --name <diagnostic name> \
     }]'
 ```
 
-Par exemple : 
+Exemple :
 
 ```cli
 az monitor diagnostic-settings create --name amsv3diagnostic \

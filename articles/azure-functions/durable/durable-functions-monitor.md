@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 9be062ec42f054832225c17a65b06e47dbcbe990
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 243a388ee59a1a550f80882b0af61e1f1db008ca
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62123482"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65977436"
 ---
 # <a name="monitor-scenario-in-durable-functions---weather-watcher-sample"></a>Scénario de surveillance dans l’extension Fonctions durables - Exemple d’observateur météo
 
@@ -89,7 +89,8 @@ Il est possible d’exécuter simultanément plusieurs instances d’orchestrate
 
 ## <a name="strongly-typed-data-transfer-net-only"></a>Transfert de données fortement typées (.NET uniquement)
 
-L’orchestrateur nécessite plusieurs éléments de données. Par conséquent, des [objets OCT partagés](../functions-reference-csharp.md#reusing-csx-code) sont utilisés pour le transfert des données fortement typées en C# et dans les scripts C# : [!code-csharp[Main](~/samples-durable-functions/samples/csx/shared/MonitorRequest.csx)]
+L’orchestrateur nécessite plusieurs éléments de données, par conséquent, [objets oct partagés](../functions-reference-csharp.md#reusing-csx-code) sont utilisés pour le transfert de données fortement typées dans C# et C# script :  
+[!code-csharp[Main](~/samples-durable-functions/samples/csx/shared/MonitorRequest.csx)]
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/shared/Location.csx)]
 

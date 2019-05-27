@@ -1,26 +1,24 @@
 ---
 author: diberry
-ms.author: v-junlch
+ms.author: diberry
 ms.service: cognitive-services
 ms.topic: include
-origin.date: 03/25/2019
-ms.date: 04/23/2019
-ms.openlocfilehash: 94e95864d8bac2d6dc0ff690a2a8f53bd2db5a40
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.date: 03/25/2019
+ms.openlocfilehash: f4925401235aedb341a7e29ca36b079126647f7b
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60598811"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66124309"
 ---
-## <a name="validate-container-is-running"></a>Valider conteneur est en cours d’exécution 
+## <a name="validate-that-a-container-is-running"></a>Valider l’exécution d’un conteneur 
 
-Il existe plusieurs façons de valider le conteneur est en cours d’exécution : 
+Il existe plusieurs façons de confirmer que le conteneur s’exécute. 
 
 |Requête|Objectif|
 |--|--|
 |`http://localhost:5000/`|Le conteneur fournit une page d’accueil.|
-|`http://localhost:5000/status`|Demandé par GET, pour valider le conteneur est en cours d’exécution sans provoquer d’une requête de point de terminaison. Cela peut être utilisé pour Kubernetes [sondes de temporisation et de préparation](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/).|
-|`http://localhost:5000/swagger`|Le conteneur fournit un ensemble complet de documentation pour les points de terminaison ainsi qu’une fonctionnalité `Try it now`. Cette fonctionnalité vous permet d’entrer vos paramètres dans un formulaire HTML basé sur le web et d’effectuer la requête sans avoir à écrire du code. Une fois la requête retournée, un exemple de commande CURL est fourni pour illustrer le format du corps et des en-têtes HTTP requis. |
+|`http://localhost:5000/status`|Demandée avec GET, pour confirmer que le conteneur est en cours d’exécution sans provoquer de requête de point de terminaison. Cette requête peut être utilisée pour les [probes liveness et readiness](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/) de Kubernetes.|
+|`http://localhost:5000/swagger`|Le conteneur fournit un ensemble complet de documentation pour les points de terminaison et une fonctionnalité `Try it now`. Avec cette fonctionnalité, vous pouvez entrer vos paramètres dans un formulaire HTML basé sur le web, et constituer la requête sans avoir à écrire du code. Une fois la requête retournée, un exemple de commande CURL est fourni pour illustrer les en-têtes HTTP, et le format du corps qui est nécessaire. |
 
 ![Page d’accueil du conteneur](./media/cognitive-services-containers-api-documentation/container-webpage.png)
-

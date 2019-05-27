@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: magoedte
-ms.openlocfilehash: 58abe3a3973986ab489456be7958361ad8ab06f4
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 12eea032c37c8d737ae004d622b72536195c4444
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64922819"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65977582"
 ---
 # <a name="overview-of-the-azure-monitoring-agents"></a>Vue d’ensemble des agents de surveillance Azure 
 Microsoft Azure offre plusieurs moyens de collecter différents types de données de machines virtuelles exécutant Microsoft Windows et Linux hébergées sur Azure, dans votre centre de données ou chez d’autres fournisseurs de cloud. Les trois types d’agents suivants sont disponibles pour surveiller une machine virtuelle :
@@ -30,7 +30,7 @@ Microsoft Azure offre plusieurs moyens de collecter différents types de donnée
 Cet article décrit les différences entre eux afin que vous puissiez déterminer lequel prendra en charge la gestion de votre service informatique ou les exigences générales de surveillance.  
 
 ## <a name="azure-diagnostic-extension"></a>Extension Azure Diagnostics
-L’[extension Diagnostics Azure](../../azure-monitor/platform/diagnostics-extension-overview.md) (couramment appelée extension Diagnostics Azure pour Windows (WAD) ou Diagnostics Azure pour Linux (LAD)), qui a été fournie pour Azure Cloud Services depuis qu’il a été mis à la disposition générale en 2010, est un agent qui fournit une collection simple de données de diagnostic à partir d’une ressource de calcul Azure comme une machine virtuelle, et la conserve dans un élément de stockage Azure. Une fois dans le stockage, vous pouvez choisir de l’afficher avec l’un des outils disponibles, tels que [Explorateur de serveurs dans Visual Studio](/visualstudio/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage) et [Explorateur Stockage Azure](../../vs-azure-tools-storage-manage-with-storage-explorer.md).
+L’[extension Diagnostics Azure](../../azure-monitor/platform/diagnostics-extension-overview.md) (couramment appelée extension Diagnostics Azure pour Windows (WAD) ou Diagnostics Azure pour Linux (LAD)), qui a été fournie pour Azure Cloud Services depuis qu’il a été mis à la disposition générale en 2010, est un agent qui fournit une collection simple de données de diagnostic à partir d’une ressource de calcul Azure comme une machine virtuelle, et la conserve dans un élément de stockage Azure. Une fois dans le stockage, vous choisissez d’afficher avec un des outils disponibles, telles que [Explorateur de serveurs dans Visual Studio](/visualstudio/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage) et [Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md).
 
 Vous pouvez choisir de collecter :
 
@@ -59,7 +59,7 @@ Pour une surveillance avancée où vous avez besoin plus de collecter des mesure
 L’agent Log Analytics doit être utilisé lorsque vous souhaitez :
 
 * collecter des données à partir de diverses sources au sein d’Azure, d’autres fournisseur de cloud et de ressources locales. 
-* Utilisation de l’une des solutions de surveillance Azure Monitor, telles qu’[Azure Monitor pour machines virtuelles](../insights/vminsights-overview.md), [Azure Monitor pour conteneurs](../insights/container-insights-overview.md), etc.  
+* Utilisez une de l’analyse Azure tels que des solutions de surveillance [Azure Monitor pour les machines virtuelles](../insights/vminsights-overview.md), [Azure Monitor pour les conteneurs](../insights/container-insights-overview.md), etc.  
 * Utiliser l’un des autres services de gestion Azure, tel qu’[Azure Security Center](../../security-center/security-center-intro.md), [Azure Automation](../../automation/automation-intro.md), etc.
 
 Auparavant, plusieurs services Azure étaient regroupés dabs *Operations Management Suite* et, par conséquent, l’agent Log Analytics est partagé entre des services, notamment Azure Security Center et Azure Automation.  Ceci inclut l’ensemble complet des fonctionnalités qu’ils offrent et fournit une gestion complète de vos machines virtuelles Azure pendant tout leur cycle de vie.  Quelques exemples :

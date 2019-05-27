@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/08/2019
+ms.date: 05/20/2019
 ms.author: pareshmu
-ms.openlocfilehash: ac1d5f43d5711e6a688608e4cfc78e39221b8fac
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 8253610bd0c329c952442044586236acc56d4957
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65467773"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65978099"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partenaires ExpressRoute et emplacements d’homologation
 
@@ -50,7 +50,7 @@ Le tableau ci-dessous fournit une carte des régions Azure vers des emplacements
 | **Inde** | 2 |Inde Ouest, Inde Centre, Inde Sud |Chennai, Chennai2, Mumbai, Mumbai2 |
 | **Japon** | 2 |Japon Ouest, Japon Est |Osaka, Tokyo |
 | **Corée du Sud** | 2 |Centre de la Corée, Corée du Sud |Busan, Séoul|
-| **ÉMIRATS ARABES UNIS** | 3 | Émirats Arabes Unis, États-Unis, Nord des Émirats Arabes Unis | Dubaï |
+| **ÉMIRATS ARABES UNIS** | 3 | Émirats Arabes Unis, États-Unis, Nord des Émirats Arabes Unis | Dubaï, Dubai2 |
 | **Afrique du Sud** | 3 |Afrique du Sud Ouest, Nord de l’Afrique du Sud |Le Cap, Johannesburg |
 | **Amérique du Sud** | 3 |Brésil Sud |São Paulo |
 
@@ -70,59 +70,62 @@ La connectivité entre les régions géopolitiques n’est pas prise en charge d
 
 Le tableau suivant présente les emplacements de connectivité et les fournisseurs de services pour chaque emplacement. Si vous souhaitez afficher les fournisseurs de service et les lieux pour lesquels ils peuvent fournir le service, consultez la page [Lieux par fournisseur de services](expressroute-locations.md#locations). 
 
+**Les régions Azure locales** sont ceux qui [ExpressRoute Local](expressroute-faqs.md) dans chaque emplacement d’homologation peut accéder. **n/a** indique que ExpressRoute Local n’est pas disponible à cet emplacement d’homologation.
+
 
 ### <a name="production-azure"></a>Production Azure
-| **Lieu** | **Propriétaire de l’emplacement d’homologation** | **Fournisseurs de services** |
-| --- | --- | --- |
-| **Amsterdam** | Equinix | Aryaka Networks, AT&T NetBond, British Telecom, Colt, Equinix, euNetworks, GÉANT, InterCloud, Interxion, KPN, IX Reach, Level 3 Communications, Megaport, NTT Communications, Orange, Tata Communications, TeleCity Group, Telefonica, Telenor, Telia Carrier, Verizon, Zayo |
-| **Amsterdam2** | Interxion | Allemagne-CIX, Interxion |
-| **Atlanta** | Equinix | Equinix, Megaport |
-| **Busan** |LG CNS | LG CNS |
-| **Canberra** | CDC | CDC |
-| **Canberra2** | CDC | CDC |
-| **Le Cap** | Teraco | Internet Solutions - Cloud Connect, Liquid Telecom, Teraco |
-| **Chennai** | Tata Communications | Global CloudXchange (GCX), SIFY, Tata Communications |
-| **Chennai2** | Airtel | Airtel |
-| **Chicago** | Equinix | Aryaka Networks, AT & T NetBond, Cologix, Comcast, Coresite, Equinix, InterCloud, Internet2, Level 3 Communications, Megaport, PacketFabric, PCCW Global limitée, Sprint, Telia transporteur, Verizon, Zayo |
-| **Dallas** | Equinix | Aryaka Networks, AT & T NetBond, Cologix, Equinix, Internet2, Level 3 Communications, Megaport, Neutrona réseaux, Telmex Uninet, Telia transporteur, Verizon, Zayo|
-| **Denver** | CoreSite | CoreSite, Megaport, Zayo |
-| **Dubai** | Émirats arabes unis Etisalat | Émirats arabes unis Etisalat |
-| **Dublin** | Equinix | Colt, eir, Equinix, Interxion, Megaport |
-| **Francfort** | Interxion | Allemagne-CIX, Interxion |
-| **Hong Kong (r.a.s.)** | Equinix | Aryaka Networks, British Telecom, China Telecom Global, Equinix, Megaport, NTT Communications, Orange, PCCW Global Limited, Tata Communications, Verizon |
-| **Johannesburg** | Teraco | Internet Solutions - Cloud Connect, Liquid Telecom, Teraco |
-| **Kuala Lumpur** | TIME dotCom | TIME dotCom |
-| **Las Vegas** | Échanger | CenturyLink Cloud Connect, Megaport |
-| **Londres** | Equinix | AT&T NetBond, British Telecom, Colt, Equinix, InterCloud, Internet Solutions - Cloud Connect, Interxion, Jisc, Level 3 Communications, Megaport, MTN, NTT Communications, Orange, PCCW Global Limited, Tata Communications, Telehouse - KDDI, Telenor, Telia Carrier, Verizon, Vodafone, Zayo |
-| **Londres2** | Telehouse | IX Reach, Equinix |
-| **Los Angeles** | CoreSite | CoreSite, Equinix, Megaport, Neutrona Networks, NTT, Zayo |
-| **Marseille** |Interxion | Interxion |
-| **Melbourne** | NextDC | AARNet, Equinix, Megaport, NEXTDC, Optus, Telstra Corporation, TPG Telecom |
-| **Miami** | Equinix | C3ntro+, Equinix, Megaport, Neutrona Networks |
-| **Montréal** | Cologix | Bell Canada, Cologix, Telus, Zayo |
-| **Mumbai** | Tata Communications | CloudXchange global (GCX), Jio de dépendance, Sify, Tata Communications, |
-| **Mumbai2** | Airtel | Airtel, Sify, Vodafone Idea |
-| **New York** | Equinix | Provoqués Cloud vous connecter, Coresite, Equinix, InterCloud, Megaport, paquet, Zayo |
-| **Newport (Nouvelle-Galles du Sud)** | Next Generation Data | British Telecom, Level 3 Communications, Next Generation Data |
-| **Osaka** | Equinix | Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, NTT SmartConnect, Softbank |
-| **Paris** | Interxion | COLT, Equinix, Intercloud, Interxion, Orange, Telia transporteur, Zayo |
-| **Perth** | NextDC | Megaport, NextDC |
-| **Québec** | 4Degrees | Bell Canada, Megaport |
-| **San Antonio** | CyrusOne | CenturyLink Cloud Connect, Megaport |
-| **Sao Paulo** | Equinix | Aryaka Networks, Ascenty Data Centers, British Telecom, Equinix, Level 3 Communications, Neutrona Networks, Orange, Tata Communications, Telefonica, UOLDIVEO |
-| **Seattle** | Equinix | Aryaka Networks, Equinix, Level 3 Communications, Megaport, Zayo |
-| **Séoul** | KINX | KINX, LG CNS, Sejong Telecom |
-| **Silicon Valley** | Equinix | Aryaka Networks, AT & T NetBond, British Telecom, provoqués Cloud Connect, Comcast, Coresite, Equinix, InterCloud, IX atteindre, le paquet, PacketFabric, Level 3 Communications, Megaport, Orange, Sprint, Tata Communications, Verizon, Zayo |
-| **Silicon Valley2** | Coresite | Coresite | 
-| **Singapour** | Equinix | Aryaka Networks, AT&T NetBond, British Telecom, Epsilon Global Communications, Equinix, InterCloud, Level 3 Communications, Megaport, NTT Communications, Orange, SingTel, Tata Communications, Telstra Corporation, Verizon, Vodafone |
-| **Singapore2** | Global Switch | Colt, Epsilon Global Communications, Megaport, SingTel |
-| **Sydney** | Equinix | AARNet, AT & T NetBond, British Telecom, Devoli, Equinix, Kordia, Megaport, NEXTDC, NTT Communications, Optus, Orange, Telstra Corporation, télécommunications TPG, Verizon |
-| **Taipei** | Chief Telecom | Chief Telecom, FarEasTone |
-| **Tokyo** | Equinix | Aryaka Networks, AT&T NetBond, British Telecom, CenturyLink Cloud Connect, Colt, Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, NTT EAST, Orange, Softbank, Verizon |
-| **Toronto** | Cologix | AT & T NetBond, Bell Canada, provoqués Cloud vous connecter, Cologix, Equinix, IX atteindre Megaport, Telus, Zayo |
-| **Washington DC** | Equinix | Aryaka Networks, AT & T NetBond, British Telecom, Cologix, Comcast, Coresite, Equinix, Internet2, InterCloud, Level 3 Communications, Megaport, Neutrona réseaux, NTT Communications, Orange, PacketFabric, Sprint, Tata Communications, Telia porteur, Verizon, Zayo |
-| **Washington DC2** | Coresite | Coresite | 
-| **Zurich** | Interxion | Interxion |
+| **Lieu** | **Propriétaire de l’emplacement d’homologation** | **Régions Azure locales** | **Fournisseurs de services** |
+| --- | --- | --- | --- |
+| **Amsterdam** | Equinix | Europe Ouest | Aryaka Networks, AT&T NetBond, British Telecom, Colt, Equinix, euNetworks, GÉANT, InterCloud, Interxion, KPN, IX Reach, Level 3 Communications, Megaport, NTT Communications, Orange, Tata Communications, TeleCity Group, Telefonica, Telenor, Telia Carrier, Verizon, Zayo |
+| **Amsterdam2** | Interxion | Europe Ouest | Allemagne-CIX, Interxion |
+| **Atlanta** | Equinix | n/a | Equinix, Megaport |
+| **Busan** |LG CNS | Corée du Sud | LG CNS |
+| **Canberra** | CDC | Centre de l’Australie | CDC |
+| **Canberra2** | CDC | Centre de l’Australie 2| CDC |
+| **Le Cap** | Teraco | Afrique du Sud Ouest | Internet Solutions - Cloud Connect, Liquid Telecom, Teraco |
+| **Chennai** | Tata Communications | Inde Sud | Global CloudXchange (GCX), SIFY, Tata Communications |
+| **Chennai2** | Airtel | Inde Sud | Airtel |
+| **Chicago** | Equinix | USA Centre Nord | Aryaka Networks, AT & T NetBond, Cologix, Comcast, Coresite, Equinix, InterCloud, Internet2, Level 3 Communications, Megaport, PacketFabric, PCCW Global limitée, Sprint, Telia transporteur, Verizon, Zayo |
+| **Dallas** | Equinix | n/a | Aryaka Networks, AT & T NetBond, Cologix, Equinix, Internet2, Level 3 Communications, Megaport, Neutrona réseaux, Telmex Uninet, Telia transporteur, Verizon, Zayo|
+| **Denver** | CoreSite | USA Centre-Ouest | CoreSite, Megaport, Zayo |
+| **Dubai** | Émirats arabes unis Etisalat | Nord des Émirats arabes unis | Émirats arabes unis Etisalat |
+| **Dubai2** | unité de base datamena | Nord des Émirats arabes unis | unité de base datamena |
+| **Dublin** | Equinix | Europe Nord | Colt, eir, Equinix, Interxion, Megaport |
+| **Francfort** | Interxion | n/a | Allemagne-CIX, Interxion |
+| **Hong Kong (r.a.s.)** | Equinix | Asie Est | Aryaka Networks, British Telecom, China Telecom Global, Equinix, Megaport, NTT Communications, Orange, PCCW Global Limited, Tata Communications, Verizon |
+| **Johannesburg** | Teraco | Afrique du Sud Nord | Internet Solutions - Cloud Connect, Liquid Telecom, Teraco |
+| **Kuala Lumpur** | TIME dotCom | n/a | TIME dotCom |
+| **Las Vegas** | Échanger | n/a | CenturyLink Cloud Connect, Megaport |
+| **Londres** | Equinix | Sud du Royaume-Uni | AT&T NetBond, British Telecom, Colt, Equinix, InterCloud, Internet Solutions - Cloud Connect, Interxion, Jisc, Level 3 Communications, Megaport, MTN, NTT Communications, Orange, PCCW Global Limited, Tata Communications, Telehouse - KDDI, Telenor, Telia Carrier, Verizon, Vodafone, Zayo |
+| **Londres2** | Telehouse | Sud du Royaume-Uni | IX Reach, Equinix |
+| **Los Angeles** | CoreSite | n/a | CoreSite, Equinix, Megaport, Neutrona Networks, NTT, Zayo |
+| **Marseille** |Interxion | France Sud | Interxion |
+| **Melbourne** | NextDC | Australie Sud-Est | AARNet, Equinix, Megaport, NEXTDC, Optus, Telstra Corporation, TPG Telecom |
+| **Miami** | Equinix | n/a | C3ntro+, Equinix, Megaport, Neutrona Networks |
+| **Montréal** | Cologix | n/a | Bell Canada, Cologix, Telus, Zayo |
+| **Mumbai** | Tata Communications | Inde Ouest | CloudXchange global (GCX), Jio de dépendance, Sify, Tata Communications, |
+| **Mumbai2** | Airtel | Inde Ouest | Airtel, Sify, Vodafone Idea |
+| **New York** | Equinix | n/a | Provoqués Cloud vous connecter, Coresite, Equinix, InterCloud, Megaport, paquet, Zayo |
+| **Newport (Nouvelle-Galles du Sud)** | Next Generation Data | Ouest du Royaume-Uni | British Telecom, Level 3 Communications, Next Generation Data |
+| **Osaka** | Equinix | Japon Ouest | Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, NTT SmartConnect, Softbank |
+| **Paris** | Interxion | France Centre | COLT, Equinix, Intercloud, Interxion, Orange, Telia transporteur, Zayo |
+| **Perth** | NextDC | n/a | Megaport, NextDC |
+| **Québec** | 4Degrees | Est du Canada | Bell Canada, Megaport |
+| **San Antonio** | CyrusOne | USA Centre Sud | CenturyLink Cloud Connect, Megaport |
+| **Sao Paulo** | Equinix | Brésil Sud | Aryaka Networks, Ascenty Data Centers, British Telecom, Equinix, Level 3 Communications, Neutrona Networks, Orange, Tata Communications, Telefonica, UOLDIVEO |
+| **Seattle** | Equinix | USA Ouest 2 | Aryaka Networks, Equinix, Level 3 Communications, Megaport, Zayo |
+| **Séoul** | KINX | Centre de la Corée | KINX, LG CNS, Sejong Telecom |
+| **Silicon Valley** | Equinix | USA Ouest | Aryaka Networks, AT & T NetBond, British Telecom, provoqués Cloud Connect, Comcast, Coresite, Equinix, InterCloud, IX atteindre, le paquet, PacketFabric, Level 3 Communications, Megaport, Orange, Sprint, Tata Communications, Verizon, Zayo |
+| **Silicon Valley2** | Coresite | USA Ouest | Coresite | 
+| **Singapour** | Equinix | Asie du Sud-Est | Aryaka Networks, AT&T NetBond, British Telecom, Epsilon Global Communications, Equinix, InterCloud, Level 3 Communications, Megaport, NTT Communications, Orange, SingTel, Tata Communications, Telstra Corporation, Verizon, Vodafone |
+| **Singapore2** | Global Switch | Asie du Sud-Est | Colt, Epsilon Global Communications, Megaport, SingTel |
+| **Sydney** | Equinix | Australie Est | AARNet, AT & T NetBond, British Telecom, Devoli, Equinix, Kordia, Megaport, NEXTDC, NTT Communications, Optus, Orange, Telstra Corporation, télécommunications TPG, Verizon |
+| **Taipei** | Chief Telecom | n/a | Chief Telecom, FarEasTone |
+| **Tokyo** | Equinix | Japon Est | Aryaka Networks, AT&T NetBond, British Telecom, CenturyLink Cloud Connect, Colt, Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, NTT EAST, Orange, Softbank, Verizon |
+| **Toronto** | Cologix | Centre du Canada | AT & T NetBond, Bell Canada, provoqués Cloud vous connecter, Cologix, Equinix, IX atteindre Megaport, Telus, Zayo |
+| **Washington DC** | Equinix | Est des États-Unis, est des États-Unis 2 | Aryaka Networks, AT & T NetBond, British Telecom, Cologix, Comcast, Coresite, Equinix, Internet2, InterCloud, Level 3 Communications, Megaport, Neutrona réseaux, NTT Communications, Orange, PacketFabric, Sprint, Tata Communications, Telia porteur, Verizon, Zayo |
+| **Washington DC2** | Coresite | Est des États-Unis, est des États-Unis 2 |Coresite | 
+| **Zurich** | Interxion | n/a | Interxion |
 
  **+** = bientôt disponible
 

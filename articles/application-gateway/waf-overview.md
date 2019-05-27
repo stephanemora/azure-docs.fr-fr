@@ -4,15 +4,15 @@ description: Cet article fournit une vue d’ensemble du pare-feu d’applicatio
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.date: 2/22/2019
+ms.date: 5/22/2019
 ms.author: amsriva
 ms.topic: conceptual
-ms.openlocfilehash: 830513a03bd65ca14cb0938ae599a676f1bb3bca
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 9c2759222198f5df682d9e7a5363c0d9679e0fad
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58518182"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991397"
 ---
 # <a name="web-application-firewall-for-azure-application-gateway"></a>Pare-feu d’applications Web pour Azure Application Gateway
 
@@ -38,7 +38,7 @@ Cette section décrit les avantages principaux par Application Gateway et son WA
 
 * Protéger vos applications web contre les vulnérabilités web et des attaques sans modification au code principal.
 
-* Protéger plusieurs applications web en même temps. Une instance de passerelle d’Application peut héberger jusqu'à 20 sites Web qui sont protégés par un pare-feu d’applications web.
+* Protéger plusieurs applications web en même temps. Une instance de passerelle d’Application peut héberger jusqu'à 100 sites Web qui sont protégés par un pare-feu d’applications web.
 
 ### <a name="monitoring"></a>Surveillance
 
@@ -121,12 +121,19 @@ L’Application Gateway WAF peut être configuré pour s’exécuter dans les de
 * **Mode de prévention**: Intrusions de blocs et les attaques qui détectent les règles. L’attaquant reçoit une exception « 403 tout accès non autorisé », et la connexion est interrompue. Mode de prévention enregistre ces attaques dans les journaux WAF.
 
 ### <a name="anomaly-scoring-mode"></a>Mode de score d’anomalie
- 
+
 OWASP comporte deux modes pour décider s’il faut bloquer le trafic : Mode traditionnel et le mode de calcul de score d’anomalie.
 
 En mode traditionnel, le trafic qui correspond à n’importe quelle règle est considérée comme indépendamment de toutes les correspondances de règle. Ce mode est facile à comprendre. Mais l’absence d’informations sur le nombre de règles qui correspondent à une demande spécifique est une limitation. Par conséquent, le mode de calcul de score d’anomalie a été introduit. Il est la valeur par défaut pour les 3 OWASP. *x*.
 
 En mode de calcul de score d’anomalie, le trafic qui correspond à aucune règle n’est pas bloqué immédiatement lorsque le pare-feu est en mode de prévention. Les règles ont un niveau de gravité spécifique : *Critique*, *erreur*, *avertissement*, ou *avis*. Ce niveau de gravité affecte une valeur numérique pour la demande, ce qui est appelée le Score d’anomalie. Par exemple, un *avertissement* règle de correspondance contribue 3 au score. Un *critique* règle de correspondance contribue à 5.
+
+|Severity  |Valeur  |
+|---------|---------|
+|Critique     |5.|
+|Error        |4|
+|Avertissement      |3|
+|Remarque       |2|
 
 Il existe un seuil de 5 pour le Score d’anomalie à bloquer le trafic. Par conséquent, un seul *critique* correspondance de règle est suffisant pour l’Application Gateway WAF bloquer une demande, même en mode de prévention. Mais un *avertissement* règle de correspondance augmente uniquement l’anomalie Score par 3, ce qui n’est pas suffisant en lui-même pour bloquer le trafic.
 
