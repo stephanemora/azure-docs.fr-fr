@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: 910c593c9277efeaf72dadc52740b1c918381e19
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b8c1513838fb848388946e18698a0410aa7a0332
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61466044"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65949628"
 ---
 # <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>Génération d'une application Windows Store de diffusion en continu lisse  
 
@@ -507,7 +507,7 @@ Les mêmes événements sont également disponibles sur AdaptiveSourceManager, q
    ```
 
    > [!NOTE]
-   > CoreDispatcher permet d'apporter des modifications au thread d'interface utilisateur à partir d'un autre type de thread. En cas de goulot d'étranglement sur le thread du répartiteur, le développeur peut choisir d'utiliser le répartiteur fourni par l'élément d'interface utilisateur à mettre à jour.  Par exemple : 
+   > CoreDispatcher permet d'apporter des modifications au thread d'interface utilisateur à partir d'un autre type de thread. En cas de goulot d’étranglement sur le thread du répartiteur, le développeur peut choisir d’utiliser le répartiteur fourni par l’interface utilisateur-élément, ils ont l’intention de mettre à jour.  Exemple :
 
    ```csharp
          await sliderProgress.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () => { TimeSpan 
@@ -847,7 +847,7 @@ Une présentation de diffusion en continu lisse peut contenir plusieurs fichiers
          </ListBox>
          </StackPanel>
    ```
-3. Appuyez sur **Ctrl+S** pour enregistrer les modifications.
+3. Appuyez sur **CTRL + S** pour enregistrer les modifications
 
 ### <a name="to-modify-the-code-behind-file"></a>Pour modifier le fichier code-behind
 

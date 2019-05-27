@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/23/2019
 ms.author: sachdevaswati
-ms.openlocfilehash: ae1f5f9148fa516c98d78afdd57887d4279f92dc
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
-ms.translationtype: MT
+ms.openlocfilehash: 2fba8b0056c80a62837682a6820b68f71fba9ea8
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65827685"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65952937"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Sauvegarder des bases de données SQL Server sur des machines virtuelles Azure
 
@@ -51,7 +51,7 @@ Pour toutes les opérations, une machine virtuelle SQL Server nécessite une con
 
 - **Autoriser les plages IP de centre de données Azure**. Cette option permet de [plages d’adresses IP](https://www.microsoft.com/download/details.aspx?id=41653) dans le téléchargement. Pour accéder à un groupe de sécurité réseau (NSG), utilisez l’applet de commande Set-AzureNetworkSecurityRule. Si vous êtes mise en liste verte uniquement spécifiques à une région adresses IP, vous aurez également besoin à la liste d’autorisation Azure Active Directory (Azure AD) numéro de série pour activer l’authentification.
 
-- **Autoriser l’accès à l’aide de balises de groupe de sécurité réseau**. Si vous utilisez des groupes de sécurité réseau pour limiter la connectivité, cette option ajoute une règle à votre groupe de sécurité réseau qui autorise un accès sortant à la sauvegarde Azure à l’aide de la balise AzureBackup. En plus de cette balise, vous devez également correspondant [règles](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview#service-tags) pour Azure AD et le stockage Azure pour autoriser la connectivité pour le transfert de données et d’authentification. La balise AzureBackup est actuellement disponible sur PowerShell uniquement. Pour créer une règle à l’aide de la balise AzureBackup :
+- **Autoriser l’accès à l’aide de balises de groupe de sécurité réseau**. Si vous utilisez des groupes de sécurité réseau pour limiter la connectivité, cette option ajoute une règle à votre groupe de sécurité réseau qui autorise un accès sortant à la sauvegarde Azure à l’aide de la balise AzureBackup. En plus de cette balise, vous devez également correspondant [règles](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) pour Azure AD et le stockage Azure pour autoriser la connectivité pour le transfert de données et d’authentification. La balise AzureBackup est actuellement disponible sur PowerShell uniquement. Pour créer une règle à l’aide de la balise AzureBackup :
 
     - Ajouter des informations d’identification de compte Azure et mettre à jour les clouds nationaux<br/>
     `Add-AzureRmAccount`
@@ -67,7 +67,7 @@ Pour toutes les opérations, une machine virtuelle SQL Server nécessite une con
 
   - Enregistrer le groupe de sécurité réseau<br/>
     `Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg`
-- **Autoriser l’accès à l’aide de balises de pare-feu Azure**. Si vous utilisez des pare-feu d’Azure, créer une règle d’application à l’aide de la AzureBackup [balise de nom de domaine complet](https://docs.microsoft.com/en-us/azure/firewall/fqdn-tags). Cela permet un accès sortant à sauvegarde Azure.
+- **Autoriser l’accès à l’aide de balises de pare-feu Azure**. Si vous utilisez des pare-feu d’Azure, créer une règle d’application à l’aide de la AzureBackup [balise de nom de domaine complet](https://docs.microsoft.com/azure/firewall/fqdn-tags). Cela permet un accès sortant à sauvegarde Azure.
 - **Déployer un serveur proxy HTTP pour acheminer le trafic**. Lorsque vous sauvegardez une base de données SQL Server sur une machine virtuelle Azure, l’extension de sauvegarde sur la machine virtuelle utilise les API de HTTPS pour envoyer des commandes de gestion de sauvegarde Azure et les données vers le stockage Azure. L’extension de sauvegarde utilise également Azure AD pour l’authentification. Acheminez le trafic de l’extension de sauvegarde pour ces trois services via le proxy HTTP. Les extensions sont le seul composant qui est configuré pour l’accès à l’internet public.
 
 Options de connectivité sont les avantages et inconvénients suivants :
