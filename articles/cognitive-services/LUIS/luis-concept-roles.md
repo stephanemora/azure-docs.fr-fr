@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 5fa922cb91d34483256faf4dcf70569aa2f17b97
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 318e71b68bbabeeef34c75a412f9fdd5b6db754a
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60813829"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65073024"
 ---
 # <a name="entity-roles-for-contextual-subtypes"></a>Rôles d’entité pour les sous-types contextuelles
 
@@ -35,9 +35,9 @@ buy a ticket from New York to London
 
 Les rôles donnent un nom à ces différences :
 
-|Type d’entité|Nom de l’entité|Rôle|Objectif|
+|Type d'entité|Nom de l’entité|Rôle|Objectif|
 |--|--|--|--|
-|Simple|Lieu|origin|où le plan part de|
+|Simple|Lieu|origine|où le plan part de|
 |Simple|Lieu|destination|où le plan arrive à|
 
 ## <a name="non-machine-learned-entity-example-of-roles"></a>Exemple d’entité non-machine-a appris de rôles
@@ -48,7 +48,7 @@ Dans l’énoncé « Planifier la réunion de 8 à 9 », les deux les nombres 
 Schedule the meeting from 8 to 9
 ```
 
-|Type d’entité|Nom de rôle|Valeur|
+|Type d'entité|Nom de rôle|Valeur|
 |--|--|--|
 |datetimeV2 prédéfini|Starttime|8|
 |datetimeV2 prédéfini|heure de fin|9|
@@ -79,12 +79,6 @@ Lorsqu’une entité a un rôle, et l’entité est marquée dans un énoncé de
 |--|--|
 |Je souhaite en savoir plus sur **Seattle**|Je souhaite en savoir plus sur {Location}|
 |Acheter un ticket de Seattle à New York|Acheter un ticket à partir de {emplacement : origine} à {emplacement : Destination}|
-
-## <a name="how-are-roles-related-to-hierarchical-entities"></a>Comment les rôles sont liés aux entités hiérarchiques ?
-
-Les rôles sont désormais disponibles pour toutes les entités dans énoncés d’exemple, ainsi que l’utilisation précédente de modèles. Car ils sont disponibles partout, elles remplacent la nécessité pour les entités hiérarchiques. Nouvelles entités doivent être créées avec les rôles, au lieu d’utiliser des entités hiérarchiques. 
-
-Entités hiérarchiques risque d’être dépréciées.
 
 ## <a name="how-are-roles-used-in-patterns"></a>Comment les rôles sont-ils utilisés dans les modèles ?
 Dans l’énoncé d’un gabarit de modèle, les rôles sont utilisés dans l’énoncé : 

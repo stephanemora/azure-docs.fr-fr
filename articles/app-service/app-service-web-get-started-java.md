@@ -12,19 +12,19 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 03/26/2018
+ms.date: 04/23/2019
 ms.author: cephalin;robmcm
 ms.custom: seodec18
-ms.openlocfilehash: 3af585ede27536dfb644dd374e54183c3539d585
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: f1411ee28ca4e371f68c375242a2445c8b48f8d7
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60007353"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64706139"
 ---
 # <a name="create-your-first-java-web-app-in-azure"></a>Créer votre première application web Java dans Azure
 
-[Azure App Service](overview.md) offre un service d’hébergement web hautement évolutif appliquant des mises à jour correctives automatiques. Ce guide de démarrage rapide indique comment déployer une application web Java dans App Service à l’aide de [l’environnement de développement intégré (IDE) Eclipse pour développeurs Java EE](https://www.eclipse.org/).
+Azure App Service offre un service d’hébergement web capable d’auto-correction et hautement scalable. Ce guide de démarrage rapide indique comment déployer une application web Java dans App Service à l’aide de l’environnement de développement intégré (IDE) Eclipse pour les développeurs Java EE.
 
 > [!IMPORTANT]
 > Azure App Service sur Linux est également une option permettant d’héberger des applications web Java en mode natif sur Linux à l’aide d’offres Tomcat, Java SE et WildFly managées. Si vous souhaitez démarrer avec App Service sur Linux, consultez [Démarrage rapide : Créer une application Java dans App Service sur Linux](containers/quickstart-java.md).
@@ -54,9 +54,9 @@ Pour effectuer ce démarrage rapide, installez les éléments suivants :
 
 ## <a name="create-a-dynamic-web-project-in-eclipse"></a>Créer un projet web dynamique dans Eclipse
 
-Dans Eclipse, sélectionnez **File (Fichier)** > **New (Nouveau)** > **Dynamic Web Project (Projet web dynamique)**.
+Dans Eclipse, sélectionnez **File (Fichier)**  > **New (Nouveau)**  > **Dynamic Web Project (Projet web dynamique)** .
 
-Dans la boîte de dialogue **New Dynamic Web Project (Nouveau projet web dynamique)**, nommez le projet **MyFirstJavaOnAzureWebApp**, puis sélectionnez **Finish (Terminer)**.
+Dans la boîte de dialogue **New Dynamic Web Project (Nouveau projet web dynamique)** , nommez le projet **MyFirstJavaOnAzureWebApp**, puis sélectionnez **Finish (Terminer)** .
    
 ![Boîte de dialogue Projet web dynamique](./media/app-service-web-get-started-java/new-dynamic-web-project-dialog-box.png)
 
@@ -67,7 +67,7 @@ Si l’Explorateur de projets n’est pas affiché, restaurez-le.
 ![Espace de travail Java EE pour Eclipse](./media/app-service-web-get-started-java/pe.png)
 
 Dans l’Explorateur de projets, développez le projet **MyFirstJavaOnAzureWebApp**.
-Cliquez avec le bouton droit sur **WebContent**, puis sélectionnez **New (Nouveau)** > **JSP File (Fichier JSP)**.
+Cliquez avec le bouton droit sur **WebContent**, puis sélectionnez **New (Nouveau)**  > **JSP File (Fichier JSP)** .
 
 ![Menu d’un nouveau fichier JSP dans l’Explorateur de projets](./media/app-service-web-get-started-java/new-jsp-file-menu.png)
 
@@ -156,7 +156,7 @@ Le kit de ressources Azure crée l’application web et affiche une boîte de di
 
 ### <a name="deploy-web-app-dialog-box"></a>Boîte de dialogue Déployer une application web
 
-Dans la boîte de dialogue **Déployer une application web**, sélectionnez **Deploy to root (Déployer à la racine)**. Si vous disposez d’un App Service à l’emplacement *wingtiptoys.azurewebsites.net* et que vous ne choisissez pas le déploiement à la racine, l’application web nommée **MyFirstJavaOnAzureWebApp** est déployée dans *wingtiptoys.azurewebsites.net/MyFirstJavaOnAzureWebApp*.
+Dans la boîte de dialogue **Déployer une application web**, sélectionnez **Deploy to root (Déployer à la racine)** . Si vous disposez d’un App Service à l’emplacement *wingtiptoys.azurewebsites.net* et que vous ne choisissez pas le déploiement à la racine, l’application web nommée **MyFirstJavaOnAzureWebApp** est déployée dans *wingtiptoys.azurewebsites.net/MyFirstJavaOnAzureWebApp*.
 
 ![Boîte de dialogue Déployer une application web](./media/app-service-web-get-started-java/deploy-web-app-to-root.png)
 
@@ -184,7 +184,7 @@ Remplacez l’exemple de code JSP par un autre message.
 
 Enregistrez les modifications.
 
-Dans l’Explorateur de projets, cliquez avec le bouton droit sur le projet, puis sélectionnez **Azure** > **Publish as Azure Web App (Publier en tant qu’application web Azure)**.
+Dans l’Explorateur de projets, cliquez avec le bouton droit sur le projet, puis sélectionnez **Azure** > **Publish as Azure Web App (Publier en tant qu’application web Azure)** .
 
 La boîte de dialogue **Déployer une application web** s’affiche en vous présentant le service App Service que vous avez créé précédemment. 
 

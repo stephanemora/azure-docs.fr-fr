@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: f53e21b8121006a6a6a1d2099b26e7cb28ca0ed9
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 1d3099da3d449e29d378e2f350fdc87ce5166f2e
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59545295"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64574403"
 ---
 # <a name="create-a-store-locator-by-using-azure-maps"></a>Créer un localisateur de magasin à l’aide d’Azure Maps
 
@@ -71,7 +71,7 @@ Les maquettes présentent une application assez simple. L’application contient
 
 ## <a name="create-the-store-location-dataset"></a>Créer le jeu de données d’emplacements de magasins
 
-Avant de développer une application de localisateur de magasin, nous devons créer un jeu de données des magasins à afficher sur la carte. Dans ce tutoriel, nous utilisons un jeu de données de cafés fictifs appelé Contoso Coffee. Le jeu de données de ce localisateur de magasin simple est géré dans un classeur Excel. Le jeu de données contient 10 213 emplacements de cafés Contoso Coffee répartis dans neuf pays : États-Unis, Canada, Royaume-Uni, France, Allemagne, Italie, Pays-bas, Danemark et Espagne. Voici une capture d’écran qui montre à quoi ressemblent les données :
+Avant de développer une application de localisateur de magasin, nous devons créer un jeu de données des magasins à afficher sur la carte. Dans ce tutoriel, nous utilisons un jeu de données de cafés fictifs appelé Contoso Coffee. Le jeu de données de ce localisateur de magasin simple est géré dans un classeur Excel. Le jeu de données contient 10 213 emplacements de cafés Contoso Coffee répartis dans neuf pays/régions : États-Unis, Canada, Royaume-Uni, France, Allemagne, Italie, Pays-Bas, Danemark et Espagne. Voici une capture d’écran qui montre à quoi ressemblent les données :
 
 <br/>
 <center>
@@ -93,7 +93,7 @@ Il existe de nombreuses façons d’exposer le jeu de données à l’applicatio
 
 Une autre approche consiste à convertir le jeu de données en fichier texte plat que le navigateur peut analyser facilement. Le fichier lui-même peut être hébergé avec le reste de l’application. Simple de conception, cette option doit cependant être réservée aux jeux de données peu volumineux, car l’utilisateur télécharge toutes les données. Pour ce jeu de données, nous optons pour le fichier texte plat dans la mesure où la taille du fichier de données est inférieure à 1 Mo.  
 
-Pour convertir le classeur en fichier texte plat, enregistrez le classeur sous forme de fichier délimité par des tabulations. Chaque colonne est délimitée par un caractère de tabulation, ce qui facilite l’analyse des colonnes dans notre code. Vous pouvez utiliser le format CSV (valeurs séparées par des virgules), mais cette option nécessite une logique d’analyse plus poussée. Les champs précédés et suivis d’une virgule doivent être mis entre guillemets. Pour exporter ces données sous forme de fichier délimité par des tabulations dans Excel, sélectionnez **Enregistrer sous**. Dans la liste déroulante **Type de fichier**, sélectionnez **Texte (délimité par des tabulations)(*.txt)**. Nommez le fichier *ContosoCoffee.txt*. 
+Pour convertir le classeur en fichier texte plat, enregistrez le classeur sous forme de fichier délimité par des tabulations. Chaque colonne est délimitée par un caractère de tabulation, ce qui facilite l’analyse des colonnes dans notre code. Vous pouvez utiliser le format CSV (valeurs séparées par des virgules), mais cette option nécessite une logique d’analyse plus poussée. Les champs précédés et suivis d’une virgule doivent être mis entre guillemets. Pour exporter ces données sous forme de fichier délimité par des tabulations dans Excel, sélectionnez **Enregistrer sous**. Dans la liste déroulante **Type de fichier**, sélectionnez **Texte (délimité par des tabulations)(*.txt)** . Nommez le fichier *ContosoCoffee.txt*. 
 
 <br/>
 <center>
@@ -403,7 +403,7 @@ Si vous exécutez l’application à ce stade, l’en-tête, la zone de recherch
 
 1. Ajoutez du code à *index.js*. Le code suivant initialise la carte, ajoute un [écouteur d’événements](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) qui attend la fin du chargement de la page, relie les événements pour surveiller le chargement de la carte et active le bouton de recherche et le bouton de localisation de l’utilisateur (My Location).
 
-   Quand l’utilisateur sélectionne le bouton de recherche ou appuie sur Entrée après avoir entré un emplacement dans la zone de recherche, une recherche approximative est lancée par rapport à la requête de l’utilisateur. Passez un tableau de valeurs ISO 2 de pays à l’option `countrySet` pour limiter les résultats de la recherche à ces pays. Le fait de limiter la recherche de pays a pour effet d’accroître la précision des résultats retournés. 
+   Quand l’utilisateur sélectionne le bouton de recherche ou appuie sur Entrée après avoir entré un emplacement dans la zone de recherche, une recherche approximative est lancée par rapport à la requête de l’utilisateur. Passez un tableau de valeurs ISO 2 de pays à l’option `countrySet` pour limiter les résultats de la recherche à ces pays/régions. Le fait de limiter la recherche de pays/régions a pour effet d’accroître la précision des résultats renvoyés. 
   
    Une fois la recherche terminée, prenez le premier résultat et définissez la caméra de la carte sur cette région. Quand l’utilisateur sélectionne le bouton permettant de le localiser (My Location), il doit utiliser l’API de géolocalisation HTML5 qui est intégrée au navigateur pour récupérer son emplacement et centrer la carte sur cette position.  
 

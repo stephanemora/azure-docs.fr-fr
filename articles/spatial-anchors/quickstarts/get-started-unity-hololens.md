@@ -1,5 +1,5 @@
 ---
-title: Démarrage rapide - Créer une application HoloLens Unity avec Azure Spatial Anchors | Microsoft Docs
+title: 'Démarrage rapide : Créer une application HoloLens Unity avec Azure Spatial Anchors | Microsoft Docs'
 description: Dans ce démarrage rapide, vous allez apprendre à générer une application HoloLens avec Unity en utilisant Spatial Anchors.
 author: craigktreasure
 manager: aliemami
@@ -8,14 +8,14 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: ce9bca3f11911677a6009b4cfe0c3f6413b9f837
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 31c7af3edf6364ebca021f87240e73c74e64ebc4
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60009240"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64704133"
 ---
-# <a name="quickstart-create-a-hololens-unity-app-that-uses-azure-spatial-anchors"></a>Démarrage rapide : Créer une application HoloLens Unity qui utilise Azure Spatial Anchors
+# <a name="quickstart-create-a-unity-hololens-app-that-uses-azure-spatial-anchors"></a>Démarrage rapide : Créer une application HoloLens Unity qui utilise Azure Spatial Anchors
 
 Ce guide de démarrage rapide explique comment créer une application HoloLens Unity qui utilise [Azure Spatial Anchors](../overview.md). Spatial Anchors est un service de développement multiplateforme qui vous permet de créer des expériences de réalité mixte avec des objets qui conservent leur emplacement sur les appareils. Quand vous aurez terminé, vous aurez une application HoloLens générée avec Unity capable d’enregistrer et de rappeler une ancre spatiale.
 
@@ -36,8 +36,8 @@ Pour suivre ce guide de démarrage rapide :
 
 - Vous avez besoin d’un ordinateur Windows sur lequel <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2018.3</a> ou version ultérieure, et <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a> ou version ultérieure sont installés. Votre installation de Visual Studio doit comprendre la charge de travail **Développement pour la plateforme Windows universelle**. Vous devez aussi installer <a href="https://git-scm.com/download/win" target="_blank">Git pour Windows</a>.
 - Vous avez besoin d’un appareil HoloLens avec le [mode développeur](https://docs.microsoft.com/windows/mixed-reality/using-visual-studio) activé. [La mise à jour de Windows 10 d’octobre 2018](https://docs.microsoft.com/windows/mixed-reality/release-notes-october-2018) (également appelée RS5) doit être installée sur l’appareil. Pour mettre à jour votre appareil HoloLens avec la dernière version, ouvrez l’application **Paramètres**, accédez à **Mise à jour et sécurité**, puis sélectionnez **Rechercher les mises à jour**.
-- Dans votre application, vous devez activer la fonctionnalité **SpatialPerception**. Ce paramètre se trouve dans **Build Settings (Paramètres de build)** > **Player Settings (Paramètres du lecteur)** > **Publishing Settings (Paramètres de publication)** > **Capabilities (Fonctionnalités)**.
-- Dans votre application, vous devez activer **Virtual Reality Supported** (Réalité virtuelle prise en charge) avec le **SDK Windows Mixed Reality**. Ce paramètre se trouve dans **Build Settings (Paramètres de build)** > **Player Settings (Paramètres du lecteur)** > **XR Settings (Paramètres XR)**.
+- Dans votre application, vous devez activer la fonctionnalité **SpatialPerception**. Ce paramètre se trouve dans **Build Settings (Paramètres de build)**  > **Player Settings (Paramètres du lecteur)**  > **Publishing Settings (Paramètres de publication)**  > **Capabilities (Fonctionnalités)** .
+- Dans votre application, vous devez activer **Virtual Reality Supported** (Réalité virtuelle prise en charge) avec le **SDK Windows Mixed Reality**. Ce paramètre se trouve dans **Build Settings (Paramètres de build)**  > **Player Settings (Paramètres du lecteur)**  > **XR Settings (Paramètres XR)** .
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 

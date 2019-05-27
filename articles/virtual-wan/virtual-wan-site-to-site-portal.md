@@ -5,19 +5,19 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 02/26/2019
+ms.date: 04/23/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: 4b44eec5557d2083c38fe2714d93800f79b21b0f
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: e8e251aa5031a8eadd2d567bff2830449c7decc3
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58338443"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64689509"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan"></a>Didacticiel : Créer une connexion de site à site à l’aide d’Azure Virtual WAN
 
-Ce didacticiel vous montre comment utiliser Virtual WAN pour vous connecter à vos ressources dans Azure via une connexion VPN IPsec/IKE (IKEv1 et IKEv2). Ce type de connexion requiert un périphérique VPN local disposant d’une adresse IP publique exposée en externe. Pour plus d’informations sur le WAN virtuel, consultez [Vue d'ensemble de WAN virtuel](virtual-wan-about.md)
+Ce didacticiel vous montre comment utiliser Virtual WAN pour vous connecter à vos ressources dans Azure via une connexion VPN IPsec/IKE (IKEv1 et IKEv2). Ce type de connexion requiert un périphérique VPN local disposant d’une adresse IP publique exposée en externe. Pour plus d’informations sur Azure Virtual WAN, consultez l’article [Vue d'ensemble d’Azure Virtual WAN](virtual-wan-about.md).
 
 > [!NOTE]
 > Si vous avez de nombreux sites, vous utiliseriez généralement un [partenaire WAN virtuel](https://aka.ms/virtualwan) pour créer cette configuration. Toutefois, vous pouvez créer cette configuration vous-même si vous êtes familiarisé avec la mise en réseau et expert dans la configuration de votre propre périphérique VPN.
@@ -32,6 +32,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Créer un site
 > * Créer un hub
 > * Connecter un hub à un site
+> * Créer un réseau virtuel compatible (si vous n’en avez pas encore)
 > * Connecter un réseau virtuel à un hub
 > * Télécharger et appliquer la configuration de périphérique VPN
 > * Afficher votre WAN virtuel
@@ -40,21 +41,15 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 [!INCLUDE [Before you begin](../../includes/virtual-wan-tutorial-vwan-before-include.md)]
 
-## <a name="vnet"></a>1. Créez un réseau virtuel
-
-[!INCLUDE [Create a virtual network](../../includes/virtual-wan-tutorial-vnet-include.md)]
-
-## <a name="openvwan"></a>2. Créer un WAN virtuel
+## <a name="openvwan"></a>1. Créer un WAN virtuel
 
 Dans un navigateur, accédez au [portail Azure](https://aka.ms/azurevirtualwanpreviewfeatures) et connectez-vous avec votre compte Azure.
 
 [!INCLUDE [Create a virtual WAN](../../includes/virtual-wan-tutorial-vwan-include.md)]
 
-## <a name="site"></a>3. Créer un site
+## <a name="site"></a>2. Créer un site
 
 Créez autant de sites que nécessaire correspondant à vos emplacements physiques. Par exemple, si vous avez une succursale à New York, une autre à Londres et une autre à LA, vous créeriez trois sites distincts. Ces sites contiennent vos points de terminaison du périphérique VPN local. À ce stade, vous ne pouvez spécifier qu’un seul espace d’adressage privé pour votre site.
 
@@ -62,21 +57,21 @@ Créez autant de sites que nécessaire correspondant à vos emplacements physiqu
 2. Sur la page **Sites VPN**, cliquez sur **+Créer un site**.
 3. Sur la page **Créer un site**, renseignez les champs suivants :
 
-   * **Nom** : c’est le nom par lequel vous souhaitez faire référence à votre site local.
-   * **Adresse IP publique** : il s’agit de l’adresse IP publique du périphérique VPN qui réside sur votre site local.
+   * **Nom** : nom par lequel vous souhaitez faire référence à votre site local.
+   * **Adresse IP publique** : adresse IP publique du périphérique VPN qui réside sur votre site local.
    * **Espace d’adressage privé** : il s’agit de l’espace d’adresse IP situé sur votre site local. Le trafic destiné à cet espace d’adressage est acheminé vers votre site local.
    * **Abonnement** : vérifiez l’abonnement.
    * **Groupe de ressources** : le groupe de ressources que vous souhaitez utiliser.
-   * **Emplacement**.
-4. Cliquez sur **Afficher les options avancées** pour afficher des paramètres supplémentaires. Vous pouvez sélectionner **BGP** pour activer le protocole BGP et ainsi activer cette fonctionnalité sur toutes les connexions créées pour ce site dans Azure. Vous pouvez également renseigner le champ **Informations sur le périphérique** (facultatif). Cela peut aider l’équipe Azure à mieux comprendre votre environnement afin d’ajouter des possibilités d’optimisation supplémentaires ou pour vous aider à résoudre les problèmes.
+   * **Lieu**
+4. Cliquez sur **Afficher les options avancées** pour afficher des paramètres supplémentaires. Vous pouvez sélectionner **BGP** pour activer le protocole BGP et ainsi activer cette fonctionnalité sur toutes les connexions créées pour ce site dans Azure. Vous pouvez également renseigner le champ **Informations sur le périphérique** (facultatif). Cela peut aider l’équipe Azure à mieux comprendre votre environnement afin d’ajouter des possibilités d’optimisation supplémentaires à l’avenir ou pour vous aider à résoudre les problèmes.
 5. Cliquez sur **Confirmer**.
 6. Après avoir cliqué sur **Confirmer**, affichez l’état sur la page Sites VPN. Le site passe de l’état **Approvisionnement** à l’état **Approvisionné**.
 
-## <a name="hub"></a>4. Créer un hub
+## <a name="hub"></a>3. Créer un hub
 
 [!INCLUDE [Create a hub](../../includes/virtual-wan-tutorial-hub-include.md)]
 
-## <a name="associate"></a>5. Associer les sites au hub
+## <a name="associate"></a>4. Associer les sites au hub
 
 Les hubs doivent généralement être associés aux sites qui se trouvent dans la même région que celle du réseau virtuel.
 
@@ -85,6 +80,12 @@ Les hubs doivent généralement être associés aux sites qui se trouvent dans l
 3. Vous pouvez également ajouter une **PSK** spécifique ici ou utiliser la valeur par défaut.
 4. Cliquez sur **Confirmer**.
 5. Vous pouvez afficher l’état de la connexion sur la page **Sites VPN**.
+
+## <a name="vnet"></a>5. Créez un réseau virtuel
+
+Si vous n’avez pas déjà de réseaux virtuels, vous pouvez en créer un rapidement à l’aide de PowerShell ou du portail Azure. Si vous avez déjà un réseau virtuel, vérifiez qu’il répond aux critères requis et ne dispose pas d’une passerelle de réseau virtuel.
+
+[!INCLUDE [Create a virtual network](../../includes/virtual-wan-tutorial-vnet-include.md)]
 
 ## <a name="vnet"></a>6. Connecter votre réseau virtuel à un hub
 
@@ -114,7 +115,7 @@ Utilisez la configuration de périphérique VPN pour configurer votre périphér
 Le fichier de configuration de périphérique contient les paramètres à utiliser lors de la configuration de votre périphérique VPN sur site. Lorsque vous affichez ce fichier, notez les informations suivantes :
 
 * **vpnSiteConfiguration -** Cette section indique les détails de l’appareil configuré comme un site se connectant au réseau virtuel étendu. Cela inclut le nom et l’adresse IP publique de l’appareil de branche.
-* **vpnSiteConnections -** Cette section fournit des informations sur les éléments suivants :
+* **vpnSiteConnections -** Cette section fournit des informations sur les paramètres suivants :
 
     * **Espace d’adressage** du réseau virtuel du/des hub(s)<br>Exemple :
  
@@ -126,7 +127,7 @@ Le fichier de configuration de périphérique contient les paramètres à utilis
          ```
         "ConnectedSubnets":["10.2.0.0/16","10.30.0.0/16"]
          ```
-    * **Adresses IP** de la passerelle VPN virtuelle. Étant donné que la passerelle VPN a chaque connexion avec 2 tunnels en configuration actif-actif, vous pouvez voir les deux adresses IP répertoriées dans ce fichier. Dans cet exemple, vous voyez « Instance0 » et « Instance1 » pour chaque site.<br>Exemple :
+    * **Adresses IP** de la passerelle VPN virtuelle. Étant donné que chaque connexion effectuée avec la passerelle VPN est composée de deux tunnels en configuration actif-actif, vous pouvez voir les deux adresses IP répertoriées dans ce fichier. Dans cet exemple, vous voyez « Instance0 » et « Instance1 » pour chaque site.<br>Exemple :
 
         ``` 
         "Instance0":"104.45.18.186"

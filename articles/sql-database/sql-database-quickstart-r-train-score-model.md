@@ -13,12 +13,12 @@ ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
 ms.date: 04/11/2019
-ms.openlocfilehash: 97309a24c0ab12720f968409856a16cab4ff7ac7
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: c1719064de53b79a127146d0ab034f461657cc64
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60013088"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64714896"
 ---
 # <a name="create-and-train-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Créer et former un modèle prédictif dans R avec Azure SQL Database Machine Learning Services (préversion)
 
@@ -106,7 +106,7 @@ Dans les étapes suivantes, vous allez configurer les données d’apprentissage
 
 1. Créez une table où vous stockerez le modèle afin de pouvoir l’utiliser ultérieurement pour la prédiction. 
 
-   La sortie d’un package R qui crée un modèle est généralement un **objet binaire**, de sorte que la table doit avoir une colonne de type **VARBINARY(max)**.
+   La sortie d’un package R qui crée un modèle est généralement un **objet binaire**, de sorte que la table doit avoir une colonne de type **VARBINARY(max)** .
 
     ```sql
     CREATE TABLE dbo.stopping_distance_models (
@@ -171,7 +171,7 @@ VALUES (
 
 **Résultats**
 
-![Modèle entraîné avec sortie supplémentaire](./media/sql-database-connect-query-r/r-train-model-with-additional-output.png)
+![Modèle entraîné avec sortie supplémentaire](./media/sql-database-quickstart-r-train-score-model/r-train-model-with-additional-output.png)
 
 ## <a name="score-new-data-using-the-trained-model"></a>Évaluer de nouvelles données à l’aide du modèle formé
 
@@ -239,7 +239,7 @@ Avez-vous remarqué que les données d’entraînement d’origine s’arrêtaie
 
    **Résultats**
 
-   ![Jeu de résultats pour la prédiction de la distance d’arrêt](./media/sql-database-connect-query-r/r-predict-stopping-distance-resultset.png)
+   ![Jeu de résultats pour la prédiction de la distance d’arrêt](./media/sql-database-quickstart-r-train-score-model/r-predict-stopping-distance-resultset.png)
 
 > [!NOTE]
 > Dans cet exemple de script, la fonction `str` est ajoutée au cours de la phase de test, afin de vérifier le schéma de données retourné à partir de R. Vous pourrez supprimer l’instruction ultérieurement.
@@ -248,10 +248,9 @@ Avez-vous remarqué que les données d’entraînement d’origine s’arrêtaie
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur Machine Learning Services, consultez les articles ci-dessous. Bien que certains de ces articles concernent SQL Server, la plupart des informations sont également applicables à Machine Learning Services (avec R) dans Azure SQL Database.
+Pour en savoir plus sur Machine Learning Services avec R dans Azure SQL Database (préversion), consultez les articles suivants.
 
-- [Machine Learning Services (avec R) dans Azure SQL Database](sql-database-machine-learning-services-overview.md)
-- [Services de Machine Learning SQL Server](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning)
-- [Tutoriel : Apprendre l’analytique en base de données avec R dans SQL Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-in-database-r-for-sql-developers)
-- [Procédure pas à pas de bout en bout en science des données pour R et SQL Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough)
-- [Tutoriel : Utiliser les fonctions R de RevoScaleR avec des données SQL Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/deepdive-data-science-deep-dive-using-the-revoscaler-packages)
+- [Machine Learning Services avec R dans Azure SQL Database (préversion)](sql-database-machine-learning-services-overview.md)
+- [Créer et exécuter des scripts R simples dans Azure SQL Database Machine Learning Services (préversion)](sql-database-quickstart-r-create-script.md)
+- [Écrire des fonctions R avancées dans Azure SQL Database avec Machine Learning Services (préversion)](sql-database-machine-learning-services-functions.md)
+- [Exploiter des données R et SQL dans Machine Learning Services d’Azure SQL Database (préversion)](sql-database-machine-learning-services-data-issues.md)

@@ -12,10 +12,10 @@ ms.date: 09/18/2018
 ms.author: priyar
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: a046bec5d81d828d88716d31c84e9cbcdcea1a08
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 05/27/2019
 ms.locfileid: "60515424"
 ---
 # <a name="bing-text-to-speech-api"></a>API Synthèse vocale Bing
@@ -32,7 +32,7 @@ Avec l’API Synthèse vocale Bing, votre application peut envoyer des requêtes
 
 Chaque requête de synthèse vocale requiert un jeton d’accès JSON Web Token (JWT). Celui-ci est transmis dans l’en-tête de la requête. Il expire dans un délai de 10 minutes. Pour plus d’informations sur la façon de vous abonner et d’obtenir des clés API permettant de récupérer des jetons d’accès JWT valides, consultez la page [Abonnement à Cognitive Services](https://azure.microsoft.com/try/cognitive-services/).
 
-La clé API est transmise au service de jetons. Par exemple : 
+La clé API est transmise au service de jetons. Exemple :
 
 ```HTTP
 POST https://api.cognitive.microsoft.com/sts/v1.0/issueToken
@@ -41,11 +41,11 @@ Content-Length: 0
 
 Les informations d’en-tête requises pour l’accès du jeton sont décrites ci-après.
 
-Name| Format | Description
+Nom| Format | Description 
 ----|----|----
-Ocp-Apim-Subscription-Key | ASCII | Votre clé d’abonnement
+Ocp-Apim-Subscription-Key | ASCII | Votre clé d'abonnement
 
-Le service de jetons renvoie le jeton d’accès JWT sous la forme `text/plain`. Par la suite, le jeton JWT est transmis en tant que `Base64 access_token` au point de terminaison de synthèse vocale sous la forme d’un en-tête d’autorisation ayant pour préfixe la chaîne `Bearer`. Par exemple : 
+Le service de jetons renvoie le jeton d’accès JWT sous la forme `text/plain`. Par la suite, le jeton JWT est transmis en tant que `Base64 access_token` au point de terminaison de synthèse vocale sous la forme d’un en-tête d’autorisation ayant pour préfixe la chaîne `Bearer`. Exemple :
 
 `Authorization: Bearer [Base64 access_token]`
 
@@ -66,7 +66,7 @@ Content-Type | application/ssml+xml | Type de contenu d’entrée.
 X-Microsoft-OutputFormat | **1.** ssml-16khz-16bit-mono-tts <br> **2.** raw-16khz-16bit-mono-pcm <br>**3.** audio-16khz-16kbps-mono-siren <br> **4.** riff-16khz-16kbps-mono-siren <br> **5.** riff-16khz-16bit-mono-pcm <br> **6.** audio-16khz-128kbitrate-mono-mp3 <br> **7.** audio-16khz-64kbitrate-mono-mp3 <br> **8.** audio-16khz-32kbitrate-mono-mp3 | Format audio de sortie.
 X-Search-AppId | Un GUID (hexadécimal uniquement, sans tiret) | Un ID identifiant de manière unique l’application cliente. Cela peut être l’ID du store pour les applications. Si aucun ID n’est pas disponible, reste la possibilité d’en générer un par utilisateur pour une application.
 X-Search-ClientID | Un GUID (hexadécimal uniquement, sans tiret) | Un ID identifiant de manière unique une instance d’application pour chaque installation.
-User-Agent. | Nom de l’application | Le nom de l’application est requis. Il doit utiliser moins de 255 caractères.
+User-Agent. | Nom de l'application | Le nom de l’application est requis. Il doit utiliser moins de 255 caractères.
 Authorization | Jeton d’autorisation |  Consultez la section <a href="#Subscription">Jeton d’autorisation</a>.
 
 ### <a name="InputParam"></a>Paramètres d’entrée
@@ -122,7 +122,7 @@ Content-Length: 0
 
 ### <a name="ErrorResponse"></a>Réponses d’erreur
 
-Error | Description
+Error | Description 
 ----|----
 HTTP/400 (Requête incorrecte) | Un paramètre obligatoire est manquant, vide ou null, ou la valeur transmise à un paramètre obligatoire ou facultatif n’est pas valide. Une réponse « non valide » est parfois due au transfert d’une valeur de chaîne qui dépasse la longueur autorisée. Une brève description du paramètre en cause est fournie.
 HTTP/401 (Non autorisé) | La requête n’est pas autorisée.
@@ -192,84 +192,84 @@ Le tableau suivant répertorie quelques-uns des paramètres régionaux pris en c
 
 Paramètre régional | Sexe | Mappage du nom du service
 ---------|--------|------------
-ar-EG* | Féminin | « Voix de synthèse vocale pour le service Speech Microsoft Server (ar-EG, Hoda) »
-ar-SA | Masculin | « Voix de synthèse vocale pour le service Speech Microsoft Server (ar-SA, Naayf) »
-bg-BG | Masculin | « Voix de synthèse vocale pour le service Speech Microsoft Server (bg-BG, Ivan) »
-ca-ES | Féminin | « Voix de synthèse vocale pour le service Speech Microsoft Server (ca-ES, HerenaRUS) »
-cs-CZ | Masculin | « Voix de synthèse vocale pour le service Speech Microsoft Server (cs-CZ, Jakub) »
-da-DK | Féminin | « Voix de synthèse vocale pour le service Speech Microsoft Server (da-DK, HelleRUS) »
-de-AT | Masculin | « Voix de synthèse vocale pour le service Speech Microsoft Server (de-AT, Michael) »
-de-CH | Masculin | « Voix de synthèse vocale pour le service Speech Microsoft Server (de-CH, Karsten) »
-de-DE | Féminin | « Voix de synthèse vocale pour le service Speech Microsoft Server (de-DE, Hedda) »
-de-DE | Féminin | « Voix de synthèse vocale pour le service Speech Microsoft Server (de-DE, HeddaRUS) »
-de-DE | Masculin | « Voix de synthèse vocale pour le service Speech Microsoft Server (de-DE, Stefan, Apollo) »
-el-GR | Masculin | « Voix de synthèse vocale pour le service Speech Microsoft Server (el-GR, Stefanos) »
-en-AU | Féminin | « Voix de synthèse vocale pour le service Speech Microsoft Server (en-AU, Catherine) »
-en-AU | Féminin | « Voix de synthèse vocale pour le service Speech Microsoft Server (en-AU, HayleyRUS) »
-en-CA | Féminin | « Voix de synthèse vocale pour le service Speech Microsoft Server (en-CA, Linda) »
-en-CA | Féminin | « Voix de synthèse vocale pour le service Speech Microsoft Server (en-CA, HeatherRUS) »
-en-GB | Féminin | « Voix de synthèse vocale pour le service Speech Microsoft Server (en-GB, Susan, Apollo) »
-en-GB | Féminin | « Voix de synthèse vocale pour le service Speech Microsoft Server (en-GB, HazelRUS) »
-en-GB | Masculin | « Voix de synthèse vocale pour le service Speech Microsoft Server (en-GB, George, Apollo) »
-en-IE | Masculin | « Voix de synthèse vocale pour le service Speech Microsoft Server (en-IE, Sean) »
-en-IN | Féminin | « Voix de synthèse vocale pour le service Speech Microsoft Server (en-IN, Heera, Apollo) »
-en-IN | Féminin | « Voix de synthèse vocale pour le service Speech Microsoft Server (en-IN, PriyaRUS) »
-en-IN | Masculin | « Voix de synthèse vocale pour le service Speech Microsoft Server (en-IN, Ravi, Apollo) »
-en-US | Féminin | « Voix de synthèse vocale pour le service Speech Microsoft Server (en-US, ZiraRUS) »
-en-US | Féminin | « Voix de synthèse vocale pour le service Speech Microsoft Server (en-US, JessaRUS) »
-en-US | Masculin | « Voix de synthèse vocale pour le service Speech Microsoft Server (en-US, BenjaminRUS) »
-es-ES | Féminin | « Voix de synthèse vocale pour le service Speech Microsoft Server (es-ES, Laura, Apollo) »
-es-ES | Féminin | « Voix de synthèse vocale pour le service Speech Microsoft Server (es-ES, HelenaRUS) »
-es-ES | Masculin | « Voix de synthèse vocale pour le service Speech Microsoft Server (es-ES, Pablo, Apollo) »
-es-MX | Féminin | « Voix de synthèse vocale pour le service Speech Microsoft Server (es-MX, HildaRUS) »
-es-MX | Masculin | « Voix de synthèse vocale pour le service Speech Microsoft Server (es-MX, Raul, Apollo) »
-fi-FI | Féminin | « Voix de synthèse vocale pour le service Speech Microsoft Server (fi-FI, HeidiRUS) »
-fr-CA | Féminin | « Voix de synthèse vocale pour le service Speech Microsoft Server (fr-CA, Caroline) »
-fr-CA | Féminin | « Voix de synthèse vocale pour le service Speech Microsoft Server (fr-CA, HarmonieRUS) »
-fr-CH | Masculin | « Voix de synthèse vocale pour le service Speech Microsoft Server (fr-CH, Guillaume) »
-fr-FR | Féminin | « Voix de synthèse vocale pour le service Speech Microsoft Server (fr-FR, Julie, Apollo) »
-fr-FR | Féminin | « Voix de synthèse vocale pour le service Speech Microsoft Server (fr-FR, HortenseRUS) »
-fr-FR | Masculin | « Voix de synthèse vocale pour le service Speech Microsoft Server (fr-FR, Paul, Apollo) »
-he-IL| Masculin| « Voix de synthèse vocale pour le service Speech Microsoft Server (he-IL, Asaf) »
-hi-IN | Féminin | « Voix de synthèse vocale pour le service Speech Microsoft Server (hi-IN, Kalpana, Apollo) »
-hi-IN | Féminin | « Voix de synthèse vocale pour le service Speech Microsoft Server (hi-IN, Kalpana) »
-hi-IN | Masculin | « Voix de synthèse vocale pour le service Speech Microsoft Server (hi-IN, Hemant) »
-hr-HR | Masculin | « Voix de synthèse vocale pour le service Speech Microsoft Server (hr-HR, Matej) »
-hu-HU | Masculin | « Voix de synthèse vocale pour le service Speech Microsoft Server (hu-HU, Szabolcs) »
-id-ID | Masculin | « Voix de synthèse vocale pour le service Speech Microsoft Server (id-ID, Andika) »
-it-IT | Masculin | « Voix de synthèse vocale pour le service Speech Microsoft Server (it-IT, Cosimo, Apollo) »
-it-IT | Féminin | « Voix de synthèse vocale pour la reconnaissance vocale Microsoft Server (it-IT, LuciaRUS) »
-ja-JP | Féminin | « Voix de synthèse vocale pour le service Speech Microsoft Server (ja-JP, Ayumi, Apollo) »
-ja-JP | Masculin | « Voix de synthèse vocale pour le service Speech Microsoft Server (ja-JP, Ichiro, Apollo) »
-ja-JP | Féminin | « Voix de synthèse vocale pour le service Speech Microsoft Server (ja-JP, HarukaRUS) »
-ko-KR | Féminin | « Voix de synthèse vocale pour le service Speech Microsoft Server (ko-KR, HeamiRUS) »
-ms-MY | Masculin | « Voix de synthèse vocale pour le service Speech Microsoft Server (ms-MY, Rizwan) »
-nb-NO | Féminin | « Voix de synthèse vocale pour le service Speech Microsoft Server (nb-NO, HuldaRUS) »
-nl-NL | Féminin | « Voix de synthèse vocale pour le service Speech Microsoft Server (nl-NL, HannaRUS) »
-pl-PL | Féminin | « Voix de synthèse vocale pour le service Speech Microsoft Server (pl-PL, PaulinaRUS) »
-pt-br | Féminin | « Voix de synthèse vocale pour le service Speech Microsoft Server (pt-BR, HeloisaRUS) »
-pt-br | Masculin | « Voix de synthèse vocale pour le service Speech Microsoft Server (pt-BR, Daniel, Apollo) »
-pt-PT | Féminin | « Voix de synthèse vocale pour le service Speech Microsoft Server (pt-PT, HeliaRUS) »
-ro-RO | Masculin | « Voix de synthèse vocale pour le service Speech Microsoft Server (ro-RO, Andrei) »
-ru-RU | Féminin | « Voix de synthèse vocale pour le service Speech Microsoft Server (ru-RU, Irina, Apollo) »
-ru-RU | Masculin | « Voix de synthèse vocale pour le service Speech Microsoft Server (ru-RU, Pavel, Apollo) »
-ru-RU | Féminin | « Voix de synthèse vocale pour la reconnaissance vocale Microsoft Server (ru-RU, Pavel, Apollo) »
-sk-SK | Masculin | « Voix de synthèse vocale pour le service Speech Microsoft Server (sk-SK, Filip) »
-sl-SI | Masculin | « Voix de synthèse vocale pour le service Speech Microsoft Server (sl-SI, Lado) »
-sv-SE | Féminin | « Voix de synthèse vocale pour le service Speech Microsoft Server (sv-SE, HedvigRUS) »
-ta-IN | Masculin | « Voix de synthèse vocale pour le service Speech Microsoft Server (ta-IN, Valluvar) »
-th-TH | Masculin | « Voix de synthèse vocale pour le service Speech Microsoft Server (th-TH, Pattara) »
-tr-TR | Féminin | « Voix de synthèse vocale pour le service Speech Microsoft Server (tr-TR, SedaRUS) »
-vi-VN | Masculin | « Voix de synthèse vocale pour le service Speech Microsoft Server (vi-VN, An) »
-zh-CN | Féminin | « Voix de synthèse vocale pour le service Speech Microsoft Server (zh-CN, HuihuiRUS) »
-zh-CN | Féminin | « Voix de synthèse vocale pour le service Speech Microsoft Server (zh-CN, Yaoyao, Apollo) »
-zh-CN | Masculin | « Voix de synthèse vocale pour le service Speech Microsoft Server (zh-CN, Kangkang, Apollo) »
-zh-HK | Féminin | « Voix de synthèse vocale pour le service Speech Microsoft Server (zh-HK, Tracy, Apollo) »
-zh-HK | Féminin | « Voix de synthèse vocale pour le service Speech Microsoft Server (zh-HK, TracyRUS) »
-zh-HK | Masculin | « Voix de synthèse vocale pour le service Speech Microsoft Server (zh-HK, Danny, Apollo) »
-zh-TW | Féminin | « Voix de synthèse vocale pour le service Speech Microsoft Server (zh-TW, Yating, Apollo) »
-zh-TW | Féminin | « Voix de synthèse vocale pour le service Speech Microsoft Server (zh-TW, HanHanRUS) »
-zh-TW | Masculin | « Voix de synthèse vocale pour le service Speech Microsoft Server (zh-TW, Zhiwei, Apollo) »
+ar-EG* | Femme | « Voix de synthèse vocale pour le service Speech Microsoft Server (ar-EG, Hoda) »
+ar-SA | Homme | « Voix de synthèse vocale pour le service Speech Microsoft Server (ar-SA, Naayf) »
+bg-BG | Homme | « Voix de synthèse vocale pour le service Speech Microsoft Server (bg-BG, Ivan) »
+ca-ES | Femme | « Voix de synthèse vocale pour le service Speech Microsoft Server (ca-ES, HerenaRUS) »
+cs-CZ | Homme | « Voix de synthèse vocale pour le service Speech Microsoft Server (cs-CZ, Jakub) »
+da-DK | Femme | « Voix de synthèse vocale pour le service Speech Microsoft Server (da-DK, HelleRUS) »
+de-AT | Homme | « Voix de synthèse vocale pour le service Speech Microsoft Server (de-AT, Michael) »
+de-CH | Homme | « Voix de synthèse vocale pour le service Speech Microsoft Server (de-CH, Karsten) »
+de-DE | Femme | « Voix de synthèse vocale pour le service Speech Microsoft Server (de-DE, Hedda) »
+de-DE | Femme | « Voix de synthèse vocale pour le service Speech Microsoft Server (de-DE, HeddaRUS) »
+de-DE | Homme | « Voix de synthèse vocale pour le service Speech Microsoft Server (de-DE, Stefan, Apollo) »
+el-GR | Homme | « Voix de synthèse vocale pour le service Speech Microsoft Server (el-GR, Stefanos) »
+en-AU | Femme | « Voix de synthèse vocale pour le service Speech Microsoft Server (en-AU, Catherine) »
+en-AU | Femme | « Voix de synthèse vocale pour le service Speech Microsoft Server (en-AU, HayleyRUS) »
+en-CA | Femme | « Voix de synthèse vocale pour le service Speech Microsoft Server (en-CA, Linda) »
+en-CA | Femme | « Voix de synthèse vocale pour le service Speech Microsoft Server (en-CA, HeatherRUS) »
+en-GB | Femme | « Voix de synthèse vocale pour le service Speech Microsoft Server (en-GB, Susan, Apollo) »
+en-GB | Femme | « Voix de synthèse vocale pour le service Speech Microsoft Server (en-GB, HazelRUS) »
+en-GB | Homme | « Voix de synthèse vocale pour le service Speech Microsoft Server (en-GB, George, Apollo) »
+en-IE | Homme | « Voix de synthèse vocale pour le service Speech Microsoft Server (en-IE, Sean) »
+en-IN | Femme | « Voix de synthèse vocale pour le service Speech Microsoft Server (en-IN, Heera, Apollo) »
+en-IN | Femme | « Voix de synthèse vocale pour le service Speech Microsoft Server (en-IN, PriyaRUS) »
+en-IN | Homme | « Voix de synthèse vocale pour le service Speech Microsoft Server (en-IN, Ravi, Apollo) »
+fr-FR | Femme | « Voix de synthèse vocale pour le service Speech Microsoft Server (en-US, ZiraRUS) »
+fr-FR | Femme | « Voix de synthèse vocale pour le service Speech Microsoft Server (en-US, JessaRUS) »
+fr-FR | Homme | « Voix de synthèse vocale pour le service Speech Microsoft Server (en-US, BenjaminRUS) »
+es-ES | Femme | « Voix de synthèse vocale pour le service Speech Microsoft Server (es-ES, Laura, Apollo) »
+es-ES | Femme | « Voix de synthèse vocale pour le service Speech Microsoft Server (es-ES, HelenaRUS) »
+es-ES | Homme | « Voix de synthèse vocale pour le service Speech Microsoft Server (es-ES, Pablo, Apollo) »
+es-MX | Femme | « Voix de synthèse vocale pour le service Speech Microsoft Server (es-MX, HildaRUS) »
+es-MX | Homme | « Voix de synthèse vocale pour le service Speech Microsoft Server (es-MX, Raul, Apollo) »
+fi-FI | Femme | « Voix de synthèse vocale pour le service Speech Microsoft Server (fi-FI, HeidiRUS) »
+fr-CA | Femme | « Voix de synthèse vocale pour le service Speech Microsoft Server (fr-CA, Caroline) »
+fr-CA | Femme | « Voix de synthèse vocale pour le service Speech Microsoft Server (fr-CA, HarmonieRUS) »
+fr-CH | Homme | « Voix de synthèse vocale pour le service Speech Microsoft Server (fr-CH, Guillaume) »
+fr-FR | Femme | « Voix de synthèse vocale pour le service Speech Microsoft Server (fr-FR, Julie, Apollo) »
+fr-FR | Femme | « Voix de synthèse vocale pour le service Speech Microsoft Server (fr-FR, HortenseRUS) »
+fr-FR | Homme | « Voix de synthèse vocale pour le service Speech Microsoft Server (fr-FR, Paul, Apollo) »
+he-IL| Homme| « Voix de synthèse vocale pour le service Speech Microsoft Server (he-IL, Asaf) »
+hi-IN | Femme | « Voix de synthèse vocale pour le service Speech Microsoft Server (hi-IN, Kalpana, Apollo) »
+hi-IN | Femme | « Voix de synthèse vocale pour le service Speech Microsoft Server (hi-IN, Kalpana) »
+hi-IN | Homme | « Voix de synthèse vocale pour le service Speech Microsoft Server (hi-IN, Hemant) »
+hr-HR | Homme | « Voix de synthèse vocale pour le service Speech Microsoft Server (hr-HR, Matej) »
+hu-HU | Homme | « Voix de synthèse vocale pour le service Speech Microsoft Server (hu-HU, Szabolcs) »
+id-ID | Homme | « Voix de synthèse vocale pour le service Speech Microsoft Server (id-ID, Andika) »
+it-IT | Homme | « Voix de synthèse vocale pour le service Speech Microsoft Server (it-IT, Cosimo, Apollo) »
+it-IT | Femme | « Voix de synthèse vocale pour la reconnaissance vocale Microsoft Server (it-IT, LuciaRUS) »
+ja-JP | Femme | « Voix de synthèse vocale pour le service Speech Microsoft Server (ja-JP, Ayumi, Apollo) »
+ja-JP | Homme | « Voix de synthèse vocale pour le service Speech Microsoft Server (ja-JP, Ichiro, Apollo) »
+ja-JP | Femme | « Voix de synthèse vocale pour le service Speech Microsoft Server (ja-JP, HarukaRUS) »
+ko-KR | Femme | « Voix de synthèse vocale pour le service Speech Microsoft Server (ko-KR, HeamiRUS) »
+ms-MY | Homme | « Voix de synthèse vocale pour le service Speech Microsoft Server (ms-MY, Rizwan) »
+nb-NO | Femme | « Voix de synthèse vocale pour le service Speech Microsoft Server (nb-NO, HuldaRUS) »
+nl-NL | Femme | « Voix de synthèse vocale pour le service Speech Microsoft Server (nl-NL, HannaRUS) »
+pl-PL | Femme | « Voix de synthèse vocale pour le service Speech Microsoft Server (pl-PL, PaulinaRUS) »
+pt-br | Femme | « Voix de synthèse vocale pour le service Speech Microsoft Server (pt-BR, HeloisaRUS) »
+pt-br | Homme | « Voix de synthèse vocale pour le service Speech Microsoft Server (pt-BR, Daniel, Apollo) »
+pt-PT | Femme | « Voix de synthèse vocale pour le service Speech Microsoft Server (pt-PT, HeliaRUS) »
+ro-RO | Homme | « Voix de synthèse vocale pour le service Speech Microsoft Server (ro-RO, Andrei) »
+ru-RU | Femme | « Voix de synthèse vocale pour le service Speech Microsoft Server (ru-RU, Irina, Apollo) »
+ru-RU | Homme | « Voix de synthèse vocale pour le service Speech Microsoft Server (ru-RU, Pavel, Apollo) »
+ru-RU | Femme | « Voix de synthèse vocale pour la reconnaissance vocale Microsoft Server (ru-RU, Pavel, Apollo) »
+sk-SK | Homme | « Voix de synthèse vocale pour le service Speech Microsoft Server (sk-SK, Filip) »
+sl-SI | Homme | « Voix de synthèse vocale pour le service Speech Microsoft Server (sl-SI, Lado) »
+sv-SE | Femme | « Voix de synthèse vocale pour le service Speech Microsoft Server (sv-SE, HedvigRUS) »
+ta-IN | Homme | « Voix de synthèse vocale pour le service Speech Microsoft Server (ta-IN, Valluvar) »
+th-TH | Homme | « Voix de synthèse vocale pour le service Speech Microsoft Server (th-TH, Pattara) »
+tr-TR | Femme | « Voix de synthèse vocale pour le service Speech Microsoft Server (tr-TR, SedaRUS) »
+vi-VN | Homme | « Voix de synthèse vocale pour le service Speech Microsoft Server (vi-VN, An) »
+zh-CN | Femme | « Voix de synthèse vocale pour le service Speech Microsoft Server (zh-CN, HuihuiRUS) »
+zh-CN | Femme | « Voix de synthèse vocale pour le service Speech Microsoft Server (zh-CN, Yaoyao, Apollo) »
+zh-CN | Homme | « Voix de synthèse vocale pour le service Speech Microsoft Server (zh-CN, Kangkang, Apollo) »
+zh-HK | Femme | « Voix de synthèse vocale pour le service Speech Microsoft Server (zh-HK, Tracy, Apollo) »
+zh-HK | Femme | « Voix de synthèse vocale pour le service Speech Microsoft Server (zh-HK, TracyRUS) »
+zh-HK | Homme | « Voix de synthèse vocale pour le service Speech Microsoft Server (zh-HK, Danny, Apollo) »
+zh-TW | Femme | « Voix de synthèse vocale pour le service Speech Microsoft Server (zh-TW, Yating, Apollo) »
+zh-TW | Femme | « Voix de synthèse vocale pour le service Speech Microsoft Server (zh-TW, HanHanRUS) »
+zh-TW | Homme | « Voix de synthèse vocale pour le service Speech Microsoft Server (zh-TW, Zhiwei, Apollo) »
 
  *ar-EG prend en charge l’arabe standard moderne (MSA).
 

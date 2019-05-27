@@ -1,20 +1,19 @@
 ---
 title: Configurer des stratégies Apache HBase dans HDInsight avec le Pack Sécurité Entreprise - Azure
 description: Découvrez comment configurer des stratégies Apache Ranger pour HBase dans Azure HDInsight avec le Pack Sécurité Entreprise.
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.topic: tutorial
 ms.date: 02/01/2019
-ms.openlocfilehash: 1421b142fbca83d2de46f52f8390d0c25f22780c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d1f2a2b24e6f1856d021911e6f2e9c107bd38b72
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58117283"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926091"
 ---
-# <a name="tutorial-configure-apache-hbase-policies-in-hdinsight-with-enterprise-security-package-preview"></a>Didacticiel : Configurer des stratégies Apache HBase dans HDInsight avec le Pack Sécurité Entreprise (préversion)
+# <a name="tutorial-configure-apache-hbase-policies-in-hdinsight-with-enterprise-security-package"></a>Didacticiel : Configurer des stratégies Apache HBase dans HDInsight avec le Pack Sécurité Entreprise
 
 Découvrez comment configurer des stratégies Apache Ranger pour des clusters Apache HBase avec le Pack Sécurité Entreprise (ESP). Les clusters ESP sont connectés à un domaine permettant aux utilisateurs de s’authentifier avec les informations d’identification du domaine. Dans ce tutoriel, vous créez deux stratégies Ranger pour restreindre l’accès à différentes familles de colonnes dans une table HBase.
 

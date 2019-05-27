@@ -3,23 +3,23 @@ title: Qu’est-ce qu’Azure Active Directory B2C ? | Microsoft Docs
 description: Découvrez comment créer et gérer des expériences d’identité, comme l’inscription, la connexion et la gestion de profils, dans votre application avec Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
 ms.date: 02/20/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 9e01ba8ae53dbcca686a9844600a5df416a685ae
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 33c6f9e06439ebeb17608aa374532ac4f7a020cf
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56455498"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64701349"
 ---
 # <a name="what-is-azure-active-directory-b2c"></a>Qu’est-ce qu’Azure Active Directory B2C ?
 
-Azure Active Directory (Azure AD) B2C est un service de gestion d’identités. Ce service vous permet de personnaliser et de contrôler la façon dont les utilisateurs interagissent de façon sécurisée avec vos applications web, de bureau, mobiles ou monopages. Avec Azure AD B2C, les utilisateurs peuvent s’inscrire, se connecter, réinitialiser les mots de passe et modifier des profils. Azure AD B2C implémente une forme des protocoles OpenID Connect et OAuth 2.0. Les jetons de sécurité et leurs revendications sont ce qu’il y a de plus important dans l’implémentation de ces protocoles : ils vous permettent de fournir un accès sécurisé aux ressources.
+Azure Active Directory (Azure AD) B2C est un service de gestion d’identités entreprise-client. Ce service vous permet de personnaliser et de contrôler la façon dont les utilisateurs interagissent de façon sécurisée avec vos applications web, de bureau, mobiles ou monopages. Avec Azure AD B2C, les utilisateurs peuvent s’inscrire, se connecter, réinitialiser les mots de passe et modifier des profils. Azure AD B2C implémente une forme des protocoles OpenID Connect et OAuth 2.0. Les jetons de sécurité et leurs revendications sont ce qu’il y a de plus important dans l’implémentation de ces protocoles : ils vous permettent de fournir un accès sécurisé aux ressources.
 
 Un *parcours utilisateur* est une demande qui spécifie une stratégie, qui contrôle le comportement de l’interaction entre l’utilisateur et votre application avec Azure AD B2C. Vous pouvez définir les parcours utilisateur dans Azure AD B2C de deux façons. 
 

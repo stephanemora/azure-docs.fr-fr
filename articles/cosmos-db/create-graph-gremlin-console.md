@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: 06601fbad43b3daf00e06efbe95a092e76559e36
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: fa7b9289f4fef6962c896dba72a35088134431d9
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57849820"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64730111"
 ---
 # <a name="quickstart-create-query-and-traverse-an-azure-cosmos-db-graph-database-using-the-gremlin-console"></a>Démarrage rapide : Créer, interroger et parcourir une base de données de graphe Azure Cosmos DB à l’aide de la console Gremlin
 
@@ -55,7 +55,7 @@ Vous devez également installer la [console Gremlin](https://tinkerpop.apache.or
 
     Paramètre|Valeur suggérée|Description
     ---|---|---
-    hôtes|[*account-name*.gremlin.cosmosdb.azure.com] ou [*account-name*.graphs.azure.com] pour les comptes créés avant le 20 décembre 2017|Voir la capture d’écran suivante. Il s’agit de la valeur URI Gremlin sur la page Vue d’ensemble du portail Azure, entre crochets, avec la fin : 443/ supprimée.
+    hôtes|[*account-name*.gremlin.cosmos.azure.com]|Voir la capture d’écran suivante. Il s’agit de la valeur URI Gremlin sur la page Vue d’ensemble du portail Azure, entre crochets, avec la fin : 443/ supprimée.
     port|443|Définissez la valeur sur 443.
     username|*Votre nom d’utilisateur*|Ressource sous la forme `/dbs/<db>/colls/<coll>`, où `<db>` est le nom de votre base de données et `<coll>` le nom de votre collection.
     password|*Votre clé primaire*| Reportez-vous à la deuxième capture d’écran ci-dessous. Il s’agit de votre clé primaire, que vous pouvez récupérer à partir de la page Clés du portail Azure, dans la zone Clé primaire. Utilisez le bouton Copier sur le côté gauche de la zone pour copier la valeur.
@@ -69,7 +69,7 @@ Vous devez également installer la [console Gremlin](https://tinkerpop.apache.or
 Votre fichier remote-secure.yaml doit ressembler à ceci :
 
 ```
-hosts: [your_database_server.gremlin.cosmosdb.azure.com]
+hosts: [your_database_server.gremlin.cosmos.azure.com] 
 port: 443
 username: /dbs/your_database_account/colls/your_collection
 password: your_primary_key

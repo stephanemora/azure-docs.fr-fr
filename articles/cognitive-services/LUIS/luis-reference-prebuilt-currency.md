@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 02/28/2019
+ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 1dfa81ad7981578d4f296de1b421c7e064819718
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 7e882a66ae5a090e1fd3a0850ff35281dc4e692d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64867287"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65072020"
 ---
 # <a name="currency-prebuilt-entity-for-a-luis-app"></a>Entité prédéfinie currency pour une application LUIS
 L’entité de devise prédéfinis détecte la devise dans de nombreux dénominations et pays/régions, quelle que soit la culture d’application LUIS. Étant donné que cette entité est déjà formée, vous n’avez pas besoin d’ajouter d’exemples d’énoncés contenant des devises aux intentions de l’application. L’entité currency est prise en charge dans de [nombreuses cultures](luis-reference-prebuilt-entities.md). 
@@ -25,6 +25,9 @@ L’entité de devise prédéfinis détecte la devise dans de nombreux dénomina
 L’entité currency est gérée à partir du dépôt GitHub [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml#L26)
 
 ## <a name="resolution-for-currency-entity"></a>Résolution pour l’entité currency
+
+### <a name="api-version-2x"></a>Version de l’API 2.x
+
 L’exemple suivant montre la résolution de l’entité **builtin.currency**.
 
 ```json
@@ -56,6 +59,72 @@ L’exemple suivant montre la résolution de l’entité **builtin.currency**.
       }
     }
   ]
+}
+```
+
+
+
+### <a name="preview-api-version-3x"></a>Version d’évaluation API 3.x
+
+Le code JSON suivant est avec la `verbose` paramètre défini sur `false`:
+
+```json
+{
+    "query": "search for items under $10.99",
+    "prediction": {
+        "normalizedQuery": "search for items under $10.99",
+        "topIntent": "None",
+        "intents": {
+            "None": {
+                "score": 0.605889857
+            }
+        },
+        "entities": {
+            "money": [
+                {
+                    "number": 10.99,
+                    "unit": "Dollar"
+                }
+            ]
+        }
+    }
+}
+```
+
+Le code JSON suivant est avec la `verbose` paramètre défini sur `true`:
+
+```json
+{
+    "query": "search for items under $10.99",
+    "prediction": {
+        "normalizedQuery": "search for items under $10.99",
+        "topIntent": "None",
+        "intents": {
+            "None": {
+                "score": 0.605889857
+            }
+        },
+        "entities": {
+            "money": [
+                {
+                    "number": 10.99,
+                    "unit": "Dollar"
+                }
+            ],
+            "$instance": {
+                "money": [
+                    {
+                        "type": "builtin.currency",
+                        "text": "$10.99",
+                        "startIndex": 23,
+                        "length": 6,
+                        "modelTypeId": 2,
+                        "modelType": "Prebuilt Entity Extractor"
+                    }
+                ]
+            }
+        }
+    }
 }
 ```
 

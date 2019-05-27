@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 0d3123b1e0238a1907b5ad3d487b92a7919ff181
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: badf351f8336e501b3ee1c035fcb389a570750c0
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60197961"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65072849"
 ---
 # <a name="add-an-entity-to-example-utterances"></a>Ajouter une entité à des exemples d’énoncés 
 
@@ -59,7 +59,7 @@ Pour la liste des services d’une entreprise, vous pouvez avoir des valeurs nor
 
 1. Dans un énoncé exemple sur le **intentions** , sélectionnez l’ou les mots que vous souhaitez dans la nouvelle liste. Lorsque la liste déroulante entité s’affiche, entrez le nom de la nouvelle entité de liste dans la zone de texte supérieur, puis sélectionnez **créer entité**.   
 
-1. Dans la zone contextuelle **What type of entity do you want to create?**, nommez l’entité et sélectionnez **List** comme type. Ajoutez des synonymes de cet élément de liste, puis sélectionnez **Done**. 
+1. Dans la zone contextuelle **What type of entity do you want to create?** , nommez l’entité et sélectionnez **List** comme type. Ajoutez des synonymes de cet élément de liste, puis sélectionnez **Done**. 
 
     ![Capture d’écran de saisie des synonymes d’entité de liste](./media/luis-how-to-add-example-utterances/hr-create-list-2.png)
 
@@ -81,32 +81,13 @@ En supposant que l’énoncé, `Does John Smith work in Seattle?`, un énoncé c
 
     Lorsque vous encapsulez les entités correctement, une ligne verte apparaît sous la phrase entière.
 
-1. Validez les détails de l’entité composite dans la zone contextuelle **What type of entity do you want to create?**, puis sélectionnez **Done**.
+1. Validez les détails de l’entité composite dans la zone contextuelle **What type of entity do you want to create?** , puis sélectionnez **Done**.
 
     ![Capture d’écran de la zone contextuelle de détails d’entité](./media/luis-how-to-add-example-utterances/hr-create-composite-3.png)
 
 1. L’entité composite s’affiche, avec des mises en surbrillance bleues pour les différentes entités et un trait de soulignement vert pour l’entité composite entière. 
 
     ![Capture d’écran de la page de détails d’intentions, avec entité composite](./media/luis-how-to-add-example-utterances/hr-create-composite-4.png)
-
-## <a name="add-hierarchical-entity"></a>Ajouter une entité hiérarchique
-
-**Entités hiérarchiques risque d’être dépréciées. Utilisez [rôles de l’entité](luis-concept-roles.md) pour déterminer des sous-types d’entité, au lieu d’entités hiérarchiques.**
-
-Une entité hiérarchique est une catégorie d’entités apprises de façon contextuelle et associées de façon conceptuelle. Dans l’exemple suivant, l’entité contient des lieux de départ et de destination. 
-
-Dans l’énoncé `Move John Smith from Seattle to Cairo`, Seattle est le lieu de départ et Cairo (Le Caire) le lieu de destination. Chaque lieu est différent sur le plan du contexte, et appris à partir de l’ordre des mots et du choix des mots dans l’énoncé.
-
-1. Dans la page Intention, dans l’énoncé, sélectionnez `Seattle`, entrez le nom d’entité `Location`, puis appuyez sur la touche Entrée du clavier.
-
-1. Dans la boîte de dialogue contextuelle **What type of entity do you want to create?**, sélectionnez _hierarchical_ pour **Entity type**, ajoutez `Origin` et `Destination` comme enfants, puis sélectionnez **Done**.
-
-    ![Capture d’écran de la page de détails Intents (Intentions) avec l’entité ToLocation en surbrillance](./media/luis-how-to-add-example-utterances/create-location-hierarchical-entity.png)
-
-1. Le mot dans l’énoncé a été étiqueté avec l’entité hiérarchique parent. Vous devez affecter le mot à une entité enfant. Revenez à l’énoncé sur la page de détails intentionnelle. Sélectionnez le mot, puis, dans la liste déroulante, choisissez le nom d’entité que vous avez créé. Choisissez ensuite l’entité enfant correcte dans le menu à droite.
-
-    >[!CAUTION]
-    >Les noms d’entité enfant doivent être uniques parmi toutes les entités dans une même application. Deux entités hiérarchiques différentes ne peuvent pas contenir d’entités enfants portant le même nom. 
 
 ## <a name="add-entitys-role-to-utterance"></a>Ajouter le rôle de l’entité à énoncé
 
@@ -143,9 +124,6 @@ Les solutions suivantes permettent de résoudre les écarts de prédiction d’e
 |Texte sans étiquette|trait de soulignement rouge|Prédiction incorrecte|Les énoncés actuels utilisant cette entité incorrecte doivent être intégralement passés en revue. Les énoncés actuels ont faussement indiqué à LUIS que ce texte est l’entité prévue.
 |Texte correctement étiqueté|mise en surbrillance de l’entité en bleu, trait de soulignement rouge|Prédiction incorrecte|Fournit davantage d’énoncés avec la bonne étiquette d’entité dans une grande diversité d’emplacements et d’utilisations. Les énoncés actuels ne permettent pas à LUIS de savoir s’il s’agit de l’entité ou si des entités similaires apparaissent dans le même contexte. L’entité similaire doit être combinée en une seule entité pour ne pas induire LUIS en erreur. Une autre solution consiste à ajouter une liste d’expressions pour améliorer la précision des mots. |
 |Texte mal étiqueté|mise en surbrillance de l’entité en bleu, trait de soulignement rouge|Prédiction correcte| Fournit davantage d’énoncés avec la bonne étiquette d’entité dans une grande diversité d’emplacements et d’utilisations. 
-
-> [!Note]
-> Quand une zone rouge est autour de l’intention étiquetée dans la ligne de l’énoncé de l’exemple, un [erreur de prédiction intent](luis-how-to-add-intents.md#intent-prediction-discrepancy-errors) s’est produite. Vous avez besoin résoudre ce problème. 
 
 ## <a name="other-actions"></a>Autres actions
 

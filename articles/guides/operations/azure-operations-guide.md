@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 08/24/2018
 ms.author: mibender
-ms.openlocfilehash: 1222395fd8efb7cf189ae6678f6c39f5a6c63157
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 1f8972c89ecb0fc7d8cc7ceb9bfdeab9e905e862
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59051168"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64570609"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Prise en main pour les opérateurs informatiques Azure
 
@@ -145,7 +145,7 @@ Pour obtenir une documentation détaillée des services Azure, consultez [Docume
 
 Azure est une plateforme cloud mondiale, disponible dans de nombreuses régions du monde. Lorsque vous configurez un service, une application ou une machine virtuelle dans Azure, vous êtes invité à sélectionner une région. La région sélectionnée représente un centre de données spécifique dans lequel votre application s’exécute. Pour plus d’informations, consultez [Régions Azure](https://azure.microsoft.com/regions/).
 
-L’un des avantages à utiliser Azure est de pouvoir déployer des applications dans différents centres de données du monde. La région que vous choisissez peut affecter les performances de votre application. Il est préférable de choisir une région plus proche de la majorité de vos clients pour réduire la latence des demandes réseau. Vous pouvez également sélectionner une région pour respecter la réglementation de distribution de votre application dans certains pays.
+L’un des avantages à utiliser Azure est de pouvoir déployer des applications dans différents centres de données du monde. La région que vous choisissez peut affecter les performances de votre application. Il est préférable de choisir une région plus proche de la majorité de vos clients pour réduire la latence des demandes réseau. Vous pouvez également sélectionner une région pour respecter les exigences légales de distribution de votre application dans certains pays et certaines régions.
 
 ### <a name="azure-portal"></a>Portail Azure
 

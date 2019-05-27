@@ -8,17 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 08/07/2018
-ms.author: gracez
-ms.openlocfilehash: f915a03e2596e6439cbe184bfc8405910f56e2bd
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.date: 05/22/2019
+ms.author: wellsi
+ms.openlocfilehash: fab23c86ee2e8f654ac4a9619c39d05ee4e9e4c1
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66002301"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237934"
 ---
 # <a name="release-notes-of-cognitive-services-speech-devices-sdk"></a>Notes de publication du Kit de développement logiciel (SDK) Speech Devices de Cognitive Services
 Les sections suivantes dressent la liste des modifications dans les versions les plus récentes.
+
+## <a name="speech-devices-sdk-151"></a>Appareils de Speech SDK 1.5.1 :
+
+*   Inclure [Transcription de Conversation](conversation-transcription-service.md) dans l’exemple d’application.
+*   Mise à jour le [Speech SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) composant vers la version 1.5.1. Pour plus d’informations, consultez ses [notes de publication](https://aka.ms/csspeech/whatsnew).
 
 ## <a name="cognitive-services-speech-devices-sdk-150-2019-may-release"></a>Appareils de reconnaissance vocale de COGNITIVE Services SDK 1.5.0 : Mise en production mai 2019
 

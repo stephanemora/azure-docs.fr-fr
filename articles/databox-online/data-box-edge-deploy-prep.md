@@ -1,20 +1,20 @@
 ---
-title: Didacticiel sur la préparation du Portail Azure pour déployer Data Box Edge | Microsoft Docs
+title: Tutoriel pour préparer le Portail Azure et l’environnement du centre de données pour déployer Azure Data Box Edge | Microsoft Docs
 description: Le premier didacticiel sur le déploiement d’Azure Data Box Edge implique la préparation du portail Azure.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 03/07/2019
+ms.date: 04/23/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Data Box Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: 19c4fc96653f966ea5642149d944886e4b7f4483
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: d7e66970db3397531c798bc37bf7c1f346e999bf
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58401673"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924768"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-data-box-edge"></a>Didacticiel : préparer le déploiement d’Azure Data Box Edge  
 
@@ -55,6 +55,8 @@ Vous trouverez ci-après la configuration requise pour votre ressource Data Box 
 Avant de commencer, assurez-vous que :
 
 - Votre abonnement Microsoft Azure est activé pour la ressource Data Box Edge. Les abonnements à l’utilisation ne sont pas pris en charge.
+- Vous avez un accès Propriétaire ou Contributeur à votre abonnement.
+- Vous avez un accès Administrateur ou Utilisateur à l’API Graph Azure Active Directory. Pour plus d’informations, consultez [API Graph Azure Active Directory](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
 - Vous disposez d’un compte de stockage Microsoft Azure doté d’informations d’identification d’accès.
 
 ### <a name="for-the-data-box-edge-device"></a>Pour l’appareil Data Box Edge
@@ -87,11 +89,15 @@ Pour créer une ressource Data Box Edge, procédez comme suit dans le portail Az
 
 1. Utilisez vos informations d’identification Microsoft Azure pour vous connecter : 
     
-    - Au portail Azure à cette URL : [https://portal.azure.com](http://portal.azure.com)
-    - Ou bien, au portail Azure Government à cette URL : [https://portal.azure.us](https://portal.azure.us)
+    - Au portail Azure à cette URL : [https://portal.azure.com](https://portal.azure.com)
+    - Ou bien, au portail Azure Government à cette URL : [https://portal.azure.us](https://portal.azure.us) Pour plus d’informations, accédez à [Se connecter à Azure Government à l’aide du portail](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-portal).
 
 2. Dans le volet de gauche, sélectionnez **+ Créer une ressource**. Recherchez **Data Box Edge / Data Box Gateway**. Sélectionnez **Data Box Edge / Data Box Gateway**. Sélectionnez **Créer**.
-3. Sélectionnez l’abonnement que vous souhaitez utiliser pour l’appareil Data Box Edge. Sélectionnez la région dans laquelle vous souhaitez déployer la ressource Data Box Edge. Pour cette version, les zones USA Est, Asie Sud-Est et Europe Ouest sont disponibles. Choisissez l’emplacement le plus proche de la région géographique dans laquelle vous souhaitez déployer votre appareil. Dans l’option **Data Box Edge**, sélectionnez **Créer**.
+3. Sélectionnez l’abonnement que vous souhaitez utiliser pour l’appareil Data Box Edge. Sélectionnez la région dans laquelle vous souhaitez déployer la ressource Data Box Edge. Pour cette version, les zones USA Est, Asie Sud-Est et Europe Ouest sont disponibles. 
+
+    Choisissez l’emplacement le plus proche de la région géographique dans laquelle vous souhaitez déployer votre appareil. La région stocke les métadonnées uniquement pour la gestion des appareils. Les données réelles peuvent être stockées dans n’importe quel compte de stockage. 
+    
+    Dans l’option **Data Box Edge**, sélectionnez **Créer**.
 
     ![Rechercher le service Data Box Edge](media/data-box-edge-deploy-prep/data-box-edge-sku.png)
 

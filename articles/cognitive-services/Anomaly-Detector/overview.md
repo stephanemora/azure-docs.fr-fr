@@ -1,5 +1,5 @@
 ---
-title: Qu’est l’API de détecteur d’anomalie ? | Microsoft Docs
+title: Présentation de l’API Détecteur d’anomalies | Microsoft Docs
 titleSuffix: Azure Cognitive Services
 description: Utiliser des algorithmes avancés de l’API de détecteur d’anomalies pour identifier les anomalies dans vos données de série chronologique.
 services: cognitive-services
@@ -10,13 +10,13 @@ ms.topic: article
 ms.date: 03/26/2019
 ms.author: aahi
 ms.openlocfilehash: 48dffb8853d3def590e434c1683ecf038e2a194e
-ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58473200"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "64415827"
 ---
-# <a name="what-is-the-anomaly-detector-api"></a>Qu’est l’API de détecteur d’anomalie ?
+# <a name="what-is-the-anomaly-detector-api"></a>Présentation de l’API Détecteur d’anomalies
 
 L’API de détecteur d’anomalie vous permet de surveiller et de détecter les anomalies dans vos données de série chronologique avec machine learning. L’API de détecteur d’anomalie s’adapte en identifiant et en appliquant les modèles mieux adaptés à vos données, quel que soit le secteur d’activité, un scénario ou volume de données automatiquement. À l’aide de vos données de série chronologique, l’API détermine les limites pour la détection des anomalies, les valeurs attendues, et les points de données sont les anomalies.
 
@@ -28,7 +28,7 @@ L’API de détecteur d’anomalie vous permet de surveiller et de détecter les
 
 Avec le détecteur d’anomalies, vous pouvez automatiquement détecter des anomalies dans l’ensemble de vos données de série chronologique, ou qu’ils se produisent en temps réel. 
 
-|Fonctionnalité  |Description  |
+|Fonctionnalité  |Description   |
 |---------|---------|
 |Détecter les anomalies qu’ils se produisent en temps réel. | Détecter les anomalies dans vos données de diffusion en continu à l’aide de points de données affichée précédemment pour déterminer si votre dernière est une anomalie. Cette opération génère un modèle à l’aide de points de données que vous envoyez et détermine si le point cible est une anomalie. En appelant l’API avec chaque nouveau point de données que vous générez, vous pouvez surveiller vos données, tel qu’il est créé. |
 |Détecter les anomalies tout au long de votre jeu de données en tant que lot. | Utilisez votre série chronologique pour détecter d’éventuelles anomalies qui peuvent exister dans l’ensemble de vos données. Cette opération génère un modèle à l’aide de vos données de série chronologique entière, avec chaque point de les analyser avec le même modèle.         |
@@ -64,6 +64,6 @@ Après l’inscription :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Démarrage rapide : Détecter les anomalies dans vos données de série chronologique à l’aide de l’API REST de détecteur d’anomalie](quickstarts/detect-data-anomalies-csharp.md)
+* [Démarrage rapide : Détecter les anomalies dans vos données de série chronologique à l’aide de l’API REST de détecteur d’anomalie](quickstarts/detect-data-anomalies-csharp.md)
 * L’API de détecteur d’anomalie [démonstration en ligne](https://notebooks.azure.com/AzureAnomalyDetection/projects/anomalydetector)
 * Le détecteur d’anomalies [référence d’API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector/operations/post-timeseries-entire-detect)

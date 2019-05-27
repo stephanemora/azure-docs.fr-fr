@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 3d2b22fc507b209a96870daa8bf12ea9ab60a466
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.openlocfilehash: d2de871176917dcc24d910b3742bdb2700c4f25d
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59617411"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64691769"
 ---
 # <a name="prepare-azure-resources-for-disaster-recovery-of-on-premises-machines"></a>Préparer les ressources Azure pour la récupération d’urgence de machines locales
 
@@ -35,7 +35,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 ## <a name="before-you-start"></a>Avant de commencer
 
 - Examinez l’architecture de la reprise d’activité des [machines virtuelles VMware](vmware-azure-architecture.md), des [machines virtuelles Hyper-V](hyper-v-azure-architecture.md) et des [serveurs physiques](physical-azure-architecture.md).
-- Lisez les questions courantes sur [VMware](vmware-azure-common-questions.md) et Hyper-V (hyper-v-azure-common-questions.md)
+- Lisez les questions courantes pour [VMware](vmware-azure-common-questions.md) et [Hyper-V](hyper-v-azure-common-questions.md)
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/) avant de commencer. Puis, connectez-vous au [portail Azure](https://portal.azure.com).
 
@@ -55,7 +55,7 @@ Pour effectuer ces tâches, le rôle prédéfini de contributeur de machines vir
 ## <a name="create-a-recovery-services-vault"></a>Créer un coffre Recovery Services
 
 1. Dans le portail Azure, cliquez sur **+ Créer une ressource** et recherchez **Recovery** dans la Place de marché.
-2. Cliquez sur **Backup and Site Recovery (OMS)**, puis dans la page éponyme, cliquez sur **Créer**. 
+2. Cliquez sur **Backup and Site Recovery (OMS)** , puis dans la page éponyme, cliquez sur **Créer**. 
 1. Dans le **coffre Recovery Services** > **Nom**, entrez un nom convivial permettant d’identifier le coffre. Pour cette série de didacticiels, nous utilisons **ContosoVMVault**.
 2. Dans **Groupe de ressources**, sélectionnez un groupe de ressources existant ou créez-en un. Pour ce tutoriel, nous utilisons **contosoRG**.
 3. Dans **Emplacement**, sélectionnez la région dans laquelle le coffre doit se trouver. Nous utilisons **Europe Ouest**.

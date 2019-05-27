@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: diberry
-ms.openlocfilehash: b4c1de8edf04e15b540adeac01bcbf0cb1d1b8af
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: b114b1c3b1c421c6e6944666e3fd928d2aced966
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65766946"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66225873"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Forum aux questions (FAQ) sur Language Understanding
 
@@ -49,7 +49,7 @@ Consultez le didacticiel sur l’[API Vérification orthographique Bing v7](luis
 Pour modifier votre application LUIS par programmation, utilisez l’[API Création](https://go.microsoft.com/fwlink/?linkid=2092087). Pour obtenir des exemples d’appel de l’API Création, voir [Appel de l’API Création de LUIS](./luis-quickstart-node-add-utterance.md) et [Créer une application LUIS par programmation à l’aide de Node.js](./luis-tutorial-node-import-utterances-csv.md). L’API Création exige que vous utilisiez une [clé de création](luis-concept-keys.md#authoring-key) plutôt qu’une clé de point de terminaison. La création par programmation permet jusqu’à 1 000 000 d’appels par mois et cinq transactions par seconde. Pour plus d’informations sur les clés à utiliser avec LUIS, voir [Gérer les clés](./luis-concept-keys.md).
 
 ### <a name="where-is-the-pattern-feature-that-provided-regular-expression-matching"></a>Où est la fonctionnalité Modèle qui assurait la mise en correspondance d’expression régulière ?
-La **fonctionnalité Modèle** précédente est actuellement désapprouvée. Elle est remplacée par **[Modèles](luis-concept-patterns.md)**.
+La **fonctionnalité Modèle** précédente est actuellement désapprouvée. Elle est remplacée par **[Modèles](luis-concept-patterns.md)** .
 
 ### <a name="how-do-i-use-an-entity-to-pull-out-the-correct-data"></a>Comment utiliser une entité pour extraire les données correctes ?
 Voir [Entités](luis-concept-entity-types.md) et [Extraction de données](luis-concept-data-extraction.md).
@@ -98,7 +98,7 @@ Pour obtenir d’autres conseils, passez en revue les [bonnes pratiques](luis-co
 LUIS [tokénise](luis-glossary.md#token) l’énoncé en fonction de la [culture](luis-language-support.md#tokenization). Tant la valeur d’origine que la valeur tokénisée sont disponibles pour l’[extraction de données](luis-concept-data-extraction.md#tokenized-entity-returned).
 
 ### <a name="how-do-i-create-and-assign-a-luis-endpoint-key"></a>Comment faire pour créer et affecter une clé de point de terminaison LUIS ?
-[Créez la clé de point de terminaison](luis-how-to-azure-subscription.md) dans Azure pour votre niveau de [service](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/). [Affectez la clé](luis-how-to-azure-subscription.md) dans la page **[Keys and endpoints (Clés et points de terminaison)](luis-how-to-azure-subscription.md)**. Il n’existe d’API pour cette action. Ensuite, vous devez modifier la requête HTTP adressée au point de terminaison de façon à [utiliser la nouvelle clé de point de terminaison](luis-concept-keys.md#use-endpoint-key-in-query).
+[Créez la clé de point de terminaison](luis-how-to-azure-subscription.md) dans Azure pour votre niveau de [service](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/). [Affectez la clé](luis-how-to-azure-subscription.md) dans la page **[Keys and endpoints (Clés et points de terminaison)](luis-how-to-azure-subscription.md)** . Il n’existe d’API pour cette action. Ensuite, vous devez modifier la requête HTTP adressée au point de terminaison de façon à [utiliser la nouvelle clé de point de terminaison](luis-concept-keys.md#use-endpoint-key-in-query).
 
 ### <a name="how-do-i-interpret-luis-scores"></a>Comment interpréter les scores de LUIS ?
 Votre système doit utiliser l’intention de score le plus élevée, quelle qu’en soit la valeur. Par exemple, un score inférieur à 0,5 (moins de 50 %) ne signifie pas nécessairement que la confiance de LUIS est faible. La fourniture de données d’entraînement supplémentaires peut aider à augmenter le [score](luis-concept-prediction-score.md) de l’intention la plus probable.
@@ -297,6 +297,10 @@ Les fonctionnalités suivantes ont été publiées lors de la conférence de 201
 * [Amélioration des domaines prédéfinis](luis-reference-prebuilt-domains.md) 
 * [Entités de liste dynamique](luis-migration-api-v3.md#dynamic-lists-passed-in-at-prediction-time)
 * [Entités externes](luis-migration-api-v3.md#external-entities-passed-in-at-prediction-time)
+
+Vidéos :
+
+* [Comment utiliser l’intelligence artificielle CONVERSATIONNELLE Azure à l’échelle de votre entreprise pour la prochaine génération](https://www.youtube.com/watch?v=_k97jd-csuk&feature=youtu.be)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

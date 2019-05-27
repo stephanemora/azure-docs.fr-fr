@@ -1,6 +1,6 @@
 ---
 title: Tutoriel consacré au déploiement d'une tâche Azure Stream Analytics sur un appareil - Azure IoT Edge | Microsoft Docs
-description: Dans ce tutoriel, vous déployez Azure Stream Analytics en tant que module dans une zone d’un appareil Edge
+description: Dans ce tutoriel, vous déployez Azure Stream Analytics en tant que module dans un appareil IoT Edge
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,14 +8,14 @@ ms.date: 09/21/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 31330c3d2b10e6245db775da4039fd1948539df4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: cea0d091620d53892f3334306a341b196765879d
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58106013"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64575874"
 ---
-# <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module"></a>Tutoriel : Déployer Azure Stream Analytics en tant que module IoT Edge
+# <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module"></a>Didacticiel : Déployer Azure Stream Analytics en tant que module IoT Edge
 
 De nombreuses solutions IoT utilisent les services d’analytiques pour obtenir des informations sur les données envoyées par les appareils IoT au fur et à mesure de leur arrivée dans le Cloud. Avec Azure IoT Edge, vous pouvez utiliser cette logique [Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/) et la transposer à l’appareil lui-même. Lors du traitement des flux de données de télémétrie en périphérie, vous pouvez réduire la quantité de données chargées et réduire le temps nécessaire pour réagir aux informations actionnables.
 
@@ -44,7 +44,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 Un appareil Azure IoT Edge :
 
-* Vous pouvez utiliser votre ordinateur de développement ou une machine virtuelle comme un appareil Edge, en suivant les étapes décrites dans le Guide de démarrage rapide pour [Linux](quickstart-linux.md) ou pour les [Appareils Windows](quickstart.md).
+* Vous pouvez utiliser une machine virtuelle Azure en tant qu’appareil IoT Edge. Pour cela, suivez les étapes du guide de démarrage rapide pour les appareils [Linux](quickstart-linux.md) ou [Windows](quickstart.md).
 
 Ressources cloud :
 
@@ -233,11 +233,9 @@ Vous devriez voir la température de l’ordinateur augmenter progressivement ju
 
 Si vous envisagez de passer à l’article recommandé suivant, vous pouvez conserver les ressources et configurations que vous avez créées afin de les réutiliser. Vous pouvez également continuer à utiliser le même appareil IoT Edge comme appareil de test. 
 
-Sinon, vous pouvez supprimer les ressources Azure et les configurations locales que vous avez créées dans cet article pour éviter les frais. 
+Sinon, vous pouvez supprimer les ressources Azure et les configurations locales que vous avez utilisées dans cet article pour éviter les frais. 
  
 [!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
-
-[!INCLUDE [iot-edge-clean-up-local-resources](../../includes/iot-edge-clean-up-local-resources.md)]
 
 
 ## <a name="next-steps"></a>Étapes suivantes

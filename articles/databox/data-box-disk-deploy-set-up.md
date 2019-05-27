@@ -1,5 +1,5 @@
 ---
-title: Configurer un disque Microsoft Azure Data Box | Microsoft Docs
+title: Tutoriel pour déballer, déverrouiller et se connecter à Azure Data Box Disk | Microsoft Docs
 description: Utilisez ce didacticiel pour apprendre à configurer un disque Azure Data Box
 services: databox
 author: alkohli
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 10/31/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: ee1150dd146be1f022134ffe6df3ca2fbf84f867
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 34d62df989da80c84bad92a90fc2253c416a4924
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652148"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939646"
 ---
 # <a name="tutorial-unpack-connect-and-unlock-azure-data-box-disk"></a>Didacticiel : Déballer, connecter et déverrouiller un disque Azure Data Box Disk
 
@@ -33,7 +33,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 Avant de commencer, assurez-vous que :
 
 1. Vous avez terminé le [Tutoriel : Commander Azure Data Box Disk](data-box-disk-deploy-ordered.md).
-2. Vous avez reçu vos disques et l’état de la commande dans le portail affiche **Delivered (Livrée)**.
+2. Vous avez reçu vos disques et l’état de la commande dans le portail affiche **Delivered (Livrée)** .
 3. Vous disposez d’un ordinateur client sur lequel vous pouvez installer l’outil de déverrouillage Data Box Disk. Votre ordinateur client doit :
     - Exécuter un [système d’exploitation pris en charge](data-box-disk-system-requirements.md#supported-operating-systems-for-clients)
     - Être équipé des autres [logiciels requis](data-box-disk-system-requirements.md#other-required-software-for-windows-clients) s’il s’agit d’un client Windows  
@@ -208,12 +208,12 @@ Procédez comme suit pour connecter et déverrouiller vos disques.
 
     Tapez la commande suivante.
  
-    `sudo ./DataBoxDiskUnlock_x86_64 /PassKey:’<Your passkey from Azure portal>’ /Volumes:’<list of volumes>’`         
+    `sudo ./DataBoxDiskUnlock_x86_64 /PassKey:’<Your passkey from Azure portal>’          
 
     Voici un exemple de sortie obtenue. 
  
     ```
-    [user@localhost Downloads]$ sudo ./DataBoxDiskUnlock_x86_64 /Passkey:’qwerqwerqwer’ /Volumes:’/dev/sdbl’ 
+    [user@localhost Downloads]$ sudo ./DataBoxDiskUnlock_x86_64 /Passkey:’qwerqwerqwer’  
     
     START: Mon Aug 13 14:25:49 2018 
     Volumes: /dev/sdbl 

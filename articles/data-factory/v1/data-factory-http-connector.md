@@ -161,7 +161,7 @@ La section **typeProperties** est différente pour chaque type de jeu de donnée
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | type | La propriété **type** du jeu de données doit être définie sur **Http**. | Oui |
-| relativeUrl | URL relative de la ressource qui contient les données. Quand le chemin n’est pas spécifié, seule l’URL indiquée dans la définition du service lié est utilisée. <br><br> Pour construire une URL dynamique, vous pouvez utiliser les [variables système et fonctions Data Factory](data-factory-functions-variables.md). Exemple : **relativeUrl**: **$$Text.Format('/my/report?month={0:yyyy}-{0:MM}&fmt=csv', SliceStart)**. | Non  |
+| relativeUrl | URL relative de la ressource qui contient les données. Quand le chemin n’est pas spécifié, seule l’URL indiquée dans la définition du service lié est utilisée. <br><br> Pour construire une URL dynamique, vous pouvez utiliser les [variables système et fonctions Data Factory](data-factory-functions-variables.md). Exemple : **relativeUrl**: **$$Text.Format('/my/report?month={0:yyyy}-{0:MM}&fmt=csv', SliceStart)** . | Non  |
 | requestMethod | Méthode HTTP. Les valeurs autorisées sont **GET** et **POST**. | Non  <br />(la valeur par défaut est **GET**) |
 | additionalHeaders | En-têtes de requête HTTP supplémentaires. | Non  |
 | requestBody | Corps de la requête HTTP. | Non  |

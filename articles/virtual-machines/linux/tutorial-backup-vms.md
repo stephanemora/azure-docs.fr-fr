@@ -16,14 +16,14 @@ ms.workload: infrastructure
 ms.date: 07/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: c91e2b1380e5048fa1dfb7a0e028c88e589cbaa4
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 99ec8ea6a5b08323021a168e8ec47b976e1ae7f9
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32190557"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60739385"
 ---
-# <a name="tutorial-back-up-and-restore-files-for-linux-virtual-machines-in-azure"></a>Didacticiel : sauvegarder et restaurer des fichiers pour des machines virtuelles Linux dans Azure
+# <a name="tutorial-back-up-and-restore-files-for-linux-virtual-machines-in-azure"></a>Didacticiel : Sauvegarder et restaurer des fichiers pour des machines virtuelles Linux dans Azure
 
 Vous pouvez protéger vos données en effectuant des sauvegardes à intervalles réguliers. Azure Backup crée des points de récupération stockés dans des coffres de récupération géoredondants. Quand vous effectuez une restauration à partir d’un point de récupération, vous pouvez restaurer la machine virtuelle entière ou des fichiers spécifiques. Cet article explique comment restaurer un fichier unique sur une machine virtuelle Linux exécutant nginx. Si vous ne disposez d’aucune machine virtuelle, vous pouvez en créer une à l’aide du [démarrage rapide Linux](quick-create-cli.md). Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
@@ -94,8 +94,8 @@ Dans cet exemple, nous allons vous montrer comment récupérer la page web nginx
 7. Sélectionnez la machine virtuelle dans la liste.
 8. Dans le panneau de la machine virtuelle, au niveau de la section **Paramètres**, cliquez sur **Sauvegarde**. Le panneau **Sauvegarde** s’ouvre. 
 9. Dans le menu en haut du panneau, sélectionnez **Récupération de fichier**. Le panneau **Récupération de fichier** s’affiche.
-10. Dans **Étape 1 : Sélectionner un point de récupération**, sélectionnez un point de récupération dans la liste déroulante.
-11. Dans **Étape 2 : Télécharger le script pour parcourir et restaurer des fichiers**, cliquez sur le bouton **Télécharger le fichier exécutable**. Enregistrez le fichier téléchargé sur votre ordinateur local.
+10. À l’**Étape 1 : Sélectionner un point de récupération**, sélectionnez un point de récupération dans la liste déroulante.
+11. À l’**Étape 2 : Télécharger le script pour parcourir et restaurer des fichiers**, cliquez sur le bouton **Télécharger le fichier exécutable**. Enregistrez le fichier téléchargé sur votre ordinateur local.
 7. Cliquez sur **Télécharger le script** pour télécharger le fichier de script localement.
 8. Ouvrez une invite bash et tapez la commande suivante, en remplaçant *Linux_myVM_05-05-2017.sh* par le chemin et le nom de fichier du script que vous avez téléchargé, *azureuser* par le nom d’utilisateur de la machine virtuelle, et *13.69.75.209* par l’adresse IP publique de votre machine virtuelle.
     
@@ -156,12 +156,12 @@ Dans cet exemple, nous allons vous montrer comment récupérer la page web nginx
 
     ![Page web nginx par défaut](./media/tutorial-backup-vms/nginx-working.png)
 
-18. Sur votre ordinateur local, revenez à l’onglet du navigateur pour afficher le portail Azure, puis dans **Étape 3 : Démonter les disques après la récupération**, cliquez sur le bouton **Démonter les disques**. Si vous avez omis cette étape, la connexion au point de montage est automatiquement fermée après 12 heures. Une fois ces 12 heures écoulées, vous devez télécharger un nouveau script pour créer un nouveau point de montage.
+18. Sur votre ordinateur local, revenez à l’onglet du navigateur du portail Azure et à l’**Étape 3 : Démonter les disques après la récupération** cliquez sur le bouton **Démonter les disques**. Si vous avez omis cette étape, la connexion au point de montage est automatiquement fermée après 12 heures. Une fois ces 12 heures écoulées, vous devez télécharger un nouveau script pour créer un nouveau point de montage.
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez appris à :
+Dans ce tutoriel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Créer une sauvegarde de machine virtuelle

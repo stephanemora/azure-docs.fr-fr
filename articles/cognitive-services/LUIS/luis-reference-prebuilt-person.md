@@ -9,19 +9,22 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 7b748c507d5c848cc83a8a0c55cb7b05903bc542
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3b12c69b7c6710e774d50e631d2423fd72ce828a
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61473125"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65072171"
 ---
 # <a name="personname-prebuilt-entity-for-a-luis-app"></a>Entité prédéfinie PersonName pour une application LUIS
 L’entité prédéfinie personName détecte le nom des personnes. Étant donné que cette entité est déjà entraînée, vous n’avez pas besoin d’ajouter d’exemples d’énoncés contenant personName aux intentions de l’application. L’entité personName est prise en charge pour les [cultures](luis-reference-prebuilt-entities.md) Anglais et Chinois.
 
 ## <a name="resolution-for-personname-entity"></a>Résolution de l’entité personName
+
+### <a name="api-version-2x"></a>Version de l’API 2.x
+
 L’exemple suivant montre la résolution de l’entité **builtin.personName**.
 
 ```json
@@ -30,7 +33,7 @@ L’exemple suivant montre la résolution de l’entité **builtin.personName**.
   "topScoringIntent": {
     "intent": "WhereIsEmployee",
     "score": 0.762141049
-  }
+  },
   "entities": [
     {
       "entity": "Jill Jones",
@@ -39,6 +42,64 @@ L’exemple suivant montre la résolution de l’entité **builtin.personName**.
       "endIndex": 12
     }
   ]
+}
+```
+
+### <a name="preview-api-version-3x"></a>Version d’évaluation API 3.x
+
+Le code JSON suivant est avec la `verbose` paramètre défini sur `false`:
+
+```json
+{
+    "query": "Is Jill Jones in Cairo?",
+    "prediction": {
+        "normalizedQuery": "is jill jones in cairo?",
+        "topIntent": "None",
+        "intents": {
+            "None": {
+                "score": 0.6544678
+            }
+        },
+        "entities": {
+            "personName": [
+                "Jill Jones"
+            ]
+        }
+    }
+}
+```
+
+Le code JSON suivant est avec la `verbose` paramètre défini sur `true`:
+
+```json
+{
+    "query": "Is Jill Jones in Cairo?",
+    "prediction": {
+        "normalizedQuery": "is jill jones in cairo?",
+        "topIntent": "None",
+        "intents": {
+            "None": {
+                "score": 0.6544678
+            }
+        },
+        "entities": {
+            "personName": [
+                "Jill Jones"
+            ],
+            "$instance": {
+                "personName": [
+                    {
+                        "type": "builtin.personName",
+                        "text": "Jill Jones",
+                        "startIndex": 3,
+                        "length": 10,
+                        "modelTypeId": 2,
+                        "modelType": "Prebuilt Entity Extractor"
+                    }
+                ]
+            }
+        }
+    }
 }
 ```
 

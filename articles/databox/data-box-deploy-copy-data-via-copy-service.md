@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Copier des données vers votre appareil Microsoft Azure Data Box via le service de copie des données | Microsoft Docs'
+title: Tutoriel pour copier des données vers votre appareil Azure Data Box via le service de copie des données | Microsoft Docs
 description: Dans ce tutoriel, vous allez apprendre à copier des données vers votre appareil Azure Data Box via le service de copie des données.
 services: databox
 author: alkohli
@@ -8,14 +8,14 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 01/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 3f76721129906b57a05e597aade9f2febb609968
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 412b554710c552bdfdf8bf94a59e822beed55b32
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343525"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925315"
 ---
-# <a name="tutorial-use-the-data-copy-service-to-copy-data-into-azure-data-box-preview"></a>Tutoriel : Utiliser le service de copie des données pour copier des données dans Azure Data Box (préversion)
+# <a name="tutorial-use-the-data-copy-service-to-copy-data-into-azure-data-box-preview"></a>Didacticiel : Utiliser le service de copie des données pour copier des données dans Azure Data Box (préversion)
 
 Ce tutoriel explique comment ingérer des données par l’intermédiaire du service de copie des données, sans l’aide d’un hôte intermédiaire. Ce service s’exécute localement sur Microsoft Azure Data Box, se connecte à votre appareil NAS via SMB, puis copie les données vers Data Box.
 

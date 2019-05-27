@@ -1,19 +1,20 @@
 ---
 title: Créer un compte de stockage Azure Data Lake Storage Gen2 | Microsoft Docs
-description: Apprenez rapidement à créer un compte de stockage avec accès à Azure Data Lake Storage Gen2 à l’aide du portail Azure, d’Azure PowerShell ou d’Azure CLI
+description: Apprenez rapidement à créer un compte de stockage avec accès à Azure Data Lake Storage Gen2 à l’aide du Portail Azure, d’Azure PowerShell ou d’Azure CLI.
 services: storage
-author: jamesbak
+author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: quickstart
 ms.date: 12/06/2018
-ms.author: jamesbak
-ms.openlocfilehash: 50cd039395b477a93d050458c2a014e768fc5f0a
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.author: normesta
+ms.reviewer: jamesbak
+ms.openlocfilehash: 18132ac4c218c766efdc9a9afae2cc3508c4f732
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59995674"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939419"
 ---
 # <a name="quickstart-create-an-azure-data-lake-storage-gen2-storage-account"></a>Démarrage rapide : Créer un compte de stockage Azure Data Lake Storage Gen2
 
@@ -105,7 +106,7 @@ Votre compte de stockage est maintenant créé via le portail.
 Pour supprimer un groupe de ressources dans le portail Azure :
 
 1. Sur le portail Azure, développez le menu de gauche pour ouvrir le menu des services, et sélectionnez **Groupes de ressources** pour afficher la liste de vos groupes de ressources.
-2. Recherchez le groupe de ressources à supprimer, puis faites un clic droit sur le bouton **Plus** (**...**) se trouvant à droite de la liste.
+2. Recherchez le groupe de ressources à supprimer, puis faites un clic droit sur le bouton **Plus** ( **...** ) se trouvant à droite de la liste.
 3. Sélectionnez **Supprimer le groupe de ressources** et confirmez.
 
 ## <a name="create-an-account-using-powershell"></a>Créer un compte à l’aide de PowerShell

@@ -49,7 +49,7 @@ Le tableau suivant décrit les propriétés dans la définition JSON du pipeline
 
 | Propriété | Description | Obligatoire
 -------- | ----------- | --------
-| name | Nom du pipeline. Spécifiez un nom qui représente l’action que l’activité ou le pipeline est configuré(e) à exécuter<br/><ul><li>Nombre maximal de caractères : 260</li><li>Doit commencer par une lettre, un chiffre ou un trait de soulignement (\_)</li><li>Les caractères suivants ne sont pas autorisés : « . », « + », « ? », « / », « < », « > », « * », « % », « & », « : », « \\ »</li></ul> |Oui |
+| Nom | Nom du pipeline. Spécifiez un nom qui représente l’action que l’activité ou le pipeline est configuré(e) à exécuter<br/><ul><li>Nombre maximal de caractères : 260</li><li>Doit commencer par une lettre, un chiffre ou un trait de soulignement (\_)</li><li>Les caractères suivants ne sont pas autorisés : « . », « + », « ? », « / », « < », « > », « * », « % », « & », « : », « \\ »</li></ul> |Oui |
 | description |Texte décrivant la raison motivant l’activité ou le pipeline. | Non  |
 | activities | Contient une liste d’activités. | Oui |
 | start |Date et heure de début du pipeline. Doit se trouver au [format ISO](https://en.wikipedia.org/wiki/ISO_8601). Par exemple :  2014-10-14T16:32:41. <br/><br/>Il est possible de spécifier une heure locale, par exemple une heure EST. Voici un exemple : `2016-02-27T06:00:00**-05:00`, qui correspond à 6h EST.<br/><br/>Ensemble, les propriétés de début et de fin spécifient la période active du pipeline. Les tranches de sortie sont uniquement générées pendant cette période active. |Non <br/><br/>Si vous spécifiez une valeur pour la propriété end, vous devez en spécifier une pour la propriété start.<br/><br/>Les heures de début et de fin peuvent être toutes les deux non renseignées pour créer un pipeline. Vous devez spécifier les deux valeurs pour définir une période active d’exécution du pipeline. Si vous ne spécifiez pas les heures de début et de fin lorsque vous créez un pipeline, vous pouvez les définir à l’aide de l’applet de commande Set-AzDataFactoryPipelineActivePeriod plus tard. |
@@ -87,7 +87,7 @@ Le tableau suivant décrit les propriétés dans la définition JSON du pipeline
 
 | Tag | Description | Obligatoire |
 | --- | --- | --- |
-| name |Nom de l’activité. Spécifiez un nom qui représente l’action pour laquelle l’activité est configurée<br/><ul><li>Nombre maximal de caractères : 260</li><li>Doit commencer par une lettre, un chiffre ou un trait de soulignement (\_)</li><li>Les caractères suivants ne sont pas autorisés : « . », « + », « ? », « / », « < », « > », « * », « % », « & », « : », « \\ »</li></ul> |Oui |
+| Nom |Nom de l’activité. Spécifiez un nom qui représente l’action pour laquelle l’activité est configurée<br/><ul><li>Nombre maximal de caractères : 260</li><li>Doit commencer par une lettre, un chiffre ou un trait de soulignement (\_)</li><li>Les caractères suivants ne sont pas autorisés : « . », « + », « ? », « / », « < », « > », « * », « % », « & », « : », « \\ »</li></ul> |Oui |
 | description |Texte décrivant la raison motivant l’activité. |Non  |
 | type |Spécifie le type de l'activité. Consultez les sections [MAGASINS DE DONNÉS](#data-stores) et [ACTIVITÉS DE TRANSFORMATION DES DONNÉES](#data-transformation-activities) pour en savoir plus sur les différents types d’activités. |Oui |
 | inputs |Les tables d’entrée utilisées par l’activité<br/><br/>`// one input table`<br/>`"inputs":  [ { "name": "inputtable1"  } ],`<br/><br/>`// two input tables` <br/>`"inputs":  [ { "name": "inputtable1"  }, { "name": "inputtable2"  } ],` |Non pour les activités HDInsightStreaming et SqlServerStoredProcedure <br/> <br/> Oui pour toutes les autres |
@@ -287,7 +287,7 @@ La table suivante décrit les propriétés dans le JSON ci-dessus :
 | Propriété | Description | Obligatoire | Default |
 | --- | --- | --- | --- |
 | Nom | Nom du jeu de données Pour connaître les règles d’affectation des noms, voir [Azure Data Factory - Règles d’affectation des noms](data-factory-naming-rules.md). |Oui |N/D |
-| Type | Type du jeu de données. Spécifiez l’un des types pris en charge par Azure Data Factory (par exemple : AzureBlob, AzureSqlTable). Consultez la section [Magasins de données](#data-stores) pour obtenir des informations sur les types de magasins de données et jeu de données pris en charge par Azure Data Factory. |
+| type | Type du jeu de données. Spécifiez l’un des types pris en charge par Azure Data Factory (par exemple : AzureBlob, AzureSqlTable). Consultez la section [Magasins de données](#data-stores) pour obtenir des informations sur les types de magasins de données et jeu de données pris en charge par Azure Data Factory. |
 | structure | Schéma du jeu de données. Il contient des colonnes, leurs types, etc. | Non  |N/D |
 | typeProperties | Propriétés correspondant au type sélectionné. Consultez la section [Magasins de données](#data-stores) pour en savoir plus sur les types pris en charge et leurs propriétés. |Oui |N/D |
 | external | Indicateur booléen pour indiquer si un jeu de données est explicitement généré par un pipeline de fabrique de données ou non. |Non  |false |
@@ -299,7 +299,7 @@ Chaque colonne de la section **structure** contient les propriétés suivantes 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
 | Nom |Nom de la colonne. |Oui |
-| Type |Type de données de la colonne.  |Non  |
+| type |Type de données de la colonne.  |Non  |
 | culture |Culture .NET à utiliser lorsque le type est spécifié et qu’il est de type .NET `Datetime` ou `Datetimeoffset`. La valeur par défaut est `en-us`. |Non  |
 | format |Chaîne de format à utiliser lorsque le type est spécifié et qu’il est de type .NET `Datetime` ou `Datetimeoffset`. |Non  |
 
@@ -1313,7 +1313,7 @@ Pour définir un jeu de données Recherche Azure, définissez le **type** du jeu
 
 | Propriété | Description | Obligatoire |
 | -------- | ----------- | -------- |
-| Type | La propriété de type doit être définie sur **AzureSearchIndex**.| Oui |
+| type | La propriété de type doit être définie sur **AzureSearchIndex**.| Oui |
 | indexName | Nom de l’index Recherche Azure. Data Factory ne crée pas l’index. L’index doit exister dans Recherche Azure. | Oui |
 
 #### <a name="example"></a>Exemples
@@ -2454,7 +2454,7 @@ Le tableau suivant fournit la description des éléments JSON spécifiques au se
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| Type |La propriété de type doit être définie sur : **OnPremisesSqlServer**. |Oui |
+| type |La propriété de type doit être définie sur : **OnPremisesSqlServer**. |Oui |
 | connectionString |Spécifiez les informations connectionString nécessaires pour connecter la base de données SQL Server locale à l’aide de l’authentification SQL ou de l’authentification Windows. |Oui |
 | gatewayName |Nom de la passerelle que le service Data Factory doit utiliser pour se connecter à la base de données SQL Server locale. |Oui |
 | username |Spécifiez le nom d’utilisateur si vous utilisez l’authentification Windows. Exemple : **domainname\\username**. |Non  |
@@ -3317,7 +3317,7 @@ Vous pouvez lier un système de fichiers local à une fabrique de données Azure
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| Type |Vérifiez que la propriété type est définie sur **OnPremisesFileServer**. |Oui |
+| type |Vérifiez que la propriété type est définie sur **OnPremisesFileServer**. |Oui |
 | host |Spécifie le chemin d’accès racine du dossier que vous souhaitez copier. Utilisez le caractère d’échappement « \ » pour les caractères spéciaux contenus dans la chaîne. Pour obtenir des exemples, consultez la section Exemples de définitions de jeux de données et de services liés. |Oui |
 | userid |Spécifiez l’ID de l’utilisateur qui a accès au serveur. |Non (si vous choisissez encryptedcredential) |
 | password |Spécifiez le mot de passe de l’utilisateur (userid). |Non (si vous choisissez encryptedcredential) |
@@ -4745,7 +4745,7 @@ Pour définir un jeu de données Web, définissez le **type** du jeu de données
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type |Type du jeu de données. Doit avoir la valeur **WebTable** |Oui |
+| type |Type du jeu de données. Doit avoir la valeur **WebTable** |Oui |
 | path |URL relative de la ressource qui contient la table. |Non. Quand le chemin d’accès n’est pas spécifié, seule l’URL spécifiée dans la définition du service lié est utilisée. |
 | index |Index de la table dans la ressource. Pour connaître la marche à suivre pour obtenir l'index d'une table sur une page HTML, consultez la section Obtenir l'index d'une table sur une page HTML. |Oui |
 
@@ -4838,7 +4838,7 @@ Le tableau suivant décrit les propriétés utilisées dans la définition JSON 
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| Type |La propriété de type doit être définie sur **HDInsightOnDemand**. |Oui |
+| type |La propriété de type doit être définie sur **HDInsightOnDemand**. |Oui |
 | clusterSize |Nombre de nœuds worker/données dans le cluster. Le cluster HDInsight est créé avec 2 nœuds principaux et le nombre de nœuds worker que vous spécifiez pour cette propriété. Les nœuds étant de taille Standard_D3 à 4 cœurs, un cluster à 4 nœuds de travail prend 24 cœurs (4\*4 = 16 nœuds pour les nœuds de travail + 2\*4 = 8 cœurs pour les nœuds principaux). Pour plus d’informations sur le niveau Standard_D3, voir [Création de clusters Hadoop basés sur Linux dans HDInsight](../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md). |Oui |
 | timetolive |La durée d’inactivité autorisée pour le cluster HDInsight à la demande. Spécifie la durée pendant laquelle le cluster HDInsight à la demande reste actif après l’achèvement d’une exécution d’activité s’il n’existe aucun autre travail actif dans le cluster.<br/><br/>Par exemple, si une exécution d’activité prend 6 minutes et si la propriété TimeToLive est définie sur 5 minutes, le cluster reste actif pendant 5 minutes après les 6 minutes du traitement de l’exécution d’activité. Si une autre exécution d’activité intervient dans la fenêtre de 6 minutes, elle est traitée par le même cluster.<br/><br/>La création d’un cluster HDInsight à la demande étant une opération coûteuse (elle peut prendre du temps), utilisez ce paramètre selon le besoin pour améliorer les performances d’une fabrique de données en réutilisant un cluster HDInsight à la demande.<br/><br/>Si vous définissez la valeur de la propriété TimeToLive sur 0, le cluster est supprimé dès que l’exécution d’activité est traitée. En revanche, si vous définissez une valeur élevée, le cluster peut rester inactif inutilement entraînant des coûts élevés. Par conséquent, il est important de définir la valeur appropriée en fonction de vos besoins.<br/><br/>Plusieurs pipelines peuvent partager la même instance du cluster HDInsight à la demande si la valeur de la propriété TimeToLive est correctement définie. |Oui |
 | version |Version du cluster HDInsight. Pour plus d’informations, consultez [Versions de HDInsight prises en charge dans Azure Data Factory](data-factory-compute-linked-services.md#supported-hdinsight-versions-in-azure-data-factory). |Non  |
@@ -4876,7 +4876,7 @@ Le tableau suivant décrit les propriétés utilisées dans la définition JSON 
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| Type |La propriété de type doit être définie sur **HDInsight**. |Oui |
+| type |La propriété de type doit être définie sur **HDInsight**. |Oui |
 | clusterUri |L'URI du cluster HDInsight. |Oui |
 | username |Spécifiez le nom de l'utilisateur à utiliser pour se connecter à un cluster HDInsight existant. |Oui |
 | password |Spécifiez le mot de passe du compte d'utilisateur. |Oui |
@@ -4909,7 +4909,7 @@ Le tableau suivant décrit les propriétés utilisées dans la définition JSON 
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| Type |La propriété de type doit être définie sur **AzureBatch**. |Oui |
+| type |La propriété de type doit être définie sur **AzureBatch**. |Oui |
 | accountName |Nom du compte Azure Batch. |Oui |
 | accessKey |Clé d'accès du compte Azure Batch. |Oui |
 | poolName |Nom du pool de machines virtuelles. |Oui |
@@ -4941,7 +4941,7 @@ Le tableau suivant décrit les propriétés utilisées dans la définition JSON 
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| Type |La propriété de type doit être définie sur : **AzureML**. |Oui |
+| type |La propriété de type doit être définie sur : **AzureML**. |Oui |
 | mlEndpoint |L'URL de la notation par lot. |Oui |
 | apiKey |L'API du modèle d'espace de travail publié. |Oui |
 
@@ -4969,7 +4969,7 @@ Le tableau suivant décrit les propriétés utilisées dans la définition JSON 
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| Type |La propriété de type doit être définie sur : **AzureDataLakeAnalytics**. |Oui |
+| type |La propriété de type doit être définie sur : **AzureDataLakeAnalytics**. |Oui |
 | accountName |Nom du compte du service Analytique Azure Data Lake. |Oui |
 | dataLakeAnalyticsUri |URI du service Analytique Azure Data Lake. |Non  |
 | autorisation |Le code d’autorisation est automatiquement récupéré après un clic sur le bouton **Autoriser** dans l’éditeur de la fabrique de données et une fois la connexion OAuth effectuée. |Oui |
@@ -5060,7 +5060,7 @@ Le tableau suivant fournit la description des éléments JSON spécifiques au se
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| Type |La propriété de type doit être définie sur : **OnPremisesSqlServer**. |Oui |
+| type |La propriété de type doit être définie sur : **OnPremisesSqlServer**. |Oui |
 | connectionString |Spécifiez les informations connectionString nécessaires pour connecter la base de données SQL Server locale à l’aide de l’authentification SQL ou de l’authentification Windows. |Oui |
 | gatewayName |Nom de la passerelle que le service Data Factory doit utiliser pour se connecter à la base de données SQL Server locale. |Oui |
 | username |Spécifiez le nom d’utilisateur si vous utilisez l’authentification Windows. Exemple : **domainname\\username**. |Non  |

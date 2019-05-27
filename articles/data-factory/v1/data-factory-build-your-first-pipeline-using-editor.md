@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 11e92b4c6b8799cde489369a202f8f7c8c05ca6c
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 964e6235923402814879fe59a204985b8aaac2b4
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57535992"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64573828"
 ---
-# <a name="tutorial-build-your-first-data-factory-by-using-the-azure-portal"></a>Tutoriel : Créer votre première fabrique de données à l’aide du portail Azure
+# <a name="tutorial-build-your-first-data-factory-by-using-the-azure-portal"></a>Didacticiel : Créer votre première fabrique de données à l’aide du portail Azure
 > [!div class="op_single_selector"]
 > * [Vue d’ensemble et composants requis](data-factory-build-your-first-pipeline.md)
 > * [Portail Azure](data-factory-build-your-first-pipeline-using-editor.md)
@@ -209,16 +209,16 @@ Dans cette étape, vous créez des jeux de données afin de représenter les don
     ```
     Le tableau suivant décrit les propriétés JSON utilisées dans l’extrait de code.
 
-   | Propriété | Description |
-   |:--- |:--- |
-   | type |La propriété type est définie sur **AzureBlob**, car les données se trouvent dans le stockage d’objets blob. |
-   | linkedServiceName |Fait référence au service AzureStorageLinkedService que vous avez créé précédemment. |
-   | folderPath | Spécifie le conteneur d’objets blob et le dossier contenant les objets blob d’entrée. | 
-   | fileName |Cette propriété est facultative. Si vous omettez cette propriété, tous les fichiers spécifiés dans le paramètre folderPath sont récupérés. Dans ce didacticiel, seul le fichier input.log est traité. |
-   | type |Les fichiers journaux étant au format texte, sélectionnez **TextFormat**. |
-   | columnDelimiter |Les colonnes des fichiers journaux sont délimitées par une virgule (`,`). |
-   | frequency/interval |La fréquence est définie sur **Mois** et l’intervalle est **1**, ce qui signifie que les tranches d’entrée sont disponibles mensuellement. |
-   | external | Cette propriété a la valeur **true** si les données d’entrée ne sont pas générées par ce pipeline. Dans ce didacticiel, le fichier input.log n’est pas généré par ce pipeline. La propriété est donc définie sur **true**. |
+   | Propriété | Imbriqués sous | Description |
+   |:--- |:--- |:--- |
+   | Type | properties |La propriété type est définie sur **AzureBlob**, car les données se trouvent dans le stockage d’objets blob. |
+   | linkedServiceName | format |Fait référence au service AzureStorageLinkedService que vous avez créé précédemment. |
+   | folderPath | typeProperties | Spécifie le conteneur d’objets blob et le dossier contenant les objets blob d’entrée. | 
+   | fileName | typeProperties |Cette propriété est facultative. Si vous omettez cette propriété, tous les fichiers spécifiés dans le paramètre folderPath sont récupérés. Dans ce didacticiel, seul le fichier input.log est traité. |
+   | Type | format |Les fichiers journaux étant au format texte, sélectionnez **TextFormat**. |
+   | columnDelimiter | format |Les colonnes des fichiers journaux sont délimitées par une virgule (`,`). |
+   | frequency/interval | availability |La fréquence est définie sur **Mois** et l’intervalle est **1**, ce qui signifie que les tranches d’entrée sont disponibles mensuellement. |
+   | external | properties | Cette propriété a la valeur **true** si les données d’entrée ne sont pas générées par ce pipeline. Dans ce didacticiel, le fichier input.log n’est pas généré par ce pipeline. La propriété est donc définie sur **true**. |
 
     Pour plus d’informations sur ces propriétés JSON, voir [Connecteur de stockage Blob Azure](data-factory-azure-blob-connector.md#dataset-properties).
 

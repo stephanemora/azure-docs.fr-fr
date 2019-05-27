@@ -1,5 +1,5 @@
 ---
-title: Tutoriel sur l’installation d’un appareil physique Azure Data Box Edge | Microsoft Docs
+title: Tutoriel pour installer, déballer, monter en rack et brancher l’appareil physique Azure Data Box Edge | Microsoft Docs
 description: Le deuxième tutoriel sur l’installation de l’Azure Data Box Edge fournit des explications sur le déballage, le montage en rack et le câblage de l’appareil physique.
 services: databox
 author: alkohli
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to install Data Box Edge in datacenter so I can use it to transfer data to Azure.
-ms.openlocfilehash: 46192d32e70e371325abeafd4da26fa29e491b13
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 7062e9d829242a62dfa4f661c21ce6c56b0db69c
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59278477"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924540"
 ---
 # <a name="tutorial-install-azure-data-box-edge"></a>Didacticiel : Installer Azure Data Box Edge
 
@@ -145,7 +145,8 @@ Identifiez les éléments d’installation de l’assemblage du kit de rails :
 
 ### <a name="engage-and-release-the-slam-latch"></a>Ouvrir et fermer les rabats
 
-REMARQUE :  Pour les systèmes non équipés de rabats, sécurisez le système à l’aide de vis, comme décrit à l’étape 3 de cette procédure.
+> [!NOTE]
+> Pour les systèmes non équipés de rabats, sécurisez le système à l’aide de vis, comme décrit à l’étape 3 de cette procédure.
 
 1. À partir de l’avant, identifiez le rabat de chaque côté du système.
 2. Les rabats s’enclenchent automatiquement quand vous poussez le système dans le rack et s’ouvrent automatiquement quand vous tirez dessus.

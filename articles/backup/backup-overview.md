@@ -1,20 +1,19 @@
 ---
 title: Qu’est-ce qu’Azure Backup ?
 description: Fournit une vue d’ensemble du service Sauvegarde Azure et de la façon de le déployer dans le cadre de votre stratégie de continuité d’activité et de reprise d’activité (BCDR).
-services: backup
 author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: overview
-ms.date: 04/05/2019
+ms.date: 04/24/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 5408f920a16860972dca6450d5e51152048bbf82
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: bd90d315fd5590a8bd862a1a3397cf8c254fccc8
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59361810"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64714287"
 ---
 # <a name="what-is-azure-backup"></a>Qu’est-ce qu’Azure Backup ?
 
@@ -31,11 +30,7 @@ Le service Sauvegarde Azure offre les principaux avantages suivants :
 - **Obtenir un transfert de données illimitées** : La Sauvegarde Azure ne limite pas la quantité de données entrantes ou sortantes transférées, et ne génère pas de frais pour les données transférées.
     - Les données sortantes sont les données transférées à partir d’un coffre Recovery Services pendant une opération de restauration.
     - Si vous effectuez une sauvegarde initiale hors connexion avec le service Azure Import/Export pour importer de grandes quantités de données, des frais associés aux données entrantes sont facturés.  [Plus d’informations](backup-azure-backup-import-export.md)
-- **Sécuriser les données** :
-    - Localement, les données en transit sont chiffrées sur l’ordinateur local avec AES256. Les données transmises sont protégées par HTTPS entre le stockage et la sauvegarde. Le protocole iSCSI sécurise les données transmises entre la sauvegarde et la machine de l’utilisateur. Le tunneling sécurisé est utilisé pour protéger le canal iSCSI.
-    - Pour la sauvegarde locale sur Azure, les données dans Azure sont chiffrées au repos à l’aide de la phrase secrète que vous fournissez quand vous configurez la sauvegarde. La phrase secrète ou la clé n’est jamais transmise ou stockée dans Azure. Si vous avez besoin de restaurer des données, vous êtes le seul à disposer de la phrase secrète de chiffrement ou de la clé.
-    - Pour les machines virtuelles Azure, les données sont chiffrées à la réinitialisation à l’aide de Storage Service Encryption (SSE). La Sauvegarde chiffre automatiquement les données avant de les stocker. Le Stockage Azure déchiffre les données avant de les récupérer.
-    - La Sauvegarde prend également en charge les machines virtuelles Azure chiffrées avec ADE (Azure Disk Encryption). [Plus d’informations](backup-azure-vms-introduction.md#encryption-of-azure-vm-backups)
+- **Sécuriser les données** : Sauvegarde Azure fournit des solutions pour sécuriser les données en transit et au repos.
 - **Obtenir des sauvegardes cohérentes au niveau application** : une sauvegarde cohérente au niveau application signifie qu’un point de récupération dispose de toutes les données nécessaires pour restaurer la copie de sauvegarde. Sauvegarde Microsoft Azure fournit des sauvegardes cohérentes avec les applications, qui garantissent qu’aucun correctif supplémentaire n’est requis pour restaurer les données. La restauration de données cohérentes avec les applications réduit le délai de restauration, ce qui permet de rétablir rapidement le fonctionnement normal.
 - **Conserver des données à court et à long terme** : Vous pouvez utiliser des coffres Recovery Services pour la conservation de données à court et à long terme. Azure ne limite pas la durée de conservation des données dans un coffre Recovery Services. Vous pouvez les conserver dans un coffre aussi longtemps que vous le souhaitez. Azure Backup est limité à 9 999 points de récupération par instance protégée. [Découvrez plus d’informations](backup-introduction-to-azure-backup.md#backup-and-retention) sur la façon dont cette limite a un impact sur vos besoins de sauvegarde.
 - **Gestion automatique du stockage** : les environnements hybrides impliquent souvent un stockage hétérogène (une partie en local et une autre dans le cloud). Avec Azure Backup, l’utilisation d’appareils de stockage locaux ne génère aucun coût. Sauvegarde Azure alloue et gère automatiquement le stockage des sauvegardes sur la base d’un modèle de paiement à l’utilisation : vous ne payez donc que le stockage que vous consommez. [Apprenez-en davantage sur la](https://azure.microsoft.com/pricing/details/backup) tarification.
@@ -100,7 +95,7 @@ Découvrez plus d’informations sur le [fonctionnement de la sauvegarde](backup
 --- | ---
 **Sauvegarder des machines virtuelles Azure** | Aucun agent n’est nécessaire. L’extension de machine virtuelle Azure pour la sauvegarde est installée sur la machine virtuelle Azure quand vous exécutez la première sauvegarde de la machine virtuelle Azure.<br/><br/> Prise en charge pour les machines Windows et Linux.
 **Sauvegarde de machines Windows locales** | Téléchargez, installez et exécutez l’agent MARS directement sur la machine.
-**Sauvegarde de machines virtuelles Azure avec l’agent MARS** | Téléchargez, installez et exécutez l’agent MARS directement sur la machine. L’agent MARS peut s’exécuter en même temps que l’extension de sauvegarde.
+**Sauvegarder des machines virtuelles Azure avec l’agent MARS** | Téléchargez, installez et exécutez l’agent MARS directement sur la machine. L’agent MARS peut s’exécuter en même temps que l’extension de sauvegarde.
 **Sauvegarder des machines locales et des machines virtuelles Azure vers DPM/MABS** | L’agent de protection DPM ou MABS s’exécute sur les ordinateurs que vous voulez protéger. L’agent MARS s’exécute sur le serveur DPM/MABS pour sauvegarder sur Azure.
 
 ## <a name="which-backup-agent-should-i-use"></a>Quel agent de sauvegarde dois-je utiliser ?
@@ -114,6 +109,12 @@ Découvrez plus d’informations sur le [fonctionnement de la sauvegarde](backup
 **Je veux sauvegarder des applications s’exécutant en local** | Pour les sauvegardes tenant compte des applications, les machines doivent être protégées par DPM ou MABS.
 **Je veux des paramètres de sauvegarde et de récupération précis et flexibles pour les machines virtuelles Azure** | Protégez les machines virtuelles Azure avec MABS/DPM s’exécutant dans Azure afin de bénéficier d’une flexibilité supplémentaire pour la planification des sauvegardes et d’une flexibilité totale pour la protection et la restauration de fichiers, de dossiers, de volumes, d’applications et de l’état du système.
 
+## <a name="how-does-azure-backup-work-with-encryption"></a>Comment fonctionne la Sauvegarde Azure avec le chiffrement ?
+
+**Chiffrement** | **Sauvegarder en local** | **Sauvegarder des machines virtuelles Azure** | **Sauvegarder SQL sur une machine virtuelle Azure**
+--- | --- | --- | ---
+Chiffrement au repos<br/> (Chiffrement des données là où elles sont conservées/stockées) | Une phrase secrète spécifiée par le client est utilisée pour chiffrer les données | Le service Azure [Storage Service Encryption (SSE)](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) est utilisé pour chiffrer les données stockées dans le coffre.<br/><br/> La Sauvegarde chiffre automatiquement les données avant de les stocker. Le Stockage Azure déchiffre les données avant de les récupérer. L’utilisation de clés gérées par le client pour SSE n’est actuellement pas prise en charge.<br/><br/> Vous pouvez sauvegarder des machines virtuelles qui utilisent [le chiffrement de disque Azure (ADE)](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-overview) pour chiffrer les disques de données et le système d’exploitation. La sauvegarde Azure prend en charge les machines virtuelles chiffrées avec BEK uniquement, et avec à la fois BEK et [KEK](https://blogs.msdn.microsoft.com/cclayton/2017/01/03/creating-a-key-encrypting-key-kek/). Examinez les [limitations](backup-azure-vms-encryption.md#encryption-support). | La sauvegarde Azure prend en charge la sauvegarde de bases de données SQL Server ou de serveur avec [TDE](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-2017) activé. La sauvegarde prend en charge le chiffrement transparent des données avec des clés gérées par Azure, ou avec des clés gérées par le client (BYOK).<br/><br/> La sauvegarde ne prend en charge aucun chiffrement SQL dans le cadre du processus de sauvegarde.
+Chiffrement en transit<br/> (Chiffrement des données déplacées d’un emplacement vers un autre) | Les données sont chiffrées à l’aide de AES256 et envoyées vers le coffre dans Azure via HTTPS | Dans Azure, les données entre le stockage Azure et le coffre sont protégées par HTTPS. Ces données restent sur le réseau principal Azure.<br/><br/> Pour la récupération de fichier, iSCSI sécurise les données transmises entre le coffre et la machine virtuelle Azure. Le tunneling sécurisé protège le canal iSCSI. | Dans Azure, les données entre le stockage Azure et le coffre sont protégées par HTTPS.<br/><br/> La récupération de fichiers n’a aucune utilité pour le SQL.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -1,7 +1,7 @@
 ---
 title: Tableau de bord - reconnaissance vocale
 titleSuffix: Azure Cognitive Services
-description: Résoudre les intentions avec l’analytique résumé du tableau de bord, un outil de création de rapports visualisé.
+description: Résoudre les intentions avec le tableau de bord d’analytique, un outil de création de rapports visualisé.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,18 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 05/22/2019
 ms.author: diberry
-ms.openlocfilehash: a518a697369ff74689a0c4ac05af96453b6a5ca4
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 055d113a2bc77f8de1b4b881718007c869470532
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65072443"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236944"
 ---
 # <a name="how-to-use-the-dashboard-to-improve-your-app"></a>Comment utiliser le tableau de bord pour améliorer votre application
 
-Recherchez et corrigez les problèmes avec des intentions de votre application formé lorsque vous utilisez des énoncés d’exemple. Le tableau de bord résumé affiche des informations sur l’application globale, en soulignant intents qui devraient être corrigés. 
+Recherchez et corrigez les problèmes avec des intentions de votre application formé lorsque vous utilisez des énoncés d’exemple. Le tableau de bord affiche des informations sur l’application globale, en soulignant intents qui devraient être corrigés. 
 
 Passez en revue le tableau de bord analyse est un processus itératif, répété que vous modifiez et améliorez votre modèle.
 
@@ -38,11 +38,11 @@ Les trois problèmes résolus dans le tableau de bord sont :
 
 Prédictions correctes sont représentées par la couleur bleue.
 
-Le tableau de bord résumé montre ces problèmes et vous indique les intentions sont affectées et suggère la procédure à suivre pour améliorer l’application. 
+Le tableau de bord affiche ces problèmes et vous indique les intentions sont affectées et suggère la procédure à suivre pour améliorer l’application. 
 
 ## <a name="before-app-is-trained"></a>Avant de l’application est formée 
 
-Avant de vous formez à l’application, le tableau de bord résumé ne contient pas de vos suggestions concernant les correctifs. Apprentissage de votre application pour voir ces suggestions.  
+Avant de vous formez à l’application, le tableau de bord ne contient pas de vos suggestions concernant les correctifs. Apprentissage de votre application pour voir ces suggestions.  
 
 ## <a name="check-your-publishing-status"></a>Vérifier votre état de publication
 
@@ -50,7 +50,7 @@ Le **l’état de publication** carte contient des informations sur les actifs v
 
 Vérifiez que la version active est la version que vous souhaitez corriger. 
 
-![Services externes de l’application de tableau de bord récapitulatif montre, publié des régions et agrégée des présences dans le point de terminaison.](./media/luis-how-to-use-dashboard/analytics-card-1-shows-app-summary-and-endpoint-hits.png)
+![Services externes de l’application de tableau de bord affiche, publié des régions et agrégée des présences dans le point de terminaison.](./media/luis-how-to-use-dashboard/analytics-card-1-shows-app-summary-and-endpoint-hits.png)
 
 Cela montre des régions publiées, les services externes et vous agrégées des présences dans le point de terminaison. 
 
@@ -96,7 +96,7 @@ Le **déséquilibre de données** intent liste montre les intentions dont ont be
 
 * Ajouter des énoncés plus à l’intention puis former à nouveau. 
 
-N’ajoutez pas énoncés intent None, sauf si qui est suggéré sur le tableau de bord résumé.
+N’ajoutez pas énoncés intent None, sauf si qui est suggéré sur le tableau de bord.
 
 > [!Tip]
 > Utilisez la troisième section de la page, **énoncés par intention** avec la **énoncés (nombre)** définition, comme un guide visuel rapide des intentions doivent énoncés plus.  

@@ -216,7 +216,7 @@ Pour utiliser le script Hive paramétré, procédez comme suit :
       }
     }
     ```
-* Dans le script Hive, reportez-vous au paramètre **${hiveconf:parameterName}**. 
+* Dans le script Hive, reportez-vous au paramètre **${hiveconf:parameterName}** . 
   
     ```
     DROP TABLE IF EXISTS HiveSampleIn; 

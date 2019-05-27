@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 05/22/2019
+ms.date: 05/23/2019
 ms.author: diberry
-ms.openlocfilehash: 59308cdadb1eda9e73b373e72112b83d93629683
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: b379ebeeec7d9309cdf150b8b90ddd006e3bcd9a
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66124349"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66240206"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Installer et exécuter des conteneurs Docker LUIS
  
@@ -136,7 +136,7 @@ Le package de l’application publiée est disponible à partir de la page de li
 1. Connectez-vous au portail [LUIS](https://www.luis.ai).
 1. Cochez la case à gauche du nom de l’application dans la liste. 
 1. Sélectionnez l’élément **Export** dans la barre d’outils contextuelle au-dessus de la liste.
-1. Sélectionnez **Export for container (GZIP)**.
+1. Sélectionnez **Export for container (GZIP)** .
 1. Sélectionnez l’environnement **Production slot** (Emplacement de production) ou **Staging slot** (Emplacement intermédiaire).
 1. Le package est téléchargé à partir du navigateur.
 
@@ -152,7 +152,7 @@ Le package de l’application entraînée est disponible à partir de la page de
 1. Sélectionnez **Versions** dans la barre de navigation gauche.
 1. Cochez la case à gauche du nom de la version dans la liste.
 1. Sélectionnez l’élément **Export** dans la barre d’outils contextuelle au-dessus de la liste.
-1. Sélectionnez **Export for container (GZIP)**.
+1. Sélectionnez **Export for container (GZIP)** .
 1. Le package est téléchargé à partir du navigateur.
 
 ![Exporter le package entraîné pour le conteneur à partir du menu Export de la page Versions](./media/luis-container-how-to/export-trained-package-for-container.png)
@@ -223,20 +223,24 @@ Utilisez la commande [docker run](https://docs.docker.com/engine/reference/comma
 |{ENDPOINT_KEY} | cette clé sert à démarrer le conteneur. N’utilisez pas la clé de démarrage. |
 |{BILLING_ENDPOINT} | La valeur de point de terminaison de facturation est disponible sur le portail Azure `Cognitive Services` page Vue d’ensemble. Vous devez ajouter le `luis/v2.0` routage vers l’URI de point de terminaison, comme illustré dans l’exemple suivant : `https://westus.api.cognitive.microsoft.com/luis/v2.0`.|
 
-Remplacez ces paramètres par vos propres valeurs dans l’exemple de commande `docker run` suivant.
+Remplacez ces paramètres par vos propres valeurs dans l’exemple de commande `docker run` suivant. Exécutez la commande dans la console Windows.
 
-```bash
-docker run --rm -it -p 5000:5000 --memory 4g --cpus 2 \
---mount type=bind,src=c:\input,target=/input \
---mount type=bind,src=c:\output,target=/output \
-mcr.microsoft.com/azure-cognitive-services/luis \
-Eula=accept \
-Billing={BILLING_ENDPOINT} \
+```console
+docker run --rm -it -p 5000:5000 ^
+--memory 4g ^
+--cpus 2 ^
+--mount type=bind,src=c:\input,target=/input ^
+--mount type=bind,src=c:\output\,target=/output ^
+mcr.microsoft.com/azure-cognitive-services/luis ^
+Eula=accept ^
+Billing={BILLING_ENDPOINT} ^
 ApiKey={ENDPOINT_KEY}
 ```
 
-> [!Note] 
-> La commande précédente utilise le répertoire du lecteur `c:` pour éviter tout conflit d’autorisation sur Windows. Si vous devez utiliser un répertoire spécifique en tant que répertoire d’entrée, vous devrez peut-être accorder au docker une autorisation de service. La commande docker précédente utilise la barre oblique inverse, `\`, comme caractère de continuation de ligne. Remplacez-la ou supprimez-la en fonction des exigences du système d’exploitation de votre [ordinateur hôte](#the-host-computer). Ne changez pas l’ordre des arguments, sauf si vous avez une connaissance approfondie des conteneurs docker.
+* Cet exemple utilise le répertoire de désactiver la `c:` lecteur pour éviter tout conflit d’autorisation sur Windows. Si vous devez utiliser un répertoire spécifique en tant que répertoire d’entrée, vous devrez peut-être accorder au docker une autorisation de service. 
+* Ne changez pas l’ordre des arguments, sauf si vous avez une connaissance approfondie des conteneurs docker.
+* Si vous utilisez un autre système d’exploitation, utilisez la console/terminal approprié, de la syntaxe de dossier des montages, caractère de continuation de ligne pour votre système. Ces exemples supposent une console Windows avec un caractère de continuation de ligne `^`. Étant donné que le conteneur est un système d’exploitation Linux, le montage cible utilise une syntaxe de dossier de style de Linux.
+
 
 
 Cette commande :

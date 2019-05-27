@@ -5,18 +5,18 @@ services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 07/11/2018
+ms.date: 04/22/2019
 ms.service: application-insights
 ms.reviewer: daviste
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 6f0a59d2b0954c9847219ad1ac8b2fa805767084
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 67ddedbaca88d46e706c9a143100b215a0d16a90
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54080729"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64683424"
 ---
 # <a name="start-analyzing-your-mobile-app-with-app-center-and-application-insights"></a>Commencer à analyser votre application mobile avec App Center et Application Insights
 
@@ -67,7 +67,7 @@ Pour vous assurer que vos événements personnalisés sont reçus, accédez à l
 
 Dès que votre application envoie des événements personnalisés et que ces derniers sont reçus par App Center, vous devez créer une ressource Application Insights de type App Center dans le Portail Azure :
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com/).
+1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
 2. Sélectionnez **Créer une ressource** > **Outils de gestion** > **Application Insights**.
 
     ![Ajout d’une ressource Application Insights](./media/mobile-center-quickstart/add-b.png)
@@ -87,7 +87,9 @@ Si votre application prend en charge plusieurs plateformes (iOS, Android, etc.),
 
 ## <a name="export-to-application-insights"></a>Exporter vers Application Insights
 
-Dans votre nouvelle ressource Application Insights, dans la page **Vue d’ensemble**, dans la section **Bases** en haut, copiez la clé d’instrumentation pour cette ressource.
+Dans votre nouvelle ressource Application Insights sur la page **Vue d’ensemble**. Copiez la clé d’instrumentation depuis votre ressource.
+
+   ![Bouton Analytique dans Application Insights](./media/mobile-center-quickstart/overview-01.png)
 
 Dans l’instance App Center pour votre application :
 
@@ -108,7 +110,7 @@ Application Insights peut interroger, segmenter, filtrer et analyser les donnée
 
 1. **Interroger les données de télémétrie de vos événements personnalisés.** Dans la page **Vue d’ensemble** d’Application Insights, choisissez **Analytique**. 
 
-   ![Bouton Analytique dans Application Insights](./media/mobile-center-quickstart/analytics.png)
+   ![Bouton Analytique dans Application Insights](./media/mobile-center-quickstart/analytics-001.png)
 
    Le portail Application Insights Analytics associé à votre ressource Application Insights s’ouvre. Le portail Analytics vous permet d’interroger directement vos données à l’aide du langage de requête Log Analytics ; vous pouvez ainsi poser des questions arbitrairement complexes sur votre application et ses utilisateurs.
    
@@ -121,7 +123,7 @@ Application Insights peut interroger, segmenter, filtrer et analyser les donnée
    | order by dcount_user_Id desc 
    ```
 
-   ![Portail Analytics](./media/mobile-center-quickstart/analytics-portal.png)
+   ![Portail Analytics](./media/mobile-center-quickstart/analytics-portal-001.png)
 
    1. Sélectionnez la requête en cliquant n’importe où sur celle-ci dans l’éditeur de texte.
    2. Ensuite, cliquez sur **Accéder** pour exécuter la requête. 
@@ -131,17 +133,17 @@ Application Insights peut interroger, segmenter, filtrer et analyser les donnée
 
 2. **Segmenter et filtrer les données de télémétrie de vos événements personnalisés.** Dans la page **Vue d’ensemble** d’Application Insights, choisissez **Utilisateurs** dans la table des matières.
 
-   ![Icône de l’outil Utilisateurs](./media/mobile-center-quickstart/users-icon.png)
+   ![Icône de l’outil Utilisateurs](./media/mobile-center-quickstart/users-icon-001.png)
 
    L’outil Utilisateurs affiche le nombre d’utilisateurs de votre application qui ont cliqué sur certains boutons, visité certains écrans ou effectué toute autre action faisant de votre part l’objet d’un suivi en tant qu’événement avec le Kit de développement logiciel (SDK) App Center. Si vous recherchez un moyen de segmenter et de filtrer vos événements App Center, l’outil Utilisateurs est un excellent choix.
 
-   ![Outil Utilisateurs](./media/mobile-center-quickstart/users.png) 
+   ![Outil Utilisateurs](./media/mobile-center-quickstart/users-001.png) 
 
    Par exemple, segmentez l’utilisation par zone géographique en choisissant **Pays ou région** dans le menu déroulant **Et par**.
 
 3. **Analyser des modèles de conversion, de rétention et navigation dans votre application.** Dans la page **Vue d’ensemble** d’Application Insights, choisissez **Flux d’utilisateurs** dans la table des matières.
 
-   ![Outil Flux d’utilisateurs](./media/mobile-center-quickstart/user-flows.png)
+   ![Outil Flux d’utilisateurs](./media/mobile-center-quickstart/user-flows-001.png)
 
    L’outil Flux d’utilisateurs visualise les événements qu’envoie les utilisateurs après un événement de début. Il est utile pour obtenir une vue d’ensemble de la façon dont les utilisateurs parcourent votre application. Il peut aussi révéler des endroits de votre application où les utilisateurs ne vont plus ou répètent la même action encore et encore.
 

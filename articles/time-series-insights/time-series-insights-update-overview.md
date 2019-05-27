@@ -9,28 +9,33 @@ manager: cshankar
 ms.reviewer: anshan
 ms.workload: big-data
 ms.topic: overview
-ms.date: 12/05/2018
+ms.date: 04/26/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7f8731f48b96ccbe0e77970af1ccefa1d7a7155f
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: a742e9f235812cdbdafdcb0a39581e0779fcd040
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57438769"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64572915"
 ---
-# <a name="azure-time-series-insights-preview-overview"></a>Vue d’ensemble de la préversion d’Azure Time Series Insights
+# <a name="the-azure-time-series-insights-preview"></a>Préversion d’Azure Time Series Insights
 
-La préversion d’Azure Time Series Insights est une offre PaaS de bout en bout. Elle est utilisée pour ingérer, traiter, stocker et interroger des données à l’échelle IoT optimisées pour une série chronologique hautement contextualisée. Time Series Insights est idéal pour l’exploration de données ad hoc et l’analyse opérationnelle. Time Series Insights est une offre de service personnalisée et extensible de manière unique qui répond aux besoins étendus des déploiements IoT sectoriels.
+La préversion d’Azure Time Series Insights est une offre PaaS de bout en bout. Elle est utilisée pour collecter, traiter, stocker, analyser et interroger des données à l’échelle IoT optimisées pour une série chronologique hautement contextualisée. Time Series Insights est idéal pour l’exploration de données ad hoc et l’analyse opérationnelle. Time Series Insights est une offre de service personnalisée et extensible de manière unique qui répond aux besoins étendus des déploiements IoT sectoriels.
+
+> [!TIP]
+> Pour les fonctionnalités en disponibilité générale, consultez la [Vue d’ensemble de la mise à la disposition générale d’Azure Time Series Insights](time-series-insights-overview.md).
 
 ## <a name="video"></a>Vidéo
 
-Dans cette vidéo, nous fournissons une vue d’ensemble de la préversion d’Azure Time Series Insights, une plateforme d’analytique IoT basée sur le cloud.
+### <a name="learn-more-about-the-azure-time-series-insights-preview-br"></a>En savoir plus sur la préversion d’Azure Time Series Insights. </br>
 
 > [!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Azure-Time-Series-Insights-e2e-solution-for-industrial-IoT-analytics/player]
 
 ## <a name="define-iot-data"></a>Définir des données IoT
 
-Les données IoT sont des données « sectorielles » qui se trouvent dans des organisations qui utilisent un nombre considérable de ressources. Les données IoT sont souvent fortement déstructurées car elles sont envoyées à partir de ressources enregistrant des mesures assez bruyantes. Ces mesures incluent la température, le mouvement et l’humidité. Ces flux de données se caractérisent souvent par des lacunes importantes, des messages corrompus et des relevés erronés. Les données de ces flux doivent être nettoyées avant de pouvoir faire l’objet d’une analyse. Les données IoT sont souvent utiles uniquement dans le contexte d’entrées de données supplémentaires provenant de sources internes, comme CRM ou ERP. Les entrées proviennent également de sources de données tierces, comme la météo ou l’emplacement.
+Les données IoT sont des données « sectorielles » qui se trouvent dans des organisations qui utilisent un nombre considérable de ressources. Les données IoT sont souvent fortement déstructurées car elles sont envoyées à partir de ressources enregistrant des mesures assez bruyantes. Ces mesures incluent la température, le mouvement et l’humidité. Ces flux de données se caractérisent souvent par des lacunes importantes, des messages corrompus et des relevés erronés. Les données de ces flux doivent être nettoyées avant de pouvoir faire l’objet d’une analyse.
+
+Les données IoT sont souvent utiles uniquement dans le contexte d’entrées de données supplémentaires provenant de sources internes, comme CRM ou ERP. Les entrées proviennent également de sources de données tierces, comme la météo ou l’emplacement.
 
 De ce fait, seule une fraction de ces données est utilisée à des fins opérationnelles et commerciales. Ces données sont des sources d’information cohérentes, complètes, actuelles et fiables qui permettent de créer des rapports d’entreprise et de procéder à des analyses. La transformation des données IoT collectées en informations exploitables nécessite :
 
@@ -46,8 +51,8 @@ Un flux de données IoT classique est illustré dans l’image suivante.
 
 Le paysage actuel de l’IoT est divers et varié, Les clients couvrent la fabrication, l’industrie automobile, l’énergie, les utilitaires, les bâtiments intelligents et le secteur du conseil. Les scénarios incluent l’exploration de données ad hoc où la forme des données est inconnue. Les scénarios incluent également l’analyse du fonctionnement sur des données schématisées ou explicitement modélisées, pour renforcer l’efficacité. En général, ces scénarios coexistent et supportent différents cas d’usage. Les fonctionnalités de plateforme essentielles à la réussite des entreprises IoT de l’industrie et de leur révolution numérique incluent :
 
-- Le stockage multicouche, chaud et froid. 
-- La capacité de stocker des dizaines d’années de données de séries chronologiques. 
+- Le stockage multicouche, chaud et froid.
+- La capacité de stocker des dizaines d’années de données de séries chronologiques.
 - La possibilité de modéliser explicitement et d’optimiser les requêtes pour l’intelligence opérationnelle basée sur des ressources.
 
 Time Series Insights est une offre PaaS complète, destinée à explorer les données IoT et à tirer des insights opérationnels. Time Series Insights offre un service cloud entièrement géré dédié à l’analyse de données de séries chronologiques IoT.

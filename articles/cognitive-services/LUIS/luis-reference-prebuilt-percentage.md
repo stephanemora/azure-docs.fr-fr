@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 02/28/2019
+ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: b55aca79047a224a9e1a474afdabf43e2701872d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 75538519b7d43aa702e15ce3c22ea4acc73ade87
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61473142"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65072200"
 ---
 # <a name="percentage-prebuilt-entity-for-a-luis-app"></a>Entité prédéfinie percentage pour une application LUIS
 Les valeurs de pourcentage peuvent apparaître sous la forme de fractions (`3 1/2`) ou de pour cent (`2%`). Étant donné que cette entité est déjà formée, vous n’avez pas besoin d’ajouter d’exemples d’énoncés contenant un pourcentage aux intentions de l’application. L’entité percentage est prise en charge dans de [nombreuses cultures](luis-reference-prebuilt-entities.md). 
@@ -25,6 +25,9 @@ Les valeurs de pourcentage peuvent apparaître sous la forme de fractions (`3 1/
 L’entité percentage est gérée à partir du dépôt GitHub [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-Numbers.yaml#L114)
 
 ## <a name="resolution-for-prebuilt-percentage-entity"></a>Résolution pour une entité prédéfinie percentage
+
+### <a name="api-version-2x"></a>Version de l’API 2.x
+
 L’exemple suivant montre la résolution de l’entité **builtin.percentage**.
 
 ```json
@@ -51,6 +54,64 @@ L’exemple suivant montre la résolution de l’entité **builtin.percentage**.
       }
     }
   ]
+}
+```
+
+### <a name="preview-api-version-3x"></a>Version d’évaluation API 3.x
+
+Le code JSON suivant est avec la `verbose` paramètre défini sur `false`:
+
+```json
+{
+    "query": "set a trigger when my stock goes up 2%",
+    "prediction": {
+        "normalizedQuery": "set a trigger when my stock goes up 2%",
+        "topIntent": "None",
+        "intents": {
+            "None": {
+                "score": 0.541765451
+            }
+        },
+        "entities": {
+            "percentage": [
+                2
+            ]
+        }
+    }
+}
+```
+
+Le code JSON suivant est avec la `verbose` paramètre défini sur `true`:
+
+```json
+{
+    "query": "set a trigger when my stock goes up 2%",
+    "prediction": {
+        "normalizedQuery": "set a trigger when my stock goes up 2%",
+        "topIntent": "None",
+        "intents": {
+            "None": {
+                "score": 0.541765451
+            }
+        },
+        "entities": {
+            "percentage": [
+                2
+            ],
+            "$instance": {
+                "percentage": [
+                    {
+                        "type": "builtin.percentage",
+                        "text": "2%",
+                        "startIndex": 36,
+                        "length": 2,
+                        "modelTypeId": 2,
+                        "modelType": "Prebuilt Entity Extractor"
+                    }
+                ]
+            }
+        }
+    }
 }
 ```
 

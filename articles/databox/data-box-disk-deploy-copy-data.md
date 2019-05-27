@@ -1,5 +1,5 @@
 ---
-title: Copier des données sur votre disque Microsoft Azure Data Box | Microsoft Docs
+title: Tutoriel pour copier des données sur Azure Data Box Disk | Microsoft Docs
 description: Utilisez ce didacticiel pour apprendre à copier des données sur votre disque Azure Data Box
 services: databox
 author: alkohli
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 418b158b127a688314fb3a0a506d116cc27da98c
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: f5c498fc3f3fe051070b3565041e506bc40fceda
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59678494"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925163"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-disk-and-verify"></a>Didacticiel : Copier des données sur Azure Data Box Disk et procéder à une vérification
 
