@@ -53,12 +53,12 @@ Le tableau suivant décrit les éléments JSON qui sont propres au service lié 
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| Type | La propriété **type** doit être définie sur **Http**. | Oui |
+| type | La propriété **type** doit être définie sur **Http**. | Oui |
 | url | URL de base du serveur web. | Oui |
 | authenticationType | Spécifie le type d’authentification. Les valeurs autorisées sont : **Anonyme**, **De base**, **Digest**, **Windows** et **ClientCertificate**. <br><br> Consultez les sections plus loin dans cet article pour accéder à d’autres propriétés et à des exemples JSON relatifs à ces types d’authentification. | Oui |
 | enableServerCertificateValidation | Spécifie si la validation du certificat SSL du serveur doit être activée si la source est un serveur web HTTPS. Quand votre serveur HTTPS utilise un certificat auto-signé, définissez cette propriété sur **false**. | Non <br /> (la valeur par défaut est **true**) |
 | gatewayName | Nom de l’instance de passerelle de gestion des données à utiliser pour se connecter à une source HTTP locale. | Oui, dans le cas de copie de données à partir d’une source HTTP locale |
-| Encryptedcredential | Informations d’identification chiffrées pour accéder au point de terminaison HTTP. La valeur est générée automatiquement quand vous configurez les informations d’authentification dans l’Assistant de copie ou la boîte de dialogue **ClickOnce**. | Non <br /> (s’applique uniquement pour la copie de données à partir d’un serveur HTTP local) |
+| encryptedCredential | Informations d’identification chiffrées pour accéder au point de terminaison HTTP. La valeur est générée automatiquement quand vous configurez les informations d’authentification dans l’Assistant de copie ou la boîte de dialogue **ClickOnce**. | Non <br /> (s’applique uniquement pour la copie de données à partir d’un serveur HTTP local) |
 
 Pour plus d’informations sur la définition des informations d’identification pour une source de données de connecteur HTTP local, consultez [Déplacement de données entre des sources locales et le cloud à l’aide de la passerelle de gestion des données](data-factory-move-data-between-onprem-and-cloud.md).
 
@@ -160,11 +160,11 @@ La section **typeProperties** est différente pour chaque type de jeu de donnée
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété **type** du jeu de données doit être définie sur **Http**. | Oui |
+| type | La propriété **type** du jeu de données doit être définie sur **Http**. | Oui |
 | relativeUrl | URL relative de la ressource qui contient les données. Quand le chemin n’est pas spécifié, seule l’URL indiquée dans la définition du service lié est utilisée. <br><br> Pour construire une URL dynamique, vous pouvez utiliser les [variables système et fonctions Data Factory](data-factory-functions-variables.md). Exemple : **relativeUrl**: **$$Text.Format('/my/report?month={0:yyyy}-{0:MM}&fmt=csv', SliceStart)**. | Non  |
 | requestMethod | Méthode HTTP. Les valeurs autorisées sont **GET** et **POST**. | Non  <br />(la valeur par défaut est **GET**) |
 | additionalHeaders | En-têtes de requête HTTP supplémentaires. | Non  |
-| RequestBody | Corps de la requête HTTP. | Non  |
+| requestBody | Corps de la requête HTTP. | Non  |
 | format | Si vous souhaitez *récupérer les données d’un point de terminaison HTTP en l’état*, sans les analyser, ignorez le paramètre de **format**. <br><br> Si vous voulez analyser le contenu de la réponse HTTP pendant la copie, les types de formats suivants sont pris en charge : **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** et **ParquetFormat**. Pour plus d’informations, consultez [Format Texte](data-factory-supported-file-and-compression-formats.md#text-format), [Format JSON](data-factory-supported-file-and-compression-formats.md#json-format), [Format Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [Format Orc](data-factory-supported-file-and-compression-formats.md#orc-format) et [Format Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format). |Non  |
 | compression | Spécifiez le type et le niveau de compression pour les données. Types pris en charge : **GZip**, **Deflate**, **BZip2** et **ZipDeflate**. Niveaux pris en charge : **Optimal** et **Fastest**. Pour plus d’informations, consultez [Formats de fichiers et de compression pris en charge dans Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Non  |
 
