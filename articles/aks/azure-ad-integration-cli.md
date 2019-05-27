@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: iainfou
-ms.openlocfilehash: 0216a8c7d4e52e89098979223e9b792398e25038
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: d80ad5abecc968a9fe3c82d62ddd8577856a3c54
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920178"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65835185"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service-using-the-azure-cli"></a>Intégrer Azure Active Directory avec Azure Kubernetes Service à l’aide de l’interface CLI Azure
 
@@ -25,7 +25,6 @@ Pour le script d’exemple complet utilisé dans cet article, consultez [d’exe
 Les limites suivantes s'appliquent :
 
 - Azure AD ne peut être activé que quand vous créez un nouveau cluster prenant en charge RBAC. Vous ne pouvez pas activer Azure AD sur un cluster AKS existant.
-- *Invité* utilisateurs dans Azure AD, telles que si vous utilisez une authentification fédérée dans à partir d’un autre répertoire, ne sont pas pris en charge.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
@@ -78,8 +77,8 @@ serverApplicationSecret=$(az ad sp credential reset \
 
 Azure AD doit être autorisé à effectuer les actions suivantes :
 
-* Lire les données du répertoire
-* Connecter et lire le profil utilisateur
+* Lire les données de l'annuaire
+* Activer la connexion et lire le profil utilisateur
 
 Attribuez ces autorisations à l’aide de la [ajouter l’autorisation d’application ad az] [ az-ad-app-permission-add] commande :
 
@@ -237,8 +236,9 @@ Si vous voyez un message d’erreur d’autorisation une fois que vous êtes con
 error: You must be logged in to the server (Unauthorized)
 ```
 
-* L’utilisateur que vous êtes connecté dans la mesure n’est ne pas un *invité* dans l’instance d’Azure AD (cela est souvent le cas si vous utilisez un compte de connexion fédérée à partir d’un répertoire différent).
+* Vous avez défini l’ID d’objet approprié ou UPN, selon si le compte d’utilisateur est dans le même locataire Azure AD ou non.
 * L'utilisateur n’est pas membre de plus de 200 groupes.
+* Clé secrète définie dans l’inscription d’application pour serveur correspond à la valeur configurée à l’aide `--aad-server-app-secret`
 
 ## <a name="next-steps"></a>Étapes suivantes
 

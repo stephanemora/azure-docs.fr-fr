@@ -2,25 +2,25 @@
 title: Utilisation de procédures stockées dans Azure SQL Data Warehouse | Microsoft Docs
 description: Conseils relatifs à l’implémentation de procédures stockées dans Microsoft Azure SQL Data Warehouse, dans le cadre du développement de solutions.
 services: sql-data-warehouse
-author: ckarst
+author: XiaoyuL-Preview
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
+ms.subservice: development
 ms.date: 04/02/2019
-ms.author: cakarst
+ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 8a53a63b7425935e117d7af951717999bc9340b7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 200433d95d62edf2e878e58e5089a6baff290775
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61439698"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65850586"
 ---
 # <a name="using-stored-procedures-in-sql-data-warehouse"></a>Utilisation de procédures stockées dans SQL Data Warehouse
 Conseils relatifs à l’implémentation de procédures stockées dans Microsoft Azure SQL Data Warehouse, dans le cadre du développement de solutions.
 
-## <a name="what-to-expect"></a>À quoi s’attendre
+## <a name="what-to-expect"></a>Ce qui va se passer
 
 SQL Data Warehouse prend en charge plusieurs fonctionnalités T-SQL utilisées dans SQL Server. Plus important encore, il existe différentes fonctions, propres à l’augmentation de la taille des instances, que nous voulons exploiter pour optimiser les performances de notre solution.
 

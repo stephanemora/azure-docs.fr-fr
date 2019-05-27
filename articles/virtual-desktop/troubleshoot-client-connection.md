@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: troubleshoot
 ms.date: 04/08/2019
 ms.author: v-chjenk
-ms.openlocfilehash: 99295fd4581cd81751f7d64b694c853efe51a106
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: f88dee579e44a01dc1a7404ef6a670de34063552
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65522938"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65833572"
 ---
 # <a name="remote-desktop-client-connections"></a>Connexions au client Bureau à distance
 
@@ -28,9 +28,9 @@ Confirmer il existe une connectivité internet en ouvrant un autre site web ; p
 
 Utilisez **nslookup** pour confirmer DNS peut résoudre le nom de domaine complet :
 
-    ```cmd
-    nslookup rdweb.wvd.microsoft.com
-    ```
+```cmd
+nslookup rdweb.wvd.microsoft.com
+```
 
 Essayez de vous connecter avec un autre client, comme le client Bureau à distance pour Windows 7 ou Windows 10 et vérifiez si vous pouvez ouvrir le client web.
 
@@ -54,7 +54,7 @@ Essayez de vous connecter avec un autre client, comme le client Bureau à distan
 
 1. Redémarrer le navigateur.
 2. Cookies du navigateur clair. Consultez [comment supprimer des fichiers de cookies dans Internet Explorer](https://support.microsoft.com/help/278835/how-to-delete-cookie-files-in-internet-explorer).
-3. Cache de navigateur clair. Consultez [effacer le cache du navigateur pour votre navigateur](https://binged.it/2RKyfdU).
+3. Videz le cache du navigateur. Consultez [effacer le cache du navigateur pour votre navigateur](https://binged.it/2RKyfdU).
 4. Ouvrir le navigateur en mode privé.
 
 ## <a name="web-client-stops-responding-or-disconnects"></a>Client Web cesse de répondre ou se déconnecte
@@ -74,7 +74,7 @@ Si le client Web conserve demander des informations d’identification, suivez c
 1. Vérifiez le QU'URL de client web est correcte.
 2. Vérifiez que les informations d’identification sont pour l’environnement de bureau virtuel Windows liée à l’URL.
 3. Cookies du navigateur clair. Consultez [comment supprimer des fichiers de cookies dans Internet Explorer](https://support.microsoft.com/help/278835/how-to-delete-cookie-files-in-internet-explorer).
-4. Cache de navigateur clair. Consultez [effacer le cache du navigateur pour votre navigateur](https://binged.it/2RKyfdU).
+4. Videz le cache du navigateur. Consultez [effacer le cache du navigateur pour votre navigateur](https://binged.it/2RKyfdU).
 5. Ouvrir le navigateur en mode privé.
 
 ## <a name="remote-desktop-client-for-windows-7-or-windows-10-stops-responding-or-cannot-be-opened"></a>Client Bureau à distance pour Windows 7 ou Windows 10 ne répond plus ou ne peut pas être ouvert.
@@ -111,20 +111,20 @@ Suivez ces instructions de dépannage générales pour les codes d’erreur de c
 4. À l’aide de **Get-RdsHostPool** et **Get-RdsSessionHost** applets de commande, vérifiez que dépannage est effectuée sur le pool d’hôte correct.
 5. Exécutez la commande ci-dessous pour obtenir une liste de toutes les activités ayant échouées d’une connexion de type pour la fenêtre de temps spécifié :
 
-    ```cmd
+    ```PowerShell
      Get-RdsDiagnosticActivities -TenantName <TenantName> -username <UPN> -StartTime
      "11/21/2018 1:07:03 PM" -EndTime "11/21/2018 1:27:03 PM" -Outcome Failure -ActivityType Connection
     ```
 
 6. À l’aide de la **ActivityId** à partir de la sortie précédente de l’applet de commande, exécutez la commande suivante :
 
-    ```
+    ```PowerShell
     (Get-RdsDiagnosticActivities -TenantName $tenant -ActivityId <ActivityId> -Detailed).Errors
     ```
 
 7. La commande produit une sortie similaire à la sortie illustrée ci-dessous. Utilisez **ErrorCodeSymbolic** et **ErrorMessage** pour résoudre les problèmes de la cause racine.
 
-    ```
+    ```PowerShell
     ErrorSource       : <Source>
     ErrorOperation    : <Operation>
     ErrorCode         : <Error code>
@@ -159,7 +159,7 @@ Un utilisateur peut démarrer les clients Bureau à distance et est en mesure d�
 
 Vérifiez que l’utilisateur signale les problèmes déjà associé aux groupes d’application à l’aide de cette ligne de commande :
 
-```cmd
+```PowerShell
 Get-RdsAppGroupUser <tenantname> <hostpoolname> <appgroupname>
 ```
 

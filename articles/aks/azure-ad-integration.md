@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/26/2019
 ms.author: iainfou
-ms.openlocfilehash: 026c0eefc0c4fe31e72ecad91a4a7b558f367487
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: a6ed8ec37a3b20ccdbd2b013ba308518d8e3b97c
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65192129"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65849888"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service"></a>Intégrer Azure Active Directory dans Azure Kubernetes Service
 
@@ -23,7 +23,6 @@ Cet article vous montre comment déployer les conditions préalables pour AKS et
 Les limites suivantes s'appliquent :
 
 - Azure AD ne peut être activé que quand vous créez un nouveau cluster prenant en charge RBAC. Vous ne pouvez pas activer Azure AD sur un cluster AKS existant.
-- *Invité* utilisateurs dans Azure AD, telles que si vous utilisez une authentification fédérée dans à partir d’un autre répertoire, ne sont pas pris en charge.
 
 ## <a name="authentication-details"></a>Informations sur l’authentification
 
@@ -40,7 +39,7 @@ Pour fournir l’authentification Azure AD pour un cluster AKS, deux application
 
 La première application Azure AD permet d’obtenir l’appartenance à un groupe d’utilisateurs Azure AD. Créer cette application dans le portail Azure.
 
-1. Sélectionnez **Azure Active Directory** > **inscriptions** > **nouvelle inscription**.
+1. Sélectionnez **Azure Active Directory** > **Inscriptions d’applications** > **Nouvelle inscription**.
 
     * Nommez l’application, tel que *AKSAzureADServer*.
     * Pour **pris en charge les types de comptes**, choisissez *comptes dans ce répertoire d’organisation uniquement*.
@@ -93,7 +92,7 @@ La première application Azure AD permet d’obtenir l’appartenance à un grou
 
 La deuxième application Azure AD est utilisée lors de la connexion avec la CLI Kubernetes (`kubectl`).
 
-1. Sélectionnez **Azure Active Directory** > **inscriptions** > **nouvelle inscription**.
+1. Sélectionnez **Azure Active Directory** > **Inscriptions d’applications** > **Nouvelle inscription**.
 
     * Nommez l’application, tel que *AKSAzureADClient*.
     * Pour **pris en charge les types de comptes**, choisissez *comptes dans ce répertoire d’organisation uniquement*.
@@ -114,6 +113,10 @@ La deuxième application Azure AD est utilisée lors de la connexion avec la CLI
         Lorsque les autorisations sont accordées avec succès, la notification suivante s’affiche sur le portail :
 
         ![Notification de réussite des autorisations accordées](media/aad-integration/permissions-granted.png)
+
+1. Dans le volet de navigation gauche de l’application Azure AD, sélectionnez **authentification**.
+
+    * Sous **type de client par défaut**, sélectionnez **Oui** à *traiter le client comme un client public*.
 
 1. Dans le volet de navigation gauche de l’application Azure AD, prenez note de la **ID d’Application**. Lors du déploiement d’un cluster AKS Azure AD, cette valeur est appelée `Client application ID`.
 
@@ -242,13 +245,14 @@ aks-nodepool1-79590246-2   Ready     agent     1h        v1.13.5
 Lorsque vous avez terminé, le jeton d’authentification est mis en cache. Vous sont uniquement différentes pour vous connecter lorsque le jeton a expiré ou le fichier de configuration Kubernetes recréé.
 
 Si un message d’erreur d’autorisation apparaît après connexion, vérifiez ce qui suit :
-1. L’utilisateur vous vous connectez comme n’est pas un invité dans l’instance d’Azure AD (ce scénario est souvent le cas si vous utilisez un compte fédéré à partir d’un répertoire différent).
-2. L'utilisateur n’est pas membre de plus de 200 groupes.
-3. Clé secrète définie dans l’inscription de l’application pour le serveur ne correspond pas à la valeur configurée à l’aide de--aad-server--secret d’application
 
 ```console
 error: You must be logged in to the server (Unauthorized)
 ```
+
+1. Vous avez défini l’ID d’objet approprié ou UPN, selon si le compte d’utilisateur est dans le même locataire Azure AD ou non.
+2. L'utilisateur n’est pas membre de plus de 200 groupes.
+3. Clé secrète définie dans l’inscription d’application pour serveur correspond à la valeur configurée à l’aide `--aad-server-app-secret`
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 02/28/2019
+ms.date: 05/17/2019
 ms.author: iainfou
-ms.openlocfilehash: faac0f02d1a1b8927fa0c651f44f8b120a583d9a
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 7b983535f862a452c900d0a0a12ae0d79b56f92f
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65230153"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65850528"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Concepts de base de Kubernetes pour AKS (Azure Kubernetes Service)
 
@@ -70,9 +70,9 @@ Pour exécuter vos applications et les services de prise en charge, vous avez be
 
 La taille des machines virtuelles Azure pour vos nœuds détermine le nombre d’UC, la quantité de mémoire, ainsi que la taille et le type de stockage disponible (par exemple, SSD hautes performances ou HDD classique). Si vous pensez avoir un jour besoin d’applications nécessitant une grande quantité d’UC et de mémoire ou un stockage hautes performances, planifiez la taille des nœuds en conséquence. Vous pouvez également augmenter le nombre de nœuds dans votre cluster AKS afin de répondre à la demande.
 
-Dans AKS, l’image de machine virtuelle pour les nœuds de votre cluster est basée sur Ubuntu Linux. Quand vous créez un cluster AKS ou augmentez le nombre de nœuds, la plateforme Azure crée le nombre demandé de machines virtuelles et les configure. Il n’existe aucune configuration manuelle pour vous permettent d’effectuer.
+Dans AKS, l’image de machine virtuelle pour les nœuds de votre cluster est actuellement basée sur Ubuntu Linux ou Windows Server 2019. Quand vous créez un cluster AKS ou augmentez le nombre de nœuds, la plateforme Azure crée le nombre demandé de machines virtuelles et les configure. Il n’existe aucune configuration manuelle pour vous permettent d’effectuer.
 
-Si vous avez besoin d’utiliser un autre système d’exploitation hôte ou runtime de conteneur, ou bien d’inclure des packages personnalisés, vous pouvez déployer votre propre cluster Kubernetes à l’aide d’[aks-engine][aks-engine]. En amont, `aks-engine` assure la mise en production des fonctionnalités et fournit les options de configuration avant qu'elles ne soient officiellement prises en charge dans les clusters AKS. Par exemple, si vous souhaitez utiliser les conteneurs Windows ou un runtime de conteneurs autres que Moby, vous pouvez utiliser `aks-engine` pour configurer et déployer un cluster Kubernetes qui répond à vos besoins actuels.
+Si vous avez besoin d’utiliser un autre système d’exploitation hôte ou runtime de conteneur, ou bien d’inclure des packages personnalisés, vous pouvez déployer votre propre cluster Kubernetes à l’aide d’[aks-engine][aks-engine]. En amont, `aks-engine` assure la mise en production des fonctionnalités et fournit les options de configuration avant qu'elles ne soient officiellement prises en charge dans les clusters AKS. Par exemple, si vous souhaitez utiliser un runtime de conteneur autre que Moby, vous pouvez utiliser `aks-engine` pour configurer et déployer un cluster Kubernetes qui répond à vos besoins actuels.
 
 ### <a name="resource-reservations"></a>Réservations de ressources
 
@@ -104,6 +104,27 @@ Les nœuds d’une même configuration sont regroupés dans des *pools de nœuds
 Quand vous mettez à l’échelle ou à niveau un cluster AKS, l’action est effectuée sur le pool de nœuds par défaut. Vous pouvez également choisir de mettre à l’échelle ou de mettre à niveau d’un pool de nœud spécifique. Pour les opérations de mise à niveau, les conteneurs en cours d’exécution sont planifiés sur d’autres nœuds du pool de nœuds jusqu’à ce que tous les nœuds soient mis à niveau.
 
 Pour plus d’informations sur l’utilisation de plusieurs pools de nœuds dans ACS, consultez [créer et gérer plusieurs pools de nœuds pour un cluster dans AKS][use-multiple-node-pools].
+
+### <a name="node-selectors"></a>Sélecteurs de nœud
+
+Dans un cluster AKS qui contient plusieurs pools de nœuds, vous devrez peut-être indiquer le planificateur Kubernetes quel pool de nœud à utiliser pour une ressource donnée. Par exemple, les contrôleurs d’entrée ne doit pas s’exécuter sur les nœuds Windows Server (actuellement en version préliminaire dans ACS). Sélecteurs de nœud vous permettent de définir différents paramètres, tels que le nœud du système d’exploitation, pour contrôler où un pod doit être planifié.
+
+L’exemple de base suivant planifie une instance NGINX sur un nœud Linux à l’aide du sélecteur de nœud *« beta.kubernetes.io/os » : linux*:
+
+```yaml
+kind: Pod
+apiVersion: v1
+metadata:
+  name: nginx
+spec:
+  containers:
+    - name: myfrontend
+      image: nginx:1.15.12
+  nodeSelector:
+    "beta.kubernetes.io/os": linux
+```
+
+Pour plus d’informations sur la manière de contrôler où les pods sont planifiées, consultez [meilleures pratiques pour les fonctionnalités avancées du planificateur dans ACS][operator-best-practices-advanced-scheduler].
 
 ## <a name="pods"></a>Pods
 
@@ -248,3 +269,4 @@ Cet article décrit certains des principaux composants Kubernetes et leur applic
 [operator-best-practices-cluster-security]: operator-best-practices-cluster-security.md
 [operator-best-practices-scheduler]: operator-best-practices-scheduler.md
 [use-multiple-node-pools]: use-multiple-node-pools.md
+[operator-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md

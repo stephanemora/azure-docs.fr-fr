@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/14/2018
+ms.date: 05/17/2019
 ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9da23b0c0b0b0c0bfc238b1504811a9c1c55a9ef
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 2caedeb5cd4d0f920ffa49b33b0dca8bea9938cb
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65785375"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65861544"
 ---
-# <a name="what-are-conditions-in-azure-active-directory-conditional-access"></a>Que sont les conditions dans l’accès conditionnel Azure Active Directory ? 
+# <a name="what-are-conditions-in-azure-active-directory-conditional-access"></a>Que sont les conditions dans l’accès conditionnel Azure Active Directory ?
 
-Vous pouvez contrôler la façon dont les utilisateurs accèdent à vos applications cloud avec l’[accès conditionnel Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal). Dans une stratégie d’accès conditionnel, vous définissez la réponse (« Ensuite faire ») sur la raison du déclenchement de votre stratégie (« Quand cela se produit »). 
+Vous pouvez contrôler la façon dont les utilisateurs accèdent à vos applications cloud avec l’[accès conditionnel Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal). Dans une stratégie d’accès conditionnel, vous définissez la réponse (« Ensuite faire ») sur la raison du déclenchement de votre stratégie (« Quand cela se produit »).
 
 ![Raison et réponse](./media/conditions/10.png)
 
@@ -37,7 +37,7 @@ Dans le contexte de l’accès conditionnel, **Lorsque cela se produit** est app
 ![Stratégie d’accès conditionnel](./media/conditions/61.png)
 
 
-Les conditions que vous n’avez pas configurées dans une stratégie d’accès conditionnel ne sont pas appliquées. Certaines conditions sont [obligatoires](best-practices.md) pour appliquer une stratégie d’accès conditionnel à un environnement. 
+Les conditions que vous n’avez pas configurées dans une stratégie d’accès conditionnel ne sont pas appliquées. Certaines conditions sont [obligatoires](best-practices.md) pour appliquer une stratégie d’accès conditionnel à un environnement.
 
 Cet article décrit les conditions et la façon dont elles sont utilisées dans une stratégie d’accès conditionnel. 
 
@@ -73,7 +73,7 @@ Les organisations peuvent choisir parmi les options suivantes :
 > [!NOTE]
 > Vous pouvez exclure des applications spécifiques d’une stratégie. Toutefois, ces applications sont toujours soumises aux stratégies appliquées aux services auxquels elles accèdent.
 
-**Actions de l’utilisateur** sont des tâches qui peuvent être effectuées par un utilisateur. La seule action actuellement pris en charge est **enregistrer les informations de sécurité (version préliminaire)**, ce qui permet la stratégie d’accès conditionnel qui s’appliquent lorsqu’un utilisateur s’inscrit à leurs informations de sécurité.
+**Actions de l’utilisateur** sont des tâches qui peuvent être effectuées par un utilisateur. La seule action actuellement pris en charge est **enregistrer les informations de sécurité (version préliminaire)**, ce qui permet la stratégie d’accès conditionnel à appliquer lorsque les utilisateurs qui sont activés pour l’inscription combinée tentent d’inscrire leur sécurité plus d’informations. Vous trouverez plus d’informations dans l’article [activer combinée d’inscription des informations de sécurité (version préliminaire)](../authentication/howto-registration-mfa-sspr-combined.md).
 
 ## <a name="sign-in-risk"></a>Risque à la connexion
 

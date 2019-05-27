@@ -10,12 +10,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: tyleonha, glenga
-ms.openlocfilehash: 71ac525e2af7473ca9ce0a8f60268e76eccd1a9a
-ms.sourcegitcommit: 111a7b3e19d5515ce7036287cea00a7204ca8b56
+ms.openlocfilehash: 46b1e5c99dd86fed6f87ac3b8f0ff6555187899b
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64530382"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65833518"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Guide du développeur Azure fonctions PowerShell
 
@@ -23,9 +23,9 @@ Cet article fournit des détails sur la façon dont vous écrivez des fonctions 
 
 [!INCLUDE [functions-powershell-preview-note](../../includes/functions-powershell-preview-note.md)]
 
-Une fonction PowerShell est représentée comme un script PowerShell qui s’exécute lorsque déclenchée. Chaque script de la fonction a un function.json connexes qui définit comment la fonction se comporte, telles que la façon dont elle est déclenchée et les paramètres d’entrée et de sortie. Pour plus d’informations, consultez le [déclencheurs et article de la liaison](functions-triggers-bindings.md). 
+Une fonction PowerShell Azure (fonction) est représentée comme un script PowerShell qui s’exécute lorsque déclenchée. Chaque script de la fonction associée à une `function.json` fichier qui définit comment la fonction se comporte, telles que la façon dont elle est déclenchée et ses paramètres d’entrée et de sortie. Pour plus d’informations, consultez le [déclencheurs et article de la liaison](functions-triggers-bindings.md). 
 
-Comme d’autres types de fonctions, le script PowerShell prend dans les paramètres qui correspondent aux noms de toutes les liaisons d’entrée définis dans function.json. Un `TriggerMetadata` paramètre est également passé qui contient des informations supplémentaires sur le déclencheur qui a démarré la fonction.
+Comme d’autres types de fonctions, les fonctions de script PowerShell prennent de paramètres correspondant aux noms de toutes les liaisons d’entrée définis dans le `function.json` fichier. Un `TriggerMetadata` paramètre est également passé qui contient des informations supplémentaires sur le déclencheur qui a démarré la fonction.
 
 Cet article suppose que vous ayez déjà lu l’article [Informations de référence pour les développeurs sur Azure Functions](functions-reference.md). Vous devez également avoir terminé la [fonctions Guide de démarrage rapide pour PowerShell](functions-create-first-function-powershell.md) à créer votre première fonction PowerShell.
 
@@ -56,9 +56,9 @@ PSFunctionApp
  | - bin
 ```
 
-À la racine du projet se trouve un fichier [host.json](functions-host-json.md) partagé que vous pouvez utiliser pour configurer l’application de fonction. Chaque fonction a un dossier avec son propre fichier de code (.ps1) et le fichier de configuration de liaison (function.json). Le nom du répertoire parent de `function.json` est toujours le nom de votre fonction.
+À la racine du projet, il est une connexion partagée [ `host.json` ](functions-host-json.md) fichier qui peut être utilisé pour configurer l’application de fonction. Chaque fonction a un dossier avec son propre fichier de code (.ps1) et le fichier de configuration de liaison (`function.json`). Le nom du répertoire de parent du fichier function.json est toujours le nom de votre fonction.
 
-Certaines liaisons nécessitent la présence d’un `extensions.csproj`. Requis dans les extensions de liaison [version 2.x](functions-versions.md) du runtime Functions, sont définies dans le `extensions.csproj` fichier, avec les fichiers de bibliothèque réelles dans le `bin` dossier. Quand vous développez localement, vous devez [inscrire les extensions de liaison](functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles). Quand vous développez des fonctions dans le portail Azure, cet enregistrement est effectué pour vous.
+Certaines liaisons nécessitent la présence d’un `extensions.csproj` fichier. Requis dans les extensions de liaison [version 2.x](functions-versions.md) du runtime Functions, sont définies dans le `extensions.csproj` fichier, avec les fichiers de bibliothèque réelles dans le `bin` dossier. Quand vous développez localement, vous devez [inscrire les extensions de liaison](functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles). Quand vous développez des fonctions dans le portail Azure, cet enregistrement est effectué pour vous.
 
 Dans les applications de fonction PowerShell, vous devrez éventuellement un `profile.ps1` qui s’exécute lorsqu’une application de fonction commence à s’exécuter (sinon connu sous le nom un  *[démarrage à froid](#cold-start)*. Pour plus d’informations, consultez [profil PowerShell](#powershell-profile).
 
@@ -133,9 +133,9 @@ Produce-MyOutputValue | Push-OutputBinding -Name myQueue
 
 Les éléments suivants sont des paramètres valides pour appeler `Push-OutputBinding`:
 
-| Nom | Type | Position | Description |
+| Nom | Type | Position | Description  |
 | ---- | ---- |  -------- | ----------- |
-| **`-Name`** | Chaîne | 1 | Le nom de la liaison de sortie que vous souhaitez définir. |
+| **`-Name`** | String | 1 | Le nom de la liaison de sortie que vous souhaitez définir. |
 | **`-Value`** | Object | 2 | La valeur de la liaison de sortie vous souhaitez définir, qui est accepté depuis le pipeline ByValue. |
 | **`-Clobber`** | SwitchParameter | named | (Facultatif) Si spécifié, force la valeur à définir pour une liaison de sortie spécifié. | 
 
@@ -485,7 +485,7 @@ Write-Host $env:WEBSITE_SITE_NAME
 
 Lors de l’exécution en local, les paramètres de l’application sont lus à partir du fichier projet [local.settings.json](functions-run-local.md#local-settings-file).
 
-## <a name="concurrency"></a>Accès concurrentiel
+## <a name="concurrency"></a>Concurrence
 
 Par défaut, le runtime de fonctions PowerShell ne peut traiter un appel d’une fonction à la fois. Toutefois, ce niveau d’accès concurrentiel peut ne pas suffire dans les situations suivantes :
 

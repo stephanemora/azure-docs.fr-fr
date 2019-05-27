@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: dedba42d7e4b8d603d97522cf0173f41efd20b3a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 990b13d362b796f5e71f1bd41eb35fce9720fff4
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61450327"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65835161"
 ---
 # <a name="deploy-opc-vault-from-scratch"></a>Déployer OPC Vault à partir de zéro
 
@@ -45,7 +45,7 @@ Le fichier de configuration dans le référentiel fait référence à certaines 
 
 Visual Studio vous permet d’ouvrir rapidement l’application sans ouvrir l’invite de commandes, sans configurer quoi que ce soit en dehors de l’IDE.
 
-Étapes à l’aide de Visual Studio 2017 :
+Pour exécuter et déboguer l’application à l’aide de Visual Studio :
 
 1. Ouvrez la solution utilisant le `iot-opc-gds-service.sln` fichier.
 
@@ -79,7 +79,7 @@ Le dossier scripts contient des scripts pour les tâches fréquentes :
 
 Les scripts de vérification pour la configuration de variables d’environnement. Vous pouvez définir les variables d’environnement globalement dans votre système d’exploitation, ou utiliser le script « env-var-setup » dans le dossier scripts.
 
-### <a name="sandbox"></a>Bac à sable
+### <a name="sandbox"></a>Bac à sable (sandbox)
 
 Les scripts supposent que vous configuré votre environnement de développement avec .NET Core et Docker. Vous pouvez éviter d’installer .NET Core et installer Docker uniquement et utilisez le paramètre de ligne de commande `--in-sandbox` (ou la forme abrégée `-s`), par exemple :
 

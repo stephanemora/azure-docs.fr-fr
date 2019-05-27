@@ -11,18 +11,18 @@ ms.author: prasantp
 author: prasanthpul
 ms.date: 04/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: a8bc46011b00a0c63eddd2799ac1309b5754472e
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.openlocfilehash: f1eca5bdd81a384efe04f769ebd12be9d91fc78a
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65442423"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65849725"
 ---
 # <a name="onnx-and-azure-machine-learning-create-and-accelerate-ml-models"></a>ONNX et Azure Machine Learning : Créer et d’accélérer les modèles ML
 
-Découvrez comment l’utilisation du [ouvrir Exchange de réseau neuronal](https://onnx.ai) (ONNX) peut aider à optimiser vos modèles machine learning.
+Découvrez comment l’utilisation du [ouvrir Exchange de réseau neuronal](https://onnx.ai) (ONNX) peut aider à optimiser l’inférence de votre modèle d’apprentissage automatique. Inférence, ou un modèle de score, est la phase où le modèle déployé est utilisé pour la prédiction, généralement sur les données de production. 
 
-Optimisation des modèles pour l’inférence d’apprentissage sont difficile, car vous devrez paramétrer le modèle et la bibliothèque de l’inférence pour tirer le meilleur parti des fonctionnalités matérielles. Le problème devienne extrêmement difficile si vous souhaitez obtenir des performances optimales sur différents types de plateformes (cloud/edge, UC/GPU, etc.), étant donné que chaque a des caractéristiques et des fonctionnalités différentes. La complexité augmente si vous avez des modèles à partir de diverses infrastructures qui doivent s’exécuter sur diverses plateformes. Il est beaucoup de temps à optimiser les différentes combinaisons d’infrastructures et de matériel. Une solution pour former une seule fois dans votre infrastructure par défaut et exécuter n’importe où sur le cloud ou d’arêtes est nécessaire. Il s’agit là qu’intervient ONNX.
+Optimisation des modèles de l’inférence (ou d’évaluation de modèle) d’apprentissage sont difficile, car vous devrez paramétrer le modèle et la bibliothèque de l’inférence pour tirer le meilleur parti des fonctionnalités matérielles. Le problème devienne extrêmement difficile si vous souhaitez obtenir des performances optimales sur différents types de plateformes (cloud/edge, UC/GPU, etc.), étant donné que chaque a des caractéristiques et des fonctionnalités différentes. La complexité augmente si vous avez des modèles à partir de diverses infrastructures qui doivent s’exécuter sur diverses plateformes. Il est beaucoup de temps à optimiser les différentes combinaisons d’infrastructures et de matériel. Une solution pour former une seule fois dans votre infrastructure par défaut et exécuter n’importe où sur le cloud ou d’arêtes est nécessaire. Il s’agit là qu’intervient ONNX.
 
 Microsoft et une Communauté de partenaires créé ONNX comme une norme ouverte pour représenter les modèles d’apprentissage automatique. Modèles de [de nombreuses infrastructures](https://onnx.ai/supported-tools) notamment TensorFlow, PyTorch, SciKit-Learn, Keras, Chainer, MXNet et MATLAB peut être exportée ou converti au format ONNX standard. Une fois que les modèles sont au format ONNX, ils peuvent exécuter sur une variété de plateformes et appareils.
 

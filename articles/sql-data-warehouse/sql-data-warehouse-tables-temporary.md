@@ -2,21 +2,20 @@
 title: Tables temporaires dans SQL Data Warehouse | Microsoft Docs
 description: Conseils de base pour l’utilisation des tables temporaires et mise en évidence des principes des tables temporaires au niveau de la session.
 services: sql-data-warehouse
-author: WenJason
-manager: digimobile
+author: XiaoyuL-Preview
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
-origin.date: 04/17/2018
-ms.date: 04/22/2019
-ms.author: v-jay
+ms.subservice: development
+ms.date: 04/01/2019
+ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 23a62e28700ad5fd733040c43ea0eec225fd286f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 56c15a9505b3f0e4344c9164268082da1ff7cc22
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61474893"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65851565"
 ---
 # <a name="temporary-tables-in-sql-data-warehouse"></a>Tables temporaires dans SQL Data Warehouse
 Cet article contient des conseils de base pour l’utilisation des tables temporaires et met en évidence les principes des tables temporaires au niveau de la session. L’utilisation des informations de cet article peut vous aider à modulariser votre code, et à améliorer sa réutilisabilité et sa facilité de maintenance.
@@ -25,7 +24,7 @@ Cet article contient des conseils de base pour l’utilisation des tables tempor
 Les tables temporaires sont utiles lors du traitement des données, notamment lors d’une transformation, lorsque les résultats intermédiaires sont temporaires. Les tables temporaires se trouvent au niveau de la session dans SQL Data Warehouse.  Elles sont uniquement visibles dans la session dans laquelle elles ont été créées et sont automatiquement supprimées lorsque cette session se déconnecte.  Les tables temporaires offrent un gain de performances, car leurs résultats sont écrits en local et non dans un stockage distant.
 
 ## <a name="create-a-temporary-table"></a>Créer une table temporaire
-Les tables temporaires sont créées en faisant simplement précéder le nom de votre table de `#`.  Par exemple : 
+Les tables temporaires sont créées en faisant simplement précéder le nom de votre table de `#`.  Exemple :
 
 ```sql
 CREATE TABLE #stats_ddl

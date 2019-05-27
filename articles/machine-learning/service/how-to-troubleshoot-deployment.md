@@ -11,12 +11,12 @@ ms.author: clauren
 ms.reviewer: jmartens
 ms.date: 05/02/2018
 ms.custom: seodec18
-ms.openlocfilehash: 90e85e0030a696dd024dd65d27a0f4dbdc7e3cdc
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 3730e4a0bfa05e6606e50b9bbd9d9152e2488954
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65023668"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65851721"
 ---
 # <a name="troubleshooting-azure-machine-learning-service-aks-and-aci-deployments"></a>Résoudre les problèmes de déploiement AKS et ACI d’Azure Machine Learning service
 
@@ -168,7 +168,7 @@ Pour déployer en local, modifiez votre code pour utiliser `LocalWebservice.depl
 from azureml.core.model import InferenceConfig
 from azureml.core.webservice import LocalWebservice
 
-# Create inferencing configuration. This creates a docker image that contains the model.
+# Create inference configuration. This creates a docker image that contains the model.
 inference_config = InferenceConfig(runtime= "python", 
                                    execution_script="score.py",
                                    conda_file="myenv.yml")
@@ -256,7 +256,7 @@ Le niveau de journalisation DEBUG risque d’être connecté, des informations s
 
 ## <a name="function-fails-runinputdata"></a>Échec de la fonction : run(input_data)
 
-Si le service est déployé avec succès, mais qu’il plante quand vous publiez des données sur le point de terminaison de scoring, vous pouvez ajouter une instruction d’interception d’erreur dans votre fonction `run(input_data)` afin qu’elle retourne un message d’erreur détaillé. Par exemple : 
+Si le service est déployé avec succès, mais qu’il plante quand vous publiez des données sur le point de terminaison de scoring, vous pouvez ajouter une instruction d’interception d’erreur dans votre fonction `run(input_data)` afin qu’elle retourne un message d’erreur détaillé. Exemple :
 
 ```python
 def run(input_data):
