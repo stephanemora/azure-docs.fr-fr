@@ -14,12 +14,12 @@ ms.devlang: ruby
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: aschhab
-ms.openlocfilehash: c2862c3521c05ba81f7a567f7951d22a9ab95c44
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fa3e50374c47f863923252a47b4b54fc1e18f87d
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61472311"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991859"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-ruby"></a>Utilisation des rubriques et abonnements Service Bus avec Ruby
  
@@ -43,7 +43,7 @@ Cet article décrit l’utilisation des rubriques et des abonnements Service Bus
 
 [!INCLUDE [service-bus-ruby-setup](../../includes/service-bus-ruby-setup.md)]
 
-## <a name="create-a-topic"></a>Création d'une rubrique
+## <a name="create-a-topic"></a>Créer une rubrique
 L’objet **Azure::ServiceBusService** permet d’utiliser des rubriques. Le code suivant crée un objet **Azure::ServiceBusService**. Pour créer une rubrique, utilisez la méthode `create_topic()`. L’exemple suivant crée une rubrique ou imprime les éventuelles erreurs.
 
 ```ruby
@@ -167,6 +167,9 @@ La suppression d’une rubrique a également pour effet de supprimer les abonnem
 ```ruby
 azure_service_bus_service.delete_subscription("test-topic", "high-messages")
 ```
+
+> [!NOTE]
+> Vous pouvez gérer les ressources de Service Bus avec [Explorateur Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer/). L’Explorateur Service Bus permet aux utilisateurs de se connecter à un espace de noms Service Bus et administrer les entités de messagerie de manière simple. L’outil fournit des fonctionnalités avancées telles que la fonctionnalité d’importation/exportation ou de la possibilité de tester une rubrique, files d’attente, abonnements, services de relais, hubs de notification et hubs d’événements. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 Maintenant que vous avez appris les principes de base des rubriques Service Bus, consultez ces liens pour en savoir plus.

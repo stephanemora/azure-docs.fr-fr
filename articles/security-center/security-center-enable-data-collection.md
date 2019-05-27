@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/02/2019
-ms.author: monhaber
-ms.openlocfilehash: 63ee603f83d0c2de3bc89b8792ada4a61edb7e00
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.author: v-mohabe
+ms.openlocfilehash: 8fed3ce98b23c5ac1cc97b88a278c5946f06af8e
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59006737"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65968727"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Collecte de données dans Azure Security Center
 Security Center collecte les données à partir de vos machines virtuelles (VM) Azure, les machines virtuelles identiques, les conteneurs de IaaS et les ordinateurs non Azure (notamment en local) pour surveiller les menaces et vulnérabilités de sécurité. Les données sont collectées à l’aide de Microsoft Monitoring Agent, qui lit divers journaux d’événements et configurations liées à la sécurité de la machine et copie les données dans votre espace de travail à des fins d’analyse. Il peut s’agir des données suivantes : type et version de système d’exploitation, journaux d’activité de système d’exploitation (journaux d’événements Windows), processus en cours d’exécution, nom de machine, adresses IP et utilisateur connecté. L’agent Microsoft Monitoring Agent copie également les fichiers de vidage sur incident dans votre espace de travail.

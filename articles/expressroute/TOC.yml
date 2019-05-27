@@ -26,7 +26,7 @@
           href: expressroute-locations-providers.md
         - name: Emplacements par fournisseur
           href: expressroute-locations.md
-    - name: Passerelle de réseau virtuel ExpressRoute et FastPath
+    - name: Passerelle de réseau virtuel et FastPath
       href: expressroute-about-virtual-network-gateways.md
     - name: Prérequis
       href: expressroute-prerequisites.md

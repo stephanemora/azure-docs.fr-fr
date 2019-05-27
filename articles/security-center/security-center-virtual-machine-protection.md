@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/20/2019
-ms.author: monhaber
-ms.openlocfilehash: fa664952f3eb7d6f9e611fb87a9e484e97f388a2
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.author: v-mohabe
+ms.openlocfilehash: e65e3869d420607ad2721df8ba0ef1005c923f73
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62121807"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65968284"
 ---
 # <a name="protecting-your-machines-and-applications-in-azure-security-center"></a>Protection de vos machines et de vos applications dans Azure Security Center
 Azure Security Center analyse l’état de sécurité de vos ressources Azure, les serveurs non-Azure et les machines virtuelles. Lorsque Security Center identifie des failles de sécurité potentielles, il crée des recommandations qui vous guident tout au long du processus de configuration des contrôles nécessaires. Ces recommandations s’appliquent aux types de ressources Azure : machines virtuelles et ordinateurs, applications, mise en réseau, SQL et Identité et accès.

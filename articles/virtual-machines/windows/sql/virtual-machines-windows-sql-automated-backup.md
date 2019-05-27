@@ -16,11 +16,11 @@ ms.date: 05/03/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 99439c2b6bd4fdd271dda7a49850c5b6f44330b3
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984713"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66165593"
 ---
 # <a name="automated-backup-for-sql-server-2014-virtual-machines-resource-manager"></a>Sauvegarde automatisée pour les machines virtuelles SQL Server 2014 (Resource Manager)
 
@@ -32,7 +32,7 @@ La sauvegarde automatisée configure automatiquement une [sauvegarde managée su
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 Pour utiliser la sauvegarde automatisée, prenez en compte les conditions préalables suivantes :
 
 **Système d’exploitation**:
@@ -61,7 +61,7 @@ Pour utiliser la sauvegarde automatisée, prenez en compte les conditions préal
 
 Le tableau suivant décrit les options qui peuvent être configurées pour une sauvegarde automatisée. Les étapes de la configuration varient selon que vous utilisez les commandes du portail Azure ou Azure Windows PowerShell.
 
-| Paramètre | Plage (par défaut) | Description |
+| Paramètre | Plage (par défaut) | Description  |
 | --- | --- | --- |
 | **Sauvegarde automatisée** | Activer/Désactiver (désactivé) | Active ou désactive la sauvegarde automatisée d’une machine virtuelle Azure exécutant SQL Server 2014 Standard ou Enterprise. |
 | **Période de rétention** | 1 à 30 jours (30 jours) | Nombre de jours durant lesquels une sauvegarde est conservée. |
@@ -215,7 +215,7 @@ Pour confirmer que vos paramètres ont été appliqués, [vérifiez la configura
 
 ### <a name="disable-automated-backup"></a>Désactiver la sauvegarde automatisée
 
-Pour désactiver la sauvegarde automatisée, exécutez le même script sans le paramètre **-Enable** pour la commande **New-AzRmVMSqlServerAutoBackupConfig**. L’absence du paramètre **-Enable** indique à la commande de désactiver la fonctionnalité. À l’instar de l’installation, la désactivation de la sauvegarde automatisée peut prendre plusieurs minutes.
+Pour désactiver la sauvegarde automatisée, exécutez le même script sans le paramètre **-Enable** pour la commande **New-AzVMSqlServerAutoBackupConfig**. L’absence du paramètre **-Enable** indique à la commande de désactiver la fonctionnalité. À l’instar de l’installation, la désactivation de la sauvegarde automatisée peut prendre plusieurs minutes.
 
 ```powershell
 $autobackupconfig = New-AzVMSqlServerAutoBackupConfig -ResourceGroupName $storage_resourcegroupname

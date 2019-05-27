@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/05/2019
+ms.date: 05/20/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: benshy
 ms.custom: seodec18
-ms.openlocfilehash: 6f856aeae74ea285cd6a0326fd225e454a1cbe43
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 91dc386641c758c42f64afff387d0463d1445f1d
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61003750"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65969084"
 ---
 # <a name="understanding-cloudyn-cost-management-reports"></a>Compréhension des rapports de gestion des coûts Cloudyn
 
@@ -121,7 +121,7 @@ Chaque zone numérotée dans l’image précédente est décrite en détail dans
      - **Type d'utilisation**
        - Le type d’utilisation peut être à frais uniques ou à frais d’abonnement.
 
-5. **Filtres**
+5. **Les filtres**
 
     Utilisez des filtres uniques ou à sélection multiple pour définir des plages sur des valeurs sélectionnées. Pour définir un filtre, cliquez sur **Ajouter** puis sélectionnez des catégories et des valeurs de filtres.
 
@@ -144,10 +144,10 @@ Chaque zone numérotée dans l’image précédente est décrite en détail dans
 8. **Résolution :**
 
     Utilisez Résolution pour sélectionner la résolution de temps dans la plage de dates sélectionnée. Votre résolution de temps détermine le nombre d’unités affichées dans le rapport et peut être :
-    - Quotidien
-    - Hebdomadaire
+    - Quotidienne
+    - Toutes les semaines
     - Mensuelle
-    - Trimestrielle
+    - Tous les trimestres
     - Annuelle
 
 9. **Règles d'allocation**

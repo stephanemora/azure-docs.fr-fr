@@ -7,12 +7,12 @@ ms.date: 04/26/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 2f856e9c42b26d4e286493e2eb5d019a8cff6c23
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 6e3e01ca9bd459aa6c6aca8dfaacb98b1267fada
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64868707"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979342"
 ---
 # <a name="determine-causes-of-non-compliance"></a>Déterminer les causes de non-conformité
 
@@ -85,12 +85,12 @@ Ces détails expliquent pourquoi une ressource est actuellement non conforme, ma
 
 La matrice suivante mappe chaque possible _raison_ pour le responsable [condition](../concepts/definition-structure.md#conditions) dans la définition de stratégie :
 
-|Motif | Condition |
+|Reason | Condition |
 |-|-|
 |La valeur actuelle doit contenir la valeur cible en tant que clé. |containsKey ou **pas** notContainsKey |
 |La valeur actuelle doit contenir la valeur cible. |contient ou **pas** notContains |
 |La valeur actuelle doit être égale à la valeur cible. |est égal à ou **pas** notEquals |
-|La valeur actuelle doit exister. |exists |
+|La valeur actuelle doit exister. |Existe |
 |Valeur actuelle doit être dans la valeur cible. |dans ou **pas** notIn |
 |La valeur actuelle doit être identique à la valeur cible. |comme ou **pas** notLike |
 |La valeur actuelle doit correspondre à la valeur cible (sensibilité à la casse). |correspond à ou **pas** notMatch |
@@ -215,11 +215,11 @@ Dans le cadre d’un nouveau **version préliminaire publique**, les 14 derniers
 
 1. Sélectionnez l'onglet **Historique des modifications (préversion)** de la page **Conformité des ressources**. La liste des modifications détectées, le cas échéant, s'affiche.
 
-   ![Onglet Historique des modifications de stratégie sur la page de conformité des ressources](../media/determine-non-compliance/change-history-tab.png)
+   ![Onglet Historique des modifications de stratégie Azure sur la page de conformité des ressources](../media/determine-non-compliance/change-history-tab.png)
 
 1. Sélectionnez une des modifications détectées. Le _diff visual_ pour la ressource est présentée sur la **l’historique des modifications** page.
 
-   ![Stratégie modification historique Visual Diff sur la page de l’historique de modification](../media/determine-non-compliance/change-history-visual-diff.png)
+   ![Diff Visual Azure stratégie modification historique sur la page de l’historique de modification](../media/determine-non-compliance/change-history-visual-diff.png)
 
 Le _différentiel visuel_ aide à identifier les modifications apportées à une ressource. Les modifications détectées ne peuvent pas être liées à l’état de conformité actuel de la ressource.
 
@@ -228,7 +228,7 @@ Modification des données d’historique sont fournies par [graphique des ressou
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Passez en revue les exemples à l’adresse [exemples Azure Policy](../samples/index.md).
-- Consultez la page [Structure de définition Azure Policy](../concepts/definition-structure.md).
+- Consultez la [Structure de définition Azure Policy](../concepts/definition-structure.md).
 - Consultez la page [Compréhension des effets de Policy](../concepts/effects.md).
 - Comprendre comment [créer par programmation des stratégies](programmatically-create.md).
 - Découvrez comment [obtenir des données de conformité](getting-compliance-data.md).

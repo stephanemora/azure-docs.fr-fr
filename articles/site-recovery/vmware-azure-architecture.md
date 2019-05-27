@@ -7,12 +7,12 @@ services: site-recovery
 ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: raynew
-ms.openlocfilehash: c91629d24267d280edefdb7530e2614eb7be89fd
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 4500f4c53ed2731e9f96add97018b16d83f9d304
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64704884"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65955114"
 ---
 # <a name="vmware-to-azure-disaster-recovery-architecture"></a>Architecture pour la reprise d’activité de VMware sur Azure
 
@@ -45,7 +45,7 @@ Le tableau et le graphique suivants présentent une vue générale des composant
         - **Rétention des points de récupération**. Ce paramètre spécifie le moment auquel vous souhaitez revenir lors d’une interruption. La durée maximale de rétention sur le stockage premium est de 24 heures. Sur le stockage standard, elle est de 72 heures. 
         - **Instantanés de cohérence d’application**. Un instantané de cohérence d’application peut être pris toutes les 1 à 12 heures, en fonction de vos besoins applicatifs. Les instantanés sont des instantanés d’objet blob Azure standard. L’agent Mobilité en cours d’exécution sur une machine virtuelle demande un instantané VSS conformément à ce paramètre, et insère un signet à ce point dans le temps pour en faire un point de cohérence avec l’application dans le flux de réplication.
 
-2. Le trafic est répliqué sur des points de terminaison publics de stockage Azure via Internet. L’autre solution consiste à utiliser [l’homologation publique](../expressroute/expressroute-circuit-peerings.md#publicpeering) Azure ExpressRoute. La réplication du trafic à partir d’un site local vers Azure via un réseau VPN de site à site n’est pas prise en charge.
+2. Le trafic est répliqué sur des points de terminaison publics de stockage Azure via Internet. Vous pouvez également utiliser Azure ExpressRoute avec [l’homologation Microsoft](../expressroute/expressroute-circuit-peerings.md#microsoftpeering). La réplication du trafic à partir d’un site local vers Azure via un réseau VPN de site à site n’est pas prise en charge.
 3. La réplication des modifications delta dans Azure commence à l’issue de la réplication initiale. Le suivi des modifications d’une machine est envoyé au serveur de traitement.
 4. La communication s’effectue comme suit :
 

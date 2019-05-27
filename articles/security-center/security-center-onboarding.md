@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 19/02/2019
-ms.author: monhaber
-ms.openlocfilehash: ef6b476e2c85715e86ef4c1cfe1194bb25cade28
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: v-mohabe
+ms.openlocfilehash: fe8ceb8c196f7329027502847fba481169458d86
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60704212"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65966789"
 ---
 # <a name="onboarding-to-azure-security-center-standard-for-enhanced-security"></a>Intégration d’Azure Security Center Standard pour une sécurité renforcée
 Effectuez la mise à niveau vers Security Center Standard pour tirer profit d’une gestion de la sécurité et d’une protection contre les menaces renforcées pour vos charges de travail cloud hybrides.  Vous pouvez essayer gratuitement le niveau Standard. Pour plus d’informations, consultez la [page de tarification](https://azure.microsoft.com/pricing/details/security-center/) de Security Center.
@@ -65,11 +65,11 @@ Security Center peut surveiller l’état de sécurité de vos ordinateurs autre
 1. Retournez à **Prise en main**.   
 2. Sélectionnez l’onglet **Prise en main**.
 
-   ![Non-Azure](./media/security-center-onboarding/non-azure.png)
+   ![Non Azure](./media/security-center-onboarding/non-azure.png)
 
 3. Cliquez sur **Configurer** sous **Ajouter de nouveaux ordinateurs non Azure**. Une liste de vos espaces de travail Log Analytics apparaît. Elle comprend, le cas échéant, l’espace de travail par défaut créé pour vous par Security Center à l’activation de l’approvisionnement automatique. Sélectionnez cet espace de travail ou un autre espace de travail à utiliser.
 
-   ![Ajouter un ordinateur autre qu’Azure][7]
+   ![Ajouter un ordinateur non-Azure][7]
 
 Si vous avez des espaces de travail existants, ils sont répertoriés dans **Add new Non-Azure computers** (Ajouter de nouveaux ordinateurs autres qu’Azure). Vous pouvez ajouter des ordinateurs à un espace de travail existant ou créer un espace de travail. Pour créer un espace de travail, sélectionnez le lien **add a new workspace** (ajouter un nouvel espace de travail).
 

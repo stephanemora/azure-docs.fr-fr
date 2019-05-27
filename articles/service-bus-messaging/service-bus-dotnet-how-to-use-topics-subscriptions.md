@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 04/15/2019
 ms.author: aschhab
-ms.openlocfilehash: 892d485fb5cdaa08107870e9ab5b2b7ad9bcba5b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2ca8f0e34b63802453c8876f878b531e78e66d76
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60714253"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991767"
 ---
 # <a name="get-started-with-service-bus-topics"></a>Prise en main des rubriques Service Bus
 
@@ -33,7 +33,7 @@ Ce didacticiel couvre les étapes suivantes :
 ## <a name="prerequisites"></a>Conditions préalables
 
 1. Un abonnement Azure. Pour suivre ce tutoriel, vous avez besoin d’un compte Azure. Vous pouvez activer votre [avantages pour les abonnés Visual Studio ou MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) ou inscrivez-vous pour ouvrir un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-2. Suivez les étapes de la [Guide de démarrage rapide : Utiliser le portail Azure pour créer une rubrique Service Bus et des abonnements à la rubrique](service-bus-quickstart-topics-subscriptions-portal.md) pour effectuer les tâches suivantes :
+2. Suivez les étapes de la [Guide de démarrage rapide : utiliser le portail Azure pour créer une rubrique Service Bus et des abonnements à cette rubrique](service-bus-quickstart-topics-subscriptions-portal.md) pour effectuer les tâches suivantes :
     1. Créer un Service Bus **espace de noms**.
     2. Obtenir le **chaîne de connexion**.
     3. Créer un **rubrique** dans l’espace de noms.
@@ -393,6 +393,9 @@ Pour recevoir les messages que vous avez envoyé, créez une autre application d
     ![Longueur de la rubrique][topic-message-receive]
 
 Félicitations ! Grâce à la bibliothèque .NET Standard, vous avez créé une rubrique et un abonnement, envoyé 10 messages et les avez reçus.
+
+> [!NOTE]
+> Vous pouvez gérer les ressources de Service Bus avec [Explorateur Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer/). L’Explorateur Service Bus permet aux utilisateurs de se connecter à un espace de noms Service Bus et administrer les entités de messagerie de manière simple. L’outil fournit des fonctionnalités avancées telles que la fonctionnalité d’importation/exportation ou de la possibilité de tester une rubrique, files d’attente, abonnements, services de relais, hubs de notification et hubs d’événements. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

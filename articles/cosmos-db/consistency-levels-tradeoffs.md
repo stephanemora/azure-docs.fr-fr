@@ -4,15 +4,15 @@ description: Compromis entre disponibilité et performance pour différents nive
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 05/21/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: a76e277bf56861bcaefb5bf7f8b3b3bc03ad1164
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 09777a9980e4576a5d00123516e33696e845dcac
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60894026"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65990222"
 ---
 # <a name="consistency-availability-and-performance-tradeoffs"></a>Cohérence, disponibilité et compromis sur les performances 
 
@@ -55,9 +55,9 @@ Le tableau ci-dessous définit la relation entre la durabilité de modèle et le
 |1|Maître unique ou multimaître|Tous les niveaux de cohérence|< 240 minutes|< 1 semaine|
 |>1|Maître unique|Session, Préfixe cohérent et Éventuel|< 15 minutes|< 15 minutes|
 |>1|Maître unique|Obsolescence limitée|*K* & *T*|< 15 minutes|
+|>1|Maître unique|Fort|0|< 15 minutes|
 |>1|Multimaître|Session, Préfixe cohérent et Éventuel|< 15 minutes|0|
 |>1|Multimaître|Obsolescence limitée|*K* & *T*|0|
-|>1|Maître unique ou multimaître|Remarque|0|< 15 minutes|
 
 *K* = nombre de *« K »* versions (par exemple, les mises à jour) d’un élément.
 

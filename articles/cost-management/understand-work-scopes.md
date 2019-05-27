@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/13/2019
+ms.date: 05/20/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 4e7956e8873b552fcd73c51a51f51d99f21af324
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 717c0f110ebbeee53e2c9b9207350385288d57c3
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61003008"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991379"
 ---
 # <a name="understand-and-work-with-scopes"></a>Comprendre et utiliser des étendues
 
@@ -60,14 +60,14 @@ Gestion des coûts prend en charge les rôles intégrés suivants pour chacune d
 - [**Propriétaire** ](../role-based-access-control/built-in-roles.md#owner) : peut afficher les coûts et tout gérer, y compris la configuration de coût.
 - [**Contributeur** ](../role-based-access-control/built-in-roles.md#contributor) : peut afficher les coûts et tout gérer, y compris la configuration de coût, mais à l’exclusion de contrôle d’accès.
 - [**Lecteur** ](../role-based-access-control/built-in-roles.md#reader) : peut afficher tout, y compris les données de coût et la configuration, mais ne peut pas apporter de modifications.
-- [**Collaborateur de gestion des coûts** ](../role-based-access-control/built-in-roles.md#cost-management-contributor) : peut afficher les coûts et gérer la configuration de coût.
-- [**Lecteur de la gestion des coûts** ](../role-based-access-control/built-in-roles.md#cost-management-reader) – afficher les données de coût et la configuration.
+- [**Collaborateur de gestion des coûts** ](../role-based-access-control/built-in-roles.md#cost-management-contributor) : peut afficher les coûts, gérer la configuration du coût et afficher les recommandations.
+- [**Lecteur de la gestion des coûts** ](../role-based-access-control/built-in-roles.md#cost-management-reader) : peut afficher les données de coût, configuration du coût et afficher les recommandations.
 
 Collaborateur de gestion des coûts est le rôle de privilège minimum recommandé. Il permet aux utilisateurs l’accès créer et gérer des budgets et exporte plus efficacement analyse et rapports sur les coûts. Contributeurs de coût gestion peut également nécessiter des rôles supplémentaires pour prendre en charge les scénarios de gestion des coûts de bout en bout. Examinez les scénarios suivants :
 
 - **Agir de cas de dépassement des budgets** – contributeurs de coût gestion ont également besoin d’accéder à créer et/ou gérer des groupes d’actions automatiquement pour réagir aux dépassements. Envisagez d’accorder [contributeur de surveillance](../role-based-access-control/built-in-roles.md#monitoring-contributor) à un groupe de ressources qui contient le groupe d’actions à utiliser lorsque dépassement des seuils budgétaires. Automatisation des actions spécifiques nécessite des rôles supplémentaires pour les services spécifiques utilisés, tels que l’Automation et Azure Functions.
 - **Exportation des données de coût de planification** – contributeurs de coût gestion ont également besoin d’accéder à gérer les comptes de stockage pour planifier une exportation pour copier des données dans un compte de stockage. Envisagez d’accorder [collaborateur de compte de stockage](../role-based-access-control/built-in-roles.md#storage-account-contributor) vers un groupe de ressources qui contient le stockage où les données de coût de compte est exporté.
-- **Affichage des recommandations d’économies** – lecteurs de gestion des coûts et les collaborateurs n’ont pas accès aux recommandations par défaut. Accès aux recommandations nécessite un accès en lecture à des ressources individuelles. Envisagez d’accorder [lecteur](../role-based-access-control/built-in-roles.md#reader) ou un [rôle spécifiques au service](../role-based-access-control/built-in-roles.md#built-in-role-descriptions).
+- **Affichage des recommandations d’économies** – lecteurs de gestion des coûts et les contributeurs de coût gestion ont accès à *vue* recommandations de coûts par défaut. Toutefois, l’accès pour agir sur les recommandations de coût requiert l’accès à des ressources individuelles. Envisagez d’accorder un [rôle spécifiques au service](../role-based-access-control/built-in-roles.md#built-in-role-descriptions) si vous souhaitez agir sur une recommandation basée sur le coût.
 
 ## <a name="enterprise-agreement-scopes"></a>Étendues de contrat entreprise
 
@@ -197,7 +197,7 @@ Lorsque vous travaillez avec l’API de gestion des coûts, en sachant que l’�
 5. Copiez le compte de facturation et l’ID de compte d’inscription.
 6. Votre étendue est : `"/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}"`
 
-### <a name="management-group"></a>Groupe d’administration
+### <a name="management-group"></a>Groupe d'administration
 
 1. Ouvrez le portail Azure et accédez à **groupes d’administration** dans la liste des services.
 2. Accédez au groupe d’administration souhaité.

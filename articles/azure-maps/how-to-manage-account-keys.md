@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: d158e1869cb85752b9b24e76d5227a2f7167bfcf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2871a4a0efaa40d20148ede7f0402a0dd874126c
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60794152"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65957312"
 ---
 # <a name="manage-your-azure-maps-account"></a>Gérer votre compte Azure Maps
 
@@ -21,7 +21,7 @@ Vous pouvez gérer votre compte Azure Maps par le biais du portail Azure. Une fo
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="create-a-new-account"></a>Créer un nouveau compte
+## <a name="create-a-new-account"></a>Créer un compte
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 
@@ -43,10 +43,14 @@ Une page de confirmation s’affiche. Vous pouvez confirmer la suppression de vo
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Comment gérer un niveau tarifaire de compte Azure Maps :
-    > [!div class="nextstepaction"] 
-    > [Gérer un niveau tarifaire](./how-to-manage-pricing-tier.md)
+Configurer l’authentification avec Azure Maps :
+> [!div class="nextstepaction"]
+> [Gérer l’authentification](how-to-manage-authentication.md)
 
-* Découvrez comment afficher les métriques d’utilisation des API pour votre compte Azure Maps :
-    > [!div class="nextstepaction"] 
-    > [Afficher les métriques d’utilisation](./how-to-view-api-usage.md)
+Comment gérer un niveau tarifaire de compte Azure Maps :
+> [!div class="nextstepaction"] 
+> [Gérer un niveau tarifaire](how-to-manage-pricing-tier.md)
+
+Découvrez comment afficher les métriques d’utilisation des API pour votre compte Azure Maps :
+> [!div class="nextstepaction"] 
+> [Afficher les métriques d’utilisation](how-to-view-api-usage.md)

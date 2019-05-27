@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: cephalin
-ms.openlocfilehash: 3074048dd4426a10e706e37e6d375ea4995fcbbb
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 9422d543ad83f29d60fd7e1de51a79c3416e5b14
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64919779"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956163"
 ---
 # <a name="configure-a-linux-nodejs-app-for-azure-app-service"></a>Configurer une application Node.js de Linux pour Azure App Service
 
@@ -71,7 +71,7 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 
 ### <a name="run-npm-start"></a>Vous pouvez exécuter npm
 
-Pour démarrer votre application en utilisant `npm start`, assurez-vous qu’un `start` script se trouve dans le *package.json* fichier. Par exemple : 
+Pour démarrer votre application en utilisant `npm start`, assurez-vous qu’un `start` script se trouve dans le *package.json* fichier. Exemple :
 
 ```json
 {
@@ -119,7 +119,7 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 
 Vous pouvez déboguer votre application Node.js à distance dans [Visual Studio Code](https://code.visualstudio.com/) si vous le configurez [exécuter avec PM2](#run-with-pm2), sauf lorsque vous exécutez à l’aide d’un *. config.js, *.yml, ou *.yaml*.
 
-Dans la plupart des cas, aucune configuration supplémentaire n’est nécessaire pour votre application. Si votre application est exécutée avec un *process.json* fichier (par défaut ou personnalisé), il doit avoir un `script` propriété dans la racine JSON. Par exemple : 
+Dans la plupart des cas, aucune configuration supplémentaire n’est nécessaire pour votre application. Si votre application est exécutée avec un *process.json* fichier (par défaut ou personnalisé), il doit avoir un `script` propriété dans la racine JSON. Exemple :
 
 ```json
 {
@@ -137,7 +137,7 @@ Une fois que vous avez terminé avec le débogage, arrêtez le débogueur en sé
 
 ## <a name="access-environment-variables"></a>Accéder aux variables d’environnement
 
-Dans App Service, vous pouvez [définir les paramètres de l’application](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#app-settings) en dehors de votre code d’application. Vous pouvez ensuite accéder à l’aide du modèle de Node.js standard. Par exemple, pour accéder à un paramètre d’application nommé `NODE_ENV`, utilisez le code suivant :
+Dans App Service, vous pouvez [définir les paramètres de l’application](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) en dehors de votre code d’application. Vous pouvez ensuite accéder à l’aide du modèle de Node.js standard. Par exemple, pour accéder à un paramètre d’application nommé `NODE_ENV`, utilisez le code suivant :
 
 ```javascript
 process.env.NODE_ENV
@@ -147,7 +147,7 @@ process.env.NODE_ENV
 
 Par défaut, exécute Kudu `npm install --production` lorsqu’il reconnaît une application Node.js est déployée. Si votre application requiert des outils d’automation populaires, tels que Grunt, Bower ou Gulp, vous devez fournir un [script de déploiement personnalisé](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script) pour l’exécuter.
 
-Pour activer votre référentiel exécuter ces outils, vous devez les ajouter aux dépendances dans *package.json.* Par exemple : 
+Pour activer votre référentiel exécuter ces outils, vous devez les ajouter aux dépendances dans *package.json.* Exemple :
 
 ```json
 "dependencies": {
@@ -226,7 +226,7 @@ fi
 
 Dans App Service, une [terminaison SSL](https://wikipedia.org/wiki/TLS_termination_proxy) se produit au niveau des équilibreurs de charge réseau. Toutes les requêtes HTTPS accèdent donc à votre application en tant que requêtes HTTP non chiffrées. Si votre logique d’application doit vérifier si les requêtes utilisateur sont chiffrées ou non, inspectez l’en-tête `X-Forwarded-Proto`.
 
-Les frameworks web populaires vous permettent d’accéder aux informations `X-Forwarded-*` dans votre modèle d’application standard. Dans [Express](https://expressjs.com/), vous pouvez utiliser [confiance proxys](https://expressjs.com/guide/behind-proxies.html). Par exemple : 
+Les frameworks web populaires vous permettent d’accéder aux informations `X-Forwarded-*` dans votre modèle d’application standard. Dans [Express](https://expressjs.com/), vous pouvez utiliser [confiance proxys](https://expressjs.com/guide/behind-proxies.html). Exemple :
 
 ```javascript
 app.set('trust proxy', 1)
@@ -249,11 +249,11 @@ if (req.secure) {
 Quand une application Node.js de travail se comporte différemment dans App Service ou comporte des erreurs, essayez ce qui suit :
 
 - [Accéder au flux de journaux](#access-diagnostic-logs).
-- Tester l’application localement en mode de production. App Service s’exécute vos applications Node.js en mode de production, vous devez vous assurer que votre projet fonctionne comme prévu en mode production localement. Par exemple : 
+- Tester l’application localement en mode de production. App Service s’exécute vos applications Node.js en mode de production, vous devez vous assurer que votre projet fonctionne comme prévu en mode production localement. Exemple :
     - Selon votre *package.json*, différents packages peuvent être installés pour le mode de production (`dependencies` et `devDependencies`).
     - Certaines infrastructures web peuvent déployer des fichiers statiques différemment en mode de production.
     - Certaines infrastructures web peuvent utiliser des scripts de démarrage personnalisés lors de l’exécution en mode de production.
-- Exécutez votre application dans App Service en mode de développement. Par exemple, dans [MEAN.js](https://meanjs.org/), vous pouvez configurer votre application en mode de développement dans le runtime par [paramètre la `NODE_ENV` paramètre d’application](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json).
+- Exécutez votre application dans App Service en mode de développement. Par exemple, dans [MEAN.js](https://meanjs.org/), vous pouvez configurer votre application en mode de développement dans le runtime par [paramètre la `NODE_ENV` paramètre d’application](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

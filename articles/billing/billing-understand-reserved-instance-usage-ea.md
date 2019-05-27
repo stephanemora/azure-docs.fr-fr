@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/07/2019
 ms.author: banders
-ms.openlocfilehash: 09242eaa6058229226062801f5f71f2bf4c7a9e8
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: b2452580eaecc0ab922f8e7db48676f70831a8ca
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65789386"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66126845"
 ---
 # <a name="get-enterprise-agreement-reservation-costs-and-usage"></a>L’utilisation et les coûts de réservation de contrat entreprise
 
@@ -42,9 +42,9 @@ Comparaison de deux jeux de données :
 
 | Données | Jeu de données de coût réel | Jeu de données de coût amorti |
 | --- | --- | --- |
-| Achats de réservation | Disponible dans cette vue.<br>  Pour obtenir ce filtre de données sur ChargeType = &quot;achat&quot;. <br> Référence à l’ID de réservation ou ReservationName savoir quels réservation le coût a trait.  | Non applicable à cette vue. <br> Les coûts d’acquisition ne sont pas fournis dans les données amorties. |
+| Achats de réservation | Disponible dans cette vue.<br><br>  Pour obtenir ce filtre de données sur ChargeType = &quot;achat&quot;. <br><br> Référence à l’ID de réservation ou ReservationName savoir quels réservation le coût a trait.  | Non applicable à cette vue. <br><br> Les coûts d’acquisition ne sont pas fournis dans les données amorties. |
 | EffectivePrice | La valeur est égale à zéro pour l’utilisation qui obtient la remise de réservation. | La valeur est le coût horaire au prorata de la réservation pour l’utilisation qui a la remise de réservation. |
-| Réservation inutilisée (fournit le nombre d’heures de que la réservation ne sont pas utilisée dans une journée et la valeur monétaire des déchets) | Non applicable dans cette vue. | Disponible dans cette vue.<br> Pour obtenir ces données, filtrer sur ChargeType = &quot;UnusedReservation&quot;.<br>  Référence à l’ID de réservation ou ReservationName savoir quels réservation a été sous-utilisée. Il s’agit de la quantité de la réservation a été perdu dans pour la journée.  |
+| Réservation inutilisée (fournit le nombre d’heures de que la réservation ne sont pas utilisée dans une journée et la valeur monétaire des déchets) | Non applicable dans cette vue. | Disponible dans cette vue.<br><br> Pour obtenir ces données, filtrer sur ChargeType = &quot;UnusedReservation&quot;.<br><br>  Référence à l’ID de réservation ou ReservationName savoir quels réservation a été sous-utilisée. Il s’agit de la quantité de la réservation a été perdu dans pour la journée.  |
 | UnitPrice (prix de la ressource à partir de votre table de tarification) | Disponible | Disponible |
 
 Autres informations disponibles dans les données d’utilisation Azure a changé :
@@ -77,12 +77,12 @@ Les informations contenues dans le tableau suivant sur mesure et le filtre peut 
 | **Type de données de l’API** | Action d’appel API |
 | --- | --- |
 | **Tous les frais (achats et l’utilisation)** | Remplacez {métrique} par ActualCost |
-| **Utilisation qui a obtenu la remise de réservation** | Remplacez {métrique} par ActualCost<br>Remplacez {filter} par : properties/reservationId%20ne%20 |
-| **Utilisation qui n’a pas obtenu la remise de réservation** | Remplacez {métrique} par ActualCost<br>Remplacez {filter} par : properties/reservationId%20eq%20 |
+| **Utilisation qui a obtenu la remise de réservation** | Remplacez {métrique} par ActualCost<br><br>Remplacez {filter} par : properties/reservationId%20ne%20 |
+| **Utilisation n’ayant pas obtenu la remise de réservation** | Remplacez {métrique} par ActualCost<br><br>Remplacez {filter} par : properties/reservationId%20eq%20 |
 | **Frais amortis (achats et l’utilisation)** | Remplacez {métrique} par AmortizedCost |
-| **Rapport de réservation inutilisées** | Remplacez {métrique} par AmortizedCost<br>Remplacez {filter} par : properties/ChargeType%20eq%20'UnusedReservation' |
-| **Achats de réservation** | Remplacez {métrique} avec ActualCostReplace {filter} : properties/ChargeType%20eq%20'Purchase'  |
-| **Remboursements** | Remplacez {métrique} par ActualCost<br>Remplacez {filter} par : properties/ChargeType%20eq%20'Refund' |
+| **Rapport de réservation inutilisées** | Remplacez {métrique} par AmortizedCost<br><br>Remplacez {filter} par : properties/ChargeType%20eq%20'UnusedReservation' |
+| **Achats de réservation** | Remplacez {métrique} par ActualCost<br><br>Remplacez {filter} par : properties/ChargeType%20eq%20'Purchase'  |
+| **Remboursements** | Remplacez {métrique} par ActualCost<br><br>Remplacez {filter} par : properties/ChargeType%20eq%20'Refund' |
 
 ## <a name="download-the-usage-csv-file-with-new-data"></a>Télécharger le fichier CSV d’utilisation avec de nouvelles données
 

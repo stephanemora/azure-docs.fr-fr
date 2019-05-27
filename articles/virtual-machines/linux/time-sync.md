@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 0ac102f388c404bab98354b7bd131989abedd7e6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 075fc48d4db4c4cfcc6f45f5fe93e8cfb38d5559
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60418606"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991842"
 ---
 # <a name="time-sync-for-linux-vms-in-azure"></a>Synchronisation de l’heure pour les machines virtuelles Linux dans Azure
 
@@ -40,7 +40,7 @@ Les hôtes Azure sont synchronisés avec les serveurs de temps internes Microsof
 
 Sur un matériel autonome, le système d’exploitation Linux lit uniquement l’horloge du matériel hôte au démarrage. Ensuite, l’horloge est gérée à l’aide de la minuterie d’interruption dans le noyau Linux. Dans cette configuration, l’horloge présente un décalage au fil du temps. Dans les nouvelles distributions Linux sur Azure, les machines virtuelles peuvent utiliser le fournisseur VMICTimeSync, inclus dans les services d’intégration Linux (LIS), pour demander des mises à jour de l’horloge à l’hôte plus fréquemment.
 
-Les interactions de la machine virtuelle avec l’hôte peuvent également influer sur l’horloge. Au cours de la [maintenance avec préservation de la mémoire](maintenance-and-updates.md#maintenance-not-requiring-a-reboot), les machines virtuelles sont interrompues jusqu’à 30 secondes. Par exemple, avant le début de la maintenance, l’horloge de la machine virtuelle affiche 10:00:00 pendant 28 secondes. Une fois que la machine virtuelle reprend, l’horloge affiche toujours 10:00:00 et est donc décalée de 28 secondes. Pour corriger cela, le service VMICTimeSync surveille ce qu’il se passe sur l’hôte et demande des modifications sur les machines virtuelles pour compenser.
+Les interactions de la machine virtuelle avec l’hôte peuvent également influer sur l’horloge. Au cours de la [maintenance avec préservation de la mémoire](maintenance-and-updates.md#maintenance-that-doesnt-require-a-reboot), les machines virtuelles sont interrompues jusqu’à 30 secondes. Par exemple, avant le début de la maintenance, l’horloge de la machine virtuelle affiche 10:00:00 pendant 28 secondes. Une fois que la machine virtuelle reprend, l’horloge affiche toujours 10:00:00 et est donc décalée de 28 secondes. Pour corriger cela, le service VMICTimeSync surveille ce qu’il se passe sur l’hôte et demande des modifications sur les machines virtuelles pour compenser.
 
 Si la synchronisation de l’heure ne fonctionne pas, l’horloge de la machine virtuelle accumule les erreurs. S’il n’y a qu’une seule machine virtuelle, l’effet n’est pas forcément significatif, sauf si la charge de travail nécessite une synchronisation extrêmement précise de l’horloge. Mais dans la plupart des cas, nous possédons plusieurs machines virtuelles interconnectées qui utilisent l’heure pour suivre les transactions. L’heure doit donc être cohérente tout au long du déploiement. Lorsque l’heure est différente d’une machine virtuelle à l’autre, vous pouvez rencontrer les effets suivants :
 

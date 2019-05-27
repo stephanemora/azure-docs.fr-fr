@@ -4,16 +4,16 @@ description: 'Guide de conception de tables de Stockage Azure : concevoir des ta
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 05/21/2019
 author: wmengmsft
 ms.author: wmeng
 ms.custom: seodec18
-ms.openlocfilehash: 84749332c5b7ab5fec2905c0fc36d89863adc3d2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: af155b5adb2e4b45412a8b84818852ed1b1c5e72
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60579377"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65966098"
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Guide de conception de tables de Stockage Azure : concevoir des tables scalables et performantes
 

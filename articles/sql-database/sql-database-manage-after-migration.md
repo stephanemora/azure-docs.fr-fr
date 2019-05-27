@@ -12,12 +12,12 @@ ms.author: josack
 ms.reviewer: sstein
 manager: craigg
 ms.date: 02/13/2019
-ms.openlocfilehash: 4424e53689714625ebc791df250956463452c3cb
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: e13907e96bba338648bddcc102e3b4f51887d0ea
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65791493"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65949907"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-single-and-pooled-databases-in-azure-sql-database"></a>Nouvel administrateur de base de données dans le cloud - Gérer vos bases de données uniques et mises en pool dans Azure SQL Database
 
@@ -160,7 +160,7 @@ Pour protéger vos données sensibles en transit et au repos, SQL Database propo
 
 ### <a name="how-can-i-limit-access-to-sensitive-data-in-my-database"></a>Comment limiter l’accès aux données sensibles dans ma base de données
 
-Chaque application comporte des données sensibles dans la base de données qui ont besoin d’une protection afin de ne pas être visibles par tous. Certains employés de l’organisation ont besoin de consulter ces données, tandis que d’autres ne doivent pas être en mesure de les afficher. C’est le cas des salaires des employés, par exemple. Un manager a besoin d’accéder aux informations sur les salaires de ses collaborateurs directs, tandis que les membres de son équipe ne doivent pas pouvoir accéder aux informations salariales individuelles de chacun. Un autre scénario a trait aux développeurs de données amenés à manipuler des données sensibles lors des phases de développement ou de test, par exemple, les numéros de sécurité sociale de clients. Là encore, ces informations n’ont pas besoin d’être exposées aux développeurs. Dans de telles situations, vos données sensibles ont besoin d’être masquées ou carrément non exposées. SQL Database propose deux approches permettant d’empêcher les utilisateurs non autorisés d’afficher des données sensibles :
+Chaque application comporte des données sensibles dans la base de données qui ont besoin d’une protection afin de ne pas être visibles par tous. Certains employés de l’organisation ont besoin de consulter ces données, tandis que d’autres ne doivent pas être en mesure de les afficher. C’est le cas des salaires des employés, par exemple. Un gestionnaire a besoin, les informations de salaire à leurs collaborateurs directs Toutefois, les membres d’équipe individuel ne doit pas avoir accès aux informations de salaire de leurs homologues. Un autre scénario a trait aux développeurs de données amenés à manipuler des données sensibles lors des phases de développement ou de test, par exemple, les numéros de sécurité sociale de clients. Là encore, ces informations n’ont pas besoin d’être exposées aux développeurs. Dans de telles situations, vos données sensibles ont besoin d’être masquées ou carrément non exposées. SQL Database propose deux approches permettant d’empêcher les utilisateurs non autorisés d’afficher des données sensibles :
 
 [Dynamic Data Masking](sql-database-dynamic-data-masking-get-started.md) est une fonctionnalité de masquage de données qui vous permet de limiter l’exposition des données sensibles en les masquant aux utilisateurs qui n’ont aucun privilège sur la couche Application. Vous définissez une règle de masquage qui peut créer un modèle de masquage (par exemple, pour afficher uniquement les quatre derniers chiffres d’un numéro d’identification quelconque, utilisez un modèle de type XXX-XX-0000 qui permet de masquer le reste avec des X) et d’identifier les utilisateurs à exclure de la règle de masquage. Le masquage se produit à la volée et il existe diverses fonctions de masquage disponibles pour diverses catégories de données. Le masquage dynamique des données vous permet de détecter automatiquement les données sensibles dans votre base de données et de leur appliquer des masques.
 

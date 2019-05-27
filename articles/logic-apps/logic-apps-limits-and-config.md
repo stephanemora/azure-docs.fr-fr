@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 05/10/2019
-ms.openlocfilehash: a320f584ff82f2b8a2b3d784e1995aa043004587
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 53f9f67397e1484559ee8243a52ad8339df930bc
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65597493"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65990213"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limites et informations de configuration pour Azure Logic Apps
 
@@ -26,7 +26,7 @@ Cet article décrit les limites et les détails de configuration liés à la cr�
 
 Les limites pour la définition d’une application logique sont les suivantes :
 
-| Nom | Limite | Notes |
+| Name | Limite | Notes |
 | ---- | ----- | ----- |
 | Actions par flux de travail | 500 | Pour étendre cette limite, vous pouvez au besoin ajouter des workflows imbriqués. |
 | Niveaux d’imbrication d’actions autorisés | 8 | Pour étendre cette limite, vous pouvez au besoin ajouter des workflows imbriqués. |
@@ -48,7 +48,7 @@ Les limites pour la définition d’une application logique sont les suivantes :
 
 Les limites pour l’exécution d’une application logique sont les suivantes :
 
-| Nom | Limite de l’architecture mutualisée | Limite d’environnement Integration Services | Notes |
+| Name | Limite de l’architecture mutualisée | Limite d’environnement Integration Services | Notes |
 |------|--------------------|---------------------------------------|-------|
 | Durée d’exécution | 90 jours | 365 jours | Pour modifier la limite par défaut, consultez [durée d’exécution de modification](#change-duration). |
 | Rétention de stockage | 90 jours à compter de l’heure de début de l’exécution | 365 jours | Pour modifier la limite par défaut, consultez [modifier la rétention du stockage](#change-retention). |
@@ -93,7 +93,7 @@ Les limites pour l’exécution d’une application logique sont les suivantes :
 
 ### <a name="multi-tenant-logic-apps-service"></a>Service de Logic Apps mutualisé
 
-| Nom | Limite | Notes |
+| Name | Limite | Notes |
 | ---- | ----- | ----- |
 | Action : Exécutions par tranche de 5 minutes | 100 000 est la limite par défaut, mais 300 000 est la limite maximale. | Pour modifier la limite par défaut, consultez [exécuter votre application logique en mode de « débit élevé »](../logic-apps/logic-apps-workflow-actions-triggers.md#run-high-throughput-mode), disponible dans la préversion. Vous pouvez répartir la charge de travail entre plusieurs comptes si nécessaire. |
 | Action : Appels sortants simultanés | ~2,500 | Vous pouvez diminuer le nombre de requêtes simultanées ou réduire la durée si nécessaire. |
@@ -124,7 +124,7 @@ Les limites pour un appel de connecteur synchrone ou de requête HTTP unique son
 
 Comme certaines opérations de connecteur effectuent des appels asynchrones ou écoutent les demandes de webhook, le délai d’expiration pour ces opérations peut dépasser ces limites. Pour plus d’informations, consultez les détails techniques pour le connecteur spécifique et aussi [Actions et déclencheurs de workflow](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action).
 
-| Nom | Limite de l’architecture mutualisée | Limite d’environnement Integration Services | Notes |
+| Name | Limite de l’architecture mutualisée | Limite d’environnement Integration Services | Notes |
 |------|--------------------|---------------------------------------|-------|
 | Requête sortante | 120 secondes | 240 secondes | Pour les opérations en cours d’exécution plus longues, utilisez un [modèle d’interrogation asynchrone](../logic-apps/logic-apps-create-api-app.md#async-pattern) ou une [boucle Until](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action). |
 | Réponse synchrone | 120 secondes | 240 secondes | Pour que la requête d’origine obtienne la réponse, toutes les étapes de la réponse doivent être terminées avant la limite, sauf si vous appelez une autre application logique en tant que workflow imbriqué. Pour plus d’informations, consultez [Appeler, déclencher ou imbriquer des applications logiques](../logic-apps/logic-apps-http-endpoint.md). |
@@ -132,7 +132,7 @@ Comme certaines opérations de connecteur effectuent des appels asynchrones ou �
 
 #### <a name="message-size"></a>Taille des messages
 
-| Nom | Limite de l’architecture mutualisée | Limite d’environnement Integration Services | Notes |
+| Name | Limite de l’architecture mutualisée | Limite d’environnement Integration Services | Notes |
 |------|--------------------|---------------------------------------|-------|
 | Taille des messages | 100 Mo | 200 Mo | Pour contourner cette limite, consultez [Gérer les messages volumineux avec la segmentation](../logic-apps/logic-apps-handle-large-messages.md). Toutefois, certains connecteurs et API peuvent ne pas prendre en charge la segmentation ou même la limite par défaut. |
 | Taille des messages avec segmentation | 1 Go | 5 GO | Cette limite s’applique aux actions qui prennent en charge la segmentation en mode natif ou vous permettent d’activer la segmentation dans la configuration de leur runtime. <p>Pour l’environnement de service d’intégration, le moteur Logic Apps prend en charge cette limite, mais les connecteurs ont leurs propres limites segmentation jusqu'à la limite de moteur, par exemple, consultez [connecteur stockage Blob Azure](/connectors/azureblob/). Pour plus d’informations segmentation, consultez [gérer les messages volumineux avec segmentation](../logic-apps/logic-apps-handle-large-messages.md). |
@@ -164,9 +164,9 @@ Les limites pour les connecteurs personnalisés qu’il est possible de créer �
 
 ## <a name="managed-identities"></a>Identités managées
 
-| Nom | Limite |
+| Name | Limite |
 | ---- | ----- |
-| Nombre d’applications logiques avec des identités managées assignées par le système par abonnement Azure | 10 |
+| Nombre d’applications logiques avec des identités managées assignées par le système par abonnement Azure | 100 |
 |||
 
 <a name="integration-account-limits"></a>
@@ -241,7 +241,7 @@ Toutes les applications logiques qui se trouvent dans une même région utilisen
 
 Pour prendre en charge les appels que passent les [connecteurs managés par Microsoft](../connectors/apis-list.md), configurez votre pare-feu avec *toutes* les adresses IP [sortantes](#outbound) utilisées par ces connecteurs, en fonction de l’emplacement de vos applications logiques. Ces adresses s’affichent sous l’en-tête **Sortantes** dans cette section, et sont triées par région.
 
-Pour [Azure Government](../azure-government/documentation-government-overview.md) et [Azure China 21Vianet](/azure/china/china-welcome), les adresses IP réservées pour les connecteurs ne sont pas disponibles.
+Pour [Azure Government](../azure-government/documentation-government-overview.md) et [Azure China 21Vianet](https://docs.microsoft.com/azure/china/), les adresses IP réservées pour les connecteurs ne sont pas disponibles.
 
 > [!IMPORTANT]
 >

@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/12/2019
+ms.date: 05/20/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2b3500ce1f1f80d975555edef56d95f2f1d27ca7
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 5524576ef21830ae13526dad2d8ac8a1d0864cf1
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65783775"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956876"
 ---
 # <a name="saml-single-sign-on-for-on-premises-applications-with-application-proxy-preview"></a>SAML authentification unique pour les applications sur site avec le Proxy d’Application (version préliminaire)
 
@@ -50,8 +50,9 @@ Gardez à l’esprit les points suivants lorsque vous allez le didacticiel :
 1. Sélectionnez **SAML** en tant que la méthode d’authentification unique.
 1. Dans le **définir des Single Sign-On with SAML** page, modifiez le **base SAML Configuration** données et suivez les étapes de [configuration de SAML base entrée](configure-single-sign-on-non-gallery-applications.md#saml-based-single-sign-on) configuration basée sur SAML authentification pour l’application.
 
-   * Assurez-vous que le **URL de réponse** correspond ou est un chemin d’accès sous le **URL externe** pour l’application en local que vous avez publiée via le Proxy d’Application. Si votre application nécessite une autre **URL de réponse** pour la configuration de SAML, ajoutez cette solution comme le **première** URL dans la liste et de conserver le **URL externe** comme une URL supplémentaire, classées après la première.
-   * Assurez-vous que l’application spécifie également la bonne **URL de réponse** ou URL Assertion Consumer Service à utiliser pour recevoir le jeton d’authentification.
+   * Assurez-vous que le **URL de réponse** correspond ou est un chemin d’accès sous le **URL externe** pour l’application en local que vous avez publiée via le Proxy d’Application. 
+   * Si votre application nécessite une autre **URL de réponse** pour la configuration de SAML, ajoutez cette solution comme un **supplémentaires** URL dans la liste et la marque de la case à cocher en regard de celle-ci pour la désigner comme le serveur principal  **L’URL de réponse** d’envoyer des réponses à SAML initié du fournisseur d’identité.
+   * Pour un flux initié par SP, vérifiez que l’application spécifie également la bonne **URL de réponse** ou URL Assertion Consumer Service à utiliser pour recevoir le jeton d’authentification.
 
      ![Entrez les données de configuration de base SAML](./media/application-proxy-configure-single-sign-on-on-premises-apps/basic-saml-configuration.png)
 

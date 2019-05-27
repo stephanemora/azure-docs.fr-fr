@@ -2,18 +2,17 @@
 title: Créer un équilibreur de charge interne dans Azure Kubernetes Service (AKS)
 description: Découvrez comment créer et utiliser un équilibreur de charge interne pour exposer vos services avec Azure Kubernetes Service (AKS).
 services: container-service
-author: rockboyfor
+author: iainfoulds
 ms.service: container-service
 ms.topic: article
-origin.date: 03/04/2019
-ms.date: 04/08/2019
-ms.author: v-yeche
-ms.openlocfilehash: a26eab83f567a46f613e3bfda95fd99aba2b79c0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 03/04/2019
+ms.author: iainfou
+ms.openlocfilehash: 1b5d18a3dfd1181fd06b58fd58f496457e24b58e
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60465544"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956374"
 ---
 # <a name="use-an-internal-load-balancer-with-azure-kubernetes-service-aks"></a>Utiliser un équilibreur de charge interne avec Azure Kubernetes Service (AKS)
 
@@ -27,6 +26,8 @@ Pour restreindre l’accès à vos applications dans Azure Kubernetes Service (A
 Cet article suppose que vous avez un cluster AKS existant. Si vous avez besoin d’un cluster AKS, consultez le guide de démarrage rapide d’AKS [avec Azure CLI][aks-quickstart-cli] ou [avec le portail Azure][aks-quickstart-portal].
 
 Vous également besoin d’Azure CLI version 2.0.59 ou ultérieur installé et configuré. Exécutez  `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez  [Installation d’Azure CLI 2.0][install-azure-cli].
+
+Le principal de service de cluster AKS a besoin d’autorisation pour gérer les ressources de réseau si vous utilisez un sous-réseau existant ou un groupe de ressources. En général, attribuer le *collaborateur de réseau* rôle au principal de service sur les ressources de délégué. Pour plus d’informations sur les autorisations, consultez [délégué AKS accéder à d’autres ressources Azure][aks-sp].
 
 ## <a name="create-an-internal-load-balancer"></a>Créer un équilibrage de charge interne
 
@@ -145,10 +146,11 @@ En savoir plus sur les services Kubernetes dans la [documentation des services K
 
 <!-- LINKS - Internal -->
 [advanced-networking]: configure-azure-cni.md
-[az-aks-show]: https://docs.azure.cn/zh-cn/cli/aks?view=azure-cli-latest#az-aks-show
-[az-role-assignment-create]: https://docs.azure.cn/zh-cn/cli/role/assignment?view=azure-cli-latest#az-role-assignment-create
+[az-aks-show]: /cli/azure/aks#az-aks-show
+[az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
 [azure-lb-comparison]: ../load-balancer/load-balancer-overview.md#skus
 [use-kubenet]: configure-kubenet.md
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
-[install-azure-cli]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest
+[install-azure-cli]: /cli/azure/install-azure-cli
+[aks-sp]: kubernetes-service-principal.md#delegate-access-to-other-azure-resources

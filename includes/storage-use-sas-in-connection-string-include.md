@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
 ms.openlocfilehash: 2f27c50b1d016265c20102521a137bcbb0646115
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
-ms.translationtype: HT
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50166161"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66115496"
 ---
 Si vous disposez d’une URL de signature d’accès partagé (SAP) qui vous permet d’accéder aux ressources d’un compte de stockage, vous pouvez utiliser la SAP dans une chaîne de connexion. Étant donné que la SAP contient les informations requises pour authentifier la requête, une chaîne de connexion avec une SAP fournit le protocole, le point de terminaison de service et les informations d’identification nécessaires pour accéder à la ressource.
 

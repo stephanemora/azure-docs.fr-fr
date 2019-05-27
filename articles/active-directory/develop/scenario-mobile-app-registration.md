@@ -12,15 +12,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/07/2019
-ms.author: dadobali
+ms.author: jmprieur
+ms.reviwer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9eac9d1dfce79ac4ad9d49a6cfe6b7dee7f6681a
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 2b6ebab0eeca6895e1c7a0f6008972030d81da42
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65075159"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65962408"
 ---
 # <a name="mobile-app-that-calls-web-apis---app-registration"></a>Application mobile par appels web API - inscription de l’application
 
@@ -42,7 +43,7 @@ Si vous préférez configurer manuellement l’URI de redirection, vous pouvez l
 - ***Android***: `msauth://<PACKAGE_NAME>/<SIGNATURE_HASH>`
   - Le hachage de signature Android peut être généré à l’aide des clés via la commande KeyTool debug ou release.
 
-## <a name="api-permissions"></a>Autorisations des API
+## <a name="api-permissions"></a>API autorisées
 
 Les applications mobiles appeler des API pour le compte de l’utilisateur connecté. Votre application doit demander des autorisations déléguées, également appelées étendues. En fonction de l’expérience souhaitée, cela est possible statiquement via le portail Azure ou dynamiquement au moment de l’exécution. Statiquement l’inscription d’autorisations permet aux administrateurs d’approuver facilement votre application et est recommandée.
 

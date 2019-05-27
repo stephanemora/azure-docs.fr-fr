@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5bfae3b3be7812ff50ed90a61d495877141bbc7e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b8ac0497b13dad6795e8dc7ffaf761fe887a9953
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60414900"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65988621"
 ---
 # <a name="advanced-configuration-options-for-the-nps-extension-for-multi-factor-authentication"></a>Options de configuration avancée de l’extension de serveur NPS pour l’authentification multifacteur
 
@@ -30,7 +30,7 @@ Dans l’extension de serveur NPS, vous pouvez désigner un attribut Active Dir
 
 Pour configurer un ID de connexion de substitution, accédez à `HKLM\SOFTWARE\Microsoft\AzureMfa` et modifiez les valeurs de registre suivantes :
 
-| Nom | Type | Valeur par défaut | Description |
+| Name | Type | Valeur par défaut | Description  |
 | ---- | ---- | ------------- | ----------- |
 | LDAP_ALTERNATE_LOGINID_ATTRIBUTE | string | Vide | Spécifiez le nom de l’attribut Active Directory que vous souhaitez utiliser au lieu de l’UPN. Cet attribut est utilisé en tant qu’attribut AlternateLoginId. Si cette valeur de registre est définie sur un [attribut Active Directory valide](https://msdn.microsoft.com/library/ms675090.aspx) (par exemple, mail ou displayName), la valeur de l’attribut est utilisée à la place de l’UPN de l’utilisateur pour l’authentification. Si cette valeur de registre est vide ou n’est pas configurée, AlternateLoginId est désactivé et l’UPN de l’utilisateur est utilisé pour l’authentification. |
 | LDAP_FORCE_GLOBAL_CATALOG | booléenne | False | Utilisez cet indicateur pour forcer l’utilisation du catalogue global dans le cadre des recherches LDAP d’AlternateLoginId. Configurez un contrôleur de domaine en tant que catalogue global, ajoutez l’attribut AlternateLoginId dans le catalogue global, puis activez cet indicateur. <br><br> Si LDAP_LOOKUP_FORESTS est configuré (n’est pas vide), **cet indicateur est appliqué comme true**, quelle que soit la valeur du paramètre du registre. Dans ce cas, l’extension de serveur NPS nécessite la configuration du catalogue global avec l’attribut AlternateLoginId pour chaque forêt. |
@@ -40,15 +40,15 @@ Pour résoudre les problèmes liés à des ID de connexion de substitution, util
 
 ## <a name="ip-exceptions"></a>Exceptions liées aux adresses IP
 
-Si vous devez surveiller la disponibilité du serveur, par exemple si les équilibreurs de charge vérifient quels serveurs sont en cours d’exécution avant l’envoi de charges de travail, vous ne souhaitez pas que ces contrôles soient bloqués par des requêtes de vérification. Au lieu de cela, créez une liste d’adresses IP utilisées par les comptes de service, puis désactivez les exigences de l’authentification multifacteur pour cette liste. 
+Si vous devez surveiller la disponibilité du serveur, par exemple si les équilibreurs de charge vérifient quels serveurs sont en cours d’exécution avant l’envoi de charges de travail, vous ne souhaitez pas que ces contrôles soient bloqués par des requêtes de vérification. Au lieu de cela, créez une liste d’adresses IP utilisées par les comptes de service, puis désactivez les exigences de l’authentification multifacteur pour cette liste.
 
-Pour configurer une liste verte d’adresses IP, accédez à `HKLM\SOFTWARE\Microsoft\AzureMfa` et configurez la valeur de registre suivante : 
+Pour configurer une adresse IP liste autorisée, accédez à `HKLM\SOFTWARE\Microsoft\AzureMfa` et configurez la valeur de Registre suivante :
 
-| Name | Type | Valeur par défaut | Description |
+| Name | Type | Valeur par défaut | Description  |
 | ---- | ---- | ------------- | ----------- |
 | IP_WHITELIST | string | Vide | Fournissez une liste séparée par des points-virgules pour les adresses IP. Incluez les adresses IP des machines d’origine des requêtes de service, telles que le serveur NAS/VPN. Plages d’adresses IP et sous-réseaux ne sont pas pris en charge. <br><br> Par exemple, *10.0.0.1;10.0.0.2;10.0.0.3*.
 
-Lorsqu’une requête provient d’une adresse IP de la liste verte, la vérification en deux étapes est ignorée. La liste verte d’adresses IP est comparée à l’adresse IP fournie dans l’attribut *ratNASIPAddress* de la requête RADIUS. Si une requête RADIUS est fournie sans l’attribut ratNASIPAddress, l’avertissement suivant est enregistré : « P_WHITE_LIST_WARNING::IP Whitelist is being ignored as source IP is missing in RADIUS request in NasIpAddress attribute. » (P_WHITE_LIST_WARNING::IP Whitelist est ignoré, car l’adresse IP source est manquante dans la requête RADIUS de l’attribut NasIpAddress.)
+Quand une requête provient d’une adresse IP qui existe dans le `IP_WHITELIST`, vérification en deux étapes est ignorée. La liste d’IP est comparée à l’adresse IP qui est fourni dans le *ratNASIPAddress* attribut de la demande RADIUS. Si une requête RADIUS est fournie sans l’attribut ratNASIPAddress, l’avertissement suivant est enregistré : « P_WHITE_LIST_WARNING::IP Whitelist is being ignored as source IP is missing in RADIUS request in NasIpAddress attribute. » (P_WHITE_LIST_WARNING::IP Whitelist est ignoré, car l’adresse IP source est manquante dans la requête RADIUS de l’attribut NasIpAddress.)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

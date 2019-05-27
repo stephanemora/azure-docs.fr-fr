@@ -9,11 +9,11 @@ ms.date: 05/18/2018
 ms.author: cshoe
 ms.custom: include file
 ms.openlocfilehash: e6a0ded137162328fd446b65ddb4a15fa6f1db88
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61478751"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66114972"
 ---
 ## <a name="deleting-personal-information"></a>Suppression d’informations personnelles
 
@@ -22,10 +22,10 @@ ms.locfileid: "61478751"
 Les informations personnelles sont utilisées par le service Import/Export (via le portail et l’API) au cours des opérations d’importation et d’exportation. Les données suivantes sont utilisées au cours de ces processus :
 
 - Nom du contact
-- Numéro de téléphone
+- Numéro de téléphone 
 - Email
-- Adresse postale
-- City
+- Rue
+- Ville
 - Code postal
 - État
 - Pays/Province/Région

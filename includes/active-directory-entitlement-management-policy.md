@@ -5,15 +5,15 @@ services: active-directory
 author: rolyon
 ms.service: active-directory
 ms.topic: include
-ms.date: 04/16/2019
+ms.date: 05/16/2019
 ms.author: rolyon
 ms.custom: include file
-ms.openlocfilehash: ef8155cda6c31a63204af80ca091a13bb16a687d
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 6711506c1e489dcbd50aedd36241affc3bbed80b
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64866433"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66113390"
 ---
 ### <a name="policy-for-users-in-your-directory"></a>Stratégie : Pour les utilisateurs dans votre répertoire
 
@@ -34,6 +34,9 @@ Si vous souhaitez que votre stratégie pour les utilisateurs et groupes dans vot
 ### <a name="policy-for-users-not-in-your-directory"></a>Stratégie : Pour les utilisateurs non inclus dans votre répertoire
 
 Si vous souhaitez que votre stratégie pour les utilisateurs non inclus dans votre annuaire qui peuvent demander à ce package de l’accès, procédez comme suit. Répertoires doivent être configurés pour être autorisé dans le **restrictions de collaboration de relations organisationnelles** paramètres.
+
+> [!NOTE]
+> Un compte d’utilisateur invité sera être créé pour un utilisateur pas encore dans votre annuaire dont la demande est approuvée ou approuvée automatiquement. L’invité est invité, mais il ne recevra pas un message électronique d’invitation. Au lieu de cela, ils recevront un e-mail lorsque leur attribution de package d’accès est remise. Par défaut, par la suite lorsque cet utilisateur invité ne plu a n’importe quel package affectations d’accès, car leur dernière attribution a expiré ou a été annulée, que le compte d’utilisateur invité sera bloqué à partir de la connexion, supprimé. Si vous souhaitez laisser les utilisateurs invités dans votre répertoire indéfiniment, même s’ils ne disposent d’aucune attribution de package d’accès, vous pouvez modifier les paramètres pour votre configuration de gestion des droits.
 
 1. Dans le **les utilisateurs qui peuvent demander l’accès** section, sélectionnez **pour les utilisateurs non inclus dans votre répertoire**.
 

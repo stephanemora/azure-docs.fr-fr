@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 05/20/2019
 ms.author: alkohli
-ms.openlocfilehash: a90475cfd1d166b8fae1c2b872cbbb9d48b50392
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: a9daf1d59b03d283be999aaab559c6d60f6405dd
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65785813"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65953128"
 ---
 # <a name="manage-compute-on-your-azure-data-box-edge"></a>Gérer le calcul sur votre Azure Data Box Edge
 
@@ -129,24 +129,6 @@ Pour synchroniser les clés d’accès pour votre appareil, procédez comme suit
 
 3. Fermez la boîte de dialogue une fois la synchronisation terminée.
 
-## <a name="enable-a-network-interface-for-compute"></a>Activer une interface réseau pour le computing
-
-Vous serez peut-être amené à accéder à un module s’exécutant sur votre appareil Data Box Edge. Pour accéder au module en externe, vous devez affecter une adresse IP à une interface réseau sur votre appareil. Vous pouvez gérer ces paramètres de computing à partir de votre interface utilisateur web locale.
-
-Effectuez les étapes suivantes sur votre interface utilisateur web locale pour configurer les paramètres de computing.
-
-1. Dans l’interface utilisateur web locale, accédez à **Configuration > Compute settings** (Paramètres de computing).  
-
-2. **Activez** l’interface réseau que vous souhaitez utiliser pour la connexion aux modules de computing sur l’appareil. 
-
-    - Si vous utilisez des adresses IP statiques, entrez une adresse IP pour l’interface réseau.
-    - Si vous utilisez DHCP, les adresses IP sont attribuées automatiquement.
-
-3. Sélectionnez **Apply** pour appliquer les paramètres.
-
-    ![Activer les paramètres de computing](media/data-box-edge-manage-compute/compute-settings-1.png)
-
-
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Découvrez comment [gérer des utilisateurs via le Portail Azure](data-box-edge-manage-users.md).
+- Découvrez comment [Edge gérer compute réseau via le portail Azure](data-box-edge-extend-compute-access-modules.md).

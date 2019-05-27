@@ -1,113 +1,70 @@
 ---
-title: Qu’est-ce qu’un degré de sécurisation Identity Secure Score ? - Azure Active Directory (préversion publique) | Microsoft Docs
-description: Instructions permettant d’utiliser le degré de sécurisation Identity Secure Score pour améliorer la méthode de sécurité de votre locataire Azure AD.
+title: Quel est le score sécurisé d’identité ? -Azure Active Directory
+description: Comment vous pouvez utiliser le score d’identité sécurisée pour améliorer la sécurité de votre annuaire
 services: active-directory
-keywords: Identity Secure Score, Azure AD, sécuriser l’accès aux ressources de l’entreprise
-documentationcenter: ''
-author: MarkusVi
-manager: daveba
-ms.assetid: ''
 ms.service: active-directory
 ms.subservice: fundamentals
-ms.topic: overview
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 09/19/2018
-ms.author: markvi
-ms.reviewer: nigu
-ms.custom: it-pro
+ms.topic: conceptual
+ms.date: 05/20/2019
+ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
+ms.reviewer: tilarso
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8617442c811dc2fe8f961038f35ebcf218a58302
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 6cdff2305914ca6e4144f7784d1a60026a1d27c0
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56163953"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65988669"
 ---
-# <a name="what-is-the-identity-secure-score-in-azure-active-directory-public-preview"></a>Qu’est-ce que le degré de sécurisation Identity Secure Score dans Azure Active Directory ? (Préversion publique)
+# <a name="what-is-the-identity-secure-score-in-azure-active-directory"></a>Qu’est-ce que le degré de sécurisation Identity Secure Score dans Azure Active Directory ?
 
-Dans quelle mesure votre locataire Azure AD est-il sécurisé ? Si vous ne savez pas comment répondre à cette question, lisez cet article pour savoir comment le degré de sécurisation Identity Secure Score vous aide à surveiller et améliorer votre méthode de sécurité relative aux identités. 
+Dans quelle mesure votre locataire Azure AD est-il sécurisé ? Si vous ne savez pas comment répondre à cette question, cet article explique comment le score sécurisé d’identité vous aide à surveiller et améliorer votre posture de sécurité d’identité.
 
 ## <a name="what-is-an-identity-secure-score"></a>Qu’est-ce qu’un degré de sécurisation Identity Secure Score ?
 
-Le degré de sécurisation Identity Secure Score est un nombre compris entre 1 et 248 qui indique dans quelle mesure vous respectez les suggestions de meilleures pratiques de Microsoft en matière de sécurité.
+Le score sécurisé d’identité est le nombre compris entre 1 et 223 qui fonctionne comme un indicateur pour vous êtes comment alignée avec les recommandations de sécurité de Microsoft. Chaque action d’amélioration du produit dans score sécurisé identity est adaptée à votre configuration spécifique.  
 
-
-![Degré de sécurisation](./media/identity-secure-score/01.png)
-
-
+![Degré de sécurisation](./media/identity-secure-score/identity-secure-score-overview.png)
 
 Le degré de sécurisation vous aide à accomplir les tâches suivantes :
 
 - Évaluer votre méthode de sécurité relative aux identités de façon objective
-
 - Planifier les améliorations à apporter à la sécurité des identités
-
-- Évaluer la réussite de vos améliorations 
-
+- Évaluer la réussite de vos améliorations
 
 Vous pouvez accéder au degré de sécurisation et aux informations correspondantes dans le tableau de bord du degré de sécurisation Identity Secure Score. Ce tableau de bord présente les informations suivantes :
 
-- Votre degré de sécurisation
-
-    ![Degré de sécurisation](./media/identity-secure-score/02.png)
-
-- Un graphique de comparaison
-
-    ![Degré de sécurisation](./media/identity-secure-score/03.png)
-
-- Un graphique de tendance
-
-    ![Degré de sécurisation](./media/identity-secure-score/04.png)
-
-- Une liste des meilleures pratiques relatives à la sécurité des identités 
-
-    ![Degré de sécurisation](./media/identity-secure-score/05.png)
-
+- Votre score sécurisé d’identité
+- Un graphique de comparaison illustrant comment votre identité secure score compare à d’autres locataires dans le même secteur et de taille similaire
+- Un graphique de tendance indiquant comment votre score sécurisé d’identité a changé au fil du temps
+- Une liste des améliorations possibles
 
 La mise en œuvre des actions d’amélioration vous offre les possibilités suivantes :
 
-- Améliorer votre méthode de sécurité et votre degré de sécurisation
- 
-- Tirer parti des fonctionnalités d’identité de Microsoft 
-
-
+- Améliorer votre posture de sécurité et votre score
+- Tirer parti les fonctionnalités disponibles pour votre organisation dans le cadre de vos investissements d’identité
 
 ## <a name="how-do-i-get-my-secure-score"></a>Comment faire pour obtenir mon degré de sécurisation ?
 
-Le degré de sécurisation Identity Secure Score est disponible avec toutes les éditions d’Azure AD.
+Le score d’identité sécurisée est disponible dans toutes les éditions d’Azure AD. Pour obtenir votre degré de sécurisation, accédez au [tableau de bord de présentation Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/IdentitySecureScore).
 
-Pour obtenir votre degré de sécurisation, accédez au [tableau de bord de présentation Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/IdentitySecureScore).
+## <a name="how-does-it-work"></a>Comment cela fonctionne-t-il ?
 
+Toutes les 48 heures, Azure examine votre configuration de sécurité et compare vos paramètres avec ceux des meilleures pratiques suggérées. Le résultat de cette évaluation, un nouveau score est calculé en fonction de votre répertoire. Il est possible que votre configuration de sécurité n’est pas alignée avec les méthodes recommandées et les actions d’amélioration du produit ne sont que partiellement remplies. Dans ces scénarios, vous seront remis une partie du score maximale disponible pour le contrôle.
 
+Chaque suggestion est évaluée en fonction de votre configuration Azure AD. Si vous utilisez des produits tiers pour activer des meilleures pratiques recommandées, vous pouvez indiquer cette configuration dans les paramètres d’une action d’amélioration du produit. Vous avez également la possibilité de définir les recommandations sont ignorées si elles ne s’appliquent à votre environnement. Les suggestions ignorées ne sont pas prises en compte dans le calcul de votre degré de sécurisation.
 
-## <a name="how-does-it-work"></a>Comment cela fonctionne-t-il ?
-
-Toutes les 48 heures, Azure examine votre configuration de sécurité et compare vos paramètres avec ceux des meilleures pratiques suggérées. Selon le résultat de cette évaluation, un nouveau degré de sécurisation est calculé pour votre locataire. Ainsi, la répercussion d’une modification apportée à la configuration dans le degré de sécurisation peut prendre jusqu’à 48 heures. 
-
-Chaque suggestion est évaluée en fonction de votre configuration Azure AD. Si vous utilisez des produits tiers pour mettre en œuvre une suggestion de meilleure pratique, vous pouvez l’indiquer dans les paramètres d’une action d’amélioration.
-
-![Degré de sécurisation](./media/identity-secure-score/07.png)
-
-
-En outre, vous avez la possibilité de définir les suggestions à ignorer si elles ne s’appliquent à votre environnement. Les suggestions ignorées ne sont pas prises en compte dans le calcul de votre degré de sécurisation. 
- 
-![Degré de sécurisation](./media/identity-secure-score/06.png)
-
-
+![Ignorer ou marquer action tel qu’indiqué par des tiers](./media/identity-secure-score/identity-secure-score-ignore-or-third-party-reccomendations.png)
 
 ## <a name="how-does-it-help-me"></a>En quoi cela peut-il m’aider ?
 
 Le degré de sécurisation vous aide à accomplir les tâches suivantes :
 
 - Évaluer votre méthode de sécurité relative aux identités de façon objective
-
 - Planifier les améliorations à apporter à la sécurité des identités
-
 - Évaluer la réussite de vos améliorations
-
-
 
 ## <a name="what-you-should-know"></a>Ce que vous devez savoir
 
@@ -116,8 +73,12 @@ Le degré de sécurisation vous aide à accomplir les tâches suivantes :
 Le degré de sécurisation Identity Secure Score peut être utilisé par les rôles suivants :
 
 - Administrateur général
-- Administrateur de la sécurité 
-- Lecteurs Sécurité 
+- Administrateur de la sécurité
+- Lecteurs Sécurité
+
+### <a name="how-are-controls-scored"></a>Comment les contrôles sont notées ?
+
+Les contrôles peuvent être évaluées de deux manières. Certaines sont évaluées de façon binaire : vous obtenez 100 % du score de si vous disposez de la fonctionnalité ou paramètre configuré selon notre recommandation. Autres scores sont calculés sous forme de pourcentage de la configuration de total. Par exemple, si la recommandation d’amélioration du produit indique que vous obtiendrez 30 points si vous protégez tous vos utilisateurs avec l’authentification Multifacteur et il vous suffit 5 de 100 utilisateurs total protégés, vous recevra un score partiels environ 2 points (5 protégé / nombre total de 100 * 30 pts maximales = 2 score partielle pts) .
 
 ### <a name="what-does-not-scored-mean"></a>Que signifie la mention [Not Scored] (Degré non calculé) ?
 
@@ -127,40 +88,32 @@ Les actions accompagnées de la mention [Not Scored] (Degré non calculé) sont 
 
 Le degré de sécurisation est calculé une fois par jour (vers 1 h PST). Si vous apportez une modification à une action évaluée, le degré de sécurisation est automatiquement mis à jour le lendemain. La répercussion d’une modification dans le degré de sécurisation peut prendre jusqu’à 48 heures.
 
-
 ### <a name="my-score-changed-how-do-i-figure-out-why"></a>Mon degré de sécurisation a changé. Comment savoir pourquoi ?
 
-Sur la page de l’analyseur du degré de sécurisation du [portail de degré de sécurisation](https://securescore.microsoft.com/#!/score), cliquez sur un point de données pour un jour spécifique, puis faites défiler la page vers le bas pour faire apparaître les actions terminées et incomplètes pour ce jour et ainsi examiner ce qui a changé.
+Rendez-vous sur le [centre de sécurité Microsoft 365](https://security.microsoft.com/), où vous trouverez votre score sécurisée Microsoft complète. Vous pouvez facilement voir toutes les modifications à votre score sécurisé, passez en revue les modifications détaillées sur l’onglet Historique.
 
-### <a name="does-the-secure-score-measure-my-risk-of-getting-breached"></a>Le degré de sécurisation mesure-t-il le risque de violation ?
+### <a name="does-the-secure-score-measure-my-risk-of-getting-breached"></a>Le score sécurisé mesure mon risque d’obtention de violation ?
 
-Non. Le degré de sécurisation ne fournit pas une mesure absolue de la probabilité d’être victime d’une violation. Il indique dans quelle mesure vous appliquez des fonctionnalités qui peuvent atténuer le risque de violation. Aucun service ne peut garantir que vous ne serez pas victime d’une violation. Le degré de sécurisation ne doit en aucun cas être interprété comme une garantie.
+Non. Le score sécurisé ne signifie pas une mesure absolue de la probabilité que vous êtes obtenir pas respectée. Il indique dans quelle mesure vous appliquez des fonctionnalités qui peuvent atténuer le risque de violation. Aucun service ne peut garantir que vous ne serez pas compromise, et le score sécurisé ne doit pas être interprété comme une garantie de quelque manière.
 
 ### <a name="how-should-i-interpret-my-score"></a>Comment dois-je interpréter mon degré de sécurisation ?
 
-Vous obtenez des points lorsque vous configurez des fonctionnalités de sécurité suggérées ou mettez en œuvre des tâches liées à la sécurité (par exemple, la lecture de rapports). Certaines actions sont évaluées dans le cadre d’une mise en œuvre partielle, par exemple lorsque vous activez l’authentification multifacteur (MFA) pour vos utilisateurs. Votre degré de sécurisation représente de façon directe les services de sécurité Microsoft que vous utilisez. N’oubliez pas que vous devez toujours trouver le juste équilibre entre sécurité et facilité d’utilisation. Tous les contrôles de sécurité ont une forme d’impact sur l’utilisateur. Les contrôles ayant un faible impact sur l’utilisateur doivent avoir peu d’effet (voire aucun) sur les opérations quotidiennes de vos utilisateurs.
+Vous obtenez des points lorsque vous configurez des fonctionnalités de sécurité suggérées ou mettez en œuvre des tâches liées à la sécurité (par exemple, la lecture de rapports). Certaines actions sont évaluées dans le cadre d’une mise en œuvre partielle, par exemple lorsque vous activez l’authentification multifacteur (MFA) pour vos utilisateurs. Votre score sécurisé est directement représentant des services de sécurité Microsoft que vous utilisez. N’oubliez pas que la sécurité doit être équilibrée avec facilité d’utilisation. Tous les contrôles de sécurité ont une forme d’impact sur l’utilisateur. Les contrôles ayant un faible impact sur l’utilisateur doivent avoir peu d’effet (voire aucun) sur les opérations quotidiennes de vos utilisateurs.
 
-Pour afficher l’historique de votre degré de sécurisation, accédez à la page de l’analyseur du degré de sécurisation du [portail de degré de sécurisation](https://securescore.microsoft.com/#!/score). Choisissez une date spécifique pour déterminer les contrôles qui ont été activés ce jour et les points que vous avez gagnés pour chacun d’eux.
+Pour afficher votre historique de score, rendez-vous sur le [centre de sécurité Microsoft 365](https://security.microsoft.com/) et passez en revue votre score est sécurisé Microsoft. Vous pouvez examiner les modifications à votre ensemble score sécurisé être en cliquant sur Afficher l’historique. Choisissez une date spécifique pour déterminer les contrôles qui ont été activés ce jour et les points que vous avez gagnés pour chacun d’eux.
 
+### <a name="how-does-the-identity-secure-score-relate-to-the-office-365-secure-score"></a>Quel est le lien entre les degrés de sécurisation Identity Secure Score et Office 365 Secure Score ?
 
-### <a name="how-does-the-identity-secure-score-relate-to-the-office-365-secure-score"></a>Quel est le lien entre les degrés de sécurisation Identity Secure Score et Office 365 Secure Score ? 
-
-Le [degré de sécurisation Office 365 Secure Score](https://docs.microsoft.com/office365/securitycompliance/office-365-secure-score) va bientôt migrer vers un agrégat de cinq degrés différents :
+Le [Microsoft secure score](https://docs.microsoft.com/office365/securitycompliance/microsoft-secure-score) contient cinq catégories de score et de contrôle distincte :
 
 - Identité
-
 - Données
-
 - Appareils
-
 - Infrastructure
-
 - Applications
 
-Le degré de sécurisation Identity Secure Score représente la partie identité du degré de sécurisation Office 365 Secure Score. Ainsi, vos suggestions relatives au degré de sécurisation Identity Secure Score et au degré de sécurisation des identités dans Office 365 sont les mêmes. 
-
+Le score d’identité sécurisée représente la partie de l’identité du score sécurisé Microsoft. Ce chevauchement signifie que vos recommandations pour l’identité secure score et le score d’identité dans Microsoft est les mêmes.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Cliquez sur [ici](https://www.youtube.com/watch?v=jzfpDJ9Kg-A) pour voir une vidéo sur le degré de sécurisation Office 365 Secure Score.
- 
+[En savoir plus sur le score sécurisée Microsoft](https://docs.microsoft.com/office365/securitycompliance/microsoft-secure-score)

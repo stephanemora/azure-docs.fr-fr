@@ -7,14 +7,14 @@ ms.suite: integration
 author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
-ms.topic: article
-ms.date: 05/06/2019
-ms.openlocfilehash: b452485ccf235d1f245989e40840f2f0b3b2ae45
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.topic: conceptual
+ms.date: 05/20/2019
+ms.openlocfilehash: bd1f06c93a75673f86f0c52f78cad8a60f7a1a1e
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65544543"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65961455"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Connexion à des réseaux virtuels Azure à partir d’Azure Logic Apps à l'aide d'un environnement de service d’intégration (ISE)
 
@@ -24,7 +24,7 @@ Pour les scénarios où vos applications logiques et vos comptes d’intégratio
 
 Cet article vous explique comment effectuer ces tâches :
 
-* Configurez les ports de votre réseau virtuel Azure de manière à permettre au trafic de transiter via votre environnement de service d’intégration (ISE) sur plusieurs sous-réseaux de votre réseau virtuel.
+* Vérifiez que tous les ports nécessaires sur un réseau virtuel sont ouverts afin que le trafic peut transiter de votre environnement de service d’intégration (ISE) entre les sous-réseaux dans ce réseau virtuel.
 
 * Créez votre environnement de service d’intégration.
 
@@ -60,11 +60,13 @@ Pour plus d’informations sur les environnements de service d’intégration, c
 
 <a name="ports"></a>
 
-## <a name="set-up-network-ports"></a>Configurer des ports réseau
+## <a name="check-network-ports"></a>Vérifiez les ports réseau
 
-Pour fonctionner correctement et rester accessible, votre environnement de service d’intégration (ISE) doit disposer de ports spécifiques sur votre réseau virtuel. Dans le cas contraire, si un de ces ports n'est pas disponible, vous risquez de perdre l’accès à votre ISE, et ce dernier peut cesser de fonctionner. Lorsque vous utilisez un ISE dans un réseau virtuel, il arrive souvent qu'un ou plusieurs ports soient bloqués. Pour les connexions entre votre ISE et le système de destination, le connecteur que vous utilisez peut également avoir ses propres exigences en matière de port. Par exemple, si vous communiquez avec un système FTP en utilisant le connecteur FTP, assurez-vous que le port que vous utilisez sur ce système FTP, comme le port 21 pour l’envoi de commandes, est disponible.
+Lorsque vous utilisez un environnement de service d’intégration (ISE) avec un réseau virtuel, un problème courant du programme d’installation rencontre un ou plusieurs ports bloqués. Les connecteurs que vous utilisez pour créer des connexions entre votre ISE et le système de destination peuvent également avoir leurs propres exigences de port. Par exemple, si vous communiquez avec un système FTP en utilisant le connecteur FTP, assurez-vous que le port que vous utilisez sur ce système FTP, comme le port 21 pour l’envoi de commandes, est disponible.
 
-Pour contrôler le trafic entre les sous-réseaux du réseau virtuel dans lequel vous déployez votre ISE, vous pouvez configurer [groupes de sécurité réseau](../virtual-network/security-overview.md) pour ces sous-réseaux par [filtrage du trafic réseau entre les sous-réseaux](../virtual-network/tutorial-filter-network-traffic.md). Ces tableaux décrivent les ports du réseau virtuel que votre ISE utilise et où ces ports sont utilisés. Le [balises de service Gestionnaire de ressources](../virtual-network/security-overview.md#service-tags) représente un groupe de préfixes d’adresses IP qui aident à réduire la complexité lors de la création de règles de sécurité.
+Pour contrôler le trafic entre les sous-réseaux du réseau virtuel dans lequel vous déployez ISE, vous pouvez configurer [groupes de sécurité réseau](../virtual-network/security-overview.md) par [filtrage du trafic réseau entre les sous-réseaux](../virtual-network/tutorial-filter-network-traffic.md). Toutefois, votre ISE doit spécifiques ports sont ouverts sur le réseau virtuel qui utilise des groupes de sécurité réseau. De cette façon, votre ISE reste accessible et puisse fonctionner correctement, afin que vous ne perdiez l’accès à votre environnement ISE. Sinon, si tous les ports requis ne sont pas disponibles, votre ISE cesse de fonctionner.
+
+Ces tableaux décrivent les ports du réseau virtuel que votre ISE utilise et où ces ports sont utilisés. Le [balises de service Gestionnaire de ressources](../virtual-network/security-overview.md#service-tags) représente un groupe de préfixes d’adresses IP qui aident à réduire la complexité lors de la création de règles de sécurité.
 
 > [!IMPORTANT]
 > Pour la communication interne à l’intérieur de vos sous-réseaux, ISE nécessite que vous ouvrez tous les ports au sein de ces sous-réseaux.

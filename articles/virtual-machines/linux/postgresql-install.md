@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: cynthn
-ms.openlocfilehash: 76f1ddeebb173bf19b15753d12e4374e6365bf8f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5fe5e819c4f1079b6eb1fa8bb19d337ecfed600d
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61474150"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65955150"
 ---
 # <a name="install-and-configure-postgresql-on-azure"></a>Installer et configurer PostgreSQL sur Microsoft Azure
 PostgreSQL est une base de données open source avancée similaire à Oracle et DB2. Il inclut des fonctionnalités destinées aux entreprises, comme la conformité complète à ACID, un traitement transactionnel fiable et un contrôle d’accès concurrentiel multiversion. Il prend également en charge des normes comme ANSI SQL et SQL/MED (y compris les wrappers de données externes pour Oracle, MySQL, MongoDB et beaucoup d’autres). Il est hautement extensible, avec la prise en charge de 12 langages procéduraux, les index GIN et GIST, la prise en charge des données spatiales et plusieurs fonctionnalités de type NoSQL pour les applications JSON ou basées sur les paires clé-valeur.
@@ -232,7 +232,7 @@ Cela supprime toutes les informations dans la ligne « John ». La sortie est 
 ![image](./media/postgresql-install/no8.png)
 
 ### <a name="update-data-in-a-table"></a>Mettre à jour des données dans une table
-Utilisez les commandes suivantes pour mettre à jour des données dans une table : Pour celle-ci, Sandy a confirmé qu’elle participait et nous allons donc changer sa réponse de « N » en « Y » :
+Utilisez les commandes suivantes pour mettre à jour des données dans une table : Pour celle-ci, Sandy a confirmé qu’ils participent à, nous allons donc changer la réponse de « N » en « Y » :
 
      UPDATE potluck set confirmed = 'Y' WHERE name = 'Sandy';
 

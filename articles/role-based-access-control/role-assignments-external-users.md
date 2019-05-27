@@ -16,12 +16,12 @@ ms.date: 03/20/2018
 ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: 91548a4df4a77623978ea4bcb214b76427c026a6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d919453816436366c00dde506210a2ed38cc69b7
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60345304"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65952211"
 ---
 # <a name="manage-access-to-azure-resources-for-external-users-using-rbac"></a>Gérer l'accès aux ressources Azure pour les utilisateurs externes à l'aide du contrôle d'accès en fonction du rôle
 
@@ -57,7 +57,7 @@ Après avoir sélectionné l’abonnement, l’utilisateur administrateur doit c
 
 L’étape suivante consiste à sélectionner le rôle à attribuer et l’utilisateur à qui le rôle RBAC doit être attribué. Dans le menu déroulant **Rôle**, l’utilisateur administrateur voit uniquement les rôles RBAC intégrés disponibles dans Azure. Pour plus d'explications sur chaque rôle et sur les étendues qui peuvent lui être attribuées, consultez [Rôles intégrés pour les ressources Azure](built-in-roles.md).
 
-L’utilisateur administrateur doit ensuite ajouter l’adresse de messagerie de l’utilisateur externe. Le comportement attendu est que l’utilisateur externe n'apparaisse pas dans le client existant. Une fois l’utilisateur externe invité, il est visible sous **Abonnements > Contrôle d’accès (IAM)** avec tous les utilisateurs auxquels un rôle RBAC est actuellement attribué dans l’étendue de l’abonnement.
+L’utilisateur administrateur doit ensuite ajouter l’adresse de messagerie de l’utilisateur externe. Le comportement attendu est que l’utilisateur externe n'apparaisse pas dans le client existant. Une fois que l’utilisateur externe a été invité, ils seront visibles sous **abonnements > contrôle d’accès (IAM)** avec tous les utilisateurs qui sont actuellement un rôle RBAC attribuées dans l’étendue de l’abonnement.
 
 ![ajouter des autorisations au nouveau rôle RBAC](./media/role-assignments-external-users/3.png)
 
@@ -66,7 +66,7 @@ L’utilisateur administrateur doit ensuite ajouter l’adresse de messagerie de
 L’utilisateur « chessercarlton@gmail.com » a été invité à être **Propriétaire** d’un abonnement « Évaluation gratuite ». Une fois l’invitation envoyée, l’utilisateur externe reçoit un e-mail de confirmation contenant un lien d’activation.
 ![e-mail d'invitation pour le rôles RBAC](./media/role-assignments-external-users/5.png)
 
-Étant externe à l’organisation, le nouvel utilisateur ne dispose pas de tous les attributs existants dans l’annuaire « Client Azure par défaut ». Ceux-ci sont créés une fois que l’utilisateur externe accepte d’être inscrit dans l’annuaire associé à l’abonnement pour lequel un rôle lui a été attribué.
+Étant externe à l’organisation, le nouvel utilisateur ne dispose pas de tous les attributs existants dans l’annuaire « Client Azure par défaut ». Elles seront créées une fois que l’utilisateur externe a consenti à être enregistrée dans le répertoire associé à l’abonnement leur a été attribué un rôle à.
 
 ![e-mail d’invitation pour le rôle RBAC](./media/role-assignments-external-users/6.png)
 

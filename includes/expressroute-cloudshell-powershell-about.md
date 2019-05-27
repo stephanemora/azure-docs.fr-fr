@@ -9,11 +9,11 @@ ms.date: 02/21/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: f446ec6bce138a072a214a9e9cd7880ad215ad3b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60364745"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66117799"
 ---
 Cet article utilise des cmdlets PowerShell. Pour exécuter les applets de commande, vous pouvez utiliser Azure Cloud Shell. Azure Cloud Shell est un interpréteur de commandes interactif gratuit qui a les outils Azure courants préinstallés et est configuré pour utiliser avec votre compte. Cliquez simplement sur **Copier** pour copier le code, collez-le dans Cloud Shell, et appuyez sur Entrée pour l’exécuter. Cloud Shell peut être lancé de plusieurs façons :
 

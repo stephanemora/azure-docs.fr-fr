@@ -9,11 +9,11 @@ ms.date: 03/23/2019
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: d4f57eca89cbb68d61546c6d5ce5bcd04f9256e7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61477969"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66114934"
 ---
 Stockage Azure offre plusieurs types de comptes de stockage. Chaque type prend en charge différentes fonctionnalités et a son propre modèle tarifaire. Avant de créer un compte de stockage, tenez compte de ces différences pour déterminer l’option qui convient le mieux à vos applications. Les types de comptes de stockage proposés sont les suivants :
 

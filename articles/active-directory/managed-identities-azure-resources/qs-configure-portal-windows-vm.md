@@ -16,11 +16,11 @@ ms.date: 11/10/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ab0a5b021048f0f684473d3f54bbeadf870cd007
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58445305"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66112794"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-vm-using-the-azure-portal"></a>Configurer des identités managées pour ressources Azure sur une machine virtuelle en utilisant le portail Azure
 
@@ -79,7 +79,7 @@ Si vous disposez d’une machine virtuelle qui n’a plus besoin d’identité m
 
    ![Capture d’écran de la page Configuration](./media/msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade-disable.png)
 
-## <a name="user-assigned-managed-identity"></a>Identité managée affectée par l’utilisateur
+## <a name="user-assigned-managed-identity"></a>Identité managée affectée par l'utilisateur
 
  Dans cette section, vous allez découvrir comment ajouter et supprimer une identité managée affectée par l’utilisateur sur une machine virtuelle en utilisant le portail Azure.
 

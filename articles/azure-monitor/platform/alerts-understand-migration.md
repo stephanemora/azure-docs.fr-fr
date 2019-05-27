@@ -1,47 +1,50 @@
 ---
-title: Comprendre comment volontaire outil de migration d’alertes dans Azure Monitor fonctionne
-description: Comprendre le fonctionne de l’outil de migration d’alerte et résoudre les problèmes si vous rencontrez des problèmes.
+title: Comprendre le fonctionne de l’outil de migration volontaire pour les alertes Azure Monitor
+description: Comprendre le fonctionne de l’outil de migration d’alertes et résoudre les problèmes.
 author: snehithm
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: snmuvva
 ms.subservice: alerts
-ms.openlocfilehash: a45a0cff606bc854924d5da0841b26e1cb9031bb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: b5a13254fc9dfd58db83a1bc8b9dd071cfbbdab2
+ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60347598"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66015589"
 ---
 # <a name="understand-how-the-migration-tool-works"></a>Comprendre le fonctionne de l’outil de migration
 
-En tant que [précédemment annoncé](monitoring-classic-retirement.md), les alertes classiques dans Azure Monitor seront retirés dans juillet 2019. L’outil de migration pour déclencher volontairement de migration est disponible dans le portail Azure et est en cours pour les clients qui utilisent des règles d’alerte classiques.
+En tant que [précédemment annoncé](monitoring-classic-retirement.md), les alertes classiques dans Azure Monitor seront retirés en septembre 2019 (a été initialement juillet 2019). Un outil de migration est disponible dans le portail Azure pour les clients qui utilisent des règles d’alerte classiques qui souhaitent déclencher migration eux-mêmes.
 
-Cet article vous guidera dans le fonctionnement de l’outil de migration volontaire. Elle décrit également la mise à jour pour certains problèmes courants.
+Cet article explique le fonctionne de l’outil de migration volontaire. Elle décrit également les solutions pour certains problèmes courants.
+
+> [!NOTE]
+> En raison de retards dans le déploiement de l’outil de migration, la date de suppression pour la migration des alertes classiques a été [étendue pour le 31 août 2019](https://azure.microsoft.com/updates/azure-monitor-classic-alerts-retirement-date-extended-to-august-31st-2019/) à partir de la date annoncée à l’origine du 30 juin 2019.
 
 ## <a name="which-classic-alert-rules-can-be-migrated"></a>Les règles d’alerte classiques peuvent être migrés ?
 
-Alors que presque toutes les règles d’alerte classiques peuvent être migrées à l’aide de l’outil, il existe quelques exceptions. Les règles d’alerte suivants ne seront pas migrés à l’aide de l’outil (ou lors de la migration automatique dans 2019 de juillet)
+Bien que l’outil peut migrer presque toutes classiques règles d’alerte, il existe quelques exceptions. Les règles d’alerte suivants ne seront pas migrés à l’aide de l’outil (ou lors de la migration automatique en septembre 2019) :
 
-- Règles d’alerte classiques des métriques d’invité de machine virtuelle (Windows et Linux). [Consultez les conseils sur la façon de recréer ces règles d’alerte dans les nouvelles alertes de métrique](#guest-metrics-on-virtual-machines)
-- Règles d’alerte classiques des métriques de stockage classique. [Consultez les conseils sur la surveillance de vos comptes de stockage classique](https://azure.microsoft.com/blog/modernize-alerting-using-arm-storage-accounts/)
-- Règles d’alerte classiques sur certaines métriques de compte de stockage. [Détails ci-dessous](#storage-account-metrics)
+- Règles d’alerte classiques des métriques d’invité de machine virtuelle (Windows et Linux). Consultez le [des conseils permettant de recréer ces règles d’alerte dans les nouvelles alertes de métrique](#guest-metrics-on-virtual-machines) plus loin dans cet article.
+- Règles d’alerte classiques des métriques de stockage classique. Consultez le [des conseils pour la surveillance de vos comptes de stockage classic](https://azure.microsoft.com/blog/modernize-alerting-using-arm-storage-accounts/).
+- Règles d’alerte classiques sur certaines métriques de compte de stockage. Consultez [détails](#storage-account-metrics) plus loin dans cet article.
 
-Si votre abonnement a des règles classiques de ce type, autres règles seront migrés, mais ces règles doivent être migrées manuellement. Nous ne pouvons pas fournir une migration automatique, toutes ces existants alertes de métriques classiques continuera pour 2020 de juin pour fournir votre temps à transférer sur les nouvelles alertes arriver à des. Toutefois, aucune nouvelle alerte classique ne peut être créés après juin 2019.
+Si votre abonnement a des règles classiques de ce type, vous devez les migrer manuellement. Étant donné que nous ne pouvons pas fournir une migration automatique, les alertes de métrique existants, classiques de ces types continue de fonctionner jusqu'à juin 2020. Cette extension vous donne le temps à transférer sur les nouvelles alertes. Toutefois, aucune nouvelle alerte classique ne peut être créés après août 2019.
 
 ### <a name="guest-metrics-on-virtual-machines"></a>Mesures invitées sur des machines virtuelles
 
-Pour être en mesure de créer de nouvelles alertes de métrique des mesures invitées, les mesures invitées doivent être envoyés dans le magasin de mesures personnalisées d’Azure Monitor. Suivez les instructions ci-dessous pour activer le récepteur Azure Monitor dans les paramètres de diagnostic.
+Avant de pouvoir créer des nouvelles alertes de métrique des mesures invitées, les mesures invitées doivent être envoyés à la banque de mesures personnalisées d’Azure Monitor. Suivez ces instructions pour activer le récepteur Azure Monitor dans les paramètres de diagnostic :
 
 - [L’activation des mesures invitées pour les machines virtuelles Windows](collect-custom-metrics-guestos-resource-manager-vm.md)
-- [L’activation des mesures invitées pour les machines virtuelles Linux](https://docs.microsoft.com/azure/azure-monitor/platform/collect-custom-metrics-linux-telegraf)
+- [L’activation des mesures invitées pour les machines virtuelles Linux](collect-custom-metrics-linux-telegraf.md)
 
-Une fois les étapes ci-dessus sont effectuées, les nouvelles alertes de métriques peuvent être créés sur les mesures invitées. Une fois que vous avez recréé nouvelles alertes de métriques, alertes classiques peuvent être supprimés.
+Une fois ces étapes sont effectuées, vous pouvez créer de nouvelles alertes de métrique des mesures invitées. Et une fois que vous avez créé les nouvelles alertes de métrique, vous pouvez supprimer des alertes classiques.
 
 ### <a name="storage-account-metrics"></a>Métriques du compte de stockage
 
-Toutes les alertes classiques sur les comptes de stockage peuvent être migrés à l’exception de ces alertes sur les mesures suivantes :
+Toutes les alertes classiques sur les comptes de stockage peuvent être migrés à l’exception des alertes sur ces mesures :
 
 - PercentAuthorizationError
 - PercentClientOtherError
@@ -53,18 +56,18 @@ Toutes les alertes classiques sur les comptes de stockage peuvent être migrés 
 - AnonymousThrottlingError
 - SASThrottlingError
 
-Règles d’alerte classiques sur les mesures de pourcentage seront doivent être migrées en fonction de [le mappage entre les métriques de stockage nouvelles et anciennes](https://docs.microsoft.com/azure/storage/common/storage-metrics-migration#metrics-mapping-between-old-metrics-and-new-metrics). Seuils seront doivent être modifiés comme il convient que la nouvelle mesure disponible est absolu.
+Alerte classique règles sur les mesures de pourcentage doivent être migrés selon [le mappage entre les métriques de stockage nouvelles et anciennes](https://docs.microsoft.com/azure/storage/common/storage-metrics-migration#metrics-mapping-between-old-metrics-and-new-metrics). Seuils seront doivent être modifiés en conséquence, car la nouvelle mesure disponible est absolu.
 
-Règles d’alerte classiques erreur AnonymousThrottlingError et erreur SASThrottlingError doivent être fractionnée en deux nouvelles alertes qu’il n’est aucune mesure combinée qui fournit les mêmes fonctionnalités. Seuils seront doivent être adaptées en conséquence.
+Règles d’alerte classiques sur l’erreur AnonymousThrottlingError et erreur SASThrottlingError doivent être fractionnées en deux nouvelles alertes, car il n’existe aucune mesure combinée qui fournit les mêmes fonctionnalités. Seuils seront doivent s’adapter de manière appropriée.
 
-## <a name="roll-out-phases"></a>Phases de déploiement
+## <a name="rollout-phases"></a>Phases de déploiement
 
-L’outil de migration est livrée en plusieurs phases aux clients qui utilisent des règles d’alerte classiques. **Propriétaires d’abonnements** recevra un e-mail lorsque l’abonnement est prêt à être migrés à l’aide de l’outil.
+L’outil de migration est livrée en plusieurs phases aux clients qui utilisent des règles d’alerte classiques. Propriétaires d’abonnements recevront un message électronique lorsque l’abonnement est prêt à être migré à l’aide de l’outil.
 
 > [!NOTE]
-> Comme l’outil est déployé en plusieurs phases, dans les premières phases, vous pouvez voir que la plupart de vos abonnements n’est pas encore prête à migrer.
+> Étant donné que l’outil est déployé en plusieurs phases, vous pouvez voir que la plupart de vos abonnements n’est pas encore prête à être migrée pendant les premières phases.
 
-Actuellement un **sous-ensemble** d’abonnements, ce qui **uniquement** ont des règles d’alerte classiques sur la ressource suivante types sont marqués comme prêts pour la migration. Prise en charge d’autres types de ressources sera ajoutée dans les phases à venir.
+Actuellement, un sous-ensemble des abonnements est marqué comme prêt pour la migration. Le sous-ensemble inclut les abonnements qui ont des règles d’alerte classiques uniquement sur les types suivants de la ressource. Prise en charge d’autres types de ressources sera ajoutée dans les phases à venir.
 
 - Microsoft.apimanagement/service
 - Microsoft.batch/batchaccounts
@@ -92,24 +95,24 @@ Actuellement un **sous-ensemble** d’abonnements, ce qui **uniquement** ont des
 
 ## <a name="who-can-trigger-the-migration"></a>Qui peut déclencher la migration ?
 
-Tout utilisateur ayant le rôle intégré de **contributeur de surveillance** à l’abonnement au niveau sera en mesure de déclencher la migration. Les utilisateurs avec un rôle personnalisé avec les autorisations suivantes peuvent également déclencher la migration :
+Tout utilisateur ayant le rôle intégré contributeur de surveillance au niveau de l’abonnement peut déclencher la migration. Les utilisateurs qui ont un rôle personnalisé avec les autorisations suivantes peuvent également déclencher la migration :
 
 - */read
 - Microsoft.Insights/actiongroups/*
 - Microsoft.Insights/AlertRules/*
 - Microsoft.Insights/metricAlerts/*
 
-## <a name="common-issues-and-remediations"></a>Problèmes courants et des corrections
+## <a name="common-problems-and-remedies"></a>Problèmes courants et solutions
 
-Une fois que vous [déclencher la migration](alerts-using-migration-tool.md), nous allons utiliser les adresses e-mail fournies pour vous informer de la fin de la migration, ou si une action est requise de votre part. La section suivante décrit certains problèmes courants et comment les corriger
+Après avoir [déclencher la migration](alerts-using-migration-tool.md), vous recevez un e-mail aux adresses que vous avez fourni pour vous avertir que la migration est terminée ou si une action est nécessaire de vous. Cette section décrit certains problèmes courants et comment les traiter.
 
 ### <a name="validation-failed"></a>Échec de la validation
 
-En raison de modifications apportées récemment à des règles d’alerte classiques dans votre abonnement, l’abonnement ne peut pas être migré. Il s’agit d’un problème temporaire. Vous pouvez redémarrer la migration une fois que l’état de migration déplace le curseur **prêt pour la migration** dans quelques jours.
+En raison de modifications apportées récemment à des règles d’alerte classiques dans votre abonnement, l’abonnement ne peut pas être migré. Ce problème est temporaire. Vous pouvez redémarrer la migration une fois que l’état de migration déplace le curseur **prêt pour la migration** dans quelques jours.
 
-### <a name="policyscope-lock-preventing-us-from-migrating-your-rules"></a>Verrou d’étendue de la stratégie nous empêche de migration de vos règles
+### <a name="policy-or-scope-lock-preventing-us-from-migrating-your-rules"></a>Verrou de stratégie ou étendue nous empêche de migration de vos règles
 
-Dans le cadre de la migration, les nouvelles alertes de métriques et des groupes d’actions seront créés et des règles d’alerte classiques sont supprimés (une fois que les nouvelles règles sont créées). Toutefois, il existe une stratégie ou une étendue de verrou empêche la création de ressources. Selon le verrou d’étendue ou de stratégie, certaines ou toutes les règles n’a pas pu être migrés. Vous pouvez résoudre ce problème en supprimant la stratégie étendue verrou temporairement et déclencher à nouveau la migration.
+Dans le cadre de la migration, les nouvelles alertes de métriques et des groupes d’actions seront créés et des règles d’alerte classiques ne seront supprimés. Toutefois, il existe une stratégie ou une étendue de verrou empêche la création de ressources. Selon le verrou d’étendue ou de stratégie, certaines ou toutes les règles n’a pas pu être migrés. Vous pouvez résoudre ce problème en supprimant le verrou d’étendue ou de la stratégie temporairement et en déclenchant à nouveau la migration.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

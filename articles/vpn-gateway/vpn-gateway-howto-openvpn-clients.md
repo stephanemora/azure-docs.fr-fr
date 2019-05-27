@@ -5,22 +5,18 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 1/15/2019
+ms.date: 5/21/2019
 ms.author: cherylmc
-ms.openlocfilehash: d1e57e623e3e95f3d71e895c49c928f00aa0ad46
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: fdfabf328ddfa6b5e4b578be5a1b329cb3219a18
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59274670"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65989101"
 ---
-# <a name="configure-openvpn-clients-for-azure-vpn-gateway-preview"></a>Configurer des clients OpenVPN sur la passerelle VPN Azure (préversion)
+# <a name="configure-openvpn-clients-for-azure-vpn-gateway"></a>Configurer les clients de OpenVPN pour la passerelle VPN Azure
 
 Cet article vous permet de configurer **OpenVPN® protocole** les clients.
-
-> [!IMPORTANT]
-> Cette préversion publique est fournie sans contrat de niveau de service et ne doit pas être utilisée pour les charges de travail de production. Certaines fonctionnalités peuvent ne pas être prises en charge, disposer de capacités limitées ou ne pas être disponibles dans tous les emplacements Azure. Consultez les [Conditions d’utilisation supplémentaires des préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
@@ -138,6 +134,6 @@ Vérifiez que vous avez terminé les étapes de configuration de OpenVPN pour vo
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Si vous souhaitez que les clients VPN pour pouvoir accéder aux ressources dans un autre réseau virtuel (production), puis suivez les instructions la [réseau virtuel à réseau virtuel](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) article explique comment créer une connexion de réseau virtuel à réseau virtuel. Veillez à activer BGP sur les passerelles et les connexions, sinon le trafic ne passe pas.
+Si vous souhaitez que les clients VPN pour pouvoir accéder aux ressources dans un autre réseau virtuel, puis suivez les instructions la [réseau virtuel à réseau virtuel](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) article explique comment créer une connexion de réseau virtuel à réseau virtuel. Veillez à activer BGP sur les passerelles et les connexions, sinon le trafic ne passe pas.
 
 **« OpenVPN » est une marque d’Inc. OpenVPN**

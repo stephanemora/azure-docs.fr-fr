@@ -17,11 +17,11 @@ ms.date: 01/26/2019
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: fba54fa1d2ca6675b41728b460a07515b05758f8
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57531587"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66169510"
 ---
 # <a name="tutorial-monitor-and-update-a-linux-virtual-machine-in-azure"></a>Didacticiel : Superviser et mettre à jour une machine virtuelle Linux dans Azure
 
@@ -189,7 +189,7 @@ L’écran **Gestion des mises à jour** s’ouvre. Configurez l’emplacement, 
 
 ![Activer la solution de gestion des mises à jour](./media/tutorial-monitoring/manage-updates-update-enable.png)
 
-L’activation de la solution peut prendre jusqu’à 15 minutes. Pendant ce temps, vous ne devez pas fermer la fenêtre du navigateur. Une fois la solution activée, des informations sur les mises à jour manquantes sur la machine virtuelle sont envoyées aux journaux d’activité Azure Monitor. Entre 30 minutes et 6 heures peuvent être nécessaires pour que les données soient disponibles pour l’analyse.
+L’activation de la solution peut prendre jusqu’à 15 minutes. Pendant ce temps, vous ne devez pas fermer la fenêtre du navigateur. Une fois la solution activée, des informations sur les mises à jour manquantes sur la machine virtuelle sont envoyées aux journaux Azure Monitor. Entre 30 minutes et 6 heures peuvent être nécessaires pour que les données soient disponibles pour l’analyse.
 
 ### <a name="view-update-assessment"></a>Afficher l’évaluation des mises à jour
 

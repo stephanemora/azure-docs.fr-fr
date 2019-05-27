@@ -9,11 +9,11 @@ ms.date: 10/31/2018
 ms.author: genli
 ms.subservice: common
 ms.openlocfilehash: cf1cba6f6d26d66fc560c86ea42459fa276cc880
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58310844"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66114902"
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>Questions fréquemment posées (FAQ) sur la migration de Stockage Azure
 
@@ -82,7 +82,7 @@ Utilisez AzCopy pour déplacer les données d'un partage de fichiers Azure vers 
 
 Utilisez AzCopy pour charger des fichiers .csv volumineux dans Stockage Azure. Pour plus d'informations, voir [Transférer des données avec AzCopy sur Windows](storage-use-azcopy.md) et [Transférer des données avec AzCopy sur Linux](storage-use-azcopy-linux.md).
 
-**Je dois chaque jour déplacer les journaux du lecteur D vers mon compte de stockage Azure. Comment automatiser ce processus ?**
+**Je dois chaque jour déplacer les journaux d’activité du lecteur D vers mon compte de stockage Azure. Comment automatiser ce processus ?**
 
 Vous pouvez utiliser AzCopy et créer une tâche dans le Planificateur de tâches. Chargez les fichiers vers un compte de stockage Azure à l'aide d'un script de commandes par lot AzCopy. Pour plus d’informations, consultez [Comment configurer et exécuter des tâches de démarrage pour un service cloud](../../cloud-services/cloud-services-startup-tasks.md).
 
@@ -276,7 +276,7 @@ Pour autoriser d'autres personnes à accéder aux ressources de stockage :
 
 -   Si vous utilisez un stockage géoredondant avec accès en lecture, vous pouvez accéder à tout moment aux données de la région secondaire. Utilisez l’une des méthodes suivantes :  
       
-    - **AzCopy** : Ajoutez **-secondary** au nom du compte de stockage dans l’URL pour accéder au point de terminaison secondaire. Par exemple :   
+    - **AzCopy** : Ajoutez **-secondary** au nom du compte de stockage dans l’URL pour accéder au point de terminaison secondaire. Exemple :  
      
       https://storageaccountname-secondary.blob.core.windows.net/vhds/BlobName.vhd
 

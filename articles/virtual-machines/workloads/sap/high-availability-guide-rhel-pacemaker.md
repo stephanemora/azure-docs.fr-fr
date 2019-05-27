@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/17/2018
 ms.author: sedusch
-ms.openlocfilehash: b844c93a1f3e83d682b51db6f9854f11b24d82e7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e082afb212be46c40566eb643d01bc37eababfa6
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61127114"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65992145"
 ---
 # <a name="setting-up-pacemaker-on-red-hat-enterprise-linux-in-azure"></a>Configuration de Pacemaker sur Red Hat Entreprise Linux dans Azure
 
@@ -37,7 +37,7 @@ ms.locfileid: "61127114"
 [2243692]:https://launchpad.support.sap.com/#/notes/2243692
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
 
-[virtual-machines-linux-maintenance]:../../linux/maintenance-and-updates.md#maintenance-not-requiring-a-reboot
+[virtual-machines-linux-maintenance]:../../linux/maintenance-and-updates.md#maintenance-that-doesnt-require-a-reboot
 
 > [!NOTE]
 > Pacemaker sur Red Hat Entreprise Linux utilise l’agent d’isolation Azure pour isoler un nœud de cluster si nécessaire. Un basculement peut prendre jusqu’à 15 minutes si une ressource échoue ou si les nœuds de cluster ne peuvent plus communiquer entre eux. Pour en savoir plus, lisez l’article [Azure VM running as a RHEL High Availability cluster member take a very long time to be fenced, or fencing fails / times-out before the VM shuts down](https://access.redhat.com/solutions/3408711)

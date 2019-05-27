@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5d345645337d070be15346b245bfaecd1cabc7e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 45ff198f55ff769667cfaef2dd8665d2c34314e9
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60415481"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65987763"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-to-work-with-ad-fs-20"></a>Configuration du serveur Azure Multi-Factor Authentication pour travailler avec AD FS 2.0
 
@@ -85,7 +85,7 @@ Vous avez activé l’authentification IIS, mais pour effectuer la pré-authenti
 3. Si les utilisateurs entrent leur nom d’utilisateur au format « domaine\nom_utilisateur », le serveur doit être en mesure de supprimer le nom d’utilisateur du domaine lorsqu’il crée la requête LDAP. Ceci peut être effectué via un paramètre du registre.
 4. Ouvrez l’éditeur du registre et accédez à HKEY_LOCAL_MACHINE/SOFTWARE/Wow6432Node/Positive Networks/PhoneFactor sur un serveur 64 bits. Si vous utilisez un serveur 32 bits, retirez la partie « Wow6432Node » du chemin d'accès. Créez une clé de registre DWORD appelée « UsernameCxz_stripPrefixDomain » et définissez la valeur sur 1. Le proxy AD FS est désormais protégé par le serveur Azure Multi-Factor Authentication.
 
-Assurez-vous que les utilisateurs ont été importés sur le serveur à partir d'Active Directory. Consultez la section [Adresses IP approuvées](#trusted-ips) si vous souhaitez ajouter des adresses IP internes à la liste verte, de sorte que la vérification en deux étapes ne soit pas requise lors de la connexion au site Web à partir de ces emplacements.
+Assurez-vous que les utilisateurs ont été importés sur le serveur à partir d'Active Directory. Consultez le [section adresses IP approuvées](#trusted-ips) si vous souhaitez autoriser interne des adresses IP afin que la vérification en deux étapes n’est pas requise lors de la connexion au site Web à partir de ces emplacements.
 
 ![Éditeur du Registre pour configurer les paramètres de la société](./media/howto-mfaserver-adfs-2/reg.png)
 
@@ -109,15 +109,17 @@ Vous pouvez sécuriser AD FS lorsque le proxy AD FS n’est pas utilisé. Instal
 
 Le proxy AD FS est désormais protégé par le serveur Azure Multi-Factor Authentication.
 
-Assurez-vous que les utilisateurs ont été importés sur le serveur à partir d'Active Directory. Consultez la section Adresses IP approuvées si vous souhaitez ajouter des adresses IP internes à la liste blanche, de sorte que la vérification en deux étapes ne soit pas requise lors de la connexion au site Web à partir de ces emplacements.
+Assurez-vous que les utilisateurs ont été importés sur le serveur à partir d'Active Directory. Consultez la section adresses IP approuvées si vous souhaitez autoriser les adresses IP internes afin que la vérification en deux étapes n’est pas requise lors de la connexion au site Web à partir de ces emplacements.
 
 ## <a name="trusted-ips"></a>Adresses IP approuvées
+
 Les adresses IP approuvées permettent aux utilisateurs de contourner l’authentification multifacteur Azure pour les requêtes de sites Web provenant d’adresses IP ou de sous-réseaux spécifiques. Par exemple, vous pouvez ne pas requérir la vérification en deux étapes lorsque les utilisateurs se connectent à partir du bureau. Pour ce faire, vous devez définir le sous-réseau du bureau comme adresse IP approuvée.
 
 ### <a name="to-configure-trusted-ips"></a>Pour configurer des adresses IP de confiance
+
 1. Dans la section Authentification IIS, cliquez sur l’onglet **Adresses IP approuvées**.
 2. Cliquez sur **Ajouter…** .
 3. Lorsque la boîte de dialogue Ajouter des adresses IP approuvées s’affiche, sélectionnez les boutons **Adresse IP unique**, **Plage d’adresses IP** ou **Sous-réseau**.
-4. Entrez l’adresse IP, la plage d’adresses IP ou le sous-réseau à ajouter à la liste blanche. Si vous entrez un sous-réseau, sélectionnez le masque réseau approprié et cliquez sur **OK**. L'adresse IP de confiance a été ajoutée.
+4. Entrez l’adresse IP, plage d’adresses IP ou le sous-réseau doit être autorisé. Si vous entrez un sous-réseau, sélectionnez le masque réseau approprié et cliquez sur **OK**.
 
 ![Configurer des adresses IP approuvées pour le serveur MFA](./media/howto-mfaserver-adfs-2/trusted.png)

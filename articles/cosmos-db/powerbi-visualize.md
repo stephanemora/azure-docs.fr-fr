@@ -4,14 +4,14 @@ description: Utilisez ce didacticiel Power BI pour importer JSON, créer des rap
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/03/2018
+ms.date: 05/21/2019
 ms.author: sngun
-ms.openlocfilehash: 2c58b982e596c95aa47442c1897410fe9ab6b99a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 76531de279dfe6e9b73b3895f0ef63c4c88b63cd
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60929669"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979006"
 ---
 # <a name="visualize-azure-cosmos-db-data-by-using-the-power-bi-connector"></a>Visualiser les données Azure Cosmos DB à l’aide du connecteur Power BI
 
@@ -48,7 +48,7 @@ Avant de suivre les instructions de ce didacticiel Power BI, assurez-vous de dis
 
 Pour partager vos rapports dans PowerBI.com, vous devez disposer d’un compte sous PowerBI.com.  Pour en savoir plus Power BI et Power BI Pro, visitez [https://powerbi.microsoft.com/pricing](https://powerbi.microsoft.com/pricing).
 
-## <a name="lets-get-started"></a>Prise en main
+## <a name="lets-get-started"></a>Commençons
 Dans ce didacticiel, imaginons que vous êtes géologue et que vous devez étudier les volcans du monde entier. Les données relatives aux volcans sont stockées dans un compte Azure Cosmos DB et le format de document JSON est semblable à ce que vous pouvez voir ci-dessous :
 
     {

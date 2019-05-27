@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 05/22/2019
 ms.author: diberry
-ms.openlocfilehash: 7c3b93db18cb8e2660118927da47ffe95abb900f
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
-ms.translationtype: MT
+ms.openlocfilehash: 59308cdadb1eda9e73b373e72112b83d93629683
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65073002"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66124349"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Installer et exécuter des conteneurs Docker LUIS
  
@@ -58,7 +58,7 @@ Ce conteneur prend en charge des valeurs minimales et recommandées pour les par
 |LUIS|1 cœur, 2 Go de mémoire|1 cœur, 4 Go de mémoire|20,40|
 
 * Chaque cœur doit être cadencé à au moins 2,6 gigahertz (GHz).
-* Programmes transactionnels - transactions par seconde
+* TPS - transactions par seconde
 
 Le nombre de cœurs et la quantité de mémoire correspondent aux paramètres `--cpus` et `--memory` qui sont utilisés dans le cadre de la commande `docker run`.
 
@@ -255,6 +255,10 @@ D’autres [exemples](luis-container-configuration.md#example-docker-run-command
 > La valeur de clé API est la **clé** dans les clés et les points de terminaison de page dans le portail de LUIS et est également disponible sur Azure `Cognitive Services` page clés de ressources.  
 
 [!INCLUDE [Running multiple containers on the same host](../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
+
+## <a name="endpoint-apis-supported-by-the-container"></a>Point de terminaison API prises en charge par le conteneur
+
+Les deux V2 et [V3 (préversion)](luis-migration-api-v3.md) versions de l’API sont disponibles avec le conteneur. 
 
 ## <a name="query-the-containers-prediction-endpoint"></a>Interroger le point de terminaison de prédiction du conteneur
 

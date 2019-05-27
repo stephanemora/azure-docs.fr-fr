@@ -1,6 +1,6 @@
 - name: Documentation de l’API Recherche Web Bing
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: "Qu’est-ce que la Recherche web Bing\_?"
       href: overview.md
@@ -105,6 +105,8 @@
       href: language-support.md
     - name: Analytique pour l’API Recherche web Bing
       href: bing-web-stats.md
+    - name: Conformité
+      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: Support
       items:
         - name: Forum des utilisateurs

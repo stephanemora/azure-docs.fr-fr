@@ -14,12 +14,12 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: aschhab
-ms.openlocfilehash: 46891a60e6fd36ec0bc19d4b52de87d18e2b6793
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 578fd0caa8986c48b3fd50a7890bb66b14bee2f4
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510293"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991723"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-java"></a>Utilisation des rubriques et abonnements Service Bus avec Java
 
@@ -30,7 +30,7 @@ Dans ce démarrage rapide, vous écrire du code Java pour envoyer des messages �
 ## <a name="prerequisites"></a>Conditions préalables
 
 1. Un abonnement Azure. Pour suivre ce tutoriel, vous avez besoin d’un compte Azure. Vous pouvez activer votre [avantages pour les abonnés Visual Studio ou MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) ou inscrivez-vous pour ouvrir un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-2. Suivez les étapes de la [Guide de démarrage rapide : Utiliser le portail Azure pour créer une rubrique Service Bus et des abonnements à la rubrique](service-bus-quickstart-topics-subscriptions-portal.md) pour effectuer les tâches suivantes :
+2. Suivez les étapes de la [Guide de démarrage rapide : utiliser le portail Azure pour créer une rubrique Service Bus et des abonnements à cette rubrique](service-bus-quickstart-topics-subscriptions-portal.md) pour effectuer les tâches suivantes :
     1. Créer un Service Bus **espace de noms**.
     2. Obtenir le **chaîne de connexion**.
     3. Créer un **rubrique** dans l’espace de noms.
@@ -454,6 +454,8 @@ Message sending: Id = 9
                         Content: [ firstName = Werner, name = Heisenberg ]
 ```
 
+> [!NOTE]
+> Vous pouvez gérer les ressources de Service Bus avec [Explorateur Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer/). L’Explorateur Service Bus permet aux utilisateurs de se connecter à un espace de noms Service Bus et administrer les entités de messagerie de manière simple. L’outil fournit des fonctionnalités avancées telles que la fonctionnalité d’importation/exportation ou de la possibilité de tester une rubrique, files d’attente, abonnements, services de relais, hubs de notification et hubs d’événements. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations, voir [Files d’attente, rubriques et abonnements Service Bus][Service Bus queues, topics, and subscriptions].

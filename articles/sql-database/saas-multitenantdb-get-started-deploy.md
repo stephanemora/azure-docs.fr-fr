@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: billgib, stein
 manager: craigg
 ms.date: 10/16/2018
-ms.openlocfilehash: 8f19303dba7fcf2a9edb325464fdd3748220903e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 350e67f5a1e7e1eab7abe27a6ca851ed2420af84
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61486154"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65978527"
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application"></a>Déployer et explorer une application mutualisée sharded
 
@@ -58,7 +58,7 @@ Pour suivre ce didacticiel, vérifiez que les prérequis suivants sont remplis 
 ### <a name="plan-the-names"></a>Planifier les noms
 
 Les étapes de cette section vous permettent de fournir une valeur *utilisateur* utilisée pour garantir que les noms de ressources sont globalement uniques et un nom du *groupe de ressources* qui contient toutes les ressources créées par un déploiement de l’application. Pour une personne nommée *Ann Finley*, nous vous suggérons :
-- *Utilisateur :* **af1**  *(ses initiales, plus un chiffre. Utilisez une valeur différente (par exemple, af2) si vous déployez l’application une deuxième fois.)*
+- *Utilisateur :* **af1***(ses initiales, plus un chiffre.   Utilisez une valeur différente (par exemple, af2) si vous déployez l’application une deuxième fois.)*
 - *Groupe de ressources :* **wingtip-mt-af1** *(wingtip-mt-af1 indique qu’il s’agit de l’application multi-locataires partitionnée. L’ajout de af1 au nom d’utilisateur correspond au nom du groupe de ressources avec les noms des ressources qu’il contient.)*
 
 Choisissez vos noms maintenant et notez-les. 
@@ -210,7 +210,7 @@ Examinons maintenant quelques-unes des ressources qui ont été déployées :
 
 1. Dans le [portail Azure](https://portal.azure.com), accédez à la liste des groupes de ressources. Ouvrez le groupe de ressources que vous avez créé lors du déploiement de l’application.
 
-   ![resource group](./media/saas-multitenantdb-get-started-deploy/resource-group.png)
+   ![groupe de ressources](./media/saas-multitenantdb-get-started-deploy/resource-group.png)
 
 2. Cliquez sur le serveur **catalog-mt&lt;utilisateur&gt;**. Le serveur de catalogue contient deux bases de données nommées *tenantcatalog* et *basetenantdb*. La base de données *basetenantdb* est une base de données de modèle vide. Elle est copiée pour créer une nouvelle base de données de locataires, quelle soit utilisée par plusieurs locataires ou un seul.
 

@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: cenkd;juliako
-ms.openlocfilehash: 229f89a8803f089c24981f56e00e36efe96de3aa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 68eeb40e905d089601208d9fc181042c7b434843
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61465117"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956798"
 ---
 # <a name="filters-and-dynamic-manifests"></a>Filtres et manifestes dynamiques
 
@@ -73,14 +73,14 @@ Voici un exemple de fichier manifeste :
     </SmoothStreamingMedia>
 
 ### <a name="dynamic-manifests"></a>Manifestes dynamiques
-Il existe des [scénarios](media-services-dynamic-manifest-overview.md#scenarios) dans lesquels votre client a besoin de davantage de flexibilité que celle décrite dans le fichier manifeste de l'élément multimédia par défaut. Par exemple : 
+Il existe des [scénarios](media-services-dynamic-manifest-overview.md#scenarios) dans lesquels votre client a besoin de davantage de flexibilité que celle décrite dans le fichier manifeste de l'élément multimédia par défaut. Exemple :
 
 * Particularité de l’appareil : distribuez uniquement les rendus spécifiés et/ou les pistes de langue spécifiées qui sont prises en charge par l’appareil utilisé pour lire le contenu (« filtrage de rendu »). 
 * Réduisez le manifeste pour afficher un sous-clip d'un événement en direct (« filtrage de sous-clip »).
 * Découpez le début d'une vidéo (« découpage d'une vidéo »).
 * Ajustez la fenêtre de présentation (DVR) afin de fournir une longueur limitée de la fenêtre du DVR dans le lecteur (« ajustement de la fenêtre de présentation »).
 
-Pour obtenir cette flexibilité, Media Services propose des **manifestes dynamiques** basés sur des [filtres](media-services-dynamic-manifest-overview.md#filters)prédéfinis.  Une fois que vous avez défini les filtres, vos clients peuvent les utiliser pour diffuser un rendu spécifique ou des sous-clips de votre vidéo. Ils peuvent spécifier des filtres dans l'URL de diffusion en continu. Les filtres peuvent s’appliquer aux protocoles de streaming à débit adaptatif par [empaquetage dynamique](media-services-dynamic-packaging-overview.md) : HLS, MPEG-DASH et Smooth Streaming. Par exemple : 
+Pour obtenir cette flexibilité, Media Services propose des **manifestes dynamiques** basés sur des [filtres](media-services-dynamic-manifest-overview.md#filters)prédéfinis.  Une fois que vous avez défini les filtres, vos clients peuvent les utiliser pour diffuser un rendu spécifique ou des sous-clips de votre vidéo. Ils peuvent spécifier des filtres dans l'URL de diffusion en continu. Les filtres peuvent s’appliquer aux protocoles de streaming à débit adaptatif par [empaquetage dynamique](media-services-dynamic-packaging-overview.md) : HLS, MPEG-DASH et Smooth Streaming. Exemple :
 
 URL MPEG DASH avec filtre
 

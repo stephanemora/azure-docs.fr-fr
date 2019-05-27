@@ -8,14 +8,14 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 04/30/2019
+ms.date: 05/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: 35d9e953ade337672fd57149e325b507f6ce115f
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: cebe22dddf9ef382c4eceb799e05cbaab30aedaa
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65405716"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65951107"
 ---
 # <a name="data-storage-and-ingress-in-azure-time-series-insights-preview"></a>Entrée et stockage des données dans Azure Time Series Insights - Préversion
 
@@ -28,7 +28,7 @@ Lorsque vous créez un environnement de référence SKU pour un paiement à l’
 * Un environnement Time Series Insights.
 * Un compte de Stockage Azure universel V1 où les données seront stockées.
 
-Time Series Insights - Préversion utilise le stockage blob Azure avec le type de fichier Parquet. Time Series Insights gère toutes les opérations de données, y compris la création d’objets blob, l’indexation et le partitionnement des données dans le compte de Stockage Azure. Vous créez ces objets blob à l’aide d’un compte de Stockage Azure.
+La version préliminaire de temps série Insights utilise le stockage Blob Azure avec le type de fichier Parquet. Time Series Insights gère toutes les opérations de données, y compris la création d’objets blob, l’indexation et le partitionnement des données dans le compte de Stockage Azure. Vous créez ces objets blob à l’aide d’un compte de Stockage Azure.
 
 Comme les autres objets blob de Stockage Azure, les objets blob créés par Time Series Insights vous permettent de lire et d’écrire ces objets blob afin de prendre en charge plusieurs scénarios d’intégration.
 
@@ -101,12 +101,12 @@ Une partition physique est un objet blob de blocs qui est stocké dans votre com
 
 ### <a name="logical-partitions"></a>Partitions logiques
 
-Une partition logique est une partition située dans une partition physique et qui stocke toutes les données associées à une valeur de clé de partition unique. Time Series Insights - Préversion partitionne logiquement chaque objet blob selon deux propriétés :
+Une partition logique est une partition située dans une partition physique et qui stocke toutes les données associées à une valeur de clé de partition unique. La version préliminaire de temps série Insights partitionne logiquement chaque objet blob selon deux propriétés :
 
 * **Time Series ID** : clé de partition pour toutes les données Time Series Insights dans le flux d’événements et le modèle.
 * **Timestamp** : heure, en fonction de l’entrée initiale.
 
-Time Series Insights - Préversion fournit des requêtes performantes basées sur ces deux propriétés. Ces deux propriétés offrent également la méthode la plus efficace pour fournir rapidement des données Time Series Insights.
+La version préliminaire de temps série Insights fournit des requêtes performantes en matière qui reposent sur ces deux propriétés. Ces deux propriétés offrent également la méthode la plus efficace pour fournir rapidement des données Time Series Insights.
 
 Il est important de sélectionner un ID Time Series approprié, car il s’agit d’une propriété immuable. Pour plus d’informations, consultez [Choose Time Series IDs](./time-series-insights-update-how-to-id.md) (Sélectionner des ID Time Series).
 
@@ -120,7 +120,7 @@ Time Series Insights publie jusqu’à deux copies de chaque événement dans vo
 
 En outre, Time Series Insights repartitionne les fichiers Parquet afin d’optimiser les API Time Series Insights. Le fichier le plus récemment repartitionné est aussi sauvegardé.
 
-Avec la préversion publique, les données sont stockées indéfiniment dans votre compte de Stockage Azure.
+La version préliminaire publique, les données sont stockées indéfiniment dans votre compte de stockage Azure.
 
 ### <a name="writing-and-editing-time-series-insights-blobs"></a>Écriture et modification des objets blob Time Series Insights
 
@@ -146,13 +146,13 @@ Vous pouvez accéder à vos données au moyen de trois méthodes générales :
 
 ### <a name="data-deletion"></a>Suppression des données
 
-Ne supprimez pas les objets blob, car Time Series Insights - Préversion conserve les métadonnées sur les objets blob qu’il contient.
+Ne pas supprimer les objets BLOB. Ils sont non seulement utile pour l’audit et la maintenance d’un enregistrement de vos données, la version préliminaire de temps série Insights conserve les métadonnées d’objets blob au sein de chaque objet blob.
 
 ## <a name="time-series-insights-data-ingress"></a>Entrée de données de temps série Insights
 
 ### <a name="ingress-policies"></a>Stratégies d’entrée
 
-Time Series Insights - Préversion prend en charge les mêmes sources d’événements et les mêmes types de fichiers que Time Series Insights à l’heure actuelle.
+Le temps série Insights Preview prend en charge les mêmes sources d’événement et les types de fichiers que Time Series Insights prend actuellement en charge.
 
 Les sources d’événements prises en charge sont les suivantes :
 
@@ -168,7 +168,7 @@ Les types de fichier pris en charge incluent :
 
 ### <a name="data-availability"></a>Disponibilité des données
 
-Time Series Insights - Préversion indexe les données à l’aide d’une stratégie d’optimisation de la taille des objets blob. Les données deviennent disponibles pour les requêtes après l’indexation, ce qui repose sur la quantité de données entrante et la vélocité d’entrée des données.
+La version préliminaire de temps série Insights indexe les données à l’aide d’une stratégie d’optimisation de la taille de l’objet blob. Les données deviennent disponibles pour les requêtes après l’indexation, ce qui repose sur la quantité de données entrante et la vélocité d’entrée des données.
 
 > [!IMPORTANT]
 > * La version de disponibilité générale (GA) Time Series Insights rend les données disponibles dans les 60 secondes suivant l’atteinte d’une source d’événement. 
@@ -177,7 +177,7 @@ Time Series Insights - Préversion indexe les données à l’aide d’une strat
 
 ### <a name="scale"></a>Scale
 
-Time Series Insights - Préversion prend en charge une mise à l’échelle de l’entrée initiale allant jusqu’à 6 méga-octets par seconde (Mbit/s) et par environnement. L’amélioration de la prise en charge de la mise à l’échelle est en cours. Nous prévoyons de mettre à jour notre documentation pour refléter ces améliorations.
+Le temps série Insights Preview prend en charge une mise à l’échelle l’entrée initiale de jusqu'à 1 octet mégabits par seconde (Mbits/s) par l’environnement. L’amélioration de la prise en charge de la mise à l’échelle est en cours. Nous prévoyons de mettre à jour notre documentation pour refléter ces améliorations.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

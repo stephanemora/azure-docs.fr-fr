@@ -14,18 +14,23 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: aschhab
-ms.openlocfilehash: d3f71382a3f2b15ec0f9764b9913a95c0d32b21d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3b805a80330dd44ac4a65db88950393d3d4d60b7
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60591809"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65992091"
 ---
-# <a name="how-to-use-service-bus-topics-and-subscriptions-with-nodejs"></a>Utilisation des rubriques et abonnements Service Bus avec Node.js
+# <a name="how-to-use-service-bus-topics-and-subscriptions-with-nodejs-and-the-azure-sb-package"></a>Rubriques de l’utilisation de Service Bus et les abonnements avec Node.js et le package azure-sb
+> [!div class="op_multi_selector" title1="Programming language" title2="Node.js pacakge"]
+> - [(Node.js | azure-sb)](service-bus-nodejs-how-to-use-topics-subscriptions.md)
+> - [(Node.js | @azure/service-bus)](service-bus-nodejs-how-to-use-topics-subscriptions-new-package.md)
 
-[!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
+Dans ce didacticiel, vous allez apprendre à créer des applications Node.js à envoyer des messages à une rubrique Service Bus et de recevoir des messages à partir d’un abonnement de Bus de Service à l’aide de la [azure-sb](https://www.npmjs.com/package/azure-sb) package. Les exemples sont écrits en JavaScript et utiliser le Node.js [module Azure](https://www.npmjs.com/package/azure) qui utilise en interne le `azure-sb` package.
 
-Ce guide décrit l’utilisation des rubriques et des abonnements Service Bus depuis les applications Node.js. Parmi les scénarios présentés :
+Le [azure-sb](https://www.npmjs.com/package/azure-sb) package utilise [API d’exécution REST Service Bus](/rest/api/servicebus/service-bus-runtime-rest). Vous pouvez obtenir une expérience plus rapide à l’aide de la nouvelle [ @azure/service-bus ](https://www.npmjs.com/package/@azure/service-bus) package qui utilise le plus rapide [protocole AMQP 1.0](service-bus-amqp-overview.md). Pour en savoir plus sur le nouveau package, consultez [l’utilisation des rubriques et abonnements Service Bus avec Node.js et @azure/service-bus package](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-nodejs-how-to-use-topics-subscriptions-new-package), sinon poursuivez votre lecture pour voir comment utiliser le [azure](https://www.npmjs.com/package/azure) package.
+
+Les scénarios présentés ici sont les suivantes :
 
 - Création de rubriques et d’abonnements 
 - Création de filtres d’abonnement 
@@ -36,8 +41,8 @@ Ce guide décrit l’utilisation des rubriques et des abonnements Service Bus de
 Pour plus d’informations sur les rubriques et les abonnements, consultez la section [Étapes suivantes](#next-steps).
 
 ## <a name="prerequisites"></a>Conditions préalables
-1. Un abonnement Azure. Pour suivre ce tutoriel, vous avez besoin d’un compte Azure. Vous pouvez activer votre [avantages pour les abonnés Visual Studio ou MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) ou vous inscrire pour un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-2. Suivez les étapes de la [Guide de démarrage rapide : Utiliser le portail Azure pour créer une rubrique Service Bus et des abonnements à la rubrique](service-bus-quickstart-topics-subscriptions-portal.md) pour créer un Service Bus **espace de noms** et obtenir le **chaîne de connexion**.
+- Un abonnement Azure. Pour suivre ce tutoriel, vous avez besoin d’un compte Azure. Vous pouvez activer votre [avantages pour les abonnés Visual Studio ou MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) ou vous inscrire pour un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+- Suivez les étapes de la [Guide de démarrage rapide : Utiliser le portail Azure pour créer une rubrique Service Bus et des abonnements à la rubrique](service-bus-quickstart-topics-subscriptions-portal.md) pour créer un Service Bus **espace de noms** et obtenir le **chaîne de connexion**.
 
     > [!NOTE]
     > Vous allez créer un **rubrique** et un **abonnement** à la rubrique à l’aide de **Node.js** dans ce démarrage rapide. 
@@ -82,7 +87,7 @@ Pour obtenir un exemple de paramétrage des variables d’environnement pour un 
 
 
 
-## <a name="create-a-topic"></a>Création d'une rubrique
+## <a name="create-a-topic"></a>Créer une rubrique
 L’objet **ServiceBusService** permet d’utiliser des rubriques. Le code suivant crée un objet **ServiceBusService**. Ajoutez-le vers le début du fichier **server.js** , après l'instruction relative à l'importation du module Azure :
 
 ```javascript
@@ -329,6 +334,9 @@ serviceBusService.deleteSubscription('MyTopic', 'HighMessages', function (error)
     }
 });
 ```
+
+> [!NOTE]
+> Vous pouvez gérer les ressources de Service Bus avec [Explorateur Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer/). L’Explorateur Service Bus permet aux utilisateurs de se connecter à un espace de noms Service Bus et administrer les entités de messagerie de manière simple. L’outil fournit des fonctionnalités avancées telles que la fonctionnalité d’importation/exportation ou de la possibilité de tester une rubrique, files d’attente, abonnements, services de relais, hubs de notification et hubs d’événements. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 Maintenant que vous avez appris les principes de base des rubriques Service Bus, consultez ces liens pour en savoir plus.

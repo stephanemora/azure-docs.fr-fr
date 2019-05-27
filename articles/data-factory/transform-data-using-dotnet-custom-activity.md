@@ -12,11 +12,11 @@ author: nabhishek
 ms.author: abnarain
 manager: craigg
 ms.openlocfilehash: ea409d6705d0146e9cb32ba11e6b785cf527739c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58904574"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66165962"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Utilisation des activités personnalisées dans un pipeline Azure Data Factory
 
@@ -102,16 +102,16 @@ Le tableau suivant indique les noms et les descriptions des propriétés qui son
 
 | Propriété              | Description                              | Obligatoire |
 | :-------------------- | :--------------------------------------- | :------- |
-| Nom                  | Nom de l’activité dans le pipeline     | Oui      |
+| name                  | Nom de l’activité dans le pipeline     | Oui      |
 | description           | Texte décrivant l’activité.  | Non        |
-| Type                  | Pour une activité personnalisée, le type d’activité est **Custom**. | Oui      |
+| type                  | Pour une activité personnalisée, le type d’activité est **Custom**. | Oui      |
 | linkedServiceName     | Service lié sur Azure Batch. Pour en savoir plus sur ce service lié, consultez l’article [Services liés de calcul](compute-linked-services.md).  | Oui      |
 | command               | Commande de l’application personnalisée à exécuter. Si l’application est déjà disponible sur le nœud du pool Azure Batch, resourceLinkedService et folderPath peuvent être ignorés. Par exemple, vous pouvez spécifier la commande pour qu’elle soit `cmd /c dir`, ce qui est pris en charge en mode natif par le nœud du pool Windows Batch. | Oui      |
 | resourceLinkedService | Le service lié Stockage Azure sur le compte de stockage où l’application personnalisée est stockée. | Non &#42;       |
 | folderPath            | Chemin du dossier de l’application personnalisée et de toutes ses dépendances.<br/><br/>Si vous avez des dépendances stockées dans les sous-dossiers (autrement dit, dans une structure de dossiers hiérarchique sous *folderPath*),-la structure de dossiers est aplatie lorsque les fichiers sont copiés vers Azure Batch. Autrement dit, tous les fichiers sont copiés dans un dossier unique, sans sous-dossier. Pour contourner ce problème, envisagez de compresser les fichiers, de copier le fichier compressé, puis de le décompresser avec du code personnalisé à l’emplacement souhaité. | Non &#42;       |
-| referenceObjects      | Tableau des services liés et des jeux de données existants. Les services liés et les jeux de données référencés sont passés à l’application personnalisée au format JSON, votre code personnalisé peut ainsi référencer des ressources de la fabrique de données. | Non        |
-| extendedProperties    | Propriétés définies par l’utilisateur qui peuvent être passées à l’application personnalisée au format JSON, votre code personnalisé peut ainsi référencer des propriétés supplémentaires. | Non        |
-| retentionTimeInDays | La durée de rétention pour les fichiers soumis à des activités personnalisées. Valeur par défaut est de 30 jours. | Non  |
+| referenceObjects      | Tableau des services liés et des jeux de données existants. Les services liés et les jeux de données référencés sont passés à l’application personnalisée au format JSON, votre code personnalisé peut ainsi référencer des ressources de la fabrique de données. | Non       |
+| extendedProperties    | Propriétés définies par l’utilisateur qui peuvent être passées à l’application personnalisée au format JSON, votre code personnalisé peut ainsi référencer des propriétés supplémentaires. | Non       |
+| retentionTimeInDays | La durée de rétention pour les fichiers soumis à des activités personnalisées. Valeur par défaut est de 30 jours. | Non |
 
 &#42; Les propriétés `resourceLinkedService` et `folderPath` doivent être toutes deux spécifiées ou omises.
 
@@ -310,7 +310,7 @@ Vous pouvez renvoyer les valeurs personnalisées figurant dans le code d’une a
 
 ## <a name="retrieve-securestring-outputs"></a>Récupérer les sorties SecureString
 
-Les valeurs de propriété sensibles désignées en tant que type *SecureString*, comme illustré dans certains exemples de cet article, sont masqués dans l’onglet Surveillance de l’interface utilisateur de Data Factory.  Lors de l’exécution réelle du pipeline, cependant, une propriété *SecureString* est sérialisée au format JSON dans le fichier `activity.json` en tant que texte brut. Par exemple : 
+Les valeurs de propriété sensibles désignées en tant que type *SecureString*, comme illustré dans certains exemples de cet article, sont masqués dans l’onglet Surveillance de l’interface utilisateur de Data Factory.  Lors de l’exécution réelle du pipeline, cependant, une propriété *SecureString* est sérialisée au format JSON dans le fichier `activity.json` en tant que texte brut. Exemple :
 
 ```json
 "extendedProperties": {

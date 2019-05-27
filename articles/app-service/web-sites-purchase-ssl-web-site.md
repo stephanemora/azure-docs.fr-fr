@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: apurvajo;cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 15441f70052950748f07b96ff234557462f268cd
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 0febb8fadd973b67ed232d6094d85894fb383d14
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65786323"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65955707"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-azure-app-service"></a>Acheter et configurer un certificat SSL pour Azure App Service
 
@@ -49,7 +49,7 @@ Aidez-vous du tableau suivant pour configurer le certificat. Lorsque vous avez t
 
 | Paramètre | Description |
 |-|-|
-| Nom | Nom convivial de votre certificat App Service. |
+| Name | Nom convivial de votre certificat App Service. |
 | Nom d'hôte de domaine nu | Si vous spécifiez ici le domaine racine, vous obtenez un certificat qui sécurise *à la fois* le domaine racine et le sous-domaine `www`. Pour sécuriser un sous-domaine uniquement, indiquez ici son nom de domaine complet (par exemple, `mysubdomain.contoso.com`). |
 | Abonnement | Centre de données dans lequel l’application web est hébergée. |
 | Groupe de ressources | Groupe de ressources qui contient le certificat. Vous pouvez utiliser un nouveau groupe de ressources, ou sélectionner le même groupe de ressources que votre application App Service, par exemple. |
@@ -70,7 +70,7 @@ Dans la page **État de Key Vault**, cliquez sur **Référentiel Key Vault** pou
 
 | Paramètre | Description |
 |-|-|
-| Nom | Nom unique composé de caractères alphanumériques et de tirets. |
+| Name | Nom unique composé de caractères alphanumériques et de tirets. |
 | Groupe de ressources | Nous vous conseillons de choisir le même groupe de ressources que votre certificat App Service. |
 | Lieu | Choisissez le même emplacement que votre application App Service. |
 | Niveau tarifaire | Pour obtenir des informations sur les tarifs, consultez [Tarification d’Azure Key Vault](https://azure.microsoft.com/pricing/details/key-vault/). |
@@ -166,4 +166,4 @@ Une fois l’opération de renouvellement est terminée, cliquez sur **synchroni
 * [Appliquer le protocole HTTPS](app-service-web-tutorial-custom-ssl.md#enforce-https)
 * [Appliquer le protocole TLS 1.1/1.2](app-service-web-tutorial-custom-ssl.md#enforce-tls-versions)
 * [Utiliser un certificat SSL dans votre code d’application dans Azure App Service](app-service-web-ssl-cert-load.md)
-* [FORUM AUX QUESTIONS : App Service Certificates](https://docs.microsoft.com/en-us/azure/app-service/faq-configuration-and-management/)
+* [FORUM AUX QUESTIONS : App Service Certificates](https://docs.microsoft.com/azure/app-service/faq-configuration-and-management/)

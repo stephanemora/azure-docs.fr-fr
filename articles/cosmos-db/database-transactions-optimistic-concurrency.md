@@ -4,21 +4,21 @@ description: Cet article décrit les transactions de base de données et le cont
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 05/21/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 568f47aacf39793d4c2da46798682abc002ca33b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1da5dabad04d72c903072a33dfb7b0229f99c62d
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60889353"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65978988"
 ---
 # <a name="transactions-and-optimistic-concurrency-control"></a>Transactions et contrôle d’accès concurrentiel optimiste
 
 Les transactions de base de données offrent un modèle de programmation prédictif et sécurisé pour gérer les modifications simultanées des données. Traditionnels bases de données relationnelles comme SQL Server, vous permettent d’écrire la logique métier à l’aide des procédures stockées et/ou les déclencheurs, l’envoyer au serveur pour l’exécution directement dans le moteur de base de données. Avec les bases de données relationnelles traditionnelles, vous êtes amené à traiter deux différents langages de programmation du langage, tel que JavaScript, Python, de programmation d’application (non transactionnel) C#, Java, etc. et le transactionnelle (de langage de programmation tel que T-SQL) qui est exécuté en mode natif par la base de données.
 
-Le moteur de base de données dans Azure Cosmos DB prend en charge les transactions entièrement conformes à ACID (atomicité, cohérence, isolation, durabilité) avec isolement de capture instantanée. Toutes les opérations de base de données dans l’étendue d’un conteneur [partition logique](partition-data.md) sont exécutées au niveau transactionnel dans le moteur de base de données qui est hébergé par le réplica de la partition. Ces opérations comprennent à la fois les opérations d’écriture (mise à jour d’un ou de plusieurs éléments dans la partition logique) et de lecture. Le tableau suivant illustre différents types de transactions et d’opérations :
+Le moteur de base de données dans Azure Cosmos DB prend en charge les transactions entièrement conformes à ACID (atomicité, cohérence, isolation, durabilité) avec isolement de capture instantanée. Toutes les opérations de base de données dans l’étendue d’un conteneur [partition logique](partition-data.md) sont exécutées au niveau transactionnel dans le moteur de base de données qui est hébergé par le réplica de la partition. Ces opérations comprennent à la fois les opérations d’écriture (mise à jour d’un ou de plusieurs éléments dans la partition logique) et de lecture. Le tableau suivant illustre les différentes opérations et les types de transactions :
 
 | **opération**  | **Type d’opération** | **Transaction à un seul ou plusieurs éléments** |
 |---------|---------|---------|
@@ -30,7 +30,7 @@ Le moteur de base de données dans Azure Cosmos DB prend en charge les transacti
 | Upsert (avec pré/postdéclencheur) | Écrire et lire | Transaction à plusieurs éléments |
 | Supprimer (sans pré/postdéclencheur) | Écrire | Transaction à un seul élément |
 | Supprimer (avec pré/postdéclencheur) | Écrire et lire | Transaction à plusieurs éléments |
-| Exécuter une procédure stockée | Écrire et lire | Transaction à plusieurs éléments |
+| Exécuter la procédure stockée | Écrire et lire | Transaction à plusieurs éléments |
 | Exécution lancée par le système d’une procédure de fusion | Écrire | Transaction à plusieurs éléments |
 | Exécution lancée par le système de la suppression des éléments en fonction de l’expiration (durée de vie ou TTL) d’un élément | Écrire | Transaction à plusieurs éléments |
 | Lire | Lire | Transaction à un seul élément |

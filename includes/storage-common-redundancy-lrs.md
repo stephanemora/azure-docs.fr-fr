@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/12/2019
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 32032f729283cb3f2a786412b563fdee88ba4c8a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 124f5c01b7718f729094de1c02391946ff50cef4
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60729618"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66113761"
 ---
 Le stockage localement redondant (LRS) offre une durabilité des objets d’au moins 99,999999999 % (11 « neuf ») sur une année donnée. Le stockage localement redondant fournit la durabilité de cet objet en répliquant vos données sur une unité d’échelle de stockage. Un centre de données, qui se trouve dans la région où vous avez créé votre compte de stockage, héberge l’unité d’échelle de stockage. Une demande d’écriture adressée à un compte de stockage LRS retourne un indicateur de réussite seulement une fois que les données sont écrites dans tous les réplicas. Chaque réplica se trouve dans des domaines d’erreur et de mise à niveau distincts au sein d’une unité d’échelle de stockage.
 
@@ -22,4 +22,4 @@ Une unité d’échelle de stockage est un ensemble de racks de nœuds de stocka
 LRS est l’option de réplication la moins coûteuse et offre la durabilité la plus faible en comparaison des autres options. Si un sinistre se produit au niveau du centre de données (par exemple, un incendie ou une inondation), tous les réplicas risquent d’être perdus ou irrécupérables. Pour atténuer ce risque, Microsoft recommande d’utiliser le stockage redondant interzone (ZRS) ou le stockage géoredondant (GRS).
 
 * En revanche, si votre application stocke des données qui peuvent être recréées facilement en cas de perte, vous pouvez opter pour un stockage LRS.
-* Certaines applications sont limitées à la réplication des données dans un pays en raison des exigences de gouvernance des données. Dans certains cas, les régions appairées dans lesquelles les données sont répliquées pour les comptes GRS peuvent se trouver dans un autre pays. Pour plus d’informations sur les régions associées, consultez la page [Régions Azure](https://azure.microsoft.com/regions/).
+* Certaines applications sont limitées à la réplication des données dans un pays/région en raison des exigences de gouvernance des données. Dans certains cas, les paires de régions sur lesquelles les données sont répliquées pour les comptes GRS peuvent être dans un autre pays/région. Pour plus d’informations sur les régions associées, consultez la page [Régions Azure](https://azure.microsoft.com/regions/).

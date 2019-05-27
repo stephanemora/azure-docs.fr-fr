@@ -1,6 +1,6 @@
 - name: Documentation Notification Hubs
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: À propos de Notification Hubs
       href: notification-hubs-push-notification-overview.md
@@ -45,7 +45,11 @@
     - name: iOS
       items:
         - name: Notifications Push sur les applications iOS
-          href: notification-hubs-ios-apple-push-notification-apns-get-started.md
+          items:
+            - name: Objective-c
+              href: notification-hubs-ios-apple-push-notification-apns-get-started.md
+            - name: Swift
+              href: notification-hubs-ios-push-notifications-swift-apps-get-started.md
         - name: Notifications Push sur des appareils spécifiques
           href: notification-hubs-ios-xplat-segmented-apns-push-notification.md
         - name: Notifications Push pour des utilisateurs spécifiques

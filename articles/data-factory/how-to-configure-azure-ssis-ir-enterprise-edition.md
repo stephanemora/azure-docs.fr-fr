@@ -13,11 +13,11 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
 ms.openlocfilehash: d2b06d044f68972ef72dd9b53401980e84ef779f
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57440928"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66152426"
 ---
 # <a name="provision-enterprise-edition-for-the-azure-ssis-integration-runtime"></a>Approvisionner Enterprise Edition pour le runtime d’intégration Azure-SSIS
 

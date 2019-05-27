@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: johndeu;
-ms.openlocfilehash: b26252ddda7997bebd730bb4c1007f76b3e645a4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b9756920d25891dbe6b71fa24c06ed8f0c8eabb0
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60650707"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65963256"
 ---
 # <a name="smooth-streaming-protocol-ms-sstr-amendment-for-hevc"></a>Avenant relatif au protocole Smooth Streaming (MS-SSTR) pour HEVC 
 
@@ -40,11 +40,11 @@ Les termes suivants sont définis dans *[MS-GLOS]* :
 
 Les termes suivants sont spécifiques à ce document :
 
->  **temps de composition :** durée de présentation d’un exemple au client, telle que définie dans [[ISO/CEI-14496-12].](https://go.microsoft.com/fwlink/?LinkId=183695)
+>  **temps de composition :** Le temps un exemple est présenté au niveau du client, tel que défini dans [[ISO/CEI-14496-12]](https://go.microsoft.com/fwlink/?LinkId=183695).
 > 
 >   **CENC** : chiffrement commun, tel que défini dans [ISO/CEI 23001-7] Deuxième édition.
 > 
->   **temps de décodage :** le temps nécessaire pour qu’un échantillon soit décodé sur le client, tel que défini dans [[ISO/IEC https://go.microsoft.com/fwlink/?LinkId=18369514496-12].](https://go.microsoft.com/fwlink/?LinkId=183695)
+>   **temps de décodage :** L’heure un échantillon est nécessaire pour être décodé sur le client, tel que défini dans [[ISO/CEI 14496-12:2008]](https://go.microsoft.com/fwlink/?LinkId=183695).
 
 **fragment :** unité téléchargeable indépendamment de **média** qui comprend un ou plusieurs **exemples**.
 
@@ -52,11 +52,11 @@ Les termes suivants sont spécifiques à ce document :
 > 
 >   **manifeste :** métadonnées relatives à la **présentation** qui permet à un client d’effectuer des requêtes de **média**. **média :** données audio, vidéo et texte compressées utilisées par le client pour lire une **présentation**. **format de média :** format bien défini de représentation audio ou vidéo en tant qu’**exemple** compressé.
 > 
->   **présentation :** ensemble de tous les **flux** et des métadonnées associées nécessaires pour lire un film. **requête :** message HTTP envoyé par le client au serveur, tel que défini dans [[RFC2616].](https://go.microsoft.com/fwlink/?LinkId=90372) **réponse :** message HTTP envoyé par le serveur au client, tel que défini dans [[RFC2616].](https://go.microsoft.com/fwlink/?LinkId=90372)
+>   **présentation :** ensemble de tous les **flux** et des métadonnées associées nécessaires pour lire un film. **requête :** Un message HTTP envoyé à partir du client au serveur, tel que défini dans [[RFC2616]](https://go.microsoft.com/fwlink/?LinkId=90372) **réponse :** Un message HTTP envoyé à partir du serveur au client, tel que défini dans [[RFC2616]](https://go.microsoft.com/fwlink/?LinkId=90372)
 > 
 >   **exemple :** plus petite unité fondamentale (par exemple, une image) dans laquelle des **média** sont stockés et traités.
 > 
->   **PEUT, DOIT, NE DOIT PAS :** ces termes (en majuscules) sont utilisés comme décrit dans [[RFC2119].](https://go.microsoft.com/fwlink/?LinkId=90317) Toutes les instructions de comportement facultatif utilisent PEUT, DOIT ou NE DOIT PAS.
+>   **PEUT, DOIT, NE DOIT PAS :** Ces termes (tout en majuscules) sont utilisés comme décrit dans [[RFC2119]](https://go.microsoft.com/fwlink/?LinkId=90317) toutes les instructions de comportement facultatif utilisent peut, doit ou ne doit pas.
 
 ## <a name="12-references"></a>1.2 Références
 

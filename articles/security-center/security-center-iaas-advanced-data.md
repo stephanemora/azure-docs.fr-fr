@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/08/2019
-ms.author: monhaber
-ms.openlocfilehash: e601bbaa0d15078fc2b19b5b7c536e3a1f6d20ad
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.author: v-mohabe
+ms.openlocfilehash: cfe633c5251842257a0bef5237ea6b80aeaf05e9
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65442746"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65968588"
 ---
 # <a name="advanced-data-security-for-sql-servers-on-iaas"></a>Sécurité avancée des données pour les serveurs SQL sur IaaS
 Sécurité avancée des données pour les serveurs SQL IaaS est un package unifié incluant des fonctionnalités de sécurité avancées SQL. Cela inclut actuellement les fonctionnalités pour les surfaces et atténuer les vulnérabilités potentielles de base de données et détecter les activités anormales pouvant indiquer une menace pour votre base de données.

@@ -1,23 +1,17 @@
 ---
 title: Ressources - fonctions de modèle Azure Resource Manager | Microsoft Docs
 description: Décrit les fonctions à utiliser dans un modèle Azure Resource Manager pour récupérer des valeurs sur les ressources.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-ms.assetid: ''
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 04/09/2019
+ms.date: 05/21/2019
 ms.author: tomfitz
-ms.openlocfilehash: 4d5e6d20cb93c339d75c12ca1c0f56eaa5cc8cdd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: dcad4b988f37d46a0b843fbf905e18011bc4e313
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60783005"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65990757"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Fonctions de ressources pour les modèles Azure Resource Manager
 
@@ -43,11 +37,11 @@ La syntaxe de cette fonction varie en fonction du nom des opérations de liste. 
 
 ### <a name="parameters"></a>parameters
 
-| Paramètre | Obligatoire | Type | Description |
+| Paramètre | Requis | Type | Description  |
 |:--- |:--- |:--- |:--- |
 | nom_ressource ou identificateur_ressource |Oui |string |Identificateur unique pour la ressource. |
 | apiVersion |Oui |string |Version d'API de l'état d'exécution des ressources. En règle générale, au format, **aaaa-mm-jj**. |
-| functionValues |Non  |objet | Objet qui contient les valeurs de la fonction. Fournissez uniquement cet objet pour les fonctions qui prennent en charge la réception d’un objet avec des valeurs de paramètre, comme **listAccountSas** sur un compte de stockage. Un exemple de transmission de valeurs de fonction est illustré dans cet article. | 
+| functionValues |Non |objet | Objet qui contient les valeurs de la fonction. Fournissez uniquement cet objet pour les fonctions qui prennent en charge la réception d’un objet avec des valeurs de paramètre, comme **listAccountSas** sur un compte de stockage. Un exemple de transmission de valeurs de fonction est illustré dans cet article. | 
 
 ### <a name="implementations"></a>Implémentations
 
@@ -175,7 +169,7 @@ D’autres fonctions de liste ont différents formats de retour. Pour afficher l
 
 Spécifiez la ressource en utilisant le nom de la ressource ou la [fonction resourceId](#resourceid). Lorsque vous utilisez une fonction de liste dans le modèle qui déploie la ressource référencée, utilisez le nom de la ressource.
 
-Si vous utilisez un **liste** fonction dans une ressource qui est déployée conditionnelle, la fonction est évaluée même si la ressource n’est pas déployée. Vous obtenez une erreur si le **liste** fonction fait référence à une ressource qui n’existe pas. Utilisez le **si** (fonction) pour vous assurer que la fonction est évaluée uniquement lorsque la ressource existe. Consultez le [si fonction](resource-group-template-functions-logical.md#if) pour un exemple de modèle qui utilise si et une liste avec une ressource déployée de manière conditionnelle.
+Si vous utilisez un **liste** fonction dans une ressource qui est déployée conditionnelle, la fonction est évaluée même si la ressource n’est pas déployée. Vous obtenez une erreur si le **liste** fonction fait référence à une ressource qui n’existe pas. Utilisez le **si** (fonction) pour vous assurer que la fonction est évaluée uniquement lorsque la ressource est déployée. Consultez le [si fonction](resource-group-template-functions-logical.md#if) pour un exemple de modèle qui utilise si et une liste avec une ressource déployée de manière conditionnelle.
 
 ### <a name="example"></a>Exemples
 
@@ -254,10 +248,10 @@ Renvoie des informations sur un fournisseur de ressources et les types de ressou
 
 ### <a name="parameters"></a>parameters
 
-| Paramètre | Obligatoire | Type | Description |
+| Paramètre | Requis | Type | Description  |
 |:--- |:--- |:--- |:--- |
 | espacedenoms_fournisseur |Oui |string |Espace de noms du fournisseur. |
-| resourceType |Non  |string |Type de ressource dans l'espace de noms spécifié. |
+| resourceType |Non |string |Type de ressource dans l'espace de noms spécifié. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -329,11 +323,11 @@ Renvoie un objet représentant l’état d’exécution d’une ressource.
 
 ### <a name="parameters"></a>parameters
 
-| Paramètre | Obligatoire | Type | Description |
+| Paramètre | Requis | Type | Description  |
 |:--- |:--- |:--- |:--- |
 | nom_ressource ou identificateur_ressource |Oui |string |Nom ou identificateur unique d’une ressource. |
-| apiVersion |Non  |string |Version d’API de la ressource spécifiée. Incluez ce paramètre quand la ressource n’est pas provisionnée dans le même modèle. En règle générale, au format, **aaaa-mm-jj**. |
-| 'Full' |Non  |string |Valeur qui spécifie si l’objet de ressource complet doit être retourné. Si vous ne spécifiez pas `'Full'`, seul l’objet properties de la ressource est retourné. L’objet complet comprend des valeurs telles que l’ID de ressource et l’emplacement. |
+| apiVersion |Non |string |Version d’API de la ressource spécifiée. Incluez ce paramètre quand la ressource n’est pas provisionnée dans le même modèle. En règle générale, au format, **aaaa-mm-jj**. |
+| 'Full' |Non |string |Valeur qui spécifie si l’objet de ressource complet doit être retourné. Si vous ne spécifiez pas `'Full'`, seul l’objet properties de la ressource est retourné. L’objet complet comprend des valeurs telles que l’ID de ressource et l’emplacement. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -343,11 +337,11 @@ Chaque type de ressource retourne des propriétés différentes pour la fonction
 
 La fonction de référence récupère l’état d’exécution d’une ressource déployée précédemment ou déployée dans le modèle actuel. Cet article montre des exemples pour les deux scénarios. Lorsque vous référencez une ressource dans le modèle actuel, indiquez uniquement le nom de la ressource en tant que paramètre. Lorsque vous référencez une ressource précédemment déployée, fournissez l’ID de ressource et une version d’API pour cette ressource. Vous pouvez déterminer les versions d’API valides pour votre ressource dans la [référence de modèle](/azure/templates/).
 
-La fonction de référence ne peut être utilisée que dans les propriétés d’une définition de ressource et dans la section de sortie d’un modèle ou d’un déploiement.
+La fonction de référence ne peut être utilisée que dans les propriétés d’une définition de ressource et dans la section de sortie d’un modèle ou d’un déploiement. Lorsqu’il est utilisé avec [itération de propriété](resource-group-create-multiple.md#property-iteration), vous pouvez utiliser la fonction de référence pour `input` , car l’expression est affectée à la propriété de ressource. Vous ne pouvez pas l’utiliser avec `count` , car le nombre doit être déterminé avant que la fonction de référence est résolue.
 
 En utilisant la fonction reference, vous déclarez de manière implicite qu’une ressource dépend d’une autre ressource si la ressource référencée est configurée dans le même modèle et vous désignez cette ressource par son nom (pas par son ID). Vous n’avez pas besoin d’utiliser également la propriété dependsOn. La fonction n’est pas évaluée tant que le déploiement de la ressource référencée n’est pas terminé.
 
-Si vous utilisez le **référence** fonction dans une ressource qui est déployée conditionnelle, la fonction est évaluée même si la ressource n’est pas déployée.  Vous obtenez une erreur si le **référence** fonction fait référence à une ressource qui n’existe pas. Utilisez le **si** (fonction) pour vous assurer que la fonction est évaluée uniquement lorsque la ressource existe. Consultez le [si fonction](resource-group-template-functions-logical.md#if) pour un exemple de modèle qui utilise si et la référence avec une ressource déployée de manière conditionnelle.
+Si vous utilisez le **référence** fonction dans une ressource qui est déployée conditionnelle, la fonction est évaluée même si la ressource n’est pas déployée.  Vous obtenez une erreur si le **référence** fonction fait référence à une ressource qui n’existe pas. Utilisez le **si** (fonction) pour vous assurer que la fonction est évaluée uniquement lorsque la ressource est déployée. Consultez le [si fonction](resource-group-template-functions-logical.md#if) pour un exemple de modèle qui utilise si et la référence avec une ressource déployée de manière conditionnelle.
 
 Pour afficher les noms et les valeurs des propriétés pour un type de ressource donné, créez un modèle qui retourne l’objet dans la section outputs. Si vous disposez déjà d’une ressource de ce type, votre modèle retourne l’objet sans déployer de nouvelles ressources. 
 
@@ -592,13 +586,13 @@ Retourne l'identificateur unique d'une ressource. Vous utilisez cette fonction l
 
 ### <a name="parameters"></a>parameters
 
-| Paramètre | Obligatoire | Type | Description |
+| Paramètre | Obligatoire | Type | Description  |
 |:--- |:--- |:--- |:--- |
-| subscriptionId |Non  |string (au format GUID) |La valeur par défaut est l’abonnement actuel. Spécifiez cette valeur lorsque vous devez récupérer une ressource se trouvant dans un autre abonnement. |
-| nom_groupe_ressources |Non  |string |La valeur par défaut est le groupe de ressources actuel. Spécifiez cette valeur lorsque vous devez récupérer une ressource se trouvant dans un autre groupe de ressources. |
+| subscriptionId |Non |string (au format GUID) |La valeur par défaut est l’abonnement actuel. Spécifiez cette valeur lorsque vous devez récupérer une ressource se trouvant dans un autre abonnement. |
+| resourceGroupName |Non |string |La valeur par défaut est le groupe de ressources actuel. Spécifiez cette valeur lorsque vous devez récupérer une ressource se trouvant dans un autre groupe de ressources. |
 | resourceType |Oui |string |Type de ressource, y compris l'espace de noms du fournisseur de ressources. |
 | nom_ressource1 |Oui |string |Nom de la ressource. |
-| nom_ressource2 |Non  |string |Segment de nom de ressource suivant si la ressource est imbriquée. |
+| nom_ressource2 |Non |string |Segment de nom de ressource suivant si la ressource est imbriquée. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -718,14 +712,14 @@ Souvent, vous devez utiliser cette fonction lorsque vous utilisez un compte de s
 
 La sortie de l’exemple précédent avec les valeurs par défaut se présente comme suit :
 
-| Nom | type | Valeur |
+| Name | type | Valeur |
 | ---- | ---- | ----- |
-| sameRGOutput | Chaîne | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
-| differentRGOutput | Chaîne | /subscriptions/{current-sub-id}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
-| differentSubOutput | Chaîne | /subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
-| nestedResourceOutput | Chaîne | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.SQL/servers/serverName/databases/databaseName |
+| sameRGOutput | String | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
+| differentRGOutput | String | /subscriptions/{current-sub-id}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
+| differentSubOutput | String | /subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
+| nestedResourceOutput | String | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.SQL/servers/serverName/databases/databaseName |
 
-## <a name="subscription"></a>subscription
+## <a name="subscription"></a>abonnement
 
 `subscription()`
 

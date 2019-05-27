@@ -8,12 +8,12 @@ ms.workload: web
 ms.topic: article
 ms.date: 2/04/2019
 ms.author: msangapu-msft
-ms.openlocfilehash: 01e86d9769b07a57d44ae21b2c76d894ac29e8bc
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 6b4e145a693aabbf1a00d732e2fd602e7c887a03
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920039"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956017"
 ---
 # <a name="serve-content-from-azure-storage-in-app-service-on-linux"></a>Distribuer du contenu issu du Stockage Azure dans App Service sur Linux
 
@@ -74,7 +74,7 @@ az webapp config storage-account list --resource-group <resource_group> --name <
 
 Stockage Azure peut être monté avec des applications à plusieurs conteneurs à l’aide de l’id personnalisé. Pour afficher le nom personnalisé-id, exécutez [ `az webapp config storage-account list --name <app_name> --resource-group <resource_group>` ](/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-list).
 
-Dans votre *docker-compose.yml* de fichiers, mappez le `volumes` option `custom-id`. Par exemple : 
+Dans votre *docker-compose.yml* de fichiers, mappez le `volumes` option `custom-id`. Exemple :
 
 ```yaml
 wordpress:
@@ -85,4 +85,4 @@ wordpress:
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Configurer des applications web dans Azure App Service](https://docs.microsoft.com/azure/app-service/web-sites-configure)
+- [Configurer des applications web dans Azure App Service](../configure-common.md)

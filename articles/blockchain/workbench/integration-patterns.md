@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
 manager: femila
-ms.openlocfilehash: 6be1d2b1e68c52d45a42027be5f6d69cc2c25adc
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: bd53ae3346882cf20ae7464548fa9ef2c0329f05
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65509943"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65957013"
 ---
 # <a name="smart-contract-integration-patterns"></a>Modèles d’intégration de contrat intelligent
 
@@ -180,7 +180,7 @@ Dans ce modèle, dans lequel un message au format standard ne peut pas être env
 
 Un scénario d’intégration courant consiste à inclure dans un contrat intelligent des données de télémétrie récupérées de capteurs. En fonction des données fournies par les capteurs, les contrats intelligents peuvent effectuer des actions et modifier l’état du contrat.
 
-Par exemple, si un camion de livraison de médicaments voit sa température atteindre 110 degrés, l’efficacité des médicaments peut être affectée et entraîner un problème de santé publique s’il n’est pas détecté et retiré de la chaîne logistique. Si un conducteur pousse son véhicule à 160 kilomètres/heure, les informations du capteur risquent d’entraîner une résiliation du contrat d’assurance par son assureur. S’il s’agit d’un véhicule de location, les données GPS peuvent indiquer quand le conducteur est sorti du périmètre couvert par son contrat de location et entraîner la facturation de pénalités.
+Par exemple, si un camion de livraison de médicaments voit sa température atteindre 110 degrés, l’efficacité des médicaments peut être affectée et entraîner un problème de santé publique s’il n’est pas détecté et retiré de la chaîne logistique. Si un pilote accéléré leur voiture à 100 miles par heure, les informations de capteur résultant risque de déclencher une annulation d’assurance par leur fournisseur d’assurance. S’il s’agit d’un véhicule de location, les données GPS peuvent indiquer quand le conducteur est sorti du périmètre couvert par son contrat de location et entraîner la facturation de pénalités.
 
 Le défi réside dans le fait que ces capteurs peuvent fournir des données en continu et qu’il n’est pas approprié d’envoyer toutes ces données à un contrat intelligent. Une approche classique consiste à limiter le nombre de messages envoyés au blockchain mais à remettre tous les messages à un magasin secondaire. Par exemple, remettre les messages reçus à intervalle fixe uniquement, une fois par heure par exemple, et lorsqu’une valeur est en dehors de la plage convenue pour un contrat intelligent. La vérification des valeurs en dehors des tolérances garantit la bonne réception et exécution des données pertinentes pour la logique métier des contrats. La vérification de la valeur selon un intervalle garantit le bon fonctionnement du capteur. Toutes les données sont envoyées à un magasin de rapports secondaire pour permettre des rapports, des analyses et un Machine Learning plus approfondis. Par exemple, même si des résultats de capteurs GPS ne soient pas nécessaires toutes les minutes pour un contrat intelligent, ils peuvent fournir des données intéressantes à utiliser dans des rapports ou des itinéraires de mappage.
 

@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c1f8640918d433956935e9428e23aac59e36334
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 622525705979cd6a7a088c606ac167d28f8f6482
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65764661"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65951002"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Activation Personnaliser des revendications émises dans le jeton SAML pour les applications d’entreprise
 
@@ -47,7 +47,7 @@ Vous pouvez être amené à modifier les revendications émises dans le jeton SA
 Pour modifier le NameID (valeur d’identificateur de nom) :
 
 1. Ouvrez le **nom de valeur d’identificateur** page.
-1. Sélectionnez l’attribut ou la transformation à appliquer à l’attribut. Si vous le souhaitez, vous pouvez spécifier le format d’il revendication NameID avoir.
+1. Sélectionnez l’attribut ou la transformation à appliquer à l’attribut. Si vous le souhaitez, vous pouvez spécifier le format de la revendication NameID avoir.
 
    ![Modifier la valeur NameID (identificateur de nom)](./media/active-directory-saml-claims-customization/saml-sso-manage-user-claims.png)
 

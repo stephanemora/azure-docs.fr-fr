@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 06/25/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 37de2de18656f0f8ba85495b3fd72315e0bd885b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f57d80adc7c77f2d874d13a68214cd638a2ac2a0
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60903842"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65957290"
 ---
 # <a name="automate-custom-reports-with-azure-application-insights-data"></a>Automatiser des rapports personnalisés avec des données Azure Application Insights
 
@@ -93,6 +93,9 @@ availabilityResults
    ![Créer une nouvelle capture d’écran Function](./media/automate-custom-reports/function-app-03.png)
 
 5. Sélectionnez le **_modèle de synthèse planifié Application Insights_**.
+
+     > [!NOTE]
+     > Par défaut, les applications de fonction sont créées avec la version du runtime 2.x. Vous devez [version du runtime Azure Functions cible](https://docs.microsoft.com/azure/azure-functions/set-runtime-version) 1.x à utiliser Application Insights planifiée de modèle de synthèse.
 
    ![Capture d’écran Nouvelle fonction - Application Insights - Modèle](./media/automate-custom-reports/function-app-04.png)
 
