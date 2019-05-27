@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2019
-ms.author: singhkay
+ms.author: kasing
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c959b42086df2df816583ea9d2f8f2fc7a9243fd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3d9bf155f24c947f8a27a38af01aedcf0b041b94
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60743546"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65966053"
 ---
 # <a name="vertically-scale-azure-linux-virtual-machine-with-azure-automation"></a>Évolution verticale des machines virtuelles Linux Azure avec Azure Automation
 La mise à l’échelle verticale consiste à augmenter ou à réduire les ressources d’un ordinateur en réponse à la charge de travail. Dans Azure, cette opération est possible en modifiant la taille de la machine virtuelle. Cela peut vous aider dans les scénarios suivants
@@ -66,7 +66,7 @@ Les grandes lignes des étapes sont présentées ci-dessous.
 > | Standard_F1 |Standard_F16 |
 > | Standard_F1s |Standard_F16s |
 > | Standard_F2sv2 |Standard_F72sv2 |
-> | Standard_G1 |Standard_G5 |
+> | G1_standard |G5_standard |
 > | Standard_GS1 |Standard_GS5 |
 > | Standard_H8 |Standard_H16 |
 > | Standard_H8m |Standard_H16m |

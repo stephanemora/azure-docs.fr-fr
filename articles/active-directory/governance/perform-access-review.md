@@ -11,22 +11,28 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/01/2019
+ms.date: 05/21/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d42fe972b79ecd9bcee65d0664c5d13da02d2238
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6cd5bbba681acaa0c32e681f7cb4809142fe11f9
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60384617"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66113241"
 ---
 # <a name="review-access-to-groups-or-applications-in-azure-ad-access-reviews"></a>Réviser l’accès à des groupes ou les révisions d’accès des applications dans Azure AD
 
 Azure Active Directory (Azure AD) simplifie la façon dont les entreprises gèrent l’accès aux groupes et applications dans Azure AD et passe en revue des autres Services en ligne Microsoft avec une fonctionnalité appelée accès Azure AD.
 
 Cet article décrit comment un réviseur désigné effectue une révision d’accès pour les membres d’un groupe ou les utilisateurs ayant accès à une application.
+
+## <a name="prerequisites"></a>Conditions préalables
+
+- Azure AD Premium P2
+
+Pour plus d’informations, consultez [les utilisateurs doivent disposer de licences ?](access-reviews-overview.md#which-users-must-have-licenses).
 
 ## <a name="open-the-access-review"></a>Ouvrez la révision d’accès
 
@@ -64,16 +70,16 @@ Si la demande est de réviser son propre accès, la page aura un aspect différe
 
 Il existe deux méthodes que vous pouvez approuver ou refuser l’accès :
 
-- Vous pouvez approuver ou refuser chaque demande individuellement, ou
+- Vous pouvez approuver ou refuser l’accès pour un ou plusieurs utilisateurs, ou
 - Vous pouvez accepter les recommandations système, qui est le moyen le plus simple et plus rapide.
 
-### <a name="approve-or-deny-access-for-each-request"></a>Approuver ou refuser l’accès pour chaque demande
+### <a name="approve-or-deny-access-for-one-or-more-users"></a>Approuver ou refuser l’accès pour un ou plusieurs utilisateurs
 
 1. Passez en revue la liste des utilisateurs à décider s’il faut approuver ou refuser leur accès continu.
 
-1. Pour approuver ou refuser chaque demande, cliquez sur la ligne pour ouvrir une fenêtre pour spécifier l’action à entreprendre.
+1. Pour approuver ou refuser l’accès pour un seul utilisateur, cliquez sur la ligne pour ouvrir une fenêtre pour spécifier l’action à entreprendre. Pour approuver ou refuser l’accès pour plusieurs utilisateurs, ajouter des coches en regard des utilisateurs, puis sur le **(s) de la révision X** bouton pour ouvrir une fenêtre pour spécifier l’action à entreprendre.
 
-1. Cliquez sur **approuver** ou **refuser**. Si vous n’êtes pas sûr, vous pouvez cliquer sur **ne sais pas**. Cela entraînera l’utilisateur conservant son accès, mais la sélection apparaîtront dans les journaux d’audit.
+1. Cliquez sur **approuver** ou **refuser**. Si vous n’êtes pas sûr, vous pouvez cliquer sur **ne sais pas**. Cela entraînera l’utilisateur de maintenir leur accès, mais la sélection apparaîtront dans les journaux d’audit.
 
     ![Effectuer la révision d’accès](./media/perform-access-review/approve-deny.png)
 

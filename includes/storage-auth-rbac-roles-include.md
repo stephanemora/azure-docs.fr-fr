@@ -9,11 +9,11 @@ ms.date: 03/21/2019
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: 026717dff2b6883eb643497dec91226e4afe8133
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61483595"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66115579"
 ---
 Azure fournit les rôles RBAC intégrés suivants pour autoriser l’accès aux données blob et file d’attente à l’aide d’Azure AD et OAuth :
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/22/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: b7682b83ca415ebff2be1c9dbb5581e8da1bb7fb
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
-ms.translationtype: HT
+ms.openlocfilehash: 64751e0fcbf9a2255964d0de673e2cc2020ceb9a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49805065"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66114232"
 ---
 [Azure Files](../articles/storage/files/storage-files-introduction.md) prend en charge l’authentification basée sur l’identité sur SMB (Server Message Block) (préversion) via [Azure Active Directory (Azure AD) Domain Services](../articles/active-directory-domain-services/active-directory-ds-overview.md). Vos machines virtuelles Windows jointes à un domaine peuvent accéder aux partages de fichiers Azure en utilisant des informations d’identification [Azure AD](../articles/active-directory/fundamentals/active-directory-whatis.md). 
 
@@ -25,3 +25,4 @@ Dans la préversion, Azure Files prend aussi en charge la conservation, l’hér
 > - Dans la préversion, l’authentification Azure AD sur SMB n’est pas prise en charge pour les machines virtuelles Linux. Seules les machines virtuelles Windows Server sont prises en charge.
 > - L’authentification Azure AD sur SMB n’est pas prise en charge pour les machines locales accédant à Azure Files.
 > - L’authentification Azure AD est disponible uniquement pour les comptes de stockage créés après le 24 septembre 2018.
+> - L’authentification Azure AD sur SMB et les ACL NTFS persistants n’est pas prise en charge sur les partages de fichiers Azure gérés par Azure File Sync Service. 

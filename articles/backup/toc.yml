@@ -1,6 +1,6 @@
 - name: Documentation Sauvegarde Azure
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: "Qu’est-ce qu’Azure Backup\_?"
       href: backup-overview.md
@@ -21,6 +21,8 @@
       href: tutorial-restore-disk.md
     - name: Restaurer des fichiers individuels
       href: tutorial-restore-files.md
+    - name: Sauvegarder SQL Server sur une machine virtuelle Azure
+      href: tutorial-sql-backup.md
     - name: Sauvegarder Windows Server
       href: tutorial-backup-windows-server-to-azure.md
     - name: Restaurer des fichiers sur Windows Server

@@ -1,6 +1,6 @@
 - name: Documentation Azure Managed Applications
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: À propos des applications managées
       href: overview.md
@@ -45,6 +45,8 @@
           href: publish-portal.md
         - name: Utiliser un secret à partir de Key Vault
           href: key-vault-access.md
+        - name: Déployer avec Managed Identity
+          href: publish-managed-identity.md
     - name: Consommateurs
       items:
         - name: Surveiller l’application managée

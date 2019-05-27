@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 02/21/2019
 ms.author: rgarcia
 ms.openlocfilehash: 72616d5d79b4dbdb8e14463c706c1626eeb50e97
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60232593"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66110631"
 ---
 ## <a name="set-up-authentication"></a>Configurer l’authentification
 

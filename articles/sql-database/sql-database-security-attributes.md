@@ -8,12 +8,12 @@ ms.service: load-balancer
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: mbaldwin
-ms.openlocfilehash: df1ffa07c9b813ee3da4952bbcc394f43c69b7ac
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 6c495456a5a3295abe5460ff6b5586e41fab2d95
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65204238"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66001035"
 ---
 # <a name="security-attributes-for-azure-sql-database"></a>Attributs de sécurité de base de données SQL Azure
 
@@ -25,53 +25,53 @@ Base de données SQL Azure comprend à la fois [base de données unique](sql-dat
 
 ## <a name="preventative"></a>Préventif
 
-| Attribut de sécurité | Oui/Non | Notes |
+| Attribut de sécurité | Oui/non | Notes |
 |---|---|--|
 | Chiffrement au repos :<ul><li>Chiffrement côté serveur</li><li>Chiffrement côté serveur avec des clés gérées par le client</li><li>Autres fonctionnalités de chiffrement (côté client, Always Encrypted, etc.)</ul>| Oui | Appelée « chiffrement en cours d’utilisation », comme décrit dans l’article [Always Encrypted](sql-database-always-encrypted.md). Utilise le chiffrement côté service [chiffrement transparent des données](transparent-data-encryption-azure-sql.md) (TDE).|
-| Chiffrement en transit :<ul><li>Chiffrement d’ExpressRoute</li><li>Chiffrement dans le réseau virtuel</li><li>Chiffrement de réseau virtuel à réseau virtuel</ul>| Oui | Utilisation du protocole HTTPS. |
-| Gestion des clés de chiffrement (CMK, BYOK, etc.)| Oui | Gestion de clé à la fois géré par le service et gérée par le client sont proposées (ce dernier via [Azure Key Vault](../key-vault/index.yml). |
-| Chiffrement au niveau des colonnes (Azure Data Services)| Oui | Via [Always Encrypted](sql-database-always-encrypted.md). |
+| Chiffrement en transit :<ul><li>Chiffrement d’ExpressRoute</li><li>Dans le chiffrement du réseau virtuel</li><li>Chiffrement de réseau virtuel à réseau virtuel</ul>| Oui | Utilisation du protocole HTTPS. |
+| Gestion de clé de chiffrement (clé CMK, BYOK, etc.).| Oui | Gestion de clé à la fois géré par le service et gérée par le client sont proposées (ce dernier via [Azure Key Vault](../key-vault/index.yml). |
+| Chiffrement au niveau colonne (Services de données Azure)| Oui | Via [Always Encrypted](sql-database-always-encrypted.md). |
 | Appels d’API chiffrés| Oui | À l’aide de HTTPS/SSL. |
 
 ## <a name="network-segmentation"></a>Segmentation du réseau
 
-| Attribut de sécurité | Oui/Non | Notes |
+| Attribut de sécurité | Oui/non | Notes |
 |---|---|--|
 | Prise en charge du point de terminaison de service| Oui | S’applique aux [base de données unique](sql-database-single-index.yml) uniquement. |
-| Prise en charge de l’injection de réseau virtuel| Oui | S’applique aux [instance managée](sql-database-managed-instance.md) uniquement. |
-| Prise en charge de l’isolement réseau et de l’installation de pare-feu| Oui | Pare-feu sur les deux de base de données - et au niveau du serveur ; isolement de réseau [instance managée](sql-database-managed-instance.md) uniquement |
-| Prise en charge du tunneling forcé | Oui | [instance managée](sql-database-managed-instance.md) via [Azure ExpressRoute](../expressroute/index.yml) VPN |
+| Prise en charge l’injection de réseau virtuel| Oui | S’applique aux [instance managée](sql-database-managed-instance.md) uniquement. |
+| Prise en charge des pare-feu et l’isolement réseau| Oui | Pare-feu sur les deux de base de données - et au niveau du serveur ; isolement de réseau [instance managée](sql-database-managed-instance.md) uniquement |
+| Prise en charge de tunneling de forcé| Oui | [instance managée](sql-database-managed-instance.md) via [Azure ExpressRoute](../expressroute/index.yml) VPN |
 
 ## <a name="detection"></a>Détection
 
-| Attribut de sécurité | Oui/Non | Notes|
+| Attribut de sécurité | Oui/non | Notes|
 |---|---|--|
 | Prise en charge (analytique de journal, application insights, etc.) de surveillance Azure| Oui | La solution SIEM tiers proposées par Imperva (securesphere et) est également pris en charge, via [Azure Event Hubs](../event-hubs/index.yml) intégration via [SQL audit](sql-database-auditing.md). |
 
 ## <a name="identity-and-access-management"></a>Gestion de l’identité et de l’accès
 
-| Attribut de sécurité | Oui/Non | Notes|
+| Attribut de sécurité | Oui/non | Notes|
 |---|---|--|
-| Gestion des accès – Authentification| Oui | Azure Active Directory |
-| Gestion des accès – Autorisation| Oui |  |
+| Authentication| Oui | Azure Active Directory |
+| Authorization| Oui |  |
 
 
 ## <a name="audit-trail"></a>Piste d'audit
 
-| Attribut de sécurité | Oui/Non | Notes|
+| Attribut de sécurité | Oui/non | Notes|
 |---|---|--|
-| Journalisation et audit du plan de gestion/contrôle| Oui | Oui pour certains événements uniquement. |
-| Journalisation et audit du plan de données | Oui | Via [SQL audit](sql-database-auditing.md). |
+| Audit et consignation de plan de contrôle et de gestion| Oui | Oui pour certains événements uniquement. |
+| Audit et consignation de plan de données | Oui | Via [SQL audit](sql-database-auditing.md). |
 
 ## <a name="configuration-management"></a>Gestion des configurations
 
-| Attribut de sécurité | Oui/Non | Notes|
+| Attribut de sécurité | Oui/non | Notes|
 |---|---|--|
-| Prise en charge de configuration management (gestion des versions de configuration, etc.).| Non   | | 
+| Prise en charge de configuration management (gestion des versions de configuration, etc.).| Non  | | 
 
 ## <a name="additional-security-attributes-for-sql-database"></a>Attributs de sécurité supplémentaires pour la base de données SQL
 
-| Attribut de sécurité | Oui/Non | Notes|
+| Attribut de sécurité | Oui/non | Notes|
 |---|---|--|
 | Préventives : évaluation des vulnérabilités | Oui | Consultez [évaluation des vulnérabilités SQL service vous aide à identifier les vulnérabilités de base de données](sql-vulnerability-assessment.md). |
 | Préventives : découverte de données et la classification  | Oui | Consultez [découverte de données Azure SQL Database et SQL Data Warehouse et classification](sql-database-data-discovery-and-classification.md). |

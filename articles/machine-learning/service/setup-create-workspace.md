@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.author: sgilley
 author: sdgilley
-ms.date: 04/19/2019
-ms.openlocfilehash: ca43a6cff6a32a30d93e42f6a6624439b2fe83a7
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 05/21/2019
+ms.openlocfilehash: c6c32265e6fc2fc2bb0d6b00d89862e200731a2a
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64696525"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "66016461"
 ---
 # <a name="create-an-azure-machine-learning-service-workspace"></a>Créer un espace de travail du service Azure Machine Learning
 
-Pour utiliser le service Azure Machine Learning, vous devez un [ **espace de travail de service Azure Machine Learning**](concept-azure-machine-learning-architecture.md#workspace).  Cet espace de travail est la ressource de niveau supérieur pour le service et vous fournit un emplacement centralisé pour travailler avec tous les artefacts que vous créez. 
+Pour utiliser le service Azure Machine Learning, vous devez un [ **espace de travail de service Azure Machine Learning**](concept-workspace.md).  Cet espace de travail est la ressource de niveau supérieur pour le service et vous fournit un emplacement centralisé pour travailler avec tous les artefacts que vous créez. 
 
 Dans cet article, vous allez apprendre à créer un espace de travail en utilisant l’une des méthodes suivantes : 
 * Le [Azure portal](#portal) interface
@@ -33,8 +33,8 @@ Si vous souhaitez utiliser un script pour le programme d’installation automati
 
 Lorsque vous créez un espace de travail les ressources Azure suivantes sont ajoutées automatiquement (si elles sont disponibles au niveau régional) :
  
-- [Azure Container Registry](https://azure.microsoft.com/services/container-registry/)
-- [Stockage Azure](https://azure.microsoft.com/services/storage/)
+- [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) : Pour réduire les coûts, ACR est **chargées en différé** jusqu'à ce que les images de déploiement sont créés.
+- [Azure Storage](https://azure.microsoft.com/services/storage/)
 - [Azure Application Insights](https://azure.microsoft.com/services/application-insights/) 
 - [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)
 

@@ -517,7 +517,7 @@ Lors de la copie des données vers/à partir de SQL Server, les mappages suivant
 | bit |Boolean |
 | char |String, Char[] |
 | date |DateTime |
-| Datetime |DateTime |
+| DateTime |DateTime |
 | datetime2 |DateTime |
 | Datetimeoffset |DateTimeOffset |
 | Decimal |Decimal |
@@ -543,7 +543,7 @@ Lors de la copie des données vers/à partir de SQL Server, les mappages suivant
 | uniqueidentifier |Guid |
 | varbinary |Byte[] |
 | varchar |String, Char[] |
-| xml |Xml |
+| xml |xml |
 
 >[!NOTE]
 > Pour les mappages de types de données au type intermédiaire décimal, ADF prend en charge une précision allant jusqu’à 28. Si les données ont une précision supérieure à 28, envisagez d’effectuer une conversion en chaîne dans la requête SQL.

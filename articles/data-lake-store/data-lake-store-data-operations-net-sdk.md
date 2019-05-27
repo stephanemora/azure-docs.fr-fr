@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 02091f1b650e3e9932f9924bf36a5841861d3b1e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0771c9c5311e264fb996bbac1c540f9ed11873cb
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60878849"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65908061"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-net-sdk"></a>Opérations de gestion du système de fichiers sur Azure Data Lake Storage Gen1 à l’aide de .NET
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ Dans cet article, vous allez découvrir comment réaliser des opérations de ges
 Pour obtenir des instructions sur l’exécution des opérations de gestion des comptes sur Data Lake Storage Gen1 à l’aide du kit de développement logiciel (SDK) .NET, consultez la section relative aux [opérations de gestion des comptes sur Data Lake Storage Gen1 à l’aide du kit de développement logiciel (SDK) .NET](data-lake-store-get-started-net-sdk.md).
 
 ## <a name="prerequisites"></a>Conditions préalables
-* **Visual Studio 2013, 2015 ou 2017**. Les instructions ci-dessous reposent sur Visual Studio 2017.
+* **Visual Studio 2013 ou version ultérieure**. Les instructions ci-dessous utilisent Visual Studio 2019.
 
 * **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -41,19 +41,11 @@ Pour obtenir des instructions sur l’exécution des opérations de gestion des 
 ## <a name="create-a-net-application"></a>Créer une application .NET
 L’exemple de code disponible [sur GitHub](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted) vous guide tout au long du processus de création de fichiers dans le magasin, de concaténation de fichiers, de téléchargement d’un fichier et de suppression de certains fichiers du compte. Cette section de l’article vous guide tout au long des principales parties du code.
 
-1. Ouvrez Visual Studio et créez une application console.
-2. Dans le menu **Fichier**, cliquez sur **Nouveau**, puis sur **Projet**.
-3. Dans **Nouveau projet**, entrez ou sélectionnez les valeurs suivantes :
+1. Dans Visual Studio, sélectionnez le **fichier** menu, **New**, puis **projet**.
+2. Choisissez **application Console (.NET Framework)**, puis sélectionnez **suivant**.
+3. Dans **nom_projet**, entrez `CreateADLApplication`, puis sélectionnez **créer**.
 
-   | Propriété | Valeur |
-   | --- | --- |
-   | Catégorie |Modèles/Visual C#/Windows |
-   | Modèle |Application console |
-   | Nom |CreateADLApplication |
-
-4. Cliquez sur **OK** pour créer le projet.
-
-5. Ajoutez les packages NuGet à votre projet.
+4. Ajoutez les packages NuGet à votre projet.
 
    1. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le nom du projet, puis cliquez sur **Gérer les packages NuGet**.
    2. Dans l’onglet **Gestionnaire de package NuGet**, vérifiez que **Source du package** a la valeur **nuget.org** et que la case **Inclure la version préliminaire** est cochée.
@@ -64,7 +56,7 @@ L’exemple de code disponible [sur GitHub](https://github.com/Azure-Samples/dat
     
       Fermez le **Gestionnaire de package NuGet**.
 
-6. Ouvrez **Program.cs**, supprimez le code existant, puis insérez les instructions suivantes pour ajouter des références aux espaces de noms.
+5. Ouvrez **Program.cs**, supprimez le code existant, puis insérez les instructions suivantes pour ajouter des références aux espaces de noms.
 
         using System;
         using System.IO;using System.Threading;
@@ -78,7 +70,7 @@ L’exemple de code disponible [sur GitHub](https://github.com/Azure-Samples/dat
         using Microsoft.Azure.DataLake.Store;
         using Microsoft.IdentityModel.Clients.ActiveDirectory;
 
-7. Déclarez les variables comme indiqué ci-dessous, et fournissez les valeurs des espaces réservés. En outre, assurez-vous que le chemin d’accès local et le nom de fichier que vous fournissez ici existent sur l’ordinateur.
+6. Déclarez les variables comme indiqué ci-dessous, et fournissez les valeurs des espaces réservés. En outre, assurez-vous que le chemin d’accès local et le nom de fichier que vous fournissez ici existent sur l’ordinateur.
 
         namespace SdkSample
         {
@@ -90,7 +82,7 @@ L’exemple de code disponible [sur GitHub](https://github.com/Azure-Samples/dat
 
 Dans les sections suivantes de cet article, vous pouvez découvrir comment utiliser les méthodes .NET pour effectuer des opérations telles que l’authentification des utilisateurs et le chargement de fichiers.
 
-## <a name="authentication"></a>Authentification
+## <a name="authentication"></a>Authentication
 
 * Pour en savoir plus sur l’authentification des utilisateurs accédant à votre application, consultez la section relative à [l’authentification de l’utilisateur avec Data Lake Storage Gen1 à l’aide du Kit de développement logiciel (SDK) .NET](data-lake-store-end-user-authenticate-net-sdk.md).
 * Pour en savoir plus sur l’authentification entre les services dans le cadre de votre application, consultez la section relative à [l’authentification entre les services avec Data Lake Storage Gen1 à l’aide du Kit de développement logiciel (SDK) .NET](data-lake-store-service-to-service-authenticate-net-sdk.md).
@@ -139,7 +131,7 @@ L’extrait de code suivant permet de lire le contenu d’un fichier dans un com
         }
     }
 
-## <a name="get-file-properties"></a>Obtenir les propriétés de fichier
+## <a name="get-file-properties"></a>Obtenir les propriétés du fichier
 L’extrait de code suivant permet de renvoyer les propriétés associées à un fichier ou un répertoire.
 
     // Get file properties

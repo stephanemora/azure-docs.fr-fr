@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 01/12/2019
 ms.author: ellacroi
-ms.openlocfilehash: 1f3ae120bbbb902188d893d5a04582a6e9547bdf
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 297a6f9058b220d1f2e3a0ca69d018858218b774
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64937960"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65909740"
 ---
 # <a name="your-marketplace-benefits"></a>Vos avantages sur la Place de marché
 
@@ -34,11 +34,7 @@ Les avantages Go-to-Market sont accessibles aux partenaires qui ont récemment p
 2. Consultation des Places de marché Microsoft : tirez parti de cette [consultation gratuite](https://support.microsoft.com/help/4010317/microsoft-marketplaces-consultation) pour vous aider à planifier l’architecture de votre application dans la place de marché.
 3. Forums de la Place de marché : posez vos questions directement à des employés de Microsoft et à d’autres partenaires de la place de marché dans le [forum de la Place de marché](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/bd-p/2222).
 4. Support technique : utilisez le menu Aide dans le [Portail Microsoft Cloud Partner](https://cloudpartner.azure.com/) pour obtenir de l’aide sur vos questions de support liées à la Place de marché. 
-5. Parrainage des tests et du développement : vérifiez l’éligibilité ci-dessous et soumettez votre demande de parrainage à l’aide du [formulaire d’inscription](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR3omd2bW7etLoEoufw2-vMdUNUkxSjQ5V0hJOEtZSks3ME45TDJNTkVUTi4u) :
-    * Le développement et les tests ont lieu dans le cadre de la publication sur la Place de marché Microsoft Azure.
-    * Les fonds ne peuvent pas être utilisés à d’autres fins.
-    * L’attribution s’élève à 5 000 $ sur 90 jours d’utilisation, à partir du moment où la première action est effectuée dans l’abonnement assigné.
-    * L’application en cours de test doit être mise en ligne sur la Place de marché dans les 30 jours suivant le dernier jour du financement : Par exemple, si ce financement est utilisé à partir du 1er décembre, l’application doit être mise en ligne au plus tard le 31 mars.
+5. Intégration d’AAD et de développement et le test de parrainage : vous serez choisi dans, lorsque vous démarrez avec une transactable (déployable et facturable offre). Consultez la section suivante pour savoir comment bien démarrer avec les avantages go-to-market.
 
 ## <a name="go-to-market-gtm-benefits-in-the-marketplace"></a>Avantages GTM (Go-To-Market) sur la Place de marché
 
@@ -46,8 +42,8 @@ Les nouvelles annonces dans la Place de marché et AppSource sont habilitées à
 
 | Vitrine | Avantages supplémentaires disponibles |
 |:--- |:--- |
-| AppSource |  Partenaires Microsoft Gold <br> Applications d’évaluation |
-| Place de marché Azure | Offres de transaction <br> Offres d’évaluation |
+| AppSource |  Partenaires Microsoft Gold <br> Transact offres – récompenses de la place de marché <br> Applications d’évaluation |
+| Place de marché Azure | Transact offres – récompenses de la place de marché <br> Offres d’évaluation |
 
 Votre support commercial GTM inclut des modèles, du contenu web, des formations et des outils pour promouvoir votre entreprise.
 
@@ -56,18 +52,22 @@ Pour accéder à ces avantages, vous devez :
 1. Publier une offre sur la Place de marché ou AppSource.
 2. Vérifier que vous avez entré un contact marketing dans la partie **Informations de contact** de votre offre. Ce doit être une ressource marketing dédiée, et non un alias fourre-tout. (autrement dit, évitez d’utiliser « support\@ », « info\@ », « marketing\@ », etc.)
 
-Selon l’état de votre solution, offre en cours de la liste, version d’évaluation ou Transact, vous recevrez un e-mail avec les ressources d’auto-assistance, ou une invitation à un appel de consultation avec un gestionnaire d’Engagement dédié. Vous n’avez rien à faire pour lancer l’appel : l’équipe d’intégration de la place de marché vous contacte en fonction des informations que vous fournissez dans le [Portail Microsoft Cloud Partner](https://cloudpartner.azure.com/).
+Selon l’état de votre solution, offre en cours de la liste, version d’évaluation ou Transact-récompenses de la place de marché, vous recevrez un e-mail avec les ressources d’auto-assistance, ou une invitation à un appel de consultation avec un gestionnaire d’Engagement dédié. Vous n’avez rien à faire pour lancer l’appel : l’équipe d’intégration de la place de marché vous contacte en fonction des informations que vous fournissez dans le [Portail Microsoft Cloud Partner](https://cloudpartner.azure.com/).
 
-La portée des activités à votre disposition augmente à mesure que vous développez vos offres sur la Place de marché. Toutes les annonces reçoivent un niveau de base de recommandations d’optimisation et de promotion.  Ces listes peuvent également bénéficier supplémentaires marketing en fonction de statut de la solution (liste, version d’évaluation ou Transact), choisi la place de marché et réalisation de compétences des partenaires Microsoft.
+La portée des activités à votre disposition augmente à mesure que vous développez vos offres sur la Place de marché. Toutes les annonces reçoivent un niveau de base de recommandations d’optimisation et de promotion.  Ces listes sont également bénéficier des avantages de commercialisation supplémentaires en fonction de la place de marché solution état (liste, version d’évaluation ou Transact - récompenses de la place de marché), choisi et réalisation de compétences des partenaires Microsoft.
 
-Le tableau ci-dessous récapitule les conditions d’éligibilité :
+Le tableau ci-dessous récapitulent les conditions d’éligibilité pour la liste et des offres d’essai :
 
-![](./media/marketplace-publishers-guide/gtm-activities-table.png)
+![](./media/marketplace-publishers-guide/gtm-eligibility-requirements.png)
 
 \* Nécessite une compétence de niveau Silver ou Gold. <br>
 \*\* Nécessite une compétence de niveau Gold. <br>
 \*\*\* Nécessite une compétence gold et vente conjointe prêt dans la liste des partenaires. <br>
 ^ Transaction uniquement, applicable à la Place de marché Microsoft Azure.
+
+## <a name="marketplace-rewards-for-transact-partners"></a>Récompenses de la place de marché pour les partenaires de transact
+
+La liste complète des avantages pour les récompenses de la place de marché peut être affichée dans le [diapositives de résumé du programme](https://onedrive.live.com/view.aspx?resid=1900675C97CA6FE0!630&ithint=file%2cpptx&authkey=!APQ6LSnDenx2FKM).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

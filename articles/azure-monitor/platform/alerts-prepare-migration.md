@@ -7,16 +7,19 @@ ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: snmuvva
 ms.subservice: alerts
-ms.openlocfilehash: 347c89991cbb4d28b46eafff0a783148793ad2f7
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: bdbd45c2b10dec8f1c0a85110747a470e818dbf9
+ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64727484"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66015605"
 ---
 # <a name="prepare-your-logic-apps-and-runbooks-for-migration-of-classic-alert-rules"></a>Préparer vos applications logiques et les procédures opérationnelles pour la migration classiques des règles d’alerte
 
-En tant que [précédemment annoncé](monitoring-classic-retirement.md), les alertes classiques dans Azure Monitor seront retirés dans juillet 2019. Un outil de migration est disponible dans le portail Azure pour les clients qui utilisent des règles d’alerte classiques qui souhaitent déclencher migration eux-mêmes.
+En tant que [précédemment annoncé](monitoring-classic-retirement.md), les alertes classiques dans Azure Monitor seront retirés en septembre 2019 (a été initialement juillet 2019). Un outil de migration est disponible dans le portail Azure pour les clients qui utilisent des règles d’alerte classiques qui souhaitent déclencher migration eux-mêmes.
+
+> [!NOTE]
+> En raison de retards dans le déploiement de l’outil de migration, la date de suppression pour la migration des alertes classiques a été étendue pour le 31 août 2019 à partir de la date annoncée à l’origine du 30 juin 2019.
 
 Si vous choisissez de migrer volontairement vos règles d’alerte classiques pour les nouvelles règles d’alerte, n’oubliez pas qu’il existe certaines différences entre les deux systèmes. Cet article explique ces différences et comment vous pouvez préparer pour la modification.
 
@@ -30,7 +33,7 @@ Le tableau suivant est une référence pour les interfaces de programmation pour
 |---------|---------|---------|
 |API REST     | [microsoft.insights/alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules)         | [microsoft.insights/metricalerts](https://docs.microsoft.com/rest/api/monitor/metricalerts)       |
 |Azure CLI     | [az monitor alert](https://docs.microsoft.com/cli/azure/monitor/alert?view=azure-cli-latest)        | [alerte de métriques de moniteur AZ](https://docs.microsoft.com/cli/azure/monitor/metrics/alert?view=azure-cli-latest)        |
-|PowerShell      | [Référence](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrule)       |      |
+|PowerShell      | [Référence](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrule)       |  [Référence](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrulev2)    |
 | Modèle Azure Resource Manager | [Pour les alertes classiques](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-enable-template)|[Nouvelles alertes de métrique](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates)|
 
 ## <a name="notification-payload-changes"></a>Modifications de charge utile de notification
@@ -48,7 +51,7 @@ Utilisez le tableau suivant pour mapper les champs de charge utile du webhook à
 | Nom de la règle d'alerte | **context.name** | **data.context.name** |
 | Description de la règle d’alerte | **context.description** | **data.context.description** |
 | Condition de règle d’alerte | **context.condition** | **data.context.condition** |
-| Nom de métrique | **context.condition.metricName** | **data.context.condition.allOf[0].metricName** |
+| Nom de la métrique | **context.condition.metricName** | **data.context.condition.allOf[0].metricName** |
 | Agrégation de temps (comment la métrique est agrégée sur la fenêtre d’évaluation)| **data.context.condition.timeAggregation** | **data.context.condition.timeAggregation** |
 | Période d’évaluation | **context.condition.windowSize** | **data.context.condition.windowSize** |
 | Opérateur (comment la valeur de métrique agrégée est comparée au seuil) | **context.condition.operator** | **data.context.condition.operator** |

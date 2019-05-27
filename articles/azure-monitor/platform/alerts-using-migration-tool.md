@@ -7,16 +7,19 @@ ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: snmuvva
 ms.subservice: alerts
-ms.openlocfilehash: 55e6b515328df635a423e0ecf736b03e17a90b8f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 00229cca1d7fb238b330ec98cd35d0bb59bc821a
+ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64698419"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66015622"
 ---
 # <a name="use-the-voluntary-migration-tool-to-migrate-your-classic-alert-rules"></a>Utilisez l’outil de migration volontaire pour migrer vos règles d’alerte classiques
 
-En tant que [précédemment annoncé](monitoring-classic-retirement.md), les alertes classiques dans Azure Monitor seront retirés dans juillet 2019. Un outil de migration est disponible dans le portail Azure pour les clients qui utilisent des règles d’alerte classiques qui souhaitent déclencher migration eux-mêmes. Cet article explique comment utiliser l’outil de migration pour migrer volontairement vos règles d’alerte classiques avant la migration automatique démarre en juillet 2019.
+En tant que [précédemment annoncé](monitoring-classic-retirement.md), les alertes classiques dans Azure Monitor seront retirés en septembre 2019 (a été initialement juillet 2019). Un outil de migration est disponible dans le portail Azure pour les clients qui utilisent des règles d’alerte classiques qui souhaitent déclencher migration eux-mêmes. Cet article explique comment utiliser l’outil de migration pour migrer volontairement vos règles d’alerte classiques avant la migration automatique démarre en septembre 2019.
+
+> [!NOTE]
+> En raison de retards dans le déploiement de l’outil de migration, la date de suppression pour la migration des alertes classiques a été [étendue pour le 31 août 2019](https://azure.microsoft.com/updates/azure-monitor-classic-alerts-retirement-date-extended-to-august-31st-2019/) à partir de la date annoncée à l’origine du 30 juin 2019.
 
 ## <a name="benefits-of-new-alerts"></a>Avantages de nouvelles alertes
 
@@ -78,7 +81,7 @@ Pour déclencher la migration de vos règles d’alerte classiques dans le porta
 
 ### <a name="why-is-my-subscription-listed-as-not-ready-for-migration"></a>Pourquoi mon abonnement apparaît comme non prêt pour la migration ?
 
-L’outil de migration est livrée aux clients en plusieurs phases. Dans les premières phases, la plupart ou la totalité de vos abonnements peuvent être marquées comme **n’est pas prêt pour la migration**. Toutefois, en moyenne-avril, tous les abonnements doivent être prêts à migrer.
+L’outil de migration est livrée aux clients en plusieurs phases. Dans les premières phases, la plupart ou la totalité de vos abonnements peuvent être marquées comme **n’est pas prêt pour la migration**. 
 
 Quand un abonnement est prêt pour la migration, le propriétaire d’abonnement reçoit un message e-mail indiquant que l’outil est disponible. Surveillez votre pour ce message.
 

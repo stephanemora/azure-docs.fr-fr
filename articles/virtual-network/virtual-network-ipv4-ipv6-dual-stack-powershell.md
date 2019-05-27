@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/22/2019
 ms.author: kumud
-ms.openlocfilehash: f26391e36e3208996160fffad01e39ec2f182318
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: a9f8066896134072665c3f5b325e033b638bf094
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62130896"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66001011"
 ---
 # <a name="deploy-an-ipv6-dual-stack-application-in-azure---powershell-preview"></a>Déployer une application de double pile IPv6 dans Azure - PowerShell (version préliminaire)
 
@@ -151,7 +151,7 @@ $lbrule_v6 = New-AzLoadBalancerRuleConfig `
 
 ### <a name="create-load-balancer"></a>Créer un équilibreur de charge
 
-Créez l’équilibreur de charge Basic Load Balancer avec [New-AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer). L’exemple suivant crée une base équilibreur de charge public nommé *myLoadBalancer* les configurations d’IP frontales IPv4 et IPv6, pools principaux, sondes d’intégrité, l’équilibrage de charge des règles d’et NAT des règles que vous avez créé dans le étapes précédentes :
+Créez l’équilibreur de charge Basic Load Balancer avec [New-AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer). L’exemple suivant crée une base équilibreur de charge public nommé *myLoadBalancer* à l’aide de l’adresse IP frontale IPv4 et IPv6 configurations, les pools principaux et les règles d’équilibrage de charge que vous avez créé dans les étapes précédentes :
 
 ```azurepowershell-interactive
 $lb = New-AzLoadBalancer `
@@ -182,7 +182,7 @@ $avset = New-AzAvailabilitySet `
   -Sku aligned
 ```
 
-### <a name="create-network-security-group"></a>Création d’un groupe de sécurité réseau
+### <a name="create-network-security-group"></a>Créer un groupe de sécurité réseau
 
 Créer un groupe de sécurité réseau pour les règles qui gouvernent les communications entrantes et sortantes de votre réseau virtuel.
 

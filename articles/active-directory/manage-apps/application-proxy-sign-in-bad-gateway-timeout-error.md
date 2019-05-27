@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/21/2018
+ms.date: 05/21/2019
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 290b548f31a967d514b09e4de775b12de7703b07
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 7499dbe1f3f0b89a11814ad1b65a52bb9ba9fd05
+ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65782954"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66016073"
 ---
 # <a name="cant-access-this-corporate-application-error-when-using-an-application-proxy-application"></a>Erreur « Impossible d’accéder à cette application d’entreprise » lors de l’utilisation d’une application Proxy d’application
 
@@ -77,7 +77,7 @@ Pour vérifier que l’application est affectée à un groupe de connecteurs op�
 
 1. Ouvrez l’application dans le portail. Pour cela, accédez à **Azure Active Directory**, cliquez sur **Applications d’entreprise**, puis sur **Toutes les applications**. Ouvrez l’application, puis sélectionnez **Proxy d’application** dans le menu gauche.
 
-2. Examinez le champ Groupe de connecteurs. Si le groupe ne comprend aucun connecteur actif, un avertissement s’affiche. Si vous ne voyez aucun avertissement, passez à « Vérifier que tous les ports nécessaires figurent dans la liste verte ».
+2. Examinez le champ Groupe de connecteurs. Si le groupe ne comprend aucun connecteur actif, un avertissement s’affiche. Si vous ne voyez aucun avertissement, passez à vérifier tous les ports nécessaires sont autorisés.
 
 3. Si le mauvais groupe de connecteurs apparaît, utilisez la liste déroulante pour sélectionner le bon groupe et vérifiez l’absence d’avertissements. Si le groupe de connecteurs souhaité apparaît, cliquez sur le message de l’avertissement pour ouvrir la page dans l’outil de gestion des connecteurs.
 
@@ -87,11 +87,11 @@ Pour vérifier que l’application est affectée à un groupe de connecteurs op�
 
    * Télécharger un nouveau connecteur pour ce groupe : cette page contient un lien pour [télécharger un nouveau connecteur](https://download.msappproxy.net/Subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/Connector/Download). Installez le connecteur sur une machine avec une ligne de vue directe sur l’application backend. En règle générale, le connecteur est installé sur le même serveur que l’application. Utilisez le lien Télécharger le connecteur pour télécharger un connecteur sur l’ordinateur cible. Cliquez ensuite sur le connecteur, puis utilisez la liste déroulante « Groupe de connecteurs » pour vérifier qu’il appartient au bon groupe.
 
-   * Résoudre le problème d’un connecteur inactif : si un connecteur est répertorié comme étant inactif, il ne peut pas atteindre le service. Cette erreur vient généralement du fait que certains ports nécessaires sont bloqués. Pour résoudre ce problème, passez à « Vérifier que tous les ports nécessaires figurent dans la liste verte ».
+   * Résoudre le problème d’un connecteur inactif : si un connecteur est répertorié comme étant inactif, il ne peut pas atteindre le service. Cette erreur vient généralement du fait que certains ports nécessaires sont bloqués. Pour résoudre ce problème, passez à vérifier tous les ports nécessaires sont autorisés.
 
 Après avoir suivi ces étapes pour vérifier que l’application est affectée à un groupe comprenant des connecteurs opérationnels, retestez l’application. Si elle ne fonctionne toujours pas, passez à la section suivante.
 
-## <a name="check-all-required-ports-are-whitelisted"></a>Vérifier que tous les ports nécessaires figurent dans la liste verte
+## <a name="check-all-required-ports-are-open"></a>Vérifiez tous les ports nécessaires sont ouverts
 
 Pour vérifier que tous les ports nécessaires sont ouverts, consultez la documentation sur l’ouverture des ports. Si tous les ports nécessaires sont ouverts, passez à la section suivante.
 

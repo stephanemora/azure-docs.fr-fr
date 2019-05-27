@@ -13,12 +13,12 @@ ms.workload: na
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: a6ebfc86a2489910d23faa96550f34cc979c0435
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7b6323e02225be3d954e4ee91ea06952bb3ce396
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60203429"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66001760"
 ---
 # <a name="event-hubs-messaging-exceptions"></a>Exceptions de la messagerie Event Hubs
 
@@ -33,10 +33,10 @@ Les API Event Hubs génèrent des exceptions qui peuvent être classées dans le
 3. Exceptions temporaires : [Microsoft.ServiceBus.Messaging.MessagingException](/dotnet/api/microsoft.servicebus.messaging.messagingexception), [Microsoft.ServiceBus.Messaging.ServerBusyException](#serverbusyexception), [Microsoft.Azure.EventHubs.ServerBusyException](#serverbusyexception), [Microsoft.ServiceBus.Messaging.MessagingCommunicationException](/dotnet/api/microsoft.servicebus.messaging.messagingcommunicationexception). Action générale : relancez l'opération ou avertissez les utilisateurs.
 4. Autres exceptions : [System.Transactions.TransactionException](https://msdn.microsoft.com/library/system.transactions.transactionexception.aspx), [System.TimeoutException](#timeoutexception), [Microsoft.ServiceBus.Messaging.MessageLockLostException](/dotnet/api/microsoft.servicebus.messaging.messagelocklostexception), [Microsoft.ServiceBus.Messaging.SessionLockLostException](/dotnet/api/microsoft.servicebus.messaging.sessionlocklostexception). Action générale : propre au type d’exception. Reportez-vous au tableau de la section suivante. 
 
-## <a name="exception-types"></a>Types d'exceptions
+## <a name="exception-types"></a>Types d'exception
 Le tableau suivant répertorie les types d'exceptions de la messagerie, leurs causes et les propositions d'actions que vous pouvez effectuer.
 
-| Type d’exception | Description/Cause/Exemples | Action suggérée | Remarques sur la nouvelle tentative automatique/immédiate |
+| Type d'exception | Description/Cause/Exemples | Action suggérée | Remarques sur la nouvelle tentative automatique/immédiate |
 | -------------- | -------------------------- | ---------------- | --------------------------------- |
 | [TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx) |Le serveur n'a pas répondu à l'opération demandée dans le délai spécifié qui est contrôlé par le paramètre [OperationTimeout](/dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings). Le serveur peut avoir terminé l'opération demandée. Cette exception peut être levée en raison de délais sur le réseau ou autre infrastructure. |Vérifiez la cohérence de l'état du système et réessayez si nécessaire.<br /> Consultez [TimeoutException](#timeoutexception). | Dans certains cas, l'exécution d'une nouvelle tentative peut aider ; ajouter une logique de nouvelle tentative au code. |
 | [InvalidOperationException](https://msdn.microsoft.com/library/system.invalidoperationexception.aspx) |L'opération utilisateur demandée n'est pas autorisée sur le serveur ou le service. Consultez le message de l'exception pour obtenir plus d'informations. Par exemple, le paramètre [Complete](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) génère cette exception si le message a été reçu en mode [ReceiveAndDelete](/dotnet/api/microsoft.servicebus.messaging.receivemode) . | Vérifiez le code et consultez la documentation. Assurez-vous que l'opération demandée est valide. | Une nouvelle tentative ne sera pas bénéfique. |
@@ -91,6 +91,12 @@ Cette erreur peut se produire pour deux raisons :
 
 Cette erreur survient rarement. Elle se présente lorsque le conteneur exécutant le code pour votre espace de noms n’a pas suffisamment de ressources d’UC ; pas plus de quelques secondes avant que l’équilibrage de charge des Event Hubs commence.
 
+### <a name="limit-on-calls-to-the-getruntimeinformation-method"></a>Limiter les appels à la méthode GetRuntimeInformation
+Azure Event Hubs prend en charge jusqu'à 50 appels par seconde pour le GetRuntimeInfo par seconde. Vous pouvez recevoir une exception semblable à celle qui suit une fois que la limite est atteinte :
+
+```
+ExceptionId: 00000000000-00000-0000-a48a-9c908fbe84f6-ServerBusyException: The request was terminated because the namespace 75248:aaa-default-eventhub-ns-prodb2b is being throttled. Error code : 50001. Please wait 10 seconds and try again.
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

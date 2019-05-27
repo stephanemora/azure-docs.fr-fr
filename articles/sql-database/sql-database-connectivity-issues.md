@@ -13,12 +13,12 @@ ms.author: ninarn
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 11/14/2018
-ms.openlocfilehash: 7d07b0a098aad472b1b4f0b9810e5b63ac3c48a2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 56b4e948f4e1aab20de95a16f45ab790c7e591bb
+ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60202126"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66019818"
 ---
 # <a name="working-with-sql-database-connection-issues-and-transient-errors"></a>Gestion des problèmes de connexion et des erreurs temporaires de base de données SQL
 
@@ -134,7 +134,7 @@ Si votre programme client se connecte à SQL Database à l’aide de la classe 
 Lorsque vous générez la [chaîne de connexion](https://msdn.microsoft.com/library/System.Data.SqlClient.SqlConnection.connectionstring.aspx) pour votre objet **SqlConnection**, coordonnez les valeurs entre les paramètres suivants :
 
 - **ConnectRetryCount** :&nbsp;&nbsp;La valeur par défaut est 1. La plage s’étend de 0 à 255.
-- **ConnectRetryInterval** :&nbsp;&nbsp;La valeur par défaut est 1 seconde. La plage s’étend de 1 à 60.
+- **ConnectRetryInterval**:&nbsp;&nbsp;par défaut est 10 secondes. La plage s’étend de 1 à 60.
 - **ConnectionTimeout** :&nbsp;&nbsp;La valeur par défaut est 15 secondes. La plage s’étend de 0 à 2 147 483 647.
 
 Plus précisément, les valeurs que vous choisissez doivent vérifier la formule suivante : Délai d’expiration de connexion = ConnectRetryCount × ConnectionRetryInterval

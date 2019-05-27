@@ -10,15 +10,15 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: ''
 manager: craigg
-ms.date: 04/25/2019
-ms.openlocfilehash: 6d7d065f45bca38cedd2c276bdd9b98dfd9675df
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.date: 05/22/2019
+ms.openlocfilehash: 8499d99ab82fa89062d74c7dc5db5d7dd11e770c
+ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64866947"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66016390"
 ---
-# <a name="time-zones-in-azure-sql-database-managed-instance-preview"></a>Fuseaux horaires dans Azure SQL Database Managed Instance (version préliminaire)
+# <a name="time-zones-in-azure-sql-database-managed-instance"></a>Fuseaux horaires dans Azure SQL Database Managed Instance
 
 Temps universel coordonné (UTC) est le fuseau horaire recommandé pour la couche de données de solutions de cloud. Azure SQL Database Managed Instance offre également un choix de fuseaux horaires pour répondre aux besoins des applications existantes qui stockent les valeurs de date et d’heure et appellent des fonctions de date et d’heure avec un contexte implicite d’un fuseau horaire spécifique.
 
@@ -100,39 +100,39 @@ Lorsque vous effectuez une restauration de point-à-temps, le temps à restaurer
 
 | **ID de fuseau horaire** | **Nom d’affichage de fuseau horaire** |
 | --- | --- |
-| Changement de date | (UTC-12:00) Ligne de changement de date ouest |
+| Changement de date | (UTC-12:00) Ligne de changement de date internationale (Ouest) |
 | UTC-11 | (UTC-11:00) Temps universel coordonné-11 |
-| Heure standard Îles Aléoutiennes | (UTC-10:00) Îles aléoutiennes |
+| Heure standard Îles Aléoutiennes | (UTC-10:00) Îles Aléoutiennes |
 | Hawaii | (UTC-10:00) Hawaii |
 | Heure standard Marquises | (UTC-09:30) Îles Marquises |
 | Alaska | (UTC-09:00) Alaska |
 | UTC-09 | (UTC-09:00) Temps universel coordonné-09 |
-| Pacifique (Mexique) | (UTC-08:00) Baja California |
+| Pacifique (Mexique) | (UTC-08:00) Basse Californie |
 | UTC-08 | (UTC-08:00) Temps universel coordonné-08 |
-| Pacifique | (UTC-08:00) Heure du Pacifique (États-Unis et Canada) |
+| Pacifique | (UTC-08:00) Pacifique (É.-U. et Canada) |
 | Heure d'hiver États-Unis (Montagnes Rocheuses) | (UTC-07:00) Arizona |
 | Heure d'hiver Montagnes Rocheuses (Mexique) | (UTC-07:00) Chihuahua, La Paz, Mazatlan |
-| Rocheuses | (UTC-07:00) Heure des montagnes Rocheuses (États-Unis et Canada) |
+| Rocheuses | (UTC-07:00) Montagnes Rocheuses (É.-U. et Canada) |
 | Amérique centrale | (UTC-06:00) Amérique centrale |
-| Centre | (UTC-06:00) Heure du centre (États-Unis et Canada) |
+| Centre | (UTC-06:00) Centre (É.-U. et Canada) |
 | Heure standard Île de Pâques | (UTC-06:00) Île de Pâques |
-| Heure d’hiver Centre (Mexique) | (UTC-06:00) Guadalajara, Mexico City, Monterrey |
+| Heure d’hiver Centre (Mexique) | (UTC-06:00) Guadalajara, Mexico, Monterrey |
 | Heure standard de la région Canada Centre | (UTC-06:00) Saskatchewan |
 | Heure d'hiver Amérique du Sud Pacifique | (UTC-05:00) Bogota, Lima, Quito, Rio Branco |
 | Heure d’hiver de l'Est (Mexique) | (UTC-05:00) Chetumal |
-| Est | (UTC-05:00) Heure de l’Est (États-Unis et Canada) |
+| Est | (UTC-05:00) Est (É.-U. et Canada) |
 | Heure standard Haïti | (UTC-05:00) Haïti |
-| Heure standard Cuba | (UTC-05:00) La Havane |
+| Heure standard Cuba | (UTC-05:00) Havane (La) |
 | Heure d'hiver États-Unis (Est) | (UTC-05:00) Indiana (Est) |
 | Îles Turks et Caicos heure d’hiver | (UTC-05:00) Îles Turques-et-Caïques |
-| Paraguay | (UTC-04:00) Asuncion |
-| Atlantique | (UTC-04:00) Heure de l’Atlantique (Canada) |
+| Paraguay | (UTC-04:00) Asunción |
+| Atlantique | (UTC-04:00) Heure Atlantique (Canada) |
 | Venezuela | (UTC-04:00) Caracas |
 | Brésil Centre | (UTC-04:00) Cuiaba |
 | Heure d'hiver Amérique du Sud (Ouest) | (UTC-04:00) Georgetown, La Paz, Manaus, San Juan |
 | Heure d'hiver Amérique du Sud Pacifique | (UTC-04:00) Santiago |
-| Heure d’hiver Terre-Neuve | (UTC-03:30) Terre-Neuve |
-| Heure standard Tocantins | (UTC-03:00) Araguaina |
+| Heure d’hiver Terre-Neuve | (UTC-03:30) Terre-Neuve-et-Labrador |
+| Heure standard Tocantins | (UTC-03:00) Araguaína |
 | E. Heure d’hiver Amérique du Sud | (UTC-03:00) Brasilia |
 | Heure d'hiver Amérique du Sud (Est) | (UTC-03:00) Cayenne, Fortaleza |
 | Argentine | (UTC-03:00) Buenos Aires |
@@ -143,10 +143,10 @@ Lorsque vous effectuez une restauration de point-à-temps, le temps à restaurer
 | Bahia | (UTC-03:00) Salvador |
 | UTC-02 | (UTC-02:00) Temps universel coordonné-02 |
 | Centre-Atlantique | (UTC-02:00) Centre-Atlantique - Ancien |
-| Heure standard des Açores | (UTC-01:00) Açores |
+| Heure standard des Açores | (UTC-01:00) Azores |
 | Cap-Vert | (UTC-01:00) Îles du Cap Vert |
 | UTC | (UTC) Temps universel coordonné |
-| GMT | (UTC+00:00) Dublin, Édimbourg, Lisbonne, Londres |
+| GMT | (UTC+00:00) Dublin, Edimbourg, Lisbonne, Londres |
 | Greenwich | (UTC+00:00) Monrovia, Reykjavik |
 | W. Heure d’hiver Europe | (UTC+01:00) Amsterdam, Berlin, Berne, Rome, Stockholm, Vienne |
 | Europe centrale | (UTC+01:00) Belgrade, Bratislava, Budapest, Ljubljana, Prague |
@@ -154,9 +154,9 @@ Lorsque vous effectuez une restauration de point-à-temps, le temps à restaurer
 | Maroc | (UTC+01:00) Casablanca |
 | Heure standard de São Tomé | (UTC+01:00) São Tomé |
 | Centre de l'Europe | (UTC+01:00) Sarajevo, Skopje, Varsovie, Zagreb |
-| W. Afrique centrale | (UTC+01:00) Afrique Centrale de l’Ouest |
+| W. Afrique centrale | (UTC+01:00) Afrique centrale - Ouest |
 | Jordanie | (UTC+02:00) Amman |
-| GTB | (UTC+02:00) Athènes, Bucharest |
+| GTB | (UTC+02:00) Athènes, Bucarest |
 | Heure standard du Moyen-Orient | (UTC+02:00) Beyrouth |
 | Égypte | (UTC+02:00) Le Caire |
 | E. Heure d’hiver Europe | (UTC+02:00) Chisinau |
@@ -176,7 +176,7 @@ Lorsque vous effectuez une restauration de point-à-temps, le temps à restaurer
 | Heure d’hiver Russie | (UTC+03:00) Moscou, St. Petersbourg |
 | E. Heure d’hiver Afrique | (UTC+03:00) Nairobi |
 | Iran | (UTC+03:30) Téhéran |
-| Arabie | (UTC+04:00) Abu Dhabi, Mascate |
+| Arabie | (UTC+04:00) Abu Dhabi, Muscat |
 | Heure standard Astrakhan | (UTC+04:00) Astrakhan, Oulianovsk |
 | Azerbaïdjan | (UTC+04:00) Bakou |
 | Fuseau horaire de Russie 3 | (UTC+04:00) Izhevsk, Samara |
@@ -189,20 +189,20 @@ Lorsque vous effectuez une restauration de point-à-temps, le temps à restaurer
 | Asie de l'Ouest | (UTC+05:00) Achgabat, Tachkent |
 | Iekaterinbourg | (UTC+05:00) Iekaterinbourg |
 | Pakistan | (UTC+05:00) Islamabad, Karachi |
-| Inde | (UTC+05:30) Chennai, Kolkata, Mumbai, New Delhi |
-| Sri Lanka | (UTC+05:30) Sri Jayawardenepura |
+| Inde | (UTC+05:30) Chennai, Kolkata, Mumbai (Bombay), New Delhi |
+| Sri Lanka | (UTC+05:30) Sri Jayawardenapura |
 | Népal | (UTC+05:45) Katmandou |
 | Asie centrale | (UTC+06:00) Astana |
-| Bangladesh | (UTC+06:00) Dacca |
+| Bangladesh | (UTC+06:00) Dhaka |
 | Heure standard Omsk | (UTC+06:00) Omsk |
 | Myanmar | (UTC+06:30) Yangon (Rangoon) |
-| Heure d’hiver Asie (Sud-Est) | (UTC+07:00) Bangkok, Hanoï, Jakarta |
-| Heure standard Altaï | (UTC+07:00) Barnaul, Gorno-Altaysk |
+| Heure d’hiver Asie (Sud-Est) | (UTC+07:00) Bangkok, Hanoi, Jakarta |
+| Heure standard Altaï | (UTC+07:00) Barnaul, Gorno-Altaïsk |
 | W. Heure d’hiver Mongolie | (UTC+07:00) Hovd |
 | Asie du Nord | (UTC+07:00) Krasnoïarsk |
 | N. Asie centrale | (UTC+07:00) Novossibirsk |
 | Heure standard Tomsk | (UTC+07:00) Tomsk |
-| Chine | (UTC+08:00) Beijing, Chongqing, Hong Kong, Urumqi |
+| Chine | (UTC+08:00) Beijing, Chongqing, Hong Kong R.A.S., Urumqi |
 | Asie du Nord est des États-Unis | (UTC+08:00) Irkoutsk |
 | Heure d’hiver Singapour | (UTC+08:00) Kuala Lumpur, Singapour |
 | W. Heure d’hiver Australie | (UTC+08:00) Perth |
@@ -214,7 +214,7 @@ Lorsque vous effectuez une restauration de point-à-temps, le temps à restaurer
 | Heure d’hiver Corée du Nord | (UTC+09:00) Pyongyang |
 | Corée | (UTC+09:00) Séoul |
 | Yakoutsk | (UTC+09:00) Iakoutsk |
-| CEN. Heure d’hiver Australie | (UTC+09:30) Adelaide |
+| CEN. Heure d’hiver Australie | (UTC+09:30) Adélaïde |
 | Heure d'hiver Australie centrale | (UTC+09:30) Darwin |
 | E. Heure d’hiver Australie | (UTC+10:00) Brisbane |
 | Heure d’hiver Australie (Est) | (UTC+10:00) Canberra, Melbourne, Sydney |
@@ -228,16 +228,16 @@ Lorsque vous effectuez une restauration de point-à-temps, le temps à restaurer
 | Heure standard Norfolk | (UTC+11:00) Île Norfolk |
 | Heure standard Sakhaline | (UTC+11:00) Sakhaline |
 | Pacifique Centre | (UTC+11:00) Îles Salomon, Nouvelle-Calédonie |
-| Fuseau horaire de Russie 11 | (UTC+12:00) Anadyr, Petropavlovsk-Kamchatsky |
+| Fuseau horaire de Russie 11 | (UTC+12:00) Anadyr, Petropavlovsk-Kamtchatski |
 | Nouvelle-Zélande | (UTC+12:00) Auckland, Wellington |
 | UTC+12 | (UTC+12:00) Temps universel coordonné+12 |
 | Heure d’hiver Fidji | (UTC+12:00) Fidji |
 | Kamchatka | (UTC+12:00) Petropavlovsk-Kamchatsky - Ancien |
 | Heure standard Îles Chatham | (UTC+12:45) Îles Chatham |
 | UTC+13 | (UTC+13:00) Temps universel coordonné +13 |
-| Tonga | (UTC+13:00) Nuku’alofa |
-| Heure standard de Samoa | (UTC+13:00) Samoa |
-| Heure d'hiver Îles de la Ligne | (UTC+14:00) Île de Kiritimati |
+| Tonga | (UTC+13:00) Nuku'alofa |
+| Heure standard de Samoa | (UTC+13:00) Îles Samoa |
+| Heure d'hiver Îles de la Ligne | (UTC+14:00) Île Christmas |
 
 ## <a name="see-also"></a>Voir aussi 
 

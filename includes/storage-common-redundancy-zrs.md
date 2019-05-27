@@ -9,11 +9,11 @@ ms.date: 11/04/2018
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: 037996385f34c5037e0386686e3bdf8dc1b7a37a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60731388"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66113775"
 ---
 Le stockage redondant interzone (ZRS) réplique vos données de façon synchrone sur trois clusters de stockage dans une seule région. Chaque cluster de stockage est séparé physiquement des autres et se trouve dans sa propre zone de disponibilité. Chaque zone de disponibilité &mdash;et le cluster ZRS qu’elle contient&mdash; est autonome et inclut des utilitaires et fonctionnalités de mise en réseau séparés.
 

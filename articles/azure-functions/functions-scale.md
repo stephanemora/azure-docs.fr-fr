@@ -13,12 +13,12 @@ ms.topic: reference
 ms.date: 03/27/2019
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 459758142c94ddfd244df1427dd5632186efc0de
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 05fb277564f72e62a4cdacc12a16cce229b2befc
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61045830"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65872740"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Échelle et hébergement dans Azure Functions
 
@@ -75,7 +75,7 @@ Au lieu de facturation par l’exécution et de mémoire consommée, la facturat
 
 Lors de l’exécution des fonctions JavaScript sur un plan Premium, vous devez choisir une instance qui possède moins de processeurs virtuels. Pour plus d’informations, consultez le [choisir des plans de Premium à cœur unique](functions-reference-node.md#considerations-for-javascript-functions).  
 
-## <a name="app-service-plan"></a>Plan App Service
+## <a name="app-service-plan"></a>plan App Service
 
 Vos applications de fonction peuvent également exécuter sur les même des machines virtuelles dédiées en tant que d’autres applications App Service (Basic, Standard, Premium et isolé références (SKU)). Les plans App Service prennent en charge Linux.
 
@@ -165,3 +165,9 @@ La facturation du plan de consommation est décrite en détail dans la page [Tar
 Requêtes utiles et des informations sur la façon de comprendre votre facture de consommation, vous pouvez trouver [sur le Forum aux questions de facturation](https://github.com/Azure/Azure-Functions/wiki/Consumption-Plan-Cost-Billing-FAQ).
 
 [Tarification d’Azure Functions]: https://azure.microsoft.com/pricing/details/functions
+
+## <a name="service-limits"></a>Limites du service
+
+Le tableau suivant indique les limites qui s’appliquent aux applications de fonction lors de l’exécution dans les plans d’hébergement différents :
+
+[!INCLUDE [functions-limits](../../includes/functions-limits.md)]

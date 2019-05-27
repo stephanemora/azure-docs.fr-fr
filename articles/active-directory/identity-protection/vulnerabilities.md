@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 80faf1899da0f16d25b9b7c68cb0edcbc1276632
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0e792551f4cac857f56454c67d527e01cb9c4281
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60294229"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66113121"
 ---
 # <a name="vulnerabilities-detected-by-azure-active-directory-identity-protection"></a>Vulnérabilités détectées par Azure Active Directory Identity Protection
 
@@ -30,20 +30,18 @@ Les sections suivantes fournissent une vue d’ensemble des vulnérabilités sig
 
 Cette vulnérabilité vous aide à évaluer le déploiement de l’authentification multifacteur Azure dans votre organisation.
 
-Pour afficher le nombre pour les utilisateurs qui ne sont pas inscrits pour l’authentification Multifacteur, cliquez sur la vulnérabilité et vous êtes redirigé vers statistiques au sein de l’identité Secure Score.
-
 Azure multi-Factor Authentication fournit une deuxième couche de sécurité à l’authentification utilisateur. Elle contribue à sécuriser l’accès aux données et aux applications tout en répondant à la demande des utilisateurs souhaitant un processus d’authentification simple. Azure multi-Factor Authentication fournit des options de vérification facile à utiliser comme :
 
 * appel téléphonique
 * SMS
-* Notification sur l’application mobile
+* Notificaiton d'application mobile
 * Code de vérification du secret à usage unique
 
 Nous vous recommandons d’exiger l’authentification multifacteur d’Azure pour les connexions des utilisateurs. L’authentification multifacteur joue un rôle clé dans les stratégies d’accès conditionnel en fonction des risques disponibles via Identity Protection.
 
 Pour plus d’informations, consultez [Présentation d’Azure Multi-Factor Authentication](../authentication/multi-factor-authentication.md).
 
-## <a name="unmanaged-cloud-apps"></a>Applications cloud non gérées
+## <a name="unmanaged-cloud-apps"></a>Applications cloud non managées
 
 Cette vulnérabilité vous permet d’identifier les applications cloud non gérées au sein de votre organisation.
 
@@ -53,7 +51,7 @@ Nous vous recommandons de déployer Cloud Discovery pour découvrir les applicat
 
 Pour plus d’informations, consultez [Cloud Discovery](/cloud-app-security/set-up-cloud-discovery).
 
-## <a name="security-alerts-from-privileged-identity-management"></a>Alertes de sécurité du service Privileged Identity Management
+## <a name="security-alerts-from-privileged-identity-management"></a>Alertes de sécurité de Privileged Identity Management
 
 Cette vulnérabilité vous aide à détecter et à résoudre les alertes relatives aux identités privilégiées dans votre organisation.  
 

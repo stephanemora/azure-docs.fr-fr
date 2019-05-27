@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 05/08/2019
+ms.date: 05/21/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 017c2fd934f35a64f26687f4a58634dda9a821a3
-ms.sourcegitcommit: 1d257ad14ab837dd13145a6908bc0ed7af7f50a2
+ms.openlocfilehash: 2269eac0790e61dbf0ce893bbb737cb22d58d497
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65501957"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002479"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Solution de démarrage/arrêt des machines virtuelles durant les heures creuses dans Azure Automation
 
@@ -49,7 +49,7 @@ Il est recommandé d’utiliser un compte Automation distinct pour la solution S
 
 ### <a name="permissions-needed-to-deploy"></a>Autorisations nécessaires au déploiement
 
-Il existe certaines autorisations qu’un utilisateur doit avoir déployer les machines virtuelles Start/Stop pendant hors tension de la solution d’heures. Ces autorisations sont différentes si vous utilisez un espace de travail compte Automation et d’Analytique de journal créé au préalable ou créer de nouveaux au cours du déploiement.
+Il existe certaines autorisations qu’un utilisateur doit avoir déployer les machines virtuelles Start/Stop pendant hors tension de la solution d’heures. Ces autorisations sont différentes si vous utilisez un espace de travail compte Automation et d’Analytique de journal créé au préalable ou créer de nouveaux au cours du déploiement. Si vous êtes un collaborateur sur l’abonnement et un administrateur général dans votre client Azure Active Directory, il est inutile de configurer les autorisations suivantes. Si vous ne pas disposer de ces droits ou avez besoin configurer un rôle personnalisé, consultez les autorisations requises ci-dessous.
 
 #### <a name="pre-existing-automation-account-and-log-analytics-account"></a>Compte préexistant compte Automation et d’Analytique de journal
 
@@ -79,41 +79,21 @@ Pour déployer le Start/Stop VMs au cours de désactiver la solution d’heures 
 
 Pour déployer le Start/Stop VMs during heures creuses solution à un nouveau compte Automation Analytique de journal d’espace de travail et l’utilisateur de déploiement de la solution doit les autorisations définies dans la section précédente, ainsi que les autorisations suivantes :
 
-- Coadministrateur sur l’abonnement : cela est nécessaire pour créer le compte d’identification Classic
-- Faire partie de la **développeur d’applications** rôle. Pour plus d’informations sur la configuration des comptes d’identification, consultez [autorisations pour configurer les comptes d’identification](manage-runas-account.md#permissions).
+- Coadministrateur sur l’abonnement : cela est uniquement nécessaire pour créer le compte d’identification Classic
+- Faire partie de la [Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md) **développeur d’applications** rôle. Pour plus d’informations sur la configuration des comptes d’identification, consultez [autorisations pour configurer les comptes d’identification](manage-runas-account.md#permissions).
+- Collaborateur sur l’abonnement ou les autorisations suivantes.
 
 | Autorisation |`Scope`|
 | --- | --- |
+| Microsoft.Authorization/Operations/read | Abonnement|
+| Microsoft.Authorization/permissions/read |Abonnement|
 | Microsoft.Authorization/roleAssignments/read | Abonnement |
 | Microsoft.Authorization/roleAssignments/write | Abonnement |
+| Microsoft.Authorization/roleAssignments/delete | Abonnement |
 | Microsoft.Automation/automationAccounts/connections/read | Groupe de ressources |
 | Microsoft.Automation/automationAccounts/certificates/read | Groupe de ressources |
 | Microsoft.Automation/automationAccounts/write | Groupe de ressources |
 | Microsoft.OperationalInsights/workspaces/write | Groupe de ressources |
-
-### <a name="region-mappings"></a>Mappages de régions
-
-Lors de l’activation de Start/Stop VMs during off-, uniquement dans certaines régions sont prises en charge pour la liaison d’un espace de travail Analytique de journal et un compte Automation.
-
-Le tableau suivant renseigne sur les mappages pris en charge :
-
-|**Région de l’espace de travail Log Analytics**|**Région Azure Automation**|
-|---|---|
-|AustralieSudEst|AustralieSudEst|
-|CanadaCentral|CanadaCentral|
-|CentralIndia|CentralIndia|
-|EastUS<sup>1</sup>|USAEst2|
-|JaponEst|JaponEst|
-|AsieSudEst|AsieSudEst|
-|WestCentralUS<sup>2</sup>|WestCentralUS<sup>2</sup>|
-|WestEurope|WestEurope|
-|RoyaumeUniSud|RoyaumeUniSud|
-|USGovVirginie|USGovVirginie|
-|EastUS2EUAP<sup>1</sup>|USACentreEUAP|
-
-<sup>1</sup> EastUS2EUAP et EastUS des mappages d’espaces de travail Analytique de journal aux comptes Automation ne sont pas un mappage précis de la région à une autre, mais est le mappage correct.
-
-<sup>2</sup> en raison des restrictions de capacité la région n’est pas disponible lors de la création de nouvelles ressources. Cela inclut les espaces de travail comptes Automation et d’Analytique de journal. Toutefois, les ressources liées préexistants dans la région doivent continuer à fonctionner.
 
 ## <a name="deploy-the-solution"></a>Déployer la solution
 
@@ -140,6 +120,11 @@ Procédez comme suit pour ajouter la solution Start/Stop VMs during off-hours (p
    - Sous **Groupe de ressources**, vous pouvez créer un groupe de ressources ou en sélectionner un qui existe déjà.
    - Sélectionnez un **emplacement**. Actuellement, les seuls emplacements disponibles sont **Australie Sud-Est**, **Canada Centre**, **Inde Centre**, **USA Est**, **Japon Est**, **Asie Sud-Est**, **Royaume-Uni Sud**, **Europe Ouest** et **USA Ouest 2**.
    - Sélectionner un **niveau de tarification**. Choisissez l’option **Par Go (autonome)**. Journaux d’analyse Azure a mis à jour [tarification](https://azure.microsoft.com/pricing/details/log-analytics/) et le niveau par Go est la seule option.
+
+   > [!NOTE]
+   > Lors de l’activation de solutions, seules certaines régions sont prises en charge pour la liaison d’un espace de travail Log Analytics et d’un compte Automation.
+   >
+   > Pour obtenir la liste des paires de mappage pris en charge, consultez [mappage de région pour l’espace de travail compte Automation et Log Analytique](how-to/region-mappings.md).
 
 5. Après avoir entré les informations requises sur la page **Espace de travail Log Analytics**, cliquez sur **Créer**. Vous pouvez suivre sa progression sous **Notifications** dans le menu, qui vous renvoie à la page **Ajouter une solution** une fois terminé.
 6. Sur la page **Ajouter une solution**, sélectionnez **Compte Automation**. Si vous créez un espace de travail Log Analytics, vous pouvez créer un compte Automation associé ou en sélectionner un qui ne soit pas déjà lié à un espace de travail Log Analytics. Sélectionnez un compte Automation existant ou cliquez sur **Créer un compte Automation**, puis, sur la page **Ajouter un compte Automation**, indiquez les informations suivantes :
@@ -433,7 +418,9 @@ Si vous estimez que vous n’avez plus besoin d’utiliser la solution, vous pou
 
 Pour supprimer la solution, procédez comme suit :
 
-1. À partir de votre compte Automation, sélectionnez **Espace de travail** sur la page de gauche.
+1. À partir de votre compte Automation, sous **ressources associées**, sélectionnez **espace de travail lié**.
+1. Sélectionnez **accédez à l’espace de travail**.
+1. Sous **général**, sélectionnez **Solutions**. 
 1. Sur la page **Solutions**, sélectionnez la solution **Start-Stop-VM [Espace de travail]**. Sur la page **VMManagementSolution[Espace de travail]**, sélectionnez l’option **Supprimer** dans le menu.<br><br> ![Supprimer la solution de gestion de machine virtuelle](media/automation-solution-vm-management/vm-management-solution-delete.png)
 1. Dans la fenêtre **Supprimer la solution**, confirmez que vous souhaitez supprimer la solution.
 1. Pendant que les informations sont vérifiées et la solution supprimée, vous pouvez suivre la progression sous **Notifications** dans le menu. Vous serez redirigé vers la page **Solutions** après le démarrage du processus de suppression de la solution.

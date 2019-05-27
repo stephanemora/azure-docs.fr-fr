@@ -13,13 +13,13 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/11/2019
-ms.author: monhaber
-ms.openlocfilehash: 3aae2d6adfd520f103ca1e1bd5e67eeb4b542a3d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: v-mohabe
+ms.openlocfilehash: 04cfe489e9eea53bf58dd64e0eac3e5a95033bcc
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60906674"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65966842"
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Guide des opérations et de planification du Centre de sécurité Azure
 Ce guide s’adresse aux informaticiens professionnels, aux architectes informatiques, aux analystes de la sécurité des informations et aux administrateurs de cloud dont les entreprises prévoient d’utiliser le Centre de sécurité Azure.
@@ -47,7 +47,7 @@ Selon la taille et la structure de votre entreprise, plusieurs personnes et équ
 
 ![contrôleur](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig01-new.png)
 
-Le Centre de sécurité permet à ces personnes d’assumer ces différentes responsabilités. Par exemple : 
+Le Centre de sécurité permet à ces personnes d’assumer ces différentes responsabilités. Exemple :
 
 **Jeff (propriétaire de la charge de travail)**
 
@@ -174,7 +174,7 @@ Après la configuration initiale et la mise en œuvre des recommandations du Cen
 
 La vue d’ensemble sur Security Center offre une vision unifiée de la sécurité sur toutes les ressources Azure et non-Azure que vous avez connectées. L’exemple ci-dessous montre un environnement dans lequel plusieurs problèmes sont à régler :
 
-![dashboard](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig11.png)
+![tableau de bord](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig11.png)
 
 > [!NOTE]
 > Le Centre de sécurité n’interfère pas avec vos procédures de fonctionnement normales. Il surveille passivement vos déploiements et fournit des recommandations en fonction des stratégies de sécurité activées.

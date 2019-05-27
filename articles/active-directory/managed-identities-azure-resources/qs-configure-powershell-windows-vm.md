@@ -16,11 +16,11 @@ ms.date: 11/27/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6f76fef3d5e6515e9d546c709ace0a4a533c0a45
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58881169"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66112697"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-powershell"></a>Configurer des identités managées pour ressources Azure sur une machine virtuelle Azure en utilisant PowerShell
 
@@ -137,7 +137,7 @@ Update-AzVm -ResourceGroupName myResourceGroup -VM $vm -IdentityType None
 > [!NOTE]
 > Si vous avez configuré l’identité gérée pour les ressources Azure VM extension (déconseillé), vous devez supprimer à l’aide de la [Remove-AzVMExtension](/powershell/module/az.compute/remove-azvmextension). Pour plus d’informations, consultez [migrer vers IMDS Azure pour l’authentification à partir de l’extension de machine virtuelle](howto-migrate-vm-extension.md).
 
-## <a name="user-assigned-managed-identity"></a>Identité managée affectée par l’utilisateur
+## <a name="user-assigned-managed-identity"></a>Identité managée affectée par l'utilisateur
 
 Dans cette section, vous allez découvrir comment ajouter et supprimer une identité managée affectée par l’utilisateur sur une machine virtuelle en utilisant Azure PowerShell.
 
@@ -147,7 +147,7 @@ Pour affecter une identité managée affectée par l’utilisateur à une machin
 
 1. Consultez un des Azure VM Démarrages rapides suivants, que les sections nécessaires (« se connecter à Azure », « Créer groupe de ressources », « Créer un groupe mise en réseau, » « créer la machine virtuelle ») à la fin. 
   
-    Quand vous parvenez à la section « Créer la machine virtuelle », apportez une légère modification à la syntaxe de l’applet de commande [`New-AzVMConfig`](/powershell/module/az.compute/new-azvm). Ajoutez les paramètres `-IdentityType UserAssigned` et `-IdentityID` pour approvisionner la machine virtuelle avec une identité affectée par l’utilisateur.  Remplacez `<VM NAME>`, `<SUBSCRIPTION ID>`, `<RESROURCE GROUP>` et `<USER ASSIGNED IDENTITY NAME>` par vos propres valeurs.  Par exemple : 
+    Quand vous parvenez à la section « Créer la machine virtuelle », apportez une légère modification à la syntaxe de l’applet de commande [`New-AzVMConfig`](/powershell/module/az.compute/new-azvm). Ajoutez les paramètres `-IdentityType UserAssigned` et `-IdentityID` pour approvisionner la machine virtuelle avec une identité affectée par l’utilisateur.  Remplacez `<VM NAME>`, `<SUBSCRIPTION ID>`, `<RESROURCE GROUP>` et `<USER ASSIGNED IDENTITY NAME>` par vos propres valeurs.  Exemple :
     
     ```powershell 
     $vmConfig = New-AzVMConfig -VMName <VM NAME> -IdentityType UserAssigned -IdentityID "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESROURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER ASSIGNED IDENTITY NAME>..."

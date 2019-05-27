@@ -3,17 +3,17 @@ title: Déployer localement la solution de supervision à distance - Docker - Az
 description: Ce guide pratique montre comment déployer l’accélérateur de solution de supervision à distance sur votre ordinateur local en utilisant Docker à des fins de test et de développement.
 author: avneet723
 manager: hegate
-ms.author: avneet723
+ms.author: avneets
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/25/2018
 ms.topic: conceptual
-ms.openlocfilehash: c00e62e237fe263f54926c8e74fb6211a2e5a4e4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: db934725fe91a142c43ba66701919e9d5a70a4b2
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61447027"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65967543"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---docker"></a>Déployer localement l’accélérateur de solution de supervision à distance - Docker
 

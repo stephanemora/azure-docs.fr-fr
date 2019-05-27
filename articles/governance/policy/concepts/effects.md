@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 67a195932ad1afc3c93a94dfcbda8ab8a47760b2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6ad6f9414df17f9edff7565752ef3845e0d3c88e
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60498812"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66116199"
 ---
 # <a name="understand-azure-policy-effects"></a>Comprendre les effets d’Azure Policy
 
@@ -24,13 +24,13 @@ Une définition de stratégie prend en charge les six effets suivants :
 - Append
 - Audit
 - AuditIfNotExists
-- Deny
+- Refuser
 - DeployIfNotExists
 - Désactivé
 
 ## <a name="order-of-evaluation"></a>Ordre d’évaluation
 
-Les requêtes pour créer ou mettre à jour une ressource via Azure Resource Manager sont évaluées en premier par Azure Policy. Policy crée une liste de toutes les affectations qui s’appliquent à la ressource, puis évalue la ressource en fonction de chaque définition. Policy traite plusieurs effets avant de transmettre la requête au fournisseur de ressources approprié. Cela empêche un fournisseur de ressources d’effectuer un traitement inutile de la ressource lorsque celle-ci ne satisfait pas aux contrôles de gouvernance d’Azure Policy.
+Pour créer ou mettre à jour une ressource via Azure Resource Manager, les demandes sont évaluées en premier par Azure Policy. Stratégie Azure crée une liste de toutes les attributions qui s’appliquent à la ressource et évalue ensuite la ressource par rapport à chaque définition. Azure Policy traite plusieurs effets avant de transmettre la demande au fournisseur de ressources approprié. Cela permet d’éviter un traitement inutile par un fournisseur de ressources lorsqu’une ressource ne respecte pas les contrôles de gouvernance conçue d’Azure Policy.
 
 - **Désactivé** est vérifié en premier pour déterminer si la règle de stratégie doit être évaluée.
 - **Append** est ensuite évalué. Comme Append risque de modifier la requête, une modification apportée par Append peut empêcher le déclenchement d’un effet Audit ou Deny.
@@ -88,8 +88,7 @@ Exemple 2 : deux paires **champ/valeur** à ajouter à une balise.
 }
 ```
 
-Exemple 3 : paire **champ/valeur** unique utilisant un [alias](definition-structure.md#aliases) non-**[\*]**
- avec un tableau **value** afin de définir des règles IP sur un compte de stockage. Lorsque l’alias non-**[\*]** est un tableau, l’effet ajoute la **value** comme tableau entier. Si le tableau existe déjà, un événement de refus se produit à partir du conflit.
+Exemple 3 : Seul **champ/valeur** jumelé à l’aide de non -**[\*]** [alias](definition-structure.md#aliases) avec un tableau **valeur** pour définir des règles d’adresses IP sur un compte de stockage. Lorsque l’alias non-**[\*]** est un tableau, l’effet ajoute la **value** comme tableau entier. Si le tableau existe déjà, un événement de refus se produit à partir du conflit.
 
 ```json
 "then": {
@@ -119,7 +118,7 @@ Exemple 4 : paire **champ/valeur** unique utilisant un [alias](definition-stru
 }
 ```
 
-## <a name="deny"></a>Deny
+## <a name="deny"></a>Refuser
 
 Deny empêche l’exécution d’une requête de ressource qui ne correspond pas aux normes définies via une définition de stratégie et qui fait échouer la requête.
 
@@ -149,7 +148,7 @@ Audit permet de créer un événement d’avertissement dans le journal d’acti
 
 ### <a name="audit-evaluation"></a>Évaluation Audit
 
-Audit est le dernier effet vérifié par Policy pendant la création ou la mise à jour d’une ressource. Policy envoie ensuite la ressource au fournisseur de ressources. Audit fonctionne de la même façon pour une requête de ressource et un cycle d’évaluation. Policy ajoute une opération `Microsoft.Authorization/policies/audit/action` dans le journal d’activité et marque la ressource comme non conforme.
+L’audit est le dernier effet vérifié par Azure Policy pendant la création ou la mise à jour d’une ressource. Azure Policy envoie ensuite la ressource pour le fournisseur de ressources. Audit fonctionne de la même façon pour une requête de ressource et un cycle d’évaluation. La stratégie Azure ajoute un `Microsoft.Authorization/policies/audit/action` opération dans le journal d’activité et la marque comme non conformes.
 
 ### <a name="audit-properties"></a>Propriétés d’Audit
 
@@ -171,7 +170,7 @@ AuditIfNotExists active l’audit sur des ressources qui satisfont à la conditi
 
 ### <a name="auditifnotexists-evaluation"></a>Évaluation AuditIfNotExists
 
-AuditIfNotExists s’exécute après qu’un fournisseur de ressources a traité une requête de création ou de mise à jour de ressource et a renvoyé un code d’état de réussite. L’effet Audit est déclenché s’il n’existe pas de ressources connexes ou si les ressources définies par **ExistenceCondition** ne retournent pas de valeur true. Policy ajoute une opération `Microsoft.Authorization/policies/audit/action` au journal d’activité de la même façon que l’effet Audit. Dans ce cas, la ressource qui a rempli la condition **if** est en fait la ressource qui est marquée comme non conforme.
+AuditIfNotExists s’exécute après qu’un fournisseur de ressources a traité une requête de création ou de mise à jour de ressource et a renvoyé un code d’état de réussite. L’effet Audit est déclenché s’il n’existe pas de ressources connexes ou si les ressources définies par **ExistenceCondition** ne retournent pas de valeur true. La stratégie Azure ajoute un `Microsoft.Authorization/policies/audit/action` opération à l’activité de se connecter à la même façon que l’effet d’audit. Dans ce cas, la ressource qui a rempli la condition **if** est en fait la ressource qui est marquée comme non conforme.
 
 ### <a name="auditifnotexists-properties"></a>Propriétés d’AuditIfNotExists
 
@@ -300,7 +299,7 @@ Exemple : évalue les bases de données SQL Server pour déterminer si transpar
         "type": "Microsoft.Sql/servers/databases/transparentDataEncryption",
         "name": "current",
         "roleDefinitionIds": [
-            "/subscription/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/{roleGUID}",
+            "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/{roleGUID}",
             "/providers/Microsoft.Authorization/roleDefinitions/{builtinroleGUID}"
         ],
         "existenceCondition": {
@@ -340,7 +339,7 @@ Exemple : évalue les bases de données SQL Server pour déterminer si transpar
 
 ## <a name="layering-policies"></a>Superposition de stratégies
 
-Une ressource peut subir les effets de plusieurs affectations. Ces affectations peuvent se situer dans la même portée ou dans des portées différentes. Chaque affectation est également susceptible d’avoir un effet différent. La condition et l’effet de chaque stratégie sont évalués indépendamment. Par exemple : 
+Une ressource peut subir les effets de plusieurs affectations. Ces affectations peuvent se situer dans la même portée ou dans des portées différentes. Chaque affectation est également susceptible d’avoir un effet différent. La condition et l’effet de chaque stratégie sont évalués indépendamment. Exemple :
 
 - Stratégie 1
   - Restreint l’emplacement de la ressource à 'westus'
@@ -369,9 +368,9 @@ Chaque affectation est évaluée individuellement. Par conséquent, une ressourc
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Consulter des exemples à la page [Exemples Azure Policy](../samples/index.md)
-- Consulter la page [Structure de définition Azure Policy](definition-structure.md)
-- Savoir comment [créer des stratégies par programmation](../how-to/programmatically-create.md)
-- Découvrir comment [obtenir des données de conformité](../how-to/getting-compliance-data.md)
-- Découvrir comment [corriger les ressources non conformes](../how-to/remediate-resources.md)
-- Pour en savoir plus sur les groupes d’administration, consultez [Organiser vos ressources avec des groupes d’administration Azure](../../management-groups/overview.md).
+- Passez en revue les exemples à l’adresse [exemples Azure Policy](../samples/index.md).
+- Consultez la [Structure de définition Azure Policy](definition-structure.md).
+- Comprendre comment [créer par programmation des stratégies](../how-to/programmatically-create.md).
+- Découvrez comment [obtenir des données de conformité](../how-to/getting-compliance-data.md).
+- Découvrez comment [corriger les ressources non conformes](../how-to/remediate-resources.md).
+- Examinez un groupe d’administration avec [organiser vos ressources avec des groupes d’administration Azure](../../management-groups/overview.md).
