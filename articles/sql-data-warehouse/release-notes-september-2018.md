@@ -2,20 +2,20 @@
 title: Notes de publication Azure SQL Data Warehouse septembre 2018 | Microsoft Docs
 description: Notes de publication pour Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: twounder
+author: anumjs
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: manage
+ms.subservice: ''
 ms.date: 10/08/2018
-ms.author: mausher
-ms.reviewer: twounder
-ms.openlocfilehash: bc559a1224aace2ee599c24c8dce07a6d55173fd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: anjangsh
+ms.reviewer: jrasnick
+ms.openlocfilehash: 5041458fdc3c6a49c59f2c4c476db71098531419
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61474967"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65912166"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-september-2018"></a>Nouveautés dans Azure SQL Data Warehouse Septembre 2018
 Azure SQL Data Warehouse reçoit continuellement des améliorations. Cet article décrit les nouvelles fonctionnalités et les changements introduits en septembre 2018.
@@ -99,7 +99,7 @@ Enfin, l’amélioration réduit le temps d’exécution global des instructions
 
 ## <a name="bug-fixes"></a>Résolution des bogues
 
-| Intitulé | Description |
+| Intitulé | Description  |
 |:---|:---|
 | **Correctif relatif à la création de statistiques sur des distributions pour des contraintes uniques** | Ce correctif résout une erreur qui se produit quand les utilisateurs exécutent UPDATE STATISTICS en spécifiant uniquement la table et que celle-ci n’a qu’une seule contrainte définie. |
 | **Correctif relatif à la compilation de requêtes sur des tables externes** | Ce correctif résout un défaut qui affecte les temps de compilation des requêtes impliquant des tables externes.|

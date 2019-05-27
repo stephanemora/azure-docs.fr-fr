@@ -8,13 +8,13 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/12/2018
-ms.openlocfilehash: 5f85f0a6b1869571a8db29586e5fe113e0f47433
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/17/2019
+ms.openlocfilehash: 60cddf15ee8a93aa01a72fdc124fa27e68184e04
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60761651"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65916042"
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Comprendre et ajuster les unités de streaming
 
@@ -51,7 +51,7 @@ En règle générale, la meilleure pratique consiste à démarrer avec 6 unité
 Pour plus d’informations sur le choix du nombre adapté d’unités de streaming, consultez cette page : [Mettre à l’échelle des travaux Azure Stream Analytics pour augmenter le débit](stream-analytics-scale-jobs.md)
 
 > [!Note]
-> Le choix du nombre d’unités SU requises pour un travail particulier dépend de la configuration de la partition pour les entrées et de la requête définie pour le travail. Vous pouvez sélectionner votre quota en unités SU pour un travail. Par défaut, chaque abonnement Azure dispose d’un quota pouvant atteindre 200 unités de streaming pour tous les travaux Stream Analytics d’une région spécifique. Pour augmenter ce quota d’unités SU pour vos abonnements, contactez le [Support Microsoft](https://support.microsoft.com). Valeurs valides pour les unités SU par travail : 1, 3, 6 et au-dessus par incréments de 6.
+> Le choix du nombre d’unités SU requises pour un travail particulier dépend de la configuration de la partition pour les entrées et de la requête définie pour le travail. Vous pouvez sélectionner votre quota en unités SU pour un travail. Par défaut, chaque abonnement Azure a un quota de jusqu'à 500 unités de streaming pour tous les travaux analytique dans une région spécifique. Pour augmenter ce quota d’unités SU pour vos abonnements, contactez le [Support Microsoft](https://support.microsoft.com). Valeurs valides pour les unités SU par travail : 1, 3, 6 et au-dessus par incréments de 6.
 
 ## <a name="factors-that-increase-su-utilization"></a>Facteurs qui augmentent l’utilisation du % SU 
 

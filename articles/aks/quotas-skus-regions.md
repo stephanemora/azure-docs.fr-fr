@@ -1,5 +1,5 @@
 ---
-title: Quotas, référence (SKU) et disponibilité des régions dans Azure Kubernetes Service (ACS)
+title: Quotas, références (SKU) et disponibilité des régions dans Azure Kubernetes Service (ACS)
 description: Découvrez les quotas par défaut, tailles de référence (SKU) de machine virtuelle de nœud limité et disponibilité des régions Azure Kubernetes Service (AKS).
 services: container-service
 author: iainfoulds
@@ -7,18 +7,18 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 04/09/2019
 ms.author: iainfou
-ms.openlocfilehash: abeb9ef6e467b62cf7332e01e1b77c710b9ba4f4
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 8d4ed8f791858747814972bcf16a9672a7f12610
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65072867"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65901460"
 ---
 # <a name="quotas-virtual-machine-size-restrictions-and-region-availability-in-azure-kubernetes-service-aks"></a>Quotas, les restrictions de taille de machine virtuelle et disponibilité des régions dans Azure Kubernetes Service (ACS)
 
-Tous les services Azure incluent certains quotas et limites par défaut pour les ressources et fonctionnalités. Pour la taille du nœud, certaines machines virtuelles (VM) références (SKU) est ensuite utilisation limitée.
+Tous les services Azure définir des quotas pour les ressources et les fonctionnalités et les limites par défaut. Certaines références (SKU) de machine virtuelle (VM) est également limitées à utiliser.
 
-Cet article décrit en détail les limites de ressources par défaut pour les ressources Azure Kubernetes Service (AKS), ainsi que la disponibilité du service AKS dans les régions Azure.
+Cet article décrit en détail les limites de ressources par défaut pour les ressources Azure Kubernetes Service (AKS) et la disponibilité de AKS dans les régions Azure.
 
 ## <a name="service-quotas-and-limits"></a>Quotas et limites du service
 
@@ -26,11 +26,14 @@ Cet article décrit en détail les limites de ressources par défaut pour les re
 
 ## <a name="provisioned-infrastructure"></a>Infrastructure approvisionnée
 
-Toutes les autres limitations réseau, de calcul et de stockage s’appliquent à l’infrastructure approvisionnée. Consultez [Limites du service et de l’abonnement Azure](../azure-subscription-service-limits.md) pour les limites appropriées.
+Toutes les autres limitations réseau, de calcul et de stockage s’appliquent à l’infrastructure approvisionnée. Pour les limites appropriées, consultez [abonnement Azure et limites de service](../azure-subscription-service-limits.md).
+
+> [!IMPORTANT]
+> Lorsque vous mettez à niveau un cluster AKS, des ressources supplémentaires sont consommées momentanément. Ces ressources incluent les adresses IP disponibles dans un sous-réseau de réseau virtuel ou le quota de processeurs virtuels de machine virtuelle. Si vous utilisez des conteneurs Windows Server (actuellement en version préliminaire dans ACS), la seule approuvées pour appliquer les dernières mises à jour aux nœuds consiste à effectuer une opération de mise à niveau. Un processus de mise à niveau de cluster ayant échoué peut indiquer que vous n’avez le IP adresse espace ou processeurs virtuels quota disponible pour gérer ces ressources temporaires. Pour plus d’informations sur le processus de mise à niveau du nœud Windows Server, consultez [mise à niveau d’un pool de nœuds dans ACS][nodepool-upgrade].
 
 ## <a name="restricted-vm-sizes"></a>Tailles des machines virtuelles restreintes
 
-Chaque nœud dans un cluster AKS contient une quantité fixe de ressources de calcul tels que les processeurs virtuels et de la mémoire. Si un nœud AKS contient des ressources de calcul insuffisante, pods peuvent ne pas s’exécuter correctement. Pour vous assurer que le texte requis *kube-system* pods et vos applications peuvent être planifiées fiable, les références SKU de machine virtuelle suivantes ne peut pas être utilisées dans ACS :
+Chaque nœud dans un cluster AKS contient une quantité fixe de ressources de calcul tels que les processeurs virtuels et de la mémoire. Si un nœud AKS contient des ressources de calcul insuffisante, pods peut ne pas s’exécuter correctement. Pour vous assurer que le texte requis *kube-system* pods et vos applications fiable peut être planifié, n’utilisez pas les références SKU de machine virtuelle suivantes dans ACS :
 
 - Standard_A0
 - Standard_A1
@@ -42,13 +45,13 @@ Chaque nœud dans un cluster AKS contient une quantité fixe de ressources de ca
 
 Pour plus d’informations sur les types de machines virtuelles et leurs ressources de calcul, consultez [tailles des machines virtuelles dans Azure][vm-skus].
 
-## <a name="region-availability"></a>Disponibilité des régions
+## <a name="region-availability"></a>Disponibilité dans la région
 
 Pour obtenir la liste de l’emplacement où vous pouvez déployer et exécuter des clusters, consultez [disponibilité des régions AKS][region-availability].
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Certains quotas et limites par défaut peuvent être augmentés. Pour demander une augmentation d’une ou de plusieurs ressources qui peuvent prendre en charge cette augmentation, envoyez une [demande de support Azure][azure-support] (sélectionnez « Quota » pour **Type de problème**).
+Certains quotas et limites par défaut peuvent être augmentés. Si votre ressource prend en charge une augmentation, demander l’augmentation via un [demande de support Azure] [ azure-support] (pour **type de problème**, sélectionnez **Quota** ).
 
 <!-- LINKS - External -->
 [azure-support]: https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest
@@ -56,3 +59,4 @@ Certains quotas et limites par défaut peuvent être augmentés. Pour demander u
 
 <!-- LINKS - Internal -->
 [vm-skus]: ../virtual-machines/linux/sizes.md
+[nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool

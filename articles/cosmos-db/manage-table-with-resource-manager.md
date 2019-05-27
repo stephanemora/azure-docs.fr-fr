@@ -4,24 +4,24 @@ description: Utiliser des modèles Azure Resource Manager pour créer et configu
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 05/20/2019
 ms.author: mjbrown
-ms.openlocfilehash: 33e47d67365e76142d5b584d49d8e7265445bf03
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 82e2a436bf6b25b6164d845d234896390a262292
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65077604"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65968828"
 ---
-# <a name="create-azure-cosmos-db-table-api-resources-from-a-resource-manager-template"></a>Créer des ressources de l’API de Table Azure Cosmos DB à partir d’un modèle Resource Manager
+# <a name="manage-azure-cosmos-db-table-api-resources-using-azure-resource-manager-templates"></a>Gérer les ressources de l’API de Table Azure Cosmos DB à l’aide de modèles Azure Resource Manager
 
-Découvrez comment créer des ressources d’API de Table Azure Cosmos DB à l’aide d’un modèle Azure Resource Manager. L’exemple suivant crée une API de Table Azure Cosmos DB à partir d’un [de modèle Azure Quickstart](https://aka.ms/table-arm-qs). Ce modèle crée un compte Azure Cosmos pour l’API de Table avec une table avec un débit de 400 RU/s.
+## Créer une table et compte Azure Cosmos <a id="create-resource"></a>
 
-Voici une copie du modèle :
+Créer des ressources Azure Cosmos DB à l’aide d’un modèle Azure Resource Manager. Ce modèle crée un compte Azure Cosmos pour l’API de Table avec une table à un débit de 400 RU/s. Copiez le modèle et les déployer comme indiqué ci-dessous ou visitez [galerie de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-cosmosdb-table/) et déployer à partir du portail Azure. Vous pouvez également télécharger le modèle sur votre ordinateur local ou créer un nouveau modèle et spécifiez le chemin d’accès local avec le `--template-file` paramètre.
 
 [!code-json[create-cosmos-table](~/quickstart-templates/101-cosmosdb-table/azuredeploy.json)]
 
-## <a name="deploy-via-powershell"></a>Déployer à l’aide de PowerShell
+### <a name="deploy-via-powershell"></a>Déployer à l’aide de PowerShell
 
 Pour déployer le modèle Resource Manager à l’aide de PowerShell, **copie** le script et sélectionnez **essayez-le** pour ouvrir Azure Cloud shell. Pour coller le script, avec le bouton droit de l’interpréteur de commandes, puis sélectionnez **collez**:
 
@@ -45,12 +45,9 @@ New-AzResourceGroupDeployment `
  (Get-AzResource --ResourceType "Microsoft.DocumentDb/databaseAccounts" --ApiVersion "2015-04-08" --ResourceGroupName $resourceGroupName).name
 ```
 
-Si vous choisissez d’utiliser une version installée localement de PowerShell plutôt qu’à partir d’Azure Cloud shell, vous devez [installer](/powershell/azure/install-az-ps) le module Azure PowerShell. Exécutez `Get-Module -ListAvailable Az` pour trouver la version. 
+Si vous choisissez d’utiliser une version installée localement de PowerShell plutôt qu’à partir d’Azure Cloud shell, vous devez [installer](/powershell/azure/install-az-ps) le module Azure PowerShell. Exécutez `Get-Module -ListAvailable Az` pour trouver la version.
 
-Dans l’exemple précédent, vous avez référencé un modèle qui est stocké dans GitHub. Vous pouvez également télécharger le modèle sur votre ordinateur local ou créer un nouveau modèle et spécifiez le chemin d’accès local avec le `--template-file` paramètre.
-
-
-## <a name="deploy-via-azure-cli"></a>Déployer via l’interface CLI Azure
+### <a name="deploy-via-azure-cli"></a>Déployer via l’interface CLI Azure
 
 Pour déployer le modèle Resource Manager à l’aide d’Azure CLI, **copie** le script et sélectionnez **essayez-le** pour ouvrir Azure Cloud shell. Pour coller le script, avec le bouton droit de l’interpréteur de commandes, puis sélectionnez **collez**:
 
@@ -72,8 +69,44 @@ az cosmosdb show --resource-group $resourceGroupName --name accountName --output
 
 Le `az cosmosdb show` commande montre le compte Azure Cosmos nouvellement créé, une fois que ce dernier a été configuré. Si vous choisissez d’utiliser une version installée localement d’Azure CLI au lieu d’utiliser CloudShell, consultez [les Interface de ligne de commande (CLI) Azure](/cli/azure/) article.
 
-Dans l’exemple précédent, vous avez référencé un modèle qui est stocké dans GitHub. Vous pouvez également télécharger le modèle sur votre ordinateur local ou créer un nouveau modèle et spécifiez le chemin d’accès local avec le `--template-file` paramètre.
+## Mettre à jour de débit (RU/s) sur une table <a id="table-ru-update"></a>
 
+Le modèle suivant met à jour le débit d’une table. Copiez le modèle et les déployer comme indiqué ci-dessous ou visitez [galerie de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/101-cosmosdb-table-ru-update/) et déployer à partir du portail Azure. Vous pouvez également télécharger le modèle sur votre ordinateur local ou créer un nouveau modèle et spécifiez le chemin d’accès local avec le `--template-file` paramètre.
+
+[!code-json[cosmosdb-table-ru-update](~/quickstart-templates/101-cosmosdb-table-ru-update/azuredeploy.json)]
+
+### <a name="deploy-table-throughput-via-powershell"></a>Déployer le débit de table par le biais de PowerShell
+
+Pour déployer le modèle Resource Manager à l’aide de PowerShell, **copie** le script et sélectionnez **essayez-le** pour ouvrir Azure Cloud shell. Pour coller le script, avec le bouton droit de l’interpréteur de commandes, puis sélectionnez **collez**:
+
+```azurepowershell-interactive
+$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+$accountName = Read-Host -Prompt "Enter the account name"
+$tableName = Read-Host -Prompt "Enter the table name"
+$throughput = Read-Host -Prompt "Enter new throughput for table"
+
+New-AzResourceGroupDeployment `
+    -ResourceGroupName $resourceGroupName `
+    -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-cosmosdb-table-ru-update/azuredeploy.json" `
+    -accountName $accountName `
+    -tableName $tableName `
+    -throughput $throughput
+```
+
+### <a name="deploy-table-template-via-azure-cli"></a>Déployer un modèle de table via l’interface CLI Azure
+
+Pour déployer le modèle Resource Manager à l’aide d’Azure CLI, sélectionnez **essayez-le** pour ouvrir Azure Cloud shell. Pour coller le script, avec le bouton droit de l’interpréteur de commandes, puis sélectionnez **collez**:
+
+```azurecli-interactive
+read -p 'Enter the Resource Group name: ' resourceGroupName
+read -p 'Enter the account name: ' accountName
+read -p 'Enter the table name: ' tableName
+read -p 'Enter the new throughput: ' throughput
+
+az group deployment create --resource-group $resourceGroupName \
+   --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-cosmosdb-table-ru-update/azuredeploy.json \
+   --parameters accountName=$accountName tableName=$tableName throughput=$throughput
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

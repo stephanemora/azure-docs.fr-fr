@@ -2,20 +2,20 @@
 title: 'Didacticiel : Chargement de données dans Azure SQL Data Warehouse | Microsoft Docs'
 description: Ce tutoriel utilise le portail Azure et SQL Server Management Studio pour charger l’entrepôt de données WideWorldImportersDW depuis un objet blob Azure public vers Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: ckarst
+author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
+ms.subservice: load data
 ms.date: 04/17/2018
-ms.author: cakarst
+ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 44ad37120034d59161fe3b5f0ed521fc6f630b0f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6bc1431ace55538c489d73e0a62d18f274c06d57
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61081356"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65873759"
 ---
 # <a name="tutorial-load-data-to-azure-sql-data-warehouse"></a>Didacticiel : Chargement de données dans Azure SQL Data Warehouse
 
@@ -68,7 +68,7 @@ Suivez ces étapes pour créer un entrepôt de données SQL vide.
 
 4. Cliquez sur **Serveur** pour créer et configurer un serveur pour votre nouvelle base de données. Remplissez le **formulaire de nouveau serveur** avec les informations suivantes : 
 
-    | Paramètre | Valeur suggérée | DESCRIPTION | 
+    | Paramètre | Valeur suggérée |  Description | 
     | ------- | --------------- | ----------- |
     | **Nom du serveur** | Nom globalement unique | Pour les noms de serveur valides, consultez [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Conventions d’affectation de nom). | 
     | **Connexion d’administrateur du serveur** | Nom valide | Pour les noms de connexion valides, consultez [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers) (Identificateurs de base de données).|
@@ -151,7 +151,7 @@ Cette section utilise [SQL Server Management Studio](/sql/ssms/download-sql-serv
     | ------------ | --------------- | ----------- | 
     | Type de serveur | Moteur de base de données | Cette valeur est obligatoire |
     | Nom du serveur | Nom complet du serveur | Par exemple, **sample-svr.database.windows.net** est un nom complet du serveur. |
-    | Authentification | l’authentification SQL Server | L’authentification SQL est le seul type d’authentification configuré dans ce didacticiel. |
+    | Authentication | l’authentification SQL Server | L’authentification SQL est le seul type d’authentification configuré dans ce didacticiel. |
     | Connexion | Compte d’administrateur de serveur | Il s’agit du compte que vous avez spécifié lorsque vous avez créé le serveur. |
     | Mot de passe | Mot de passe de votre compte d’administrateur de serveur | Il s’agit du mot de passe que vous avez spécifié lorsque vous avez créé le serveur. |
 

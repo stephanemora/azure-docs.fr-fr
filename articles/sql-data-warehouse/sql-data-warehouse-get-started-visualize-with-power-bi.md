@@ -2,20 +2,20 @@
 title: Visualiser les données SQL Data Warehouse avec Power BI
 description: Visualiser les données SQL Data Warehouse avec Power BI
 services: sql-data-warehouse
-author: KavithaJonnakuti
+author: mlee3gsd
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: consume
+ms.subservice: integration
 ms.date: 04/17/2018
-ms.author: kavithaj
+ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: b2377466ba830eed9fed0e9a4033b3eca3d351c4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 94ec38bc2cad3566fad88dc2ac56648f79aa16b2
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61474762"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65873374"
 ---
 # <a name="visualize-data-with-power-bi"></a>Visualiser des données avec Power BI
 Ce didacticiel vous montre comment utiliser Power BI pour vous connecter SQL Data Warehouse et créer quelques visualisations de base.

@@ -8,15 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-origin.date: 10/23/2018
-ms.date: 03/25/2019
-ms.author: v-junlch
-ms.openlocfilehash: 1c60bd4dae6c279ccff637ff0aa798c48ebec6f1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 10/23/2018
+ms.author: azfuncdf, glenga
+ms.openlocfilehash: 705a43f1ef35f953d1b87c7c44bbc45fcb4334be
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60710858"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65872859"
 ---
 # <a name="create-durable-functions-using-the-azure-portal"></a>Créer des fonctions Durable Functions à l’aide du portail Azure
 
@@ -24,7 +23,7 @@ L’extension [Fonctions durables](durable-functions-overview.md) d’Azure Func
 
 > [!NOTE]
 > 
-> * Si vous développez des fonctions durables dans C#, pensez plutôt à utiliser le [développement Visual Studio 2017](durable-functions-create-first-csharp.md).
+> * Si vous développez des fonctions durables dans C#, vous devez plutôt envisager [développement de Visual Studio 2019](durable-functions-create-first-csharp.md).
 > * Si vous développez des fonctions durables dans JavaScript, pensez plutôt à utiliser le [développement Visual Studio Code](./quickstart-js-vscode.md).
 
 ## <a name="create-a-function-app"></a>Créer une application de fonction
@@ -92,7 +91,7 @@ Si vous créez des fonctions Durable Functions JavaScript, vous devez installer 
 1. Utilisez un outil HTTP tel que Postman ou cURL pour envoyer une requête POST à l’URL que vous avez copiée. L’exemple suivant est une commande cURL qui envoie une requête POST à la fonction durable :
 
     ```bash
-    curl -X POST https://{your-function-app-name}.chinacloudsites.cn/api/orchestrators/HelloSequence
+    curl -X POST https://{your-function-app-name}.azurewebsites.net/api/orchestrators/HelloSequence
     ```
 
     Dans cet exemple, `{your-function-app-name}` est le domaine qui est le nom de votre application de fonction. Le message de réponse contient un ensemble de points de terminaison d’URI que vous pouvez utiliser pour surveiller et gérer l’exécution, qui ressemble à l’exemple suivant :
@@ -141,5 +140,3 @@ Votre première fonction durable est maintenant opérationnelle dans Azure.
 
 > [!div class="nextstepaction"]
 > [Découvrez maintenant les modèles courants de fonctions durables](durable-functions-concepts.md)
-
-<!-- Update_Description: wording update -->

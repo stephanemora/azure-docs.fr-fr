@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp
 manager: craigg
-ms.date: 02/27/2019
-ms.openlocfilehash: 9726c589472c9ff6d456c922f88d12071e5ebcaf
-ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
+ms.date: 05/22/2019
+ms.openlocfilehash: e091ec29c810fce7a39ad5aa5cc8f0ddae711752
+ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65560579"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66016403"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Vue d’ensemble des limites de ressources Azure SQL Database Managed Instance
 
@@ -56,7 +56,7 @@ Managed Instance propose deux niveaux de service : Usage général et Critique 
 | Nombre maximal de bases de données par instance | 100 | 100 |
 | Nombre maximal de fichiers de base de données par instance | Jusqu’à 280 | 32 767 fichiers par base de données |
 | IOPS de données/journal (approximatives) | 500 - 7 500 par fichier<br/>\*[Dépend de la taille du fichier](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)| 11 K - 110 K (1375/vCore) |
-| Débit du journal | 22 Mo/s par instance | 4 Mo/s par vCore<br/>Max 48 Mo/s par instance|
+| Débit du journal | 3 Mo/s par vCore<br/>Max 22 Mo/s par instance | 4 Mo/s par vCore<br/>Max 48 Mo/s par instance|
 | Débit de données (approximatif) | 100 - 250 Mo/s par fichier<br/>\*[Dépend de la taille du fichier](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | |
 | Latence d’E/S (approximative) | 5 - 10 ms | 1 - 2 ms |
 | Taille maximale de tempDB | 192 - 1 920 Go (24 Go par vCore) | Aucune contrainte – limité par la taille de stockage maximale d’instance |

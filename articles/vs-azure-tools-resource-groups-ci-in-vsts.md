@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2016
 ms.author: mlearned
-ms.openlocfilehash: a2a730e2c3ca466a2705f053d7db0db12d7941da
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 692c075b55efd138f6d731ffae43608f141abfdc
+ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60458804"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66019766"
 ---
 # <a name="continuous-integration-in-azure-devops-services-using-azure-resource-group-deployment-projects"></a>Intégration continue dans Azure DevOps Services à l’aide de projets de déploiement Groupe de ressources Azure
 Pour déployer un modèle Azure, vous effectuez des tâches en différentes étapes : Générer, tester, copier sur Azure (également appelé « Intermédiaire ») et déployer le modèle. Il existe deux façons de déployer des modèles dans Azure DevOps Services. Les deux méthodes fournissent les mêmes résultats. Par conséquent, choisissez celle qui convient le mieux à votre flux de travail.
@@ -78,8 +78,8 @@ Les procédures suivantes vous guident lors des étapes nécessaires à la confi
       ![Option du principal de service][5]
    5. Ajoutez les informations de votre abonnement Azure à la boîte de dialogue **Ajouter un abonnement Azure** . Vous devez fournir les éléments suivants :
       
-      * ID d’abonnement
-      * Nom d'abonnement
+      * ID d'abonnement
+      * Nom de l’abonnement
       * ID de principal de service
       * Clé de principal de service
       * ID client
@@ -93,7 +93,7 @@ Les procédures suivantes vous guident lors des étapes nécessaires à la confi
       
       Pour l’interface de ligne de commande Azure, consultez :
       
-      `azure account show`
+      `az account show`
    8. Pour obtenir un ID de principal de service, une clé de principal de service et un ID client, suivez la procédure dans [Création de l’application Active Directory et du principal du service à l’aide du portail](active-directory/develop/howto-create-service-principal-portal.md) ou [Authentification d’un principal du service à l’aide d’Azure Resource Manager](active-directory/develop/howto-authenticate-service-principal-powershell.md).
    9. Ajoutez les valeurs de l’ID de principal du service, de la clé de principal du service et de l’ID de locataire dans la boîte de dialogue **Ajouter un abonnement Azure**, puis choisissez le bouton **OK**.
       
@@ -109,7 +109,7 @@ Les procédures suivantes vous guident lors des étapes nécessaires à la confi
     ![Modifier le chemin d’accès au script][10]
 8. Dans la zone **Arguments de script** , saisissez les paramètres suivants (sur une seule ligne). Lorsque vous exécutez le script dans Visual Studio, vous pouvez voir comment Visual Studio utilise les paramètres dans la fenêtre **Sortie** . Vous pouvez l’utiliser comme point de départ pour définir les valeurs de paramètre dans l’étape de build.
    
-   | Paramètre | Description |
+   | Paramètre | Description  |
    | --- | --- |
    | -ResourceGroupLocation |Valeur de l’emplacement géographique où le groupe de ressources est localisé, par exemple **eastus** ou **« USA Est »**. (Ajouter des guillemets simples si le nom comporte un espace). Consultez les [Régions Azure](https://azure.microsoft.com/regions/) pour plus d’informations. |
    | -ResourceGroupName |Nom du groupe de ressources utilisé pour ce déploiement. |

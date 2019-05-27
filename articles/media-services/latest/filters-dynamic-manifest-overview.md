@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 21fb2b84fd58fb7cca7551ee1cef0c79179cfa40
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: ac440be4444ca0d62f7ffde2b8b65e41dcba6683
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65467132"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002434"
 ---
 # <a name="dynamic-manifests"></a>Manifestes dynamiques
 
@@ -31,7 +31,7 @@ Le tableau suivant présente des exemples d’URL utilisant des filtres :
 |HLS|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=m3u8-aapl,filter=myAccountFilter)`|
 |MPEG DASH|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=mpd-time-csf,filter=myAssetFilter)`|
 |Smooth Streaming|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(filter=myAssetFilter)`|
-
+ 
 > [!NOTE]
 > Les manifestes dynamiques ne changent pas l'élément multimédia ni son manifeste par défaut. Votre client peut choisir de demander un flux avec ou sans filtres. 
 > 
@@ -124,7 +124,7 @@ Pour plus d’informations, consultez [ce](https://azure.microsoft.com/blog/azur
 
 ## <a name="associate-filters-with-streaming-locator"></a>Associer des filtres de localisateur de diffusion en continu
 
-Vous pouvez spécifier une liste de filtres de compte d’actif ou, s’applique également à votre localisateur de diffusion en continu. Le [l’empaquetage dynamique](dynamic-packaging-overview.md) s’applique à cette liste de filtres avec ceux de votre client spécifie l’URL. Cette combinaison génère une [manifeste dynamique](filters-dynamic-manifest-overview.md), qui est basé sur les filtres dans l’URL + filtres que vous spécifiez dans le localisateur de diffusion en continu. Nous vous recommandons d’utiliser cette fonctionnalité si vous souhaitez appliquer des filtres, mais ne souhaitez pas exposer les noms de filtre dans l’URL.
+Consultez [filtres : associer avec des localisateurs de diffusion en continu](filters-concept.md#associate-filters-with-streaming-locator).
 
 ## <a name="considerations-and-limitations"></a>Considérations et limitations
 
@@ -136,7 +136,6 @@ Vous pouvez spécifier une liste de filtres de compte d’actif ou, s’applique
     
     - Pour déterminer les propriétés des pistes d’un élément multimédia, [obtenez et examinez le fichier manifeste](#get-and-examine-manifest-files).
     - Voici la formule pour définir les propriétés d’horodatage du filtre d’élément multimédia : <br/>startTimestamp = &lt;heure de début dans le manifeste&gt; +  &lt;heure de début prévue du filtre en secondes&gt;* échelle de temps
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 

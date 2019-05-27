@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/16/2019
+ms.date: 05/13/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: c6f947ad6f2f8dba2df17132243eb6d918539c14
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5dda2eafe86d037faab6284c2af0d8026c194d11
+ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60344403"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65921141"
 ---
 # <a name="troubleshoot-rbac-for-azure-resources"></a>Résoudre des problèmes liés au contrôle d’accès en fonction du rôle pour les ressources Azure
 
@@ -36,7 +36,7 @@ Cet article répond aux questions fréquentes sur le contrôle d’accès en fon
 - Si vous avez besoin d’étapes pour savoir comment créer un rôle personnalisé, consultez les didacticiels de rôle personnalisé à l’aide de [Azure PowerShell](tutorial-custom-role-powershell.md) ou [Azure CLI](tutorial-custom-role-cli.md).
 - Si vous ne parvenez pas à mettre à jour un rôle personnalisé existant, vérifiez que vous êtes actuellement connecté avec un utilisateur se voit attribuer un rôle qui a le `Microsoft.Authorization/roleDefinition/write` autorisation comme [propriétaire](built-in-roles.md#owner) ou [administrateur des accès utilisateur](built-in-roles.md#user-access-administrator).
 - Si vous ne pouvez pas supprimer un rôle personnalisé et que vous obtenez le message d’erreur « Certaines attributions de rôle existantes font référence au rôle (code : RoleDefinitionHasAssignments) », cela signifie que des attributions de rôle utilisent toujours le rôle personnalisé. Supprimez ces attributions de rôle et réessayez de supprimer ce rôle.
-- Si vous obtenez le message d’erreur « La limite de définition de rôle a été dépassée. Aucune définition de rôle plus ne peut être créée (code : RoleDefinitionLimitExceeded) » lorsque vous essayez de créer un nouveau rôle personnalisé, supprimez tous les rôles personnalisés qui ne sont pas utilisées. Azure prend en charge jusqu’à **2 000** rôles personnalisés dans un locataire.
+- Si vous obtenez le message d’erreur « La limite de définition de rôle a été dépassée. Aucune définition de rôle plus ne peut être créée (code : RoleDefinitionLimitExceeded) » lorsque vous essayez de créer un nouveau rôle personnalisé, supprimez tous les rôles personnalisés qui ne sont pas utilisées. Azure prend en charge jusqu'à **5000** rôles personnalisés dans un locataire. (Pour les clouds spécialisés, tels que Azure Government, Azure Allemagne et Azure China 21Vianet, la limite est 2000 des rôles personnalisés).
 - Si vous obtenez une erreur similaire à « le client a l’autorisation d’effectuer l’action 'Microsoft.Authorization/roleDefinitions/write' sur l’étendue « / subscriptions / {subscriptionid} », mais l’abonnement lié est introuvable » lorsque vous essayez de mettre à jour un rôle personnalisé, consultez Si un ou plusieurs [étendues attribuables](role-definitions.md#assignablescopes) ont été supprimés dans le locataire. Si l’étendue a été supprimée, créez un ticket de support, car il n’existe aucune solution en libre-service disponible pour l’instant.
 
 ## <a name="recover-rbac-when-subscriptions-are-moved-across-tenants"></a>Récupérer le contrôle d’accès en fonction du rôle (RBAC) lorsque les abonnements sont déplacés entre les locataires

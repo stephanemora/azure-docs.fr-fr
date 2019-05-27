@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: cfdc6bd0fab1a9156e8b161536b6eae37769e2f2
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: c487856c7fb959f684700dee1d463783954b1a53
+ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65228344"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65921968"
 ---
 # <a name="connect-your-check-point-appliance"></a>Se connecter à votre appliance de Check Point
 
@@ -117,9 +117,43 @@ Configurez votre appliance de Check Point pour transférer les messages Syslog a
 
 Il peut prendre plus de 20 minutes jusqu'à ce que vos journaux commencent à apparaître dans le journal Analytique. 
 
-1. Assurez-vous que vos journaux sont bien au port de droite de l’agent Syslog. Exécutez cette commande à l’ordinateur d’agent Syslog : `tcpdump -A -ni any  port 514 -vv` Cette commande affiche les fichiers journaux qui diffuse en continu à partir de l’appareil sur l’ordinateur de Syslog. Assurez-vous que les journaux sont reçus à partir de l’appliance source sur le port de droite et la facilité de droite.
-2. Vérifiez qu’il existe une communication entre le démon Syslog et l’agent. Exécutez cette commande à l’ordinateur d’agent Syslog : `tcpdump -A -ni any  port 25226 -vv` Cette commande affiche les fichiers journaux qui diffuse en continu à partir de l’appareil sur l’ordinateur de Syslog. Assurez-vous que les journaux sont également reçus sur l’agent.
-3. Si les deux de ces commandes fourni les résultats réussis, vérifiez l’Analytique de journal pour voir si vos journaux arrivent. Tous les événements transmis en continu à partir de ces appareils apparaissent sous une forme brute dans Analytique de journal sous `CommonSecurityLog` type.
+1. Vérifiez que vous utilisez la fonctionnalité de droite. La fonctionnalité doit être le même dans votre appliance et dans Azure Sentinel. Vous pouvez vérifier quel fichier de fonctionnalité, vous utilisez dans Azure Sentinel et modifiez dans le fichier `security-config-omsagent.conf`. 
+
+2. Assurez-vous que vos journaux sont bien au port de droite de l’agent Syslog. Exécutez cette commande sur l’ordinateur d’agent Syslog : `tcpdump -A -ni any  port 514 -vv` Cette commande affiche les fichiers journaux qui diffuse en continu à partir de l’appareil sur l’ordinateur de Syslog. Assurez-vous que les journaux sont reçus à partir de l’appliance source sur le port de droite et la facilité de droite.
+
+3. Assurez-vous que les journaux que vous envoyez sont conformes aux [RFC 5424](https://tools.ietf.org/html/rfc542).
+
+4. Sur l’ordinateur exécutant l’agent Syslog, assurez-vous que ces ports 514, 25226 sont ouverts et écoute, à l’aide de la commande `netstat -a -n:`. Pour plus d’informations sur l’utilisation de cette commande, consultez [netstat(8) - page man Linux](https://linux.die.netman/8/netstat). Si elle est à l’écoute correctement, vous verrez ceci :
+
+   ![Ports Sentinel Azure](./media/connect-cef/ports.png) 
+
+5. Assurez-vous que le démon est configuré pour écouter sur le port 514, sur lequel vous envoyez les journaux.
+    - Pour rsyslog :<br>Assurez-vous que le fichier `/etc/rsyslog.conf` inclut cette configuration :
+
+           # provides UDP syslog reception
+           module(load="imudp")
+           input(type="imudp" port="514")
+        
+           # provides TCP syslog reception
+           module(load="imtcp")
+           input(type="imtcp" port="514")
+
+      Pour plus d’informations, consultez [imudp : Module d’entrée UDP Syslog](https://www.rsyslog.com/doc/v8-stable/configuration/modules/imudp.html#imudp-udp-syslog-input-module) et [imtcp : Module d’entrée de Syslog TCP](https://www.rsyslog.com/doc/v8-stable/configuration/modules/imtcp.html#imtcp-tcp-syslog-input-module)
+
+   - Pour syslog-ng :<br>Assurez-vous que le fichier `/etc/syslog-ng/syslog-ng.conf` inclut cette configuration :
+
+           # source s_network {
+            network( transport(UDP) port(514));
+             };
+     Pour plus d’informations, consultez [imudp : Module d’entrée de Syslog UDP] (pour plus d’informations, consultez le [syslog-ng Open Source édition 3.16 - Guide d’Administration](https://www.syslog-ng.com/technical-documents/doc/syslog-ng-open-source-edition/3.16/administration-guide/19#TOPIC-956455).
+
+1. Vérifiez qu’il existe une communication entre le démon Syslog et l’agent. Exécutez cette commande sur l’ordinateur d’agent Syslog : `tcpdump -A -ni any  port 25226 -vv` Cette commande affiche les fichiers journaux qui diffuse en continu à partir de l’appareil sur l’ordinateur de Syslog. Assurez-vous que les journaux sont également reçus sur l’agent.
+
+6. Si les deux de ces commandes fourni les résultats réussis, vérifiez l’Analytique de journal pour voir si vos journaux arrivent. Tous les événements transmis en continu à partir de ces appareils apparaissent sous une forme brute dans Analytique de journal sous `CommonSecurityLog` type.
+
+7. Pour vérifier s’il existe des erreurs ou si les journaux ne sont pas reçues, rechercher `tail /var/opt/microsoft/omsagent/<workspace id>/log/omsagent.log`. S’il est indiqué il existe des erreurs d’incompatibilité de format de journal, accédez à `/etc/opt/microsoft/omsagent/{0}/conf/omsagent.d/security_events.conf "https://aka.ms/syslog-config-file-linux"` et examinez le fichier `security_events.conf`et vous assurer que vos journaux correspondent au format d’expression régulière vous voyez dans ce fichier.
+
+8. Assurez-vous que votre taille par défaut des messages Syslog est limitée à 2 048 octets (2 Ko). Si les journaux sont trop longs, mettez à jour le security_events.conf à l’aide de cette commande : `message_length_limit 4096`
 
 4. Veillez à exécuter ces commandes :
   
@@ -133,8 +167,6 @@ Il peut prendre plus de 20 minutes jusqu'à ce que vos journaux commencent à ap
          sudo bash -c "printf 'local4.debug @127.0.0.1:25226\n\n:msg, contains, "Check Point" @127.0.0.1:25226' > /etc/rsyslog.d/security-config-omsagent.conf"
      Redémarrez le démon Syslog : `sudo service rsyslog restart`
 
-1. Pour vérifier s’il existe des erreurs ou si les journaux ne sont pas reçues, Regarder dans `tail /var/opt/microsoft/omsagent/<workspace id>/log/omsagent.log`
-4. Assurez-vous que votre taille par défaut des messages Syslog est limitée à 2 048 octets (2 Ko). Si les journaux sont trop longs, mettez à jour le security_events.conf à l’aide de cette commande : `message_length_limit 4096`
 
 
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: 319ec5d09a6daddb5c1fc36f680ee6d0d856e337
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 6cb40f8c9f1ee85848b5e3db311d0fb652ec1bc3
+ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205427"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65921814"
 ---
 # <a name="tutorial-detect-threats-with-azure-sentinel-preview"></a>Didacticiel : Détectez les menaces avec la version préliminaire d’Azure Sentinel
 
@@ -45,11 +45,11 @@ Règles de détection sont basées sur les types de menaces et anomalies qui pou
 
 1. Dans le portail Azure sous Azure Sentinel, sélectionnez **Analytique**.
 
-   ![Analytics](./media/tutorial-detect-threats/alert-rules.png)
+   ![Analyse](./media/tutorial-detect-threats/alert-rules.png)
 
 2. Dans la barre de menus supérieure, cliquez sur **+ ajouter**.  
 
-   ![Créer une règle d’alerte](./media/tutorial-detect-threats/create-alert-rule.png)
+   ![Créer une règle d'alerte](./media/tutorial-detect-threats/create-alert-rule.png)
 
 3. Sous **créer une règle d’alerte**, fournissez un nom descriptif et définir le **gravité** en fonction des besoins. 
 
@@ -59,6 +59,10 @@ Règles de détection sont basées sur les types de menaces et anomalies qui pou
         | where OperationName == "Create or Update Virtual Machine" or OperationName == "Create Deployment"
         | where ActivityStatus == "Succeeded"
         | make-series dcount(ResourceId)  default=0 on EventSubmissionTimestamp in range(ago(7d), now(), 1d) by Caller
+
+   > [!NOTE]
+   > La longueur de la requête doit être comprise entre 1 et 10 000 caractères et ne peut pas contenir « search * » et « union * ».
+
 
 5. Dans le **mappage d’entité** section, utilisez les champs sous **type d’entité** pour mapper les colonnes dans votre requête pour les champs d’entité reconnues par Azure Sentinel. Pour chaque champ, mappez la colonne concernée dans la requête que vous avez créé dans le journal Analytique, pour le champ d’entité appropriée. Sélectionnez le nom de la colonne appropriée sous le **propriété**. Chaque entité inclut plusieurs champs, par exemple SID, GUID, etc. Vous pouvez mapper l’entité selon l’un des champs, pas seulement l’entité de niveau supérieure.
 

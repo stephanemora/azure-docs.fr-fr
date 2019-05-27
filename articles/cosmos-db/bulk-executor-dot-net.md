@@ -6,15 +6,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 10/16/2018
+ms.date: 04/26/2019
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: cfb90dc31635001291b1661f31ec2ee1fc378404
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7365fa4cac5e32962477ef7f2441825327a0eb64
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60894439"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65912702"
 ---
 # <a name="use-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>Utiliser la bibliothèque de l’exécuteur en bloc .NET pour effectuer des opérations en bloc dans Azure Cosmos DB
 
@@ -24,7 +24,7 @@ Actuellement, la bibliothèque de l’exécuteur en bloc est prise en charge uni
 
 ## <a name="prerequisites"></a>Conditions préalables
 
-* Si vous n’avez pas encore installé Visual Studio 2017, vous pouvez télécharger et utiliser [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Veillez à activer le développement Azure lors de l’installation de Visual Studio.
+* Si vous ne disposez pas de Visual Studio 2019 installé, vous pouvez télécharger et utiliser le [2019 de Visual Studio Community Edition](https://www.visualstudio.com/downloads/). Veillez à activer le développement Azure lors de l’installation de Visual Studio.
 
 * Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) avant de commencer. 
 

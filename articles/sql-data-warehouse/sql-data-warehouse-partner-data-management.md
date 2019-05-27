@@ -2,26 +2,26 @@
 title: Partenaires de SQL Data Warehouse en matière de gestion de données | Microsoft Docs
 description: Répertorie les partenaires de gestion des données tiers proposant des solutions qui prennent en charge SQL Data Warehouse.
 services: sql-data-warehouse
-author: jrowlandjones
+author: mabasile-MSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: consume
 ms.date: 04/17/2018
-ms.author: jrj
+ms.author: mabasile
 ms.reviewer: igorstan
-ms.openlocfilehash: 08d168a688935328fb4716b849c70e828545765b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 98f581eca893fc3f0cf2eae12fdcffbe0440bdd7
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61476207"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65873697"
 ---
 # <a name="sql-data-warehouse-data-management-partners"></a>Partenaires de SQL Data Warehouse en matière de gestion de données
 Pour créer votre solution d’entrepôt de données, vous pouvez choisir parmi un large éventail d’outils performants. Cet article met en évidence les sociétés partenaires de Microsoft qui proposent des outils et solutions de gestion de données prenant en charge Azure SQL Data Warehouse.
 
 ## <a name="data-management-partners"></a>Partenaires de gestion des données
-| Partenaire | Description | Lien de site Web/produit |
+| Partenaire | Description  | Lien de site Web/produit |
 | ------- | ----------- | -------------------- |
 | ![Coffing Data Warehousing][1] |**Coffing Data Warehousing**<br>Coffing Data Warehousing propose Nexus Chameleon, un outil résultant de 10 années de conception dédié à l’interrogation de systèmes. Nexus est disponible en tant qu’outil de requête pour SQL Data Warehouse. Utilisez Nexus pour interroger des ordinateurs en entreprise et cloud et pour associer les données de différentes plateformes. Il vous suffit de pointer et cliquer pour générer un rapport ! |[Page du produit][coffing_website]<br> |
 | ![Inbrein][2] |**Inbrein microerd vous**<br>Inbrein MicroERD vous offre les outils dont vous avez besoin pour créer un modèle de données précis, réduire la redondance des données, améliorer la productivité et respecter les normes. Grâce à son interface utilisateur, dont le développement repose sur des expériences utilisateur intensives, un modélisateur peut travailler sur des modèles de base de données en toute facilité. En outre, vous pouvez bénéficier en permanence d’ajouts ou d’optimisations de fonctions MicroERD par le biais de mises à jour et d’améliorations fonctionnelles rapides. |[Page du produit][inbrein_website]<br> |

@@ -9,28 +9,40 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/03/2019
+ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: 10600d8f3ff4e08b8d90f28ec15d3cb0c56bcae0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 510899e44e4ea4a90e21473ee6af546744c2be2a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61230894"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66120232"
 ---
 # <a name="streaming-policies"></a>Stratégies de diffusion en continu
 
-Dans Azure Media Services v3, les [stratégies de diffusion en continu](https://docs.microsoft.com/rest/api/media/streamingpolicies) vous permettent de définir les protocoles de diffusion en continu et les options de chiffrement pour vos [StreamingLocators](streaming-locators-concept.md). Vous pouvez utiliser l’une des stratégies de diffusion en continu prédéfinies ou en créer une personnalisée. Voici les stratégies de diffusion en continu prédéfinies disponibles actuellement : « Predefined_DownloadOnly », « Predefined_ClearStreamingOnly », « Predefined_DownloadAndClearStreaming », « Predefined_ClearKey », « Predefined_MultiDrmCencStreaming » et « Predefined_MultiDrmStreaming ».
+Dans Azure Media Services v3, les [stratégies de diffusion en continu](https://docs.microsoft.com/rest/api/media/streamingpolicies) vous permettent de définir les protocoles de diffusion en continu et les options de chiffrement pour vos [StreamingLocators](streaming-locators-concept.md). Media Services v3 fournit que certaines prédéfinies des stratégies de diffusion en continu afin que vous puissiez les utiliser directement pour la version d’évaluation ou de production. 
 
+Actuellement disponible prédéfinies des stratégies de diffusion en continu :<br/>« Predefined_DownloadOnly », « Predefined_ClearStreamingOnly », « Predefined_DownloadAndClearStreaming », « Predefined_ClearKey », « Predefined_MultiDrmCencStreaming » et « Predefined_MultiDrmStreaming ».
+
+Si vous avez des exigences particulières (par exemple, si vous souhaitez spécifier différents protocoles, avoir besoin d’utiliser un service de remise de clé personnalisé, ou que vous devez utiliser une piste audio clair), vous pouvez créer une stratégie personnalisée de diffusion en continu. 
+
+ 
 > [!IMPORTANT]
 > * Les propriétés des **stratégies de diffusion en continu** de type DateHeure sont toujours au format UTC.
-> * Vous devez concevoir un ensemble limité de stratégies pour votre compte Media Services et les réutiliser pour vos éléments StreamingLocators chaque fois que les mêmes options sont nécessaires. 
+> * Vous devez concevoir un ensemble limité de stratégies pour votre compte Media Services et les réutiliser pour vos éléments localisateurs de diffusion en continu chaque fois que les mêmes options sont nécessaires. Pour plus d’informations, consultez [Quotas et limitations](limits-quotas-constraints.md).
+
+## <a name="decision-tree"></a>Arbre de décision
+
+L’arbre de décision suivant vous aidera à choisir une stratégie prédéfinie de diffusion en continu pour votre scénario.
+
+Cliquez sur l’image pour l’afficher en plein écran.  <br/>
+<a href="./media/streaming-policy/large.png" target="_blank"><img src="./media/streaming-policy/small.png"></a> 
 
 ## <a name="examples"></a>Exemples
 
 ### <a name="not-encrypted"></a>Non chiffré
 
-Si vous souhaitez diffuser votre fichier en clair (sans chiffrement), configurez la stratégie de diffusion en continu en clair prédéfinie : « Predefined_ClearStreamingOnly » (dans .NET, vous pouvez utiliser PredefinedStreamingPolicy.ClearStreamingOnly).
+Si vous souhaitez diffuser votre fichier dans-the-clear (non chiffrés), définir la stratégie de diffusion en continu clair prédéfinie : à « Predefined_ClearStreamingOnly » (dans .NET, vous pouvez utiliser l’énumération PredefinedStreamingPolicy.ClearStreamingOnly).
 
 ```csharp
 StreamingLocator locator = await client.StreamingLocators.CreateAsync(

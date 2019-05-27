@@ -6,16 +6,16 @@ author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: manage
+ms.subservice: workload management
 ms.date: 03/15/2019
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 141112b8b6b44706a750d8a97780e018d96a5006
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 024b3f9c6d1fdd0d4bcb1126e4577387a6415a59
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61435032"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65873469"
 ---
 # <a name="memory-and-concurrency-limits-for-azure-sql-data-warehouse"></a>Limites de mémoire et de concurrence pour Azure SQL Data Warehouse
 Afficher les limites de mémoire et de concurrence allouées aux différents niveaux de performance et classes de ressources dans Azure SQL Data Warehouse. Pour plus d’informations et pour appliquer ces fonctionnalités à votre plan de gestion de la charge de travail, consultez [Classes de ressources pour la gestion des charges de travail](resource-classes-for-workload-management.md). 
@@ -25,7 +25,7 @@ Il existe deux générations disponibles avec SQL Data Warehouse : Gen1 et Gen2.
 ## <a name="data-warehouse-capacity-settings"></a>Paramètres de la capacité de l’entrepôt de données
 Les tableaux suivants présentent la capacité maximale pour l’entrepôt de données à différents niveaux de performance. Pour modifier le niveau de performance, consultez [Calcul de mise à l’échelle – portail](quickstart-scale-compute-portal.md).
 
-### <a name="gen2"></a>Deuxième génération
+### <a name="gen2"></a>Gen2
 
 Gen2 fournit 2,5 fois plus de mémoire par requête que Gen1. Cette mémoire supplémentaire permet à Gen2 d’offrir des performances particulièrement rapides.  Les niveaux de performance de Gen2 vont de DW100c à DW30000c. 
 
@@ -50,7 +50,7 @@ Gen2 fournit 2,5 fois plus de mémoire par requête que Gen1. Cette mémoire sup
 
 Le nombre maximal de DWU Gen2 est DW30000c, qui correspond à 60 nœuds de calcul et une distribution par nœud de calcul. Par exemple, un entrepôt de données de 600 To à DW30000c traite environ 10 To par nœud de calcul.
 
-### <a name="gen1"></a>Première génération
+### <a name="gen1"></a>Gen1
 
 Les niveaux de service pour Gen1 vont de DW100 à DW6000. 
 
@@ -72,7 +72,7 @@ Les niveaux de service pour Gen1 vont de DW100 à DW6000.
 ## <a name="concurrency-maximums"></a>Valeurs maximales de concurrence
 Pour s’assurer que chaque requête dispose de suffisamment de ressources pour s’exécuter efficacement, SQL Data Warehouse suit l’utilisation des ressources en assignant des emplacements de concurrence à chaque requête. Le système place les requêtes dans une file d’attente en fonction de l’importance et les emplacements de concurrence. Requêtes dans la file d’attente jusqu'à ce que suffisamment d’emplacements de concurrence sont disponibles. [Importance](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-workload-importance) et emplacements de concurrence déterminent la définition des priorités du processeur. Pour plus d’informations, voir [Analyser votre charge de travail](analyze-your-workload.md).
 
-### <a name="gen2"></a>Deuxième génération
+### <a name="gen2"></a>Gen2
  
 **Classes de ressources statiques**
 
@@ -127,7 +127,7 @@ Le tableau suivant indique le nombre maximal de requêtes concurrentes et d’em
 
 
 
-#### <a name="gen1"></a>Première génération
+#### <a name="gen1"></a>Gen1
 
 Classes de ressources statiques
 

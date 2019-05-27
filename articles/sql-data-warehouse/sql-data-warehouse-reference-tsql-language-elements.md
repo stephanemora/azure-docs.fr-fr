@@ -2,20 +2,20 @@
 title: Éléments de langage T-SQL - Azure SQL Data Warehouse | Microsoft Docs
 description: Liens vers la documentation des instructions T-SQL prises en charge dans Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: twounder
+author: XiaoyuL-Preview
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
+ms.subservice: query
 ms.date: 06/13/2018
-ms.author: mausher
+ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: d88d1390f590a86c83273f2170f3854a7972a24b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 95c5b592d5ca46aed5f7123ff2b3eb688c5c0caf
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61475913"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65873497"
 ---
 # <a name="t-sql-language-elements-supported-in-azure-sql-data-warehouse"></a>Éléments de langage T-SQL pris en charge dans Azure SQL Data Warehouse
 Liens vers la documentation des éléments de langage T-SQL pris en charge dans Azure SQL Data Warehouse.
@@ -24,8 +24,8 @@ Liens vers la documentation des éléments de langage T-SQL pris en charge dans 
 * [conventions de syntaxe](/sql/t-sql/language-elements/transact-sql-syntax-conventions-transact-sql)
 * [Règles d'affectation des noms aux objets](https://msdn.microsoft.com/library/ms175874.aspx)
 * [mots-clés réservés](https://msdn.microsoft.com/library/ms189822.aspx)
-* [classements](https://msdn.microsoft.com/library/ff848763.aspx)
-* [commentaires](https://msdn.microsoft.com/library/ms181627.aspx)
+* [collations](https://msdn.microsoft.com/library/ff848763.aspx)
+* [comments](https://msdn.microsoft.com/library/ms181627.aspx)
 * [constantes](https://msdn.microsoft.com/library/ms179899.aspx)
 * [types de données](https://msdn.microsoft.com/library/ms187752.aspx)
 * [EXECUTE](https://msdn.microsoft.com/library/ms188332.aspx)

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 8ab051d49e7ed67e642ef656dfb382ed07763ed2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8da40aa04381542c8c750c8d7e33c9a29879371d
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60877427"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65900883"
 ---
 # <a name="account-management-operations-on-azure-data-lake-storage-gen1-using-net-sdk"></a>Opérations de gestion des comptes sur Azure Data Lake Storage Gen1 à l’aide du SDK .NET
 > [!div class="op_single_selector"]
@@ -32,22 +32,16 @@ Dans cet article, vous allez découvrir comment réaliser des opérations de ges
 Pour obtenir des instructions sur l’exécution des opérations de gestion des données sur Data Lake Storage Gen1 à l’aide du kit de développement logiciel (SDK) .NET, consultez la section relative aux [opérations du système de fichiers sur Data Lake Storage Gen1 à l’aide du kit de développement logiciel (SDK) .NET](data-lake-store-data-operations-net-sdk.md).
 
 ## <a name="prerequisites"></a>Conditions préalables
-* **Visual Studio 2013, 2015 ou 2017**. Les instructions ci-dessous reposent sur Visual Studio 2017.
+* **Visual Studio 2013 ou version ultérieure**. Les instructions ci-dessous utilisent Visual Studio 2019.
 
 * **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="create-a-net-application"></a>Créer une application .NET
-1. Ouvrez Visual Studio et créez une application console.
-2. Dans le menu **Fichier**, cliquez sur **Nouveau**, puis sur **Projet**.
-3. Dans **Nouveau projet**, entrez ou sélectionnez les valeurs suivantes :
+1. Dans Visual Studio, sélectionnez le **fichier** menu, **New**, puis **projet**.
+2. Choisissez **application Console (.NET Framework)**, puis sélectionnez **suivant**.
+3. Dans **nom_projet**, entrez `CreateADLApplication`, puis sélectionnez **créer**.
 
-   | Propriété | Valeur |
-   | --- | --- |
-   | Catégorie |Modèles/Visual C#/Windows |
-   | Modèle |Application console |
-   | Nom |CreateADLApplication |
-4. Cliquez sur **OK** pour créer le projet.
-5. Ajoutez les packages NuGet à votre projet.
+4. Ajoutez les packages NuGet à votre projet.
 
    1. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le nom du projet, puis cliquez sur **Gérer les packages NuGet**.
    2. Dans l’onglet **Gestionnaire de package NuGet**, vérifiez que **Source du package** a la valeur **nuget.org** et que la case **Inclure la version préliminaire** est cochée.
@@ -58,7 +52,7 @@ Pour obtenir des instructions sur l’exécution des opérations de gestion des 
 
         ![Ajouter une source NuGet](./media/data-lake-store-get-started-net-sdk/data-lake-store-install-nuget-package.png "Créer un compte Azure Data Lake")
    4. Fermez le **Gestionnaire de package NuGet**.
-6. Ouvrez **Program.cs**, supprimez le code existant, puis insérez les instructions suivantes pour ajouter des références aux espaces de noms.
+5. Ouvrez **Program.cs**, supprimez le code existant, puis insérez les instructions suivantes pour ajouter des références aux espaces de noms.
 
         using System;
         using System.IO;
@@ -74,7 +68,7 @@ Pour obtenir des instructions sur l’exécution des opérations de gestion des 
         using Microsoft.Azure.Management.DataLake.Store.Models;
         using Microsoft.IdentityModel.Clients.ActiveDirectory;
 
-7. Déclarez les variables et fournissez les valeurs des espaces réservés. En outre, assurez-vous que le chemin d’accès local et le nom de fichier que vous fournissez existent sur l’ordinateur.
+6. Déclarez les variables et fournissez les valeurs des espaces réservés. En outre, assurez-vous que le chemin d’accès local et le nom de fichier que vous fournissez existent sur l’ordinateur.
 
         namespace SdkSample
         {
@@ -99,7 +93,7 @@ Pour obtenir des instructions sur l’exécution des opérations de gestion des 
 
 Dans les sections suivantes de cet article, vous pouvez découvrir comment utiliser les méthodes .NET pour effectuer des opérations telles que l’authentification des utilisateurs et le chargement de fichiers.
 
-## <a name="authentication"></a>Authentification
+## <a name="authentication"></a>Authentication
 
 * Pour en savoir plus sur l’authentification des utilisateurs accédant à votre application, consultez la section relative à [l’authentification de l’utilisateur avec Data Lake Storage Gen1 à l’aide du Kit de développement logiciel (SDK) .NET](data-lake-store-end-user-authenticate-net-sdk.md).
 * Pour en savoir plus sur l’authentification entre les services dans le cadre de votre application, consultez la section relative à [l’authentification entre les services avec Data Lake Storage Gen1 à l’aide du Kit de développement logiciel (SDK) .NET](data-lake-store-service-to-service-authenticate-net-sdk.md).

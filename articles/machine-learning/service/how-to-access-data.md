@@ -11,12 +11,12 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 02/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0ab01187b03b3d658b171029003667588382bd7f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 15118535578419f9e1230c5b2fcfd0d7c42257ea
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60820289"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65909001"
 ---
 # <a name="access-data-from-your-datastores"></a>Accéder aux données à partir de vos banques de données
 
@@ -30,7 +30,7 @@ Cette procédure montre des exemples des tâches suivantes :
 
 ## <a name="prerequisites"></a>Conditions préalables
 
-Pour utiliser des banques de données, vous devez tout d’abord disposer d’un [espace de travail](concept-azure-machine-learning-architecture.md#workspace).
+Pour utiliser des banques de données, vous devez tout d’abord disposer d’un [espace de travail](concept-workspace.md).
 
 Commencez soit par [créer un espace de travail](setup-create-workspace.md#sdk), soit par en récupérer un existant :
 
@@ -74,7 +74,7 @@ Les exemples suivants montrent que vous enregistriez un conteneur d’objets Blo
                                                create_if_not_exists=True)
   ```
 
-+ Pour un **Datastore de partage de fichiers Azure**, utilisez [ `register_azure_file_share()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-file-share-workspace--datastore-name--file-share-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false-). Par exemple :  
++ Pour un **Datastore de partage de fichiers Azure**, utilisez [ `register_azure_file_share()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-file-share-workspace--datastore-name--file-share-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false-). Exemple : 
   ```Python
   ds = Datastore.register_azure_file_share(workspace=ws, 
                                            datastore_name='your datastore name', 
@@ -153,9 +153,9 @@ Une fois que vous apportez votre banque de données disponibles sur la cible de 
 
 Le tableau suivant répertorie les [ `DataReference` ](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py) méthodes qui indiquent comment utiliser le magasin de données lors des exécutions à la cible de calcul.
 
-moyen|Méthode|Description|
+moyen|Méthode|Description |
 ----|-----|--------
-Monter| [`as_mount()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-mount--)| Permet de monter la banque de données sur la cible de calcul.
+Montage| [`as_mount()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-mount--)| Permet de monter la banque de données sur la cible de calcul.
 Téléchargement|[`as_download()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-)|Pour télécharger le contenu de votre banque de données à l’emplacement spécifié par `path_on_compute`. <br> Pour le contexte de la formation de s’exécuter, ce téléchargement se produit avant l’exécution.
 Télécharger|[`as_upload()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-)| Permet de charger un fichier à partir de l’emplacement spécifié par `path_on_compute` à votre banque de données. <br> Pour le contexte de la formation de s’exécuter, ce chargement se produit après l’exécution.
 

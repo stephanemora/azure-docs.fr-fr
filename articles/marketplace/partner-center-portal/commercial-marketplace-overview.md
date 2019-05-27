@@ -7,12 +7,12 @@ ms.author: mattwoj
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 85e162773f95272ac2af36469480f1786b260e26
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: ebf371c45868d8e620413f8f54b3531b1a17f817
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65806250"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65949595"
 ---
 # <a name="overview-of-the-commercial-marketplace-portal-in-partner-center"></a>Vue d’ensemble du portail de la place de marché Commercial dans Partner Center
 
@@ -36,7 +36,7 @@ Les éditeurs de la place de marché existants trouveront une expérience utilis
 
 ### <a name="improvements-on-user-experience-and-billing"></a>Améliorations de l’expérience utilisateur et de facturation
 
-Avec la transition vers les partenaires, les nouvelles fonctionnalités sont disponibles pour les serveurs de publication, en plus des améliorations sur l’expérience utilisateur. Offres SaaS qui peuvent être facturés mensuellement ou annuellement, prennent en charge la gestion des licences (basé sur le siège) en plus de site par site (forfaitaire) par l’utilisateur. Ce nouveau modèle de monétisation est idéal pour les logiciels d’entreprise. L’introduction de la gestion des licences par utilisateur SaaS s’aligne avec la nouvelle fonctionnalité qui permet aux clients effectuer des achats dans AppSource, place de marché commercial de Microsoft pour les entreprises et les solutions du secteur. 
+Avec la transition vers les partenaires, les nouvelles fonctionnalités sont disponibles pour les serveurs de publication, en plus des améliorations sur l’expérience utilisateur. Offres SaaS, qui peuvent être facturés mensuellement ou annuellement, prennent en charge la gestion des licences (basé sur le siège) en plus par site licences (forfaitaire) par l’utilisateur. Ce nouveau modèle de monétisation est idéal pour les logiciels d’entreprise. L’introduction de la gestion des licences par utilisateur SaaS s’aligne avec la nouvelle fonctionnalité qui permet aux clients d’achats complètes dans AppSource, la place de marché commercial de Microsoft pour les solutions d’entreprise et du secteur. 
 
 ### <a name="account-and-user-management-updates"></a>Utilisateur et le compte de gestion des mises à jour
 
@@ -58,3 +58,4 @@ En savoir plus sur les versions récentes et futures en visitant le [feuille de 
 
 - Pour tout nouveau partenaires Microsoft qui souhaitent publier une SaaS offrent aux places de marché, consultez [créer un compte de la place de marché Commercial dans partenaires](./create-account.md).
 - Pour les partenaires existants qui ont publié précédemment offres dans le portail Cloud Partner, [gérer votre compte place de marché Commercial dans partenaires](./manage-account.md). 
+- En savoir plus sur la gestion de la place de marché cloud vers les partenaires dans ce [billet de blog de communauté de partenaires](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/Cloud-Marketplace-In-Partner-Center/m-p/9738#M293), y compris une vidéo de démonstration.

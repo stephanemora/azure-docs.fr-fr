@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 03/28/2019
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: 883042e7c8abb43338c55a76bba3d64844ce1c56
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 3361013d8421cd859c834c07018356318d5e2989
+ms.sourcegitcommit: f4469b7bb1f380bf9dddaf14763b24b1b508d57c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65604349"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66179819"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>Configurer une application Linux Java pour Azure App Service
 
@@ -65,7 +65,7 @@ Les images de Java intégrées sont basées sur le [Linux Alpine](https://alpine
 
 Azure App Service sur Linux prend en charge en dehors de la zone paramétrage et la personnalisation via le portail Azure et CLI. Passez en revue les articles suivants pour la configuration d’application spécifiques de Java web :
 
-- [Configurer les paramètres App Service](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+- [Configurer les paramètres de l’application](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings)
 - [Configurer un nom de domaine personnalisé](../app-service-web-tutorial-custom-domain.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 - [Activer le protocole SSL](../app-service-web-tutorial-custom-ssl.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 - [Ajouter un CDN](../../cdn/cdn-add-to-web-app.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
@@ -73,7 +73,7 @@ Azure App Service sur Linux prend en charge en dehors de la zone paramétrage et
 
 ### <a name="set-java-runtime-options"></a>Définir les options de runtime Java
 
-Pour définir la mémoire allouée ou autres options de runtime JVM dans les environnements de Tomcat et de Java SE, créez un [paramètre d’application](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#app-settings) nommé `JAVA_OPTS` avec les options. App Service Linux transmet ce paramètre comme variable d’environnement au runtime Java quand celui-ci démarre.
+Pour définir la mémoire allouée ou autres options de runtime JVM dans les environnements de Tomcat et de Java SE, créez un [paramètre d’application](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) nommé `JAVA_OPTS` avec les options. App Service Linux transmet ce paramètre comme variable d’environnement au runtime Java quand celui-ci démarre.
 
 Dans le portail Azure, sous **Paramètres d’application** de l’application web, créez un paramètre d’application appelé `JAVA_OPTS` qui contient les paramètres supplémentaires tels que `-Xms512m -Xmx1204m`.
 
@@ -140,11 +140,45 @@ Les applications Java exécutées dans App Service pour Linux présentent les m�
 
 ### <a name="authenticate-users"></a>Authentification des utilisateurs
 
-Configurer l’authentification d’application dans le portail Azure avec le **authentification et autorisation** option. À partir de là, vous pouvez activer l’authentification en utilisant Azure Active Directory ou des identifiants de réseaux sociaux tels que Facebook, Google ou GitHub. La configuration du portail Azure fonctionne seulement si vous configurez un seul fournisseur d’authentification. Pour plus d’informations, consultez [Configurer votre application App Service pour utiliser une connexion Azure Active Directory](../configure-authentication-provider-aad.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) et les articles connexes sur d’autres fournisseurs d’identités.
+Configurer l’authentification d’application dans le portail Azure avec le **authentification et autorisation** option. À partir de là, vous pouvez activer l’authentification en utilisant Azure Active Directory ou des identifiants de réseaux sociaux tels que Facebook, Google ou GitHub. La configuration du portail Azure fonctionne seulement si vous configurez un seul fournisseur d’authentification. Pour plus d’informations, consultez [Configurer votre application App Service pour utiliser une connexion Azure Active Directory](../configure-authentication-provider-aad.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) et les articles connexes sur d’autres fournisseurs d’identités. Si vous devez activer plusieurs fournisseurs de connexion, suivez les instructions de l’article [Personnaliser l’authentification App Service](../app-service-authentication-how-to.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json).
 
-Si vous devez activer plusieurs fournisseurs de connexion, suivez les instructions de l’article [Personnaliser l’authentification App Service](../app-service-authentication-how-to.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json).
+#### <a name="tomcat"></a>Tomcat
 
- Les développeurs Spring Boot peuvent utiliser le [démarreur Spring Boot Azure Active Directory](/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory?view=azure-java-stable) pour sécuriser les applications à l’aide d’API et d’annotations Spring Security familières. Veillez à augmenter la taille d’en-tête maximale dans votre fichier `application.properties`. Nous vous suggérons une valeur de `16384`.
+Votre application de Tomcat peut accéder à l’utilisateur revendications directement à partir de servlet Tomcat en effectuant un cast de l’entité de sécurité de l’objet à un objet de mappage. L’objet Map mappera chaque type de revendication à une collection des revendications pour ce type. Dans le code ci-dessous, `request` est une instance de `HttpServletRequest`.
+
+```java
+Map<String, Collection<String>> map = (Map<String, Collection<String>>) request.getUserPrincipal();
+```
+
+Maintenant que vous pouvez inspecter les `Map` objet pour toute revendication spécifique. Par exemple, l’extrait de code suivant effectue une itération dans tous les types de revendication et imprime le contenu de chaque collection.
+
+```java
+for (Object key : map.keySet()) {
+        Object value = map.get(key);
+        if (value != null && value instanceof Collection {
+            Collection claims = (Collection) value;
+            for (Object claim : claims) {
+                System.out.println(claims);
+            }
+        }
+    }
+```
+
+Pour déconnecter les utilisateurs et effectuer d’autres actions, consultez la documentation sur [l’utilisation de l’authentification App Service et d’autorisation](https://docs.microsoft.com/en-us/azure/app-service/app-service-authentication-how-to). Il existe également une documentation officielle sur Tomcat [HttpServletRequest interface](https://tomcat.apache.org/tomcat-5.5-doc/servletapi/javax/servlet/http/HttpServletRequest.html) et ses méthodes. Le servlet suivant méthodes sont également alimentés selon votre configuration de Service d’application :
+
+```java
+public boolean isSecure()
+public String getRemoteAddr()
+public String getRemoteHost()
+public String getScheme()
+public int getServerPort()
+```
+
+Pour désactiver cette fonctionnalité, créez un paramètre d’Application nommé `WEBSITE_AUTH_SKIP_PRINCIPAL` avec la valeur `1`. Pour désactiver tous les filtres de servlet ajoutés par App Service, créez un paramètre nommé `WEBSITE_SKIP_FILTERS` avec la valeur `1`.
+
+#### <a name="spring-boot"></a>Spring Boot
+
+Les développeurs Spring Boot peuvent utiliser le [démarreur Spring Boot Azure Active Directory](/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory?view=azure-java-stable) pour sécuriser les applications à l’aide d’API et d’annotations Spring Security familières. Veillez à augmenter la taille d’en-tête maximale dans votre fichier `application.properties`. Nous vous suggérons une valeur de `16384`.
 
 ### <a name="configure-tlsssl"></a>Configurer TLS/SSL
 
@@ -232,7 +266,7 @@ Pour configurer Tomcat pour utiliser Java Database Connectivity (JDBC) ou l’AP
 </appSettings>
 ```
 
-Ou définissez les variables d’environnement dans le panneau « Paramètres d’application » du portail Azure.
+Ou définir les variables d’environnement dans le **Configuration** > **paramètres d’Application** page dans le portail Azure.
 
 Ensuite, déterminez si la source de données doit être mise à la disposition d’une seule application ou de toutes les applications exécutées sur le servlet Tomcat.
 
@@ -327,10 +361,7 @@ Enfin, placez les fichiers de pilote JAR dans classpath Tomcat et redémarrer vo
 
 Pour vous connecter aux sources de données dans des applications Spring Boot, nous vous suggérons de créer des chaînes de connexion et de les injecter dans vos `application.properties` fichier.
 
-1. Dans la section « Paramètres de l’Application » du panneau App Service, définir un nom pour la chaîne, collez votre chaîne de connexion JDBC dans le champ de valeur et définissez le type « Personnalisé ». Vous pouvez éventuellement définir cette chaîne de connexion en tant que paramètre d’emplacement.
-
-    ! [Création d’une chaîne de connexion dans le portail.]
-    
+1. Dans la section « Configuration » de la page App Service, définir un nom pour la chaîne, collez votre chaîne de connexion JDBC dans le champ de valeur et définissez le type « Personnalisé ». Vous pouvez éventuellement définir cette chaîne de connexion en tant que paramètre d’emplacement.
 
     Cette chaîne de connexion est accessible à notre application comme une variable d’environnement nommée `CUSTOMCONNSTR_<your-string-name>`. Par exemple, la chaîne de connexion que nous avons créé ci-dessus sera nommée `CUSTOMCONNSTR_exampledb`.
 
@@ -383,13 +414,13 @@ Chargez le script de démarrage sur `/home/site/deployments/tools` dans votre in
 
 Définissez le champ **Script de démarrage** champ dans le portail Azure sur l’emplacement de votre script shell de démarrage, par exemple `/home/site/deployments/tools/your-startup-script.sh`.
 
-Fournir [paramètres de l’application](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#app-settings) dans la configuration d’application pour passer les variables d’environnement pour une utilisation dans le script. Les paramètres d’application conservent les chaînes de connexion et les autres secrets nécessaires pour configurer votre application en dehors de la gestion de version.
+Fournir [paramètres de l’application](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) dans la configuration d’application pour passer les variables d’environnement pour une utilisation dans le script. Les paramètres d’application conservent les chaînes de connexion et les autres secrets nécessaires pour configurer votre application en dehors de la gestion de version.
 
 ### <a name="modules-and-dependencies"></a>Modules et dépendances
 
 Pour installer des modules et leurs dépendances dans le classpath WildFly via l’interface CLI JBoss, vous devez créer les fichiers suivants dans leur propre répertoire. Certains modules et certaines dépendances peuvent nécessiter une configuration supplémentaire, comme le nommage JNDI ou d’autres configurations spécifiques à l’API : cette liste est donc un ensemble minimal de ce vous devez configurer dans la plupart des cas pour une dépendance.
 
-- [Descripteur de module XML](https://jboss-modules.github.io/jboss-modules/manual/#descriptors). Ce fichier XML définit le nom, les attributs et les dépendances de votre module. Cet [exemple de fichier module.xml](https://access.redhat.com/documentation/jboss_enterprise_application_platform/6/html/administration_and_configuration_guide/example_postgresql_xa_datasource) définit un module Postgres, sa dépendance JDBC du fichier JAR et d’autres dépendances nécessaires du module.
+- [Descripteur de module XML](https://jboss-modules.github.io/jboss-modules/manual/#descriptors). Ce fichier XML définit le nom, les attributs et les dépendances de votre module. Cet [exemple de fichier module.xml](https://access.redhat.com/documentation/en-us/jboss_enterprise_application_platform/6/html/administration_and_configuration_guide/example_postgresql_xa_datasource) définit un module Postgres, sa dépendance JDBC du fichier JAR et d’autres dépendances nécessaires du module.
 - Dépendances de fichier JAR nécessaires pour votre module.
 - Script avec vos commandes d’interface CLI JBoss pour configurer le nouveau module. Ce fichier contient vos commandes à exécuter par l’interface CLI JBoss pour configurer le serveur de façon à ce qu’il utilise la dépendance. Pour une documentation sur les commandes pour ajouter des modules, des sources de données et des fournisseurs de messagerie, reportez-vous à [ce document](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.0/html-single/management_cli_guide/#how_to_cli).
 - Script de démarrage Bash pour appeler l’interface CLI JBoss et exécuter le script de l’étape précédente. Ce fichier est exécuté quand votre instance App Service est redémarrée ou quand de nouvelles instances sont provisionnées lors d’un scale-out. C’est dans ce script de démarrage que vous pouvez effectuer les autres configurations pour votre application, car les commandes JBoss sont passées à l’interface CLI JBoss. Au minimum, ce fichier peut être une commande unique pour passer votre script de commandes d’interface CLI JBoss à l’interface CLI JBoss :
@@ -401,7 +432,7 @@ Pour installer des modules et leurs dépendances dans le classpath WildFly via l
 Une fois que vous avez les fichiers et le contenu pour votre module, suivez les étapes ci-dessous pour ajouter le module au serveur d’applications WildFly.
 
 1. Chargez vos fichiers via FTP dans `/home/site/deployments/tools` sur votre instance App Service. Consultez ce document pour obtenir des instructions sur l’obtention de vos informations d’identification FTP.
-2. Dans le panneau Paramètres de l’application du portail Azure, définissez le champ « Script de démarrage » sur l’emplacement de votre script shell de démarrage, par exemple `/home/site/deployments/tools/your-startup-script.sh`.
+2. Dans le **Configuration** > **paramètres généraux** page de portail, définissez le « Script de démarrage » Azure champ à l’emplacement de votre script d’interpréteur de commandes de démarrage, par exemple `/home/site/deployments/tools/your-startup-script.sh` .
 3. Redémarrez votre instance App Service en appuyant sur la **redémarrer** situé dans le **vue d’ensemble** section du portail ou à l’aide de l’interface CLI.
 
 ### <a name="configure-data-source-connections"></a>Configurer des connexions de source de données

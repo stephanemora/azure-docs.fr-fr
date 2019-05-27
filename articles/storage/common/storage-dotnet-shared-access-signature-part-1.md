@@ -9,12 +9,12 @@ ms.date: 04/18/2017
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 25c562e144b635cb66c5df9b5b7bd6237ce3122c
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 8bee0426f171b0fdb7793d18c352649928fdb2e8
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65154428"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65907195"
 ---
 # <a name="using-shared-access-signatures-sas"></a>Utilisation des signatures d’accès partagé (SAP)
 
@@ -89,7 +89,7 @@ Les jetons SAP de compte et de service incluent des paramètres communs ainsi qu
 * **Ressource de stockage.**  Les ressources de stockage dont vous pouvez déléguer l’accès à l’aide d’une SAP de service incluent :
   * Conteneurs et objets blob
   * Partages de fichiers et fichiers
-  * Files d’attente
+  * Files d'attente
   * Tables et plages d’entités de table.
 
 ### <a name="parameters-for-an-account-sas-token"></a>Paramètres d’un jeton de compte SAP
@@ -109,7 +109,7 @@ Voici un exemple d’URI de SAP de service qui fournit des autorisations d’acc
 https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2015-04-05&st=2015-04-29T22%3A18%3A26Z&se=2015-04-30T02%3A23%3A26Z&sr=b&sp=rw&sip=168.1.5.60-168.1.5.70&spr=https&sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D
 ```
 
-| Nom | Partie de la SAP | Description |
+| Nom | Partie de la SAP | Description  |
 | --- | --- | --- |
 | URI de l’objet blob |`https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt` |Adresse de l'objet blob. Notez que l'utilisation de HTTPS est fortement recommandée. |
 | Version des services de stockage |`sv=2015-04-05` |Pour la version 2012-02-12 des services de stockage et les versions ultérieures, ce paramètre indique la version à utiliser. |
@@ -129,7 +129,7 @@ Voici un exemple de SAP de compte qui utilise les mêmes paramètres communs sur
 https://myaccount.blob.core.windows.net/?restype=service&comp=properties&sv=2015-04-05&ss=bf&srt=s&st=2015-04-29T22%3A18%3A26Z&se=2015-04-30T02%3A23%3A26Z&sr=b&sp=rw&sip=168.1.5.60-168.1.5.70&spr=https&sig=F%6GRVAZ5Cdj2Pw4tgU7IlSTkWgn7bUkkAg8P6HESXwmf%4B
 ```
 
-| Nom | Partie de la SAP | Description |
+| Nom | Partie de la SAP | Description  |
 | --- | --- | --- |
 | URI de ressource |`https://myaccount.blob.core.windows.net/?restype=service&comp=properties` |Point de terminaison du service BLOB, avec les paramètres d’obtention des propriétés du service (appel avec la méthode GET) ou de définition des propriétés du service (appel avec la méthode SET). |
 | Services |`ss=bf` |La SAP s’applique au service BLOB et au service de fichiers. |
@@ -232,7 +232,7 @@ Vous trouverez ci-dessous des exemples des deux types de signatures d’accès p
 Pour exécuter ces exemples C#, vous devez référencer les packages NuGet suivants dans votre projet :
 
 * [Bibliothèque cliente de stockage Azure pour .NET](https://www.nuget.org/packages/WindowsAzure.Storage), version 6.x ou ultérieure (pour utiliser une SAP de compte).
-* [Gestionnaire de configuration Azure](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager)
+* [Gestionnaire de configuration Azure](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager)
 
 Pour obtenir des exemples supplémentaires expliquant comment créer et tester une SAP, consultez les [Exemples de code Azure pour le stockage](https://azure.microsoft.com/documentation/samples/?service=storage).
 
@@ -422,7 +422,6 @@ private static string GetBlobSasUri(CloudBlobContainer container, string blobNam
 Les signatures d'accès partagé sont utiles pour fournir des autorisations d'accès limitées à votre compte de stockage aux clients qui ne doivent pas avoir la clé du compte. À ce titre, elles sont un élément crucial du modèle de sécurité pour toute application utilisant Azure Storage. Si vous suivez les meilleures pratiques énumérées ci-dessus, vous pouvez utiliser une signature d'accès partagé pour offrir une plus grande souplesse d'accès aux ressources de votre compte de stockage, sans compromettre la sécurité de votre application.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Signatures d’accès partagé, partie 2 : Créer et utiliser une signature d’accès partagé avec Blob Storage](../blobs/storage-dotnet-shared-access-signature-part-2.md)
 * [Gestion de l’accès en lecture anonyme aux conteneurs et aux objets blob](../blobs/storage-manage-access-to-resources.md)
 * [Délégation de l'accès avec une signature d'accès partagé](https://msdn.microsoft.com/library/azure/ee395415.aspx)
 * [Présentation des signatures d’accès partagé de table et de file d’attente](https://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)

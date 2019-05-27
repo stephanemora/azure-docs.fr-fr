@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: vincesm
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fb05ee4d6e05cb8b56756a761a519e5903b78bbd
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 0cb0fe056ff7ff4794667d6b28782daad100609f
+ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65507092"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65921035"
 ---
 # <a name="what-are-the-default-user-permissions-in-azure-active-directory"></a>Quelles sont les autorisations d’utilisateur par défaut dans Azure Active Directory ?
 Dans Azure Active Directory (Azure AD), tous les utilisateurs bénéficient d’un jeu d’autorisations par défaut. L’accès d’un utilisateur se compose du type d’utilisateur, de ses [attributions de rôles](active-directory-users-assign-role-azure-portal.md) et de sa possession d’objets individuels. Cet article décrit ces autorisations par défaut et compare celles des utilisateurs membres et celles des utilisateurs invités. Les autorisations d’utilisateur par défaut ne peuvent être modifiées que dans les paramètres utilisateur dans Azure AD.
@@ -53,7 +53,7 @@ Les utilisateurs peuvent inscrire l’application | Définir cette option sur no
 Autoriser les utilisateurs à connecter leur compte professionnel ou scolaire avec LinkedIn | Définir cette option sur non empêche les utilisateurs de se connecter leur compte professionnel ou scolaire avec leur compte LinkedIn.  Consultez [connexions partage des données et consentement du compte LinkedIn](https://docs.microsoft.com/azure/active-directory/users-groups-roles/linkedin-user-consent) pour plus d’informations.
 Possibilité de créer des groupes de sécurité | Définir cette option sur Non empêche les utilisateurs de créer des groupes de sécurité. Les administrateurs généraux et les administrateurs d’utilisateurs peuvent toujours créer des groupes de sécurité. Pour connaître la marche à suivre, consultez [Configuration des paramètres de groupe avec les applets de commande Azure Active Directory](../users-groups-roles/groups-settings-cmdlets.md).
 Possibilité de créer des groupes Office 365 | Définir cette option sur Non empêche les utilisateurs de créer des groupes Office 365. Définir cette option sur Certain(e)s permet à un ensemble d’utilisateurs spécifique de créer des groupes Office 365. Les administrateurs généraux et les administrateurs de l’utilisateur sera en mesure de créer des groupes Office 365. Pour connaître la marche à suivre, consultez [Configuration des paramètres de groupe avec les applets de commande Azure Active Directory](../users-groups-roles/groups-settings-cmdlets.md).
-Limiter l'accès au portail d'administration Azure AD | Définir cette option sur Non empêche les utilisateurs d’accéder à Azure Active Directory.
+Limiter l'accès au portail d'administration Azure AD | Définir cette option sur Oui empêche les utilisateurs d’accéder à Azure Active Directory via le portail Azure uniquement.
 Possibilité de lire d’autres utilisateurs | Ce paramètre est uniquement disponible dans PowerShell. Définir ce paramètre sur $false empêche tous les utilisateurs non administrateurs de lire les informations utilisateur du répertoire. Cela n’empêche pas de lire les informations utilisateur dans d’autres services Microsoft comme Exchange Online. Ce paramètre est destiné à des circonstances particulières et le définir sur $false n’est pas recommandé.
 
 ## <a name="object-ownership"></a>Propriété des objets

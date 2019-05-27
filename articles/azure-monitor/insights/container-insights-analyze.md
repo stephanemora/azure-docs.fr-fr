@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/06/2019
+ms.date: 05/18/2019
 ms.author: magoedte
-ms.openlocfilehash: ed387f7038c5dee1a1685c918abcae49942cd55d
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 531e51fbddb99ebba11284d5291b4cca26559bc1
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148845"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65906773"
 ---
 # <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers"></a>Comprendre les performances du cluster AKS avec Azure Monitor pour les conteneurs 
 Avec Azure Monitor pour les conteneurs, vous pouvez utiliser les graphiques de performances et l’état d’intégrité pour surveiller la charge de travail de vos clusters Azure Kubernetes Service (AKS) selon deux perspectives, directement à partir d’un cluster AKS ou tous les clusters AKS d’un abonnement à partir d’Azure Monitor. L’affichage d’ACI (Azure Container Instances) est également possible lorsque vous surveillez un cluster ACS spécifique.
@@ -26,10 +26,6 @@ Avec Azure Monitor pour les conteneurs, vous pouvez utiliser les graphiques de p
 Cet article vous aidera à comprendre l’expérience entre les deux perspectives et à rapidement évaluer, examiner et résoudre les problèmes détectés.
 
 Pour plus d’informations sur l’activation d’Azure Monitor pour les conteneurs, consultez [Onboard Azure Monitor for containers](container-insights-onboard.md) (Intégrer Azure Monitor pour les conteneurs).
-
-> [!IMPORTANT]
-> Azure Monitor pour la prise en charge des conteneurs pour surveiller un cluster ACS exécutant Windows Server 2019 est actuellement en version préliminaire publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Azure Monitor fournit une vue multicluster affichant l’état d’intégrité de tous les clusters AKS analysés exécutant Linux et Windows Server 2019 déployé un groupe de ressources dans vos abonnements.  Il montre les clusters AKS découverts et qui ne sont pas surveillés par la solution. Immédiatement, vous pouvez comprendre l’intégrité du cluster et à partir de là, vous pouvez explorer le nœud et la page de performances du contrôleur, ou naviguer pour voir les graphiques de performances du cluster.  Pour les clusters AKS détectés et identifiés comme non surveillés, vous pouvez activer la surveillance de ces clusters à tout moment.  
 

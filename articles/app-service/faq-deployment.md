@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/01/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 9d7fd41657394e006957392f37ec1a258b33c8c6
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: beee76bdc443b3a66b4500b83d228075b84eed1e
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65413879"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65864768"
 ---
 # <a name="deployment-faqs-for-web-apps-in-azure"></a>Forum aux questions sur le déploiement de Web Apps dans Azure
 
@@ -38,9 +38,9 @@ Voici quelques options pour la publication de votre code d’application web :
 
 Pour plus d’informations, voir [Déploiement de votre application dans Azure App Service](deploy-local-git.md).
 
-## <a name="i-see-an-error-message-when-i-try-to-deploy-from-visual-studio-how-do-i-resolve-this"></a>Un message d’erreur s’affiche quand je tente de déployer à partir de Visual Studio. Comment résoudre ce problème ?
+## <a name="i-see-an-error-message-when-i-try-to-deploy-from-visual-studio-how-do-i-resolve-this-error"></a>Un message d’erreur s’affiche quand je tente de déployer à partir de Visual Studio. Comment pour résoudre cette erreur ?
 
-Si vous voyez le message suivant, vous utilisez peut-être une version antérieure du SDK : « Erreur lors du déploiement pour la ressource ’Nomdevotreressource’ dans le groupe de ressources ’Nomdevotregroupederessources’ : MissingRegistrationForLocation: The subscription is not registered for the resource type ’components’ in the location ’Central US’ (Erreur lors du déploiement pour la ressource ’Nomdevotreressource’ dans le groupe de ressources ’Nomdevotregroupederessources’ : MissingRegistrationForLocation : l’abonnement n’est pas enregistré pour le type de ressource ’composants’ à l’emplacement ’USA Centre’). Renouvelez l’inscription pour ce fournisseur afin d’avoir accès à cet emplacement. » 
+Si vous voyez le message suivant, vous utilisez peut-être une version antérieure du SDK : « Erreur lors du déploiement pour la ressource ’Nomdevotreressource’ dans le groupe de ressources ’Nomdevotregroupederessources’ : MissingRegistrationForLocation: The subscription is not registered for the resource type ’components’ in the location ’Central US’ (Erreur lors du déploiement pour la ressource ’Nomdevotreressource’ dans le groupe de ressources ’Nomdevotregroupederessources’ : MissingRegistrationForLocation : l’abonnement n’est pas enregistré pour le type de ressource ’composants’ à l’emplacement ’USA Centre’). Enregistrez à nouveau pour ce fournisseur afin d’avoir accès à cet emplacement. » 
 
 Pour résoudre cette erreur, mettez à niveau vers la [dernière version du Kit de développement logiciel (SDK)](https://azure.microsoft.com/downloads/). Si vous voyez ce message et disposez de la dernière version du Kit de développement logiciel (SDK), envoyez une demande de support.
 
@@ -59,7 +59,7 @@ Pour plus d’informations sur la structure de fichiers de votre application App
 
 ## <a name="how-do-i-resolve-ftp-error-550---there-is-not-enough-space-on-the-disk-when-i-try-to-ftp-my-files"></a>Comment résoudre l’« Erreur FTP 550 - Espace insuffisant sur le disque » lorsque j’essaie de transférer mes fichiers via FTP ?
 
-Si vous voyez ce message, il est probable que vous atteignez un quota de disque dans le plan de service pour votre application web. Vous devez peut-être monter en puissance en passant à un niveau de service supérieur correspondant à vos besoins d’espace disque. Pour plus d’informations sur les plans de tarification et les limites de ressources, voir [Tarification de App Service](https://azure.microsoft.com/pricing/details/app-service/).
+Si vous voyez ce message, il est probable que vous exécutez dans un quota de disque dans le plan de service pour votre application web. Vous devez peut-être monter en puissance en passant à un niveau de service supérieur correspondant à vos besoins d’espace disque. Pour plus d’informations sur les plans de tarification et les limites de ressources, voir [Tarification de App Service](https://azure.microsoft.com/pricing/details/app-service/).
 
 ## <a name="how-do-i-set-up-continuous-deployment-for-my-app-service-web-app"></a>Comment configurer un déploiement continu pour mon application web App Service ?
 
@@ -69,11 +69,11 @@ Vous pouvez configurer un déploiement continu à partir de plusieurs ressources
 
 Pour approfondir les problèmes liés à un déploiement continu à partir de GitHub ou de Bitbucket, voir [Analyse du déploiement continu](https://github.com/projectkudu/kudu/wiki/Investigating-continuous-deployment).
 
-## <a name="i-cant-ftp-to-my-site-and-publish-my-code-how-do-i-resolve-this"></a>Je ne peux pas effectuer de transfert FTP vers mon site et publier mon code. Comment résoudre ce problème ?
+## <a name="i-cant-ftp-to-my-site-and-publish-my-code-how-do-i-resolve-this-issue"></a>Je ne peux pas effectuer de transfert FTP vers mon site et publier mon code. Comment faire pour résoudre ce problème ?
 
 Pour résoudre les problèmes de FTP :
 
-1. Vérifiez que vous avez entré le nom d’hôte et les informations d’identification corrects. Pour plus d’informations sur les différents types d’informations d’identification et leur utilisation, voir [Informations d’identification pour le déploiement](https://github.com/projectkudu/kudu/wiki/Deployment-credentials).
+1. Vérifiez que vous entrez le nom d’hôte correct et les informations d’identification. Pour plus d’informations sur les différents types d’informations d’identification et leur utilisation, voir [Informations d’identification pour le déploiement](https://github.com/projectkudu/kudu/wiki/Deployment-credentials).
 2. Vérifiez que les ports ne sont pas bloqués par un pare-feu. Les ports doivent être paramétrés comme suit :
     * Port de connexion de contrôle FTP : 21
     * Port de connexion de données FTP : 989, 10001-10300

@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 04/12/2019
 ms.author: helohr
-ms.openlocfilehash: 9696f3c32f8b903257e337191a5ce32645bfd198
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: d99f20efcebc3c9d97c5e2228e8b55bfd3f432b5
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65142444"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65834009"
 ---
 # <a name="connect-from-a-web-browser"></a>Se connecter à partir d’un navigateur web
 
@@ -38,6 +38,6 @@ Doit fonctionner avec n’importe quel navigateur prenant en charge de HTML5, no
 Dans un navigateur, accédez à la [client web de bureau virtuel Windows](https://rdweb.wvd.microsoft.com/webclient) et connectez-vous avec votre compte d’utilisateur.
 
 >[!NOTE]
->Si vous êtes déjà connecté à l’aide d’un compte Azure AD est différent de celui que vous souhaitez utiliser pour le bureau virtuel de Windows, vous devrez peut-être vous déconnecter ou utiliser une fenêtre de navigateur privée.
+>Si vous avez déjà connecté avec un compte Azure Active Directory différent que celui à utiliser pour le bureau virtuel Windows, vous devez vous déconnecter ou utiliser une fenêtre de navigateur privée.
 
 Après vous être connecté, vous devez maintenant voir une liste de ressources. Vous pouvez lancer des ressources en les sélectionnant comme vous le feriez pour une application normale dans le **toutes les ressources** onglet.

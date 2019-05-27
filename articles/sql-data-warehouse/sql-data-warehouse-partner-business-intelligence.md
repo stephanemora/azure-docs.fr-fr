@@ -2,26 +2,26 @@
 title: Partenaires de SQL Data Warehouse en matière d’aide à la décision | Microsoft Docs
 description: Répertorie les partenaires tiers en matière d’aide à la décision proposant des solutions qui prennent en charge SQL Data Warehouse.
 services: sql-data-warehouse
-author: jrowlandjones
+author: mabasile-MSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: consume
 ms.date: 03/27/2019
-ms.author: jrj
+ms.author: mabasile
 ms.reviewer: igorstan
-ms.openlocfilehash: 6860746a1b20fe06de2dafa6035ae560bde24a29
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 87379631cc7f7b9e31def157ba38336e41b693d8
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61477008"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65873810"
 ---
 # <a name="sql-data-warehouse-business-intelligence-partners"></a>Partenaires décisionnels de SQL Data Warehouse
 Pour créer votre solution d’entrepôt de données de bout en bout, vous pouvez choisir parmi un large éventail d’outils performants.  Cet article met en évidence les sociétés partenaires de Microsoft avec les solutions d’analyse décisionnelle (BI) officielle prenant en charge d’Azure SQL Data Warehouse.
 
 ## <a name="our-business-intelligence-partners"></a>Nos partenaires décisionnels
-| Partenaire | Description | Lien de site Web/produit |
+| Partenaire | Description  | Lien de site Web/produit |
 | ------- | ----------- | -------------------- |
 | ![Birst][1] |**Birst**<br>Birst connecte à toute l’organisation via un réseau d’entrelacé virtualisé BI instances sur en haut d’une structure analytique commune partagée|[Page du produit][birst_website]<br>[Place de marché Azure][birst_marketplace]<br> |
 | ![ClearStory Data][2] |**ClearStory Data (Insights de continuité d’activité)**<br>ClearStory Data assure une analyse rapide d’un ensemble de données disparates stockées dans SQL Data Warehouse. La plateforme Spark intégrée et l’application d’analyse de ClearStory accélèrent l’accès aux données et l’harmonisation de jeux de données hétéroclites. Elles permettent de procéder à une exploration collaborative rapide qui offre aux utilisateurs professionnels l’assurance d’acquérir de précieuses informations. |[Page du produit][clearstory_website]<br> |

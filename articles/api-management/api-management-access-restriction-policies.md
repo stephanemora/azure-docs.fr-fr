@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2019
 ms.author: apimpm
-ms.openlocfilehash: b8c564ef2de22555930f998ccd9918b252d35f17
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 8947637a42adfca12268c3f84e208079768870e0
+ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65541695"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65921222"
 ---
 # <a name="api-management-access-restriction-policies"></a>Stratégies de restriction des accès de la Gestion des API
 
@@ -58,7 +58,7 @@ Utilisez la stratégie `check-header` pour imposer un en-tête HTTP donné à un
 
 ### <a name="elements"></a>Éléments
 
-| Nom         | Description                                                                                                                                   | Obligatoire |
+| Nom         | Description                                                                                                                                   | Requis |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | check-header | Élément racine.                                                                                                                                 | Oui      |
 | value        | Valeur autorisée de l’en-tête HTTP. Lorsque plusieurs éléments de valeurs sont spécifiés, la vérification est considérée comme réussie si l’une des valeurs correspond. | Non       |
@@ -118,7 +118,7 @@ La stratégie `rate-limit` évite les pics d’utilisation des API par abonnemen
 
 ### <a name="elements"></a>Éléments
 
-| Nom      | Description                                                                                                                                                                                                                                                                                              | Obligatoire |
+| Name      | Description                                                                                                                                                                                                                                                                                              | Obligatoire |
 | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | set-limit | Élément racine.                                                                                                                                                                                                                                                                                            | Oui      |
 | API       | Ajoutez un ou plusieurs de ces éléments pour imposer une limite de taux d’appel sur les API au sein du produit. Les limites de débit d’appels au niveau du produit et de l’API s’appliquent indépendamment les unes des autres. L’API peut être référencée via `name` ou `id`. Si les deux attributs sont fournis, `id` sera utilisé et `name` sera ignoré.                    | Non       |
@@ -183,7 +183,7 @@ Dans l’exemple suivant, la limite de débit est indexée par l’adresse IP de
 
 ### <a name="elements"></a>Éléments
 
-| Nom      | Description   | Obligatoire |
+| Name      | Description   | Obligatoire |
 | --------- | ------------- | -------- |
 | set-limit | Élément racine. | Oui      |
 
@@ -230,7 +230,7 @@ Dans l’exemple suivant, la stratégie autorise uniquement les demandes entrant
 
 ### <a name="elements"></a>Éléments
 
-| Nom                                      | Description                                         | Obligatoire                                                       |
+| Nom                                      | Description                                         | Requis                                                       |
 | ----------------------------------------- | --------------------------------------------------- | -------------------------------------------------------------- |
 | ip-filter                                 | Élément racine.                                       | Oui                                                            |
 | adresse                                   | Spécifie une adresse IP unique à filtrer.   | Au moins un élément `address` ou `address-range` est requis. |
@@ -238,7 +238,7 @@ Dans l’exemple suivant, la stratégie autorise uniquement les demandes entrant
 
 ### <a name="attributes"></a>Attributs
 
-| Nom                                      | Description                                                                                 | Obligatoire                                           | Default |
+| Name                                      | Description                                                                                 | Obligatoire                                           | Default |
 | ----------------------------------------- | ------------------------------------------------------------------------------------------- | -------------------------------------------------- | ------- |
 | address-range from="address" to="address" | Plage d'adresses IP pour lesquelles autoriser ou refuser l'accès.                                        | Obligatoire lorsque l’élément `address-range` est utilisé. | N/A     |
 | ip-filter action="allow &#124; forbid"    | Spécifie si les appels doivent être autorisés ou non pour les adresses IP et plages spécifiées. | Oui                                                | N/A     |
@@ -285,7 +285,7 @@ La stratégie `quota` applique un volume d’appels et/ou un quota de bande pass
 
 ### <a name="elements"></a>Éléments
 
-| Nom      | Description                                                                                                                                                                                                                                                                                  | Obligatoire |
+| Name      | Description                                                                                                                                                                                                                                                                                  | Requis |
 | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | quota     | Élément racine.                                                                                                                                                                                                                                                                                | Oui      |
 | API       | Ajoutez un ou plusieurs éléments de ce type pour imposer le quota d’appel API au sein du produit. Les quotas d’appel au niveau du produit et de l’API s’appliquent indépendamment les uns des autres. L’API peut être référencée via `name` ou `id`. Si les deux attributs sont fournis, `id` sera utilisé et `name` sera ignoré.                    | Non       |
@@ -293,7 +293,7 @@ La stratégie `quota` applique un volume d’appels et/ou un quota de bande pass
 
 ### <a name="attributes"></a>Attributs
 
-| Nom           | Description                                                                                               | Obligatoire                                                         | Default |
+| Name           | Description                                                                                               | Obligatoire                                                         | Default |
 | -------------- | --------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- | ------- |
 | name           | Nom de l’API ou de l’opération à laquelle s’applique le quota.                                             | Oui                                                              | N/A     |
 | bandwidth      | Nombre maximal de kilo-octets autorisés au cours de l’intervalle de temps spécifié dans le paramètre `renewal-period`. | Il est obligatoire de spécifier `calls`, `bandwidth` ou les deux. | N/A     |
@@ -315,8 +315,6 @@ Cette stratégie peut être utilisée dans les [sections](https://azure.microsof
 La stratégie `quota-by-key` applique un volume d’appels et/ou un quota de bande passante renouvelable ou illimité par clé. La clé peut avoir une valeur de chaîne arbitraire ; elle est généralement fournie par le biais d’une expression de stratégie. Une condition d’incrément facultative peut être ajoutée pour spécifier quelles demandes doivent être comptées dans le quota. Si plusieurs stratégies incrémentent la même valeur de clé, celle-ci est incrémentée une seule fois par demande. Quand la limite d’appels est atteinte, l’appelant reçoit le code d’état de réponse `403 Forbidden`.
 
 Pour plus d’informations et d’exemples sur cette stratégie, consultez la page [Limitation avancée des demandes dans la Gestion des API Azure](https://azure.microsoft.com/documentation/articles/api-management-sample-flexible-throttling/).
-
-> Les [expressions de stratégie](api-management-policy-expressions.md) ne peuvent être utilisées dans aucun attribut de cette stratégie.
 
 ### <a name="policy-statement"></a>Instruction de la stratégie
 
@@ -349,7 +347,7 @@ Dans l’exemple suivant, le quota est indexé par l’adresse IP de l’appelan
 
 ### <a name="elements"></a>Éléments
 
-| Nom  | Description   | Obligatoire |
+| Nom  | Description   | Requis |
 | ----- | ------------- | -------- |
 | quota | Élément racine. | Oui      |
 
@@ -520,7 +518,7 @@ Cet exemple montre comment utiliser le [Validate JWT](api-management-access-rest
 
 ### <a name="elements"></a>Éléments
 
-| Élément             | Description                                                                                                                                                                                                                                                                                                                                            | Obligatoire |
+| Élément             | Description                                                                                                                                                                                                                                                                                                                                            | Requis |
 | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | validate-jwt        | Élément racine.                                                                                                                                                                                                                                                                                                                                         | Oui      |
 | audiences           | Contient la liste des revendications d’audience acceptables qui peuvent être présentes sur le jeton. Si plusieurs valeurs d’audience sont présentes, chacune est tentée jusqu’à ce que toutes soient épuisées (auquel cas la validation échoue) ou que l’une d’elles réussisse. Au moins une audience doit être spécifiée.                                                                     | Non       |

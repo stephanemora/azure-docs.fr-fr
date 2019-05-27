@@ -1,16 +1,15 @@
 ---
-author: WenJason
+author: msmbaldwin
 ms.service: security
 ms.topic: include
-origin.date: 03/15/2019
-ms.date: 04/22/2019
-ms.author: v-jay
+ms.date: 04/17/2019
+ms.author: mbaldwin
 ms.openlocfilehash: cd0ab47a46e452701307986d3fbfc7cdfe040c58
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60461402"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66114729"
 ---
 Un attribut de sécurité est une qualité ou une fonctionnalité d’un service Azure qui participe à la capacité du service pour empêcher, détecter et répondre aux vulnérabilités de sécurité.
 

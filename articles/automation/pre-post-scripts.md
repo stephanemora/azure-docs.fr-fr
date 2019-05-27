@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/15/2019
+ms.date: 05/17/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 84df04a6d3fbd634524d3819657860c6a3448d65
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7317b634ee4c8886ce5c99bb2b3395d7d1f646d5
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60499804"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65913861"
 ---
 # <a name="manage-pre-and-post-scripts"></a>Gérer les scripts de pré / post
 
@@ -30,9 +30,7 @@ Pour utiliser un pré-script ou un post-script dans un déploiement de mises à 
 
 ![Sélection des scripts](./media/pre-post-scripts/select-scripts.png)
 
-Sélectionnez le script que vous souhaitez utiliser ; dans cet exemple, vous avez utilisé le runbook **UpdateManagement-TurnOnVms**. Lorsque vous sélectionnez le runbook, la page **Configurer un script** s’affiche. Fournissez les valeurs des paramètres, puis choisissez **Pré-script**. Une fois l’opération terminée, cliquez sur **OK**.
-
-![Configurer un script](./media/pre-post-scripts/configure-script.png)
+Sélectionnez le script que vous souhaitez utiliser ; dans cet exemple, vous avez utilisé le runbook **UpdateManagement-TurnOnVms**. Lorsque vous sélectionnez le runbook le **configurer le Script** page s’ouvre, choisissez **pré-script**. Une fois l’opération terminée, cliquez sur **OK**.
 
 Répétez ce processus pour le script **UpdateManagement-TurnOffVms**. Toutefois, pour le **Type de script**, choisissez **Post-script** cette fois-ci.
 
@@ -87,7 +85,7 @@ foreach($summary in $finalStatus)
 
 ### <a name="softwareupdateconfigurationruncontext-properties"></a>Propriétés SoftwareUpdateConfigurationRunContext
 
-|Propriété  |Description  |
+|Propriété  |Description   |
 |---------|---------|
 |SoftwareUpdateConfigurationName     | Nom de la configuration de mises à jour logicielles        |
 |SoftwareUpdateConfigurationRunId     | ID unique de l’exécution        |

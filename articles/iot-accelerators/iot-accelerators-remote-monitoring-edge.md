@@ -10,13 +10,13 @@ ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
 ms.openlocfilehash: a812155474b244682613b38b9b9379fa6cdcdcd8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58166750"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66117528"
 ---
-# <a name="tutorial-detect-anomalies-at-the-edge-with-the-remote-monitoring-solution-accelerator"></a>Tutoriel : Détecter des anomalies en périphérie avec l’accélérateur de solution de supervision à distance
+# <a name="tutorial-detect-anomalies-at-the-edge-with-the-remote-monitoring-solution-accelerator"></a>Didacticiel : Détecter des anomalies en périphérie avec l’accélérateur de solution de supervision à distance
 
 Dans ce tutoriel, vous allez configurer la solution de supervision à distance pour résoudre les anomalies détectées par un appareil IoT Edge. Les appareils IoT Edge vous permettent de traiter la télémétrie à la périphérie afin de réduire le volume des données de télémétrie envoyées à la solution et de répondre plus rapidement aux événements des appareils. Pour connaître les avantages du traitement de données en périphérie, consultez [Qu’est-ce qu’Azure IoT Edge](../iot-edge/about-iot-edge.md).
 
@@ -26,7 +26,7 @@ Contoso souhaite déployer un module de périphérie intelligent qui détecte le
 
 Le diagramme suivant montre les composants clés dans le scénario du tutoriel :
 
-![Vue d’ensemble](media/iot-accelerators-remote-monitoring-edge/overview.png)
+![Vue d'ensemble](media/iot-accelerators-remote-monitoring-edge/overview.png)
 
 Dans ce tutoriel, vous allez :
 

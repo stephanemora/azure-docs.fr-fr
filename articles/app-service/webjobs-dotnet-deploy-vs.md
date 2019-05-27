@@ -14,12 +14,12 @@ ms.custom: vs-azure
 ms.workload: azure-vs
 ms.date: 02/18/2019
 ms.author: glenga;david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: ede7e2fe3a2ab4c0dfd4efaea5ec789924968194
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4d375b559019529bdc170ce6bab535481e0569e0
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60832300"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65873020"
 ---
 # <a name="develop-and-deploy-webjobs-using-visual-studio---azure-app-service"></a>Développer et déployer des tâches web à l’aide de Visual Studio - Azure App Service
 
@@ -92,7 +92,7 @@ Vous pouvez déployer un projet sous forme de tâche web ou le lier à un projet
 
 Si vous utilisez Visual Studio 2015, installez le [Kit de développement logiciel (SDK) Azure .NET (Visual Studio 2015)](https://azure.microsoft.com/downloads/).
 
-Si vous utilisez Visual Studio 2017, installez la [charge de travail de développement Azure](https://docs.microsoft.com/visualstudio/install/install-visual-studio#step-4---select-workloads).
+Si vous utilisez Visual Studio 2019, installez le [charge de travail de développement Azure](https://docs.microsoft.com/visualstudio/install/install-visual-studio#step-4---select-workloads).
 
 ### <a id="convert"></a> Activer le déploiement de tâches web pour un projet d’application de console
 

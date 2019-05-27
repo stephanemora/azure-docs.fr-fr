@@ -16,11 +16,11 @@ ms.date: 06/25/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 18350337ba44d969173d518a4bc8dfe40185de21
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58447119"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66112719"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-rest-api-calls"></a>Configurer des identités managées pour ressources Azure sur une machine virtuelle Azure en utilisant des appels d’API REST
 
@@ -81,7 +81,7 @@ Pour créer une machine virtuelle Azure avec l’identité managée affectée pa
    
    **En-têtes de requête**
    
-   |En-tête de requête  |Description  |
+   |En-tête de requête  |Description   |
    |---------|---------|
    |*Content-Type*     | Requis. Défini sur `application/json`.        |
    |*Autorisation*     | Requis. Défini sur un jeton d’accès `Bearer` valide.        | 
@@ -170,7 +170,7 @@ Pour activer l’identité managée affectée par le système sur une machine vi
    ```
    **En-têtes de requête**
 
-   |En-tête de requête  |Description  |
+   |En-tête de requête  |Description   |
    |---------|---------|
    |*Content-Type*     | Requis. Défini sur `application/json`.        |
    |*Autorisation*     | Requis. Défini sur un jeton d’accès `Bearer` valide.        | 
@@ -202,7 +202,7 @@ Pour activer l’identité managée affectée par le système sur une machine vi
    ```
    **En-têtes de requête**
 
-   |En-tête de requête  |Description  |
+   |En-tête de requête  |Description   |
    |---------|---------|
    |*Content-Type*     | Requis. Défini sur `application/json`.        |
    |*Autorisation*     | Requis. Défini sur un jeton d’accès `Bearer` valide.        | 
@@ -237,7 +237,7 @@ Pour activer l’identité managée affectée par le système sur une machine vi
     
    **En-têtes de requête**
 
-   |En-tête de requête  |Description  |
+   |En-tête de requête  |Description   |
    |---------|---------|
    |*Content-Type*     | Requis. Défini sur `application/json`.        |
    |*Autorisation*     | Requis. Défini sur un jeton d’accès `Bearer` valide.        | 
@@ -280,7 +280,7 @@ Pour désactiver l’identité managée affectée par le système sur une machin
    ```
    **En-têtes de requête**
 
-   |En-tête de requête  |Description  |
+   |En-tête de requête  |Description   |
    |---------|---------|
    |*Content-Type*     | Requis. Défini sur `application/json`.        |
    |*Autorisation*     | Requis. Défini sur un jeton d’accès `Bearer` valide.        | 
@@ -297,7 +297,7 @@ Pour désactiver l’identité managée affectée par le système sur une machin
 
    Pour supprimer l’identité managée affectée par le système d’une machine virtuelle ayant des identités managées affectées par l’utilisateur, supprimez `SystemAssigned` de la valeur `{"identity":{"type:" "}}` tout en conservant la valeur `UserAssigned` et les valeurs de dictionnaire `userAssignedIdentities` si vous utilisez la **version de l’API du 01/06/2018**. Si vous utilisez la **version d’API 2017-12-01** ou une version antérieure, conservez le tableau `identityIds`.
 
-## <a name="user-assigned-managed-identity"></a>Identité managée affectée par l’utilisateur
+## <a name="user-assigned-managed-identity"></a>Identité managée affectée par l'utilisateur
 
 Dans cette section, découvrez comment ajouter et supprimer une identité managée affectée par l’utilisateur sur une machine virtuelle Azure, en utilisant CURL pour effectuer des appels au point de terminaison REST Azure Resource Manager.
 
@@ -339,7 +339,7 @@ Pour affecter une identité managée affectée par l’utilisateur à une machin
 
    **En-têtes de requête**
 
-   |En-tête de requête  |Description  |
+   |En-tête de requête  |Description   |
    |---------|---------|
    |*Content-Type*     | Requis. Défini sur `application/json`.        |
    |*Autorisation*     | Requis. Défini sur un jeton d’accès `Bearer` valide.        | 
@@ -420,7 +420,7 @@ Pour affecter une identité managée affectée par l’utilisateur à une machin
 
    **En-têtes de requête**
 
-   |En-tête de requête  |Description  |
+   |En-tête de requête  |Description   |
    |---------|---------|
    |*Content-Type*     | Requis. Défini sur `application/json`.        |
    |*Autorisation*     | Requis. Défini sur un jeton d’accès `Bearer` valide.        | 
@@ -511,7 +511,7 @@ Pour affecter une identité managée affectée par l’utilisateur à une machin
    ```
    **En-têtes de requête**
 
-   |En-tête de requête  |Description  |
+   |En-tête de requête  |Description   |
    |---------|---------|
    |*Autorisation*     | Requis. Défini sur un jeton d’accès `Bearer` valide.
 
@@ -532,7 +532,7 @@ Pour affecter une identité managée affectée par l’utilisateur à une machin
    ```
    **En-têtes de requête**
 
-   |En-tête de requête  |Description  |
+   |En-tête de requête  |Description   |
    |---------|---------|
    |*Content-Type*     | Requis. Défini sur `application/json`.        |
    |*Autorisation*     | Requis. Défini sur un jeton d’accès `Bearer` valide.        |
@@ -564,7 +564,7 @@ Pour affecter une identité managée affectée par l’utilisateur à une machin
    
    **En-têtes de requête**
 
-   |En-tête de requête  |Description  |
+   |En-tête de requête  |Description   |
    |---------|---------|
    |*Content-Type*     | Requis. Défini sur `application/json`.        |
    |*Autorisation*     | Requis. Défini sur un jeton d’accès `Bearer` valide.        | 
@@ -600,7 +600,7 @@ Pour affecter une identité managée affectée par l’utilisateur à une machin
    
    **En-têtes de requête**
 
-   |En-tête de requête  |Description  |
+   |En-tête de requête  |Description   |
    |---------|---------|
    |*Content-Type*     | Requis. Défini sur `application/json`.        |
    |*Autorisation*     | Requis. Défini sur un jeton d’accès `Bearer` valide.        | 
@@ -639,7 +639,7 @@ Pour affecter une identité managée affectée par l’utilisateur à une machin
 
    **En-têtes de requête**
 
-   |En-tête de requête  |Description  |
+   |En-tête de requête  |Description   |
    |---------|---------|
    |*Content-Type*     | Requis. Défini sur `application/json`.        |
    |*Autorisation*     | Requis. Défini sur un jeton d’accès `Bearer` valide.        | 
@@ -680,7 +680,7 @@ Pour supprimer une identité affectée par l’utilisateur à une machine virtue
 
    **En-têtes de requête**
 
-   |En-tête de requête  |Description  |
+   |En-tête de requête  |Description   |
    |---------|---------|
    |*Content-Type*     | Requis. Défini sur `application/json`.        |
    |*Autorisation*     | Requis. Défini sur un jeton d’accès `Bearer` valide.
@@ -703,7 +703,7 @@ Pour supprimer une identité affectée par l’utilisateur à une machine virtue
 
    **En-têtes de requête**
 
-   |En-tête de requête  |Description  |
+   |En-tête de requête  |Description   |
    |---------|---------|
    |*Content-Type*     | Requis. Défini sur `application/json`.        |
    |*Autorisation*     | Requis. Défini sur un jeton d’accès `Bearer` valide.        | 
@@ -735,7 +735,7 @@ Pour supprimer une identité affectée par l’utilisateur à une machine virtue
 
    **En-têtes de requête**
 
-   |En-tête de requête  |Description  |
+   |En-tête de requête  |Description   |
    |---------|---------|
    |*Content-Type*     | Requis. Défini sur `application/json`.        |
    |*Autorisation*     | Requis. Défini sur un jeton d’accès `Bearer` valide.        | 
@@ -765,7 +765,7 @@ PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 
 **En-têtes de requête**
 
-|En-tête de requête  |Description  |
+|En-tête de requête  |Description   |
 |---------|---------|
 |*Content-Type*     | Requis. Défini sur `application/json`.        |
 |*Autorisation*     | Requis. Défini sur un jeton d’accès `Bearer` valide. | 
@@ -792,7 +792,7 @@ PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 
 **En-têtes de requête**
 
-|En-tête de requête  |Description  |
+|En-tête de requête  |Description   |
 |---------|---------|
 |*Content-Type*     | Requis. Défini sur `application/json`.        |
 |*Autorisation*     | Requis. Défini sur un jeton d’accès `Bearer` valide.| 

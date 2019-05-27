@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 05/22/2019
 ms.author: diberry
-ms.openlocfilehash: 6412f0a2e295a19f741c70e7870a4d198ee03b71
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: b7b4e25c78ef08bdf9a7c2f3faf96725fc5f5fc8
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65233549"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66123887"
 ---
 # <a name="preview-migrate-to-api-version-3x--for-luis-apps"></a>Aperçu : Migrer vers la version d’API pour les applications LUIS 3.x
 
@@ -343,6 +343,9 @@ La réponse de prédiction inclut cette entité de la liste, avec toutes les aut
 
 **Dans V3**, l’entité est marquée avec `startIndex` et `entityLength`.
 
+## <a name="deprecation"></a>Dépréciation 
+
+L’API V2 ne sera pas déconseillé au moins 9 mois après la version préliminaire V3. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

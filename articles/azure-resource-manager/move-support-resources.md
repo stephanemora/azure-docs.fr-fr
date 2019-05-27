@@ -4,14 +4,14 @@ description: Liste les types de ressources Azure qui peuvent être déplacés ve
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 5/16/2019
+ms.date: 5/17/2019
 ms.author: tomfitz
-ms.openlocfilehash: d662607eaaabb8ccfad89f625165c542af81b0fa
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: dcac557f29a987ea732744c1b82f90f858623ec5
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65794514"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65872554"
 ---
 # <a name="move-operation-support-for-resources"></a>Prise en charge de l’opération de déplacement pour les ressources
 Cet article indique si un type de ressource Azure donné prend en charge l’opération de déplacement. Même si un type de ressource prend en charge l’opération de déplacement, il peut exister des conditions qui empêchent la ressource d’être déplacée. Pour plus d’informations sur les conditions qui affectent les opérations de déplacement, consultez [Déplacer des ressources vers un nouveau groupe de ressources ou un nouvel abonnement](resource-group-move-resources.md).
@@ -848,7 +848,7 @@ Pour obtenir les mêmes données qu'un fichier de valeurs séparées par des vir
 ## <a name="microsoftwindowsiot"></a>Microsoft.WindowsIoT
 | Type de ressource | Groupe de ressources | Abonnement |
 | ------------- | ----------- | ---------- |
-| deviceservices | Oui | Oui |
+| deviceservices | Non | Non |
 
 ## <a name="microsoftwindowsvirtualdesktop"></a>Microsoft.WindowsVirtualDesktop
 | Type de ressource | Groupe de ressources | Abonnement |

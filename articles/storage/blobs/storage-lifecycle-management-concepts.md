@@ -5,16 +5,16 @@ services: storage
 author: mhopkins-msft
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/09/2019
+ms.date: 05/21/2019
 ms.author: mhopkins
 ms.reviewer: yzheng
 ms.subservice: common
-ms.openlocfilehash: 26ff592ea0d0a57049ae11a981fe8d8e77ca876f
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: ce2559f62d29c7b062cfd1ad1dcb61146adfd91c
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65606941"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66001755"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Gérer le cycle de vie du stockage Blob Azure
 
@@ -197,9 +197,9 @@ Une stratégie est une collection de règles :
 
 Chaque règle au sein de la stratégie a plusieurs paramètres :
 
-| Nom du paramètre | Type de paramètre | Notes | Obligatoire |
+| Nom du paramètre | Type de paramètre | Notes | Requis |
 |----------------|----------------|-------|----------|
-| `name`         | Chaîne |Un nom de règle peut contenir jusqu'à 256 caractères alphanumériques. Les noms de règle respectent la casse.  Ils doivent être uniques dans la stratégie. | True |
+| `name`         | String |Un nom de règle peut contenir jusqu'à 256 caractères alphanumériques. Les noms de règle respectent la casse.  Ils doivent être uniques dans la stratégie. | True |
 | `enabled`      | Boolean | Une valeur booléenne facultative pour permettre une règle pour être temporaire est désactivé. Valeur par défaut est true si elle n’est pas définie. | False | 
 | `type`         | Une valeur enum | Le type actuel valid est `Lifecycle`. | True |
 | `definition`   | Un objet qui définit la règle du cycle de vie | Chaque définition se compose d’un jeu de filtres et d’un jeu d’actions. | True |
@@ -393,8 +393,12 @@ Pour les données qui sont modifiées et consultées régulièrement tout au lon
 
 ## <a name="faq"></a>Forum Aux Questions
 
-**J’ai créé une nouvelle exécution de la stratégie, pourquoi sont les actions pas immédiatement ?**  
+**J’ai créé une nouvelle stratégie, pourquoi ne les actions s’exécutent pas immédiatement ?**  
 La plateforme exécute la stratégie de cycle de vie une fois par jour. Une fois que vous configurez une stratégie, elle peut prendre jusqu'à 24 heures pour certaines actions à exécuter pour la première fois.  
+
+**J’ai réactivées manuellement un objet blob archivé, comment faire pour empêcher qu’il est déplacé vers le niveau Archive temporairement ?**  
+Lorsqu’un objet blob est déplacé à partir du niveau d’un accès à un autre niveau d’accès, son heure de dernière modification ne change pas. Si vous rafraîchir manuellement un objet blob archivé à chaud, il serait être redéplacé à archiver le niveau par le moteur de gestion du cycle de vie. Vous pouvez l’empêcher en désactivant la règle qui affecte temporairement de cet objet blob. Vous pouvez copier l’objet blob vers un autre emplacement si elle doit rester dans le niveau chaud définitivement. Vous pouvez réactiver la règle lors de l’objet blob peut en toute sécurité revenir pour archiver le niveau. 
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

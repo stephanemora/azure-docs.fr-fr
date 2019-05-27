@@ -2,21 +2,20 @@
 title: Utiliser Azure Stream Analytics avec SQL Data Warehouse | Documents Microsoft
 description: Conseils sur l’utilisation d’Azure Stream Analytics avec Azure SQL Data Warehouse pour le développement de solutions.
 services: sql-data-warehouse
-author: WenJason
-manager: digimobile
+author: mlee3gsd
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: consume
-origin.date: 03/22/2019
-ms.date: 04/01/2019
-ms.author: v-jay
+ms.subservice: integration
+ms.date: 03/22/2019
+ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 3a260102e9964cfc248ed3dbabab487bd1c5dfc2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 94646c41d9894dd00018ff5ca44d76534d35e8c5
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61474310"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65873263"
 ---
 # <a name="use-azure-stream-analytics-with-sql-data-warehouse"></a>Utiliser Azure Stream Analytics avec SQL Data Warehouse
 Azure Stream Analytics est un service entièrement géré permettant de traiter des événements avec une latence faible, une haute disponibilité et de façon évolutive via des données de diffusion dans le cloud. Vous pouvez découvrir les principes de base en lisant [Présentation d’Azure Stream Analytics][Introduction to Azure Stream Analytics]. Vous pouvez ensuite apprendre à créer une solution de bout en bout avec Stream Analytics en suivant le didacticiel [Bien démarrer avec Azure Stream Analytics][Get started using Azure Stream Analytics].
@@ -47,7 +46,7 @@ Entrez les valeurs ci-dessous dans la page suivante :
 * *Abonnement*:
   * Si votre base de données SQL Data Warehouse se trouve dans le même abonnement que celui de la tâche Stream Analytics, sélectionnez Utiliser la base de données SQL de l’abonnement actuel.
   * Si votre base de données se trouve dans un autre abonnement, sélectionnez Utiliser la base de données SQL d’un autre abonnement.
-* *Base de données* : spécifiez le nom d’une base de données de destination.
+* *Base de données* : spécifiez le nom d’une base de données de destination.
 * *Nom du serveur* : spécifiez le nom du serveur pour la base de données que vous venez d’indiquer. Vous pouvez obtenir cette information dans le portail Azure.
 
 ![][server-name]
@@ -85,6 +84,4 @@ Pour obtenir des conseils supplémentaires en matière de développement, consul
 <!--MSDN references-->
 
 <!--Other Web references-->
-[Azure Stream Analytics documentation]: /stream-analytics/
-
-<!-- Update_Description: update meta properties, wording update -->
+[Azure Stream Analytics documentation]: https://azure.microsoft.com/documentation/services/stream-analytics/

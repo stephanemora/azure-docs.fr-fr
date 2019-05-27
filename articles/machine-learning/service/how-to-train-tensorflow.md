@@ -11,12 +11,12 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 05/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0d5751ab96dc6b44229e2b18b832a570930058ca
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.openlocfilehash: 82c9aa961221b582bb16438f30a0584232164393
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65442348"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65915101"
 ---
 # <a name="train-tensorflow-and-keras-models-with-azure-machine-learning-service"></a>Former des modèles TensorFlow et Keras avec le service Azure Machine Learning
 
@@ -28,7 +28,7 @@ Le `TensorFlow` estimateur fournit également une couche d’abstraction sur l�
 
 Dans la mesure où le `TensorFlow` classe d’estimateur est similaire à la base de [ `Estimator` ](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py), nous vous recommandons la première lecture par le [base article de procédure estimateur](how-to-train-ml-models.md) de comprendre les concepts principale.
 
-Prise en main avec le service Azure Machine Learning, [terminer le démarrage rapide](quickstart-run-cloud-notebook.md). Une fois que vous avez terminé, vous aurez un [espace de travail Azure Machine Learning](concept-azure-machine-learning-architecture.md#workspace) et l’ensemble de notre [exemples de blocs-notes](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml) y compris ceux pour Dnn de formation avec TensorFlow et Keras.
+Prise en main avec le service Azure Machine Learning, [terminer le démarrage rapide](quickstart-run-cloud-notebook.md). Une fois que vous avez terminé, vous aurez un [espace de travail Azure Machine Learning](concept-workspace.md) et l’ensemble de notre [exemples de blocs-notes](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml) y compris ceux pour Dnn de formation avec TensorFlow et Keras.
 
 ## <a name="single-node-training"></a>Entraînement à nœud unique
 
