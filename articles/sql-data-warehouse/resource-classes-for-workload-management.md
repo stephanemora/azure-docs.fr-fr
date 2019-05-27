@@ -2,21 +2,20 @@
 title: Classes de ressources pour la gestion des charges de travail - Azure SQL Data Warehouse | Microsoft Docs
 description: Conseils d’utilisation des classes de ressources pour gérer la concurrence et les ressources de calcul en lien avec les requêtes dans Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: WenJason
-manager: digimobile
+author: ronortloff
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload management
-origin.date: 03/15/2019
-ms.date: 04/22/2019
-ms.author: v-jay
+ms.date: 05/22/2019
+ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5ad8dad35013a28696e7c9cb5cc68464f3c4bf64
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 75bd6e8071717ba755b71f51afcd884539049489
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61475080"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66165979"
 ---
 # <a name="workload-management-with-resource-classes-in-azure-sql-data-warehouse"></a>Gestion des charges de travail avec des classes de ressources dans Azure SQL Data Warehouse
 
@@ -80,18 +79,19 @@ Les classes de ressources dynamiques sont implémentées avec les rôles de base
 
 Certains détails des classes de ressources dynamiques sur Gen1 rendent la compréhension de leur comportement plus complexe :
 
-- La classe de ressources smallrc fonctionne avec un modèle de mémoire fixe comme une classe de ressources statiques.  Les requêtes smallrc n’obtiennent pas dynamiquement plus de mémoire quand le niveau de service augmente.
+**Sur la génération 1**
+- La classe de ressources smallrc fonctionne avec un modèle de mémoire fixe comme une classe de ressources statiques.  Les requêtes smallrc n’obtiennent pas dynamiquement plus de mémoire quand le niveau de service augmente. 
 - Quand les niveaux de service changent, la concurrence de requêtes disponible peut augmenter ou diminuer.
-- La mise à l’échelle des niveaux de services n’engendre pas une modification proportionnelle de la mémoire allouée aux mêmes classes de ressources.
+- Mise à l’échelle des niveaux de service ne fournit pas une modification proportionnelle à la mémoire allouée pour les mêmes classes de ressources.
 
-Sur **Gen2 uniquement**, les classes de ressources dynamiques sont véritablement dynamiques concernant les points mentionnés ci-dessus.  La nouvelle règle est 3-10-22-70 pour les allocations de pourcentage de mémoire pour les classes de ressources small-medium-large-xlarge, **quel que soit le niveau de service**.  Le tableau ci-dessous présente les détails consolidés des pourcentages d’allocation de mémoire et le nombre minimal de requêtes simultanées qui s’exécutent, quel que soit le niveau de service.
+**Dans le niveau Gen2**, classes de ressources dynamiques sont véritablement dynamiques addressing points mentionnés ci-dessus.  La nouvelle règle est 3-10-22-70 pour les allocations de pourcentage de mémoire pour les classes de ressources small-medium-large-xlarge, **quel que soit le niveau de service**.  Le tableau ci-dessous présente les détails consolidés des pourcentages d’allocation de mémoire et le nombre minimal de requêtes simultanées qui s’exécutent, quel que soit le niveau de service.
 
 | Classe de ressources | Pourcentage de mémoire | Nombre minimal de requêtes simultanées |
 |:--------------:|:-----------------:|:----------------------:|
 | smallrc        | 3 %                | 32                     |
 | mediumrc       | 10%               | 10                     |
 | largerc        | 22 %               | 4                      |
-| xlargerc       | 70 %               | 1                      |
+| xlargerc       | 70%               | 1                      |
 
 ### <a name="default-resource-class"></a>Classe de ressources par défaut
 
@@ -942,7 +942,6 @@ Pour plus d’informations sur la gestion de la sécurité et des utilisateurs d
 [Secure a database in SQL Data Warehouse]: ./sql-data-warehouse-overview-manage-security.md
 
 <!--MSDN references-->
-[Managing Databases and Logins in Azure SQL Database]:../sql-database/sql-database-manage-logins.md
+[Managing Databases and Logins in Azure SQL Database]:https://msdn.microsoft.com/library/azure/ee336235.aspx
 
 <!--Other Web references-->
-<!-- Update_Description: update link, wording update-->

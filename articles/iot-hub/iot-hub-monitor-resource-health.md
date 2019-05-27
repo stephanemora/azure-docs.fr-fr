@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 02/27/2019
 ms.author: kgremban
 ms.openlocfilehash: 6dea1add1e329cfc894068732898a856a69c9b4c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59274040"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66166205"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Surveiller l’intégrité d’Azure IoT Hub et diagnostiquer rapidement les problèmes
 
@@ -343,7 +343,7 @@ IoT Hub enregistre ce journal en recevant un message contenant des propriétés 
 
 Ici, `durationMs` n’est pas calculé, car l’horloge IoT Hub peut ne pas être synchronisée avec l’horloge de l’appareil, ce qui fausse le calcul de durée. Nous recommandons d’écrire la logique en utilisant les horodatages de la section `properties` pour capturer les pics de latence de l’appareil vers le cloud.
 
-| Propriété | Type | Description |
+| Propriété | Type | Description  |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
 | **messageSize** | Entier  | Taille du message appareil-à-cloud, en octets |
 | **deviceId** | Chaîne de caractères alphanumériques ASCII 7 bits | Identité de l’appareil |
@@ -377,10 +377,10 @@ IoT Hub enregistre ce journal lorsqu’un message contenant des propriétés de 
 
 Dans la `properties` section, ce journal contient des informations supplémentaires sur les entrées de messages.
 
-| Propriété | Type | Description |
+| Propriété | Type | Description  |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
-| **isRoutingEnabled** | Chaîne | Indique si le routage des messages est activé (true) ou non (false) dans le hub IoT |
-| **parentSpanId** | Chaîne | [span-id](https://w3c.github.io/trace-context/#parent-id) du message parent, qui serait la trace du message D2C dans ce cas-ci |
+| **isRoutingEnabled** | String | Indique si le routage des messages est activé (true) ou non (false) dans le hub IoT |
+| **parentSpanId** | String | [span-id](https://w3c.github.io/trace-context/#parent-id) du message parent, qui serait la trace du message D2C dans ce cas-ci |
 
 ##### <a name="iot-hub-egress-logs"></a>Journaux d’activité de sortie IoT Hub
 
@@ -409,11 +409,11 @@ IoT Hub enregistre ce journal lorsque le [routage](iot-hub-devguide-messages-d2c
 
 Dans la `properties` section, ce journal contient des informations supplémentaires sur les entrées de messages.
 
-| Propriété | Type | Description |
+| Propriété | Type | Description  |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
-| **endpointName** | Chaîne | Nom du point de terminaison de routage |
-| **endpointType** | Chaîne | Type du point de terminaison de routage |
-| **parentSpanId** | Chaîne | [span-id](https://w3c.github.io/trace-context/#parent-id) du message parent, qui serait la trace du message d’entrée IoT Hub dans ce cas-ci |
+| **endpointName** | String | Nom du point de terminaison de routage |
+| **endpointType** | String | Type du point de terminaison de routage |
+| **parentSpanId** | String | [span-id](https://w3c.github.io/trace-context/#parent-id) du message parent, qui serait la trace du message d’entrée IoT Hub dans ce cas-ci |
 
 ### <a name="read-logs-from-azure-event-hubs"></a>Lecture de journaux d’activité à partir d’Azure Event Hubs
 

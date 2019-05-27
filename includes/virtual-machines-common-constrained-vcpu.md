@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/09/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 360674514aff79908dcab8c8b93095ca2feb5d51
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 24fbab2bb637edf6c7e31215cdc7ac82bdb0ebab
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65199036"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66158481"
 ---
 Certaines charges de travail de base de données, comme SQL Server ou Oracle, nécessitent une mémoire, un espace de stockage et une bande passante d’E/S élevés, mais pas forcément un grand nombre de cœurs. De nombreuses charges de travail de base de données ne nécessitent pas une utilisation intensive du processeur. Azure offre certaines tailles de machine virtuelle pour lesquelles vous pouvez limiter le nombre de processeurs virtuels par machine virtuelle afin de réduire le coût des licences logicielles, tout en conservant une mémoire, un espace de stockage et une bande passante d’E/S identiques.
 
@@ -21,10 +21,10 @@ Le nombre de processeurs virtuels peut être réduit à la moitié ou au quart d
 
 Par exemple, la taille actuelle de machine virtuelle Standard_GS5 dispose de 32 processeurs virtuels de 448 Go de RAM, de 64 disques (jusqu'à 256 To) et de 80 000 E/S par seconde, ou 2 Gbits/s de bande passante d’E/S. Les nouvelles tailles de machine virtuelle Standard_GS5-16 et Standard_GS5-8 sont respectivement dotées de 16 et 8 processeurs virtuels actifs, mais conservent les caractéristiques de la taille Standard_GS5 en ce qui concerne la mémoire, le stockage et la bande passante d’E/S.
 
-Les frais de licence facturés pour SQL Server ou Oracle sont limités au nouveau nombre de processeurs virtuels et les autres produits doivent être facturés selon le nouveau nombre de processeurs virtuels. Cela entraîne une augmentation de 50 à 75 % du rapport entre les caractéristiques de machine virtuelle et les processeurs virtuels actifs (facturables). Ces nouvelles tailles de machine virtuelle (uniquement disponibles dans Azure) permettent aux charges de travail d’utiliser le processeur de manière plus intensive tout en réduisant les frais de licence (par cœur). Ainsi, le coût de calcul, qui inclut les frais de licence du système d’exploitation, reste le même qu’avec la taille d’origine. Pour plus d’informations, voir [Azure VM sizes for more cost-effective database workloads](https://azure.microsoft.com/blog/announcing-new-azure-vm-sizes-for-more-cost-effective-database-workloads/) (Des tailles de machine virtuelle Azure pour optimiser le coût des charges de travail de base de données).
+Les frais de licence facturés pour SQL Server ou Oracle sont limités au nouveau nombre de processeurs virtuels et les autres produits doivent être facturés selon le nouveau nombre de processeurs virtuels. Cela entraîne une augmentation de 50 à 75 % du rapport entre les caractéristiques de machine virtuelle et les processeurs virtuels actifs (facturables). Ces nouvelles tailles de machine virtuelle autorise les charges de travail client à utiliser la même mémoire, stockage et la bande passante d’e/s tout en optimisant leur coût de licence de logiciel. Ainsi, le coût de calcul, qui inclut les frais de licence du système d’exploitation, reste le même qu’avec la taille d’origine. Pour plus d’informations, voir [Azure VM sizes for more cost-effective database workloads](https://azure.microsoft.com/blog/announcing-new-azure-vm-sizes-for-more-cost-effective-database-workloads/) (Des tailles de machine virtuelle Azure pour optimiser le coût des charges de travail de base de données).
 
 
-| Nom                | Processeurs virtuels | Spécifications           |
+| Name                | Processeurs virtuels | Spécifications           |
 |---------------------|------|-----------------|
 | Standard_M8-2ms     | 2    | Identique à M8ms    |
 | Standard_M8-4ms     | 4    | Identique à M8ms    |

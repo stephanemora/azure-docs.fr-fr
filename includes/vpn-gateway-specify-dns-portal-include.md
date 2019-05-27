@@ -9,11 +9,11 @@ ms.date: 04/04/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 9a5e2e7e735404efad75d6dd318e965ebbefe73c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60407625"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66170147"
 ---
 1. Sur la page **Paramètres** de votre réseau virtuel, accédez à la section **Serveurs DNS** et cliquez dessus pour ouvrir la page **correspondante**.
 

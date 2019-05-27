@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: abnarain
 ms.openlocfilehash: 8e705a4430f6ccee847dc7d41ef80456a6dc4ea5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59794631"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66155129"
 ---
 # <a name="encrypt-credentials-for-on-premises-data-stores-in-azure-data-factory"></a>Chiffrer des informations d’identification pour vos magasins de données locaux dans Azure Data Factory
 Vous pouvez chiffrer et stocker des informations d’identification pour vos magasins de données locaux (services associés avec des informations sensibles) sur une machine avec runtime d’intégration auto-hébergé. 
@@ -50,7 +50,7 @@ Remplacez `<servername>`, `<databasename>`, `<username>`, et `<password>` par de
 }
 ```
 
-## <a name="encrypt-credentials"></a>Chiffrer des informations d’identification
+## <a name="encrypt-credentials"></a>Chiffrer les informations d'identification
 Pour chiffrer les données sensibles de la charge utile JSON sur un runtime d’intégration auto-hébergé local, exécutez **New-AzDataFactoryV2LinkedServiceEncryptedCredential**et passez la charge utile JSON. Cette applet de commande garantit le chiffrement des informations d’identification à l’aide de DPAPI et leur stockage local sur le nœud de runtime d’intégration auto-hébergé. La charge utile de sortie contenant la référence chiffrée pour les informations d’identification peut être redirigée vers un autre fichier JSON (dans ce cas, « encryptedLinkedService.json »).
 
 ```powershell

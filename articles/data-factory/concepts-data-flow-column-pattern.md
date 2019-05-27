@@ -1,24 +1,23 @@
 ---
 title: Modèles de colonne Data Flow de mappage Azure Data Factory
-description: Dans le flux de données de mappage Azure Data Factory, les modèles de colonne permettent de créer des modèles de modèles généralisés afin de transformer les champs d’un flux de données sans tenir compte des métadonnées de schéma sous-jacentes.
+description: Découvrez comment utiliser le modèle de colonne d’Azure Data Factory dans le mappage de flux de données pour créer des modèles de modèle généralisé pour transformer les champs dans un flux de données, quel que soit le schéma de métadonnées sous-jacentes
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 53d3300ea11a86c34909ba6ce0fd6c8c0c38b4b5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5131329f6675bc86374f5a5c081e0aaa7d36c0fe
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61269662"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66155236"
 ---
-# <a name="azure-data-factory-mapping-data-flow-concepts"></a>Concepts de la fonctionnalité de mappage de flux de données dans Azure Data Factory
+# <a name="azure-data-factory-mapping-data-flows-column-patterns"></a>Modèle de colonne de flux de données de mappage de Azure data factory
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-Plusieurs transformations de flux de données Azure Data Factory supportent le concept de « Modèles de colonne » afin que vous puissiez créer des colonnes modèles basées sur des modèles et non pas sur des noms de colonne codés en dur. Vous pouvez utiliser cette fonctionnalité dans le Générateur d’expressions pour définir des modèles afin de faire correspondre les colonnes dans le cadre de la transformation au lieu d’exiger des noms de champs spécifiques exacts. Les modèles sont utiles lorsque les champs source entrants sont souvent modifiés, notamment dans le cas de modifications de colonnes dans les fichiers texte ou les bases de données NoSQL. Cela est parfois désigné sous le nom de « dérive de schéma ».
+Plusieurs transformations de flux de données Azure Data Factory supportent le concept de « Modèles de colonne » afin que vous puissiez créer des colonnes modèles basées sur des modèles et non pas sur des noms de colonne codés en dur. Vous pouvez utiliser cette fonctionnalité dans le Générateur d’expressions pour définir des modèles afin de faire correspondre les colonnes dans le cadre de la transformation au lieu d’exiger des noms de champs spécifiques exacts. Les modèles sont utiles si les champs sources entrantes changent souvent, en particulier dans le cas de modification des colonnes dans des fichiers texte ou des bases de données NoSQL. Cette condition est parfois appelée « Une dérive du schéma ».
 
 ![modèles de colonne](media/data-flow/columnpattern2.png "Modèles de colonne")
 

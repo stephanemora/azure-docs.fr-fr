@@ -5,15 +5,15 @@ services: media-services
 author: Juliako
 ms.service: media-services
 ms.topic: include
-ms.date: 02/21/2019
+ms.date: 05/01/2019
 ms.author: juliako
 ms.custom: include file
-ms.openlocfilehash: 79af6512e9ce3d3f897be216ee3626c5d4fbcf1d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: feec6a695ad867d26d32904d020648b029f9da35
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60733882"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66155746"
 ---
 ## <a name="create-a-media-services-account"></a>Créer un compte Media Services
 
@@ -22,6 +22,8 @@ Vous devez d’abord créer un compte Media Services. Cette section montre ce do
 ### <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
 Créez un groupe de ressources à l’aide de la commande suivante. Un groupe de ressources Azure est un conteneur logique dans lequel les ressources comme les comptes Azure Media Services et les comptes de stockage associés sont déployées et gérées.
+
+Vous pouvez remplacer `amsResourceGroup` avec votre valeur.
 
 ```azurecli
 az group create --name amsResourceGroup --location westus2
@@ -35,7 +37,7 @@ Vous devez avoir un compte de stockage **principal** et vous pouvez avoir n’im
 
 Dans cet exemple, nous créons un compte v2 universel, LRS standard. Si vous voulez faire des expériences avec des comptes de stockage, utilisez `--sku Standard_LRS`. Cependant, lors de la sélection d’une référence SKU pour la production, envisagez `--sku Standard_RAGRS`, qui offre la réplication géographique pour la continuité de l’activité. Pour plus d’informations, consultez [Comptes de stockage](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest).
  
-La commande suivante crée un compte de stockage qui sera associé au compte Media Services. Dans le script ci-dessous, vous pouvez remplacer `storageaccountforams` par votre valeur. La longueur du nom du compte doit être inférieure à 24.
+La commande suivante crée un compte de stockage qui sera associé au compte Media Services. Dans le script ci-dessous, vous pouvez remplacer `storageaccountforams` par votre valeur. `amsResourceGroup` doit correspondre à la valeur que vous avez donné du groupe de ressources à l’étape précédente. Le nom de compte de stockage doit avoir longueur inférieure à 24.
 
 ```azurecli
 az storage account create --name storageaccountforams \  

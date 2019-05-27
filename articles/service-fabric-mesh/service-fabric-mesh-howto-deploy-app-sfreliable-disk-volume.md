@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 12/03/2018
 ms.author: asnegi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: b5e4ad30a65b25140cfb2c80dd15d8cd28fb827b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9f760e7e693334475fb61ba9e5d44df019e78604
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60419218"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66147491"
 ---
 # <a name="mount-highly-available-service-fabric-reliable-disk-based-volume-in-a-service-fabric-mesh-application"></a>Monter un volume basé sur Service Fabric Reliable Disk dans une application Azure Service Fabric Mesh 
 La méthode courante pour rendre persistant l’état avec des applications de conteneur consiste à utiliser un stockage à distance, tel que le Stockage Fichier Azure ou une base de données du type Azure Cosmos DB. Cela entraîne une importante latence de lecture et d’écriture sur le magasin distant.
@@ -73,7 +73,7 @@ Notez le nom de la ressource de passerelle dont le type de ressources est `Micro
 
 Une fois l’application déployée, récupérez l’adresse IP de la ressource de passerelle correspondant à l’application. Utilisez le nom de passerelle que vous avez noté dans la section ci-dessus.
 ```azurecli-interactive
-az mesh gateway show --resource-group myResourceGroup --gateway-name counterGateway
+az mesh gateway show --resource-group myResourceGroup --name counterGateway
 ```
 
 La sortie doit contenir une propriété `ipAddress`, qui correspond à l’adresse IP publique du point de terminaison du service. Ouvrez-la à partir d’un navigateur. Une page web doit s’afficher avec la valeur du compteur mise à jour toutes les secondes.

@@ -14,11 +14,11 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 25cf9c3b7968be16dcc22f4140725efc22d785f2
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59528405"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66156531"
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Azure Data Factory - Référence de script JSON
 > [!NOTE]
@@ -592,7 +592,7 @@ Pour définir un service lié Azure Data Lake Store, définissez le type du serv
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type doit être définie sur : **AzureDataLakeStore** | Oui |
+| type | La propriété type doit être définie sur : **AzureDataLakeStore** | Oui |
 | dataLakeStoreUri | Spécifiez des informations à propos du compte Azure Data Lake Store. Il se présente au format suivant : `https://[accountname].azuredatalakestore.net/webhdfs/v1` ou `adl://[accountname].azuredatalakestore.net/`. | Oui |
 | subscriptionId | ID d’abonnement Azure auquel appartient le magasin Data Lake Store. | Requis pour le récepteur |
 | nom_groupe_ressources | Nom du groupe de ressources Azure auquel appartient le magasin Data Lake Store. | Requis pour le récepteur |
@@ -996,7 +996,7 @@ Si vous copiez des données à partir d’Azure SQL Database, définissez le **t
 
 | Propriété | Description | Valeurs autorisées | Obligatoire |
 | --- | --- | --- | --- |
-| SqlReaderQuery |Utilise la requête personnalisée pour lire des données. |Chaîne de requête SQL. Exemple : `select * from MyTable`. |Non  |
+| sqlReaderQuery |Utilise la requête personnalisée pour lire des données. |Chaîne de requête SQL. Exemple : `select * from MyTable`. |Non  |
 | sqlReaderStoredProcedureName |Nom de la procédure stockée qui lit les données de la table source. |Nom de la procédure stockée. |Non  |
 | storedProcedureParameters |Paramètres de la procédure stockée. |Paires nom/valeur. Les noms et la casse des paramètres doivent correspondre aux noms et à la casse des paramètres de la procédure stockée. |Non  |
 
@@ -1134,7 +1134,7 @@ Pour définir un jeu de données Azure SQL Data Warehouse, définissez le **type
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| TableName |Nom de la table ou de la vue dans la base de données Azure SQL Data Warehouse à laquelle le service lié fait référence. |Oui |
+| tableName |Nom de la table ou de la vue dans la base de données Azure SQL Data Warehouse à laquelle le service lié fait référence. |Oui |
 
 #### <a name="example"></a>Exemples
 
@@ -1171,7 +1171,7 @@ Si vous copiez des données à partir d’Azure SQL Data Warehouse, définissez 
 
 | Propriété | Description | Valeurs autorisées | Obligatoire |
 | --- | --- | --- | --- |
-| SqlReaderQuery |Utilise la requête personnalisée pour lire des données. |Chaîne de requête SQL. Par exemple : `select * from MyTable`. |Non  |
+| sqlReaderQuery |Utilise la requête personnalisée pour lire des données. |Chaîne de requête SQL. Par exemple : `select * from MyTable`. |Non  |
 | sqlReaderStoredProcedureName |Nom de la procédure stockée qui lit les données de la table source. |Nom de la procédure stockée. |Non  |
 | storedProcedureParameters |Paramètres de la procédure stockée. |Paires nom/valeur. Les noms et la casse des paramètres doivent correspondre aux noms et à la casse des paramètres de la procédure stockée. |Non  |
 
@@ -1400,7 +1400,7 @@ Pour lier votre compte de stockage Azure à une fabrique de données à l’aide
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type |La propriété type doit être définie sur : **AzureStorage** |Oui |
+| type |La propriété type doit être définie sur : **AzureStorage** |Oui |
 | connectionString |Spécifier les informations requises pour la connexion au stockage Azure pour la propriété connectionString. |Oui |
 
 **Exemple :**
@@ -1422,7 +1422,7 @@ Le service lié Stockage Azure SAS vous permet de lier un compte de stockage Azu
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type |La propriété type doit être définie sur : **AzureStorageSas** |Oui |
+| type |La propriété type doit être définie sur : **AzureStorageSas** |Oui |
 | sasUri |Spécifiez l’URI de signature d’accès partagé des ressources Stockage Azure, telles qu’un objet blob, un conteneur ou une table. |Oui |
 
 **Exemple :**
@@ -2543,7 +2543,7 @@ Si vous copiez des données à partir d’une base de données SQL Server, défi
 
 | Propriété | Description | Valeurs autorisées | Obligatoire |
 | --- | --- | --- | --- |
-| SqlReaderQuery |Utilise la requête personnalisée pour lire des données. |Chaîne de requête SQL. Par exemple : `select * from MyTable`. Peut faire référence à plusieurs tables de la base de données référencée par le jeu de données d’entrée. S’il n’est pas spécifié, l’instruction SQL est exécutée : select from MyTable. |Non  |
+| sqlReaderQuery |Utilise la requête personnalisée pour lire des données. |Chaîne de requête SQL. Par exemple : `select * from MyTable`. Peut faire référence à plusieurs tables de la base de données référencée par le jeu de données d’entrée. S’il n’est pas spécifié, l’instruction SQL est exécutée : select from MyTable. |Non  |
 | sqlReaderStoredProcedureName |Nom de la procédure stockée qui lit les données de la table source. |Nom de la procédure stockée. |Non  |
 | storedProcedureParameters |Paramètres de la procédure stockée. |Paires nom/valeur. Les noms et la casse des paramètres doivent correspondre aux noms et à la casse des paramètres de la procédure stockée. |Non  |
 
@@ -3319,7 +3319,7 @@ Vous pouvez lier un système de fichiers local à une fabrique de données Azure
 | --- | --- | --- |
 | Type |Vérifiez que la propriété type est définie sur **OnPremisesFileServer**. |Oui |
 | host |Spécifie le chemin d’accès racine du dossier que vous souhaitez copier. Utilisez le caractère d’échappement « \ » pour les caractères spéciaux contenus dans la chaîne. Pour obtenir des exemples, consultez la section Exemples de définitions de jeux de données et de services liés. |Oui |
-| userId |Spécifiez l’ID de l’utilisateur qui a accès au serveur. |Non (si vous choisissez encryptedcredential) |
+| userid |Spécifiez l’ID de l’utilisateur qui a accès au serveur. |Non (si vous choisissez encryptedcredential) |
 | password |Spécifiez le mot de passe de l’utilisateur (userid). |Non (si vous choisissez encryptedcredential) |
 | Encryptedcredential |Spécifiez les informations d’identification chiffrées que vous pouvez obtenir en exécutant l’applet de commande New-AzDataFactoryEncryptValue. |Non (si vous choisissez de spécifier un nom d'utilisateur et un mot de passe en texte brut) |
 | gatewayName |Spécifie le nom de la passerelle que Data Factory doit utiliser pour se connecter au serveur de fichiers local. |Oui |
@@ -3730,7 +3730,7 @@ Pour définir un service lié HDFS, définissez le **type** du service lié sur 
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| Type |La propriété type doit être définie sur : **Hdfs** |Oui |
+| type |La propriété type doit être définie sur : **Hdfs** |Oui |
 | Url |URL vers le système HDFS |OUI |
 | authenticationType |Anonyme ou Windows. <br><br> Si vous souhaitez utiliser l'**authentification Kerberos** pour le connecteur HDFS, reportez-vous à cette section afin de configurer votre environnement local en conséquence. |Oui |
 | userName |Nom d’utilisateur de l’authentification Windows |Oui (pour l’authentification Windows) |
@@ -4351,7 +4351,7 @@ Pour définir un jeu de données OData, définissez le **type** du jeu de donné
 
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
-| chemin d’accès |Chemin d'accès à la ressource OData |Non  |
+| chemin d’accès |Chemin d'accès à la ressource OData |Non |
 
 #### <a name="example"></a>Exemples
 
@@ -4746,7 +4746,7 @@ Pour définir un jeu de données Web, définissez le **type** du jeu de données
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
 | Type |Type du jeu de données. Doit avoir la valeur **WebTable** |Oui |
-| chemin d’accès |URL relative de la ressource qui contient la table. |Non. Quand le chemin d’accès n’est pas spécifié, seule l’URL spécifiée dans la définition du service lié est utilisée. |
+| path |URL relative de la ressource qui contient la table. |Non. Quand le chemin d’accès n’est pas spécifié, seule l’URL spécifiée dans la définition du service lié est utilisée. |
 | index |Index de la table dans la ressource. Pour connaître la marche à suivre pour obtenir l'index d'une table sur une page HTML, consultez la section Obtenir l'index d'une table sur une page HTML. |Oui |
 
 #### <a name="example"></a>Exemples

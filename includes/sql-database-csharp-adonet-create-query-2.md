@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 12/10/2018
 ms.author: genemi
 ms.openlocfilehash: e30651cb0ed7d74082163a92acbc428c21018255
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53728544"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66167218"
 ---
 ## <a name="c-program-example"></a>Exemple de programme C#
 
@@ -17,7 +17,7 @@ Les sections suivantes de cet article présentent un programme C# qui utilise AD
 
 - [Se connecter à la base de données SQL avec ADO.NET](#cs_1_connect)
 - [Méthodes qui retournent des instructions T-SQL](#cs_2_return)
-    - Créer des tables
+    - créez des tables
     - Remplir des tables avec des données
     - Mettre à jour, supprimer et sélectionner des données
 - [Envoyer T-SQL à la base de données](#cs_3_submit)

@@ -9,11 +9,11 @@ ms.date: 04/30/2019
 ms.author: akjosh; cynthn
 ms.custom: include file
 ms.openlocfilehash: 9647cdd584b53f581f46f728ca2d08f9a113ce92
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65199055"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66156137"
 ---
 ## <a name="before-you-begin"></a>Avant de commencer
 
@@ -58,7 +58,7 @@ az sig image-definition create \
 
 Créez des versions d’image en fonction de vos besoins avec la commande [az image gallery create-image-version](/cli/azure/sig/image-version#az-sig-image-version-create). L’ID de l’image managée sert de base de référence pour la création de la version d’image. Vous pouvez utiliser [az image list](/cli/azure/image?view#az-image-list) pour obtenir des informations sur les images qui se trouvent dans un groupe de ressources. 
 
-Les caractères autorisés pour la version d’image sont les nombres et les points. Les nombres doivent être un entier 32 bits. Format : *MajorVersion*.*MinorVersion*.*Patch*.
+Les caractères autorisés pour la version d’image sont les nombres et les points. Les nombres doivent être un entier 32 bits. Format: *MajorVersion*.*MinorVersion*.*Patch*.
 
 Dans cet exemple, la version de notre image est *1.0.0* et nous allons créer 2 réplicas dans le *ouest des États-Unis* la région, 1 réplica dans le *South Central US* région et 1 réplica dans le *est des États-Unis 2* région.
 

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 04/23/2019
 ms.author: alkohli
 ms.openlocfilehash: d7a9923d5bd9e357bcd75fae6e0a7d1bcd437a53
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64732654"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66161191"
 ---
 Un certificat SSL approprié permet de s’assurer que vous envoyez des informations chiffrées au serveur adéquat. Outre le chiffrement, le certificat permet également pour l’authentification. Vous pouvez télécharger votre propre certificat SSL approuvé par le biais de l’interface PowerShell de l’appareil.
 

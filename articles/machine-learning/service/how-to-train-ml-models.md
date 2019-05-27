@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.date: 04/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7b479556543c6a9dff88643fdc587dec3f832f39
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 98f7dc2e295c0c994db9a0189814b0ef2a19b758
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60818489"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66153610"
 ---
 # <a name="train-models-with-azure-machine-learning-using-estimator"></a>Former des modèles avec Azure Machine Learning à l’aide de l’estimateur
 
@@ -26,7 +26,7 @@ Pour faciliter la formation de modèles Deep Learning, le kit de développement 
 
 ## <a name="train-with-an-estimator"></a>Entraîner avec un estimateur
 
-Une fois que vous avez créé votre [espace de travail](concept-azure-machine-learning-architecture.md#workspace) et configuré votre [environnement de développement](how-to-configure-environment.md), l’entraînement d’un modèle dans Azure Machine Learning passe par les étapes suivantes :  
+Une fois que vous avez créé votre [espace de travail](concept-workspace.md) et configuré votre [environnement de développement](how-to-configure-environment.md), l’entraînement d’un modèle dans Azure Machine Learning passe par les étapes suivantes :  
 1. Créer une [cible de calcul à distance](how-to-set-up-training-targets.md) (notez que vous pouvez également utiliser l’ordinateur local comme cible de calcul)
 2. Charger vos [données d’entraînement](how-to-access-data.md) dans la banque de données (facultatif)
 3. Créer votre [script d’entraînement](tutorial-train-models-with-aml.md#create-a-training-script)
@@ -119,6 +119,10 @@ Enfin, envoyez la tâche d’entraînement :
 run = experiment.submit(estimator)
 print(run.get_portal_url())
 ```
+
+## <a name="github-tracking-and-integration"></a>Intégration et suivi de GitHub
+
+Lorsque vous démarrez une formation exécutée où le répertoire source est un référentiel Git local, les informations relatives au référentiel sont stockées dans l’historique des exécutions. Par exemple, l’ID de validation en cours pour le dépôt est consignée dans le cadre de l’historique.
 
 ## <a name="examples"></a>Exemples
 Pour un notebook qui montre les fonctions de base du modèle d’estimateur :

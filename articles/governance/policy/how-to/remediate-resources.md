@@ -8,23 +8,23 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: fe06e7081e4e3691aeb054985f9f2f3f6dc7d19e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.openlocfilehash: d6753b319bc5bc4cbda18fe486695e5b0266acae
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59794985"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66169657"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Corriger les ressources non conformes avec Azure Policy
 
-Les ressources qui ne sont pas conformes à une stratégie **deployIfNotExists** peuvent être placées dans un état conforme par le biais d’une **correction**. Pour effectuer la correction, vous indiquez à Policy d’exécuter l’effet **deployIfNotExists** de la stratégie assignée sur vos ressources existantes. Cet article explique les étapes nécessaires pour comprendre et exécuter des corrections avec Azure Policy.
+Les ressources qui ne sont pas conformes à une stratégie **deployIfNotExists** peuvent être placées dans un état conforme par le biais d’une **correction**. Mise à jour s’effectue en demandant à Azure Policy pour exécuter le **deployIfNotExists** effet de la stratégie affectée sur vos ressources existantes. Cet article explique les étapes nécessaires pour comprendre et exécuter la mise à jour avec Azure Policy.
 
 [!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
 ## <a name="how-remediation-security-works"></a>Fonctionnement de la sécurité de la correction
 
-Quand Policy exécute le modèle dans la définition de stratégie **deployIfNotExists**, il utilise une [identité managée](../../../active-directory/managed-identities-azure-resources/overview.md).
-Policy crée automatiquement une identité managée pour chaque affectation, mais doit obtenir des informations sur les rôles à accorder à l’identité managée. S’il manque des rôles à l’identité managée, cette erreur est affichée durant l’affectation de la stratégie ou d’une initiative. Quand vous utilisez le portail, une fois l’affectation lancée, Policy accorde automatiquement à l’identité managée les rôles répertoriés.
+Quand Azure Policy exécute le modèle le **deployIfNotExists** définition de stratégie, il utilise un [identité gérée](../../../active-directory/managed-identities-azure-resources/overview.md).
+Stratégie Azure crée une identité gérée pour chaque affectation, mais il doit avoir plus d’informations sur les rôles pour accorder l’identité gérée. S’il manque des rôles à l’identité managée, cette erreur est affichée durant l’affectation de la stratégie ou d’une initiative. Lorsque vous utilisez le portail, Azure Policy accorde automatiquement l’identité gérée rôles répertoriés une fois que le démarrage de l’attribution.
 
 ![Identité managée : rôle manquant](../media/remediate-resources/missing-role.png)
 
@@ -39,7 +39,7 @@ La première étape consiste à définir les rôles dont **deployIfNotExists** a
 "details": {
     ...
     "roleDefinitionIds": [
-        "/subscription/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/{roleGUID}",
+        "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/{roleGUID}",
         "/providers/Microsoft.Authorization/roleDefinitions/{builtinroleGUID}"
     ]
 }
@@ -57,7 +57,7 @@ Get-AzRoleDefinition -Name 'Contributor'
 
 ## <a name="manually-configure-the-managed-identity"></a>Configurer manuellement l’identité managée
 
-Quand vous créez une affectation à l’aide du portail, Policy génère l’identité managée et lui accorde les rôles définis dans **roleDefinitionIds**. Dans les conditions suivantes, les étapes permettant de créer l’identité managée et de lui accorder des autorisations doivent être effectuées manuellement :
+Lorsque vous créez une affectation à l’aide du portail, Azure Policy génère l’identité gérée et lui accorde les rôles définis dans **roleDefinitionIds**. Dans les conditions suivantes, les étapes permettant de créer l’identité managée et de lui accorder des autorisations doivent être effectuées manuellement :
 
 - Durant l’utilisation du SDK (par exemple, Azure PowerShell)
 - Quand une ressource en dehors de l’étendue de l’affectation est modifiée par le modèle
@@ -126,7 +126,8 @@ Pour ajouter un rôle à l’identité managée de l’affectation, effectuez le
 
 1. Cliquez sur le lien **Contrôle d’accès (IAM)** dans la page des ressources, puis cliquez sur **+ Ajouter une attribution de rôle** en haut de la page du contrôle d’accès.
 
-1. Sélectionnez le rôle approprié qui correspond à un **roleDefinitionIds** dans la définition de stratégie. Laissez **Attribuer l’accès à** sur la valeur par défaut « Utilisateur, groupe ou application Azure AD ». Dans la zone **Sélectionner**, collez ou tapez la partie de l’ID de ressource d’affectation trouvée plus haut. Une fois la recherche terminée, cliquez sur l’objet portant le même nom pour sélectionner l’ID, puis cliquez sur **Enregistrer**.
+1. Sélectionnez le rôle approprié qui correspond à un **roleDefinitionIds** dans la définition de stratégie.
+   Laissez **Attribuer l’accès à** sur la valeur par défaut « Utilisateur, groupe ou application Azure AD ». Dans la zone **Sélectionner**, collez ou tapez la partie de l’ID de ressource d’affectation trouvée plus haut. Une fois la recherche terminée, cliquez sur l’objet portant le même nom pour sélectionner l’ID, puis cliquez sur **Enregistrer**.
 
 ## <a name="create-a-remediation-task"></a>Créer une tâche de correction
 
@@ -193,9 +194,9 @@ Pour les autres applets de commande de mise à jour et des exemples, consultez l
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Consulter des exemples à la page [Exemples Azure Policy](../samples/index.md)
-- Consulter la page [Structure de définition Azure Policy](../concepts/definition-structure.md)
-- Consulter la page [Compréhension des effets d’Azure Policy](../concepts/effects.md)
-- Savoir comment [créer des stratégies par programmation](programmatically-create.md)
-- Découvrir comment [obtenir des données de conformité](getting-compliance-data.md)
-- Pour en savoir plus sur les groupes d’administration, consultez [Organiser vos ressources avec des groupes d’administration Azure](../../management-groups/overview.md).
+- Passez en revue les exemples à l’adresse [exemples Azure Policy](../samples/index.md).
+- Consultez la [Structure de définition Azure Policy](../concepts/definition-structure.md).
+- Consultez la page [Compréhension des effets de Policy](../concepts/effects.md).
+- Comprendre comment [créer par programmation des stratégies](programmatically-create.md).
+- Découvrez comment [obtenir des données de conformité](getting-compliance-data.md).
+- Examinez un groupe d’administration avec [organiser vos ressources avec des groupes d’administration Azure](../../management-groups/overview.md).

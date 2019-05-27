@@ -10,11 +10,11 @@ ms.date: 12/26/2018
 ms.author: lyrana
 ms.custom: seodec18
 ms.openlocfilehash: 72155799971760e9ddc93746dceafb1ea554d88b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58905305"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66162124"
 ---
 # <a name="create-and-manage-role-assignments-in-azure-digital-twins"></a>Créer et gérer des attributions de rôle dans Azure Digital Twins
 
@@ -39,13 +39,13 @@ Chaque attribution de rôle est conforme à la définition suivante :
 
 Le tableau suivant décrit chaque attribut :
 
-| Attribut | Nom | Obligatoire | Type | Description |
+| Attribut | Name | Obligatoire | Type | Description  |
 | --- | --- | --- | --- | --- |
-| roleId | Identificateur de la définition de rôle | Oui | Chaîne | ID unique de l’attribution de rôle souhaitée. Pour connaître les définitions de rôles et leurs identificateurs, interrogez l’API système ou reportez-vous au tableau ci-dessous. |
-| objectId | Identificateur d’objet | Oui | Chaîne | ID Azure Active Directory, ID objet de principal de service ou nom de domaine. À quoi ou à qui le rôle est attribué. L’attribution de rôle doit être mise en forme en fonction du type qui lui est associé. Pour l’objectIdType `DomainName`, objectId doit commencer par le caractère `“@”`. |
-| objectIdType | Type d’identificateur d’objet | Oui | Chaîne | Type d’identificateur d’objet utilisé. Consultez **ObjectIdTypes pris en charge** ci-dessous. |
-| chemin d’accès | Chemin d’espace | Oui | Chaîne | Chemin complet de l’objet `Space`. Par exemple `/{Guid}/{Guid}`. Si l’identificateur a besoin de l’attribution de rôle pour l’intégralité du graphe, spécifiez `"/"`. Ce caractère désigne la racine. Cependant, il est déconseillé de l’utiliser. Suivez toujours le principe des privilèges minimum. |
-| tenantId | Identificateur de locataire | Varie | Chaîne | Dans la plupart des cas, un ID de locataire Azure Active Directory. Interdit pour les ObjectIdTypes `DeviceId` et `TenantId`. Obligatoire pour les ObjectIdTypes `UserId` et `ServicePrincipalId`. Facultatif pour l’ObjectIdType DomainName. |
+| roleId | Identificateur de la définition de rôle | Oui | String | ID unique de l’attribution de rôle souhaitée. Pour connaître les définitions de rôles et leurs identificateurs, interrogez l’API système ou reportez-vous au tableau ci-dessous. |
+| objectId | Identificateur d’objet | Oui | String | ID Azure Active Directory, ID objet de principal de service ou nom de domaine. À quoi ou à qui le rôle est attribué. L’attribution de rôle doit être mise en forme en fonction du type qui lui est associé. Pour l’objectIdType `DomainName`, objectId doit commencer par le caractère `“@”`. |
+| objectIdType | Type d’identificateur d’objet | Oui | String | Type d’identificateur d’objet utilisé. Consultez **ObjectIdTypes pris en charge** ci-dessous. |
+| path | Chemin d’espace | Oui | String | Chemin complet de l’objet `Space`. Par exemple `/{Guid}/{Guid}`. Si l’identificateur a besoin de l’attribution de rôle pour l’intégralité du graphe, spécifiez `"/"`. Ce caractère désigne la racine. Cependant, il est déconseillé de l’utiliser. Suivez toujours le principe des privilèges minimum. |
+| tenantId | Identificateur de locataire | Varie | String | Dans la plupart des cas, un ID de locataire Azure Active Directory. Interdit pour les ObjectIdTypes `DeviceId` et `TenantId`. Obligatoire pour les ObjectIdTypes `UserId` et `ServicePrincipalId`. Facultatif pour l’ObjectIdType DomainName. |
 
 ### <a name="supported-role-definition-identifiers"></a>Identificateurs de définition de rôle pris en charge
 
@@ -165,10 +165,10 @@ YOUR_MANAGEMENT_API_URL/roleassignments/check?userId=YOUR_USER_ID&path=YOUR_PATH
 
 | **Valeur du paramètre** | **Obligatoire** |  **Type** |  **Description** |
 | --- | --- | --- | --- |
-| YOUR_USER_ID |  True | Chaîne |   ID d’objet pour l’objectIdType UserId. |
-| YOUR_PATH | True | Chaîne |   Chemin dont l’accès est contrôlé. |
-| YOUR_ACCESS_TYPE |  True | Chaîne |   Type d’accès à contrôler. |
-| YOUR_RESOURCE_TYPE | True | Chaîne |  La ressource à contrôler. |
+| YOUR_USER_ID |  True | String |   ID d’objet pour l’objectIdType UserId. |
+| YOUR_PATH | True | String |   Chemin dont l’accès est contrôlé. |
+| YOUR_ACCESS_TYPE |  True | String |   Type d’accès à contrôler. |
+| YOUR_RESOURCE_TYPE | True | String |  La ressource à contrôler. |
 
 Une requête réussie renvoie un booléen `true` ou `false` pour indiquer si le type d’accès a été attribué à l’utilisateur pour le chemin et la ressource donnés.
 

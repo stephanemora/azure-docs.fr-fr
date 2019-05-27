@@ -11,14 +11,14 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: c49b9d5fdc0c17f16f1c80471a00dd53625dc6e8
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
-ms.translationtype: MT
+ms.openlocfilehash: 3edc1c2bd328cd6e7b7991ff2b5438b8899a0ce7
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236952"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66160478"
 ---
-# <a name="set-up-compute-targets-for-model-training"></a>Configurer des cibles de calcul pour l’entraînement des modèles
+# <a name="set-up-compute-targets-for-model-training"></a>Configurer des cibles de calcul pour l’entraînement des modèles 
 
 Azure Machine Learning service vous permet de former votre modèle sur une variété de ressources ou d’environnements, appelés collectivement [__cibles de calcul__](concept-azure-machine-learning-architecture.md#compute-target). Une cible de calcul peut être un ordinateur local ou une ressource cloud telle qu’une capacité de calcul Azure Machine Learning, Azure HDInsight ou une machine virtuelle distante.  Vous pouvez également créer des cibles de calcul pour le déploiement de modèle, comme décrit dans [« Déployer des modèles avec le service Azure Machine Learning »](how-to-deploy-and-where.md).
 
@@ -38,7 +38,7 @@ Cet article explique comment utiliser les différentes cibles de calcul pour l�
 La prise en charge par Azure Machine Learning service varie selon les cibles de calcul. Un cycle de vie typique du développement d’un modèle commence par le développement/l’expérience sur une petite quantité de données. À ce stade, nous recommandons d’utiliser un environnement local. Par exemple, votre ordinateur local ou une machine virtuelle basée cloud. Quand vous effectuez un scale-up de votre entraînement sur des jeux de données plus grands ou que vous faites un entraînement distribué, nous recommandons d’utiliser Capacité de calcul Azure Machine Learning pour créer un cluster avec un ou plusieurs nœuds qui se met à l’échelle automatiquement chaque fois que vous lancez une exécution. Vous pouvez également attacher votre propre ressource de calcul, bien que la prise en charge des différents scénarios puisse varier comme indiqué ci-dessous :
 
 
-|Cible de calcul pour l’entraînement| Accélération GPU | Automatisée<br/> optimisation des hyperparamètres | Automatisée</br> Apprentissage automatique | Pipelines Azure Machine Learning |
+|Cible de calcul pour l’entraînement| Accélération GPU | Automatisée<br/> optimisation des hyperparamètres | Automatisée<br/> Apprentissage automatique | Pipelines Azure Machine Learning |
 |----|:----:|:----:|:----:|:----:|
 |[Ordinateur local](#local)| Peut-être | &nbsp; | ✓ | &nbsp; |
 |[Capacité de calcul Azure Machine Learning](#amlcompute)| ✓ | ✓ | ✓ | ✓ |
@@ -418,6 +418,10 @@ Vous pouvez également :
 
 * Soumettre l’expérience avec un objet `Estimator`, comme indiqué dans [Former des modèles ML avec des estimateurs](how-to-train-ml-models.md). 
 * Soumettre une expérience [à l’aide de l’extension CLI](reference-azure-machine-learning-cli.md#experiments).
+
+## <a name="github-tracking-and-integration"></a>Intégration et suivi de GitHub
+
+Lorsque vous démarrez une formation exécutée où le répertoire source est un référentiel Git local, les informations relatives au référentiel sont stockées dans l’historique des exécutions. Par exemple, l’ID de validation en cours pour le dépôt est consignée dans le cadre de l’historique.
 
 ## <a name="notebook-examples"></a>Exemples de notebooks
 

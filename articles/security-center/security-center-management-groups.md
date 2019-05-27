@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 12/19/2018
 ms.author: rkarlin
 ms.openlocfilehash: 7e26dc37c5c4f85e3db634bd961bf9308e418a03
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59045762"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66147971"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Gagner en visibilité au niveau locataire dans Azure Security Center
 Cet article vous aide à démarrer en effectuant plusieurs actions qui optimisent les avantages qu’offre Azure Security Center. En effet, en effectuant ces actions, vous obtenez une meilleure visibilité de tous les abonnements Azure qui sont liés à votre locataire Azure Active Directory et vous gérez efficacement la sécurité de votre organisation à grande échelle en appliquant des stratégies de sécurité sur plusieurs abonnements en même temps.

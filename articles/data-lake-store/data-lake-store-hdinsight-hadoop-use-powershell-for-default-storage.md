@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: c57a45145d9abc43d0ca79839ea297dfc025db9b
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59524087"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66161411"
 ---
 # <a name="create-hdinsight-clusters-with-azure-data-lake-storage-gen1-as-default-storage-by-using-powershell"></a>Créer des clusters HDInsight avec Data Lake Storage Gen1 comme stockage par défaut à l’aide de PowerShell
 
@@ -122,7 +122,7 @@ Cette section montre comment accorder l’accès à une ressource Azure (le comp
 
 Pour configurer l’authentification Active Directory pour Data Lake Storage Gen1, effectuez les tâches présentées dans les deux sections suivantes.
 
-### <a name="create-a-self-signed-certificate"></a>Créer un certificat auto-signé
+### <a name="create-a-self-signed-certificate"></a>Création d’un certificat auto-signé
 Assurez-vous que le [SDK Windows](https://dev.windows.com/en-us/downloads) est installé avant de suivre la procédure décrite dans cette section. Vous devez également avoir créé un répertoire, comme *C:\mycertdir*, où sera créé le certificat.
 
 1. Dans la fenêtre PowerShell, accédez à l’emplacement où vous avez installé le Kit de développement logiciel (SDK) Windows (en général, *C:\Program Files (x86)\Windows Kits\10\bin\x86*) et utilisez l’utilitaire [MakeCert][makecert] pour créer un certificat auto-signé et une clé privée. Utilisez les commandes suivantes :

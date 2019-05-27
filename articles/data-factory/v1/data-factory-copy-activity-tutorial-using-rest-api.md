@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : utiliser l’API REST pour créer un pipeline Azure Data Factory | Microsoft Docs'
+title: 'Didacticiel : utiliser l’API REST pour créer un pipeline Azure Data Factory | Microsoft Docs'
 description: Dans ce didacticiel, vous utilisez l’API REST pour créer un pipeline Azure Data Factory avec une activité de copie afin de copier des données d’un stockage Blob Azure dans une base de données Azure SQL.
 services: data-factory
 documentationcenter: ''
@@ -15,11 +15,11 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: d83b659cc04218fad66ea95216e69682b265dc83
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58077800"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66151616"
 ---
 # <a name="tutorial-use-rest-api-to-create-an-azure-data-factory-pipeline-to-copy-data"></a>Didacticiel : utiliser l’API REST pour créer un pipeline Azure Data Factory afin de copier des données 
 > [!div class="op_single_selector"]
@@ -181,7 +181,7 @@ Le tableau suivant décrit les propriétés JSON utilisées dans l'extrait de co
 
 | Propriété | Description |
 |:--- |:--- |
-| type | La propriété du type est définie sur **AzureBlob**, car les données se trouvent dans le stockage blob Azure. |
+| Type | La propriété du type est définie sur **AzureBlob**, car les données se trouvent dans le stockage blob Azure. |
 | linkedServiceName | Fait référence au service **AzureStorageLinkedService** que vous avez créé précédemment. |
 | folderPath | Spécifie le **conteneur** d’objets blob et le **dossier** qui contient les objets blob d’entrée. Dans ce didacticiel, adftutorial est le conteneur d’objets blob et folder est le dossier racine. | 
 | fileName | Cette propriété est facultative. Si vous omettez cette propriété, tous les fichiers spécifiés dans le paramètre folderPath sont récupérés. Dans ce didacticiel, **emp.txt** est spécifié pour le paramètre fileName, si bien que seul ce fichier est récupéré pour le traitement. |
@@ -224,9 +224,9 @@ Le tableau suivant décrit les propriétés JSON utilisées dans l'extrait de co
 
 | Propriété | Description |
 |:--- |:--- |
-| type | La propriété du type est définie sur **AzureSqlTable** car les données sont copiées dans une table de la base de données Azure SQL. |
+| Type | La propriété du type est définie sur **AzureSqlTable** car les données sont copiées dans une table de la base de données Azure SQL. |
 | linkedServiceName | Fait référence au service **AzureSqlLinkedService** que vous avez créé précédemment. |
-| tableName | Spécifie la **table** dans laquelle les données sont copiées. | 
+| TableName | Spécifie la **table** dans laquelle les données sont copiées. | 
 | frequency/interval | La fréquence est définie sur **Heure** et l’intervalle sur **1**, ce qui signifie que les tranches de sortie sont produites **toutes les heures** entre les heures de début et de fin du pipeline, pas avant ni après.  |
 
 La table emp de la base de données contient trois colonnes : **ID**, **FirstName** et **LastName**. ID étant une colonne d’identité, il vous suffit de spécifier **FirstName** et **LastName**.

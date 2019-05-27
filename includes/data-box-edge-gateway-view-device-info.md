@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 03/04/2019
 ms.author: alkohli
 ms.openlocfilehash: d5af557a62f4bd35c242d334c28a38c3d632f7cf
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58404090"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66161167"
 ---
 1. [Se connecter à l’interface PowerShell](#connect-to-the-powershell-interface).
 2. Utilisez le `Get-HcsApplianceInfo` pour obtenir les informations de votre appareil.
@@ -45,7 +45,7 @@ ms.locfileid: "58404090"
 
     Voici un tableau récapitulant les informations sur les périphérique important :
     
-    | Paramètre                             | Description                                                                                                                                                  |   |
+    | Paramètre                             | Description                                                                                                                                                   |   |
     |--------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|---|
     | FriendlyName                   | Le nom convivial de l’appareil, tel que configuré via l’interface utilisateur web locale pendant le déploiement de l’appareil. Le nom convivial par défaut est le numéro de série de l’appareil.  |   |
     | SerialNumber                   | Le numéro de série du périphérique est un numéro unique attribué en usine.                                                                             |   |

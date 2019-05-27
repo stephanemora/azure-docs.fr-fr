@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 14abae6f6f72d724fffb1ccaa12f56fb6976f7a1
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
-ms.translationtype: HT
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50226575"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66160199"
 ---
 Le tableau suivant répertorie les combinaisons de téléchargement et de capture possibles pour les images de système d’exploitation spécialisées (spéc.) et généralisées (gén.) Windows. Images du système d’exploitation. Les causes et les solutions liées aux différentes erreurs que vous rencontrerez figurent sous le tableau.
 

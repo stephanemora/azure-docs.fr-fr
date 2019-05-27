@@ -9,11 +9,11 @@ ms.date: 7/11/2018
 ms.author: victorh
 ms.custom: include file
 ms.openlocfilehash: ea1d331eefe07980547ffae18fbbca920475ec06
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60193051"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66148436"
 ---
 > [!IMPORTANT]
 > Le service Pare-feu Azure est actuellement disponible en préversion publique gérée. Vous l’activez explicitement à l’aide de la commande PowerShell `Register-AzProviderFeature`.

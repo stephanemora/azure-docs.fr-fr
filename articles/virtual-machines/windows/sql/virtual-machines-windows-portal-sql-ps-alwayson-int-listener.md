@@ -15,11 +15,11 @@ ms.workload: iaas-sql-server
 ms.date: 02/06/2019
 ms.author: mikeray
 ms.openlocfilehash: 5b647af7925ceb81c524deb0accf90f9e895080e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58876987"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66165798"
 ---
 # <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>Configurer un ou plusieurs écouteurs de groupe de disponibilité AlwaysOn - Resource Manager
 Cette rubrique explique comment effectuer les opérations suivantes :
@@ -68,7 +68,7 @@ Les exemples présentés dans cet article spécifient un équilibreur de charge 
 $ILB= New-AzLoadBalancer -Location $Location -Name $ILBName -ResourceGroupName $ResourceGroupName -FrontendIpConfiguration $FEConfig -BackendAddressPool $BEConfig -LoadBalancingRule $ILBRule -Probe $SQLHealthProbe -sku Standard
 ```
 
-Pour créer un équilibreur de charge de base, supprimez `-sku Standard` de la ligne qui crée l'équilibreur de charge. Par exemple : 
+Pour créer un équilibreur de charge de base, supprimez `-sku Standard` de la ligne qui crée l'équilibreur de charge. Exemple :
 
 ```powershell
 $ILB= New-AzLoadBalancer -Location $Location -Name $ILBName -ResourceGroupName $ResourceGroupName -FrontendIpConfiguration $FEConfig -BackendAddressPool $BEConfig -LoadBalancingRule $ILBRule -Probe $SQLHealthProbe
@@ -227,7 +227,7 @@ Notez les instructions suivantes concernant l’écouteur de groupe de disponibi
 
 * Si vous restreignez l’accès avec un groupe de sécurité réseau Azure, vérifiez que les règles d’autorisation comprennent l’adresse IP de la machine virtuelle du serveur backend SQL, les adresses IP flottantes de l’équilibreur de charge pour l’écouteur de groupe de disponibilité, et l’adresse IP du cluster principal, le cas échéant.
 
-## <a name="for-more-information"></a>Pour plus d’informations
+## <a name="for-more-information"></a>Pour plus d'informations
 Pour plus d’informations, consultez [Configure Always On availability group in Azure VM manually (Configuration manuelle d’un groupe de disponibilité Always On dans une machine virtuelle Azure)](virtual-machines-windows-portal-sql-availability-group-tutorial.md).
 
 ## <a name="powershell-cmdlets"></a>Applets de commande PowerShell

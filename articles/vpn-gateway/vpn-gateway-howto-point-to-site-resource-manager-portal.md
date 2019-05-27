@@ -6,14 +6,14 @@ author: cherylmc
 tags: azure-resource-manager
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 10/24/2018
+ms.date: 5/21/2019
 ms.author: cherylmc
-ms.openlocfilehash: fa406ac2f1e0b89a1161660a49f2a4cb6f6d6c32
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 6b66a9cf28faccf5ba22bc016297f1d53febe533
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62105910"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66157337"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>Configurez une connexion point à site à un réseau virtuel à l’aide de l’authentification par certificat Azure native : Portail Azure
 
@@ -46,7 +46,7 @@ Vous pouvez utiliser ces valeurs pour créer un environnement de test ou vous y 
 * **Serveur DNS :** (facultatif) l’adresse IP du serveur DNS que vous souhaitez utiliser pour la résolution de noms.
 * **Nom de la passerelle de réseau virtuel :** VNet1GW
 * **Type de passerelle :** VPN
-* **Type de VPN :** basé sur la route
+* **Type de VPN :** Basé sur itinéraires
 * **Nom de l'adresse IP publique :** VNet1GWpip
 * **Type de connexion :** Point à site
 * **Pool d'adresses des clients :** 172.16.201.0/24<br>Les clients VPN qui se connectent au réseau virtuel à l’aide de cette connexion point à site reçoivent une adresse IP de ce pool d’adresses des clients.
@@ -108,7 +108,7 @@ Le pool d’adresses des clients est une plage d’adresses IP privées que vous
 
 ## <a name="tunneltype"></a>7. Configurer le type de tunnel
 
-Vous pouvez sélectionner le type de tunnel. Les deux types de tunnels disponibles sont SSTP et IKEv2. Le client strongSwan sur Android et Linux et le client VPN IKEv2 natif sur iOS et OSX n’utiliseront que le tunnel IKEv2 pour se connecter. Les clients Windows essaient IKEv2 en premier lieu. En cas d’échec de la connexion, ils utilisent SSTP. Vous pouvez choisir d’en activer un des deux, ou les deux. Sélectionnez les cases à cocher en fonction des besoins de votre solution.
+Vous pouvez sélectionner le type de tunnel. Les options de tunnel sont OpenVPN, SSTP et IKEv2. Le client strongSwan sur Android et Linux et le client VPN IKEv2 natif sur iOS et OSX n’utiliseront que le tunnel IKEv2 pour se connecter. Les clients Windows essaient IKEv2 en premier lieu. En cas d’échec de la connexion, ils utilisent SSTP. Vous pouvez utiliser le client OpenVPN pour se connecter pour le type de tunnel OpenVPN.
 
 ![Type de tunnel](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/tunneltype.png)
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/14/2018
 ms.author: cynthn;azcspmt;jonbeck
 ms.custom: include file
-ms.openlocfilehash: 7a13dab50b5735d1a1e54a029daba742176bedfb
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.openlocfilehash: c0d73b2e37046f75a1cea700d9099c5bbb5f6e0c
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64744136"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66170415"
 ---
 Les tailles de machine virtuelle au GPU optimisé sont des machines virtuelles spécialisées disponibles avec des GPU NVIDIA uniques ou multiples. Ces tailles sont conçues pour des charges de travail de visualisation, mais également de calcul et d’affichage graphique intensifs. Cet article donne des informations sur le nombre et le type de GPU, de processeurs virtuels, de disques de données et de cartes réseau. Le débit de stockage et la bande passante réseau sont également inclus pour chacune des tailles de ce regroupement. 
 
@@ -23,7 +23,7 @@ Les tailles de machine virtuelle au GPU optimisé sont des machines virtuelles s
 
 * Les tailles **NCSv3**, **NCSv2** et **ND** comprennent un processeur Intel Xeon® E5-2690 v4 2,6 GHz.
                       
-* Les tailles **NV et NVv2** sont optimisées et conçues pour la visualisation à distance, la diffusion en continu, les jeux, l’encodage et les scénarios de VDI utilisant des infrastructures comme OpenGL ou DirectX.  Ces machines virtuelles reposent sur le GPU Tesla M60 de NVIDIA.
+* **NV et NVv3** tailles sont optimisées et conçues pour la visualisation à distance de diffusion en continu, jeux, encodage et les scénarios VDI utilisant des infrastructures comme OpenGL et DirectX.  Ces machines virtuelles reposent sur le GPU Tesla M60 de NVIDIA.
 
 
 ## <a name="nc-series"></a>Série NC
@@ -153,22 +153,24 @@ Chaque GPU dans les instances NV est fourni avec une licence GRID. Cette licence
 
 1 GPU = une moitié de carte M60.
 
-## <a name="nvv2-series-preview"></a>Série NVv2 (préversion)
+## <a name="nvv3-series-preview-sup1sup"></a>Série NVv3 (version préliminaire) <sup>1</sup>
 
 Premium Storage :  Pris en charge
 
 Mise en cache de stockage Premium :  Pris en charge
 
-Les machines virtuelles de la série NVv2 sont pilotées par des GPU [Tesla M60 de NVIDIA](http://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) et la technologie NVIDIA GRID avec des processeurs Intel Broadwell. Ces machines virtuelles sont destinées aux bureaux virtuels et aux applications graphiques avec accélération par GPU sur lesquels les clients souhaitent visualiser leurs données, simuler des résultats à afficher, travailler en CAO ou effectuer la restitution ou la diffusion du contenu. Par ailleurs, ces machines virtuelles peuvent exécuter des charges de travail de précision unique, telles que le codage et le rendu. Les machines virtuelles NVv2 prennent en charge le Stockage Premium et offrent deux fois plus de mémoire RAM que la série NV précédente.  
+Les machines virtuelles de série NVv3 sont alimentées par [NVIDIA Tesla M60](http://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) GPU et NVIDIA GRID technologie avec Intel Broadwell UC. Ces machines virtuelles sont destinées aux bureaux virtuels et aux applications graphiques avec accélération par GPU sur lesquels les clients souhaitent visualiser leurs données, simuler des résultats à afficher, travailler en CAO ou effectuer la restitution ou la diffusion du contenu. Par ailleurs, ces machines virtuelles peuvent exécuter des charges de travail de précision unique, telles que le codage et le rendu. Les machines virtuelles NVv3 prennent en charge Premium Storage et sont fournis avec deux fois la mémoire système (RAM) par rapport à son prédécesseur série NV.  
 
-Chaque GPU dans les instances NVv2 est fourni avec une licence GRID. Cette licence vous donne la possibilité d’utiliser une instance NV comme station de travail virtuelle pour un seul utilisateur. 25 utilisateurs simultanés peuvent aussi se connecter à la machine virtuelle pour un scénario d’application virtuelle.
+Chaque GPU dans les instances de NVv3 est fourni avec une licence de la grille. Cette licence vous donne la possibilité d’utiliser une instance NV comme station de travail virtuelle pour un seul utilisateur. 25 utilisateurs simultanés peuvent aussi se connecter à la machine virtuelle pour un scénario d’application virtuelle.
 
 | Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | GPU | Mémoire GPU : Gio | Disques de données max. | Nombre max de cartes réseau | Stations de travail virtuelles | Applications virtuelles | 
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_NV6s_v2 |6. |112 |320 | 1 | 8 | 12 | 4 | 1 | 25 |
-| Standard_NV12s_v2 |12 |224 |640 | 2 | 16 | 24 | 8 | 2 | 50 |
-| Standard_NV24s_v2 |24 |448 |1 280 | 4 | 32 | 32 | 8 | 4 | 100 |
+| Standard_NV6s_v3 | 12 | 112 |320 | 1 | 8 | 12 | 4 | 1 | 25 |
+| Standard_NV12s_v3 | 24 | 224 |640 | 2 | 16 | 24 | 8 | 2 | 50 |
+| Standard_NV24s_v3 | 48 | 448 |1 280 | 4 | 32 | 32 | 8 | 4 | 100 |
 
 1 GPU = une moitié de carte M60.
+
+<sup>1</sup> NVv3 série dotées de la technologie Intel® Hyper-Threading
 
  

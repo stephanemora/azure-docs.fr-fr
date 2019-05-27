@@ -2,19 +2,18 @@
 title: Fichier Include
 description: Fichier Include
 services: vpn-gateway
-author: WenJason
+author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-origin.date: 12/19/2018
-ms.date: 01/14/2019
-ms.author: v-jay
+ms.date: 12/19/2018
+ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 03a4005da7794a989166f914e4ba4d03f93ae8b9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60407672"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66170155"
 ---
 1. Dans le portail, cliquez sur **+Créer une ressource**.
 2. Dans la zone de recherche, tapez **passerelle de réseau local**, puis appuyez sur **Entrée** pour lancer la recherche. Une liste de résultats apparaîtra. Cliquez sur **Passerelle de réseau local**, puis cliquez sur le bouton **Créer** pour ouvrir la page **Créer une passerelle de réseau local**.

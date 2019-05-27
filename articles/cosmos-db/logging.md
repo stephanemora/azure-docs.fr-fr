@@ -8,11 +8,11 @@ ms.date: 03/15/2019
 ms.author: sngun
 ms.custom: seodec18
 ms.openlocfilehash: 8839d7ea93bcb205b1900e63d3ab98394e72cd75
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58904863"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66148743"
 ---
 # <a name="diagnostic-logging-in-azure-cosmos-db"></a>Journalisation des diagnostics dans Azure Cosmos DB 
 
@@ -438,7 +438,7 @@ Les données de diagnostic sont stockées dans les journaux de stockage et Azure
 
 Le tableau suivant décrit le contenu de chaque entrée de journal.
 
-| Propriété ou champ du stockage Azure | Azure Monitor enregistre la propriété | Description |
+| Propriété ou champ du stockage Azure | Azure Monitor enregistre la propriété | Description  |
 | --- | --- | --- |
 | **time** | **TimeGenerated** | Date et heure (UTC) de l’opération. |
 | **resourceId** | **Ressource** | Le compte Azure Cosmos DB pour lequel les journaux d’activité sont activés.|

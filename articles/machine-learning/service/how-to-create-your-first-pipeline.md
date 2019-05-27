@@ -1,7 +1,7 @@
 ---
 title: Créer, exécuter et effectuer le suivi des pipelines ML
 titleSuffix: Azure Machine Learning service
-description: Créez et exécutez un pipeline Machine Learning avec le SDK Azure Machine Learning pour Python. Vous utilisez des pipelines pour créer et gérer les flux de travail qui combinent les phases de Machine Learning (ML). Ces phases incluent la préparation des données, l’apprentissage du modèle, le modèle de déploiement et l’inférence.
+description: Créez et exécutez un pipeline Machine Learning avec le SDK Azure Machine Learning pour Python. Vous utilisez des pipelines pour créer et gérer les flux de travail qui combinent les phases de Machine Learning (ML). Ces phases incluent la préparation des données, apprentissage du modèle, déploiement de modèle et l’inférence/notation.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3ec3e915c26abf38653d1bddfe0a5ba44d5e6de1
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 15fa9095b8169dc1545c796421be91e89652e1c1
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64914888"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66165874"
 ---
 # <a name="create-and-run-a-machine-learning-pipeline-by-using-azure-machine-learning-sdk"></a>Créer et exécuter un pipeline Machine Learning à l’aide du SDK Azure Machine Learning
 
@@ -251,6 +251,8 @@ trainStep = PythonScriptStep(
 )
 ```
 
+Réutilisation des résultats précédents (`allow_reuse`) est la clé lors de l’utilisation des pipelines dans un environnement de collaboration dans la mesure où éliminant réexécutions inutiles offre une grande souplesse. Il s’agit du comportement par défaut lorsque le nom_du_script, les entrées et les paramètres d’une étape restent les mêmes. Lorsque la sortie de l’étape est réutilisée, la tâche n’est pas envoyée pour le calcul, au lieu de cela, les résultats de l’exécution précédente sont immédiatement disponibles pour l’exécution de l’étape suivante. Si la valeur est false, une nouvelle exécution sera toujours générée pour cette étape pendant l’exécution du pipeline. 
+
 Après avoir défini vos étapes, vous générez le pipeline à l’aide de tout ou partie de ces étapes.
 
 > [!NOTE]
@@ -315,6 +317,10 @@ Lorsque vous exécutez un pipeline pour la première fois, Azure Machine Learnin
 
 Pour plus d’informations, consultez le [faire des essais classe](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py) référence.
 
+## <a name="github-tracking-and-integration"></a>Intégration et suivi de GitHub
+
+Lorsque vous démarrez une formation exécutée où le répertoire source est un référentiel Git local, les informations relatives au référentiel sont stockées dans l’historique des exécutions. Par exemple, l’ID de validation en cours pour le dépôt est consignée dans le cadre de l’historique.
+
 ## <a name="publish-a-pipeline"></a>Publier un pipeline
 
 Vous pouvez publier un pipeline afin de l’exécuter ultérieurement avec des entrées différentes. Pour que le point de terminaison REST d’un pipeline déjà publié accepte les paramètres, vous devez paramétrer le pipeline avant sa publication. 
@@ -373,11 +379,11 @@ Consultez la liste de tous vos pipelines et les détails relatifs à leur exécu
 ## <a name="caching--reuse"></a>La mise en cache et réutilisation  
 
 Afin d’optimiser et de personnaliser le comportement de vos pipelines, vous pouvez effectuer quelques opérations autour de la mise en cache et réutiliser. Par exemple, vous pouvez choisir de :
-+ **Désactiver la réutilisation de la valeur par défaut de l’étape de sortie de l’exécution** en définissant `allow_reuse=False` pendant [étape de définition](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py)
++ **Désactiver la réutilisation de la valeur par défaut de l’étape de sortie de l’exécution** en définissant `allow_reuse=False` pendant [étape définition](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py). Réutilisation est la clé lors de l’utilisation des pipelines dans un environnement de collaboration dans la mesure où éliminant exécutions inutiles offre une grande souplesse. Toutefois, vous pouvez refuser cette.
 + **Étendre au-delà du script de hachage**, pour inclure également un chemin d’accès absolu ou des chemins d’accès relatifs à la répertoire_source à d’autres fichiers et les répertoires à l’aide de la `hash_paths=['<file or directory']` 
 + **Forcez la régénération de sortie pour toutes les étapes dans une exécution** avec `pipeline_run = exp.submit(pipeline, regenerate_outputs=False)`
 
-Par défaut, étape réutilisation est activé et seulement le fichier de script principal est haché. Par conséquent, si le script pour une étape donnée reste le même (`script_name`, entrées et les paramètres), la sortie d’une étape précédente exécution est réutilisée, la tâche n’est pas envoyée pour le calcul et les résultats à partir de l’exécution précédente sont immédiatement disponibles à l’étape suivante à la place .  
+Par défaut, `allow-reuse` pour étapes est activée et seulement le fichier de script principal est haché. Par conséquent, si le script pour une étape donnée reste le même (`script_name`, entrées et les paramètres), la sortie d’une étape précédente exécution est réutilisée, la tâche n’est pas envoyée pour le calcul et les résultats à partir de l’exécution précédente sont immédiatement disponibles à l’étape suivante à la place .  
 
 ```python
 step = PythonScriptStep(name="Hello World", 

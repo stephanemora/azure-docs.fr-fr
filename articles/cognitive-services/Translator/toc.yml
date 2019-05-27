@@ -2,7 +2,7 @@
   href: index.yml
 - name: API de traduction de texte Translator Text
   items:
-    - name: Vue d’ensemble
+    - name: Vue d'ensemble
       items:
         - name: "Qu’est-ce que l’API de traduction de texte Translator Text\_?"
           href: translator-info-overview.md
@@ -174,6 +174,8 @@
           href: 'https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/'
         - name: Disponibilité régionale
           href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
+        - name: Conformité
+          href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
         - name: Limites de requête
           href: request-limits.md
         - name: Stack Overflow
@@ -182,7 +184,7 @@
           href: 'https://cognitive.uservoice.com/forums/558796-translator'
 - name: Custom Translator
   items:
-    - name: Vue d’ensemble
+    - name: Vue d'ensemble
       items:
         - name: Qu’est-ce que Custom Translator ?
           href: custom-translator/overview.md
@@ -240,6 +242,8 @@
           href: custom-translator/faq.md
         - name: Tarifs
           href: 'https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/'
+        - name: Conformité
+          href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
         - name: Stack Overflow
           href: 'https://stackoverflow.com/questions/tagged/microsoft-translator'
         - name: UserVoice

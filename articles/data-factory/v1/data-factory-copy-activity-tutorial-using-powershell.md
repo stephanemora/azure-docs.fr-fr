@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 13f67bfe0902a528d16b6a967f9d4ac189100406
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 3bc0980360bfafcf6f0334122731c6c02ce71e18
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58482401"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66151632"
 ---
 # <a name="tutorial-create-a-data-factory-pipeline-that-moves-data-by-using-azure-powershell"></a>Didacticiel : créer un pipeline Data Factory qui déplace les données à l’aide d’Azure PowerShell
 > [!div class="op_single_selector"]
@@ -278,7 +278,7 @@ Dans cette étape, vous créez un jeu de données nommé InputDataset qui pointe
 
     | Propriété | Description |
     |:--- |:--- |
-    | type | La propriété du type est définie sur **AzureBlob**, car les données se trouvent dans le stockage blob Azure. |
+    | Type | La propriété du type est définie sur **AzureBlob**, car les données se trouvent dans le stockage blob Azure. |
     | linkedServiceName | Fait référence au service **AzureStorageLinkedService** que vous avez créé précédemment. |
     | folderPath | Spécifie le **conteneur** d’objets blob et le **dossier** qui contient les objets blob d’entrée. Dans ce didacticiel, adftutorial est le conteneur d’objets blob et folder est le dossier racine. | 
     | fileName | Cette propriété est facultative. Si vous omettez cette propriété, tous les fichiers spécifiés dans le paramètre folderPath sont récupérés. Dans ce didacticiel, **emp.txt** est spécifié pour le paramètre fileName, si bien que seul ce fichier est récupéré pour le traitement. |
@@ -343,9 +343,9 @@ Dans cette partie de l’étape, vous créez un jeu de données de sortie nommé
 
     | Propriété | Description |
     |:--- |:--- |
-    | type | La propriété du type est définie sur **AzureSqlTable** car les données sont copiées dans une table de la base de données Azure SQL. |
+    | Type | La propriété du type est définie sur **AzureSqlTable** car les données sont copiées dans une table de la base de données Azure SQL. |
     | linkedServiceName | Fait référence au service **AzureSqlLinkedService** que vous avez créé précédemment. |
-    | tableName | Spécifie la **table** dans laquelle les données sont copiées. | 
+    | TableName | Spécifie la **table** dans laquelle les données sont copiées. | 
     | frequency/interval | La fréquence est définie sur **Heure** et l’intervalle sur **1**, ce qui signifie que les tranches de sortie sont produites **toutes les heures** entre les heures de début et de fin du pipeline, pas avant ni après.  |
 
     La table emp de la base de données contient trois colonnes : **ID**, **FirstName** et **LastName**. ID étant une colonne d’identité, il vous suffit de spécifier **FirstName** et **LastName**.

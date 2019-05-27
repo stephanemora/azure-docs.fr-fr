@@ -1,5 +1,5 @@
 ---
-title: Comparer & reproduire des données au fil du temps avec des captures instantanées
+title: Comparer & reproduire des données avec des captures instantanées du jeu de données
 titleSuffix: Azure Machine Learning service
 description: Découvrez comment comparer les données au fil du temps et de garantir la reproductibilité des instantanés d’un jeu de données
 services: machine-learning
@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sihhu
 author: MayMSFT
-ms.date: 05/02/2019
-ms.openlocfilehash: 51d0dcfc543834e9a8725d11fa82b566a5132a6b
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.date: 05/23/2019
+ms.openlocfilehash: 525660be0f38c9458590e52cfcd575acb4cf5444
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65204985"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66162053"
 ---
 # <a name="compare-data-and-ensure-reproducibility-with-snapshots-preview"></a>Comparer les données et de garantir la reproductibilité des instantanés (préversion)
 
@@ -41,7 +41,7 @@ Pour créer des captures instantanées du jeu de données, vous avez besoin d’
 
 ## <a name="create-dataset-snapshots"></a>Créer des captures instantanées du jeu de données
 
-Pour créer un instantané d’un jeu de données, utilisez [ `dataset.create_snapshot()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset(class)?#create-snapshot-snapshot-name--compute-target-none--create-data-snapshot-false--target-datastore-none-) à partir du Kit de développement logiciel Azure Machine Learning.
+Pour créer un instantané d’un jeu de données, utilisez [ `dataset.create_snapshot()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset(class)?#create-snapshot-snapshot-name--compute-target-none--create-data-snapshot-false--target-datastore-none-) à partir du package azureml-jeux de données du SDK Azure Machine Learning.
 
 Par défaut, l’instantané stocke le profil (statistiques de synthèse) des données avec la dernière version [définition du dataset](how-to-manage-dataset-definitions.md) appliqué. Une définition de dataset contient un enregistrement de toutes les étapes transformation définie pour les données. Il est un excellent moyen d’optimiser votre préparation des données reproductible.
 
@@ -124,7 +124,7 @@ Utilisez [ `get_profile()` ](https://docs.microsoft.com/python/api/azureml-core/
 snapshot.get_profile()
 ```
 
-||Type|Min|max|Nombre|Manquant|Non manquant|Manquant (%)|Erreurs|Vide|Quantile 0,1 %|Quantile 1 %|Quantile 5 %|Quantile 25 %|Quantile 50 %|Quantile 75 %|Quantile 95 %|Quantile 99 %|Quantile 99,9 %|Moyenne|Écart type|Variance|Asymétrie|Kurtosis
+||Type|Min|Max|Nombre|Manquant|Non manquant|Manquant (%)|Erreurs|Vide|Quantile 0,1 %|Quantile 1 %|Quantile 5 %|Quantile 25 %|Quantile 50 %|Quantile 75 %|Quantile 95 %|Quantile 99 %|Quantile 99,9 %|Moyenne|Écart type|Variance|Asymétrie|Kurtosis
 -|----|---|---|-----|-------------|-----------------|---------------|-----------|-----------|-------------|-----------|-----------|------------|------------|------------|------------|------------|--------------|----|------------------|--------|--------|--------
 ID|FieldType.INTEGER|1.04986e + 07|1.05351e + 07|10.0|0.0|10.0|0.0|0.0|0.0|1.04986e + 07|1.04992e + 07|1.04986e + 07|1.05166e + 07|1.05209e+07|1.05259e + 07|1.05351e + 07|1.05351e + 07|1.05351e + 07|1.05195e + 07|12302.7|1.51358e + 08|-0.495701|-1.02814
 Case Number|FieldType.STRING|HZ239907|HZ278872|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
@@ -132,7 +132,7 @@ Date|FieldType.DATE|2016-04-04 23:56:00+00:00|2016-04-15 17:00:00+00:00|10.0|0.0
 Block|FieldType.STRING|ENREGISTRER LES KILBOURN 004XX S|113XX NREGISTRER PRAIRIE|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
 IUCR|FieldType.INTEGER|810|1154|10.0|0.0|10.0|0.0|0.0|0.0|810|850|810|890|1136|1153|1154|1154|1154|1058.5|137.285|18847.2|-0.785501|-1.3543
 Primary Type|FieldType.STRING|PRATIQUE FRAUDULEUSE|THEFT|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
-Description|FieldType.STRING|COCHER ERRONÉ|AU FIL DE 500 $|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
+Description |FieldType.STRING|COCHER ERRONÉ|AU FIL DE 500 $|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
 Location Description|FieldType.STRING||SCHOOL, PUBLIC, CRÉATION|10.0|0.0|10.0|0.0|0.0|1.0||||||||||||||
 Arrest|FieldType.BOOLEAN|False|False|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
 Domestic|FieldType.BOOLEAN|False|False|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
@@ -151,7 +151,7 @@ Cette méthode échoue si une copie des données n’a pas été demandée lors 
 snapshot.to_pandas_dataframe().head(3)
 ```
 
-||ID|Case Number|Date|Block|IUCR|Primary Type|Description|Location Description|Arrest|Domestic|...|Ward|Community Area|FBI Code|X Coordinate|Y Coordinate|Year|Updated On|Latitude|Longitude|Lieu
+||ID|Case Number|Date|Block|IUCR|Primary Type|Description |Location Description|Arrest|Domestic|...|Ward|Community Area|FBI Code|X Coordinate|Y Coordinate|Year|Updated On|Latitude|Longitude|Lieu
 -|--|-----------|----|-----|----|------------|-----------|--------------------|------|--------|---|----|--------------|--------|------------|------------|----|----------|--------|---------|--------
 0|10498554|HZ239907|2016-04-04 23:56:00|007XX E 111TH ST|1153|PRATIQUE FRAUDULEUSE|USURPATION D’IDENTITÉ FINANCIÈRE SUR 300 DOLLARS|OTHER|False|False|...|9|50|11|1183356.0|1831503.0|2016|2016-05-11 15:48:00|41.692834|-87.604319|(41.692833841, -87.60431945)
 1|10516598|HZ258664|2016-04-15 17:00:00|ENREGISTRER LES MARSHFIELD 082XX S|890|THEFT|À PARTIR DE LA GÉNÉRATION|LIEU DE RÉSIDENCE|False|False|...|21|71|6.|1166776.0|1850053.0|2016|2016-05-12 15:48:00|41.744107|-87.664494|(41.744106973, -87.664494285)
