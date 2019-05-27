@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 10/13/2017
 ms.author: vidarmsft
 ms.openlocfilehash: 11ff7066019654ce2771bce242f3431d10da44ae
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59797532"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66150704"
 ---
 # <a name="automated-disaster-recovery-solution-using-azure-site-recovery-for-file-shares-hosted-on-storsimple"></a>Solution de récupération d’urgence automatisée à l’aide d’Azure Site Recovery pour les partages de fichiers hébergés sur StorSimple
 
@@ -184,7 +184,7 @@ Vous pouvez créer un plan de récupération dans ASR pour automatiser le proces
 
      Par exemple, si le nom du plan de récupération est fileServerpredayRP, votre onglet **Variables**, **Connexions** et **Certificats** doit se présenter comme suit une fois que vous avez ajouté toutes les ressources.
 
-      ![Éléments multimédias](./media/storsimple-disaster-recovery-using-azure-site-recovery/image5.png)
+      ![Ressources](./media/storsimple-disaster-recovery-using-azure-site-recovery/image5.png)
 
 1. Chargez le module Runbook de la série StorSimple 8000 dans votre compte Automation. Procédez comme suit pour ajouter un module :
    
@@ -321,9 +321,9 @@ Pendant une restauration automatique, les conteneurs de volumes StorSimple bascu
    
    ![Démarrer la restauration automatique](./media/storsimple-disaster-recovery-using-azure-site-recovery/image10.png)
 
-## <a name="best-practices"></a>Bonnes pratiques
+## <a name="best-practices"></a>Meilleures pratiques
 ### <a name="capacity-planning-and-readiness-assessment"></a>Planification de la capacité et évaluation de la préparation
-#### <a name="hyper-v-site"></a>Site Hyper-V
+#### <a name="hyper-v-site"></a>Site Hyper-V
 Utilisez l’ [outil de planification de capacité utilisateur](https://www.microsoft.com/download/details.aspx?id=39057) pour concevoir l’infrastructure de serveur, de stockage et de réseau adaptée à votre environnement de réplication Hyper-V.
 
 #### <a name="azure"></a>Azure

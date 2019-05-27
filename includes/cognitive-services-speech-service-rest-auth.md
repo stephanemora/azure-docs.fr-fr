@@ -5,22 +5,22 @@ ms.topic: include
 ms.date: 03/29/2019
 ms.author: erhopf
 ms.openlocfilehash: 9cad860b8808dd2682995768c282d8376ab5d9be
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60480512"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66145372"
 ---
-## <a name="authentication"></a>Authentification
+## <a name="authentication"></a>Authentication
 
 Chaque requête nécessite un en-tête d’autorisation. Ce tableau présente les en-têtes pris en charge pour chaque service :
 
 | En-têtes d'autorisation pris en charge | Reconnaissance vocale | Synthèse vocale |
 |------------------------|----------------|----------------|
-| Ocp-Apim-Subscription-Key | Oui | Non  |
+| Ocp-Apim-Subscription-Key | Oui | Non |
 | Autorisation : Support | Oui | Oui |
 
-Lorsque vous utilisez l’en-tête `Ocp-Apim-Subscription-Key`, vous devez uniquement fournir votre clé d’abonnement. Par exemple : 
+Lorsque vous utilisez l’en-tête `Ocp-Apim-Subscription-Key`, vous devez uniquement fournir votre clé d’abonnement. Exemple :
 
 ```
 'Ocp-Apim-Subscription-Key': 'YOUR_SUBSCRIPTION_KEY'

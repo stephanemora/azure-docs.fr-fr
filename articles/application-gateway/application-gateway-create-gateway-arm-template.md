@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 4/15/2019
 ms.author: victorh
-ms.openlocfilehash: 113e30ab65f2cd0ff420df1c79807147a62f79f1
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.openlocfilehash: 29b607f10c15ba35a515b55b059b7b55ff594fe6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59608453"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66135762"
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-resource-manager-template"></a>Création d’une passerelle d’application à l’aide du modèle Azure Resource Manager
 
@@ -47,7 +47,7 @@ Vous pouvez télécharger le modèle Azure Resource Manager existant pour créer
 1. Ouvrez le fichier que vous avez enregistré et consultez le contenu sous **parameters** à la ligne
 1. Les paramètres du modèle Azure Resource Manager fournissent un espace réservé pour les valeurs à remplir lors du déploiement.
 
-   | Paramètre | Description |
+   | Paramètre | Description  |
    | --- | --- |
    | **subnetPrefix** |Bloc CIDR du sous-réseau de la passerelle Application Gateway. |
    | **applicationGatewaySize** | Taille de la passerelle Application Gateway.  Le pare-feu d’applications web autorise uniquement les tailles moyenne et grande. |

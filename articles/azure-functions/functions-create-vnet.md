@@ -3,137 +3,171 @@ title: Intégrer Azure Functions avec un réseau virtuel Azure
 description: Un didacticiel pas à pas qui vous montre comment connecter une fonction à un réseau virtuel Azure
 services: functions
 author: alexkarcher-msft
-manager: jehollan
+manager: jeconnoc
 ms.service: azure-functions
 ms.topic: article
-ms.date: 4/11/2019
-ms.author: alkarche
-ms.openlocfilehash: 96ab479d3373eb6e575a00898f7007a4df252e39
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.date: 5/03/2019
+ms.author: alkarche, glenga
+ms.openlocfilehash: 07c7d7fb682708bf813820440d9c790c28b1f3e5
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62125665"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65834592"
 ---
-# <a name="integrate-a-function-app-with-an-azure-virtual-network"></a>Intégrer une application de fonction à un réseau virtuel Azure
+# <a name="tutorial-integrate-functions-with-an-azure-virtual-network"></a>Didacticiel : intégrer des fonctions dans un réseau virtuel Azure
 
-Ce didacticiel vous montre comment utiliser Azure Functions pour se connecter aux ressources dans un réseau virtuel Azure.
+Ce didacticiel vous montre comment utiliser Azure Functions pour se connecter aux ressources dans un réseau virtuel Azure. vous allez créer une fonction qui a accès à internet et à une machine virtuelle en cours d’exécution WordPress dans le réseau virtuel.
 
-Pour ce didacticiel, nous allons déployer un site WordPress sur une machine virtuelle dans un réseau virtuel qui n’est pas accessible à partir d’internet. Nous allons ensuite déployer une fonction avec un accès à internet et le réseau virtuel. Nous allons utiliser cette fonction pour accéder aux ressources à partir du site WordPress déployé à l’intérieur du réseau virtuel.
+> [!div class="checklist"]
+> * Créer une function app dans le plan Premium
+> * Déployer un site WordPress sur machine virtuelle dans un réseau virtuel
+> * Connecter l’application de fonction au réseau virtuel
+> * Créer un proxy de fonction pour accéder aux ressources de WordPress
+> * Demande de fichier à partir de WordPress à l’intérieur du réseau virtuel
 
-Pour plus d’informations sur le fonctionnement du système, la résolution des problèmes et la configuration avancée, consultez [intégrer votre application à un réseau virtuel Azure](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet). Azure functions dans le plan Premium ont les mêmes fonctionnalités d’hébergement en tant qu’applications web, donc toutes les fonctionnalités et limitations de cet article s’appliquent aux fonctions.
+> [!NOTE]  
+> Ce didacticiel crée une function app dans le plan Premium. Ce plan d’hébergement est actuellement en version préliminaire. Pour plus d’informations, consultez [plan Premium].
 
 ## <a name="topology"></a>Topologie
 
- ![Interface utilisateur pour l’intégration de réseau virtuel][1]
+Le diagramme suivant illustre l’architecture de la solution que vous créez :
 
-## <a name="create-a-vm-inside-a-virtual-network"></a>Créer une machine virtuelle à l’intérieur d’un réseau virtuel
+ ![Interface utilisateur pour l’intégration de réseau virtuel](./media/functions-create-vnet/topology.png)
 
-Pour commencer, nous allons créer une machine virtuelle préconfigurée qui s’exécute de WordPress à l’intérieur d’un réseau virtuel. 
+Les fonctions en cours d’exécution dans le plan Premium ont les mêmes fonctionnalités d’hébergement comme des applications web dans Azure App Service, qui inclut la fonctionnalité d’intégration de réseau virtuel. Pour en savoir plus sur l’intégration de réseau virtuel, y compris la configuration avancée et de dépannage, consultez [intégrer votre application à un réseau virtuel Azure](../app-service/web-sites-integrate-with-vnet.md).
 
-Nous avons choisi WordPress sur une machine virtuelle, car il est une des ressources moins coûteuses qui peuvent être déployés à l’intérieur d’un réseau virtuel. Notez que ce scénario peut également fonctionner avec n’importe quelle ressource dans un réseau virtuel, telles que les API REST, les environnements App Service et les autres services Azure.
+## <a name="prerequisites"></a>Conditions préalables
 
-1. Accédez au portail Azure.
-2. Ajoutez une nouvelle ressource en ouvrant le **créer une ressource** panneau.
-3. Recherchez «[WordPress LEMP7 Max Performance sur CentOS](https://jetware.io/appliances/jetware/wordpress4_lemp7-170526/profile?us=azure)» et ouvrir son panneau de création. 
-4. Sur le **notions de base** , configurez la machine virtuelle avec les informations suivantes :
-    1. Créez un groupe de ressources pour cette machine virtuelle afin de nettoyer les ressources plus facilement à la fin du tutoriel. Ici, nous utilisons « Fonction-réseau virtuel-Tutorial » comme exemple.
-    1. Attribuez un nom unique à la machine virtuelle. Nous utilisons « Réseau virtuel-Wordpress » comme exemple.
-    1. Sélectionnez la région la plus proche pour vous.
-    1. Sélectionnez la taille en tant que B1s (1 processeur virtuel, 1 Go de mémoire).
-    1. Pour le compte d’administrateur, choisissez l’authentification par mot de passe et entrez un nom d’utilisateur unique et un mot de passe. Pour ce didacticiel, vous ne devez vous connecter à la machine virtuelle, sauf si vous avez besoin résoudre les problèmes.
-    
-        ![Onglet de base pour la création d’une machine virtuelle](./media/functions-create-vnet/create-vm-1.png)
+Pour ce didacticiel, il est important que vous compreniez l’adressage IP et sous-réseaux. Vous pouvez commencer par [cet article qui couvre les principes fondamentaux de l’adressage et sous-réseaux](https://support.microsoft.com/help/164015/understanding-tcp-ip-addressing-and-subnetting-basics). Nombreux qu'autres articles et vidéos sont disponibles en ligne.
 
-1. Déplacer vers le **mise en réseau** onglet et entrez les informations suivantes :
-    1.  Créer un réseau virtuel.
-    1.  Entrez une plage d’adresses privées et un sous-réseau au sein de cette plage d’adresses. La taille du sous-réseau détermine le nombre de machines virtuelles que vous pouvez utiliser dans le plan App Service. Si l’adressage IP et au sous-réseau est nouveaux pour vous, il existe un [document qui couvre les notions de base](https://support.microsoft.com/en-us/help/164015/understanding-tcp-ip-addressing-and-subnetting-basics). Adressage IP et sous-réseaux sont importantes dans ce scénario, nous vous recommandons de lire quelques articles et de regarder des vidéos en ligne jusqu'à ce qu’il est judicieux. 
-    
-        Pour cet exemple, nous allons qui optent pour utiliser le réseau de 10.10.0.0/16 avec un sous-réseau de 10.10.1.0/24. Nous allons Surprovisionnement et à l’aide d’un /16 sous-réseau, car il est facile de calculer les sous-réseaux sont disponibles dans le réseau 10.10.0.0/16.
-        
-        <img src="./media/functions-create-vnet/create-vm-2.png" width="700">
-
-1. Sur le **mise en réseau** onglet, définissez l’adresse IP publique **aucun**. Cette étape déploiera la machine virtuelle avec un accès au réseau virtuel uniquement.
-       
-    <img src="./media/functions-create-vnet/create-vm-2-1.png" width="700">
-
-7. Créez la machine virtuelle. Le processus prendra environ 5 minutes.
-8. Une fois la machine virtuelle est créée, accédez à son **mise en réseau** onglet et notez l’adresse IP privée pour une utilisation ultérieure. La machine virtuelle ne doit pas avoir d’adresse IP publique.
-
-    ![14]
-
-Vous disposez maintenant d’un site WordPress déployé entièrement au sein de votre réseau virtuel. Ce site n’est pas accessible par Internet.
+Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
 ## <a name="create-a-function-app-in-a-premium-plan"></a>Créer une function app dans un plan Premium
 
-L’étape suivante consiste à créer une function app dans un plan Premium. Un plan Premium offre de mise à l’échelle sans serveur avec tous les avantages d’un plan App Service dédié. Applications de fonction créées via le plan de consommation ne prennent pas en charge l’intégration de réseau virtuel.
+Tout d’abord, vous créez une application de fonction dans le [plan Premium]. Ce plan fournit la mise à l’échelle sans serveur lors de la prise en charge de l’intégration de réseau virtuel.
 
 [!INCLUDE [functions-premium-create](../../includes/functions-premium-create.md)]  
 
-## <a name="connect-your-function-app-to-your-virtual-network"></a>Connecter votre application de fonction à votre réseau virtuel
+Vous pouvez épingler l’application de fonction au tableau de bord en sélectionnant l’icône d’épingle dans le coin supérieur droit. L’épinglage rend plus facile revenir à cette application de fonction après avoir créé votre machine virtuelle.
 
-Avec un site WordPress hébergeant les fichiers à partir de votre réseau virtuel, vous pouvez désormais connecter l’application de fonction au réseau virtuel.
+## <a name="create-a-vm-inside-a-virtual-network"></a>Créer une machine virtuelle à l’intérieur d’un réseau virtuel
 
-1.  Dans le portail pour l’application de fonction à partir de l’étape précédente, sélectionnez **fonctionnalités de la plateforme**. Puis sélectionnez **mise en réseau**.
+Ensuite, créez une machine virtuelle préconfigurée qui s’exécute de WordPress à l’intérieur d’un réseau virtuel ([WordPress LEMP7 Max Performance](https://jetware.io/appliances/jetware/wordpress4_lemp7-170526/profile?us=azure) par Jetware). Une VM WordPress est utilisée en raison de son faible coût et la commodité. Ce même scénario fonctionne avec n’importe quelle ressource dans un réseau virtuel, telles que les API REST, les environnements App Service et les autres services Azure. 
 
-    <img src="./media/functions-create-vnet/networking-0.png" width="850">
+1. Dans le portail, choisissez **+ créer une ressource** dans le volet de navigation de gauche, dans le type de champ de recherche `WordPress LEMP7 Max Performance`, et appuyez sur ENTRÉE.
 
-1.  Sélectionnez **cliquez ici pour configurer** sous **intégration au réseau virtuel**.
+1. Choisissez **Wordpress LEMP Max Performance** dans les résultats de recherche. Sélectionnez un plan de logiciels de **Wordpress LEMP Max Performance pour CentOS** en tant que le **abonnement logiciel** et sélectionnez **créer**.
+
+1. Dans le **notions de base** onglet, utilisez les paramètres de la machine virtuelle comme indiqué dans le tableau ci-dessous l’image :
+
+    ![Onglet de base pour la création d’une machine virtuelle](./media/functions-create-vnet/create-vm-1.png)
+
+    | Paramètre      | Valeur suggérée  | Description       |
+    | ------------ | ---------------- | ---------------- |
+    | **Abonnement** | Votre abonnement | L’abonnement sous lequel vos ressources sont créées. | 
+    | **[Groupe de ressources](../azure-resource-manager/resource-group-overview.md)**  | myResourceGroup | Choisissez `myResourceGroup`, ou le groupe de ressources que vous avez créé avec votre application de fonction. À l’aide du même groupe de ressources pour l’application de fonction, WordPress VM et le plan d’hébergement rend plus facile nettoyer les ressources lorsque vous avez terminé avec ce didacticiel. |
+    | **Nom de la machine virtuelle** | Réseau virtuel-Wordpress | Le nom de la machine virtuelle doit être unique dans le groupe de ressources |
+    | **[Région](https://azure.microsoft.com/regions/)** | (Europe) Europe de l’ouest | Choisissez une région proche de chez vous ou près les fonctions qui accèdent à la machine virtuelle. |
+    | **Taille** | B1s | Choisissez **modifier la taille** , puis sélectionnez l’image standard B1s, qui comporte 1 processeur virtuel et 1 Go de mémoire. |
+    | **Type d’authentification** | Mot de passe | Pour utiliser l’authentification de mot de passe, vous devez également spécifier un **nom d’utilisateur**, sécurisée **mot de passe**, puis **confirmer le mot de passe**. Pour ce didacticiel, vous ne devez vous connecter à la machine virtuelle, sauf si vous avez besoin résoudre les problèmes. |
+
+1. Choisissez le **mise en réseau** onglet et sous configurer les réseaux virtuels, sélectionnez **créer un nouveau**.
+
+1. Dans **créer un réseau virtuel**, utilisez les paramètres dans le tableau ci-dessous l’image :
+
+    ![Onglet mise en réseau de créer une machine virtuelle](./media/functions-create-vnet/create-vm-2.png)
+
+    | Paramètre      | Valeur suggérée  | Description      |
+    | ------------ | ---------------- | ---------------- |
+    | **Name** | myResourceGroup-vnet | Vous pouvez utiliser le nom par défaut généré pour votre réseau virtuel. |
+    | **Plage d’adresses** | 10.10.0.0/16 | Utiliser une plage d’adresses unique pour le réseau virtuel. |
+    | **Nom du sous-réseau** | Didacticiel-Net | Nom du sous-réseau. |
+    | **Plage d’adresses** (sous-réseau) | 10.10.1.0/24   | La taille du sous-réseau définit le nombre d’interfaces peut être ajouté au sous-réseau. Ce sous-réseau est utilisé par le site WordPress.  Un `/24` sous-réseau fournit les adresses d’hôte 254. |
+
+1. Sélectionnez **OK** pour créer le réseau virtuel.
+
+1. Dans le **mise en réseau** , choisir **aucun** pour **adresse IP publique**.
+
+1. Choisissez le **gestion** onglet, puis dans **compte de stockage de Diagnostics**, choisissez le compte de stockage que vous avez créé avec votre application de fonction.
+
+1. Sélectionnez **Revoir + créer**. Une fois la validation terminée, sélectionnez **créer**. La machine virtuelle créer des processus prend quelques minutes. Le réseau virtuel peut uniquement accéder à la machine virtuelle créée.
+
+1. Une fois que la machine virtuelle est créée, choisissez **accéder à la ressource** pour afficher la page de votre nouvelle machine virtuelle, puis choisissez **mise en réseau** sous **paramètres**.
+
+1. Vérifiez qu’il y a aucune **adresse IP publique**. Prenez note du **IP privé**, ce qui vous permet de se connecter à la machine virtuelle à partir de votre application de fonction.
+
+    ![Paramètres de mise en réseau dans la machine virtuelle](./media/functions-create-vnet/vm-networking.png)
+
+Vous disposez maintenant d’un site WordPress déployé entièrement au sein de votre réseau virtuel. Ce site n’est pas accessible à partir de l’internet public.
+
+## <a name="connect-your-function-app-to-the-virtual-network"></a>Connexion de votre application de fonction au réseau virtuel
+
+Avec un site WordPress en cours d’exécution dans une machine virtuelle dans un réseau virtuel, vous pouvez désormais connecter votre application de fonction à ce réseau virtuel.
+
+1. Dans votre nouvelle function app, sélectionnez **fonctionnalités de la plateforme** > **mise en réseau**.
+
+    ![Choisissez la mise en réseau dans l’application de fonction](./media/functions-create-vnet/networking-0.png)
+
+1. Sous **intégration au réseau virtuel**, sélectionnez **cliquez ici pour configurer**.
 
     ![État de configuration d’une fonctionnalité de réseau](./media/functions-create-vnet/Networking-1.png)
 
 1. Dans la page d’intégration de réseau virtuel, sélectionnez **ajouter réseau virtuel (version préliminaire)**.
 
-    <img src="./media/functions-create-vnet/networking-2.png" width="600"> 
-    
-1.  Créer un sous-réseau pour votre fonction et le plan App Service à utiliser. Notez que la taille du sous-réseau limitera le nombre total de machines virtuelles que vous pouvez ajouter à votre plan App Service. Votre réseau virtuel acheminera automatiquement le trafic entre les sous-réseaux de votre réseau virtuel, donc il n’a pas d’importance que votre fonction se trouve dans un sous-réseau différent de celui de votre machine virtuelle. 
-    
-    <img src="./media/functions-create-vnet/networking-3.png" width="600">
+    ![Ajouter la version préliminaire d’intégration au réseau virtuel](./media/functions-create-vnet/networking-2.png)
 
-## <a name="create-a-function-that-accesses-a-resource-in-your-virtual-network"></a>Créer une fonction qui accède à une ressource dans votre réseau virtuel
+1. Dans **état de la fonctionnalité réseau**, utilisez les paramètres dans le tableau ci-dessous l’image :
 
-L’application de fonction peut accéder maintenant le réseau virtuel avec notre site WordPress. Par conséquent, nous allons utiliser la fonction pour accéder à ce fichier et les envoie à l’utilisateur. Pour cet exemple, nous allons utiliser un site WordPress en tant que l’API et un proxy en tant que la fonction appelante, car elles correspondent à la fois facile à configurer et à visualiser. 
+    ![Définir le réseau virtuel de app (fonction)](./media/functions-create-vnet/networking-3.png)
 
-Vous pouvez tout aussi facilement utiliser toute autre API déployé au sein d’un réseau virtuel. Vous pouvez également utiliser une autre fonction avec le code qui effectue des appels d’API à l’API déployée au sein de votre réseau virtuel. Une instance de SQL Server déployée au sein de votre réseau virtuel est un parfait exemple.
+    | Paramètre      | Valeur suggérée  | Description       |
+    | ------------ | ---------------- | ---------------- |
+    | **Réseau virtuel** | MyResourceGroup-vnet | Ce réseau virtuel est celui que vous avez créé précédemment. |
+    | **Sous-réseau** | Créer un sous-réseau | Créez un sous-réseau dans le réseau virtuel pour votre application de fonction à utiliser. Intégration au réseau virtuel doit être configurée pour utiliser un sous-réseau vide. Peu importe que vos fonctions utilisent un sous-réseau différent de celui de votre machine virtuelle. Le réseau virtuel achemine automatiquement le trafic entre les deux sous-réseaux. |
+    | **Nom du sous-réseau** | Fonction-Net | Nom du nouveau sous-réseau. |
+    | **Bloc d’adresses de réseau virtuel** | 10.10.0.0/16 | Choisissez le même bloc d’adresses utilisé par le site WordPress. Vous devez avoir uniquement un bloc d’adresses défini. |
+    | **Plage d’adresses** | 10.10.2.0/24   | La taille du sous-réseau limite le nombre total d’instances que votre application de fonction du plan Premium peut atteindre. Cet exemple utilise un `/24` sous-réseau avec des adresses disponibles sur l’hôte 254. Ce sous-réseau est surconfiguré, mais il est facile à calculer. |
 
-1. Dans le portail, ouvrez l’application de fonction à partir de l’étape précédente.
-1. Créer un proxy en sélectionnant **proxys** > **+**.
+1. Sélectionnez **OK** pour ajouter un sous-réseau. Fermez les pages d’intégration au réseau virtuel et l’état de la fonctionnalité réseau pour revenir à la page de votre application de fonction.
 
-    <img src="./media/functions-create-vnet/new-proxy.png" width="250">
+L’application de fonction peut accéder maintenant le réseau virtuel dans lequel le site WordPress est en cours d’exécution. Ensuite, vous utilisez [Azure Functions Proxies](functions-proxies.md) pour renvoyer un fichier à partir du site WordPress.
 
-1. Configurer le nom de proxy et le routage. Cet exemple utilise « / planter » comme un itinéraire.
-1. Remplir dans adresse IP de votre site WordPress précédemment et définissez **URL principal** à `http://{YOUR VM IP}/wp-content/themes/twentyseventeen/assets/images/header.jpg`
-    
-    <img src="./media/functions-create-vnet/create-proxy.png" width="900">
+## <a name="create-a-proxy-to-access-vm-resources"></a>Créer un proxy pour accéder aux ressources de machine virtuelle
 
-Maintenant, si vous essayez d’accéder à votre URL principal directement en le collant dans un nouvel onglet de navigateur, la page doit expirer. Il s’agit, car votre site WordPress est connecté à uniquement à votre réseau virtuel et non sur internet. Si vous collez votre URL de proxy dans le navigateur, vous devez voir une image d’usine (extraite à partir de votre site WordPress) à l’intérieur de votre réseau virtuel. 
+Avec l’intégration de réseau virtuel est activée, vous pouvez créer un proxy dans votre function app pour transférer les demandes à la machine virtuelle en cours d’exécution dans le réseau virtuel.
 
-Votre application de fonction est connectée à internet et votre réseau virtuel. Le proxy reçoit une requête via l’Internet public, puis agit comme un proxy HTTP simple pour transférer cette requête dans le réseau virtuel. Le proxy vous relaie ensuite la réponse via l’Internet public. 
+1. Dans votre function app, sélectionnez **proxys** > **+**, puis utilisez les paramètres de proxy dans le tableau ci-dessous l’image :
 
-<img src="./media/functions-create-vnet/plant.png" width="900">
+    ![Définir les paramètres de proxy](./media/functions-create-vnet/create-proxy.png)
+
+    | Paramètre  | Valeur suggérée  | Description      |
+    | -------- | ---------------- | ---------------- |
+    | **Name** | Plant | Le nom peut être n’importe quelle valeur. Il est utilisé pour identifier le proxy. |
+    | **Modèle de routage** | /plant | Itinéraire qui mappe à une ressource de machine virtuelle. |
+    | **URL du serveur principal** | http://<YOUR_VM_IP>/wp-content/themes/twentyseventeen/assets/images/header.jpg | Remplacez `<YOUR_VM_IP>` avec l’adresse IP de votre VM WordPress que vous avez créé précédemment. Ce mappage retourne un seul fichier à partir du site. |
+
+1. Sélectionnez **créer** pour ajouter le proxy à votre application de fonction.
+
+## <a name="try-it-out"></a>Faites un essai
+
+1. Dans votre navigateur, essayez d’accéder à l’URL que vous avez utilisé comme le **URL principal**. Comme prévu, la demande arrive à expiration. Un délai d’expiration se produit parce que votre site WordPress est connecté qu’à votre réseau virtuel et non sur internet.
+
+1. Copie le **URL du Proxy** valeur à partir de votre nouveau proxy et collez-le dans la barre d’adresses de votre navigateur. L’image retourné est à partir du site WordPress en cours d’exécution à l’intérieur de votre réseau virtuel.
+
+    ![Fichier d’image Plant retourné à partir du site WordPress](./media/functions-create-vnet/plant.png)
+
+Votre application de fonction est connectée à internet et votre réseau virtuel. Le proxy est reçoit une demande via l’internet public et puis agissant comme un proxy HTTP simple pour transférer cette demande au réseau virtuel connecté. Le proxy relaie ensuite la réponse à vous publiquement sur internet.
+
+[!INCLUDE [clean-up-section-portal](../../includes/clean-up-section-portal.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Fonctions exécutées dans un plan Premium partagent la même infrastructure App Service sous-jacent en tant qu’applications web sur les plans de PremiumV2. Toute la documentation pour les applications web s’applique à vos fonctions de plan Premium.
+Dans ce didacticiel, le site WordPress sert à une API qui est appelée à l’aide d’un proxy dans l’application de fonction. Ce scénario fait un bon didacticiel car il est facile à configurer et à visualiser. Vous pouvez utiliser n’importe quelle autre API déployé au sein d’un réseau virtuel. Vous pouvez également créé une fonction avec le code qui appelle des API déployé au sein du réseau virtuel. Un scénario plus réaliste est une fonction qui utilise des API clientes de données pour appeler une instance de SQL Server déployée dans le réseau virtuel.
 
-* [En savoir plus sur les options de mise en réseau dans les fonctions](./functions-networking-options.md)
-* [Lire les Forum aux questions sur la mise en réseau de fonctions](./functions-networking-faq.md)
-* [En savoir plus sur les réseaux virtuels dans Azure](../virtual-network/virtual-networks-overview.md)
-* [Activer plusieurs fonctionnalités mise en réseau et le contrôle avec les environnements App Service](../app-service/environment/intro.md)
-* [Se connecter à des ressources locales sans modifications de pare-feu à l’aide de connexions hybrides](../app-service/app-service-hybrid-connections.md)
-* [En savoir plus sur Functions Proxies](./functions-proxies.md)
+Fonctions exécutées dans un plan Premium partagent la même infrastructure App Service sous-jacent en tant qu’applications web sur les plans de PremiumV2. Toute la documentation pour [web apps dans Azure App Service](../app-service/overview.md) s’applique à vos fonctions de plan Premium.
 
-<!--Image references -->
-[1]: ./media/functions-create-vnet/topology.png
-[2]: ./media/functions-create-vnet/create-function-app.png
-[3]: ./media/functions-create-vnet/create-app-service-plan.png
-[4]: ./media/functions-create-vnet/configure-vnet.png
-[5]: ./media/functions-create-vnet/create-vm-1.png
-[6]: ./media/functions-create-vnet/create-vm-2.png
-[7]: ./media/functions-create-vnet/create-vm-2-1.png
-[8]: ./media/functions-create-vnet/networking-1.png
-[9]: ./media/functions-create-vnet/networking-2.png
-[10]: ./media/functions-create-vnet/networking-3.png
-[11]: ./media/functions-create-vnet/new-proxy.png
-[12]: ./media/functions-create-vnet/create-proxy.png
-[14]: ./media/functions-create-vnet/vm-networking.png
+> [!div class="nextstepaction"]
+> [En savoir plus sur les options de mise en réseau dans les fonctions](./functions-networking-options.md)
+
+[Plan Premium]: functions-scale.md#premium-plan-public-preview

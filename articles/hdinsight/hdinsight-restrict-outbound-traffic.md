@@ -8,14 +8,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: howto
 ms.date: 05/13/2019
-ms.openlocfilehash: f244a67abab5c7f8cd14277f87f055ac6d48b8d2
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: MT
+ms.openlocfilehash: 44b6f099b5b17329976b9fec3c0ac38b5e394221
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65762430"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65978014"
 ---
-# <a name="configure-outbound-network-traffic-restriction-for-azure-hdinsight-clusters"></a>Configurer la restriction du trafic réseau sortant pour les clusters Azure HDInsight
+# <a name="configure-outbound-network-traffic-restriction-for-azure-hdinsight-clusters-preview"></a>Configurer la restriction du trafic réseau sortant pour les clusters Azure HDInsight (version préliminaire)
 
 Cet article fournit les étapes pour vous permet de sécuriser le trafic sortant à partir de votre cluster HDInsight à l’aide de pare-feu Azure. Les étapes ci-dessous supposent que vous configurez un pare-feu d’Azure pour un cluster existant. Si vous déployez un nouveau cluster et derrière un pare-feu, créez d’abord votre cluster de HDInsight et le sous-réseau, puis suivez les étapes décrites dans ce guide.
 
@@ -27,7 +27,7 @@ Il existe plusieurs dépendances qui requièrent le trafic entrant. Le trafic de
 
 Les dépendances de trafic sortant de HDInsight sont presque entièrement définis avec des noms de domaine complets, ce qui n’ont pas des adresses IP statiques derrière eux. L’absence d’adresses statiques signifie que les groupes de sécurité réseau (NSG) ne peut pas être utilisés pour verrouiller le trafic sortant à partir d’un cluster. Les adresses changent assez souvent qu’un ne peut pas configurer des règles basées sur la résolution de noms actuel et qui permet de définir des règles de groupe de sécurité réseau.
 
-La solution de sécurisation des adresses sortantes consiste à utiliser un dispositif de pare-feu que vous pouvez contrôler le trafic sortant en fonction des noms de domaine. Le Pare-feu Azure peut restreindre le trafic HTTP et HTTPS sortant en fonction du nom de domaine complet de la destination.
+La solution de sécurisation des adresses sortantes consiste à utiliser un dispositif de pare-feu que vous pouvez contrôler le trafic sortant en fonction des noms de domaine. Pare-feu Azure peut restreindre le trafic HTTP et HTTPS sortant en fonction du nom de domaine complet de la destination ou [balises de nom de domaine complet](https://docs.microsoft.com/azure/firewall/fqdn-tags).
 
 ## <a name="configuring-azure-firewall-with-hdinsight"></a>Configuration du pare-feu Azure avec HDInsight
 
@@ -80,7 +80,7 @@ Sur le **ajouter le regroupement de règles d’application** écran, procédez 
         1. Entrez `https:443` sous **: Port de protocole** et `sqm.telemetry.microsoft.com` sous **cibler les noms de domaine complets**.
     1. Si votre cluster est sauvegardé par WASB et que vous n’utilisez pas les points de terminaison de service ci-dessus, puis ajoutez une règle pour WASB :
         1. Dans le **cible FQDN** section, fournissez un **nom**et définissez **adresses sources** à `*`.
-        1. Entrez `wasb` sous **: Port de protocole** et `*` sous **cibler les noms de domaine complets**.
+        1. Entrez `http` ou [https] en fonction de si vous utilisez wasb : / / ou wasbs : / / sous **: Port de protocole** et l’url de compte de stockage sous **noms de domaine complets cible**.
 1. Cliquez sur **Add**.
 
 ![Titre : Entrez les détails de la collection application règle](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection-details.png)

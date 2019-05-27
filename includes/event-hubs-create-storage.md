@@ -9,11 +9,11 @@ ms.date: 10/16/2018
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: b84b0a8e09bf739ce62dee167ff751b491765c66
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59684665"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66154564"
 ---
 ### <a name="create-a-storage-account-for-event-processor-host"></a>Créer un compte de stockage pour Event Processor Host
 Event Processor Host est un agent intelligent qui simplifie la réception d’événements provenant d’Event Hubs en gérant les points de contrôle persistants et les destinataires parallèles. Pour les points de contrôle, Event Processor Host nécessite un compte de stockage. L’exemple suivant montre comment créer un compte de stockage et comment obtenir ses clés pour l’accès :
@@ -22,7 +22,7 @@ Event Processor Host est un agent intelligent qui simplifie la réception d’é
 
 2. Sélectionnez **Stockage**, puis **Compte de stockage - blob, fichier, table, file d’attente**.
    
-    ![Sélectionner un compte de stockage](./media/event-hubs-create-storage/create-storage1.png)
+    ![Sélectionner le compte de stockage](./media/event-hubs-create-storage/create-storage1.png)
 
 3. Sur la page **Créer un compte de stockage**, procédez comme suit : 
 

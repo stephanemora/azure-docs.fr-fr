@@ -13,11 +13,11 @@ ms.workload: na
 ms.date: 01/03/2019
 ms.author: tomfitz
 ms.openlocfilehash: c5bd40741ec0fe047f98b4b4431819d90e188385
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268095"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66128668"
 ---
 # <a name="deployment-functions-for-azure-resource-manager-templates"></a>Fonctions de déploiement pour les modèles Azure Resource Manager 
 
@@ -33,7 +33,7 @@ Pour obtenir des valeurs de ressources, de groupes de ressources ou d’abonneme
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="deployment"></a>déploiement
+## <a name="deployment"></a>Déploiement
 `deployment()`
 
 Renvoie des informations sur l’opération de déploiement actuelle.
@@ -165,9 +165,9 @@ Retourne une valeur de paramètre. Le nom de paramètre spécifié doit être d�
 
 ### <a name="parameters"></a>parameters
 
-| Paramètre | Obligatoire | Type | Description |
+| Paramètre | Requis | Type | Description  |
 |:--- |:--- |:--- |:--- |
-| nom_paramètre |OUI |chaîne |Nom du paramètre à retourner. |
+| nom_paramètre |Oui |string |Nom du paramètre à retourner. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -254,11 +254,11 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 | Nom | type | Valeur |
 | ---- | ---- | ----- |
-| stringOutput | Chaîne | option 1 |
+| stringOutput | String | option 1 |
 | intOutput | Int | 1 |
 | objectOutput | Object | {"one": "a", "two": "b"} |
 | arrayOutput | Tableau | [1, 2, 3] |
-| crossOutput | Chaîne | option 1 |
+| crossOutput | String | option 1 |
 
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :
 
@@ -281,9 +281,9 @@ Retourne la valeur de la variable. Le nom de variable spécifié doit être déf
 
 ### <a name="parameters"></a>parameters
 
-| Paramètre | Obligatoire | Type | Description |
+| Paramètre | Requis | Type | Description  |
 |:--- |:--- |:--- |:--- |
-| variableName |OUI |Chaîne |Nom de la variable à retourner. |
+| variableName |Oui |String |Nom de la variable à retourner. |
 
 ### <a name="return-value"></a>Valeur de retour
 
@@ -357,9 +357,9 @@ La sortie de l’exemple précédent avec les valeurs par défaut se présente c
 
 | Nom | type | Valeur |
 | ---- | ---- | ----- |
-| exampleOutput1 | Chaîne | myVariable |
+| exampleOutput1 | String | myVariable |
 | exampleOutput2 | Tableau | [1, 2, 3, 4] |
-| exampleOutput3 | Chaîne | myVariable |
+| exampleOutput3 | String | myVariable |
 | exampleOutput4 |  Object | {"property1": "value1", "property2": "value2"} |
 
 Pour déployer cet exemple de modèle avec Azure CLI, utilisez :

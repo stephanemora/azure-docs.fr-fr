@@ -6,16 +6,15 @@ author: ggailey777
 manager: jeconnoc
 ms.service: azure-functions
 ms.topic: include
-origin.date: 09/12/2018
-ms.date: 10/19/2018
-ms.author: v-junlch
+ms.date: 09/12/2018
+ms.author: glenga
 ms.custom: include file
 ms.openlocfilehash: 27dc1b1315a8e33b8ac13b34d4a86ad0343388b4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60731184"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66131523"
 ---
 Le code de toutes les fonctions d’une application de fonctions spécifique se trouve dans un dossier de projet racine qui contient un fichier de configuration d’hôte, ainsi qu’un ou plusieurs sous-dossiers. Chaque sous-dossier contient le code d’une fonction distincte, comme dans la représentation suivante :
 
@@ -36,12 +35,11 @@ Dans la version 2.x du runtime Functions, toutes les fonctions dans l’applica
 
 Le fichier [host.json](../articles/azure-functions/functions-host-json.md), qui contient des configurations spécifiques du runtime, se trouve dans le dossier racine de l’application de fonction. Un dossier `bin` contient les packages et autres fichiers de bibliothèque requis par l’application de fonction. Consultez la configuration requise spécifique au langage d’un projet d’application de fonction :
 
-- [Bibliothèque de classes C# (.csproj)](../articles/azure-functions/functions-dotnet-class-library.md#functions-class-library-project)
-- [Script C# (.csx)](../articles/azure-functions/functions-reference-csharp.md#folder-structure)
-- [Script F#](../articles/azure-functions/functions-reference-fsharp.md#folder-structure)
-- [Java](../articles/azure-functions/functions-reference-java.md#folder-structure)
-- [JavaScript](../articles/azure-functions/functions-reference-node.md#folder-structure)
+* [Bibliothèque de classes C# (.csproj)](../articles/azure-functions/functions-dotnet-class-library.md#functions-class-library-project)
+* [Script C# (.csx)](../articles/azure-functions/functions-reference-csharp.md#folder-structure)
+* [Script F#](../articles/azure-functions/functions-reference-fsharp.md#folder-structure)
+* [Java](../articles/azure-functions/functions-reference-java.md#folder-structure)
+* [JavaScript](../articles/azure-functions/functions-reference-node.md#folder-structure)
 
 
-<!-- ms.date: 10/19/2018 -->
 

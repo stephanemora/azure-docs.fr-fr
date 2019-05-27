@@ -11,11 +11,11 @@ ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
 ms.openlocfilehash: 1a5479cb54e15c0e740d800c8ee248a67e5ec5fc
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55746759"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66133902"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-cli"></a>Créer une passerelle d’application avec redirection de HTTP vers HTTPS à l’aide d’Azure CLI
 
@@ -24,7 +24,7 @@ Vous pouvez utiliser Azure CLI pour créer une [passerelle d’application](over
 Dans cet article, vous apprendrez comment :
 
 > [!div class="checklist"]
-> * Créer un certificat auto-signé
+> * Création d’un certificat auto-signé
 > * Configurer un réseau
 > * Créer une passerelle d’application avec le certificat
 > * Ajouter un écouteur et une règle de redirection
@@ -36,7 +36,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, vous devez exécuter Azure CLI version 2.0.4 ou une version ultérieure pour poursuivre la procédure décrite dans ce guide de démarrage rapide. Pour connaître la version de l’interface, exécutez `az --version`. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI](/cli/azure/install-azure-cli).
 
-## <a name="create-a-self-signed-certificate"></a>Créer un certificat auto-signé
+## <a name="create-a-self-signed-certificate"></a>Création d’un certificat auto-signé
 
 Dans un environnement de production, vous devez importer un certificat valide signé par un fournisseur approuvé. Pour ce didacticiel, vous créez un certificat auto-signé et un fichier pfx à l’aide de la commande openssl.
 
@@ -229,7 +229,7 @@ Pour accepter l’avertissement de sécurité si vous avez utilisé un certifica
 Dans ce tutoriel, vous avez appris à :
 
 > [!div class="checklist"]
-> * Créer un certificat auto-signé
+> * Création d’un certificat auto-signé
 > * Configurer un réseau
 > * Créer une passerelle d’application avec le certificat
 > * Ajouter un écouteur et une règle de redirection

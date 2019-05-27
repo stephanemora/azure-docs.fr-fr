@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 05/17/2018
 ms.author: tomfitz
 ms.custom: include file
-ms.openlocfilehash: daa97c8ec0c2fd728e4d1eddf090afa17e87c31f
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
-ms.translationtype: HT
+ms.openlocfilehash: ab55441650085f6ca89f05613fe74dd4ae3cba54
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34675334"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66128784"
 ---
-1. Pour afficher les mot clés d’une ressource ou d’un groupe de ressources, recherchez les mots clés existants dans la vue d’ensemble. Si vous n’avez préalablement appliqué aucune mot clé, cette liste est vide.
+1. Pour afficher les mot clés d’une ressource ou d’un groupe de ressources, recherchez les mots clés existants dans la vue d’ensemble. Si vous n’avez préalablement appliqué aucune balise, cette liste est vide.
    
      ![Afficher les mots clés d’une ressource ou d’un groupe de ressources](./media/resource-manager-tag-resources/view-tags.png)
 1. Pour ajouter un mot clé, sélectionnez **Cliquez ici pour ajouter des mots clés**.
@@ -33,10 +33,10 @@ ms.locfileid: "34675334"
    
 1. Pour supprimer un mot clé, sélectionnez l’icône de la Corbeille. Sélectionnez ensuite **Enregistrer**.
 
-     ![Supprimer un mot clé](./media/resource-manager-tag-resources/delete-tag.png)
+     ![Supprimer le mot clé](./media/resource-manager-tag-resources/delete-tag.png)
 
 
-Pour attribuer des mots clés en bloc à plusieurs ressources :
+Pour attribuer des balises en bloc à plusieurs ressources :
 
 1. Dans une liste de ressources, cochez la case en regard des ressources auxquelles vous souhaitez attribuer le mot clé.
 
@@ -70,4 +70,4 @@ Pour afficher toutes les ressources ayant un mot clé :
 
 1. La vue est disponible à partir du tableau de bord.
 
-     ![Tableau de bord](./media/resource-manager-tag-resources/dashboard.png)
+     ![tableau de bord](./media/resource-manager-tag-resources/dashboard.png)

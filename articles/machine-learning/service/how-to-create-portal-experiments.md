@@ -11,12 +11,12 @@ author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/02/2019
-ms.openlocfilehash: 96abef29c5290770d296fb5053007e36d1eaf537
-ms.sourcegitcommit: eea74d11a6d6ea6d187e90e368e70e46b76cd2aa
+ms.openlocfilehash: a2a281fda9272fb794692becb0ca08f3cf791458
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/03/2019
-ms.locfileid: "65035437"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65990143"
 ---
 # <a name="create-and-explore-automated-machine-learning-experiments-in-the-azure-portal-preview"></a>Créer et Explorer automatisé expériences machine learning dans le portail Azure (version préliminaire)
 
@@ -40,7 +40,7 @@ Accédez au volet gauche de votre espace de travail. Sélectionnez automatisé M
 
 ![Page d’accueil d’expérience de portail Azure](media/how-to-create-portal-experiments/landing-page.png)
 
-Sinon, vous verrez votre tableau de bord automatisée machine learning avec une vue d’ensemble de vos expériences, y compris celles exécutées avec le SDK d’apprentissage automatique. Ici, vous pouvez filtrer et Explorer vos exécutions par date, faire des essais nom, et état de l’exécution.
+Sinon, vous verrez votre tableau de bord automatisée machine learning avec une vue d’ensemble de vos expériences, y compris ceux créés avec le Kit de développement logiciel d’apprentissage automatique. Ici, vous pouvez filtrer et Explorer vos exécutions par date, faire des essais nom, et état de l’exécution.
 
 ![Tableau de bord expérience de portail Azure](media/how-to-create-portal-experiments/dashboard.png)
 
@@ -58,7 +58,7 @@ Sélectionnez le bouton Créer une expérience pour remplir le formulaire suivan
 
     ![Créer nouveau calcul d’expérimentation](media/how-to-create-portal-experiments/create-new-compute.png)
 
-    Champ|Description
+    Champ|Description 
     ---|---
     Nom de la capacité de calcul| Entrez un nom unique qui identifie votre contexte de calcul.
     Taille de la machine virtuelle| Sélectionnez la taille de machine virtuelle pour votre calcul.
@@ -100,13 +100,13 @@ Sélectionnez le bouton Créer une expérience pour remplir le formulaire suivan
 
 1. (Facultatif) Les paramètres avancés : les paramètres supplémentaires que vous pouvez utiliser pour mieux contrôler le travail de formation.
 
-    Paramètres avancés|Description
+    Paramètres avancés|Description 
     ------|------
     Métrique principal| Mesure principale utilisée pour calculer les scores votre modèle. [En savoir plus sur les métriques de modèles](https://docs.microsoft.com/azure/machine-learning/service/how-to-configure-auto-train#explore-model-metrics).
     Critères de sortie| Lorsqu’un de ces critères sont remplie, le travail de formation se termine avant son achèvement complet. <br> *Le temps de travail (en minutes) d’apprentissage*: Combien de temps pour permettre l’exécution du travail de formation.  <br> *Nombre maximal d’itérations*: Nombre maximal de pipelines (itérations) à tester dans le travail de formation. Le travail ne sera pas exécuté supérieur au nombre spécifié d’itérations. <br> *Métrique de seuil du score*:  Métrique de score minimal pour tous les pipelines. Cela garantit que si vous avez une mesure cible défini que vous souhaitez atteindre, vous ne passez pas plus de temps sur le travail de formation que nécessaire.
     Prétraitement| Sélectionnez cette option pour activer ou désactiver le prétraitement effectué par l’apprentissage automatique. Prétraitement inclut le nettoyage automatique des données, la préparation et transformation pour générer des fonctionnalités synthétiques. [En savoir plus sur le prétraitement](#preprocess).
     Validation| Sélectionnez une des options de validation croisée à utiliser dans le travail de formation. [En savoir plus sur la validation croisée](https://docs.microsoft.com/azure/machine-learning/service/how-to-configure-auto-train#cross-validation-split-options).
-    Accès concurrentiel| Sélectionnez les limites de plusieurs cœurs à utiliser lors de l’utilisation du calcul de l’unité centrale multicœur.
+    Concurrence| Sélectionnez les limites de plusieurs cœurs à utiliser lors de l’utilisation du calcul de l’unité centrale multicœur.
     Algorithme bloqué| Sélectionner des algorithmes que vous souhaitez exclure le travail de formation.
 
    ![Formulaire de paramètres avancés](media/how-to-create-portal-experiments/advanced-settings.png)
@@ -154,7 +154,7 @@ Vous pouvez obtenir un vaste éventail de statistiques de synthèse dans votre j
 
 Lorsque vous configurez vos expériences, vous pouvez activer le paramètre avancé `Preprocess`. Cela signifie que les étapes de prétraitement et la caractérisation données suivantes sont effectuées automatiquement.
 
-|Prétraitement&nbsp;étapes| Description |
+|Prétraitement&nbsp;étapes| Description  |
 | ------------- | ------------- |
 |Suppression des cardinalités élevées ou aucune caractéristique de variance|Supprimer à partir de jeux d’apprentissage et de validation, y compris les fonctionnalités avec toutes les valeurs manquantes, la même valeur pour toutes les lignes ou présentant une cardinalité très élevée (par exemple, hachages, ID ou GUID).|
 |Imputer des valeurs manquantes|Pour les fonctionnalités numériques, imputer avec la moyenne des valeurs dans la colonne.<br/><br/>Pour les fonctionnalités catégorielles, imputer avec la valeur la plus fréquente.|
@@ -184,6 +184,63 @@ Zoom avant sur un des modèles de sortie pour afficher les détails de l’exéc
 
 ![Détails de l’itération](media/how-to-create-portal-experiments/iteration-details.png)
 
+## <a name="deploy-model"></a>Déployer le modèle
+
+Une fois que vous avez le meilleur modèle à portée de main, il est temps pour le déployer comme un service web pour prédire sur les nouvelles données.
+
+ML automatisé vous aide à déployer le modèle sans écrire de code :
+
+1. Vous avez quelques options pour le déploiement. 
+    1. Si vous souhaitez déployer le meilleur modèle selon les critères de mesure que vous définissez pour l’expérience, sélectionnez **déployer un meilleur modèle** à partir de la **détails de l’exécution** page.
+
+        ![Bouton modèle de déploiement](media/how-to-create-portal-experiments/deploy-model-button.png)
+
+    1. Si vous souhaitez déployer une itération de modèle spécifique, Descendre sur le modèle pour ouvrir sa page de détail spécifique de l’exécution et sélectionnez **déployer Model**.
+
+        ![Bouton modèle de déploiement](media/how-to-create-portal-experiments/deploy-model-button2.png)
+
+1. Première étape consiste à inscrire le modèle dans le service. Sélectionnez « Enregistrer le modèle » et attendez la fin du processus d’inscription.
+
+    ![Panneau de modèle de déploiement](media/how-to-create-portal-experiments/deploy-model-blade.png)
+
+1. Une fois que le modèle est enregistré, vous serez en mesure de télécharger le script de notation (scoring.py) et le script d’environnement (condaEnv.yml) à utiliser lors du déploiement.
+
+1. Lorsque le script de notation et le script d’environnement sont téléchargés, accédez à la **actifs** panneau du volet de navigation de gauche, sélectionnez **modèles**.
+
+    ![Modèles de volet de navigation](media/how-to-create-portal-experiments/nav-pane-models.png)
+
+1. Sélectionnez le modèle que vous avez enregistré et sélectionnez « Créer image ».
+
+    Vous pouvez identifier le modèle de par sa description, qui inclut l’ID d’exécution, numéro d’itération, au format suivant : *< Run_ID > _ < Iteration_number > _Model*
+
+    ![Modèles : Créer une image](media/how-to-create-portal-experiments/model-create-image.png)
+
+1. Entrez un nom pour l’image. 
+1. Sélectionnez le **Parcourir** bouton en regard de la zone « Fichier de notation » pour charger le fichier de score (scoring.py) vous avez précédemment téléchargé.
+
+1. Sélectionnez le **Parcourir** bouton en regard de la zone « Fichier Conda » pour charger le fichier d’environnement (condaEnv.yml) vous avez précédemment téléchargé.
+
+    Vous pouvez utiliser votre propre script de notation et le fichier conda, ainsi que télécharger des fichiers supplémentaires. [En savoir plus sur le script de score](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where#script).
+
+      >[!Important]
+      > Noms de fichiers doivent être sous 32 caractères et doit commencer et se terminer par des caractères alphanumériques. Peut inclure des tirets, des traits de soulignement, des points et entre des caractères alphanumériques. Les espaces ne sont pas autorisés.
+
+    ![Créer une image](media/how-to-create-portal-experiments/create-image.png)
+
+1. Sélectionnez le bouton « Créer » pour démarrer la création d’image. Cela prendra quelques minutes pour terminer, une fois terminé, vous verrez un message dans la barre supérieure.
+1. Accédez à l’onglet « Images », cochez la case en regard de l’image que vous souhaitez déployer, sélectionnez « Créer un déploiement ». [En savoir plus sur les déploiements](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where).
+
+    Il existe 2 options de déploiement.
+     + Instance de conteneur Azure (ACI) - cela utilisée plus pour le test objectif plutôt qu’opérationnelle déploiement à grande échelle. Veillez à renseigner les valeurs au moins un cœur pour _capacité de réserve de processeur_et au moins un gigaoctet (Go) pour _capacité de réserve de mémoire_
+     + Azure Kubernetes Service (ACS)) - cette option est pour le déploiement à grande échelle. Vous devez disposer d’un calcul en fonction de AKS prêt.
+
+     ![Images : Créer un déploiement](media/how-to-create-portal-experiments/images-create-deployment.png)
+
+1. Quand vous avez terminé, sélectionnez **Créer**. Déploiement du modèle peut prendre plusieurs minutes pour chaque pipeline se termine en cours d’exécution.
+
+1. Et voilà ! Vous avez un service web opérationnel pour générer des prédictions.
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [En savoir plus sur l’apprentissage automatisé](concept-automated-ml.md) et Azure Machine Learning.
+* [Découvrez comment utiliser un service web](https://docs.microsoft.com/azure/machine-learning/service/how-to-consume-web-service).

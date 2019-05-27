@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45ea34a673b46dda2ec9606952c707a13d1b72d9
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: b8897de5ee86d20e52b948f21afaef4acf196539
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65766869"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65988575"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>Configurer la gestion de session d’authentification avec l’accès conditionnel
 
@@ -50,7 +50,7 @@ La valeur par défaut de Azure AD pour la persistance de session de navigateur p
 
 ## <a name="configuring-authentication-session-controls"></a>Configuration des contrôles de session d’authentification
 
-Accès conditionnel est une fonctionnalité d’Azure AD Premium et requiert une licence premium. Pour plus d’informations sur l’accès conditionnel, voir [Présentation de l’accès conditionnel dans Azure Active Directory](overview.md#license-requirements-for-using-conditional-access).
+Accès conditionnel est une fonctionnalité d’Azure AD Premium et requiert une licence premium. Pour plus d’informations sur l’accès conditionnel, voir [Présentation de l’accès conditionnel dans Azure Active Directory](overview.md#license-requirements).
 
 > [!WARNING]
 > Si vous utilisez le [les durées de vie de jeton configurables](../develop/active-directory-configurable-token-lifetimes.md) fonctionnalité actuellement en version préliminaire publique, veuillez noter que nous ne prennent en charge deux stratégies différentes pour la même combinaison de l’utilisateur ou une application de création : une avec cette fonctionnalité et un autre avec fonctionnalité de durée de vie de jeton configurable. Microsoft prévoit de mettre hors service de la fonctionnalité de durée de vie de jeton configurable le 15 octobre et remplacez-la par la fonctionnalité de gestion de session d’authentification accès conditionnel.  
@@ -66,7 +66,7 @@ Accès conditionnel est une fonctionnalité d’Azure AD Premium et requiert une
 1. Accédez à **contrôles d’accès** > **Session** et cliquez sur **fréquence de la connexion**
 1. Entrez la valeur requise de jours et heures dans la première zone de texte
 1. Sélectionnez une valeur de **heures** ou **jours** à partir de la liste déroulante
-1. Enregistrer la stratégie
+1. Enregistrer votre stratégie
 
 ![Stratégie d’accès conditionnel configuré pour la connexion de fréquence](media/howto-conditional-access-session-lifetime/conditional-access-policy-session-sign-in-frequency.png)
 

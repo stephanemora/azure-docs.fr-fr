@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc4ff596cdafd348288187b0cd9b32f7b4c2d275
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: cafe81a1b5ab6d26e71eff05e355d2ed79c4d5e7
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65823387"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66119384"
 ---
 # <a name="enable-combined-security-information-registration-preview"></a>Activer combinée sécurité informations inscription (version préliminaire)
 
@@ -43,7 +43,7 @@ Suivez ces étapes pour activer l’inscription combinée :
 > À compter de mars 2019, les options d’appel téléphonique ne sont pas disponibles pour l’authentification multifacteur et les utilisateurs SSPR dans les locataires gratuit/essai Azure AD. Les messages SMS ne sont pas affectés par cette modification. Les options d’appel téléphonique seront également disponibles pour les utilisateurs de payé des locataires Azure AD.
 
 > [!NOTE]
-> Une fois que vous activez combinée d’inscription, les utilisateurs qui inscrivent ou confirmer son numéro de téléphone ou application mobile via la nouvelle expérience peut les utiliser pour l’authentification multifacteur et SSPR, si ces méthodes sont activées dans le multi-Factor Authentication et SSPR stratégies. Si vous désactivez ensuite cette expérience, les utilisateurs qui vont à l’inscription SSPR précédente page à `https:/aka.ms/ssprsetup` devront effectuer l’authentification multifacteur pour accéder à la page.
+> Une fois que vous activez combinée d’inscription, les utilisateurs qui inscrivent ou confirmer son numéro de téléphone ou application mobile via la nouvelle expérience peut les utiliser pour l’authentification multifacteur et SSPR, si ces méthodes sont activées dans le multi-Factor Authentication et SSPR stratégies. Si vous désactivez ensuite cette expérience, les utilisateurs qui vont à l’inscription SSPR précédente page à `https://aka.ms/ssprsetup` devront effectuer l’authentification multifacteur pour accéder à la page.
 
 Si vous avez configuré la liste sites aux zones attribution dans Internet Explorer, les sites suivants doivent être dans la même zone :
 

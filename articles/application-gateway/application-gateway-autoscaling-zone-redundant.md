@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 5/16/2019
+ms.date: 5/22/2019
 ms.author: victorh
-ms.openlocfilehash: 0da5d8a3eec0faa4001ccf229c6748c253f1b6e5
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 8e17c5e34ec3e2397c3054b1d0e0d97dbf410db2
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65827424"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65986868"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway"></a>Mise à l’échelle et la passerelle d’Application redondant 
 
@@ -93,8 +93,6 @@ Prix unitaire de capacité = 744(hours) * Max (calcul unité Max(25/50 for conne
 
 Prix total = $267.84 + $85.71 = $353.55
 
-Le [page de tarification](https://azure.microsoft.com/pricing/details/application-gateway/) sera mis à jour pour refléter les prix sur le 14 mai 2019. La facturation est programmée pour démarrer sur le 1 juin 2019.
-
 ## <a name="scaling-application-gateway-and-waf-v2"></a>Mise à l’échelle de passerelle d’Application et WAF v2
 
 Passerelle d’application et de pare-feu d’applications Web peuvent être configurés à l’échelle dans deux modes :
@@ -138,7 +136,7 @@ Le tableau suivant compare les fonctionnalités disponibles avec chaque référe
 |Route définie par l’utilisateur sur le sous-réseau d’Application Gateway|Non pris en charge|
 |Groupe de sécurité réseau pour plage de ports entrants| - 65 200 à 65 535 pour référence (SKU) Standard_v2<br>- 65 503 à 65 534 pour référence (SKU) Standard<br>Pour plus d’informations, visitez le [FAQ](application-gateway-faq.md#are-network-security-groups-supported-on-the-application-gateway-subnet).|
 |Journaux d’activité de performances dans les diagnostics Azure|Non pris en charge.<br>Les métriques Azure doivent être utilisées.|
-|Facturation|Facturation planifiée pour démarrer sur le 1 juin 2019.|
+|Facturation|Facturation planifiée pour démarrer sur le 1 juillet 2019.|
 |Mode FIPS|Ils ne sont pas pris en charge.|
 |Mode ILB uniquement|Non pris en charge actuellement. Les modes public et ILB sont pris en charge ensemble.|
 |Intégration de Network Watcher|Non pris en charge.|

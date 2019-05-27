@@ -9,13 +9,13 @@ ms.date: 05/02/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
 ms.openlocfilehash: 47407df90a83501b8739a428789e20cddc59e83d
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65468361"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66145918"
 ---
-Les disques du système d’exploitation éphémères sont créés sur le stockage local de la Machine virtuelle (VM) et pas conservés dans le stockage Azure à distance. Disques du système d’exploitation éphémères fonctionnent bien pour les charges de travail de sans état, où les applications tolèrent les défaillances isolées de machine virtuelle, mais sont plus préoccupé par le temps que nécessaire pour les déploiements à grande échelle ou de temps pour réimage les instances de machine virtuelle individuelles. Il est également idéale pour les applications déployées à l’aide du modèle de déploiement classique, à déplacer vers le modèle de déploiement Resource Manager. Avec un disque du système d’exploitation éphémère, vous serez observer une latence plus faible en lecture/écriture pour le disque du système d’exploitation et créer une nouvelle image de machine virtuelle plus rapidement. En outre, disque de système d’exploitation éphémère est gratuit, vous encourez sans coût de stockage pour le disque du système d’exploitation. 
+Les disques du système d’exploitation éphémères sont créés sur le stockage local de la Machine virtuelle (VM) et pas conservés dans le stockage Azure à distance. Disques du système d’exploitation éphémères fonctionnent bien pour les charges de travail de sans état, où les applications tolèrent les défaillances isolées de machine virtuelle, mais sont plus préoccupé par le temps que nécessaire pour les déploiements à grande échelle ou de temps pour réimage les instances de machine virtuelle individuelles. Il est également idéale pour les applications déployées à l’aide du modèle de déploiement classique, à déplacer vers le modèle de déploiement Resource Manager. Comparé à un disque de système d'exploitation standard, un disque éphémère offre une latence plus faible pour les opérations de lecture/écriture et permet une réinitialisation plus rapide des machines virtuelles. En outre, disque de système d’exploitation éphémère est gratuit, vous encourez sans coût de stockage pour le disque du système d’exploitation. 
  
 Les fonctionnalités clées de disques éphémères sont : 
 - Ils peuvent être utilisés avec les images Marketplace et des images personnalisées.
@@ -30,7 +30,7 @@ Différences clés entre les disques du système d’exploitation persistants et
 |                             | Disque de système d’exploitation persistant                          | Disque de système d’exploitation éphémère                              |    |
 |-----------------------------|---------------------------------------------|------------------------------------------------|
 | Limite de taille de disque de système d’exploitation      | 2 Tio                                                                                        | Taille de la taille de machine virtuelle ou 2TiB, mettre en cache plus petite étant retenue - [DS](../articles/virtual-machines/linux/sizes-general.md), [ES](../articles/virtual-machines/linux/sizes-memory.md), [M](../articles/virtual-machines/linux/sizes-memory.md), [FS](../articles/virtual-machines/linux/sizes-compute.md), et [GS](../articles/virtual-machines/linux/sizes-memory.md)              |
-| Prise en charge des tailles de machine virtuelle          | Tous                                                                                          | DSv1, DSv2, DSv3, Esv3, Fs, FsV2, GS, M                                               |
+| Tailles de machines virtuelles prises en charge          | Tous                                                                                          | DSv1, DSv2, DSv3, Esv3, Fs, FsV2, GS, M                                               |
 | Prise en charge du type de disque           | Disque de système d’exploitation managée et non managées                                                                | Disque du système d’exploitation géré uniquement                                                               |
 | Prise en charge de la région              | Toutes les régions                                                                                  | Toutes les régions                              |
 | Persistance des données            | Les données de disque du système d’exploitation écrites sur le disque du système d’exploitation sont stockées dans le stockage Azure                                  | Données écrites sur le disque du système d’exploitation sont stockées sur le stockage local de la machine virtuelle et ne sont pas persistant dans le stockage Azure. |

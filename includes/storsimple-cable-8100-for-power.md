@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: db2104020e9478b1fedf68e1c9467f75e16044e2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60482737"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66155797"
 ---
 #### <a name="to-cable-for-power"></a>Pour brancher les câbles d’alimentation
 1. Assurez-vous que les commutateurs d'alimentation sont en position d'arrêt sur chacun des PCM (Modules d'alimentation et de refroidissement).
@@ -25,11 +25,11 @@ ms.locfileid: "60482737"
    
     **Branchement des câbles d'alimentation sur un appareil 8100**
    
-   | Étiquette | Description |
+   | Étiquette | Description  |
    |:--- |:--- |
    | 1 |PCM 0 |
-   | 2 |Contrôleur 1 |
-   | 3 |Contrôleur 0 |
+   | 2 |Contrôleur 1 |
+   | 3 |Contrôleur 0 |
    | 4 |PCM 1 |
    | 5. |PDU |
 4. Activez le système en mettant en marche les commutateurs d'alimentation des deux PCM.

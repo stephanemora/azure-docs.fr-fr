@@ -9,11 +9,11 @@ ms.date: 04/25/2019
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: 499aeccdf00980eeb66ac6ee06e45267fd515143
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65546725"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66145883"
 ---
 Galeries d’images partagé vous permettent d’images de partage à l’aide de RBAC. Vous pouvez utiliser RBAC pour partager des images au sein de votre client et même aux personnes en dehors de votre client. Toutefois, si vous souhaitez partager des images en dehors de votre client Azure, à grande échelle, vous devez créer une inscription d’application pour faciliter le partage.  À l’aide d’une inscription d’application peut activer des scénarios de partage plus complexes, telles que : 
 

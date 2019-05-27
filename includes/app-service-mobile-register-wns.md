@@ -1,10 +1,15 @@
 ---
+author: conceptdev
+ms.service: app-service-mobile
+ms.topic: include
+ms.date: 08/23/2018
+ms.author: crdun
 ms.openlocfilehash: 75bcb9d27ee6f66a1d9c15093d9f933a3ad25881
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62114341"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66140553"
 ---
 1. Dans l’Explorateur de solutions Visual Studio, cliquez avec le bouton droit sur le projet d’application Microsoft Store. Puis sélectionnez **Store** > **Associer l’application au Store**.
 

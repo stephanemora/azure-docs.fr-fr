@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 2a366a9030104c885adb1a4f773de04cdc439044
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 420705ef6b2e38d147b7033d2fb3ad57bbc216ac
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61480491"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66159280"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>Diffuser en continu des données en tant qu’entrées dans Stream Analytics
 
@@ -44,7 +44,7 @@ Vous devez configurer chaque entrée Event Hub de Stream Analytics afin qu’e
 ### <a name="stream-data-from-event-hubs"></a>Diffuser en continu des données depuis Event Hubs
 Le tableau suivant décrit chaque propriété de la page **Nouvelle entrée** du portail Azure pour diffuser en continu une entrée de données depuis un Event Hub :
 
-| Propriété | Description |
+| Propriété | Description  |
 | --- | --- |
 | **Alias d’entrée** |Nom convivial que vous utilisez dans la requête du travail pour faire référence à cette entrée. |
 | **Abonnement** | Sélectionnez l’abonnement dans lequel se trouve la ressource du concentrateur Event Hub. | 
@@ -89,7 +89,7 @@ Vous devez configurer chaque entrée IoT Hub de Stream Analytics afin qu’elle 
 ### <a name="configure-an-iot-hub-as-a-data-stream-input"></a>Configurer un concentrateur IoT Hub en tant qu’entrée de flux de données
 Le tableau suivant décrit chaque propriété de la page **Nouvelle entrée** du portail Azure lorsque vous configurez un concentrateur IoT Hub en tant qu’entrée de flux de données.
 
-| Propriété | Description |
+| Propriété | Description  |
 | --- | --- |
 | **Alias d’entrée** | Nom convivial que vous utilisez dans la requête du travail pour faire référence à cette entrée.|
 | **Abonnement** | Sélectionnez l’abonnement dans lequel se trouve la ressource du concentrateur IoT Hub. | 
@@ -132,11 +132,13 @@ Actuellement, Stream Analytics ne prend pas en charge la désérialisation des m
 > Stream Analytics ne prend pas en charge l’ajout de contenu à un objet blob existant. Stream Analytics n’affiche chaque fichier qu’une seule fois, et toutes les modifications qui sont apportées à celui-ci, une fois que le travail a lu les données, ne sont pas traitées. Une meilleure pratique consiste à télécharger toutes les données d’un objet blob en une seule fois, puis d’ajouter les événements récents supplémentaires dans un fichier blob nouveau et différent.
 > 
 
+Charger un très grand nombre d’objets BLOB à la fois peut entraîner l’Analytique de Stream ignorer la lecture de plusieurs objets BLOB dans de rares cas. Il est recommandé de charger des objets BLOB au moins 2 secondes d’intervalle pour le stockage d’objets Blob. Si cette option n’est pas possible, vous pouvez utiliser les concentrateurs d’événements à des volumes importants flux d’événements. 
+
 ### <a name="configure-blob-storage-as-a-stream-input"></a>Configurer un stockage d’objets blob en tant qu’entrée de flux de données 
 
 Le tableau suivant décrit chaque propriété de la page **Nouvelle entrée** du portail Azure lorsque vous configurez un stockage d’objets blob en tant qu’entrée de flux de données.
 
-| Propriété | Description |
+| Propriété | Description  |
 | --- | --- |
 | **Alias d’entrée** | Nom convivial que vous utilisez dans la requête du travail pour faire référence à cette entrée. |
 | **Abonnement** | Sélectionnez l’abonnement dans lequel se trouve la ressource du concentrateur IoT Hub. | 
@@ -152,7 +154,7 @@ Le tableau suivant décrit chaque propriété de la page **Nouvelle entrée** du
 
 Si vos données proviennent d’une source de stockage d’objets blob, vous avez accès aux champs de métadonnées suivants dans votre requête Stream Analytics :
 
-| Propriété | Description |
+| Propriété | Description  |
 | --- | --- |
 | **BlobName** |Nom de l’objet blob d’entrée d’où provient l’événement. |
 | **EventProcessedUtcTime** |Date et heure du traitement de l’événement par Stream Analytics |

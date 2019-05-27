@@ -1,6 +1,6 @@
 - name: Documentation Personalizer
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   expanded: true
   items:
     - name: "Qu’est-ce que Personalizer\_?"
@@ -24,7 +24,7 @@
       displayName: 'best practice, design'
     - name: Concepts fondamentaux
       items:
-        - name: "Fonctionnalités\_: Action et contexte"
+        - name: "Caractéristiques\_: action et contexte"
           href: concepts-features.md
           displayName: 'action, context, feature, namespace, JSON, best practice, set'
         - name: Récompenses
@@ -65,6 +65,8 @@
   items:
     - name: Disponibilité régionale
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
+    - name: Conformité
+      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: Feuille de route Azure
       href: 'https://go.microsoft.com/fwlink/?linkid=2092153'
     - name: Tarifs

@@ -170,7 +170,7 @@
               href: how-to-custom-speech-train-model.md
             - name: Déployer un modèle personnalisé
               href: how-to-custom-speech-deploy-model.md
-            - name: "Guide\_: Créer des transcriptions étiquetées par l’homme"
+            - name: Guide de création de transcriptions étiquetées par l’homme
               href: how-to-custom-speech-human-labeled-transcriptions.md
         - name: Synthèse vocale
           items:
@@ -195,14 +195,14 @@
           href: how-to-migrate-from-custom-speech-service.md
         - name: À partir de l'API de traduction de conversation Translator Speech
           href: how-to-migrate-from-translator-speech-api.md
-    - name: Utiliser des conteneurs en local
+    - name: Utiliser des conteneurs
       items:
-        - name: Installer et exécuter des conteneurs en local
-          displayName: 'docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull'
+        - name: Installer et exécuter des conteneurs
+          displayName: 'docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull, on-premises'
           href: speech-container-howto.md
         - name: Configurer des conteneurs
           href: speech-container-configuration.md
-          displayName: 'docker, container, billing, apikey, pull, logging'
+          displayName: 'docker, container, billing, apikey, pull, logging, on-premises'
 - name: Exemples
   items:
     - name: Kit de développement logiciel (SDK) de reconnaissance vocale
@@ -314,6 +314,8 @@
       href: support.md
     - name: Tarification et limites
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/'
+    - name: Conformité
+      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: Feuille de route Azure
       href: 'https://azure.microsoft.com/roadmap/?category=ai-machine-learning'
     - name: Confidentialité et cookies

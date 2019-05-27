@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 0cae2befad1b0cd2d6a093387c41aac8ccdfff7d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 930420240d7b0f116f72056404e809ca94820f11
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64719209"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991429"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>Scénarios et disponibilité des fonctionnalités Media Services dans les centres de données
 
@@ -196,7 +196,7 @@ AMS offre deux encodeurs à la demande : **Media Encoder Standard** et **Media 
 
 |Nom du processeur multimédia|Statut|Centres de données
 |---|---|---|
-|Media Encoder Standard|GA|Tous|
+|Media Encoder standard|GA|Tous|
 |Media Encoder Premium Workflow|GA|Tout sauf la Chine|
 
 ### <a name="analytics-media-processors"></a>Processeurs multimédias Analytics
@@ -208,8 +208,7 @@ Media Analytics est une collection de composants visuels et vocaux qui aident le
 |Nom du processeur multimédia|Statut|Centres de données
 |---|---|---|
 |Détecteur de visage Azure Media|VERSION PRÉLIMINAIRE|Tous|
-|Azure Media Hyperlapse|VERSION PRÉLIMINAIRE|Tous|
-|Azure Media Indexer|GA|Tous|
+|Indexeur multimédia Azure|GA|Tous|
 |Détecteur de mouvement Azure Media|VERSION PRÉLIMINAIRE|Tous|
 |Azure Media OCR|VERSION PRÉLIMINAIRE|Tous|
 |Azure Media Redactor|VERSION PRÉLIMINAIRE|Tous|

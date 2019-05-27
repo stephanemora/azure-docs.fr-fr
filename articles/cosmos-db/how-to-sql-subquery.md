@@ -6,45 +6,43 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/19/2019
 ms.author: tisande
-ms.openlocfilehash: 3ba547aea9034777fe76f3c911efd2648f6184fa
-ms.sourcegitcommit: e729629331ae10097a081a03029398525f4147a4
-ms.translationtype: MT
+ms.openlocfilehash: 48d0c7a022ff568582637aac36a377ca022a413c
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64514798"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65977352"
 ---
 # <a name="sql-subquery-examples-for-azure-cosmos-db"></a>Exemples de sous-requête SQL pour Azure Cosmos DB
 
-Une sous-requête est une requête imbriquée dans une autre requête. Une sous-requête est également appelée requête interne ou sélection interne et l’instruction contenant une sous-requête est généralement appelée une requête externe.
+Une sous-requête est une requête imbriquée dans une autre requête. Une sous-requête est également appelée une requête interne ou sélection interne. L’instruction qui contient une sous-requête est généralement appelée une requête externe.
 
-Il existe deux types de sous-requêtes :
-
-* Corrélées - une sous-requête corrélées est une sous-requête qui fait référence à valeurs de la requête externe. La sous-requête est évaluée une seule fois pour chaque ligne qui est traité par la requête externe.
-
-* Non liées à une sous-requête corrélée Non A est une sous-requête qui est indépendante de la requête externe, et elle peut être exécutée sur son propre sans dépendre de la requête externe.
-
-> [!NOTE]
-> Azure Cosmos DB prend en charge les sous-requêtes en corrélation.
+Cet article décrit les sous-requêtes SQL et leurs cas d’utilisation courants dans Azure Cosmos DB.
 
 ## <a name="types-of-subqueries"></a>Types des sous-requêtes
 
-Les sous-requêtes peuvent être davantage classés en fonction du nombre de lignes et colonnes qu’elles retournent. Il existe trois types différents :
-1.  **Table**: Retourne plusieurs lignes et les colonnes multiples
-2.  **Valeurs multiples**: Retourne plusieurs lignes et une seule colonne
-3.  **Scalaire**: Retourne une seule ligne et une seule colonne
+Il existe deux principaux types de sous-requêtes :
+
+* **Corrélées**: Une sous-requête qui fait référence à valeurs de la requête externe. La sous-requête est évaluée une seule fois pour chaque ligne qui traite la requête externe.
+* **Non corrélés**: Une sous-requête est indépendante de la requête externe. Il peut être exécuté sur son propre sans se baser sur externe requête.
 
 > [!NOTE]
-> Azure Cosmos DB prend en charge les sous-requêtes à valeurs multiples et scalaires
+> Azure Cosmos DB prend en charge uniquement les sous-requêtes corrélées.
 
-Les requêtes SQL Cosmos DB Azure retournent toujours une seule colonne (une valeur simple ou un document complexe). Par conséquent, uniquement les sous-requêtes à valeurs multiples et scalaire ci-dessus sont applicables dans Azure Cosmos DB. Une sous-requête de valeur multiple utilisable uniquement dans la clause FROM comme une expression relationnelle, si une sous-requête scalaire peut être utilisée comme une expression scalaire dans l’instruction SELECT ou une clause WHERE ou comme une expression relationnelle dans la clause FROM.
+Les sous-requêtes peuvent être davantage classés en fonction du nombre de lignes et colonnes qu’elles retournent. Il existe trois types :
+* **Table**: Retourne plusieurs lignes et les colonnes multiples.
+* **Valeurs multiples**: Retourne plusieurs lignes et une seule colonne.
+* **Scalaire**: Retourne une seule ligne et une seule colonne.
+
+Requêtes SQL dans Azure Cosmos DB retournent toujours une seule colonne (une valeur simple ou un document complexe). Par conséquent, uniquement des sous-requêtes scalaires et les valeurs multiples sont applicables dans Azure Cosmos DB. Vous pouvez utiliser une sous-requête de valeur multiple uniquement dans la clause FROM comme une expression relationnelle. Vous pouvez utiliser une sous-requête scalaire comme une expression scalaire dans l’instruction SELECT ou une clause WHERE ou comme une expression relationnelle dans la clause FROM.
 
 
 ## <a name="multi-value-subqueries"></a>Sous-requêtes à valeurs multiples
 
 Les sous-requêtes à valeurs multiples retournent un ensemble de documents et sont toujours utilisés dans la clause FROM. Ils sont utilisés pour :
 
-* Optimisation des expressions de jointure 
-* L’évaluation d’expressions coûteuses qu’une seule fois et en faisant référence à plusieurs fois
+* Optimisation des expressions de jointure. 
+* L’évaluation d’expressions coûteuses qu’une seule fois et faisant référence à plusieurs reprises.
 
 ### <a name="optimize-join-expressions"></a>Optimiser les expressions de jointure
 
@@ -62,9 +60,11 @@ WHERE t.name = 'infant formula' AND (n.nutritionValue > 0
 AND n.nutritionValue < 10) AND s.amount > 1
 ```
 
-Pour cette requête, l’index correspond tout document qui a une balise avec la nom 'naissantes formule », un élément nutritif avec une valeur comprise entre 0 et 10 et un élément de service avec un montant supérieur à 1. Toutefois, l’expression de jointure effectue le produit croisé de tous les éléments de tableaux de balises, les éléments et les portions pour chaque document correspondant avant que n’importe quel filtre est appliqué. La clause WHERE s’applique ensuite le tuple de prédicat sur chaque < c, t, n, s > filtre. Par exemple, si un document correspondant comporte 10 éléments dans chacun des trois tableaux, il développe et 1 x 10 x 10 x 10 (par exemple, 1 000) tuples. Sous-requêtes ici, peuvent aider à filtrant des éléments de tableau joint avant une jointure avec l’expression suivante.
+Pour cette requête, l’index correspond à n’importe quel document qui a une balise avec la nom « naissantes formule. » Il est un élément nutritif avec une valeur comprise entre 0 et 10 et un élément de service avec un montant supérieur à 1. L’expression de jointure effectue le produit croisé de tous les éléments de tableaux de balises, les éléments et les portions pour chaque document correspondant avant que n’importe quel filtre est appliqué. 
 
-Cette requête est équivalente à celle ci-dessus, mais utilise des sous-requêtes :
+La clause WHERE s’applique ensuite le tuple de prédicat sur chaque < c, t, n, s > filtre. Par exemple, si un document correspondant comporte 10 éléments dans chacun des trois tableaux, il développe et 1 x 10 x 10 x 10 (autrement dit, 1 000) tuples. L’utilisation de sous-requêtes ici peut aider lors du filtrage des éléments de tableau joint avant une jointure avec l’expression suivante.
+
+Cette requête est équivalente au précédent, mais utilise des sous-requêtes :
 
 ```sql
 SELECT Count(1) AS Count
@@ -74,13 +74,13 @@ JOIN (SELECT VALUE n FROM n IN c.nutrients WHERE n.nutritionValue > 0 AND n.nutr
 JOIN (SELECT VALUE s FROM s IN c.servings WHERE s.amount > 1)
 ```
 
-En supposant qu’un seul élément du tableau de balises correspond au filtre et cinq éléments pour les éléments et les portions tableaux, les expressions de jointure seront étendra à 1 x 1 x 5 x 5 = 25 éléments par opposition à 1 000 éléments dans la première requête.
+Supposent que qu’un seul élément du tableau de balises correspond au filtre, et il existe cinq éléments pour les tableaux à la fois des éléments et des portions. Les expressions de jointure seront développe ensuite à 1 x 1 x 5 x 5 = 25 éléments, au lieu de 1 000 éléments dans la première requête.
 
 ### <a name="evaluate-once-and-reference-many-times"></a>Évaluer une seule fois et référence plusieurs fois
 
-Les sous-requêtes peuvent aider à optimiser les requêtes avec des expressions coûteuses telles que les fonctions définies par l’utilisateur (UDF) ou de chaîne complexe ou des expressions arithmétiques. Vous pouvez utiliser une sous-requête avec une expression de jointure pour évaluer l’expression en une seule fois mais elle référence plusieurs fois.
+Les sous-requêtes peuvent aider à optimiser les requêtes avec des expressions coûteuses telles que les fonctions définies par l’utilisateur (UDF), des chaînes complexes ou des expressions arithmétiques. Vous pouvez utiliser une sous-requête avec une expression de jointure pour évaluer l’expression en une seule fois mais elle référence plusieurs fois.
 
-La requête suivante exécute l’UDF GetMaxNutritionValue à deux reprises :
+La requête suivante exécute l’UDF `GetMaxNutritionValue` à deux reprises :
 
 ```sql
 SELECT c.id, udf.GetMaxNutritionValue(c.nutrients) AS MaxNutritionValue
@@ -88,7 +88,7 @@ FROM c
 WHERE udf.GetMaxNutritionValue(c.nutrients) > 100
 ```
 
-Voici une requête équivalente qui s’exécute uniquement l’UDF qu’une seule fois :
+Voici une requête équivalente qui exécute l’UDF qu’une seule fois :
 
 ```sql
 SELECT TOP 1000 c.id, MaxNutritionValue
@@ -98,7 +98,7 @@ WHERE MaxNutritionValue > 100
 ``` 
 
 > [!NOTE] 
-> Étant donné le comportement du produit croisé d’expressions de jointure, si l’expression de fonction UDF peut correspondre à non défini, vous devez vous assurer que l’expression de jointure toujours produit une seule ligne en retournant un objet à partir de la sous-requête plutôt que la valeur directement.
+> N’oubliez pas le comportement du produit croisé d’expressions de jointure. Si l’expression de fonction UDF peut correspondre à non défini, vous devez vous assurer que l’expression de jointure toujours produit une seule ligne en retournant un objet à partir de la sous-requête plutôt que la valeur directement.
 >
 
 Voici un exemple similaire qui retourne un objet, plutôt qu’une valeur :
@@ -110,7 +110,7 @@ JOIN (SELECT udf.GetMaxNutritionValue(c.nutrients) AS MaxNutritionValue) m
 WHERE m.MaxNutritionValue > 100
 ```
 
-L’approche n’est pas limité à ces fonctions, mais au lieu de cela, à n’importe quelle expression potentiellement coûteuse. Par exemple, que nous pouvions accepter la même approche avec la fonction mathématique avg :
+L’approche n’est pas limitée à ces fonctions. Il s’applique à n’importe quelle expression potentiellement coûteuse. Par exemple, vous pouvez adopter la même approche avec la fonction mathématique `avg`:
 
 ```sql
 SELECT TOP 1000 c.id, AvgNutritionValue
@@ -121,8 +121,9 @@ WHERE AvgNutritionValue > 80
 
 ### <a name="mimic-join-with-external-reference-data"></a>Imiter la jointure avec les données de référence externe
 
-Souvent, nous devons faire référence à des données statiques qui changent rarement, telles que des mesures ou des codes de pays. Pour ces données, il est préférable de ne pas en double pour chaque document. Comment éviter cette duplication pour enregistrer sur le stockage et améliorer les performances d’écriture en conservant la taille des documents plus petits. Une sous-requête peut être utilisée ici pour imiter la sémantique de jointure interne avec une collection de données de référence.
-Par exemple, prenons ce jeu de données de référence.
+Souvent, vous devrez peut-être faire référence aux données statiques qui changent rarement, telles que les unités de mesure ou les codes de pays. Il est préférable de ne pas dupliquer ces données pour chaque document. Comment éviter cette duplication pour enregistrer sur le stockage et améliorer les performances d’écriture en conservant la taille des documents plus petits. Vous pouvez utiliser une sous-requête pour imiter la sémantique de jointure interne avec une collection de données de référence.
+
+Par exemple, considérez ce jeu de données de référence :
 
 | **Unité** | **Name**            | **Multiplicateur** | **Unité de base** |
 | -------- | ------------------- | -------------- | ------------- |
@@ -136,16 +137,16 @@ Par exemple, prenons ce jeu de données de référence.
 | nJ       | Nanojoule           | 1.00E-09       | Joule         |
 | µJ       | Microjoule          | 1.00E-06       | Joule         |
 | mJ       | Millijoule          | 1.00E-03       | Joule         |
-| J        | Joule               | 1.00E+00       | Joule         |
+| R        | Joule               | 1.00E+00       | Joule         |
 | kJ       | Kilojoule           | 1.00E + 03       | Joule         |
 | MJ       | Megajoule           | 1.00E + 06       | Joule         |
 | GJ       | Gigajoule           | 1.00E + 09       | Joule         |
-| licence d’accès client      | Calories             | 1.00E+00       | calories       |
-| kcal     | Calories             | 1.00E + 03       | calories       |
+| licence d’accès client      | Calories             | 1.00E+00       | Calories       |
+| kcal     | Calories             | 1.00E + 03       | Calories       |
 | IU       | Unités internationales |                |               |
 
 
-La requête suivante reproduit la jointure avec ces données afin que nous ajoutons le nom de l’unité à la sortie :
+La requête suivante reproduit la jointure avec ces données afin que vous ajoutez le nom de l’unité à la sortie :
 
 ```sql
 SELECT TOP 10 n.id, n.description, n.nutritionValue, n.units, r.name
@@ -177,8 +178,9 @@ WHERE n.units = r.unit
 
 ## <a name="scalar-subqueries"></a>Sous-requêtes scalaires
 
-Une expression de sous-requête scalaire est une sous-requête qui prend une valeur unique. La valeur de l’expression de sous-requête scalaire est la valeur de la projection (clause SELECT) de la sous-requête.  Une expression de sous-requête scalaire peut être utilisée dans de nombreux endroits une expression scalaire est valide. Par exemple, une sous-requête scalaire peut être utilisée de toute expression dans les deux la sélectionner et de clauses WHERE.
-Toutefois, à l’aide d’une sous-requête scalaire ne pas toujours aider à optimiser. Par exemple, en passant une sous-requête scalaire en tant qu’argument à un système ou de fonctions définies par l’utilisateur n’offre aucun avantage dans la consommation d’unités de requête ou la latence.
+Une expression de sous-requête scalaire est une sous-requête qui prend une valeur unique. La valeur de l’expression de sous-requête scalaire est la valeur de la projection (clause SELECT) de la sous-requête.  Vous pouvez utiliser une expression de sous-requête scalaire dans de nombreux endroits où une expression scalaire est valide. Par exemple, vous pouvez utiliser une sous-requête scalaire de toute expression dans les deux la sélectionner et de clauses WHERE.
+
+À l’aide d’une sous-requête scalaire ne toujours optimiser, cependant. Par exemple, en passant une sous-requête scalaire en tant qu’argument à un système ou de fonctions définies par l’utilisateur n’offre aucun avantage dans la consommation des ressources (unités) ou la latence.
 
 Sous-requêtes scalaires peuvent être davantage classés en tant que :
 * Expression simple des sous-requêtes scalaires
@@ -186,7 +188,7 @@ Sous-requêtes scalaires peuvent être davantage classés en tant que :
 
 ### <a name="simple-expression-scalar-subqueries"></a>Expression simple des sous-requêtes scalaires
 
-Une sous-requête scalaire simple-expression est une sous-requête corrélée qui a une clause SELECT qui ne contient-elle pas les expressions d’agrégation. Ces sous-requêtes n’apporte aucun avantage de l’optimisation, car le compilateur les convertit en une plus grande expression simple. Il n’y a aucun contexte de corrélation entre la requête interne et externe.
+Une sous-requête scalaire simple-expression est une sous-requête corrélée qui a une clause SELECT qui ne contient pas les expressions d’agrégation. Ces sous-requêtes n’apporte aucun avantage de l’optimisation, car le compilateur les convertit en une plus grande expression simple. Il n’existe aucun contexte corrélé entre les requêtes internes et externes.
 
 Voici quelques exemples :
 
@@ -196,7 +198,7 @@ Voici quelques exemples :
 SELECT 1 AS a, 2 AS b
 ```
 
-Cette requête pourrait être réécrit à l’aide d’une sous-requête scalaire simple-expression pour :
+Vous pouvez réécrire cette requête, à l’aide d’une sous-requête scalaire simple-expression, pour :
 
 ```sql
 SELECT (SELECT VALUE 1) AS a, (SELECT VALUE 2) AS b
@@ -217,7 +219,7 @@ SELECT TOP 5 Concat('id_', f.id) AS id
 FROM food f
 ```
 
-Cette requête pourrait être réécrit à l’aide d’une sous-requête scalaire simple-expression pour :
+Vous pouvez réécrire cette requête, à l’aide d’une sous-requête scalaire simple-expression, pour :
 
 ```sql
 SELECT TOP 5 (SELECT VALUE Concat('id_', f.id)) AS id
@@ -243,7 +245,7 @@ SELECT TOP 5 f.id, Contains(f.description, 'fruit') = true ? f.description : und
 FROM food f
 ```
 
-Cette requête pourrait être réécrit à l’aide d’une sous-requête scalaire simple-expression pour :
+Vous pouvez réécrire cette requête, à l’aide d’une sous-requête scalaire simple-expression, pour :
 
 ```sql
 SELECT TOP 10 f.id, (SELECT f.description WHERE Contains(f.description, 'fruit')).description
@@ -262,7 +264,7 @@ Résultat de la requête :
 ]
 ```
 
-## <a name="aggregate-scalar-subqueries"></a>Agrégation sous-requêtes scalaires
+### <a name="aggregate-scalar-subqueries"></a>Agrégation sous-requêtes scalaires
 
 Une sous-requête scalaire agrégation est une sous-requête qui a une fonction d’agrégation dans sa projection ou un filtre qui correspond à une valeur unique.
 
@@ -292,7 +294,7 @@ Résultat de la requête :
 
 **Exemple 2**
 
-Une sous-requête avec plusieurs expressions de fonction d’agrégation :
+Voici une sous-requête avec plusieurs expressions de fonction d’agrégation :
 
 ```sql
 SELECT TOP 5 f.id, (
@@ -317,7 +319,7 @@ Résultat de la requête :
 
 **Exemple 3**
 
-Une requête avec une sous-requête agrégation dans la projection et le filtre :
+Voici une requête avec une sous-requête agrégation dans la projection et le filtre :
 
 ```sql
 SELECT TOP 5 
@@ -339,7 +341,7 @@ Résultat de la requête :
 ]
 ```
 
-Une solution plus optimale pour écrire cette requête consiste à joindre dans la sous-requête et référencer la sous-requête alias dans les deux l’instruction SELECT et des clauses WHERE. Cette requête est plus efficace, car nous devons exécuter la sous-requête uniquement au sein de l’instruction de jointure et non dans la projection et le filtre.
+Une solution plus optimale pour écrire cette requête consiste à joindre dans la sous-requête et référencer la sous-requête alias dans les deux l’instruction SELECT et des clauses WHERE. Cette requête est plus efficace, car vous devrez exécuter la sous-requête uniquement au sein de l’instruction de jointure et non dans la projection et le filtre.
 
 ```sql
 SELECT TOP 5 f.id, count_mg
@@ -348,27 +350,28 @@ JOIN (SELECT VALUE Count(1) FROM n IN f.nutrients WHERE n.units = 'mg') AS count
 WHERE count_mg > 20
 ```
 
-### <a name="exists-expression"></a>Expression EXISTS
+#### <a name="exists-expression"></a>Expression EXISTS
 
-Azure Cosmos DB prend en charge les expressions EXISTS. Il s’agit d’une sous-requête scalaire agrégation intégrée à l’API SQL Azure Cosmos DB. EXISTS est une expression booléenne qui prend une expression de sous-requête et renvoie true si la sous-requête retourne toutes les lignes ; Sinon, elle retourne false.
-Étant donné que l’API SQL Azure Cosmos DB ne différencie pas les expressions booléennes et toutes les expressions scalaires, EXISTS peut être utilisé dans les deux, sélectionnez et les clauses WHERE. Cela diffère de T-SQL, où une expression booléenne (par exemple, EXISTS, BETWEEN et IN) est limitée au filtre.
+Azure Cosmos DB prend en charge les expressions EXISTS. Il s’agit d’une sous-requête scalaire agrégation intégrée à l’API SQL Azure Cosmos DB. EXISTS est une expression booléenne qui prend une expression de sous-requête et renvoie true si la sous-requête retourne toutes les lignes. Sinon, elle retourne false.
 
-Si la sous-requête EXISTS retourne une valeur unique qui n’est pas définie, alors EXISTS est évalué à false. Par exemple, considérez la requête suivante qui a la valeur false :
+Étant donné que l’API SQL Azure Cosmos DB ne distingue pas les expressions booléennes et toutes les expressions scalaires, vous pouvez utiliser EXISTS dans les deux, sélectionnez et les clauses WHERE. Cela diffère de T-SQL, où une expression booléenne (par exemple, EXISTS, BETWEEN et IN) est limitée au filtre.
+
+Si la sous-requête EXISTS retourne une valeur unique qui n’est pas définie, existe portera la valeur false. Par exemple, considérez la requête suivante qui a la valeur false :
 ```sql
 SELECT EXISTS (SELECT VALUE undefined)
 ```   
 
 
-Toutefois, si le mot clé VALUE dans la sous-requête ci-dessus est omis la requête est évaluée comme vraie :
+Si le mot clé VALUE dans la sous-requête précédente est omis, la requête est évaluée comme vraie :
 ```sql
 SELECT EXISTS (SELECT undefined) 
 ```
 
-La sous-requête inclura la liste des valeurs dans la liste de sélection dans un objet. Si la liste sélectionnée n’a aucune valeur, la sous-requête retourne la valeur unique '{}' qui est défini et il n’existe donc a la valeur true.
+La sous-requête inclura la liste des valeurs dans la liste sélectionnée dans un objet. Si la liste sélectionnée n’a aucune valeur, la sous-requête retourne la valeur unique '{}'. Cette valeur est définie, EXISTS a la valeur true ;
 
-### <a name="example-rewriting-arraycontains-and-join-as-exists"></a>Exemple : Réécriture ARRAY_CONTAINS et jointure de EXISTS
+#### <a name="example-rewriting-arraycontains-and-join-as-exists"></a>Exemple : Réécriture ARRAY_CONTAINS et jointure de EXISTS
 
-Un cas d’usage courant de ARRAY_CONTAINS consiste à filtrer un document par l’existence d’un élément dans un tableau. Dans ce cas, nous vérifions si le tableau tags contient une élément nommée orange.
+Un cas d’usage courant de ARRAY_CONTAINS consiste à filtrer un document par l’existence d’un élément dans un tableau. Dans ce cas, nous vérifions si le tableau tags contient un élément nommé « orange ».
 
 ```sql
 SELECT TOP 5 f.id, f.tags
@@ -376,7 +379,7 @@ FROM food f
 WHERE ARRAY_CONTAINS(f.tags, {name: 'orange'})
 ```
 
-La même requête pourrait être réécrit pour utiliser EXISTS :
+Vous pouvez réécrire la même requête pour utiliser EXISTS :
 
 ```sql
 SELECT TOP 5 f.id, f.tags
@@ -384,9 +387,9 @@ FROM food f
 WHERE EXISTS(SELECT VALUE t FROM t IN f.tags WHERE t.name = 'orange')
 ```
 
-En outre, ARRAY_CONTAINS n’est en mesure de vérifier si une valeur est égale à n’importe quel élément dans un tableau. Si des filtres plus complexes sont nécessaires sur les propriétés du tableau, une jointure est requise.
+En outre, ARRAY_CONTAINS peut vérifier uniquement si une valeur est égale à n’importe quel élément dans un tableau. Si vous avez besoin des filtres plus complexes sur les propriétés du tableau, utilisez la jointure.
 
-Considérez la requête suivante que les filtres basés sur les unités et nutritionValue propriétés dans le tableau : 
+Considérez la requête suivante qui filtre selon les unités et `nutritionValue` propriétés dans le tableau : 
 
 ```sql
 SELECT VALUE c.description
@@ -395,9 +398,9 @@ JOIN n IN c.nutrients
 WHERE n.units= "mg" AND n.nutritionValue > 0
 ```
 
-Pour chacun des documents dans la collection, un produit croisé est effectué avec ses éléments de tableau. Cette opération de jointure permet de filtrer sur les propriétés dans le tableau. Toutefois, la consommation de RU de cette requête sera importante. Par exemple, si 1 000 documents avaient 100 éléments de chaque tableau, il va se développer à 1 000 x 100 (par exemple, 100 000) tuples.
+Pour chacun des documents dans la collection, un produit croisé est effectué avec ses éléments de tableau. Cette opération de jointure permet de filtrer sur les propriétés dans le tableau. Toutefois, la consommation de RU de cette requête sera importante. Par exemple, si 1 000 documents avaient 100 éléments de chaque tableau, il va se développer à 1 000 x 100 (autrement dit, 100 000) tuples.
 
-À l’aide de `EXISTS` peut aider à éviter ce produit croisé cher :
+À l’aide de EXISTS permet d’éviter ce produit croisé cher :
 
 ```sql
 SELECT VALUE c.description
@@ -409,9 +412,9 @@ WHERE EXISTS(
 )
 ```
 
-Dans ce cas, nous allons filtrer sur des éléments de tableau dans la sous-requête EXISTS. Si un élément de tableau correspond au filtre, puis nous le projet et `EXISTS` a la valeur true.
+Dans ce cas, vous filtrez sur des éléments de tableau dans la sous-requête EXISTS. Si un élément de tableau correspond au filtre, puis de vous projeter et EXISTS a la valeur true.
 
-Nous pouvons également alias EXISTS et référencez-le dans la projection :
+Vous pouvez également alias EXISTS et référencez-le dans la projection :
 
 ```sql
 SELECT TOP 1 c.description, EXISTS(
@@ -432,9 +435,9 @@ Résultat de la requête :
 ]
 ```
 
-### <a name="array-expression"></a>Expression de tableau
+#### <a name="array-expression"></a>Expression de tableau
 
-Le `ARRAY` expression peut être utilisée pour projeter les résultats d’une requête sous forme de tableau. Cette expression peut être utilisée uniquement dans la clause SELECT de la requête.
+Vous pouvez utiliser l’expression de tableau pour projeter les résultats d’une requête sous forme de tableau. Vous pouvez utiliser cette expression uniquement dans la clause SELECT de la requête.
 
 ```sql
 SELECT TOP 1   f.id, ARRAY(SELECT VALUE t.name FROM t in f.tags) AS tagNames
@@ -457,7 +460,7 @@ Résultat de la requête :
 ]
 ```
 
-Comme avec d’autres sous-requêtes, de filtres avec le `ARRAY` expression sont possibles.
+Comme avec d’autres sous-requêtes, les filtres avec l’expression de tableau sont possibles.
 
 ```sql
 SELECT TOP 1 c.id, ARRAY(SELECT VALUE t FROM t in c.tags WHERE t.name != 'infant formula') AS tagNames
@@ -519,4 +522,4 @@ Résultat de la requête :
 
 - [Exemples de requêtes SQL](how-to-sql-query.md)
 - [Exemples .NET Azure Cosmos DB](https://github.com/Azure/azure-cosmosdb-dotnet)
-- [Données de Document de modèle](modeling-data.md)
+- [Données de document de modèle](modeling-data.md)

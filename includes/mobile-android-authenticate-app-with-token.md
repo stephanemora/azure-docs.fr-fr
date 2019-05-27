@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/25/2018
 ms.author: crdun
 ms.openlocfilehash: deb94cab97bd9a402676cdc5c0239da8d07ed8b2
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
-ms.translationtype: HT
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52440125"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66141011"
 ---
 L’exemple précédent présentait une connexion standard, qui nécessite que le client contacte le fournisseur d’identité et le service principal Azure à chaque démarrage de l’application. Cette méthode est inefficace et risque de vous poser des problèmes d’utilisation si de nombreux clients tentent de démarrer votre application simultanément. Une meilleure approche consiste à mettre en cache le jeton d’autorisation renvoyé par le service Azure et à tenter de l’utiliser avant de recourir à une connexion basée sur un fournisseur.
 

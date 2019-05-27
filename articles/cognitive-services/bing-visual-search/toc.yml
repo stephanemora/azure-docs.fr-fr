@@ -1,6 +1,6 @@
 - name: Documentation Recherche visuelle Bing
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: "Qu’est-ce que l’API Recherche visuelle Bing\_?"
       href: overview.md
@@ -90,3 +90,5 @@
       href: 'https://stackoverflow.com/questions/tagged/bing-search'
     - name: User Voice
       href: 'https://cognitive.uservoice.com/forums/555907-bing-search'
+    - name: Conformité
+      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'

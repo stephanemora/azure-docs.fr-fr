@@ -4,14 +4,14 @@ description: Cet article explique comment optimiser le coût du débit pour les 
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 05/21/2019
 ms.author: rimman
-ms.openlocfilehash: 280d389875d5ac951e0a846f3331ea727176b5e0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ddbec882675dba4724406ad1ea8079df377c34fc
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60929037"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65967305"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Optimiser le coût du débit approvisionné dans Azure Cosmos DB
 
@@ -58,7 +58,7 @@ Comme indiqué dans le tableau suivant, selon le choix de l’API, vous pouvez a
 |API SQL|Base de données|Conteneur|
 |API d’Azure Cosmos DB pour MongoDB|Base de données|Collection|
 |API Cassandra|Espace de clés|Table|
-|API Gremlin|Compte de base de données|Graph|
+|API Gremlin|Compte de base de données|Graphe|
 |API de table|Compte de base de données|Table|
 
 En approvisionnant le débit à différents niveaux, vous pouvez optimiser vos coûts selon les caractéristiques de votre charge de travail. Comme mentionné précédemment, vous pouvez par programmation et à tout moment réduire ou augmenter votre débit approvisionné pour des conteneurs individuels ou collectivement pour un ensemble de conteneurs. Grâce à cette mise à l'échelle flexible qui s’adapte à votre charge de travail, vous payez uniquement pour le débit que vous avez configuré. Si votre conteneur ou un ensemble de conteneurs est réparti dans plusieurs régions, la disponibilité du débit que vous configurez sur le conteneur ou l’ensemble de conteneurs est garantie dans toutes les régions.
