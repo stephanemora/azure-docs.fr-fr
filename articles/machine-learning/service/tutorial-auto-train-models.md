@@ -1117,7 +1117,7 @@ print(fitted_model)
 
 ## <a name="test-the-best-model-accuracy"></a>Tester la précision du meilleur modèle
 
-Utilisez le meilleur modèle pour exécuter des prédictions sur le jeu de données de test et prédire des tarifs de taxi. La fonction `predict` utilise le meilleur modèle et prédit les valeurs de y **coût du trajet** à partir du jeu de données `x_test`. Affichez les 10 premières valeurs de coût à partir de `y_predict` :
+Utilisez le meilleur modèle pour exécuter des prédictions sur le jeu de données de test et prédire des tarifs de taxi. La fonction `predict` utilise le meilleur modèle et prédit les valeurs de y, **coût du trajet**, à partir du jeu de données `x_test`. Affichez les 10 premières valeurs de coût à partir de `y_predict` :
 
 ```python
 y_predict = fitted_model.predict(x_test.values)

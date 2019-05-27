@@ -1,6 +1,6 @@
 - name: Documentation sur les machines virtuelles Linux
   href: index.yml
-- name: Vue d’ensemble
+- name: Vue d'ensemble
   items:
     - name: À propos des Machines virtuelles
       href: overview.md
@@ -218,11 +218,11 @@
           displayName: AAD
           items:
             - name: Red Hat Enterprise Linux
-              href: ../../active-directory-domain-services/active-directory-ds-join-rhel-linux-vm.md
+              href: ../../active-directory-domain-services/join-rhel-linux-vm.md
             - name: CentOS
-              href: ../../active-directory-domain-services/active-directory-ds-join-centos-linux-vm.md
+              href: ../../active-directory-domain-services/join-centos-linux-vm.md
             - name: Ubuntu
-              href: ../../active-directory-domain-services/active-directory-ds-join-ubuntu-linux-vm.md
+              href: ../../active-directory-domain-services/join-ubuntu-linux-vm.md
         - name: Se connecter avec des informations d’identification Azure Active Directory
           href: login-using-aad.md
         - name: Mises à jour et correctifs
@@ -231,7 +231,7 @@
               href: update-infrastructure-redhat.md
         - name: Agent de machine virtuelle Azure
           items:
-            - name: Vue d’ensemble
+            - name: Vue d'ensemble
               href: ../extensions/agent-linux.md
             - name: Mise à jour de l’agent
               href: update-agent.md
@@ -259,7 +259,7 @@
       items:
         - name: Galeries d’images partagées
           items:
-            - name: Vue d’ensemble
+            - name: Vue d'ensemble
               href: shared-image-galleries.md
             - name: Interface de ligne de commande
               href: shared-images.md
@@ -271,7 +271,7 @@
               href: troubleshooting-shared-images.md
         - name: Générateur d’images (préversion)
           items:
-            - name: Vue d’ensemble
+            - name: Vue d'ensemble
               href: image-builder-overview.md
             - name: Utiliser l’interface de ligne de commande 2.0
               href: image-builder.md
@@ -378,7 +378,7 @@
       items:
         - name: Cloud Foundry
           items:
-            - name: Vue d’ensemble
+            - name: Vue d'ensemble
               href: cloudfoundry-get-started.md
             - name: Déployer votre première application
               href: cloudfoundry-deploy-your-first-app.md

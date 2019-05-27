@@ -754,17 +754,3 @@
       href: /azure/architecture/
     - name: Témoignages client
       href: 'https://customers.microsoft.com/en-us/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc'
-    - name: Travaux élastiques (déconseillé)
-      items:
-        - name: Travaux élastiques (déconseillé)
-          href: sql-database-elastic-jobs-overview.md
-        - name: Installer une tâche élastique (déconseillé)
-          href: sql-database-elastic-jobs-service-installation.md
-        - name: Créer une tâche -Portail (déconseillé)
-          href: sql-database-elastic-jobs-create-and-manage.md
-        - name: Créer une tâche -Azure PowerShell (déconseillé)
-          href: sql-database-elastic-jobs-powershell.md
-        - name: Créer une tâche -Exemple d’application (déconseillé)
-          href: sql-database-elastic-jobs-getting-started.md
-        - name: Désinstaller une tâche élastique (déconseillé)
-          href: sql-database-elastic-jobs-uninstall.md

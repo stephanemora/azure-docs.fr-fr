@@ -3,7 +3,7 @@
   items:
     - name: Data Box
       items:
-        - name: Vue d’ensemble
+        - name: Vue d'ensemble
           items:
             - name: "Qu’est-ce que Data Box\_?"
               href: data-box-overview.md
@@ -78,7 +78,7 @@
                   href: data-box-troubleshoot-rest.md
     - name: Data Box Disk
       items:
-        - name: Vue d’ensemble
+        - name: Vue d'ensemble
           items:
             - name: "Qu’est-ce qu’un disque Data Box\_?"
               href: data-box-disk-overview.md
@@ -117,10 +117,16 @@
               href: data-box-disk-contact-microsoft-support.md
     - name: Data Box Heavy
       items:
-        - name: Vue d’ensemble
+        - name: Vue d'ensemble
           items:
             - name: "Qu’est-ce que Data Box Heavy\_?"
               href: data-box-heavy-overview.md
+        - name: Concepts
+          items:
+            - name: Examiner les conditions requises
+              href: data-box-heavy-system-requirements.md
+            - name: Comprendre les limites
+              href: data-box-heavy-limits.md
     - name: Ressources
       items:
         - name: Produit Data Box
