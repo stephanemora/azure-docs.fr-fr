@@ -68,12 +68,12 @@ Un service lié lie un magasin de données à une fabrique de données. Vous cr�
 | Propriété | Description | Obligatoire |
 | --- | --- | --- |
 | type |La propriété type doit être définie sur : **Hdfs** |Oui |
-| Url |URL vers le système HDFS |OUI |
+| url |URL vers le système HDFS |OUI |
 | authenticationType |Anonyme ou Windows. <br><br> Pour utiliser l’**authentification Kerberos** pour le connecteur HDFS, reportez-vous à [cette section](#use-kerberos-authentication-for-hdfs-connector) pour configurer votre environnement local en conséquence. |OUI |
 | userName |Nom d’utilisateur de l’authentification Windows Pour l’authentification Kerberos, spécifiez `<username>@<domain>.com`. |Oui (pour l’authentification Windows) |
 | password |Mot de passe de l’authentification Windows |Oui (pour l’authentification Windows) |
 | gatewayName |Nom de la passerelle que le service Data Factory doit utiliser pour se connecter au système HDFS. |Oui |
-| Encryptedcredential |[Nouvelle AzDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) sortie de l’information d’identification d’accès. |Non  |
+| encryptedCredential |[Nouvelle AzDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) sortie de l’information d’identification d’accès. |Non  |
 
 ### <a name="using-anonymous-authentication"></a>Utilisation de l’authentification anonyme
 
