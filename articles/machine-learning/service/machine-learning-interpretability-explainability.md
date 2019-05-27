@@ -1,7 +1,7 @@
 ---
 title: Interprétabilité de modèles
 titleSuffix: Azure Machine Learning service
-description: Découvrez comment expliquer pourquoi votre modèle élabore des prédictions à l’aide du Kit de développement logiciel Azure Machine Learning. Il peut être utilisé au cours de formation ou d’inférence pour comprendre la façon dont votre modèle élabore des prédictions.
+description: Découvrez comment expliquer pourquoi votre modèle élabore des prédictions à l’aide du Kit de développement logiciel Azure Machine Learning. Il peut être utilisé au cours de formation et l’inférence pour comprendre la façon dont votre modèle élabore des prédictions.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,25 +10,25 @@ ms.author: mesameki
 author: mesameki
 ms.reviewer: larryfr
 ms.date: 04/29/2019
-ms.openlocfilehash: 62d51a0075d8b6864e4b10fa6c1eb423a440d6d0
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 4261e869fe17283886d7d8ea8101e03110d6dad4
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64926471"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65851992"
 ---
 # <a name="model-interpretability-with-azure-machine-learning-service"></a>Problème de modèle avec le service Azure Machine Learning
 
 Dans cet article, vous allez apprendre à expliquer pourquoi votre modèle a fait les prédictions c’était le cas avec le package de ce problème du SDK Python Azure Machine Learning.
 
 Utilisation des classes et méthodes dans ce package, vous pouvez obtenir :
-+ Problème sur les jeux de données réels à grande échelle, pendant la durée d’apprentissage et l’inférence. 
++ Problème sur les jeux de données réels à grande échelle, au cours de formation et l’inférence. 
 + Pour vous aider dans la découverte de modèles de données et des explications au moment de l’apprentissage des visualisations interactives
 + Valeurs de l’importance des fonctionnalités : fonctionnalités brutes et l’ingénierie
 
 Pendant la phase de formation du cycle de développement, les évaluateurs et concepteurs de modèles peuvent utiliser pour expliquer la sortie d’un modèle aux parties prenantes pour consolider la confiance.  Ils utilisent également les informations sur le modèle pour le débogage, le comportement du modèle de validation correspond à leurs objectifs et pour rechercher les biais.
 
-Pendant la phase d’inférence, scientifiques des données permettent ce problème d’expliquer des prédictions pour les personnes qui utilisent votre modèle. Par exemple, pourquoi le modèle refuser un prêt immobilier ou prédire qu’un portefeuille comporte un risque plus élevé ?
+Inférence, ou un modèle de score, est la phase où le modèle déployé est utilisé pour la prédiction, généralement sur les données de production. Pendant cette phase, les scientifiques des données peuvent expliquer les prédictions qui en résulte pour les personnes qui utilisent votre modèle. Par exemple, pourquoi le modèle refuser un prêt immobilier ou prédire qu’un portefeuille comporte un risque plus élevé ?
 
 L’utilisation de ces offre, vous pouvez expliquer les modèles d’apprentissage automatique **globalement sur toutes les données**, ou **localement sur un point de données spécifique** à l’aide de technologies de pointe de manière facile à utiliser et évolutive.
 
@@ -229,7 +229,7 @@ Utilisez le tableau de bord de visualisation pour comprendre et interpréter vot
 
 Les tracés suivantes fournissent une vue globale du modèle formé, ainsi que ses prédictions et d’explications.
 
-|Tracer|Description|
+|Tracer|Description |
 |----|-----------|
 |Exploration des données| Vue d’ensemble du jeu de données ainsi que les valeurs de prédiction.|
 |Importance globale|Montre les fonctionnalités importantes K (configurable K) supérieures dans le monde entier. Ce graphique est utile pour comprendre le comportement global du modèle sous-jacent.|
@@ -241,7 +241,7 @@ Les tracés suivantes fournissent une vue globale du modèle formé, ainsi que s
 ### <a name="local-visualizations"></a>Visualisations locales
 Vous pouvez cliquer sur n’importe quel point de données individuelles à tout moment des tracés précédents pour charger le tracé d’importance de fonctionnalité local du point de données donné.
 
-|Tracer|Description|
+|Tracer|Description |
 |----|-----------|
 |Importance local|Montre les fonctionnalités importantes K (configurable K) supérieures dans le monde entier. Ce graphique est utile pour comprendre le comportement local du modèle sous-jacent sur un point de données spécifique.|
 
@@ -287,7 +287,7 @@ clf = Pipeline(steps=[('preprocessor', DataFrameMapper(transformations)),
 tabular_explainer = TabularExplainer(clf.steps[-1][1], initialization_examples=x_train, features=dataset_feature_names, classes=dataset_classes, transformations=transformations)
 ```
 
-## <a name="interpretability-in-inferencing"></a>Problème dans inférence
+## <a name="interpretability-in-inference"></a>Problème dans l’inférence
 
 L’explicatif peut être déployé en même temps que le modèle d’origine et peut être utilisé à l’heure de calcul de score pour fournir les informations d’explication local. Le processus de déploiement d’une explication de la notation est similaire au déploiement d’un modèle et comprend les étapes suivantes :
 

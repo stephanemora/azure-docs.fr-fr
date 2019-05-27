@@ -1,7 +1,7 @@
 ---
 title: Déployer des modèles sur des FPGA
 titleSuffix: Azure Machine Learning service
-description: Découvrez comment déployer un service web avec un modèle s’exécutant sur un FPGA avec Azure Machine Learning service pour l’inférence de très faible latence.
+description: Découvrez comment déployer un service web avec un modèle en cours d’exécution sur un FPGA avec le service Azure Machine Learning pour l’inférence de latence très faible.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,16 +11,16 @@ ms.author: tedway
 author: tedway
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 249a21bf9eeb3913826971fd1aae136197d264c4
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 8d667d45e1831e0fcc939d302a16f63d4a282963
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149607"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65852050"
 ---
 # <a name="deploy-a-model-as-a-web-service-on-an-fpga-with-azure-machine-learning-service"></a>Comment déployer un modèle en tant que service web sur un FPGA avec Azure Machine Learning service
 
-Vous pouvez déployer un modèle comme un service web sur [champ FPGA programmables (des FPGA)](concept-accelerate-with-fpgas.md) avec des modèles d’accélérée de matériel Azure Machine Learning. L’utilisation de FGPA assure une inférence à très faible latence, même avec une taille de lot unique.
+Vous pouvez déployer un modèle comme un service web sur [champ FPGA programmables (des FPGA)](concept-accelerate-with-fpgas.md) avec des modèles d’accélérée de matériel Azure Machine Learning. À l’aide des FPGA fournit l’inférence de latence très faible, même avec une taille de lot unique. Inférence, ou un modèle de score, est la phase où le modèle déployé est utilisé pour la prédiction, généralement sur les données de production.
 
 Ces modèles sont actuellement disponibles :
   - ResNet 50
@@ -160,9 +160,9 @@ print(output_tensors)
 ```
 
 > [!IMPORTANT]
-> Enregistrer l’entrée et sortie TENSEURS, car vous en aurez besoin pour les demandes de conversion et inférence de modèle.
+> Enregistrer l’entrée et sortie TENSEURS, car vous en aurez besoin pour les demandes de conversion et l’inférence de modèle.
 
-Les modèles disponibles et le classifieur par défaut correspondantes de sortie TENSEURS sont ci-dessous, ce qui est ce que vous utiliseriez pendant inférence si vous avez utilisé le classifieur par défaut.
+Les modèles disponibles et le classifieur par défaut correspondantes de sortie TENSEURS sont ci-dessous, ce qui est ce que vous utiliseriez pour l’inférence si vous avez utilisé le classifieur par défaut.
 
 + Resnet50, QuantizedResnet50 ``
 output_tensors = "classifier_1/resnet_v1_50/predictions/Softmax:0"

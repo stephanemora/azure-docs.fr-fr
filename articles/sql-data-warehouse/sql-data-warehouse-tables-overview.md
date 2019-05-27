@@ -2,20 +2,20 @@
 title: Conception de tables - Azure SQL Data Warehouse | Microsoft Docs
 description: Présentation de la conception de tables dans Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: ronortloff
+author: XiaoyuL-Preview
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
+ms.subservice: development
 ms.date: 03/15/2019
-ms.author: rortloff
+ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 1073e1b4ad38c4b05c9195cf4ea16ade7416fbce
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 06bdd21363aee8202ce7178f157f01a5c26e3a52
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61474966"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65851585"
 ---
 # <a name="designing-tables-in-azure-sql-data-warehouse"></a>Conception de tables dans Azure SQL Data Warehouse
 
@@ -42,7 +42,7 @@ Pour afficher l’organisation des tables dans SQL Data Warehouse, vous pouvez u
 
 | Table WideWorldImportersDW  | Type de table | SQL Data Warehouse |
 |:-----|:-----|:------|:-----|
-| City | Dimension | wwi.DimCity |
+| Ville | Dimension | wwi.DimCity |
 | Ordre | Fact | wwi.FactOrder |
 
 
@@ -112,7 +112,7 @@ L’optimiseur de requête utilise des statistiques au niveau des colonnes quand
 ## <a name="commands-for-creating-tables"></a>Commandes pour la création de tables
 Vous pouvez créer une table à partir d’une nouvelle table vide. Vous pouvez aussi créer une table et la remplir avec les résultats d’une instruction select. Le tableau suivant répertorie les instructions T-SQL disponibles pour la création d’une table.
 
-| Instruction T-SQL | Description |
+| Instruction T-SQL | Description  |
 |:----------------|:------------|
 | [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse) | Crée une table vide en définissant toutes les colonnes et options de la table. |
 | [CREATE EXTERNAL TABLE](/sql/t-sql/statements/create-external-table-transact-sql) | Crée une table externe. La définition de la table est stockée dans SQL Data Warehouse. Les données de la table sont stockées dans le Stockage Blob Azure ou Azure Data Lake Store. |

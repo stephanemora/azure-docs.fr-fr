@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: apimpm
-ms.openlocfilehash: 565bcfa6c2f8a3da2ac16df0016b5adc54e27380
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: b3f86147eb91e874d5317204ca05fb45628414d3
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65407607"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65833412"
 ---
 # <a name="api-management-transformation-policies"></a>Stratégies de transformation de la Gestion des API
 Cette rubrique est une ressource de référence au sujet des stratégies Gestion des API suivantes. Pour plus d'informations sur l'ajout et la configuration des stratégies, consultez la page [Stratégies dans Gestion des API](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -70,7 +70,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 
 ### <a name="elements"></a>Éléments
 
-|Nom|Description|Obligatoire|
+|Name|Description|Obligatoire|
 |----------|-----------------|--------------|
 |json-to-xml|Élément racine.|Oui|
 
@@ -114,7 +114,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 
 ### <a name="elements"></a>Éléments
 
-|Nom|Description|Obligatoire|
+|Name|Description|Obligatoire|
 |----------|-----------------|--------------|
 |xml-to-json|Élément racine.|Oui|
 
@@ -150,13 +150,13 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 
 ### <a name="elements"></a>Éléments
 
-|Nom|Description|Obligatoire|
+|Nom|Description|Requis|
 |----------|-----------------|--------------|
 |find-and-replace|Élément racine.|Oui|
 
 ### <a name="attributes"></a>Attributs
 
-|Nom|Description|Obligatoire|Default|
+|Name|Description|Obligatoire|Default|
 |----------|-----------------|--------------|-------------|
 |from|Chaîne à rechercher.|Oui|N/A|
 |to|Chaîne de remplacement. Spécifiez une chaîne de remplacement nulle pour supprimer la chaîne de recherche.|Oui|N/A|
@@ -188,7 +188,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 
 ### <a name="elements"></a>Éléments
 
-|Nom|Description|Obligatoire|
+|Nom|Description|Requis|
 |----------|-----------------|--------------|
 |redirect-content-urls|Élément racine.|Oui|
 
@@ -261,13 +261,13 @@ Dans cet exemple, la stratégie permet d’acheminer la requête vers un serveur
 
 ### <a name="elements"></a>Éléments
 
-|Nom|Description|Obligatoire|
+|Nom|Description|Requis|
 |----------|-----------------|--------------|
 |set-backend-service|Élément racine.|Oui|
 
 ### <a name="attributes"></a>Attributs
 
-|Nom|Description|Obligatoire|Default|
+|Name|Description|Obligatoire|Default|
 |----------|-----------------|--------------|-------------|
 |base-url|Nouvelle URL de base du service principal.|Un des `base-url` ou `backend-id` doit être présent.|N/A|
 |id de principal|Identificateur du serveur principal pour l’acheminement. (Les entités de serveur principal sont gérées via [API](https://docs.microsoft.com/rest/api/apimanagement/backend) et [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).)|Un des `base-url` ou `backend-id` doit être présent.|N/A|
@@ -375,7 +375,7 @@ La stratégie `set-body` peut être configurée pour utiliser le langage de mod�
 #### <a name="convert-json-to-soap-using-a-liquid-template"></a>Conversion de JSON en SOAP à l’aide d’un modèle Liquid
 ```xml
 <set-body template="liquid">
-    <soap:Envelope xmlns="http://tempuri.org/" xmlns:soap="https://schemas.xmlsoap.org/soap/envelope/">
+    <soap:Envelope xmlns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
         <soap:Body>
             <GetOpenOrders>
                 <cust>{{body.getOpenOrders.cust}}</cust>
@@ -397,7 +397,7 @@ La stratégie `set-body` peut être configurée pour utiliser le langage de mod�
 
 ### <a name="elements"></a>Éléments
 
-|Nom|Description|Obligatoire|
+|Name|Description|Obligatoire|
 |----------|-----------------|--------------|
 |set-body|Élément racine. Contient le corps du texte ou une expression qui renvoie un corps.|Oui|
 
@@ -405,7 +405,7 @@ La stratégie `set-body` peut être configurée pour utiliser le langage de mod�
 
 |Nom|Description|Obligatoire|Default|
 |----------|-----------------|--------------|-------------|
-|modèle|Permet de modifier le mode de création du modèle dans lequel la stratégie Set body sera exécutée. Actuellement, la seule valeur possible est :<br /><br />- liquid - la stratégie Set body utilisera le moteur de création de modèle Liquid |Non|liquid|
+|modèle|Permet de modifier le mode de création du modèle dans lequel la stratégie Set body sera exécutée. Actuellement, la seule valeur possible est :<br /><br />- liquid - la stratégie Set body utilisera le moteur de création de modèle Liquid |Non||
 
 Pour accéder aux informations sur la requête et la réponse, le modèle Liquid peut lier à un objet de contexte aux propriétés suivantes : <br />
 <pre>context.
@@ -504,14 +504,14 @@ OriginalUrl.
 
 ### <a name="elements"></a>Éléments
 
-|Nom|Description|Obligatoire|
+|Nom|Description|Requis|
 |----------|-----------------|--------------|
 |set-header|Élément racine.|Oui|
 |value|Spécifie la valeur de l'en-tête à définir. Si plusieurs en-têtes portent le même nom, ajoutez d’autres éléments `value`.|Oui|
 
 ### <a name="properties"></a>properties
 
-|Nom|Description|Obligatoire|Default|
+|Name|Description|Obligatoire|Default|
 |----------|-----------------|--------------|-------------|
 |exists-action|Spécifie l’action à entreprendre lorsque l’en-tête est déjà spécifié. Cet attribut doit avoir une des valeurs suivantes.<br /><br /> - override : remplace la valeur de l’en-tête actuel.<br />- skip : ne remplace pas la valeur de l’en-tête actuel.<br />- append : ajoute la valeur à celle de l’en-tête actuel.<br />- delete : supprime l’en-tête de la demande.<br /><br /> S’il a la valeur `override`, l’inscription de plusieurs entrées portant le même nom fait que l’en-tête est défini selon toutes les entrées (qui figurent plusieurs fois) ; seules les valeurs listées seront définies dans le résultat.|Non|override|
 |name|Spécifie le nom de l'en-tête à définir.|Oui|N/A|
@@ -564,7 +564,7 @@ OriginalUrl.
 
 ### <a name="elements"></a>Éléments
 
-|Nom|Description|Obligatoire|
+|Nom|Description|Requis|
 |----------|-----------------|--------------|
 |set-query-parameter|Élément racine.|Oui|
 |value|Fournissez une valeur au paramètre de requête à définir. Si plusieurs paramètres de requête portent le même nom, ajoutez d’autres éléments `value`.|Oui|
@@ -712,7 +712,7 @@ OriginalUrl.
 
 ### <a name="elements"></a>Éléments
 
-|Nom|Description|Obligatoire|
+|Name|Description|Requis|
 |----------|-----------------|--------------|
 |xsl-transform|Élément racine.|Oui|
 |paramètre|Permet de définir des variables utilisées dans la transformation|Non|

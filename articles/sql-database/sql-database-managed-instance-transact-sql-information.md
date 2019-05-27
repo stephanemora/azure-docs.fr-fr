@@ -12,12 +12,12 @@ ms.reviewer: sstein, carlrab, bonova
 manager: craigg
 ms.date: 03/13/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 08920a25fc7213a773ef0d76a5daddbab3f765c2
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 17609212fcc7620dc0d6d617e7626d12c8bb0592
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64866860"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65852149"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Différences T-SQL entre Azure SQL Database Managed Instance et SQL Server
 
@@ -471,7 +471,7 @@ Les variables, fonctions et vues suivantes retournent des résultats différents
 
 ### <a name="tempdb-size"></a>Taille de TEMPDB
 
-La taille de fichier maximale de `tempdb` ne peut pas être supérieure à 24 Go par cœur sur un niveau usage général. La valeur maximale `tempdb` taille sur un niveau critique pour l’entreprise est limitée avec la taille de stockage d’instance. Le `tempdb` base de données est toujours Fractionner en fichiers de 12 données. Cette taille maximale par fichier ne peut pas être modifiée, et de nouveaux fichiers peuvent être ajoutés à `tempdb`. Certaines requêtes peuvent retourner une erreur s’ils ont besoin de plus de 24 Go par cœur dans `tempdb`.
+La taille de fichier maximale de `tempdb` ne peut pas être supérieure à 24 Go par cœur sur un niveau usage général. La valeur maximale `tempdb` taille sur un niveau critique pour l’entreprise est limitée avec la taille de stockage d’instance. Le `tempdb` base de données est toujours Fractionner en fichiers de 12 données. Cette taille maximale par fichier ne peut pas être modifiée, et les nouveaux fichiers ne peut pas être ajoutés à `tempdb`. Certaines requêtes peuvent retourner une erreur s’ils ont besoin de plus de 24 Go par cœur dans `tempdb`. `tempdb` est toujours recréée en tant que base de données vide lorsque le démarrage de l’instance ou de basculement et les modifier faite dans `tempdb` ne sera pas préservé. 
 
 ### <a name="cant-restore-contained-database"></a>Impossible de restaurer le contenu de la base de données
 

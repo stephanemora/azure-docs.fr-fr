@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/07/2019
+ms.date: 05/15/2019
 ms.author: genli
-ms.openlocfilehash: 78d2392e32465b3091c49032dc5df5f3a5b6061a
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: acfd5230d1bd572ea5179651558e3f736a8570af
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65416029"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65833120"
 ---
 # <a name="what-is-ip-address-1686312916"></a>Quelle est l’adresse IP 168.63.129.16 ?
 
@@ -38,7 +38,7 @@ L’adresse IP 168.63.129.16 est utilisée dans toutes les régions et tous les 
 
 [Sondes d’intégrité d’équilibreur de charge Azure](../load-balancer/load-balancer-custom-probe-overview.md) proviennent de cette adresse IP. Si vous bloquez cette adresse IP, vos sondes échouera.
 
-Dans un scénario de réseau non virtuel, la sonde d’intégrité en provenance d’une adresse IP privée et 168.63.129.16 n’est pas utilisé.
+Dans un scénario de réseau-virtuel (classique), la sonde d’intégrité en provenance d’une adresse IP privée et 168.63.129.16 n’est pas utilisé.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

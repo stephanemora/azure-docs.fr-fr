@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: ec2e53624ad48650f922439c5f16d1cf1f25c280
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 0acac29ee49bc94c195d0e13e55fff3a735ad36b
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64706369"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65859811"
 ---
 # <a name="install-custom-apache-hadoop-applications-on-azure-hdinsight"></a>Installer des applications Apache Hadoop personnalisées sur Azure HDInsight
 
@@ -116,8 +116,8 @@ Il existe plusieurs façons de supprimer des applications HDInsight.
 ### <a name="use-azure-powershell"></a>Utilisation d'Azure PowerShell
 Vous pouvez utiliser Azure PowerShell pour supprimer le cluster ou le groupe de ressources. Consultez la section [Supprimer des clusters à l’aide d’Azure PowerShell](hdinsight-administer-use-powershell.md#delete-clusters).
 
-### <a name="use-azure-classic-cli"></a>Utiliser Azure Classic CLI
-Vous pouvez utiliser Azure Classic CLI pour supprimer le cluster ou le groupe de ressources. Voir [Supprimer des clusters à l’aide d’Azure Classic CLI](hdinsight-administer-use-command-line.md#delete-clusters).
+### <a name="use-azure-cli"></a>Utiliser l’interface de ligne de commande Microsoft Azure
+Vous pouvez utiliser l’interface de ligne de commande Azure pour supprimer le cluster ou le groupe de ressources. Consultez la section [Supprimer des clusters à l’aide de l’interface de ligne de commande Azure](hdinsight-administer-use-command-line.md#delete-clusters).
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [MSDN : installer une application HDInsight](https://msdn.microsoft.com/library/mt706515.aspx) : découvrez comment développer des applications Resource Manager pour le déploiement d’applications HDInsight.

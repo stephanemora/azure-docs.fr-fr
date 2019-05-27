@@ -1,6 +1,6 @@
 ---
 title: Développer Azure Functions à l’aide de Visual Studio | Microsoft Docs
-description: Apprenez à développer et à tester Azure Functions à l’aide d’Azure Functions Tools pour Visual Studio 2017.
+description: Découvrez comment développer et tester Azure Functions à l’aide d’Azure Functions Tools pour Visual Studio 2019.
 services: functions
 documentationcenter: .net
 author: ggailey777
@@ -10,16 +10,16 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 10/08/2018
 ms.author: glenga
-ms.openlocfilehash: 4e67e91e93ef3a2e2acf88a87b97eaab56ca6479
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4366f09ccc9a3b2335e0aa84b7fb7398825cb87e
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60403661"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65864526"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Développer Azure Functions à l’aide de Visual Studio  
 
-Azure Functions Tools pour Visual Studio 2017 est une extension pour Visual Studio qui vous permet de développer, de tester et de déployer des fonctions C# sur Azure. S’il s’agit de votre première expérience avec Azure Functions, vous pouvez en apprendre davantage dans l’article [Présentation d’Azure Functions](functions-overview.md).
+Azure Functions Tools pour Visual Studio 2019 est une extension pour Visual Studio qui vous permet de développer, tester et déployer C# fonctions vers Azure. S’il s’agit de votre première expérience avec Azure Functions, vous pouvez en apprendre davantage dans l’article [Présentation d’Azure Functions](functions-overview.md).
 
 Azure Functions Tools propose les avantages suivants : 
 
@@ -29,16 +29,16 @@ Azure Functions Tools propose les avantages suivants :
 * Développer et déployer des fonctions précompilées C#. Les fonctions précompilées offrent de meilleures performances de démarrage à froid que les fonctions basées sur un script C#. 
 * Coder vos fonctions en C# tout en bénéficiant de tous les avantages du développement Visual Studio. 
 
-Cet article fournit des détails sur l’utilisation d’Azure Functions Tools pour Visual Studio 2017 pour développer des fonctions C# et les publier sur Azure. Avant de lire cet article, lisez le [Démarrage rapide de Functions pour Visual Studio](functions-create-your-first-function-visual-studio.md). 
+Cet article fournit des détails sur l’utilisation d’Azure Functions Tools pour Visual Studio 2019 pour développer C# fonctions et les publier sur Azure. Avant de lire cet article, lisez le [Démarrage rapide de Functions pour Visual Studio](functions-create-your-first-function-visual-studio.md). 
 
 > [!IMPORTANT]
 > Ne mélangez pas un développement local avec un développement de portail dans une même application de fonction. Quand vous publiez à partir d’un projet local dans une application de fonction, le processus de déploiement remplace toutes les fonctions que vous avez développées dans le portail.
 
 ## <a name="prerequisites"></a>Conditions préalables
 
-Azure Functions Tools est inclus dans la charge de travail de développement Azure de [Visual Studio 2017 version 15.5](https://www.visualstudio.com/vs/) et des versions ultérieures. Veillez à inclure la charge de travail de **développement Azure** lorsque vous installez Visual Studio 2017 :
+Azure Functions Tools est inclus dans la charge de travail de développement Azure de [Visual Studio 2017](https://www.visualstudio.com/vs/), ou une version ultérieure. Veillez à inclure le **développement Azure** charge de travail dans votre installation de Visual Studio 2019 :
 
-![Installer Visual Studio 2017 avec la charge de travail de développement Azure](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
+![Installer Visual Studio 2019 avec la charge de travail de développement Azure](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
 
 Vérifiez que Visual Studio est à jour et que vous utilisez la [dernière version](#check-your-tools-version) d’Azure Functions Tools.
 

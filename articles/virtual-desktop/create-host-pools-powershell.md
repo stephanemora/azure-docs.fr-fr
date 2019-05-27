@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 05/06/2019
 ms.author: helohr
-ms.openlocfilehash: 8e6783bb56f55949824e4ce94c85145f53dd9f4b
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: a58e059e800b13d01ba8e50880bd75077d4418ae
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65523955"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65833965"
 ---
 # <a name="create-a-host-pool-with-powershell"></a>Créer un pool d’hôtes avec PowerShell
 
@@ -78,6 +78,9 @@ Pour correctement jonction de domaine, procédez comme suit sur chaque machine v
 3. Sélectionnez **nom de l’ordinateur**, sélectionnez **modifier les paramètres**, puis sélectionnez **modification...**
 4. Sélectionnez **domaine** , puis entrez le domaine Active Directory sur le réseau virtuel.
 5. S’authentifier avec un compte de domaine qui dispose de privilèges pour les machines de jonction de domaine.
+
+    >[!NOTE]
+    > Si vous rejoignez vos machines virtuelles dans un environnement Azure AD Domain Services, assurez-vous que votre utilisateur de jonction de domaine est également un membre de la [groupe AAD DC Administrators](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-admingroup#task-3-configure-administrative-group).
 
 ## <a name="register-the-virtual-machines-to-the-windows-virtual-desktop-preview-host-pool"></a>Inscrire les machines virtuelles au pool hôte Windows Virtual Desktop Preview
 

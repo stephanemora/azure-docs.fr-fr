@@ -2,21 +2,21 @@
 title: Création, mise à jour de statistiques - Azure SQL Data Warehouse | Microsoft Docs
 description: Recommandations et exemples pour la création et la mise à jour de statistiques d’optimisation des requêtes sur des tables dans Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: ckarst
+author: XiaoyuL-Preview
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
+ms.subservice: development
 ms.date: 05/09/2018
-ms.author: kevin
-ms.reviewer: jrasnick
+ms.author: xiaoyul
+ms.reviewer: igorstan
 ms.custom: seoapril2019
-ms.openlocfilehash: 7ef5c0a4e6694e9babcb3054831e88d9edceae85
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: c5043d99dd130bc7dc7b35eaa5ecadf11d7644db
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64937274"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65851541"
 ---
 # <a name="table-statistics-in-azure-sql-data-warehouse"></a>Statistiques de table dans Azure SQL Data Warehouse
 
@@ -46,11 +46,11 @@ SET AUTO_CREATE_STATISTICS ON
 
 Ces instructions déclenchera la création automatique de statistiques :
 
-- SELECT
+- SÉLECTIONNER
 - INSERT-SELECT
 - CTAS
 - UPDATE
-- SUPPRIMER
+- DELETE
 - EXPLIQUEZ quand contenant une jointure ou la présence d’un prédicat est détectée
 
 > [!NOTE]
@@ -77,7 +77,7 @@ Voici certaines recommandations pour la mise à jour des statistiques :
 
 |||
 |-|-|
-| **Fréquence des mises à jour des statistiques**  | Classique : Quotidien </br> Après le chargement ou la transformation de données |
+| **Fréquence des mises à jour des statistiques**  | Classique : Quotidienne </br> Après le chargement ou la transformation de données |
 | **Échantillonnage** |  Moins de 1 milliard de lignes, utilisez l’échantillonnage par défaut (20 pour cent). </br> Avec plus de 1 milliard de lignes, utilisez l’échantillonnage de 2 %. |
 
 L’une des premières questions que vous devez vous poser quand vous dépannez une requête est la suivante : **« Les statistiques sont-elles à jour ? »**
@@ -148,7 +148,7 @@ Cette syntaxe a recours à toutes les options par défaut. Par défaut, SQL Data
 CREATE STATISTICS [statistics_name] ON [schema_name].[table_name]([column_name]);
 ```
 
-Par exemple : 
+Exemple :
 
 ```sql
 CREATE STATISTICS col1_stats ON dbo.table1 (col1);
@@ -164,7 +164,7 @@ Pour échantillonner la table entière, utilisez la syntaxe suivante :
 CREATE STATISTICS [statistics_name] ON [schema_name].[table_name]([column_name]) WITH FULLSCAN;
 ```
 
-Par exemple : 
+Exemple :
 
 ```sql
 CREATE STATISTICS col1_stats ON dbo.table1 (col1) WITH FULLSCAN;
@@ -367,7 +367,7 @@ Pour réaliser cette opération, utilisez la syntaxe suivante :
 UPDATE STATISTICS [schema_name].[table_name]([stat_name]);
 ```
 
-Par exemple : 
+Exemple :
 
 ```sql
 UPDATE STATISTICS [dbo].[table1] ([stats_col1]);
@@ -383,7 +383,7 @@ Une méthode simple pour la mise à jour tous les objets de statistiques sur une
 UPDATE STATISTICS [schema_name].[table_name];
 ```
 
-Par exemple : 
+Exemple :
 
 ```sql
 UPDATE STATISTICS dbo.table1;
@@ -406,7 +406,7 @@ Vous pouvez utiliser plusieurs fonctions et vues système pour rechercher des in
 
 Ces vues système fournissent des informations sur les statistiques :
 
-| Vue de catalogue | Description |
+| Vue de catalogue | Description  |
 |:--- |:--- |
 | [sys.columns](/sql/relational-databases/system-catalog-views/sys-columns-transact-sql) |Une ligne pour chaque colonne. |
 | [sys.objects](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql) |Une ligne pour chaque objet de la base de données. |
@@ -420,7 +420,7 @@ Ces vues système fournissent des informations sur les statistiques :
 
 Ces fonctions système sont utiles lorsque vous gérez des statistiques :
 
-| Fonction système | Description |
+| Fonction système | Description  |
 |:--- |:--- |
 | [STATS_DATE](/sql/t-sql/functions/stats-date-transact-sql) |Date de la dernière mise à jour de l’objet de statistiques. |
 | [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql) |Informations détaillées et récapitulatives sur la distribution des valeurs, telles que l’objet de statistiques la comprend. |
@@ -483,7 +483,7 @@ Cet exemple simple illustre les trois parties d’un objet de statistiques :
 DBCC SHOW_STATISTICS([<schema_name>.<table_name>],<stats_name>)
 ```
 
-Par exemple : 
+Exemple :
 
 ```sql
 DBCC SHOW_STATISTICS (dbo.table1, stats_col1);
@@ -497,7 +497,7 @@ Si vous êtes uniquement intéressé par l’affichage de certaines parties, uti
 DBCC SHOW_STATISTICS([<schema_name>.<table_name>],<stats_name>) WITH stat_header, histogram, density_vector
 ```
 
-Par exemple : 
+Exemple :
 
 ```sql
 DBCC SHOW_STATISTICS (dbo.table1, stats_col1) WITH histogram, density_vector

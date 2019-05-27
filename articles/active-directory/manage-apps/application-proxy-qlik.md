@@ -14,12 +14,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2fc03751859160f2c234810dcb01e1579cb3e2a8
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 8f54e08e6c3b7b673541f124a90f32dbc860fa44
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65782668"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65859540"
 ---
 # <a name="application-proxy-and-qlik-sense"></a>Proxy d’application et Qlik Sens 
 Le proxy d’application Azure Active Directory et Qlik Sense se sont associés afin de vous permettre d’utiliser facilement le Proxy d’application pour fournir l’accès à distance à votre déploiement Qlik sens.  
@@ -60,7 +60,9 @@ Suivez les mêmes étapes que pour la 1ère application, avec les exceptions sui
 Votre application est maintenant prête à être testée. Accédez à l’URL externe utilisée pour publier QlikSense dans la 1ère application et connectez-vous en tant qu’utilisateur affecté aux deux applications.  
 
 ## <a name="additional-references"></a>Références supplémentaires
-Pour plus d’informations sur la publication Qlik Sense avec le proxy d’application, consultez l’article de la communauté Qlik : [Azure AD with Integrated Windows Authentication using a Kerberos Constrained Delegation with Qlik Sense](https://community.qlik.com/docs/DOC-20183) (Azure Active Directory avec authentification Windows intégrée utilisant la délégation contrainte Kerberos avec Qlik Sense).
+Pour plus d’informations sur la publication Qlik Sense avec le Proxy d’Application, consultez les Articles de la Communauté Qlik qui suivent : 
+- [Azure AD avec l’authentification Windows intégrée à l’aide d’une délégation Kerberos contrainte avec Qlik Sense](https://community.qlik.com/docs/DOC-20183)
+- [Intégration de Qlik Sense avec Proxy d’Application Azure AD](https://community.qlik.com/t5/Technology-Partners-Ecosystem/Azure-AD-Application-Proxy/ta-p/1528396)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

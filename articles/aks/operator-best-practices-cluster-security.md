@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: iainfou
-ms.openlocfilehash: 0f24f7378ceb9266acf8988835b77cef80bd6f13
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: a468c2f3b1b3034c817ac19988420b68e18deb83
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65192193"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65849847"
 ---
 # <a name="best-practices-for-cluster-security-and-upgrades-in-azure-kubernetes-service-aks"></a>Meilleures pratiques relatives aux mises à jour et à la sécurité du cluster dans Azure Kubernetes Service (AKS)
 
@@ -50,7 +50,7 @@ Pour plus d’informations sur l’intégration Azure AD et le contrôle d’acc
 
 De la même façon que vous devez accorder aux utilisateurs ou groupes le nombre minimal de privilèges requis, les conteneurs doivent également être limités aux actions et processus nécessaires uniquement. Pour réduire le risque d’attaque, ne configurez pas les applications et les conteneurs qui nécessitent des privilèges escaladés ou un accès racine. Par exemple, définissez `allowPrivilegeEscalation: false` dans le manifeste de pod. Ces *contextes de sécurité de pod* sont intégrés à Kubernetes et vous permettent de définir des autorisations supplémentaires telles que l’identité du groupe ou de l’utilisateur à exécuter, ou les fonctionnalités Linux à exposer. Pour plus de meilleures pratiques, consultez [Secure pod access to resources][pod-security-contexts] (Sécuriser l’accès du pod aux ressources).
 
-Pour un contrôle plus précis des actions de conteneur, vous pouvez également utiliser les fonctionnalités de sécurité Linux intégrées telles que *AppArmor* et *seccomp*. Ces fonctionnalités sont définies au niveau du nœud, puis implémentées via un manifeste de pod.
+Pour un contrôle plus précis des actions de conteneur, vous pouvez également utiliser les fonctionnalités de sécurité Linux intégrées telles que *AppArmor* et *seccomp*. Ces fonctionnalités sont définies au niveau du nœud, puis implémentées via un manifeste de pod. Fonctionnalités de sécurité intégrées Linux sont uniquement disponibles sur pods et les nœuds Linux.
 
 > [!NOTE]
 > Les environnements Kubernetes, dans AKS ou ailleurs, ne sont pas totalement sûrs pour une utilisation multi-locataire hostile. Des fonctionnalités de sécurité supplémentaires, comme *AppArmor*, *seccomp* ou des *stratégies de sécurité Pod*, ainsi que des contrôles d'accès en fonction du rôle (RBAC) plus détaillés pour les nœuds rendent les attaques plus difficiles. Mais lors de l'exécution de charges de travail multi-locataires hostiles, seul un hyperviseur garantira véritablement la sécurité. Le domaine de sécurité de Kubernetes devient le cluster, et non un nœud individuel. Pour ces types de charges de travail multi-locataires hostiles, vous devez utiliser des clusters physiquement isolés.
@@ -193,13 +193,13 @@ az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes
 
 Pour plus d’informations sur les mises à niveau dans AKS, consultez [Versions de Kubernetes prises en charge dans Azure Kubernetes Service (AKS)][aks-supported-versions] et [Mise à jour d’un cluster Azure Kubernetes Service (AKS)][aks-upgrade].
 
-## <a name="process-node-updates-and-reboots-using-kured"></a>Traiter les mises à jour et redémarrages de nœud avec kured
+## <a name="process-linux-node-updates-and-reboots-using-kured"></a>Nœud de processus Linux met à jour et redémarre à l’aide de kured
 
-**Meilleures pratiques** - AKS télécharge et installe automatiquement les correctifs de sécurité sur chacun des nœuds de travail, mais il ne redémarre pas automatiquement si nécessaire. Utilisez `kured` pour surveiller les redémarrages en attente, puis fermez et videz le nœud en toute sécurité pour qu’il puisse redémarrer, appliquer les mises à jour et être aussi sûr que possible à l’égard du système d’exploitation.
+**Meilleures pratiques** - AKS télécharge automatiquement et installe sécurité correctifs sur les nœuds Linux, mais il ne redémarre pas automatiquement si nécessaire. Utilisez `kured` pour surveiller les redémarrages en attente, puis fermez et videz le nœud en toute sécurité pour qu’il puisse redémarrer, appliquer les mises à jour et être aussi sûr que possible à l’égard du système d’exploitation. Pour les nœuds de Windows Server (actuellement en version préliminaire dans ACS), effectuez régulièrement une opération de mise à niveau AKS à drain et vider les pods et déployer des nœuds mis à jour en toute sécurité.
 
-Chaque soir, les nœuds AKS reçoivent les correctifs de sécurité disponibles via leur canal de mise à jour de distribution. Ce comportement est automatiquement configuré à mesure que les nœuds sont déployés dans un cluster AKS. Pour minimiser les perturbations et l’impact potentiel sur les charges de travail en cours d’exécution, les nœuds ne sont pas automatiquement redémarrés si un correctif de sécurité ou mise à jour du noyau l’exige.
+Chaque soir, les nœuds Linux dans ACS procurez-vous les correctifs de sécurité disponibles via leur canal de mise à jour de distributeur. Ce comportement est automatiquement configuré à mesure que les nœuds sont déployés dans un cluster AKS. Pour minimiser les perturbations et l’impact potentiel sur les charges de travail en cours d’exécution, les nœuds ne sont pas automatiquement redémarrés si un correctif de sécurité ou mise à jour du noyau l’exige.
 
-Le projet [kured (KUbernetes REboot Daemon)][kured] open source de Weaveworks surveille les redémarrages de nœud en attente. Lorsqu’un nœud applique des mises à jour nécessitant un redémarrage, le nœud est en toute sécurité fermé et vidé pour déplacer et planifier les pods sur d’autres nœuds du cluster. Après le redémarrage du nœud, ce dernier est de nouveau ajouté au cluster, et Kubernetes reprend la planification des pods sur celui-ci. Pour limiter les perturbations, un seul nœud à la fois est autorisé à être redémarré par `kured`.
+Le projet [kured (KUbernetes REboot Daemon)][kured] open source de Weaveworks surveille les redémarrages de nœud en attente. Lorsqu’un nœud Linux applique des mises à jour nécessitant un redémarrage, le nœud est en toute sécurité coordonné et purgé pour déplacer et planifier les pods sur d’autres nœuds du cluster. Après le redémarrage du nœud, ce dernier est de nouveau ajouté au cluster, et Kubernetes reprend la planification des pods sur celui-ci. Pour limiter les perturbations, un seul nœud à la fois est autorisé à être redémarré par `kured`.
 
 ![Le processus de redémarrage du nœud AKS à l’aide de kured](media/operator-best-practices-cluster-security/node-reboot-process.png)
 

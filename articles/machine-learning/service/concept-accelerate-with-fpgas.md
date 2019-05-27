@@ -11,12 +11,12 @@ author: tedway
 ms.reviewer: jmartens
 ms.date: 04/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 648dc462477570a692eff588c558a18a3121e4e7
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 1a690ea350ea98589e9134cd6f401c6ac3c58083
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025254"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65851025"
 ---
 # <a name="what-are-field-programmable-gate-arrays-fpga"></a>Quelles sont les tableaux de portes à champ programmable (FPGA)
 
@@ -30,16 +30,16 @@ Le diagramme et le tableau qui suivent comparent les FPGA et les autres processe
 
 ![Diagramme de comparaison des FPGA du service Azure Machine Learning](./media/concept-accelerate-with-fpgas/azure-machine-learning-fpga-comparison.png)
 
-|Processeur||Description|
+|Processeur||Description |
 |---|:-------:|------|
 |Application Specific Integrated Circuit (Circuits intégrés spécifiques à une application)|ASIC|Les circuits personnalisés, comme les TPU (TensorFlow Processor Units) de Google, offrent la meilleure efficacité. Ils ne peuvent pas être reconfigurés selon vos besoins.|
 |Field-Programmable Gate Array|FPGA|Les FPGA, comme ceux disponibles sur Azure, offrent des performances approchant celles des ASIC. Ils sont flexibles et reconfigurables, afin de pouvoir implémenter de nouvelles logiques.|
 |GPU (Graphics Processing Unit, Unité de traitement graphique)|GPU|Un choix courant pour les calculs en intelligence artificielle. Les GPU offrent des fonctionnalités de traitement parallèle qui les rendent plus rapides que les UC pour le rendu des images.|
-|UC (Unité centrale)|UC|Processeurs à usage général dont les performances ne sont pas idéales pour le traitement des images et de la vidéo.|
+|UC (Unité centrale)|Processeurs|Processeurs à usage général dont les performances ne sont pas idéales pour le traitement des images et de la vidéo.|
 
 Des FPGA sur Azure sont basées sur les appareils FPGA d’Intel, les scientifiques des données et les développeurs utilisent pour accélérer les calculs d’intelligence artificielle en temps réel. Cette architecture compatible avec les FPGA offre performances, flexibilité et scalabilité, et est disponible sur Azure.
 
-Les FPGA permettent d’obtenir une latence faible pour les requêtes d’inférence en temps réel. Les requêtes asynchrones (traitement par lot) ne sont pas nécessaires. Le traitement par lots peut entraîner une latence, car davantage de données doivent être traitées. Les implémentations des unités de traitement neuronaux ne nécessitent pas de traitement par lot ; la latence peut donc être autant de fois inférieure, par rapport aux processeurs GPU et UC.
+Des FPGA permettent d’atteindre de requêtes à faible latence de l’inférence en temps réel (ou d’évaluation de modèle). Les requêtes asynchrones (traitement par lot) ne sont pas nécessaires. Le traitement par lots peut entraîner une latence, car davantage de données doivent être traitées. Les implémentations des unités de traitement neuronaux ne nécessitent pas de traitement par lot ; la latence peut donc être autant de fois inférieure, par rapport aux processeurs GPU et UC.
 
 ### <a name="reconfigurable-power"></a>Puissance reconfigurable
 Vous pouvez reconfigurer les FGPA pour différents types de modèles Machine Learning. Cette souplesse permet d’accélérer les applications basées sur la précision numérique la plus optimale et le modèle de mémoire utilisé. Étant donné que les FPGA sont reconfigurables, vous pouvez suivre l’évolution des besoins des algorithmes d’intelligence artificielle.

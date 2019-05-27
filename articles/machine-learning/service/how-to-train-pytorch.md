@@ -11,12 +11,12 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 02463ba47a48f5e86055b9ecb4e0edbdf9608769
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 11819730e05e425066e1f060769e14d5290f877d
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024574"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65851974"
 ---
 # <a name="train-pytorch-models-with-azure-machine-learning-service"></a>Entraîner des modèles PyTorch avec le service Azure Machine Learning
 
@@ -105,7 +105,7 @@ run = exp.submit(pt_est)
 
 ## <a name="export-to-onnx"></a>Exporter vers ONNX
 
-Pour obtenir une inférence optimisée avec la [ONNX Runtime](concept-onnx.md), vous pouvez convertir votre modèle PyTorch formé au format ONNX. Consultez le [didacticiel](https://github.com/onnx/tutorials/blob/master/tutorials/PytorchOnnxExport.ipynb) pour obtenir un exemple.
+Pour optimiser l’inférence avec le [ONNX Runtime](concept-onnx.md), convertir votre modèle PyTorch formé au format ONNX. Inférence, ou un modèle de score, est la phase où le modèle déployé est utilisé pour la prédiction, généralement sur les données de production. Consultez le [didacticiel](https://github.com/onnx/tutorials/blob/master/tutorials/PytorchOnnxExport.ipynb) pour obtenir un exemple.
 
 ## <a name="examples"></a>Exemples
 

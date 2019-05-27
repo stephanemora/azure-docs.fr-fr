@@ -11,12 +11,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 02/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: f5cc86c40f56cee28ff6a6912acd67961285bffc
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 2410787c3307136f827ea7fc34df9a545a59cbf4
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025323"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65850902"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Gérer l’accès à un espace de travail Azure Machine Learning
 
@@ -26,7 +26,7 @@ Dans cet article, vous allez apprendre à gérer l’accès à un espace de trav
 
 Un espace de travail Azure Machine Learning est une ressource Azure. Comme les autres ressources Azure, lorsqu’un nouvel espace de travail Azure Machine Learning est créé, il est fourni avec trois rôles par défaut. Vous pouvez ajouter des utilisateurs à l’espace de travail et les affecter à un de ces rôles prédéfinis.
 
-| Rôle | Niveau d’accès |
+| Rôle | Niveau d'accès |
 | --- | --- |
 | **Lecteur** | Actions en lecture seule dans l’espace de travail. Lecteurs peuvent répertorier et afficher les ressources dans un espace de travail, mais ne peut pas créer ou mettre à jour de ces ressources. |
 | **Contributeur** | Afficher, créer, modifier ou supprimer (le cas échéant) des ressources dans un espace de travail. Par exemple, contributeurs peuvent créer une expérience, créer ou joindre un cluster de calcul, envoyer une exécution et déployer un service web. |
@@ -67,7 +67,7 @@ Si les rôles intégrés sont insuffisantes, vous pouvez créer des rôles perso
 
 Pour créer un rôle personnalisé, tout d’abord construire un fichier JSON de définition de rôle qui spécifie l’autorisation et l’étendue pour le rôle. L’exemple suivant définit un rôle personnalisé appelé « Scientifique des données « étendue à un niveau de l’espace de travail spécifique :
 
-`data_scientist_role.json` :
+`data_scientist_role.json` :
 ```json
 {
     "Name": "Data Scientist",
@@ -113,5 +113,5 @@ Pour plus d’informations, consultez [rôles personnalisés pour les ressources
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Vue d’ensemble de la sécurité Enterprise](concept-enterprise-security.md)
-- [Exécuter en toute sécurité les expériences d’inférence à l’intérieur d’un réseau virtuel](how-to-enable-virtual-network.md)
+- [Exécuter en toute sécurité des expériences et inférence/score à l’intérieur d’un réseau virtuel](how-to-enable-virtual-network.md)
 - [Tutoriel : Entraîner des modèles](tutorial-train-models-with-aml.md)

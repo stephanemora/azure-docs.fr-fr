@@ -5,18 +5,21 @@ services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 12/04/2018
-ms.author: pabutler
-ms.openlocfilehash: 8817c8aa7d5d589be5e03cdd04e3a505d7e2be21
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.date: 05/16/2019
+ms.author: pbutlerm
+ms.openlocfilehash: 2195c9a5e1f0d3683ea8cf6564d97cbabd072f81
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64941657"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65834212"
 ---
 # <a name="update-an-existing-saas-application-offer"></a>Mettre à jour une offre d’application SaaS existante
 
 Différents types de mises à jour peuvent s’appliquer à votre offre à l’issue de la publication et de la mise en ligne de celle-ci. Toute modification apportée à la nouvelle version de votre offre doit être enregistrée et republiée pour apparaître sur la Place de marché. Cet article explique en détail comment mettre à jour une offre SaaS sur le [Portail Cloud Partner](https://cloudpartner.azure.com/).
+
+> [!IMPORTANT] 
+> SaaS offre des fonctionnalités sont migrée vers le [Microsoft Partner Center](https://partner.microsoft.com/dashboard/directory).  Tous les nouveaux éditeurs doivent utiliser le centre de partenaires pour la création de nouvelles offres de SaaS et de gestion des offres existants.  Éditeurs actuels avec les offres SaaS sont batchwise migrées à partir du portail Cloud Partner pour l’espace partenaires.  Le portail Cloud Partner affiche des messages d’état pour indiquer quand les offres spécifiques ont été migrés.
 
 Vous pouvez mettre à jour votre offre pour plusieurs raisons, par exemple :
 
@@ -75,7 +78,7 @@ Pour afficher tout l’historique des activités de publication, cliquez sur l�
 
 ![Voir l’historique des offres dans le Portail Cloud Partner](./media/saas-offer-history.png)
 
-Vous pouvez utiliser la page d’historique des audits pour rechercher une offre spécifique et appliquer des filtres tels que Serveur de publication, Offre et Type d’événement (par exemple, OfferGoLiveRequested.) Vous pouvez également télécharger l’historique des audits dans un fichier csv.
+Vous pouvez utiliser la page de l’historique d’Audit pour rechercher une offre spécifique et appliquer des filtres tels que le serveur de publication, l’offre et Type d’événement (par exemple, OfferGoLiveRequested.) Vous pouvez également télécharger l’historique des audits dans un fichier csv.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -5,18 +5,22 @@ services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 12/04/2018
-ms.author: pabutler
-ms.openlocfilehash: 246dd77c8e92a36e0601aba7d1b851efb7e7fb9a
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.date: 05/16/2019
+ms.author: pbutlerm
+ms.openlocfilehash: 646e9bf844477b3d8e1c4c42fb5956e015805433
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64943550"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65833501"
 ---
 # <a name="create-a-new-saas-application-offer"></a>Créer une offre d’application SaaS
 
 Cet article explique comment créer et publier une entrée d’offre d’application SaaS sur la Place de marché Azure.
+
+> [!IMPORTANT] 
+> SaaS offre des fonctionnalités sont migrée vers le [Microsoft Partner Center](https://partner.microsoft.com/dashboard/directory).  Tous les nouveaux éditeurs doivent utiliser le centre de partenaires pour la création de nouvelles offres de SaaS et de gestion des offres existants.  Éditeurs actuels avec les offres SaaS sont batchwise migrées à partir du portail Cloud Partner pour l’espace partenaires.  Le portail Cloud Partner affiche des messages d’état pour indiquer quand les offres spécifiques ont été migrés.
+
 
 ## <a name="offer-process"></a>Processus de l’offre
 
@@ -33,7 +37,7 @@ L’offre d'application SaaS se décompose en cinq sections, décrites dans le t
 |    Paramètres de l’offre  |  Permettent de configurer une identité unique pour l’application SaaS.                 |
 |  Informations techniques    |  Elles permettent de configurer le type de solution SaaS, et fournissent les détails de connexion de votre application.                |
 |  Informations de canal      |   Fournissent des informations sur le canal, tels que les matériaux GTM et les contacts.                |
-|  Version d’évaluation        |   Section facultative permettant de définir un service offrant aux clients la possibilité de tester votre offre avant d’acheter.                |
+|  Version d'évaluation        |   Section facultative permettant de définir un service offrant aux clients la possibilité de tester votre offre avant d’acheter.                |
 |  Informations sur les vitrines       | Contient des ressources et des spécifications marketing, juridique et de gestion des prospects.  <ul><li> Les ressources marketing incluent le nom, la description et les logos de l’offre</li> <li> Les ressources juridiques incluent une politique de confidentialité, des conditions d’utilisation et d’autres documents juridiques</li>  <li> La stratégie de gestion des prospects vous permet de spécifier comment gérer les prospects à partir du portail de l’utilisateur final de la Place de marché Microsoft Azure.</li> </ul> |
 | Contacts            | Contient les informations de contact et de stratégie du support |
 

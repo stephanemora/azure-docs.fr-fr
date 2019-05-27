@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 57d3e955059724756eb7102c1b9fbbf55ed203ab
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 08794a7605ffbd3cd5d4b021b783f32afb190727
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60414669"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65861575"
 ---
 # <a name="how-to-enable-password-reset-from-windows-7-8-and-81"></a>Activation Activer la réinitialisation de mot de passe à partir de Windows 7, 8 et 8.1
 
@@ -60,6 +60,8 @@ Vous devez vous inscrire pour SSPR avant de pouvoir utiliser le lien « Vous ave
 ![Informations de sécurité supplémentaires requises pour la réinitialisation de votre mot de passe](media/howto-sspr-windows-7-8/windows-7-sspr-need-security-info.png)
 
 L’utilisation de l’application Microsoft Authenticator pour les notifications et les codes afin de réinitialiser votre mot de passe ne fonctionne pas dans cette version initiale. Les utilisateurs doivent disposer d’autres méthodes inscrites qui répondent aux exigences de votre stratégie.
+
+Si le fournisseur d’informations d’identification plus de 3 rd un tiers est activé sur votre ordinateur, s’affiche plus d’un profil utilisateur sur l’écran d’ouverture de session.
 
 ## <a name="troubleshooting"></a>Résolution de problèmes
 

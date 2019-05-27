@@ -173,7 +173,7 @@ Lors de la copie des données à partir de Teradata, les mappages suivants sont 
 | Decimal |Decimal |
 | Double |Double |
 | Graphic |String |
-| Integer |Int32 |
+| Entier  |Int32 |
 | Interval Day |TimeSpan |
 | Interval Day To Hour |TimeSpan |
 | Interval Day To Minute |TimeSpan |

@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ac65a9ac81bca942f9fcbe802fdbf8a0aa3f8248
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b69dca5abddd56b29abf3e482e51b3d2a41612e7
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60287975"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65864470"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Rapports d’activité de connexion dans le portail Azure Active Directory
 
@@ -37,7 +37,7 @@ L’architecture de création de rapports dans Azure Active Directory (Azure 
 
 Cette rubrique présente une vue d’ensemble du rapport de connexions.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables
 
 ### <a name="who-can-access-the-data"></a>Qui peut accéder aux données ?
 * Les utilisateurs ayant le rôle Administrateur de sécurité, Lecteur Sécurité et Lecteur de rapports
@@ -126,26 +126,33 @@ Les valeurs possibles sont les suivantes :
 
 - 1 mois
 - 7 jours
-- 24 heures
+- 24 heures
 - Intervalle de temps personnalisé
 
 Lorsque vous sélectionnez une plage personnalisée, vous pouvez configurer une heure de début et une heure de fin.
 
-Si vous ajoutez des champs à votre affichage de connexions, ils sont automatiquement ajoutés à la liste de filtres. Par exemple, en ajoutant un champ **Application cliente** à votre liste, vous obtenez également une autre option de filtre qui vous permet de définir les filtres suivants :
-
-- Browser      
-- Exchange ActiveSync (pris en charge)               
-- Exchange ActiveSync (non pris en charge)
-- Autres clients               
-    - IMAP
-    - MAPI
-    - Clients Office plus anciens
-    - POP
-    - SMTP
-
-
+Si vous ajoutez des champs à votre affichage de connexions, ils sont automatiquement ajoutés à la liste de filtres. Par exemple, en ajoutant un champ **Application cliente** à votre liste, vous obtenez également une autre option de filtre qui vous permet de définir les filtres suivants :  
 ![Activité de connexion](./media/concept-sign-ins/12.png "Activité de connexion")
 
+- **Browser**  
+    Ce filtre montre tous les événements où tentatives de connexion ont été effectuées à l’aide de flux de navigateur.
+- **Exchange ActiveSync (pris en charge)**  
+    Ce filtre affiche toutes les tentatives de connexion où le protocole Exchange ActiveSync (EAS) a été tenté à partir des plateformes prises en charge, comme iOS, Android et Windows Phone.
+- **Exchange ActiveSync (non pris en charge)**  
+    Ce filtre affiche toutes les tentatives de connexion où le protocole EAS a été tenté à partir des plateformes non prises en charge, par exemple, les distributions Linux.
+- **Les applications mobiles et clients de bureau** ce filtre affiche toutes les tentatives de connexion qui ne contenait pas de flux de navigateur. Il peut s’agir des applications mobiles à partir de n’importe quelle plateforme à l’aide de n’importe quel protocole ou d’applications de bureau client telles que Office sur Windows ou MacOS.
+  
+- **Autres clients**
+    - **IMAP**  
+        Un client de messagerie hérité à l’aide d’IMAP pour récupérer le courrier électronique.
+    - **MAPI**  
+        Office 2013, où la bibliothèque ADAL est activée et il est à l’aide de MAPI.
+    - **Clients Office plus anciens**  
+        Office 2013 dans sa configuration par défaut où la bibliothèque ADAL n’est pas activée et il est à l’aide de MAPI ou Office 2016, où la bibliothèque ADAL a été désactivée.
+    - **POP**  
+        Un client de messagerie hérité à l’aide de POP3 pour récupérer le courrier électronique.
+    - **SMTP**  
+        Un client de messagerie hérité à l’aide de SMTP pour envoyer un e-mail.
 
 ## <a name="download-sign-in-activities"></a>Télécharger les activités de connexion
 
@@ -183,7 +190,7 @@ Chaque ligne de la liste des activités de connexion affiche :
 
 En cliquant sur un élément, vous obtenez plus d’informations sur l’opération de connexion :
 
-- ID d'utilisateur
+- ID utilisateur
 - Utilisateur
 - Nom d’utilisateur
 - ID de l'application

@@ -13,14 +13,14 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: juliako
-ms.openlocfilehash: 3a562f98635d581aa320fdbd59d05a0382f09606
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: bfe4bbae7953479f9b5b5ce9653fb3b8d4b2d092
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65465542"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002380"
 ---
-# <a name="define-account-filters-and-asset-filters"></a>Définir des filtres de comptes et des filtres d'éléments multimédias  
+# <a name="filters"></a>Filtres
 
 Quand vous distribuez votre contenu aux clients (diffusion en continu des événements ou vidéo à la demande) votre client peut-être davantage de flexibilité que celle décrite dans le fichier manifeste de la ressource par défaut. Avec Azure Media Services, vous pouvez définir des filtres de compte et d’élément multimédia à appliquer à votre contenu. 
 
@@ -55,7 +55,7 @@ Selon votre scénario, vous choisissez le type de filtre le plus adapté (filtre
 
 Utilisez les propriétés suivantes pour décrire les filtres. 
 
-|Nom|Description |
+|Name|Description |
 |---|---|
 |firstQuality|Première qualité de vitesse de transmission du filtre.|
 |presentationTimeRange|Plage horaire de présentation. Cette propriété sert à filtrer les points de début/fin du manifeste, la durée de la fenêtre de présentation, et la position de départ du flux en direct. <br/>Pour plus d’informations, consultez [PresentationTimeRange](#presentationtimerange).|
@@ -88,11 +88,9 @@ Les conditions de propriétés de suivi de filtre décrivent les types de suivi,
 |**Name**|Utilisez le nom de la piste pour le filtrage.|
 |**Type**|Utilisez le type de la piste pour le filtrage.<br/><br/>Les valeurs suivantes sont autorisées : « video », « audio » ou « text ».|
 
-## <a name="associate-filters-with-streaming-locator"></a>Associer des filtres de localisateur de diffusion en continu
+### <a name="example"></a>Exemples
 
-Vous pouvez spécifier une liste de filtres de compte d’actif ou, s’applique également à votre localisateur de diffusion en continu. Le [l’empaquetage dynamique](dynamic-packaging-overview.md) s’applique à cette liste de filtres avec ceux de votre client spécifie l’URL. Cette combinaison génère une [manifeste dynamique](filters-dynamic-manifest-overview.md), qui est basé sur les filtres dans l’URL + filtres que vous spécifiez dans le localisateur de diffusion en continu. Nous vous recommandons d’utiliser cette fonctionnalité si vous souhaitez appliquer des filtres, mais ne souhaitez pas exposer les noms de filtre dans l’URL.
-
-## <a name="definition-example"></a>Exemple de définition
+L’exemple suivant définit un filtre de diffusion en continu : 
 
 ```json
 {
@@ -146,6 +144,15 @@ Vous pouvez spécifier une liste de filtres de compte d’actif ou, s’applique
   }
 }
 ```
+
+## <a name="associate-filters-with-streaming-locator"></a>Associer des filtres de localisateur de diffusion en continu
+
+Vous pouvez spécifier une liste de [compte d’actif ou filtres](filters-concept.md), qui s’appliquera à votre [localisateur de diffusion en continu](https://docs.microsoft.com/rest/api/media/streaminglocators/create#request-body). Le [l’empaquetage dynamique](dynamic-packaging-overview.md) s’applique à cette liste de filtres avec ceux de votre client spécifie l’URL. Cette combinaison génère une [manifeste dynamique](filters-dynamic-manifest-overview.md), qui est basé sur les filtres dans l’URL + filtres que vous spécifiez dans le localisateur de diffusion en continu. Nous vous recommandons d’utiliser cette fonctionnalité si vous souhaitez appliquer des filtres, mais ne souhaitez pas exposer les noms de filtre dans l’URL.
+
+Regardez les exemples suivants :
+
+* [Associer des filtres de localisateur de diffusion en continu - .NET](filters-dynamic-manifest-dotnet-howto.md#associate-filters-with-streaming-locator)
+* [Associer des filtres de localisateur de diffusion en continu - CLI](filters-dynamic-manifest-cli-howto.md#associate-filters-with-streaming-locator)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

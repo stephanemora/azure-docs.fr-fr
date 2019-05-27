@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/02/2019
 ms.author: spelluru
-ms.openlocfilehash: 7cdd185cddbd2403b72ff0e06530913af0b031de
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 865ae0b3f7a7965698a67183a4c820ba71f49cd8
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65233128"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65833908"
 ---
 # <a name="use-platform-as-a-service-paas-services-in-azure-devtest-labs"></a>Utiliser les services de Platform-as-a-Service (PaaS) dans Azure DevTest Labs
 PaaS est pris en charge dans DevTest Labs via la fonctionnalité d’environnements. Les environnements dev/test sont pris en charge par les modèles Azure Resource Manager préconfigurés dans un référentiel Git. Environnements peuvent contenir des ressources PaaS et IaaS. Ils permettent de créer des systèmes complexes qui peuvent inclure des ressources Azure telles que les machines virtuelles, les bases de données, les réseaux virtuels et des applications Web, qui sont personnalisées pour fonctionner ensemble. Ces modèles permettent un déploiement cohérent et améliore la gestion des environnements à l’aide du contrôle de code source. 
@@ -53,7 +53,7 @@ Il existe des informations de laboratoire personnalisé qui sont trouve en dehor
 Le [connexion d’environnements de réseau virtuel du laboratoire](connect-environment-lab-virtual-network.md) article décrit comment modifier votre modèle Resource Manager à utiliser le `$(LabSubnetId)` jeton. Lorsqu’un environnement est créé, le `$(LabSubnetId)` jeton est remplacé par la première marque de sous-réseau dans lequel le **créer d’utilisation dans une machine virtuelle** option est définie sur **true**. Il permet à notre environnement à utiliser précédemment créé des réseaux. Si vous souhaitez utiliser les mêmes modèles Resource Manager dans les environnements de test en tant qu’intermédiaire et de production, utilisez `$(LabSubnetId)` comme valeur par défaut dans un paramètre de modèle Resource Manager. 
 
 #### <a name="environment-storage-account"></a>Compte de stockage d’environnement
-DevTest Labs prend en charge l’utilisation de [imbriqués de modèles Resource Manager](../azure-resource-manager/resource-group-linked-templates.md). Le [comment Azure DevTest Labs makes nested Resource Manager déploiements de modèle plus facilement les environnements de test](https://azure.microsoft.com/updates/azure-devtest-labs-streamlined-nested-arm-template-deployment-support-for-arm-template-based-environments) article explique comment utiliser `_artifactsLocation` et `_artifactsLocationSasToken` jetons pour créer un URI à un modèle Resource Manager le même dossier en tant qu’ou dans un sous-dossier du modèle principal. Pour plus d’informations sur ces deux jetons, consultez le **artefacts de déploiement** section de [Azure Resource Manager – Guide des meilleures pratiques](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md).
+DevTest Labs prend en charge l’utilisation de [imbriqués de modèles Resource Manager](../azure-resource-manager/resource-group-linked-templates.md). Le [[déployer des modèles Azure Resource Manager imbriqués pour les environnements de test](deploy-nested-template-environments.md) article explique comment utiliser `_artifactsLocation` et `_artifactsLocationSasToken` jetons pour créer un URI vers un modèle Resource Manager dans le même dossier qu’ou dans une liste imbriquée dossier du modèle principal. Pour plus d’informations sur ces deux jetons, consultez le **artefacts de déploiement** section de [Azure Resource Manager – Guide des meilleures pratiques](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md).
 
 ## <a name="user-experience"></a>Expérience utilisateur
 
